@@ -1,28 +1,25 @@
 #Jekyll config file
 
 #title of site
-name: MyGov
+name: Benjamin J. Balter
 
 #description of site
-description: A personalized citizen-centric platform for accessing services, getting answers, and inviting feedback. 
+description:  J.D./M.B.A. Candidate, Open-Source Developer, Gov 2.0 Evangelist
 
 #URL of site, include http://, do not include a trailing slash
-url: http://benbalter.github.com/mygov.github.com
+url: http://benbalter.github.com/
 
 #files to exclude, array
 exclude: [ 'readme.md', 'php' ]
 
 #posts per page
-paginate: 5
+paginate: 10
 
 #number of items in RSS feed
 rss_limit: 10
 
 #permalink structure, see https://github.com/mojombo/jekyll/wiki/Permalinks
 permalink: /:year/:month/:day/:title/
-
-#whether production or dev, minifies JS, bool
-production: true
 
 #prose config, see http://prose.io/help/handbook.html
 prose:
@@ -44,7 +41,7 @@ twitter:
   count: 5
   
 #disqus username
-disqus_shortname: 'mygov'
+disqus_shortname: ''
 
 #google analytics username
 ga_username: 'UA-XXXXX-X'
