@@ -1,6 +1,6 @@
 ---
 id: 1034
-author: 1
+author: Benjamin J. Balter
 date: 2011-01-25 18:00:18
 date_gmt: 2011-01-25 23:00:18
 title: GW Course Schedule and Campus API
@@ -23,6 +23,7 @@ mime_type:
 comment_count: 1
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Technology
 post_tag:

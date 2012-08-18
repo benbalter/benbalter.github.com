@@ -1,6 +1,6 @@
 ---
 id: 1931
-author: 1
+author: Benjamin J. Balter
 date: 2011-10-12 12:21:34
 date_gmt: 2011-10-12 16:21:34
 title: Donate
@@ -23,6 +23,7 @@ mime_type:
 comment_count: 10
 ancestors: [ ]
 filter: raw
+layout: page
 ---
 I love contributing to open-source software and am glad to share my work with others. If you’ve enjoyed something I’ve written and would like to support the project’s continued development, I would be honored if you would consider [contributing to my reading list][1] (Amazon), or [buying me a drink][2] (PayPal).
 

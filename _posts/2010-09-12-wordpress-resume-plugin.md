@@ -1,6 +1,6 @@
 ---
 id: 207
-author: 1
+author: Benjamin J. Balter
 date: 2010-09-12 16:41:00
 date_gmt: 2010-09-12 20:41:00
 title: WordPress Resume Plugin
@@ -31,6 +31,7 @@ mime_type:
 comment_count: 315
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Technology
 post_tag:

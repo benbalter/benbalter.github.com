@@ -1,6 +1,6 @@
 ---
 id: 270
-author: 1
+author: Benjamin J. Balter
 date: 2010-10-10 14:07:26
 date_gmt: 2010-10-10 18:07:26
 title: Does Every Cloud Have a Silver Lining?
@@ -31,6 +31,7 @@ mime_type:
 comment_count: 1
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Law
   - Technology

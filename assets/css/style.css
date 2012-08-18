@@ -1,0 +1,8 @@
+---
+layout: none
+---
+{% capture css %}
+	{% include css/bootstrap.css %}
+	{% include css/bootstrap-responsive.css %}
+	{% include css/style.css %}
+{% endcapture %}{{ css | strip_newlines | replace:"\t",'' }}

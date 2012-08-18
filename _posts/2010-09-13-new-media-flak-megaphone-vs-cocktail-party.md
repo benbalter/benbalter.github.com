@@ -1,6 +1,6 @@
 ---
 id: 137
-author: 1
+author: Benjamin J. Balter
 date: 2010-09-13 00:11:37
 date_gmt: 2010-09-13 04:11:37
 title: 'New Media Flak: Megaphone vs. Cocktail Party'
@@ -24,6 +24,7 @@ mime_type:
 comment_count: 0
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Business
   - Technology

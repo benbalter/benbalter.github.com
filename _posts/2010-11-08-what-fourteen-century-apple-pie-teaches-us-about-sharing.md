@@ -1,6 +1,6 @@
 ---
 id: 334
-author: 1
+author: Benjamin J. Balter
 date: 2010-11-08 14:02:28
 date_gmt: 2010-11-08 19:02:28
 title: >
@@ -26,6 +26,7 @@ mime_type:
 comment_count: 0
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Law
   - Technology

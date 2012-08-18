@@ -1,6 +1,6 @@
 ---
 id: 462
-author: 1
+author: Benjamin J. Balter
 date: 2010-11-16 18:10:38
 date_gmt: 2010-11-16 23:10:38
 title: Fine Print
@@ -23,6 +23,7 @@ mime_type:
 comment_count: 0
 ancestors: [ ]
 filter: raw
+layout: page
 ---
 This is my personal Web site. The opinions expressed herein represent my own, and not those of any employer, group, or organization.
 

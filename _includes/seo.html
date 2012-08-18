@@ -1,9 +1,9 @@
-	{% if page.title == site.name %}
+	{% if page.url == site.url %}
 	    {% assign seo_title = page.title %}
 	    {% assign seo_desc = site.description %}
 	{% else %}
 	    {% capture seo_title %}{{ page.title }} &raquo; {{ site.name }}{% endcapture %}
-	    {% assign seo_desc = page.description %}
+	    {% assign seo_desc = page.excerpt %}
 	{% endif %}
 	
 	<title>{{ seo_title }}</title>

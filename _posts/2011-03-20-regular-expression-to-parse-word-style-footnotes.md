@@ -1,6 +1,6 @@
 ---
 id: 1142
-author: 1
+author: Benjamin J. Balter
 date: 2011-03-20 12:24:25
 date_gmt: 2011-03-20 16:24:25
 title: "Regular Expression to Parse Word-style Footnotes into WordPress's Simple Footnotes Format"
@@ -26,6 +26,7 @@ mime_type:
 comment_count: 29
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Technology
 post_tag:

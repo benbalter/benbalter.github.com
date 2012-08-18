@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">    
+  <url>
+    <loc>http://localhost:4000/</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/404.html</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/about.html</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/assets/css/style.css</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/assets/js/js.js</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/categories/</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/contact.html</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/donate.html</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/feed/</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/fine-print.html</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/resume.html</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/sitemap.xml</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/tags/</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/page2/</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/page3/</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/page4/</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/page5/</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/page2/</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/page3/</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/page4/</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/page5/</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/page2/</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/page3/</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/page4/</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/page5/</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/page2/</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/page3/</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/page4/</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/page5/</loc>
+    <lastmod>2012-08-18T17:27:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  
+  <url>
+    <loc>http://localhost:4000/2012/07/26/government-release-of-source-code-public-domain-or-open-source/</loc>
+    <lastmod>2012-07-26T10:34:07-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2012/07/10/the-demise-of-the-dashboard/</loc>
+    <lastmod>2012-07-10T07:15:15-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2012/06/25/why-you-should-always-write-software-as-open-source/</loc>
+    <lastmod>2012-06-25T20:40:18-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2012/06/02/publishing-government-data-that-developers-will-actually-use/</loc>
+    <lastmod>2012-06-02T14:10:12-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2012/05/10/free-yourself-from-the-tyranny-of-sharepoint/</loc>
+    <lastmod>2012-05-10T13:32:00-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2012/05/08/wordpress-as-a-collaboration-platform/</loc>
+    <lastmod>2012-05-08T15:00:19-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2012/04/23/enterprise-open-source-usage-is-up-but-challenges-remain/</loc>
+    <lastmod>2012-04-23T05:00:41-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2012/04/19/hackshackers-swells-to-more-than-10000-members/</loc>
+    <lastmod>2012-04-19T07:35:45-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2012/04/15/cfpb-accepts-first-citizen-submitted-pull-request-on-behalf-of-federal-government/</loc>
+    <lastmod>2012-04-15T10:31:03-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2012/04/13/</loc>
+    <lastmod>2012-04-13T00:00:00-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2012/04/10/whats-missing-from-cfpbs-awesome-new-source-code-policy/</loc>
+    <lastmod>2012-04-10T07:00:29-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2012/03/14/</loc>
+    <lastmod>2012-03-14T00:00:00-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2012/03/05/wordpress-for-government-and-enterprise/</loc>
+    <lastmod>2012-03-05T06:11:50-05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2012/03/02/php-is-insecure-and-other-enterprise-open-source-fud/</loc>
+    <lastmod>2012-03-02T05:17:38-05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2012/02/28/github-for-journalism-what-wordpress-post-forking-could-do-to-editorial-workflows/</loc>
+    <lastmod>2012-02-28T05:09:34-05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2012/02/27/open-source-alternatives-to-proprietary-enterprise-software/</loc>
+    <lastmod>2012-02-27T04:12:48-05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2012/02/26/</loc>
+    <lastmod>2012-02-26T00:00:00-05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2011/11/29/towards-a-more-agile-government/</loc>
+    <lastmod>2011-11-29T06:28:15-05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2011/11/14/making-wordpress-more-shareable-sociable-and-likeable/</loc>
+    <lastmod>2011-11-14T09:25:03-05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2011/11/01/federal-agility-a-cultural-solution-to-a-technical-problem/</loc>
+    <lastmod>2011-11-01T05:05:53-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2011/10/29/why-digital-talent-doesnt-want-to-work-at-your-company/</loc>
+    <lastmod>2011-10-29T10:15:14-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2011/10/24/advanced-workflow-management-tools-for-wp-document-revisions/</loc>
+    <lastmod>2011-10-24T05:30:03-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2011/09/07/analysis-of-federal-executive-domains/</loc>
+    <lastmod>2011-09-07T07:54:01-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2011/09/01/why-wordpress/</loc>
+    <lastmod>2011-09-01T09:51:02-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2011/08/31/enterprise-open-source-and-why-better-is-not-enough/</loc>
+    <lastmod>2011-08-31T10:40:41-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/</loc>
+    <lastmod>2011-08-29T05:01:17-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2011/06/30/google-analytics-tracking-of-jetpack-sharedaddy-social-engagement/</loc>
+    <lastmod>2011-06-30T10:46:53-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2011/06/16/groupon-and-livingsocial/</loc>
+    <lastmod>2011-06-16T08:16:11-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2011/05/10/whats-your-hosting-companys-average-subpoena-response-time/</loc>
+    <lastmod>2011-05-10T14:00:47-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2011/04/27/fair-use-excerpting-and-copying-content-in-the-internet-ecosystem/</loc>
+    <lastmod>2011-04-27T07:50:12-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2011/04/12/love-the-code/</loc>
+    <lastmod>2011-04-12T14:59:31-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2011/04/04/when-all-you-have-is-a-pair-of-bolt-cutters/</loc>
+    <lastmod>2011-04-04T05:01:50-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2011/03/20/regular-expression-to-parse-word-style-footnotes/</loc>
+    <lastmod>2011-03-20T08:24:25-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2011/03/09/craft-your-personal-brand/</loc>
+    <lastmod>2011-03-09T04:56:10-05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2011/02/03/a-site-by-any-other-name/</loc>
+    <lastmod>2011-02-03T06:22:53-05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2011/01/25/gw-course-schedule-and-campus-api/</loc>
+    <lastmod>2011-01-25T13:00:18-05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2011/01/11/twitter-goes-to-bat-for-wikileaks/</loc>
+    <lastmod>2011-01-11T13:48:07-05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2011/01/11/wordpress-emphasis-plugin/</loc>
+    <lastmod>2011-01-11T13:40:51-05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2011/01/04/the-files-in-the-computer/</loc>
+    <lastmod>2011-01-04T16:30:07-05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2010/12/20/late-night-infomercials/</loc>
+    <lastmod>2010-12-20T13:13:27-05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2010/12/01/the-internet-is-series-of-tubes/</loc>
+    <lastmod>2010-12-01T04:03:28-05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2010/11/29/twitter-mentions-as-comments/</loc>
+    <lastmod>2010-11-29T08:39:31-05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2010/11/29/free-trade-in-china-just-google-it/</loc>
+    <lastmod>2010-11-29T06:00:42-05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2010/11/15/will-federal-contracting-officers-soon-have-their-heads-in-the-clouds/</loc>
+    <lastmod>2010-11-15T10:19:31-05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2010/11/08/what-fourteen-century-apple-pie-teaches-us-about-sharing/</loc>
+    <lastmod>2010-11-08T09:02:28-05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2010/11/06/removing-the-barriers-to-organizational-agility/</loc>
+    <lastmod>2010-11-06T08:55:20-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2010/10/10/does-every-cloud-have-a-silver-lining/</loc>
+    <lastmod>2010-10-10T10:07:26-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2010/09/12/new-media-flak-megaphone-vs-cocktail-party/</loc>
+    <lastmod>2010-09-12T20:11:37-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:4000/2010/09/12/wordpress-resume-plugin/</loc>
+    <lastmod>2010-09-12T12:41:00-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+</urlset>

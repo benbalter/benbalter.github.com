@@ -1,6 +1,6 @@
 ---
 id: 660
-author: 1
+author: Benjamin J. Balter
 date: 2010-12-20 18:13:27
 date_gmt: 2010-12-20 23:13:27
 title: 'Late-Night Infomercials: Guaranteed to Extend the 4th Amendment or Your Money Back'
@@ -25,6 +25,7 @@ mime_type:
 comment_count: 0
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Law
   - Technology

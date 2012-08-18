@@ -1,6 +1,6 @@
 ---
 id: 1627
-author: 1
+author: Benjamin J. Balter
 date: 2011-08-29 09:01:17
 date_gmt: 2011-08-29 13:01:17
 title: 'WP Document Revisions -- Document Management & Version Control for WordPress'
@@ -34,6 +34,7 @@ mime_type:
 comment_count: 263
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Business
   - Law

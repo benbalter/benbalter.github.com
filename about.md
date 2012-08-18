@@ -1,6 +1,6 @@
 ---
 id: 7
-author: 1
+author: Benjamin J. Balter
 date: 2010-09-13 13:05:47
 date_gmt: 2010-09-13 17:05:47
 title: About
@@ -23,6 +23,7 @@ mime_type:
 comment_count: 1
 ancestors: [ ]
 filter: raw
+layout: page
 ---
 <img class="alignright size-medium wp-image-122" title="Ben Balter" src="http://cdn.benbalter.com/wp-content/uploads/2010/09/fb1-272x300.jpg" alt="Ben Balter" width="272" height="300" />Ben Balter is a J.D./M.B.A. candidate at the George Washington University, an open-source developer passionate about the power of digital communications, and a gov 2.0 evangelist working to modernize federal government.
 

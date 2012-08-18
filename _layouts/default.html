@@ -1,12 +1,9 @@
 {% include header.html %}
 
-<div class="twelve-col">
-
 <h2>{{ page.title }}</h2>
 {{ content }}
 {% if page.comments %}
 	{% include comments.html %}
 {% endif %}
-</div>
 
 {% include footer.html %}

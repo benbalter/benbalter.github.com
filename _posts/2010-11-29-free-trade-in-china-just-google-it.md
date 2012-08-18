@@ -1,6 +1,6 @@
 ---
 id: 485
-author: 1
+author: Benjamin J. Balter
 date: 2010-11-29 11:00:42
 date_gmt: 2010-11-29 16:00:42
 title: Free Trade in China? Just Google it.
@@ -31,6 +31,7 @@ mime_type:
 comment_count: 0
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Business
   - Technology

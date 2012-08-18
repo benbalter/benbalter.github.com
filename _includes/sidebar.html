@@ -1,0 +1,22 @@
+<div class="well">
+
+	<h4>About Ben</h4>
+Ben Balter is a J.D./M.B.A. candidate at The George Washington University, an open-source developer passionate about the power of digital communications, and a Gov 2.0 evangelist working to modernize federal government. After graduation he hopes to stay in the nation’s capital and bridge his life-long passions for law and technology. Check out his resume or read on.
+
+	<h4>Recent Tweets</h4>
+	{% include recent-tweets.html %}
+		
+	<h4>Recent Posts</h4>
+	<ul class="posts">
+	{% for post in site.posts limit:5 %}
+		<li><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
+	{% endfor %}
+	</ul>
+	
+	<h4>Subscribe</h4>
+	
+	<h4>Recent Comments</h4>
+	
+	<h4>Tags</h4>
+	
+<div><!--/.well -->

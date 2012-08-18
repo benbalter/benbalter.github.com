@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+<channel>
+    <title type="text" xml:lang="en"></title>
+    <atom:link type="application/atom+xml" href="http://localhost:4000/feed/" rel="self"/>
+    <link type="text" href="http://localhost:4000" rel="alternate"/>
+    <lastBuildDate>2012-08-18T17:27:47-04:00</lastBuildDate>
+   	<language>en-US</language>
+    <description>J.D./M.B.A. Candidate, Open-Source Developer, Gov 2.0 Evangelist</description>
+    <item>
+        <title>Government's Release of Federally Funded Source Code: Public Domain or Open Source? Yes.</title>
+        <link href="http://localhost:4000/2012/07/26/government-release-of-source-code-public-domain-or-open-source/"/>
+        <pubDate>2012-07-26T10:34:07-04:00</pubDate>
+        <dc:creator>Benjamin J. Balter</dc:creator>
+        <category>Liquid error: undefined method `gsub' for ["Law", "Technology"]:Array</category>
+        <guid isPermaLink="false">/2012/07/26/government-release-of-source-code-public-domain-or-open-source</guid>
+        <description>Liquid error: undefined method `gsub' for nil:NilClass</description>
+        <content>&lt;p&gt;A petition was recently posted on &lt;a href='https://petitions.whitehouse.gov/'&gt;We The People&lt;/a&gt; demanding &lt;a href='https://petitions.whitehouse.gov/petition/maximize-public-benefit-federal-technology-sharing-government-developed-software-under-open-source/6n5ZBBwf?utm_source=wh.gov&amp;amp;utm_medium=shorturl&amp;amp;utm_campaign=shorturl'&gt;that federally funded software be released under an open source license&lt;/a&gt;. Makes sense. The public should have access to what is technically their property.&lt;/p&gt;
+
+&lt;p&gt;However, &lt;a href='http://www.techdirt.com/articles/20120723/12181319800/should-software-created-federal-govt-be-open-source-licensed-public-domain.shtml'&gt;TechDirt posed the question&lt;/a&gt; of whether it should be released under an open-source license or public domain, and I’m afraid they really missed the point.&lt;/p&gt;
+&lt;!--more--&gt;
+&lt;p&gt;So what’s the issue? Although I generally dread the phrase, in this case, government is objectively different. Under 17 U.S.C § 105 US Government Works are not subject to domestic copyright protection. It’s not technically public domain, but it’s close enough. &lt;a class='simple-footnote' href='#note-2020-1' id='return-note-2020-1' title='I&amp;#8217;d argue that all software, even government funded software should still be licensed under a traditional open source license, to resolve any legal ambiguity when used abroad under the terms of various international copyright treaties and agreements'&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; Any US citizen can use the code any way they wish. There’s simply no copyright, thus no need to license. &lt;a class='simple-footnote' href='#note-2020-2' id='return-note-2020-2' title='Although citizen-contributions to that project would theoretically not be public domain, thus necessitating a license, which should be clarified in the project&amp;#8217;s documentation at the time of release to avoid potential issues with 21 U.S.C. § 1342.'&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; And this entire debate is a moot point if the software is a derivative work of a viral license like the GPL, the most common open source license. &lt;a class='simple-footnote' href='#note-2020-3' id='return-note-2020-3' title='Although again, technically speaking the project as a whole would be licensed under GPL,  individual code not dependent on the parent project could be used as a US Government Work.'&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;That of course, only applies to code created by a US government employee, an increasingly rare occurrence. &lt;a class='simple-footnote' href='#note-2020-4' id='return-note-2020-4' title='Unless you&amp;#8217;re looking at the vibrant open source cold fusion community.'&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt; Absent permission from the contracting officer, the US government retains unlimited rights for all work created under contract (including the right to redistribute). &lt;a class='simple-footnote' href='#note-2020-5' id='return-note-2020-5' title='FAR 52.227-14(c)(1)(i). Even if the contracting officer grants such rights, they do not take effect unless the contractor includes a copyright notice at the time of delivery, acknowledging the government&amp;#8217;s sponsorship and indicating the contract number under which it was procured. See FAR 27.404(a)(5).'&gt;&lt;sup&gt;5&lt;/sup&gt;&lt;/a&gt; And again a moot point if GPL derivative (and thus must be given to the Government under the GPL.)&lt;/p&gt;
+
+&lt;p&gt;Yet all this is very academic (not to mention dry). Waldo Jaquith and Anil Dash &lt;a href='https://twitter.com/anildash/statuses/227476701599391744'&gt;made a great suggestion&lt;/a&gt;: let’s be pragmatic here. Government doesn’t hold on to software because they are concerned about licensing. They hold on to software because they have better things to do, because it’s not within the culture, and because there’s no angry mob slamming a battering ram against the metaphorical front gates when they don’t.&lt;/p&gt;
+
+&lt;p&gt;I don’t think the nuances of federal procurement law is even close to the first thing we should care about here. &lt;a class='simple-footnote' href='#note-2020-6' id='return-note-2020-6' title='General counsels across government already have enough ammunition to stymy progress.'&gt;&lt;sup&gt;6&lt;/sup&gt;&lt;/a&gt; The concern is about whether feds should do the leg work to open source it or not. The question for us as developers, for the thought leaders in the space, isn’t how should the US government best license / not license software, but* how can the open source community help it to* * do so.&lt;em&gt; How can we get more software out the door? In a world of finite time,&lt;/em&gt;how can we make open sourcing* &lt;a class='simple-footnote' href='#note-2020-7' id='return-note-2020-7' title='Often the last and least seen step in the enterprise development process'&gt;&lt;sup&gt;7&lt;/sup&gt;&lt;/a&gt; &lt;em&gt;a bonafide  priority&lt;/em&gt;?&lt;/p&gt;
+
+&lt;p&gt;How? For one, involvement in existing open source projects &lt;a class='simple-footnote' href='#note-2020-8' id='return-note-2020-8' title='There&amp;#8217;s been exactly one pull request to date across all government github repos'&gt;&lt;sup&gt;8&lt;/sup&gt;&lt;/a&gt; would surely send a strong message that there’s latent demand here, and would give the foot soldiers political air cover to forge onward with their efforts. For another, taking ownership of the code itself, and realizing it is &lt;em&gt;our&lt;/em&gt; code, not the government’s would surely change the tone of the debate by encouraging agencies to ship code sooner, rather than delaying release out of fear of criticism.&lt;/p&gt;
+
+&lt;p&gt;Put simply, it’s about what role we are going to play, not what rights we are going to receive. Let’s at least get the source code, then we can go back to our regularly scheduled holy wars over licensing.&lt;/p&gt;
+&lt;div style='font-size: 12px;'&gt;
+  &lt;em&gt;As always, &lt;a href='http://ben.balter.com/fine-print/'&gt;views are my own&lt;/a&gt;.&lt;/em&gt;
+&lt;/div&gt;&lt;div class='simple-footnotes'&gt;
+  &lt;p class='notes'&gt;
+    Notes:
+  &lt;/p&gt;
+  
+  &lt;ol&gt;
+    &lt;li id='note-2020-1'&gt;
+      I’d argue that all software, even government funded software should still be licensed under a traditional open source license, to resolve any legal ambiguity when used abroad under the terms of various international copyright treaties and agreements &lt;a href='#return-note-2020-1'&gt;↩&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li id='note-2020-2'&gt;
+      Although citizen-contributions to that project would theoretically not be public domain, thus necessitating a license, which should be clarified in the project’s documentation at the time of release to avoid potential issues with 21 U.S.C. § 1342. &lt;a href='#return-note-2020-2'&gt;↩&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li id='note-2020-3'&gt;
+      Although again, technically speaking the project as a whole would be licensed under GPL,  individual code not dependent on the parent project could be used as a US Government Work. &lt;a href='#return-note-2020-3'&gt;↩&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li id='note-2020-4'&gt;
+      Unless you’re looking at the &lt;a href='https://github.com/languages/ColdFusion'&gt;vibrant open source cold fusion community&lt;/a&gt;. &lt;a href='#return-note-2020-4'&gt;↩&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li id='note-2020-5'&gt;
+      FAR 52.227-14(c)(1)(i). Even if the contracting officer grants such rights, they do not take effect unless the contractor includes a copyright notice at the time of delivery, acknowledging the government’s sponsorship and indicating the contract number under which it was procured. See FAR 27.404(a)(5). &lt;a href='#return-note-2020-5'&gt;↩&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li id='note-2020-6'&gt;
+      General counsels across government already have enough ammunition to stymy progress. &lt;a href='#return-note-2020-6'&gt;↩&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li id='note-2020-7'&gt;
+      Often the last and least seen step in the enterprise development process &lt;a href='#return-note-2020-7'&gt;↩&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li id='note-2020-8'&gt;
+      There’s been &lt;a href='http://ben.balter.com/2012/04/15/cfpb-accepts-first-citizen-submitted-pull-request-on-behalf-of-federal-government/'&gt;exactly one pull request to date&lt;/a&gt; across all government github repos &lt;a href='#return-note-2020-8'&gt;↩&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content>
+    </item><item>
+        <title>The Demise of the Personal Dashboard</title>
+        <link href="http://localhost:4000/2012/07/10/the-demise-of-the-dashboard/"/>
+        <pubDate>2012-07-10T07:15:15-04:00</pubDate>
+        <dc:creator>Benjamin J. Balter</dc:creator>
+        <category>Liquid error: undefined method `gsub' for ["Technology"]:Array</category>
+        <guid isPermaLink="false">/2012/07/10/the-demise-of-the-dashboard</guid>
+        <description>Liquid error: undefined method `gsub' for nil:NilClass</description>
+        <content>&lt;p&gt;&lt;a href='http://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things.jpeg'&gt;&lt;img alt='' class='alignright size-medium wp-image-2620' height='225' src='http://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things-300x225.jpeg' title='dashboard-all-the-things' width='300' /&gt;&lt;/a&gt;I was recently asked how I would architect a personalized dashboard experience for visitors to a large, customer-facing website. My response? &lt;em&gt;I wouldn’t.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;A dashboard in a car or airplane makes sense. It’s not as if I could click “speedometer” while driving or press the “altimeter” button while flying. I simply need everything at all times. But virtual interfaces don’t have that same limitation. In fact they don’t have any limitations. A dashboard can have as much information as the most ambitious engineer can dream — and that’s exactly the problem.&lt;/p&gt;
+
+&lt;p&gt;Put it in context: Google&lt;a href='http://googleblog.blogspot.com/2012/07/spring-cleaning-in-summer.html'&gt;recently announced the retirement of iGoogle&lt;/a&gt;, it’s own personalized dashboard, and I second their nomination to induct dashboards into the #doingitwrong hall of fame, joining the likes of internet portals, splash pages, and well, basically anything involving ActiveX or Flash.&lt;/p&gt;
+
+&lt;p&gt;Dashboard were a fun user interface experiment. They really were, especially compared to the static pages they evolved from. That was the whole point of Web 2.0, wasn’t it? Personalization? I mean, it was really cool to drag and drop widgets, and build a virtual command center to monitor my little corner of the internet, and that was fine when there wasn’t much internet out there to monitor. But the web collectively hit a tipping point a few years back. From push notifications to always-on e-mail, in more ways than we imagine, we now bombard ourselves with more information that we can physically process at any given moment. &lt;a href='http://www.apple.com/iphone/features/retina-display.html'&gt;Quite literally&lt;/a&gt;.&lt;/p&gt;
+&lt;!--more--&gt;
+&lt;p&gt;&lt;a href='http://www.pocket-lint.com/images/dynamic/NEWS-32125-b3a8b509bc5e3a074f7f240f57d71aa9.jpg'&gt;moar is better&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;So that’s it? That’s the end of simultaneous streams? &lt;a href='http://www.informationweek.com/news/software/productivity_apps/240003296'&gt;Far from it&lt;/a&gt;. This once-disruptive technology now has a long journey down the Technology S Curve as it becomes the go-to solution for all the business intelligence and project analyst types that stumble across it, in other words, the late adopters.&lt;/p&gt;
+
+&lt;p&gt;Don’t get me wrong. I’m sure guilty of building &lt;a href='http://my.fcc.gov/'&gt;a dashboard&lt;/a&gt; or &lt;a href='http://codex.wordpress.org/Dashboard_Screen'&gt;two&lt;/a&gt; in my day. I’m not saying that they’ve never had a place. What I’m saying is that today, not even the most complex dashboard could give you an accurate snapshot of its genus’s future. If not dashes, then what? Beyond turning everything into a ubiquitous search box (&lt;em&gt;a la&lt;/em&gt; &lt;a href='http://gov.uk'&gt;gov.uk&lt;/a&gt;), I’m far from for a UI/UX expert, but I tend to think that startups generally have a pretty good sense of what’s next. They have to. If they don’t get it right the first time around, they tend not to have a second try. So what do we see?&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Activity -&lt;/strong&gt; Social apps like Facebook, Twitter, Foursquare, even GitHub are all built around the concept of activity. Whether its a news feed, recent checkins, or even commit activity, the question I come with is “what’s going on?” and it gets answered as in depth as I care to scroll through, not as in depth as an engineer arbitrarily decided I needed a few years back. It’s linear. It’s &lt;a href='http://en.wikipedia.org/wiki/Inverted_pyramid'&gt;inverted pyramid&lt;/a&gt;. It’s customized by whom or what I follow, not by what I add or (re)arrange.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Minimal&lt;/strong&gt; – Productivity apps like Gmail, Google Reader, even dropbox don’t summarize for me how many e-mails, unread posts, or free MB I have as soon as I log in, and with the exception of a few labs features here or there, don’t even give me the option to have anything more than a bare-bones inbox, unread feed, or directory listing. In fact, GMail and Google Reader were recently criticized for &lt;a href='http://jonoscript.wordpress.com/2012/04/26/gmail-designer-arrogance-and-the-cult-of-minimalism/'&gt;going a bit too far&lt;/a&gt; in this direction. But the lesson is the same: just give me my stuff and get out of the way.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Immediate&lt;/strong&gt; - Transactional apps, like Uber or Square focus on action, not the past (or even the present). When I open the Uber or square apps, I’m immediately presented with the ability to request a vehicle or swipe a card, not my top tasks, not an arbitrary array of options or metrics, not with recent news about the product or popular add-ons. The app simply stands at attention, awaiting orders. I actually had to dig a bit to find my transaction history and related business analytics, and I’d argue that’s a really good thing.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Think about the last time you’ve used a drag-and-drop dashboard: If you’re like me, it’s going to be either Google Analytics or WordPress, and if that’s the case, it’s simply known as &lt;em&gt;the screen you see after you log in, but before you can do what you need to do&lt;/em&gt;. It’s wasted pixels. It’s cruft from a bygone era when clicks were expensive and developers were left wondering “how can we fit more on a page”.&lt;/p&gt;
+
+&lt;p&gt;Options are a crutch. It’s the natural tendency of any engineer to over engineer a system, and that tendency is even stronger in a risk-averse, top-down culture &lt;a href='http://www.google.com/?q=dashboard+site:.gov'&gt;like government&lt;/a&gt;. But your job — as an engineer, as a product manager, as user — is to push back, to fight that urge, to make &lt;a href='http://wordpress.org/about/philosophy/'&gt;decisions, not options&lt;/a&gt;. Not convinced? That feature you can’t &lt;a href='https://github.com/blog/1091-spring-cleaning'&gt;bring yourself to cut&lt;/a&gt;? Expose it through your API and see how many users complain.&lt;/p&gt;
+
+&lt;p&gt;It’s no longer a question of “is this possible technologically?”. It’s no longer a matter of “can you expose me to that information 24/7?”. Ever since the advent of &lt;a href='http://html5zombo.com/'&gt;Zombo com&lt;/a&gt;, the only limit is our imagination. We’ve figured out the hard stuff. It’s not centralization and personalization. It’s decentralization and interoperability. Simplicity is the new black.&lt;/p&gt;</content>
+    </item><item>
+        <title>Why You Should Always Write Software as Open Source, Even When It's Never Going to Be</title>
+        <link href="http://localhost:4000/2012/06/25/why-you-should-always-write-software-as-open-source/"/>
+        <pubDate>2012-06-25T20:40:18-04:00</pubDate>
+        <dc:creator>Benjamin J. Balter</dc:creator>
+        <category>Liquid error: undefined method `gsub' for ["Business", "Technology"]:Array</category>
+        <guid isPermaLink="false">/2012/06/25/why-you-should-always-write-software-as-open-source</guid>
+        <description>Liquid error: undefined method `gsub' for nil:NilClass</description>
+        <content>&lt;div class='wp-caption alignright' id='attachment_2591' style='width: 213px'&gt;
+  &lt;a href='http://ben.balter.com/wp-content/uploads/2012/06/mike-holmes.jpeg'&gt;&lt;img alt='' class='size-medium wp-image-2591  ' height='300' src='http://ben.balter.com/wp-content/uploads/2012/06/mike-holmes-203x300.jpeg' title='mike-holmes' width='203' /&gt;&lt;/a&gt;&lt;p class='wp-caption-text'&gt;
+    Unsatisfied with your contractor?
+  &lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;There are two kinds of software: cludgy software and open source. Think about it logically. When you (or your organization) is the only person that’s ever going to see something, you’re a lot more likely to “just make it work.” After all, who would ever know? &lt;a class='simple-footnote' href='#note-2020-1' id='return-note-2020-1' title='The same would apply when you&amp;#8217;re buying software and the contractor is under the impression no one outside the organization will ever see the code, and more importantly, the code could never negatively impact the public&amp;#8217;s perception of their overall work-product'&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;But the same logic that applies to sweeping literal dirt under the rug doesn’t apply to writing code. Whereas a rug will always serve to cover the floor, applications evolve over time and code is often constantly reused and repurposed as customers’ needs change. Simply put, it’s impossible to predict today where your code is going to be a year from now and it’s in your best interest to plan accordingly.&lt;/p&gt;
+
+&lt;p&gt;Open source hedges this risk by distinguishing generic logic (say posting content online) from application-specific customization (say the use-case-specific presentation of that content). Yet when you’re writing with the intention of producing proprietary or one-off code, you do everything in one pass. The true challenge arises when the same problem emerges again in another department, another business unit, or more generally in an even slightly different context. You’re reinventing the wheel. You’re “open sourcing” (even if within your organization). The solution? Always assume your software is going to be open source, even if you know it’s never going to be, and here’s why:&lt;/p&gt;
+&lt;!--more--&gt;
+&lt;p&gt;&lt;strong&gt;Flexible from the start&lt;/strong&gt; - Imagine you building a house and the contractor literally nails down all your furniture at the onset, saying you could always remove it before you sell. You’d almost certainly hire a new contractor. Even if you’re never going to sell the house, you may want to get a new couch, or at the very least change a room’s layout somewhere down the line. Yet software developers do it all the time. We custom build solutions, and then go back and abstract logic to “open source” it as needed. You’re doubling the effort. Keep logic separate from implementation-specific customization, and you’ll have a shared, portable solution from day one. Put another way, your business unit is no way special or unique. The same logic that presents updates about the latest line of widgets to your customers can also be used to update the same customer base about cogs and you should prepare for that potential synergy from day one, even if not immediately realized.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Modular by design &lt;/strong&gt;- Distinguishing unrelated components encourages several coding best practices. In addition to introducing a modular design, meaning additional components could easily be added (or existing components removed) down the line, abstraction often yields objectively more stable and more readably maintainable code due to the abhorrence of the copy-and-paste effect. Put another way, you’re forced to build elegant solutions — the fact that others are not only going to see, but have to be able to use and adapt your code forces you to follow best-practices like name spacing, abstraction, and object oriented programming.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A message to your future self&lt;/strong&gt; – Ever go back and look at old code, &lt;a href='https://twitter.com/BenBalter/status/209356982983999488'&gt;only to scratch your head&lt;/a&gt; as to what’s going on? The same you that may be asking yourself what you were thinking when you got a tattoo five years back, is also going to be asking why you wrote that singleton function five years ago. Yet when you write open source, you mitigate that risk by explaining your code in such a way that others (including your future self) can understand it. In a world of system orientated architectures and ever-changing requirements, the chance that a software project is one-and-done is increasingly rare, not to mention the fact that by failing to properly document, you’re introducing a significant risk of vendor lock in. Your successor will thank you, and so will the person paying the bills.&lt;/p&gt;
+
+&lt;p&gt;The reality of today’s business environment is that all software is inherently ”open source”, even if the scope of the sharing is limited to an organization. Assume the software is open, needs to be modular, and will be repurposed, and you will save significant costs in the long run. And when you require the same of outside contractors, you get better, more flexible code, and offset the risks of vendor or technology lock in in the long run.&lt;/p&gt;
+
+&lt;p&gt;Justice Brandeis is famous for noting that “sunlight is the best disinfectant.” Likewise, the transparency afforded by the open-source ethos produces &lt;a href='http://www.coverity.com/library/pdf/coverity-scan-2011-open-source-integrity-report.pdf'&gt;more reliable software&lt;/a&gt; –  so why not simply assume your code is going to be open source from the start?&lt;/p&gt;
+&lt;div class='simple-footnotes'&gt;
+  &lt;p class='notes'&gt;
+    Notes:
+  &lt;/p&gt;
+  
+  &lt;ol&gt;
+    &lt;li id='note-2020-1'&gt;
+      The same would apply when you’re buying software and the contractor is under the impression no one outside the organization will ever see the code, and more importantly, the code could never negatively impact the public’s perception of their overall work-product &lt;a href='#return-note-2020-1'&gt;↩&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content>
+    </item><item>
+        <title>Publishing Government Data That Developers Will Actually Use
+</title>
+        <link href="http://localhost:4000/2012/06/02/publishing-government-data-that-developers-will-actually-use/"/>
+        <pubDate>2012-06-02T14:10:12-04:00</pubDate>
+        <dc:creator>Benjamin J. Balter</dc:creator>
+        <category>Liquid error: undefined method `gsub' for ["Technology"]:Array</category>
+        <guid isPermaLink="false">/2012/06/02/publishing-government-data-that-developers-will-actually-use</guid>
+        <description>Liquid error: undefined method `gsub' for nil:NilClass</description>
+        <content>&lt;p&gt;&lt;a href='http://ben.balter.com/wp-content/uploads/2012/06/government-cio-magazine-june-2012.png'&gt;&lt;img alt='' class='alignright size-full wp-image-2517' height='187' src='http://ben.balter.com/wp-content/uploads/2012/06/government-cio-magazine-june-2012.png' title='Government CIO Magazine, June 2012' width='283' /&gt;&lt;/a&gt;Despite increasing public support (as well as a number of executive mandates) publishing public data in a machine-readable format is not as simple as pressing the “publish” button. Why? Equally important as exposing the information itself is fostering a vibrant developer ecosystem around it. By making the publishing agency, not the public, responsible for making information immediately useful, government can lower the barriers associated with consuming its data and introduce additional citizen services at little to no cost to the agency.&lt;/p&gt;
+&lt;!--more--&gt;
+&lt;p&gt;&lt;strong&gt;1. Garbage in, garbage out. &lt;/strong&gt;Good, clean data may be surprisingly difficult to come by, especially when working with government systems that have been coupled together over decades. Data standards and conventions change, mechanisms of data collection evolve, and the data itself may be interpreted differently as new policies are introduced. As a result consistent practices, like naming conventions or data formats, often go overlooked. Where practical, take steps to normalize the data prior to release, rather than pushing the responsibility off to be inefficiently repeated by each application individually.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Eat your own dog food. &lt;/strong&gt;When organizations consume the products they create, they empirically deliver better, more reliable, and more innovative products. You’d never seek to buy a car from a dealer that’s never driven one, yet we often expect the public to build applications based on APIs (Application Programming Interfaces – how computers talk to one another) published by organizations that have never had to consume their own data. Rather than solving the same problem twice, start by exposing all relevant data through public APIs and then work backward to build internal applications that rely on those externally facing data feeds.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. Data as a citizen service. &lt;/strong&gt;It is tempting to try and meet open data benchmarks, at least on face, by publishing snapshots of large datasets. Yet multi-gigabyte database exports do little to encourage external development, especially when such data-dumps are delayed and infrequent. Imagine the usefulness of a Facebook feed that showed your friends’ activity from last month. Datasets should be directly exposed so that the public has access to live, real-time data, either in its entirety, or through proper access controls. This not only allows agencies to deliver more useful information, but also reduces the need to store the same data in multiple formats and in multiple locations.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. Curate discrete pieces of data. &lt;/strong&gt;APIs are most useful when they do the heavy lifting for those consuming them, especially in terms of sifting through large amounts of data. In practical terms that means returning data to the most discrete level possible, be it a single row, rather than merely returning a subset of the dataset, or even returning a single cell. Seemingly obvious but often overlooked, a query for the broadband speeds at a given address, for example, should return only the data relating to that address, not the entire city or even state-wide dataset. By allowing developers to query the data directly that means they will need less development time on their end, and thus a higher likelihood that an application will be built.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. Serve data in multiple formats. &lt;/strong&gt;When providing a service, whether you are a waiter or a CIO, “the customer is always right.” In the context of APIs, that means you need to return the information in the developers’ native tongue, not the server’s. For some languages, heavyweight methods like XML may make sense, for others, especially mobile applications, JSON or JSONP may be preferred. Be prepared to return data in multiple formats, even as those formats continue to evolve.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;6. Minimize the handshake learning curve&lt;/strong&gt;. Authentication may often be necessary, but the pain associated with it does not have to. Ensure that developers can easily register API keys, with minimal effort and without delay, and rely on common authentication frameworks (e.g., OAuth 2.0) to minimize the learning curve. Similarly, whenever practical, provide common API wrappers and other software development kits in multiple languages.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;7. Encourage adoption through documentation.&lt;/strong&gt; Often, the most overlooked aspect of exposing data is documentation. Describe the structure of the data fully, including how to interpret it, and ensure that any technical documentation such as lists of methods and sample code is both complete and accurate. The only thing worse than not having documentation is having wrong documentation. The best APIs even provide Wikis to allow developers to share tools and best practices with one another.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;8. Follow industry standards and convention&lt;/strong&gt;. Although APIs may just be beginning to take foothold in government, a set of best practices have quietly evolved in the private sector over the past several years. What may seem like small, technicalities, such as a truly RESTful API or using proper HTTP methods like GET, POST, PUT, and DELETE, for example, can mean the difference between useful and useless.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;9. Bake in Analytics&lt;/strong&gt;. When it comes to garnering support for future efforts, nothing can be more powerful than raw numbers. From the ground up, bake in analytics on both the application level (what applications are querying the API?), and across APIs on the dataset levels (what APIs are being used?). This will help establish data-driven priorities, such as what type of data may be a good candidate for future APIs.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;10. Location, location, location. &lt;/strong&gt;With the “consumerization” of mobile, datasets are increasingly becoming location based. It’s not what datasets are out there, but rather, what datasets are out there about my immediate world. Likewise, government datasets are increasingly about where, just as much as it is about what. It’s important that this reality be taken into account when building APIs by incorporating geospatial lookups within the API, such a relying on MongoDB or other location-aware data structures.&lt;/p&gt;
+
+&lt;p&gt;Exposing data as a service is quickly becoming an industry-standard practice. Many popular startups owe their success to the vibrant app communities that surround them, grown simply by lifting some of the burden off of developers’ shoulders. Government agencies may not yet be able to publish data with the mere click of a button, but when done right from the start, exposing additional data sources may be a more trivial task than many expect, and will in turn deliver value to citizens in ways today unimagined by agencies.&lt;/p&gt;
+&lt;div style='border: 2px solid #ccc; padding: 25px 25px 0 25px; background: #eee; margin-bottom: 20px;'&gt;
+  &lt;p&gt;
+    &lt;em&gt;This is an excerpt of an article originally published in the June 2012 issue of &lt;a href='http://www.governmentciomagazine.com'&gt;Government CIO Magazine&lt;/a&gt;. &lt;/em&gt;&lt;strong&gt;&lt;a href='http://www.governmentciomagazine.com/2012/06/ten-steps-publishing-government-data-developers-will-actually-use#blog-content'&gt;Continue Reading →&lt;/a&gt;&lt;/strong&gt;
+  &lt;/p&gt;
+&lt;/div&gt;</content>
+    </item><item>
+        <title>Free Yourself from the Tyranny of Sharepoint
+</title>
+        <link href="http://localhost:4000/2012/05/10/free-yourself-from-the-tyranny-of-sharepoint/"/>
+        <pubDate>2012-05-10T13:32:00-04:00</pubDate>
+        <dc:creator>Benjamin J. Balter</dc:creator>
+        <category>Liquid error: undefined method `gsub' for ["Business", "Technology"]:Array</category>
+        <guid isPermaLink="false">/2012/05/10/free-yourself-from-the-tyranny-of-sharepoint</guid>
+        <description>Liquid error: undefined method `gsub' for nil:NilClass</description>
+        <content>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;“&lt;/strong&gt;Sharepoint is a plague upon the American workforce. This ubiquitous piece of collaboration software has taught millions of people that Intranets are destined to be places where you can’t find anything&lt;span&gt;, but it&lt;/span&gt; doesn’t have to be this way, despite what Microsoft may have you believe.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p style='text-align: right;'&gt;
+  - Joe Flood on &lt;a href='http://joeflood.com/2012/05/10/free-yourself-from-the-tyranny-of-sharepoint/'&gt;Freeing Yourself from the Tyranny of Sharepoint&lt;/a&gt;
+&lt;/p&gt;</content>
+    </item><item>
+        <title>WordPress as a Collaboration Platform</title>
+        <link href="http://localhost:4000/2012/05/08/wordpress-as-a-collaboration-platform/"/>
+        <pubDate>2012-05-08T15:00:19-04:00</pubDate>
+        <dc:creator>Benjamin J. Balter</dc:creator>
+        <category>Liquid error: undefined method `gsub' for ["Business", "Technology"]:Array</category>
+        <guid isPermaLink="false">/2012/05/08/wordpress-as-a-collaboration-platform</guid>
+        <description>Liquid error: undefined method `gsub' for nil:NilClass</description>
+        <content>&lt;p&gt;Today countless teams are using WordPress to drive collaboration and facilitate inter-team communication. This presentation — given at the May WordPress DC Meetup — showcases some of the creative ways companies and organizations are using WordPress as the central hub of their day-to-day workflow: To organize and collaboratively edit documents and other non-web content, track and communicate their team’s progress with one another, and extend WordPress to work with their existing tools and practices&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Click on the slides below to begin, then press the left/right keyboard arrows to navigate&lt;/em&gt;&lt;/p&gt;
+&lt;div style='width: 100%; max-width: 550px; margin-bottom: 15px;'&gt;
+  &lt;p&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img alt='' id='collab_img' src='http://benbalter.github.com/wordpress-as-a-collaboration-platform/screenshot.png' style='width: 100%; max-width: 550px; cursor: pointer;' /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+  &lt;/p&gt;
+  
+  &lt;div style='float: right; font-weight: bold;'&gt;
+    &lt;a href='http://benbalter.github.com/wordpress-as-a-collaboration-platform/' target='_BLANK'&gt;View Full Screen&lt;/a&gt;
+  &lt;/div&gt;
+  
+  &lt;div class='clearfix'&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Recording of the presentation (starts at the 10:00 mark):&lt;/p&gt;
+&lt;div style='text-align: center;'&gt;
+  http://www.ustream.tv/recorded/22454841
+&lt;/div&gt;
+&lt;h2 id='plugins_mentioned'&gt;Plugins Mentioned&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href='http://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/'&gt;WP Document Revisions&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href='http://editflow.org'&gt;Edit Flow&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href='http://wordpress.org/extend/plugins/members/'&gt;Members&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href='http://wordpress.org/extend/plugins/advanced-custom-fields/'&gt;Advanced Custom Fields&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href='http://wordpress.org/extend/plugins/wp-display-custom-fields/'&gt;Display Custom Fields&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href='http://wordpress.org/extend/plugins/count-shortcode/'&gt;Count Shortcode&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href='http://wordpress.org/extend/plugins/faceted-search-widget/'&gt;Faceted Search Widget&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href='http://themergency.com/generators/wordpress-custom-taxonomy/'&gt;Custom Taxonomy Generator&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+    </item><item>
+        <title>Enterprise Open Source Usage Is Up, But Challenges Remain
+</title>
+        <link href="http://localhost:4000/2012/04/23/enterprise-open-source-usage-is-up-but-challenges-remain/"/>
+        <pubDate>2012-04-23T05:00:41-04:00</pubDate>
+        <dc:creator>Benjamin J. Balter</dc:creator>
+        <category>Liquid error: undefined method `gsub' for ["Technology"]:Array</category>
+        <guid isPermaLink="false">/2012/04/23/enterprise-open-source-usage-is-up-but-challenges-remain</guid>
+        <description>Liquid error: undefined method `gsub' for nil:NilClass</description>
+        <content>&lt;p&gt;&lt;a href='http://techcrunch.com/2012/04/22/enterprise-open-source-usage-is-up-but-challenges-remain/?utm_source=feedburner&amp;amp;utm_medium=feed&amp;amp;utm_campaign=Feed:+Techcrunch+(TechCrunch)'&gt;Enterprise Open Source Usage Is Up, But Challenges Remain&lt;/a&gt;. 80% of enterprise uses open source; 2/3 contribute code upstream; and 1 in 4 have detrimental open source policy.&lt;/p&gt;</content>
+    </item><item>
+        <title>Hacks/Hackers Swells to more than 10,000 Members
+</title>
+        <link href="http://localhost:4000/2012/04/19/hackshackers-swells-to-more-than-10000-members/"/>
+        <pubDate>2012-04-19T07:35:45-04:00</pubDate>
+        <dc:creator>Benjamin J. Balter</dc:creator>
+        <category>Liquid error: undefined method `gsub' for ["Technology"]:Array</category>
+        <guid isPermaLink="false">/2012/04/19/hackshackers-swells-to-more-than-10000-members</guid>
+        <description>Liquid error: undefined method `gsub' for nil:NilClass</description>
+        <content>&lt;p&gt;&lt;a href='http://ben.balter.com/wp-content/uploads/2012/04/hacks-hackers-10k.png'&gt;&lt;img alt='' class='size-full wp-image-2417 aligncenter' height='341' src='http://ben.balter.com/wp-content/uploads/2012/04/hacks-hackers-10k.png' title='Hacks/Hackers Surpasses 10,000 Members' width='665' /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://hackshackers.com/'&gt;Hacks/Hackers&lt;/a&gt; — the international grassroots journalism organization dedicated to creating a network of journalists and technologists to rethink the future of news and information — &lt;a href='http://hackshackers.com/blog/2012/04/19/hackshackers-passes-10k-members-worldwide/'&gt;welcomed its 10,000th member&lt;/a&gt; today. Just two and half years after our start as a Meetup group in the Bay Area, we’re now in &lt;a href='http://hackshackers.meetup.com/'&gt;seven countries, across 26 cities, and have regular events on four continents&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;People have found jobs, co-founders for startups, acquirers for their company, learned new skills, hacked out projects, shown off their work and so much more at Hacks/Hackers events &lt;span&gt;&amp;#8230;and w&lt;/span&gt;ith 10,000 members, we’re only getting started.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;!--more--&gt;
+&lt;p&gt;&lt;em&gt;Want to get involved? &lt;a href='http://hackshackers.com/chapters/'&gt;Find a chapter near you&lt;/a&gt;, or if none exist, grab some friends and&lt;a href='http://hackshackers.com/chapters/meetups/'&gt;start your own&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;noscript&gt;
+  &lt;a href='http://storify.com/burtherman/hacks-hackers-reaches-10k-members-tell-us-your-sto.html' target='_blank'&gt;View the story “Hacks/Hackers reaches 10k members: Tell us your story” on Storify&lt;/a&gt;
+&lt;/noscript&gt;</content>
+    </item><item>
+        <title>CFPB Accepts First Citizen-Submitted Code on Behalf of Federal Government
+</title>
+        <link href="http://localhost:4000/2012/04/15/cfpb-accepts-first-citizen-submitted-pull-request-on-behalf-of-federal-government/"/>
+        <pubDate>2012-04-15T10:31:03-04:00</pubDate>
+        <dc:creator>Benjamin J. Balter</dc:creator>
+        <category>Liquid error: undefined method `gsub' for ["Technology"]:Array</category>
+        <guid isPermaLink="false">/2012/04/15/cfpb-accepts-first-citizen-submitted-pull-request-on-behalf-of-federal-government</guid>
+        <description>Liquid error: undefined method `gsub' for nil:NilClass</description>
+        <content>&lt;p&gt;“Fix typo.” Not quite “one small step for man,” but a significant first nonetheless. These simple words, typed by an open-source developer operating under the pseudonym “iceeey,” may represent the first collaborative effort between the federal government and the broader open-source community, and surely represents a tangible win for the open-government movement as a whole.&lt;/p&gt;
+
+&lt;p&gt;The Consumer Financial Protection Bureau (CFPB) is in a unique position. As the youngest federal agency, they have the opportunity to reimagine many day-to-day business processes for an internet era, and to share that innovation across government. One such process is the means by which federal employees apply for and receive subsidies to offset the cost of public transportation to and from work. Having created an application that alleviated the need to shuttle time-consuming, paper-based forms from building to building within their own agency, the Bureau sought to package up the solution, and publicly release the source code for other federal agencies to use and expand upon. The logic was simple: solve the problem once, solve it everywhere.&lt;/p&gt;
+
+&lt;p&gt;But the code was not simply made available for government employees to access. The code was placed on &lt;a href='http://github.com/' target='_blank'&gt;GitHub&lt;/a&gt; – a popular source code sharing service – for anyone to download and explore, and within days of CFPB publishing its &lt;a href='http://www.consumerfinance.gov/blog/the-cfpbs-source-code-policy-open-and-shared/' target='_blank'&gt;recently announced Source Code Policy&lt;/a&gt;, someone did just that.GitHub user “iceeey” &lt;a href='https://github.com/cfpb/transit_subsidy/pull/1' target='_blank'&gt;submitted a proposed change&lt;/a&gt; – known in developer parlance as “forking the project” and submitting a “pull request” — correcting a misspelling on the form initially presented to new employees (“roundtrip” was accidentally spelled “rountrip”).&lt;/p&gt;
+
+&lt;p&gt;Admittedly a minor change (“one small step for grammar?”), but notable for the underlying first that it represents: the opportunity to create efficiencies across government by partnering with the broader community of civically engaged developers.&lt;/p&gt;
+
+&lt;p&gt;Open-source software (software for which the underlying source code is made publicly available) as a vehicle for a more open and more efficient government is nothing new. Behind the scenes, countless agencies rely on open-source software for various business functions, and many have even chosen to publicly publish the source code underlying the applications that they themselves have built in-house to tackle unique challenges. But this seemingly innocuous missing “d” and its subsequently submitted fix represents the first time a federal agency has directly collaborated with open-source developers to better its own day-to-day tools.&lt;/p&gt;
+
+&lt;p&gt;Iceeey has &lt;a href='https://github.com/cfpb/transit_subsidy/pull/2' target='_blank'&gt;already submitted his second pull request&lt;/a&gt; (“more typos” he joked with an emoticon smiley), and I hope more agencies and more open-source developers will follow suit. Such collaborations empower agencies to do more with less; put better, more robust tools in the hands of federal employees as they carry out agency mission; and undoubtedly represent a giant-leap forward for a more open and more efficient government.&lt;/p&gt;</content>
+    </item><item>
+        <title></title>
+        <link href="http://localhost:4000/2012/04/13/"/>
+        <pubDate>2012-04-13T00:00:00-04:00</pubDate>
+        <dc:creator></dc:creator>
+        <guid isPermaLink="false">/2012/04/</guid>
+        <description>Liquid error: undefined method `gsub' for nil:NilClass</description>
+        <content>&lt;p&gt;Once upon a time, if you wanted to participate in the policymaking process, you did so &lt;em&gt;occasionally&lt;/em&gt; and &lt;em&gt;formally&lt;/em&gt;. In a regulatory context, for example, an agency would put out a notice of proposed rulemaking, and members of the public (typically those with access to a highly-specialized subset of lawyers with administrative law experience) would have the opportunity to submit page upon page of legalese as to why the rule making should fall one way or the other. It was an arms-length relationship, one way, and a step removed from the policy itself. Fast forward a bit further, and we start seeing ideation platforms like ideascale and challenge.gov pop up. The interaction is informal (there aren’t lawyers involved), and although still generally a one-way communication, there’s an interactive component there. The prioritization of suggestions (generally a decision within the agency’s sole prerogative under an notice-and-comment model) is crowd sourced by allowing users to vote contributions up and down as they see fit. That’s great progress, but government hasn’t quite caught up with technology yet. There’s a lot more there. There’s the opportunity to make those contributions &lt;em&gt;frequent&lt;/em&gt; and &lt;em&gt;informal&lt;/em&gt;. There’s collaboration. &lt;a class='simple-footnote' href='#note-2020-1' id='return-note-2020-1' title='Government is most commonly thought of within a &amp;#8220;me versus them&amp;#8221; mentality. I&amp;#8217;m a citizen, they&amp;#8217;re my government. Yet, without going too far off the philosophical deep end, that&amp;#8217;s a false dichotomy. Government exists solely at the service of its citizenry. It&amp;#8217;s not &amp;#8220;me versus them,&amp;#8221; it&amp;#8217;s &amp;#8220;me versus we.&amp;#8221; Think of it as an analogous distinction between one&amp;#8217;s relationship to the now-defunct Encyclopedia Britannica, and the collaboratively edited Wikipedia. If I&amp;#8217;m a subject-matter expert and find a mistake in Britanica, I blame them. They should know better. If I find that same mistake on Wikipedia, I correct it. We do know better. Government&amp;#8217;s the same way. We&amp;#8217;re all in that together.'&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;So what does that mean practically? Let’s think in terms of code, as that’s what I know best.&lt;/p&gt;
+
+&lt;p&gt;Donation?&lt;/p&gt;
+
+&lt;p&gt;Lic. under GPL, etc.&lt;/p&gt;
+
+&lt;p&gt;But the idea isn’t limited just to code. Imagine if we wikified government websites, introducing a collaborative layer on top of already-rich government information.&lt;/p&gt;
+&lt;div class='simple-footnotes'&gt;
+  &lt;p class='notes'&gt;
+    Notes:
+  &lt;/p&gt;
+  
+  &lt;ol&gt;
+    &lt;li id='note-2020-1'&gt;
+      Government is most commonly thought of within a “me versus them” mentality. I’m a citizen, they’re my government. Yet, without going too far off the philosophical deep end, that’s a false dichotomy. Government exists solely at the service of its citizenry. It’s not “me versus them,” it’s “me versus we.” Think of it as an analogous distinction between one’s relationship to the now-defunct Encyclopedia Britannica, and the collaboratively edited Wikipedia. If I’m a subject-matter expert and find a mistake in Britanica, I blame them. They should know better. If I find that same mistake on Wikipedia, I correct it. We do know better. Government’s the same way. We’re all in that together. &lt;a href='#return-note-2020-1'&gt;↩&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content>
+    </item>
+</channel>

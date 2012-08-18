@@ -1,6 +1,6 @@
 ---
 id: 1772
-author: 1
+author: Benjamin J. Balter
 date: 2011-09-01 13:51:02
 date_gmt: 2011-09-01 17:51:02
 title: Why WordPress
@@ -32,6 +32,7 @@ mime_type:
 comment_count: 6
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Technology
 post_tag:

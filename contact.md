@@ -1,6 +1,6 @@
 ---
 id: 10
-author: 1
+author: Benjamin J. Balter
 date: 2010-09-13 13:06:23
 date_gmt: 2010-09-13 17:06:23
 title: Contact
@@ -23,6 +23,7 @@ mime_type:
 comment_count: 8
 ancestors: [ ]
 filter: raw
+layout: page
 ---
 <p style="text-align: center; margin-bottom: 50px;">
   Feel free to e-mail me at <a href="mailto:ben@balter.com">Ben@Balter.com</a> or you can find me on these social networks:

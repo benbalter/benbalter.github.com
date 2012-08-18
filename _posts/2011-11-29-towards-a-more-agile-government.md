@@ -1,6 +1,6 @@
 ---
 id: 1852
-author: 1
+author: Benjamin J. Balter
 date: 2011-11-29 11:28:15
 date_gmt: 2011-11-29 16:28:15
 title: Towards a More Agile Government
@@ -32,6 +32,7 @@ mime_type:
 comment_count: 23
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Business
   - Law

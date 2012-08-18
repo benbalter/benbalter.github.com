@@ -1,6 +1,6 @@
 ---
 id: 1950
-author: 1
+author: Benjamin J. Balter
 date: 2012-03-05 11:11:50
 date_gmt: 2012-03-05 16:11:50
 title: 'WordPress for Government - A Problem of Perception'
@@ -28,6 +28,7 @@ mime_type:
 comment_count: 94
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Technology
 post_tag:

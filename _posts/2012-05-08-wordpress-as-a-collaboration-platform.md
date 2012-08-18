@@ -1,6 +1,6 @@
 ---
 id: 2460
-author: 1
+author: Benjamin J. Balter
 date: 2012-05-08 19:00:19
 date_gmt: 2012-05-08 23:00:19
 title: WordPress as a Collaboration Platform
@@ -25,6 +25,7 @@ mime_type:
 comment_count: 33
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Business
   - Technology

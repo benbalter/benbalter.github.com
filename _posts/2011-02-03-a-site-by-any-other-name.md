@@ -1,6 +1,6 @@
 ---
 id: 1062
-author: 1
+author: Benjamin J. Balter
 date: 2011-02-03 11:22:53
 date_gmt: 2011-02-03 16:22:53
 title: A Site By Any Other Name...
@@ -26,6 +26,7 @@ mime_type:
 comment_count: 1
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Law
   - Technology

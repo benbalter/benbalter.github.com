@@ -1,6 +1,6 @@
 ---
 id: 943
-author: 1
+author: Benjamin J. Balter
 date: 2011-01-11 18:48:07
 date_gmt: 2011-01-11 23:48:07
 title: "Twitter Goes to Bat for WikiLeaks, RTs @FBI's Court Order"
@@ -25,6 +25,7 @@ mime_type:
 comment_count: 1
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Law
   - Technology

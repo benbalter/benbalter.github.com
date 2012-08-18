@@ -1,6 +1,6 @@
 ---
 id: 2642
-author: 1
+author: Benjamin J. Balter
 date: 2012-07-26 14:34:07
 date_gmt: 2012-07-26 18:34:07
 title: "Government's Release of Federally Funded Source Code: Public Domain or Open Source? Yes."
@@ -24,6 +24,7 @@ mime_type:
 comment_count: 0
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Law
   - Technology

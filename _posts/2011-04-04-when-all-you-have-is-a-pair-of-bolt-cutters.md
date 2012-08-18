@@ -1,6 +1,6 @@
 ---
 id: 1196
-author: 1
+author: Benjamin J. Balter
 date: 2011-04-04 09:01:50
 date_gmt: 2011-04-04 13:01:50
 title: >
@@ -29,6 +29,7 @@ mime_type:
 comment_count: 20
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Technology
 post_tag:

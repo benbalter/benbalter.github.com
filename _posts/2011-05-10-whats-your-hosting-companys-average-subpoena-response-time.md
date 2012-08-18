@@ -1,6 +1,6 @@
 ---
 id: 1569
-author: 1
+author: Benjamin J. Balter
 date: 2011-05-10 18:00:47
 date_gmt: 2011-05-10 22:00:47
 title: "What's Your Hosting Company's Average Subpoena Response Time?"
@@ -26,6 +26,7 @@ mime_type:
 comment_count: 0
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Business
   - Law

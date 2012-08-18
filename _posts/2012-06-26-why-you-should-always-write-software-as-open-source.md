@@ -1,6 +1,6 @@
 ---
 id: 2569
-author: 1
+author: Benjamin J. Balter
 date: 2012-06-26 00:40:18
 date_gmt: 2012-06-26 04:40:18
 title: "Why You Should Always Write Software as Open Source, Even When It's Never Going to Be"
@@ -25,6 +25,7 @@ mime_type:
 comment_count: 15
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Business
   - Technology

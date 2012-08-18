@@ -1,6 +1,6 @@
 ---
 id: 2611
-author: 1
+author: Benjamin J. Balter
 date: 2012-07-10 11:15:15
 date_gmt: 2012-07-10 15:15:15
 title: The Demise of the Personal Dashboard
@@ -29,6 +29,7 @@ mime_type:
 comment_count: 19
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Technology
 post_tag:

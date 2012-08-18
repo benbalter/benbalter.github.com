@@ -1,16 +1,17 @@
 {% include header.html %}
 
-<div class="twelve-col">
-
-{{ content }}
-
+<div class="row-fluid">
+	<div class="span9">
 {% for page in paginator.posts %}
   {% include page-single.html %}
 {% endfor %}
 
 {% include pagination.html %}
 
-
+	</div>
+	<div class="span3">
+		{% include sidebar.html %}
+	</div>
 </div>
 
 {% include footer.html %}

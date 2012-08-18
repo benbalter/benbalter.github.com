@@ -1,6 +1,6 @@
 ---
 id: 979
-author: 1
+author: Benjamin J. Balter
 date: 2011-01-11 18:40:51
 date_gmt: 2011-01-11 23:40:51
 title: 'WordPress Emphasis Plugin: Highlight and Permalink Text'
@@ -30,6 +30,7 @@ mime_type:
 comment_count: 21
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Technology
 post_tag:

@@ -1,6 +1,6 @@
 ---
 id: 840
-author: 1
+author: Benjamin J. Balter
 date: 2011-01-04 21:30:07
 date_gmt: 2011-01-05 02:30:07
 title: 'The Files "in" the Computer -- Zoolander and the California Supreme Court'
@@ -25,6 +25,7 @@ mime_type:
 comment_count: 0
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Law
   - Technology

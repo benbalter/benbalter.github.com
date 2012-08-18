@@ -1,6 +1,6 @@
 ---
 id: 1825
-author: 1
+author: Benjamin J. Balter
 date: 2011-09-07 11:54:01
 date_gmt: 2011-09-07 15:54:01
 title: Analysis of Federal Executive .Govs
@@ -23,6 +23,7 @@ mime_type:
 comment_count: 45
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Technology
 post_tag:

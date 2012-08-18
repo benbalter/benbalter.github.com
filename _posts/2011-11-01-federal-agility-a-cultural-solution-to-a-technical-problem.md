@@ -1,6 +1,6 @@
 ---
 id: 1992
-author: 1
+author: Benjamin J. Balter
 date: 2011-11-01 09:05:53
 date_gmt: 2011-11-01 13:05:53
 title: 'Federal Agility: a Cultural Solution to a Technical Problem'
@@ -24,6 +24,7 @@ mime_type:
 comment_count: 1
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Business
   - Technology

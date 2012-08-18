@@ -1,6 +1,6 @@
 ---
 id: 1537
-author: 1
+author: Benjamin J. Balter
 date: 2011-06-16 12:16:11
 date_gmt: 2011-06-16 16:16:11
 title: 'Groupon and LivingSocial: a Limited-Time Offer'
@@ -25,6 +25,7 @@ mime_type:
 comment_count: 4
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Business
   - Law

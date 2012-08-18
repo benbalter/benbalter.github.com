@@ -1,6 +1,6 @@
 ---
 id: 2392
-author: 1
+author: Benjamin J. Balter
 date: 2012-04-10 11:00:29
 date_gmt: 2012-04-10 15:00:29
 title: "What's Missing from CFPB's Awesome New Source Code Policy"
@@ -26,6 +26,7 @@ mime_type:
 comment_count: 8
 ancestors: [ ]
 filter: raw
+layout: post
 category:
   - Law
   - Technology
