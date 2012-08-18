@@ -1,0 +1,7 @@
+<nav id="nav-wrap" class="group">
+	<ul class="page-list group" role="menu" id="nav">
+	{% for page in site.pages %}{% if page.title and page.title != site.name and page.url != '/404.html' %}
+		<li id="{{ page.id }}"><a href="{{ site.url}}{{ page.url | replace:'index.html','' }}">{{ page.title }}</a></li>
+		{% endif %}{% endfor %}
+	</ul>
+</nav>

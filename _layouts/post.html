@@ -1,0 +1,12 @@
+{% include header.html %}
+
+<div class="twelve-col">
+
+{% include page-single.html %}
+{% if page.comments %}
+	{% include comments.html %}
+{% endif %}
+
+</div>
+
+{% include footer.html %}

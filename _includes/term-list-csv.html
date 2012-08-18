@@ -1,0 +1,3 @@
+{% comment %}Prior to including, assign `taxonomy` to either tag or category{% endcomment %}
+{% assign comma = false %}
+<span class="term-list term-list-{{taxonomy}}">{% for term in page[taxonomy] %}{% if comma == true %}, {% endif %}{% assign comma = true %}<a href="{{ site.url }}/{{ taxonomy }}/#{{ term | downcase }}">{{ term }}</a>{% endfor %}</span>

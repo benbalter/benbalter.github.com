@@ -1,0 +1,12 @@
+{% comment %}Prior to including, assign `taxonomy` to either tag or category{% endcomment %}
+<div class="term-list tern-list-{{taxonomy}}">
+{% for term in site[taxonomy] %}
+	{% assign term_slug = term[0] %}		
+	<h2 id="{{ term_slug | downcase }}"><a href="#{{ term_slug }}">{{ term_slug }}</a></h2>
+	<ul>
+	{% for page in site[taxonomy][term_slug] %}
+		<li><a href="{{ site.url }}{{ page.url }}">{{ page.title }}</a></li>
+	{% endfor %}
+	</ul>
+{% endfor %}
+</div>

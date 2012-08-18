@@ -1,0 +1,4 @@
+---
+layout: none
+---
+{% capture css %}{% include styles/style.css %}{% endcapture %}{{ css | strip_newlines }}

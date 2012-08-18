@@ -1,0 +1,16 @@
+{% include header.html %}
+
+<div class="twelve-col">
+
+{{ content }}
+
+{% for page in paginator.posts %}
+  {% include page-single.html %}
+{% endfor %}
+
+{% include pagination.html %}
+
+
+</div>
+
+{% include footer.html %}
