@@ -1,34 +1,12 @@
 ---
-id: 1992
 author: Benjamin J. Balter
-date: 2011-11-01 09:05:53
-date_gmt: 2011-11-01 13:05:53
 title: 'Federal Agility: a Cultural Solution to a Technical Problem'
 excerpt:
-status: publish
-comment_status: open
-ping_status: open
-password:
-name: >
-  federal-agility-a-cultural-solution-to-a-technical-problem
-to_ping:
-pinged:
-modified: 2011-11-16 11:20:53
-modified_gmt: 2011-11-16 16:20:53
-content_filtered:
-parent: 0
-guid: http://ben.balter.com/?p=1992
-menu_order: 0
-type: post
-mime_type:
-comment_count: 1
-ancestors: [ ]
-filter: raw
 layout: post
 category:
   - Business
   - Technology
-post_tag:
+tags:
   - agile
   - contracting
   - enterprise
@@ -40,55 +18,27 @@ post_format: [ ]
 ---
 Never before has it been so vital that the federal government do more with less. On all sides of the National Mall, government agencies are tightening their belts considerably, but the challenge is not simply about trimming budgets or spending less. In many cases, the problem is a matter of spending smarter.
 
-<div style="float: right; font-size: 13px; padding: 10px; width: 300px;">
-  <h3>
-    What is Agile?
-  </h3>
-  
-  <ul>
-    <li>
-      An incremental approach to software development that breaks a project into many independent, fungible tasks;
-    </li>
-    <li>
-      Does not seek to build software in a sequential, step-wise manner;
-    </li>
-    <li>
-      Recognizes the reality that requirements are unpredictable and change over time; and
-    </li>
-    <li>
-      Plans are continuously inspected and adapted through rapid prototyping.
-    </li>
-  </ul>
-</div>
+### What is Agile?
 
-While the federal IT infrastructure is beginning to show its age — loosing its ability to serve federal employees and thus more broadly the American public — federal approaches to IT procurement and management are increasingly proving themselves to be equally anachronistic. Traditional heavyweight philosophies known most commonly as waterfall development simply move too slowly for today’s quickly changing federal IT landscape. By the time projects reach completion, all too often, the technology or the customer’s needs have fundamentally changed, and what is delivered does not resemble what is needed. If we wish to create the efficient government of the 21<sup>st</sup> century, we must jettison traditional approaches to IT project management and adopt a more agile model.
+*   An incremental approach to software development that breaks a project into many independent, fungible tasks;
+*   Does not seek to build software in a sequential, step-wise manner;
+*   Recognizes the reality that requirements are unpredictable and change over time; and
+*   Plans are continuously inspected and adapted through rapid prototyping.
+
+While the federal IT infrastructure is beginning to show its age — loosing its ability to serve federal employees and thus more broadly the American public — federal approaches to IT procurement and management are increasingly proving themselves to be equally anachronistic. Traditional heavyweight philosophies known most commonly as waterfall development simply move too slowly for today’s quickly changing federal IT landscape. By the time projects reach completion, all too often, the technology or the customer’s needs have fundamentally changed, and what is delivered does not resemble what is needed. If we wish to create the efficient government of the 21st century, we must jettison traditional approaches to IT project management and adopt a more agile model.
 
 ## Technology that Outpaces the Laws that Govern its Adoption
 
-Government contracts are rarely written for agile, and with good reason: As a matter of public policy, procurement regulations force agencies to prefer full and open competition over sound project deliverables. By purposeful design, federal procurement emphasizes the process surrounding the purchase, not on the purchase itself. Traditional contracting vehicles call for stable requirements to be outlined up front and rigidly adhered to, regardless of advancements in technology or changes to the agency’s needs. Compounding the problem, <span class="pullquote">contracting officers must often secure and commit funding well in advance, rendering adaptation impossible and Agile’s “I’ll know it when I see it” approach, somewhat counterintuitive</span>. Finally, due to the significant administrative cost presented to the agency, these restrictions encourage agency-wide transformations to be approached in a large, single pass rather than addressing the component parts individually. These procedural necessities — not usually seen in the private sector — generate significant lead times further hindering agencies’ adoption of any approach that relies on small iterations.
+Government contracts are rarely written for agile, and with good reason: As a matter of public policy, procurement regulations force agencies to prefer full and open competition over sound project deliverables. By purposeful design, federal procurement emphasizes the process surrounding the purchase, not on the purchase itself. Traditional contracting vehicles call for stable requirements to be outlined up front and rigidly adhered to, regardless of advancements in technology or changes to the agency’s needs. Compounding the problem, contracting officers must often secure and commit funding well in advance, rendering adaptation impossible and Agile’s “I’ll know it when I see it” approach, somewhat counterintuitive. Finally, due to the significant administrative cost presented to the agency, these restrictions encourage agency-wide transformations to be approached in a large, single pass rather than addressing the component parts individually. These procedural necessities — not usually seen in the private sector — generate significant lead times further hindering agencies’ adoption of any approach that relies on small iterations.
 
-<div style="float: left; font-size: 13px; padding: 10px; width: 300px;">
-  <h3>
-    Federal IT Procurement by the Numbers:
-  </h3>
-  
-  <ul>
-    <li>
-      <strong>77.1</strong> – amount in billions the federal government spent on IT in FY2010
-    </li>
-    <li>
-      <strong>70</strong> – percent increase in federal IT spending over the past decade
-    </li>
-    <li>
-      <strong>1/3</strong> – procured features actually used by the agencies that contract them
-    </li>
-    <li>
-      <strong>9</strong> – percentage of federal IT projects delivered on budget and on time
-    </li>
-  </ul>
-</div>
+### Federal IT Procurement by the Numbers:
 
-These potential stumbling blocks, however, do not necessarily prove fatal. Compared to organizational culture, laws are easy to change given enough pressure by those they govern. Ironically, this seemingly technological challenge is, most elementally, a human one. Federal stakeholders must actively rethink the predominant culture in today’s IT shops. They must seek to train or hire a more agile workforce and rethink the way agencies approach requirements at the time of solicitation. Like any other organizational change, none of this would be possible unless it is communicated as an agency- and government-wide imperative, and ultimately seen to fruition on a project-by-project and task-by-task level by the IT professionals that will be its daily shepherds.  Here are five steps that will lead in that direction: <!--more-->
+*   **77.1** – amount in billions the federal government spent on IT in FY2010
+*   **70** – percent increase in federal IT spending over the past decade
+*   **1/3** – procured features actually used by the agencies that contract them
+*   **9** – percentage of federal IT projects delivered on budget and on time
+
+These potential stumbling blocks, however, do not necessarily prove fatal. Compared to organizational culture, laws are easy to change given enough pressure by those they govern. Ironically, this seemingly technological challenge is, most elementally, a human one. Federal stakeholders must actively rethink the predominant culture in today’s IT shops. They must seek to train or hire a more agile workforce and rethink the way agencies approach requirements at the time of solicitation. Like any other organizational change, none of this would be possible unless it is communicated as an agency- and government-wide imperative, and ultimately seen to fruition on a project-by-project and task-by-task level by the IT professionals that will be its daily shepherds.  Here are five steps that will lead in that direction: 
 
 ## 1. Rethinking an innovation-averse culture
 
@@ -96,7 +46,7 @@ Government agencies embody an entrenched culture of rigidly defined parameters, 
 
 At the most basic level, it is not agencies that purchase IT for the government, but rather individuals on behalf of those agencies. Like their private-sector counterparts, care must be taken to ensure that these individuals’ incentives remain in line with those of their employer. Despite this, government budgeting continues to focus primarily on projects that fall within a single budget year, are controlled by a single budget program, and promise an easily predicted, low-risk return.
 
-For example, contracting officer that adopts an innovative, but ultimately flawed approach may face reprimand or termination when presented with the technology’s underperformance, while without explicit financial incentives, gains little if the experiment proves beneficial. Put another way, <span class="pullquote">federal employees are encouraged to avoid near-term risk and thus have a disincentive to improve well entrenched but outdated processes like waterfall</span>. New ideas must compete against proven ones, and all-too-often known problems take precedence over potential improvements. High-value, but high-risk ideas like agile require the kind of no-fault support from upper management that only a cultural shift can bring before they can begin to take foothold in the federal workplace.
+For example, contracting officer that adopts an innovative, but ultimately flawed approach may face reprimand or termination when presented with the technology’s underperformance, while without explicit financial incentives, gains little if the experiment proves beneficial. Put another way, federal employees are encouraged to avoid near-term risk and thus have a disincentive to improve well entrenched but outdated processes like waterfall. New ideas must compete against proven ones, and all-too-often known problems take precedence over potential improvements. High-value, but high-risk ideas like agile require the kind of no-fault support from upper management that only a cultural shift can bring before they can begin to take foothold in the federal workplace.
 
 ## 2. Infusing agile knowledge into an otherwise waterfall workforce
 
@@ -122,11 +72,8 @@ It would be foolish to suggest that a transition to agile can happen on a govern
 
 Government agility is not only important in so far as it helps agencies hit increasingly frugal budget targets, but also because when federal projects are not delivered on time and on budget agency objectives suffer. IT programs that cost more than they should or ultimately fail to meet agency needs, means the Department of Education helps fewer students, the Department of Health fosters cures for fewer patients, and the Department of Commerce creates fewer opportunities for the unemployed.
 
-Technology has lapped the approach the federal government has traditionally taken to managing it. <span class="pullquote">A highly entrenched, management-directed culture fatal to agile has taken foothold in the nation’s capital, and shows no signs of lessening</span>. Agencies must seek to build a workforce that understands and can embody the virtues of agile in their daily work. Functionality and the agency’s mission, not technology, should rule the workplace. None of this is possible, however, without significant pressure, both from the administration to agencies, and within agencies themselves, to make the shift to agile not only a priority, but a necessity of survival in today’s 21<sup>st</sup> century government. As the public’s scrutiny turns increasingly toward the federal budget, it is especially important that agencies are smarter about their development efforts and see them not as a line-item expense, but rather as a potential cost-saving innovation.
+Technology has lapped the approach the federal government has traditionally taken to managing it. A highly entrenched, management-directed culture fatal to agile has taken foothold in the nation’s capital, and shows no signs of lessening. Agencies must seek to build a workforce that understands and can embody the virtues of agile in their daily work. Functionality and the agency’s mission, not technology, should rule the workplace. None of this is possible, however, without significant pressure, both from the administration to agencies, and within agencies themselves, to make the shift to agile not only a priority, but a necessity of survival in today’s 21st century government. As the public’s scrutiny turns increasingly toward the federal budget, it is especially important that agencies are smarter about their development efforts and see them not as a line-item expense, but rather as a potential cost-saving innovation.
 
-*This article originally published in [Government CIO Magazine][1].*
+*This article originally published in [Government CIO Magazine](http://www.governmentciomagazine.com/).*
 
-**[Continue reading →][2]**
-
- [1]: http://www.governmentciomagazine.com/
- [2]: http://www.governmentciomagazine.com/2011/11/federal-agility-adopting-cultural-approach-technical-problem#blog-content
+**[Continue reading →](http://www.governmentciomagazine.com/2011/11/federal-agility-adopting-cultural-approach-technical-problem#blog-content)**
