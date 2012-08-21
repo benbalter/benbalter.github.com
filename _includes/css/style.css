@@ -1,7 +1,25 @@
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
+body { padding-top: 60px; padding-bottom: 40px; }
+.sidebar-nav { padding: 9px 0;}
+
+/* Contact social icons */
+#contact-links {list-style: none; text-align: center; font-size: 8pt; line-height: 14px;}
+#contact-links a, #contact-links a:visited {color: #999; text-decoration: none;}
+#contact-links li {display: inline-block; padding: 0 15px 0 15px; text-align: center; margin-left: auto; margin-right: auto;}
+
+/* images */
+.aligncenter { 
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Resume */
+.resume .content a {text-decoration: none; color: #757575;}
+.resume .bar {background: #ccc; z-index: 0; border-right: 3px solid black; height: 1000px; position: absolute; }
+.resume .content h2 { text-transform: lowercase; font-weight: normal; text-align: right; position: absolute; font-size: 16px; left: 100px; }
+.resume .date, .resume .location { color: #aaa; float: right; clear: right; font-size: 12px; margin-top: -1.5em; }
+.resume .details { text-align: justify; }
+.resume h4 { font-style: italic; font-weight: normal; font-size: 14px; line-height:18px; }
+.resume h3 { font-size: 16px; font-weight: normal; }
+.resume ul { padding-left:16px; list-style-type:square; margin-left: 0; }

@@ -1,7 +1,10 @@
 {% include header.html %}
 
+<div class="content">
 <h2>{{ page.title }}</h2>
 {{ content }}
+</div>
+
 {% if page.comments %}
 	{% include comments.html %}
 {% endif %}
