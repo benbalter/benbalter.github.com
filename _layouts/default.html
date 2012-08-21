@@ -1,8 +1,13 @@
 {% include header.html %}
 
 <div class="content">
-<h2>{{ page.title }}</h2>
-{{ content }}
+	<div class="row-fluid">
+		<div class="span2">&nbsp;</div>
+		<div class="span8">
+			<h2>{{ page.title }}</h2>
+			{{ content }}
+		</div>
+	</div>
 </div>
 
 {% if page.comments %}

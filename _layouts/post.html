@@ -1,8 +1,17 @@
 {% include header.html %}
 
-{% include page-single.html %}
+<div class="content">
+	<div class="row-fluid">
+		<div class="span2">&nbsp;</div>
+		<div class="span8">
+			{% include page-single.html %}
+		</div>
+	</div>
+</div>
+
 {% if page.comments %}
 	{% include comments.html %}
 {% endif %}
 
 {% include footer.html %}
+

@@ -3,98 +3,98 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">    
   <url>
     <loc>http://localhost:4000/</loc>
-    <lastmod>2012-08-21T00:23:07-04:00</lastmod>
+    <lastmod>2012-08-21T09:35:03-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/404.html</loc>
-    <lastmod>2012-08-21T00:23:07-04:00</lastmod>
+    <lastmod>2012-08-21T09:35:03-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/about/</loc>
-    <lastmod>2012-08-21T00:23:07-04:00</lastmod>
+    <lastmod>2012-08-21T09:35:03-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/assets/css/style.css</loc>
-    <lastmod>2012-08-21T00:23:07-04:00</lastmod>
+    <lastmod>2012-08-21T09:35:03-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/assets/js/js.js</loc>
-    <lastmod>2012-08-21T00:23:07-04:00</lastmod>
+    <lastmod>2012-08-21T09:35:03-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/categories/</loc>
-    <lastmod>2012-08-21T00:23:07-04:00</lastmod>
+    <lastmod>2012-08-21T09:35:03-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/contact/</loc>
-    <lastmod>2012-08-21T00:23:07-04:00</lastmod>
+    <lastmod>2012-08-21T09:35:03-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/donate/</loc>
-    <lastmod>2012-08-21T00:23:07-04:00</lastmod>
+    <lastmod>2012-08-21T09:35:03-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/feed/</loc>
-    <lastmod>2012-08-21T00:23:07-04:00</lastmod>
+    <lastmod>2012-08-21T09:35:03-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/fine-print/</loc>
-    <lastmod>2012-08-21T00:23:07-04:00</lastmod>
+    <lastmod>2012-08-21T09:35:03-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/</loc>
-    <lastmod>2012-08-21T00:23:07-04:00</lastmod>
+    <lastmod>2012-08-21T09:35:03-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/resume/</loc>
-    <lastmod>2012-08-21T00:23:07-04:00</lastmod>
+    <lastmod>2012-08-21T09:35:03-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/sitemap.xml</loc>
-    <lastmod>2012-08-21T00:23:07-04:00</lastmod>
+    <lastmod>2012-08-21T09:35:03-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://localhost:4000/tags/</loc>
-    <lastmod>2012-08-21T00:23:07-04:00</lastmod>
+    <lastmod>2012-08-21T09:35:03-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
