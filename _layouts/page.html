@@ -1,17 +1,5 @@
-{% include header.html %}
-
-<div class="content">
-	<div class="row-fluid">
-		<div class="span2">&nbsp;</div>
-		<div class="span8">
-			<h2>{{ page.title }}</h2>
-			{{ content }}
-		</div>
-	</div>
-</div>
-
-{% if page.comments %}
-	{% include comments.html %}
-{% endif %}
-
-{% include footer.html %}
+---
+layout: default
+---
+<h2>{{ page.title }}</h2>
+{{ content }}

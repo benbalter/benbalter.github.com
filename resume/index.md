@@ -1,6 +1,0 @@
----
-author: Benjamin J. Balter
-title: Resume
-excerpt:
-layout: resume
----

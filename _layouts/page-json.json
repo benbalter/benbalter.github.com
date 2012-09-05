@@ -1,0 +1,10 @@
+---
+layout: none
+---
+{
+		"title":"{{ page.title | strip_newlines }}",
+		"id":"{{ page.id }}",
+		"url":"{{ site.url}}{{ page.url }}",
+		"description":"{{ page.description }}",
+		"content": "{{ content | markdownify | strip_newlines | replace:'"','\"'}}"
+}

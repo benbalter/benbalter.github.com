@@ -1,6 +1,6 @@
 	<ul class="nav" role="menu">
 		<li id="home" {% if page.url == site.url %}class="active"{% endif %}><a href="{{ site.url }}">Home</a>
-	{% for nav in site.pages %}{% if nav.title and nav.title != "Home" and nav.url != '/404.html' %}
-		<li id="{{ nav.id }}" {% if page.name and page.name == nav.name %}class="active"{% endif %}><a href="{{ site.url}}{{ nav.url | replace:'index.html','' }}">{{ nav.title }}</a></li>
+	{% for nav in site.categories.pages %}{% if nav.title and nav.title != "Home" and nav.url != '/404.html' %}
+		<li id="{{ nav.id }}" {% if page.name and page.name == nav.name %}class="active"{% endif %}><a href="{{ site.url}}{{ nav.url | replace:'index.html','' | replace:"/pages/","/" }}">{{ nav.title }}</a></li>
 		{% endif %}{% endfor %}
 	</ul>

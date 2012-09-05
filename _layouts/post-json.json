@@ -1,0 +1,13 @@
+---
+layout: none
+---
+{
+		"title":"{{ post.title | strip_newlines }}",
+		"id":"{{ post.id }}",
+		"url":"{{ site.url}}{{ post.url }}",
+		"description":"{{ post.description }}",
+		"tags": "{% for tag in post.tags %}{{ tag }}{% if forloop.rindex0 > 0 %}, {% endif %}{% endfor %}",
+		"categories":"{% for category in post.categories %}{{ category }}{% if forloop.rindex0 > 0 %}, {% endif %}{% endfor %}",
+		"date": "{{ post.date }}",
+		"content": "{{ content | markdownify | strip_newlines | replace:'"','\"'}}"
+}

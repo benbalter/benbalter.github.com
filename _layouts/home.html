@@ -3,12 +3,12 @@
 <div class="row-fluid">
 	<div class="span9">
 	
+	<div class="posts">
 {% for page in paginator.posts %}
-	{% if page.category != "resume" %}
-		{% include page-single.html %}
-	{% endif %} 
+	{% include page-single.html %}
 {% endfor %}
-
+	</div>
+	
 {% include pagination.html %}
 
 	</div>

@@ -23,3 +23,6 @@ body { padding-top: 60px; padding-bottom: 40px; }
 .resume h4 { font-style: italic; font-weight: normal; font-size: 14px; line-height:18px; }
 .resume h3 { font-size: 16px; font-weight: normal; }
 .resume ul { padding-left:16px; list-style-type:square; margin-left: 0; }
+
+.footnotes a[rev="footnote"] {float: right; margin-top: -2em; display: none; }
+.footnotes ol li:hover a[rev="footnote"] { display: block }

@@ -1,0 +1,236 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		
+	    
+	    
+	
+	
+	<title>Regular Expression to Parse Word-style Footnotes into WordPress's Simple Footnotes Format &raquo; Benjamin J. Balter</title>
+	<meta property='og:title' content='Regular Expression to Parse Word-style Footnotes into WordPress's Simple Footnotes Format &raquo; Benjamin J. Balter'/>
+
+	<meta property='og:site_name' content='Benjamin J. Balter'/>
+	
+	
+	<meta name="description" content="Regular Expression to automatically parse Microsoft Word's footnote format into a more web-friendly format for WordPress's Simple Footnotes plugin."/>
+	<meta property='og:description' content='Regular Expression to automatically parse Microsoft Word's footnote format into a more web-friendly format for WordPress's Simple Footnotes plugin.'/>
+	
+	
+	
+	
+	<link rel="canonical" href="http://localhost:4000/2011/03/20/regular-expression-to-parse-word-style-footnotes/" />
+
+	<link rel="next" href="http://localhost:4000/2011/04/04/when-all-you-have-is-a-pair-of-bolt-cutters/" title="When all you have is a pair of bolt cutters...
+" />
+	<link rel="prev" href="http://localhost:4000/2011/03/09/craft-your-personal-brand/" title="Using WordPress to Craft Your Personal Brand
+" />
+
+	<meta property='og:url' content='http://localhost:4000/2011/03/20/regular-expression-to-parse-word-style-footnotes/'/>
+	<link rel="alternate" type="application/rss+xml" title="Benjamin J. Balter &raquo; Feed" href="" />
+	
+	<meta property='og:locale' content='en_us'/>
+
+
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet" href="http://localhost:4000/assets/css/style.css">
+	<script src="http://localhost:4000/assets/js/modernizr-2.5.3-respond-1.1.0.min.js"></script>
+</head>
+<body class="default post-2011-03-20-regular-expression-to-parse-word-style-footnotes">
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+		<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Benjamin J. Balter</a>
+          <div class="nav-collapse">
+	        	<ul class="nav" role="menu">
+		<li id="home" ><a href="http://localhost:4000">Home</a>
+	
+		<li id="/resume" ><a href="http://localhost:4000/resume/">Resume</a></li>
+		
+		<li id="/fine-print" ><a href="http://localhost:4000/fine-print/">Fine Print</a></li>
+		
+		<li id="/donate" ><a href="http://localhost:4000/donate/">Donate</a></li>
+		
+		<li id="/contact" ><a href="http://localhost:4000/contact/">Contact</a></li>
+		
+		<li id="/about" ><a href="http://localhost:4000/about/">About</a></li>
+		
+	</ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="container-fluid">
+
+<header>
+	<div class="row-fluid">
+    	<div class="span12">
+        	<div class="hero-unit">
+            	<h1 role="banner"><a href="http://localhost:4000">Benjamin J. Balter</a></h1>
+            	<h2 class="description">J.D./M.B.A. Candidate, Open-Source Developer, Gov 2.0 Evangelist</h2>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="content">
+	<div class="row-fluid">
+		<div class="span2">&nbsp;</div>
+		<div class="span8">
+			<article id="post-2011-03-20-regular-expression-to-parse-word-style-footnotes" class="post post-2011-03-20-regular-expression-to-parse-word-style-footnotes">
+	<h2 class="title"><a href="http://localhost:4000/2011/03/20/regular-expression-to-parse-word-style-footnotes/">Regular Expression to Parse Word-style Footnotes into WordPress's Simple Footnotes Format</a></h2> 
+
+	<div class="post-meta">
+		<span class="entry-date">Posted on March 20, 2011</span> 
+		<span class="entry-author">by Benjamin J. Balter</span>
+	</div>
+	    
+    <div class="entrybody">
+      <p>I needed a quick-and-easy way to parse Microsoft Word&#8217;s footnote format into a more web-friendly format for a recent project. After a bit of regular expression hacking, I was able to build a WordPress plugin to automatically convert content pasted from Word into a format readable by <a href='http://andrewnacin.com'>Andrew Nacin&#8217;s</a> popular <a href='http://andrewnacin.com/2010/07/24/simple-footnotes-0-3/'>Simple Footnotes</a> plugin.</p>
+
+<p>The process is surprisingly simple given <a href='http://codex.wordpress.org/Plugin_API/Filter_Reference'>WordPress&#8217;s extensive filter API</a>. First, to grab the footnotes from Word&#8217;s <code>ftnref</code> format:</p>
+
+<pre><code>//grab all the Word-style footnotes into an array
+$pattern = &#39;#&amp;lt;a href\=&amp;quot;\#_ftnref([0-9]+)&amp;quot;&amp;gt;\[([0-9]+)\]&amp;lt;/a&amp;gt; (.*)#&#39;;
+preg_match_all( $pattern, $content, $footnotes, PREG_SET_ORDER);</code></pre>
+
+<p>This creates an array (<code>$footnotes</code>) with the both the footnote number and the text of the footnote. We then need a way to replace the in-text reference with the parsed footnotes so that Simple Footnotes can understand them. I did this by creating two arrays, a find array and a replace array with each Word-style footnote reference and its Simple Footnote formatted counterpart:</p>
+
+<pre><code>//build find and replace arrays
+foreach ($footnotes as $footnote) {
+    $find[] = &#39;#&amp;lt;a href\=&amp;quot;\#_ftn&#39;.$footnote[1].&#39;&amp;quot;&amp;gt;\[&#39;.$footnote[1].&#39;\]&amp;lt;/a&amp;gt;#&#39;;
+    $replace[] = &#39;[ref]&#39; . str_replace( array(&amp;quot;\r\n&amp;quot;, &amp;quot;\r&amp;quot;, &amp;quot;\n&amp;quot;), &amp;quot;&amp;quot;, $footnote[3]) . &#39;[/ref]&#39;;
+}</code></pre>
+
+<p>Finally, so that the entire replacement can be done in a single pass, push a final find/replace pair into the end of the array, to remove the original footnotes:</p>
+
+<pre><code>//remove all the original footnotes when done
+$find[] = &#39;#&amp;lt;div&amp;gt;\s*&amp;lt;a href\=&amp;quot;\#_ftnref([0-9]+)&amp;quot;&amp;gt;\[([0-9]+)\]&amp;lt;/a&amp;gt; (.*)\s*&amp;lt;/div&amp;gt;\s+#&#39;;
+$replace[] = &#39;&#39;;</code></pre>
+
+<p>Because PHP&#8217;s <code>preg_replace</code> function can handle arrays, all we have to do is run a single function:</p>
+
+<pre><code>$content = preg_replace( $find, $replace, $content );</code></pre>
+
+<p>Putting it all together, including a filter hook to call our function and a <code>meta_value</code> flag to prevent parsing on subsequent saves, the result is:</p>
+
+<pre><code>/*
+Plugin Name: Convert Footnotes
+Plugin URI: http://ben.balter.com/2011/03/20/regular-expression-to-parse-word-style-footnotes/
+Description: Converts Word Footnotes to Simple Footnotes format. Requires Simple Footnotes installed, available at: http://wordpress.org/extend/plugins/simple-footnotes/
+Version: 0.1
+Author: Benjamin J. Balter
+Author URI: http://ben.balter.com/
+Revised by Marc Chehab: http://www.marcchehab.org/
+*/
+
+/**
+ * Function which uses regular expression to parse Microsoft Word footnotes
+ * into WordPress&#39;s Simple Footnotes format
+ *
+ * @link http://ben.balter.com/2011/03/20/regular-expression-to-parse-word-style-footnotes/
+ * @param string $content post content from filter hook
+ * @returns string post content with parsed footnotes
+ */
+
+function bb_parse_footnotes( $content ) {
+
+	global $post;
+	if ( !isset( $post ) )
+		return;
+
+	//if we have already parsed, kick
+	if ( get_post_meta($post-&amp;gt;ID, &#39;parsed_footnotes&#39;) )
+		return $content;
+
+	$content = stripslashes( $content );
+
+	//grab all the Word-style footnotes into an array
+	$pattern = &#39;/\&amp;lt;a( title\=\&amp;quot;\&amp;quot;)? href\=\&amp;quot;[^\&amp;quot;]*\#_ftnref([0-9]+)\&amp;quot;\&amp;gt;\[([0-9]+)\]\&amp;lt;\/a\&amp;gt;(.*)/&#39;;
+	preg_match_all( $pattern, $content, $footnotes, PREG_SET_ORDER);
+
+	//build find and replace arrays
+	foreach ($footnotes as $footnote) {
+		$find[] = &#39;/\&amp;lt;a( title\=\&amp;quot;\&amp;quot;)? href\=\&amp;quot;[^\&amp;quot;]*\#_ftn&#39;.$footnote[2].&#39;\&amp;quot;\&amp;gt;(\&amp;lt;strong\&amp;gt;)?\[&#39;.$footnote[2].&#39;\](\&amp;lt;\/strong\&amp;gt;)?\&amp;lt;\/a\&amp;gt;/&#39;;
+		$replace[] = &#39; [^1]&#39;;
+	}
+
+	//remove all the original footnotes when done
+	$find[] = &#39;/\&amp;lt;div\&amp;gt;\s*(\&amp;lt;p\&amp;gt;)?\&amp;lt;a( title\=\&amp;quot;\&amp;quot;)? href\=\&amp;quot;[^\&amp;quot;]*\#_ftnref([0-9]+)\&amp;quot;\&amp;gt;\[([0-9]+)\]\&amp;lt;\/a\&amp;gt;(.*)\s*\&amp;lt;\/div\&amp;gt;\s+/s&#39;;
+	$replace[] = &#39;&#39;;
+
+	//make the switch
+	$content = preg_replace( $find, $replace, $content );
+
+	//add meta so we know it has been parsed
+	add_post_meta($post-&amp;gt;ID, &#39;parsed_footnotes&#39;, true, true);
+
+	return addslashes($content);
+}
+
+
+add_filter( &#39;content_save_pre&#39;, &#39;bb_parse_footnotes&#39; );</code></pre>
+
+<p>To use, you can <a href='https://github.com/benbalter/Convert-Microsoft-Word-Footnotes-to-WordPress-Simple-Footnotes'>download the plugin file</a> and activate (be sure you already have <a href='http://andrewnacin.com/2010/07/24/simple-footnotes-0-3/'>Simple Footnotes</a> installed). Copy the content from Word, and Paste into the &#8221;<em>Paste from Word</em>&#8221; box (may need to toggle the &#8221;<a href='http://www.bloggingteacher.com/writing-posts-with-the-wordpress-visual-editor-the-kitchen-sink'><em>Kitchen Sink</em></a>&#8221;.</p>
+
+<p>Thoughts? Improvements? The above code solved a rather stubborn workflow problem in a project I was working on, and hopefully it can do the same for you. Feel free to use/improve the above code. <sup id='fnref:1'><a href='#fn:1' rel='footnote'>1</a></sup> You can even <a href='http://ben.balter.com/2011/03/20/regular-expression-to-parse-word-style-footnotes/'>Fork the plugin over on Github</a>.</p>
+
+<p>Notes:</p>
+<div class='footnotes'><hr /><ol><li id='fn:1'>
+<p>Licensed under <a href='http://wordpress.org/about/gpl/'>GPLv2</a> <span>11</span></p>
+<a href='#fnref:1' rev='footnote'>&#8617;</a></li></ol></div>
+    </div>
+    
+    <div class="post-taxonomies">
+  		Posted in 
+
+<span class="term-list term-list-categories"><a href="http://localhost:4000/categories/#posts">posts</a></span> |
+		Tagged 
+
+<span class="term-list term-list-tags"><a href="http://localhost:4000/tags/#code">code</a>, <a href="http://localhost:4000/tags/#footnotes">footnotes</a>, <a href="http://localhost:4000/tags/#hack">hack</a>, <a href="http://localhost:4000/tags/#open source">open source</a>, <a href="http://localhost:4000/tags/#plugin">plugin</a>, <a href="http://localhost:4000/tags/#wordpress">wordpress</a></span>		
+    </div>
+</article>
+		</div>
+	</div>
+</div>
+
+
+
+
+     <footer>
+        <p>&copy; Company 2012</p>
+      </footer>
+      
+     </div><!--/.fluid-container-->
+           
+<!--	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="http://localhost:4000/javascript/jquery.js"><\/script>')</script>
+	<script src="js/underscore.js"></script>
+	<script src="js/backbone.js"></script>
+	<script src="js/app.js"></script>
+	<script src="http://localhost:4000/assets/js/js.js"></script> -->
+	<script data-main="js/main.js" src="http://localhost:4000/js/libs/require/require.js"></script>
+	<script>
+	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+	s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+</body>
+</html>
+<!-- Generated 2012-09-04 23:34:58 -0400 -->

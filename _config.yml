@@ -45,3 +45,7 @@ disqus_shortname: ''
 
 #google analytics username
 ga_username: 'UA-XXXXX-X'
+
+server: true
+auto: true
+pygments: true

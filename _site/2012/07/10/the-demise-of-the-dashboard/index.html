@@ -1,0 +1,176 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		
+	    
+	    
+	
+	
+	<title>The Demise of the Personal Dashboard &raquo; Benjamin J. Balter</title>
+	<meta property='og:title' content='The Demise of the Personal Dashboard &raquo; Benjamin J. Balter'/>
+
+	<meta property='og:site_name' content='Benjamin J. Balter'/>
+	
+	
+	<meta name="description" content="When building consumer applications, favor simplicity over complex personalized dashboards which bombard customers with information.
+"/>
+	<meta property='og:description' content='When building consumer applications, favor simplicity over complex personalized dashboards which bombard customers with information.
+'/>
+	
+	
+	
+	
+	<link rel="canonical" href="http://localhost:4000/2012/07/10/the-demise-of-the-dashboard/" />
+
+	<link rel="next" href="http://localhost:4000/2012/07/26/government-release-of-source-code-public-domain-or-open-source/" title="Government's Release of Federally Funded Source Code: Public Domain or Open Source? Yes." />
+	<link rel="prev" href="http://localhost:4000/2012/06/26/why-you-should-always-write-software-as-open-source/" title="Why You Should Always Write Software as Open Source, Even When It's Never Going to Be" />
+
+	<meta property='og:url' content='http://localhost:4000/2012/07/10/the-demise-of-the-dashboard/'/>
+	<link rel="alternate" type="application/rss+xml" title="Benjamin J. Balter &raquo; Feed" href="" />
+	
+	<meta property='og:locale' content='en_us'/>
+
+
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet" href="http://localhost:4000/assets/css/style.css">
+	<script src="http://localhost:4000/assets/js/modernizr-2.5.3-respond-1.1.0.min.js"></script>
+</head>
+<body class="default post-2012-07-10-the-demise-of-the-dashboard">
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+		<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Benjamin J. Balter</a>
+          <div class="nav-collapse">
+	        	<ul class="nav" role="menu">
+		<li id="home" ><a href="http://localhost:4000">Home</a>
+	
+		<li id="/resume" ><a href="http://localhost:4000/resume/">Resume</a></li>
+		
+		<li id="/fine-print" ><a href="http://localhost:4000/fine-print/">Fine Print</a></li>
+		
+		<li id="/donate" ><a href="http://localhost:4000/donate/">Donate</a></li>
+		
+		<li id="/contact" ><a href="http://localhost:4000/contact/">Contact</a></li>
+		
+		<li id="/about" ><a href="http://localhost:4000/about/">About</a></li>
+		
+	</ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="container-fluid">
+
+<header>
+	<div class="row-fluid">
+    	<div class="span12">
+        	<div class="hero-unit">
+            	<h1 role="banner"><a href="http://localhost:4000">Benjamin J. Balter</a></h1>
+            	<h2 class="description">J.D./M.B.A. Candidate, Open-Source Developer, Gov 2.0 Evangelist</h2>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="content">
+	<div class="row-fluid">
+		<div class="span2">&nbsp;</div>
+		<div class="span8">
+			<article id="post-2012-07-10-the-demise-of-the-dashboard" class="post post-2012-07-10-the-demise-of-the-dashboard">
+	<h2 class="title"><a href="http://localhost:4000/2012/07/10/the-demise-of-the-dashboard/">The Demise of the Personal Dashboard</a></h2> 
+
+	<div class="post-meta">
+		<span class="entry-date">Posted on July 10, 2012</span> 
+		<span class="entry-author">by Benjamin J. Balter</span>
+	</div>
+	    
+    <div class="entrybody">
+      <p><a href='http://googleblog.blogspot.com/2012/07/spring-cleaning-in-summer.html'><img alt='' src='http://googleblog.blogspot.com/2012/07/spring-cleaning-in-summer.html' /></a>I was recently asked how I would architect a personalized dashboard experience for visitors to a large, customer-facing website. My response? <em>I wouldn&#8217;t.</em></p>
+
+<p>A dashboard in a car or airplane makes sense. It&#8217;s not as if I could click &#8220;speedometer&#8221; while driving or press the &#8220;altimeter&#8221; button while flying. I simply need everything at all times. But virtual interfaces don&#8217;t have that same limitation. In fact they don&#8217;t have any limitations. A dashboard can have as much information as the most ambitious engineer can dream — and that&#8217;s exactly the problem.</p>
+
+<p>Put it in context: Google<a href='http://googleblog.blogspot.com/2012/07/spring-cleaning-in-summer.html'>recently announced the retirement of iGoogle</a>, it&#8217;s own personalized dashboard, and I second their nomination to induct dashboards into the #doingitwrong hall of fame, joining the likes of internet portals, splash pages, and well, basically anything involving ActiveX or Flash.</p>
+
+<p>Dashboard were a fun user interface experiment. They really were, especially compared to the static pages they evolved from. That was the whole point of Web 2.0, wasn&#8217;t it? Personalization? I mean, it was really cool to drag and drop widgets, and build a virtual command center to monitor my little corner of the internet, and that was fine when there wasn&#8217;t much internet out there to monitor. But the web collectively hit a tipping point a few years back. From push notifications to always-on e-mail, in more ways than we imagine, we now bombard ourselves with more information that we can physically process at any given moment. <a href='http://www.apple.com/iphone/features/retina-display.html'>Quite literally</a>.</p>
+
+<p>Think about it this way: when customers come to a website, they&#8217;re not looking to solve 10 problems. They&#8217;re looking to solve one. They don&#8217;t want all the potentially relevant information thrown at them all at once; they just want what they need. And they want computers to make that determination for them. But hey, this isn&#8217;t the first time those who predict our user experience needs have erred on the side of <a href='http://www.pocket-lint.com/images/dynamic/NEWS-32125-b3a8b509bc5e3a074f7f240f57d71aa9.jpg'>moar is better</a>.</p>
+
+<p>So that&#8217;s it? That&#8217;s the end of simultaneous streams? <a href='http://www.informationweek.com/news/software/productivity_apps/240003296'>Far from it</a>. This once-disruptive technology now has a long journey down the Technology S Curve as it becomes the go-to solution for all the business intelligence and project analyst types that stumble across it, in other words, the late adopters.</p>
+
+<p>Don&#8217;t get me wrong. I&#8217;m sure guilty of building <a href='http://my.fcc.gov/'>a dashboard</a> or <a href='http://codex.wordpress.org/Dashboard_Screen'>two</a> in my day. I&#8217;m not saying that they&#8217;ve never had a place. What I&#8217;m saying is that today, not even the most complex dashboard could give you an accurate snapshot of its genus&#8217;s future. If not dashes, then what? Beyond turning everything into a ubiquitous search box (<em>a la</em> <a href='http://gov.uk'>gov.uk</a>), I&#8217;m far from for a UI/UX expert, but I tend to think that startups generally have a pretty good sense of what&#8217;s next. They have to. If they don&#8217;t get it right the first time around, they tend not to have a second try. So what do we see?</p>
+
+<ul>
+<li><strong>Activity -</strong> Social apps like Facebook, Twitter, Foursquare, even GitHub are all built around the concept of activity. Whether its a news feed, recent checkins, or even commit activity, the question I come with is &#8220;what&#8217;s going on?&#8221; and it gets answered as in depth as I care to scroll through, not as in depth as an engineer arbitrarily decided I needed a few years back. It&#8217;s linear. It&#8217;s <a href='http://en.wikipedia.org/wiki/Inverted_pyramid'>inverted pyramid</a>. It&#8217;s customized by whom or what I follow, not by what I add or (re)arrange.</li>
+</ul>
+<!-- -->
+<ul>
+<li><strong>Minimal</strong> – Productivity apps like Gmail, Google Reader, even dropbox don&#8217;t summarize for me how many e-mails, unread posts, or free MB I have as soon as I log in, and with the exception of a few labs features here or there, don&#8217;t even give me the option to have anything more than a bare-bones inbox, unread feed, or directory listing. In fact, GMail and Google Reader were recently criticized for <a href='http://jonoscript.wordpress.com/2012/04/26/gmail-designer-arrogance-and-the-cult-of-minimalism/'>going a bit too far</a> in this direction. But the lesson is the same: just give me my stuff and get out of the way.</li>
+</ul>
+<!-- -->
+<ul>
+<li><strong>Immediate</strong> - Transactional apps, like Uber or Square focus on action, not the past (or even the present). When I open the Uber or square apps, I&#8217;m immediately presented with the ability to request a vehicle or swipe a card, not my top tasks, not an arbitrary array of options or metrics, not with recent news about the product or popular add-ons. The app simply stands at attention, awaiting orders. I actually had to dig a bit to find my transaction history and related business analytics, and I&#8217;d argue that&#8217;s a really good thing.</li>
+</ul>
+
+<p>Think about the last time you&#8217;ve used a drag-and-drop dashboard: If you&#8217;re like me, it&#8217;s going to be either Google Analytics or WordPress, and if that&#8217;s the case, it&#8217;s simply known as <em>the screen you see after you log in, but before you can do what you need to do</em>. It&#8217;s wasted pixels. It&#8217;s cruft from a bygone era when clicks were expensive and developers were left wondering &#8220;how can we fit more on a page&#8221;.</p>
+
+<p>Options are a crutch. It&#8217;s the natural tendency of any engineer to over engineer a system, and that tendency is even stronger in a risk-averse, top-down culture <a href='http://www.google.com/?q=dashboard+site:.gov'>like government</a>. But your job — as an engineer, as a product manager, as user — is to push back, to fight that urge, to make <a href='http://wordpress.org/about/philosophy/'>decisions, not options</a>. Not convinced? That feature you can&#8217;t <a href='https://github.com/blog/1091-spring-cleaning'>bring yourself to cut</a>? Expose it through your API and see how many users complain.</p>
+
+<p>It&#8217;s no longer a question of &#8220;is this possible technologically?&#8221;. It&#8217;s no longer a matter of &#8220;can you expose me to that information 24/7?&#8221;. Ever since the advent of <a href='http://html5zombo.com/'>Zombo com</a>, the only limit is our imagination. We&#8217;ve figured out the hard stuff. It&#8217;s not centralization and personalization. It&#8217;s decentralization and interoperability. Simplicity is the new black.</p>
+
+<p><span />: http://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things.jpeg</p>
+    </div>
+    
+    <div class="post-taxonomies">
+  		Posted in 
+
+<span class="term-list term-list-categories"><a href="http://localhost:4000/categories/#posts">posts</a></span> |
+		Tagged 
+
+<span class="term-list term-list-tags"><a href="http://localhost:4000/tags/#.govs">.govs</a>, <a href="http://localhost:4000/tags/#analytics">analytics</a>, <a href="http://localhost:4000/tags/#dashboard">dashboard</a>, <a href="http://localhost:4000/tags/#enterprise">enterprise</a>, <a href="http://localhost:4000/tags/#gov 2.0">gov 2.0</a>, <a href="http://localhost:4000/tags/#government">government</a>, <a href="http://localhost:4000/tags/#kpis">KPIs</a>, <a href="http://localhost:4000/tags/#start ups">start ups</a>, <a href="http://localhost:4000/tags/#ui">ui</a>, <a href="http://localhost:4000/tags/#ui/ux">ui/ux</a>, <a href="http://localhost:4000/tags/#ux">ux</a>, <a href="http://localhost:4000/tags/#wordpress">wordpress</a></span>		
+    </div>
+</article>
+		</div>
+	</div>
+</div>
+
+
+
+
+     <footer>
+        <p>&copy; Company 2012</p>
+      </footer>
+      
+     </div><!--/.fluid-container-->
+           
+<!--	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="http://localhost:4000/javascript/jquery.js"><\/script>')</script>
+	<script src="js/underscore.js"></script>
+	<script src="js/backbone.js"></script>
+	<script src="js/app.js"></script>
+	<script src="http://localhost:4000/assets/js/js.js"></script> -->
+	<script data-main="js/main.js" src="http://localhost:4000/js/libs/require/require.js"></script>
+	<script>
+	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+	s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+</body>
+</html>
+<!-- Generated 2012-09-04 23:34:58 -0400 -->
