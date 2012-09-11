@@ -1,5 +1,9 @@
+/* Structure */
 body { padding-top: 40px; padding-bottom: 0; }
-.sidebar-nav { padding: 9px 0;}
+.container, .container-fluid { width: 80%; margin-left: auto; margin-right: auto; }
+.wrap { background: #ccc; padding-bottom: 40px; }
+.wrap .container, .wrap .container-fluid {  background: #fff; padding: 20px 40px; }
+.navbar .container, .navbar .container-fluid { padding: 0 40px 0 0; }
 
 /* Contact social icons */
 #contact-links {list-style: none; text-align: center; font-size: 8pt; line-height: 14px;}
@@ -7,12 +11,7 @@ body { padding-top: 40px; padding-bottom: 0; }
 #contact-links li {display: inline-block; padding: 0 15px 0 15px; text-align: center; margin-left: auto; margin-right: auto;}
 
 /* images */
-.aligncenter { 
-	clear: both;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
+.aligncenter { clear: both;	display: block;	margin-left: auto;margin-right: auto; }
 
 /* Resume */
 .resume .content a {text-decoration: none; color: #757575;}
@@ -24,35 +23,25 @@ body { padding-top: 40px; padding-bottom: 0; }
 .resume h3 { font-size: 16px; font-weight: normal; }
 .resume ul { padding-left:16px; list-style-type:square; margin-left: 0; }
 
+/* Footnotes */
 .footnotes a[rev="footnote"] {float: right; margin-top: -2em; display: none; }
 .footnotes ol li:hover a[rev="footnote"] { display: block }
 .home .footnotes { display:none }
 
+/* Sidebar */
+.sidebar { font-size: 12px; }
+.sidebar-nav { padding: 9px 0;}
+.sidebar h4 { padding: 5px 0 5px 0; }
 
-h2.title { line-height: 28px; }
-
-footer { border-top: 1px solid #eee; margin: 50px 0 0 0; padding-top: 25px; }
-.fine-print { float: right;}
-.fine-print a, .fine-print a:visited { color: #ccc; }
-
+/* Posts */
 .post-meta { margin: 0 0 20px 0; font-style: italic; }
-
-.container, .container-fluid { width: 80%; margin-left: auto; margin-right: auto; }
-.wrap { background: #ccc; padding-bottom: 40px; }
-.wrap .container, .wrap .container-fluid {  background: #fff; padding: 20px 40px; }
-.navbar .container, .navbar .container-fluid { padding: 0 40px 0 0; }
-
 .home article { margin-bottom: 25px; }
+article .entrybody { text-align: justify; }
 
-@media (max-width: 979px) {
-	.container, .container-fluid { width: auto; }
-}
-
+/* Search */
 #search { width: 96%; }
 
-.hero-unit h1 { text-shaddow: 4px 4px 15px black !important; }
-.hero-unit h1 a { font-size: 40px; text-shadow: 1px 1px 2px black;  }
-.hero-unit h2 { font-size: 18px; }
+/* Hero */
 
 .hero-unit { 
 	background-image: url( 'http://cdn.benbalter.com/wp-content/uploads/2012/05/cropped-wp-header.jpg' );
@@ -71,6 +60,21 @@ footer { border-top: 1px solid #eee; margin: 50px 0 0 0; padding-top: 25px; }
 	right: 5px;
 	position: absolute;
 	text-align: right;
+}
+
+.hero-unit h1 { text-shaddow: 4px 4px 15px black !important; }
+.hero-unit h1 a { font-size: 40px; text-shadow: 1px 1px 2px black;  }
+.hero-unit h2 { font-size: 18px; }
+
+/* Footer */
+footer { border-top: 1px solid #eee; margin: 50px 0 0 0; padding-top: 25px; }
+.fine-print { float: right;}
+.fine-print a, .fine-print a:visited { color: #ccc; }
+
+/* Responsiveness */
+
+@media (max-width: 979px) {
+	.container, .container-fluid { width: auto; }
 }
 
 @media (max-width: 875px) {

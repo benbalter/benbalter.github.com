@@ -1,6 +1,6 @@
 	<ul class="nav" role="menu">
-		<li id="home" {% if page.url == site.url %}class="active"{% endif %}><a href="{{ site.url }}">Home</a>
-	{% for nav in site.categories.pages %}{% if nav.title and nav.title != "Home" and nav.url != '/404.html' %}
-		<li id="{{ nav.id }}" {% if page.name and page.name == nav.name %}class="active"{% endif %}><a href="{{ site.url}}{{ nav.url | replace:'index.html','' | replace:"/pages/","/" }}">{{ nav.title }}</a></li>
-		{% endif %}{% endfor %}
+		<li id="home"{% if page.url == '/index.html' %} class="active"{% endif %}><a href="{{ site.url }}">Home</a>
+		<li id="about"{% if page.url == "/about/"%} class="active"{% endif %}><a href="{{ site.url }}/about/" rel="author">About</a></li>
+		<li id="resume"{% if page.url == "/resume/"%} class="active"{% endif %}><a href="{{ site.url}}/resume/">Resume</a></li>
+		<li id="contact"{% if page.url == "/contact/"%} class="active"{% endif %}><a href="{{ site.url }}/contact/">Contact</a></li>
 	</ul>
