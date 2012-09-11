@@ -2,7 +2,7 @@
 layout: none
 ---
 {% capture json %}[{% for post in site.posts %}{
-"title":"{{ post.title | strip_newlines }}",
+"title":"{{ post.title | replace:'"','\"' }}",
 "id":"{{ post.id }}",
 "url":"{{ site.url}}{{ post.url }}",
 "description":"{{ post.description }}",
@@ -10,4 +10,4 @@ layout: none
 "categories":"{% for category in post.categories %}{{ category }}{% if forloop.rindex0 > 0 %}, {% endif %}{% endfor %}",
 "date": "{{ post.date }}",
 "content": "{{ post.content | newline_to_br }}"
-}{% if forloop.rindex0 != 0 %},{% endif %}{% endfor %}]{% endcapture %}{{ json | strip_newlines }}
+}{% if forloop.rindex0 != 0 %},{% endif %}{% endfor %}]{% endcapture %}{{ json | strip_newlines | replace:"\t"," " }}
