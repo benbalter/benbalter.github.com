@@ -39,7 +39,7 @@ body { padding-top: 40px; padding-bottom: 0; }
 article .entrybody { text-align: justify; }
 
 /* Search */
-#search { width: 96%; }
+#query { width: 96%; }
 
 /* Hero */
 

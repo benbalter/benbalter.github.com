@@ -2,9 +2,12 @@
 layout: none
 ---
 {% capture js %}
-	{% include js/bootstrap.min.js %}
-	{% include js/emphasis.js %}
-	{% include js/jquery.infinitescroll.js%}
-	{% include js/infinitescroll.js %}
-	{% include js/js.js %}
+{% include js/emphasis.js %}
+{% include js/jquery.infinitescroll.js %}
+{% include js/jquery.relatize_date.js %}
+{% include js/infinitescroll.js %}
+{% include js/ga.js %}
+{% include js/commits.js %}
+{% include js/tweets.js %}
+{% include js/search.js %}
 {% endcapture %}{{ js }}

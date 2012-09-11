@@ -39,13 +39,19 @@ prose:
 twitter: 
   username: "benbalter"
   count: 5
+
+#twitter handle for widget
+github: 
+  repo: "benbalter"
+  count: 5
   
 #disqus username
-disqus_shortname: ''
+disqus_shortname: 'benbalter'
 
 #google analytics username
 ga_username: 'UA-XXXXX-X'
 
+#build config
 server: true
 auto: true
 pygments: true
