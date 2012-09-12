@@ -5,4 +5,5 @@ layout: none
 	{% include css/style.css %}
 	{% include css/bootstrap.css %}
 	{% include css/bootstrap-responsive.css %}
-{% endcapture %}{{ css | strip_newlines | replace:"\t",'' }}
+	{% include css/pygmentize.css %}
+{% endcapture %}{{ css | strip_newlines }}

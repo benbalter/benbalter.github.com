@@ -28,75 +28,76 @@ Google recently added [social engagement tracking][1] to its analytics suite. Wi
 
 If your site uses WordPress's JetPack plugin with Sharedaddy, and you already have [Google Analytics][2] up and running, you can use jQuery to attach the virtual event to the share button.
 
-
-
 To add Google Analytics to Sharedaddy's Twitter share button:
 
-    $('a.share-twitter').click( function() {
-    _gaq.push( ['_trackSocial', 'twitter', 'share',
-    $(this).attr('href').substr(0, $(this).attr('href').indexOf('?'))]);
-    });
-    
+{% highlight javascript %}
+$('a.share-twitter').click( function() {
+_gaq.push( ['_trackSocial', 'twitter', 'share',
+$(this).attr('href').substr(0, $(this).attr('href').indexOf('?'))]);
+});
+{% endhighlight %}    
 
 …and for Facebook:
 
-    $('a.share-facebook').click( function() {
-    _gaq.push( ['_trackSocial', 'faceboook', 'share',
-    $(this).attr('href').substr(0, $(this).attr('href').indexOf('?'))]);
-    });
-    
+{% highlight javascript %}
+$('a.share-facebook').click( function() {
+_gaq.push( ['_trackSocial', 'faceboook', 'share',
+$(this).attr('href').substr(0, $(this).attr('href').indexOf('?'))]);
+});
+{% endhighlight %}
 
 The above code simply listens for the share button to be clicked, and if so, passes the target URL back to Google, along with the service's name. Putting it all together into a plugin with a hook to `<del>wp_head</del> wp_footer` you get:
 
-    &lt;?php
-    /**
-     * Plugin Name: Jetpack (Sharedaddy) Google Analytics Tracking
-     * Description: Allows tracking of Facebook and Twitter shares in Google Analytics Social Tracking
-     * Author: Benjamin J. Balter
-     * Author URI:  http://ben.balter.com
-     * Version: 0.1
-     */
-    
-     /**
-      * Outputs javascript to document footer
-      */
-    function bb_ga_social_footer() { ?&gt;
-    
-    &lt;script&gt;
-    	jQuery(document).ready(function($) {
-    
-    		//twitter
-    		$('a.share-twitter').click(function(){
-    		_gaq.push( ['_trackSocial', 'twitter', 'share',
-    		$(this).attr('href').substr(0, 	$(this).attr('href').indexOf('?'))]);
-    		});
-    
-    		//facebook
-    		$('a.share-facebook').click( function() {
-    		_gaq.push( ['_trackSocial', 'faceboook', 'share',
-    		$(this).attr('href').substr(0, $(this).attr('href').indexOf('?'))]);
-    		});
-    
-    	});
-    &lt;/script&gt;
-    
-    &lt;?php }
-    
-    //add our hook with higher-than-default priority
-    add_action('wp_footer', 'bb_ga_social_footer', 20)
-    
-    /**
-     * Require WP to load jQuery if not already loaded
-     * h/t @Ramoonus
-     */
-    function bb_ga_social_enqueue() {
-    	wp_enqueue_script(&quot;jquery&quot;);
-    }
-    
-    //add hook to enqueue jQuery on load
-    add_action('init', 'bb_ga_social_enqueue');
-    ?&gt;
-    
+{% highlight php %}
+<?php
+/**
+ * Plugin Name: Jetpack (Sharedaddy) Google Analytics Tracking
+ * Description: Allows tracking of Facebook and Twitter shares in Google Analytics Social Tracking
+ * Author: Benjamin J. Balter
+ * Author URI:  http://ben.balter.com
+ * Version: 0.1
+ */
+
+ /**
+  * Outputs javascript to document footer
+  */
+function bb_ga_social_footer() { ?>
+
+<script>
+     jQuery(document).ready(function($) {
+
+          //twitter
+          $('a.share-twitter').click(function(){
+          _gaq.push( ['_trackSocial', 'twitter', 'share',
+          $(this).attr('href').substr(0,      $(this).attr('href').indexOf('?'))]);
+          });
+
+          //facebook
+          $('a.share-facebook').click( function() {
+          _gaq.push( ['_trackSocial', 'faceboook', 'share',
+          $(this).attr('href').substr(0, $(this).attr('href').indexOf('?'))]);
+          });
+
+     });
+</script>
+
+<?php }
+
+//add our hook with higher-than-default priority
+add_action('wp_footer', 'bb_ga_social_footer', 20)
+
+/**
+ * Require WP to load jQuery if not already loaded
+ * h/t @Ramoonus
+ */
+function bb_ga_social_enqueue() {
+     wp_enqueue_script(&quot;jquery&quot;);
+}
+
+//add hook to enqueue jQuery on load
+add_action('init', 'bb_ga_social_enqueue');
+?>
+{% endhighlight %}    
 
 The code should work out of the box with the standard share buttons (seen below), but can easily be adapted with a few minor modifications to apply to like and other iterations of the social media icons.
 
