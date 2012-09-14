@@ -1,5 +1,7 @@
 ---
 layout: default
 ---
-<h2>{{ page.title }}</h2>
+
+{% capture title %}## {{ page.title }}{% endcapture %}{{ title | markdownify }}
+
 {{ content }}

@@ -22,8 +22,7 @@ tags:
   - proprietary
 post_format: [ ]
 ---
-[![][2]][2]
-Unsatisfied with your contractor?
+[![Unsatisfied with your Contractor?](http://ben.balter.com/wp-content/uploads/2012/06/mike-holmes-203x300.jpeg){.alignright}][1]
 
 There are two kinds of software: cludgy software and open source. Think about it logically. When you (or your organization) is the only person that's ever going to see something, you're a lot more likely to "just make it work." After all, who would ever know? [^1]
 
@@ -45,7 +44,7 @@ Notes:
 
 [^1]: The same would apply when you're buying software and the contractor is under the impression no one outside the organization will ever see the code, and more importantly, the code could never negatively impact the public's perception of their overall work-product [5]
 
- []: http://ben.balter.com/wp-content/uploads/2012/06/mike-holmes.jpeg
- [2]: #note-2020-1 "The same would apply when you're buying software and the contractor is under the impression no one outside the organization will ever see the code, and more importantly, the code could never negatively impact the public's perception of their overall work-product"
+ [1]: http://ben.balter.com/wp-content/uploads/2012/06/mike-holmes.jpeg
+ [2]: "The same would apply when you're buying software and the contractor is under the impression no one outside the organization will ever see the code, and more importantly, the code could never negatively impact the public's perception of their overall work-product"
  [3]: https://twitter.com/BenBalter/status/209356982983999488
  [4]: http://www.coverity.com/library/pdf/coverity-scan-2011-open-source-integrity-report.pdf

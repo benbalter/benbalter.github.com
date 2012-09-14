@@ -1,4 +1,5 @@
 <article id="post{{ page.id | replace:"/","-" }}" class="post post{{ page.id | replace:"/","-" }}">
+	
 	<h2 class="title"><a href="{{ site.url}}{{ page.url }}">{{ page.title }}</a></h2> 
 
 	<div class="post-meta">
@@ -7,11 +8,20 @@
 	</div>
 	    
     <div class="entrybody">
-      {{ page.content | markdownify }}
+      {{ page.content }}
     </div>
     
+    <div class="related">
+{% capture related %}
+#### Related Posts:
+{% for post in site.related_posts %}
+1. [{{ post.title }}]({{ site.url }}{{ post.url }}){% endfor %}
+{% endcapture %}{{ related | markdownify }}
+    </div>
+
     <div class="post-taxonomies">
-  		Posted in {% assign taxonomy = 'categories' %}{% include term-list-csv.html %} |
+  		Posted in {% assign taxonomy = 'category' %}{% include term-list-csv.html %} |
 		Tagged {% assign taxonomy = 'tags' %}{% include term-list-csv.html %}		
     </div>
+    
 </article>

@@ -21,7 +21,9 @@ tags:
   - wordpress
 post_format: [ ]
 ---
-[![][2]][2]Over the past several years WordPress's market share has enjoyed explosive growth across virtually every industry. Today, it powers [nearly a quarter of new sites][2], and is the CMS of choice for[ more than two thirds of the top-million sites][3] on the web making it the world's most popular publishing platform by a long shot. Yet one group of seemingly ideal users has been slow to take the former blogging platform seriously: .Govs.
+[![WordPress for Government](http://ben.balter.com/wp-content/uploads/2012/03/wordpress-in-government-ben-balter-150x150.png){.alignleft}][1]
+
+Over the past several years WordPress's market share has enjoyed explosive growth across virtually every industry. Today, it powers [nearly a quarter of new sites][2], and is the CMS of choice for[ more than two thirds of the top-million sites][3] on the web making it the world's most popular publishing platform by a long shot. Yet one group of seemingly ideal users has been slow to take the former blogging platform seriously: .Govs.
 
 Drupal powers twice as many federal .Govs [as every other CMS combined][4]. That's more than six Drupal sites for every one WordPress .Gov alone, not to mention the Joomlas, MovableTypes, and SharePoints of the world. The build-it-yourself software powers the White House, the House of Representatives, half a dozen agencies, and countless data-driven microsites like Recovery.gov and the IT Spending Dashboard, and its public sector use is [equally if not more impressive abroad][5].
 
@@ -45,15 +47,42 @@ When you stack the two side by side (or against any other CMS for that matter), 
 
 Among those empowered to make purchasing decisions, there seems to be a sense that WordPress is what you use on the weekends to post pictures of your lunch while Drupal is what you use for "serious" business, and with good reason. For better or for worse, Drupal has positioned itself as not just a CMS, but rather *the* enterprise solution — an inseparable fifth layer of the increasingly ubiquitous enterprise LAMPD stack.
 
-
-
-|                   | Drupal       | WordPress               |
-| ----------------- | ------------ | ----------------------- |
-| API Hooks         | [267][7]     | [1,506][8] (5x)         |
-| Active Sites      | [533,136][9] | [65,052,049][10] (125x) |
-| Plugins / Modules | [8,536][11]  | [16,076][12] (2x)       |
-| Themes            | [893][13]    | [1,426][14] (1.5x)      |
-| Community [^2] | 1.5 Million  | 20 Million (13x)        |
+<table class="table">
+	<thead>
+		<tr>
+			<th></th>
+			<th>Drupal</th>
+			<th>WordPress</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>API Hooks</td>
+			<td markdown="1">[267][7]</td>
+			<td markdown="1">[1,506][8] (5x)</td>
+		</tr>
+		<tr>
+			<td>Active Sites</td>
+			<td markdown="1">[533,136][9]</td>
+			<td markdown="1">[65,052,049][10] (125x)</td>		
+		</tr>
+		<tr>
+			<td>Plugins / Modules</td>
+			<td markdown="1">[8,536][11]</td>
+			<td markdown="1">[16,076][12] (2x)</td>		
+		</tr>
+		<tr>
+			<td>Themes</td>
+			<td markdown="1">[893][13]</td>
+			<td markdown="1">[1,426][14] (1.5x)</td>		
+		</tr>
+		<tr>
+			<td>Community[^2]</td>
+			<td markdown="1">1.5 Million</td>
+			<td markdown="1">20 Million (13x)</td>		
+		</tr>
+	</tbody>
+</table>
 
 ## **Beyond Cowboy Coders**
 
@@ -95,19 +124,16 @@ WordPress and government just make sense. As public institutions both large and 
 
 Whether WordPress is your primary source of income, a hobby, or just the thing that powers your personal site, we all have a stake in WordPress's future. It is paramount that the community stays true to its scrappy roots. After all, there's no sense selling the couch to buy a new TV. Yet, in order to be taken seriously by the public sector as a platform for more than simply sharing photos of kitten and chronicling teenage angst, we must first take ourselves seriously, and take baby steps to bring government adoption in line with the WordPress community's otherwise unparalleled and well-deserved success.
 
-[![][29]][29] 
-*This article originally printed in the [March, 2012 issue of The WPCandy Quarterly][29]. *
-
-**[Continue Reading →][30]**  
-(subscription required)
-
-Notes:
+<div style="border: 1px solid black; background: #eee; padding: 15px 15px 15px 15px; margin-bottom: 30px; min-height: 150px; "><a href="http://ben.balter.com/wp-content/uploads/2012/03/q-cover-issue01-300x387.jpeg"><img class="alignleft size-thumbnail wp-image-2330" title="q-cover-issue01-300x387" src="http://ben.balter.com/wp-content/uploads/2012/03/q-cover-issue01-300x387-150x150.jpg" alt="" width="150" height="150" /></a>
+<p style="margin-top: 20px;"><em>This article originally printed in the <a href="http://wpcandy.com/announces/quarterly-issue-one-ships">March, 2012 issue of The WPCandy Quarterly</a>. </em></p>
+<p><strong><a href="http://wpcandy.com/quarterly">Continue Reading →</a></strong><br /><span style="font-size:12px">(subscription required)</span></p>
+</div>
 
 [^1]: **Update (3/7):** As many have pointed out, a lot of the misinformation may also be traced back to somewhat of a *decision lag*. Custom post types, custom taxonomies, and WordPress multisite — three key features that although minor from a technical standpoint, really served as the fundamental shift to transition the platform from *blog+* to *full-fledged CMS* — came about only three major versions ago (WordPress 3.0). While eighteen months may be an eternity for the vast majority of the technology sector (the iPad 1 had just barely launched eighteen months ago for comparison), in the Government space, [procurement regulations dictate that such lag times are all but the norm][31]. As a result, in an already risk-averse contracting environment, we may actually be seeing numbers that more accurately reflect say, WordPress 2.9′s reception in the Government sector — a snapshot of when an agency chose a CMS at the onset of a multi-year procurement — rather than those that accurately reflect its technical capabilities today. [32]
 [^2]: Jen Lampton, "Why WordPress is Better than Drupal, Developers Take Note" (July, 2010) [33]
 [^3]: **Update (3/8):** The features page is part of a community edited Wiki (the WordPress Codex) and since originally posted, I've gone through and reworked much of the blog-specific language. [View the original][34]. [35]
 
- []: http://ben.balter.com/wp-content/uploads/2012/03/wordpress-in-government-ben-balter.png
+ [1]: http://ben.balter.com/wp-content/uploads/2012/03/wordpress-in-government-ben-balter.png
  [2]: http://techcrunch.com/2011/08/19/wordpress-now-powers-22-percent-of-new-active-websites-in-the-us/
  [3]: http://trends.builtwith.com/cms
  [4]: http://dotgov.benbalter.com
@@ -134,7 +160,7 @@ Notes:
  [25]: http://wordpress.org/about/philosophy/
  [26]: http://en.wordpress.com/notable-users/
  [27]: http://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/ "WP Document Revisions — Document Management & Version Control for WordPress"
- []: http://ben.balter.com/wp-content/uploads/2012/03/q-cover-issue01-300x387.jpeg
+ [28]: http://ben.balter.com/wp-content/uploads/2012/03/q-cover-issue01-300x387.jpeg
  [29]: http://wpcandy.com/announces/quarterly-issue-one-ships
  [30]: http://wpcandy.com/quarterly
  [31]: http://ben.balter.com/2011/11/29/towards-a-more-agile-government/

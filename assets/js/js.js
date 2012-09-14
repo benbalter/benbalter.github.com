@@ -10,4 +10,5 @@ layout: none
 {% include js/commits.js %}
 {% include js/tweets.js %}
 {% include js/search.js %}
+{% include js/resume.js %}
 {% endcapture %}{{ js }}

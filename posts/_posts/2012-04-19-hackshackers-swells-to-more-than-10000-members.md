@@ -22,7 +22,7 @@ tags:
   - technologists
 post_format: [ ]
 ---
-[![][2]][2]
+[![](http://ben.balter.com/wp-content/uploads/2012/04/hacks-hackers-10k.png){.aligncenter}][1]
 
 [Hacks/Hackers][2] — the international grassroots journalism organization dedicated to creating a network of journalists and technologists to rethink the future of news and information — [welcomed its 10,000th member][3] today. Just two and half years after our start as a Meetup group in the Bay Area, we're now in [seven countries, across 26 cities, and have regular events on four continents][4].
 
@@ -34,7 +34,7 @@ post_format: [ ]
 
 [View the story "Hacks/Hackers reaches 10k members: Tell us your story" on Storify][7]
 
- []: http://ben.balter.com/wp-content/uploads/2012/04/hacks-hackers-10k.png
+ [q]: http://ben.balter.com/wp-content/uploads/2012/04/hacks-hackers-10k.png
  [2]: http://hackshackers.com/
  [3]: http://hackshackers.com/blog/2012/04/19/hackshackers-passes-10k-members-worldwide/
  [4]: http://hackshackers.meetup.com/

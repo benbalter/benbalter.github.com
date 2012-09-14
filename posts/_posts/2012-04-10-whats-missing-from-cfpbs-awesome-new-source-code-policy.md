@@ -25,7 +25,10 @@ tags:
   - source code policy
 post_format: [ ]
 ---
-![][1]Most often, when we talk about open source in government, it's talked about in one of two ways: either it's [the pitfalls of the federal IT procurement model][2] that can't seem to comprehend a world in which open-source is an option, much less potentially a superior choice (["acquisition as a roadblock][3]"), or it's reiterating the same open-source talking points that haven't seemed to give open source much parity with the wall of organizational inertia proprietary software seems to have gained over the years ("[open source as an alternative][4]").
+
+![CFPB Logo][1]{.alignright}
+
+Most often, when we talk about open source in government, it's talked about in one of two ways: either it's [the pitfalls of the federal IT procurement model][2] that can't seem to comprehend a world in which open-source is an option, much less potentially a superior choice (["acquisition as a roadblock][3]"), or it's reiterating the same open-source talking points that haven't seemed to give open source much parity with the wall of organizational inertia proprietary software seems to have gained over the years ("[open source as an alternative][4]").
 
 The [Consumer Financial Protection Bureau][5] (CFPB), however, is in a unique position. As the newest kid on the block, it's one of the few government agencies to have been born in a digital era, and more importantly, without the bureaucratic baggage that all too often stymies innovation. They have a chance to "do it right" from the start… and they're doing just that.
 
