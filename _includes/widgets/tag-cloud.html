@@ -3,7 +3,7 @@
 	{% assign min_size = 1 %}
 	{% assign multiplier = 2.5 %}
 	{% for tag in site.tags %}
-		{% assign num_posts = tag | last | size %}
+		{% assign num_posts = tag.last.size %}
 		{% assign percent = num_posts | times: 100 | divided_by: total_tags %}
 		{% if percent > min_size %}
    <li class="tag" id="{{ tag | first }}"><a href="tags/#{{ tag | first }}" style="font-size: {{ percent | times: multiplier }}px;">
