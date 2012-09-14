@@ -6,7 +6,7 @@
 		{% assign num_posts = tag | last | size %}
 		{% assign percent = num_posts | times: 100 | divided_by: total_tags %}
 		{% if percent > min_size %}
-   <li class="tag" id="{{ tag | first | cgi_encode }}"><a href="tags/#{{ tag | first | cgi_encode }}" style="font-size: {{ percent | times: multiplier }}px;">
+   <li class="tag" id="{{ tag | first }}"><a href="tags/#{{ tag | first }}" style="font-size: {{ percent | times: multiplier }}px;">
     {{ tag | first }}</a>
 </li>
 	{% endif %}
