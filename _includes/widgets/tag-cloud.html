@@ -1,7 +1,7 @@
 <ul id="tag-cloud">
 	{% assign total_tags = site.tags.size %}
 	{% assign min_size = 1 %}
-	{% assign multiplier = 2.5 %}
+	{% assign multiplier = 2 %}
 	{% for tag in site.tags %}
 		{% assign num_posts = tag.last.size %}
 		{% assign percent = num_posts | times: 100 | divided_by: total_tags %}
