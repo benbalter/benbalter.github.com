@@ -1,4 +1,4 @@
-<ul class="tagCloud" style="margin: 0; padding: 0;">
+<ul id="tag-cloud">
 	{% assign total_tags = site.tags.size %}
 	{% assign min_size = 1 %}
 	{% assign multiplier = 2.5 %}
@@ -6,7 +6,7 @@
 		{% assign num_posts = tag | last | size %}
 		{% assign percent = num_posts | times: 100 | divided_by: total_tags %}
 		{% if percent > min_size %}
-   <li style="display: inline; list-style: none;  "><a href="tags/#{{ tag | first | cgi_encode }}" style="font-size: {{ percent | times: multiplier }}px;">
+   <li class="tag" id="{{ tag | first | cgi_encode }}"><a href="tags/#{{ tag | first | cgi_encode }}" style="font-size: {{ percent | times: multiplier }}px;">
     {{ tag | first }}</a>
 </li>
 	{% endif %}

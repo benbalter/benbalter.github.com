@@ -1,0 +1,1 @@
+Ben Balter is a J.D./M.B.A. candidate at The George Washington University, an open-source developer passionate about the power of digital communications, and a Gov 2.0 evangelist working to modernize federal government. After graduation he hopes to stay in the nation’s capital and bridge his life-long passions for law and technology. Check out his resume or read on.

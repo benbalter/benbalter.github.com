@@ -96,6 +96,11 @@ blockquote p { margin-bottom: 10px; }
 #related_posts { margin: 20px 0 15px; }
 .home #related_posts { display: none; }
 
+
+/* tag cloud */
+#tag-cloud { margin: 0; padding: 0; }
+#tag-cloud .tag { display: inline; list-style: none;  }
+
 /* Responsiveness */
 
 @media (max-width: 979px) {
