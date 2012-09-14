@@ -23,6 +23,7 @@ tags:
   - procurement
 post_format: [ ]
 ---
+
 A petition was recently posted on [We The People][1] demanding [that federally funded software be released under an open source license][2]. Makes sense. The public should have access to what is technically their property.
 
 However, [TechDirt posed the question][3] of whether it should be released under an open-source license or public domain, and I'm afraid they really missed the point.
