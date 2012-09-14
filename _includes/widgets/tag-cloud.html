@@ -1,4 +1,4 @@
-<ul id="tag-cloud">
+{% capture cloud %}<ul id="tag-cloud">
 	{% assign total_tags = site.tags.size %}
 	{% assign min_size = 1 %}
 	{% assign multiplier = 2 %}
@@ -12,3 +12,4 @@
 	{% endif %}
 {% endfor %}    
 </ul>
+{% endcapture %}{{ cloud | strip_newlines }}
