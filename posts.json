@@ -9,5 +9,5 @@ layout: none
 "tags": "{% for tag in post.tags %}{{ tag }}{% if forloop.rindex0 > 0 %}, {% endif %}{% endfor %}",
 "categories":"{% for category in post.categories %}{{ category }}{% if forloop.rindex0 > 0 %}, {% endif %}{% endfor %}",
 "date": "{{ post.date }}",
-"content": "{{ post.content | replace: '"', '\"' | replace:"\", "\\" | strip_newlines }}"
+"content": "{{ post.content | escape | strip_newlines }}"
 }{% if forloop.rindex0 != 0 %},{% endif %}{% endfor %}]{% endcapture %}{{ json }}
