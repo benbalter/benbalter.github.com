@@ -1,7 +1,7 @@
 ---
 author: Benjamin J. Balter
 title: "Regular Expression to Parse Word-style Footnotes into WordPress's Simple Footnotes Format"
-excerpt: "Regular Expression to automatically parse Microsoft Word's footnote format into a more web-friendly format for WordPress's Simple Footnotes plugin."
+excerpt: "Regular Expression to automatically parse Microsoft Word's footnote format into a more web-friendly format for WordPress's Simple Footnotes plugin"
 layout: post
 category:
   - Technology
@@ -121,7 +121,7 @@ Putting it all together, including a filter hook to call our function and a `met
     
 {% endhighlight %}
 
-To use, you can [download the plugin file][5] and activate (be sure you already have [Simple Footnotes][2] installed). Copy the content from Word, and Paste into the "*Paste from Word*" box (may need to toggle the "[*Kitchen Sink*][6]".
+To use, you can [download the plugin file][5] and activate (be sure you already have [Simple Footnotes][2] installed). Copy the content from Word, and Paste into the &quot;*Paste from Word*&quot; box (may need to toggle the &quot;[*Kitchen Sink*][6]&quot;.
 
 Thoughts? Improvements? The above code solved a rather stubborn workflow problem in a project I was working on, and hopefully it can do the same for you. Feel free to use/improve the above code. [^2] You can even [Fork the plugin over on Github][8].
 
@@ -133,10 +133,10 @@ Notes:
  [1]: http://andrewnacin.com
  [2]: http://andrewnacin.com/2010/07/24/simple-footnotes-0-3/
  [3]: http://codex.wordpress.org/Plugin_API/Filter_Reference
- [4]: #note-2020-1 "' . str_replace( array("\r\n", "\r", "\n"), "", $footnote[4]) . '"
+ [4]: #note-2020-1 &quot;' . str_replace( array(&quot;\r\n&quot;, &quot;\r&quot;, &quot;\n&quot;), &quot;&quot;, $footnote[4]) . '&quot;
  [5]: https://github.com/benbalter/Convert-Microsoft-Word-Footnotes-to-WordPress-Simple-Footnotes
  [6]: http://www.bloggingteacher.com/writing-posts-with-the-wordpress-visual-editor-the-kitchen-sink
- [7]: #note-2020-2 "Licensed under GPLv2"
+ [7]: #note-2020-2 &quot;Licensed under GPLv2&quot;
  [8]: http://ben.balter.com/2011/03/20/regular-expression-to-parse-word-style-footnotes/
  
  [10]: http://wordpress.org/about/gpl/
