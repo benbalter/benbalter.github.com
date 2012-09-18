@@ -16,6 +16,13 @@
     font-style: normal;
 }
 
+/* Headings */
+.hero-unit h1 { text-shaddow: 4px 4px 15px black !important; font-size: 60px;  }
+.hero-unit h1 a { text-shadow: 1px 1px 2px black;  letter-spacing: 3px; }
+.hero-unit h2 { font-size: 18px; letter-spacing: 1.5px; font-family: inherit; }
+
+h1, h2 { font-family: leaguegothic-regular, sans-serif !important; letter-spacing: 2px; font-weight: normal; }
+h2 { text-transform: uppercase; font-size: 35px; }
 
 
 /* Contact social icons */
@@ -35,14 +42,15 @@
 /* Resume */
 .resume .content a {text-decoration: none; color: #757575;}
 .resume .bar {background: #ccc; z-index: 0; border-right: 3px solid black; height: 1000px; position: absolute; margin: 0; }
-.resume .content h2 { text-transform: lowercase; font-weight: normal; text-align: right; position: absolute; font-size: 16px; position: relative; margin-right: 20px; }
+.resume .content h2 { text-transform: lowercase; font-weight: normal; text-align: right; position: absolute; font-size: 14px; position: relative; margin-right: 20px; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important; letter-spacing: 1.5px; line-height: 18px; }
 .resume .date, .resume .location { color: #aaa; float: right; clear: right; font-size: 12px; margin-top: -1.5em; }
 .resume .details { text-align: justify; }
 .resume h4 { font-style: italic; font-weight: normal; font-size: 14px; line-height:18px; }
 .resume h3 { font-size: 16px; font-weight: normal; }
 .resume ul { padding-left:16px; list-style-type:square; margin-left: 0; }
 .resume h2#resume { display: none; }
-.resume .span10 { padding-left: 20px; }
+.resume .span10 { padding-left: 1.5%; }
+
 
 @media ( max-width: 767px ) {
 	.resume .content h2 { text-transform: capitalize; font-weight: bold; text-align: left; margin-right: 0 }
@@ -95,16 +103,6 @@ article .entrybody { text-align: justify; }
 	text-align: right;
 }
 
-.hero-unit h1 { text-shaddow: 4px 4px 15px black !important; font-size: 60px;  }
-.hero-unit h1 a { text-shadow: 1px 1px 2px black;  letter-spacing: 2.5px; }
-.hero-unit h2 { font-size: 18px; letter-spacing: 1.5px; }
-
-h1, h2, h3, h4 {  font-family: leaguegothic-regular, sans-serif !important; letter-spacing: 2px; font-weight: normal; }
-h2, h3, h4 { text-transform: uppercase;}
-h2 {  font-size: 40px; }
-h3 { font-size: 20px; }
-h4 { font-size: 18px; }
-
 /* Footer */
 footer { border-top: 1px solid #eee; margin: 50px 0 0 0; padding-top: 25px; }
 .fine-print { float: right;}
@@ -126,15 +124,8 @@ blockquote p { margin-bottom: 10px; }
 	.container, .container-fluid { width: auto; }
 }
 
-@media (max-width: 875px) {
+@media (max-width: 560px) {
+	.hero-unit h1 a { font-size: 40px; }
 	.hero-unit h2 { line-height: normal; font-size: 20px;  }
-}
-
-@media (max-width: 775px) {
-	.hero-unit h1 a { font-size: 30px; }
-	.hero-unit h2 { line-height: normal; font-size: 15px;  }
-}
-
-@media (max-width: 650px) {
 	.hero-unit .heading-wrapper { text-align:  center; }
 }
