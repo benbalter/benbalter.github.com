@@ -56,34 +56,34 @@ Creative ideas on how best to leverage the information welcome in the [comments 
     3.  Returns
     
         &lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot; ?&gt;
-        	&lt;courses&gt;
-        		&lt;course&gt;
-        		    &lt;coursedepartment&gt;&lt;![CDATA[ACCY]]&gt;&lt;/coursedepartment&gt;
-        		    &lt;coursenumber&gt;&lt;![CDATA[6101]]&gt;&lt;/coursenumber&gt;
-        		    &lt;coursecrn&gt;&lt;![CDATA[55164]]&gt;&lt;/coursecrn&gt;
-        		    &lt;coursetitle&gt;&lt;![CDATA[FinAcctingI:BasicFinStatements]]&gt;&lt;/coursetitle&gt;
-        		    &lt;courseinstructor&gt;&lt;![CDATA[ Singleton, L]]&gt;&lt;/courseinstructor&gt;
-        		    &lt;courselocation&gt;&lt;![CDATA[&lt;A HREF=&quot;http://www.gwu.edu/~map/building.cfm?BLDG=DUQUES&quot; target=&quot;_blank&quot; &gt;DUQUES&lt;/a&gt; 258]]&gt;&lt;/courselocation&gt;
-        		    &lt;coursedays&gt;&lt;![CDATA[MW 06:10PM - 09:05PM]]&gt;&lt;/coursedays&gt;
-        		    &lt;coursetime&gt;&lt;![CDATA[]]&gt;&lt;/coursetime&gt;
-        		    &lt;coursestatus&gt;&lt;![CDATA[OPEN]]&gt;&lt;/coursestatus&gt;
-        		    &lt;coursesection&gt;&lt;![CDATA[81]]&gt;&lt;/coursesection&gt;
-        		    &lt;coursecredit&gt;&lt;![CDATA[1.50  ]]&gt;&lt;/coursecredit&gt;
-        		&lt;/course&gt;
-        		&lt;course&gt;
-        		    &lt;coursedepartment&gt;&lt;![CDATA[ACCY]]&gt;&lt;/coursedepartment&gt;
-        		    &lt;coursenumber&gt;&lt;![CDATA[6102]]&gt;&lt;/coursenumber&gt;
-        		    &lt;coursecrn&gt;&lt;![CDATA[55165]]&gt;&lt;/coursecrn&gt;
-        		    &lt;coursetitle&gt;&lt;![CDATA[Fin Accting II: FinAcc Choices]]&gt;&lt;/coursetitle&gt;
-        		    &lt;courseinstructor&gt;&lt;![CDATA[ Tarpley, R]]&gt;&lt;/courseinstructor&gt;
-        		    &lt;courselocation&gt;&lt;![CDATA[&lt;A HREF=&quot;http://www.gwu.edu/~map/building.cfm?BLDG=DUQUES&quot; target=&quot;_blank&quot; &gt;DUQUES&lt;/a&gt; 258]]&gt;&lt;/courselocation&gt;
-        		    &lt;coursedays&gt;&lt;![CDATA[MW 06:10PM - 09:05PM]]&gt;&lt;/coursedays&gt;
-        		    &lt;coursetime&gt;&lt;![CDATA[]]&gt;&lt;/coursetime&gt;
-        		    &lt;coursestatus&gt;&lt;![CDATA[OPEN]]&gt;&lt;/coursestatus&gt;
-        		    &lt;coursesection&gt;&lt;![CDATA[80]]&gt;&lt;/coursesection&gt;
-        		    &lt;coursecredit&gt;&lt;![CDATA[1.50  ]]&gt;&lt;/coursecredit&gt;
-        		&lt;/course&gt;
-        	&lt;/courses&gt;
+            &lt;courses&gt;
+                &lt;course&gt;
+                    &lt;coursedepartment&gt;&lt;![CDATA[ACCY]]&gt;&lt;/coursedepartment&gt;
+                    &lt;coursenumber&gt;&lt;![CDATA[6101]]&gt;&lt;/coursenumber&gt;
+                    &lt;coursecrn&gt;&lt;![CDATA[55164]]&gt;&lt;/coursecrn&gt;
+                    &lt;coursetitle&gt;&lt;![CDATA[FinAcctingI:BasicFinStatements]]&gt;&lt;/coursetitle&gt;
+                    &lt;courseinstructor&gt;&lt;![CDATA[ Singleton, L]]&gt;&lt;/courseinstructor&gt;
+                    &lt;courselocation&gt;&lt;![CDATA[&lt;A HREF=&quot;http://www.gwu.edu/~map/building.cfm?BLDG=DUQUES&quot; target=&quot;_blank&quot; &gt;DUQUES&lt;/a&gt; 258]]&gt;&lt;/courselocation&gt;
+                    &lt;coursedays&gt;&lt;![CDATA[MW 06:10PM - 09:05PM]]&gt;&lt;/coursedays&gt;
+                    &lt;coursetime&gt;&lt;![CDATA[]]&gt;&lt;/coursetime&gt;
+                    &lt;coursestatus&gt;&lt;![CDATA[OPEN]]&gt;&lt;/coursestatus&gt;
+                    &lt;coursesection&gt;&lt;![CDATA[81]]&gt;&lt;/coursesection&gt;
+                    &lt;coursecredit&gt;&lt;![CDATA[1.50  ]]&gt;&lt;/coursecredit&gt;
+                &lt;/course&gt;
+                &lt;course&gt;
+                    &lt;coursedepartment&gt;&lt;![CDATA[ACCY]]&gt;&lt;/coursedepartment&gt;
+                    &lt;coursenumber&gt;&lt;![CDATA[6102]]&gt;&lt;/coursenumber&gt;
+                    &lt;coursecrn&gt;&lt;![CDATA[55165]]&gt;&lt;/coursecrn&gt;
+                    &lt;coursetitle&gt;&lt;![CDATA[Fin Accting II: FinAcc Choices]]&gt;&lt;/coursetitle&gt;
+                    &lt;courseinstructor&gt;&lt;![CDATA[ Tarpley, R]]&gt;&lt;/courseinstructor&gt;
+                    &lt;courselocation&gt;&lt;![CDATA[&lt;A HREF=&quot;http://www.gwu.edu/~map/building.cfm?BLDG=DUQUES&quot; target=&quot;_blank&quot; &gt;DUQUES&lt;/a&gt; 258]]&gt;&lt;/courselocation&gt;
+                    &lt;coursedays&gt;&lt;![CDATA[MW 06:10PM - 09:05PM]]&gt;&lt;/coursedays&gt;
+                    &lt;coursetime&gt;&lt;![CDATA[]]&gt;&lt;/coursetime&gt;
+                    &lt;coursestatus&gt;&lt;![CDATA[OPEN]]&gt;&lt;/coursestatus&gt;
+                    &lt;coursesection&gt;&lt;![CDATA[80]]&gt;&lt;/coursesection&gt;
+                    &lt;coursecredit&gt;&lt;![CDATA[1.50  ]]&gt;&lt;/coursecredit&gt;
+                &lt;/course&gt;
+            &lt;/courses&gt;
         
 
 ## Campus Map
@@ -95,18 +95,18 @@ Creative ideas on how best to leverage the information welcome in the [comments 
     
         &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
         &lt;categories xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
-        	&lt;category&gt;
-        		&lt;categoryId&gt;1&lt;/categoryId&gt;
-        		&lt;shortname&gt;academic&lt;/shortname&gt;
-        		&lt;categoryName&gt;Academic&lt;/categoryName&gt;
-        		&lt;state&gt;Yes&lt;/state&gt;
-        	&lt;/category&gt;
-        	&lt;category&gt;
-        		&lt;categoryId&gt;2&lt;/categoryId&gt;
-        		&lt;shortname&gt;administrative&lt;/shortname&gt;
-        		&lt;categoryName&gt;Administrative&lt;/categoryName&gt;
-        		&lt;state&gt;Yes&lt;/state&gt;
-        	&lt;/category&gt;
+            &lt;category&gt;
+                &lt;categoryId&gt;1&lt;/categoryId&gt;
+                &lt;shortname&gt;academic&lt;/shortname&gt;
+                &lt;categoryName&gt;Academic&lt;/categoryName&gt;
+                &lt;state&gt;Yes&lt;/state&gt;
+            &lt;/category&gt;
+            &lt;category&gt;
+                &lt;categoryId&gt;2&lt;/categoryId&gt;
+                &lt;shortname&gt;administrative&lt;/shortname&gt;
+                &lt;categoryName&gt;Administrative&lt;/categoryName&gt;
+                &lt;state&gt;Yes&lt;/state&gt;
+            &lt;/category&gt;
         &lt;/categories&gt;
         
 
@@ -117,26 +117,26 @@ Creative ideas on how best to leverage the information welcome in the [comments 
     
         &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
         &lt;buildings xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
-        	&lt;building&gt;
-        		&lt;buildingNumber&gt;153&lt;/buildingNumber&gt;
-        		&lt;campus&gt;Foggy Bottom&lt;/campus&gt;
-        		&lt;UsageClassification&gt;Academic&lt;/UsageClassification&gt;
-        		&lt;buildingName&gt;1776 G St&lt;/buildingName&gt;
-        		&lt;address&gt;1776 G St&lt;/address&gt;
-        		&lt;geoLocation&gt;38.897984,-77.04146&lt;/geoLocation&gt;
-        		&lt;shortname&gt;NA&lt;/shortname&gt;
-        		&lt;picturelink&gt;http://www.gwu.edu/~newsctr/mobile/images/maps/1776-G-ST_UP_WLA_2010-6618.jpg&lt;/picturelink&gt;
-        	&lt;/building&gt;
-        	&lt;building&gt;
-        		&lt;buildingNumber&gt;136&lt;/buildingNumber&gt;
-        		&lt;campus&gt;Foggy Bottom&lt;/campus&gt;
-        		&lt;UsageClassification&gt;Academic&lt;/UsageClassification&gt;
-        		&lt;buildingName&gt;1957 E St&lt;/buildingName&gt;
-        		&lt;address&gt;1957 E St&lt;/address&gt;
-        		&lt;geoLocation&gt;38.896193,-77.044294&lt;/geoLocation&gt;
-        		&lt;shortname&gt;1957E&lt;/shortname&gt;
-        		&lt;picturelink&gt;http://www.gwu.edu/~newsctr/mobile/images/maps/Elliot_School_UP_WLA_2010-3102.jpg&lt;/picturelink&gt;
-        	&lt;/building&gt;
+            &lt;building&gt;
+                &lt;buildingNumber&gt;153&lt;/buildingNumber&gt;
+                &lt;campus&gt;Foggy Bottom&lt;/campus&gt;
+                &lt;UsageClassification&gt;Academic&lt;/UsageClassification&gt;
+                &lt;buildingName&gt;1776 G St&lt;/buildingName&gt;
+                &lt;address&gt;1776 G St&lt;/address&gt;
+                &lt;geoLocation&gt;38.897984,-77.04146&lt;/geoLocation&gt;
+                &lt;shortname&gt;NA&lt;/shortname&gt;
+                &lt;picturelink&gt;http://www.gwu.edu/~newsctr/mobile/images/maps/1776-G-ST_UP_WLA_2010-6618.jpg&lt;/picturelink&gt;
+            &lt;/building&gt;
+            &lt;building&gt;
+                &lt;buildingNumber&gt;136&lt;/buildingNumber&gt;
+                &lt;campus&gt;Foggy Bottom&lt;/campus&gt;
+                &lt;UsageClassification&gt;Academic&lt;/UsageClassification&gt;
+                &lt;buildingName&gt;1957 E St&lt;/buildingName&gt;
+                &lt;address&gt;1957 E St&lt;/address&gt;
+                &lt;geoLocation&gt;38.896193,-77.044294&lt;/geoLocation&gt;
+                &lt;shortname&gt;1957E&lt;/shortname&gt;
+                &lt;picturelink&gt;http://www.gwu.edu/~newsctr/mobile/images/maps/Elliot_School_UP_WLA_2010-3102.jpg&lt;/picturelink&gt;
+            &lt;/building&gt;
         &lt;/buildings&gt;
         
 
@@ -145,63 +145,63 @@ Creative ideas on how best to leverage the information welcome in the [comments 
 1.  Source 
         class gw_api {
         
-        	public function __construct() {
+            public function __construct() {
         
-        		//configuration settings
-        		$this-&gt;user_agent = 'Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7';
-        		$this-&gt;maps_base = 'http://citl.gwu.edu/iphonedev/maps/';
-        		$this-&gt;schedule_base = 'http://my.gwu.edu/mod/pws/scheduleXML.cfm';
-        	}
+                //configuration settings
+                $this-&gt;user_agent = 'Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7';
+                $this-&gt;maps_base = 'http://citl.gwu.edu/iphonedev/maps/';
+                $this-&gt;schedule_base = 'http://my.gwu.edu/mod/pws/scheduleXML.cfm';
+            }
         
-        	public function get_url($url) {
+            public function get_url($url) {
         
-        		//prefer the WP HTTP API to allow for caching and user agent spoofing, fall back if necessary
-        		if ( function_exists( 'wp_remote_get') )
-        			$data = wp_remote_retrieve_body( wp_remote_get($url, array('user-agent' =&gt; $this-&gt;user_agent) ) );
-        		else
-        			$data = file_get_contents($url);
+                //prefer the WP HTTP API to allow for caching and user agent spoofing, fall back if necessary
+                if ( function_exists( 'wp_remote_get') )
+                    $data = wp_remote_retrieve_body( wp_remote_get($url, array('user-agent' =&gt; $this-&gt;user_agent) ) );
+                else
+                    $data = file_get_contents($url);
         
-        		//parse the XML into a PHP object
-        		$xml = simplexml_load_string($data, 'SimpleXMLElement', LIBXML_NOCDATA);
+                //parse the XML into a PHP object
+                $xml = simplexml_load_string($data, 'SimpleXMLElement', LIBXML_NOCDATA);
         
-        		return $xml;
-        	}
+                return $xml;
+            }
         
-        	public function get_map($category = 'categories') {
-        		return $this-&gt;get_url($this-&gt;maps_base . $category . '.xml');
-        	}
+            public function get_map($category = 'categories') {
+                return $this-&gt;get_url($this-&gt;maps_base . $category . '.xml');
+            }
         
-        	public function get_schedule($year = '', $term ='', $dept = ''){
+            public function get_schedule($year = '', $term ='', $dept = ''){
         
-        		//if no year was given, assume the current year
-        		if ($year == '')
-        			$year = date('Y');
+                //if no year was given, assume the current year
+                if ($year == '')
+                    $year = date('Y');
         
-        		//if no term is given, calculate the current term
-        		if ($term == '')
-        			$term = $this-&gt;get_term();
+                //if no term is given, calculate the current term
+                if ($term == '')
+                    $term = $this-&gt;get_term();
         
-        		//form URL and call
-        		return $this-&gt;get_url($this-&gt;schedule_base . '?termCode=' . $year . $term . '&amp;deptCode=' . $dept);
-        	}
+                //form URL and call
+                return $this-&gt;get_url($this-&gt;schedule_base . '?termCode=' . $year . $term . '&amp;deptCode=' . $dept);
+            }
         
-        	public function get_term() {
+            public function get_term() {
         
-        		//get the current month as 01-12
-        		$m = date('M');
+                //get the current month as 01-12
+                $m = date('M');
         
-        		//if it is jan. - april, we're in the spring
-        		if ($m &lt; 5)
-        			return '01';
+                //if it is jan. - april, we're in the spring
+                if ($m &lt; 5)
+                    return '01';
         
-        		//if it's May - August, we're in the summer
-        		else if ($m &lt; 9) {
-        			return '02';
-        		}
+                //if it's May - August, we're in the summer
+                else if ($m &lt; 9) {
+                    return '02';
+                }
         
-        		//otherwise, it's fall
-        		else return '03';
-        	}
+                //otherwise, it's fall
+                else return '03';
+            }
         
         }
         
@@ -213,7 +213,7 @@ Creative ideas on how best to leverage the information welcome in the [comments 
     2.  List Departments 
             $departments = $gwapi-&gt;get_schedule();
             foreach ($departments as $department)
-            	echo $department-&gt;departmentname . '&lt;br /&gt;';
+                echo $department-&gt;departmentname . '&lt;br /&gt;';
             
     
     3.  Get Course Schedule for Fall 2011 
