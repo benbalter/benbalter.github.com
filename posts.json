@@ -2,10 +2,10 @@
 layout: none
 ---
 {% capture json %}[{% for post in site.posts %}{
-"title":"{{ post.title | replace:'"','\"' }}",
+"title":"{{ post.title | replace:'"','\"' | strip_newlines }}",
 "id":"{{ post.id }}",
 "url":"{{ site.url}}{{ post.url }}",
-"description":"{{ post.description }}",
+"description":"{{ post.description | strip_newlines }}",
 "tags": "{% for tag in post.tags %}{{ tag }}{% if forloop.rindex0 > 0 %}, {% endif %}{% endfor %}",
 "categories":"{% for category in post.categories %}{{ category }}{% if forloop.rindex0 > 0 %}, {% endif %}{% endfor %}",
 "date": "{{ post.date }}",
