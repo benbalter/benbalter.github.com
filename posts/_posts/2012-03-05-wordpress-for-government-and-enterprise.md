@@ -48,40 +48,40 @@ When you stack the two side by side (or against any other CMS for that matter), 
 Among those empowered to make purchasing decisions, there seems to be a sense that WordPress is what you use on the weekends to post pictures of your lunch while Drupal is what you use for "serious" business, and with good reason. For better or for worse, Drupal has positioned itself as not just a CMS, but rather *the* enterprise solution — an inseparable fifth layer of the increasingly ubiquitous enterprise LAMPD stack.
 
 <table class="table">
-	<thead>
-		<tr>
-			<th></th>
-			<th>Drupal</th>
-			<th>WordPress</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>API Hooks</td>
-			<td markdown="1">[267][7]</td>
-			<td markdown="1">[1,506][8] (5x)</td>
-		</tr>
-		<tr>
-			<td>Active Sites</td>
-			<td markdown="1">[533,136][9]</td>
-			<td markdown="1">[65,052,049][10] (125x)</td>		
-		</tr>
-		<tr>
-			<td>Plugins / Modules</td>
-			<td markdown="1">[8,536][11]</td>
-			<td markdown="1">[16,076][12] (2x)</td>		
-		</tr>
-		<tr>
-			<td>Themes</td>
-			<td markdown="1">[893][13]</td>
-			<td markdown="1">[1,426][14] (1.5x)</td>		
-		</tr>
-		<tr>
-			<td>Community[^2]</td>
-			<td markdown="1">1.5 Million</td>
-			<td markdown="1">20 Million (13x)</td>		
-		</tr>
-	</tbody>
+        <thead>
+        <tr>
+            <th></th>
+            <th>Drupal</th>
+            <th>WordPress</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>API Hooks</td>
+            <td markdown="1">[267][7]</td>
+            <td markdown="1">[1,506][8] (5x)</td>
+        </tr>
+        <tr>
+            <td>Active Sites</td>
+            <td markdown="1">[533,136][9]</td>
+            <td markdown="1">[65,052,049][10] (125x)</td>        
+        </tr>
+        <tr>
+            <td>Plugins / Modules</td>
+            <td markdown="1">[8,536][11]</td>
+            <td markdown="1">[16,076][12] (2x)</td>        
+        </tr>
+        <tr>
+            <td>Themes</td>
+            <td markdown="1">[893][13]</td>
+            <td markdown="1">[1,426][14] (1.5x)</td>        
+        </tr>
+        <tr>
+            <td>Community[^2]</td>
+            <td markdown="1">1.5 Million</td>
+            <td markdown="1">20 Million (13x)</td>        
+        </tr>
+    </tbody>
 </table>
 
 ## **Beyond Cowboy Coders**
