@@ -28,8 +28,8 @@ layout: default
 		Tagged {% assign taxonomy = 'tags' %}{% include term-list-csv.html %}		
     </div>
     
-    {% if page.comments != false %}
+    {% unless page.comments == false %}
       {% include comments.html %}
-    {% endif %}
+    {% endunless %}
 
 </article>
