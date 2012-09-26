@@ -62,8 +62,6 @@ I think CFPB gets it in a big way, and the fact that this is memorialized in wri
 
 +1 CFPB, +1. *Welcome to the community.*
 
-Notes:
-
 [^1]: In simple terms, the core of open-source projects (as distinct from community-contributed plugins or modules) are primarily fueled by "patches" (small code change sets) in response to bugs or feature requests, that get committed to the project's codebase and released in subsequent versions. [24]
 [^2]: If the project is licensed as government work, are my code contributions now government work? Are the government employee lines of code under a broader license, while mine are under a more restrictive license like GPL or apache? [25]
 [^3]: Is this considered a donation for Federal ethics purposes thus requiring disclosure? [26]
