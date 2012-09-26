@@ -29,12 +29,9 @@ Today countless teams are using WordPress to drive collaboration and facilitate 
 
 <img id="collab_img" style="width: 100%; max-width: 550px; cursor: pointer;" src="http://ben.balter.com/wordpress-as-a-collaboration-platform/screenshot.png" alt="Slides from WordPress as a Collaboration Platform" />
 
-<div>
 <iframe id="collab_iframe" style="border: 1px solid black; width: 100%; min-height: 450px; display: none;" src="" scrolling="0" width="320" height="240">    </iframe>
-</div>
-<div>
+
 <iframe style="float: left;" src="http://ghbtns.com/github-btn.html?user=benbalter&amp;repo=wordpress-as-a-collaboration-platform&amp;type=fork" frameborder="0" scrolling="0" width="62px" height="20px">    </iframe>
-</div>
 
 [View Full Screen][2]
 
@@ -42,7 +39,7 @@ Recording of the presentation (starts at the 10:00 mark):
 
 <iframe width="480" height="296" src="http://www.ustream.tv/embed/recorded/22454841?wmode=direct" scrolling="no" frameborder="0" style="border: 0px none transparent;">    </iframe><br /><a href="http://www.ustream.tv/" style="padding: 2px 0px 4px; width: 400px; background: #ffffff; display: block; color: #000000; font-weight: normal; font-size: 10px; text-decoration: underline; text-align: center;" target="_blank">Video streaming by Ustream</a>
 
-## Plugins Mentioned
+### Plugins Mentioned
 
 *   [WP Document Revisions][3]
 *   [Edit Flow][4]
