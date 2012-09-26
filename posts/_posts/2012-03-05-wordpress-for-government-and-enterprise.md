@@ -29,6 +29,7 @@ Drupal powers twice as many federal .Govs [as every other CMS combined][4]. That
 
 ## A Problem of Perception
 
+<div style="float:right; width: 300px; margin-left: 20px; text-align: left;" markdown="1" class="well">
 ### Typical Enterprise Misconceptions
 
 *   WordPress is a blogging platform
@@ -40,6 +41,7 @@ Drupal powers twice as many federal .Govs [as every other CMS combined][4]. That
 *   There aren't many WordPress developers
 *   No "serious" people use WordPress
 *   The WordPress codebase is immature
+</div>
 
 WordPress's disproportionately low government adoption is arguably the result of a handful of factors. For one, custom post types, the feature that formally graduated WordPress from a mere blogging platform into a full-fledged content management system, has only been around since June of last year. Yet, even among new sites, [^1] the ratio remains somewhat stagnant, if not shrinking, leaving one to believe that the technology has lapped its own already stellar perception.
 
@@ -129,9 +131,9 @@ Whether WordPress is your primary source of income, a hobby, or just the thing t
 <p><strong><a href="http://wpcandy.com/quarterly">Continue Reading →</a></strong><br /><span style="font-size:12px">(subscription required)</span></p>
 </div>
 
-[^1]: **Update (3/7):** As many have pointed out, a lot of the misinformation may also be traced back to somewhat of a *decision lag*. Custom post types, custom taxonomies, and WordPress multisite — three key features that although minor from a technical standpoint, really served as the fundamental shift to transition the platform from *blog+* to *full-fledged CMS* — came about only three major versions ago (WordPress 3.0). While eighteen months may be an eternity for the vast majority of the technology sector (the iPad 1 had just barely launched eighteen months ago for comparison), in the Government space, [procurement regulations dictate that such lag times are all but the norm][31]. As a result, in an already risk-averse contracting environment, we may actually be seeing numbers that more accurately reflect say, WordPress 2.9′s reception in the Government sector — a snapshot of when an agency chose a CMS at the onset of a multi-year procurement — rather than those that accurately reflect its technical capabilities today. [32]
-[^2]: Jen Lampton, "Why WordPress is Better than Drupal, Developers Take Note" (July, 2010) [33]
-[^3]: **Update (3/8):** The features page is part of a community edited Wiki (the WordPress Codex) and since originally posted, I've gone through and reworked much of the blog-specific language. [View the original][34]. [35]
+[^1]: **Update (3/7):** As many have pointed out, a lot of the misinformation may also be traced back to somewhat of a *decision lag*. Custom post types, custom taxonomies, and WordPress multisite — three key features that although minor from a technical standpoint, really served as the fundamental shift to transition the platform from *blog+* to *full-fledged CMS* — came about only three major versions ago (WordPress 3.0). While eighteen months may be an eternity for the vast majority of the technology sector (the iPad 1 had just barely launched eighteen months ago for comparison), in the Government space, [procurement regulations dictate that such lag times are all but the norm][31]. As a result, in an already risk-averse contracting environment, we may actually be seeing numbers that more accurately reflect say, WordPress 2.9′s reception in the Government sector — a snapshot of when an agency chose a CMS at the onset of a multi-year procurement — rather than those that accurately reflect its technical capabilities today.
+[^2]: Jen Lampton, "Why WordPress is Better than Drupal, Developers Take Note" (July, 2010)
+[^3]: **Update (3/8):** The features page is part of a community edited Wiki (the WordPress Codex) and since originally posted, I've gone through and reworked much of the blog-specific language. [View the original][34].
 
  [1]: http://ben.balter.com/wp-content/uploads/2012/03/wordpress-in-government-ben-balter.png
  [2]: http://techcrunch.com/2011/08/19/wordpress-now-powers-22-percent-of-new-active-websites-in-the-us/

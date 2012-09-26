@@ -27,21 +27,20 @@ Today countless teams are using WordPress to drive collaboration and facilitate 
 
 *Click on the slides below to begin, then press the left/right keyboard arrows to navigate*
 
+<img id="collab_img" style="width: 100%; max-width: 550px; cursor: pointer;" src="http://ben.balter.com/wordpress-as-a-collaboration-platform/screenshot.png" alt="Slides from WordPress as a Collaboration Platform" />
 
-
-![][1]
-
-
-
-
+<div>
+<iframe id="collab_iframe" style="border: 1px solid black; width: 100%; min-height: 450px; display: none;" src="" scrolling="0" width="320" height="240">    </iframe>
+</div>
+<div>
+<iframe style="float: left;" src="http://ghbtns.com/github-btn.html?user=benbalter&amp;repo=wordpress-as-a-collaboration-platform&amp;type=fork" frameborder="0" scrolling="0" width="62px" height="20px">    </iframe>
+</div>
 
 [View Full Screen][2]
 
-
-
 Recording of the presentation (starts at the 10:00 mark):
 
-http://www.ustream.tv/recorded/22454841
+<iframe width="480" height="296" src="http://www.ustream.tv/embed/recorded/22454841?wmode=direct" scrolling="no" frameborder="0" style="border: 0px none transparent;">    </iframe><br /><a href="http://www.ustream.tv/" style="padding: 2px 0px 4px; width: 400px; background: #ffffff; display: block; color: #000000; font-weight: normal; font-size: 10px; text-decoration: underline; text-align: center;" target="_blank">Video streaming by Ustream</a>
 
 ## Plugins Mentioned
 
@@ -54,8 +53,8 @@ http://www.ustream.tv/recorded/22454841
 *   [Faceted Search Widget][9]
 *   [Custom Taxonomy Generator][10]
 
- [1]: http://benbalter.github.com/wordpress-as-a-collaboration-platform/screenshot.png
- [2]: http://benbalter.github.com/wordpress-as-a-collaboration-platform/
+ [1]: http://ben.balter.com/wordpress-as-a-collaboration-platform/screenshot.png
+ [2]: http://ben.balter.com/wordpress-as-a-collaboration-platform/
  [3]: http://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/
  [4]: http://editflow.org
  [5]: http://wordpress.org/extend/plugins/members/

@@ -11,4 +11,5 @@ layout: none
 {% include js/tweets.js %}
 {% include js/search.js %}
 {% include js/resume.js %}
+{% include js/load-impress.js %}
 {% endcapture %}{{ js }}
