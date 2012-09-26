@@ -4,8 +4,29 @@
 	<div class="span9" id="content">
 	
 	<div class="posts">
+	
 {% for page in paginator.posts %}
-	{% include page-single.html %}
+
+<article id="post{{ page.id | replace:"/","-" }}" class="post post{{ page.id | replace:"/","-" }}">
+	
+	<h2 class="title"><a href="{{ site.url}}{{ page.url }}">{{ page.title }}</a></h2> 
+
+	<div class="post-meta">
+		<span class="entry-date">Posted on {{ page.date | date: '%B %d, %Y' }}</span> 
+		<span class="entry-author">by {{ page.author }}</span>
+	</div>
+	    
+    <div class="entrybody">
+        {{ page.content }}
+    </div>
+
+    <div class="post-taxonomies">
+  		Posted in {% assign taxonomy = 'category' %}{% include term-list-csv.html %} |
+		  Tagged {% assign taxonomy = 'tags' %}{% include term-list-csv.html %}		
+    </div>
+    
+</article>
+
 {% endfor %}
 	</div><!-- posts -->
 	

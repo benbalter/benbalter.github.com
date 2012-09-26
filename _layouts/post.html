@@ -2,4 +2,30 @@
 layout: default
 ---
 
-{% include page-single.html %}
+<article id="post{{ page.id | replace:"/","-" }}" class="post post{{ page.id | replace:"/","-" }}">
+	
+	<h2 class="title"><a href="{{ site.url}}{{ page.url }}">{{ page.title }}</a></h2> 
+
+	<div class="post-meta">
+		<span class="entry-date">Posted on {{ page.date | date: '%B %d, %Y' }}</span> 
+		<span class="entry-author">by {{ page.author }}</span>
+	</div>
+	    
+    <div class="entrybody">
+        {{ content }}
+    </div>
+    
+    <div class="related">
+{% capture related %}
+#### Related Posts:
+{% for post in site.related_posts %}
+1. [{{ post.title }}]({{ site.url }}{{ post.url }}){% endfor %}
+{% endcapture %}{{ related | markdownify }}
+    </div>
+
+    <div class="post-taxonomies">
+  		Posted in {% assign taxonomy = 'category' %}{% include term-list-csv.html %} |
+		Tagged {% assign taxonomy = 'tags' %}{% include term-list-csv.html %}		
+    </div>
+    
+</article>
