@@ -1,6 +1,9 @@
----
-layout: default
----
+{% include header.html %}
+
+<div class="content" id="content">
+	<div class="row-fluid">
+		<div class="span2">&nbsp;</div>
+		<div class="span8">
 
 <article id="post{{ page.id | replace:"/","-" }}" class="post post{{ page.id | replace:"/","-" }}">
 	
@@ -33,3 +36,9 @@ layout: default
     {% endunless %}
 
 </article>
+
+		</div>
+	</div>
+</div>
+
+{% include footer.html %}

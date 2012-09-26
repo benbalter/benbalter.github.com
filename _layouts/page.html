@@ -1,7 +1,16 @@
----
-layout: default
----
+{% include header.html %}
 
+<div class="content" id="content">
+	<div class="row-fluid">
+		<div class="span2">&nbsp;</div>
+		<div class="span8">
+		 
 {% capture title %}## {{ page.title }}{% endcapture %}{{ title | markdownify }}
 
 {{ content }}
+
+		</div>
+	</div>
+</div>
+
+{% include footer.html %}
