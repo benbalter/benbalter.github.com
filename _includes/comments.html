@@ -4,7 +4,7 @@
       var disqus_shortname = '{{ site.disqus.shortname }}';
 	    var disqus_identifier = '{{ page.id }}';
 	    var disqus_url = '{{ site.url }}{{ page.url }}';
-	    var disqus_title = '{{ page.title }}';	       
+	    var disqus_title = '{{ page.title | escape }}';	       
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';

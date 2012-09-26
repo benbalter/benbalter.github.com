@@ -118,6 +118,10 @@ blockquote p { margin-bottom: 10px; }
 #tag-cloud { margin: 0; padding: 0; }
 #tag-cloud .tag { display: inline; list-style: none;  }
 
+/* Recent Tweets */
+#tweets { margin-left: 0; list-style: none; font-size: 11px; }
+#tweets li { margin-bottom: 10px; }
+
 /* Responsiveness */
 
 @media (max-width: 979px) {
