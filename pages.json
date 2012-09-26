@@ -1,10 +1,10 @@
 ---
 layout: none
 ---
-[{% for page in site.categories.pages %}
-	{
-		"title":"{{ page.title | strip_newlines }}",
-		"id":"{{ page.id }}",
-		"url":"{{ site.url}}{{ page.url }}",
-	}{% if forloop.rindex0 != 0 %},{% endif %}{% endfor %}
-]
+{% capture json %}[{% for page in site.categories.pages %}{
+"title":"{{ page.title | replace:'"','\"' | strip_newlines }}",
+"id":"{{ page.id }}",
+"url":"{{ site.url}}{{ page.url }}",
+"description":"{{ page.description | strip_newlines }}",
+"content": "{{ page.content | escape | strip_newlines }}"
+}{% if forloop.rindex0 != 0 %},{% endif %}{% endfor %}]{% endcapture %}{{ json | strip_newlines }}

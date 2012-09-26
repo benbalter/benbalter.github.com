@@ -2,10 +2,10 @@
 layout: none
 ---
 {% capture js %}
-{% include js/emphasis.js %}
-{% include js/jquery.infinitescroll.js %}
-{% include js/jquery.relatize_date.js %}
-{% include js/infinitescroll.js %}
+{% include js/lib/emphasis.js %}
+{% include js/lib/jquery.infinitescroll.js %}
+{% include js/lib/jquery.relatize_date.js %}
+{% include js/lib/infinitescroll.js %}
 {% include js/ga.js %}
 {% include js/commits.js %}
 {% include js/tweets.js %}

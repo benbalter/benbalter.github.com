@@ -35,19 +35,24 @@ prose:
       tags: 
       published: false
       
-#twitter handle for widget
+#Twitter Widget
 twitter: 
   username: "benbalter"
   count: 5
 
-#twitter handle for widget
+#Github widget
 github: 
   repo: "benbalter"
   count: 5
   
-#disqus username
-disqus_shortname: 'benbalter'
-
+#disqus widget
+disqus:
+  shortname: 'benbalter'
+  count: 5
+  hide_avatars: 0
+  avatar_size: 32
+  excerpt_length: 200
+  
 #google analytics username
 ga_username: 'UA-XXXXX-X'
 

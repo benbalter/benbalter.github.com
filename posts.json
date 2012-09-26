@@ -10,4 +10,4 @@ layout: none
 "categories":"{% for category in post.categories %}{{ category }}{% if forloop.rindex0 > 0 %}, {% endif %}{% endfor %}",
 "date": "{{ post.date }}",
 "content": "{{ post.content | escape | strip_newlines }}"
-}{% if forloop.rindex0 != 0 %},{% endif %}{% endfor %}]{% endcapture %}{{ json }}
+}{% if forloop.rindex0 != 0 %},{% endif %}{% endfor %}]{% endcapture %}{{ json | strip_newlines }}

@@ -8,7 +8,12 @@
 	</div>
 	    
     <div class="entrybody">
-      {{ page.content }}
+      {% comment %}Fix for include bug and different versions between local/GitHub{% endcomment %}
+      {% if page.content %} 
+        {{ page.content }}
+      {% else %}
+        {{ content }}
+      {% endif %}
     </div>
     
     <div class="related">
