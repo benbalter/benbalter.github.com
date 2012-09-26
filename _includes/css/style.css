@@ -119,8 +119,8 @@ blockquote p { margin-bottom: 10px; }
 #tag-cloud .tag { display: inline; list-style: none;  }
 
 /* Recent Tweets */
-#tweets { margin-left: 0; list-style: none; font-size: 11px; }
-#tweets li { margin-bottom: 10px; }
+#tweets, #recent-posts { margin-left: 0; list-style: none; font-size: 11px; }
+#tweets li, #recent-posts li { margin-bottom: 10px; }
 
 /* Responsiveness */
 
