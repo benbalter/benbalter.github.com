@@ -10,9 +10,8 @@
 <script>window.jQuery || document.write('<script src="{{ site.url }}/js/libs/jquery/jquery-min.js"><\/script>')</script> -->
 <script src="{{ site.url }}/js/libs/jquery/jquery-min.js"></script>
 <script src="{{ site.url }}/assets/js/js.js"></script>
-{% include templates.html %}
 {% include analytics.html %}
-<script type="text/javascript" src="http://{{ site.disqus.shortname }}.disqus.com/recent_comments_widget.js?num_items={{ site.disqus.count }}&hide_avatars={{ site.disqus.hide_avatars }}&avatar_size={{ site.disqus.avatar_size }}&excerpt_length={{ site.disqus.excerpt_length }}"></script>
+{% include disqus.html %}
 </body>
 </html>
 <!-- Generated {{ site.time }} -->
