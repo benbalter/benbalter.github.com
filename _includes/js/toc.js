@@ -1,4 +1,4 @@
-jQuery(docuemnt).ready(function($){
+jQuery(document).ready(function($){
 $('.post-2011-11-29-towards-a-more-agile-government .maruku_toc').hide();
 		$('#toggleTOC').click( function( event ){
 			event.preventDefault();
