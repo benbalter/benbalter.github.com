@@ -7,7 +7,7 @@ name: Benjamin J. Balter
 description:  J.D./M.B.A. Candidate, Open-Source Developer, Gov 2.0 Evangelist
 
 #URL of site, include http://, do not include a trailing slash
-url: http://benbalter.github.com
+url: http://ben.balter.com
 
 #files to exclude, array
 exclude: [ 'readme.md', 'php' ]
