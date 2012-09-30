@@ -12,5 +12,5 @@ layout: none
 {% include js/search.js %}
 {% include js/resume.js %}
 {% include js/load-impress.js %}
-{% include ks/toc.js %}
+{% include js/toc.js %}
 {% endcapture %}{{ js }}
