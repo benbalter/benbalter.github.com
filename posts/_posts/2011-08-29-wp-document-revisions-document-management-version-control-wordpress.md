@@ -1,6 +1,6 @@
 ---
 author: Benjamin J. Balter
-title: 'WP Document Revisions -- Document Management & Version Control for WordPress'
+title: 'WP Document Revisions — Document Management & Version Control for WordPress'
 excerpt: >
   WP Document Revisions is a document
   management and version control plugin
@@ -32,15 +32,16 @@ post_format: [ ]
 ---
 [WP Document Revisions][1] is a [document management][2] and [version control][3] plugin. Built for time-sensitive and mission-critical projects, teams can collaboratively edit files of any format — text documents, spreadsheets, images, sheet music… anything — all the while, seamlessly tracking the document's progress as it moves through your organization's existing workflow.
 
+[![WP Document Revisions Screenshot](http://ben.balter.com/wp-content/uploads/2011/07/wp-document-revisions-screen-shot-300x226.png
+){.alignright}][4]
+
 **WP Document Revisions is three things:**
 
-1.  [![][5]][5]A **document management system** (DMS), to track, store, and organize files of any format
+1.  A **document management system** (DMS), to track, store, and organize files of any format
 2.  A **collaboration tool** to empower teams to collaboratively draft, edit, and refine documents
 3.  A **file hosting solution** to publish and securely deliver files to a team, to clients, or to the public
 
-
-
-
+<iframe width="560" height="315" src="http://www.youtube.com/embed/VpsTNSiJKis" frameborder="0" allowfullscreen="true">     </iframe>
 
 **Powerful Collaboration Tools** - *With great power does not have to come great complexity.* Based on a simple philosophy of putting powerful but intuitive tools in the hands of managers and content creators, WP Document Revisions leverages many of the essential WordPress features that, for more than eight years, have been tested and proven across countless industries — posts, attachments, revisions, taxonomies, authentication, and permalinks — to make collaborating on the creation and publication of documents a natural endeavor. Think of it as an [open-source and more intuitive version][5] of the popular Microsoft collaboration suite, [Sharepoint.][6]
 
@@ -109,14 +110,12 @@ Questions? Comments? Many may have already been addressed in [the WP Document Re
 
 **Update (6/12): Comments have been closed in favor of [expanded support and discussion options][32]. Additional documentation about the project can now be found in the [Project Wiki][33]. If you are interested in joining the project at any level of technical expertise, please see [How to Contribute][34].**
 
-Notes:
-
-1.   Neither relationship should imply a formal endorsement. 
+[^1]:  Neither relationship should imply a formal endorsement. 
 
  [1]: http://wordpress.org/extend/plugins/wp-document-revisions/
  [2]: http://en.wikipedia.org/wiki/Document_management_system
  [3]: http://en.wikipedia.org/wiki/Revision_control
- []: http://ben.balter.com/wp-content/uploads/2011/07/wp-document-revisions-screen-shot.png
+ [4]: http://ben.balter.com/wp-content/uploads/2011/07/wp-document-revisions-screen-shot.png
  [5]: http://ben.balter.com/2011/04/04/when-all-you-have-is-a-pair-of-bolt-cutters/
  [6]: http://sharepoint.microsoft.com/en-us/Pages/default.aspx
  [7]: http://en.wikipedia.org/wiki/MD5

@@ -17,7 +17,7 @@ tags:
   - subpoena
 post_format: [ ]
 ---
-[![][2]][2]Bluehost, the [web hosting service][2] which powers more than [1.9 million][3] websites globally, making it one of the [top 20][3] largest hosting companies in the world and approximately [2% of the internet's traffic][4], recently came under fire for its decision to depart from well-established [internet standards][5] and reveal the identity of one of its subscribers, over what [later proved][6] to be an [unfounded suit][7].
+[![Subpoena](http://farm1.staticflickr.com/157/391427627_62f2a23df4_n.jpg){.alignright}][1]Bluehost, the [web hosting service][2] which powers more than [1.9 million][3] websites globally, making it one of the [top 20][3] largest hosting companies in the world and approximately [2% of the internet's traffic][4], recently came under fire for its decision to depart from well-established [internet standards][5] and reveal the identity of one of its subscribers, over what [later proved][6] to be an [unfounded suit][7].
 
 From a technical standpoint, Bluehost is one of the good guys. I've hosted sites with them since 2005 and looking back at the past six months, I've enjoyed a 99.79% uptime, with an average response time just under a second. But that's half the equation. Web hosting is not simply a cost-benefit analysis of price to uptime and responsiveness. There's a third factor there: trust.
 
@@ -37,7 +37,7 @@ In Bluehost's defense, the suit came at the height of the WIkileaks debacle, a t
 
 While technology may lend voice to otherwise marginalized political groups, it does not come without risk. In a shared hosting environment like Bluehost, "your" website, is not necessarily "your" website. Will we begin to see subpoena response times along the list of benchmarks and features when evaluating hosting companies? Probably not. But if you are planning on leveraging shared servers — be they Bluehost, Twitter, or YouTube — to blog about anything more than say, [DC Summer Interns][13], perhaps you should take a look at your hosting company's legal record before you click submit.
 
- []: http://www.flickr.com/photos/timsamoff/391427627/
+ [1]: http://www.flickr.com/photos/timsamoff/391427627/
  [2]: http://en.wikipedia.org/wiki/Web_hosting_service
  [3]: http://en.wikipedia.org/wiki/Bluehost
  [4]: http://www.necn.com/01/05/11/Koch-Industries-sues-over-bogus-website-/landing_scitech.html?&blockID=3&apID=b76a38541f994e489206850f0db50d02

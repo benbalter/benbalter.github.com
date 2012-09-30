@@ -17,7 +17,7 @@ tags:
   - wordpress
 post_format: [ ]
 ---
-[![Golden Hammer][2]][2]
+[![Golden Hammer](http://imgs.xkcd.com/comics/golden_hammer.png){.aligncenter}][1]
 
 My biggest gripe with [WordPress][2], the open-source [content management system][3] that silently works behind the scenes to power [more than 13%][4] of the Internet, is that it sets far too high a bar with which other applications must compete. I cannot count the number of times that I have used a proprietary or commercial system and silently thought to myself, "*WordPress can do this so much better*." [^1]
 
@@ -37,15 +37,13 @@ I am working on submitting this idea as a proposed [Google Summer of Code][18] p
 
 **Update (8/29)**: The final result of the project is an [Open Source Document Management and Version Control System][22] for WordPress. An overview of its top-level features including a screencast of a typical use case is available on the [WP Document Revisions][22] page.
 
-Notes:
+[^1]: *See, e.g., *[Documentum][23], [Liferay][24], [Melange][25], and [Gawker's CMS][26]. 
+[^2]: Nearly three years ago, at the time of the feature's inception, [WordPress founder Matt Mullenweg noted][28], "*With the power of modern computers, it's silly that we still use save and editing metaphors from the time when the most common method of storage was floppy disks… now we're taking that to another level by allowing you to view who made what changes when… through a super-easy interface, much like Wikipedia or a version control system.*" 
+[^3]: *See, e.g., *WordPress as an [e-mail newsletter][30], [contact manager][31], [CRM][32], [task list][33], [invoice system][34],  [job bank][35], or [real estate directory][36]. 
+[^4]: Let's just call it "Frupal" for the sake of discussion. 
+[^5]: In hindsight, I probably shouldn't have ripped on Melange. *See supra note 1.* 
 
-[^1]: *See, e.g., *[Documentum][23], [Liferay][24], [Melange][25], and [Gawker's CMS][26]. [27]
-[^2]: Nearly three years ago, at the time of the feature's inception, [WordPress founder Matt Mullenweg noted][28], "*With the power of modern computers, it's silly that we still use save and editing metaphors from the time when the most common method of storage was floppy disks… now we're taking that to another level by allowing you to view who made what changes when… through a super-easy interface, much like Wikipedia or a version control system.*" [29]
-[^3]: *See, e.g., *WordPress as an [e-mail newsletter][30], [contact manager][31], [CRM][32], [task list][33], [invoice system][34],  [job bank][35], or [real estate directory][36]. [37]
-[^4]: Let's just call it "Frupal" for the sake of discussion. [38]
-[^5]: In hindsight, I probably shouldn't have ripped on Melange. *See supra note 1.* [39]
-
- []: http://xkcd.com/801/
+ [1]: http://xkcd.com/801/
  [2]: http://wordpress.org
  [3]: http://en.wikipedia.org/wiki/Content_management_system
  [4]: http://w3techs.com/technologies/overview/content_management/all

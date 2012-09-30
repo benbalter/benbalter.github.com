@@ -14,11 +14,11 @@ post_format: [ ]
 ---
 Despite some users' [lax approach to safeguarding their identities][1], online accounts may now be afforded greater protection following the Sixth Circuit's ruling in *[United States v. Warshak][2].* The court, which upheld a temporary injunction on a fraud investigation involving the all-too-familiar [late-night "Smilin' Bob" informercials][3], extended the fourth amendment's warrant requirements to messages stored on third-party servers. The Sixth Circuit wrote:
 
-> "[T]he ISP is the functional equivalent of a post office or a telephone company… [T]he police may not storm the post office and intercept a letter, and they are likewise forbidden from using the phone system to make a clandestine recording of a telephone call—unless they get a warrant, that is." [^1]</span>
+> "[T]he ISP is the functional equivalent of a post office or a telephone company… [T]he police may not storm the post office and intercept a letter, and they are likewise forbidden from using the phone system to make a clandestine recording of a telephone call—unless they get a warrant, that is." [^1]
 
-Prior to the ruling, the government could ([and regularly did][5]) obtain e-mails stored on third-party hosts like Gmail, without first needing to obtain a search warrant. In its decision, the district court declared the 1986 Stored Communications Act (SCA) [2][6] unconstitutional on the grounds that it allowed what was tantamount to a traditional search, but without the required showing of probable cause. The court noted, "*[g]iven the fundamental similarities between e-mail and traditional forms of communication, it would defy common sense to afford e-mails lesser Fourth Amendment protection.*" [3][7]
+Prior to the ruling, the government could ([and regularly did][5]) obtain e-mails stored on third-party hosts like Gmail, without first needing to obtain a search warrant. In its decision, the district court declared the 1986 Stored Communications Act (SCA) [2][^2] unconstitutional on the grounds that it allowed what was tantamount to a traditional search, but without the required showing of probable cause. The court noted, "*[g]iven the fundamental similarities between e-mail and traditional forms of communication, it would defy common sense to afford e-mails lesser Fourth Amendment protection.*" [3][^3]
 
-The SCA, written long before GMail's all-you-can-eat storage was ever dreamed, required a warrant for any message stored on a third-party server for fewer than 180 days, but simply required a subpoena or court order for older messages or messages that had been previously downloaded by the user, thus denying the subject of the investigation both notice and the subsequent opportunity to contest the search itself. [4][8]
+The SCA, written long before GMail's all-you-can-eat storage was ever dreamed, required a warrant for any message stored on a third-party server for fewer than 180 days, but simply required a subpoena or court order for older messages or messages that had been previously downloaded by the user, thus denying the subject of the investigation both notice and the subsequent opportunity to contest the search itself. [^1][^4]
 
 For the most part, [the decision makes sense][9]. As e-mail moves from download-and-delete [POP-based][10] messages stored solely on a user's computer to the nearly limitless [IMAP][11], [Exchange][12], or [Web-based][13] messaging that increasingly lives in the unseen cloud, neither opportunity to download nor time spent on server are very compelling standards to determine the level of privacy that should be afforded to a message or the showing of cause that should be required to compel a host to disclose its contents.
 
@@ -26,21 +26,17 @@ The decision, which [tips a circuit split][14] further in favor of extending the
 
 Surely the decision does not settle the issue outright, but it is the latest in a long march of much-needed rulings further blurring the legal distinctions between the world online and the world off, and as persuasively written as it is, is likely to prove influential as both law and technology continue to evolve side by side.
 
-Notes:
 
-[^1]: *United States v. Warshak*, 08-3997, 2010 WL 5071766 (6th Cir. Dec. 14, 2010). [16]</li>
-    *   [18 U.S.C. 2703][17](b). 
-    *   *Warshak, *2010 WL 5071766. 
-    *   *See generall*y [Obtaining Electronic Evidence][20], Federal Law Enforcement Training Center (July 2003). </ol></div>
+[^1]: *United States v. Warshak*, 08-3997, 2010 WL 5071766 (6th Cir. Dec. 14, 2010). [16]
+[^2]: [18 U.S.C. 2703][17](b). 
+[^3]: *Warshak*, 2010 WL 5071766. 
+[^4]: *See generall*y [Obtaining Electronic Evidence][20], Federal Law Enforcement Training Center (July 2003)
 
  [1]: http://blogs.wsj.com/digits/2010/12/13/the-top-50-gawker-media-passwords/
  [2]: http://www.ca6.uscourts.gov/opinions.pdf/10a0377p-06.pdf
  [3]: http://blogs.forbes.com/kashmirhill/2010/12/15/your-email-now-warrants-greater-privacy-thanks-to-sex-pill-peddling-dude/
- [4]: #note-2020-1 "United States v. Warshak, 08-3997, 2010 WL 5071766 (6th Cir. Dec. 14, 2010)."
  [5]: http://www.google.com/transparencyreport/governmentrequests/
- [6]: #note-2020-2 "18 U.S.C. 2703(b)."
- [7]: #note-2020-3 "Warshak, 2010 WL 5071766."
- [8]: #note-2020-4 "See generally Obtaining Electronic Evidence, Federal Law Enforcement Training Center (July 2003)."
+
  [9]: http://ben.balter.com/2010/10/10/does-every-cloud-have-a-silver-lining/ "Does Every Cloud Have a Silver Lining?"
  [10]: http://en.wikipedia.org/wiki/Post_Office_Protocol
  [11]: http://en.wikipedia.org/wiki/Internet_Message_Access_Protocol

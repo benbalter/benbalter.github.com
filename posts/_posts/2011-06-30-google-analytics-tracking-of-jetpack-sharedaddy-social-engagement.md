@@ -30,74 +30,23 @@ If your site uses WordPress's JetPack plugin with Sharedaddy, and you already ha
 
 To add Google Analytics to Sharedaddy's Twitter share button:
 
-{% highlight javascript %}
+<div>{% highlight javascript %}
 $('a.share-twitter').click( function() {
 _gaq.push( ['_trackSocial', 'twitter', 'share',
 $(this).attr('href').substr(0, $(this).attr('href').indexOf('?'))]);
-});
-{% endhighlight %}    
+});{% endhighlight %}</div>
 
 …and for Facebook:
 
-{% highlight javascript %}
+<div>{% highlight javascript %}
 $('a.share-facebook').click( function() {
 _gaq.push( ['_trackSocial', 'faceboook', 'share',
 $(this).attr('href').substr(0, $(this).attr('href').indexOf('?'))]);
-});
-{% endhighlight %}
+});{% endhighlight %}</div>
 
-The above code simply listens for the share button to be clicked, and if so, passes the target URL back to Google, along with the service's name. Putting it all together into a plugin with a hook to `<del>wp_head</del> wp_footer` you get:
+The above code simply listens for the share button to be clicked, and if so, passes the target URL back to Google, along with the service's name. Putting it all together into a plugin with a hook to <del>`wp_head`</del> `wp_footer` you get:
 
-{% highlight php %}
-<?php
-/**
- * Plugin Name: Jetpack (Sharedaddy) Google Analytics Tracking
- * Description: Allows tracking of Facebook and Twitter shares in Google Analytics Social Tracking
- * Author: Benjamin J. Balter
- * Author URI:  http://ben.balter.com
- * Version: 0.1
- */
-
- /**
-  * Outputs javascript to document footer
-  */
-function bb_ga_social_footer() { ?>
-
-<script>
-     jQuery(document).ready(function($) {
-
-          //twitter
-          $('a.share-twitter').click(function(){
-          _gaq.push( ['_trackSocial', 'twitter', 'share',
-          $(this).attr('href').substr(0,      $(this).attr('href').indexOf('?'))]);
-          });
-
-          //facebook
-          $('a.share-facebook').click( function() {
-          _gaq.push( ['_trackSocial', 'faceboook', 'share',
-          $(this).attr('href').substr(0, $(this).attr('href').indexOf('?'))]);
-          });
-
-     });
-</script>
-
-<?php }
-
-//add our hook with higher-than-default priority
-add_action('wp_footer', 'bb_ga_social_footer', 20)
-
-/**
- * Require WP to load jQuery if not already loaded
- * h/t @Ramoonus
- */
-function bb_ga_social_enqueue() {
-     wp_enqueue_script(&quot;jquery&quot;);
-}
-
-//add hook to enqueue jQuery on load
-add_action('init', 'bb_ga_social_enqueue');
-?>
-{% endhighlight %}    
+<script src="https://gist.github.com/1058469.js"> </script>
 
 The code should work out of the box with the standard share buttons (seen below), but can easily be adapted with a few minor modifications to apply to like and other iterations of the social media icons.
 
@@ -105,7 +54,7 @@ More details on the tracking code can be found over in the [Google Analytics Soc
 
 **Update:** Dedicated reader All-around rabble-rouser [Andrew Nacin][5] points out that by default, jQuery is queued up into the footer. Updated the above code to hook into `wp_footer` with a priority of 20 (higher than jQuery's 10 hook).
 
-**Update:**Special thanks to [@Ramoonus][6] for [didn't queue up jQuery][7].
+**Update:** Special thanks to [@Ramoonus][6] for [didn't queue up jQuery][7].
 
  [1]: http://mashable.com/2011/06/30/google-analytics-social-plugin/
  [2]: http://yoast.com/wordpress/google-analytics/
