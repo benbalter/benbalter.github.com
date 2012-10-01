@@ -54,7 +54,7 @@ disqus:
   excerpt_length: 200
   
 #google analytics username
-ga_username: 'UA-XXXXX-X'
+ga_username: 'UA-18088627-1'
 
 #build config
 server: true
