@@ -13,9 +13,11 @@ You may notice things are bit snappier around here these days, having [recently 
 
 Jekyll is a blog-aware static site generator, the move to which, was primarily motivated by a desire to embrace the brave new, [post-CMS world](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/) we find ourselves in. While WordPress is great, [130 outages over the past six months (totalling more than a day's worth of downtime)](http://cl.ly/image/1M420a152e1z), left a bit to be desired in terms of hosting. 
 
+The old site (shared hosting provided by Bluehost) generally served flat HTML files from disk (generated on a regular basis by [W3 Total Cache](http://wordpress.org/extend/plugins/w3-total-cache/)), but fired up WordPress on every request (on top of the often slugish Apache). 
 
+WordPress can be [configured to fly](http://wordpress.org/extend/plugins/batcache/) given the right setup, and that's exactly what I set out to do. Spun up a shiny new AWS box, got Nginx with microcache up and running, APC for opcode, page, and object cache, and put everything behind varnish.
 
-
+## Performance
 
 ### Homepage
 
@@ -72,7 +74,7 @@ The first test was to benchmark the homepage, the most heavily trafficed page on
 
 Command: `siege -c 20 -t 30S -b ben.balter.com/aaaaaaa/`
 
-The true challenge comes in not from serving a static front page (which is presumably cached by WordPress after the first request), but in what happens when it has to reach into the database to retrieve content, for example, when processing a page that doesn't exist.[^1]
+The true challenge comes in not from serving a static front page (which is presumably cached by WordPress after the first request), but in what happens when it has to reach into the database to retrieve content, for example, when processing a page that doesn't exist.[^1] Bluehost squeezed out a single response each second, AWS just over 50, and Jekyll didn't flinch at 80.
 
 #### Shared Hosting (Bluehost)
 
