@@ -72,9 +72,7 @@ Thoughts? Would you use this? What else would you like to see it do? [Drop me a 
 
 **Update (10/1): **Introducing [Post Forking for WordPress](http://postforking.wordpress.com/2012/10/01/introducing-post-forking-for-wordpress/) — a more collaborative approach to content curation:
 
-Notes:
-
-1.  Having recently given this a try — using GitHub to curate [a collaboratively edited list of open-source alternatives to proprietary software][12] — I know first-hand how off-putting GitHub can be to non-technical users. 
+[^1]: Having recently given this a try — using GitHub to curate [a collaboratively edited list of open-source alternatives to proprietary software][12] — I know first-hand how off-putting GitHub can be to non-technical users. 
 [^2]: Full disclosure: two plugins, [Revisionary][14] and [Duplicate Post][15] exist, but they don't take the idea nearly as far as the above proposes, nor do they do it in "the WordPress way". I'd hope that even if the idea started as a plugin, it would eventually be incorporated as core functionality. [16]
 
  [1]: http://www.wired.com/wiredenterprise/2012/02/github/all/1
