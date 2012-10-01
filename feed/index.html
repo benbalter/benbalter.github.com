@@ -16,7 +16,7 @@ layout: none
     <link type="text" href="{{ site.url }}" rel="alternate"/>
     <lastBuildDate>{{ site.time | date_to_xmlschema }}</lastBuildDate>
    	<language>en-US</language>
-    <description>{{ site.description | xml_escape }}</description>
+    <description>{{ site.description | append:' ' |  xml_escape }}</description>
     {% for post in site.posts limit:site.rss_limit %}<item>
         <title>{{ post.title }}</title>
         <link href="{{ site.url }}{{ post.url }}"/>
@@ -25,7 +25,7 @@ layout: none
         {% for tag in post.tags %}<category>{{ tag | xml_escape }}</category>
         {% endfor %}{% for cat in post.categories %}<category>{{ cat | xml_escape }}</category>
         {% endfor %}<guid isPermaLink="false">{{ post.id }}</guid>
-        <description>{{ post.description | xml_escape }}</description>
-        <content>{{ post.content | xml_escape }}</content>
+        <description>{{ post.description | append:' ' |  xml_escape }}</description>
+        <content>{{ post.content | append:' ' |  xml_escape }}</content>
     </item>{% endfor %}
 </channel>
