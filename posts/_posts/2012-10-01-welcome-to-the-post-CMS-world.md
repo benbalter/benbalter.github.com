@@ -19,9 +19,15 @@ WordPress can be [configured to fly](http://wordpress.org/extend/plugins/batcach
 
 But just like Javascript, static sites are coming back in style. Reduce the complexity, push it to the edge, and let the visitor's browser call APIs directly to generate any dynamic content you may need. Same functionality, same experience, no headache.
 
+The pitch is straightforward. 
+
 And then there's cost. Putting aside the cost of time for a moment, Shared hosting's going to run you int he ballpark of $7 a month; AWS starts at $14, plus the cost of bandwidth; and Jekyll, if hosted by GitHub? Free.
 
-I tood up the three options side-by-side, and ran a performance testing tool called [Siege](http://www.joedog.org/siege-home/) on each.
+I stood up the three options side-by-side, and ran them through the riggors of a performance testing tool cleverly called [Siege](http://www.joedog.org/siege-home/), the results of which are below.
+
+Still unpacking some of the boxes, so if you notice something that doesn't seem right, feel free to [open an issue](https://github.com/benbalter/benbalter.github.com/issues), or better yet, like what you see, feel free to [fork and contribute](https://github.com/benbalter/benbalter.github.com).
+
+Long live the CMS.
 
 ## The Results
 
