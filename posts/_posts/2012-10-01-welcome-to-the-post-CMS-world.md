@@ -11,23 +11,31 @@ published: false
 
 You may notice things are bit snappier around here these days, having [recently converted](https://github.com/benbalter/wordpress-to-jekyll-exporter) the site from WordPress, to [Jekyll](https://github.com/mojombo/jekyll).
 
-Jekyll is a blog-aware static site generator — heavily integrated with the GitHub a social code sharing service — the move to which, was primarily motivated by a desire to embrace the brave new, [post-CMS world](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/) we find ourselves in. While WordPress is great, [130 outages over the past six months (totalling more than a day's worth of downtime)](http://cl.ly/image/1M420a152e1z), left a bit to be desired in terms of hosting. 
+Jekyll is a blog-aware static site generator — heavily integrated with the social code sharing service GitHub — the move to which, was primarily motivated by a desire to embrace the brave new, [post-CMS world](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/) we now find ourselves in. While WordPress is great, [130 outages over the past six months (totalling more than a day's worth of downtime)](http://cl.ly/image/1M420a152e1z), left a bit to be desired in terms of hosting. 
 
-The old site (shared hosting provided by Bluehost) generally served flat HTML files from disk (generated on a regular basis by [W3 Total Cache](http://wordpress.org/extend/plugins/w3-total-cache/)), but fired up WordPress on every request (on top of the often slugish Apache). 
+Although powered by the open-source CMS WordPress, the old site (shared hosting provided by Bluehost) for performance sake, would actually just served flat HTML and Javscript files from disk (generated on a regular basis by an industry-standard plugin known as  [W3 Total Cache](http://wordpress.org/extend/plugins/w3-total-cache/)), but fired up WordPress on every request (on top of the already slugish Apache). 
 
-WordPress can be [configured to fly](http://wordpress.org/extend/plugins/batcache/) given the right setup, and that's exactly what I set out to do. Spun up a shiny new AWS box, got Nginx with microcache up and running, APC for opcode, page, and object cache, and put everything behind varnish.
+WordPress can be [configured to fly](http://wordpress.org/extend/plugins/batcache/) given the right setup, and that's exactly what I set out to do. Spun up a shiny new AWS box, got Nginx with microcache up and running, APC for opcode, page, and object cache, and even put everything behind varnish.
 
-But just like Javascript, static sites are coming back in style. Reduce the complexity, push it to the edge, and let the visitor's browser call APIs directly to generate any dynamic content you may need. Same functionality, same experience, no headache.
+But just like fixies and Javascript, static sites are back in style. Reduce the complexity, push it to the edge, and let the visitor's browser call APIs directly to generate any dynamic content you may need. Same functionality, same experience, no headache.
 
-The pitch is straightforward. 
+The pitch is straightforward. It leads to simple, flexible, and reliable websites that allow for a renewed focus on what actually matters: the content. Dave Cole over at [Development Seed](http://developmentseed.org/) (also powered by Jekyll) [put it best](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/):
 
-And then there's cost. Putting aside the cost of time for a moment, Shared hosting's going to run you int he ballpark of $7 a month; AWS starts at $14, plus the cost of bandwidth; and Jekyll, if hosted by GitHub? Free.
+> In the past, building websites with features like consistent templates and lists of aggregated content meant setting up complex content management systems. These CMSs consisted of templating logic, application code, and content databases so they could assemble webpages each time they were requested by site visitors. They were complicated systems that depend on many separate applications working together, like a web server to route page requests to a PHP application that uses pre-defined page layout templates to format content that’s stored in a MySQL database. Serving a page request required at least three separate applications all working together — any one failing would bring down the system.
 
-I stood up the three options side-by-side, and ran them through the riggors of a performance testing tool cleverly called [Siege](http://www.joedog.org/siege-home/), the results of which are below.
+> To make this work at scale requires even more complexity: introducing new applications to cache the information in the database or the output of the PHP application, replicating content across several database servers while trying to keep new content in sync, spinning up new web servers to handle surges in traffic, and many other scalability tactics devised over the years to hold together this model. In the end though, the ability to keep the website “up” and serving content at pace with a deluge of requests depends on the developers’ ability to turn on new servers and a reliance on caching schemes.
 
-Still unpacking some of the boxes, so if you notice something that doesn't seem right, feel free to [open an issue](https://github.com/benbalter/benbalter.github.com/issues), or better yet, like what you see, feel free to [fork and contribute](https://github.com/benbalter/benbalter.github.com).
+> From open source frameworks like Drupal, Wordpress, and Expression Engine to multi-million dollar proprietary applications that the government and big corporations procure from companies that also build tanks and battle ships, these systems produce the same exact output: HTML, CSS, and JavaScript files that web browsers know how to format into the webpages we see. Additional features like RSS or JSON API feeds are just new templates for the same content, and backend workflow modules like those for embedded media and handling email notifications are really separate systems that introduce complexity when integrated with the publishing system.
 
-Long live the CMS.
+And then there's cost. Putting aside the value of time for a moment, shared hosting's going to run you in the ballpark of $7 a month; AWS starts at $14, plus the cost of bandwidth and storage; and Jekyll, if hosted by GitHub? Free.[^3]
+
+I stood up the three options side-by-side, and ran them through the riggors of a performance testing tool humerously called [Siege](http://www.joedog.org/siege-home/), the results of which can be found below.
+
+I'm still unpacking some of the boxes of bytes, so if you notice something that doesn't seem right, feel free to [open an issue](https://github.com/benbalter/benbalter.github.com/issues), or better yet, like what you see, feel free to [fork and contribute](https://github.com/benbalter/benbalter.github.com).
+
+Is it the [start](http://presidential-innovation-fellows.github.com/mygov/) [of a static-site](http://presidential-innovation-fellows.github.com/rfpez-blog/) [revolution](http://presidential-innovation-fellows.github.com/bluebutton/)?
+
+The CMS is dead. Long live the CMS.
 
 ## The Results
 
@@ -142,3 +150,5 @@ With Jekyll, because the files are simply sitting on the server, absent a catast
 [^1]: Requesting a page that doesn't exist will require WordPress to run multiple database queries to attempt to find the page, a request that would most likely not be cached in the event that the 404 was sent in error.
 
 [^2]: GitHub's build queue has been backing up every once in a while as of late, but if a change isn't instantanous, I'm okay with that.
+
+[^3]: That's free as in speach **and** free as in beer.
