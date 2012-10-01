@@ -23,7 +23,6 @@ permalink: /:year/:month/:day/:title/
 
 #prose config, see http://prose.io/help/handbook.html
 prose:
-  rooturl: "_posts"
   metadata:
     "_posts": |
       title: "Title of the post"
