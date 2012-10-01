@@ -29,7 +29,7 @@ prose:
       description: "SEO friendly description"
       author: "Your Name Here"
       layout: post
-      comments: true,
+      comments: true
       category: 
       tags: 
       published: false
