@@ -87,7 +87,7 @@ article .entrybody { text-align: justify; }
 /* Hero */
 
 .hero-unit { 
-	background-image: url( 'http://cdn.benbalter.com/wp-content/uploads/2012/05/cropped-wp-header.jpg' );
+	background-image: url( 'http://ben.balter.com/wp-content/uploads/2012/05/cropped-wp-header.jpg' );
 	background-size: cover;
 	background-position: center center;
 	min-height: 150px; 
