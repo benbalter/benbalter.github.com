@@ -1,6 +1,6 @@
 ---
-title: "Title of the post"
-description: "SEO friendly description"
+title: "Welcome to the Post-CMS World"
+description: "Jekyll (and other static-sites) lead to simple, flexible, and reliable websites that allow for a renewed focus on what actually matters: the content."
 author: "Benjamion J. Balter"
 layout: post
 comments: true
