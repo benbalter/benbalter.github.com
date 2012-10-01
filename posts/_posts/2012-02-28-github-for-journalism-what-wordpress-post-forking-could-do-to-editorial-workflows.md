@@ -20,6 +20,7 @@ tags:
   - workflow
 post_format: [ ]
 ---
+
 Wired Magazine recently took a turn for the meta. In addition to publishing [their recent story featuring the popular version control site GitHub][1] on Wired.com as they would normally, they also [published it on GitHub itself under a creative commons license][2], allowing readers to fork and contribute to the story as they saw fit. In [reflecting after the fact][3], the Wired team said something that stood out to me:
 
 > At Wired offices, you hear the question over and over again as we work on stories like the one you're reading now: "Are you out of the story? I want to go in." We have a version control problem. We publish Wired.com on WordPress. It's a decent publishing tool, but when two people change a story at the same time, one of them doesn't get her changes onto the final story.
@@ -68,6 +69,8 @@ Thoughts? Would you use this? What else would you like to see it do? [Drop me a 
 **Update (3/27): **It looks like [WordPress isn't participating in GSoC this year][11]. Filing this idea under "someday".
 
 **Update (6/13): **Stay tuned. This may yet become a reality after all. ETA end of summer-ish.
+
+**Update (10/1): **Introducing [Post Forking for WordPress](http://postforking.wordpress.com/2012/10/01/introducing-post-forking-for-wordpress/) — a more collaborative approach to content curation:
 
 Notes:
 
