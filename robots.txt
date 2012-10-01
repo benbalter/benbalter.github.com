@@ -1,5 +1,6 @@
 User-agent: *
 Disallow: /*.json$
 Disallow: /*.js$
+Disallow: /*.css$
 Allow: /
 Sitemap: /sitemap.xml
