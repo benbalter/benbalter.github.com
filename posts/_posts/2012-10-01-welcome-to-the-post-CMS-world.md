@@ -11,13 +11,17 @@ published: false
 
 You may notice things are bit snappier around here these days, having [recently converted](https://github.com/benbalter/wordpress-to-jekyll-exporter) the site from WordPress, to [Jekyll](https://github.com/mojombo/jekyll).
 
-Jekyll is a blog-aware static site generator, the move to which, was primarily motivated by a desire to embrace the brave new, [post-CMS world](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/) we find ourselves in. While WordPress is great, [130 outages over the past six months (totalling more than a day's worth of downtime)](http://cl.ly/image/1M420a152e1z), left a bit to be desired in terms of hosting. 
+Jekyll is a blog-aware static site generator — heavily integrated with the GitHub a social code sharing service — the move to which, was primarily motivated by a desire to embrace the brave new, [post-CMS world](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/) we find ourselves in. While WordPress is great, [130 outages over the past six months (totalling more than a day's worth of downtime)](http://cl.ly/image/1M420a152e1z), left a bit to be desired in terms of hosting. 
 
 The old site (shared hosting provided by Bluehost) generally served flat HTML files from disk (generated on a regular basis by [W3 Total Cache](http://wordpress.org/extend/plugins/w3-total-cache/)), but fired up WordPress on every request (on top of the often slugish Apache). 
 
 WordPress can be [configured to fly](http://wordpress.org/extend/plugins/batcache/) given the right setup, and that's exactly what I set out to do. Spun up a shiny new AWS box, got Nginx with microcache up and running, APC for opcode, page, and object cache, and put everything behind varnish.
 
-But just like Javascript, static sites are coming back in style. Reduce the complexity, push it to the edge, and let the visitor's browser call an API directly to generate any dynamic content you may need. Same functionality, same workflow, no headache.
+But just like Javascript, static sites are coming back in style. Reduce the complexity, push it to the edge, and let the visitor's browser call APIs directly to generate any dynamic content you may need. Same functionality, same experience, no headache.
+
+And then there's cost. Putting aside the cost of time for a moment, Shared hosting's going to run you int he ballpark of $7 a month; AWS starts at $14, plus the cost of bandwidth; and Jekyll, if hosted by GitHub? Free.
+
+I tood up the three options side-by-side, and ran a performance testing tool called [Siege](http://www.joedog.org/siege-home/) on each.
 
 ## The Results
 
