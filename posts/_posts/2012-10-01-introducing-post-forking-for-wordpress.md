@@ -1,13 +1,12 @@
 ---
 title: "Introducing Post Forking for WordPress"
-description: "WordPress Post Forking allows users to "fork" or create an alternate version of content and in doing so, sets out to foster a more collaborative approach to WordPress content curation."
+description: "WordPress Post Forking allows users to fork or create an alternate version of content and in doing so, sets out to foster a more collaborative approach to WordPress content curation."
 author: "Benjamin J. Balter"
 layout: post
 comments: true
 category: Technology
 tags: WordPress, journalism, post forking, collaboration, workflow
 published: false
-
 ---
 
 *WordPress sets out to democratize publishing, and today the CMS gains an important new feature to that end: Post Forking.* 
