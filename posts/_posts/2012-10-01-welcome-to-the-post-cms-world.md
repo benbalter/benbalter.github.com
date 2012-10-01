@@ -33,9 +33,7 @@ I stood up the three options side-by-side, and ran them through the riggors of a
 
 I'm still unpacking some of the boxes of bytes, so if you notice something that doesn't seem right, feel free to [open an issue](https://github.com/benbalter/benbalter.github.com/issues), or better yet, like what you see, feel free to [fork and contribute](https://github.com/benbalter/benbalter.github.com).
 
-Is it the [first shots](http://presidential-innovation-fellows.github.com/mygov/) [of a static-site](http://presidential-innovation-fellows.github.com/rfpez-blog/) [revolution](http://presidential-innovation-fellows.github.com/bluebutton/)? Time will tell.
-
-The CMS is dead. Long live the CMS.
+Is it the [first shots](http://presidential-innovation-fellows.github.com/mygov/) [of a static-site](http://presidential-innovation-fellows.github.com/rfpez-blog/) [revolution](http://presidential-innovation-fellows.github.com/bluebutton/)? Time will tell. The CMS is dead. Long live the CMS.
 
 ## The Results
 
