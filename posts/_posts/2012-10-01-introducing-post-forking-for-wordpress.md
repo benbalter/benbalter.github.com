@@ -10,7 +10,9 @@ published: false
 
 ---
 
-*WordPress sets out to democratize publishing, and today the CMS gains an important new feature to that end: Post Forking.* WordPress Post Forking allows users to "fork" or create an alternate version of content and in doing so, sets out to foster a more collaborative approach to WordPress content curation. This can be used, for example, to allow external users (such as visitors to your site) or internal users (such as other authors) with the ability to submit proposed revisions. It can even be used on smaller or single-author sites to enable post authors to edit published posts without their changes appearing immediately. If you're familiar with Git, or other decentralized version control systems, you're already familiar with WordPress post forking. 
+*WordPress sets out to democratize publishing, and today the CMS gains an important new feature to that end: Post Forking.* 
+
+WordPress Post Forking allows users to "fork" or create an alternate version of content and in doing so, sets out to foster a more collaborative approach to WordPress content curation. This can be used, for example, to allow external users (such as visitors to your site) or internal users (such as other authors) with the ability to submit proposed revisions. It can even be used on smaller or single-author sites to enable post authors to edit published posts without their changes appearing immediately. If you're familiar with Git, or other decentralized version control systems, you're already familiar with WordPress post forking. 
 ### How might you use it?
 
 *   Allowing users without edit or publish post capabilities to edit and submit changes to content (similar to [GitHub’s pull request system][1])
