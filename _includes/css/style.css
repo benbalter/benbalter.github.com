@@ -125,6 +125,9 @@ blockquote p { margin-bottom: 10px; }
 /* Disqus */
 #disqus_thread { margin-top: 20px; padding-top: 20px; border-top: 1px dotted rgba(0, 0, 0, 0.2); }
 
+/* sidebar meta widget */
+.sidebar .meta { margin-left: 0; list-style: none; font-size: 11px;  }
+
 /* Responsiveness */
 
 @media (max-width: 979px) {
