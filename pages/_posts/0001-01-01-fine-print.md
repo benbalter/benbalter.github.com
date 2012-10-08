@@ -15,3 +15,5 @@ Finally, be aware that I often use the [old AP style for "Web site"](http://twit
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img class="aligncenter" style="border-width: 0;" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Creative Commons License" /></a>
 
 All original content on Ben.Balter.com is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a> attributable to <a rel="cc:attributionURL" href="http://ben.balter.com">Benjamin J. Balter</a>.
+
+All code available [on GitHub](https://github.com/benbalter/benbalter.github.com) and licensed under the MIT license.
