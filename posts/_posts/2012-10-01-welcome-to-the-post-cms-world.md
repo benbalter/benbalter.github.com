@@ -9,7 +9,7 @@ tags: WordPress, Jekyll, GitHub, benchmarking, benchmarks
 published: true
 ---
 
-You may notice things are bit snappier around here these days, having [recently converted](https://github.com/benbalter/wordpress-to-jekyll-exporter) the site from WordPress, to [Jekyll](https://github.com/mojombo/jekyll).[^Jackal]
+You may notice things are bit snappier around here these days, having [recently converted](https://github.com/benbalter/wordpress-to-jekyll-exporter) the site from WordPress, to [Jekyll](https://github.com/mojombo/jekyll).[^4]
 
 Jekyll is a blog-aware static site generator — heavily integrated with the social code sharing service GitHub — the move to which, was primarily motivated by a desire to embrace the brave new, [post-CMS world](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/) we now find ourselves in. While WordPress is great, [130 outages over the past six months (totalling more than a day's worth of downtime)](http://cl.ly/image/1M420a152e1z), left a bit to be desired in terms of hosting. 
 
@@ -155,4 +155,4 @@ With Jekyll, because the files are simply sitting on the server, absent a catast
 
 [^3]: That's free as in speach **and** free as in beer.
 
-[^jackal]: Not to be confused with [The Jackal](http://www.youtube.com/watch?v=Q7H_L5cYkg8).
+[^4]: Not to be confused with [The Jackal](http://www.youtube.com/watch?v=Q7H_L5cYkg8).
