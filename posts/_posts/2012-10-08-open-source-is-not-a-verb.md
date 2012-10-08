@@ -1,14 +1,12 @@
 ---
 published: false
-title: "Open Source is not a verb; it's a Philosophy"
+title: "Open Source is not a verb — it's a Philosophy"
 description: "SEO friendly description"
 author: "Benjamin J. Balter"
 layout: post
 comments: true
 category: Technology
-tags: 
-	- open source
-
+tags: open source
 ---
 
 I'm always intreagued by developers who use the term "open source" as a verb. As if a switch could be magically switched, and via a quick mouse click in the [Danger Zone](http://www.youtube.com/watch?v=V8rZWw9HE7o), a proprietary or purpose-built project quickly becomes "open source".
