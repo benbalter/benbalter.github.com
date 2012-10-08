@@ -157,6 +157,6 @@ It's cheaper, it's faster, it's simpler, it's worry free, and in my opinion, it'
 
 [^2]: GitHub's build queue has been backing up every once in a while as of late, but if a change isn't instantanous, I'm okay with that.
 
-[^3]: That's free as in speach **and** free as in beer.
+[^3]: That's free as in speech **and** free as in beer.
 
 [^4]: Not to be confused with [The Jackal](http://www.youtube.com/watch?v=Q7H_L5cYkg8).
