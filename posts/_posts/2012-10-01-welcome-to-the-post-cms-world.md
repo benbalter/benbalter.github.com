@@ -6,7 +6,7 @@ layout: post
 comments: true
 category: Technology
 tags: WordPress, Jekyll, GitHub, benchmarking, benchmarks
-published: false
+published: true
 ---
 
 You may notice things are bit snappier around here these days, having [recently converted](https://github.com/benbalter/wordpress-to-jekyll-exporter) the site from WordPress, to [Jekyll](https://github.com/mojombo/jekyll).
@@ -15,9 +15,9 @@ Jekyll is a blog-aware static site generator — heavily integrated with the so
 
 Although powered by the open-source CMS WordPress, the old site (shared hosting provided by Bluehost) for performance sake, would actually just served flat HTML and Javscript files from disk (generated on a regular basis by an industry-standard plugin known as  [W3 Total Cache](http://wordpress.org/extend/plugins/w3-total-cache/)), but fired up WordPress on every request (on top of the already slugish Apache). 
 
-WordPress can be [configured to fly](http://wordpress.org/extend/plugins/batcache/) given the right setup, and that's exactly what I set out to do. Spun up a shiny new AWS box, got Nginx with microcache up and running, APC for opcode, page, and object cache, and even put everything behind varnish.
+Don't get me wrong. WordPress can be [configured to fly](http://wordpress.org/extend/plugins/batcache/) given the right setup, and that's exactly what I set out to do. I got the best of the best. I spun up a shiny new AWS box, got Nginx with microcache up and running, APC for opcode, page, and object cache, and even put everything behind Varnish.
 
-But just like fixies and Javascript, static sites are back in style. Reduce the complexity, push it to the edge, and let the visitor's browser call APIs directly to generate any dynamic content you may need. Same functionality, same experience, no headache.
+But as much as it pains the developer in me, just like fixies, PBR, and Javascript, static sites are back in style. Reduce the complexity, push it to the edge, and let the visitor's browser call APIs directly to generate any dynamic content you may need. Same functionality, same experience, no headache.
 
 The pitch is straightforward. It leads to simple, flexible, and reliable websites that allow for a renewed focus on what actually matters: the content. Dave Cole over at [Development Seed](http://developmentseed.org/) (also powered by Jekyll) [put it best](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/):
 
@@ -143,7 +143,7 @@ The true challenge comes in not from serving a static front page (which is presu
 	Longest transaction:	        1.42
 	Shortest transaction:	        0.00
     
-## Uptime
+### Uptime
 
 The other concern was uptime. With the AWS route you may get the performance, but with all that complexity, it's increasingly more like that something would go wrong, harder to diagnose and resolve, and unlike shared or managed hosting, if your site goes down at 3:00 am, the only person to call is yourself. (no thanks.)
 
