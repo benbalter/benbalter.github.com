@@ -29,3 +29,7 @@ So what makes an open source project truly open source and not simply "published
 5. **Mechanics** - Is it in version control or just a static download? Is the bug tracker public? Can I comment and submit? What about documentation? Is it maintained in a wiki?
 6. **Communication** - Can developers communicate directly or must they go through the parent organization? (e.g., annoucment verses conversation models)
 7. **Purpose-built Code** - Is the code writen for open source? Is it sufficiently documented? Is it modular? Is it specific to the initial usecase or abstracted out to the underlying logic?
+
+All of the above are underlying principles that drive development from day one, and are not incompatible with a philosophy that dicates code remains under lock and key until a minimum viable product (MVP) has been reached. They do remain incompatible, however, with a philosophy that says business as usual can be converted into a sucessful open source project at the click of a button. 
+
+Publishing is one necessary step to creating open source software, but it's neither the first nor is it the last.
