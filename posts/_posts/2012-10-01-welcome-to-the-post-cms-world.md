@@ -149,6 +149,10 @@ The other concern was uptime. With the AWS route you may get the performance, bu
 
 With Jekyll, because the files are simply sitting on the server, absent a catastrophic failure, when things go wrong with Jekyll, it simply keeps serving the old content.[^2]
     
+## Conclusion 
+
+It's cheaper, it's faster, it's simpler, it's worry free, and in my opinion, it's the future. Welcome to the post-CMS world.
+
 [^1]: Requesting a page that doesn't exist will require WordPress to run multiple database queries to attempt to find the page, a request that would most likely not be cached in the event that the 404 was sent in error.
 
 [^2]: GitHub's build queue has been backing up every once in a while as of late, but if a change isn't instantanous, I'm okay with that.
