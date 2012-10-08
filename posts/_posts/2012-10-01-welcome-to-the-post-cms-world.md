@@ -5,7 +5,7 @@ author: "Benjamion J. Balter"
 layout: post
 comments: true
 category: Technology
-tags: WordPress, Jekyll, GitHub, benchmarking, benchmarks
+tags: WordPress Jekyll GitHub benchmarking benchmarks
 published: true
 ---
 
