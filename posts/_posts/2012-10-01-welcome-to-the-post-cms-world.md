@@ -21,9 +21,7 @@ But just like fixies and Javascript, static sites are back in style. Reduce the 
 
 The pitch is straightforward. It leads to simple, flexible, and reliable websites that allow for a renewed focus on what actually matters: the content. Dave Cole over at [Development Seed](http://developmentseed.org/) (also powered by Jekyll) [put it best](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/):
 
-> In the past, building websites with features like consistent templates and lists of aggregated content meant setting up complex content management systems. These CMSs consisted of templating logic, application code, and content databases so they could assemble webpages each time they were requested by site visitors. They were complicated systems that depend on many separate applications working together, like a web server to route page requests to a PHP application that uses pre-defined page layout templates to format content that’s stored in a MySQL database. Serving a page request required at least three separate applications all working together — any one failing would bring down the system.
-
-> To make this work at scale requires even more complexity: introducing new applications to cache the information in the database or the output of the PHP application, replicating content across several database servers while trying to keep new content in sync, spinning up new web servers to handle surges in traffic, and many other scalability tactics devised over the years to hold together this model. In the end though, the ability to keep the website “up” and serving content at pace with a deluge of requests depends on the developers’ ability to turn on new servers and a reliance on caching schemes.
+> In the past, building websites with features like consistent templates and lists of aggregated content meant setting up complex content management systems. These CMSs consisted of templating logic, application code, and content databases so they could assemble webpages each time they were requested by site visitors. They were complicated systems that depend on many separate applications working together, like a web server to route page requests to a PHP application that uses pre-defined page layout templates to format content that’s stored in a MySQL database. Serving a page request required at least three separate applications all working together — any one failing would bring down the system...
 
 > From open source frameworks like Drupal, Wordpress, and Expression Engine to multi-million dollar proprietary applications that the government and big corporations procure from companies that also build tanks and battle ships, these systems produce the same exact output: HTML, CSS, and JavaScript files that web browsers know how to format into the webpages we see. Additional features like RSS or JSON API feeds are just new templates for the same content, and backend workflow modules like those for embedded media and handling email notifications are really separate systems that introduce complexity when integrated with the publishing system.
 
@@ -31,11 +29,17 @@ And then there's cost. Putting aside the value of time for a moment, shared host
 
 I stood up the three options side-by-side, and ran them through the riggors of a performance testing tool humerously called [Siege](http://www.joedog.org/siege-home/), the results of which can be found below.
 
-I'm still unpacking some of the boxes of bytes, so if you notice something that doesn't seem right, feel free to [open an issue](https://github.com/benbalter/benbalter.github.com/issues), or better yet, like what you see, feel free to [fork and contribute](https://github.com/benbalter/benbalter.github.com).
+I'm still unpacking some of the boxes of bytes, so if you notice something that doesn't seem right, feel free to [open an issue](https://github.com/benbalter/benbalter.github.com/issues), or better yet, like what you see, feel free to [fork and contribute](https://github.com/benbalter/benbalter.github.com). Embracing somewhat of a crawl, walk, run, or fail-fast philosohpy, next up is [outputting the pages as Jekyll](https://github.com/benbalter/benbalter.github.com/blob/js/_plugins/generate-json.rb) and relying on Backbone to do the heavy lifting.
 
-Is it the [first shots](http://presidential-innovation-fellows.github.com/mygov/) [of a static-site](http://presidential-innovation-fellows.github.com/rfpez-blog/) [revolution](http://presidential-innovation-fellows.github.com/bluebutton/)? Time will tell. The CMS is dead. Long live the CMS.
+Is it the [first shots](http://presidential-innovation-fellows.github.com/mygov/) [of a static-site](http://presidential-innovation-fellows.github.com/rfpez-blog/) [revolution](http://presidential-innovation-fellows.github.com/bluebutton/)? Time will tell. 
+
+The CMS is dead. Long live the CMS.
+
+---
 
 ## The Results
+
+**WARNING: Geek Content!**
 
 ### Homepage
 
