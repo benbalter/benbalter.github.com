@@ -24,7 +24,7 @@ permalink: /:year/:month/:day/:title/
 #prose config, see http://prose.io/help/handbook.html
 prose:
   metadata:
-    "_posts": |
+    "posts": |
       title: "Title of the post"
       description: "SEO friendly description"
       author: "Your Name Here"
