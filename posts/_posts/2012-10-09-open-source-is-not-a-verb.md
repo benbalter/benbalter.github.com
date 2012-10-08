@@ -32,4 +32,4 @@ So what makes an open source project truly open source and not simply "published
 
 All of the above are underlying principles that drive development from day one, and are not incompatible with a philosophy that dicates code remains under lock and key until a minimum viable product (MVP) has been reached. They do remain incompatible, however, with a philosophy that says business as usual can be converted into a sucessful open source project at the click of a button. 
 
-Publishing is one necessary step to creating open source software, but it's neither the first nor is it the last.
+Publishing is one necessary step to creating open source software, but it's neither the first nor is it the last. It's about [building a community](http://ben.balter.com/open-source-for-government/#open_source_community_building), not about building software.
