@@ -29,5 +29,3 @@ So what makes an open source project truly open source and not simply "published
 5. **Mechanics** - Is it in version control or just a static download? Is the bug tracker public? Can I comment and submit? What about documentation? Is it maintained in a wiki?
 6. **Communication** - Can developers communicate directly or must they go through the parent organization? (e.g., annoucment verses conversation models)
 7. **Purpose-built Code** - Is the code writen for open source? Is it sufficiently documented? Is it modular? Is it specific to the initial usecase or abstracted out to the underlying logic?
-
-
