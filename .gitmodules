@@ -1,0 +1,3 @@
+[submodule "assets/fonts/league-gothic"]
+	path = assets/fonts/league-gothic
+	url = https://github.com/theleagueof/league-gothic.git
