@@ -10,7 +10,7 @@ published: false
 
 ---
 
-We've been trained wrong. We've been trained that content creation starts by firing up a desktop word processor — a piece of software, mind you, that still does its best to generate a digital representation of a physical piece of paper — margins, page breaks, and all. Yet this quitesential bussiness-place training simply fails to remain relevant in a world where we carry a computer in our pockets at all times. Our training now tells us to create content for the least-likely way it's consumed. We're stuck in an anacronystic workflow. 
+We've been trained wrong. We've been trained that content creation starts by firing up a desktop word processor — a piece of software, mind you, that still does its best to generate a digital representation of a physical piece of paper — margins, page breaks, and all. Yet this quintessential bushiness-place training simply fails to remain relevant in a world where we carry a computer in our pockets at all times. Our training now tells us to create content for the least-likely way it's consumed. We're stuck in an anachronistic workflow. 
 
 Take the typical collaborative publishing workflow, which goes something like this:
 
@@ -27,18 +27,17 @@ Microsoft Word was designed with one purpose in mind: to make paper. Think about
 
 Yet the majority of the documents we create today rarely, if ever embody physical space.  They don't care about the things Microsoft Word cares about — margin width, page breaks, or other properties that assume four sharp corners — and more importantly, they don't handle responsiveness, machine-readability, or other web-specific features.
 
-And then there's the problem of version control. I can't count the number of times I've been e-mailed a document entitled `foo-document_2012_10_15_clean_fixed_revised_final2` and told that it's "on the share drive" or asked "are you out yet?". What the what? *What updates does this version have that weren't in the last? Wait is this even the most recent version? Who made the last three revisions? What happend with that change I submitted - did you accept it? Why not? Can we discuss? Can two people edit it at the same time? Not to mention — I have a crazy idea — can I go off and experiment in a parallel version?*
+And then there's the problem of version control. I can't count the number of times I've been e-mailed a document entitled `foo-document_2012_10_15_clean_fixed_revised_final2` and told that it's "on the share drive" or asked "are you out yet?". What the what? *What updates does this version have that weren't in the last? Wait is this even the most recent version? Who made the last three revisions? What happened with that change I submitted - did you accept it? Why not? Can we discuss? Can two people edit it at the same time? Not to mention — I have a crazy idea — can I go off and experiment in a parallel version?*
 
 Geeks solved this problem a long time ago. It's called version control. We built it in the 70's. We start with content, you edit it, I edit it, and we get better content. It's really that simple, and better yet, it's free. It handles curating the master copy, keeps track of each and every change (down to the character mind you), and even provides a transparent forum to discuss those changes in the context in which they occur. [Take a look](https://github.com/benbalter/benbalter.github.com/commits/master/posts/_posts/2012-10-19-we-ve-been-trained-to-make-paper.md).
 
 So why doesn't everyone use this "version control"? Because we've got to break free of these proprietary, print-only formats. We've got to stop shuttling changes back-and-forth via e-mail. We've got to unprogram how we've been trained to create. Students should be taught HTML and Markdown in school, not Word and PDFs.
 
-And here's why: proprietary document formats tend to comingle the text we provide with the commands the software needs to recreate it, and it stores all this in a complicated and inaccessable binary format. That confuses me. We put text in — one of the most basic things computers understand — and we get this big mess back that can only be opened by that software. It doesn't need to be so complicated.
+And here's why: proprietary document formats tend to commingle the text we provide with the commands the software needs to recreate it, and it stores all this in a complicated and inaccessible binary format. That confuses me. We put text in — one of the most basic things computers understand — and we get this big mess back that can only be opened by that software. It doesn't need to be so complicated.
 
 *.doc files are like tiny micro-jails for content and it's time for a jail break.* We've got to start concentrating on what matters: the content. When you separate design from content, things get a lot easier. All of a sudden we can now use the best collaboration tools mankind has made to date.
 
-* [Learn](https://gist.github.com/3914310) Markdown - it takes 30 seconds. Honestly.
-* [Get](https://github.com/signup/free) a GitHub account - it's free!
-* Grab [GitHub for Mac](http://mac.github.com/) (or [GitHub for Windows](http://windows.github.com/))
-* Grab [Mou](http://mouapp.com/)
-
+1. [Learn](https://gist.github.com/3914310) Markdown - it takes 30 seconds. Honestly.
+2. [Signup](https://github.com/signup/free) for a GitHub account - it's free!
+3. Install [GitHub for Mac](http://mac.github.com/) (or [GitHub for Windows](http://windows.github.com/)) and [Mou](http://mouapp.com/)
+4. Create a repository, 
