@@ -47,7 +47,7 @@ So why doesn't everyone use this "version control"? Because we're trained wrong.
 
 And here's why: *.doc files are like tiny micro-jails for our content.* Proprietary document formats tend to commingle the text we provide with the commands the software needs to recreate it, and it stores all this in a complicated and inaccessible binary format. That's what makes it proprietary. We put text in — one of the most basic things computers understand — and we get this big mess back that can only be opened by that software. Imagine if the most common way to get water was to buy a can of Coke and run in through a Brita filter. It doesn't need to be so complicated. 
 
-### It's about content
+### Break the habit
 
 Let's just concentrate on what matters: the content. When you separate design from content, things get a lot cleaner and a lot easier to work with. From now on, instead of clicking the little blue "W" out of habit, ask "does this really need to be a piece of paper?" If not, all of a sudden you can now use the best collaboration tools that mankind has made to date, rather than publishing tools that were made for a bygone generation.
 
