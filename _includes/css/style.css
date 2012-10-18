@@ -128,6 +128,14 @@ blockquote p { margin-bottom: 10px; }
 /* sidebar meta widget */
 .sidebar .meta { margin-left: 0; list-style: none; font-size: 11px;  }
 
+/* Forking */
+.improve-article { overflow: auto; margin-left: 0; }
+.improve-article .button { height: 20px; border-radius: 5px; background: #aaa; float: left; color: #fff; width: 40px; padding: 15px 5px 10px 5px; text-align: center; font-family: leaguegothic-regular; text-transform: uppercase; letter-spacing: 1px; font-size: 25px;}
+.improve-article .button:hover { background: #000; cursor: pointer; }
+.improve-article p { margin-top: 15px; margin-left: 65px; font-size: 14px; font-style: italic; }
+.improve-article-wrapper { padding-top: 20px; font-size: 20px; border-top: 1px dotted rgba(0, 0, 0, 0.2); }
+
+
 /* Responsiveness */
 
 @media (max-width: 979px) {

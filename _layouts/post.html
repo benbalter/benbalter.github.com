@@ -18,6 +18,8 @@
         {{ content }}
     </div>
     
+    {% include improve.html %}
+    
     <div class="related">
 {% capture related %}
 #### Related Posts:
@@ -31,6 +33,7 @@
 		Tagged {% assign taxonomy = 'tags' %}{% include term-list-csv.html %}		
     </div>
     
+       
     {% unless page.comments == false %}
       {% include comments.html %}
     {% endunless %}

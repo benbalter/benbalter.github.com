@@ -1,0 +1,7 @@
+     <div class="improve-article-wrapper"> 
+        <div class="improve-article"> 
+{% capture edit_link %}http://prose.io/#benbalter/benbalter.github.com/edit/master/{{ page.layout}}s/_posts/{% if page.layout == 'page' %}0001-01-01-{% endif %}{{ page.id | replace_first:"/","" | replace_first:"/","-" | replace_first:"/","-" | replace_first:"/","-" | replace_first:"/","-" }}.md" %}{% endcapture %}
+            <a class="button btn" href="{{ edit_link }}">Edit</a> 
+            <p> This content is open source. Please help to improve it by <a href="{{ edit_link}}">contributing</a>. </p> 
+        </div> 
+    </div>
