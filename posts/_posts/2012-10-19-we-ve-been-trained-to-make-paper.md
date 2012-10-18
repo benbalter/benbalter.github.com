@@ -31,10 +31,6 @@ And then there's the problem of version control. I can't count the number of tim
 
 Geeks solved this problem a long time ago. It's called version control. We built it in the 70's. We start with content, you edit it, I edit it, and we get better content. It's really that simple, and better yet, it's free. It handles curating the master copy, keeps track of each and every change (down to the character mind you), and even provides a transparent forum to discuss those changes in the context in which they occur. [Take a look](https://github.com/benbalter/benbalter.github.com/commits/master/posts/_posts/2012-10-17-we-ve-been-trained-to-make-paper.md).
 
-Why doesn't everyone use this "version control"? Because we've got to break free of these proprietary, print-only formats. We've got to unprogram how we've been trained to create. Proprietary document formats tend to interweave the content we create with the commands the software needs to format it, and it stores all this in a complicated and inaccessable binary format. We put text in, we get this big mess back that can only be opened by that software. *.doc files are like tiny micro-jails for content and it's time for a jail break.* 
+So why doesn't everyone use this "version control"? Because we've got to break free of these proprietary, print-only formats. We've got to stop shuttling changes back-and-forth via e-mail. We've got to unprogram how we've been trained to create. Proprietary document formats tend to comingle the text we provide with the commands the software needs to generate it, and it stores all this in a complicated and inaccessable binary format. We put text in — one of the most basic things computers understand — and we get this big mess back that can only be opened by that software. 
 
-We've got to start concentrating on what matters: the content. Text. Markdown. YAML.
-
-
-When you separate design from content, things get a lot easier. Make a change? I can see that down to the letter.
-
+*.doc files are like tiny micro-jails for content and it's time for a jail break.* We've got to start concentrating on what matters: the content. When you separate design from content, things get a lot easier. All of a sudden we can now use the best collaboration tools mankind has made to date.
