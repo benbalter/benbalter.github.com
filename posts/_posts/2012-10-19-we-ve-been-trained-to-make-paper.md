@@ -50,4 +50,4 @@ And it's not that hard. You can just click "edit" below, or the next project tha
 3. Install [GitHub for Mac](http://mac.github.com/) (or [GitHub for Windows](http://windows.github.com/)) and [Mou](http://mouapp.com/)
 4. Create a repository and go to work
 
-Granted it can be a bit rough around the edges at times, like lots of other open-source technologies before it, the time is right for Git to become mainstream.
+Granted some of the tools can be a bit rough around the edges at times, they are getting  better, and like lots of other open-source technologies before it, as we move from  paper-first to a web-only distribution, the time is ripe for a more evolved, text-centric, distributed workflow to become mainstream.
