@@ -23,7 +23,7 @@ Websites are quickly becoming the curators of information, not simply the presen
 
 WordPress came about as many of these now-standard design conventions were still emerging, and understandably, it doesn't exactly embrace them head on. Yet next generation content management systems — not weighed down by history — have an advantage here, and as folks look to build the next generation of websites, they're obviosly going to be looking to where we're going, not where we've been. 
 
-If WordPress wants to stay relevant as a content management platform the future isn't traditional post-and-forget blogging, but rather making content once again king. We obviosly can't flip a switch and get their overnight, but a crawl, walk, run over the next version or so can better align the veritable CMS in light of what's in our collective pipeline:
+If WordPress wants to stay relevant as a content management platform the future isn't traditional post-and-forget blogging, but rather making content once again king. We obviosly can't flip a switch and get their overnight, but a crawl, walk, run over the next version or so can better align the veritable CMS with the reality of what's in our collective pipeline:
 
 ### Crawl
 
@@ -43,12 +43,12 @@ Access to content is half the equation. Allow programatic management of WordPres
 
 ### Run
 
-We may not get there tomorrow, but I know that with a bit of nuance, WordPress can align itself as the CMS of the future and tackle the next generation of web-bassed applications in the "WordPress way".
+We may not get there tomorrow, but I know that with a bit of nuance, WordPress can align itself as the platform of the future and tackle the next generation of web-bassed applications in the "WordPress way".
 
 1. Transparently map the already-exposed permalink endpoints (e.g., `2012/12/15/post.json`) to their backend counterparts. This may require a bit of rewriting of the WordPress routings system (to understand [HTTP verbs](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods) other than simply GET). At this point, WordPress would expose a fully RESTful API for any content it knows about, but could do so the "WordPress way".
 
 2. Add [Backbone](http://backbonejs.org/) to the default theme (it's already used on the backend), and begin to dogfood content on the front end as well as the backend so that clicking a post or page simply retrieves the content, rather than reloading the entire website. There's an opportunity to really rethink templating here. Perhaps `wp_get_ajax_template` or something converts a WordPress template to an underscore template. Perhaps WordPress compiles everything into JST for me.
 
-As community members sit down to sketch out what the next version of WordPress looks like, I sincerely hope they can at least think about implementing some of the front-end functionality early on, and maybe even make a prototype of wp-admin 2.0 somewhat of a priority.
+As community members sit down to sketch out what the next version of WordPress looks like, I sincerely hope they can at least think about implementing some of the front-end functionality early on, and maybe even make a prototypical wp-admin 2.0 somewhat of a priority.
 
 Technology has this tricky way of bringing about organizational change. Making something so dumb-simple really is an empowering force. WordPress did it once as it first set out to democretize publishing, and it's time to do it again for the next generation of non-blogging websites and applications.
