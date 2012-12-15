@@ -1,0 +1,44 @@
+---
+title: "Why WordPress's next version should just give it a REST already"
+description: "SEO friendly description"
+layout: post
+published: false
+comments: true
+category: Technology
+tags: 
+  - WordPress
+  - REST
+  - API
+---
+
+The interent has a particular way of solving difficult technical challenges. We try a bunch of diverse approaches out, keep only the most elegant, and quickly forget the rest ever happened. That's why the Web is the Internet's preeminent service (as apposed to say [GOPHER](http://en.wikipedia.org/wiki/Gopher_(protocol)), clicking the logo in the top left corner of almost any site goes to the site's homepage, and typing a URL in your browser retrieves a particular page. These aren't just design conventions in the sense that a lot of people use them, but rather represent the purposeful result of creative distruction.
+
+Over the past few years, as sites become more mature and inter-connected, the internet has been coalescing around one such pattern. The idea is simple: a URL should uniquely identify the underlying data it represents. WordPress, for the most part, does this well. Each post is given a unique permalink (e.g., `2012-12-15-why-wordpress...`) that always points to that post. The problem is, however, in WordPress's sense, it points to the *display* of that content, not the content itself. When editing, for example, that same content may be represented as `/wp-admin/post.php?p=1234`, and if you'd like to programattically access the underlying data (say to build a mobile app), you're pretty much SOL.
+
+Why does that distinction matter? Take a look at the direction the net's heading. We're separating content (say, the post itself), from the presentation layer that holds it hostage (say the theme's template), so that we can use it in many, many different ways. By enabling programatic access of the underlying data, that same post can be read via a mobile app, a feed reader, a social network, or even another website. Websites are the curators of information, not simply the presenters of it. It's content management in its purest form.
+
+So how do we get there? We obviosly can't flip a switch and get their overnight, but someone of a crawl, walk, run over the next version or so can make WordPress into the CMS for the next generation of websites:
+
+### Crawl
+
+At the very least, expose all WordPress content in a machine readable format.
+
+1. Create a new format ("feed" in WordPress parlance) called JSON, and add the necessary rewrite rules such that I can simply add `.json` to any post and retrieve the underlying information in a machine readable format. This should contain not only the content of the post and that information that would normally be accessible via HTML, but all the fields of the posts table (e.g., date published, date updated, etc.), all the post's metadata (custom, post-specific information), and all the associated terms (tags, categories, etc.). Sure we'll need to add a filter or two in their to ensure information folks want private stays private, but from a technical standpoint, we're talking a handful of lines of code here.
+
+2. Extend that format to indexes (archives in WordPress terms). Again, just as above, every list of posts (by date, by associated term, search results) should have the capability to exose the list in that same machine-readable format. This allows for the programatic discovery of information. A little bit harder than #1, but again, nothing crazy here. Pretty basic stuff.
+
+### Walk
+
+Access to content is half the equation. Allow programatic management of WordPress content. Conceptually, this is nothing radical. WordPress allows remote management of content through the [XML-RPC](http://en.wikipedia.org/wiki/XML-RPC) prototocal, a blog-specific format that was designed some 15 years ago.
+
+1. Use the existing `admin_ajax` infrastructure to consistently expose administrative functions in a programtic ways. For example, POSTing to `admin_ajax.php?action=create` should allow me to create a new post, just as `admin_ajax.php?action=update&p=123` or '?action=delete&p=1234` should do the same. Again, the basic plumbing's already there, it's just a matter of abstracting it out and aligning with conventions.
+
+2. Pick a few high-priority pieces of backend functionality, such as listing posts or editing a post, and rather than reloading the page every time I click something, dogfood the service exposed in #1 to update the content dynamically. Put another way, turn the WordPress backend into a client-side content administration application, rather than merely part of a blog.
+
+### Run
+
+Become the CMS of the future.
+
+1. Transparently map the already-exposed permalink endpoints (e.g., `2012/12/15/post.json`) to their backend counterparts. This may require a bit of rewriting of the WordPress routings system (to understand [HTTP verbs](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods) other than simply GET). At this point, WordPress would expose a fully RESTful API for any content it knows about, but could do so the "WordPress way".
+
+2. Add [Backbone](http://backbonejs.org/) to the default theme (it's already used on the backend), and begin to dogfood content on the front end as well as the backend so that clicking a post or page simply retrieves the content, rather than reloading the entire website. There's an opportunity to really rethink templating here. Perhaps `wp_get_ajax_template` or something converts a WordPress template to an underscore template. Perhaps WordPress compiles everything into JST for me.
