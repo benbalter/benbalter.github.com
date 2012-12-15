@@ -43,7 +43,7 @@ Access to content is half the equation. Allow programatic management of WordPres
 
 ### Run
 
-We may not get there tomorrow, but I really think with a bit of nuance, WordPress can align itself as the CMS of the future and tackle the next generation of web-bassed applications in the "WordPress way".
+We may not get there tomorrow, but I know that with a bit of nuance, WordPress can align itself as the CMS of the future and tackle the next generation of web-bassed applications in the "WordPress way".
 
 1. Transparently map the already-exposed permalink endpoints (e.g., `2012/12/15/post.json`) to their backend counterparts. This may require a bit of rewriting of the WordPress routings system (to understand [HTTP verbs](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods) other than simply GET). At this point, WordPress would expose a fully RESTful API for any content it knows about, but could do so the "WordPress way".
 
