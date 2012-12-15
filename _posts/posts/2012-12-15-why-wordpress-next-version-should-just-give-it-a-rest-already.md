@@ -9,7 +9,7 @@ category: Technology
 tags: WordPress REST API
 ---
 
-The internet has a particular way of solving difficult technical challenges. We try a bunch of diverse approaches out, keep only the most elegant, and quickly forget the rest ever happened. That's why the Web is the Internet's preeminent service (as apposed to say [GOPHER](http://en.wikipedia.org/wiki/Gopher_(protocol)), clicking the logo in the top left corner of almost any site goes to the site's homepage, and typing a URL in your browser retrieves that particular page. These aren't just design conventions in the sense that a lot of people like them, but rather represent the purposeful result of trial and error.
+The internet has a particular way of solving difficult technical challenges. We try a bunch of diverse approaches out, keep only the most elegant, and quickly forget the rest ever happened. That's why the Web is the Internet's preeminent service (as apposed to say [GOPHER](http://en.wikipedia.org/wiki/Gopher_(protocol)), clicking the logo in the top left corner of almost any site goes to that site's homepage, and typing a URL in your browser retrieves that particular page. These aren't just design conventions in the sense that a lot of people like them, but rather represent the purposeful result of trial and error.
 
 Over the past few years, as sites become more mature and even more inter-connected, the internet has been coalescing around one such pattern (known as [REST](http://en.wikipedia.org/wiki/Representational_state_transfer)). The idea is simple: a URL should uniquely identify the underlying data it represents. If I have a URL, I shouldn't need anything else to view or otherwise manipulate the information behind it.
 
@@ -35,9 +35,9 @@ At the very least, lets expose all WordPress content in a machine readable forma
 
 Access to content is half the equation. Allow programatic management of WordPress content as well. Conceptually, this is nothing radical. WordPress allows remote management of content through the [XML-RPC](http://en.wikipedia.org/wiki/XML-RPC) protocol, a blog-specific format that was designed some 15 years ago. We're just talking about an upgrade.
 
-1. Use the existing `admin_ajax` infrastructure to consistently expose administrative functions in a programtic ways. For example, POSTing to `admin_ajax.php?action=create` should allow me to create a new post, just as `admin_ajax.php?action=update&p=123` or '?action=delete&p=1234` should do the same. Again, the basic plumbing's already there, it's just a matter of abstracting it out and aligning with modern conventions.
+1. Use the existing `admin_ajax` infrastructure to consistently expose administrative functions in a programtic ways. For example, POSTing to `admin_ajax.php?action=create` should allow me to create a new post, just as `admin_ajax.php?action=update&p=123` or `?action=delete&p=1234` should do the same. Again, the basic plumbing's already there, it's just a matter of abstracting it out and aligning with modern conventions.
 
-2. Pick a few high-priority pieces of backend functionality, such as listing posts or editing an existing post, and rather than reloading the page every time I click something, dogfood the services exposed in #1 to update the content dynamically. Put another way, turn the WordPress backend into a full-fledged client-side content administration application, rather than merely part of a blog. Again, nothign radical here. Gmail does this with mail, Twitter does this with Tweets. It's time for WordPress to start doing this with posts.
+2. Pick a few high-priority pieces of backend functionality to prototype, such as listing posts or editing an existing post, and rather than reloading the entire administrative interface every time I click something, dogfood the services exposed in #1 to update the content dynamically. Put another way, turn the WordPress backend into a full-fledged client-side content administration application, rather than merely part of a blog. Again, nothign radical here. Gmail does this with mail, Twitter does this with Tweets. It's time for WordPress to start doing this with posts.
 
 ### Run
 
