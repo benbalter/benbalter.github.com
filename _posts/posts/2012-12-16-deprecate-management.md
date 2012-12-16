@@ -1,12 +1,15 @@
 ---
-title: "Deprecate Management"
+title: Deprecate Management
 description: "There are many aspects to 'making things' that open source just does better, and does so without traditional management structure."
-author: "Benjamin J. Balter"
+author: Benjamin J. Balter
 layout: post
 comments: true
-category: 
-tags: 
-published: false
+category: Management
+tags:
+  - Open Souce
+  - GitHub
+  - Collaboration
+published: true
 
 ---
 
