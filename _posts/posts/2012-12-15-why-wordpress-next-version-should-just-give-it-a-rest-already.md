@@ -43,7 +43,7 @@ Access to content is half the equation. Allow programatic management of WordPres
 
 We may not get there tomorrow, but I know that with a bit of nuance, WordPress can align itself as the platform of the future and tackle the next generation of web-based applications in the "WordPress way". It's simply a matter of positioning.
 
-1. Transparently map the already-exposed permalink endpoints (e.g., `2012/12/15/post.json`) to their backend counterparts. This may require a bit of rewriting of the WordPress routings system (to understand [HTTP verbs](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods) other than simply GET). At this point, WordPress would expose a fully RESTful API for any content it knows about, but could do so with the traditionall wordpress finess.
+1. Transparently map the already-exposed permalink endpoints (e.g., `2012/12/15/post.json`) to their backend counterparts. This may require a bit of rewriting of the WordPress routings system (to understand [HTTP verbs](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods) other than simply GET). At this point, WordPress would expose a fully RESTful API for any content it knows about, but could do so with the traditional WordPress finess.
 
 2. Add [Backbone](http://backbonejs.org/) to the default theme (it's already used on the backend), and begin to dogfood content on the front end as well as the backend so that clicking a post or page simply retrieves the content, rather than reloading the entire website. There's an opportunity to really rethink templating here. Perhaps `wp_get_ajax_template` or something converts a WordPress template to an underscore template. Perhaps WordPress compiles everything into JST for me.
 
