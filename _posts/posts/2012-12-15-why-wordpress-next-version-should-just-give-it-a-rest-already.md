@@ -21,7 +21,7 @@ Websites are quickly becoming the curators of information, not simply the presen
 
 WordPress came about as many of these now-standard design conventions were still emerging, and understandably, it doesn't exactly embrace them head on. Yet next generation content management systems — not weighed down by history — have an advantage here, and as folks look to build the next generation of websites, they're obviously going to be looking to where we're going, not where we've been. 
 
-If WordPress wants to stay relevant as a content management platform, the future isn't traditional post-and-forget blogging, but rather a concerted effort to once again make content king. We obviously can't flip a switch and get their overnight, but a crawl, walk, run over the next version or so can better align the veritable CMS with the reality of what's in our collective pipeline:
+If WordPress wants to stay relevant as a content management platform, the future isn't traditional post-and-forget blogging, but rather a concerted effort to once again make content king. We obviously can't flip a switch and get there overnight, but a crawl, walk, run over the next version or so can better align the veritable CMS with the reality of what's in our collective pipeline:
 
 ### Crawl
 
