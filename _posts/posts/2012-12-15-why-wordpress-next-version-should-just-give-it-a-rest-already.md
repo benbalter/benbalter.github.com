@@ -9,7 +9,7 @@ category: Technology
 tags: WordPress REST API
 ---
 
-The internet has a particular way of solving difficult technical challenges. We try a bunch of diverse approaches out, keep only the most elegant, and quickly forget the rest ever happened. That's why the Web is the Internet's preeminent service (as apposed to say [GOPHER](http://en.wikipedia.org/wiki/Gopher_(protocol)), clicking the logo in the top left corner of almost any site goes to that site's homepage, and typing a URL in your browser retrieves that particular page. These aren't just design conventions in the sense that a lot of people like them, but rather represent the purposeful result of trial and error.
+The internet has a particular way of solving difficult technical challenges. We try a bunch of diverse approaches out, keep only the most elegant, and quickly forget the rest ever happened. That's why the Web is the Internet's preeminent service (as apposed to say [Gopher](http://en.wikipedia.org/wiki/Gopher_%28protocol%29)), clicking the logo in the top left corner of almost any site goes to that site's homepage, and typing a URL in your browser retrieves that particular page. These aren't just design conventions in the sense that a lot of people like them, but rather represent the purposeful result of trial and error.
 
 Over the past few years, as sites become more mature and even more inter-connected, the internet has been coalescing around one such pattern (known as [REST](http://en.wikipedia.org/wiki/Representational_state_transfer)). The idea is simple: a URL should uniquely identify the underlying data it represents. If I have a URL, I shouldn't need anything else to view or otherwise manipulate the information behind it.
 
