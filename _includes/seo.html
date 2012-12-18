@@ -13,7 +13,7 @@
 	
 	{% if seo_desc %}
 	<meta name="description" content="{{ seo_desc }}"/>
-	<meta property='og:description' content='{{ seo_desc }}'/>
+	<meta property='og:description' content="{{ seo_desc }}"/>
 	{% endif %}
 	
 	{% if page.robots %}
