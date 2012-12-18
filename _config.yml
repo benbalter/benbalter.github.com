@@ -26,16 +26,16 @@ prose:
   metadata:
     "_posts/posts": |
       title: "Title of the post"
-      description: "SEO friendly description"
+      excerpt: "SEO friendly description"
       author: "Your Name Here"
       layout: post
       comments: true
       category: 
       tags: 
       published: false
-    "_posts/posts": |
+    "_posts/pages": |
       title: "Title of the page"
-      description: "SEO friendly description"
+      excerpt: "SEO friendly description"
       layout: page
       published: false
     
