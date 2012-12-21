@@ -50,3 +50,5 @@ We may not get there tomorrow, but I know that with a bit of nuance, WordPress c
 As community members sit down to sketch out what the next version of WordPress looks like, I sincerely hope they can at least think about implementing some of the front-end functionality early on, and maybe even make a prototypical wp-admin 2.0 somewhat of a priority.
 
 Technology has this tricky way of bringing about organizational change. Making something so dumb-simple really is an empowering force. WordPress did it once as it first set out to democratize publishing, and it's time to do it again for the next generation of non-blogging websites and applications.
+
+**Update (12/20):** *Not quite REST, but as [@scribu](https://twitter.com/scribu) points out in the comments below, [#14618](https://core.trac.wordpress.org/ticket/14618) proposed an RPC-like JSON API some two years ago. Looks like the ticket ended up in somewhat over a holy war over standards (XML v. JSON anyone?), but the arguments in favor still stand nonetheless.*
