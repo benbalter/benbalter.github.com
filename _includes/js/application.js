@@ -544,7 +544,7 @@
 
   Backbone.history.start({
     pushState: true,
-    silent: false
+    silent: true
   });
 
   jQuery(document).ready(function() {

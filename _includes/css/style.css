@@ -42,27 +42,31 @@ h4 { margin-bottom: 10px; }
 }
 
 /* Resume */
-.resume .content a {text-decoration: none; color: #757575;}
-.resume .bar {background: #ccc; z-index: 0; border-right: 3px solid black; height: 1000px; position: absolute; margin: 0; }
-.resume .content h2 { text-transform: lowercase; font-weight: normal; text-align: right; position: absolute; font-size: 14px; position: relative; margin-right: 20px; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important; letter-spacing: 1.5px; line-height: 18px; }
-.resume .date, .resume .location { color: #aaa; float: right; clear: right; font-size: 12px; margin-top: -1.5em; }
-.resume .details { text-align: justify; }
-.resume h4 { font-style: italic; font-weight: normal; font-size: 14px; line-height:18px; }
-.resume h3 { font-size: 16px; font-weight: normal; }
-.resume ul { padding-left:16px; list-style-type:square; margin-left: 0; }
-.resume h2#resume { display: none; }
-.resume .span10 { padding-left: 1.5%; }
+.page-resume a {text-decoration: none; color: #757575;}
+.page-resume .bar {background: #ccc; z-index: 0; border-right: 3px solid black; height: 1000px; position: absolute; margin: 0; left: 10%; width: 12%; top: 62%; }
+.page-resume h2 { text-transform: lowercase; font-weight: normal; text-align: right; position: absolute; right: 79%; font-size: 14px; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important; letter-spacing: 1.5px; line-height: 18px; }
+.page-resume .date, .page-resume .location { color: #aaa; float: right; clear: right; font-size: 12px;  }
+.page-resume .date { margin-top: -2.3em;}
+.page-resume .location { margin-top: -1.5em; }
+.page-resume .details { text-align: justify; }
+.page-resume h4 { font-style: italic; font-weight: normal; font-size: 14px; line-height:18px; }
+.page-resume h3 { font-size: 16px; font-weight: normal; }
+.page-resume ul { padding-left:16px; list-style-type:square; margin-left: 0; }
+.page-resume h2#resume { display: none; }
+.page-resume .span8 { width: 82%; }
 
+@media ( max-width: 975px ) {
+  	.page-resume h2 { text-transform: capitalize; font-weight: bold; text-align: left; margin-right: 0; position: relative; left: auto; right: auto; }
+	.page-resume .bar, .page-resume .span2 { display: none; border: none; }
+}
 
 @media ( max-width: 767px ) {
-	.resume .content h2 { text-transform: capitalize; font-weight: bold; text-align: left; margin-right: 0 }
-	.resume .bar { display: none; border: none; }
-	.resume .span10 { padding-left: 0 !important; }
+	.page-resume .span10 { padding-left: 0 !important; }
 }
 
 @media ( max-width: 400px ) {
-	.resume .location, .resume .date { float: none; display: inline; display: inline-block; }
-	.resume .date { margin-bottom: 15px; }
+	.page-resume .location, .page-resume .date { float: none; display: inline; display: inline-block; }
+	.page-resume .date { margin-bottom: 15px; }
 }
 
 /* Footnotes */

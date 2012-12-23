@@ -241,7 +241,7 @@ Application.posts = new Application.Collections.Posts
 Application.pages = new Application.Collections.Pages     
 
 Application.router = new router()
-Backbone.history.start pushState: true, silent: false
+Backbone.history.start pushState: true, silent: true
 
 jQuery(document).ready ->
 
