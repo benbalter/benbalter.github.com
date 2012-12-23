@@ -1,7 +1,7 @@
 
 <article id="post<%= id.replace(/\//g, "-") %>" class="post post<%= id.replace(/\//g, "-") %>">
 	
-	<h2 class="title"><a href="#<%= url %>"><%= title %></a></h2> 
+	<h2 class="title"><a href="{{ site.url }}<%= url %>"><%= title %></a></h2> 
 
 	<div class="post-meta">
 		<span class="entry-date">Posted on <%= moment(date).format("MMMM D, YYYY") %></span> 

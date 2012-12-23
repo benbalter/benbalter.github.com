@@ -43,19 +43,12 @@ prose:
 twitter: 
   username: "benbalter"
   count: 5
-
-#Github widget
-github: 
-  repo: "benbalter"
-  count: 5
   
 #disqus widget
 disqus:
   shortname: 'benbalter'
   count: 5
-  hide_avatars: 0
-  avatar_size: 32
-  excerpt_length: 200
+  api_key: "OQ5OlN2AtWDfIQ0bjIGwdfq9SsEB3P8NdzhYTRak7R45KeAD744aVIqJZDYqvmuL"
   
 #google analytics username
 ga_username: 'UA-18088627-1'
