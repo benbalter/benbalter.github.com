@@ -1,6 +1,8 @@
 {% include header.html %}
 
-<div class="content page page{{ page.id | replace:"/","-" }}" id="content">
+<div class="content" id="content">
+  <div class="page page{{ page.id | replace:"/","-" }}">
+  
 	<div class="row-fluid">
 		<div class="span2">&nbsp;</div>
 		<div class="span8">
@@ -11,8 +13,8 @@
 
     {% include improve.html %}
 
-
 		</div>
+  </div>
 	</div>
 </div>
 

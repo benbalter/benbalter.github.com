@@ -83,8 +83,21 @@ class Application.Collections.Posts extends Backbone.Collection
   url: ->
     Application.url + "/" + 'posts.json'
     
-  comparator: "date"
+  comparator: (a, b) ->
+    a = a.get 'date'
+    b = b.get 'date'
 
+    if a is b 
+      c = 1
+
+    else if a > b
+      c = -1 
+    
+    else if a < b
+      c = 1
+      
+    c
+      
 class Application.Collections.Pages extends Backbone.Collection 
   model: Application.Models.Page
   url: ->
@@ -178,6 +191,7 @@ class Application.Views.Index extends Backbone.View
     
   render: ->
     @$el.html @template
+    @collection.sort()
     @collection.slice(0,10).forEach (post) ->
       post.fetch()
       view = new Application.Views.PostExcerpt( model: post )
@@ -223,20 +237,27 @@ class router extends Backbone.Router
     Application.posts.add post 
     view = new Application.Views.Single model: post
     post.fetch error: @redirect
-
+    @setNav ''
+    
   page: (id) ->
     page = new Application.Models.Page id: id
     Application.pages.add page
     view = new Application.Views.Single model: page
     page.fetch error: @redirect
+    @setNav id.replace "/",""
     
   index: ->
-    view = new Application.Views.Index({ collection: Application.posts })    
-    Application.posts.fetch success: ->
+    view = new Application.Views.Index collection: Application.posts   
+    Application.posts.fetch error: @redirect, success: ->
       view.render()
+    @setNav 'home'
    
   redirect: ->
-    document.location = Application.url + Backbone.history.fragment
+    document.location = Application.url + "/" + Backbone.history.fragment
+    
+  setNav: (id) ->
+    $('.nav .active').removeClass 'active'
+    $('.nav #' + id).addClass 'active'
 
 # Init
 
@@ -254,7 +275,7 @@ jQuery(document).ready ->
 	  false
 	  
  	window.resume_resize = ->
-	  $('.resume .bar').height( $('.content').height() - 25)
+	  $('.page-resume .bar').height( $('.content').height() - 25)
 		  
 	$(window).resize( resume_resize )
 	resume_resize()

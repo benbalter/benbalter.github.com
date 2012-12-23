@@ -191,7 +191,19 @@
       return Application.url + "/" + 'posts.json';
     };
 
-    Posts.prototype.comparator = "date";
+    Posts.prototype.comparator = function(a, b) {
+      var c;
+      a = a.get('date');
+      b = b.get('date');
+      if (a === b) {
+        c = 1;
+      } else if (a > b) {
+        c = -1;
+      } else if (a < b) {
+        c = 1;
+      }
+      return c;
+    };
 
     return Posts;
 
@@ -391,6 +403,7 @@
     Index.prototype.render = function() {
       var comments, tweets, view;
       this.$el.html(this.template);
+      this.collection.sort();
       this.collection.slice(0, 10).forEach(function(post) {
         var view;
         post.fetch();
@@ -499,9 +512,10 @@
       view = new Application.Views.Single({
         model: post
       });
-      return post.fetch({
+      post.fetch({
         error: this.redirect
       });
+      return this.setNav('');
     };
 
     router.prototype.page = function(id) {
@@ -513,9 +527,10 @@
       view = new Application.Views.Single({
         model: page
       });
-      return page.fetch({
+      page.fetch({
         error: this.redirect
       });
+      return this.setNav(id.replace("/", ""));
     };
 
     router.prototype.index = function() {
@@ -523,15 +538,22 @@
       view = new Application.Views.Index({
         collection: Application.posts
       });
-      return Application.posts.fetch({
+      Application.posts.fetch({
+        error: this.redirect,
         success: function() {
           return view.render();
         }
       });
+      return this.setNav('home');
     };
 
     router.prototype.redirect = function() {
-      return document.location = Application.url + Backbone.history.fragment;
+      return document.location = Application.url + "/" + Backbone.history.fragment;
+    };
+
+    router.prototype.setNav = function(id) {
+      $('.nav .active').removeClass('active');
+      return $('.nav #' + id).addClass('active');
     };
 
     return router;
@@ -556,7 +578,7 @@
     });
     false;
     window.resume_resize = function() {
-      return $('.resume .bar').height($('.content').height() - 25);
+      return $('.page-resume .bar').height($('.content').height() - 25);
     };
     $(window).resize(resume_resize);
     return resume_resize();
