@@ -17,7 +17,7 @@ excerpt: >
   agencies to approach modern governance
   in incredibly powerful ways.
 layout: post
-category:
+categories:
   - Law
   - Technology
 tags:

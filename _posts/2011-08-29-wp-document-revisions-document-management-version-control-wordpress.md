@@ -10,7 +10,7 @@ excerpt: >
   of the popular Microsoft collaboration
   suite, Sharepoint.
 layout: post
-category:
+categories:
   - Business
   - Law
   - Technology

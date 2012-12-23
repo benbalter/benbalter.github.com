@@ -5,7 +5,7 @@ title: >
   Open-Source F.U.D.)
 excerpt:
 layout: post
-category:
+categories:
   - Technology
 tags:
   - code

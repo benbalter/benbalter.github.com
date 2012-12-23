@@ -3,7 +3,7 @@ author: Benjamin J. Balter
 title: "What's Your Hosting Company's Average Subpoena Response Time?"
 excerpt:
 layout: post
-category:
+categories:
   - Business
   - Law
 tags:

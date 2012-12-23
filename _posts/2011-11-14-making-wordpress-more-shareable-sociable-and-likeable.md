@@ -3,7 +3,7 @@ author: Benjamin J. Balter
 title: Making WordPress More Shareable, Sociable, and Likeable
 excerpt:
 layout: post
-category:
+categories:
   - Technology
 tags:
   - facebook

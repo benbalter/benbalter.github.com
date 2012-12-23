@@ -5,7 +5,7 @@ title: >
   WP Document Revisions
 excerpt:
 layout: post
-category:
+categories:
   - Business
   - Technology
 tags:

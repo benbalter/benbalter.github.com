@@ -5,7 +5,7 @@ title: >
   Brand
 excerpt: "Recording and slides from my brief talk at March's joint WordCampDC and Hacks/Hackers DC MeetUp on leveraging WordPress to craft your personal brand."
 layout: post
-category:
+categories:
   - Technology
 tags:
   - journalism

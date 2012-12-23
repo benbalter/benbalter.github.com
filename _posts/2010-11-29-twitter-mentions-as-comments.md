@@ -5,7 +5,7 @@ title: >
   Plugin
 excerpt: 'Twiter Mentions as Comments does exactly what it promises to do -- scours Twitter for people talking about your blog posts and silently inserts their Tweets alongside your existing comments. '
 layout: post
-category:
+categories:
   - Technology
 tags:
   - comments

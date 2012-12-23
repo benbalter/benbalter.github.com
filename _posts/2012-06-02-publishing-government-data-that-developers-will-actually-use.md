@@ -20,7 +20,7 @@ excerpt: >
   introduce additional citizen services at
   little to no cost to the agency.
 layout: post
-category:
+categories:
   - Technology
 tags:
   - .govs

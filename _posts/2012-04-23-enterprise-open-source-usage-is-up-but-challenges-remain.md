@@ -5,7 +5,7 @@ title: >
   Challenges Remain
 excerpt:
 layout: post
-category:
+categories:
   - Technology
 tags:
   - contracting

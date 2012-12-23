@@ -191,6 +191,8 @@
       return Application.url + "/" + 'posts.json';
     };
 
+    Posts.prototype.comparator = "date";
+
     return Posts;
 
   })(Backbone.Collection);

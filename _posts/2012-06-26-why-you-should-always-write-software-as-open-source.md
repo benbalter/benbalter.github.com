@@ -4,7 +4,7 @@ title: "Why You Should Always Write Software as Open Source, Even When It's Neve
 excerpt: |
   When you are the only person that's ever going to see something, you're a lot more likely to "just make it work. Therefore write open source
 layout: post
-category:
+categories:
   - Business
   - Technology
 tags:

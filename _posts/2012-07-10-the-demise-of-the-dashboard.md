@@ -7,7 +7,7 @@ excerpt: >
   personalized dashboards which bombard
   customers with information.
 layout: post
-category:
+categories:
   - Technology
 tags:
   - .govs

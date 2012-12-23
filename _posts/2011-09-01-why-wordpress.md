@@ -10,7 +10,7 @@ excerpt: >
   broadcasting your ideas as effortless as
   possible.
 layout: post
-category:
+categories:
   - Technology
 tags:
   - open source

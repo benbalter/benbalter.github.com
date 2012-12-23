@@ -11,7 +11,7 @@ excerpt: >
   if it meant the chance to change the
   world.
 layout: post
-category:
+categories:
   - Business
   - Technology
 tags:

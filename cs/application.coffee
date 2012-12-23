@@ -79,8 +79,11 @@ class Application.Collections.Tweets extends Backbone.Collection
         
 class Application.Collections.Posts extends Backbone.Collection 
   model: Application.Models.Post
+  
   url: ->
     Application.url + "/" + 'posts.json'
+    
+  comparator: "date"
 
 class Application.Collections.Pages extends Backbone.Collection 
   model: Application.Models.Page

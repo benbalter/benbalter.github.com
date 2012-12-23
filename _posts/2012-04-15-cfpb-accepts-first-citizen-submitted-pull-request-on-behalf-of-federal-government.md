@@ -5,7 +5,7 @@ title: >
   Code on Behalf of Federal Government
 excerpt:
 layout: post
-category:
+categories:
   - Technology
 tags:
   - .govs

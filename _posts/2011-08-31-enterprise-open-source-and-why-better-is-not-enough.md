@@ -15,7 +15,7 @@ excerpt: >
   the serious competitor they wish to be
   treated as.
 layout: post
-category:
+categories:
   - Business
   - Technology
 tags:

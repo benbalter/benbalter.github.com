@@ -11,7 +11,7 @@ excerpt: >
   site, you already know how to use WP
   Resume.
 layout: post
-category:
+categories:
   - Technology
 tags:
   - career

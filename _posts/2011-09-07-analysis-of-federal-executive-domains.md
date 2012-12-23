@@ -3,7 +3,7 @@ author: Benjamin J. Balter
 title: Analysis of Federal Executive .Govs
 excerpt:
 layout: post
-category:
+categories:
   - Technology
 tags:
   - .govs

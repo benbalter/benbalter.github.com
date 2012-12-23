@@ -5,7 +5,7 @@ title: >
   Enterprise Software
 excerpt:
 layout: post
-category:
+categories:
   - Technology
 tags:
   - cloud computing

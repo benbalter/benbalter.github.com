@@ -3,7 +3,7 @@ author: Benjamin J. Balter
 title: "What's Missing from CFPB's Awesome New Source Code Policy"
 excerpt:
 layout: post
-category:
+categories:
   - Law
   - Technology
 tags:

@@ -11,7 +11,7 @@ excerpt: >
   among others for violating WTO
   commitments.
 layout: post
-category:
+categories:
   - Business
   - Technology
 tags:

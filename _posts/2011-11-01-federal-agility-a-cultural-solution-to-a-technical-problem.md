@@ -3,7 +3,7 @@ author: Benjamin J. Balter
 title: 'Federal Agility: a Cultural Solution to a Technical Problem'
 excerpt:
 layout: post
-category:
+categories:
   - Business
   - Technology
 tags:

@@ -11,7 +11,7 @@ excerpt: >
   Facebook and Twitter shares via a simple
   _gaq.push call.
 layout: post
-category:
+categories:
   - Technology
 tags:
   - analytics

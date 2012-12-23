@@ -5,7 +5,7 @@ title: >
   Sharepoint
 excerpt:
 layout: post
-category:
+categories:
   - Business
   - Technology
 tags:

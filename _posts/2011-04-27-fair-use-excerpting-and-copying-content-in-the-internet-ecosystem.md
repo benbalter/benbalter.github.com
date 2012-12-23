@@ -5,7 +5,7 @@ title: >
   Content in the Internet Ecosystem
 excerpt:
 layout: post
-category:
+categories:
   - Law
   - Technology
 tags:

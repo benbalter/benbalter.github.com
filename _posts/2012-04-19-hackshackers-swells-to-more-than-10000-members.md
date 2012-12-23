@@ -9,7 +9,7 @@ excerpt: >
   journalists and technologists welcomed
   its 10,000th member today.
 layout: post
-category:
+categories:
   - Technology
 tags:
   - grass roots

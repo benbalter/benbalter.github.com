@@ -14,7 +14,7 @@ excerpt: >
   tollbooths on the information
   superhighway.
 layout: post
-category:
+categories:
   - Business
   - Technology
 tags:

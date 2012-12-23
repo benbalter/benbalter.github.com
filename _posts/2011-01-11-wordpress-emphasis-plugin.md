@@ -8,7 +8,7 @@ excerpt: >
   highlighting and permalinking of text on
   a paragraph and sentence level.
 layout: post
-category:
+categories:
   - Technology
 tags:
   - deep links

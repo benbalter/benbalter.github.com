@@ -11,7 +11,7 @@ excerpt: >
   silver privacy lining remains to be
   seen.
 layout: post
-category:
+categories:
   - Law
   - Technology
 tags:

@@ -5,7 +5,7 @@ title: >
   cutters...
 excerpt: "A workflow management and version control system building on WordPress's existing core competencies. By treating documents as a custom post type, users can leverage the power of WordPress's extensive attachment, revision, taxonomy, and URL rewriting functionalities. "
 layout: post
-category:
+categories:
   - Technology
 tags:
   - code

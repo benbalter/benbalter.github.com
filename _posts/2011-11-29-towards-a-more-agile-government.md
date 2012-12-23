@@ -12,7 +12,7 @@ excerpt: |
     approaches used by the private sector
     today.
 layout: post
-category:
+categories:
   - Business
   - Law
   - Technology
