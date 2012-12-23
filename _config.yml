@@ -64,3 +64,4 @@ ga_username: 'UA-18088627-1'
 server: true
 auto: true
 pygments: true
+lsi: false

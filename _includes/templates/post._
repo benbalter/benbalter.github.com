@@ -1,0 +1,31 @@
+
+<article id="post<%= id.replace(/\//g, "-") %>" class="post post<%= id.replace(/\//g, "-") %>">
+	
+	<h2 class="title"><a href="#<%= url %>"><%= title %></a></h2> 
+
+	<div class="post-meta">
+		<span class="entry-date">Posted on <%= moment(date).format("MMMM D, YYYY") %></span> 
+		<span class="entry-author">by <%= author %></span>
+	</div>
+	    
+    <div class="entrybody">
+      <%= content %>
+    </div>
+    
+    <div class="related">
+      <h4>Related Posts:</h4>
+      <ol class="related-posts">
+      <% _.each( related_posts.slice(0,5), function( post) { %>
+        <li><a href="<%= post.url %>"><%= post.title %></a></li>
+      <% }) %>
+      </ol>
+    </div>
+
+    <div class="post-taxonomies">
+  	 Posted in <a href="categories/<%= category %>"><%= category %></a> | Tagged <% _.each( tags, function(tag){ %> <a href="tags/<%= tag %>"><%= tag %></a>, <% }); %>
+  	</div>
+  	    
+</article>
+
+<div id="disqus_thread"></div>
+
