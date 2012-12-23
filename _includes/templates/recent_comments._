@@ -1,0 +1,17 @@
+<ul class="comments>
+<% _.each( comments, function( comment ){ %>
+  <li class="comment">
+    <div class="author">
+      <img src="<%= comment.author.avatar.small.cache %>" alt="<%= comment.author.name %>"/>
+      <a href="<%= comment.author.profileUrl %>"><%= comment.author.name %></a>
+    </div>
+    <div class="commentBody">
+    "
+      <%= comment.raw_message.substring(0,200) %>
+      <% if (comment.raw_message.length > 200) { %>...<% } %>
+    "</div>
+    <a class="commentTimeStamp" href="<%= comment.thread.attributes.link%>#comment-<%= comment.id %>"><%= moment(comment.createdAt).fromNow() %></a> on
+    <a class="commentPost" href="<%= comment.thread.attributes.link %>"><%= comment.thread.attributes.title %></a>
+  </li>
+<% }) %>
+</ul>

@@ -1,0 +1,17 @@
+<div class="row-fluid">
+
+	<div class="span9">
+	
+	   <div class="posts">
+	
+	   </div><!-- posts -->
+	
+	</div><!-- span9 -->
+	
+	<div class="span3">
+	
+		{% include sidebar.html %}
+		
+	</div><!-- span3 -->
+	
+</div><!-- row-fluid -->

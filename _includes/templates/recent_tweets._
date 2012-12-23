@@ -1,0 +1,5 @@
+<ul class="tweets">
+  <% _.each(tweets, function(tweet){ %>
+    <li class="tweet"><%= tweet.text %> — <a href="http://twitter.com/<%= tweet.user.screen_name %>/status/<%= tweet.id %>"><%= moment(tweet.created_at).fromNow() %></a></li>
+  <% }) %>
+<ul>
