@@ -29,7 +29,7 @@ Wired Magazine recently took a turn for the meta. In addition to publishing [the
 
 Spoiler alert: it didn't. GitHub's great for a lot of things, source code chief among them, but it's not for the faint of heart. There's a great deal of command line, and general geekery involved that raise the barriers to entry just high enough to keep it out of everyday newsrooms and editorial workflows. [^1]
 
-**The Pitch:*** What if we could re-imagine WordPress's ease-of-use and intuitively dumb-simple workflow to introduce a layer of GitHub's collaborative fork-and-merge horsepower under the hood? *
+**The Pitch:** *What if we could re-imagine WordPress's ease-of-use and intuitively dumb-simple workflow to introduce a layer of GitHub's collaborative fork-and-merge horsepower under the hood?*
 
 Users would have the ability to "clone" an existing post, make any changes they want, and then merge those change back into the original before publishing.There are four distinct use cases where this feature may come into play:
 
@@ -73,13 +73,14 @@ Thoughts? Would you use this? What else would you like to see it do? [Drop me a 
 **Update (10/1): **Introducing [Post Forking for WordPress](http://postforking.wordpress.com/2012/10/01/introducing-post-forking-for-wordpress/) — a more collaborative approach to content curation:
 
 [^1]: Having recently given this a try — using GitHub to curate [a collaboratively edited list of open-source alternatives to proprietary software][12] — I know first-hand how off-putting GitHub can be to non-technical users. 
-[^2]: Full disclosure: two plugins, [Revisionary][14] and [Duplicate Post][15] exist, but they don't take the idea nearly as far as the above proposes, nor do they do it in "the WordPress way". I'd hope that even if the idea started as a plugin, it would eventually be incorporated as core functionality. [16]
+
+[^2]: Full disclosure: two plugins, [Revisionary][14] and [Duplicate Post][15] exist, but they don't take the idea nearly as far as the above proposes, nor do they do it in "the WordPress way". I'd hope that even if the idea started as a plugin, it would eventually be incorporated as core functionality.
 
  [1]: http://www.wired.com/wiredenterprise/2012/02/github/all/1
  [2]: https://github.com/WiredEnterprise/Lord-of-the-Files
  [3]: http://www.wired.com/wiredenterprise/2012/02/github-revisited/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+wired%2Findex+%28Wired%3A+Index+3+%28Top+Stories+2%29%29
- [4]: #note-2020-1 "Having recently given this a try — using GitHub to curate a collaboratively edited list of open-source alternatives to proprietary software — I know first-hand how off-putting GitHub can be to non-technical users."
- [5]: #note-2020-2 "Full disclosure: two plugins, Revisionary and Duplicate Post exist, but they don't take the idea nearly as far as the above proposes, nor do they do it in "the WordPress way". I'd hope that even if the idea started as a plugin, it would eventually be incorporated as core functionality."
+ [4]: Having recently given this a try — using GitHub to curate a collaboratively edited list of open-source alternatives to proprietary software — I know first-hand how off-putting GitHub can be to non-technical users.
+ [5]: Full disclosure: two plugins, Revisionary and Duplicate Post exist, but they don't take the idea nearly as far as the above proposes, nor do they do it in "the WordPress way". I'd hope that even if the idea started as a plugin, it would eventually be incorporated as core functionality.
  [6]: http://editflow.org/
  [7]: http://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/
  [8]: http://ben.balter.com/contact/

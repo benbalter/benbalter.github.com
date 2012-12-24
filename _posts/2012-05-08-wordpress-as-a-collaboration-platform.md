@@ -33,30 +33,21 @@ Today countless teams are using WordPress to drive collaboration and facilitate 
 
 <iframe style="float: left;" src="http://ghbtns.com/github-btn.html?user=benbalter&amp;repo=wordpress-as-a-collaboration-platform&amp;type=fork" frameborder="0" scrolling="0" width="62px" height="20px">    </iframe>
 
-[View Full Screen][2]
+[View Full Screen](http://ben.balter.com/wordpress-as-a-collaboration-platform/)
 
 Recording of the presentation (starts at the 10:00 mark):
 
-<iframe width="480" height="296" src="http://www.ustream.tv/embed/recorded/22454841?wmode=direct" scrolling="no" frameborder="0" style="border: 0px none transparent;">    </iframe><br /><a href="http://www.ustream.tv/" style="padding: 2px 0px 4px; width: 400px; background: #ffffff; display: block; color: #000000; font-weight: normal; font-size: 10px; text-decoration: underline; text-align: center;" target="_blank">Video streaming by Ustream</a>
+<div><iframe width="480" height="296" src="http://www.ustream.tv/embed/recorded/22454841?wmode=direct" scrolling="no" frameborder="0" style="border: 0px none transparent;"></iframe></div>
 
 ### Plugins Mentioned
 
-*   [WP Document Revisions][3]
-*   [Edit Flow][4]
-*   [Members][5]
-*   [Advanced Custom Fields][6]
-*   [Display Custom Fields][7]
-*   [Count Shortcode][8]
-*   [Faceted Search Widget][9]
-*   [Custom Taxonomy Generator][10]
+*   [WP Document Revisions](http://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/)
+*   [Edit Flow](http://editflow.org)
+*   [Members](http://wordpress.org/extend/plugins/members/)
+*   [Advanced Custom Fields](http://wordpress.org/extend/plugins/advanced-custom-fields/)
+*   [Display Custom Fields](http://wordpress.org/extend/plugins/wp-display-custom-fields/)
+*   [Count Shortcode](http://wordpress.org/extend/plugins/count-shortcode/)
+*   [Faceted Search Widget](http://wordpress.org/extend/plugins/faceted-search-widget/)
+*   [Custom Taxonomy Generator](http://themergency.com/generators/wordpress-custom-taxonomy/)
 
  [1]: http://ben.balter.com/wordpress-as-a-collaboration-platform/screenshot.png
- [2]: http://ben.balter.com/wordpress-as-a-collaboration-platform/
- [3]: http://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/
- [4]: http://editflow.org
- [5]: http://wordpress.org/extend/plugins/members/
- [6]: http://wordpress.org/extend/plugins/advanced-custom-fields/
- [7]: http://wordpress.org/extend/plugins/wp-display-custom-fields/
- [8]: http://wordpress.org/extend/plugins/count-shortcode/
- [9]: http://wordpress.org/extend/plugins/faceted-search-widget/
- [10]: http://themergency.com/generators/wordpress-custom-taxonomy/

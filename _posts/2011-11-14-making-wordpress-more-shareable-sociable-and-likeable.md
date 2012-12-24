@@ -18,7 +18,9 @@ post_format: [ ]
 ---
 Slides from my presentation at Washington's [CrushIQ][1] on how to use WordPress to push content to social networks, pull social content in to your site, encourage sharing, engage visitors, and earn fans:
 
-<iframe src="http://www.slideshare.net/slideshow/embed_code/10156115" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen="true">    </iframe> <div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/benbalter/making-your-wordpress-site-more-shareable-sociable-and-likeable" title="Making your WordPress site more Shareable, Sociable, and Likeable" target="_blank">Making your WordPress site more Shareable, Sociable, and Likeable</a> </strong> from <strong><a href="http://www.slideshare.net/benbalter" target="_blank">Benjamin Balter</a></strong> </div>
+<div><iframe src="http://www.slideshare.net/slideshow/embed_code/10156115" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen="true"></iframe></div>
+
+<div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/benbalter/making-your-wordpress-site-more-shareable-sociable-and-likeable" title="Making your WordPress site more Shareable, Sociable, and Likeable" target="_blank">Making your WordPress site more Shareable, Sociable, and Likeable</a> </strong> from <strong><a href="http://www.slideshare.net/benbalter" target="_blank">Benjamin Balter</a></strong> </div>
 
 **Some of the plugins discussed:**
 

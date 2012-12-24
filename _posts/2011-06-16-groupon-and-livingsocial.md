@@ -19,7 +19,7 @@ post_format: [ ]
 ---
 ![][1]Despite the hype, daily deal sites like Groupon and LivingSocial are not the next wave of e-commerce. Not only are they bad for merchants, their business model simply isn't sustainable as established firms begin to enter the already-crowded market.
 
-******Bad for Business******
+**Bad for Business**
 
 It's hard for small businesses to profit from the deal. Sure, a daily deal will drive additional bodies through the door, but like many promotions, business often lose money on the deal itself, especially once Groupon or LivingSocial's cut is factored in, a cut which can often be as high as 50%. The key, it seems, for small business, is [to be smart][2], either upselling the customer, or convincing them that a second, non-discounted visit is well worth their while — not a simple task for the uninitiated.
 
@@ -31,7 +31,7 @@ The economics of the situation are only half the threat. Daily deals live in mur
 
 As Benjamin Edelman and Paul Kominers [argue][6]:
 
-[T]he legal and regulatory questions… are questions that arise distinctively in the context of discount vouchers: a merchant would never confront such questions were it not for discount vouchers. Having created the transactions giving rise to this regulatory complexity… discount voucher services should be expected to achieve compliance.
+\[T\]he legal and regulatory questions… are questions that arise distinctively in the context of discount vouchers: a merchant would never confront such questions were it not for discount vouchers. Having created the transactions giving rise to this regulatory complexity… discount voucher services should be expected to achieve compliance.
 
 Edelman and Kominers [continue][6]:
 
@@ -61,7 +61,7 @@ Sure it's fun to get an e-mail in your inbox with a "super-exclusive" offer, but
 
 Despite [Groupon's efforts][23], there's just not enough data there. They may have my age, gender, rough location, and one or two datapoints of buying history, but compare that to the relative dossier that Google and Amazon both have to have on me, it's always going to be a losing fight. Once first mover advantage begins to lose its shimmer, the big boys' synergies will begin to show their [true][24] [potential][25], and daily deal sites like Groupon and LivingSocial will expire as quickly as the deals they peddle.
 
-[ Photo courtesy [wovox][26] ]
+\[Photo courtesy [wovox][26]\]
 
  [1]: http://ben.balter.com/wp-content/uploads/2011/06/5554901181_664eac93a6_b-300x200.jpg "Groupon"
  [2]: http://news.ycombinator.com/item?id=2654788

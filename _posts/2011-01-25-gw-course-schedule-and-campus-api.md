@@ -165,7 +165,7 @@ Creative ideas on how best to leverage the information welcome in the [comments 
 #### Get Buildings 
 {% highlight php %}<?php $buildings = $gwapi->get_maps('academic'); ?>{% endhighlight %}
 
-[Photo: [atomicbartbeans][7]]
+\[Photo: [atomicbartbeans][7]\]
 
  [1]: http://ben.balter.com/wp-content/uploads/2011/01/1430289931_beb7ff6428_b-300x225.jpg "Course Schedule"
  [2]: http://acadtech.gwu.edu/pages/gwmobile

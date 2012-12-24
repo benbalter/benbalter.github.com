@@ -23,11 +23,11 @@ From a technical standpoint, Bluehost is one of the good guys. I've hosted sites
 
 Why does a hosting company require trust? In December, a [fake news release][8] was [published][9] on a Bluehost powered site by an anonymous satirical group, stating that after "a recent internal and thorough company review," Koch Industries, an oil processing company, would be "restructuring its support of climate change research and advocacy initiatives."
 
-The problem occurred, however, when Bluehost was over eager to comply with Koch's subpoena demanding the identity of the anonymous poster, [arguing][4], "[w]e are not in the business of harboring, you know, felons and crooks. We are not about that. This isn't WikiLeaks… [w]e comply with the law here."
+The problem occurred, however, when Bluehost was over eager to comply with Koch's subpoena demanding the identity of the anonymous poster, [arguing][4], "\[w\]e are not in the business of harboring, you know, felons and crooks. We are not about that. This isn't WikiLeaks… \[w\]e comply with the law here."
 
 Bluehost knew that the customer wanted to be anonymous (they had opted into Bluehost's domain protection program), however, the law here depends on Bluehost providing their client with knowledge of the subpoena, so that a timely objection can be heard by the issuing judge. In the [words of the site's own counsel][10]:
 
-The judge ruled that [Bluehost's customer,] Youth for Climate Truth had a First Amendment right to issue a satirical press release and website – in which the group impersonated Koch and announced that the company had reversed its position on climate change – in an effort to call attention to Koch's [notorious bankrolling of efforts to deny climate change][11].
+The judge ruled that \[Bluehost's customer,\] Youth for Climate Truth had a First Amendment right to issue a satirical press release and website – in which the group impersonated Koch and announced that the company had reversed its position on climate change – in an effort to call attention to Koch's [notorious bankrolling of efforts to deny climate change][11].
 
 The U.S. District Court for the District of Utah rejected all of Koch's legal claims, which alleged trademark infringement, unfair competition, cybersquatting, computer hacking and breach of the company website's terms of use. The judge also issued an order barring Koch from using any identifying information it had already obtained about our clients via subpoena.
 

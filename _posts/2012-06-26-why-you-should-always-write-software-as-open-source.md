@@ -40,7 +40,7 @@ The reality of today's business environment is that all software is inherently "
 
 Justice Brandeis is famous for noting that "sunlight is the best disinfectant." Likewise, the transparency afforded by the open-source ethos produces [more reliable software][4] –  so why not simply assume your code is going to be open source from the start?
 
-[^1]: The same would apply when you're buying software and the contractor is under the impression no one outside the organization will ever see the code, and more importantly, the code could never negatively impact the public's perception of their overall work-product [5]
+[^1]: The same would apply when you're buying software and the contractor is under the impression no one outside the organization will ever see the code, and more importantly, the code could never negatively impact the public's perception of their overall work-product
 
  [1]: http://ben.balter.com/wp-content/uploads/2012/06/mike-holmes.jpeg
  [2]: "The same would apply when you're buying software and the contractor is under the impression no one outside the organization will ever see the code, and more importantly, the code could never negatively impact the public's perception of their overall work-product"

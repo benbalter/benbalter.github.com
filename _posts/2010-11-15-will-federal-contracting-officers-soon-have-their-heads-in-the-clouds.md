@@ -72,56 +72,32 @@ Finally, earlier this summer, Google announced FISMA moderate certification of i
 
 Whether a federal contracting officer or a provider of IT services, just as the Internet has revolutionized countless aspects of every day life, it is clear that so too will the emerging cloud computing front forever shape the contours of Federal IT procurement in the years to come.
 
-*This article originally published in the [Federal Bar Association Government Contracts Section][25] [Fall 2010 Newsletter][26] (PDF, p. 6).</p> Notes:
+*This article originally published in the [Federal Bar Association Government Contracts Section][25] [Fall 2010 Newsletter][26] (PDF, p. 6).*
 
-[^1]: Stephen Lawson, *Cloud is Internet's Next Generation, HP Executive Says*, InfoWorld, June 25, 2009, http://www.infoworld.com/d/cloud-computing/cloud-internets-next-generation-hp-executive-says-120 (quoting HP CTO Russ Daniels). [27]
-[^2]: *See Generally *Jack Newton, *Putting Your Practice in the Cloud a Pre-Flight Checklist*, 73 Tex. B.J. 632 (2010). [28]
-[^3]: *See* Mark H. Wittow, Daniel J. Buller, *Cloud Computing: Emerging Legal Issues for Access to Data, Anywhere, Anytime,* 14 J. Internet L. 1 (2010). [29]
-[^4]: *Id.* [30]
-[^5]: Wittow, 14 J. Internet L. 1 (2010). [31]
-[^6]: J. Nicholas Hoover, *Interop: Oracle Predicts Cloud Confusion to Continue*, InformationWeek, Sept. 17, 2008, http:// www.informationweek.com/news/services/hosted_apps/showArticle.jhtml? articlelD=210602225. [32]
-[^7]: Peter M. Lefkowitz, *Contracting in the Cloud: A Primer,* Boston B.J., Summer 2010, at 9. [33]
-[^8]: Dennis Kennedy, *Working in the Cloud Tips on Success with Online Software Services*, ABA J., August 2009, at 31. [34]
-[^9]: *Id.* [35]
-[^10]: Wittow, 14 J. Internet L. 1 (2010). [36]
-[^11]: *Id.* [37]
-[^12]: Peter Mell and Tim Grance, *Definition of Cloud Computing*, National Institute of Standards and Technology, Information Technology Laboratory, October 7, 2009, http://csrc.nist.gov/groups/SNS/cloud-computing/cloud-def-v15.doc. [38]
-[^13]: Lefkowitz, Boston B.J., Summer 2010, at 9. [39]
-[^14]: *Id.* [40]
-[^15]: *Id.* [41]
-[^16]: *Id.* [42]
-[^17]: *Id.* [43]
-[^18]: Newton, 73 Tex. B.J. 632. [44]
-[^19]: Cloud IT Services, Apps.Gov, https://www.apps.gov/cloud/advantage/cloud/category_home.do (last visited* *October 5, 2010). [45]
-[^20]: Apps.Gov Now, General Services Administration, <http://citizen.apps.gov/> (last visited October 12, 2015). [46]
-[^21]: Cloud Services, Federal Business Opportunities, https://www.fbo.gov/index?s=opportunity&mode=form&id=d63c725d5a3006919289698350e3d4b3&tab=core&_cview=1 (last visited October 5, 2010);  J. Nicholas Hoover, *Recovert.Gov Moved to Amazon Cloud*, Information Week, May 12, 2010, http://www.informationweek.com/news/government/cloud-saas/showArticle.jhtml?articleID=224701861. [47]
-[^22]: Federal Information Security Management Act of 2002. [48]
-[^23]: 5 U.S.C.A. § 552a (West). [49]
-[^24]: Google Apps for Government, Official Google Enterprise Blog, July 26, 2010, http://googleenterprise.blogspot.com/2010/07/google-apps-for-government.html. [50]
+[^1]: Stephen Lawson, *Cloud is Internet's Next Generation, HP Executive Says*, InfoWorld, June 25, 2009, http://www.infoworld.com/d/cloud-computing/cloud-internets-next-generation-hp-executive-says-120 (quoting HP CTO Russ Daniels). 
+[^2]: *See Generally *Jack Newton, *Putting Your Practice in the Cloud a Pre-Flight Checklist*, 73 Tex. B.J. 632 (2010). 
+[^3]: *See* Mark H. Wittow, Daniel J. Buller, *Cloud Computing: Emerging Legal Issues for Access to Data, Anywhere, Anytime,* 14 J. Internet L. 1 (2010). 
+[^4]: *Id.* 
+[^5]: Wittow, 14 J. Internet L. 1 (2010). 
+[^6]: J. Nicholas Hoover, *Interop: Oracle Predicts Cloud Confusion to Continue*, InformationWeek, Sept. 17, 2008, http:// www.informationweek.com/news/services/hosted_apps/showArticle.jhtml? articlelD=210602225. 
+[^7]: Peter M. Lefkowitz, *Contracting in the Cloud: A Primer,* Boston B.J., Summer 2010, at 9. 
+[^8]: Dennis Kennedy, *Working in the Cloud Tips on Success with Online Software Services*, ABA J., August 2009, at 31. 
+[^9]: *Id.* 
+[^10]: Wittow, 14 J. Internet L. 1 (2010). 
+[^11]: *Id.* 
+[^12]: Peter Mell and Tim Grance, *Definition of Cloud Computing*, National Institute of Standards and Technology, Information Technology Laboratory, October 7, 2009, http://csrc.nist.gov/groups/SNS/cloud-computing/cloud-def-v15.doc. 
+[^13]: Lefkowitz, Boston B.J., Summer 2010, at 9. 
+[^14]: *Id.* 
+[^15]: *Id.* 
+[^16]: *Id.* 
+[^17]: *Id.* 
+[^18]: Newton, 73 Tex. B.J. 632. 
+[^19]: Cloud IT Services, Apps.Gov, https://www.apps.gov/cloud/advantage/cloud/category_home.do (last visited October 5, 2010). 
+[^20]: Apps.Gov Now, General Services Administration, <http://citizen.apps.gov/> (last visited October 12, 2015). 
+[^21]: Cloud Services, Federal Business Opportunities, https://www.fbo.gov/index?s=opportunity&mode=form&id=d63c725d5a3006919289698350e3d4b3&tab=core&_cview=1 (last visited October 5, 2010);  J. Nicholas Hoover, *Recovert.Gov Moved to Amazon Cloud*, Information Week, May 12, 2010, http://www.informationweek.com/news/government/cloud-saas/showArticle.jhtml?articleID=224701861. 
+[^22]: Federal Information Security Management Act of 2002. 
+[^23]: 5 U.S.C.A. § 552a (West). 
+[^24]: Google Apps for Government, Official Google Enterprise Blog, July 26, 2010, http://googleenterprise.blogspot.com/2010/07/google-apps-for-government.html. 
 
- [1]: #note-2020-1 "Stephen Lawson, Cloud is Internet's Next Generation, HP Executive Says, InfoWorld, June 25, 2009, http://www.infoworld.com/d/cloud-computing/cloud-internets-next-generation-hp-executive-says-120 (quoting HP CTO Russ Daniels)."
- [2]: #note-2020-2 "See Generally Jack Newton, Putting Your Practice in the Cloud a Pre-Flight Checklist, 73 Tex. B.J. 632 (2010)."
- [3]: #note-2020-3 "See Mark H. Wittow, Daniel J. Buller, Cloud Computing: Emerging Legal Issues for Access to Data, Anywhere, Anytime, 14 J. Internet L. 1 (2010)."
- [4]: #note-2020-4 "Id."
- [5]: #note-2020-5 "Wittow, 14 J. Internet L. 1 (2010)."
- [6]: #note-2020-6 "J. Nicholas Hoover, Interop: Oracle Predicts Cloud Confusion to Continue, InformationWeek, Sept. 17, 2008, http:// www.informationweek.com/news/services/hosted_apps/showArticle.jhtml? articlelD=210602225."
- [7]: #note-2020-7 "Peter M. Lefkowitz, Contracting in the Cloud: A Primer, Boston B.J., Summer 2010, at 9."
- [8]: #note-2020-8 "Dennis Kennedy, Working in the Cloud Tips on Success with Online Software Services, ABA J., August 2009, at 31."
- [9]: #note-2020-9 "Id."
- [10]: #note-2020-10 "Wittow, 14 J. Internet L. 1 (2010)."
- [11]: #note-2020-11 "Id."
- [12]: #note-2020-12 "Peter Mell and Tim Grance, Definition of Cloud Computing, National Institute of Standards and Technology, Information Technology Laboratory, October 7, 2009, http://csrc.nist.gov/groups/SNS/cloud-computing/cloud-def-v15.doc."
- [13]: #note-2020-13 "Lefkowitz, Boston B.J., Summer 2010, at 9."
- [14]: #note-2020-14 "Id."
- [15]: #note-2020-15 "Id."
- [16]: #note-2020-16 "Id."
- [17]: #note-2020-17 "Id."
- [18]: #note-2020-18 "Newton, 73 Tex. B.J. 632."
- [19]: #note-2020-19 "Cloud IT Services, Apps.Gov, https://www.apps.gov/cloud/advantage/cloud/category_home.do (last visited October 5, 2010)."
- [20]: #note-2020-20 "Apps.Gov Now, General Services Administration, http://citizen.apps.gov/ (last visited October 12, 2015)."
- [21]: #note-2020-21 "Cloud Services, Federal Business Opportunities, https://www.fbo.gov/index?s=opportunity&mode=form&id=d63c725d5a3006919289698350e3d4b3&tab=core&_cview=1 (last visited October 5, 2010);  J. Nicholas Hoover, Recovert.Gov Moved to Amazon Cloud, Information Week, May 12, 2010, http://www.informationweek.com/news/government/cloud-saas/showArticle.jhtml?articleID=224701861."
- [22]: #note-2020-22 "Federal Information Security Management Act of 2002."
- [23]: #note-2020-23 "5 U.S.C.A. § 552a (West)."
- [24]: #note-2020-24 "Google Apps for Government, Official Google Enterprise Blog, July 26, 2010, http://googleenterprise.blogspot.com/2010/07/google-apps-for-government.html."
  [25]: http://www.fedbar.org/Sections/Government-Contracts-Section/Newsletters.aspx
  [26]: http://www.fedbar.org/Sections/Government-Contracts-Section/Newsletters/Fall-2010.aspx?FT=.pdf

@@ -39,7 +39,7 @@ Specifically he points out:
 
 I think the argument could be extended to hiring 20-somethings more broadly ([I'm looking at your Federal Government][2]), but a great read, nonetheless.
 
-[via [Fast Company][1]]
+\[via [Fast Company][1]\]
 
  [1]: http://www.fastcompany.com/1779120/embargo-1027-why-digital-talent-doesn-t-want-to-work-at-your-company
  [2]: http://www.nextgov.com/nextgov/ng_20100423_7313.php

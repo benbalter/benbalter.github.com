@@ -25,15 +25,13 @@ tags:
   - series of tubes
 post_format: [ ]
 ---
-[![][2]][2]The Internet backbone (big [tube][2]) provider, Level 3, which makes up much of the behind-the-scenes magic that delivers Netflix streaming movies, revealed that in recent negotiations, internet service (smaller tube) provider Comcast [demanded Level 3 pay an additional fee][3] in exchange for Comcast *continuing* to allow its customers access to Netflix videos, effectively erecting a series of tollgates on the information superhighway.
+[![1][2]][2]The Internet backbone (big [tube][2]) provider, Level 3, which makes up much of the behind-the-scenes magic that delivers Netflix streaming movies, revealed that in recent negotiations, internet service (smaller tube) provider Comcast [demanded Level 3 pay an additional fee][3] in exchange for Comcast *continuing* to allow its customers access to Netflix videos, effectively erecting a series of tollgates on the information superhighway.
 
 It's likely no coincidence that Comcast's decision comes just a week after Netflix began offering [streaming-only plans][4] (hinting at the firm's broader push toward streaming video in the near future) and Level 3′s subsequent announcement of a partnership with Netflix to be its [primary carrier of streaming video][5].
 
-
-
 In Comcast's defense, their move makes *some* sense from a business standpoint. After all, during peak hours, just 2% of Netflix users (via Level 3) account for [20% of all bandwidth used][6] in North America. In Comcast's own words:
 
-> [W]hen one provider… push[es] the burden of massive traffic growth onto the other provider and its customers, we believe this is not fair.
+> \[W\]hen one provider… push\[es\] the burden of massive traffic growth onto the other provider and its customers, we believe this is not fair.
 
 The problem with the "it's the customer's fault for using our service" argument, the [same argument used by AT&T][7] not too long ago, is that,  if they haven't already, service providers need to realize the Internet is here to stay. We as consumers like browsing the net. We like images. We like YouTube videos. We like interactive content. We like streaming stuff, and tomorrow we may like holograms or virtual reality or whatever the next cool, shiny thing is. Consumers simply can't get enough rich, bandwidth-intensive content, and if you're an internet service provider, you can't complain when your customers use your service to do just that.
 
@@ -49,9 +47,9 @@ Any time the nation's [largest][16] anything makes a "[take it or leave it][17]"
 
 *Views represent [my own][19].*
 
-[photo: [gnackgnackgnack][20]]
+\[photo: [gnackgnackgnack][20]\]
 
- []: http://ben.balter.com/wp-content/uploads/2010/11/3592493739_6b0b0d3f45_b.jpg
+ [1]: http://ben.balter.com/wp-content/uploads/2010/11/3592493739_6b0b0d3f45_b.jpg
  [2]: http://www.thedailyshow.com/watch/wed-july-12-2006/headlines---internet
  [3]: http://voices.washingtonpost.com/posttech/2010/11/comcast_hit_with_two_net_neutr.html
  [4]: http://blog.netflix.com/2010/11/new-plan-for-watching-instantly-plus.html

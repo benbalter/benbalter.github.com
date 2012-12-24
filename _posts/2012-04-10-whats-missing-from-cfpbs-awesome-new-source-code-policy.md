@@ -62,10 +62,10 @@ I think CFPB gets it in a big way, and the fact that this is memorialized in wri
 
 +1 CFPB, +1. *Welcome to the community.*
 
-[^1]: In simple terms, the core of open-source projects (as distinct from community-contributed plugins or modules) are primarily fueled by "patches" (small code change sets) in response to bugs or feature requests, that get committed to the project's codebase and released in subsequent versions. [24]
-[^2]: If the project is licensed as government work, are my code contributions now government work? Are the government employee lines of code under a broader license, while mine are under a more restrictive license like GPL or apache? [25]
-[^3]: Is this considered a donation for Federal ethics purposes thus requiring disclosure? [26]
-[^4]: This can manifest itself in lots of different ways, but most tangibly: going to local meetups and conferences (or hosting them); contributing to the project's core by introducing new features, documentation, or posting to support forums; abstracting business logic from the start to be more broadly applicable to other developers; outreach and evangelism; and fostering relationships with key stakeholders within the community [27]
+[^1]: In simple terms, the core of open-source projects (as distinct from community-contributed plugins or modules) are primarily fueled by "patches" (small code change sets) in response to bugs or feature requests, that get committed to the project's codebase and released in subsequent versions. 
+[^2]: If the project is licensed as government work, are my code contributions now government work? Are the government employee lines of code under a broader license, while mine are under a more restrictive license like GPL or apache? 
+[^3]: Is this considered a donation for Federal ethics purposes thus requiring disclosure? 
+[^4]: This can manifest itself in lots of different ways, but most tangibly: going to local meetups and conferences (or hosting them); contributing to the project's core by introducing new features, documentation, or posting to support forums; abstracting business logic from the start to be more broadly applicable to other developers; outreach and evangelism; and fostering relationships with key stakeholders within the community
 
  [1]: http://www.treasury.gov/press-center/news/PublishingImages/CFPB.jpg "CFPB Logo"
  [2]: http://ben.balter.com/2011/11/29/towards-a-more-agile-government/
