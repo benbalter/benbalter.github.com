@@ -9,10 +9,10 @@
 		<div class="improve-article-wrapper"> 
         <div class="improve-article"> 
           <% 
-          edit_url = "http://edit.benbalter.com/#benbalter/benbalter.github.com/edit/master/_posts/" + layout +"s/";
+          edit_url = "http://edit.benbalter.com/#benbalter/benbalter.github.com/edit/master/";
           
-          if (layout == "page")
-            edit_url += "0001-01-01-";
+          if (layout == "post")
+            edit_url += "_posts/";
           
           edit_url += id.replace("/","").replace(/\//g, "-")+ ".md"          
           %>
