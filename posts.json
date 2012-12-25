@@ -1,4 +1,0 @@
----
-layout: none
----
-[{% for post in site.posts %}{"id":"{{ post.id }}","category":"{{ post.category }}","date":"{{ post.date }}","excerpt":"{{ post.excerpt | strip_newlines | replace:'"','\"' }}","title":"{{ post.title | strip_newlines | replace:'"','\"' }}","url":"{{ site.url }}{{ post.url }}","tags":[{% for tag in post.tags %}"{{ tag }}"{% if forloop.rindex0 != 0 %},{% endif %}{% endfor %}]}{% if forloop.rindex0 != 0 %},{% endif %}{% endfor %}]
