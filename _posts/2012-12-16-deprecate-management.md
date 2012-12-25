@@ -46,5 +46,3 @@ Granted, this open-source philosophy doesn't apply to every workplace, but how m
 Straddling the line between arguably the world's most bureaucratic, hierarchical organization (federal government), and it's definitional polar opposite (open source), provides a unique perspective. There are so many aspects to the work day that we do just because it's the way thing's have been done since the dawn of the industrial revolution, and it puzzles me why nobody's stopped to think critically about how these processes could be remained in an age of technology. I need to get this (physical) form approved by Joan? Okay, you just took two people away from doing what they're paid to be doing. I have to e-mail someone for the latest version or figure out where we're at on this project? Again, just moved someone from high-level to low-level work.
 
 Granted, not every workplace is apt for such radical egalitarianism, but the buttoned up (offline) world of "serious" business could learn a thing or two from open source's collaborative experiment. In many respects, organizational friction is no longer a sunk cost, and thus, arguably, so too is management.
-
-test
