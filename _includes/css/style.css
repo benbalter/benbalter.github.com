@@ -139,6 +139,9 @@ blockquote p { margin-bottom: 10px; }
 .improve-article p { margin-top: 15px; margin-left: 65px; font-size: 14px; font-style: italic; }
 .improve-article-wrapper { padding-top: 20px; font-size: 20px; border-top: 1px dotted rgba(0, 0, 0, 0.2); }
 
+/* index */
+.posts .maruku_toc {display: none; }
+.readon { font-weight: bold; font-style: italic; display: block; margin: 20px 0 20px 0; font-size: 1.1em; }
 
 /* Responsiveness */
 

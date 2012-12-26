@@ -18,11 +18,15 @@
 	</div>
 	    
     <div class="entrybody">
-        {{ page.content }}
+        {% capture readon %}
+          <p class="readon"><a href="{{ site.url }}{{ page.url }}">Continue Reading {{ page.title }} &rarr;</a></p>
+          <!-- more -->
+        {% endcapture %}
+        {{ page.content | replace:"<!-- more -->", readon | split: "<!-- more -->" | first }}
     </div>
 
     <div class="post-taxonomies">
-  		Posted in {% assign taxonomy = 'category' %}{% include term-list-csv.html %} |
+  		Posted in {% assign taxonomy = 'categories' %}{% include term-list-csv.html %} |
 		  Tagged {% assign taxonomy = 'tags' %}{% include term-list-csv.html %}		
     </div>
     
