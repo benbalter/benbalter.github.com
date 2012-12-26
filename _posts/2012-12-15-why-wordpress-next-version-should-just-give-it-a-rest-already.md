@@ -23,6 +23,8 @@ WordPress came about as many of these now-standard design conventions were still
 
 If WordPress wants to stay relevant as a content management platform, the future isn't traditional post-and-forget blogging, but rather a concerted effort to once again make content king. We obviously can't flip a switch and get there overnight, but a crawl, walk, run over the next version or so can better align the veritable CMS with the reality of what's in our collective pipeline:
 
+<!-- more -->
+
 ### Crawl
 
 At the very least, lets expose all WordPress content in a machine readable format. This once and for all breaks the content-presentation link. We do this with RSS somewhat, but it's time to put non-HTML formats on equal footing with HTML in core's eyes.

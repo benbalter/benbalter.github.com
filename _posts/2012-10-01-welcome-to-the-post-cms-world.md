@@ -35,6 +35,8 @@ Is it the [first shots](http://presidential-innovation-fellows.github.com/mygov/
 
 The CMS is dead. Long live the CMS.
 
+<!-- more -->
+
 ***
 
 ## The Results
