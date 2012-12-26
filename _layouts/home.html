@@ -18,11 +18,11 @@
 	</div>
 	    
     <div class="entrybody">
-        {% capture readon %}
+        {{ page.content | replace: "<!-- more -->", "<!-- more " }}
+        {% if page.content contains "<!-- more -->" %}
+          --> 
           <p class="readon"><a href="{{ site.url }}{{ page.url }}">Continue Reading {{ page.title }} &rarr;</a></p>
-          <!-- more -->
-        {% endcapture %}
-        {{ page.content | replace:"<!-- more -->", readon | split: "<!-- more -->" | first }}
+        {% endif %}
     </div>
 
     <div class="post-taxonomies">
