@@ -1,7 +1,7 @@
 ---
 author: Benjamin J. Balter
 title: 'Federal Agility: a Cultural Solution to a Technical Problem'
-excerpt:
+excerpt: "Increasingly slim federal IT budgets are best optimized by a concerted effort at realigning organization values around more agile approaches to software development" 
 layout: post
 categories:
   - Business
