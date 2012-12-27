@@ -1,21 +1,21 @@
 ---
-title: Introducing JekyllBot
-excerpt: Automatically generate a JSON content API for Jekyll-based posts and pages. Uses Heroku, works with GitHub pages.
-author: Benjamin J. Balter
+title: "Introducing JekyllBot""
+excerpt: "Automatically generate a JSON content API for Jekyll-based posts and pages. Uses Heroku, works with GitHub pages."
+author: "Benjamin J. Balter"
 layout: post
 comments: true
-categories: Technology
+categories: 
+  - Technology
 tags: 
-	- Jekyll
-    - Bot
-    - JSON
-    - API
-    - Open Source
-    - GitHub
-    - GitHub Pages
-    - Heroku
+  - Jekyll
+  - Bot
+  - JSON
+  - API
+  - Open Source
+  - GitHub
+  - GitHub Pages
+  - Heroku
 published: true
-
 ---
 
 After [making the move to Jekyll](http://ben.balter.com/2012/10/01/welcome-to-the-post-cms-world/), one thing I lost was the ability to generate machine-readable representations of content. That may sound trivial, but it's actually not considering [the RESTful direction we're heading](http://ben.balter.com/2012/12/15/why-wordpress-next-version-should-just-give-it-a-rest-already/), and is crucial if you want to manipulate content on the front-end (e.g., [Backbone](http://backbonejs.org/) ). The idea being, for any post or page, if you simply replace the final `/` with `.json`, you should get an API.
