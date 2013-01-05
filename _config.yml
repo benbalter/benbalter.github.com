@@ -10,7 +10,7 @@ description:  J.D./M.B.A. Candidate, Open-Source Developer, Gov 2.0 Evangelist
 url: http://ben.balter.com
 
 #files to exclude, array
-exclude: [ 'readme.md', 'php' ]
+exclude: [ 'readme.md', 'php', 'node_modules', 'Gruntfile.coffee', 'package.json' ]
 
 #posts per page
 paginate: 10

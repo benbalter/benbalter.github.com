@@ -1,10 +1,8 @@
 ---
 layout: none
 ---
-{% capture css %}
-	body { padding-top: 40px; padding-bottom: 0;}
-	{% include css/bootstrap.css %}
-	{% include css/bootstrap-responsive.css %}
-	{% include css/pygmentize.css %}
-	{% include css/style.min.css %}
-{% endcapture %}{{ css | strip_newlines }}
+body { padding-top: 40px; padding-bottom: 0;}
+{% include css/bootstrap.css %}
+{% include css/bootstrap-responsive.css %}
+{% include css/pygmentize.css %}
+{% include css/style.min.css %}
