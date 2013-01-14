@@ -43,7 +43,7 @@ h4 { margin-bottom: 10px; }
 
 /* Resume */
 .page-resume a {text-decoration: none; color: #757575;}
-.page-resume .bar {background: #ccc; z-index: 0; border-right: 3px solid black; height: 1000px; position: absolute; margin: 0; left: 10%; width: 12%; top: 62%; }
+.page-resume .bar {background: #ccc; z-index: 0; border-right: 3px solid black; height: 1000px; position: absolute; margin: 0; left: 10%; width: 12%; top: 330px; }
 .page-resume h2 { text-transform: lowercase; font-weight: normal; text-align: right; position: absolute; right: 79%; font-size: 14px; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important; letter-spacing: 1.5px; line-height: 18px; }
 .page-resume .date, .page-resume .location { color: #aaa; float: right; clear: right; font-size: 12px;  }
 .page-resume .date { margin-top: -2.3em;}

@@ -161,10 +161,14 @@ class Application.Views.Page extends Backbone.View
     @$el.html @template @model.toJSON()
     if DISQUS?
       DISQUS.reset()
+    @resume_resize()
 
+  resume_resize: ->
+    $('.page-resume .bar').height( $('.content').height() - 15)
+    
 class Application.Views.Single extends Backbone.View
   el: "#content"
-  template: JST.single_layout
+  template: JST.single
 
   initialize: ->
     @model.on 'change', @render
@@ -263,13 +267,13 @@ Backbone.history.start pushState: true, silent: true
 
 jQuery(document).ready ->
 
+  window.resume_resize = ->
+    $('.page-resume .bar').height( $('.content').height() - 15)
+ 
+  $(window).resize resume_resize
+  resume_resize()
+
   $('a[href^="{{ site.url }}/"]').live 'click', (e) ->
     e.preventDefault()
     Application.router.navigate $(@).attr('href').replace( '{{ site.url }}/', '' ), true
     false
-
-  window.resume_resize = ->
-    $('.page-resume .bar').height( $('.content').height() - 25)
-
-  $(window).resize( resume_resize )
-  resume_resize()
