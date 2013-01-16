@@ -21,7 +21,10 @@ id: /resume
 
 {.date}July 2012 — Present
 
-Described by the US Chief Technology Officer as "the baddest of the badass innovators," and by the White House Director of Digital Strategy as "<a href="http://www.youtube.com/watch?v=uhtlOYOhE8w#t=51m12s">lightning in a bottle</a>," serve as entrepreneur in residence reimagining the role of technology in brokering the relationship between citizens and government.
+* As member of inaugural class of high-profile White House initiative, served as entrepreneur in residence reimagining the role of technology in brokering the relationship between citizens and government while injecting a more startup-like culture within government. 
+* Described by the US Chief Technology Officer as "the baddest of the badass innovators," and by the White House Director of Digital Strategy as "<a href="http://www.youtube.com/watch?v=uhtlOYOhE8w#t=51m12s">lightning in a bottle</a>." 
+* Within six months, saw four distinct open-source products from conception to production, including research, prototyping, usability, development, testing, and stakeholder outreach using then-atypical api-first architecture.
+* Ensured compliance with Privacy Act, Paperwork Reduction Act, and Federal Information Security Mangagement Act including drafting of multiple formal notices on behalf of the government for publication in the Federal Register.
 
 #### Fellow, Office of the US Chief Information Officer
 
@@ -104,21 +107,17 @@ Described by the US Chief Technology Officer as "the baddest of the badass innov
 
 #### Web Development and Management
 
-*   Expertise in modern web development methods — HTML5, CSS, CoffeeScript (Javascript), Rails (Ruby), relational databases (MySQL), PHP, verson control (Git) — enterprise system architecture; application programing interfaces (APIs); WordPress management, development, and integration; and Unix system administration.
-*   Lead development of six active open-source projects with more than 60,000 downloads to date.
+* Expertise in modern web development methods — HTML5, CSS, CoffeeScript (Javascript), Rails (Ruby), relational databases (MySQL), PHP, verson control (Git) — enterprise system architecture; application programing interfaces (APIs); WordPress management, development, and integration; and Unix system administration.
+* Lead development of six active open-source projects with more than 60,000 downloads to date.
 
 #### Speaking Experience
 
-*   [South by Southwest][1] Interactive, panelist, [Content and Coding are not Commodities][2]
-*   Guest lecturer, American University, [Personal Branding and Social Media][3]
-*   [CrushIQ][4], speaker, <a title="Making WordPress More Shareable, Sociable, and Likeable" href="http://ben.balter.com/2011/11/14/making-wordpress-more-shareable-sociable-and-likeable/" rel="bookmark">Making WordPress More Shareable, Sociable, and Likeable</a>.
-*   Social Media Summit, panelist, [The Digital Me: Personal Branding][5]
-*   Present regularly at [local technology][6] meetups including Hacks/Hackers DC, [Drupal4Gov][7], and WordPress DC
+* [South by Southwest][1] Interactive, panelist, [Content and Coding are not Commodities][2]
+* Guest lecturer, American University, [Personal Branding and Social Media][3]
+* Present regularly within federal government including [implementation of the Digital Strategy](http://ben.balter.com/digital-strategy-reporting/#/title) within GSA's [Digital Services Innovation Center](https://github.com/benbalter/apis-you-didnt-know-already-existed) and at [local technology][6] meetups including Hacks/Hackers DC, [Drupal4Gov][7], and WordPress DC
 
  [1]: http://sxsw.com
  [2]: http://panelpicker.sxsw.com/ideas/view/10270
  [3]: http://ben.balter.com/2011/03/09/craft-your-personal-brand/
- [4]: http://crushIQ.com
- [5]: http://sls2012.sched.org/event/17d29cfcb8dcba402bfc0b75368e15ae
  [6]: http://ben.balter.com/2011/04/12/love-the-code/
  [7]: http://ben.balter.com/digital-strategy-reporting/
