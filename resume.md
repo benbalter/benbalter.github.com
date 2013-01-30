@@ -5,6 +5,7 @@ excerpt: Ben Balter is a gov 2.0 evangelist working to hack federal government f
 layout: page
 permalink: /resume/
 id: /resume
+
 ---
 
 # Benjamin J. Balter
@@ -19,7 +20,7 @@ id: /resume
 
 #### Presidential Innovation Fellow
 
-{.date}July 2012 — Present
+{.date}July 2012 — January 2013
 
 * As member of inaugural class of high-profile White House initiative, served as entrepreneur in residence reimagining the role of technology in brokering the relationship between citizens and government while injecting a more startup-like culture within government. 
 * Described by the US Chief Technology Officer as "the baddest of the badass innovators," and by the White House Director of Digital Strategy as "<a href="http://www.youtube.com/watch?v=uhtlOYOhE8w#t=51m12s">lightning in a bottle</a>." 
