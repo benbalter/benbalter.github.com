@@ -1,11 +1,11 @@
 ---
-title: "What is a 'Hacker'?
+title: "What is a 'Hacker'?"
 excerpt: "SEO friendly description"
 author: Benjamin J. Balter
 layout: post
 comments: true
-category: 
-tags: 
+categories: []
+tags: []
 published: false
 
 ---
@@ -46,5 +46,4 @@ http://www.catb.org/esr/faqs/hacker-howto.html
 1. World is full of problems waiting to be solved - Being a hacker is lots of fun, but it's a kind of fun that takes lots of effort. The effort takes motivation. Successful athletes get their motivation from a kind of physical delight in making their bodies perform, in pushing themselves past their own physical limits. Similarly, to be a hacker you have to get a basic thrill from solving problems, sharpening your skills, and exercising your intelligence.
 2. No problem should ever have to be solved twice - Creative brains are a valuable, limited resource. They shouldn't be wasted on re-inventing the wheel when there are so many fascinating new problems waiting out there.
 
-3. 
-
+3.
