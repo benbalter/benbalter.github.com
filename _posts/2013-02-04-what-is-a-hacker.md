@@ -1,6 +1,6 @@
 ---
 title: "What is a 'Hacker'?"
-excerpt: "SEO friendly description"
+excerpt: "Hackers embody sharing, openness, decentralization — coding to improve the world"
 author: Benjamin J. Balter
 layout: post
 comments: true
@@ -38,17 +38,17 @@ But it's more than that. There's a practical side. There's a constant intelectua
 
 ## Hacker Culture
 
-* **Meritocracy** - Hackers should be judged by their contribution to the community. 
-* **Ellegance** - Hackers deeply appreciate innovative techniques which allow programs to perform complicated tasks with few instructions. A program's code was considered to hold a beauty of its own, having been carefully composed and artfully arranged
-* **Playful cleverness** - taking the serious humorously and their humor seriously
+* **Meritocracy** - Contribution is the sole currency of the internet. Money and title bare far less weight than meaninful contributions, be they code, copy, or design.
+* **Ellegance** - Hackers strive for artfully arranged, innovative techniques that perform complicated tasks with as few instructions as possible.
+* **Playful cleverness** - There's a certain lighthearted cleverness to being a hacker, often expressed by injecting witt and memes into everyday tasks.
 
 ## Hackers in the Enterprise
 
-It's no surprise then, that as the pace of technological innovation quickens, the very beurocuracies that hackers condemn are begining to realize the true value of a hacker.
+It's no surprise then, that as the pace of technological innovation quickens, the very beurocuracies that hackers condemn are [begining to appreciate](http://www.intechnic.com/blog/a-hacker-the-secret-ingredient-your-it-department-lacks/) their ability to consistently deliver high value projects at little cost.
 
-Not just skunk works. https://twitter.com/BenBalter/status/212300151623135233
+But elevating hackers in traditional organizations is not simply another name for "skunk works," just as a hackaton is no excuse for not consistantly fostering a culture of innovation. 
 
-"just explain the problem to the hacker and let them find their own solution," http://www.intechnic.com/blog/a-hacker-the-secret-ingredient-your-it-department-lacks/
+Hacker isn't just the next hot buzzword, following a long history of rockstar, ninja, and guru. Nor is it synonymous with cybercriminal or imply nefarious intentions. Instead the opposite is true. Hackers embody a well defined ethic of better the world, an ethic incompatable with ___ and ___.
 
 [^1]: Steven Levy
 [^2]: Eric S. Raymond (http://www.catb.org/esr/faqs/hacker-howto.html)
