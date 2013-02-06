@@ -4,8 +4,14 @@ excerpt: "Hackers embody sharing, openness, decentralization — coding to impro
 author: Benjamin J. Balter
 layout: post
 comments: true
-categories: []
-tags: []
+categories:
+  - Technology
+tags:
+  - Code
+  - Hacker
+  - Hacking
+  - Enterprise
+  - Culture
 published: false
 
 ---
@@ -16,7 +22,7 @@ Working in DC, "hacker" can often be seen as a four-letter word. I can't count t
   2. "a person who is inexperienced or unskilled at a particular activity", and
   3. "an expert at programming and solving problems with a computer"
 
-Being a hacker isn't about stealing credit card numbers or disabling public utilities, but rather it's the exact opposite. It's about embodying all three of those definitions simultaneously. It's about sharing, openness, decentralization… *coding to improve world*. It's about trying to satisfy an unquenchable thirst for defying expectations and making the impossible a reality, often involving duct tape, bubblegum, and ultimately solutions that purported experts would certainly balk at for being too simplistic.
+Being a hacker isn't about stealing credit card numbers or disabling public utilities, but rather it's the exact opposite. It's about embodying all three of those definitions simultaneously. It's about sharing, openness, decentralization... It's about trying to satisfy an unquenchable thirst for defying expectations and making the impossible a reality, often involving duct tape, bubblegum, and ultimately solutions that purported experts would certainly balk at for being too simplistic.
 
 The term traces its routes all the way back to the 1960s when it emerged to describe a certain playful cleverness of exploration that surrounded those at MIT who openly pushed the limits of the world's first computers. Today it continues to embody that ethic as the pursuit of excellence — constantly asking oneself "is this even possible?" It's the intrinsic delight one gets from solving never-before-solved problems and overcoming limits conventional wisdom long-ago presumed too difficult to tackle.
 
@@ -49,7 +55,7 @@ Last, hackers embody a discrete culture that often flies in the face of traditio
 
 It's no surprise then, that as the pace of technological innovation quickens, the very bureaucracies that hackers condemn are [beginning to appreciate](http://www.intechnic.com/blog/a-hacker-the-secret-ingredient-your-it-department-lacks/) their ability to consistently deliver high value projects at little cost. Heck, even the White House recently [announced its first hackathon](http://www.whitehouse.gov/blog/2013/02/05/announcing-we-people-20-and-white-house-hackathon). 
 
-But elevating hackers in traditional organizations is not simply another name for "skunk works," just as a hackathon is no excuse for not consistently fostering a culture of innovation. It's not about working faster or cheaper. Hacker isn't just the next hot buzzword, following a long history of rock star, ninja, and guru. Nor is it synonymous with cybercriminal or imply nefarious intentions. Instead the opposite is true. It's about embracing an ethos, a drive, a culture. 
+But elevating hackers in traditional organizations is not simply another name for "skunk works," just as a hackathon is no excuse for not consistently fostering a culture of innovation. It's not about working faster or cheaper. Hacker isn't just the next hot buzzword, following a long history of rock star, ninja, and guru. Nor is it synonymous with cybercriminal or imply nefarious intentions. Instead the opposite is true. It's about embracing an ethos, a drive, a culture. It's about coding to improve the world.
 
 [^1]: Steven Levy
 [^2]: Eric S. Raymond (http://www.catb.org/esr/faqs/hacker-howto.html)
