@@ -16,7 +16,7 @@ Countless technologies we take for granted today, began their lives as staples o
 
 Each of these technologies, although they got their start in open source, found their way to market in a radically different, often simplified form. This follows a pattern of innovation developing in one market, before being introduced, disruptively, into another.
 
-So what's next? A lot. For one, we're seeing a pretty substantial shift among open source developers towards distributed version control. For another, we're seeing APIs and robust client-libraries shifting application logic to the edge. Last, many open-source projects are crowd sourcing information collection and curation, especially around geospacial data, to name a few examples, but there's much more out there.
+So what's next? A lot. For one, we're seeing a pretty substantial shift among open source developers towards distributed version control. For another, we're seeing APIs and robust client-libraries shifting application logic to the edge. Last, many open-source projects are crowd sourcing information collection and curation, especially around geospatial data, to name a few examples, but there's much more out there.
 
 To be sure, not all innovations come from the open source world. Far from it in fact. But as the earliest adopters and arguably those most critical of the tools they use, as a general rule, if the open source community as a whole is backing an effort, there's a good chance it's a winner.
 
