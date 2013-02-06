@@ -3,6 +3,7 @@ title: About
 excerpt: Ben Balter is a gov 2.0 evangelist working to hack federal government from the inside out, an open-source developer passionate about the disruptive power of technology, and a J.D./M.B.A. candidate at the George Washington University.
 layout: page
 permalink: /about/
+published: true
 ---
 
 ![Ben Balter][1]{.alignright}
@@ -13,7 +14,7 @@ Described by the US Chief Technology Officer as "the baddest of the badass innov
 
 An aspiring attorney, a coder, and an all around geek, Ben’s triple-threat skill set bridges three distinct disciplines: a formal <a href="http://ben.balter.com/category/law/">legal</a> education and commitment to advocating on behalf of others, a deep-seeded understanding of the intricacies of today’s <a href="http://ben.balter.com/category/business/">business</a> decisions, and a life-long passion for <a href="http://ben.balter.com/category/technology/">technology</a>‘s ability to shape how we interact with one another. When not working or in class, he enjoys tackling otherwise-impossible challenges to sharing information using nothing more than duct tape and occasionally a pack of bubblegum.
 
-After graduation, Ben hopes to find an avenue to explore his dual passion for law and technology in the nation’s capital.
+After graduation in May, Ben hopes to find an avenue to explore his dual passion for law and technology in the nation’s capital.
 
 Feel free to e-mail me at [Ben@Balter.com][8] or you can find me on these social networks:
 
