@@ -184,6 +184,9 @@ class Application.Views.Single extends Backbone.View
     document.title = @model.get('title') + " » " + Application.name
 
     post.render()
+    $.smoothScroll
+      scrollTarget: ".title"
+      offset: -60
 
 class Application.Views.Index extends Backbone.View
   el: "#content"
@@ -255,10 +258,9 @@ class Router extends Backbone.Router
 
   setNav: (id) ->
     $('.nav .active').removeClass 'active'
-    $('.nav #' + id).addClass 'active'
+    $('.nav #' + id).addClass 'active' if id.length
 
 # Init
-
 Application.posts = new Application.Collections.Posts
 Application.pages = new Application.Collections.Pages
 
