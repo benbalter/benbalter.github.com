@@ -4,7 +4,7 @@ excerpt: "Hackers embody sharing, openness, decentralization — coding to impro
 author: Benjamin J. Balter
 layout: post
 comments: true
-Category: Technology
+category: Technology
 tags:
   - Code
   - Hacker
