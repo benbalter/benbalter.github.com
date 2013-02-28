@@ -279,3 +279,9 @@ jQuery(document).ready ->
     e.preventDefault()
     Application.router.navigate $(@).attr('href').replace( '{{ site.url }}/', '' ), true
     false
+
+  jQuery('#content').infinitescroll
+    navSelector: "nav.pagination"
+    nextSelector: "nav.pagination #next"
+    itemSelector: "article.post"
+    
