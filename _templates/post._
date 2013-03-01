@@ -22,7 +22,7 @@
     </div>
 
     <div class="post-taxonomies">
-  	 Posted in <a href="{{ site.url }}/categories/<%= category %>/"><%= category %></a> | Tagged <% _.each( tags, function(tag){ %> <a href="{{ site.url }}/tags/<%= tag.toLowerCase() %>/"><%= tag %></a>, <% }); %>
+  	 Posted in <a href="{{ site.url }}/categories/<%= category %>/"><%= category.toLowerCase() %></a> | Tagged <% _.each( tags, function(tag){ %> <a href="{{ site.url }}/tags/<%= tag.toLowerCase() %>/"><%= tag %></a>, <% }); %>
   	</div>
   	    
 </article>
