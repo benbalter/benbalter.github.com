@@ -1,4 +1,4 @@
-<h1>Posts tagged "<%= tag.id %>"</h1>
+<h1 class="title">Posts tagged "<%= tag.id %>"</h1>
 <ul>
 <% tag.posts.forEach( function( post ) { %>
   <li><a href="<%= Application.url + post.get("url") %>"><%= post.get("title") %></a></li>

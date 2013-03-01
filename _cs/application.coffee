@@ -273,6 +273,9 @@ class Application.Views.Tag extends Backbone.View
   render: ->
     jQuery('#content').infinitescroll 'destory'
     @$el.html @template({ tag: @model.toJSON() })
+    $.smoothScroll
+      scrollTarget: ".title"
+      offset: -60
 
 class Application.Views.Category extends Backbone.View
   el: "#content"
@@ -281,7 +284,10 @@ class Application.Views.Category extends Backbone.View
   render: ->
     jQuery('#content').infinitescroll 'destory'
     @$el.html @template({ category: @model.toJSON() })
-    
+    $.smoothScroll
+      scrollTarget: ".title"
+      offset: -60
+
 # Router
 
 class Router extends Backbone.Router
