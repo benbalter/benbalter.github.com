@@ -150,7 +150,6 @@ class Application.Views.Post extends Backbone.View
       @loadDisqus()
 
   loadDisqus: ->
-    jQuery('#content').infinitescroll 'destory'
     window.disqus_shortname = Application.disqus.name
     window.disqus_identifier = @model.get 'id'
     window.disqus_url = Application.url + '/' + @model.get 'id'
@@ -191,7 +190,6 @@ class Application.Views.Page extends Backbone.View
   template: JST.page
 
   render: =>
-    jQuery('#content').infinitescroll 'destory'
     @$el.html @template @model.toJSON()
     if DISQUS?
       DISQUS.reset()
@@ -208,8 +206,6 @@ class Application.Views.Single extends Backbone.View
     @model.on 'change', @render
 
   render: =>
-    jQuery('#content').infinitescroll 'destory'
-
     @$el.html @template @model.toJSON()
 
     if @model.get('layout') is "post"
@@ -223,6 +219,8 @@ class Application.Views.Single extends Backbone.View
     $.smoothScroll
       scrollTarget: ".title"
       offset: -60
+
+    jQuery('#content').infinitescroll 'destory'
 
 
 class Application.Views.Index extends Backbone.View
@@ -241,10 +239,6 @@ class Application.Views.Index extends Backbone.View
     tweets = new Application.Collections.Tweets
     view = new Application.Views.TweetView collection: tweets
     tweets.fetch()
-    jQuery('#content').infinitescroll
-      navSelector: "nav.pagination"
-      nextSelector: "nav.pagination #next"
-      itemSelector: "article.post"
 
 class Application.Views.CommentView extends Backbone.View
   el: "#recentcomments"
@@ -271,22 +265,24 @@ class Application.Views.Tag extends Backbone.View
   template: JST.tag
 
   render: ->
-    jQuery('#content').infinitescroll 'destory'
     @$el.html @template({ tag: @model.toJSON() })
     $.smoothScroll
       scrollTarget: ".title"
       offset: -60
+    jQuery('#content').infinitescroll 'destory'
+    document.title = "Posts categorized '" + @model.get('id') + "'' » " + Application.name
 
 class Application.Views.Category extends Backbone.View
   el: "#content"
   template: JST.category
 
   render: ->
-    jQuery('#content').infinitescroll 'destory'
     @$el.html @template({ category: @model.toJSON() })
     $.smoothScroll
       scrollTarget: ".title"
       offset: -60
+    jQuery('#content').infinitescroll 'destory'
+    document.title = "Posts tagged '" + @model.get('id') + "'' » " + Application.name
 
 # Router
 
