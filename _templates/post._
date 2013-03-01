@@ -16,7 +16,7 @@
       <h4>Related Posts:</h4>
       <ol class="related-posts">
       <% _.each( related_posts.slice(0,5), function( post) { %>
-        <li><a href="<%= application.url + post.url %>"><%= post.title %></a></li>
+        <li><a href="<%= Application.url + post.url %>"><%= post.title %></a></li>
       <% }) %>
       </ol>
     </div>
