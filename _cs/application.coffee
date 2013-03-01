@@ -318,11 +318,13 @@ class Router extends Backbone.Router
     Application.tags = new Application.Collections.Tags
     Application.tags.on "reset", ->
       new Application.Views.Tag( model: Application.tags.get tag ).render()
+    @setNav ''
 
   category: (category) ->
     Application.categories = new Application.Collections.Categories
     Application.categories.on "reset", ->
       new Application.Views.Category( model: Application.categories.get category ).render()
+  @setNav ''
 
   redirect: ->
     document.location = Application.url + "/" + Backbone.history.fragment
@@ -340,7 +342,8 @@ Backbone.history.start pushState: true, silent: true
 
 if window.is404? and window.is404
   window.is404 = null
-  Application.router.navigate document.location.pathname.replace("/",""), trigger: true
+  Application.router.navigate "", replace: true
+  Application.router.navigate document.location.pathname.replace("/",""), trigger: true, replace: true
 
 jQuery(document).ready ->
 
