@@ -324,7 +324,7 @@ class Router extends Backbone.Router
     Application.categories = new Application.Collections.Categories
     Application.categories.on "reset", ->
       new Application.Views.Category( model: Application.categories.get category ).render()
-  @setNav ''
+    @setNav ''
 
   redirect: ->
     document.location = Application.url + "/" + Backbone.history.fragment
