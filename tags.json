@@ -5,11 +5,11 @@ layout: none
 [
 {% for tag_hash in site.tags %}
 {
-"id":"{{ tag_hash.first }}",
+"id":"{{ tag_hash.first | downcase }}",
 "posts":[
 {% for page in tag_hash.last %}
 {
-"id":"{{ page.id | downcase }}",
+"id":"{{ page.id }}",
 "url":"{{ page.url }}",
 "title":"{{ page.title | strip_newlines | replace:'"','' }}"
 }

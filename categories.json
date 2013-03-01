@@ -2,9 +2,11 @@
 layout: none
 ---
 {% capture json %}
-{
+[
 {% for tag_hash in site.categories %}
-"{{ tag_hash.first }}":[
+{
+"id":"{{ tag_hash.first | downcase }}",
+"posts":[
 {% for page in tag_hash.last %}
 {
 "id":"{{ page.id }}",
@@ -14,8 +16,9 @@ layout: none
 {% if forloop.last %}{% else %},{% endif %}
 {% endfor %}
 ]
+}
 {% if forloop.last %}{% else %},{% endif %}
 {% endfor %}
-}
+]
 {% endcapture %}
 {{ json | strip_newlines }}
