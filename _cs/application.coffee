@@ -337,8 +337,8 @@ Application.router = new Router()
 Backbone.history.start pushState: true, silent: true
 
 if is404?
-  slug = document.location.pathname.replace("/","")
-  Application.router.navigate slug, trigger: true
+  is404 = null
+  Application.router.navigate document.location.pathname.replace("/",""), trigger: true
 
 jQuery(document).ready ->
 
