@@ -12,7 +12,7 @@
 
 		{% if percent > min_size %}
 
-   <li class="tag" id="{{ tag | first }}"><a href="tags/#{{ tag | first }}" style="font-size: {{ percent | times: multiplier }}px;">{{ tag | first }}</a></li>
+   <li class="tag" id="{{ tag | first }}"><a href="tags/{{ tag | first }}" style="font-size: {{ percent | times: multiplier }}px;">{{ tag | first }}</a></li>
 		
 		{% endif %}
 
