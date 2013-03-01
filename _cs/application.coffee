@@ -270,7 +270,7 @@ class Application.Views.Tag extends Backbone.View
       scrollTarget: ".title"
       offset: -60
     jQuery('#content').infinitescroll 'destory'
-    document.title = "Posts categorized '" + @model.get('id') + "'' » " + Application.name
+    document.title = "Posts tagged '" + @model.get('id') + "'' » " + Application.name
 
 class Application.Views.Category extends Backbone.View
   el: "#content"
@@ -282,7 +282,7 @@ class Application.Views.Category extends Backbone.View
       scrollTarget: ".title"
       offset: -60
     jQuery('#content').infinitescroll 'destory'
-    document.title = "Posts tagged '" + @model.get('id') + "'' » " + Application.name
+    document.title = "Posts categorized '" + @model.get('id') + "'' » " + Application.name
 
 # Router
 
