@@ -4,6 +4,7 @@ window.Application =
   Collections: {}
   Views: {}
   router: {}
+  tags: {}
   url: '{{ site.url }}'
   name: '{{ site.name }}'
   disqus:
@@ -53,6 +54,8 @@ class Application.Models.Comment extends Backbone.Model
 
 class Application.Models.Tweet extends Backbone.Model
 
+class Application.Models.Tag extends Backbone.Model
+
 # Collections
 
 class Application.Collections.Comments extends Backbone.Collection
@@ -79,9 +82,8 @@ class Application.Collections.Tweets extends Backbone.Collection
 
 class Application.Collections.Posts extends Backbone.Collection
   model: Application.Models.Post
-
   url: ->
-    Application.url + "/" + 'posts.json'
+    Application.url + "/" + 'pages.json'
 
   comparator: (a, b) ->
     a = a.get 'date'
@@ -102,6 +104,19 @@ class Application.Collections.Pages extends Backbone.Collection
   model: Application.Models.Page
   url: ->
     Application.url + "/" + 'pages.json'
+
+class Application.Collections.Tags extends Backbone.Collection
+  model: Application.Models.Tag
+  url: ->
+    Application.url + "/tags.json"
+
+  initialize: ->
+    @fetch()
+
+  parse: (tags) ->
+    for tag in tags
+      tag.posts = new Application.Collections.Posts tag.posts
+    tags
 
 # Views
 
@@ -158,6 +173,7 @@ class Application.Views.Page extends Backbone.View
   template: JST.page
 
   render: =>
+    jQuery('#content').infinitescroll 'destory'
     @$el.html @template @model.toJSON()
     if DISQUS?
       DISQUS.reset()
@@ -174,6 +190,8 @@ class Application.Views.Single extends Backbone.View
     @model.on 'change', @render
 
   render: =>
+    jQuery('#content').infinitescroll 'destory'
+
     @$el.html @template @model.toJSON()
 
     if @model.get('layout') is "post"
@@ -187,6 +205,7 @@ class Application.Views.Single extends Backbone.View
     $.smoothScroll
       scrollTarget: ".title"
       offset: -60
+
 
 class Application.Views.Index extends Backbone.View
   el: "#content"
@@ -204,6 +223,10 @@ class Application.Views.Index extends Backbone.View
     tweets = new Application.Collections.Tweets
     view = new Application.Views.TweetView collection: tweets
     tweets.fetch()
+    jQuery('#content').infinitescroll
+      navSelector: "nav.pagination"
+      nextSelector: "nav.pagination #next"
+      itemSelector: "article.post"
 
 class Application.Views.CommentView extends Backbone.View
   el: "#recentcomments"
@@ -225,11 +248,21 @@ class Application.Views.TweetView extends Backbone.View
   render: =>
     @$el.html @template tweets: @collection.toJSON()
 
+class Application.Views.Tag extends Backbone.View
+  el: "#content"
+  template: JST.tag
+
+  render: ->
+    jQuery('#content').infinitescroll 'destory'
+    @$el.html @template({ tag: @model.toJSON() })
+
+
 # Router
 
 class Router extends Backbone.Router
   routes:
     ":year/:month/:day/:slug/": "post"
+    "tags/:tag/": "tags"
     ":slug/": "page"
     "": "index"
 
@@ -253,6 +286,11 @@ class Router extends Backbone.Router
       view.render()
     @setNav 'home'
 
+  tags: (tag) ->
+    Application.tags = new Application.Collections.Tags
+    Application.tags.on "reset", ->
+      new Application.Views.Tag( model: Application.tags.get tag ).render()
+
   redirect: ->
     document.location = Application.url + "/" + Backbone.history.fragment
 
@@ -267,6 +305,10 @@ Application.pages = new Application.Collections.Pages
 Application.router = new Router()
 Backbone.history.start pushState: true, silent: true
 
+if is404?
+  slug = document.location.pathname.replace("/","")
+  Application.router.navigate slug, trigger: true
+
 jQuery(document).ready ->
 
   window.resume_resize = ->
@@ -277,11 +319,12 @@ jQuery(document).ready ->
 
   $('a[href^="{{ site.url }}/"]').live 'click', (e) ->
     e.preventDefault()
-    Application.router.navigate $(@).attr('href').replace( '{{ site.url }}/', '' ), true
+    Application.router.navigate $(@).attr('href').replace( '{{ site.url }}/', '' ), trigger: true
     false
 
-  jQuery('#content').infinitescroll
-    navSelector: "nav.pagination"
-    nextSelector: "nav.pagination #next"
-    itemSelector: "article.post"
+  if Backbone.history.fragment == ""
+    jQuery('#content').infinitescroll
+      navSelector: "nav.pagination"
+      nextSelector: "nav.pagination #next"
+      itemSelector: "article.post"
     

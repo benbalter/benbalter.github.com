@@ -19,6 +19,9 @@ module Jekyll
   
     def render_json(post, site)
 
+      puts post.inspect
+      return;
+
       path = post.destination( site.source )
       
       #only act on post/pages index in /index.html

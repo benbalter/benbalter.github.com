@@ -12,7 +12,7 @@
     </div>
 
     <div class="post-taxonomies">
-  	 Posted in <a href="categories/<%= category %>"><%= category %></a> | Tagged <% _.each( tags, function(tag){ %> <a href="tags/<%= tag %>"><%= tag %></a>, <% }); %>
+  	 Posted in <a href="{{ site.url }}/categories/<%= category %>"><%= category %></a> | Tagged <% _.each( tags, function(tag){ %> <a href="{{ site.url }}/tags/<%= tag %>"><%= tag %></a>, <% }); %>
   	</div>
   	    
 </article>

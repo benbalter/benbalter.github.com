@@ -1,0 +1,21 @@
+---
+layout: none
+---
+{% capture json %}
+{
+{% for tag_hash in site.categories %}
+"{{ tag_hash.first }}":[
+{% for page in tag_hash.last %}
+{
+"id":"{{ page.id }}",
+"url":"{{ page.url }}",
+"title":"{{ page.title | strip_newlines | replace:'"','' }}"
+}
+{% if forloop.last %}{% else %},{% endif %}
+{% endfor %}
+]
+{% if forloop.last %}{% else %},{% endif %}
+{% endfor %}
+}
+{% endcapture %}
+{{ json | strip_newlines }}
