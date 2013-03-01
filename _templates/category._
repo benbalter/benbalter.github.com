@@ -1,0 +1,6 @@
+<h1>Posts categorized "<%= category.id %>"</h1>
+<ul>
+<% category.posts.forEach( function( post ) { %>
+  <li><a href="<%= Application.url + post.get("url") %>"><%= post.get("title") %></a></li>
+<% }); %>
+</ul>

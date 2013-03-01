@@ -1,0 +1,15 @@
+---
+layout: page
+permalink: /categories/
+title: Categories
+json: false
+---
+
+{% for tag_hash in site.categories %}
+  <h3>{{ tag_hash.first }}</h3>
+  <ul>
+  {% for post in tag_hash.last %}
+    <li><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+  </ul>
+{% endfor %}

@@ -19,8 +19,10 @@ module Jekyll
   
     def render_json(post, site)
 
-      puts post.inspect
-      return;
+      #add `json: false` to YAML to prevent JSONification
+      if post.data.has_key? "json" and !post.data["json"]
+        return
+      end
 
       path = post.destination( site.source )
       

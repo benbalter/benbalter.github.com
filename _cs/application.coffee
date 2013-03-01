@@ -5,6 +5,7 @@ window.Application =
   Views: {}
   router: {}
   tags: {}
+  categories: {}
   url: '{{ site.url }}'
   name: '{{ site.name }}'
   disqus:
@@ -55,6 +56,8 @@ class Application.Models.Comment extends Backbone.Model
 class Application.Models.Tweet extends Backbone.Model
 
 class Application.Models.Tag extends Backbone.Model
+
+class Application.Models.Category extends Backbone.Model
 
 # Collections
 
@@ -118,6 +121,20 @@ class Application.Collections.Tags extends Backbone.Collection
       tag.posts = new Application.Collections.Posts tag.posts
     tags
 
+
+class Application.Collections.Categories extends Backbone.Collection
+  model: Application.Models.Category
+  url: ->
+    Application.url + "/categories.json"
+
+  initialize: ->
+    @fetch()
+
+  parse: (tags) ->
+    for tag in tags
+      tag.posts = new Application.Collections.Posts tag.posts
+    tags
+
 # Views
 
 class Application.Views.Post extends Backbone.View
@@ -133,6 +150,7 @@ class Application.Views.Post extends Backbone.View
       @loadDisqus()
 
   loadDisqus: ->
+    jQuery('#content').infinitescroll 'destory'
     window.disqus_shortname = Application.disqus.name
     window.disqus_identifier = @model.get 'id'
     window.disqus_url = Application.url + '/' + @model.get 'id'
@@ -256,13 +274,21 @@ class Application.Views.Tag extends Backbone.View
     jQuery('#content').infinitescroll 'destory'
     @$el.html @template({ tag: @model.toJSON() })
 
+class Application.Views.Category extends Backbone.View
+  el: "#content"
+  template: JST.category
 
+  render: ->
+    jQuery('#content').infinitescroll 'destory'
+    @$el.html @template({ category: @model.toJSON() })
+    
 # Router
 
 class Router extends Backbone.Router
   routes:
     ":year/:month/:day/:slug/": "post"
-    "tags/:tag/": "tags"
+    "tags/:tag/": "tag"
+    "categories/:category/": "category"
     ":slug/": "page"
     "": "index"
 
@@ -286,10 +312,15 @@ class Router extends Backbone.Router
       view.render()
     @setNav 'home'
 
-  tags: (tag) ->
+  tag: (tag) ->
     Application.tags = new Application.Collections.Tags
     Application.tags.on "reset", ->
       new Application.Views.Tag( model: Application.tags.get tag ).render()
+
+  category: (category) ->
+    Application.categories = new Application.Collections.Categories
+    Application.categories.on "reset", ->
+      new Application.Views.Category( model: Application.categories.get category ).render()
 
   redirect: ->
     document.location = Application.url + "/" + Backbone.history.fragment
