@@ -14,6 +14,12 @@ id: /resume
 
 ## Experience
 
+### GitHub
+
+{.location}Washington, D.C.
+
+#### Government Bureaucat
+
 ### Executive Office of the President
 
 {.location}Washington, D.C.
