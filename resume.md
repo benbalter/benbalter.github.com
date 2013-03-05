@@ -71,14 +71,6 @@ id: /resume
 * Led adoption, implementation, and analysis of Google Analytics website visitor tracking statistics.
 * Developed more than 30 in-house software tools including [open-source website auditing and site-mapping software](http://github.com/fcc) instrumental to evaluation of online presence spanning more than 1.2 million pages.
 
-### Google Summer of Code
-
-#### Developer, WordPress Document Revisions
-
-{.date}April 2011 — August 2011
-
-* With stipend from Google, developed government- and enterprise-friendly, [open-source document and workflow management system](http://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/) for WordPress, the content management system that powers nearly a quarter of new websites today. The project has been downloaded more than 25,000 times to date.
-
 ## Education
 
 ### The George Washington University Law School
