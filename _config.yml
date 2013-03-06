@@ -1,10 +1,10 @@
 #Jekyll config file
 
 #title of site
-name: Benjamin J. Balter
+name: Ben Balter
 
 #description of site
-description:  J.D./M.B.A. Candidate, Open-Source Developer, Gov 2.0 Evangelist
+description: Open-Source Developer, GitHubber, Gov 2.0 Evangelist, Aspiring Attorney
 
 #URL of site, include http://, do not include a trailing slash
 url: http://ben.balter.com
