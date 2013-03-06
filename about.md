@@ -4,6 +4,7 @@ excerpt: Ben Balter is a gov 2.0 evangelist working to hack federal government f
 layout: page
 permalink: /about/
 published: true
+id: /about
 ---
 
 ![Ben Balter][1]{.alignright}
