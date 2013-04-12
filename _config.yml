@@ -38,6 +38,7 @@ prose:
       excerpt: "SEO friendly description"
       layout: page
       published: false
+  siteurl: "http://ben./balter.com"
     
 #Twitter Widget
 twitter: 
