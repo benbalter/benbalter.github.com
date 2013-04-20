@@ -6,7 +6,7 @@ layout: post
 comments: true
 category: Technology
 tags: []
-published: true
+published: false
 ---
 
 We've been selling open source wrong. Like really, really wrong. At least when it comes to government (and if I had to guess, enterprise as well).
