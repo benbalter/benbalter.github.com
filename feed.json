@@ -1,0 +1,5 @@
+---
+layout: nil
+---
+
+{{ site.posts | json }}

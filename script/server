@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+echo "Starting server."
+bundle exec jekyll serve -w
+
+echo "Cleaning up..."
+rm -Rf _site
