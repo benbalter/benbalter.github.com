@@ -5,5 +5,8 @@ set -e
 echo "Bundle Installin'"
 bundle install
 
+echo "NPM installin"
+npm install
+
 echo "Installing Pygments"
 sudo easy_install Pygments

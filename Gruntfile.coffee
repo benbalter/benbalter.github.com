@@ -39,10 +39,9 @@ module.exports = (grunt) ->
     
     coffeelint:
       app: "_cs/*.coffee"
-
-    coffeelintOptions:
-      max_line_length:
-        level: "ignore"
+      options:
+        max_line_length:
+          level: "ignore"
     
     uglify:
       app:
@@ -59,7 +58,7 @@ module.exports = (grunt) ->
         files:
           "_includes/js/table-of-contents.js": "_includes/js/table-of-contents.js"          
    
-    mincss:
+    cssmin:
       compress:
         files:
           "_includes/css/style.min.css": ["_includes/css/style.css"]  
@@ -88,7 +87,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-watch'
-  grunt.loadNpmTasks 'grunt-contrib-mincss'
+  grunt.loadNpmTasks 'grunt-contrib-cssmin'
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-coffeelint'
   grunt.loadNpmTasks 'grunt-jekyll'
@@ -97,4 +96,4 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-less'
   grunt.loadNpmTasks 'grunt-contrib-jst'
 
-  grunt.registerTask 'default', ['coffeelint', 'coffee', 'jst', 'uglify', 'mincss', 'clean']
+  grunt.registerTask 'default', ['coffeelint', 'coffee', 'jst', 'uglify', 'cssmin', 'clean']
