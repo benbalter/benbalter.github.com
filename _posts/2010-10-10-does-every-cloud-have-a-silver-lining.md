@@ -1,27 +1,22 @@
 ---
+published: true
 author: Benjamin J. Balter
-title: Does Every Cloud Have a Silver Lining?
-excerpt: >
-  Thunderstorms occur when divergent
-  forces collide in clouds. It is becoming
-  increasingly clear that cloud computing
-  is in our extended forecast, but whether
-  the imminent digital due process storm
-  the cloud foreshadows will contain a
-  silver privacy lining remains to be
-  seen.
+title: "Does Every Cloud Have a Silver Lining?"
+excerpt: "Thunderstorms occur when divergent forces collide in clouds. It is becoming increasingly clear that cloud computing is in our extended forecast, but whether the imminent digital due process storm the cloud foreshadows will contain a silver privacy lining remains to be seen.\n"
 layout: post
-categories:
+categories: 
   - Law
   - Technology
-tags:
+tags: 
   - cloud computing
   - digital due process
   - google
   - privacy
-post_format: [ ]
+post_format: []
+
 ---
-[][1]Today's New York Times article [outlining law enforcement officials' attempts to expand their digital wiretapping authority][2], offers interesting insight into the law enforcement world of tomorrow.  In the not too distant future, TV's crime-process dramas may take on a very different feel.  Gone will be the days of [gun-toting detectives busting down doors, search warrant in hand][3]. Instead, as our lives become increasingly digital, investigations will be conducted by [keyboard-wielding lab techs submitting automated requests to service providers][4].  Don't be surprised if the next CSI spinoff is CSI: Inbox Inspectors Division.
+
+[][1]Today's New York Times article [outlining law enforcement officials' attempts to expand their digital wiretapping authority][2], offers interesting insight into the law enforcement world of tomorrow.  In the not too distant future, TV's crime-process dramas may take on a very different feel.  Gone will be the days of [gun-toting detectives busting down doors, search warrant in hand][3]. Instead, as our lives become increasingly digital, investigations will be conducted by [keyboard-wielding lab techs submitting automated requests to service providers][4].  Don't be surprised if the next CSI spinoff is CSI: Inbox Inspectors Division. adsfads fasf adsf adsf adsf dsf
 
 But why does this shift matter?  Simply put, in [the cloud][5], there is no door for the police to kick in.  While the law is clear in that your physical files and those computer files stored on your computer itself enjoy the protections of the fourth amendment, those stored in the cloud do not, and the standards of proof required differ dramatically.[^6]
 
