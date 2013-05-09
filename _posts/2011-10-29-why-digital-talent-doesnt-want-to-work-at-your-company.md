@@ -1,20 +1,13 @@
 ---
+published: true
 author: Benjamin J. Balter
-title: >
-  Why Digital Talent Doesn't Want To
-  Work At Your Company
-excerpt: >
-  It's because you're not providing
-  them the right opportunity. The talent
-  you want would be happy to work in an
-  un-air-conditioned garage in New Mexico
-  if it meant the chance to change the
-  world.
+title: "Why Digital Talent Doesn't Want To Work At Your Company\n"
+excerpt: "It's because you're not providing them the right opportunity. The talent you want would be happy to work in an un-air-conditioned garage in New Mexico if it meant the chance to change the world.\n"
 layout: post
-categories:
+categories: 
   - Business
   - Technology
-tags:
+tags: 
   - agile
   - bureaucracy
   - career
@@ -24,10 +17,12 @@ tags:
   - government
   - job
   - talent
-post_format:
+post_format: 
   - Quote
+
 ---
-As Aaron Shapiro over at Fast Company [cogently argues][1], "*it's because you're not providing them the right opportunity. The talent you want would be happy to work in an un-air-conditioned garage in New Mexico if it meant the chance to change the world*."
+
+As Aaron Shapiro over at Fast Company [cogently argues][1], "*it's because you're not providing them the right opportunity. The talent you want would be happy to work in an un-air-conditioned garage in New Mexico if it meant the chance to change the world*." adsfa dsf adsfa sf
 
 Specifically he points out:
 
