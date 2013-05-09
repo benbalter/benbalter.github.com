@@ -1,14 +1,13 @@
 ---
+published: true
 author: Benjamin J. Balter
-title: >
-  What Fourteen-Century Apple Pie Teaches
-  Us About Sharing
+title: "What Fourteen-Century Apple Pie Teaches Us About Sharing\n"
 excerpt: "Last week writer Monica Gaudio received an e-mail from a friend congratulating her on getting an article published in the Northeast-regional cooking magazine Cooks Source. There was only one problem -- she didn't. The article, a recipe for fourteen-century apple pie, was lifted, word-for-word, from Gaudio's Web site. "
 layout: post
-categories:
+categories: 
   - Law
   - Technology
-tags:
+tags: 
   - citations
   - copyright
   - facebook
@@ -21,10 +20,12 @@ tags:
   - recipes
   - twitter
   - youtube
-post_format: [ ]
----
-Everyone knows the old adage: "If it's on the internet, it must be true free.[^1]" It turns out despite the internet's [otherwise murky attribution waters][2], that's not quite the case.
+post_format: []
 
+---
+
+Everyone knows the old adage: "If it's on the internet, it must be true free.[^1]" It turns out despite the internet's [otherwise murky attribution waters][2], that's not quite the case.
+ asdfdasf adsf asdfads fasf asdf sdf
 ![Apple Pie Courtesy belochkavita][3]Last week writer Monica Gaudio [received an e-mail from a friend][4] congratulating her on getting an article published in the Northeast-regional cooking magazine [Cooks Source][5]. There was only one problem — she didn't. The article, a recipe for fourteen-century apple pie, was lifted, word-for-word, from [Gaudio's Web site][6].  After an e-mail back-and-forth in which Gaudio asked for an apology, a copy of the magazine, and a $130 donation to the Columbia Journalism School, Cooks [Source Editor Judith Griggs noted][4]:
 
 > "…the web is considered "public domain" and you should be happy we just didn't "lift" your whole article and put someone else's name on it! It happens a lot, clearly more than you are aware of, especially on college campuses, and the workplace."
