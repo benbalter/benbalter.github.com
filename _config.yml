@@ -39,18 +39,18 @@ prose:
       layout: page
       published: false
   siteurl: "http://ben./balter.com"
-    
+
 #Twitter Widget
 twitter: 
   username: "benbalter"
   count: 5
-  
+
 #disqus widget
 disqus:
   shortname: 'benbalter'
   count: 5
   api_key: "OQ5OlN2AtWDfIQ0bjIGwdfq9SsEB3P8NdzhYTRak7R45KeAD744aVIqJZDYqvmuL"
-  
+
 #google analytics username
 ga_username: 'UA-18088627-1'
 
