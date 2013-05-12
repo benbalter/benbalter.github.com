@@ -1,12 +1,13 @@
 ---
+published: true
 title: "Welcome to the Post-CMS World"
 excerpt: "Jekyll (and other static-sites) lead to simple, flexible, and reliable websites that allow for a renewed focus on what actually matters: the content."
-author: "Benjamin J. Balter"
+author: Benjamin J. Balter
 layout: post
 comments: true
 category: Technology
 tags: WordPress Jekyll GitHub benchmarking benchmarks
-published: true
+
 ---
 
 You may notice things are bit snappier around here these days, having [recently converted](https://github.com/benbalter/wordpress-to-jekyll-exporter) the site from WordPress, to [Jekyll](https://github.com/mojombo/jekyll).[^4]
@@ -162,3 +163,5 @@ It's cheaper, it's faster, it's simpler, it's worry free, and in my opinion, it'
 [^3]: That's free as in speech **and** free as in beer.
 
 [^4]: Not to be confused with [The Jackal](http://www.youtube.com/watch?v=Q7H_L5cYkg8).
+
+## Testing Pull Request Workflow
