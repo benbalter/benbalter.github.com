@@ -56,3 +56,4 @@ ga_username: 'UA-18088627-1'
 
 #build config
 pygments: true
+markdown: rdiscount
