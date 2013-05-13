@@ -12,6 +12,8 @@ url: http://ben.balter.com
 #files to exclude, array
 exclude: [ 'readme.md', 'php', 'node_modules', 'Gruntfile.coffee', 'package.json' ]
 
+plugins: "_foo"
+
 #posts per page
 paginate: 10
 
