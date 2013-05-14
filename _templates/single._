@@ -8,7 +8,7 @@
 		    <div class="improve-article-wrapper"> 
           <div class="improve-article"> 
             <% 
-            edit_url = "http://edit.benbalter.com/#benbalter/benbalter.github.com/edit/master/";
+            edit_url = "http://prose.io/#benbalter/benbalter.github.com/edit/master/";
             
             if (layout == "post")
               edit_url += "_posts/";
