@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: >
   Free Yourself from the Tyranny of
   Sharepoint

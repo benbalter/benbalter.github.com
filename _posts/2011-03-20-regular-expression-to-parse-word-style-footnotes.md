@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: "Regular Expression to Parse Word-style Footnotes into WordPress's Simple Footnotes Format"
 excerpt: "Regular Expression to automatically parse Microsoft Word's footnote format into a more web-friendly format for WordPress's Simple Footnotes plugin"
 layout: post

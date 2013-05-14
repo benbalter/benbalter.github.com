@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: Does Every Cloud Have a Silver Lining?
 excerpt: >
   Thunderstorms occur when divergent

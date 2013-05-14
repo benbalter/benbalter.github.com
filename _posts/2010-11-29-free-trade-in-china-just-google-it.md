@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: Free Trade in China? Just Google it.
 excerpt: >
   As the internet is increasingly becoming

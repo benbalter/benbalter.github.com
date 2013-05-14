@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: >
   Using WordPress to Craft Your Personal
   Brand

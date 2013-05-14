@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: >
   Advanced Workflow Management Tools for
   WP Document Revisions

@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: 'Late-Night Infomercials: Guaranteed to Extend the 4th Amendment or Your Money Back'
 excerpt: "Online accounts may now be afforded greater protection following the Sixth Circuit's ruling in United States v. Warshak. The court, upholding a temporary injunction on e-mail searches extended the fourth amendment's warrant requirements to messages stored on third-party servers."
 layout: post

@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: Making WordPress More Shareable, Sociable, and Likeable
 excerpt:
 layout: post

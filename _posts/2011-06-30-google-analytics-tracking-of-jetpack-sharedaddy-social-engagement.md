@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: >
   Google Analytics Tracking of JetPack
   (Sharedaddy) Social Engagement

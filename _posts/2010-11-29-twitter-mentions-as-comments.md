@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: >
   Twitter Mentions as Comments WordPress
   Plugin

@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: >
   CFPB Accepts First Citizen-Submitted
   Code on Behalf of Federal Government

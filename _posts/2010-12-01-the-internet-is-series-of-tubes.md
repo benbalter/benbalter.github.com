@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: >
   The Internet is Series of Tubes (oh, and
   Tollgates too)

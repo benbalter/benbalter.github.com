@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: >
   Fair Use, Excerpting, and Copying
   Content in the Internet Ecosystem

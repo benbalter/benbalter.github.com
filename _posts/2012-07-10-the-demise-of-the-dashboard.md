@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: The Demise of the Personal Dashboard
 excerpt: >
   When building consumer applications,

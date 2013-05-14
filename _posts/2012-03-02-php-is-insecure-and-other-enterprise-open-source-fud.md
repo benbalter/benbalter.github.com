@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: >
   PHP is Insecure (and Other Enterprise
   Open-Source F.U.D.)

@@ -2,7 +2,7 @@
 published: true
 title: "Welcome to the Post-CMS World"
 excerpt: "Jekyll (and other static-sites) lead to simple, flexible, and reliable websites that allow for a renewed focus on what actually matters: the content."
-author: Benjamin J. Balter
+author: Ben Balter
 layout: post
 comments: true
 category: Technology

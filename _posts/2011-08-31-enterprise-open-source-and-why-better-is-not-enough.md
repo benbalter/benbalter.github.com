@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: >
   Enterprise, Open Source, and Why Better
   is not Enough

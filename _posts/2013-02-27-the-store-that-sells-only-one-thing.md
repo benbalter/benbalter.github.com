@@ -1,7 +1,7 @@
 ---
 title: The store that sells only one thing.
 excerpt: 
-author: "Benjamin J. Balter"
+author: "Ben Balter"
 layout: post
 comments: true
 category: Technology

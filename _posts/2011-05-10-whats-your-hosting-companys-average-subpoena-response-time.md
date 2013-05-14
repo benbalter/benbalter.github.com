@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: "What's Your Hosting Company's Average Subpoena Response Time?"
 excerpt:
 layout: post

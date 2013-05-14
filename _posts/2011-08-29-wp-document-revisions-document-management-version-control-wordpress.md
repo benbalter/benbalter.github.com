@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: 'WP Document Revisions — Document Management & Version Control for WordPress'
 excerpt: >
   WP Document Revisions is a document

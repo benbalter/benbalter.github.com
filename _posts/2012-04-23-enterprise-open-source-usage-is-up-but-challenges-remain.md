@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: >
   Enterprise Open Source Usage Is Up, But
   Challenges Remain

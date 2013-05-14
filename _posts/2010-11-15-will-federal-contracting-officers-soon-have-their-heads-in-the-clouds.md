@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: >
   Will Federal Contracting Officers Soon
   Have Their Heads in the Clouds?

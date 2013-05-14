@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: >
   GitHub for Journalism — What WordPress
   Post Forking could do to Editorial

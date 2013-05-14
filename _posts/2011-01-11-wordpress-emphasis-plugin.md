@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: 'WordPress Emphasis Plugin: Highlight and Permalink Text'
 excerpt: >
   One-click implementation of the New York

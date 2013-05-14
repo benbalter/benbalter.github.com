@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: Why WordPress
 excerpt: >
   WordPress is different. WordPress is

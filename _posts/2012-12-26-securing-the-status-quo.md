@@ -1,7 +1,7 @@
 ---
 title: "Securing the Status Quo"
 excerpt: "The Effect of Federal IT Security Policies on Innovation"
-author: "Benjamin J. Balter"
+author: "Ben Balter"
 layout: post
 comments: true
 categories: 

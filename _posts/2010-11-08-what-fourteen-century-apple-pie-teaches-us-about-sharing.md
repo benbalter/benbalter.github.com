@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: >
   What Fourteen-Century Apple Pie Teaches
   Us About Sharing

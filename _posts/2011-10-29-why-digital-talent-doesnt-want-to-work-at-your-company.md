@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: >
   Why Digital Talent Doesn't Want To
   Work At Your Company

@@ -2,7 +2,7 @@
 published: true
 title: "Open Source for Government"
 excerpt: "A collaborative resource for government employees looking to participate in the open source community."
-author: "Benjamin J. Balter"
+author: "Ben Balter"
 layout: post
 comments: true
 category: Technology

@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: WordPress Resume Plugin
 excerpt: >
   WP Resume is an out-of-the-box solution

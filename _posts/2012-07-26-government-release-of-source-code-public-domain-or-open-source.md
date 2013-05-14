@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: "Government's Release of Federally Funded Source Code: Public Domain or Open Source? Yes."
 excerpt: "The question for developers isn't how should the US government best license software, but how can the open source community help it to do so"
 layout: post

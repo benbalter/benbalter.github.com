@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: Analysis of Federal Executive .Govs
 excerpt:
 layout: post

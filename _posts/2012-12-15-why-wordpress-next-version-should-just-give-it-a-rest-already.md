@@ -1,7 +1,7 @@
 ---
 title: "Why WordPress's next version should just give it a REST already"
 excerpt: "To position itself in the context of next-generation CMSs, WordPress should conform to emerging internet conventions and expose all content via a RESTful API"
-author: Benjamin J. Balter
+author: Ben Balter
 layout: post
 published: true
 comments: true

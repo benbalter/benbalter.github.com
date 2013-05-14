@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: >
   Open-Source Alternatives to Proprietary
   Enterprise Software

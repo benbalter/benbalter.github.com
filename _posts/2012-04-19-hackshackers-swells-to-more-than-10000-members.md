@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: >
   Hacks/Hackers Swells to more than 10,000
   Members

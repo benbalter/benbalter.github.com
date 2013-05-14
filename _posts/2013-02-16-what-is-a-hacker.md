@@ -1,7 +1,7 @@
 ---
 title: "What is a 'Hacker'?"
 excerpt: "Hackers embody sharing, openness, decentralization — coding to improve the world"
-author: Benjamin J. Balter
+author: Ben Balter
 layout: post
 comments: true
 category: Technology

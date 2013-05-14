@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: 'WordPress for Government - A Problem of Perception'
 excerpt: 'Among potential government & enterprise users, WordPress has a perception problem especially when compared to Drupal & other "serious" CMSs.'
 layout: post
