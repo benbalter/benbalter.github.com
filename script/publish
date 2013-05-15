@@ -4,7 +4,7 @@ set -e
 
 # http://stackoverflow.com/questions/2657935/checking-for-a-dirty-index-or-untracked-files-with-git
 function git_clean {
-  [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && return 1;
+  expr `git status --porcelain 2>/dev/null| grep "^??" | wc -l` 
 }
 
 if git_clean; then
