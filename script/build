@@ -2,9 +2,6 @@
 
 set -e
 
-echo "bootstraping"
-script/bootstrap
-
 echo "Cleaning up..."
 rm -Rf _site
 

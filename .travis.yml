@@ -1,4 +1,5 @@
 #bootstrap and build
+before_script: "./script/bootstrap"
 script: "./script/cibuild"
 
 #environment
