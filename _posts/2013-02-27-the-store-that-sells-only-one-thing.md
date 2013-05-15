@@ -6,7 +6,7 @@ layout: post
 comments: true
 category: Technology
 tags: 
- - Hackers
+ - Hacker
 published: true
 
 ---
