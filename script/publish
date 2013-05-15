@@ -3,15 +3,16 @@
 set -e
 
 # http://stackoverflow.com/questions/2657935/checking-for-a-dirty-index-or-untracked-files-with-git
-git ls-files --other --error-unmatch . >/dev/null 2>&1; ec=$?
 
-if test "$ec" = 1; then
+
+
+if test -z "$(git status --porcelain)"; then
   echo "Nothing to commit. Bailing."
   exit
 fi
 
 echo "git is dirty... we're in business."
-
+exit;
 git add .
 git commit -m "[Jekyllbot] Automated build."
 git push
