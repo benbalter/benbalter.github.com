@@ -11,5 +11,5 @@ fi
 echo "git is dirty... we're in business."
 
 git add .
-git commit -m "[Jekyllbot] Automated build."
+git commit -m "[Jekyllbot][ci skip] Automated build."
 git push
