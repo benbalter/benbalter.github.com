@@ -27,7 +27,7 @@ To say *"hey, we've got something decent here, let's take this closed-sourced pr
 
 * **Shared Vision** - Open source developers want to get behind a cause. Think of it as analogous to volunteering for a political campaign. They want to know what the project stands for, and where it is going. If they contribute, what will their code be used for in a six months or a year?
 * **Clear Goals** - What's the goal of the project? What's the roadmap look like? Do you trust the community enough to share it? Can they shape that roadmap or is it set in stone?
-* **Active Development** - When's the last public commit? Are you commiting privately, bundling together a release and then blessing the community with your efforts or is development occuring in the open?
+* **Active Development** - When's the last public commit? Are you commiting privately, bundling together a release and then blessing the community with your efforts or is development occurring in the open?
 * **Us/Them Mentality** - Is there a class system between paid/unpaid contributors? Are outside contributions handled with equal footing? Are any outside developers delegated authority or given commit access?
 * **Mechanics** - Is it in version control or just a static download? Is the bug tracker public? Can I comment and submit? What about documentation? Is it maintained in a wiki?
 * **Communication** - Can developers communicate directly or must they go through the parent organization? (e.g., announcement verses conversation models)
