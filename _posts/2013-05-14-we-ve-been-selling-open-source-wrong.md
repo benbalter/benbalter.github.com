@@ -21,6 +21,8 @@ Even with the code out in the open and a small team of committed developers, the
 
 Making code public is the last thing we should be worrying about. Lining up at the gate and demanding to see code (with or without the torches), asking that an agency open source project X, or release an API for the data behind service Y implicitly treats open source as an ends, not as a means. And it's no wonder that we're struggling to gain traction in certain circles or are frustrated that people simply don't "get it." If we have to ask, it's too late. The damage has already been done.
 
+<!-- more -->
+
 ## Open source ≠ public
 
 We can make all the arguments we want for why open source produces better, more secure software, how it's already paid for by the tax payers, how it reduces duplication of efforts, or prevents vendor lock in. But none of that matters if the workflow on the other side of the (fire)wall is predicated on a culture of distrust. We need to make the plea further up the value chain. It's time to [backwards integrate](http://en.wikipedia.org/wiki/Vertical_integration).
