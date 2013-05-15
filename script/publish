@@ -3,13 +3,11 @@
 set -e
 
 # http://stackoverflow.com/questions/2657935/checking-for-a-dirty-index-or-untracked-files-with-git
-function git_dirty {
-  [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && return 1
-}
+git ls-files --other --error-unmatch . >/dev/null 2>&1; ec=$?
 
-if git_dirty > 0; then
+if test "$ec" = 1; then
   echo "Nothing to commit. Bailing."
-  exit 0
+  exit
 fi
 
 echo "git is dirty... we're in business."
