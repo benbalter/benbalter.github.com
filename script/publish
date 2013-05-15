@@ -14,10 +14,6 @@ fi
 
 echo "git is dirty... we're in business."
 
-echo "cleaning up"
-rm -Rf _site
-rm -Rf node_modules
-
-git add *
+git add .
 git commit -m "[Jekyllbot] Automated build."
 git push
