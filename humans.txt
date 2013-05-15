@@ -1,0 +1,41 @@
+---
+---
+/* SITE */
+Last Updated: {{ site.time | date:"%Y/%m/%d" }}
+Standards: HTML5, CSS3
+Components: Jekyll, Backbone, Bootstrap
+
+/* TEAM */
+Name: benbalter
+Site: https://github.com/benbalter
+
+Name: balterbot
+Site: https://github.com/balterbot
+
+Name: aaronjorbin
+Site: https://github.com/aaronjorbin
+
+Name: ctbarna
+Site: https://github.com/ctbarna
+
+Name: gbinal
+Site: https://github.com/gbinal
+
+Name: nacin
+Site: https://github.com/nacin
+
+Name: JBindelglass
+Site: https://github.com/JBindelglass
+
+Name: mikemorris
+Site: https://github.com/mikemorris
+
+Name: philipashlock
+Site: https://github.com/philipashlock
+
+Name: rebeccawilliams
+Site: https://github.com/rebeccawilliams
+
+Name: pmaiorana
+Site: https://github.com/pmaiorana
+
