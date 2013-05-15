@@ -1,19 +1,18 @@
 ---
+published: 
+  - true
+  - "true"
 title: "We've Been Selling Open Source Wrong"
 excerpt: "We should work to remedy the underlying culture, not its symptoms."
 author: Ben Balter
 layout: post
-comments: true
+comments: "true"
 category: Technology
-tags:
-  - government
-  - open source
-  - code
-  - workflow
-published: true
+tags: "government,open source,code,workflow"
+
 ---
 
-Imagine if tomorrow, 10 of the top open-source developers showed up outside the gates of the White House with pitch forks and battering rams, somehow (peacefully) got inside, and was able to convince the powers that be to release the code that runs say, The Situation Room. Do you think once public the project would have much chance of sustainable success in the wild?
+Imagine if tomorrow, 10 of the top open-source developers showed up outside the gates of the White House with pitch forks and battering rams, somehow (peacefully) got inside, and was able to convince the powers that be to release the code that runs say, The Situation Room. Do you think once public, the project would have much chance of sustainable success in the wild?
 
 ## Code born in captivity
 
