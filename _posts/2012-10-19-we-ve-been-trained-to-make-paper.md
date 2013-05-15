@@ -31,7 +31,7 @@ See what we did there? We're still writing content for print, and then only once
 
 ### Using the wrong tools
 
-Microsoft Word was designed with one purpose in mind: to make paper. Think about it. It's essential elements arose in the early 80's. There's print-centric buttons like left and right align front and center, but new-fangled internety things like hyperlinks or rich media are buried deep inside these labyrinthian sub-menus. Sure, it's industry standard, but it's an industry-standard workflow that arose before the age of the web (and hasn't really changed since).
+Microsoft Word was designed with one purpose in mind: to make paper. Think about it. It's essential elements arose in the early 80's. There's print-centric buttons like left and right align front and center, but new-fangled internet things like hyperlinks or rich media are buried deep inside these labyrinthian sub-menus. Sure, it's industry standard, but it's an industry-standard workflow that arose before the age of the web (and hasn't really changed since).
 
 Yet the majority of the documents we create today rarely, if ever embody physical space.  They don't care about the things Microsoft Word cares about — margin width, page breaks, or other properties that assume four sharp corners — and more importantly, they don't handle mobile responsiveness, machine-readability, or other web-specific features.
 

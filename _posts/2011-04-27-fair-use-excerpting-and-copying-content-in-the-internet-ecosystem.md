@@ -10,7 +10,7 @@ categories:
   - Technology
 tags:
   - blogging
-  - copywright
+  - copyright
   - fair use
   - journalism
   - plagiarism

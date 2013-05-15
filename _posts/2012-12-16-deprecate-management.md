@@ -6,7 +6,7 @@ layout: post
 comments: true
 category: Management
 tags:
-  - Open Souce
+  - Open Source
   - GitHub
   - Collaboration
 published: true
@@ -19,7 +19,7 @@ Think about it this way: in the traditional office setting, we use management to
 
 * Shuttle Information
 * Coordinate across business units
-* Align efforts to organazation priorities
+* Align efforts to organization priorities
 * Make sure people do work
 * Recruit new people
 

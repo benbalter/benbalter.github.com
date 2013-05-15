@@ -33,7 +33,7 @@ id: /resume
 * As member of inaugural class of high-profile White House initiative, served as entrepreneur in residence reimagining the role of technology in brokering the relationship between citizens and government while injecting a more startup-like culture within government. 
 * Described by the US Chief Technology Officer as "the baddest of the badass innovators," and by the White House Director of Digital Strategy as "<a href="http://www.youtube.com/watch?v=uhtlOYOhE8w#t=51m12s">lightning in a bottle</a>." 
 * Within six months, saw four distinct open-source products from conception to production, including research, prototyping, usability, development, testing, and stakeholder outreach using then-atypical api-first architecture.
-* Ensured compliance with Privacy Act, Paperwork Reduction Act, and Federal Information Security Mangagement Act including drafting of multiple formal notices on behalf of the government for publication in the Federal Register.
+* Ensured compliance with Privacy Act, Paperwork Reduction Act, and Federal Information Security Management Act including drafting of multiple formal notices on behalf of the government for publication in the Federal Register.
 
 #### Fellow, Office of the US Chief Information Officer
 
@@ -108,7 +108,7 @@ id: /resume
 
 #### Web Development and Management
 
-* Expertise in modern web development methods — HTML5, CSS, CoffeeScript (Javascript), Rails (Ruby), relational databases (MySQL), PHP, verson control (Git) — enterprise system architecture; application programing interfaces (APIs); WordPress management, development, and integration; and Unix system administration.
+* Expertise in modern web development methods — HTML5, CSS, CoffeeScript (Javascript), Rails (Ruby), relational databases (MySQL), PHP, version control (Git) — enterprise system architecture; application programing interfaces (APIs); WordPress management, development, and integration; and Unix system administration.
 * Lead development of six active open-source projects with more than 60,000 downloads to date.
 
 #### Speaking Experience
