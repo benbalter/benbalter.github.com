@@ -28,7 +28,7 @@ The pitch is straightforward. It leads to simple, flexible, and reliable website
 
 And then there's cost. Putting aside the value of time for a moment, shared hosting's going to run you in the ballpark of $7 a month; AWS starts at $14, plus the cost of bandwidth and storage; and Jekyll, if hosted by GitHub? Free.[^3]
 
-I stood up the three options side-by-side, and ran them through the riggors of a performance testing tool humerously called [Siege](http://www.joedog.org/siege-home/), the results of which can be found below.
+I stood up the three options side-by-side, and ran them through the riggors of a performance testing tool humorously called [Siege](http://www.joedog.org/siege-home/), the results of which can be found below.
 
 I'm still unpacking some of the boxes of bytes, so if you notice something that doesn't seem right, feel free to [open an issue](https://github.com/benbalter/benbalter.github.com/issues), or better yet, like what you see, feel free to [fork and contribute](https://github.com/benbalter/benbalter.github.com). Embracing somewhat of a crawl, walk, run, or fail-fast philosohpy, next up is [outputting the pages as JSON](https://github.com/benbalter/benbalter.github.com/blob/js/_plugins/generate-json.rb) and relying on Backbone to do the heavy lifting.
 
@@ -48,7 +48,7 @@ The CMS is dead. Long live the CMS.
 
 Command: `siege -c 20 -t 30S -b ben.balter.com`
 
-The first test was to benchmark the homepage, the most heavily trafficed page on the site. Given 30 seconds of continuous traffic from 20 concurrent users, Bluehost was able to serve a meager 40 users. AWS managed an impressive 2000 users during that same time period (a 50x performance improvement), and did so twice as fast. Enter Jekyll with more than 2600 users (65x increase), responding on average to each in less than a quarter of a second.
+The first test was to benchmark the homepage, the most heavily trafficked page on the site. Given 30 seconds of continuous traffic from 20 concurrent users, Bluehost was able to serve a meager 40 users. AWS managed an impressive 2000 users during that same time period (a 50x performance improvement), and did so twice as fast. Enter Jekyll with more than 2600 users (65x increase), responding on average to each in less than a quarter of a second.
 
 #### Shared Hosting (Bluehost)
 
