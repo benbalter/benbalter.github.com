@@ -2,6 +2,9 @@
 
 set -e
 
+echo "bootstraping"
+script/bootstrap
+
 echo "Cleaning up..."
 rm -Rf _site
 
@@ -12,4 +15,6 @@ echo "building contributors"
 ruby script/contributors.rb
 
 echo "building site"
-jekyll build -c _config.yml,_config_local.yml
+jekyll build
+
+echo "built"

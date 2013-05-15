@@ -20,6 +20,7 @@ GEM
       maruku (~> 0.5)
       pygments.rb (~> 0.5.0)
       safe_yaml (~> 0.7.0)
+    json (1.7.7)
     kramdown (1.0.2)
     liquid (2.5.0)
     maruku (0.6.1)
@@ -40,6 +41,7 @@ PLATFORMS
 DEPENDENCIES
   RedCloth (= 4.2.9)
   jekyll (= 1.0.2)
+  json
   liquid (= 2.5.0)
   maruku (= 0.6.1)
   rdiscount (= 1.6.8)

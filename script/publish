@@ -1,0 +1,23 @@
+#!/bin/sh
+
+set -e
+
+# http://stackoverflow.com/questions/2657935/checking-for-a-dirty-index-or-untracked-files-with-git
+function git_clean {
+  [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && return 1;
+}
+
+if git_clean; then
+  echo "Nothing to commit. Bailing."
+  exit 0
+fi
+
+echo "git is dirty... we're in business."
+
+echo "cleaning up"
+rm -Rf _site
+rm -Rf node_modules
+
+git add *
+git commit -m "[Jekyllbot] Automated build."
+git push
