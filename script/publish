@@ -3,11 +3,11 @@
 set -e
 
 # http://stackoverflow.com/questions/2657935/checking-for-a-dirty-index-or-untracked-files-with-git
-function git_clean {
+function git_status {
   expr `git status --porcelain 2>/dev/null| grep "^??" | wc -l` 
 }
 
-if git_clean; then
+if git_status > 0; then
   echo "Nothing to commit. Bailing."
   exit 0
 fi
