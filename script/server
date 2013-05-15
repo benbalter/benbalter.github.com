@@ -1,4 +1,5 @@
 #!/bin/sh
+#build site locally and run
 
 set -e
 

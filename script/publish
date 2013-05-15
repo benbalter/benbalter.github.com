@@ -1,4 +1,5 @@
 #!/bin/sh
+#publish to gh-pages via git
 
 set -e
 

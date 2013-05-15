@@ -1,17 +1,15 @@
 #!/bin/sh
+#bootstrap and build site
 
 set -e
 
-echo "Cleaning up..."
-rm -Rf _site
+if [ $ENV = "jekyllbot" ]; then
+  echo "oh you fancy. you a jekyllbot."
+  cd tmp
+fi
 
-echo "building assets"
-grunt
+echo "bootstrapin'"
+script/bootstrap
 
-echo "building contributors"
-ruby script/contributors.rb
-
-echo "building site"
-jekyll build
-
-echo "built"
+echo "buildin'"
+script/cibuild

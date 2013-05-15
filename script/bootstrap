@@ -1,4 +1,5 @@
 #!/bin/sh
+#bootstrap the development environment
 
 set -e
 
