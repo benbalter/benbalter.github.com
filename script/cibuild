@@ -1,17 +1,1 @@
-#!/bin/sh
-
-set -e
-
-echo "Cleaning up..."
-rm -Rf _site
-
-echo "building assets"
-grunt
-
-echo "building contributors"
-ruby script/contributors.rb
-
-echo "building site"
-jekyll build
-
-echo "built"
+build
