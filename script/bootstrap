@@ -7,6 +7,3 @@ bundle install
 
 echo "NPM installin"
 npm install
-
-command -v pygmentize >/dev/null 2>&1 || { echo "Installing Pygments"; sudo easy_install Pygments; }
-
