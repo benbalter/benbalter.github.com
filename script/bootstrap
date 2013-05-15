@@ -4,6 +4,7 @@
 set -e
 
 echo "Bundle Installin'"
+gem install bundler
 bundle install
 
 echo "NPM installin"
