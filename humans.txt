@@ -21,11 +21,14 @@ Site: https://github.com/ctbarna
 Name: JBindelglass
 Site: https://github.com/JBindelglass
 
+Name: nacin
+Site: https://github.com/nacin
+
 Name: gbinal
 Site: https://github.com/gbinal
 
-Name: nacin
-Site: https://github.com/nacin
+Name: adelevie
+Site: https://github.com/adelevie
 
 Name: mikemorris
 Site: https://github.com/mikemorris
