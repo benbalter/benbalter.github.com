@@ -17,7 +17,7 @@ tags:
 
 Hey there government CIOs. I've noticed you've been getting a bit of a bad rap recently. And I have to say, with all the stories of [multi-million dollar websites](http://www.dobt.co/What-Is-The-Future-Of-Open-Government/) going around, I'm not sure that I can fault your critics. But don't get down on yourself, at least not yet. You're still in great shape. You've got ample resources; you've got smart, well-intentioned people working for you; and you've got more low-hanging fruit than most private-sector CIOs can even dream of.
 
-It's a matter of taste. It's a matter of style. It's a matter of doing things right from day one. And it's really not that hard. It's actually a matter of doing less, not more. You just need to think smaller, not bigger. But you're not in it alone. We're here to help. Just follow this simple Style Guide for building new systems going forward:
+The problem's a matter of taste, really. It's a matter of style. It's a matter of doing things right from day one. And it's really not that hard if you put your mind to it. It's actually a matter of doing less, not more. You just need to think smaller, not bigger. But you're not in it alone. We're here to help. Just follow this simple Style Guide for building new systems going forward, and you'll be turning things around in no time.
 
 ## Lean
 
@@ -29,8 +29,10 @@ If you are not embarrassed by the first version of your product, you’ve launch
 
 ## Decentralized
 
-Avoid single points of failure, both in systems and in people. Push decisions to the edge. Trust the crowd. Don't bake it [locks](http://en.wikipedia.org/wiki/Lock_(computer_science). Avoid blockers. Eliminate all humans. 
+Avoid single points of failure, both in systems and in people. Foster communities. Push decisions to the edge. Trust the crowd. Don't bake it [locks](http://en.wikipedia.org/wiki/Lock_(computer_science). Avoid blockers. Eliminate all humans. 
 
 ## Open
 
-Barriers to the free-flow of information just add friction and more often than not, you just end up shooting yourself in the foot. Make open the default. Open standards, open formats, open systems. Expose process.
+Barriers to the free-flow of information just add friction and more often than not, you just end up shooting yourself in the foot. Make open the default. Open standards, open formats, open systems. Expose process. Prefer social and cultural norms to technical constraints. Don't lock it down unless you absolutely have to. Trust people.
+
+And that's about it. You'll instantly be on the path to building apps like the cool kids in the private sector. The technology's the easy part. It's a cultural thing.
