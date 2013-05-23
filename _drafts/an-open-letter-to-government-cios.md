@@ -2,7 +2,7 @@
 published: 
   - true
   - "true"
-title: An application styleguide for government CIOs
+title: A styleguide for government CIOs
 excerpt: "Government CIOs should seek to build systems in a lean, iterative, decentralized, and open way"
 author: Ben Balter
 layout: post
@@ -16,9 +16,11 @@ tags:
 
 ---
 
-Hey there government CIOs. I've noticed you've been getting a bit of a bad rap recently. And I have to say, with all the stories of [multi-million dollar websites](http://www.dobt.co/What-Is-The-Future-Of-Open-Government/) going around, I'm not sure that I can fault your critics. But don't get down on yourself, at least not yet. You're still in great shape. You've got ample resources; you've got smart, well-intentioned people working for you; and you've got more low-hanging fruit than most private-sector CIOs can even dream of.
+Hey there government CIOs. I've noticed you've been getting a bit of a bad rap recently. And I have to say, with all the stories of [multi-million dollar websites](http://www.dobt.co/What-Is-The-Future-Of-Open-Government/) going around, I'm not sure that I can fault your critics. But don't get down on yourself, at least not yet. You're still in great shape. You've got ample resources; you've got smart, well-intentioned people working for you; and you've got more low-hanging fruit than most private-sector CIOs can dream of.
 
-The problem's a matter of taste, really. It's a matter of style. It's a matter of doing things right from day one. And it's really not that hard if you put your mind to it. It's actually a matter of doing less, not more. You just need to think smaller, not bigger. But you're not in it alone. We're here to help. Just follow this simple Style Guide for building new systems going forward, and you'll be turning things around in no time.
+The problem's not budgetary, legal, or policy constraints, although I'm those sure don't help. The problem's more a matter of taste, really. It's a matter of style. A matter of lacking a particular finesse in execution. It's a matter of doing things right from day one. And it's really not that hard if you put your mind to it.  Come to think of it, it's actually a matter of doing less, not more. You should be thinking smaller, not bigger, setting your sights lower, not higher, away from organization-wide change, and toward quick, tangible wins. 
+
+But hey, you're not in it alone. We (the Internet) are here to help. We've been here before, and we're still here to tell the story. Just follow this simple Style Guide for building new systems going forward, and you'll be shipping quality code in no time:
 
 ## Lean
 
