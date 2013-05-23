@@ -4,7 +4,7 @@
 set -e
 
 echo "building assets"
-grunt
+nodenv exec grunt
 
 echo "Starting server."
 bundle exec jekyll serve -w -c _config.yml,_config_local.yml --drafts

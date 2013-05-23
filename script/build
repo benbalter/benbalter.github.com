@@ -6,12 +6,12 @@ echo "Cleaning up..."
 rm -Rf _site
 
 echo "building assets"
-grunt
+nodenv exec grunt
 
 echo "building contributors"
-ruby script/contributors.rb
+bundle exec ruby script/contributors.rb
 
 echo "building site"
-jekyll build
+bundle exec jekyll build
 
 echo "built"
