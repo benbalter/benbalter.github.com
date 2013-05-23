@@ -13,7 +13,7 @@ tags:
   - best practices
   - style
   - howto
-  
+
 ---
 
 Hey there government CIOs. I've noticed you've been getting a bit of a bad rap recently. And I have to say, with all the stories of [multi-million dollar websites](http://www.dobt.co/What-Is-The-Future-Of-Open-Government/) going around, I'm not sure that I can fault your critics. But don't get down on yourself, at least not yet. You're still in great shape. You've got ample resources; you've got smart, well-intentioned people working for you; and you've got more low-hanging fruit than most private-sector CIOs can even dream of.
@@ -30,7 +30,7 @@ If you are not embarrassed by the first version of your product, you’ve launch
 
 ## Decentralized
 
-Avoid single points of failure, both in systems and in people. Foster communities. Push decisions to the edge. Trust the crowd. Don't bake it [locks](http://en.wikipedia.org/wiki/Lock_(computer_science). Avoid blockers. Eliminate all humans. 
+Avoid single points of failure, both in systems and in people. Foster communities. Push decisions to the edge. Put your faith in the crowd. Don't bake in <a href="http://en.wikipedia.org/wiki/Lock_(computer_science)">locks</a>. Avoid blockers. Eliminate all humans. 
 
 ## Open
 
