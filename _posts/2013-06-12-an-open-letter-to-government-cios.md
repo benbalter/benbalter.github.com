@@ -1,21 +1,19 @@
 ---
+published: 
+  - true
+  - "false,true"
 title: An open letter to government CIOs
 excerpt: "Government CIOs should seek to build systems in a lean, iterative, decentralized, and open way"
 author: Ben Balter
 layout: post
-comments: true
+comments: "true"
 category: Technology
-tags:
-  - government
-  - best practices
-  - style
-  - howto
-
+tags: "government,best practices,style,howto"
 ---
 
 Hey there government CIOs. I've noticed you've been getting a bit of a bad rap recently. And I have to say, with all the stories of [multi-million dollar websites](http://www.dobt.co/What-Is-The-Future-Of-Open-Government/) going around, I'm not sure that I can fault your critics. But don't get down on yourself, at least not yet. You're still in great shape. You've got ample resources; you've got smart, well-intentioned people working for you; and you've got more low-hanging fruit than most private-sector CIOs can ever dream of.
 
-The problem's not budgetary, legal, or policy constraints, although I'm those sure don't help much. The problem's more a matter of taste, really. It's a matter of style. A matter of lacking a particular finesse in execution. It's a matter of doing things right from day one. And we're here to assure you that it's really not that hard if you put your mind to it. Come to think of it, it's actually a matter of doing less, not more. You should be thinking smaller, not bigger, setting your sights lower, not higher, and away from organization-wide change in favor of quick, tangible wins that we can all share.
+The problem's not budgetary, legal, or policy constraints, although I'm sure don't help much. The problem's more a matter of taste, really. It's a matter of style. A matter of lacking a particular finesse in execution. It's a matter of doing things right from day one. And we're here to assure you that it's really not that hard if you put your mind to it. Come to think of it, it's actually a matter of doing less, not more. You should be thinking smaller, not bigger, setting your sights lower, not higher, and away from organization-wide change in favor of quick, tangible wins that we can all share.
 
 But hey, the good news is that you're not in it alone. We (the Internet) are here to help. We've been here before, and we're still here to tell the story. Just follow this simple Style Guide for building new systems going forward, and you'll be shipping quality code in no time:
 
