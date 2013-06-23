@@ -1,4 +1,5 @@
 ---
+json: false
 ---
 callback([
   {% for post in site.posts %}
