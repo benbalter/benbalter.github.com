@@ -48,10 +48,12 @@ prose:
         field:
           element: text
           label: Title
+          value: ""
       - name: excerpt
         field:
           element: text
-          label: Excerpt       
+          label: Excerpt
+          value: ""       
       - name: author
         field:
           element: text
@@ -59,7 +61,7 @@ prose:
           value: Ben Balter
       - name: comments
         field:
-          element: button
+          element: checkbox
           label: Comments Enabled
           value: true
       - name: tags
@@ -71,9 +73,11 @@ prose:
         field:
           element: text
           label: Title
+          value: ""
       - name: excerpt
         field:
           element: text
+          value: ""
       - name: layout
         field:
           element: select
