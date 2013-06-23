@@ -1,6 +1,6 @@
 ---
 ---
-[
+callback([
   {% for post in site.posts %}
     { "text": "{{ post.title | replace:'"','\"' | strip_newlines }}", "href": "{{ site.url }}/{{ post.url }}" },
   {% endfor %}
@@ -9,4 +9,4 @@
      { "text": "{{ page.title | replace:'"','\"' }}", "href": "{{ site.url }}/{{ page.url }}" }
      {% unless forloop.last %}, {% endunless %}
   {% endfor %}
-]
+]);
