@@ -1,0 +1,14 @@
+---
+---
+[
+  {% for post in site.posts %}
+    { "text": "{{ post.title | replace:'"','\"' | strip_newlines }}", "href": "{{ post.url }}" },
+  {% endfor %}
+
+  {% for page in site.pages %}
+    {% if page.title %}
+     { "text": "{{ page.title | replace:'"','\"' }}", "href": "{{ page.url }}" }
+      {% unless forloop.last %}, {% endunless %}
+    {% endif %}
+  {% endfor %}
+]

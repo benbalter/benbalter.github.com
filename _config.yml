@@ -25,22 +25,70 @@ permalink: /:year/:month/:day/:title/
 
 #prose config, see http://prose.io/help/handbook.html
 prose:
+  siteurl: "http://ben.balter.com"
+  media: assets/img
+  relativeLinks: http://ben.balter.com/links.json
   metadata:
-    "_posts": |
-      title: "Title of the post"
-      excerpt: "SEO friendly description"
-      author: "Your Name Here"
-      layout: post
-      comments: true
-      category: 
-      tags: 
-      published: false
-    "/": |
-      title: "Title of the page"
-      excerpt: "SEO friendly description"
-      layout: page
-      published: false
-  siteurl: "http://ben./balter.com"
+    _posts:
+      - name: categories
+        field:
+          label: Categories
+          element: select
+          placeholder: Select a category
+          options:
+            - name: Technology
+              value: technology
+            - name: Business
+              value: business
+            - name: Law
+              value: law
+      - name: layout
+        field:
+          element: hidden
+          value: post
+      - name: title
+        field:
+          element: text
+          label: Title
+      - name: excerpt
+        field:
+          element: text
+          label: Excerpt       
+      - name: author
+        field:
+          element: text
+          label: Author
+          value: Ben Balter
+      - name: comments
+        field:
+          element: button
+          label: Comments Enabled
+          value: true
+      - name: tags
+        field: 
+          element: text
+          label: Tags
+    "/":
+      - name: title
+        field:
+          element: text
+          label: Title
+      - name: excerpt
+        field:
+          element: text
+      - name: layout
+        field:
+          element: select
+          placeholder: Select a layout
+          options:
+            - name: Page
+              value: page
+            - name: Home
+              value: home
+            - name: Default
+              value: default
+            - name: Resume
+              value: resume
 
 #Twitter Widget
 twitter: 
