@@ -57,19 +57,19 @@ Slightly more than half of live servers are powered by
 
 **Update (10/4)**: Updated the above statistics (and underlying data) based on an updated domain list published on data.gov and recrawled using the same tools. The above numbers now use the number of *live* sites (rather than total number of domains) as the denominator for percentages, and excludes approximately 300 domains which simply redirects to other .govs.
 
- [1]: http://explore.data.gov/Federal-Government-Finances-and-Employment/Federal-Executive-Branch-Internet-Domains/k9h8-e98h
- [2]: https://github.com/benbalter/Site-Inspector
- [3]: https://github.com/benbalter/Domain-Inventory
- [4]: http://dotgov.benbalter.com/status/live/
- [5]: http://dotgov.benbalter.com/nonwww/yes/
- [6]: http://dotgov.benbalter.com/ipv6/yes/
- [7]: http://dotgov.benbalter.com/cdn/akamai/
- [8]: http://dotgov.benbalter.com/cloud/amazon/
- [9]: http://dotgov.benbalter.com/cloud/rackspace/
- [10]: http://dotgov.benbalter.com/analytics/google-analytics/
- [11]: http://dotgov.benbalter.com/cms/drupal/
- [12]: http://dotgov.benbalter.com/cms/wordpress/
- [13]: http://dotgov.benbalter.com/cms/sharepoint/
- [14]: http://dotgov.benbalter.com/cms/none/
- [15]: http://dotgov.benbalter.com/server_software/commercial/
- [16]: http://dotgov.benbalter.com
+[1]: http://explore.data.gov/Federal-Government-Finances-and-Employment/Federal-Executive-Branch-Internet-Domains/k9h8-e98h
+[2]: https://github.com/benbalter/Site-Inspector
+[3]: https://github.com/benbalter/Domain-Inventory
+[4]: http://dotgov.benbalter.com/status/live/
+[5]: http://dotgov.benbalter.com/nonwww/yes/
+[6]: http://dotgov.benbalter.com/ipv6/yes/
+[7]: http://dotgov.benbalter.com/cdn/akamai/
+[8]: http://dotgov.benbalter.com/cloud/amazon/
+[9]: http://dotgov.benbalter.com/cloud/rackspace/
+[10]: http://dotgov.benbalter.com/analytics/google-analytics/
+[11]: http://dotgov.benbalter.com/cms/drupal/
+[12]: http://dotgov.benbalter.com/cms/wordpress/
+[13]: http://dotgov.benbalter.com/cms/sharepoint/
+[14]: http://dotgov.benbalter.com/cms/none/
+[15]: http://dotgov.benbalter.com/server_software/commercial/
+[16]: http://dotgov.benbalter.com

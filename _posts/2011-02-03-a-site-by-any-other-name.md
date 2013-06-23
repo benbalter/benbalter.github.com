@@ -41,24 +41,24 @@ As seen in the recent [Wikileaks domain shell game][24], its clear that domain s
 [^3]: As [Post noted back then][27], and even more relevant now in light of Egypt's recent flipping of its internet kill switch, "our ability to defend the principle of the single global Internet – the Internet where all of humanity has equal access to knowledge and ideas, the Internet that looks the same to, and allows free and unfettered communication between, users located in Shanghai and Seattle and Santiago, free of locally imposed censorship regimes – will be deeply compromised by \[seizures of this kind\], which would enshrine in U.S. law for the first time the contrary principle: that all countries have a right to insist on the removal of content, wherever located, from the global Internet in service of the exigencies of local law." (Quoting a [letter he authored][27] criticizing the Senate's Combating Online Infringements and Counterfeits Act).
 [^4]: Beyond being reminiscent of Geocities (and most of the 90s), text in images is not machine readable, a requirement of section 508 (codified at 29 U.S.C. § 794(d)) . That means that neither screen readers nor search engines can accurately parse the site's content.
 
- [1]: http://ben.balter.com/wp-content/uploads/2011/02/IPRC_Seized_2010_11-300x225.gif "DHS Seizure Notice"
- [2]: http://itwel.com/atdhe-live-sports-streaming-website-seized-by-us-authorities.php
- [3]: http://volokh.com/2011/02/02/more-outrageous-domain-name-seizures-by-our-vigilant-dept-of-homeland-security/
- [4]: http://www.huffingtonpost.com/2011/02/02/rojadirecta-org-seized_n_817458.html
- [6]: http://torrentfreak.com/sports-streaming-torrent-links-site-victorious-in-court-100510/
- [7]: http://torrentfreak.com/u-s-government-seizes-bittorrent-search-engine-domain-and-more-101126/
- [8]: http://www.ice.gov/doclib/news/releases/2010/domain_names.pdf
- [9]: http://www.ice.gov/news/releases/1006/100630losangeles.htm
- [10]: http://www.nytimes.com/2010/12/20/business/media/20music.html?_r=1&ref=todayspaper
- [11]: http://dajaz1.com/
- [12]: http://arstechnica.com/tech-policy/news/2010/12/busting-bittorrent.ars
- [14]: http://www.copyhype.com/2011/02/can-google-be-seized-by-ice/
- [16]: http://arstechnica.com/tech-policy/news/2011/02/senator-us-domain-name-seizures-alarmingly-unprecedented.ars?utm_source=rss&utm_medium=rss&utm_campaign=rss
- [17]: http://twitter.com/#!/rojadirecta/status/32348722188779520
- [18]: http://en.wikipedia.org/wiki/Domain_name
- [19]: http://dajaz1.com/IPRC_Seized_2010_11.gif
- [20]: http://bancomicsans.com/
- [22]: http://qbit.cc/homeland-security-tracking-visits-to-seized-domains-using-google-analytics-and-piwik/
- [23]: http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m10-22.pdf
- [24]: http://gawker.com/#!5704966/wikileaks-loses-its-domain
- [27]: http://volokh.com/2010/12/01/copyright-enforcement-tail-wags-internet-dog-contd-or-what-the-hell-ever-happened-to-due-process/
+[1]: http://ben.balter.com/wp-content/uploads/2011/02/IPRC_Seized_2010_11-300x225.gif "DHS Seizure Notice"
+[2]: http://itwel.com/atdhe-live-sports-streaming-website-seized-by-us-authorities.php
+[3]: http://volokh.com/2011/02/02/more-outrageous-domain-name-seizures-by-our-vigilant-dept-of-homeland-security/
+[4]: http://www.huffingtonpost.com/2011/02/02/rojadirecta-org-seized_n_817458.html
+[6]: http://torrentfreak.com/sports-streaming-torrent-links-site-victorious-in-court-100510/
+[7]: http://torrentfreak.com/u-s-government-seizes-bittorrent-search-engine-domain-and-more-101126/
+[8]: http://www.ice.gov/doclib/news/releases/2010/domain_names.pdf
+[9]: http://www.ice.gov/news/releases/1006/100630losangeles.htm
+[10]: http://www.nytimes.com/2010/12/20/business/media/20music.html?_r=1&ref=todayspaper
+[11]: http://dajaz1.com/
+[12]: http://arstechnica.com/tech-policy/news/2010/12/busting-bittorrent.ars
+[14]: http://www.copyhype.com/2011/02/can-google-be-seized-by-ice/
+[16]: http://arstechnica.com/tech-policy/news/2011/02/senator-us-domain-name-seizures-alarmingly-unprecedented.ars?utm_source=rss&utm_medium=rss&utm_campaign=rss
+[17]: http://twitter.com/#!/rojadirecta/status/32348722188779520
+[18]: http://en.wikipedia.org/wiki/Domain_name
+[19]: http://dajaz1.com/IPRC_Seized_2010_11.gif
+[20]: http://bancomicsans.com/
+[22]: http://qbit.cc/homeland-security-tracking-visits-to-seized-domains-using-google-analytics-and-piwik/
+[23]: http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m10-22.pdf
+[24]: http://gawker.com/#!5704966/wikileaks-loses-its-domain
+[27]: http://volokh.com/2010/12/01/copyright-enforcement-tail-wags-internet-dog-contd-or-what-the-hell-ever-happened-to-due-process/

@@ -43,39 +43,39 @@ I am working on submitting this idea as a proposed [Google Summer of Code][18] p
 [^4]: Let's just call it "Frupal" for the sake of discussion. 
 [^5]: In hindsight, I probably shouldn't have ripped on Melange. *See supra note 1.* 
 
- [1]: http://xkcd.com/801/
- [2]: http://wordpress.org
- [3]: http://en.wikipedia.org/wiki/Content_management_system
- [4]: http://w3techs.com/technologies/overview/content_management/all
- [5]: #note-2020-1 "See, e.g., Documentum, Liferay, Melange, and Gawker's CMS."
- [6]: http://en.wikipedia.org/wiki/Microsoft_SharePoint
- [7]: http://pcjl.org
- [8]: http://www.youtube.com/watch?v=8DfztIIqbTI#t=1m3s
- [9]: http://core.trac.wordpress.org/browser/trunk?rev=3
- [10]: http://codex.wordpress.org/Revision_Management
- [11]: #note-2020-2 "Nearly three years ago, at the time of the feature's inception, WordPress founder Matt Mullenweg noted, "With the power of modern computers, it's silly that we still use save and editing metaphors from the time when the most common method of storage was floppy disks… now we're taking that to another level by allowing you to view who made what changes when… through a super-easy interface, much like Wikipedia or a version control system.""
- [12]: http://www.thegrandparentsblog.com/
- [13]: http://lists.automattic.com/pipermail/wp-hackers/2011-March/038727.html
- [14]: http://ben.balter.com/wp-content/uploads/2011/04/wireframe.png "WP Document Revisions Wireframe"
- [15]: #note-2020-3 "See, e.g., WordPress as an e-mail newsletter, contact manager, CRM, task list, invoice system,  job bank, or real estate directory."
- [16]: http://xkcd.com/801
- [17]: #note-2020-4 "Let's just call it "Frupal" for the sake of discussion."
- [18]: http://www.google-melange.com/gsoc/homepage/google/gsoc2011
- [19]: #note-2020-5 "In hindsight, I probably shouldn't have ripped on Melange. See supra note 1."
- [20]: http://ben.balter.com/contact/
- [21]: #comments
- [22]: http://ben.balter.com/2011/08/29/document-management-version-control-for-wordpress/
- [23]: http://www.emc.com/domains/documentum/index.htm
- [24]: http://www.liferay.com/
- [25]: http://code.google.com/p/soc/wiki/MelangeIntro
- [26]: http://www.mediaite.com/online/worse-than-previously-thought-gawker-content-management-system-hacked/
- 
- [28]: http://wordpress.org/news/2008/07/wordpress-26-tyner/
- 
- [30]: http://net.tutsplus.com/tutorials/wordpress/build-a-wordburner-email-newsletter-manager-using-wordpress-and-feedburner/
- [31]: http://publisherblog.automattic.com/2008/02/13/wp-contact-manager/
- [32]: http://slipfire.com/wp-crm/
- [33]: http://wordpress.org/extend/plugins/wp-task-manager/
- [34]: http://wordpress.org/extend/plugins/wp-invoice/
- [35]: http://wordpress.org/extend/plugins/job-manager/
- [36]: http://wordpress.org/extend/plugins/great-real-estate/
+[1]: http://xkcd.com/801/
+[2]: http://wordpress.org
+[3]: http://en.wikipedia.org/wiki/Content_management_system
+[4]: http://w3techs.com/technologies/overview/content_management/all
+[5]: #note-2020-1 "See, e.g., Documentum, Liferay, Melange, and Gawker's CMS."
+[6]: http://en.wikipedia.org/wiki/Microsoft_SharePoint
+[7]: http://pcjl.org
+[8]: http://www.youtube.com/watch?v=8DfztIIqbTI#t=1m3s
+[9]: http://core.trac.wordpress.org/browser/trunk?rev=3
+[10]: http://codex.wordpress.org/Revision_Management
+[11]: #note-2020-2 "Nearly three years ago, at the time of the feature's inception, WordPress founder Matt Mullenweg noted, "With the power of modern computers, it's silly that we still use save and editing metaphors from the time when the most common method of storage was floppy disks… now we're taking that to another level by allowing you to view who made what changes when… through a super-easy interface, much like Wikipedia or a version control system.""
+[12]: http://www.thegrandparentsblog.com/
+[13]: http://lists.automattic.com/pipermail/wp-hackers/2011-March/038727.html
+[14]: http://ben.balter.com/wp-content/uploads/2011/04/wireframe.png "WP Document Revisions Wireframe"
+[15]: #note-2020-3 "See, e.g., WordPress as an e-mail newsletter, contact manager, CRM, task list, invoice system,  job bank, or real estate directory."
+[16]: http://xkcd.com/801
+[17]: #note-2020-4 "Let's just call it "Frupal" for the sake of discussion."
+[18]: http://www.google-melange.com/gsoc/homepage/google/gsoc2011
+[19]: #note-2020-5 "In hindsight, I probably shouldn't have ripped on Melange. See supra note 1."
+[20]: http://ben.balter.com/contact/
+[21]: #comments
+[22]: http://ben.balter.com/2011/08/29/document-management-version-control-for-wordpress/
+[23]: http://www.emc.com/domains/documentum/index.htm
+[24]: http://www.liferay.com/
+[25]: http://code.google.com/p/soc/wiki/MelangeIntro
+[26]: http://www.mediaite.com/online/worse-than-previously-thought-gawker-content-management-system-hacked/
+
+[28]: http://wordpress.org/news/2008/07/wordpress-26-tyner/
+
+[30]: http://net.tutsplus.com/tutorials/wordpress/build-a-wordburner-email-newsletter-manager-using-wordpress-and-feedburner/
+[31]: http://publisherblog.automattic.com/2008/02/13/wp-contact-manager/
+[32]: http://slipfire.com/wp-crm/
+[33]: http://wordpress.org/extend/plugins/wp-task-manager/
+[34]: http://wordpress.org/extend/plugins/wp-invoice/
+[35]: http://wordpress.org/extend/plugins/job-manager/
+[36]: http://wordpress.org/extend/plugins/great-real-estate/

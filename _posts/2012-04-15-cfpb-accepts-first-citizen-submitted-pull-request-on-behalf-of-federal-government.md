@@ -32,7 +32,7 @@ Open-source software (software for which the underlying source code is made publ
 
 Iceeey has [already submitted his second pull request][4] ("more typos" he joked with an emoticon smiley), and I hope more agencies and more open-source developers will follow suit. Such collaborations empower agencies to do more with less; put better, more robust tools in the hands of federal employees as they carry out agency mission; and undoubtedly represent a giant-leap forward for a more open and more efficient government.
 
- [1]: http://github.com/
- [2]: http://www.consumerfinance.gov/blog/the-cfpbs-source-code-policy-open-and-shared/
- [3]: https://github.com/cfpb/transit_subsidy/pull/1
- [4]: https://github.com/cfpb/transit_subsidy/pull/2
+[1]: http://github.com/
+[2]: http://www.consumerfinance.gov/blog/the-cfpbs-source-code-policy-open-and-shared/
+[3]: https://github.com/cfpb/transit_subsidy/pull/1
+[4]: https://github.com/cfpb/transit_subsidy/pull/2

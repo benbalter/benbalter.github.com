@@ -56,10 +56,10 @@ More details on the tracking code can be found over in the [Google Analytics Soc
 
 **Update:** Special thanks to [@Ramoonus][6] for [didn't queue up jQuery][7].
 
- [1]: http://mashable.com/2011/06/30/google-analytics-social-plugin/
- [2]: http://yoast.com/wordpress/google-analytics/
- [3]: http://code.google.com/apis/analytics/docs/tracking/gaTrackingSocial.html
- [4]: https://gist.github.com/1058469
- [5]: http://andrewnacin.com
- [6]: http://twitter.com/Ramoonus
- [7]: https://gist.github.com/1058469/db96b6836f279811205bddbf8be67bec6ca2159c
+[1]: http://mashable.com/2011/06/30/google-analytics-social-plugin/
+[2]: http://yoast.com/wordpress/google-analytics/
+[3]: http://code.google.com/apis/analytics/docs/tracking/gaTrackingSocial.html
+[4]: https://gist.github.com/1058469
+[5]: http://andrewnacin.com
+[6]: http://twitter.com/Ramoonus
+[7]: https://gist.github.com/1058469/db96b6836f279811205bddbf8be67bec6ca2159c

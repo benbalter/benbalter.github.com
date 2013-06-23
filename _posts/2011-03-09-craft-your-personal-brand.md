@@ -66,16 +66,16 @@ A special thanks to everyone who was able to come out or follow along on the liv
 
 Comments? I'd love to hear your thoughts below.
 
- [1]: http://www.meetup.com/wordpressdc/events/16178194/
- [2]: http://ben.balter.com/wp-content/uploads/2011/03/branding-300x224.png "Why Brand?"
- [3]: http://www.greglinch.com/
- [4]: http://ben.balter.com/2010/09/12/wordpress-resume-plugin/ "WordPress Resume Plugin"
- [5]: http://ben.balter.com/2011/01/11/wordpress-emphasis-plugin/ "WordPress Emphasis Plugin: Highlight and Permalink Text"
- [6]: http://wordpress.org/extend/plugins/all-in-one-seo-pack/
- [7]: http://yoast.com/wordpress/google-analytics/
- [8]: http://wordpress.org/extend/plugins/simple-facebook-connect/
- [9]: http://wordpress.org/extend/plugins/simple-twitter-connect/
- [10]: http://wordpress.org/extend/plugins/subscribe-to-comments/
- [11]: http://wordpress.org/extend/plugins/syntaxhighlighter/
- [12]: http://rapportive.com/
- [13]: http://thenextweb.com/socialmedia/2010/10/13/bit-ly-now-lets-you-add-qr-codes-to-links-in-seconds/
+[1]: http://www.meetup.com/wordpressdc/events/16178194/
+[2]: http://ben.balter.com/wp-content/uploads/2011/03/branding-300x224.png "Why Brand?"
+[3]: http://www.greglinch.com/
+[4]: http://ben.balter.com/2010/09/12/wordpress-resume-plugin/ "WordPress Resume Plugin"
+[5]: http://ben.balter.com/2011/01/11/wordpress-emphasis-plugin/ "WordPress Emphasis Plugin: Highlight and Permalink Text"
+[6]: http://wordpress.org/extend/plugins/all-in-one-seo-pack/
+[7]: http://yoast.com/wordpress/google-analytics/
+[8]: http://wordpress.org/extend/plugins/simple-facebook-connect/
+[9]: http://wordpress.org/extend/plugins/simple-twitter-connect/
+[10]: http://wordpress.org/extend/plugins/subscribe-to-comments/
+[11]: http://wordpress.org/extend/plugins/syntaxhighlighter/
+[12]: http://rapportive.com/
+[13]: http://thenextweb.com/socialmedia/2010/10/13/bit-ly-now-lets-you-add-qr-codes-to-links-in-seconds/

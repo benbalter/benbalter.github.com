@@ -51,15 +51,14 @@ Interested? You can [see it in action][3], or if you're ready to take the plunge
 
 *\[Photo: [shawnmichael][8]\]*
 
- [1]: #note-2020-1 "I imagine it would resemble a highly digitized Rube Goldberg  Machine"
- [2]: http://cdn.benbalter.com/wp-content/uploads/2010/09/wp_resume-300x223.png "Screenshot of Example WP Resume"
- [3]: http://ben.balter.com/resume/
- [4]: http://wordpress.org/extend/plugins/wp-resume/
- [5]: http://wordpress.org/extend/plugins/wp-resume/installation/
- [6]: http://tech.journalism.cuny.edu/documentation/wp-resume/
- [7]: http://ben.balter.com/donate/ "Donate"
- [8]: http://www.flickr.com/photos/shawnmichael/4246330043/
- [9]: http://www.youtube.com/watch?v=qybUFnY7Y8w
- 
- 
- [^1]: I imagine it would resemble a highly digitized [Rube Goldberg  Machine][9]
+[1]: #note-2020-1 "I imagine it would resemble a highly digitized Rube Goldberg  Machine"
+[2]: http://cdn.benbalter.com/wp-content/uploads/2010/09/wp_resume-300x223.png "Screenshot of Example WP Resume"
+[3]: http://ben.balter.com/resume/
+[4]: http://wordpress.org/extend/plugins/wp-resume/
+[5]: http://wordpress.org/extend/plugins/wp-resume/installation/
+[6]: http://tech.journalism.cuny.edu/documentation/wp-resume/
+[7]: http://ben.balter.com/donate/ "Donate"
+[8]: http://www.flickr.com/photos/shawnmichael/4246330043/
+[9]: http://www.youtube.com/watch?v=qybUFnY7Y8w
+  
+[^1]: I imagine it would resemble a highly digitized [Rube Goldberg  Machine][9]

@@ -112,37 +112,37 @@ Questions? Comments? Many may have already been addressed in [the WP Document Re
 
 [^1]:  Neither relationship should imply a formal endorsement. 
 
- [1]: http://wordpress.org/extend/plugins/wp-document-revisions/
- [2]: http://en.wikipedia.org/wiki/Document_management_system
- [3]: http://en.wikipedia.org/wiki/Revision_control
- [4]: http://ben.balter.com/wp-content/uploads/2011/07/wp-document-revisions-screen-shot.png
- [5]: http://ben.balter.com/2011/04/04/when-all-you-have-is-a-pair-of-bolt-cutters/
- [6]: http://sharepoint.microsoft.com/en-us/Pages/default.aspx
- [7]: http://en.wikipedia.org/wiki/MD5
- [8]: http://wordpress.org/extend/plugins/active-directory-integration/
- [9]: http://wordpress.org/extend/plugins/simple-ldap-login/
- [10]: http://httpd.apache.org/docs/2.0/mod/core.html#documentroot
- [11]: http://themergency.com/generators/wordpress-custom-taxonomy/
- [12]: https://github.com/benbalter/WP-Document-Revisions-Code-Cookbook
- [13]: http://editflow.org/
- [14]: http://ben.balter.com/2011/10/24/advanced-workflow-management-tools-for-wp-document-revisions/
- [15]: http://omnimaki.com/
- [16]: http://www.tradiart.com/
- [17]: https://github.com/benbalter/WP-Document-Revisions/
- [18]: https://github.com/benbalter/WP-Document-Revisions/tree/develop
- [19]: http://travis-ci.org/#!/benbalter/WP-Document-Revisions
- [20]: http://translations.benbalter.com/projects/wp-document-revisions/
- [21]: http://wordpress.org/tags/wp-document-revisions
- [22]: https://github.com/benbalter/WP-Document-Revisions/issues
- [23]: http://ben.balter.com/wp-content/uploads/2011/08/wp-document-revisions.png
- [24]: http://wordpress.org/extend/plugins/wp-document-revisions/faq/
- [25]: http://ben.balter.com
- [26]: http://code.google.com/soc/
- [27]: #note-2020-1 " Neither relationship should imply a formal endorsement."
- [28]: http://joncave.co.uk/
- [29]: http://aaron.jorb.in/
- [30]: http://mitcho.com/
- [31]: http://andrewnacin.com/
- [32]: https://github.com/benbalter/WP-Document-Revisions/wiki/Where-to-get-Support-or-Report-an-Issue
- [33]: https://github.com/benbalter/WP-Document-Revisions/wiki
- [34]: https://github.com/benbalter/WP-Document-Revisions/wiki/How-to-Contribute
+[1]: http://wordpress.org/extend/plugins/wp-document-revisions/
+[2]: http://en.wikipedia.org/wiki/Document_management_system
+[3]: http://en.wikipedia.org/wiki/Revision_control
+[4]: http://ben.balter.com/wp-content/uploads/2011/07/wp-document-revisions-screen-shot.png
+[5]: http://ben.balter.com/2011/04/04/when-all-you-have-is-a-pair-of-bolt-cutters/
+[6]: http://sharepoint.microsoft.com/en-us/Pages/default.aspx
+[7]: http://en.wikipedia.org/wiki/MD5
+[8]: http://wordpress.org/extend/plugins/active-directory-integration/
+[9]: http://wordpress.org/extend/plugins/simple-ldap-login/
+[10]: http://httpd.apache.org/docs/2.0/mod/core.html#documentroot
+[11]: http://themergency.com/generators/wordpress-custom-taxonomy/
+[12]: https://github.com/benbalter/WP-Document-Revisions-Code-Cookbook
+[13]: http://editflow.org/
+[14]: http://ben.balter.com/2011/10/24/advanced-workflow-management-tools-for-wp-document-revisions/
+[15]: http://omnimaki.com/
+[16]: http://www.tradiart.com/
+[17]: https://github.com/benbalter/WP-Document-Revisions/
+[18]: https://github.com/benbalter/WP-Document-Revisions/tree/develop
+[19]: http://travis-ci.org/#!/benbalter/WP-Document-Revisions
+[20]: http://translations.benbalter.com/projects/wp-document-revisions/
+[21]: http://wordpress.org/tags/wp-document-revisions
+[22]: https://github.com/benbalter/WP-Document-Revisions/issues
+[23]: http://ben.balter.com/wp-content/uploads/2011/08/wp-document-revisions.png
+[24]: http://wordpress.org/extend/plugins/wp-document-revisions/faq/
+[25]: http://ben.balter.com
+[26]: http://code.google.com/soc/
+[27]: #note-2020-1 " Neither relationship should imply a formal endorsement."
+[28]: http://joncave.co.uk/
+[29]: http://aaron.jorb.in/
+[30]: http://mitcho.com/
+[31]: http://andrewnacin.com/
+[32]: https://github.com/benbalter/WP-Document-Revisions/wiki/Where-to-get-Support-or-Report-an-Issue
+[33]: https://github.com/benbalter/WP-Document-Revisions/wiki
+[34]: https://github.com/benbalter/WP-Document-Revisions/wiki/How-to-Contribute

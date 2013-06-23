@@ -45,13 +45,13 @@ Panelists Steven Bucci, William Kirkendale, Brian Moran, Mark Rosenfeld, and Mar
 
 *   Brian Moran, President, GW Tech Alumni Group; CEO, Nester Consulting; & former Director of IT Services, U.S. International Trade Commission
 
- [1]: http://www.facebook.com/group.php?gid=154839957865223
- [2]: http://cdn.benbalter.com/wp-content/uploads/2010/11/68153_493302469280_603259280_5451391_4928024_n-300x199.jpg "Steven Bucci, William Kirkendale, Brian Moran, Mark Rosenfeld, Mariano Tan "
- [3]: http://cdn.benbalter.com/wp-content/uploads/2010/11/Introduction.mp3
- [4]: http://cdn.benbalter.com/wp-content/uploads/2010/11/Introduction.mp3?torrent
- [5]: http://cdn.benbalter.com/wp-content/uploads/2010/11/Agile-v-Waterfall-Systems-Development.mp3
- [6]: http://cdn.benbalter.com/wp-content/uploads/2010/11/Agile-v-Waterfall-Systems-Development.mp3?torrent
- [7]: http://cdn.benbalter.com/wp-content/uploads/2010/11/Cloud-Computing-v-FISMA.mp3
- [8]: http://cdn.benbalter.com/wp-content/uploads/2010/11/Cloud-Computing-v-FISMA.mp3?torrent
- [9]: http://cdn.benbalter.com/wp-content/uploads/2010/11/Removing-Barriers-to-Organizational-Agility.mp3
- [10]: http://cdn.benbalter.com/wp-content/uploads/2010/11/Removing-Barriers-to-Organizational-Agility.mp3?torrent
+[1]: http://www.facebook.com/group.php?gid=154839957865223
+[2]: http://cdn.benbalter.com/wp-content/uploads/2010/11/68153_493302469280_603259280_5451391_4928024_n-300x199.jpg "Steven Bucci, William Kirkendale, Brian Moran, Mark Rosenfeld, Mariano Tan "
+[3]: http://cdn.benbalter.com/wp-content/uploads/2010/11/Introduction.mp3
+[4]: http://cdn.benbalter.com/wp-content/uploads/2010/11/Introduction.mp3?torrent
+[5]: http://cdn.benbalter.com/wp-content/uploads/2010/11/Agile-v-Waterfall-Systems-Development.mp3
+[6]: http://cdn.benbalter.com/wp-content/uploads/2010/11/Agile-v-Waterfall-Systems-Development.mp3?torrent
+[7]: http://cdn.benbalter.com/wp-content/uploads/2010/11/Cloud-Computing-v-FISMA.mp3
+[8]: http://cdn.benbalter.com/wp-content/uploads/2010/11/Cloud-Computing-v-FISMA.mp3?torrent
+[9]: http://cdn.benbalter.com/wp-content/uploads/2010/11/Removing-Barriers-to-Organizational-Agility.mp3
+[10]: http://cdn.benbalter.com/wp-content/uploads/2010/11/Removing-Barriers-to-Organizational-Agility.mp3?torrent

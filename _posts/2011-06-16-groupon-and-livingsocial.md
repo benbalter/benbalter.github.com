@@ -63,29 +63,29 @@ Despite [Groupon's efforts][23], there's just not enough data there. They may ha
 
 \[Photo courtesy [wovox][26]\]
 
- [1]: http://ben.balter.com/wp-content/uploads/2011/06/5554901181_664eac93a6_b-300x200.jpg "Groupon"
- [2]: http://news.ycombinator.com/item?id=2654788
- [3]: http://techcrunch.com/2011/06/09/groupon-single-worst-decision/
- [4]: http://gawker.com/5786492/the-groupon-backlash-its-the-business-model-stupid
- [5]: http://gawker.com/5785317/the-groupon-backlash-is-on
- [6]: http://www.benedelman.org/voucher-consumer-protection/#liability
- [7]: http://www.groupon.com/terms
- [8]: http://www.businessinsider.com/teardown-of-the-groupon-merchant-agreement-2011-6
- [9]: http://blogs.forbes.com/luisakroll/2011/04/04/new-billionaire-eric-lefkofsky-talks-about-groupon-and-tech-investing/
- [10]: http://www.ncsl.org/default.aspx?tabid=12474
- [11]: http://www.jpml.uscourts.gov/Panel_Orders/MDL-2238-Initial_Transfer.pdf
- [12]: http://www.seattlepi.com/local/article/Seattle-class-action-LivingSocial-expiration-1015493.php
- [13]: http://www.benedelman.org/voucher-consumer-protection/#expiration
- [14]: http://techcrunch.com/2011/06/15/daily-deal-consumer-protection-laws/
- [15]: http://www.tabc.state.tx.us/education/pdfs/Happy-Hour-Laws.pdf
- [16]: http://www.benedelman.org/voucher-consumer-protection/beer-chicago-google-060811.png
- [17]: http://www.benedelman.org/voucher-consumer-protection/wine-chicago-google-060811.png
- [18]: http://www.sec.gov/Archives/edgar/data/1490281/000104746911005613/a2203913zs-1.htm
- [19]: http://techcrunch.com/2011/06/13/why-groupon-is-poised-for-collapse/
- [20]: http://www.google.com/support/offersbusiness/bin/answer.py?hl=en&answer=1229917
- [21]: http://bits.blogs.nytimes.com/2009/09/21/netflix-awards-1-million-prize-and-starts-a-new-contest/
- [22]: http://techcrunch.com/2011/01/11/why-we-invested-in-groupon-the-power-of-data/
- [23]: http://techcrunch.com/2010/12/07/groupon-everywhere-jiwire/
- [24]: http://www.wired.com/epicenter/2011/04/facebook-deals/
- [25]: http://thenextweb.com/us/2011/06/02/amazon-enters-the-daily-deals-space-with-amazonlocal/
- [26]: http://www.flickr.com/photos/wovox/5554901181/
+[1]: http://ben.balter.com/wp-content/uploads/2011/06/5554901181_664eac93a6_b-300x200.jpg "Groupon"
+[2]: http://news.ycombinator.com/item?id=2654788
+[3]: http://techcrunch.com/2011/06/09/groupon-single-worst-decision/
+[4]: http://gawker.com/5786492/the-groupon-backlash-its-the-business-model-stupid
+[5]: http://gawker.com/5785317/the-groupon-backlash-is-on
+[6]: http://www.benedelman.org/voucher-consumer-protection/#liability
+[7]: http://www.groupon.com/terms
+[8]: http://www.businessinsider.com/teardown-of-the-groupon-merchant-agreement-2011-6
+[9]: http://blogs.forbes.com/luisakroll/2011/04/04/new-billionaire-eric-lefkofsky-talks-about-groupon-and-tech-investing/
+[10]: http://www.ncsl.org/default.aspx?tabid=12474
+[11]: http://www.jpml.uscourts.gov/Panel_Orders/MDL-2238-Initial_Transfer.pdf
+[12]: http://www.seattlepi.com/local/article/Seattle-class-action-LivingSocial-expiration-1015493.php
+[13]: http://www.benedelman.org/voucher-consumer-protection/#expiration
+[14]: http://techcrunch.com/2011/06/15/daily-deal-consumer-protection-laws/
+[15]: http://www.tabc.state.tx.us/education/pdfs/Happy-Hour-Laws.pdf
+[16]: http://www.benedelman.org/voucher-consumer-protection/beer-chicago-google-060811.png
+[17]: http://www.benedelman.org/voucher-consumer-protection/wine-chicago-google-060811.png
+[18]: http://www.sec.gov/Archives/edgar/data/1490281/000104746911005613/a2203913zs-1.htm
+[19]: http://techcrunch.com/2011/06/13/why-groupon-is-poised-for-collapse/
+[20]: http://www.google.com/support/offersbusiness/bin/answer.py?hl=en&answer=1229917
+[21]: http://bits.blogs.nytimes.com/2009/09/21/netflix-awards-1-million-prize-and-starts-a-new-contest/
+[22]: http://techcrunch.com/2011/01/11/why-we-invested-in-groupon-the-power-of-data/
+[23]: http://techcrunch.com/2010/12/07/groupon-everywhere-jiwire/
+[24]: http://www.wired.com/epicenter/2011/04/facebook-deals/
+[25]: http://thenextweb.com/us/2011/06/02/amazon-enters-the-daily-deals-space-with-amazonlocal/
+[26]: http://www.flickr.com/photos/wovox/5554901181/

@@ -26,15 +26,15 @@ Simply put, Twitter is not a dumping ground for pre-vetted paper.[^8] The occasi
 
 *\[Photo: [tranchis][10]\]*
 
- [1]: http://media.www.gwhatchet.com/media/storage/paper332/news/2010/09/07/Opinions/gwtoday.Stop.Damaging.Gws.Reputation-3928003.shtml
- [2]: http://media.www.gwhatchet.com/media/storage/paper332/news/2010/09/13/Opinions/Conor.Rogers.jguiffre.Pls.Refudiate-3930388.shtml
- [3]: http://www.socialmediahighered.com/
- [4]: http://cdn.benbalter.com/wp-content/uploads/2010/09/3708549622_42a7d7e450_o-1024x363.jpg "Megaphone"
- [^5]: Without too much of a history lesson, see, e.g., Abraham Lincoln overseeing the Civil War from the telegraph office ushering in a new era of hands-on presidential leadership; home telephones giving rise to entire industries dedicated to interrupting families' dinners; Blackberrys changing business e-mail etiquette.
- [6]: http://twitter.com/jimmyjohns
- [^7]: Jimmy John's often frat-boy-esq vocabulary may push the limits of informal interactions with stakeholders, but none-the-less serves to promote their brand.
- [^8]: Thank the internet gods that TwitterFeed‘s RSS to Twitter conversion service didn't catch on.
- [9]: http://search.twitter.com/search?q=nom+twitpic
- [10]: http://www.flickr.com/photos/tranchis/3708549622/
- [11]: http://en.wikipedia.org/wiki/Abraham_Lincoln_and_the_Civil_War#Conducting_the_war_effort
- [14]: http://twitterfeed.com/
+[1]: http://media.www.gwhatchet.com/media/storage/paper332/news/2010/09/07/Opinions/gwtoday.Stop.Damaging.Gws.Reputation-3928003.shtml
+[2]: http://media.www.gwhatchet.com/media/storage/paper332/news/2010/09/13/Opinions/Conor.Rogers.jguiffre.Pls.Refudiate-3930388.shtml
+[3]: http://www.socialmediahighered.com/
+[4]: http://cdn.benbalter.com/wp-content/uploads/2010/09/3708549622_42a7d7e450_o-1024x363.jpg "Megaphone"
+[^5]: Without too much of a history lesson, see, e.g., Abraham Lincoln overseeing the Civil War from the telegraph office ushering in a new era of hands-on presidential leadership; home telephones giving rise to entire industries dedicated to interrupting families' dinners; Blackberrys changing business e-mail etiquette.
+[6]: http://twitter.com/jimmyjohns
+[^7]: Jimmy John's often frat-boy-esq vocabulary may push the limits of informal interactions with stakeholders, but none-the-less serves to promote their brand.
+[^8]: Thank the internet gods that TwitterFeed‘s RSS to Twitter conversion service didn't catch on.
+[9]: http://search.twitter.com/search?q=nom+twitpic
+[10]: http://www.flickr.com/photos/tranchis/3708549622/
+[11]: http://en.wikipedia.org/wiki/Abraham_Lincoln_and_the_Civil_War#Conducting_the_war_effort
+[14]: http://twitterfeed.com/

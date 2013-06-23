@@ -42,7 +42,7 @@ Justice Brandeis is famous for noting that "sunlight is the best disinfectant." 
 
 [^1]: The same would apply when you're buying software and the contractor is under the impression no one outside the organization will ever see the code, and more importantly, the code could never negatively impact the public's perception of their overall work-product
 
- [1]: http://ben.balter.com/wp-content/uploads/2012/06/mike-holmes.jpeg
- [2]: "The same would apply when you're buying software and the contractor is under the impression no one outside the organization will ever see the code, and more importantly, the code could never negatively impact the public's perception of their overall work-product"
- [3]: https://twitter.com/BenBalter/status/209356982983999488
- [4]: http://www.coverity.com/library/pdf/coverity-scan-2011-open-source-integrity-report.pdf
+[1]: http://ben.balter.com/wp-content/uploads/2012/06/mike-holmes.jpeg
+[2]: "The same would apply when you're buying software and the contractor is under the impression no one outside the organization will ever see the code, and more importantly, the code could never negatively impact the public's perception of their overall work-product"
+[3]: https://twitter.com/BenBalter/status/209356982983999488
+[4]: http://www.coverity.com/library/pdf/coverity-scan-2011-open-source-integrity-report.pdf

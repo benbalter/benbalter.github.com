@@ -37,16 +37,16 @@ In Bluehost's defense, the suit came at the height of the WIkileaks debacle, a t
 
 While technology may lend voice to otherwise marginalized political groups, it does not come without risk. In a shared hosting environment like Bluehost, "your" website, is not necessarily "your" website. Will we begin to see subpoena response times along the list of benchmarks and features when evaluating hosting companies? Probably not. But if you are planning on leveraging shared servers — be they Bluehost, Twitter, or YouTube — to blog about anything more than say, [DC Summer Interns][13], perhaps you should take a look at your hosting company's legal record before you click submit.
 
- [1]: http://www.flickr.com/photos/timsamoff/391427627/
- [2]: http://en.wikipedia.org/wiki/Web_hosting_service
- [3]: http://en.wikipedia.org/wiki/Bluehost
- [4]: http://www.necn.com/01/05/11/Koch-Industries-sues-over-bogus-website-/landing_scitech.html?&blockID=3&apID=b76a38541f994e489206850f0db50d02
- [5]: http://pubcit.typepad.com/clpblog/2010/07/two-new-cases-on-internet-anonymity.html
- [6]: http://www.sltrib.com/sltrib/money/51780456-79/koch-company-judge-federal.html.csp
- [7]: http://pubcit.typepad.com/files/kochindustries.pdf
- [8]: http://www.scribd.com/doc/45044630/Koch-Industries-on-Climate-Science
- [9]: http://www.nytimes.com/2011/02/14/business/media/14link.html?_r=1
- [10]: http://pubcit.typepad.com/clpblog/2011/05/federal-court-dismisses-koch-brothers-trademark-suit-over-climate-change-prank.html
- [11]: http://www.greenpeace.org/usa/en/campaigns/global-warming-and-energy/polluterwatch/koch-industries/
- [12]: http://ben.balter.com/2011/01/11/twitter-goes-to-bat-for-wikileaks/
- [13]: http://dcinterns.blogspot.com/
+[1]: http://www.flickr.com/photos/timsamoff/391427627/
+[2]: http://en.wikipedia.org/wiki/Web_hosting_service
+[3]: http://en.wikipedia.org/wiki/Bluehost
+[4]: http://www.necn.com/01/05/11/Koch-Industries-sues-over-bogus-website-/landing_scitech.html?&blockID=3&apID=b76a38541f994e489206850f0db50d02
+[5]: http://pubcit.typepad.com/clpblog/2010/07/two-new-cases-on-internet-anonymity.html
+[6]: http://www.sltrib.com/sltrib/money/51780456-79/koch-company-judge-federal.html.csp
+[7]: http://pubcit.typepad.com/files/kochindustries.pdf
+[8]: http://www.scribd.com/doc/45044630/Koch-Industries-on-Climate-Science
+[9]: http://www.nytimes.com/2011/02/14/business/media/14link.html?_r=1
+[10]: http://pubcit.typepad.com/clpblog/2011/05/federal-court-dismisses-koch-brothers-trademark-suit-over-climate-change-prank.html
+[11]: http://www.greenpeace.org/usa/en/campaigns/global-warming-and-energy/polluterwatch/koch-industries/
+[12]: http://ben.balter.com/2011/01/11/twitter-goes-to-bat-for-wikileaks/
+[13]: http://dcinterns.blogspot.com/

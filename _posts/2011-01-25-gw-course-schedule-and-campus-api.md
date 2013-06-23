@@ -167,10 +167,10 @@ Creative ideas on how best to leverage the information welcome in the [comments 
 
 \[Photo: [atomicbartbeans][7]\]
 
- [1]: http://ben.balter.com/wp-content/uploads/2011/01/1430289931_beb7ff6428_b-300x225.jpg "Course Schedule"
- [2]: http://acadtech.gwu.edu/pages/gwmobile
- [3]: http://blog.jerodsanto.net/2009/06/sniff-your-iphones-network-traffic/
- [4]: https://github.com/benbalter/GW-API
- [5]: #comments
- [6]: http://ben.balter.com/contact/
- [7]: http://www.flickr.com/photos/atomicbartbeans/1430289931/
+[1]: http://ben.balter.com/wp-content/uploads/2011/01/1430289931_beb7ff6428_b-300x225.jpg "Course Schedule"
+[2]: http://acadtech.gwu.edu/pages/gwmobile
+[3]: http://blog.jerodsanto.net/2009/06/sniff-your-iphones-network-traffic/
+[4]: https://github.com/benbalter/GW-API
+[5]: #comments
+[6]: http://ben.balter.com/contact/
+[7]: http://www.flickr.com/photos/atomicbartbeans/1430289931/

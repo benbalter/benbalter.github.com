@@ -39,23 +39,23 @@ Notes:
 [^4]: It's worth noting that the word "server" is not mentioned once in the opinion, yet the phrase "storage capacity" is used no less than five times — a concept that [even as early as 2007 was considered a thing of the past][27].
 [^5]: A password may only delay the inevitable. *See* Gershowitz, Adam M., [*Password Protected? Can a Password Save Your Cell Phone from the Search Incident to Arrest Doctrine?*][29] (August 31, 2010).
 
- [1]: http://cdn.benbalter.com/wp-content/uploads/2011/01/policeman.jpg "Policeman Checks Cellphone"
- [2]: http://en.wikipedia.org/wiki/Angry_Birds
- [3]: http://arstechnica.com/tech-policy/news/2011/01/warrantless-cell-phone-search-gets-a-green-light-in-california.ars?comments=1#comments-bar
- [4]: http://www.courtinfo.ca.gov/opinions/documents/S166600.PDF
- [6]: http://cdn.benbalter.com/wp-content/uploads/2011/01/zoolander-300x188.jpg "Zoolander"
- [7]: http://www.youtube.com/watch?v=_m_PncKuDao&feature=related#t=1m16s
- [10]: http://movieclips.com/sgNVB-zoolander-movie-computer-experts/
- [12]: http://en.wikipedia.org/wiki/Faraday_cage
- [13]: http://ben.balter.com/2010/12/20/late-night-infomercials/
- [15]: http://www.flickr.com/photos/thomashawk/61076493/
- [16]: http://papers.ssrn.com/sol3/papers.cfm?abstract_id=697541
- [17]: http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1084503
- [20]: http://itunes.apple.com/us/app/opentable/id296581815?mt=8
- [21]: http://www.zipcar.com/iphone/
- [22]: http://www.engadget.com/2010/11/15/comcast-xfinity-remote-app-for-iphone-ipad-launches-video-stre/
- [23]: http://www.mint.com/features/iphone/
- [24]: http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000291661
- [25]: http://www.mozilla.com/en-US/mobile/home/
- [27]: http://mashable.com/2007/05/14/yahoo-mail-unlimited/
- [29]: http://ssrn.com/abstract=1669403
+[1]: http://cdn.benbalter.com/wp-content/uploads/2011/01/policeman.jpg "Policeman Checks Cellphone"
+[2]: http://en.wikipedia.org/wiki/Angry_Birds
+[3]: http://arstechnica.com/tech-policy/news/2011/01/warrantless-cell-phone-search-gets-a-green-light-in-california.ars?comments=1#comments-bar
+[4]: http://www.courtinfo.ca.gov/opinions/documents/S166600.PDF
+[6]: http://cdn.benbalter.com/wp-content/uploads/2011/01/zoolander-300x188.jpg "Zoolander"
+[7]: http://www.youtube.com/watch?v=_m_PncKuDao&feature=related#t=1m16s
+[10]: http://movieclips.com/sgNVB-zoolander-movie-computer-experts/
+[12]: http://en.wikipedia.org/wiki/Faraday_cage
+[13]: http://ben.balter.com/2010/12/20/late-night-infomercials/
+[15]: http://www.flickr.com/photos/thomashawk/61076493/
+[16]: http://papers.ssrn.com/sol3/papers.cfm?abstract_id=697541
+[17]: http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1084503
+[20]: http://itunes.apple.com/us/app/opentable/id296581815?mt=8
+[21]: http://www.zipcar.com/iphone/
+[22]: http://www.engadget.com/2010/11/15/comcast-xfinity-remote-app-for-iphone-ipad-launches-video-stre/
+[23]: http://www.mint.com/features/iphone/
+[24]: http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000291661
+[25]: http://www.mozilla.com/en-US/mobile/home/
+[27]: http://mashable.com/2007/05/14/yahoo-mail-unlimited/
+[29]: http://ssrn.com/abstract=1669403

@@ -65,24 +65,24 @@ Notes:
 [^5]: *See, e.g.,* Facebook using PHP, Twitter using Hadoop, and Google supporting Android and Chrome.
 [^6]: *See, e.g.,* [bloodletting][32].
 
- [5]: http://opensource.sys-con.com/node/692407
- [6]: http://www.infoworld.com/d/security-central/gartner-seven-cloud-computing-security-risks-853
- [7]: http://searchnetworking.techtarget.com/news/1381193/IT-job-security-fears-over-cloud-computing-Network-jobs-still-vital
- [8]: http://www.lexjansen.com/pharmasug/2000/techtech/tt16.pdf
- [9]: http://en.wikipedia.org/wiki/Betamax
- [10]: http://www.google.com/apps/intl/en/business/messaging_value.html
- [11]: http://googleenterprise.blogspot.com/2009/07/paving-road-to-apps-adoption-in-large.html
- [13]: http://www.amazon.com/Wealth-Networks-Production-Transforms-Markets/dp/0300110561
- [14]: http://www.mindtools.com/pages/article/newPPM_82.htm
- [15]: http://www.amazon.com/Solution-Selling-Creating-Difficult-Markets/dp/0786303158
- [17]: http://sharepoint.microsoft.com/en-us/product/benefits/Pages/default.aspx
- [18]: https://encrypted.google.com/webhp?oei=4HNeTqaVEsb50gGCldE7#sclient=psy&hl=en&newwindow=1&site=webhp&source=hp&q=Why+Wordpress%3F+site%3Awordpress.org&pbx=1&oq=Why+Wordpress%3F+site:wordpress.org&aq=f&aqi=&aql=&gs_sm=e&gs_upl=3748l3748l0l4002l1l1l0l0l0l0l128l128l0.1l1l0&qscrl=1&bav=on.2,or.r_gc.r_pw.&fp=4bf87fb63526ad5b&biw=1123&bih=733
- [19]: http://ben.balter.com/2011/09/01/why-wordpress/
- [20]: http://www.amazon.com/Viral-Loop-Facebook-Businesses-Themselves/dp/1401323499
- [23]: http://www.petitiononline.com/ada4305/petition.html
- [24]: http://www.aolnews.com/2011/02/07/gawker-redesign-does-not-exactly-thrill-the-internet/
- [25]: http://www.businessweek.com/magazine/content/10_40/b4197036693152.htm
- [27]: http://developer.apple.com/
- [28]: http://tools.google.com/dlpage/chromesxs
- [29]: http://wordpress.org/download/svn/
- [32]: http://en.wikipedia.org/wiki/Bloodletting
+[5]: http://opensource.sys-con.com/node/692407
+[6]: http://www.infoworld.com/d/security-central/gartner-seven-cloud-computing-security-risks-853
+[7]: http://searchnetworking.techtarget.com/news/1381193/IT-job-security-fears-over-cloud-computing-Network-jobs-still-vital
+[8]: http://www.lexjansen.com/pharmasug/2000/techtech/tt16.pdf
+[9]: http://en.wikipedia.org/wiki/Betamax
+[10]: http://www.google.com/apps/intl/en/business/messaging_value.html
+[11]: http://googleenterprise.blogspot.com/2009/07/paving-road-to-apps-adoption-in-large.html
+[13]: http://www.amazon.com/Wealth-Networks-Production-Transforms-Markets/dp/0300110561
+[14]: http://www.mindtools.com/pages/article/newPPM_82.htm
+[15]: http://www.amazon.com/Solution-Selling-Creating-Difficult-Markets/dp/0786303158
+[17]: http://sharepoint.microsoft.com/en-us/product/benefits/Pages/default.aspx
+[18]: https://encrypted.google.com/webhp?oei=4HNeTqaVEsb50gGCldE7#sclient=psy&hl=en&newwindow=1&site=webhp&source=hp&q=Why+Wordpress%3F+site%3Awordpress.org&pbx=1&oq=Why+Wordpress%3F+site:wordpress.org&aq=f&aqi=&aql=&gs_sm=e&gs_upl=3748l3748l0l4002l1l1l0l0l0l0l128l128l0.1l1l0&qscrl=1&bav=on.2,or.r_gc.r_pw.&fp=4bf87fb63526ad5b&biw=1123&bih=733
+[19]: http://ben.balter.com/2011/09/01/why-wordpress/
+[20]: http://www.amazon.com/Viral-Loop-Facebook-Businesses-Themselves/dp/1401323499
+[23]: http://www.petitiononline.com/ada4305/petition.html
+[24]: http://www.aolnews.com/2011/02/07/gawker-redesign-does-not-exactly-thrill-the-internet/
+[25]: http://www.businessweek.com/magazine/content/10_40/b4197036693152.htm
+[27]: http://developer.apple.com/
+[28]: http://tools.google.com/dlpage/chromesxs
+[29]: http://wordpress.org/download/svn/
+[32]: http://en.wikipedia.org/wiki/Bloodletting

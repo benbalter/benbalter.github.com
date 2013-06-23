@@ -49,23 +49,23 @@ Any time the nation's [largest][16] anything makes a "[take it or leave it][17]"
 
 \[photo: [gnackgnackgnack][20]\]
 
- [1]: http://ben.balter.com/wp-content/uploads/2010/11/3592493739_6b0b0d3f45_b.jpg
- [2]: http://www.thedailyshow.com/watch/wed-july-12-2006/headlines---internet
- [3]: http://voices.washingtonpost.com/posttech/2010/11/comcast_hit_with_two_net_neutr.html
- [4]: http://blog.netflix.com/2010/11/new-plan-for-watching-instantly-plus.html
- [5]: http://www.wired.com/epicenter/2010/11/comcast-tollbooth/
- [6]: http://www.slate.com/id/2273314/
- [7]: http://www.nytimes.com/2009/09/03/technology/companies/03att.html?_r=1
- [8]: http://www.wired.com/threatlevel/2008/03/isp-quarrel-par/
- [9]: http://twitter.com/#!/ceciliakang/statuses/9730130310078464
- [10]: http://mediadecoder.blogs.nytimes.com/2010/11/29/netflix-partner-says-comcast-toll-threatens-online-video-delivery/
- [11]: http://www.marketwatch.com/story/level-3-communications-issues-statement-concerning-comcasts-actions-2010-11-29?reflink=MW_news_stmp
- [12]: http://io9.com/5610328/how-the-googleverizon-proposal-could-kill-the-internet-in-5-years
- [13]: http://voices.washingtonpost.com/posttech/2010/11/lawmakers_push_fcc_to_vote_on.html
- [14]: http://lifehacker.com/5667680/ditching-cable-for-the-web-how-much-can-you-save-buying-renting-or-streaming-tv
- [15]: http://www.businessinsider.com/comcast-internet-access-2010-11
- [16]: http://www.comcast.com/About/PressRelease/PressReleaseDetail.ashx?PRID=887
- [17]: http://www.comcast.net/articles/finance/20101130/US.Level.3.Comcast/
- [18]: http://en.wikipedia.org/wiki/Peering
- [19]: http://ben.balter.com/fine-print/
- [20]: http://www.flickr.com/photos/gnackgnackgnack/3592493739/
+[1]: http://ben.balter.com/wp-content/uploads/2010/11/3592493739_6b0b0d3f45_b.jpg
+[2]: http://www.thedailyshow.com/watch/wed-july-12-2006/headlines---internet
+[3]: http://voices.washingtonpost.com/posttech/2010/11/comcast_hit_with_two_net_neutr.html
+[4]: http://blog.netflix.com/2010/11/new-plan-for-watching-instantly-plus.html
+[5]: http://www.wired.com/epicenter/2010/11/comcast-tollbooth/
+[6]: http://www.slate.com/id/2273314/
+[7]: http://www.nytimes.com/2009/09/03/technology/companies/03att.html?_r=1
+[8]: http://www.wired.com/threatlevel/2008/03/isp-quarrel-par/
+[9]: http://twitter.com/#!/ceciliakang/statuses/9730130310078464
+[10]: http://mediadecoder.blogs.nytimes.com/2010/11/29/netflix-partner-says-comcast-toll-threatens-online-video-delivery/
+[11]: http://www.marketwatch.com/story/level-3-communications-issues-statement-concerning-comcasts-actions-2010-11-29?reflink=MW_news_stmp
+[12]: http://io9.com/5610328/how-the-googleverizon-proposal-could-kill-the-internet-in-5-years
+[13]: http://voices.washingtonpost.com/posttech/2010/11/lawmakers_push_fcc_to_vote_on.html
+[14]: http://lifehacker.com/5667680/ditching-cable-for-the-web-how-much-can-you-save-buying-renting-or-streaming-tv
+[15]: http://www.businessinsider.com/comcast-internet-access-2010-11
+[16]: http://www.comcast.com/About/PressRelease/PressReleaseDetail.ashx?PRID=887
+[17]: http://www.comcast.net/articles/finance/20101130/US.Level.3.Comcast/
+[18]: http://en.wikipedia.org/wiki/Peering
+[19]: http://ben.balter.com/fine-print/
+[20]: http://www.flickr.com/photos/gnackgnackgnack/3592493739/

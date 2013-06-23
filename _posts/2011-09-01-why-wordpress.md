@@ -63,42 +63,42 @@ WordPress is *[different][1]*. WordPress is about content. WordPress is about si
 *   **Standards Complaint… and then some** - The WordPress team has gone to great lengths to ensure every bit of WordPress generated code is in full compliance with the standards of the [W3C][37]. This is important not only for interoperability with today's browser but also for forward compatibility with the tools of the next generation. Your web site is a beautiful thing, and you should demand nothing less.
 *   **More than a Blog… Much, Much More **- Anyone who says WordPress is a mere blogging platform is covering for the fact that they haven't been following the CMS's explosive growth over the past couple years. Saying WordPress is only a blogging platform is like saying BMW is [only a propeller manufacturer][38]. In fact, the majority of the time, [WordPress isn't even used as a blog][39]. With built in support for custom post types and custom taxonomies, if you can dream it, WordPress can make it a reality.
 
- [1]: http://wordpress.org/about/philosophy/
- [2]: http://techcrunch.com/2011/08/19/wordpress-now-powers-22-percent-of-new-active-websites-in-the-us/
- [3]: http://trends.builtwith.com/cms
- [4]: http://en.wordpress.com/stats/
- [5]: http://codex.wordpress.org/Administration_Screens
- [6]: http://codex.wordpress.org/Writing_Posts
- [7]: http://codex.wordpress.org/Search_Engine_Optimization_for_WordPress
- [8]: http://codex.wordpress.org/WordPress_Feeds
- [9]: http://codex.wordpress.org/Contributing_to_WordPress
- [10]: http://wordpress.org/download/counter/
- [11]: http://wordpress.org/extend/
- [12]: http://en.wikipedia.org/wiki/IBM_Selectric_typewriter
- [13]: http://codex.wordpress.org/Uploading_Files
- [14]: http://codex.wordpress.org/Media_Add_New_Screen
- [15]: http://codex.wordpress.org/Revision_Management#Autosaves
- [16]: http://codex.wordpress.org/Revision_Management
- [17]: http://wordpress.org/extend/mobile/
- [18]: http://codex.wordpress.org/Post_to_your_blog_using_email
- [19]: http://codex.wordpress.org/Using_Themes
- [20]: http://codex.wordpress.org/Using_Permalinks
- [21]: http://codex.wordpress.org/How_WordPress_Processes_Post_Content
- [22]: http://photomatt.net/tools/texturize
- [23]: http://codex.wordpress.org/WordPress_in_Your_Language
- [24]: http://codex.wordpress.org/Appearance_Menus_Screen
- [25]: http://codex.wordpress.org/Appearance_Widgets_Screen
- [26]: http://codex.wordpress.org/Roles_and_Capabilities
- [27]: http://wordpress.com/
- [28]: http://codex.wordpress.org/Hardening_WordPress
- [29]: http://codex.wordpress.org/Updating_WordPress#Automatic_Update
- [30]: http://codex.wordpress.org/Data_Validation
- [31]: http://codex.wordpress.org/Plugin_API
- [32]: http://en.wikipedia.org/wiki/Eating_your_own_dog_food
- [33]: http://codex.wordpress.org/Plugin_API/Action_Reference
- [34]: http://www.xmlrpc.com/
- [35]: http://codex.wordpress.org/Installing_WordPress#Famous_5-Minute_Install
- [36]: http://codex.wordpress.org/Dashboard_Updates_Screen
- [37]: http://w3.org/
- [38]: http://www.logoblog.org/bmw_logo.php
- [39]: http://max.limpag.com/article/wordpress-open-source-cms-2011/
+[1]: http://wordpress.org/about/philosophy/
+[2]: http://techcrunch.com/2011/08/19/wordpress-now-powers-22-percent-of-new-active-websites-in-the-us/
+[3]: http://trends.builtwith.com/cms
+[4]: http://en.wordpress.com/stats/
+[5]: http://codex.wordpress.org/Administration_Screens
+[6]: http://codex.wordpress.org/Writing_Posts
+[7]: http://codex.wordpress.org/Search_Engine_Optimization_for_WordPress
+[8]: http://codex.wordpress.org/WordPress_Feeds
+[9]: http://codex.wordpress.org/Contributing_to_WordPress
+[10]: http://wordpress.org/download/counter/
+[11]: http://wordpress.org/extend/
+[12]: http://en.wikipedia.org/wiki/IBM_Selectric_typewriter
+[13]: http://codex.wordpress.org/Uploading_Files
+[14]: http://codex.wordpress.org/Media_Add_New_Screen
+[15]: http://codex.wordpress.org/Revision_Management#Autosaves
+[16]: http://codex.wordpress.org/Revision_Management
+[17]: http://wordpress.org/extend/mobile/
+[18]: http://codex.wordpress.org/Post_to_your_blog_using_email
+[19]: http://codex.wordpress.org/Using_Themes
+[20]: http://codex.wordpress.org/Using_Permalinks
+[21]: http://codex.wordpress.org/How_WordPress_Processes_Post_Content
+[22]: http://photomatt.net/tools/texturize
+[23]: http://codex.wordpress.org/WordPress_in_Your_Language
+[24]: http://codex.wordpress.org/Appearance_Menus_Screen
+[25]: http://codex.wordpress.org/Appearance_Widgets_Screen
+[26]: http://codex.wordpress.org/Roles_and_Capabilities
+[27]: http://wordpress.com/
+[28]: http://codex.wordpress.org/Hardening_WordPress
+[29]: http://codex.wordpress.org/Updating_WordPress#Automatic_Update
+[30]: http://codex.wordpress.org/Data_Validation
+[31]: http://codex.wordpress.org/Plugin_API
+[32]: http://en.wikipedia.org/wiki/Eating_your_own_dog_food
+[33]: http://codex.wordpress.org/Plugin_API/Action_Reference
+[34]: http://www.xmlrpc.com/
+[35]: http://codex.wordpress.org/Installing_WordPress#Famous_5-Minute_Install
+[36]: http://codex.wordpress.org/Dashboard_Updates_Screen
+[37]: http://w3.org/
+[38]: http://www.logoblog.org/bmw_logo.php
+[39]: http://max.limpag.com/article/wordpress-open-source-cms-2011/

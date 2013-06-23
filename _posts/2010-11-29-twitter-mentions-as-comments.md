@@ -43,11 +43,11 @@ The plugin is available in the [WordPress plugin repository][1], and you can see
 
 **Update (7/8): Comments have been closed in favor of [expanded support and discussion options][6]. Additional documentation about the project can now be found in the [Project Wiki][7]. If you are interested in joining the project at any level of technical expertise, please see [How to Contribute][8].**
 
- [1]: http://wordpress.org/extend/plugins/twitter-mentions-as-comments/
- [2]: #comments
- [3]: http://ben.balter.com/2010/09/12/wordpress-resume-plugin/#comment-168
- [4]: http://ben.balter.com/2010/11/29/twitter-mentions-as-comments/#comment-246
- [5]: http://ben.balter.com/donate/ "Donate"
- [6]: https://github.com/benbalter/Twitter-Mentions-as-Comments/wiki/Where-to-get-Support-or-Report-an-Issue
- [7]: https://github.com/benbalter/Twitter-Mentions-as-Comments/wiki
- [8]: https://github.com/benbalter/Twitter-Mentions-as-Comments/wiki/How-to-Contribute
+[1]: http://wordpress.org/extend/plugins/twitter-mentions-as-comments/
+[2]: #comments
+[3]: http://ben.balter.com/2010/09/12/wordpress-resume-plugin/#comment-168
+[4]: http://ben.balter.com/2010/11/29/twitter-mentions-as-comments/#comment-246
+[5]: http://ben.balter.com/donate/ "Donate"
+[6]: https://github.com/benbalter/Twitter-Mentions-as-Comments/wiki/Where-to-get-Support-or-Report-an-Issue
+[7]: https://github.com/benbalter/Twitter-Mentions-as-Comments/wiki
+[8]: https://github.com/benbalter/Twitter-Mentions-as-Comments/wiki/How-to-Contribute

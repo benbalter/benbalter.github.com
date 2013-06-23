@@ -76,18 +76,18 @@ Thoughts? Would you use this? What else would you like to see it do? [Drop me a 
 
 [^2]: Full disclosure: two plugins, [Revisionary][14] and [Duplicate Post][15] exist, but they don't take the idea nearly as far as the above proposes, nor do they do it in "the WordPress way". I'd hope that even if the idea started as a plugin, it would eventually be incorporated as core functionality.
 
- [1]: http://www.wired.com/wiredenterprise/2012/02/github/all/1
- [2]: https://github.com/WiredEnterprise/Lord-of-the-Files
- [3]: http://www.wired.com/wiredenterprise/2012/02/github-revisited/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+wired%2Findex+%28Wired%3A+Index+3+%28Top+Stories+2%29%29
- [4]: Having recently given this a try — using GitHub to curate a collaboratively edited list of open-source alternatives to proprietary software — I know first-hand how off-putting GitHub can be to non-technical users.
- [5]: Full disclosure: two plugins, Revisionary and Duplicate Post exist, but they don't take the idea nearly as far as the above proposes, nor do they do it in "the WordPress way". I'd hope that even if the idea started as a plugin, it would eventually be incorporated as core functionality.
- [6]: http://editflow.org/
- [7]: http://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/
- [8]: http://ben.balter.com/contact/
- [9]: #comments
- [10]: http://ben.balter.com/tag/gsoc/
- [11]: http://wpdevel.wordpress.com/2012/03/16/no-gsoc-2012/
- [12]: http://ben.balter.com/2012/02/27/open-source-alternatives-to-proprietary-enterprise-software/
- 
- [14]: http://wordpress.org/extend/plugins/revisionary/
- [15]: http://wordpress.org/extend/plugins/duplicate-post/
+[1]: http://www.wired.com/wiredenterprise/2012/02/github/all/1
+[2]: https://github.com/WiredEnterprise/Lord-of-the-Files
+[3]: http://www.wired.com/wiredenterprise/2012/02/github-revisited/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+wired%2Findex+%28Wired%3A+Index+3+%28Top+Stories+2%29%29
+[4]: Having recently given this a try — using GitHub to curate a collaboratively edited list of open-source alternatives to proprietary software — I know first-hand how off-putting GitHub can be to non-technical users.
+[5]: Full disclosure: two plugins, Revisionary and Duplicate Post exist, but they don't take the idea nearly as far as the above proposes, nor do they do it in "the WordPress way". I'd hope that even if the idea started as a plugin, it would eventually be incorporated as core functionality.
+[6]: http://editflow.org/
+[7]: http://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/
+[8]: http://ben.balter.com/contact/
+[9]: #comments
+[10]: http://ben.balter.com/tag/gsoc/
+[11]: http://wpdevel.wordpress.com/2012/03/16/no-gsoc-2012/
+[12]: http://ben.balter.com/2012/02/27/open-source-alternatives-to-proprietary-enterprise-software/
+
+[14]: http://wordpress.org/extend/plugins/revisionary/
+[15]: http://wordpress.org/extend/plugins/duplicate-post/

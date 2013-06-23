@@ -52,17 +52,17 @@ Options are a crutch. It's the natural tendency of any engineer to over engineer
 
 It's no longer a question of "is this possible technologically?". It's no longer a matter of "can you expose me to that information 24/7?". Ever since the advent of [Zombo com][14], the only limit is our imagination. We've figured out the hard stuff. It's not centralization and personalization. It's decentralization and interoperability. Simplicity is the new black.
 
- [1]: http://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things.jpeg
- [2]: http://googleblog.blogspot.com/2012/07/spring-cleaning-in-summer.html
- [3]: http://www.apple.com/iphone/features/retina-display.html
- [4]: http://www.pocket-lint.com/images/dynamic/NEWS-32125-b3a8b509bc5e3a074f7f240f57d71aa9.jpg
- [5]: http://www.informationweek.com/news/software/productivity_apps/240003296
- [6]: http://my.fcc.gov/
- [7]: http://codex.wordpress.org/Dashboard_Screen
- [8]: http://gov.uk
- [9]: http://en.wikipedia.org/wiki/Inverted_pyramid
- [10]: http://jonoscript.wordpress.com/2012/04/26/gmail-designer-arrogance-and-the-cult-of-minimalism/
- [11]: http://www.google.com/?q=dashboard+site:.gov
- [12]: http://wordpress.org/about/philosophy/
- [13]: https://github.com/blog/1091-spring-cleaning
- [14]: http://html5zombo.com/
+[1]: http://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things.jpeg
+[2]: http://googleblog.blogspot.com/2012/07/spring-cleaning-in-summer.html
+[3]: http://www.apple.com/iphone/features/retina-display.html
+[4]: http://www.pocket-lint.com/images/dynamic/NEWS-32125-b3a8b509bc5e3a074f7f240f57d71aa9.jpg
+[5]: http://www.informationweek.com/news/software/productivity_apps/240003296
+[6]: http://my.fcc.gov/
+[7]: http://codex.wordpress.org/Dashboard_Screen
+[8]: http://gov.uk
+[9]: http://en.wikipedia.org/wiki/Inverted_pyramid
+[10]: http://jonoscript.wordpress.com/2012/04/26/gmail-designer-arrogance-and-the-cult-of-minimalism/
+[11]: http://www.google.com/?q=dashboard+site:.gov
+[12]: http://wordpress.org/about/philosophy/
+[13]: https://github.com/blog/1091-spring-cleaning
+[14]: http://html5zombo.com/

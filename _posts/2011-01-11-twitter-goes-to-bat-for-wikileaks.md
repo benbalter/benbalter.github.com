@@ -32,30 +32,30 @@ Notes:
 [^3]: Some might argue that Twitter should be considered heroic simply for stimulating the demand side of an [otherwise anemic legal economy][32].
 [^4]: This may only hold true in the short run. As Columbia Law professor Tim Wu points out in his book *The Master Switch*, AT&T's "[secret rooms][34]" illustrate that the service provider often may be compelled to contribute to the government's information gathering infrastructure in hopes of garnering more favorable regulatory treatment.
 
- [1]: http://cdn.benbalter.com/wp-content/uploads/2011/01/order-300x131.jpg "Court Order"
- [2]: http://www.nytimes.com/2011/01/09/world/09wiki.html?partner=rss&emc=rss
- [3]: http://www.salon.com/news/opinion/glenn_greenwald/2011/01/07/twitter/subpoena.pdf
- [5]: http://techcrunch.com/2011/01/07/twitter-informs-users-of-doj-wikileaks-court-order-didnt-have-to/
- [7]: http://www.mediaaccess.org/2011/01/twitter-does-good-no-kidding/
- [8]: http://www.guardian.co.uk/media/2011/jan/08/wikileaks-calls-google-facebook-us-subpoenas
- [9]: http://www.google.com/intl/en/privacy/privacy-policy.html
- [10]: http://info.yahoo.com/privacy/us/yahoo/details.html
- [12]: http://www.nytimes.com/2011/01/10/business/media/10link.html?ref=wikileaks
- [13]: http://www.wired.com/threatlevel/2011/01/twitter/
- [14]: https://www.eff.org/deeplinks/2010/04/facebook-further-reduces-control-over-personal-information
- [16]: http://www.wired.com/threatlevel/2010/04/emailprivacy-2/
- [17]: http://news.cnet.com/8301-13860_3-20012698-56.html
- [18]: http://docs.google.com/viewer?a=v&q=cache:IYzfdrim0owJ:www.fletc.gov/training/programs/legal-division/downloads-articles-and-faqs/downloads/other/obtaining_electronic.pdf/download+&hl=en&gl=us&pid=bl&srcid=ADGEESgpYeTPUFAijEyb4BnY4_wzFLwSJmRNv8yL2ZD8EkhQTjt7oXv9kELuYHG7A202xJ9_MGwvgVDwjviAEh0zW76gZQAbieBYwR6cnNUyD83txcScrGTU0qDUME590QPAMej6hmSy&sig=AHIEtbTf4jZconLMbkMO_hVK8xQ92bqZNQ
- [19]: http://www.nytimes.com/2011/01/10/technology/10privacy.html?_r=1&hp
- [20]: http://ben.balter.com/2011/01/04/the-files-in-the-computer/
- [21]: http://techcrunch.com/2011/01/10/why-im-having-second-thoughts-about-the-wisdom-of-the-cloud/
- [22]: http://ben.balter.com/2010/10/10/does-every-cloud-have-a-silver-lining/
- [23]: http://blogs.forbes.com/kashmirhill/2011/01/04/google-m-for-murder-internet-search-history-of-killing-methods-helped-convict-husband-of-homicide/
- [24]: http://www.nytimes.com/2011/01/03/us/03prisoners.html
- [26]: http://news.cnet.com/8301-31921_3-20027893-281.html
- [27]: http://www.salon.com/news/opinion/glenn_greenwald/2011/01/07/twitter/index.html
- [28]: http://www.law.cornell.edu/uscode/18/usc_sec_18_00002703----000-.html
- [29]: http://mashable.com/2011/01/08/twitter-subpoenaed-by-u-s-government-for-wikileaks-accounts/
- [30]: http://paranoia.dubfire.net/2011/01/thoughts-on-doj-wikileakstwitter-court.html
- [32]: http://www.nytimes.com/2011/01/09/business/09law.html
- [34]: https://www.eff.org/nsa/hepting
+[1]: http://cdn.benbalter.com/wp-content/uploads/2011/01/order-300x131.jpg "Court Order"
+[2]: http://www.nytimes.com/2011/01/09/world/09wiki.html?partner=rss&emc=rss
+[3]: http://www.salon.com/news/opinion/glenn_greenwald/2011/01/07/twitter/subpoena.pdf
+[5]: http://techcrunch.com/2011/01/07/twitter-informs-users-of-doj-wikileaks-court-order-didnt-have-to/
+[7]: http://www.mediaaccess.org/2011/01/twitter-does-good-no-kidding/
+[8]: http://www.guardian.co.uk/media/2011/jan/08/wikileaks-calls-google-facebook-us-subpoenas
+[9]: http://www.google.com/intl/en/privacy/privacy-policy.html
+[10]: http://info.yahoo.com/privacy/us/yahoo/details.html
+[12]: http://www.nytimes.com/2011/01/10/business/media/10link.html?ref=wikileaks
+[13]: http://www.wired.com/threatlevel/2011/01/twitter/
+[14]: https://www.eff.org/deeplinks/2010/04/facebook-further-reduces-control-over-personal-information
+[16]: http://www.wired.com/threatlevel/2010/04/emailprivacy-2/
+[17]: http://news.cnet.com/8301-13860_3-20012698-56.html
+[18]: http://docs.google.com/viewer?a=v&q=cache:IYzfdrim0owJ:www.fletc.gov/training/programs/legal-division/downloads-articles-and-faqs/downloads/other/obtaining_electronic.pdf/download+&hl=en&gl=us&pid=bl&srcid=ADGEESgpYeTPUFAijEyb4BnY4_wzFLwSJmRNv8yL2ZD8EkhQTjt7oXv9kELuYHG7A202xJ9_MGwvgVDwjviAEh0zW76gZQAbieBYwR6cnNUyD83txcScrGTU0qDUME590QPAMej6hmSy&sig=AHIEtbTf4jZconLMbkMO_hVK8xQ92bqZNQ
+[19]: http://www.nytimes.com/2011/01/10/technology/10privacy.html?_r=1&hp
+[20]: http://ben.balter.com/2011/01/04/the-files-in-the-computer/
+[21]: http://techcrunch.com/2011/01/10/why-im-having-second-thoughts-about-the-wisdom-of-the-cloud/
+[22]: http://ben.balter.com/2010/10/10/does-every-cloud-have-a-silver-lining/
+[23]: http://blogs.forbes.com/kashmirhill/2011/01/04/google-m-for-murder-internet-search-history-of-killing-methods-helped-convict-husband-of-homicide/
+[24]: http://www.nytimes.com/2011/01/03/us/03prisoners.html
+[26]: http://news.cnet.com/8301-31921_3-20027893-281.html
+[27]: http://www.salon.com/news/opinion/glenn_greenwald/2011/01/07/twitter/index.html
+[28]: http://www.law.cornell.edu/uscode/18/usc_sec_18_00002703----000-.html
+[29]: http://mashable.com/2011/01/08/twitter-subpoenaed-by-u-s-government-for-wikileaks-accounts/
+[30]: http://paranoia.dubfire.net/2011/01/thoughts-on-doj-wikileakstwitter-court.html
+[32]: http://www.nytimes.com/2011/01/09/business/09law.html
+[34]: https://www.eff.org/nsa/hepting

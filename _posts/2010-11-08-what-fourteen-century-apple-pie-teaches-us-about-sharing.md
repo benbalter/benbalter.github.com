@@ -57,51 +57,51 @@ The story, illustrating the true mob-power of the Internet, might be even more i
 [^10]: *Id.*
 [^11]: *Id.*
 
- [1]: "See generally TechCrunch: If it's on the Internet, It Must Be True."
- [2]: http://www.huffingtonpost.com/jay-rosen/the-uncharted-from-off-th_b_96575.html
- [3]: http://cdn.benbalter.com/wp-content/uploads/2010/11/244921874_44ec1cbfa9-292x300.jpg "Apple Pie Courtesy belochkavita"
- [4]: http://illadore.livejournal.com/30674.html
- [5]: http://cookssource.com
- [6]: http://godecookery.com/twotarts/twotarts.html
- [7]: http://www.edrants.com/the-cooks-source-scandal-how-a-magazine-profits-on-theft/
- [11]: http://gawker.com/5681770/magazine-editor-steals-article-tells-writer-you-should-compensate-me?skyline=true&s=i
- [12]: http://gizmodo.com/5681714/attention-the-web-is-not-public-domain
- [13]: http://newsfeed.time.com/2010/11/05/exclusive-cooks-source-writer-marvels-at-the-nerd-rage-keeps-waiting-for-that-apology/
- [14]: http://articles.cnn.com/2010-11-05/tech/cooks.source.plagiarism_1_internet-twitter-web?_s=PM:TECH
- [15]: http://mediadecoder.blogs.nytimes.com/2010/11/04/a-social-media-firestorm-about-apple-pies/
- [16]: http://voices.washingtonpost.com/blog-post/2010/11/cooks_source_magazine_an_onlin.html
- [17]: http://www.wired.com/threatlevel/2010/11/web-decries-infringement/
- [18]: http://mashable.com/2010/11/06/cooks-source/
- [19]: http://technolog.msnbc.msn.com/_news/2010/11/05/5416008-exclusive-cooks-source-kicks-hornets-nest-wronged-writer-responds
- [20]: http://www.facebook.com/topic.php?uid=196994196748&topic=23238
- [21]: https://spreadsheets.google.com/ccc?key=0AmTaIPHPnkSedGFhbHo1d1FIR2oxNWJLaDZLeXhEVEE&hl=en#gid=0
- [22]: http://www.foodnetwork.com/recipes/chicken-chopped-mediterranean-salad-with-feta-vinaigrette-recipe/index.html
- [23]: http://www.foodnetwork.com/recipes/blackberry-lemonade-recipe/index.html
- [24]: http://www.foodnetwork.com/recipes/giada-de-laurentiis/mixed-berry-soup-with-gelato-recipe/index.html
- [25]: http://www.foodnetwork.com/recipes/tyler-florence/fresh-mozzarella-blt-with-pesto-recipe/index.html
- [26]: http://www.foodnetwork.com/recipes/alton-brown/best-burger-ever-recipe/index.html
- [27]: http://www.foodnetwork.com/recipes/napa-valley-basil-smoked-burgers-recipe/index.html
- [28]: http://www.foodnetwork.com/recipes/food-network-challenge/feta-sun-dried-tomato-stuffed-prosciutto-burgers-recipe/index.html
- [30]: http://en.wikipedia.org/wiki/Command_key
- [31]: http://en.wikipedia.org/wiki/Meme
- [32]: http://twitter.com/search?q=%23ButHonestlyMonica
- [33]: http://www.facebook.com/pages/Cooks-Source-Magazine/196994196748
- [34]: http://www.youtube.com/watch?v=YC-tVHLM99w
- [36]: http://www.copyright.gov/fls/fl122.html
- [37]: http://www.psychologytoday.com/blog/you-20/201011/are-cooks-source-magazine-and-judith-griggs-innocent
- [38]: http://www.masslive.com/news/index.ssf/2010/11/sunderland-based_magazine_cook.html
- [39]: http://www.google.com/search?q=Judith+Griggs+Cooks+Source
- [42]: http://ben.balter.com/contact/
- [43]: http://online.wsj.com/article/SB10001424052748704866204575224350917718446.html
- [44]: http://www.washingtonpost.com/wp-dyn/content/article/2010/10/30/AR2010103004638.html?nav=hcmoduletmv
- [45]: http://www.nytimes.com/2009/08/26/business/26lawyers.html?_r=1
- [46]: http://www.cookssource.com/
- [47]: http://www.facebook.com/photo.php?fbid=159332990768717&set=a.159072834128066.23501.159072764128073
- [49]: http://www.facebook.com/album.php?aid=23582&id=159072764128073
- [52]: http://www.facebook.com/photo.php?fbid=159300057438677&set=a.159072834128066.23501.159072764128073&pid=241073&id=159072764128073
- [53]: http://www.flickr.com/photos/belochkavita/244921874/
- [54]: http://techcrunch.com/2010/08/14/internet-must-be-true/
- [58]: http://www.copyright.gov/circs/circ1.pdf
- [59]: http://en.wikipedia.org/wiki/Berne_Convention_for_the_Protection_of_Literary_and_Artistic_Works
- [62]: http://en.wikipedia.org/wiki/Godwin's_law
- [64]: http://www.youtube.com/watch?v=3hQC3nkftrk
+[1]: "See generally TechCrunch: If it's on the Internet, It Must Be True."
+[2]: http://www.huffingtonpost.com/jay-rosen/the-uncharted-from-off-th_b_96575.html
+[3]: http://cdn.benbalter.com/wp-content/uploads/2010/11/244921874_44ec1cbfa9-292x300.jpg "Apple Pie Courtesy belochkavita"
+[4]: http://illadore.livejournal.com/30674.html
+[5]: http://cookssource.com
+[6]: http://godecookery.com/twotarts/twotarts.html
+[7]: http://www.edrants.com/the-cooks-source-scandal-how-a-magazine-profits-on-theft/
+[11]: http://gawker.com/5681770/magazine-editor-steals-article-tells-writer-you-should-compensate-me?skyline=true&s=i
+[12]: http://gizmodo.com/5681714/attention-the-web-is-not-public-domain
+[13]: http://newsfeed.time.com/2010/11/05/exclusive-cooks-source-writer-marvels-at-the-nerd-rage-keeps-waiting-for-that-apology/
+[14]: http://articles.cnn.com/2010-11-05/tech/cooks.source.plagiarism_1_internet-twitter-web?_s=PM:TECH
+[15]: http://mediadecoder.blogs.nytimes.com/2010/11/04/a-social-media-firestorm-about-apple-pies/
+[16]: http://voices.washingtonpost.com/blog-post/2010/11/cooks_source_magazine_an_onlin.html
+[17]: http://www.wired.com/threatlevel/2010/11/web-decries-infringement/
+[18]: http://mashable.com/2010/11/06/cooks-source/
+[19]: http://technolog.msnbc.msn.com/_news/2010/11/05/5416008-exclusive-cooks-source-kicks-hornets-nest-wronged-writer-responds
+[20]: http://www.facebook.com/topic.php?uid=196994196748&topic=23238
+[21]: https://spreadsheets.google.com/ccc?key=0AmTaIPHPnkSedGFhbHo1d1FIR2oxNWJLaDZLeXhEVEE&hl=en#gid=0
+[22]: http://www.foodnetwork.com/recipes/chicken-chopped-mediterranean-salad-with-feta-vinaigrette-recipe/index.html
+[23]: http://www.foodnetwork.com/recipes/blackberry-lemonade-recipe/index.html
+[24]: http://www.foodnetwork.com/recipes/giada-de-laurentiis/mixed-berry-soup-with-gelato-recipe/index.html
+[25]: http://www.foodnetwork.com/recipes/tyler-florence/fresh-mozzarella-blt-with-pesto-recipe/index.html
+[26]: http://www.foodnetwork.com/recipes/alton-brown/best-burger-ever-recipe/index.html
+[27]: http://www.foodnetwork.com/recipes/napa-valley-basil-smoked-burgers-recipe/index.html
+[28]: http://www.foodnetwork.com/recipes/food-network-challenge/feta-sun-dried-tomato-stuffed-prosciutto-burgers-recipe/index.html
+[30]: http://en.wikipedia.org/wiki/Command_key
+[31]: http://en.wikipedia.org/wiki/Meme
+[32]: http://twitter.com/search?q=%23ButHonestlyMonica
+[33]: http://www.facebook.com/pages/Cooks-Source-Magazine/196994196748
+[34]: http://www.youtube.com/watch?v=YC-tVHLM99w
+[36]: http://www.copyright.gov/fls/fl122.html
+[37]: http://www.psychologytoday.com/blog/you-20/201011/are-cooks-source-magazine-and-judith-griggs-innocent
+[38]: http://www.masslive.com/news/index.ssf/2010/11/sunderland-based_magazine_cook.html
+[39]: http://www.google.com/search?q=Judith+Griggs+Cooks+Source
+[42]: http://ben.balter.com/contact/
+[43]: http://online.wsj.com/article/SB10001424052748704866204575224350917718446.html
+[44]: http://www.washingtonpost.com/wp-dyn/content/article/2010/10/30/AR2010103004638.html?nav=hcmoduletmv
+[45]: http://www.nytimes.com/2009/08/26/business/26lawyers.html?_r=1
+[46]: http://www.cookssource.com/
+[47]: http://www.facebook.com/photo.php?fbid=159332990768717&set=a.159072834128066.23501.159072764128073
+[49]: http://www.facebook.com/album.php?aid=23582&id=159072764128073
+[52]: http://www.facebook.com/photo.php?fbid=159300057438677&set=a.159072834128066.23501.159072764128073&pid=241073&id=159072764128073
+[53]: http://www.flickr.com/photos/belochkavita/244921874/
+[54]: http://techcrunch.com/2010/08/14/internet-must-be-true/
+[58]: http://www.copyright.gov/circs/circ1.pdf
+[59]: http://en.wikipedia.org/wiki/Berne_Convention_for_the_Protection_of_Literary_and_Artistic_Works
+[62]: http://en.wikipedia.org/wiki/Godwin's_law
+[64]: http://www.youtube.com/watch?v=3hQC3nkftrk

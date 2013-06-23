@@ -67,13 +67,13 @@ Thoughts? Improvements? The above code solved a rather stubborn workflow problem
 [^1]: Licensed under [GPLv2][10]
 [^2]: You can even [Fork the plugin over on Github][8]
 
- [1]: http://andrewnacin.com
- [2]: http://andrewnacin.com/2010/07/24/simple-footnotes-0-3/
- [3]: http://codex.wordpress.org/Plugin_API/Filter_Reference
- [4]: #note-2020-1 "' . str_replace( array("\r\n", "\r", "\n"), "", $footnote[4]) . '"
- [5]: https://github.com/benbalter/Convert-Microsoft-Word-Footnotes-to-WordPress-Simple-Footnotes
- [6]: http://www.bloggingteacher.com/writing-posts-with-the-wordpress-visual-editor-the-kitchen-sink
- [7]: #note-2020-2 "Licensed under GPLv2"
- [8]: http://ben.balter.com/2011/03/20/regular-expression-to-parse-word-style-footnotes/
- 
- [10]: http://wordpress.org/about/gpl/
+[1]: http://andrewnacin.com
+[2]: http://andrewnacin.com/2010/07/24/simple-footnotes-0-3/
+[3]: http://codex.wordpress.org/Plugin_API/Filter_Reference
+[4]: #note-2020-1 "' . str_replace( array("\r\n", "\r", "\n"), "", $footnote[4]) . '"
+[5]: https://github.com/benbalter/Convert-Microsoft-Word-Footnotes-to-WordPress-Simple-Footnotes
+[6]: http://www.bloggingteacher.com/writing-posts-with-the-wordpress-visual-editor-the-kitchen-sink
+[7]: #note-2020-2 "Licensed under GPLv2"
+[8]: http://ben.balter.com/2011/03/20/regular-expression-to-parse-word-style-footnotes/
+
+[10]: http://wordpress.org/about/gpl/

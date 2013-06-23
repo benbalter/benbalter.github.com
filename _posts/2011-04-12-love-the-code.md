@@ -64,21 +64,21 @@ I am gave a brief [lightning talk at April's WordPress DC Meetup][1] on the basi
 
 *Thanks to all who came out or tuned into the live stream. Comments? Questions? I'd love to hear your thoughts [below][17] or feel free to [contact me][18].*
 
- [1]: http://www.meetup.com/wordpressdc/events/16887732/
- [2]: #deck
- [3]: #recording
- [4]: http://ben.balter.com/wp-content/uploads/2011/04/infographic-300x138.png "infographic"
- [5]: http://code.google.com/edu/submissions/html-css-javascript/
- [6]: http://htmldog.com
- [7]: http://www.w3.org/wiki/HTML/Training
- [8]: http://www.w3.org/wiki/HTML/Elements
- [9]: http://notepad-plus-plus.org/
- [10]: http://www.barebones.com/products/textwrangler/
- [11]: http://www.panic.com/coda/
- [12]: http://winscp.net/eng/index.php
- [13]: http://cyberduck.ch/
- [14]: http://codex.wordpress.org/Editing_wp-config.php#Debug
- [15]: http://wordpress.org/extend/plugins/debug-bar/
- [16]: http://codex.wordpress.org/
- [17]: #comments
- [18]: http://ben.balter.com/contact/
+[1]: http://www.meetup.com/wordpressdc/events/16887732/
+[2]: #deck
+[3]: #recording
+[4]: http://ben.balter.com/wp-content/uploads/2011/04/infographic-300x138.png "infographic"
+[5]: http://code.google.com/edu/submissions/html-css-javascript/
+[6]: http://htmldog.com
+[7]: http://www.w3.org/wiki/HTML/Training
+[8]: http://www.w3.org/wiki/HTML/Elements
+[9]: http://notepad-plus-plus.org/
+[10]: http://www.barebones.com/products/textwrangler/
+[11]: http://www.panic.com/coda/
+[12]: http://winscp.net/eng/index.php
+[13]: http://cyberduck.ch/
+[14]: http://codex.wordpress.org/Editing_wp-config.php#Debug
+[15]: http://wordpress.org/extend/plugins/debug-bar/
+[16]: http://codex.wordpress.org/
+[17]: #comments
+[18]: http://ben.balter.com/contact/

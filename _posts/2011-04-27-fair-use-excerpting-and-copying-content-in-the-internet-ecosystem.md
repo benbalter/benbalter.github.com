@@ -68,28 +68,28 @@ The law aside, readers want you to digest and put ideas in your own voice. Take 
 [^9]: Harper Row, Publishers, Inc. v. Nation Enters., 471 U.S. 539, 565 (1985) 
 [^10]: Sony Corporation of America v. Universal City Studios, Inc., 464 U.S. 417, 433 (1984). 
 
- [1]: http://ben.balter.com/wp-content/uploads/2011/04/2146845610_ebd95e5f4e_b-300x200.jpg "Copier"
- [2]: http://www.washingtonpost.com/wp-dyn/content/article/2009/07/31/AR2009073102476.html
- [3]: http://www.niemanlab.org/2009/08/gawker-and-the-washington-post-a-case-study-in-fair-use/
- [4]: http://ilt.eff.org/index.php/Copyright:_Fair_Use
- [5]: #note-2020-1 "Questions asked included: If there's no copyright symbol, is it still copyrighted?; If it's posted online, can I just copy it because its it's in the public domain?; Can I use it if I'm not selling it?; and It's okay to use if I credit the original author, right?."
- [6]: http://www.hulu.com/watch/13576/hot-fuzz-chase
- [7]: http://redvsblue.com/archive/episode.php?id=89
- [8]: http://www.llrx.com/features/bloggersbeware.htm
- [9]: #note-2020-2 "It should be noted that I'm not an attorney and my writing should not be substituted for qualified legal advice."
- [10]: http://www.law.duke.edu/cspd/comics/zoomcomic.html
- [11]: #note-2020-3 "This is a common misconception. While once true, under the Berne Convention the author of any content published today is assumed to retain copyright claims."
- [12]: http://www.unc.edu/~unclng/public-d.htm
- [13]: #note-2020-4 "Codified into law as 17 U.S.C. § 107."
- [14]: http://en.wikipedia.org/wiki/Balancing_test
- [15]: #note-2020-5 "Campbell v. Acuff-Rose Music, Inc., 510 U.S. 569, 577-78 (1994)."
- [16]: #note-2020-6 "Harper Row v. Nation Enters., 471 U.S. 539, 562 (1985)"
- [17]: #note-2020-7 "Campbell, 510 U.S. at 578-79."
- [18]: #note-2020-8 "Id. at 580-81"
- [19]: #note-2020-9 "Harper Row, Publishers, Inc. v. Nation Enters., 471 U.S. 539, 565 (1985)"
- [20]: #note-2020-10 "Sony Corporation of America v. Universal City Studios, Inc., 464 U.S. 417, 433 (1984)."
- [21]: http://www.flickr.com/photos/talllguy/2146845610/
- [23]: http://ben.balter.com/fine-print/
- [25]: http://en.wikipedia.org/wiki/Berne_Convention_for_the_Protection_of_Literary_and_Artistic_Works
- [27]: http://www.law.cornell.edu/uscode/17/107.html
- [29]: http://caselaw.lp.findlaw.com/scripts/getcase.pl?court=usvol=510`invol=569
+[1]: http://ben.balter.com/wp-content/uploads/2011/04/2146845610_ebd95e5f4e_b-300x200.jpg "Copier"
+[2]: http://www.washingtonpost.com/wp-dyn/content/article/2009/07/31/AR2009073102476.html
+[3]: http://www.niemanlab.org/2009/08/gawker-and-the-washington-post-a-case-study-in-fair-use/
+[4]: http://ilt.eff.org/index.php/Copyright:_Fair_Use
+[5]: #note-2020-1 "Questions asked included: If there's no copyright symbol, is it still copyrighted?; If it's posted online, can I just copy it because its it's in the public domain?; Can I use it if I'm not selling it?; and It's okay to use if I credit the original author, right?."
+[6]: http://www.hulu.com/watch/13576/hot-fuzz-chase
+[7]: http://redvsblue.com/archive/episode.php?id=89
+[8]: http://www.llrx.com/features/bloggersbeware.htm
+[9]: #note-2020-2 "It should be noted that I'm not an attorney and my writing should not be substituted for qualified legal advice."
+[10]: http://www.law.duke.edu/cspd/comics/zoomcomic.html
+[11]: #note-2020-3 "This is a common misconception. While once true, under the Berne Convention the author of any content published today is assumed to retain copyright claims."
+[12]: http://www.unc.edu/~unclng/public-d.htm
+[13]: #note-2020-4 "Codified into law as 17 U.S.C. § 107."
+[14]: http://en.wikipedia.org/wiki/Balancing_test
+[15]: #note-2020-5 "Campbell v. Acuff-Rose Music, Inc., 510 U.S. 569, 577-78 (1994)."
+[16]: #note-2020-6 "Harper Row v. Nation Enters., 471 U.S. 539, 562 (1985)"
+[17]: #note-2020-7 "Campbell, 510 U.S. at 578-79."
+[18]: #note-2020-8 "Id. at 580-81"
+[19]: #note-2020-9 "Harper Row, Publishers, Inc. v. Nation Enters., 471 U.S. 539, 565 (1985)"
+[20]: #note-2020-10 "Sony Corporation of America v. Universal City Studios, Inc., 464 U.S. 417, 433 (1984)."
+[21]: http://www.flickr.com/photos/talllguy/2146845610/
+[23]: http://ben.balter.com/fine-print/
+[25]: http://en.wikipedia.org/wiki/Berne_Convention_for_the_Protection_of_Literary_and_Artistic_Works
+[27]: http://www.law.cornell.edu/uscode/17/107.html
+[29]: http://caselaw.lp.findlaw.com/scripts/getcase.pl?court=usvol=510`invol=569

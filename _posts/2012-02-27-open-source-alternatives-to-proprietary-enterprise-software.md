@@ -32,12 +32,12 @@ Please [browse the list][7], and if you find any additions, corrections, or impr
 
 Live Site: **[Open-Source Alternatives to Proprietary Enterprise Software][7]**
 
- [1]: http://ben.balter.com/wp-content/uploads/2012/02/open-source-alternatives-screenshot1.png
- [2]: http://ben.balter.com/2011/08/31/enterprise-open-source-and-why-better-is-not-enough/
- [3]: https://update.cabinetoffice.gov.uk/sites/default/files/resources/Open-Source-Option-v1.pdf
- [4]: https://update.cabinetoffice.gov.uk/resource-library/open-source-procurement-toolkit
- [5]: http://twitter.github.com/bootstrap/
- [6]: https://github.com/mojombo/jekyll
- [7]: http://benbalter.github.com/open-source-alternatives/
- [8]: https://github.com/benbalter/open-source-alternatives
- [9]: http://help.github.com/send-pull-requests/
+[1]: http://ben.balter.com/wp-content/uploads/2012/02/open-source-alternatives-screenshot1.png
+[2]: http://ben.balter.com/2011/08/31/enterprise-open-source-and-why-better-is-not-enough/
+[3]: https://update.cabinetoffice.gov.uk/sites/default/files/resources/Open-Source-Option-v1.pdf
+[4]: https://update.cabinetoffice.gov.uk/resource-library/open-source-procurement-toolkit
+[5]: http://twitter.github.com/bootstrap/
+[6]: https://github.com/mojombo/jekyll
+[7]: http://benbalter.github.com/open-source-alternatives/
+[8]: https://github.com/benbalter/open-source-alternatives
+[9]: http://help.github.com/send-pull-requests/

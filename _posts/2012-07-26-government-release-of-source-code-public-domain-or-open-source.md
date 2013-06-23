@@ -53,10 +53,10 @@ Put simply, it's about what role we are going to play, not what rights we are go
 [^7]: Often the last and least seen step in the enterprise development process.
 [^8]: There's been [exactly one pull request to date][22] across all government github repos.
 
- [1]: https://petitions.whitehouse.gov/
- [2]: https://petitions.whitehouse.gov/petition/maximize-public-benefit-federal-technology-sharing-government-developed-software-under-open-source/6n5ZBBwf?utm_source=wh.gov&utm_medium=shorturl&utm_campaign=shorturl
- [3]: http://www.techdirt.com/articles/20120723/12181319800/should-software-created-federal-govt-be-open-source-licensed-public-domain.shtml
- [9]: https://twitter.com/anildash/statuses/227476701599391744
- [13]: http://ben.balter.com/fine-print/
- [17]: https://github.com/languages/ColdFusion
- [22]: http://ben.balter.com/2012/04/15/cfpb-accepts-first-citizen-submitted-pull-request-on-behalf-of-federal-government/
+[1]: https://petitions.whitehouse.gov/
+[2]: https://petitions.whitehouse.gov/petition/maximize-public-benefit-federal-technology-sharing-government-developed-software-under-open-source/6n5ZBBwf?utm_source=wh.gov&utm_medium=shorturl&utm_campaign=shorturl
+[3]: http://www.techdirt.com/articles/20120723/12181319800/should-software-created-federal-govt-be-open-source-licensed-public-domain.shtml
+[9]: https://twitter.com/anildash/statuses/227476701599391744
+[13]: http://ben.balter.com/fine-print/
+[17]: https://github.com/languages/ColdFusion
+[22]: http://ben.balter.com/2012/04/15/cfpb-accepts-first-citizen-submitted-pull-request-on-behalf-of-federal-government/

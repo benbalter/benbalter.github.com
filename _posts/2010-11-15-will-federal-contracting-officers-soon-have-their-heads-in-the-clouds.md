@@ -99,5 +99,5 @@ Whether a federal contracting officer or a provider of IT services, just as the 
 [^23]: 5 U.S.C.A. § 552a (West). 
 [^24]: Google Apps for Government, Official Google Enterprise Blog, July 26, 2010, http://googleenterprise.blogspot.com/2010/07/google-apps-for-government.html. 
 
- [25]: http://www.fedbar.org/Sections/Government-Contracts-Section/Newsletters.aspx
- [26]: http://www.fedbar.org/Sections/Government-Contracts-Section/Newsletters/Fall-2010.aspx?FT=.pdf
+[25]: http://www.fedbar.org/Sections/Government-Contracts-Section/Newsletters.aspx
+[26]: http://www.fedbar.org/Sections/Government-Contracts-Section/Newsletters/Fall-2010.aspx?FT=.pdf

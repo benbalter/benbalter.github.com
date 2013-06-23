@@ -61,19 +61,19 @@ Notes:
 [^14]: *Id.* 
 [^15]: *E.g.,* Google's decision to enter China, and subsequently censor search results, was primarily based on the premise that it was the lesser of two evils. Google CEO Eric Schmidt commented, "although we weren't wild about the restrictions, it was even worse to not try to serve those users at all," elaborating, "we actually did an evil scale and decided not to serve at all was worse evil." Shyu, *Supra* note 8 at 213 (citing Danny Sullivan, *[Google Created EvilRank Scale To Decide On Chinese Censorship][44]*, Search Engine Watch, January 30, 2006. Accordingly, Google launched Google.cn under the belief that the "benefits of increased access to information for people in China… outweighed \[the\] discomfort… \[of\] agreeing to censor some results," ([*A New Approach to China*][45], Official Google Blog, January 12, 2010) calling their service a "a meaningful – though imperfect – contribution to the overall expansion of… information in China." Press Release, Google, Inc., [*Google to Open Research Center in China*][46] (July 19, 2005).
 
- [2]: http://googlepublicpolicy.blogspot.com/2010/11/promoting-free-trade-for-internet.html
- [3]: http://www.google.com/googleblogs/pdfs/trade_free_flow_of_information.pdf
- [4]: http://cdn.benbalter.com/wp-content/uploads/2010/11/1194563275_664d6b15e2_b.jpg "Great Wall of China"
- [20]: http://www.flickr.com/photos/stuckincustoms/1194563275/
- [21]: http://www.flickr.com/photos/winterkanal/4273568581/
- [24]: http://www.internetworldstats.com/stats7.htm
- [25]: http://www.itu.int/ITU-D/ict/material/Telecom09_flyer.pdf
- [27]: http://ecipe.org/publications/ecipe-working-papers/protectionism-online-internet-censorship-and-international-trade-law
- [29]: http://www.census.gov/mrts/www/data/html/09Q1table3.html
- [31]: http://www.itu.int/osg/spu/publications/digitalife/docs/digital-life-web.pdf
- [34]: http://www.ichrdd.ca/english/commdoc/publications/globalization/goldenShieldEng.html
- [38]: http://Googleblog.blogspot.com/2006/01/Google-in-china.html
- [40]: http://cnnic.cn/download/2006/18threport-en.pdf
- [44]: http://blog.searchenginewatch.com/blog/060130-154414
- [45]: http://Googleblog.blogspot.com/2010/01/new-approach-to-china.html
- [46]: http://www.Google.com/press/pressrel/rd_china.html
+[2]: http://googlepublicpolicy.blogspot.com/2010/11/promoting-free-trade-for-internet.html
+[3]: http://www.google.com/googleblogs/pdfs/trade_free_flow_of_information.pdf
+[4]: http://cdn.benbalter.com/wp-content/uploads/2010/11/1194563275_664d6b15e2_b.jpg "Great Wall of China"
+[20]: http://www.flickr.com/photos/stuckincustoms/1194563275/
+[21]: http://www.flickr.com/photos/winterkanal/4273568581/
+[24]: http://www.internetworldstats.com/stats7.htm
+[25]: http://www.itu.int/ITU-D/ict/material/Telecom09_flyer.pdf
+[27]: http://ecipe.org/publications/ecipe-working-papers/protectionism-online-internet-censorship-and-international-trade-law
+[29]: http://www.census.gov/mrts/www/data/html/09Q1table3.html
+[31]: http://www.itu.int/osg/spu/publications/digitalife/docs/digital-life-web.pdf
+[34]: http://www.ichrdd.ca/english/commdoc/publications/globalization/goldenShieldEng.html
+[38]: http://Googleblog.blogspot.com/2006/01/Google-in-china.html
+[40]: http://cnnic.cn/download/2006/18threport-en.pdf
+[44]: http://blog.searchenginewatch.com/blog/060130-154414
+[45]: http://Googleblog.blogspot.com/2010/01/new-approach-to-china.html
+[46]: http://www.Google.com/press/pressrel/rd_china.html

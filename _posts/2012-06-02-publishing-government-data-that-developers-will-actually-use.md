@@ -71,6 +71,6 @@ Exposing data as a service is quickly becoming an industry-standard practice. Ma
 
 *This is an excerpt of an article originally published in the June 2012 issue of [Government CIO Magazine][2].* **[Continue Reading →][3]**
 
- [1]: http://ben.balter.com/wp-content/uploads/2012/06/government-cio-magazine-june-2012.png
- [2]: http://www.governmentciomagazine.com
- [3]: http://www.governmentciomagazine.com/2012/06/ten-steps-publishing-government-data-developers-will-actually-use#blog-content
+[1]: http://ben.balter.com/wp-content/uploads/2012/06/government-cio-magazine-june-2012.png
+[2]: http://www.governmentciomagazine.com
+[3]: http://www.governmentciomagazine.com/2012/06/ten-steps-publishing-government-data-developers-will-actually-use#blog-content

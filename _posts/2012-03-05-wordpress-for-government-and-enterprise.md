@@ -129,37 +129,37 @@ Whether WordPress is your primary source of income, a hobby, or just the thing t
 [^2]: Jen Lampton, "Why WordPress is Better than Drupal, Developers Take Note" (July, 2010)
 [^3]: **Update (3/8):** The features page is part of a community edited Wiki (the WordPress Codex) and since originally posted, I've gone through and reworked much of the blog-specific language. [View the original][34].
 
- [1]: http://ben.balter.com/wp-content/uploads/2012/03/wordpress-in-government-ben-balter.png
- [2]: http://techcrunch.com/2011/08/19/wordpress-now-powers-22-percent-of-new-active-websites-in-the-us/
- [3]: http://trends.builtwith.com/cms
- [4]: http://dotgov.benbalter.com
- [5]: http://groups.drupal.org/node/19885
- [6]: #note-2020-1 "Update (3/7): As many have pointed out, a lot of the misinformation may also be traced back to somewhat of a decision lag. Custom post types, custom taxonomies, and WordPress multisite — three key features that although minor from a technical standpoint, really served as the fundamental shift to transition the platform from blog+ to full-fledged CMS — came about only three major versions ago (WordPress 3.0). While eighteen months may be an eternity for the vast majority of the technology sector (the iPad 1 had just barely launched eighteen months ago for comparison), in the Government space, procurement regulations dictate that such lag times are all but the norm. As a result, in an already risk-averse contracting environment, we may actually be seeing numbers that more accurately reflect say, WordPress 2.9′s reception in the Government sector — a snapshot of when an agency chose a CMS at the onset of a multi-year procurement — rather than those that accurately reflect its technical capabilities today."
- [7]: http://api.drupal.org/api/drupal/includes--module.inc/group/hooks/8
- [8]: http://adambrown.info/p/wp_hooks/version/3.2
- [9]: http://drupal.org/project/usage
- [10]: http://en.wordpress.com/stats/
- [11]: http://drupal.org/project/modules
- [12]: http://wordpress.org/extend/plugins/
- [13]: http://drupal.org/project/themes
- [14]: http://wordpress.org/extend/themes/
- [15]: #note-2020-2 "Jen Lampton, "Why WordPress is Better than Drupal, Developers Take Note" (July, 2010)"
- [16]: http://codepoet.com/browse/regions/north-america/platforms/wordpress/project-size/250000-250000/
- [17]: http://drupal.org/marketplace-preview/all/Government
- [18]: http://drupal.org/marketplace-preview/all/Corporate
- [19]: http://drupal.org/marketplace-preview/all/Non-Governmental-Organizations
- [20]: http://codex.wordpress.org/WordPress_Features
- [21]: #note-2020-3 "Update (3/8): The features page is part of a community edited Wiki (the WordPress Codex) and since originally posted, I've gone through and reworked much of the blog-specific language. View the original."
- [22]: http://codex.wordpress.org/User:Lastnode/Wordpress_CMS
- [23]: http://sharepoint.microsoft.com/en-us/product/benefits/Pages/default.aspx
- [24]: http://ben.balter.com/2011/09/01/why-wordpress/
- [25]: http://wordpress.org/about/philosophy/
- [26]: http://en.wordpress.com/notable-users/
- [27]: http://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/ "WP Document Revisions — Document Management & Version Control for WordPress"
- [28]: http://ben.balter.com/wp-content/uploads/2012/03/q-cover-issue01-300x387.jpeg
- [29]: http://wpcandy.com/announces/quarterly-issue-one-ships
- [30]: http://wpcandy.com/quarterly
- [31]: http://ben.balter.com/2011/11/29/towards-a-more-agile-government/
- 
- 
- [34]: http://codex.wordpress.org/index.php?title=WordPress_Features&oldid=113531
+[1]: http://ben.balter.com/wp-content/uploads/2012/03/wordpress-in-government-ben-balter.png
+[2]: http://techcrunch.com/2011/08/19/wordpress-now-powers-22-percent-of-new-active-websites-in-the-us/
+[3]: http://trends.builtwith.com/cms
+[4]: http://dotgov.benbalter.com
+[5]: http://groups.drupal.org/node/19885
+[6]: #note-2020-1 "Update (3/7): As many have pointed out, a lot of the misinformation may also be traced back to somewhat of a decision lag. Custom post types, custom taxonomies, and WordPress multisite — three key features that although minor from a technical standpoint, really served as the fundamental shift to transition the platform from blog+ to full-fledged CMS — came about only three major versions ago (WordPress 3.0). While eighteen months may be an eternity for the vast majority of the technology sector (the iPad 1 had just barely launched eighteen months ago for comparison), in the Government space, procurement regulations dictate that such lag times are all but the norm. As a result, in an already risk-averse contracting environment, we may actually be seeing numbers that more accurately reflect say, WordPress 2.9′s reception in the Government sector — a snapshot of when an agency chose a CMS at the onset of a multi-year procurement — rather than those that accurately reflect its technical capabilities today."
+[7]: http://api.drupal.org/api/drupal/includes--module.inc/group/hooks/8
+[8]: http://adambrown.info/p/wp_hooks/version/3.2
+[9]: http://drupal.org/project/usage
+[10]: http://en.wordpress.com/stats/
+[11]: http://drupal.org/project/modules
+[12]: http://wordpress.org/extend/plugins/
+[13]: http://drupal.org/project/themes
+[14]: http://wordpress.org/extend/themes/
+[15]: #note-2020-2 "Jen Lampton, "Why WordPress is Better than Drupal, Developers Take Note" (July, 2010)"
+[16]: http://codepoet.com/browse/regions/north-america/platforms/wordpress/project-size/250000-250000/
+[17]: http://drupal.org/marketplace-preview/all/Government
+[18]: http://drupal.org/marketplace-preview/all/Corporate
+[19]: http://drupal.org/marketplace-preview/all/Non-Governmental-Organizations
+[20]: http://codex.wordpress.org/WordPress_Features
+[21]: #note-2020-3 "Update (3/8): The features page is part of a community edited Wiki (the WordPress Codex) and since originally posted, I've gone through and reworked much of the blog-specific language. View the original."
+[22]: http://codex.wordpress.org/User:Lastnode/Wordpress_CMS
+[23]: http://sharepoint.microsoft.com/en-us/product/benefits/Pages/default.aspx
+[24]: http://ben.balter.com/2011/09/01/why-wordpress/
+[25]: http://wordpress.org/about/philosophy/
+[26]: http://en.wordpress.com/notable-users/
+[27]: http://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/ "WP Document Revisions — Document Management & Version Control for WordPress"
+[28]: http://ben.balter.com/wp-content/uploads/2012/03/q-cover-issue01-300x387.jpeg
+[29]: http://wpcandy.com/announces/quarterly-issue-one-ships
+[30]: http://wpcandy.com/quarterly
+[31]: http://ben.balter.com/2011/11/29/towards-a-more-agile-government/
+
+
+[34]: http://codex.wordpress.org/index.php?title=WordPress_Features&oldid=113531

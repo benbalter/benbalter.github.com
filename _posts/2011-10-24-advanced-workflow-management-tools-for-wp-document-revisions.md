@@ -34,10 +34,10 @@ Ideal for teams of any size looking to fine tune their WP Document Revisions exp
 
 Want one feature but not another? Each can be individually enabled or disabled via Edit Flow's settings panel. For more information, see the [Edit Flow homepage][6] or simply [download and install the plugin][7] to begin — no additional setup necessary.
 
- [1]: http://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/ "WP Document Revisions — Document Management & Version Control for WordPress"
- [2]: http://editflow.org
- [3]: http://wordpress.org/extend/plugins/wp-document-revisions/
- [4]: http://wordpress.org/extend/plugins/edit-flow/screenshots/
- [5]: https://github.com/benbalter/WP-Document-Revisions-Code-Cookbook
- [6]: http://editflow.org/
- [7]: http://wordpress.org/extend/plugins/edit-flow/
+[1]: http://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/ "WP Document Revisions — Document Management & Version Control for WordPress"
+[2]: http://editflow.org
+[3]: http://wordpress.org/extend/plugins/wp-document-revisions/
+[4]: http://wordpress.org/extend/plugins/edit-flow/screenshots/
+[5]: https://github.com/benbalter/WP-Document-Revisions-Code-Cookbook
+[6]: http://editflow.org/
+[7]: http://wordpress.org/extend/plugins/edit-flow/
