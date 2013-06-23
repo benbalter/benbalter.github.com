@@ -79,6 +79,10 @@ prose:
         field:
           element: text
           value: ""
+      - name: id
+        field:
+          element: text
+          value: ""
       - name: layout
         field:
           element: select
