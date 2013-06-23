@@ -6,7 +6,7 @@ echo "Cleaning up..."
 rm -Rf _site
 
 echo "building assets"
-nodenv exec grunt
+exec grunt
 
 echo "building contributors"
 bundle exec ruby script/contributors.rb
