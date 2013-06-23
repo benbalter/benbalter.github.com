@@ -1,5 +1,6 @@
 User-agent: *
 Disallow: /*.json$
+Disallow: /*.jsonp$
 Disallow: /*.js$
 Disallow: /*.css$
 Allow: /
