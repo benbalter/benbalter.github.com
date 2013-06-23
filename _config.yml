@@ -25,7 +25,7 @@ permalink: /:year/:month/:day/:title/
 prose:
   siteurl: "http://ben.balter.com"
   media: assets/img
-  relativeLinks: http://ben.balter.com/links.json
+  relativeLinks: http://ben.balter.com/links.jsonp
   metadata:
     _posts:
       - name: categories
