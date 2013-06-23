@@ -69,7 +69,7 @@ prose:
           element: text
           label: Tags
           value: ""
-    "":
+    "/":
       - name: title
         field:
           element: text
