@@ -12,5 +12,5 @@ gem install bundler
 bundle install
 
 echo "NPM installin"
-nodenv exec npm install
-nodenv npm install grunt-cli -g
+npm install
+npm install grunt-cli -g
