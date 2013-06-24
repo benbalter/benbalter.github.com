@@ -338,7 +338,8 @@ Application.posts = new Application.Collections.Posts
 Application.pages = new Application.Collections.Pages
 
 Application.router = new Router()
-Backbone.history.start pushState: true, silent: true
+silent = window.location.hash == "" #fix for links from IE
+Backbone.history.start pushState: true, silent: silent
 
 if window.is404? and window.is404
   window.is404 = null
