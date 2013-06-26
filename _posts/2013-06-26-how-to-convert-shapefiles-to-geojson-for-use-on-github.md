@@ -32,7 +32,7 @@ Luckily, a strangely named piece of open source software known as [ogr2ogr](http
 6. Grab the resulting GeoJSON file and commit it to GitHub
 7. Navigate to the GeoJSON file on GitHub.com to browse your map
 
-In addition to converting the Shapefile over to GeoJSON, the other step in there, the command in step #5 `-t_srs crs:84` ensures that by the time the data hits GitHub, it's encoded with the right [projection](http://maps.unomaha.edu/Peterson/gis/notes/MapProjCoord.html) so it can be mapped properly. Need to convert multiple Shapefiles in bulk? Just use [this bulk Shapefile to geoJSON conversion script](https://gist.github.com/benbalter/5858851). Windows users? [You're covered too](http://blog.thematicmapping.org/2013/06/converting-shapefiles-to-topojson.html).
+In addition to converting the Shapefile over to GeoJSON, the other step in there, `-t_srs crs:84`, ensures that by the time the data hits GitHub, it's encoded with the right [projection](http://maps.unomaha.edu/Peterson/gis/notes/MapProjCoord.html) so it can be mapped properly. Need to convert multiple Shapefiles in bulk? Just use [this bulk Shapefile to geoJSON conversion script](https://gist.github.com/benbalter/5858851). Windows users? [You're covered too](http://blog.thematicmapping.org/2013/06/converting-shapefiles-to-topojson.html).
 
 ## So why's this important? 
 
