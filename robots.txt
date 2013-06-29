@@ -3,5 +3,6 @@ Disallow: /*.json$
 Disallow: /*.jsonp$
 Disallow: /*.js$
 Disallow: /*.css$
+Disallow: /tags/*
 Allow: /
 Sitemap: /sitemap.xml
