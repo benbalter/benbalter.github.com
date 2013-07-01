@@ -1,4 +1,7 @@
 ---
+layout: post
+comments: true
+author: Ben Balter
 title: Bet on the little guy
 category: technology
 excerpt: "On the Internet, simple, open format reign supreme over their heavyweight, proprietary counterparts"
@@ -25,7 +28,7 @@ We saw this in the early days of the Internet when every new service would pick 
 * SOAP &rarr; REST
 * SAML &rarr; OAUTH
 * Adobe PDF, Microsoft Word &rarr; Markdown
-* ESRI Shapefile, Google KML &rarr;<br />GeoJSON, TopoJSON
+* ESRI Shapefile, Google KML &rarr; GeoJSON, TopoJSON
 
 The Internet is fundamentally a different animal from the desktop, both culturally and technically. Interoperability reigns supreme. Sure, many complex formats were first-out-the-gate to tackle a problem, and they did it well. Today however, with the abundance of smarter tools, we don't need that complexity at the core. Microsoft Word is great for making paper, but things like Markdown and HTML are quickly becoming the `.doc`s of the web. What lessons can we learn from the "winning" solutions?
 
@@ -34,4 +37,6 @@ The Internet is fundamentally a different animal from the desktop, both cultural
 * Easier to upgrade a tool than a standard, experimentation is key
 * No APIs to learn, no SDKs to install, no licenses to buy
 
-Complexity only serves to raise the barrier to communicate and goes against the very purpose of the Internet: connecting things. Look to the formats that don't have the 40 page PDF'd white papers. The ones that weren't "opened." The ones that don't need SDKs or APIs just to function. If you can't open it in a text editor, don't trust it. Bet on the little guys. On the Internet, they tend to win.
+Complexity only serves to raise the barrier to communicate and goes against the very purpose of the Internet: connecting things. Look to the formats that don't have the 40 page PDF'd white papers. The ones that weren't "opened." The ones that don't need SDKs or APIs just to function. If you can't open it in a text editor, don't trust it. 
+
+Bet on the little guys. On the Internet, they have a tendency to win.
