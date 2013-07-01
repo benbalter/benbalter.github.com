@@ -7,6 +7,11 @@ comments: true
 category: Technology
 tags:
   - government
+  - culture
+  - version control
+  - open source
+  - open data
+
 ---
 
 After years of living at the bleeding edge of government IT, there's not been a single challenge presented that forces one to ask "is this even technically possible?". Sure, maybe the code hasn't been written yet, but you know that once it is, it will ultimately do that thing you want it to do — the technology's the easy part.
