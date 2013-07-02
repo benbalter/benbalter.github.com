@@ -20,7 +20,7 @@ It's the culture that we've go to worry about. Will the solution be adopted by t
 
 ## This is why we can't have nice things
 
-Great technologies already exist. Lots of them in fact. Yet public servants still insist on adopting and subsequently entrenching their inferior predecessors. There's a reason that heavyweight, proprietary systems are a sad running joke in the Beltway.[^1] After all, the iPhone's been around since 2004. The problem isn't developing newer, better, flashier tools or tools that are more open or more intellectually elegant. The problem is creating the culture and the ecosystem necessary to begin appreciating and sustaining the ones we've already got — the ones we're already not using.
+Great technologies already exist. Lots of them in fact. Yet public servants still insist on adopting and subsequently entrenching their inferior predecessors. There's a reason that heavyweight, proprietary systems are a sad running joke in the Beltway.[^1] After all, the iPhone's been around since 2007. The problem isn't developing newer, better, flashier tools or tools that are more open or more intellectually elegant. The problem is creating the culture and the ecosystem necessary to begin appreciating and sustaining the ones we've already got — the ones we're already not using.
 
 We're geeks. We're good at building things. Heck, it's fun, and it's what we do best. But it's time to realize that we're merely playing whack-a-mole with a system that doesn't want our help. We keep building increasingly larger mallets thinking that if it were just *that much easier* to knock the mole back down, maybe we'll hit that tipping point and it'll finally stay there. Spoiler alert: it never will.
 
