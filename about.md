@@ -21,7 +21,7 @@ Feel free to e-mail me at [Ben@Balter.com][8] or you can find me on these social
 
 {% include contact-links.html %}
 
- [1]: http://cdn.benbalter.com/wp-content/uploads/2010/09/fb1-272x300.jpg "Ben Balter"
+ [1]: http://www.gravatar.com/avatar/ea353bd28baa1aefaefae736a19fcf2a.png?size=250 "Ben Balter"
  [2]: http://reboot.fcc.gov/blog/?authorId=593709
  [3]: http://ben.balter.com/2011/08/29/document-management-version-control-for-wordpress/
  [4]: http://ben.balter.com/2011/11/29/towards-a-more-agile-government/
