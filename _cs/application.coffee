@@ -354,10 +354,10 @@ jQuery(document).ready ->
   $(window).resize resume_resize
   resume_resize()
 
-  $('a[href^="{{ site.url }}/"]').live 'click', (e) ->
-    e.preventDefault()
-    Application.router.navigate $(@).attr('href').replace( '{{ site.url }}/', '' ), trigger: true
-    false
+  #$('a[href^="{{ site.url }}/"]').live 'click', (e) ->
+  #  e.preventDefault()
+  #  Application.router.navigate $(@).attr('href').replace( '{{ site.url }}/', '' ), trigger: true
+  #  false
 
   if Backbone.history.fragment == ""
     jQuery('#content').infinitescroll
