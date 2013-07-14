@@ -17,7 +17,7 @@ tags:
   - subpoena
 post_format: [ ]
 ---
-[![Subpoena](http://farm1.staticflickr.com/157/391427627_62f2a23df4_n.jpg){.alignright}][1]Bluehost, the [web hosting service][2] which powers more than [1.9 million][3] websites globally, making it one of the [top 20][3] largest hosting companies in the world and approximately [2% of the internet's traffic][4], recently came under fire for its decision to depart from well-established [internet standards][5] and reveal the identity of one of its subscribers, over what [later proved][6] to be an [unfounded suit][7].
+[![Subpoena](http://farm1.staticflickr.com/157/391427627_62f2a23df4_n.jpg){: .alignright}][1]Bluehost, the [web hosting service][2] which powers more than [1.9 million][3] websites globally, making it one of the [top 20][3] largest hosting companies in the world and approximately [2% of the internet's traffic][4], recently came under fire for its decision to depart from well-established [internet standards][5] and reveal the identity of one of its subscribers, over what [later proved][6] to be an [unfounded suit][7].
 
 From a technical standpoint, Bluehost is one of the good guys. I've hosted sites with them since 2005 and looking back at the past six months, I've enjoyed a 99.79% uptime, with an average response time just under a second. But that's half the equation. Web hosting is not simply a cost-benefit analysis of price to uptime and responsiveness. There's a third factor there: trust.
 

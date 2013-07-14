@@ -33,7 +33,7 @@ post_format: [ ]
 [WP Document Revisions][1] is a [document management][2] and [version control][3] plugin. Built for time-sensitive and mission-critical projects, teams can collaboratively edit files of any format — text documents, spreadsheets, images, sheet music… anything — all the while, seamlessly tracking the document's progress as it moves through your organization's existing workflow.
 
 [![WP Document Revisions Screenshot](http://ben.balter.com/wp-content/uploads/2011/07/wp-document-revisions-screen-shot-300x226.png
-){.alignright}][4]
+){: .alignright}][4]
 
 **WP Document Revisions is three things:**
 

@@ -7,7 +7,7 @@ published: true
 id: /about
 ---
 
-![Ben Balter](http://www.gravatar.com/avatar/ea353bd28baa1aefaefae736a19fcf2a.png?size=250){.alignright}
+![Ben Balter](http://www.gravatar.com/avatar/ea353bd28baa1aefaefae736a19fcf2a.png?size=250){: .alignright}
 
 Ben Balter is a gov 2.0 evangelist working to hack federal government from the inside out, a [GitHubber](http://github.com/home) making government better, one repo at a time, and an aspiring attorney passionate about the disruptive potential of technology.
 

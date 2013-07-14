@@ -24,7 +24,7 @@ tags:
   - wordpress
 post_format: [ ]
 ---
-[![Dashboard all the things](http://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things-300x225.jpeg){.alignright}][1]
+[![Dashboard all the things](http://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things-300x225.jpeg){: .alignright}][1]
 
 I was recently asked how I would architect a personalized dashboard experience for visitors to a large, customer-facing website. My response? *I wouldn't.*
 

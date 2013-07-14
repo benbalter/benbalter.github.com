@@ -16,19 +16,23 @@ id: /resume
 
 ### GitHub
 
-{.location}Washington, D.C.
+Washington, D.C.
+{: .location}
 
 #### Government Bureaucat
 
-{.date}March 2013 — Present
+March 2013 — Present
+{: .date}
 
 ### Executive Office of the President
 
-{.location}Washington, D.C.
+Washington, D.C.
+{: .location}
 
 #### Presidential Innovation Fellow
 
-{.date}July 2012 — January 2013
+July 2012 — January 2013
+{: .date}
 
 * As member of inaugural class of high-profile White House initiative, served as entrepreneur in residence reimagining the role of technology in brokering the relationship between citizens and government while injecting a more startup-like culture within government. 
 * Described by the US Chief Technology Officer as "the baddest of the badass innovators," and by the White House Director of Digital Strategy as "<a href="http://www.youtube.com/watch?v=uhtlOYOhE8w#t=51m12s">lightning in a bottle</a>." 
@@ -37,7 +41,8 @@ id: /resume
 
 #### Fellow, Office of the US Chief Information Officer
 
-{.date}January 2012 — August 2012
+January 2012 — August 2012
+{: .date}
 
 * Assisted with drafting, stakeholder outreach, and coordination of the release of [the President’s Digital Government Strategy](http://www.whitehouse.gov/sites/default/files/omb/egov/digital-government/digital-government.html), a fundamental reimagination of the role of technology in the public sector
 * In response to presidential mandate requiring the release of open source software, coordinated and led negotiation of contract for code-sharing services including creation of records management plans under both the Federal Records and Presidential Records Acts
@@ -47,7 +52,8 @@ id: /resume
 
 #### SoftWare Automation &#038; Technology (SWAT) Team, Office of Administration
 
-{.date}September 2011 — January 2012
+September 2011 — January 2012
+{: .date}
 
 * Created enterprise business solutions to automate and streamline business processes in support of the President of the United States as part of the White House’s first-ever agile software development team.
 * In close coordination with the Office of Federal Financial Management, lead development of [prototypical government-wide, open-source classifieds system](https://max.gov/unclesamslist/) for sharing of federal real and other properties among executive agencies.
@@ -57,11 +63,13 @@ id: /resume
 
 ### Federal Communications Commission
 
-{.location}Washington, D.C.
+Washington, D.C.
+{: .location}
 
 #### New Media Fellow, Office of the Managing Director
 
-{.date}May 2010 — January 2012
+May 2010 — January 2012
+{: .date}
 
 * Negotiated agency-wide, federal service agreements with the web's top service providers including FISMA-compliant cloud hosting, social media, data manipulation, source code collaboration, and geospacial firms.
 * Drafted website privacy policy, comment moderation policy, third-party privacy notices, and API terms of service for agency’s reimagined web presence.
@@ -75,11 +83,13 @@ id: /resume
 
 ### The George Washington University Law School
 
-{.location}Washington, D.C.
+Washington, D.C.
+{: .location}
 
 #### Juris Doctorate Candidate
 
-{.date}May 2013
+May 2013
+{: .date}
 
 * Technology Editor, [The Public Contract Law Journal](http://pclj.org/), authored published note arguing that [federal IT procurement practices should be made more amenable to agile software development methodologies](http://ben.balter.com/2011/11/29/towards-a-more-agile-government/ "Towards a More Agile Government").
 * President, Jay Chapter, [Phi Alpha Delta](http://phialphadeltagw.com) Legal Fraternity
@@ -88,21 +98,25 @@ id: /resume
 
 ### The George Washington University School of Business
 
-{.location}Washington, D.C.
+Washington, D.C.
+{: .location}
 
 #### Master of Business Administration — Strategic Management and Public Policy
 
-{.date}May 2013
+May 2013
+{: .date}
 
 * International residency, Stockholm, Sweden — consultancy for Swedish green-technology firm seeking to bring environmentally friendly biofuel pumps to US market; created market-entry plan, including analysis of regulatory framework and licensing considerations.
 
 ### The George Washington University
 
-{.location}Washington, D.C.
+Washington, D.C.
+{: .location}
 
 #### Bachelor of Arts, Political Science
 
-{.date}May 2009
+May 2009
+{: .date}
 
 ## Technical Skills
 

@@ -20,7 +20,7 @@ tags:
   - sharepoint
   - wordpress
 ---
-[![WordPress for Government](http://ben.balter.com/wp-content/uploads/2012/03/wordpress-in-government-ben-balter-150x150.png){.alignleft}][1]
+[![WordPress for Government](http://ben.balter.com/wp-content/uploads/2012/03/wordpress-in-government-ben-balter-150x150.png){: .alignleft}][1]
 
 Over the past several years WordPress's market share has enjoyed explosive growth across virtually every industry. Today, it powers [nearly a quarter of new sites][2], and is the CMS of choice for[ more than two thirds of the top-million sites][3] on the web making it the world's most popular publishing platform by a long shot. Yet one group of seemingly ideal users has been slow to take the former blogging platform seriously: .Govs.
 

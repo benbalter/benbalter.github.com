@@ -26,7 +26,7 @@ tags:
 post_format: [ ]
 ---
 
-![CFPB Logo][1]{.alignright}
+![CFPB Logo][1]{: .alignright}
 
 Most often, when we talk about open source in government, it's talked about in one of two ways: either it's [the pitfalls of the federal IT procurement model][2] that can't seem to comprehend a world in which open-source is an option, much less potentially a superior choice (["acquisition as a roadblock][3]"), or it's reiterating the same open-source talking points that haven't seemed to give open source much parity with the wall of organizational inertia proprietary software seems to have gained over the years ("[open source as an alternative][4]").
 

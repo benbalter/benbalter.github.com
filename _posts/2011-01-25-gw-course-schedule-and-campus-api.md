@@ -13,7 +13,7 @@ tags:
   - open source
 post_format: [ ]
 ---
-![Course Schedule][1]{.alignright}George Washington University recently released an [iPhone app][2] that allows students to look up the course schedule and each course's open/closed status as well as browse an interactive map of the campus. Naturally, upon installing the app, the first thing to do is to try and ferret out the underlying XML API that powers it, a simple enough task given [the right tools][3].
+![Course Schedule][1]{: .alignright}George Washington University recently released an [iPhone app][2] that allows students to look up the course schedule and each course's open/closed status as well as browse an interactive map of the campus. Naturally, upon installing the app, the first thing to do is to try and ferret out the underlying XML API that powers it, a simple enough task given [the right tools][3].
 
 Below you can find the details on GW's course schedule and campus map API endpoints, as well as an API wrapper to interact with it written in PHP. Feel free to grab the code below, or fork and contribute in the [GitHub repo][4]. Cool data that deserves to be shared with the world, no doubt.
 

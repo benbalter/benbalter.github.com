@@ -17,7 +17,7 @@ tags:
   - wordpress
 post_format: [ ]
 ---
-[![Golden Hammer](http://imgs.xkcd.com/comics/golden_hammer.png){.aligncenter}][1]
+[![Golden Hammer](http://imgs.xkcd.com/comics/golden_hammer.png){: .aligncenter}][1]
 
 My biggest gripe with [WordPress][2], the open-source [content management system][3] that silently works behind the scenes to power [more than 13%][4] of the Internet, is that it sets far too high a bar with which other applications must compete. I cannot count the number of times that I have used a proprietary or commercial system and silently thought to myself, "*WordPress can do this so much better*." [^1]
 

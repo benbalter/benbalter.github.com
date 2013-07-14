@@ -22,7 +22,7 @@ tags:
   - proprietary
 post_format: [ ]
 ---
-[![Unsatisfied with your Contractor?](http://ben.balter.com/wp-content/uploads/2012/06/mike-holmes-203x300.jpeg){.alignright}][1]
+[![Unsatisfied with your Contractor?](http://ben.balter.com/wp-content/uploads/2012/06/mike-holmes-203x300.jpeg){: .alignright}][1]
 
 There are two kinds of software: cludgy software and open source. Think about it logically. When you (or your organization) is the only person that's ever going to see something, you're a lot more likely to "just make it work." After all, who would ever know? [^1]
 
