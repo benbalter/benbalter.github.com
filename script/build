@@ -9,7 +9,7 @@ echo "building assets"
 exec grunt
 
 echo "building contributors"
-bundle exec ruby script/contributors.rb
+bundle exec ruby script/contributors
 
 echo "building site"
 bundle exec jekyll build
