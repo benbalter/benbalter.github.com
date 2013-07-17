@@ -30,6 +30,9 @@ Site: https://github.com/gbinal
 Name: adelevie
 Site: https://github.com/adelevie
 
+Name: jlar
+Site: https://github.com/jlar
+
 Name: mikemorris
 Site: https://github.com/mikemorris
 
