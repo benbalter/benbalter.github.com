@@ -17,6 +17,6 @@ Previously, Ben was a member of the inaugural class of Presidential Innovation F
 
 When not trying to change the world, he enjoys tackling otherwise-impossible challenges to sharing information using nothing more than duct tape, version control, and occasionally a pack of bubblegum.
 
-Feel free to e-mail him at <Ben@Balter.com> or you can find him on these social networks:
+Feel free to e-mail him at <a href="mailto:ben@balter.com">Ben@Balter.com</a> or you can find him on these social networks:
 
 {% include contact-links.html %}
