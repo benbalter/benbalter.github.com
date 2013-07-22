@@ -24,6 +24,8 @@ Washington, D.C.
 March 2013 — Present
 {: .date}
 
+* Lead the efforts of the world’s largest software development network to encourage adoption of open source, open data, and open government philosophies across all levels of government.
+
 ### Executive Office of the President
 
 Washington, D.C.
