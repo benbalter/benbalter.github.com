@@ -19,7 +19,7 @@ id: /resume
 Washington, D.C.
 {: .location}
 
-#### Government Bureaucat
+#### Government Evangelist
 
 March 2013 — Present
 {: .date}
