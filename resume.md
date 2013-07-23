@@ -129,12 +129,4 @@ May 2009
 
 #### Speaking Experience
 
-* [South by Southwest][1] Interactive, panelist, [Content and Coding are not Commodities][2]
-* Guest lecturer, American University, [Personal Branding and Social Media][3]
-* Present regularly within federal government including [implementation of the Digital Strategy](http://ben.balter.com/digital-strategy-reporting/#/title) within GSA's [Digital Services Innovation Center](https://github.com/benbalter/apis-you-didnt-know-already-existed) and at [local technology][6] meetups including Hacks/Hackers DC, [Drupal4Gov][7], and WordPress DC
-
- [1]: http://sxsw.com
- [2]: http://panelpicker.sxsw.com/ideas/view/10270
- [3]: http://ben.balter.com/2011/03/09/craft-your-personal-brand/
- [6]: http://ben.balter.com/2011/04/12/love-the-code/
- [7]: http://ben.balter.com/digital-strategy-reporting/
+Regularly present within the government technology community including South by Southwest ([Content and Coding are not Commodities](http://panelpicker.sxsw.com/ideas/view/10270); Excellence in Government, Digital Government University, Transparency Camp, and Code For America ([Open Sourcing Government](http://www.youtube.com/watch?v=kym2CnIcPys#t=4m41s)); The Open Source Summit ([Open Source Software Licensing](https://github.com/benbalter/open-source-software-licensing)); The Software Preservation Summit ([The Next Cultural Commons](https://github.com/benbalter/the-next-cultural-commons)); the General Services Administration Digital Services Innovation Center ([APIs you didn't know already existed](https://github.com/benbalter/apis-you-didnt-know-already-existed)); GeoDC ([Make maps better, together](https://github.com/benbalter/make-maps-better-together)); and Drupal4Gov ([Implementation of the Digital Strategy](http://ben.balter.com/digital-strategy-reporting)).
