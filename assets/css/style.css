@@ -5,4 +5,4 @@ body { padding-top: 40px; padding-bottom: 0;}
 {% include css/bootstrap.css %}
 {% include css/bootstrap-responsive.css %}
 {% include css/pygmentize.css %}
-{% include css/style.min.css %}
+{% include css/style.css %}
