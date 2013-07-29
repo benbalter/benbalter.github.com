@@ -1,26 +1,4 @@
-/* font */
-@font-face {
-    font-family: 'leaguegothic-regular';
-    src: url('../fonts/league-gothic/webfonts/leaguegothic-regular-webfont.eot');
-    src: url('../fonts/league-gothic/webfonts/leaguegothic-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/league-gothic/webfonts/leaguegothic-regular-webfont.woff') format('woff'),
-         url('../fonts/league-gothic/webfonts/leaguegothic-regular-webfont.ttf') format('truetype'),
-         url('../fonts/league-gothic/webfonts/leaguegothic-regular-webfont.svg#league_gothicregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* Headings */
-.hero-unit h1 { text-shaddow: 4px 4px 15px black !important; font-size: 60px;  }
-.hero-unit h1 a { text-shadow: 1px 1px 2px black;  letter-spacing: 3px; }
-.hero-unit h2 { font-size: 18px; letter-spacing: 1.5px; font-family: inherit; }
-.hero-unit { height: 250px; border-radius: 10px; }
-
-h1, h2 { font-family: leaguegothic-regular, sans-serif !important; letter-spacing: 2px; font-weight: normal; }
-article h2 { font-size: 25px; }
-h2, h2.title { text-transform: uppercase; font-size: 35px; }
-h4 { margin-bottom: 10px; }
-.well h4 { text-align: center; }
+body { padding: 20px; }
 
 /* Contact social icons */
 #contact-links {list-style: none; text-align: center; font-size: 8pt; line-height: 14px; margin-top: 20px;}
@@ -37,34 +15,6 @@ h4 { margin-bottom: 10px; }
 	.alignleft, .aignright { float: none; clear: both; margin-left: auto; margin-right: auto; }
 }
 
-/* Resume */
-.page-resume a {text-decoration: none; color: #757575;}
-.page-resume .bar {background: #ccc; z-index: 0; border-right: 3px solid black; height: 1000px; position: absolute; margin: 0; left: 10%; width: 12%; top: 330px; }
-.page-resume h2 { text-transform: lowercase; font-weight: normal; text-align: right; position: absolute; right: 79%; font-size: 14px; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important; letter-spacing: 1.5px; line-height: 18px; }
-.page-resume .date, .page-resume .location { color: #aaa; float: right; clear: right; font-size: 12px;  }
-.page-resume .date { margin-top: -2.3em;}
-.page-resume .location { margin-top: -1.5em; }
-.page-resume .details { text-align: justify; }
-.page-resume h4 { font-style: italic; font-weight: normal; font-size: 14px; line-height:18px; }
-.page-resume h3 { font-size: 16px; font-weight: normal; }
-.page-resume ul { padding-left:16px; list-style-type:square; margin-left: 0; }
-.page-resume h2#resume { display: none; }
-.page-resume .span8 { width: 82%; }
-
-@media ( max-width: 975px ) {
-  	.page-resume h2 { text-transform: capitalize; font-weight: bold; text-align: left; margin-right: 0; position: relative; left: auto; right: auto; }
-	.page-resume .bar, .page-resume .span2 { display: none; border: none; }
-}
-
-@media ( max-width: 767px ) {
-	.page-resume .span10 { padding-left: 0 !important; }
-}
-
-@media ( max-width: 400px ) {
-	.page-resume .location, .page-resume .date { float: none; display: inline; display: inline-block; }
-	.page-resume .date { margin-bottom: 15px; }
-}
-
 /* Footnotes */
 .footnotes a[rev="footnote"] {float: right; margin-top: -2em; display: none; }
 .footnotes ol li:hover a[rev="footnote"] { display: block }
@@ -73,31 +23,7 @@ h4 { margin-bottom: 10px; }
 /* Posts */
 .post-meta { margin: 0 0 20px 0; font-style: italic; }
 .home article { margin-bottom: 25px; }
-
 .post-contact p { text-align: center; margin: 30px 0; }
-/* Search */
-#query { width: 96%; }
-
-/* Hero */
-
-.hero-unit { 
-	background-image: url( 'http://ben.balter.com/wp-content/uploads/2012/05/cropped-wp-header.jpg' );
-	background-size: cover;
-	background-position: center center;
-	min-height: 150px; 
-	position: relative;
-}
-
-.hero-unit .heading-wrapper {
-	background: rgb( 200, 200, 200 );
-	background: rgba( 200, 200, 200, 0.5 );
-	border-radius: 10px;
-	padding: 0 10px 0 10px; 
-	bottom: 5px;
-	right: 5px;
-	position: absolute;
-	text-align: right;
-}
 
 /* Footer */
 footer { border-top: 1px solid #eee; margin: 50px 0 0 0; padding-top: 25px; }
@@ -109,22 +35,8 @@ footer { border-top: 1px solid #eee; margin: 50px 0 0 0; padding-top: 25px; }
 
 /* Forking */
 .improve-article { overflow: auto; margin-left: 0; }
-.improve-article button { float: left; font-family: leaguegothic-regular; text-transform: uppercase; letter-spacing: 1px; font-size: 25px;}
 .improve-article p { margin-top: 15px; margin-left: 65px; font-size: 14px; font-style: italic; }
 .improve-article-wrapper { padding-top: 20px; font-size: 20px; border-top: 1px dotted rgba(0, 0, 0, 0.2); }
 
-/* index */
-.posts .maruku_toc {display: none; }
-.readon { font-weight: bold; font-style: italic; display: block; margin: 20px 0 20px 0; font-size: 1.1em; }
-
-/* Responsiveness */
-
-@media (max-width: 979px) {
-	.container, .container-fluid { width: auto; }
-}
-
-@media (max-width: 560px) {
-	.hero-unit h1 a { font-size: 40px; }
-	.hero-unit h2 { line-height: normal; font-size: 20px;  }
-	.hero-unit .heading-wrapper { text-align:  center; }
-}
+.navbar h1 { display: inline; }
+.navbar h2 { font-weight: normal; font-size: 20px; display: inline;}

@@ -1,18 +1,16 @@
 {% include header.html %}
 
-<div class="content" id="content" role="main">
-	<div class="row">
-		<div class="col-10 col-offset-1">
+<div class="row">
+  <div class="col-10 col-offset-1">
 
 <article id="post{{ page.id | replace:"/","-" }}" class="post post{{ page.id | replace:"/","-" }}">
-	
-	<h2 class="title"><a href="{{ site.url}}{{ page.url }}">{{ page.title }}</a></h2> 
+  
+  <h2 class="title"><a href="{{ site.url}}{{ page.url }}">{{ page.title }}</a></h2> 
 
-	<div class="post-meta">
-		<span class="entry-date">Posted on {{ page.date | date: '%B %d, %Y' }}</span> 
-		<span class="entry-author">by {{ page.author }}</span>
-	</div>
-	    
+  <div class="post-meta">
+    <div class="entry-date">{{ page.date | date: '%B %d, %Y' }}</span> 
+  </div>
+      
     <div class="entrybody">
         {{ content }}
     </div>
@@ -25,8 +23,7 @@
 
 </article>
 
-		</div>
-	</div>
+  </div>
 </div>
 
 {% include footer.html %}
