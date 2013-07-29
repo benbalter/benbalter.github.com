@@ -3,9 +3,8 @@
 <div class="content" id="content">
   <div class="page page{{ page.id | replace:"/","-" }}">
   
-	<div class="row-fluid">
-		<div class="span2">&nbsp;</div>
-		<div class="span8">
+	<div class="row">
+		<div class="col-10 col-offset-1">
 		 
 {% capture title %}## {{ page.title }}{% endcapture %}{{ title | markdownify }}
 

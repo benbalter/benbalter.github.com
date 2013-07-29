@@ -1,9 +1,8 @@
 {% include header.html %}
 
 <div class="content" id="content" role="main">
-	<div class="row-fluid">
-		<div class="span2">&nbsp;</div>
-		<div class="span8">
+	<div class="row">
+		<div class="col-10 col-offset-1">
 
 <article id="post{{ page.id | replace:"/","-" }}" class="post post{{ page.id | replace:"/","-" }}">
 	
@@ -19,21 +18,7 @@
     </div>
     
     {% include improve.html %}
-    
-    <div class="related">
-{% capture related %}
-#### Related Posts:
-{% for post in site.related_posts limit:5 %}
-1. [{{ post.title }}]({{ site.url }}{{ post.url }}){% endfor %}
-{% endcapture %}{{ related | markdownify }}
-    </div>
-
-    <div class="post-taxonomies">
-      Posted in {% assign taxonomy = 'category' %}{% include term-list-csv.html %} |
-		  Tagged {% assign taxonomy = 'tags' %}{% include term-list-csv.html %}		
-    </div>
-    
-       
+      
     {% unless page.comments == false %}
       {% include comments.html %}
     {% endunless %}

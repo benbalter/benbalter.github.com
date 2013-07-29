@@ -1,15 +1,22 @@
-	<div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="{{ site.url }}/">{{ site.name }}</a>
-          <div class="nav-collapse">
-	        {% include pages.html %}
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <a class="navbar-brand" href="{{ site.url }}/">{{ site.name }}</a>
+
+    <div class="nav-collapse collapse navbar-responsive-collapse">
+
+      <ul class="nav navbar-nav">
+        <li id="home"{% if page.url == '/index.html' %} class="active"{% endif %}><a href="{{ site.url }}/">Home</a>
+        <li id="about"{% if page.url == "/about/"%} class="active"{% endif %}><a href="{{ site.url }}/about/" rel="author">About</a></li>
+        <li id="resume"{% if page.url == "/resume/"%} class="active"{% endif %}><a href="{{ site.url}}/resume/">Resume</a></li>
+        <li id="contact"{% if page.url == "/contact/"%} class="active"{% endif %}><a href="{{ site.url }}/contact/">Contact</a></li>
+      </ul>
+    </div><!-- collapse -->
+  </div><!-- container -->
+</div><!-- navbar -->
