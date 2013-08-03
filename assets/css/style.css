@@ -24,7 +24,7 @@ body { padding: 20px; }
 .post-meta { margin: 0 0 20px 0; font-style: italic; }
 .home article { margin-bottom: 25px; }
 .post-contact p { text-align: center; margin: 30px 0; }
-
+.revision-history, .revision-history:visited { color: #aaa;}
 /* Footer */
 footer { border-top: 1px solid #eee; margin: 50px 0 0 0; padding-top: 25px; }
 .fine-print { float: right;}
@@ -34,9 +34,8 @@ footer { border-top: 1px solid #eee; margin: 50px 0 0 0; padding-top: 25px; }
 #disqus_thread { margin-top: 20px; padding-top: 20px; border-top: 1px dotted rgba(0, 0, 0, 0.2); }
 
 /* Forking */
-.improve-article { overflow: auto; margin-left: 0; }
-.improve-article p { margin-top: 15px; margin-left: 65px; font-size: 14px; font-style: italic; }
-.improve-article-wrapper { padding-top: 20px; font-size: 20px; border-top: 1px dotted rgba(0, 0, 0, 0.2); }
+.improve-article { margin-top: 15px; font-size: 14px; font-style: italic; }
+.improve-article-wrapper { padding-top: 20px; border-top: 1px dotted rgba(0, 0, 0, 0.2); text-align: center; }
 
 .navbar h1 { display: inline; }
 .navbar h2 { font-weight: normal; font-size: 20px; display: inline;}

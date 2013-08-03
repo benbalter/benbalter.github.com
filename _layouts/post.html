@@ -8,7 +8,8 @@
   <h2 class="title"><a href="{{ site.url}}{{ page.url }}">{{ page.title }}</a></h2> 
 
   <div class="post-meta">
-    <div class="entry-date">{{ page.date | date: '%B %d, %Y' }}</div> 
+    <span class="entry-date">Posted {{ page.date | date: '%B %d, %Y' }}</span> |
+    <a class="revision-history" href="https://github.com/benbalter/benbalter.github.com/commits/master/{{ page.path }}" target="_blank">View revision history</a>
   </div>
       
     <div class="entrybody">
