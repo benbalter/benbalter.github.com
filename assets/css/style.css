@@ -40,3 +40,7 @@ footer { border-top: 1px solid #eee; margin: 50px 0 0 0; padding-top: 25px; }
 
 .navbar h1 { display: inline; }
 .navbar h2 { font-weight: normal; font-size: 20px; display: inline;}
+
+.posts { list-style: none; padding-left: 0; font-size: 1.3em;} 
+.posts li { margin-bottom: 5px; }
+.posts li .date { font-size: 0.7em; color: #bbb; }
