@@ -10,7 +10,3 @@ git submodule update
 echo "Bundle Installin'"
 gem install bundler
 bundle install
-
-echo "NPM installin"
-npm install
-npm install grunt-cli -g

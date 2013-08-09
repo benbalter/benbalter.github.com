@@ -5,9 +5,6 @@ set -e
 echo "Cleaning up..."
 rm -Rf _site
 
-echo "building assets"
-exec grunt
-
 echo "building contributors"
 bundle exec ruby script/contributors
 
