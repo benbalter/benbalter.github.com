@@ -6,9 +6,15 @@ layout: default
   <div class="col-12">
     <ul class="posts">
 {% for page in site.posts %}
-      <li class="post">      
-        <a href="{{ site.url}}{{ page.url }}">{{ page.title }}</a>
-        <span class="date pull-right">{{ page.date | date: '%B %d, %Y' }}</span>
+      <li class="post">
+        <div class="row">
+            <div class="col-9">
+                <a href="{{ site.url}}{{ page.url }}">{{ page.title }}</a>
+            </div>
+            <div class="col-3 date">
+                {{ page.date | date: '%B %d, %Y' }}
+            </div>
+        </div>     
       </li>
 {% endfor %}
     </ul><!-- posts -->

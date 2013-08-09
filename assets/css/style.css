@@ -1,4 +1,7 @@
-body { padding: 20px; }
+body { padding-top: 20px; }
+@media (max-width: 768px) {
+    body { padding-top: 0; }
+}
 
 /* Contact social icons */
 #contact-links {list-style: none; text-align: center; font-size: 8pt; line-height: 14px; margin-top: 20px;}
@@ -10,9 +13,8 @@ body { padding: 20px; }
 .aligncenter { clear: both;	display: block;	margin-left: auto; margin-right: auto; }
 .alignleft { display: block; float:left; padding-right: 15px; padding-bottom: 5px; }
 .alignright { display: block; float: right; padding-left: 15px; padding-bottom: 5px; }
-
-@media (max-width: 600px) {
-	.alignleft, .aignright { float: none; clear: both; margin-left: auto; margin-right: auto; }
+@media (max-width: 750px) {
+    .alignleft, .aignright { float: none; clear: both; margin-left: auto; margin-right: auto; }
 }
 
 /* Footnotes */
@@ -25,6 +27,7 @@ body { padding: 20px; }
 .home article { margin-bottom: 25px; }
 .post-contact p { text-align: center; margin: 30px 0; }
 .revision-history, .revision-history:visited { color: #aaa;}
+
 /* Footer */
 footer { border-top: 1px solid #eee; margin: 50px 0 0 0; padding-top: 25px; }
 .fine-print { float: right;}
@@ -37,13 +40,12 @@ footer { border-top: 1px solid #eee; margin: 50px 0 0 0; padding-top: 25px; }
 .improve-article { margin-top: 15px; font-size: 14px; font-style: italic; }
 .improve-article-wrapper { padding-top: 20px; border-top: 1px dotted rgba(0, 0, 0, 0.2); text-align: center; }
 
-.navbar h1 { display: inline; }
-.navbar h2 { font-weight: normal; font-size: 20px; display: inline;}
-
+/* Index */
 .posts { list-style: none; padding-left: 0; font-size: 1.3em;} 
-.posts li { margin-bottom: 5px; }
-.posts li .date { font-size: 0.7em; color: #bbb; }
+.posts li { margin-bottom: 10px; }
+.posts li .date { font-size: 0.7em; color: #bbb; text-align: right; }
 
+/* Header */
 .hero-unit { 
     background-image: url( '../../wp-content/uploads/2012/05/cropped-wp-header.jpg' );
     background-size: cover;
@@ -53,5 +55,14 @@ footer { border-top: 1px solid #eee; margin: 50px 0 0 0; padding-top: 25px; }
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
+@media (max-width: 768px) {
+    .hero-unit {border-radius: 0;}
+}
 
-.hero-unit h1 { position: absolute; bottom: 0; right: 15px; }
+/* Nav */
+.navbar h1 { display: inline; }
+.navbar h2 { font-weight: normal; font-size: 20px; display: inline;}
+.navbar-brand { font-size: 20px;}
+@media (max-width: 750px) {
+    .navbar .pull-right { text-align: center; float: none;}
+}
