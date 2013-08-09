@@ -2,21 +2,17 @@
 layout: default
 ---
 
-<div class="row">
-  <div class="col-12">
-    <ul class="posts">
+<ul class="posts">
 {% for page in site.posts %}
-      <li class="post">
-        <div class="row">
-            <div class="col-9">
-                <a href="{{ site.url}}{{ page.url }}">{{ page.title }}</a>
-            </div>
-            <div class="col-3 date">
-                {{ page.date | date: '%B %d, %Y' }}
-            </div>
-        </div>     
-      </li>
+  <li class="post">
+    <div class="row">
+        <div class="col-sm-9">
+            <a href="{{ site.url}}{{ page.url }}">{{ page.title }}</a>
+        </div>
+        <div class="col-sm-3 date">
+            {{ page.date | date: '%B %d, %Y' }}
+        </div>
+    </div>     
+  </li>
 {% endfor %}
-    </ul><!-- posts -->
-  </div><!-- span9 -->
-</div><!-- row -->
+</ul><!-- posts -->
