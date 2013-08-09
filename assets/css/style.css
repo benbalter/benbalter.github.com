@@ -43,3 +43,15 @@ footer { border-top: 1px solid #eee; margin: 50px 0 0 0; padding-top: 25px; }
 .posts { list-style: none; padding-left: 0; font-size: 1.3em;} 
 .posts li { margin-bottom: 5px; }
 .posts li .date { font-size: 0.7em; color: #bbb; }
+
+.hero-unit { 
+    background-image: url( '../../wp-content/uploads/2012/05/cropped-wp-header.jpg' );
+    background-size: cover;
+    background-position: center center;
+    height: 250px; 
+    position: relative;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.hero-unit h1 { position: absolute; bottom: 0; right: 15px; }
