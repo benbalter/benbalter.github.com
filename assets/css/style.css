@@ -30,12 +30,13 @@ body { padding-top: 20px; }
 .revision-history, .revision-history:visited { color: #aaa;}
 
 /* Footer */
-footer { border-top: 1px solid #eee; margin: 50px 0 0 0; padding-top: 25px; }
-.fine-print { float: right;}
+.footer { border-top: 1px solid #eee; margin-top: 20px; }
+.fine-print { float: right; padding: 25px; }
 .fine-print a, .fine-print a:visited { color: #ccc; }
 
 /* Disqus */
-#disqus_thread { margin-top: 20px; padding-top: 20px; border-top: 1px dotted rgba(0, 0, 0, 0.2); }
+.disqus { border-top: 1px dotted rgba(0, 0, 0, 0.2); margin-top: 20px; }
+#disqus_thread { margin-top: 20px; }
 
 /* Forking */
 .improve-article { margin-top: 7.5px; font-size: 14px; font-style: italic; }
