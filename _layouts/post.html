@@ -1,23 +1,23 @@
 {% include header.html %}
 
 <div class="row">
-  <div class="col-10 col-offset-1">
+  <div class="col-lg-10 col-offset-1">
 
 <article id="post{{ page.id | replace:"/","-" }}" class="post post{{ page.id | replace:"/","-" }}">
-  
-  <h2 class="title"><a href="{{ site.url}}{{ page.url }}">{{ page.title }}</a></h2> 
+
+  <h2 class="title"><a href="{{ site.url}}{{ page.url }}">{{ page.title }}</a></h2>
 
   <div class="post-meta">
     <span class="entry-date">Posted {{ page.date | date: '%B %d, %Y' }}</span> |
     <a class="revision-history" href="https://github.com/benbalter/benbalter.github.com/commits/master/{{ page.path }}" target="_blank">View revision history</a>
   </div>
-      
+
     <div class="entrybody">
         {{ content }}
     </div>
-    
+
     {% include improve.html %}
-      
+
     {% unless page.comments == false %}
       {% include comments.html %}
     {% endunless %}

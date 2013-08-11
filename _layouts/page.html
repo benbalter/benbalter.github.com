@@ -2,8 +2,8 @@
 
  <div class="page page{{ page.id | replace:"/","-" }}">
   <div class="row">
-    <div class="col-10 col-offset-1">
-     
+    <div class="col-lg-10 col-offset-1">
+
 {% capture title %}## {{ page.title }}{% endcapture %}{{ title | markdownify }}
 
 {{ content }}
