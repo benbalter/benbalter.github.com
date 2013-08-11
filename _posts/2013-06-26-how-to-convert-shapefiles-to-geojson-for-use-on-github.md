@@ -20,15 +20,15 @@ With [GitHub natively supporting mapping](https://github.com/blog/1541-geojson-r
 
 Luckily, a strangely named piece of open source software known as [ogr2ogr](http://www.gdal.org/ogr2ogr.html) can convert the data into the more modern, more open [GeoJSON format](http://en.wikipedia.org/wiki/GeoJSON) that GitHub supports, and the resulting map can be automatically rendered, not to mention more easily diffed.
 
-## If you've got a Mac, it only takes a few seconds: 
+## If you've got a Mac, it only takes a few seconds:
 
 <!-- more -->
 
-1. If you don't already have it, install homebrew by opening up terminal and running: {% highlight console %}$ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"{% endhighlight %}
-2. Install [gdal](http://www.gdal.org/) with the command: {% highlight console %}$ brew install gdal{% endhighlight %}
+1. If you don't already have it, install homebrew by opening up terminal and running: `$ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"`
+2. Install [gdal](http://www.gdal.org/) with the command: `$ brew install gdal`
 3. Grab a Shapefile (distributed as a .zip file) from the [DC Data Catalog](http://data.dc.gov/Main_DataCatalog.aspx) or your favorite data source and unzip it someplace convenient
 4. `cd` into the directory with your shiny new unzipped Shapefile
-5. Run (replacing `[name]` with the name of your downloaded Shapefile): {% highlight console %}$ ogr2ogr -f GeoJSON -t_srs crs:84 [name].geojson [name].shp{% endhighlight %} 
+5. Run (replacing `[name]` with the name of your downloaded Shapefile): `$ ogr2ogr -f GeoJSON -t_srs crs:84 [name].geojson [name].shp`
 6. Grab the resulting GeoJSON file and commit it to GitHub
 7. Navigate to the GeoJSON file on GitHub.com to browse your map
 
@@ -36,7 +36,7 @@ In addition to converting the Shapefile over to GeoJSON, the other step in there
 
 *Note:* The same process should work for KML files as well, replacing `[name].shp` with `[name].kml`.
 
-## So why's this important? 
+## So why's this important?
 
 For one, you're liberating public geodata that would otherwise be inaccessible to the average citizen and making it available in a dumb-simple point, click, zoom interface that anyone can use. For another, by putting the information on GitHub in an open, text-based format, civic hackers and subject-matter experts can begin treating that data like open source code — forking, merging, diffing, tracking changes over time — and all of a sudden we've opened up not just the data, but the entire collaborative ecosystem that now surrounds it.
 
