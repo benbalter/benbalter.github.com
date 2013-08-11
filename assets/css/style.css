@@ -8,6 +8,7 @@ body { padding-top: 20px; }
 #contact-links a, #contact-links a:visited {color: #999; text-decoration: none;}
 #contact-links li {display: inline-block; padding: 0 15px 0 15px; text-align: center; margin-left: auto; margin-right: auto; line-height: 10px;}
 #contact-links i { display: block; width: 40px; height: 40px; }
+.center { text-align: center }
 
 /* images */
 .aligncenter { clear: both;	display: block;	margin-left: auto; margin-right: auto; }
@@ -41,7 +42,7 @@ footer { border-top: 1px solid #eee; margin: 50px 0 0 0; padding-top: 25px; }
 .improve-article-wrapper { padding-top: 20px; border-top: 1px dotted rgba(0, 0, 0, 0.2); text-align: center; }
 
 /* Index */
-.posts { list-style: none; padding-left: 0; font-size: 1.3em;} 
+.posts { list-style: none; padding-left: 0; font-size: 1.3em;}
 .posts li { margin-bottom: 10px; }
 .posts li .date { font-size: 0.7em; color: #bbb; text-align: right; }
 @media (max-width: 768px) {
@@ -49,11 +50,11 @@ footer { border-top: 1px solid #eee; margin: 50px 0 0 0; padding-top: 25px; }
 }
 
 /* Header */
-.hero-unit { 
+.hero-unit {
     background-image: url( '../../wp-content/uploads/2012/05/cropped-wp-header.jpg' );
     background-size: cover;
     background-position: center center;
-    height: 250px; 
+    height: 250px;
     position: relative;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
@@ -71,5 +72,5 @@ footer { border-top: 1px solid #eee; margin: 50px 0 0 0; padding-top: 25px; }
     .navbar .pull-right { text-align: center; float: none;}
 }
 @media (max-width: 768px) {
-    .navbar li { text-align: center;}    
+    .navbar li { text-align: center;}
 }
