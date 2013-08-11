@@ -4,6 +4,7 @@ title: Contact
 excerpt: Contact Benjamin J. Balter
 layout: page
 permalink: /contact/
+icons: true
 ---
 Feel free to e-mail me at <ben@balter.com> or you can find me on these social networks:
 

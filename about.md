@@ -5,6 +5,7 @@ layout: page
 permalink: /about/
 published: true
 id: /about
+icons: true
 ---
 
 ![Ben Balter](http://www.gravatar.com/avatar/ea353bd28baa1aefaefae736a19fcf2a.png?size=250){: .alignright}
