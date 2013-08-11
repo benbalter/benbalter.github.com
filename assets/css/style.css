@@ -77,7 +77,7 @@ body { padding-top: 20px; }
 }
 
 /* resume */
-.date {float: right; margin-top: -2em;}
+.page .date {float: right; margin-top: -2em;}
 @media (max-width: 768px) {
-  .date {float: none; margin-top: 0; }
+.page  .date {float: none; margin-top: 0; }
 }
