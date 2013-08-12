@@ -18,6 +18,9 @@ Site: https://github.com/aaronjorbin
 Name: ctbarna
 Site: https://github.com/ctbarna
 
+Name: parkr
+Site: https://github.com/parkr
+
 Name: JBindelglass
 Site: https://github.com/JBindelglass
 
