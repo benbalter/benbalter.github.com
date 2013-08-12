@@ -1,10 +1,10 @@
 ---
 layout: post
 comments: true
-excerpt: "We often thing as contributors as developers, but code is just one of the many ways to contribute to an open source project, and it's important to provide avenues of participation for non-technical contributors as well."
+excerpt: "We often think of contributors as developers, but code is just one of the many ways to contribute to an open source project, and it's important to provide avenues of participation for non-technical contributors as well."
 ---
 
-We often thing as contributors as developers, but code is just one of the many ways to contribute to an open source project, and it's important to provide avenues of participation for non-technical contributors as well.
+We often think of contributors as developers, but code is just one of the many ways to contribute to an open source project, and it's important to provide avenues of participation for non-technical contributors as well.
 
 Think through the spectrum of stakeholders that an open source project touches throughout its life cycle. On the one extreme, you may have a non-technical, non-user stakeholder, such as a boss, or the one paying the hosting bills, and at the other extreme, you've got a potential developer that hasn't yet learned your project exists. I like to think that the list looks something like this:
 
