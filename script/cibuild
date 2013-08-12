@@ -1,1 +1,11 @@
-build
+#!/bin/sh
+
+set -e
+
+echo "building site"
+bundle exec jekyll build
+
+echo "built"
+
+echo "Cleaning up..."
+rm -Rf _site
