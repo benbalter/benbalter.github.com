@@ -11,7 +11,7 @@ Think through the spectrum of stakeholders that an open source project touches t
 * Non-technical, non-user stakeholders
 * Potential users
 * Veteran (or curious) users
-* Subject matter experts (accessability, content, i18n)
+* Subject matter experts (accessibility, content, i18n)
 * Technical users
 * Active developers
 * Potential developers
