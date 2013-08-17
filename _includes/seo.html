@@ -1,30 +1,30 @@
-	{% if page.url == "/index.html" %}
-			{% capture seo_title %}{{ site.name }} &raquo; {{ site.description }}{% endcapture %}
-	    {% assign seo_desc = site.description %}
-	{% else %}
-	    {% capture seo_title %}{{ page.title }} &raquo; {{ site.name }}{% endcapture %}
-	    {% assign seo_desc = page.excerpt %}
-	{% endif %}
+{% if page.url == "/index.html" %}
+		{% capture seo_title %}{{ site.name }} &raquo; {{ site.description }}{% endcapture %}
+    {% assign seo_desc = site.description %}
+{% else %}
+    {% capture seo_title %}{{ page.title }} &raquo; {{ site.name }}{% endcapture %}
+    {% assign seo_desc = page.excerpt %}
+{% endif %}
 
-	<title>{{ seo_title }}</title>
-	<meta property="og:title" content="{{ seo_title }}"/>
+<title>{{ seo_title }}</title>
+<meta property="og:title" content="{{ seo_title }}"/>
 
-	<meta property="og:site_name" content="{{ site.name }}"/>
+<meta property="og:site_name" content="{{ site.name }}"/>
 
-	{% if seo_desc %}
-	<meta name="description" content="{{ seo_desc }}"/>
-	<meta property='og:description' content="{{ seo_desc }}"/>
-	{% endif %}
+{% if seo_desc %}
+<meta name="description" content="{{ seo_desc }}"/>
+<meta property='og:description' content="{{ seo_desc }}"/>
+{% endif %}
 
-	{% if page.robots %}
-	<meta name="robots" content="{{ page.robots }}" />
-	{% endif %}
+{% if page.robots %}
+<meta name="robots" content="{{ page.robots }}" />
+{% endif %}
 
-	<link rel="canonical" href="{{ site.url }}{{ page.url }}" />
-	{% if page.next.url %}<link rel="next" href="{{ site.url}}{{ page.next.url }}" title="{{ page.next.title }}" />{% endif %}
-	{% if page.previous.url %}<link rel="prev" href="{{ site.url }}{{ page.previous.url }}" title="{{ page.previous.title}}" />{% endif %}
+<link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+{% if page.next.url %}<link rel="next" href="{{ site.url}}{{ page.next.url }}" title="{{ page.next.title }}" />{% endif %}
+{% if page.previous.url %}<link rel="prev" href="{{ site.url }}{{ page.previous.url }}" title="{{ page.previous.title}}" />{% endif %}
 
-	<meta property='og:url' content='{{ site.url }}{{ page.url }}'/>
-	<link rel="alternate" type="application/rss+xml" title="{{ site.name }} &raquo; Feed" href="http://feeds.feedburner.com/benbalter" />
+<meta property='og:url' content='{{ site.url }}{{ page.url }}'/>
+<link rel="alternate" type="application/rss+xml" title="{{ site.name }} &raquo; Feed" href="http://feeds.feedburner.com/benbalter" />
 
-	<meta property='og:locale' content='en_us'/>
+<meta property='og:locale' content='en_us'/>
