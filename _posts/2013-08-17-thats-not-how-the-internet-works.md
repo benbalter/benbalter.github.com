@@ -1,11 +1,11 @@
 ---
 layout: post
 comments: true
-excerpt: ""
+excerpt: "The internet forces us to reimagine desktop technologies as vehicles for collaboration. Geodata is just one of them, and GitHub is the answer."
 title: That's not how the internet works
 ---
 
-The internet has [a particular way of doing things](http://ben.balter.com/2013/07/02/a-brief-history-of-the-internet/). It's an ethos driven by a desire for resilience, for interoperability, for speed and efficiency — for prefering pragmatism over perfection. There's an unspoken set of rules born out of the [hacker ethic](http://ben.balter.com/2013/02/16/what-is-a-hacker/#the-hacker-ethic). It's about elegant solutions, not over engineered ones, and it's what makes the internet what it is.
+The internet has [a particular way of doing things](http://ben.balter.com/2013/07/02/a-brief-history-of-the-internet/). It's an ethos driven by a desire for resilience, for interoperability, for speed and efficiency — for preferring pragmatism over perfection. There's an unspoken set of rules born out of the [hacker ethic](http://ben.balter.com/2013/02/16/what-is-a-hacker/#the-hacker-ethic). It's about elegant solutions, not over engineered ones, and it's what makes the internet what it is.
 
 There's been [a lot of discussion](https://twitter.com/michalmigurski/status/368120365085511680) recently about [GitHub's recent foray into the geospatial world](https://github.com/blog/1528-there-s-a-map-for-that). Sadly, a lot of it's focused on the wrong thing. You can't take an outdated, desktop-centric paradigm and just put it on the internet. Everyone knows that posting Word documents and PDFs online is a bad user experience. They're format's built within the constraints of the desktop age. Geospatial platforms are the same animal. Today, when building for a world where everyone has a computer in their pocket at all times, the rules have changed, and although they've changed radically, the playbook is well established:
 
@@ -15,7 +15,7 @@ Any geospatial file larger than larger than 10MB [simply won't render](https://h
 
 ### Rethink things for the internet
 
-When I go to [the New York Times website](http:/nytimes.com), it's not as if my browser download's today's paper in its entirety. The creators of the website could have done that. They could have said look, readers get the paper as one unit when they go to their local newsstand, so lets just do that, it's worked for the past hundreed years. But they didn't. They understood that readers can only read one article at a time, and as a result, I'm presented with a lightweight index, and the ability to grab any article I want on a subsequent request. Fast, efficient, internety.
+When I go to [the New York Times website](http:/nytimes.com), it's not as if my browser download's today's paper in its entirety. The creators of the website could have done that. They could have said look, readers get the paper as one unit when they go to their local newsstand, so lets just do that, it's worked for the past hundred years. But they didn't. They understood that readers can only read one article at a time, and as a result, I'm presented with a lightweight index, and the ability to grab any article I want on a subsequent request. Fast, efficient, internety.
 
 ### Repository as RESTful API
 
