@@ -20,8 +20,6 @@
 	<meta name="robots" content="{{ page.robots }}" />
 	{% endif %}
 
-	<link rel="canonical" href="{{ site.url}}{{ page.url | replace:'index.html','' }}" />
-
 	{% if page.next.url %}<link rel="next" href="{{ site.url}}{{ page.next.url }}" title="{{ page.next.title }}" />{% endif %}
 	{% if page.previous.url %}<link rel="prev" href="{{ site.url }}{{ page.previous.url }}" title="{{ page.previous.title}}" />{% endif %}
 
