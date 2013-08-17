@@ -43,9 +43,11 @@ Exposing process is just the start. Everything described here is trivial to impl
 
 GitHub allows you to socialize data. We're rehashing the story of Wikipedia versus Encyclopedia Britannica here. There's two ways to ensure information is "authoratative". The first way is to lock it down as tightly as possible. Only those who are blessed by the maintainer may even propose an improvement. The second way, the way the internet has proven, is to throw open the flood gates of collaboration. How do you know the data's accurate? Because if it weren't, thousands of people would have the ability to say so right beside it. Because someone with first hand knowledge corrected it, and I have the audit trail to prove it.
 
-It's the culture that's going to kill this. We should be building communities around our open data, not Rube Goldberg machines. To fundamentally change the way the government and civic hackers approach data sharing. To start to do what the software world has been doing for longer than I've been alive.
+### It's the culture that's going to kill this
 
-## The internet got together
+We should be building communities around our open data, not Rube Goldberg machines. To fundamentally change the way the government and civic hackers approach data sharing. To start to do what the software world has been doing for longer than I've been alive. Let's democratize mapping. Technology's made it possible. I don't need expensive desktop software to generate a map. All I need is a web browser. The challenge now is just culture.
+
+## Solve the problem once, solve it across the internet
 
 You could replace the word "geodata" here, with any other datatype, and it would remain just as true. That's the beauty of the way the internet approaches technical challenges. Solve the problem once, solve it everywhere. In this case, the internet got together, and in its collective wisdom decided the fundamentals of information sharing. It's our job to implement them, not reinvent them. Is Github ["the most important step forward in spatial data infrastructure this year"](http://mapbrief.com/2013/08/15/one-mans-public-comment-more-data-less-infrastructure/
 ), no. The internet is.
