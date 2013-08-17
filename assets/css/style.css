@@ -54,7 +54,7 @@ body { padding-top: 20px; }
 .hero-unit {
     background-image: url( '../../wp-content/uploads/2012/05/cropped-wp-header.jpg' );
     background-size: cover;
-    background-position: center center;
+    background-position: top center;
     height: 250px;
     position: relative;
     border-top-left-radius: 4px;
