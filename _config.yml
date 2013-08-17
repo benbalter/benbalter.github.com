@@ -12,9 +12,6 @@ url: http://ben.balter.com
 #files to exclude, array
 exclude: [ 'readme.md', 'vendor' ]
 
-#posts per page
-paginate: 10
-
 #number of items in RSS feed
 rss_limit: 10
 

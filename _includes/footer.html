@@ -1,8 +1,12 @@
 </div><!-- content -->
 
 <div class="row">
+	{% if page.layout == "default" %}
+	<div class="col-lg-12 footer">
+	{% else %}
 	<div class="col-lg-10 col-offset-1 footer">
-		<div class="fine-print"><a href="/fine-print">Fine Print</a></div>
+	{% endif %}
+		<div class="fine-print"><a href="{{ site.url }}/fine-print">Fine Print</a></div>
 	</div>
 </div>
 
@@ -17,4 +21,4 @@
 
 </body>
 </html>
-<!-- Generated {{ site.time }} -->
+<!-- Proudly Powered by GitHub | Generated {{ site.time }} -->

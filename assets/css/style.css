@@ -54,7 +54,7 @@ body { padding-top: 20px; }
 .hero-unit {
     background-image: url( '../../wp-content/uploads/2012/05/cropped-wp-header.jpg' );
     background-size: cover;
-    background-position: center center;
+    background-position: top center;
     height: 250px;
     position: relative;
     border-top-left-radius: 4px;
@@ -65,7 +65,7 @@ body { padding-top: 20px; }
 }
 
 /* Nav */
-.navbar { border-top-left-radius: 0; border-top-right-radius: 0;}
+.default .navbar { border-top-left-radius: 0; border-top-right-radius: 0;}
 .navbar h1 { display: inline; }
 .navbar h2 { font-weight: normal; font-size: 20px; display: inline;}
 .navbar-brand { font-size: 20px;}
