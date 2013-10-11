@@ -24,7 +24,7 @@ post_format: [ ]
 Wired Magazine recently took a turn for the meta. In addition to publishing [their recent story featuring the popular version control site GitHub][1] on Wired.com as they would normally, they also [published it on GitHub itself under a creative commons license][2], allowing readers to fork and contribute to the story as they saw fit. In [reflecting after the fact][3], the Wired team said something that stood out to me:
 
 > At Wired offices, you hear the question over and over again as we work on stories like the one you're reading now: "Are you out of the story? I want to go in." We have a version control problem. We publish Wired.com on WordPress. It's a decent publishing tool, but when two people change a story at the same time, one of them doesn't get her changes onto the final story.
-> 
+>
 > We published our GitHub story on GitHub because it was meta-cool. But we also did it to see if GitHub might actually help us solve our problem.
 
 Spoiler alert: it didn't. GitHub's great for a lot of things, source code chief among them, but it's not for the faint of heart. There's a great deal of command line, and general geekery involved that raise the barriers to entry just high enough to keep it out of everyday newsrooms and editorial workflows. [^1]
@@ -55,7 +55,7 @@ In a nutshell:
 *   Pending changes diff view, front-end preview of changes
 *   Using WordPress's pending-review system, integrates with existing plugins for notifications, management, etc.
 *   Ability to store "commit messages" with each post revision to explain to others what changes were made and why
-*   Automatically merges (non-conflicted) changes (based on existing diff engine) 
+*   Automatically merges (non-conflicted) changes (based on existing diff engine)
     1.  One sided changes – one overwrites the other
     2.  Two sided non-conflict changes – automatically merge
     3.  Conflicted changes – note conflicts in fork and prepare for re-merge
@@ -64,23 +64,19 @@ Post forking may make for a killer plugin [^2] or piece of core functionality…
 
 Thoughts? Would you use this? What else would you like to see it do? [Drop me a line][8], or let me know in the [comments below][9]?
 
-**Update (3/5): **The plan right now is to submit this as a [Google Summer of Code][10] project, so if all goes well, look for the above-outlined functionality in a WordPress install near you towards the end of the summer. In the mean time, the continued thoughts/feedback is very greatly appreciated.
+**Update (3/5):** The plan right now is to submit this as a [Google Summer of Code][10] project, so if all goes well, look for the above-outlined functionality in a WordPress install near you towards the end of the summer. In the mean time, the continued thoughts/feedback is very greatly appreciated.
 
-**Update (3/27): **It looks like [WordPress isn't participating in GSoC this year][11]. Filing this idea under "someday".
+**Update (3/27):** It looks like [WordPress isn't participating in GSoC this year][11]. Filing this idea under "someday".
 
-**Update (6/13): **Stay tuned. This may yet become a reality after all. ETA end of summer-ish.
+**Update (6/13):** Stay tuned. This may yet become a reality after all. ETA end of summer-ish.
 
-**Update (10/1): **Introducing [Post Forking for WordPress](http://postforking.wordpress.com/2012/10/01/introducing-post-forking-for-wordpress/) — a more collaborative approach to content curation:
+**Update (10/1):** Introducing [Post Forking for WordPress](http://postforking.wordpress.com/2012/10/01/introducing-post-forking-for-wordpress/) — a more collaborative approach to content curation:
 
-[^1]: Having recently given this a try — using GitHub to curate [a collaboratively edited list of open-source alternatives to proprietary software][12] — I know first-hand how off-putting GitHub can be to non-technical users. 
-
+[^1]: Having recently given this a try — using GitHub to curate [a collaboratively edited list of open-source alternatives to proprietary software][12] — I know first-hand how off-putting GitHub can be to non-technical users.
 [^2]: Full disclosure: two plugins, [Revisionary][14] and [Duplicate Post][15] exist, but they don't take the idea nearly as far as the above proposes, nor do they do it in "the WordPress way". I'd hope that even if the idea started as a plugin, it would eventually be incorporated as core functionality.
-
 [1]: http://www.wired.com/wiredenterprise/2012/02/github/all/1
 [2]: https://github.com/WiredEnterprise/Lord-of-the-Files
 [3]: http://www.wired.com/wiredenterprise/2012/02/github-revisited/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+wired%2Findex+%28Wired%3A+Index+3+%28Top+Stories+2%29%29
-[4]: Having recently given this a try — using GitHub to curate a collaboratively edited list of open-source alternatives to proprietary software — I know first-hand how off-putting GitHub can be to non-technical users.
-[5]: Full disclosure: two plugins, Revisionary and Duplicate Post exist, but they don't take the idea nearly as far as the above proposes, nor do they do it in "the WordPress way". I'd hope that even if the idea started as a plugin, it would eventually be incorporated as core functionality.
 [6]: http://editflow.org/
 [7]: http://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/
 [8]: http://ben.balter.com/contact/
@@ -88,6 +84,5 @@ Thoughts? Would you use this? What else would you like to see it do? [Drop me a 
 [10]: http://ben.balter.com/tag/gsoc/
 [11]: http://wpdevel.wordpress.com/2012/03/16/no-gsoc-2012/
 [12]: http://ben.balter.com/2012/02/27/open-source-alternatives-to-proprietary-enterprise-software/
-
 [14]: http://wordpress.org/extend/plugins/revisionary/
 [15]: http://wordpress.org/extend/plugins/duplicate-post/
