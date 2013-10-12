@@ -19,7 +19,8 @@ tags:
   - wordpress
 post_format: [ ]
 ---
-![][1]The New York Times [recently open-sourced][2] their nifty wizardry which allows users to highlight and link to specific text within an article or post. In their own words:
+
+![Screenshot of the plugin in use][1]{: .alignleft } The New York Times [recently open-sourced][2] their nifty wizardry which allows users to highlight and link to specific text within an article or post. In their own words:
 
 > Emphasis provides dynamic paragraph-specific anchor links and the ability to highlight text in a document, all of which is made available in the URL hash so it can be emailed, bookmarked, or shared.
 
