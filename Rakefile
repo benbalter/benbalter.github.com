@@ -8,6 +8,5 @@ end
 
 task :test do
   Rake::Task["assets:precompile"].execute
-  tester = HTML::Proofer.new "./_site"
-  tester.run
+  HTML::Proofer.new("./_site").run
 end
