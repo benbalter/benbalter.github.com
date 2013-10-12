@@ -27,7 +27,7 @@ WordPress does many things right. It is an incredibly versatile tool, but like a
 
 Imagine a workflow management and version control system [building on WordPress's existing core competencies][13]. By treating documents as a custom post type, users can leverage the power of WordPress's extensive attachment, revision, taxonomy, and URL rewriting functionalities. Document permalinks can be routed through the traditional rewrite structure such that the latest revision of a file always remains at a static, authenticated URL, and users can toggle the visibility of documents (both internally and externally) as they currently do with post statuses and permissions. Similarly, file locking can extend WordPress's autosave functionality (as a ping), revision logs can extend WordPress's existing revision relationship and can be outputted as a traditional RSS feed, etc.
 
-![][14]
+![Wireframe of the proposed application][14]{: .alignleft }
 
 As seen in the above wireframe, document revisions would be inextricably linked to the essential WordPress experience. If you know WordPress, you know document revisions. Why reinvent the wheel when you have the best wheel the world has ever seen, and a passionate global community dedicated to improving it? This approach would not simply be limited to traditional documents. Images, PDFs, code — anything the user wants to collaborate with others on, or have a secure revision history can be thrown at it. Academics, lawyers, government folks, the possibilities are endless.
 
@@ -37,11 +37,11 @@ I am working on submitting this idea as a proposed [Google Summer of Code][18] p
 
 **Update (8/29)**: The final result of the project is an [Open Source Document Management and Version Control System][22] for WordPress. An overview of its top-level features including a screencast of a typical use case is available on the [WP Document Revisions][22] page.
 
-[^1]: *See, e.g., *[Documentum][23], [Liferay][24], [Melange][25], and [Gawker's CMS][26]. 
-[^2]: Nearly three years ago, at the time of the feature's inception, [WordPress founder Matt Mullenweg noted][28], "*With the power of modern computers, it's silly that we still use save and editing metaphors from the time when the most common method of storage was floppy disks… now we're taking that to another level by allowing you to view who made what changes when… through a super-easy interface, much like Wikipedia or a version control system.*" 
-[^3]: *See, e.g., *WordPress as an [e-mail newsletter][30], [contact manager][31], [CRM][32], [task list][33], [invoice system][34],  [job bank][35], or [real estate directory][36]. 
-[^4]: Let's just call it "Frupal" for the sake of discussion. 
-[^5]: In hindsight, I probably shouldn't have ripped on Melange. *See supra note 1.* 
+[^1]: *See, e.g., *[Documentum][23], [Liferay][24], [Melange][25], and [Gawker's CMS][26].
+[^2]: Nearly three years ago, at the time of the feature's inception, [WordPress founder Matt Mullenweg noted][28], "*With the power of modern computers, it's silly that we still use save and editing metaphors from the time when the most common method of storage was floppy disks… now we're taking that to another level by allowing you to view who made what changes when… through a super-easy interface, much like Wikipedia or a version control system.*"
+[^3]: *See, e.g., *WordPress as an [e-mail newsletter][30], [contact manager][31], [CRM][32], [task list][33], [invoice system][34],  [job bank][35], or [real estate directory][36].
+[^4]: Let's just call it "Frupal" for the sake of discussion.
+[^5]: In hindsight, I probably shouldn't have ripped on Melange. *See supra note 1.*
 
 [1]: http://xkcd.com/801/
 [2]: http://wordpress.org

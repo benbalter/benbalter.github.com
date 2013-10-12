@@ -59,7 +59,7 @@ The story, illustrating the true mob-power of the Internet, might be even more i
 
 [1]: "See generally TechCrunch: If it's on the Internet, It Must Be True."
 [2]: http://www.huffingtonpost.com/jay-rosen/the-uncharted-from-off-th_b_96575.html
-[3]: http://cdn.benbalter.com/wp-content/uploads/2010/11/244921874_44ec1cbfa9-292x300.jpg "Apple Pie Courtesy belochkavita"
+[3]: http://ben.balter.com/wp-content/uploads/2010/11/244921874_44ec1cbfa9-292x300.jpg "Apple Pie Courtesy belochkavita"
 [4]: http://illadore.livejournal.com/30674.html
 [5]: http://cookssource.com
 [6]: http://godecookery.com/twotarts/twotarts.html
