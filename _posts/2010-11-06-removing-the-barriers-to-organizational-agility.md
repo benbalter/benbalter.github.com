@@ -17,7 +17,7 @@ post_format: [ ]
 ---
 *Recorded at the [The George Washington University Tech Alumni Group][1] Federal Executive Roundtable, November 4, 2010.*
 
-![Photo of the pannelests at the event][2]
+![Photo of the panelists at the event][2]
 
 Panelists Steven Bucci, William Kirkendale, Brian Moran, Mark Rosenfeld, and Mariano Tan / Photo: GW Tech Alumni Group
 
