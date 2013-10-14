@@ -1,13 +1,3 @@
-GIT
-  remote: https://github.com/benbalter/html-proofer
-  revision: f5f9035448c70c20ebc9a2a8186cd0a4e56c21e1
-  branch: refactor
-  specs:
-    html-proofer (0.0.16bb)
-      colored (~> 1.2)
-      nokogiri (= 1.6.0)
-      typhoeus (~> 0.6.3)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -24,7 +14,7 @@ GEM
       mime-types (~> 1.18)
     fast-stemmer (1.0.2)
     ffi (1.9.0)
-    github-pages (5)
+    github-pages (8)
       RedCloth (= 4.2.9)
       jekyll (= 1.2.0)
       kramdown (= 1.0.2)
@@ -33,6 +23,10 @@ GEM
       rdiscount (= 1.6.8)
       redcarpet (= 2.2.2)
     highline (1.6.19)
+    html-proofer (0.1.0)
+      colored (~> 1.2)
+      nokogiri (= 1.6.0)
+      typhoeus (~> 0.6.3)
     jekyll (1.2.0)
       classifier (~> 1.3)
       colorator (~> 0.1)
@@ -69,5 +63,5 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
-  html-proofer!
+  html-proofer
   rake
