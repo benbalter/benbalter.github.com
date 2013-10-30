@@ -211,7 +211,7 @@ OMB should create guidance to decouple the various components that make up an in
 
 [^38]: FAR 7.103(w). *See* generally Appendix III to OMB Circular No. A-130, Office of Management and Budget, available at http://1.usa.gov/RlibPS.
 
-[^39]: FIPS PUB 199, Standards for Security Categorization of Federal Information and Information Systems 1,  2 (Feb. 2004), <a>http://1.usa.gov/4nzS8</a>; NIST Special Publication 800-53, Rev. 3, Recommended Security Controls for Federal Information Systems and Organizations 6,  2.1 (May 2010), http://1.usa.gov/9DDoih.
+[^39]: FIPS PUB 199, Standards for Security Categorization of Federal Information and Information Systems 1,  2 (Feb. 2004), http://1.usa.gov/4nzS8; NIST Special Publication 800-53, Rev. 3, Recommended Security Controls for Federal Information Systems and Organizations 6,  2.1 (May 2010), http://1.usa.gov/9DDoih.
 
 [^40]: *See, e.g., *OMB Memorandum 11-33, FY 2011 Reporting Instructions for the Federal Information Security Management Act and Agency Privacy Management (Sept. 14, 2011) (enclosing DHS Memorandum FISM 11-02 (Aug. 24, 2011)), http://1.usa.gov/oCB4it.
 
