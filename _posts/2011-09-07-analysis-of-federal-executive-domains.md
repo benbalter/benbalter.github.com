@@ -37,39 +37,23 @@ The White House's Office of Management and Budget recently released a[ list of a
 
 **Key Highlights of the Preliminary Results:**
 
-*   Only 73% of domains are [live and in use][4]
-*   *Of live domains* 80% are accessible [without typing the www. prefix][5].
-*   Only 10 sites fully support the federally mandated [IPv6 standard][6].
-*   87 domains use the [Akamai][7] content distribution network.
-*   12 are believed to be in the cloud, including 10 in [Amazon][8], and 2 in [Rackspace][9].
-*   103 use some form of analytics, with [Google Analytics][10] being the most popular, found on 86 domains.
-*   Drupal is[ by far the most popular CMS][11], powering nearly twice as many domains as all other CMSs combined.
-*   [WordPress][12] is the second most popular primary CMS (17), followed by Microsoft [SharePoint][13] (13).
-*   93% of *live* domains use [no detectable CMS][14], or use a custom-built solution.
-
-Slightly more than half of live servers are powered by
-
-[commercial software.][15]
-
-**The full, browsable dataset:[ http://dotgov.benbalter.com][16]**
+* Only 73% of domains are live and in use
+* *Of live domains* 80% are accessible without typing the www. prefix.
+* Only 10 sites fully support the federally mandated IPv6 standard.
+* 87 domains use the Akamai content distribution network.
+* 12 are believed to be in the cloud, including 10 in Amazon, and 2 in Rackspace.
+* 103 use some form of analytics, with Google Analytics being the most popular, found on 86 domains.
+* Drupal is by far the most popular CMS, powering nearly twice as many domains as all other CMSs combined.
+* WordPress is the second most popular primary CMS (17), followed by Microsoft SharePoint (13).
+* 93% of *live* domains use no detectable CMS, or use a custom-built solution.
+* Slightly more than half of live servers are powered by commercial software.
 
 *Please note: This data is to be treated as preliminary and is provided "as is" with no guarantee as to its validity. The source code for all tools used, including the resulting data, is available in [GitHub][3]. If you find a systemic error, I encourage you to fork the code and I will try my best to recrawl the list to improve the data's accuracy.*
 
 **Update (10/4)**: Updated the above statistics (and underlying data) based on an updated domain list published on data.gov and recrawled using the same tools. The above numbers now use the number of *live* sites (rather than total number of domains) as the denominator for percentages, and excludes approximately 300 domains which simply redirects to other .govs.
 
+**Update (October 2013)**: The original site is no longer available online. You may use the linked resource to recreate the results.
+
 [1]: https://explore.data.gov/Federal-Government-Finances-and-Employment/Federal-Executive-Branch-Internet-Domains/ymya-7799/widget_preview?width=500&height=425&variation=md55-89i9
 [2]: https://github.com/benbalter/Site-Inspector
 [3]: https://github.com/benbalter/Domain-Inventory
-[4]: http://dotgov.benbalter.com/status/live/
-[5]: http://dotgov.benbalter.com/nonwww/yes/
-[6]: http://dotgov.benbalter.com/ipv6/yes/
-[7]: http://dotgov.benbalter.com/cdn/akamai/
-[8]: http://dotgov.benbalter.com/cloud/amazon/
-[9]: http://dotgov.benbalter.com/cloud/rackspace/
-[10]: http://dotgov.benbalter.com/analytics/google-analytics/
-[11]: http://dotgov.benbalter.com/cms/drupal/
-[12]: http://dotgov.benbalter.com/cms/wordpress/
-[13]: http://dotgov.benbalter.com/cms/sharepoint/
-[14]: http://dotgov.benbalter.com/cms/none/
-[15]: http://dotgov.benbalter.com/server_software/commercial/
-[16]: http://dotgov.benbalter.com

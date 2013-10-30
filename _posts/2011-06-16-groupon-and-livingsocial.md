@@ -74,7 +74,7 @@ Smart websites are driven by data — personal data — and they use it to fuel 
 
 Despite [Groupon's efforts][23], there's just not enough data there. They may have my age, gender, rough location, and one or two datapoints of buying history, but compare that to the relative dossier that Google and Amazon both have to have on me, it's always going to be a losing fight. Once first mover advantage begins to lose its shimmer, the big boys' synergies will begin to show their [true][24] [potential][25], and daily deal sites like Groupon and LivingSocial will expire as quickly as the deals they peddle.
 
-\[Photo courtesy [wovox][26]{: html-proofer-ignore="true"}\]
+\[Photo courtesy [wovox][26]{: data-proofer-ignore="true"}\]
 
 [1]: http://ben.balter.com/wp-content/uploads/2011/06/5554901181_664eac93a6_b-300x200.jpg "Groupon"
 [2]: http://news.ycombinator.com/item?id=2654788
