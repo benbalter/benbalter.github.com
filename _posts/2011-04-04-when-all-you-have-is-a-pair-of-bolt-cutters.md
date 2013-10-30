@@ -64,7 +64,7 @@ I am working on submitting this idea as a proposed [Google Summer of Code][18] p
 [19]: #note-2020-5 "In hindsight, I probably shouldn't have ripped on Melange. See supra note 1."
 [20]: http://ben.balter.com/contact/
 [21]: #comments
-[22]: http://ben.balter.com/2011/08/29/document-management-version-control-for-wordpress/
+[22]: http://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/
 [23]: http://www.emc.com/domains/documentum/index.htm
 [24]: http://www.liferay.com/
 [25]: http://code.google.com/p/soc/wiki/MelangeIntro

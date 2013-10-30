@@ -56,7 +56,7 @@ Notes:
 [^9]: Testimony of Google, Inc. before the Subcommittee on Asia and the Pacific, and the Subcommittee on Africa, Global Human Rights, and International Operations, Committee on International Relations, 207th Cong. (2006) (statement of Elliot Schrage, Vice President, Global Communications and Public Affairs, Google, Inc.).
 [^10]: *Id.*
 [^11]: [Google in China][38], Google Official Blog, January 27, 2006.
-[^12]: Lindsay Eastwood, *"Don't Be Evil": Google Faces the Chinese Internet Market and the Global Online Freedom Act of 2007*, 9 Minn. J.L. Sci. & Tech. 287, 288 (2008) (citing China Internet Network Info. Ctr., [18th Statistical Survey Report on the Internet Development in China][40], 3 (2006).
+[^12]: Lindsay Eastwood, *"Don't Be Evil": Google Faces the Chinese Internet Market and the Global Online Freedom Act of 2007*, 9 Minn. J.L. Sci. & Tech. 287, 288 (2008) (citing China Internet Network Info. Ctr., 18th Statistical Survey Report on the Internet Development in China, 3 (2006).
 [^13]: *Id.* at n. 30 (stating "the main channel that obtain information are the Internet (82.6%), television (64.5%), papers (57.9%), magazines (18.8%), books (18.7%), radio (14.4%), and other (6.9%)") (internal quotations omitted).
 [^14]: *Id.*
 [^15]: *E.g.,* Google's decision to enter China, and subsequently censor search results, was primarily based on the premise that it was the lesser of two evils. Google CEO Eric Schmidt commented, "although we weren't wild about the restrictions, it was even worse to not try to serve those users at all," elaborating, "we actually did an evil scale and decided not to serve at all was worse evil." Shyu, *Supra* note 8 at 213 (citing Danny Sullivan, *[Google Created EvilRank Scale To Decide On Chinese Censorship][44]*, Search Engine Watch, January 30, 2006. Accordingly, Google launched Google.cn under the belief that the "benefits of increased access to information for people in China… outweighed \[the\] discomfort… \[of\] agreeing to censor some results," ([*A New Approach to China*][45], Official Google Blog, January 12, 2010) calling their service a "a meaningful – though imperfect – contribution to the overall expansion of… information in China." Press Release, Google, Inc., [*Google to Open Research Center in China*][46] (July 19, 2005).
@@ -72,8 +72,7 @@ Notes:
 [29]: http://www.census.gov/mrts/www/data/html/09Q1table3.html
 [31]: http://www.itu.int/osg/spu/publications/digitalife/docs/digital-life-web.pdf
 [34]: http://www.ichrdd.ca/english/commdoc/publications/globalization/goldenShieldEng.html
-[38]: http://Googleblog.blogspot.com/2006/01/Google-in-china.html
-[40]: http://cnnic.cn/download/2006/18threport-en.pdf
+[38]: http://googleblog.blogspot.com/2006/01/google-in-china.html
 [44]: http://blog.searchenginewatch.com/blog/060130-154414
 [45]: http://Googleblog.blogspot.com/2010/01/new-approach-to-china.html
 [46]: http://www.Google.com/press/pressrel/rd_china.html

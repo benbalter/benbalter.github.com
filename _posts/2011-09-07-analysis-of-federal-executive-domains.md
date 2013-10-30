@@ -57,7 +57,7 @@ Slightly more than half of live servers are powered by
 
 **Update (10/4)**: Updated the above statistics (and underlying data) based on an updated domain list published on data.gov and recrawled using the same tools. The above numbers now use the number of *live* sites (rather than total number of domains) as the denominator for percentages, and excludes approximately 300 domains which simply redirects to other .govs.
 
-[1]: http://explore.data.gov/Federal-Government-Finances-and-Employment/Federal-Executive-Branch-Internet-Domains/k9h8-e98h
+[1]: https://explore.data.gov/Federal-Government-Finances-and-Employment/Federal-Executive-Branch-Internet-Domains/ymya-7799/widget_preview?width=500&height=425&variation=md55-89i9
 [2]: https://github.com/benbalter/Site-Inspector
 [3]: https://github.com/benbalter/Domain-Inventory
 [4]: http://dotgov.benbalter.com/status/live/

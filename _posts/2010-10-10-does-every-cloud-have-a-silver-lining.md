@@ -40,7 +40,7 @@ Photo credit: [garyhayes][18]
 
 [1]: http://ben.balter.com/wp-content/uploads/2010/09/4502026170_4bf31f04e6.jpg
 [2]: http://www.nytimes.com/2010/09/27/us/27wiretap.html?_r=1&ref=technology "NYT: U.S. Tries to Make It Easier to Wiretap the Internet"
-[3]: http://www.hulu.com/watch/53368/swat-best-of-breaches "Hulu: Best of Swatch Breaches"
+[3]: http://www.youtube.com/watch?v=Vc51W8jGv9g
 [4]: http://www.youtube.com/watch?v=6Z70BmmSkMY&feature=related "CSI Miami IP Address Lookup"
 [5]: http://en.wikipedia.org/wiki/Cloud_computing "Wikipedia: Cloud Computing"
 [^6]: *Compare* Fed. R. Crim. P. 41(e)(2)(B) *with* 18 U.S.C.A. § 2703(d) (West).

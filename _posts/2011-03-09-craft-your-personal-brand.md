@@ -73,9 +73,9 @@ Comments? I'd love to hear your thoughts below.
 [5]: http://ben.balter.com/2011/01/11/wordpress-emphasis-plugin/ "WordPress Emphasis Plugin: Highlight and Permalink Text"
 [6]: http://wordpress.org/extend/plugins/all-in-one-seo-pack/
 [7]: http://yoast.com/wordpress/google-analytics/
-[8]: http://wordpress.org/extend/plugins/simple-facebook-connect/
-[9]: http://wordpress.org/extend/plugins/simple-twitter-connect/
-[10]: http://wordpress.org/extend/plugins/subscribe-to-comments/
-[11]: http://wordpress.org/extend/plugins/syntaxhighlighter/
+[8]: http://ottopress.com/wordpress-plugins/simple-facebook-connect/
+[9]: http://ottopress.com/wordpress-plugins/simple-twitter-connect/
+[10]: http://wordpress.org/plugins/subscribe-to-comments/
+[11]: http://wordpress.org/plugins/syntaxhighlighter/
 [12]: http://rapportive.com/
 [13]: http://thenextweb.com/socialmedia/2010/10/13/bit-ly-now-lets-you-add-qr-codes-to-links-in-seconds/

@@ -46,7 +46,7 @@ This, combined with the fact that [Groupon claims the entirety of the purchase p
 
 #### Gift Cards?
 
-First is the question of if a daily deal constitutes a [gift card][10], a legal issue with which both [Groupon][11] and [LivingSocial][12] are intimately familiar with, defending at least [12 distinct lawsuits][13]. Despite the expiration date listed online, in print, and often sent in reminder e-mails, in some states, customers may be eligible to redeem deals long after they expire, or at least have ground to reclaim their initial investment, often at the merchants' expense.
+First is the question of if a daily deal constitutes a [gift card][10], a legal issue with which both Groupon and [LivingSocial][12] are intimately familiar with, defending at least [12 distinct lawsuits][13]. Despite the expiration date listed online, in print, and often sent in reminder e-mails, in some states, customers may be eligible to redeem deals long after they expire, or at least have ground to reclaim their initial investment, often at the merchants' expense.
 
 #### Sales Tax
 
@@ -74,7 +74,7 @@ Smart websites are driven by data — personal data — and they use it to fuel 
 
 Despite [Groupon's efforts][23], there's just not enough data there. They may have my age, gender, rough location, and one or two datapoints of buying history, but compare that to the relative dossier that Google and Amazon both have to have on me, it's always going to be a losing fight. Once first mover advantage begins to lose its shimmer, the big boys' synergies will begin to show their [true][24] [potential][25], and daily deal sites like Groupon and LivingSocial will expire as quickly as the deals they peddle.
 
-\[Photo courtesy [wovox][26]\]
+\[Photo courtesy [wovox][26]{: html-proofer-ignore="true"}\]
 
 [1]: http://ben.balter.com/wp-content/uploads/2011/06/5554901181_664eac93a6_b-300x200.jpg "Groupon"
 [2]: http://news.ycombinator.com/item?id=2654788
@@ -86,7 +86,6 @@ Despite [Groupon's efforts][23], there's just not enough data there. They may ha
 [8]: http://www.businessinsider.com/teardown-of-the-groupon-merchant-agreement-2011-6
 [9]: http://blogs.forbes.com/luisakroll/2011/04/04/new-billionaire-eric-lefkofsky-talks-about-groupon-and-tech-investing/
 [10]: http://www.ncsl.org/default.aspx?tabid=12474
-[11]: http://www.jpml.uscourts.gov/Panel_Orders/MDL-2238-Initial_Transfer.pdf
 [12]: http://www.seattlepi.com/local/article/Seattle-class-action-LivingSocial-expiration-1015493.php
 [13]: http://www.benedelman.org/voucher-consumer-protection/#expiration
 [14]: http://techcrunch.com/2011/06/15/daily-deal-consumer-protection-laws/
