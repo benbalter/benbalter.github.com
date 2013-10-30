@@ -93,4 +93,4 @@ The law aside, readers want you to digest and put ideas in your own voice. Take 
 [23]: http://ben.balter.com/fine-print/
 [25]: http://en.wikipedia.org/wiki/Berne_Convention_for_the_Protection_of_Literary_and_Artistic_Works
 [27]: http://www.law.cornell.edu/uscode/17/107.html
-[29]: http://caselaw.lp.findlaw.com/scripts/getcase.pl?court=usvol=510`invol=569
+[29]: http://www.law.cornell.edu/supct/html/92-1292.ZS.html

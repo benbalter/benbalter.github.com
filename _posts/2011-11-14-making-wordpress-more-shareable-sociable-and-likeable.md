@@ -32,8 +32,8 @@ Slides from my presentation at Washington's [CrushIQ][1] on how to use WordPress
 *   [Disqus][11]
 
 [1]: http://crushiq.com
-[2]: http://wordpress.org/extend/plugins/simple-facebook-connect/
-[3]: http://wordpress.org/extend/plugins/simple-twitter-connect/
+[2]: http://ottopress.com/wordpress-plugins/simple-facebook-connect/
+[3]: http://ottopress.com/wordpress-plugins/simple-twitter-connect/
 [4]: http://wordpress.org/extend/plugins/jetpack/
 [5]: http://wordpress.org/extend/plugins/embedly/
 [6]: http://wordpress.org/extend/plugins/addthis/

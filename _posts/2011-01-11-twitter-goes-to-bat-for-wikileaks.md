@@ -19,7 +19,7 @@ Regardless of where one's politics may fall on the WikiLeaks prosecution, one th
 
 ![Screenshot of the court order][1]{: .alignleft} Federal prosecutors investigating the disclosure of classified state documents [served Twitter with a court order][2] demanding it turn over information pertaining to several of its users. While there is nothing particularly alarming about [the order][3], [^1] the bigger news is that [Twitter fought back][5], contesting the attached gag order that prevented the social networking service from informing its users of its compliance with the otherwise lawful request. [^2]
 
-Twitter's decision, arguably [the first of its kind][7], gave the targets of the order the time and legal cover necessary to pursue their own challenges in court.  What is troubling, however, is that presumably other service providers, [such as Google and Facebook][8], could have received similar requests and silently acquiesced to the government's demands.
+Twitter's decision, arguably the first of its kind, gave the targets of the order the time and legal cover necessary to pursue their own challenges in court.  What is troubling, however, is that presumably other service providers, [such as Google and Facebook][8], could have received similar requests and silently acquiesced to the government's demands.
 
 While many companies, including [Google][9] and [Yahoo][10], have a policy of informing users of such requests when legally permissible, in this case, Twitter's contention of the gag order, and the resulting opportunity to pursue legal action it subsequently afforded its users, was somewhat heroic, at least by internet standards, and is a practice other firms should follow.  By no means was Twitter obliged to spend time and money [^3] rocking the boat on what appears to be an undoubtedly troublesome, but otherwise [somewhat routine][12] request, but they did so anyway, and to their users' benefit. Wired put it best when [they noted][13], "*Twitter introduced a new feature last month without telling anyone about it… Twitter beta-tested a spine.*"
 
@@ -36,7 +36,6 @@ Notes:
 [2]: http://www.nytimes.com/2011/01/09/world/09wiki.html?partner=rss&emc=rss
 [3]: http://www.salon.com/news/opinion/glenn_greenwald/2011/01/07/twitter/subpoena.pdf
 [5]: http://techcrunch.com/2011/01/07/twitter-informs-users-of-doj-wikileaks-court-order-didnt-have-to/
-[7]: http://www.mediaaccess.org/2011/01/twitter-does-good-no-kidding/
 [8]: http://www.guardian.co.uk/media/2011/jan/08/wikileaks-calls-google-facebook-us-subpoenas
 [9]: http://www.google.com/intl/en/privacy/privacy-policy.html
 [10]: http://info.yahoo.com/privacy/us/yahoo/details.html

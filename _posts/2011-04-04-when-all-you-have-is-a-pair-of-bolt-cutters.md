@@ -23,7 +23,7 @@ My biggest gripe with [WordPress][2], the open-source [content management system
 
 This ritual saw no deviation, when I sat down to setup [SharePoint][6] in support of my [law journal][7]‘s upcoming publication workflow. Like Alice stumbling down the rabbit hole, it quickly became apparent that in the counterintuitive world of Sharepoint, each step was going to be more and more alien than the last. And then it dawned on me: a corollary of [Uncle Ben's law][8], *with great power does not have to come great complexity*.
 
-WordPress does many things right. It is an incredibly versatile tool, but like a body builder with a heart of gold, it is as friendly and approachable as it is powerful. WordPress has [more than eight years of rock-solid experience][9] storing, organizing, sorting, and searching all sorts of user-generated content. Its got a set of slick attachment functions to allow users to safely and securely upload and store their non-WordPress files in WordPress. For the past three years, it even has a proto-version control system in the form of its much-envied [post revisions][10]. [^2] And it does all this through an interface so dumb-simple that [even your grandparents could start their own site][12]. It seems like a no brainer then, to marry these tools to create a WordPress-based document management system.
+WordPress does many things right. It is an incredibly versatile tool, but like a body builder with a heart of gold, it is as friendly and approachable as it is powerful. WordPress has [more than eight years of rock-solid experience][9] storing, organizing, sorting, and searching all sorts of user-generated content. Its got a set of slick attachment functions to allow users to safely and securely upload and store their non-WordPress files in WordPress. For the past three years, it even has a proto-version control system in the form of its much-envied [post revisions][10]. [^2] And it does all this through an interface so dumb-simple that even your grandparents could start their own site. It seems like a no brainer then, to marry these tools to create a WordPress-based document management system.
 
 Imagine a workflow management and version control system [building on WordPress's existing core competencies][13]. By treating documents as a custom post type, users can leverage the power of WordPress's extensive attachment, revision, taxonomy, and URL rewriting functionalities. Document permalinks can be routed through the traditional rewrite structure such that the latest revision of a file always remains at a static, authenticated URL, and users can toggle the visibility of documents (both internally and externally) as they currently do with post statuses and permissions. Similarly, file locking can extend WordPress's autosave functionality (as a ping), revision logs can extend WordPress's existing revision relationship and can be outputted as a traditional RSS feed, etc.
 
@@ -54,7 +54,6 @@ I am working on submitting this idea as a proposed [Google Summer of Code][18] p
 [9]: http://core.trac.wordpress.org/browser/trunk?rev=3
 [10]: http://codex.wordpress.org/Revision_Management
 [11]: #note-2020-2 "Nearly three years ago, at the time of the feature's inception, WordPress founder Matt Mullenweg noted, "With the power of modern computers, it's silly that we still use save and editing metaphors from the time when the most common method of storage was floppy disks… now we're taking that to another level by allowing you to view who made what changes when… through a super-easy interface, much like Wikipedia or a version control system.""
-[12]: http://www.thegrandparentsblog.com/
 [13]: http://lists.automattic.com/pipermail/wp-hackers/2011-March/038727.html
 [14]: http://ben.balter.com/wp-content/uploads/2011/04/wireframe.png "WP Document Revisions Wireframe"
 [15]: #note-2020-3 "See, e.g., WordPress as an e-mail newsletter, contact manager, CRM, task list, invoice system,  job bank, or real estate directory."
@@ -64,7 +63,7 @@ I am working on submitting this idea as a proposed [Google Summer of Code][18] p
 [19]: #note-2020-5 "In hindsight, I probably shouldn't have ripped on Melange. See supra note 1."
 [20]: http://ben.balter.com/contact/
 [21]: #comments
-[22]: http://ben.balter.com/2011/08/29/document-management-version-control-for-wordpress/
+[22]: http://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/
 [23]: http://www.emc.com/domains/documentum/index.htm
 [24]: http://www.liferay.com/
 [25]: http://code.google.com/p/soc/wiki/MelangeIntro

@@ -34,7 +34,7 @@ Put it in context: Google [recently announced the retirement of iGoogle][2], it'
 
 Dashboard were a fun user interface experiment. They really were, especially compared to the static pages they evolved from. That was the whole point of Web 2.0, wasn't it? Personalization? I mean, it was really cool to drag and drop widgets, and build a virtual command center to monitor my little corner of the internet, and that was fine when there wasn't much internet out there to monitor. But the web collectively hit a tipping point a few years back. From push notifications to always-on e-mail, in more ways than we imagine, we now bombard ourselves with more information that we can physically process at any given moment. [Quite literally][3].
 
-Think about it this way: when customers come to a website, they're not looking to solve 10 problems. They're looking to solve one. They don't want all the potentially relevant information thrown at them all at once; they just want what they need. And they want computers to make that determination for them. But hey, this isn't the first time those who predict our user experience needs have erred on the side of [moar is better][4].
+Think about it this way: when customers come to a website, they're not looking to solve 10 problems. They're looking to solve one. They don't want all the potentially relevant information thrown at them all at once; they just want what they need. And they want computers to make that determination for them. But hey, this isn't the first time those who predict our user experience needs have erred on the side of moar is better.
 
 So that's it? That's the end of simultaneous streams? [Far from it][5]. This once-disruptive technology now has a long journey down the Technology S Curve as it becomes the go-to solution for all the business intelligence and project analyst types that stumble across it, in other words, the late adopters.
 
@@ -55,7 +55,6 @@ It's no longer a question of "is this possible technologically?". It's no longer
 [1]: http://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things.jpeg
 [2]: http://googleblog.blogspot.com/2012/07/spring-cleaning-in-summer.html
 [3]: http://www.apple.com/iphone/features/retina-display.html
-[4]: http://www.pocket-lint.com/images/dynamic/NEWS-32125-b3a8b509bc5e3a074f7f240f57d71aa9.jpg
 [5]: http://www.informationweek.com/news/software/productivity_apps/240003296
 [6]: http://my.fcc.gov/
 [7]: http://codex.wordpress.org/Dashboard_Screen

@@ -84,7 +84,7 @@ WordPress is *[different][1]*. WordPress is about content. WordPress is about si
 [19]: http://codex.wordpress.org/Using_Themes
 [20]: http://codex.wordpress.org/Using_Permalinks
 [21]: http://codex.wordpress.org/How_WordPress_Processes_Post_Content
-[22]: http://photomatt.net/tools/texturize
+[22]: http://ma.tt/2003/04/texturize-finished/
 [23]: http://codex.wordpress.org/WordPress_in_Your_Language
 [24]: http://codex.wordpress.org/Appearance_Menus_Screen
 [25]: http://codex.wordpress.org/Appearance_Widgets_Screen
