@@ -49,7 +49,7 @@ September 2011 — January 2012
 {: .date}
 
 * Created enterprise business solutions to automate and streamline business processes in support of the President of the United States as part of the White House’s first-ever agile software development team.
-* In close coordination with the Office of Federal Financial Management, lead development of [prototypical government-wide, open-source classifieds system](https://max.gov/unclesamslist/) for sharing of federal real and other properties among executive agencies.
+* In close coordination with the Office of Federal Financial Management, lead development of prototypical government-wide, open-source classifieds system for sharing of federal real and other properties among executive agencies.
 * Regularly met with and presented to C-level executives and key stakeholders to develop and support mission-critical applications including public data collection, White House comment line, goods and services tracking, and employee on-boarding and off-boarding.
 * Developed application to catalog blackberry SMS and PIN messages to aid E-Discovery team and assure compliance with Federal Records Act, Presidential Records Act, and Freedom of Information Act.
 * Assisted information assurance teams with application certification and accreditation.
@@ -79,7 +79,7 @@ May 2013
 {: .date}
 
 * Technology Editor, [The Public Contract Law Journal](http://pclj.org/), authored published note arguing that [federal IT procurement practices should be made more amenable to agile software development methodologies](http://ben.balter.com/2011/11/29/towards-a-more-agile-government/ "Towards a More Agile Government").
-* President, Jay Chapter, [Phi Alpha Delta](http://phialphadeltagw.com) Legal Fraternity
+* President, Jay Chapter, Phi Alpha Delta Legal Fraternity
 * Member, [Federal Communications Bar Association](http://fcba.org/)
 * Member, [National Contract Management Association](http://www.ncmahq.org/)
 

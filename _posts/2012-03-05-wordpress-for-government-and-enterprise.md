@@ -24,7 +24,7 @@ tags:
 
 Over the past several years WordPress's market share has enjoyed explosive growth across virtually every industry. Today, it powers [nearly a quarter of new sites][2], and is the CMS of choice for[ more than two thirds of the top-million sites][3] on the web making it the world's most popular publishing platform by a long shot. Yet one group of seemingly ideal users has been slow to take the former blogging platform seriously: .Govs.
 
-Drupal powers twice as many federal .Govs [as every other CMS combined][4]. That's more than six Drupal sites for every one WordPress .Gov alone, not to mention the Joomlas, MovableTypes, and SharePoints of the world. The build-it-yourself software powers the White House, the House of Representatives, half a dozen agencies, and countless data-driven microsites like Recovery.gov and the IT Spending Dashboard, and its public sector use is [equally if not more impressive abroad][5].
+Drupal powers twice as many federal .Govs as every other CMS combined. That's more than six Drupal sites for every one WordPress .Gov alone, not to mention the Joomlas, MovableTypes, and SharePoints of the world. The build-it-yourself software powers the White House, the House of Representatives, half a dozen agencies, and countless data-driven microsites like Recovery.gov and the IT Spending Dashboard, and its public sector use is [equally if not more impressive abroad][5].
 
 ### A Problem of Perception
 
@@ -132,7 +132,6 @@ Whether WordPress is your primary source of income, a hobby, or just the thing t
 [1]: http://ben.balter.com/wp-content/uploads/2012/03/wordpress-in-government-ben-balter.png
 [2]: http://techcrunch.com/2011/08/19/wordpress-now-powers-22-percent-of-new-active-websites-in-the-us/
 [3]: http://trends.builtwith.com/cms
-[4]: http://dotgov.benbalter.com
 [5]: http://groups.drupal.org/node/19885
 [6]: #note-2020-1 "Update (3/7): As many have pointed out, a lot of the misinformation may also be traced back to somewhat of a decision lag. Custom post types, custom taxonomies, and WordPress multisite — three key features that although minor from a technical standpoint, really served as the fundamental shift to transition the platform from blog+ to full-fledged CMS — came about only three major versions ago (WordPress 3.0). While eighteen months may be an eternity for the vast majority of the technology sector (the iPad 1 had just barely launched eighteen months ago for comparison), in the Government space, procurement regulations dictate that such lag times are all but the norm. As a result, in an already risk-averse contracting environment, we may actually be seeing numbers that more accurately reflect say, WordPress 2.9′s reception in the Government sector — a snapshot of when an agency chose a CMS at the onset of a multi-year procurement — rather than those that accurately reflect its technical capabilities today."
 [7]: http://api.drupal.org/api/drupal/includes--module.inc/group/hooks/8
