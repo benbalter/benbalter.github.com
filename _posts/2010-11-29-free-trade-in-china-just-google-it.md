@@ -52,7 +52,7 @@ Notes:
 [^5]: U.S. Census Bureau, *[Estimated Quarterly U.S. Retail Sales (Adjusted): Total and E-commerce (chart)][29]* (May 15, 2009).
 [^6]: Int'l Telecomm. Union \[ITU\], [*digital.life: ITU Internet Report 2006*][31] 73 (2006).
 [^7]: Marc D. Nawyn, *Code Red: Responding to the Moral Hazards Facing U.S. Information Technology Companies in China*, 2007 Colum. Bus. L. Rev. 505 (2007).
-[^8]: Greg Walton, *[China's Golden Shield: Corporations and the Development of Surveillance Technology in the People's Republic of China][34]*, Rights & Democracy, 2001; *See* Jennifer Shyu, *Speak No Evil: Circumventing Chinese Censorship*, 45 San Diego L. Rev. 211, 249 (2008).
+[^8]: Greg Walton, *China's Golden Shield: Corporations and the Development of Surveillance Technology in the People's Republic of China*, Rights & Democracy, 2001; *See* Jennifer Shyu, *Speak No Evil: Circumventing Chinese Censorship*, 45 San Diego L. Rev. 211, 249 (2008).
 [^9]: Testimony of Google, Inc. before the Subcommittee on Asia and the Pacific, and the Subcommittee on Africa, Global Human Rights, and International Operations, Committee on International Relations, 207th Cong. (2006) (statement of Elliot Schrage, Vice President, Global Communications and Public Affairs, Google, Inc.).
 [^10]: *Id.*
 [^11]: [Google in China][38], Google Official Blog, January 27, 2006.
@@ -71,7 +71,6 @@ Notes:
 [27]: http://ecipe.org/publications/ecipe-working-papers/protectionism-online-internet-censorship-and-international-trade-law
 [29]: http://www.census.gov/mrts/www/data/html/09Q1table3.html
 [31]: http://www.itu.int/osg/spu/publications/digitalife/docs/digital-life-web.pdf
-[34]: http://www.ichrdd.ca/english/commdoc/publications/globalization/goldenShieldEng.html
 [38]: http://googleblog.blogspot.com/2006/01/google-in-china.html
 [44]: http://blog.searchenginewatch.com/blog/060130-154414
 [45]: http://Googleblog.blogspot.com/2010/01/new-approach-to-china.html
