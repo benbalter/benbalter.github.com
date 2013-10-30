@@ -37,7 +37,7 @@ Twitter Mentions as Comments does exactly what it promises to do – scours Twit
 
 The plugin is available in the [WordPress plugin repository][1], and you can see it in action [below][2] or on the [WP Resume plugin page][3].
 
-**Looking to filter out a particular user or keyword? ** Because Tweets go through the normal comment filter, you can just [blacklist them as described below][4].
+**Looking to filter out a particular user or keyword?** Because Tweets go through the normal comment filter, you can just [blacklist them as described below][4].
 
 *Enjoy using Twitter Mentions as Comments? Feel free to [make a small donation][5] to support the software's continued development.*
 

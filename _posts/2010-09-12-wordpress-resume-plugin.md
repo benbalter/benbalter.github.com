@@ -46,7 +46,7 @@ WP Resume is an out-of-the-box solution to get your resume online and keep it up
 *   Does not use pretentious accents on the word "resume"
 *   Extremely original title
 
-The hardest part of getting your resume online should be doing the work listed on it, not wrestling the publishing platform. Simply put, WP Resume steps aside and lets your experience shine.
+![WP Resume][2]The hardest part of getting your resume online should be doing the work listed on it, not wrestling the publishing platform. Simply put, WP Resume steps aside and lets your experience shine.
 
 Interested? You can [see it in action][3], or if you're ready to take the plunge, [download it from the WordPress plugin repository][4], and [try it today][5]. There's even a [great walkthrough put together by the good folks at CUNY Graduate School of Journalism.][6] Bugs, questions, comments, feedback? I'd love to hear about your experience with WP Resume in the comments below.
 
