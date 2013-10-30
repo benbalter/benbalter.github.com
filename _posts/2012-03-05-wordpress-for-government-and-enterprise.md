@@ -65,22 +65,22 @@ Among those empowered to make purchasing decisions, there seems to be a sense th
         <tr>
             <td>Active Sites</td>
             <td markdown="1">[533,136][9]</td>
-            <td markdown="1">[65,052,049][10] (125x)</td>        
+            <td markdown="1">[65,052,049][10] (125x)</td>
         </tr>
         <tr>
             <td>Plugins / Modules</td>
             <td markdown="1">[8,536][11]</td>
-            <td markdown="1">[16,076][12] (2x)</td>        
+            <td markdown="1">[16,076][12] (2x)</td>
         </tr>
         <tr>
             <td>Themes</td>
             <td markdown="1">[893][13]</td>
-            <td markdown="1">[1,426][14] (1.5x)</td>        
+            <td markdown="1">[1,426][14] (1.5x)</td>
         </tr>
         <tr>
             <td>Community[^2]</td>
             <td markdown="1">1.5 Million</td>
-            <td markdown="1">20 Million (13x)</td>        
+            <td markdown="1">20 Million (13x)</td>
         </tr>
     </tbody>
 </table>
@@ -145,9 +145,9 @@ Whether WordPress is your primary source of income, a hobby, or just the thing t
 [14]: http://wordpress.org/extend/themes/
 [15]: #note-2020-2 "Jen Lampton, "Why WordPress is Better than Drupal, Developers Take Note" (July, 2010)"
 [16]: http://codepoet.com/browse/regions/north-america/platforms/wordpress/project-size/250000-250000/
-[17]: http://drupal.org/marketplace-preview/all/Government
-[18]: http://drupal.org/marketplace-preview/all/Corporate
-[19]: http://drupal.org/marketplace-preview/all/Non-Governmental-Organizations
+[17]: https://drupal.org/drupal-services/featured/all/Government
+[18]: https://drupal.org/drupal-services/featured/all/Enterprise
+[19]: https://drupal.org/drupal-services/featured/all/Non-profit
 [20]: http://codex.wordpress.org/WordPress_Features
 [21]: #note-2020-3 "Update (3/8): The features page is part of a community edited Wiki (the WordPress Codex) and since originally posted, I've gone through and reworked much of the blog-specific language. View the original."
 [22]: http://codex.wordpress.org/User:Lastnode/Wordpress_CMS

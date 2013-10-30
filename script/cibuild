@@ -3,7 +3,7 @@
 set -e
 
 echo "building site"
-bundle exec jekyll build
+bundle exec rake test
 
 echo "built"
 

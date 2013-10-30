@@ -18,7 +18,7 @@ post_format: [ ]
 
 When drafting and interpreting the fourth amendment, neither the founding fathers, nor the countless legal scholars that followed them could have ever imagined that one day technology would allow us to walk down the street with our entire life chronicled in our pocket. The growing popularity of the cloud coupled with increasing power of smart phones has resulted in what not too long ago was tool for placing and receiving calls, today, in actuality, is a portal to one's entire digital life. Imagine if a routine traffic stop, say, for failing to signal properly, would place in the state's hands every e-mail you have ever sent, contact you have ever met, or financial transaction you have ever completed (not to mention your current [Angry Birds][2] score!). Regardless of how Orwellian it may sound, the California Supreme Court [ruled in favor of just such an outcome][3].
 
-In *[People v. Diaz][4]*, the court ruled that a warrentless search of text messages on a cell phone confiscated subsequent to a lawful arrest did infact, constitute a valid search. While the dissent realized that mobile phones were increasingly becoming the hubs of our digital world, noting that the decision gave "*carte blanche, with no showing of exigency, to rummage at leisure through the wealth of personal and business information that can be carried on a mobile phone or handheld computer merely because the device was taken from an arrestee's person,*" I do not believe they fully grasped the gravity of the ruling. [^1]
+In *[People v. Diaz][4]*, the court ruled that a warrentless search of text messages on a cell phone confiscated subsequent to a lawful arrest did in fact, constitute a valid search. While the dissent realized that mobile phones were increasingly becoming the hubs of our digital world, noting that the decision gave "*carte blanche, with no showing of exigency, to rummage at leisure through the wealth of personal and business information that can be carried on a mobile phone or handheld computer merely because the device was taken from an arrestee's person,*" I do not believe they fully grasped the gravity of the ruling. [^1]
 
 ![Ben Still and Owen Wilson stare at a computer from the movie Zoolander][6]{:.alignleft} [Much like Ben Stiller and Owen Wilson's characters in the movie Zoolander][7], the dissent's analysis is based on the assumption that information  "can be carried on" or "in" one's mobile phone, a reality which simply is not the case in today's increasingly cloud-centric world.
 
@@ -43,7 +43,7 @@ Notes:
 [1]: http://ben.balter.com/wp-content/uploads/2011/01/policeman.jpg "Policeman Checks Cellphone"
 [2]: http://en.wikipedia.org/wiki/Angry_Birds
 [3]: http://arstechnica.com/tech-policy/news/2011/01/warrantless-cell-phone-search-gets-a-green-light-in-california.ars?comments=1#comments-bar
-[4]: http://www.courtinfo.ca.gov/opinions/documents/S166600.PDF
+[4]: http://en.wikipedia.org/wiki/People_v._Diaz
 [6]: http://ben.balter.com/wp-content/uploads/2011/01/zoolander-300x188.jpg
 [7]: http://www.youtube.com/watch?v=_m_PncKuDao&feature=related#t=1m16s
 [10]: http://movieclips.com/sgNVB-zoolander-movie-computer-experts/

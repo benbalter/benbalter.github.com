@@ -12,9 +12,9 @@ tags: WordPress Jekyll GitHub benchmarking benchmarks
 
 You may notice things are bit snappier around here these days, having [recently converted](https://github.com/benbalter/wordpress-to-jekyll-exporter) the site from WordPress, to [Jekyll](https://github.com/mojombo/jekyll).[^4]
 
-Jekyll is a blog-aware static site generator — heavily integrated with the social code sharing service GitHub — the move to which, was primarily motivated by a desire to embrace the brave new, [post-CMS world](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/) we now find ourselves in. While WordPress is great, [130 outages over the past six months (totalling more than a day's worth of downtime)](http://cl.ly/image/1M420a152e1z), left a bit to be desired in terms of hosting. 
+Jekyll is a blog-aware static site generator — heavily integrated with the social code sharing service GitHub — the move to which, was primarily motivated by a desire to embrace the brave new, [post-CMS world](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/) we now find ourselves in. While WordPress is great, [130 outages over the past six months (totalling more than a day's worth of downtime)](http://cl.ly/image/1M420a152e1z), left a bit to be desired in terms of hosting.
 
-Although powered by the open-source CMS WordPress, the old site (shared hosting provided by Bluehost) for performance sake, would actually just served flat HTML and Javscript files from disk (generated on a regular basis by an industry-standard plugin known as  [W3 Total Cache](http://wordpress.org/extend/plugins/w3-total-cache/)), but fired up WordPress on every request (on top of the already slugish Apache). 
+Although powered by the open-source CMS WordPress, the old site (shared hosting provided by Bluehost) for performance sake, would actually just served flat HTML and Javscript files from disk (generated on a regular basis by an industry-standard plugin known as  [W3 Total Cache](http://wordpress.org/extend/plugins/w3-total-cache/)), but fired up WordPress on every request (on top of the already slugish Apache).
 
 Don't get me wrong. WordPress can be [configured to fly](http://wordpress.org/extend/plugins/batcache/) given the right setup, and that's exactly what I set out to do. I got the best of the best. I spun up a shiny new AWS box, got Nginx with microcache up and running, APC for opcode, page, and object cache, and even put everything behind Varnish.
 
@@ -30,9 +30,9 @@ And then there's cost. Putting aside the value of time for a moment, shared host
 
 I stood up the three options side-by-side, and ran them through the riggors of a performance testing tool humorously called [Siege](http://www.joedog.org/siege-home/), the results of which can be found below.
 
-I'm still unpacking some of the boxes of bytes, so if you notice something that doesn't seem right, feel free to [open an issue](https://github.com/benbalter/benbalter.github.com/issues), or better yet, like what you see, feel free to [fork and contribute](https://github.com/benbalter/benbalter.github.com). Embracing somewhat of a crawl, walk, run, or fail-fast philosohpy, next up is [outputting the pages as JSON](https://github.com/benbalter/benbalter.github.com/blob/js/_plugins/generate-json.rb) and relying on Backbone to do the heavy lifting.
+I'm still unpacking some of the boxes of bytes, so if you notice something that doesn't seem right, feel free to [open an issue](https://github.com/benbalter/benbalter.github.com/issues), or better yet, like what you see, feel free to [fork and contribute](https://github.com/benbalter/benbalter.github.com). Embracing somewhat of a crawl, walk, run, or fail-fast philosohpy, next up is outputting the pages as JSON and relying on Backbone to do the heavy lifting.
 
-Is it the [first shots](http://presidential-innovation-fellows.github.com/mygov/) [of a static-site](http://presidential-innovation-fellows.github.com/rfpez-blog/) [revolution](http://presidential-innovation-fellows.github.com/bluebutton/)? Time will tell. 
+Is it the [first shots](http://presidential-innovation-fellows.github.com/mygov/) [of a static-site](http://presidential-innovation-fellows.github.com/rfpez-blog/) [revolution](http://presidential-innovation-fellows.github.com/bluebutton/)? Time will tell.
 
 The CMS is dead. Long live the CMS.
 
@@ -92,7 +92,7 @@ The first test was to benchmark the homepage, the most heavily trafficked page o
 	Failed transactions:	           0
 	Longest transaction:	        1.38
 	Shortest transaction:	        0.06
-	
+
 ### 404s
 
 Command: `siege -c 20 -t 30S -b ben.balter.com/aaaaaaa/`
@@ -143,14 +143,14 @@ The true challenge comes in not from serving a static front page (which is presu
 	Failed transactions:	           0
 	Longest transaction:	        1.42
 	Shortest transaction:	        0.00
-    
+
 ### Uptime
 
 The other concern was uptime. With the AWS route you may get the performance, but with all that complexity, it's increasingly more like that something would go wrong, harder to diagnose and resolve, and unlike shared or managed hosting, if your site goes down at 3:00 am, the only person to call is yourself. (no thanks.)
 
 With Jekyll, because the files are simply sitting on the server, absent a catastrophic failure, when things go wrong with Jekyll, it simply keeps serving the old content.[^2]
-    
-## Conclusion 
+
+## Conclusion
 
 It's cheaper, it's faster, it's simpler, it's worry free, and in my opinion, it's the future. Welcome to the post-CMS world.
 

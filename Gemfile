@@ -2,6 +2,5 @@ source "https://rubygems.org"
 
 #github
 gem "github-pages"
-
-#us
-gem "json"
+gem 'rake'
+gem 'html-proofer'

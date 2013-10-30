@@ -36,5 +36,5 @@ post_format: [ ]
 [3]: http://hackshackers.com/blog/2012/04/19/hackshackers-passes-10k-members-worldwide/
 [4]: http://hackshackers.meetup.com/
 [5]: http://hackshackers.com/chapters/
-[6]: http://hackshackers.com/chapters/meetups/
+[6]: http://hackshackers.com/resources/join/
 [7]: http://storify.com/burtherman/hacks-hackers-reaches-10k-members-tell-us-your-sto.html
