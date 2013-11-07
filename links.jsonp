@@ -3,11 +3,11 @@ json: false
 ---
 callback([
   {% for post in site.posts %}
-    { "text": "{{ post.title | replace:'"','\"' | strip_newlines }}", "href": "{{ site.url }}/{{ post.url }}" },
+    { "text": {{ post.title | jsonify }}, "href": "{{ site.url }}/{{ post.url }}" },
   {% endfor %}
 
   {% for page in site.pages %}
-     { "text": "{{ page.title | replace:'"','\"' }}", "href": "{{ site.url }}/{{ page.url }}" }
+     { "text": {{ page.title | jsonify }}, "href": "{{ site.url }}/{{ page.url }}" }
      {% unless forloop.last %}, {% endunless %}
   {% endfor %}
 ]);
