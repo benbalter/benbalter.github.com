@@ -1,17 +1,3 @@
-GIT
-  remote: https://github.com/github/pages-gem
-  revision: dda83c74eb467e39d39c303b856d76859afe6a29
-  branch: jekyll-1-3-0
-  specs:
-    github-pages (8)
-      RedCloth (= 4.2.9)
-      jekyll (= 1.3.0)
-      kramdown (= 1.2.0)
-      liquid (= 2.5.3)
-      maruku (= 0.6.1)
-      rdiscount (= 2.1.7)
-      redcarpet (= 2.3.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -27,6 +13,14 @@ GEM
       mime-types (~> 1.18)
     fast-stemmer (1.0.2)
     ffi (1.9.0)
+    github-pages (10)
+      RedCloth (= 4.2.9)
+      jekyll (= 1.3.0)
+      kramdown (= 1.2.0)
+      liquid (= 2.5.4)
+      maruku (= 0.6.1)
+      rdiscount (= 2.1.7)
+      redcarpet (= 2.3.0)
     highline (1.6.20)
     html-proofer (0.2.3)
       colored (~> 1.2)
@@ -43,7 +37,7 @@ GEM
       redcarpet (~> 2.3.0)
       safe_yaml (~> 0.9.7)
     kramdown (1.2.0)
-    liquid (2.5.3)
+    liquid (2.5.4)
     listen (1.3.1)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -77,6 +71,6 @@ PLATFORMS
 
 DEPENDENCIES
   ffi (= 1.9.0)
-  github-pages!
+  github-pages
   html-proofer
   rake
