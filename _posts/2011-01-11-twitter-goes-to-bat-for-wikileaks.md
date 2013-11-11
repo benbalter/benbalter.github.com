@@ -17,9 +17,9 @@ post_format: [ ]
 ---
 Regardless of where one's politics may fall on the WikiLeaks prosecution, one thing is becoming abundantly clear as a result: *Twitter is emerging as a champion of users' rights.*
 
-![][1]Federal prosecutors investigating the disclosure of classified state documents [served Twitter with a court order][2] demanding it turn over information pertaining to several of its users. While there is nothing particularly alarming about [the order][3], [^1] the bigger news is that [Twitter fought back][5], contesting the attached gag order that prevented the social networking service from informing its users of its compliance with the otherwise lawful request. [^2]
+![Screenshot of the court order][1]{: .alignleft} Federal prosecutors investigating the disclosure of classified state documents [served Twitter with a court order][2] demanding it turn over information pertaining to several of its users. While there is nothing particularly alarming about [the order][3], [^1] the bigger news is that [Twitter fought back][5], contesting the attached gag order that prevented the social networking service from informing its users of its compliance with the otherwise lawful request. [^2]
 
-Twitter's decision, arguably [the first of its kind][7], gave the targets of the order the time and legal cover necessary to pursue their own challenges in court.  What is troubling, however, is that presumably other service providers, [such as Google and Facebook][8], could have received similar requests and silently acquiesced to the government's demands.
+Twitter's decision, arguably the first of its kind, gave the targets of the order the time and legal cover necessary to pursue their own challenges in court.  What is troubling, however, is that presumably other service providers, [such as Google and Facebook][8], could have received similar requests and silently acquiesced to the government's demands.
 
 While many companies, including [Google][9] and [Yahoo][10], have a policy of informing users of such requests when legally permissible, in this case, Twitter's contention of the gag order, and the resulting opportunity to pursue legal action it subsequently afforded its users, was somewhat heroic, at least by internet standards, and is a practice other firms should follow.  By no means was Twitter obliged to spend time and money [^3] rocking the boat on what appears to be an undoubtedly troublesome, but otherwise [somewhat routine][12] request, but they did so anyway, and to their users' benefit. Wired put it best when [they noted][13], "*Twitter introduced a new feature last month without telling anyone about it… Twitter beta-tested a spine.*"
 
@@ -27,16 +27,15 @@ A user's protection from government intrusion should not diminish depending on t
 
 Notes:
 
-[^1]: As our interactions move increasingly online, [we can hardly be surprised][22] that law enforcement officers will seek supporting documents from digital rather than physical information stores. *See, e.g.,* [Google search history aiding murder convictions][23], [Prisoners coordinating riots via Facebook events][24]. 
+[^1]: As our interactions move increasingly online, [we can hardly be surprised][22] that law enforcement officers will seek supporting documents from digital rather than physical information stores. *See, e.g.,* [Google search history aiding murder convictions][23], [Prisoners coordinating riots via Facebook events][24].
 [^2]: To be sure, the government's request was [far from a demand for specific, targeted information][26], but rather suggested that prosecutors unfamiliar with *what exactly it is kids do these days* were simply casting as wide a net as legally permissible. Beyond [misspelling the name of one of its targets][27], the order, a [2703(d)][28] order, [requested][29] credit card, banking information, and street addresses (information Twitter would obviously not be privy to as a free, web-based service) be delivered via "[CD-ROM][3]". More likely, [the feds were seeking metadata][30], the non-content data automatically associated with a user whenever he or she interacts with the service, data such as the date, time, and network address of the computer used to post messages (which could potentially be traced back to an individual or at least a physical location).
 [^3]: Some might argue that Twitter should be considered heroic simply for stimulating the demand side of an [otherwise anemic legal economy][32].
 [^4]: This may only hold true in the short run. As Columbia Law professor Tim Wu points out in his book *The Master Switch*, AT&T's "[secret rooms][34]" illustrate that the service provider often may be compelled to contribute to the government's information gathering infrastructure in hopes of garnering more favorable regulatory treatment.
 
-[1]: http://cdn.benbalter.com/wp-content/uploads/2011/01/order-300x131.jpg "Court Order"
+[1]: http://ben.balter.com/wp-content/uploads/2011/01/order-300x131.jpg "Court Order"
 [2]: http://www.nytimes.com/2011/01/09/world/09wiki.html?partner=rss&emc=rss
 [3]: http://www.salon.com/news/opinion/glenn_greenwald/2011/01/07/twitter/subpoena.pdf
 [5]: http://techcrunch.com/2011/01/07/twitter-informs-users-of-doj-wikileaks-court-order-didnt-have-to/
-[7]: http://www.mediaaccess.org/2011/01/twitter-does-good-no-kidding/
 [8]: http://www.guardian.co.uk/media/2011/jan/08/wikileaks-calls-google-facebook-us-subpoenas
 [9]: http://www.google.com/intl/en/privacy/privacy-policy.html
 [10]: http://info.yahoo.com/privacy/us/yahoo/details.html

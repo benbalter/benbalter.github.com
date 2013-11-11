@@ -15,23 +15,26 @@ Site: https://github.com/balterbot
 Name: aaronjorbin
 Site: https://github.com/aaronjorbin
 
+Name: adelevie
+Site: https://github.com/adelevie
+
 Name: ctbarna
 Site: https://github.com/ctbarna
 
 Name: parkr
 Site: https://github.com/parkr
 
-Name: JBindelglass
-Site: https://github.com/JBindelglass
+Name: gbinal
+Site: https://github.com/gbinal
+
+Name: konklone
+Site: https://github.com/konklone
 
 Name: nacin
 Site: https://github.com/nacin
 
-Name: gbinal
-Site: https://github.com/gbinal
-
-Name: adelevie
-Site: https://github.com/adelevie
+Name: JBindelglass
+Site: https://github.com/JBindelglass
 
 Name: oeon
 Site: https://github.com/oeon

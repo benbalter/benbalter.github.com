@@ -41,5 +41,3 @@ Recording of the presentation (starts at the 10:00 mark):
 *   [Count Shortcode](http://wordpress.org/extend/plugins/count-shortcode/)
 *   [Faceted Search Widget](http://wordpress.org/extend/plugins/faceted-search-widget/)
 *   [Custom Taxonomy Generator](http://themergency.com/generators/wordpress-custom-taxonomy/)
-
- [1]: http://ben.balter.com/wordpress-as-a-collaboration-platform/screenshot.png

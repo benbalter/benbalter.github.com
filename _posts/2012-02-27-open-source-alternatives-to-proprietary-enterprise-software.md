@@ -34,8 +34,8 @@ Live Site: **[Open-Source Alternatives to Proprietary Enterprise Software][7]**
 
 [1]: http://ben.balter.com/wp-content/uploads/2012/02/open-source-alternatives-screenshot1.png
 [2]: http://ben.balter.com/2011/08/31/enterprise-open-source-and-why-better-is-not-enough/
-[3]: https://update.cabinetoffice.gov.uk/sites/default/files/resources/Open-Source-Option-v1.pdf
-[4]: https://update.cabinetoffice.gov.uk/resource-library/open-source-procurement-toolkit
+[3]: https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/78964/Open_Source_Options_v2_0.pdf
+[4]: https://www.gov.uk/government/publications/open-source-procurement-toolkit
 [5]: http://twitter.github.com/bootstrap/
 [6]: https://github.com/mojombo/jekyll
 [7]: http://benbalter.github.com/open-source-alternatives/

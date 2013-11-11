@@ -14,7 +14,8 @@ tags:
   - domains
 post_format: [ ]
 ---
-![][1]Violating due process is one thing, but violating web standards… well that's another story.
+
+![Screenshot of the takedown notice][1]{: .alignleft} Violating due process is one thing, but violating web standards… well that's another story.
 
 The Department of Homeland Security (DHS) recently began protecting America's shores from threats of a different kind: online copyright infringement. In the days before the Superbowl, the agency set out to enforce the "express written consent of the NFL" provision attached to most broadcasts by slamming the iron fist of the law down on [six sports-streaming websites][2]. This is troubling on multiple levels. As the Vololkh Conspiracy's David Post [put it][3]:
 
@@ -22,7 +23,7 @@ The Department of Homeland Security (DHS) recently began protecting America's sh
 
 And that's exactly what happened when the Feds [seized riojadirecta.org][4].However, the law in the area is a bit more nuanced than a single form can satisfy. Riojadirecta did not actually host any infringing content — it merely aggregated links to such content — potentially invoking the safe harbor provisions of the copyright act. [^1] Compounding the issue, Spanish Courts had found the Spanish-based site to be [perfectly legal][6], just a few months prior.
 
-Seizures of this type are nothing new. Back in November, DHS [commandeered][7] some [80 bit torrent domains][8] (PDF) as part of the broader "[Operation In Our Sites][9]". One such site, dajaz1.com, a music blog dedicated to hip-hop, was claimed to have infringed on music copyrights, however it was later revealed that the [music in question was provided to the site by music industry executives][10]. Despite this revelation, DHS made no apparent move to look into the case or restore the domain, and [the site remains down][11] to this day.
+Seizures of this type are nothing new. Back in November, DHS [commandeered][7] some [80 bit torrent domains][8] (PDF) as part of the broader "[Operation In Our Sites][9]". One such site, dajaz1.com, a music blog dedicated to hip-hop, was claimed to have infringed on music copyrights, however it was later revealed that the [music in question was provided to the site by music industry executives][10]. Despite this revelation, DHS made no apparent move to look into the case or restore the domain, and <del>the site remains down to this day.</del>
 
 Part of the problem may stem from law enforcement being out of touch with today's trends. Even the agent in charge of the investigation [referred to the infringing material as "a bit torrent,"][12] suggesting a sophomoric understand of just what exactly was being seized.
 
@@ -32,7 +33,7 @@ More worrisome, however, is the fact that the statute cited to authorize such se
 
 Even looking beyond the due process issues and to the underlying copyright infringement, simply put, the government's efforts fail to solve the problem. In Riojadirecta's case, for example, the site [used Twitter][17] to [direct users to one of its five other domains][4] rending the seizure a moot point. The problem is that the government is not seizing the infringing material, but rather, an [alias for the network address][18] of a site that in many cases, only contains links to infringing material. It would be as if DHS seized my cell phone number because my friends could use it to call and find out the location of a weekly poker game — the game would still take place, I would just get a new phone number.
 
-The most upsetting part, at least for the web developer in me, has to be [the seizure notice][19] itself. Putting text in images like that has to be up there with [using Comic Sans][20]. While I do not expect DHS to hire a legion of designers and developers to make an HTML5 seizure notice (although that would be awesome), some in-document text would go a long way to making the web a whole lot less ugly. [^4] Additionally, it looks like their policy has changed since the initial seizures, however, at least as late as November, DHS was [placing Google Analytics and Piwik tracking codes on its seized domains][22], arguably in violation of [OMB memorandum M-10-22][23] (PDF).
+The most upsetting part, at least for the web developer in me, has to be the seizure notice itself. Putting text in images like that has to be up there with [using Comic Sans][20]. While I do not expect DHS to hire a legion of designers and developers to make an HTML5 seizure notice (although that would be awesome), some in-document text would go a long way to making the web a whole lot less ugly. [^4] Additionally, it looks like their policy has changed since the initial seizures, however, at least as late as November, DHS was [placing Google Analytics and Piwik tracking codes on its seized domains][22], arguably in violation of [OMB memorandum M-10-22][23] (PDF).
 
 As seen in the recent [Wikileaks domain shell game][24], its clear that domain servers are the weak link in the online content-delivery chain. When the state can no longer seize something that represent the forefront of our ability to communicate with one another (decentralized information sharing) and replace it with a technology the web collectively deprecated with the rise of CSS1 (sites which rely on .GIFs to render text), legality and politics aside, the internet will undoubtedly be a better place.
 

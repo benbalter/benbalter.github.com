@@ -51,4 +51,4 @@ We need to systematically and strategically demonstrate to government the value 
 We're going to need a smarter way to process real-time and large-scale government data eventually. There's no doubt in my mind. But we're not there yet. And we're not going to be any time soon unless we can unteach public servants the bad, closed-solution lessons that have already been ingrained in the organizational culture. The technology's the easy part. When we need it, there's not doubt we can build it. The question is whether, we'll be building it hand-in-hand with an enthusiastic body of government technologists, or if it'll just be the most technologically advance whack-a-mole mallet that we've built to date.
 
 [^1]: *See, e.g.,* SharePoint, Cold Fusion, PDFs, Oracle databases, Blackberrys, and just about "enterprise" anything.
-[^2]: *E.g.,* [not knowing the difference between Ruby and Rails](https://github.com/CMSgov/HealthCare.gov-Open-Source-Release#ruby-on-rails).
+[^2]: *E.g.,* [not knowing the difference between Ruby and Rails](https://github.com/CMSgov/HealthCare.gov-Open-Source-Release#ruby-on-rails){: data-proofer-ignore="true"}.

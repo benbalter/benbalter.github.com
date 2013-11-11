@@ -89,14 +89,13 @@ post_format: [ ]
 **Translations:**
 
 *   French - [Hubert CAMPAN][15]
-*   Spanish - [TradiArt][16]
+*   Spanish - TradiArt
 
 **Links**:
 
 *   [Source Code][17] (GitHub)
 *   [Development version][18] ([Build Status][19])
 *   [Code Cookbook][12]
-*   [Translations][20] (GlotPres)
 *   [User support forums][21]
 *   [Submit a bug/feature request][22][  
     ][23]
@@ -110,7 +109,7 @@ Questions? Comments? Many may have already been addressed in [the WP Document Re
 
 **Update (6/12): Comments have been closed in favor of [expanded support and discussion options][32]. Additional documentation about the project can now be found in the [Project Wiki][33]. If you are interested in joining the project at any level of technical expertise, please see [How to Contribute][34].**
 
-[^1]:  Neither relationship should imply a formal endorsement. 
+[^1]:  Neither relationship should imply a formal endorsement.
 
 [1]: http://wordpress.org/extend/plugins/wp-document-revisions/
 [2]: http://en.wikipedia.org/wiki/Document_management_system
@@ -131,7 +130,6 @@ Questions? Comments? Many may have already been addressed in [the WP Document Re
 [17]: https://github.com/benbalter/WP-Document-Revisions/
 [18]: https://github.com/benbalter/WP-Document-Revisions/tree/develop
 [19]: http://travis-ci.org/#!/benbalter/WP-Document-Revisions
-[20]: http://translations.benbalter.com/projects/wp-document-revisions/
 [21]: http://wordpress.org/tags/wp-document-revisions
 [22]: https://github.com/benbalter/WP-Document-Revisions/issues
 [23]: http://ben.balter.com/wp-content/uploads/2011/08/wp-document-revisions.png

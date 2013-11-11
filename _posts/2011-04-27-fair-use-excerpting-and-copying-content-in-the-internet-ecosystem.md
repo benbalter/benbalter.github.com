@@ -1,8 +1,6 @@
 ---
 author: Ben Balter
-title: >
-  Fair Use, Excerpting, and Copying
-  Content in the Internet Ecosystem
+title: Fair Use, Excerpting, and Copying Content in the Internet Ecosystem
 excerpt:
 layout: post
 categories:
@@ -16,7 +14,10 @@ tags:
   - plagiarism
 post_format: [ ]
 ---
-![][1]The Internet's *laissez-faire* Internet ecosystem of liberal excerpting is often at odds with both [traditional][2] [media][3] and [the law][4], but the bigger concerns for aspiring bloggers should be contributing to an ongoing dialog, rather than muddling it.
+
+![Close up of a copier control panel][1]{: .alignleft }
+
+The Internet's *laissez-faire* Internet ecosystem of liberal excerpting is often at odds with both [traditional][2] [media][3] and [the law][4], but the bigger concerns for aspiring bloggers should be contributing to an ongoing dialog, rather than muddling it.
 
 I was recently asked by an aspiring "content producer," what the "rules" were for copying or excerpting content from other sites. From their questions, it quickly became clear to me, that they were missing the point of having a website altogether. [^1]
 
@@ -57,16 +58,16 @@ The law aside, readers want you to digest and put ideas in your own voice. Take 
 
 \[Photo courtesy [tallguy][21]\]
 
-[^1]:  Questions asked included: If there's no copyright symbol, is it still copyrighted?; If it's posted online, can I just copy it because its it's in the public domain?; Can I use it if I'm not selling it?; and It's okay to use if I credit the original author, right?. 
-[^2]: It should be noted that [I'm not an attorney][23] and my writing should not be substituted for qualified legal advice. 
-[^3]: This is a common misconception. While once true, under the [Berne Convention][25] the author of any content published today is assumed to retain copyright claims. 
+[^1]:  Questions asked included: If there's no copyright symbol, is it still copyrighted?; If it's posted online, can I just copy it because its it's in the public domain?; Can I use it if I'm not selling it?; and It's okay to use if I credit the original author, right?.
+[^2]: It should be noted that [I'm not an attorney][23] and my writing should not be substituted for qualified legal advice.
+[^3]: This is a common misconception. While once true, under the [Berne Convention][25] the author of any content published today is assumed to retain copyright claims.
 [^4]: Codified into law as [17 U.S.C. § 107][27].
 [^5]: [Campbell v. Acuff-Rose Music, Inc.][29], 510 U.S. 569, 577-78 (1994).
 [^6]: Harper Row v. Nation Enters., 471 U.S. 539, 562 (1985)
-[^7]: *Campbell*, 510 U.S. at 578-79. 
-[^8]: *Id.* at 580-81 
-[^9]: Harper Row, Publishers, Inc. v. Nation Enters., 471 U.S. 539, 565 (1985) 
-[^10]: Sony Corporation of America v. Universal City Studios, Inc., 464 U.S. 417, 433 (1984). 
+[^7]: *Campbell*, 510 U.S. at 578-79.
+[^8]: *Id.* at 580-81
+[^9]: Harper Row, Publishers, Inc. v. Nation Enters., 471 U.S. 539, 565 (1985)
+[^10]: Sony Corporation of America v. Universal City Studios, Inc., 464 U.S. 417, 433 (1984).
 
 [1]: http://ben.balter.com/wp-content/uploads/2011/04/2146845610_ebd95e5f4e_b-300x200.jpg "Copier"
 [2]: http://www.washingtonpost.com/wp-dyn/content/article/2009/07/31/AR2009073102476.html
@@ -92,4 +93,4 @@ The law aside, readers want you to digest and put ideas in your own voice. Take 
 [23]: http://ben.balter.com/fine-print/
 [25]: http://en.wikipedia.org/wiki/Berne_Convention_for_the_Protection_of_Literary_and_Artistic_Works
 [27]: http://www.law.cornell.edu/uscode/17/107.html
-[29]: http://caselaw.lp.findlaw.com/scripts/getcase.pl?court=usvol=510`invol=569
+[29]: http://www.law.cornell.edu/supct/html/92-1292.ZS.html

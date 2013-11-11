@@ -25,11 +25,11 @@ Creative ideas on how best to leverage the information welcome in the [comments 
 
 ### Course Schedule
 
-1.  Departments 
+1.  Departments
   1.  Endpoint: `http://my.gwu.edu/mod/pws/scheduleXML.cfm`
   2.  Parameters: `termCode=[YYYY][01=spring, 02=summer, 03=fall]`
   3.  Returns
-    
+
       {% highlight xml %}<?xml version="1.0" encoding="iso-8859-1" ?>
 <departments>
     <department>
@@ -43,9 +43,9 @@ Creative ideas on how best to leverage the information welcome in the [comments 
 </departments>
         {% endhighlight %}
 
-2.  Courses 
+2.  Courses
     1.  Endpoint: `http://my.gwu.edu/mod/pws/scheduleXML.cfm`
-    2.  Parameters: 
+    2.  Parameters:
         1.  `termCode=[YYYY][01=spring, 02=summer, 03=fall]`
         2.  `deptCode=[Dept. Code]`
     3.  Returns:
@@ -80,15 +80,15 @@ Creative ideas on how best to leverage the information welcome in the [comments 
     </course>
 </courses>
         {% endhighlight %}
-        
+
 
 ### Campus Map
 
-1. Categories 
+1. Categories
   1. Endpoint:  `http://citl.gwu.edu/iphonedev/maps/categories.xml`
   2. Return:
-    
-{% highlight xml %}    
+
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <categories xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <category>
@@ -105,12 +105,12 @@ Creative ideas on how best to leverage the information welcome in the [comments 
     </category>
 </categories>
 {% endhighlight %}
-        
 
-2.  Buildings 
+
+2.  Buildings
     1.  Endpoint: `http://citl.gwu.edu/iphonedev/maps/[shortname].xml`
     2.  Return:
-    
+
 {% highlight xml %}<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <buildings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <building>
@@ -135,40 +135,40 @@ Creative ideas on how best to leverage the information welcome in the [comments 
     </building>
 </buildings>
 {% endhighlight %}
-        
+
 
 ### API Wrapper
 
-1.  Source 
+1.  Source
 
 <script src="http://gist-it.appspot.com/github/benbalter/GW-API/raw/master/gw-api.php">     </script>
-        
-2.  Usage 
+
+2.  Usage
 
 #### Initialize:
 {% highlight php %}<?php $gwapi = new gw_api; ?>{% endhighlight %}
-      
-#### List Departments 
+
+#### List Departments
 {% highlight php %}<?php $departments = $gwapi->get_schedule();
   foreach ($departments as $department)
-  echo $department->departmentname . '<br />';?>{% endhighlight %}    
-     
+  echo $department->departmentname . '<br />';?>{% endhighlight %}
+
 #### Get Course Schedule for Fall 2011
 {% highlight php %}<?php $courses = $gwapi->get_schedule('2011','03','ACCY');?>{% endhighlight %}
 
-#### Get Course Schedule for current term 
+#### Get Course Schedule for current term
 {% highlight php %}<?php $courses = $gwapi->get_schedule(null,null,'ACCY'); ?>{% endhighlight %}
 
-#### Get map categories 
+#### Get map categories
 {% highlight php %}<?php $categories = $gwapi->get_map(); ?>{% endhighlight %}
 
-#### Get Buildings 
+#### Get Buildings
 {% highlight php %}<?php $buildings = $gwapi->get_maps('academic'); ?>{% endhighlight %}
 
 \[Photo: [atomicbartbeans][7]\]
 
 [1]: http://ben.balter.com/wp-content/uploads/2011/01/1430289931_beb7ff6428_b-300x225.jpg "Course Schedule"
-[2]: http://acadtech.gwu.edu/pages/gwmobile
+[2]: http://gwtoday.gwu.edu/app-gw
 [3]: http://blog.jerodsanto.net/2009/06/sniff-your-iphones-network-traffic/
 [4]: https://github.com/benbalter/GW-API
 [5]: #comments
