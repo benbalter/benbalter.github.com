@@ -83,3 +83,10 @@ body { padding-top: 20px; }
 @media (max-width: 768px) {
 .page  .date {float: none; margin-top: 0; }
 }
+
+/* Search */
+#github-search-results { padding-left: 0; margin-top: 25px; }
+#github-search-results a { font-size: 1.3em; }
+#github-search-results pre { margin-top: 10px; }
+#github-search-results li { list-style: none; }
+#github-search-results .result { background: yellow; }

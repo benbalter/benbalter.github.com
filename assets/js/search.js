@@ -15,15 +15,23 @@
     function GitHubSearch() {
       this.renderResults = __bind(this.renderResults, this);
       this.success = __bind(this.success, this);
-      var _this = this;
+      this.call = __bind(this.call, this);
+      var q,
+        _this = this;
       $("#github-search-form").submit(function(e) {
         e.preventDefault();
         return _this.getResults($("#github-search-q").val());
       });
+      if (location.hash.length) {
+        q = location.hash.split('#')[1];
+        $("#github-search-q").val(q);
+        $("#github-search-form").submit();
+      }
     }
 
     GitHubSearch.prototype.getResults = function(query) {
-      this.query = query;
+      this.query = location.hash = query;
+      $(this.results).empty();
       return this.call();
     };
 
@@ -36,7 +44,13 @@
     };
 
     GitHubSearch.prototype.call = function() {
-      return $.getJSON(this.url(), this.success).fail(this.fail);
+      return $.ajax(this.url(), {
+        success: this.success,
+        headers: {
+          accept: "application/vnd.github.v3.text-match+json"
+        },
+        fail: this.fail
+      });
     };
 
     GitHubSearch.prototype.success = function(data) {
@@ -54,13 +68,32 @@
     GitHubSearch.prototype.renderResults = function(results) {
       var _this = this;
       return $.each(results, function(id, result) {
-        var title, url;
-        url = _this.resultUrl(result.path);
-        title = _this.resultTitle(result.path);
-        if ((title != null) && (url != null)) {
-          return $(_this.results).append("<li><a href=\"" + url + "\">" + title + "</a></li>");
+        var formatted;
+        formatted = _this.formatResult(result);
+        if (formatted != null) {
+          return $(_this.results).append(formatted);
         }
       });
+    };
+
+    GitHubSearch.prototype.formatResult = function(result) {
+      var output, title, url,
+        _this = this;
+      url = this.resultUrl(result.path);
+      title = this.resultTitle(result.path);
+      if (!((url != null) && (title != null))) {
+        return;
+      }
+      output = "<li><a href=\"" + url + "\">" + title + "</a>";
+      $.each(result.text_matches, function(id, result) {
+        var fragment;
+        fragment = result.fragment;
+        return $.each(result.matches, function(id, match) {
+          result = _this.highlight(fragment, match.indices[0], match.indices[1]);
+          return output = output + ("<pre>" + result + "</pre>");
+        });
+      });
+      return output = output + "</li>";
     };
 
     GitHubSearch.prototype.resultUrl = function(path) {
@@ -77,6 +110,12 @@
 
     GitHubSearch.prototype.getResult = function(path) {
       return window.github_results_index[path];
+    };
+
+    GitHubSearch.prototype.highlight = function(string, start, end) {
+      var output;
+      output = string.substr(0, start) + "<span class=\"result\">" + string.substr(start);
+      return output + string.substr(0, end) + "</span>" + string.substr(end);
     };
 
     return GitHubSearch;
