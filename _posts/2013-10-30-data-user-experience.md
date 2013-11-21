@@ -1,8 +1,11 @@
 ---
 title: Why no one uses government data
+layout: post
+comments: true
+excerpt: ""
 ---
 
-There was [an interesting Hackernews comment](https://news.ycombinator.com/item?id=6385623) that caught my eye around the recent release of a Bureau of Labor and Statistics API. User _____ wrote:
+There was [an interesting Hackernews comment](https://news.ycombinator.com/item?id=6385623) that caught my eye around the recent release of a Bureau of Labor and Statistics API. User nmcfarl wrote:
 
 > An interesting micro-site – it seems very much more aimed at people who know BLS data already, and much less aimed at coders. The FAQ answers the question "What is an API?", but doesn't even have a list of the IDs required in order to get any data whatsoever out of that API.
 
