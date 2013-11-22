@@ -1,10 +1,3 @@
----
-layout: post
-comments: true
-excerpt: "The internet forces us to reimagine desktop technologies as vehicles for collaboration."
-title: That's not how the internet works
----
-
 The internet has [a particular way of doing things](http://ben.balter.com/2013/07/02/a-brief-history-of-the-internet/). It's an ethos driven by a desire for resilience, for interoperability, for speed and efficiency — for preferring pragmatism over perfection. There's an unspoken set of rules born out of the [hacker ethic](http://ben.balter.com/2013/02/16/what-is-a-hacker/#the-hacker-ethic). It's about elegant solutions, not over engineered ones, and it's what makes the internet what it is. Put another way, the internet forces us to not simply to press upload, but to reimagine desktop technologies as potential vehicles for collaboration.
 
 There's been some talk recently, about the promise of [using GitHub for data](http://ben.balter.com/2013/09/16/treat-data-as-code/), with the excitement for the platform's disruptive potential being counterbalanced by criticism that there are use cases for which it's not ideal. That's going to be true for any technology, and like any technology, you don't solve for scale on day one. You start small, you prove the concept, you iterate.
@@ -13,11 +6,11 @@ Think about how we approach open data today: desktop-centric paradigms simply gr
 
 ### No developer wants a 500MB endpoint
 
-Take GitHub's GeoJSON support, as an example. Any geospatial file larger than 10MB [simply won't render](https://help.github.com/articles/mapping-geojson-files-on-github#troubleshooting). That's not that 10MB is too big to render, or that the server can't handle it, it's that when a single text-bassed file is that big, the developer experience begins to suffer. I can't immagine a single scenario in which I'd want an upstream data provider to hand me a single, giant file in response to my API query, when all I really need is a single record. There are a few reasons for this, like increasing the risk of corruption on repeated saves (shout out to Microsoft Word), prohibitively slow mobile downloads, or making it super-memory-intensive to read into an editor, but the most persuasive is that I simply don't need all that data. Granularity is a great thing, and it's an underlying assumption of how the internet is built: everything gets its own URL.
+Take GitHub's GeoJSON support, as an example. Any geospatial file larger than 10MB [simply won't render](https://help.github.com/articles/mapping-geojson-files-on-github#troubleshooting). That's not that 10MB is too big to render, or that the server can't handle it, it's that when a single text-bassed file is that big, the developer experience begins to suffer. I can't imagine a single scenario in which I'd want an upstream data provider to hand me a single, giant file in response to my API query, when all I really need is a single record. There are a few reasons for this, like increasing the risk of corruption on repeated saves (shout out to Microsoft Word), prohibitively slow mobile downloads, or making it super-memory-intensive to read into an editor, but the most persuasive is that I simply don't need all that data. Granularity is a great thing, and it's an underlying assumption of how the internet is built: everything gets its own URL.
 
 #### Rethink things for the internet
 
-When I go to [the New York Times website](http:/nytimes.com), it's not as if my browser download's today's paper in its entirety. The creators of the website could have done that. They could have said look, readers get the paper as one unit when they go to their local newsstand, so lets just do that, it's worked for the past hundred years. But they didn't. They understood that readers can only read one article at a time, and as a result, I'm presented with a lightweight index, and the ability to grab any article I want on a subsequent request. Fast, efficient, internety.
+When I go to [the New York Times website](http:/nytimes.com), it's not as if my browser downloads today's paper in its entirety. The creators of the website could have done that. They could have said look, readers get the paper as one unit when they go to their local newsstand, so lets just do that, it's worked for the past hundred years. But they didn't. They understood that readers can only read one article at a time, and as a result, I'm presented with a lightweight index, and the ability to grab any article I want on a subsequent request. Fast, efficient, internety.
 
 #### Repository as RESTful API
 
