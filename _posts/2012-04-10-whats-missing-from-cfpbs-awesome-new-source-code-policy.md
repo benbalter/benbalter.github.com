@@ -79,7 +79,7 @@ I think CFPB gets it in a big way, and the fact that this is memorialized in wri
 [10]: http://www.whitehouse.gov/blog/2011/02/11/whitehousegov-releases-second-set-open-source-code
 [11]: http://open.nasa.gov
 [12]: https://www.gov.uk/government/publications/open-source-procurement-toolkit
-[13]: http://www.finance.gov.au/e-government/infrastructure/docs/AGuidetoOpenSourceSoftware.pdf
+[13]: http://www.finance.gov.au/files/2012/04/AGuidetoOpenSourceSoftware.pdf
 [14]: http://www.tekno.dk/pdf/projekter/p03_opensource_paper_english.pdf
 [15]: https://twitter.com/#!/victorzapanta/status/189390759181557760
 [16]: #note-2020-1 "In simple terms, the core of open-source projects (as distinct from community-contributed plugins or modules) are primarily fueled by "patches" (small code change sets) in response to bugs or feature requests, that get committed to the project's codebase and released in subsequent versions."

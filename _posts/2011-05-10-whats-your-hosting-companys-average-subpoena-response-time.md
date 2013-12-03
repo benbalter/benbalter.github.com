@@ -21,7 +21,7 @@ post_format: [ ]
 
 From a technical standpoint, Bluehost is one of the good guys. I've hosted sites with them since 2005 and looking back at the past six months, I've enjoyed a 99.79% uptime, with an average response time just under a second. But that's half the equation. Web hosting is not simply a cost-benefit analysis of price to uptime and responsiveness. There's a third factor there: trust.
 
-Why does a hosting company require trust? In December, a [fake news release][8] was [published][9] on a Bluehost powered site by an anonymous satirical group, stating that after "a recent internal and thorough company review," Koch Industries, an oil processing company, would be "restructuring its support of climate change research and advocacy initiatives."
+Why does a hosting company require trust? In December, a [fake news release][8] was [published][9]{: data-proofer-ignore="true"} on a Bluehost powered site by an anonymous satirical group, stating that after "a recent internal and thorough company review," Koch Industries, an oil processing company, would be "restructuring its support of climate change research and advocacy initiatives."
 
 The problem occurred, however, when Bluehost was over eager to comply with Koch's subpoena demanding the identity of the anonymous poster, [arguing][4], "\[w\]e are not in the business of harboring, you know, felons and crooks. We are not about that. This isn't WikiLeaks… \[w\]e comply with the law here."
 

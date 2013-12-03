@@ -80,7 +80,7 @@ Notes:
 [19]: http://ben.balter.com/2011/09/01/why-wordpress/
 [20]: http://www.amazon.com/Viral-Loop-Facebook-Businesses-Themselves/dp/1401323499
 [23]: http://www.petitiononline.com/ada4305/petition.html
-[24]: http://www.aolnews.com/2011/02/07/gawker-redesign-does-not-exactly-thrill-the-internet/
+[24]: http://thenextweb.com/media/2011/02/08/whats-wrong-with-gawkers-redesign/
 [25]: http://www.businessweek.com/magazine/content/10_40/b4197036693152.htm
 [27]: http://developer.apple.com/
 [28]: http://tools.google.com/dlpage/chromesxs

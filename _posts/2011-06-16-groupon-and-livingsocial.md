@@ -70,7 +70,7 @@ Sure it's fun to get an e-mail in your inbox with a "super-exclusive" offer, but
 
 #### Data Blindspot
 
-Smart websites are driven by data — personal data — and they use it to fuel growth. Amazon leverages my buying history to make personalized recommendations and I buy more stuff. Facebook maps out my social graph and recommends people I know and I friend more people. Netflix tracks my viewing history, going so far as to put a up a [$1 million bounty][21] to perfect reading my mind. And daily deal sites know that's their [only shot at staying relevant][22].
+Smart websites are driven by data — personal data — and they use it to fuel growth. Amazon leverages my buying history to make personalized recommendations and I buy more stuff. Facebook maps out my social graph and recommends people I know and I friend more people. Netflix tracks my viewing history, going so far as to put a up a [$1 million bounty][21]{: data-proofer-ignore="true"} to perfect reading my mind. And daily deal sites know that's their [only shot at staying relevant][22].
 
 Despite [Groupon's efforts][23], there's just not enough data there. They may have my age, gender, rough location, and one or two datapoints of buying history, but compare that to the relative dossier that Google and Amazon both have to have on me, it's always going to be a losing fight. Once first mover advantage begins to lose its shimmer, the big boys' synergies will begin to show their [true][24] [potential][25], and daily deal sites like Groupon and LivingSocial will expire as quickly as the deals they peddle.
 

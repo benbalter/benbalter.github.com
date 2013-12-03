@@ -34,7 +34,7 @@ This creates an array (`$footnotes`) with the both the footnote number and the t
 foreach ($footnotes as $footnote) {
   $find[] = '#<a href\="\#_ftn'.$footnote[1].'">\['.$footnote[1].'\]</a>#';
   $replace[] = '[ref]' . str_replace( array("\r\n", "\r", "\n"), "",   $footnote[3]) . '[/ref]';
-}   
+}
 
 ?>{% endhighlight %}</div>
 
@@ -55,7 +55,7 @@ Because PHP's `preg_replace` function can handle arrays, all we have to do is ru
 $content = preg_replace( $find, $replace, $content );
 
 ?>{% endhighlight %}</div>
-    
+
 Putting it all together, including a filter hook to call our function and a `meta_value` flag to prevent parsing on subsequent saves, the result is:
 
 <script src="http://gist-it.appspot.com/github/benbalter/Convert-Microsoft-Word-Footnotes-to-WordPress-Simple-Footnotes/raw/master/parse-footnotes.php">     </script>
@@ -72,7 +72,7 @@ Thoughts? Improvements? The above code solved a rather stubborn workflow problem
 [3]: http://codex.wordpress.org/Plugin_API/Filter_Reference
 [4]: #note-2020-1 "' . str_replace( array("\r\n", "\r", "\n"), "", $footnote[4]) . '"
 [5]: https://github.com/benbalter/Convert-Microsoft-Word-Footnotes-to-WordPress-Simple-Footnotes
-[6]: http://www.bloggingteacher.com/writing-posts-with-the-wordpress-visual-editor-the-kitchen-sink
+[6]: http://blogforprofit.com/beginner-blogger/beginner-blogger-using-the-kitchen-sink-in-wordpress/
 [7]: #note-2020-2 "Licensed under GPLv2"
 [8]: http://ben.balter.com/2011/03/20/regular-expression-to-parse-word-style-footnotes/
 
