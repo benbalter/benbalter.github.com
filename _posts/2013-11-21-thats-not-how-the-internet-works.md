@@ -17,7 +17,7 @@ Take GitHub's GeoJSON support, as an example. Any geospatial file larger than 10
 
 #### Rethink things for the internet
 
-When I go to [the New York Times website](http:/nytimes.com), it's not as if my browser downloads today's paper in its entirety. The creators of the website could have done that. They could have said *look, readers get the paper as one unit when they go to their local newsstand, so lets just do that, it's worked for the past hundred years.* But they didn't. They understood that readers can only read one article at a time, and as a result, I'm presented with a lightweight index, and the ability to grab any article I want on a subsequent request. Fast, efficient, internety.
+When I go to [the New York Times website](http://nytimes.com), it's not as if my browser downloads today's paper in its entirety. The creators of the website could have done that. They could have said *look, readers get the paper as one unit when they go to their local newsstand, so lets just do that, it's worked for the past hundred years.* But they didn't. They understood that readers can only read one article at a time, and as a result, I'm presented with a lightweight index, and the ability to grab any article I want on a subsequent request. Fast, efficient, internety.
 
 #### Repository as RESTful API
 

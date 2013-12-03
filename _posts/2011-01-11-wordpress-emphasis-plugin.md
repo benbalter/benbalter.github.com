@@ -20,7 +20,7 @@ tags:
 post_format: [ ]
 ---
 
-![Screenshot of the plugin in use][1]{: .alignleft } The New York Times [recently open-sourced][2] their nifty wizardry which allows users to highlight and link to specific text within an article or post. In their own words:
+![Screenshot of the plugin in use][1]{: .alignleft } The New York Times [recently open-sourced][2]{: data-proofer-ignore="true"} their nifty wizardry which allows users to highlight and link to specific text within an article or post. In their own words:
 
 > Emphasis provides dynamic paragraph-specific anchor links and the ability to highlight text in a document, all of which is made available in the URL hash so it can be emailed, bookmarked, or shared.
 
@@ -28,7 +28,7 @@ I adapted the New York Time's implementation into a three-line WordPress plugin 
 
 The "deep links" plugin allows for permalinking and highlighting of text on a paragraph and sentance level. No need to set anything up. Just install, tap shift twice, and start highlighting.
 
-*See* [The New York Times post on the script][2] for syntax and more information on general usage or you can double tap the *shift* key right now to give it a try.
+*See* [The New York Times post on the script][2]{: data-proofer-ignore="true"} for syntax and more information on general usage or you can double tap the *shift* key right now to give it a try.
 
 Neat, huh? [Download it][3] today.
 
