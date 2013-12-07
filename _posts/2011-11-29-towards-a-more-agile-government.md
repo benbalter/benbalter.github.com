@@ -281,7 +281,7 @@ The federal IT procurement system is outdated.  Projects are consistently delive
 [^3]: *Trends*, IT Dashboard, http://www.itdashboard.gov/export/trends_report (last visited Sept. 6, 2011).
 [^4]: *Id.*
 [^5]: White House Forum on Modernizing Gov't, Overview and Next Steps 5 (2010).
-[^6]: Victor Szalvay, Danube Techs., Inc., [An Introduction to Agile Software Development][167]1 (2004), *available at* http://www.danube.com/docs/Intro\_to\_Agile.pdf.
+[^6]: Victor Szalvay, Danube Techs., Inc., [An Introduction to Agile Software Development][167]1 (2004).
 [^7]: DoD Acquisition Report, *supra* note 1, at 44.  "Rebaselining" occurs when modifications are made to a project's baseline, i.e. its cost, schedule, and performance goals, to reflect changed development circumstances.  U.S. Gov't Accountability Office, GAO-08-925, Information Technology: Agencies Need to Establish Comprehensive Policies to Address Changes to Projects' Costs, Schedule, and Performance Goals 2, 13 (2008). Changes in requirements and objectives (scope creep) was the most commonly cited reason for rebaselining. *Id. *at 8.
 [^8]: *Id*.
 [^9]: Szalvay, *supra* note 6, at 8.
@@ -436,7 +436,7 @@ The federal IT procurement system is outdated.  Projects are consistently delive
 
 [160]: http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png
 [161]: http://creativecommons.org/licenses/by-nc-sa/3.0/
-[167]: http://www.danube.com/docs/Intro_to_Agile.pdf
+[167]: http://webcache.googleusercontent.com/search?q=cache:5HFgofvhZVIJ:www.danube.com/docs/Intro_to_Agile.pdf+&cd=1&hl=en&ct=clnk&gl=us
 [176]: http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m-10-26.pdf
 [178]: http://www.whitehouse.gov/sites/default/files/omb/assets/modernizing_government/ModernizingGovernmentOverview.pdf
 [184]: http://www.martinfowler.com/articles/newMethodology.html
