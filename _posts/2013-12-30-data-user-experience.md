@@ -15,9 +15,7 @@ Second, the fact that the documentation is geared not towards developers, but to
 
 ### Optimizing for the user
 
-All experiences — government experience especially — should be optimized for the consumer, not for the publisher, regardless of format or internal politics.
-
-The General Services Administration, much to their credit, has begun a "[First Fridays](http://www.usability.gov/how-to-and-tools/guidance/gsa-first-fridays-program.html)" usability testing program, which is the tangible result of a much larger and much needed effort to educate publishers of government information as to the importance of and necessity for a purposful commitment to user experience.
+All experiences — government experience especially — should be optimized for the consumer, not for the publisher, regardless of format or internal politics, and the General Services Administration, much to their credit, has begun a "[First Fridays](http://www.usability.gov/how-to-and-tools/guidance/gsa-first-fridays-program.html)" usability testing program, which is the tangible result of a much larger and much needed effort to educate publishers of government information as to the importance of and necessity for a purposful commitment to user experience.
 
 ### A format-agnostic experience
 
