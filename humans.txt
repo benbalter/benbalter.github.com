@@ -27,6 +27,9 @@ Site: https://github.com/parkr
 Name: gbinal
 Site: https://github.com/gbinal
 
+Name: eduardozulian
+Site: https://github.com/eduardozulian
+
 Name: konklone
 Site: https://github.com/konklone
 
@@ -53,6 +56,9 @@ Site: https://github.com/philipashlock
 
 Name: rebeccawilliams
 Site: https://github.com/rebeccawilliams
+
+Name: tmcw
+Site: https://github.com/tmcw
 
 Name: pmaiorana
 Site: https://github.com/pmaiorana
