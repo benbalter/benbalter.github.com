@@ -5,7 +5,7 @@ comments: true
 excerpt: "The next time you publish a data source, whether in government or out, ask yourself one simple question. How can you optimize the experience for the data consumer?"
 ---
 
-There was [an interesting Hackernews comment](https://news.ycombinator.com/item?id=6385623) that caught my eye around the release of [a Bureau of Labor and Statistics API](http://www.bls.gov/developers/api_FAQs.htm). User @nmcfarl wrote:
+There was [an interesting Hackernews comment](https://news.ycombinator.com/item?id=6385623) that caught my eye around the release of [a Bureau of Labor and Statistics API](http://www.bls.gov/developers/api_FAQs.htm). User [@nmcfarl](https://news.ycombinator.com/user?id=nmcfarl) wrote:
 
 > An interesting micro-site – it seems very much more aimed at people who know BLS data already, and much less aimed at coders. The FAQ answers the question "What is an API?", but doesn't even have a list of the IDs required in order to get any data whatsoever out of that API.
 
