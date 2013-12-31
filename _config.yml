@@ -15,7 +15,7 @@ exclude:
   - README.md
   - LICENSE
   - readme.md
-  - vendor
+  - /vendor
   - src
   - CNAME
   - Gemfile
