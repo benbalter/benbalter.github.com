@@ -1,6 +1,6 @@
-<div class="navbar">
+<nav class="navbar navbar-default" role="navigation">
   <ul class="nav navbar-nav">
-    <h1><a class="navbar-brand" href="{{ site.url }}/">{{ site.name }}</a></h1>
+    <li><h1><a class="navbar-brand" href="{{ site.url }}/">{{ site.name }}</a></h1></li>
     <li id="home"{% if page.url == '/index.html' %} class="active"{% endif %}>
       <a href="{{ site.url }}/">Home</a>
     </li>
@@ -12,4 +12,4 @@
     </li>
   </ul>
   <p class="navbar-text pull-right">{{ site.description }}</p>
-</div><!-- navbar -->
+</nav><!-- navbar -->

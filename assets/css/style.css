@@ -70,9 +70,9 @@ body { padding-top: 20px; }
 .default .navbar { border-top-left-radius: 0; border-top-right-radius: 0;}
 .navbar h1 { display: inline; }
 .navbar h2 { font-weight: normal; font-size: 20px; display: inline;}
-.navbar-brand { font-size: 20px;}
+.navbar-brand { font-size: 20px; }
 @media (max-width: 768px) {
-    .navbar .pull-right { text-align: center; float: none;}
+    .navbar .pull-right, .navbar-brand { text-align: center; float: none; width: 100%; }
 }
 @media (max-width: 768px) {
     .navbar li { text-align: center;}

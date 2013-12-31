@@ -10,7 +10,27 @@ description: "GitHubber, Gov 2.0 Evangelist, Aspiring Attorney"
 url: ""
 
 #files to exclude, array
-exclude: [ 'readme.md', 'vendor' ]
+exclude:
+  - CONTRIBUTING.md
+  - README.md
+  - LICENSE
+  - readme.md
+  - /vendor
+  - src
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - bower.json
+  - package.json
+  - script
+  - test
+  - less
+  - scss
+  - media
+  - feature-detects
+  - composer.json
+  - component.json
+  - grunt.js
 
 #number of items in RSS feed
 rss_limit: 10

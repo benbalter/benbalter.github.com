@@ -1,2 +1,10 @@
 .DS_Store
-_site/
+_site
+assets/vendor/bootstrap/js
+assets/vendor/bootstrap/less
+assets/vendor/font-awesome/less
+assets/vendor/font-awesome/scss
+assets/vendor/font-awesome/src
+assets/vendor/modernizr/feature-detects
+assets/vendor/modernizr/media
+assets/vendor/modernizr/test
