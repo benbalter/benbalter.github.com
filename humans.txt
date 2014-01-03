@@ -15,6 +15,9 @@ Site: https://github.com/balterbot
 Name: aaronjorbin
 Site: https://github.com/aaronjorbin
 
+Name: konklone
+Site: https://github.com/konklone
+
 Name: adelevie
 Site: https://github.com/adelevie
 
@@ -29,9 +32,6 @@ Site: https://github.com/gbinal
 
 Name: eduardozulian
 Site: https://github.com/eduardozulian
-
-Name: konklone
-Site: https://github.com/konklone
 
 Name: nacin
 Site: https://github.com/nacin
