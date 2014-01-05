@@ -1,4 +1,4 @@
-body { padding-top: 20px; font-size: 1.6em; }
+body { padding-top: 20px; font-size: 1.6em; font-weight: 200; }
 @media (max-width: 768px) {
     body { padding-top: 0; }
 }
