@@ -128,3 +128,7 @@ pygments: true
 markdown: kramdown
 timezone: America/New_York
 encoding: UTF-8
+
+gems:
+  - jemoji
+  - jekyll-mentions
