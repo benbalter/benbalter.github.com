@@ -25,11 +25,15 @@ For me, that's always been what open source is. It's a collaborative model, not 
 
 That struck me as odd for a few reasons. Granted, I have a somewhat skewed viewpoint, but it exposes an important edge case. Especially in government, we see the source code for an application being made available, but with no intention of (or often mechanism for) the agency to accept community contributions, an arrangement that many today would not traditionally label a truly open source effort (although it is).
 
+So which is it? Is open source about the right to modify or the opportunity to contribute? When you look at the state of software when the open source movement was shaping its philosophy, the world was a much more centralized place.
+
 ## Open source in a less license-centric world
 
-I've only known a world where open source has already won. When I think open source, I don't think "*is this thing licensed under a Open Source Initiative blessed license?*" Today there are increasingly fewer debates over [the freedoms one receives with software](https://www.gnu.org/philosophy/free-sw.html), and more over seeing it released in the first place, or once released, over exposing process. Developers today could [care less what the license is](http://opensource.com/law/13/2/post-open-source-software-licensing) or if non-free software is [an instrument of unjust power](https://www.gnu.org/philosophy/free-software-even-more-important.html). We just want to hack on cool things and we know doing things in the open is the best way to do it. Open source has won, and not for political or philosophical reasons.
+I've only known a world where open source has already won. When I think open source, I don't think "*is this thing licensed under a Open Source Initiative blessed license?*" Today there are increasingly fewer debates over [the freedoms one receives with software](https://www.gnu.org/philosophy/free-sw.html), and more over seeing it released in the first place, or once released, over exposing process.
 
-There are a lot of reasons for that deemphasis. For one, technology has made it easier to work together than alone, and in turn, has shaped what it means to be open source. As Karl noted:
+Developers today could [care less what the license is](http://opensource.com/law/13/2/post-open-source-software-licensing) or if non-free software is [an instrument of unjust power](https://www.gnu.org/philosophy/free-software-even-more-important.html). We just want to hack on cool things and we know doing things in the open is the best way to do it. Open source has won, and not for political or philosophical reasons. Today, [Microsoft supports open source](http://www.microsoft.com/opensource/directory.aspx), because it makes good business sense, not because of the freedoms it brings.
+
+There are a lot of reasons for that deemphasis. For one, technology has made it easier to work together than alone, shifting the supply-side constrains from projects to contributors, and in turn, has shaped what it means to be open source. As Karl noted:
 
 > Pretty much all open source activity (whether software or otherwise) happens online... if it's not online, it's hard for it to be effectively open source, practically speaking.
 
@@ -43,7 +47,7 @@ Today, the idea of open source as it is seen outside of software is much more th
 
 Think about it in this context: I'm a government agency, and I publish a plain-text blog. Is that open source? As a government work, you have the right to use, fork, and modify the "open source" content as you see fit. Same with government data in the form of a spreadsheet. The "source" in both cases... what's necessary to rebuild the final intrinsically valuable thing from scratch is not the compiled letters or figures that are published, but exposing the underlying process through which that final product can be recreated (not to mention being the canonical place where the content is published).
 
-So long as the publisher doesn't provide a mechanism to receive those improvements, or if there's a sufficient imbalance of information between those publishing and those contributing, that thing, be it code, text, or data, is simply published. It's not really open. In software I'd call that "disclosed source". In government, we call that publishing a PDF or simply throwing data over the firewall, but the one thing I would not have called that is open source. But that's exactly what it is.
+So long as the publisher doesn't provide a mechanism to receive those improvements, or if there's a sufficient imbalance of information between those publishing and those contributing, that thing, be it code, text, or data, is simply published. It's not really open. In software I'd call that "disclosed source". In government, we call that publishing a PDF or simply throwing data over the firewall, but the one thing I would not have called that is open source. But given the right license, that's exactly what it is.
 
 ## Open source behind the firewall
 
@@ -61,10 +65,10 @@ That begs the question: What percentage of the world needs to have access to som
 
 I think that's true. At least, the idea of someone calling something "government-only open source" scares me. But what do we call the millions of developers that adopt open source workflows for their closed-source software? For non-software collaboration? How do we divorce ourselves from a rights-centric viewpoint and the holy wars that go with it (I'm looking at you GPL)? What do you call something that's developed in the open with community involvement that may or may not be software?
 
-Dropping "software" from "open source software" isn't enough. Open source (software) since its inception, has always been about an external supply of freedom — the promise (or threat) that I am granted sufficient rights by the project creator and can, at any time, fork the project and go my own way — and it should stay that way.
+Dropping "software" from "open source software" isn't enough. Open source (software) since its inception, has always been about an external supply of freedom — the promise (or threat) that I am granted sufficient rights by the project creator and can, at any time, fork the project and go my own way — and it should stay that way. Open source software solves for modification, not contribution.
 
 Perhaps what we need is a new word that better describes what we're really doing? @haacked went through the same existential crisis and [landed somewhere near *crowd sourced*](http://haacked.com/archive/2012/02/22/spirit-of-open-source.aspx/), but for me, that implies a hub and spoke model with a highly centralized power structure, not the egalitarian web we often think of open source to be. Perhaps what I've been calling "open source" about all along is not really open source, but is in fact "open collaboration".
 
-Open source (software) is a thing we make. Open collaboration is how we make it.
+Open source (software) is a thing we make. Open collaboration is how we make it. While the necessary elements for true open collaboration have, at least in my opinion, not yet been fully defined, one thing's for sure: as the collaborative workflow originally created for open source software becomes increasingly co-opted by contributors to other projects, we're about to see a lot of it.
 
 *For a much more in depth discussion with @kfogel, @haacked, and @afeld, see [benbalter/benbalter.github.com/pull/98](https://github.com/benbalter/benbalter.github.com/pull/98).*
