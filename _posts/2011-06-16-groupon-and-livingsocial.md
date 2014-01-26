@@ -60,7 +60,7 @@ Third, daily deals involving alcohol, may [run afoul of the law in certain state
 
 ### What's Next for Groupon
 
-Not much. Assuming Groupon scales back its cut and guides merchants through the industry's  legal pitfalls, as Groupon's [recent S-1][18] shows, they are still [using the revenue from new deals to pay for previous ones][19], generally repaying merchants over the course of two months. If Google's Offers service gains traction, Groupon could face some serious operating cash flow issues, especially with the competition paying out [80% within four days][20].
+Not much. Assuming Groupon scales back its cut and guides merchants through the industry's  legal pitfalls, as Groupon's [recent S-1][18] shows, they are still [using the revenue from new deals to pay for previous ones][19], generally repaying merchants over the course of two months. If Google's Offers service gains traction, Groupon could face some serious operating cash flow issues, especially with the competition paying out 80% within four days.
 
 #### Limited Growth
 
@@ -94,7 +94,6 @@ Despite [Groupon's efforts][23], there's just not enough data there. They may ha
 [17]: http://www.benedelman.org/voucher-consumer-protection/wine-chicago-google-060811.png
 [18]: http://www.sec.gov/Archives/edgar/data/1490281/000104746911005613/a2203913zs-1.htm
 [19]: http://techcrunch.com/2011/06/13/why-groupon-is-poised-for-collapse/
-[20]: http://www.google.com/support/offersbusiness/bin/answer.py?hl=en&answer=1229917
 [21]: http://bits.blogs.nytimes.com/2009/09/21/netflix-awards-1-million-prize-and-starts-a-new-contest/
 [22]: http://techcrunch.com/2011/01/11/why-we-invested-in-groupon-the-power-of-data/
 [23]: http://techcrunch.com/2010/12/07/groupon-everywhere-jiwire/

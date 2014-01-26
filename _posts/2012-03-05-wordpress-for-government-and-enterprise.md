@@ -134,7 +134,7 @@ Whether WordPress is your primary source of income, a hobby, or just the thing t
 [3]: http://trends.builtwith.com/cms
 [5]: http://groups.drupal.org/node/19885
 [6]: #note-2020-1 "Update (3/7): As many have pointed out, a lot of the misinformation may also be traced back to somewhat of a decision lag. Custom post types, custom taxonomies, and WordPress multisite — three key features that although minor from a technical standpoint, really served as the fundamental shift to transition the platform from blog+ to full-fledged CMS — came about only three major versions ago (WordPress 3.0). While eighteen months may be an eternity for the vast majority of the technology sector (the iPad 1 had just barely launched eighteen months ago for comparison), in the Government space, procurement regulations dictate that such lag times are all but the norm. As a result, in an already risk-averse contracting environment, we may actually be seeing numbers that more accurately reflect say, WordPress 2.9′s reception in the Government sector — a snapshot of when an agency chose a CMS at the onset of a multi-year procurement — rather than those that accurately reflect its technical capabilities today."
-[7]: http://api.drupal.org/api/drupal/includes--module.inc/group/hooks/8
+[7]: https://api.drupal.org/api/drupal/core%21includes%21module.inc/group/hooks/8
 [8]: http://adambrown.info/p/wp_hooks/version/3.2
 [9]: http://drupal.org/project/usage
 [10]: http://en.wordpress.com/stats/
