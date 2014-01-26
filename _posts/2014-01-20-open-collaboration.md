@@ -29,7 +29,7 @@ That struck me as odd for a few reasons. Granted, I have a somewhat skewed viewp
 
 I've only known a world where open source has already won. When I think open source, I don't think "*is this thing licensed under a Open Source Initiative blessed license?*" Today there are increasingly fewer fights over the rights one receives with software, and more over seeing it released in the first place, or once released, over exposing process. Developers today could [care less what the license is](http://opensource.com/law/13/2/post-open-source-software-licensing). We just want to hack on cool things.
 
-There are a lot of reasons for that deemphasis. For one, technology has made it easier to work together, than alone, and therefore, has shaped at least what I think it means to be open source. As Karl noted:
+There are a lot of reasons for that deemphasis. For one, technology has made it easier to work together than alone, and in turn has shaped what it means to be open source. As Karl noted:
 
 > Pretty much all open source activity (whether software or otherwise) happens online... if it's not online, it's hard for it to be effectively open source, practically speaking.
 
