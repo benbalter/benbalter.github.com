@@ -11,7 +11,7 @@ Open source is collaborative, or at least, I thought it was. What modern hackers
 
 > @benbalter The internet has noticed that you tried to define "open source"
 
-Not an email that you receive every day. As part of an effort to lower the barrier for getting started GitHub, we published [a glossary of common GitHub jargon](https://help.github.com/articles/github-glossary#open-source), which included the term "open source". We defined it as:
+Not an email that you receive every day. As part of an effort to lower the barrier for getting started with GitHub, we published [a glossary of common GitHub jargon](https://help.github.com/articles/github-glossary#open-source), which included the term "open source". We defined it as:
 
 > Open source refers to a philosophy of collaboration whereby others (publicly, or within an organization) are encouraged to fork, modify, discuss, and contribute to an ongoing project. Open source software refers to software with source code that has been made available to others.
 
