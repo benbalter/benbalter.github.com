@@ -3,7 +3,7 @@ title: Open source, not just software anymore
 layout: post
 comments: true
 excerpt: "What we've been calling open source, may in fact be something else, especially when we start to use those workflows to collaborate on things beyond code."
-redirect_from: /2014/01/27/open-collabortion
+redirect_from: /2014/01/27/open-collabortion/
 ---
 
 Open source is collaborative, or at least, I thought it was. What modern hackers have been calling open source, may in fact be something else, especially when we start to use those workflows to collaborate on things beyond just computer code.
