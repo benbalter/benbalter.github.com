@@ -14,7 +14,7 @@ You may notice things are bit snappier around here these days, having [recently 
 
 Jekyll is a blog-aware static site generator — heavily integrated with the social code sharing service GitHub — the move to which, was primarily motivated by a desire to embrace the brave new, [post-CMS world](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/) we now find ourselves in. While WordPress is great, [130 outages over the past six months (totalling more than a day's worth of downtime)](http://cl.ly/image/1M420a152e1z), left a bit to be desired in terms of hosting.
 
-Although powered by the open-source CMS WordPress, the old site (shared hosting provided by Bluehost) for performance sake, would actually just served flat HTML and Javscript files from disk (generated on a regular basis by an industry-standard plugin known as  [W3 Total Cache](http://wordpress.org/extend/plugins/w3-total-cache/)), but fired up WordPress on every request (on top of the already slugish Apache).
+Although powered by the open-source CMS WordPress, the old site (shared hosting provided by Bluehost) for performance sake, would actually just served flat HTML and Javascript files from disk (generated on a regular basis by an industry-standard plugin known as  [W3 Total Cache](http://wordpress.org/extend/plugins/w3-total-cache/)), but fired up WordPress on every request (on top of the already sluggish Apache).
 
 Don't get me wrong. WordPress can be [configured to fly](http://wordpress.org/extend/plugins/batcache/) given the right setup, and that's exactly what I set out to do. I got the best of the best. I spun up a shiny new AWS box, got Nginx with microcache up and running, APC for opcode, page, and object cache, and even put everything behind Varnish.
 
@@ -41,6 +41,25 @@ The CMS is dead. Long live the CMS.
 ## The Results
 
 **WARNING: Geek Content!**
+
+**Edit (Feb 2014):** With the [recent improvements to GitHub Pages](https://github.com/blog/1715-faster-more-awesome-github-pages), I wanted to give the benchmark another go. Turns out the transaction rate has essentially doubled since my original test, and could be even higher if the benchmark hadn't been rate-limited by GitHub's automatic denial of service mitigation:
+
+Command: `siege -c 20 -t 30S -b ben.balter.com`
+
+	Transactions:		        3600 hits
+	Availability:		      100.00 %
+	Elapsed time:		       29.91 secs
+	Data transferred:	       19.12 MB
+	Response time:		        0.13 secs
+	Transaction rate:	      120.36 trans/sec
+	Throughput:		        0.64 MB/sec
+	Concurrency:		       16.03
+	Successful transactions:        3600
+	Failed transactions:	           0
+	Longest transaction:	        4.28
+	Shortest transaction:	        0.04
+
+---
 
 ### Homepage
 
