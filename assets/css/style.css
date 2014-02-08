@@ -54,16 +54,16 @@ body { padding-top: 20px; font-size: 1.6em; font-weight: 200; }
 
 /* Header */
 .hero-unit {
-    background-image: url( '../../wp-content/uploads/2012/05/cropped-wp-header.jpg' );
+    background-image: url( '/assets/img/header.png' );
     background-size: cover;
-    background-position: top center;
-    height: 250px;
+    background-position: top left;
+    height: 400px;
     position: relative;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
 }
 @media (max-width: 768px) {
-    .hero-unit {border-radius: 0;}
+    .hero-unit {display: none;}
 }
 
 

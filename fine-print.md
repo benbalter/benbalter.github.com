@@ -17,6 +17,6 @@ Finally, be aware that I often use the [old AP style for "Web site"](http://twit
 
 All original content on Ben.Balter.com is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a> attributable to <a rel="cc:attributionURL" href="http://ben.balter.com">{{ site.name }}</a>.
 
-Header Image was taken by <a href="http://aaron.jorb.in">Aaron Jorbin</a> and is licensed under a <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/">Attribution-NonCommercial-ShareAlike 2.0 Generic License</a>.
+Header image courtesy [FedScoop](http://fedscoop.com/), &copy; 2013.
 
 All code available [on GitHub](https://github.com/benbalter/benbalter.github.com) and licensed under the MIT license.
