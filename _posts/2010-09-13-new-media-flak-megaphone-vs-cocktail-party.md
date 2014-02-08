@@ -14,7 +14,7 @@ tags:
   - twitter
 post_format: [ ]
 ---
-A recent [back][1] and [forth][2] in the opinion pages of GW's paper of note brought to light an emerging divide in publicists' approaches to social media.  One the one hand, GW's primary Twitter account, @GWTweets, casts the University in a stoic, buttoned-up light, with little, if any interactions with members of the rather active online community (*e.g.*, mentions, @replies, or ReTweets).  @GWToday on the other hand, the *de facto *hub of the campus's Twitter scene, and arguably a [significant presence in higher education's social media world][3], has historically taken a more cavalier approach to serving as the University's digital face. But which approach is "best"?
+A recent [back][1] and [forth][2] in the opinion pages of GW's paper of note brought to light an emerging divide in publicists' approaches to social media.  One the one hand, GW's primary Twitter account, &#64;GWTweets, casts the University in a stoic, buttoned-up light, with little, if any interactions with members of the rather active online community (*e.g.*, mentions, &#64;replies, or ReTweets).  &#64;GWToday on the other hand, the *de facto *hub of the campus's Twitter scene, and arguably a [significant presence in higher education's social media world][3], has historically taken a more cavalier approach to serving as the University's digital face. But which approach is "best"?
 
 ![Woman using a megaphone to yell at a man][4]
 
@@ -22,7 +22,7 @@ Technology has the bad habit of upsetting social norms, and as much as we try, t
 
 There is a generation of communications directors and public affairs vice presidents out there that see the liberalizing power of social media as a *liability*, rather than an *opportunity*.  Personal interaction with stakeholders, be they students at a university or just those who enjoy [delicious, delicious sandwiches][6],[^7] allow organizations to connect with the people most passionate about their brand in a very real way. Just as it is second nature for city dwellers to walk past solicitors handing out pamphlets on the street corner, as the culture surrounding the technology continues to evolve so too will Twitter community begin to ostracize those members who refuse to join the ongoing digital dialog.
 
-Simply put, Twitter is not a dumping ground for pre-vetted paper.[^8] The occasional typo or personal quip doesn't hurt a company's reputation, but rather humanizes it. So long as @GWToday (or any corporate handle for that matter) falls short of sharing a [picture of what they're having for lunch][9], we can only hope that they continue to be the model for establishing an online presence, rather than the exception.
+Simply put, Twitter is not a dumping ground for pre-vetted paper.[^8] The occasional typo or personal quip doesn't hurt a company's reputation, but rather humanizes it. So long as &#64;GWToday (or any corporate handle for that matter) falls short of sharing a [picture of what they're having for lunch][9], we can only hope that they continue to be the model for establishing an online presence, rather than the exception.
 
 *\[Photo: [tranchis][10]\]*
 
