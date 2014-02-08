@@ -26,8 +26,8 @@ Simply put, Twitter is not a dumping ground for pre-vetted paper.[^8] The occasi
 
 *\[Photo: [tranchis][10]\]*
 
-[1]: http://media.www.gwhatchet.com/media/storage/paper332/news/2010/09/07/Opinions/gwtoday.Stop.Damaging.Gws.Reputation-3928003.shtml
-[2]: http://media.www.gwhatchet.com/media/storage/paper332/news/2010/09/13/Opinions/Conor.Rogers.jguiffre.Pls.Refudiate-3930388.shtml
+[1]: http://www.gwhatchet.com/2010/09/07/gwtoday-stop-damaging-gws-reputation/
+[2]: http://www.gwhatchet.com/2010/09/13/conor-rogers-jguiffre-pls-refudiate/
 [3]: http://www.socialmediahighered.com/
 [4]: http://ben.balter.com/wp-content/uploads/2010/09/3708549622_42a7d7e450_o-1024x363.jpg "Megaphone"
 [^5]: Without too much of a history lesson, see, e.g., Abraham Lincoln overseeing the Civil War from the telegraph office ushering in a new era of hands-on presidential leadership; home telephones giving rise to entire industries dedicated to interrupting families' dinners; Blackberrys changing business e-mail etiquette.
