@@ -13,7 +13,11 @@ As long as you're using Jekyll and authoring your content in Markdown, you can a
 
 ## Font Awesome and jQuery
 
-First, you'll want [jQuery](http://jquery.com/) and [Font Awesome](http://fortawesome.github.io/Font-Awesome/) included in your template, if it isn't already. jQuery, a javascript library, helps you select all the headers programmatically, and Font Awesome, an icon library, provides the link icon that the user sees. There are a handful of ways to do this, but the easiest is to add the following in your template's `<head>` section:
+First, you'll want [jQuery](http://jquery.com/) and [Font Awesome](http://fortawesome.github.io/Font-Awesome/) included in your site template, if it isn't already.
+
+jQuery, a javascript library, helps you select all the headers programmatically, and Font Awesome, an icon library, provides the link icon that the user sees.
+
+There are a handful of ways to do this, but the easiest is to add the following in your template's `<head>` section:
 
 {% highlight html %}
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
