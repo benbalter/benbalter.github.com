@@ -46,7 +46,7 @@ h6:hover .header-link {
 
 ## The JavaScript
 
-Last, tie everything together, you'll also need a bit of javascript magic client side, by adding the following to your site's footer:
+Last, to tie everything together, you'll also need a bit of javascript magic client side, by adding the following to your site's footer:
 
 {% highlight html %}
 <script>
