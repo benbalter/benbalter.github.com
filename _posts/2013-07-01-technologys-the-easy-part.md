@@ -1,20 +1,22 @@
 ---
-title: The technology's the easy part
+layout: post
+title: "The technology's the easy part"
 excerpt: "Tools aren't the challenge, culture is. We should make it so ridiculously straightforward for government agencies to distribute information and build collaborative communities around shared problems that it would be criminal for them not to."
 author: Ben Balter
-layout: post
 comments: true
 category: Technology
-tags:
+tags: 
   - government
   - culture
   - version control
   - open source
   - open data
-
+  - "government,culture,version control,open source,open data"
+published: true
+categories: technology
 ---
 
-After years of living at the bleeding edge of government IT, there's not been a single challenge presented that forces one to ask "is this even technically possible?". Sure, maybe the code hasn't been written yet, but you know that once it is, it will ultimately do that thing you want it to do — the technology's the easy part.
+After years of living at the bleeding edge of government IT, there's not been a single challenge presented that forces one to ask "is this even technologically possible?". Sure, maybe the code hasn't been written yet, but you know that once it is, it will ultimately do that thing you want it to do — the technology's the easy part.
 
 It's the culture that we've got to worry about. Will the solution be adopted by the agency? Will existing habits subvert the cool thing you just made? Will the dream live on once you're at your next gig? If you ignore culture, even the most elegant of technological solutions can be relegated to a dusty shelf as nothing more than the right solution to the wrong problem.
 
