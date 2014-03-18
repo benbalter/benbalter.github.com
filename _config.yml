@@ -133,3 +133,4 @@ gems:
   - jemoji
   - jekyll-mentions
   - jekyll-redirect-from
+  - jekyll-sitemap
