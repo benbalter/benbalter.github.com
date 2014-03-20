@@ -1,5 +1,5 @@
 ---
-title: "Want to innovate government? Focus on one thing: culture"
+title: "Want to innovate government? Focus on the culture"
 layout: post
 comments: true
 excerpt: ""
