@@ -53,6 +53,8 @@ Those three components — lightning talks, outside conferences, and targeted tr
 
 What if when you first approached your general counsel for "approval" of your innovative new idea, you didn't have to justify each layer of the technology stack — open source software, APIs, and distributed version control — but could say "hey, we're launching a Rails app with a read-only API. The code's going to be on GitHub", and they simply responded "awesome, how can we help?". What if those you relied on understood or at least appreciated not necessarily the how, but at least the why?
 
+### Vaccination through controlled exposure
+
 The common complaint is often that those empowered to truly affect change simply "don't get it". Let's fix that. It doesn't have to be a government-wide or organization-wide effort. Take a day off of coding (or more likely meetings) and spend it engendering a greater appreciation of technology among those whom you interact with on a daily basis, empower subordinates to spend a few hours working through [Rails for Zombies](http://railsforzombies.org/), or simply attend a technology conference outside the beltway. Baby steps are what's going to get us there.
 
 We're not going to turn a large, bureaucratic organization into a startup, nor should we, but by helping non-technical stakeholders to gain a broader perspective of the technology landscape, we can take a step towards building a culture where innovative efforts are the honored norm, not an unwelcome fad, and where our innovators can focus on technology, not bureaucracy. Just as in your own immune system, here, vaccination is simply a matter of controlled exposure.
