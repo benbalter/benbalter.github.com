@@ -21,7 +21,7 @@ You have to fight for the tools, you have to fight for the workflows, you have t
 
 Bureaucracy's primary goal is survival, and like any organism, it has an immune system. The red blood cells of bureaucracy are the general counsels, privacy officers, security officers, and paperwork reducers, among other bureaucrats, and it's in their personal and organizational interest to reduce risk to as close to zero as possible. By necessity, they thrive in a culture of "no".
 
-An innovator's primary goal is the exact opposite. An inovator thrives on sustainable disruption. These two countervailing interests — stability and instability — balance each other out in most organizations, however, absent the traditional profit motive found in the private sector, government gives this immune system the privileged position of actual or pocket veto authority over just about every agency decision.
+An innovator's primary goal is the exact opposite. An innovator thrives on sustainable disruption. These two countervailing interests — stability and instability — balance each other out in most organizations, however, absent the traditional profit motive found in the private sector, government gives this immune system the privileged position of actual or pocket veto authority over just about every agency decision.
 
 ### Never take "no" from someone who can't say "yes"
 
@@ -31,7 +31,7 @@ So how do you solve for the vocal naysayer minority? What's the Claritin or Zyrt
 
 ### What if your biggest fight you faced was outside, not inside your organization?
 
-"Parashooting" change agents into an organization is great, but if you really want to inject innovation in government, target the support roles. Non-technical stakeholders have increasingly become the "blockers" in the true software sense of the term, and today, it is they, not the underlying technology that is in need of innovating.
+"Parashooting" change agents into an organization is great, but if you really want to inject innovation in government, target the support roles. Non-technical stakeholders have increasingly become the "blockers" in the true software sense of the term, and today, it is they, not the underlying technology, that is in need of innovating.
 
 If you want to foster innovation, when an innovator approaches a non-technical stakeholder, there needs to be a common appreciation for one another's craft, and more importantly, a common vocabulary. I'm not suggesting the typical government alphabet soup of PRA and ATOs, but the type of shared perspective that you'd expect between skinny-jeaned coworkers at a stereotypical San Francisco startup. Heck, even GitHub's accountant [learned how to code in her spare time](https://twitter.com/BenBalter/status/432896239802523648). It's not impossible.
 
@@ -49,7 +49,7 @@ The idea is to pop the beltway bubble — expose otherwise isolated, non-technic
 
 ### Empowering lawyer linebackers
 
-Those three components — lightning talks, outside conferences, and targeted trainings — have the potential to unlock an army of [lawyer linebackers](http://ben.balter.com/2013/09/30/ten-things-you-learn-as-a-presidential-innovation-fellow/#make-friends-with-a-lawyer-on-day-one), non-technical stakeholders that serve as a force multiplier for technical tallent, and ultimately the change we all desire.
+Those three components — lightning talks, outside conferences, and targeted trainings — have the potential to unlock an army of [lawyer linebackers](http://ben.balter.com/2013/09/30/ten-things-you-learn-as-a-presidential-innovation-fellow/#make-friends-with-a-lawyer-on-day-one), non-technical stakeholders that serve as a force multiplier for technical talent, and ultimately the change we all desire.
 
 What if when you first approached your general counsel for "approval" of your innovative new idea, you didn't have to justify each layer of the technology stack — open source software, APIs, and distributed version control — but could say "hey, we're launching a Rails app with a read-only API. The code's going to be on GitHub", and they simply responded "awesome, how can we help?". What if those you relied on understood or at least appreciated not necessarily the how, but at least the why?
 
