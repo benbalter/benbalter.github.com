@@ -2,7 +2,7 @@
 title: "Want to innovate government? Focus on the culture"
 layout: post
 comments: true
-excerpt: ""
+excerpt: "The key to innovation in government is engendering a greater appreciation of technology among non-technical stakeholders"
 ---
 
 When innovating in government, [the technology's the easy part](http://ben.balter.com/2013/07/01/technologys-the-easy-part/). Innovative efforts often do one of two things:
@@ -55,4 +55,4 @@ What if when you first approached your general counsel for "approval" of your in
 
 The common complaint is often that those empowered to truly affect change simply "don't get it". Let's fix that. It doesn't have to be a government-wide or organization-wide effort. Take a day off of coding (or more likely meetings) and spend it engendering a greater appreciation of technology among those whom you interact with on a daily basis, empower subordinates to spend a few hours working through [Rails for Zombies](http://railsforzombies.org/), or simply attend a technology conference outside the beltway. Baby steps are what's going to get us there.
 
-We're not going to turn a large, bureaucratic organization into a startup, nor should we, but by helping non-technical stakeholders to gain a broader perspective of the technology landscape, we can take a step towards building a culture where innovative efforts are the honored norm, not an unwelcome fad, and where our innovators can focus on technology, not bureaucracy. 
+We're not going to turn a large, bureaucratic organization into a startup, nor should we, but by helping non-technical stakeholders to gain a broader perspective of the technology landscape, we can take a step towards building a culture where innovative efforts are the honored norm, not an unwelcome fad, and where our innovators can focus on technology, not bureaucracy.
