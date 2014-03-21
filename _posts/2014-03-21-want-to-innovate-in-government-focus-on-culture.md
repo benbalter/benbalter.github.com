@@ -37,7 +37,7 @@ If you want to foster innovation, when an innovator approaches a non-technical s
 
 ### The missing punch
 
-Looking back at some proto-open-data-policy brainstorming emails from Summer 2012, there was a third punch to go along side the one-two punch of policy and code that was [the White House Open Data Policy](http://project-open-data.github.io), a punch that ultimately did not make the final version. There were three specific proposals to foster a more open data friendly culture:
+Looking back at some proto-open-data-policy brainstorming emails from Summer 2012, there was a third punch to go along side the one-two punch of policy and tools that was [the White House Open Data Policy](http://project-open-data.github.io), a punch that ultimately did not make the final version. There were three specific proposals to foster a more open data friendly culture:
 
 > * [Google-style lectures](https://www.youtube.com/watch?v=zJOS0sV2a24) - Bring in the smartest of the smartest (Google, Twitter, Foursquare, whatever), put them in a bullpen, and have them talk to Government IT folks about what's big in terms of technology today, how to, etc.
 > * Conferences - Establish a fund to get government folks to private sector (read: outside of DC) conferences on technology
