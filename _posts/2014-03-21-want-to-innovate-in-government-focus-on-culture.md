@@ -1,5 +1,5 @@
 ---
-title: "Want to innovate government? Focus on the culture"
+title: "Want to innovate government? Focus on culture"
 layout: post
 comments: true
 excerpt: "The key to innovation in government is engendering a greater appreciation of technology among non-technical stakeholders"
