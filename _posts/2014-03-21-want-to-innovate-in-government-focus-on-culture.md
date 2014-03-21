@@ -19,7 +19,7 @@ You have to fight for the tools, you have to fight for the workflows, you have t
 
 ### Bureaucracy is an organism
 
-Bureaucracy's primary goal is survival, and like any organism, it has an immune system. The red blood cells of bureaucracy are the general counsels, privacy officers, security officers, and paperwork reducers, among other bureaucrats, and it's in their personal and organizational interest to reduce risk to as close to zero as possible. By necessity, they thrive in a culture of "no".
+Bureaucracy's primary goal is survival, and like any organism, it has an immune system. The white blood cells of bureaucracy are the general counsels, privacy officers, security officers, and paperwork reducers, among other bureaucrats, and it's in their personal and organizational interest to reduce risk to as close to zero as possible. By necessity, they thrive in a culture of "no".
 
 An innovator's primary goal is the exact opposite. An innovator thrives on sustainable disruption. These two countervailing interests — stability and instability — balance each other out in most organizations, however, absent the traditional profit motive found in the private sector, government gives this immune system the privileged position of actual or pocket veto authority over just about every agency decision.
 
