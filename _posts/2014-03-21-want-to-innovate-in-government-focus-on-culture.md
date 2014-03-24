@@ -1,7 +1,7 @@
 ---
 title: "Want to innovate government? Focus on culture"
 layout: post
-comments: truep
+comments: true
 excerpt: "The key to innovation in government is engendering a greater appreciation of technology among non-technical stakeholders"
 ---
 
