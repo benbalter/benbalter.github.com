@@ -1,7 +1,7 @@
 ---
 title: "Want to innovate government? Focus on culture"
 layout: post
-comments: true
+comments: truep
 excerpt: "The key to innovation in government is engendering a greater appreciation of technology among non-technical stakeholders"
 ---
 
@@ -31,7 +31,7 @@ So how do you solve for the vocal naysayer minority? What's the Claritin or Zyrt
 
 ### What if your biggest fight you faced was outside, not inside your organization?
 
-"Parashooting" change agents into an organization is great, but if you really want to inject innovation in government, target the support roles. Non-technical stakeholders have increasingly become the "blockers" in the true software sense of the term, and today, it is they, not the underlying technology, that is in need of innovating.
+"Parachuting" change agents into an organization is great, but if you really want to inject innovation in government, target the support roles. Non-technical stakeholders have increasingly become the "blockers" in the true software sense of the term, and today, it is they, not the underlying technology, that is in need of innovating.
 
 If you want to foster innovation, when an innovator approaches a non-technical stakeholder, there needs to be a common appreciation for one another's craft, and more importantly, a common vocabulary. I'm not suggesting the typical government alphabet soup of PRA and ATOs, but the type of shared perspective and mutual respect that you'd expect between skinny-jeaned peers at a stereotypical San Francisco startup. Heck, even GitHub's accountant [learned how to code in her spare time](https://twitter.com/BenBalter/status/432896239802523648). It's not impossible.
 
