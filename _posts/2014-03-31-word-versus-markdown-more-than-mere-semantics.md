@@ -1,4 +1,4 @@
-mar---
+---
 title: "Word versus Markdown: more than mere semantics"
 layout: post
 comments: true
