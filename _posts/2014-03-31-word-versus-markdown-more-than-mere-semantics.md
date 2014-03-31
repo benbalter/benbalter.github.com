@@ -1,4 +1,4 @@
----
+mar---
 title: "Word versus Markdown: more than mere semantics"
 layout: post
 comments: true
@@ -17,7 +17,7 @@ Markdown isn't just an alternative format. Markdown forces you to write for the 
 
 The first desktop word processors had a simple task: they were designed to make paper. We didn't have email or a vibrant internet sharing digital documents to worry about. The creators of the first desktop word processors simply mirrored the dominant workflow of the time: the typewriter. The final output — the sole embodiment — was physical, and all that mattered was what the document looked like.
 
-Over the past three decades, however, how we consume content has changed dramatically, yet, how we author content remains relatively unchanged. Put another way, [the internet is a fundamentally different animal than the  desktop](http://ben.balter.com/2013/07/02/a-brief-history-of-the-internet/). You [can't simply take a desktop format and put it online](http://ben.balter.com/2013/11/21/thats-not-how-the-internet-works/), and "[converting](http://word-to-markdown.herokuapp.com/)" a document to markdown doesn't do much to solve that.
+Over the past three decades, however, how we consume content has changed dramatically, yet, how we author content remains relatively unchanged. Put another way, [the internet is a fundamentally different animal than the  desktop](http://ben.balter.com/2013/07/02/a-brief-history-of-the-internet/). You [can't simply take a desktop format and put it online](http://ben.balter.com/2013/11/21/thats-not-how-the-internet-works/), and "[converting](http://word-to-markdown.herokuapp.com/)" a document to Markdown doesn't do much to solve that.
 
 ### Separating content from presentation
 
@@ -73,6 +73,6 @@ Second, there's a lot of proprietary metadata in there (everything that's orange
 
 There's a reason that content authored on the desktop is most commonly shared online as a PDF — a format designed to mimic the properties of paper as closely as possible. Once the content's in a paper-based format, it's stuck there forever.
 
-If there's one thing I've learned trying to [convert Word documents to markdown](http://word-to-markdown.herokuapp.com/), it's that markdown is not an alternative to traditional desktop formats. It's an entirely different animal. It's both machine- and human-readable, but more importantly, it forces you to author content openly, semantically, and for an internet-based world.
+If there's one thing I've learned trying to [convert Word documents to Markdown](http://word-to-markdown.herokuapp.com/), it's that Markdown is not an alternative to traditional desktop formats. It's an entirely different animal. It's both machine- and human-readable, but more importantly, it forces you to author content openly, semantically, and for an internet-based world.
 
 Next time you begin a new project for which the internet, not paper is the primary output, think twice before firing up that desktop publishing platform. You'll gain more than mere semantics.
