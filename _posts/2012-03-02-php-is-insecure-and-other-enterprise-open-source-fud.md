@@ -51,7 +51,7 @@ Notes:
 [1]: http://en.wikipedia.org/wiki/Fear,_uncertainty_and_doubt
 [2]: https://en.wikipedia.org/wiki/Halloween_documents
 [3]: #note-2020-1 "In simplified terms, if I have the variable $logged_in in my page to store whether a user is logged in or not, and I don't first set it to false before checking, a visitor could go to mysite.com?logged_in=true, and the page would erroneously think I was logged in."
-[4]: https://www.infoworld.com/d/open-source-software/report-open-source-tops-proprietary-code-in-quality-187169
+[4]: http://www.infoworld.com/d/open-source-software/report-open-source-tops-proprietary-code-in-quality-187169
 [5]: http://www.commlawblog.com/2010/01/articles/unlicensed-operations-and-emer/fcc-changes-stance-on-opensource-security/
 [6]: https://twitter.com/#!/nacin/status/9753986051604480
 [7]: http://www.xconomy.com/boston/2008/03/07/delays-in-software-patch-pushed-security-firm-to-disclose-vmware-flaw/
