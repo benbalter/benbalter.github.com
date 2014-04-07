@@ -10,3 +10,5 @@ task :test do
   Rake::Task["assets:precompile"].execute
   HTML::Proofer.new("./_site", :href_ignore => ["#comments"]).run
 end
+
+task :default => :test
