@@ -19,12 +19,18 @@ Management within government starts from a point of distrust. If an employee can
 
 ### Optimize for happiness
 
-GitHub's philosophy, both in terms of internal development and in terms of outward facing product is simple: optimize for (developer) happiness. If there's something *de minimus* that will make me better at my job, be it 20 minutes or 20 dollars, I'm encouraged to do it, and can do so without a three-fold paperwork burden. Just as happy cows make better milk, and in turn better cheese, happy developers build better software, and in turn, more satisfied users.
+GitHub's philosophy, both in terms of internal development and in terms of outward facing product is simple: optimize for (developer) happiness. If there's something *de minimus* that will make me better at my job, be it 20 minutes or 20 dollars, I'm encouraged to do it, and can do so without a three-fold paperwork burden. Just as happy cows make better milk, and in turn better cheese, happy developers build better software, and in turn, more satisfied users. Happiness is best achieved when you [push decisions to the edge](http://ben.balter.com/2013/06/12/an-open-letter-to-government-cios/#decentralized), put your faith in the crowd, avoid blockers, and automate wherever possible.
 
-The concept of "happiness" is foreign to a government agency. Using that word in a room full of IT management elicits the same blank stare as you might expect terms like "Node" or "Map Reduce" would. Is that Rube Goldberg Machine of a change review and deployment process frustrating? Would access to a piece of (free) software make your job easier? Chances are, the process required to change the process, or to get approval for the thing you need is more time consuming than just doing things the hard way, and management within government's CYA culture isn't necessarily there to serve as your advocate to navigate the bureaucracy and politics on your behalf. From a technology standpoint, you don't even have the opportunity to yak shave, even if you wanted to.
+The concept of "happiness" is foreign to a government agency. Using that word in a room full of IT management elicits the same blank stare as you might expect terms like "Node" or "Map Reduce" would. Is that Rube Goldberg Machine of a change review and deployment process frustrating? Would access to a piece of (free) software make your job easier?
+
+Chances are, the process required to change the process, or to get approval for the thing you need is more time consuming than just doing things the hard way, and management within government's CYA culture isn't necessarily there to serve as your advocate to navigate the bureaucracy and politics on your behalf. From a technology standpoint, you don't even have the opportunity to yak shave, even if you wanted to.
 
 *Lesson two: where an organization has the choice between employee happiness and minimizing risk, large organizations err on the size of minimizing risk.*
 
 ### Provide room to fail
+
+At GitHub from day one, I could do my job, but also had the chance to fail (and did). Failure doesn't mean proposing a bad idea but having it overturned by your manager or some other bureaucratic safety net. Failure means small-scale public-facing failure: a bad deploy, a dumb feature you now need to support, an over-budget event.
+
+
 
 *Lesson three: where an organization has the choice between encouraging innovation and minimizing risk, large organizations err on the size of minimizing risk.*
