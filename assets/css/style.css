@@ -1,5 +1,10 @@
 ---
 ---
+{% if site.github.url %}
+  {% assign url_base = site.github.url %}
+{% else %}
+  {% assign url_base = site.url %}
+{% endif %}
 
 body { padding-top: 20px; font-size: 1.6em; font-weight: 200; }
 @media (max-width: 768px) {
