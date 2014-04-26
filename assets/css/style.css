@@ -1,3 +1,6 @@
+---
+---
+
 body { padding-top: 20px; font-size: 1.6em; font-weight: 200; }
 @media (max-width: 768px) {
     body { padding-top: 0; }
@@ -54,7 +57,7 @@ body { padding-top: 20px; font-size: 1.6em; font-weight: 200; }
 
 /* Header */
 .hero-unit {
-    background-image: url( '/assets/img/header.png' );
+    background-image: url( '{{ site.base_url }}/assets/img/header.png' );
     background-size: cover;
     background-position: top left;
     height: 400px;
