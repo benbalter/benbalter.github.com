@@ -1,11 +1,11 @@
 {% if site.github.url %}
-  {% assign site.url_base = site.github.url %}
+  {% assign url_basese = site.github.url %}
 {% else %}
-  {% assign site.url_base = site.url %}
+  {% assign url_base = site.url %}
 {% endif %}
 <nav class="navbar navbar-default" role="navigation">
   <ul class="nav navbar-nav">
-    <li><h1><a class="navbar-brand" href="{{ site.url }}/">{{ site.name }}</a></h1></li>
+    <li><h1><a class="navbar-brand" href="{{ url_base }}/">{{ site.name }}</a></h1></li>
     <li id="home"{% if page.url == '/index.html' %} class="active"{% endif %}>
       <a href="{{ url_base }}/">Home</a>
     </li>

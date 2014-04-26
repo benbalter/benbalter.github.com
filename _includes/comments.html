@@ -4,11 +4,17 @@
   </div>
 </div>
 
-    {% if site.url != "http://localhost:4000" %}
+    {% if site.github.url %}
+      {% assign url_base = site.github.url %}
+    {% else %}
+      {% assign url_base = site.url %}
+    {% endif %}
+
+    {% if url_base != "http://localhost:4000" %}
     <script type="text/javascript">
       var disqus_shortname = '{{ site.disqus.shortname }}';
 	    var disqus_identifier = '{{ page.id }}';
-	    var disqus_url = '{{ site.url }}{{ page.url }}';
+	    var disqus_url = '{{ url_base }}{{ page.url }}';
 	    var disqus_title = '{{ page.title | strip_newlines | escape | replace:"'","\'" }}';
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

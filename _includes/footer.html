@@ -1,8 +1,8 @@
 </div><!-- content -->
 {% if site.github.url %}
-	{% assign site.url_base = site.github.url %}
+	{% assign url_base = site.github.url %}
 {% else %}
-	{% assign site.url_base = site.url %}
+	{% assign url_base = site.url %}
 {% endif %}
 <div class="row">
 	{% if page.layout == "default" %}
@@ -10,7 +10,7 @@
 	{% else %}
 	<div class="col-sm-10 col-sm-offset-1 footer">
 	{% endif %}
-		<div class="fine-print"><a href="{{ site.url }}/fine-print">Fine Print</a></div>
+		<div class="fine-print"><a href="{{ url_base }}/fine-print">Fine Print</a></div>
 	</div>
 </div>
 

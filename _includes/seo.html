@@ -6,6 +6,12 @@
 	    {% assign seo_desc = page.excerpt %}
 	{% endif %}
 
+	{% if site.github.url %}
+		{% assign url_base = site.github.url %}
+	{% else %}
+		{% assign url_base = site.url %}
+	{% endif %}
+
 	<title>{{ seo_title }}</title>
 	<meta property="og:title" content="{{ seo_title }}"/>
 
@@ -20,11 +26,11 @@
 	<meta name="robots" content="{{ page.robots }}" />
 	{% endif %}
 
-	<link rel="canonical" href="{{ site.url }}{{ page.url }}" />
-	{% if page.next.url %}<link rel="next" href="{{ site.url}}{{ page.next.url }}" title="{{ page.next.title }}" />{% endif %}
-	{% if page.previous.url %}<link rel="prev" href="{{ site.url }}{{ page.previous.url }}" title="{{ page.previous.title}}" />{% endif %}
+	<link rel="canonical" href="{{ url_base }}{{ page.url }}" />
+	{% if page.next.url %}<link rel="next" href="{{ url_base }}{{ page.next.url }}" title="{{ page.next.title }}" />{% endif %}
+	{% if page.previous.url %}<link rel="prev" href="{{ url_base }}{{ page.previous.url }}" title="{{ page.previous.title}}" />{% endif %}
 
-	<meta property='og:url' content='{{ site.url }}{{ page.url }}'/>
+	<meta property='og:url' content='{{ url_base }}{{ page.url }}'/>
 	<link rel="alternate" type="application/rss+xml" title="{{ site.name }} &raquo; Feed" href="http://feeds.feedburner.com/benbalter" />
 
 	<meta property='og:locale' content='en_us'/>
