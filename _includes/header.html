@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   {% if site.github.url %}
-    {% assign url_base = site.github.url %}
+    {% assign site.url_base = site.github.url %}
   {% else %}
-    {% assign url_base = site.url %}
+    {% assign site.url_base = site.url %}
   {% endif %}
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
