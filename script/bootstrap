@@ -7,6 +7,10 @@ echo "cloning into submodules"
 git submodule init
 git submodule update
 
+if [ "$TRAVIS" == "TRUE" ]; then
+  export NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+fi
+
 echo "Bundle Installin'"
 gem install bundler
 bundle install
