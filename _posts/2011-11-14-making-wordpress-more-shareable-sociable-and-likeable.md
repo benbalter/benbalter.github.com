@@ -26,7 +26,7 @@ Slides from my presentation at Washington's [CrushIQ][1] on how to use WordPress
 *   [Simple Twitter Connect][3]
 *   [Jetpack by WordPress.com][4]
 *   [Embedly][5]
-*   [AddThis ][6]/ [ShareThis ][7]/ [Sexy Bookmarks][8]
+*   [AddThis ][6]/ [ShareThis ][7]
 *   [PollDaddy][9]
 *   [Twitter Mentions as Comments][10]
 *   [Disqus][11]
@@ -38,7 +38,6 @@ Slides from my presentation at Washington's [CrushIQ][1] on how to use WordPress
 [5]: http://wordpress.org/extend/plugins/embedly/
 [6]: http://wordpress.org/extend/plugins/addthis/
 [7]: http://wordpress.org/extend/plugins/share-this/
-[8]: http://wordpress.org/extend/plugins/sexybookmarks/
 [9]: http://wordpress.org/extend/plugins/polldaddy/
 [10]: http://wordpress.org/extend/plugins/twitter-mentions-as-comments/
 [11]: http://wordpress.org/extend/plugins/disqus-comment-system/
