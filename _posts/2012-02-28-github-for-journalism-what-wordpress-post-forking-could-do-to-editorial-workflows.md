@@ -21,7 +21,7 @@ tags:
 post_format: [ ]
 ---
 
-Wired Magazine recently took a turn for the meta. In addition to publishing [their recent story featuring the popular version control site GitHub][1] on Wired.com as they would normally, they also [published it on GitHub itself under a creative commons license][2], allowing readers to fork and contribute to the story as they saw fit. In [reflecting after the fact][3], the Wired team said something that stood out to me:
+Wired Magazine recently took a turn for the meta. In addition to publishing their recent story featuring the popular version control site GitHub on Wired.com as they would normally, they also [published it on GitHub itself under a creative commons license][2], allowing readers to fork and contribute to the story as they saw fit. In [reflecting after the fact][3], the Wired team said something that stood out to me:
 
 > At Wired offices, you hear the question over and over again as we work on stories like the one you're reading now: "Are you out of the story? I want to go in." We have a version control problem. We publish Wired.com on WordPress. It's a decent publishing tool, but when two people change a story at the same time, one of them doesn't get her changes onto the final story.
 >
@@ -74,7 +74,6 @@ Thoughts? Would you use this? What else would you like to see it do? [Drop me a 
 
 [^1]: Having recently given this a try — using GitHub to curate [a collaboratively edited list of open-source alternatives to proprietary software][12] — I know first-hand how off-putting GitHub can be to non-technical users.
 [^2]: Full disclosure: two plugins, [Revisionary][14] and [Duplicate Post][15] exist, but they don't take the idea nearly as far as the above proposes, nor do they do it in "the WordPress way". I'd hope that even if the idea started as a plugin, it would eventually be incorporated as core functionality.
-[1]: http://www.wired.com/wiredenterprise/2012/02/github/all/1
 [2]: https://github.com/WiredEnterprise/Lord-of-the-Files
 [3]: http://www.wired.com/wiredenterprise/2012/02/github-revisited/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+wired%2Findex+%28Wired%3A+Index+3+%28Top+Stories+2%29%29
 [6]: http://editflow.org/
