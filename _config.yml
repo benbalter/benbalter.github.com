@@ -7,7 +7,7 @@ name: Ben Balter
 description: "GitHubber, Gov 2.0 Evangelist, Aspiring Attorney"
 
 #URL of site, include http://, do not include a trailing slash
-url: "https://ben.balter.com"
+url: "http://ben.balter.com"
 
 #files to exclude, array
 exclude:
