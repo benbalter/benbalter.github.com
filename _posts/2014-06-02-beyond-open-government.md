@@ -31,14 +31,14 @@ In the software world, this often means that multiple users experiencing the sam
 
 ## Learning from open source
 
-So how do we encourage policy makers and bureaucrats to move from open government to collaborative government, to learn open source's lessons about openness and collaboration at scale?
+So how do we encourage policymakers and bureaucrats to move from open government to collaborative government, to learn open source's lessons about openness and collaboration at scale?
 
-For one, we geeks can help to create a culture of transparency and openness within government by driving up the demand side of the equation. Be vocal, demand data, expect to see process, and once released, help build lightweight apps. Show potential change agents in government that their efforts will be rewarded.
+For one, we geeks can help to create a culture of transparency and openness within government by driving up the demand side of the equation. Be vocal, demand data, expect to see process, and once released, help build lightweight apps. Show potential agents of change in government that their efforts will be rewarded.
 
-Second, it's a matter of tooling. We've got great tools out there — things like Git that can track who made what change when and open standards like CSV or JSON that don't require proprietary software — but by-and-large they're a foreign concept in government, at least among those empowered to make change. Command line interfaces with black background and green text can be intimidating to government bureaucrats used to desktop publishing tools. Make it easier for government to do the right thing and choose open standards over proprietary tooling.
+Second, it's a matter of tooling. There are great, free, and readily-available tools out there — things like Git that can track who made what change when and open standards like CSV or JSON that don't require proprietary software — but by-and-large they're a foreign concept in government, at least among those empowered to make change. Command-line interfaces with black background and green text can be intimidating to government bureaucrats used to desktop publishing tools. Make it easier for government to do the right thing and choose open standards amd tools over proprietary ones.
 
-Last, be a good open source ambassador. Help your home city or state get involved with open source. Encourage them to take their first step (be it consuming open source, publishing, or collaborating with the public), teach them what it means to do things in the open, And when they do push code outside the firewall, above all, be supportive. We're in this together.
+Last, be a good open source ambassador. Help your home city or state get involved with open source. Encourage them to take their first step (be it consuming open source, publishing, or collaborating with the public), teach them what it means to do things in the open. When they do push code outside the firewall, above all, be supportive. We're in this together.
 
-As technology makes it easier to work together, geeks can help make our government not just open, but in fact collaborative. Government is the world's largest and longest running open source project (bugs, trolls, and all). It's time we start treating it like one.
+As technology makes it easier to work together, geeks can help make our government not just open, but collaborative. Government is the world's largest and longest-running open source project (bugs, trolls, and all). It's time we start treating it like one.
 
 *This post originally published on [opensource.com](http://opensource.com/government/14/5/open-collaborative-government).*
