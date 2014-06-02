@@ -39,4 +39,6 @@ Second, it's a matter of tooling. We've got great tools out there — things lik
 
 Last, be a good open source ambassador. Help your home city or state get involved with open source. Encourage them to take their first step (be it consuming open source, publishing, or collaborating with the public), teach them what it means to do things in the open, And when they do push code outside the firewall, above all, be supportive. We're in this together.
 
-As technology makes it easier to work together, geeks can help make our government not just open, but in fact collaborative. Government is the world's largest and longest running open source project (bugs, trolls, and all). It's time we start treating it like one. 
+As technology makes it easier to work together, geeks can help make our government not just open, but in fact collaborative. Government is the world's largest and longest running open source project (bugs, trolls, and all). It's time we start treating it like one.
+
+*This post originally published on [opensource.com](http://opensource.com/government/14/5/open-collaborative-government).*
