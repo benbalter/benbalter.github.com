@@ -72,7 +72,7 @@ I think CFPB gets it in a big way, and the fact that this is memorialized in wri
 [3]: http://radar.oreilly.com/2011/09/open-source-government-it-goscon.html
 [4]: http://benbalter.github.com/open-source-alternatives/
 [5]: http://cfpb.gov
-[6]: https://github.com/cfpb/source-code-policy/blob/master/cfpb-source-code-policy.txt
+[6]: httpshttps://github.com/cfpb/source-code-policy/blob/9e6b8fc5cedf342248000db33e2a8e5659587e25/cfpb-source-code-policy.txt
 [7]: http://www.google.com/search?sugexp=chrome,mod=4&sourceid=chrome&ie=UTF-8&q=source+code+policy+site%3A.gov
 [8]: http://www.amazon.com/The-Wealth-Networks-Production-ebook/dp/B0015GWX0S
 [9]: http://www.fcc.gov/blog/contributing-code-back-fcc-govs-open-source-feedback-loop
