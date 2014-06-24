@@ -81,10 +81,9 @@ body { padding-top: 20px; font-size: 1.6em; font-weight: 200; }
 .navbar h2 { font-weight: normal; font-size: 20px; display: inline;}
 .navbar-brand { font-size: 20px; }
 @media (max-width: 768px) {
-    .navbar .pull-right, .navbar-brand { text-align: center; float: none; width: 100%; }
-}
-@media (max-width: 768px) {
-    .navbar li { text-align: center;}
+  .navbar .pull-right, .navbar-brand { text-align: center; float: none; width: 100%; }
+  .navbar li { text-align: center; }
+  .navbar-nav { margin: 0; }
 }
 @media (max-width: 1200px) {
   .nav { font-size: 0.9em; }
