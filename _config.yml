@@ -131,6 +131,6 @@ encoding: UTF-8
 
 gems:
   - jemoji
-  #- jekyll-mentions
+  - jekyll-mentions
   - jekyll-redirect-from
   - jekyll-sitemap
