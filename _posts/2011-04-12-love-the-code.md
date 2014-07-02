@@ -14,7 +14,7 @@ tags:
 post_format: [ ]
 ---
 
-I am gave a brief [lightning talk at April's WordPress DC Meetup][1] on the basics of HTML and PHP ("coding for dummies"). The goal: learn how to avoid breaking your website if you edit it. Below are the [slides](http://www.slideshare.net/benbalter/how-i-learned-to-stop-worrying-and-love-the-code) and [recording](http://www.ustream.tv/recorded/13958392).
+I am gave a brief [lightning talk at April's WordPress DC Meetup][1] on the basics of HTML and PHP ("coding for dummies"). The goal: learn how to avoid breaking your website if you edit it. Below are the [slides](http://www.slideshare.net/benbalter/how-i-learned-to-stop-worrying-and-love-the-code).
 
 **In invite you to [watch](http://www.ustream.tv/recorded/13958392), but in short, the Cliff's Notes are:**
 
