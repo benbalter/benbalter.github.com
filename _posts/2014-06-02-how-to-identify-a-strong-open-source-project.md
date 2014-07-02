@@ -9,7 +9,7 @@ Not all open source projects are created equally. There are plenty of open sourc
 
 While there's no litmus test for "good" open source, there are several common, language-agnostic indicators of a healthy open source project:
 
-* **Update Frequency** - The most commonly cited metric, when was it last updated? A year ago? A week ago? an hour ago? You don't want to inherit a stale codebase. Last update isn't the only thing you should be looking. How frequently is it updated? Is development occasional or continuos. Do commits occur on the weekends (suggesting a hobby) or during the week (suggesting a business). On GitHub, most of this is surfaced as [graphs](https://github.com/jekyll/jekyll/graphs).
+* **Update Frequency** - The most commonly cited metric, when was it last updated? A year ago? A week ago? an hour ago? You don't want to inherit a stale codebase. The last update isn't the only thing you should be looking at, though. How frequently is it updated? Is development occasional or continuos. Do commits occur on the weekends (suggesting a hobby) or during the week (suggesting a business). On GitHub, most of this is surfaced as [graphs](https://github.com/jekyll/jekyll/graphs).
 
 * **Issues** — Issues are a good thing, really. If you find an open source project with no open issues that doesn't mean it's perfect. Far from it. In fact, it often means the exact opposite. A vibrant support community with heated discussions and an endless list of proposed features in the roadmap means you've got lots of eyes reviewing the code and driving its development. Open issues are great, closed issues are even better.
 
