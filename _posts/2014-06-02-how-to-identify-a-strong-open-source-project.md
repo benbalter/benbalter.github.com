@@ -25,7 +25,7 @@ While there's no litmus test for "good" open source, there are several common, l
 
 * **The code itself** - Nothing beats a technical expert opening the hood and poking around. Did the developer follow the language's common conventions and design patterns? Did they use a framework or build everything from scratch? Did they use a package manager? Even if you're not a developer, ensure that everything's commented, comments are clear and free of misspellings, and that the project includes extensive tests. Bonus points for continuous integration like Travis CI which shows a commitment to releasing quality software.
 
-When in doubt, software is written by humans, for humans. When in doubt, ask. Open an issue requesting information on the project purpose and status. Is it a fun hobby or will it be around in a year? Who else is using this? Should I base my business on this? Developers want you to use their software and will be glad to help.
+Software is written by humans, for humans. When in doubt, ask. Open an issue requesting information on the project purpose and status. Is it a fun hobby or will it be around in a year? Who else is using this? Should I base my business on this? Developers want you to use their software and will be glad to help.
 
 There's good software and there's bad software. Luckily open source provides us with a handful of built in metrics to gauge a project's quality and longevity, even without reading a single line of code. Before bringing open source code into your next project, if you don't know the author, be sure to take a closer look.
 
