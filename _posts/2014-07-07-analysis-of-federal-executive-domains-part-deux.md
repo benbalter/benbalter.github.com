@@ -2,7 +2,7 @@
 title: Analysis of Federal Executive .Govs (Part Deux)
 layout: post
 comments: true
-excerpt: ""
+excerpt: "A quick analysis of the technology and capabilities that power each federal domain such as non-www, SSL, and IPv6 support, or what server/cms they use"
 ---
 
 In September 2011, in response to the Office of Management and Budget releasing [a list of all federal executive domains](https://explore.data.gov/Federal-Government-Finances-and-Employment/Federal-Executive-Branch-Internet-Domains/ymya-7799/widget_preview?width=500&height=425&variation=md55-89i9), I built a small tool called [Site Inspector](https://github.com/benbalter/Site-Inspector) and created [a quick analysis of the technology and capabilities that power each federal domain](http://ben.balter.com/2011/09/07/analysis-of-federal-executive-domains/).
