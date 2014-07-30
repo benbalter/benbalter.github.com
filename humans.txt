@@ -3,66 +3,10 @@
 /* SITE */
 Last Updated: {{ site.time | date:"%Y/%m/%d" }}
 Standards: HTML5, CSS3
-Components: Jekyll, Bootstrap
+Components: {% for dependency in site.github.versions %}{{ dependency[0] }}, {% endfor %}
 
 /* TEAM */
-Name: benbalter
-Site: https://github.com/benbalter
-
-Name: balterbot
-Site: https://github.com/balterbot
-
-Name: konklone
-Site: https://github.com/konklone
-
-Name: aaronjorbin
-Site: https://github.com/aaronjorbin
-
-Name: adelevie
-Site: https://github.com/adelevie
-
-Name: ctbarna
-Site: https://github.com/ctbarna
-
-Name: parkr
-Site: https://github.com/parkr
-
-Name: gbinal
-Site: https://github.com/gbinal
-
-Name: JBindelglass
-Site: https://github.com/JBindelglass
-
-Name: nacin
-Site: https://github.com/nacin
-
-Name: eduardozulian
-Site: https://github.com/eduardozulian
-
-Name: oeon
-Site: https://github.com/oeon
-
-Name: mikemorris
-Site: https://github.com/mikemorris
-
-Name: nschonni
-Site: https://github.com/nschonni
-
-Name: pborreli
-Site: https://github.com/pborreli
-
-Name: philipashlock
-Site: https://github.com/philipashlock
-
-Name: rebeccawilliams
-Site: https://github.com/rebeccawilliams
-
-Name: tmcw
-Site: https://github.com/tmcw
-
-Name: pmaiorana
-Site: https://github.com/pmaiorana
-
-Name: psgs
-Site: https://github.com/psgs
-
+{% for contributor in site.github.contributors %}
+Name: {{ contributor.login }}
+Site: {{ contributor.html_url }}
+{% endfor %}
