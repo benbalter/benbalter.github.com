@@ -4,10 +4,10 @@
 name: Ben Balter
 
 #description of site
-description: "GitHubber, Gov 2.0 Evangelist, Aspiring Attorney"
+description: "Government evangelist, attorney, open source developer"
 
 #URL of site, include http://, do not include a trailing slash
-url: "https://ghe.io/pages/benbalter"
+url: "http://ben.balter.com"
 
 #files to exclude, array
 exclude:
