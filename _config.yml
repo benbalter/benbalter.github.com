@@ -41,6 +41,7 @@ exclude:
   - assets/vendor/modernizr/media
   - assets/vendor/modernizr/test
   - ".bundle"
+  - vendor
 
 #number of items in RSS feed
 rss_limit: 10
