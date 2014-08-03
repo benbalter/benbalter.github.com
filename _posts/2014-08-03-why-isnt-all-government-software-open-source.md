@@ -53,10 +53,14 @@ The benefits of open sourcing code that advocates espouse are often not realized
 
 To flip the default, three things needs to change:
 
-* First, government employees need to be empowered with a better understanding of and appreciation for the virtues of open source. Those agencies who have open sourced code due so because of individual cheerleaders spearheading the charge. Successful projects are scoped from day one with the intention of being open source.
+* First, government employees need to be empowered with a better understanding of and appreciation for the virtues of open source. Those agencies who have open sourced code due so because of individual cheerleaders spearheading the charge. Successful projects are scoped from day one with the intention of being open source. Initiatives like 18F and the PIF program can seek to inspire and educate the next generation of open source advocates within government.
 
-* Second, even when the agency doesn't explicitly call for it, as subject matter experts, government contractors have a duty to explore open source alternatives and to educate the market as to modern industry standard development practices.
+* Second, even when the agency doesn't explicitly call for it, as subject matter experts, government contractors have a duty to explore open source alternatives and to educate the market as to modern industry standard development practices. Any casual observer can see the direction the market's heading, and the smart firms have an opportunity to get infront of it. Create internal competencies around today's hottest technologies and grow government demand for this newly emerging market. Make it more practical for government to do the right thing, rather than the thing it's always done.
 
-* Last, the open source community needs to step up its game, both in terms of what it offers — moving past the perception that open source is written by hobbyists — and the reception government code receives — so that it's perceived as an asset, not a liability.
+* Last, the open source community needs to step up its game, both in terms of what it offers — moving past the perception that open source is written by hobbyists — and the reception government code receives — so that it's perceived as an asset, not a liability. On the supply side, there's a tremendous business model in being the suits behind any one of the internet's most popular open source projects — Automattic, GitHub, and Redhat being a few examples — combating the FUD and providing "enterpise" support. On the demand side, the community needs to make it a liability *not* to release code ("what are you hiding?"), and make the agency's return on investment clear, by breaking down the us/them mentality, and supporting, not criticizing, government efforts to learn open source.
 
-Why isn't all government software open source? You've got an entire system designed to produce closed source software, with few incentives to change. Technology has made open source easier in recent years, and the ecosystem has exploded. Hopefully governemnt will catch up.
+Why isn't all government software open source? Because you've got an entire value chain designed to produce closed source software, a system at equalibrium, with few incentives to rethink itself.
+
+Technology has made collaborating in the open easier in recent years, and as a result, the open source ecosystem has exploded. Yet, like all technology, government is still a few years behind mainstream adopters.
+
+Hopefully, with your help, that can change.
