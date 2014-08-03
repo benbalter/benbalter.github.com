@@ -3,7 +3,7 @@ title: "Why isn't all government software open source?"
 excerpt: "Why is taxpayer funded code — integral to the day-to-day working of our democracy — so often hidden from the public view?"
 ---
 
-The federal government is the single largest purchaser of code in the world. So why is this code — taxpayer-funded and integral to the day-to-day working of our democracy — so often hidden from public view? There are two sides to answering that question: Why does the government so often build on closed source platforms, and once built, why isn't the code released to the public?
+The federal government is the single largest purchaser of code in the world. So why is this code — taxpayer-funded and integral to the day-to-day working of our democracy — so often hidden from public view? There are two sides to answering that question: Why does the government so often build on closed platforms, and once built, why isn't the code released to the public?
 
 ## Using open source
 
