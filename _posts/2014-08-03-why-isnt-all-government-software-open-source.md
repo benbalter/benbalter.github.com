@@ -15,7 +15,7 @@ There's a good deal of FUD — fear, uncertainty, and doubt — in government CI
 
 ### There are fewer suits behind open source
 
-Before that transaction even occurs, the closed-source platform likely has a flashy marketing page and a cadre of federal salespeople calling up the agency and tabling at conferences, things open source platforms traditionally don't do, save Red Hat and a few others. And when the CIOs office asks for "enterprise" features like audit trails or meeting certain compliance requirements, you can bet that the closed-source solution will make sure those features make it into the next release cycle.
+Before that transaction even occurs, the closed-source platform likely has a flashy marketing page and a cadre of federal salespeople calling up the agency and tabling at conferences, things open source platforms traditionally don't do, save Red Hat and a few others. And when the CIO's office asks for "enterprise" features like audit trails or meeting certain compliance requirements, you can bet that the closed-source solution will make sure those features make it into the next release cycle.
 
 ### Closed source contractors
 
@@ -41,7 +41,7 @@ Once built, it takes humans to bring that code to the escape velocity necessary 
 
 ### Clash of cultures
 
-Even if the agency manages to open source the code, the open source community follows a set of norms vastly different than the rigid hierarchy of government. Government agencies don't always know how best to engage the open source community, or how to integrate an open-source workflow within their own command-and-control culture. Supporting an open source community takes time, something government employees are traditionally short on. And when the agency doesn't follow the open source community's unspoken norms, the naysayer's worst fears become a self-fullfilling prophesy.
+Even if the agency manages to open source the code, the open source community follows a set of norms vastly different than the rigid hierarchy of government. Government agencies don't always know how best to engage the open source community, or how to integrate an open-source workflow within their own command-and-control culture. Supporting an open source community takes time, something government employees are traditionally short on. And when the agency doesn't follow the open source community's unspoken norms, the naysayer's worst fears become a self-fullfilling prophecy.
 
 ### Transparency as a liability
 
