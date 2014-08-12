@@ -53,7 +53,7 @@ Meanwhile, unreleased source code poses absolutely zero liability in today's pol
 
 To flip the default, three things needs to change:
 
-* First, government employees need to be empowered with a better understanding of and appreciation for the virtues of open source. Those agencies who have open sourced code due so because of individual cheerleaders spearheading the charge. Successful projects are scoped from day one with the intention of being open source and serve to reshape market demand. Initiatives like 18F and the PIF program can seek to inspire and educate the next generation of open source advocates within government.
+* First, government employees need to be empowered with a better understanding of and appreciation for the virtues of open source. Those agencies who have open sourced code do so because of individual cheerleaders spearheading the charge. Successful projects are scoped from day one with the intention of being open source and serve to reshape market demand. Initiatives like 18F and the PIF program can seek to inspire and educate the next generation of open source advocates within government.
 
 * Second, even when the agency doesn't explicitly call for it, as subject matter experts, government contractors have a duty to explore open source alternatives and to educate the market as to modern industry standard development practices. Any casual observer can see the direction the market's heading, and the smart firms have an opportunity to get in front of it. Create internal competencies around today's hottest technologies and grow government demand. Make it more practical for government to do the right thing, rather than the thing it's always done.
 
