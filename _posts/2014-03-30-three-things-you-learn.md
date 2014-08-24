@@ -11,9 +11,11 @@ Just over a year ago, I moved from the federal government, arguably [the most bu
 
 Much of my job at GitHub involves explaining open source to government employees and (hopefully) inspiring them to adopt more collaborative software-development workflows. The hard part in bridging this anachronistic divide isn't teaching version control or dependency management. Instead, it's the many incongruencies between government and open source that derive from one fundamental rift: trust.
 
-At GitHub, I trust my coworkers. I trust them to write good code, I trust them to write good tests, I trust them to review each others pull requests, and I trust that it's gone through our standard development workflow, it's production ready, and my employer does the same. On day one I could theoretically have committed bad code, but I didn't, and technical constraints weren't the thing stopping me. Social constraints were (and the threat of breaching that trust) were.
+At GitHub, I trust my coworkers. I trust them to write good code, I trust them to write good tests, I trust them to review each others pull requests, and I trust that it's gone through our standard development workflow, it's production ready, and my employer does the same. On day one I could theoretically have committed bad code, but I didn't, and technical constraints weren't the thing stopping me. Cultural constraints (and the threat of breaching that trust) were. As [Airbnb's cofounder explained on Medium](https://medium.com/@bchesky/dont-fuck-up-the-culture-597cde9ee9d4):
 
-Management within government starts from a point of distrust. If an employee can do something, no matter how against their interest, the organization must assumes they will, and must put in place draconian administrative and technical constraints to prevent it from happening, no matter the cost.
+>  The stronger the culture, the less process a company needs. When the culture is strong, you can trust everyone to do the right thing. People can be independent and autonomous. They can be entrepreneurial. In organizations... where culture is weak, you need an abundance of heavy, precise rules and processes.
+
+Without that culture, management within government starts from a point of distrust. If an employee can do something, no matter how against their interest, the organization must assumes they will, and must put in place draconian administrative and technical constraints to prevent it from happening, no matter the cost.
 
 *Lesson one: where an organization has the choice between empowering employees to do their job and minimizing risk, large organizations err on the side of minimizing risk.*
 
