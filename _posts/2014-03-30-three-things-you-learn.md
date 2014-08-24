@@ -5,7 +5,7 @@ comments: true
 excerpt: ""
 ---
 
-Just over a year ago, I moved from the federal government, arguably [the most bureaucratic organization in the history of the world](http://www.washingtonpost.com/sf/national/2014/03/22/sinkhole-of-bureaucracy/), to GitHub, arguably one of [the world's least bureaucratic](http://www.fastcolabs.com/3020181/open-company/inside-githubs-super-lean-management-strategy-and-how-it-drives-innovation). Looking back, there were three key organizational differences beyond size and the lack of TPS reports:
+About a year and a half ago, I moved from the federal government, arguably [the most bureaucratic organization in the history of the world](http://www.washingtonpost.com/sf/national/2014/03/22/sinkhole-of-bureaucracy/), to GitHub, arguably one of [the world's least bureaucratic](http://www.fastcolabs.com/3020181/open-company/inside-githubs-super-lean-management-strategy-and-how-it-drives-innovation). Looking back, there were three key organizational differences beyond size and the lack of TPS reports:
 
 ### Trust your coworkers
 
