@@ -15,7 +15,7 @@ At GitHub, I trust my coworkers. I trust them to write good code, I trust them t
 
 >  The stronger the culture, the less process a company needs. When the culture is strong, you can trust everyone to do the right thing. People can be independent and autonomous. They can be entrepreneurial. In organizations... where culture is weak, you need an abundance of heavy, precise rules and processes.
 
-Without that culture, management within government starts from a point of distrust. If an employee can do something, no matter how against their interest, the organization must assumes they will, and must put in place draconian administrative and technical constraints to prevent it from happening, no matter the cost.
+Without that culture, management within government starts from a point of distrust. If an employee can do something, no matter how against their interest, the organization must assumes they will, and must put in place draconian administrative and technical constraints to prevent it from happening, no matter the cost. There's simply no room to fail.
 
 *Lesson one: where an organization has the choice between empowering employees to do their job and minimizing risk, large organizations err on the side of minimizing risk.*
 
