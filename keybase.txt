@@ -1,0 +1,73 @@
+---
+permalink: ".well-known/keybase.txt"
+---
+
+==================================================================
+https://keybase.io/benbalter
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://ben.balter.com
+  * I am benbalter (https://keybase.io/benbalter) on keybase.
+  * I have a public key with fingerprint 07C6 73FB F30E 01C0 C342  7AB8 DBB6 7C24 6AD3 56C4
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "07c673fbf30e01c0c3427ab8dbb67c246ad356c4",
+            "host": "keybase.io",
+            "key_id": "DBB67C246AD356C4",
+            "uid": "f3d737a37ae4aecfb2667a87f3c62b00",
+            "username": "benbalter"
+        },
+        "service": {
+            "hostname": "ben.balter.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1396290800,
+    "expire_in": 157680000,
+    "prev": "66c266ea86cf9520917a56f7ea2b87bed5da307849ec7a48418cb35ca0785023",
+    "seqno": 3,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1
+
+owGbwMvMwMT41f648XmrljjG0we+JDEEW275UK2UlJ9SqWRVrZSdCqbSMvPSU4sK
+ijLzSpSslAzMk83MjdOS0owNUg0Mkw2SjU2MzBOTLFKSkszMk41MzBJTjE3Nkk2U
+dJQy8otBOoDGJCUWp+pl5gPFgJz4zBSgqIuTk5m5M1C9owtQvTNIfSlYIs04xdzY
+PBGIUk0SU5PTkozMzMwTLczTjJPNjJIMDEAKi1OL8hJzU4Gqk1LzkhJzSlKLlGp1
+lIDCZZnJqSBHg+xGKNGDqNFLzs8Fai8oyi/JT87PAcpllJQUWIG0llQWgNSWpybF
+Q02JT8rMSwF6HaihLLWoODM/T8nKEKgyuSQTZKyhsaWZkaWBhYGBjlJqRUFmUWp8
+JkiFqbkZUAwkWlCUWgY00swsGeiD1EQLs+Q0S1MjA0tD80RTszTz1ESjJAvzpNQU
+05REYwNzCxPL1GTzRBMLE0OL5CRj0+REoJipgZGxEshfhXn5SlbGQGcmpgONLM5M
+z0ssKS1KVartZJJhYWBkYmBjZQJFHgMXpwAsSoNk+f+nhxtLftmlt8nrtkDy2uCM
+tW+5JPyWFQnNM9KWONDDEvH2+Vfd+ZerO2d1c9w9tCpjs+wHHikj3l3vNPkc24MF
+hXgiOE/15qfwWk84cFPMKEg1uDjv7m7u953xL5J3McYUfqzoS+ATv/x4K3NDwn3Z
+fSEHj7JyV1jqpqpNLjr84g7LqePXTiZs6YiesrNpplv9dIe5jy/atx4v/vDMYum5
+OJmHxw5fSTn0qeZj/Nk5P/MmxLW//lT2sIRlMcPtswe3exa+ejd5i5NQpspJifii
+0vwtR1N52V9yCOS1shRya+9dW2B2uTr6Z3Tgn78OZgZV7KkhkUaFh/U8hGbaPz0b
+fMOu7Xvkwyrh3uBDexTDNm3V/bI5X24Jw5JX/1st/P47vZ8u162WMPVfzJWakOyw
+kgn1h3nlLvy49nnWGxWBzLcJziLLTrQXyD68zCVckvW+237dLP256vP5K3n9njzi
+51f73vpD1f2TxaEnhdo791jYSJXt9TxpK81kv9j4xEul5zMfRR11+CNYczlCLWvH
+T6v9obcfrOkznZF12vVh2NZdomWBBWJ/5Pb96rhtdldl4c3Tz37pSW1Nrtderd4z
+t5BVsifg+bJVpalL87guVexJe3nLY8fH2/cn8eUt+LO0u8M//N/NHw47ZT6KL9L6
+af7XcufJJ7m7X3N7zBCbvdzYTcgra5e6jnkzg6DGVd5DNe9kMyce0uZecA4A
+=j454
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/benbalter
+
+==================================================================

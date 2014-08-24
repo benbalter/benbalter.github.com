@@ -6,6 +6,6 @@ The personal website of Ben Balter. Built using Jekyll, GitHub Pages, and Bootst
 
 ## License
 
-Content: [Creative Commons, BY-NC-SA](http://creativecommons.org/licenses/by-nc-sa/3.0/)
+Content: [Creative Commons, BY](http://creativecommons.org/licenses/by/3.0/)
 
 Code: [MIT](http://opensource.org/licenses/mit-license.php)

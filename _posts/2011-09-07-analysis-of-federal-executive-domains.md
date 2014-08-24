@@ -24,7 +24,7 @@ The White House's Office of Management and Budget recently released a[ list of a
 
 **The project tracks each Federal Executive .Gov by:**
 
-*   **Agency **(as provided in the data.gov list)
+*   **Agency** (as provided in the data.gov list)
 *   **Server status** (response code, if it is reachable, etc.)
 *   **Non-WWW support** (is www. required to access the site)
 *   **IPv6 Support** (is it reachable via next generation technology)

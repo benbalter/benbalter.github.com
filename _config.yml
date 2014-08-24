@@ -4,7 +4,7 @@
 name: Ben Balter
 
 #description of site
-description: "GitHubber, Gov 2.0 Evangelist, Aspiring Attorney"
+description: "Government evangelist, attorney, open source developer"
 
 #URL of site, include http://, do not include a trailing slash
 url: "http://ben.balter.com"
@@ -31,6 +31,17 @@ exclude:
   - composer.json
   - component.json
   - grunt.js
+  - assets/vendor/font-awesome/src
+  - assets/vendor/bootstrap/js
+  - assets/vendor/bootstrap/less
+  - assets/vendor/font-awesome/less
+  - assets/vendor/font-awesome/scss
+  - assets/vendor/font-awesome/src
+  - assets/vendor/modernizr/feature-detects
+  - assets/vendor/modernizr/media
+  - assets/vendor/modernizr/test
+  - ".bundle"
+  - vendor
 
 #number of items in RSS feed
 rss_limit: 10
@@ -38,81 +49,15 @@ rss_limit: 10
 #permalink structure, see https://github.com/mojombo/jekyll/wiki/Permalinks
 permalink: /:year/:month/:day/:title/
 
-#prose config, see http://prose.io/help/handbook.html
-prose:
-  siteurl: "http://ben.balter.com"
-  media: assets/img
-  relativeLinks: http://ben.balter.com/links.jsonp
-  metadata:
-    _posts:
-      - name: categories
-        field:
-          label: Categories
-          element: select
-          placeholder: Select a category
-          options:
-            - name: Technology
-              value: technology
-            - name: Business
-              value: business
-            - name: Law
-              value: law
-      - name: layout
-        field:
-          element: hidden
-          value: post
-      - name: title
-        field:
-          element: text
-          label: Title
-          value: ""
-      - name: excerpt
-        field:
-          element: text
-          label: Excerpt
-          value: ""
-      - name: author
-        field:
-          element: text
-          label: Author
-          value: Ben Balter
-      - name: comments
-        field:
-          element: checkbox
-          label: Comments Enabled
-          value: true
-      - name: tags
-        field:
-          element: text
-          label: Tags
-          value: ""
-    "/":
-      - name: title
-        field:
-          element: text
-          label: Title
-          value: ""
-      - name: excerpt
-        field:
-          element: text
-          value: ""
-      - name: id
-        field:
-          element: text
-          value: ""
-      - name: layout
-        field:
-          element: select
-          placeholder: Select a layout
-          options:
-            - name: Page
-              value: page
-            - name: Home
-              value: home
-            - name: Default
-              value: default
-            - name: Resume
-              value: resume
+# Frontmatter defaults
+defaults:
+  -
+    scope:
+      path: ""
+      type: "post"
+    values:
+      layout: "post"
+      comments: true
 
 #disqus widget
 disqus:
@@ -124,7 +69,7 @@ disqus:
 ga_username: 'UA-18088627-1'
 
 #build config
-pygments: true
+highlighter: pygments
 markdown: kramdown
 timezone: America/New_York
 encoding: UTF-8
