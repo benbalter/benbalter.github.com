@@ -7,7 +7,7 @@ excerpt: ""
 
 About a year and a half ago, I moved from the federal government, arguably [the most bureaucratic organization in the history of the world](http://www.washingtonpost.com/sf/national/2014/03/22/sinkhole-of-bureaucracy/), to GitHub, arguably one of [the world's least bureaucratic](http://www.fastcolabs.com/3020181/open-company/inside-githubs-super-lean-management-strategy-and-how-it-drives-innovation). Looking back, there were three key organizational differences beyond size and the lack of TPS reports:
 
-### Trust your coworkers
+### 1. Trust your coworkers
 
 Much of my job at GitHub involves explaining open source to government employees and (hopefully) inspiring them to adopt more collaborative software-development workflows. The hard part in bridging this anachronistic divide isn't teaching version control or dependency management. Instead, it's the many incongruencies between government and open source that derive from one fundamental rift: trust.
 
@@ -19,7 +19,7 @@ Without that culture, management within government starts from a point of distru
 
 *Lesson one: where an organization has the choice between empowering employees to do their job and minimizing risk, large organizations err on the side of minimizing risk.*
 
-### Optimize for happiness
+### 2. Optimize for happiness
 
 GitHub's philosophy, both in terms of internal development and in terms of outward facing product is simple: optimize for (developer) happiness. If there's something *de minimus* that will make me better at my job, be it 20 minutes or 20 dollars, I'm encouraged to do it, and can do so without a three-fold paperwork burden. Just as happy cows make better milk, and in turn better cheese, happy developers build better software, and in turn, more satisfied users. Happiness is best achieved when you [push decisions to the edge](http://ben.balter.com/2013/06/12/an-open-letter-to-government-cios/#decentralized), put your faith in the crowd, avoid blockers, and automate wherever possible.
 
@@ -29,10 +29,18 @@ Chances are, the process required to change the process, or to get approval for 
 
 *Lesson two: where an organization has the choice between employee happiness and minimizing risk, large organizations err on the size of minimizing risk.*
 
-### Provide room to fail
+### 3. Relationships are assets
 
-At GitHub from day one, I could do my job, but also had the chance to fail (and did). Failure doesn't mean proposing a bad idea but having it overturned by your manager or some other bureaucratic safety net. Failure means small-scale public-facing failure: a bad deploy, a dumb feature you now need to support, an over-budget event.
+One thing I noticed, as early as my first day at GitHub, is that there are no gatekeepers, no organizational filters to safeguard (or bottleneck) the interfaces between employees and the public. GitHubbers at all levels, whether engineers or accountants, are encouraged to speak directly to customers, to provide support, to get feedback, and to answer questions about where the product is heading. If a reporter from my hometown paper calls with questions, I'm free to answer them, whether I stick to the company's non-existant talking points or not.
 
+It's the realization that today, the delivery of a service, be it to customers or citizens, necessarily involves the creation of a relationship. In the private sector, we acknowledge that [markets are conversations](http://www.cluetrain.com/book/95-theses.html). There's no longer a monopoly on information. No matter how tightly lipped a press department may strive to be, or how calculated a marketing effort may appear, the service's true character is one customer's tweet, blog post, or Amazon review away from being known.
 
+Government on the other hand, still often seeks to dredge as deep a moat as possible between the agency and the rest of the world. Government employees cannot talk to customers (we have the Paperwork Reduction Act to ensure that), and when they do, they must go out of their way to disclaim that they are speaking as a human, and not as an agency employee. Speaking to the press is even more difficult. Information is channeled through a single draw bridge of failure, the press office, and requests are granted only when the Agency has a story they'd like told. Most difficult yet, maintaining relationship with others in the your space — to stay abreast of industry trends, seek the advice of a subject-matter expert, or to explore partnerships that may benefit the agency — are often frowned upon, if not flat-out prohibited by law. Needless to say, relationships, whether with customers, the press, or industry partners are a liability.
 
-*Lesson three: where an organization has the choice between encouraging innovation and minimizing risk, large organizations err on the size of minimizing risk.*
+*Lesson three: where an organization has the choice between the free flow of information and minimizing risk, large organizations err on the size of minimizing risk.*
+
+### More than just size
+
+I suspect much of this difference comes from the liberty of making decisions in the abstract. It's easy to say, "*given the opportunity, our developers are going to do something that reflects poorly on the organization*". It's a lot harder to say "*I don't trust Bob and Susan. It's just a matter of time before they mess up.*"
+
+Even at GitHub, as we started growing past [Dunbar's Number](http://en.wikipedia.org/wiki/Dunbar's_number), we began to take the smallest baby step in the risk-averse direction. Within government, small-batch innovation efforts like the Presidential Innovation Fellows and 18F (both website listing each employees real, human name), provide developers with much more leeway to may calculated risk analysis, rather than blindly following government IT lore.
