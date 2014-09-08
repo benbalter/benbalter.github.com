@@ -68,6 +68,10 @@ disqus:
 #google analytics username
 ga_username: 'UA-18088627-1'
 
+twitter:
+  username: "@benbalter"
+  account_id: "16211142"
+  
 #build config
 highlighter: pygments
 markdown: kramdown
