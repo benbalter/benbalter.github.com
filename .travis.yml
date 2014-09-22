@@ -4,5 +4,6 @@ script: "./script/cibuild"
 
 #environment
 language: ruby
-rvm: 
+rvm:
   - 1.9.3
+cache: bundler
