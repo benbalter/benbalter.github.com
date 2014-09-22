@@ -17,7 +17,7 @@ tags:
   - subpoena
 post_format: [ ]
 ---
-[![Subpoena](http://farm1.staticflickr.com/157/391427627_62f2a23df4_n.jpg){: .alignright}][1]Bluehost, the [web hosting service][2] which powers more than [1.9 million][3] websites globally, making it one of the [top 20][3] largest hosting companies in the world and approximately [2% of the internet's traffic][4], recently came under fire for its decision to depart from well-established [internet standards][5] and reveal the identity of one of its subscribers, over what [later proved][6] to be an [unfounded suit][7].
+[![Subpoena](http://farm1.staticflickr.com/157/391427627_62f2a23df4_n.jpg){: .alignright}][1]Bluehost, the [web hosting service][2] which powers more than [1.9 million][3] websites globally, making it one of the [top 20][3] largest hosting companies in the world and approximately 2% of the internet's traffic (link removed), recently came under fire for its decision to depart from well-established [internet standards][5] and reveal the identity of one of its subscribers, over what [later proved][6] to be an [unfounded suit][7].
 
 From a technical standpoint, Bluehost is one of the good guys. I've hosted sites with them since 2005 and looking back at the past six months, I've enjoyed a 99.79% uptime, with an average response time just under a second. But that's half the equation. Web hosting is not simply a cost-benefit analysis of price to uptime and responsiveness. There's a third factor there: trust.
 
@@ -40,7 +40,6 @@ While technology may lend voice to otherwise marginalized political groups, it d
 [1]: http://www.flickr.com/photos/timsamoff/391427627/
 [2]: http://en.wikipedia.org/wiki/Web_hosting_service
 [3]: http://en.wikipedia.org/wiki/Bluehost
-[4]: http://www.necn.com/01/05/11/Koch-Industries-sues-over-bogus-website-/landing_scitech.html?&blockID=3&apID=b76a38541f994e489206850f0db50d02
 [5]: http://pubcit.typepad.com/clpblog/2010/07/two-new-cases-on-internet-anonymity.html
 [6]: http://www.sltrib.com/sltrib/money/51780456-79/koch-company-judge-federal.html.csp
 [7]: http://pubcit.typepad.com/files/kochindustries.pdf

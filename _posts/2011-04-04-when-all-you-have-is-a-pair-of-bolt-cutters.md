@@ -39,7 +39,7 @@ I am working on submitting this idea as a proposed [Google Summer of Code][18] p
 
 [^1]: *See, e.g., *[Documentum][23], [Liferay][24], [Melange][25], and [Gawker's CMS][26].
 [^2]: Nearly three years ago, at the time of the feature's inception, [WordPress founder Matt Mullenweg noted][28], "*With the power of modern computers, it's silly that we still use save and editing metaphors from the time when the most common method of storage was floppy disks… now we're taking that to another level by allowing you to view who made what changes when… through a super-easy interface, much like Wikipedia or a version control system.*"
-[^3]: *See, e.g., *WordPress as an [e-mail newsletter][30], [contact manager][31], [CRM][32], [task list][33], [invoice system][34],  [job bank][35], or [real estate directory][36].
+[^3]: *See, e.g., *WordPress as an [e-mail newsletter][30], [contact manager][31], [CRM][32], [invoice system][34],  [job bank][35], or [real estate directory][36].
 [^4]: Let's just call it "Frupal" for the sake of discussion.
 [^5]: In hindsight, I probably shouldn't have ripped on Melange. *See supra note 1.*
 
@@ -74,7 +74,6 @@ I am working on submitting this idea as a proposed [Google Summer of Code][18] p
 [30]: http://net.tutsplus.com/tutorials/wordpress/build-a-wordburner-email-newsletter-manager-using-wordpress-and-feedburner/
 [31]: http://publisherblog.automattic.com/2008/02/13/wp-contact-manager/
 [32]: http://slipfire.com/wp-crm/
-[33]: http://wordpress.org/extend/plugins/wp-task-manager/
 [34]: http://wordpress.org/extend/plugins/wp-invoice/
 [35]: http://wordpress.org/extend/plugins/job-manager/
 [36]: http://wordpress.org/extend/plugins/great-real-estate/
