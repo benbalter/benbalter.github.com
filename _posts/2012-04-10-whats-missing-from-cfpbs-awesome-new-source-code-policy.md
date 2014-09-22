@@ -36,7 +36,7 @@ The [Consumer Financial Protection Bureau][5] (CFPB), however, is in a unique po
 
 Yesterday, CFPB [announced a bureau-wide preference for open source][6] in its shiny new [Source Code Policy][6], by my [crude research][7], a first for any government agency. There are two watershed shifts here: first, that the agency not only should, but *must* evaluate open source software on equal footing to its proprietary counterparts, a comparison which I believe will [increasingly fall in open source's favor][8], and second, that unless there's an overriding security or similar concern *not to*, public code must be public. There's nothing new here. All it says is that we should use the best software for the job (a no-brainier), and that that software, the public's property, should belong to the public.
 
-So why is this news? Plenty of government entities have [released][9] [source][10] [code][11], or [encouraged the][12][ use of open][13]-[source software][14]. But no one has come out and [plainly stated that they were an "open-source agency"][15], that open source is the new default, and that absent an affirmative step by some nay-sayer, that the public will have access to their code.That's huge. It's flipping the burden, and it's the way things should be from the start.
+So why is this news? Plenty of government entities have [released][9] [source][10] code, or [encouraged the][12][ use of open][13]-[source software][14]. But no one has come out and [plainly stated that they were an "open-source agency"][15], that open source is the new default, and that absent an affirmative step by some nay-sayer, that the public will have access to their code.That's huge. It's flipping the burden, and it's the way things should be from the start.
 
 **But Where's the Beef?**
 
@@ -77,7 +77,6 @@ I think CFPB gets it in a big way, and the fact that this is memorialized in wri
 [8]: http://www.amazon.com/The-Wealth-Networks-Production-ebook/dp/B0015GWX0S
 [9]: http://www.fcc.gov/blog/contributing-code-back-fcc-govs-open-source-feedback-loop
 [10]: http://www.whitehouse.gov/blog/2011/02/11/whitehousegov-releases-second-set-open-source-code
-[11]: http://open.nasa.gov
 [12]: https://www.gov.uk/government/publications/open-source-procurement-toolkit
 [13]: http://www.finance.gov.au/files/2012/04/AGuidetoOpenSourceSoftware.pdf
 [14]: http://www.tekno.dk/pdf/projekter/p03_opensource_paper_english.pdf
