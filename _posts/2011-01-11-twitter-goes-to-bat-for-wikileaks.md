@@ -44,7 +44,7 @@ Notes:
 [14]: https://www.eff.org/deeplinks/2010/04/facebook-further-reduces-control-over-personal-information
 [16]: http://www.wired.com/threatlevel/2010/04/emailprivacy-2/
 [17]: http://news.cnet.com/8301-13860_3-20012698-56.html
-[18]: http://docs.google.com/viewer?a=v&q=cache:IYzfdrim0owJ:www.fletc.gov/training/programs/legal-division/downloads-articles-and-faqs/downloads/other/obtaining_electronic.pdf/download+&hl=en&gl=us&pid=bl&srcid=ADGEESgpYeTPUFAijEyb4BnY4_wzFLwSJmRNv8yL2ZD8EkhQTjt7oXv9kELuYHG7A202xJ9_MGwvgVDwjviAEh0zW76gZQAbieBYwR6cnNUyD83txcScrGTU0qDUME590QPAMej6hmSy&sig=AHIEtbTf4jZconLMbkMO_hVK8xQ92bqZNQ
+[18]: http://www.fletc.gov/training/programs/legal-division/downloads-articles-and-faqs/downloads/other/obtaining_electronic.pdf
 [19]: http://www.nytimes.com/2011/01/10/technology/10privacy.html?_r=1&hp
 [20]: http://ben.balter.com/2011/01/04/the-files-in-the-computer/
 [21]: http://techcrunch.com/2011/01/10/why-im-having-second-thoughts-about-the-wisdom-of-the-cloud/
