@@ -9,7 +9,7 @@ When talking about the security of open source, there's two, parallel conversati
 
 ### Open source as a platform
 
-The first threshold issue, is whether building or using open source software, even if your own particular code isn't publishes, is some how inherently less secure. There are a few flavors to this argument.
+The first threshold issue, is whether building or using open source software, even if your own particular code isn't publishes, is somehow inherently less secure. There are a few flavors to this argument.
 
 #### This one (high profile) open source project that had a vulnerability
 
@@ -19,17 +19,17 @@ Often times, the reason open source software vulnerabilities make headlines or s
 
 #### It's made by a bunch of hobbyists
 
-That's true of some projects, for sure. There's also fly-by-night software companies that sell sub-par, closed-source software. Again, quality is quality. Chances are, the project made in the developer's mom's basement isn't going up against the one made by the company that makes "enterprise-grade" solutions. Like anything else, [look to who's behind the software and who else uses it](http://ben.balter.com/2014/06/02/how-to-identify-a-strong-open-source-project/). Major projects like Linux, WordPress, and Drupal are relied on by thousands of for-profit business, and have "suits" supporting them, to ensure their success.
+That's true of some projects, for sure. There's also fly-by-night software companies that sell sub-par, closed-source software. Again, quality is quality. Chances are, the project made in the developer's mom's basement isn't going up against the one made by the company that makes "enterprise-grade" solutions. Like anything else, [look to who's behind the software and who else uses it](http://ben.balter.com/2014/06/02/how-to-identify-a-strong-open-source-project/). Major projects like Linux, WordPress, and Drupal are built by teams of professionals and hobbyists, relied on by thousands of for-profit business, and have "suits" supporting them, to ensure their success.
 
 That said, there is something to be said for a distributed workflow. Lots of closed-source solutions, influenced by nine-to-five, Monday-to-Friday workflows, stringent release cycles, and press paralysis [are forced to delay releases that patch critical vulnerabilities](http://www.xconomy.com/boston/2008/03/07/delays-in-software-patch-pushed-security-firm-to-disclose-vmware-flaw/), often for years, while open source projects, guaranteed to have someone awake at any hour of the night, can turn around that same patch, [literally within hours of the vulnerability being reported](https://twitter.com/#!/nacin/status/9753986051604480).
 
 ### Open source as a workflow
 
-The second form of open source FUD attacks open source as a workflow, meaning that by publishing the source code to your software, by that workflow's very nature, it some how, becomes less secure. Again, there are several flavors to this argument.
+The second form of open source FUD attacks open source as a workflow, meaning that by publishing the source code to your software, by that workflow's very nature, it somehow, becomes less secure. Again, there are several flavors to this argument.
 
 #### Anyone can make changes
 
-The idea that anyone can make changes, is simply untrue — FUD at its best. I suspect this stems from using Wikipedia as an analogy to describe open source to the uninitiated. Simply put, it comes from a place of ignorance. You're not going to wake up one day and mysteriously, your code will be riddled with malware and backdoors.
+The idea that anyone can make changes is simply untrue -- FUD at its best. Like with closed projects, only authorized people can approve changes to open source projects. I suspect this misunderstanding stems from using Wikipedia as an analogy to describe open source to the uninitiated. Simply put, it comes from a place of ignorance. You're not going to wake up one day and mysteriously, your code will be riddled with malware and backdoors.
 
 Instead, open source often has better controls to ensure pedigree than its closed-source counterparts. Open source, by its nature, must use advanced version control systems, in order to facilitate discussions (two things often absent from closed-source software). Every change, no matter how small, whether by the project creator or a first-time contributor, must be publicly proposed, discussed, and stringently reviewed, the change history available for all to see.
 
@@ -43,6 +43,6 @@ This is predicated, almost exclusively on the [(disproven to death) strategy of 
 
 Open or closed, industry-standard best practices dictate you shouldn't have secrets in your code. Passwords, tokens, server names, anything remotely secret sauce — heck, anything that might change based on the environment (development, staging, production) — should be placed in the database, an environmental variable, or in a VCS-ignored configuration file, not distributed with the software itself. For one, you've potentially got outside contractors or others in your code, which shouldn't be an access control mechanism in itself. For another, best practices once again dictate that such configurations aren't shared between environments, and are rolled frequently, something significantly harder if it requires a code change and deploy.
 
-Can open source be insecure? Of course. Is there insecure open source software? Of couse again. But the idea that a language, platform, or workflow, bassed solely on its philosophy, is someone inherently less secure is absurd, and I'd argue, can often be, if not exclusively, more secure,than closed source or proprietary alternatives when done right.
+Can open source be insecure? Of course. Is there insecure open source software? Of couse again. But the idea that a language, platform, or workflow, based solely on its philosophy, is someone inherently less secure is absurd, and I'd argue, can often be, if not exclusively, more secure, than closed source or proprietary alternatives when done right.
 
-Not all software must be closed source and the decision whether a particular piece of software should be open or closed should be defined by industry-best practices, not by fear.
+Not all software must be closed source and the decision of whether a particular piece of software should be open or closed should be defined by industry-best practices, not by fear.
