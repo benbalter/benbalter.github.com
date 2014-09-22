@@ -1,4 +1,4 @@
----
+l---
 author: Ben Balter
 title: >
   The Internet is Series of Tubes (oh, and
@@ -59,7 +59,7 @@ Any time the nation's [largest][16] anything makes a "[take it or leave it][17]"
 [8]: http://www.wired.com/threatlevel/2008/03/isp-quarrel-par/
 [9]: http://twitter.com/#!/ceciliakang/statuses/9730130310078464
 [10]: http://mediadecoder.blogs.nytimes.com/2010/11/29/netflix-partner-says-comcast-toll-threatens-online-video-delivery/
-[11]: http://www.marketwatch.com/story/level-3-communications-issues-statement-concerning-comcasts-actions-2010-11-29?reflink=MW_news_stmp
+[11]: http://morse.colorado.edu/~epperson/courses/routing-protocols/handouts/level3-statement-20101129.pdf
 [12]: http://io9.com/5610328/how-the-googleverizon-proposal-could-kill-the-internet-in-5-years
 [13]: http://voices.washingtonpost.com/posttech/2010/11/lawmakers_push_fcc_to_vote_on.html
 [14]: http://lifehacker.com/5667680/ditching-cable-for-the-web-how-much-can-you-save-buying-renting-or-streaming-tv
