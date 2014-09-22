@@ -1,5 +1,5 @@
 ---
-title: "FUD: Open source is (not) insecure"
+title: "Open source is (not) insecure"
 excerpt: "The idea that open source software is inherently less secure than its closed source or proprietary counterparts is untrue and stems from fear, uncertainty, and doubt (FUD)."
 ---
 
