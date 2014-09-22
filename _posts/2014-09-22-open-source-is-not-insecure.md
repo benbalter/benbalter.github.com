@@ -11,13 +11,13 @@ When talking about the security of open source, there's two, parallel conversati
 
 The first threshold issue, is whether building or using open source software, even if your own particular code isn't publishes, is somehow inherently less secure. There are a few flavors to this argument.
 
-#### This one (high profile) open source project that had a vulnerability
+#### This one (high profile) open source project that had a vulnerability (once)
 
 There's good software and there's bad software. How widely the code's shared has no direct impact on its quality (if anything, it helps, see below). An immature project is going to have bugs, whether proprietary or open source.
 
 Often times, the reason open source software vulnerabilities make headlines or seem to make headlines more often is because it's so widely used. Your custom built software being popped isn't newsworthy, but the CMS that powers a quarter of the internet is. Not to mention, by being open source, vulnerabilities are more easily discovered and patched, meaning you may hear more often about open source software having unexploited vulnerabilities, while the only closed-sourced vulnerabilities you hear about are those which have already been exploited in the wild.
 
-#### It's made by a bunch of hobbyists
+#### It's (not) made by a bunch of hobbyists
 
 That's true of some projects, for sure. There's also fly-by-night software companies that sell sub-par, closed-source software. Again, quality is quality. Chances are, the project made in the developer's mom's basement isn't going up against the one made by the company that makes "enterprise-grade" solutions. Like anything else, [look to who's behind the software and who else uses it](http://ben.balter.com/2014/06/02/how-to-identify-a-strong-open-source-project/). Major projects like Linux, WordPress, and Drupal are built by teams of professionals and hobbyists, relied on by thousands of for-profit business, and have "suits" supporting them, to ensure their success.
 
@@ -27,13 +27,13 @@ That said, there is something to be said for a distributed workflow. Lots of clo
 
 The second form of open source FUD attacks open source as a workflow, meaning that by publishing the source code to your software, by that workflow's very nature, it somehow, becomes less secure. Again, there are several flavors to this argument.
 
-#### Anyone can make changes
+#### Anyone can (not) make changes
 
 The idea that anyone can make changes is simply untrue -- FUD at its best. Like with closed projects, only authorized people can approve changes to open source projects. I suspect this misunderstanding stems from using Wikipedia as an analogy to describe open source to the uninitiated. Simply put, it comes from a place of ignorance. You're not going to wake up one day and mysteriously, your code will be riddled with malware and backdoors.
 
 Instead, open source often has better controls to ensure pedigree than its closed-source counterparts. Open source, by its nature, must use advanced version control systems, in order to facilitate discussions (two things often absent from closed-source software). Every change, no matter how small, whether by the project creator or a first-time contributor, must be publicly proposed, discussed, and stringently reviewed, the change history available for all to see.
 
-#### Anyone can see where the vulnerabilities are
+#### Anyone can see where the vulnerabilities are (and fix them)
 
 This is predicated, almost exclusively on the [(disproven to death) strategy of security through obscurity](http://en.wikipedia.org/wiki/Security_through_obscurity). It's a form of security theater. It's the idea of hiding a key under the welcome mat. It assumes that, if the bad guy doesn't know it's there, it's secure, right? Wrong. It's the same reason building blue prints can be available for public inspection (and city review), without increasing the chance of a break in. When everyone can see the inner workings (including those you want to keep out), you're forced to build inherently secure systems. Statistically, [open source software produces more secure software than its closed-source counterparts](http://www.infoworld.com/d/open-source-software/report-open-source-tops-proprietary-code-in-quality-187169). Think about it [this way](http://www.commlawblog.com/2010/01/articles/unlicensed-operations-and-emer/fcc-changes-stance-on-opensource-security/):
 
