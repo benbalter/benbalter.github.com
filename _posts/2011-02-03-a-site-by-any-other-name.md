@@ -43,7 +43,7 @@ As seen in the recent [Wikileaks domain shell game][24], its clear that domain s
 [^4]: Beyond being reminiscent of Geocities (and most of the 90s), text in images is not machine readable, a requirement of section 508 (codified at 29 U.S.C. § 794(d)) . That means that neither screen readers nor search engines can accurately parse the site's content.
 
 [1]: http://ben.balter.com/wp-content/uploads/2011/02/IPRC_Seized_2010_11-300x225.gif "DHS Seizure Notice"
-[2]: http://itwel.com/atdhe-live-sports-streaming-website-seized-by-us-authorities.php
+[2]: http://money.cnn.com/2011/02/02/technology/sports_streaming/
 [3]: http://volokh.com/2011/02/02/more-outrageous-domain-name-seizures-by-our-vigilant-dept-of-homeland-security/
 [4]: http://www.huffingtonpost.com/2011/02/02/rojadirecta-org-seized_n_817458.html
 [6]: http://torrentfreak.com/sports-streaming-torrent-links-site-victorious-in-court-100510/
