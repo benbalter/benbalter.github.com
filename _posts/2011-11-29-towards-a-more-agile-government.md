@@ -291,7 +291,7 @@ The federal IT procurement system is outdated.  Projects are consistently delive
 [^13]: *See *Vivek Kundra, U.S. Chief Info. Officer, White House, 25 Point Implementation Plan to Reform Federal Information Technology Management 17 (2010) (calling for "increased communication with industry" and "high functioning, ‘cross-trained' program teams").
 [^14]: *See *[Memorandum from Peter R. Orszag][176], Dir. of Office of Mgmt. and Budget, Exec. Office of the President, to Heads of Exec. Dep'ts and Agencies 1 (June 28, 2010) \[hereinafter Orszag Memorandum\] , *available at *http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m-10-26.pdf.* *
 [^15]: These inefficiencies are troubling, not only because they represent a significant financial cost to the taxpayer, but also because they undoubtedly represent a significant cost to the realization of agency goals.  *See* Stanley N. Sherman, Government Procurement Management 30 (1991).  As President Barack Obama recently noted at the White House Forum on Modernizing Government, "\[w\]hen we waste billions of dollars, in part because our technology is out of date, that's billions of dollars we're not investing in better schools for our children, in tax relief for our small businesses, in creating jobs and funding research to spur the scientific breakthroughs and economic growth of this new century."  *Attachment B: President's Remarks, in* [White House Forum on Modernizing Government: Overview and Next Steps][178] 17, 18 (2010), *available at *http://www.whitehouse.gov/sites/default/files/omb/assets/modernizing_government/ModernizingGovernmentOverview.pdf.
-[^16]: DoD Acquisition Report, *supra *note 1, at 16-17 (noting many large corporations have gained a significant advantage from using agile).  *See* White House Forum On Modernizing Gov't, Overview And Next Steps 9 ("Federal IT projects are too often marked by milestones spaced too far apart.").  *See generally* *infra* Parts III-IV*.*
+[^16]: DoD Acquisition Report, *supra* note 1, at 16-17 (noting many large corporations have gained a significant advantage from using agile).  *See* White House Forum On Modernizing Gov't, Overview And Next Steps 9 ("Federal IT projects are too often marked by milestones spaced too far apart.").  *See generally* *infra* Parts III-IV*.*
 [^17]: *See *Ralph C. Nash, Jr., *Solutions-Based Contracting: A Better Way To Buy Information Technology?*, 11 Nash & Cibinic Rep. ¶ 17, at 60 (Apr. 1997).
 [^18]: A more in-depth examination of the characteristics of waterfall development is discussed *infra* part II.
 [^19]: Adrian Royce, *Agile in Government: Successful On-Time Delivery of Software* 1, *in *Conference Papers, 20th Australian Software Engineering Conference (2009).
@@ -306,11 +306,11 @@ The federal IT procurement system is outdated.  Projects are consistently delive
 [^28]: Szalvay, *supra* note 6,* *at 2; Government Contracting for Software Development Course Manual 33 (1994) \[hereinafter Course Manual\]; Lan Cao & Balasubramaniam Ramesh, *Agile Requirements Engineering Practices: An Empirical Study, *IEEE Software, Jan./Feb. 2008, at 60, 64; Fowler, *supra* note 20 (noting engineers' "nature is to resist change.  The agile methods, however, welcome change").
 [^29]: Fowler, *supra* note 20.
 [^30]: Szalvay, *supra* note 6, at 1-2; Cao & Ramesh, *supra* note 28, at 63.
-[^31]: Cao & Ramesh, *supra *note 28, at 63.
+[^31]: Cao & Ramesh, *supra* note 28, at 63.
 [^32]: *Id*.  Similarities can be drawn between modern software development and the Japanese auto industry forty years ago.  Beginning in the 1970s Japanese auto manufacturers began adopting lean manufacturing practices to develop new vehicles. Michael A. Cusumano, *Japanese Technology Management: Innovations, Transferability, and the Limitations of "Lean" Production* 1 (Sloan Sch. of Mgmt., Mass. Inst. of Tech., Working Paper No. 3477-92, 1992).   Due to this refined approach's reduced overhead, Japanese manufacturers were able to generate thirty percent more profit per vehicle than Chrysler, one-hundred percent more per vehicle than Ford, and two-hundred percent more per vehicle than General Motors. Mary Poppendieck, Cutter Consortium Executive Report, Lean Development and the Predictability Paradox 1 (2003).*  *When compared to Detroit's traditional design and manufacturing practices, Japanese manufacturers produced higher quality vehicles in one-third less time. *Id.*  While in the United States nearly half of all projects missed their target date, in Japan, all but one sixth hit the market on time. *Id.  *Japan's lean-manufacturing methods produced cheaper, more successful cars faster. *Id*.
 [^33]: Darrell A. Fruth, *Economic and Institutional Constraints on the Privatization of Government Information Technology Services*, 13 Harv. J.L. & Tech. 521, 524-25 (2000).
 [^34]: *Id.*
-[^35]: DoD Acquisition Report, *supra *note 1, at 7.
+[^35]: DoD Acquisition Report, *supra* note 1, at 7.
 [^36]: A detailed explanation of the evolution to a service-oriented architecture is beyond the scope of this Note, but in simple terms, if one thinks of information as a product, the evolution mimics the move from individual manufacturers producing a good, to a factory producing a good, to that factory adopting an assembly line approach.  A government agency might build a system once, (e.g. an application to calculate the appropriate census block based on a given address,) and then will have subsequent systems query that already-built application, rather than duplicate the functionality.  Any given request for information may go through five, ten, perhaps even a hundred systems, each of which can be procured or upgraded individually.  Interview with Greg Elin, Chief Data Officer, FCC & Michael Byrne, Chief Geographic Info. Officer, FCC, in Wash., D.C., (Mar. 11, 2011) \[hereinafter FCC Interview\].
 [^37]: *Id*.; Orszag Memorandum, *supra* note 14, at 1 (noting that "\[b\]y setting the scope of projects to achieve broad-based business transformations rather than focusing on essential business needs, Federal agencies are experiencing substantial cost overruns and lengthy delays in planned deployments.  Compounding the problem, projects persistently fall short of planned functionality and efficiencies once deployed.").
 [^38]: *See* *Examining the President's Plan for Eliminating Wasteful Spending in Information Technology: Hearing Before the S. Subcomm. on Fed. Fin. Mgmt., Gov't Info., Fed. Servs., and Int'l Sec.*, 112th Cong. 3-4 (2011) (statement of Vivek Kundra, Fed. Chief Info. Officer, Office of Mgmt. and Budget) (noting that the current procurement model does not align well with the rapid pace of today's technology cycle).
@@ -324,7 +324,7 @@ The federal IT procurement system is outdated.  Projects are consistently delive
 [^46]: Richard K. Cheng, *[On Being Agile][211]*, NextGov, Sept. 23, 2010, http://www.nextgov.com/nextgov/ng\_20100923\_7965.php.
 [^47]: Szalvay, *supra* note 6,* *at 1-3; Course Manual, *supra* note 28, at 33.  Such an approach makes sense when it is traced backed to its traditional roots.  Engineers building bridges rely on well-established laws of physics supported by the fundamentals of mathematics, two sciences that are rigidly defined and easily relied upon.  Software development, on the other hand, is not bound by the rules of the physical world.  Gravity, an assumed constant in engineering, has relatively little relevance to programming.
 [^48]: *See* Mark Leicester, *Government Projects the Agile Way: Can It Be Done?*, St. Services Commission (Apr. 16, 2009), http://www.ssc.govt.nz/blog/government-projects-agile-way-can-it-be-done.
-[^49]: Modular Contracting White Paper, *supra *note 41, at 7; Cao & Ramesh, *supra *note 28, at 63.  *See Further Details on Modular Contracting Left for Public Meeting–Proposed Rule Adds Little to Clinger-Cohen Act*, 39 Gov't Contractor ¶ 161, Apr. 2, 1997 \[hereinafter *Further Details*\].
+[^49]: Modular Contracting White Paper, *supra* note 41, at 7; Cao & Ramesh, *supra* note 28, at 63.  *See Further Details on Modular Contracting Left for Public Meeting–Proposed Rule Adds Little to Clinger-Cohen Act*, 39 Gov't Contractor ¶ 161, Apr. 2, 1997 \[hereinafter *Further Details*\].
 [^50]: Modular Contracting White Paper, *supra* note 41, at 7 (noting that "forcing this rigidity into the systems development acquisition process – intending to minimize risks and mistakes – can actually exacerbate the same.").  As FCC Geographic Information Officer Michael Byrne commented, "procurement is like a board game.  You are trying to move your pieces to the other side. This would be easy if you had no opponent.  When the other team begins moving forward there's no way to . . . know how to optimally get to the other side, and waterfall software development expects just that. Data changes, technology changes, policy changes, governance changes – this is the opposing player – and there's no way to predict the interaction with my pieces." FCC Interview, *supra* note 36.
 [^51]: Sherman, *supra* note 15, at 210-11; Poppendieck, *supra* note 32, at 1, 5 (arguing "the more companies attempted to define the process of product development, the less the organization was able to carry out that process").
 [^52]: *Further Details*, *supra* note 49.
@@ -335,39 +335,39 @@ The federal IT procurement system is outdated.  Projects are consistently delive
 [^57]: *Id.*
 [^58]: *Id.*
 [^59]: *Id*.;* *Kundra, *supra note* 13, at 17 (observing *"*the lag between when the \[G\]overnment defines its requirements and when the contractor begins to deliver is enough time for the technology to fundamentally change").
-[^60]: Federal Executive Roundtable, *supra *note 56.
+[^60]: Federal Executive Roundtable, *supra* note 56.
 [^61]: Modular Contracting White Paper, *supra* note 41, at 13.
 [^62]: A prime example of such a phenomenon is the U.S. Patent and Trademark Office (PTO).  In 1983 the PTO initiated a billion-dollar automation effort using waterfall.  At the time the PTO's patent files contained some thirty-three million documents, supporting patents issued since 1790, and grew at the rate of approximately one million documents per year.  The goal was to have a fully deployed system by 1990, however by 1987, the PTO began to realize that the program was fatally behind schedule and switched to an agile approach.  Course Manual , *supra* note 28, at 66-67**.  **The PTO was able to successfully deploy its patent search system (CSIR) later that year, and by 1992 had a significant portion of its automation system integrated into its workflow. U.S. Gov't Accountability Office, GAO/AIMD-93-15, Patent and Trademark Office: Key Processes For Managing Automated Patent Development Are Weak 4 (1993).
-[^63]: *See generally* Szalvay, *supra* note 6, at 1.  The ability to adapt to change has implications beyond project efficiency as well.  Hackers, cyber terrorists, and other malcontents are not bound by the rigidity of waterfall and are often able to adapt more rapidly to government countermeasures than the Government can develop defenses.  *See* Federal Executive Roundtable, *supra *note 56.  Similarly, after spending nearly two years and 0 million dollars developing handheld computers for use in conjunction with the 2010 census, the U.S. Census Bureau was forced to drop its plans and revert to paper-based collection when it realized the waterfall approach it had adopted would not deliver a working system in time for the census data collection.  White House Forum, *supra *note 5, at 5-6.
-[^64]: The Federal Communications Commission recently procured the National Broadband Map using an agile framework.  Within six months, the agencies had a working prototype, and six months following that, a final product.  Less than ten percent of the project's total funding was used to make a prototype, the source code of which being distributed alongside the project's RFQ.  The contract's first deliverable was requirements documentation outlining a project management plan, but daily scrum meetings provided both agency and contractor the opportunity to revise requirements.  FCC Interview, *supra *note 36.
-[^65]: Project assumptions might typically include the format of input data, deadlines, technology, policy, or governance.  FCC Interview, *supra *note 36.
+[^63]: *See generally* Szalvay, *supra* note 6, at 1.  The ability to adapt to change has implications beyond project efficiency as well.  Hackers, cyber terrorists, and other malcontents are not bound by the rigidity of waterfall and are often able to adapt more rapidly to government countermeasures than the Government can develop defenses.  *See* Federal Executive Roundtable, *supra* note 56.  Similarly, after spending nearly two years and 0 million dollars developing handheld computers for use in conjunction with the 2010 census, the U.S. Census Bureau was forced to drop its plans and revert to paper-based collection when it realized the waterfall approach it had adopted would not deliver a working system in time for the census data collection.  White House Forum, *supra* note 5, at 5-6.
+[^64]: The Federal Communications Commission recently procured the National Broadband Map using an agile framework.  Within six months, the agencies had a working prototype, and six months following that, a final product.  Less than ten percent of the project's total funding was used to make a prototype, the source code of which being distributed alongside the project's RFQ.  The contract's first deliverable was requirements documentation outlining a project management plan, but daily scrum meetings provided both agency and contractor the opportunity to revise requirements.  FCC Interview, *supra* note 36.
+[^65]: Project assumptions might typically include the format of input data, deadlines, technology, policy, or governance.  FCC Interview, *supra* note 36.
 [^66]: Modular Contracting White Paper, *supra* note 41, at 7.
 [^67]: Poppendieck, *supra* note 32, at 6.
 [^68]: Sherman, *supra* note 15, at 222-24.
 [^69]: While documentation may memorialize requirements, the act of documentation delays the information's communication and prevents meaningful dialog regarding the project specifications.
-[^70]: Poppendieck, *supra *note 32 at 6.
-[^71]: Federal Executive Roundtable, *supra *note 56.
+[^70]: Poppendieck, *supra* note 32 at 6.
+[^71]: Federal Executive Roundtable, *supra* note 56.
 [^72]: Lee & Xia, *supra* note 11, at 88.
 [^73]: *Id*. at 89.
-[^74]: Szalvay, *supra* note 6, at 3; Poppendieck, *supra *note 32, at 11-12.
-[^75]: Cheng, *supra *note 46.
+[^74]: Szalvay, *supra* note 6, at 3; Poppendieck, *supra* note 32, at 11-12.
+[^75]: Cheng, *supra* note 46.
 [^76]: From the agency's perspective, an agile backlog is simply a wish list of features in priority of business value, wherein the agency lists the functionality it desires from a system and when that can be expected.  From the contractor's perspective, the backlog is a to-do list, in order of priority, listing the project deliverables and their deadlines.
 [^77]: For a more detailed explanation, *see *Fowler, *supra* note 20.
-[^78]: Poppendieck, *supra *note 32, at 9.
+[^78]: Poppendieck, *supra* note 32, at 9.
 [^79]: *See* Lee & Xia, *supra* note 11, at 89.
-[^80]: Federal Executive Roundtable, *supra *note 56.
+[^80]: Federal Executive Roundtable, *supra* note 56.
 [^81]: Lee & Xia, *supra* note 11, at 90.
 [^82]: *Id. *at 89, 92.
 [^83]: *Id.* at 89.
 [^84]: Cao & Ramesh, *supra* note 28, at 63.
 [^85]: *Id*. at 64.
 [^86]: *See *Fowler, *supra* note 20.
-[^87]: Federal Executive Roundtable, *supra *note 56.
-[^88]: Cao & Ramesh, *supra *note 28, at 60.
+[^87]: Federal Executive Roundtable, *supra* note 56.
+[^88]: Cao & Ramesh, *supra* note 28, at 60.
 [^89]: *See id.* at 63.
-[^90]: Poppendieck, *supra *note 32, at 3.
+[^90]: Poppendieck, *supra* note 32, at 3.
 [^91]: *See* Szalvay, *supra* note 6, at 6.
-[^92]: *See *Royce, *supra *note 19, at 4.
+[^92]: *See *Royce, *supra* note 19, at 4.
 [^93]: DoD Acquisition Report,* supra* note 1, at 47-48.
 [^94]: *Id*.
 [^95]: *Id*.
@@ -383,15 +383,15 @@ The federal IT procurement system is outdated.  Projects are consistently delive
 [^105]: DoD Acquisition Report, *supra* note 1, at 53.  *See *Poppendieck, *supra* note 32, at 15.
 [^106]: *See* Poppendieck, *supra* note 32, at 3.
 [^107]: *Id*.; DoD Acquisition Report, *supra* note 1, at 47-48, 53.
-[^108]: Chief among agile's criticisms in the private sector may be that its emphasis on functional, rather than technical requirements often underserves the project's non-functional goals.  Cao & Ramesh, *supra *note 28, at 64-65.
+[^108]: Chief among agile's criticisms in the private sector may be that its emphasis on functional, rather than technical requirements often underserves the project's non-functional goals.  Cao & Ramesh, *supra* note 28, at 64-65.
 [^109]: Glen B. Alleman et al., *Making Agile Development Work in A Government Contracting Environment*, *in * Conference Papers, Agile Dev. Conference 114, 114 (2003).
 [^110]: Cao & Ramesh, *supra* note 28, at 64.
-[^111]: Earned value project management relies on progress payments, which are payments based on the value the contractor earned during that period rather than on the level of completion as it relates to an established project plan.  Alleman et al., *supra *note 109, at 114.
+[^111]: Earned value project management relies on progress payments, which are payments based on the value the contractor earned during that period rather than on the level of completion as it relates to an established project plan.  Alleman et al., *supra* note 109, at 114.
 [^112]: Cao & Ramesh, *supra* note 28, at 64-65.
 [^113]: *Id*.
 [^114]: Cheng, *supra* note 46.
-[^115]: *Id.*  Multiple, small investments of time and effort acknowledge that humans make mistakes and mitigates project risk through independent, componentized steps.  FCC Interview, *supra *note 36.
-[^116]: Early engagement between technical contacts, COs, and legal teams is crucial to a successful project.  The process itself should be agile.  The requirements writing process should not be waterfall if the project is not.  FCC Interview, *supra *note 36.
+[^115]: *Id.*  Multiple, small investments of time and effort acknowledge that humans make mistakes and mitigates project risk through independent, componentized steps.  FCC Interview, *supra* note 36.
+[^116]: Early engagement between technical contacts, COs, and legal teams is crucial to a successful project.  The process itself should be agile.  The requirements writing process should not be waterfall if the project is not.  FCC Interview, *supra* note 36.
 [^117]: Cheng, *supra* note 46.
 [^118]: Sherman, *supra* note 15, at 3.
 [^119]: Cheng, *supra* note 46.
@@ -402,12 +402,12 @@ The federal IT procurement system is outdated.  Projects are consistently delive
 [^124]: *See id.*
 [^125]: *Id*. at 11.
 [^126]: *See id*.
-[^127]: Cheng, *supra *note 46.
+[^127]: Cheng, *supra* note 46.
 [^128]: Sherman, *supra* note 15, at 230.
 [^129]: *See* *id.*; Emmett E. Hearn, Federal Acquisition and Contract Management 55 (5th ed. 2002).
 [^130]: Sherman, *supra* note 15, at 251.
 [^131]: *See *FAR Part 15.
-[^132]: Sherman, *supra *note 15, at 299-301.
+[^132]: Sherman, *supra* note 15, at 299-301.
 [^133]: *Id.* at 301.
 [^134]: *Id*. at 302.
 [^135]: *Id.*
@@ -420,7 +420,7 @@ The federal IT procurement system is outdated.  Projects are consistently delive
 [^142]: National Defense Authorization Act of 1996, Pub. L. No. 104-106, 110 Stat. 659, 689 (1996) (codified in scattered sections of 40 U.S.C. and 41 U.S.C.).  For a comprehensive overview of the ITMRA (later known as the Clinger-Cohen Act) reforms, *see* Stephen W. Feldman, *Clinger-Cohen Act of 1996; GAO Procurement Protest Authority*, 1 Government Contract Awards: Negotiation and Sealed Bidding § 1:12 (2010).
 [^143]: FAR 39.103.
 [^144]: *Cohen Plans IT Procurement Reform Legislation*, 37 Gov't Contractor ¶ 83, Jan. 15, 1995, at 8-9 (observing that the act's sponsor argued that "by the time a contract is awarded, the technology that is being bought is obsolete").
-[^145]: Modular Contracting White Paper, *supra *note 41, at 24 (identifying a module as an "economically and programmatically separable segment" that "should have a substantial programmatic use even if no additional segments are acquired \[and as\]... a functional system or solution that is not dependent on any subsequent module in order to perform its significant functions").
+[^145]: Modular Contracting White Paper, *supra* note 41, at 24 (identifying a module as an "economically and programmatically separable segment" that "should have a substantial programmatic use even if no additional segments are acquired \[and as\]... a functional system or solution that is not dependent on any subsequent module in order to perform its significant functions").
 [^146]: FAR 39.103(a).
 [^147]: *Id.*; FAR 2.101.  A "major system" is a system estimated to exceed million or the threshold defined by OMB Circular A-109 or that is designated a "major system" by the head of the agency responsible for that system. FAR 2.101.
 [^148]: FAR 39.103(b).  *See* Danielle Conway-Jones, *Research and Development Deliverables under Government Contracts, Grants, Cooperative Agreements and Cradas: University Roles, Government Responsibilities and Contractor Rights*, 9 Computer L. Rev. & Tech. J. 181, 192 n.75 (2004).
