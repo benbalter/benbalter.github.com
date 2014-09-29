@@ -1,6 +1,7 @@
 ---
-title: "Your code deserves better"
+title: "Our code deserves better"
 excerpt: "I've seen multi-million dollar contracts in government, the final deliverable for which, is a CD-ROM, in triplicate. That's not how modern software development works, and our code deserves better."
+redirect_from: "/2014/09/29/your-code-deserves-better/"
 ---
 
 I've seen multi-million dollar contracts in government, the final deliverable for which, is a CD-ROM, in triplicate. That's not how modern software development works. Our government's code deserves much, much better.
