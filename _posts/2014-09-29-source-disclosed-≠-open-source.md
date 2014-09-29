@@ -26,4 +26,4 @@ It's often said that open source is free as in speech, not as in beer, but I pre
 
 Agencies are welcome (and encouraged) to disclose the source code that powers the day-to-day workings of our shared democracy, but they should know that that's neither the last step, nor is that truly open source. Open source is a symbiotic relationship, a shared partnership, not a one-way, one-time, set-it-and-forget-it broadcast.
 
-[^1]: You can read more community building best practices [within the government community on GitHub](https://github.com/government/best-practices/blob/master/docs/community-building.md) (GitHub login and government email required).
+[^1]: You can read more community building best practices [within the government community on GitHub](https://government-community.githubapp.com/government/best-practices/blob/master/docs/community-building.md) (GitHub login and government email required).
