@@ -17,7 +17,7 @@ The Highlights:
 * [Only 64 sites](http://dotgov-browser.herokuapp.com/domains?ipv6=true) return an `AAAA` record, the first step towards IPv6 compliance (up from 10)
 * [250 sites](http://dotgov-browser.herokuapp.com/domains?ssl=true), approximately one in four, support SSL (HTTPS), but only [one in ten](http://dotgov-browser.herokuapp.com/domains?enforce_https=true) enforce it
 * 87% of sites use no detectable content management system, about a 5% decrease
-* Of those with a CMS, Drupal is still by far the most popular ([100+ sites]((http://dotgov-browser.herokuapp.com/domains?cms=drupal))), with [WordPress powering 14 sites](http://dotgov-browser.herokuapp.com/domains?cms=wordpress)  and [Joomla powering 7](http://dotgov-browser.herokuapp.com/domains?cms=joomla)
+* Of those with a CMS, Drupal is still by far the most popular ([100+ sites](http://dotgov-browser.herokuapp.com/domains?cms=drupal)), with [WordPress powering 14 sites](http://dotgov-browser.herokuapp.com/domains?cms=wordpress)  and [Joomla powering 7](http://dotgov-browser.herokuapp.com/domains?cms=joomla)
 * [One in four sites](http://dotgov-browser.herokuapp.com/domains?analytics=google_analytics) use Google Analytics (almost a three-fold increase), with a handful of sites using Facebook insights
 * Roughly a third of service advertise that they are powered by open source server software (e.g. [Apache](http://dotgov-browser.herokuapp.com/domains?server=Apache), [Nginx](http://dotgov-browser.herokuapp.com/domains?server=nginx)), slightly more than those that are powered by closed source server software (e.g., Microsoft, Oracle, Sun)
 * [74 sites](http://dotgov-browser.herokuapp.com/domains?server=Microsoft-IIS%2F6.0) are still running IIS 6.0, a ten+ year old server
