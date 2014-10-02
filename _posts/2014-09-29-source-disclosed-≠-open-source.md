@@ -10,7 +10,7 @@ It's not uncommon for government agencies to contact GitHub, looking for advice 
 
 ### Disclosed source
 
-Government agencies and individual developers are free to make their projects' underlying source code available for others to review, inspect, or reuse as they wish. This can be as simple as posting a zip file to an agency-owned FTP server, responding to a FOIA request by email, or even posting the source code to a code-sharing service like GitHub. Source code release under this paradigm is traditionally referred to as source disclosed, and is the first, not the final step in "open sourcing" governmenet-funded code.
+Government agencies and individual developers are free to make their projects' underlying source code available for others to review, inspect, or reuse as they wish. This can be as simple as posting a zip file to an agency-owned FTP server, responding to a FOIA request by email, or even posting the source code to a code-sharing service like GitHub. Source code release under this paradigm is traditionally referred to as source disclosed, and is the first, not the final step in "open sourcing" government-funded code.
 
 In addition to disclosing the underlying source code, in order to conform to with what we traditionally think of as open source today, publishers must properly license their code (generally not an issue with government), and should seek to create a community around the shared challenge the project sets out to solve.
 
