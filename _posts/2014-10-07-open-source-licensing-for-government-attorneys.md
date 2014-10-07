@@ -97,4 +97,4 @@ One thing to watch out for are contributor license agreements (CLAs) which may p
 
 ## Disclaimer
 
-This is a high-level overview intended ot highlight common legal issues agencies may face when participating in the open source community, and should not be construed as legal advice or specific to a particular matter. 
+This is a high-level overview intended ot highlight common legal issues agencies may face when participating in the open source community, and should not be construed as legal advice or specific to a particular matter. Although this is my personal blog, agencies should feel free to contact <government@github.com> or post in the [github.com/government](https://github.com/government) peer group with any open-source related questions.
