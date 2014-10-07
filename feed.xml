@@ -3,12 +3,12 @@ layout: none
 permalink: /feed/
 json: false
 ---
+<?xml version="1.0" encoding="utf-8"?>
 {% if site.github.url %}
 	{% assign url_base = site.github.url %}
 {% else %}
 	{% assign url_base = site.url %}
 {% endif %}
-<?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
 	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
