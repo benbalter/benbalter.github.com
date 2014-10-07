@@ -59,4 +59,16 @@ Adopting open-source workflows, even if the code itself is never made public can
 
 Whether shared with the development team, the agency, or with the public, open source workflows allow government contractors to adopt best-of-breed development practices, and to streamline their own internal communication practices.
 
-## Better code
+### Better code
+
+Open source is not just a workflow and a philosophy, but also a development style. When you write code you know is going to be shared with others, you're less likely to hard wire custom functionality, or hard-code deployment-specific considerations. As a result, you get abstracted, modular code that can be repurposed, redeployed, and more-easily upgraded in part, rather than in whole.
+
+You also gain the benefit of more mature code. Many contracts may call for the same challenge to be solved. Rather than writing a custom XML library for each project, open source allows you to reduce duplication of efforts internally, by allowing you to adopt an existing library, or to start your own shared library. More eyes, more time, and more use cases, means more stringently field-test and proven code for both projects.
+
+Assuming you engage in more than one project over the lifetime of the contracting firm, open source forces government contractors to write better, more modular, less fragile code that can be shared between components.
+
+### Get involved today
+
+Open source has traditionally gotten a bad wrap as being a fringe effort, being buggy, or being hard to break into. All three of those assumptions have changed dramatically in the past years, especially in government, as we see open source increasingly used in place of traditional "enterprise-grade" solutions with positive results.
+
+If you haven't recently, take a closer look at open source. I think you'll be surprised. Find something small — a bug in the software that powers your website, a shared library used internally, or a tool used to facilitate your own workflows — and open source it. Government contractors have been stereotypically hesitant to embrace the latest industry trend, but one thing's for sure, open source is here to stay.
