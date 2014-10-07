@@ -93,8 +93,14 @@ One thing to watch out for are contributor license agreements (CLAs) which may p
 
 ## Accepting contributions from the public
 
+Once published, there's a high probability a member of the public will submit a proposed improvement to the agency project. There are two potential issues:
 
+* **Agency request** - As is common practice in the open source world, the agency may maintain a project roadmap and backlog of known bugs or potential enhancements, but should not directly instruct potential contributors to address a certain issue.
+
+* **License** - The proposed change (often in the form of a "pull request") is licensed under the same terms as the project itself (e.g., MIT, GPL, or CC0) and thus is independent open source software.[^1] The agency is free to incorporate that code into the government project, just as it is free to use any other open source code.
 
 ## Disclaimer
 
 This is a high-level overview intended ot highlight common legal issues agencies may face when participating in the open source community, and should not be construed as legal advice or specific to a particular matter. Although this is my personal blog, agencies should feel free to contact <government@github.com> or post in the [github.com/government](https://github.com/government) peer group with any open-source related questions.
+
+[^1]: The full mechanics of a pull request is beyond the scope of this post, but in short, a member of the public will fork the agency project, or make a copy in their personal account. In many cases, that is all downstream users do. The contributor may then modify the software, in their own personal copy, under the right to modify as granted in the open source license. Again, many downstream users will stop at this point as well, using the modified software for their own purposes. At both steps, the software is freely available to anyone in the world from the user's account and is licensed under the project terms. The upstream project is free to encorporate the downstream users changes as they wish. A contributor may also choose to contribute that code back to the original project, by explicitly asking the upstream project to incorporate their changes.  
