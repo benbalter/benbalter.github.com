@@ -33,7 +33,7 @@ If you asked me to send you GitHub's [SAM.gov](http://sam.gov) registration, the
 
 Sadly, that's the most direct way anyone can get to that public information. Take a look at your URL and you'll see things like `navigationalstate`, `interactionstate`, each followed by an obscure string of letters and numbers. This tells you that the URL is only part of the puzzle, and that the server decides what to display based primarily on your previous interactions. The server, not the URL, is the master of what you see.
 
-Regardless of the medium, one thing remains true: URLs don't require additional instructions. If the steps to retrieve a particular piece of content on the internet involves verbs — sub-instructions like "click", "scroll", or "search" — that content has not been afforded the respect a proper URL provides. "Take this URL" should be the only instruction you need. In technical terms, the internet is [stateless](https://en.wikipedia.org/wiki/Stateless_protocol),
+Regardless of the medium, one thing remains true: URLs don't require additional instructions. If the steps to retrieve a particular piece of content on the internet involves verbs — sub-instructions like "click", "scroll", or "search" — that content has not been afforded the respect a proper URL provides. "Take this URL" should be the only instruction you need. In technical terms, the internet is [stateless](https://en.wikipedia.org/wiki/Stateless_protocol).
 
 ### The internet is not an afterthought
 
