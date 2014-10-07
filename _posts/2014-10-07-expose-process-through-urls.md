@@ -3,11 +3,11 @@ title: "If you liked it then you should have put a URL on it"
 excerpt: "The next time you begin a new project, adopt a high-fidelity, electronic medium that allows you to capture and expose process in the form of a URL."
 ---
 
-If there's one thing that made the internet what it is, it's the URL. It's what makes sharing funny cat videos possible. It's the bookmark to access your bank account balance. It's the Wikipedia link you send your buddy to end a heated argument. Why then, are our most important interactions — collaborating with coworkers, accessing government services, or consuming open data — all too often, tragically URL-less?
+If there's one thing that made the internet what it is, it's the URL. It's what makes sharing funny cat videos possible. It's the bookmark to access your bank account balance. It's the Wikipedia link you send your buddy to end a heated argument. Why then, are our most online important interactions — collaborating with coworkers, accessing government services, or consuming open data — all too often, tragically URL-less?
 
 ## The humble URL
 
-There's a lot packed into that seemingly innocuous string at the top of your browser. At its most basic level, a URL is a promise that so long as they have that magical sequence of characters, anyone in the world can see exactly what you see. In technical terms, a URL or [Uniform Resource Locator](https://en.wikipedia.org/wiki/Uniform_resource_locator) is the means by which to access a resource. That resource can be anything from a product on Amazon.com to an individual Tweet on Twitter to a page in the Congressional Record. A URL is also, by definition, also a URI ([uniform resource identifier](http://en.wikipedia.org/wiki/Uniform_resource_identifier)), meaning no two things ever have the same URL. Put another way, if you have something's URL, you also have a unique way to identify it, today and in perpetuity.
+There's a lot packed into that seemingly innocuous string at the top of your browser. At its most basic level, a URL is a promise that so long as they have that magical sequence of characters, anyone in the world can see exactly what you see. In technical terms, a URL or [Uniform Resource Locator](https://en.wikipedia.org/wiki/Uniform_resource_locator) is the means by which to access a resource. That resource can be anything from a product on Amazon.com to an individual Tweet on Twitter to a page in the Congressional Record. A URL is also, by definition, also a URI ([uniform resource identifier](http://en.wikipedia.org/wiki/Uniform_resource_identifier)), meaning no two things ever have the same URL. Put another way, if you have something's URL, you also have a unique way to identify it, today and in perpetuity. It gives your content a permanent home on the internet, our primary means of communication.
 
 ## Exposing process
 
@@ -21,7 +21,7 @@ We rarely use email for exactly that reason. It's not available to those not ori
 
 If the fabric of the internet is so necessarily sewn with URLs, why then, do website, especially government websites, so often violate this sacred cyber-norm?
 
-### The internet is stateless
+### URLs don't require additional instructions
 
 If you asked me to send you GitHub's [SAM.gov](http://sam.gov) registration, the portal that centralizes common information about all businesses that sell to the federal government, I'd be forced to send you the following:
 
@@ -33,7 +33,7 @@ If you asked me to send you GitHub's [SAM.gov](http://sam.gov) registration, the
 
 Sadly, that's the most direct way anyone can get to that public information. Take a look at your URL and you'll see things like `navigationalstate`, `interactionstate`, each followed by an obscure string of letters and numbers. This tells you that the URL is only part of the puzzle, and that the server decides what to display based primarily on your previous interactions. The server, not the URL, is the master of what you see.
 
-URLs don't require additional instructions. If the steps to retrieve a particular piece of content on the internet involves verbs — sub-instructions like "click", "scroll", or "search" — that content has not been afforded the respect a proper URL provides. "Take this URL" should be the only instruction you need. In technical terms, the internet is [stateless](https://en.wikipedia.org/wiki/Stateless_protocol),
+Regardless of the medium, one thing remains true: URLs don't require additional instructions. If the steps to retrieve a particular piece of content on the internet involves verbs — sub-instructions like "click", "scroll", or "search" — that content has not been afforded the respect a proper URL provides. "Take this URL" should be the only instruction you need. In technical terms, the internet is [stateless](https://en.wikipedia.org/wiki/Stateless_protocol),
 
 ### The internet is not an afterthought
 
@@ -59,4 +59,4 @@ Whether you're an attorney, a civil servant, or a web developer, in today's digi
 
 Just as blacksmiths know the value of an anvil, and bakers the value of yeast, so too must knowledge workers embrace the tools of their craft. A composer would never stand for his or her concierto being played on a kazoo. Why then, is content all-too-often created haphazardly, with its presentation and preservation being subject to the whims of organizational habbit?
 
-The next time you begin a new project, adopt a high-fidelity, electronic medium that allows you to capture and expose process, today, and forever. Your content, your fellow publishers, and its consumers deserves it.
+The next time you begin a new project, adopt a high-fidelity, electronic medium that allows you to capture and expose process as a URL, today, and forever. Your content, your fellow knowledge workers, and the information's consumers deserves it.
