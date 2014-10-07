@@ -58,3 +58,5 @@ Open source software is developed by teams rarely in the same place at the same 
 Adopting open-source workflows, even if the code itself is never made public can be a force multiplier for teams, allowing them to shed bureaucratic cruft and adopt leaner, more agile workflows. While it's certainly possible to publish code developed under a waterfall approach, the decentralized nature of open source, absent a centralized planning authority, almost necessitates iterative development.
 
 Whether shared with the development team, the agency, or with the public, open source workflows allow government contractors to adopt best-of-breed development practices, and to streamline their own internal communication practices.
+
+## Better code
