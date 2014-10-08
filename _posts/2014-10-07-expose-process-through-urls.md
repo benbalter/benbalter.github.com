@@ -57,6 +57,6 @@ Having a digital-first workflow and a standards compliant website is a great fir
 
 Whether you're an attorney, a civil servant, or a web developer, in today's digital world, if you don't make sprockets for a living, there's a good chance that you're a knowledge worker. Your deliverable at the end of each day, doesn't actually exist beyond magnetic patterns on a hard disk. Through meetings, discussions, and drafting, you create organizational knowledge in one form or another.
 
-Just as blacksmiths know the value of an anvil, and bakers the value of yeast, so too must knowledge workers embrace the tools of their craft. A composer would never stand for his or her concerto being played on a kazoo. Why then, is content all-too-often created haphazardly, with its presentation and preservation being subject to the whims of organizational habbit?
+Just as blacksmiths know the value of an anvil, and bakers the value of yeast, so too must knowledge workers embrace the tools of their craft. A composer would never stand for his or her concerto being played on a kazoo. Why then, is content all-too-often created haphazardly, with its presentation and preservation being subject to the whims of organizational habit?
 
 The next time you begin a new project, adopt a high-fidelity, electronic medium that allows you to capture and expose process as a URL, today, and forever. Your content, your fellow knowledge workers, and the information's consumers deserve it.
