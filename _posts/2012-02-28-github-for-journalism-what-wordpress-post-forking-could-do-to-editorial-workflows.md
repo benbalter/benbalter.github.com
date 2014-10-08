@@ -64,7 +64,7 @@ Post forking may make for a killer plugin [^2] or piece of core functionality…
 
 Thoughts? Would you use this? What else would you like to see it do? [Drop me a line][8], or let me know in the [comments below][9]?
 
-**Update (3/5):** The plan right now is to submit this as a [Google Summer of Code][10] project, so if all goes well, look for the above-outlined functionality in a WordPress install near you towards the end of the summer. In the mean time, the continued thoughts/feedback is very greatly appreciated.
+**Update (3/5):** The plan right now is to submit this as a Google Summer of Code project, so if all goes well, look for the above-outlined functionality in a WordPress install near you towards the end of the summer. In the mean time, the continued thoughts/feedback is very greatly appreciated.
 
 **Update (3/27):** It looks like [WordPress isn't participating in GSoC this year][11]. Filing this idea under "someday".
 
@@ -80,7 +80,6 @@ Thoughts? Would you use this? What else would you like to see it do? [Drop me a 
 [7]: http://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/
 [8]: http://ben.balter.com/contact/
 [9]: #comments
-[10]: http://ben.balter.com/tag/gsoc/
 [11]: http://wpdevel.wordpress.com/2012/03/16/no-gsoc-2012/
 [12]: http://ben.balter.com/2012/02/27/open-source-alternatives-to-proprietary-enterprise-software/
 [14]: http://wordpress.org/extend/plugins/revisionary/

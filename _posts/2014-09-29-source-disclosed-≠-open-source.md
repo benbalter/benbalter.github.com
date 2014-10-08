@@ -6,7 +6,7 @@ redirect_from: "/2014/09/29/source-disclosed--open-source/"
 
 It's not uncommon for government agencies to contact GitHub, looking for advice on how best to "publish" government-funded source code for "consumption" by the open source community. While a necessary and admirable first step, [efforts to "release" source code, in reality, often fall short of actually being open source](http://ben.balter.com/2012/10/15/open-source-is-not-a-verb/).
 
-[The argument](http://ben.balter.com/2014/09/22/open-source-is-not-insecure/) for open source [in government](http://ben.balter.com/2014/06/02/beyond-open-government/) is [well documented](http://ben.balter.com/2012/06/26/why-you-should-always-write-software-as-open-source/), but open source [is about more than having access to the software's human-readable code](http://[ben.balter.com/2014/01/27/open-collaboration/). Open source is a philosophy, a workflow, and most importantly a collaborative community, the basis of which is the opportunity to participate.
+[The argument](http://ben.balter.com/2014/09/22/open-source-is-not-insecure/) for open source [in government](http://ben.balter.com/2014/06/02/beyond-open-government/) is [well documented](http://ben.balter.com/2012/06/26/why-you-should-always-write-software-as-open-source/), but open source [is about more than having access to the software's human-readable code](http://ben.balter.com/2014/01/27/open-collaboration/). Open source is a philosophy, a workflow, and most importantly a collaborative community, the basis of which is the opportunity to participate.
 
 ### Disclosed source
 

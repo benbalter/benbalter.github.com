@@ -7,7 +7,7 @@ Government contractors have traditionally been slow to embrace open source softw
 
 ### 1. Industry-standard best practices
 
-You'd be hard-pressed to find a startup worth its angel investment today that isn't built on open source software. Heck, even enterprise giants like [Microsoft](https://github.com/Microsoft) and [Adobe](https://adobe.github.io/https://adobe.github.io/) are embracing opens source workflows. As agencies are increasingly looking to shed the outdated IT stereotype and embrace modern software development practices, offering open source solutions serves as a proxy for the express lane to industry standard best practices.
+You'd be hard-pressed to find a startup worth its angel investment today that isn't built on open source software. Heck, even enterprise giants like [Microsoft](https://github.com/Microsoft) and [Adobe](https://adobe.github.io/) are embracing opens source workflows. As agencies are increasingly looking to shed the outdated IT stereotype and embrace modern software development practices, offering open source solutions serves as a proxy for the express lane to industry standard best practices.
 
 Even a casual observer of the industry can see the direction things are heading. Government contractors that have a history of participating in the open source community and who brag about their open source prowess in responding to government RFPs can gain a unique first-mover advantage and would be uniquely attractive to government agencies.
 

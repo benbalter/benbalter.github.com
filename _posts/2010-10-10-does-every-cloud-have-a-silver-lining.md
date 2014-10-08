@@ -28,7 +28,7 @@ But why does this shift matter?  Simply put, in [the cloud][5], there is no door
 
 ![Skyline with logos of cloud service providers superimposed on the clouds cleverly][7]{: .aligncenter }
 
-Consider this: you are the target of a criminal investigation and the police believe that six months ago you e-mailed an accomplice to discuss the crime. Depending on your e-mail settings and which service you use (e.g., if the "[leave downloaded messages on server][8]" option is checked), the police may need only offer "specific and articulable facts" that they suspect the e-mail is related to the crime.[^9] That same e-mail stored on your computer (e.g., if the setting is not checked), would require a search warrant and showing of probable cause, and thus would be afforded significantly greater protections under the law.[^10]
+Consider this: you are the target of a criminal investigation and the police believe that six months ago you e-mailed an accomplice to discuss the crime. Depending on your e-mail settings and which service you use (e.g., if the "leave downloaded messages on server" option is checked), the police may need only offer "specific and articulable facts" that they suspect the e-mail is related to the crime.[^9] That same e-mail stored on your computer (e.g., if the setting is not checked), would require a search warrant and showing of probable cause, and thus would be afforded significantly greater protections under the law.[^10]
 
 However, the typical "*if you don't want it public, don't put it on the internet*" argument doesn't apply here.  While that may be true for [photos and updates posted to social networking sites][11], as more and more of our lives (and [commercial dealings][12]) are pushed to the cloud, we're loosing our abilities to have a digital private sphere.[^13]
 
@@ -45,7 +45,6 @@ Photo credit: [garyhayes][18]
 [5]: http://en.wikipedia.org/wiki/Cloud_computing "Wikipedia: Cloud Computing"
 [^6]: *Compare* Fed. R. Crim. P. 41(e)(2)(B) *with* 18 U.S.C.A. § 2703(d) (West).
 [7]: http://ben.balter.com/wp-content/uploads/2010/09/4502026170_4bf31f04e6.jpg "Cloud Computing - 500px"
-[8]: http://office.microsoft.com/en-us/outlook-help/leave-e-mail-messages-on-your-e-mail-server-HA001150793.aspx
 [^9]: 18 U.S.C.A. § 2703(d) (West).
 [^10]: *See generall*y [Obtaining Electronic Evidence][21], Federal Law Enforcement Training Center (July 2003).
 [11]: http://youropenbook.org/ "Your Open Book"
