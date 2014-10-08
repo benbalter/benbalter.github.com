@@ -46,7 +46,7 @@ Photo credit: [garyhayes][18]
 [^6]: *Compare* Fed. R. Crim. P. 41(e)(2)(B) *with* 18 U.S.C.A. § 2703(d) (West).
 [7]: http://ben.balter.com/wp-content/uploads/2010/09/4502026170_4bf31f04e6.jpg "Cloud Computing - 500px"
 [^9]: 18 U.S.C.A. § 2703(d) (West).
-[^10]: *See generall*y [Obtaining Electronic Evidence][21], Federal Law Enforcement Training Center (July 2003).
+[^10]: *See generall*y Obtaining Electronic Evidence, Federal Law Enforcement Training Center (July 2003).
 [11]: http://youropenbook.org/ "Your Open Book"
 [12]: http://www.google.com/apps/intl/en/business/customers.html "Google Business Customers"
 [^13]: Take Google, as an example, who, to their credit, is a [front-runner in the push toward digital due process][23], testifying on the Hill just last week. Without signing up for a Google account, through the use of cookies, Google can compile a relatively accurate profile of [what Web sites you visit][24] and [how often you visit them][25], what [products you purchase][26], and [where you go][27]. And if you sign-up for a near-ubiquitous Google account, you introduce the cloud to [what others are saying about you][28], [what you read][29], [files stored on your computer][30], and even [your medical history][31], not to mention with [whom][32] [you][33] [communicate][34], what [you're doing][35], and [where you are right now][36].
@@ -55,7 +55,6 @@ Photo credit: [garyhayes][18]
 [16]: http://www.youtube.com/watch?v=hkDD03yeLnU "YouTube: CSI Blog Search"
 [17]: http://digitaldueprocess.org/
 [18]: http://www.flickr.com/photos/garyhayes/4502026170/
-[21]: http://docs.google.com/viewer?a=v&q=cache:IYzfdrim0owJ:www.fletc.gov/training/programs/legal-division/downloads-articles-and-faqs/downloads/other/obtaining_electronic.pdf/download+&hl=en&gl=us&pid=bl&srcid=ADGEESgpYeTPUFAijEyb4BnY4_wzFLwSJmRNv8yL2ZD8EkhQTjt7oXv9kELuYHG7A202xJ9_MGwvgVDwjviAEh0zW76gZQAbieBYwR6cnNUyD83txcScrGTU0qDUME590QPAMej6hmSy&sig=AHIEtbTf4jZconLMbkMO_hVK8xQ92bqZNQ
 [23]: http://googlepublicpolicy.blogspot.com/2010/09/digital-due-process-time-is-now.html "Google Policy Blog: Digital Due Process the Time is Now"
 [24]: http://google.com "Google.com"
 [25]: http://google.com/analytics "Google Analytics"
