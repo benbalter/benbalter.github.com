@@ -29,6 +29,7 @@ tags:
   - wordpress
   - workflow
 post_format: [ ]
+redirect_from: "2011/08/29/document-management-version-control-for-wordpress/"
 ---
 [WP Document Revisions][1] is a [document management][2] and [version control][3] plugin. Built for time-sensitive and mission-critical projects, teams can collaboratively edit files of any format — text documents, spreadsheets, images, sheet music… anything — all the while, seamlessly tracking the document's progress as it moves through your organization's existing workflow.
 
