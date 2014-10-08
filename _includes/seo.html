@@ -26,7 +26,7 @@
 	<meta name="robots" content="{{ page.robots }}" />
 	{% endif %}
 
-	<link rel="canonical" href="{{ url_base }}{{ page.url }}" />
+	<link rel="canonical" href="{{ url_base }}{{ page.url }}"{% if page.url == "/404.html" %} data-proofer-ignore="true"{% endif %}/>
 	{% if page.next.url %}<link rel="next" href="{{ url_base }}{{ page.next.url }}" title="{{ page.next.title }}" />{% endif %}
 	{% if page.previous.url %}<link rel="prev" href="{{ url_base }}{{ page.previous.url }}" title="{{ page.previous.title}}" />{% endif %}
 
