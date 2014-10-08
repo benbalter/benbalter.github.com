@@ -66,7 +66,7 @@ Notes:
 [^6]: *See, e.g.,* [bloodletting][32].
 
 [5]: http://opensource.sys-con.com/node/692407
-[6]: http://www.infoworld.com/d/security-central/gartner-seven-cloud-computing-security-risks-853
+[6]: http://www.infoworld.com/article/2652198/security/gartner--seven-cloud-computing-security-risks.html
 [7]: http://searchnetworking.techtarget.com/news/1381193/IT-job-security-fears-over-cloud-computing-Network-jobs-still-vital
 [8]: http://www.lexjansen.com/pharmasug/2000/techtech/tt16.pdf
 [9]: http://en.wikipedia.org/wiki/Betamax

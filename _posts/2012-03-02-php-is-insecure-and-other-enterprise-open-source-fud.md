@@ -31,11 +31,11 @@ So is PHP secure? In a word: **yes**. In my mind, PHP's ill-deserved reputation 
 It's next to impossible to say a given language is "insecure." That'd be like saying English, as a language, is less trustworthy. It just doesn't make sense. In fact, most research supports the idea that the opposite is the case, that [open-source produces better quality code than its closed-source counterparts][4]. Think about it [this way][5]:
 
 > Someone – let's call him Bob – wants to secure a room. But in Bob's universe, there are no locks. So Bob invents one, and installs it. And realizes he has a huge advantage over would-be intruders. Only Bob knows how the lock works. So no one else knows how to pick it. Bob sets about keeping his lock design a secret.
-> 
+>
 > Alice also needs to secure a room, and she also invents a lock.  Unlike Bob, though, Alice publishes her design – not the set-up for a particular key, of course, but the details of the overall mechanism.
-> 
+>
 > Bob thinks Alice is nuts. Why tell people how your lock works? They'll just pick it more easily.
-> 
+>
 > Fine, says Alice, good luck keeping your design a secret. It's going to get out, no matter what you do. And frankly, Bob, your lock probably isn't all that great. Okay, neither is mine. Not yet. But now that it's published, people will suggest improvements. Students will do Ph.D. dissertations on making it better. Companies will compete to develop stronger versions. And long after your design has leaked, and instructions for picking it are all over the Internet, my vastly improved lock will be far more secure. Even though everybody will know how it works.
 
 Put another way, unlike many of its commercial counterparts for which obfuscation is a security staple, open source relies on inherently sound security practices to ensure that whatever you want to remain private, remains private.
@@ -46,12 +46,12 @@ Is there insecure PHP code out there? No doubt. I've seen it. Does that mean all
 
 Notes:
 
-1.  In simplified terms, if I have the variable $logged\_in in my page to store whether a user is logged in or not, and I don't first set it to false before checking, a visitor could go to mysite.com?logged\_in=true, and the page would erroneously think I was logged in. 
+1.  In simplified terms, if I have the variable $logged\_in in my page to store whether a user is logged in or not, and I don't first set it to false before checking, a visitor could go to mysite.com?logged\_in=true, and the page would erroneously think I was logged in.
 
 [1]: http://en.wikipedia.org/wiki/Fear,_uncertainty_and_doubt
 [2]: https://en.wikipedia.org/wiki/Halloween_documents
 [3]: #note-2020-1 "In simplified terms, if I have the variable $logged_in in my page to store whether a user is logged in or not, and I don't first set it to false before checking, a visitor could go to mysite.com?logged_in=true, and the page would erroneously think I was logged in."
-[4]: http://www.infoworld.com/d/open-source-software/report-open-source-tops-proprietary-code-in-quality-187169
+[4]: http://www.infoworld.com/article/2619181/open-source-software/report--open-source-tops-proprietary-code-in-quality.html
 [5]: http://www.commlawblog.com/2010/01/articles/unlicensed-operations-and-emer/fcc-changes-stance-on-opensource-security/
 [6]: https://twitter.com/#!/nacin/status/9753986051604480
 [7]: http://www.xconomy.com/boston/2008/03/07/delays-in-software-patch-pushed-security-firm-to-disclose-vmware-flaw/
