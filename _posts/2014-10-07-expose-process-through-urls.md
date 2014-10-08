@@ -7,7 +7,7 @@ If there's one thing that made the internet what it is, it's the URL. It's what 
 
 ## The humble URL
 
-There's a lot packed into that seemingly innocuous string at the top of your browser. At its most basic level, a URL is a promise that so long as they have that magical sequence of characters, anyone in the world can see exactly what you see. In technical terms, a URL or [Uniform Resource Locator](https://en.wikipedia.org/wiki/Uniform_resource_locator) is the means by which to access a resource. That resource can be anything from a product on Amazon.com to an individual Tweet on Twitter to a page in the Congressional Record. A URL is also, by definition, also a URI ([uniform resource identifier](http://en.wikipedia.org/wiki/Uniform_resource_identifier)), meaning no two things ever have the same URL. Put another way, if you have something's URL, you also have a unique way to identify it, today and in perpetuity. It gives your content a permanent home on the internet, our primary means of communication.
+There's a lot packed into that seemingly innocuous string at the top of your browser. At its most basic level, a URL is a promise that so long as they have that magical sequence of characters, anyone in the world can see exactly what you see. In technical terms, a URL or [Uniform Resource Locator](https://en.wikipedia.org/wiki/Uniform_resource_locator) is the means by which to access a resource. That resource can be anything from a product on Amazon.com to an individual Tweet on Twitter to a page in the Congressional Record. A URL is also, by definition, also a URI ([uniform resource identifier](https://en.wikipedia.org/wiki/Uniform_resource_identifier)), meaning no two things ever have the same URL. Put another way, if you have something's URL, you also have a unique way to identify it, today and in perpetuity. It gives your content a permanent home on the internet, our primary means of communication.
 
 ## Exposing process
 
@@ -19,7 +19,7 @@ We rarely use email for exactly that reason. It's not available to those not ori
 
 ## Where things go wrong
 
-If the fabric of the internet is so necessarily sewn with URLs, why then, do website, especially government websites, so often violate this sacred cyber-norm?
+If the fabric of the internet is so necessarily sewn with URLs, why then, do websites, especially government websites, so often violate this sacred cyber-norm?
 
 ### URLs don't require additional instructions
 
@@ -39,13 +39,13 @@ Regardless of the medium, one thing remains true: URLs don't require additional 
 
 The second way URL-less information is created is when the internet is relegated to an afterthought. Spoiler alert: the internet is here to stay. Whatever you're doing, whether it's running a city council meeting or starting a small business, if you don't take the internet into account when creating your workflows, it's going to be an uphill battle to get things online.
 
-Despite a fundamental shift in the way interact with technology (hint: the iPad is just five years old), many workflows haven't embraced this reality. If the first step in content creation is to fire up a desktop word processor that has margins and page breaks, you're already heading down an analog trajectory. And to then go back and adapt the content for the web is going to be a sub par experience for information publishers and consumers alike.
+Despite a fundamental shift in the way interact with technology (hint: the iPad is just five years old), many workflows haven't embraced this reality. If the first step in content creation is to fire up a desktop word processor that has margins and page breaks, you're already heading down an analog trajectory. And to then go back and adapt the content for the web is going to be a subpar experience for information publishers and consumers alike.
 
 Just as internal communication should prefer high-fidelity, electronic mediums in order capture and expose process, so too should external communication be treated with the same respect. A painter imagines the final masterpiece before ever touching brush to canvas. Whether exposed internally or with the public, great workflows start with the URL, in its ideal, non-PDF form, and work backwards to content creation.  
 
 ## Great URLs
 
-Having a digital-first workflow and a standards compliant website is a great first step, but to truly put content on a pedistal, great URLs take digital publication three steps further:
+Having a digital-first workflow and a standards compliant website is a great first step, but to truly put content on a pedestal, great URLs take digital publication three steps further:
 
   * **They're semantic** - URLs may be consumed by machines, but they are primarily built for humans. As such, [they should describe the thing they represent in human-readable, not just machine-readable terms](https://en.wikipedia.org/wiki/Semantic_URL). We've all looked to the top of our screen when browsing, only to discover `domain.com/index.php?page_id=23784` or a similar obscure database ID. Great URLs make it immediately clear what they represent. Just by seeing `ben.balter.com/2014/10/02/expose-process-through-urls` you immediately know (A) that this is an article, (B) who the author of that article is (C) when it was published, and (D) what it's about.
 
@@ -55,8 +55,8 @@ Having a digital-first workflow and a standards compliant website is a great fir
 
 ## Knowledge work as craft
 
-Whether you're an attorney, a civil servant, or a web developer, in today's digital world, if you don't make sprokets for a living, there's a good chance that you're a knowledge worker. Your deliverable at the end of each day, doesn't actually exist beyond magnetic patterns on a hard disk. Through meetings, discussions, and drafting, you create organizational knowledge in one form or another.
+Whether you're an attorney, a civil servant, or a web developer, in today's digital world, if you don't make sprockets for a living, there's a good chance that you're a knowledge worker. Your deliverable at the end of each day, doesn't actually exist beyond magnetic patterns on a hard disk. Through meetings, discussions, and drafting, you create organizational knowledge in one form or another.
 
-Just as blacksmiths know the value of an anvil, and bakers the value of yeast, so too must knowledge workers embrace the tools of their craft. A composer would never stand for his or her concierto being played on a kazoo. Why then, is content all-too-often created haphazardly, with its presentation and preservation being subject to the whims of organizational habbit?
+Just as blacksmiths know the value of an anvil, and bakers the value of yeast, so too must knowledge workers embrace the tools of their craft. A composer would never stand for his or her concerto being played on a kazoo. Why then, is content all-too-often created haphazardly, with its presentation and preservation being subject to the whims of organizational habit?
 
-The next time you begin a new project, adopt a high-fidelity, electronic medium that allows you to capture and expose process as a URL, today, and forever. Your content, your fellow knowledge workers, and the information's consumers deserves it.
+The next time you begin a new project, adopt a high-fidelity, electronic medium that allows you to capture and expose process as a URL, today, and forever. Your content, your fellow knowledge workers, and the information's consumers deserve it.
