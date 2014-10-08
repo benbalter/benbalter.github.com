@@ -73,4 +73,4 @@ Open source has traditionally [gotten a bad rap](http://ben.balter.com/2014/09/2
 
 If you haven't recently, take a closer look at open source. I think you'll be surprised. Find something small — a bug in the software that powers your website, a shared library used internally, or a tool used to facilitate your own workflows — and open source it. Government contractors may be stereotypically hesitant to embrace the latest industry trend, but open source is neither risky, nor a passing fad. Open source is here to stay.
 
-As young firms bring their open source experience to the marketplace, the only questions is whether existing government contracting firms will finally get ahead of, or continue to lag behind the technology adoption curve.
+As young firms begin to bring their open source experience to the marketplace, the only questions is whether existing government contracting firms will finally get ahead of, or continue to lag behind the technology adoption curve.
