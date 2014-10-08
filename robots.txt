@@ -1,5 +1,5 @@
 User-agent: *
+Disallow: /tag*
+Disallow: /tags*
 Allow: /
-Disallow: /tag/*
-Disallow: /tags/*
 Sitemap: http://ben.balter.com/sitemap.xml
