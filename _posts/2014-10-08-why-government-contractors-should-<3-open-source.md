@@ -13,7 +13,7 @@ Even a casual observer of the industry can see the direction things are heading.
 
 ### 2. The easy problems have already been solved
 
-As we same in open source software, the easy problems have already been solved. How to get information in and out of a database, how to stand up a blog, or how to convert tabular data between formats are all problems for which well-established open source solutions already exist. Why waste time reinventing the wheel when a better one already exists?
+As we say in open source software, the easy problems have already been solved. How to get information in and out of a database, how to stand up a blog, or how to convert tabular data between formats are all problems for which well-established open source solutions already exist. Why waste time reinventing the wheel when a better one already exists?
 
 In the government space, the decision becomes even more clear. The types of challenges government agencies face are not unique to the particular agency. A press release is a press release. A FOIA request is a FOIA request. And unlike say, Coke and Pepsi, where one's advantage affects the other's bottom line, when the Department of Commerce open sources a Drupal module, the Department of Energy benefits because they don't have to make the same upfront investment, taxpayers benefit because their tax dollars go further, and the Department of Commerce, by splitting subsequent development costs across agencies, will likely be better off in the long run, as others contribute improvements to the shared code.
 
@@ -27,19 +27,19 @@ Open source provides government contractors with the ability to build a portfoli
 
 ### 4. Attract and evaluate talent
 
-Potential customers aren't the only ones that can benefit from the software being public. Being an active member of the open source community allows the government contractor to become a known quantity, and to establish a reputation as a firm that supports open source software. You can't buy good will like that.
+Potential customers aren't the only ones that can benefit from the software being public. Being an active member of the open source community allows the government contractor to become a known quantity, and to establish a reputation as a firm that supports open source software. You can't buy goodwill like that.
 
-As the contractor seeks to attract tallent, by the time they step foot in the career fair, or post the job posting to their website, [the most passionate, talented developers in the space already knows who they are, already sees how they work, and already want to work for them](http://tom.preston-werner.com/2011/11/22/open-source-everything.html).
+As the contractor seeks to attract tllent, by the time they step foot in the career fair, or post the job posting to their website, [the most passionate, talented developers in the space already knows who they are, already sees how they work, and already want to work for them](http://tom.preston-werner.com/2011/11/22/open-source-everything.html).
 
-Better still, because open source is collaborative, there's a good chance you've already had a chance to evaluate the applicant. What better way to evaluate how the applicant would contribute to your organization's software, than to be able to evaluate them as they contribute to your organization's software over the lifecycle of an open source project. At GitHub, for example, we're already familiar with many of the developers we hire, well before a resume ever changes hands.
+Better still, because open source is collaborative, there's a good chance you've already had an opportunity to evaluate the applicant. What better way to evaluate how the applicant would contribute to your organization's software, than to be able to evaluate them as they contribute to your organization's software over the lifecycle of an open source project. At GitHub, for example, we're already familiar with many of the developers we hire, well before a resume ever changes hands.
 
-Open source provide government contractors with a platform to establish a brand among the industry's most commited developers, to attract that same talent, and to evaluate how they'd work, all without spending a single dollar on recruitment.
+Open source provide government contractors with a platform to establish a brand among the industry's most committed developers, to attract that same talent, and to evaluate how they'd work, all without spending a single dollar on recruitment.
 
 ### 5. Guaranteed maintenance
 
 There are two big buckets of IT contracts: software development, and operations and maintenance. Traditional software development contracts are often a large, firm-fixed price, agreed upon up front, but once the software is delivered, the revenue stream may dry up depending on whether the agency chooses to invest further in the project by building out additional features.
 
-With open source, there's always a built in maintenance component. Once open sourced, agencies will require someone with the technical know how to foster a community around the code, evaluate proposed changes, and answer questions in the support forums, rather than let the project dry up and die on the vine. Whereas an agency may choose not to develop new features, once in the hands of the community, there's a high probability it will be improved upon for a particular use case or that bugs will surface. Most agencies don't have that expertise in house, and are increasingly turning to industry partners to maintain the day-to-day operations of the project.
+With open source, there's always a built in maintenance component. Once open sourced, agencies will require someone with the technical knowhow to foster a community around the code, evaluate proposed changes, and answer questions in the support forums, rather than let the project dry up and die on the vine. Whereas an agency may choose not to develop new features, once in the hands of the community, there's a high probability it will be improved upon for a particular use case or that bugs will surface. Most agencies don't have that expertise in-house, and are increasingly turning to industry partners to maintain the day-to-day operations of the project.
 
 Rather than being a one-off engagement, open source provides government contractors to establish long-term maintenance and engagement contracts, and to advise the agency on open-source best practices throughout the lifecycle of the project.
 
