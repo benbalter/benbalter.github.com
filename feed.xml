@@ -20,7 +20,7 @@ json: false
 <channel>
     <title xml:lang="en">{{ site.name }}</title>
     <atom:link type="application/atom+xml" href="{{ url_base }}/feed/" rel="self"/>
-    <link>{{ url_base }}</link>
+    <link data-proofer-ignore="true">{{ url_base }}</link>
     <pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
     <lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
    	<language>en-US</language>
