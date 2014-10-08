@@ -15,7 +15,7 @@ Open source licenses are a straight-forward intelectual property license with on
 
 * Disclaimer of implied warranties such as the warranties of merchantability or fitness for a particular purpose and other limitations on liability.
 
-* A requirement that the original copyright notice, the license itself, or both be included in any redistributed software.
+* A requirement that attribution to the author, the license name, or both be included in any redistributed software.
 
 * Instructions on how to properly mark the code itself for distribution under the license.
 
@@ -25,9 +25,9 @@ Some licenses may also include:
 
 * A patent grant from contributors to downstream consumers.
 
-* The require that any changes to the original software be described when distributed.
+* The requirement that any changes to the original software be described when distributed.
 
-* Different requirements depending on whether the software is distributed in its original, human-readable form, or its compiled (binary), machine-readable form.
+* Changing requirements depending on whether the software is distributed in its original, human-readable form, or its compiled (binary), machine-readable form.
 
 #### Why standardized licenses
 
