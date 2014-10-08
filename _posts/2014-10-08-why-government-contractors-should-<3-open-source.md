@@ -1,5 +1,5 @@
 ---
-title: "Eight reasons why government contractors should embrace open source"
+title: "Eight reasons why government contractors should embrace open source software"
 excerpt: "Government contractors have traditionally been slow to embrace open source software. Here's why government contractors are embracing open source with increasing frequency."
 ---
 
