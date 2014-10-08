@@ -3,11 +3,13 @@ title: "Everything a government attorney needs to know about open source softwar
 excerpt: "A high-level overview to highlight common legal issues government agencies may face when participating in the open source community "
 ---
 
-Government agencies can and should participate in the open source community. Open source software is more than simply software for which the underlying human-readable code had been made available to the public. Along with the code comes an intelectual property license grant, a legal framework which government agencies are embracing with increasing frequency. Here are some common legal issues to look out for:
+Government agencies can and should participate in the open source community. Open source software is [more than simply software for which the underlying human-readable code had been made available to the public](http://ben.balter.com/2012/10/15/open-source-is-not-a-verb/). Along with the code comes [an intelectual property license grant](http://opensource.org/osd), a legal framework which government agencies are embracing with increasing frequency. Here are some common legal issues to look out for:
+
+*Note: this is an early draft. If you notice anything wonky, please [help improve it](https://github.com/benbalter/benbalter.github.com/edit/master/_posts/2014-10-08-open-source-licensing-for-government-attorneys.md).*
 
 ### Open source licenses generally
 
-Open source licenses are a straight-forward intelectual property license with one unique feature: they're standardized. The software industry has adopted approximately fifteen mainstream and three primary licenses. While the wording and specific terms vary, most licenses have the following common clauses:
+Open source licenses are a straight-forward intelectual property license with one unique feature: [they're standardized](http://opensource.org/licenses/category). The software industry has [adopted approximately fifteen mainstream](http://choosealicense.com/licenses/) and [three primary licenses](http://choosealicense.com/). While the wording and specific terms vary, most licenses have the following common clauses:
 
 * An explicit grant to use, copy, modify, redistribute, sublicense, or sell the software.
 
@@ -37,11 +39,11 @@ Unless absolutely required, avoid custom, modified, or non-standard terms, which
 
 Within the software industry, the canonical source for most main licenses, along with a brief overview of their terms can be found at [choosealicense.com](http://choosealicense.com). The three most popular licenses are the MIT, Apache, and GPL licenses:
 
-* **MIT** - The most common license is the MIT license, which is a simple grant, copyright notice requirement, and disclaimer of warranty.
+* **[MIT](http://choosealicense.com/licenses/mit/)** - The most common license is the MIT license, which is a simple grant, copyright notice requirement, and disclaimer of warranty.
 
-* **Apache** - The Apache license is functionally equivalent to the MIT license, but is more heavily lawyered and includes an explicit patent grant
+* **[Apache](http://choosealicense.com/licenses/apache-2.0/)** - The Apache license is functionally equivalent to the MIT license, but is more heavily lawyered and includes an explicit patent grant
 
-* **GPL** The GPL is the most commonly used copyleft license, with v2, v3, and "v2 or later" variants.
+* **[GPL](http://choosealicense.com/licenses/gpl-2.0/)** The GPL is the most commonly used copyleft license, with v2, v3, and "v2 or later" variants.
 
 #### Copyleft
 
@@ -75,7 +77,7 @@ Code created by government employees on government time is consider a government
 
 The internet, and thus open source, however, is not bound by geographic lines. It is not uncommon for government created code to be used by foreign citizens. As such, the agency should make it explicit under what terms foreign citizens can use the code.
 
-Best practices suggest that agencies release their code under [the Creative Commons Zero license](#), a public domain dedication and copyright disclaimer, to ensure all downstream users receive the same rights in the software. Where not possible, (e.g., a copyleft derivative work), prefer the least-restrictive terms possible.
+[Best practices suggest](https://github.com/project-open-data/project-open-data.github.io/pull/135#issuecomment-23299819) that [agencies release their code](https://github.com/cfpb/qu/pull/94) under [the Creative Commons Zero license](https://creativecommons.org/publicdomain/zero/1.0/), a public domain dedication and copyright disclaimer, to ensure all downstream users receive the same rights in the software. Where not possible, (e.g., a copyleft derivative work), prefer the least-restrictive terms possible.
 
 #### Contractor created code
 
@@ -113,7 +115,9 @@ For platforms like GitHub, per the terms of service, government employees should
 
 ### Go forth and open source
 
-This is a high-level overview intended to highlight common legal issues agencies may face when participating in the open source community, and should not be consider to be legal advice or specific to a particular matter. Although this is my personal blog, agencies should feel free to contact <government@github.com> or post in the [github.com/government](https://github.com/government) peer group with any open-source related questions.
+This is a high-level overview intended to highlight common legal issues agencies may face when participating in the open source community, and should not be consider to be legal advice or specific to a particular matter.
+
+Although this is my personal blog, agencies should feel free to contact <government@github.com> or post in the [github.com/government](https://github.com/government/welcome) peer group with any open-source related questions.
 
 ---
 
