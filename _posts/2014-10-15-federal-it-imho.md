@@ -13,7 +13,7 @@ I was fortunate enough to be part of the small teams the drafted the White House
 
 ### Industry-standard practices as policy
 
-On a substantive level, the bulk of the policies we've seen have, by-and-large, taken basic assumption on how the open source community approaches software development (open standards, shared tools, lean workflows), and codifies them into law. It's an uphill battle, for sure, but there are two areas where we should start to see movement:
+On a substantive level, the bulk of the policies we've seen have, by-and-large, taken a basic assumption on how the open source community approaches software development (open standards, shared tools, lean workflows), and codifies them into law. It's an uphill battle, for sure, but there are two areas where we should start to see movement:
 
 1. **Culture and education** - We can't run the government of the 21st century with [20th century skills and workflows](http://ben.balter.com/2014/03/21/want-to-innovate-in-government-focus-on-culture/), and the way to get there is to cross-pollinate life in government with life outside the beltway. Attending non-government technology conferences, speaking freely about one's work (both online and off) without stringent approval requirements, and streaming best-of-breed technologists from the private sector across government for an hour each week to simply show how they approach basic things like deployment, customer service, or managing risk will go a long way to bridge that divide.
 
