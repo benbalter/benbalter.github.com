@@ -23,7 +23,7 @@ Slides (and recordings) from some of the talks I've given over the years. Have a
 
 * [What open source teaches us about government](https://www.youtube.com/watch?v=Owq6K79ZBy8) (video)
 
-* [Open sourcing government: how open collaboration is reimaging the way government works](http://ben.balter.com/open-sourcing-government/) ([source](https://github.com/benbalter/open-sourcing-government/))
+* [The revolution will be forked: how open collaboration is reimaging the way government works](http://ben.balter.com/open-sourcing-government/) ([source](https://github.com/benbalter/open-sourcing-government/))
 
 * [Make Government better together: Moving from open government to collaborative government](http://ben.balter.com/make-government-better-together/) ([source](https://github.com/benbalter/make-government-better-together/))
 
