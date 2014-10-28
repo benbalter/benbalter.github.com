@@ -13,7 +13,7 @@ Use the term "open source" in government, especially around those that wear a su
 
 ### Why does it matter if GitHub has one?
 
-From the outside looking in, the government speaks a very different language and transacts business very differently than the rest of the world. What you and I might call "*a website*", an agency, when writing a procurement document, might call that same collection of code a "*scallable, cross-platform, digital public engagement platform*". Unfortunately, Google Translate hasn't yet figured out how to translate between "government" and "geek".
+From the outside looking in, the government speaks a very different language and transacts business very differently than the rest of the world. What you and I might call "*a website*", an agency, when writing a procurement document, might call that same collection of code a "*scalable, cross-platform, digital public engagement platform*". Unfortunately, Google Translate hasn't yet figured out how to translate between "government" and "geek".
 
 Government agencies had been using to GitHub prior to the role's creation, but whereas a private-sector firm might simply type in their credit card number to upgrade their account to a $25 subscription, those same transactions in government require a certain level of white-glove support. Custom terms of service need to be negotiated (government employees can't simply click "sign up"), new billing mechanisms need to be developed (subscription services can violate the Anti-Deficiencies Act), and government-specific resources need to be curated (misinterpretations of government security and privacy frameworks can render open source a forbidden venture).
 
