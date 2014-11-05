@@ -1,27 +1,25 @@
 ---
-title: "N rules for communicating at GitHub"
+title: "Fifteen rules for communicating at GitHub"
 excerpt: "Asycronous communication through high-fidelity mediums like issues and chat illimate the indemic \"you had to be there\" aspect of most corporate workflows, and reduces the need for a dedicated management class to capture, collection, and shuttle information back and forth between business units."
 ---
 
-At GitHub, we have a very specific way of working. For one, we use GitHub to build GitHub. Not just for code, but for things like Legal, Marketing, and internal policies. But it's not that the medium defines the workflow (although it helps), in fact, it's the other way around.
+At GitHub, we have a very specific way of working. For one, we use GitHub to build GitHub. Not just for code, but to collaborate on things like Legal, Marketing, and internal policies. But it's not that the medium that defines the workflow (although it certanly helps), in fact, it's the other way around.
 
-GitHub's communication style can be summed up in one word: asycronous. Much of this is defined by the workflows of the open source community, where many of us got our start, but part of it, as a distributed company, is out of necessity. Like open source, rarely are two people in the same place at the same time, working on the same thing at the same time. Yet as in the case of Wikipedia versus Encycleopedia Britanica, distributed workflows produce better results than their traditional counterparts, and I'd argue that life is better for those involved, as a result.
+GitHub's communication style can be summed up in one word: asycronous. Much of this is defined by the workflows of the open source community, where many of us got our start, but part of it, as a distributed company, is out of necessity. Like open source, rarely are two people in the same place at the same time, working on the same thing at the same time. Yet as in the case of Wikipedia versus Encycleopedia Britanica, distributed workflows produce better results than their traditional counterparts, and I'd argue that every day quality of life is better for those involved, as a result.
 
 Asycronous communication through high-fidelity mediums like issues and chat illimate the indemic "you had to be there" aspect of most corporate workflows, and reduces the need for a dedicated management class to capture, collection, and shuttle information back and forth between business units.
 
-It's more than just tools. In fact, I'd argue, it's primarily about culture. Here's ___ "rules", that I think embody the intangible in how we approach communication at GitHub.
+It's more than just tools. In fact, I'd argue, it's primarily about culture. Here's 15 "rules", that  reprsent the intangible in how we approach communication at GitHub:
 
 ### 1. Prefer asynchronous communication
 
-As @holman writes, *"Chat is inherently asycronous; tapping someone on the shoulder is inherently being a jerk."*
-
-Knowledge workers, especially those in the technology industry are most productive when they have large blocks of uninterrupted time. A two hour block is not fungible with four thirty minute blocks. Think about it practically: Developers store a large sections of the code base in their head when they work. Designers have a vision they're trying to express on paper or in CSS. Unlike say, working on an assembly line, when knowledge work is interrupted, intentional or not, whether a popup, a meeting, or a "hey, you got a sec?" drive by, there's a significant switching cost to get back to where you were. Think about it like needing to put on gym clothes, fill your water bottle, and grab your iPad before you head to the gym.
+As @holman [writes](#), *"Chat is inherently asycronous; tapping someone on the shoulder is inherently being a jerk."* Knowledge workers, especially those in the technology industry are most productive when they have large blocks of uninterrupted time. A two hour block is not fungible with four thirty minute blocks. Think about it practically: Developers store a large sections of the code base in their head when they work. Designers have a vision they're trying to express on paper or in CSS. Unlike say, working on an assembly line, when knowledge work is interrupted, intentional or not, whether a popup, a meeting, or a "hey, you got a sec?" drive by, there's a significant switching cost to get back to where you were. Think about it like needing to put on gym clothes, fill your water bottle, and grab your iPad before you head to the gym.
 
 In practice, this means that you essentially *never* "walk over" to a coworker's desk, virtual or otherwise. Whenever possible, prefer issues and chat, to "just in time" communications. And there's an added bonus: Asycronous mediums necessitate a distributed workflow. There's no "you had to be there", when "there", is online and anytime.
 
 ### 2. Don't underestimate high-fidelity mediums
 
-High fidelity, synchronous mediums like meatspace, Hangouts, or even chat are extremely valuable, when used correctly. In many workplace cultures, synchronous meetings are the default, and are often used to either make (or worse, communicate) decisions, two goals that are better achieved by non-evented means. What are the latest sales numbers? Create a blog post. Which design should we choose? Open a pull request and show me. Reserve such high-fidelty mediums for things that simply can't be accomplished by lower fidelity means.
+High fidelity, synchronous mediums like meatspace, Hangouts, or chat are extremely valuable, when used correctly. In many workplace cultures, synchronous meetings are the default, and are often used to either make (or worse, communicate) decisions, two goals that are better achieved by non-evented means. What are the latest sales numbers? Create a blog post. Which design should we choose? Open a pull request and show me. Reserve such high-fidelty mediums for things that simply can't be accomplished by lower fidelity means.
 
 In practice, this can come in three primary forms:
 
@@ -53,7 +51,7 @@ In practice, that means three things:
 
 2. **Only comment if you have something to add to the discussion** - It's one thing to indicate that you've taken the time to review a proposed change and give it a thumbs up, but adding a vanilla :+1: to a thread that already has 10 :+1:'s, doesn't really do much to advane the project. Unless what you're posting moves the issue closer to resolution or the pull request closer to merge, don't hit the green button. Just don't do it.
 
-3. **Always provide context** - Context switching costs are non-trivial. Curteous collaborators provide teammates with the necessary context to get up to speed on a discussion, and ecide what, if any action they need to take. This is especially important when ccing a team. In the same comment that brings them into the discussion, minimize the cognitive burden on their part, and make it clear exactly what is being asked of them.
+3. **Always provide context** - Context switching costs are non-trivial. Curteous collaborators provide teammates with the necessary context to get up to speed on a discussion, and decide what, if any action they need to take. Pull requests titled "a few edits" or "minor improvements" do the exact oposite. This is especially important when ccing a team. In the same comment that brings them into the discussion, minimize the cognitive burden on their part, and make it clear exactly what is being asked of them.
 
 ### 6. Use checklists to make blockers explicit
 
@@ -91,17 +89,30 @@ In practice, this may mean submitting pull requests that you immediately self-me
 
 ### 11. Secrets, secrets, are no fun
 
-Email is a terrible, terrible collaboration medium. There's no opt-in or opt-out mechanisms, no ability to link to or cross-reference discussions, and conversation history lives in a teammate's person inbox — when they leave so too does the context. Use email sparingly, and only when issues or chat, exposed to the company, would be inappropriate for the conversation. Put another way, email is for sensitive conversations.
+Email is a terrible, terrible collaboration medium, and an even worse mechanism for storing organizational knowledge. There's no opt-in or opt-out mechanisms, no ability to link to or cross-reference discussions, and conversation history lives in a teammate's person inbox — when they leave so too does the context. Use email sparingly, and only when issues or chat, exposed to the company, would be inappropriate for the conversation. Put another way, email is for sensitive conversations.
 
-In practice, that means email is typically reserved only for things like personel discussions, one-to-one feedback, and external communication. If you can have the conversation in a better medium, you should.
+In practice, that means email is typically reserved only for things like personel discussions, one-to-one feedback, and external communication. The same goes for other mediums (like phone calls) that don't automatically capture and surface context. If you can have the conversation in a better medium, you should.
 
-### 12. Don't ping, just ask
+### 12. Surface work early for feedback
+
+Code speaks louder than words. If you have an idea, timebox a small amount of time, mock up a proof of concept or prototype, and spike out a work-in-progress pull request. This process replaces the role traditionally filled my meetings in many cultures.
+
+In practice, that means opening a pull request against the relevant project, and prepending "WIP:" to the title. Is this a good idea? A terrible one? The wrong approach? Get early feedback from your coworkers, and iterate openly. The final product will be better as a result.
+
+### 13. If you can't diff it, don't use it
+
+Pull requests, and thus diffs is at the core of our workflow. Whether the change is to code, configuration, or prose text, being able to see exactly what is proposed, on an extremely granular level, without the need to download special software or leave my browser is key. If I can't see what you're proposing, there's no way for us to have a discussion about its merrits.
+
+In practice, that means, as early as the drafting stage, prefering formats like Markdown and CSV over proprietary or binary formats like Word or Excel. Open formats not only allow for diffing, but also facilitate targeted discussions through line-by-line commenting. When that's not possible, e.g., when making tweaks to a site's design, provide before and after screenshots within the pull request body to minimuze the burden on reviewers.
+
+### 14. Pull requests are community property
+
+As soon as you hit the big green "submit pull request" button, your code is no longer your baby. The bird has left the nest. You're still primarily responsible for its success, and for seeing that it's eventually merged into `master`, but that primarily involves facilitating a discussion that allows stakeholders to reach a general consensus, not advocating for "your" contribution.
+
+In practice, that means, at minimum, that it's bad form to title a pull request "@benbalter's edits", but more broadly, it relegates you to the role of gracious host, answering questions, implementing suggestions, and ensuring that necessary teams are invovled. At GitHub, we primarily use branch-to-branch pull requests within the same repository, so don't be surprised if someone else jumps in and politely pushes a commit or two.
+
+### 15. Don't ping, just ask
 
 There's a stubborn chat anti-pattern, where all chat conversations sparked by a question must begin by the asker rallying an initial "PING". Not only is this rude (would you do that IRL?), but it defeats the purpose of chat: asycronisity. Don't ping your colleague's. Just ask the question. They'll know you have sometime to say, by virtue of the fact that you just said it, and can respond on their schedule, not yours.
 
 In practice, most chat programs let you mention a user by name at the start of a message to trigger a notification on their end. Push them the question, not just the notification. But you can take that a step further. There's a good chance someone else in the room just saw your question, and is also able to answer it (because you've exposed it to the entire team). That's the beauty of distributed teams.
-
-### Pull requests are community property
-
-
-### Surface work early for feedback
