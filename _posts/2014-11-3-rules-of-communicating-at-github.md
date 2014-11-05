@@ -3,13 +3,13 @@ title: "Fifteen rules for communicating at GitHub"
 excerpt: "Asycronous communication through high-fidelity mediums like issues and chat illimate the indemic \"you had to be there\" aspect of most corporate workflows, and reduces the need for a dedicated management class to capture, collection, and shuttle information back and forth between business units."
 ---
 
-At GitHub, we have a very specific way of working. For one, we use GitHub to build GitHub. Not just for code, but to collaborate on things like Legal, Marketing, and internal policies. But it's not that the medium that defines the workflow (although it certanly helps), in fact, it's the other way around.
+At GitHub, we have a very specific way of working. For one, we use GitHub to build GitHub. Not just for code, but to collaborate on things like Legal, Marketing, and internal policies. But it's not that the medium that defines the workflow (although it certainly helps), in fact, it's the other way around.
 
-GitHub's communication style can be summed up in one word: asycronous. Much of this is defined by the workflows of the open source community, where many of us got our start, but part of it, as a distributed company, is out of necessity. Like open source, rarely are two people in the same place at the same time, working on the same thing at the same time. Yet as in the case of Wikipedia versus Encycleopedia Britanica, distributed workflows produce better results than their traditional counterparts, and I'd argue that every day quality of life is better for those involved, as a result.
+GitHub's communication style can be summed up in one word: asynchronous. Much of this is defined by the workflows of the open source community, where many of us got our start, but part of it, as a distributed company, is out of necessity. Like open source, rarely are two people in the same place at the same time, working on the same thing at the same time. Yet as in the case of Wikipedia versus Encycleopedia Britanica, distributed workflows produce better results than their traditional counterparts, and I'd argue that every day quality of life is better for those involved, as a result.
 
-Asycronous communication through high-fidelity mediums like issues and chat illimate the indemic "you had to be there" aspect of most corporate workflows, and reduces the need for a dedicated management class to capture, collection, and shuttle information back and forth between business units.
+Asynchronous communication through high-fidelity mediums like issues and chat eliminate the endemic "*you had to be there*" aspect of most corporate workflows, and reduces the need for a dedicated management class to capture, collection, and shuttle information back and forth between business units. You could have the best tools in the world, but without the necessary social norms, you're setting yourself up for failure.
 
-It's more than just tools. In fact, I'd argue, it's primarily about culture. Here's 15 "rules", that  reprsent the intangible in how we approach communication at GitHub:
+Culture's inherently hard to define, but here's 15 "rules", that represent the intangible in how we approach communication at GitHub:
 
 ### 1. Prefer asynchronous communication
 
@@ -19,7 +19,7 @@ In practice, this means that you essentially *never* "walk over" to a coworker's
 
 ### 2. Don't underestimate high-fidelity mediums
 
-High fidelity, synchronous mediums like meatspace, Hangouts, or chat are extremely valuable, when used correctly. In many workplace cultures, synchronous meetings are the default, and are often used to either make (or worse, communicate) decisions, two goals that are better achieved by non-evented means. What are the latest sales numbers? Create a blog post. Which design should we choose? Open a pull request and show me. Reserve such high-fidelty mediums for things that simply can't be accomplished by lower fidelity means.
+High fidelity, synchronous mediums like meatspace, Hangouts, or chat are extremely valuable, when used correctly. In many workplace cultures, synchronous meetings are the default, and are often used to make (or worse, communicate) decisions, two goals that are better achieved by non-evented means. What are the latest sales numbers? Create a blog post. Which design should we choose? Open a pull request and show me. Reserve such high-fidelty mediums for things that simply can't be accomplished by lower fidelity means.
 
 In practice, this can come in three primary forms:
 
@@ -29,33 +29,39 @@ In practice, this can come in three primary forms:
 
 3. **Small talk and gossip** - In a distributed company, you need a distributed water cooler. How's your son's softball team doing this season? Did you get a haircut? Check in often to ensure your coworkers are human (and you know them as such).
 
-### 3. Nobody gets fired for ~~buying IBM~~ opening an issue
+### 3. Nobody gets fired for <del>buying IBM</del> opening an issue
 
-Have a question? Open an issue. Have an idea? Open an issue. Notice something's a bit wonky? You guessed it, open an issue. Issues are cheap. They cost seconds to create, and even if duplicative, are closed just as easily. Issues start conversations, surface alternate points of view, and most importantly, crate permanent, searchable, and linkable records of internal discussions, even if the answer ultimately landed on was "wontfix".
+Have a question? Open an issue. Have an idea? Open an issue. Notice something's a bit wonky? You guessed it, open an issue. Issues are cheap. They cost seconds to create, and even if duplicative, are closed just as easily. Issues start conversations, surface alternate points of view, and most importantly, crate permanent, searchable, and linkable records of internal discussions, even if the answer ultimately landed on is "wontfix".
 
-In practice, there's are some nuances. For one, search before you open an issue. Opening an issue that's already been reported is a great way to find yourself embarrassed among your colleagues. At the same time, opening an issue comes with some expectations on your part. Whether technical or not, be sure to document what you'd expect, what happened, and give others enough context to get on the same page. Last, it goes without saying, issues are constructive criticism. Anything short of such is just complaining.
+In practice, there are some nuances:
+
+1. **Search before you open an issue** - Opening an issue that's already been reported is a great way to find yourself embarrassed among your colleagues.
+
+2. **Provide context** - Opening an issue comes with some expectations on your part. Whether technical or not, be sure to document what you'd expect, what happened, and give others enough context to get on the same page.
+
+3. **Issues are constructive criticism** - Anything short of such is just complaining.
 
 ### 4. Copy teams, not team members
 
-When in doubt, copy all relevant teams ("stakeholders" in biz-speak). Note though, that doesn't mean copy individual team members. Whenever I'm getting mentioned by name on issues a lot (or am frequently mentioning the same colleague), that's a red flag that I'm setting us up for a single point of failure. Humans tend to do silly things like get sick, sleep at night, or heck, even take a day off every once in a while. Whenever possible, mention teams, not individuals, to distribute responsibility and situational awareness.
+When you open an issue or pull request, you have an obligation to copy all relevant teams ("stakeholders" in biz-speak). Note though, that doesn't mean copy individual team members. Whenever I'm getting mentioned by name on issues a lot (or am frequently mentioning the same colleague), that's a red flag that I'm setting us up for a single point of failure. Humans tend to do silly things like get sick, sleep at night, or heck, even take a day off every once in a while. Whenever possible, mention teams, not individuals, to distribute responsibility and situational awareness.
 
 In practice, that means creating a lot of niche teams (we have teams for affinities as small as grammar nerds), but if people can freely associate, the teams will populate quickly. That also means, that when you're mentioned by name, it's your responsibility to CC the relevant team(s). OP will eventually take the hint.
 
 ### 5. Be mindful of noise
 
-A comment on an issue may take 20 seconds to read, from the time the notification is recieved, the page loads, the reader gains the necessary context, and a decision is made as to what action, if any is necessary on their part. If there are 50 people subscribed to the thread or mentioned, you've just spent more than 15 minutes of company's collective time.
+A comment on an issue may take 20 seconds to read, from the time the notification is recieved, the page loads, the reader gains the necessary context, and a decision is made as to what action, if any is necessary on their part. If there are 50 people subscribed to the thread or mentioned, you've just spent more than 15 minutes of company's collective time. Was it worth it?
 
 In practice, that means three things:
 
 1. **Avoid drive-by opinions** - Assume for a moment that you have a potential say in everything your company does. What issues can you contribute the most to? Have the most impact on? Affect your role most directly? Think twice before providing your opinion on issues fringe to your area of expertise, especially when you don't have the full context, or aren't willing to follow through yourself to do what's necessary.
 
-2. **Only comment if you have something to add to the discussion** - It's one thing to indicate that you've taken the time to review a proposed change and give it a thumbs up, but adding a vanilla :+1: to a thread that already has 10 :+1:'s, doesn't really do much to advane the project. Unless what you're posting moves the issue closer to resolution or the pull request closer to merge, don't hit the green button. Just don't do it.
+2. **Only comment if you have something to add to the discussion** - It's one thing to indicate that you've taken the time to review a proposed change and give it a thumbs up, but adding a vanilla :+1: to a thread that already has 10 :+1:'s, doesn't really do much to advance the project. Unless what you're posting moves the issue closer to resolution or the pull request closer to merge, don't hit the green button. Just don't do it.
 
-3. **Always provide context** - Context switching costs are non-trivial. Curteous collaborators provide teammates with the necessary context to get up to speed on a discussion, and decide what, if any action they need to take. Pull requests titled "a few edits" or "minor improvements" do the exact oposite. This is especially important when ccing a team. In the same comment that brings them into the discussion, minimize the cognitive burden on their part, and make it clear exactly what is being asked of them.
+3. **Always provide context** - Context switching costs are non-trivial. Courteous collaborators provide teammates with the necessary context to get up to speed on a discussion, and decide what, if any action they need to take. Pull requests titled "a few edits" or "minor improvements" do the exact oposite. This is especially important when ccing a team. In the same comment that brings them into the discussion, minimize the cognitive burden by absorbing the complexity on their behalf, and make it explicit what is being asked of them.
 
 ### 6. Use checklists to make blockers explicit
 
-In biz speak, we call them "action items". In GitHub speak, we call them task lists. The intent is the same: make it explicit what needs to be done, and who's responsible for doing what. Curating an up-to-date task list at the top of an issue is a great way to clear up long or complex issues, or to create meta-issues to track large projects.
+In biz speak, we call them "action items". In GitHub speak, we call them task lists. The intent is the same: make it explicit what needs to be done, and who's responsible for doing what. Curating an up-to-date task list at the top of an issue is a great way to clear up long or complex issues, or to create meta-issues for track large, multi-issue projects.
 
 In practice, link to relevant issues, describe the task, and who's responsible. If you use [the proper syntax](#), GitHub will render the task lists as checkable tasks, and various views will automatically show their completion.
 
@@ -65,21 +71,27 @@ There's one simply rule for issues: don't close them until they're resolved. The
 
 In practice, that may mean two things:
 
-1. Issue titles should contain at least one verb. A page from the [Getting Things Done](#) playbook, if issues are organizational todos, then issue titles (the thing todo), should contain at least one verb to ensure it's something the organization can act on.
+1. **Issue titles should contain at least one verb** - A page from the [Getting Things Done](#) playbook, if issues are organizational todos, then issue titles (the thing todo), should contain at least one verb to ensure it's something the organization can act on.
 
-2. Issues may stay open for months, even years, before they're closed. That's okay. Having a long tail of issues (if properly pruned and organized), is a halmark of a strong project.
+2. **Don't close issues prematurely** - Issues may stay open for months, even years, before they're closed. That's okay. Having a long tail of issues (if properly pruned and organized), is a halmark of a strong project.
 
 ### 8. Master the gentle bump
 
-We're all busy. Sometimes things get past us. Sometimes we don't care about things, or want to give others space to weigh in. If a pull request has been open for a sufficient amount of time, and a relevant stakeholder was mentioned and hasn't weighed in (or has an action item that he or she hasn't completed), gently bump the thread. Yes, the entire thread. Public shaming goes a long way (or someone else will jump in for them).
+We're all busy. Sometimes things get past us. Sometimes we don't care about things, or want to give others space to weigh in. If a pull request has been open for a sufficient amount of time, and a relevant stakeholder was mentioned and hasn't weighed in (or has an action item that he or she hasn't completed), gently bump the thread. Yes, the entire thread. Public shaming goes a long way (or someone else will jump in on their behalf).
 
-In practice, there's a reason it's called the "gentle" bump, and not the obnoxious bump. Be sincere, explicit, and charming. "@benbalter, the gentlist of bumps on this. Have two minute to take a look at this error? :smile:". There's also an art to knowing your coworkers, how your organization works, and simply taking it upon yourself to hit that big green button. Often, that's a sign that you've just inherited a new responsibility, so merge wisely.
+In practice, there's a few reasons it's called the "gentle" bump:
+
+1. **It's not the obnoxious bump** - Be sincere, explicit, and charming. "@benbalter, the gentlist of bumps on this. Have two minute to take a look at this error? :smile:". You're goal is to make sure that they are aware of the ask, not to trample their right to manage their own time.
+
+2. **No news isn't good news** - If you've proposed an idea or change and haven't heard back despite repeated attempts to solicit feedback, it may be time to take the hint. If your colleagues aren't opinionated enough to even comment on the proposal, chance are, it's not the next big thing.
+
+3. **An implicit promotion** - There's also an art to knowing your coworkers, how your organization works, and simply taking it upon yourself to hit that big green button. Often, that's a sign that you've just inherited a new responsibility, so merge wisely.
 
 ### 9. Keep discussions logically distinct
 
-The great thing about issues and pull requests, in contrast to say, email, is that they can be broken apart when topics diverge. This keeps teams focused on :ship:ing one thing and only one thing at a time. Additionally, descrete topics minimize unecessary noise and optimzie for fast decision making by ensuring only the most releveant teams are involved.
+The great thing about issues and pull requests, in contrast to say, email, is that they can be bifurcated  when topics diverge. This keeps teams focused on :ship:ing one thing and only one thing at a time. Additionally, discrete topics minimize necessary noise and optimize for fast decision making by ensuring only the most relevant teams are involved.
 
-In practice, that means discussions should have one purpose, defined by the title at the top of the page. When a concern not directly related to the threads purpose arises through the course of the discussion, as they often do, open a new issue and encourage participants to continue the discussion there, or if you see a teammate hijacking the dicussion, do the same on their behalf.
+In practice, that means discussions should have one purpose, defined by the title at the top of the page. When a concern not directly related to the thread's purpose arises through the course of the discussion, as they often do, open a new issue and encourage participants to continue the discussion there, or if you see a teammate hijacking the discussion, do the same on their behalf. If it's a blocker, note it as such, and move on.
 
 ### 10. There's only one way to change something
 
@@ -95,15 +107,15 @@ In practice, that means email is typically reserved only for things like persone
 
 ### 12. Surface work early for feedback
 
-Code speaks louder than words. If you have an idea, timebox a small amount of time, mock up a proof of concept or prototype, and spike out a work-in-progress pull request. This process replaces the role traditionally filled my meetings in many cultures.
+Code speaks louder than words. If you have an idea, time box a small amount of time, mock up a proof of concept or prototype, and spike out a work-in-progress pull request. This process replaces the role traditionally filled by meetings in many corporate cultures.
 
-In practice, that means opening a pull request against the relevant project, and prepending "WIP:" to the title. Is this a good idea? A terrible one? The wrong approach? Get early feedback from your coworkers, and iterate openly. The final product will be better as a result.
+In practice, that means opening a pull request against the relevant project, and prepending "WIP:" to the title. Is this a good idea? A terrible one? The wrong approach? Get early feedback from your coworkers, and iterate openly (or scrap it). The final product will be better as a result.
 
 ### 13. If you can't diff it, don't use it
 
-Pull requests, and thus diffs is at the core of our workflow. Whether the change is to code, configuration, or prose text, being able to see exactly what is proposed, on an extremely granular level, without the need to download special software or leave my browser is key. If I can't see what you're proposing, there's no way for us to have a discussion about its merrits.
+Pull requests, and thus diffs are at the core of our workflow. Whether the change is to code, configuration, or prose text, being able to see exactly what's proposed, on an extremely granular level, without the need to download special software or leave my browser is key. If I can't see what you're proposing, there's no way for us to have a serious discussion on its merits.
 
-In practice, that means, as early as the drafting stage, prefering formats like Markdown and CSV over proprietary or binary formats like Word or Excel. Open formats not only allow for diffing, but also facilitate targeted discussions through line-by-line commenting. When that's not possible, e.g., when making tweaks to a site's design, provide before and after screenshots within the pull request body to minimuze the burden on reviewers.
+In practice, that means, as early as the drafting stage, preferring formats like Markdown and CSV over proprietary or binary formats like Word or Excel. Open formats not only allow for diffing, but also facilitate targeted discussions through line-by-line commenting. When that's not possible, e.g., when making tweaks to a site's design, provide before and after screenshots within the pull request body to minimuze the burden on reviewers. Remember, you're asking others to take time out of their day to provide feedback on your proposed change. Optimize for their experience, not yours.
 
 ### 14. Pull requests are community property
 
@@ -113,6 +125,10 @@ In practice, that means, at minimum, that it's bad form to title a pull request 
 
 ### 15. Don't ping, just ask
 
-There's a stubborn chat anti-pattern, where all chat conversations sparked by a question must begin by the asker rallying an initial "PING". Not only is this rude (would you do that IRL?), but it defeats the purpose of chat: asycronisity. Don't ping your colleague's. Just ask the question. They'll know you have sometime to say, by virtue of the fact that you just said it, and can respond on their schedule, not yours.
+There's a stubborn chat anti-pattern, where all chat conversations sparked by a question must begin by the asker rallying an initial "PING". Not only is this rude (would you do that IRL?), but it defeats the purpose of chat: asycronisity. Ping servers, not colleagues. Just ask the question. They'll know you have sometime to say, by virtue of the fact that you just said it, and can respond on their schedule, not yours.
 
 In practice, most chat programs let you mention a user by name at the start of a message to trigger a notification on their end. Push them the question, not just the notification. But you can take that a step further. There's a good chance someone else in the room just saw your question, and is also able to answer it (because you've exposed it to the entire team). That's the beauty of distributed teams.
+
+The first rule of GitHub, is that there are no hard-and-fast rules. We often prefer cultural constraints to administrative or policy constraints because they remain flexible over time as situations change. These 15 "rules" for how we communicate at GitHub aren't necessarily written rules, at least not in the GitHub sense, but are my best attempt to embody the current state of communications culture at GitHub.
+
+Questions? Feedback? Comment below, or even better, [open an issue](https://github.com/benbalter/feedback).
