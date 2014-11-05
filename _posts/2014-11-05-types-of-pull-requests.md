@@ -1,7 +1,9 @@
 ---
 title: "N Types of pull requests you see on GitHub"
-excerpt: ""
+excerpt: "Whether collaborating on code, data, or prose text, there are lots of different strategies for using pull requests on GitHub."
 ---
+
+Whether collaborating on code, data, or prose text, there are lots of different strategies for using pull requests on GitHub. I once saw a post that outlined a handful of ways teams use pull requests, that seems to be subsequently lost forever. Here's how I see pull requests used at GitHub:
 
 ### Just a heads up
 
@@ -26,3 +28,5 @@ excerpt: ""
 **How it works:** Submit a feature-complete pull request and cc relevant teams, asking for their review. Team memebers will comment line-by-line and re-review as you implement their changes.
 
 **When to use it:** When you're ready to :ship: the thing. It may have been started as a work in progress, or for early feedback, but you've made it clear that unless you hear otherwise, you're going to hit merge.
+
+Did I miss any? How do you use pull requests? Let me know in the comments below. Happy collaborating!
