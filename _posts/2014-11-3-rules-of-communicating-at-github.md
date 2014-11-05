@@ -129,6 +129,8 @@ There's a stubborn chat anti-pattern, where all chat conversations sparked by a 
 
 In practice, most chat programs let you mention a user by name at the start of a message to trigger a notification on their end. Push them the question, not just the notification. But you can take that a step further. There's a good chance someone else in the room just saw your question, and is also able to answer it (because you've exposed it to the entire team). That's the beauty of distributed teams.
 
-The first rule of GitHub, is that there are no hard-and-fast rules. We often prefer cultural constraints to administrative or policy constraints because they remain flexible over time as situations change. These 15 "rules" for how we communicate at GitHub aren't necessarily written rules, at least not in the GitHub sense, but are my best attempt to embody the current state of communications culture at GitHub.
+### Bonus: Overcompensate for tone
 
-Questions? Feedback? Comment below, or even better, [open an issue](https://github.com/benbalter/feedback).
+It's often said that it's hard to capture tone via electronic communications, but that's a filthy lie. There's a reason GitHub's culture is built on a foundation of emoji an animated GIFs. It's not simply because [animated GIFs of puppies are adorable](#), but because a :troll: is often the most efficient way to express sarcasm. Be sure to be human. As we say at GitHub, mind your words, they're important.
+
+All that said, the first rule of GitHub, is that there are few hard-and-fast rules at GitHub. We often prefer cultural norms to administrative, policy, or technical constraints because they remain flexible over time as situations change. These 15 "rules" for how we communicate at GitHub aren't necessarily written rules, at least not in the GitHub sense, but are my best attempt to surface the current state of our communications culture. Questions? Feedback? Comment below, or even better, [open an issue](https://github.com/benbalter/feedback).
