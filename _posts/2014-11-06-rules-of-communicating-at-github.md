@@ -1,7 +1,7 @@
 ---
 title: "15 rules for communicating at GitHub"
-excerpt: "Asycronous communication through high-fidelity mediums like issues and chat illuminate the endemic 'you had to be there' aspect of most corporate workflows, and reduces the need for a dedicated management class to capture, collection, and shuttle information back and forth between business units."
-redirect_from: "/2014/11/03/rules-of-communicating-at-github/"
+excerpt: "Asynchronous communication through high-fidelity mediums like issues and chat eliminate the endemic 'you had to be there' aspect of most corporate workflows, and reduces the need for a dedicated management class to capture, collection, and shuttle information back and forth between business units."
+redirect_from: "/2014/11/03/rules-of-communicating-at-github/gah"
 ---
 
 At GitHub, we have a very specific way of working. For one, we use GitHub to build GitHub. Not just for code, but to collaborate on things like Legal, Marketing, and internal policies. But it's not that the medium that defines the workflow (although it certainly helps), in fact, it's the other way around.
