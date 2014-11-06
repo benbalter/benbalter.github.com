@@ -132,7 +132,7 @@ In practice, most chat programs let you mention a user by name at the start of a
 
 ### Bonus: Overcompensate for tone
 
-It's often said that it's hard to capture tone via electronic communications, but that's a filthy lie. There's a reason GitHub's collaboration culture is built on a foundation of emoji an animated GIFs. It's not simply because [animated GIFs of puppies are adorable](http://giphy.com/gifs/puppies-cute-animals-asdfghjkl-6UZFwMYqCeXi8), but because a :trollface: is often the most efficient way to express sarcasm. Be sure to be human. As we say at GitHub, mind your words, they're important.
+It's often said that it's hard to capture tone via electronic communications, but that's a filthy lie. There's a reason GitHub's collaboration culture is built on a foundation of emoji and animated GIFs. It's not simply because [animated GIFs of puppies are adorable](http://giphy.com/gifs/puppies-cute-animals-asdfghjkl-6UZFwMYqCeXi8), but because a :trollface: is often the most efficient way to express sarcasm. Be sure to be human. As we say at GitHub, mind your words, they're important.
 
 All that said, the first rule of GitHub, is that there are few hard-and-fast rules at GitHub. We often prefer cultural norms to administrative, policy, or technical constraints because they remain flexible over time as circumstances change. These 15 "rules" for how we communicate at GitHub aren't necessarily written rules, at least not in the GitHub sense, but are my best attempt to surface the current state of our communications culture.
 
