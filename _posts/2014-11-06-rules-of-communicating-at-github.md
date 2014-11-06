@@ -1,10 +1,10 @@
 ---
 title: "15 rules for communicating at GitHub"
 excerpt: "Asynchronous communication through high-fidelity mediums like issues and chat eliminate the endemic 'you had to be there' aspect of most corporate workflows, and reduces the need for a dedicated management class to capture, collection, and shuttle information back and forth between business units."
-redirect_from: "/2014/11/03/rules-of-communicating-at-github/gah"
+redirect_from: "/2014/11/03/rules-of-communicating-at-github/"
 ---
 
-At GitHub, we have a very specific way of working. For one, we use GitHub to build GitHub. Not just for code, but to collaborate on things like Legal, Marketing, and internal policies. But it's not that the medium that defines the workflow (although it certainly helps), in fact, it's the other way around.
+At GitHub, we have a very specific way of working. For one, we use GitHub to build GitHub. Not just for code, but to collaborate on things like Legal, Marketing, and internal policies. But it's not that the medium defines the workflow (although it certainly helps), in fact, it's the other way around.
 
 GitHub's communication style can be summed up in one word: [asynchronous](http://zachholman.com/posts/how-github-works-asynchronous/). Much of this is defined by the workflows of the open source community, where many of us got our start, but part of it, as a distributed company, is out of necessity. Like open source, rarely are two people in the same place at the same time, working on the same thing at the same time. Yet as in the case of Wikipedia versus Encyclopedia Britannica, distributed workflows produce better results than their traditional counterparts, and I'd argue that every day quality of life is better for those involved, as a result.
 
@@ -14,9 +14,9 @@ Culture's inherently hard to define, but here's 15 "rules", that represent the i
 
 ### 1. Prefer asynchronous communication
 
-As @holman [writes](http://zachholman.com/posts/how-github-works/), *"Chat is inherently asycronous; tapping someone on the shoulder is inherently being a jerk."* Knowledge workers, especially those in the technology industry [are most productive](https://en.wikipedia.org/wiki/Flow_(psychology)) when they have large blocks of uninterrupted time. A two hour block is not fungible with four thirty minute blocks. Think about it practically: Developers store a large sections of the code base in their head when they work. Designers have a vision they're trying to express on paper or in CSS. Unlike say, working on an assembly line, when knowledge work is interrupted, intentional or not, whether a popup, a meeting, or a "hey, you got a sec?" drive by, there's a significant switching cost to get back to where you were. Think about it as the geek equivalent to needing to put on gym clothes, fill your water bottle, and grab your iPad before you head to the gym each time.
+As @holman [writes](http://zachholman.com/posts/how-github-works/), *"Chat is inherently asynchronous; tapping someone on the shoulder is inherently being a jerk."* Knowledge workers, especially those in the technology industry [are most productive](https://en.wikipedia.org/wiki/Flow_(psychology)) when they have large blocks of uninterrupted time. A two hour block is not fungible with four thirty minute blocks. Think about it practically: Developers store large sections of the code base in their head when they work. Designers have a vision they're trying to express on paper or in CSS. Unlike say, working on an assembly line, when knowledge work is interrupted, intentional or not, whether a popup, a meeting, or a "hey, you got a sec?" drive by, there's a significant switching cost to get back to where you were. Think about it as the geek equivalent to needing to put on gym clothes, fill your water bottle, and grab your iPad before you head to the gym each time.
 
-In practice, this means that you essentially *never* "walk over" to a coworker's desk, virtual or otherwise. Whenever possible, prefer issues and chat, to "just in time" communications. And there's an added bonus: Asycronous mediums necessitate a distributed workflow. There's no "you had to be there", when "there", is online and anytime.
+In practice, this means that you essentially *never* "walk over" to a coworker's desk, virtual or otherwise. Whenever possible, prefer issues and chat, to "just in time" communications. And there's an added bonus: Asynchronous mediums necessitate a distributed workflow. There's no "you had to be there", when "there", is online and anytime.
 
 ### 2. Don't underestimate high-fidelity mediums
 
@@ -24,7 +24,7 @@ High fidelity, synchronous mediums like meatspace, Hangouts, or chat are extreme
 
 In practice, this can come in three primary forms:
 
-1. **Brainstorming** - Help me flesh out this idea. What do you think about. How can we come up with ways to solve X? You can't "spitball" via a pull request.
+1. **Brainstorming** - Help me flesh out this idea. What do you think about X? How can we come up with ways to solve X? You can't "spitball" via a pull request.
 
 2. **Feedback** - Hey, I think you could have worded that comment better. Is everything going okay with Y? Feedback is inherently human, and as such, it deserves a human face.
 
@@ -50,7 +50,7 @@ In practice, that means [creating a lot of niche teams](https://help.github.com/
 
 ### 5. Be mindful of noise
 
-A comment on an issue may take 20 seconds to read, from the time the notification is recieved, the page loads, the reader gains the necessary context, and a decision is made as to what action, if any is necessary on their part. If there are 50 people subscribed to the thread or mentioned, you've just spent more than 15 minutes of company's collective time. Was it worth it?
+A comment on an issue may take 20 seconds to read, from the time the notification is recieved, the page loads, the reader gains the necessary context, and a decision is made as to what action, if any, is necessary on their part. If there are 50 people subscribed to the thread or mentioned, you've just spent more than 15 minutes of your company's collective time. Was it worth it?
 
 In practice, that means three things:
 
@@ -58,7 +58,7 @@ In practice, that means three things:
 
 2. **Only comment if you have something to add to the discussion** - It's one thing to indicate that you've taken the time to review a proposed change and give it a thumbs up, but adding a vanilla :+1: to a thread that already has 10 :+1:'s, doesn't really do much to advance the project. Unless what you're posting moves the issue closer to resolution or the pull request closer to merge, don't hit the green button. Just don't do it.
 
-3. **Always provide context** - Context switching costs are non-trivial. Courteous collaborators provide teammates with the necessary context to get up to speed on a discussion, and decide what, if any action they need to take. Pull requests titled "a few edits" or "minor improvements" do the exact oposite. This is especially important when ccing a team. In the same comment that brings them into the discussion, minimize the cognitive burden by absorbing the complexity on their behalf, and make it explicit what is being asked of them.
+3. **Always provide context** - Context switching costs are non-trivial. Courteous collaborators provide teammates with the necessary context to get up to speed on a discussion, and decide what, if any action they need to take. Pull requests titled "a few edits" or "minor improvements" do the exact opposite. This is especially important when CCing a team. In the same comment that brings them into the discussion, minimize the cognitive burden by absorbing the complexity on their behalf, and make it explicit what is being asked of them.
 
 ### 6. Use checklists to make blockers explicit
 
@@ -68,13 +68,13 @@ In practice, link each action item to the associated issue, describe the task, a
 
 ### 7. Issues are organization-wide todos
 
-There's one simply rule for issues: don't close them until they're resolved. They're a placeholder for action the organization needs to take (or needs to decide not to take), whether a bug, a feature, or a blog post to be written, they exist to be organized, discussed, and assigned.
+There's one simple rule for issues: don't close them until they're resolved. They're a placeholder for action the organization needs to take (or needs to decide not to take), whether a bug, a feature, or a blog post to be written, they exist to be organized, discussed, and assigned.
 
 In practice, that may mean two things:
 
 1. **Issue titles should contain at least one verb** - A page from the [Getting Things Done](https://en.wikipedia.org/wiki/Getting_Things_Done) playbook, if issues are organizational todos, then issue titles (the thing todo), should contain at least one verb to ensure it's something the organization can actually act on.
 
-2. **Don't close issues prematurely** - Issues may stay open for months, even years, before they're closed. That's okay. Having a long tail of issues (if properly pruned and organized), is a halmark of a strong project.
+2. **Don't close issues prematurely** - Issues may stay open for months, even years, before they're closed. That's okay. Having a long tail of issues (if properly pruned and organized), is a hallmark of a strong project.
 
 ### 8. Master the gentle bump
 
@@ -82,7 +82,7 @@ We're all busy. Sometimes things get past us. Sometimes we don't care about thin
 
 In practice, there's a few reasons it's called the "gentle" bump:
 
-1. **It's not the obnoxious bump** - Be sincere, explicit, and charming. "@benbalter, the gentlist of bumps on this. Have two minute to take a look at this error? :smile:". Your goal is to make sure that they are aware of the ask, not to trample their right to manage their own time.
+1. **It's not the obnoxious bump** - Be sincere, explicit, and charming. "@benbalter, the gentlest of bumps on this. Have two minute to take a look at this error? :smile:". Your goal is to make sure that they are aware of the ask, not to trample their right to manage their own time.
 
 2. **No news isn't good news** - If you've proposed an idea or change and haven't heard back despite repeated attempts to solicit feedback, it may be time to take the hint. If your colleagues aren't opinionated enough to even comment on the proposal, chances are, it's not the next big thing.
 
@@ -104,7 +104,7 @@ In practice, this may mean submitting pull requests that you immediately self-me
 
 Email is a terrible, terrible collaboration medium, and an even worse mechanism for storing organizational knowledge. There's no opt-in or opt-out mechanisms, no ability to link to or cross-reference discussions, and conversation history lives in a teammate's personal inbox, so when they leave so too does the issue's context. Use email sparingly, and only when issues or chat, exposed to the company, would be inappropriate for the conversation. Put another way, email is for sensitive conversations.
 
-In practice, that means email is typically reserved only for things like personel discussions, one-to-one feedback, and external communication. The same goes for other mediums (like phone calls) that don't automatically capture and surface context. If you can have the conversation in a better medium, you should.
+In practice, that means email is typically reserved only for things like personnel discussions, one-to-one feedback, and external communication. The same goes for other mediums (like phone calls) that don't automatically capture and surface context. If you can have the conversation in a better medium, you should.
 
 ### 12. Surface work early for feedback
 
@@ -116,13 +116,13 @@ In practice, that means opening a pull request against the relevant project, and
 
 Pull requests, and thus diffs are at the core of our workflow. Whether the change is to code, configuration, or prose text, being able to see exactly what's proposed, on an extremely granular level, without the need to download special software or leave my browser is key. If I can't see what you're proposing, there's no way for us to have a serious discussion on its merits.
 
-In practice, that means, as early as the drafting stage, preferring formats like Markdown and CSV over proprietary or binary formats like Word or Excel. Open formats not only allow for diffing, but also facilitate targeted discussions through line-by-line commenting. When that's not possible, e.g., when making tweaks to a site's design, provide before and after screenshots within the pull request body to minimuze the burden on reviewers. Remember, you're asking others to take time out of their day to provide feedback on your proposed change. Optimize for their experience, not yours.
+In practice, that means, as early as the drafting stage, preferring formats like Markdown and CSV over proprietary or binary formats like Word or Excel. Open formats not only allow for diffing, but also facilitate targeted discussions through line-by-line commenting. When that's not possible, e.g., when making tweaks to a site's design, provide before and after screenshots within the pull request body to minimize the burden on reviewers. Remember, you're asking others to take time out of their day to provide feedback on your proposed change. Optimize for their experience, not yours.
 
 ### 14. Pull requests are community property
 
 As soon as you hit the big green "submit pull request" button, your code is no longer your baby. The bird has left the nest. You're still primarily responsible for its success, and for seeing that it's eventually merged into `master`, but that primarily involves facilitating a discussion that allows stakeholders to reach a general consensus, not advocating for "your" contribution.
 
-In practice, that means, at minimum, that it's bad form to title a pull request "@benbalter's edits", but more broadly, it relegates you to the role of gracious host, answering questions, implementing suggestions, and ensuring that necessary teams are invovled. At GitHub, we primarily use branch-to-branch pull requests within the same repository, so don't be surprised if someone else jumps in and politely pushes a commit or two.
+In practice, that means, at minimum, that it's bad form to title a pull request "@benbalter's edits", but more broadly, it relegates you to the role of gracious host, answering questions, implementing suggestions, and ensuring that necessary teams are involved. At GitHub, we primarily use branch-to-branch pull requests within the same repository, so don't be surprised if someone else jumps in and politely pushes a commit or two.
 
 ### 15. Don't ping, just ask
 
