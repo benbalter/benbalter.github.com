@@ -126,7 +126,7 @@ In practice, that means, at minimum, that it's bad form to title a pull request 
 
 ### 15. Don't ping, just ask
 
-There's a stubborn chat anti-pattern, where all chat conversations sparked by a question must begin by the asker rallying an initial "PING". Not only is this rude (would you do that IRL?), but it defeats the purpose of chat: asynchronicity. Ping servers, not colleagues. Just ask the question. They'll know you have sometime to say, by virtue of the fact that you just said it, and can respond on their schedule, not yours.
+There's a stubborn chat anti-pattern, where all chat conversations sparked by a question must begin by the asker rallying an initial "PING". Not only is this rude (would you do that IRL?), but it defeats the purpose of chat: asynchronicity. Ping servers, not colleagues. Just ask the question. They'll know you have something to say, by virtue of the fact that you just said it, and can respond on their schedule, not yours.
 
 In practice, most chat programs let you mention a user by name at the start of a message to trigger a notification on their end. Push them the question, not just the notification. But you can take that a step further: There's a good chance someone else in the room just saw your question, and is able to answer it immediately (because you've exposed the question to the entire team, not an individual). That's the beauty of a distributed workflow.
 
