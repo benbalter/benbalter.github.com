@@ -7,3 +7,4 @@ language: ruby
 rvm:
   - 1.9.3
 cache: bundler
+sudo: false
