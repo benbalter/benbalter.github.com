@@ -1,6 +1,6 @@
 ---
 title: "A White House Open Source policy written by a geek"
-excerpt: "As a geek, and a life-long member of the open source community, here's three things I hope the White House Open Source Policy embodies."
+excerpt: "As a geek, as a former government technologist, and as a life-long member of the open source community, here's three things I hope the White House Open Source Policy embodies."
 ---
 
 Open source in government is about much more than efficiency, shipping better code, or engaging the public more openly. Open source is about spurring [innovation ecosystems](http://ben.balter.com/2012/04/10/whats-missing-from-cfpbs-awesome-new-source-code-policy/?dontCache=1416281172765#an-innovation-ecosystem), public/private marketplaces of scientific and engineering ideas, the likes of which were last seen during the space race. Think space pens are cool? Wait until you see what open source has to offer.
@@ -53,4 +53,4 @@ My normal advice to agencies would be to :ship: 0.1, not 1.0, but here, it's mor
 
 In practice, that means eschewing the White House's standard Word and Outlook based workflows (supported by weekly standing meetings in leather and mohonogy-clad rooms), and putting all stakeholders — lawyers, bureaucrats, and CxOs inside the firewall, and developers, civic hackeres, and entrepreneurs outside the firewall — on equal footing. That's the most basic promise of open source. As soon as there's an information embalance between contributors, as soon as the discussion is stifled by artificial constraints, the end result is going to suffer. Not to mention, in this case, it'd look awful silly, for the White House to talk out of one side of its mouth, espousing the virtues of open collaboration, while at the same time, doing so in the least collaborative way possible. As with anything else, in policy, actions speak louder than words.
 
-Sure, there's more you can potentially include in there, especially around licensing or fostering the culture necessary for the government to be truly successful at open source, but to get a 0.0.1 out the door and directly into the hands of the policy's end users, rather than policymakers merely guessing in the dark, if you were the White House, what else would you include in a *minimum viable* policy? 
+Sure, there's more you can potentially include in there, especially around licensing or fostering the culture necessary for the government to be truly successful at open source, but to get a 0.0.1 out the door and directly into the hands of the policy's end users, rather than policymakers merely guessing in the dark, if you were the White House, what else would you include in a *minimum viable* policy?
