@@ -1,5 +1,5 @@
 ---
-title: "A White House Open Source policy written by a geek"
+title: "A White House open source policy written by a geek"
 excerpt: "As a geek, as a former government technologist, and as a life-long member of the open source community, here's three things I hope the White House Open Source Policy embodies."
 redirect_from: "/2014/11/17/open-source-policy/"
 ---
