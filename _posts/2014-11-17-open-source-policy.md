@@ -53,11 +53,4 @@ My normal advice to agencies would be to :ship: 0.1, not 1.0, but here, it's mor
 
 In practice, that means eschewing the White House's standard Word and Outlook based workflows (supported by weekly standing meetings in leather and mohonogy-clad rooms), and putting all stakeholders — lawyers, bureaucrats, and CxOs inside the firewall, and developers, civic hackeres, and entrepreneurs outside the firewall — on equal footing. That's the most basic promise of open source. As soon as there's an information embalance between contributors, as soon as the discussion is stifeled by artificial contestants, the end result is going to suffer. Not to mention, in this case, it'd look awful silly, for the White House to talk out of one side of its mouth, espousing the virtues of open collaboration, while at the same time, doing so in the least collaborative way possible. As with anything else, in policy, actions speak louder than words.
 
-### Things not to include in there
-
-* Make the case for open source
-* General best practices guidance, applicable to any large organization
-* Interpreting existing policy, especially licensing. Save that for non-policy guidence
-* The law - PD by default, vendor PD, etc.
-* Downstreaming
-* Security, unless they are open-source specific concerns
+Sure, there's more you potentially put in there, especially around fostering the culture necessary for the government to be truly successful at open source, but to :ship: a 0.0.1, what else would you include?
