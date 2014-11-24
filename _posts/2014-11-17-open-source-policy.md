@@ -35,7 +35,7 @@ Instead, software should be modular by design and flexible from the start, with 
 
 [Open source is not a verb](http://ben.balter.com/2012/10/15/open-source-is-not-a-verb/). Successful open source projects are open source from day two (if not day one), are not so purpose built as to render them useless outside the agency, and do not participate in the open source community solely to garner good will. Instead, great open source projects are open source, because they know their software is better as a result.
 
-### 3. Shared to the widest extent possible (*open source as a workflow*)
+### 3. Shared to the widest extent possible (*Open source as a workflow*)
 
 If they wish to be successful, agencies looking to participate in the open source community, must first take the open source philosophy and workflow and apply it to their own, internal development efforts, regardless of if that code is every going to be made public.
 
