@@ -27,7 +27,7 @@ That said, if there's an overwhelming business case to the contrary, government 
 ### 2. Open source, not source disclosed (*Open source as a design philosophy*)
 
 Open source does not simply mean [government software for which the underlying code has been published](http://ben.balter.com/2014/09/29/source-disclosed-%E2%89%A0-open-source/
-). In the industry, that's called disclosed source. Instead, open source is about growing communies around shared challenges. That has several implications:
+). In the industry, that's called disclosed source. Instead, open source is about growing communities around shared challenges. That has several implications:
 
 Agencies must [abstract business logic](http://ben.balter.com/2012/06/26/why-you-should-always-write-software-as-open-source/
 ). There's an insane anti-pattern in government that suggests that all software should be so purpose built, all application logic so hard coded into the program itself, that changes to policy require multi-million dollar investments in the software, software that by virtue of being so application specific, is of no value to anyone other than the agency. Even if published, that's not open source.
