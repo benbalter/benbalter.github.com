@@ -3,11 +3,11 @@ title: Geeks and suits
 excerpt: "There are two types of change agents in the open government/data/source community: geeks and suits, but despite being in an industry built almost exclusively on communications, they never talk to each other"
 ---
 
-In the world of government IT, change happens at the hands of two separate, yet equally important groups:  the geeks who build systems and the suits that implement them:
+In the world of government IT, change happens at the hands of two separate, yet equally important groups:  the geeks who build systems and the suits who implement them:
 
 * **Geeks** are the doers, the creators, the ones often relegated to the basement, desk stereotypically strewn with Doritos crumbs and Mountain Dew cans. To them, the status quo is nails screeching down the world's largest chalk board. They may be coders, designers, or UX experts, but at their core, [they're hackers](http://ben.balter.com/2013/02/16/what-is-a-hacker/). They're excited about the next big thing, and have the means to make it happen, at least technically.
 
-* **Suits** are the sayers, the thought leaders, the ones in the corner office, desk stereotypically strewn with business cards and printed Power Point decks. To them, the future is an opportunity to improve on key metrics. They may be CxOs, program managers, or policymakers, but at their core, they're not technical (at least not any more). They're excited about the next big thing, and may have the means to make it happen, at least in terms of capital, both political and financial.
+* **Suits** are the sayers, the thought leaders, the ones in the corner office, desk stereotypically strewn with business cards and printed Power Point decks. To them, the future is an opportunity to improve on key performance metrics. They may be CxOs, program managers, or policymakers, but at their core, they're not technical (at least not any more). They're excited about the next big thing, and may have the means to make it happen, at least in terms of capital, both political and financial.
 
 The odd thing is that, despite being in an industry predicated almost exclusively on the need to communicate, geeks and suits rarely talk to each other.
 
@@ -47,4 +47,4 @@ What would happen if we did away with tracks at conferences and retooled technic
 
 What would happen, if within organizations, suits regularly checked in with technical teams, not to see the latest release, or discuss proposed features, but to hear what geeks were talking about when they're not talking about the product. What's the new meme? What's trending on Hacker News? What are they excited about? What apps did they try out for the first time this weekend? What tools do they wish they had at work? How are they bending the rules, just to get their job done?
 
-The next time you're in a room talking about government IT, take a look around and see if you notice the divide, then ask yourself what you can do to bridge it. Change in government requires equal parts geek and suit. 
+The next time you're in a room talking about government IT, take a look around and see if you notice the divide, then ask yourself what you can do to bridge it. Despite our track record, it's clear that change in government requires equal parts geek and suit.
