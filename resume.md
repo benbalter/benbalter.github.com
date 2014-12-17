@@ -18,7 +18,7 @@ March 2013 — Present
 {: .date}
 
 * Lead the efforts of the world’s largest software development network to encourage adoption of open source, open data, and open government philosophies across all levels of government.
-* Named one of the [top 25 most influential people in government and technology](http://fedscoop.com/top-federal-it-and-tech-folks-under-40/).
+* Named one of the [top 25 most influential people in government and technology](http://fedscoop.com/top-federal-it-and-tech-folks-under-40/) and FedScoop's Fed50 [Disruptor of the Year](http://fedscoop.com/fedscoop-50-celebrating-2014s-leaders-federal/).
 
 #### Executive Office of the President
 
