@@ -3,7 +3,7 @@ title: "The myth of government IT"
 excerpt: "When it comes to innovation in government, there's the law, and then there's the myth that surrounds it, a myth used to place never-ending bureaucratic obstacles in front of those who champion change."
 ---
 
-When it comes to innovation in government, there's the law, and then there's the myth that surrounds it. More often than not, that myth serves not to further insulate the agency from potential threats to its infrastructure or mission, but instead, the myth is used to place a never-ending litany of bureaucratic obstacles in front of those who champion change. Much of that myth — long-ago calcified into organizational policy — stems from government policymakers' decade-old superstitions about certain technologies:
+When it comes to saying "no" to innovation in government, there's the law, and then there's the myth that surrounds it. More often than not, that myth serves not to further insulate the agency from potential threats to its infrastructure or mission, but instead, the myth is used to place a never-ending litany of bureaucratic obstacles in front of those who champion change. Much of that myth — long-ago calcified into organizational policy — stems from government policymakers' decade-old superstitions about certain technologies:
 
 ### 2005 called, they want their baseline assumptions back
 
