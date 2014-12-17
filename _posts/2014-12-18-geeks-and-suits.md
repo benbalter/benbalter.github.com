@@ -3,7 +3,7 @@ title: Geeks and suits
 excerpt: "There are two types of change agents in the open government/data/source community: geeks and suits, but despite being in an industry built almost exclusively on communications, they never talk to each other"
 ---
 
-There are two types of change agents in the open government/data/source community: geeks and suits.
+In the world of government IT, change happens at the hands of two separate, yet equally important groups:  the geeks who build systems and the suits that implement them.
 
 **Geeks** are the doers, the creators, the ones often relegated to the basement, desk stereotypically strewn with Doritos crumbs and Mountain Dew cans. To them, the status quo is nails screeching down the world's largest chalk board. They may be coders, designers, or UX experts, but at their core, [they're hackers](http://ben.balter.com/2013/02/16/what-is-a-hacker/). They're excited about the next big thing, and have the means to make it happen, at least technically.
 
