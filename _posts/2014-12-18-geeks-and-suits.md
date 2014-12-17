@@ -47,4 +47,4 @@ What would happen if we did away with tracks at conferences and retooled technic
 
 What would happen, if within organizations, suits regularly checked in with technical teams, not to see the latest release, or discuss proposed features, but to hear what geeks were talking about when they're not talking about the product. What's the new meme? What's trending on Hacker News? What are they excited about? What apps did they try out for the first time this weekend? What tools do they wish they had at work? How are they bending the rules, just to get their job done?
 
-The next time you're in a room talking about government IT, take a look around and see if you notice a divide, then ask yourself what you can do to bridge it. Despite our track record, change in government requires equal parts geek and suit. For being part of the communications industry, we sure do a poor job communicating.
+The next time you're in a room talking about government IT, take a look around and see if you notice the divide, then ask yourself what you can do to bridge it. Change in government requires equal parts geek and suit. 
