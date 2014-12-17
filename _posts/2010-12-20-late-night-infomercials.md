@@ -27,9 +27,9 @@ The decision, which [tips a circuit split][14] further in favor of extending the
 Surely the decision does not settle the issue outright, but it is the latest in a long march of much-needed rulings further blurring the legal distinctions between the world online and the world off, and as persuasively written as it is, is likely to prove influential as both law and technology continue to evolve side by side.
 
 [^1]: *United States v. Warshak*, 08-3997, 2010 WL 5071766 (6th Cir. Dec. 14, 2010).
-[^2]: [18 U.S.C. 2703][17](b). 
-[^3]: *Warshak*, 2010 WL 5071766. 
-[^4]: *See generally* [Obtaining Electronic Evidence][20], Federal Law Enforcement Training Center (July 2003)
+[^2]: [18 U.S.C. 2703][17](b).
+[^3]: *Warshak*, 2010 WL 5071766.
+[^4]: *See generally* Obtaining Electronic Evidence, Federal Law Enforcement Training Center (July 2003)
 
 [1]: http://blogs.wsj.com/digits/2010/12/13/the-top-50-gawker-media-passwords/
 [2]: http://www.ca6.uscourts.gov/opinions.pdf/10a0377p-06.pdf
@@ -43,4 +43,3 @@ Surely the decision does not settle the issue outright, but it is the latest in 
 [14]: http://volokh.com/2010/12/14/sixth-circuit-rules-that-e-mail-protected-by-the-fourth-amendment-warrant-requirement/
 [15]: http://www.huffingtonpost.com/2010/12/01/wikileaks-website-loses-h_n_790526.html
 [17]: http://www.law.cornell.edu/uscode/18/usc_sec_18_00002703----000-.html
-[20]: http://docs.google.com/viewer?a=v&q=cache:IYzfdrim0owJ:www.fletc.gov/training/programs/legal-division/downloads-articles-and-faqs/downloads/other/obtaining_electronic.pdf/download+&hl=en&gl=us&pid=bl&srcid=ADGEESgpYeTPUFAijEyb4BnY4_wzFLwSJmRNv8yL2ZD8EkhQTjt7oXv9kELuYHG7A202xJ9_MGwvgVDwjviAEh0zW76gZQAbieBYwR6cnNUyD83txcScrGTU0qDUME590QPAMej6hmSy&sig=AHIEtbTf4jZconLMbkMO_hVK8xQ92bqZNQ

@@ -34,7 +34,7 @@ post_format: [ ]
 
 I've never heard any individual, upon being asked what they thought of a recent automobile purchase respond, "*well, it's got this weird ‘new car' smell, so it's going to take some getting used to*." [^2] Yet for many, such is the typical reaction to experiencing a new technology. [^3]
 
-What is it about technological progress that sends many running for their digital security blankets? [^4] For some reason, much of the resistance appears to be [uniformed doubt][5] (*e.g.*, "It's different"), rather than [calculated avoidance][6] (*e.g.*, "It's less secure because you can't prevent X"). To be fair, the business world, and even more so CIO's, see avoiding uncertainty and minimizing risk as a core competency, but I don't think that's the whole story.
+What is it about technological progress that sends many running for their digital security blankets? [^4] For some reason, much of the resistance appears to be [uniformed doubt][5] (*e.g.*, "It's different"), rather than [calculated avoidance][6]{: data-proofer-ignore="true"} (*e.g.*, "It's less secure because you can't prevent X"). To be fair, the business world, and even more so CIO's, see avoiding uncertainty and minimizing risk as a core competency, but I don't think that's the whole story.
 
 The rapid pace of innovation has rendered many stakeholders and decision makers out of the loop when it comes to where a given technology stands in relation to their current practices, and for good reason: disruptive technology poses a risk not only on a organization level, but on a personal level as well.
 
@@ -66,7 +66,7 @@ Notes:
 [^6]: *See, e.g.,* [bloodletting][32].
 
 [5]: http://opensource.sys-con.com/node/692407
-[6]: http://www.infoworld.com/d/security-central/gartner-seven-cloud-computing-security-risks-853
+[6]: http://www.infoworld.com/article/2652198/security/gartner--seven-cloud-computing-security-risks.html
 [7]: http://searchnetworking.techtarget.com/news/1381193/IT-job-security-fears-over-cloud-computing-Network-jobs-still-vital
 [8]: http://www.lexjansen.com/pharmasug/2000/techtech/tt16.pdf
 [9]: http://en.wikipedia.org/wiki/Betamax

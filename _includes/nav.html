@@ -7,7 +7,10 @@
   <ul class="nav navbar-nav">
     <li><h1><a class="navbar-brand" href="{{ url_base }}/">{{ site.name }}</a></h1></li>
     <li id="home"{% if page.url == '/index.html' %} class="active"{% endif %}>
-      <a href="{{ url_base }}/">Home</a>
+      <a href="{{ url_base }}/">Posts</a>
+    </li>
+    <li id="talks"{% if page.url == "/talks/"%} class="active"{% endif %}>
+      <a href="{{ url_base }}/talks/">Talks</a>
     </li>
     <li id="about"{% if page.url == "/about/"%} class="active"{% endif %}>
       <a href="{{ url_base }}/about/" rel="author">About</a>
