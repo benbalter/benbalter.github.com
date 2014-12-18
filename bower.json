@@ -15,6 +15,10 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.1.0"
+    "jquery": "~2.1.0",
+    "bootstrap": "~3.3.1"
+  },
+  "resolutions": {
+    "bootstrap": "~3.3.1"
   }
 }
