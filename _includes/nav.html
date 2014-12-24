@@ -3,9 +3,18 @@
 {% else %}
   {% assign url_base = site.url %}
 {% endif %}
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default" role="navigation" itemscope itemtype="http://data-vocabulary.org/Person">
+  <meta itemprop="url" content="{{ url_base }}" />
+  <meta itemprop="title" content="{{ site.job_title }}" />
+  <meta itemprop="affiliation" content="{{ site.employer }}" />
+  <meta itemprop="photo" content="http://www.gravatar.com/avatar/{{ site.gravatar_id }}.png" />
+  <span itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
+    <meta itemprop="locality" content="{{ site.location.city }}" />
+    <meta itemprop="region" content="{{ site.location.state }}" />
+    <meta itemprop="country-name" content="{{ site.location.country }}" />
+  </span>
   <ul class="nav navbar-nav">
-    <li><h1><a class="navbar-brand" href="{{ url_base }}/">{{ site.name }}</a></h1></li>
+    <li><h1><a class="navbar-brand" href="{{ url_base }}/" itemprop="name">{{ site.name }}</a></h1></li>
     <li id="home"{% if page.url == '/index.html' %} class="active"{% endif %}>
       <a href="{{ url_base }}/">Posts</a>
     </li>
@@ -19,5 +28,5 @@
       <a href="{{ url_base }}/contact/">Contact</a>
     </li>
   </ul>
-  <p class="navbar-text pull-right">{{ site.description }}</p>
+  <p class="navbar-text pull-right" itemprop="role">{{ site.description }}</p>
 </nav><!-- navbar -->

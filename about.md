@@ -8,7 +8,7 @@ id: /about
 icons: true
 ---
 
-![Ben Balter](http://www.gravatar.com/avatar/ea353bd28baa1aefaefae736a19fcf2a.png?size=250){: .alignright}
+![Ben Balter](http://www.gravatar.com/avatar/{{ site.gravatar_id }}.png?size=250){: .alignright}
 
 Named one of the [top 25 most influential people in government and technology](http://fedscoop.com/top-federal-it-and-tech-folks-under-40/), Fed 50's Disruptor of the Year, and described by the US Chief Technology Officer as one of "the baddest of the badass innovators," Ben Balter is the Government Evangelist at [GitHub](http://www.youtube.com/watch?v=l_T3XEgXl14) — the world's largest software development network — where he leads the efforts to encourage adoption of open source philosophies, making all levels of government better, one repository at a time.
 

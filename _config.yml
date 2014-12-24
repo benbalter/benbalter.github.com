@@ -1,14 +1,16 @@
 #Jekyll config file
 
-#title of site
 name: Ben Balter
-
-#description of site
 description: "Government evangelist, attorney, open source developer"
-
-#URL of site, include http://, do not include a trailing slash
+gravatar_id: ea353bd28baa1aefaefae736a19fcf2a
+job_title: Government Evangelist
+employer: GitHub
 url: "http://ben.balter.com"
-
+location:
+  city: Washington
+  state: District of Columbia
+  country: United States of America
+  
 #files to exclude, array
 exclude:
   - CONTRIBUTING.md
