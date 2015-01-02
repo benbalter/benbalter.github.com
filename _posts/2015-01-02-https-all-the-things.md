@@ -27,4 +27,4 @@ HTTPS is about more than keeping things hidden. It's about keeping things seen.
 
 [^url]: For example, without HTTPS, an eavesdropper would see that you were reading `ben.balter.com/2015/01/02/https-all-the-things/`. With HTTPS, all they'd see is that you made an encrypted request to `ben.balter.com`.
 
-[^disclaimer]: Obviously, a country should have the right to enforce its own social norms, but when such technical implementations are trivial to bypass, by even non-techincal users switching protocols, DNS servers, or routing traffic through a proxy or VPN, such ends may be better accomplished by more narrowly tailored, non-technical means.
+[^disclaimer]: Obviously, a country should have the right to enforce its own social norms, but when such technical implementations are trivial to bypass by even non-techincal users switching protocols, DNS servers, or routing traffic through a proxy or VPN, such ends may be better accomplished by more narrowly tailored, non-technical means.
