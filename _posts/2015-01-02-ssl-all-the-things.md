@@ -17,7 +17,7 @@ If you want to block a particular piece of content, say a blog post on WordPress
 
 You've probably seen the [now-famous Google DNS graffiti](http://mashable.com/2014/03/21/twitter-ban-turkey-graffiti/) when Turkey banned Twitter earlier this year. By instructing your computer to use a public DNS server, rather than your internet service provider's, that domain look up, the weak link in the request, instead goes to a third-party beyond the state's control, and the website becomes accessible again.[^1]
 
-SSL ensures not only the privacy of the content you request, but also, protects the fact that you're even requesting it in the first place. SSL isn't just for secure transactions like online banking and ecommerce. SSL is for any website that adds to the public dialog, whether it's political commentary, how to contact a government official, or even open source software.[^2] If you run a website, especially a government website, whether you process "sentive" requests or not, consider adding SSL support and enforcing it by default.
+SSL ensures not only the privacy of the content you request, but also, protects the fact that you're even requesting it in the first place. SSL isn't just for secure transactions like online banking and ecommerce. SSL is for any website that adds to the public dialog, whether it's political commentary, how to contact a government official, or even open source software.[^2] If you run a website, especially a government website, even if you never process "sentive" requests, consider adding SSL support and enforcing it by default.
 
 SSL is about more than keeping things hidden. It's about keeping things seen.
 
