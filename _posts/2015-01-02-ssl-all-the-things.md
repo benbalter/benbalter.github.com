@@ -1,6 +1,6 @@
 ---
 title: "Why you should care about SSL, even if you have nothing to hide"
-excerpt: ""
+excerpt: "SSL ensures not only the privacy of the content you request, but also, protects the fact that you're even requesting it in the first place. SSL isn't just for secure transactions like online banking and ecommerce. SSL is for any website that adds to the public dialog."
 ---
 
 You're probably already familiar with a technology called SSL. It's the little green icon in the top left corner of your browser anytime you visit a website with a url that begins with `https`. It's most often used to secure sensitive web requests, like checking your bank account balance or purchasing stuff online. SSL encrypts the connection between your computer and the server you're talking to so that nobody can jump in the middle.
@@ -15,7 +15,7 @@ Typically, when you make a request to a website, the first step is to convert th
 
 That's exactly how most internet sensorship is implemented today, at least on the state level. You've probably seen the [now-famous Google DNS graffiti](http://mashable.com/2014/03/21/twitter-ban-turkey-graffiti/) when Turkey banned Twitter earlier this year. By instructing your computer to use a public DNS server, rather than your internet service provider's, that domain look up, the weak link in the request, instead goes to a third-party beyond the state's control, and the website becomes accessible again.[^1]
 
-SSL ensures not only the privacy of the content you request, but also, protects the fact that you're even requesting it in the first place. SSL isn't just for secure transactions like online banking and ecommerce. SSL is for any website that adds to the public dialog, whether it's political commentary, a government statement, or even open source software.
+SSL ensures not only the privacy of the content you request, but also, protects the fact that you're even requesting it in the first place. SSL isn't just for secure transactions like online banking and ecommerce. SSL is for any website that adds to the public dialog, whether it's political commentary, a how to contact government officials, or even open source software.
 
 
 [1]: While it's possible to block external DNS entirely, or to block certain IPs, this quickly becomes a game of whack-a-mole and will almost undoubtedly be over inclusive, especially where CDNs or shared hosting is involved.
