@@ -16,7 +16,7 @@ tags:
 
 ---
 
-With [GitHub natively supporting mapping](https://github.com/blog/1541-geojson-rendering-improvements) and embeds, I recently wanted to put some of the free, publicly available government data published on [data.dc.gov](http://data.dc.gov/Main_DataCatalog.aspx) to use. They have all sorts of great information, from [bus routes](https://github.com/benbalter/dc-maps/blob/master/dc-circulator-routes.geojson) to [polling places](https://github.com/benbalter/dc-maps/blob/master/polling-places.geojson), to [the location of every liquor license](https://github.com/benbalter/dc-maps/blob/master/abra-licensee.geojson) in DC. The only problem was that the data was stored in a proprietary and complex format known as [a Shapefile](https://en.wikipedia.org/wiki/Shapefile) which arose in an age when the desktop ruled supreme and requires a [costly software subscriptionn](http://www.esri.com/software/arcgis/arcgis-for-home) for many common uses.
+With [GitHub natively supporting mapping](https://github.com/blog/1541-geojson-rendering-improvements) and embeds, I recently wanted to put some of the free, publicly available government data published on [data.dc.gov](http://data.dc.gov) to use. They have all sorts of great information, from [bus routes](https://github.com/benbalter/dc-maps/blob/master/dc-circulator-routes.geojson) to [polling places](https://github.com/benbalter/dc-maps/blob/master/polling-places.geojson), to [the location of every liquor license](https://github.com/benbalter/dc-maps/blob/master/abra-licensee.geojson) in DC. The only problem was that the data was stored in a proprietary and complex format known as [a Shapefile](https://en.wikipedia.org/wiki/Shapefile) which arose in an age when the desktop ruled supreme and requires a [costly software subscriptionn](http://www.esri.com/software/arcgis/arcgis-for-home) for many common uses.
 
 Luckily, a strangely named piece of open source software known as [ogr2ogr](http://www.gdal.org/ogr2ogr.html) can convert the data into the more modern, more open [GeoJSON format](http://en.wikipedia.org/wiki/GeoJSON) that GitHub supports, and the resulting map can be automatically rendered, not to mention more easily diffed.
 
@@ -26,7 +26,7 @@ Luckily, a strangely named piece of open source software known as [ogr2ogr](http
 
 1. If you don't already have it, install homebrew by opening up terminal and running: `$ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"`
 2. Install [gdal](http://www.gdal.org/) with the command: `$ brew install gdal`
-3. Grab a Shapefile (distributed as a .zip file) from the [DC Data Catalog](http://data.dc.gov/Main_DataCatalog.aspx) or your favorite data source and unzip it someplace convenient
+3. Grab a Shapefile (distributed as a .zip file) from the [DC Data Catalog](http://data.dc.gov) or your favorite data source and unzip it someplace convenient
 4. `cd` into the directory with your shiny new unzipped Shapefile
 5. Run (replacing `[name]` with the name of your downloaded Shapefile): `$ ogr2ogr -f GeoJSON -t_srs crs:84 [name].geojson [name].shp`
 6. Grab the resulting GeoJSON file and commit it to GitHub

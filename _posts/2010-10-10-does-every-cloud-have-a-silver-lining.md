@@ -58,7 +58,7 @@ Photo credit: [garyhayes][18]
 [23]: http://googlepublicpolicy.blogspot.com/2010/09/digital-due-process-time-is-now.html "Google Policy Blog: Digital Due Process the Time is Now"
 [24]: http://google.com "Google.com"
 [25]: http://google.com/analytics "Google Analytics"
-[26]: http://checkout.google.com "Google Checkout"
+[26]: http://wallet.google.com "Google Wallet"
 [27]: http://maps.google.com "Google Maps"
 [28]: http://alerts.google.com "Google Alerts"
 [29]: http://books.google.com "Google Books"
