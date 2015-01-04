@@ -1,6 +1,5 @@
 ---
-layout: none
-permalink: /feed/
+permalink: /feed/index.xml
 json: false
 ---
 <?xml version="1.0" encoding="utf-8"?>

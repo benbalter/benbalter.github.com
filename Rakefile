@@ -1,4 +1,5 @@
 require 'html/proofer'
+require 'yaml'
 
 namespace :assets do
   task :precompile do
@@ -8,5 +9,7 @@ end
 
 task :test do
   Rake::Task["assets:precompile"].execute
-  HTML::Proofer.new("./_site", :href_ignore => ["#comments"], :verbose => true ).run
+  config = YAML.load_file('_config.yml')["proofer"]
+  config = config.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
+  HTML::Proofer.new("./_site", config).run
 end
