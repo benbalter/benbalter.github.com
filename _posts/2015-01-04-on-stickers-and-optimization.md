@@ -13,4 +13,4 @@ First, assuming the laptop's inventoried once or twice a year, placing the stick
 
 Second, the fact that employees are prohibited (or assume they are prohibited by organizational culture) from placing industry sticker on their laptop says a lot about the organization's priories, here, prioritizing risk mitigation over providing technical talent the space and freedom they need to be creative. Would adding other stickers diminish its utility? Are stickers so destructive that they'd lessen the value of the asset when it's returned? Will someone perceive them as an endorcement? Again, given this ambiguity, someone thought the organization would prefer they optimize for the sticker, not the human.
 
-Whether laptops, workplaces, or organizational policy, the experience should be optimized for the people they involve, not for the bureaucratic process that supports them. What does your organization optimize for?
+Whether laptops, workplaces, or organizational policy, the experience should be optimized for the people they involve, not for the bureaucratic process that supports them. Which begs the question: what does your organization optimize for?
