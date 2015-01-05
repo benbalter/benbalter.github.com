@@ -117,7 +117,7 @@ For platforms like GitHub, per the terms of service, government employees should
 
 This is a high-level overview intended to highlight common legal issues agencies may face when participating in the open source community, and should not be consider to be legal advice or specific to a particular matter.
 
-Although this is my personal blog, agencies should feel free to contact `government@github.com` or post in the [github.com/government](https://github.com/government/welcome) peer group with any open-source related questions.
+Although this is my personal blog, agencies should feel free to contact <government@github.com> or post in the [github.com/government](https://github.com/government/welcome) peer group with any open-source related questions.
 
 ---
 
