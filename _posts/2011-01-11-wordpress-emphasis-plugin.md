@@ -34,10 +34,7 @@ Neat, huh? [Download it][3] today.
 
 *Enjoy using WP Emphasis? Feel free to [make a small donation][4] to support the software's continued development.*
 
-**Update (1/18):** For an interesting perspective on the underlying technology and what it could mean for the net, [Zach Seward's take][5] is well worth the read.
-
 [1]: http://ben.balter.com/wp-content/uploads/2011/01/emphasis-screenshot.png "Screenshot of Emphasis WordPress Plugin"
 [2]: http://open.blogs.nytimes.com/2011/01/11/emphasis-update-and-source/
 [3]: http://wordpress.org/extend/plugins/wp-emphasis/
 [4]: http://ben.balter.com/donate/ "Donate"
-[5]: http://zachseward.com/emphasis/
