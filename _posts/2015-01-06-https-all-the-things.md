@@ -25,6 +25,6 @@ HTTPS is about more than keeping things hidden. It's about keeping things seen.
 
 [^injection]: See, e.g., [Comcast injecting ads](http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/), [Verizon tracking mobile customers](https://www.eff.org/deeplinks/2014/11/verizon-x-uidh), and [spy agencies scrapping Angry Birds for personal data](https://www.propublica.org/article/spy-agencies-probe-angry-birds-and-other-apps-for-personal-data).
 
-[^url]: For example, without HTTPS, an eavesdropper would see that you were reading `ben.balter.com/2015/01/02/https-all-the-things/`. With HTTPS, all they'd see is that you made an encrypted request to `ben.balter.com`.
+[^url]: For example, without HTTPS, an eavesdropper would see that you were reading `ben.balter.com/2015/01/06/https-all-the-things/`. With HTTPS, all they'd see is that you made an encrypted request to `ben.balter.com`.
 
 [^disclaimer]: Obviously, a country should have the right to enforce its own social norms, but when such technical implementations are trivial to bypass by even non-techincal users switching protocols, DNS servers, or routing traffic through a proxy or VPN, such ends may be better accomplished by more narrowly tailored, non-technical means.
