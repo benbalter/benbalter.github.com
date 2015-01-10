@@ -1,13 +1,17 @@
 #bootstrap and build
-before_script:
-  - "./script/bootstrap"
-  - "echo 'branch: $TRAVIS_BRANCH' >> _config_test.yml"
+before_script: "echo 'branch: $TRAVIS_BRANCH' >> _config_test.yml"
 
 script: "./script/cibuild"
 
 #environment
 language: ruby
+
 rvm:
-  - 1.9.3
+  - 2.1.0
+
 cache: bundler
 sudo: false
+
+env:
+  global:
+    NOKOGIRI_USE_SYSTEM_LIBRARIES=true
