@@ -1,5 +1,5 @@
 #bootstrap and build
-before_script: "echo 'branch: $TRAVIS_BRANCH' >> _config_test.yml"
+before_script: 'echo "branch: $TRAVIS_BRANCH" >> _config_test.yml'
 
 script: "./script/cibuild"
 
