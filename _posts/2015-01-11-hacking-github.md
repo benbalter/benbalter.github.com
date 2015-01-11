@@ -1,7 +1,15 @@
 ---
-title: "Hacking GitHub: 12 simple tools that help non-GitHub users level up their GitHub game"
-excerpt: "A list of some simple apps that augment GitHub's web interface to provide atypical GitHub users with features that lower the barrier to collaborate."
+title: "Hacking GitHub: 12 simple tools to help introduce open source to the uninitiated"
+excerpt: "12 simple apps to introduce open source to the uninitiated, lower the barrier to entry for atypical GitHub users to get started, and to show the power of adding smart tools to the edge of an otherwise dumb platform."
 ---
+
+GitHub's a great platform for collaborating on many different things. It follows the [dumb core, smart edge](http://ben.balter.com/2013/11/21/thats-not-how-the-internet-works/#dumb-core-smart-edge) architecture that makes the internet what it is today. Git doesn't care if you're versioning source code, data, or proposed legislation. But sometimes it's harder to see how these dumb, non-use-case-specific tools might fit into one's existing workflow, especially for the GitHub uninitiated.
+
+Often, when [explaining the potential of open source to government agencies](http://ben.balter.com/2014/10/15/what-does-a-government-evangelist-do/), these points of potential friction are exposed. *"Can our lawyers use it? They're used to Microsof Word?" "I need to send this to my boss and he's never going to use GitHub, can you send it as a PDF?" "We love it, but is there any way to simplify the interface for our non-technical stakeholders?"*
+
+Code speaks louder than words. It's almost always faster to build out the requested feature with less than a hundred lines of glue code, rather than explaining that it's possible to implement via the API. And that's exactly what I do most often.
+
+Here's 12 simple apps that I've built to introduce open source to the uninitiated, lower the barrier to entry for atypical GitHub users to get started, and to show the power of adding smart tools to the edge of an otherwise dumb platform. If you find any of them useful, I'd love your help making them even better.
 
 ### Working with legacy formats
 
