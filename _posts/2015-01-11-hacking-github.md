@@ -3,13 +3,11 @@ title: "Hacking GitHub: 12 simple tools to help introduce open source to the uni
 excerpt: "12 simple apps to introduce open source to the uninitiated, lower the barrier to entry for atypical GitHub users to get started, and to show the power of adding smart tools to the edge of an otherwise dumb platform."
 ---
 
-GitHub's a great platform for collaborating on many different things. It follows the [dumb core, smart edge](http://ben.balter.com/2013/11/21/thats-not-how-the-internet-works/#dumb-core-smart-edge) architecture that makes the internet what it is today. Git doesn't care if you're versioning source code, data, or proposed legislation. But sometimes it's harder to see how these dumb, non-use-case-specific tools might fit into one's existing workflow, especially for the GitHub uninitiated.
+GitHub's a great platform for collaborating on many different things. It follows the [dumb core, smart edge](http://ben.balter.com/2013/11/21/thats-not-how-the-internet-works/#dumb-core-smart-edge) architecture that makes the internet what it is today. Git doesn't care if you're versioning source code, data, or proposed legislation. It simply tracks who made what change when. But sometimes, it's harder to see how dumb, non-use-case-specific tools like GitHub might fit into one's existing workflow, especially for the uninitiated.
 
-Often, when [explaining the potential of open source to government agencies](http://ben.balter.com/2014/10/15/what-does-a-government-evangelist-do/), these points of potential friction are exposed. *"Can our lawyers use it? They're used to Microsof Word?" "I need to send this to my boss and he's never going to use GitHub, can you send it as a PDF?" "We love it, but is there any way to simplify the interface for our non-technical stakeholders?"*
+Often, when [explaining the potential of open source to government agencies](http://ben.balter.com/2014/10/15/what-does-a-government-evangelist-do/) — organizations often used to purpose-built processes and bespoke software — this barrier to entry is exposed. *"Can our lawyers use it? They're used to drafting in Microsof Word." "I need to send this to my boss and he's never going to use GitHub, can you send it as a PDF?" "We love Issues, but is there any way to simplify the interface for our non-technical stakeholders?"*
 
-Code speaks louder than words. It's almost always faster to build out the requested feature with less than a hundred lines of glue code, rather than explaining that it's possible to implement via the API. And that's exactly what I do most often.
-
-Here's 12 simple apps that I've built to introduce open source to the uninitiated, lower the barrier to entry for atypical GitHub users to get started, and to show the power of adding smart tools to the edge of an otherwise dumb platform. If you find any of them useful, I'd love your help making them even better.
+Code speaks louder than words. It's almost always faster to build out the requested feature with a hundred lines of glue code,[^glue] rather than explaining that it's possible to implement via the API. And that's exactly what I do most often. Here's 12 simple apps that I've built to introduce open source to the uninitiated, minimize points of friction for atypical users to collaborating using GitHub, and to show the power of adding smart tools to the edge of an otherwise dumb platform.
 
 ### Working with legacy formats
 
@@ -44,3 +42,7 @@ Here's 12 simple apps that I've built to introduce open source to the uninitiate
 * [**GitHub Uploader**](https://github.com/benbalter/github-uploader) - A simple app to enable drag-and-drop uploading of binary and other assets to GitHub Repositories
 
 * [**Copy to**](https://github.com/benbalter/copy-to) - A quick-and-dirty Heroku app to simulate running `git clone`, `git remote add`, and `git push` locally.
+
+If you find any of these open source projects useful, I'd love your help making them even better.
+
+[^glue]: An astute reader might notice that 99% of the above apps use some combination of the same three Ruby Gems: [Sinatra](http://www.sinatrarb.com/) (web server), [Octokit](https://github.com/octokit/octokit.rb) (GitHub API client), and [Sinatra-auth-GitHub](https://github.com/atmos/sinatra_auth_github) (user authentication).
