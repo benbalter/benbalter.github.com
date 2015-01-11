@@ -1,6 +1,6 @@
 ---
 title: Hacking GitHub
-excerpt: ""
+excerpt: "A list of some simple apps that augment GitHub's web interface to provide atypical GitHub users with features that lower the barrier to collaborate."
 ---
 
 ### Working with legacy formats
