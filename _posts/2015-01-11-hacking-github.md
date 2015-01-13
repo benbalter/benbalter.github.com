@@ -7,7 +7,7 @@ GitHub's a great platform for collaborating on many different things. It follows
 
 Often, when [explaining the potential of open source to government agencies](http://ben.balter.com/2014/10/15/what-does-a-government-evangelist-do/) — organizations used to purpose-built processes and bespoke software — this perceived barrier to entry becomes apparent:
 
-> *"How can our lawyers use it? They're used to drafting in Microsof Word." "I need to send this to my boss and he's never going to use GitHub, can you send it as a PDF?" "We love Issues, but is there any way to simplify the interface for our non-technical stakeholders?"*
+> *"How can our lawyers use it? They're used to drafting in Microsoft Word." "I need to send this to my boss and he's never going to use GitHub, can you send it as a PDF?" "We love Issues, but is there any way to simplify the interface for our non-technical stakeholders?"*
 
 Code speaks louder than words. It's almost always faster to build out the requested feature with a hundred lines of glue code, rather than explaining that it's trivial to implement via the API. And that's exactly what I do most often.
 
