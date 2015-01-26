@@ -100,5 +100,5 @@ WordPress is *[different][1]*. WordPress is about content. WordPress is about si
 [35]: http://codex.wordpress.org/Installing_WordPress#Famous_5-Minute_Install
 [36]: http://codex.wordpress.org/Dashboard_Updates_Screen
 [37]: http://www.w3.org/
-[38]: http://www.logoblog.org/bmw_logo.php
+[38]: https://en.wikipedia.org/wiki/BMW#Roundel_logo
 [39]: http://max.limpag.com/article/wordpress-open-source-cms-2011/

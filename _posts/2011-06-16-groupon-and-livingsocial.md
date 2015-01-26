@@ -89,7 +89,7 @@ Despite [Groupon's efforts][23], there's just not enough data there. They may ha
 [12]: http://www.seattlepi.com/local/article/Seattle-class-action-LivingSocial-expiration-1015493.php
 [13]: http://www.benedelman.org/voucher-consumer-protection/#expiration
 [14]: http://techcrunch.com/2011/06/15/daily-deal-consumer-protection-laws/
-[15]: http://www.tabc.state.tx.us/education/pdfs/Happy-Hour-Laws.pdf
+[15]: http://www.abc.virginia.gov/licensing/happyhour.html
 [16]: http://www.benedelman.org/voucher-consumer-protection/beer-chicago-google-060811.png
 [17]: http://www.benedelman.org/voucher-consumer-protection/wine-chicago-google-060811.png
 [18]: http://www.sec.gov/Archives/edgar/data/1490281/000104746911005613/a2203913zs-1.htm
