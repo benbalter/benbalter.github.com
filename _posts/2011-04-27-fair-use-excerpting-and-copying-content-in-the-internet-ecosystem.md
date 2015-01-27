@@ -21,7 +21,7 @@ The Internet's *laissez-faire* Internet ecosystem of liberal excerpting is often
 
 I was recently asked by an aspiring "content producer," what the "rules" were for copying or excerpting content from other sites. From their questions, it quickly became clear to me, that they were missing the point of having a website altogether. [^1]
 
-Not getting in hot water with [the fuzz][6] is important, but it is simply one checkbox among many, relegated to the same category of subdued importance as spelling or grammar. The predominant rule in online publishing should not be fair use or copyright, but rather whether the author is adding value to the blogosphere. True, space on the Internet may be relatively cheap, but your reader's time is not.
+Not getting in hot water with the fuzz is important, but it is simply one checkbox among many, relegated to the same category of subdued importance as spelling or grammar. The predominant rule in online publishing should not be fair use or copyright, but rather whether the author is adding value to the blogosphere. True, space on the Internet may be relatively cheap, but your reader's time is not.
 
 It seems Internet copyright law has become somewhat of a digital [Chupacabra][7] — the subject of endless urban legend and fact-less speculation. Despite [widespread misunderstanding][8], in practice, both the contours of fair use law and the cultural norms of the net lay clear guidelines for bloggers and content producers. Put another way, *the law's the easy part*. Worry about the content and the law will take care of itself.
 
@@ -74,7 +74,6 @@ The law aside, readers want you to digest and put ideas in your own voice. Take 
 [3]: http://www.niemanlab.org/2009/08/gawker-and-the-washington-post-a-case-study-in-fair-use/
 [4]: http://ilt.eff.org/index.php/Copyright:_Fair_Use
 [5]: #note-2020-1 "Questions asked included: If there's no copyright symbol, is it still copyrighted?; If it's posted online, can I just copy it because its it's in the public domain?; Can I use it if I'm not selling it?; and It's okay to use if I credit the original author, right?."
-[6]: http://www.hulu.com/watch/13576/hot-fuzz-chase
 [7]: http://redvsblue.com/archive/episode.php?id=89
 [8]: http://www.llrx.com/features/bloggersbeware.htm
 [9]: #note-2020-2 "It should be noted that I'm not an attorney and my writing should not be substituted for qualified legal advice."
