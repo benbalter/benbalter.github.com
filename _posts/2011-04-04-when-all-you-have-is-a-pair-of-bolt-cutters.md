@@ -37,7 +37,7 @@ I am working on submitting this idea as a proposed [Google Summer of Code][18] p
 
 **Update (8/29)**: The final result of the project is an [Open Source Document Management and Version Control System][22] for WordPress. An overview of its top-level features including a screencast of a typical use case is available on the [WP Document Revisions][22] page.
 
-[^1]: *See, e.g., *[Documentum][23], [Liferay][24], [Melange][25], and [Gawker's CMS][26].
+[^1]: *See, e.g., *[Documentum][23]{: data-proofer-ignore="true"}, [Liferay][24], [Melange][25], and [Gawker's CMS][26].
 [^2]: Nearly three years ago, at the time of the feature's inception, [WordPress founder Matt Mullenweg noted][28], "*With the power of modern computers, it's silly that we still use save and editing metaphors from the time when the most common method of storage was floppy disks… now we're taking that to another level by allowing you to view who made what changes when… through a super-easy interface, much like Wikipedia or a version control system.*"
 [^3]: *See, e.g., *WordPress as an [e-mail newsletter][30], [contact manager][31], [CRM][32], [invoice system][34],  [job bank][35], or [real estate directory][36].
 [^4]: Let's just call it "Frupal" for the sake of discussion.
