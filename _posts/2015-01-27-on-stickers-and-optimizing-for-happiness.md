@@ -21,6 +21,6 @@ Second, the fact that employees are prohibited (or assume they are prohibited by
 
 ### The tip of the iceberg
 
-Laptop stickers are a superficial example, to be sure, but they hint at an organizational ethos antithetical to the type of workplace most information workers would thrive in. If the organization adopts such a utilitarian approach to something as trivial as stickers, what do you think that company's deployment process looks like? How do developers gain access to a development environment? How much friction will their be if I want to test out a new technology?
+Laptop stickers are a superficial example, to be sure, but they hint at an organizational ethos antithetical to the type of workplace most information workers would thrive in, or at the very least, not optimized for it. If the organization adopts such a utilitarian approach to something as trivial as stickers, what do you think that company's deployment process looks like? How do developers gain access to development environments? How much friction will their be if I want to test out a new technology?
 
 Whether laptops, workplaces, or organizational policy, the experience should be optimized for the people they involve, not for the bureaucratic process that supports them. Laptop stickers or not, it begs the question: what does your organization optimize for?
