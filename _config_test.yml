@@ -2,8 +2,4 @@ url: ""
 
 proofer:
   href_ignore:
-    - /2014/09/29/source-disclosed-%E2%89%A0-open-source/
-    - /2014/10/08/why-government-contractors-should-%3C3-open-source/
     - "#comments"
-    - "https://github.com/benbalter/benbalter.github.com/commits/master/_posts/2014-09-29-source-disclosed-≠-open-source.md"
-    - "https://github.com/benbalter/benbalter.github.com/edit/master/_posts/2014-09-29-source-disclosed-≠-open-source.md"
