@@ -25,7 +25,7 @@ The irony is, government agencies often initially ship software that would be ca
 
 ### Think small, then think even smaller
 
-Successful forays into open source begin not with large, flagship initiatives, but with small, nobody-will-notice-if-they-fail efforts. In fact, the story often starts well before a single line of code leaves the firewall. There's a lot of organizational pistons that need to fire in perfect timing for open source to work. Prime them with an open source excercise. Create a list of the 
+Successful forays into open source begin not with large, flagship initiatives, but with small, nobody-will-notice-if-they-fail efforts. In fact, the story often starts well before a single line of code leaves the firewall. There's a lot of organizational pistons that need to fire in perfect timing for open source to work. Prime them with an open source excercise. Create a list of the
 
 
 Start small, learn from your
