@@ -11,7 +11,7 @@ Terms of service agreements are often called clickwrap or browserwrap agreements
 
 * **The contracting parties** - Most terms of service agreements are written to bind an individual user, not their employer. Most government employees are not in a position to bind the federal government. Even if so, a service provider should prefer the agreement be executed on behalf of the employer, not the individual (who e.g., would presumably have deeper pockets in the event the relationship went south).
 
-* **Forum selection** - If you're a California based start up, you'll likely want any dispute to be heard in California courts. As a matter of pure practicality, it's a lot easier to go to the courthouse downtown, then to hire a law firm across the country and fly out key witnesses. For government agencies based out of Washington, D.C., they'll likely prefer the parties agree that courts in DC would hear any potential dispute.
+* **Forum selection** - If you're a California based start up, you'll likely want any dispute to be heard in California courts. As a matter of pure practicality, it's a lot easier to go to the courthouse downtown, than to hire a law firm across the country and fly out key witnesses. For government agencies based out of Washington, D.C., they'll likely prefer the parties agree that courts in DC would hear any potential dispute.
 
 * **Choice of law** - Regardless of where the dispute is heard publicly, your standard terms of service may state that a particular state's law (likely either California or Delaware) will govern the relationship, but federal agencies will prefer federal law prevail (due to a little thing called the Supremacy Clause), and state/local agencies will likely prefer their local law.
 
