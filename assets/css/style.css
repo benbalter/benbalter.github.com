@@ -63,7 +63,7 @@ body { padding-top: 20px; font-size: 1.6em; font-weight: 200; }
 
 /* Header */
 .hero-unit {
-    background-image: url( '{{ url_base }}/assets/img/header.png' );
+    background-image: url( '{{ url_base }}/assets/img/header.jpg' );
     background-size: cover;
     background-position: top left;
     height: 400px;
