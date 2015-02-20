@@ -1,5 +1,5 @@
 ---
-title: "Open source best practices part 1: internal collaboration"
+title: "Five best practices in open source: internal collaboration"
 Excerpt: ""
 ---
 
