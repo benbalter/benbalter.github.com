@@ -23,7 +23,7 @@ What then, might you use collections for? Let's say you're making a website for 
 
 You wouldn't want to use posts here, because cupcakes aren't chronological, and likely wouldn't want to just use a page here, because it's a notably different animal than a document that lists your location and hours. Each cupcake in the cupcakes collection is related to one-another in the sense that they're all cupcakes.
 
-## Collections in practice
+### Collections in practice
 
 But what if one day you decided to expand your offerings and sell cookies in addition to cupcakes. Simply introduce a "cookies" collection, adding `chocolate-chip.md` and `peanut-butter.md` to a `_cookies` directory, exposing the cookies as `site.cookies`. You'll notice the collections concept start to show its value here. Pages wouldn't make sense here, because you'd want to be able to list cupcakes and cookies separately, and besides for both being baked goods, the one cookie doesn't really share a relationship with a cupcake, at least not in the same sense that cookies share with one another.
 
