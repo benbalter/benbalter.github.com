@@ -1,12 +1,12 @@
 {
-  "name": "benbalter.github.com",
+  "name": "melodykramer.github.io",
   "main": "index.html",
   "version": "0.0.1",
-  "homepage": "http://ben.balter.com",
+  "homepage": "http://melodykramer.github.io",
   "authors": [
-    "Ben Balter <ben.balter@github.com>"
+    "Melody Kramer <melodykramer@gmail.com>"
   ],
-  "description": "The personal website of Ben Balter. Built using Jekyll and GitHub Pages. See humans.txt for more infos.",
+  "description": "The personal website of Melody Kramer. Built using Jekyll and GitHub Pages. See humans.txt for more infos.",
   "license": "MIT",
   "private": true,
   "ignore": [

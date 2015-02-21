@@ -1,46 +1,194 @@
 ---
-title: Talks
-except: "Past and future talks by Ben Balter, both slides and recordings"
+title: Talks and Press
+except: "Past and future talks by Melody Kramer"
 layout: page
 permalink: /talks/
 ---
 
-Slides (and recordings) from some of the talks I've given over the years. Have a suggestion? [I'd love to hear it](https://github.com/benbalter/talks/issues).
+Slides (and recordings) from some of the talks I've given over the years. Have a suggestion? [I'd love to hear it](https://github.com/melodykramer/talks/issues).
 
-### Collaboration and open source
+---
+title: Talks/Press
+author: melodyjoykramer
+layout: page
+---
+**Writer:** [How PRI's David Beard Makes a Twitter Feed Worth Following](http://www.poynter.org/news/media-innovation/318369/melody-kramer-how-pris-david-beard-makes-a-twitter-feed-worth-following/) Poynter. February 2015.
 
-* [Open source demystified: from command line to community engagement](http://ben.balter.com/open-source-demistified/) ([source](https://github.com/benbalter/open-source-demistified/))
 
-* [Open collaboration: why you should give open source a second look](http://www.slideshare.net/TechSummitPR/pr-35485194) ([video](http://www.ustream.tv/recorded/48410971) - 2:37 in)
+**Writer:** [64 Ways To Think About a Homepage](https://medium.com/thelist/64-ways-to-think-about-a-news-homepage-223c01952d26) Medium. February 2015.
 
-### Software development and workflows
 
-* [Code, Test, Deploy: How to :ship: software like a startup](https://speakerdeck.com/benbalter/code-test-deploy)
+**Writer:**[WNYC is helping people learn to be bored again](http://www.poynter.org/news/media-innovation/316207/melody-kramer-wnyc-is-helping-people-learn-to-be-bored-again/). Poynter. February 2015.
 
-* [Rapid development, testing, and deployment the open source way](https://speakerdeck.com/benbalter/open-sourcing-government)
 
-### Open government
+**Writer:** [How Talking About Your Work in Progress Can Help Your Work in Public Media ](http://airmediaworks.org/blog/sharing-out-loud). AIRMedia. January 2015.
 
-* [What open source teaches us about government](https://www.youtube.com/watch?v=Owq6K79ZBy8) (video)
 
-* [The revolution will be forked: how open collaboration is reimaging the way government works](http://ben.balter.com/open-sourcing-government/) ([source](https://github.com/benbalter/open-sourcing-government/))
+**Speaker</strong>: &#8220;Analytics in the Newsroom.&#8221; NJ News Commons & The Geraldine R. Dodge Foundation. January 2015.
 
-* [Make Government better together: Moving from open government to collaborative government](http://ben.balter.com/make-government-better-together/) ([source](https://github.com/benbalter/make-government-better-together/))
 
-### Law and policy
+**Invitee and Workshop Leader: </strong>ORDCamp. Chicago. January 2015.
 
-* [Open source software licensing: empowering others to use your code](http://ben.balter.com/open-source-software-licensing) ([source](https://github.com/benbalter/open-source-software-licensing/))
 
-* [Collaborative policymaking: how technology is making it easier to work together than alone](http://ben.balter.com/collaborative-policymaking/)  ([source](https://github.com/benbalter/collaborative-policymaking/))
+**Writer:  **(http://www.niemanlab.org/2014/12/crowdsourcing-the-future-of-news/)Crowdsourcing The Future of News Nieman. December 2014.
 
-* [Project open data: a case study in collaborative governance](https://www.youtube.com/watch?v=EL3-UwY3qGE) (video)
 
-### Mapping and GeoJSON
+**Speaker:</strong> &#8220;Analytics and Tools For Your Newsroom That You&#8217;ll Actually Want To Use.&#8221; Poynter News University. December 2014.
 
-* [Open source, open standards, and 50 lines of code: a look behind GitHub's GeoJSON rendering and diffing](http://ben.balter.com/behind-github-geojson/) ([video](http://vimeo.com/106845256), [source](https://github.com/benbalter/behind-github-geojson/))
 
-* [Make maps better together: Collaborative mapping the Open Source Way](http://ben.balter.com/make-maps-better-together) ([video](https://www.youtube.com/watch?v=iGRb5QRqC2w))
+**Speaker: </strong>&#8220;Analytics and Community Building.&#8221; Columbus, OH. The Ohio State University. November 2014.
 
-### Misc.
 
-* [The next cultural commons: how the internet has been quietly assembling the next cultural cannon](http://ben.balter.com/the-next-cultural-commons/) ([source](https://github.com/benbalter/the-next-cultural-commons//))
+**Panelist:</strong> Newsgeist (formerly newsfoo) November 2014.
+
+
+**Writer:  **(https://medium.com/thelist/my-nieman-application-essay-59663a303d5b)Nieman Application Essay Medium. October 2014.
+
+
+<p style="text-align: left;)
+  <b>Workshop Leader: </b>&#8220;Thinking About The User: A Product Workshop.&#8221; Mozfest. London, England. October 2014.
+
+
+**Student Mentor:</strong> Online News Association. Chicago, IL. Sept. 2014.
+
+
+**Panelist: </strong>“<a href="https://www.youtube.com/watch?v=cBjh25g4ZRM)How You Should Think About Analytics in Your Newsroom</a>.” Online News Association. Chicago, IL. Sept. 2014.
+
+
+**Writer/Editor:</strong> <a href="http://socialmediadesk.tumblr.com/)Social Media Desk Blog</a>. Socialmediadesk.tumblr.com
+
+
+**Speaker: </strong>“<a href="https://medium.com/@mkramer/what-does-it-mean-to-be-a-member-of-a-public-media-station-and-what-could-it-mean-59b0d3c90204)What Does It Mean To Be a Member of a Public Media Station?</a>” presented at Weapons of Mass Creation conference. Cleveland, OH. August 2014.
+
+
+**Workshop Leader:</strong> “Rethinking the Article Machine.” National Gay and Lesbian Journalism Conference. Chicago, IL. August 2014.
+
+
+**Panelist: </strong>“Analytics in Mobile Journalism.” National Asian-American Journalism Conference. Washington DC. August 2014.
+
+
+**Panelist: </strong>“Social Media Ethics.” National Asian-American Journalism Conference. Washington DC, August 2014.
+
+
+**Speaker and Workshop Leader:</strong> “<a href="https://source.opennews.org/en-US/learning/building-smart-newsroom-tools/)Building Smart Newsroom Tools</a>.” SRRCON. Philadelphia, PA. July 2014.
+
+
+**Participant:</strong> “Analytics Symposium.” American Press Institute. Chicago, IL. July 2014.
+
+
+<p style="text-align: left;)
+  <b>Writer: </b>“<a href="http://digitalservices.npr.org/post/make-stories-more-shareable-social-media-quotable-images)Make Stories More Sharable on Social with ‘Quotable’ Tool</a>.” NPR Digital Services. June 2014.
+
+
+**Writer: </strong>“<a href="https://source.opennews.org/en-US/learning/building-smart-newsroom-tools/)Building Smart Newsroom Tools</a>.” Opennews.org. June 2014.
+
+
+**Speaker: </strong>“<a href="https://hackpad.com/Heres-Mels-Speech-for-ISOJ-DdutDblUtMs)Building an Analytics Culture in Your Newsroom</a>.” International Symposium on Online Journalism. Austin, TX. April 2014.
+
+
+**Keynote Speaker: </strong>“<a href="https://hackpad.com/Heres-Mels-talk-for-the-Social-Learning-Summit-at-American-University-vgIAgSngYEC)How To Be A Human Online</a>.”  Social Learning Summit at American University. Washington DC. April 2014.
+
+
+**Speaker:  **(https://hackpad.com/Mels-Talk-for-NPR-Foundation-Board-mZ9Zp24TTT9)How NPR Views Social NPR Foundation Board. Washington DC. April 2014.
+
+
+**Speaker: </strong>“How I Think About The Internet.” University of Pennsylvania. Philadelphia, PA. February 2014.
+
+
+**Speaker: </strong>“Tips For Engagement” Speaker. Columbia University School of Journalism. New York, NY. January 2014.
+
+
+**Workshop Leader: </strong>“Rethinking the Article Machine.”  Online News Association. Atlanta, GA. September 2013.
+
+
+**Invitee:</strong> Spark Camp. July 2012.
+
+
+**Speaker: </strong>“<a href="http://editorial.digitalservices.npr.org/post/fresh-airs-melody-kramer-social-media-dont-over-think-it-be-polite-and-have-fun-video)Fresh Air’s Social Media</a>.” NPR Digital Services Knight Foundation Training. Webinar. May 2012.
+
+
+**Writer: </strong><a href="http://melodykramer.tumblr.com/clips.html)Select Clips from Fresh Air with Terry Gross, National Geographic, Esquire Magazine</a>
+
+
+<h3 style="text-align: center;)
+  <strong>Selected Press</strong>
+</h3>
+
+&#8220;[Melody Kramer&#8217;s open source life][1].&#8221; Nerdette Podcast. February 2015.
+
+&#8220;[The Homepage is Alive &#8212; or at a Minimum, here are 64 Ideas For What It Could Become][2].&#8221; Nieman Journalism Lab. February 2015.
+
+&#8220;[Forget Everything You Thought You Knew About the Homepage][3].&#8221; GigaOm. February 2015.
+
+&#8220;[Newsrooms Grapple with How To Avoid Twitter Bloopers][4].&#8221; American Journalism Review. January 2015.
+
+&#8220;[Jay Talks to Melody Kramer, NPR&#8217;s Social Media Strategist][5].&#8221; Jay Rosen. Studio15. December 2014.
+
+&#8220;[Ten with Melody Joy Kramer][6].&#8221; Society of Professional Journalists. December 2014.
+
+<p style="text-align: left;)
+  &#8220;<a href="https://gigaom.com/2014/11/21/yes-your-media-outlet-can-learn-something-from-the-kardashians/)Yes, Your Media Outlet Can Learn Something From The Kardashians Matthew Ingram. GigaOm. November 2014.
+
+
+<p style="text-align: left;)
+  &#8220;<a href="http://greaterpublic.org/r/redefining-way-we-do-membership)Redefining The Way We Do Membership Ellen Guettler and Melanie Coulson. Greater Public. October 2014.
+
+
+<p style="text-align: left;)
+  &#8220;<a href="https://gigaom.com/2014/10/14/nyt-asks-readers-to-help-identify-print-ads-also-launches-platform-for-crowdsourcing-called-hive/)NYTimes Asks Readers To Help Identify Print Ads, Using A Platform For Crowdsourcing Called Hive Matthew Ingram. GigaOm. October 2014.
+
+
+<p style="text-align: left;)
+  &#8220;<a href="https://www.journalism.co.uk/tip-of-the-day/tip-check-out-these-top-takeaways-from-mozfest/s419/a562962/)Check Out These Top Takeaways From #Mozfest Abigail Edge. Journalism.co.uk. October 2014.
+
+
+<p style="text-align: left;)
+  &#8220;<a href="http://www.themediabriefing.com/article/npr-melody-joy-kramer-identity-membership-mozfest)On Finding The Real Meaning of Membership Jasper Jackson. The Media Briefing. October 2014.
+
+
+<p style="text-align: left;)
+  “<a href="http://digiday.com/brands/five-brands-using-snapchat/)How Early Adopter Brands Are Using Snapchat</a>.” Tanya Dua. Digiday. August 2014.
+
+
+<p style="text-align: left;)
+  “<a href="http://www.niemanlab.org/2014/05/its-alive-what-npr-learned-from-turning-its-nprnews-twitter-account-from-a-bot-into-a-human/)It’s Alive! What NPR Learned From Turning its @nprnews Twitter Account from a Bot to a Human</a>.” Joseph Lichterman. Nieman Journalism Lab. May 2014.
+
+
+<p style="text-align: left;)
+  “<a href="http://www.niemanlab.org/2014/04/building-an-analytics-culture-in-a-newsroom-how-npr-is-trying-to-expand-its-digital-thinking/)Building An Analytics Culture in a Newsroom: How NPR is Trying to Expand its Digital Thinking</a>.” Joseph Lichterman. Nieman Journalism Lab. April 2014.
+
+
+<p style="text-align: left;)
+  “<a href="http://www.reporthers.com/post/82189104607/q-a-npr-digital-strategist-melody-joy-kramer)Q&A: NPR Digital Strategist Melody Kramer</a>.” ReportHers. April 2014.
+
+
+<p style="text-align: left;)
+  “<a href="http://college.usatoday.com/2014/03/06/snapchat-opening-the-door-for-new-way-of-journalism/)Snapchat Opening Door for New Way of Journalism</a>.” USA Today. March 2014.
+
+
+<p style="text-align: left;)
+  &#8220;<a href="http://www.current.org/2014/01/nprchives-project-brings-1984-back-in-style/)NPRchives Project Revisits Sounds of 1984 Current. January 2014.
+
+
+<p style="text-align: left;)
+  “<a href="http://www.geekadelphia.com/2012/11/07/geek-of-the-week-melody-kramer/)Geek of the Week: Melody Kramer</a>.” Corey Hulse. Geekadelphia. November 2012.
+
+
+<p style="text-align: left;)
+  “<a href="http://www.current.org/2012/04/meet-the-guru-behind-fresh-airs-web-success/)Meet the Guru Behind Fresh Air’s Web Success</a>.” Current.org. April 2012.
+
+
+<p style="text-align: left;)
+  “<a href="http://www.niemanlab.org/2012/04/meet-the-most-popular-woman-at-nprs-fresh-air-and-its-not-terry-gross/)Meet the Most Popular Woman at NPR’s Fresh Air (And It’s Not Terry Gross)</a>” Andrew Phelps. Nieman Journalism Lab. April 2012.
+
+
+<p style="text-align: left;)
+  “<a href="http://www.nytimes.com/2007/10/14/fashion/14facebook.html?pagewanted=all&_r=0)73 and Loaded with Friends on Facebook</a>.” John Schwartz. The New York Times. October 2007.
+
+
+ [1]: http://nerdettepodcast.com/post/110652298367/melody-kramers-open-source-life-singing-civil
+ [2]: http://www.niemanlab.org/2015/02/the-homepage-is-alive-or-at-a-minimum-here-are-64-ideas-for-what-it-could-become/
+ [3]: https://gigaom.com/2015/02/09/forget-everything-you-thought-you-knew-about-the-homepage/
+ [4]: http://ajr.org/2015/01/08/newsrooms-grapple-avoid-twitter-bloopers/
+ [5]: https://nyustudio20.wordpress.com/2014/12/04/jay-talks-to-melody-kramer-nprs-social-media-strategist/
+ [6]: http://www.spj.org/quill_issue.asp?REF=2150
