@@ -21,7 +21,7 @@ json: false
    	<language>en-US</language>
     <description>{{ site.description }}</description>
     {% for post in site.posts limit:site.rss_limit %}<item>
-        <title>{{ post.title }}</title>
+        <title>{% include smartify text=post.title %}</title>
         <link>{{ url_base }}{{ post.url }}</link>
         <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
         <dc:creator>{{ post.author }}</dc:creator>
