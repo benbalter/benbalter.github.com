@@ -1,8 +1,9 @@
-# Ben.Balter.com
+# Melody Kramer's website
 
-[![Build Status](https://travis-ci.org/benbalter/benbalter.github.com.png?branch=master)](https://travis-ci.org/benbalter/benbalter.github.com)
 
-The personal website of Ben Balter. Built using Jekyll, GitHub Pages, and Bootstrap. See [humans.txt](http://ben.balter.com/humans.txt) for more infos.
+The personal website of Melody Kramer. Built using Jekyll, GitHub Pages, and Bootstrap. 
+
+Theme from [Ben Balter](http://ben.balter.com/) 
 
 ## License
 
