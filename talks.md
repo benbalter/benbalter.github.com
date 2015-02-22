@@ -7,11 +7,7 @@ permalink: /talks/
 
 Slides (and recordings) from some of the talks I've given over the years. Have a suggestion? [I'd love to hear it](https://github.com/melodykramer/talks/issues).
 
----
-title: Talks/Press
-author: melodyjoykramer
-layout: page
----
+
 **Writer:** [How PRI's David Beard Makes a Twitter Feed Worth Following](http://www.poynter.org/news/media-innovation/318369/melody-kramer-how-pris-david-beard-makes-a-twitter-feed-worth-following/) Poynter. February 2015.
 
 
@@ -46,7 +42,7 @@ layout: page
 
 
 
-  **Workshop Leader: **Thinking About The User: A Product Workshop. Mozfest. London, England. October 2014.
+**Workshop Leader: **Thinking About The User: A Product Workshop. Mozfest. London, England. October 2014.
 
 
 **Student Mentor:** Online News Association. Chicago, IL. Sept. 2014.
@@ -86,10 +82,10 @@ layout: page
 **Speaker: **[Building an Analytics Culture in Your Newsroom](https://hackpad.com/Heres-Mels-Speech-for-ISOJ-DdutDblUtMs) International Symposium on Online Journalism. Austin, TX. April 2014.
 
 
-**Keynote Speaker: **[How To Be A Human Online](https://hackpad.com/Heres-Mels-talk-for-the-Social-Learning-Summit-at-American-University-vgIAgSngYEC) Social Learning Summit at American University. Washington DC. April 2014.
+**Keynote Speaker:** [How To Be A Human Online](https://hackpad.com/Heres-Mels-talk-for-the-Social-Learning-Summit-at-American-University-vgIAgSngYEC) Social Learning Summit at American University. Washington DC. April 2014.
 
 
-**Speaker:  **[How NPR Views Social ](https://hackpad.com/Mels-Talk-for-NPR-Foundation-Board-mZ9Zp24TTT9)NPR Foundation Board. Washington DC. April 2014.
+**Speaker:** [How NPR Views Social ](https://hackpad.com/Mels-Talk-for-NPR-Foundation-Board-mZ9Zp24TTT9)NPR Foundation Board. Washington DC. April 2014.
 
 
 **Speaker: “How I Think About The Internet.” University of Pennsylvania. Philadelphia, PA. February 2014.
