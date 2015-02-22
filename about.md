@@ -9,8 +9,9 @@ id: /about
 icons: true
 ---
 
-![Ben Balter](http://www.gravatar.com/avatar/{{ site.gravatar_id }}.png?size=250){: .alignright}
+![Melody Kramer](http://www.gravatar.com/avatar/ff608aff04ab44f74302d1f86cddad39.png?size=250){: .alignright}
 
+Melody Kramer is currently serving a two-year term appointment with [18F][1] and frequently works on side projects within the audio, public media, podcasting, and civic technology space. She is also a 2014-2015 [Visiting Nieman Fellow][2] at Harvard University and a weekly columnist for Poynter, where she covers people who live outside of SF/DC/NY who are doing amazing things in the news business.
 
 She is a Peabody award-winning digital strategist and editor who spent the majority of her career at NPR, where she [launched and then managed projects][3] involving breaking news, analytics, archives, social media and long-term editorial strategies. She sat firmly at the intersection of NPR&#8217;s product and editorial teams, and [frequently][4] spoke at conferences and universities about building newsroom tools with, by and for the audience.
 
