@@ -7,6 +7,7 @@ categories:
   - tips and tools
 tags:
   - weather
+description: "What weather can teach us about personalization and the news."
 ---
 It&#8217;s snowing in DC. I&#8217;m not going to write a long note today, but if you get a chance today, take a look at the Capital Weather Gang [Twitter feed](https://twitter.com/capitalweather).
 
