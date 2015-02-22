@@ -103,7 +103,7 @@ Slides (and recordings) from some of the talks I've given over the years. Have a
 **Speaker:**(http://editorial.digitalservices.npr.org/post/fresh-airs-melody-kramer-social-media-dont-over-think-it-be-polite-and-have-fun-video)Fresh Air’s Social Media) NPR Digital Services Knight Foundation Training. Webinar. May 2012.
 
 
-**Writer: (http://melodykramer.tumblr.com/clips.html)Select Clips from Fresh Air with Terry Gross, National Geographic, Esquire Magazine)
+**Writer:** National Geographic Magazine (2007, 2009, 2014) Fresh Air with Terry Gross (2009-2011); Esquire Magazine (2004)
 
 
 ###Selected Press
