@@ -1,4 +1,4 @@
-	{% if page.url == "/" %}
+{% if page.url == "/" %}
 			{% capture seo_title %}{{ site.name }} &raquo; {{ site.description }}{% endcapture %}
 	    {% assign seo_desc = site.description %}
 	{% else %}
@@ -31,7 +31,7 @@
 	{% if page.previous.url %}<link rel="prev" href="{{ url_base }}{{ page.previous.url }}" title="{{ page.previous.title}}" />{% endif %}
 
 	<meta property='og:url' content='{{ url_base }}{{ page.url }}'/>
-	<link rel="alternate" type="application/rss+xml" title="{{ site.name }} &raquo; Feed" href="http://feeds.feedburner.com/benbalter" />
+	
 
 	<meta property='og:locale' content='en_us'/>
 
