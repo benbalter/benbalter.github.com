@@ -1,22 +1,22 @@
 #Jekyll config file
 
-name: Ben Balter
-description: "Government evangelist, attorney, open source developer"
-gravatar_id: ea353bd28baa1aefaefae736a19fcf2a
-job_title: Government Evangelist
-employer: GitHub
-url: "http://ben.balter.com"
+name: Melody Kramer
+description: "Media, Civic Tech, Audience Engagement, Bagels"
+gravatar_id: ff608aff04ab44f74302d1f86cddad39
+job_title: Digital Strategist
+employer: 18F
+url: "http://melodykramer.github.io"
 location:
   city: Washington
   state: District of Columbia
   country: United States of America
 ga_username: 'UA-18088627-1'
 twitter:
-  username: "@benbalter"
-  account_id: "16211142"
-google_plus_id: BenBalter
+  username: "@mkramer"
+  account_id: "10232022"
+google_plus_id: 109084859981590337506
 branch: master
-
+   
 #files to exclude, array
 exclude:
   - CONTRIBUTING.md
@@ -67,11 +67,6 @@ defaults:
       layout: "post"
       comments: true
 
-#disqus widget
-disqus:
-  shortname: 'benbalter'
-  count: 5
-  api_key: "OQ5OlN2AtWDfIQ0bjIGwdfq9SsEB3P8NdzhYTRak7R45KeAD744aVIqJZDYqvmuL"
 
 #build config
 highlighter: pygments
