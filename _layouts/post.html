@@ -5,7 +5,7 @@
 
 <article id="post{{ page.id | replace:"/","-" }}" class="post post{{ page.id | replace:"/","-" }}" itemscope itemtype="http://schema.org/Article">
 
-  <h2 class="title"><a href="{{ page.url }}" itemprop="name">{{ page.title }}</a></h2>
+  <h2 class="title"><a href="{{ page.url }}" itemprop="name">{% include smartify text=page.title %}</a></h2>
 
   <meta itemprop="about" content="{{ page.excerpt }}" />
   <meta itemprop="description" content="{{ page.excerpt }}" />
