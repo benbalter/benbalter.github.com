@@ -17,7 +17,7 @@
 
   <div class="post-meta">
     <span class="entry-date">Posted {{ page.date | date: '%B %d, %Y' }}</span> |
-    <a class="revision-history" href="https://github.com/benbalter/benbalter.github.com/commits/{{ site.branch }}/{{ page.path }}" target="_blank">View revision history</a>
+    <a class="revision-history" href="https://github.com/melodykramer/melodykramer.github.io/commits/{{ site.branch }}/{{ page.path }}" target="_blank">View revision history</a>
   </div>
 
     <div class="entrybody" itemprop="articleBody">
@@ -31,6 +31,15 @@
     {% endunless %}
 
 </article>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    {% for post in site.related_posts limit:3 %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
 
   </div>
 </div>

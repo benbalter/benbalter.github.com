@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /tag*
 Disallow: /tags*
 Allow: /
-Sitemap: http://ben.balter.com/sitemap.xml
+Sitemap: http://melodykramer.github.io/sitemap.xml

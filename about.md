@@ -1,6 +1,7 @@
 ---
 title: About
-excerpt: Ben Balter is an attorney, an open source developer, and a Government Evangelist at GitHub, the world's largest software development network, modernizing government, one software project at a time.
+author: melodyjoykramer
+excerpt: Melody Kramer is currently serving a two-year term appointment with [18F][1] and frequently works on side projects within the audio, public media, podcasting, and civic technology space. She is also a 2014-2015 [Visiting Nieman Fellow][2] at Harvard University and a weekly columnist for Poynter, where she covers people who live outside of SF/DC/NY who are doing amazing things in the news business.
 layout: page
 permalink: /about/
 published: true
@@ -8,14 +9,31 @@ id: /about
 icons: true
 ---
 
-![Ben Balter](http://www.gravatar.com/avatar/{{ site.gravatar_id }}.png?size=250){: .alignright}
+![Melody Kramer](http://www.gravatar.com/avatar/ff608aff04ab44f74302d1f86cddad39.png?size=250){: .alignright}
 
-Named one of the [top 25 most influential people in government and technology](http://fedscoop.com/top-federal-it-and-tech-folks-under-40/) and Fed 50's Disruptor of the Year, described by the US Chief Technology Officer as one of "the baddest of the badass innovators," and winner of the Open Source People's Choice Award, Ben Balter is the Government Evangelist at [GitHub](http://www.youtube.com/watch?v=l_T3XEgXl14) — the world's largest software development network — where he leads the efforts to encourage adoption of open source philosophies, making all levels of government better, one repository at a time.
+Melody Kramer is currently serving a two-year term appointment with [18F][1] and frequently works on side projects within the audio, public media, podcasting, and civic technology space. She is also a 2014-2015 [Visiting Nieman Fellow][2] at Harvard University and a weekly columnist for Poynter, where she covers people who live outside of SF/DC/NY who are doing amazing things in the news business.
 
-Previously, Ben was a member of the inaugural class of Presidential Innovation Fellows where he served as entrepreneur in residence reimagining the role of technology in brokering the relationship between citizens and government. Before that, he was a Fellow in the Office of the US Chief Information Officer within the Executive Office of the President where he was instrumental in drafting the President's Digital Strategy and Open Data Policy, on the SoftWare Automation and Technology (SWAT) Team, the White House’s first and only agile development team, and as a [New Media Fellow](http://reboot.fcc.gov/blog/?authorId=593709), in the Federal Communications Commission's Office of the Managing Director where he played a central role in shaping the agency's reimagined web presence. His paper, [Towards a More Agile Government](http://ben.balter.com/2011/11/29/towards-a-more-agile-government/) was published in the Public Contract Law Journal, arguing that Federal IT Procurement should be more amenable to modern, agile development methods.
+She is a Peabody award-winning digital strategist and editor who spent the majority of her career at NPR, where she [launched and then managed projects][3] involving breaking news, analytics, archives, social media and long-term editorial strategies. She sat firmly at the intersection of NPR&#8217;s product and editorial teams, and [frequently][4] spoke at conferences and universities about building newsroom tools with, by and for the audience.
 
-As an attorney passionate about the disruptive potential of technology, Ben holds a J.D. and an M.B.A. from the George Washington University and is a member of the DC Bar. When not trying to change the world, he enjoys tackling otherwise-impossible challenges to sharing information using nothing more than duct tape, version control, and occasionally a pack of bubblegum.
+She previously launched and then led digital operations at [WHYY&#8217;s Fresh Air with Terry Gross][5], where she increased unique visitors to Fresh Air&#8217;s website by over 60 percent in two years, at a rate twice as fast as NPR&#8217;s flagship shows. Before that, she directed, edited, ran social media and wrote jokes for NPR&#8217;s humor show, [Wait Wait Don&#8217;t Tell Me][6] and wrote for National Geographic Magazine. Mel is a recipient of NPR&#8217;s [Kroc Fellowship][7], a full-year paid reporting fellowship given to three early-career journalists each year.
 
-Feel free to e-mail him at <Ben@Balter.com> or you can find him on these social networks:
+Mel is also a frequent guest lecturer and speaker on topics related to social and digital strategy. Her work has been featured by The New York Times, iTunes, the Nieman Journalism Lab, Mashable, Poynter, the Shorty Awards, Knight-Mozilla Open News, USA Today, GigaOm, and the Village Voice Web Awards. She was recently the keynote speaker at the Social Learning Summit at American University and has lectured at the Columbia University School of Journalism, the University of Maryland, Drexel University, Northwestern University, Princeton University, Ohio State, the University of Florida, Georgetown University, and the University of Pennsylvania. She writes frequently about digital innovation for a variety of publications.
+
+Outside of work, Mel volunteers as a teaching assistant at Python programming classes and frequently attends Code for DC, where she works on open-source web projects to benefit the District of Columbia. She also attends twice-weekly water aerobics classes at a public pool in DC, plays with her dog Sadie, reads quietly next to her partner A &#8212; who is not on any social media whatsoever &#8212; and tweets [@mkramer][8].
+
+**Awards**
+
+Village Voice Web Awards Best Professional Tumblr, 2013; Shorty Awards Best Microblog of the Year (finalist), 2013; Philadelphia Geek Awards Social Media Campaign of the Year (finalist); iTunes Podcast of the Year (Fresh Air with Terry Gross), 2011. Peabody Award, Wait Wait Don’t Tell Me, 2008; Nora Magid Prize for Creative Non-Fiction, 2005; Phi Kappa Sigma Fiction Prize, 2005; Daily Pennsylvanian Columnist of the Year, 2005; National Association of Newspaper Columnists, Columnist of the Year (2005); Columbia University Scholastic Press Association, Gold Circle Awards, General Column Writing (1rst prize), 2005.
+
+ [1]: https://18f.gsa.gov/
+ [2]: https://medium.com/thelist/my-nieman-application-essay-59663a303d5b
+ [3]: http://www.melodyjk.com/portfolio/
+ [4]: http://www.melodyjk.com/talkspress/
+ [5]: http://www.npr.org/programs/fresh-air/
+ [6]: http://www.npr.org/programs/wait-wait-dont-tell-me/
+ [7]: http://www.npr.org/about-npr/183691179/kroc-fellowship-details-and-application
+ [8]: https://twitter.com/mkramer
+
+Feel free to e-mail her at <melodykramer@gmail.com> or you can find her on these social networks:
 
 {% include contact-links.html %}
