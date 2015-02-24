@@ -1,6 +1,6 @@
 ---
 title: "Five best practices in open source: internal collaboration"
-Excerpt: ""
+excerpt: ""
 ---
 
 Before you can open source, you must first learn to collaborate. [Open source is not a verb](http://ben.balter.com/2012/10/15/open-source-is-not-a-verb/). It's a workflow, a philosophy, a modern approach to software development. To think you can [breed code in captivity behind a firewall](http://ben.balter.com/2013/05/14/we-ve-been-selling-open-source-wrong/), using closed, hostile, or waterfall methodologies, and that once that code leaves the firewall, it will grow wings, is a  misunderstanding of what it means to participate in the open source community.
