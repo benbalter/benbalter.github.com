@@ -25,13 +25,21 @@ Your first open source release should be something small and inconsequential, no
 
 ### 3. Minimize information imbalance
 
-* Open source is about  growing a community
-* Developers are people too
-* Work outside the firewall
-* Procedurally  (One issue tracker, one way to provide feedback or discuss features; minimize and memorialize
-meatspace discussions)
-* Day-to-day  (The project’s status, how to submit an issue/feature request or contribute a fix/enhancement)
-* Long-term  (Project mission statement, philosophy, and goal, features and requirements list, project roadmap)
+Open source is about  growing a community. Often when we think about project stakeholders (and build or adopt workflows), we only look to those within our organization. When it comes to open source, you *must* ensure that those outside the firewall are on equal footing — in terms of information and ability to influence the project — as those outside the firewall. Developers are people too.
+
+The default government workflow is to hold synchronous, meatspace meeting in wood-paneled, formerly smoke-filled rooms. Like a bad joke, you "had to be there" in order to be in on it. That's not how you foster a strong open source project.
+
+Imagine this: you maintain an open source project. A contributor spends a week building our a new feature they want to see incorporated and propose it. You as the maintainer, have to turn them down, because either you've been secretly tracking a change internally that will solve the problem, or worse, have had secret discussions internally that you want to take the project in a different direction. You'd better bet that contributor is never contributing to your project ever again (or any other project for that matter).
+
+The way you hedge against this risk is by working outside the firewall, by leveling the information playing field and placing your internal stakeholders on the same footing as all other project stakeholders. Not only does that simplify (and modernize) your own workflows, but it ensures that there's an information balance.
+
+This idea comes into play in three distinct ways:
+
+* **Procedurally** that means maintaining one issue tracker (that's public), rather than keeping a secret priority list that only you can see. That also means that stakeholders (again, whether internal or external) should have one mechanism to provide feedback or discuss new features. Last, minimize and memorialize meatspace discussions when absolutely necessary.
+
+* **Day-to-day** that means communicating the project's status (proof of concept, actively developed, deprecated, etc.) as well as how to submit an issue, propose a feature, or contribute a fix or enhancement.
+
+* **Long-term**  that means documenting (and open sourcing) the project's mission statement, philosophy, goals, features and requirements list, and overall project roadmap.
 
 ### 4. Embrace the constraints of open source
 
