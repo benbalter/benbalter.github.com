@@ -6,6 +6,11 @@ permalink: /press/
 id: /press
 clips:
 
+  - title: "Silicon Valley's public service awakening — is it real?"
+    publication: FedScoop
+    url: "http://fedscoop.com/whats-behind-silicon-valleys-takeover-of-washington-d-c"
+    date: 2015-02-27
+
   - title: Army opts for openness with new computer security tool
     publication: The Baltimore Sun
     url: "http://www.baltimoresun.com/news/maryland/bs-md-federal-workplace-computer-security-20150227-story.html"
@@ -106,6 +111,16 @@ clips:
     url: "http://fcw.com/articles/2014/01/10/year-ahead-balter-open-gov.aspx"
     date: 2014-01-10
 
+  - title: "Open source grabs spotlight at symposium"
+    publication: FedScoop
+    url: "http://fedscoop.com/red-hat-event-coverage"
+    date: 2013-12-07
+
+  - title: "GitHub's Ben Balter on innovative uses of open source"
+    publication: FedScoop
+    url: "http://fedscoop.com/githubs-ben-balter-innovative-uses-open-source"
+    date: 2013-12-02
+
   - title: If A Tech Company Had Built The Federal Health Care Website
     publication: NPR — All Things Considered
     url: "http://www.npr.org/blogs/alltechconsidered/2013/10/17/235739367/if-a-tech-company-had-built-the-federal-health-care-website"
@@ -115,6 +130,21 @@ clips:
     publication: TechPresident
     url: "http://techpresident.com/news/24431/github-launches-showcase-government-citizen-collaborations"
     date: 2013-10-15
+
+  - title: "10 things I learned as a presidential innovation fellow"
+    publication: FedScoop
+    url: "http://fedscoop.com/ben-balter-10-things-i-learned-as-a-presidential-innovation-fellow"
+    date: 2013-09-30
+
+  - title: "A future where ‘the crowd’ helps solve government problems"
+    publication: FedScoop
+    url: "http://fedscoop.com/ibm-report-calls-for-crowdsourcing-in-government"
+    date: 2013-08-30
+
+  - title: "After hours: Where to schmooze with government techies"
+    publication: FedScoop
+    url: "http://fedscoop.com/after-hours-where-to-find-government-techies"
+    date: 2013-06-13
 
   - title: Governing Gets Social
     publication: GovExec
@@ -156,10 +186,20 @@ clips:
     url: "http://gcn.com/articles/2012/11/13/pdf-filler-adds-web-features-to-standard-pdf.aspx"
     date: 2012-11-13
 
+  - title: "Is this government's next IT development dashboard?"
+    publication: FedScoop
+    url: "http://fedscoop.com/is-this-governments-next-it-development-dashboard"
+    date: 2012-12-14
+
   - title: "Who leaves Comedy Central to work for the government?"
     publication: Washington Post
     url: "http://www.washingtonpost.com/blogs/wonkblog/wp/2012/09/07/who-leaves-comedy-central-to-work-for-the-government/"
     date: 2012-09-07
+
+  - title: "Is this the federal government's first agency-to-agency accepted pull request?"
+    publication: FedScoop
+    url: "http://fedscoop.com/is-this-the-federal-governments-first-agency-to-agency-accepted-pull-request"
+    date: 2012-08-24
 
   - title: "Why hasn't WordPress caught on in government?"
     publication: FCW
