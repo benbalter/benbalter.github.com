@@ -167,7 +167,7 @@ clips:
     date: 2012-03-07
 ---
 
-*I regularly speak to press about open source, open data, and innovation within government. Below are some highlights:*
+*I regularly speak with the press about open source, open data, and innovation within government. Below are some highlights:*
 
 <ul id="clips">
 {% for clip in page.clips | sort: "date" | reverse %}
