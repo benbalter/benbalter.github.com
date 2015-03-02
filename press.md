@@ -201,10 +201,21 @@ clips:
     url: "http://fedscoop.com/is-this-the-federal-governments-first-agency-to-agency-accepted-pull-request"
     date: 2012-08-24
 
+  - title: "'Rockstar' innovators descend on Washington"
+    publication: FCW
+    url: http://fcw.com/articles/2012/08/23/park-vanroekel-presidential-innovation-fellows-program.aspx
+    date: 2012-08-23
+
   - title: "Why hasn't WordPress caught on in government?"
     publication: FCW
     url: "http://fcw.com/articles/2012/03/07/wordpress-drupal-content-management-.gov.aspx"
     date: 2012-03-07
+
+  - title: "Nearly a quarter of dot-gov domains don't work, analysis finds"
+    publication: NextGov
+    url: "http://www.nextgov.com/cloud-computing/2011/09/nearly-a-quarter-of-dot-gov-domains-dont-work-analysis-finds/49751/"
+    date: 2011-09-12
+
 ---
 
 *I regularly speak with the press about open source, open data, and innovation within government. Below are some highlights:*
