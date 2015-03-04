@@ -57,6 +57,8 @@ You can't un-constrain open source, nor would you want to. If you want to engage
 
 ### 5. Open source problems, not solutions
 
-* Developers want to  contribute to a cause  not provide free labor
-* “Yes we can”, not “yes we did”
-* If you’re happy with your ship, you’ve shipped too late
+Developers want to  contribute to a cause  not provide free labor. If you set out to solve a problem, and you've published the result, you're not likely to garner a strong open source presence. Why would you? What exciting problems are there for developers to solve? What ways have you provided for them to contribute? Likely few to none (other than bug fixes, for which they have no vested interest).
+
+Think about it this way. President Obama, in his 2008 campaign adopted the slogan of "Yes we can". Notice that that's not "Yes we did." He painted a vision of where the country could be in four years (not where he took it over the past four years), and invited others to help him get it there. Think of open source projects like political campaigns. Paint a vision of where the project could be and encourage developers to get behind the cause.
+
+Put another way, if you’re happy with your code when it leaves the firewall, if you're proud of it, you’ve almost undoubtedly shipped too late. Open source projects need but a vision. Start with documentation. An empty repo. A few lines of code that expresses your idea. Just enough to serve as a placeholder. Successful open source projects rarely, if ever, start with a finished product. As an added bonus, working in the open from day one (or two) will force you to write better, more modular code, and will allow you to get early feedback from stakeholders, both internal and external.
