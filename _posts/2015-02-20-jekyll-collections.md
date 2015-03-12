@@ -89,7 +89,7 @@ I like to think the decision looks roughly like this:
 +-------------------------------------+
 ~~~
 
-So if you're not about to open a bakery (if you do, please send cookies), what might you use collections for? In short, any discrete group of "things" that can be logically grouped by a common theme (that's note their date). Here's a few examples:
+So if you're not about to open a bakery (if you do, please send cookies), what might you use collections for? In short, any discrete group of "things" that can be logically grouped by a common theme (that's not their date). Here's a few examples:
 
 * Listing employees on your company's "about" page (or a project's maintainers)
 * Documenting methods in an open source project (or the project's that use it, or the plugins available)
