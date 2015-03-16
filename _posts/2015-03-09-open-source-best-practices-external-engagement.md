@@ -65,12 +65,17 @@ A lot of that comes down to contributor-friendly documentation (read: not intern
 
 ### 4. Decentralize governance
 
-* You don’t need a meeting  to merge a pull request
-* You don’t need a suit  to merge a pull request
-* You need to be a member of the community to participate in it
-* Responding to issues and providing support
-* Code review and enforcing project style
-* Accepting or rejecting pull request on behalf of the project Long-term planning, roadmaps, releases
+Successful open source is all about decentralization, informality, something large organizations are traditionally terrible at. Think about what most large organizations optimize for. You don't need a meeting to merge a pull request. Heck, you don't even need to be in the office or wearing a suit to comment on an issue. You do however, need to be a member of the community. Open source developers can tell the difference between someone who "one of them", and someone who's following a telemarketing-like support script.
+
+When the White House merges a pull request, it's done by a developer familiar with the project. The CIO doesn't bring a laptop into the situation room and ask the President to sign off. That'd be crazy. The president isn't a software developer, and the people in that room presumably have better things to do. Yet more often than not, participating in the open source community is seen bureaucratically as public engagement, and thus, must be funneled through a public affairs office or similar committee-like blocking experience.
+
+Instead, push responsibilities to as close to the edge as possible. Day-to-day community engagement is going to require responding to issues and providing support. The questions may be technical, but more often than not, this role is best served by a fellow, intern, or other member of the open source community, that knows the lay of the land and has managed an open source project before, even if at a smaller (or personal) scale.
+
+Beyond general engagement, day-to-day project management will require regular, in-depth code review, providing feedback to developers, and generally working with contributors to enforce the project's style and goals. This should be a technical person familiar with the project, whether an external contractor, a community member, or employee it doesn't matter, as long as they're able to understand the technical issues involved and move proposed changes forward at their own pace. This can be the same person who engages the community, but doesn't need to be.
+
+Last, you'll want someone to serve in a role the open source community would most often call "lead developer". There can be multiple lead developers, and those developers can be the ones to provide early code review and feedback, but again, it's important that they have a firm grasp of the technical issues at play. They'll be responsible for accepting or rejecting pull requests on behalf of the project, long-term planning, working with the community to establish project roadmaps, coordinating releases, etc.
+
+All of these roles of very different from writing a blog post or composing a Tweet and require a certain degree of speed, flexibility, and technical acumen. The only way the project is going to be successful is by decentralizing project governance to those most closely involved with the project. Obviously matters of policy as well as large, policy-defining decisions should include non-technical stakeholders, but just because a code comment is public, doesn't mean day-to-day maintenance should be the purview of a public affairs office or committee that maintains a standing meeting. Given the pace of open source software development, it's simply not practical. Open source is about collaboration between humans, not between humans and a single human speaking on behalf of an entire organization. 
 
 ### 5. Encourage contributors
 
