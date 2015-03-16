@@ -3,14 +3,17 @@ title: "Five best practices in open source: external engagement"
 Excerpt: ""
 ---
 
+When it comes to open source, simply publishing code, isn't enough. Open source is about fostering communities around shared challenges. Sure, you'll want to [find tune your internal collaboration workflows](http://ben.balter.com/2015/03/08/open-source-best-practices-internal-collaboration/), but at its core, open source is about proactively engaging external developers. You can have open source without executive oversight. You can have open source without policy guidance. But you can't have open source without open source developers and you certainly can't have open source without open source code.
+
+Working regularly with government agencies to help ensure their first (or second) step into the open source world is a successful one, here are five best practices for pursuing open source in government (or any large organization for that matter):
 
 ### 1. Expand your definition of stakeholders
 
-Going in to your first open source project, you'll likely have a narrow definition of stakeholders. You've probably accounted for open source developers, internal business owners or subject matter experts, and possibly the press. Open source communities are made out of more stakeholders, both inside and outside your firewall. Put a different way, [everyone contributes](http://ben.balter.com/2013/08/11/everyone-contributes/).
+Going in to your first open source project, you'll likely have a narrow definition of stakeholders. You've probably accounted for open source developers, internal business owners or subject matter experts, and possibly the press. Open source communities are made out of more stakeholders, on both sides of the firewall. Put a different way, [everyone contributes](http://ben.balter.com/2013/08/11/everyone-contributes/).
 
-Here's a short list of personas that likely already exist inside your organization:
+Here's a short list of personas that likely already care about your project, our would care, if properly engaged:
 
-* Non-technical, non-user stakeholders (management, legal, security, privacy, ethics)
+* Non-technical, non-user stakeholders (
 * Potential users
 * Veteran (or curious) users
 * Subject matter experts (accessibility, content, i18n)
