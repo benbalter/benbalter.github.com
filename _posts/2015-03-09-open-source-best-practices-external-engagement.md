@@ -81,3 +81,5 @@ A lot of that comes down to contributor-friendly documentation (read: not intern
 * In advance  (Document how to contribute, technical requirements, how to run the project locally in the README)
 * Daily  (Provide constructive and supportive feedback, express gratitude when merging or commenting)
 * Going Forward  (Automate testing with continuous integration, minimize friction through shared tooling)
+
+*This post is part of a series on best practices in open source. You may also be interested in [Five best practices in open source: internal collaboration](http://ben.balter.com/2015/03/08/open-source-best-practices-internal-collaboration/).*
