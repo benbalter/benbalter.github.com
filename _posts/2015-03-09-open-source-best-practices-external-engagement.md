@@ -39,14 +39,17 @@ If you do it right, by the time you're ready to engage the external community, y
 
 ### 2. Be the hub, encourage spokes
 
-As an
+As the maintainer of an open source project, you should think of your role as being the host of the internet's most boring cocktail party. You are responsible for extending invitations to a diverse list of party goers, providing drinks and snacks, and as attendees arrive one-by-one, taking their coat and providing introductions.
 
-* You are the host of the internet’s most boring cocktail party
-* Non-blocking is  better than blocking
-* Be a matchmaker (connect subject matter experts and technical experts in the open)
-* Minimize one-to-one interactions  (emailing anonymous-inbox@agency.gov)
-* Every answer to every question should have a URL  (and a human name and face)
-* Answer questions once (or never if the community can)
+Open source is no different. You must invite contributors, provide them with the necessary tools to collaborate (both social and technical), and to float from conversation to conversation, connecting subject matter and technical experts, and smoothing over any potential disagreements among guests before they even arise.
+
+You can't be a host, however, if guests are only allowed to talk directly to you. That wouldn't be much of a party, and in the case of open source, wouldn't foster much of a community. Yet that's exactly how most open source efforts are initially structured by potential contributors emailing `anonymous-inbox@agency.gov`.
+
+Instead, minimize one-to-one interactions. There's absolutely no way for you to scale. The types of questions and feedback you receive are going to be common to one another. *Is this column month-day-year or year-month-day?* *What unit is this represented in?*. Engaging developers via email means, by definition, that you're going to be answering the same question multiple times, and will be creating a single point of failure: yourself. As we say in engineering, non-blocking is better than blocking.
+
+Every answer to every question should have a URL (and a human name and face). Communities are made up of humans, not of roles, titles, or shared inboxes. Ideally, you should only have to answer a question once, or even better, never, if the community can for you. When the second user encounters the same problem, they can search and get connected with the first. Better yet, by the time it's happened a third time, it's a documented problem, and a member of the community can propose an update to the documentation. This isn't hypothetical, this happens every day in open source.
+
+In practicality, that means standing up public, linkable forums for stakeholders to ask questions and submit feedback, to engage with other another, and for you to support the community. If all that's locked away in a shared inbox, if you hold a monopoly on the ability to communicate, well, then, nobody's going to come to your party.
 
 ### 3. Minimize Friction
 
