@@ -53,12 +53,15 @@ In practicality, that means standing up public, linkable forums for stakeholders
 
 ### 3. Minimize Friction
 
-* Friction (n) The time it takes to go from “I want to contribute” to “I have contributed”
-* What does this thing do?
-* What language is this thing written in?
-* Do I need a lawyer to know if I can use it?
-* How do I bootstrap my local development environment
-* How do I submit an improvement? How long will it take to merge?
+At GitHub, we measure workflows in terms of friction. You can define friction as the time it takes for a potential contributor to go from "I want to contribute" to "I have contributed". When contributions are on a volunteer basis, minimizing friction is essential.
+
+Think about it this way. Lets say I find a typo in your app. I need to make what is literally a single character change. The actually change itself should take less than thirty seconds. But what do I have to do to make that change? I'll need to figure out the project dependencies and install them, bootstrap a local development environment, make my change, set up the test suite, run tests, and then figure out how to contribute my change back. That 30 seconds change just became a day long process. When friction outweighs (or is even close to) the time to do the thing I set out to do, I'm simply not going to contribute.
+
+If a maintainer spending a few hours improving documentation and scripting common tasks, even if it only shaves a few seconds those hours the maintainer spends will be well justified in the long run, when you multiply those seconds by the hundreds of developers that may contribute across the project's lifetime, and the hundred more than would otherwise be turned away.
+
+In practice, that means walking through the contribution flow from discovery to merge and deployment, and anticipating the potential contributor's needs at each step. How do I find the source code? Am I familiar with this language or platform? Where's the documentation? Have I seen this license before, or do I need to hire a lawyer to know if I can contribute? What are the local system requirements? How do I bootstrap those dependencies? Tests? Once I've made my change, what's the workflow for submitting an improvement? How long should I expect to wait on feedback? How long will it take to get merged so I can go work on the next thing?
+
+A lot of that comes down to contributor-friendly documentation (read: not internal policy), but a sane workflow (e.g., merging pull requests as they come in, not in a standing meeting on the 2nd Tuesday of the month) and some simple tooling can go a long way. At GitHub we have what we call culture tools, meaning I can jump into any project and know how to set things up and submit my proposed fix without reading a single line of documentation. @parkr expanded on that idea with what he calls ["Language-Agnostic Interfaces for Software Development"](https://byparker.com/blog/2015/language-agnostic-interfaces-for-software-development/). Whatever you call it, running `script/bootstrap` is a heck of a lot easier than spending a few hours learning how some random package manager works.
 
 ### 4. Decentralize governance
 
