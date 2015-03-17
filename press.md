@@ -61,7 +61,7 @@ clips:
     publication: InfoWorld
     url: "http://www.infoworld.com/article/2608895/open-source-software/open-source-software-does-government-finally-grok-open-source.html"
     date: 2014-08-19
-    ingnore_check: true
+    ignore_check: true
 
   - title: GitHub government users triple globally over past year
     publication: FedScoop
