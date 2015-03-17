@@ -46,7 +46,7 @@ This, combined with the fact that [Groupon claims the entirety of the purchase p
 
 #### Gift Cards?
 
-First is the question of if a daily deal constitutes a [gift card][10]{: data-proofer-ignore=true}, a legal issue with which both Groupon and [LivingSocial][12] are intimately familiar with, defending at least [12 distinct lawsuits][13]. Despite the expiration date listed online, in print, and often sent in reminder e-mails, in some states, customers may be eligible to redeem deals long after they expire, or at least have ground to reclaim their initial investment, often at the merchants' expense.
+First is the question of if a daily deal constitutes a [gift card]( http://www.ncsl.org/research/financial-services-and-commerce/gift-cards-and-certificates-statutes-and-legis.aspx){: data-proofer-ignore="true"}, a legal issue with which both Groupon and [LivingSocial][12] are intimately familiar with, defending at least [12 distinct lawsuits][13]. Despite the expiration date listed online, in print, and often sent in reminder e-mails, in some states, customers may be eligible to redeem deals long after they expire, or at least have ground to reclaim their initial investment, often at the merchants' expense.
 
 #### Sales Tax
 
@@ -85,7 +85,6 @@ Despite [Groupon's efforts][23], there's just not enough data there. They may ha
 [7]: http://www.groupon.com/terms
 [8]: http://www.businessinsider.com/teardown-of-the-groupon-merchant-agreement-2011-6
 [9]: http://blogs.forbes.com/luisakroll/2011/04/04/new-billionaire-eric-lefkofsky-talks-about-groupon-and-tech-investing/
-[10]: http://www.ncsl.org/research/financial-services-and-commerce/gift-cards-and-certificates-statutes-and-legis.aspx
 [12]: http://www.seattlepi.com/local/article/Seattle-class-action-LivingSocial-expiration-1015493.php
 [13]: http://www.benedelman.org/voucher-consumer-protection/#expiration
 [14]: http://techcrunch.com/2011/06/15/daily-deal-consumer-protection-laws/
