@@ -20,6 +20,7 @@ clips:
     publication: InfoWorld
     url: http://www.infoworld.com/article/2886828/collaboration-software/github-for-the-rest-of-us.html
     date: 2015-02-24
+    ignore_check: true
 
   - title: As open source goes mainstream, institutions collaborate differently
     publication: TechRepublic
@@ -60,6 +61,7 @@ clips:
     publication: InfoWorld
     url: "http://www.infoworld.com/article/2608895/open-source-software/open-source-software-does-government-finally-grok-open-source.html"
     date: 2014-08-19
+    ingnore_check: true
 
   - title: GitHub government users triple globally over past year
     publication: FedScoop
@@ -223,7 +225,7 @@ clips:
 <ul id="clips">
 {% for clip in page.clips | sort: "date" | reverse %}
   <li>
-    <a href="{{ clip.url }}" class="title">{{ clip.title }}</a><br />
+    <a href="{{ clip.url }}" class="title" {% if clip.ignore_check %}data-proofer-ignore="true"{% endif %}>{{ clip.title }}</a><br />
     <small><span class="publication">{{ clip.publication }}</span> — <em>{{ clip.date | date: '%B %d, %Y' }}</em></small>
   </li>
 {% endfor %}
