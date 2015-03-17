@@ -46,7 +46,7 @@ This, combined with the fact that [Groupon claims the entirety of the purchase p
 
 #### Gift Cards?
 
-First is the question of if a daily deal constitutes a [gift card][10], a legal issue with which both Groupon and [LivingSocial][12] are intimately familiar with, defending at least [12 distinct lawsuits][13]. Despite the expiration date listed online, in print, and often sent in reminder e-mails, in some states, customers may be eligible to redeem deals long after they expire, or at least have ground to reclaim their initial investment, often at the merchants' expense.
+First is the question of if a daily deal constitutes a [gift card][10]{: data-proofer-ignore=true}, a legal issue with which both Groupon and [LivingSocial][12] are intimately familiar with, defending at least [12 distinct lawsuits][13]. Despite the expiration date listed online, in print, and often sent in reminder e-mails, in some states, customers may be eligible to redeem deals long after they expire, or at least have ground to reclaim their initial investment, often at the merchants' expense.
 
 #### Sales Tax
 
