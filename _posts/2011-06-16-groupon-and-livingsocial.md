@@ -85,7 +85,7 @@ Despite [Groupon's efforts][23], there's just not enough data there. They may ha
 [7]: http://www.groupon.com/terms
 [8]: http://www.businessinsider.com/teardown-of-the-groupon-merchant-agreement-2011-6
 [9]: http://blogs.forbes.com/luisakroll/2011/04/04/new-billionaire-eric-lefkofsky-talks-about-groupon-and-tech-investing/
-[10]: http://www.ncsl.org/default.aspx?tabid=12474
+[10]: http://www.ncsl.org/research/financial-services-and-commerce/gift-cards-and-certificates-statutes-and-legis.aspx
 [12]: http://www.seattlepi.com/local/article/Seattle-class-action-LivingSocial-expiration-1015493.php
 [13]: http://www.benedelman.org/voucher-consumer-protection/#expiration
 [14]: http://techcrunch.com/2011/06/15/daily-deal-consumer-protection-laws/
