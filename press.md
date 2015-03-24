@@ -6,6 +6,11 @@ permalink: /press/
 id: /press
 clips:
 
+  - title: The Government Publishing Office joins GitHub
+    publication: WJLA (ABC)
+    url: "http://www.wjla.com/articles/2015/03/the-government-publishing-office-joins-github-112534.html"
+    date: "2015-03-23"
+
   - title: "Silicon Valley's public service awakening — is it real?"
     publication: FedScoop
     url: "http://fedscoop.com/whats-behind-silicon-valleys-takeover-of-washington-d-c"
