@@ -14,7 +14,7 @@ json: false
 	>
 <channel>
     <title xml:lang="en">{{ site.name }} - Press</title>
-    <atom:link type="application/atom+xml" href="{{ url_base }}/feed/" rel="self"/>
+    <atom:link type="application/atom+xml" href="{{ url_base }}/press/feed/" rel="self"/>
     <link>{{ url_base }}/press</link>
     <pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
     <lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
