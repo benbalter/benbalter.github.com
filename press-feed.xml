@@ -1,0 +1,32 @@
+---
+permalink: /press/feed/index.xml
+json: false
+---
+<?xml version="1.0" encoding="utf-8"?>
+{% if site.github.url %}{% assign url_base = site.github.url %}{% else %}{% assign url_base = site.url %}{% endif %}
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+<channel>
+    <title xml:lang="en">{{ site.name }} - Press</title>
+    <atom:link type="application/atom+xml" href="{{ url_base }}/feed/" rel="self"/>
+    <link>{{ url_base }}/press</link>
+    <pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+    <lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
+   	<language>en-US</language>
+    <description>Press clips for {{ site.name }}</description>
+{% for clip in site.data.clips %}<item>
+        <title>{% include smartify text=clip.title %}</title>
+        <link>{{ clip.url }}</link>
+        <pubDate>{{ clip.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+        <dc:creator>{{ clip.publication }}</dc:creator>
+      	<guid isPermaLink="false">{{ clip.url | xml_escape }}</guid>
+    </item>
+{% endfor %}
+</channel>
+</rss>
