@@ -1,1 +1,1 @@
-{{ include.text | markdownify | strip_html }}
+{{ include.text | markdownify | strip_html | strip_newlines }}
