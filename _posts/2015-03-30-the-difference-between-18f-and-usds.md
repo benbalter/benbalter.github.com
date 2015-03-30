@@ -7,7 +7,7 @@ You may have notice two parallel efforts at modernizing the way government appro
 
 It all began about three years ago with the introduction of the **[Presidential Innovation Fellows** (PIF) program](presidentialinnovation.org). Modeled after [Code for America](http://codeforamerica.org) and the [Presidential Management Fellows program](http://pmf.gov), the PIF program was designed to parachute skilled, private sector technologists into government for six month stints at a particular agency, technologists that would not otherwise consider a career in government.[disclosure]
 
-### 18F
+### 18F — Here's the best way to build software (and you can too)
 
 The program was a success, and soon a group called **[18F](https://18f.gsa.gov)** was stood up within the General Services Administration to continue their efforts, to centralize forward-thinking technologists in government under one administrative umbrella, and to provide a vehicle for changed that wasn't tied so closely to the administration and the highly political space in which it operates on a daily basis. 18F attracts the same type of West-coast talent the PIF program was designed to attract and embodies a similar open-source-first mentality as the PIF program, but most members of 18F are in it for the long-haul, and are not hired for time-limited terms.
 
@@ -21,7 +21,9 @@ For them a win might be their name on the front page of the Washington Post, but
 
   Imagine you're one of the President's senior advisers and you're getting asked questions about `healthcare.gov`. You're immediate concern is putting out the fire, getting the website back up, and if we're honest, being able to report to the press that you've righted the wrong to get the story out of the news. Once the crises subsides, you'll be asked a second round of questions: *How'd this happen? What's going to be the next `healthcare.gov` and how can we prevent it?*.
 
+### USDS — We're on it boss (okay, listen, here's what you're going to do)
 
+That's where USDS comes in.
 
  [disclosure]: Full disclosure, I was [a member of the inaugural round of fellows](http://ben.balter.com/2013/09/30/ten-things-you-learn-as-a-presidential-innovation-fellow/).
 
