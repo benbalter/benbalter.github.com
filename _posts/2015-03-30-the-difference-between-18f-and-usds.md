@@ -13,7 +13,7 @@ The PIF program was a success, and soon a group called **[18F](https://18f.gsa.g
 
 ### 18F — Here's the best way to build software (and you can too!)
 
-18F is an odd duck, at least when compared to how bureaucratic entities normally interact with one another. There's a bit of nuance in how 18F maintains engagements with "partner" agencies (just as a private sector firm might have "clients"), rather than embedding technologists in the agency itself (like the PIF program did), but the play's essentially the same.
+18F is an odd duck, at least when compared to how bureaucratic entities normally interact with one another. There's a bit of nuance in how 18F maintains engagements with "partner" agencies (just as a private sector firm might have "clients"), rather than embedding technologists in the agency itself (like the PIF program did), but the play's essentially the same:
 
 18F's secret sauce is that it is [insanely dogmatic about collaborating in the open](https://github.com/18F/open-source-policy), and after expending a great deal of organization energy painting a picture of a citizen-centric future and doing their best to inspire agency stakeholders that the way 18F approaches technology is vastly superior to the status quo (it is), they will simply refuse to work with an agency unless the agency agrees to adopt 18Fs culture and workflow, at least for the project at hand.
 
