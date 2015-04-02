@@ -7,9 +7,9 @@ You may have noticed two parallel efforts at modernizing the way government appr
 
 ### A long time in the making
 
-The story of 18F and USDS (and their divergence) begins about three years ago with the introduction of the **[Presidential Innovation Fellows** (PIF) program](http://presidentialinnovation.org). Modeled after [Code for America](http://codeforamerica.org) and the [Presidential Management Fellows program](http://pmf.gov), the PIF program was designed to parachute skilled, private sector technologists into government for six month stints at a particular agency, technologists that would not otherwise consider a career in government. The goal was simple: bust the beltway bubble and expose government to private-sector thinking.[disclosure]
+The story of 18F and USDS (and their divergence) begins about three years ago with the introduction of the **[Presidential Innovation Fellows** (PIF) program](http://presidentialinnovation.org). Modeled after [Code for America](http://codeforamerica.org) and the [Presidential Management Fellows program](http://pmf.gov), the PIF program was designed to parachute skilled, private sector technologists into government for six month stints at a particular agency, technologists that wouldn't otherwise consider a career in government. The goal was simple: bust the beltway bubble and expose government to private-sector thinking.[disclosure]
 
-The PIF program was a success, and soon a group called **[18F](https://18f.gsa.gov)** was created within the General Services Administration (GSA) not only to house the PIFs, both physically and bureaucratically[eol], but also to continue and augment their efforts — to centralize forward-thinking technologists in government under one administrative umbrella, and to provide a vehicle for changed that wasn't tied so closely to the administration and the highly political space in which it operates on a daily basis. In practice, 18F attracts the same type of West-coast talent that the PIF program was designed to attract and embodies a similar open-source-first mentality, but most members of 18F are in it for the long-haul, and thus are not hired for time-limited terms.
+The PIF program was a success, and soon a group called **[18F](https://18f.gsa.gov)** was created within the General Services Administration (GSA) not only to house the PIFs, both physically and bureaucratically[eol], but also to continue and augment their efforts — to centralize forward-thinking technologists in government under one administrative umbrella, and to provide a vehicle for changed that wasn't tied so closely to the administration and the highly political space in which it operates on a daily basis. In practice, 18F attracts the same type of outside-the-Beltway talent that the PIF program was designed to attract and embodies a similar open-source-first mentality, but most members of 18F are in it for the long-haul, and thus are not hired for time-limited terms.
 
 ### 18F — Here's the best way to build software (and you can too!)
 
@@ -31,7 +31,7 @@ Imagine that its October 2013 and you're one of the President's senior advisers.
 
 ### USDS — We're on it boss (okay, listen, here's what you're going to do)
 
-That's where USDS comes in.
+That's where USDS comes in. USDS exists to prevent the next `healthcare.gov`. Full stop.
 
 [disclosure]: Full disclosure, I was [a member of the inaugural round of fellows](http://ben.balter.com/2013/09/30/ten-things-you-learn-as-a-presidential-innovation-fellow/).
 
