@@ -27,11 +27,21 @@ Let's rewind a bit. On October 1st, 2013 `healthcare.gov` happened. While surely
 
 Although `healthcare.gov` was the first time that a recent policy initiative risked failure due to our inability to execute from a technical perspective, it was far from the first time change agents in government pushed for the need to modernize federal IT. You see, the dirty secret of government IT is that most agencies don't employ developers or the types of folks that read Hacker News over their lunch break to stay abreast of industry trends, and if they do, they're certainly not invited to the types of meetings that decide things like how to launch `healthcare.gov`. Instead, many IT executives are life-long bureaucrats, promoted from within the government ranks, with agencies primarily employing what we'd call program managers in the private sector, contracting out the overwhelming balance of development and subject-matter expertise (read: technical know-how) to a small cadre of government contracting firms.
 
-Imagine that it's October 2013 and you're one of the President's senior advisers. You're getting asked questions about `healthcare.gov`, which is currently the lead story on just about every news channel globally. You're immediate concern is putting out the fire — getting the website back up — and if we're honest, being able to report to the press that you've righted the wrong. You want to get the story out of the news. But once the crises subsides, you'll going to start to be asked a second round of equaly disconcerting questions: *How'd this happen? What's going to be the next `healthcare.gov` and how can we prevent it?*.
+Imagine that it's October 2013 and you're one of the President's senior advisers. You're getting asked questions about `healthcare.gov`, which is currently the lead story on just about every news channel globally. You're immediate concern is putting out the fire — getting the website back up — and if we're honest, being able to report to the press that you've righted the wrong. You want to get the story out of the news. But once the crises subsides, you'll going to start to be asked a second round of equally disconcerting questions: *How'd this happen? What's going to be the next `healthcare.gov` and how can we prevent it?*.
 
 ### USDS — We're on it boss (okay, listen, here's what you're going to do)
 
-That's where USDS comes in. USDS exists to prevent the next `healthcare.gov`. Full stop.
+That's where USDS comes in. At least in the near term, the US Digital Service exists to prevent the next `healthcare.gov`. Full stop.
+
+Unlike 18F, which is approached by agencies asking for help, USDS has a shortlist of administration priorities that it actively pursues. They're [the administrative talking points](https://medium.com/@USDigitalService/an-improbable-public-interest-start-up-6f9a54712411) you're used to hearing at stump speeches — immigration, veterans, social security, student loans, healthcare, and small business concerns — and nothing matters if it doesn't fit into one of those buckets.
+
+Think about it practically: bureaucratically, physically, and technically, USDS is part of and must respond to the ever-changing political desires of the White House (whereas 18F reports to and is supported by career civil servants). There's a reason [the gender, racially, and socio-economicly-diverse faces](https://www.whitehouse.gov/digital/united-states-digital-service#section-the-people) look a lot like a campaign website (and oddly include folks from all over government including 18F and the PIF program).
+
+
+
+### The difference
+
+There's something to be said for the fact that if you google "USDS", the first result (after their Twitter feed) is a page titled "US Digital Service Recruitment" (at least from my incognito browser), and the first result for "18F" is "18F Digital Services Delivery".
 
 [disclosure]: Full disclosure, I was [a member of the inaugural round of fellows](http://ben.balter.com/2013/09/30/ten-things-you-learn-as-a-presidential-innovation-fellow/).
 
