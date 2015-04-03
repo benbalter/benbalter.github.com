@@ -43,8 +43,8 @@ Think about it practically: bureaucratically, physically, and technically, USDS 
 
 There's something to be said for the fact that if you google "USDS", the first result (after their Twitter feed) is a page titled "US Digital Service Recruitment" (at least from my incognito browser), and the first result for "18F" is "18F Digital Services Delivery".
 
-[disclosure]: Full disclosure, I was [a member of the inaugural round of fellows](http://ben.balter.com/2013/09/30/ten-things-you-learn-as-a-presidential-innovation-fellow/).
+[^disclosure]: Full disclosure, I was [a member of the inaugural round of fellows](http://ben.balter.com/2013/09/30/ten-things-you-learn-as-a-presidential-innovation-fellow/).
 
-[eol]: As a result, I'd be surprised if the PIF program survived the next administration in its current form, but that's neither here nor there.
+[^eol]: As a result, I'd be surprised if the PIF program survived the next administration in its current form, but that's neither here nor there.
 
-[hiring-authority]: Technically speaking, most members of 18F are full time government employees (FTEs) hired under "direct hire" hiring authority for non-competed positions. That means that they are term-limited to two years, with an option to renew for two more, but when you're attracting 20- or 30-somethings, 2-4 years is a non-negligible percent of a technologist's life, and very possibly a plurality of their professional career.
+[^hiring-authority]: Technically speaking, most members of 18F are full time government employees (FTEs) hired under "direct hire" hiring authority for non-competed positions. That means that they are term-limited to two years, with an option to renew for two more, but when you're attracting 20- or 30-somethings, 2-4 years is a non-negligible percent of a technologist's life, and very possibly a plurality of their professional career.
