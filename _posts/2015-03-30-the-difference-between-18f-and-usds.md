@@ -37,11 +37,13 @@ Unlike 18F, which is approached by agencies asking for help, USDS has a shortlis
 
 Think about it practically: bureaucratically, physically, and technically, USDS is part of and must respond to the ever-changing political desires of the White House (whereas 18F reports to and is supported by career civil servants). There's a reason [the gender, racially, and socio-economicly-diverse faces](https://www.whitehouse.gov/digital/united-states-digital-service#section-the-people) look a lot like a campaign website (and oddly include folks from all over government including 18F and the PIF program).
 
+Whereas a win for 18F might be for a partner agency to grace the front cover of the Washington Post, for USDS, the goal is the exact opposite: to prevent a set list of policy initiatives (backed by technology) from making the news, at least not from a technology standpoint.
 
+I suspect in the long run, USDS likely hopes to create a wide-ranging digital service corps, being the umbrella for technologists at each agency which forgo traditional slow-moving hierarchy in favor of technological modernization, but in the short run, you and I don't really have much way of knowing what they're doing.
 
 ### The difference
 
-There's something to be said for the fact that if you google "USDS", the first result (after their Twitter feed) is a page titled "US Digital Service Recruitment" (at least from my incognito browser), and the first result for "18F" is "18F Digital Services Delivery".
+There's something to be said for the fact that if you google "USDS", the first result (after their Twitter feed) is a page entitled "US Digital Service **Recruitment**" (at least from my incognito browser), and the first result for "18F" is "18F Digital Services **Delivery**".
 
 [^disclosure]: Full disclosure, I was [a member of the inaugural round of fellows](http://ben.balter.com/2013/09/30/ten-things-you-learn-as-a-presidential-innovation-fellow/).
 
