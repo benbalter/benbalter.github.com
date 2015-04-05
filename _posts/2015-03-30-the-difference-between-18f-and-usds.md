@@ -45,7 +45,7 @@ Think of USDS like the Men in Black (although as far as I know, there's no adora
 
 18F and USDS have divergent goals (getting on the front page, versus not getting on the front page), but there's more than that. I'd break the difference down into three key values implicit in each team's culture:
 
-1. Transparency as an asset versus transparency as a liability
+#### 1. Transparency as an asset versus transparency as a liability
 
 When others outside your organization can see what you're working on, you provide them with the right to criticize your work. You also provide them with the opportunity to improve it (and to raise your own expectations internally).
 
@@ -55,9 +55,9 @@ USDS on the other hand falls on the "transparency as liability" side of things, 
 
 Where as 18F uses its position to paint an opinionated vision of federal IT, USDS seems to use its single-page web presence almost exclusively for recruitment. An important task, don't get me wrong, and there's multiple ways to go about it, but there's something to be said for the fact that if you google "USDS", the first result (after their Twitter feed) is a page entitled "US Digital Service **Recruitment**" (with the H1 being "Join the US Digital Service"), while the first result for "18F" is "18F Digital Services **Delivery**" (with the H1 being "Building the 21st century digital government.").
 
-2. Show versus tell
+#### 2. Show versus tell
 
-3. Management versus hackers
+#### 3. Management versus hackers
 
 "Delivery is the strategy"
 
