@@ -49,11 +49,11 @@ Think of USDS like the Men in Black (although as far as I know, there's no adora
 
 When others outside your organization can see what you're working on, you provide them with the right to criticize your work. You also provide them with the opportunity to improve it (and to raise your own expectations internally).
 
-18F clearly falls in the "transparency as an asset" camp. Almost without except, they work in the open, list the names of the humans behind their effort [on their homepage](https://18f.gsa.gov/), and [talk regularly about why they work the way they do](https://18f.gsa.gov/news/). By doing so, they impact not just those they engage with, but have a real shot at shifting the conversation around how we approach IT here in DC. .gov URLs are a powerful thing when going up against agency myth.
+18F clearly falls in the "transparency as an asset" camp. Almost without except, they work in the open, list the names of the humans behind their efforts [on their homepage](https://18f.gsa.gov/), and [talk regularly about why they work the way they do](https://18f.gsa.gov/news/). By doing so, they impact not just those they engage with, but have a real shot at shifting the conversation around how we approach IT here in DC. As someone who fights to modernize government day in and day out, I can assure you that .gov URLs are a powerful thing when going up against agency myth.
 
 USDS on the other hand falls on the "transparency as liability" side of things, or at the very least, working in a way that captures and exposes process is so low down the list of organizational priorities that it doesn't warrant much attention internally. Nearly six months after USDS launched, [the group was criticized for not having a web presence of its own](http://www.nextgov.com/cio-briefing/2015/01/man-google-who-came-fix-federal-it-still-doesnt-have-his-own-website/102582/), launched one a few weeks later in coordination with the State of the Union, and to my admittedly unobservant eye, hasn't changed much since.
 
-Where as 18F uses its position to paint an opinionated vision of federal IT, USDS seems to use its single-page web presence almost exclusively for recruitment. An important task, don't get me wrong, and there's multiple ways to go about it, but there's something to be said for the fact that if you google "USDS", the first result (after their Twitter feed) is a page entitled "US Digital Service **Recruitment**" (with the H1 being "Join the US Digital Service"), while the first result for "18F" is "18F Digital Services **Delivery**" (with the H1 being "Building the 21st century digital government.").
+Where as 18F uses its position to paint an opinionated vision of federal IT, USDS seems to use its single-page web presence almost exclusively for recruitment. An important task, don't get me wrong, and I'm sure they've got more pressing, more immediate fires to put out, but there's something to be said for the fact that if you google "USDS", the first result (after their Twitter feed) is a page entitled "US Digital Service *Recruitment*" (with the H1 being "Join the US Digital Service"), while the first result for "18F" is "18F Digital Services *Delivery*" (with the H1 being "Building the 21st century digital government.").
 
 #### 2. Show versus tell
 
@@ -61,16 +61,17 @@ Where as 18F uses its position to paint an opinionated vision of federal IT, USD
 
 #### 3. Management versus hackers
 
-I've talked before about [geeks vs. suits](http://ben.balter.com/2014/12/18/geeks-and-suits/). Nowhere is that more apparent.
+Crazy successful startups are founded and run by geeks — Zuckerberg, Gates, Brin and Page. When creating an organization dedicated to building software, there's something to be said about optimizing for developers above all external constraints. I've talked before about [geeks vs. suits](http://ben.balter.com/2014/12/18/geeks-and-suits/). Nowhere is that more apparent.
 
-To me, 18F embodies [the hacker ethic](http://ben.balter.com/2013/02/16/what-is-a-hacker/), with geeks being the top of the organizational food chain (whether developer, designer, UX-expert, whatever), with managers adopting a [servant leadership](https://en.wikipedia.org/wiki/Servant_leadership) approach to supporting their efforts. They've clearly embodies [the UK Digital Service's "delivery is the strategy"](http://mikebracken.com/blog/the-strategy-is-delivery-again/) ethos. 18F was built by geeks, for geeks, and that fact shows in how they work and what they *choose* to work on.
+To me, 18F embodies [the hacker ethic](http://ben.balter.com/2013/02/16/what-is-a-hacker/), with geeks being the top of the organizational food chain (whether developer, designer, UX-expert, whatever), with managers adopting a [servant leadership](https://en.wikipedia.org/wiki/Servant_leadership) approach to supporting their efforts, and they've clearly embodied [the UK Digital Service's "delivery is the strategy"](http://mikebracken.com/blog/the-strategy-is-delivery-again/) ethos. 18F was built by geeks, for geeks, and that fact shows in how they work and what they *choose* to work on.
 
-USDS may be influenced by non-geek technologists, but that also provides them with a unique opportunity not afforded to 18F. I suspect in the long run, USDS hopes to create a much wide-reaching digital service corps, with USDS being the bureaucratic umbrella, providing managerial air cover for non-career technologists at each of the household name agencies.[^look-out]
+USDS may be influenced by non-geek technologists, but that also provides them with a unique opportunity not afforded to 18F: I suspect in the long run, USDS hopes to create a much wide-reaching digital service corps, with USDS being the bureaucratic umbrella, providing managerial air cover for non-career technologists at each of the household name agencies.[^look-out]
 
-###
+### So which one's better?
 
-Is 18F better? USDS? You're asking me to compare Apples to PCs. They exist to serve different masters. In the end, though, we're all on the same team, and so it ultimately doesn't matter. https://medium.com/thelist/why-i-m-returning-to-government-e191f8b14355
+Is 18F better? USDS? You're asking me to compare Apples to PCs. They exist to serve different masters. In the end, though, we're all on the same team, and so it ultimately doesn't matter.
 
+If you're a technologist looking at the way our government approaches technology, and get the same nails-on-a-chalkboard feeling I do, I encourage you to [give in to your sense of civic duty](https://medium.com/thelist/why-i-m-returning-to-government-e191f8b14355). 
 
 [^disclosure]: Full disclosure, I was [a member of the inaugural round of fellows](http://ben.balter.com/2013/09/30/ten-things-you-learn-as-a-presidential-innovation-fellow/), but since them, work in the private sector. These are my own observations, reading public-facing representations, and being intimately familiar with government IT reform efforts. Your experience may vary.
 
@@ -78,4 +79,4 @@ Is 18F better? USDS? You're asking me to compare Apples to PCs. They exist to se
 
 [^hiring-authority]: Technically speaking, most members of 18F are full time government employees (FTEs) hired under "direct hire" hiring authority for non-competed positions. That means that they are term-limited to two years, with an option to renew for two more, but when you're attracting 20- or 30-somethings, 2-4 years is a non-negligible percent of a technologist's life, and very possibly a plurality of their professional career.
 
-[^look-out]: While certainly splitting hairs, as we're all on the same team, there's already indication that OSTP's broader IT modernization efforts, and yes, even 18Fs, are being branded as part of the USDS portfolio (see e.g. the staffers listed on the public-facing USDS page).
+[^look-out]: While certainly splitting hairs, there's already indication that OSTP's broader IT modernization efforts, and yes, even 18Fs, are being branded as part of the USDS portfolio (see e.g. the staffers listed on the public-facing USDS page).
