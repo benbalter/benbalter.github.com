@@ -57,12 +57,19 @@ Where as 18F uses its position to paint an opinionated vision of federal IT, USD
 
 #### 2. Show versus tell
 
+
+
 #### 3. Management versus hackers
 
-"Delivery is the strategy"
+I've talked before about [geeks vs. suits](http://ben.balter.com/2014/12/18/geeks-and-suits/). Nowhere is that more apparent.
 
-I suspect in the long run, USDS hopes to create a much wide-reaching digital service corps, with USDS being the bureaucratic umbrella, providing managerial air cover for non-career technologists at each of the household name agencies.[^look-out]  forgo traditional slow-moving hierarchy in favor of technological modernization, but in the short run, you and I don't really have much way of knowing what they're doing.
+To me, 18F embodies [the hacker ethic](http://ben.balter.com/2013/02/16/what-is-a-hacker/), with geeks being the top of the organizational food chain (whether developer, designer, UX-expert, whatever), with managers adopting a [servant leadership](https://en.wikipedia.org/wiki/Servant_leadership) approach to supporting their efforts. They've clearly embodies [the UK Digital Service's "delivery is the strategy"](http://mikebracken.com/blog/the-strategy-is-delivery-again/) ethos. 18F was built by geeks, for geeks, and that fact shows in how they work and what they *choose* to work on.
 
+USDS may be influenced by non-geek technologists, but that also provides them with a unique opportunity not afforded to 18F. I suspect in the long run, USDS hopes to create a much wide-reaching digital service corps, with USDS being the bureaucratic umbrella, providing managerial air cover for non-career technologists at each of the household name agencies.[^look-out]
+
+###
+
+Is 18F better? USDS? You're comparing Apples to PCs. They exist to serve different masters. In the end, though, we're all on the same team, and so it ultimately doesn't matter.
 
 
 [^disclosure]: Full disclosure, I was [a member of the inaugural round of fellows](http://ben.balter.com/2013/09/30/ten-things-you-learn-as-a-presidential-innovation-fellow/), but since them, work in the private sector. These are my own observations, reading public-facing representations, and being intimately familiar with government IT reform efforts. Your experience may vary.
