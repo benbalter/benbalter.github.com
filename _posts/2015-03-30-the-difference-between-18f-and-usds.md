@@ -37,18 +37,25 @@ Unlike 18F, which is approached by agencies asking for help, USDS has a shortlis
 
 Think about it practically: bureaucratically, physically, and technically, USDS is part of and must respond to the ever-changing political desires of the White House (in contrast, 18F reports to, and is supported primarily by career civil servants). Whereas a win for 18F might be for a partner agency to grace the front cover of the Washington Post, for USDS, the goal is the exact opposite: to prevent a set list of technology backed policy initiatives from making the news, at least not from a technology standpoint.
 
+USDS's strategy is to bring best-of-class, private-sector engineers into government for time-limited tours of duty, parachute them into agency positions outside the traditional reporting structure, and task them with bringing a modern perspective to key technology initiatives. Sound familiar? Although, unlike 18Fs approach, from what I understand, like those that parachuted in to save `healthcare.gov`, there role seems to be inspired by [Nick Burns ("your company's computer guy")](https://www.youtube.com/watch?v=tfKL6RM8hsY), demanding that agency CIOs and other technical leads step aside. After all, by definition, USDS projects are those already at risk of failure.
+
 Think of USDS like the Men in Black (although as far as I know, there's no adorable pug at the office). To them, the planet's always 24-hours away from destruction by an Arquillian Battle Cruiser or a Corillian Death Ray, but if they do their job right, you'll never know it. And that's the point.
-
-### The USDS play
-
-Bring best-of-class, private-sector engineers into government for time-limited tours of duty, parachute them into agency positions outside the traditional reporting structure, and task them with brining a modern perspective to key technology initiatives. Sound familiar? Whereas the PIF program sought to inspire IT leadership by leading through example,
-
-I suspect in the long run, USDS hopes to create a much wide-reaching digital service corps, with USDS being the bureaucratic umbrella, providing managerial air cover for non-career technologists at each of the household name agencies.[^look-out]  forgo traditional slow-moving hierarchy in favor of technological modernization, but in the short run, you and I don't really have much way of knowing what they're doing.
 
 ### So what's the difference?
 
-In short, [like an IBM computer from the 70s](#), here organizational structure dictates function.
+18F and USDS have divergent goals (getting on the front page, versus not getting on the front page), but there's more than that. I'd break the difference down into three key values implicit in each team's culture:
+
+1. Transparency as an asset versus transparency as a liability
+
 There's something to be said for the fact that if you google "USDS", the first result (after their Twitter feed) is a page entitled "US Digital Service **Recruitment**", and the first result for "18F" is "18F Digital Services **Delivery**".
+
+2. Show versus tell
+
+3. Management versus hackers
+
+"Delivery is the strategy"
+
+I suspect in the long run, USDS hopes to create a much wide-reaching digital service corps, with USDS being the bureaucratic umbrella, providing managerial air cover for non-career technologists at each of the household name agencies.[^look-out]  forgo traditional slow-moving hierarchy in favor of technological modernization, but in the short run, you and I don't really have much way of knowing what they're doing.
 
 
 
