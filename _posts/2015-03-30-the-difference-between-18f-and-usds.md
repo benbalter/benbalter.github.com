@@ -35,7 +35,7 @@ That's where USDS comes in. At least in the near term, the US Digital Service ex
 
 Unlike 18F, which is approached by agencies asking for help, USDS has a shortlist of administration priorities that it actively pursues. They're [the administrative talking points](https://medium.com/@USDigitalService/an-improbable-public-interest-start-up-6f9a54712411) you're used to hearing at stump speeches — immigration, veterans, social security, student loans, healthcare, and small business concerns. If it doesn't fit into one of those buckets, it likely won't get USDS's attention.
 
-Think about it practically: bureaucratically, physically, and technically, USDS is part of and must respond to the ever-changing political desires of the White House (whereas 18F reports to and is supported primarily by career civil servants). There's a reason [the gender, racially, and socio-economicly-diverse faces](https://www.whitehouse.gov/digital/united-states-digital-service#section-the-people) look a lot like a campaign website (and oddly include folks from all over government including 18F and the PIF program).
+Think about it practically: bureaucratically, physically, and technically, USDS is part of and must respond to the ever-changing political desires of the White House (whereas 18F reports to and is supported primarily by career civil servants). 
 
 Whereas a win for 18F might be for a partner agency to grace the front cover of the Washington Post, for USDS, the goal is the exact opposite: to prevent a set list of policy initiatives (backed by technology) from making the news, at least not from a technology standpoint.
 
