@@ -47,7 +47,13 @@ Think of USDS like the Men in Black (although as far as I know, there's no adora
 
 1. Transparency as an asset versus transparency as a liability
 
-There's something to be said for the fact that if you google "USDS", the first result (after their Twitter feed) is a page entitled "US Digital Service **Recruitment**", and the first result for "18F" is "18F Digital Services **Delivery**".
+When others outside your organization can see what you're working on, you provide them with the right to criticize your work. You also provide them with the opportunity to improve it (and to raise your own expectations internally).
+
+18F clearly falls in the "transparency as an asset" camp. Almost without except, they work in the open, list the names of the humans behind their effort [on their homepage](https://18f.gsa.gov/), and [talk regularly about why they work the way they do](https://18f.gsa.gov/news/). By doing so, they impact not just those they engage with, but have a real shot at shifting the conversation around how we approach IT here in DC. .gov URLs are a powerful thing when going up against agency myth.
+
+USDS on the other hand falls on the "transparency as liability" side of things, or at the very least, working in a way that captures and exposes process is so low down the list of organizational priorities that it doesn't warrant much attention internally. Nearly six months after USDS launched, [the group was criticized for not having a web presence of its own](http://www.nextgov.com/cio-briefing/2015/01/man-google-who-came-fix-federal-it-still-doesnt-have-his-own-website/102582/), launched one a few weeks later in coordination with the State of the Union, and to my admittedly unobservant eye, hasn't changed much since.
+
+Where as 18F uses its position to paint an opinionated vision of federal IT, USDS seems to use its single-page web presence almost exclusively for recruitment. An important task, don't get me wrong, and there's multiple ways to go about it, but there's something to be said for the fact that if you google "USDS", the first result (after their Twitter feed) is a page entitled "US Digital Service **Recruitment**" (with the H1 being "Join the US Digital Service"), while the first result for "18F" is "18F Digital Services **Delivery**" (with the H1 being "Building the 21st century digital government.").
 
 2. Show versus tell
 
