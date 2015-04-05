@@ -71,7 +71,7 @@ USDS may be influenced by non-geek technologists, but that also provides them wi
 
 Is 18F better? USDS? You're asking me to compare Apples to PCs. They exist to serve different masters. In the end, though, we're all on the same team, and so it ultimately doesn't matter.
 
-If you're a technologist looking at the way our government approaches technology, and get the same nails-on-a-chalkboard feeling I do, I encourage you to [give in to your sense of civic duty](https://medium.com/thelist/why-i-m-returning-to-government-e191f8b14355). 
+If you're a technologist looking at the way our government approaches technology, and get the same nails-on-a-chalkboard feeling I do, I encourage you to [give in to your sense of civic duty](https://medium.com/thelist/why-i-m-returning-to-government-e191f8b14355) and lend the federal government a hand for a three-month, six-month, year-long, or lifetime sprint. 
 
 [^disclosure]: Full disclosure, I was [a member of the inaugural round of fellows](http://ben.balter.com/2013/09/30/ten-things-you-learn-as-a-presidential-innovation-fellow/), but since them, work in the private sector. These are my own observations, reading public-facing representations, and being intimately familiar with government IT reform efforts. Your experience may vary.
 
