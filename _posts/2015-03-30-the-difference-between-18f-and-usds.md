@@ -57,9 +57,13 @@ Where as 18F uses its position to paint an opinionated vision of federal IT, USD
 
 #### 2. Show versus tell
 
+In creative writings there are two ways to convey an idea. You can tell them explicitly, or you can explain the facts to your reader, and let them draw their own conclusion. Technology is no different. It's the reason we write instructional manuals.
 
+For 18F, the play is "show". For one, it's the only way they will ever scale. They maintain no dominion over agency CIOs, and can't realistically have an ongoing engagement that covers every IT project. If they're going to do their part to push government in a more technocratic direction, they've got to need to leave agencies with a Swiss Army Knife of cultural tools so that change agents within the agency can carry the torch forward once they leave. Not to mention, as an engagment-based agency, marketing their efforts is critical to maintaining a pipeline of partner agencies and the political capital it brings.
 
-#### 3. Management versus hackers
+For USDS, the play is "tell". For one, they're in a position to do so. Whether recruiting for their own ranks or architecting an agency website, a call from the White House is an insanely powerful thing. For another, coming from a managment-point-of-view, they have the unique ability to change agency org. charts when they need to, placing the technologists they trust in positions bureaucratically that allows them to bypass the "show" step.
+
+#### 3. Management versus hacker
 
 Crazy successful startups are founded and run by geeks — Zuckerberg, Gates, Brin and Page. When creating an organization dedicated to building software, there's something to be said about optimizing for developers above all external constraints. I've talked before about [geeks vs. suits](http://ben.balter.com/2014/12/18/geeks-and-suits/). Nowhere is that more apparent.
 
@@ -69,9 +73,9 @@ USDS may be influenced by non-geek technologists, but that also provides them wi
 
 ### So which one's better?
 
-Is 18F better? USDS? You're asking me to compare Apples to PCs. They exist to serve different masters. In the end, though, we're all on the same team, and so it ultimately doesn't matter.
+Is 18F better? USDS? You're asking me to compare Apples to PCs. They exist to serve different masters, and that's a *great* thing. In the end, though, we're all on the same team, and so it ultimately doesn't matter.
 
-If you're a technologist looking at the way our government approaches technology, and get the same nails-on-a-chalkboard feeling I do, I encourage you to [give in to your sense of civic duty](https://medium.com/thelist/why-i-m-returning-to-government-e191f8b14355) and lend the federal government a hand for a three-month, six-month, year-long, or lifetime sprint. 
+If you're a technologist looking at the way our government approaches technology, and get the same nails-on-a-chalkboard feeling I do, I encourage you to [give in to your sense of civic duty](https://medium.com/thelist/why-i-m-returning-to-government-e191f8b14355) and lend the federal government a hand for a three-month, six-month, year-long, or lifetime sprint.
 
 [^disclosure]: Full disclosure, I was [a member of the inaugural round of fellows](http://ben.balter.com/2013/09/30/ten-things-you-learn-as-a-presidential-innovation-fellow/), but since them, work in the private sector. These are my own observations, reading public-facing representations, and being intimately familiar with government IT reform efforts. Your experience may vary.
 
