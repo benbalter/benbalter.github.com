@@ -15,8 +15,8 @@ tags:
 post_format: [ ]
 ---
 I needed a quick-and-easy way to parse Microsoft Word's footnote format into a more web-friendly format for a recent project. After a bit of regular expression hacking, I was able to build a WordPress plugin to automatically convert content pasted from Word into a format readable by [Andrew Nacin's][1] popular [Simple Footnotes][2] plugin.  
-  
-The process is surprisingly simple given [WordPress's extensive filter API][3]. First, to grab the footnotes from Word's `ftnref` format:
+
+The process is surprisingly simple given [WordPress's extensive filter API][3]{: data-proofer-ignore="true" }. First, to grab the footnotes from Word's `ftnref` format:
 
 <div>{% highlight php %}<?php
 
