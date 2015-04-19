@@ -1,11 +1,11 @@
 ---
-title: "18 reasons why technologists don't want to work at your agency"
+title: "19 reasons why technologists don't want to work at your agency"
 excerpt: ""
 ---
 
 If you're a government agency trying to attract technical talent to your innovation efforts, posting job descriptions for positions named "Technology Specialist — Internet"[^funny-story] may not be enough. The type of private-sector technologists you're after are used to a very different workplace. It's not a matter of privilege or a private/public divide. Startups long-ago learned that innovative efforts require innovative atmospheres, and when they arrive in the beltway, they're in for a bit of culture shock.
 
-When creating an atmosphere conducive to innovation, pay attention to how much time technologists will need to spend fighting for the right to work on what they want to work on, versus actually just working. With that in mind, here's 18 reasons why private-sector change agents may not want to work at your agency:
+When creating an atmosphere conducive to innovation, pay attention to how much time technologists will need to spend fighting for the right to work on what they want to work on, versus actually just working. With that in mind, here's 19 reasons why private-sector change agents may not want to work at your agency:
 
 1. **You force developers to use tools designed for lawyers** — At most agencies, technologists will be given the same hardware (computer, phone, etc.) as would be given to attorneys and other non-technical civil servants. Not all knowledge workers have the same needs. While a lawyer may live primarily in Outlook and Microsoft Word, developers spend the bulk of their time writing and compiling software, a task significantly easier on unix-based systems like Macs that more closely mirror production environments or are better optimized for creative arts. Before I can write a single function or draw a single line, it's likely I'll be forced to make the case for why I should be able to use a hardware that's standard in the private sector.
 
