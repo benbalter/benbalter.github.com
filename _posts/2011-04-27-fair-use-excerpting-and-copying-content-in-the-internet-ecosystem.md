@@ -23,7 +23,7 @@ I was recently asked by an aspiring "content producer," what the "rules" were fo
 
 Not getting in hot water with the fuzz is important, but it is simply one checkbox among many, relegated to the same category of subdued importance as spelling or grammar. The predominant rule in online publishing should not be fair use or copyright, but rather whether the author is adding value to the blogosphere. True, space on the Internet may be relatively cheap, but your reader's time is not.
 
-It seems Internet copyright law has become somewhat of a digital [Chupacabra](http://redvsblue.com/archive/episode.php?id=89) — the subject of endless urban legend and fact-less speculation. Despite [widespread misunderstanding](http://www.llrx.com/features/bloggersbeware.htm), in practice, both the contours of fair use law and the cultural norms of the net lay clear guidelines for bloggers and content producers. Put another way, *the law's the easy part*. Worry about the content and the law will take care of itself.
+It seems Internet copyright law has become somewhat of a digital [Chupacabra](https://www.youtube.com/watch?v=_yq_0KuXu64) — the subject of endless urban legend and fact-less speculation. Despite [widespread misunderstanding](http://www.llrx.com/features/bloggersbeware.htm), in practice, both the contours of fair use law and the cultural norms of the net lay clear guidelines for bloggers and content producers. Put another way, *the law's the easy part*. Worry about the content and the law will take care of itself.
 
 ### The Culture
 
