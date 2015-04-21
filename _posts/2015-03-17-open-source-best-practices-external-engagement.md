@@ -53,7 +53,7 @@ In practicality, that means standing up public, linkable forums for stakeholders
 
 ### 3. Minimize Friction
 
-At GitHub, we measure workflows in terms of friction. You can define friction as the time it takes for a potential contributor to go from *"I want to contribute"* to *"I have contributed"*. When contributions are on a volunteer basis, minimizing friction is essential to encouraging first time contributors and to turn those first-time contributors into long-term collaborators.
+At GitHub, we measure workflows in terms of [friction](http://ben.balter.com/2013/08/11/friction/). You can define friction as the time it takes for a potential contributor to go from *"I want to contribute"* to *"I have contributed"*. When contributions are on a volunteer basis, minimizing friction is essential to encouraging first time contributors and to turn those first-time contributors into long-term collaborators.
 
 Think about it this way. Lets say I find a typo in your app. I need to make what is literally a single character change. The actually change itself should take less than thirty seconds. But what do I have to do to make that change? I'll need to figure out the project dependencies and install them, bootstrap a local development environment, make my change, set up the test suite, run tests, and then figure out how to contribute my change back. That 30 seconds change just became a day long process and when friction is disproportionate to the time it takes to do the thing I set out to do, I'm simply not going to contribute.
 
