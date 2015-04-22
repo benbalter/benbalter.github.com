@@ -31,7 +31,7 @@ Imagine that it's October 2013 and you're one of the President's senior advisers
 
 ### USDS — We're on it boss (okay, listen, here's what you're going to do)
 
-That's where **USDS** comes in. At least in the near term, the US Digital Service exists to prevent the next `healthcare.gov`.[^disclosure2]
+That's where **[USDS](https://www.whitehouse.gov/digital/united-states-digital-service)** comes in. At least in the near term, the US Digital Service exists to prevent the next `healthcare.gov`.[^disclosure2]
 
 Unlike 18F, which is approached by agencies asking for help, USDS has a shortlist of administration priorities that it actively pursues. They're [the administrative talking points](https://medium.com/@USDigitalService/an-improbable-public-interest-start-up-6f9a54712411) you're used to hearing at stump speeches — immigration, veterans, social security, student loans, healthcare, and small business concerns. If it doesn't fit into one of those buckets, it's unlikely to get USDS's attention.
 
@@ -75,7 +75,7 @@ USDS may be strongly influenced by non-geek technologists, but that also provide
 
 Is 18F better? USDS? You're asking to compare Apples to PCs. They exist to serve different masters, and that's a *great* thing. For all that separates their efforts, they share much more in common, both in form and in function. They've both brought some of the smartest, most passionate technologists I've ever met into government to serve their country, and as [any student of organizational change will tell you](http://www.kotterinternational.com/the-8-step-process-for-leading-change/), a two-pronged, top-down-and-bottom-up approach is the only way to unstick the the world we find ourselves in today (USDS) while simultaneously bringing about the world we want to live in tomorrow (18F).
 
-*If you're a technologist and looking at the way our government approaches technology gives you the same nails-on-a-chalkboard feeling it gives me, I encourage you to [give in to your sense of civic duty](https://medium.com/thelist/why-i-m-returning-to-government-e191f8b14355) and [lend the federal government](https://www.whitehouse.gov/digital/united-states-digital-service) [a hand](https://www.whitehouse.gov/digital/united-states-digital-service/apply) for a three-month, six-month, year-long, or lifetime sprint. As you can see the stakes are high, the potential impact is immeasurable, and it's all but guaranteed to be the most meaningful IT experience you'll have.*
+*If you're a technologist and looking at the way our government approaches technology gives you the same nails-on-a-chalkboard feeling it gives me, I encourage you to [give in to your sense of civic duty](https://medium.com/thelist/why-i-m-returning-to-government-e191f8b14355) and [lend the federal government](https://18f.gsa.gov/2015/02/25/We-Are-Hiring/) [a hand](https://www.whitehouse.gov/digital/united-states-digital-service/apply) for a three-month, six-month, year-long, or lifetime sprint. As you can see the stakes are high, the potential impact is immeasurable, and it's all but guaranteed to be the most meaningful IT experience you'll have.*
 
 [^disclosure]: Full disclosure, I was [a member of the inaugural round of fellows](http://ben.balter.com/2013/09/30/ten-things-you-learn-as-a-presidential-innovation-fellow/), but since them, work in the private sector. These are my own observations, reading public-facing representations, and being intimately familiar with government IT reform efforts. Your experience may vary.
 
