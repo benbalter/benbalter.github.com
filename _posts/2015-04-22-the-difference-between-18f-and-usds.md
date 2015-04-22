@@ -77,7 +77,7 @@ Is 18F better? USDS? You're asking to compare Apples to PCs. They exist to serve
 
 *If you're a technologist and looking at the way our government approaches technology gives you the same nails-on-a-chalkboard feeling it gives me, I encourage you to [give in to your sense of civic duty](https://medium.com/thelist/why-i-m-returning-to-government-e191f8b14355) and [lend the federal government](https://18f.gsa.gov/2015/02/25/We-Are-Hiring/) [a hand](https://www.whitehouse.gov/digital/united-states-digital-service/apply) for a three-month, six-month, year-long, or lifetime sprint. As you can see the stakes are high, the potential impact is immeasurable, and it's all but guaranteed to be the most meaningful IT experience you'll have.*
 
-[^disclosure]: Full disclosure, I was [a member of the inaugural round of fellows](http://ben.balter.com/2013/09/30/ten-things-you-learn-as-a-presidential-innovation-fellow/), but since them, work in the private sector. These are my own observations, reading public-facing representations, and being intimately familiar with government IT reform efforts. Your experience may vary.
+[^disclosure]: Full disclosure, I was [a member of the inaugural round of fellows](http://ben.balter.com/2013/09/30/ten-things-you-learn-as-a-presidential-innovation-fellow/), but since then, work in the private sector. These are my own observations, reading public-facing representations, and being intimately familiar with government IT reform efforts. Your experience may vary.
 
 [^eol]: As a result, I'd be surprised if the PIF program survived the next administration in its current form, but that's neither here nor there.
 
