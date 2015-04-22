@@ -10,3 +10,5 @@ assets/vendor/modernizr/media
 assets/vendor/modernizr/test
 .bundle
 Gemfile.lock
+/html
+/md

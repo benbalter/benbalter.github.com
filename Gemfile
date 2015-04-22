@@ -3,4 +3,4 @@ source "https://rubygems.org"
 #github
 gem 'github-pages'
 gem 'rake'
-gem 'html-proofer'
+gem 'html-proofer', :github => "gjtorikian/html-proofer"
