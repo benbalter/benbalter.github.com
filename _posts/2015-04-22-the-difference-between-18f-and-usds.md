@@ -65,7 +65,7 @@ For USDS, the play is "tell". For one, they're in a position to do so. Whether r
 
 #### 3. Management versus hacker
 
-Crazy successful startups are founded and run by geeks — think Zuckerberg, Gates, Brin and Page to name a few. When creating an organization dedicated to building software, there's something to be said for optimizing for developers above external constraints. I've written before about [the distinction between geeks and suits](http://ben.balter.com/2014/12/18/geeks-and-suits/). Nowhere is that more apparent than when you look at 18F and USDS.
+Crazy successful startups are founded and run by geeks — think Zuckerberg, Gates, Brin and Page to name a few. When creating an organization dedicated to building software, there's something to be said for optimizing for developers above external constraints. I've written before about [the distinction between geeks and suits](http://ben.balter.com/2014/12/18/geeks-and-suits/). Nowhere is that more apparent than when you look at 18F and USDS. It's product delivery versus management consulting.
 
 To me, 18F embodies [the hacker ethic](http://ben.balter.com/2013/02/16/what-is-a-hacker/), with geeks being at the top of the organizational food chain (whether developer, designer, UX-expert, whatever) and managers adopting a [servant leadership](https://en.wikipedia.org/wiki/Servant_leadership) approach to supporting their efforts. For 18F, change begins bottom up, by those closest to the problem. Not to mention, they've clearly embodied [the UK Digital Service's "delivery is the strategy"](http://mikebracken.com/blog/the-strategy-is-delivery-again/) ethos. From this outsider's perspective, 18F was built by geeks, for geeks, and that fact shows in how they work and what they *choose* to work on.
 
