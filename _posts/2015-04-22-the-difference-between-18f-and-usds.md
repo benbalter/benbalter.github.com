@@ -89,4 +89,4 @@ Is 18F better? USDS? You're asking to compare Apples to PCs. They exist to serve
 
 [^political]: Anecdotally, the White House's digital efforts are more highly scrutinized, both internally (read: lawyers and White House Comms), and externally (read: trolls and political analyists). As a result, it's not uncommon for public facing content — from site launches to blog posts to comments and commit messages — to go through several layers of bureaucratic review prior to release.
 
-[^disclosure2]: I suspect USDS has broader, all-government-innovation-effort-incompassing plans for themselves in the long run, but for now, based solely on what little information has been made publicly available, this is their apparent *raison d'etre*. *See* [Fn. 7](#fn:look-out).
+[^disclosure2]: I suspect USDS has broader, HQ-distinguishing, all-government-innovation-effort-incompassing plans for themselves in the long run, but for now, based solely on what little information has been made publicly available, this is their apparent *raison d'etre*. *See* [Fn. 7](#fn:look-out).
