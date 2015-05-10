@@ -25,7 +25,8 @@ tags:
   - series of tubes
 post_format: [ ]
 ---
-[![1](http://www.thedailyshow.com/watch/wed-july-12-2006/headlines---internet)][2]The Internet backbone (big [tube][2]) provider, Level 3, which makes up much of the behind-the-scenes magic that delivers Netflix streaming movies, revealed that in recent negotiations, internet service (smaller tube) provider Comcast [demanded Level 3 pay an additional fee](http://voices.washingtonpost.com/posttech/2010/11/comcast_hit_with_two_net_neutr.html) in exchange for Comcast *continuing* to allow its customers access to Netflix videos, effectively erecting a series of tollgates on the information superhighway.
+
+The Internet backbone big tube provider, Level 3, which makes up much of the behind-the-scenes magic that delivers Netflix streaming movies, revealed that in recent negotiations, internet service (smaller tube) provider Comcast [demanded Level 3 pay an additional fee](http://voices.washingtonpost.com/posttech/2010/11/comcast_hit_with_two_net_neutr.html) in exchange for Comcast *continuing* to allow its customers access to Netflix videos, effectively erecting a series of tollgates on the information superhighway.
 
 It's likely no coincidence that Comcast's decision comes just a week after Netflix began offering [streaming-only plans](http://blog.netflix.com/2010/11/new-plan-for-watching-instantly-plus.html) (hinting at the firm's broader push toward streaming video in the near future) and Level 3′s subsequent announcement of a partnership with Netflix to be its [primary carrier of streaming video](http://www.wired.com/epicenter/2010/11/comcast-tollbooth/).
 
