@@ -3,7 +3,7 @@ _site
 assets/vendor/bootstrap/js
 assets/vendor/bootstrap/less
 assets/vendor/font-awesome/less
-assets/vendor/font-awesome/scss
+assets/vendor/font-awesome/css
 assets/vendor/font-awesome/src
 assets/vendor/modernizr/feature-detects
 assets/vendor/modernizr/media

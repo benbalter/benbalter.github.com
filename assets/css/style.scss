@@ -6,11 +6,16 @@
   {% assign url_base = site.url %}
 {% endif %}
 
+$icon-font-path: "{{ url_base }}/assets/vendor/bootstrap-sass/assets/fonts/bootstrap/";
+$fa-font-path: "{{ url_base }}/assets/vendor/font-awesome/fonts";
+$font-size-base: 16px;
+
 @import "bootstrap/stylesheets/bootstrap";
 @import "anchor-js";
 @import "pygments";
+@import "font-awesome/font-awesome";
 
-body { padding-top: 20px; font-size: 1.6em; font-weight: 200; }
+body { padding-top: 20px; font-weight: 200; }
 @media (max-width: 768px) {
     body { padding-top: 0; }
 }
