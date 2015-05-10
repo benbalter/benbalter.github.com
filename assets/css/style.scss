@@ -97,24 +97,6 @@ body { padding-top: 20px; font-size: 1.6em; font-weight: 200; }
 .page  .date {float: none; margin-top: 0; }
 }
 
-.header-link {
-  position: absolute;
-  left: -0.5em;
-  opacity: 0;
-
-  -webkit-transition: opacity 0.2s ease-in-out 0.1s;
-  -moz-transition: opacity 0.2s ease-in-out 0.1s;
-  -ms-transition: opacity 0.2s ease-in-out 0.1s;
-}
-
-h2:hover .header-link,
-h3:hover .header-link,
-h4:hover .header-link,
-h5:hover .header-link,
-h6:hover .header-link {
-  opacity: 1;
-}
-
 #clips {
   list-style: none;
   padding-left: 0;
@@ -124,3 +106,8 @@ h6:hover .header-link {
 #clips li {
   margin-bottom: 15px;
 }
+
+.anchorjs-link:link    { color: #337ab7; }
+.anchorjs-link:visited { color: #337ab7; }
+.anchorjs-link:hover   { color: #23527c; }
+.anchorjs-link:active  { color: #23527c; }
