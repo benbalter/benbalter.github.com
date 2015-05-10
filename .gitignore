@@ -12,3 +12,4 @@ assets/vendor/modernizr/test
 Gemfile.lock
 /html
 /md
+.sass-cache
