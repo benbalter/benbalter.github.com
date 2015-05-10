@@ -46,6 +46,7 @@ exclude:
   - assets/vendor/modernizr/feature-detects
   - assets/vendor/modernizr/media
   - assets/vendor/modernizr/test
+  - assets/vendor/anchor-js/index.html
   - ".bundle"
   - vendor
 
