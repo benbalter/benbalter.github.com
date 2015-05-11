@@ -1,5 +1,5 @@
 ---
-title: "Analysis of federal executive domains — 2015"
+title: "Analysis of federal executive domains, 2015 edition"
 excerpt: "A quick analysis of the technology and capabilities that power each federal executive domain such as non-www, SSL, and IPv6 support, or what server/cms they use"
 ---
 
