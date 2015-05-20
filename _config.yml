@@ -2,6 +2,7 @@
 
 name: Ben Balter
 description: "Government evangelist, attorney, open source developer"
+author: Ben Balter
 gravatar_id: ea353bd28baa1aefaefae736a19fcf2a
 job_title: Government Evangelist
 employer: GitHub
@@ -83,6 +84,7 @@ gems:
   - jekyll-mentions
   - jekyll-redirect-from
   - jekyll-sitemap
+  - jekyll-feed
 
 sass:
   style: :compressed
