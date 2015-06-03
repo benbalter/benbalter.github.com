@@ -35,10 +35,6 @@ There's precedent for this practice. If you ever look at the copyright page of a
 
 In terms of websites, if you have a page that updates daily (think the front page of `nytimes.com`), then the current year is sufficient, because everything on that page was "published" that year, and thus received copyright that year (excluding the design and branding elements for a moment). If you have a page where some content was "published" in 2013, and some in 2014 (think our `choosealicense.com` example), then to really properly put a potential infringer on notice (see the sniff-test rationale above) you'd want `[original publish date] - [last published date]`. Again, just like books, each year it was published, concatenating consecutive years.
 
-#### Is the date even necessary?
-
-All that said, when we're talking about open source projects, the date in the copyright notice starts to feel a bit like an anachronism. If the whole point of the copyright notice is to put a potential infringer on notice, and the copyright notice is used to establish date of publication, at least in the world of open source, when it comes to proving when something was published, we have much more accurate methods: version control.
-
 ### The copyright holder
 
 As noted above, when an author creates an original work (be they a writer or developer), copyright automatically vests in the author. Think of that roughly like owning a building. If the author then want others to be able to use that work, they may choose to grant them a license. Think of that license roughly like renting out an apartment in that building. The author retains ownership (the building), and the tenant has a lease saying they have the right to use it (a license).
