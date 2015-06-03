@@ -35,9 +35,9 @@ There's precedent for this practice. If you ever look at the copyright page of a
 
 In terms of websites, if you have a page that updates daily (think the front page of `nytimes.com`), then the current year is sufficient, because everything on that page was "published" that year, and thus received copyright that year (excluding the design and branding elements for a moment). If you have a page where some content was "published" in 2013, and some in 2014 (think our `choosealicense.com` example), then to really properly put a potential infringer on notice (see the sniff-test rationale above) you'd want `[original publish date] - [last published date]`. Again, just like books, each year it was published, concatenating consecutive years.
 
-###
+#### Is the date even necessary?
 
-Take for example, if on December 15, 2014 Ida Infringer copies choosealicense.com and starts selling *Open Source Licensing For Dummies*, but does so in a way that violates her license (e.g., she doesn't properly attribute the original work). On January 1st, 2015 the contributors of chooselicense.com take Ida to court to enforce our rights to have Ida attribute the work to us. We can't as easily say "judge, but it clearly says © 2014!" if the alleged infringement occurred prior to when we're explicitly claiming copyright (or if it's clear we're claiming a 2013 copyright in content that was authored in 2014). Again, the value here is really for that sniff test, but if you're going to do it, I'd argue that you should  accurately reflect (aka accurately notice) the true copyright.
+All that said, when we're talking about open source projects, the date in the copyright notice starts to feel a bit like an anachronism. If the whole point of the copyright notice is to put a potential infringer on notice, and the copyright notice is used to establish date of publication, at least in the world of open source, when it comes to proving when something was published, we have much more accurate methods: version control.
 
 ### The copyright holder
 
@@ -61,4 +61,4 @@ As a mater of practicality, as a project founder, you're fully entitled to take 
 
 Assuming your project's under active development, it should be `[year project started] - [current year], [project founder] and the [project name] contributors`. While not strictly necessary, if you're going to adda  copyright notice, that'll accurately represent the years of publication and all copyright holders.
 
-That said, as they say on the internet, IANYL, so, as always, [please consult your own legal counsel](http://ben.balter.com/fine-print/) before making decisions regarding how you license your own projects.
+*All that said, as they say on the internet, IANYL, so, as always, [please consult your own legal counsel](http://ben.balter.com/fine-print/) before making decisions regarding how you license your own works.*
