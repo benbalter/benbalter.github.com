@@ -9,11 +9,21 @@ Slides (and recordings) from some of the talks I've given over the years. Have a
 
 ### Collaboration and open source
 
+* [Closed source (just) a few things](https://speakerdeck.com/benbalter/closed-source-a-few-things)
+
+* [Best practices for open source in government](https://speakerdeck.com/benbalter/best-practices-for-open-source-in-government)
+
 * [Open source demystified: from command line to community engagement](http://ben.balter.com/open-source-demistified/) ([source](https://github.com/benbalter/open-source-demistified/))
 
 * [Open collaboration: why you should give open source a second look](http://www.slideshare.net/TechSummitPR/pr-35485194) ([video](http://www.ustream.tv/recorded/48410971) - 2:37 in)
 
 ### Software development and workflows
+
+* [How to work like an open source project, regardless of what you do](https://speakerdeck.com/benbalter/how-to-work-like-an-open-source-project)
+
+* [How GitHub works like an open source project](https://speakerdeck.com/benbalter/how-github-works-like-an-open-source-project)
+
+* [Three simple rules for building APIs](https://speakerdeck.com/benbalter/three-simple-rules-for-building-apis)
 
 * [Code, Test, Deploy: How to :ship: software like a startup](https://speakerdeck.com/benbalter/code-test-deploy)
 
@@ -22,6 +32,8 @@ Slides (and recordings) from some of the talks I've given over the years. Have a
 ### Open government
 
 * [What open source teaches us about government](https://www.youtube.com/watch?v=Owq6K79ZBy8) (video)
+
+* [Software developer as civic service](https://speakerdeck.com/benbalter/software-development-as-civic-service)
 
 * [The revolution will be forked: how open collaboration is reimaging the way government works](http://ben.balter.com/open-sourcing-government/) ([source](https://github.com/benbalter/open-sourcing-government/))
 
@@ -42,5 +54,7 @@ Slides (and recordings) from some of the talks I've given over the years. Have a
 * [Make maps better together: Collaborative mapping the Open Source Way](http://ben.balter.com/make-maps-better-together) ([video](https://www.youtube.com/watch?v=iGRb5QRqC2w))
 
 ### Misc.
+
+* [An @benbalter-centric history of GitHub Pages and Autoblog](https://speakerdeck.com/benbalter/an-at-benbalter-centric-history-of-github-pages-and-autoblog)
 
 * [The next cultural commons: how the internet has been quietly assembling the next cultural cannon](http://ben.balter.com/the-next-cultural-commons/) ([source](https://github.com/benbalter/the-next-cultural-commons//))
