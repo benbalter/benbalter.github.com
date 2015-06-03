@@ -1,19 +1,21 @@
 ---
-title: Copyright notices for websites and open source projects
+title: Copyright notices for open source projects
 excerpt: ""
 ---
 
-The question's come up [several times](https://github.com/github/choosealicense.com/pull/264), as to what's the appropriate copyright notice for the footer of websites or in an open source project's license. In short, assuming your project's under active development, it should be `[year project started] - [current year], [project founder] and the [project name] contributors`.
+The question's come up several times, as to what's the appropriate copyright notice for the footer of documentation websites or in an open source project's license. In short, assuming your project's under active development, it should be:
+
+`Copyright [year project started] - [current year], [project founder] and the [project name] contributors`.
 
 In practice, there are three things to consider: the date, the copyright holder, and the need to have a copyright notice in the first place. Let's take a quick look at each.
 
 ### Do you even need a copyright notice?
 
-Technically, no.
+*Technically, no.*
 
 The whole point of putting copyright on anything is because in *ye olden days* (before 1979), [it was a legal requirement that a publisher visually mark their work](https://en.wikipedia.org/wiki/Copyright_notice#Form_of_notice_for_visually_perceptible_copies) in order to secure their copyright under [the United States Copyright Act](https://en.wikipedia.org/wiki/Copyright_law_of_the_United_States). After the US became a signatory of [the Berne convention](https://en.wikipedia.org/wiki/Berne_Convention) (along with [167 other countries](https://en.wikipedia.org/wiki/List_of_parties_to_international_copyright_agreements)), that requirement was dropped, and copyright now automatically vests in the author at the time of publication in the vast majority of countries, notice or no notice.
 
-Today, explicit copyright notices in licenses, footers (or really in general), besides for being a great way for designers to fill empty space and to perpetuate internet lawyering, only serve to put a potential infringer on notice by providing a informal sniff test to counter the "Oh yeah, well I didn't know it was copyrighted" defense. It's a nice thing to have, but legally speaking, isn't necessary.
+Today, explicit copyright notices in licenses, footers (or really in general), besides for being a great way for designers to fill empty space and to perpetuate internet lawyering, only serve to put a potential infringer on notice by providing an informal sniff test to counter the "*Oh yeah, well I didn't know it was copyrighted*" defense. It's a nice thing to have, but legally speaking, isn't strictly necessary.
 
 ### The date
 
@@ -23,7 +25,7 @@ For things like books, the year of publication is really easy to determine. If y
 
 #### When is a digital work "published"?
 
-But when it comes to digital works, the idea of publication isn't quite the same. When is an open source project (or a website, as that's the most common means of publishing an open source project, e.g., via GitHub's web interface) "published"?
+But when it comes to digital works, the idea of publication isn't quite the same. When is an open source project (or a website, as that's the most common means of publishing an open source project, e.g., via GitHub's web interface) "*published*"?
 
 In this case, of a website like [choosealicense.com](http://choosealicense.com), to take a simple example, the site was "published" when the site launched in 2013. But unlike books, that are published yearly, in set editions, with open source, things are both never finished and constantly changing — the hallmark of a healthy open source project.
 
@@ -45,16 +47,18 @@ When you use an open source project, you are analogous to the renter, but who's 
 
 Again, there's a precedence. Going back to our book example, if you look at the copyright page, it'll likely say `Copyright [year] [author]` (or the publisher, depending on their arangement). One contributor, one copyright holder.
 
-But in the case of open source, there will likely be multiple contributors, each retaining their own copyright. You might write something like `Copyright [year] Alison, Ben, and Charlie`, but as the number of developers grow, things will quickly get out of hand. So lets things and write, `Copyright [year] the [project] contributors`
+But in the case of open source, there will likely be multiple contributors, each retaining their own copyright. You might write something like `Copyright [year] Alison, Ben, and Charlie`, but as the number of developers grow, things will quickly get out of hand. So lets simplify things and just write, `Copyright [year] the [project] contributors`.
 
 #### The founder-contributor distinction
 
 While there's nothing wrong with that copyright notice, if you want to be super technical, that statement doesn't accurately represent the distribution of contributions across most projects. Likely the project creator (the [BDFL](https://en.wikipedia.org/wiki/Benevolent_dictator_for_life)) with have started the project off with a bunch of commits, and may continue to be the largest contributor for some time. While legally the long tail of contributors technically retain copyright, their share of the total intellectual property might be 1% or less.
 
-As a mater of practicality, as a project founder, you're fully entitled to take credit for the project, even as the project begins to garner contributions from other users. Think of it like many projects continuing to live in the founder's personal GitHub account, giving their name a prominent positions, despite others contributing. So if you wan to be super technical, there's no reason you couldn't say `Copyright [year] [project founder] and the [project name] contributors`. In either case, `Copyright [year] [project maintainer]` is strictly speaking wrong, assuming others have contributed.
+As a mater of practicality, as a project founder, you're fully entitled to take credit for the project, even as the project begins to garner contributions from other users. Think of it like many projects continuing to live in the founder's personal GitHub account, giving their name a prominent positions, despite others contributing. So if you wan to be super technical, there's no reason you couldn't say `[project founder] and the [project name] contributors`. In either case, just putting the project founder or maintainer is strictly speaking wrong, assuming others have contributed.
 
 ### Putting it all together
 
-Assuming your project's under active development, it should be `[year project started] - [current year], [project founder] and the [project name] contributors`. While not strictly necessary, if you're going to adda  copyright notice, that'll accurately represent the years of publication and all copyright holders.
+Assuming your project's under active development, you should write `Copyright [year project started] - [current year], [project founder] and the [project name] contributors`. While not strictly necessary, if you're going to add a copyright notice, that'll accurately represent the years of publication and all copyright holders.
 
-*All that said, as they say on the internet, IANYL, so, as always, [please consult your own legal counsel](http://ben.balter.com/fine-print/) before making decisions regarding how you license your own works.*
+Of course there are many edge cases, and the above is a simplification of what goes into a copyright notice. Things like contributor license agreements (CLAs), contributing while on the clock (work for hire), or derivative works complicate copyright considerations.
+
+*As they say on the internet, IANYL, so, as always, [please consult your own legal counsel](http://ben.balter.com/fine-print/) before making decisions regarding how you license your own works.*
