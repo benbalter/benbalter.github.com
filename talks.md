@@ -55,6 +55,6 @@ Slides (and recordings) from some of the talks I've given over the years. Have a
 
 ### Misc.
 
-* [An &commat;benbalter-centric history of GitHub Pages and Autoblog](https://speakerdeck.com/benbalter/an-at-benbalter-centric-history-of-github-pages-and-autoblog)
+* [A benbalter-centric history of GitHub Pages and Autoblog](https://speakerdeck.com/benbalter/an-at-benbalter-centric-history-of-github-pages-and-autoblog)
 
 * [The next cultural commons: how the internet has been quietly assembling the next cultural cannon](http://ben.balter.com/the-next-cultural-commons/) ([source](https://github.com/benbalter/the-next-cultural-commons//))
