@@ -11,11 +11,13 @@ In practice, there are three things to consider: the date, the copyright holder,
 
 ### Do you even need a copyright notice?
 
-*Technically, no.*
+*No, not to get a copyright* - but notices *are* helpful for other reasons, and they are easy to add.
 
-The whole point of putting copyright on anything is because in *ye olden days* (before 1979), [it was a legal requirement that a publisher visually mark their work](https://en.wikipedia.org/wiki/Copyright_notice#Form_of_notice_for_visually_perceptible_copies) in order to secure their copyright under [the United States Copyright Act](https://en.wikipedia.org/wiki/Copyright_law_of_the_United_States). After the US became a signatory of [the Berne convention](https://en.wikipedia.org/wiki/Berne_Convention) (along with [167 other countries](https://en.wikipedia.org/wiki/List_of_parties_to_international_copyright_agreements)), that requirement was dropped, and copyright now automatically vests in the author at the time of publication in the vast majority of countries, notice or no notice.
+Historically, the primary point of putting copyright on anything is because in *ye olden days* (before 1979), [it was a legal requirement that a publisher visually mark their work](https://en.wikipedia.org/wiki/Copyright_notice#Form_of_notice_for_visually_perceptible_copies) in order to secure their copyright under [the United States Copyright Act](https://en.wikipedia.org/wiki/Copyright_law_of_the_United_States). After the US became a signatory of [the Berne convention](https://en.wikipedia.org/wiki/Berne_Convention) (along with [167 other countries](https://en.wikipedia.org/wiki/List_of_parties_to_international_copyright_agreements)), that requirement was dropped, and copyright now automatically vests in the author at the time of publication in the vast majority of countries, notice or no notice.
 
-Today, explicit copyright notices in licenses, footers (or really in general), besides for being a great way for designers to fill empty space and to perpetuate internet lawyering, only serve to put a potential infringer on notice by providing an informal sniff test to counter the "*Oh yeah, well I didn't know it was copyrighted*" defense. It may also help you determine when copyright might expire, but the date is ambiguous at best, and I'd suspect we'll have better ways to determine the date of publication 80+ years from now, if your code is still worth protecting. Simply put, it's a nice thing to have, but legally speaking, isn't strictly necessary.
+Today, explicit copyright notices in licenses, footers (or really in general), are not necessary for getting a copyright.  They still have some uses, though.  First, someone may want to use your work in ways not allowed by your license; notices help them determine who to ask for permission.  Explicit notices can help you prove that you and your collaborators really are the copyright holders.  They can serve to put a potential infringer on notice by providing an informal sniff test to counter the "*Oh yeah, well I didn't know it was copyrighted*" defense.  For some users the copyright notice may suggest higher quality, as they expect that good software will include a notice.  A notice may also help people determine when copyright might expire, but the date is ambiguous at best, and I'd suspect we'll have better ways to determine the date of publication 80+ years from now, if your code is still worth protecting.  Git can track these things, but people may receive software outside of git or where the git history has not been retained.
+
+Simply put, a notice isn't strictly necessary legally speaking.  But a notice is nice to have, has some advantages, and is easy to do.
 
 ### The date
 
@@ -43,7 +45,7 @@ As noted above, when an author creates an original work (be they a writer or dev
 
 When you use an open source project, you are analogous to the renter, but who's the landlord (copyright holder)? If the project only has a single author, things are clear: the copyright holder is the project creator. When you have multiple contributors, all authoring code for the same project, absent an explicit agreement to the contrary, they each retain copyright to their own contribution.
 
-#### So who's name should you use?
+#### So whose name should you use?
 
 Again, there's a precedence. Going back to our book example, if you look at the copyright page, it'll likely say `Copyright [year] [author]` (or the publisher, depending on their arangement). One contributor, one copyright holder.
 
@@ -57,7 +59,7 @@ As a mater of practicality, as a project founder, you're fully entitled to take 
 
 ### Putting it all together
 
-Assuming your project's under active development, you should write `Copyright [year project started] - [current year], [project founder] and the [project name] contributors`. While not strictly necessary, if you're going to add a copyright notice, that'll accurately represent the years of publication and all copyright holders.
+Assuming your project's under active development, you should write `Copyright [year project started] - [current year], [project founder] and the [project name] contributors`. While not strictly necessary to obtain a copyright, if you're going to add a copyright notice, that'll accurately represent the years of publication and all copyright holders.
 
 Of course there are many edge cases, and the above is a simplification of what goes into a copyright notice. Things like contributor license agreements (CLAs), contributing while on the clock (work for hire), or derivative works complicate copyright considerations. Heck, with open source almost always being developed within a version control system — a system designed to track and make known who made what change when — as @bkeepers [pointed out](https://github.com/benbalter/benbalter.github.com/issues/254#issuecomment-97044362), the copyright notice may be even more of an anachronism than it already is.
 
