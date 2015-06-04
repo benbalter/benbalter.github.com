@@ -31,7 +31,7 @@ Slides (and recordings) from some of the talks I've given over the years. Have a
 
 ### Open government
 
-* [What open source teaches us about government](https://www.youtube.com/watch?v=Owq6K79ZBy8) (video)
+* [What government can learn from open source](https://www.youtube.com/watch?v=E3ftpYQyLOc) ([slides](https://speakerdeck.com/benbalter/what-government-can-learn-from-open-source))
 
 * [Software developer as civic service](https://speakerdeck.com/benbalter/software-development-as-civic-service)
 
