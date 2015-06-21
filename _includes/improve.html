@@ -1,12 +1,12 @@
  <div class="row improve-article-wrapper">
-    <div class="col-sm-1 col-sm-offset-1">
-  		<a class="btn btn-primary btn-lg" href="https://github.com/{{ site.github.user }}/{{ site.github.site_repo }}/edit/{{ site.branch }}/{{ page.path }}">Edit</a>
+   <div class="col-sm-1 col-sm-offset-1">
+  		<a class="btn btn-primary btn-lg" href="https://github.com/{{ site.github.repository_nwo }}/edit/{{ site.branch }}/{{ page.path }}" title="Help Improve article {{ page.path }}">Edit</a>
   	</div>
   	<div class="col-sm-3">
-  	 <a class="btn btn-success btn-lg" href="https://github.com/{{ site.github.user }}"><span class="fa fa-github">&nbsp;</span>Author Github</a>
+  	 <a class="btn btn-success btn-lg" href="{{ site.github.owner_url }}" title="Link to {{site.github.owner_name}} GitHub"><span class="fa fa-github">&nbsp;</span>Author Github</a>
   	</div>
   	<div class="col-sm-6 col-sm-offset-1">
-        <p class="improve-article">This content is open source. <br />
-        Please <a href="https://github.com/{{ site.github.user }}/{{ site.github.site_repo }}/edit/{{ site.branch }}/{{ page.path }}">help improve it</a>.</p>
-    </div>
+    <p class="improve-article">This content is open source. <br />
+    Please <a href="https://github.com/{{ site.github.repository_nwo }}/edit/{{ site.branch }}/{{ page.path }}" title="Help Improve article {{ page.path }}">help improve it</a>.</p>
+   </div>
 </div>
