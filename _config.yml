@@ -12,9 +12,6 @@ location:
   state: District of Columbia
   country: United States of America
 ga_username: 'UA-18088627-1'
-github:
-  username: 'benbalter'
-  site_repo: 'benbalter.github.com'
 twitter:
   username: "@benbalter"
   account_id: "16211142"
