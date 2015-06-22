@@ -3,13 +3,13 @@ title: "Merge by committee"
 excerpt: "There is an emerging anti-pattern, whereby organizations review and discuss issues and pull requests in regularly scheduled, closed meetings, a practice that almost certainly sets the project up for failure."
 ---
 
-The hardest part of open source for any organization isn't security or legal concerns, or even the code itself. The hardest part of open source for large organizations is learning to work like an open source project. There is an emerging anti-pattern, whereby organizations review and discuss issues and pull requests in regularly scheduled, closed meetings, a practice that almost certainly sets the project up for failure.
+The hardest part of open source for any organization isn't security or legal concerns, or even the code itself. The hardest part of open source for large organizations is [learning to work like an open source project](http://ben.balter.com/2015/03/08/open-source-best-practices-internal-collaboration/). There is an emerging anti-pattern, whereby organizations review and discuss issues and pull requests in regularly scheduled, closed meetings, a practice that almost certainly sets the project up for failure.
 
 ### A traditional, closed-source workflow
 
 A typical closed-source development workflow might include a project manager who gathers feature requirements, prioritizes tasks, and assigns them to a development team. The process will likely involve regular status meetings, and perhaps a daily standup meeting to resolve any blockers that emerge between status meetings. When issues arise, or when new features are requested, they're generally addressed at a separate project planning meeting. These meetings generally take place in conference rooms, and are almost always limited to the development team and perhaps the product owner.
 
-All too often, organizations attempt to graft this traditional, closed-source workflow to open source projects. Open source is more than simply publishing code. It's a workflow, a philosophy, the modern approach to building software, both inside and outside your firewall, and if you don't treat it as such, the organization and the open source community will almost certainly have a subpar experience.
+All too often, organizations attempt to graft this traditional, closed-source workflow to open source projects. [Open source is more than simply publishing code](http://ben.balter.com/2014/09/29/source-disclosed-%E2%89%A0-open-source/). It's a workflow, a philosophy, the modern approach to building software, both inside and outside your firewall, and if you don't treat it as such, the organization and the open source community will almost certainly have a subpar experience.
 
 ### The problem with closed-source governance
 
@@ -17,7 +17,7 @@ One problem with trying to apply closed-source workflows to open source projects
 
 Another problem is that, while scheduled meetings work well when developers are in the same place and all work the same hours, open source projects are global, meaning it might be 3:00 AM for a developer in Tokyo, when you have your 2:00 PM planning call. By virtue of being distributed, open source is, by design and necessity, both asynchronous and agile. It's not uncommon for an issue to be reported by a user in one time zone, confirmed with additional details by a user in another timezone, fixed by a contributor in a third, and closed by a maintainer half way around the world, all within the span of a few hours. The pace of an open source project is measured in minutes or hours, not the weeks or quarters that synchronous meetings are optimized for.
 
-## Non-blocking is better than blocking
+### Non-blocking is better than blocking
 
 You may see then, how such a distributed workflow is incongruous with only being able to make decisions that affect the project during a special one hour block once a week. As a contributor, if I have to wait a week for feedback on my proposed change, and then another week for it to me merged, it's unlikely that I'm going to contribute again. It's simply not worth my effort. Rather than make progress on the next feature, developers are forced to spend a disproportionate amount of time blocked by your administrative processes. While such delays may be expected in closed-source software, absent a weekly paycheck to coerce the developer into staying, there's a good chance they'll find another, more responsive project that works at the pace that they want to work.
 
@@ -35,6 +35,6 @@ Instead, organizations wishing to transition from traditional, closed-source wor
 
 ### Maintainer, not manager
 
-How you work is equally important as what you work on. If you take your first or second step into the world of open source, without retooling your workflows for working in the open, you've only published your code, you haven't open sourced it. While it's certainly possible to run an open source project by committee, it's highly unlikely that that project will see much success, at least by open source standards.
+As a project maintainer, think of yourself as [the host of the world's most boring cocktail party](http://ben.balter.com/2015/03/17/open-source-best-practices-external-engagement/), rather than as the manager of a top-down, command-and-control, code assembly line that happens to be public. Open source is about joining a community bigger than any one organization, and to be successful, you must embrace the role of community organizer (with an expanded definition of stakeholders), not one of project manager, seeking to "manage" feature requests, or an ephemeral pool of free labor.
 
-As a project maintainer, think of yourself as the host of the world's most boring cocktail party, rather than as the manager of a top-down, command-and-control, code assembly line. Open source is about joining a community bigger than any one organization, and to be successful, you must embrace the role of community organizer, expanding your definition of stakeholders in the process, not one of project manager, seeking to "manage" feature requests, or a pool of free labor.
+How you work is equally important as what you work on. If you take your first or second step into the world of open source, without retooling your workflows for working in the open, you've only published your code, you haven't open sourced it. While it's certainly possible to run an open source project by committee, it's highly unlikely that that project will see much success, at least by any open source standards.
