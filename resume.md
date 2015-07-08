@@ -22,7 +22,7 @@ March 2013 — Present
 * Lead [a bottom-up rewrite of GitHub Pages](https://github.com/blog/1992-eight-lessons-learned-hacking-on-github-pages-for-six-months), GitHub's documentation and static-site hosting service that hosts more than three-quarters of a million sites and serves more than a quarter of a million sites every minute.
 * Launched and maintained [choosealicense.com](http://choosealicense.com) a website dedicated to demystifying open source licensing for developers.
 * Developed and integrated [GeoJSON rendering and diffing](https://github.com/blog/1541-geojson-rendering-improvements) into GitHub.com, empowering government agencies and civic hackers to publish more than half a million geospatial data sets.
-* Sought and negotiated partnership agreement with GitHub's first government reseller
+* Sought and negotiated partnership agreement with GitHub's first government reseller.
 * Created and implemented US export control (ITAR and EAR) compliance policies, secured Export Control Classification Number (ECCN) from Department of Commerce, and implemented policy for customers' OFAC compliance.
 
 #### Executive Office of the President
