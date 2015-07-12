@@ -1,13 +1,22 @@
 #Jekyll config file
 
-#title of site
 name: Ben Balter
-
-#description of site
 description: "Government evangelist, attorney, open source developer"
-
-#URL of site, include http://, do not include a trailing slash
+author: Ben Balter
+gravatar_id: ea353bd28baa1aefaefae736a19fcf2a
+job_title: Government Evangelist
+employer: GitHub
 url: "http://ben.balter.com"
+location:
+  city: Washington
+  state: District of Columbia
+  country: United States of America
+ga_username: 'UA-18088627-1'
+twitter:
+  username: "@benbalter"
+  account_id: "16211142"
+google_plus_id: BenBalter
+branch: master
 
 #files to exclude, array
 exclude:
@@ -31,15 +40,14 @@ exclude:
   - composer.json
   - component.json
   - grunt.js
-  - assets/vendor/font-awesome/src
-  - assets/vendor/bootstrap/js
-  - assets/vendor/bootstrap/less
+  - assets/vendor/bootstrap-sass/stylesheets
   - assets/vendor/font-awesome/less
   - assets/vendor/font-awesome/scss
   - assets/vendor/font-awesome/src
   - assets/vendor/modernizr/feature-detects
   - assets/vendor/modernizr/media
   - assets/vendor/modernizr/test
+  - assets/vendor/anchor-js/index.html
   - ".bundle"
   - vendor
 
@@ -65,13 +73,6 @@ disqus:
   count: 5
   api_key: "OQ5OlN2AtWDfIQ0bjIGwdfq9SsEB3P8NdzhYTRak7R45KeAD744aVIqJZDYqvmuL"
 
-#google analytics username
-ga_username: 'UA-18088627-1'
-
-twitter:
-  username: "@benbalter"
-  account_id: "16211142"
-
 #build config
 highlighter: pygments
 markdown: kramdown
@@ -83,3 +84,7 @@ gems:
   - jekyll-mentions
   - jekyll-redirect-from
   - jekyll-sitemap
+  - jekyll-feed
+
+sass:
+  style: :compressed

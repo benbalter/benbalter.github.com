@@ -14,12 +14,12 @@ tags:
 post_format: [ ]
 ---
 
-I am gave a brief [lightning talk at April's WordPress DC Meetup][1] on the basics of HTML and PHP ("coding for dummies"). The goal: learn how to avoid breaking your website if you edit it. Below are the [slides](http://www.slideshare.net/benbalter/how-i-learned-to-stop-worrying-and-love-the-code).
+I am gave a brief [lightning talk at April's WordPress DC Meetup](http://www.meetup.com/wordpressdc/events/16887732/) on the basics of HTML and PHP ("coding for dummies"). The goal: learn how to avoid breaking your website if you edit it. Below are the [slides](http://www.slideshare.net/benbalter/how-i-learned-to-stop-worrying-and-love-the-code).
 
 **The Cliff's Notes are:**
 
 *   The process
-    *   The server executes PHP and outputs HTML, CSS, JavaScript, etc.![Screenshot of the presentation showing the relationship between server, browser, and user][4]{: .alignright }
+    *   The server executes PHP and outputs HTML, CSS, JavaScript, etc.![Screenshot of the presentation showing the relationship between server, browser, and user](http://ben.balter.com/wp-content/uploads/2011/04/infographic-300x138.png "infographic"){: .alignright }
     *   The user's browser takes that output and renders a visual representation of the page
 *   Client-side Languages
     *   HTML – Static (unchanging) content; provides structure
@@ -37,35 +37,20 @@ I am gave a brief [lightning talk at April's WordPress DC Meetup][1] on the basi
 ### Links to Resources Mentioned
 
 *   HTML
-    *   [Google: HTML, CSS, & js from the Ground Up ][5]
-    *   [HTML Dog ][6]
-    *   [W3 Learning Wiki ][7]
-    *   [W3 Element Wiki ][8]
+    *   [Google: HTML, CSS, & js from the Ground Up ](http://code.google.com/edu/submissions/html-css-javascript/)
+    *   [HTML Dog ](http://htmldog.com)
+    *   [W3 Learning Wiki ](http://www.w3.org/wiki/HTML/Training)
+    *   [W3 Element Wiki ](http://www.w3.org/wiki/HTML/Elements)
 *   Text Editor
-    *   [Notepad++][9] (Windows)
-    *   [TextWrangler][10], [Coda][11] (Mac)
+    *   [Notepad++](http://notepad-plus-plus.org/) (Windows)
+    *   [TextWrangler](http://www.barebones.com/products/textwrangler/), [Coda](http://www.panic.com/coda/) (Mac)
 *   FTP Client (to connect to server)
-    *   [WinSCP][12], [Notepad++][9] (Windows)
-    *   [CyberDuck][13], [Coda][11] (Mac)
+    *   [WinSCP](http://winscp.net/eng/index.php), [Notepad++][9] (Windows)
+    *   [CyberDuck](http://cyberduck.ch/), [Coda][11] (Mac)
 *   WordPress
-    *   [Define( WP_DEBUG, true);][14] in wp-config.php
-    *   [Debug bar][15] plugin
-    *   [WordPress Codex][16]
+    *   [Define( WP_DEBUG, true);](http://codex.wordpress.org/Editing_wp-config.php#Debug) in wp-config.php
+    *   [Debug bar](http://wordpress.org/extend/plugins/debug-bar/) plugin
+    *   [WordPress Codex](http://codex.wordpress.org/)
 
-*Thanks to all who came out or tuned into the live stream. Comments? Questions? I'd love to hear your thoughts below or feel free to [contact me][18].*
+*Thanks to all who came out or tuned into the live stream. Comments? Questions? I'd love to hear your thoughts below or feel free to [contact me](http://ben.balter.com/contact/).*
 
-[1]: http://www.meetup.com/wordpressdc/events/16887732/
-[4]: http://ben.balter.com/wp-content/uploads/2011/04/infographic-300x138.png "infographic"
-[5]: http://code.google.com/edu/submissions/html-css-javascript/
-[6]: http://htmldog.com
-[7]: http://www.w3.org/wiki/HTML/Training
-[8]: http://www.w3.org/wiki/HTML/Elements
-[9]: http://notepad-plus-plus.org/
-[10]: http://www.barebones.com/products/textwrangler/
-[11]: http://www.panic.com/coda/
-[12]: http://winscp.net/eng/index.php
-[13]: http://cyberduck.ch/
-[14]: http://codex.wordpress.org/Editing_wp-config.php#Debug
-[15]: http://wordpress.org/extend/plugins/debug-bar/
-[16]: http://codex.wordpress.org/
-[18]: http://ben.balter.com/contact/

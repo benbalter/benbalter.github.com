@@ -1,0 +1,135 @@
+---
+---
+{% if site.github.url %}
+  {% assign url_base = site.github.url %}
+{% else %}
+  {% assign url_base = site.url %}
+{% endif %}
+
+$icon-font-path: "{{ url_base }}/assets/vendor/bootstrap-sass/assets/fonts/bootstrap/";
+$fa-font-path: "{{ url_base }}/assets/vendor/font-awesome/fonts";
+$font-size-base: 16px;
+
+@import "bootstrap/stylesheets/bootstrap";
+@import "anchor-js";
+@import "pygments";
+@import "font-awesome/font-awesome";
+
+body { padding-top: 20px; font-weight: 200; }
+@media (max-width: 768px) {
+    body { padding-top: 0; }
+}
+
+/* Contact social icons */
+#contact-links {list-style: none; text-align: center; font-size: 8pt; line-height: 14px; margin-top: 20px; padding-left: 0;}
+#contact-links a, #contact-links a:visited {color: #999; text-decoration: none;}
+#contact-links li {display: inline-block; padding: 0 15px 0 15px; text-align: center; margin-left: auto; margin-right: auto; line-height: 10px;}
+#contact-links i { display: block; width: 30px; height: 40px; }
+.center { text-align: center }
+.pgp-key { font-size: 85%; }
+
+/* images */
+.aligncenter { clear: both;	display: block;	margin-left: auto; margin-right: auto; }
+.alignleft { display: block; float:left; padding-right: 15px; padding-bottom: 5px; }
+.alignright { display: block; float: right; padding-left: 15px; padding-bottom: 5px; }
+@media (max-width: 550px) {
+    .alignleft, .alignright { float: none; clear: both; margin-left: auto; margin-right: auto; }
+}
+
+/* Footnotes */
+.footnotes { font-size: .9em; }
+.footnotes ol { padding-left: 20px; }
+.footnotes a[rev="footnote"] {float: right; margin-top: -2em; display: none; }
+.footnotes ol li:hover a[rev="footnote"] { display: block }
+.home .footnotes { display:none }
+
+/* Posts */
+.post-meta { margin: 0 0 20px 0; font-style: italic; font-size: 0.9em;}
+.home article { margin-bottom: 25px; }
+.post-contact p { text-align: center; margin: 30px 0; }
+.revision-history, .revision-history:visited { color: #aaa;}
+
+/* Footer */
+.footer { border-top: 1px solid #eee; margin-top: 20px; }
+.fine-print { float: right; padding: 25px; }
+.fine-print a, .fine-print a:visited { color: #ccc; }
+
+/* Disqus */
+.disqus { border-top: 1px dotted rgba(0, 0, 0, 0.2); margin-top: 20px; }
+#disqus_thread { margin-top: 20px; }
+
+/* Forking */
+.improve-article { margin-top: 7.5px; font-size: 14px; font-style: italic; }
+.improve-article-wrapper { padding-top: 20px; border-top: 1px dotted rgba(0, 0, 0, 0.2); text-align: center; }
+
+/* Index */
+.posts { list-style: none; padding-left: 0; font-size: 1.1em;}
+.posts li { margin-bottom: 10px; }
+.posts li .date { font-size: 0.8em; color: #bbb; text-align: right; }
+@media (max-width: 768px) {
+    .posts li .date {text-align: left;}
+}
+
+/* Header */
+.hero-unit {
+    background-image: url( '{{ url_base }}/assets/img/header.jpg' );
+    background-size: cover;
+    background-position: top left;
+    height: 400px;
+    position: relative;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+@media (max-width: 768px) {
+    .hero-unit {display: none;}
+}
+
+
+/* Nav */
+.default .navbar { border-top-left-radius: 0; border-top-right-radius: 0; }
+.navbar h1 { display: inline; }
+.navbar h2 { font-weight: normal; font-size: 20px; display: inline;}
+.navbar-brand { font-size: 20px; }
+@media (max-width: 1000px) {
+}
+@media (max-width: 768px) {
+  .navbar .pull-right, .navbar-brand { text-align: center; float: none; width: 100%; }
+
+  .navbar {
+    li:first-of-type, li:first-of-type a { display: block; width: 100%; height: 35px; }
+    li, li a {
+      text-align: center;
+      display: inline-block;
+      width: 18%;
+      padding: 0;
+    }
+    .navbar-text { margin-top: 0; }
+  }
+}
+@media (max-width: 1200px) {
+  .nav { font-size: 0.9em; }
+}
+@media (max-width: 400px) {
+  .navbar { font-size: .8em; }
+}
+
+/* resume */
+.page .date {float: right; margin-top: -2em;}
+@media (max-width: 768px) {
+.page  .date {float: none; margin-top: 0; }
+}
+
+#clips {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 15px;
+}
+
+#clips li {
+  margin-bottom: 15px;
+}
+
+.anchorjs-link:link    { color: #337ab7; }
+.anchorjs-link:visited { color: #337ab7; }
+.anchorjs-link:hover   { color: #23527c; }
+.anchorjs-link:active  { color: #23527c; }
