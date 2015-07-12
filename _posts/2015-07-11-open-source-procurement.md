@@ -45,4 +45,4 @@ As government agencies adopt increasingly open software development methodologie
 
 We're not far off. From a technology and legal standpoint, this idea of "open procurement" is trivial to implement. It's the culture around procurement, the hallway lawyering, and educating contracting officers, that's going to be the real challenge. Websites are not tanks or battleships, and we can't expect that a single approach will suit both. The government waking up to open source is fundamentally changing the way we build software. The next logical step is to change how we buy it.
 
-*I'd be remissed if I didn't give a shoutout to David Hale (@lostonroute66) whose treying to head down this path at NIH and whose conversation inspired this post.*
+*I'd be remissed if I didn't give a shoutout to David Hale (@lostonroute66) whose trying to head down this path at NIH and whose conversation inspired this post.*
