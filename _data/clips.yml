@@ -1,0 +1,238 @@
+---
+
+- title: "House of Reps joins the open source community"
+  publication: "WJLA (ABC)"
+  url: "http://www.wjla.com/articles/2015/07/house-of-reps-joins-the-open-source-community-115268.html"
+  date: 2015-07-05
+
+- title: "「とりあえずオープンデータ」から真の情報活用へ。GitHubは日本のオープンガバメントを進化させるか？"
+  publication: WirelessWire News
+  url: "http://wirelesswire.jp/2015/07/32475/"
+  date: 2015-07-03
+
+- title: "Q&A: Why Congress is Jumping on the Open Source Bandwagon"
+  publication: NextGov
+  url: "http://www.nextgov.com/emerging-tech/2015/07/interview-why-house-jumping-open-source-bandwagon/116851/"
+  date: 2015-07-02
+
+- title: GitHub Government Evangelist visits NGA
+  publication: The National Geospatial-Intelligence Agency
+  url: "https://www.nga.mil/MediaRoom/LeadingStories/Pages/GitHub-Government-Evangelist-visits-NGA.aspx"
+  date: 2015-05-20
+
+- title: The Government Publishing Office joins GitHub
+  publication: WJLA (ABC)
+  url: "http://www.wjla.com/articles/2015/03/the-government-publishing-office-joins-github-112534.html"
+  date: "2015-03-23"
+
+- title: "Silicon Valley's public service awakening — is it real?"
+  publication: FedScoop
+  url: "http://fedscoop.com/whats-behind-silicon-valleys-takeover-of-washington-d-c"
+  date: 2015-02-27
+
+- title: Army opts for openness with new computer security tool
+  publication: The Baltimore Sun
+  url: "http://www.baltimoresun.com/news/maryland/bs-md-federal-workplace-computer-security-20150227-story.html"
+  date: 2015-02-27
+
+- title: GitHub for the rest of us
+  publication: InfoWorld
+  url: http://www.infoworld.com/article/2886828/collaboration-software/github-for-the-rest-of-us.html
+  date: 2015-02-24
+  ignore_check: true
+
+- title: As open source goes mainstream, institutions collaborate differently
+  publication: TechRepublic
+  url: "http://www.techrepublic.com/article/as-open-source-goes-mainstream-institutions-collaborate-differently/"
+  date: 2014-11-14
+
+- title: Picking up the open-gov torch
+  publication: FCW
+  url: "http://fcw.com/Articles/2014/10/27/Picking-up-the-open-gov-torch.aspx"
+  date: 2014-10-27
+
+- title: "Washington Business Report: Oct. 12, 2014"
+  publication: WJLA (ABC)
+  url: http://www.wjla.com/articles/2014/10/washington-business-report-oct-12-2014-107984.html
+  date: 2014-10-12
+
+- title: "8 reasons why government contractors should embrace open source software"
+  publication: FedScoop
+  url: "http://fedscoop.com/government-contractors-open-source-ben-balter/"
+  date: 2014-10-9
+
+- title: 9 things to look for in an open-source project
+  publication: FCW
+  url: "http://fcw.com/articles/2014/09/30/9-things-to-look-for-in-an-open-source-project.aspx"
+  date: 2014-10-06
+
+- title: Who’s Using GitHub at Your Agency?
+  publication: FedTech
+  url: "http://www.fedtechmagazine.com/article/2014/08/whos-using-github-your-agency"
+  date: 2014-08-28
+
+- title: "GitHub and government"
+  publication: Government Matters — WJLA (ABC)
+  url: "http://www.wjla.com/articles/2014/08/github-and-government-106444.html"
+  date: 2014-08-25
+
+- title: Does government finally grok open source?
+  publication: InfoWorld
+  url: "http://www.infoworld.com/article/2608895/open-source-software/open-source-software-does-government-finally-grok-open-source.html"
+  date: 2014-08-19
+  ignore_check: true
+
+- title: GitHub government users triple globally over past year
+  publication: FedScoop
+  url: "http://fedscoop.com/github-government/"
+  date: 2014-08-15
+
+- title: "Government agencies embrace open share"
+  publication: Tech Shift — WBEZ (NPR)
+  url: "https://soundcloud.com/techshift/7-tech-shift-open-share"
+  date: 2014-08-08
+
+- title: GitHub May Actually Be Dragging Government Into The 21st Century
+  publication: ReadWrite
+  url: http://readwrite.com/2014/08/14/github-government-ben-balter-open-source
+  date: 2014-08-14
+
+- title: "GitHub: A Swiss Army knife for open government"
+  publication: FCW
+  url: "http://fcw.com/articles/2014/07/07/github-swiss-army-knife.aspx"
+  date: 2014-07-07
+
+- title: GitHub ushers in era of open policy
+  publication: FedScoop
+  url: "http://fedscoop.com/github-ushers-in-era-of-open-policy/"
+  date: 2014-06-09
+
+- title: This White House GitHub Experiment Could Help Fix Government
+  publication: WIRED
+  url: "http://www.wired.com/2014/06/whitehouse_github/"
+  date: 2014-06-03
+
+- title: Open Source Lessons For Feds
+  publication: InformationWeek
+  url: "http://www.informationweek.com/software/productivity-collaboration-apps/open-source-lessons-for-feds-/d/d-id/1252753"
+  date: 2014-05-15
+
+- title: NGA joins GitHub
+  publication: FedScoop
+  url: "http://fedscoop.com/nga-joins-github"
+  date: 2014-04-14
+
+- title: "GSA's Hashmi goes to GitHub to talk IT trends and strategies"
+  publication: FCW
+  url: "http://fcw.com/articles/2014/04/11/hashmi-goes-to-github.aspx"
+  date: 2014-04-11
+
+- title: "Seizing the real open-gov opportunity"
+  publication: FCW
+  url: "http://fcw.com/articles/2014/01/10/year-ahead-balter-open-gov.aspx"
+  date: 2014-01-10
+
+- title: "Open source grabs spotlight at symposium"
+  publication: FedScoop
+  url: "http://fedscoop.com/red-hat-event-coverage"
+  date: 2013-12-07
+
+- title: "GitHub's Ben Balter on innovative uses of open source"
+  publication: FedScoop
+  url: "http://fedscoop.com/githubs-ben-balter-innovative-uses-open-source"
+  date: 2013-12-02
+
+- title: If A Tech Company Had Built The Federal Health Care Website
+  publication: NPR — All Things Considered
+  url: "http://www.npr.org/blogs/alltechconsidered/2013/10/17/235739367/if-a-tech-company-had-built-the-federal-health-care-website"
+  date: 2013-10-17
+
+- title: "GitHub Launches Showcase of Government-Citizen Collaborations"
+  publication: TechPresident
+  url: "http://techpresident.com/news/24431/github-launches-showcase-government-citizen-collaborations"
+  date: 2013-10-15
+
+- title: "10 things I learned as a presidential innovation fellow"
+  publication: FedScoop
+  url: "http://fedscoop.com/ben-balter-10-things-i-learned-as-a-presidential-innovation-fellow"
+  date: 2013-09-30
+
+- title: "A future where ‘the crowd’ helps solve government problems"
+  publication: FedScoop
+  url: "http://fedscoop.com/ibm-report-calls-for-crowdsourcing-in-government"
+  date: 2013-08-30
+
+- title: "After hours: Where to schmooze with government techies"
+  publication: FedScoop
+  url: "http://fedscoop.com/after-hours-where-to-find-government-techies"
+  date: 2013-06-13
+
+- title: Governing Gets Social
+  publication: GovExec
+  url: "http://www.govexec.com/magazine/features/2013/07/governing-gets-social/65831/"
+  date: 2013-06-01
+
+- title: "FedPod: GitHub's Ben Balter discusses open data policy"
+  publication: FedScoop
+  url: "http://fedscoop.com/fedpod-githubs-ben-balter-discusses-open-data-policy/"
+  date: 2013-05-10
+
+- title: "White House drafts official Open Data Policy of the United States"
+  publication: VentureBeat
+  url: "http://venturebeat.com/2013/05/09/white-house-drafts-official-open-data-policy-of-the-united-states-on-github/"
+  date: 2013-05-09
+
+- title: "Now You Can Fork U.S. Government Policy... On GitHub"
+  publication: WIRED
+  url: http://www.wired.com/2013/05/opendata/
+  date: 2013-03-09
+
+- title: "'Baddest' innovation fellow goes to GitHub"
+  publication: FCW
+  url: "http://fcw.com/articles/2013/03/07/balter-github.aspx"
+  date: 2013-03-07
+
+- title: "Open source government: code-sharing site hires federal liaison"
+  publication: GovExec
+  url: "http://www.nextgov.com/emerging-tech/2013/03/open-source-government-code-sharing-site-hires-federal-liaison/61718/"
+  date: 2013-03-06
+
+- title: "What's next for the Presidential Innovation Fellows?"
+  publication: FCW
+  url: "http://fcw.com/articles/2013/02/19/innovation-fellows-reminisce.aspx"
+  date: 2013-02-19
+
+- title: "PDF Filler helps make online forms interactive"
+  publication: GCN
+  url: "http://gcn.com/articles/2012/11/13/pdf-filler-adds-web-features-to-standard-pdf.aspx"
+  date: 2012-11-13
+
+- title: "Is this government's next IT development dashboard?"
+  publication: FedScoop
+  url: "http://fedscoop.com/is-this-governments-next-it-development-dashboard"
+  date: 2012-12-14
+
+- title: "Who leaves Comedy Central to work for the government?"
+  publication: Washington Post
+  url: "http://www.washingtonpost.com/blogs/wonkblog/wp/2012/09/07/who-leaves-comedy-central-to-work-for-the-government/"
+  date: 2012-09-07
+
+- title: "Is this the federal government's first agency-to-agency accepted pull request?"
+  publication: FedScoop
+  url: "http://fedscoop.com/is-this-the-federal-governments-first-agency-to-agency-accepted-pull-request"
+  date: 2012-08-24
+
+- title: "'Rockstar' innovators descend on Washington"
+  publication: FCW
+  url: http://fcw.com/articles/2012/08/23/park-vanroekel-presidential-innovation-fellows-program.aspx
+  date: 2012-08-23
+
+- title: "Why hasn't WordPress caught on in government?"
+  publication: FCW
+  url: "http://fcw.com/articles/2012/03/07/wordpress-drupal-content-management-.gov.aspx"
+  date: 2012-03-07
+
+- title: "Nearly a quarter of dot-gov domains don't work, analysis finds"
+  publication: NextGov
+  url: "http://www.nextgov.com/cloud-computing/2011/09/nearly-a-quarter-of-dot-gov-domains-dont-work-analysis-finds/49751/"
+  date: 2011-09-12

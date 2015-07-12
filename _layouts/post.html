@@ -3,16 +3,24 @@
 <div class="row">
   <div class="col-sm-10 col-sm-offset-1">
 
-<article id="post{{ page.id | replace:"/","-" }}" class="post post{{ page.id | replace:"/","-" }}">
+<article id="post{{ page.id | replace:"/","-" }}" class="post post{{ page.id | replace:"/","-" }}" itemscope itemtype="http://schema.org/Article">
 
-  <h2 class="title"><a href="{{ page.url }}">{{ page.title }}</a></h2>
+  <h2 class="title"><a href="{{ page.url }}" itemprop="name">{% include smartify text=page.title %}</a></h2>
+
+  <meta itemprop="about" content="{{ page.excerpt }}" />
+  <meta itemprop="description" content="{{ page.excerpt }}" />
+  <meta itemprop="author" content="{{ site.name }}" />
+  <meta itemprop="copyrightHolder" content="{{ site.name }}" />
+  <meta itemprop="copyrightYear" content="{{ page.date | date: '%Y' }}" />
+  <meta itemprop="datePublished" content="{{ page.date | date: '%F' }}" />
+  <meta itemprop="discussionUrl" content="{{ site.url }}{{ page.url }}" />
 
   <div class="post-meta">
     <span class="entry-date">Posted {{ page.date | date: '%B %d, %Y' }}</span> |
-    <a class="revision-history" href="https://github.com/benbalter/benbalter.github.com/commits/master/{{ page.path }}" target="_blank">View revision history</a>
+    <a class="revision-history" href="https://github.com/benbalter/benbalter.github.com/commits/{{ site.branch }}/{{ page.path }}" target="_blank">View revision history</a>
   </div>
 
-    <div class="entrybody">
+    <div class="entrybody" itemprop="articleBody">
         {{ content }}
     </div>
 

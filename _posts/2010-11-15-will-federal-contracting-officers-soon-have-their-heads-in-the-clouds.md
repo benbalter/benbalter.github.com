@@ -70,7 +70,7 @@ Finally, earlier this summer, Google announced FISMA moderate certification of i
 
 Whether a federal contracting officer or a provider of IT services, just as the Internet has revolutionized countless aspects of every day life, it is clear that so too will the emerging cloud computing front forever shape the contours of Federal IT procurement in the years to come.
 
-*This article originally published in the [Federal Bar Association Government Contracts Section][25] [Fall 2010 Newsletter][26] (PDF, p. 6).*
+*This article originally published in the [Federal Bar Association Government Contracts Section](http://www.fedbar.org/Sections/Government-Contracts-Section/Newsletters.aspx) [Fall 2010 Newsletter](http://www.fedbar.org/Sections/Government-Contracts-Section/Newsletters/Fall-2010.aspx?FT=.pdf) (PDF, p. 6).*
 
 [^1]: Stephen Lawson, *Cloud is Internet's Next Generation, HP Executive Says*, InfoWorld, June 25, 2009, http://www.infoworld.com/d/cloud-computing/cloud-internets-next-generation-hp-executive-says-120 (quoting HP CTO Russ Daniels).
 [^2]: *See Generally *Jack Newton, *Putting Your Practice in the Cloud a Pre-Flight Checklist*, 73 Tex. B.J. 632 (2010).
@@ -97,5 +97,3 @@ Whether a federal contracting officer or a provider of IT services, just as the 
 [^23]: 5 U.S.C.A. § 552a (West).
 [^24]: Google Apps for Government, Official Google Enterprise Blog, July 26, 2010, http://googleenterprise.blogspot.com/2010/07/google-apps-for-government.html.
 
-[25]: http://www.fedbar.org/Sections/Government-Contracts-Section/Newsletters.aspx
-[26]: http://www.fedbar.org/Sections/Government-Contracts-Section/Newsletters/Fall-2010.aspx?FT=.pdf
