@@ -1,23 +1,21 @@
 ---
 title: "Speak like a human: 11 ways tech. companies can write less-corporate blog posts"
-excerpt: "Blog posts are a grea"
+excerpt: "Blog posts are a great way to tell users about new features, but it's all too easy to fall back on the marketing speak we're inundated with each day. Instead, use these tips to write user-centric posts for your corporate blog."
 ---
 
-If there's one thing that corporations are consistently good at, it's talking like a corporation. We've all seen it. You're reading a blog post about an "innovative, new" this or a "first-of-its-kind" that. Before you realize it, although your now-glazed-over eyes may still be moving over the words, you've stopped reading entirely. You know marketing speak when you see it. They're not talking to you. They're talking at you.
+If there's one thing that corporations are consistently good at, it's talking like a corporation. We've all seen it: you're reading a blog post about an "innovative, new" this or a "first-of-its-kind" that, and before you realize it, although your now-glazed-over eyes may still be moving over the words, you've stopped reading entirely. You know marketing speak when you see it. They're not talking to you. They're talking at you, and you silently vow never to visit that marketing-site-disguised-as-a-blog ever again.
 
-Thankfully, it doesn't have to be that way. Corporations are fully capable of talking like humans do, at least the humans that make up that company are, and unsurprisingly customers respond positively when treated with this kind of respect.
+Thankfully, it doesn't have to be that way. Corporations are fully capable of talking like humans do, at least the humans that make up that company are, and unsurprisingly customers respond positively when treated with this kind of base-level respect. If you've ever read [the GitHub Blog](https://github.com/blog), you'll hopefully notice that at GitHub, we pride ourselves in "being human". Not "delivering authentic experiences" or "speaking like a human", but actually being a gosh-darn human talking to other humans. There may be a corporate logo at the top of the page, but blog posts are still exclusively written by, and read by living, breathing humans. My name is on the post and it's simply me, as an individual, talking to customers. No corporate buzzwords welcome.
 
-If you've ever read [the GitHub Blog](https://github.com/blog), you'll notice that at GitHub, we pride ourselves in "being human". Not "being authentic" or "speaking like a human", but actually being a gosh-darn human. There may be a corporate logo at the top of the page, but blog posts are still exclusively written by, and read by living, breathing humans (as far as we know).
-
-[Markets are conversations](http://newclues.cluetrain.com). The most effective way to convey product information is to be part of that ongoing conversation, not to stand on top of a hill shouting mindless marketing speak. Put another way, if you wouldn't do it in real life - say when bumping into a customer at a coffee shop — why is it okay to do on your corporate blog?
+[Markets are conversations](http://newclues.cluetrain.com). Your users don't read your blog to be marketed to. They read your blog to learn about what's going on, and the most effective way to convey product information, to educate current and potential users about a new feature, is to be part of that ongoing conversation, not to stand on top of a hill shouting mindless marketing speak. Put another way, if you wouldn't do it in real life - say when bumping into a customer at a coffee shop — why is it okay to do on your corporate blog?
 
 Think of the typical corporate ship post. It probably starts something like this:
 
-> Today, after months of effort, we're excited to announce our new wiz-bang feature.
+> Today, after months of effort, we're excited to announce our new wiz-bang feature...
 
-Here's the thing: Your users don't care how excited you are. They don't care about how much effort you put in. All they care about is one thing: how does it benefit me?
+Here's the thing: Your users don't care how excited you are. They don't care about how much effort you put in. They don't care how hard it was to do. All they care about is one thing: *how does it benefit me?*
 
-Here are 11 simple rules
+Having helped other GitHubbers post to GitHub's blog for the past couple of years, here are 11 simple rules from writing human, user-centric ship posts for your own corprorate blog:
 
 ### 1. It's not shipped until you blog about it
 
