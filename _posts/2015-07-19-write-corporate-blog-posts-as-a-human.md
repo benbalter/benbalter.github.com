@@ -72,3 +72,7 @@ It's a well known fact that people on the internet do not read words. They may r
 ### 12. Always provide an out
 
 The user has read your post, you've gotten them excited, now what? What's the call to action? What's their ideal first click after reading? Put it infant of them. Make it opt-out to do the right thing. It may be documentation describing in detail how to use the new thing, or may be a link directly to the new thing itself. Either way, the idea here is to nudge the user in the desired direction. You can't blame them for not doing it if you don't make it ridiculously easy. Assume people are lazy.
+
+In addition to the above, grammar, spelling, tone and style go without saying. There are many style guides out there, but [18F's](https://18f.gsa.gov/2015/07/06/18f-content-guide/) seems to be the most web-centric. When blogging, you should be writing for the web (links, informal tone, etc.) and you should use the opportunity to show some corporate personality.
+
+From infomercials to press releases, we've been trained to think corporations speak a certain way, but that's not the case. In fact, corporations don't speak. The humans that make them up do. It's a challenge to unlearn the anti-patterns that surround us, but it's possible to foster a corporate culture whereby interacting with users is seen as a conversation, not a shouting match amongst competitors. Empower your humans to talk to other humans, and your users will respond acordingly.
