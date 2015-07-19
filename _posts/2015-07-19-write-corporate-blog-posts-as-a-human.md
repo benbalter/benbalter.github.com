@@ -47,9 +47,9 @@ Readers have an extremely short attention span and even less time to spend readi
 
 The best blog posts are short on words and long on visuals. You could spend 1,000 words describing what the new button looks like, or you can just show me a picture of it. Better yet, create an animated GIF of what happens when I click it. Have fun with it. At GitHub, we often hide easter eggs in screenshots. Think hints of unreleased features or a scene from your favorite movie. The abstract concepts often involved with ships are easier to describe visually and helps the reader to put themselves directly in the shoes of the user, rather than in the shoes of developer trying to describe a user.
 
-### 7. Focus on one thing
+### 7. Focus on the one new thing
 
-A blog post gives an idea a URL. It's the thing that I can link to in perpetuity to explain to others what action you took and why. It's how I share with my colleagues that I'm excited about a new feature. When you start sneaking multiple ideas into a single post, or go off on a mini-treatise about the virtue of why you produce widgets, you've broken that one-to-one relationship. Keep posts limited to one single idea, the smallest, most granular idea possible. If you find yourself needing to explain two distinct concepts, ship what you've got before going any further. Feel free to split things into multiple posts.
+A blog post gives an idea a URL. It's the thing that I can link to in perpetuity to explain to others what action you took and why. It's how I share with my colleagues that I'm excited about a new feature. When you start sneaking multiple ideas into a single post, or go off on a mini-treatise about the virtue of why you produce widgets, you've broken that one-to-one relationship. Keep posts limited to one single idea, the smallest, most granular idea possible. If you find yourself needing to explain two distinct concepts, ship what you've got before going any further. Feel free to split things into multiple posts. Last, focus on what's new, not what used to be. Avoid apologizing or even mentioning the previous state of things. The post is about what's new, not what's changed.
 
 ### 8. Remove ~~unneccessary~~ words
 
