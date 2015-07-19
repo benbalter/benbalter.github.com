@@ -1,5 +1,5 @@
 ---
-title: "Speak like a human: 12 ways tech. companies can write less-corporate blog posts"
+title: "Speak like a human: 12 ways tech companies can write less-corporate blog posts"
 excerpt: "Blog posts are a great way to tell users about ships, but it's all too easy to fall back on the marketing speak we're inundated with each day. Instead, use these tips to write user-centric posts for your corporate blog."
 ---
 
