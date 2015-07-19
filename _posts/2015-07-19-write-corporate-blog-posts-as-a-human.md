@@ -47,19 +47,19 @@ Readers have an extremely short attention span and even less time to spend readi
 
 ### 6. An animated GIF is worth 10,000 words
 
-The best blog posts are short on words and long on visuals. You could spend 1,000 words describing what the new button looks like, or you can just show me a picture of it. Better yet, create an animated GIF of what happens when I click it. Have fun with it. At GitHub, we often hide easter eggs in screenshots. Think hints of unreleased features or a scene from your favorite movie. The abstract concepts often involved with ships are easier to describe visually and helps the reader to put themselves directly in the shoes of the user, rather than in the shoes of developer trying to describe a user.
+The best blog posts are short on words and long on visuals. You could spend 1,000 words describing what the new button looks like, or you can just show me a picture of it. Better yet, create an animated GIF of what happens when I click it. Have fun with it. At GitHub, we often hide easter eggs in screenshots. Think hints of unreleased features or a scene from your favorite movie. The abstract concepts often involved with ships are easier to describe visually and helps the reader to put themselves directly in the shoes of the user, rather than in the shoes of developer trying to describe what a user might do.
 
 ### 7. Focus on the one new thing
 
 A blog post gives an idea a URL. It's the thing that I can link to in perpetuity to explain to others what action you took and why. It's how I share with my colleagues that I'm excited about a new feature. When you start sneaking multiple ideas into a single post, or go off on a mini-treatise about the virtue of why you produce widgets, you've broken that one-to-one relationship. Keep posts limited to one single idea, the smallest, most granular idea possible. If you find yourself needing to explain two distinct concepts, ship what you've got before going any further. Feel free to split things into multiple posts. Last, focus on what's new, not what used to be. Avoid apologizing or even mentioning the previous state of things. The post is about what's new, not what's changed.
 
-### 8. Remove ~~unneccessary~~ words
+### 8. Remove <del>unneccessary</del> words
 
-If you can remove a word, phrase, sentence or paragraph without the post losing its core message, it needs to go. Facts > fluff.
+If you can remove a word, phrase, sentence, or paragraph without the post losing its core message, it needs to go. Facts > fluff.
 
 ### 9. Don't use the word "today"
 
-It's easy to begin a blog post with "Starting today...". The thing that separates blog posts from just about any other medium on the web is the fact that they have a date at the top, a date which allows them to serve as a snapshot in time. If you write something in a post, users are going to assume it's something timely. In practicality, when launching something new, the word "today" often takes the place of more valuable information, like how to actually use the darn thing. When you leave out "today", you're forced to actually describe what's changed.
+It's an easy crutch to begin a blog post with "Starting today...". That's like staring a speech with "So I sat down to think about what to write and..." The thing that separates blog posts from just about any other medium on the web is the fact that they have a date at the top, a date which allows them to serve as a snapshot in time. If you write something in a post, users are going to assume it's something timely. In practicality, when launching something new, the word "today" often takes the place of more valuable information, like how to actually use the darn thing. When you leave out "today", you're forced to actually describe what's changed.
 
 ### 10. Under promise, over deliver
 
@@ -69,12 +69,12 @@ It's tempting to talk about what's still in development, but don't tease your us
 
 ### 11. Embrace structure
 
-It's a well known fact that people on the internet do not read words. They may read a sentence or two, but given a few hundred words, they're all but guaranteed to be skimming after the first sentance. Optimize the post's structure for ease of readability. Use lots of descriptive headings, keep paragraphs short, and rely on large images to break up text when necessary. Lists should always be bulleted, not comma separated, and links to resources, especially past announcements, should be peppered throughout.
+It's a well known fact that people on the internet do not read words. They may read a sentence or two, but given a few hundred words, they're all but guaranteed to be skimming after the first sentance. Optimize the post's structure for ease of readability. Use lots of descriptive headings, keep paragraphs short, and rely on large images to break up text when necessary. Lists should always be bulleted, not comma separated, and links to resources, especially past announcements, should be peppered throughout, providing visual contrast to key concepts.
 
 ### 12. Always provide an out
 
-The user has read your post, you've gotten them excited, now what? What's the call to action? What's their ideal first click after reading? Put it infant of them. Make it opt-out to do the right thing. It may be documentation describing in detail how to use the new thing, or may be a link directly to the new thing itself. Either way, the idea here is to nudge the user in the desired direction. You can't blame them for not doing it if you don't make it ridiculously easy. Assume people are lazy.
+The user has read your post, you've gotten them excited, now what? What's the call to action? What's their ideal first click you want the user to make after reading? Put it right in front of them. Make it opt-out to do the right thing. It may be documentation describing in detail how to use the new thing, or may be a link directly to the new thing itself. Either way, the idea here is to nudge the user in the desired direction. You can't blame them for not doing it if you don't make it ridiculously easy. Assume people are lazy.
 
-In addition to the above, grammar, spelling, tone and style go without saying. There are many style guides out there, but [18F's](https://18f.gsa.gov/2015/07/06/18f-content-guide/) seems to be the most web-centric. When blogging, you should be writing for the web (links, informal tone, etc.) and you should use the opportunity to show some corporate personality.
+In addition to the above, grammar, spelling, tone and style go without saying. There are many style guides out there, but [18F's](https://18f.gsa.gov/2015/07/06/18f-content-guide/) seems to be the most web-centric among them. When blogging, you should be writing for the web (links, informal tone, etc.) and you should use the opportunity to show some corporate personality.
 
-From infomercials to press releases, we've been trained to think corporations speak a certain way, but that's not the case. In fact, corporations don't speak. The humans that make them up do. It's a challenge to unlearn the anti-patterns that surround us, but it's possible to foster a corporate culture whereby interacting with users is seen as a conversation, not a shouting match amongst competitors. Empower your humans to talk to other humans, and your users will respond acordingly.
+From infomercials to press releases, we've been trained to think corporations must speak a certain way, but that's far from the case. In fact, corporations don't speak. The humans that make them up do. It's a challenge to unlearn the anti-patterns that surround us, but it's possible to foster a corporate culture whereby interacting with users is seen as a conversation, not a shouting match amongst competitors. Follow these rules, empower your humans to talk to other humans, and your users will respond acordingly.
