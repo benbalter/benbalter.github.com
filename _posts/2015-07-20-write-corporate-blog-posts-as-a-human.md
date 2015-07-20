@@ -21,7 +21,7 @@ Having helped my fellow GitHubbers to post to GitHub's blog for the past couple 
 
 If you start from the premise that markets are conversations, then the best person to talk about a new feature on behalf of your company is the person who shipped it, not someone from your marketing department. They know what the feature does, why you built it, and what users need to know in order to use it. Developers can talk about the technical details of the implementation, without the juicy bits being lost in translation, and designers can give a peak into their creative process with rich visuals, all things your users are interested in much more than any pretty-sounding marketing fluff any copywriter could possibly dream up.
 
-There's also something to be said for giving the person that shipped the new feature the opportunity to take a public curtain call. Developers are people too. Developers should author posts themselves (with help copyediting, if needed), and the post should be in their own name. Anonymous posts are a great way to signal to users that its a corporation speaking at them, not a human talking with them.
+There's also something to be said for giving the person that shipped the new feature the opportunity to take a public curtain call. After all, developers are people too and [shipping is contagious](http://zachholman.com/posts/inertia/#shipping-is-contagious). Developers should author posts themselves (with help copyediting, if needed), and the post should be in their own name. Anonymous posts are a great way to signal to users that its a corporation speaking at them, not a human talking with them.
 
 ### 2. Write for users, not for yourself
 
