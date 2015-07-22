@@ -69,7 +69,7 @@ It's tempting to talk about what's still in development, but don't tease your us
 
 ### 11. Embrace structure
 
-It's a well known fact that people on the internet do not read words. They may read a sentence or two, but given a few hundred words, they're all but guaranteed to be skimming after the first sentance. Optimize the post's structure for ease of readability. Use lots of descriptive headings, keep paragraphs short, and rely on large images to break up text when necessary. Lists should always be bulleted, not comma separated, and links to resources, especially past announcements, should be peppered throughout, providing visual contrast to key concepts.
+It's a well known fact that people on the internet do not read words. They may read a sentence or two, but given a few hundred words, they're all but guaranteed to be skimming after the first sentence. Optimize the post's structure for ease of readability. Use lots of descriptive headings, keep paragraphs short, and rely on large images to break up text when necessary. Lists should always be bulleted, not comma separated, and links to resources, especially past announcements, should be peppered throughout, providing visual contrast to key concepts.
 
 ### 12. Always provide an out
 
