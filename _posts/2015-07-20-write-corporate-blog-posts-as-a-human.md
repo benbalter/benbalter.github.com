@@ -53,7 +53,7 @@ The best blog posts are short on words and long on visuals. You could spend 1,00
 
 A blog post gives an idea a URL. It's the thing that I can link to in perpetuity to explain to others what action you took and why. It's how I share with my colleagues that I'm excited about a new feature. When you start sneaking multiple ideas into a single post, or go off on a mini-treatise about the virtue of why you produce widgets, you've broken that one-to-one relationship. Keep posts limited to one single idea, the smallest, most granular idea possible. If you find yourself needing to explain two distinct concepts, ship what you've got before going any further. Feel free to split things into multiple posts. Last, focus on what's new, not what used to be. Avoid apologizing or even mentioning the previous state of things. The post is about what's new, not what's changed.
 
-### 8. Remove <del>unneccessary</del> words
+### 8. Remove <del>unnecessary</del> words
 
 If you can remove a word, phrase, sentence, or paragraph without the post losing its core message, it needs to go. Facts > fluff.
 
