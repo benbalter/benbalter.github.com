@@ -29,7 +29,7 @@ I'm sure what you do is super interesting. But what's even more interesting is w
 
 ### 3. Describe the 1/4" hole
 
-Your post should focus on what a user can do, not on what the thing you built does. Let's say I have a picture that I want hung on the wall. I'll likely go to a big-box retailer to pick up a 1/4" drill. But in reality, I could care less about the drill. [What I'm really after is the 1/4" hole](https://strategyn.com/jobs-to-be-done/) — the thing the drill ultimately enables me to do. Yet, most technology companies produce digital drills.
+Your post should focus on what a user can do, not on what the thing you built does. Let's say I have a picture that I want hung on the wall. I'll likely go to a big-box retailer to pick up a 1/4" drill. But in reality, I couldn't care less about the drill. [What I'm really after is the 1/4" hole](https://strategyn.com/jobs-to-be-done/) — the thing the drill ultimately enables me to do. Yet, most technology companies produce digital drills.
 
 Rather than spend time telling me how great your drill is, describe the holes it produces. Show me how well it hangs pictures. Plant the seed in my head for all the great things that I can do with the drill. Airline commercials have pictures of exotic destinations, not cabin interiors. Liquor commercials show people out having a great time, not the underlying grains being grown. When announcing a new feature your post should be almost exclusively about the better hole it empowers the user to create, not the new drill bit they now need to buy.
 
@@ -43,7 +43,7 @@ The idea is to forecast what the post is about and give the user an early escape
 
 The first sentence of the post should, when combined with the title, further summarize the post. This should be the one thing that if the user stopped reading right then, that you'd hoped that they'd take away. Think grammar school style [inverted pyramid](https://en.wikipedia.org/wiki/Inverted_pyramid). Put the most important things up front and go from there in decreasing order of importance.  With a few exceptions, your post should almost always describe what you shipped, how to use it, and why it matters, in that order.
 
-Readers have an extremely short attention span and even less time to spend reading something they don't care about. Imagine a power curve with 80% of readers reading the first sentence, and the probably of a reader continuing dropping off sentance-by-sentance from there. You should assume that readers will take less than 30 seconds to read your entire post, and less than three seconds to decide if they're even going to get that far. Write assuming 80% of your readers will only read the first sentence. What do you want 80% of readers to know if you can only tell them one thing?
+Readers have an extremely short attention span and even less time to spend reading something they don't care about. Imagine a power curve with 80% of readers reading the first sentence, and the probability of a reader continuing dropping off sentence-by-sentence from there. You should assume that readers will take less than 30 seconds to read your entire post, and less than three seconds to decide if they're even going to get that far. Write assuming 80% of your readers will only read the first sentence. What do you want 80% of readers to know if you can only tell them one thing?
 
 ### 6. An animated GIF is worth 10,000 words
 
@@ -53,7 +53,7 @@ The best blog posts are short on words and long on visuals. You could spend 1,00
 
 A blog post gives an idea a URL. It's the thing that I can link to in perpetuity to explain to others what action you took and why. It's how I share with my colleagues that I'm excited about a new feature. When you start sneaking multiple ideas into a single post, or go off on a mini-treatise about the virtue of why you produce widgets, you've broken that one-to-one relationship. Keep posts limited to one single idea, the smallest, most granular idea possible. If you find yourself needing to explain two distinct concepts, ship what you've got before going any further. Feel free to split things into multiple posts. Last, focus on what's new, not what used to be. Avoid apologizing or even mentioning the previous state of things. The post is about what's new, not what's changed.
 
-### 8. Remove <del>unneccessary</del> words
+### 8. Remove <del>unnecessary</del> words
 
 If you can remove a word, phrase, sentence, or paragraph without the post losing its core message, it needs to go. Facts > fluff.
 
@@ -69,7 +69,7 @@ It's tempting to talk about what's still in development, but don't tease your us
 
 ### 11. Embrace structure
 
-It's a well known fact that people on the internet do not read words. They may read a sentence or two, but given a few hundred words, they're all but guaranteed to be skimming after the first sentance. Optimize the post's structure for ease of readability. Use lots of descriptive headings, keep paragraphs short, and rely on large images to break up text when necessary. Lists should always be bulleted, not comma separated, and links to resources, especially past announcements, should be peppered throughout, providing visual contrast to key concepts.
+It's a well known fact that people on the internet do not read words. They may read a sentence or two, but given a few hundred words, they're all but guaranteed to be skimming after the first sentence. Optimize the post's structure for ease of readability. Use lots of descriptive headings, keep paragraphs short, and rely on large images to break up text when necessary. Lists should always be bulleted, not comma separated, and links to resources, especially past announcements, should be peppered throughout, providing visual contrast to key concepts.
 
 ### 12. Always provide an out
 
