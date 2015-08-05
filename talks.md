@@ -13,6 +13,8 @@ Slides (and recordings) from some of the talks I've given over the years. Have a
 
 * [Best practices for open source in government](https://speakerdeck.com/benbalter/best-practices-for-open-source-in-government)
 
+* [Open source licensing by the numbers](https://speakerdeck.com/benbalter/open-source-licensing-by-the-numbers)
+
 * [Open source demystified: from command line to community engagement](http://ben.balter.com/open-source-demistified/) ([source](https://github.com/benbalter/open-source-demistified/))
 
 * [Open collaboration: why you should give open source a second look](http://www.slideshare.net/TechSummitPR/pr-35485194) ([video](http://www.ustream.tv/recorded/48410971) - 2:37 in)
