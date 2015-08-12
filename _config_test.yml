@@ -4,6 +4,5 @@ proofer:
   href_ignore:
     - "#comments"
 
-site:
-  github:
-    repository_nwo: "benbalter/benbalter.github.com"
+github:
+  repository_nwo: "benbalter/benbalter.github.com"
