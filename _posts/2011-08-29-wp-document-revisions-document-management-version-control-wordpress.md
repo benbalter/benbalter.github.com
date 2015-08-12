@@ -42,7 +42,7 @@ redirect_from: "2011/08/29/document-management-version-control-for-wordpress/"
 2.  A **collaboration tool** to empower teams to collaboratively draft, edit, and refine documents
 3.  A **file hosting solution** to publish and securely deliver files to a team, to clients, or to the public
 
-<iframe width="560" height="315" src="http://www.youtube.com/embed/VpsTNSiJKis" frameborder="0" allowfullscreen="true">     </iframe>
+<iframe width="560" height="315" src="http://www.youtube.com/embed/VpsTNSiJKis" frameborder="0" allowfullscreen="true" title="Video introduction to WP Document Revisions"></iframe>
 
 **Powerful Collaboration Tools** - *With great power does not have to come great complexity.* Based on a simple philosophy of putting powerful but intuitive tools in the hands of managers and content creators, WP Document Revisions leverages many of the essential WordPress features that, for more than eight years, have been tested and proven across countless industries — posts, attachments, revisions, taxonomies, authentication, and permalinks — to make collaborating on the creation and publication of documents a natural endeavor. Think of it as an [open-source and more intuitive version](http://ben.balter.com/2011/04/04/when-all-you-have-is-a-pair-of-bolt-cutters/) of the popular Microsoft collaboration suite, [Sharepoint.](http://sharepoint.microsoft.com/en-us/Pages/default.aspx)
 
@@ -98,8 +98,7 @@ redirect_from: "2011/08/29/document-management-version-control-for-wordpress/"
 *   [Development version](https://github.com/benbalter/WP-Document-Revisions/tree/develop) ([Build Status](http://travis-ci.org/#!/benbalter/WP-Document-Revisions))
 *   [Code Cookbook][12]
 *   [User support forums](http://wordpress.org/tags/wp-document-revisions)
-*   [Submit a bug/feature request](https://github.com/benbalter/WP-Document-Revisions/issues)[  
-    ][23]
+*   [Submit a bug/feature request](https://github.com/benbalter/WP-Document-Revisions/issues)
 
 Questions? Comments? Many may have already been addressed in [the WP Document Revisions FAQ](http://wordpress.org/extend/plugins/wp-document-revisions/faq/), or feel free to simply leave a reply below.
 

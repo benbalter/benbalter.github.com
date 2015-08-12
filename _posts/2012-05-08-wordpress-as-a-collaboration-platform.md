@@ -29,7 +29,7 @@ Today countless teams are using WordPress to drive collaboration and facilitate 
 
 Recording of the presentation (starts at the 10:00 mark):
 
-<iframe width="480" height="296" src="http://www.ustream.tv/embed/recorded/22454841?wmode=direct" scrolling="no" frameborder="0" style="border: 0px none transparent;"></iframe>
+<iframe width="480" height="296" src="http://www.ustream.tv/embed/recorded/22454841?wmode=direct" scrolling="no" frameborder="0" style="border: 0px none transparent;" title="Recording of the presentation"></iframe>
 
 ### Plugins Mentioned
 

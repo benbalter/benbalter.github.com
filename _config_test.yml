@@ -9,3 +9,7 @@ proofer:
 github:
   repository_nwo: "benbalter/benbalter.github.com"
   owner_url: "https://github.com/benbalter"
+
+ra11y:
+  standard: Section508
+  level: error

@@ -69,4 +69,3 @@ Thoughts? Improvements? The above code solved a rather stubborn workflow problem
 
 [4]: #note-2020-1 "' . str_replace( array("\r\n", "\r", "\n"), "", $footnote[4]) . '"
 [7]: #note-2020-2 "Licensed under GPLv2"
-

@@ -106,11 +106,11 @@ May 2009
 
 ### Technical Skills
 
-##### Web Development and Management
+#### Web Development and Management
 
 * Expertise in modern web development methods — HTML5, CSS, CoffeeScript (Javascript), Rails (Ruby), relational databases (MySQL), PHP, version control (Git) — enterprise system architecture; application programing interfaces (APIs); WordPress management, development, and integration; and Unix system administration.
 * Lead development of six active open-source projects with more than 60,000 downloads to date.
 
-##### Speaking Experience
+#### Speaking Experience
 
 Regularly present around the world within the government technology community (in 2013 I averaged 2.5 talks per months) including South by Southwest ([Content and coding are not commodities](http://schedule.sxsw.com/2012/events/event_IAP10270) and [The Dynamic Site is Dead](http://ben.balter.com/the-dynamic-site-is-dead/)); Excellence in Government, Digital Government University, Transparency Camp, and Code For America ([Open sourcing government](http://www.youtube.com/watch?v=kym2CnIcPys#t=4m41s)); The White House; Library of Congress; Mozfest; RedHat Government Symposium; NextGov Prime; The Open Source Summit ([Open source software licensing](https://github.com/benbalter/open-source-software-licensing)); The Software Preservation Summit ([The next cultural commons](https://github.com/benbalter/the-next-cultural-commons)); the General Services Administration Digital Services Innovation Center ([APIs you didn't know already existed](https://github.com/benbalter/apis-you-didnt-know-already-existed)); GeoDC ([Make maps better, together](https://github.com/benbalter/make-maps-better-together)); and Drupal4Gov ([Implementation of the Digital Strategy](http://ben.balter.com/digital-strategy-reporting/)).

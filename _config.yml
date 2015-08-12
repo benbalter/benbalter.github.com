@@ -50,6 +50,7 @@ exclude:
   - assets/vendor/anchor-js/index.html
   - ".bundle"
   - vendor
+  - node_modules
 
 #number of items in RSS feed
 rss_limit: 10

@@ -133,3 +133,7 @@ body { padding-top: 20px; font-weight: 200; }
 .anchorjs-link:visited { color: #337ab7; }
 .anchorjs-link:hover   { color: #23527c; }
 .anchorjs-link:active  { color: #23527c; }
+
+.gist-it-gist .gist-file .gist-data, .gist .gist-meta { background: #fcfcff !important; }
+.gist .pl-c { color: #757775 !important; }
+.gist .pl-c1 { color: #007faa !important; }
