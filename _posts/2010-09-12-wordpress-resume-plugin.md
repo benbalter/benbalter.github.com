@@ -55,5 +55,5 @@ Interested? You can [see it in action](http://ben.balter.com/resume/), or if you
 *\[Photo: [shawnmichael](http://www.flickr.com/photos/shawnmichael/4246330043/)\]*
 
 [1]: #note-2020-1 "I imagine it would resemble a highly digitized Rube Goldberg  Machine"
-  
+
 [^1]: I imagine it would resemble a highly digitized [Rube Goldberg  Machine](http://www.youtube.com/watch?v=qybUFnY7Y8w)
