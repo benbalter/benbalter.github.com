@@ -61,7 +61,6 @@ Notes:
 [^1]: Penenberg, Adam L. (2009-09-25). [ViralLoop: From Facebook to Twitter](http://www.amazon.com/Viral-Loop-Facebook-Businesses-Themselves/dp/1401323499), How Today (p. 220). Hyperion. Kindle Edition.
 [^2]: This could arguably be, because the automobile industry has seen little innovation in the past 40 years. Beyond keyless entry and GPS, cars today are in many ways functionally equivalent to their 1970′s counterparts.
 [^3]: *See e.g, *[Facebook](http://www.petitiononline.com/ada4305/petition.html), [Gawker](http://thenextweb.com/media/2011/02/08/whats-wrong-with-gawkers-redesign/), [Twitter](http://www.businessweek.com/magazine/content/10_40/b4197036693152.htm).
-[^4]: Full disclosure, some may argue that I myself risk falling off the bleeding edge of the technology adoption curve, after all, I text in [beta](http://developer.apple.com/), browse in [canary](http://tools.google.com/dlpage/chromesxs), and publish in [trunk](http://wordpress.org/download/svn/).
+[^4]: Full disclosure, some may argue that I myself risk falling off the bleeding edge of the technology adoption curve, after all, I text in [beta](https://developer.apple.com/), browse in [canary](http://tools.google.com/dlpage/chromesxs), and publish in [trunk](http://wordpress.org/download/svn/).
 [^5]: *See, e.g.,* Facebook using PHP, Twitter using Hadoop, and Google supporting Android and Chrome.
 [^6]: *See, e.g.,* [bloodletting](http://en.wikipedia.org/wiki/Bloodletting).
-
