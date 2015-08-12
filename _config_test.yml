@@ -3,6 +3,7 @@ url: ""
 proofer:
   href_ignore:
     - "#comments"
-
+    - !ruby/regexp '/https?:\/\/(www)?\.youtube\.com\/watch\?v=.*/i'
+    
 github:
   repository_nwo: "benbalter/benbalter.github.com"
