@@ -13,3 +13,4 @@ Gemfile.lock
 /html
 /md
 .sass-cache
+node_modules
