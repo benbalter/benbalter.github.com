@@ -1,7 +1,7 @@
 ---
 author: Ben Balter
 title: 'WordPress for Government - A Problem of Perception'
-excerpt: 'Among potential government & enterprise users, WordPress has a perception problem especially when compared to Drupal & other "serious" CMSs.'
+excerpt: 'Among potential government and enterprise users, WordPress has a perception problem especially when compared to Drupal and other "serious" CMSs.'
 layout: post
 categories:
   - Technology
@@ -135,5 +135,3 @@ Whether WordPress is your primary source of income, a hobby, or just the thing t
 [28]: http://ben.balter.com/wp-content/uploads/2012/03/q-cover-issue01-300x387.jpeg
 [29]: http://wpcandy.com/announces/quarterly-issue-one-ships
 [30]: http://wpcandy.com/quarterly
-
-

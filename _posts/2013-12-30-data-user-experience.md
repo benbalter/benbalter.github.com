@@ -11,7 +11,7 @@ Go to any agency website, and chances are you'll find at least one dataset sitti
 
 [We can build cruft to get around the hurdles](http://ben.balter.com/2013/07/01/technologys-the-easy-part/), but so long as the workflow is optimized for the publisher, not the consumer, we're always going to be setting ourselves up to give the naysayers even more fodder to point at as an example for why we shouldn't waste agency resources on open government initiatives.
 
-There was [an interesting Hacker News comment](https://news.ycombinator.com/item?id=6385623) that caught my eye around the release of [a Bureau of Labor and Statistics API](http://www.bls.gov/developers/api_FAQs.htm). User [@nmcfarl](https://news.ycombinator.com/user?id=nmcfarl) wrote:
+There was [an interesting Hacker News comment](https://news.ycombinator.com/item?id=6385623) that caught my eye around the release of [a Bureau of Labor and Statistics API](http://www.bls.gov/developers/api_FAQs.htm). User [&commat;nmcfarl](https://news.ycombinator.com/user?id=nmcfarl) wrote:
 
 > An interesting micro-site – it seems very much more aimed at people who know BLS data already, and much less aimed at coders. The FAQ answers the question "What is an API?", but doesn't even have a list of the IDs required in order to get any data whatsoever out of that API.
 

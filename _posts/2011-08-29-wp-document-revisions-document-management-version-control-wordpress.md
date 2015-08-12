@@ -1,6 +1,6 @@
 ---
 author: Ben Balter
-title: 'WP Document Revisions — Document Management & Version Control for WordPress'
+title: 'WP Document Revisions — Document Management and Version Control for WordPress'
 excerpt: >
   WP Document Revisions is a document
   management and version control plugin

@@ -13,13 +13,13 @@
 	{% endif %}
 
 	<title>{{ seo_title }}</title>
-	<meta property="og:title" content="{{ seo_title }}"/>
+	<meta property="og:title" content="{{ seo_title | replace:'"',"&quot;" }}"/>
 
 	<meta property="og:site_name" content="{{ site.name }}"/>
 
   {% if seo_desc %}
-	<meta name="description" content="{{ seo_desc }}"/>
-	<meta property='og:description' content="{{ seo_desc }}"/>
+	<meta name="description" content="{{ seo_desc | replace:'"',"&quot;" }}"/>
+	<meta property='og:description' content="{{ seo_desc | replace:'"',"&quot;" }}"/>
 	{% endif %}
 
 	{% if page.robots %}
@@ -27,8 +27,8 @@
 	{% endif %}
 
 	<link rel="canonical" href="{{ url_base }}{{ page.url }}"{% if page.url == "/404.html" %} data-proofer-ignore="true"{% endif %}/>
-	{% if page.next.url %}<link rel="next" href="{{ url_base }}{{ page.next.url }}" title="{{ page.next.title }}" />{% endif %}
-	{% if page.previous.url %}<link rel="prev" href="{{ url_base }}{{ page.previous.url }}" title="{{ page.previous.title}}" />{% endif %}
+	{% if page.next.url %}<link rel="next" href="{{ url_base }}{{ page.next.url }}" title="{{ page.next.title | replace:'"',"&quot;" }}" />{% endif %}
+	{% if page.previous.url %}<link rel="prev" href="{{ url_base }}{{ page.previous.url }}" title="{{ page.previous.title | replace:'"',"&quot;" }}" />{% endif %}
 
 	<meta property='og:url' content='{{ url_base }}{{ page.url }}'/>
 	<link rel="alternate" type="application/rss+xml" title="{{ site.name }} &raquo; Feed" href="http://feeds.feedburner.com/benbalter" />
@@ -37,8 +37,8 @@
 
 	<meta property="twitter:account_id" content="{{ site.twitter.account_id }}" />
 	<meta property="twitter:card" content="summary" />
-	<meta property="twitter:title" content="{{ seo_title }}" />
-	<meta property="twitter:description" content="{{ seo_desc }}" />
+	<meta property="twitter:title" content="{{ seo_title | replace:'"',"&quot;" }}" />
+	<meta property="twitter:description" content="{{ seo_desc | replace:'"',"&quot;" }}" />
 	<meta property="twitter:site" content="{{ site.twitter.username }}" />
 	<meta property="twitter:creator" content="{{ site.twitter.username }}" />
 

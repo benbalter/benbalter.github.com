@@ -54,6 +54,6 @@ More details on the tracking code can be found over in the [Google Analytics Soc
 
 **Update:** Dedicated reader All-around rabble-rouser [Andrew Nacin](http://andrewnacin.com) points out that by default, jQuery is queued up into the footer. Updated the above code to hook into `wp_footer` with a priority of 20 (higher than jQuery's 10 hook).
 
-**Update:** Special thanks to [@Ramoonus](http://twitter.com/Ramoonus) for [didn't queue up jQuery][7].
+**Update:** Special thanks to @Ramoonus for [didn't queue up jQuery][7].
 
 [7]: https://gist.github.com/1058469/db96b6836f279811205bddbf8be67bec6ca2159c

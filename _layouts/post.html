@@ -7,8 +7,8 @@
 
   <h2 class="title"><a href="{{ page.url }}" itemprop="name">{% include smartify text=page.title %}</a></h2>
 
-  <meta itemprop="about" content="{{ page.excerpt }}" />
-  <meta itemprop="description" content="{{ page.excerpt }}" />
+  <meta itemprop="about" content="{{ page.excerpt | replace:'"',"&quot;" }}" />
+  <meta itemprop="description" content="{{ page.excerpt | replace:'"',"&quot;" }}" />
   <meta itemprop="author" content="{{ site.name }}" />
   <meta itemprop="copyrightHolder" content="{{ site.name }}" />
   <meta itemprop="copyrightYear" content="{{ page.date | date: '%Y' }}" />
