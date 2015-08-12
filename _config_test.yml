@@ -4,7 +4,8 @@ proofer:
   href_ignore:
     - "#comments"
     - !ruby/regexp '/https?:\/\/(www)?\.youtube\.com\/watch\?v=.*/i'
-
+  check_html: true
+  
 github:
   repository_nwo: "benbalter/benbalter.github.com"
   owner_url: "https://github.com/benbalter"
