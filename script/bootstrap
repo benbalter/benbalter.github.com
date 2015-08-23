@@ -1,7 +1,7 @@
 #!/bin/sh
 #bootstrap the development environment
 
-set -e
+set -ex
 
 bundle install
 npm install
