@@ -3,4 +3,6 @@
 # Usage: script/new [post-slug]
 
 date=$(date +"%Y-%m-%d")
-touch "_posts/$date-$1.md"
+file="_posts/$date-$1.md"
+touch "$file"
+atom "$file"
