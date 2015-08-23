@@ -23,4 +23,4 @@ Looking back three years later, many of those principles still remain valid guid
 
 [An organization's principles are more than mere words](http://ben.balter.com/2015/08/12/the-zen-of-github/). They're the underlying assumptions that constrain all decisions. In government, it's all too easy to focus on the code, on the concrete deliverable. After all, RFPs, rarely, if ever, mention culture or customers or citizen-centricity. As the MyGov principles ask, "*are [you] solving for the right thing*"?
 
-*H/T @californiakara, the author of [the original post](http://beta.presidentialinnovation.org/mygov/2012/12/27/We-believe-Project-MyGov-principles/), and [whose Tweet](https://twitter.com/CaliforniaKara/status/582577231374913536) brought me back to it.* 
+*H/T @californiakara, the author of [the original post](http://beta.presidentialinnovation.org/mygov/2012/12/27/We-believe-Project-MyGov-principles/), and [whose Tweet](https://twitter.com/CaliforniaKara/status/582577231374913536) let me to rediscover it.* 
