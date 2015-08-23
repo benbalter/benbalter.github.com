@@ -2,7 +2,10 @@
 before_script:
   - 'echo "branch: $TRAVIS_BRANCH" >> _config_test.yml'
   - 'sed -i "s/master/$TRAVIS_BRANCH/g" _config_test.yml'
-  
+
+before_install:
+  npm install
+
 script: "./script/cibuild"
 
 #environment
