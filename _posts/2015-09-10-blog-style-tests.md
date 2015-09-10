@@ -3,15 +3,11 @@ title: Encourage proper voice, tone, and style by adding automated tests to your
 excerpt: A look at how GitHub uses automated testing (CI) to empower developers to write less-corporate blog posts.
 ---
 
-I've written in the past about how you should treat [prose with the same respect that developers treat code](http://ben.balter.com/2013/09/16/treat-data-as-code/) and how [collaborative content allows you to bring the concept of continuous integration to your writing](http://ben.balter.com/2015/05/22/test-your-prose/). Having reviewed just about every blog post to grace the GitHub blog over the past few years, I'd like to show a bit of how we leverage automated testing at GitHub to empower developers to write [less-corporate blog posts](http://ben.balter.com/2015/07/20/write-corporate-blog-posts-as-a-human/).
-
-Take this marketing speak as an example of a blog post a developer might propose:
+I've written in the past about how you should treat [prose with the same respect that developers treat code](http://ben.balter.com/2013/09/16/treat-data-as-code/), how [collaborative content allows you to bring the concept of continuous integration to your organization's writing](http://ben.balter.com/2015/05/22/test-your-prose/), and my colleague Zach Holman's got [a great write up about how GitHub embraces those concepts in its own writing](http://zachholman.com/posts/how-github-writes-blog-posts/). Today I'd like to show a bit of how we leverage automated testing at GitHub to empower developers to write [less-corporate blog posts](http://ben.balter.com/2015/07/20/write-corporate-blog-posts-as-a-human/) (and how you can too!). Take this marketing speak as an example of a blog post a developer might propose:
 
 > Today, after months of effort, we're excited to announce our new wiz-bang feature...
 
-Whereas traditionally a member of your company's marketing, copy, or editorial team may have needed to take the time to manually review the post before the author could get any feedback (a blocking and time-consuming operation), there are many machine-detectable improvements that an automated process can easily call out without requiring delay or human intervention, unblocking both the author and the editor.
-
-Let's take a look at a few examples and how you might implement them:
+Whereas traditionally a member of your company's marketing, copy, or editorial team may have needed to take the time to manually review the post before the author could get any feedback (a blocking and time-consuming operation), there are many machine-detectable improvements that an automated process could easily call out without requiring delay or human intervention, unblocking both the author and the editor to continue working unfettered. Let's take a look at a few examples of this idea and how you might implement them for your own team:
 
 ### Don't use the word today
 
@@ -19,7 +15,7 @@ If I were reviewing the post, the first issue I'd call out is that [it starts wi
 
 > In practicality, when launching something new, the word "today" often takes the place of more valuable information, like how to actually use the darn thing. When you leave out "today", you're forced to actually describe what's changed.
 
-Sure it takes 10 seconds for a human to see if a post begins with "today", but multiply that by hundreds of proposed posts each year, and you've engineered a process with a sizable human resources commitment, one that could be more efficiently outsourced to a machine.
+Sure it takes 10 seconds for a human to see if a post begins with "today", but multiply that by hundreds of proposed posts each year, and you've engineered a process with a sizable human capital commitment, one that could be more efficiently outsourced to a machine.
 
 Testing for use of the word "today" is relatively straightforward. You could use a test suite from just about any language, but since GitHub is primarily a Ruby shop, let's use Minitest as an example (with some plumbing left out for simplicity):
 
@@ -83,16 +79,26 @@ class YouWeTest < Blog::Test
 end
 {% endhighlight %}
 
-### Not all CI is created equal
+### Not all automated testing is created equal
 
-At GitHub we use automated testing (CI) on just about every repository, but tests against our blog posts repository are different in two distinct ways:
+At GitHub we use automated testing (CI) on just about every repository, code or othwerise, but tests against our blog posts are different in two distinct ways:
 
-First, unlike software tests where [pull requests are not mergable unless the build passes](https://github.com/blog/2051-protected-branches-and-required-status-checks), when working with prose, failing tests are considered suggestions, not requirements, suggestions that the post author is free to ignore along with the advice of the blog team.
+First, unlike software tests where [pull requests are not mergable unless the build passes](https://github.com/blog/2051-protected-branches-and-required-status-checks), when working with prose, failing tests are considered suggestions, not requirements, suggestions that the post author is free to ignore along with the advice of the blog team. As [Zach Holman wrote](http://zachholman.com/posts/how-github-writes-blog-posts/):
+
+> Think of this process like a syntax linter for your words: breaking the build isn't necessarily bad, per se, but it might give you suggestions you might want to incorporate. It gives you immediate feedback without requiring a lot of additional overhead by our blog editors.
 
 Second, also unlike software tests, which run the test suite against the entire software project, blog posts are not necessarily interrelated, nor do we need to enforce style retroactively across all files. As a result, blog tests are only run on those posts which the pull requests changes (e.g., the proposed post). If you're using Git, you can get a list of changed files with the `git diff` command. If we were to pipe it into the helper method implied above, you'd get something like:
 
 {% highlight ruby %}
 def posts
-  @posts ||= `git diff -z --name-only --diff-filter=ACMRTUXB origin/master _posts/*`.split("\0")
+  `git diff -z --name-only --diff-filter=ACMRTUXB origin/master _posts/*`.split("\0")
 end
-{% endhilight %}
+{% endhighlight %}
+
+### The smart way and the hard way
+
+When engineering workflows, for any given problem there is often two solutions: a heavy-weight, human-driven process, and a light-weight, machine-driven tool. Both workflows produce significantly similar outcomes, but one requires significantly less upkeep and time.
+
+While changing organizational culture and unlearning the corporate speak anti-patterns that surround us may seem like a daunting task, by leveraging concepts that have been proven in the open source worlds for decades, you can empower your organization's humans to be more, well, human.
+
+*Have a favorite test you use in your own writing? Drop it in the comments below.*
