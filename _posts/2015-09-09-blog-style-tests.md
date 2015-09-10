@@ -5,19 +5,23 @@ excerpt: A look at how GitHub uses automated testing (CI) to empower developers 
 
 I've written in the past about how you should treat [prose with the same respect that developers treat code](http://ben.balter.com/2013/09/16/treat-data-as-code/) and how [collaborative content allows you to bring the concept of continuous integration to your writing](http://ben.balter.com/2015/05/22/test-your-prose/). Having reviewed just about every blog post to grace the GitHub blog over the past few years, I'd like to show a bit of how we leverage automated testing at GitHub to empower developers to write [less-corporate blog posts](http://ben.balter.com/2015/07/20/write-corporate-blog-posts-as-a-human/).
 
-Take this marketing speak as an example of a proposed blog post:
+Take this marketing speak as an example of a blog post a developer might propose:
 
 > Today, after months of effort, we're excited to announce our new wiz-bang feature...
 
-There's a few, machine-detectable improvements we can easily call out without any human intervention.
+Whereas traditionally a member of your company's marketing, copy, or editorial team may have needed to take the time to manually review the post before the author could get any feedback (a blocking and time-consuming operation), there are many machine-detectable improvements that an automated process can easily call out without requiring delay or human intervention, unblocking both the author and the editor.
+
+Let's take a look at a few examples and how you might implement them:
 
 ### Don't use the word today
 
-The first issue I'd call out if I were reviewing the post is that [it starts with the word "today"](http://ben.balter.com/2015/07/20/write-corporate-blog-posts-as-a-human/#dont-use-the-word-today).
+If I were reviewing the post, the first issue I'd call out is that [it starts with the word "today"](http://ben.balter.com/2015/07/20/write-corporate-blog-posts-as-a-human/#dont-use-the-word-today).
 
 > In practicality, when launching something new, the word "today" often takes the place of more valuable information, like how to actually use the darn thing. When you leave out "today", you're forced to actually describe what's changed.
 
-Testing for this is relatively straightforward. You could use a test suite from just about any language, but since GitHub is primarily a Ruby shop, let's use Minitest as an example (with some plumbing left out for simplicity):
+Sure it takes 10 seconds for a human to see if a post begins with "today", but multiply that by hundreds of proposed posts each year, and you've engineered a process with a sizable human resources commitment, one that could be more efficiently outsourced to a machine.
+
+Testing for use of the word "today" is relatively straightforward. You could use a test suite from just about any language, but since GitHub is primarily a Ruby shop, let's use Minitest as an example (with some plumbing left out for simplicity):
 
 {% highlight ruby %}
 class TodayTest < Blog::Test   
@@ -30,15 +34,15 @@ class TodayTest < Blog::Test
 end
 {% endhighlight %}
 
-With that, you could wire up a service like [Travis CI](https://travisci.org) to fire on each commit, and provide the author with immediate feedback and a link to the appropriate internal documentation, all without requiring blocking human intervention.
+With that, you could wire up a service like [Travis CI](https://travisci.org) to fire on each commit, and provide the author with immediate feedback and a link to the appropriate internal documentation, all without requiring blocking human intervention. Not to mention, that editor is now free to move to less-remedial, higher-value work like curating an editorial calendar or refining the voice guidelines themselves.
 
 ### Don't tell users how excited you are
 
-The next thing I'd notice if I were reviewing the post is that it focuses on the developer's excitement, not the users'.
+The next thing I'd notice if I were reviewing the post is that it focuses on the developer's excitement, not why the user should be excited.
 
 > Your users don’t care how excited you are. They don’t care about how much effort you put in. They don’t care how hard it was to do. All they care about is one thing: how does it benefit me?
 
-With a little regex, testing for "We're excited to announced..." type phrases is equally straightforward:
+With a little regex, testing for "We're excited to announced..."-type phrases is equally straightforward:
 
 {% highlight ruby %}
 class ExcitedTest < Blog::Test
@@ -59,11 +63,11 @@ end
 
 ### Write for users, not for yourself
 
-The last thing I'd notice is that the post is [written for the company, not for its users](http://ben.balter.com/2015/07/20/write-corporate-blog-posts-as-a-human/#write-for-users-not-for-yourself).
+The last thing I'd notice from our example post is that the post is [written for the company, not for its users](http://ben.balter.com/2015/07/20/write-corporate-blog-posts-as-a-human/#write-for-users-not-for-yourself).
 
 > Instead of telling your users... how much work it was for you to implement the new thing (written from your perspective), tell the user why your work matters to someone using your product (written from the user’s perspective). A simple rule of thumb is that there should be more use of the word “you” than of “we”.
 
-That "simple rule of thumb" can be automated. While not as foolproof as a traditional unit test for code, we can count the "you"s in the post and the "we"s in the post, and suggest to the author that they should should rework things a bit:
+Once again, that "simple rule of thumb" can be automated. While not as foolproof as a traditional software unit test where inputs and outputs are controlled, we can count the "you"s in the post and the "we"s in the post, and suggest to the author that perhaps they should should rework things a bit:
 
 {% highlight ruby %}
 class YouWeTest < Blog::Test
@@ -78,3 +82,17 @@ class YouWeTest < Blog::Test
   end
 end
 {% endhighlight %}
+
+### Not all CI is created equal
+
+At GitHub we use automated testing (CI) on just about every repository, but tests against our blog posts repository are different in two distinct ways:
+
+First, unlike software tests where [pull requests are not mergable unless the build passes](https://github.com/blog/2051-protected-branches-and-required-status-checks), when working with prose, failing tests are considered suggestions, not requirements, suggestions that the post author is free to ignore along with the advice of the blog team.
+
+Second, also unlike software tests, which run the test suite against the entire software project, blog posts are not necessarily interrelated, nor do we need to enforce style retroactively across all files. As a result, blog tests are only run on those posts which the pull requests changes (e.g., the proposed post). If you're using Git, you can get a list of changed files with the `git diff` command. If we were to pipe it into the helper method implied above, you'd get something like:
+
+{% highlight ruby %}
+def posts
+  @posts ||= `git diff -z --name-only --diff-filter=ACMRTUXB origin/master _posts/*`.split("\0")
+end
+{% endhilight %}
