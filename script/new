@@ -5,5 +5,5 @@
 date=$(date +"%Y-%m-%d")
 file="_posts/$date-$1.md"
 touch "$file"
-atom "$file"
 echo "---\ntitle:\nexcerpt:\n---\n\n" > $file
+atom pwd "$file"
