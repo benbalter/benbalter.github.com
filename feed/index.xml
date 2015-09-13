@@ -21,7 +21,7 @@
     <link href="{{ url_base }}/feed.xml" rel="alternate" type="text/html" title="This feed has moved" />
     <published>{{ site.time | date_to_xmlschema }}</published>
     <updated>{{ site.time | date_to_xmlschema }}</updated>
-    <id>{{ "/feed.xml" | prepend: url_base | xml_escape }}</id>
+    <id>{{ "/feed.xml" | prepend: url_base | append: "?" | append: site.github.build_revision | xml_escape }}</id>
     <content type="html" xml:base="{{ "/feed.xml" | prepend: url_base | xml_escape }}">
       {{ "This feed has moved. Please update your feed reader to <a href='url_base/feed.xml'><code>url_base/feed.xml</code></a>" | replace:"url_base",url_base | xml_escape }}
     </content>
