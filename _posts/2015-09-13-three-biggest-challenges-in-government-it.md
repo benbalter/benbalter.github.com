@@ -23,19 +23,19 @@ Government should be risk averse. Take a look at brutalist DC architecture and y
 
 ### Lack of technocratic leadership
 
+`healthcare.gov` was [the best thing to happen to government IT](http://ben.balter.com/2015/04/22/the-difference-between-18f-and-usds/#the-healthcaregov-wakeup-call). Traditionally, there's been two classes of change agents in government, [geeks and suits](http://ben.balter.com/2014/12/18/geeks-and-suits/). The geeks are exactly what you'd expect to find in the sub-basement of the government agency in a dimly lit room strewn with Mountain Dew cans again Doritos crumbs. They're the ones that understand today's IT landscape. The suits are exactly what you'd expect to find on the top floor of the agency, windowed room strewn with business cards and printed power point decks. They're the ones that understanding today's organizational politics. The problem is, only one has a seat at the table, and it produces exactly outcomes you'd expect.
 
+`healthcare.gov` was the first time in recent memory that a policy initiative failed due to our inability to execute from a technical perspective, but it was far from the first time that geeks in government pushed for the need to rethink how we approached technology. The administration quickly realized that simply throwing more money at “enterprise grade solutions” wasn’t a defensible strategy, but that lesson hasn't been learned across government. Those making strategic decisions are largely still those that spend a life-long career as a bureaucrat making "risk-averse" investments that contract out the bulk of the technical know-how. In a world in which policy initiatives increasingly lean on technical ability, geeks simply lack a seat at the table.
 
-2. Lack of technocratic leadership
-  * Optimize for developers
-  * Tech-centric initiatives key to policy goals
-  * Geeks lack a seat at the table, both inside government and out, geek vs. suit divide
-  * Matter of priorities; Forgo tools and systems (set org up for long-term success) for short-term wins (get the thing out the door)
-  * Think in terms of 10-20 years for digital systems, but 6mo - year for platforms, tools, culture
-  * Don't have the tools because management not affected by the need to scratch an itch (e.g. small script to automate a task)
-  * Ex. Can't code in the open, but no budget for on-prem VCS
+First, the system is rigged for suits and against geeks, which means that it'll always solve for an effective process over an effective outcome. Enterprise software is a particular breed of software. It's popular among CIOs because it checks the right boxes and it's equally unpopular among end users because that's what it does best. On paper, an iPhone and a Blackberry both allow you to send and receive email, browse the internet, and make phone calls. Ask a consumer which they'd prefer, and there's a world of difference. The same is true of Enterprise IT and the stacks its built up. Government IT often prefers the vendor which claims to meet an arbitrary compliance standard. With some combination of time, money, and effort, compliance is always possible. Given that same trifecta, good technology is not a guarantee. Instead, of optimizing for process, optimize for the developer (and thus the end-user) experience.
 
-3. Heavyweight processes bred by distrust
-  * Distrust of employees, contractors/vendors, the community
+Second, agencies often forgo the fundamentals of a sound technology stack that would set up the agency for to execute in the long term — tools, systems, and culture — for short term wins and "getting the thing out the door". Agencies expect 10 to 20 years of planning and forethought from geeks for standing up a new digital systems, but rarely plan six months to a year down the line when contracting out the platforms, tools, and human capital that will make that vision a reality. As a result, even if an agency's IT stack looks good on paper, in reality, it's often held together with little more than duct tape and bubble gum.
+
+Finally, there's something to be said for a geek's need to scratch an itch. Geeks are problem solvers. Geeks are slaves to doing things better than the status quo. Regardless of role or title, geeks find itches in their day-to-day life they're dying to scratch. They think "I could write a script to automate this task", or "if only there were an API, it'd be so much easier to submit this report". Regardless of the thing, geeks know technology and geeks know if there's a better way. The same can't be said of suits. Geeks that serve under suits often don't have the tools they need because management isn't affected by the need to scratch that itch. That's why you end up in the Catch-51 where it's against agency policy to code in the open, but there's also no budget to stand up on on-prem version control system. Geeks in leadership positions naturally scratch itches, the same itches their developers are asking to have scratched.
+
+### Heavyweight processes bred by distrust
+
+  *   * Distrust of employees, contractors/vendors, the community
   * Employees
     * Assume if they can do something malicious, they will
     * Technical and policy constraints over cultural norms
