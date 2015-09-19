@@ -29,11 +29,25 @@ Government should be risk averse. Take a look at brutalist DC architecture and y
 
 First, the system is rigged for suits and against geeks, which means that it'll always solve for an effective process over an effective outcome. Enterprise software is a particular breed of software. It's popular among CIOs because it checks the right boxes and it's equally unpopular among end users because that's what it does best. On paper, an iPhone and a Blackberry both allow you to send and receive email, browse the internet, and make phone calls. Ask a consumer which they'd prefer, and there's a world of difference. The same is true of Enterprise IT and the stacks its built up. Government IT often prefers the vendor which claims to meet an arbitrary compliance standard. With some combination of time, money, and effort, compliance is always possible. Given that same trifecta, good technology is not a guarantee. Instead, of optimizing for process, optimize for the developer (and thus the end-user) experience.
 
-Second, agencies often forgo the fundamentals of a sound technology stack that would set up the agency for to execute in the long term — tools, systems, and culture — for short term wins and "getting the thing out the door". Agencies expect 10 to 20 years of planning and forethought from geeks for standing up a new digital systems, but rarely plan six months to a year down the line when contracting out the platforms, tools, and human capital that will make that vision a reality. As a result, even if an agency's IT stack looks good on paper, in reality, it's often held together with little more than duct tape and bubble gum.
+Second, agencies often forgo the fundamentals of a sound technology stack that would set up the agency for to execute in the long term — tools, systems, and culture — for short term wins and "getting the thing out the door". Agencies expect 10 to 20 years of planning and forethought from geeks for standing up a new digital systems, but rarely plan six months to a year down the line when contracting out the platforms, tools, and human capital that will make that vision a reality. Practically, it's easier for non-technical leadership to measure that the agency remains complaint with X government standard than to ensure that they can remain responsive to customer needs. As a result, even if an agency's IT stack looks good on paper, in reality, it's often held together with little more than duct tape and bubble gum.
 
 Finally, there's something to be said for a geek's need to scratch an itch. Geeks are problem solvers. Geeks are slaves to doing things better than the status quo. Regardless of role or title, geeks find itches in their day-to-day life they're dying to scratch. They think "I could write a script to automate this task", or "if only there were an API, it'd be so much easier to submit this report". Regardless of the thing, geeks know technology and geeks know if there's a better way. The same can't be said of suits. Geeks that serve under suits often don't have the tools they need because management isn't affected by the need to scratch that itch. That's why you end up in the Catch-51 where it's against agency policy to code in the open, but there's also no budget to stand up on on-prem version control system. Geeks in leadership positions naturally scratch itches, the same itches their developers are asking to have scratched.
 
+*Non-technical leadership will optimize for easily measurable, non-technical concerns at the expense of both technical and non-technical concerns.*
+
 ### Heavyweight processes bred by distrust
+
+Government process scales up, but rarely scales down. We use the same systems to procure battleships and builds that we do to procure staples and websites. When you're spending millions of dollars on a multi-year contract it makes sense to spend months accounting for every possible contingency. When you're buying a $300 SaaS product on the open market, the obligatory environmental protection clauses (among a dozen others), although well intentioned, are a bit out of place.
+
+Government IT is predicated on the belief that if an actor can do something bad, they will, and given centuries of organizational scars from being burned, the only acceptable process is one that limits a bad actor's ability to act maliciously to the fullest extend possible. This creates situations where, from a government IT perspective, it'd be logical to require a background check before someone could use a governemnt-funded paperclip. There's rarely, if ever, a concept of *de minimus* and where there is (e.g., in the concept of a micro purchase), it's rarely respected. This manifests itself in several forms:
+
+First, the system distrusts government employees. There's no concept in government of hiring a smart person or establishing a smart team and trusting their judgement.
+
+Second, the system distrusts government contractors.
+
+Finally, the system distrusts citizens.
+
+*A process that doesn't scale down will optimize for the worst possible outcome.*
 
   *   * Distrust of employees, contractors/vendors, the community
   * Employees
