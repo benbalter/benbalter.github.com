@@ -15,11 +15,8 @@
     "tests"
   ],
   "dependencies": {
-    "anchor-js": "~0.4.0",
-    "bootstrap-sass": "~3.3.4",
-    "font-awesome": "~4.3.0"
-  },
-  "resolutions": {
-    "bootstrap": "~3.3.1"
+    "anchor-js": "*",
+    "bootstrap-sass": "*",
+    "font-awesome": "*"
   }
 }
