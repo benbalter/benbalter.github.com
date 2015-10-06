@@ -271,7 +271,7 @@ The above goals cannot be realized without significant top-down support from the
 
 The federal IT procurement system is outdated.  Projects are consistently delivered late, over-budget, and obsolete.  Much of this trend can be traced back to flawed legal frameworks that lock agencies and contractors into an outdated development model.  Through education, reform, and organization-wide support, federal agility can become a reality.  Any computer user knows that as systems age they begin to slow.  Today, the federal IT procurement system is running slowly, to the detriment of both agencies and the public, and it is long overdue for a system-wide upgrade.
 
-[![Creative Commons License](http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png){: .aligncenter}][161]
+[![Creative Commons License](http://i.creativecommons.org/l/by/3.0/88x31.png){: .aligncenter}](https://creativecommons.org/licenses/by/2.0/)
 
 *Originally published in The Public Contract Law Journal, Volume 41, Issue 1. Available for public use under a [Creative Commons BY-NC-SA license](http://creativecommons.org/licenses/by-nc-sa/3.0/).*
 
