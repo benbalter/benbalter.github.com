@@ -24,7 +24,7 @@ tags:
 
 # The Case for Rebooting Federal IT Procurement
 
-*41 Pub. Cont. L.J. 149  
+*41 Pub. Cont. L.J. 149
 The Public Contract Law Journal, Fall 2011*
 
 * Table of Contents
@@ -34,7 +34,7 @@ Like many government computer systems, the U.S. federal information technology (
 
 Compounding the problem, end users fail entirely to use nearly forty-five percent of features procured and rarely use another nineteen percent of those features.[^9]  Thus, purchasing agencies ultimately utilize only about one-third of all features paid for by American tax dollars.[^10]  In the end, nearly forty-five percent of federally procured software features ultimately fail to meet the user's needs.[^11]  It is therefore no surprise that the Secretary of the Department of Defense (DoD) Robert Gates called federal IT procurement "baroque." [^12]  Too often IT procurement requirements are crafted with the input of neither end-users nor product developers.[^13]  As Office of Management Budget (OMB) Director Peter R. Orszag noted, federal IT projects cost more than they should, take longer than they should, and often fail to meet agency needs.[^14]  Today's federal regulations shackle government agencies to outdated project management practices and prevent them from harnessing the true power of IT innovations, which have far outpaced the laws that govern them.[^15]
 
-To better embrace innovation and respond to changing organizational needs, the Government must embrace a two-pronged approach involving both regulatory reform and top-down support for best-practices education to empower IT-procuring agencies to pursue more agile software development methods.  By requiring that detailed specifications be outlined at the onset of the process, government procurement regulations encourage the less flexible, waterfall development techniques, rather than the more modern, agile development approaches used by the private sector today.[^16]  While most prior attempts to reform federal IT procurement focused solely on statutory changes, [^17] this Note proposes more modern project management practices and argues for top-down reform on both a regulatory and a human level.  
+To better embrace innovation and respond to changing organizational needs, the Government must embrace a two-pronged approach involving both regulatory reform and top-down support for best-practices education to empower IT-procuring agencies to pursue more agile software development methods.  By requiring that detailed specifications be outlined at the onset of the process, government procurement regulations encourage the less flexible, waterfall development techniques, rather than the more modern, agile development approaches used by the private sector today.[^16]  While most prior attempts to reform federal IT procurement focused solely on statutory changes, [^17] this Note proposes more modern project management practices and argues for top-down reform on both a regulatory and a human level.
 
 
 ## I. Background — Waterfall v. Agile
@@ -108,7 +108,7 @@ At its most fundamental level, agility is the ability to quickly and effectively
 #### i. Agile is iterative, breaking long-term projects into multiple independent, manageable tasks
 {: #agile-is-iterative-breaking-long-term-projects-into-multiple-independent-manageable-tasks }
 
-[![Comparison of Waterfall to Agile Software Development Timelines](http://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared-300x119.jpg)](http://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg){: .aligncenter}
+[![Comparison of Waterfall to Agile Software Development Timelines](http://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg){: style="width: 75%"} ](http://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg){: .aligncenter}
 
 *Figure 1 - Agile and Waterfall Development Cycles Compared (PDF)*{: .aligncenter}
 
@@ -433,4 +433,3 @@ The federal IT procurement system is outdated.  Projects are consistently delive
 [^155]: FAR 36.602-1.
 [^156]: FAR 36.601(4)(a)(3).  The U.S. Bureau of Labor and Statistics classifies the software engineering role as a [subset of computer specialist](http://www.bls.gov/soc/soc_structure_2010.pdf), *see *http://www.bls.gov/soc/soc\_structure\_2010.pdf, while all other engineering disciplines are a [subset of engineer][323], http://www.bls.gov/soc/soc\_structure\_2010.pdf.  Additionally, software engineers do not receive professional engineering licenses from the state.  If a state were to grant such a license, this would serve as an interesting test case.
 [^157]: FAR 39.103 (implementing the Clinger-Cohen Act of 1996, Pub. L. No. 104-106).
-
