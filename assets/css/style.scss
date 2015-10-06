@@ -28,7 +28,7 @@ body { padding-top: 20px; font-weight: 200; }
 .pgp-key { font-size: 85%; }
 
 /* images */
-.aligncenter { clear: both;	display: block;	margin-left: auto; margin-right: auto; }
+.aligncenter { clear: both;	display: block;	margin-left: auto; margin-right: auto; text-align: center; }
 .alignleft { display: block; float:left; padding-right: 15px; padding-bottom: 5px; }
 .alignright { display: block; float: right; padding-left: 15px; padding-bottom: 5px; }
 @media (max-width: 550px) {
