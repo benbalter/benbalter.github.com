@@ -25,7 +25,7 @@ Your first open source release should be something small and inconsequential, no
 
 ### 3. Minimize information imbalance
 
-Open source is about  growing a community. Often when we think about project stakeholders (and build or adopt workflows), we only look to those within our organization. When it comes to open source, you *must* ensure that those outside the firewall are on equal footing — in terms of access to information and ability to influence the project — as those outside the firewall. Simply put, developers are people too.
+Open source is about  growing a community. Often when we think about project stakeholders (and build or adopt workflows), we only look to those within our organization. When it comes to open source, you *must* ensure that those outside the firewall are on equal footing — in terms of access to information and ability to influence the project — as those inside the firewall. Simply put, developers are people too.
 
 The default government workflow is to hold synchronous, meatspace meeting in wood-paneled, formerly smoke-filled rooms. Like a bad joke, you "had to be there" in order to be in on it. That's not how you foster a strong open source project.
 
