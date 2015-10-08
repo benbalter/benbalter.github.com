@@ -29,7 +29,7 @@ Open source is about  growing a community. Often when we think about project s
 
 The default government workflow is to hold synchronous, meatspace meetings in wood-paneled, formerly smoke-filled rooms. Like a bad joke, you "had to be there" in order to be in on it. That's not how you foster a strong open source project.
 
-Imagine this: you maintain an open source project. A contributor spends a week building our a new feature they want to see incorporated and propose it. You as the maintainer, have to turn them down, because either you've been secretly tracking a change internally that will solve the problem, or worse, have had secret discussions internally that you want to take the project in a different direction. You'd better bet that contributor is never contributing to your project ever again (or any other project for that matter).
+Imagine this: you maintain an open source project. A contributor spends a week building out a new feature they want to see incorporated and propose it. You as the maintainer, have to turn them down, because either you've been secretly tracking a change internally that will solve the problem, or worse, have had secret discussions internally that you want to take the project in a different direction. You'd better bet that contributor is never contributing to your project ever again (or any other project for that matter).
 
 The way you hedge against this risk is by working outside the firewall, by leveling the information playing field and placing your internal stakeholders on the same footing as all other project stakeholders. Not only does that simplify (and modernize) your own workflows, but it ensures that there's an information balance.
 
