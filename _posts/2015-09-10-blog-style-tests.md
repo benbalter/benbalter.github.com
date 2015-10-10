@@ -20,17 +20,17 @@ Sure it takes 10 seconds for a human to see if a post begins with "today", but m
 Testing for use of the word "today" is relatively straightforward. You could use a test suite from just about any language, but since GitHub is primarily a Ruby shop, let's use Minitest as an example (with some plumbing left out for simplicity):
 
 {% highlight ruby %}
-class TodayTest < Blog::Test   
-  def test_doesnt_start_with_today     
+class TodayTest < Blog::Test
+  def test_doesnt_start_with_today
     msg = "Don't start posts with the word \"today\". See http://bit.ly/no-today.\n"
-    each_line_of_prose do |file, line, text|       
+    each_line_of_prose do |file, line, text|
       refute text =~ /^today/i, "#{msg} on line #{line} of #{file}"
-    end   
+    end
   end
 end
 {% endhighlight %}
 
-With that, you could wire up a service like [Travis CI](https://travisci.org) to fire on each commit, and provide the author with immediate feedback and a link to the appropriate internal documentation, all without requiring blocking human intervention. Not to mention, that editor is now free to move to less-remedial, higher-value work like curating an editorial calendar or refining the voice guidelines themselves.
+With that, you could wire up a service like [Travis CI](https://travisci.org){: data-proofer-ignore="true" } to fire on each commit, and provide the author with immediate feedback and a link to the appropriate internal documentation, all without requiring blocking human intervention. Not to mention, that editor is now free to move to less-remedial, higher-value work like curating an editorial calendar or refining the voice guidelines themselves.
 
 ### Don't tell users how excited you are
 
