@@ -5,7 +5,7 @@ excerpt: "Nearly three years later, the founding principles of project MyGov rem
 
 Three years ago to the day, the first class of Presidential Innovation Fellows were sworn in. Being part of the inaugural class was a lot like founding a startup: we had to define our problem space, figure out basic mechanics like where to work or how to get laptops and servers, and most importantly, had the opportunity to create our own culture around how we approached problems.
 
-Well before we wrote our first line of code, we defined [a set of guiding principles](http://beta.presidentialinnovation.org/mygov/2012/12/27/We-believe-Project-MyGov-principles/). The principles helped us lay the blueprint for how to deliver on the Project MyGov charter:
+Well before we wrote our first line of code, we defined [a set of guiding principles](https://github.com/presidential-innovation-fellows/mygov/blob/gh-pages/_posts/2012-12-27-We-believe-Project-MyGov-principles.md). The principles helped us lay the blueprint for how to deliver on the Project MyGov charter:
 
 > To reimagine how citizens interact with government through an experience designed around their needs rather than a confusing and fragmented bureaucracy.
 
@@ -23,4 +23,4 @@ Looking back three years later, many of those principles still remain valid guid
 
 [An organization's principles are more than mere words](http://ben.balter.com/2015/08/12/the-zen-of-github/). They're the underlying assumptions that constrain all decisions. In government, it's all too easy to focus on the code, on the concrete deliverable. After all, RFPs, rarely, if ever, mention culture or customers or citizen-centricity. As the MyGov principles ask, "*are [you] solving for the right thing*"?
 
-*H/T @californiakara, the author of [the original post](http://beta.presidentialinnovation.org/mygov/2012/12/27/We-believe-Project-MyGov-principles/), and [whose Tweet](https://twitter.com/CaliforniaKara/status/582577231374913536) let me to rediscover it.* 
+*H/T @californiakara, the author of [the original post](http://beta.presidentialinnovation.org/mygov/2012/12/27/We-believe-Project-MyGov-principles/), and [whose Tweet](https://twitter.com/CaliforniaKara/status/582577231374913536) let me to rediscover it.*
