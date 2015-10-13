@@ -1,25 +1,8 @@
 ---
-author: Ben Balter
 title: 'WordPress for Government - A Problem of Perception'
 excerpt: 'Among potential government and enterprise users, WordPress has a perception problem especially when compared to Drupal and other "serious" CMSs.'
-layout: post
-categories:
-  - Technology
-tags:
-  - .govs
-  - contracting
-  - drupal
-  - enterprise
-  - federal
-  - gov 2.0
-  - government
-  - IT
-  - open government
-  - open source
-  - procurement
-  - sharepoint
-  - wordpress
 ---
+
 [![WordPress for Government](http://ben.balter.com/wp-content/uploads/2012/03/wordpress-in-government-ben-balter-150x150.png){: .alignleft}](http://ben.balter.com/wp-content/uploads/2012/03/wordpress-in-government-ben-balter.png)
 
 Over the past several years WordPress's market share has enjoyed explosive growth across virtually every industry. Today, it powers [nearly a quarter of new sites](http://techcrunch.com/2011/08/19/wordpress-now-powers-22-percent-of-new-active-websites-in-the-us/), and is the CMS of choice for[ more than two thirds of the top-million sites](http://trends.builtwith.com/cms) on the web making it the world's most popular publishing platform by a long shot. Yet one group of seemingly ideal users has been slow to take the former blogging platform seriously: .Govs.
@@ -48,42 +31,14 @@ When you stack the two side by side (or against any other CMS for that matter), 
 
 Among those empowered to make purchasing decisions, there seems to be a sense that WordPress is what you use on the weekends to post pictures of your lunch while Drupal is what you use for "serious" business, and with good reason. For better or for worse, Drupal has positioned itself as not just a CMS, but rather *the* enterprise solution — an inseparable fifth layer of the increasingly ubiquitous enterprise LAMPD stack.
 
-<table class="table">
-    <thead>
-        <tr>
-            <th></th>
-            <th>Drupal</th>
-            <th>WordPress</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>API Hooks</td>
-            <td markdown="1">267</td>
-            <td markdown="1">[1,506](http://adambrown.info/p/wp_hooks/version/3.2) (5x)</td>
-        </tr>
-        <tr>
-            <td>Active Sites</td>
-            <td markdown="1">[533,136](http://drupal.org/project/usage)</td>
-            <td markdown="1">[65,052,049](http://en.wordpress.com/stats/) (125x)</td>
-        </tr>
-        <tr>
-            <td>Plugins / Modules</td>
-            <td markdown="1">[8,536](http://drupal.org/project/modules)</td>
-            <td markdown="1">[16,076](http://wordpress.org/extend/plugins/) (2x)</td>
-        </tr>
-        <tr>
-            <td>Themes</td>
-            <td markdown="1">[893](http://drupal.org/project/themes)</td>
-            <td markdown="1">[1,426](http://wordpress.org/extend/themes/) (1.5x)</td>
-        </tr>
-        <tr>
-            <td>Community[^2]</td>
-            <td markdown="1">1.5 Million</td>
-            <td markdown="1">20 Million (13x)</td>
-        </tr>
-    </tbody>
-</table>
+|                   | Drupal                                     | WordPress                                                  |
+|:------------------|:-------------------------------------------|:-----------------------------------------------------------|
+| API Hooks         | 267                                        | [1,506](http://adambrown.info/p/wp_hooks/version/3.2) (5x) |
+| Active Sites      | [533,136](http://drupal.org/project/usage) | [65,052,049](http://en.wordpress.com/stats/) (125x)        |
+| Plugins / Modules | [8,536](http://drupal.org/project/modules) | [16,076](http://wordpress.org/extend/plugins/) (2x)        |
+| Themes            | [893](http://drupal.org/project/themes)    | [1,426](http://wordpress.org/extend/themes/) (1.5x)        |
+| Community[^2]     | 1.5 Million                                |                                                            |
+{: .table }
 
 ### **Beyond Cowboy Coders**
 
@@ -93,7 +48,7 @@ I am not suggesting that freelance developers should bring an end to what makes 
 
 ### 1. `_Deprecate( ‘`Outdated Language`' )`
 
-The results of the recent WordPress survey suggest that the majority of sites use WordPress *as a CMS*. That's like saying the majority of drivers use their Cadillac *as an automobile*. WordPress *is *a CMS. Yet, no one seems to be saying that. WordPress.org calls the software a "blog tool", the WordPress Features codex page [describes the site that the software creates as a "weblog" no less than 28 times](http://codex.wordpress.org/WordPress_Features), [^3] and the first search result for "WordPress CMS," [describes "what aspects of the WordPress… need to be changed in order to turn WordPress into a CMS."](http://codex.wordpress.org/User:Lastnode/Wordpress_CMS)
+The results of the recent WordPress survey suggest that the majority of sites use WordPress *as a CMS*. That's like saying the majority of drivers use their Cadillac *as an automobile*. WordPress *is* a CMS. Yet, no one seems to be saying that. WordPress.org calls the software a "blog tool", the WordPress Features codex page [describes the site that the software creates as a "weblog" no less than 28 times](http://codex.wordpress.org/WordPress_Features), [^3] and the first search result for "WordPress CMS," [describes "what aspects of the WordPress… need to be changed in order to turn WordPress into a CMS."](http://codex.wordpress.org/User:Lastnode/Wordpress_CMS)
 
 Especially in the buttoned-up context of corporate and government installs, "blog" can be a dirty word. Yet, to get the title of any site, the command we all still run is `get_bloginfo()`. Inside `&lt;?php` tags and out, the technology we have created has far outpaced the metaphor we use to describe it.
 
