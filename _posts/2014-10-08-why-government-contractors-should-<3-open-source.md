@@ -29,9 +29,9 @@ Open source provides government contractors with the ability to build a portfoli
 
 Potential customers aren't the only ones that can benefit from the software being public. Being an active member of the open source community allows the government contractor to become a known quantity, and to establish a reputation as a firm that supports open source software. You can't buy goodwill like that.
 
-As the contractor seeks to attract tllent, by the time they step foot in the career fair, or post the job posting to their website, [the most passionate, talented developers in the space already knows who they are, already sees how they work, and already want to work for them](http://tom.preston-werner.com/2011/11/22/open-source-everything.html).
+As the contractor seeks to attract talent, by the time they step foot in the career fair, or post the job posting to their website, [the most passionate, talented developers in the space already know who they are, already see how they work, and already want to work for them](http://tom.preston-werner.com/2011/11/22/open-source-everything.html).
 
-Better still, because open source is collaborative, there's a good chance you've already had an opportunity to evaluate the applicant. What better way to evaluate how the applicant would contribute to your organization's software, than to be able to evaluate them as they contribute to your organization's software over the lifecycle of an open source project. At GitHub, for example, we're already familiar with many of the developers we hire, well before a resume ever changes hands.
+Better still, because open source is collaborative, there's a good chance you've already had an opportunity to evaluate the applicant. What better way to evaluate how the applicant would contribute to your organization's software, than to be able to evaluate them as they contribute to your organization's software over the lifecycle of an open source project? At GitHub, for example, we're already familiar with many of the developers we hire, well before a resume ever changes hands.
 
 Open source provide government contractors with a platform to establish a brand among the industry's most committed developers, to attract that same talent, and to evaluate how they'd work, all without spending a single dollar on recruitment.
 
@@ -55,7 +55,7 @@ By unshackling project information from costly corporate chanels, open source st
 
 Open source software is developed by teams rarely in the same place at the same time, rarely working on the same thing at the same time, rarely with fully aligned interests, and despite this complexity, consistently delivers higher quality software than its purpose-built and proprietary counterparts. It's the story of Wikipedia versus Encycleopedia Britannica.
 
-Adopting open-source workflows, even if the code itself is never made public can be a force multiplier for teams, allowing them to shed bureaucratic cruft and adopt leaner, more agile workflows. While it's certainly possible to publish code developed under a waterfall approach, the decentralized nature of open source, absent a centralized planning authority, almost necessitates iterative development.
+Adopting open-source workflows, even if the code itself is never made public, can be a force multiplier for teams, allowing them to shed bureaucratic cruft and adopt leaner, more agile workflows. While it's certainly possible to publish code developed under a waterfall approach, the decentralized nature of open source, absent a centralized planning authority, almost necessitates iterative development.
 
 Whether shared with the development team, the agency, or with the public, open source workflows allow government contractors to adopt best-of-breed development practices, and to streamline their own internal communication practices.
 
@@ -63,7 +63,7 @@ Whether shared with the development team, the agency, or with the public, open s
 
 Open source is not just a workflow and a philosophy, but also a development style. When you write code you know is going to be shared with others, you're less likely to hard-wire custom functionality, or hard-code deployment-specific considerations. As a result, you get abstracted, modular code that can be repurposed, redeployed, and more-easily upgraded in part, rather than in whole.
 
-You also gain the benefit of more mature code. Many contracts may call for the same challenge to be solved. Rather than writing a custom XML library for each project, open source allows you to reduce duplication of efforts internally, by allowing you to adopt an existing library, or to start your own shared library. More eyes, more time, and more use cases, means more stringently field-test and proven code for both projects on day one.
+You also gain the benefit of more mature code. Many contracts may call for the same challenge to be solved. Rather than writing a custom XML library for each project, open source allows you to reduce duplication of efforts internally, by allowing you to adopt an existing library, or to start your own shared library. More eyes, more time, and more use cases, means more stringently field-tested and proven code for both projects on day one.
 
 Assuming you engage in more than one project over the lifetime of the contracting firm, open source forces government contractors to write better, more modular, less fragile code that can be shared between components.
 
