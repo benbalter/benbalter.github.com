@@ -19,7 +19,7 @@ This risk-reduction come in the form of process: it's the procurement process de
 
 Government should be risk averse. Take a look at DC's brutalist architecture and you'll quickly realize that government constructs buildings very differently than the rest of society, Corinthian columns and all. After all, government operates on multi-century time scale where private-sector companies focus on a quarter-to-quarter earnings. While government agencies certainly shouldn't adopt the latest fly-by-night, just-posted-to-hacker-news-yeterday framework, there's a happy medium between that and "what we've used since the 90s", and a process designed to reduce risk to as close to absolute zero as humanly possible is not the solution.
 
-*A system that seeks to reduce risk by instituting process and thus raising the barrier to change will increase risk in the long run when that very process fails to adapt to a changing environment.*
+*A system that seeks to reduce risk by instituting process will increase risk in the long run when that very process fails to adapt to the changing environment it seeks to control.*
 
 ### Lack of technocratic leadership
 
