@@ -7,7 +7,7 @@ If there's one thing that corporations are consistently good at, it's talking li
 
 Thankfully, it doesn't have to be that way. Corporations are fully capable of talking like humans do, at least the humans that make up that company are, and unsurprisingly customers respond positively when treated with that kind of base-level respect. If you've ever read [the GitHub Blog](https://github.com/blog), you'll hopefully notice that at GitHub, we pride ourselves in "being human". Not "delivering authentic experiences" or "speaking like a human", but actually being a gosh-darn human talking to other humans. There may be a corporate logo at the top of the page, but blog posts are still exclusively written by, and read by living, breathing humans. My name is on the post and it's simply me, as an individual, talking to customers. No corporate buzzwords or filters needed.
 
-[Markets are conversations](http://newclues.cluetrain.com). Your users don't read your blog to be marketed to. They read your blog to learn about what's going on with your product, and the most effective way to convey product information — to educate current and potential users about a ship — is to be part of that ongoing conversation (that happens with or without your participation), not to stand on top of a hill shouting mindless marketing speak. Put another way, if you wouldn't do it in real life — say when bumping into a customer at a coffee shop — why is it okay to do on your corporate blog?
+A big part of that philosophy, and an even bigger part of reducing it to writing can be attributed to @kcshearon who introduced me to the idea that [markets are conversations](http://newclues.cluetrain.com). Your users don't read your blog to be marketed to. They read your blog to learn about what's going on with your product, and the most effective way to convey product information — to educate current and potential users about a ship — is to be part of that ongoing conversation (that happens with or without your participation), not to stand on top of a hill shouting mindless marketing speak. Put another way, if you wouldn't do it in real life — say when bumping into a customer at a coffee shop — why is it okay to do on your corporate blog?
 
 Think of the typical corporate ship post. It probably starts something like this:
 
@@ -15,7 +15,7 @@ Think of the typical corporate ship post. It probably starts something like this
 
 Here's the thing: Your users don't care how excited you are. They don't care about how much effort you put in. They don't care how hard it was to do. All they care about is one thing: *how does it benefit me?*
 
-Having helped my fellow GitHubbers to post to GitHub's blog for the past couple of years, here are a dozen simple rules you can adopt for writing human, user-centric ship posts for your own corporate blog:
+Having helped my fellow GitHubbers to post to GitHub's blog for the past couple of years, here are a dozen simple rules[^credit] you can adopt for writing human, user-centric ship posts for your own corporate blog:
 
 ### 1. It's not shipped until you blog about it
 
@@ -78,3 +78,5 @@ The user has read your post, you've gotten them excited, now what? What's the ca
 In addition to the above, grammar, spelling, tone and style go without saying. There are many style guides out there, but [18F's](https://18f.gsa.gov/2015/07/06/18f-content-guide/) seems to be the most web-centric among them. When blogging, you should be writing for the web (links, informal tone, etc.) and you should use the opportunity to show some corporate personality. Even better, [collaborate using CI and Git flow](http://zachholman.com/posts/how-github-writes-blog-posts/).
 
 From infomercials to press releases, we've been trained to think corporations must speak a certain way, but that's far from the case. In fact, corporations don't speak. The humans that make them up do. It's a challenge to unlearn the anti-patterns that surround us, but it's possible to foster a corporate culture whereby interacting with users is seen as a conversation, not a shouting match amongst competitors. Follow these rules, empower your humans to talk to other humans, and your users will respond accordingly.
+
+[^credit]: Some of these rules are adopted from GitHub's own internal blog guidelines, a document that was authored well before 2012 when it was added to version control, but `git blame` suggests credit should be given to @defunkt, @kneath, @tnm, @holman, and @kcshearon among likely many others.
