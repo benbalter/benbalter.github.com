@@ -35,7 +35,7 @@ One conference, Puerto Rico's Tech Summit, followed a similar pattern, with geek
 
 [We're living in the age of the geek](https://www.youtube.com/watch?v=5Ht5n_ketYQ). Today, as all organizations increasingly become technology organizations, successful endeavors can no longer exclude geeks from the table. In the government world, at least, [Healthcare.gov](https://www.healthcare.gov) was our first major chance to say "I told you so". We've tried heavy-weight, process driven, command-and-control workflows, where the solution is always to throw more money and people at the problem. Yet innovation today is increasingly coming from small startups, and the geeks that run them.
 
-For the first time, large organizations are slowly beginning to realize that there's something to be said for those who grew up as the internet generation. Both in the public and private sector, we're seeing more CTO, CDOs, and chief architects, many of whom, don't dress like the rest of their C-suite counterparts. And this is just the start. Today, no world leader wouldn't make a major policy decision, without first consulting their chief economist. How long will it take before geeks get a permanent seat at the table?
+For the first time, large organizations are slowly beginning to realize that there's something to be said for those who grew up as the internet generation. Both in the public and private sector, we're seeing more CTO, CDOs, and chief architects, many of whom, don't dress like the rest of their C-suite counterparts. And this is just the start. Today, no world leader would make a major policy decision without first consulting their chief economist. How long will it take before geeks get a permanent seat at the table?
 
 ### Bridging the divide
 
