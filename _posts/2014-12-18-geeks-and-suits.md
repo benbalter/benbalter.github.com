@@ -29,7 +29,7 @@ This dichotomy extends well beyond the four walls of the organization. Most tech
 
 There's a pervasive conference anti-pattern emerging, whereby the geeks are given their own day, often the day before the conference, for a "hackathon", "workshop", or other keyword designed to indicate to the suits that the goal of the day is to :ship:, and that it's not for them. This is balanced out by the conference proper the next day, which, cheerleading the virtues of the arbitrary conference topic, almost inevitably lacks any tangible or actionable takeaways, other than the business cards exchanged in the hall and reinvigorated sense of what was already known.
 
-One conference, Puerto Rico's Tech Summit, followed a similar pattern, with geeks and suits in concurrent tracks. At the end of the day, hackathon participants took the very stage that the suits and been taking turns speaking from all morning, and presented what they build that day. The contrast was hard to ignore, and shocked out of their seat, many geek-to-suit connections were made stageside to carry those projects forward.
+One conference, Puerto Rico's Tech Summit, followed a similar pattern, with geeks and suits in concurrent tracks. At the end of the day, however, hackathon participants took the very stage the suits had been speaking from all morning and presented what they built that day. The contrast was hard to ignore and, shocked out of their seat, many geek-to-suit connections were made stageside to carry those projects forward.
 
 ### The age of the geek
 
