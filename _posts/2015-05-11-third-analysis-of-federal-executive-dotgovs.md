@@ -1,6 +1,6 @@
 ---
 title: "Analysis of federal .gov domains, 2015 edition"
-excerpt: "A quick analysis of the technology and capabilities that power each federal .gov domain such as non-www, SSL, and IPv6 support, or what server/cms they use"
+description: "A quick analysis of the technology and capabilities that power each federal .gov domain such as non-www, SSL, and IPv6 support, or what server/cms they use"
 ---
 
 In [2011](http://ben.balter.com/2011/09/07/analysis-of-federal-executive-domains/) and then again in [2014](http://ben.balter.com/2014/07/07/analysis-of-federal-executive-domains-part-deux/) I used

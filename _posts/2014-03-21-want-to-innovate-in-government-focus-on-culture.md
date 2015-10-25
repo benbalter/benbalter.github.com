@@ -2,7 +2,7 @@
 title: "Want to innovate government? Focus on culture"
 layout: post
 comments: true
-excerpt: "The key to innovation in government is engendering a greater appreciation of technology among non-technical stakeholders"
+description: "The key to innovation in government is engendering a greater appreciation of technology among non-technical stakeholders"
 ---
 
 When innovating in government, [the technology's the easy part](http://ben.balter.com/2013/07/01/technologys-the-easy-part/). Innovative efforts often do one of two things:

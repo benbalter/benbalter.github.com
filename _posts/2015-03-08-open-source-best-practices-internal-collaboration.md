@@ -1,6 +1,6 @@
 ---
 title: "Five best practices in open source: internal collaboration"
-excerpt: "The way your organization works internally will necessarily be a mirror image of how your organization works externally, and if that workflow is closed or untrusting, you'll likely have trouble embracing to open source"
+description: "The way your organization works internally will necessarily be a mirror image of how your organization works externally, and if that workflow is closed or untrusting, you'll likely have trouble embracing to open source"
 ---
 
 Before you can participate in the open source community, you must first learn to collaborate. That's because [Open source is not a verb](http://ben.balter.com/2012/10/15/open-source-is-not-a-verb/). It's a workflow, a philosophy, a modern approach to software development. It's much more than simply hitting publish. To think you can [breed code in captivity behind a firewall](http://ben.balter.com/2013/05/14/we-ve-been-selling-open-source-wrong/), using closed, hostile, or waterfall methodologies, and that once that code leaves the firewall, it will grow wings, is a fundamental misunderstanding of what it means to participate in the open source community.

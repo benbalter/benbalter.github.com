@@ -1,6 +1,6 @@
 ---
 title: "Disclosed source is not the same as open source"
-excerpt: "Agencies that simply publish code with no intention to foster community involvement, curate community feedback, or accept community contributions find themselves, almost without exception, engaging in an unsuccessful endeavor."
+description: "Agencies that simply publish code with no intention to foster community involvement, curate community feedback, or accept community contributions find themselves, almost without exception, engaging in an unsuccessful endeavor."
 redirect_from:
   - "/2014/09/29/source-disclosed--open-source/"
   - "/2014/09/29/source-disclosed-≠-open-source/"

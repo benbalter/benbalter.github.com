@@ -1,7 +1,7 @@
 ---
 author: Ben Balter
 title: Will Federal Contracting Officers Soon Have Their Heads in the Clouds?
-excerpt: >
+description: >
   As one Hewlett Package Chief executive
   recently put it, cloud computing "is
   the next generation of the internet."
@@ -96,4 +96,3 @@ Whether a federal contracting officer or a provider of IT services, just as the 
 [^22]: Federal Information Security Management Act of 2002.
 [^23]: 5 U.S.C.A. § 552a (West).
 [^24]: Google Apps for Government, Official Google Enterprise Blog, July 26, 2010, http://googleenterprise.blogspot.com/2010/07/google-apps-for-government.html.
-

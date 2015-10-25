@@ -1,7 +1,7 @@
 ---
 author: Ben Balter
 title: WordPress Resume Plugin
-excerpt: >
+description: >
   WP Resume is an out-of-the-box solution
   to get your resume online and keep it
   updated. Built on WordPress 3.0's

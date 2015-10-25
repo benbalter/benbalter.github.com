@@ -1,6 +1,6 @@
 ---
 title: "Why your agency's first open source project is going to be a flop"
-excerpt: "Best practices suggest that you should prime organizational pistons with an open source exercise, before you embark on your first highly publicized open source effort"
+description: "Best practices suggest that you should prime organizational pistons with an open source exercise, before you embark on your first highly publicized open source effort"
 ---
 
 If you're a government agency, your first opens source project is likely going to be a flop. In all fairness, [your organization has been set up](http://ben.balter.com/2014/08/03/why-isnt-all-government-software-open-source/) to fail. Participating in the open source community bears little relationship to the decade (or century) old processes your agency has established, like those required to publish a press release or respond to a FOIA request. It's not an understatement to say that open source is an animal unlike any your agency has ever seen before, and one that will require the cooperation of multiple departments.

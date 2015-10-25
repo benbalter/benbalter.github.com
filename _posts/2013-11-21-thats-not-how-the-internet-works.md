@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-excerpt: "The internet forces us to reimagine desktop technologies as vehicles for collaboration."
+description: "The internet forces us to reimagine desktop technologies as vehicles for collaboration."
 title: That's not how the internet works
 ---
 

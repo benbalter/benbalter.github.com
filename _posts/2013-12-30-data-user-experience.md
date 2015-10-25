@@ -2,7 +2,7 @@
 title: Why no one uses your government data
 layout: post
 comments: true
-excerpt: "The next time you publish a data source, whether in government or out, ask yourself one simple question. How can you optimize the experience for the data consumer?"
+description: "The next time you publish a data source, whether in government or out, ask yourself one simple question. How can you optimize the experience for the data consumer?"
 ---
 
 Publishing government information is about much more than simply throwing 0's and 1's over the firewall. It's about building ecosystems and communities. It's about solving shared challenges. It's about consumption — after all, that's the American way.

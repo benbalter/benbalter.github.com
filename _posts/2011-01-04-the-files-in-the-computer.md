@@ -1,7 +1,7 @@
 ---
 author: Ben Balter
 title: 'The Files "in" the Computer -- Zoolander and the California Supreme Court'
-excerpt: "Imagine if a routine traffic stop, say, for failure to signal or wear a seat belt would place in the state's hands every e-mail you've ever sent, contact your ever met, or financial transaction your ever completed. The California Supreme Court ruled in favor of just that."
+description: "Imagine if a routine traffic stop, say, for failure to signal or wear a seat belt would place in the state's hands every e-mail you've ever sent, contact your ever met, or financial transaction your ever completed. The California Supreme Court ruled in favor of just that."
 layout: post
 categories:
   - Law

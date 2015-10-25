@@ -4,7 +4,7 @@ comments: true
 author: Ben Balter
 title: Bet on the little guy
 category: technology
-excerpt: "On the Internet, simple, open format reign supreme over their heavyweight, proprietary counterparts"
+description: "On the Internet, simple, open format reign supreme over their heavyweight, proprietary counterparts"
 tags:
   - enterprise
   - formats

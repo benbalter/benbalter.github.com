@@ -1,7 +1,7 @@
 ---
 author: Ben Balter
 title: Does Every Cloud Have a Silver Lining?
-excerpt: >
+description: >
   Thunderstorms occur when divergent
   forces collide in clouds. It is becoming
   increasingly clear that cloud computing
