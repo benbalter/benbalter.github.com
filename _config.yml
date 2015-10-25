@@ -97,7 +97,7 @@ disqus:
 highlighter: pygments
 markdown: kramdown
 timezone: America/New_York
-encoding: UTF-8q
+encoding: UTF-8
 branch: master
 
 gems:
