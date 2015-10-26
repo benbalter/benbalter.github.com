@@ -12,6 +12,7 @@ disallows:
   - /dont-build-an-api/
   - /make-government-better-together/
   - /open-source-alternatives/
+  - /404.html
 ---
 
 User-agent: *{% for disallowed in page.disallows %}
