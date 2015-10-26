@@ -19,4 +19,4 @@ User-agent: *{% for disallowed in page.disallows %}
 Disallow: {{ disallowed }}{% endfor %}
 Allow: /
 Sitemap: http://ben.balter.com/sitemap.xml
-Host: http://ben.balter.com
+Host: ben.balter.com
