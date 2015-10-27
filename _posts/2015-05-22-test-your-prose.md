@@ -36,7 +36,7 @@ After that, you'll want to configure Travis by adding a `.travis.yml` file with 
 
 {% highlight yaml %}
 language: ruby
-script: "rake test"
+script: "rake test" # You may need to use "bundle exec rake test" if Travis fails on the require for the HTML/Proofer
 {% endhighlight %}
 
 And finally, you need to head over to [travis-ci.org/profile](https://travis-ci.org/profile) to enable travis for your repository.
