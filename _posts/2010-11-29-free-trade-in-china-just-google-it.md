@@ -1,7 +1,7 @@
 ---
 author: Ben Balter
 title: Free Trade in China? Just Google it.
-excerpt: >
+description: >
   As the internet is increasingly becoming
   the dominant instrument of commerce,
   blocking access to information is

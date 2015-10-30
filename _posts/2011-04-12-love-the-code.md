@@ -1,7 +1,7 @@
 ---
 author: Ben Balter
 title: How I Learned to Stop Worrying and Love the Code
-excerpt: |
+description: |
   I am gave a brief lightning talk at April's WordPress DC Meetup on the basics of HTML and PHP ("coding for dummies"). The goal: learn how to avoid breaking your website if you edit it. Below are the slides and recording.
 layout: post
 categories:

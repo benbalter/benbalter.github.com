@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-excerpt: "It's time we start treating data with the same love and respect that geeks treat their code."
+description: "It's time we start treating data with the same love and respect that geeks treat their code."
 ---
 
 It's time we start treating our data with the same love and respect that geeks treat their code. It's time that we begin treating data as open source, not simply as something to be published.

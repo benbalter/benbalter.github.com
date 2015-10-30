@@ -1,6 +1,6 @@
 ---
 title: "What's next for federal IT policy, IMHO"
-excerpt: "There's been a lot of great momentum generated from the policy side, giving the geeks the environment they need to do what they do best, but that's just the start."
+description: "There's been a lot of great momentum generated from the policy side, giving the geeks the environment they need to do what they do best, but that's just the start."
 ---
 
 While a government employee, as a developer and as an attorney, I had the opportunity to work in government IT, from both a technical perspective, implementing policy at various government agencies, and from a policy perspective, shaping that same policy at the White House. Here's what's next for federal IT policy, IMHO:

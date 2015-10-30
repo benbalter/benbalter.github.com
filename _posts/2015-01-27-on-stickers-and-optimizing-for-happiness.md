@@ -1,6 +1,6 @@
 ---
 title: What does your organization optimize for?
-excerpt: "A quick glance at someone's laptop can tell you a lot about that person and their employer."
+description: "A quick glance at someone's laptop can tell you a lot about that person and their employer."
 ---
 
 Every organization is optimized for exactly one thing. In the private sector, it's usually profit. In government, depending on the agency, it's often either predictability or process. At GitHub it's developer happiness. Whatever your organization is optimized for, employees will use that organizational imperative as an implicit North Star whenever the demands of a particular task provides them with significant freedom. You'd be surprised how seemingly identical goals are tackled differently at different organizations.

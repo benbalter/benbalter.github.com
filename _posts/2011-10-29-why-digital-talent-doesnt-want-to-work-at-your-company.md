@@ -3,7 +3,7 @@ author: Ben Balter
 title: >
   Why Digital Talent Doesn't Want To
   Work At Your Company
-excerpt: >
+description: >
   It's because you're not providing
   them the right opportunity. The talent
   you want would be happy to work in an

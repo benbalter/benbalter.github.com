@@ -3,7 +3,7 @@ author: Ben Balter
 title: >
   Google Analytics Tracking of JetPack
   (Sharedaddy) Social Engagement
-excerpt: >
+description: >
   Google recently added social engagement
   tracking to its analytics suite. With a
   little bit of leg work, Google Analytics

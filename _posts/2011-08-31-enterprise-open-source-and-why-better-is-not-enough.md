@@ -3,7 +3,7 @@ author: Ben Balter
 title: >
   Enterprise, Open Source, and Why Better
   is not Enough
-excerpt: >
+description: >
   Firms looking to seek a competitive
   advantage will begin to look past "it
   has to be expensive and complicated"

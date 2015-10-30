@@ -1,6 +1,6 @@
 ---
 title: "Speak like a human: 12 ways tech companies can write less-corporate blog posts"
-excerpt: "Blog posts are a great way to tell users about ships, but it's all too easy to fall back on the marketing speak we're inundated with each day. Instead, use these tips to write user-centric posts for your corporate blog."
+description: "Blog posts are a great way to tell users about ships, but it's all too easy to fall back on the marketing speak we're inundated with each day. Instead, use these tips to write user-centric posts for your corporate blog."
 ---
 
 If there's one thing that corporations are consistently good at, it's talking like a corporation. We've all seen it: you're reading a blog post about an "*innovative, new*" this or a "*first-of-its-kind*" that, and before you realize it, although your now-glazed-over eyes may still be moving over the words, you've stopped reading entirely. You know marketing speak when you see it. They're not talking to you. They're talking at you, and the only thing they've successfully convinced you of is of your need to never visit that marketing-site-disguised-as-a-blog ever again.

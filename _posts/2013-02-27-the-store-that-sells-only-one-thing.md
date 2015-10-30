@@ -1,6 +1,6 @@
 ---
 title: The store that sells only one thing.
-excerpt: 
+description: 
 author: "Ben Balter"
 layout: post
 comments: true

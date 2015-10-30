@@ -1,6 +1,6 @@
 ---
 title: How to convert Shapefiles to GeoJSON maps for use on GitHub (and why you should)
-excerpt: "An automated process for converting ESRI Shapefiles to .geoJSON map files so that they can be more easily used with GitHub.com"
+description: "An automated process for converting ESRI Shapefiles to .geoJSON map files so that they can be more easily used with GitHub.com"
 author: Ben Balter
 layout: post
 comments: true

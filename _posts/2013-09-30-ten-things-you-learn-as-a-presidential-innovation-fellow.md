@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-excerpt: "The challenges we faced were overwhelmingly administrative, cultural and bureaucratic in nature. Here are 10 things I know now I wish I had known then."
+description: "The challenges we faced were overwhelmingly administrative, cultural and bureaucratic in nature. Here are 10 things I know now I wish I had known then."
 ---
 *This post originally published as part of [FedScoop's guest column series](http://fedscoop.com/ben-balter-10-things-i-learned-as-a-presidential-innovation-fellow/
 ).*

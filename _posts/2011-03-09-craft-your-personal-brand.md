@@ -3,7 +3,7 @@ author: Ben Balter
 title: >
   Using WordPress to Craft Your Personal
   Brand
-excerpt: "Recording and slides from my brief talk at March's joint WordCampDC and Hacks/Hackers DC MeetUp on leveraging WordPress to craft your personal brand."
+description: "Recording and slides from my brief talk at March's joint WordCampDC and Hacks/Hackers DC MeetUp on leveraging WordPress to craft your personal brand."
 layout: post
 categories:
   - Technology

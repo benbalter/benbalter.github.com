@@ -1,6 +1,6 @@
 ---
 title: "Test your content"
-excerpt: "There's another workflow that version-controlled, collaborative content enables: continuous integration for prose."
+description: "There's another workflow that version-controlled, collaborative content enables: continuous integration for prose."
 ---
 
 I've written before about how we should treat [prose and data with the same respect that developers treat code](http://ben.balter.com/2013/09/16/treat-data-as-code/) and how [Jekyll forces you to do just that](http://ben.balter.com/2013/10/30/content-is-king/), but there's another workflow that version-controlled, collaborative content enables: continuous integration.
@@ -36,7 +36,7 @@ After that, you'll want to configure Travis by adding a `.travis.yml` file with 
 
 {% highlight yaml %}
 language: ruby
-script: "rake test"
+script: "rake test" # You may need to use "bundle exec rake test" if Travis fails on the require for the HTML/Proofer
 {% endhighlight %}
 
 And finally, you need to head over to [travis-ci.org/profile](https://travis-ci.org/profile) to enable travis for your repository.

@@ -1,7 +1,7 @@
 ---
 author: Ben Balter
 title: Hacks/Hackers Swells to more than 10,000 Members
-excerpt: >
+description: >
   Hacks/Hackers, the organization
   dedicated to creating a network of
   journalists and technologists welcomed

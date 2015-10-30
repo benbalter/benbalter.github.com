@@ -1,7 +1,7 @@
 ---
 author: Ben Balter
 title: A Site By Any Other Name...
-excerpt: |
+description: |
   DHS recently began protecting America's shores from threats of a different kind: online copyright infringement. In the days before the Superbowl, the agency set out to enforce the "express written consent of the NFL" provision attached to most broadcasts by slamming the iron fist of the law down on six sports-streaming websites.
 layout: post
 categories:

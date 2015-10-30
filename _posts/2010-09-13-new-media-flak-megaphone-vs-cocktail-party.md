@@ -1,7 +1,7 @@
 ---
 author: Ben Balter
 title: 'New Media Flak: Megaphone vs. Cocktail Party'
-excerpt: "A recent back and forth in the opinion pages of GW's paper of note brought to light an emerging divide in publicists' approaches to social media."
+description: "A recent back and forth in the opinion pages of GW's paper of note brought to light an emerging divide in publicists' approaches to social media."
 layout: post
 categories:
   - Business

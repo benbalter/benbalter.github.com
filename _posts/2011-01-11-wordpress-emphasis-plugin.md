@@ -1,7 +1,7 @@
 ---
 author: Ben Balter
 title: 'WordPress Emphasis Plugin: Highlight and Permalink Text'
-excerpt: >
+description: >
   One-click implementation of the New York
   Times open source emphasis script as a
   WordPress plugin which allows for

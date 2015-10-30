@@ -7,8 +7,11 @@
 
   <h2 class="title"><a href="{{ url_base }}{{ page.url }}" itemprop="name">{% include smartify text=page.title %}</a></h2>
 
-  <meta itemprop="about" content="{{ page.excerpt | replace:'"',"&quot;" }}" />
-  <meta itemprop="description" content="{{ page.excerpt | replace:'"',"&quot;" }}" />
+  {% if page.description %}
+    {% assign seo_description = page.description | escape | markdownify | strip_html | strip_newlines %}
+    <meta itemprop="about" content="{{ seo_description }}" />
+    <meta itemprop="description" content="{{ seo_description }}" />
+  {% endif %}
   <meta itemprop="author" content="{{ site.name }}" />
   <meta itemprop="copyrightHolder" content="{{ site.name }}" />
   <meta itemprop="copyrightYear" content="{{ page.date | date: '%Y' }}" />

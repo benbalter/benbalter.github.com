@@ -1,6 +1,6 @@
 ---
 title: An open letter to government CIOs
-excerpt: "Government CIOs should seek to build systems in a lean, iterative, decentralized, and open way"
+description: "Government CIOs should seek to build systems in a lean, iterative, decentralized, and open way"
 author: Ben Balter
 layout: post
 comments: true

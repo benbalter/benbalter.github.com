@@ -1,6 +1,6 @@
 ---
 title: "19 reasons why technologists don't want to work at your government agency"
-excerpt: "If you want to attract technical talent to your agency, focus on building an environment that supports innovation and innovators."
+description: "If you want to attract technical talent to your agency, focus on building an environment that supports innovation and innovators."
 ---
 
 If you're a government agency trying to attract technical talent to your innovation efforts, posting job descriptions for positions named "Technology Specialist — Internet"[^funny-story] may not be enough. The type of private-sector technologists you're after are used to a very different workplace culture.

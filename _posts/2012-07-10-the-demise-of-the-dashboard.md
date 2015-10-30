@@ -1,7 +1,7 @@
 ---
 author: Ben Balter
 title: The Demise of the Personal Dashboard
-excerpt: >
+description: >
   When building consumer applications,
   favor simplicity over complex
   personalized dashboards which bombard
