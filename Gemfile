@@ -5,6 +5,8 @@ gem 'github-pages', :github => "github/pages-gem"
   gem "jekyll-#{plugin}", :github => "jekyll/jekyll-#{plugin}"
 end
 
+gem "jekyll-seo-tag", :github => "benbalter/jekyll-seo-tag"
+
 group :test, :development do
   gem 'html-proofer', :github => "gjtorikian/html-proofer"
   gem 'ra11y',        :github => "benbalter/ra11y"

@@ -6,16 +6,16 @@
   {% else %}
     {% assign url_base = site.url %}
   {% endif %}
+  
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-  {% include seo.html %}
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link type="text/plain" rel="author" href="{{ url_base }}/humans.txt" />
   <link rel="shortcut icon" href="/favicon.ico?v={{ site.github.build_revision }}">
 
   <link href="{{ url_base }}/assets/css/style.css?v={{ site.github.build_revision }}" rel="stylesheet" media="screen">
+
+  {% seo %}
 
 </head>
 <body class="{{ page.layout }} post{{ page.id | replace:"/","-" }}">
