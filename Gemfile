@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem 'github-pages', :github => "github/pages-gem"
+gem 'github-pages', :github => "github/pages-gem", branch: "jekyll-3"
 ["feed", "sitemap", "mentions", "redirect-from"].each do |plugin|
   gem "jekyll-#{plugin}", :github => "jekyll/jekyll-#{plugin}"
 end
