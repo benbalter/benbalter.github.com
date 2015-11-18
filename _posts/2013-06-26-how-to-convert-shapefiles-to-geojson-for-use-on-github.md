@@ -42,4 +42,4 @@ For one, you're liberating public geodata that would otherwise be inaccessible t
 
 ## The result
 
-<script src="https://embed.github.com/view/geojson/benbalter/dc-maps/master/embassies.geojson">&nbsp;</script>
+<script src="https://embed.github.com/view/geojson/benbalter/dc-maps/master/maps/embassies.geojson">&nbsp;</script>
