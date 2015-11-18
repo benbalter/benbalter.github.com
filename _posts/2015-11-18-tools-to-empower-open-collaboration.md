@@ -75,25 +75,29 @@ The four qualities above are ideals. In practice, there are a handful of specifi
 
 I began by noting that the phrase "everything should be on GitHub", doesn't necessitate a certain tool, but if you believe working the way described above is valuable, few of today's consumer collaboration tools encourage open source inspired workflows. Let's take a look at a few:
 
-| Tool          | Open               | Captures Process      | Linkable                         | Async              |
-|:--------------|:-------------------|:----------------------|:---------------------------------|:-------------------|
-| GitHub        | :heavy_check_mark: | :heavy_check_mark:    | :heavy_check_mark:               | :heavy_check_mark: |
-| (Text) Chat   | :heavy_check_mark: | :heavy_check_mark:    | :heavy_check_mark:               | :heavy_check_mark: |
-| Blogs         | :heavy_check_mark: | :x:                   | :heavy_check_mark:               | :heavy_check_mark: |
-| Google Docs   | :heavy_check_mark: | :x:[^tracked-changes] | :x:[^gdocs-links]                | :heavy_check_mark: |
-| Microsft Word | :x:[^proprietary]  | :x:[^tracked-changes] | :x:                              | :heavy_check_mark: |
-| Sharepoint    | :x:[^proprietary]  | :x:[^tracked-changes] | :x:[^links]                      | :heavy_check_mark: |
-| Email         | :x:[^proprietary]  | :heavy_check_mark:    | :x:                              | :check             |
-| Box/DropBox   | :x:[^proprietary]  | :x:                   | :heavy_check_mark: [^deep-links] | :heavy_check_mark: |
-| Video chat    | :x:                | :x:                   | :x:[^recodings]                  | :x:[^recodings]    |
-| IRL Meetings  | :x:                | :x:                   | :x:                              | :x:                |
-{: .table}
+| Tool          | Open               | Captures<br /> Process | Linkable                         | Async              |
+|:--------------|:-------------------|:-----------------------|:---------------------------------|:-------------------|
+| GitHub        | :heavy_check_mark: | :heavy_check_mark:     | :heavy_check_mark:               | :heavy_check_mark: |
+| (Text) Chat   | :heavy_check_mark: | :heavy_check_mark:     | :heavy_check_mark:               | :heavy_check_mark: |
+| Blogs         | :heavy_check_mark: | :x:                    | :heavy_check_mark:               | :heavy_check_mark: |
+| Google Docs   | :heavy_check_mark: | :x:[^tracked-changes]  | :x:[^links]                      | :heavy_check_mark: |
+| Microsft Word | :x:[^proprietary]  | :x:[^tracked-changes]  | :x:                              | :heavy_check_mark: |
+| Sharepoint    | :x:[^proprietary]  | :x:[^tracked-changes]  | :x:[^links]                      | :heavy_check_mark: |
+| Email         | :x:[^proprietary]  | :heavy_check_mark:     | :x:                              | :heavy_check_mark: |
+| Box/DropBox   | :x:[^proprietary]  | :x:                    | :heavy_check_mark: [^deep-links] | :heavy_check_mark: |
+| Video chat    | :x:                | :x:                    | :x:[^recordings]                 | :x:[^recordings]   |
+| IRL Meetings  | :x:                | :x:                    | :x:                              | :x:                |
+{: .table style="width: 60%; margin-left: auto; margin-right: auto;" }
+
+### Practicality beats purity
 
 GitHub's not the right tool for all sorts of use cases. It probably doesn't make perfect sense for hiring, for account tracking, for support, or for contract management, to name a few. But in many cases, although far from perfect, if you believe the above ideals are how we should work, or will work in the future, it's part of a suite of tools, that together, represent the best things currently out there.
 
 Although I think it's the future of knowledge work, this develop-inspired workflow isn't for everyone, at least not today. One of [GitHub's Zen](http://ben.balter.com/2015/08/12/the-zen-of-github/), is to prefer practicality over purity. However pure the workflow might be on paper, if you've got a team of lawyers that have never used anything other than Outlook, Word, and regularly scheduled in-person meetings, absent a strong personal, professional, or philosophical motivation, absent significant un-training and re-education, you'd be hard-press to implement a modern workflow that's on a trajectory to succeed.
 
 [How you work is just as important as what you work on](http://ben.balter.com/2015/09/21/open-source-behind-the-firewall/#how-you-work-is-as-important-as-what-you-work-on). I challenge you to take a critical look at your own workflow, and ask yourself if you're working the way you'd like to work, or just the way everyone else does.
+
+---
 
 [^tracked-changes]: While Google Docs and Microsoft Word can track changes (or you can version files manually via email), changes are tracked on a line-by-line or even character-by-character basis, making it hard to capture an entire revision in a single changeset. Compare a diff on GitHub (e.g., atomic commit) to the revision history menu on Google Docs or track changes in Microsoft Word.
 
