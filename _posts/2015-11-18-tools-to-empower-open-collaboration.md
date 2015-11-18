@@ -61,7 +61,7 @@ There's a strong case to be made that in-person, synchronous meetings should be 
 
 The four qualities above are ideals. In practice, there are a handful of specific design patterns that often implement them. Here are a handful that I've seen across tools I like at GitHub:
 
-* @mentions - Like Twitter or Facebook, @mentions allow you to invite others to a conversation on equal footing and with equal context
+* **@mentions** - Like Twitter or Facebook, @mentions allow you to invite others to a conversation on equal footing and with equal context
 * **The ability to opt in and opt out** - Unlike email where CC's are controlled by the sender, not the receiver, one of my favorite GiHub features is the ability to opt-in to any conversation by clicking subscribe, and to opt-out, just as easily, if @mentioned. This encourages liberally mentioning teams and teammates while minimizing noise
 * **Single sign on** - If you're using more than a single collaboration tool, single sign on is crucial to ensuring openness. If I have to ask someone to create an account every time I'm linked to a resource in a new system, it will significantly hamper one's ability to share and receive information
 * **Emoji** - Emoji isn't just for fun. When you shift conversations from in-person to text-based media, emoji become essential to expression. You can write a thousand words to show sincerity, sarcasm, light heartedness, or delight, or you can use a single emoji character to convey the same thing.
