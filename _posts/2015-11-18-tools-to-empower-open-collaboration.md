@@ -1,6 +1,6 @@
 ---
 title: Four characteristics of modern collaboration tools
-description:
+description: Today, open-source-inspired collaboration tools are open, linkable, asynchronous, and naturally capture and expose process. Ask yourself if you're working the way you'd like to work, or just the way everyone else does
 ---
 
 At GitHub, we have a unique way of working. Some might say it's the future of knowledge work, others might say that we picked up a pair of bolt cutters a few years back, and now [everything looks like the lock on Wolf Blitzer's boat house](https://xkcd.com/801/). In reality, it's probably somewhere in between.
@@ -93,13 +93,13 @@ GitHub's not the right tool for all sorts of use cases. It probably doesn't make
 
 Although I think it's the future of knowledge work, this develop-inspired workflow isn't for everyone, at least not today. One of [GitHub's Zen](http://ben.balter.com/2015/08/12/the-zen-of-github/), is to prefer practicality over purity. However pure the workflow might be on paper, if you've got a team of lawyers that have never used anything other than Outlook, Word, and regularly scheduled in-person meetings, absent a strong personal, professional, or philosophical motivation, absent significant un-training and re-education, you'd be hard-press to implement a modern workflow that's on a trajectory to succeed.
 
-[How you work is just as important as what you work on](http://ben.balter.com/2015/09/21/open-source-behind-the-firewall/#how-you-work-is-as-important-as-what-you-work-on). I challenge you to take a critial look at your own workflow, and ask yourself if you're working the way you'd like to work, or just the way everyone else does.
+[How you work is just as important as what you work on](http://ben.balter.com/2015/09/21/open-source-behind-the-firewall/#how-you-work-is-as-important-as-what-you-work-on). I challenge you to take a critical look at your own workflow, and ask yourself if you're working the way you'd like to work, or just the way everyone else does.
 
 [^tracked-changes]: While Google Docs and Microsoft Word can track changes (or you can version files manually via email), changes are tracked on a line-by-line or even character-by-character basis, making it hard to capture an entire revision in a single changeset. Compare a diff on GitHub (e.g., atomic commit) to the revision history menu on Google Docs or track changes in Microsoft Word.
 
 [^links]: While you can link to the document as a whole, AFAIK, you can't link to individual versions, changes, comments, or decisions.
 
-[^recordings]: Video conferences can theoretically be recorded and posted (we do this a lot at GitHub) in order to support asynchronous *viewing*, but video chat doesn't support asycronous participation, and absent indexed transcripts and search, something beyond most organization's means, don't readily support deep linking or discoverability.
+[^recordings]: Video conferences can theoretically be recorded and posted (we do this a lot at GitHub) in order to support asynchronous *viewing*, but video chat doesn't support asynchronous participation, and absent indexed transcripts and search, something beyond most organization's means, don't readily support deep linking or discoverability.
 
 [^deep-links]: While you can link to a particular file, [you can't link to content within the file](2014/10/07/expose-process-through-urls#great-urls) (and assume the reader has the appropriate proprietary software to view it).
 
