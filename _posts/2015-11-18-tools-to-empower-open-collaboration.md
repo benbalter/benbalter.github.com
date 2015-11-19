@@ -100,7 +100,7 @@ Although I think it's the future of knowledge work, this develop-inspired workfl
 
 ---
 
-[^git-blog]: It's possible for a blog to capture and expose process if it is creating using tools such as GitHub and GitHub Pages, like this blog is. But this is not (yet) the case for the vast majority of blogs.
+[^git-blog]: It's possible for a blog to capture and expose process if it is created using tools such as GitHub and GitHub Pages, like this blog is. But this is not (yet) the case for the vast majority of blogs.
 
 [^tracked-changes]: While Google Docs and Microsoft Word can track changes (or you can version files manually via email), changes are tracked on a line-by-line or even character-by-character basis, making it hard to capture an entire revision in a single changeset. Compare a diff on GitHub (e.g., atomic commit) to the revision history menu on Google Docs or "track changes" in Microsoft Word.
 
