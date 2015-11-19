@@ -8,7 +8,7 @@
   <h2 class="title"><a href="{{ url_base }}{{ page.url }}" itemprop="name">{% include smartify text=page.title %}</a></h2>
 
   {% if page.description %}
-    {% assign seo_description = page.description | escape | markdownify | strip_html | strip_newlines %}
+    {% assign seo_description = page.description | escape | markdownify | strip_html | strip_newlines | xml_escape %}
     <meta itemprop="about" content="{{ seo_description }}" />
     <meta itemprop="description" content="{{ seo_description }}" />
   {% endif %}
