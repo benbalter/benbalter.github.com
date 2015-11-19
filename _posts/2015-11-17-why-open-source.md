@@ -3,15 +3,20 @@ title: Why open source
 description:
 ---
 
-There are many reasons why you might consider consuming, publishing, collaborating on, or supporting open source.
+Open source is awesome. There are many reasons why you might consider consuming, publishing, collaborating on, or supporting open source. Here's a few:
 
 ### Microeconomic
 
-Open source is in your best interest, whether you're a corporation, a small business, a non-profit, or a government agency. GitHub Cofounder Tom Preston-Werner lays this argument out best in his post [Open Source (Almost) Everything](http://tom.preston-werner.com/2011/11/22/open-source-everything.html).
+Open source is in your best interest, whether you're a corporation, a small business, a non-profit, or a government agency.
 
-* All the easy problems have already been solved
-* Shift developers from low-value work to high-value work
-* Modern software development practices (http://ben.balter.com/2015/09/21/open-source-behind-the-firewall/)
+* **Shift developers from low-value work to high-value work** - We like to say in open source that *All the easy problems have already been solved*. Blogging, content management, and operating systems are all problems with established open source solutions, to name a few. While your developers could spend their time reinventing wheels, it's far preferable to use the worlds best wheel, when that wheel is freely available. This frees developers up to work on yet-unsolved challenges, the types of chalenges that are unique to, or add value to your organization.
+
+* [**Adopt modern software development practices**] (http://ben.balter.com/2015/09/21/open-source-behind-the-firewall/)
+* **[With thousands of eyes, all bugs are shallow**](https://en.wikipedia.org/wiki/Linus%27s_Law)
+
+GitHub Cofounder Tom Preston-Werner lays out some additional arguments in his post [Open Source (Almost) Everything](http://tom.preston-werner.com/2011/11/22/open-source-everything.html).
+
+
 * Great advertising
 * Force multiplier
 * Attract talent
@@ -19,7 +24,8 @@ Open source is in your best interest, whether you're a corporation, a small busi
 * Retain talent
 * Modular
 * Reduce duplication of effort
-* With 1000s of eyes, all bugs are shallow
+
+
 
 ### Macroeconomic
 
