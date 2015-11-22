@@ -65,7 +65,7 @@ The four qualities above are ideals. In practice, there are a handful of specifi
 * **The ability to opt in and opt out** - Unlike email where CC's are controlled by the sender, not the receiver, one of my favorite GitHub features is the ability to opt-in to any conversation by clicking subscribe, and to opt-out, just as easily, if @mentioned. This encourages liberally mentioning teams and teammates while minimizing noise.
 * **Single sign on** - If you're using more than a single collaboration tool, single sign on is crucial to ensuring openness. If I have to ask someone to create an account every time I'm linked to a resource in a new system, it will significantly hamper one's ability to share and receive information.
 * **Emoji** - Emoji isn't just for fun. When you shift conversations from in-person to text-based media, emoji become essential to expression. You can write a thousand words to show sincerity, sarcasm, light heartedness, or delight, or you can use a single emoji character to convey the same thing.
-* **Markdown** - Markdown isn't just a matter of preference. [Markdown forces structured, semantic writing ](/2014/03/31-word-versus-markdown-more-than-mere-semantics), makes it easy to bring in external resources, and encourages sharing information between media.
+* **Markdown** - Markdown isn't just a matter of preference. [Markdown forces structured, semantic writing ](/2014/03/31-word-versus-markdown--more-than-mere-semantics), makes it easy to bring in external resources, and encourages sharing information between media.
 * **Deep links** - Deep links [link to particular content within a page](2014/10/07/expose-process-through-urls#great-urls). Being able to link to a particular comment, post, or point encourages grounded discussions, much more so than linking to an entire document which readers are much less likely to consume in full.
 * **Mobile** - Mobile apps and views support distributed team members and frequent travelers.
 * **RESTful API** - A complete and documented API avoids vendor/system lock in, and supports accessing the information from multiple platforms and in multiple formats.
@@ -79,7 +79,8 @@ I began by noting that the phrase "everything should be on GitHub", doesn't nece
 |:--------------|:-------------------|:-----------------------|:---------------------------------|:-------------------|
 | GitHub        | :heavy_check_mark: | :heavy_check_mark:     | :heavy_check_mark:               | :heavy_check_mark: |
 | (Text) Chat   | :heavy_check_mark: | :heavy_check_mark:     | :heavy_check_mark:               | :heavy_check_mark: |
-| Blogs         | :heavy_check_mark: | :x:                    | :heavy_check_mark:               | :heavy_check_mark: |
+| Wikis         | :heavy_check_mark: | :heavy_check_mark:     | :heavy_check_mark:               | :heavy_check_mark: |
+| Blogs         | :heavy_check_mark: | :x:[^git-blog]         | :heavy_check_mark:               | :heavy_check_mark: |
 | Google Docs   | :heavy_check_mark: | :x:[^tracked-changes]  | :x:[^links]                      | :heavy_check_mark: |
 | Microsft Word | :x:[^proprietary]  | :x:[^tracked-changes]  | :x:                              | :heavy_check_mark: |
 | Sharepoint    | :x:[^proprietary]  | :x:[^tracked-changes]  | :x:[^links]                      | :heavy_check_mark: |
@@ -98,6 +99,8 @@ Although I think it's the future of knowledge work, this develop-inspired workfl
 [How you work is just as important as what you work on](http://ben.balter.com/2015/09/21/open-source-behind-the-firewall/#how-you-work-is-as-important-as-what-you-work-on). I challenge you to take a critical look at your own workflow, and ask yourself if you're working the way you'd like to work, or just the way everyone else does.
 
 ---
+
+[^git-blog]: It's possible for a blog to capture and expose process if it is created using tools such as GitHub and GitHub Pages, like this blog is. But this is not (yet) the case for the vast majority of blogs.
 
 [^tracked-changes]: While Google Docs and Microsoft Word can track changes (or you can version files manually via email), changes are tracked on a line-by-line or even character-by-character basis, making it hard to capture an entire revision in a single changeset. Compare a diff on GitHub (e.g., atomic commit) to the revision history menu on Google Docs or "track changes" in Microsoft Word.
 

@@ -13,7 +13,7 @@ With CI services like [Travis CI](https://travis-ci.org/), whether public or pri
 
 ### Checking links and images
 
-Let's say you have a Jekyll site, versioned on GitHub, and published on GitHub Pages, and you'd, like Travis to give your content a quick checkup, every time you make a change. First, you'll want to add the following to your site's `Gemfile`:
+Let's say you have a Jekyll site, versioned on GitHub and published on GitHub Pages, and you'd like Travis to give your content a quick checkup every time you make a change. First, you'll want to add the following to your site's `Gemfile`:
 
 {% highlight ruby %}
 group :test do
