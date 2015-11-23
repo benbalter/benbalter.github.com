@@ -91,7 +91,7 @@ If you're a developer (or an aspiring developers), open source can provide an ea
 
 * **It's fun** - According to Wikipedia, [open source is a hobby](https://en.wikipedia.org/wiki/List_of_hobbies#cite_ref-8). In fact, open source has traditionally had the reputation of being the product of hobbyists (although I'd argue that's less true today). Open source is fun. If you're [a hacker](http://ben.balter.com/2013/02/16/what-is-a-hacker/) it provides an endless set of ever-changing set of Rubix cubes for you to solve on weekends. Just as puzzles (both crossword and jigsaw) provide bite-sized intellectual escapes, the order and symmetry of open source can often be a rock garden of code (especially for those for which football is an embarrassing non-starter).
 
-There are many reasons why you should prefer consuming, publishing, collaborating on, and supporting open source, and if yours isn't listed here, I'd love to hear it. Whatever your reason, it's clear open source isn't the next big thing. Open source is already here.
+There are many reasons why you should prefer consuming, publishing, collaborating on, and supporting open source, and if yours isn't listed here, I'd love to hear (and add) it. Whatever your reason, it's clear open source isn't the next big thing. Open source is already here.
 
 ---
 
