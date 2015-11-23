@@ -1,6 +1,6 @@
 ---
 title: Why open source
-description: Open source is awesome. There are many reasons why you might consider consuming, publishing, collaborating on, or supporting open source. Here's a few.
+description: 25 reasons why you and your organization should consume, publish, contribute to, & support open source.
 ---
 
 Open source is awesome. There are many reasons why you might consider consuming, publishing, collaborating on, or supporting open source.[^laundry-list] Here are a few of them:
