@@ -65,7 +65,7 @@ The formal name for open source is [free/libre open source software](https://en.
 
 * **Obligation to give back** - Open source is the give-a-penny-take-a-penny jar of software. If you consume open source, be it a server, a desktop publishing application, or a software library, you have an obligation to give back to the community. After all, without the contribution of others, the micro- and macroeconomic motivations would no longer hold true, and open source as we know it would cease to exist. This is [the Golden Rule](https://en.wikipedia.org/wiki/Golden_Rule), or in traditional philosophical terms, a [categorial imperitive](https://en.wikipedia.org/wiki/Categorical_imperative).
 
-* **Teching the next generation** - Many of the industry's most prominent engineers today cut their teeth by learning from open source. When software's underlying code is made available for inspection, consumers can learn how their favorite software works and computer science courses can analyze how the industry's cutting edge technology is built. This goes a long way to train the next generation of software engineers (who without open source would be left guessing at the inner-workings of prior iterations).
+* **Teaching the next generation** - Many of the industry's most prominent engineers today cut their teeth by learning from open source. When software's underlying code is made available for inspection, consumers can learn how their favorite software works and computer science courses can analyze how the industry's cutting edge technology is built. This goes a long way to train the next generation of software engineers (who without open source would be left guessing at the inner-workings of prior iterations).
 
 ### Transparency motivations
 
