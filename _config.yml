@@ -4,7 +4,7 @@
 name: Ben Balter
 author: Ben Balter
 title: Ben Balter
-description: "Government evangelist, attorney, open source developer"
+description: "Attorney, developer, open source evangelist"
 
 # Images
 gravatar_id: ea353bd28baa1aefaefae736a19fcf2a
@@ -107,6 +107,6 @@ gems:
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-seo-tag
-  
+
 sass:
   style: :compressed
