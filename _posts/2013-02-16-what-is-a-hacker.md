@@ -28,19 +28,19 @@ Somewhat surprisingly, hacking isn't at all about technology. It's about communi
 
 <!-- more -->
 
-## The Hacker Ethic
+### The Hacker Ethic
 
 Hackers are motivated by a distinct ethos.[^1] It's about **sharing**. Hacking requires the ability to take things apart and figure out how they work in the hopes of ultimately improving upon them. It's a "hands on" imperative that necessitates both access to and the right to fork a project in hopes of building something even more interesting and ultimately bettering what's available to all. It's about **openness**. Hacking is a group effort, and thus the free flow of information is a necessity to empower hackers to fix, improve, and reinvent. Secrecy simply serves to stifle creative possibility. Freedom of inquiry requires that information be free. It's about **decentralization**. The best way to promote the free exchange of information is to have an open system that provides no friction between a hacker and his or her quest for knowledge. By intentionally or unintentionally erecting such barriers, bureaucracies, whether corporate, government, or university, are inherently flawed systems.
 
-## The Hacker Way
+### The Hacker Way
 
 But it's more than ideology. There's a practical side to it as well. There's a thirst, a drive. There's a constant intellectual itch just begging to be scratched.[^2] **The world is full of problems waiting to be solved**. In the hands of a creative mind, technology can make the world a better place for all. Just as athletes seek delight in pushing their bodies past their physical limits, hackers seek the thrill of pushing tools beyond what is known, what is solved, and what is possible. But that also means that **no problem should ever have to be solved twice**. Creative minds are a valuable, finite resource and shouldn't be wasted on re-inventing the wheel when there are other fascinating, unsolved problems waiting to be solved.
 
-## Hacker Culture
+### Hacker Culture
 
 Hackers embody a unique culture that often flies in the face of traditional paradigms. It's a culture of **meritocracy**. Contribution is the sole currency of the Internet. Money and title bare far less weight than meaningful contributions, be they code, copy, design, whatever. It's a culture of **elegance**. Hackers strive for artfully arranged, innovative techniques that perform complicated tasks with as few instructions as possible. and It's a culture of **playful cleverness**. There's a certain lighthearted cleverness to being a hacker, often expressed by injecting dry wit and memes into otherwise mundane tasks.
 
-## Hackers in the Enterprise
+### Hackers in the Enterprise
 
 It's no surprise then, that as the pace of technological innovation quickens, the very bureaucracies that hackers condemn are [beginning to appreciate](http://www.intechnic.com/blog/a-hacker-the-secret-ingredient-your-it-department-lacks/) their ability to consistently deliver high-value projects at little cost. Heck, even the White House recently [announced its first hackathon](http://www.whitehouse.gov/blog/2013/02/05/announcing-we-people-20-and-white-house-hackathon). But elevating hackers in traditional organizations is not simply another name for "skunk works," just as a hackathon is no excuse for not consistently fostering a culture of innovation. It's not about working faster or cheaper. 
 
