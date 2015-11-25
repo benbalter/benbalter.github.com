@@ -25,7 +25,7 @@ If the fabric of the internet is so necessarily sewn with URLs, why then, do web
 
 If you asked me to send you GitHub's [SAM.gov](http://sam.gov) registration, the portal that centralizes common information about all businesses that sell to the federal government, I'd be forced to send you the following:
 
-1. Go to [`sam.gov`](http://sam.gov)
+1. Go to [`sam.gov`](https://sam.gov)
 2. Click `Search Records`
 3. Type in the word "GitHub"
 4. Click `Search`
@@ -41,7 +41,7 @@ The second way URL-less information is created is when the internet is relegated
 
 Despite a fundamental shift in the way people interact with technology (hint: the iPad is just five years old), many workflows haven't embraced this reality. If the first step in content creation is to fire up a desktop word processor that has margins and page breaks, you're already heading down an analog trajectory. And to then go back and adapt the content for the web is going to be a subpar experience for information publishers and consumers alike.
 
-Just as internal communication should prefer high-fidelity, electronic mediums in order capture and expose process, so too should external communication be treated with the same respect. A painter imagines the final masterpiece before ever touching brush to canvas. Whether exposed internally or with the public, great workflows start with the URL, in its ideal, non-PDF form, and work backwards to content creation.  
+Just as internal communication should prefer high-fidelity, electronic mediums in order capture and expose process, so too should external communication be treated with the same respect. A painter imagines the final masterpiece before ever touching brush to canvas. Whether exposed internally or with the public, great workflows start with the URL, in its ideal, non-PDF form, and work backwards to content creation.
 
 ## Great URLs
 
