@@ -4,8 +4,11 @@
 
 date=$(date +"%Y-%m-%d")
 file="_posts/$date-$1.md"
+title=$(echo "$1" | sed s/-/\ /g)
 
 git checkout -B $1
 touch "$file"
-echo "---\ntitle:\ndescription:\n---\n\n" > $file
+echo "---\ntitle: $title\ndescription:\n---\n\n" > $file
+git commit -m "Create $file"
+
 atom pwd "$file"
