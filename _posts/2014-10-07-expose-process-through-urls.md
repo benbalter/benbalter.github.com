@@ -23,9 +23,9 @@ If the fabric of the internet is so necessarily sewn with URLs, why then, do web
 
 #### URLs don't require additional instructions
 
-If you asked me to send you GitHub's [SAM.gov](http://sam.gov) registration, the portal that centralizes common information about all businesses that sell to the federal government, I'd be forced to send you the following:
+If you asked me to send you GitHub's [SAM.gov](http://sam.gov){: data-proofer-ignore="true" } registration, the portal that centralizes common information about all businesses that sell to the federal government, I'd be forced to send you the following:
 
-1. Go to [`sam.gov`](https://sam.gov)
+1. Go to [`sam.gov`](https://sam.gov){: data-proofer-ignore="true" }
 2. Click `Search Records`
 3. Type in the word "GitHub"
 4. Click `Search`
