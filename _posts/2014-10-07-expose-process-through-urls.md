@@ -5,11 +5,11 @@ description: "The next time you begin a new project, adopt a high-fidelity, elec
 
 If there's one thing that made the internet what it is, it's the URL. It's what makes sharing funny cat videos possible. It's the bookmark to access your bank account balance. It's the Wikipedia link you send your buddy to end a heated argument. Why then, are our most online important interactions — collaborating with coworkers, accessing government services, or consuming open data — all too often, tragically URL-less?
 
-## The humble URL
+### The humble URL
 
 There's a lot packed into that seemingly innocuous string at the top of your browser. At its most basic level, a URL is a promise that so long as they have that magical sequence of characters, anyone in the world can see exactly what you see. In technical terms, a URL or [Uniform Resource Locator](https://en.wikipedia.org/wiki/Uniform_resource_locator) is the means by which to access a resource. That resource can be anything from a product on Amazon.com to an individual Tweet on Twitter to a page in the Congressional Record. A URL is also, by definition, also a URI ([uniform resource identifier](https://en.wikipedia.org/wiki/Uniform_resource_identifier)), meaning no two things ever have the same URL. Put another way, if you have something's URL, you also have a unique way to identify it, today and in perpetuity. It gives your content a permanent home on the internet, our primary means of communication.
 
-## Exposing process
+### Exposing process
 
 But URLs are more than just the phone numbers or license plates for the internet. When used correctly, [they expose process](http://tomayko.com/writings/adopt-an-open-source-process-constraints). Whereas in many organizations, asking why something is the way it is involves several trips up and down the hall to "ask Bob, I think he might have been around then" (with Bob somehow always being out of the office), at GitHub, as in most of open source, every decision has its own URL.
 
@@ -17,11 +17,11 @@ That URL exposes not just what decision was made, but why it was made, who made 
 
 We rarely use email for exactly that reason. It's not available to those not originally CC'd, it's not easily referenced, and most importantly, it's easily lost. What was the subject again? Was it sent to this distribution list or the other? Did I go over my quota? The medium doesn't matter (issues, forums, chat with transcripts) so long as it's possible to move backward from a given deliverable and understand how things came to be.
 
-## Where things go wrong
+### Where things go wrong
 
 If the fabric of the internet is so necessarily sewn with URLs, why then, do websites, especially government websites, so often violate this sacred cyber-norm?
 
-### URLs don't require additional instructions
+#### URLs don't require additional instructions
 
 If you asked me to send you GitHub's [SAM.gov](http://sam.gov) registration, the portal that centralizes common information about all businesses that sell to the federal government, I'd be forced to send you the following:
 
@@ -35,7 +35,7 @@ Sadly, that's the most direct way anyone can get to that public information. Tak
 
 Regardless of the medium, one thing remains true: URLs don't require additional instructions. If the steps to retrieve a particular piece of content on the internet involves verbs — sub-instructions like "click", "scroll", or "search" — that content has not been afforded the respect a proper URL provides. "Take this URL" should be the only instruction you need. In technical terms, the internet is [stateless](https://en.wikipedia.org/wiki/Stateless_protocol).
 
-### The internet is not an afterthought
+#### The internet is not an afterthought
 
 The second way URL-less information is created is when the internet is relegated to an afterthought. Spoiler alert: the internet is here to stay. Whatever you're doing, whether it's running a city council meeting or starting a small business, if you don't take the internet into account when creating your workflows, it's going to be an uphill battle to get things online.
 
@@ -43,7 +43,7 @@ Despite a fundamental shift in the way people interact with technology (hint: th
 
 Just as internal communication should prefer high-fidelity, electronic mediums in order capture and expose process, so too should external communication be treated with the same respect. A painter imagines the final masterpiece before ever touching brush to canvas. Whether exposed internally or with the public, great workflows start with the URL, in its ideal, non-PDF form, and work backwards to content creation.
 
-## Great URLs
+### Great URLs
 
 Having a digital-first workflow and a standards compliant website is a great first step, but to truly put content on a pedestal, great URLs take digital publication three steps further:
 
@@ -53,7 +53,7 @@ Having a digital-first workflow and a standards compliant website is a great fir
 
   * **They link deep** - In any given page, there's a lot going on. Maybe it's a long blog post or simply a heated discussion thread. "Scroll two third down and you'll see it" is never an acceptable way to share content. Great URLs identify not only which page, but where on that page. Hover over the heading above and you'll have the opportunity to link directly to it (the URL updating with an [in-page anchor hash](https://en.wikipedia.org/wiki/Fragment_identifier)).
 
-## Knowledge work as craft
+### Knowledge work as craft
 
 Whether you're an attorney, a civil servant, or a web developer, in today's digital world, if you don't make sprockets for a living, there's a good chance that you're a knowledge worker. Your deliverable at the end of each day, doesn't actually exist beyond magnetic patterns on a hard disk. Through meetings, discussions, and drafting, you create organizational knowledge in one form or another.
 
