@@ -21,5 +21,5 @@ env:
   global:
     NOKOGIRI_USE_SYSTEM_LIBRARIES=true
   matrix:
-    TRAVIS_BUILD=html_proofer
-    TRAVIS_BUILD=ra11y
+    - TRAVIS_BUILD=html_proofer
+    - TRAVIS_BUILD=ra11y
