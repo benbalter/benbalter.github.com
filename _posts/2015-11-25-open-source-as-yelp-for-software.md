@@ -48,4 +48,4 @@ Of course, much of the feedback might be technical in nature. Anyone can say a b
 
 What if every government website was required, at least in part, to be open source. Start with an empty repository where citizens can open issues and share experiences, and evolve to a world in which we can truly account for the services our we charge our elected officials with implementing. All of a sudden, it becomes easier to motivate government agencies to deliver the services they deliver than it currently is to motivate restaurants to improve the food they serve.
 
-When you think of open source as Yelp for software, open source suddenly becomes a means of creating more user-centric solutions, rather than a wonky means of of producing more philosophically pure code.
+When you think of open source as Yelp for software, open source suddenly becomes a means of creating more user-centric solutions, rather than a wonky means of producing more philosophically pure code.
