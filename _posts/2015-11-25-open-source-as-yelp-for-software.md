@@ -1,5 +1,5 @@
 ---
-title: Open source as yelp for software
+title: Open source as yelp for software (or why we shouldn't hold government agencies to a lesser standard than we hold Taco Bell)
 description: Open source has become somewhat of a Yelp for software, and with it, has the potential to shift the balance of power from software publishers to software consumers.
 ---
 
@@ -25,4 +25,19 @@ Whether a restaurant, a software project, or an open data effort, public, consum
 
 ### Waiter, there's a bug in my software
 
-What if all software had public review forums like most restaurants do today? This is true of just about all open source software, and the same consumer-empowering trends hold true.
+What if all software had public review forums like most restaurants do today? This is true of just about all open source software, and the same consumer-empowering trends could hold true of closed-sourec software as well. There's no reason a software project's repository on GitHub needs to contain the software's source code. Even if it served as a consumer-moderated discussion forum, it'd have several implications for the software:
+
+* **Perception** -
+* **Customer experience** -
+* **Quality** -
+* **Follow up**
+
+### Government's transparency imperative
+
+Even if you find flaws in the argument that all software, both open and closed, should have public discussion forums, one class of software, government software, could benefit disproportionately from being more transparent.
+
+Unlike say, Coke or Pepsi, government organizations have an obligation to be transparent. For one, the software is taxpayer-funded, and thus taxpayers have a right to the software they paid for, and to have a say in its direction. Additionally, as software and algorithms are increasingly relied on by government to regulate industries and deliver citizens services, software transparency becomes a means for citizens to check the government's work.
+
+Today, I suspect that a significant percentage of government software, isn't closed source for security reasons, but rather because closed source is a cushy default, and at this point, it's easy to sweep  imperfect code (because all code is imperfect) under the rug, rather than be potentially embarrased by potentially accurate, but critical feedback.
+
+### Why do government agencies get off easier than Taco Bell?
