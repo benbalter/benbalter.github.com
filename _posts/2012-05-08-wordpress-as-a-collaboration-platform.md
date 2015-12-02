@@ -40,4 +40,4 @@ Recording of the presentation (starts at the 10:00 mark):
 *   [Display Custom Fields](http://wordpress.org/extend/plugins/wp-display-custom-fields/)
 *   [Count Shortcode](http://wordpress.org/extend/plugins/count-shortcode/)
 *   [Faceted Search Widget](http://wordpress.org/extend/plugins/faceted-search-widget/)
-*   [Custom Taxonomy Generator](http://themergency.com/generators/wordpress-custom-taxonomy/)
+*   [Custom Taxonomy Generator](https://generatewp.com/taxonomy/)

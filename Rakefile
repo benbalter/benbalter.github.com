@@ -35,5 +35,13 @@ task :test do
   puts config.to_yaml
   puts "---"
   build_site
-  html_proofer && ra11y
+
+  # Use environmental variable to run tests in parallel
+  if ENV["TRAVIS_BUILD"] == "html_proofer"
+    html_proofer
+  elsif ENV["TRAVIS_BUILD"] == "ra11y"
+    ra11y
+  else
+    html_proofer && ra11y
+  end
 end
