@@ -1,5 +1,5 @@
 ---
-title: Open source as yelp for software
+title: Open source as Yelp for software
 description: Open source has become somewhat of a Yelp for software, and with it, has the potential to shift the balance of power from software publishers to software consumers.
 ---
 
@@ -45,9 +45,9 @@ Today, I suspect that a significant percentage of government software, isn't clo
 
 ### Why do government agencies get off easier than Taco Bell?
 
-So why then, do we hold government agencies to a lesser standard than we hold Taco Bell? If I go to Taco Bell, a private sector company for which there are plenty of competitors, and they deliver dissatisfactory service, I have a megaphone in the form of an online forum (and often their immediate attention as a result). If I go to renew my passport or get a new social security number, services only the government provides, I have no such recourse. There are no K-street lobbyists who advocate for better user experience, or special interest groups who run ads in support of shorter wait times at the DMV.
+So why then, do we hold government agencies to a lesser standard than we hold fast food restaraunts? If I go to Taco Bell, a private sector company for which there are plenty of competitors, and they deliver dissatisfactory service, I have a megaphone in the form of an online forum (and often their immediate attention as a result). If I go to renew my passport or get a new social security number, services only the government provides, I have no such recourse. There are no K-street lobbyists who advocate for better user experience, or special interest groups who run ads in support of shorter wait times at the DMV.
 
-What if every government website was required, at least in part, to be open source. Start with an empty repository where citizens can open issues and share experiences,[^clarify] and evolve to a world in which we can truly account for the services we charge our elected officials with implementing. All of a sudden, it becomes easier to help government agencies to deliver the services they deliver than it is to help restaurants improve the food they serve.
+What if every government website was required, at least in part, to be open source. Start with an empty repository where citizens can open issues and share experiences,[^clarify] and evolve to a world in which we can truly account for the services we charge our elected officials with implementing. All of a sudden, it becomes easier for citizens to help government agencies deliver the services they deliver than it is for a customer to help a restaurant improve the food they serve.
 
 When you think of open source as Yelp for software, open source suddenly becomes a means of creating more user-centric solutions, rather than a wonky means of producing more philosophically pure code.
 
