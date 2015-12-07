@@ -1,7 +1,11 @@
 source "https://rubygems.org"
 
-#github
 gem 'github-pages'
-gem 'rake'
-gem 'html-proofer', :github => "gjtorikian/html-proofer"
-gem 'jekyll-feed',  :github => "jekyll/jekyll-feed"
+gem "jekyll-seo-tag"
+
+group :test, :development do
+  gem 'html-proofer'
+  gem 'ra11y', github: "benbalter/ra11y"
+  gem 'rake'
+  gem 'pry'
+end

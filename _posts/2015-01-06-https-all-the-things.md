@@ -1,6 +1,6 @@
 ---
 title: "Why you should care about HTTPS, even if you have nothing to hide"
-excerpt: "HTTPS ensures not only the privacy of the content you request, but also, protects the fact that you're even requesting it in the first place. HTTPS isn't just for secure transactions like online banking and ecommerce. HTTPS is for any website that adds to the public dialog."
+description: "HTTPS ensures not only the privacy of the content you request, but also, protects the fact that you're even requesting it in the first place. HTTPS isn't just for secure transactions like online banking and ecommerce. HTTPS is for any website that adds to the public dialog."
 ---
 
 You're probably already familiar with technologies like SSL and TLS. They're the little green icon in the top left corner of your browser anytime you visit a website with a URL that begins with `https://`. They're most often used to secure sensitive web requests, like checking your bank account balance or purchasing stuff online. HTTPS encrypts the connection between your computer and the server you're talking to so that nobody can jump in the middle and muck things up.[^injection]

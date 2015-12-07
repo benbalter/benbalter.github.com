@@ -1,5 +1,30 @@
 ---
 
+- title: Why Does the Government Use Open Source Code?
+  publication: Bloomberg Business
+  url: https://www.youtube.com/watch?v=AQt_H9E_rQ8
+  date: 2015-09-03
+
+- title: GitHub pairs with DLT Solutions for government re-selling partnership
+  publication: "WJLA (ABC)"
+  url: "http://wjla.com/news/government-matters/github-pairs-with-dlt-solutions-for-government-re-selling-partnership"
+  date: 2015-08-24
+
+- title: GitHub data shows the changing software landscape
+  publication: WIRED
+  url: "http://www.wired.com/2015/08/github-data-shows-changing-software-landscape/"
+  date: 2015-08-20
+
+- title: GitHub Enterprise available governmentwide with new partnership
+  publication: FedScoop
+  url: "http://fedscoop.com/github-enterprise-available-governmentwide-with-new-partnership"
+  date: 2015-08-17
+
+- title: Why State and Local Governments Are Increasingly Embracing GitHub
+  publication: Route Fifty
+  url: "http://www.routefifty.com/2015/07/state-local-governments-github/118724/"
+  date: 2015-07-30
+
 - title: "House of Reps joins the open source community"
   publication: "WJLA (ABC)"
   url: "http://www.wjla.com/articles/2015/07/house-of-reps-joins-the-open-source-community-115268.html"
@@ -17,7 +42,7 @@
 
 - title: GitHub Government Evangelist visits NGA
   publication: The National Geospatial-Intelligence Agency
-  url: "https://www.nga.mil/MediaRoom/LeadingStories/Pages/GitHub-Government-Evangelist-visits-NGA.aspx"
+  url: "https://www.nga.mil/MediaRoom/News/Pages/GitHub-Government-Evangelist-visits-NGA.aspx"
   date: 2015-05-20
 
 - title: The Government Publishing Office joins GitHub

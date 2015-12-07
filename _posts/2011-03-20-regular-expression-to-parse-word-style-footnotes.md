@@ -1,7 +1,7 @@
 ---
 author: Ben Balter
 title: "Regular Expression to Parse Word-style Footnotes into WordPress's Simple Footnotes Format"
-excerpt: "Regular Expression to automatically parse Microsoft Word's footnote format into a more web-friendly format for WordPress's Simple Footnotes plugin"
+description: "Regular Expression to automatically parse Microsoft Word's footnote format into a more web-friendly format for WordPress's Simple Footnotes plugin"
 layout: post
 categories:
   - Technology
@@ -14,7 +14,7 @@ tags:
   - wordpress
 post_format: [ ]
 ---
-I needed a quick-and-easy way to parse Microsoft Word's footnote format into a more web-friendly format for a recent project. After a bit of regular expression hacking, I was able to build a WordPress plugin to automatically convert content pasted from Word into a format readable by [Andrew Nacin's](http://andrewnacin.com) popular [Simple Footnotes](http://andrewnacin.com/2010/07/24/simple-footnotes-0-3/) plugin.  
+I needed a quick-and-easy way to parse Microsoft Word's footnote format into a more web-friendly format for a recent project. After a bit of regular expression hacking, I was able to build a WordPress plugin to automatically convert content pasted from Word into a format readable by [Andrew Nacin's](http://andrewnacin.com) popular [Simple Footnotes](http://andrewnacin.com/2010/07/24/simple-footnotes-0-3/) plugin.
 
 The process is surprisingly simple given [WordPress's extensive filter API](http://codex.wordpress.org/Plugin_API/Filter_Reference){: data-proofer-ignore="true" }. First, to grab the footnotes from Word's `ftnref` format:
 
@@ -60,7 +60,7 @@ Putting it all together, including a filter hook to call our function and a `met
 
 <script src="http://gist-it.appspot.com/github/benbalter/Convert-Microsoft-Word-Footnotes-to-WordPress-Simple-Footnotes/raw/master/parse-footnotes.php">     </script>
 
-To use, you can [download the plugin file](https://github.com/benbalter/Convert-Microsoft-Word-Footnotes-to-WordPress-Simple-Footnotes)[^1] and activate (be sure you already have [Simple Footnotes][2] installed). Copy the content from Word, and Paste into the "*Paste from Word*" box (may need to toggle the "[*Kitchen Sink*](http://blogforprofit.com/beginner-blogger/beginner-blogger-using-the-kitchen-sink-in-wordpress/)".[^2]
+To use, you can [download the plugin file](https://github.com/benbalter/Convert-Microsoft-Word-Footnotes-to-WordPress-Simple-Footnotes)[^1] and activate (be sure you already have [Simple Footnotes][2] installed). Copy the content from Word, and Paste into the "*Paste from Word*" box (may need to toggle the "[*Kitchen Sink*](https://www.youtube.com/watch?v=fQ6cXXlLczU)".[^2]
 
 Thoughts? Improvements? The above code solved a rather stubborn workflow problem in a project I was working on, and hopefully it can do the same for you. Feel free to use/improve the above code.
 
@@ -69,4 +69,3 @@ Thoughts? Improvements? The above code solved a rather stubborn workflow problem
 
 [4]: #note-2020-1 "' . str_replace( array("\r\n", "\r", "\n"), "", $footnote[4]) . '"
 [7]: #note-2020-2 "Licensed under GPLv2"
-

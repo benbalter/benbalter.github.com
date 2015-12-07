@@ -5,10 +5,13 @@
 
 <article id="post{{ page.id | replace:"/","-" }}" class="post post{{ page.id | replace:"/","-" }}" itemscope itemtype="http://schema.org/Article">
 
-  <h2 class="title"><a href="{{ page.url }}" itemprop="name">{% include smartify text=page.title %}</a></h2>
+  <h2 class="title"><a href="{{ url_base }}{{ page.url }}" itemprop="name">{% include smartify text=page.title %}</a></h2>
 
-  <meta itemprop="about" content="{{ page.excerpt }}" />
-  <meta itemprop="description" content="{{ page.excerpt }}" />
+  {% if page.description %}
+    {% assign seo_description = page.description | escape | markdownify | strip_html | strip_newlines | xml_escape %}
+    <meta itemprop="about" content="{{ seo_description }}" />
+    <meta itemprop="description" content="{{ seo_description }}" />
+  {% endif %}
   <meta itemprop="author" content="{{ site.name }}" />
   <meta itemprop="copyrightHolder" content="{{ site.name }}" />
   <meta itemprop="copyrightYear" content="{{ page.date | date: '%Y' }}" />
@@ -23,6 +26,8 @@
     <div class="entrybody" itemprop="articleBody">
         {{ content }}
     </div>
+
+    {% include mini-bio.html %}
 
     {% include improve.html %}
 

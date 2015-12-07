@@ -1,7 +1,7 @@
 ---
 author: Ben Balter
 title: Free Trade in China? Just Google it.
-excerpt: >
+description: >
   As the internet is increasingly becoming
   the dominant instrument of commerce,
   blocking access to information is
@@ -47,7 +47,7 @@ Notes:
 
 [^1]: Gardels, Nathan, *Google vs. Confucius*, 27 New Perspective Quarterly 2 (May 2010), at 2.
 [^2]: Fed. Commc'ns Comm'n \[FCC\], Connecting America: The National Broadband Plan ch. 4 (2010).
-[^3]: Miniwatts, [Internet World Stats, ](http://www.internetworldstats.com/stats7.htm)*[Internet World Users by Language: Top Ten Languages][24] *(chart) (Sept. 30, 2009); Int'l Telecomm. Union \[ITU\], [*The World in 2009: ICT Facts and Figures *1](http://www.itu.int/ITU-D/ict/material/Telecom09_flyer.pdf) (2009). The total number of fixed broadband subscribers reached nearly 500 million by the end of 2009. *Id. *at 5.
+[^3]: Miniwatts, [Internet World Stats, ](http://www.internetworldstats.com/stats7.htm)*[Internet World Users by Language: Top Ten Languages][24] *(chart) (Sept. 30, 2009); Int'l Telecomm. Union \[ITU\], *The World in 2009: ICT Facts and Figures *1 (2009). The total number of fixed broadband subscribers reached nearly 500 million by the end of 2009. *Id. *at 5.
 [^4]: Brian Hindley & Hosuk Lee-Makiyama, *[*Protectionism Online: Internet Censorship and International Trade Law*](http://ecipe.org/publications/ecipe-working-papers/protectionism-online-internet-censorship-and-international-trade-law) *3 (ECIPE, Working Paper No. 12/2009).
 [^5]: U.S. Census Bureau, *[Estimated Quarterly U.S. Retail Sales (Adjusted): Total and E-commerce (chart)](http://www.census.gov/mrts/www/data/html/09Q1table3.html)* (May 15, 2009).
 [^6]: Int'l Telecomm. Union \[ITU\], [*digital.life: ITU Internet Report 2006*](http://www.itu.int/osg/spu/publications/digitalife/docs/digital-life-web.pdf) 73 (2006).
@@ -60,4 +60,3 @@ Notes:
 [^13]: *Id.* at n. 30 (stating "the main channel that obtain information are the Internet (82.6%), television (64.5%), papers (57.9%), magazines (18.8%), books (18.7%), radio (14.4%), and other (6.9%)") (internal quotations omitted).
 [^14]: *Id.*
 [^15]: *E.g.,* Google's decision to enter China, and subsequently censor search results, was primarily based on the premise that it was the lesser of two evils. Google CEO Eric Schmidt commented, "although we weren't wild about the restrictions, it was even worse to not try to serve those users at all," elaborating, "we actually did an evil scale and decided not to serve at all was worse evil." Shyu, *Supra* note 8 at 213 (citing Danny Sullivan, *[Google Created EvilRank Scale To Decide On Chinese Censorship](http://blog.searchenginewatch.com/blog/060130-154414)*, Search Engine Watch, January 30, 2006. Accordingly, Google launched Google.cn under the belief that the "benefits of increased access to information for people in China… outweighed \[the\] discomfort… \[of\] agreeing to censor some results," ([*A New Approach to China*](http://Googleblog.blogspot.com/2010/01/new-approach-to-china.html), Official Google Blog, January 12, 2010) calling their service a "a meaningful – though imperfect – contribution to the overall expansion of… information in China." Press Release, Google, Inc., [*Google to Open Research Center in China*](http://www.Google.com/press/pressrel/rd_china.html) (July 19, 2005).
-

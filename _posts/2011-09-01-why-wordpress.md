@@ -1,7 +1,7 @@
 ---
 author: Ben Balter
 title: Why WordPress
-excerpt: >
+description: >
   WordPress is different. WordPress is
   about content. WordPress is about
   simplicity. Out of the box, it's a

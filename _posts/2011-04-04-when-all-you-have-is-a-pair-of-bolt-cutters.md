@@ -3,7 +3,7 @@ author: Ben Balter
 title: >
   When all you have is a pair of bolt
   cutters...
-excerpt: "A workflow management and version control system building on WordPress's existing core competencies. By treating documents as a custom post type, users can leverage the power of WordPress's extensive attachment, revision, taxonomy, and URL rewriting functionalities. "
+description: "A workflow management and version control system building on WordPress's existing core competencies. By treating documents as a custom post type, users can leverage the power of WordPress's extensive attachment, revision, taxonomy, and URL rewriting functionalities. "
 layout: post
 categories:
   - Technology
@@ -33,7 +33,7 @@ As seen in the above wireframe, document revisions would be inextricably linked 
 
 To be fair, WordPress has been arguably overextended in some cases, [^3] but I do not believe that to be the case here. Sure any WordPress enthusiast may be guilty of the [bolt-cutter mentality](http://xkcd.com/801) every now and then, but I believe, if anything, it is enterprise stakeholders' tendency to gravitate toward bloated, commercial systems that is more akin to Wolf Blitzer's boat house, and a big reason why is because with the exception of an unnamed [^4] content management system's poorly executed attempt at document management, no open-source alternatives exist.
 
-I am working on submitting this idea as a proposed [Google Summer of Code](http://www.google-melange.com/gsoc/homepage/google/gsoc2011) project, [^5] with the goal of giving WordPress parity with commercial and proprietary applications and hopefully injecting some open-source goodness into government and other enterprise environments, but before I do, I would love to hear your thoughts. [Get in touch](http://ben.balter.com/contact/), or [leave a comment below](#comments).
+I am working on submitting this idea as a proposed [Google Summer of Code](http://www.google-melange.com/gsoc/homepage/google/gsoc2011) project, [^5] with the goal of giving WordPress parity with commercial and proprietary applications and hopefully injecting some open-source goodness into government and other enterprise environments, but before I do, I would love to hear your thoughts. [Get in touch](http://ben.balter.com/contact/), or leave a comment below.
 
 **Update (8/29)**: The final result of the project is an [Open Source Document Management and Version Control System](http://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/) for WordPress. An overview of its top-level features including a screencast of a typical use case is available on the [WP Document Revisions][22] page.
 
@@ -48,5 +48,3 @@ I am working on submitting this idea as a proposed [Google Summer of Code](http:
 [15]: #note-2020-3 "See, e.g., WordPress as an e-mail newsletter, contact manager, CRM, task list, invoice system,  job bank, or real estate directory."
 [17]: #note-2020-4 "Let's just call it "Frupal" for the sake of discussion."
 [19]: #note-2020-5 "In hindsight, I probably shouldn't have ripped on Melange. See supra note 1."
-
-

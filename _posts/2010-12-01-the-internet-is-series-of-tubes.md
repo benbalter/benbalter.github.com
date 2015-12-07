@@ -3,7 +3,7 @@ author: Ben Balter
 title: >
   The Internet is Series of Tubes (oh, and
   Tollgates too)
-excerpt: >
+description: >
   The internet backbone provider Level 3
   revealed that in recent negotiations,
   internet service provider Comcast

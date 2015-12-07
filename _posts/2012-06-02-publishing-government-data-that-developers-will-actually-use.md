@@ -1,7 +1,7 @@
 ---
 author: Ben Balter
 title: Publishing Government Data That Developers Will Actually Use
-excerpt: >
+description: >
   Despite increasing public support (as
   well as a number of executive mandates)
   publishing public data in a

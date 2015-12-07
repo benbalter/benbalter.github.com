@@ -3,7 +3,7 @@ author: Ben Balter
 title: >
   Twitter Mentions as Comments WordPress
   Plugin
-excerpt: 'Twiter Mentions as Comments does exactly what it promises to do -- scours Twitter for people talking about your blog posts and silently inserts their Tweets alongside your existing comments. '
+description: 'Twiter Mentions as Comments does exactly what it promises to do -- scours Twitter for people talking about your blog posts and silently inserts their Tweets alongside your existing comments. '
 layout: post
 categories:
   - Technology
@@ -35,11 +35,10 @@ Twitter Mentions as Comments does exactly what it promises to do – scours Twit
 *   Oauth Authentication to raise API limit (currently unlimited Tweets, but limited to 150 *new* comment authors per hour)
 *   Smarter API throttling
 
-The plugin is available in the [WordPress plugin repository](http://wordpress.org/extend/plugins/twitter-mentions-as-comments/), and you can see it in action [below](#comments) or on the [WP Resume plugin page](http://ben.balter.com/2010/09/12/wordpress-resume-plugin/#comment-168).
+The plugin is available in the [WordPress plugin repository](http://wordpress.org/extend/plugins/twitter-mentions-as-comments/), and you can see it in action below or on the [WP Resume plugin page](http://ben.balter.com/2010/09/12/wordpress-resume-plugin/#comment-168).
 
 **Looking to filter out a particular user or keyword?** Because Tweets go through the normal comment filter, you can just [blacklist them as described below](http://ben.balter.com/2010/11/29/twitter-mentions-as-comments/#comment-246).
 
 *Enjoy using Twitter Mentions as Comments? Feel free to [make a small donation](http://ben.balter.com/donate/ "Donate") to support the software's continued development.*
 
 **Update (7/8): Comments have been closed in favor of [expanded support and discussion options](https://github.com/benbalter/Twitter-Mentions-as-Comments/wiki/Where-to-get-Support-or-Report-an-Issue). Additional documentation about the project can now be found in the [Project Wiki](https://github.com/benbalter/Twitter-Mentions-as-Comments/wiki). If you are interested in joining the project at any level of technical expertise, please see [How to Contribute](https://github.com/benbalter/Twitter-Mentions-as-Comments/wiki/How-to-Contribute).**
-

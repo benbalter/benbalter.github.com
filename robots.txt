@@ -1,5 +1,22 @@
-User-agent: *
-Disallow: /tag*
-Disallow: /tags*
+---
+disallows:
+  - /tags*
+  - /tag*
+  - /open-source-software-licensing/
+  - /the-dynamic-site-is-dead/
+  - /behind-github-geojson/
+  - /open-source-demistified/
+  - /open-sourcing-government/
+  - /uncle-sams-list/
+  - /make-maps-better-together/
+  - /dont-build-an-api/
+  - /make-government-better-together/
+  - /open-source-alternatives/
+  - /404.html
+---
+
+User-agent: *{% for disallowed in page.disallows %}
+Disallow: {{ disallowed }}{% endfor %}
 Allow: /
 Sitemap: http://ben.balter.com/sitemap.xml
+Host: ben.balter.com

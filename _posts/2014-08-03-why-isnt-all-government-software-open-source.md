@@ -1,6 +1,6 @@
 ---
 title: "Why isn't all government software open source?"
-excerpt: "Taxpayer funded code is often not open source because government prefers closed platforms, is inexperienecd with open source workflows and culture, and creates software as part of a predominantly closed-source supply-chain."
+description: "Taxpayer funded code is often not open source because government prefers closed platforms, is inexperienced with open source workflows and culture, and creates software as part of a predominantly closed-source supply-chain."
 ---
 
 The federal government is the single largest purchaser of code in the world. So why is this code — taxpayer-funded and integral to the day-to-day working of our democracy — so often hidden from public view? There are two sides to answering that question: Why does the government so often build on closed platforms, and once built, why isn't the code released to the public?
@@ -25,7 +25,7 @@ But even if the agency's using a closed-source platform, there's no reason their
 
 ## Contributing to open source
 
-With the exception of [18F](https://18f.gsa.gov), [CFPB](http://cfpb.github.io), and a few others, government doesn't actually write code. In fact, it rarely has the human know how to do so if it wanted. Instead, the agency traditionally plays the role of a non-techincal program manager, providing specs for the functional requirements, and selecting a contractor to deliver the end functionality. The points of contact at the agency overseeing the contract are rarely engaged with the open source community, let alone passionate about open source. As a result, open source traditionally isn't even part of the conversation. Why would it be?
+With the exception of [18F](https://18f.gsa.gov), [CFPB](http://cfpb.github.io), and a few others, government doesn't actually write code. In fact, it rarely has the human know how to do so if it wanted. Instead, the agency traditionally plays the role of a non-technical program manager, providing specs for the functional requirements, and selecting a contractor to deliver the end functionality. The points of contact at the agency overseeing the contract are rarely engaged with the open source community, let alone passionate about open source. As a result, open source traditionally isn't even part of the conversation. Why would it be?
 
 ### Closed source workflows
 

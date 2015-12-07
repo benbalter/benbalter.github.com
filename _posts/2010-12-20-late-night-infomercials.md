@@ -1,7 +1,7 @@
 ---
 author: Ben Balter
 title: 'Late-Night Infomercials: Guaranteed to Extend the 4th Amendment or Your Money Back'
-excerpt: "Online accounts may now be afforded greater protection following the Sixth Circuit's ruling in United States v. Warshak. The court, upholding a temporary injunction on e-mail searches extended the fourth amendment's warrant requirements to messages stored on third-party servers."
+description: "Online accounts may now be afforded greater protection following the Sixth Circuit's ruling in United States v. Warshak. The court, upholding a temporary injunction on e-mail searches extended the fourth amendment's warrant requirements to messages stored on third-party servers."
 layout: post
 categories:
   - Law
@@ -22,7 +22,7 @@ The SCA, written long before GMail's all-you-can-eat storage was ever dreamed, r
 
 For the most part, [the decision makes sense](http://ben.balter.com/2010/10/10/does-every-cloud-have-a-silver-lining/ "Does Every Cloud Have a Silver Lining?"). As e-mail moves from download-and-delete [POP-based](http://en.wikipedia.org/wiki/Post_Office_Protocol) messages stored solely on a user's computer to the nearly limitless [IMAP](http://en.wikipedia.org/wiki/Internet_Message_Access_Protocol), [Exchange](http://en.wikipedia.org/wiki/Microsoft_Exchange_Server), or [Web-based](http://en.wikipedia.org/wiki/Webmail) messaging that increasingly lives in the unseen cloud, neither opportunity to download nor time spent on server are very compelling standards to determine the level of privacy that should be afforded to a message or the showing of cause that should be required to compel a host to disclose its contents.
 
-The decision, which [tips a circuit split](http://volokh.com/2010/12/14/sixth-circuit-rules-that-e-mail-protected-by-the-fourth-amendment-warrant-requirement/) further in favor of extending the fourth amendment, should, at least in theory, lay the groundwork to grant such protections to other forms of information stored in the cloud.  Such information may include calendars or contacts on the more obvious end of the spectrum, but may arguable be construed to cover wholesale cloud services like AWS, Salesforce, Rackspace, and Azure, a possibility not to be taken lightly following the [WikiLeaks hosting scramble](http://www.huffingtonpost.com/2010/12/01/wikileaks-website-loses-h_n_790526.html).
+The decision, which [tips a circuit split](http://volokh.com/2010/12/14/sixth-circuit-rules-that-e-mail-protected-by-the-fourth-amendment-warrant-requirement/){: data-proofer-ignore="true"} further in favor of extending the fourth amendment, should, at least in theory, lay the groundwork to grant such protections to other forms of information stored in the cloud.  Such information may include calendars or contacts on the more obvious end of the spectrum, but may arguable be construed to cover wholesale cloud services like AWS, Salesforce, Rackspace, and Azure, a possibility not to be taken lightly following the [WikiLeaks hosting scramble](http://www.huffingtonpost.com/2010/12/01/wikileaks-website-loses-h_n_790526.html).
 
 Surely the decision does not settle the issue outright, but it is the latest in a long march of much-needed rulings further blurring the legal distinctions between the world online and the world off, and as persuasively written as it is, is likely to prove influential as both law and technology continue to evolve side by side.
 
@@ -30,4 +30,3 @@ Surely the decision does not settle the issue outright, but it is the latest in 
 [^2]: [18 U.S.C. 2703](http://www.law.cornell.edu/uscode/18/usc_sec_18_00002703----000-.html)(b).
 [^3]: *Warshak*, 2010 WL 5071766.
 [^4]: *See generally* Obtaining Electronic Evidence, Federal Law Enforcement Training Center (July 2003)
-

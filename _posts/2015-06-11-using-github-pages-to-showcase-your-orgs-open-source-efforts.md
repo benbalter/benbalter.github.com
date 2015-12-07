@@ -1,6 +1,6 @@
 ---
 title: "Using GitHub Pages to showcase your organization's open source efforts"
-excerpt: "GitHub is a great place to share your work with the world, but sometimes large organization wish to brand or showcase their open source efforts in ways that the standard profile page doesn't allow. That's where GitHub Pages comes in."
+description: "GitHub is a great place to share your work with the world, but sometimes large organization wish to brand or showcase their open source efforts in ways that the standard profile page doesn't allow. That's where GitHub Pages comes in."
 ---
 
 GitHub is a great place to share your work with the world, but sometimes large organization prefer to brand or showcase their open source efforts in ways that the standard profile page doesn't allow. That's where [GitHub Pages](https://pages.github.com) comes in.
@@ -13,7 +13,7 @@ Let's say you're the Consumer Financial Protection Bureau. You have a GitHub org
 
 ### How GitHub Pages works
 
-GitHub pages is deceptively simple, but incredibly powerful service. To start using GitHub Pages, you'll want to create a new repository named `[your-organization].github.io`. In our CFPB example above, the repository would be [`cfpb/cfpb.gitub.io`](https://github.com/cfpb/cfpb.github.io). From there, any static files you commit (HTML, CSS, Javascript, images, etc.) will be served as `your-organization.github.io` (or in the case of our example, [`cfpb.github.io`](http://cfpb.github.io)).
+GitHub pages is deceptively simple, but incredibly powerful service. To start using GitHub Pages, you'll want to create a new repository named `[your-organization].github.io`. In our CFPB example above, the repository would be [`cfpb/cfpb.github.io`](https://github.com/cfpb/cfpb.github.io). From there, any static files you commit (HTML, CSS, Javascript, images, etc.) will be served as `your-organization.github.io` (or in the case of our example, [`cfpb.github.io`](http://cfpb.github.io)).
 
 ### Getting started with GitHub Pages
 

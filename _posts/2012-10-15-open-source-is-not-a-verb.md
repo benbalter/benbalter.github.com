@@ -1,7 +1,7 @@
 ---
 published: true
 title: "Open Source is not a verb"
-excerpt: "Open source, at its core, is actually not about code, but about connecting people around a shared vision to encourage collaborative problem solving."
+description: "Open source, at its core, is actually not about code, but about connecting people around a shared vision to encourage collaborative problem solving."
 author: "Ben Balter"
 layout: post
 comments: true

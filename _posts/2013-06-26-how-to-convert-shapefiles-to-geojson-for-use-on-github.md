@@ -1,6 +1,6 @@
 ---
 title: How to convert Shapefiles to GeoJSON maps for use on GitHub (and why you should)
-excerpt: "An automated process for converting ESRI Shapefiles to .geoJSON map files so that they can be more easily used with GitHub.com"
+description: "An automated process for converting ESRI Shapefiles to .geoJSON map files so that they can be more easily used with GitHub.com"
 author: Ben Balter
 layout: post
 comments: true
@@ -16,7 +16,7 @@ tags:
 
 ---
 
-With [GitHub natively supporting mapping](https://github.com/blog/1541-geojson-rendering-improvements) and embeds, I recently wanted to put some of the free, publicly available government data published on [data.dc.gov](http://data.dc.gov) to use. They have all sorts of great information, from [bus routes](https://github.com/benbalter/dc-maps/blob/master/dc-circulator-routes.geojson) to [polling places](https://github.com/benbalter/dc-maps/blob/master/polling-places.geojson), to [the location of every liquor license](https://github.com/benbalter/dc-maps/blob/master/abra-licensee.geojson) in DC. The only problem was that the data was stored in a proprietary and complex format known as [a Shapefile](https://en.wikipedia.org/wiki/Shapefile) which arose in an age when the desktop ruled supreme and requires a [costly software subscriptionn](http://www.esri.com/software/arcgis/arcgis-for-home) for many common uses.
+With [GitHub natively supporting mapping](https://github.com/blog/1541-geojson-rendering-improvements) and embeds, I recently wanted to put some of the free, publicly available government data published on [data.dc.gov](http://data.dc.gov) to use. They have all sorts of great information, from [bus routes](https://github.com/benbalter/dc-maps/blob/master/maps/dc-circulator-routes.geojson) to [polling places](https://github.com/benbalter/dc-maps/blob/master/maps/polling-place.geojson), to [the location of every liquor license](https://github.com/benbalter/dc-maps/blob/master/maps/liquor-license-locations.geojson) in DC. The only problem was that the data was stored in a proprietary and complex format known as [a Shapefile](https://en.wikipedia.org/wiki/Shapefile) which arose in an age when the desktop ruled supreme and requires a [costly software subscriptionn](http://www.esri.com/software/arcgis/arcgis-for-home) for many common uses.
 
 Luckily, a strangely named piece of open source software known as [ogr2ogr](http://www.gdal.org/ogr2ogr.html) can convert the data into the more modern, more open [GeoJSON format](http://en.wikipedia.org/wiki/GeoJSON) that GitHub supports, and the resulting map can be automatically rendered, not to mention more easily diffed.
 
@@ -42,4 +42,4 @@ For one, you're liberating public geodata that would otherwise be inaccessible t
 
 ## The result
 
-<script src="https://embed.github.com/view/geojson/benbalter/dc-maps/master/embassies.geojson">&nbsp;</script>
+<script src="https://embed.github.com/view/geojson/benbalter/dc-maps/master/maps/embassies.geojson">&nbsp;</script>

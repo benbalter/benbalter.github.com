@@ -1,22 +1,40 @@
 #Jekyll config file
 
+# Basics
 name: Ben Balter
-description: "Government evangelist, attorney, open source developer"
 author: Ben Balter
+title: Ben Balter
+description: "Attorney, developer, open source evangelist"
+
+# Images
 gravatar_id: ea353bd28baa1aefaefae736a19fcf2a
-job_title: Government Evangelist
+logo: assets/img/headshot.png
+
+# RDFa structured data
+job_title: Open source Evangelist
 employer: GitHub
 url: "http://ben.balter.com"
 location:
   city: Washington
   state: District of Columbia
   country: United States of America
-ga_username: 'UA-18088627-1'
+
+# Social metadata (JSON-LD)
+social:
+  name: Ben Balter
+  links:
+    - https://twitter.com/BenBalter
+    - https://www.facebook.com/ben.balter
+    - https://www.linkedin.com/in/BenBalter
+    - https://plus.google.com/+BenBalter
+    - https://github.com/benbalter
+    - https://keybase.io/benbalter
+
+# Misc
 twitter:
   username: "@benbalter"
-  account_id: "16211142"
 google_plus_id: BenBalter
-branch: master
+ga_username: 'UA-18088627-1'
 
 #files to exclude, array
 exclude:
@@ -50,6 +68,7 @@ exclude:
   - assets/vendor/anchor-js/index.html
   - ".bundle"
   - vendor
+  - node_modules
 
 #number of items in RSS feed
 rss_limit: 10
@@ -64,8 +83,9 @@ defaults:
       path: ""
       type: "posts"
     values:
-      layout: "post"
+      layout: post
       comments: true
+      author: benbalter
 
 #disqus widget
 disqus:
@@ -78,6 +98,7 @@ highlighter: pygments
 markdown: kramdown
 timezone: America/New_York
 encoding: UTF-8
+branch: master
 
 gems:
   - jemoji
@@ -85,6 +106,7 @@ gems:
   - jekyll-redirect-from
   - jekyll-sitemap
   - jekyll-feed
+  - jekyll-seo-tag
 
 sass:
   style: :compressed

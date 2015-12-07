@@ -1,6 +1,6 @@
 ---
 title: "Open source is (not) insecure"
-excerpt: "The idea that open source software is inherently less secure than its closed source or proprietary counterparts is untrue and stems from fear, uncertainty, and doubt (FUD)."
+description: "The idea that open source software is inherently less secure than its closed source or proprietary counterparts is untrue and stems from fear, uncertainty, and doubt (FUD)."
 ---
 
 Spend any time in the enterprise IT world, and you'll quickly be led to believe that open source software is insecure, and only what you use when you can't afford "real" software — both false. This is a form of [FUD (fear, uncertainly, doubt)](http://en.wikipedia.org/wiki/Fear,_uncertainty_and_doubt), which has been historically encouraged [by those who sell open source's proprietary alternatives](https://en.wikipedia.org/wiki/Halloween_documents). When talking about the security of open source, there's two, parallel conversations. Open source as a platform, and open source as a workflow.
@@ -35,7 +35,7 @@ Instead, open source often has better controls to ensure pedigree than its close
 
 This is predicated, almost exclusively on the [(disproven to death) strategy of security through obscurity](http://en.wikipedia.org/wiki/Security_through_obscurity). It's a form of security theater. It's the idea of hiding a key under the welcome mat. It assumes that, if the bad guy doesn't know it's there, it's secure, right? Wrong. It's the same reason building blue prints can be available for public inspection (and city review), without increasing the chance of a break in (and we end up with stronger, more fire resistant buildings as a result).
 
-When everyone can see the inner workings (including those you want to keep out), you're forced to build inherently secure systems, rather than [systems that rely on smoke and mirrors](http://www.commlawblog.com/2010/01/articles/unlicensed-operations-and-emer/fcc-changes-stance-on-opensource-security/). As a result, statistically, [open source software actually produces more secure software than its closed-source counterparts](http://www.infoworld.com/d/open-source-software/report-open-source-tops-proprietary-code-in-quality-187169){: data-proofer-ignore="true"}.
+When everyone can see the inner workings (including those you want to keep out), you're forced to build inherently secure systems, rather than [systems that rely on smoke and mirrors](http://www.commlawblog.com/2010/01/articles/unlicensed-operations-and-emerging-technologies/fcc-changes-stance-on-open-source-security/). As a result, statistically, [open source software actually produces more secure software than its closed-source counterparts](http://www.infoworld.com/d/open-source-software/report-open-source-tops-proprietary-code-in-quality-187169){: data-proofer-ignore="true"}.
 
 #### We (won't) reveal the secret sauce
 

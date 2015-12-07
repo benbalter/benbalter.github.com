@@ -1,0 +1,23 @@
+{
+  "name": "benbalter.github.com",
+  "version": "1.0.0",
+  "description": "[![Build Status](https://travis-ci.org/benbalter/benbalter.github.com.png?branch=master)](https://travis-ci.org/benbalter/benbalter.github.com)",
+  "main": "script/server",
+  "dependencies": {
+    "pa11y": "^2.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "script/cibuild"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benbalter/benbalter.github.com.git"
+  },
+  "author": "Ben Balter",
+  "license": "CC-BY-3.0",
+  "bugs": {
+    "url": "https://github.com/benbalter/benbalter.github.com/issues"
+  },
+  "homepage": "https://github.com/benbalter/benbalter.github.com#readme"
+}

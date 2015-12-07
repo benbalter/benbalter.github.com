@@ -11,7 +11,6 @@ $fa-font-path: "{{ url_base }}/assets/vendor/font-awesome/fonts";
 $font-size-base: 16px;
 
 @import "bootstrap/stylesheets/bootstrap";
-@import "anchor-js";
 @import "pygments";
 @import "font-awesome/font-awesome";
 
@@ -29,7 +28,7 @@ body { padding-top: 20px; font-weight: 200; }
 .pgp-key { font-size: 85%; }
 
 /* images */
-.aligncenter { clear: both;	display: block;	margin-left: auto; margin-right: auto; }
+.aligncenter { clear: both;	display: block;	margin-left: auto; margin-right: auto; text-align: center; }
 .alignleft { display: block; float:left; padding-right: 15px; padding-bottom: 5px; }
 .alignright { display: block; float: right; padding-left: 15px; padding-bottom: 5px; }
 @media (max-width: 550px) {
@@ -61,6 +60,8 @@ body { padding-top: 20px; font-weight: 200; }
 /* Forking */
 .improve-article { margin-top: 7.5px; font-size: 14px; font-style: italic; }
 .improve-article-wrapper { padding-top: 20px; border-top: 1px dotted rgba(0, 0, 0, 0.2); text-align: center; }
+.mini-bio { padding-top: 20px; padding-bottom: 20px; border-top: 1px dotted rgba(0, 0, 0, 0.2); }
+.mini-bio img { padding-top: 5px; }
 
 /* Index */
 .posts { list-style: none; padding-left: 0; font-size: 1.1em;}
@@ -133,3 +134,9 @@ body { padding-top: 20px; font-weight: 200; }
 .anchorjs-link:visited { color: #337ab7; }
 .anchorjs-link:hover   { color: #23527c; }
 .anchorjs-link:active  { color: #23527c; }
+
+.gist-it-gist .gist-file .gist-data, .gist .gist-meta { background: #fcfcff !important; }
+.gist .pl-c { color: #757775 !important; }
+.gist .pl-c1 { color: #007faa !important; }
+
+#zen { font-size: 8px; padding: 20px 0px; }
