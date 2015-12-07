@@ -20,7 +20,7 @@ tags:
   - wordpress
 post_format: [ ]
 ---
-The White House's Office of Management and Budget recently released a[ list of all domains][1] owned and operated by federal executive agencies. Leveraging a previous tool I had built called [Site Inspector][2] which provides information about a domain and its technical capabilities, I imported the list into the content management system WordPress, and created a plugin called [Domain Inventory ][3]to scan each domain and curate the results. A summary of my preliminary results appears below, as well as a link to the browsable dataset.
+The White House's Office of Management and Budget recently released a[ list of all domains](https://explore.data.gov/Federal-Government-Finances-and-Employment/Federal-Executive-Branch-Internet-Domains/ymya-7799/widget_preview?width=500&height=425&variation=md55-89i9) owned and operated by federal executive agencies. Leveraging a previous tool I had built called [Site Inspector](https://github.com/benbalter/Site-Inspector) which provides information about a domain and its technical capabilities, I imported the list into the content management system WordPress, and created a plugin called [Domain Inventory ](https://github.com/benbalter/Domain-Inventory)to scan each domain and curate the results. A summary of my preliminary results appears below, as well as a link to the browsable dataset.
 
 **The project tracks each Federal Executive .Gov by:**
 
@@ -54,6 +54,3 @@ The White House's Office of Management and Budget recently released a[ list of a
 
 **Update (October 2013)**: The original site is no longer available online. You may use the linked resource to recreate the results.
 
-[1]: https://explore.data.gov/Federal-Government-Finances-and-Employment/Federal-Executive-Branch-Internet-Domains/ymya-7799/widget_preview?width=500&height=425&variation=md55-89i9
-[2]: https://github.com/benbalter/Site-Inspector
-[3]: https://github.com/benbalter/Domain-Inventory

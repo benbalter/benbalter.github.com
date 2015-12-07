@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
 
-{% capture title %}## {{ page.title }}{% endcapture %}{{ title | markdownify }}
+    <h2>{% include smartify text=page.title %}</h2>
 
 {{ content }}
 

@@ -1,9 +1,25 @@
 #bootstrap and build
-before_script: "./script/bootstrap"
+before_script:
+  - 'echo "branch: $TRAVIS_BRANCH" >> _config_test.yml'
+  - 'sed -i "s/master/$TRAVIS_BRANCH/g" _config_test.yml'
+
+before_install:
+  npm install
+
 script: "./script/cibuild"
 
 #environment
 language: ruby
+
 rvm:
-  - 1.9.3
+  - 2.1.4
+
 cache: bundler
+sudo: false
+
+env:
+  global:
+    NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+  matrix:
+    - TRAVIS_BUILD=html_proofer
+    - TRAVIS_BUILD=ra11y

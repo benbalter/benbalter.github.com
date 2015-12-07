@@ -2,7 +2,7 @@
 title: Header hover anchor links on GitHub Pages using Jekyll
 layout: post
 comments: true
-excerpt: "Encourage deep-linking of content by providing anchor links when a user hovers over a heading in your Jekyll posts and pages"
+description: "Encourage deep-linking of content by providing anchor links when a user hovers over a heading in your Jekyll posts and pages"
 ---
 
 If you've ever read a markdown file on GitHub, you may have noticed that hovering over a heading produces a visible, clickable anchor link. This is incredibly useful if you want to link someone to a particular heading or section, rather than the page as a whole, a practice known as "deep linking" of content.
@@ -10,6 +10,8 @@ If you've ever read a markdown file on GitHub, you may have noticed that hoverin
 When you send someone one of the resulting anchor URLs, which includes the name of the linked heading, upon clicking the link, the user will automatically scroll to the desired part of the page, and thus be directed to the exact content you want them to see.
 
 As long as you're using Jekyll and authoring your content in Markdown, you can actually achieve this feature on GitHub Pages much easier than you might expect:
+
+**Edit (5/10/2015):** @bryanbraun has created the awesome AnchorJS library. I'd suggest you [just use that](https://github.com/bryanbraun/anchorjs#installation), instead of creating your own implementation.
 
 ## Font Awesome and jQuery
 

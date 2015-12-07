@@ -1,7 +1,7 @@
 ---
 author: Ben Balter
 title: WordPress as a Collaboration Platform
-excerpt: "Today countless teams are using WordPress to drive collaboration and facilitate inter-team communication. Ben Balter will showcase some of the creative ways companies and organizations are using WordPress as the central hub of their day-to-day workflow: To organize and collaboratively edit documents and other non-web content, track and communicate their team's progress with one another, and extend WordPress to work with their existing tools and practices."
+description: "Today countless teams are using WordPress to drive collaboration and facilitate inter-team communication. Ben Balter will showcase some of the creative ways companies and organizations are using WordPress as the central hub of their day-to-day workflow: To organize and collaboratively edit documents and other non-web content, track and communicate their team's progress with one another, and extend WordPress to work with their existing tools and practices."
 layout: post
 categories:
   - Business
@@ -29,7 +29,7 @@ Today countless teams are using WordPress to drive collaboration and facilitate 
 
 Recording of the presentation (starts at the 10:00 mark):
 
-<iframe width="480" height="296" src="http://www.ustream.tv/embed/recorded/22454841?wmode=direct" scrolling="no" frameborder="0" style="border: 0px none transparent;"></iframe>
+<iframe width="480" height="296" src="http://www.ustream.tv/embed/recorded/22454841?wmode=direct" scrolling="no" frameborder="0" style="border: 0px none transparent;" title="Recording of the presentation"></iframe>
 
 ### Plugins Mentioned
 
@@ -40,4 +40,4 @@ Recording of the presentation (starts at the 10:00 mark):
 *   [Display Custom Fields](http://wordpress.org/extend/plugins/wp-display-custom-fields/)
 *   [Count Shortcode](http://wordpress.org/extend/plugins/count-shortcode/)
 *   [Faceted Search Widget](http://wordpress.org/extend/plugins/faceted-search-widget/)
-*   [Custom Taxonomy Generator](http://themergency.com/generators/wordpress-custom-taxonomy/)
+*   [Custom Taxonomy Generator](https://generatewp.com/taxonomy/)

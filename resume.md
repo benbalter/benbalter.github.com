@@ -17,8 +17,25 @@ id: /resume
 March 2013 — Present
 {: .date}
 
-* Lead the efforts of the world’s largest software development network to encourage adoption of open source, open data, and open government philosophies across all levels of government.
-* Named one of the [top 25 most influential people in government and technology](http://fedscoop.com/top-federal-it-and-tech-folks-under-40/).
+###### Open source outreach
+
+* Lead the outreach efforts of the world’s largest software development network to encourage adoption of open source, open data, and open government philosophies across more than 1,500 government organizations in over 75 countries, which resulted in an 8x increase in the number of government users on GitHub, a 9x increase in the number of government organizations on GitHub, and a 10x increase in the amount of revenue derived from government customers
+* Named one of the [top 25 most influential people in government and technology](http://fedscoop.com/top-federal-it-and-tech-folks-under-40/), FedScoop's Fed50 [Disruptor of the Year](http://fedscoop.com/fedscoop-50-celebrating-2014s-leaders-federal/), and winner of the Open Source People's Choice Award.
+* Lead company-wide editorial and blogging efforts including blog post review, documentation, editorial calendar creation, and tooling.
+* Architected team-wide outreach strategy, analytics pipeline, and tooling to target and quantify organization outreach efforts.
+
+###### Product management
+
+* Lead [a bottom-up rewrite of GitHub Pages](https://github.com/blog/1992-eight-lessons-learned-hacking-on-github-pages-for-six-months), GitHub's documentation and static-site hosting service that hosts more than three-quarters of a million sites and serves more than a quarter of a million pages every minute.
+* Developed and integrated [GeoJSON rendering and diffing](https://github.com/blog/1541-geojson-rendering-improvements) into GitHub.com and GitHub Enterprise, empowering government agencies and civic hackers to publish more than half a million geospatial data sets.
+* Launched and maintained [choosealicense.com](http://choosealicense.com), a website dedicated to demystifying open source licensing for developers.
+* Developed and launched license detection API for detecting and verifying licenses across open source projects.
+
+###### Contracting and compliance
+
+* Sought and negotiated successful partnerships with GitHub's first government reseller, MapBox, AWS GovCloud, and IFTTT.
+* Regularly drafted, reviewed, and negotiated government contracts and terms of service amendments.
+* Created and implemented US export control (ITAR and EAR) compliance policies, secured Export Control Classification Number (ECCN) from Department of Commerce, and implemented policy for customers' OFAC compliance.
 
 #### Executive Office of the President
 
@@ -101,11 +118,11 @@ May 2009
 
 ### Technical Skills
 
-##### Web Development and Management
+#### Web Development and Management
 
 * Expertise in modern web development methods — HTML5, CSS, CoffeeScript (Javascript), Rails (Ruby), relational databases (MySQL), PHP, version control (Git) — enterprise system architecture; application programing interfaces (APIs); WordPress management, development, and integration; and Unix system administration.
 * Lead development of six active open-source projects with more than 60,000 downloads to date.
 
-##### Speaking Experience
+#### Speaking Experience
 
 Regularly present around the world within the government technology community (in 2013 I averaged 2.5 talks per months) including South by Southwest ([Content and coding are not commodities](http://schedule.sxsw.com/2012/events/event_IAP10270) and [The Dynamic Site is Dead](http://ben.balter.com/the-dynamic-site-is-dead/)); Excellence in Government, Digital Government University, Transparency Camp, and Code For America ([Open sourcing government](http://www.youtube.com/watch?v=kym2CnIcPys#t=4m41s)); The White House; Library of Congress; Mozfest; RedHat Government Symposium; NextGov Prime; The Open Source Summit ([Open source software licensing](https://github.com/benbalter/open-source-software-licensing)); The Software Preservation Summit ([The next cultural commons](https://github.com/benbalter/the-next-cultural-commons)); the General Services Administration Digital Services Innovation Center ([APIs you didn't know already existed](https://github.com/benbalter/apis-you-didnt-know-already-existed)); GeoDC ([Make maps better, together](https://github.com/benbalter/make-maps-better-together)); and Drupal4Gov ([Implementation of the Digital Strategy](http://ben.balter.com/digital-strategy-reporting/)).

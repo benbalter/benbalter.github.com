@@ -2,13 +2,13 @@
 title: Open source, not just software anymore
 layout: post
 comments: true
-excerpt: "What we've been calling open source, may in fact be something else, especially when we start to use those workflows to collaborate on things beyond code."
+description: "What we've been calling open source, may in fact be something else, especially when we start to use those workflows to collaborate on things beyond code."
 redirect_from: /2014/01/27/open-collabortion/
 ---
 
 Open source is collaborative, or at least, I thought it was. What modern hackers have been calling open source, may in fact be something else, especially when we start to use those workflows to collaborate on things beyond just computer code.
 
-## Open source as a philosophy
+### Open source as a philosophy
 
 > @benbalter The internet has noticed that you tried to define "open source"
 
@@ -18,7 +18,7 @@ Not an email that you receive every day. As part of an effort to lower the barri
 
 For me, that's always been what open source is. It's a collaborative model, not a set of freedoms or political philosophy, and when you describe open source to non-developers, you don't lead off by talking about the right to fork or copyright assignment. Apparently, however, such a viewpoint is [the minority](https://twitter.com/kfogel/status/386259984817717248).
 
-## Open source as permissionless modification
+### Open source as permissionless modification
 
 [Karl Fogel](http://www.red-bean.com/kfogel/), who *literally* wrote [the book](http://producingoss.com/) on producing open source software, and whom I admire greatly, corrected, in a series of emails, that since its inception, open source had always been about the right to modify, not the right to contribute.
 
@@ -28,7 +28,7 @@ That struck me as odd for a few reasons. Granted, I have a somewhat skewed viewp
 
 So which is it? Is open source about the right to modify or the opportunity to contribute? When you look at the state of software when the open source movement was shaping its philosophy, the world was a much more centralized place. You needed certain rights enumerated, mainly because they weren't the default.
 
-## Open source in a less license-centric world
+### Open source in a less license-centric world
 
 I've only known a world where open source has already won. When I think open source, I don't think "*is this thing licensed under a Open Source Initiative blessed license?*" Today there are increasingly fewer debates over [the freedoms one receives with software](https://www.gnu.org/philosophy/free-sw.html), and more over seeing it released in the first place, or once released, over exposing process.
 
@@ -40,7 +40,7 @@ There are a lot of reasons for that deemphasis. For one, technology has made it 
 
 But among the biggest reasons for this shift, I'd argue, is that unlike when the open source movement was originally taking shape, today, there is no "source" and "binary" distribution to drive a wedge of imbalance. With web-centric, high-level languages like Ruby, Node, and PHP, it's really hard to distribute the software in such a way that you don't have everything you need to modify it, at least not in terms of code.
 
-## Open source <del>software</del>
+### Open source <del>software</del>
 
 Today, the idea of open source as it is seen outside of software is much more than just rights to "source code". What happens when there is no source versus binary? What does open source data look like? Open source content? Open source law? What happens when there is no OSI-approved license, because the thing I'm sharing simply isn't code. In [trying to distinguish open source from open source *software*](http://haacked.com/archive/2012/02/16/open-source-and-open-source-software-are-not-the-same.aspx/), I argued:
 
@@ -50,7 +50,7 @@ Think about it in this context: I'm a government agency, and I publish a plain-t
 
 So long as the publisher doesn't provide a mechanism to receive those improvements, or if there's a sufficient imbalance of information between those publishing and those contributing, that thing, be it code, text, or data, is simply published. It's not really open. In software I'd call that "disclosed source". In government, we call that publishing a PDF or simply throwing data over the firewall, but the one thing I would not have called that is open source. But given the right license, that's exactly what it is.
 
-## Open source behind the firewall
+### Open source behind the firewall
 
 The way I'd been using open source differed from the traditional definition in a second distinct way: scope. For me, open source wasn't absolute.
 
@@ -60,7 +60,7 @@ At GitHub, we like to think of GitHub.com as working like an open source project
 
 That begs the question: What percentage of the world needs to have access to something before we can call it open source? 90%? 51%? What if I print out the source code and make it available via snail mail to anyone who asks? What if I don't tell anyone that that's an option? What if I send the source to ten friends, and then leave a copy on a flash drive at the south pole? The list goes on. Rights are nothing without workflow.
 
-## The case for open collaboration
+### The case for open collaboration
 
 >  There is no such thing as "government-only" or "academic-only" or "within-our-company-only" open source
 

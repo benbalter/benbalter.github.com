@@ -15,9 +15,9 @@ tags:
   - procurement
 post_format: [ ]
 ---
-*Recorded at the [The George Washington University Tech Alumni Group][1] Federal Executive Roundtable, November 4, 2010.*
+*Recorded at the [The George Washington University Tech Alumni Group](http://www.facebook.com/group.php?gid=154839957865223) Federal Executive Roundtable, November 4, 2010.*
 
-![Photo of the panelists at the event][2]
+![Photo of the panelists at the event](http://ben.balter.com/wp-content/uploads/2010/11/68153_493302469280_603259280_5451391_4928024_n-300x199.jpg "Steven Bucci, William Kirkendale, Brian Moran, Mark Rosenfeld, Mariano Tan ")
 
 Panelists Steven Bucci, William Kirkendale, Brian Moran, Mark Rosenfeld, and Mariano Tan / Photo: GW Tech Alumni Group
 
@@ -35,8 +35,6 @@ Panelists Steven Bucci, William Kirkendale, Brian Moran, Mark Rosenfeld, and Mar
 
 *   Brian Moran, President, GW Tech Alumni Group; CEO, Nester Consulting; & former Director of IT Services, U.S. International Trade Commission
 
-[1]: http://www.facebook.com/group.php?gid=154839957865223
-[2]: http://ben.balter.com/wp-content/uploads/2010/11/68153_493302469280_603259280_5451391_4928024_n-300x199.jpg "Steven Bucci, William Kirkendale, Brian Moran, Mark Rosenfeld, Mariano Tan "
 [3]: http://ben.balter.com/wp-content/uploads/2010/11/Introduction.mp3
 [4]: http://ben.balter.com/wp-content/uploads/2010/11/Introduction.mp3?torrent
 [5]: http://ben.balter.com/wp-content/uploads/2010/11/Agile-v-Waterfall-Systems-Development.mp3

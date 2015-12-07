@@ -10,21 +10,17 @@
 	{% else %}
 	<div class="col-sm-10 col-sm-offset-1 footer">
 	{% endif %}
-		<div class="fine-print"><a href="{{ url_base }}/fine-print">Fine Print</a></div>
+		<div class="fine-print"><a href="{{ url_base }}/fine-print/">Fine Print</a></div>
 	</div>
 </div>
 
 </div><!--/.container-->
 
-<script>
-	var _gaq=[['_setAccount','{{ site.ga_username }}'],['_trackPageview']];
-	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-	s.parentNode.insertBefore(g,s)}(document,'script'));
-</script>
+<script src="//platform.twitter.com/oct.js" type="text/javascript"></script>
+<script type="text/javascript">twttr.conversion.trackPid('l6bfl', { tw_sale_amount: 0, tw_order_quantity: 0 });</script>
 
-<script src="{{ url_base }}/assets/vendor/jquery/jquery.min.js"></script>
-<script src="{{ url_base }}/assets/js/app.js?v={{ site.github.build_revision }}"></script>
+<script src="{{ url_base }}/assets/vendor/anchor-js/anchor.min.js"></script>
+<script>anchors.add('h3, h4, h5, h6');</script>
 
 </body>
 </html>

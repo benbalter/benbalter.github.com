@@ -1,7 +1,7 @@
 ---
 published: true
 title: "Welcome to the Post-CMS World"
-excerpt: "Jekyll (and other static-sites) lead to simple, flexible, and reliable websites that allow for a renewed focus on what actually matters: the content."
+description: "Jekyll (and other static-sites) lead to simple, flexible, and reliable websites that allow for a renewed focus on what actually matters: the content."
 author: Ben Balter
 layout: post
 comments: true
@@ -28,7 +28,7 @@ The pitch is straightforward. It leads to simple, flexible, and reliable website
 
 And then there's cost. Putting aside the value of time for a moment, shared hosting's going to run you in the ballpark of $7 a month; AWS starts at $14, plus the cost of bandwidth and storage; and Jekyll, if hosted by GitHub? Free.[^3]
 
-I stood up the three options side-by-side, and ran them through the riggors of a performance testing tool humorously called [Siege](http://www.joedog.org/siege-home/), the results of which can be found below.
+I stood up the three options side-by-side, and ran them through the riggors of a performance testing tool humorously called [Siege](http://freecode.com/projects/siege), the results of which can be found below.
 
 I'm still unpacking some of the boxes of bytes, so if you notice something that doesn't seem right, feel free to [open an issue](https://github.com/benbalter/benbalter.github.com/issues), or better yet, like what you see, feel free to [fork and contribute](https://github.com/benbalter/benbalter.github.com). Embracing somewhat of a crawl, walk, run, or fail-fast philosohpy, next up is outputting the pages as JSON and relying on Backbone to do the heavy lifting.
 

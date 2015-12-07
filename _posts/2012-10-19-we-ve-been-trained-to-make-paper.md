@@ -1,6 +1,6 @@
 ---
 title: "We've been trained to make paper"
-excerpt: "If the internet is the primary medium by which content is consumed, shouldn't that be the primary medium for which content is prepared?"
+description: "If the internet is the primary medium by which content is consumed, shouldn't that be the primary medium for which content is prepared?"
 author: "Ben Balter"
 layout: post
 comments: true
@@ -31,9 +31,9 @@ See what we did there? We're still writing content for print, and then only once
 
 ### Using the wrong tools
 
-Microsoft Word was designed with one purpose in mind: to make paper. Think about it. It's essential elements arose in the early 80's. There's print-centric buttons like left and right align front and center, but new-fangled internet things like hyperlinks or rich media are buried deep inside these labyrinthian sub-menus. Sure, it's industry standard, but it's an industry-standard workflow that arose before the age of the web (and hasn't really changed since).
+Microsoft Word was designed with one purpose in mind: to make paper. Think about it. Its essential elements arose in the early 80's. There are print-centric buttons like left and right align front and center, but new-fangled internet things like hyperlinks or rich media are buried deep inside these labyrinthian sub-menus. Sure, it's industry standard, but it's an industry-standard workflow that arose before the age of the web (and hasn't really changed since).
 
-Yet the majority of the documents we create today rarely, if ever embody physical space.  They don't care about the things Microsoft Word cares about — margin width, page breaks, or other properties that assume four sharp corners — and more importantly, they don't handle mobile responsiveness, machine-readability, or other web-specific features.
+Yet the majority of the documents we create today rarely, if ever, embody physical space.  They don't care about the things Microsoft Word cares about — margin width, page breaks, or other properties that assume four sharp corners — and more importantly, they don't handle mobile responsiveness, machine-readability, or other web-specific features.
 
 ### Merely a snapshot
 
@@ -54,7 +54,7 @@ Let's just concentrate on what matters: the content. When you separate design fr
 And it's not that hard. You can just click "edit" below (as an example), or the next project that comes across your plate, give git a try:
 
 1. [Learn](https://gist.github.com/3914310) Markdown - it takes 30 seconds. Honestly.
-2. [Signup](https://github.com/signup/free) for a GitHub account - it's free!
+2. [Sign up](https://github.com/signup/free) for a GitHub account - it's free!
 3. Install [GitHub for Mac](http://mac.github.com/) (or [GitHub for Windows](http://windows.github.com/)) and [Mou](http://mouapp.com/)
 4. Create a repository and go to work
 
