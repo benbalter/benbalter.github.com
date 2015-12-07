@@ -9,7 +9,7 @@ I've probably been to more than a hundred technology conferences over the past f
 
 If you're a technology conference, you can safely assume most talks are going to involve live demos, participants are going to want to Tweet, Myspace, or whatever the talk, and in between sessions, conference goers still have a day job to which their responsible. If the wifi's slow or unreliable, none of that can happen. The venue's going to say their single Linksys router is the best one Best Buy had on sale, but they're lying. Assume 2-3 devices per participants, none of which have an ethernet port, and plan accordingly.
 
-### 2. Optimized the badge for attendees, not organizers
+### 2. Optimized the badge for attendees, not for organizers
 
 There's a conference badge anti-pattern, where, in an attempt to brand the event (in case you forget where you are), the largest percentage of badge real estate is given to the conference logo, with things like tracks, or other badge "classes" being given the 2nd most real estate. People go to conferences to network. Optimize for social interactions. Ensure badges are double sided, if the lanyard allows them to flip, and ensure the conference goers name and organization, not yours, are the first thing you see.
 
