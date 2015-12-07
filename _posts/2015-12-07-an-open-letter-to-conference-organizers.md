@@ -1,9 +1,9 @@
 ---
 title: "An open letter to technology conference organizers"
-excerpt: "N things I wish every technology conference organizer knew."
+excerpt: "Six things I wish every technology conference organizer knew."
 ---
 
-I've probably been to more than a hundred technology conferences over the past few years. Some were great, but not all were good. Here's N things I wish every technology conference organizer knew:
+I've probably been to more than a hundred technology conferences over the past few years. Some were great, but not all were good. Here's six things I wish every technology conference organizer knew:
 
 ### 1. Bulletproof wifi is non-negotiable
 
@@ -28,11 +28,5 @@ Sponsorship packages are funny things. They're almost always some variation of "
 ### 6. Offer scholarships on a needs basis
 
 There's a broader discussion to be had about equality of opportunity in the technology community, but one thing's for sure, at $800+ a pop for the badge alone, lots of smart people who have lots to contribute can't attend. Rather than giving sponsors dozens of conference passes they're not going to use, swap a few out for sponsorship slots to support a local startup or fly a student across the country. GitHub's done this frequently, and it's some of the best sponsorship dollars we've spent, IMHO.
-
-### 7. Scan groceries, not humans
-
-Conference attendees go to conferences because they want to learn from their colleagues. To meet people interested in solving similar problems, and to get a better sense for what the next big thing is. They don't go to conferences to be treated like a piece of produce, or to be marketing at. Don't blindly ask to scan the badge of every attendee that walks by your booth so that you can spam them after the conference, and even worse, don't require some sort of scanning *quid pro quo* before they can walk away with a piece of swag that's going to further advertise your company.
-
-### 8. 
 
 These are a few of my pet peeves, that I'm hoping can help make conferences better for everyone involved. What are a few your yours?
