@@ -31,6 +31,6 @@ There's a broader discussion to be had about equality of opportunity in the tech
 
 ### 7. Scan groceries, not humans
 
-
+Conference attendees go to conferences because they want to learn from their colleagues. To meet people interested in solving similar problems, and to get a better sense for what the next big thing is. They don't go to conferences to be treated like a piece of produce, or to be marketing at. Don't blindly ask to scan the badge of every attendee that walks by your booth so that you can spam them after the conference, and even worse, don't require some sort of scanning *quid pro quo* before they can walk away with a piece of swag that's going to further advertise your company.
 
 ### 8.
