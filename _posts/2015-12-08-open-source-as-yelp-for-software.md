@@ -1,9 +1,9 @@
 ---
-title: Open source as yelp for software (or why we shouldn't hold government agencies to a lesser standard than we hold Taco Bell)
+title: Open source as yelp for software
 description: Open source has become somewhat of a Yelp for software, and with it, has the potential to shift the balance of power from software publishers to software consumers.
 ---
 
-Open source has become somewhat of a Yelp for software, and with it, open source has the potential to shift the balance of power from software publishers to software consumers.
+Open source has become somewhat of a Yelp for software, and with it, open source has the potential to shift the balance of power from software publishers to software consumers. So why then, do we hold the software that our society increasingly depends on, to a lesser standard than we hold fast food?
 
 ### The allegory of the lost carry out order
 
