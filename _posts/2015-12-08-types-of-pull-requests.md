@@ -1,6 +1,6 @@
 ---
 title: "The six types of pull requests you see on GitHub"
-description: "Whether collaborating on code, data, or prose text, there are lots of different strategies for using pull requests on GitHub."
+description: Whether collaborating on code, data, or prose text, there are lots of different strategies for using pull requests on GitHub.
 redirect_from: /2014/12/08/types-of-pull-requests/
 ---
 
