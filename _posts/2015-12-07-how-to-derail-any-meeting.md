@@ -18,7 +18,7 @@ A few weeks ago, the Office of Strategic Services "[Simple Sabotage Field Manual
 
 Any of those tactics sound familiar? Any of those that you haven't experienced in a meeting at least once? While I doubt your coworkers are actually double agents for the now-defunct OSS, there's something to be said for the fact that the behaviors that were once used as means of espionage, are now common corporate anti-patterns.
 
-That got me thinking: what additional anti-patterns would the OSS add if they were writing that field manual today?
+That got me thinking: what additional anti-patterns would the OSS add if they were writing that field manual today? The key is to maximize meta-work:
 
 * What are we solving for?
 * What does success look like?
