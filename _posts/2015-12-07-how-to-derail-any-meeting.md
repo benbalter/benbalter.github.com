@@ -20,6 +20,15 @@ Any of those tactics sound familiar? Any of those that you haven't experienced i
 
 That got me thinking: what additional anti-patterns would the OSS add if they were writing that field manual today?
 
+* What are we solving for?
+* What does success look like?
+* What's our success metric?
+* How do we measure our success metric?
+* I really think X stakeholder should be here before we make a decision
+* Show up when it's expected to start, or even better, assume it'll start a few minutes late
+* Don't take into account AV needs until after the start time
+* Don't do any work outside the meeting. Meetings are when your team does work.
+
 ---
 
 [^disclaimer]: Emphasis *mine*.
