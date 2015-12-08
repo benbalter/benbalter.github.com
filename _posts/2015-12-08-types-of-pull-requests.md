@@ -42,4 +42,4 @@ Whether collaborating on code, data, or prose text, there are lots of different 
 
 **When to use it:** When you've got a small change, potentially in a part of the codebase outside your area of expertise, and you'd like someone with more experience to provide a quick :+1: before your merge the change.
 
-*Did I miss any? How does your team use pull requests? Let me know in the comments below.*
+*Did I miss any? How does your team use pull requests? [Submit a pull request](https://github.com/benbalter/benbalter.github.com/edit/master/_posts/2015-12-08-types-of-pull-requests.md) or let me know in the comments below.*
