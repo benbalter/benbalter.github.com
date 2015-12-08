@@ -10,7 +10,7 @@ Whether collaborating on code, data, or prose text, there are lots of different 
 
 **How it works:** Create a pull request and immediately merge it yourself without others' review.
 
-**When to use it:** When you're making a change so uncontroversial or strait forward that no review is required, but you want to let your teammates know that you've made the change. Dependency bumps are a good use case.
+**When to use it:** When you're making a change so uncontroversial or straight forward that no review is required, but you want to let your teammates know that you've made the change. Dependency bumps are a good use case.
 
 ### Work in progress (WIP)
 
