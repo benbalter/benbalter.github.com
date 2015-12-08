@@ -28,7 +28,7 @@ Whether collaborating on code, data, or prose text, there are lots of different 
 
 **How it works:** Roughly spike out a feature by creating a proof of concept or rough outline that expressed your idea in its final form.
 
-**When to use it:** When you want feedback on your general approach or the idea itself. Is this a dumb idea? Is there a better way to do this? The content of the pull request exists to convey the idea, and will likely not be the final implementation. This may start as a WIP and may end with a line-by-line review.
+**When to use it:** When you want feedback on your general approach or the idea itself. *Is this a dumb idea? Is there a better way to do this?* The content of the pull request exists to convey the idea, and will likely not be the final implementation. This may start as a WIP and may end with a line-by-line review.
 
 ### Line-by-line review
 
