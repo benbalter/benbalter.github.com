@@ -18,17 +18,17 @@ Whether collaborating on code, data, or prose text, there are lots of different 
 
 **When to use it:** When you've got a small change, potentially in a part of the codebase outside your area of expertise, and you'd like someone with more experience to provide a quick :+1: before your merge the change.
 
-### Early feedback
-
-**How it works:** Roughly spike out a feature by creating a proof of concept or rough outline that expressed your idea in its final form.
-
-**When to use it:** When you want feedback on your general approach or the idea itself. Is this a dumb idea? Is there a better way to do this? The content of the pull request exists to convey the idea, and will likely not be the final implementation. This may start as a WIP and may end with a line-by-line review.
-
 ### Work in progress (WIP)
 
 **How it works:** Prefix the pull request title with `WIP:`. Optionally add :warning: emoji and "DO NOT MERGE" in bold if you're ultra-paranoid.
 
 **When to use it:** When you've started a new feature, document, or bug fix, that's not quite ready for others to review, but you want to let your teammates know that you're working on the feature. This can be used to prevent the duplication of effort, save work that you've started, or complement your team's workflow.
+
+### Early feedback
+
+**How it works:** Roughly spike out a feature by creating a proof of concept or rough outline that expressed your idea in its final form.
+
+**When to use it:** When you want feedback on your general approach or the idea itself. Is this a dumb idea? Is there a better way to do this? The content of the pull request exists to convey the idea, and will likely not be the final implementation. This may start as a WIP and may end with a line-by-line review.
 
 ### Line-by-line review
 
