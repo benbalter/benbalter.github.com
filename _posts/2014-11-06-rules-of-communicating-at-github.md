@@ -46,7 +46,7 @@ In practice, there are some nuances:
 
 When you open an issue or pull request, you have an obligation to copy all relevant teams ("stakeholders" in biz-speak). Note though, that doesn't mean copy individual team members. Whenever I'm getting mentioned by name on issues a lot (or am frequently mentioning the same colleague), that's a red flag that I'm setting us up for a single point of failure. Humans tend to do silly things like get sick, sleep at night, or heck, even take a day off every once in a while. Whenever possible, [mention teams](https://github.com/blog/1121-introducing-team-mentions), not individuals, to distribute responsibility and situational awareness.
 
-In practice, that means [creating a lot of niche teams](https://help.github.com/articles/adding-or-inviting-members-to-a-team-in-an-organization/) (we have teams for affinities as small as Hubbers who play board games and Hubbers who are color blind), but if people can freely associate, the teams will populate quickly. That also means, that when you're mentioned by name, it's your responsibility to CC the relevant team(s). [OP](https://en.wikipedia.org/wiki/Internet_forum#Thread) will eventually take the hint.
+In practice, that means [creating a lot of niche teams](https://help.github.com/articles/creating-a-team/) (we have teams for affinities as small as Hubbers who play board games and Hubbers who are color blind), but if people can freely associate, the teams will populate quickly. That also means, that when you're mentioned by name, it's your responsibility to CC the relevant team(s). [OP](https://en.wikipedia.org/wiki/Internet_forum#Thread) will eventually take the hint.
 
 ### 5. Be mindful of noise
 
