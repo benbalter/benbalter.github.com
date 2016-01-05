@@ -5,7 +5,7 @@ description: "Tools aren't the challenge, culture is. We should make it so ridic
 author: Ben Balter
 comments: true
 category: Technology
-tags: 
+tags:
   - government
   - culture
   - version control
@@ -30,7 +30,7 @@ We're geeks. We're good at building things. Heck, it's fun, and it's what we do 
 
 ## Dat Elegant solution
 
-There was a [recent exchange on the Twitters](https://twitter.com/dan_munz/status/351065902642503681) with some members of the open government community whom I respect greatly about [a recent proposal](https://github.com/maxogden/dat/blob/master/readme.md) that I'm afraid is a bit ahead of its time. The need for a distributed version control system to handle real time and large-scale government data would be a great problem to have. It'd be great because it'd mean that the supply side was already there and demanding it. Unfortunately, it's not, at least not yet, and no amount of [OT](http://en.wikipedia.org/wiki/Operational_transformation) can overcome the challenges we current face:
+There was a [recent exchange on the Twitters](https://twitter.com/dan_munz/status/351065902642503681) with some members of the open government community whom I respect greatly about [a recent proposal](https://github.com/maxogden/dat/blob/master/README.md) that I'm afraid is a bit ahead of its time. The need for a distributed version control system to handle real time and large-scale government data would be a great problem to have. It'd be great because it'd mean that the supply side was already there and demanding it. Unfortunately, it's not, at least not yet, and no amount of [OT](http://en.wikipedia.org/wiki/Operational_transformation) can overcome the challenges we current face:
 
 I watch day in and day out as many of my former colleagues fight tooth-and-nail trying to convince well-meaning government bureaucrats to toss a scrap of government data over the firewall. It's a tiring process. After all, whack-a-mole is, by definition, a losing game. But the answer's not Yet Another Mallet, nor is it to give up and build our own mole management solution. We should be making it dumb-simple to do the right thing. We should be building really, really boring stuff. The more boring the better. In many cases, we probably shouldn't be building anything at all. This is one of them.
 
