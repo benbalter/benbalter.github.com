@@ -3,7 +3,7 @@ title: how to derail any meeting
 description:
 ---
 
-A few weeks ago, the Office of Strategic Services "[Simple Sabotage Field Manual](https://www.gutenberg.org/ebooks/26184)" made its way around the internets. The book, published in 1944 by the predecessor to the CIA had such headings as "Encouraging Destructiveness", but it was the section on "General Interference with Organizations and Production" that caught my eye, not because I intent to sabotage any organizations in the near future, but because I see so many unintentionally doing to their own organization exactly what the OSS described some 70 years ago. Here are a few of my favorite[^disclaimer] from the list:
+A few weeks ago, the Office of Strategic Services "[Simple Sabotage Field Manual](https://www.gutenberg.org/ebooks/26184)" made its way around the internets. The book, published in 1944 by the predecessor to the CIA had such headings as "*Encouraging Destructiveness*", but it was the section on "*General Interference with Organizations and Production*" that caught my eye, not because I intent to sabotage any organizations in the near future, but because I see so many modern knowledge workers unintentionally doing to their own organization exactly what the OSS described some 70 years ago. Here are a few of my favorite[^disclaimer] from the list:
 
 > * **Insist on doing everything through "channels."** Never permit short-cuts to be taken in order to expedite decisions.
 > * **Haggle over precise wordings** of communications, minutes, resolutions.
@@ -16,9 +16,9 @@ A few weeks ago, the Office of Strategic Services "[Simple Sabotage Field Manual
 > * In making work assignments, **always sign out the unimportant jobs first**.
 > * **Insist on perfect work** in relatively unimportant products.
 
-Any of those tactics sound familiar? Any of those that you haven't experienced in a meeting at least once? While I doubt your coworkers are actually double agents for the now-defunct OSS, there's something to be said for the fact that the behaviors that were once used as means of espionage, are now common corporate anti-patterns.
+Any of those tactics sound familiar? Any of those that you haven't experienced in a meeting at least once? This week? While I doubt your coworkers are actually double agents for the now-defunct OSS, there's something to be said for the fact that the behaviors that were once used as means of espionage, are now all-too-common corporate anti-patterns.
 
-That got me thinking: what additional anti-patterns would the OSS add if they were writing that field manual today? The key is to maximize meta-work:
+That got me thinking: what additional anti-patterns would the OSS add if they were writing that field manual for modern times? The common thread here, is to maximize meta-work — the work you need to do before you can do the work you set out to do:
 
 * What are we solving for?
 * What does success look like?
