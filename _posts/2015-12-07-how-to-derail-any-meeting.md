@@ -18,16 +18,23 @@ A few weeks ago, the Office of Strategic Services "[Simple Sabotage Field Manual
 
 Any of those tactics sound familiar? Any of those that you haven't experienced in a meeting at least once? This week? While I doubt your coworkers are actually double agents for the now-defunct OSS, there's something to be said for the fact that the behaviors that were once used as means of espionage, are now all-too-common corporate anti-patterns.
 
-That got me thinking: what additional anti-patterns would the OSS add if they were writing that field manual for modern times? The common thread here, is to maximize meta-work — the work you need to do before you can do the work you set out to do:
+That got me thinking: what additional anti-patterns would the OSS add if they were writing that field manual for modern times? The common thread here, is to **maximize meta-discussion** — the discussion about having the discussion you need to have before you can do the work you actually                      set out to do:
 
-* What are we solving for?
+* What are we solving for? 
+* What's the goal of this meeting? 
+* Can we define the scope of the project?
+* If there is more than one goal, insist that you decide on one before proceeding
 * What does success look like?
 * What's our success metric?
 * How do we measure our success metric?
 * I really think X stakeholder should be here before we make a decision
+* If there are other similar efforts, insist the effort at hand be distinguished before proceeding
 * Show up when it's expected to start, or even better, assume it'll start a few minutes late
 * Don't take into account AV needs until after the start time
 * Don't do any work outside the meeting. Meetings are when your team does work.
+* Insist on introductions, especially as latecomers enter the meeting
+* Show up late and revist already-decided issues 
+* Restate issues addressed in prepatory materials (which you didn't read)
 
 ---
 
