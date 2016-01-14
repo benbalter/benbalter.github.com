@@ -22,15 +22,15 @@ That got me thinking: what additional anti-patterns would the OSS add if they we
 
 If you were purposely trying to derail a meeting, here's what I'd add to that list:
 
+* **Assume the meeting will start 3-5 minutes late**, and show up accordingly. When you do arrive blame technical issues. Be sure to bring up issues that were already decided in your absence.
+* If you've called the meeting, **don't take audio-visual needs into account** until after the meeting's scheduled to start. Don't include call in information in the meeting invitation. Spend the first ten minutes working through the confusion of presentation and teleconferencing needs.
+* **Don't do any work outside the meeting**. The meeting is a forcing function. Meetings are when your team does work. Even better, restate issues addressed in preparatory materials (which you didn't read)
+* **Insist on introductions**, go around the table providing each attendee with the opportunity to describe their role and how it relates to the meeting. This is especially true as latecomers enter the meeting, proving additional opportunities to interrupt the discussion.
 * In the middle of a particularly insightful discussion, insist that the group table the discussion, take a step back and define with specificity **what you're solving for**, **the scope of the project**, and **the particular meeting's goals**.
 * If the group present more than one goal, insist that you **decide on a single goal** or that you explicitly **prioritize goals** before you can proceed.
 * Whenever possible, present open ended proccess-bassed questions, like *what does success look like?*, *what's our success metric?*, or *how do we measure our success metric?*.
-* As you approach key points in the discussion, insist that the group foregone decision making until stakeholder not originally invited to the meeting have the opportunity to weigh in.
+* As you approach key points in the discussion, insist that the group **foregone decision making** until stakeholder not originally invited to the meeting have the opportunity to weigh in.
 * If there are other similar efforts within the organization, **insist the effort must be distinguished from similar efforts** before you can proceed
-* **Assume the meeting will start 3-5 minutes late**, and show up accordingly. When you do arrive blame technical issues. Be sure to revisit issues that were decided in your absence.
-* If you've called the meeting, **don't take audio-visual needs into account** until after the meeting's scheduled to start. Don't include call in information in the meeting invitation. Spend the first ten minutes working through the confusion of presentation and teleconferencing needs.
-* **Insist on introductions**, go around the table providing each attendee with the opportunity to describe their role and how it relates to the meeting. This is especially true as latecomers enter the meeting, proving additional opportunities to interrupt the discussion.
-* **Don't do any work outside the meeting**. The meeting is a forcing function. Meetings are when your team does work. Even better, restate issues addressed in preparatory materials (which you didn't read)
 
 ---
 
