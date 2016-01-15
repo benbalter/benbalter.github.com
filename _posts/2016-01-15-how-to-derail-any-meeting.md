@@ -24,11 +24,11 @@ With that in mind, here's how I'd update the *Simple Sabotage Field Manual* for 
 
 * If you've called the meeting, **don't take audio-visual needs into account** until after the meeting's scheduled to start. Don't include call in information in the meeting invitation. Spend the first ten minutes of the meeting working through any presentation and teleconferencing needs.
 * **Assume the meeting will start 3-5 minutes late**, and show up accordingly. Once settled, be sure to bring up issues that were already decided in your absence.
-* **Insist on introductions**, go around the table providing each attendee with the opportunity to describe their role and how it relates to the meeting. This is especially true as latecomers enter the meeting, proving additional opportunities to interrupt the discussion.
+* **Insist on introductions**, go around the table providing each attendee with the opportunity to describe their role and how it relates to the meeting. This is especially true as latecomers enter the meeting, providing additional opportunities to interrupt the discussion.
 * If on a conference call, **enable join notifications** so that discussions are automatically interrupted any time someone joins or leaves. Even better, when someone does join, be sure to pause the conversation to ask "*who just joined?*".
 * **Don't do any work outside the meeting**. Use the meeting as a forcing function. Meetings are when your team does work. Even better, if you've called the meeting, don't send any materials in advance, or if you're an attendee, restate issues addressed in preparatory materials (which you didn't read).
 * Insist that the group **table the discussion to take a step back** and define with specificity *what you're solving for*, *the scope of the project*, and *the particular meeting's goals*. Assert that the group won't be able to reach a consensus until those questions have been answered.
-* If the discussion begins to gain momentum, ask **open ended, proccess-bassed questions** like *what does success look like?*, *what's our success metric?*, or *how do we measure our success metric?*.
+* If the discussion begins to gain momentum, ask **open ended, process-based questions** like *what does success look like?*, *what's our success metric?*, or *how do we measure our success metric?*.
 * Whenever you sense a decision nearing, insist that the group **forego decision making** until stakeholders not originally invited to the meeting can have the opportunity to weigh in.
 
 *That's what I'd add to the list if I were giving it a refresh for 2016. What would you add? What corporate anti-patterns have you seen in your own organization? Do you have reason to suspect any of your colleagues are inadvertent sabatours?*
