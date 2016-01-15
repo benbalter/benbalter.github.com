@@ -1,6 +1,6 @@
 ---
 title: How to derail any meeting
-description:
+description: What the Cold War's Simple Sabotage Field Manual can teach today's knowledge workers about inadvertently sabotaging their own meetings.
 ---
 
 A few weeks ago, the Office of Strategic Services "[Simple Sabotage Field Manual](https://www.gutenberg.org/ebooks/26184)" made its way around the internets. The book, published in 1944 by the predecessor to the CIA had headings like "*Encouraging Destructiveness*", but it was the section on "*General Interference with Organizations and Production*" that caught my eye, not because I intend to sabotage any organization in the near future, but because I see so many modern knowledge workers unintentionally doing to their own organization exactly what the OSS playbook described doing to adversaries some 70 years ago. Here are a few of my favorite[^disclaimer] from the list:
