@@ -37,11 +37,9 @@ task :test do
   build_site
 
   # Use environmental variable to run tests in parallel
-  if ENV["TRAVIS_BUILD"] == "html_proofer"
-    html_proofer
-  elsif ENV["TRAVIS_BUILD"] == "ra11y"
+  if ENV["TRAVIS_BUILD"] == "ra11y"
     ra11y
   else
-    html_proofer && ra11y
+    html_proofer
   end
 end
