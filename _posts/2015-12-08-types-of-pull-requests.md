@@ -32,7 +32,7 @@ Whether collaborating on code, data, or prose text, there are lots of different 
 
 ### Line-by-line review
 
-**How it works:** Submit a feature-complete pull request and cc relevant teams, asking for their review. Team memebers will comment line-by-line and re-review as you implement their changes.
+**How it works:** Submit a feature-complete pull request and cc relevant teams, asking for their review. Team members will comment line-by-line and re-review as you implement their changes.
 
 **When to use it:** When you're ready to :ship: the thing. It may have been started as a work in progress, or for early feedback, but you've made it clear that unless you hear otherwise, you're going to hit merge.
 
