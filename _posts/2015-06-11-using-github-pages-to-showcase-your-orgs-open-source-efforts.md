@@ -3,9 +3,9 @@ title: "Using GitHub Pages to showcase your organization's open source efforts"
 description: "GitHub is a great place to share your work with the world, but sometimes large organization wish to brand or showcase their open source efforts in ways that the standard profile page doesn't allow. That's where GitHub Pages comes in."
 ---
 
-GitHub is a great place to share your work with the world, but sometimes large organization prefer to brand or showcase their open source efforts in ways that the standard profile page doesn't allow. That's where [GitHub Pages](https://pages.github.com) comes in.
+GitHub is a great place to share your work with the world, but sometimes large organizations prefer to brand or showcase their open source efforts in ways that the standard profile page doesn't allow. That's where [GitHub Pages](https://pages.github.com) comes in.
 
-GitHub Pages is GitHub's static site hosting service. It's used primarily for two things: for documenting open source projects, both from technical and marketing standpoint, and for providing a unified, fully customizable presence to showcase your efforts on GitHub. This post focuses on how to do the latter.
+GitHub Pages is GitHub's static site hosting service. It's used primarily for two things: for documenting open source projects, both from a technical and marketing standpoint, and for providing a unified, fully customizable presence to showcase your efforts on GitHub. This post focuses on how to do the latter.
 
 ### Organization profile pages
 
@@ -84,7 +84,7 @@ Think of Markdown like how you would format a document if you were typing on a t
 3. item
 ~~~
 
-The same goes for bullet points (unnumered lists, in HTML):
+The same goes for bullet points (unordered lists, in HTML):
 
 ~~~markdown
 * item
@@ -112,7 +112,7 @@ layout: default
 # My awesome org
 ~~~
 
-Again, the output should be identical. Need to include something in the page that you can't represent as markdown? You can always use HTML within the Markdown file as well.
+Again, the output should be identical. Need to include something in the page that you can't represent as Markdown? You can always use HTML within the Markdown file as well.
 
 ### Listing your organization's open source projects
 
@@ -130,7 +130,7 @@ layout: default
 * Project3
 {% endhighlight %}
 
-The problem with this approach, is as you add more projects, you have to constantly update your GitHub Pages site. Luckily, GitHub Pages already knows a lot about your organization, including your organization's open source projects.
+The problem with this approach, is that as you add more projects, you have to constantly update your GitHub Pages site. Luckily, GitHub Pages already knows a lot about your organization, including your organization's open source projects.
 
 In addition to Markdown, Jekyll also supports a lightweight templating engine called [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers). Liquid allows us to inject a bit of dynamic logic into the otherwise static site. If you're familiar with basic programatic concepts, it supports things like `while`, `if`, and `for` statements. To list all the open source project's in our organization's we might write:
 
