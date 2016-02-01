@@ -94,8 +94,6 @@ disqus:
   api_key: "OQ5OlN2AtWDfIQ0bjIGwdfq9SsEB3P8NdzhYTRak7R45KeAD744aVIqJZDYqvmuL"
 
 #build config
-highlighter: pygments
-markdown: kramdown
 timezone: America/New_York
 encoding: UTF-8
 branch: master
