@@ -12,8 +12,9 @@ tags:
   - open source
   - plugin
   - wordpress
-post_format: [ ]
+post_format: []
 ---
+
 I needed a quick-and-easy way to parse Microsoft Word's footnote format into a more web-friendly format for a recent project. After a bit of regular expression hacking, I was able to build a WordPress plugin to automatically convert content pasted from Word into a format readable by [Andrew Nacin's](http://andrewnacin.com) popular [Simple Footnotes](http://andrewnacin.com/2010/07/24/simple-footnotes-0-3/) plugin.
 
 The process is surprisingly simple given [WordPress's extensive filter API](http://codex.wordpress.org/Plugin_API/Filter_Reference){: data-proofer-ignore="true" }. First, to grab the footnotes from Word's `ftnref` format:
@@ -21,8 +22,8 @@ The process is surprisingly simple given [WordPress's extensive filter API](http
 <div>{% highlight php %}<?php
 
 //grab all the Word-style footnotes into an array
-$pattern = '#<a href\="\#_ftnref([0-9]+)">\[([0-9]+)\]</a> (.*)#';
-preg_match_all( $pattern, $content, $footnotes, PREG_SET_ORDER);
+$pattern = '#&lt;a href\\="#\_ftnref([0-9]+)">\[([0-9]+)]</a> (.\*)#';
+preg\_match\_all( $pattern, $content, $footnotes, PREG\_SET\_ORDER);
 
 ?>{% endhighlight %}</div>
 
@@ -32,8 +33,8 @@ This creates an array (`$footnotes`) with the both the footnote number and the t
 
 //build find and replace arrays
 foreach ($footnotes as $footnote) {
-  $find[] = '#<a href\="\#_ftn'.$footnote[1].'">\['.$footnote[1].'\]</a>#';
-  $replace[] = '[ref]' . str_replace( array("\r\n", "\r", "\n"), "",   $footnote[3]) . '[/ref]';
+  $find\[] = '#&lt;a href\\="#\_ftn'.$footnote[1].'">\['.$footnote[1].']</a>#';
+  $replace\[] = '[ref]' . str\_replace( array("\\r\\n", "\\r", "\\n"), "",   $footnote[3]) . '[/ref]';
 }
 
 ?>{% endhighlight %}</div>
@@ -52,7 +53,7 @@ Because PHP's `preg_replace` function can handle arrays, all we have to do is ru
 
 <div>{% highlight php %}<?php
 
-$content = preg_replace( $find, $replace, $content );
+$content = preg\_replace( $find, $replace, $content );
 
 ?>{% endhighlight %}</div>
 
@@ -65,7 +66,9 @@ To use, you can [download the plugin file](https://github.com/benbalter/Convert-
 Thoughts? Improvements? The above code solved a rather stubborn workflow problem in a project I was working on, and hopefully it can do the same for you. Feel free to use/improve the above code.
 
 [^1]: Licensed under [GPLv2](http://wordpress.org/about/gpl/)
+
 [^2]: You can even [Fork the plugin over on Github](http://ben.balter.com/2011/03/20/regular-expression-to-parse-word-style-footnotes/)
 
-[4]: #note-2020-1 "' . str_replace( array("\r\n", "\r", "\n"), "", $footnote[4]) . '"
+[4]&#x3A; #note-2020-1 "' . str\_replace( array("\\r\\n", "\\r", "\\n"), "", $footnote[4]) . '"
+
 [7]: #note-2020-2 "Licensed under GPLv2"

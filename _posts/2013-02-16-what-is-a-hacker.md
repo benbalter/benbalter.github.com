@@ -1,6 +1,6 @@
 ---
 title: "What is a 'Hacker'?"
-description: "Hackers embody sharing, openness, decentralization — coding to improve the world"
+description: 'Hackers embody sharing, openness, decentralization — coding to improve the world'
 author: Ben Balter
 layout: post
 comments: true
@@ -47,4 +47,5 @@ It's no surprise then, that as the pace of technological innovation quickens, th
 "Hacker" isn't just the next hot buzzword, following a long history of "rock star", "ninja", and "guru". Nor is it synonymous with "cybercriminal" or imply any nefarious intentions whatsoever. Instead the exact opposite is true. It's about embracing an ethos, a drive, a culture. It's about coding to improve the world.
 
 [^1]: As articulated best by [Steven Levy](http://www.amazon.com/Hackers-Computer-Revolution-Anniversary-ebook/dp/B003PDMKIY/ref=tmm_kin_title_0&tag=613240924-20)
+
 [^2]: *See* [Eric S. Raymond](http://www.catb.org/esr/faqs/hacker-howto.html)

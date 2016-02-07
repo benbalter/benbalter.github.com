@@ -1,6 +1,6 @@
 ---
 title: Copyright notices for open source projects
-description: "What is the appropriate copyright notice for opens source projects? Who is the copyright holder? What year(s) should you put? Do you even need a copyright notice in the first place?"
+description: What is the appropriate copyright notice for opens source projects? Who is the copyright holder? What year(s) should you put? Do you even need a copyright notice in the first place?
 ---
 
 The question's come up several times, as to what's the appropriate copyright notice for the footer of documentation websites or in an open source project's license. In short, assuming your project's under active development, it should be:
@@ -21,7 +21,7 @@ Simply put, a notice isn't strictly necessary legally speaking.  But a notice is
 
 ### The date
 
-If you chose to include a copyright notice, you'll see that the first half of any copyright notice (after either the word "Copyright" or "&copy;") is a year. Is it the current year? The year you first had the idea? The year year you hit publish? As implied above, when you choose to include a copyright notice, it's traditionally the year of (first) publication.
+If you chose to include a copyright notice, you'll see that the first half of any copyright notice (after either the word "Copyright" or "©") is a year. Is it the current year? The year you first had the idea? The year year you hit publish? As implied above, when you choose to include a copyright notice, it's traditionally the year of (first) publication.
 
 For things like books, the year of publication is really easy to determine. If you write a book in 2014, and it hits the shelves in 2015, the title page will most likely reflect a copyright date of 2015. That's the date the original work was reduced to a physical embodiment and publicly distributed. Thats the year it was "published", at least in the eyes of the law. And if a revised edition comes out in 2016, correcting some typos or adding a new forward, the title page would likely include both 2015 and 2016.
 

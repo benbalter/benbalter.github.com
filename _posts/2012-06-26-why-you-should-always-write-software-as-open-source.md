@@ -1,8 +1,9 @@
 ---
 author: Ben Balter
 title: "Why You Should Always Write Software as Open Source, Even When It's Never Going to Be"
-description: |
-  When you are the only person that's ever going to see something, you're a lot more likely to "just make it work. Therefore write open source
+description: >
+  When you are the only person that's ever going to see something, you're a lot
+  more likely to "just make it work. Therefore write open source
 layout: post
 categories:
   - Business
@@ -20,7 +21,7 @@ tags:
   - open source
   - procurement
   - proprietary
-post_format: [ ]
+post_format: []
 ---
 
 ![Unsatisfied with your Contractor?](http://ben.balter.com/wp-content/uploads/2012/06/mike-holmes-203x300.jpeg){: .alignright}
@@ -42,5 +43,7 @@ The reality of today's business environment is that all software is inherently "
 Justice Brandeis is famous for noting that "sunlight is the best disinfectant." Likewise, the transparency afforded by the open-source ethos produces more reliable software[^3] –  so why not simply assume your code is going to be open source from the start?
 
 [^1]: The same would apply when you're buying software and the contractor is under the impression no one outside the organization will ever see the code, and more importantly, the code could never negatively impact the public's perception of their overall work-product
+
 [^2]: [twitter.com/BenBalter/status/209356982983999488](https://twitter.com/BenBalter/status/209356982983999488)
+
 [^3]: [coverity.com/library/pdf/coverity-scan-2011-open-source-integrity-report.pdf](http://www.coverity.com/library/pdf/coverity-scan-2011-open-source-integrity-report.pdf)

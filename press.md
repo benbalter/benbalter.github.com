@@ -1,6 +1,6 @@
 ---
 title: Press
-excerpt: "Select media clips of Ben Balter in the press talking about open source, open data, and government innovation."
+excerpt: 'Select media clips of Ben Balter in the press talking about open source, open data, and government innovation.'
 layout: page
 permalink: /press/
 id: /press

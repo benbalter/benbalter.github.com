@@ -1,6 +1,6 @@
 ---
-title: "What is a Government Evangelist?"
-description: "The Government Evangelist role at GitHub is about helping government agencies to ship software better, to fold the map in half, and bring the West coast a bit closer to the East coast."
+title: What is a Government Evangelist?
+description: 'The Government Evangelist role at GitHub is about helping government agencies to ship software better, to fold the map in half, and bring the West coast a bit closer to the East coast.'
 ---
 
 Two of the most frequent questions I get, as [GitHub's Government Evangelist](http://ben.balter.com/about/) (other than "*is that your real title?*", of course), is "*what exactly does a Government Evangelist do?*", almost always followed by "*wait, but why would GitHub do that?*". Here's the what and why, along with why it's important to the open source community that roles like that exist, at GitHub and elsewhere:

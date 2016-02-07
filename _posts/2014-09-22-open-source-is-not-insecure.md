@@ -1,6 +1,6 @@
 ---
-title: "Open source is (not) insecure"
-description: "The idea that open source software is inherently less secure than its closed source or proprietary counterparts is untrue and stems from fear, uncertainty, and doubt (FUD)."
+title: Open source is (not) insecure
+description: 'The idea that open source software is inherently less secure than its closed source or proprietary counterparts is untrue and stems from fear, uncertainty, and doubt (FUD).'
 ---
 
 Spend any time in the enterprise IT world, and you'll quickly be led to believe that open source software is insecure, and only what you use when you can't afford "real" software — both false. This is a form of [FUD (fear, uncertainly, doubt)](http://en.wikipedia.org/wiki/Fear,_uncertainty_and_doubt), which has been historically encouraged [by those who sell open source's proprietary alternatives](https://en.wikipedia.org/wiki/Halloween_documents). When talking about the security of open source, there's two, parallel conversations. Open source as a platform, and open source as a workflow.

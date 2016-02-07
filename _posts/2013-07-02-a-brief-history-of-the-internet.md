@@ -4,7 +4,7 @@ comments: true
 author: Ben Balter
 title: Bet on the little guy
 category: technology
-description: "On the Internet, simple, open format reign supreme over their heavyweight, proprietary counterparts"
+description: 'On the Internet, simple, open format reign supreme over their heavyweight, proprietary counterparts'
 tags:
   - enterprise
   - formats
@@ -12,7 +12,6 @@ tags:
   - open source
   - open formats
   - open standards
-
 ---
 
 When one tells the story of the Internet, a David and Goliath motif emerges. Every time a technical challenged is faced, a new standard is needed, or a new design pattern takes center stage, two camps eventually emerge:
@@ -25,12 +24,12 @@ We saw this in the early days of the Internet when every new service would pick 
 
 <!-- more -->
 
-* Everything &rarr; HTTP
-* XML &rarr; JSON
-* SOAP &rarr; REST
-* SAML &rarr; OAUTH
-* Adobe PDF, Microsoft Word &rarr; Markdown
-* ESRI Shapefile, Google KML &rarr; GeoJSON, TopoJSON
+* Everything → HTTP
+* XML → JSON
+* SOAP → REST
+* SAML → OAUTH
+* Adobe PDF, Microsoft Word → Markdown
+* ESRI Shapefile, Google KML → GeoJSON, TopoJSON
 
 The Internet is fundamentally a different animal from the desktop, both culturally and technically. Interoperability reigns supreme. Sure, many complex formats were first-out-the-gate to tackle a problem, and they did it well. Today however, with the abundance of smarter tools, we don't need that complexity at the core. Microsoft Word is great for making paper, but things like Markdown and HTML are quickly becoming the `.doc`s of the web. What lessons can we learn from the "winning" solutions?
 

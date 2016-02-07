@@ -1,5 +1,5 @@
 ---
-title: Open source, not just software anymore
+title: 'Open source, not just software anymore'
 layout: post
 comments: true
 description: "What we've been calling open source, may in fact be something else, especially when we start to use those workflows to collaborate on things beyond code."

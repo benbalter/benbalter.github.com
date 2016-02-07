@@ -1,6 +1,6 @@
 ---
 title: Talks
-except: "Past and future talks by Ben Balter, both slides and recordings"
+except: 'Past and future talks by Ben Balter, both slides and recordings'
 layout: page
 permalink: /talks/
 ---

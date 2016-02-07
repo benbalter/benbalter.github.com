@@ -1,6 +1,6 @@
 ---
 title: The Zen of GitHub
-description: Whether you call it taste, culture, or zen, there are underlying assumptions that members of an organization rely on to resolve ambiguity in pursuit of the organization's mission.
+description: "Whether you call it taste, culture, or zen, there are underlying assumptions that members of an organization rely on to resolve ambiguity in pursuit of the organization's mission."
 ---
 
 I've got a [broadside](https://en.wikipedia.org/wiki/Broadside_(printing)) hanging in my office which reads "ZEN" in bright red, hand-typeset lettering. It's what we call *the Zen of GitHub*. It's the first words displayed each time a GitHub server spins up, and it's the philosophy that has historically underpinned most major decisions at GitHub, both technical and otherwise. @kneath published [a great write up as to the how and why](http://warpspire.com/posts/taste/) that GitHub Zen came to be. Speaking to the contrast between Apple and Microsoft, he wrote:

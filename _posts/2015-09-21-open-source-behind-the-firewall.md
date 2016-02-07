@@ -1,6 +1,6 @@
 ---
 title: Bringing open source workflows to the enterprise
-description: "How open source workflows and philosophies can be leveraged by the enterprise to produce more modern software, even if that software ultimately remains closed source."
+description: 'How open source workflows and philosophies can be leveraged by the enterprise to produce more modern software, even if that software ultimately remains closed source.'
 ---
 
 *This post originally published on [DLT's Technically Speaking](http://blogs.dlt.com/bringing-open-source-workflows-enterprise/).*

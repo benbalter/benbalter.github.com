@@ -1,5 +1,5 @@
 ---
-title: "Five best practices in open source: external engagement"
+title: 'Five best practices in open source: external engagement'
 description: "When it comes to open source, simply publishing code isn't enough. Open source is about fostering communities around shared challenges, and as the maintainer of an open source project, that responsibility falls squarely on your shoulders. Go out of your way to encourage, praise, and support each contributor and each contribution as if the project's success depended on it, because in reality, it does."
 ---
 

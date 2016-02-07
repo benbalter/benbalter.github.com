@@ -1,6 +1,6 @@
 ---
 title: Open source as Yelp for software
-description: Open source has become somewhat of a Yelp for software, and with it, has the potential to shift the balance of power from software publishers to software consumers.
+description: 'Open source has become somewhat of a Yelp for software, and with it, has the potential to shift the balance of power from software publishers to software consumers.'
 ---
 
 Open source has become somewhat of a Yelp for software, and with it, open source has the potential to shift the balance of power from software publishers to software consumers. So why do we hold the software that our society increasingly depends on to a standard lesser than that to which we hold fast food?
@@ -51,6 +51,6 @@ What if every government website was required, at least in part, to be open sour
 
 When you think of open source as Yelp for software, open source suddenly becomes a means of creating more user-centric solutions, rather than a wonky means of producing more philosophically pure code.
 
----
+- - -
 
 [^clarify]: Of course, much of the feedback might be technical in nature. Anyone can say a burger tastes bad, or that a restaurant is unclean. When it comes to software, there's a perception that the only technical contributors are developers. That's not true. Similarly anyone can report unexpected behavior or a sub-par user experience. When it comes to software development, often times, the actual development is the easy part. All the hard technical challenge have already been solved. Today the challenge comes from understanding user needs, identifying points of friction, and in providing more than the bare minimum, user-centric functionality.
