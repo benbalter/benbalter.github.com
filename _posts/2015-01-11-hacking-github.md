@@ -13,7 +13,7 @@ Code speaks louder than words. It's almost always faster to build out the reques
 
 Here are 12 simple apps that I've built to introduce open source to the uninitiated, minimize points of friction for atypical users to collaborate using GitHub, and to show the power of adding smart tools to the edge of an otherwise dumb platform:
 
-### Working with legacy formats
+# Working with legacy formats
 
 * [**Word to Markdown**](https://github.com/benbalter/word-to-markdown) - A Ruby gem to liberate content from the jail that is Word documents.
 

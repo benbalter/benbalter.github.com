@@ -6,7 +6,7 @@ redirect_from: "/2014/09/29/your-code-deserves-better/"
 
 I've seen multi-million dollar contracts in government, the final deliverable for which, is a CD-ROM, in triplicate. That's not how modern software development works. Our government's code deserves much, much better.
 
-### How we got here
+# How we got here
 
 The most commonly used arrows in the federal IT procurement quiver are CTRL-C and CTRL-V. Rightly not wanting to reinvent the wheel with each contract, the first step of most procurements is to find an analogous prior award and swap out the inapplicable terms. Need a mobile app? Take the web design contract you awarded a few months back and swap out Objective-C for PHP and uptime for cross-platform. Boom. Contract. No need to rewrite potentially shared clauses like the contractor needing to supply their own laptops or the need to establish a test environment.
 

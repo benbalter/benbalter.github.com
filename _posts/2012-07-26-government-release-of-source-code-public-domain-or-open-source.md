@@ -45,11 +45,17 @@ Put simply, it's about what role we are going to play, not what rights we are go
 *As always, [views are my own](http://ben.balter.com/fine-print/).*
 
 [^1]: I'd argue that all software, even government funded software should still be licensed under a traditional open source license, to resolve any legal ambiguity when used abroad under the terms of various international copyright treaties and agreements
-[^2]: Although citizen-contributions to that project would theoretically not be public domain, thus necessitating a license, which should be clarified in the project's documentation at the time of release to avoid potential issues with 21 U.S.C. § 1342.
-[^3]: Although again, technically speaking the project as a whole would be licensed under GPL,  individual code not dependent on the parent project could be used as a US Government Work.
-[^4]: Unless you're looking at the [vibrant open source cold fusion community](https://github.com/trending?l=cfm).
-[^5]: FAR 52.227-14(c)(1)(i). Even if the contracting officer grants such rights, they do not take effect unless the contractor includes a copyright notice at the time of delivery, acknowledging the government's sponsorship and indicating the contract number under which it was procured. See FAR 27.404(a)(5).
-[^6]: General counsels across government already have enough ammunition to stymy progress.
-[^7]: Often the last and least seen step in the enterprise development process.
-[^8]: There's been [exactly one pull request to date](http://ben.balter.com/2012/04/15/cfpb-accepts-first-citizen-submitted-pull-request-on-behalf-of-federal-government/) across all government github repos.
 
+[^2]: Although citizen-contributions to that project would theoretically not be public domain, thus necessitating a license, which should be clarified in the project's documentation at the time of release to avoid potential issues with 21 U.S.C. § 1342.
+
+[^3]: Although again, technically speaking the project as a whole would be licensed under GPL,  individual code not dependent on the parent project could be used as a US Government Work.
+
+[^4]: Unless you're looking at the [vibrant open source cold fusion community](https://github.com/trending?l=cfm).
+
+[^5]: FAR 52.227-14(c)(1)(i). Even if the contracting officer grants such rights, they do not take effect unless the contractor includes a copyright notice at the time of delivery, acknowledging the government's sponsorship and indicating the contract number under which it was procured. See FAR 27.404(a)(5).
+
+[^6]: General counsels across government already have enough ammunition to stymy progress.
+
+[^7]: Often the last and least seen step in the enterprise development process.
+
+[^8]: There's been [exactly one pull request to date](http://ben.balter.com/2012/04/15/cfpb-accepts-first-citizen-submitted-pull-request-on-behalf-of-federal-government/) across all government github repos.

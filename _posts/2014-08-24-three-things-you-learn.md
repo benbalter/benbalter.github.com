@@ -7,7 +7,7 @@ description: "Moving from the federal government, arguably the most bureaucratic
 
 About a year and a half ago, I moved from the federal government, arguably [the most bureaucratic organization in the history of the world](http://www.washingtonpost.com/sf/national/2014/03/22/sinkhole-of-bureaucracy/), to GitHub, arguably one of [the world's least bureaucratic](http://www.fastcolabs.com/3020181/open-company/inside-githubs-super-lean-management-strategy-and-how-it-drives-innovation). Looking back, there were three key organizational differences beyond mere size and the lack of TPS reports:
 
-### 1. Trust your coworkers
+# 1. Trust your coworkers
 
 Much of my job at GitHub involves explaining open source to government employees and (hopefully) inspiring them to adopt more collaborative software-development workflows. The hard part in bridging this anachronistic divide isn't teaching version control or dependency management. Instead, it's the many cultural incongruencies between government and open source that derive from one fundamental rift: trust.
 

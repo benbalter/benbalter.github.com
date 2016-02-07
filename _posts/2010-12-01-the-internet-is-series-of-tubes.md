@@ -15,16 +15,18 @@ description: >
   superhighway.
 layout: post
 categories:
-  - Business
-  - Technology
-tags:
-  - comcast
-  - fcc
-  - net neutrality
-  - open internet
-  - series of tubes
-post_format: [ ]
----
+
+* Business
+* Technology
+  tags:
+* comcast
+* fcc
+* net neutrality
+* open internet
+* series of tubes
+  post\_format: [ ]
+
+- - -
 
 The Internet backbone big tube provider, Level 3, which makes up much of the behind-the-scenes magic that delivers Netflix streaming movies, revealed that in recent negotiations, internet service (smaller tube) provider Comcast [demanded Level 3 pay an additional fee](http://voices.washingtonpost.com/posttech/2010/11/comcast_hit_with_two_net_neutr.html) in exchange for Comcast *continuing* to allow its customers access to Netflix videos, effectively erecting a series of tollgates on the information superhighway.
 
@@ -32,7 +34,7 @@ It's likely no coincidence that Comcast's decision comes just a week after Netfl
 
 In Comcast's defense, their move makes *some* sense from a business standpoint. After all, during peak hours, just 2% of Netflix users (via Level 3) account for [20% of all bandwidth used](http://www.slate.com/id/2273314/) in North America. In Comcast's own words:
 
-> \[W\]hen one provider… push\[es\] the burden of massive traffic growth onto the other provider and its customers, we believe this is not fair.
+> \[W]hen one provider… push\[es] the burden of massive traffic growth onto the other provider and its customers, we believe this is not fair.
 
 The problem with the "it's the customer's fault for using our service" argument, the [same argument used by AT&T](http://www.nytimes.com/2009/09/03/technology/companies/03att.html?_r=1){: data-proofer-ignore="true"} not too long ago, is that,  if they haven't already, service providers need to realize the Internet is here to stay. We as consumers like browsing the net. We like images. We like YouTube videos. We like interactive content. We like streaming stuff, and tomorrow we may like holograms or virtual reality or whatever the next cool, shiny thing is. Consumers simply can't get enough rich, bandwidth-intensive content, and if you're an internet service provider, you can't complain when your customers use your service to do just that.
 
@@ -48,6 +50,6 @@ Any time the nation's [largest](http://www.comcast.com/About/PressRelease/PressR
 
 *Views represent [my own](http://ben.balter.com/fine-print/).*
 
-\[photo: [gnackgnackgnack](http://www.flickr.com/photos/gnackgnackgnack/3592493739/)\]
+\[photo: [gnackgnackgnack](http://www.flickr.com/photos/gnackgnackgnack/3592493739/)]
 
 [1]: http://ben.balter.com/wp-content/uploads/2010/11/3592493739_6b0b0d3f45_b.jpg

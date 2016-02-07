@@ -17,6 +17,7 @@ tags:
   - wordpress
 post_format: [ ]
 ---
+
 [![Golden Hammer](http://imgs.xkcd.com/comics/golden_hammer.png){: .aligncenter}](http://xkcd.com/801/)
 
 My biggest gripe with [WordPress](http://wordpress.org), the open-source [content management system](http://en.wikipedia.org/wiki/Content_management_system) that silently works behind the scenes to power [more than 13%](http://w3techs.com/technologies/overview/content_management/all) of the Internet, is that it sets far too high a bar with which other applications must compete. I cannot count the number of times that I have used a proprietary or commercial system and silently thought to myself, "*WordPress can do this so much better*." [^1]
@@ -38,13 +39,21 @@ I am working on submitting this idea as a proposed [Google Summer of Code](http:
 **Update (8/29)**: The final result of the project is an [Open Source Document Management and Version Control System](http://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/) for WordPress. An overview of its top-level features including a screencast of a typical use case is available on the [WP Document Revisions][22] page.
 
 [^1]: *See, e.g., *[Documentum](http://www.emc.com/enterprise-content-management/index.htm){: data-proofer-ignore="true"}, [Liferay](http://www.liferay.com/), [Melange](http://code.google.com/p/soc/wiki/MelangeIntro), and [Gawker's CMS](http://www.mediaite.com/online/worse-than-previously-thought-gawker-content-management-system-hacked/).
+
 [^2]: Nearly three years ago, at the time of the feature's inception, [WordPress founder Matt Mullenweg noted](http://wordpress.org/news/2008/07/wordpress-26-tyner/), "*With the power of modern computers, it's silly that we still use save and editing metaphors from the time when the most common method of storage was floppy disks… now we're taking that to another level by allowing you to view who made what changes when… through a super-easy interface, much like Wikipedia or a version control system.*"
+
 [^3]: *See, e.g., *WordPress as an [e-mail newsletter](http://net.tutsplus.com/tutorials/wordpress/build-a-wordburner-email-newsletter-manager-using-wordpress-and-feedburner/), [contact manager](http://publisherblog.automattic.com/2008/02/13/wp-contact-manager/){: data-proofer-ignore="true" }, [CRM](http://slipfire.com/wp-crm/), [invoice system](http://wordpress.org/extend/plugins/wp-invoice/),  [job bank](http://wordpress.org/extend/plugins/job-manager/), or [real estate directory](http://wordpress.org/extend/plugins/great-real-estate/).
+
 [^4]: Let's just call it "Frupal" for the sake of discussion.
+
 [^5]: In hindsight, I probably shouldn't have ripped on Melange. *See supra note 1.*
 
 [5]: #note-2020-1 "See, e.g., Documentum, Liferay, Melange, and Gawker's CMS."
-[11]: #note-2020-2 "Nearly three years ago, at the time of the feature's inception, WordPress founder Matt Mullenweg noted, "With the power of modern computers, it's silly that we still use save and editing metaphors from the time when the most common method of storage was floppy disks… now we're taking that to another level by allowing you to view who made what changes when… through a super-easy interface, much like Wikipedia or a version control system.""
+
+[11]&#x3A; #note-2020-2 "Nearly three years ago, at the time of the feature's inception, WordPress founder Matt Mullenweg noted, "With the power of modern computers, it's silly that we still use save and editing metaphors from the time when the most common method of storage was floppy disks… now we're taking that to another level by allowing you to view who made what changes when… through a super-easy interface, much like Wikipedia or a version control system.""
+
 [15]: #note-2020-3 "See, e.g., WordPress as an e-mail newsletter, contact manager, CRM, task list, invoice system,  job bank, or real estate directory."
-[17]: #note-2020-4 "Let's just call it "Frupal" for the sake of discussion."
+
+[17]&#x3A; #note-2020-4 "Let's just call it "Frupal" for the sake of discussion."
+
 [19]: #note-2020-5 "In hindsight, I probably shouldn't have ripped on Melange. See supra note 1."

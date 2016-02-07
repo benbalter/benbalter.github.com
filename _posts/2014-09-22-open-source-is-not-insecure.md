@@ -5,7 +5,7 @@ description: "The idea that open source software is inherently less secure than 
 
 Spend any time in the enterprise IT world, and you'll quickly be led to believe that open source software is insecure, and only what you use when you can't afford "real" software — both false. This is a form of [FUD (fear, uncertainly, doubt)](http://en.wikipedia.org/wiki/Fear,_uncertainty_and_doubt), which has been historically encouraged [by those who sell open source's proprietary alternatives](https://en.wikipedia.org/wiki/Halloween_documents). When talking about the security of open source, there's two, parallel conversations. Open source as a platform, and open source as a workflow.
 
-### Open source as a platform
+# Open source as a platform
 
 The first threshold issue, is whether building or using open source software, even if your own particular code isn't published, is somehow inherently less secure. There are a few flavors to this argument.
 

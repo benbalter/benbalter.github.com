@@ -10,7 +10,7 @@ tags: "government,open source,code,workflow"
 
 Imagine if tomorrow, 10 of the top open-source developers showed up outside the gates of the White House with pitch forks and battering rams, somehow (peacefully) got inside, and was able to convince the powers that be to release the code that runs say, The Situation Room. Do you think once public, the project would have much chance of sustainable success in the wild?
 
-## Code born in captivity
+# Code born in captivity
 
 Even with the code out in the open and a small team of committed developers, the White House will still have its own, probably Waterfall-ish workflow, its own, private issue tracker, and most importantly, it's own goals, priorities, and chain of command that the rest of the world wouldn't be privy to. I doubt the software would be very well documented to begin with, so have fun reverse-engineering half the functionality, not to mention, you'd likely be hard pressed to find a wider use case for such purpose-built code which I can only imagine is written in Cold Fusion or some other unfortunate (proprietary) language last seen when Palm Pilots were in vogue. It's still a closed-source project, governed by a closed-source mentality and closed-source tools. The code just happens to be available online.
 

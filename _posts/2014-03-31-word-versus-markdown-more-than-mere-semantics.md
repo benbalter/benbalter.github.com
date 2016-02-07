@@ -13,7 +13,7 @@ I'm asked regularly by government employees — knowledge workers who fire up a 
 
 Markdown isn't just an alternative format. Markdown forces you to write for the web.
 
-### In the beginning, there was paper
+# In the beginning, there was paper
 
 The first desktop word processors had a simple task: they were designed to make paper. We didn't have email or a vibrant internet sharing digital documents to worry about. The creators of the first desktop word processors simply mirrored the dominant workflow of the time: the typewriter. The final output — the sole embodiment — was physical, and all that mattered was what the document looked like.
 
@@ -29,7 +29,7 @@ Put another way, in taking a look at this [sample Word Document](https://github.
 
 {: .table .table-striped style="width: 50%; margin-left: auto; margin-right: auto;"}
 | Format   | Size        |   %   |
-| -------- | ----------- | ----- |
+\| -------- \| ----------- \| ----- \|
 | Word     | 33621 bytes | 100%  |
 | HTML     | 1359 bytes  | 4.04% |
 | Markdown | 80 bytes    | 0.24% |
@@ -40,29 +40,29 @@ Once content and presentation are decoupled, content written for the web exposes
 
 Take a look at how markdown represents an unordered list, for example:
 
-~~~ markdown
+```markdown
 * One
 * Two
 * Three
-~~~
+```
 
 Simplicity aside, the markup represents a grouping with three elements. We, as humans, can tell that those are three parts of a set, and a computer can as well. Now here's how Microsoft Word conveys the same exact information, at least when exported as HTML:
 
 {% highlight html %}
-<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+&lt;p class=MsoListParagraphCxSpFirst style='text-indent:-.25in;mso-list:l0 level1 lfo1'>&lt;![if !supportLists]><span
 style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
-Symbol'><span style='mso-list:Ignore'>�<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span></span><![endif]>One</p>
+Symbol'><span style='mso-list:Ignore'>�<span style='font:7.0pt "Times New Roman"'>     
+</span></span></span>&lt;![endif]>One</p>
 
-<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+&lt;p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;mso-list:l0 level1 lfo1'>&lt;![if !supportLists]><span
 style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
-Symbol'><span style='mso-list:Ignore'>�<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span></span><![endif]>Two</p>
+Symbol'><span style='mso-list:Ignore'>�<span style='font:7.0pt "Times New Roman"'>     
+</span></span></span>&lt;![endif]>Two</p>
 
-<p class=MsoListParagraphCxSpLast style='text-indent:-.25in;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+&lt;p class=MsoListParagraphCxSpLast style='text-indent:-.25in;mso-list:l0 level1 lfo1'>&lt;![if !supportLists]><span
 style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
-Symbol'><span style='mso-list:Ignore'>�<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span></span><![endif]>Three</p>
+Symbol'><span style='mso-list:Ignore'>�<span style='font:7.0pt "Times New Roman"'>     
+</span></span></span>&lt;![endif]>Three</p>
 {% endhighlight %}
 
 There's two things you'll notice there. First, the markup isn't semantic, meaning the presentation information is intermingled with the content, rendering the author's intent indiscernible and using the content in any other context an increasingly difficult goal.

@@ -5,7 +5,7 @@ description: "Federal-compatible Terms of Service (TOS) agreements are special a
 
 If you offer a service online, chances are, government agencies can't agree to your standard terms of service, at least not has posted. [More than 75 of the web's largest services](http://www.digitalgov.gov/resources/negotiated-terms-of-service-agreements/), including Twitter, Facebook, Google, and GitHub have negotiated custom terms of service agreements with the federal government allowing more than 2.7M government employees to use their service. If you're looking to enter the federal market, the following is a read out from a round table discussion at the recent [Collaborate](http://collaborate.fosterly.com/) conference in Washington, D.C.:
 
-### Why federal agencies can't agree to your terms of service
+# Why federal agencies can't agree to your terms of service
 
 Terms of service agreements are often called clickwrap or browserwrap agreements, meaning that by either clicking an "I agree" checkbox when they sign up, or simply by using a service with a terms of service (TOS) linked in the footer of each page, the user has said to agree to be bound by the document, essentially a contract between the service provider and the user. However, terms of service agreements, often written by large companies and agreed to most commonly by individuals contain several unfavorable clauses, that government agencies cannot agree to by force of law. Even if not illegal, the government may be able to pursue their own organizational preference by virtue of their superior bargaining position. Here are a few of the most commonly negotiated clauses:
 

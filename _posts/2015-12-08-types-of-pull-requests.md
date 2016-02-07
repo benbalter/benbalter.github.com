@@ -6,7 +6,7 @@ redirect_from: /2014/12/08/types-of-pull-requests/
 
 Whether collaborating on code, data, or prose text, there are lots of different strategies for using pull requests on GitHub. I once saw a post that outlined a handful of ways teams use pull requests, that seems to be subsequently lost forever, despite looking high and low. Here's how I see pull requests used at GitHub:
 
-### Just a heads up
+# Just a heads up
 
 **How it works:** Create a pull request and immediately merge it yourself without others' review.
 

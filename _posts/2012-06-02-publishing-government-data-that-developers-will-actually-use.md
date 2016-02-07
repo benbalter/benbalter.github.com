@@ -43,9 +43,10 @@ tags:
   - xml
 post_format: [ ]
 ---
+
 [![CIO Magazine Logo](http://ben.balter.com/wp-content/uploads/2012/06/government-cio-magazine-june-2012.png){: .alignright}][2]Despite increasing public support (as well as a number of executive mandates) publishing public data in a machine-readable format is not as simple as pressing the "publish" button. Why? Equally important as exposing the information itself is fostering a vibrant developer ecosystem around it. By making the publishing agency, not the public, responsible for making information immediately useful, government can lower the barriers associated with consuming its data and introduce additional citizen services at little to no cost to the agency.
 
-### 1. Garbage in, garbage out
+# 1. Garbage in, garbage out
 
 Good, clean data may be surprisingly difficult to come by, especially when working with government systems that have been coupled together over decades. Data standards and conventions change, mechanisms of data collection evolve, and the data itself may be interpreted differently as new policies are introduced. As a result consistent practices, like naming conventions or data formats, often go overlooked. Where practical, take steps to normalize the data prior to release, rather than pushing the responsibility off to be inefficiently repeated by each application individually.
 
@@ -88,4 +89,3 @@ With the "consumerization" of mobile, datasets are increasingly becoming locatio
 Exposing data as a service is quickly becoming an industry-standard practice. Many popular startups owe their success to the vibrant app communities that surround them, grown simply by lifting some of the burden off of developers' shoulders. Government agencies may not yet be able to publish data with the mere click of a button, but when done right from the start, exposing additional data sources may be a more trivial task than many expect, and will in turn deliver value to citizens in ways today unimagined by agencies.
 
 *This is an excerpt of an article originally published in the June 2012 issue of [Government CIO Magazine](http://www.governmentciomagazine.com).* **[Continue Reading →](http://www.governmentciomagazine.com/2012/06/ten-steps-publishing-government-data-developers-will-actually-use#blog-content)**
-

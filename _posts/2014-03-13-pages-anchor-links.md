@@ -13,7 +13,7 @@ As long as you're using Jekyll and authoring your content in Markdown, you can a
 
 **Edit (5/10/2015):** @bryanbraun has created the awesome AnchorJS library. I'd suggest you [just use that](https://github.com/bryanbraun/anchorjs#installation), instead of creating your own implementation.
 
-## Font Awesome and jQuery
+# Font Awesome and jQuery
 
 First, you'll want [jQuery](http://jquery.com/) and [Font Awesome](http://fortawesome.github.io/Font-Awesome/) included in your site template, if they aren't already.
 
@@ -23,6 +23,7 @@ There are a handful of ways to do this, but the easiest is to add the following 
 
 {% highlight html %}
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 {% endhighlight %}
 
@@ -36,9 +37,9 @@ We need to tell the browser how to position the link icon, and to only display i
   left: -0.5em;
   opacity: 0;
 
-  -webkit-transition: opacity 0.2s ease-in-out 0.1s;
-  -moz-transition: opacity 0.2s ease-in-out 0.1s;
-  -ms-transition: opacity 0.2s ease-in-out 0.1s;
+  \-webkit-transition: opacity 0.2s ease-in-out 0.1s;
+  \-moz-transition: opacity 0.2s ease-in-out 0.1s;
+  \-ms-transition: opacity 0.2s ease-in-out 0.1s;
 }
 
 h2:hover .header-link,
@@ -55,6 +56,7 @@ h6:hover .header-link {
 Last, to tie everything together, you'll also need a bit of javascript magic client side, by adding the following to your site's footer:
 
 {% highlight html %}
+
 <script>
 $(function() {
   return $("h2, h3, h4, h5, h6").each(function(i, el) {

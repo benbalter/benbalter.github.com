@@ -7,7 +7,7 @@ Government agencies can and should participate in the open source community. Ope
 
 *Note: this is an early draft. If you notice anything wonky, please [help improve it](https://github.com/benbalter/benbalter.github.com/edit/master/_posts/2014-10-08-open-source-licensing-for-government-attorneys.md).*
 
-### Open source licenses generally
+# Open source licenses generally
 
 Open source licenses are a straight-forward intelectual property license with one unique feature: [they're standardized](http://opensource.org/licenses/category). The software industry has [adopted approximately fifteen mainstream](http://choosealicense.com/licenses/) and [three primary licenses](http://choosealicense.com/). While the wording and specific terms vary, most licenses have the following common clauses:
 
@@ -117,8 +117,8 @@ For platforms like GitHub, per the terms of service, government employees should
 
 This is a high-level overview intended to highlight common legal issues agencies may face when participating in the open source community, and should not be consider to be legal advice or specific to a particular matter.
 
-Although this is my personal blog, agencies should feel free to contact <government@github.com> or post in the [github.com/government](https://github.com/government/welcome) peer group with any open-source related questions.
+Although this is my personal blog, agencies should feel free to contact <mailto:government@github.com> or post in the [github.com/government](https://github.com/government/welcome) peer group with any open-source related questions.
 
----
+- - -
 
 [^1]: The full mechanics of a pull request are beyond the scope of this post, but in short, a member of the public will fork the agency project, or make a copy in their personal account. In many cases, that is all downstream users do. The contributor may then modify the software, in their own personal copy, under the right to modify as granted in the open source license. Again, many downstream users will stop at this point as well, using the modified software for their own purposes. At both steps, the software is freely available to anyone in the world from the user's account and is licensed under the project terms. The upstream project is free to incorporate the downstream users changes as they wish. A contributor may also choose to contribute that code back to the original project, by explicitly asking the upstream project to incorporate their changes.  

@@ -13,6 +13,7 @@ tags:
   - open source
 post_format: [ ]
 ---
+
 ![Course Schedule](http://ben.balter.com/wp-content/uploads/2011/01/1430289931_beb7ff6428_b-300x225.jpg "Course Schedule"){: .alignright}George Washington University recently released an [iPhone app](http://gwtoday.gwu.edu/app-gw) that allows students to look up the course schedule and each course's open/closed status as well as browse an interactive map of the campus. Naturally, upon installing the app, the first thing to do is to try and ferret out the underlying XML API that powers it, a simple enough task given [the right tools](http://blog.jerodsanto.net/2009/06/sniff-your-iphones-network-traffic/).
 
 Below you can find the details on GW's course schedule and campus map API endpoints, as well as an API wrapper to interact with it written in PHP. Feel free to grab the code below, or fork and contribute in the [GitHub repo](https://github.com/benbalter/GW-API). Cool data that deserves to be shared with the world, no doubt.
@@ -21,34 +22,35 @@ Creative ideas on how best to leverage the information welcome in the comments b
 
 *Please Note: I am not a GW employee, nor is use of the API explicitly authorized by the University. The code below is provided "as is" solely for educational purposes. If for any reason you would like this page removed, please [contact me](http://ben.balter.com/contact/) immediately and I will do so.*
 
-* * *
+- - -
 
-### Course Schedule
+# Course Schedule
 
-1.  Departments
-  1.  Endpoint: `http://my.gwu.edu/mod/pws/scheduleXML.cfm`
-  2.  Parameters: `termCode=[YYYY][01=spring, 02=summer, 03=fall]`
-  3.  Returns
+1. Departments
+2. Endpoint: `http://my.gwu.edu/mod/pws/scheduleXML.cfm`
+3. Parameters: `termCode=[YYYY][01=spring, 02=summer, 03=fall]`
+4. Returns
 
-      {% highlight xml %}<?xml version="1.0" encoding="iso-8859-1" ?>
-<departments>
-    <department>
-        <departmentcode><![CDATA[ACCY]]></departmentcode>
-        <departmentname><![CDATA[Accountancy]]></departmentname>
-    </department>
-    <department>
-        <departmentcode><![CDATA[AH]]></departmentcode>
-        <departmentname><![CDATA[Art/Art History]]></departmentname>
-    </department>
-</departments>
-        {% endhighlight %}
+         {% highlight xml %}<?xml version="1.0" encoding="iso-8859-1" ?>
 
-2.  Courses
-    1.  Endpoint: `http://my.gwu.edu/mod/pws/scheduleXML.cfm`
-    2.  Parameters:
-        1.  `termCode=[YYYY][01=spring, 02=summer, 03=fall]`
-        2.  `deptCode=[Dept. Code]`
-    3.  Returns:
+   <departments>
+       <department>
+           <departmentcode><![CDATA[ACCY]]></departmentcode>
+           <departmentname><![CDATA[Accountancy]]></departmentname>
+       </department>
+       <department>
+           <departmentcode><![CDATA[AH]]></departmentcode>
+           <departmentname><![CDATA[Art/Art History]]></departmentname>
+       </department>
+   </departments>
+           {% endhighlight %}
+
+5. Courses
+   1. Endpoint: `http://my.gwu.edu/mod/pws/scheduleXML.cfm`
+   2. Parameters:
+      1. `termCode=[YYYY][01=spring, 02=summer, 03=fall]`
+      2. `deptCode=[Dept. Code]`
+   3. Returns:
 
 {% highlight xml %}<?xml version="1.0" encoding="iso-8859-1" ?>
 <courses>
@@ -81,14 +83,14 @@ Creative ideas on how best to leverage the information welcome in the comments b
 </courses>
         {% endhighlight %}
 
-
 ### Campus Map
 
 1. Categories
-  1. Endpoint:  `http://citl.gwu.edu/iphonedev/maps/categories.xml`
-  2. Return:
+2. Endpoint:  `http://citl.gwu.edu/iphonedev/maps/categories.xml`
+3. Return:
 
 {% highlight xml %}
+
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <categories xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <category>
@@ -106,10 +108,9 @@ Creative ideas on how best to leverage the information welcome in the comments b
 </categories>
 {% endhighlight %}
 
-
-2.  Buildings
-    1.  Endpoint: `http://citl.gwu.edu/iphonedev/maps/[shortname].xml`
-    2.  Return:
+2. Buildings
+   1. Endpoint: `http://citl.gwu.edu/iphonedev/maps/[shortname].xml`
+   2. Return:
 
 {% highlight xml %}<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <buildings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -121,7 +122,7 @@ Creative ideas on how best to leverage the information welcome in the comments b
         <address>1776 G St</address>
         <geoLocation>38.897984,-77.04146</geoLocation>
         <shortname>NA</shortname>
-        <picturelink>http://www.gwu.edu/~newsctr/mobile/images/maps/1776-G-ST_UP_WLA_2010-6618.jpg</picturelink>
+        <picturelink><http://www.gwu.edu/~newsctr/mobile/images/maps/1776-G-ST_UP_WLA_2010-6618.jpg></picturelink>
     </building>
     <building>
         <buildingNumber>136</buildingNumber>
@@ -131,38 +132,43 @@ Creative ideas on how best to leverage the information welcome in the comments b
         <address>1957 E St</address>
         <geoLocation>38.896193,-77.044294</geoLocation>
         <shortname>1957E</shortname>
-        <picturelink>http://www.gwu.edu/~newsctr/mobile/images/maps/Elliot_School_UP_WLA_2010-3102.jpg</picturelink>
+        <picturelink><http://www.gwu.edu/~newsctr/mobile/images/maps/Elliot_School_UP_WLA_2010-3102.jpg></picturelink>
     </building>
 </buildings>
 {% endhighlight %}
 
-
 ### API Wrapper
 
-1.  Source
+1. Source
 
 <script src="http://gist-it.appspot.com/github/benbalter/GW-API/raw/master/gw-api.php">     </script>
 
-2.  Usage
+2. Usage
 
 #### Initialize:
+
 {% highlight php %}<?php $gwapi = new gw_api; ?>{% endhighlight %}
 
 #### List Departments
+
 {% highlight php %}<?php $departments = $gwapi->get_schedule();
   foreach ($departments as $department)
   echo $department->departmentname . '<br />';?>{% endhighlight %}
 
 #### Get Course Schedule for Fall 2011
+
 {% highlight php %}<?php $courses = $gwapi->get_schedule('2011','03','ACCY');?>{% endhighlight %}
 
 #### Get Course Schedule for current term
+
 {% highlight php %}<?php $courses = $gwapi->get_schedule(null,null,'ACCY'); ?>{% endhighlight %}
 
 #### Get map categories
+
 {% highlight php %}<?php $categories = $gwapi->get_map(); ?>{% endhighlight %}
 
 #### Get Buildings
+
 {% highlight php %}<?php $buildings = $gwapi->get_maps('academic'); ?>{% endhighlight %}
 
-\[Photo: [atomicbartbeans](http://www.flickr.com/photos/atomicbartbeans/1430289931/)\]
+\[Photo: [atomicbartbeans](http://www.flickr.com/photos/atomicbartbeans/1430289931/)]

@@ -10,7 +10,6 @@ tags:
   - best practices
   - style
   - howto
-
 ---
 
 Hey there government CIOs. I've noticed you've been getting a bit of a bad rap recently. And I have to say, with all the stories of multi-million dollar websites going around, I'm not sure that I can fault your critics. But don't get down on yourself, at least not yet. You're still in great shape. You've got ample resources; you've got smart, well-intentioned people working for you; and you've got more low-hanging fruit than most private-sector CIOs can ever dream of.
@@ -21,7 +20,7 @@ But hey, the good news is that you're not in it alone. We (the Internet) are her
 
 <!-- more -->
 
-## Lean
+# Lean
 
 If there's a less heavyweight solution, and you're not using it, you've over-engineered things. Look to existing tools (think open source), services (think APIs), and practices (think shared standards). Simpler applications are easier to scale, easier to maintain, and have fewer components that can break. Prefer [JSON](http://jsonapi.org/) to [XML](http://www.codinghorror.com/blog/2008/05/xml-the-angle-bracket-tax.html), [REST](https://github.com/whitehouse/api-standards#pragmatic-rest) to [SOAP](http://en.wikipedia.org/wiki/SOAP), and [static](http://jekyllrb.com) to [dynamic](http://ben.balter.com/2012/10/01/welcome-to-the-post-cms-world/). Fear complexity.
 

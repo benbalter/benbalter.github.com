@@ -7,7 +7,7 @@ Before you can participate in the open source community, you must first learn to
 
 Working regularly with government agencies to help ensure their first (or second) step into the open source world is a successful one, here are five best practices for pursuing open source in government (or any large organization for that matter):
 
-### 1. The technology is the easy part
+# 1. The technology is the easy part
 
 Whether you realize it or not, when you embark on your organization's (or your team's) first open source project, you're likely going to be using open source as a vehicle for organizational change. From a practical standpoint, open source is a solved problem. It's not a question of if you can publish the source code, if you can stand up a forum to collect community feedback, or if you can track changes to the code over time. Geeks have been doing open source for decades at this point. You can assume it's at least *possible*.
 

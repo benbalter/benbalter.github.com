@@ -17,7 +17,7 @@ Here's the thing: Your users don't care how excited you are. They don't care abo
 
 Having helped my fellow GitHubbers to post to GitHub's blog for the past couple of years, here are a dozen simple rules[^credit] you can adopt for writing human, user-centric ship posts for your own corporate blog:
 
-### 1. It's not shipped until you blog about it
+# 1. It's not shipped until you blog about it
 
 If you start from the premise that markets are conversations, then the best person to talk about a new feature on behalf of your company is the person who shipped it, not someone from your marketing department. They know what the feature does, why you built it, and what users need to know in order to use it. Developers can talk about the technical details of the implementation, without the juicy bits being lost in translation, and designers can give a peak into their creative process with rich visuals, all things your users are interested in much more than any pretty-sounding marketing fluff any copywriter could possibly dream up.
 

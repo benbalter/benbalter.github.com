@@ -39,7 +39,11 @@ Thunderstorms occur when divergent forces collide in clouds. It is becoming incr
 Photo credit: [garyhayes](http://www.flickr.com/photos/garyhayes/4502026170/)
 
 [1]: http://ben.balter.com/wp-content/uploads/2010/09/4502026170_4bf31f04e6.jpg
+
 [^6]: *Compare* Fed. R. Crim. P. 41(e)(2)(B) *with* 18 U.S.C.A. § 2703(d) (West).
+
 [^9]: 18 U.S.C.A. § 2703(d) (West).
+
 [^10]: *See generall*y Obtaining Electronic Evidence, Federal Law Enforcement Training Center (July 2003).
+
 [^13]: Take Google, as an example, who, to their credit, is a [front-runner in the push toward digital due process](http://googlepublicpolicy.blogspot.com/2010/09/digital-due-process-time-is-now.html "Google Policy Blog: Digital Due Process the Time is Now"), testifying on the Hill just last week. Without signing up for a Google account, through the use of cookies, Google can compile a relatively accurate profile of [what Web sites you visit](http://google.com "Google.com") and [how often you visit them](http://google.com/analytics "Google Analytics"), what [products you purchase](http://wallet.google.com "Google Wallet"), and [where you go](http://maps.google.com "Google Maps"). And if you sign-up for a near-ubiquitous Google account, you introduce the cloud to [what others are saying about you](http://alerts.google.com "Google Alerts"), [what you read](http://books.google.com "Google Books"), [files stored on your computer](http://desktop.google.com "Google Desktop"), and even [your medical history](http://google.com/health/ "Google Health"), not to mention with [whom](http://google.com/talk "Google Talk") [you](http://gmail.com "Gmail") [communicate](http://google.com/voice/ "Google Voice"), what [you're doing](http://google.com/calendar/ "Google Calendar"), and [where you are right now](http://mobile.google.com "Google Mobile").

@@ -6,7 +6,7 @@ redirect_from: "2015/02/16/jekyll-collections/"
 
 Collections are Jekyll's most powerful and simultaneously least understood feature. If you're not familiar with [Jekyll](http://jekyllrb.com/), Jekyll is a static site generator. Think of it like a content management system (CMS), [without all the complexity](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/) and headache. No need to build a giant content-strangling Rube Goldberg machine to "manage" content, if all you're doing at the end of the day is putting out HTML, Javascript, and CSS, the building blocks of the internet. As a result, Jekyll gets out of your way and [allows you to concentrate on what truly matters](http://ben.balter.com/2012/10/01/welcome-to-the-post-cms-world/): your content.
 
-### Posts and pages
+# Posts and pages
 
 Most Jekyll sites are organized around two types of content, posts and pages.
 
@@ -47,6 +47,7 @@ That makes sense, because my bakery's hours is a relatively small dataset. But t
 For a more concrete example, take a look at [the source](https://github.com/github/choosealicense.com) for [choosealicense.com](http://choosealicense.com) a site which helps explain open source licenses like the MIT or GPL license. There are pages like "about" and "terms of service", but the actual licenses live in [a licenses collection](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) and are displayed via [a licensed page](https://github.com/github/choosealicense.com/blob/gh-pages/licenses.html). 
 
 #### Other use-cases
+
 Of course this is not the only use-case, which is one of the benefits of collections. You can turn on content generation to have the collection contents automatically generated, or use the where syntax to get the contents of specific collections to add common content, or devices to your site.
 
 ### Using collections
@@ -55,9 +56,10 @@ The examples above were a slight simplification. There's one other step. Before 
 
 {% highlight yaml %}
 collections:
-  - cupcakes
-  - cookies
-{% endhighlight %}
+
+* cupcakes
+* cookies
+  {% endhighlight %}
 
 This tells Jekyll to look in the `_cupcakes` and `_cookies` folders for documents, and to read them into the appropriate collection, including [YAML front matter](http://jekyllrb.com/docs/frontmatter/), just as it would posts (but again, without the date, because collection documents aren't date specific).
 
@@ -76,25 +78,23 @@ That way, `_cupcakes/chocolate.md` is outputted as `cupcakes/chocolate/index.htm
 
 I like to think the decision looks roughly like this:
 
-~~~
-+-------------------------------------+         +----------------+
-| Can the things be logically grouped?|---No--->|    Use pages   |
-+-------------------------------------+         +----------------+
-                |
-               Yes
-                |
-                V
-+-------------------------------------+         +----------------+
-|      Are they grouped by date?      |---No--->|Use a collection|
-+-------------------------------------+         +----------------+
-                |
-               Yes
-                |
-                V
-+-------------------------------------+
-|            Use posts                |
-+-------------------------------------+
-~~~
+    +-------------------------------------+         +----------------+
+    | Can the things be logically grouped?|---No--->|    Use pages   |
+    +-------------------------------------+         +----------------+
+                    |
+                   Yes
+                    |
+                    V
+    +-------------------------------------+         +----------------+
+    |      Are they grouped by date?      |---No--->|Use a collection|
+    +-------------------------------------+         +----------------+
+                    |
+                   Yes
+                    |
+                    V
+    +-------------------------------------+
+    |            Use posts                |
+    +-------------------------------------+
 
 So if you're not about to open a bakery (if you do, please send cookies); what might you use collections for? In short, any discrete group of "things" that can be logically grouped by a common theme (that's not their date). Here's a few examples:
 

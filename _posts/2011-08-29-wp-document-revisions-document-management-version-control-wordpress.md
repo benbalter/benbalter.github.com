@@ -31,16 +31,16 @@ tags:
 post_format: [ ]
 redirect_from: "2011/08/29/document-management-version-control-for-wordpress/"
 ---
+
 [WP Document Revisions](http://wordpress.org/extend/plugins/wp-document-revisions/) is a [document management](http://en.wikipedia.org/wiki/Document_management_system) and [version control](http://en.wikipedia.org/wiki/Revision_control) plugin. Built for time-sensitive and mission-critical projects, teams can collaboratively edit files of any format — text documents, spreadsheets, images, sheet music… anything — all the while, seamlessly tracking the document's progress as it moves through your organization's existing workflow.
 
-[![WP Document Revisions Screenshot](http://ben.balter.com/wp-content/uploads/2011/07/wp-document-revisions-screen-shot-300x226.png
-){: .alignright}][4]
+[![WP Document Revisions Screenshot](http://ben.balter.com/wp-content/uploads/2011/07/wp-document-revisions-screen-shot-300x226.png){: .alignright}][4]
 
 **WP Document Revisions is three things:**
 
-1.  A **document management system** (DMS), to track, store, and organize files of any format
-2.  A **collaboration tool** to empower teams to collaboratively draft, edit, and refine documents
-3.  A **file hosting solution** to publish and securely deliver files to a team, to clients, or to the public
+1. A **document management system** (DMS), to track, store, and organize files of any format
+2. A **collaboration tool** to empower teams to collaboratively draft, edit, and refine documents
+3. A **file hosting solution** to publish and securely deliver files to a team, to clients, or to the public
 
 <iframe width="560" height="315" src="http://www.youtube.com/embed/VpsTNSiJKis" frameborder="0" allowfullscreen="true" title="Video introduction to WP Document Revisions"></iframe>
 
@@ -58,47 +58,47 @@ redirect_from: "2011/08/29/document-management-version-control-for-wordpress/"
 
 **The Vitals:**
 
-*   Support for any file type (docs, spreadsheets, images, PDFs — anything!)
-*   Securely stores unlimited revisions of your business's essential files
-*   Provides a full file history in the form of a revision log, accessible via RSS
-*   Helps you track and organize documents as they move through your organization's existing workflow
-*   Each file gets a permanent, authenticated URL that always points to the latest version
-*   Each revision gets its own unique url (e.g.,TPS-Report-revision-3.doc) accessible only to those you deem
-*   Files are intuitively checked out and locked to prevent revisions from colliding
-*   Toggle documents between public, private, and password protected with a single mouse click
-*   Runs in-house or in the cloud
-*   Secure: filenames are hashed on upload and files are only accessible through WordPress's proven authentication system
-*   Can move document upload folder to location outside of web root to further ensure government- and enterprise-grade security
-*   Documents and Revisions shortcodes, Recently Revised Documents widget
-*   Multisite and Windows (XAMPP) support
-*   French and Spanish language support (easily translated to your language)
-*   Integration with [Edit Flow][13]
+* Support for any file type (docs, spreadsheets, images, PDFs — anything!)
+* Securely stores unlimited revisions of your business's essential files
+* Provides a full file history in the form of a revision log, accessible via RSS
+* Helps you track and organize documents as they move through your organization's existing workflow
+* Each file gets a permanent, authenticated URL that always points to the latest version
+* Each revision gets its own unique url (e.g.,TPS-Report-revision-3.doc) accessible only to those you deem
+* Files are intuitively checked out and locked to prevent revisions from colliding
+* Toggle documents between public, private, and password protected with a single mouse click
+* Runs in-house or in the cloud
+* Secure: filenames are hashed on upload and files are only accessible through WordPress's proven authentication system
+* Can move document upload folder to location outside of web root to further ensure government- and enterprise-grade security
+* Documents and Revisions shortcodes, Recently Revised Documents widget
+* Multisite and Windows (XAMPP) support
+* French and Spanish language support (easily translated to your language)
+* Integration with [Edit Flow][13]
 
 **Features Available via the [Code Cookbook][12]:**
 
-*   **Audit Trail** - creates check in / check out audit trail for all documents
-*   **State Permissions** - allows setting user-level permissions based on a custom taxonomy such as workflow state or other document status
-*   **Third Party Encryption** - example of how to integrate at rest encryption using third-party tools
-*   **Rename Documents** - changes all references to "Documents" in the interface to any label of your choosing
-*   **State Change Notification** - how to use document api to allow users to receive notification whenever documents change workflow state
-*   **Bulk Import** - how to batch import a directory (or other list) of files as documents
-*   **Filetype Taxonomy** - Adds support to filter by filetype
-*   **Track Changes** - Auto-generates and appends revision summaries for changes to taxonomies, title, and visibility
-*   **Remove Workflow States** - Completely removes Workflow state taxonomy backend and UI
-*   **Change Tracker** - Auto-generates and appends revision summaries for changes to taxonomies, title, and visibility
+* **Audit Trail** - creates check in / check out audit trail for all documents
+* **State Permissions** - allows setting user-level permissions based on a custom taxonomy such as workflow state or other document status
+* **Third Party Encryption** - example of how to integrate at rest encryption using third-party tools
+* **Rename Documents** - changes all references to "Documents" in the interface to any label of your choosing
+* **State Change Notification** - how to use document api to allow users to receive notification whenever documents change workflow state
+* **Bulk Import** - how to batch import a directory (or other list) of files as documents
+* **Filetype Taxonomy** - Adds support to filter by filetype
+* **Track Changes** - Auto-generates and appends revision summaries for changes to taxonomies, title, and visibility
+* **Remove Workflow States** - Completely removes Workflow state taxonomy backend and UI
+* **Change Tracker** - Auto-generates and appends revision summaries for changes to taxonomies, title, and visibility
 
 **Translations:**
 
-*   French - [Hubert CAMPAN](http://omnimaki.com/)
-*   Spanish - TradiArt
+* French - [Hubert CAMPAN](http://omnimaki.com/)
+* Spanish - TradiArt
 
 **Links**:
 
-*   [Source Code](https://github.com/benbalter/WP-Document-Revisions/) (GitHub)
-*   [Development version](https://github.com/benbalter/WP-Document-Revisions/tree/develop) ([Build Status](http://travis-ci.org/#!/benbalter/WP-Document-Revisions))
-*   [Code Cookbook][12]
-*   [User support forums](http://wordpress.org/tags/wp-document-revisions)
-*   [Submit a bug/feature request](https://github.com/benbalter/WP-Document-Revisions/issues)
+* [Source Code](https://github.com/benbalter/WP-Document-Revisions/) (GitHub)
+* [Development version](https://github.com/benbalter/WP-Document-Revisions/tree/develop) ([Build Status](http://travis-ci.org/#!/benbalter/WP-Document-Revisions))
+* [Code Cookbook][12]
+* [User support forums](http://wordpress.org/tags/wp-document-revisions)
+* [Submit a bug/feature request](https://github.com/benbalter/WP-Document-Revisions/issues)
 
 Questions? Comments? Many may have already been addressed in [the WP Document Revisions FAQ](http://wordpress.org/extend/plugins/wp-document-revisions/faq/), or feel free to simply leave a reply below.
 
@@ -109,9 +109,12 @@ Questions? Comments? Many may have already been addressed in [the WP Document Re
 
 **Update (6/12): Comments have been closed in favor of [expanded support and discussion options](https://github.com/benbalter/WP-Document-Revisions/wiki/Where-to-get-Support-or-Report-an-Issue). Additional documentation about the project can now be found in the [Project Wiki](https://github.com/benbalter/WP-Document-Revisions/wiki). If you are interested in joining the project at any level of technical expertise, please see [How to Contribute](https://github.com/benbalter/WP-Document-Revisions/wiki/How-to-Contribute).**
 
-[^1]:  Neither relationship should imply a formal endorsement.
+[^1]: Neither relationship should imply a formal endorsement.
 
 [4]: http://ben.balter.com/wp-content/uploads/2011/07/wp-document-revisions-screen-shot.png
+
 [16]: http://www.tradiart.com/
+
 [23]: http://ben.balter.com/wp-content/uploads/2011/08/wp-document-revisions.png
+
 [27]: #note-2020-1 " Neither relationship should imply a formal endorsement."

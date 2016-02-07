@@ -5,7 +5,7 @@ description: "There is an emerging anti-pattern, whereby organizations review an
 
 The hardest part of open source for any organization isn't security or legal concerns, or even the code itself. The hardest part of open source for large organizations is [learning to work like an open source project](http://ben.balter.com/2015/03/08/open-source-best-practices-internal-collaboration/). There is an emerging anti-pattern, whereby organizations review and discuss issues and pull requests in regularly scheduled, closed meetings, a practice that almost certainly sets the project up for failure.
 
-### A traditional, closed-source workflow
+# A traditional, closed-source workflow
 
 A typical closed-source development workflow might include a project manager who gathers feature requirements, prioritizes tasks, and assigns them to a development team. The process will likely involve regular status meetings, and perhaps a daily standup meeting to resolve any blockers that emerge between status meetings. When issues arise, or when new features are requested, they're generally addressed at a separate project planning meeting. These meetings generally take place in conference rooms, and are almost always limited to the development team and perhaps the product owner.
 

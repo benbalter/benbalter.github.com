@@ -32,7 +32,7 @@ Most often, when we talk about open source in government, it's talked about in o
 
 The [Consumer Financial Protection Bureau](http://cfpb.gov) (CFPB), however, is in a unique position. As the newest kid on the block, it's one of the few government agencies to have been born in a digital era, and more importantly, without the bureaucratic baggage that all too often stymies innovation. They have a chance to "do it right" from the start… and they're doing just that.
 
-### An Agency Born of the Internet Generation
+# An Agency Born of the Internet Generation
 
 Yesterday, CFPB [announced a bureau-wide preference for open source](http://cfpb.github.io/source-code-policy/) in its shiny new [Source Code Policy][6], by my [crude research](http://www.google.com/search?sugexp=chrome,mod=4&sourceid=chrome&ie=UTF-8&q=source+code+policy+site%3A.gov), a first for any government agency. There are two watershed shifts here: first, that the agency not only should, but *must* evaluate open source software on equal footing to its proprietary counterparts, a comparison which I believe will [increasingly fall in open source's favor](http://www.amazon.com/The-Wealth-Networks-Production-ebook/dp/B0015GWX0S), and second, that unless there's an overriding security or similar concern *not to*, public code must be public. There's nothing new here. All it says is that we should use the best software for the job (a no-brainier), and that that software, the public's property, should belong to the public.
 
@@ -60,14 +60,20 @@ For open source in government to work, it's got to move beyond procuring communi
 
 I think CFPB gets it in a big way, and the fact that this is memorialized in writing is a major step in the right direction. They've got the basic mechanics down — procure open–source projects, publish open-source code — but the missing secret sauce that would really drive the policy home? Participate in the open-source community as a matter of policy.
 
-+1 CFPB, +1. *Welcome to the community.*
+\+1 CFPB, +1. *Welcome to the community.*
 
 [^1]: In simple terms, the core of open-source projects (as distinct from community-contributed plugins or modules) are primarily fueled by "patches" (small code change sets) in response to bugs or feature requests, that get committed to the project's codebase and released in subsequent versions.
+
 [^2]: If the project is licensed as government work, are my code contributions now government work? Are the government employee lines of code under a broader license, while mine are under a more restrictive license like GPL or apache?
+
 [^3]: Is this considered a donation for Federal ethics purposes thus requiring disclosure?
+
 [^4]: This can manifest itself in lots of different ways, but most tangibly: going to local meetups and conferences (or hosting them); contributing to the project's core by introducing new features, documentation, or posting to support forums; abstracting business logic from the start to be more broadly applicable to other developers; outreach and evangelism; and fostering relationships with key stakeholders within the community
 
-[16]: #note-2020-1 "In simple terms, the core of open-source projects (as distinct from community-contributed plugins or modules) are primarily fueled by "patches" (small code change sets) in response to bugs or feature requests, that get committed to the project's codebase and released in subsequent versions."
+[16]&#x3A; #note-2020-1 "In simple terms, the core of open-source projects (as distinct from community-contributed plugins or modules) are primarily fueled by "patches" (small code change sets) in response to bugs or feature requests, that get committed to the project's codebase and released in subsequent versions."
+
 [18]: #note-2020-2 "If the project is licensed as government work, are my code contributions now government work? Are the government employee lines of code under a broader license, while mine are under a more restrictive license like GPL or apache?"
+
 [19]: #note-2020-3 "Is this considered a donation for Federal ethics purposes thus requiring disclosure?"
+
 [23]: #note-2020-4 "This can manifest itself in lots of different ways, but most tangibly: going to local meetups and conferences (or hosting them); contributing to the project's core by introducing new features, documentation, or posting to support forums; abstracting business logic from the start to be more broadly applicable to other developers; outreach and evangelism; and fostering relationships with key stakeholders within the community"

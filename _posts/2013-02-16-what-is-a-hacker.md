@@ -28,7 +28,7 @@ Somewhat surprisingly, hacking isn't at all about technology. It's about communi
 
 <!-- more -->
 
-### The Hacker Ethic
+# The Hacker Ethic
 
 Hackers are motivated by a distinct ethos.[^1] It's about **sharing**. Hacking requires the ability to take things apart and figure out how they work in the hopes of ultimately improving upon them. It's a "hands on" imperative that necessitates both access to and the right to fork a project in hopes of building something even more interesting and ultimately bettering what's available to all. It's about **openness**. Hacking is a group effort, and thus the free flow of information is a necessity to empower hackers to fix, improve, and reinvent. Secrecy simply serves to stifle creative possibility. Freedom of inquiry requires that information be free. It's about **decentralization**. The best way to promote the free exchange of information is to have an open system that provides no friction between a hacker and his or her quest for knowledge. By intentionally or unintentionally erecting such barriers, bureaucracies, whether corporate, government, or university, are inherently flawed systems.
 
@@ -47,4 +47,5 @@ It's no surprise then, that as the pace of technological innovation quickens, th
 "Hacker" isn't just the next hot buzzword, following a long history of "rock star", "ninja", and "guru". Nor is it synonymous with "cybercriminal" or imply any nefarious intentions whatsoever. Instead the exact opposite is true. It's about embracing an ethos, a drive, a culture. It's about coding to improve the world.
 
 [^1]: As articulated best by [Steven Levy](http://www.amazon.com/Hackers-Computer-Revolution-Anniversary-ebook/dp/B003PDMKIY/ref=tmm_kin_title_0&tag=613240924-20)
+
 [^2]: *See* [Eric S. Raymond](http://www.catb.org/esr/faqs/hacker-howto.html)

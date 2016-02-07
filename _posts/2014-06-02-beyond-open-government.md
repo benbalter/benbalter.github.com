@@ -13,7 +13,7 @@ But printing presses and fax machines have two limitations: they are one-way and
 
 As technology allows us to communicate with greater frequency and greater fidelity, we have the chance to make our government not only transparent, but truly collaborative.
 
-## The open source workflow
+# The open source workflow
 
 Open source software — software for which the underlying source code is not only made available to the public, but to which users of the software are encouraged to submit bug reports and propose improvements — started out the same way. Originally, open source was merely published source, mostly due to the limitations of technology. Everyone had access to the code, but it was published in a one-way medium — by mail, via FTP, or via a read-only website. Over the past two decades, open source has moved to a more distributed workflow, one that exposes process, lives and dies by the URL, and allows anyone in the world to propose improvements, free from the shackles of the original author's foreknowledge and consent. Today, in contrast, technology allows the process of building open source software to be inherently collaborative.
 

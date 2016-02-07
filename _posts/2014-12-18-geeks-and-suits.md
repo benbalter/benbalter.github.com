@@ -11,7 +11,7 @@ In the world of government IT, change happens at the hands of two separate, yet 
 
 The odd thing is that, despite being in an industry predicated almost exclusively on the need to communicate, geeks and suits rarely talk to each other.
 
-### A geek in suit's clothing
+# A geek in suit's clothing
 
 At GitHub, we're lucky to build a product that many developers use on the weekend to contribute to open source, and given the opportunity, would likely enjoy using at work as well. A big part of what I do at GitHub is to simply put on a suit and talk "suit" to other suits, telling them exactly what their developers would tell them if they were given the chance: open source is not the next big thing. Open source is already here.
 

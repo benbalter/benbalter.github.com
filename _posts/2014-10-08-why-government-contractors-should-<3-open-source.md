@@ -5,7 +5,7 @@ description: "Government contractors have traditionally been slow to embrace ope
 
 Government contractors have traditionally been slow to embrace open source software. There's [a handful of reasons](http://ben.balter.com/2014/08/03/why-isnt-all-government-software-open-source/) why that's the case, but it doesn't have to be that way. Here's why government contractors are embracing open source with increasing frequency:
 
-### 1. Industry-standard best practices
+# 1. Industry-standard best practices
 
 You'd be hard-pressed to find a startup worth its angel investment today that isn't built on open source software. Heck, even enterprise giants like [Microsoft](https://github.com/Microsoft) and [Adobe](https://adobe.github.io/) are embracing opens source workflows. As agencies are increasingly looking to shed the outdated IT stereotype and embrace modern software development practices, offering open source solutions serves as a proxy for the express lane to industry standard best practices.
 

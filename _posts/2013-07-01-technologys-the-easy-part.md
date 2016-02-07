@@ -20,7 +20,7 @@ After years of living at the bleeding edge of government IT, there's not been a 
 
 It's the culture that we've got to worry about. Will the solution be adopted by the agency? Will existing habits subvert the cool thing you just made? Will the dream live on once you're at your next gig? If you ignore culture, even the most elegant of technological solutions can be relegated to a dusty shelf as nothing more than the right solution to the wrong problem.
 
-## This is why we can't have nice things
+# This is why we can't have nice things
 
 Great technologies already exist. Lots of them in fact. Yet public servants still insist on adopting and subsequently entrenching their inferior predecessors. There's a reason that heavyweight, proprietary systems are a sad running joke in the Beltway.[^1] After all, the iPhone's been around since 2007. The problem isn't developing newer, better, flashier tools or tools that are more open or more intellectually elegant. The problem is creating the culture and the ecosystem necessary to begin appreciating and sustaining the ones we've already got — the ones we're already not using.
 
@@ -53,4 +53,5 @@ We need to systematically and strategically demonstrate to government the value 
 We're going to need a smarter way to process real-time and large-scale government data eventually. There's no doubt in my mind. But we're not there yet. And we're not going to be any time soon unless we can unteach public servants the bad, closed-solution lessons that have already been ingrained in the organizational culture. The technology's the easy part. When we need it, there's no doubt we can build it. The question is whether, we'll be building it hand-in-hand with an enthusiastic body of government technologists, or if it'll just be the most technologically advance whack-a-mole mallet that we've built to date.
 
 [^1]: *See, e.g.,* SharePoint, Cold Fusion, PDFs, Oracle databases, Blackberrys, and just about "enterprise" anything.
+
 [^2]: *E.g.,* [not knowing the difference between Ruby and Rails](https://github.com/CMSgov/HealthCare.gov-Open-Source-Release#ruby-on-rails){: data-proofer-ignore="true"}.

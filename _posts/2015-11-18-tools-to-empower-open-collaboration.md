@@ -7,7 +7,7 @@ At GitHub, we have a unique way of working. Some might say it's the future of kn
 
 [We use GitHub to build GitHub](http://zachholman.com/talk/how-github-uses-github-to-build-github/). While that's obviously true for developers, and for writing the software that powers GitHub.com, it's less obviously true that we also use GitHub issues, pull requests, and Markdown to manage all sorts of non-code things from internal policies to legal to HR to Sales. Need a contract reviewed? Open an issue. Want to propose a change to our vacation policy? Submit a pull request. After all, [how you work is just as important as what you work on](http://ben.balter.com/2015/09/21/open-source-behind-the-firewall/#how-you-work-is-as-important-as-what-you-work-on), so why not use the best, most modern tools available.
 
-### Not all internet-based tools are created equal
+# Not all internet-based tools are created equal
 
 Internally, this practice is often described as "everything should be on GitHub", but that's far from true. Modern, developer-centric workflows use all sort of non-GitHub tools to share information. We use Slack for real-time chat and as a distributed water cooler. We have an internal blog called "Team" for posting company-wide announcements like ships and new Octokittens. Heck, every once in a while, we even, *gasp*, meet in person.
 
@@ -75,19 +75,20 @@ The four qualities above are ideals. In practice, there are a handful of specifi
 
 I began by noting that the phrase "everything should be on GitHub", doesn't necessitate a certain tool, but if you believe working the way described above is valuable, few of today's consumer collaboration tools encourage open source inspired workflows. Let's take a look at a few:
 
-| Tool          | Open               | Captures<br /> Process | Linkable                         | Async              |
-|:--------------|:-------------------|:-----------------------|:---------------------------------|:-------------------|
-| GitHub        | :heavy_check_mark: | :heavy_check_mark:     | :heavy_check_mark:               | :heavy_check_mark: |
-| (Text) Chat   | :heavy_check_mark: | :heavy_check_mark:     | :heavy_check_mark:               | :heavy_check_mark: |
-| Wikis         | :heavy_check_mark: | :heavy_check_mark:     | :heavy_check_mark:               | :heavy_check_mark: |
-| Blogs         | :heavy_check_mark: | :x:[^git-blog]         | :heavy_check_mark:               | :heavy_check_mark: |
-| Google Docs   | :heavy_check_mark: | :x:[^tracked-changes]  | :x:[^links]                      | :heavy_check_mark: |
-| Microsft Word | :x:[^proprietary]  | :x:[^tracked-changes]  | :x:                              | :heavy_check_mark: |
-| Sharepoint    | :x:[^proprietary]  | :x:[^tracked-changes]  | :x:[^links]                      | :heavy_check_mark: |
-| Email         | :x:[^proprietary]  | :heavy_check_mark:     | :x:                              | :heavy_check_mark: |
-| Box/DropBox   | :x:[^proprietary]  | :x:                    | :heavy_check_mark: [^deep-links] | :heavy_check_mark: |
-| Video chat    | :x:                | :x:                    | :x:[^recordings]                 | :x:[^recordings]   |
-| IRL Meetings  | :x:                | :x:                    | :x:                              | :x:                |
+| Tool          | Open                 | Captures<br /> Process | Linkable                           | Async                |
+| :------------ | :------------------- | :--------------------- | :--------------------------------- | :------------------- |
+| GitHub        | :heavy\_check\_mark: | :heavy\_check\_mark:   | :heavy\_check\_mark:               | :heavy\_check\_mark: |
+| (Text) Chat   | :heavy\_check\_mark: | :heavy\_check\_mark:   | :heavy\_check\_mark:               | :heavy\_check\_mark: |
+| Wikis         | :heavy\_check\_mark: | :heavy\_check\_mark:   | :heavy\_check\_mark:               | :heavy\_check\_mark: |
+| Blogs         | :heavy\_check\_mark: | :x:[^git-blog]         | :heavy\_check\_mark:               | :heavy\_check\_mark: |
+| Google Docs   | :heavy\_check\_mark: | :x:[^tracked-changes]  | :x:[^links]                        | :heavy\_check\_mark: |
+| Microsft Word | :x:[^proprietary]    | :x:[^tracked-changes]  | :x:                                | :heavy\_check\_mark: |
+| Sharepoint    | :x:[^proprietary]    | :x:[^tracked-changes]  | :x:[^links]                        | :heavy\_check\_mark: |
+| Email         | :x:[^proprietary]    | :heavy\_check\_mark:   | :x:                                | :heavy\_check\_mark: |
+| Box/DropBox   | :x:[^proprietary]    | :x:                    | :heavy\_check\_mark: [^deep-links] | :heavy\_check\_mark: |
+| Video chat    | :x:                  | :x:                    | :x:[^recordings]                   | :x:[^recordings]     |
+| IRL Meetings  | :x:                  | :x:                    | :x:                                | :x:                  |
+
 {: .table style="width: 60%; margin-left: auto; margin-right: auto;" }
 
 ### Practicality beats purity
@@ -98,7 +99,7 @@ Although I think it's the future of knowledge work, this develop-inspired workfl
 
 [How you work is just as important as what you work on](http://ben.balter.com/2015/09/21/open-source-behind-the-firewall/#how-you-work-is-as-important-as-what-you-work-on). I challenge you to take a critical look at your own workflow, and ask yourself if you're working the way you'd like to work, or just the way everyone else does.
 
----
+- - -
 
 [^git-blog]: It's possible for a blog to capture and expose process if it is created using tools such as GitHub and GitHub Pages, like this blog is. But this is not (yet) the case for the vast majority of blogs.
 

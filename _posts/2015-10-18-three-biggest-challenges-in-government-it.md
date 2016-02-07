@@ -5,7 +5,7 @@ description: "Change aversion, lack of technocratic leadership, and heavyweight 
 
 It's often said that government IT is 5-10 years behind the private sector, and most places in government you look, that's probably true. It's as if the government learned how to "computer" right around the time Windows XP was released, set its comfort level for risk, and has maintained purposeful blinders to progress since. But why? I'd argue there are three key factors keeping it there: change aversion, lack of technocratic leadership, and processes that don't scale down.
 
-### Change aversion
+# Change aversion
 
 If there's one thing that defines government IT, it's [the culture of "no"](http://blog.dobt.co/2015/02/24/culture-of-no/). If you're a change agent, a technologist, heck, even someone that wants to use an iPhone instead of your government-mandated Blackberry, at every potential turn, [the organizational immune system](http://ben.balter.com/2014/03/21/want-to-innovate-in-government-focus-on-culture/#bureaucracy-is-an-organism) will release risk-reducing antibodies any time it so much as sniffs something it doesn't recognize.
 

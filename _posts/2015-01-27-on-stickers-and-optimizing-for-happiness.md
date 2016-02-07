@@ -5,7 +5,7 @@ description: "A quick glance at someone's laptop can tell you a lot about that p
 
 Every organization is optimized for exactly one thing. In the private sector, it's usually profit. In government, depending on the agency, it's often either predictability or process. At GitHub it's developer happiness. Whatever your organization is optimized for, employees will use that organizational imperative as an implicit North Star whenever the demands of a particular task provides them with significant freedom. You'd be surprised how seemingly identical goals are tackled differently at different organizations.
 
-### The allegory of the laptop sticker
+# The allegory of the laptop sticker
 
 A quick glance at someone's laptop can tell you a lot about their employer. It used to be that as one traveled, their luggage would accumulate [layer-upon-layer of labels](https://www.flickr.com/photos/wavesjax/), each telling the story of where they've been and what they've experienced. Today, that tradition lives on in the world of IT, as geeks decorate their laptop shells with the logos of the conferences they've attended and the technologies they've learned and grown to love. HTML5, jQuery, and WordPress stickers? Likely a front-end developer. Node, GitHub, and Code for America stickers? You've found yourself a civic hacker. A well decorated laptop is often the Boy or Girl Scout merit badges of the software community.
 

@@ -12,7 +12,7 @@ GitHub's communication style can be summed up in one word: [asynchronous](http:/
 
 Culture's inherently hard to define, but here's 15 "rules", that represent the intangible in how we approach communication at GitHub:
 
-### 1. Prefer asynchronous communication
+# 1. Prefer asynchronous communication
 
 As @holman [writes](http://zachholman.com/posts/how-github-works/), *"Chat is inherently asynchronous; tapping someone on the shoulder is inherently being a jerk."* Knowledge workers, especially those in the technology industry [are most productive](https://en.wikipedia.org/wiki/Flow_(psychology)) when they have large blocks of uninterrupted time. A two hour block is not fungible with four thirty minute blocks. Think about it practically: Developers store large sections of the code base in their head when they work. Designers have a vision they're trying to express on paper or in CSS. Unlike say, working on an assembly line, when knowledge work is interrupted, intentional or not, whether a popup, a meeting, or a "hey, you got a sec?" drive by, there's a significant switching cost to get back to where you were. Think about it as the geek equivalent to needing to put on gym clothes, fill your water bottle, and grab your iPad before you head to the gym each time.
 
