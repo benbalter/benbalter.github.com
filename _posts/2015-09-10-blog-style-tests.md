@@ -19,7 +19,7 @@ Sure it takes 10 seconds for a human to see if a post begins with "today", but m
 
 Testing for use of the word "today" is relatively straightforward. You could use a test suite from just about any language, but since GitHub is primarily a Ruby shop, let's use Minitest as an example (with some plumbing left out for simplicity):
 
-{% highlight ruby %}
+```ruby
 class TodayTest &lt; Blog::Test
   def test\_doesnt\_start\_with\_today
     msg = "Don't start posts with the word \\"today\\". See <http://bit.ly/no-today.\n>"
@@ -28,7 +28,7 @@ class TodayTest &lt; Blog::Test
     end
   end
 end
-{% endhighlight %}
+```
 
 With that, you could wire up a service like [Travis CI](https://travisci.org){: data-proofer-ignore="true" } to fire on each commit, and provide the author with immediate feedback and a link to the appropriate internal documentation, all without requiring blocking human intervention. Not to mention, that editor is now free to move to less-remedial, higher-value work like curating an editorial calendar or refining the voice guidelines themselves.
 
@@ -40,7 +40,7 @@ The next thing I'd notice if I were reviewing the post is that it focuses on the
 
 With a little regex, testing for "We're excited to announced..."-type phrases is equally straightforward:
 
-{% highlight ruby %}
+```ruby
 class ExcitedTest &lt; Blog::Test
   def test\_dont\_brag\_about\_being\_excited
     msg =  "Don't tell users how excited we are. "
@@ -56,7 +56,7 @@ class ExcitedTest &lt; Blog::Test
 
   end
 end
-{% endhighlight %}
+```
 
 ### Write for users, not for yourself
 
@@ -66,7 +66,7 @@ The last thing I'd notice from our example post is that the post is [written for
 
 Once again, that "simple rule of thumb" can be automated. While not as foolproof as a traditional software unit test where inputs and outputs are controlled, we can count the "you"s in the post and the "we"s in the post, and suggest to the author that perhaps they should should rework things a bit:
 
-{% highlight ruby %}
+```ruby
 class YouWeTest &lt; Blog::Test
   def test\_more\_you\_than\_we
     msg = 'The post should contain more "yous"s than "we"s. See <https://bit.ly/you-vs-we.>'
@@ -78,7 +78,7 @@ class YouWeTest &lt; Blog::Test
     end
   end
 end
-{% endhighlight %}
+```
 
 ### Not all automated testing is created equal
 
@@ -90,11 +90,11 @@ First, unlike software tests where [pull requests are not mergable unless the bu
 
 Second, also unlike software tests, which run the test suite against the entire software project, blog posts are not necessarily interrelated, nor do we need to enforce style retroactively across all files. As a result, blog tests are only run on those posts which the pull requests changes (e.g., the proposed post). If you're using Git, you can get a list of changed files with the `git diff` command. If we were to pipe it into the helper method implied above, you'd get something like:
 
-{% highlight ruby %}
+```ruby
 def posts
   `git diff -z --name-only --diff-filter=ACMRTUXB origin/master _posts/*`.split("\\0")
 end
-{% endhighlight %}
+```
 
 ### The smart way and the hard way
 

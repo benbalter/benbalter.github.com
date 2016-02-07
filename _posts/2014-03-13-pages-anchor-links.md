@@ -21,17 +21,17 @@ jQuery, a javascript library, helps you select all the headers programmatically,
 
 There are a handful of ways to do this, but the easiest is to add the following in your template's `<head>` section:
 
-{% highlight html %}
+```html
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-{% endhighlight %}
+```
 
 ## The CSS
 
 We need to tell the browser how to position the link icon, and to only display it when the visitor hovers over your heading. You'll want to add the following to your site's CSS file:
 
-{% highlight css %}
+```css
 .header-link {
   position: absolute;
   left: -0.5em;
@@ -49,13 +49,13 @@ h5:hover .header-link,
 h6:hover .header-link {
   opacity: 1;
 }
-{% endhighlight %}
+```
 
 ## The JavaScript
 
 Last, to tie everything together, you'll also need a bit of javascript magic client side, by adding the following to your site's footer:
 
-{% highlight html %}
+```html
 
 <script>
 $(function() {
@@ -70,7 +70,7 @@ $(function() {
   });
 });
 </script>
-{% endhighlight %}
+```
 
 And that's it! You can see the result on this page if you hover over any heading. Click the link to update your URL bar, and you'll have a shareable, deep-linked URL.
 

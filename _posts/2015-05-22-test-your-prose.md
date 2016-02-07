@@ -15,29 +15,29 @@ With CI services like [Travis CI](https://travis-ci.org/), whether public or pri
 
 Let's say you have a Jekyll site, versioned on GitHub and published on GitHub Pages, and you'd like Travis to give your content a quick checkup every time you make a change. First, you'll want to add the following to your site's `Gemfile`:
 
-{% highlight ruby %}
+```ruby
 group :test do
   gem 'html-proofer'
   gem 'rake'
 end
-{% endhighlight %}
+```
 
 Next, create a file called `Rakefile` in your site's root, and add the following:
 
-{% highlight ruby %}
+```ruby
 require 'html/proofer'
 task :test do
   sh "bundle exec jekyll build"
   HTML::Proofer.new("./\_site").run
 end
-{% endhighlight %}
+```
 
 After that, you'll want to configure Travis by adding a `.travis.yml` file with the following contents:
 
-{% highlight yaml %}
+```yaml
 language: ruby
 script: "rake test" # You may need to use "bundle exec rake test" if Travis fails on the require for the HTML/Proofer
-{% endhighlight %}
+```
 
 And finally, you need to head over to [travis-ci.org/profile](https://travis-ci.org/profile) to enable travis for your repository.
 

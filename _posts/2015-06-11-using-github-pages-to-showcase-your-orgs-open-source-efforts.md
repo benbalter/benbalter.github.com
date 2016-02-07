@@ -17,9 +17,9 @@ GitHub pages is deceptively simple, but incredibly powerful service. To start us
 
 ### Getting started with GitHub Pages
 
-For a quick way to get started, and as an example, let's create a new file called `index.html` (you can do this from the `your-organization.github.io` repository by clicking the `+` sign) and add the following contents:  
+For a quick way to get started, and as an example, let's create a new file called `index.html` (you can do this from the `your-organization.github.io` repository by clicking the `+` sign) and add the following contents:
 
-{% highlight html %}
+```html
 <html>
   <head>
     <title>My awesome org</title>
@@ -29,7 +29,7 @@ For a quick way to get started, and as an example, let's create a new file calle
     <h1>My awesome org</h1>
   </body>
 </html>
-{% endhighlight %}
+```
 
 Once you commit (save) the file, if you navigate to `your-org.github.io`, you should see the index file you just created, being served, just like any other website. You can add additional HTML files, CSS files, javascript files, images... any static files you want in this manner. The only thing GitHub Pages doesn't support are dynamic languages like PHP, Ruby, or Python. This allows you to add your organization's logo, color scheme, or any other content you'd like, including dynamic, client-side content like pulling in your organization's most recent Tweets.
 
@@ -41,7 +41,7 @@ Going back to our index example above, lets say you wanted to add a second page,
 
 Instead, we'll create a layout (sometimes called a template) that can be shared between both. Just like before, we'll create a new file called `_layouts/default.html` within our repository, with the following content:
 
-{% highlight html %}
+```html
 <html>
   <head>
     <title>My awesome org</title>
@@ -51,26 +51,28 @@ Instead, we'll create a layout (sometimes called a template) that can be shared 
     {% raw %}{{ content }}{% endraw %}
   </body>
 </html>
-{% endhighlight %}
+```
 
 Notice how we swapped out the `<h1>My awesome org</h1>` for `{% raw %}{{ content }}{% endraw %}`? There's one more thing we have to do. We'll want to update the `index.html` with the following:
 
-## {% highlight html %}
-
-## layout: default
+```html
+---
+layout: default
+---
 
 <h1>My awesome org</h1>
-{% endhighlight %}
+```
 
 If you head back to `your-organization.github.io` the output should be identical. Those two changes instructed Jekyll to generate an `index.html` file by swapping the contents of `index.html` for the `{% raw %}{{ content }}{% endraw %}` line in the template and combining the two for the final output. If we want to add our "About us" page, it's as simple as creating an `about-us.html` file with this content:
 
-## {% highlight html %}
-
-## layout: default
+```html
+---
+layout: default
+---
 
 <h1>About us</h1>
 <p>Our awesome org is...</p>
-{% endhighlight %}
+```
 
 ### Markdown
 
@@ -118,27 +120,28 @@ Again, the output should be identical. Need to include something in the page tha
 
 GitHub Pages is great for showcasing your organization's open source efforts. Up until this point, we've created a branded web presence, but we haven't included information about our open source project's yet. You could, if you wanted, just list your open source projects. In our `index.md` file, we might add:
 
-## {% highlight html %}
-
-## layout: default
+```html
+---
+layout: default
+---
 
 # My awesome org
 
 * Project1
 * Project2
 * Project3
-  {% endhighlight %}
+```
 
 The problem with this approach, is that as you add more projects, you have to constantly update your GitHub Pages site. Luckily, GitHub Pages already knows a lot about your organization, including your organization's open source projects.
 
 In addition to Markdown, Jekyll also supports a lightweight templating engine called [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers). Liquid allows us to inject a bit of dynamic logic into the otherwise static site. If you're familiar with basic programatic concepts, it supports things like `while`, `if`, and `for` statements. To list all the open source project's in our organization's we might write:
 
-{% highlight liquid %}{% raw %}
-{% for repository in site.github.public\_repositories %}
-
-* {{ repository.name }}
-  {% endfor %}
-  {% endraw %}{% endhighlight %}
+```html{% raw %}
+{% for repository in site.github.public_repositories %}
+  * {{ repository.name }}
+{% endfor %}
+{% endraw %}
+```
 
 That should produce identical results to the hard-coded versions above, but in a way that updates as your organization's projects do. You could also include additional information in the same way, such as the project's descriptions or number of stars. You can see a full list of the organization metadata available to GitHub Pages in [this help article](https://help.github.com/articles/repository-metadata-on-github-pages/).
 

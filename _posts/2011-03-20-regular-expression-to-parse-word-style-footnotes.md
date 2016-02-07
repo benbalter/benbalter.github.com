@@ -19,17 +19,17 @@ I needed a quick-and-easy way to parse Microsoft Word's footnote format into a m
 
 The process is surprisingly simple given [WordPress's extensive filter API](http://codex.wordpress.org/Plugin_API/Filter_Reference){: data-proofer-ignore="true" }. First, to grab the footnotes from Word's `ftnref` format:
 
-<div>{% highlight php %}<?php
+<div>```php<?php
 
 //grab all the Word-style footnotes into an array
 $pattern = '#&lt;a href\\="#\_ftnref([0-9]+)">\[([0-9]+)]</a> (.\*)#';
 preg\_match\_all( $pattern, $content, $footnotes, PREG\_SET\_ORDER);
 
-?>{% endhighlight %}</div>
+?>```</div>
 
 This creates an array (`$footnotes`) with the both the footnote number and the text of the footnote. We then need a way to replace the in-text reference with the parsed footnotes so that Simple Footnotes can understand them. I did this by creating two arrays, a find array and a replace array with each Word-style footnote reference and its Simple Footnote formatted counterpart:
 
-<div>{% highlight php %}<?php
+<div>```php<?php
 
 //build find and replace arrays
 foreach ($footnotes as $footnote) {
@@ -37,25 +37,25 @@ foreach ($footnotes as $footnote) {
   $replace\[] = '[ref]' . str\_replace( array("\\r\\n", "\\r", "\\n"), "",   $footnote[3]) . '[/ref]';
 }
 
-?>{% endhighlight %}</div>
+?>```</div>
 
 Finally, so that the entire replacement can be done in a single pass, push a final find/replace pair into the end of the array, to remove the original footnotes:
 
-<div>{% highlight php %}<?php
+<div>```php<?php
 
     //remove all the original footnotes when done
     $find[] = '#<div>\s*<a href\="\#_ftnref([0-9]+)">\[([0-9]+)\]</a> (.*)\s*</div>\s+#';
     $replace[] = '';
 
-?>{% endhighlight %}</div>
+?>```</div>
 
 Because PHP's `preg_replace` function can handle arrays, all we have to do is run a single function:
 
-<div>{% highlight php %}<?php
+<div>```php<?php
 
 $content = preg\_replace( $find, $replace, $content );
 
-?>{% endhighlight %}</div>
+?>```</div>
 
 Putting it all together, including a filter hook to call our function and a `meta_value` flag to prevent parsing on subsequent saves, the result is:
 

@@ -31,7 +31,7 @@ Creative ideas on how best to leverage the information welcome in the comments b
 3. Parameters: `termCode=[YYYY][01=spring, 02=summer, 03=fall]`
 4. Returns
 
-         {% highlight xml %}<?xml version="1.0" encoding="iso-8859-1" ?>
+         ```xml<?xml version="1.0" encoding="iso-8859-1" ?>
 
    <departments>
        <department>
@@ -43,7 +43,7 @@ Creative ideas on how best to leverage the information welcome in the comments b
            <departmentname><![CDATA[Art/Art History]]></departmentname>
        </department>
    </departments>
-           {% endhighlight %}
+           ```
 
 5. Courses
    1. Endpoint: `http://my.gwu.edu/mod/pws/scheduleXML.cfm`
@@ -52,7 +52,7 @@ Creative ideas on how best to leverage the information welcome in the comments b
       2. `deptCode=[Dept. Code]`
    3. Returns:
 
-{% highlight xml %}<?xml version="1.0" encoding="iso-8859-1" ?>
+```xml<?xml version="1.0" encoding="iso-8859-1" ?>
 <courses>
     <course>
         <coursedepartment><![CDATA[ACCY]]></coursedepartment>
@@ -81,7 +81,7 @@ Creative ideas on how best to leverage the information welcome in the comments b
         <coursecredit><![CDATA[1.50  ]]></coursecredit>
     </course>
 </courses>
-        {% endhighlight %}
+        ```
 
 ### Campus Map
 
@@ -89,7 +89,7 @@ Creative ideas on how best to leverage the information welcome in the comments b
 2. Endpoint:  `http://citl.gwu.edu/iphonedev/maps/categories.xml`
 3. Return:
 
-{% highlight xml %}
+```xml
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <categories xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -106,13 +106,13 @@ Creative ideas on how best to leverage the information welcome in the comments b
         <state>Yes</state>
     </category>
 </categories>
-{% endhighlight %}
+```
 
 2. Buildings
    1. Endpoint: `http://citl.gwu.edu/iphonedev/maps/[shortname].xml`
    2. Return:
 
-{% highlight xml %}<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+```xml<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <buildings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <building>
         <buildingNumber>153</buildingNumber>
@@ -135,7 +135,7 @@ Creative ideas on how best to leverage the information welcome in the comments b
         <picturelink><http://www.gwu.edu/~newsctr/mobile/images/maps/Elliot_School_UP_WLA_2010-3102.jpg></picturelink>
     </building>
 </buildings>
-{% endhighlight %}
+```
 
 ### API Wrapper
 
@@ -147,28 +147,28 @@ Creative ideas on how best to leverage the information welcome in the comments b
 
 #### Initialize:
 
-{% highlight php %}<?php $gwapi = new gw_api; ?>{% endhighlight %}
+```php<?php $gwapi = new gw_api; ?>```
 
 #### List Departments
 
-{% highlight php %}<?php $departments = $gwapi->get_schedule();
+```php<?php $departments = $gwapi->get_schedule();
   foreach ($departments as $department)
-  echo $department->departmentname . '<br />';?>{% endhighlight %}
+  echo $department->departmentname . '<br />';?>```
 
 #### Get Course Schedule for Fall 2011
 
-{% highlight php %}<?php $courses = $gwapi->get_schedule('2011','03','ACCY');?>{% endhighlight %}
+```php<?php $courses = $gwapi->get_schedule('2011','03','ACCY');?>```
 
 #### Get Course Schedule for current term
 
-{% highlight php %}<?php $courses = $gwapi->get_schedule(null,null,'ACCY'); ?>{% endhighlight %}
+```php<?php $courses = $gwapi->get_schedule(null,null,'ACCY'); ?>```
 
 #### Get map categories
 
-{% highlight php %}<?php $categories = $gwapi->get_map(); ?>{% endhighlight %}
+```php<?php $categories = $gwapi->get_map(); ?>```
 
 #### Get Buildings
 
-{% highlight php %}<?php $buildings = $gwapi->get_maps('academic'); ?>{% endhighlight %}
+```php<?php $buildings = $gwapi->get_maps('academic'); ?>```
 
 \[Photo: [atomicbartbeans](http://www.flickr.com/photos/atomicbartbeans/1430289931/)]

@@ -34,13 +34,13 @@ Of course you could at this stage, choose to have a more generic collection `pro
 
 Abstractly, because they're not outputted by default, you can think of collections somewhat like [Jekyll's `_data` folder support](http://jekyllrb.com/docs/datafiles/), but with the potential to generate content, and be placed into their own specific part of your Jekyll site, so a lot more robust. Like `_data` files, they can support arbitrary key/values through frontmatter, but they also support a full content body (like posts and pages), and can be broken out into separate files. If I wanted to break out my bakery's hours, I might have a `_data/hours.yml` file that looked something like this:
 
-{% highlight yaml %}
+```yaml
 monday: 9-5
 tuesday: 9-5
 wednesday: 9-5
 thursday: 9-5
 friday: 9-3
-{% endhighlight %}
+```
 
 That makes sense, because my bakery's hours is a relatively small dataset. But trying to represent all my baked goods in that format (or worse posts), would quickly get out of hand. That type of information is better represented as individual markdown files with front matter, not one giant YAML file that will quickly become unwieldy with complexity; and rather than create the data, and pages to display the data, or the data and a plugin to turn it into pages; using collections allows the site owner to focus on the content.
 
@@ -54,23 +54,23 @@ Of course this is not the only use-case, which is one of the benefits of collect
 
 The examples above were a slight simplification. There's one other step. Before you can use a collection, you need to tell Jekyll about it. Going back to our bakery example above, I might have a `_config.yml` file that looks something like this:
 
-{% highlight yaml %}
+```yaml
 collections:
 
 * cupcakes
 * cookies
-  {% endhighlight %}
+  ```
 
 This tells Jekyll to look in the `_cupcakes` and `_cookies` folders for documents, and to read them into the appropriate collection, including [YAML front matter](http://jekyllrb.com/docs/frontmatter/), just as it would posts (but again, without the date, because collection documents aren't date specific).
 
 By default, collections are read in (and exposed as `site.[collection]`, an alias per-collection),but not included in the final site; at least not individually like you might expect posts or pages to. If you wanted a page for each type of cupcake, you'd have to modify the `_config.yml` a bit:
 
-{% highlight yaml %}
+```yaml
 collections:
   cupcakes:
     output: true
     permalink: /cupcakes/:path/
-{% endhighlight %}
+```
 
 That way, `_cupcakes/chocolate.md` is outputted as `cupcakes/chocolate/index.html` when the site is built and would be accessible as `example.com/cupcakes/chocolate/`. The other advantage, is, because the data is now structured and machine readable (rather than in plain text), you could also use the `jsonify` filter to output that same information as an API for use elsewhere.
 

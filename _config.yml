@@ -108,3 +108,11 @@ gems:
 
 sass:
   style: :compressed
+
+kramdown:
+ input: GFM
+ hard_wrap: false
+
+highlighter: rouge
+gist:
+ noscript: false
