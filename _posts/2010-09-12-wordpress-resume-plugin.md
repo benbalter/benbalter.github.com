@@ -34,17 +34,17 @@ WP Resume is an out-of-the-box solution to get your resume online and keep it up
 
 **Features include:**
 
-* Support for sections (e.g., education, experience), organizations (e.g., somewhere state university, Cogs, Inc.), positions (e.g., bachelor of arts, chief widget specialist), and details (e.g., grew bottom line by 15%, president of the sustainability club)
-* Follows best practices in resume layout and design
-* One click install, just start adding content
-* Drag and drop ordering of resume elements
-* Built on existing WordPress code, utilizing a single custom post type and two custom taxonomies
-* The WYSIWYG editing experience you know and love
-* Revisioning
-* Integrates with your theme like they were made for each other
-* Custom URL
-* Does not use pretentious accents on the word "resume"
-* Extremely original title
+*   Support for sections (e.g., education, experience), organizations (e.g., somewhere state university, Cogs, Inc.), positions (e.g., bachelor of arts, chief widget specialist), and details (e.g., grew bottom line by 15%, president of the sustainability club)
+*   Follows best practices in resume layout and design
+*   One click install, just start adding content
+*   Drag and drop ordering of resume elements
+*   Built on existing WordPress code, utilizing a single custom post type and two custom taxonomies
+*   The WYSIWYG editing experience you know and love
+*   Revisioning
+*   Integrates with your theme like they were made for each other
+*   Custom URL
+*   Does not use pretentious accents on the word "resume"
+*   Extremely original title
 
 ![WP Resume][2]The hardest part of getting your resume online should be doing the work listed on it, not wrestling the publishing platform. Simply put, WP Resume steps aside and lets your experience shine.
 
@@ -52,7 +52,7 @@ Interested? You can [see it in action](http://ben.balter.com/resume/), or if you
 
 *Enjoy using WP Resume? Feel free to [make a small donation](http://ben.balter.com/donate/ "Donate") to support the software's continued development.*
 
-*\[Photo: [shawnmichael](http://www.flickr.com/photos/shawnmichael/4246330043/)]*
+*\[Photo: [shawnmichael](http://www.flickr.com/photos/shawnmichael/4246330043/)\]*
 
 [1]: #note-2020-1 "I imagine it would resemble a highly digitized Rube Goldberg  Machine"
 

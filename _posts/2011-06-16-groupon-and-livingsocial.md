@@ -34,7 +34,7 @@ The economics of the situation are only half the threat. Daily deals live in mur
 
 As Benjamin Edelman and Paul Kominers [argue](http://www.benedelman.org/voucher-consumer-protection/#liability):
 
-> \[T]he legal and regulatory questions… are questions that arise distinctively in the context of discount vouchers: a merchant would never confront such questions were it not for discount vouchers. Having created the transactions giving rise to this regulatory complexity… discount voucher services should be expected to achieve compliance.
+> \[T\]he legal and regulatory questions… are questions that arise distinctively in the context of discount vouchers: a merchant would never confront such questions were it not for discount vouchers. Having created the transactions giving rise to this regulatory complexity… discount voucher services should be expected to achieve compliance.
 
 Edelman and Kominers [continue][6]:
 
@@ -46,7 +46,7 @@ This, combined with the fact that [Groupon claims the entirety of the purchase p
 
 #### Gift Cards?
 
-First is the question of if a daily deal constitutes a [gift card](http://www.ncsl.org/research/financial-services-and-commerce/gift-cards-and-certificates-statutes-and-legis.aspx){: data-proofer-ignore="true"}, a legal issue with which both Groupon and [LivingSocial](http://www.seattlepi.com/local/article/Seattle-class-action-LivingSocial-expiration-1015493.php) are intimately familiar with, defending at least [12 distinct lawsuits](http://www.benedelman.org/voucher-consumer-protection/#expiration). Despite the expiration date listed online, in print, and often sent in reminder e-mails, in some states, customers may be eligible to redeem deals long after they expire, or at least have ground to reclaim their initial investment, often at the merchants' expense.
+First is the question of if a daily deal constitutes a [gift card]( http://www.ncsl.org/research/financial-services-and-commerce/gift-cards-and-certificates-statutes-and-legis.aspx){: data-proofer-ignore="true"}, a legal issue with which both Groupon and [LivingSocial](http://www.seattlepi.com/local/article/Seattle-class-action-LivingSocial-expiration-1015493.php) are intimately familiar with, defending at least [12 distinct lawsuits](http://www.benedelman.org/voucher-consumer-protection/#expiration). Despite the expiration date listed online, in print, and often sent in reminder e-mails, in some states, customers may be eligible to redeem deals long after they expire, or at least have ground to reclaim their initial investment, often at the merchants' expense.
 
 #### Sales Tax
 
@@ -74,4 +74,5 @@ Smart websites are driven by data — personal data — and they use it to fuel 
 
 Despite [Groupon's efforts](http://techcrunch.com/2010/12/07/groupon-everywhere-jiwire/), there's just not enough data there. They may have my age, gender, rough location, and one or two datapoints of buying history, but compare that to the relative dossier that Google and Amazon both have to have on me, it's always going to be a losing fight. Once first mover advantage begins to lose its shimmer, the big boys' synergies will begin to show their [true](http://www.wired.com/epicenter/2011/04/facebook-deals/) [potential](http://thenextweb.com/us/2011/06/02/amazon-enters-the-daily-deals-space-with-amazonlocal/), and daily deal sites like Groupon and LivingSocial will expire as quickly as the deals they peddle.
 
-\[Photo courtesy [wovox](http://www.flickr.com/photos/wovox/5554901181/){: data-proofer-ignore="true"}]
+\[Photo courtesy [wovox](http://www.flickr.com/photos/wovox/5554901181/){: data-proofer-ignore="true"}\]
+

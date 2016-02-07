@@ -20,7 +20,6 @@ tags:
   - open source
 post_format: [ ]
 ---
-
 "Fix typo." Not quite "one small step for man," but a significant first nonetheless. These simple words, typed by an open-source developer operating under the pseudonym "iceeey," may represent the first collaborative effort between the federal government and the broader open-source community, and surely represents a tangible win for the open-government movement as a whole.
 
 The Consumer Financial Protection Bureau (CFPB) is in a unique position. As the youngest federal agency, they have the opportunity to reimagine many day-to-day business processes for an internet era, and to share that innovation across government. One such process is the means by which federal employees apply for and receive subsidies to offset the cost of public transportation to and from work. Having created an application that alleviated the need to shuttle time-consuming, paper-based forms from building to building within their own agency, the Bureau sought to package up the solution, and publicly release the source code for other federal agencies to use and expand upon. The logic was simple: solve the problem once, solve it everywhere.

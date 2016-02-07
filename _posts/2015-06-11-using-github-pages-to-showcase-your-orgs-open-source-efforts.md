@@ -24,7 +24,6 @@ For a quick way to get started, and as an example, let's create a new file calle
   <head>
     <title>My awesome org</title>
   </head>
-
   <body>
     <h1>My awesome org</h1>
   </body>
@@ -46,7 +45,6 @@ Instead, we'll create a layout (sometimes called a template) that can be shared 
   <head>
     <title>My awesome org</title>
   </head>
-
   <body>
     {% raw %}{{ content }}{% endraw %}
   </body>
@@ -55,18 +53,20 @@ Instead, we'll create a layout (sometimes called a template) that can be shared 
 
 Notice how we swapped out the `<h1>My awesome org</h1>` for `{% raw %}{{ content }}{% endraw %}`? There's one more thing we have to do. We'll want to update the `index.html` with the following:
 
-## {% highlight html %}
-
-## layout: default
+{% highlight html %}
+---
+layout: default
+---
 
 <h1>My awesome org</h1>
 {% endhighlight %}
 
 If you head back to `your-organization.github.io` the output should be identical. Those two changes instructed Jekyll to generate an `index.html` file by swapping the contents of `index.html` for the `{% raw %}{{ content }}{% endraw %}` line in the template and combining the two for the final output. If we want to add our "About us" page, it's as simple as creating an `about-us.html` file with this content:
 
-## {% highlight html %}
-
-## layout: default
+{% highlight html %}
+---
+layout: default
+---
 
 <h1>About us</h1>
 <p>Our awesome org is...</p>
@@ -78,39 +78,39 @@ Another big advantage of using Jekyll is the ability to work in [Markdown](https
 
 Think of Markdown like how you would format a document if you were typing on a typewriter. If you wanted to format a numbered list, rather than wrapping each element in `<ul>`s and `<li>`s like you would in HTML, you simply write:
 
-```markdown
+~~~markdown
 1. item
 2. item
 3. item
-```
+~~~
 
 The same goes for bullet points (unordered lists, in HTML):
 
-```markdown
+~~~markdown
 * item
 * item
 * item
-```
+~~~
 
 And if you want to create headings, you prefix the heading with a `# sign` like this:
 
-```markdown
+~~~markdown
 # Top level heading
 
 ## Sub heading
 
 ### Sub sub heading
-```
+~~~
 
 Jekyll will automatically convert Jekyll to HTML each time you push a change to your site. All you have to do is change the the extension from `.html` to `.md`. In our above example, we could change our `index.html` to an `index.md` file with the following content:
 
-```markdown
+~~~markdown
 ---
 layout: default
 ---
 
 # My awesome org
-```
+~~~
 
 Again, the output should be identical. Need to include something in the page that you can't represent as Markdown? You can always use HTML within the Markdown file as well.
 
@@ -118,27 +118,27 @@ Again, the output should be identical. Need to include something in the page tha
 
 GitHub Pages is great for showcasing your organization's open source efforts. Up until this point, we've created a branded web presence, but we haven't included information about our open source project's yet. You could, if you wanted, just list your open source projects. In our `index.md` file, we might add:
 
-## {% highlight html %}
-
-## layout: default
+{% highlight html %}
+---
+layout: default
+---
 
 # My awesome org
 
 * Project1
 * Project2
 * Project3
-  {% endhighlight %}
+{% endhighlight %}
 
 The problem with this approach, is that as you add more projects, you have to constantly update your GitHub Pages site. Luckily, GitHub Pages already knows a lot about your organization, including your organization's open source projects.
 
 In addition to Markdown, Jekyll also supports a lightweight templating engine called [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers). Liquid allows us to inject a bit of dynamic logic into the otherwise static site. If you're familiar with basic programatic concepts, it supports things like `while`, `if`, and `for` statements. To list all the open source project's in our organization's we might write:
 
 {% highlight liquid %}{% raw %}
-{% for repository in site.github.public\_repositories %}
-
-* {{ repository.name }}
-  {% endfor %}
-  {% endraw %}{% endhighlight %}
+{% for repository in site.github.public_repositories %}
+  * {{ repository.name }}
+{% endfor %}
+{% endraw %}{% endhighlight %}
 
 That should produce identical results to the hard-coded versions above, but in a way that updates as your organization's projects do. You could also include additional information in the same way, such as the project's descriptions or number of stars. You can see a full list of the organization metadata available to GitHub Pages in [this help article](https://help.github.com/articles/repository-metadata-on-github-pages/).
 
@@ -148,4 +148,4 @@ In terms of availability and scalability, the simplicity of GitHub pages makes i
 
 Your organization site is also in good company. [Lots of large organizations](https://github.com/showcases/open-source-organizations) like [Adobe](http://adobe.github.io), [Netflix](http://netflix.github.io), [SAP](http://sap.github.io), [IBM](http://ibm.github.io), and [Microsoft](http://microsoft.github.io) use GitHub Pages to showcase their open source efforts. It provides organizations with a branded developer presence to link to from their `/developer` or similar portals, instead of linking to their standard GitHub profile.
 
-To get started, simply create an appropriately named repository within your organization and begin commuting files, or you can read more about using [GitHub Pages](https://help.github.com/categories/github-pages-basics/), [Jekyll](http://jekyllrb.com/docs/home/), and [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers). Of course, if you have any questions, you can always email <mailto:support@github.com>.
+To get started, simply create an appropriately named repository within your organization and begin commuting files, or you can read more about using [GitHub Pages](https://help.github.com/categories/github-pages-basics/), [Jekyll](http://jekyllrb.com/docs/home/), and [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers). Of course, if you have any questions, you can always email <support@github.com>.

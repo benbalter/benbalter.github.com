@@ -33,6 +33,6 @@ With that in mind, here's how I'd update the *Simple Sabotage Field Manual* for 
 
 *That's what I'd add to the list if I were giving it a refresh for 2016. What would you add? What corporate anti-patterns have you seen in your own organization? Do you have reason to suspect any of your colleagues are inadvertent sabatours?*
 
-- - -
+---
 
 [^disclaimer]: Emphasis *mine*.

@@ -20,10 +20,10 @@ Sure it takes 10 seconds for a human to see if a post begins with "today", but m
 Testing for use of the word "today" is relatively straightforward. You could use a test suite from just about any language, but since GitHub is primarily a Ruby shop, let's use Minitest as an example (with some plumbing left out for simplicity):
 
 {% highlight ruby %}
-class TodayTest &lt; Blog::Test
-  def test\_doesnt\_start\_with\_today
-    msg = "Don't start posts with the word \\"today\\". See <http://bit.ly/no-today.\n>"
-    each\_line\_of\_prose do |file, line, text|
+class TodayTest < Blog::Test
+  def test_doesnt_start_with_today
+    msg = "Don't start posts with the word \"today\". See http://bit.ly/no-today.\n"
+    each_line_of_prose do |file, line, text|
       refute text =~ /^today/i, "#{msg} on line #{line} of #{file}"
     end
   end
@@ -41,11 +41,11 @@ The next thing I'd notice if I were reviewing the post is that it focuses on the
 With a little regex, testing for "We're excited to announced..."-type phrases is equally straightforward:
 
 {% highlight ruby %}
-class ExcitedTest &lt; Blog::Test
-  def test\_dont\_brag\_about\_being\_excited
+class ExcitedTest < Blog::Test
+  def test_dont_brag_about_being_excited
     msg =  "Don't tell users how excited we are. "
-    msg &lt;&lt; "Show them why *they* should be excited. "
-    msg &lt;&lt; "See <https://bit.ly/you-vs-we.>"
+    msg << "Show them why *they* should be excited. "
+    msg << "See https://bit.ly/you-vs-we."
 
     regex = /\bWe're( \w+)?(, \w+)? (excited|happy|pleased)\b/i
 
@@ -53,7 +53,6 @@ class ExcitedTest &lt; Blog::Test
       post = File.open(filename).read
       refute regex.match(post), msg
     end
-
   end
 end
 {% endhighlight %}
@@ -67,13 +66,13 @@ The last thing I'd notice from our example post is that the post is [written for
 Once again, that "simple rule of thumb" can be automated. While not as foolproof as a traditional software unit test where inputs and outputs are controlled, we can count the "you"s in the post and the "we"s in the post, and suggest to the author that perhaps they should should rework things a bit:
 
 {% highlight ruby %}
-class YouWeTest &lt; Blog::Test
-  def test\_more\_you\_than\_we
-    msg = 'The post should contain more "yous"s than "we"s. See <https://bit.ly/you-vs-we.>'
+class YouWeTest < Blog::Test
+  def test_more_you_than_we
+    msg = 'The post should contain more "yous"s than "we"s. See https://bit.ly/you-vs-we.'
     posts.each do |filename|
       post = File.open(filename).read
-      yous = post.scan(/\\byou\\b/i).count
-      wes  = post.scan(/\\bwe\\b/i).count
+      yous = post.scan(/\byou\b/i).count
+      wes  = post.scan(/\bwe\b/i).count
       assert yous > wes, msg
     end
   end
@@ -92,7 +91,7 @@ Second, also unlike software tests, which run the test suite against the entire 
 
 {% highlight ruby %}
 def posts
-  `git diff -z --name-only --diff-filter=ACMRTUXB origin/master _posts/*`.split("\\0")
+  `git diff -z --name-only --diff-filter=ACMRTUXB origin/master _posts/*`.split("\0")
 end
 {% endhighlight %}
 

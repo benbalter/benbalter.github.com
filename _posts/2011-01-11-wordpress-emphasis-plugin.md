@@ -33,3 +33,4 @@ The "deep links" plugin allows for permalinking and highlighting of text on a pa
 Neat, huh? [Download it][3] today.
 
 *Enjoy using WP Emphasis? Feel free to [make a small donation](http://ben.balter.com/donate/ "Donate") to support the software's continued development.*
+

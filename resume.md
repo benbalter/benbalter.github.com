@@ -5,6 +5,7 @@ excerpt: Ben Balter is a gov 2.0 evangelist working to hack federal government f
 layout: page
 permalink: /resume/
 id: /resume
+
 ---
 
 ### Experience
@@ -59,7 +60,7 @@ January 2012 — August 2012
 * Prepared US Chief Information Officer for public appearances including speech writing, messaging, and creation of multiple HTML5-based presentations
 * Developed technical roadmap, prototyped, and implemented [first-of-its-kind mechanism](https://github.com/GSA/digital-strategy) for agencies to report progress on the Digital Government Strategy
 
-##### SoftWare Automation & Technology (SWAT) Team, Office of Administration
+##### SoftWare Automation &#038; Technology (SWAT) Team, Office of Administration
 
 September 2011 — January 2012
 {: .date}

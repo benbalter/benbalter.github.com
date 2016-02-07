@@ -60,20 +60,14 @@ For open source in government to work, it's got to move beyond procuring communi
 
 I think CFPB gets it in a big way, and the fact that this is memorialized in writing is a major step in the right direction. They've got the basic mechanics down — procure open–source projects, publish open-source code — but the missing secret sauce that would really drive the policy home? Participate in the open-source community as a matter of policy.
 
-\+1 CFPB, +1. *Welcome to the community.*
++1 CFPB, +1. *Welcome to the community.*
 
 [^1]: In simple terms, the core of open-source projects (as distinct from community-contributed plugins or modules) are primarily fueled by "patches" (small code change sets) in response to bugs or feature requests, that get committed to the project's codebase and released in subsequent versions.
-
 [^2]: If the project is licensed as government work, are my code contributions now government work? Are the government employee lines of code under a broader license, while mine are under a more restrictive license like GPL or apache?
-
 [^3]: Is this considered a donation for Federal ethics purposes thus requiring disclosure?
-
 [^4]: This can manifest itself in lots of different ways, but most tangibly: going to local meetups and conferences (or hosting them); contributing to the project's core by introducing new features, documentation, or posting to support forums; abstracting business logic from the start to be more broadly applicable to other developers; outreach and evangelism; and fostering relationships with key stakeholders within the community
 
-[16]&#x3A; #note-2020-1 "In simple terms, the core of open-source projects (as distinct from community-contributed plugins or modules) are primarily fueled by "patches" (small code change sets) in response to bugs or feature requests, that get committed to the project's codebase and released in subsequent versions."
-
+[16]: #note-2020-1 "In simple terms, the core of open-source projects (as distinct from community-contributed plugins or modules) are primarily fueled by "patches" (small code change sets) in response to bugs or feature requests, that get committed to the project's codebase and released in subsequent versions."
 [18]: #note-2020-2 "If the project is licensed as government work, are my code contributions now government work? Are the government employee lines of code under a broader license, while mine are under a more restrictive license like GPL or apache?"
-
 [19]: #note-2020-3 "Is this considered a donation for Federal ethics purposes thus requiring disclosure?"
-
 [23]: #note-2020-4 "This can manifest itself in lots of different ways, but most tangibly: going to local meetups and conferences (or hosting them); contributing to the project's core by introducing new features, documentation, or posting to support forums; abstracting business logic from the start to be more broadly applicable to other developers; outreach and evangelism; and fostering relationships with key stakeholders within the community"
