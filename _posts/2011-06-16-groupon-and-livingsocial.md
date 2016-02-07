@@ -22,7 +22,7 @@ post_format: [ ]
 
 Despite the hype, daily deal sites like Groupon and LivingSocial are not the next wave of e-commerce. Not only are they bad for merchants, their business model simply isn't sustainable as established firms begin to enter the already-crowded market.
 
-# Bad for Business
+### Bad for Business
 
 It's hard for small businesses to profit from the deal. Sure, a daily deal will drive additional bodies through the door, but like many promotions, business often lose money on the deal itself, especially once Groupon or LivingSocial's cut is factored in, a cut which can often be as high as 50%. The key, it seems, for small business, is [to be smart](http://news.ycombinator.com/item?id=2654788), either upselling the customer, or convincing them that a second, non-discounted visit is well worth their while — not a simple task for the uninitiated.
 

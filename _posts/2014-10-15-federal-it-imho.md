@@ -5,7 +5,7 @@ description: "There's been a lot of great momentum generated from the policy sid
 
 While a government employee, as a developer and as an attorney, I had the opportunity to work in government IT, from both a technical perspective, implementing policy at various government agencies, and from a policy perspective, shaping that same policy at the White House. Here's what's next for federal IT policy, IMHO:
 
-# Shedding Cold-War era workflows
+### Shedding Cold-War era workflows
 
 From the standpoint of workflow, we may as well be using a typewriter. Heck, the process would be essentially the same. An analyst fires up a desktop word processor, types out the policy, and then emails it around to increasingly larger circles of stakeholders, often creating a punch list of proposed changes (using their desktop spreadsheet application, of course) to opaquely track feedback after each round. Did you miss my comments? Did you disagree with them? Who'd you discuss them with and what were the arguments against it? After several months of this, the document is set in stone and finally pushed outside the firewall, sans this rich pedigree, often as a PDF, and given the pace of technological change, is almost undoubtedly already out of date.
 

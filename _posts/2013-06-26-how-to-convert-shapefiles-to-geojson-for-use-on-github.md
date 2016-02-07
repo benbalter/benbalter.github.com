@@ -19,7 +19,7 @@ With [GitHub natively supporting mapping](https://github.com/blog/1541-geojson-r
 
 Luckily, a strangely named piece of open source software known as [ogr2ogr](http://www.gdal.org/ogr2ogr.html) can convert the data into the more modern, more open [GeoJSON format](http://en.wikipedia.org/wiki/GeoJSON) that GitHub supports, and the resulting map can be automatically rendered, not to mention more easily diffed.
 
-# If you've got a Mac, it only takes a few seconds:
+## If you've got a Mac, it only takes a few seconds:
 
 <!-- more -->
 

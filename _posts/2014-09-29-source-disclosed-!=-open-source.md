@@ -10,7 +10,7 @@ It's not uncommon for government agencies to contact GitHub, looking for advice 
 
 [The argument](http://ben.balter.com/2014/09/22/open-source-is-not-insecure/) for open source [in government](http://ben.balter.com/2014/06/02/beyond-open-government/) is [well documented](http://ben.balter.com/2012/06/26/why-you-should-always-write-software-as-open-source/), but open source [is about more than having access to the software's human-readable code](http://ben.balter.com/2014/01/27/open-collaboration/). Open source is a philosophy, a workflow, and most importantly a collaborative community, the basis of which is the opportunity to participate.
 
-# Disclosed source
+### Disclosed source
 
 Government agencies and individual developers are free to make their projects' underlying source code available for others to review, inspect, or reuse as they wish. This can be as simple as posting a zip file to an agency-owned FTP server, responding to a FOIA request by email, or even posting the source code to a code-sharing service like GitHub. Source code release under this paradigm is traditionally referred to as source disclosed, and is the first, not the final step in "open sourcing" government-funded code.
 

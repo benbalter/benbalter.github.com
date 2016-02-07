@@ -37,7 +37,7 @@ The CMS is dead. Long live the CMS.
 
 <!-- more -->
 
-# The Results
+## The Results
 
 **WARNING: Geek Content!**
 

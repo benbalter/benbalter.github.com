@@ -7,7 +7,7 @@ Government agencies can and should participate in the open source community. Ope
 
 *Note: this is an early draft. If you notice anything wonky, please [help improve it](https://github.com/benbalter/benbalter.github.com/edit/master/_posts/2014-10-08-open-source-licensing-for-government-attorneys.md).*
 
-# Open source licenses generally
+### Open source licenses generally
 
 Open source licenses are a straight-forward intelectual property license with one unique feature: [they're standardized](http://opensource.org/licenses/category). The software industry has [adopted approximately fifteen mainstream](http://choosealicense.com/licenses/) and [three primary licenses](http://choosealicense.com/). While the wording and specific terms vary, most licenses have the following common clauses:
 

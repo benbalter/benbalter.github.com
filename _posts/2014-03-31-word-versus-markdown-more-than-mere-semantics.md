@@ -13,7 +13,7 @@ I'm asked regularly by government employees — knowledge workers who fire up a 
 
 Markdown isn't just an alternative format. Markdown forces you to write for the web.
 
-# In the beginning, there was paper
+### In the beginning, there was paper
 
 The first desktop word processors had a simple task: they were designed to make paper. We didn't have email or a vibrant internet sharing digital documents to worry about. The creators of the first desktop word processors simply mirrored the dominant workflow of the time: the typewriter. The final output — the sole embodiment — was physical, and all that mattered was what the document looked like.
 

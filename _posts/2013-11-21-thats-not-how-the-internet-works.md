@@ -11,7 +11,7 @@ There's been some talk recently, about the promise of [using GitHub for data](ht
 
 Think about how we approach open data today: desktop-centric paradigms simply grafted on the Web. Any technologist knows that posting a Word document or PDF online is a poor user experience. They're format's built within the constraints of the desktop age. Today, when building for a world in which everyone has a computer in their pocket at all times, the rules have changed, and although they've changed radically, the playbook is still well established:
 
-# No developer wants a 500MB endpoint
+### No developer wants a 500MB endpoint
 
 Take GitHub's GeoJSON support, as an example. Any geospatial file larger than 10MB [simply won't render](https://help.github.com/articles/mapping-geojson-files-on-github#troubleshooting). That's not that 10MB is too big to render, or that the server can't handle it, it's that when a single text-bassed file is that big, the developer experience begins to suffer. I can't immagine a single scenario in which I'd want an upstream data provider to hand me a single, giant file in response to my API query, when all I really need is a single record. There are a few reasons for this, like increasing the risk of corruption on repeated saves (shout out to Microsoft Word), prohibitively slow mobile downloads, or making it super-memory-intensive to read into an editor, but the most persuasive is that I simply don't need all that data. Granularity is a great thing, and it's an underlying assumption of how the internet is built: everything gets its own URL.
 

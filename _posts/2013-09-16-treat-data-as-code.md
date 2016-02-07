@@ -6,7 +6,7 @@ description: "It's time we start treating data with the same love and respect th
 
 It's time we start treating our data with the same love and respect that geeks treat their code. It's time that we begin treating data as open source, not simply as something to be published.
 
-# Putting process on a pedestal
+### Putting process on a pedestal
 
 Geeks learned some two-decades ago that precision and transparency are everything. If so much as a single character is off, entire programs come crashing to a halt. It's essential that developers can instantly discern exactly who made what change when. As a result, every change, whether proposed or realized is tracked and indexed with the highest level of granularity imaginable, and all this information is constantly exposed along side the software itself. It's what makes open source open source.
 

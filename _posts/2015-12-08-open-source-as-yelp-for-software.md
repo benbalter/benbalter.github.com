@@ -5,7 +5,7 @@ description: Open source has become somewhat of a Yelp for software, and with it
 
 Open source has become somewhat of a Yelp for software, and with it, open source has the potential to shift the balance of power from software publishers to software consumers. So why do we hold the software that our society increasingly depends on to a standard lesser than that to which we hold fast food?
 
-# The allegory of the lost carry out order
+### The allegory of the lost carry out order
 
 A few weeks ago, I was in a restaurant when they lost a guest's carry-out order. As the customer stormed away hungry, the host turned to me and remarked, "*that sucks, now he's going to leave a bad Yelp review.*" This interaction struck me as odd. The host didn't seem too concerned about upsetting the customer, but was instead deeply worried about what the internet might think.
 

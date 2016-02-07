@@ -25,7 +25,7 @@ If WordPress wants to stay relevant as a content management platform, the future
 
 <!-- more -->
 
-# Crawl
+### Crawl
 
 At the very least, lets expose all WordPress content in a machine readable format. This once and for all breaks the content-presentation link. We do this with RSS somewhat, but it's time to put non-HTML formats on equal footing with HTML in core's eyes.
 

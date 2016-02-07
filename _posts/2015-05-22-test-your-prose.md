@@ -11,7 +11,7 @@ When you treat content as code, you get the opportunity to co-opt best-of-breed 
 
 With CI services like [Travis CI](https://travis-ci.org/), whether public or private, adding continuous integration to a repository of prose content, whether an entire website or a collection of HTML or Markdown files becomes trivial, especially when you use open source tools like [HTML Proofer](https://github.com/gjtorikian/html-proofer).
 
-# Checking links and images
+### Checking links and images
 
 Let's say you have a Jekyll site, versioned on GitHub and published on GitHub Pages, and you'd like Travis to give your content a quick checkup every time you make a change. First, you'll want to add the following to your site's `Gemfile`:
 

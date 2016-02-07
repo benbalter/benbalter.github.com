@@ -7,7 +7,7 @@ description: "How open source workflows and philosophies can be leveraged by the
 
 Open source has changed the way we build software. A fully distributed team of strangers, rarely working on the same thing at the same time or in the same place at the same time, yet open source projects consistently produce better software than their closed-source and proprietary counterparts. How then, can this reimagined software development workflow be leveraged by the enterprise to produce more modern software, even if that software ultimately remains closed source?
 
-# Traditional waterfall development
+### Traditional waterfall development
 
 A traditional software development project may look something like this: A customer spends weeks to months gathering requirements, the requirements are passed to a project manager, and the project manager assigns tasks to individual developers and designers. It's an extremely rigid, extremely hierarchical approach that traces its roots to the rise of factory workers each producing fungible parts of a whole where responsibility for assemblies and sub-assemplies could be easily delegated and managed individually.
 

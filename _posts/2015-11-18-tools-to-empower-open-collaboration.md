@@ -7,7 +7,7 @@ At GitHub, we have a unique way of working. Some might say it's the future of kn
 
 [We use GitHub to build GitHub](http://zachholman.com/talk/how-github-uses-github-to-build-github/). While that's obviously true for developers, and for writing the software that powers GitHub.com, it's less obviously true that we also use GitHub issues, pull requests, and Markdown to manage all sorts of non-code things from internal policies to legal to HR to Sales. Need a contract reviewed? Open an issue. Want to propose a change to our vacation policy? Submit a pull request. After all, [how you work is just as important as what you work on](http://ben.balter.com/2015/09/21/open-source-behind-the-firewall/#how-you-work-is-as-important-as-what-you-work-on), so why not use the best, most modern tools available.
 
-# Not all internet-based tools are created equal
+### Not all internet-based tools are created equal
 
 Internally, this practice is often described as "everything should be on GitHub", but that's far from true. Modern, developer-centric workflows use all sort of non-GitHub tools to share information. We use Slack for real-time chat and as a distributed water cooler. We have an internal blog called "Team" for posting company-wide announcements like ships and new Octokittens. Heck, every once in a while, we even, *gasp*, meet in person.
 

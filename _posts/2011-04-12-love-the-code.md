@@ -33,7 +33,7 @@ I am gave a brief [lightning talk at April's WordPress DC Meetup](http://www.mee
   * Functions – predefined set of actions; always followed by "`( )`"
   * Don't forget semicolons
 
-# Links to Resources Mentioned
+### Links to Resources Mentioned
 
 * HTML
   * [Google: HTML, CSS, & js from the Ground Up ](http://code.google.com/edu/submissions/html-css-javascript/)

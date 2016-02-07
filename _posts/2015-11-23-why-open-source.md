@@ -5,7 +5,7 @@ description: 25 reasons why you and your organization should consume, publish, c
 
 Open source is awesome. There are many reasons why you might consider consuming, publishing, collaborating on, or supporting open source.[^laundry-list] Here are a few of them:
 
-# Microeconomic motivations
+### Microeconomic motivations
 
 Open source is in your best interest, whether you're an individual, a corporation, a small business, a non-profit, or a government agency:
 

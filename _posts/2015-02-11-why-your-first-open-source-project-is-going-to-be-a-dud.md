@@ -5,7 +5,7 @@ description: "Best practices suggest that you should prime organizational piston
 
 If you're a government agency, your first opens source project is likely going to be a flop. In all fairness, [your organization has been set up](http://ben.balter.com/2014/08/03/why-isnt-all-government-software-open-source/) to fail. Participating in the open source community bears little relationship to the decade (or century) old processes your agency has established, like those required to publish a press release or respond to a FOIA request. It's not an understatement to say that open source is an animal unlike any your agency has ever seen before, and one that will require the cooperation of multiple departments.
 
-# The typical startup hockey stick
+### The typical startup hockey stick
 
 In startup land, new products are brought to market with an adoption curve that somewhat resembles a hockey stick. At first only a handful of early adopters kick the tires, things grow in at a linear rate, once the product is solid, a critical mass is achieved, and growth explodes exponentially, often with no end in sight. You can see this phenomenon in [the adoption of open source by government employees](https://github.com/blog/1874-government-opens-up-10k-active-government-users-on-github), but the examples are countless. Even when an established firm brings a new product (or even a feature) to market, it's done in such a way to artificially emulate this same adoption curve (to hedge the risk of trivial issues becoming serious by virtue of their scale). You've likely seen startups launch a new product in "private beta", but it also happens behind the scenes every day in ways you likely don't know (by design), with hidden experiments and phased rollouts.
 

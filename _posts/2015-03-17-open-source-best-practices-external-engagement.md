@@ -7,7 +7,7 @@ When it comes to open source, simply publishing code isn't enough. Open source i
 
 Working regularly with government agencies to help ensure their first (or second) step into the open source world is a successful one, here are five best practices for pursuing open source in government (or any large organization for that matter):
 
-# 1. Expand your definition of stakeholders
+### 1. Expand your definition of stakeholders
 
 Going in to your first open source project, you'll likely have a narrow definition of stakeholders. You've probably accounted for open source developers, internal business owners or subject matter experts, and possibly the press. Open source communities are made out of many more types of stakeholders, on both sides of the firewall. Put a different way, [everyone contributes](http://ben.balter.com/2013/08/11/everyone-contributes/).
 

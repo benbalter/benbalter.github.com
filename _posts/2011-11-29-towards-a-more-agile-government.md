@@ -14,7 +14,7 @@ Compounding the problem, end users fail entirely to use nearly forty-five percen
 
 To better embrace innovation and respond to changing organizational needs, the Government must embrace a two-pronged approach involving both regulatory reform and top-down support for best-practices education to empower IT-procuring agencies to pursue more agile software development methods.  By requiring that detailed specifications be outlined at the onset of the process, government procurement regulations encourage the less flexible, waterfall development techniques, rather than the more modern, agile development approaches used by the private sector today.[^16]  While most prior attempts to reform federal IT procurement focused solely on statutory changes, [^17] this Note proposes more modern project management practices and argues for top-down reform on both a regulatory and a human level.
 
-# I. Background — Waterfall v. Agile
+### I. Background — Waterfall v. Agile
 
 {: #background-waterfall-v-agile }
 
@@ -385,7 +385,7 @@ The federal IT procurement system is outdated.  Projects are consistently delive
 
 [^45]: More formally, the standard waterfall process follows five distinct steps: (1) requirements are defined and documented, (2) the system is designed and architected, (3) development teams code the software, (4) the software is tested and validated against the requirements from step one, and finally (5) the system is deployed.  *See id*. at 328-29.
 
-[^46]: Richard K. Cheng, *[On Being Agile](http://www.nextgov.com/nextgov/ng_20100923_7965.php)*, NextGov, Sept. 23, 2010, <http://www.nextgov.com/nextgov/ng_20100923_7965.php>.
+[^46]: Richard K. Cheng, *[On Being Agile](http://www.nextgov.com/nextgov/ng_20100923_7965.php)*, NextGov, Sept. 23, 2010, [http://www.nextgov.com/nextgov/ng\_20100923\_7965.php](http://www.nextgov.com/nextgov/ng\_20100923\_7965.php).
 
 [^47]: Szalvay, *supra* note 6,\* *at 1-3; Course Manual, *supra\* note 28, at 33.  Such an approach makes sense when it is traced backed to its traditional roots.  Engineers building bridges rely on well-established laws of physics supported by the fundamentals of mathematics, two sciences that are rigidly defined and easily relied upon.  Software development, on the other hand, is not bound by the rules of the physical world.  Gravity, an assumed constant in engineering, has relatively little relevance to programming.
 

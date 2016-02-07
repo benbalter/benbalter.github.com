@@ -9,7 +9,7 @@ Over the past several years WordPress's market share has enjoyed explosive growt
 
 Drupal powers twice as many federal .Govs as every other CMS combined. That's more than six Drupal sites for every one WordPress .Gov alone, not to mention the Joomlas, MovableTypes, and SharePoints of the world. The build-it-yourself software powers the White House, the House of Representatives, half a dozen agencies, and countless data-driven microsites like Recovery.gov and the IT Spending Dashboard, and its public sector use is [equally if not more impressive abroad](http://groups.drupal.org/node/19885).
 
-# A Problem of Perception
+### A Problem of Perception
 
 <div style="float:right; width: 300px; margin-left: 20px; text-align: left;" markdown="1" class="well">
 #### Typical Enterprise Misconceptions

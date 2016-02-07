@@ -20,7 +20,7 @@ After years of living at the bleeding edge of government IT, there's not been a 
 
 It's the culture that we've got to worry about. Will the solution be adopted by the agency? Will existing habits subvert the cool thing you just made? Will the dream live on once you're at your next gig? If you ignore culture, even the most elegant of technological solutions can be relegated to a dusty shelf as nothing more than the right solution to the wrong problem.
 
-# This is why we can't have nice things
+## This is why we can't have nice things
 
 Great technologies already exist. Lots of them in fact. Yet public servants still insist on adopting and subsequently entrenching their inferior predecessors. There's a reason that heavyweight, proprietary systems are a sad running joke in the Beltway.[^1] After all, the iPhone's been around since 2007. The problem isn't developing newer, better, flashier tools or tools that are more open or more intellectually elegant. The problem is creating the culture and the ecosystem necessary to begin appreciating and sustaining the ones we've already got — the ones we're already not using.
 

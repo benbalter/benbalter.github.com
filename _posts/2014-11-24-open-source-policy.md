@@ -16,7 +16,7 @@ The White House [has committed to creating an open source policy](http://e-pluri
 
 As a geek, as a former government technologist, and as a life-long member of the open source community, here's three things I hope the White House Open Source Policy embodies:
 
-# 1. Prefer (existing) open source platforms (*Open source as a platform*)
+### 1. Prefer (existing) open source platforms (*Open source as a platform*)
 
 Every government IT project begins (and ends) with procurement. Non-technical government employees spec out a list of detailed technical requirements, based on what's been done in the past, not what should be done at the time of delivery. While it's surely possible to build on a closed-source platform and then later publish your efforts, (A) that code will be received by a smaller, less-receptive community, limiting the code's lifetime impact and (B) utilizing that code requires developers to purchase expensive licenses to use that closed source platform to contribute — not exactly in the spirit of open source. Both aspects of the closed platform minimize the promise of open source and become a self-fulfilling prophecy for naysayers.
 

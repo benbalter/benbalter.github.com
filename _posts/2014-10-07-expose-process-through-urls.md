@@ -5,7 +5,7 @@ description: "The next time you begin a new project, adopt a high-fidelity, elec
 
 If there's one thing that made the internet what it is, it's the URL. It's what makes sharing funny cat videos possible. It's the bookmark to access your bank account balance. It's the Wikipedia link you send your buddy to end a heated argument. Why then, are our most online important interactions — collaborating with coworkers, accessing government services, or consuming open data — all too often, tragically URL-less?
 
-# The humble URL
+### The humble URL
 
 There's a lot packed into that seemingly innocuous string at the top of your browser. At its most basic level, a URL is a promise that so long as they have that magical sequence of characters, anyone in the world can see exactly what you see. In technical terms, a URL or [Uniform Resource Locator](https://en.wikipedia.org/wiki/Uniform_resource_locator) is the means by which to access a resource. That resource can be anything from a product on Amazon.com to an individual Tweet on Twitter to a page in the Congressional Record. A URL is also, by definition, also a URI ([uniform resource identifier](https://en.wikipedia.org/wiki/Uniform_resource_identifier)), meaning no two things ever have the same URL. Put another way, if you have something's URL, you also have a unique way to identify it, today and in perpetuity. It gives your content a permanent home on the internet, our primary means of communication.
 

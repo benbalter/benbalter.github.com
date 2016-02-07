@@ -24,7 +24,7 @@ Creative ideas on how best to leverage the information welcome in the comments b
 
 - - -
 
-# Course Schedule
+### Course Schedule
 
 1. Departments
 2. Endpoint: `http://my.gwu.edu/mod/pws/scheduleXML.cfm`

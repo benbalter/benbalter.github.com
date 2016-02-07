@@ -28,7 +28,7 @@ It's not uncommon for example, for a team to need to write or edit a document to
 
 See what we did there? We're still writing content for print, and then only once we're completely done, begin to prepare it for web. That's broken. That's like building an entire car, and then at the last minute, deciding it should actually, in fact, be a plane. If the internet is the primary medium by which content is consumed, shouldn't that be the primary medium for which content is written?
 
-# Using the wrong tools
+### Using the wrong tools
 
 Microsoft Word was designed with one purpose in mind: to make paper. Think about it. Its essential elements arose in the early 80's. There are print-centric buttons like left and right align front and center, but new-fangled internet things like hyperlinks or rich media are buried deep inside these labyrinthian sub-menus. Sure, it's industry standard, but it's an industry-standard workflow that arose before the age of the web (and hasn't really changed since).
 

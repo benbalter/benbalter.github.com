@@ -8,7 +8,7 @@ description: "The challenges we faced were overwhelmingly administrative, cultur
 
 Looking back on serving in the inaugural class of the Presidential Innovation Fellows program, almost one year to the day we started, it's clear now that going in, many rightfully assumed the challenges we'd face would be largely technical challenges. In hindsight, the challenges we faced were overwhelmingly administrative, cultural and bureaucratic in nature. When driving innovative efforts within government, whether as a fellow or in one's own agency, here are 10 things I know now I wish I had known then:
 
-# 1. "Innovative" efforts in government are standard practice in the startup world
+### 1. "Innovative" efforts in government are standard practice in the startup world
 
 Most of the problems the innovation fellows solve are not moon-shot problems. They've all been solved before by the private sector. Relying on open source frameworks like Ruby on Rails, exposing APIs and consuming them yourself, or designing applications with a service-oriented architecture are all standard practice for any San Francisco startup worth its venture capital funding. Introduce lean technologies and ways of thinking that have a proven three-to-five year track record outside the Beltway, and you'll be an innovator. Chances are the Internet has already solved whatever problem you're facing. Stumped? Just look West.
 

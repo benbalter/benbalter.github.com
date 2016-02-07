@@ -9,7 +9,7 @@ I've written in the past about how you should treat [prose with the same respect
 
 Whereas traditionally a member of your company's marketing, copy, or editorial team may have needed to take the time to manually review the post before the author could get any feedback (a blocking and time-consuming operation), there are many machine-detectable improvements that an automated process could easily call out without requiring delay or human intervention, unblocking both the author and the editor to continue working unfettered. Let's take a look at a few examples of this idea and how you might implement them for your own team:
 
-# Don't use the word today
+### Don't use the word today
 
 If I were reviewing the post, the first issue I'd call out is that [it starts with the word "today"](http://ben.balter.com/2015/07/20/write-corporate-blog-posts-as-a-human/#dont-use-the-word-today).
 

@@ -6,7 +6,7 @@ image: http://ben.balter.com/wp-content/uploads/2015/18f-vs-usds.png
 
 You may have noticed two parallel efforts at modernizing the way government approaches technology taking foothold in the Beltway over the past several months: 18F and the U.S. Digital Service (USDS). Although similar on paper, the two approach the challenge with two very divergent goals: one was created to ship culture and the other was created to ship confidence. It's the age-old saga of [geeks vs. suits](http://ben.balter.com/2014/12/18/geeks-and-suits/).
 
-# A long time in the making
+### A long time in the making
 
 The story of 18F and USDS (and their divergence) begins about three years ago with the introduction of the [**Presidential Innovation Fellows**](http://presidentialinnovation.org) (PIF) program. Modeled after [Code for America](http://codeforamerica.org) and the [Presidential Management Fellows program](http://pmf.gov), the PIF program was designed to parachute 18 skilled, private-sector technologists into government for six-month stints at a particular agency, technologists that wouldn't otherwise consider a career in government. The goal was simple: burst the stereotypical beltway bubble and expose government employees and bureaucratic workflows to mainstream technology thinking.[^disclosure]
 

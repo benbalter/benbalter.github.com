@@ -9,7 +9,7 @@ The question's come up several times, as to what's the appropriate copyright not
 
 In practice, there are three things to consider: the date, the copyright holder, and the need to have a copyright notice in the first place. Let's take a quick look at each.
 
-# Do you even need a copyright notice?
+### Do you even need a copyright notice?
 
 *No, not to get a copyright* - but notices *are* helpful for other reasons, and they are easy to add.
 

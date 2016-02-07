@@ -29,7 +29,7 @@ Think about it in terms of a hacker ethic, a hacker way, and a hacker culture.
 
 <!-- more -->
 
-# The Hacker Ethic
+## The Hacker Ethic
 
 Hackers are motivated by a distinct ethos.[^1] It's about **Sharing**. Hacking requires the ability to take things apart and figure out how they work in the hopes of ultimately improving upon them. It's a "hands on" imperative that necessitates both access to and the right to fork a project in hopes of building something even more interesting and ultimately bettering what's available to all. It's about **Openness**. Hacking is a group effort, and thus the free flow of information is a necessity to empower hackers to fix, improve, and reinvent. Secrecy simply serves to stifle creative possibility. Freedom of inquiry requires that information be free. And it's about **Decentralization**. The best way to promote the free exchange of information is to have an open system that provides no friction between a hacker and his or her quest for knowledge. By intentionally or unintentionally erecting such barriers, bureaucracies, whether corporate, government, or university, are inherently flawed systems.
 
