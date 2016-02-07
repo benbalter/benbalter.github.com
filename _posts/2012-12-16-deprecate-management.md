@@ -10,7 +10,6 @@ tags:
   - GitHub
   - Collaboration
 published: true
-
 ---
 
 There are many aspects to "making things" that [open source just does better](http://ben.balter.com/2012/10/19/we-ve-been-trained-to-make-paper/). Regardless of if at the end of the day you ship bits or cogs, certain aspects of "office" work are universal: ideation, vetting initiatives, resolving conflicts, and shipping product. Now imagine if you had to do all this not across conference tables, but across geographies and timezones. You'd have a pretty kickass process for sure. Welcome to the world of open source.
@@ -34,11 +33,11 @@ But does it <del>blend</del> scale? WordPress, the open source content managemen
 So what aspects of the open source process make this management free collaboration possible? Ryan Tomayko [outlines](http://tomayko.com/writings/adopt-an-open-source-process-constraints) his experience applying the open source philosophy to an entire (for-profit) venture, noting four key features to the system:
 
 > * **Electronic**: Discussion, planning, and operations process should use a high fidelity form of electronic communication like email, github.com, or chat with transcripts wherever possible. Avoid meatspace discussion and meetings.
-> 
+>
 > * **Available**: Work should be visible and expose process. Work should have a URL. It should be possible to move backward from a piece of product or a system failure and understand how it came to be that way. Prefer git, issues, pull requests, mailing lists, and chat with transcripts over URL-less mediums.
-> 
+>
 > * **Asynchronous**: Almost no part of the product development process requires that one person interrupt another's immediate attention or that people be in the same place at the same time, or even that people be in different places at the same time. Even small meetings or short phone calls can wreck flow so consider laying it out in (a thought out) email or sending a pull request instead.
-> 
+>
 > * **Lock free**: Avoid synchronization / lock points when designing process. This is [distributed version control](http://en.wikipedia.org/wiki/Distributed_revision_control) writ large. We don't have a development manager that grants commit bit to repositories before you can do work, or a release manager that approves deploys, or a product manager that approves work on experimental product ideas. Work toward a goal should never be blocked on approval. Push approval/rejection to the review stage or automate it, but surface work early to get feedback.
 
 Granted, this open-source philosophy doesn't apply to every workplace, but how much better would the process of "making things" be if we could eliminate traditional pain points of managerial friction entirely — conference calls, status meetings, "sync ups", and other non-decisional "checkins". Work happens in the open, rather than hidden away in one-on-one e-mails or behind closed doors, and decisions are made by those who show up to do the work.

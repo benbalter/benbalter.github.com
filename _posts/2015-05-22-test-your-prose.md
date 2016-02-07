@@ -1,5 +1,5 @@
 ---
-title: "Test your content"
+title: Test your content
 description: "There's another workflow that version-controlled, collaborative content enables: continuous integration for prose."
 ---
 
@@ -28,7 +28,7 @@ Next, create a file called `Rakefile` in your site's root, and add the following
 require 'html/proofer'
 task :test do
   sh "bundle exec jekyll build"
-  HTML::Proofer.new("./_site").run
+  HTML::Proofer.new("./\_site").run
 end
 {% endhighlight %}
 
@@ -45,12 +45,10 @@ Now, each time you push, Travis is going to verify all sorts of things, like whe
 
 You can see this in action [on this site](https://travis-ci.org/benbalter/benbalter.github.com). Each time I make a change (or someone proposes one), every link and image is checked to confirm nothing broke. You'll get something that looks like:
 
-~~~
-Running ["ScriptCheck", "LinkCheck", "ImageCheck"] checks on ./_site on *.html...
-Checking 1187 external links...
-Ran on 120 files!
-HTML-Proofer finished successfully.
-~~~
+    Running ["ScriptCheck", "LinkCheck", "ImageCheck"] checks on ./_site on *.html...
+    Checking 1187 external links...
+    Ran on 120 files!
+    HTML-Proofer finished successfully.
 
 And with that, you can merge confidently.
 

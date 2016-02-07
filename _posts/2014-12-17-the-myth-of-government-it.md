@@ -1,5 +1,5 @@
 ---
-title: "The myth of government IT"
+title: The myth of government IT
 description: "When it comes to innovation in government, there's the law, and then there's the myth that surrounds it, a myth used to place never-ending bureaucratic obstacles in front of those who champion change."
 ---
 

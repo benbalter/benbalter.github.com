@@ -1,13 +1,12 @@
 ---
 published: true
-title: "Welcome to the Post-CMS World"
-description: "Jekyll (and other static-sites) lead to simple, flexible, and reliable websites that allow for a renewed focus on what actually matters: the content."
+title: Welcome to the Post-CMS World
+description: 'Jekyll (and other static-sites) lead to simple, flexible, and reliable websites that allow for a renewed focus on what actually matters: the content.'
 author: Ben Balter
 layout: post
 comments: true
 category: Technology
 tags: WordPress Jekyll GitHub benchmarking benchmarks
-
 ---
 
 You may notice things are bit snappier around here these days, having [recently converted](https://github.com/benbalter/wordpress-to-jekyll-exporter) the site from WordPress, to [Jekyll](https://github.com/mojombo/jekyll).[^4]
@@ -23,7 +22,7 @@ But as much as it pains the developer in me, just like fixies, PBR, and Javascri
 The pitch is straightforward. It leads to simple, flexible, and reliable websites that allow for a renewed focus on what actually matters: the content. Dave Cole over at [Development Seed](http://developmentseed.org/) (also powered by Jekyll) [put it best](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/):
 
 > In the past, building websites with features like consistent templates and lists of aggregated content meant setting up complex content management systems. These CMSs consisted of templating logic, application code, and content databases so they could assemble webpages each time they were requested by site visitors. They were complicated systems that depend on many separate applications working together, like a web server to route page requests to a PHP application that uses pre-defined page layout templates to format content that’s stored in a MySQL database. Serving a page request required at least three separate applications all working together — any one failing would bring down the system...
-
+>
 > From open source frameworks like Drupal, Wordpress, and Expression Engine to multi-million dollar proprietary applications that the government and big corporations procure from companies that also build tanks and battle ships, these systems produce the same exact output: HTML, CSS, and JavaScript files that web browsers know how to format into the webpages we see. Additional features like RSS or JSON API feeds are just new templates for the same content, and backend workflow modules like those for embedded media and handling email notifications are really separate systems that introduce complexity when integrated with the publishing system.
 
 And then there's cost. Putting aside the value of time for a moment, shared hosting's going to run you in the ballpark of $7 a month; AWS starts at $14, plus the cost of bandwidth and storage; and Jekyll, if hosted by GitHub? Free.[^3]
@@ -46,20 +45,20 @@ The CMS is dead. Long live the CMS.
 
 Command: `siege -c 20 -t 30S -b ben.balter.com`
 
-	Transactions:		        3600 hits
-	Availability:		      100.00 %
-	Elapsed time:		       29.91 secs
-	Data transferred:	       19.12 MB
-	Response time:		        0.13 secs
-	Transaction rate:	      120.36 trans/sec
-	Throughput:		        0.64 MB/sec
-	Concurrency:		       16.03
-	Successful transactions:        3600
-	Failed transactions:	           0
-	Longest transaction:	        4.28
-	Shortest transaction:	        0.04
+    Transactions:		        3600 hits
+    Availability:		      100.00 %
+    Elapsed time:		       29.91 secs
+    Data transferred:	       19.12 MB
+    Response time:		        0.13 secs
+    Transaction rate:	      120.36 trans/sec
+    Throughput:		        0.64 MB/sec
+    Concurrency:		       16.03
+    Successful transactions:        3600
+    Failed transactions:	           0
+    Longest transaction:	        4.28
+    Shortest transaction:	        0.04
 
----
+- - -
 
 ### Homepage
 
@@ -69,48 +68,48 @@ The first test was to benchmark the homepage, the most heavily trafficked page o
 
 #### Shared Hosting (Bluehost)
 
-	Transactions:		          40 hits
-	Availability:		      100.00 %
-	Elapsed time:		       29.54 secs
-	Data transferred:	        0.68 MB
-	Response time:		        0.57 secs
-	Transaction rate:	        1.35 trans/sec
-	Throughput:		        0.02 MB/sec
-	Concurrency:		        0.78
-	Successful transactions:          40
-	Failed transactions:	           0
-	Longest transaction:	        0.71
-	Shortest transaction:	        0.47
+    Transactions:		          40 hits
+    Availability:		      100.00 %
+    Elapsed time:		       29.54 secs
+    Data transferred:	        0.68 MB
+    Response time:		        0.57 secs
+    Transaction rate:	        1.35 trans/sec
+    Throughput:		        0.02 MB/sec
+    Concurrency:		        0.78
+    Successful transactions:          40
+    Failed transactions:	           0
+    Longest transaction:	        0.71
+    Shortest transaction:	        0.47
 
 #### Varnish + Microcache + Page Cache + Object Cache (AWS)
 
-	Transactions:		        1954 hits
-	Availability:		      100.00 %
-	Elapsed time:		       29.39 secs
-	Data transferred:	       13.63 MB
-	Response time:		        0.30 secs
-	Transaction rate:	       66.49 trans/sec
-	Throughput:		        0.46 MB/sec
-	Concurrency:		       19.80
-	Successful transactions:        1954
-	Failed transactions:	           0
-	Longest transaction:	        0.92
-	Shortest transaction:	        0.06
+    Transactions:		        1954 hits
+    Availability:		      100.00 %
+    Elapsed time:		       29.39 secs
+    Data transferred:	       13.63 MB
+    Response time:		        0.30 secs
+    Transaction rate:	       66.49 trans/sec
+    Throughput:		        0.46 MB/sec
+    Concurrency:		       19.80
+    Successful transactions:        1954
+    Failed transactions:	           0
+    Longest transaction:	        0.92
+    Shortest transaction:	        0.06
 
 #### Github Pages
 
-	Transactions:		        2629 hits
-	Availability:		      100.00 %
-	Elapsed time:		       29.42 secs
-	Data transferred:	        2.71 MB
-	Response time:		        0.22 secs
-	Transaction rate:	       89.36 trans/sec
-	Throughput:		        0.09 MB/sec
-	Concurrency:		       19.86
-	Successful transactions:        2629
-	Failed transactions:	           0
-	Longest transaction:	        1.38
-	Shortest transaction:	        0.06
+    Transactions:		        2629 hits
+    Availability:		      100.00 %
+    Elapsed time:		       29.42 secs
+    Data transferred:	        2.71 MB
+    Response time:		        0.22 secs
+    Transaction rate:	       89.36 trans/sec
+    Throughput:		        0.09 MB/sec
+    Concurrency:		       19.86
+    Successful transactions:        2629
+    Failed transactions:	           0
+    Longest transaction:	        1.38
+    Shortest transaction:	        0.06
 
 ### 404s
 
@@ -120,48 +119,48 @@ The true challenge comes in not from serving a static front page (which is presu
 
 #### Shared Hosting (Bluehost)
 
-	Transactions:		          30 hits
-	Availability:		       21.43 %
-	Elapsed time:		       29.58 secs
-	Data transferred:	        0.19 MB
-	Response time:		       14.93 secs
-	Transaction rate:	        1.01 trans/sec
-	Throughput:		        0.01 MB/sec
-	Concurrency:		       15.14
-	Successful transactions:           0
-	Failed transactions:	         110
-	Longest transaction:	       22.88
-	Shortest transaction:	        0.00
+    Transactions:		          30 hits
+    Availability:		       21.43 %
+    Elapsed time:		       29.58 secs
+    Data transferred:	        0.19 MB
+    Response time:		       14.93 secs
+    Transaction rate:	        1.01 trans/sec
+    Throughput:		        0.01 MB/sec
+    Concurrency:		       15.14
+    Successful transactions:           0
+    Failed transactions:	         110
+    Longest transaction:	       22.88
+    Shortest transaction:	        0.00
 
 #### Varnish + Microcache + Page Cache + Object Cache (AWS)
 
-	Transactions:		        1567 hits
-	Availability:		      100.00 %
-	Elapsed time:		       29.13 secs
-	Data transferred:	       14.71 MB
-	Response time:		        0.37 secs
-	Transaction rate:	       53.79 trans/sec
-	Throughput:		        0.50 MB/sec
-	Concurrency:		       19.83
-	Successful transactions:           0
-	Failed transactions:	           0
-	Longest transaction:	        1.13
-	Shortest transaction:	        0.00
+    Transactions:		        1567 hits
+    Availability:		      100.00 %
+    Elapsed time:		       29.13 secs
+    Data transferred:	       14.71 MB
+    Response time:		        0.37 secs
+    Transaction rate:	       53.79 trans/sec
+    Throughput:		        0.50 MB/sec
+    Concurrency:		       19.83
+    Successful transactions:           0
+    Failed transactions:	           0
+    Longest transaction:	        1.13
+    Shortest transaction:	        0.00
 
 #### Github Pages
 
-	Transactions:		        2373 hits
-	Availability:		      100.00 %
-	Elapsed time:		       29.82 secs
-	Data transferred:	       10.48 MB
-	Response time:		        0.25 secs
-	Transaction rate:	       79.58 trans/sec
-	Throughput:		        0.35 MB/sec
-	Concurrency:		       19.92
-	Successful transactions:           0
-	Failed transactions:	           0
-	Longest transaction:	        1.42
-	Shortest transaction:	        0.00
+    Transactions:		        2373 hits
+    Availability:		      100.00 %
+    Elapsed time:		       29.82 secs
+    Data transferred:	       10.48 MB
+    Response time:		        0.25 secs
+    Transaction rate:	       79.58 trans/sec
+    Throughput:		        0.35 MB/sec
+    Concurrency:		       19.92
+    Successful transactions:           0
+    Failed transactions:	           0
+    Longest transaction:	        1.42
+    Shortest transaction:	        0.00
 
 ### Uptime
 

@@ -1,11 +1,11 @@
 ---
 title: "We've been trained to make paper"
 description: "If the internet is the primary medium by which content is consumed, shouldn't that be the primary medium for which content is prepared?"
-author: "Ben Balter"
+author: Ben Balter
 layout: post
 comments: true
 category: Technology
-tags: 
+tags:
   - collaboration
   - Word
   - workflow
@@ -13,7 +13,6 @@ tags:
   - GitHub
   - markdown
 published: true
-
 ---
 
 We've been trained wrong. We've been trained that content creation starts by firing up a desktop word processor — a piece of software, mind you, that still does its best to generate a digital representation of a physical piece of paper — margins, page breaks, and all. Yet this quintessential workplace-place training simply fails to remain relevant in a world where we carry a computer in our pockets at all times. Our training now tells us to create content for the least-likely way it's consumed: on paper. We're stuck in an anachronistic workflow.

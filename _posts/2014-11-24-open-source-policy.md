@@ -1,7 +1,7 @@
 ---
-title: "A White House open source policy written by a geek"
+title: A White House open source policy written by a geek
 description: "As a geek, as a former government technologist, and as a life-long member of the open source community, here's three things I hope the White House Open Source Policy embodies."
-redirect_from: "/2014/11/17/open-source-policy/"
+redirect_from: /2014/11/17/open-source-policy/
 ---
 
 Open source in government is about much more than efficiency, shipping better code, or engaging the public more openly. Open source is about spurring [innovation ecosystems](http://ben.balter.com/2012/04/10/whats-missing-from-cfpbs-awesome-new-source-code-policy/?dontCache=1416281172765#an-innovation-ecosystem), public/private marketplaces of scientific and engineering ideas, the likes of which were last seen during the space race. Think space pens are cool? Wait until you see what open source has to offer.
@@ -26,11 +26,9 @@ That said, if there's an overwhelming business case to the contrary, government 
 
 ### 2. Open source, not source disclosed (*Open source as a design philosophy*)
 
-Open source does not simply mean [government software for which the underlying code has been published](http://ben.balter.com/2014/09/29/source-disclosed-%E2%89%A0-open-source/
-). In the industry, that's called disclosed source. Instead, open source is about growing communities around shared challenges. That has several implications:
+Open source does not simply mean [government software for which the underlying code has been published](http://ben.balter.com/2014/09/29/source-disclosed-%E2%89%A0-open-source/). In the industry, that's called disclosed source. Instead, open source is about growing communities around shared challenges. That has several implications:
 
-Agencies must [abstract business logic](http://ben.balter.com/2012/06/26/why-you-should-always-write-software-as-open-source/
-). There's an insane anti-pattern in government that suggests that all software should be so purpose built, all application logic so hard coded into the program itself, that changes to policy require multi-million dollar investments in the software, software that by virtue of being so application specific, is of no value to anyone other than the agency. Even if published, that's not open source.
+Agencies must [abstract business logic](http://ben.balter.com/2012/06/26/why-you-should-always-write-software-as-open-source/). There's an insane anti-pattern in government that suggests that all software should be so purpose built, all application logic so hard coded into the program itself, that changes to policy require multi-million dollar investments in the software, software that by virtue of being so application specific, is of no value to anyone other than the agency. Even if published, that's not open source.
 
 Instead, software should be modular by design and flexible from the start, with deployment-specific variable and other business logic abstracted to databases or other configuration variables. Put in practice, where there's a common problem, there should be the possibility of a common platform, not the inevitability of two divergent applications, either of which may or may not be published. That benefits no one. Again, open source is not about published code. It's more a design philosophy.
 

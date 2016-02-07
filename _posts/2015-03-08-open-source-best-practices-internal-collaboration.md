@@ -1,5 +1,5 @@
 ---
-title: "Five best practices in open source: internal collaboration"
+title: 'Five best practices in open source: internal collaboration'
 description: "The way your organization works internally will necessarily be a mirror image of how your organization works externally, and if that workflow is closed or untrusting, you'll likely have trouble embracing to open source"
 ---
 

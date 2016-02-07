@@ -1,6 +1,6 @@
 ---
 title: About
-excerpt: Ben Balter is an attorney, an open source developer, and a Government Evangelist at GitHub, the world's largest software development network, modernizing government, one software project at a time.
+excerpt: "Ben Balter is an attorney, an open source developer, and a Government Evangelist at GitHub, the world's largest software development network, modernizing government, one software project at a time."
 layout: page
 permalink: /about/
 published: true
@@ -8,7 +8,7 @@ id: /about
 icons: true
 ---
 
-[![Ben Balter](http://www.gravatar.com/avatar/{{ site.gravatar_id }}.png?size=250){: .alignright}](https://github.com/benbalter/benbalter.github.com/blob/master/assets/img/headshot.jpg)
+[![Ben Balter](<http://www.gravatar.com/avatar/{{ site.gravatar_id }}.png?size=250>){: .alignright}](https://github.com/benbalter/benbalter.github.com/blob/master/assets/img/headshot.jpg)
 
 Named one of the [top 25 most influential people in government and technology](http://fedscoop.com/top-federal-it-and-tech-folks-under-40/) and Fed 50's Disruptor of the Year, described by the US Chief Technology Officer as one of "the baddest of the badass innovators," and winner of the Open Source People's Choice Award, Ben Balter is the Government Evangelist at [GitHub](https://github.com/about) — the world's largest software development network — where he leads the efforts to encourage adoption of open source philosophies, making all levels of government better, one repository at a time.
 
@@ -16,6 +16,6 @@ Previously, Ben was a member of the inaugural class of Presidential Innovation F
 
 As an attorney passionate about the disruptive potential of technology, Ben holds a J.D. and an M.B.A. from the George Washington University and is a member of the DC Bar. When not trying to change the world, he enjoys tackling otherwise-impossible challenges to sharing information using nothing more than duct tape, version control, and occasionally a pack of bubblegum.
 
-Feel free to e-mail him at <Ben@Balter.com> or you can find him on these social networks:
+Feel free to e-mail him at <mailto:Ben@Balter.com> or you can find him on these social networks:
 
 {% include contact-links.html %}

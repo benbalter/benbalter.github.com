@@ -1,6 +1,6 @@
 ---
-title: How to add an "improve this content" button to your GitHub Pages site
-description: If you host your site on GitHub or GitHub Pages, an edit button (and thus encouraging collaboration around your content) is simply a matter of linking to an easily predictable URL.
+title: 'How to add an "improve this content" button to your GitHub Pages site'
+description: 'If you host your site on GitHub or GitHub Pages, an edit button (and thus encouraging collaboration around your content) is simply a matter of linking to an easily predictable URL.'
 ---
 
 At the bottom of this page (and every other page on the site), you'll notice a subtle plea to help improve the page's content. That edit button is no dark magic. If you host your site on GitHub or GitHub Pages, collaborative content is simply a matter of linking to an easily predictable URL.
@@ -10,7 +10,7 @@ The difference between publishing with say, WordPress, and publishing using Jeky
 If your site's content is hosted on GitHub (either with Jekyll/GitHub Pages or something like [wordpress-github-sync](https://github.com/benbalter/wordpress-github-sync)), it's easy to provide readers with a link to submit changes. You simply need to add a vanilla HTML link to the following URL (if you're using another framework, you'll need to build the URL yourself):
 
 {% highlight liquid %}
-{% raw %}https://github.com/{{ site.github.repository_nwo }}/edit/{{ site.branch }}/{{ page.path }}{% endraw %}
+{% raw %}<https://github.com/{{> site.github.repository\_nwo }}/edit/{{ site.branch }}/{{ page.path }}{% endraw %}
 {% endhighlight %}
 
 Jekyll and GitHub will automatically fill in the path to your site's repository, as well as the path to the particular page. You'll want to either hard-code `{% raw %}{{ site.branch }}{% endraw %}` to either `master` or `gh-pages`, depending on your site's setup, or add something like the following to your site's `_config.yml` file:

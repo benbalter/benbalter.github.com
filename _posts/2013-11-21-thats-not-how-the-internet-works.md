@@ -1,8 +1,8 @@
 ---
 layout: post
 comments: true
-description: "The internet forces us to reimagine desktop technologies as vehicles for collaboration."
-title: That's not how the internet works
+description: The internet forces us to reimagine desktop technologies as vehicles for collaboration.
+title: "That's not how the internet works"
 ---
 
 The internet has [a particular way of doing things](http://ben.balter.com/2013/07/02/a-brief-history-of-the-internet/). It's an ethos driven by a desire for resilience, for interoperability, for speed and efficiency — for preferring pragmatism over perfection. There's an unspoken set of rules born out of the [hacker ethic](http://ben.balter.com/2013/02/16/what-is-a-hacker/#the-hacker-ethic). It's about elegant solutions, not over engineered ones, and it's what makes the internet what it is. Put another way, the internet forces us to not simply to press upload, but to reimagine desktop technologies as potential vehicles for collaboration.

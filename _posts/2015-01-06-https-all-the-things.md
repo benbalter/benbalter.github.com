@@ -1,5 +1,5 @@
 ---
-title: "Why you should care about HTTPS, even if you have nothing to hide"
+title: 'Why you should care about HTTPS, even if you have nothing to hide'
 description: "HTTPS ensures not only the privacy of the content you request, but also, protects the fact that you're even requesting it in the first place. HTTPS isn't just for secure transactions like online banking and ecommerce. HTTPS is for any website that adds to the public dialog."
 ---
 

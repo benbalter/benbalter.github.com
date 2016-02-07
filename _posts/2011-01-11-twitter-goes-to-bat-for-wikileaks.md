@@ -13,8 +13,9 @@ tags:
   - google
   - privacy
   - twitter
-post_format: [ ]
+post_format: []
 ---
+
 Regardless of where one's politics may fall on the WikiLeaks prosecution, one thing is becoming abundantly clear as a result: *Twitter is emerging as a champion of users' rights.*
 
 ![Screenshot of the court order](http://ben.balter.com/wp-content/uploads/2011/01/order-300x131.jpg "Court Order"){: .alignleft} Federal prosecutors investigating the disclosure of classified state documents [served Twitter with a court order](http://www.nytimes.com/2011/01/09/world/09wiki.html?partner=rss&emc=rss){: data-proofer-ignore="true"} demanding it turn over information pertaining to several of its users. While there is nothing particularly alarming about the order, [^1] the bigger news is that [Twitter fought back](http://techcrunch.com/2011/01/07/twitter-informs-users-of-doj-wikileaks-court-order-didnt-have-to/){: data-proofer-ignore="true"}, contesting the attached gag order that prevented the social networking service from informing its users of its compliance with the otherwise lawful request. [^2]
@@ -28,6 +29,9 @@ A user's protection from government intrusion should not diminish depending on t
 Notes:
 
 [^1]: As our interactions move increasingly online, [we can hardly be surprised](http://ben.balter.com/2010/10/10/does-every-cloud-have-a-silver-lining/) that law enforcement officers will seek supporting documents from digital rather than physical information stores. *See, e.g.,* [Google search history aiding murder convictions](http://blogs.forbes.com/kashmirhill/2011/01/04/google-m-for-murder-internet-search-history-of-killing-methods-helped-convict-husband-of-homicide/), [Prisoners coordinating riots via Facebook events](http://www.nytimes.com/2011/01/03/us/03prisoners.html){: data-proofer-ignore="true"}.
+
 [^2]: To be sure, the government's request was [far from a demand for specific, targeted information](http://news.cnet.com/8301-31921_3-20027893-281.html), but rather suggested that prosecutors unfamiliar with *what exactly it is kids do these days* were simply casting as wide a net as legally permissible. Beyond misspelling the name of one of its targets, the order, a [2703(d)](http://www.law.cornell.edu/uscode/18/usc_sec_18_00002703----000-.html){: data-proofer-ignore="true" } order, [requested](http://mashable.com/2011/01/08/twitter-subpoenaed-by-u-s-government-for-wikileaks-accounts/) credit card, banking information, and street addresses (information Twitter would obviously not be privy to as a free, web-based service) be delivered via "[CD-ROM][3]". More likely, [the feds were seeking metadata](http://paranoia.dubfire.net/2011/01/thoughts-on-doj-wikileakstwitter-court.html), the non-content data automatically associated with a user whenever he or she interacts with the service, data such as the date, time, and network address of the computer used to post messages (which could potentially be traced back to an individual or at least a physical location).
+
 [^3]: Some might argue that Twitter should be considered heroic simply for stimulating the demand side of an [otherwise anemic legal economy](http://www.nytimes.com/2011/01/09/business/09law.html){: data-proofer-ignore="true"}.
+
 [^4]: This may only hold true in the short run. As Columbia Law professor Tim Wu points out in his book *The Master Switch*, AT&T's "[secret rooms](https://www.eff.org/nsa/hepting)" illustrate that the service provider often may be compelled to contribute to the government's information gathering infrastructure in hopes of garnering more favorable regulatory treatment.
