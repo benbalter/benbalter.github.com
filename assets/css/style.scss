@@ -11,7 +11,7 @@ $fa-font-path: "{{ url_base }}/assets/vendor/font-awesome/fonts";
 $font-size-base: 16px;
 
 @import "bootstrap/stylesheets/bootstrap";
-@import "pygments";
+@import "highlighting";
 @import "font-awesome/font-awesome";
 
 body { padding-top: 20px; font-weight: 200; }
