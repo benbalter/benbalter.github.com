@@ -78,12 +78,4 @@ The law aside, readers want you to digest and put ideas in your own voice. Take 
 
 [^10]: Sony Corporation of America v. Universal City Studios, Inc., 464 U.S. 417, 433 (1984).
 
-[9]: #note-2020-2 "It should be noted that I'm not an attorney and my writing should not be substituted for qualified legal advice."
-
-[13]: #note-2020-4 "Codified into law as 17 U.S.C. § 107."
-
-[16]: #note-2020-6 "Harper Row v. Nation Enters., 471 U.S. 539, 562 (1985)"
-
 [18]: #note-2020-8 "Id. at 580-81"
-
-[20]: #note-2020-10 "Sony Corporation of America v. Universal City Studios, Inc., 464 U.S. 417, 433 (1984)."

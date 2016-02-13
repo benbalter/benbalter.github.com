@@ -107,7 +107,3 @@ Questions? Comments? Many may have already been addressed in [the WP Document Re
 **Update (6/12): Comments have been closed in favor of [expanded support and discussion options](https://github.com/benbalter/WP-Document-Revisions/wiki/Where-to-get-Support-or-Report-an-Issue). Additional documentation about the project can now be found in the [Project Wiki](https://github.com/benbalter/WP-Document-Revisions/wiki). If you are interested in joining the project at any level of technical expertise, please see [How to Contribute](https://github.com/benbalter/WP-Document-Revisions/wiki/How-to-Contribute).**
 
 [^1]: Neither relationship should imply a formal endorsement.
-
-[16]: http://www.tradiart.com/
-
-[27]: #note-2020-1 " Neither relationship should imply a formal endorsement."

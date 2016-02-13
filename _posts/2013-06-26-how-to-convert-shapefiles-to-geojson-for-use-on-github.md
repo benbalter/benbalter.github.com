@@ -19,7 +19,6 @@ With [GitHub natively supporting mapping](https://github.com/blog/1541-geojson-r
 
 Luckily, a strangely named piece of open source software known as [ogr2ogr](http://www.gdal.org/ogr2ogr.html) can convert the data into the more modern, more open [GeoJSON format](http://en.wikipedia.org/wiki/GeoJSON) that GitHub supports, and the resulting map can be automatically rendered, not to mention more easily diffed.
 
-
 ## If you've got a Mac, it only takes a few seconds:
 
 <!-- more -->
@@ -36,11 +35,9 @@ In addition to converting the Shapefile over to GeoJSON, the other step in there
 
 *Note:* The same process should work for KML files as well, replacing `[name].shp` with `[name].kml`.
 
-
 ## So why's this important?
 
 For one, you're liberating public geodata that would otherwise be inaccessible to the average citizen and making it available in a dumb-simple point, click, zoom interface that anyone can use. For another, by putting the information on GitHub in an open, text-based format, civic hackers and subject-matter experts can begin treating that data like open source code — forking, merging, diffing, tracking changes over time — and all of a sudden we've opened up not just the data, but the entire collaborative ecosystem that now surrounds it.
-
 
 ## The result
 

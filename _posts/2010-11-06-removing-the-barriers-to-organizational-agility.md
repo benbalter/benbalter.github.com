@@ -35,10 +35,4 @@ Panelists Steven Bucci, William Kirkendale, Brian Moran, Mark Rosenfeld, and Mar
 
 * Brian Moran, President, GW Tech Alumni Group; CEO, Nester Consulting; & former Director of IT Services, U.S. International Trade Commission
 
-[4]: http://ben.balter.com/wp-content/uploads/2010/11/Introduction.mp3?torrent
-
-[6]: http://ben.balter.com/wp-content/uploads/2010/11/Agile-v-Waterfall-Systems-Development.mp3?torrent
-
-[8]: http://ben.balter.com/wp-content/uploads/2010/11/Cloud-Computing-v-FISMA.mp3?torrent
-
 [10]: http://ben.balter.com/wp-content/uploads/2010/11/Removing-Barriers-to-Organizational-Agility.mp3?torrent

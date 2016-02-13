@@ -71,5 +71,3 @@ I think CFPB gets it in a big way, and the fact that this is memorialized in wri
 [^4]: This can manifest itself in lots of different ways, but most tangibly: going to local meetups and conferences (or hosting them); contributing to the project's core by introducing new features, documentation, or posting to support forums; abstracting business logic from the start to be more broadly applicable to other developers; outreach and evangelism; and fostering relationships with key stakeholders within the community
 
 [16]&#x3A; #note-2020–1 "In simple terms, the core of open-source projects (as distinct from community-contributed plugins or modules) are primarily fueled by "patches" (small code change sets) in response to bugs or feature requests, that get committed to the project's codebase and released in subsequent versions."
-
-[19]: #note-2020-3 "Is this considered a donation for Federal ethics purposes thus requiring disclosure?"

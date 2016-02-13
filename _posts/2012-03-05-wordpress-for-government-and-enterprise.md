@@ -88,7 +88,3 @@ Whether WordPress is your primary source of income, a hobby, or just the thing t
 [^3]: **Update (3/8):** The features page is part of a community edited Wiki (the WordPress Codex) and since originally posted, I've gone through and reworked much of the blog-specific language. [View the original](http://codex.wordpress.org/index.php?title=WordPress_Features&oldid=113531).
 
 [15]&#x3A; #note-2020–2 "Jen Lampton, "Why WordPress is Better than Drupal, Developers Take Note" (July, 2010)"
-
-[28]: http://ben.balter.com/wp-content/uploads/2012/03/q-cover-issue01-300x387.jpeg
-
-[30]: http://wpcandy.com/quarterly

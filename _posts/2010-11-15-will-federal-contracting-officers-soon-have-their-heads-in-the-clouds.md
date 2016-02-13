@@ -21,7 +21,6 @@ tags:
 post_format: []
 ---
 
-
 ## A Brief Look at the Imminent Cloud-Computing Storm Front
 
 As one Hewlett-Packard chief executive recently put it, cloud computing "is the next generation of the internet." [^1] Whether you realize it or not, if you use services like Facebook or Gmail, your personal data already lives in "the cloud," and the same transformative power that connects long-lost classmates at the click of a mouse can be harnessed by federal agencies to approach modern governance in incredibly powerful ways.

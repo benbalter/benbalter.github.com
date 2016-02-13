@@ -37,7 +37,6 @@ The CMS is dead. Long live the CMS.
 
 <!-- more -->
 
-
 ## The Results
 
 **WARNING: Geek Content!**
@@ -183,7 +182,6 @@ The other concern was uptime. With the AWS route you may get the performance, bu
 
 With Jekyll, because the files are simply sitting on the server, absent a catastrophic failure, when things go wrong with Jekyll, it simply keeps serving the old content.[^2]
 
-
 ## Conclusion
 
 It's cheaper, it's faster, it's simpler, it's worry free, and in my opinion, it's the future. Welcome to the post-CMS world.
@@ -195,6 +193,5 @@ It's cheaper, it's faster, it's simpler, it's worry free, and in my opinion, it'
 [^3]: That's free as in speech **and** free as in beer.
 
 [^4]: Not to be confused with [The Jackal](http://www.youtube.com/watch?v=Q7H_L5cYkg8).
-
 
 ## Testing Pull Request Workflow

@@ -32,5 +32,3 @@ Simply put, Twitter is not a dumping ground for pre-vetted paper.[^8] The occasi
 [^7]: Jimmy John's often frat-boy-esq vocabulary may push the limits of informal interactions with stakeholders, but none-the-less serves to promote their brand.
 
 [^8]: Thank the internet gods that TwitterFeed‘s RSS to Twitter conversion service didn't catch on.
-
-[14]: http://twitterfeed.com/
