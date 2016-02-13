@@ -1,7 +1,7 @@
 ---
 title: Eight reasons why government contractors should embrace open source software
 description: "Government contractors have traditionally been slow to embrace open source software. Here's why government contractors are embracing open source with increasing frequency."
-redirect_from: "/2014/10/08/why-government-contractors-should-%3C3-open-source/"
+redirect_from: '/2014/10/08/why-government-contractors-should-%3C3-open-source/'
 ---
 
 Government contractors have traditionally been slow to embrace open source software. There's [a handful of reasons](http://ben.balter.com/2014/08/03/why-isnt-all-government-software-open-source/) why that's the case, but it doesn't have to be that way. Here's why government contractors are embracing open source with increasing frequency:
@@ -46,7 +46,7 @@ Rather than being a one-off engagement, open source provides government contract
 
 ### 6. Day-to-day visibility
 
-A lot of the overhead inherent in government contracting comes from shuttling information — be it code, bug reports, or mock ups — back and forth between agency and contractor. Each side has their own project management process, which may range from Excel spreadsheets and email to Gantt charts and dedicated project management tools.
+A lot of the overhead inherent in government contracting comes from shuttling information — be it code, bug reports, or mock ups — back and forth between agency and contractor. Each side has their own project management process, which may range from Excel spreadsheets and email to Gantt charts and dedicated project management tools.
 
 Open source eliminates that overhead by facilitating the free-flow of information. Found a bug? Submit an issue describing what you see. Want to know the status of a particular feature? Subscribe to the pull request. All of a sudden the agency has day-to-day visibility into the project's status, and does so at no additional cost to the contractor. In fact, project managers are often freed from serving as an interface to the client, and can concentrate on higher-level tasks like delivering the best software possible.
 
@@ -72,6 +72,6 @@ Assuming you engage in more than one project over the lifetime of the contractin
 
 Open source has traditionally [gotten a bad rap](http://ben.balter.com/2014/09/22/open-source-is-not-insecure/) as being a fringe effort, being buggy, or being hard to break into. All three of those assumptions have changed dramatically in the past years, especially in government, as we see open source increasingly used in place of traditional, "enterprise-grade" solutions with positive results.
 
-If you haven't recently, take a closer look at open source. I think you'll be surprised. Find something small — a bug in the software that powers your website, a shared library used internally, or a tool used to facilitate your own workflows — and open source it. Government contractors may be stereotypically hesitant to embrace the latest industry trend, but open source is neither risky, nor a passing fad. Open source is here to stay.
+If you haven't recently, take a closer look at open source. I think you'll be surprised. Find something small — a bug in the software that powers your website, a shared library used internally, or a tool used to facilitate your own workflows — and open source it. Government contractors may be stereotypically hesitant to embrace the latest industry trend, but open source is neither risky, nor a passing fad. Open source is here to stay.
 
 As young firms begin to bring their open source experience to the marketplace, the only questions is whether existing government contracting firms will finally get ahead of, or continue to lag behind the technology adoption curve.

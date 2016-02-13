@@ -21,13 +21,14 @@ tags:
 post_format: []
 ---
 
+
 ## A Brief Look at the Imminent Cloud-Computing Storm Front
 
 As one Hewlett-Packard chief executive recently put it, cloud computing "is the next generation of the internet." [^1] Whether you realize it or not, if you use services like Facebook or Gmail, your personal data already lives in "the cloud," and the same transformative power that connects long-lost classmates at the click of a mouse can be harnessed by federal agencies to approach modern governance in incredibly powerful ways.
 
 **What is Cloud Computing?**
 
-Traditionally, when one thinks of computing power, he or she thinks of an on-site datacenter — a room filled with blinking lights and whirling fans — hardware, software, and data storage all within feet of the users they serve. [^2] The traditional approach to computing generally entails complicated and expensive upgrade procedures scheduled on a semi-regular basis, as well as accommodating the increasing demand for backup and recovery redundancy necessary to reduce downtime should these system fails. [^3] Such datacenters are often managed by their own departments, staffed with the specialized, technical administrators needed to maintain and ensure the day-to-day operation of these increasingly complex and increasingly mission-critical business resources. [^4]
+Traditionally, when one thinks of computing power, he or she thinks of an on-site datacenter — a room filled with blinking lights and whirling fans — hardware, software, and data storage all within feet of the users they serve. [^2] The traditional approach to computing generally entails complicated and expensive upgrade procedures scheduled on a semi-regular basis, as well as accommodating the increasing demand for backup and recovery redundancy necessary to reduce downtime should these system fails. [^3] Such datacenters are often managed by their own departments, staffed with the specialized, technical administrators needed to maintain and ensure the day-to-day operation of these increasingly complex and increasingly mission-critical business resources. [^4]
 
 Seen as a virtually unlimited hardware and communications infrastructure managed by a third party-provider, cloud computing, on the other hand, allows for rapid increases in capacity without the need to invest in additional hardware, personnel, or software licensing. [^5] "As a customer, you don't know where the resources are, and for the most part, you don't care. What's really important is the capability to access your application anywhere, move it freely and easily, and inexpensively add resources." [^6] In simplest terms, the cloud uses an off-site service to store, transmit, and process information, and employs the Internet as the means to access that service. [^7]
 
@@ -61,7 +62,7 @@ Several avenues exist for organizations looking to experiment with the cloud. Fo
 
 Second, many federal Web sites such as the Federal Communications Commission and Recovery.Gov are in the process of seeking or have already sought third-party cloud hosting services likes Amazon Web Services (AWS) as mentioned above. [^21] Federal agencies opting for such a route must be sure to work closely with the appropriate parties to ensure, federal IT security standards are met, such as FISMA [^22] requirements, or that record retention standards are met, for example, where data stored in the cloud constitutes a system of records under the privacy act. [^23]
 
-Finally, earlier this summer, Google announced FISMA moderate certification of its Google Apps for Government data centers, providing mail, calendar, document, video, and Web hosting services to Federal agencies in a private cloud hosted entirely within the United States. [^24] Agencies wishing to contract their traditional IT infrastructure out to Google can do so for as low as $50 per user per year, however, such savings may come at a cost.  Special attention must be paid to the risks associated with trusting a third-party with what may potentially be an agency's most sensitive data.
+Finally, earlier this summer, Google announced FISMA moderate certification of its Google Apps for Government data centers, providing mail, calendar, document, video, and Web hosting services to Federal agencies in a private cloud hosted entirely within the United States. [^24] Agencies wishing to contract their traditional IT infrastructure out to Google can do so for as low as $50 per user per year, however, such savings may come at a cost. Special attention must be paid to the risks associated with trusting a third-party with what may potentially be an agency's most sensitive data.
 
 Whether a federal contracting officer or a provider of IT services, just as the Internet has revolutionized countless aspects of every day life, it is clear that so too will the emerging cloud computing front forever shape the contours of Federal IT procurement in the years to come.
 
@@ -107,7 +108,7 @@ Whether a federal contracting officer or a provider of IT services, just as the 
 
 [^20]: Apps.Gov Now, General Services Administration, <http://citizen.apps.gov/> (last visited October 12, 2015).
 
-[^21]: Cloud Services, Federal Business Opportunities, <https://www.fbo.gov/index?s=opportunity&mode=form&id=d63c725d5a3006919289698350e3d4b3&tab=core&_cview=1> (last visited October 5, 2010);  J. Nicholas Hoover, *Recovert.Gov Moved to Amazon Cloud*, Information Week, May 12, 2010, <http://www.informationweek.com/news/government/cloud-saas/showArticle.jhtml?articleID=224701861>.
+[^21]: Cloud Services, Federal Business Opportunities, <https://www.fbo.gov/index?s=opportunity&mode=form&id=d63c725d5a3006919289698350e3d4b3&tab=core&_cview=1> (last visited October 5, 2010); J. Nicholas Hoover, *Recovert.Gov Moved to Amazon Cloud*, Information Week, May 12, 2010, <http://www.informationweek.com/news/government/cloud-saas/showArticle.jhtml?articleID=224701861>.
 
 [^22]: Federal Information Security Management Act of 2002.
 

@@ -3,7 +3,7 @@ title: Geeks and suits
 description: 'There are two types of change agents in the open government/data/source community: geeks and suits, but despite being in an industry built almost exclusively on communications, they never talk to each other'
 ---
 
-In the world of government IT, change happens at the hands of two separate, yet equally important groups:  the geeks who build systems and the suits who implement them:
+In the world of government IT, change happens at the hands of two separate, yet equally important groups: the geeks who build systems and the suits who implement them:
 
 * **Geeks** are the doers, the creators, the ones often relegated to the basement, desk stereotypically strewn with Doritos crumbs and Mountain Dew cans. To them, the status quo is nails screeching down the world's largest chalkboard. They may be coders, designers, or UX experts, but at their core, [they're hackers](http://ben.balter.com/2013/02/16/what-is-a-hacker/). They're excited about the next big thing, and have the means to make it happen, at least technically.
 
@@ -19,7 +19,7 @@ Often after explaining version control, APIs, and other modern web-development p
 
 ### A matter of class
 
-At least partially, this may be due to matters of perceived class and hierarchy. In traditional organizations, management sits well above technical talent, with technical talent making the switch to management, only when they can go no further up the technical career ladder. They're compensated differently, they dress differently — fresh pressed suits versus some form of wrinkled khaki and a button down — and 10, 20, or 30 years after the fact, I suspect they still don't sit together in the corporate break room (although the swirlies may now violate HR policy, thankfully).
+At least partially, this may be due to matters of perceived class and hierarchy. In traditional organizations, management sits well above technical talent, with technical talent making the switch to management, only when they can go no further up the technical career ladder. They're compensated differently, they dress differently — fresh pressed suits versus some form of wrinkled khaki and a button down — and 10, 20, or 30 years after the fact, I suspect they still don't sit together in the corporate break room (although the swirlies may now violate HR policy, thankfully).
 
 Startups flip that hierarchy on its head. There's no room for anything but what's absolutely essential. As a result, developers are the top of the food chain, and are among the first, if not the first non-founding hire. Especially in young organizations, decisions are most often driven by those closest to the product itself, those who understand the technology and its capabilities, and most importantly, those who are willing to build it. There's no such thing as startup by fiat. Why then, as organizations grow, do we begin to elevate management, often pushing that once-prized talent to the darkest corners of the organization, both literally and figuratively?
 
@@ -45,4 +45,4 @@ What would happen if we did away with tracks at conferences and retooled technic
 
 What would happen if, within organizations, suits regularly checked in with technical teams, not to see the latest release, or discuss proposed features, but to hear what geeks were talking about when they're not talking about the product. What's the new meme? What's trending on Hacker News? What are they excited about? What apps did they try out for the first time this weekend? What tools do they wish they had at work? How are they bending the rules just to get their job done?
 
-I'm not suggesting that every member of the C-suite needs to know how to spin up a Node server, or that developers should spend their lunch breaks reading P&L statements, but in a world where implementation of any organization's strategic goals increasingly relies on technical prowess — when for the first time in our history, government agencies consistently fail to execute large-scale initiatives whenever technology is involved — we could all benefit from a bit more dialog between :necktie:s and :neckbeard:s. 
+I'm not suggesting that every member of the C-suite needs to know how to spin up a Node server, or that developers should spend their lunch breaks reading P&L statements, but in a world where implementation of any organization's strategic goals increasingly relies on technical prowess — when for the first time in our history, government agencies consistently fail to execute large-scale initiatives whenever technology is involved — we could all benefit from a bit more dialog between :necktie:s and :neckbeard:s. 

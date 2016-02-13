@@ -32,6 +32,4 @@ Looking for even more advanced control of your workflow? [WP Document Revisions 
 
 Ideal for teams of any size looking to fine tune their WP Document Revisions experience without the hassle of [coding a custom implementation](https://github.com/benbalter/WP-Document-Revisions-Code-Cookbook), the addition of Edit Flow support offers a unique suite of powerful and intuitive workflow management tools right out of the box.
 
-Want one feature but not another? Each can be individually enabled or disabled via Edit Flow's settings panel. For more information, see the [Edit Flow homepage](http://editflow.org/) or simply [download and install the plugin][7] to begin — no additional setup necessary.
-
-[7]: http://wordpress.org/extend/plugins/edit-flow/
+Want one feature but not another? Each can be individually enabled or disabled via Edit Flow's settings panel. For more information, see the [Edit Flow homepage](http://editflow.org/) or simply [download and install the plugin](http://wordpress.org/extend/plugins/edit-flow/) to begin — no additional setup necessary.

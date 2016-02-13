@@ -3,7 +3,7 @@ title: The myth of government IT
 description: "When it comes to innovation in government, there's the law, and then there's the myth that surrounds it, a myth used to place never-ending bureaucratic obstacles in front of those who champion change."
 ---
 
-When it comes to saying "no" to innovation in government, there's the law, and then there's the myth that surrounds it. More often than not, that myth serves not to further insulate the agency from potential threats to its infrastructure or mission, but instead, the myth is used to place a never-ending litany of bureaucratic obstacles in front of those who champion change. Much of that myth — long-ago calcified into organizational policy — stems from government policymakers' decade-old superstitions about certain technologies:
+When it comes to saying "no" to innovation in government, there's the law, and then there's the myth that surrounds it. More often than not, that myth serves not to further insulate the agency from potential threats to its infrastructure or mission, but instead, the myth is used to place a never-ending litany of bureaucratic obstacles in front of those who champion change. Much of that myth — long-ago calcified into organizational policy — stems from government policymakers' decade-old superstitions about certain technologies:
 
 ### 2005 called, they want their worldview back
 
@@ -17,7 +17,7 @@ In government, there's the law, and then there's the much larger myth that surro
 
 It's not malicious, but, given the demographics of government IT, new ideas like open source can feel both personally and professionally threatening. To take an example from just a few years back, the government employee who spent a decade securing funding and headcount to grow the fiefdom that is "his" or "her" datacenter may not immediately see what role they can play in a world where their agency is exclusively in the cloud. In this model, it doesn't matter what the technology is. The indictment is always the same.
 
-At each agency the most valuable tool to combat that FUD — fear, uncertainty, and doubt — is not to ask "*may I?*", but rather, to get directly to the ground truth of what exactly needs to be done to get relevant stakeholders to "yes" (and who exactly those stakeholders are). *Using X service is going to violate agency policy? Do you have a copy of that policy I can read? Can you give me a checklist of everything we need to do to be in compliance with that policy? When was it last updated? Who can we talk to about getting that policy changed?*
+At each agency the most valuable tool to combat that FUD — fear, uncertainty, and doubt — is not to ask "*may I?*", but rather, to get directly to the ground truth of what exactly needs to be done to get relevant stakeholders to "yes" (and who exactly those stakeholders are). *Using X service is going to violate agency policy? Do you have a copy of that policy I can read? Can you give me a checklist of everything we need to do to be in compliance with that policy? When was it last updated? Who can we talk to about getting that policy changed?*
 
 ### Incentivizing the risk-averse
 

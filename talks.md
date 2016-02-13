@@ -45,7 +45,7 @@ Slides (and recordings) from some of the talks I've given over the years. Have a
 
 * [Open source software licensing: empowering others to use your code](http://ben.balter.com/open-source-software-licensing) ([source](https://github.com/benbalter/open-source-software-licensing/))
 
-* [Collaborative policymaking: how technology is making it easier to work together than alone](http://ben.balter.com/collaborative-policymaking/)  ([source](https://github.com/benbalter/collaborative-policymaking/))
+* [Collaborative policymaking: how technology is making it easier to work together than alone](http://ben.balter.com/collaborative-policymaking/) ([source](https://github.com/benbalter/collaborative-policymaking/))
 
 * [Project open data: a case study in collaborative governance](https://www.youtube.com/watch?v=EL3-UwY3qGE) (video)
 

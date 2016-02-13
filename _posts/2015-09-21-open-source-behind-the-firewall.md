@@ -25,7 +25,7 @@ These leaner, more agile, open source workflows are increasingly taking foothold
 
 When private organizations do contract out development efforts, they expect contractors to integrate with the customer's development workflow, not the other way around, and deliver not just the source code, but all project collateral on a near constant basis, providing the customer with the code's full pedigree, decision history, and most importantly, the means to avoiding vendor lock in.
 
-These transparent workflows break down the organizational silos native to large organizations, fostering somewhat of an "open source" culture internally. Rather than hoarding "their" code, teams maintain "open source" projects that other teams are encouraged to leverage for their own efforts. These "open source" projects act just like any other open source project -- bug tracker, documentation, generic modularity and all -- except the code is only open to those within the organization, an arrangement often referred to as "open collaboration".
+These transparent workflows break down the organizational silos native to large organizations, fostering somewhat of an "open source" culture internally. Rather than hoarding "their" code, teams maintain "open source" projects that other teams are encouraged to leverage for their own efforts. These "open source" projects act just like any other open source project — bug tracker, documentation, generic modularity and all — except the code is only open to those within the organization, an arrangement often referred to as "open collaboration".
 
 ### Open collaboration in government
 

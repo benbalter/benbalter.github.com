@@ -17,7 +17,7 @@ The true challenge is whether or not you can foster the internal culture necessa
 
 There's an anti-pattern within government that when an agency decides to start participating in the open source community, they bet big and do it with a flagship initiative, often with a strong policy component (and executive's reputation) at stake. In reality, [your first open source project is likely going to be a flop](http://ben.balter.com/2015/02/11/why-your-first-open-source-project-is-going-to-be-a-dud/).
 
-You wouldn’t run a marathon without training first, would you? Like your body, organizations have a strong muscle memory. You've most likely encountered [the organization's subconscious "no"  reflex](http://ben.balter.com/2014/03/21/want-to-innovate-in-government-focus-on-culture/#bureaucracy-is-an-organism) when you unintentionally strike a nerve. If the organism doesn't recognize the antibodies of a new idea, it will attack it as a means of self preservation. Like introducing any new idea, introducing open source is no exception. Most stakeholders will say "no" at first glance, and certainly not on the proposal's merit.
+You wouldn’t run a marathon without training first, would you? Like your body, organizations have a strong muscle memory. You've most likely encountered [the organization's subconscious "no" reflex](http://ben.balter.com/2014/03/21/want-to-innovate-in-government-focus-on-culture/#bureaucracy-is-an-organism) when you unintentionally strike a nerve. If the organism doesn't recognize the antibodies of a new idea, it will attack it as a means of self preservation. Like introducing any new idea, introducing open source is no exception. Most stakeholders will say "no" at first glance, and certainly not on the proposal's merit.
 
 Instead, start by experimenting by collaborating openly, but in private, within the safety of your team or organization. Create a list of best lunch places near your office or the team's favorite chocolate chip cookie recipe. Go through the motions of collaborating and master the basics when it doesn't matter if you make a mistake. Then get other stakeholders involved, legal, procurement, ethics, everyone. Abstract concepts like version control are much easier to justify when discussing concrete use cases.
 
@@ -25,7 +25,7 @@ Your first open source release should be something small and inconsequential, no
 
 ### 3. Minimize information imbalance
 
-Open source is about  growing a community. Often when we think about project stakeholders (and build or adopt workflows), we only look to those within our organization. When it comes to open source, you *must* ensure that those outside the firewall are on equal footing — in terms of access to information and ability to influence the project — as those inside the firewall. Simply put, developers are people too.
+Open source is about  growing a community. Often when we think about project stakeholders (and build or adopt workflows), we only look to those within our organization. When it comes to open source, you *must* ensure that those outside the firewall are on equal footing — in terms of access to information and ability to influence the project — as those inside the firewall. Simply put, developers are people too.
 
 The default government workflow is to hold synchronous, meatspace meetings in wood-paneled, formerly smoke-filled rooms. Like a bad joke, you "had to be there" in order to be in on it. That's not how you foster a strong open source project.
 
@@ -53,7 +53,7 @@ You can't un-constrain open source, nor would you want to. If you want to engage
 
 * **Asynchronous** - Focus workflow on code, not meetings. Almost no part of the product development process requires that one person interrupt another's immediate attention or that people be in the same place at the same time, or even that people be in different places at the same time. Even small meetings or short phone calls can wreck flow so consider laying it out in (a thought out) email or sending a pull request instead.
 
-* **Informal** — Adopt cultures, not polices. Organizations should prefer social and cultural constraints to technical or administrative constraints that are unable to adapt to changing circumstances. Workflows should be professional, but not formal. Respond to pull requests with emoji and animated GIFs, not "Dear sir or madam, I am in receipt of your pull request". Be human.
+* **Informal** — Adopt cultures, not polices. Organizations should prefer social and cultural constraints to technical or administrative constraints that are unable to adapt to changing circumstances. Workflows should be professional, but not formal. Respond to pull requests with emoji and animated GIFs, not "Dear sir or madam, I am in receipt of your pull request". Be human.
 
 ### 5. Open source problems, not solutions
 

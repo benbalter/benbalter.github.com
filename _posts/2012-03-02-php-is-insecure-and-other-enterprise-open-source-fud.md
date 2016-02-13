@@ -32,7 +32,7 @@ It's next to impossible to say a given language is "insecure." That'd be like sa
 
 > Someone – let's call him Bob – wants to secure a room. But in Bob's universe, there are no locks. So Bob invents one, and installs it. And realizes he has a huge advantage over would-be intruders. Only Bob knows how the lock works. So no one else knows how to pick it. Bob sets about keeping his lock design a secret.
 >
-> Alice also needs to secure a room, and she also invents a lock.  Unlike Bob, though, Alice publishes her design – not the set-up for a particular key, of course, but the details of the overall mechanism.
+> Alice also needs to secure a room, and she also invents a lock. Unlike Bob, though, Alice publishes her design – not the set-up for a particular key, of course, but the details of the overall mechanism.
 >
 > Bob thinks Alice is nuts. Why tell people how your lock works? They'll just pick it more easily.
 >
@@ -47,5 +47,3 @@ Is there insecure PHP code out there? No doubt. I've seen it. Does that mean all
 Notes:
 
 1. In simplified terms, if I have the variable $logged_in in my page to store whether a user is logged in or not, and I don't first set it to false before checking, a visitor could go to mysite.com?logged_in=true, and the page would erroneously think I was logged in.
-
-[3]: #note-2020-1 "In simplified terms, if I have the variable $logged_in in my page to store whether a user is logged in or not, and I don't first set it to false before checking, a visitor could go to mysite.com?logged_in=true, and the page would erroneously think I was logged in."

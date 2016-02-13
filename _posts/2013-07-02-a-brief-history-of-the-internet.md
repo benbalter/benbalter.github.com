@@ -18,7 +18,7 @@ When one tells the story of the Internet, a David and Goliath motif emerges. Eve
 
 * One camp, generally constituting more "enterprise" users, needs super serious tools for super serious business. This could be big business or big data. Doesn't matter. If the new file format can't scale to a million records on day one, well then, to them, it's not a format.
 
-* The other camp, the hackers, are the little guys. They prefer to start small — to take existing, proven methods, things that are already baked into the patchwork that is the Internet — and co-opt them to rise to this new cause.
+* The other camp, the hackers, are the little guys. They prefer to start small — to take existing, proven methods, things that are already baked into the patchwork that is the Internet — and co-opt them to rise to this new cause.
 
 We saw this in the early days of the Internet when every new service would pick its own port and protocol, rather than using HTTP, which we eventually realized was the only sane way to go. We see this more recently with XML giving way to JSON as the Internet's lingua franca, with SOAP's craziness yielding to REST's simplicity. The list goes on. Complex, heavyweight approaches that may be elegant on paper gain traction early on as proprietary or custom-built solutions, but eventually a dumber standard emerges as the true winner. To name a few:
 

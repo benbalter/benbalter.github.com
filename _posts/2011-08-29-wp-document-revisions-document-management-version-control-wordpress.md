@@ -29,9 +29,9 @@ post_format: []
 redirect_from: 2011/08/29/document-management-version-control-for-wordpress/
 ---
 
-[WP Document Revisions](http://wordpress.org/extend/plugins/wp-document-revisions/) is a [document management](http://en.wikipedia.org/wiki/Document_management_system) and [version control](http://en.wikipedia.org/wiki/Revision_control) plugin. Built for time-sensitive and mission-critical projects, teams can collaboratively edit files of any format — text documents, spreadsheets, images, sheet music… anything — all the while, seamlessly tracking the document's progress as it moves through your organization's existing workflow.
+[WP Document Revisions](http://wordpress.org/extend/plugins/wp-document-revisions/) is a [document management](http://en.wikipedia.org/wiki/Document_management_system) and [version control](http://en.wikipedia.org/wiki/Revision_control) plugin. Built for time-sensitive and mission-critical projects, teams can collaboratively edit files of any format — text documents, spreadsheets, images, sheet music… anything — all the while, seamlessly tracking the document's progress as it moves through your organization's existing workflow.
 
-[![WP Document Revisions Screenshot](http://ben.balter.com/wp-content/uploads/2011/07/wp-document-revisions-screen-shot-300x226.png){: .alignright}][4]
+[![WP Document Revisions Screenshot](http://ben.balter.com/wp-content/uploads/2011/07/wp-document-revisions-screen-shot-300x226.png){: .alignright}](http://ben.balter.com/wp-content/uploads/2011/07/wp-document-revisions-screen-shot.png)
 
 **WP Document Revisions is three things:**
 
@@ -41,9 +41,9 @@ redirect_from: 2011/08/29/document-management-version-control-for-wordpress/
 
 <iframe width="560" height="315" src="http://www.youtube.com/embed/VpsTNSiJKis" frameborder="0" allowfullscreen="true" title="Video introduction to WP Document Revisions"></iframe>
 
-**Powerful Collaboration Tools** - *With great power does not have to come great complexity.* Based on a simple philosophy of putting powerful but intuitive tools in the hands of managers and content creators, WP Document Revisions leverages many of the essential WordPress features that, for more than eight years, have been tested and proven across countless industries — posts, attachments, revisions, taxonomies, authentication, and permalinks — to make collaborating on the creation and publication of documents a natural endeavor. Think of it as an [open-source and more intuitive version](http://ben.balter.com/2011/04/04/when-all-you-have-is-a-pair-of-bolt-cutters/) of the popular Microsoft collaboration suite, [Sharepoint.](http://sharepoint.microsoft.com/en-us/Pages/default.aspx)
+**Powerful Collaboration Tools** - *With great power does not have to come great complexity.* Based on a simple philosophy of putting powerful but intuitive tools in the hands of managers and content creators, WP Document Revisions leverages many of the essential WordPress features that, for more than eight years, have been tested and proven across countless industries — posts, attachments, revisions, taxonomies, authentication, and permalinks — to make collaborating on the creation and publication of documents a natural endeavor. Think of it as an [open-source and more intuitive version](http://ben.balter.com/2011/04/04/when-all-you-have-is-a-pair-of-bolt-cutters/) of the popular Microsoft collaboration suite, [Sharepoint.](http://sharepoint.microsoft.com/en-us/Pages/default.aspx)
 
-**Document History** - At each step of the authoring process, WP Document Revisions gives you an instant snapshot of your team's progress and the document's history. It even gives you the option to revert back to a previous revision — so don't fret if you make a mistake — or receive updates on changes to the document right in your favorite feed reader.
+**Document History** - At each step of the authoring process, WP Document Revisions gives you an instant snapshot of your team's progress and the document's history. It even gives you the option to revert back to a previous revision — so don't fret if you make a mistake — or receive updates on changes to the document right in your favorite feed reader.
 
 **Access Control** - Each document is given a persistent URL (e.g., yourcompany.com/documents/2011/08/TPS-Report.doc) which can be private (securely delivered only to members of your organization), password protected (available only to those you select such as clients or contractors), or public (published and hosted for the world to see). If you catch a typo and upload a new version, that URL will continue to point to the latest version, regardless of how many changes you make.
 
@@ -55,7 +55,7 @@ redirect_from: 2011/08/29/document-management-version-control-for-wordpress/
 
 **The Vitals:**
 
-* Support for any file type (docs, spreadsheets, images, PDFs — anything!)
+* Support for any file type (docs, spreadsheets, images, PDFs — anything!)
 * Securely stores unlimited revisions of your business's essential files
 * Provides a full file history in the form of a revision log, accessible via RSS
 * Helps you track and organize documents as they move through your organization's existing workflow
@@ -108,10 +108,6 @@ Questions? Comments? Many may have already been addressed in [the WP Document Re
 
 [^1]: Neither relationship should imply a formal endorsement.
 
-[4]: http://ben.balter.com/wp-content/uploads/2011/07/wp-document-revisions-screen-shot.png
-
 [16]: http://www.tradiart.com/
-
-[23]: http://ben.balter.com/wp-content/uploads/2011/08/wp-document-revisions.png
 
 [27]: #note-2020-1 " Neither relationship should imply a formal endorsement."

@@ -99,7 +99,7 @@ Although I think it's the future of knowledge work, this develop-inspired workfl
 
 [How you work is just as important as what you work on](http://ben.balter.com/2015/09/21/open-source-behind-the-firewall/#how-you-work-is-as-important-as-what-you-work-on). I challenge you to take a critical look at your own workflow, and ask yourself if you're working the way you'd like to work, or just the way everyone else does.
 
-- - -
+---
 
 [^git-blog]: It's possible for a blog to capture and expose process if it is created using tools such as GitHub and GitHub Pages, like this blog is. But this is not (yet) the case for the vast majority of blogs.
 
