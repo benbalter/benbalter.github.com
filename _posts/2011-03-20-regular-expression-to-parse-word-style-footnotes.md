@@ -22,8 +22,8 @@ The process is surprisingly simple given [WordPress's extensive filter API](http
 <div>```php<?php
 
 //grab all the Word-style footnotes into an array
-$pattern = '#&lt;a href\\="#\_ftnref([0-9]+)">\[([0-9]+)]</a> (.\*)#';
-preg\_match\_all( $pattern, $content, $footnotes, PREG\_SET\_ORDER);
+$pattern = '#&lt;a href\\="#_ftnref([0-9]+)">\[([0-9]+)]</a> (.\*)#';
+preg_match_all( $pattern, $content, $footnotes, PREG_SET_ORDER);
 
 ?>```</div>
 
@@ -33,8 +33,8 @@ This creates an array (`$footnotes`) with the both the footnote number and the t
 
 //build find and replace arrays
 foreach ($footnotes as $footnote) {
-  $find\[] = '#&lt;a href\\="#\_ftn'.$footnote[1].'">\['.$footnote[1].']</a>#';
-  $replace\[] = '[ref]' . str\_replace( array("\\r\\n", "\\r", "\\n"), "",   $footnote[3]) . '[/ref]';
+  $find\[] = '#&lt;a href\\="#_ftn'.$footnote[1].'">\['.$footnote[1].']</a>#';
+  $replace\[] = '[ref]' . str_replace( array("\\r\\n", "\\r", "\\n"), "",   $footnote[3]) . '[/ref]';
 }
 
 ?>```</div>
@@ -53,7 +53,7 @@ Because PHP's `preg_replace` function can handle arrays, all we have to do is ru
 
 <div>```php<?php
 
-$content = preg\_replace( $find, $replace, $content );
+$content = preg_replace( $find, $replace, $content );
 
 ?>```</div>
 
@@ -69,6 +69,6 @@ Thoughts? Improvements? The above code solved a rather stubborn workflow problem
 
 [^2]: You can even [Fork the plugin over on Github](http://ben.balter.com/2011/03/20/regular-expression-to-parse-word-style-footnotes/)
 
-[4]&#x3A; #note-2020-1 "' . str\_replace( array("\\r\\n", "\\r", "\\n"), "", $footnote[4]) . '"
+[4]&#x3A; #note-2020-1 "' . str_replace( array("\\r\\n", "\\r", "\\n"), "", $footnote[4]) . '"
 
 [7]: #note-2020-2 "Licensed under GPLv2"

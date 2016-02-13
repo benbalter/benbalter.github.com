@@ -46,6 +46,6 @@ Is there insecure PHP code out there? No doubt. I've seen it. Does that mean all
 
 Notes:
 
-1. In simplified terms, if I have the variable $logged\_in in my page to store whether a user is logged in or not, and I don't first set it to false before checking, a visitor could go to mysite.com?logged\_in=true, and the page would erroneously think I was logged in.
+1. In simplified terms, if I have the variable $logged_in in my page to store whether a user is logged in or not, and I don't first set it to false before checking, a visitor could go to mysite.com?logged_in=true, and the page would erroneously think I was logged in.
 
 [3]: #note-2020-1 "In simplified terms, if I have the variable $logged_in in my page to store whether a user is logged in or not, and I don't first set it to false before checking, a visitor could go to mysite.com?logged_in=true, and the page would erroneously think I was logged in."

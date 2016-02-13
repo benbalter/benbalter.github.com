@@ -77,15 +77,15 @@ I began by noting that the phrase "everything should be on GitHub", doesn't nece
 
 | Tool          | Open                 | Captures<br /> Process | Linkable                           | Async                |
 | :------------ | :------------------- | :--------------------- | :--------------------------------- | :------------------- |
-| GitHub        | :heavy\_check\_mark: | :heavy\_check\_mark:   | :heavy\_check\_mark:               | :heavy\_check\_mark: |
-| (Text) Chat   | :heavy\_check\_mark: | :heavy\_check\_mark:   | :heavy\_check\_mark:               | :heavy\_check\_mark: |
-| Wikis         | :heavy\_check\_mark: | :heavy\_check\_mark:   | :heavy\_check\_mark:               | :heavy\_check\_mark: |
-| Blogs         | :heavy\_check\_mark: | :x:[^git-blog]         | :heavy\_check\_mark:               | :heavy\_check\_mark: |
-| Google Docs   | :heavy\_check\_mark: | :x:[^tracked-changes]  | :x:[^links]                        | :heavy\_check\_mark: |
-| Microsft Word | :x:[^proprietary]    | :x:[^tracked-changes]  | :x:                                | :heavy\_check\_mark: |
-| Sharepoint    | :x:[^proprietary]    | :x:[^tracked-changes]  | :x:[^links]                        | :heavy\_check\_mark: |
-| Email         | :x:[^proprietary]    | :heavy\_check\_mark:   | :x:                                | :heavy\_check\_mark: |
-| Box/DropBox   | :x:[^proprietary]    | :x:                    | :heavy\_check\_mark: [^deep-links] | :heavy\_check\_mark: |
+| GitHub        | :heavy_check_mark: | :heavy_check_mark:   | :heavy_check_mark:               | :heavy_check_mark: |
+| (Text) Chat   | :heavy_check_mark: | :heavy_check_mark:   | :heavy_check_mark:               | :heavy_check_mark: |
+| Wikis         | :heavy_check_mark: | :heavy_check_mark:   | :heavy_check_mark:               | :heavy_check_mark: |
+| Blogs         | :heavy_check_mark: | :x:[^git-blog]         | :heavy_check_mark:               | :heavy_check_mark: |
+| Google Docs   | :heavy_check_mark: | :x:[^tracked-changes]  | :x:[^links]                        | :heavy_check_mark: |
+| Microsft Word | :x:[^proprietary]    | :x:[^tracked-changes]  | :x:                                | :heavy_check_mark: |
+| Sharepoint    | :x:[^proprietary]    | :x:[^tracked-changes]  | :x:[^links]                        | :heavy_check_mark: |
+| Email         | :x:[^proprietary]    | :heavy_check_mark:   | :x:                                | :heavy_check_mark: |
+| Box/DropBox   | :x:[^proprietary]    | :x:                    | :heavy_check_mark: [^deep-links] | :heavy_check_mark: |
 | Video chat    | :x:                  | :x:                    | :x:[^recordings]                   | :x:[^recordings]     |
 | IRL Meetings  | :x:                  | :x:                    | :x:                                | :x:                  |
 

@@ -21,9 +21,9 @@ Testing for use of the word "today" is relatively straightforward. You could use
 
 ```ruby
 class TodayTest &lt; Blog::Test
-  def test\_doesnt\_start\_with\_today
+  def test_doesnt_start_with_today
     msg = "Don't start posts with the word \\"today\\". See <http://bit.ly/no-today.\n>"
-    each\_line\_of\_prose do |file, line, text|
+    each_line_of_prose do |file, line, text|
       refute text =~ /^today/i, "#{msg} on line #{line} of #{file}"
     end
   end
@@ -42,7 +42,7 @@ With a little regex, testing for "We're excited to announced..."-type phrases is
 
 ```ruby
 class ExcitedTest &lt; Blog::Test
-  def test\_dont\_brag\_about\_being\_excited
+  def test_dont_brag_about_being_excited
     msg =  "Don't tell users how excited we are. "
     msg &lt;&lt; "Show them why *they* should be excited. "
     msg &lt;&lt; "See <https://bit.ly/you-vs-we.>"
@@ -68,7 +68,7 @@ Once again, that "simple rule of thumb" can be automated. While not as foolproof
 
 ```ruby
 class YouWeTest &lt; Blog::Test
-  def test\_more\_you\_than\_we
+  def test_more_you_than_we
     msg = 'The post should contain more "yous"s than "we"s. See <https://bit.ly/you-vs-we.>'
     posts.each do |filename|
       post = File.open(filename).read

@@ -28,7 +28,7 @@ Next, create a file called `Rakefile` in your site's root, and add the following
 require 'html/proofer'
 task :test do
   sh "bundle exec jekyll build"
-  HTML::Proofer.new("./\_site").run
+  HTML::Proofer.new("./_site").run
 end
 ```
 

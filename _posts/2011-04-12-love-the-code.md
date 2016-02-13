@@ -49,7 +49,7 @@ I am gave a brief [lightning talk at April's WordPress DC Meetup](http://www.mee
   * [WinSCP](http://winscp.net/eng/index.php), [Notepad++][9] (Windows)
   * [CyberDuck](http://cyberduck.ch/), [Coda][11] (Mac)
 * WordPress
-  * [Define( WP\_DEBUG, true);](http://codex.wordpress.org/Editing_wp-config.php#Debug) in wp-config.php
+  * [Define( WP_DEBUG, true);](http://codex.wordpress.org/Editing_wp-config.php#Debug) in wp-config.php
   * [Debug bar](http://wordpress.org/extend/plugins/debug-bar/) plugin
   * [WordPress Codex](http://codex.wordpress.org/)
 
