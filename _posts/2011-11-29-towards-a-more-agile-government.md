@@ -349,7 +349,7 @@ The federal IT procurement system is outdated.  Projects are consistently delive
 
 [^27]: Mark Lycett et al., Migrating Agile Methods to* Standardized Development Practice,* Computer, June 2003, at 79, 79.
 
-[^28]: Szalvay, *supra* note 6,\* *at 2; Government Contracting for Software Development Course Manual 33 (1994) \[hereinafter Course Manual]; Lan Cao & Balasubramaniam Ramesh, *Agile Requirements Engineering Practices: An Empirical Study, *IEEE Software, Jan./Feb. 2008, at 60, 64; Fowler, *supra\* note 20 (noting engineers' "nature is to resist change.  The agile methods, however, welcome change").
+[^28]: Szalvay, *supra* note 6,* *at 2; Government Contracting for Software Development Course Manual 33 (1994) \[hereinafter Course Manual]; Lan Cao & Balasubramaniam Ramesh, *Agile Requirements Engineering Practices: An Empirical Study, *IEEE Software, Jan./Feb. 2008, at 60, 64; Fowler, *supra* note 20 (noting engineers' "nature is to resist change.  The agile methods, however, welcome change").
 
 [^29]: Fowler, *supra* note 20.
 
@@ -357,7 +357,7 @@ The federal IT procurement system is outdated.  Projects are consistently delive
 
 [^31]: Cao & Ramesh, *supra* note 28, at 63.
 
-[^32]: *Id*.  Similarities can be drawn between modern software development and the Japanese auto industry forty years ago.  Beginning in the 1970s Japanese auto manufacturers began adopting lean manufacturing practices to develop new vehicles. Michael A. Cusumano, *Japanese Technology Management: Innovations, Transferability, and the Limitations of "Lean" Production* 1 (Sloan Sch. of Mgmt., Mass. Inst. of Tech., Working Paper No. 3477-92, 1992).   Due to this refined approach's reduced overhead, Japanese manufacturers were able to generate thirty percent more profit per vehicle than Chrysler, one-hundred percent more per vehicle than Ford, and two-hundred percent more per vehicle than General Motors. Mary Poppendieck, Cutter Consortium Executive Report, Lean Development and the Predictability Paradox 1 (2003).\*  *When compared to Detroit's traditional design and manufacturing practices, Japanese manufacturers produced higher quality vehicles in one-third less time. *Id.*  While in the United States nearly half of all projects missed their target date, in Japan, all but one sixth hit the market on time. *Id.  *Japan's lean-manufacturing methods produced cheaper, more successful cars faster. *Id\*.
+[^32]: *Id*.  Similarities can be drawn between modern software development and the Japanese auto industry forty years ago.  Beginning in the 1970s Japanese auto manufacturers began adopting lean manufacturing practices to develop new vehicles. Michael A. Cusumano, *Japanese Technology Management: Innovations, Transferability, and the Limitations of "Lean" Production* 1 (Sloan Sch. of Mgmt., Mass. Inst. of Tech., Working Paper No. 3477-92, 1992).   Due to this refined approach's reduced overhead, Japanese manufacturers were able to generate thirty percent more profit per vehicle than Chrysler, one-hundred percent more per vehicle than Ford, and two-hundred percent more per vehicle than General Motors. Mary Poppendieck, Cutter Consortium Executive Report, Lean Development and the Predictability Paradox 1 (2003).*  *When compared to Detroit's traditional design and manufacturing practices, Japanese manufacturers produced higher quality vehicles in one-third less time. *Id.*  While in the United States nearly half of all projects missed their target date, in Japan, all but one sixth hit the market on time. *Id.  *Japan's lean-manufacturing methods produced cheaper, more successful cars faster. *Id*.
 
 [^33]: Darrell A. Fruth, *Economic and Institutional Constraints on the Privatization of Government Information Technology Services*, 13 Harv. J.L. & Tech. 521, 524-25 (2000).
 
@@ -379,7 +379,7 @@ The federal IT procurement system is outdated.  Projects are consistently delive
 
 [^42]: Course Manual, *supra* note 28, at 33.
 
-[^43]: *See *W.\* *Royce, *supra\* note 40, at 328.
+[^43]: *See *W.* *Royce, *supra* note 40, at 328.
 
 [^44]: *Id.* at 329.
 
@@ -387,7 +387,7 @@ The federal IT procurement system is outdated.  Projects are consistently delive
 
 [^46]: Richard K. Cheng, *[On Being Agile](http://www.nextgov.com/nextgov/ng_20100923_7965.php)*, NextGov, Sept. 23, 2010, [http://www.nextgov.com/nextgov/ng_20100923_7965.php](http://www.nextgov.com/nextgov/ng_20100923_7965.php).
 
-[^47]: Szalvay, *supra* note 6,\* *at 1-3; Course Manual, *supra\* note 28, at 33.  Such an approach makes sense when it is traced backed to its traditional roots.  Engineers building bridges rely on well-established laws of physics supported by the fundamentals of mathematics, two sciences that are rigidly defined and easily relied upon.  Software development, on the other hand, is not bound by the rules of the physical world.  Gravity, an assumed constant in engineering, has relatively little relevance to programming.
+[^47]: Szalvay, *supra* note 6,* *at 1-3; Course Manual, *supra* note 28, at 33.  Such an approach makes sense when it is traced backed to its traditional roots.  Engineers building bridges rely on well-established laws of physics supported by the fundamentals of mathematics, two sciences that are rigidly defined and easily relied upon.  Software development, on the other hand, is not bound by the rules of the physical world.  Gravity, an assumed constant in engineering, has relatively little relevance to programming.
 
 [^48]: *See* Mark Leicester, *Government Projects the Agile Way: Can It Be Done?*, St. Services Commission (Apr. 16, 2009), <http://www.ssc.govt.nz/blog/government-projects-agile-way-can-it-be-done>.
 
@@ -411,7 +411,7 @@ The federal IT procurement system is outdated.  Projects are consistently delive
 
 [^58]: *Id.*
 
-[^59]: *Id*.;\* *Kundra, *supra note* 13, at 17 (observing *"\*the lag between when the \[G]overnment defines its requirements and when the contractor begins to deliver is enough time for the technology to fundamentally change").
+[^59]: *Id*.;* *Kundra, *supra note* 13, at 17 (observing *"*the lag between when the \[G]overnment defines its requirements and when the contractor begins to deliver is enough time for the technology to fundamentally change").
 
 [^60]: Federal Executive Roundtable, *supra* note 56.
 

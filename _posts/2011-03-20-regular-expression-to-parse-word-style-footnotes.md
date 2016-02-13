@@ -22,7 +22,7 @@ The process is surprisingly simple given [WordPress's extensive filter API](http
 <div>```php<?php
 
 //grab all the Word-style footnotes into an array
-$pattern = '#&lt;a href\\="#_ftnref([0-9]+)">\[([0-9]+)]</a> (.\*)#';
+$pattern = '#&lt;a href\\="#_ftnref([0-9]+)">\[([0-9]+)]</a> (.*)#';
 preg_match_all( $pattern, $content, $footnotes, PREG_SET_ORDER);
 
 ?>```</div>
