@@ -23,7 +23,7 @@ I was recently asked by an aspiring "content producer," what the "rules" were fo
 
 Not getting in hot water with the fuzz is important, but it is simply one checkbox among many, relegated to the same category of subdued importance as spelling or grammar. The predominant rule in online publishing should not be fair use or copyright, but rather whether the author is adding value to the blogosphere. True, space on the Internet may be relatively cheap, but your reader's time is not.
 
-It seems Internet copyright law has become somewhat of a digital [Chupacabra](https://www.youtube.com/watch?v=_yq_0KuXu64) — the subject of endless urban legend and fact-less speculation. Despite [widespread misunderstanding](http://www.llrx.com/features/bloggersbeware.htm), in practice, both the contours of fair use law and the cultural norms of the net lay clear guidelines for bloggers and content producers. Put another way, *the law's the easy part*. Worry about the content and the law will take care of itself.
+It seems Internet copyright law has become somewhat of a digital [Chupacabra](https://www.youtube.com/watch?v=_yq_0KuXu64) — the subject of endless urban legend and fact-less speculation. Despite [widespread misunderstanding](http://www.llrx.com/features/bloggersbeware.htm), in practice, both the contours of fair use law and the cultural norms of the net lay clear guidelines for bloggers and content producers. Put another way, *the law's the easy part*. Worry about the content and the law will take care of itself.
 
 ### The Culture
 
@@ -36,9 +36,9 @@ The culture of the internet is not that it's okay to *copy* others, but that it'
 If a work is no longer subject to copyright claims (and thus falls in the [public domain](http://www.law.duke.edu/cspd/comics/zoomcomic.html)), the discussion of fair use becomes a moot point. Such a determination does not, strictly speaking turn on the inclusion of the copyright symbol. [^3] Instead, a work is [in the public domain](http://www.unc.edu/~unclng/public-d.htm) if it was created:
 
 * by the federal government, at any time,
-* between 1964-1977 without a copyright notice.
-* between 1923-1963 with a copyright notice, if the copyright was not renewed,
-* between 1923-1963 without a copyright notice, or
+* between 1964–1977 without a copyright notice.
+* between 1923–1963 with a copyright notice, if the copyright was not renewed,
+* between 1923–1963 without a copyright notice, or
 * before 1923.
 
 ### Is it fair use?
@@ -66,34 +66,24 @@ The law aside, readers want you to digest and put ideas in your own voice. Take 
 
 [^4]: Codified into law as [17 U.S.C. § 107](http://www.law.cornell.edu/uscode/17/107.html).
 
-[^5]: [Campbell v. Acuff-Rose Music, Inc.](http://www.law.cornell.edu/supct/html/92-1292.ZS.html), 510 U.S. 569, 577-78 (1994).
+[^5]: [Campbell v. Acuff-Rose Music, Inc.](http://www.law.cornell.edu/supct/html/92-1292.ZS.html), 510 U.S. 569, 577–78 (1994).
 
 [^6]: Harper Row v. Nation Enters., 471 U.S. 539, 562 (1985)
 
-[^7]: *Campbell*, 510 U.S. at 578-79.
+[^7]: *Campbell*, 510 U.S. at 578–79.
 
-[^8]: *Id.* at 580-81
+[^8]: *Id.* at 580–81
 
 [^9]: Harper Row, Publishers, Inc. v. Nation Enters., 471 U.S. 539, 565 (1985)
 
 [^10]: Sony Corporation of America v. Universal City Studios, Inc., 464 U.S. 417, 433 (1984).
 
-[5]: #note-2020-1 "Questions asked included: If there's no copyright symbol, is it still copyrighted?; If it's posted online, can I just copy it because its it's in the public domain?; Can I use it if I'm not selling it?; and It's okay to use if I credit the original author, right?."
-
 [9]: #note-2020-2 "It should be noted that I'm not an attorney and my writing should not be substituted for qualified legal advice."
-
-[11]: #note-2020-3 "This is a common misconception. While once true, under the Berne Convention the author of any content published today is assumed to retain copyright claims."
 
 [13]: #note-2020-4 "Codified into law as 17 U.S.C. § 107."
 
-[15]: #note-2020-5 "Campbell v. Acuff-Rose Music, Inc., 510 U.S. 569, 577-78 (1994)."
-
 [16]: #note-2020-6 "Harper Row v. Nation Enters., 471 U.S. 539, 562 (1985)"
 
-[17]: #note-2020-7 "Campbell, 510 U.S. at 578-79."
-
 [18]: #note-2020-8 "Id. at 580-81"
-
-[19]: #note-2020-9 "Harper Row, Publishers, Inc. v. Nation Enters., 471 U.S. 539, 565 (1985)"
 
 [20]: #note-2020-10 "Sony Corporation of America v. Universal City Studios, Inc., 464 U.S. 417, 433 (1984)."

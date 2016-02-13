@@ -22,10 +22,10 @@ The process is surprisingly simple given [WordPress's extensive filter API](http
 <div>```php<?php
 
 //grab all the Word-style footnotes into an array
-$pattern = '#&lt;a href\\="#_ftnref([0-9]+)">\[([0-9]+)]</a> (.*)#';
+$pattern = '#&lt;a href\\="#_ftnref([0–9-]+)">\[([0–9-]+)]</a> (.\*)#';
 preg_match_all( $pattern, $content, $footnotes, PREG_SET_ORDER);
 
-?>```</div>
+?>\```</div>
 
 This creates an array (`$footnotes`) with the both the footnote number and the text of the footnote. We then need a way to replace the in-text reference with the parsed footnotes so that Simple Footnotes can understand them. I did this by creating two arrays, a find array and a replace array with each Word-style footnote reference and its Simple Footnote formatted counterpart:
 
@@ -33,21 +33,23 @@ This creates an array (`$footnotes`) with the both the footnote number and the t
 
 //build find and replace arrays
 foreach ($footnotes as $footnote) {
-  $find\[] = '#&lt;a href\\="#_ftn'.$footnote[1].'">\['.$footnote[1].']</a>#';
-  $replace\[] = '[ref]' . str_replace( array("\\r\\n", "\\r", "\\n"), "",   $footnote[3]) . '[/ref]';
+ $find\[] = '#&lt;a href\\="#_ftn'.$footnote[1].'">\['.$footnote[1].']</a>#';
+ $replace\[] = '[ref]' . str_replace( array("\\r\\n", "\\r", "\\n"), "", $footnote[3]) . '[/ref]';
 }
 
-?>```</div>
+?>\```</div>
 
 Finally, so that the entire replacement can be done in a single pass, push a final find/replace pair into the end of the array, to remove the original footnotes:
 
 <div>```php<?php
 
-    //remove all the original footnotes when done
-    $find[] = '#<div>\s*<a href\="\#_ftnref([0-9]+)">\[([0-9]+)\]</a> (.*)\s*</div>\s+#';
-    $replace[] = '';
+```
+//remove all the original footnotes when done
+$find[] = '#<div>\s*<a href\="\#_ftnref([0-9]+)">\[([0-9]+)\]</a> (.*)\s*</div>\s+#';
+$replace[] = '';
+```
 
-?>```</div>
+?>\```</div>
 
 Because PHP's `preg_replace` function can handle arrays, all we have to do is run a single function:
 
@@ -55,7 +57,7 @@ Because PHP's `preg_replace` function can handle arrays, all we have to do is ru
 
 $content = preg_replace( $find, $replace, $content );
 
-?>```</div>
+?>\```</div>
 
 Putting it all together, including a filter hook to call our function and a `meta_value` flag to prevent parsing on subsequent saves, the result is:
 
@@ -69,6 +71,4 @@ Thoughts? Improvements? The above code solved a rather stubborn workflow problem
 
 [^2]: You can even [Fork the plugin over on Github](http://ben.balter.com/2011/03/20/regular-expression-to-parse-word-style-footnotes/)
 
-[4]&#x3A; #note-2020-1 "' . str_replace( array("\\r\\n", "\\r", "\\n"), "", $footnote[4]) . '"
-
-[7]: #note-2020-2 "Licensed under GPLv2"
+[4]&#x3A; #note-2020–1 "' . str_replace( array("\\r\\n", "\\r", "\\n"), "", $footnote[4]) . '"

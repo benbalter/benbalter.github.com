@@ -3,7 +3,7 @@ title: If you liked it then you should have put a URL on it
 description: 'The next time you begin a new project, adopt a high-fidelity, electronic medium that allows you to capture and expose process in the form of a URL.'
 ---
 
-If there's one thing that made the internet what it is, it's the URL. It's what makes sharing funny cat videos possible. It's the bookmark to access your bank account balance. It's the Wikipedia link you send your buddy to end a heated argument. Why then, are our most online important interactions — collaborating with coworkers, accessing government services, or consuming open data — all too often, tragically URL-less?
+If there's one thing that made the internet what it is, it's the URL. It's what makes sharing funny cat videos possible. It's the bookmark to access your bank account balance. It's the Wikipedia link you send your buddy to end a heated argument. Why then, are our most online important interactions — collaborating with coworkers, accessing government services, or consuming open data — all too often, tragically URL-less?
 
 ### The humble URL
 
@@ -33,7 +33,7 @@ If you asked me to send you GitHub's [SAM.gov](http://sam.gov){: data-proofer-ig
 
 Sadly, that's the most direct way anyone can get to that public information. Take a look at your URL and you'll see things like `navigationalstate`, `interactionstate`, each followed by an obscure string of letters and numbers. This tells you that the URL is only part of the puzzle, and that the server decides what to display based primarily on your previous interactions. The server, not the URL, is the master of what you see.
 
-Regardless of the medium, one thing remains true: URLs don't require additional instructions. If the steps to retrieve a particular piece of content on the internet involves verbs — sub-instructions like "click", "scroll", or "search" — that content has not been afforded the respect a proper URL provides. "Take this URL" should be the only instruction you need. In technical terms, the internet is [stateless](https://en.wikipedia.org/wiki/Stateless_protocol).
+Regardless of the medium, one thing remains true: URLs don't require additional instructions. If the steps to retrieve a particular piece of content on the internet involves verbs — sub-instructions like "click", "scroll", or "search" — that content has not been afforded the respect a proper URL provides. "Take this URL" should be the only instruction you need. In technical terms, the internet is [stateless](https://en.wikipedia.org/wiki/Stateless_protocol).
 
 #### The internet is not an afterthought
 

@@ -5,7 +5,7 @@ comments: true
 description: 'The next time you publish a data source, whether in government or out, ask yourself one simple question. How can you optimize the experience for the data consumer?'
 ---
 
-Publishing government information is about much more than simply throwing 0's and 1's over the firewall. It's about building ecosystems and communities. It's about solving shared challenges. It's about consumption — after all, that's the American way.
+Publishing government information is about much more than simply throwing 0's and 1's over the firewall. It's about building ecosystems and communities. It's about solving shared challenges. It's about consumption — after all, that's the American way.
 
 Go to any agency website, and chances are you'll find at least one dataset sitting idly by because the barrier to consume it is *too damn high*. It doesn't matter how hard stakeholders had to fight to get the data out the door or how valuable the dataset is, it's never going to become the next GPS or weather data.
 
@@ -19,7 +19,7 @@ This struck me for two reasons. First, it shows that the data publishers still b
 
 Second, the fact that the documentation is geared not towards developers, but towards internal stakeholders shows a lack of consideration for the data consumer's user experience. In this case, listing ID's is just scratching the surface of [what a developer might expect from the private sector](http://developer.github.com/). Is the API responsive? Does it return data in a usable format? Are related queries properly linked? The list goes on.
 
-All experiences — government experience especially — should be optimized for the consumer, not for the publisher, regardless of format or internal politics.
+All experiences — government experience especially — should be optimized for the consumer, not for the publisher, regardless of format or internal politics.
 
 The General Services Administration, much to their credit, has begun a "[First Fridays](http://www.usability.gov/how-to-and-tools/guidance/gsa-first-fridays-program.html)" usability testing program, which is the tangible result of a much larger and much needed effort to educate publishers of government information as to the importance of and necessity for a purposeful commitment to user experience.
 

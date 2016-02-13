@@ -29,7 +29,7 @@ Imagine a workflow management and version control system [building on WordPress'
 
 ![Wireframe of the proposed application](http://ben.balter.com/wp-content/uploads/2011/04/wireframe.png "WP Document Revisions Wireframe"){: .alignleft }
 
-As seen in the above wireframe, document revisions would be inextricably linked to the essential WordPress experience. If you know WordPress, you know document revisions. Why reinvent the wheel when you have the best wheel the world has ever seen, and a passionate global community dedicated to improving it? This approach would not simply be limited to traditional documents. Images, PDFs, code — anything the user wants to collaborate with others on, or have a secure revision history can be thrown at it. Academics, lawyers, government folks, the possibilities are endless.
+As seen in the above wireframe, document revisions would be inextricably linked to the essential WordPress experience. If you know WordPress, you know document revisions. Why reinvent the wheel when you have the best wheel the world has ever seen, and a passionate global community dedicated to improving it? This approach would not simply be limited to traditional documents. Images, PDFs, code — anything the user wants to collaborate with others on, or have a secure revision history can be thrown at it. Academics, lawyers, government folks, the possibilities are endless.
 
 To be fair, WordPress has been arguably overextended in some cases, [^3] but I do not believe that to be the case here. Sure any WordPress enthusiast may be guilty of the [bolt-cutter mentality](http://xkcd.com/801) every now and then, but I believe, if anything, it is enterprise stakeholders' tendency to gravitate toward bloated, commercial systems that is more akin to Wolf Blitzer's boat house, and a big reason why is because with the exception of an unnamed [^4] content management system's poorly executed attempt at document management, no open-source alternatives exist.
 
@@ -41,18 +41,12 @@ I am working on submitting this idea as a proposed [Google Summer of Code](http:
 
 [^2]: Nearly three years ago, at the time of the feature's inception, [WordPress founder Matt Mullenweg noted](http://wordpress.org/news/2008/07/wordpress-26-tyner/), "*With the power of modern computers, it's silly that we still use save and editing metaphors from the time when the most common method of storage was floppy disks… now we're taking that to another level by allowing you to view who made what changes when… through a super-easy interface, much like Wikipedia or a version control system.*"
 
-[^3]: *See, e.g., *WordPress as an [e-mail newsletter](http://net.tutsplus.com/tutorials/wordpress/build-a-wordburner-email-newsletter-manager-using-wordpress-and-feedburner/), [contact manager](http://publisherblog.automattic.com/2008/02/13/wp-contact-manager/){: data-proofer-ignore="true" }, [CRM](http://slipfire.com/wp-crm/), [invoice system](http://wordpress.org/extend/plugins/wp-invoice/),  [job bank](http://wordpress.org/extend/plugins/job-manager/), or [real estate directory](http://wordpress.org/extend/plugins/great-real-estate/).
+[^3]: *See, e.g., *WordPress as an [e-mail newsletter](http://net.tutsplus.com/tutorials/wordpress/build-a-wordburner-email-newsletter-manager-using-wordpress-and-feedburner/), [contact manager](http://publisherblog.automattic.com/2008/02/13/wp-contact-manager/){: data-proofer-ignore="true" }, [CRM](http://slipfire.com/wp-crm/), [invoice system](http://wordpress.org/extend/plugins/wp-invoice/), [job bank](http://wordpress.org/extend/plugins/job-manager/), or [real estate directory](http://wordpress.org/extend/plugins/great-real-estate/).
 
 [^4]: Let's just call it "Frupal" for the sake of discussion.
 
 [^5]: In hindsight, I probably shouldn't have ripped on Melange. *See supra note 1.*
 
-[5]: #note-2020-1 "See, e.g., Documentum, Liferay, Melange, and Gawker's CMS."
+[11]&#x3A; #note-2020–2 "Nearly three years ago, at the time of the feature's inception, WordPress founder Matt Mullenweg noted, "With the power of modern computers, it's silly that we still use save and editing metaphors from the time when the most common method of storage was floppy disks… now we're taking that to another level by allowing you to view who made what changes when… through a super-easy interface, much like Wikipedia or a version control system.""
 
-[11]&#x3A; #note-2020-2 "Nearly three years ago, at the time of the feature's inception, WordPress founder Matt Mullenweg noted, "With the power of modern computers, it's silly that we still use save and editing metaphors from the time when the most common method of storage was floppy disks… now we're taking that to another level by allowing you to view who made what changes when… through a super-easy interface, much like Wikipedia or a version control system.""
-
-[15]: #note-2020-3 "See, e.g., WordPress as an e-mail newsletter, contact manager, CRM, task list, invoice system,  job bank, or real estate directory."
-
-[17]&#x3A; #note-2020-4 "Let's just call it "Frupal" for the sake of discussion."
-
-[19]: #note-2020-5 "In hindsight, I probably shouldn't have ripped on Melange. See supra note 1."
+[17]&#x3A; #note-2020–4 "Let's just call it "Frupal" for the sake of discussion."

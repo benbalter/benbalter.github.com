@@ -25,7 +25,7 @@ I gave a brief talk at March's joint [WordPressDC and Hacks/Hackers DC MeetUp](h
 * Social networking and mobile computing contributed to this shift by interfacing the online and offline worlds. Today's radical transparency (*e.g.,* lifecasters posting pictures of their lunch) shows we have come a full 180.
 * We shift from corporate brand associations in the 50s (*e.g.,* "I work for IBM") to personal brands today (*e.g.,* "I'm an independent contractor").
 * Today we all have a unique opportunity to plant a flag on our corner of the internet, take control of our online identity, and declare to the world who we are by crafting a thought-out narrative.
-* Unlike in the real world where you are the only one in control of what you say, online, content has a life of its own — you must be proactive.
+* Unlike in the real world where you are the only one in control of what you say, online, content has a life of its own — you must be proactive.
 * WordPress makes it dumb simple to tell the world your story.
 
 **My five big steps to launching your brand:**

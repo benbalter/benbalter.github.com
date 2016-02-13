@@ -32,7 +32,7 @@ You've got two products to deliver when your tenure is up. The thing you've actu
 
 Building something awesome is great, but if it's just going to sit on a shelf and collect dust when you leave, what good is it? There are forward-thinking career employees within your organization who have wanted change for years. Help them to enable it. Make them part of the team, and more important, make sure they're bought into the vision and have the tools they need, both bureaucratically and technically to see it forward. They're going to adopt your baby once you leave. Make sure you leave it in the right hands.
 
-### 7. Don't take no for an answer — better yet, don't even ask
+### 7. Don't take no for an answer — better yet, don't even ask
 
 Government embodies one of the most risk-averse cultures out there, and the supporting business units technologists generally work with most closely (security, legal, privacy, etc.) are often there primarily to mitigate risk. "No" doesn't necessarily mean "no." It's often evidence of a failure to educate on your part. Many supportive roles exist to evaluate risk, not to eliminate it entirely. Don't enter a meeting asking for permission. Enter a meeting asking for the best way to accomplish your goals while minimizing the agency's exposure. If all else fails, it's always easier to ask for forgiveness than permission. You're not going to go to jail for failing to check a box, especially once the train has left the station and it's picking up momentum.
 

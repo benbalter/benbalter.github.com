@@ -9,7 +9,7 @@ Our default content publishing workflow is terribly broken. [We've all been trai
 
 [![Screenshot of Microsoft Word 1.0](/wp-content/uploads/2014/word1.png){: .alignright style="width: 300px;"}](http://blogs.msdn.com/b/jensenh/archive/2005/10/03/476412.aspx)
 
-I'm asked regularly by government employees — knowledge workers who fire up a desktop word processor as the first step to any project — for an automated pipeline to convert Microsoft Word documents to [Markdown](http://guides.github.com/overviews/mastering-markdown/), the *lingua franca* of the internet, but as my recent foray into building [just such a converter](http://word-to-markdown.herokuapp.com/) proves, it's not that simple.
+I'm asked regularly by government employees — knowledge workers who fire up a desktop word processor as the first step to any project — for an automated pipeline to convert Microsoft Word documents to [Markdown](http://guides.github.com/overviews/mastering-markdown/), the *lingua franca* of the internet, but as my recent foray into building [just such a converter](http://word-to-markdown.herokuapp.com/) proves, it's not that simple.
 
 Markdown isn't just an alternative format. Markdown forces you to write for the web.
 
@@ -17,22 +17,22 @@ Markdown isn't just an alternative format. Markdown forces you to write for the 
 
 The first desktop word processors had a simple task: they were designed to make paper. We didn't have email or a vibrant internet sharing digital documents to worry about. The creators of the first desktop word processors simply mirrored the dominant workflow of the time: the typewriter. The final output — the sole embodiment — was physical, and all that mattered was what the document looked like.
 
-Over the past three decades, however, how we consume content has changed dramatically, yet, how we author content remains relatively unchanged. Put another way, [the internet is a fundamentally different animal than the  desktop](http://ben.balter.com/2013/07/02/a-brief-history-of-the-internet/). You [can't simply take a desktop format and put it online](http://ben.balter.com/2013/11/21/thats-not-how-the-internet-works/), and "[converting](http://word-to-markdown.herokuapp.com/)" a document to Markdown doesn't do much to solve that.
+Over the past three decades, however, how we consume content has changed dramatically, yet, how we author content remains relatively unchanged. Put another way, [the internet is a fundamentally different animal than the desktop](http://ben.balter.com/2013/07/02/a-brief-history-of-the-internet/). You [can't simply take a desktop format and put it online](http://ben.balter.com/2013/11/21/thats-not-how-the-internet-works/), and "[converting](http://word-to-markdown.herokuapp.com/)" a document to Markdown doesn't do much to solve that.
 
 ### Separating content from presentation
 
 Desktop formats are a shallow format — all they care about are looks. Desktop publishing software inextricably marries content and presentation. The information you input can only be consumed in one form, and that one form is defined by the medium, in most cases, paper, or more recently, their digital analog, faux margins and all.
 
-When you blindly optimize for one thing — appearances — behind the scenes there's a lot that goes unattended and it becomes increasingly complex to perform even the most simple of tasks. Extracting your content becomes tantamount to finding a needle in a purpose-built, legacy haystack.
+When you blindly optimize for one thing — appearances — behind the scenes there's a lot that goes unattended and it becomes increasingly complex to perform even the most simple of tasks. Extracting your content becomes tantamount to finding a needle in a purpose-built, legacy haystack.
 
 Put another way, in taking a look at this [sample Word Document](https://github.com/benbalter/word-to-markdown/blob/master/test/fixtures/small-medium-large.docx?raw=true), given the same content represented identically in various formats, as little as less than one quarter of one percent of the file is actually dedicated to storing content:
 
 {: .table .table-striped style="width: 50%; margin-left: auto; margin-right: auto;"}
-| Format   | Size        |   %   |
-| -------- | ----------- | ----- |
-| Word     | 33621 bytes | 100%  |
-| HTML     | 1359 bytes  | 4.04% |
-| Markdown | 80 bytes    | 0.24% |
+| Format | Size | % |
+| ———— | —————- | ——- |
+| Word | 33621 bytes | 100% |
+| HTML | 1359 bytes | 4.04% |
+| Markdown | 80 bytes | 0.24% |
 
 ### Exposing author intent
 
@@ -71,7 +71,7 @@ Second, there's a lot of proprietary metadata in there (everything that's orange
 
 ### Jailbreaking content
 
-There's a reason that content authored on the desktop is most commonly shared online as a PDF — a format designed to mimic the properties of paper as closely as possible. Once the content's in a paper-based format, it's stuck there forever.
+There's a reason that content authored on the desktop is most commonly shared online as a PDF — a format designed to mimic the properties of paper as closely as possible. Once the content's in a paper-based format, it's stuck there forever.
 
 If there's one thing I've learned trying to [convert Word documents to Markdown](http://word-to-markdown.herokuapp.com/), it's that Markdown is not an alternative to traditional desktop formats. It's an entirely different animal. It's both machine- and human-readable, but more importantly, it forces you to author content openly, semantically, and for an internet-based world.
 

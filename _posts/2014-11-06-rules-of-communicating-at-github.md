@@ -90,7 +90,7 @@ In practice, there's a few reasons it's called the "gentle" bump:
 
 ### 9. Keep discussions logically distinct
 
-The great thing about issues and pull requests, in contrast to say, email, is that they can be bifurcated  when topics diverge. This keeps teams focused on :ship:ing one thing and only one thing at a time. Additionally, discrete topics minimize unnecessary noise and optimize for fast decision making by ensuring only the most relevant teams are involved.
+The great thing about issues and pull requests, in contrast to say, email, is that they can be bifurcated when topics diverge. This keeps teams focused on :ship:ing one thing and only one thing at a time. Additionally, discrete topics minimize unnecessary noise and optimize for fast decision making by ensuring only the most relevant teams are involved.
 
 In practice, that means discussions should have one purpose, defined by the title at the top of the page. When a concern not directly related to the thread's purpose arises through the course of the discussion, as they often do, open a new issue and encourage participants to continue the discussion there, or if you see a teammate hijacking the discussion, do the same on their behalf. If the sub-task is a blocker, note it as such, and move on.
 

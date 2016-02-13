@@ -109,7 +109,7 @@ Once published, there's a high probability a member of the public will submit a 
 
 The open source community uses several platforms for communicating project plans and sharing source code. These platforms may be project specific, such as [`wordpress.org`](http://wordpress.org) or [`drupal.org`](http://drupal.org) or can be general open source platforms such as [GitHub](https://github.com) or [RubyGems](https://rubygems.org).
 
-When used for public engagement, the agency's use of such platforms is governed by OMB M-10-23. Agencies should review any terms of service (in many cases, there are custom, fed-friendly terms already negotiated), and ensure the agency itself establishes a formal presence on the platform.
+When used for public engagement, the agency's use of such platforms is governed by OMB M-10–23. Agencies should review any terms of service (in many cases, there are custom, fed-friendly terms already negotiated), and ensure the agency itself establishes a formal presence on the platform.
 
 For platforms like GitHub, per the terms of service, government employees should add their government email address to their existing account, if they have one, or should create a new personal (non-agency-specific account). The service automatically disambiguates between personal and professional contexts to make ownership and agency clear.
 
@@ -119,6 +119,6 @@ This is a high-level overview intended to highlight common legal issues agencies
 
 Although this is my personal blog, agencies should feel free to contact <mailto:government@github.com> or post in the [github.com/government](https://github.com/government/welcome) peer group with any open-source related questions.
 
-- - -
+---
 
-[^1]: The full mechanics of a pull request are beyond the scope of this post, but in short, a member of the public will fork the agency project, or make a copy in their personal account. In many cases, that is all downstream users do. The contributor may then modify the software, in their own personal copy, under the right to modify as granted in the open source license. Again, many downstream users will stop at this point as well, using the modified software for their own purposes. At both steps, the software is freely available to anyone in the world from the user's account and is licensed under the project terms. The upstream project is free to incorporate the downstream users changes as they wish. A contributor may also choose to contribute that code back to the original project, by explicitly asking the upstream project to incorporate their changes.  
+[^1]: The full mechanics of a pull request are beyond the scope of this post, but in short, a member of the public will fork the agency project, or make a copy in their personal account. In many cases, that is all downstream users do. The contributor may then modify the software, in their own personal copy, under the right to modify as granted in the open source license. Again, many downstream users will stop at this point as well, using the modified software for their own purposes. At both steps, the software is freely available to anyone in the world from the user's account and is licensed under the project terms. The upstream project is free to incorporate the downstream users changes as they wish. A contributor may also choose to contribute that code back to the original project, by explicitly asking the upstream project to incorporate their changes. 
