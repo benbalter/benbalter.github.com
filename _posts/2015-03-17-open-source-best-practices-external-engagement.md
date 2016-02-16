@@ -1,5 +1,5 @@
 ---
-title: "Five best practices in open source: external engagement"
+title: 'Five best practices in open source: external engagement'
 description: "When it comes to open source, simply publishing code isn't enough. Open source is about fostering communities around shared challenges, and as the maintainer of an open source project, that responsibility falls squarely on your shoulders. Go out of your way to encourage, praise, and support each contributor and each contribution as if the project's success depended on it, because in reality, it does."
 ---
 
@@ -49,7 +49,7 @@ Instead, minimize one-to-one interactions. There's absolutely no way for you to 
 
 [That means that every answer to every question should have a URL](http://ben.balter.com/2014/10/07/expose-process-through-urls/) (and a human name and face). As a rule, second time I'm asked a question via email, I always wait until I can reply with a URL, and if it's a question I know others are going to have, even earlier than that. Ideally, you should only have to answer a question once, or even better, never, if the community can for you. When the second user encounters the same problem, they can search and get connected with the first. Better yet, by the time it's happened a third time, it's a documented problem, and a member of the community can propose an update to the documentation. This isn't hypothetical, this happens every day in open source.
 
-In practicality, that means standing up public, linkable forums for stakeholders to ask questions and submit feedback, to engage with one another, and for you to support the community. Communities are created by relationships between humans — humans with names and faces — not between humans and a shared inbox or anonymous organization account. If all that's locked away in a shared inbox or behind a corporate logo, if you hold a monopoly on the ability to communicate and funnel it through a single, tightly controlled access point, well, then, nobody's going to want to come to your party.
+In practicality, that means standing up public, linkable forums for stakeholders to ask questions and submit feedback, to engage with one another, and for you to support the community. Communities are created by relationships between humans — humans with names and faces — not between humans and a shared inbox or anonymous organization account. If all that's locked away in a shared inbox or behind a corporate logo, if you hold a monopoly on the ability to communicate and funnel it through a single, tightly controlled access point, well, then, nobody's going to want to come to your party.
 
 ### 3. Minimize Friction
 

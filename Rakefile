@@ -1,5 +1,4 @@
 require 'html/proofer'
-require 'ra11y'
 require 'yaml'
 
 namespace :assets do
@@ -18,13 +17,6 @@ def build_site
   sh "bundle exec jekyll build -c _config.yml,_config_test.yml --drafts"
 end
 
-def ra11y
-  puts "Pa11y version: #{Ra11y.executable_version}"
-  puts "Pa11y path: #{Cliver.detect('pa11y')}"
-  Ra11y.options = config["ra11y"]
-  Ra11y::Site.new("./_site").run
-end
-
 def html_proofer
   puts "HTML Proofer version: #{HTML::Proofer::VERSION}"
   HTML::Proofer.new("./_site", config["proofer"]).run
@@ -35,11 +27,5 @@ task :test do
   puts config.to_yaml
   puts "---"
   build_site
-
-  # Use environmental variable to run tests in parallel
-  if ENV["TRAVIS_BUILD"] == "ra11y"
-    ra11y
-  else
-    html_proofer
-  end
+  html_proofer
 end

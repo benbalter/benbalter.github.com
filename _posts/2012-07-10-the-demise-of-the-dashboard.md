@@ -2,10 +2,8 @@
 author: Ben Balter
 title: The Demise of the Personal Dashboard
 description: >
-  When building consumer applications,
-  favor simplicity over complex
-  personalized dashboards which bombard
-  customers with information.
+  When building consumer applications, favor simplicity over complex personalized
+  dashboards which bombard customers with information.
 layout: post
 categories:
   - Technology
@@ -22,13 +20,14 @@ tags:
   - ui/ux
   - ux
   - wordpress
-post_format: [ ]
+post_format: []
 ---
+
 [![Dashboard all the things](http://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things-300x225.jpeg){: .alignright}](http://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things.jpeg)
 
 I was recently asked how I would architect a personalized dashboard experience for visitors to a large, customer-facing website. My response? *I wouldn't.*
 
-A dashboard in a car or airplane makes sense. It's not as if I could click "speedometer" while driving or press the "altimeter" button while flying. I simply need everything at all times. But virtual interfaces don't have that same limitation. In fact they don't have any limitations. A dashboard can have as much information as the most ambitious engineer can dream — and that's exactly the problem.
+A dashboard in a car or airplane makes sense. It's not as if I could click "speedometer" while driving or press the "altimeter" button while flying. I simply need everything at all times. But virtual interfaces don't have that same limitation. In fact they don't have any limitations. A dashboard can have as much information as the most ambitious engineer can dream — and that's exactly the problem.
 
 Put it in context: Google [recently announced the retirement of iGoogle](http://googleblog.blogspot.com/2012/07/spring-cleaning-in-summer.html), it's own personalized dashboard, and I second their nomination to induct dashboards into the #doingitwrong hall of fame, joining the likes of internet portals, splash pages, and well, basically anything involving ActiveX or Flash.
 
@@ -48,7 +47,6 @@ Don't get me wrong. I'm sure guilty of building [a dashboard](http://my.fcc.gov/
 
 Think about the last time you've used a drag-and-drop dashboard: If you're like me, it's going to be either Google Analytics or WordPress, and if that's the case, it's simply known as *the screen you see after you log in, but before you can do what you need to do*. It's wasted pixels. It's cruft from a bygone era when clicks were expensive and developers were left wondering "how can we fit more on a page".
 
-Options are a crutch. It's the natural tendency of any engineer to over engineer a system, and that tendency is even stronger in a risk-averse, top-down culture [like government](http://www.google.com/?q=dashboard+site:.gov). But your job — as an engineer, as a product manager, as user — is to push back, to fight that urge, to make [decisions, not options](http://wordpress.org/about/philosophy/). Not convinced? That feature you can't [bring yourself to cut](https://github.com/blog/1091-spring-cleaning)? Expose it through your API and see how many users complain.
+Options are a crutch. It's the natural tendency of any engineer to over engineer a system, and that tendency is even stronger in a risk-averse, top-down culture [like government](http://www.google.com/?q=dashboard+site:.gov). But your job — as an engineer, as a product manager, as user — is to push back, to fight that urge, to make [decisions, not options](http://wordpress.org/about/philosophy/). Not convinced? That feature you can't [bring yourself to cut](https://github.com/blog/1091-spring-cleaning)? Expose it through your API and see how many users complain.
 
 It's no longer a question of "is this possible technologically?". It's no longer a matter of "can you expose me to that information 24/7?". Ever since the advent of [Zombo com](http://www.zombo.com/), the only limit is our imagination. We've figured out the hard stuff. It's not centralization and personalization. It's decentralization and interoperability. Simplicity is the new black.
-

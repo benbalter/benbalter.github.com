@@ -1,6 +1,6 @@
 ---
-title: "Open procurement: procurement in an increasingly open source world"
-description: "What IT procurement might look like, in a world in which government agencies adopt open source methodologies as their primary means of development"
+title: 'Open procurement: procurement in an increasingly open source world'
+description: 'What IT procurement might look like, in a world in which government agencies adopt open source methodologies as their primary means of development'
 ---
 
 Government IT has been on [an in increasingly agile trajectory](/2011/11/29/towards-a-more-agile-government/). Where once waterfall development was the only option, today agile development has become the norm, with agencies increasingly turning to open source platforms and open source solutions. But no discussion of government IT would be complete, without mentioning the "P" word: procurement. What then, assuming the trend continues, does IT procurement look like, in a world in which government agencies adopt open source methodologies as their primary means of software development? Are we headed towards a world where open procurement begets open source?
@@ -13,7 +13,7 @@ That tide has shifted, towards agile procurement, whereby agencies typically pro
 
 ### Applying agile to open source
 
-One thing that open source does extremely well is to capture and organize feature requirements as they evolve. Head to any major open source project's issue tracker, and you'll see extremely detailed, extremely active discussions around both bugs and feature requests — it's the hallmark of a healthy open source project. It's also the perfect Agile backlog.
+One thing that open source does extremely well is to capture and organize feature requirements as they evolve. Head to any major open source project's issue tracker, and you'll see extremely detailed, extremely active discussions around both bugs and feature requests — it's the hallmark of a healthy open source project. It's also the perfect Agile backlog.
 
 A stakeholder, technical or otherwise, will open an issue. Typically "I can't get this to work...", or "wouldn't it be great if..." type requests. Other stakeholders weigh in, noting that they've experience similar trouble, or that they too would benefit from a proposed feature. They may also propose suggested improvements. Technical stakeholders weigh in on potential approaches to solving the problem, and the relative merits of each are discussed. This entire discussion (along who made what argument in favor of what approach) is captured, public, and linkable from anywhere on the internet. You not only know what decisions were made, but how and why.
 
@@ -29,7 +29,7 @@ Internal stakeholders, on the other hand, primarily email program managers direc
 
 If there's one thing government is known for, it's paperwork, and if there's one thing technology is known for, it's for reducing paperwork. In the typical government development workflow, you have a civil servant for which a significant potion of his or her job is spent being a human issue tracker, a task that the open source community has automated out of necessity for decades. Practically, a non-trivial part of the government employee's day is spent collecting feedback, organizing feedback into tasks, and prioritizing which tasks should be given to an external contractor.
 
-Imagine if, when those internal stakeholders made a feature request, the project manager memorialized the idea as an issue in the public issue tracker, or better yet, empowering the internal stakeholder to open it themselves. All of a sudden, not only can the project manager focus on actually managing the project, rather than a barrage of feature requests, stakeholders — both internal and external — can have a bird's eye view of the project's status, comment on proposed changes, and help to prioritize work. All stakeholders are now on equal footing.
+Imagine if, when those internal stakeholders made a feature request, the project manager memorialized the idea as an issue in the public issue tracker, or better yet, empowering the internal stakeholder to open it themselves. All of a sudden, not only can the project manager focus on actually managing the project, rather than a barrage of feature requests, stakeholders — both internal and external — can have a bird's eye view of the project's status, comment on proposed changes, and help to prioritize work. All stakeholders are now on equal footing.
 
 What if, rather than duplicating its efforts and maintaining an internal feature backlog in some non-purpose-built tool, government agencies simply used the issue trackers of their open source projects to request, document, and prioritize requirements? Then, when it comes time to plan the next sprint, they simply look at the top issues, as prioritized by all stakeholders, not just those within the agency, let the community know they're about to tackle an issue (so as to avoid duplication of efforts), and assign that issue, by name or number, to the subsequent sprint.
 
@@ -37,7 +37,7 @@ As an added benefit, the agency is now empowered to provide the contractor not w
 
 ### From agile procurement to open procurement
 
-Using a single, public issue tracker to track and prioritize potential tasks is just the start. What if, instead of procuring generic developer hours at the onset with set requirements — still a fundamentally waterfall mindset — instead, agencies chose issues for a given sprint, and sought contractors to bid on tackling those particular issues.
+Using a single, public issue tracker to track and prioritize potential tasks is just the start. What if, instead of procuring generic developer hours at the onset with set requirements — still a fundamentally waterfall mindset — instead, agencies chose issues for a given sprint, and sought contractors to bid on tackling those particular issues.
 
 Instead of "50 hours of PHP developer's time", an RFQ which is almost guaranteed to get you the cheapest developers, you buy "pull requests which fix issues #1, #2, and #3", an approach which is more likely to get you the best possible solution to your problem. The idea is to treat government contractors as contributors, ones that happen to be paid for their time (rather than being motivated by a shared need). They select an issue, submitted a pull request, and the functionality is reviewed by stakeholders before being merged. It's the government's same requirements, testing and acceptance process, we'd just be doing it in the open, instead of in secret.
 

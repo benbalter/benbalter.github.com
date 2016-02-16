@@ -1,8 +1,8 @@
 ---
-title: "Want to innovate government? Focus on culture"
+title: Want to innovate government? Focus on culture
 layout: post
 comments: true
-description: "The key to innovation in government is engendering a greater appreciation of technology among non-technical stakeholders"
+description: The key to innovation in government is engendering a greater appreciation of technology among non-technical stakeholders
 ---
 
 When innovating in government, [the technology's the easy part](http://ben.balter.com/2013/07/01/technologys-the-easy-part/). Innovative efforts often do one of two things:
@@ -21,7 +21,7 @@ You have to fight for the tools, you have to fight for the workflows, you have t
 
 Bureaucracy's primary goal is survival, and like any organism, it has an immune system. The white blood cells of bureaucracy are the general counsels, privacy officers, security officers, and paperwork reducers, among other bureaucrats, and it's in their personal and organizational interest to reduce risk to as close to zero as possible. By necessity, they thrive in a culture of "no".
 
-An innovator's primary goal is the exact opposite. An innovator thrives on sustainable disruption. These two countervailing interests — stability and instability — balance each other out in most organizations, however, absent the traditional profit motive found in the private sector, government gives this immune system the privileged position of actual or pocket veto authority over just about every agency decision.
+An innovator's primary goal is the exact opposite. An innovator thrives on sustainable disruption. These two countervailing interests — stability and instability — balance each other out in most organizations, however, absent the traditional profit motive found in the private sector, government gives this immune system the privileged position of actual or pocket veto authority over just about every agency decision.
 
 ### Never take "no" from someone who can't say "yes"
 
@@ -41,17 +41,17 @@ Looking back at some proto-open-data-policy brainstorming emails from Summer 201
 
 > * [Google-style lectures](https://www.youtube.com/watch?v=zJOS0sV2a24) - Bring in the smartest of the smartest (Google, Twitter, Foursquare, whatever), put them in a bullpen, and have them talk to Government IT folks about what's big in terms of technology today, how to, etc.
 > * Conferences - Establish a fund to get government folks to private sector (read: outside of DC) conferences on technology
-> * Technology crash course  - 1/2 day gov-only bootcamp for non-technical folks to learn what's out there. Open source, how easy it is to build an API on top of a dataset using Rails, etc. a.k.a, empower the government to become an informed consumer
+> * Technology crash course - 1/2 day gov-only bootcamp for non-technical folks to learn what's out there. Open source, how easy it is to build an API on top of a dataset using Rails, etc. a.k.a, empower the government to become an informed consumer
 
-What if every Wednesday [18F](http://18f.gsa.gov) invited an innovator — a CEO or CIO of a prominent private sector company — to come inspire government employees, both technical and otherwise, to hear how their company works on a day-to-day basis and streamed it to anyone with a government email address. We're not talking about a sales pitch, we're talking a super-informal, Inside the Actor's Studio style "ask me anything". *How do you handle hiring? Customer service? How do you decide which ideas to run with? What's in your stack? How often do you deploy?*
+What if every Wednesday [18F](http://18f.gsa.gov) invited an innovator — a CEO or CIO of a prominent private sector company — to come inspire government employees, both technical and otherwise, to hear how their company works on a day-to-day basis and streamed it to anyone with a government email address. We're not talking about a sales pitch, we're talking a super-informal, Inside the Actor's Studio style "ask me anything". *How do you handle hiring? Customer service? How do you decide which ideas to run with? What's in your stack? How often do you deploy?*
 
-The idea is to pop the beltway bubble — expose otherwise isolated, non-technical career government employees, not to cutting-edge ideas, but to common-place practices well established in the private sector, to redefine the norm, to fold the map in half and bring a bit of the West coast to the East coast.
+The idea is to pop the beltway bubble — expose otherwise isolated, non-technical career government employees, not to cutting-edge ideas, but to common-place practices well established in the private sector, to redefine the norm, to fold the map in half and bring a bit of the West coast to the East coast.
 
 ### Empowering lawyer linebackers
 
-Those three components — lightning talks, outside conferences, and targeted trainings — have the potential to unlock an army of [lawyer linebackers](http://ben.balter.com/2013/09/30/ten-things-you-learn-as-a-presidential-innovation-fellow/#make-friends-with-a-lawyer-on-day-one), non-technical stakeholders that serve as a force multiplier for technical talent, and ultimately the change we all desire.
+Those three components — lightning talks, outside conferences, and targeted trainings — have the potential to unlock an army of [lawyer linebackers](http://ben.balter.com/2013/09/30/ten-things-you-learn-as-a-presidential-innovation-fellow/#make-friends-with-a-lawyer-on-day-one), non-technical stakeholders that serve as a force multiplier for technical talent, and ultimately the change we all desire.
 
-What if when you first approached your general counsel for "approval" of your innovative new idea, you didn't have to justify each layer of the technology stack — open source software, APIs, and distributed version control — but could say "hey, we're launching a Rails app with a read-only API. The code's going to be on GitHub", and they simply responded "awesome, how can we help?". What if those you relied on understood or at least appreciated not necessarily the how, but at least the why?
+What if when you first approached your general counsel for "approval" of your innovative new idea, you didn't have to justify each layer of the technology stack — open source software, APIs, and distributed version control — but could say "hey, we're launching a Rails app with a read-only API. The code's going to be on GitHub", and they simply responded "awesome, how can we help?". What if those you relied on understood or at least appreciated not necessarily the how, but at least the why?
 
 ### Vaccination through controlled exposure
 

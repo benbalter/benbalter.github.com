@@ -1,7 +1,7 @@
 ---
-title: "15 rules for communicating at GitHub"
+title: 15 rules for communicating at GitHub
 description: "Asynchronous communication through high-fidelity mediums like issues and chat eliminate the endemic 'you had to be there' aspect of most corporate workflows, and reduces the need for a dedicated management class to capture, collection, and shuttle information back and forth between business units."
-redirect_from: "/2014/11/03/rules-of-communicating-at-github/"
+redirect_from: /2014/11/03/rules-of-communicating-at-github/
 ---
 
 At GitHub, we have a very specific way of working. For one, we use GitHub to build GitHub. Not just for code, but to collaborate on things like Legal, Marketing, and internal policies. But it's not that the medium defines the workflow (although it certainly helps), in fact, it's the other way around.
@@ -90,7 +90,7 @@ In practice, there's a few reasons it's called the "gentle" bump:
 
 ### 9. Keep discussions logically distinct
 
-The great thing about issues and pull requests, in contrast to say, email, is that they can be bifurcated  when topics diverge. This keeps teams focused on :ship:ing one thing and only one thing at a time. Additionally, discrete topics minimize unnecessary noise and optimize for fast decision making by ensuring only the most relevant teams are involved.
+The great thing about issues and pull requests, in contrast to say, email, is that they can be bifurcated when topics diverge. This keeps teams focused on :ship:ing one thing and only one thing at a time. Additionally, discrete topics minimize unnecessary noise and optimize for fast decision making by ensuring only the most relevant teams are involved.
 
 In practice, that means discussions should have one purpose, defined by the title at the top of the page. When a concern not directly related to the thread's purpose arises through the course of the discussion, as they often do, open a new issue and encourage participants to continue the discussion there, or if you see a teammate hijacking the discussion, do the same on their behalf. If the sub-task is a blocker, note it as such, and move on.
 

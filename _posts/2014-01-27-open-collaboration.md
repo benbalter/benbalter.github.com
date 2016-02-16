@@ -1,5 +1,5 @@
 ---
-title: Open source, not just software anymore
+title: 'Open source, not just software anymore'
 layout: post
 comments: true
 description: "What we've been calling open source, may in fact be something else, especially when we start to use those workflows to collaborate on things beyond code."
@@ -66,7 +66,7 @@ That begs the question: What percentage of the world needs to have access to som
 
 I think that's true. At least, the idea of someone calling something "government-only open source" scares me. But what do we call the millions of developers that adopt open source workflows for their closed-source software? For non-software collaboration? How do we divorce ourselves from a rights-centric viewpoint and the holy wars that go with it (I'm looking at you GPL)? What do you call something that's developed in the open with community involvement that may or may not be software?
 
-Dropping "software" from "open source software" isn't enough. Open source (software) since its inception, has always been about an external supply of freedom — the promise (or threat) that I am granted sufficient rights by the project creator such that I can, at any time, fork the project and go my own way — and it should stay that way. That's exactly what open source is, despite me using the phrase incorrectly for years now. Put another way, open source software solves for modification, not contribution.
+Dropping "software" from "open source software" isn't enough. Open source (software) since its inception, has always been about an external supply of freedom — the promise (or threat) that I am granted sufficient rights by the project creator such that I can, at any time, fork the project and go my own way — and it should stay that way. That's exactly what open source is, despite me using the phrase incorrectly for years now. Put another way, open source software solves for modification, not contribution.
 
 Perhaps what we need is a new word that better describes what we're really doing. @haacked went through the same existential crisis and [landed somewhere near *crowd sourced*](http://haacked.com/archive/2012/02/22/spirit-of-open-source.aspx/), but for me, that implies a hub and spoke model with a highly centralized power structure, not the egalitarian and decentralized web we often think of open source to be. Perhaps what I've been calling "open source" about all along is not really open source, but is in fact "open collaboration".
 

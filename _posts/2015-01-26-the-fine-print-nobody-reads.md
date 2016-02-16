@@ -1,6 +1,6 @@
 ---
-title: "The fine print nobody reads: what to do so government can use your service"
-description: "Federal-compatible Terms of Service (TOS) agreements are special agreements negotiated between the federal government and vendors who offer free social media, mobile, business and other digital tools. These federal-compatible TOS agreements modify or remove problematic clauses in standard TOS agreements, and allow federal employees to legally use these tools. With nearly 2.75mm federal government employees, learn how to get your foot in the door to an increasingly interested market segment."
+title: 'The fine print nobody reads: what to do so government can use your service'
+description: 'Federal-compatible Terms of Service (TOS) agreements are special agreements negotiated between the federal government and vendors who offer free social media, mobile, business and other digital tools. These federal-compatible TOS agreements modify or remove problematic clauses in standard TOS agreements, and allow federal employees to legally use these tools. With nearly 2.75mm federal government employees, learn how to get your foot in the door to an increasingly interested market segment.'
 ---
 
 If you offer a service online, chances are, government agencies can't agree to your standard terms of service, at least not has posted. [More than 75 of the web's largest services](http://www.digitalgov.gov/resources/negotiated-terms-of-service-agreements/), including Twitter, Facebook, Google, and GitHub have negotiated custom terms of service agreements with the federal government allowing more than 2.7M government employees to use their service. If you're looking to enter the federal market, the following is a read out from a round table discussion at the recent [Collaborate](http://collaborate.fosterly.com/) conference in Washington, D.C.:
@@ -25,7 +25,7 @@ Terms of service agreements are often called clickwrap or browserwrap agreements
 
 ### How an agency signs up for a service
 
-[Office of Management and Budget Memorandum M-13-10](http://www.whitehouse.gov/sites/default/files/omb/memoranda/2013/m-13-10.pdf) outlines a standard process for government agencies to sign up for social media services (with a definition of "social media" encompassing most web-based services). At a high level, the process looks something like this:
+[Office of Management and Budget Memorandum M-13–10](http://www.whitehouse.gov/sites/default/files/omb/memoranda/2013/m-13-10.pdf) outlines a standard process for government agencies to sign up for social media services (with a definition of "social media" encompassing most web-based services). At a high level, the process looks something like this:
 
 1. A staffer decides a service will further the agency's mission
 2. The staffer checks [GSA's list of pre-negotiated TOS amendments](http://www.digitalgov.gov/resources/negotiated-terms-of-service-agreements/)
@@ -67,6 +67,6 @@ Last, I've purposely avoided discussing procurement, which is a much larger issu
 * [Federal-Compatible Terms of Service Agreements](http://www.digitalgov.gov/resources/federal-compatible-terms-of-service-agreements/)
 * [Negotiated Terms of Service Agreements](http://www.digitalgov.gov/resources/negotiated-terms-of-service-agreements/)
 * [Model TOS template](http://www.digitalgov.gov/files/2014/01/model-amendment-to-tos-for-g.doc)
-* [OMB Memorandum M-13-10 on Anti-deficiency Act Implications of Certain Online Terms of Service Agreements](http://www.whitehouse.gov/sites/default/files/omb/memoranda/2013/m-13-10.pdf)
+* [OMB Memorandum M-13–10 on Anti-deficiency Act Implications of Certain Online Terms of Service Agreements](http://www.whitehouse.gov/sites/default/files/omb/memoranda/2013/m-13-10.pdf)
 
-*As always, as they say on the internet, [I am not your lawyer](http://ben.balter.com/fine-print/) (IANYL). The above is clearly a general discussion on the topic of federal terms of service agreements, and it should not be mistaken for legal advice. Heck, I don't even know what your startup does. Even if I did, I probably wouldn't understand it (but I'll take a  beta invite if you've got one). I hope the above read out from the Collaborate round table was informative, but if you're a social media provider heading down this route, be sure to retain your own legal counsel before talking to the government.*
+*As always, as they say on the internet, [I am not your lawyer](http://ben.balter.com/fine-print/) (IANYL). The above is clearly a general discussion on the topic of federal terms of service agreements, and it should not be mistaken for legal advice. Heck, I don't even know what your startup does. Even if I did, I probably wouldn't understand it (but I'll take a beta invite if you've got one). I hope the above read out from the Collaborate round table was informative, but if you're a social media provider heading down this route, be sure to retain your own legal counsel before talking to the government.*

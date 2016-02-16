@@ -1,9 +1,9 @@
 ---
-title: "If you liked it then you should have put a URL on it"
-description: "The next time you begin a new project, adopt a high-fidelity, electronic medium that allows you to capture and expose process in the form of a URL."
+title: If you liked it then you should have put a URL on it
+description: 'The next time you begin a new project, adopt a high-fidelity, electronic medium that allows you to capture and expose process in the form of a URL.'
 ---
 
-If there's one thing that made the internet what it is, it's the URL. It's what makes sharing funny cat videos possible. It's the bookmark to access your bank account balance. It's the Wikipedia link you send your buddy to end a heated argument. Why then, are our most online important interactions — collaborating with coworkers, accessing government services, or consuming open data — all too often, tragically URL-less?
+If there's one thing that made the internet what it is, it's the URL. It's what makes sharing funny cat videos possible. It's the bookmark to access your bank account balance. It's the Wikipedia link you send your buddy to end a heated argument. Why then, are our most online important interactions — collaborating with coworkers, accessing government services, or consuming open data — all too often, tragically URL-less?
 
 ### The humble URL
 
@@ -33,7 +33,7 @@ If you asked me to send you GitHub's [SAM.gov](http://sam.gov){: data-proofer-ig
 
 Sadly, that's the most direct way anyone can get to that public information. Take a look at your URL and you'll see things like `navigationalstate`, `interactionstate`, each followed by an obscure string of letters and numbers. This tells you that the URL is only part of the puzzle, and that the server decides what to display based primarily on your previous interactions. The server, not the URL, is the master of what you see.
 
-Regardless of the medium, one thing remains true: URLs don't require additional instructions. If the steps to retrieve a particular piece of content on the internet involves verbs — sub-instructions like "click", "scroll", or "search" — that content has not been afforded the respect a proper URL provides. "Take this URL" should be the only instruction you need. In technical terms, the internet is [stateless](https://en.wikipedia.org/wiki/Stateless_protocol).
+Regardless of the medium, one thing remains true: URLs don't require additional instructions. If the steps to retrieve a particular piece of content on the internet involves verbs — sub-instructions like "click", "scroll", or "search" — that content has not been afforded the respect a proper URL provides. "Take this URL" should be the only instruction you need. In technical terms, the internet is [stateless](https://en.wikipedia.org/wiki/Stateless_protocol).
 
 #### The internet is not an afterthought
 
@@ -47,11 +47,11 @@ Just as internal communication should prefer high-fidelity, electronic mediums i
 
 Having a digital-first workflow and a standards compliant website is a great first step, but to truly put content on a pedestal, great URLs take digital publication three steps further:
 
-  * **They're semantic** - URLs may be consumed by machines, but they are primarily built for humans. As such, [they should describe the thing they represent in human-readable, not just machine-readable terms](https://en.wikipedia.org/wiki/Semantic_URL). We've all looked to the top of our screen when browsing, only to discover `domain.com/index.php?page_id=23784` or a similar obscure database ID. Great URLs make it immediately clear what they represent. Just by seeing `ben.balter.com/2014/10/02/expose-process-through-urls` you immediately know (A) that this is an article, (B) who the author of that article is (C) when it was published, and (D) what it's about.
+* **They're semantic** - URLs may be consumed by machines, but they are primarily built for humans. As such, [they should describe the thing they represent in human-readable, not just machine-readable terms](https://en.wikipedia.org/wiki/Semantic_URL). We've all looked to the top of our screen when browsing, only to discover `domain.com/index.php?page_id=23784` or a similar obscure database ID. Great URLs make it immediately clear what they represent. Just by seeing `ben.balter.com/2014/10/02/expose-process-through-urls` you immediately know (A) that this is an article, (B) who the author of that article is (C) when it was published, and (D) what it's about.
 
-  * **They're format agnostic** - When you visit a web page in your browser, even if the URL doesn't explicitly end in `.html`, the server assumes that's what you're asking for and serves the requested content accordingly. But what if you want a different format, such as JSON or XML? Great URLs honor the idea that a URL should uniquely identify (and locate) a resource (not a specific presentation) and let you simply swap out the extension to get another format. If I'm looking at [a hoodie in GitHub's shop](https://github.myshopify.com/products/invertocat-hoodie), and want that data in JSON, I simply [add `.json` to the URL](https://github.myshopify.com/products/invertocat-hoodie.json), to get that same content in JSON. This is part of the secret sauce that makes [RESTful interfaces](https://en.wikipedia.org/wiki/Representational_state_transfer) possible.
+* **They're format agnostic** - When you visit a web page in your browser, even if the URL doesn't explicitly end in `.html`, the server assumes that's what you're asking for and serves the requested content accordingly. But what if you want a different format, such as JSON or XML? Great URLs honor the idea that a URL should uniquely identify (and locate) a resource (not a specific presentation) and let you simply swap out the extension to get another format. If I'm looking at [a hoodie in GitHub's shop](https://github.myshopify.com/products/invertocat-hoodie), and want that data in JSON, I simply [add `.json` to the URL](https://github.myshopify.com/products/invertocat-hoodie.json), to get that same content in JSON. This is part of the secret sauce that makes [RESTful interfaces](https://en.wikipedia.org/wiki/Representational_state_transfer) possible.
 
-  * **They link deep** - In any given page, there's a lot going on. Maybe it's a long blog post or simply a heated discussion thread. "Scroll two third down and you'll see it" is never an acceptable way to share content. Great URLs identify not only which page, but where on that page. Hover over the heading above and you'll have the opportunity to link directly to it (the URL updating with an [in-page anchor hash](https://en.wikipedia.org/wiki/Fragment_identifier)).
+* **They link deep** - In any given page, there's a lot going on. Maybe it's a long blog post or simply a heated discussion thread. "Scroll two third down and you'll see it" is never an acceptable way to share content. Great URLs identify not only which page, but where on that page. Hover over the heading above and you'll have the opportunity to link directly to it (the URL updating with an [in-page anchor hash](https://en.wikipedia.org/wiki/Fragment_identifier)).
 
 ### Knowledge work as craft
 

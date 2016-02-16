@@ -1,9 +1,9 @@
 ---
-title: "Open source is (not) insecure"
-description: "The idea that open source software is inherently less secure than its closed source or proprietary counterparts is untrue and stems from fear, uncertainty, and doubt (FUD)."
+title: Open source is (not) insecure
+description: 'The idea that open source software is inherently less secure than its closed source or proprietary counterparts is untrue and stems from fear, uncertainty, and doubt (FUD).'
 ---
 
-Spend any time in the enterprise IT world, and you'll quickly be led to believe that open source software is insecure, and only what you use when you can't afford "real" software — both false. This is a form of [FUD (fear, uncertainly, doubt)](http://en.wikipedia.org/wiki/Fear,_uncertainty_and_doubt), which has been historically encouraged [by those who sell open source's proprietary alternatives](https://en.wikipedia.org/wiki/Halloween_documents). When talking about the security of open source, there's two, parallel conversations. Open source as a platform, and open source as a workflow.
+Spend any time in the enterprise IT world, and you'll quickly be led to believe that open source software is insecure, and only what you use when you can't afford "real" software — both false. This is a form of [FUD (fear, uncertainly, doubt)](http://en.wikipedia.org/wiki/Fear,_uncertainty_and_doubt), which has been historically encouraged [by those who sell open source's proprietary alternatives](https://en.wikipedia.org/wiki/Halloween_documents). When talking about the security of open source, there's two, parallel conversations. Open source as a platform, and open source as a workflow.
 
 ### Open source as a platform
 
@@ -27,7 +27,7 @@ The second form of open source FUD attacks open source as a workflow, meaning th
 
 #### Anyone can (not) make changes
 
-The idea that anyone can make changes is simply untrue -- FUD at its best. Like with closed projects, only authorized maintainers can approve changes to open source projects. I suspect this misunderstanding stems from using Wikipedia as an analogy to describe open source to the uninitiated. Simply put, it comes from a place of ignorance. You're not going to wake up one day and mysteriously, your code will be riddled with malware and backdoors.
+The idea that anyone can make changes is simply untrue — FUD at its best. Like with closed projects, only authorized maintainers can approve changes to open source projects. I suspect this misunderstanding stems from using Wikipedia as an analogy to describe open source to the uninitiated. Simply put, it comes from a place of ignorance. You're not going to wake up one day and mysteriously, your code will be riddled with malware and backdoors.
 
 Instead, open source often has better controls to ensure pedigree than its closed-source counterparts. Open source, by its nature, must use advanced version control systems, in order to facilitate discussions (two things often absent from closed-source software). Every change, no matter how small, whether by the project creator or a first-time contributor, must be publicly proposed, discussed, and stringently reviewed, the change history available for all to see.
 
@@ -39,7 +39,7 @@ When everyone can see the inner workings (including those you want to keep out),
 
 #### We (won't) reveal the secret sauce
 
-Open or closed, industry-standard best practices dictate you shouldn't have secrets in your code. Passwords, tokens, server names, anything remotely secret sauce — heck, anything that might change based on the environment (development, staging, production) — should be placed in the database, an environmental variable, or in a VCS-ignored configuration file, not distributed with the software itself.
+Open or closed, industry-standard best practices dictate you shouldn't have secrets in your code. Passwords, tokens, server names, anything remotely secret sauce — heck, anything that might change based on the environment (development, staging, production) — should be placed in the database, an environmental variable, or in a VCS-ignored configuration file, not distributed with the software itself.
 
 For one, you've potentially got outside contractors or others in your code, which shouldn't be an access control mechanism in itself. For another, best practices once again dictate that such configurations aren't shared between environments, and are rolled frequently, something significantly harder if it requires a code change and deploy. Open source software ensures application logic, and system specific-configurations, secret or otherwise, remain distinct concerns.
 

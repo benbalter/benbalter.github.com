@@ -1,6 +1,6 @@
 ---
 title: Open source as Yelp for software
-description: Open source has become somewhat of a Yelp for software, and with it, has the potential to shift the balance of power from software publishers to software consumers.
+description: 'Open source has become somewhat of a Yelp for software, and with it, has the potential to shift the balance of power from software publishers to software consumers.'
 ---
 
 Open source has become somewhat of a Yelp for software, and with it, open source has the potential to shift the balance of power from software publishers to software consumers. So why do we hold the software that our society increasingly depends on to a standard lesser than that to which we hold fast food?

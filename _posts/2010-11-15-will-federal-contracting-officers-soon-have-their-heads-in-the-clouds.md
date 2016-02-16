@@ -2,18 +2,12 @@
 author: Ben Balter
 title: Will Federal Contracting Officers Soon Have Their Heads in the Clouds?
 description: >
-  As one Hewlett Package Chief executive
-  recently put it, cloud computing "is
-  the next generation of the internet."
-  Whether you realize it or not, if you
-  use services like Facebook or Gmail,
-  your personal data already lives in
-  "the cloud," and the same
-  transformative power that connects
-  long-lost classmates at the click of a
-  mouse can be harnessed by federal
-  agencies to approach modern governance
-  in incredibly powerful ways.
+  As one Hewlett Package Chief executive recently put it, cloud computing "is the
+  next generation of the internet." Whether you realize it or not, if you use
+  services like Facebook or Gmail, your personal data already lives in "the
+  cloud," and the same transformative power that connects long-lost classmates at
+  the click of a mouse can be harnessed by federal agencies to approach modern
+  governance in incredibly powerful ways.
 layout: post
 categories:
   - Law
@@ -24,15 +18,16 @@ tags:
   - federal
   - government
   - procurement
-post_format: [ ]
+post_format: []
 ---
+
 ## A Brief Look at the Imminent Cloud-Computing Storm Front
 
 As one Hewlett-Packard chief executive recently put it, cloud computing "is the next generation of the internet." [^1] Whether you realize it or not, if you use services like Facebook or Gmail, your personal data already lives in "the cloud," and the same transformative power that connects long-lost classmates at the click of a mouse can be harnessed by federal agencies to approach modern governance in incredibly powerful ways.
 
 **What is Cloud Computing?**
 
-Traditionally, when one thinks of computing power, he or she thinks of an on-site datacenter — a room filled with blinking lights and whirling fans — hardware, software, and data storage all within feet of the users they serve. [^2] The traditional approach to computing generally entails complicated and expensive upgrade procedures scheduled on a semi-regular basis, as well as accommodating the increasing demand for backup and recovery redundancy necessary to reduce downtime should these system fails. [^3] Such datacenters are often managed by their own departments, staffed with the specialized, technical administrators needed to maintain and ensure the day-to-day operation of these increasingly complex and increasingly mission-critical business resources. [^4]
+Traditionally, when one thinks of computing power, he or she thinks of an on-site datacenter — a room filled with blinking lights and whirling fans — hardware, software, and data storage all within feet of the users they serve. [^2] The traditional approach to computing generally entails complicated and expensive upgrade procedures scheduled on a semi-regular basis, as well as accommodating the increasing demand for backup and recovery redundancy necessary to reduce downtime should these system fails. [^3] Such datacenters are often managed by their own departments, staffed with the specialized, technical administrators needed to maintain and ensure the day-to-day operation of these increasingly complex and increasingly mission-critical business resources. [^4]
 
 Seen as a virtually unlimited hardware and communications infrastructure managed by a third party-provider, cloud computing, on the other hand, allows for rapid increases in capacity without the need to invest in additional hardware, personnel, or software licensing. [^5] "As a customer, you don't know where the resources are, and for the most part, you don't care. What's really important is the capability to access your application anywhere, move it freely and easily, and inexpensively add resources." [^6] In simplest terms, the cloud uses an off-site service to store, transmit, and process information, and employs the Internet as the means to access that service. [^7]
 
@@ -66,33 +61,56 @@ Several avenues exist for organizations looking to experiment with the cloud. Fo
 
 Second, many federal Web sites such as the Federal Communications Commission and Recovery.Gov are in the process of seeking or have already sought third-party cloud hosting services likes Amazon Web Services (AWS) as mentioned above. [^21] Federal agencies opting for such a route must be sure to work closely with the appropriate parties to ensure, federal IT security standards are met, such as FISMA [^22] requirements, or that record retention standards are met, for example, where data stored in the cloud constitutes a system of records under the privacy act. [^23]
 
-Finally, earlier this summer, Google announced FISMA moderate certification of its Google Apps for Government data centers, providing mail, calendar, document, video, and Web hosting services to Federal agencies in a private cloud hosted entirely within the United States. [^24] Agencies wishing to contract their traditional IT infrastructure out to Google can do so for as low as $50 per user per year, however, such savings may come at a cost.  Special attention must be paid to the risks associated with trusting a third-party with what may potentially be an agency's most sensitive data.
+Finally, earlier this summer, Google announced FISMA moderate certification of its Google Apps for Government data centers, providing mail, calendar, document, video, and Web hosting services to Federal agencies in a private cloud hosted entirely within the United States. [^24] Agencies wishing to contract their traditional IT infrastructure out to Google can do so for as low as $50 per user per year, however, such savings may come at a cost. Special attention must be paid to the risks associated with trusting a third-party with what may potentially be an agency's most sensitive data.
 
 Whether a federal contracting officer or a provider of IT services, just as the Internet has revolutionized countless aspects of every day life, it is clear that so too will the emerging cloud computing front forever shape the contours of Federal IT procurement in the years to come.
 
 *This article originally published in the [Federal Bar Association Government Contracts Section](http://www.fedbar.org/Sections/Government-Contracts-Section/Newsletters.aspx) [Fall 2010 Newsletter](http://www.fedbar.org/Sections/Government-Contracts-Section/Newsletters/Fall-2010.aspx?FT=.pdf) (PDF, p. 6).*
 
-[^1]: Stephen Lawson, *Cloud is Internet's Next Generation, HP Executive Says*, InfoWorld, June 25, 2009, http://www.infoworld.com/d/cloud-computing/cloud-internets-next-generation-hp-executive-says-120 (quoting HP CTO Russ Daniels).
+[^1]: Stephen Lawson, *Cloud is Internet's Next Generation, HP Executive Says*, InfoWorld, June 25, 2009, <http://www.infoworld.com/d/cloud-computing/cloud-internets-next-generation-hp-executive-says-120> (quoting HP CTO Russ Daniels).
+
 [^2]: *See Generally *Jack Newton, *Putting Your Practice in the Cloud a Pre-Flight Checklist*, 73 Tex. B.J. 632 (2010).
+
 [^3]: *See* Mark H. Wittow, Daniel J. Buller, *Cloud Computing: Emerging Legal Issues for Access to Data, Anywhere, Anytime,* 14 J. Internet L. 1 (2010).
+
 [^4]: *Id.*
+
 [^5]: Wittow, 14 J. Internet L. 1 (2010).
-[^6]: J. Nicholas Hoover, *Interop: Oracle Predicts Cloud Confusion to Continue*, InformationWeek, Sept. 17, 2008, http:// www.informationweek.com/news/services/hosted_apps/showArticle.jhtml? articlelD=210602225.
+
+[^6]: J. Nicholas Hoover, *Interop: Oracle Predicts Cloud Confusion to Continue*, InformationWeek, Sept. 17, 2008, http&#x3A;// www.informationweek.com/news/services/hosted_apps/showArticle.jhtml? articlelD=210602225.
+
 [^7]: Peter M. Lefkowitz, *Contracting in the Cloud: A Primer,* Boston B.J., Summer 2010, at 9.
+
 [^8]: Dennis Kennedy, *Working in the Cloud Tips on Success with Online Software Services*, ABA J., August 2009, at 31.
+
 [^9]: *Id.*
+
 [^10]: Wittow, 14 J. Internet L. 1 (2010).
+
 [^11]: *Id.*
-[^12]: Peter Mell and Tim Grance, *Definition of Cloud Computing*, National Institute of Standards and Technology, Information Technology Laboratory, October 7, 2009, http://csrc.nist.gov/groups/SNS/cloud-computing/cloud-def-v15.doc.
+
+[^12]: Peter Mell and Tim Grance, *Definition of Cloud Computing*, National Institute of Standards and Technology, Information Technology Laboratory, October 7, 2009, <http://csrc.nist.gov/groups/SNS/cloud-computing/cloud-def-v15.doc>.
+
 [^13]: Lefkowitz, Boston B.J., Summer 2010, at 9.
+
 [^14]: *Id.*
+
 [^15]: *Id.*
+
 [^16]: *Id.*
+
 [^17]: *Id.*
+
 [^18]: Newton, 73 Tex. B.J. 632.
-[^19]: Cloud IT Services, Apps.Gov, https://www.apps.gov/cloud/advantage/cloud/category_home.do (last visited October 5, 2010).
-[^20]: Apps.Gov Now, General Services Administration, http://citizen.apps.gov/ (last visited October 12, 2015).
-[^21]: Cloud Services, Federal Business Opportunities, https://www.fbo.gov/index?s=opportunity&mode=form&id=d63c725d5a3006919289698350e3d4b3&tab=core&_cview=1 (last visited October 5, 2010);  J. Nicholas Hoover, *Recovert.Gov Moved to Amazon Cloud*, Information Week, May 12, 2010, http://www.informationweek.com/news/government/cloud-saas/showArticle.jhtml?articleID=224701861.
+
+[^19]: Cloud IT Services, Apps.Gov, <https://www.apps.gov/cloud/advantage/cloud/category_home.do> (last visited October 5, 2010).
+
+[^20]: Apps.Gov Now, General Services Administration, <http://citizen.apps.gov/> (last visited October 12, 2015).
+
+[^21]: Cloud Services, Federal Business Opportunities, <https://www.fbo.gov/index?s=opportunity&mode=form&id=d63c725d5a3006919289698350e3d4b3&tab=core&_cview=1> (last visited October 5, 2010); J. Nicholas Hoover, *Recovert.Gov Moved to Amazon Cloud*, Information Week, May 12, 2010, <http://www.informationweek.com/news/government/cloud-saas/showArticle.jhtml?articleID=224701861>.
+
 [^22]: Federal Information Security Management Act of 2002.
+
 [^23]: 5 U.S.C.A. § 552a (West).
-[^24]: Google Apps for Government, Official Google Enterprise Blog, July 26, 2010, http://googleenterprise.blogspot.com/2010/07/google-apps-for-government.html.
+
+[^24]: Google Apps for Government, Official Google Enterprise Blog, July 26, 2010, <http://googleenterprise.blogspot.com/2010/07/google-apps-for-government.html>.

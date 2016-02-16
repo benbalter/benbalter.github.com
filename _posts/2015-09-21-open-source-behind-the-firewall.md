@@ -1,6 +1,6 @@
 ---
 title: Bringing open source workflows to the enterprise
-description: "How open source workflows and philosophies can be leveraged by the enterprise to produce more modern software, even if that software ultimately remains closed source."
+description: 'How open source workflows and philosophies can be leveraged by the enterprise to produce more modern software, even if that software ultimately remains closed source.'
 ---
 
 *This post originally published on [DLT's Technically Speaking](http://blogs.dlt.com/bringing-open-source-workflows-enterprise/).*
@@ -9,9 +9,9 @@ Open source has changed the way we build software. A fully distributed team of s
 
 ### Traditional waterfall development
 
-A traditional software development project may look something like this: A customer spends weeks to months gathering requirements, the requirements are passed to a project manager, and the project manager assigns tasks to individual developers and designers. It's an extremely rigid, extremely hierarchical approach that traces its roots to the rise of factory workers each producing fungible parts of a whole where responsibility for assemblies and sub-assemplies could be easily delegated and managed individually.
+A traditional software development project may look something like this: A customer spends weeks to months gathering requirements, the requirements are passed to a project manager, and the project manager assigns tasks to individual developers and designers. It's an extremely rigid, extremely hierarchical approach that traces its roots to the rise of factory workers each producing fungible parts of a whole where responsibility for assemblies and sub-assemblies could be easily delegated and managed individually.
 
-In practicality, software is more art than assembly, with project managers acting as the primary interface between the customer and development efforts, often passing information back and forth in non-purpose-built tools like Excel and Outlook, or even holding regularly scheduled status meetings just to keep stakeholders in the loop. When the project concludes, the customer is often left with just the URL to a working instance of the software, or perhaps a snapshot of the final code via an email from the project manager to product owner. Needless to say, the process is inefficient, time consuming, and leaves the customer with an incomplete view of what they've bought both day-to-day and historically, especially troublesome if agency needs to make any changes to the software once the engagement concludes.
+In practicality, software is more art than assembly, with project managers acting as the primary interface between the customer and development efforts, often passing information back and forth in non-purpose-built tools like Excel and Outlook, or even holding regularly scheduled status meetings just to keep stakeholders in the loop. When the project concludes, the customer is often left with just the URL to a working instance of the software, or perhaps a snapshot of the final code via an email from the project manager to product owner. Needless to say, the process is inefficient, time consuming, and leaves the customer with an incomplete view of what they've bought both day-to-day and historically. This is especially troublesome if the agency needs to make any changes to the software once the engagement concludes.
 
 ### Software development in the open source world
 
@@ -21,11 +21,11 @@ Project managers regularly go through and curate open issues, prioritize request
 
 ### Open source in the enterprise
 
-These leaner, more agile, open source workflows are increasingly taking foothold in the private sector. Today, you'd be hard pressed to find a startup worth its venture capital funding that doesn't trace its development philosophy, at least in part, to the world of open source, even if the code it writes is never made public. Development teams develop as openly as possible (within the confines of their organization), leveraging electronic and asynchronous tools to naturally capture and expose process for others to see at each step.
+These leaner, more agile, open source workflows are increasingly taking footholds in the private sector. Today, you'd be hard pressed to find a startup worth its venture capital funding that doesn't trace its development philosophy, at least in part, to the world of open source, even if the code it writes is never made public. Development teams develop as openly as possible (within the confines of their organization), leveraging electronic and asynchronous tools to naturally capture and expose process for others to see at each step.
 
 When private organizations do contract out development efforts, they expect contractors to integrate with the customer's development workflow, not the other way around, and deliver not just the source code, but all project collateral on a near constant basis, providing the customer with the code's full pedigree, decision history, and most importantly, the means to avoiding vendor lock in.
 
-These transparent workflows break down the organizational silos native to large organizations, fostering somewhat of an "open source" culture internally. Rather than hoarding "their" code teams maintain "open source" projects that other teams are encouraged to leverage for their own efforts. These "open source" projects act just like any other open source project -- bug tracker, documentation, generic modularity and all -- except the code is only open to those within the organization, an arrangement often referred to as "open collaboration".
+These transparent workflows break down the organizational silos native to large organizations, fostering somewhat of an "open source" culture internally. Rather than hoarding "their" code, teams maintain "open source" projects that other teams are encouraged to leverage for their own efforts. These "open source" projects act just like any other open source project — bug tracker, documentation, generic modularity and all — except the code is only open to those within the organization, an arrangement often referred to as "open collaboration".
 
 ### Open collaboration in government
 
@@ -47,12 +47,12 @@ When it comes to how they work, open source teams are bound by [four distinct co
 >
 > * **Asynchronous**: Almost no part of the product development process requires that one person interrupt another's immediate attention or that people be in the same place at the same time, or even that people be in different places at the same time. Even small meetings or short phone calls can wreck flow so consider laying it out in (a thought out) email or sending a pull request instead.
 >
-> * **Lock free**: Avoid synchronization / lock points when designing process. This is [distributed version control](http://en.wikipedia.org/wiki/Distributed_revision_control) writ large... Work toward a goal should never be blocked on approval. Push approval/rejection to the review stage or automate it, but surface work early to get feedback.
+> * **Lock free**: Avoid synchronization / lock points when designing process. This is [distributed version control](http://en.wikipedia.org/wiki/Distributed_revision_control) writ large... Work towards a goal should never be blocked on approval. Push approval/rejection to the review stage or automate it, but surface work early to get feedback.
 
 By adopting tools that embrace these constraints, both in their own dealings, and in their dealings with external contractors, government agencies can begin to foster modern software development practices more in line with those seen beyond the beltway.
 
 ### The technology is the easy part
 
-It's not a question of if your team can track who-made-what-change-when to code over time, or if your IT department can stand up a chat server. These are all technical challenges that the open source community solved decades ago. The challenge is in using technology as a vehicle to motivate organization change, to rethink internal workflows and lines of communication. The challenges is also cultural, to foster an organizational culture of trust and cooperation whereby transparency is seen as an asset, not a political liability.
+It's not a question of if your team can track who-made-what-change-when to code over time, or if your IT department can stand up a chat server. These are all technical challenges that the open source community solved decades ago. The challenge is in using technology as a vehicle to motivate organization change, to rethink internal workflows and lines of communication. The challenge is also cultural, to foster an organizational culture of trust and cooperation whereby transparency is seen as an asset, not a political liability.
 
 It's often said that government IT is five to ten years behind that of the private sector. It doesn't need to be that way. It's possible to fold the map in half and bring the East coast a bit closer to the West coast. It starts not with what we work on, but in how we work.

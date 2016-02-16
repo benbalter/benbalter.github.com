@@ -2,7 +2,7 @@
 title: Header hover anchor links on GitHub Pages using Jekyll
 layout: post
 comments: true
-description: "Encourage deep-linking of content by providing anchor links when a user hovers over a heading in your Jekyll posts and pages"
+description: Encourage deep-linking of content by providing anchor links when a user hovers over a heading in your Jekyll posts and pages
 ---
 
 If you've ever read a markdown file on GitHub, you may have noticed that hovering over a heading produces a visible, clickable anchor link. This is incredibly useful if you want to link someone to a particular heading or section, rather than the page as a whole, a practice known as "deep linking" of content.
@@ -21,24 +21,25 @@ jQuery, a javascript library, helps you select all the headers programmatically,
 
 There are a handful of ways to do this, but the easiest is to add the following in your template's `<head>` section:
 
-{% highlight html %}
+```html
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-{% endhighlight %}
+```
 
 ## The CSS
 
 We need to tell the browser how to position the link icon, and to only display it when the visitor hovers over your heading. You'll want to add the following to your site's CSS file:
 
-{% highlight css %}
+```css
 .header-link {
   position: absolute;
   left: -0.5em;
   opacity: 0;
 
-  -webkit-transition: opacity 0.2s ease-in-out 0.1s;
-  -moz-transition: opacity 0.2s ease-in-out 0.1s;
-  -ms-transition: opacity 0.2s ease-in-out 0.1s;
+  \-webkit-transition: opacity 0.2s ease-in-out 0.1s;
+  \-moz-transition: opacity 0.2s ease-in-out 0.1s;
+  \-ms-transition: opacity 0.2s ease-in-out 0.1s;
 }
 
 h2:hover .header-link,
@@ -48,13 +49,13 @@ h5:hover .header-link,
 h6:hover .header-link {
   opacity: 1;
 }
-{% endhighlight %}
+```
 
 ## The JavaScript
 
 Last, to tie everything together, you'll also need a bit of javascript magic client side, by adding the following to your site's footer:
 
-{% highlight html %}
+```html
 <script>
 $(function() {
   return $("h2, h3, h4, h5, h6").each(function(i, el) {
@@ -68,7 +69,7 @@ $(function() {
   });
 });
 </script>
-{% endhighlight %}
+```
 
 And that's it! You can see the result on this page if you hover over any heading. Click the link to update your URL bar, and you'll have a shareable, deep-linked URL.
 

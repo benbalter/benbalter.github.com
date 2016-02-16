@@ -1,6 +1,6 @@
 ---
 title: "What is a 'Hacker'?"
-description: "Hackers embody sharing, openness, decentralization — coding to improve the world"
+description: 'Hackers embody sharing, openness, decentralization — coding to improve the world'
 author: Ben Balter
 layout: post
 comments: true
@@ -22,7 +22,7 @@ Working in DC, "*hacker*" can often be seen as a four-letter word. I can't count
 
 Being a hacker isn't about stealing credit card numbers or disabling public utilities, but rather it's the exact opposite. It's about embodying all three of those meanings simultaneously. It's about sharing, openness, decentralization... It's about trying to satisfy an unquenchable thirst for defying expectations and making the impossible a reality, often involving nothing more than duct tape, bubblegum, and ultimately solutions that purported experts would certainly balk at for being too simplistic.
 
-The term traces its routes all the way back to the 1960s when it emerged to describe a certain playful cleverness of exploration that surrounded those at MIT who openly pushed the limits of the world's first computers. Today it continues to embody that ethic as the pursuit of excellence — constantly asking oneself "is this even possible?" (and instinctively responding "let's find out!"). It's the intrinsic delight one gets from solving never-before-solved problems and overcoming limits conventional wisdom long-ago presumed too difficult to tackle.
+The term traces its routes all the way back to the 1960s when it emerged to describe a certain playful cleverness of exploration that surrounded those at MIT who openly pushed the limits of the world's first computers. Today it continues to embody that ethic as the pursuit of excellence — constantly asking oneself "is this even possible?" (and instinctively responding "let's find out!"). It's the intrinsic delight one gets from solving never-before-solved problems and overcoming limits conventional wisdom long-ago presumed too difficult to tackle.
 
 Somewhat surprisingly, hacking isn't at all about technology. It's about community. Think about it in terms of a hacker ethic, a hacker way, and a hacker culture.
 
@@ -47,4 +47,5 @@ It's no surprise then, that as the pace of technological innovation quickens, th
 "Hacker" isn't just the next hot buzzword, following a long history of "rock star", "ninja", and "guru". Nor is it synonymous with "cybercriminal" or imply any nefarious intentions whatsoever. Instead the exact opposite is true. It's about embracing an ethos, a drive, a culture. It's about coding to improve the world.
 
 [^1]: As articulated best by [Steven Levy](http://www.amazon.com/Hackers-Computer-Revolution-Anniversary-ebook/dp/B003PDMKIY/ref=tmm_kin_title_0&tag=613240924-20)
+
 [^2]: *See* [Eric S. Raymond](http://www.catb.org/esr/faqs/hacker-howto.html)

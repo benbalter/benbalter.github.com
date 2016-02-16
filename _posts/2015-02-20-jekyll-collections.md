@@ -1,7 +1,7 @@
 ---
 title: "Explain like I'm five: Jekyll collections"
 description: "Collections extends Jekyll's post and pages publishing functionality, and brings Jekyll's zen-like simplicity to all sorts of other types of content that aren't dated, but have a relationship with one another."
-redirect_from: "2015/02/16/jekyll-collections/"
+redirect_from: 2015/02/16/jekyll-collections/
 ---
 
 Collections are Jekyll's most powerful and simultaneously least understood feature. If you're not familiar with [Jekyll](http://jekyllrb.com/), Jekyll is a static site generator. Think of it like a content management system (CMS), [without all the complexity](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/) and headache. No need to build a giant content-strangling Rube Goldberg machine to "manage" content, if all you're doing at the end of the day is putting out HTML, Javascript, and CSS, the building blocks of the internet. As a result, Jekyll gets out of your way and [allows you to concentrate on what truly matters](http://ben.balter.com/2012/10/01/welcome-to-the-post-cms-world/): your content.
@@ -34,41 +34,43 @@ Of course you could at this stage, choose to have a more generic collection `pro
 
 Abstractly, because they're not outputted by default, you can think of collections somewhat like [Jekyll's `_data` folder support](http://jekyllrb.com/docs/datafiles/), but with the potential to generate content, and be placed into their own specific part of your Jekyll site, so a lot more robust. Like `_data` files, they can support arbitrary key/values through frontmatter, but they also support a full content body (like posts and pages), and can be broken out into separate files. If I wanted to break out my bakery's hours, I might have a `_data/hours.yml` file that looked something like this:
 
-{% highlight yaml %}
+```yaml
 monday: 9-5
 tuesday: 9-5
 wednesday: 9-5
 thursday: 9-5
 friday: 9-3
-{% endhighlight %}
+```
 
 That makes sense, because my bakery's hours is a relatively small dataset. But trying to represent all my baked goods in that format (or worse posts), would quickly get out of hand. That type of information is better represented as individual markdown files with front matter, not one giant YAML file that will quickly become unwieldy with complexity; and rather than create the data, and pages to display the data, or the data and a plugin to turn it into pages; using collections allows the site owner to focus on the content.
 
 For a more concrete example, take a look at [the source](https://github.com/github/choosealicense.com) for [choosealicense.com](http://choosealicense.com) a site which helps explain open source licenses like the MIT or GPL license. There are pages like "about" and "terms of service", but the actual licenses live in [a licenses collection](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) and are displayed via [a licensed page](https://github.com/github/choosealicense.com/blob/gh-pages/licenses.html). 
 
 #### Other use-cases
+
 Of course this is not the only use-case, which is one of the benefits of collections. You can turn on content generation to have the collection contents automatically generated, or use the where syntax to get the contents of specific collections to add common content, or devices to your site.
 
 ### Using collections
 
 The examples above were a slight simplification. There's one other step. Before you can use a collection, you need to tell Jekyll about it. Going back to our bakery example above, I might have a `_config.yml` file that looks something like this:
 
-{% highlight yaml %}
+```yaml
 collections:
-  - cupcakes
-  - cookies
-{% endhighlight %}
+
+* cupcakes
+* cookies
+```
 
 This tells Jekyll to look in the `_cupcakes` and `_cookies` folders for documents, and to read them into the appropriate collection, including [YAML front matter](http://jekyllrb.com/docs/frontmatter/), just as it would posts (but again, without the date, because collection documents aren't date specific).
 
 By default, collections are read in (and exposed as `site.[collection]`, an alias per-collection),but not included in the final site; at least not individually like you might expect posts or pages to. If you wanted a page for each type of cupcake, you'd have to modify the `_config.yml` a bit:
 
-{% highlight yaml %}
+```yaml
 collections:
   cupcakes:
     output: true
     permalink: /cupcakes/:path/
-{% endhighlight %}
+```
 
 That way, `_cupcakes/chocolate.md` is outputted as `cupcakes/chocolate/index.html` when the site is built and would be accessible as `example.com/cupcakes/chocolate/`. The other advantage, is, because the data is now structured and machine readable (rather than in plain text), you could also use the `jsonify` filter to output that same information as an API for use elsewhere.
 
@@ -76,7 +78,7 @@ That way, `_cupcakes/chocolate.md` is outputted as `cupcakes/chocolate/index.htm
 
 I like to think the decision looks roughly like this:
 
-~~~
+```
 +-------------------------------------+         +----------------+
 | Can the things be logically grouped?|---No--->|    Use pages   |
 +-------------------------------------+         +----------------+
@@ -94,7 +96,7 @@ I like to think the decision looks roughly like this:
 +-------------------------------------+
 |            Use posts                |
 +-------------------------------------+
-~~~
+```
 
 So if you're not about to open a bakery (if you do, please send cookies); what might you use collections for? In short, any discrete group of "things" that can be logically grouped by a common theme (that's not their date). Here's a few examples:
 

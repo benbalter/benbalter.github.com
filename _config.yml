@@ -100,7 +100,7 @@ branch: master
 
 gems:
   - jemoji
-  - jekyll-mentions
+#  - jekyll-mentions
   - jekyll-redirect-from
   - jekyll-sitemap
   - jekyll-feed
@@ -108,3 +108,11 @@ gems:
 
 sass:
   style: :compressed
+
+kramdown:
+ input: GFM
+ hard_wrap: false
+
+highlighter: rouge
+gist:
+ noscript: false

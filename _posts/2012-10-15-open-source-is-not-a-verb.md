@@ -1,8 +1,8 @@
 ---
 published: true
-title: "Open Source is not a verb"
-description: "Open source, at its core, is actually not about code, but about connecting people around a shared vision to encourage collaborative problem solving."
-author: "Ben Balter"
+title: Open Source is not a verb
+description: 'Open source, at its core, is actually not about code, but about connecting people around a shared vision to encourage collaborative problem solving.'
+author: Ben Balter
 layout: post
 comments: true
 category: Technology
@@ -35,4 +35,4 @@ To say *"hey, we've got something decent here, let's take this closed-sourced pr
 
 All of the above are underlying principles that drive development from day one, and yet not incompatible with a philosophy that dictates code remains under lock and key until a minimum viable product (MVP) has been reached. They do remain incompatible, however, with a philosophy that says that business as usual can be easily switched mid-stream to a successful open source project by simply not keeping the code secret. 
 
-In the end, it's about [developing a community](http://ben.balter.com/open-source-for-government/#open_source_community_building), not about developing software. You're selling an experience — whether it's scratching a developer's personal itch or giving them the opportunity to change the world. Next time you seek to build something useful, unless it's the recipe for your secret sauce or something so specific as to render it worthless outside the organization's walls, consider [making it open source from the start](http://ben.balter.com/2012/06/26/why-you-should-always-write-software-as-open-source/), and instead seeking to grow a vibrant community around a cause, rather than simply coding a piece of software that happens to not be secret.
+In the end, it's about [developing a community](http://ben.balter.com/open-source-for-government/#open_source_community_building), not about developing software. You're selling an experience — whether it's scratching a developer's personal itch or giving them the opportunity to change the world. Next time you seek to build something useful, unless it's the recipe for your secret sauce or something so specific as to render it worthless outside the organization's walls, consider [making it open source from the start](http://ben.balter.com/2012/06/26/why-you-should-always-write-software-as-open-source/), and instead seeking to grow a vibrant community around a cause, rather than simply coding a piece of software that happens to not be secret.

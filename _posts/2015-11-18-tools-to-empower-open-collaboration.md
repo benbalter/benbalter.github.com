@@ -1,6 +1,6 @@
 ---
 title: Four characteristics of modern collaboration tools
-description: Today, open-source-inspired collaboration tools are open, linkable, asynchronous, and naturally capture and expose process. Ask yourself if you're working the way you'd like to work, or just the way everyone else does.
+description: "Today, open-source-inspired collaboration tools are open, linkable, asynchronous, and naturally capture and expose process. Ask yourself if you're working the way you'd like to work, or just the way everyone else does."
 ---
 
 At GitHub, we have a unique way of working. Some might say it's the future of knowledge work, others might say that we picked up a pair of bolt cutters a few years back, and now [everything looks like the lock on Wolf Blitzer's boat house](https://xkcd.com/801/). In reality, it's probably somewhere in between.
@@ -75,19 +75,20 @@ The four qualities above are ideals. In practice, there are a handful of specifi
 
 I began by noting that the phrase "everything should be on GitHub", doesn't necessitate a certain tool, but if you believe working the way described above is valuable, few of today's consumer collaboration tools encourage open source inspired workflows. Let's take a look at a few:
 
-| Tool          | Open               | Captures<br /> Process | Linkable                         | Async              |
-|:--------------|:-------------------|:-----------------------|:---------------------------------|:-------------------|
-| GitHub        | :heavy_check_mark: | :heavy_check_mark:     | :heavy_check_mark:               | :heavy_check_mark: |
-| (Text) Chat   | :heavy_check_mark: | :heavy_check_mark:     | :heavy_check_mark:               | :heavy_check_mark: |
-| Wikis         | :heavy_check_mark: | :heavy_check_mark:     | :heavy_check_mark:               | :heavy_check_mark: |
+| Tool          | Open                 | Captures<br /> Process | Linkable                           | Async                |
+| :------------ | :------------------- | :--------------------- | :--------------------------------- | :------------------- |
+| GitHub        | :heavy_check_mark: | :heavy_check_mark:   | :heavy_check_mark:               | :heavy_check_mark: |
+| (Text) Chat   | :heavy_check_mark: | :heavy_check_mark:   | :heavy_check_mark:               | :heavy_check_mark: |
+| Wikis         | :heavy_check_mark: | :heavy_check_mark:   | :heavy_check_mark:               | :heavy_check_mark: |
 | Blogs         | :heavy_check_mark: | :x:[^git-blog]         | :heavy_check_mark:               | :heavy_check_mark: |
-| Google Docs   | :heavy_check_mark: | :x:[^tracked-changes]  | :x:[^links]                      | :heavy_check_mark: |
-| Microsft Word | :x:[^proprietary]  | :x:[^tracked-changes]  | :x:                              | :heavy_check_mark: |
-| Sharepoint    | :x:[^proprietary]  | :x:[^tracked-changes]  | :x:[^links]                      | :heavy_check_mark: |
-| Email         | :x:[^proprietary]  | :heavy_check_mark:     | :x:                              | :heavy_check_mark: |
-| Box/DropBox   | :x:[^proprietary]  | :x:                    | :heavy_check_mark: [^deep-links] | :heavy_check_mark: |
-| Video chat    | :x:                | :x:                    | :x:[^recordings]                 | :x:[^recordings]   |
-| IRL Meetings  | :x:                | :x:                    | :x:                              | :x:                |
+| Google Docs   | :heavy_check_mark: | :x:[^tracked-changes]  | :x:[^links]                        | :heavy_check_mark: |
+| Microsft Word | :x:[^proprietary]    | :x:[^tracked-changes]  | :x:                                | :heavy_check_mark: |
+| Sharepoint    | :x:[^proprietary]    | :x:[^tracked-changes]  | :x:[^links]                        | :heavy_check_mark: |
+| Email         | :x:[^proprietary]    | :heavy_check_mark:   | :x:                                | :heavy_check_mark: |
+| Box/DropBox   | :x:[^proprietary]    | :x:                    | :heavy_check_mark: [^deep-links] | :heavy_check_mark: |
+| Video chat    | :x:                  | :x:                    | :x:[^recordings]                   | :x:[^recordings]     |
+| IRL Meetings  | :x:                  | :x:                    | :x:                                | :x:                  |
+
 {: .table style="width: 60%; margin-left: auto; margin-right: auto;" }
 
 ### Practicality beats purity

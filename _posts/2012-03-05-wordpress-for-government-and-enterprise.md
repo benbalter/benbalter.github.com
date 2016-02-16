@@ -1,5 +1,5 @@
 ---
-title: 'WordPress for Government - A Problem of Perception'
+title: WordPress for Government - A Problem of Perception
 description: 'Among potential government and enterprise users, WordPress has a perception problem especially when compared to Drupal and other "serious" CMSs.'
 ---
 
@@ -14,30 +14,31 @@ Drupal powers twice as many federal .Govs as every other CMS combined. That's mo
 <div style="float:right; width: 300px; margin-left: 20px; text-align: left;" markdown="1" class="well">
 #### Typical Enterprise Misconceptions
 
-*   WordPress is a blogging platform
-*   WordPress doesn't scale well
-*   Most plugins are written by hobbyists, not professionals
-*   WordPress is less secure
-*   WordPress can't handle complex data types or user roles
-*   There's no enterprise support
-*   There aren't many WordPress developers
-*   No "serious" people use WordPress
-*   The WordPress codebase is immature
-</div>
+* WordPress is a blogging platform
+* WordPress doesn't scale well
+* Most plugins are written by hobbyists, not professionals
+* WordPress is less secure
+* WordPress can't handle complex data types or user roles
+* There's no enterprise support
+* There aren't many WordPress developers
+* No "serious" people use WordPress
+* The WordPress codebase is immature
+  </div>
 
 WordPress's disproportionately low government adoption is arguably the result of a handful of factors. For one, custom post types, the feature that formally graduated WordPress from a mere blogging platform into a full-fledged content management system, has only been around since June of last year. Yet, even among new sites,[^1] the ratio remains somewhat stagnant, if not shrinking, leaving one to believe that the technology has lapped its own already stellar perception.
 
 When you stack the two side by side (or against any other CMS for that matter), WordPress is objectively the prudent choice. On paper, you'd be hard-pressed to make the case for anything else. But, it's not a technical problem. It's a human one. It seems that WordPress's greatest asset – ease of use that has resulted in widespread adoption by a largely non-technical user base – is threatening to become its greatest liability.
 
-Among those empowered to make purchasing decisions, there seems to be a sense that WordPress is what you use on the weekends to post pictures of your lunch while Drupal is what you use for "serious" business, and with good reason. For better or for worse, Drupal has positioned itself as not just a CMS, but rather *the* enterprise solution — an inseparable fifth layer of the increasingly ubiquitous enterprise LAMPD stack.
+Among those empowered to make purchasing decisions, there seems to be a sense that WordPress is what you use on the weekends to post pictures of your lunch while Drupal is what you use for "serious" business, and with good reason. For better or for worse, Drupal has positioned itself as not just a CMS, but rather *the* enterprise solution — an inseparable fifth layer of the increasingly ubiquitous enterprise LAMPD stack.
 
 |                   | Drupal                                     | WordPress                                                  |
-|:------------------|:-------------------------------------------|:-----------------------------------------------------------|
+| :---------------- | :----------------------------------------- | :--------------------------------------------------------- |
 | API Hooks         | 267                                        | [1,506](http://adambrown.info/p/wp_hooks/version/3.2) (5x) |
 | Active Sites      | [533,136](http://drupal.org/project/usage) | [65,052,049](http://en.wordpress.com/stats/) (125x)        |
 | Plugins / Modules | [8,536](http://drupal.org/project/modules) | [16,076](http://wordpress.org/extend/plugins/) (2x)        |
 | Themes            | [893](http://drupal.org/project/themes)    | [1,426](http://wordpress.org/extend/themes/) (1.5x)        |
 | Community[^2]     | 1.5 Million                                |                                                            |
+
 {: .table }
 
 ### **Beyond Cowboy Coders**
@@ -62,7 +63,7 @@ We all know the decision points. Performance and scaling, handing of complex dat
 
 WordPress consultants are great at selling themselves, but rarely does anyone ever sell WordPress. Ask my why an agency or municipality should adopt Sharepoint, and I have page after page of [focus-group tested material tailored to my industry](http://sharepoint.microsoft.com/en-us/product/benefits/Pages/default.aspx). Ask my why anyone should use WordPress, and [I'm pretty much left to fend for myself](http://ben.balter.com/2011/09/01/why-wordpress/). Somewhat counterintuitive in a world of free software, migrating to WordPress comes with significant costs that firms need to take into account, both real and imagined, costs that the technology's ambassadors must actively overcome. Beyond actual development and training costs, there are perceived risks of an immature codebase, insecure plugins, and a general inability to do the job.
 
-One of WordPress's greatest strengths is its tight-nit cadre of dedicated enthusiasts.  Yet it can often be hard for those on the inside to see things as those outside do. Think about those who have not yet tasted just how sweet the punch is. The name WordPress most often makes its way into a CIO's inbox, for example, only when there's been a security breach, not when there's been a feature release. Where other platforms have stagnated, WordPress's "can-do" attitude has forged onward introducing even more one-of-a-kind features, yet all too often they go unnoticed or underappreciated where it matters. Both collectively and individually, for WordPress to gain the respect of "the man," we must seek to broadcast its excellence. Now is not the time for humility.
+One of WordPress's greatest strengths is its tight-nit cadre of dedicated enthusiasts. Yet it can often be hard for those on the inside to see things as those outside do. Think about those who have not yet tasted just how sweet the punch is. The name WordPress most often makes its way into a CIO's inbox, for example, only when there's been a security breach, not when there's been a feature release. Where other platforms have stagnated, WordPress's "can-do" attitude has forged onward introducing even more one-of-a-kind features, yet all too often they go unnoticed or underappreciated where it matters. Both collectively and individually, for WordPress to gain the respect of "the man," we must seek to broadcast its excellence. Now is not the time for humility.
 
 ### 4. Build Serious Features for Serious Users
 
@@ -80,13 +81,10 @@ WordPress and government just make sense. As public institutions both large and 
 
 Whether WordPress is your primary source of income, a hobby, or just the thing that powers your personal site, we all have a stake in WordPress's future. It is paramount that the community stays true to its scrappy roots. After all, there's no sense selling the couch to buy a new TV. Yet, in order to be taken seriously by the public sector as a platform for more than simply sharing photos of kitten and chronicling teenage angst, we must first take ourselves seriously, and take baby steps to bring government adoption in line with the WordPress community's otherwise unparalleled and well-deserved success.
 
-[^1]: **Update (3/7):** As many have pointed out, a lot of the misinformation may also be traced back to somewhat of a *decision lag*. Custom post types, custom taxonomies, and WordPress multisite — three key features that although minor from a technical standpoint, really served as the fundamental shift to transition the platform from *blog+* to *full-fledged CMS* — came about only three major versions ago (WordPress 3.0). While eighteen months may be an eternity for the vast majority of the technology sector (the iPad 1 had just barely launched eighteen months ago for comparison), in the Government space, [procurement regulations dictate that such lag times are all but the norm](http://ben.balter.com/2011/11/29/towards-a-more-agile-government/). As a result, in an already risk-averse contracting environment, we may actually be seeing numbers that more accurately reflect say, WordPress 2.9's reception in the Government sector — a snapshot of when an agency chose a CMS at the onset of a multi-year procurement — rather than those that accurately reflect its technical capabilities today.
+[^1]: **Update (3/7):** As many have pointed out, a lot of the misinformation may also be traced back to somewhat of a *decision lag*. Custom post types, custom taxonomies, and WordPress multisite — three key features that although minor from a technical standpoint, really served as the fundamental shift to transition the platform from *blog+* to *full-fledged CMS* — came about only three major versions ago (WordPress 3.0). While eighteen months may be an eternity for the vast majority of the technology sector (the iPad 1 had just barely launched eighteen months ago for comparison), in the Government space, [procurement regulations dictate that such lag times are all but the norm](http://ben.balter.com/2011/11/29/towards-a-more-agile-government/). As a result, in an already risk-averse contracting environment, we may actually be seeing numbers that more accurately reflect say, WordPress 2.9's reception in the Government sector — a snapshot of when an agency chose a CMS at the onset of a multi-year procurement — rather than those that accurately reflect its technical capabilities today.
+
 [^2]: Jen Lampton, "Why WordPress is Better than Drupal, Developers Take Note" (July, 2010)
+
 [^3]: **Update (3/8):** The features page is part of a community edited Wiki (the WordPress Codex) and since originally posted, I've gone through and reworked much of the blog-specific language. [View the original](http://codex.wordpress.org/index.php?title=WordPress_Features&oldid=113531).
 
-[6]: #note-2020-1 "Update (3/7): As many have pointed out, a lot of the misinformation may also be traced back to somewhat of a decision lag. Custom post types, custom taxonomies, and WordPress multisite — three key features that although minor from a technical standpoint, really served as the fundamental shift to transition the platform from blog+ to full-fledged CMS — came about only three major versions ago (WordPress 3.0). While eighteen months may be an eternity for the vast majority of the technology sector (the iPad 1 had just barely launched eighteen months ago for comparison), in the Government space, procurement regulations dictate that such lag times are all but the norm. As a result, in an already risk-averse contracting environment, we may actually be seeing numbers that more accurately reflect say, WordPress 2.9′s reception in the Government sector — a snapshot of when an agency chose a CMS at the onset of a multi-year procurement — rather than those that accurately reflect its technical capabilities today."
-[15]: #note-2020-2 "Jen Lampton, "Why WordPress is Better than Drupal, Developers Take Note" (July, 2010)"
-[21]: #note-2020-3 "Update (3/8): The features page is part of a community edited Wiki (the WordPress Codex) and since originally posted, I've gone through and reworked much of the blog-specific language. View the original."
-[28]: http://ben.balter.com/wp-content/uploads/2012/03/q-cover-issue01-300x387.jpeg
-[29]: http://wpcandy.com/announces/quarterly-issue-one-ships
-[30]: http://wpcandy.com/quarterly
+[15]&#x3A; #note-2020–2 "Jen Lampton, "Why WordPress is Better than Drupal, Developers Take Note" (July, 2010)"

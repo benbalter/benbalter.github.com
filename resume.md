@@ -1,11 +1,10 @@
 ---
 author: Benjamin J. Balter
 title: Resume
-excerpt: Ben Balter is a gov 2.0 evangelist working to hack federal government from the inside out, an open-source developer passionate about the disruptive power of technology, and a J.D./M.B.A. candidate at the George Washington University.
+excerpt: 'Ben Balter is a gov 2.0 evangelist working to hack federal government from the inside out, an open-source developer passionate about the disruptive power of technology, and a J.D./M.B.A. candidate at the George Washington University.'
 layout: page
 permalink: /resume/
 id: /resume
-
 ---
 
 ### Experience
@@ -14,7 +13,7 @@ id: /resume
 
 ##### Government Evangelist
 
-March 2013 — Present
+March 2013 — Present
 {: .date}
 
 ###### Open source outreach
@@ -51,7 +50,7 @@ July 2012 — January 2013
 
 ##### Fellow, Office of the US Chief Information Officer
 
-January 2012 — August 2012
+January 2012 — August 2012
 {: .date}
 
 * Assisted with drafting, stakeholder outreach, and coordination of the release of [the President’s Digital Government Strategy](http://www.whitehouse.gov/sites/default/files/omb/egov/digital-government/digital-government.html), a fundamental reimagination of the role of technology in the public sector
@@ -60,9 +59,9 @@ January 2012 — August 2012
 * Prepared US Chief Information Officer for public appearances including speech writing, messaging, and creation of multiple HTML5-based presentations
 * Developed technical roadmap, prototyped, and implemented [first-of-its-kind mechanism](https://github.com/GSA/digital-strategy) for agencies to report progress on the Digital Government Strategy
 
-##### SoftWare Automation &#038; Technology (SWAT) Team, Office of Administration
+##### SoftWare Automation & Technology (SWAT) Team, Office of Administration
 
-September 2011 — January 2012
+September 2011 — January 2012
 {: .date}
 
 * Created enterprise business solutions to automate and streamline business processes in support of the President of the United States as part of the White House’s first-ever agile software development team.
@@ -75,12 +74,12 @@ September 2011 — January 2012
 
 ##### New Media Fellow, Office of the Managing Director
 
-May 2010 — January 2012
+May 2010 — January 2012
 {: .date}
 
 * Negotiated agency-wide, federal service agreements with the web's top service providers including FISMA-compliant cloud hosting, social media, data manipulation, source code collaboration, and geospacial firms.
 * Drafted website privacy policy, comment moderation policy, third-party privacy notices, and API terms of service for agency’s reimagined web presence.
-* Created legal and technical roadmaps to ensure compliance of new media platforms with White House Office of Management and Budget memorandums M-10-22 and M-10-23 governing federal agencies' use of website tracking technologies and third-party services.
+* Created legal and technical roadmaps to ensure compliance of new media platforms with White House Office of Management and Budget memorandums M-10–22 and M-10–23 governing federal agencies' use of website tracking technologies and third-party services.
 * Supported New Media Team’s procurement efforts, including scope of work, impact statement, and limited source justification drafting.
 * Received Superior Achievement Award for customer service, quality performance, and overall contribution to the agency mission.
 * Led adoption, implementation, and analysis of Google Analytics website visitor tracking statistics.
@@ -102,12 +101,12 @@ May 2013
 
 #### The George Washington University School of Business
 
-##### Master of Business Administration — Strategic Management and Public Policy
+##### Master of Business Administration — Strategic Management and Public Policy
 
 May 2013
 {: .date}
 
-* International residency, Stockholm, Sweden — consultancy for Swedish green-technology firm seeking to bring environmentally friendly biofuel pumps to US market; created market-entry plan, including analysis of regulatory framework and licensing considerations.
+* International residency, Stockholm, Sweden — consultancy for Swedish green-technology firm seeking to bring environmentally friendly biofuel pumps to US market; created market-entry plan, including analysis of regulatory framework and licensing considerations.
 
 #### The George Washington University
 
@@ -120,7 +119,7 @@ May 2009
 
 #### Web Development and Management
 
-* Expertise in modern web development methods — HTML5, CSS, CoffeeScript (Javascript), Rails (Ruby), relational databases (MySQL), PHP, version control (Git) — enterprise system architecture; application programing interfaces (APIs); WordPress management, development, and integration; and Unix system administration.
+* Expertise in modern web development methods — HTML5, CSS, CoffeeScript (Javascript), Rails (Ruby), relational databases (MySQL), PHP, version control (Git) — enterprise system architecture; application programing interfaces (APIs); WordPress management, development, and integration; and Unix system administration.
 * Lead development of six active open-source projects with more than 60,000 downloads to date.
 
 #### Speaking Experience

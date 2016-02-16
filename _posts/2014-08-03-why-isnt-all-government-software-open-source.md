@@ -1,9 +1,9 @@
 ---
 title: "Why isn't all government software open source?"
-description: "Taxpayer funded code is often not open source because government prefers closed platforms, is inexperienced with open source workflows and culture, and creates software as part of a predominantly closed-source supply-chain."
+description: 'Taxpayer funded code is often not open source because government prefers closed platforms, is inexperienced with open source workflows and culture, and creates software as part of a predominantly closed-source supply-chain.'
 ---
 
-The federal government is the single largest purchaser of code in the world. So why is this code — taxpayer-funded and integral to the day-to-day working of our democracy — so often hidden from public view? There are two sides to answering that question: Why does the government so often build on closed platforms, and once built, why isn't the code released to the public?
+The federal government is the single largest purchaser of code in the world. So why is this code — taxpayer-funded and integral to the day-to-day working of our democracy — so often hidden from public view? There are two sides to answering that question: Why does the government so often build on closed platforms, and once built, why isn't the code released to the public?
 
 ## Using open source
 
@@ -11,7 +11,7 @@ It's a lot easier to contribute to open source when you're building on an open p
 
 ### The demand for "enterprise" solutions
 
-There's a good deal of FUD — fear, uncertainty, and doubt — in government CIO shops that open source is less secure, buggy, or more costly, and that you'll be in for a lifetime of pain if you don't invest in a real "enterprise solution". For one, if an agency writes a check to a software vendor, they know what they're getting. The contract spells out features, upgrade schedules, and allocates liability in the event that something goes wrong. More importantly, the vendor provides a phone number that the agency can call if they need help. "Post in the support forums and someone will reply" can be a scary proposition for a CIO.
+There's a good deal of FUD — fear, uncertainty, and doubt — in government CIO shops that open source is less secure, buggy, or more costly, and that you'll be in for a lifetime of pain if you don't invest in a real "enterprise solution". For one, if an agency writes a check to a software vendor, they know what they're getting. The contract spells out features, upgrade schedules, and allocates liability in the event that something goes wrong. More importantly, the vendor provides a phone number that the agency can call if they need help. "Post in the support forums and someone will reply" can be a scary proposition for a CIO.
 
 ### There are fewer suits behind open source
 
@@ -29,7 +29,7 @@ With the exception of [18F](https://18f.gsa.gov), [CFPB](http://cfpb.github.io),
 
 ### Closed source workflows
 
-In terms of the actual software development mechanics, the contract likely calls for a throw-it-over-the-fence workflow, where the agency doesn't even see the code until it's already in production, if at all — a long way from open source. Even if asked, the contractors may not have experience with more modern, open source workflows, or with participating in the open source community, creating a bad experience for all involved and further chilling open source efforts across government.
+In terms of the actual software development mechanics, the contract likely calls for a throw-it-over-the-fence workflow, where the agency doesn't even see the code until it's already in production, if at all — a long way from open source. Even if asked, the contractors may not have experience with more modern, open source workflows, or with participating in the open source community, creating a bad experience for all involved and further chilling open source efforts across government.
 
 ### Reinventing the wheel as a business model
 
@@ -57,7 +57,7 @@ To flip the default, three things needs to change:
 
 * Second, even when the agency doesn't explicitly call for it, as subject matter experts, government contractors have a duty to explore open source alternatives and to educate the market as to modern industry standard development practices. Any casual observer can see the direction the market's heading, and the smart firms have an opportunity to get in front of it. Create internal competencies around today's hottest technologies and grow government demand. Make it more practical for government to do the right thing, rather than the thing it's always done.
 
-* Last, the open source community needs to step up its game, both in terms of what it offers — moving past the perception that open source is written by hobbyists — and the reception government code receives. On the supply side, there's a tremendous business model in being the suits behind any one of the Internet's most popular open source projects — Automattic, GitHub, and Red Hat being a few examples — combating the FUD and providing "enterprise" support. On the demand side, the community needs to make it a liability *not* to release code ("what are you hiding?"), and make the agency's return on investment clear, by breaking down the "us vs. them" mentality, and supporting, not criticizing, government efforts to learn open source.
+* Last, the open source community needs to step up its game, both in terms of what it offers — moving past the perception that open source is written by hobbyists — and the reception government code receives. On the supply side, there's a tremendous business model in being the suits behind any one of the Internet's most popular open source projects — Automattic, GitHub, and Red Hat being a few examples — combating the FUD and providing "enterprise" support. On the demand side, the community needs to make it a liability *not* to release code ("what are you hiding?"), and make the agency's return on investment clear, by breaking down the "us vs. them" mentality, and supporting, not criticizing, government efforts to learn open source.
 
 Why isn't all government software open source? Because you've got an entire value chain designed to produce closed source software, a system at equilibrium, with few incentives to rethink itself. Technology has made collaborating in the open easier in recent years, and as a result, the open source ecosystem has exploded. Yet, like all technology, government is still a few years behind mainstream adopters.
 
