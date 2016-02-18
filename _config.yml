@@ -100,11 +100,12 @@ branch: master
 
 gems:
   - jemoji
-#  - jekyll-mentions
+  - jekyll-mentions
   - jekyll-redirect-from
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-avatar
 
 sass:
   style: :compressed
