@@ -2,13 +2,12 @@
 
 # Basics
 name: Ben Balter
-author: Ben Balter
 title: Ben Balter
 description: "Attorney, developer, open source evangelist"
+author: benbalter
 
 # Images
 gravatar_id: ea353bd28baa1aefaefae736a19fcf2a
-logo: assets/img/headshot.png
 
 # RDFa structured data
 job_title: Open source Evangelist
