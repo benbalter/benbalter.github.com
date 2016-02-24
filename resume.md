@@ -11,9 +11,14 @@ id: /resume
 
 #### GitHub
 
+##### Product Manager
+
+March 2016 — Present
+{: .date}
+
 ##### Government Evangelist
 
-March 2013 — Present
+March 2013 — March 2016
 {: .date}
 
 ###### Open source outreach
