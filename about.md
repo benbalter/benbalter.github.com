@@ -6,6 +6,8 @@ permalink: /about/
 published: true
 id: /about
 icons: true
+seo:
+  type: person
 ---
 
 <div class="alignright">{% avatar benbalter size=250 %}</div>
