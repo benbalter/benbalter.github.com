@@ -89,7 +89,7 @@ Whether a federal contracting officer or a provider of IT services, just as the 
 
 [^11]: *Id.*
 
-[^12]: Peter Mell and Tim Grance, *Definition of Cloud Computing*, National Institute of Standards and Technology, Information Technology Laboratory, October 7, 2009, <http://csrc.nist.gov/groups/SNS/cloud-computing/cloud-def-v15.doc>.
+[^12]: Peter Mell and Tim Grance, *Definition of Cloud Computing*, National Institute of Standards and Technology, Information Technology Laboratory, October 7, 2009, <http://www.nist.gov/itl/cloud/upload/cloud-def-v15.pdf>.
 
 [^13]: Lefkowitz, Boston B.J., Summer 2010, at 9.
 
@@ -103,9 +103,9 @@ Whether a federal contracting officer or a provider of IT services, just as the 
 
 [^18]: Newton, 73 Tex. B.J. 632.
 
-[^19]: Cloud IT Services, Apps.Gov, <https://www.apps.gov/cloud/advantage/cloud/category_home.do> (last visited October 5, 2010).
+[^19]: Cloud IT Services, Apps.Gov
 
-[^20]: Apps.Gov Now, General Services Administration, <http://citizen.apps.gov/> (last visited October 12, 2015).
+[^20]: Apps.Gov Now, General Services Administration
 
 [^21]: Cloud Services, Federal Business Opportunities, <https://www.fbo.gov/index?s=opportunity&mode=form&id=d63c725d5a3006919289698350e3d4b3&tab=core&_cview=1> (last visited October 5, 2010); J. Nicholas Hoover, *Recovert.Gov Moved to Amazon Cloud*, Information Week, May 12, 2010, <http://www.informationweek.com/news/government/cloud-saas/showArticle.jhtml?articleID=224701861>.
 

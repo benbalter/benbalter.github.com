@@ -135,7 +135,7 @@ OMB should create guidance to decouple the various components that make up an in
 
  Congress has imposed on federal executive agencies an onerous system to ensure information security benchmarks are met. Despite OMBs best efforts, however, compliance is low, and successful attacks continue. Agencies are finding it difficult to complete the myriad requirements that become increasingly ambiguous in sight of an ever-changing technology landscape. This may be due, at least in part, to an indifference endemic of both agency implementers and the public. Such requirements, however, do not come without a cost. FISMA creates significant administrative overhead for agencies looking to innovate, and in many cases, may do so to such an extent so as to retard or otherwise prevent adoption. As a result, some argue, that by inhibiting such innovation, todays federal security policies simply secure nothing more than the status quo. As communications technology becomes increasingly consumerized, the opportunity for federal agencies to do more with less, and to streamline the delivery of, or expand into new citizen services has never been more apparent. Yet at the same time, public sector adoption is increasingly falling behind private sector counterparts. Instead, OMB should seek to incentivize those agencies that best secure federal information assets and seek out innovative, secure solutions to transacting the nations business. Existing requirements can be streamlined, such as breaking security analyses into the disparate technology components they represent, and allowing such modules of certification to be shared among systems and agencies. Finally, a formal grace period, for low risk, high impact, citizen-facing systems can usher in a new era of transparency and collaborative democracy yet unimagined. Our nations information is one of its chief resources, and great care should be taken to secure it, just as we secure our territories and tangible interests. Such security, however, and the overhead required to implement it, should be proportionate to the risk involved, and should secure the information systems of tomorrow, not simple the status quo.
 
-[^1]: Ctr. for Strategic & Int’l Studies, Securing Cyberspace for the 44th Presidency 56 (2008), available at <http://bit.ly/UvUVew>
+[^1]: Ctr. for Strategic & Int’l Studies, Securing Cyberspace for the 44th Presidency 56 (2008), available at <https://csis.org/files/media/csis/pubs/081208_securingcyberspace_44.pdf>
 
 [^2]: Chief Financial Officers Act of 1990, Pub.L. 101–576, Nov. 15, 1990, 104 Stat. 2838.
 
@@ -145,7 +145,7 @@ OMB should create guidance to decouple the various components that make up an in
 
 [^5]: Cybersecurity: Next Steps To Protect Our Critical Infrastructure: Hearing Before the S. Comm. on Commerce, Science & Transportation, 111th Cong. (Feb. 23, 2010) (statement of Sen. Rockefeller) (A major cyberattack could shut down our nation’s most critical infrastructure….), <http://1.usa.gov/TLlgEh>; Senate Comm. on Commerce, Science & Transportation, Press Release, Rockefeller and Snowe Gain Momentum for Landmark Cybersecurity Act (Mar. 24, 2010) (statement of Sen. Snowe) (cyber intrusions and attacks represent both a potential national security and economic catastrophe), <http://1.usa.gov/VXWVx0>.
 
-[^6]: Marshall, Panetta Discusses Security Challenges in Stratcom Visit, American Forces Press Service, Aug. 5, 2011, <http://1.usa.gov/pF6Fqx>.
+[^6]: Marshall, Panetta Discusses Security Challenges in Stratcom Visit, American Forces Press Service, Aug. 5, 2011, <http://archive.defense.gov/news/newsarticle.aspx?id=64946>.
 
 [^7]: Rethinking Fisma and Federal Information Security Policy, 81 N.Y.U. L. Rev. 1844, 1846 (2006), citing Catriona Davies, US Army Computers Shut Down by Hacker, Daily Telegraph (London), July 28, 2005, at 11 (internal quotation marks omitted).
 
@@ -221,7 +221,7 @@ OMB should create guidance to decouple the various components that make up an in
 
 [^43]: Daniel M. White, The Federal Information Security Management Act of 2002: A Potemkin Village, 79 Fordham L. Rev. 369, 372 (2010) (internal citations omitted).
 
-[^44]: See Wm. Arthur Conklin, Why FISMA Falls Short: The Need for Security Metrics, 41 Wireless Internet S. Provider Proc. 1, 1–8 (2008), <http://bit.ly/TMqEqM>; *see also* Agencies in Peril: Are We Doing Enough to Protect Federal IT and Secure Sensitive Information?: Hearing Before the S. Subcomm. on Fed. Fin. Mgmt., Gov’t, Info., Fed. Servs., and Int’l Sec., 110th Cong. 1 (2008) at 2–6 (statement of Tim Bennett, President of Cyber Security Industry Alliance) (identifying general flaws in FISMA reporting); Angela Gunn, Fed Having Fits over FISMA and Cybersecurity, Betanews (Dec. 12, 2008), <http://bit.ly/X16RFd>. *See* *generally* Daniel M. White, The Federal Information Security Management Act of 2002: A Potemkin Village, 79 Fordham L. Rev. 369, 380 (2010).
+[^44]: See Wm. Arthur Conklin, Why FISMA Falls Short: The Need for Security Metrics, 41 Wireless Internet S. Provider Proc. 1, 1–8 (2008); *see also* Agencies in Peril: Are We Doing Enough to Protect Federal IT and Secure Sensitive Information?: Hearing Before the S. Subcomm. on Fed. Fin. Mgmt., Gov’t, Info., Fed. Servs., and Int’l Sec., 110th Cong. 1 (2008) at 2–6 (statement of Tim Bennett, President of Cyber Security Industry Alliance) (identifying general flaws in FISMA reporting); Angela Gunn, Fed Having Fits over FISMA and Cybersecurity, Betanews (Dec. 12, 2008), <http://bit.ly/X16RFd>. *See* *generally* Daniel M. White, The Federal Information Security Management Act of 2002: A Potemkin Village, 79 Fordham L. Rev. 369, 380 (2010).
 
 [^45]: *Id.*
 
@@ -233,7 +233,7 @@ OMB should create guidance to decouple the various components that make up an in
 
 [^49]: *Id.* at 381.
 
-[^50]: Gregg Carlstrom, Net Attacks Triple in 2 Years, Fed. Times (Aug. 3, 2009), <http://bit.ly/RluFaf>. (a conservative estimated since many agencies under report by as much as 50%, and since the statistic excludes the Department of Defense which receives millions of scans and probes each year.); *See also *Conklin, 41 Wireless Internet S. Provider Proc. 1 (The recent spate of highly publicized information security failures in Federal agencies highlight the limitations of the current FISMA based approach…. The fact that … some agencies have not had an information security failure\[s may be due to] lack of knowledge.). *See generally id. *at 382.
+[^50]: Gregg Carlstrom, Net Attacks Triple in 2 Years, Fed. Times (Aug. 3, 2009). (a conservative estimated since many agencies under report by as much as 50%, and since the statistic excludes the Department of Defense which receives millions of scans and probes each year.); *See also *Conklin, 41 Wireless Internet S. Provider Proc. 1 (The recent spate of highly publicized information security failures in Federal agencies highlight the limitations of the current FISMA based approach…. The fact that … some agencies have not had an information security failure\[s may be due to] lack of knowledge.). *See generally id. *at 382.
 
 [^51]: Kevin R. Pinkney, Putting Blame Where Blame Is Due: Software Manufacturer and Customer Liability for Security-Related Software Failure, 13 Alb. L.J. Sci. & Tech. 43, 66 (2002).
 
@@ -247,7 +247,7 @@ OMB should create guidance to decouple the various components that make up an in
 
 [^56]: Information Sharing in the Era of WikiLeaks: Balancing Security and Collaboration: Hearing Before the S. Comm. on Homeland Security & Government Affairs, 112th Cong. (Mar. 10, 2011) (statement of Sen. Collins), <http://1.usa.gov/TMnAuL>.
 
-[^57]: Kime, DOD Hit With Lawsuit Over Lost Tricare Data, ArmyTimes, Oct. 13, 2011, <http://bit.ly/ro8C2E>.
+[^57]: Kime, DOD Hit With Lawsuit Over Lost Tricare Data, ArmyTimes, Oct. 13, 2011.
 
 [^58]: S. Rep. No. 111–110, at 3 (Dec. 17, 2009).
 
@@ -283,7 +283,7 @@ OMB should create guidance to decouple the various components that make up an in
 
 [^74]: *Id*. at 1853.
 
-[^75]: NetIQ, NetIQ FISMA Compliance & Risk Management Solutions 2 (2005), available at <http://bit.ly/UyC9TJ>. *See generally* White, 79 Fordham L. Rev. 369, 405.
+[^75]: NetIQ, NetIQ FISMA Compliance & Risk Management Solutions 2 (2005), available at <http://www.fedtek.com/wp-content/uploads/2010/05/fisma_broch.pdf>. *See generally* White, 79 Fordham L. Rev. 369, 405.
 
 [^76]: Silvers, 81 N.Y.U. L. Rev. 1844, 1859–60 (citing L.L. Cummings & Donald P. Schwab, Performance in Organizations: Determinants and Appraisals 90–101 (1973)).
 

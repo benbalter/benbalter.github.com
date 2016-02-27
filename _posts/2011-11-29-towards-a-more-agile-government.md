@@ -299,7 +299,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^2]: Jay P. Kesan & Rajiv C. Shah, *Shaping Code*, 18 Harv. J.L. & Tech. 319, 373 (2005).
 
-[^3]: *Trends*, IT Dashboard, <http://www.itdashboard.gov/export/trends_report> (last visited Sept. 6, 2011).
+[^3]: *Trends*, IT Dashboard, <http://www.itdashboard.gov/> (last visited Sept. 6, 2011).
 
 [^4]: *Id.*
 
@@ -389,7 +389,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^47]: Szalvay, *supra* note 6,\* *at 1–3; Course Manual, *supra\* note 28, at 33. Such an approach makes sense when it is traced backed to its traditional roots. Engineers building bridges rely on well-established laws of physics supported by the fundamentals of mathematics, two sciences that are rigidly defined and easily relied upon. Software development, on the other hand, is not bound by the rules of the physical world. Gravity, an assumed constant in engineering, has relatively little relevance to programming.
 
-[^48]: *See* Mark Leicester, *Government Projects the Agile Way: Can It Be Done?*, St. Services Commission (Apr. 16, 2009), <http://www.ssc.govt.nz/blog/government-projects-agile-way-can-it-be-done>.
+[^48]: *See* Mark Leicester, *Government Projects the Agile Way: Can It Be Done?*, St. Services Commission (Apr. 16, 2009).
 
 [^49]: Modular Contracting White Paper, *supra* note 41, at 7; Cao & Ramesh, *supra* note 28, at 63. *See Further Details on Modular Contracting Left for Public Meeting–Proposed Rule Adds Little to Clinger-Cohen Act*, 39 Gov't Contractor ¶ 161, Apr. 2, 1997 \[hereinafter *Further Details*].
 
