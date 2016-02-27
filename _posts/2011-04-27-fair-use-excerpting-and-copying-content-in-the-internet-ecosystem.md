@@ -77,5 +77,3 @@ The law aside, readers want you to digest and put ideas in your own voice. Take 
 [^9]: Harper Row, Publishers, Inc. v. Nation Enters., 471 U.S. 539, 565 (1985)
 
 [^10]: Sony Corporation of America v. Universal City Studios, Inc., 464 U.S. 417, 433 (1984).
-
-[18]: #note-2020-8 "Id. at 580-81"
