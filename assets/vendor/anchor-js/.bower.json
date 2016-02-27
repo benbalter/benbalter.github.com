@@ -22,6 +22,6 @@
     "commit": "7e872444a896df128d351b887c25f7b24ba33c4d"
   },
   "_source": "git://github.com/bryanbraun/anchorjs.git",
-  "_target": "3.1.0",
+  "_target": "*",
   "_originalSource": "anchor-js"
 }

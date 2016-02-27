@@ -15,7 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "anchor-js": "3.1.0",
+    "anchor-js": "*",
     "bootstrap-sass": "*",
     "font-awesome": "*"
   }
