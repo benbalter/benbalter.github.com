@@ -1,4 +1,0 @@
-#!/bin/sh
-#Generate Pygments highlighting sass
-
-pygmentize -f html -S default -a ".highlight" | sass-convert -s -F css -T scss > _sass/_pygments.scss

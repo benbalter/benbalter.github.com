@@ -1,0 +1,4 @@
+#!/bin/sh
+#Generate Pygments highlighting sass
+
+rougify style github | sass-convert --stdin --from css --to scss > _sass/_highlighting.scss
