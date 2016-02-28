@@ -56,9 +56,8 @@ The examples above were a slight simplification. There's one other step. Before 
 
 ```yaml
 collections:
-
-* cupcakes
-* cookies
+  - cupcakes
+  - cookies
 ```
 
 This tells Jekyll to look in the `_cupcakes` and `_cookies` folders for documents, and to read them into the appropriate collection, including [YAML front matter](http://jekyllrb.com/docs/frontmatter/), just as it would posts (but again, without the date, because collection documents aren't date specific).
@@ -107,8 +106,8 @@ So if you're not about to open a bakery (if you do, please send cookies); what m
 * Recipes on your personal blog (or restaurant reviews, or dishes on a menu)
 * Students in a class (or courses being offered, or listing the faculty)
 * Cheats, tips, tricks and walkthroughs for games (by platform)
-* And honestly just about anything else
 * Creating re-usable content snippets for your site such as testimonials, forms, sentences, buzz-words or call-outs
+* And honestly just about anything else
 
 Collections are a powerful (and often misunderstood) Jekyll feature, but hopefully you've now got an idea or two for your next Jekyll project. Of course, if you're looking to dig in to collections, be sure to check out [the formal documentation](http://jekyllrb.com/docs/collections/) for a much more in-depth explanation.
 
