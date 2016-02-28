@@ -1,28 +1,10 @@
 ---
-
 title: Analysis of Federal Executive .Govs
-
-
-categories:
-  - Technology
-tags:
-  - .govs
-  - cloud computing
-  - code
-  - drupal
-  - fcc
-  - federal
-  - gov 2.0
-  - government
-  - open government
-  - open source
-  - procurement
-  - wordpress
 ---
 
 The White House's Office of Management and Budget recently released a [list of all domains](https://explore.data.gov/Federal-Government-Finances-and-Employment/Federal-Executive-Branch-Internet-Domains/ymya-7799/widget_preview?width=500&height=425&variation=md55-89i9) owned and operated by federal executive agencies. Leveraging a previous tool I had built called [Site Inspector](https://github.com/benbalter/Site-Inspector) which provides information about a domain and its technical capabilities, I imported the list into the content management system WordPress, and created a plugin called [Domain Inventory](https://github.com/benbalter/Domain-Inventory)to scan each domain and curate the results. A summary of my preliminary results appears below, as well as a link to the browsable dataset.
 
-**The project tracks each Federal Executive .Gov by:**
+### The project tracks each Federal Executive .Gov by
 
 * **Agency** (as provided in the data.gov list)
 * **Server status** (response code, if it is reachable, etc.)
@@ -35,7 +17,7 @@ The White House's Office of Management and Budget recently released a [list of a
 * **Script Library** (do they use common javascript libraries)
 * **HTTPs Support** (is the site browsable via the secure HTTPS protocol)
 
-**Key Highlights of the Preliminary Results:**
+### Key Highlights of the Preliminary Results
 
 * Only 73% of domains are live and in use
 * *Of live domains* 80% are accessible without typing the www. prefix.

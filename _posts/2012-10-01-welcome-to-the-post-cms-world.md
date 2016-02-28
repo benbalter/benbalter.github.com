@@ -33,7 +33,7 @@ The CMS is dead. Long live the CMS.
 
 ### The Results
 
-**WARNING: Geek Content!**
+*WARNING: Geek Content!*
 
 **Edit (Feb 2014):** With the [recent improvements to GitHub Pages](https://github.com/blog/1715-faster-more-awesome-github-pages), I wanted to give the benchmark another go. Turns out the transaction rate has essentially doubled since my original test, and could be even higher if the benchmark hadn't been rate-limited by GitHub's automatic denial of service mitigation:
 
