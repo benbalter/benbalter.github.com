@@ -56,9 +56,8 @@ The examples above were a slight simplification. There's one other step. Before 
 
 ```yaml
 collections:
-
-* cupcakes
-* cookies
+  - cupcakes
+  - cookies
 ```
 
 This tells Jekyll to look in the `_cupcakes` and `_cookies` folders for documents, and to read them into the appropriate collection, including [YAML front matter](http://jekyllrb.com/docs/frontmatter/), just as it would posts (but again, without the date, because collection documents aren't date specific).
