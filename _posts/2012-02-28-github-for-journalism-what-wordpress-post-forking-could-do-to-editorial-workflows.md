@@ -1,23 +1,5 @@
 ---
-author: Ben Balter
-title: >
-  GitHub for Journalism — What WordPress Post Forking could do to Editorial
-  Workflows
-excerpt: null
-layout: post
-categories:
-  - Technology
-tags:
-  - code
-  - collaboration
-  - github
-  - gsoc
-  - journalism
-  - open source
-  - plugin
-  - wordpress
-  - workflow
-post_format: []
+title: GitHub for Journalism — What WordPress Post Forking could do to Editorial Workflows
 ---
 
 Wired Magazine recently took a turn for the meta. In addition to publishing their recent story featuring the popular version control site GitHub on Wired.com as they would normally, they also [published it on GitHub itself under a creative commons license](https://github.com/WiredEnterprise/Lord-of-the-Files), allowing readers to fork and contribute to the story as they saw fit. In [reflecting after the fact](http://www.wired.com/wiredenterprise/2012/02/github-revisited/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+wired%2Findex+%28Wired%3A+Index+3+%28Top+Stories+2%29%29), the Wired team said something that stood out to me:
@@ -55,6 +37,7 @@ In a nutshell:
 * Using WordPress's pending-review system, integrates with existing plugins for notifications, management, etc.
 * Ability to store "commit messages" with each post revision to explain to others what changes were made and why
 * Automatically merges (non-conflicted) changes (based on existing diff engine)
+
   1. One sided changes – one overwrites the other
   2. Two sided non-conflict changes – automatically merge
   3. Conflicted changes – note conflicts in fork and prepare for re-merge

@@ -1,9 +1,9 @@
 ---
-author: Ben Balter
+
 title: |
   Enterprise Open Source Usage Is Up, But Challenges Remain
-excerpt: null
-layout: post
+
+
 categories:
   - Technology
 tags:

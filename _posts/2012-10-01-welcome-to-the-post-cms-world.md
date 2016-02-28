@@ -1,12 +1,6 @@
 ---
-published: true
 title: Welcome to the Post-CMS World
 description: 'Jekyll (and other static-sites) lead to simple, flexible, and reliable websites that allow for a renewed focus on what actually matters: the content.'
-author: Ben Balter
-layout: post
-comments: true
-category: Technology
-tags: WordPress Jekyll GitHub benchmarking benchmarks
 ---
 
 You may notice things are bit snappier around here these days, having [recently converted](https://github.com/benbalter/wordpress-to-jekyll-exporter) the site from WordPress, to [Jekyll](https://github.com/mojombo/jekyll).[^4]
@@ -46,18 +40,18 @@ The CMS is dead. Long live the CMS.
 Command: `siege -c 20 -t 30S -b ben.balter.com`
 
 ```
-Transactions:		        3600 hits
-Availability:		      100.00 %
-Elapsed time:		       29.91 secs
-Data transferred:	       19.12 MB
-Response time:		        0.13 secs
-Transaction rate:	      120.36 trans/sec
-Throughput:		        0.64 MB/sec
-Concurrency:		       16.03
+Transactions:            3600 hits
+Availability:          100.00 %
+Elapsed time:           29.91 secs
+Data transferred:         19.12 MB
+Response time:            0.13 secs
+Transaction rate:        120.36 trans/sec
+Throughput:            0.64 MB/sec
+Concurrency:           16.03
 Successful transactions:        3600
-Failed transactions:	           0
-Longest transaction:	        4.28
-Shortest transaction:	        0.04
+Failed transactions:             0
+Longest transaction:          4.28
+Shortest transaction:          0.04
 ```
 
 ---
@@ -68,55 +62,55 @@ Command: `siege -c 20 -t 30S -b ben.balter.com`
 
 The first test was to benchmark the homepage, the most heavily trafficked page on the site. Given 30 seconds of continuous traffic from 20 concurrent users, Bluehost was able to serve a meager 40 users. AWS managed an impressive 2000 users during that same time period (a 50x performance improvement), and did so twice as fast. Enter Jekyll with more than 2600 users (65x increase), responding on average to each in less than a quarter of a second.
 
-#### Shared Hosting (Bluehost)
+#### Homepage via shared Hosting (Bluehost)
 
 ```
-Transactions:		          40 hits
-Availability:		      100.00 %
-Elapsed time:		       29.54 secs
-Data transferred:	        0.68 MB
-Response time:		        0.57 secs
-Transaction rate:	        1.35 trans/sec
-Throughput:		        0.02 MB/sec
-Concurrency:		        0.78
+Transactions:              40 hits
+Availability:          100.00 %
+Elapsed time:           29.54 secs
+Data transferred:          0.68 MB
+Response time:            0.57 secs
+Transaction rate:          1.35 trans/sec
+Throughput:            0.02 MB/sec
+Concurrency:            0.78
 Successful transactions:          40
-Failed transactions:	           0
-Longest transaction:	        0.71
-Shortest transaction:	        0.47
+Failed transactions:             0
+Longest transaction:          0.71
+Shortest transaction:          0.47
 ```
 
-#### Varnish + Microcache + Page Cache + Object Cache (AWS)
+#### Homepage via Varnish + Microcache + Page Cache + Object Cache (AWS)
 
 ```
-Transactions:		        1954 hits
-Availability:		      100.00 %
-Elapsed time:		       29.39 secs
-Data transferred:	       13.63 MB
-Response time:		        0.30 secs
-Transaction rate:	       66.49 trans/sec
-Throughput:		        0.46 MB/sec
-Concurrency:		       19.80
+Transactions:            1954 hits
+Availability:          100.00 %
+Elapsed time:           29.39 secs
+Data transferred:         13.63 MB
+Response time:            0.30 secs
+Transaction rate:         66.49 trans/sec
+Throughput:            0.46 MB/sec
+Concurrency:           19.80
 Successful transactions:        1954
-Failed transactions:	           0
-Longest transaction:	        0.92
-Shortest transaction:	        0.06
+Failed transactions:             0
+Longest transaction:          0.92
+Shortest transaction:          0.06
 ```
 
-#### Github Pages
+#### Homepage via Github Pages
 
 ```
-Transactions:		        2629 hits
-Availability:		      100.00 %
-Elapsed time:		       29.42 secs
-Data transferred:	        2.71 MB
-Response time:		        0.22 secs
-Transaction rate:	       89.36 trans/sec
-Throughput:		        0.09 MB/sec
-Concurrency:		       19.86
+Transactions:            2629 hits
+Availability:          100.00 %
+Elapsed time:           29.42 secs
+Data transferred:          2.71 MB
+Response time:            0.22 secs
+Transaction rate:         89.36 trans/sec
+Throughput:            0.09 MB/sec
+Concurrency:           19.86
 Successful transactions:        2629
-Failed transactions:	           0
-Longest transaction:	        1.38
-Shortest transaction:	        0.06
+Failed transactions:             0
+Longest transaction:          1.38
+Shortest transaction:          0.06
 ```
 
 ### 404s
@@ -125,55 +119,55 @@ Command: `siege -c 20 -t 30S -b ben.balter.com/aaaaaaa/`
 
 The true challenge comes in not from serving a static front page (which is presumably cached by WordPress after the first request), but in what happens when it has to reach into the database to retrieve content, for example, when processing a page that doesn't exist.[^1] Bluehost squeezed out a single response each second, AWS just over 50, and Jekyll didn't flinch at 80.
 
-#### Shared Hosting (Bluehost)
+#### 404s via shared Hosting (Bluehost)
 
 ```
-Transactions:		          30 hits
-Availability:		       21.43 %
-Elapsed time:		       29.58 secs
-Data transferred:	        0.19 MB
-Response time:		       14.93 secs
-Transaction rate:	        1.01 trans/sec
-Throughput:		        0.01 MB/sec
-Concurrency:		       15.14
+Transactions:              30 hits
+Availability:           21.43 %
+Elapsed time:           29.58 secs
+Data transferred:          0.19 MB
+Response time:           14.93 secs
+Transaction rate:          1.01 trans/sec
+Throughput:            0.01 MB/sec
+Concurrency:           15.14
 Successful transactions:           0
-Failed transactions:	         110
-Longest transaction:	       22.88
-Shortest transaction:	        0.00
+Failed transactions:           110
+Longest transaction:         22.88
+Shortest transaction:          0.00
 ```
 
-#### Varnish + Microcache + Page Cache + Object Cache (AWS)
+#### 404s via Varnish + Microcache + Page Cache + Object Cache (AWS)
 
 ```
-Transactions:		        1567 hits
-Availability:		      100.00 %
-Elapsed time:		       29.13 secs
-Data transferred:	       14.71 MB
-Response time:		        0.37 secs
-Transaction rate:	       53.79 trans/sec
-Throughput:		        0.50 MB/sec
-Concurrency:		       19.83
+Transactions:            1567 hits
+Availability:          100.00 %
+Elapsed time:           29.13 secs
+Data transferred:         14.71 MB
+Response time:            0.37 secs
+Transaction rate:         53.79 trans/sec
+Throughput:            0.50 MB/sec
+Concurrency:           19.83
 Successful transactions:           0
-Failed transactions:	           0
-Longest transaction:	        1.13
-Shortest transaction:	        0.00
+Failed transactions:             0
+Longest transaction:          1.13
+Shortest transaction:          0.00
 ```
 
-#### Github Pages
+#### 404s via Github Pages
 
 ```
-Transactions:		        2373 hits
-Availability:		      100.00 %
-Elapsed time:		       29.82 secs
-Data transferred:	       10.48 MB
-Response time:		        0.25 secs
-Transaction rate:	       79.58 trans/sec
-Throughput:		        0.35 MB/sec
-Concurrency:		       19.92
+Transactions:            2373 hits
+Availability:          100.00 %
+Elapsed time:           29.82 secs
+Data transferred:         10.48 MB
+Response time:            0.25 secs
+Transaction rate:         79.58 trans/sec
+Throughput:            0.35 MB/sec
+Concurrency:           19.92
 Successful transactions:           0
-Failed transactions:	           0
-Longest transaction:	        1.42
-Shortest transaction:	        0.00
+Failed transactions:             0
+Longest transaction:          1.42
+Shortest transaction:          0.00
 ```
 
 ### Uptime

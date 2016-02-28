@@ -9,7 +9,7 @@ The question's come up several times, as to what's the appropriate copyright not
 
 In practice, there are three things to consider: the date, the copyright holder, and the need to have a copyright notice in the first place. Let's take a quick look at each.
 
-### Do you even need a copyright notice?
+### Do you even need a copyright notice
 
 *No, not to get a copyright* - but notices *are* helpful for other reasons, and they are easy to add.
 
@@ -25,7 +25,7 @@ If you chose to include a copyright notice, you'll see that the first half of an
 
 For things like books, the year of publication is really easy to determine. If you write a book in 2014, and it hits the shelves in 2015, the title page will most likely reflect a copyright date of 2015. That's the date the original work was reduced to a physical embodiment and publicly distributed. Thats the year it was "published", at least in the eyes of the law. And if a revised edition comes out in 2016, correcting some typos or adding a new forward, the title page would likely include both 2015 and 2016.
 
-#### When is a digital work "published"?
+#### When is a digital work "published"
 
 But when it comes to digital works, the idea of publication isn't quite the same. When is an open source project (or a website, as that's the most common means of publishing an open source project, e.g., via GitHub's web interface) "*published*"?
 
@@ -33,7 +33,7 @@ In this case, of a website like [choosealicense.com](http://choosealicense.com),
 
 If in 2014, someone submits a pull request to add some new content to the site (or in the case of software, to add a new feature to the project), that pull request would contain new content first "published" in 2014. In that case, a copyright notice like "Copyright 2013 - 2014" would be more appropriate, as the project contains works of original authorship, first published in both 2013 and 2014.
 
-#### So what date should you use?
+#### So what date should you use
 
 There's precedent for this practice. If you ever look at the copyright page of a book, it will likely say copyright 2001, 2004, 2006–2007, etc., noting each year of publication. Here, the same legal theory is at play, with the digital project being unbridled from the confines of the physical world, and thus publishing a bit more frequently, likely being "published", the year the project was started, and every year thereafter.
 
@@ -45,7 +45,7 @@ As noted above, when an author creates an original work (be they a writer or dev
 
 When you use an open source project, you are analogous to the renter, but who's the landlord (copyright holder)? If the project only has a single author, things are clear: the copyright holder is the project creator. When you have multiple contributors, all authoring code for the same project, absent an explicit agreement to the contrary, they each retain copyright to their own contribution.
 
-#### So whose name should you use?
+#### So whose name should you use
 
 Again, there's a precedence. Going back to our book example, if you look at the copyright page, it'll likely say `Copyright [year] [author]` (or the publisher, depending on their arangement). One contributor, one copyright holder.
 

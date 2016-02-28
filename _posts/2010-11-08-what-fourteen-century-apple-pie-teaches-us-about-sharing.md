@@ -1,26 +1,6 @@
 ---
-author: Ben Balter
-title: |
-  What Fourteen-Century Apple Pie Teaches Us About Sharing
-description: "Last week writer Monica Gaudio received an e-mail from a friend congratulating her on getting an article published in the Northeast-regional cooking magazine Cooks Source. There was only one problem -- she didn't. The article, a recipe for fourteen-century apple pie, was lifted, word-for-word, from Gaudio's Web site. "
-layout: post
-categories:
-  - Law
-  - Technology
-tags:
-  - citations
-  - copyright
-  - facebook
-  - food
-  - foodies
-  - journalism
-  - memes
-  - online reputation
-  - plagiarism
-  - recipes
-  - twitter
-  - youtube
-post_format: []
+title: What Fourteen-Century Apple Pie Teaches Us About Sharing
+description: "Last week writer Monica Gaudio received an e-mail from a friend congratulating her on getting an article published in the Northeast-regional cooking magazine Cooks Source. There was only one problem -- she didn't. The article, a recipe for fourteen-century apple pie, was lifted, word-for-word, from Gaudio's Web site."
 ---
 
 Everyone knows the old adage: "If it's on the internet, it must be true free.[^1]" It turns out despite the internet's [otherwise murky attribution waters](http://www.huffingtonpost.com/jay-rosen/the-uncharted-from-off-th_b_96575.html), that's not quite the case.
@@ -55,16 +35,14 @@ The story, illustrating the true mob-power of the Internet, might be even more i
 
 [^5]: Edward Champion, [The Cooks Source Scandal: How a Magazine Profits on Theft][7].
 
-[^6]: *See generally *[Goodwin's Law](http://en.wikipedia.org/wiki/Godwin's_law).
+[^6]: *See generally* [Goodwin's Law](http://en.wikipedia.org/wiki/Godwin's_law).
 
 [^7]: Internet Justice (*n.*) – a form of justice only slightly less barbaric than the [Thunderdome](http://www.youtube.com/watch?v=3hQC3nkftrk).
 
 [^8]: *See generally supra notes* 1–7.
 
-[^9]: [Cooks Source Web site][46] (*Last accessed: *November 11, 2010).
+[^9]: Cooks Source Web site (*Last accessed:* November 11, 2010).
 
 [^10]: *Id.*
 
 [^11]: *Id.*
-
-[1]&#x3A; "See generally TechCrunch: If it's on the Internet, It Must Be True."

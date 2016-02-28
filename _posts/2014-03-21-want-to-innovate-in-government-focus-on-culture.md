@@ -1,6 +1,6 @@
 ---
 title: Want to innovate government? Focus on culture
-layout: post
+
 comments: true
 description: The key to innovation in government is engendering a greater appreciation of technology among non-technical stakeholders
 ---
@@ -29,7 +29,7 @@ You could have the most innovative idea, perfectly executed, and fully within th
 
 So how do you solve for the vocal naysayer minority? What's the Claritin or Zyrtec of bureacuracy? In a word: culture. Culture isn't getting a coworker a card for her birthday, or an office-wide March Madness tournament. Culture is the cross-department set of unspoken assumptions that frame any conversation within an organization. Culture defines the realm of the possible, and in the case of government, it is a powerful exclusionary force.
 
-### What if your biggest fight you faced was outside, not inside your organization?
+### What if your biggest fight you faced was outside, not inside your organization
 
 "Parachuting" change agents into an organization is great, but if you really want to inject innovation in government, target the support roles. Non-technical stakeholders have increasingly become the "blockers" in the true software sense of the term, and today, it is they, not the underlying technology, that is in need of innovating.
 

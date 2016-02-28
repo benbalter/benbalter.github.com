@@ -1,5 +1,5 @@
 ---
-layout: post
+
 comments: true
 description: The internet forces us to reimagine desktop technologies as vehicles for collaboration.
 title: "That's not how the internet works"

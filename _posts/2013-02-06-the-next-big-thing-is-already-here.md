@@ -1,8 +1,8 @@
 ---
 title: The next big thing is already here
 description: 'Countless technologies we take for granted today, began their lives as staples of the open-source development workflow'
-layout: post
-author: Ben Balter
+
+
 published: true
 category: Technology
 tags:

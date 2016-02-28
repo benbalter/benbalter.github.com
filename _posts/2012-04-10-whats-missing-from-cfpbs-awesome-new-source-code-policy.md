@@ -1,8 +1,8 @@
 ---
-author: Ben Balter
+
 title: "What's Missing from CFPB's Awesome New Source Code Policy"
-excerpt: null
-layout: post
+
+
 categories:
   - Law
   - Technology
@@ -23,7 +23,6 @@ tags:
   - open source
   - procurement
   - source code policy
-post_format: []
 ---
 
 ![CFPB Logo](http://www.treasury.gov/press-center/news/PublishingImages/CFPB.jpg "CFPB Logo"){: .alignright}
@@ -34,11 +33,11 @@ The [Consumer Financial Protection Bureau](http://cfpb.gov) (CFPB), however, is 
 
 ### An Agency Born of the Internet Generation
 
-Yesterday, CFPB [announced a bureau-wide preference for open source](http://cfpb.github.io/source-code-policy/) in its shiny new [Source Code Policy][6], by my [crude research](http://www.google.com/search?sugexp=chrome,mod=4&sourceid=chrome&ie=UTF-8&q=source+code+policy+site%3A.gov), a first for any government agency. There are two watershed shifts here: first, that the agency not only should, but *must* evaluate open source software on equal footing to its proprietary counterparts, a comparison which I believe will [increasingly fall in open source's favor](http://www.amazon.com/The-Wealth-Networks-Production-ebook/dp/B0015GWX0S), and second, that unless there's an overriding security or similar concern *not to*, public code must be public. There's nothing new here. All it says is that we should use the best software for the job (a no-brainier), and that that software, the public's property, should belong to the public.
+Yesterday, CFPB [announced a bureau-wide preference for open source](http://cfpb.github.io/source-code-policy/) in its shiny new Source Code Policy, by my [crude research](http://www.google.com/search?sugexp=chrome,mod=4&sourceid=chrome&ie=UTF-8&q=source+code+policy+site%3A.gov), a first for any government agency. There are two watershed shifts here: first, that the agency not only should, but *must* evaluate open source software on equal footing to its proprietary counterparts, a comparison which I believe will [increasingly fall in open source's favor](http://www.amazon.com/The-Wealth-Networks-Production-ebook/dp/B0015GWX0S), and second, that unless there's an overriding security or similar concern *not to*, public code must be public. There's nothing new here. All it says is that we should use the best software for the job (a no-brainier), and that that software, the public's property, should belong to the public.
 
-So why is this news? Plenty of government entities have [released](http://www.fcc.gov/blog/contributing-code-back-fcc-govs-open-source-feedback-loop) [source](http://www.whitehouse.gov/blog/2011/02/11/whitehousegov-releases-second-set-open-source-code) code, or [encouraged the](https://www.gov.uk/government/publications/open-source-procurement-toolkit)[ use of open](http://www.finance.gov.au/files/2012/04/AGuidetoOpenSourceSoftware.pdf)-[source software](http://www.tekno.dk/pdf/projekter/p03_opensource_paper_english.pdf). But no one has come out and [plainly stated that they were an "open-source agency"](https://twitter.com/#!/victorzapanta/status/189390759181557760), that open source is the new default, and that absent an affirmative step by some nay-sayer, that the public will have access to their code.That's huge. It's flipping the burden, and it's the way things should be from the start.
+So why is this news? Plenty of government entities have [released](http://www.fcc.gov/blog/contributing-code-back-fcc-govs-open-source-feedback-loop) [source](http://www.whitehouse.gov/blog/2011/02/11/whitehousegov-releases-second-set-open-source-code) code, or [encouraged the](https://www.gov.uk/government/publications/open-source-procurement-toolkit)[use of open](http://www.finance.gov.au/files/2012/04/AGuidetoOpenSourceSoftware.pdf)-[source software](http://www.tekno.dk/pdf/projekter/p03_opensource_paper_english.pdf). But no one has come out and [plainly stated that they were an "open-source agency"](https://twitter.com/#!/victorzapanta/status/189390759181557760), that open source is the new default, and that absent an affirmative step by some nay-sayer, that the public will have access to their code. That's huge. It's flipping the burden, and it's the way things should be from the start.
 
-### But Where's the Beef?
+### But Where's the Beef
 
 That said, there's one thing the source code policy is noticeably silent on: *the ecosystem*. Posting code is great and it's great that they've done the legal legwork so other agencies can follow suit, but that's just the 1.0. The true power of open source comes not from simply publishing code, but from being a member of a broader coding community. Can a CFPB employee contribute a patch to an existing open source project on CFPB time? [^1] What about contributing to a CFPB project once he or she's left? What happens to my rights when I fork a [CFPB project on GitHub](http://github.com/cfpb) and send the agency a pull request? [^2] Can the agency even accept my code legally? [^3] There's a lot of legal ambiguity there, and it's just the kind of legal ambiguity a well-intentioned government attorney can seize upon to gum up the very gears that are driving this incredible move.
 
@@ -50,9 +49,9 @@ Imagine if government agencies served as the catalyst for a [joint public-privat
 
 The agency's already got [it's first public-generated code contribution](https://github.com/cfpb/transit_subsidy/pull/1), and can expect at least one more on [their gist of the policy](https://gist.github.com/2343578) (Ed. note: does CFPB not *own* a Blue Book?!), but the possibility of such a relationship with the citizenry doesn't seem contemplated by the policy, let alone included as integrally as it should.
 
-I'd love to see the next iteration of the policy have a third section, "III. Membership in the Open-Source Community" on not just publishing code they've developed in house — don't get me wrong, that's huge — but actually *contributing *meaningful code to the broader ecosystem, and working directly with the open-source community to foster an active partnership that delivers the best citizen services possible. It's a dialog, not a code dump. There needs to be a conversation there.
+I'd love to see the next iteration of the policy have a third section, "III. Membership in the Open-Source Community" on not just publishing code they've developed in house — don't get me wrong, that's huge — but actually *contributing* meaningful code to the broader ecosystem, and working directly with the open-source community to foster an active partnership that delivers the best citizen services possible. It's a dialog, not a code dump. There needs to be a conversation there.
 
-### Procure, Publish, Participate.
+### Procure, Publish, Participate
 
 It's the realization that when you use open-source software, you're not a customer. You're a member of a community. You're invited to a pot-luck dinner. There's not the same sense of entitlement you have with proprietary software. It's not that they owe you a given feature. There's no financial transaction there. It's that that feature hasn't been developed yet, but can be, the same way every other feature has evolved, through community contributions. There's an entirely different philosophy driving the relationship.
 
@@ -69,5 +68,3 @@ I think CFPB gets it in a big way, and the fact that this is memorialized in wri
 [^3]: Is this considered a donation for Federal ethics purposes thus requiring disclosure?
 
 [^4]: This can manifest itself in lots of different ways, but most tangibly: going to local meetups and conferences (or hosting them); contributing to the project's core by introducing new features, documentation, or posting to support forums; abstracting business logic from the start to be more broadly applicable to other developers; outreach and evangelism; and fostering relationships with key stakeholders within the community
-
-[16]&#x3A; #note-2020–1 "In simple terms, the core of open-source projects (as distinct from community-contributed plugins or modules) are primarily fueled by "patches" (small code change sets) in response to bugs or feature requests, that get committed to the project's codebase and released in subsequent versions."

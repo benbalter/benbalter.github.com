@@ -1,8 +1,8 @@
 ---
-layout: post
+
 title: "The technology's the easy part"
 description: "Tools aren't the challenge, culture is. We should make it so ridiculously straightforward for government agencies to distribute information and build collaborative communities around shared problems that it would be criminal for them not to."
-author: Ben Balter
+
 comments: true
 category: Technology
 tags:

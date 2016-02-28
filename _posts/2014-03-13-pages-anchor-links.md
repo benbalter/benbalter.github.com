@@ -1,6 +1,6 @@
 ---
 title: Header hover anchor links on GitHub Pages using Jekyll
-layout: post
+
 comments: true
 description: Encourage deep-linking of content by providing anchor links when a user hovers over a heading in your Jekyll posts and pages
 ---

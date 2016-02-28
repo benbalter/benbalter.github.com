@@ -1,8 +1,8 @@
 ---
-author: Ben Balter
+
 title: WordPress as a Collaboration Platform
 description: "Today countless teams are using WordPress to drive collaboration and facilitate inter-team communication. Ben Balter will showcase some of the creative ways companies and organizations are using WordPress as the central hub of their day-to-day workflow: To organize and collaboratively edit documents and other non-web content, track and communicate their team's progress with one another, and extend WordPress to work with their existing tools and practices."
-layout: post
+
 categories:
   - Business
   - Technology
@@ -21,7 +21,6 @@ tags:
   - wiki
   - wordpress
   - workflow
-post_format: []
 ---
 
 Today countless teams are using WordPress to drive collaboration and facilitate inter-team communication. This presentation — given at the May WordPress DC Meetup — showcases some of the creative ways companies and organizations are using WordPress as the central hub of their day-to-day workflow: To organize and collaboratively edit documents and other non-web content, track and communicate their team's progress with one another, and extend WordPress to work with their existing tools and practices

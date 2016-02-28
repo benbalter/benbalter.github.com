@@ -1,10 +1,10 @@
 ---
-author: Ben Balter
+
 title: 'Hacks/Hackers Swells to more than 10,000 Members'
 description: >
   Hacks/Hackers, the organization dedicated to creating a network of journalists
   and technologists welcomed its 10,000th member today.
-layout: post
+
 categories:
   - Technology
 tags:
@@ -16,7 +16,6 @@ tags:
   - journalism
   - storify
   - technologists
-post_format: []
 ---
 
 [![Map of hackshackers members](http://ben.balter.com/wp-content/uploads/2012/04/hacks-hackers-10k.png){: .aligncenter}](http://ben.balter.com/wp-content/uploads/2012/04/hacks-hackers-10k.png)
@@ -25,6 +24,6 @@ post_format: []
 
 > People have found jobs, co-founders for startups, acquirers for their company, learned new skills, hacked out projects, shown off their work and so much more at Hacks/Hackers events \[...and w]ith 10,000 members, we're only getting started.
 
-*Want to get involved? [Find a chapter near you](http://hackshackers.com/chapters/){: data-proofer-ignore="true"}, or if none exist, grab some friends and[ start your own](http://hackshackers.com/resources/join/){: data-proofer-ignore="true"}.*
+*Want to get involved? [Find a chapter near you](http://hackshackers.com/chapters/){: data-proofer-ignore="true"}, or if none exist, grab some friends and [start your own](http://hackshackers.com/resources/join/){: data-proofer-ignore="true"}.*
 
 [View the story "Hacks/Hackers reaches 10k members: Tell us your story" on Storify](http://storify.com/burtherman/hacks-hackers-reaches-10k-members-tell-us-your-sto.html)

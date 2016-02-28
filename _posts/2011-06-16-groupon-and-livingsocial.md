@@ -1,8 +1,7 @@
 ---
-author: Ben Balter
 title: 'Groupon and LivingSocial: a Limited-Time Offer'
 description: "Despite the hype, daily deal sites like Groupon and LivingSocial are not the next wave of e-commerce. Not only are they bad for merchants, their business model simply isn't sustainable as established firms begin to enter the already-crowded market."
-layout: post
+
 categories:
   - Business
   - Law
@@ -15,7 +14,6 @@ tags:
   - groupon
   - ipo
   - livingsocial
-post_format: []
 ---
 
 ![Groupon logo on an office door](http://ben.balter.com/wp-content/uploads/2011/06/5554901181_664eac93a6_b-300x200.jpg "Groupon"){: .alignleft}
@@ -36,7 +34,7 @@ As Benjamin Edelman and Paul Kominers [argue](http://www.benedelman.org/voucher-
 
 > \[T]he legal and regulatory questions… are questions that arise distinctively in the context of discount vouchers: a merchant would never confront such questions were it not for discount vouchers. Having created the transactions giving rise to this regulatory complexity… discount voucher services should be expected to achieve compliance.
 
-Edelman and Kominers [continue][6]:
+Edelman and Kominers [continue](http://www.benedelman.org/voucher-consumer-protection/):
 
 > Voucher services typically seek to cast themselves as mere marketing vendors that are not responsible for the conduct of the corresponding merchants. For example, [Groupon's Terms of Sale](http://www.groupon.com/terms) claim that "The Merchant, not Groupon, is the seller of the Voucher and the goods and services and is solely responsible for redeeming any Voucher you purchase."
 
@@ -44,7 +42,7 @@ Edelman and Kominers [continue][6]:
 
 This, combined with the fact that [Groupon claims the entirety of the purchase price as revenue](http://www.businessinsider.com/teardown-of-the-groupon-merchant-agreement-2011-6) suggests that daily deal sites are the 10,000 lb guerilla unfairly shifting the legal burden to small businesses. Despite all this, Groupon's largest shareholder simply [recommends](http://blogs.forbes.com/luisakroll/2011/04/04/new-billionaire-eric-lefkofsky-talks-about-groupon-and-tech-investing/) that business not "worry about the noise that the legal system creates."
 
-#### Gift Cards?
+#### Gift Cards
 
 First is the question of if a daily deal constitutes a [gift card](http://www.ncsl.org/research/financial-services-and-commerce/gift-cards-and-certificates-statutes-and-legis.aspx){: data-proofer-ignore="true"}, a legal issue with which both Groupon and [LivingSocial](http://www.seattlepi.com/local/article/Seattle-class-action-LivingSocial-expiration-1015493.php) are intimately familiar with, defending at least [12 distinct lawsuits](http://www.benedelman.org/voucher-consumer-protection/#expiration). Despite the expiration date listed online, in print, and often sent in reminder e-mails, in some states, customers may be eligible to redeem deals long after they expire, or at least have ground to reclaim their initial investment, often at the merchants' expense.
 

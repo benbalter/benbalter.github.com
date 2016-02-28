@@ -1,6 +1,9 @@
 #!/bin/sh
 
-set -ex
+set -e
+
+echo "checking markdown"
+script/remark
 
 echo "checking site"
 bundle exec rake test

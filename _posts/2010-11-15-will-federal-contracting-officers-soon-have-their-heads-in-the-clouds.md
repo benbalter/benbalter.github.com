@@ -1,5 +1,4 @@
 ---
-author: Ben Balter
 title: Will Federal Contracting Officers Soon Have Their Heads in the Clouds?
 description: >
   As one Hewlett Package Chief executive recently put it, cloud computing "is the
@@ -8,17 +7,6 @@ description: >
   cloud," and the same transformative power that connects long-lost classmates at
   the click of a mouse can be harnessed by federal agencies to approach modern
   governance in incredibly powerful ways.
-layout: post
-categories:
-  - Law
-  - Technology
-tags:
-  - cloud computing
-  - contracting
-  - federal
-  - government
-  - procurement
-post_format: []
 ---
 
 ## A Brief Look at the Imminent Cloud-Computing Storm Front
@@ -69,7 +57,7 @@ Whether a federal contracting officer or a provider of IT services, just as the 
 
 [^1]: Stephen Lawson, *Cloud is Internet's Next Generation, HP Executive Says*, InfoWorld, June 25, 2009, <http://www.infoworld.com/d/cloud-computing/cloud-internets-next-generation-hp-executive-says-120> (quoting HP CTO Russ Daniels).
 
-[^2]: *See Generally *Jack Newton, *Putting Your Practice in the Cloud a Pre-Flight Checklist*, 73 Tex. B.J. 632 (2010).
+[^2]: *See Generally* Jack Newton, *Putting Your Practice in the Cloud a Pre-Flight Checklist*, 73 Tex. B.J. 632 (2010).
 
 [^3]: *See* Mark H. Wittow, Daniel J. Buller, *Cloud Computing: Emerging Legal Issues for Access to Data, Anywhere, Anytime,* 14 J. Internet L. 1 (2010).
 

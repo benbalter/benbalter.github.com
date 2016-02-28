@@ -1,20 +1,6 @@
 ---
-author: Ben Balter
-title: |
-  When all you have is a pair of bolt cutters...
+title: When all you have is a pair of bolt cutters...
 description: "A workflow management and version control system building on WordPress's existing core competencies. By treating documents as a custom post type, users can leverage the power of WordPress's extensive attachment, revision, taxonomy, and URL rewriting functionalities. "
-layout: post
-categories:
-  - Technology
-tags:
-  - code
-  - document management
-  - google
-  - gsoc
-  - open source
-  - plugin
-  - wordpress
-post_format: []
 ---
 
 [![Golden Hammer](http://imgs.xkcd.com/comics/golden_hammer.png){: .aligncenter}](http://xkcd.com/801/)
@@ -35,18 +21,14 @@ To be fair, WordPress has been arguably overextended in some cases, [^3] but I d
 
 I am working on submitting this idea as a proposed [Google Summer of Code](http://www.google-melange.com/gsoc/homepage/google/gsoc2011) project, [^5] with the goal of giving WordPress parity with commercial and proprietary applications and hopefully injecting some open-source goodness into government and other enterprise environments, but before I do, I would love to hear your thoughts. [Get in touch](http://ben.balter.com/contact/), or leave a comment below.
 
-**Update (8/29)**: The final result of the project is an [Open Source Document Management and Version Control System](http://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/) for WordPress. An overview of its top-level features including a screencast of a typical use case is available on the [WP Document Revisions][22] page.
+**Update (8/29)**: The final result of the project is an [Open Source Document Management and Version Control System](http://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/) for WordPress. An overview of its top-level features including a screencast of a typical use case is available on the WP Document Revisions page.
 
-[^1]: *See, e.g., *[Documentum](http://www.emc.com/enterprise-content-management/index.htm){: data-proofer-ignore="true"}, [Liferay](http://www.liferay.com/), [Melange](http://code.google.com/p/soc/wiki/MelangeIntro), and [Gawker's CMS](http://www.mediaite.com/online/worse-than-previously-thought-gawker-content-management-system-hacked/).
+[^1]: *See, e.g.,* [Documentum](http://www.emc.com/enterprise-content-management/index.htm){: data-proofer-ignore="true"}, [Liferay](http://www.liferay.com/), [Melange](http://code.google.com/p/soc/wiki/MelangeIntro), and [Gawker's CMS](http://www.mediaite.com/online/worse-than-previously-thought-gawker-content-management-system-hacked/).
 
 [^2]: Nearly three years ago, at the time of the feature's inception, [WordPress founder Matt Mullenweg noted](http://wordpress.org/news/2008/07/wordpress-26-tyner/), "*With the power of modern computers, it's silly that we still use save and editing metaphors from the time when the most common method of storage was floppy disks… now we're taking that to another level by allowing you to view who made what changes when… through a super-easy interface, much like Wikipedia or a version control system.*"
 
-[^3]: *See, e.g., *WordPress as an [e-mail newsletter](http://net.tutsplus.com/tutorials/wordpress/build-a-wordburner-email-newsletter-manager-using-wordpress-and-feedburner/), [contact manager](http://publisherblog.automattic.com/2008/02/13/wp-contact-manager/){: data-proofer-ignore="true" }, [CRM](http://slipfire.com/wp-crm/), [invoice system](http://wordpress.org/extend/plugins/wp-invoice/), [job bank](http://wordpress.org/extend/plugins/job-manager/), or [real estate directory](http://wordpress.org/extend/plugins/great-real-estate/).
+[^3]: *See, e.g.,* WordPress as an [e-mail newsletter](http://net.tutsplus.com/tutorials/wordpress/build-a-wordburner-email-newsletter-manager-using-wordpress-and-feedburner/), [contact manager](http://publisherblog.automattic.com/2008/02/13/wp-contact-manager/){: data-proofer-ignore="true" }, [CRM](http://slipfire.com/wp-crm/), [invoice system](http://wordpress.org/extend/plugins/wp-invoice/), [job bank](http://wordpress.org/extend/plugins/job-manager/), or [real estate directory](http://wordpress.org/extend/plugins/great-real-estate/).
 
 [^4]: Let's just call it "Frupal" for the sake of discussion.
 
 [^5]: In hindsight, I probably shouldn't have ripped on Melange. *See supra note 1.*
-
-[11]&#x3A; #note-2020–2 "Nearly three years ago, at the time of the feature's inception, WordPress founder Matt Mullenweg noted, "With the power of modern computers, it's silly that we still use save and editing metaphors from the time when the most common method of storage was floppy disks… now we're taking that to another level by allowing you to view who made what changes when… through a super-easy interface, much like Wikipedia or a version control system.""
-
-[17]&#x3A; #note-2020–4 "Let's just call it "Frupal" for the sake of discussion."

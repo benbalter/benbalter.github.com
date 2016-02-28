@@ -1,6 +1,6 @@
 ---
 title: "Open government is so '08, or why collaborative government is the next big thing"
-layout: post
+
 comments: true
 description: 'As technology allows us to communicate with greater frequency and greater fidelity, we have the chance to make our government not only transparent, but truly collaborative.'
 ---

@@ -1,8 +1,8 @@
 ---
 title: Securing the Status Quo
 description: The Effect of Federal IT Security Policies on Innovation
-author: Ben Balter
-layout: post
+
+
 comments: true
 categories:
   - Technology
@@ -179,7 +179,7 @@ OMB should create guidance to decouple the various components that make up an in
 
 [^22]: 5 U.S.C.A 552a.
 
-[^23]: *Id *552a(b), (d), (f)*.*
+[^23]: *Id* 552a(b), (d), (f)*.*
 
 [^24]: 44 U.S.C.A. 3601 *et seq*.
 
@@ -191,7 +191,7 @@ OMB should create guidance to decouple the various components that make up an in
 
 [^28]: 44 U.S.C.A. 3502(14) (1994), amended by Paperwork Reduction Act of 1995, Pub. L. No. 104–13, 3502(8), 109 Stat. 163, 166.
 
-[^29]: *Id. *at 3502(6).
+[^29]: *Id.* at 3502(6).
 
 [^30]: *See* Shahid Khan, <u>"Apps.gov": Assessing Privacy in the Cloud Computing Era</u>, 11 N.C.J.L. & Tech. On. 259, 273 (2010)
 
@@ -213,7 +213,7 @@ OMB should create guidance to decouple the various components that make up an in
 
 [^39]: FIPS PUB 199, Standards for Security Categorization of Federal Information and Information Systems 1, 2 (Feb. 2004), <http://1.usa.gov/4nzS8>; NIST Special Publication 800–53, Rev. 3, Recommended Security Controls for Federal Information Systems and Organizations 6, 2.1 (May 2010), <http://1.usa.gov/9DDoih>.
 
-[^40]: *See, e.g., *OMB Memorandum 11–33, FY 2011 Reporting Instructions for the Federal Information Security Management Act and Agency Privacy Management (Sept. 14, 2011) (enclosing DHS Memorandum FISM 11–02 (Aug. 24, 2011)), <http://1.usa.gov/oCB4it>.
+[^40]: *See, e.g.,* OMB Memorandum 11–33, FY 2011 Reporting Instructions for the Federal Information Security Management Act and Agency Privacy Management (Sept. 14, 2011) (enclosing DHS Memorandum FISM 11–02 (Aug. 24, 2011)), <http://1.usa.gov/oCB4it>.
 
 [^41]: More Security, Less Waste: What Makes Sense for Our Federal Cyber Defense: Hearing Before the Subcomm. on Federal Financial Management, Government Information, Federal Services & International Security, 111th Cong. (Oct. 29, 2009) (statement of Sen. McCain), <http://1.usa.gov/Ut4XuK>.
 
@@ -227,13 +227,13 @@ OMB should create guidance to decouple the various components that make up an in
 
 [^46]: Vijayan, Jaikumar, Critics question value of federal IT security report card, Computerworld, May 21st, 2008, available at <http://bit.ly/QSHKX0> (noting some agencies that are making an effort to comply with the true intent of the 396-page FISMA requirements document are getting poor grades on the annual report card, while others that have treated the process as a mere paperwork exercise are getting good grades.) (Internal quotation marks omitted).
 
-[^47]: White, 79 Fordham L. Rev 369, 382; *Id. *(commenting First, Congress creates waste by writing FISMA in a way that demands useless reporting, and then it highlights the useless scores in a way that in some cases provides incentives for federal agencies to deliver misleading results.).
+[^47]: White, 79 Fordham L. Rev 369, 382; *Id.* (commenting First, Congress creates waste by writing FISMA in a way that demands useless reporting, and then it highlights the useless scores in a way that in some cases provides incentives for federal agencies to deliver misleading results.).
 
 [^48]: White, 79 Fordham L. Rev 369, 381–82.
 
 [^49]: *Id.* at 381.
 
-[^50]: Gregg Carlstrom, Net Attacks Triple in 2 Years, Fed. Times (Aug. 3, 2009). (a conservative estimated since many agencies under report by as much as 50%, and since the statistic excludes the Department of Defense which receives millions of scans and probes each year.); *See also *Conklin, 41 Wireless Internet S. Provider Proc. 1 (The recent spate of highly publicized information security failures in Federal agencies highlight the limitations of the current FISMA based approach…. The fact that … some agencies have not had an information security failure\[s may be due to] lack of knowledge.). *See generally id. *at 382.
+[^50]: Gregg Carlstrom, Net Attacks Triple in 2 Years, Fed. Times (Aug. 3, 2009). (a conservative estimated since many agencies under report by as much as 50%, and since the statistic excludes the Department of Defense which receives millions of scans and probes each year.); *See also* Conklin, 41 Wireless Internet S. Provider Proc. 1 (The recent spate of highly publicized information security failures in Federal agencies highlight the limitations of the current FISMA based approach…. The fact that … some agencies have not had an information security failure\[s may be due to] lack of knowledge.). *See generally id.* at 382.
 
 [^51]: Kevin R. Pinkney, Putting Blame Where Blame Is Due: Software Manufacturer and Customer Liability for Security-Related Software Failure, 13 Alb. L.J. Sci. & Tech. 43, 66 (2002).
 
@@ -301,7 +301,7 @@ OMB should create guidance to decouple the various components that make up an in
 
 [^83]: Silver, 81 N.Y.U. L. Rev. at 1862.
 
-[^84]: *See generally *Silvers, 81 N.Y.U. L. Rev. 1844 at 1868.
+[^84]: *See generally* Silvers, 81 N.Y.U. L. Rev. 1844 at 1868.
 
 [^85]: *Id.* (citing Randal O’Toole, Reforming the Forest Service 104 (1988) (For top managers, larger budgets mean greater prestige. For middle managers, larger budgets mean more people on their staff, and this generally provides them with higher salaries. For lower managers, larger budgets mean greater opportunities for advancement.)).
 

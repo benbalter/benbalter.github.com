@@ -1,31 +1,10 @@
 ---
-author: Ben Balter
 title: WP Document Revisions — Document Management and Version Control for WordPress
 description: >
   WP Document Revisions is a document management and version control plugin for
   the popular content management system, WordPress. Think of it as an open-source
   and more intuitive version of the popular Microsoft collaboration suite,
   Sharepoint.
-layout: post
-categories:
-  - Business
-  - Law
-  - Technology
-tags:
-  - code
-  - collaboration
-  - document management
-  - enterprise
-  - file hosting
-  - government
-  - gsoc
-  - open source
-  - plugin
-  - sharepoint
-  - version control
-  - wordpress
-  - workflow
-post_format: []
 redirect_from: 2011/08/29/document-management-version-control-for-wordpress/
 ---
 
@@ -69,9 +48,9 @@ redirect_from: 2011/08/29/document-management-version-control-for-wordpress/
 * Documents and Revisions shortcodes, Recently Revised Documents widget
 * Multisite and Windows (XAMPP) support
 * French and Spanish language support (easily translated to your language)
-* Integration with [Edit Flow][13]
+* Integration with [Edit Flow](http://editflow.org/)
 
-**Features Available via the [Code Cookbook][12]:**
+**Features Available via the [Code Cookbook](https://github.com/benbalter/WP-Document-Revisions-Code-Cookbook):**
 
 * **Audit Trail** - creates check in / check out audit trail for all documents
 * **State Permissions** - allows setting user-level permissions based on a custom taxonomy such as workflow state or other document status
@@ -93,7 +72,7 @@ redirect_from: 2011/08/29/document-management-version-control-for-wordpress/
 
 * [Source Code](https://github.com/benbalter/WP-Document-Revisions/) (GitHub)
 * [Development version](https://github.com/benbalter/WP-Document-Revisions/tree/develop) ([Build Status](http://travis-ci.org/#!/benbalter/WP-Document-Revisions))
-* [Code Cookbook][12]
+* [Code Cookbook](https://github.com/benbalter/WP-Document-Revisions-Code-Cookbook)
 * [User support forums](http://wordpress.org/tags/wp-document-revisions)
 * [Submit a bug/feature request](https://github.com/benbalter/WP-Document-Revisions/issues)
 

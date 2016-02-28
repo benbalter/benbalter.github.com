@@ -1,10 +1,10 @@
 ---
-author: Ben Balter
+
 title: The Demise of the Personal Dashboard
 description: >
   When building consumer applications, favor simplicity over complex personalized
   dashboards which bombard customers with information.
-layout: post
+
 categories:
   - Technology
 tags:
@@ -20,7 +20,6 @@ tags:
   - ui/ux
   - ux
   - wordpress
-post_format: []
 ---
 
 [![Dashboard all the things](http://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things-300x225.jpeg){: .alignright}](http://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things.jpeg)

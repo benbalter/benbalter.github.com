@@ -1,5 +1,5 @@
 ---
-layout: post
+
 comments: true
 description: 'The challenges we faced were overwhelmingly administrative, cultural and bureaucratic in nature. Here are 10 things I know now I wish I had known then.'
 ---

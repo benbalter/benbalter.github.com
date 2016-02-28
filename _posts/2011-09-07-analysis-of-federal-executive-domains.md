@@ -1,8 +1,8 @@
 ---
-author: Ben Balter
+
 title: Analysis of Federal Executive .Govs
-excerpt: null
-layout: post
+
+
 categories:
   - Technology
 tags:
@@ -18,10 +18,9 @@ tags:
   - open source
   - procurement
   - wordpress
-post_format: []
 ---
 
-The White House's Office of Management and Budget recently released a[ list of all domains](https://explore.data.gov/Federal-Government-Finances-and-Employment/Federal-Executive-Branch-Internet-Domains/ymya-7799/widget_preview?width=500&height=425&variation=md55-89i9) owned and operated by federal executive agencies. Leveraging a previous tool I had built called [Site Inspector](https://github.com/benbalter/Site-Inspector) which provides information about a domain and its technical capabilities, I imported the list into the content management system WordPress, and created a plugin called [Domain Inventory ](https://github.com/benbalter/Domain-Inventory)to scan each domain and curate the results. A summary of my preliminary results appears below, as well as a link to the browsable dataset.
+The White House's Office of Management and Budget recently released a [list of all domains](https://explore.data.gov/Federal-Government-Finances-and-Employment/Federal-Executive-Branch-Internet-Domains/ymya-7799/widget_preview?width=500&height=425&variation=md55-89i9) owned and operated by federal executive agencies. Leveraging a previous tool I had built called [Site Inspector](https://github.com/benbalter/Site-Inspector) which provides information about a domain and its technical capabilities, I imported the list into the content management system WordPress, and created a plugin called [Domain Inventory](https://github.com/benbalter/Domain-Inventory)to scan each domain and curate the results. A summary of my preliminary results appears below, as well as a link to the browsable dataset.
 
 **The project tracks each Federal Executive .Gov by:**
 
@@ -49,7 +48,7 @@ The White House's Office of Management and Budget recently released a[ list of a
 * 93% of *live* domains use no detectable CMS, or use a custom-built solution.
 * Slightly more than half of live servers are powered by commercial software.
 
-*Please note: This data is to be treated as preliminary and is provided "as is" with no guarantee as to its validity. The source code for all tools used, including the resulting data, is available in [GitHub][3]. If you find a systemic error, I encourage you to fork the code and I will try my best to recrawl the list to improve the data's accuracy.*
+*Please note: This data is to be treated as preliminary and is provided "as is" with no guarantee as to its validity. The source code for all tools used, including the resulting data, is available on GitHub]. If you find a systemic error, I encourage you to fork the code and I will try my best to recrawl the list to improve the data's accuracy.*
 
 **Update (10/4)**: Updated the above statistics (and underlying data) based on an updated domain list published on data.gov and recrawled using the same tools. The above numbers now use the number of *live* sites (rather than total number of domains) as the denominator for percentages, and excludes approximately 300 domains which simply redirects to other .govs.
 

@@ -1,8 +1,8 @@
 ---
 title: Introducing JekyllBot
 description: 'Automatically generate a JSON content API for Jekyll-based posts and pages. Uses Heroku, works with GitHub pages.'
-author: Ben Balter
-layout: post
+
+
 comments: true
 categories:
   - Technology
