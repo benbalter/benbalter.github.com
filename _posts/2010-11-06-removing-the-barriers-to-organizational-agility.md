@@ -1,9 +1,9 @@
 ---
-author: Ben Balter
+
 title: |
   Removing the Barriers to Organizational Agility
-excerpt: null
-layout: post
+
+
 categories:
   - Technology
 tags:
@@ -12,7 +12,6 @@ tags:
   - federal
   - government
   - procurement
-post_format: []
 ---
 
 *Recorded at the [The George Washington University Tech Alumni Group](http://www.facebook.com/group.php?gid=154839957865223) Federal Executive Roundtable, November 4, 2010.*
@@ -34,5 +33,3 @@ Panelists Steven Bucci, William Kirkendale, Brian Moran, Mark Rosenfeld, and Mar
 ### Moderator
 
 * Brian Moran, President, GW Tech Alumni Group; CEO, Nester Consulting; & former Director of IT Services, U.S. International Trade Commission
-
-[10]: http://ben.balter.com/wp-content/uploads/2010/11/Removing-Barriers-to-Organizational-Agility.mp3?torrent

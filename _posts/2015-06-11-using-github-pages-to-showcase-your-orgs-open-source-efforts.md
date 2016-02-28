@@ -99,9 +99,9 @@ And if you want to create headings, you prefix the heading with a `# sign` like 
 ```markdown
 # Top level heading
 
-## Sub heading
+### Sub heading
 
-### Sub sub heading
+#### Sub sub heading
 ```
 
 Jekyll will automatically convert Jekyll to HTML each time you push a change to your site. All you have to do is change the the extension from `.html` to `.md`. In our above example, we could change our `index.html` to an `index.md` file with the following content:

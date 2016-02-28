@@ -3,5 +3,6 @@
 
 set -ex
 
+script/branding
 bundle install
 npm install

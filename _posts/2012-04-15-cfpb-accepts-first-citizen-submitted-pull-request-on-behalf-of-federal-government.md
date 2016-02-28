@@ -1,9 +1,9 @@
 ---
-author: Ben Balter
+
 title: |
   CFPB Accepts First Citizen-Submitted Code on Behalf of Federal Government
-excerpt: null
-layout: post
+
+
 categories:
   - Technology
 tags:
@@ -17,7 +17,6 @@ tags:
   - government
   - open government
   - open source
-post_format: []
 ---
 
 "Fix typo." Not quite "one small step for man," but a significant first nonetheless. These simple words, typed by an open-source developer operating under the pseudonym "iceeey," may represent the first collaborative effort between the federal government and the broader open-source community, and surely represents a tangible win for the open-government movement as a whole.

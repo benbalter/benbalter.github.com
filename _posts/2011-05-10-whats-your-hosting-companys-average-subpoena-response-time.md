@@ -1,30 +1,14 @@
 ---
-author: Ben Balter
 title: "What's Your Hosting Company's Average Subpoena Response Time?"
-excerpt: null
-layout: post
-categories:
-  - Business
-  - Law
-tags:
-  - 1st amendment
-  - bluehost
-  - censorship
-  - copyright
-  - digital due process
-  - hosting
-  - privacy
-  - subpoena
-post_format: []
 ---
 
-[![Subpoena](http://farm1.staticflickr.com/157/391427627_62f2a23df4_n.jpg){: .alignright}](http://www.flickr.com/photos/timsamoff/391427627/)Bluehost, the [web hosting service](http://en.wikipedia.org/wiki/Web_hosting_service) which powers more than [1.9 million](http://en.wikipedia.org/wiki/Bluehost) websites globally, making it one of the [top 20][3] largest hosting companies in the world and approximately 2% of the internet's traffic (link removed), recently came under fire for its decision to depart from well-established [internet standards](http://pubcit.typepad.com/clpblog/2010/07/two-new-cases-on-internet-anonymity.html) and reveal the identity of one of its subscribers, over what [later proved](http://www.sltrib.com/sltrib/money/51780456-79/koch-company-judge-federal.html.csp) to be an [unfounded suit](http://pubcit.typepad.com/files/kochindustries.pdf).
+[![Subpoena](http://farm1.staticflickr.com/157/391427627_62f2a23df4_n.jpg){: .alignright}](http://www.flickr.com/photos/timsamoff/391427627/)Bluehost, the [web hosting service](http://en.wikipedia.org/wiki/Web_hosting_service) which powers more than [1.9 million](http://en.wikipedia.org/wiki/Bluehost) websites globally, making it one of the top 20 largest hosting companies in the world and approximately 2% of the internet's traffic (link removed), recently came under fire for its decision to depart from well-established [internet standards](http://pubcit.typepad.com/clpblog/2010/07/two-new-cases-on-internet-anonymity.html) and reveal the identity of one of its subscribers, over what [later proved](http://www.sltrib.com/sltrib/money/51780456-79/koch-company-judge-federal.html.csp) to be an [unfounded suit](http://pubcit.typepad.com/files/kochindustries.pdf).
 
 From a technical standpoint, Bluehost is one of the good guys. I've hosted sites with them since 2005 and looking back at the past six months, I've enjoyed a 99.79% uptime, with an average response time just under a second. But that's half the equation. Web hosting is not simply a cost-benefit analysis of price to uptime and responsiveness. There's a third factor there: trust.
 
 Why does a hosting company require trust? In December, a [fake news release](http://www.scribd.com/doc/45044630/Koch-Industries-on-Climate-Science) was [published](http://www.nytimes.com/2011/02/14/business/media/14link.html?_r=1){: data-proofer-ignore="true"} on a Bluehost powered site by an anonymous satirical group, stating that after "a recent internal and thorough company review," Koch Industries, an oil processing company, would be "restructuring its support of climate change research and advocacy initiatives."
 
-The problem occurred, however, when Bluehost was over eager to comply with Koch's subpoena demanding the identity of the anonymous poster, [arguing][4], "\[w]e are not in the business of harboring, you know, felons and crooks. We are not about that. This isn't WikiLeaks… \[w]e comply with the law here."
+The problem occurred, however, when Bluehost was over eager to comply with Koch's subpoena demanding the identity of the anonymous poster, arguing, "\[w]e are not in the business of harboring, you know, felons and crooks. We are not about that. This isn't WikiLeaks… \[w]e comply with the law here."
 
 Bluehost knew that the customer wanted to be anonymous (they had opted into Bluehost's domain protection program), however, the law here depends on Bluehost providing their client with knowledge of the subpoena, so that a timely objection can be heard by the issuing judge. In the [words of the site's own counsel](http://pubcit.typepad.com/clpblog/2011/05/federal-court-dismisses-koch-brothers-trademark-suit-over-climate-change-prank.html):
 

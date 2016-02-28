@@ -1,7 +1,7 @@
 ---
-layout: post
+
 comments: true
-author: Ben Balter
+
 title: Bet on the little guy
 category: technology
 description: 'On the Internet, simple, open format reign supreme over their heavyweight, proprietary counterparts'

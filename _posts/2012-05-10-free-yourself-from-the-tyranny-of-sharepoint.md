@@ -1,9 +1,9 @@
 ---
-author: Ben Balter
+
 title: |
   Free Yourself from the Tyranny of Sharepoint
-excerpt: null
-layout: post
+
+
 categories:
   - Business
   - Technology

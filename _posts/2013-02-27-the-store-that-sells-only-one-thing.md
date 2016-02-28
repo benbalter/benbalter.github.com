@@ -1,8 +1,8 @@
 ---
 title: The store that sells only one thing.
 description: null
-author: Ben Balter
-layout: post
+
+
 comments: true
 category: Technology
 tags:

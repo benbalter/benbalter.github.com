@@ -1,8 +1,8 @@
 ---
 title: "We've been trained to make paper"
 description: "If the internet is the primary medium by which content is consumed, shouldn't that be the primary medium for which content is prepared?"
-author: Ben Balter
-layout: post
+
+
 comments: true
 category: Technology
 tags:

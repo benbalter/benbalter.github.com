@@ -1,5 +1,5 @@
 ---
-layout: post
+
 comments: true
 description: "It's time we start treating data with the same love and respect that geeks treat their code."
 ---

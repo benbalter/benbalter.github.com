@@ -1,6 +1,6 @@
 ---
 title: Towards a More Agile Government
-description: 'By requiring that detailed specifications be outlined at the onset of the process, government procurement regulations encourage the less flexible, waterfall development techniques, rather than the more modern, agile development approaches used by the private sector today.'
+description: By requiring that detailed specifications be outlined at the onset of the process, government procurement regulations encourage the less flexible, waterfall development techniques, rather than the more modern, agile development approaches used by the private sector today.
 ---
 
 The Case for Rebooting Federal IT Procurement
@@ -98,7 +98,7 @@ At its most fundamental level, agility is the ability to quickly and effectively
 
 {: #agile-is-iterative-breaking-long-term-projects-into-multiple-independent-manageable-tasks }
 
-[![Comparison of Waterfall to Agile Software Development Timelines](http://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg){: style="width: 75%" .aligncenter } ](http://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg){: .aligncenter}
+[![Comparison of Waterfall to Agile Software Development Timelines](http://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg){: style="width: 75%" .aligncenter }](http://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg){: .aligncenter}
 
 *Figure 1 - Agile and Waterfall Development Cycles Compared (PDF)*
 {: .aligncenter}
@@ -295,11 +295,11 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 *Originally published in The Public Contract Law Journal, Volume 41, Issue 1. Available for public use under a [Creative Commons BY-NC-SA license](http://creativecommons.org/licenses/by-nc-sa/3.0/).*
 
-[^1]: This holds true for both civilian and military procurement systems. *See generally *Office of the Under Sec'y of Def. for Acquisition, Tech., and Logistics, Report of the Defense Science Board Task Force on Department of Defense Policies and Procedures for the Acquisition of Information Technology (2009) \[hereinafter DoD Acquisition Report].
+[^1]: This holds true for both civilian and military procurement systems. *See generally* Office of the Under Sec'y of Def. for Acquisition, Tech., and Logistics, Report of the Defense Science Board Task Force on Department of Defense Policies and Procedures for the Acquisition of Information Technology (2009) \[hereinafter DoD Acquisition Report].
 
 [^2]: Jay P. Kesan & Rajiv C. Shah, *Shaping Code*, 18 Harv. J.L. & Tech. 319, 373 (2005).
 
-[^3]: *Trends*, IT Dashboard, <http://www.itdashboard.gov/export/trends_report> (last visited Sept. 6, 2011).
+[^3]: *Trends*, IT Dashboard, <http://www.itdashboard.gov/> (last visited Sept. 6, 2011).
 
 [^4]: *Id.*
 
@@ -307,7 +307,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^6]: Victor Szalvay, Danube Techs., Inc., [An Introduction to Agile Software Development](http://webcache.googleusercontent.com/search?q=cache:5HFgofvhZVIJ:www.danube.com/docs/Intro_to_Agile.pdf+&cd=1&hl=en&ct=clnk&gl=us)1 (2004).
 
-[^7]: DoD Acquisition Report, *supra* note 1, at 44. "Rebaselining" occurs when modifications are made to a project's baseline, i.e. its cost, schedule, and performance goals, to reflect changed development circumstances. U.S. Gov't Accountability Office, GAO-08–925, Information Technology: Agencies Need to Establish Comprehensive Policies to Address Changes to Projects' Costs, Schedule, and Performance Goals 2, 13 (2008). Changes in requirements and objectives (scope creep) was the most commonly cited reason for rebaselining. *Id. *at 8.
+[^7]: DoD Acquisition Report, *supra* note 1, at 44. "Rebaselining" occurs when modifications are made to a project's baseline, i.e. its cost, schedule, and performance goals, to reflect changed development circumstances. U.S. Gov't Accountability Office, GAO-08–925, Information Technology: Agencies Need to Establish Comprehensive Policies to Address Changes to Projects' Costs, Schedule, and Performance Goals 2, 13 (2008). Changes in requirements and objectives (scope creep) was the most commonly cited reason for rebaselining. *Id.* at 8.
 
 [^8]: *Id*.
 
@@ -319,25 +319,25 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^12]: Robert Gates, *A Balanced Strategy: Reprogramming the Pentagon for a New Age*, Foreign Aff., Jan./Feb. 2009, at 28, 34.
 
-[^13]: *See *Vivek Kundra, U.S. Chief Info. Officer, White House, 25 Point Implementation Plan to Reform Federal Information Technology Management 17 (2010) (calling for "increased communication with industry" and "high functioning, ‘cross-trained' program teams").
+[^13]: *See* Vivek Kundra, U.S. Chief Info. Officer, White House, 25 Point Implementation Plan to Reform Federal Information Technology Management 17 (2010) (calling for "increased communication with industry" and "high functioning, ‘cross-trained' program teams").
 
-[^14]: *See *[Memorandum from Peter R. Orszag](http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m-10-26.pdf), Dir. of Office of Mgmt. and Budget, Exec. Office of the President, to Heads of Exec. Dep'ts and Agencies 1 (June 28, 2010) \[hereinafter Orszag Memorandum] , *available at [http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m-10–26.pdf](http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m-10-26.pdf)*
+[^14]: *See* [Memorandum from Peter R. Orszag](http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m-10-26.pdf), Dir. of Office of Mgmt. and Budget, Exec. Office of the President, to Heads of Exec. Dep'ts and Agencies 1 (June 28, 2010) \[hereinafter Orszag Memorandum] , *available at [http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m-10–26.pdf](http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m-10-26.pdf)*
 
-[^15]: These inefficiencies are troubling, not only because they represent a significant financial cost to the taxpayer, but also because they undoubtedly represent a significant cost to the realization of agency goals. *See* Stanley N. Sherman, Government Procurement Management 30 (1991). As President Barack Obama recently noted at the White House Forum on Modernizing Government, "\[w]hen we waste billions of dollars, in part because our technology is out of date, that's billions of dollars we're not investing in better schools for our children, in tax relief for our small businesses, in creating jobs and funding research to spur the scientific breakthroughs and economic growth of this new century." *Attachment B: President's Remarks, in* [White House Forum on Modernizing Government: Overview and Next Steps](http://www.whitehouse.gov/sites/default/files/omb/assets/modernizing_government/ModernizingGovernmentOverview.pdf) 17, 18 (2010), *available at *<http://www.whitehouse.gov/sites/default/files/omb/assets/modernizing_government/ModernizingGovernmentOverview.pdf>.
+[^15]: These inefficiencies are troubling, not only because they represent a significant financial cost to the taxpayer, but also because they undoubtedly represent a significant cost to the realization of agency goals. *See* Stanley N. Sherman, Government Procurement Management 30 (1991). As President Barack Obama recently noted at the White House Forum on Modernizing Government, "\[w]hen we waste billions of dollars, in part because our technology is out of date, that's billions of dollars we're not investing in better schools for our children, in tax relief for our small businesses, in creating jobs and funding research to spur the scientific breakthroughs and economic growth of this new century." *Attachment B: President's Remarks, in* [White House Forum on Modernizing Government: Overview and Next Steps](http://www.whitehouse.gov/sites/default/files/omb/assets/modernizing_government/ModernizingGovernmentOverview.pdf) 17, 18 (2010), *available at* <http://www.whitehouse.gov/sites/default/files/omb/assets/modernizing_government/ModernizingGovernmentOverview.pdf>.
 
 [^16]: DoD Acquisition Report, *supra* note 1, at 16–17 (noting many large corporations have gained a significant advantage from using agile). *See* White House Forum On Modernizing Gov't, Overview And Next Steps 9 ("Federal IT projects are too often marked by milestones spaced too far apart."). *See generally* *infra* Parts III-IV*.*
 
-[^17]: *See *Ralph C. Nash, Jr., *Solutions-Based Contracting: A Better Way To Buy Information Technology?*, 11 Nash & Cibinic Rep. ¶ 17, at 60 (Apr. 1997).
+[^17]: *See* Ralph C. Nash, Jr., *Solutions-Based Contracting: A Better Way To Buy Information Technology?*, 11 Nash & Cibinic Rep. ¶ 17, at 60 (Apr. 1997).
 
 [^18]: A more in-depth examination of the characteristics of waterfall development is discussed *infra* part II.
 
-[^19]: Adrian Royce, *Agile in Government: Successful On-Time Delivery of Software* 1, *in *Conference Papers, 20th Australian Software Engineering Conference (2009).
+[^19]: Adrian Royce, *Agile in Government: Successful On-Time Delivery of Software* 1, *in* Conference Papers, 20th Australian Software Engineering Conference (2009).
 
 [^20]: Martin Fowler, *[The New Methodology](http://www.martinfowler.com/articles/newMethodology.html)*, Martin Fowler (Dec. 13, 2005), <http://www.martinfowler.com/articles/newMethodology.html>.
 
 [^21]: For example, an architect draws up blueprints for a house and hands them off to a contractor for construction. Should the future homeowner decide after the fact that he wishes to deviate from his original plan, e.g., he prefers the kitchen be five feet wider, such a change would incur substantial time, labor, and material costs as floors are re-laid, pipes re-plumbed, and electrical outlets rewired accordingly.
 
-[^22]: Initially the application of the traditional methodology to the emerging field was much more straightforward. Room-sized mainframe computers required users to painstakingly code instructions on physical cards, submit them to be processed in batches, and await the result. James O. Coplien & Gertrud Bjørnvig, Lean Architecture: For Agile Software Development, 218 (2010). Today, however, advances in technology and the personal computer have allowed the software development environment to embody an interactive process whereby software engineers can receive immediate feedback as to their software's success or failure. *Id. *at 218–19 (noting that originally high computing costs drove up the cost of mistakes such that "rigid disciplines ruled." Today, mistakes are cheap.).
+[^22]: Initially the application of the traditional methodology to the emerging field was much more straightforward. Room-sized mainframe computers required users to painstakingly code instructions on physical cards, submit them to be processed in batches, and await the result. James O. Coplien & Gertrud Bjørnvig, Lean Architecture: For Agile Software Development, 218 (2010). Today, however, advances in technology and the personal computer have allowed the software development environment to embody an interactive process whereby software engineers can receive immediate feedback as to their software's success or failure. *Id.* at 218–19 (noting that originally high computing costs drove up the cost of mistakes such that "rigid disciplines ruled." Today, mistakes are cheap.).
 
 [^23]: Fowler, *supra* note 20. If a federal agency decides that the navigation menu on its new website should be five pixels larger, to make such a change would simply require modifying one or two values in the website's source code, an insubstantial labor cost in a large government contract.
 
@@ -347,9 +347,9 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^26]: *See* Fowler, *supra* note 20.
 
-[^27]: Mark Lycett et al., Migrating Agile Methods to* Standardized Development Practice,* Computer, June 2003, at 79, 79.
+[^27]: Mark Lycett et al., Migrating Agile Methods to Standardized Development Practice, Computer, June 2003, at 79, 79.
 
-[^28]: Szalvay, *supra* note 6,\* *at 2; Government Contracting for Software Development Course Manual 33 (1994) \[hereinafter Course Manual]; Lan Cao & Balasubramaniam Ramesh, *Agile Requirements Engineering Practices: An Empirical Study, *IEEE Software, Jan./Feb. 2008, at 60, 64; Fowler, *supra\* note 20 (noting engineers' "nature is to resist change. The agile methods, however, welcome change").
+[^28]: Szalvay, *supra* note 6, at 2; Government Contracting for Software Development Course Manual 33 (1994) \[hereinafter Course Manual]; Lan Cao & Balasubramaniam Ramesh, *Agile Requirements Engineering Practices: An Empirical Study*, IEEE Software, Jan./Feb. 2008, at 60, 64; Fowler, *supra* note 20 (noting engineers' "nature is to resist change. The agile methods, however, welcome change").
 
 [^29]: Fowler, *supra* note 20.
 
@@ -357,7 +357,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^31]: Cao & Ramesh, *supra* note 28, at 63.
 
-[^32]: *Id*. Similarities can be drawn between modern software development and the Japanese auto industry forty years ago. Beginning in the 1970s Japanese auto manufacturers began adopting lean manufacturing practices to develop new vehicles. Michael A. Cusumano, *Japanese Technology Management: Innovations, Transferability, and the Limitations of "Lean" Production* 1 (Sloan Sch. of Mgmt., Mass. Inst. of Tech., Working Paper No. 3477–92, 1992). Due to this refined approach's reduced overhead, Japanese manufacturers were able to generate thirty percent more profit per vehicle than Chrysler, one-hundred percent more per vehicle than Ford, and two-hundred percent more per vehicle than General Motors. Mary Poppendieck, Cutter Consortium Executive Report, Lean Development and the Predictability Paradox 1 (2003).\* *When compared to Detroit's traditional design and manufacturing practices, Japanese manufacturers produced higher quality vehicles in one-third less time. *Id.* While in the United States nearly half of all projects missed their target date, in Japan, all but one sixth hit the market on time. *Id. *Japan's lean-manufacturing methods produced cheaper, more successful cars faster. *Id\*.
+[^32]: *Id*. Similarities can be drawn between modern software development and the Japanese auto industry forty years ago. Beginning in the 1970s Japanese auto manufacturers began adopting lean manufacturing practices to develop new vehicles. Michael A. Cusumano, *Japanese Technology Management: Innovations, Transferability, and the Limitations of "Lean" Production* 1 (Sloan Sch. of Mgmt., Mass. Inst. of Tech., Working Paper No. 3477–92, 1992). Due to this refined approach's reduced overhead, Japanese manufacturers were able to generate thirty percent more profit per vehicle than Chrysler, one-hundred percent more per vehicle than Ford, and two-hundred percent more per vehicle than General Motors. Mary Poppendieck, Cutter Consortium Executive Report, *Lean Development and the Predictability Paradox* 1 (2003). When compared to Detroit's traditional design and manufacturing practices, Japanese manufacturers produced higher quality vehicles in one-third less time. *Id.* While in the United States nearly half of all projects missed their target date, in Japan, all but one sixth hit the market on time. *Id.* Japan's lean-manufacturing methods produced cheaper, more successful cars faster. *Id*.
 
 [^33]: Darrell A. Fruth, *Economic and Institutional Constraints on the Privatization of Government Information Technology Services*, 13 Harv. J.L. & Tech. 521, 524–25 (2000).
 
@@ -373,13 +373,13 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^39]: Szalvay, *supra* note 6, at 1–2.
 
-[^40]: Winston W. Royce, *Managing the Development of Large Software Systems: Concepts and Techniques*, *in * Proceedings of IEEE WESCON (1970), *reprinted in* Proceedings of the Ninth International Conference on Software Engineering 328, 328 (1987).
+[^40]: Winston W. Royce, *Managing the Development of Large Software Systems: Concepts and Techniques*, *in* Proceedings of IEEE WESCON (1970), *reprinted in* Proceedings of the Ninth International Conference on Software Engineering 328, 328 (1987).
 
-[^41]: Gen. Servs. Admin. Strategic Info. Tech. Analysis Div., White Paper: Modular Contracting 16, 8 (1997) \[hereinafter Modular Contracting White Paper]. *See *Kundra, *supra* note 13, at 17 (noting "\[t]he acquisition process can require program managers to specify the government's requirements up front, which can be years in advance of program initiation"); Orszag, *supra* note 14, at 2 (observing that "\[h]istorically government IT projects have involved expansive, long-term projects that attempt to change almost every aspect of a business system at once… \[and have] taken years, sometimes a decade, and have failed at alarming rates").
+[^41]: Gen. Servs. Admin. Strategic Info. Tech. Analysis Div., White Paper: Modular Contracting 16, 8 (1997) \[hereinafter Modular Contracting White Paper]. *See* Kundra, *supra* note 13, at 17 (noting "\[t]he acquisition process can require program managers to specify the government's requirements up front, which can be years in advance of program initiation"); Orszag, *supra* note 14, at 2 (observing that "\[h]istorically government IT projects have involved expansive, long-term projects that attempt to change almost every aspect of a business system at once… \[and have] taken years, sometimes a decade, and have failed at alarming rates").
 
 [^42]: Course Manual, *supra* note 28, at 33.
 
-[^43]: *See *W.\* *Royce, *supra\* note 40, at 328.
+[^43]: *See* W.Royce, *supra* note 40, at 328.
 
 [^44]: *Id.* at 329.
 
@@ -387,13 +387,13 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^46]: Richard K. Cheng, *[On Being Agile](http://www.nextgov.com/nextgov/ng_20100923_7965.php)*, NextGov, Sept. 23, 2010, <http://www.nextgov.com/nextgov/ng_20100923_7965.php>.
 
-[^47]: Szalvay, *supra* note 6,\* *at 1–3; Course Manual, *supra\* note 28, at 33. Such an approach makes sense when it is traced backed to its traditional roots. Engineers building bridges rely on well-established laws of physics supported by the fundamentals of mathematics, two sciences that are rigidly defined and easily relied upon. Software development, on the other hand, is not bound by the rules of the physical world. Gravity, an assumed constant in engineering, has relatively little relevance to programming.
+[^47]: Szalvay, *supra* note 6, at 1–3; Course Manual, *supra* note 28, at 33. Such an approach makes sense when it is traced backed to its traditional roots. Engineers building bridges rely on well-established laws of physics supported by the fundamentals of mathematics, two sciences that are rigidly defined and easily relied upon. Software development, on the other hand, is not bound by the rules of the physical world. Gravity, an assumed constant in engineering, has relatively little relevance to programming.
 
-[^48]: *See* Mark Leicester, *Government Projects the Agile Way: Can It Be Done?*, St. Services Commission (Apr. 16, 2009), <http://www.ssc.govt.nz/blog/government-projects-agile-way-can-it-be-done>.
+[^48]: *See* Mark Leicester, *Government Projects the Agile Way: Can It Be Done?*, St. Services Commission (Apr. 16, 2009).
 
 [^49]: Modular Contracting White Paper, *supra* note 41, at 7; Cao & Ramesh, *supra* note 28, at 63. *See Further Details on Modular Contracting Left for Public Meeting–Proposed Rule Adds Little to Clinger-Cohen Act*, 39 Gov't Contractor ¶ 161, Apr. 2, 1997 \[hereinafter *Further Details*].
 
-[^50]: Modular Contracting White Paper, *supra* note 41, at 7 (noting that "forcing this rigidity into the systems development acquisition process – intending to minimize risks and mistakes – can actually exacerbate the same."). As FCC Geographic Information Officer Michael Byrne commented, "procurement is like a board game. You are trying to move your pieces to the other side. This would be easy if you had no opponent. When the other team begins moving forward there's no way to . . . know how to optimally get to the other side, and waterfall software development expects just that. Data changes, technology changes, policy changes, governance changes – this is the opposing player – and there's no way to predict the interaction with my pieces." FCC Interview, *supra* note 36.
+[^50]: Modular Contracting White Paper, *supra* note 41, at 7 (noting that "forcing this rigidity into the systems development acquisition process – intending to minimize risks and mistakes – can actually exacerbate the same."). As FCC Geographic Information Officer Michael Byrne commented, "procurement is like a board game. You are trying to move your pieces to the other side. This would be easy if you had no opponent. When the other team begins moving forward there's no way to... know how to optimally get to the other side, and waterfall software development expects just that. Data changes, technology changes, policy changes, governance changes – this is the opposing player – and there's no way to predict the interaction with my pieces." FCC Interview, *supra* note 36.
 
 [^51]: Sherman, *supra* note 15, at 210–11; Poppendieck, *supra* note 32, at 1, 5 (arguing "the more companies attempted to define the process of product development, the less the organization was able to carry out that process").
 
@@ -411,7 +411,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^58]: *Id.*
 
-[^59]: *Id*.;\* *Kundra, *supra note* 13, at 17 (observing *"\*the lag between when the \[G]overnment defines its requirements and when the contractor begins to deliver is enough time for the technology to fundamentally change").
+[^59]: *Id*.; Kundra, *supra note* 13, at 17 (observing "the lag between when the \[G]overnment defines its requirements and when the contractor begins to deliver is enough time for the technology to fundamentally change").
 
 [^60]: Federal Executive Roundtable, *supra* note 56.
 
@@ -447,7 +447,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^76]: From the agency's perspective, an agile backlog is simply a wish list of features in priority of business value, wherein the agency lists the functionality it desires from a system and when that can be expected. From the contractor's perspective, the backlog is a to-do list, in order of priority, listing the project deliverables and their deadlines.
 
-[^77]: For a more detailed explanation, *see *Fowler, *supra* note 20.
+[^77]: For a more detailed explanation, *see* Fowler, *supra* note 20.
 
 [^78]: Poppendieck, *supra* note 32, at 9.
 
@@ -457,7 +457,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^81]: Lee & Xia, *supra* note 11, at 90.
 
-[^82]: *Id. *at 89, 92.
+[^82]: *Id.* at 89, 92.
 
 [^83]: *Id.* at 89.
 
@@ -465,7 +465,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^85]: *Id*. at 64.
 
-[^86]: *See *Fowler, *supra* note 20.
+[^86]: *See* Fowler, *supra* note 20.
 
 [^87]: Federal Executive Roundtable, *supra* note 56.
 
@@ -477,9 +477,9 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^91]: *See* Szalvay, *supra* note 6, at 6.
 
-[^92]: *See *Royce, *supra* note 19, at 4.
+[^92]: *See* Royce, *supra* note 19, at 4.
 
-[^93]: DoD Acquisition Report,* supra* note 1, at 47–48.
+[^93]: DoD Acquisition Report, *supra* note 1, at 47–48.
 
 [^94]: *Id*.
 
@@ -503,7 +503,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^104]: *Id*.
 
-[^105]: DoD Acquisition Report, *supra* note 1, at 53. *See *Poppendieck, *supra* note 32, at 15.
+[^105]: DoD Acquisition Report, *supra* note 1, at 53. *See* Poppendieck, *supra* note 32, at 15.
 
 [^106]: *See* Poppendieck, *supra* note 32, at 3.
 
@@ -511,7 +511,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^108]: Chief among agile's criticisms in the private sector may be that its emphasis on functional, rather than technical requirements often underserves the project's non-functional goals. Cao & Ramesh, *supra* note 28, at 64–65.
 
-[^109]: Glen B. Alleman et al., *Making Agile Development Work in A Government Contracting Environment*, *in * Conference Papers, Agile Dev. Conference 114, 114 (2003).
+[^109]: Glen B. Alleman et al., *Making Agile Development Work in A Government Contracting Environment*, *in* Conference Papers, Agile Dev. Conference 114, 114 (2003).
 
 [^110]: Cao & Ramesh, *supra* note 28, at 64.
 
@@ -535,9 +535,9 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^120]: Fowler, *supra* note 20.
 
-[^121]: Cheng, *supra* note 46 (commenting "\[a]n entrenched project management culture has yet to give up rigid parameters, documentation and processes"). *See *Hilary Berger, *Agile Development in a Bureaucratic Arena*, 27 Int'l J. of Info. Mgmt. 386, 392 (2007) (noting "where the organizational nature is one of bureaucracy and hierarchical status," a culture "counter-productive to \[a]gile development" emerges because "management driven responsibility inhibits the fast, authoritative decision-making activities" that are "crucial" to agile).
+[^121]: Cheng, *supra* note 46 (commenting "\[a]n entrenched project management culture has yet to give up rigid parameters, documentation and processes"). *See* Hilary Berger, *Agile Development in a Bureaucratic Arena*, 27 Int'l J. of Info. Mgmt. 386, 392 (2007) (noting "where the organizational nature is one of bureaucracy and hierarchical status," a culture "counter-productive to \[a]gile development" emerges because "management driven responsibility inhibits the fast, authoritative decision-making activities" that are "crucial" to agile).
 
-[^122]: *See *Jerry Mechling & Victoria Sweeney, Overcoming Budget Barriers: Funding IT Projects in The Public Sector 14 (1997).
+[^122]: *See* Jerry Mechling & Victoria Sweeney, Overcoming Budget Barriers: Funding IT Projects in The Public Sector 14 (1997).
 
 [^123]: *See id*. at 8.
 
@@ -555,7 +555,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^130]: Sherman, *supra* note 15, at 251.
 
-[^131]: *See *FAR Part 15.
+[^131]: *See* FAR Part 15.
 
 [^132]: Sherman, *supra* note 15, at 299–301.
 
@@ -595,7 +595,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^150]: Strengthening IT program management by exposing best practices and aligning IT procurement with innovation is a central tenet of the White House's plan to reform federal IT. Kundra, *supra* note 13, at 17 (noting "\[t]he acquisition process can require program managers to specify the \[G]overnment's requirements up front, which can be years in advance of program initiation . . . We need to make real change happen . . . by educating the entire team managing IT projects about the tools available to streamline the acquisition process.").
 
-[^151]: Ideally instructors would create a scalable model outlining the various issues contracting agencies must broach before pursuing an agile project, such as how to ensure robust competition, how broad or specific the statements of work should be, whether to award to a single vendor or multiple vendors, and when to use fixed-price contracts or rely instead on other contracting vehicles. *See generally *Kundra, *supra* note 13.
+[^151]: Ideally instructors would create a scalable model outlining the various issues contracting agencies must broach before pursuing an agile project, such as how to ensure robust competition, how broad or specific the statements of work should be, whether to award to a single vendor or multiple vendors, and when to use fixed-price contracts or rely instead on other contracting vehicles. *See generally* Kundra, *supra* note 13.
 
 [^152]: An example of a functional approach would involve requiring that a system use industry best security practices rather than describing a particular encryption algorithm.
 
@@ -605,6 +605,6 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^155]: FAR 36.602–1.
 
-[^156]: FAR 36.601(4)(a)(3). The U.S. Bureau of Labor and Statistics classifies the software engineering role as a [subset of computer specialist](http://www.bls.gov/soc/soc_structure_2010.pdf), while all other engineering disciplines are a [subset of engineer][http://www.bls.gov/soc/soc_structure_2010.pdf]. Additionally, software engineers do not receive professional engineering licenses from the state. If a state were to grant such a license, this would serve as an interesting test case.
+[^156]: FAR 36.601(4)(a)(3). The U.S. Bureau of Labor and Statistics classifies the software engineering role as a [subset of computer specialist](http://www.bls.gov/soc/soc_structure_2010.pdf), while all other engineering disciplines are a [subset of engineer](http://www.bls.gov/soc/soc_structure_2010.pdf). Additionally, software engineers do not receive professional engineering licenses from the state. If a state were to grant such a license, this would serve as an interesting test case.
 
 [^157]: FAR 39.103 (implementing the Clinger-Cohen Act of 1996, Pub. L. No. 104–106).

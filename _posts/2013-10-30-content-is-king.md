@@ -1,6 +1,6 @@
 ---
 title: 'Jekyll: Where content is truly king'
-layout: post
+
 comments: true
 description: 'By choosing a static architecture over a more complex one for government.github.com, technology became a given, and we were able to iterate on improving the content itself, '
 ---

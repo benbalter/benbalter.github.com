@@ -1,5 +1,5 @@
 ---
-author: Ben Balter
+
 title: |
   The Internet is Series of Tubes (oh, and Tollgates too)
 description: >
@@ -8,7 +8,7 @@ description: >
   exchange for Comcast continuing to allow its customers access to Netflix
   videos, effectively erecting a series of tollbooths on the information
   superhighway.
-layout: post
+
 categories:
   - Business
   - Technology
@@ -18,7 +18,6 @@ tags:
   - net neutrality
   - open internet
   - series of tubes
-post_format: []
 ---
 
 The Internet backbone big tube provider, Level 3, which makes up much of the behind-the-scenes magic that delivers Netflix streaming movies, revealed that in recent negotiations, internet service (smaller tube) provider Comcast [demanded Level 3 pay an additional fee](http://voices.washingtonpost.com/posttech/2010/11/comcast_hit_with_two_net_neutr.html) in exchange for Comcast *continuing* to allow its customers access to Netflix videos, effectively erecting a series of tollgates on the information superhighway.

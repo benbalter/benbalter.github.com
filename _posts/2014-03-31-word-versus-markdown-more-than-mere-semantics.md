@@ -1,6 +1,6 @@
 ---
 title: 'Word versus Markdown: more than mere semantics'
-layout: post
+
 comments: true
 description: 'How we consume content has changed dramatically, over the past 30 years, yet, how we author content remains relatively unchanged. Markdown forces you to write for the web.'
 ---

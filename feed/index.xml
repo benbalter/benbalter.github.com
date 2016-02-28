@@ -13,9 +13,6 @@
   <id>{{ url_base | xml_escape }}/</id>
   <title>{{ site.name | xml_escape }}</title>
   <subtitle>{{ site.description | xml_escape }}</subtitle>
-  <author>
-    <name>{{ site.author | xml_escape }}</name>
-  </author>
   <entry>
     <title>This feed has moved</title>
     <link href="{{ url_base }}/feed.xml" rel="alternate" type="text/html" title="This feed has moved" />

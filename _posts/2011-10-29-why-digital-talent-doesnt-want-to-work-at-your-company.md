@@ -1,12 +1,12 @@
 ---
-author: Ben Balter
+
 title: |
   Why Digital Talent Doesn't Want To Work At Your Company
 description: >
   It's because you're not providing them the right opportunity. The talent you
   want would be happy to work in an un-air-conditioned garage in New Mexico if it
   meant the chance to change the world.
-layout: post
+
 categories:
   - Business
   - Technology

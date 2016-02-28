@@ -1,5 +1,4 @@
 ---
-author: Ben Balter
 title: A Site By Any Other Name...
 description: >
   DHS recently began protecting America's shores from threats of a different
@@ -7,16 +6,6 @@ description: >
   agency set out to enforce the "express written consent of the NFL" provision
   attached to most broadcasts by slamming the iron fist of the law down on six
   sports-streaming websites.
-layout: post
-categories:
-  - Law
-  - Technology
-tags:
-  - censorship
-  - copyright
-  - digital due process
-  - domains
-post_format: []
 ---
 
 ![Screenshot of the takedown notice](http://ben.balter.com/wp-content/uploads/2011/02/IPRC_Seized_2010_11-300x225.gif "DHS Seizure Notice"){: .alignleft} Violating due process is one thing, but violating web standards… well that's another story.
@@ -45,6 +34,6 @@ As seen in the recent [Wikileaks domain shell game](http://gawker.com/#!5704966/
 
 [^2]: The relevant provisions of § 2323 allow for the forfeiture of "(A) Any article, the making or trafficking of which is, prohibited under section 506 of title 17″ prohibiting "willful copyright infringement" and "(B) Any property used, or intended to be used, in any manner or part to commit or facilitate the commission of an offense referred to in subparagraph (A)."
 
-[^3]: As [Post noted back then](http://volokh.com/2010/12/01/copyright-enforcement-tail-wags-internet-dog-contd-or-what-the-hell-ever-happened-to-due-process/){: data-proofer-ignore="true"}, and even more relevant now in light of Egypt's recent flipping of its internet kill switch, "our ability to defend the principle of the single global Internet – the Internet where all of humanity has equal access to knowledge and ideas, the Internet that looks the same to, and allows free and unfettered communication between, users located in Shanghai and Seattle and Santiago, free of locally imposed censorship regimes – will be deeply compromised by \[seizures of this kind], which would enshrine in U.S. law for the first time the contrary principle: that all countries have a right to insist on the removal of content, wherever located, from the global Internet in service of the exigencies of local law." (Quoting a [letter he authored][27] criticizing the Senate's Combating Online Infringements and Counterfeits Act).
+[^3]: As [Post noted back then](http://volokh.com/2010/12/01/copyright-enforcement-tail-wags-internet-dog-contd-or-what-the-hell-ever-happened-to-due-process/){: data-proofer-ignore="true"}, and even more relevant now in light of Egypt's recent flipping of its internet kill switch, "our ability to defend the principle of the single global Internet – the Internet where all of humanity has equal access to knowledge and ideas, the Internet that looks the same to, and allows free and unfettered communication between, users located in Shanghai and Seattle and Santiago, free of locally imposed censorship regimes – will be deeply compromised by \[seizures of this kind], which would enshrine in U.S. law for the first time the contrary principle: that all countries have a right to insist on the removal of content, wherever located, from the global Internet in service of the exigencies of local law." (Quoting a letter he authored criticizing the Senate's Combating Online Infringements and Counterfeits Act).
 
 [^4]: Beyond being reminiscent of Geocities (and most of the 90s), text in images is not machine readable, a requirement of section 508 (codified at 29 U.S.C. § 794(d)) . That means that neither screen readers nor search engines can accurately parse the site's content.

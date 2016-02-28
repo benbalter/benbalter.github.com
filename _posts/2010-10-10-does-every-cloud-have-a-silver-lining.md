@@ -1,12 +1,12 @@
 ---
-author: Ben Balter
+
 title: Does Every Cloud Have a Silver Lining?
 description: >
   Thunderstorms occur when divergent forces collide in clouds. It is becoming
   increasingly clear that cloud computing is in our extended forecast, but
   whether the imminent digital due process storm the cloud foreshadows will
   contain a silver privacy lining remains to be seen.
-layout: post
+
 categories:
   - Law
   - Technology
@@ -15,7 +15,6 @@ tags:
   - digital due process
   - google
   - privacy
-post_format: []
 ---
 
 Today's New York Times article [outlining law enforcement officials' attempts to expand their digital wiretapping authority](http://www.nytimes.com/2010/09/27/us/27wiretap.html?_r=1&ref=technology "NYT: U.S. Tries to Make It Easier to Wiretap the Internet"){: data-proofer-ignore="true"}, offers interesting insight into the law enforcement world of tomorrow. In the not too distant future, TV's crime-process dramas may take on a very different feel. Gone will be the days of [gun-toting detectives busting down doors, search warrant in hand](http://www.youtube.com/watch?v=Vc51W8jGv9g). Instead, as our lives become increasingly digital, investigations will be conducted by [keyboard-wielding lab techs submitting automated requests to service providers](http://www.youtube.com/watch?v=6Z70BmmSkMY&feature=related "CSI Miami IP Address Lookup"). Don't be surprised if the next CSI spinoff is CSI: Inbox Inspectors Division.
