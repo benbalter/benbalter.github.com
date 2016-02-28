@@ -1,23 +1,11 @@
 ---
 title: "What is a 'Hacker'?"
 description: 'Hackers embody sharing, openness, decentralization — coding to improve the world'
-
-
-comments: true
-categories:
-  - Technology
-tags:
-  - Code
-  - Hacker
-  - Hacking
-  - Enterprise
-  - Culture
-published: false
 ---
 
 Working in DC, "hacker" can often be seen as a four-letter word. I can't count the number of times a press aide or government attorney has cringed at seeing it in a draft release, or even worse, as an upcoming event audaciously entitled a "hackathon". To the media and many government types "hacking" often conjures up images of malcontents in ski masks crouched over computer screens, but to the rest of the world (and especially the Internet), the term has a very, very different meaning. Heck, even Merriam-Webster [defines hacker](http://www.merriam-webster.com/dictionary/hacker) as:
 
-1. "One that hacks" (defined as "to write computer programs for enjoyment"), 
+1. "One that hacks" (defined as "to write computer programs for enjoyment"),
 2. "a person who is inexperienced or unskilled at a particular activity", and
 3. "an expert at programming and solving problems with a computer"
 
@@ -27,23 +15,21 @@ The term traces its routes all the way back to the 1960s when it emerged to desc
 
 Think about it in terms of a hacker ethic, a hacker way, and a hacker culture.
 
-<!-- more -->
-
-## The Hacker Ethic
+### The Hacker Ethic
 
 Hackers are motivated by a distinct ethos.[^1] It's about **Sharing**. Hacking requires the ability to take things apart and figure out how they work in the hopes of ultimately improving upon them. It's a "hands on" imperative that necessitates both access to and the right to fork a project in hopes of building something even more interesting and ultimately bettering what's available to all. It's about **Openness**. Hacking is a group effort, and thus the free flow of information is a necessity to empower hackers to fix, improve, and reinvent. Secrecy simply serves to stifle creative possibility. Freedom of inquiry requires that information be free. And it's about **Decentralization**. The best way to promote the free exchange of information is to have an open system that provides no friction between a hacker and his or her quest for knowledge. By intentionally or unintentionally erecting such barriers, bureaucracies, whether corporate, government, or university, are inherently flawed systems.
 
-## The Hacker Way
+### The Hacker Way
 
 But it's more than ideology. There's a practical side to it as well. There's a thirst, a drive. There's a constant intellectual itch just begging to be scratched.[^2] **The world is full of problems waiting to be solved**. In the hands of a creative mind, technology can make the world a better place for all. Just as athletes seek delight in pushing their bodies past their physical limits, hackers seek the thrill of pushing tools beyond what is known, what is solved, and what is possible. But that also means that **No problem should ever have to be solved twice**. Creative minds are a valuable, finite resource and shouldn't be wasted on re-inventing the wheel when there are other fascinating, unsolved problems waiting to be solved.
 
-## Hacker Culture
+### Hacker Culture
 
 Last, hackers embody a culture that often flies in the face of traditional paradigms. It's a culture of **Meritocracy**. Contribution is the sole currency of the Internet. Money and title bare far less weight than meaningful contributions, be they code, copy, design, whatever. It's a culture of **Ellegance**. Hackers strive for artfully arranged, innovative techniques that perform complicated tasks with as few instructions as possible. and It's a culture of **Playful cleverness**. There's a certain lighthearted cleverness to being a hacker, often expressed by injecting dry wit and memes into otherwise mundane tasks.
 
-## Hackers in the Enterprise
+### Hackers in the Enterprise
 
-It's no surprise then, that as the pace of technological innovation quickens, the very bureaucracies that hackers condemn are [beginning to appreciate](http://www.intechnic.com/blog/a-hacker-the-secret-ingredient-your-it-department-lacks/) their ability to consistently deliver high-value projects at little cost. Heck, even the White House recently [announced its first hackathon](http://www.whitehouse.gov/blog/2013/02/05/announcing-we-people-20-and-white-house-hackathon). But elevating hackers in traditional organizations is not simply another name for "skunk works," just as a hackathon is no excuse for not consistently fostering a culture of innovation. It's not about working faster or cheaper. 
+It's no surprise then, that as the pace of technological innovation quickens, the very bureaucracies that hackers condemn are [beginning to appreciate](http://www.intechnic.com/blog/a-hacker-the-secret-ingredient-your-it-department-lacks/) their ability to consistently deliver high-value projects at little cost. Heck, even the White House recently [announced its first hackathon](http://www.whitehouse.gov/blog/2013/02/05/announcing-we-people-20-and-white-house-hackathon). But elevating hackers in traditional organizations is not simply another name for "skunk works," just as a hackathon is no excuse for not consistently fostering a culture of innovation. It's not about working faster or cheaper.
 
 "Hacker" isn't just the next hot buzzword, following a long history of "rock star", "ninja", and "guru". Nor is it synonymous with "cybercriminal" or imply any nefarious intentions whatsoever. Instead the exact opposite is true. It's about embracing an ethos, a drive, a culture. It's about coding to improve the world.
 
