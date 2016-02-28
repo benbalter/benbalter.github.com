@@ -2,6 +2,8 @@
 
 set -e
 
+export CI=1
+
 echo "checking markdown"
 script/remark
 
