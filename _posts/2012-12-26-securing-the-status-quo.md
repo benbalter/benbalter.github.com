@@ -3,7 +3,7 @@ title: Securing the Status Quo
 description: The Effect of Federal IT Security Policies on Innovation
 ---
 
-# The Effect of Federal IT Security Policies on Innovation
+### The Effect of Federal IT Security Policies on Innovation
 
 * Table of Contents
   {:toc}
