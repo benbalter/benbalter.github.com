@@ -1,23 +1,11 @@
 ---
-author: Ben Balter
-title: |
-  Twitter Mentions as Comments WordPress Plugin
-description: 'Twiter Mentions as Comments does exactly what it promises to do -- scours Twitter for people talking about your blog posts and silently inserts their Tweets alongside your existing comments. '
-layout: post
-categories:
-  - Technology
-tags:
-  - comments
-  - open source
-  - plugin
-  - twitter
-  - wordpress
-post_format: []
+title: Twitter Mentions as Comments WordPress Plugin
+description: 'Twiter Mentions as Comments does exactly what it promises to do -- scours Twitter for people talking about your blog posts and silently inserts their Tweets alongside your existing comments.'
 ---
 
 Twitter Mentions as Comments does exactly what it promises to do – scours Twitter for people talking about your blog posts and silently inserts their Tweets alongside your existing comments. The plugin leverages the power of WordPress's built-in commenting system – notification, comment moderation, author white/black listing – making Twitter an extension of your blog.
 
-**Features**
+### Features
 
 * Searches for Tweets linking to your blog posts, regardless of the URL shortener used (using Twitter's Search API)
 * Pushes Tweets into WordPress's existing comment workflow – notifications, comment moderation, and author whitelists/blacklists work just like any other comment
@@ -28,7 +16,7 @@ Twitter Mentions as Comments does exactly what it promises to do – scours Twit
 * Option to specify which posts to check (e.g., 10 most recent posts, all posts, front page only)
 * Smart Caching of Tweets and user data – retrieves only what it needs to save on API calls and server load
 
-**Planned Features**
+### Planned Features
 
 * Dynamic resizing of Twitter profile images to fit WordPress theme
 * Prioritization of newer posts

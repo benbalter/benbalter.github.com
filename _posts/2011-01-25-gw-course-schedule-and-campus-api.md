@@ -1,17 +1,6 @@
 ---
-author: Ben Balter
 title: GW Course Schedule and Campus API
 description: "George Washington University recently released an iPhone app that allows students to look up the course schedule and each course's open/closed status as well as browse an interactive map of the campus. Below you can find the details on GW's course schedule and campus map API endpoints, as well as an API wrapper to interact with it written in PHP."
-layout: post
-categories:
-  - Technology
-tags:
-  - api
-  - code
-  - gw
-  - hack
-  - open source
-post_format: []
 ---
 
 ![Course Schedule](http://ben.balter.com/wp-content/uploads/2011/01/1430289931_beb7ff6428_b-300x225.jpg "Course Schedule"){: .alignright}George Washington University recently released an [iPhone app](http://gwtoday.gwu.edu/app-gw) that allows students to look up the course schedule and each course's open/closed status as well as browse an interactive map of the campus. Naturally, upon installing the app, the first thing to do is to try and ferret out the underlying XML API that powers it, a simple enough task given [the right tools](http://blog.jerodsanto.net/2009/06/sniff-your-iphones-network-traffic/).
@@ -49,8 +38,10 @@ Creative ideas on how best to leverage the information welcome in the comments b
 
    1. Endpoint: `http://my.gwu.edu/mod/pws/scheduleXML.cfm`
    2. Parameters:
+
       1. `termCode=[YYYY][01=spring, 02=summer, 03=fall]`
       2. `deptCode=[Dept. Code]`
+
    3. Returns:
 
       ```xml
@@ -148,7 +139,7 @@ Creative ideas on how best to leverage the information welcome in the comments b
 
 2. Usage
 
-#### Initialize:
+#### Initialize
 
 ```php
 <?php $gwapi = new gw_api; ?>

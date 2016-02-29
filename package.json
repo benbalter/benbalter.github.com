@@ -4,9 +4,26 @@
   "description": "[![Build Status](https://travis-ci.org/benbalter/benbalter.github.com.png?branch=master)](https://travis-ci.org/benbalter/benbalter.github.com)",
   "main": "script/server",
   "dependencies": {
-    "pa11y": "^2.4.2"
+    "remark-heading-gap": "^2.0.0",
+    "remark-inline-links": "^3.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "remark": "^4.1.1",
+    "remark-lint": "^3.0.0",
+    "remark-lint-code": "^1.0.0",
+    "remark-lint-no-empty-sections": "^1.0.0",
+    "remark-normalize-headings": "^0.3.0",
+    "remark-slug": "^4.0.0",
+    "remark-squeeze-paragraphs": "^3.0.0",
+    "remark-textr": "^2.0.1",
+    "remark-validate-links": "^2.0.2",
+    "remark-yaml": "2.0.1",
+    "typographic-em-dashes": "^1.0.2",
+    "typographic-en-dashes": "^1.0.1",
+    "typographic-markdown": "^1.0.2",
+    "typographic-numbers": "^2.0.1",
+    "typographic-single-spaces": "^1.0.2"
+  },
   "scripts": {
     "test": "script/cibuild"
   },

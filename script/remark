@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+if [ "$CI" = "1" ]; then
+  ./node_modules/.bin/remark --config-path .remarkrc --no-rc *.md */**.md
+else
+  ./node_modules/.bin/remark --output --config-path .remarkrc --no-rc *.md */**.md
+fi

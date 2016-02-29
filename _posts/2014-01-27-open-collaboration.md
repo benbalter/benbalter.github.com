@@ -1,6 +1,6 @@
 ---
 title: 'Open source, not just software anymore'
-layout: post
+
 comments: true
 description: "What we've been calling open source, may in fact be something else, especially when we start to use those workflows to collaborate on things beyond code."
 redirect_from: /2014/01/27/open-collabortion/
@@ -62,7 +62,7 @@ That begs the question: What percentage of the world needs to have access to som
 
 ### The case for open collaboration
 
->  There is no such thing as "government-only" or "academic-only" or "within-our-company-only" open source
+> There is no such thing as "government-only" or "academic-only" or "within-our-company-only" open source
 
 I think that's true. At least, the idea of someone calling something "government-only open source" scares me. But what do we call the millions of developers that adopt open source workflows for their closed-source software? For non-software collaboration? How do we divorce ourselves from a rights-centric viewpoint and the holy wars that go with it (I'm looking at you GPL)? What do you call something that's developed in the open with community involvement that may or may not be software?
 

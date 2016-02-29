@@ -1,6 +1,6 @@
 ---
 title: How to identify a strong open source project
-layout: post
+
 comments: true
 description: "Open source provides us with a handful of built in metrics to gauge a project's quality, even without reading a single line of code"
 ---

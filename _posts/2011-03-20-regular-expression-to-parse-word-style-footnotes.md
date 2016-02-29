@@ -1,18 +1,6 @@
 ---
-author: Ben Balter
 title: "Regular Expression to Parse Word-style Footnotes into WordPress's Simple Footnotes Format"
 description: "Regular Expression to automatically parse Microsoft Word's footnote format into a more web-friendly format for WordPress's Simple Footnotes plugin"
-layout: post
-categories:
-  - Technology
-tags:
-  - code
-  - footnotes
-  - hack
-  - open source
-  - plugin
-  - wordpress
-post_format: []
 ---
 
 I needed a quick-and-easy way to parse Microsoft Word's footnote format into a more web-friendly format for a recent project. After a bit of regular expression hacking, I was able to build a WordPress plugin to automatically convert content pasted from Word into a format readable by [Andrew Nacin's](http://andrewnacin.com) popular [Simple Footnotes](http://andrewnacin.com/2010/07/24/simple-footnotes-0-3/) plugin.
@@ -68,5 +56,3 @@ Thoughts? Improvements? The above code solved a rather stubborn workflow problem
 [^1]: Licensed under [GPLv2](http://wordpress.org/about/gpl/)
 
 [^2]: You can even [Fork the plugin over on Github](http://ben.balter.com/2011/03/20/regular-expression-to-parse-word-style-footnotes/)
-
-[4]&#x3A; #note-2020–1 "' . str_replace( array("\\r\\n", "\\r", "\\n"), "", $footnote[4]) . '"

@@ -1,8 +1,8 @@
 ---
 title: Deprecate Management
 description: "There are many aspects to 'making things' that open source just does better, and does so without traditional management structure."
-author: Ben Balter
-layout: post
+
+
 comments: true
 category: Management
 tags:

@@ -55,7 +55,7 @@ Slides (and recordings) from some of the talks I've given over the years. Have a
 
 * [Make maps better together: Collaborative mapping the Open Source Way](http://ben.balter.com/make-maps-better-together) ([video](https://www.youtube.com/watch?v=iGRb5QRqC2w))
 
-### Misc.
+### Miscellaneous
 
 * [A benbalter-centric history of GitHub Pages and Autoblog](https://speakerdeck.com/benbalter/an-at-benbalter-centric-history-of-github-pages-and-autoblog)
 

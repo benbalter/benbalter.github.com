@@ -1,6 +1,6 @@
 ---
 title: Three things you learn going from the most bureaucratic organization in the world to the least
-layout: post
+
 comments: true
 description: 'Moving from the federal government, arguably the most bureaucratic organization in the history of the world, to GitHub, arguably one of the world’s least bureaucratic, I learned that there were three key organizational differences beyond mere size and the lack of TPS reports.'
 ---
@@ -13,7 +13,7 @@ Much of my job at GitHub involves explaining open source to government employees
 
 At GitHub, I trust my coworkers. I trust them to write good code, I trust them to write good tests, I trust them to review each other's pull requests, and I trust that it's gone through our standard development workflow, it's production ready, and my employer does the same. On day one I could theoretically have committed bad code, but I didn't, and technical constraints weren't what stopped me. Cultural constraints (and the threat of breaching that trust) were what did. As [Airbnb's cofounder explained on Medium](https://medium.com/@bchesky/dont-fuck-up-the-culture-597cde9ee9d4):
 
->  The stronger the culture, the less process a company needs. When the culture is strong, you can trust everyone to do the right thing. People can be independent and autonomous. They can be entrepreneurial. In organizations... where culture is weak, you need an abundance of heavy, precise rules and processes.
+> The stronger the culture, the less process a company needs. When the culture is strong, you can trust everyone to do the right thing. People can be independent and autonomous. They can be entrepreneurial. In organizations... where culture is weak, you need an abundance of heavy, precise rules and processes.
 
 Without that culture, management within government starts from a point of distrust. If an employee can do something, no matter how against their interest, the organization must assume they will, and must put in place draconian administrative and technical constraints to prevent it from happening, no matter the cost. There's simply no room to fail and adjust. All workflows are heavyweight, and the necessarily larger batch size create necessarily larger failures as the first proof point.
 
@@ -47,4 +47,4 @@ Even at GitHub, as we started growing past [Dunbar's Number](https://en.wikipedi
 
 Another reason may be that smaller organizations [don't respect process as an end in and of itself](http://www.fastcompany.com/1720052/googles-greatest-innovation-may-be-its-management-practice). There's no hierarchy for hierarchy's sake. Or another reason still may be the lack of a dedicated class of career managers, [proudly ignorant of their own subject matter](http://www.vox.com/2014/8/21/6053819/white-house-cybersecurity-czar-brags-about-his-lack-of-technical) and reliant on an increasing snowball of policy, rather than their own knowledge or expertise.
 
-Whatever the reason may be, one thing is clear: while the hierarchy of the Beltway has much to learn from Silicon Valley's bottom-up, *laissez faire* approach to problem solving, so too can San Francisco startups benefit from a closer appreciation of DC's dedication to fairness of process above all else. 
+Whatever the reason may be, one thing is clear: while the hierarchy of the Beltway has much to learn from Silicon Valley's bottom-up, *laissez faire* approach to problem solving, so too can San Francisco startups benefit from a closer appreciation of DC's dedication to fairness of process above all else.

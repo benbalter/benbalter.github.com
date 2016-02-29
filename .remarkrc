@@ -1,0 +1,75 @@
+{
+  "settings": {
+    "bullet": "*",
+    "emphasis": "*",
+    "strong": "*",
+    "fence": "`",
+    "rule": "-",
+    "ruleSpaces": false,
+    "ruleRepetition": 3,
+    "gfm": true,
+    "yaml": true,
+    "footnotes": true,
+    "listItemIndent": "1",
+    "commonmark": false,
+    "pedantic": false,
+    "entities": false,
+    "fences": true,
+    "spacedTable": true
+  },
+  "plugins": {
+    "remark-yaml": {},
+    "remark-squeeze-paragraphs": {},
+    "remark-slug": {},
+    "remark-heading-gap": {
+      "2": {
+        "before": "",
+        "after": ""
+      },
+    "validate-links": {}
+    },
+    "remark-inline-links": {},
+    "remark-textr": {
+      "options": {
+        "locale": "en-us"
+      },
+      "plugins": [
+        "typographic-em-dashes",
+        "typographic-en-dashes",
+        "typographic-single-spaces"
+      ]
+    },
+    "remark-lint": {
+      "external": [
+        "remark-lint-no-empty-sections",
+        "remark-lint-code"
+      ],
+      "blockquote-indentation": 2,
+      "checkbox-character-style": {
+        "checked": "x",
+        "unchecked": " "
+      },
+      "code-block-style": "fenced",
+      "fenced-code-marker": "`",
+      "fenced-code-flag": {
+        "allowEmpty": true
+      },
+      "emphasis-marker": "*",
+      "file-extension": "md",
+      "heading-style": "atx",
+      "ordered-list-marker-style": ".",
+      "ordered-list-marker-value": "ordered",
+      "rule-style": "---",
+      "strong-marker": "*",
+      "unordered-list-marker-style": "*",
+      "maximum-line-length": false,
+      "list-item-indent": "space",
+      "table-cell-padding": "padded",
+      "no-literal-urls": false,
+      "list-item-spacing": false,
+      "first-heading-level": false,
+      "no-html": false,
+      "maximum-heading-length": false
+    }
+  }
+}

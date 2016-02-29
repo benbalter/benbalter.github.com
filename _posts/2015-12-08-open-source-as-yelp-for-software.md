@@ -43,7 +43,7 @@ Unlike, say, Coke or Pepsi, government organizations have an obligation to be tr
 
 Today, I suspect that a significant percentage of government software isn't closed source for security reasons, but rather because closed source is a cushy default, and at this point, it's easy to sweep imperfect code (because all code is imperfect) under the rug, rather than potentially be embarrassed by accurate (but critical) feedback. If we give government agencies the choice, they will always chose less public scrutiny.
 
-### Why do government agencies get off easier than Taco Bell?
+### Why do government agencies get off easier than Taco Bell
 
 So why then, do we hold government agencies to a lesser standard than we hold fast food restaraunts? If I go to Taco Bell, a private sector company for which there are plenty of competitors, and they deliver dissatisfactory service, I have a megaphone in the form of an online forum (and often their immediate attention as a result). If I go to renew my passport or get a new social security number, services only the government provides, I have no such recourse. There are no K-street lobbyists who advocate for better user experience, or special interest groups who run ads in support of shorter wait times at the DMV.
 

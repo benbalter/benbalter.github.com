@@ -1,5 +1,5 @@
 ---
-author: Ben Balter
+
 title: Publishing Government Data That Developers Will Actually Use
 description: >
   Despite increasing public support (as well as a number of executive mandates)
@@ -10,7 +10,7 @@ description: >
   information immediately useful, government can lower the barriers associated
   with consuming its data and introduce additional citizen services at little to
   no cost to the agency.
-layout: post
+
 categories:
   - Technology
 tags:
@@ -34,10 +34,9 @@ tags:
   - RESTful
   - web services
   - xml
-post_format: []
 ---
 
-[![CIO Magazine Logo](http://ben.balter.com/wp-content/uploads/2012/06/government-cio-magazine-june-2012.png){: .alignright}][2]Despite increasing public support (as well as a number of executive mandates) publishing public data in a machine-readable format is not as simple as pressing the "publish" button. Why? Equally important as exposing the information itself is fostering a vibrant developer ecosystem around it. By making the publishing agency, not the public, responsible for making information immediately useful, government can lower the barriers associated with consuming its data and introduce additional citizen services at little to no cost to the agency.
+Despite increasing public support (as well as a number of executive mandates) publishing public data in a machine-readable format is not as simple as pressing the "publish" button. Why? Equally important as exposing the information itself is fostering a vibrant developer ecosystem around it. By making the publishing agency, not the public, responsible for making information immediately useful, government can lower the barriers associated with consuming its data and introduce additional citizen services at little to no cost to the agency.
 
 ### 1. Garbage in, garbage out
 

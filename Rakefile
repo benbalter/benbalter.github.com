@@ -23,9 +23,6 @@ def html_proofer
 end
 
 task :test do
-  puts "Running with the following test configuration:"
-  puts config.to_yaml
-  puts "---"
   build_site
   html_proofer
 end
