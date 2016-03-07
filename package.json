@@ -5,7 +5,8 @@
   "main": "script/server",
   "dependencies": {
     "remark-heading-gap": "^2.0.0",
-    "remark-inline-links": "^3.0.0"
+    "remark-inline-links": "^3.0.0",
+    "remark-lint-no-empty-sections": "^1.0.0"
   },
   "devDependencies": {
     "remark": "^4.1.1",
