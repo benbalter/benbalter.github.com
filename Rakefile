@@ -1,4 +1,4 @@
-require 'html/proofer'
+require 'html-proofer'
 require 'yaml'
 
 namespace :assets do
@@ -18,8 +18,8 @@ def build_site
 end
 
 def html_proofer
-  puts "HTML Proofer version: #{HTML::Proofer::VERSION}"
-  HTML::Proofer.new("./_site", config["proofer"]).run
+  puts "HTML Proofer version: #{HTMLProofer::VERSION}"
+  HTMLProofer.check_directory("./_site", config["proofer"]).run
 end
 
 task :test do

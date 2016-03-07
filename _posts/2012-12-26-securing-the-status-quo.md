@@ -152,7 +152,7 @@ Congress has imposed on federal executive agencies an onerous system to ensure i
 
 [^15]: 44 U.S.C.A. 3543(a).
 
-[^16]: Federal Information Processing Standards Publication 199, Standards for Security Categorization of Federal Information Systems 1, 2 (Feb. 2004), available at <http://1.usa.gov/4nzS8>. FAR 11.102 and 11.201 include references to the FIPS PUB standards.
+[^16]: Federal Information Processing Standards Publication 199, Standards for Security Categorization of Federal Information Systems 1, 2 (Feb. 2004), available at <http://csrc.nist.gov/publications/fips/fips199/FIPS-PUB-199-final.pdf>. FAR 11.102 and 11.201 include references to the FIPS PUB standards.
 
 [^17]: Daniel M. White, The Federal Information Security Management Act of 2002: A Potemkin Village, 79 Fordham L. Rev. 369, 380–81 (2010)
 
@@ -198,7 +198,7 @@ Congress has imposed on federal executive agencies an onerous system to ensure i
 
 [^38]: FAR 7.103(w). *See* generally Appendix III to OMB Circular No. A-130, Office of Management and Budget, available at <http://1.usa.gov/RlibPS>.
 
-[^39]: FIPS PUB 199, Standards for Security Categorization of Federal Information and Information Systems 1, 2 (Feb. 2004), <http://1.usa.gov/4nzS8>; NIST Special Publication 800–53, Rev. 3, Recommended Security Controls for Federal Information Systems and Organizations 6, 2.1 (May 2010), <http://1.usa.gov/9DDoih>.
+[^39]: FIPS PUB 199, Standards for Security Categorization of Federal Information and Information Systems 1, 2 (Feb. 2004), <http://csrc.nist.gov/publications/fips/fips199/FIPS-PUB-199-final.pdf>; NIST Special Publication 800–53, Rev. 3, Recommended Security Controls for Federal Information Systems and Organizations 6, 2.1 (May 2010), <http://1.usa.gov/9DDoih>.
 
 [^40]: *See, e.g.,* OMB Memorandum 11–33, FY 2011 Reporting Instructions for the Federal Information Security Management Act and Agency Privacy Management (Sept. 14, 2011) (enclosing DHS Memorandum FISM 11–02 (Aug. 24, 2011)), <http://1.usa.gov/oCB4it>.
 
