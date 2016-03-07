@@ -1,5 +1,5 @@
 ---
-title: 'Analysis of federal .gov domains,_2015 edition'
+title: 'Analysis of federal .gov domains, 2015 edition'
 description: 'A quick analysis of the technology and capabilities that power each federal .gov domain such as non-www, SSL, and IPv6 support, or what server/cms they use'
 ---
 
