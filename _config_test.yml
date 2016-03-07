@@ -4,6 +4,8 @@ proofer:
   url_ignore:
     - "#comments"
     - !ruby/regexp '/https?:\/\/(www)?\.youtube\.com\/watch\?v=.*/i'
+    - http://ben.balter.com/404/
+    - /edit/master/404.html
   check_html: true
 
 github:

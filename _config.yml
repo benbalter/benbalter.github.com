@@ -5,6 +5,7 @@ name: Ben Balter
 title: Ben Balter
 description: "Attorney, developer, open source evangelist"
 author: benbalter
+repository: benbalter/benbalter.github.com
 
 # Images
 gravatar_id: ea353bd28baa1aefaefae736a19fcf2a
@@ -107,6 +108,7 @@ gems:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-avatar
+  - jekyll-github-metadata
 
 sass:
   style: :compressed

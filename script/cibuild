@@ -17,6 +17,7 @@ title "checking markdown"
 script/remark
 
 title "checking site"
+export JEKYLL_GITHUB_TOKEN=$(cat ~/.token)
 bundle exec rake test
 
 title "checking DNS"
