@@ -120,3 +120,4 @@ kramdown:
 highlighter: rouge
 gist:
  noscript: false
+future: true
