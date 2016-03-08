@@ -7,7 +7,7 @@ When designing a product — be it an open source project or a for-profit se
 
 ### Solving fun problems
 
-As a geek, it's always going to be more fun to develop the new wiz-bang feature that will allow the app to integrate with whatever's currently on the top of Hacker News, or to design a single method that elegantly accounts for when your program is used at the South Poll by a user running Window XP SP1 under a full moon. While those are fun Rubix-cube-style engineering challenges to tackle for those of us that build software, they do little to benefit the majority of the people that actually use the software we build.
+As a geek, it's always going to be more fun to develop the new wiz-bang feature that will allow the app to integrate with whatever's currently on the top of Hacker News, or to design a single method that elegantly accounts for when your program is used at the South Pole by a user running Window XP SP1 under a full moon. While those are fun Rubix-cube-style engineering challenges to tackle for those of us that build software, they do little to benefit the majority of the people that actually use the software we build.
 
 As a project maintainer, it's always going to feel better to ship code and mark an issue as resolved, than to close yet another issue as `wontfix` — to say "no" to a beloved user, or worse, a potential contributor. For many, wasting already-written code is a cardinal sin. But your project's issue tracker, pull request backlog, or support queue is going to present a very skewed perspective of your user base, especially when you use it as your primary means of evaluating feature requests and user feedback.
 
