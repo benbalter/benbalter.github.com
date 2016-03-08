@@ -16,3 +16,4 @@ Gemfile.lock
 node_modules
 comments.json
 /tmp
+/.jekyll-metadata

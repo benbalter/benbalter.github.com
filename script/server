@@ -8,7 +8,7 @@ script/branding
 export JEKYLL_GITHUB_TOKEN=$(cat ~/.token)
 
 echo "Starting server."
-bundle exec jekyll serve -w -c _config.yml,_config_local.yml --drafts
+bundle exec jekyll serve -w -c _config.yml,_config_local.yml --drafts --incremental
 
 echo "Cleaning up..."
 rm -Rf _site

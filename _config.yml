@@ -30,7 +30,7 @@ social:
     - https://github.com/benbalter
     - https://keybase.io/benbalter
 
-logo: /assets/css/img/headshot.jpg
+logo: /assets/img/headshot.jpg
 
 # Misc
 twitter:
@@ -120,3 +120,4 @@ kramdown:
 highlighter: rouge
 gist:
  noscript: false
+future: true
