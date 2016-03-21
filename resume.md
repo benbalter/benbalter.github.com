@@ -13,12 +13,12 @@ id: /resume
 
 ##### Product Manager
 
-March 2016 — Present
+February 2016 — Present
 {: .date}
 
 ##### Government Evangelist
 
-March 2013 — March 2016
+March 2013 — February 2016
 {: .date}
 
 ###### Open source outreach
