@@ -40,10 +40,6 @@
       ]
     },
     "remark-lint": {
-      "external": [
-        "remark-lint-no-empty-sections",
-        "remark-lint-code"
-      ],
       "blockquote-indentation": 2,
       "checkbox-character-style": {
         "checked": "x",
