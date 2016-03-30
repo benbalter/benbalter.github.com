@@ -30,7 +30,7 @@ March 2013 — February 2016
 
 ###### Product management
 
-* Lead [a bottom-up rewrite of GitHub Pages](https://github.com/blog/1992-eight-lessons-learned-hacking-on-github-pages-for-six-months), GitHub's documentation and static-site hosting service that hosts more than three-quarters of a million sites and serves more than a quarter of a million pages every minute.
+* Lead [a bottom-up rewrite of GitHub Pages](https://github.com/blog/1992-eight-lessons-learned-hacking-on-github-pages-for-six-months), GitHub's documentation and static-site hosting service that hosts more than a million sites and serves more than a quarter of a million pages every minute.
 * Developed and integrated [GeoJSON rendering and diffing](https://github.com/blog/1541-geojson-rendering-improvements) into GitHub.com and GitHub Enterprise, empowering government agencies and civic hackers to publish more than half a million geospatial data sets.
 * Launched and maintained [choosealicense.com](http://choosealicense.com), a website dedicated to demystifying open source licensing for developers.
 * Developed and launched license detection API for detecting and verifying licenses across open source projects.
