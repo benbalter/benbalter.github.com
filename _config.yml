@@ -71,7 +71,8 @@ exclude:
   - ".bundle"
   - vendor
   - node_modules
-
+  - Rakefile
+  
 #number of items in RSS feed
 rss_limit: 10
 
