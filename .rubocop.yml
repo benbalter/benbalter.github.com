@@ -1,0 +1,5 @@
+AllCops:
+  Exclude:
+    - _site/**/*
+    - node_modules/**/*
+    - vendor/**/*

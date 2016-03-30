@@ -17,8 +17,10 @@ title "checking markdown"
 script/remark
 
 title "checking site"
-export JEKYLL_GITHUB_TOKEN=$(cat ~/.token)
-bundle exec rake test
+JEKYLL_GITHUB_TOKEN="$(cat ~/.token)" DISABLE_WHITELIST=true bundle exec rake test
+
+title "checking ruby"
+bundle exec rubocop -D -S
 
 title "checking DNS"
 bundle exec github-pages health-check

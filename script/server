@@ -8,7 +8,9 @@ script/branding
 export JEKYLL_GITHUB_TOKEN=$(cat ~/.token)
 
 echo "Starting server."
-bundle exec jekyll serve -w -c _config.yml,_config_local.yml --drafts --incremental
+JEKYLL_GITHUB_TOKEN="$(cat ~/.token)" DISABLE_WHITELIST=true \
+  bundle exec jekyll serve --watch --config _config.yml,_config_local.yml \
+  --drafts --incremental
 
 echo "Cleaning up..."
 rm -Rf _site
