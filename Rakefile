@@ -9,7 +9,9 @@ end
 
 def config
   config = YAML.load_file('_config_test.yml')
-  config['proofer'] = config['proofer'].inject({}) { |memo, (k, v)| memo[k.to_sym] = v; memo }
+  config['proofer'].keys.each do |key|
+    config['proofer'][key.to_sym] = config['proofer'].delete(key)
+  end
   config
 end
 
