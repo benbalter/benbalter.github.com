@@ -3,7 +3,7 @@ title: The missed opportunity that is The White House Open Source Policy
 description: The White House Open Source Policy is an opportunity to fold the map in half, and bring the innovation of Silicon Valley a bit closer to the Beltway. Limiting the impact of open source to a time- and scope-constrained pilot forgoes a unique and long-needed opportunity to modernize government.
 ---
 
-*This post originally appeared as [an Op-Ed on FCW.com](https://fcw.com/articles/2016/04/11/balter-open-source-opinion.aspx)*.
+*A modified version of this post originally appeared as [an Op-Ed on FCW.com](https://fcw.com/articles/2016/04/11/balter-open-source-opinion.aspx)*.
 
 In September 2014, the president [committed to creating a federal open source policy](https://m.whitehouse.gov/sites/default/files/microsites/ostp/new_nap_commitments_report_092314.pdf) that improved citizen access to software developed by the Federal government. I [wrote back then about what I was optimistically hoping to see](http://ben.balter.com/2014/11/24/open-source-policy/). Today, public comments close on a federal source code policy that initiates a three-year pilot program to make as little as 20% of new government software available to the taxpayers who fund it and for whom the software's intended to benefit. In a world increasingly dominated by the success of open source, requiring that the world's largest producer of code releases only 20% of its software is a missed opportunity to modernize government that fails to live up to the president's National Action Plan commitments.
 
