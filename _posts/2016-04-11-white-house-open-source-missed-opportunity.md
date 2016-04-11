@@ -3,6 +3,8 @@ title: The missed opportunity that is The White House Open Source Policy
 description: The White House Open Source Policy is an opportunity to fold the map in half, and bring the innovation of Silicon Valley a bit closer to the Beltway. Limiting the impact of open source to a time- and scope-constrained pilot forgoes a unique and long-needed opportunity to modernize government.
 ---
 
+*This post originally appeared as [an Op-Ed on FCW.com](https://fcw.com/articles/2016/04/11/balter-open-source-opinion.aspx)*.
+
 In September 2014, the president [committed to creating a federal open source policy](https://m.whitehouse.gov/sites/default/files/microsites/ostp/new_nap_commitments_report_092314.pdf) that improved citizen access to software developed by the Federal government. I [wrote back then about what I was optimistically hoping to see](http://ben.balter.com/2014/11/24/open-source-policy/). Today, public comments close on a federal source code policy that initiates a three-year pilot program to make as little as 20% of new government software available to the taxpayers who fund it and for whom the software's intended to benefit. In a world increasingly dominated by the success of open source, requiring that the world's largest producer of code releases only 20% of its software is a missed opportunity to modernize government that fails to live up to the president's National Action Plan commitments.
 
 ### Open source as a political and technical imperative
@@ -19,7 +21,7 @@ The proposed open source policy creates a three-year pilot program, whereby as l
 
 ### Open source has already undergone a two-decade pilot
 
-The proposed three-year pilot program will likely not yield actionable results, at least not beyond those we already know. For one, technology moves too quickly to be evaluated in three-year controlled experiments. By 2019, the inevitable move to open source will be even further overdue, as we're already seeing that shift take successful foothold in the private sector and in forward-thinking government agencies.
+The proposed three-year pilot program will likely not yield actionable results, at least not beyond those we already know, and merely punts an inevitable decision to the next administration. For one, technology moves too quickly to be evaluated in three-year controlled experiments. By 2019, the inevitable move to open source will be even further overdue, as we're already seeing that shift take successful foothold in the private sector and in forward-thinking government agencies.
 
 For another, the impact of open source is nearly impossible to measure, as successful government open source should give rise to an entire disruptive technology ecosystem. How would one have measured the economic impact of the space race? How does one measure the good will, transparency, accountability, public confidence, or civic engagement participation in open source provides? Even open source's quantitative metrics may be misleading, as a project with more known bugs doesn't necessarily imply lesser quality, and, in fact, often implies the opposite, as bugs are more quickly surfaced and remedied.
 
@@ -34,5 +36,3 @@ For one, behind the firewall, [agencies must adopt more modern, more open develo
 For another, outside the firewall, [agencies must adopt open source, rather than disclosed source development, release and maintenance practices](https://github.com/WhiteHouse/source-code-policy/issues/121). If code is so purpose built as to yield no value beyond its particular use case, or if once released, development teams hold in person, exclusionary standing meetings to discuss project priorities, the project is unlikely to gain open source adoption, and will only further establish the case for preserving the *status quo*.
 
 The White House Open Source Policy is an opportunity to fold the map in half, and bring the innovation of Silicon Valley a bit closer to the Beltway. Limiting the impact of open source to a time- and scope-constrained pilot forgoes a unique and long-needed opportunity to modernize government. Whether you're a lawyer, a technologist, or just a citizen that uses government services, I encourage you to [read through the policy's ongoing and informative discussions](https://github.com/whitehouse/source-code-policy/issues?q=is%3Aissue+is%3Aopen+sort%3Acomments-desc), and comment or provide a +1 before the comment period closes later today.
-
-*A modified version of this post originally appeared as [an Op-Ed on FCW](https://fcw.com/articles/2016/04/11/balter-open-source-opinion.aspx)*.
