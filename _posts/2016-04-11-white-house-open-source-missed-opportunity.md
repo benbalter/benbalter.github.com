@@ -29,7 +29,7 @@ Finally, although a move to "open by default" is preferable, even a move to make
 
 ### Open source as a vehicle for organizational change
 
-For our country to realize the benefits of open source, several parallel modernization efforts are required, both inside and outside the agency firewall, and in a world of competing agency priorities, the exclusion of those requirements all but guarantees that the pilot's open source efforts will fail.
+For our country to realize the benefits of open source, and for the open-closed bakeoff to be representative of each development model's potential, several parallel modernization efforts are required, both inside and outside the agency firewall, and in a world of competing agency priorities, the exclusion of those requirements all but guarantees that the pilot's open source efforts will fail.
 
 For one, behind the firewall, [agencies must adopt more modern, more open development philosophies and methodologies](https://github.com/WhiteHouse/source-code-policy/issues/125), even if that code is ultimately never made public. Agencies cannot continue the practice of multi-year, waterfall procurement processes internally, and presume to enjoy the benefits of modern software development (or point to its absence as a failure), just because the resulting code is later published.
 
