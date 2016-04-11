@@ -1,6 +1,6 @@
 ---
-title: The missed opportunity that is The White House Open Source Policy
-description: The White House Open Source Policy is an opportunity to fold the map in half, and bring the innovation of Silicon Valley a bit closer to the Beltway. Limiting the impact of open source to a time- and scope-constrained pilot forgoes a unique and long-needed opportunity to modernize government.
+title: The missed opportunity that is the White House Open Source Policy
+description: The White House Open Source Policy is an opportunity to fold the map in half, and bring the innovation of Silicon Valley a bit closer to the Beltway. Limiting the impact of open source to a time- and scope-constrained pilot unduly delays a unique and long-needed opportunity to modernize government.
 ---
 
 *A modified version of this post originally appeared as [an Op-Ed on FCW.com](https://fcw.com/articles/2016/04/11/balter-open-source-opinion.aspx)*.
