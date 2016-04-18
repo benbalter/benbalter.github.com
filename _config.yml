@@ -72,7 +72,7 @@ exclude:
   - vendor
   - node_modules
   - Rakefile
-  
+
 #number of items in RSS feed
 rss_limit: 10
 
@@ -122,3 +122,5 @@ highlighter: rouge
 gist:
  noscript: false
 future: true
+
+lang: en-US

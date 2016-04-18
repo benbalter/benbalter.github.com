@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xml:lang="en">
+<html lang="{{ site.lang }}" xml:lang="{{ site.lang }}">
 <head>
   {% if site.github.url %}
     {% assign url_base = site.github.url %}
@@ -16,7 +16,7 @@
   <link href="{{ url_base }}/assets/css/style.css?v={{ site.github.build_revision }}" rel="stylesheet" media="screen">
 
   {% feed_meta %}
-  
+
   {% seo %}
 
   <script>
