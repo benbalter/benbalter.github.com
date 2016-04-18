@@ -72,7 +72,7 @@ exclude:
   - vendor
   - node_modules
   - Rakefile
-  
+
 #number of items in RSS feed
 rss_limit: 10
 
@@ -112,7 +112,7 @@ gems:
   - jekyll-github-metadata
 
 sass:
-  style: :compressed
+  style: compressed
 
 kramdown:
  input: GFM
