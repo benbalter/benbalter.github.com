@@ -23,7 +23,7 @@ And then there's cost. Putting aside the value of time for a moment, shared host
 
 I stood up the three options side-by-side, and ran them through the riggors of a performance testing tool humorously called [Siege](http://freecode.com/projects/siege), the results of which can be found below.
 
-I'm still unpacking some of the boxes of bytes, so if you notice something that doesn't seem right, feel free to [open an issue](https://github.com/benbalter/benbalter.github.com/issues), or better yet, like what you see, feel free to [fork and contribute](https://github.com/benbalter/benbalter.github.com). Embracing somewhat of a crawl, walk, run, or fail-fast philosohpy, next up is outputting the pages as JSON and relying on Backbone to do the heavy lifting.
+I'm still unpacking some of the boxes of bytes, so if you notice something that doesn't seem right, feel free to [open an issue](https://github.com/benbalter/benbalter.github.com/issues), or better yet, like what you see, feel free to [fork and contribute](https://github.com/benbalter/benbalter.github.com). Embracing somewhat of a crawl, walk, run, or fail-fast philosophy, next up is outputting the pages as JSON and relying on Backbone to do the heavy lifting.
 
 Is it the [first shots](http://presidential-innovation-fellows.github.com/mygov/) [of a static-site](http://presidential-innovation-fellows.github.com/rfpez-blog/) [revolution](http://presidential-innovation-fellows.github.com/bluebutton/)? Time will tell.
 
