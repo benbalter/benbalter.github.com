@@ -13,12 +13,12 @@ Open source is in your best interest, whether you're an individual, a corporatio
 
 * **Lower total cost of ownership** (TCO) - Using open source software yields a lower total cost of ownership when compared to closed source and proprietary alternatives. Adopting open source software generally has a lower up-front cost (because the software often comes at no cost or relatively low cost), and shifts the cost center from licensing (an operating expense) to customization and implementation (a capital expense). Additional costs like training, maintenance, and support are sunk costs. You're going to be paying for both regardless of if the software is open or closed source, the cost often being baked into the license in the case of commercial, off-the-shelf software (COTS). What makes open source unique is that you're not paying for the right to use the underlying intellectual property.
 
-  | Cost           | Open source        | Proprietary        |
-  |:---------------|:-------------------|:-------------------|
-  | Licensing      | :x:                | :heavy_check_mark: |
+  | Cost | Open source | Proprietary |
+  |:———————-|:—————————-|:—————————-|
+  | Licensing | :x: | :heavy_check_mark: |
   | Implementation | :heavy_check_mark: | :heavy_check_mark: |
-  | Maintenance    | :heavy_check_mark: | :heavy_check_mark: |
-  | Support        | :heavy_check_mark: | :heavy_check_mark: |
+  | Maintenance | :heavy_check_mark: | :heavy_check_mark: |
+  | Support | :heavy_check_mark: | :heavy_check_mark: |
   {: .table style="width: 50%; margin-left: auto; margin-right: auto;" }
 
 * [**Given enough eyeballs, all bugs are shallow**](https://blogs.microsoft.com/cybertrust/2006/06/07/linuss-law-aka-many-eyes-make-all-bugs-shallow/) (Linus's Law) - [Empirically, open source tends to produce better quality software than its proprietary or alternative counterparts](http://www.dwheeler.com/oss_fs_why.html). When you write closed source software, the only developers that can potentially detect, diagnose, triage, and resolve software bugs are those that happen to be employed by the company that publishes the software (or more likely, the arms-length contractor they pay to build it). Open source provides three advantages: first, you have the opportunity to tap the knowledge of the world's best developers, not just those on one organization's payroll. Second, the number of potentially contributing developers and thus the potential knowledge pool is orders of magnitude larger. Finally, open source software gets adapted to a variety of use cases, not just the one the publisher originally intended, surfacing bugs and edge cases much more rapidly than traditional, predictive QA processes.
