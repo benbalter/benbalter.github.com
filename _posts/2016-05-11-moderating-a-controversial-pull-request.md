@@ -15,7 +15,7 @@ First and foremost, lay out the ground rules up front. This can either be in the
 
 #### Keep it civil
 
-Although often less of a concern for pull requests within an organization, the broader internet is a scary place. Make it clear that participants need to keep it classy, and link out to your Code of Conduct or similar guidelines, if you can.
+Although often less of a concern for pull requests within an organization, the broader internet is a scary place. Make it clear that participants need to keep it classy, and link out to your [Code of Conduct](http://contributor-covenant.org/) or similar guidelines, if you can.
 
 #### No place for the peanut gallery
 
