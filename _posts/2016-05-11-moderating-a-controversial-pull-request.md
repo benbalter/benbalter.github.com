@@ -19,19 +19,21 @@ Although often less of a concern for pull requests within an organization, the b
 
 #### No place for the peanut gallery
 
-Let everyone know that this isn't an opportunity for the peanut gallery to air the grievances or deliver drive-by opinions, in which they leave an opinion and immediately disappear. In most cases, if the commenter doesn't care about the issue enough to open a pull request, or can't propose an alternative, they probably shouldn't be commenting. My colleagues @stephbwills introduced me to the ["Sliding Scale of Giving a Fuck"](http://blog.capwatkins.com/the-sliding-scale-of-giving-a-fuck). Make it clear, that if you're not at least a `5/10`, or don't have a unique viewpoint to add, it's probably best that you don't comment. But, be careful, keeping the riff-raff at bay can inadvertently raise the barrier for non-technical contributors, so be sure to go out of your way to make the discussion inclusive.
+Let everyone know that this isn't an opportunity for the peanut gallery to air the grievances or deliver drive-by opinions, in which they leave an opinion and immediately disappear. In most cases, if the commenter doesn't care about the issue enough to open a pull request, or can't propose an alternative, they probably shouldn't be commenting.
+
+My colleagues @stephbwills introduced me to the ["Sliding Scale of Giving a Fuck"](http://blog.capwatkins.com/the-sliding-scale-of-giving-a-fuck). Make it clear, that if you're not at least a `5/10`, or don't have a unique viewpoint to add, it's probably best that you don't comment. But, be careful, keeping the riff-raff at bay can inadvertently raise the barrier for non-technical contributors, so be sure to go out of your way to make the discussion inclusive.
 
 ### Assign roles
 
-When it's everyone's responsibility, it's no one's responsibility. Before you kick off the discussion, make responsibilities known.
+When it's everyone's responsibility, it's no one's responsibility. Before you kick off the discussion, make responsibilities known. Specifically, you'll want a *moderator* and a *decider*.
 
 #### Assign a moderator
 
-Designate a moderator from the onset. This person will be responsible for enforcing all the social norms described above and for keeping the conversation moving. If someone raises an unrelated tangent, they open up an new issue to keep the discussion on track. If the thread gets long, they summarize where the current consensus is. Part crossing guard, part social worker, and part bailiff, their responsible for the discussion being productive and fruitful.
+Designate a moderator from the onset. This person will be responsible for enforcing all the social norms described above and for keeping the conversation moving. If someone raises an unrelated tangent, they open up an new issue to keep the discussion on track. If the thread gets long, they summarize where the current consensus is. Part crossing guard, part social worker, and part bailiff, their responsible for the discussion being productive, respectful, and fair.
 
 #### Make the decider known
 
-The decider is the one who has to make the tough calls any time the discussion comes to a stalemate or when the designated timeframe comes to a close. The decider may be the same person as the moderator, but often times its advantageous (and logical) for the decider to be distinct. If the moderator is a crossing guard, the decider is the umpire, judge, and referee, calling balls and strikes, roughing the passer, and making the final disposition.
+The decider is the one who has to make the tough calls any time the discussion comes to a stalemate or when the designated timeframe comes to a close. The decider may be the same person as the moderator, but often times its advantageous (and logical) for the decider to be distinct. If the moderator is a crossing guard, the decider is the umpire, judge, and referee, calling balls and strikes, roughing the passer, and deciding on the final disposition.
 
 ### Describe how you want feedback
 
