@@ -15,8 +15,8 @@ def config
   config
 end
 
-def build_site
-  sh 'bundle exec jekyll build -c _config.yml,_config_test.yml --drafts'
+def serve_site
+  sh 'bundle exec jekyll serve -c _config.yml,_config_test.yml --detach'
 end
 
 def html_proofer
@@ -25,6 +25,10 @@ def html_proofer
 end
 
 task :test do
-  build_site
-  html_proofer
+  begin
+    serve_site
+    html_proofer
+  ensure
+    `pkill -f jekyll`
+  end
 end

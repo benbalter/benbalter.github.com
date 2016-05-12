@@ -23,22 +23,23 @@ March 2013 — February 2016
 
 ###### Open source outreach
 
-* Lead the outreach efforts of the world’s largest software development network to encourage adoption of open source, open data, and open government philosophies across more than 1,500 government organizations in over 75 countries, which resulted in an 8x increase in the number of government users on GitHub, a 9x increase in the number of government organizations on GitHub, and a 10x increase in the amount of revenue derived from government customers
+* Lead the [outreach efforts](https://government.github.com/) of the world’s largest software development network to encourage adoption of open source, open data, and open government philosophies across nearly 2,000 government organizations in over 75 countries, which resulted in an 8x increase in the number of government users on GitHub, a 9x increase in the number of government organizations on GitHub, and a 10x increase in the amount of revenue derived from government customers
 * Named one of the [top 25 most influential people in government and technology](http://fedscoop.com/top-federal-it-and-tech-folks-under-40/), FedScoop's Fed50 [Disruptor of the Year](http://fedscoop.com/fedscoop-50-celebrating-2014s-leaders-federal/), and winner of the Open Source People's Choice Award.
 * Lead company-wide editorial and blogging efforts including blog post review, documentation, editorial calendar creation, and tooling.
-* Architected team-wide outreach strategy, analytics pipeline, and tooling to target and quantify organization outreach efforts.
+* Architected team-wide outreach strategy, analytics pipeline, and tooling to target and quantify organization's outreach efforts.
 
-###### Product management
+###### Project management
 
 * Lead [a bottom-up rewrite of GitHub Pages](https://github.com/blog/1992-eight-lessons-learned-hacking-on-github-pages-for-six-months), GitHub's documentation and static-site hosting service that hosts more than a million sites and serves more than a quarter of a million pages every minute.
 * Developed and integrated [GeoJSON rendering and diffing](https://github.com/blog/1541-geojson-rendering-improvements) into GitHub.com and GitHub Enterprise, empowering government agencies and civic hackers to publish more than half a million geospatial data sets.
 * Launched and maintained [choosealicense.com](http://choosealicense.com), a website dedicated to demystifying open source licensing for developers.
-* Developed and launched license detection API for detecting and verifying licenses across open source projects.
+* Developed and launched [license detection API](https://github.com/blog/1964-open-source-license-usage-on-github-com) for detecting and verifying open source licenses across all GitHub-hosted projects.
 
 ###### Contracting and compliance
 
-* Sought and negotiated successful partnerships with GitHub's first government reseller, MapBox, AWS GovCloud, and IFTTT.
-* Regularly drafted, reviewed, and negotiated government contracts and terms of service amendments.
+* Secured GitHub's first government reseller, resulting in [listing on GSA IT Schedule 70](https://www.gsaadvantage.gov/advantage/catalog/product_detail.do?gsin=11000048085068), the largest, most widely used acquisition vehicle in the US federal government.
+* Lead efforts to make GitHub Enterprise [available to customers in AWS GovCloud](https://enterprise.github.com/aws/gov-cloud), GitHub's initial availability in a federally compliant (FedRAMP) cloud-hosting environment.
+* Regularly drafted, reviewed, and negotiated government contracts and terms of service.
 * Created and implemented US export control (ITAR and EAR) compliance policies, secured Export Control Classification Number (ECCN) from Department of Commerce, and implemented policy for customers' OFAC compliance.
 
 #### Executive Office of the President
@@ -48,9 +49,9 @@ March 2013 — February 2016
 July 2012 — January 2013
 {: .date}
 
-* As member of inaugural class of high-profile White House initiative, served as entrepreneur in residence reimagining the role of technology in brokering the relationship between citizens and government while injecting a more startup-like culture within government.
+* As member of inaugural class of [high-profile White House initiative](https://www.whitehouse.gov/innovationfellows), served as entrepreneur in residence reimagining the role of technology in brokering the relationship between citizens and government while injecting a more startup-like culture within government.
 * Described by the US Chief Technology Officer as "the baddest of the badass innovators," and by the White House Director of Digital Strategy as "<a href="http://www.youtube.com/watch?v=uhtlOYOhE8w#t=51m12s">lightning in a bottle</a>."
-* Within six months, saw four distinct open-source products from conception to production, including research, prototyping, usability, development, testing, and stakeholder outreach using then-atypical api-first architecture.
+* Within six months, saw four distinct open-source products from conception to production, including research, prototyping, usability, development, testing, and stakeholder outreach using then-atypical API-first architecture.
 * Ensured compliance with Privacy Act, Paperwork Reduction Act, and Federal Information Security Management Act including drafting of multiple formal notices on behalf of the government for publication in the Federal Register.
 
 ##### Fellow, Office of the US Chief Information Officer
@@ -61,7 +62,7 @@ January 2012 — August 2012
 * Assisted with drafting, stakeholder outreach, and coordination of the release of [the President’s Digital Government Strategy](http://www.whitehouse.gov/sites/default/files/omb/egov/digital-government/digital-government.html), a fundamental reimagination of the role of technology in the public sector
 * In response to presidential mandate requiring the release of open source software, coordinated and led negotiation of contract for code-sharing services including creation of records management plans under both the Federal Records and Presidential Records Acts
 * Briefed senior White House officials on legal implications and licensing consideration surrounding the creation of government-funded open-source software collaborations
-* Prepared US Chief Information Officer for public appearances including speech writing, messaging, and creation of multiple HTML5-based presentations
+* Prepared US Chief Information Officer for public appearances including speech writing and messaging
 * Developed technical roadmap, prototyped, and implemented [first-of-its-kind mechanism](https://github.com/GSA/digital-strategy) for agencies to report progress on the Digital Government Strategy
 
 ##### SoftWare Automation & Technology (SWAT) Team, Office of Administration
@@ -70,7 +71,7 @@ September 2011 — January 2012
 {: .date}
 
 * Created enterprise business solutions to automate and streamline business processes in support of the President of the United States as part of the White House’s first-ever agile software development team.
-* In close coordination with the Office of Federal Financial Management, lead development of prototypical government-wide, open-source classifieds system for sharing of federal real and other properties among executive agencies.
+* In close coordination with the Office of Federal Financial Management, lead development of prototypical government-wide, open-source classifieds system for sharing of federal real and other properties among executive agencies resulting in real saving of over $300 million, and projected savings of $2.5 billion.
 * Regularly met with and presented to C-level executives and key stakeholders to develop and support mission-critical applications including public data collection, White House comment line, goods and services tracking, and employee on-boarding and off-boarding.
 * Developed application to catalog blackberry SMS and PIN messages to aid E-Discovery team and assure compliance with Federal Records Act, Presidential Records Act, and Freedom of Information Act.
 * Assisted information assurance teams with application certification and accreditation.
@@ -94,15 +95,13 @@ May 2010 — January 2012
 
 #### The George Washington University Law School
 
-##### Juris Doctorate Candidate
+##### Juris Doctorate
 
 May 2013
 {: .date}
 
 * Technology Editor, [The Public Contract Law Journal](http://pclj.org/), authored published note arguing that [federal IT procurement practices should be made more amenable to agile software development methodologies](http://ben.balter.com/2011/11/29/towards-a-more-agile-government/ "Towards a More Agile Government").
 * President, Jay Chapter, Phi Alpha Delta Legal Fraternity
-* Member, [Federal Communications Bar Association](http://fcba.org/)
-* Member, [National Contract Management Association](http://www.ncmahq.org/)
 
 #### The George Washington University School of Business
 
@@ -119,14 +118,3 @@ May 2013
 
 May 2009
 {: .date}
-
-### Technical Skills
-
-#### Web Development and Management
-
-* Expertise in modern web development methods — HTML5, CSS, CoffeeScript (Javascript), Rails (Ruby), relational databases (MySQL), PHP, version control (Git) — enterprise system architecture; application programing interfaces (APIs); WordPress management, development, and integration; and Unix system administration.
-* Lead development of six active open-source projects with more than 60,000 downloads to date.
-
-#### Speaking Experience
-
-Regularly present around the world within the government technology community (in 2013 I averaged 2.5 talks per months) including South by Southwest ([Content and coding are not commodities](http://schedule.sxsw.com/2012/events/event_IAP10270) and [The Dynamic Site is Dead](http://ben.balter.com/the-dynamic-site-is-dead/)); Excellence in Government, Digital Government University, Transparency Camp, and Code For America ([Open sourcing government](http://www.youtube.com/watch?v=kym2CnIcPys#t=4m41s)); The White House; Library of Congress; Mozfest; RedHat Government Symposium; NextGov Prime; The Open Source Summit ([Open source software licensing](https://github.com/benbalter/open-source-software-licensing)); The Software Preservation Summit ([The next cultural commons](https://github.com/benbalter/the-next-cultural-commons)); the General Services Administration Digital Services Innovation Center ([APIs you didn't know already existed](https://github.com/benbalter/apis-you-didnt-know-already-existed)); GeoDC ([Make maps better, together](https://github.com/benbalter/make-maps-better-together)); and Drupal4Gov ([Implementation of the Digital Strategy](http://ben.balter.com/digital-strategy-reporting/)).

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Creates a new post with today's date
 # Usage: script/new [post-slug]
 
@@ -6,14 +6,14 @@ set -e
 
 date=$(date +"%Y-%m-%d")
 file="_posts/$date-$1.md"
-title=$(echo "$1" | sed s/-/\ /g)
+title=${1//-/ }
 
-git checkout -B $1
+git checkout -B "$1"
 
 touch "$file"
-echo "---\ntitle: $title\ndescription:\n---\n\n" > $file
+echo -e "---\ntitle: $title\ndescription:\n---\n\n" > "$file"
 
 git add "$file"
 git commit -m "Create $file"
 
-atom pwd "$file"
+atom-beta pwd "$file"

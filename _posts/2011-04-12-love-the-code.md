@@ -42,7 +42,8 @@ I am gave a brief [lightning talk at April's WordPress DC Meetup](http://www.mee
 * Text Editor
 
   * [Notepad++](http://notepad-plus-plus.org/) (Windows)
-  * [TextWrangler](http://www.barebones.com/products/textwrangler/), [Coda](http://www.panic.com/coda/) (Mac)
+  * ~~TextWrangler~~ [Atom](https://atom.io)
+  * [Coda](http://www.panic.com/coda/) (Mac)
 
 * FTP Client (to connect to server)
 

@@ -72,11 +72,11 @@ exclude:
   - vendor
   - node_modules
   - Rakefile
-  
+
 #number of items in RSS feed
 rss_limit: 10
 
-#permalink structure, see https://github.com/mojombo/jekyll/wiki/Permalinks
+#permalink structure, see http://jekyllrb.com/docs/permalinks/
 permalink: /:year/:month/:day/:title/
 
 # Frontmatter defaults
@@ -122,3 +122,5 @@ highlighter: rouge
 gist:
  noscript: false
 future: true
+
+lang: en-US

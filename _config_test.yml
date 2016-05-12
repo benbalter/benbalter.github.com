@@ -1,4 +1,4 @@
-url: ""
+url: "http://localhost:4000"
 
 proofer:
   url_ignore:
