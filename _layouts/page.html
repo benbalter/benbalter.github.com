@@ -1,4 +1,6 @@
-{% include header.html %}
+---
+layout: default
+---
 
  <div class="page page{{ page.id | replace:"/","-" }}">
   <div class="row">
@@ -6,12 +8,10 @@
 
     <h2>{% include smartify text=page.title %}</h2>
 
-{{ content }}
+    {{ content }}
 
     {% include improve.html %}
 
     </div>
   </div>
 </div>
-
-{% include footer.html %}

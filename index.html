@@ -1,18 +1,15 @@
 ---
 layout: default
 permalink: /
+hero: true
 ---
-{% if site.github.url %}
-  {% assign url_base = site.github.url %}
-{% else %}
-  {% assign url_base = site.url %}
-{% endif %}
+
 <ul class="posts">
 {% for page in site.posts %}
   <li class="post">
     <div class="row">
         <div class="col-sm-9">
-            <a href="{{ url_base }}{{ page.url }}">{% include smartify text=page.title %}</a>
+            <a href="{{ site.github.url }}{{ page.url }}">{% include smartify text=page.title %}</a>
         </div>
         <div class="col-sm-3 date">
             {{ page.date | date: '%B %d, %Y' }}
