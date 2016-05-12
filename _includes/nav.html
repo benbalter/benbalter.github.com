@@ -1,10 +1,5 @@
-{% if site.github.url %}
-  {% assign url_base = site.github.url %}
-{% else %}
-  {% assign url_base = site.url %}
-{% endif %}
 <nav class="navbar navbar-default" role="navigation" itemscope itemtype="http://data-vocabulary.org/Person">
-  <meta itemprop="url" content="{{ url_base }}" />
+  <meta itemprop="url" content="{{ site.github.url }}" />
   <meta itemprop="title" content="{{ site.job_title }}" />
   <meta itemprop="affiliation" content="{{ site.employer }}" />
   <meta itemprop="photo" content="http://www.gravatar.com/avatar/{{ site.gravatar_id }}.png" />
