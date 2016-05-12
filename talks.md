@@ -43,7 +43,7 @@ Slides (and recordings) from some of the talks I've given over the years. Have a
 
 ### Law and policy
 
-* [Open source software licensing: empowering others to use your code](http://ben.balter.com/open-source-software-licensing) ([source](https://github.com/benbalter/open-source-software-licensing/))
+* [Open source software licensing: empowering others to use your code](http://ben.balter.com/open-source-software-licensing/) ([source](https://github.com/benbalter/open-source-software-licensing/))
 
 * [Collaborative policymaking: how technology is making it easier to work together than alone](http://ben.balter.com/collaborative-policymaking/) ([source](https://github.com/benbalter/collaborative-policymaking/))
 
@@ -53,7 +53,7 @@ Slides (and recordings) from some of the talks I've given over the years. Have a
 
 * [Open source, open standards, and 50 lines of code: a look behind GitHub's GeoJSON rendering and diffing](http://ben.balter.com/behind-github-geojson/), [source](https://github.com/benbalter/behind-github-geojson/))
 
-* [Make maps better together: Collaborative mapping the Open Source Way](http://ben.balter.com/make-maps-better-together) ([video](https://www.youtube.com/watch?v=iGRb5QRqC2w))
+* [Make maps better together: Collaborative mapping the Open Source Way](http://ben.balter.com/make-maps-better-together/) ([video](https://www.youtube.com/watch?v=iGRb5QRqC2w))
 
 ### Miscellaneous
 
