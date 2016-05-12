@@ -21,7 +21,7 @@ Although often less of a concern for pull requests within an organization, the b
 
 Let everyone know that this isn't an opportunity for the peanut gallery to air the grievances or deliver drive-by opinions, in which they leave an opinion and immediately disappear. In most cases, if the commenter doesn't care about the issue enough to open a pull request, or can't propose an alternative, they probably shouldn't be commenting.
 
-My colleagues @stephbwills introduced me to the ["Sliding Scale of Giving a Fuck"](http://blog.capwatkins.com/the-sliding-scale-of-giving-a-fuck). Make it clear, that if you're not at least a `5/10`, or don't have a unique viewpoint to add, it's probably best that you don't comment. But, be careful, keeping the riff-raff at bay can inadvertently raise the barrier for non-technical contributors, so be sure to go out of your way to make the discussion inclusive.
+My colleague @stephbwills introduced me to the ["Sliding Scale of Giving a Fuck"](http://blog.capwatkins.com/the-sliding-scale-of-giving-a-fuck). Make it clear, that if you're not at least a `5/10`, or don't have a unique viewpoint to add, it's probably best that you don't comment. But, be careful, keeping the riff-raff at bay can inadvertently raise the barrier for non-technical contributors, so be sure to go out of your way to make the discussion inclusive.
 
 ### Assign roles
 
