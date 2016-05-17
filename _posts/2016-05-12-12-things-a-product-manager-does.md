@@ -46,4 +46,3 @@ Be the most organized person on the team
 
 0.1 not 1.0
 User advocate
-Servant leadership
