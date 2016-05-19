@@ -37,12 +37,18 @@ You're responsible for keeping the lights on, for keeping the servers up, the tr
 
 https://en.wikipedia.org/wiki/Intent_(military)
 
+### Don't confuse urgent with important
 
-Don't confuse urgent with important
-Don't confuse measurable with important
-PM's aren't allow to have excuses
-Be the most organized person on the team
+Throughout a product's lifecycle, you'll generally see types of tasks, those that are urgent, and those that are important. Urgent tasks flow in every day. They're the constant barrage of "the sky is falling" requests that are already impacting end users. Important tasks are often more subtle, often only emerge when you specifically set aside time to discover them, and can have the highest end-user impact. Your job as a product manager is to distinguish between the two, and to allocate time accordingly. Whether it's 60/40, 50/50, or 40/60 may depend on the product, but absent purposeful intervention, product teams will almost always focus entirely on the urgent, neglecting the most important work.
+
+### Don't confuse measurable with important
+
+Organizations have a bad habit of confusing what's measurable or visible with what's important. Just because something suddenly comes into focus, doesn't mean that that thing deserves your focus. Gaining the ability to track page views (and seeing how few there are) doesn't mean you should shift to optimizing for eyeballs. 
+
+### PM's aren't allow to have excuses
+
+### Be the most organized person on the team
 
 
-0.1 not 1.0
-User advocate
+### 0.1 not 1.0
+### User advocate
