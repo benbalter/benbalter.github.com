@@ -5,7 +5,7 @@ description: If you're about to open a controversial (or wide-reaching) issue or
 
 Pull requests are a great way to collaborate. Propose a specific change, get detailed, concrete feedback from everyone it affects, reach a general consensus, merge. At least that's how it's supposed to work, but sometimes, if you're not careful, things can go a bit off the rails.
 
-Depending on how you use pull requests within your own organization — be it a company or an open source project — there's a good chance you've seen it before: one commenter leaves a critical drive-by opinion, never to be heard from again. Another raises a tangentially related pet issue that derails the entire discussion. A third will disagree with just about everything you propose, just on principle. And a fourth, probably means well, but due to the limitations of the internet, comes off as abrasive. The conversation quickly devolves into a debate of semantics, and things go nowhere fast.
+Depending on how you use pull requests within your own organization — be it a company or an open source project — there's a good chance you've seen it before: one commenter leaves a critical drive-by opinion, never to be heard from again. Another raises a tangentially related pet issue that derails the entire discussion. A third will disagree with just about everything you propose, just on principle. And a fourth, probably means well, but due to the limitations of the internet, comes off as abrasive. The conversation quickly devolves into a debate of semantics, and things go nowhere fast.
 
 It doesn't have to be that way. If you're about to open a controversial (or wide-reaching) pull request, there are a handful of steps you can take to encourage a more productive discussion:
 
