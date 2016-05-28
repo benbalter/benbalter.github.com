@@ -37,9 +37,7 @@ You are responsible for keeping the lights on, for keeping the servers up, the t
 
 ### Explain Why, what, and when, not how
 
-For a project to be successful, you need to figure out the why, the what, the when, and the how. Your job is everything but the how (but you're responsible for that too). What and when are straightforward enough. How is the preview of the engineering team. But it's the why that's most often overlooked. 
-
-https://en.wikipedia.org/wiki/Intent_(military)
+For a project to be successful, you need to figure out the why, the what, the when, and the how. Your job is figuring out (and communicating) everything but the "how". What to build and when to build it are straightforward enough, and the details of the "how" are largely the purview of the engineering team. It's the "why", however, that's most often overlooked and under-communicated. Distilling and communicating the "why" In the military, communicating the why is often referred to as [commander's intent](https://en.wikipedia.org/wiki/Intent_(military)).
 
 ### Don't confuse urgent with important
 
