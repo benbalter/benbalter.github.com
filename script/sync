@@ -1,0 +1,8 @@
+#!/bin/sh
+# Sync down issues and content prior to a long flight
+
+set -ex
+
+git pull
+
+./node_modules/.bin/offline-issues benbalter/benbalter.github.com

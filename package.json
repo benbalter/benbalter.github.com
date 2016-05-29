@@ -4,6 +4,7 @@
   "description": "[![Build Status](https://travis-ci.org/benbalter/benbalter.github.com.png?branch=master)](https://travis-ci.org/benbalter/benbalter.github.com)",
   "main": "script/server",
   "dependencies": {
+    "offline-issues": "^0.1.0",
     "remark-heading-gap": "^2.0.0",
     "remark-inline-links": "^3.0.0",
     "remark-lint-no-empty-sections": "^1.0.0"
