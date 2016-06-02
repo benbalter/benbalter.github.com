@@ -47,7 +47,8 @@ Organizations have a bad habit of confusing what's measurable or visible with wh
 
 ### Be the most organized person on the team
 
-
 ### 0.1 not 1.0
+
+Coming up with the vision for the 1.0 version of any feature is the easy part. Giving into the temptation to forgoe shipping until it's perfect is even easier. The challenge lies in breaking that feature into a minimal 0.1 that you can immediately expose to users. Not only do users begin getting some of the feature's value early on, but rather than spending six months heading in the wrong direction, you can see how its used in the hands of users, and can adjust your plans accordingly. Incremental ships also keep the number of moving parts to a minimum, and help avoid "flip a giant switch"-style ships that subject users to large swaths of untested code. 
 
 ### User advocate
