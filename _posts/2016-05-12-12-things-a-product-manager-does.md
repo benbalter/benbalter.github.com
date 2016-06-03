@@ -7,9 +7,17 @@ When I first considering making the move to Product Management, I read [a lot](h
 
 I've been keeping notes on everything I've done as a product manager over the past six months, and bucketizing things a bit (as we product managers say). Here's my list of the twelve most important things a product manager can do on any given day:
 
+### Product mangers aren't allow to have excuses
+
+First and foremost, as a product manager, you are ultimately responsible for the product's success and held accountable for anything even remotely resembling failure, no matter the cause. Marketing material didn't strike the right tone? Technology didn't pan out as expected? Budget priorities shifted? Competitor moved faster? Personalities clashed? Regardless of where the true blame *should* lie, when all's said and done, you're accountable. This can be a scary arrangement at first, but it also gives you the political capital to make the touch decisions and assume responsibility on behalf of others.
+
 ### Team captain
 
 Depending on how your organization is structured, there's a good chance that teams — the internal groupings that do the organization's day-to-day work — and products — the user-facing things that you actually exist to build — don't align. A product might be built by an engineering team, tested by a QA team, documented by a documentation team, and supported by a support team, among many, many other teams. As a product manager, you're the captain of the (often imaginary) cross-functional team that ties all those disparate efforts together. Part quarterback, part social worker, part organizational sherpa, and part matchmaker, your job is to do whatever it takes to ensure players do their best on and off the field.
+
+### Prioritize and sequence
+
+At some point you'll realize there's always going to be more to do than time to do it, and that that's perfectly okay. Given a solid team and sufficient community, there's going to be no shortage of ideas, both internal and external. Add to that, the fact that given the right talent and time, any technical challenge is surmountable, and you'll find yourself presented with near infinite possibilities. Your job as a product manager is to prioritize those tasks, floating highly-visible bugs and those features that target your core use case to the top of the list on the one hand, but also to sequence tasks, to knock out the low-effort, high-impact features first, and then schedule the rest in an order that makes sense on the other. If you've ever played any real-time strategy game, you know how important it is to properly sequence early investments alongside resource growth. Product management is no different.
 
 ### Research and strategic thinking
 
@@ -22,10 +30,6 @@ Your team should focus on shipping. You should focus on all 'the meta-work neces
 ### Solve for what customer want, not what they're asking for
 
 Your customers are experts at using your product. They're not necessarily experts at building it. It's all too easy to [optimize for the squeakiest wheels](http://ben.balter.com/2016/03/08/optimizing-for-power-users-and-edge-cases/), but those you hear from the most are not necessarily your target customers. As a product manager, your job is to solve for the target customer's underlying needs, not to respond to feature requests a-la-carte. For one, you have the privilege of a birds-eye view — you don't just see one use case, but all of them. For another, you enjoy the benefit of data, both historical and experimental. Most importantly, you should have a vision for what the product can, and should be doing, even if that's not what it's doing that today. Your customer wants [a 1/4" hole](https://strategyn.com/jobs-to-be-done/). They may ask for a bigger drill bit or a stronger motor, but the right solution might ultimately be an adhesive hook.
-
-### Prioritize and sequence
-
-At some point you'll realize there's always going to be more to do than time to do it, and that that's perfectly okay. Given a solid team and sufficient community, there's going to be no shortage of ideas, both internal and external. Add to that, the fact that given the right talent and time, any technical challenge is surmountable, and you'll find yourself presented with near infinite possibilities. Your job as a product manager is to prioritize those tasks, floating highly-visible bugs and those features that target your core use case to the top of the list on the one hand, but also to sequence tasks, to knock out the low-effort, high-impact features first, and then schedule the rest in an order that makes sense on the other. If you've ever played any real-time strategy game, you know how important it is to properly sequence early investments alongside resource growth. Product management is no different.
 
 ### Capture every idea in an issue backlog
 
@@ -43,16 +47,14 @@ Throughout a product's lifecycle, you'll generally see two types of tasks, those
 
 Organizations have a bad habit of confusing what's measurable or visible with what's important, and neglecting the immeasurable as a result. Just because something suddenly comes into focus, doesn't mean that that thing deserves your immediate focus. Gaining the ability to track page views for example, (and seeing how few there are) doesn't mean you should drop everything and shift to maximizing eyeballs. Your job as a product manager is to think purposefully about what metrics you should be collecting, what can't be quantified, and what you should be optimizing for, both today, and in the long run.
 
-### Product mangers aren't allow to have excuses
+### 0.1 not 1.0
 
-As a product manager, you are responsible for the product's success and held accountable for anything even remotely resembling failure. Marketing material didn't strike the right tone? Technology didn't pan out as expected? Budget priorities shifted? Competitor moved faster? Personalities clashed? Regardless of where the true blame *should* lie, when all's said and done, you're accountable. This can be a scary arrangement at first, but it also gives you the political capital to make the touch decisions and assume responsibility on behalf of others. 
+Coming up with the vision for the 1.0 version of any feature is the easy part. Giving into the temptation to forgo shipping until it's absolutely perfect is even easier. The challenge lies in breaking that feature into a minimal 0.1 that you can immediately expose to users, and following up with subsequent ships. Not only do users begin getting some of the feature's value early on, but rather than spending six months potentially heading in the wrong direction, you can see how its used in the wild, and can adjust your plans accordingly. Incremental ships also keep the number of moving parts to a minimum, and help avoid "flip a giant switch"-style ships that subject users to large swaths of untested code.
 
 ### Be the most organized person on the team
 
 
 
-### 0.1 not 1.0
 
-Coming up with the vision for the 1.0 version of any feature is the easy part. Giving into the temptation to forgo shipping until it's absolutely perfect is even easier. The challenge lies in breaking that feature into a minimal 0.1 that you can immediately expose to users, and following up with subsequent ships. Not only do users begin getting some of the feature's value early on, but rather than spending six months potentially heading in the wrong direction, you can see how its used in the wild, and can adjust your plans accordingly. Incremental ships also keep the number of moving parts to a minimum, and help avoid "flip a giant switch"-style ships that subject users to large swaths of untested code.
 
 ### User advocate
