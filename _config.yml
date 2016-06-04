@@ -134,3 +134,23 @@ nav_pages:
   - press.md
   - about.md
   - contact.md
+
+contact_links:
+  - name: Twitter
+    url: https://twitter.com/BenBalter
+    icon: twitter
+  - name: Facebook
+    url: https://facebook.com/BenBalter
+    icon: facebook
+  - name: LinkedIn
+    url: https://www.linkedin.com/in/BenBalter
+    icon: linkedin
+  - name: Google
+    url: https://plus.google.com/107848665104278257250?rel=author
+    icon: google-plus
+  - name: GitHub
+    url: https://github.com/benbalter
+    icon: github
+  - name: Keybase
+    url: https://keybase.io/benbalter
+    icon: key
