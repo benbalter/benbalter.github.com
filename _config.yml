@@ -127,3 +127,10 @@ lang: en-US
 
 collections:
   - resume_positions
+
+nav_pages:
+  - index.html
+  - talks.md
+  - press.md
+  - about.md
+  - contact.md
