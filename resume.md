@@ -4,7 +4,6 @@ title: Resume
 excerpt: 'Ben Balter is a gov 2.0 evangelist working to hack federal government from the inside out, an open-source developer passionate about the disruptive power of technology, and a J.D./M.B.A. candidate at the George Washington University.'
 layout: page
 permalink: /resume/
-id: /resume
 ---
 
 ### Experience
@@ -118,3 +117,13 @@ May 2013
 
 May 2009
 {: .date}
+
+### Certifications
+
+#### Bar Association of the District of Columbia
+
+Member, license 1021576
+
+#### WSET — Wine & Spirit Education Trust
+
+Level 2 Award in Wines and Spirits (QCF) — pass with distinction
