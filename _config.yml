@@ -124,3 +124,6 @@ gist:
 future: true
 
 lang: en-US
+
+collections:
+  - resume_positions
