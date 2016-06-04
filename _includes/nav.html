@@ -6,7 +6,7 @@
     {% for path in site.nav_pages %}
       {% assign nav_page=site.pages | where:"path",path | first %}
       <li{% if page.permalink == nav_page.permalink %} class="active"{% endif %}>
-        <a href="{{ url_base }}{{ nav_page.url }}">{{ nav_page.title | default:"Posts" }}</a>
+        <a href="{{ site.github.url }}{{ nav_page.url }}">{{ nav_page.title | default:"Posts" }}</a>
       </li>
     {% endfor %}
   </ul>
