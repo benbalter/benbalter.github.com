@@ -6,7 +6,7 @@ layout: default
   <div class="col-sm-10 col-sm-offset-1">
     <article id="post{{ page.id | replace:"/","-" }}" class="post post{{ page.id | replace:"/","-" }}">
 
-      <h2 class="title"><a href="{{ url_base }}{{ page.url }}">{% include smartify text=page.title %}</a></h2>
+      <h2 class="title"><a href="{{ site.github.url }}{{ page.url }}">{{ page.title | smartify }}</a></h2>
 
       <div class="post-meta">
         <span class="entry-date">Posted {{ page.date | date: '%B %d, %Y' }}</span> |
@@ -18,7 +18,7 @@ layout: default
       </div>
 
       {% include mini-bio.html %}
-      
+
       {% include improve.html %}
 
       {% unless page.comments == false %}
