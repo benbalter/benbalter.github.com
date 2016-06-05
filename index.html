@@ -9,7 +9,7 @@ hero: true
   <li class="post">
     <div class="row">
         <div class="col-sm-9">
-            <a href="{{ site.github.url }}{{ page.url }}">{% include smartify text=page.title %}</a>
+            <a href="{{ site.github.url }}{{ page.url }}">{{ page.title | smartify }}</a>
         </div>
         <div class="col-sm-3 date">
             {{ page.date | date: '%B %d, %Y' }}

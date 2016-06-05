@@ -1,31 +1,14 @@
-<nav class="navbar navbar-default" role="navigation" itemscope itemtype="http://data-vocabulary.org/Person">
-  <meta itemprop="url" content="{{ site.github.url }}" />
-  <meta itemprop="title" content="{{ site.job_title }}" />
-  <meta itemprop="affiliation" content="{{ site.employer }}" />
-  <meta itemprop="photo" content="http://www.gravatar.com/avatar/{{ site.gravatar_id }}.png" />
-  <span itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
-    <meta itemprop="locality" content="{{ site.location.city }}" />
-    <meta itemprop="region" content="{{ site.location.state }}" />
-    <meta itemprop="country-name" content="{{ site.location.country }}" />
-    <a href="https://plus.google.com/+{{ site.google_plus_id }}" rel="publisher" class="hidden">Ben Balter</a>
-  </span>
+<nav class="navbar navbar-default" role="navigation">
   <ul class="nav navbar-nav">
-    <li><h1><a class="navbar-brand" href="{{ url_base }}/"><span itemprop="name">{{ site.name }}</span></a></h1></li>
-    <li id="home"{% if page.url == '/index.html' %} class="active"{% endif %}>
-      <a href="{{ url_base }}/">Posts</a>
+    <li>
+      <h1><a class="navbar-brand" href="{{ site.github.url }}/">{{ site.name }}</a></h1>
     </li>
-    <li id="talks"{% if page.url == "/talks/"%} class="active"{% endif %}>
-      <a href="{{ url_base }}/talks/">Talks</a>
-    </li>
-    <li id="press"{% if page.url == "/press/"%} class="active"{% endif %}>
-      <a href="{{ url_base }}/press/">Press</a>
-    </li>
-    <li id="about"{% if page.url == "/about/"%} class="active"{% endif %}>
-      <a href="{{ url_base }}/about/" rel="author">About</a>
-    </li>
-    <li id="contact"{% if page.url == "/contact/"%} class="active"{% endif %}>
-      <a href="{{ url_base }}/contact/">Contact</a>
-    </li>
+    {% for path in site.nav_pages %}
+      {% assign nav_page=site.pages | where:"path",path | first %}
+      <li{% if page.permalink == nav_page.permalink %} class="active"{% endif %}>
+        <a href="{{ site.github.url }}{{ nav_page.url }}">{{ nav_page.title | default:"Posts" }}</a>
+      </li>
+    {% endfor %}
   </ul>
-  <p class="navbar-text pull-right" itemprop="role">{{ site.description }}</p>
+  <p class="navbar-text pull-right">{{ site.description }}</p>
 </nav><!-- navbar -->

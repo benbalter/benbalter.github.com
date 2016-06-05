@@ -12,6 +12,7 @@ disallows:
   - /dont-build-an-api/
   - /make-government-better-together/
   - /404.html
+  - /fine-print/
 ---
 
 User-agent: *{% for disallowed in page.disallows %}
