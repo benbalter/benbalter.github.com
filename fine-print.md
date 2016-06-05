@@ -1,7 +1,6 @@
 ---
 author: Benjamin J. Balter
 title: Fine Print
-
 layout: page
 permalink: /fine-print/
 robots: noindex
