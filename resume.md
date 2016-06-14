@@ -29,7 +29,9 @@ certifications:
 {% for position in positions reversed %}
 
 {% unless position.employer == previous_employer %}
+
 #### {{ position.employer }}
+
 {% endunless %}
 
 ##### {{ position.title }}
@@ -46,7 +48,9 @@ certifications:
 ### Education
 
 {% for degree in page.degrees %}
+
 #### {{ degree.school }}
+
 <div class="date">{{ degree.date | date: "%B %Y" }}</div>
 {{ degree.degree }}
 {% endfor %}
@@ -54,6 +58,8 @@ certifications:
 ### Certifications
 
 {% for certification in page.certifications %}
+
 #### {{ certification.authority }}
+
 {{ certification.name }}
 {% endfor %}

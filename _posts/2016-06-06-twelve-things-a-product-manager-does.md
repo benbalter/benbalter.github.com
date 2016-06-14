@@ -13,7 +13,7 @@ First and foremost, as a product manager, you are ultimately responsible for the
 
 ### 2. Team captain
 
-Depending on how your organization is structured, there's a good chance that teams — the internal groupings that do the organization's day-to-day work — and products — the user-facing things that you actually exist to build — don't align. A product might be built by an engineering team, tested by a QA team, documented by a documentation team, and supported by a support team, among many, many other teams. As a product manager, you're the captain of the (often imaginary) cross-functional team that ties all those disparate efforts together. Part quarterback, part social worker, part organizational sherpa, and part matchmaker, your job is to do whatever it takes to ensure players do their best on and off the field.
+Depending on how your organization is structured, there's a good chance that teams — the internal groupings that do the organization's day-to-day work — and products — the user-facing things that you actually exist to build — don't align. A product might be built by an engineering team, tested by a QA team, documented by a documentation team, and supported by a support team, among many, many other teams. As a product manager, you're the captain of the (often imaginary) cross-functional team that ties all those disparate efforts together. Part quarterback, part social worker, part organizational sherpa, and part matchmaker, your job is to do whatever it takes to ensure players do their best on and off the field.
 
 ### 3. User advocate
 
@@ -49,7 +49,7 @@ Ideas come up. There are the ideas that naturally arise during your weekly check
 
 ### 11. Research and strategic thinking
 
-It's easy enough to take the top feature off the backlog, grind away for a few weeks, ship, wash, and repeat. Leave that to your team. Your job is to spend at least one day a week (yep, that's 20% of your time), taking a step back from the day-to-day and focusing on the month-to-month and the year-to-year — to think through the tough non-technical problems you're product's trying to solve. *Who's your target audience? How many people actually use that feature? How are they using it? Can you remove it? Can you fold two features into one? What does the user experience look like in a month? A year? Three? Five?* You need to be the one that knows the product best, not just today, but also five years from now.
+It's easy enough to take the top feature off the backlog, grind away for a few weeks, ship, wash, and repeat. Leave that to your team. Your job is to spend at least one day a week (yep, that's 20% of your time), taking a step back from the day-to-day and focusing on the month-to-month and the year-to-year — to think through the tough non-technical problems you're product's trying to solve. *Who's your target audience? How many people actually use that feature? How are they using it? Can you remove it? Can you fold two features into one? What does the user experience look like in a month? A year? Three? Five?* You need to be the one that knows the product best, not just today, but also five years from now.
 
 ### 12. Keep up with industry trends and customer demand
 
