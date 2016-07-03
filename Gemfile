@@ -9,5 +9,3 @@ group :test, :development do
   gem 'pry'
   gem 'rubocop'
 end
-
-gem 'pinterest-api'
