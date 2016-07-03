@@ -154,3 +154,6 @@ contact_links:
   - name: Keybase
     url: https://keybase.io/benbalter
     icon: key
+
+amazon:
+  affiliates_tag: benbalter07-20
