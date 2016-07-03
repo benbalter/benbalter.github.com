@@ -20,7 +20,7 @@ books_per_row: 3
   {% endif %}
 
   <div class="col-sm-{{ 12 | divided_by:page.books_per_row }} book">
-    <a href="https://www.amazon.com/gp/product/{{ book.asin }}/?tag={{ site.amazon.affiliates_tag }}">
+    <a href="https://www.amazon.com/gp/product/{{ book.asin }}/?tag={{ site.amazon.affiliates_tag }}" id="{{ book.title | slugify }}">
       <div class="cover">
         <img src="https://ws-na.amazon-adsystem.com/widgets/q?ASIN={{ book.asin }}&ServiceVersion={{ page.service_version }}&ID=AsinImage&WS=1&Format=_SL110_&tag={{ site.amazon.affiliates_tag }}" />
       </div>
