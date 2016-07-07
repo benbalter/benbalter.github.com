@@ -8,4 +8,5 @@ group :test, :development do
   gem 'rake'
   gem 'pry'
   gem 'rubocop'
+  gem 'nokogiri'
 end

@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+
+require 'jekyll'
+require 'cgi'
+require 'uri'
+
+AFFILIATES_ID = "benbalter07-20"
+files = `ack --files-with-matches --ignore-case "amazon\.com" _site`.split("\n")
+
+last_file = ""
+found = false
+files.each do |file|
+  content = File.read(file)
+
+  if content =~ Jekyll::Document::YAML_FRONT_MATTER_REGEXP
+    content = $POSTMATCH
+  end
+
+  links = content.scan %r{href=[\"']([^\"']+)[\"']}
+  links.each do |link|
+    uri = URI.parse(link[0])
+    next unless uri && uri.host =~ /amazon\.com/
+
+    params = CGI::parse(uri.query) unless uri.query.nil?
+    next if params && params.has_key?("tag") && params["tag"].first == AFFILIATES_ID
+
+    unless found
+      found = true
+      puts "The following links are missing Amazon affiliate tags...\n\n"
+    end
+    
+    puts "In #{file}:" unless  file == last_file
+    puts "  * #{uri.to_s}"
+
+    last_file = file
+  end
+end
