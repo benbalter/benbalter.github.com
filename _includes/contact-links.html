@@ -1,7 +1,7 @@
 <ul id="contact-links">
   {% for link in site.contact_links %}
     <li>
-      <a href="{{ link.url }}" rel="me" target="_blank">
+      <a href="{{ link.url }}" rel="me" target="_blank" data-proofer-ignore="true">
         <i class="fa fa-{{ link.icon }} fa fa-4x">&nbsp;</i><br />
         {{ link.name }}
       </a>
