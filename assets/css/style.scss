@@ -142,8 +142,8 @@ body { padding-top: 20px; font-weight: 200; }
 
 #zen { font-size: 8px; padding: 20px 0px; }
 
-.row.books { padding-bottom: 50px; }
 .books {
+  padding-top: 20px; 
   .book {
     text-align: center;
     .cover {
