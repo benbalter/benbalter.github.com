@@ -1,13 +1,19 @@
 url: "http://localhost:4000"
 
 proofer:
-  url_ignore:
+  :url_ignore:
     - "#comments"
     - !ruby/regexp '/https?:\/\/(www)?\.youtube\.com\/watch\?v=.*/i'
     - http://ben.balter.com/404/
     - /edit/master/404.html
-  check_html: true
-
+  :check_html: true
+  :url_swap:
+    "http://localhost:4000/": "/"
+  :cache:
+    :timeframe: 24h
+  :parallel:
+    :in_processes: 3
+    
 github:
   repository_nwo: "benbalter/benbalter.github.com"
   owner_url: "https://github.com/benbalter"

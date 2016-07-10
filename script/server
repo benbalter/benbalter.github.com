@@ -4,13 +4,4 @@
 set -e
 
 script/branding
-
-export JEKYLL_GITHUB_TOKEN=$(cat ~/.token)
-
-echo "Starting server."
-JEKYLL_GITHUB_TOKEN="$(cat ~/.token)" DISABLE_WHITELIST=true \
-  bundle exec jekyll serve --watch --config _config.yml,_config_local.yml \
-  --drafts --incremental
-
-echo "Cleaning up..."
-rm -Rf _site
+bundle exec rake serve

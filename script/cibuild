@@ -17,7 +17,7 @@ title "checking markdown"
 script/remark
 
 title "checking site"
-JEKYLL_GITHUB_TOKEN="$(cat ~/.token)" DISABLE_WHITELIST=true bundle exec rake test
+bundle exec rake test
 
 title "checking ruby"
 bundle exec rubocop -D -S

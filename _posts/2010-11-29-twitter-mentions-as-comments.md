@@ -27,6 +27,4 @@ The plugin is available in the [WordPress plugin repository](http://wordpress.or
 
 **Looking to filter out a particular user or keyword?** Because Tweets go through the normal comment filter, you can just [blacklist them as described below](http://ben.balter.com/2010/11/29/twitter-mentions-as-comments/#comment-246).
 
-*Enjoy using Twitter Mentions as Comments? Feel free to [make a small donation](http://ben.balter.com/donate/ "Donate") to support the software's continued development.*
-
 **Update (7/8): Comments have been closed in favor of [expanded support and discussion options](https://github.com/benbalter/Twitter-Mentions-as-Comments/wiki/Where-to-get-Support-or-Report-an-Issue). Additional documentation about the project can now be found in the [Project Wiki](https://github.com/benbalter/Twitter-Mentions-as-Comments/wiki). If you are interested in joining the project at any level of technical expertise, please see [How to Contribute](https://github.com/benbalter/Twitter-Mentions-as-Comments/wiki/How-to-Contribute).**
