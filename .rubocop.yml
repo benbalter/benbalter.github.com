@@ -3,3 +3,6 @@ AllCops:
     - _site/**/*
     - node_modules/**/*
     - vendor/**/*
+
+Style/Documentation:
+  Enabled: false

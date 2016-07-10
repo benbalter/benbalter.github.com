@@ -141,3 +141,23 @@ body { padding-top: 20px; font-weight: 200; }
 .gist .pl-c1 { color: #007faa !important; }
 
 #zen { font-size: 8px; padding: 20px 0px; }
+
+.books {
+  padding-top: 20px; 
+  .book {
+    text-align: center;
+    .cover {
+      height: 110px;
+    }
+    .title {
+      padding-top: 15px;
+      font-weight: bold;
+      min-height: 5em;
+    }
+    .tldr {
+      font-style: italic;
+      font-size: 0.8em;
+      text-align: justify;
+    }
+  }
+}
