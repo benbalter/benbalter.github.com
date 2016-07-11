@@ -5,7 +5,7 @@ description: Features aren't what make a product great. Being the best at solvin
 
 Features aren't what make a product great. Being the best at solving a particular problem does. Every time you remove a feature that doesn't support your product's core use case, you're adding an implicit feature that does.
 
-Your users use your product because [they're trying to solve a specific problem](https://strategyn.com/jobs-to-be-done/). It could be getting from point A to point B, finding their next romantic interest, or having some place to store their vacation photos. Whatever reason, they have a specific task in mind, and your product is simply the most effective tool to accomplish it, at least, that's the idea. That means that every feature that doesn't solve the problem they're trying to solve, isn't just product cruft, it actively stands in their way.
+Your users use your product because [they're trying to solve a specific problem](https://strategyn.com/jobs-to-be-done/). It could be getting from point A to point B, finding their next romantic interest, or having some place to store their vacation photos. Whatever reason, they have a specific task in mind, and your product is simply the most effective tool to accomplish it, at least, that's the idea. That means that every feature that doesn't solve the problem they're trying to solve, isn't just product cruft, it's actively standing in their way.
 
 ### Features aren't free
 
@@ -17,22 +17,27 @@ Features come with a very real cost to users. As [I wrote a few months back](htt
 
 And with every new feature you add, they'll need to go through that process all over again, not to mention, that new knob you added for User B, because "why not?", is going to make it harder for User A to find the knob they're actually looking for. Features come with a very real, non-engineering cost.
 
-### Reducing feature creep
+### You don't need so many knobs
 
-Which feature to remove is likely going to be specific to your product, but if it doesn't *bring your target users joy*, to borrow a popular test for eliminating real-world clutter, cut it. Easier still, don't add the feature in the first place.
+Simply put, users don't need quite as many knobs as you think. [Research suggests](http://neverworkintheory.org/2016/06/09/too-many-knobs.html) that 90% of users adjust fewer than 10% of settings, with the majority of users changing at most, about 15% of configuration parameters for any given piece of software.
+
+https://daringfireball.net/2004/06/broken_windows
+https://xkcd.com/1172/
+
+### Avoid feature creep
+
+Which feature to remove is likely going to be specific to your product, but if it doesn't [*bring your target users joy*](http://www.nytimes.com/2014/10/23/garden/home-organization-advice-from-marie-kondo.html?_r=0), to borrow a popular test for eliminating real-world clutter, cut it. Easier still, don't add the feature in the first place.
 
 Absent your intervention, projects have a tendency to become feature Christmas trees, each stakeholder adding their own domain-specific ornaments. This happens for several, easily avoidable reasons, at least if you can learn to spot them ahead of time:
 
 * **Being reactive to ad-hoc requests** - customer feedback is invaluable, but your users are experts at using your product, not at building it. A one off feature request that might satisfy a single user, might not be the right move for your product in the long run, especially if they're not your ideal user. Avoid the temptation to play feature whack-a-mole. Instead, make your taste, vision, and foresight a feature in and of itself, building products that proactively solve your target users' needs, before they know they haves them, rather than reactively implementing individual features to satisfy your loudest users' complaints.
 
-* **Scope creep** - projects have a natural tendency to drift towards solving problems beyond their original purpose. Once you've got the 0.1 that tackles one problem, it's all too easy to start seeing related problems that could be tackled in similar ways, albiet less well. If your e-reader has an internet connection, you might as well add a web browser, right? When problems are similar but not the same, your product becomes sort of good at lots of things, rather than really good at the thing your users want to use it for. Define the scope early on and purposefully revisit that discussion wholesale before agreeing to tackle any feature beyond your agreed upon scope.
+* **Scope creep** - projects have a natural tendency to drift towards solving problems beyond their original purpose. Once you've got the 0.1 that tackles one problem, it's all too easy to start seeing related problems that could be tackled in similar ways, albeit less well. If your e-reader has an internet connection, you might as well add a web browser, right? When problems are similar but not the same, your product becomes sort of good at lots of things, rather than really good at the thing your users want to use it for. Define the scope early on and purposefully revisit that discussion wholesale before agreeing to tackle any feature beyond your agreed upon scope.
 
-* **Scratching a technical itch** - Technology can often make new user-centric functionality possible, but some of the highest impact features are also the most boring to implement technically. Borrowing another phrase form [GitHub Zen](http://ben.balter.com/2015/08/12/the-zen-of-github/), favor practicality over purity. Philosophically impure features that violate the rules of computer science textbook may be the most useful to users, and vice versa. Avoid the temptation to fixate on the shiny new thing, just because it's shiny, or because it'd be a fun technical challenge to tackle, and focus on the most practical route to putting useful features in the hands of your users as immediately as possible.
+* **Scratching a technical itch** - Technology can often make new user-centric functionality possible, but some of the highest impact features are also the most boring to implement technically. Borrowing another phrase form [GitHub Zen](http://ben.balter.com/2015/08/12/the-zen-of-github/), *favor practicality over purity*. Philosophically impure features that violate the rules of a computer science textbook may be the most useful to users, and vice versa. Avoid the temptation to fixate on the shiny new thing, just because it's shiny, or because it'd be a fun technical challenge to tackle, and focus on the most practical route to putting useful features in the hands of your users as immediately as possible.
 
 * **Not understanding your users' needs** - Who's your target user? What problem are they trying to solve? How is your product uniquely positioned to solve it? It's easy enough to look at what features you're technically able to build, or what features your competitors implement, and match them point-for-point, without regard for why you're actually building it. Unless your team has a shared understanding of your users' unique needs, you'll quickly change course from solving one problem well to not solving lots of problems at all.
 
-If it's not part of the solution, it's part of the problem.
 
-http://neverworkintheory.org/2016/06/09/too-many-knobs.html
-https://daringfireball.net/2004/06/broken_windows
-https://xkcd.com/1172/
+
+If it's not part of the solution, it's part of the problem.
