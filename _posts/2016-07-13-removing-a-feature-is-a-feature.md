@@ -19,19 +19,15 @@ With every new feature you add, users will need to go through that learning proc
 
 ### There's no such thing as declaring "feature bankruptcy"
 
-Even though we often call it "technical debt", there's no such thing as declaring "feature bankruptcy". Features also come with a very real engineering cost in the from on ongoing maintenance. Every feature you add creates an implicit contract with your users that you're going to support that feature in perpetuity. That means that every dependency update, every redesign, every refactor, becomes exponentially more complex with each feature you add, as you have an ever-increasing list of things that must remain backwards compatible, and this technical debt quickly adds up.
-
-John Gruber explains the similarity between [legacy feature maintenance and the "broken window" theory](https://daringfireball.net/2004/06/broken_windows):
-
-> It’s similar to the “broken windows” theory of urban decay, which holds that if a single window is left unrepaired in a building, in fairly short order, the remaining windows in the building will be broken. Fixing windows as soon as they are broken sends a message: that vandalism will not be tolerated. But not fixing windows also sends a message: that vandalism is acceptable. Worse, once a problem such as vandalism starts, if left unchecked, it flourishes.
+Even though we often call it "technical debt", there's no such thing as declaring "feature bankruptcy". In addition to the user cost, features also come with a very real engineering cost in the from of ongoing maintenance. Every feature you add creates an implicit contract with your users that you're going to support that feature in perpetuity. That means that every dependency update, every redesign, every refactor, becomes exponentially more complex with each feature you add, as you have an ever-increasing list of things that must remain backwards compatible, and this technical debt quickly adds up.
 
 The good news is that users don't need quite as many knobs as you think. [Research suggests](http://neverworkintheory.org/2016/06/09/too-many-knobs.html) that 90% of users adjust fewer than 10% of settings, with the majority of users changing at most, about 15% of configuration parameters for any given piece of software.
 
 Rather than slowing marching your product's settings page towards eventually resembling [a space shuttle cockpit](https://en.wikipedia.org/wiki/Space_Shuttle_orbiter#/media/File:STSCPanel.jpg), [you should be building features that support your ideal use case](http://ben.balter.com/2016/03/08/optimizing-for-power-users-and-edge-cases/).
 
-### Playing feature goalie
-
 Once a feature's been added, whenever you make a change to your product, regardless of what the change is, [a non-zero number of users are going to complain that the change upset their workflow](https://xkcd.com/1172/). Thus, the easiest way to avoid upsetting users' workflows is to prevent the feature from being added in the first place.
+
+### Playing feature goalie
 
 Absent your intervention, projects have a tendency to become feature Christmas trees, each stakeholder adding their own domain-specific ornaments. This happens for several, easily avoidable reasons, at least if you can learn to spot them ahead of time:
 
