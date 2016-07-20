@@ -3,9 +3,9 @@ title: Removing a feature is a feature
 description: Features aren't what make a product great. Being the best at solving a particular problem does. Every time you remove a feature that doesn't support your product's core use case, you're adding an implicit feature that does.
 ---
 
-Features aren't what make a product great. Being the best at solving a particular problem does. Every time you remove a feature that doesn't support your product's core use case, you're adding an implicit feature that does.
+Features aren't what make a product great. Being the best at solving a particular problem does. Every time you remove a feature that doesn't support your product's core use case, you're actually adding an implicit feature that does.
 
-Your users use your product because [they're trying to solve a specific problem](https://strategyn.com/jobs-to-be-done/). It could be getting from point A to point B, finding their next romantic interest, or having some place to store their vacation photos. Whatever reason, they have a specific task in mind, and your product is simply the most effective tool to accomplish it, at least, that's the idea. That means that every feature that doesn't solve the problem they're trying to solve, isn't just product cruft, it's actively standing in their way.
+Ultimately, your users use your product because [they're trying to solve a specific problem](https://strategyn.com/jobs-to-be-done/). It could be getting from point A to point B, finding their next romantic interest, or having some place to store their vacation photos. Whatever reason, they have a specific task in mind, and your product is simply a means to an ends. That means that every feature that doesn't solve the problem they're trying to solve, isn't just product cruft, it's actively standing in their way.
 
 ### Features aren't free
 
@@ -19,17 +19,15 @@ With every new feature you add, users will need to go through that learning proc
 
 ### There's no such thing as declaring "feature bankruptcy"
 
-Even though we often call it "technical debt", there's no such thing as declaring "feature bankruptcy". In addition to the user cost, features also come with a very real engineering cost in the from of ongoing maintenance. Every feature you add creates an implicit contract with your users that you're going to support that feature in perpetuity. That means that every dependency update, every redesign, every refactor, becomes exponentially more complex with each feature you add, as you have an ever-increasing list of things that must remain backwards compatible, and this technical debt quickly adds up.
+Even though we often call it "technical debt", sadly, there's no such thing as declaring "feature bankruptcy". Every feature you add creates an implicit contract with your users that you're going to support that feature in perpetuity. That means that every dependency update, every redesign, every refactor, becomes exponentially more complex with each feature you add, as you have an ever-increasing list of things that must remain backwards compatible, and this technical debt quickly adds up as an engineering tax in the from of ongoing maintenance.
 
-The good news is that users don't need quite as many knobs as you think. [Research suggests](http://neverworkintheory.org/2016/06/09/too-many-knobs.html) that 90% of users adjust fewer than 10% of settings, with the majority of users changing at most, about 15% of configuration parameters for any given piece of software.
+Product debt isn't a foregone inevitability. Chances are, users don't need quite as many knobs as you think. [Research suggests](http://neverworkintheory.org/2016/06/09/too-many-knobs.html) that 90% of users adjust fewer than 10% of settings, with the majority of users changing at most, about 15% of configuration parameters for any given piece of software. That means that upwards of 80% of settings shouldn't even be there in the first place. Rather than slowing marching your product's settings page towards eventually resembling [a space shuttle cockpit](https://en.wikipedia.org/wiki/Space_Shuttle_orbiter#/media/File:STSCPanel.jpg), [you should be building features that support your ideal use case(s)](http://ben.balter.com/2016/03/08/optimizing-for-power-users-and-edge-cases/), and only your ideal use case(s).
 
-Rather than slowing marching your product's settings page towards eventually resembling [a space shuttle cockpit](https://en.wikipedia.org/wiki/Space_Shuttle_orbiter#/media/File:STSCPanel.jpg), [you should be building features that support your ideal use case](http://ben.balter.com/2016/03/08/optimizing-for-power-users-and-edge-cases/).
-
-Once a feature's been added, whenever you make a change to your product, regardless of what the change is, [a non-zero number of users are going to complain that the change upset their workflow](https://xkcd.com/1172/). Thus, the easiest way to avoid upsetting users' workflows is to prevent the feature from being added in the first place.
+Unfortunately, once a feature's been added, once it's in the hands of users, whenever you make a change, regardless of what the change is, [a non-zero number of users are going to complain that the change broke their workflow](https://xkcd.com/1172/). Thus, the easiest way to avoid upsetting users is often to prevent the feature from being added in the first place.
 
 ### Playing feature goalie
 
-Absent your intervention, projects have a tendency to become feature Christmas trees, each stakeholder adding their own domain-specific ornaments. This happens for several, easily avoidable reasons, at least if you can learn to spot them ahead of time:
+Absent your intervention, projects have a tendency to become feature Christmas trees, with each stakeholder adding their own domain-specific ornaments. This happens for several, easily avoidable reasons, at least if you can learn to spot them ahead of time:
 
 * **Being reactive to ad-hoc requests** - customer feedback is invaluable, but your users are experts at using your product, not at building it. A one off feature request that might satisfy a single user, might not be the right move for your product in the long run, especially if they're not your ideal user. Avoid the temptation to play feature whack-a-mole. Instead, make your taste, vision, and foresight a feature in and of itself, building products that proactively solve your target users' needs, before they know they haves them, rather than reactively implementing individual features to satisfy your loudest users' complaints.
 
