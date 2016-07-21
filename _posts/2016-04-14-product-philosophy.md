@@ -57,7 +57,7 @@ If you are not embarrassed by the first version of your product, you’ve launch
 
 Avoid single points of failure, both in systems and in people. Foster communities. Push decisions to the edge. Put your faith in the crowd. Don't bake in <a href="http://en.wikipedia.org/wiki/Lock_(computer_science)">locks</a>. Avoid blockers. Automate wherever possible. Eliminate all humans.
 
-*Example*: 
+*Example*:
 
 ### Share to the widest extent possible
 
