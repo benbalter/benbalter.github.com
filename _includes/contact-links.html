@@ -1,13 +1,12 @@
 <ul id="contact-links">
-  <li><a href="https://twitter.com/BenBalter" rel="me" target="_blank"><i class="fa fa-twitter fa fa-4x">&nbsp;</i><br />Twitter</a></li>
-  <li><a href="https://facebook.com/BenBalter" rel="me" target="_blank"><i class="fa fa-facebook fa fa-4x">&nbsp;</i><br />Facebook</a></li>
-  <li><a href="https://www.linkedin.com/in/BenBalter" rel="me" target="_blank" data-proofer-ignore="true"><i class="fa fa-linkedin fa fa-4x">&nbsp;</i><br />
-  LinkedIn</a></li>
-  <li><a href="https://plus.google.com/107848665104278257250?rel=author" rel="me" target="_blank"><i class="fa fa-google-plus fa fa-4x">&nbsp;</i><br />
-  Google</a></li>
-  <li><a href="https://github.com/benbalter" rel="me" target="_blank"><i class="fa fa-github fa fa-4x">&nbsp;</i><br />
-  GitHub</a></li>
-  <li><a href="https://keybase.io/benbalter" rel="me" target="_blank"><i class="fa fa-key fa-4x">&nbsp;</i><br />Keybase.io</a></li>
+  {% for link in site.contact_links %}
+    <li>
+      <a href="{{ link.url }}" rel="me" target="_blank" data-proofer-ignore="true">
+        <i class="fa fa-{{ link.icon }} fa fa-4x">&nbsp;</i><br />
+        {{ link.name }}
+      </a>
+    </li>
+  {% endfor %}
 </ul>
 
 <p class="pgp-key center">

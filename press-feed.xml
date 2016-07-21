@@ -21,7 +21,7 @@ json: false
    	<language>en-US</language>
     <description>Press clips for {{ site.name }}</description>
 {% for clip in site.data.clips %}<item>
-        <title>{% include smartify text=clip.title %}</title>
+        <title>{{ clip.title | smartify }}</title>
         <link>{{ clip.url }}</link>
         <pubDate>{{ clip.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
         <dc:creator>{{ clip.publication }}</dc:creator>

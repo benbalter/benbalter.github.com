@@ -1,9 +1,10 @@
 ---
 title: "What is a 'Hacker'?"
 description: 'Hackers embody sharing, openness, decentralization — coding to improve the world'
+redirect_from: /2013/02/13/what-is-a-hacker/
 ---
 
-Working in DC, "hacker" can often be seen as a four-letter word. I can't count the number of times a press aide or government attorney has cringed at seeing it in a draft release, or even worse, as an upcoming event audaciously entitled a "hackathon". To the media and many government types "hacking" often conjures up images of malcontents in ski masks crouched over computer screens, but to the rest of the world (and especially the Internet), the term has a very, very different meaning. Heck, even Merriam-Webster [defines hacker](http://www.merriam-webster.com/dictionary/hacker) as:
+Working in DC, "*hacker*" can often be seen as a four-letter word. I can't count the number of times a press aide or government attorney has cringed at seeing it in a draft release, or even worse, as an upcoming event audaciously entitled a "hackathon". To the media and many government types "hacking" often conjures up images of malcontents in ski masks crouched over computer screens, but to the rest of the world (and especially the Internet), the term has a very, very different meaning. Heck, even Merriam-Webster [defines hacker](http://www.merriam-webster.com/dictionary/hacker) as:
 
 1. "One that hacks" (defined as "to write computer programs for enjoyment"),
 2. "a person who is inexperienced or unskilled at a particular activity", and
@@ -11,13 +12,11 @@ Working in DC, "hacker" can often be seen as a four-letter word. I can't count t
 
 Being a hacker isn't about stealing credit card numbers or disabling public utilities, but rather it's the exact opposite. It's about embodying all three of those meanings simultaneously. It's about sharing, openness, decentralization... It's about trying to satisfy an unquenchable thirst for defying expectations and making the impossible a reality, often involving nothing more than duct tape, bubblegum, and ultimately solutions that purported experts would certainly balk at for being too simplistic.
 
-The term traces its routes all the way back to the 1960s when it emerged to describe a certain playful cleverness of exploration that surrounded those at MIT who openly pushed the limits of the world's first computers. Today it continues to embody that ethic as the pursuit of excellence — constantly asking oneself "is this even possible?" (and instinctively responding "let's find out"). It's the intrinsic delight one gets from solving never-before-solved problems and overcoming limits conventional wisdom long-ago presumed too difficult to tackle.
-
-Think about it in terms of a hacker ethic, a hacker way, and a hacker culture.
+The term traces its routes all the way back to the 1960s when it emerged to describe a certain playful cleverness of exploration that surrounded those at MIT who openly pushed the limits of the world's first computers. Today it continues to embody that ethic as the pursuit of excellence — constantly asking oneself "is this even possible?" (and instinctively responding "let's find out"). It's the intrinsic delight one gets from solving never-before-solved problems and overcoming limits conventional wisdom long-ago presumed too difficult to tackle. Somewhat surprisingly, hacking isn't at all about technology. It's about community. Think about it in terms of a hacker ethic, a hacker way, and a hacker culture.
 
 ### The Hacker Ethic
 
-Hackers are motivated by a distinct ethos.[^1] It's about **Sharing**. Hacking requires the ability to take things apart and figure out how they work in the hopes of ultimately improving upon them. It's a "hands on" imperative that necessitates both access to and the right to fork a project in hopes of building something even more interesting and ultimately bettering what's available to all. It's about **Openness**. Hacking is a group effort, and thus the free flow of information is a necessity to empower hackers to fix, improve, and reinvent. Secrecy simply serves to stifle creative possibility. Freedom of inquiry requires that information be free. And it's about **Decentralization**. The best way to promote the free exchange of information is to have an open system that provides no friction between a hacker and his or her quest for knowledge. By intentionally or unintentionally erecting such barriers, bureaucracies, whether corporate, government, or university, are inherently flawed systems.
+Hackers are motivated by a distinct ethos.[^1] It's about **sharing**. Hacking requires the ability to take things apart and figure out how they work in the hopes of ultimately improving upon them. It's a "hands on" imperative that necessitates both access to and the right to fork a project in hopes of building something even more interesting and ultimately bettering what's available to all. It's about **openness**. Hacking is a group effort, and thus the free flow of information is a necessity to empower hackers to fix, improve, and reinvent. Secrecy simply serves to stifle creative possibility. Freedom of inquiry requires that information be free. And it's about **decentralization**. The best way to promote the free exchange of information is to have an open system that provides no friction between a hacker and his or her quest for knowledge. By intentionally or unintentionally erecting such barriers, bureaucracies, whether corporate, government, or university, are inherently flawed systems.
 
 ### The Hacker Way
 
@@ -25,7 +24,7 @@ But it's more than ideology. There's a practical side to it as well. There's a t
 
 ### Hacker Culture
 
-Last, hackers embody a culture that often flies in the face of traditional paradigms. It's a culture of **Meritocracy**. Contribution is the sole currency of the Internet. Money and title bare far less weight than meaningful contributions, be they code, copy, design, whatever. It's a culture of **Ellegance**. Hackers strive for artfully arranged, innovative techniques that perform complicated tasks with as few instructions as possible. and It's a culture of **Playful cleverness**. There's a certain lighthearted cleverness to being a hacker, often expressed by injecting dry wit and memes into otherwise mundane tasks.
+Last, hackers embody a unique culture that often flies in the face of traditional paradigms. It's a culture of **meritocracy**. Contribution is the sole currency of the Internet. Money and title bare far less weight than meaningful contributions, be they code, copy, design, whatever. It's a culture of **elegance**. Hackers strive for artfully arranged, innovative techniques that perform complicated tasks with as few instructions as possible. and It's a culture of **playful cleverness**. There's a certain lighthearted cleverness to being a hacker, often expressed by injecting dry wit and memes into otherwise mundane tasks.
 
 ### Hackers in the Enterprise
 
@@ -33,6 +32,6 @@ It's no surprise then, that as the pace of technological innovation quickens, th
 
 "Hacker" isn't just the next hot buzzword, following a long history of "rock star", "ninja", and "guru". Nor is it synonymous with "cybercriminal" or imply any nefarious intentions whatsoever. Instead the exact opposite is true. It's about embracing an ethos, a drive, a culture. It's about coding to improve the world.
 
-[^1]: As articulated by [Steven Levy](http://www.amazon.com/Hackers-Computer-Revolution-Anniversary-ebook/dp/B003PDMKIY/ref=tmm_kin_title_0&tag=613240924-20)
+[^1]: As articulated best by [Steven Levy](http://www.amazon.com/Hackers-Computer-Revolution-Anniversary-ebook/dp/B003PDMKIY/?tag=benbalter07-20)
 
-[^2]: [Eric S. Raymond](http://www.catb.org/esr/faqs/hacker-howto.html)
+[^2]: *See* [Eric S. Raymond](http://www.catb.org/esr/faqs/hacker-howto.html)
