@@ -10,4 +10,5 @@ group :test, :development do
   gem 'pry'
   gem 'rubocop'
   gem 'nokogiri'
+  gem 'rspec'
 end
