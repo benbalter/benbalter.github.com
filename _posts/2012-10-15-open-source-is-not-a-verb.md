@@ -1,7 +1,7 @@
 ---
 published: true
 title: Open Source is not a verb
-description: 'Open source, at its core, is actually not about code, but about connecting people around a shared vision to encourage collaborative problem solving.'
+description: Open source, at its core, is actually not about code, but about connecting people around a shared vision to encourage collaborative problem solving.
 ---
 
 I'm always intrigued by developers who use the term "open source" as a verb. As if a switch could magically be thrown, and via a quick mouse click in the [Danger Zone](http://www.youtube.com/watch?v=V8rZWw9HE7o), a proprietary or purpose-built project quickly morphs into one that's "open source".

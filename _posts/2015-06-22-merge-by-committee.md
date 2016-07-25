@@ -1,6 +1,6 @@
 ---
 title: Merge by committee
-description: 'There is an emerging anti-pattern, whereby organizations review and discuss issues and pull requests in regularly scheduled, closed meetings, a practice that almost certainly sets the project up for failure.'
+description: There is an emerging anti-pattern, whereby organizations review and discuss issues and pull requests in regularly scheduled, closed meetings, a practice that almost certainly sets the project up for failure.
 ---
 
 The hardest part of open source for any organization isn't security or legal concerns, or even the code itself. The hardest part of open source for large organizations is [learning to work like an open source project](http://ben.balter.com/2015/03/08/open-source-best-practices-internal-collaboration/). There is an emerging anti-pattern, whereby organizations review and discuss issues and pull requests in regularly scheduled, closed meetings, a practice that almost certainly sets the project up for failure.
@@ -9,7 +9,7 @@ The hardest part of open source for any organization isn't security or legal con
 
 A typical closed-source development workflow might include a project manager who gathers feature requirements, prioritizes tasks, and assigns them to a development team. The process will likely involve regular status meetings, and perhaps a daily standup meeting to resolve any blockers that emerge between status meetings. When issues arise, or when new features are requested, they're generally addressed at a separate project planning meeting. These meetings generally take place in conference rooms, and are almost always limited to the development team and perhaps the product owner.
 
-All too often, organizations attempt to graft this traditional, closed-source workflow to open source projects. [Open source is more than simply publishing code](http://ben.balter.com/2014/09/29/source-disclosed-%E2%89%A0-open-source/). It's a workflow, a philosophy, the modern approach to building software, both inside and outside your firewall, and if you don't treat it as such, the organization and the open source community will almost certainly have a subpar experience.
+All too often, organizations attempt to graft this traditional, closed-source workflow to open source projects. [Open source is more than simply publishing code](http://ben.balter.com/2014/09/29/source-disclosed-is-not-the-same-as-open-source/). It's a workflow, a philosophy, the modern approach to building software, both inside and outside your firewall, and if you don't treat it as such, the organization and the open source community will almost certainly have a subpar experience.
 
 ### The problem with closed-source governance
 

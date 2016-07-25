@@ -1,14 +1,7 @@
 ---
 title: Deprecate Management
-description: "There are many aspects to 'making things' that open source just does better, and does so without traditional management structure."
-
-
+description: There are many aspects to 'making things' that open source just does better, and does so without traditional management structure.
 comments: true
-category: Management
-tags:
-  - Open Source
-  - GitHub
-  - Collaboration
 published: true
 ---
 

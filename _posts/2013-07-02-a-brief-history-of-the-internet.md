@@ -1,17 +1,7 @@
 ---
-
 comments: true
-
 title: Bet on the little guy
-category: technology
-description: 'On the Internet, simple, open format reign supreme over their heavyweight, proprietary counterparts'
-tags:
-  - enterprise
-  - formats
-  - geojson
-  - open source
-  - open formats
-  - open standards
+description: On the Internet, simple, open format reign supreme over their heavyweight, proprietary counterparts
 ---
 
 When one tells the story of the Internet, a David and Goliath motif emerges. Every time a technical challenged is faced, a new standard is needed, or a new design pattern takes center stage, two camps eventually emerge:

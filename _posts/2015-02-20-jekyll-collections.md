@@ -1,6 +1,6 @@
 ---
-title: "Explain like I'm five: Jekyll collections"
-description: "Collections extends Jekyll's post and pages publishing functionality, and brings Jekyll's zen-like simplicity to all sorts of other types of content that aren't dated, but have a relationship with one another."
+title: 'Explain like I''m five: Jekyll collections'
+description: Collections extends Jekyll's post and pages publishing functionality, and brings Jekyll's zen-like simplicity to all sorts of other types of content that aren't dated, but have a relationship with one another.
 redirect_from: 2015/02/16/jekyll-collections/
 ---
 
@@ -18,7 +18,7 @@ The problem is, not everything you might want to publish using a Jekyll falls cl
 
 ### Everything that's not a post or a page can be represented as a collection
 
-Collections add another possibility, or use-case outside of Jekyll's post- and page-publishing functionality; and have the potential to bring Jekyll's zen-like simplicity to all sorts of other types of content that aren't dated (as with posts), but have a set relationship with one another (hence the name, "collection"). If you're familiar with traditional CMS's, you can think of collections like [WordPress custom post types](http://codex.wordpress.org/Post_Types) or [Drupal custom content types](https://www.drupal.org/node/306792), except you do not need to program a specific class, learn any back-end languages, and the syntax used to specify them is very easily readable.
+Collections add another possibility, or use-case outside of Jekyll's post- and page-publishing functionality; and have the potential to bring Jekyll's zen-like simplicity to all sorts of other types of content that aren't dated (as with posts), but have a set relationship with one another (hence the name, "collection"). If you're familiar with traditional CMS's, you can think of collections like [WordPress custom post types](http://codex.wordpress.org/Post_Types) or [Drupal custom content types](https://www.drupal.org/node/774728), except you do not need to program a specific class, learn any back-end languages, and the syntax used to specify them is very easily readable.
 
 What then, might you use collections for? Let's say you're making a website for a bakery and want to list the different cupcakes varieties you sell. You might use a collection called "cupcakes". You'd create a `_cupcakes` folder, and would add `chocolate.md` or `vanilla.md` to it. And just like posts or pages, your list of cupcakes would be accessible as `site.cupcakes`.
 
@@ -44,7 +44,7 @@ friday: 9-3
 
 That makes sense, because my bakery's hours is a relatively small dataset. But trying to represent all my baked goods in that format (or worse posts), would quickly get out of hand. That type of information is better represented as individual markdown files with front matter, not one giant YAML file that will quickly become unwieldy with complexity; and rather than create the data, and pages to display the data, or the data and a plugin to turn it into pages; using collections allows the site owner to focus on the content.
 
-For a more concrete example, take a look at [the source](https://github.com/github/choosealicense.com) for [choosealicense.com](http://choosealicense.com) a site which helps explain open source licenses like the MIT or GPL license. There are pages like "about" and "terms of service", but the actual licenses live in [a licenses collection](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) and are displayed via [a licensed page](https://github.com/github/choosealicense.com/blob/gh-pages/licenses.html). 
+For a more concrete example, take a look at [the source](https://github.com/github/choosealicense.com) for [choosealicense.com](http://choosealicense.com) a site which helps explain open source licenses like the MIT or GPL license. There are pages like "about" and "terms of service", but the actual licenses live in [a licenses collection](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) and are displayed via [a licensed page](https://github.com/github/choosealicense.com/blob/gh-pages/licenses.html).
 
 #### Other use-cases
 

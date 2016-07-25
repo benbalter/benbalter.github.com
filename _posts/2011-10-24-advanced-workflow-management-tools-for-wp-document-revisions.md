@@ -1,5 +1,6 @@
 ---
 title: Advanced Workflow Management Tools for WP Document Revisions
+description: WP Document Revisions gained a huge feature today with the addition of integrated support for the popular workflow plugin Edit Flow
 ---
 
 Looking for even more advanced control of your workflow? [WP Document Revisions ](http://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/ "WP Document Revisions — Document Management & Version Control for WordPress")gained a huge feature today with the addition of integrated support for the popular workflow plugin [Edit Flow](http://editflow.org). Beginning with [version 1.1](http://wordpress.org/extend/plugins/wp-document-revisions/), WP Document Revisions will detect Edit Flow, if installed, and will automatically pull [Edit Flow's advanced workflow management tools](http://wordpress.org/extend/plugins/edit-flow/screenshots/) into the proven WP Document Revisions experience you already know and use. Specifically:

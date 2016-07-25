@@ -1,5 +1,6 @@
 ---
 title: Open-Source Alternatives to Proprietary Enterprise Software
+description: A list of open-source alternatives to popular proprietary enterprise software solutions
 ---
 
 I've said in the past, that open-source's lack of adoption in the enterprise space is due, at least in part, to the lack of "[focus-group tested ammunition](http://ben.balter.com/2011/08/31/enterprise-open-source-and-why-better-is-not-enough/)". Today, I hope the community can help even the odds with this collaboratively edited list of open-source alternatives to typical government and enterprise software needs

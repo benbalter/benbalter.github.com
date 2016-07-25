@@ -1,11 +1,6 @@
 ---
 title: Enterprise, Open Source, and Why Better is not Enough
-description: >
-  Firms looking to seek a competitive advantage will begin to look past "it has
-  to be expensive and complicated" and start looking toward open-source software,
-  not as a misfit alternative, but as a viable player in the software space, but
-  before that can happen the open-source community must strive to be the serious
-  competitor they wish to be treated as.
+description: Firms looking to seek a competitive advantage will begin to look past "it has to be expensive and complicated" and start looking toward open-source software, not as a misfit alternative, but as a viable player in the software space, but before that can happen the open-source community must strive to be the serious competitor they wish to be treated as.
 ---
 
 > "In 1876, the president of Western Union brushed off Alexander Graham Bell's telephone as little more than an "*electric toy*," and the company called Bell's proposal to put one in every home "*utterly out of the question*." Oxford University professor Erasmus Wilson predicted that when the 1878 Paris Exhibition closed, the electric light would "*close with it and no more will be heard of it*." A Michigan banker advised his client not to invest in Henry Ford's company in 1903 because "*the horse is here to stay, but the automobile is only a novelty*." …If there is one constant through out time, it's that conventional wisdom often misses the mark, especially in the early days of technological transformation." [^1]

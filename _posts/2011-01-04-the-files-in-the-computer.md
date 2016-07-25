@@ -1,16 +1,6 @@
 ---
-
-title: 'The Files "in" the Computer -- Zoolander and the California Supreme Court'
-description: "Imagine if a routine traffic stop, say, for failure to signal or wear a seat belt would place in the state's hands every e-mail you've ever sent, contact your ever met, or financial transaction your ever completed. The California Supreme Court ruled in favor of just that."
-
-categories:
-  - Law
-  - Technology
-tags:
-  - cloud computing
-  - digital due process
-  - generation gap
-  - privacy
+title: The Files "in" the Computer -- Zoolander and the California Supreme Court
+description: Imagine if a routine traffic stop, say, for failure to signal or wear a seat belt would place in the state's hands every e-mail you've ever sent, contact your ever met, or financial transaction your ever completed. The California Supreme Court ruled in favor of just that.
 ---
 
 ![Policeman Checks Cellphone](http://ben.balter.com/wp-content/uploads/2011/01/policeman.jpg "Policeman Checks Cellphone"){: .aligncenter }

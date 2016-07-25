@@ -1,25 +1,6 @@
 ---
-
 title: The Demise of the Personal Dashboard
-description: >
-  When building consumer applications, favor simplicity over complex personalized
-  dashboards which bombard customers with information.
-
-categories:
-  - Technology
-tags:
-  - .govs
-  - analytics
-  - dashboard
-  - enterprise
-  - gov 2.0
-  - government
-  - KPIs
-  - start ups
-  - ui
-  - ui/ux
-  - ux
-  - wordpress
+description: When building consumer applications, favor simplicity over complex personalized dashboards which bombard customers with information.
 ---
 
 [![Dashboard all the things](http://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things-300x225.jpeg){: .alignright}](http://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things.jpeg)

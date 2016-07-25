@@ -1,7 +1,7 @@
 ---
 title: Towards a More Agile Government
 description: By requiring that detailed specifications be outlined at the onset of the process, government procurement regulations encourage the less flexible, waterfall development techniques, rather than the more modern, agile development approaches used by the private sector today.
-redirect_from: /Balter-Towards-a-More-Agile-Government.pdf
+redirect_from: "/Balter-Towards-a-More-Agile-Government.pdf"
 ---
 
 The Case for Rebooting Federal IT Procurement

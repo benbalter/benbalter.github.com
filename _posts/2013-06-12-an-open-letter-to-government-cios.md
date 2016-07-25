@@ -1,6 +1,6 @@
 ---
 title: An open letter to government CIOs
-description: 'Government CIOs should seek to build systems in a lean, iterative, decentralized, and open way'
+description: Government CIOs should seek to build systems in a lean, iterative, decentralized, and open way
 ---
 
 Hey there government CIOs. I've noticed you've been getting a bit of a bad rap recently. And I have to say, with all the stories of multi-million dollar websites going around, I'm not sure that I can fault your critics. But don't get down on yourself, at least not yet. You're still in great shape. You've got ample resources; you've got smart, well-intentioned people working for you; and you've got more low-hanging fruit than most private-sector CIOs can ever dream of.

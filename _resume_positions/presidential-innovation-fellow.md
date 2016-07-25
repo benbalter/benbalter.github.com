@@ -2,7 +2,7 @@
 employer: Executive Office of the President
 title: Presidential Innovation Fellow
 start_date: 2012-04-01
-end_date: 2013-01-1
+end_date: 2013-01-01
 ---
 
 * As member of inaugural class of [high-profile White House initiative](https://www.whitehouse.gov/innovationfellows), served as entrepreneur in residence reimagining the role of technology in brokering the relationship between citizens and government while injecting a more startup-like culture within government.

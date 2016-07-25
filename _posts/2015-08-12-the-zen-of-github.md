@@ -1,6 +1,6 @@
 ---
 title: The Zen of GitHub
-description: "Whether you call it taste, culture, or zen, there are underlying assumptions that members of an organization rely on to resolve ambiguity in pursuit of the organization's mission."
+description: Whether you call it taste, culture, or zen, there are underlying assumptions that members of an organization rely on to resolve ambiguity in pursuit of the organization's mission.
 ---
 
 I've got a [broadside](https://en.wikipedia.org/wiki/Broadside_(printing)) hanging in my office which reads "ZEN" in bright red, hand-typeset lettering. It's what we call *the Zen of GitHub*. It's the first words displayed each time a GitHub server spins up, and it's the philosophy that has historically underpinned most major decisions at GitHub, both technical and otherwise. @kneath published [a great write up as to the how and why](http://warpspire.com/posts/taste/) that GitHub Zen came to be. Speaking to the contrast between Apple and Microsoft, he wrote:
@@ -35,7 +35,7 @@ At GitHub, we did just that:
 </div>
 </div>
 
-These aren't mere words. There's [an API endpoint to retrieve random Zen](https://api.github.com/zen) upon request, and heck you, can even have [Ms. Mona Lisa Octocat read the Zen herself](https://api.github.com/octocat), should you ever need it. Whether you've written them down or not, whether you've discussed them or not, whether you've realized them or not, every decision members of your organization make are bound by the constraints of these (often uspoken) [first principles](https://en.wikipedia.org/wiki/First_principle).
+These aren't mere words. There's [an API endpoint to retrieve random Zen](https://api.github.com/zen){: data-proofer-ignore="true" } upon request, and heck you, can even have [Ms. Mona Lisa Octocat read the Zen herself](https://api.github.com/octocat){: data-proofer-ignore="true" }, should you ever need it. Whether you've written them down or not, whether you've discussed them or not, whether you've realized them or not, every decision members of your organization make are bound by the constraints of these (often uspoken) [first principles](https://en.wikipedia.org/wiki/First_principle).
 
 If you haven't already, I'd encourage you to spend a cycle documenting those assumptions that drive (or constrain) your organization's efforts. You'd be surprised how much less squishy culture becomes when culture has a URL.
 

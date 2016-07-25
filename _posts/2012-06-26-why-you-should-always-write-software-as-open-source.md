@@ -1,26 +1,6 @@
 ---
-
-title: "Why You Should Always Write Software as Open Source, Even When It's Never Going to Be"
-description: >
-  When you are the only person that's ever going to see something, you're a lot
-  more likely to "just make it work. Therefore write open source
-
-categories:
-  - Business
-  - Technology
-tags:
-  - .govs
-  - agile
-  - code
-  - contracting
-  - development
-  - enterprise
-  - gov 2.0
-  - government
-  - IT
-  - open source
-  - procurement
-  - proprietary
+title: Why You Should Always Write Software as Open Source, Even When It's Never Going to Be
+description: When you are the only person that's ever going to see something, you're a lot more likely to "just make it work. Therefore write open source
 ---
 
 ![Unsatisfied with your Contractor?](http://ben.balter.com/wp-content/uploads/2012/06/mike-holmes-203x300.jpeg){: .alignright}

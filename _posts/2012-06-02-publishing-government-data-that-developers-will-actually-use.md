@@ -1,39 +1,6 @@
 ---
-
 title: Publishing Government Data That Developers Will Actually Use
-description: >
-  Despite increasing public support (as well as a number of executive mandates)
-  publishing public data in a machine-readable format is not as simple as
-  pressing the "publish" button. Why? Equally important as exposing the
-  information itself is fostering a vibrant developer ecosystem around it. By
-  making the publishing agency, not the public, responsible for making
-  information immediately useful, government can lower the barriers associated
-  with consuming its data and introduce additional citizen services at little to
-  no cost to the agency.
-
-categories:
-  - Technology
-tags:
-  - .govs
-  - analytics
-  - api
-  - apis
-  - data
-  - dogfooding
-  - enterprise
-  - federal
-  - geospacial
-  - gov 2.0
-  - government
-  - IT
-  - json
-  - Oauth
-  - open data
-  - open government
-  - REST
-  - RESTful
-  - web services
-  - xml
+description: Despite increasing public support (as well as a number of executive mandates) publishing public data in a machine-readable format is not as simple as pressing the "publish" button. Why? Equally important as exposing the information itself is fostering a vibrant developer ecosystem around it. By making the publishing agency, not the public, responsible for making information immediately useful, government can lower the barriers associated with consuming its data and introduce additional citizen services at little to no cost to the agency.
 ---
 
 Despite increasing public support (as well as a number of executive mandates) publishing public data in a machine-readable format is not as simple as pressing the "publish" button. Why? Equally important as exposing the information itself is fostering a vibrant developer ecosystem around it. By making the publishing agency, not the public, responsible for making information immediately useful, government can lower the barriers associated with consuming its data and introduce additional citizen services at little to no cost to the agency.

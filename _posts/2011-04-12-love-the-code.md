@@ -1,9 +1,6 @@
 ---
 title: How I Learned to Stop Worrying and Love the Code
-description: >
-  I am gave a brief lightning talk at April's WordPress DC Meetup on the basics
-  of HTML and PHP ("coding for dummies"). The goal: learn how to avoid breaking
-  your website if you edit it. Below are the slides and recording.
+description: 'I am gave a brief lightning talk at April''s WordPress DC Meetup on the basics of HTML and PHP ("coding for dummies"). The goal: learn how to avoid breaking your website if you edit it. Below are the slides and recording.'
 ---
 
 I am gave a brief [lightning talk at April's WordPress DC Meetup](http://www.meetup.com/wordpressdc/events/16887732/) on the basics of HTML and PHP ("coding for dummies"). The goal: learn how to avoid breaking your website if you edit it. Below are the [slides](http://www.slideshare.net/benbalter/how-i-learned-to-stop-worrying-and-love-the-code).
@@ -34,7 +31,7 @@ I am gave a brief [lightning talk at April's WordPress DC Meetup](http://www.mee
 
 * HTML
 
-  * [Google: HTML, CSS, & js from the Ground](http://code.google.com/edu/submissions/html-css-javascript/)
+  * [Google: HTML, CSS, & js from the Ground Up](https://www.youtube.com/playlist?list=PL697D36B35F92E9E4)
   * [HTML Dog](http://htmldog.com)
   * [W3 Learning Wiki](http://www.w3.org/wiki/HTML/Training)
   * [W3 Element Wiki](http://www.w3.org/wiki/HTML/Elements)
