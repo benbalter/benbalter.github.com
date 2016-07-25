@@ -1,5 +1,6 @@
 ---
 title: 'Fair Use, Excerpting, and Copying Content in the Internet Ecosystem'
+description: The Internet's *laissez-faire* Internet ecosystem of liberal excerpting is often at odds with both traditional media and the law.
 ---
 
 ![Close up of a copier control panel](http://ben.balter.com/wp-content/uploads/2011/04/2146845610_ebd95e5f4e_b-300x200.jpg "Copier"){: .alignleft }

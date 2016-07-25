@@ -1,5 +1,6 @@
 ---
 title: GitHub for Journalism — What WordPress Post Forking could do to Editorial Workflows
+description: Making the case for a GitHub-style, pull-request collaboration model within the popular WordPress CMS
 ---
 
 Wired Magazine recently took a turn for the meta. In addition to publishing their recent story featuring the popular version control site GitHub on Wired.com as they would normally, they also [published it on GitHub itself under a creative commons license](https://github.com/WiredEnterprise/Lord-of-the-Files), allowing readers to fork and contribute to the story as they saw fit. In [reflecting after the fact](http://www.wired.com/wiredenterprise/2012/02/github-revisited/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+wired%2Findex+%28Wired%3A+Index+3+%28Top+Stories+2%29%29), the Wired team said something that stood out to me:
@@ -7,6 +8,7 @@ Wired Magazine recently took a turn for the meta. In addition to publishing thei
 > At Wired offices, you hear the question over and over again as we work on stories like the one you're reading now: "Are you out of the story? I want to go in." We have a version control problem. We publish Wired.com on WordPress. It's a decent publishing tool, but when two people change a story at the same time, one of them doesn't get her changes onto the final story.
 >
 > We published our GitHub story on GitHub because it was meta-cool. But we also did it to see if GitHub might actually help us solve our problem.
+
 
 Spoiler alert: it didn't. GitHub's great for a lot of things, source code chief among them, but it's not for the faint of heart. There's a great deal of command line, and general geekery involved that raise the barriers to entry just high enough to keep it out of everyday newsrooms and editorial workflows. [^1]
 

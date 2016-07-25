@@ -1,29 +1,6 @@
 ---
-
-title: |
-  Free Yourself from the Tyranny of Sharepoint
-
-
-categories:
-  - Business
-  - Technology
-tags:
-  - collaboration
-  - document management
-  - enterprise
-  - federal
-  - gov 2.0
-  - government
-  - IT
-  - open source
-  - plugin
-  - presentation
-  - procurement
-  - sharepoint
-  - wordpress
-  - workflow
-post_format:
-  - Link
+title: Free Yourself from the Tyranny of Sharepoint
+description: Sharepoint is a plague upon the American workforce.
 ---
 
 > "Sharepoint is a plague upon the American workforce. This ubiquitous piece of collaboration software has taught millions of people that Intranets are destined to be places where you can't find anything\[, but it] doesn't have to be this way, despite what Microsoft may have you believe."

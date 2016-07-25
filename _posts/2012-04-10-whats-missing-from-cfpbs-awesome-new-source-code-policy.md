@@ -1,28 +1,6 @@
 ---
-
 title: "What's Missing from CFPB's Awesome New Source Code Policy"
-
-
-categories:
-  - Law
-  - Technology
-tags:
-  - .govs
-  - cfpb
-  - code
-  - contracting
-  - copyright
-  - enterprise
-  - fcc
-  - federal
-  - github
-  - gov 2.0
-  - government
-  - IT
-  - open government
-  - open source
-  - procurement
-  - source code policy
+description: The Consumer Financial Protection Bureau's (CFPB) new open source policy is a great start, but should go further
 ---
 
 ![CFPB Logo](http://www.treasury.gov/press-center/news/PublishingImages/CFPB.jpg "CFPB Logo"){: .alignright}
