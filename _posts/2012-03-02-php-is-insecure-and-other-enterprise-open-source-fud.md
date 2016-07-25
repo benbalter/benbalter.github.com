@@ -1,22 +1,6 @@
 ---
-
-title: |
-  PHP is Insecure (and Other Enterprise Open-Source F.U.D.)
-
-
-categories:
-  - Technology
-tags:
-  - code
-  - enterprise
-  - fud
-  - government
-  - microsoft
-  - open source
-  - php
-  - security
-  - security though obscurity
-  - wordpress
+title: PHP is Insecure (and Other Enterprise Open-Source F.U.D.)
+description: PHP (and the open-source software it powers) often gets a bad rap in many government and enterprise circles, but much of this unfortunate stereotype is the result of carefully crafted fear, uncertainty, and doubt (FUD).
 ---
 
 PHP (and the open-source software it powers) often gets a bad rap in many government and enterprise circles, the brunt of such anecdotal cries as "it's inherently insecure" or "X proprietary product is much safer." The truth is, much of this unfortunate stereotype is the result of carefully crafted [fear, uncertainty, and doubt (FUD)](http://en.wikipedia.org/wiki/Fear,_uncertainty_and_doubt). An established disinformation tactic historically used by big names in software for decades, one of the most notorious instances of FUD being the leaked Microsoft "[Halloween Documents](https://en.wikipedia.org/wiki/Halloween_documents)" that outlined the software firm's strategy to paint open-source, for example, as more costly or under-supported.

@@ -1,21 +1,6 @@
 ---
-
-title: 'Hacks/Hackers Swells to more than 10,000 Members'
-description: >
-  Hacks/Hackers, the organization dedicated to creating a network of journalists
-  and technologists welcomed its 10,000th member today.
-
-categories:
-  - Technology
-tags:
-  - grass roots
-  - hack
-  - hackers
-  - hacks
-  - hacks/hackers
-  - journalism
-  - storify
-  - technologists
+title: Hacks/Hackers Swells to more than 10,000 Members
+description: Hacks/Hackers, the organization dedicated to creating a network of journalists and technologists welcomed its 10,000th member today.
 ---
 
 [![Map of hackshackers members](http://ben.balter.com/wp-content/uploads/2012/04/hacks-hackers-10k.png){: .aligncenter}](http://ben.balter.com/wp-content/uploads/2012/04/hacks-hackers-10k.png)

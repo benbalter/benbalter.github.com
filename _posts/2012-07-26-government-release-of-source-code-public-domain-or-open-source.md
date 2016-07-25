@@ -1,26 +1,6 @@
 ---
-
-title: "Government's Release of Federally Funded Source Code: Public Domain or Open Source? Yes."
-description: "The question for developers isn't how should the US government best license software, but how can the open source community help it to do so"
-
-categories:
-  - Law
-  - Technology
-tags:
-  - .govs
-  - code
-  - contracting
-  - copyright
-  - enterprise
-  - federal
-  - gov 2.0
-  - government
-  - gpl
-  - IT
-  - licensing
-  - open government
-  - open source
-  - procurement
+title: 'Government''s Release of Federally Funded Source Code: Public Domain or Open Source? Yes.'
+description: The question for developers isn't how should the US government best license software, but how can the open source community help it to do so
 ---
 
 A petition was recently posted on [We The People](https://petitions.whitehouse.gov/) demanding [that federally funded software be released under an open source license](https://petitions.whitehouse.gov/petition/maximize-public-benefit-federal-technology-sharing-government-developed-software-under-open-source/6n5ZBBwf?utm_source=wh.gov&utm_medium=shorturl&utm_campaign=shorturl). Makes sense. The public should have access to what is technically their property.

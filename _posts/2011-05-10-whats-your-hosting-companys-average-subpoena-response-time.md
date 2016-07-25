@@ -1,5 +1,6 @@
 ---
-title: "What's Your Hosting Company's Average Subpoena Response Time?"
+title: What's Your Hosting Company's Average Subpoena Response Time?
+description: Your hosting company's willingness (or unwillingness) to comply with Subpoenas may soon be seen as a competitive feature.
 ---
 
 [![Subpoena](http://farm1.staticflickr.com/157/391427627_62f2a23df4_n.jpg){: .alignright}](http://www.flickr.com/photos/timsamoff/391427627/)Bluehost, the [web hosting service](http://en.wikipedia.org/wiki/Web_hosting_service) which powers more than [1.9 million](http://en.wikipedia.org/wiki/Bluehost) websites globally, making it one of the top 20 largest hosting companies in the world and approximately 2% of the internet's traffic (link removed), recently came under fire for its decision to depart from well-established [internet standards](http://pubcit.typepad.com/clpblog/2010/07/two-new-cases-on-internet-anonymity.html) and reveal the identity of one of its subscribers, over what [later proved](http://www.sltrib.com/sltrib/money/51780456-79/koch-company-judge-federal.html.csp) to be an [unfounded suit](http://pubcit.typepad.com/files/kochindustries.pdf).
@@ -18,6 +19,6 @@ The U.S. District Court for the District of Utah rejected all of Koch's legal cl
 
 The problem here arises not from Koch trying to use its legal muscle to silence political satire, but from Bluehost's over willingness to comply with a request to identify the anonymous satirist.
 
-In Bluehost's defense, the suit came at the height of the WIkileaks debacle, a time when the industry's top names were [identifying otherwise anonymous customers](http://ben.balter.com/2011/01/11/twitter-goes-to-bat-for-wikileaks/), but at the same time, as political interactions move increasingly online, our marketplace of ideas relies increasingly on hosting companies and internet services providers to remain good political citizens (not simply corporate ones).
+In Bluehost's defense, the suit came at the height of the Wikileaks debacle, a time when the industry's top names were [identifying otherwise anonymous customers](http://ben.balter.com/2011/01/11/twitter-goes-to-bat-for-wikileaks/), but at the same time, as political interactions move increasingly online, our marketplace of ideas relies increasingly on hosting companies and internet services providers to remain good political citizens (not simply corporate ones).
 
 While technology may lend voice to otherwise marginalized political groups, it does not come without risk. In a shared hosting environment like Bluehost, "your" website, is not necessarily "your" website. Will we begin to see subpoena response times along the list of benchmarks and features when evaluating hosting companies? Probably not. But if you are planning on leveraging shared servers — be they Bluehost, Twitter, or YouTube — to blog about anything more than say, [DC Summer Interns](http://dcinterns.blogspot.com/), perhaps you should take a look at your hosting company's legal record before you click submit.

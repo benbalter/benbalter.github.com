@@ -1,19 +1,7 @@
 ---
 title: Introducing JekyllBot
-description: 'Automatically generate a JSON content API for Jekyll-based posts and pages. Uses Heroku, works with GitHub pages.'
-
+description: Automatically generate a JSON content API for Jekyll-based posts and pages. Uses Heroku, works with GitHub pages.
 comments: true
-categories:
-  - Technology
-tags:
-  - Jekyll
-  - Bot
-  - JSON
-  - API
-  - Open Source
-  - GitHub
-  - GitHub Pages
-  - Heroku
 published: true
 ---
 

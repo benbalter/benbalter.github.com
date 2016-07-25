@@ -1,6 +1,6 @@
 ---
-title: "Explain like I'm five: Jekyll collections"
-description: "Collections extends Jekyll's post and pages publishing functionality, and brings Jekyll's zen-like simplicity to all sorts of other types of content that aren't dated, but have a relationship with one another."
+title: 'Explain like I''m five: Jekyll collections'
+description: Collections extends Jekyll's post and pages publishing functionality, and brings Jekyll's zen-like simplicity to all sorts of other types of content that aren't dated, but have a relationship with one another.
 redirect_from: 2015/02/16/jekyll-collections/
 ---
 

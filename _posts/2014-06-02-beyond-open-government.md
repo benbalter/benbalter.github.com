@@ -1,6 +1,6 @@
 ---
-title: "Open government is so '08, or why collaborative government is the next big thing"
-description: 'As technology allows us to communicate with greater frequency and greater fidelity, we have the chance to make our government not only transparent, but truly collaborative.'
+title: Open government is so '08, or why collaborative government is the next big thing
+description: As technology allows us to communicate with greater frequency and greater fidelity, we have the chance to make our government not only transparent, but truly collaborative.
 ---
 
 Open government is great. At least, it was a few election cycles ago. FOIA requests, open data, seeing how your government works — it's arguably brought light to a lot of not-so-great practices, and in many cases, has spurred citizen-centric innovation not otherwise imagined before the information's release.

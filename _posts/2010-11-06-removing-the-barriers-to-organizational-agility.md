@@ -1,17 +1,6 @@
 ---
-
-title: |
-  Removing the Barriers to Organizational Agility
-
-
-categories:
-  - Technology
-tags:
-  - agile
-  - cloud computing
-  - federal
-  - government
-  - procurement
+title: Removing the Barriers to Organizational Agility
+description: Recording of a GW Tech Alumni panel on Removing the Barriers to Organizational Agility
 ---
 
 *Recorded at the [The George Washington University Tech Alumni Group](http://www.facebook.com/group.php?gid=154839957865223) Federal Executive Roundtable, November 4, 2010.*

@@ -1,7 +1,7 @@
 ---
 title: The six types of pull requests you see on GitHub
-description: 'Whether collaborating on code, data, or prose text, there are lots of different strategies for using pull requests on GitHub.'
-redirect_from: /2014/12/08/types-of-pull-requests/
+description: Whether collaborating on code, data, or prose text, there are lots of different strategies for using pull requests on GitHub.
+redirect_from: "/2014/12/08/types-of-pull-requests/"
 ---
 
 Whether collaborating on code, data, or prose text, there are lots of different strategies for using pull requests on GitHub. I once saw a post that outlined a handful of ways teams use pull requests, that seems to be subsequently lost forever, despite looking high and low. Here's how I see pull requests used at GitHub:

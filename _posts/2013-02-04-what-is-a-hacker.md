@@ -1,7 +1,7 @@
 ---
-title: "What is a 'Hacker'?"
-description: 'Hackers embody sharing, openness, decentralization — coding to improve the world'
-redirect_from: /2013/02/13/what-is-a-hacker/
+title: What is a 'Hacker'?
+description: Hackers embody sharing, openness, decentralization — coding to improve the world
+redirect_from: "/2013/02/13/what-is-a-hacker/"
 ---
 
 Working in DC, "*hacker*" can often be seen as a four-letter word. I can't count the number of times a press aide or government attorney has cringed at seeing it in a draft release, or even worse, as an upcoming event audaciously entitled a "hackathon". To the media and many government types "hacking" often conjures up images of malcontents in ski masks crouched over computer screens, but to the rest of the world (and especially the Internet), the term has a very, very different meaning. Heck, even Merriam-Webster [defines hacker](http://www.merriam-webster.com/dictionary/hacker) as:

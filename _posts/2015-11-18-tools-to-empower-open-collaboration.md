@@ -1,6 +1,6 @@
 ---
 title: Four characteristics of modern collaboration tools
-description: "Today, open-source-inspired collaboration tools are open, linkable, asynchronous, and naturally capture and expose process. Ask yourself if you're working the way you'd like to work, or just the way everyone else does."
+description: Today, open-source-inspired collaboration tools are open, linkable, asynchronous, and naturally capture and expose process. Ask yourself if you're working the way you'd like to work, or just the way everyone else does.
 ---
 
 At GitHub, we have a unique way of working. Some might say it's the future of knowledge work, others might say that we picked up a pair of bolt cutters a few years back, and now [everything looks like the lock on Wolf Blitzer's boat house](https://xkcd.com/801/). In reality, it's probably somewhere in between.

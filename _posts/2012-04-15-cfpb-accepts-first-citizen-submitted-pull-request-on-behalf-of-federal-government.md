@@ -1,22 +1,6 @@
 ---
-
-title: |
-  CFPB Accepts First Citizen-Submitted Code on Behalf of Federal Government
-
-
-categories:
-  - Technology
-tags:
-  - .govs
-  - cfpb
-  - code
-  - federal
-  - git
-  - github
-  - gov 2.0
-  - government
-  - open government
-  - open source
+title: CFPB Accepts First Citizen-Submitted Code on Behalf of Federal Government
+description: The Consumer Financial Protection Bureau (CFPB) accepted the first pull request by a member of the public to a US Federal government agency
 ---
 
 "Fix typo." Not quite "one small step for man," but a significant first nonetheless. These simple words, typed by an open-source developer operating under the pseudonym "iceeey," may represent the first collaborative effort between the federal government and the broader open-source community, and surely represents a tangible win for the open-government movement as a whole.
