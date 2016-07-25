@@ -20,6 +20,10 @@ def token
   File.read(path) if File.exist?(path)
 end
 
+def strip_whitespace(string)
+  string.gsub(/\r?\n/, " ").strip.squeeze(" ")
+end
+
 class AmazonLinkCheck < ::HTMLProofer::Check
   def affiliate_id
     @affiliate_id ||= YAML.load_file('_config.yml')['amazon']['affiliates_tag']
@@ -86,7 +90,7 @@ task :format_yaml do
     next unless content =~ Jekyll::Document::YAML_FRONT_MATTER_REGEXP
     parts = content.split Jekyll::Document::YAML_FRONT_MATTER_REGEXP
     yaml = YAML.load(parts[1])
-    yaml["description"] = yaml["description"].gsub(/\r?\n/, " ").strip.squeeze(" ") if yaml["description"]
+    %w[title description].each { |key| yaml[key] = strip_whitespace(yaml[key]) if yaml[key] }
     %w[tags category categories post_format].each { |key| yaml.delete(key) }
     File.write(path, yaml.to_yaml(:line_width => -1) + "---\n\n" + parts[4].to_s)
   end
