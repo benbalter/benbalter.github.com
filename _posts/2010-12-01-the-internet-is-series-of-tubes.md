@@ -1,7 +1,5 @@
 ---
-title: 'The Internet is Series of Tubes (oh, and Tollgates too)
-
-'
+title: The Internet is Series of Tubes (oh, and Tollgates too)
 description: The internet backbone provider Level 3 revealed that in recent negotiations, internet service provider Comcast demanded they pay an additional fee in exchange for Comcast continuing to allow its customers access to Netflix videos, effectively erecting a series of tollbooths on the information superhighway.
 ---
 
