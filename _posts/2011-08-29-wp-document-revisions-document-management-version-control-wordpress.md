@@ -1,10 +1,6 @@
 ---
 title: WP Document Revisions — Document Management and Version Control for WordPress
-description: >
-  WP Document Revisions is a document management and version control plugin for
-  the popular content management system, WordPress. Think of it as an open-source
-  and more intuitive version of the popular Microsoft collaboration suite,
-  Sharepoint.
+description: WP Document Revisions is a document management and version control plugin for the popular content management system, WordPress. Think of it as an open-source and more intuitive version of the popular Microsoft collaboration suite, Sharepoint.
 redirect_from: 2011/08/29/document-management-version-control-for-wordpress/
 ---
 

@@ -1,12 +1,7 @@
 ---
 title: The store that sells only one thing.
-description: null
-
-
+description: 
 comments: true
-category: Technology
-tags:
-  - Hacker
 published: true
 ---
 

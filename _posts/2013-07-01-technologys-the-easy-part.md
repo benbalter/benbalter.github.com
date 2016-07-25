@@ -1,6 +1,6 @@
 ---
-title: "The technology's the easy part"
-description: "Tools aren't the challenge, culture is. We should make it so ridiculously straightforward for government agencies to distribute information and build collaborative communities around shared problems that it would be criminal for them not to."
+title: The technology's the easy part
+description: Tools aren't the challenge, culture is. We should make it so ridiculously straightforward for government agencies to distribute information and build collaborative communities around shared problems that it would be criminal for them not to.
 ---
 
 After years of living at the bleeding edge of government IT, there's not been a single challenge presented that forces one to ask "is this even technologically possible?". Sure, maybe the code hasn't been written yet, but you know that once it is, it will ultimately do that thing you want it to do — the technology's the easy part.

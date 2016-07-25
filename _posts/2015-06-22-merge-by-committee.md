@@ -1,6 +1,6 @@
 ---
 title: Merge by committee
-description: 'There is an emerging anti-pattern, whereby organizations review and discuss issues and pull requests in regularly scheduled, closed meetings, a practice that almost certainly sets the project up for failure.'
+description: There is an emerging anti-pattern, whereby organizations review and discuss issues and pull requests in regularly scheduled, closed meetings, a practice that almost certainly sets the project up for failure.
 ---
 
 The hardest part of open source for any organization isn't security or legal concerns, or even the code itself. The hardest part of open source for large organizations is [learning to work like an open source project](http://ben.balter.com/2015/03/08/open-source-best-practices-internal-collaboration/). There is an emerging anti-pattern, whereby organizations review and discuss issues and pull requests in regularly scheduled, closed meetings, a practice that almost certainly sets the project up for failure.

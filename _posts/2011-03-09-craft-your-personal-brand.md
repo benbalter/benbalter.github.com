@@ -1,6 +1,6 @@
 ---
 title: Using WordPress to Craft Your Personal Brand
-description: "Recording and slides from my brief talk at March's joint WordCampDC and Hacks/Hackers DC MeetUp on leveraging WordPress to craft your personal brand."
+description: Recording and slides from my brief talk at March's joint WordCampDC and Hacks/Hackers DC MeetUp on leveraging WordPress to craft your personal brand.
 ---
 
 I gave a brief talk at March's joint [WordPressDC and Hacks/Hackers DC MeetUp](http://www.meetup.com/wordpressdc/events/16178194/) on leveraging WordPress to craft your personal brand. Below are slides and a recording of the livestream.

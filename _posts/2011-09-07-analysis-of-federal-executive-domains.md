@@ -1,6 +1,6 @@
 ---
 title: Analysis of Federal Executive .Govs
-description: Analysis of the technical capabilities of and technology powering all US Federal Executive .gov domains 
+description: Analysis of the technical capabilities of and technology powering all US Federal Executive .gov domains
 ---
 
 The White House's Office of Management and Budget recently released a list of all domains owned and operated by federal executive agencies. Leveraging a previous tool I had built called [Site Inspector](https://github.com/benbalter/Site-Inspector) which provides information about a domain and its technical capabilities, I imported the list into the content management system WordPress, and created a plugin called [Domain Inventory](https://github.com/benbalter/Domain-Inventory) to scan each domain and curate the results. A summary of my preliminary results appears below, as well as a link to the browsable dataset.

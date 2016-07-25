@@ -1,5 +1,5 @@
 ---
-title: "What's Your Hosting Company's Average Subpoena Response Time?"
+title: What's Your Hosting Company's Average Subpoena Response Time?
 description: Your hosting company's willingness (or unwillingness) to comply with Subpoenas may soon be seen as a competitive feature.
 ---
 

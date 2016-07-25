@@ -1,6 +1,5 @@
 ---
 title: Want to innovate government? Focus on culture
-
 comments: true
 description: The key to innovation in government is engendering a greater appreciation of technology among non-technical stakeholders
 ---

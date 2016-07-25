@@ -1,5 +1,5 @@
 ---
-title: 'Fair Use, Excerpting, and Copying Content in the Internet Ecosystem'
+title: Fair Use, Excerpting, and Copying Content in the Internet Ecosystem
 description: The Internet's *laissez-faire* Internet ecosystem of liberal excerpting is often at odds with both traditional media and the law.
 ---
 

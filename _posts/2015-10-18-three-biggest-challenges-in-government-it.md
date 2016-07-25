@@ -1,6 +1,6 @@
 ---
 title: The three biggest challenges in government IT
-description: 'Change aversion, lack of technocratic leadership, and heavyweight processes bred by distrust keep government IT 5-10 years behind the private sector'
+description: Change aversion, lack of technocratic leadership, and heavyweight processes bred by distrust keep government IT 5-10 years behind the private sector
 ---
 
 It's often said that government IT is 5–10 years behind the private sector, and most places in government you look, that's probably true. It's as if the government learned how to "computer" right around the time Windows XP was released, set its comfort level for risk, and has maintained purposeful blinders to progress since. But why? I'd argue there are three key factors keeping it there: change aversion, lack of technocratic leadership, and processes that don't scale down.

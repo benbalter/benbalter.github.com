@@ -1,6 +1,6 @@
 ---
 title: Five principles to guide any government IT effort
-description: 'Nearly three years later, the founding principles of project MyGov remain valid guideposts for any reform effort in government.'
+description: Nearly three years later, the founding principles of project MyGov remain valid guideposts for any reform effort in government.
 ---
 
 Three years ago to the day, the first class of Presidential Innovation Fellows were sworn in. Being part of the inaugural class was a lot like founding a startup: we had to define our problem space, figure out basic mechanics like where to work or how to get laptops and servers, and most importantly, had the opportunity to create our own culture around how we approached problems.

@@ -1,5 +1,5 @@
 ---
-title: "What's Missing from CFPB's Awesome New Source Code Policy"
+title: What's Missing from CFPB's Awesome New Source Code Policy
 description: The Consumer Financial Protection Bureau's (CFPB) new open source policy is a great start, but should go further
 ---
 

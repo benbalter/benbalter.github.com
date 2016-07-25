@@ -1,6 +1,6 @@
 ---
-title: "Using GitHub Pages to showcase your organization's open source efforts"
-description: "GitHub is a great place to share your work with the world, but sometimes large organization wish to brand or showcase their open source efforts in ways that the standard profile page doesn't allow. That's where GitHub Pages comes in."
+title: Using GitHub Pages to showcase your organization's open source efforts
+description: GitHub is a great place to share your work with the world, but sometimes large organization wish to brand or showcase their open source efforts in ways that the standard profile page doesn't allow. That's where GitHub Pages comes in.
 ---
 
 GitHub is a great place to share your work with the world, but sometimes large organizations prefer to brand or showcase their open source efforts in ways that the standard profile page doesn't allow. That's where [GitHub Pages](https://pages.github.com) comes in.
