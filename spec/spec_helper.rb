@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'jekyll'
 
 RSpec.configure do |config|
@@ -10,12 +11,10 @@ RSpec.configure do |config|
   end
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
-  config.example_status_persistence_file_path = "spec/examples.txt"
+  config.example_status_persistence_file_path = 'spec/examples.txt'
   config.disable_monkey_patching!
 
-  if config.files_to_run.one?
-    config.default_formatter = 'doc'
-  end
+  config.default_formatter = 'doc' if config.files_to_run.one?
 
   config.profile_examples = 10
   config.order = :random
@@ -24,17 +23,15 @@ RSpec.configure do |config|
 end
 
 def site_path
-  @site_path ||= File.expand_path("../", File.dirname(__FILE__))
+  @site_path ||= File.expand_path('../', File.dirname(__FILE__))
 end
 
 def config
-  @config ||= Jekyll.configuration({
-    "source" => site_path,
-    "config" => [
-      "_config.yml",
-      "_config_test.yml"
-    ]
-  })
+  @config ||= Jekyll.configuration('source' => site_path,
+                                   'config' => [
+                                     '_config.yml',
+                                     '_config_test.yml'
+                                   ])
 end
 
 def site
@@ -48,10 +45,10 @@ def site
 end
 
 def required_front_matter
-  config["required_front_matter"] || {}
+  config['required_front_matter'] || {}
 end
 
 def pages_to_check
-  blacklist = ["redirect.html", "index.html"]
-  site.pages.select { |page| page.ext == ".html" && !blacklist.include?(page.name) }
+  blacklist = ['redirect.html', 'index.html']
+  site.pages.select { |page| page.ext == '.html' && !blacklist.include?(page.name) }
 end
