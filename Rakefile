@@ -9,6 +9,7 @@ begin
   require 'rspec/core/rake_task'
   RSpec::Core::RakeTask.new(:spec)
 rescue LoadError
+  puts "Can't find RSpec"
 end
 
 def test_config
