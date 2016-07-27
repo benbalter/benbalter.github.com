@@ -112,7 +112,7 @@ gems:
   - jekyll-github-metadata
 
 sass:
-  style: :compressed
+  style: compressed
 
 kramdown:
  input: GFM
