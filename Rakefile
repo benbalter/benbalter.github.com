@@ -9,6 +9,7 @@ begin
   require 'rspec/core/rake_task'
   RSpec::Core::RakeTask.new(:spec)
 rescue LoadError
+  puts "Can't find RSpec"
 end
 
 def test_config
@@ -21,7 +22,7 @@ def token
 end
 
 def strip_whitespace(string)
-  string.gsub(/\r?\n/, " ").strip.squeeze(" ")
+  string.gsub(/\r?\n/, ' ').strip.squeeze(' ')
 end
 
 class AmazonLinkCheck < ::HTMLProofer::Check
@@ -85,14 +86,14 @@ task :serve do
 end
 
 task :format_yaml do
-  Dir["*/**.md"].each do |path|
+  Dir['*/**.md'].each do |path|
     content = File.read(path)
     next unless content =~ Jekyll::Document::YAML_FRONT_MATTER_REGEXP
     parts = content.split Jekyll::Document::YAML_FRONT_MATTER_REGEXP
     yaml = YAML.load(parts[1])
-    %w[title description].each { |key| yaml[key] = strip_whitespace(yaml[key]) if yaml[key] }
-    %w[tags category categories post_format].each { |key| yaml.delete(key) }
-    File.write(path, yaml.to_yaml(:line_width => -1) + "---\n\n" + parts[4].to_s)
+    %w(title description).each { |key| yaml[key] = strip_whitespace(yaml[key]) if yaml[key] }
+    %w(tags category categories post_format).each { |key| yaml.delete(key) }
+    File.write(path, yaml.to_yaml(line_width: -1) + "---\n\n" + parts[4].to_s)
   end
 end
 

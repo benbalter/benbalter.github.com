@@ -4,7 +4,8 @@ before_script:
   - 'sed -i "s/master/$TRAVIS_BRANCH/g" _config_test.yml'
 
 before_install:
-  npm install
+  - nvm install 6
+  - npm install
 
 script: "./script/cibuild"
 

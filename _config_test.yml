@@ -13,7 +13,8 @@ proofer:
     :timeframe: 24h
   :parallel:
     :in_processes: 3
-
+  :disable_external: true
+  
 github:
   repository_nwo: "benbalter/benbalter.github.com"
   owner_url: "https://github.com/benbalter"

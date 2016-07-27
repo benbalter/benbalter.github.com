@@ -4,6 +4,7 @@ description: Government contractors have traditionally been slow to embrace open
 redirect_from:
 - "/2014/10/08/why-government-contractors-should-%3C3-open-source/"
 - "/2014/10/08/why-government-contractors-should-<3-open-source/"
+- "/2014/10/08/why-government-contractors-should-3-open-source/"
 ---
 
 Government contractors have traditionally been slow to embrace open source software. There's [a handful of reasons](http://ben.balter.com/2014/08/03/why-isnt-all-government-software-open-source/) why that's the case, but it doesn't have to be that way. Here's why government contractors are embracing open source with increasing frequency:
