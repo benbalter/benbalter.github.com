@@ -1,5 +1,5 @@
 ---
-title: Ten ways to make a great product
+title: Ten ways to make a product great, IMHO
 description: There are a handful of lessons I've learned over the years hacking on GitHub Pages that fundamentally inform my product philosophy
 ---
 
