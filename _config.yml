@@ -72,6 +72,7 @@ exclude:
   - vendor
   - node_modules
   - Rakefile
+  - retlab
 
 #number of items in RSS feed
 rss_limit: 10
@@ -111,8 +112,12 @@ gems:
   - jekyll-avatar
   - jekyll-github-metadata
 
+# Theme config
 sass:
   style: :compressed
+  sass_dir: retlab/_sass
+includes_dir: retlab/_includes
+layouts_dir: retlab/_layouts
 
 kramdown:
  input: GFM
