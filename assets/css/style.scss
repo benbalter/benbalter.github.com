@@ -1,9 +1,5 @@
 ---
 ---
 
-$icon-font-path: "{{ site.github.url }}/assets/vendor/bootstrap-sass/assets/fonts/bootstrap/";
-$fa-font-path: "{{ site.github.url }}/assets/vendor/font-awesome/fonts";
-$header-path: "{{ site.github.url }}/assets/img/header.jpg";
-$font-size-base: 16px;
-
+$url_base: "{{ site.github.url }}";
 @import "retlab";
