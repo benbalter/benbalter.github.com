@@ -89,13 +89,17 @@ defaults:
     values:
       layout: post
       comments: true
-      author: benbalter
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: page
+      comments: false
 
 #disqus widget
 disqus:
   shortname: 'benbalter'
-  count: 5
-  api_key: "OQ5OlN2AtWDfIQ0bjIGwdfq9SsEB3P8NdzhYTRak7R45KeAD744aVIqJZDYqvmuL"
 
 #build config
 timezone: America/New_York
@@ -120,12 +124,12 @@ includes_dir: retlab/_includes
 layouts_dir: retlab/_layouts
 
 kramdown:
- input: GFM
- hard_wrap: false
+  input: GFM
+  hard_wrap: false
 
 highlighter: rouge
 gist:
- noscript: false
+  noscript: false
 future: true
 
 lang: en-US
