@@ -1,6 +1,7 @@
 ---
 permalink: /press/feed/index.xml
 json: false
+layout: nil
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0"

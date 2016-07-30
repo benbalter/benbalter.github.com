@@ -79,6 +79,8 @@ task :serve do
     'serving'     => true,
     'watch'       => true,
     'incremental' => true,
+    'trace'       => true,
+    'verbose'     => true,
     'config'      => %w(_config.yml _config_local.yml)
   }
   Jekyll::Commands::Build.process(options)
