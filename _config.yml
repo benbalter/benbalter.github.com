@@ -78,6 +78,7 @@ timezone: America/New_York
 encoding: UTF-8
 lang: en-US
 branch: master
+future: true
 
 gems:
   - jemoji
