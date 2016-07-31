@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-require 'html-proofer'
 require 'yaml'
 require 'jekyll'
 require 'cgi'
@@ -23,41 +22,6 @@ end
 
 def strip_whitespace(string)
   string.gsub(/\r?\n/, ' ').strip.squeeze(' ')
-end
-
-class AmazonLinkCheck < ::HTMLProofer::Check
-  def affiliate_id
-    @affiliate_id ||= YAML.load_file('_config.yml')['amazon']['affiliates_tag']
-  end
-
-  def uri
-    URI.parse(@link.href)
-  end
-
-  def params
-    CGI.parse(uri.query) if uri.query
-  end
-
-  def amazon_link?
-    uri.host =~ /amazon\.com/
-  end
-
-  def afiiliate_id?
-    return false unless params && params.key?('tag')
-    params['tag'].first == affiliate_id
-  end
-
-  def run
-    @html.css('a').each do |node|
-      @link = create_element(node)
-      next if @link.data_proofer_ignore || @link.href.nil?
-
-      if amazon_link? && !afiiliate_id?
-        msg = "Misssing Amazon Affiliate ID: #{@link.href}"
-        add_issue(msg, line: node.line)
-      end
-    end
-  end
 end
 
 task :set_env do
@@ -102,5 +66,7 @@ end
 task :test do
   Rake::Task[:spec].invoke
   Rake::Task[:build].invoke
+  require 'html-proofer'
+  require_relative './spec/amazon_link_check'
   HTMLProofer.check_directory('./_site', test_config['proofer']).run
 end
