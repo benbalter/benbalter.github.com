@@ -16,7 +16,6 @@
   ],
   "dependencies": {
     "anchor-js": "*",
-    "bootstrap-sass": "*",
     "font-awesome": "*"
   }
 }

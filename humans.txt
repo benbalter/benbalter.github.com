@@ -1,4 +1,5 @@
 ---
+layout: nil
 ---
 /* SITE */
 Last Updated: {{ site.time | date:"%Y/%m/%d" }}
