@@ -1,6 +1,6 @@
 ---
 title: Why you shouldn't write your own open source license
-description:
+description: Unless absolutely required, avoid custom, modified, or non-standard open source licenses, which will serve as a barrier to downstream use of your code.
 ---
 
 The power and potential of open source comes not from the fact that code is published for others to see, or that you won't get sued for publishing it, but from the fact that others have the ability to use your code, to modify it, and to improve it. That possibility breaks down, however, when would-be contributors have the legal right to contribute, but not the practical means to do so.
@@ -31,16 +31,20 @@ When I make the case that open source publishers shouldn't create their own lice
 
 Open source is nothing without adoption. The reason you publish your code isn't to show others that you wrote it, but with the hope that they'll use it, they'll improve it, and they'll contribute back. If you make it easy for you to publish the code (the easy part), but hard for others to contribute (the hard part), they never will. Unlike the one-to-one software purchase, open source is a many-to-many relationship between contributors and users, and there's a good chance at least one party to the contract won't participate if they don't have the legal resources necessary.
 
-### Open source should be optimized for code consumers, not for code publishers
+### Who should bear the cost of open source?
 
-I'd argue that open source should be optimized for code consumers, not for code publishers. There's two reasons for this:
+From a public policy standpoint, let's assume for a second that there's always going to be some complexity inherent in open source, that all open source licenses share some legal ambiguity. Who should bear the burden of that complexity? I'd argue that open source should be optimized for code consumers, not for code publishers. There's three reasons for this:
 
-First, lets assume for a second that there's some complexity inherent in open source, that all open source licenses share some legal ambiguity. Who should bear the burden of that complexity? You could push it on to code consumers, who are generally less sophisticated, and would have to go out and hire outside counsel before they could use your code (and thus are less likely to do so). At the same time, code publishers, at least those sophisticated enough to consider writing their own license, generally have in house lawyers that could absorb the complexity of a standardized license at little to no cost.
+First, when you're talking about code published by large organizations — those organizations who might consider a custom license — code consumers are almost undoubtedly going to be less sophisticated. You could push the complexity on to code consumers, who would then have to go out and hire outside counsel before they could use your code, but those publishers sophisticated enough to need their own license generally have in house lawyers that could absorb the complexity of a standardized license at little to no economic cost.
 
-Second, even if code consumers are sophisticated enough to perform their own legal analysis, incurring such costs may make your open source project more expensive then its proprietary alternative, further reducing adoption among institutional consumers. Not to mention, it's far more efficient for the code publisher to preform that legal review once, and make a determination of risk, then for each downstream consumer to perform that same legal review anew.
+Second, even if code consumers are sophisticated enough to perform their own legal analysis, incurring such costs may make your open source project more expensive then its proprietary alternative, further reducing adoption among institutional consumers. Not to mention, it's far more efficient for the code publisher to preform that legal review once, and make a determination of risk, then for each downstream consumer to perform that same legal review anew and for each project it's incorporated within.
 
-###
+Finally, if we assume the value of open source comes not just from downstream use, but also from upstream contribution, non-standard open source licenses cause downstream consumers to incur a very real economic cost before they can consider contributing improvements upstream. As a developer, why would I contribute to your project if I had to pay to do so?
 
-Unless absolutely required, avoid custom, modified, or non-standard terms, which will serve as a barrier to downstream use of your code, the reason, I suspect, you're getting involved with open source in the first place. The open source community is just that, a community, and one with a strong tradition. Your one-off license is the newcomer here, and one that will likely face a steep uphill battle in terms of adoption. Open source software is published so that others may use it, and doing so under a legal framework alien to the community, is the easiest way to make sure it’s not used. Instead, optimize for the code’s reuse, not its publication.
+Instead, code publishers should absorb that inherit complexity. They're in a better position to do, and doing so incentives others to use your code and contribute back.
+
+### Optimize for the code’s reuse, not its publication
+
+Unless absolutely required, avoid custom, modified, or non-standard terms, which will serve as a barrier to downstream use of your code, the reason, I suspect, you're getting involved with open source in the first place. The open source community is just that, a community, and one with a strong tradition. Your one-off license is the newcomer here, and one that will likely face a steep uphill battle in terms of adoption. While legally it's well within your rights to create a purpose-specific license, open source software is published so that others may use it, not so that you can publish it, and doing so under a legal framework alien to the community is the easiest way to make sure it’s not used.
 
 *See also*: [Everything a government attorney needs to know about open source software licensing](http://ben.balter.com/2014/10/08/open-source-licensing-for-government-attorneys/).
