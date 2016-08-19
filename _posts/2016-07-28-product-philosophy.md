@@ -61,6 +61,10 @@ Avoid single points of failure, both in systems and in people. Foster communitie
 
 ### 10. Share to the widest extent possible
 
-Barriers to the free-flow of information just add friction and more often than not, you just end up shooting yourself in the foot. Make open the default. Open standards, open formats, open systems. Expose process. Prefer social and cultural norms to technical constraints. Don't lock it down unless you absolutely have to. Trust people.
+Barriers to the free-flow of information add friction, limit the marketplace of ideas, and more often than not, you just end up shooting yourself in the foot. This is true both internally and externally. Share to the widest extent possible. Make open the default. Prefer open standards, open formats, and open systems. Capture and expose process in everything you do. To facilitate this, prefer social and cultural norms over technical constraints. Don't lock it down unless you absolutely have to. Trust people, until they prove otherwise.
 
-*Example*: We had an internal implementation for gathering metadata about a GitHub Pages site at build time. As a result, users couldn't replicate that experience locally when previewing their site, despite that there was nothing proprietary about our approach. We created an open source plugin to replicate that experience, and eventually moved to using that implementation exclusively. As a result, users' local environments more closely represent their live site, and bugs can be surfaced and addressed as their discovered.
+*Example*: We had an internal implementation for gathering metadata about a GitHub Pages site. As a result, users couldn't replicate that experience locally when previewing their site, despite the fact taht there was nothing proprietary about our approach. We created an open source plugin to replicate that experience, and eventually moved to using that implementation exclusively. As a result, users' local environments more closely represent their live site, and bugs are more rapidly surfaced and addressed as they're discovered.
+
+I've learned a lot, spending three years hacking on a single product (an eternity in tech. years), and even more, hacking on open source projects, and government projects before that. These are the lessons I've learned, from what's worked, and more importantly, from what hasn't, that has informed my philosophy today, but I'm sure there's much, much more.
+
+What rules guide how you think about products (or as I thought of them before, open source projects)?
