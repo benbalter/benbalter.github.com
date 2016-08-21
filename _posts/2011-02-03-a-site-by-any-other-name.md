@@ -1,11 +1,6 @@
 ---
 title: A Site By Any Other Name...
-description: >
-  DHS recently began protecting America's shores from threats of a different
-  kind: online copyright infringement. In the days before the Superbowl, the
-  agency set out to enforce the "express written consent of the NFL" provision
-  attached to most broadcasts by slamming the iron fist of the law down on six
-  sports-streaming websites.
+description: 'DHS recently began protecting America''s shores from threats of a different kind: online copyright infringement. In the days before the Superbowl, the agency set out to enforce the "express written consent of the NFL" provision attached to most broadcasts by slamming the iron fist of the law down on six sports-streaming websites.'
 ---
 
 ![Screenshot of the takedown notice](http://ben.balter.com/wp-content/uploads/2011/02/IPRC_Seized_2010_11-300x225.gif "DHS Seizure Notice"){: .alignleft} Violating due process is one thing, but violating web standards… well that's another story.

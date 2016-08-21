@@ -1,16 +1,6 @@
 ---
-
 title: Why WordPress
-description: >
-  WordPress is different. WordPress is about content. WordPress is about
-  simplicity. Out of the box, it's a clean, lean, and mean semantic publishing
-  platform that makes broadcasting your ideas as effortless as possible.
-
-categories:
-  - Technology
-tags:
-  - open source
-  - wordpress
+description: WordPress is different. WordPress is about content. WordPress is about simplicity. Out of the box, it's a clean, lean, and mean semantic publishing platform that makes broadcasting your ideas as effortless as possible.
 ---
 
 WordPress is *[different](http://wordpress.org/about/philosophy/)*. WordPress is about content. WordPress is about simplicity. Out of the box, it's a clean, lean, and mean semantic publishing platform that makes broadcasting your ideas as effortless as possible.

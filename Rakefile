@@ -1,34 +1,72 @@
-require 'html-proofer'
+# frozen_string_literal: true
 require 'yaml'
+require 'jekyll'
+require 'cgi'
+require 'uri'
 
-namespace :assets do
-  task :precompile do
-    sh 'bundle exec jekyll build'
+begin
+  require 'rspec/core/rake_task'
+  RSpec::Core::RakeTask.new(:spec)
+rescue LoadError
+  puts "Can't find RSpec"
+end
+
+def test_config
+  YAML.load_file('_config_test.yml')
+end
+
+def token
+  path = File.expand_path('~/.token')
+  File.read(path) if File.exist?(path)
+end
+
+def strip_whitespace(string)
+  string.gsub(/\r?\n/, ' ').strip.squeeze(' ')
+end
+
+task :set_env do
+  ENV['DISABLE_WHITELIST']   = 'true'
+  ENV['JEKYLL_GITHUB_TOKEN'] = token
+end
+
+task :build do
+  Rake::Task[:set_env].invoke
+  options = {
+    'trace'       => true,
+    'verbose'     => true,
+    'config' => %w(_config.yml _config_test.yml)
+  }
+  Jekyll::Commands::Build.process(options)
+end
+
+task :serve do
+  Rake::Task[:set_env].invoke
+  options = {
+    'serving'     => true,
+    'watch'       => true,
+    'incremental' => true,
+    'config'      => %w(_config.yml _config_local.yml)
+  }
+  Jekyll::Commands::Build.process(options)
+  Jekyll::Commands::Serve.process(options)
+end
+
+task :format_yaml do
+  Dir['*/**.md'].each do |path|
+    content = File.read(path)
+    next unless content =~ Jekyll::Document::YAML_FRONT_MATTER_REGEXP
+    parts = content.split Jekyll::Document::YAML_FRONT_MATTER_REGEXP
+    yaml = YAML.load(parts[1])
+    %w(title description).each { |key| yaml[key] = strip_whitespace(yaml[key]) if yaml[key] }
+    %w(tags category categories post_format).each { |key| yaml.delete(key) }
+    File.write(path, yaml.to_yaml(line_width: -1) + "---\n\n" + parts[4].to_s)
   end
-end
-
-def config
-  config = YAML.load_file('_config_test.yml')
-  config['proofer'].keys.each do |key|
-    config['proofer'][key.to_sym] = config['proofer'].delete(key)
-  end
-  config
-end
-
-def serve_site
-  sh 'bundle exec jekyll serve -c _config.yml,_config_test.yml --detach'
-end
-
-def html_proofer
-  puts "HTML Proofer version: #{HTMLProofer::VERSION}"
-  HTMLProofer.check_directory('./_site', config['proofer']).run
 end
 
 task :test do
-  begin
-    serve_site
-    html_proofer
-  ensure
-    `pkill -f jekyll`
-  end
+  Rake::Task[:spec].invoke
+  Rake::Task[:build].invoke
+  require 'html-proofer'
+  require_relative './spec/amazon_link_check'
+  HTMLProofer.check_directory('./_site', test_config['proofer']).run
 end

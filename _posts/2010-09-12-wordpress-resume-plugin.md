@@ -1,10 +1,6 @@
 ---
 title: WordPress Resume Plugin
-description: >
-  WP Resume is an out-of-the-box solution to get your resume online and keep it
-  updated. Built on WordPress 3.0's custom post type functionality, it offers
-  a uniquely familiar approach to publishing. If you've got a WordPress site, you
-  already know how to use WP Resume.
+description: WP Resume is an out-of-the-box solution to get your resume online and keep it updated. Built on WordPress 3.0's custom post type functionality, it offers a uniquely familiar approach to publishing. If you've got a WordPress site, you already know how to use WP Resume.
 ---
 
 ![WP Resume](http://ben.balter.com/wp-content/uploads/2010/09/wp_resume-300x223.png "Screenshot of Example WP Resume"){: .alignright}
@@ -32,7 +28,5 @@ WP Resume is an out-of-the-box solution to get your resume online and keep it up
 The hardest part of getting your resume online should be doing the work listed on it, not wrestling the publishing platform. Simply put, WP Resume steps aside and lets your experience shine.
 
 Interested? You can [see it in action](http://ben.balter.com/resume/), or if you're ready to take the plunge, [download it from the WordPress plugin repository](http://wordpress.org/extend/plugins/wp-resume/), and [try it today](http://wordpress.org/extend/plugins/wp-resume/installation/). There's even a [great walkthrough put together by the good folks at CUNY Graduate School of Journalism.](http://tech.journalism.cuny.edu/documentation/wp-resume/) Bugs, questions, comments, feedback? I'd love to hear about your experience with WP Resume in the comments below.
-
-*Enjoy using WP Resume? Feel free to [make a small donation](http://ben.balter.com/donate/ "Donate") to support the software's continued development.*
 
 [^1]: I imagine it would resemble a highly digitized [Rube Goldberg Machine](http://www.youtube.com/watch?v=qybUFnY7Y8w)

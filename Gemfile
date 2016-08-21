@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 source 'https://rubygems.org'
 
 gem 'github-pages', group: :jekyll_plugins
@@ -8,4 +9,6 @@ group :test, :development do
   gem 'rake'
   gem 'pry'
   gem 'rubocop'
+  gem 'nokogiri'
+  gem 'rspec'
 end

@@ -1,7 +1,9 @@
 ---
-title: "What is a 'Hacker'?"
-description: 'Hackers embody sharing, openness, decentralization — coding to improve the world'
-redirect_from: /2013/02/13/what-is-a-hacker/
+title: What is a 'Hacker'?
+description: Hackers embody sharing, openness, decentralization — coding to improve the world
+redirect_from:
+- "/2013/02/13/what-is-a-hacker/"
+- "/2013/02/16/what-is-a-hacker/"
 ---
 
 Working in DC, "*hacker*" can often be seen as a four-letter word. I can't count the number of times a press aide or government attorney has cringed at seeing it in a draft release, or even worse, as an upcoming event audaciously entitled a "hackathon". To the media and many government types "hacking" often conjures up images of malcontents in ski masks crouched over computer screens, but to the rest of the world (and especially the Internet), the term has a very, very different meaning. Heck, even Merriam-Webster [defines hacker](http://www.merriam-webster.com/dictionary/hacker) as:
@@ -32,6 +34,6 @@ It's no surprise then, that as the pace of technological innovation quickens, th
 
 "Hacker" isn't just the next hot buzzword, following a long history of "rock star", "ninja", and "guru". Nor is it synonymous with "cybercriminal" or imply any nefarious intentions whatsoever. Instead the exact opposite is true. It's about embracing an ethos, a drive, a culture. It's about coding to improve the world.
 
-[^1]: As articulated best by [Steven Levy](http://www.amazon.com/Hackers-Computer-Revolution-Anniversary-ebook/dp/B003PDMKIY/ref=tmm_kin_title_0&tag=613240924-20)
+[^1]: As articulated best by [Steven Levy](http://www.amazon.com/Hackers-Computer-Revolution-Anniversary-ebook/dp/B003PDMKIY/?tag=benbalter07-20)
 
 [^2]: *See* [Eric S. Raymond](http://www.catb.org/esr/faqs/hacker-howto.html)

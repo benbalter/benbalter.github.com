@@ -1,13 +1,7 @@
 ---
 title: The next big thing is already here
-description: 'Countless technologies we take for granted today, began their lives as staples of the open-source development workflow'
-
-
+description: Countless technologies we take for granted today, began their lives as staples of the open-source development workflow
 published: true
-category: Technology
-tags:
-  - Open Source
-  - Innovation
 ---
 
 Looking for *the next big thing*? Chances are it's already here, and chances are the open source community is using it. If you wanted to know the next trend in medicine, it makes sense to look at how doctors take care of themselves. The same is true for geeks. It's about looking to the early adopters.

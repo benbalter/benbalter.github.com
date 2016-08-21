@@ -1,6 +1,6 @@
 ---
-title: 'How to add an "improve this content" button to your GitHub Pages site'
-description: 'If you host your site on GitHub or GitHub Pages, an edit button (and thus encouraging collaboration around your content) is simply a matter of linking to an easily predictable URL.'
+title: How to add an "improve this content" button to your GitHub Pages site
+description: If you host your site on GitHub or GitHub Pages, an edit button (and thus encouraging collaboration around your content) is simply a matter of linking to an easily predictable URL.
 ---
 
 At the bottom of this page (and every other page on the site), you'll notice a subtle plea to help improve the page's content. That edit button is no dark magic. If you host your site on GitHub or GitHub Pages, collaborative content is simply a matter of linking to an easily predictable URL.

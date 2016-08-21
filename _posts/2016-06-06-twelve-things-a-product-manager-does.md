@@ -1,6 +1,6 @@
 ---
 title: Twelve things a product manager does
-description: "The twelve most important things a product manager can do on any given day"
+description: The twelve most important things a product manager can do on any given day
 ---
 
 When I was first considering making the move to product management, I read [a lot](https://medium.com/@joshelman/a-product-managers-job-63c09a43d0ec#.t7puifka7) [of posts](https://medium.com/@matbalez/product-manager-you-are-664d83ee702e#.6054jkko8) [about what](https://medium.com/@bfgmartin/what-is-a-product-manager-ce0efdcf114c#.nfocpyput) [a product](https://medium.com/@irishbryan/product-managers-are-apes-21f25828dcb7#.ujgo9swh6) [manager does](https://medium.com/@noah_weiss/50-articles-and-books-that-will-make-you-a-great-product-manager-aad5babee2f7#.1t1kwhhly). Many of these posts, books, and resources were helpful to understanding what role a product manager plays within the larger organization, or what common traits great product managers share, but given the diversity of the term within the industry, it was hard to get a sense for what a product manager's typical day looked like, at least if there was such a thing at GitHub.
@@ -45,7 +45,7 @@ Organizations have a bad habit of confusing what's measurable or visible with wh
 
 ### 10. Capture every idea in an issue backlog
 
-Ideas come up. There are the ideas that naturally arise during your weekly checkin or while grabbing a cup of coffee. There are the support tickets you don't have a good answer for. There are the next steps uncovered during your last blameless post mortem. Whatever the source, open an issue, open lots of them, and encourage other to do the same. Issues are cheap. They're free to open, easy to close, and provide a permanent record of why the organization chose or chose not to do a particular thing. They track progress, centralize decision making, and cross-link related ideas. As a product manager, your job is to ensure those never-ending ideas get captured in a never-ending issue back log, fleshed outed, updated, and closed, one way or another. Your job is also to own that backlog, being at least superficially familiar with each issue, cross referencing prior art, and surfacing related discussions as they become relevant.
+Ideas come up. There are the ideas that naturally arise during your weekly checkin or while grabbing a cup of coffee. There are the support tickets you don't have a good answer for. There are the next steps uncovered during your last blameless post mortem. Whatever the source, open an issue, open lots of them, and encourage other to do the same. Issues are cheap. They're free to open, easy to close, and provide a permanent record of why the organization chose or chose not to do a particular thing. They track progress, centralize decision making, and cross-link related ideas. As a product manager, your job is to ensure those never-ending ideas get captured in a never-ending issue back log, fleshed out, updated, and closed, one way or another. Your job is also to own that backlog, being at least superficially familiar with each issue, cross referencing prior art, and surfacing related discussions as they become relevant.
 
 ### 11. Research and strategic thinking
 

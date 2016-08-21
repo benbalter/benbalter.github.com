@@ -1,12 +1,8 @@
 ---
-title: "Why WordPress's next version should just give it a REST already"
-description: 'To position itself in the context of next-generation CMSs, WordPress should conform to emerging internet conventions and expose all content via a RESTful API'
-
-
+title: Why WordPress's next version should just give it a REST already
+description: To position itself in the context of next-generation CMSs, WordPress should conform to emerging internet conventions and expose all content via a RESTful API
 published: true
 comments: true
-category: Technology
-tags: WordPress REST API
 ---
 
 The internet has a particular way of solving difficult technical challenges. We try a bunch of diverse approaches out, keep only the most elegant, and quickly forget the rest ever happened. That's why the Web is the Internet's preeminent service (as apposed to say [Gopher](http://en.wikipedia.org/wiki/Gopher_%28protocol%29)), clicking the logo in the top left corner of almost any site goes to that site's homepage, and typing a URL in your browser retrieves that particular page. These aren't just design conventions in the sense that a lot of people like them, but rather represent the purposeful result of trial and error.

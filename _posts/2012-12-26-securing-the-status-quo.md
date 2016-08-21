@@ -130,7 +130,7 @@ Congress has imposed on federal executive agencies an onerous system to ensure i
 
 [^4]: White House Office of the Press Secretary, Remarks by the President on Securing Our Nation’s Cyber Infrastructure (May 29, 2009), <http://1.usa.gov/gvW7VM>.
 
-[^5]: Cybersecurity: Next Steps To Protect Our Critical Infrastructure: Hearing Before the S. Comm. on Commerce, Science & Transportation, 111th Cong. (Feb. 23, 2010) (statement of Sen. Rockefeller) (A major cyberattack could shut down our nation’s most critical infrastructure….), <http://1.usa.gov/TLlgEh>; Senate Comm. on Commerce, Science & Transportation, Press Release, Rockefeller and Snowe Gain Momentum for Landmark Cybersecurity Act (Mar. 24, 2010) (statement of Sen. Snowe) (cyber intrusions and attacks represent both a potential national security and economic catastrophe), <http://1.usa.gov/VXWVx0>.
+[^5]: Cybersecurity: Next Steps To Protect Our Critical Infrastructure: Hearing Before the S. Comm. on Commerce, Science & Transportation, 111th Cong. (Feb. 23, 2010) (statement of Sen. Rockefeller) (A major cyberattack could shut down our nation’s most critical infrastructure….), <http://1.usa.gov/TLlgEh>; Senate Comm. on Commerce, Science & Transportation, Press Release, Rockefeller and Snowe Gain Momentum for Landmark Cybersecurity Act (Mar. 24, 2010) (statement of Sen. Snowe) (cyber intrusions and attacks represent both a potential national security and economic catastrophe), [https://www.commerce.senate.gov/public/index.cfm/pressreleases?ID=3A0945BB-D5D8–47F4-A86C-2F71F15892BD](https://www.commerce.senate.gov/public/index.cfm/pressreleases?ID=3A0945BB-D5D8-47F4-A86C-2F71F15892BD).
 
 [^6]: Marshall, Panetta Discusses Security Challenges in Stratcom Visit, American Forces Press Service, Aug. 5, 2011, <http://archive.defense.gov/news/newsarticle.aspx?id=64946>.
 
@@ -212,7 +212,7 @@ Congress has imposed on federal executive agencies an onerous system to ensure i
 
 [^45]: *Id.*
 
-[^46]: Vijayan, Jaikumar, Critics question value of federal IT security report card, Computerworld, May 21st, 2008, available at <http://bit.ly/QSHKX0> (noting some agencies that are making an effort to comply with the true intent of the 396-page FISMA requirements document are getting poor grades on the annual report card, while others that have treated the process as a mere paperwork exercise are getting good grades.) (Internal quotation marks omitted).
+[^46]: Vijayan, Jaikumar, Critics question value of federal IT security report card, Computerworld, May 21st, 2008, available at <http://www.networkworld.com/article/2279783/lan-wan/critics-question-value-of-federal-it-security-report-card.html> (noting some agencies that are making an effort to comply with the true intent of the 396-page FISMA requirements document are getting poor grades on the annual report card, while others that have treated the process as a mere paperwork exercise are getting good grades.) (Internal quotation marks omitted).
 
 [^47]: White, 79 Fordham L. Rev 369, 382; *Id.* (commenting First, Congress creates waste by writing FISMA in a way that demands useless reporting, and then it highlights the useless scores in a way that in some cases provides incentives for federal agencies to deliver misleading results.).
 

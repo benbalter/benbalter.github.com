@@ -1,7 +1,6 @@
 ---
-
 comments: true
-description: "We often think of contributors as developers, but code is just one of the many ways to contribute to an open source project, and it's important to provide avenues of participation for non-technical contributors as well."
+description: We often think of contributors as developers, but code is just one of the many ways to contribute to an open source project, and it's important to provide avenues of participation for non-technical contributors as well.
 ---
 
 We often think of contributors as developers, but code is just one of the many ways to contribute to an open source project, and it's important to provide avenues of participation for non-technical contributors as well.

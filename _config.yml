@@ -1,25 +1,13 @@
-#Jekyll config file
-
-# Basics
-name: Ben Balter
 title: Ben Balter
-description: "Attorney, open source developer, product manager"
+description: Attorney, open source developer, product manager
 author: benbalter
+
 repository: benbalter/benbalter.github.com
+logo: "/assets/img/headshot.jpg"
 
-# Images
-gravatar_id: ea353bd28baa1aefaefae736a19fcf2a
+twitter:
+  username: "@benbalter"
 
-# RDFa structured data
-job_title: Product Manager
-employer: GitHub
-url: "http://ben.balter.com"
-location:
-  city: Washington
-  state: District of Columbia
-  country: United States of America
-
-# Social metadata (JSON-LD)
 social:
   name: Ben Balter
   links:
@@ -30,15 +18,12 @@ social:
     - https://github.com/benbalter
     - https://keybase.io/benbalter
 
-logo: /assets/img/headshot.jpg
+disqus:
+  shortname: benbalter
 
-# Misc
-twitter:
-  username: "@benbalter"
 google_plus_id: BenBalter
-ga_username: 'UA-18088627-1'
+ga_username: UA-18088627-1
 
-#files to exclude, array
 exclude:
   - CONTRIBUTING.md
   - README.md
@@ -72,34 +57,28 @@ exclude:
   - vendor
   - node_modules
   - Rakefile
+  - retlab
 
-#number of items in RSS feed
-rss_limit: 10
-
-#permalink structure, see http://jekyllrb.com/docs/permalinks/
-permalink: /:year/:month/:day/:title/
-
-# Frontmatter defaults
+permalink: "/:year/:month/:day/:title/"
 defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
+  - scope:
+      path: ''
+      type: posts
     values:
       layout: post
       comments: true
-      author: benbalter
+  - scope:
+      path: ''
+      type: pages
+    values:
+      layout: page
+      comments: false
 
-#disqus widget
-disqus:
-  shortname: 'benbalter'
-  count: 5
-  api_key: "OQ5OlN2AtWDfIQ0bjIGwdfq9SsEB3P8NdzhYTRak7R45KeAD744aVIqJZDYqvmuL"
-
-#build config
 timezone: America/New_York
 encoding: UTF-8
+lang: en-US
 branch: master
+future: true
 
 gems:
   - jemoji
@@ -113,17 +92,12 @@ gems:
 
 sass:
   style: :compressed
+  sass_dir: retlab/_sass
+includes_dir: retlab/_includes
+layouts_dir: retlab/_layouts
 
-kramdown:
- input: GFM
- hard_wrap: false
-
-highlighter: rouge
 gist:
- noscript: false
-future: true
-
-lang: en-US
+  noscript: false
 
 collections:
   - resume_positions
@@ -154,3 +128,6 @@ contact_links:
   - name: Keybase
     url: https://keybase.io/benbalter
     icon: key
+
+amazon:
+  affiliates_tag: benbalter07-20
