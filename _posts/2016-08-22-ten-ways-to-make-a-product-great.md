@@ -1,6 +1,6 @@
 ---
 title: Ten ways to make a product great
-description: There are a handful of lessons I've learned over the years hacking on GitHub Pages that fundamentally inform my product philosophy
+description: There are a handful of lessons I've learned over the years hacking on GitHub Pages that fundamentally inform what I think is the best way to build products, be they proprietary, government, or open source
 ---
 
 I've been hacking on GitHub Pages as somewhat of a side project for the past three years, but this past January, I took on managing GitHub Pages full-time. I'd apparently been doing what others would call product management for a while (even though I didn't call it that), but as my first formal product management role, I'm realizing now that there were a handful of lessons that I've learned over the years that have fundamentally informed what I think is the best way to build products, be they proprietary, government, or open source:
@@ -55,7 +55,7 @@ If you are not embarrassed by the first version of your product, you’ve launch
 
 ### 9. Push logic to the edges
 
-Avoid single points of failure, both in systems and in people. Foster communities. Push decisions to the edge. Put your faith in the crowd. Don't bake in <a href="http://en.wikipedia.org/wiki/Lock_(computer_science)">locks</a>. Avoid blockers. Automate wherever possible. Eliminate all humans.
+When it comes to technology, centralized, heavyweight, or human-driven process are rarely the right answer. As you design systems, avoid engineering single points of failure, both online and off, which more often than not become blockers. Instead, automate whatever possible. Don't force a human to do what a computer can, or as I like to say, "eliminate all humans". When it can't be automated, decentralize authority and empower communities to be self-sufficient by pushing decisions to the edge. Put your faith in the crowd. Rather than creating an entire team to manage a workflow or task, foster ecosystems technically, legally, and culturally. Most importantly, don't bake in <a href="http://en.wikipedia.org/wiki/Lock_(computer_science)">locking operations</a>.
 
 *Example*: If you want to configure a custom domain with GitHub Pages, you must configure your custom domain's DNS settings, a potentially complex and confusing task. For the first seven years of GitHub Pages existence, if your domain was misconfigured, you had to email GitHub Support, which in turn, often had to reach out to the Pages Team for help. Instead, we automated the diagnostics we normally performed, creating the [GitHub Pages Health Check Gem](https://github.com/github/pages-health-check), exposing those checks directly to users (without needing to contact Support), and to the support team in the form of ChatOps and what we call stafftools (without needing to contact the Pages team). The result is faster (self-)resolution of DNS misconfigurations, and today, that tool is open source, meaning users can improve the detection of various edge cases.
 
