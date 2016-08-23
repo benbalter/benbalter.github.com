@@ -89,7 +89,8 @@ gems:
   - jekyll-seo-tag
   - jekyll-avatar
   - jekyll-github-metadata
-
+  - jekyll-admin
+  
 sass:
   style: :compressed
   sass_dir: retlab/_sass
