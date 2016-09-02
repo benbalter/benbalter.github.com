@@ -142,4 +142,4 @@ All that said, the first rule of GitHub, is that there are few hard-and-fast rul
 
 Questions? Feedback? Comment below, or even better, [open an issue](https://github.com/benbalter/feedback).
 
-**Edit (9/1/2016): Added the second bonus.
+**Edit (9/1/2016)**: Added the second bonus.
