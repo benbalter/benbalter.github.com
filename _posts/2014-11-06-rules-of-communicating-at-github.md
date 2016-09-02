@@ -134,6 +134,12 @@ In practice, most chat programs let you mention a user by name at the start of a
 
 It's often said that it's hard to capture tone via electronic communications, but that's a filthy lie. There's a reason GitHub's collaboration culture is built on a foundation of emoji and animated GIFs. It's not simply because [animated GIFs of puppies are adorable](http://giphy.com/gifs/puppies-cute-animals-asdfghjkl-6UZFwMYqCeXi8), but because a :trollface: is often the most efficient way to express sarcasm. Be sure to be human. As we say at GitHub, mind your words, they're important.
 
+### Double bonus: If it has a URL, link to it
+
+Simply put, if you reference something - be it prior issue, the pull request that implemented a feature, a line in a file, whatever — and [that thing has a URL](http://ben.balter.com/2015/11/12/why-urls/), it's your obligation to find that URL and make that reference a link. Even if the reader could theoretically search for it, you are infinitely more familiar with the thing you're referencing, and given a comment read by 5, 10, or 50 people, it's more efficient for you to look it up once, than for readers to look it up 50 times, even if it takes a few minutes to do so. Not to mention, on GitHub, linking to another issue or pull request creates a visible cross reference, meaning that just by commenting, you create an organic map of the organization's knowledge.
+
 All that said, the first rule of GitHub, is that there are few hard-and-fast rules at GitHub. We often prefer cultural norms to administrative, policy, or technical constraints because they remain flexible over time as circumstances change. These 15 "rules" for how we communicate at GitHub aren't necessarily written rules, at least not in the GitHub sense, but are my best attempt to surface the current state of our communications culture.
 
 Questions? Feedback? Comment below, or even better, [open an issue](https://github.com/benbalter/feedback).
+
+**Edit (9/1/2016): Added the second bonus.
