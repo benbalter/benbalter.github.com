@@ -23,10 +23,12 @@ Curiosity is a core component of [the hacker way](http://ben.balter.com/2013/02/
 
 At GitHub, there's a strong history of rewarding that curiosity. Most visibly, we have a reading stipend, whereby GitHubbers are encouraged to constantly refine their craft (and learn new ones). Beyond that, there's a sense that if you see something you don't know or understand, you can, and should take the time to understand it. That could be a new part of the application or an entirely new language or technology. The worst thing you can do, when you experience something unknown is to give up or consider yourself blocked.
 
-### Honesty, integrity, authenticity
-
-
-
 ### Appreciation economy
 
+GitHub operates on an appreciation economy. What I mean by that, is that appreciation (in the emotional sense) is the currency upon which GitHub runs. Heavily influenced by the ideas of [Rework](https://www.amazon.com/dp/B002MUAJ2A/?tag=benbalter-20), the idea being that in many cases, public recognition is a more appropriate response than a monetary reward. For a while, that took the form of company-wide "shoutout" every week (e.g., "shoutout to Ben for taking the time to help me learn X"), but that didn't scale as the company grew. Today, that takes the form of a `.sparkles` ChatOps command, posts to our internal Team blog, and a culture of giving credit where credit is due, either on an in-progress issue, or directly to managers after the fact.
+
 ### Ship early, ship often
+
+
+
+### Honesty, integrity, authenticity
