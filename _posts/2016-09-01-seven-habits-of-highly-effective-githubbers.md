@@ -11,13 +11,17 @@ They say in software development, that [the hardest part is finding the problem,
 
 One of the things I first noticed when I joined GitHub was that my fellow Hubbers were always willing to help. I could jump into any channel, née chatroom (we use chat for just about anything), ask a question about a topic with which I was unfamiliar, and within seconds, several Hubbers would drop what they were doing to help, not just to explain how, but to walk me through the process. Later, I recognized a long-standing tradition of over-documenting as you worked, to help future generations of Hubbers continue your efforts. And that was the rule, not the exception. We're all experts at something: a part of the codebase, a process, a particular subject matter, or that thing that you experienced last week. Effective Hubbers take the time to share their knowledge to ensure other Hubbers can be effective as well.
 
-"Always be willing to help" is a bit of an overreach. Effective Hubbers also know when to say "no" to a request. At a certain point you'll realize that you are presented with more opportunities than you have time to act on. That means that you have to prioritize which asks have the highest potential impact, and decline the rest accordingly.
+"Always be willing to help" is a bit of an overstatement. Effective Hubbers also know when to say "no" to a request. At a certain point you'll realize that you are presented with more opportunities than you have time to act on. That means that you have to prioritize which asks have the highest potential impact, and decline the rest accordingly. You quickly learn that Saying "no" to the lower-impact task allows you to prioritize, and thus have a higher impact on other tasks.
 
 ### Curiosity and self improvement
 
 
 
 ### Professional but not formal
+
+There's a difference between being professional and being formal. Professionalism is about mastery in one's craft. Professionals are efficient. They're methodical. They're systematic. they're organized. Professionals cary out the task at hand without being distracted by personal concern or emotion. Formality is about with rule and convention. Formalism is about stiffness. About being overly concerned with ceremony over substance. About a focus on outward appearance over actually shipping.
+
+
 
 ### Honesty, integrity, authenticity
 
