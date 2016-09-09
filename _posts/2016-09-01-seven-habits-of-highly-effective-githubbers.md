@@ -3,6 +3,10 @@ title: The seven habits of highly effective GitHubbers
 description:
 ---
 
+### Professional, but not formal
+
+There's a difference between being professional and being formal. Professionalism is about mastery in one's craft. Professionals are efficient. They're methodical. They're systematic. They're organized. Professionals cary out the task at hand without being distracted by personal concerns. Formality is about strict adherence to rule and convention. Formalism is about stiffness. About being overly concerned with ceremony over substance. About a focus on outward appearance over actually shipping. You can be professional without being formal. When you get a pull request, you can respond cordially and display technical prowess, without beginning your respond "Dear sir, I am in receipt of your pull request dated 2nd of November, 2016...". You can use emoji, animated GIFs, and a more human tone to express an idea while still maintaining focus on the job to be done.
+
 ### If you see something, say something
 
 They say in software development, that [the hardest part is finding the problem, not solving it](https://en.wikipedia.org/wiki/Linus%27s_Law). At GitHub we have a strong tradition of "staff shipping" features for a day, a week, even a few months to get a better sense of how the feature performs within the context of a user's workflow, not to mention, [we use the product day in and day out](http://ben.balter.com/2016/08/22/ten-ways-to-make-a-product-great/#drink-your-own-champagne), so that we can be among the first to notice when something's awry. Whether it's a staff-only feature, or a feature that's been baked into the product for years, we'd much rather a fellow GitHubber find (and report) the problem, rather than subjecting a user to the suboptimal experience. [Issues are cheap](http://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#nobody-gets-fired-for-delbuying-ibmdel-opening-an-issue) and are easily closed if not in order. But you can take that idea a step further: [Borrowing a page from the Boy Scouts handbook](http://programmer.97things.oreilly.com/wiki/index.php/The_Boy_Scout_Rule), when implementing a new feature, always leave the code better than you found it, regardless of who originally made the mess.
@@ -13,17 +17,15 @@ One of the things I first noticed when I joined GitHub was that my fellow Hubber
 
 "Always be willing to help" is a bit of an overstatement. Effective Hubbers also know when to say "no" to a request. At a certain point you'll realize that you are presented with more opportunities than you have time to act on. That means that you have to prioritize which asks have the highest potential impact, and decline the rest accordingly. You quickly learn that Saying "no" to the lower-impact task allows you to prioritize, and thus have a higher impact on other tasks.
 
-### Curiosity and self improvement
+### Curiosity and self-improvement
 
+Curiosity is a core component of [the hacker way](http://ben.balter.com/2013/02/04/what-is-a-hacker/#the-hacker-way). For some, there’s a constant intellectual itch just begging to be scratched, be it with code, with policy, or with systems and process. For these people, the world is full of problems just waiting to be solved. Just as athletes seek delight in pushing their bodies past their physical limits, hackers seek the thrill of pushing themselves (and their tools) beyond what is known, what is solved, and what is possible.
 
-
-### Professional but not formal
-
-There's a difference between being professional and being formal. Professionalism is about mastery in one's craft. Professionals are efficient. They're methodical. They're systematic. they're organized. Professionals cary out the task at hand without being distracted by personal concern or emotion. Formality is about with rule and convention. Formalism is about stiffness. About being overly concerned with ceremony over substance. About a focus on outward appearance over actually shipping.
-
-
+At GitHub, there's a strong history of rewarding that curiosity. Most visibly, we have a reading stipend, whereby GitHubbers are encouraged to constantly refine their craft (and learn new ones). Beyond that, there's a sense that if you see something you don't know or understand, you can, and should take the time to understand it. That could be a new part of the application or an entirely new language or technology. The worst thing you can do, when you experience something unknown is to give up or consider yourself blocked.
 
 ### Honesty, integrity, authenticity
+
+
 
 ### Appreciation economy
 
