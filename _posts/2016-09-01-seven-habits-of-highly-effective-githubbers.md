@@ -1,7 +1,9 @@
 ---
 title: The seven habits of highly effective GitHubbers
-description:
+description: GitHub has a unique work culture. Here are seven traits that I've observed in successful GitHubbers over the years and that I think make you more effective. YMMV.
 ---
+
+I started at GitHub when it was just over a hundred employees. A few weeks ago, we passed 600. A lot has changed, including my role, but a lot has also remained the same. GitHub has a unique work culture, and as I recently struggled to explain that culture to my coworkers, I decided instead to document some of the common traits I've consistently seen in successful GitHubbers. There are likely more, but I couldn't pass up the title, so here are seven qualities that I think make GitHub employees more effective, and ultimately more successful:
 
 ### 1. Professional, but not formal
 
@@ -29,9 +31,9 @@ At GitHub, there's a strong history of rewarding that curiosity. Most formally, 
 
 ### 5. Contribute to the appreciation economy
 
-It could be said that GitHub operates on somewhat of an appreciation economy. What I mean by that, is that appreciation (in the emotional sense) is the currency that makes many of the day-to-day interactions at GitHub possible. Heavily influenced by the ideas of [Rework](https://www.amazon.com/dp/B002MUAJ2A/?tag=benbalter-20), the idea being that in many cases, public recognition is going to be a more appropriate response to someone going above-and-beyond than a pure monetary reward. For a while, that took the form of company-wide "shoutout" every week (e.g., "shoutout to Ben for taking the time to help me learn X"), but as you can imagine, that didn't scale as the company grew to now 600 people.
+It could be said that GitHub operates on somewhat of an appreciation economy. What I mean by that, is that appreciation (in the emotional sense) is the currency that makes many of the day-to-day interactions at GitHub possible. Likely influenced by [Rework](https://www.amazon.com/dp/B002MUAJ2A/?tag=benbalter-20), which suggests that in many cases, public recognition is going to be a more appropriate response to someone going above-and-beyond in the workplace than a pure monetary reward.[^rework] For a while, that took the form of company-wide "shoutout" every Friday (e.g., "shoutout to Ben for taking the time to help me learn X"), but as you can imagine, that didn't scale as the company grew to now 600 people.
 
-Today, that appreciation economy often takes the form of a `.sparkles` ChatOps command, posts to our internal Team blog, and a culture of going out of your way to give credit where credit is due, either on an in-progress issue, in private, or indirectly via a manager. Effective GitHubbers realize that they're more effective when they work together, and
+Today, that appreciation economy often takes the form of the `.sparkles` or tongue-in-cheek roles ChatOps commands, posts to our internal Team blog, and a culture of going out of your way to give credit where credit is due, either on an in-progress issue, in private direct messages, or indirectly to a manager. Effective GitHubbers realize that they're more effective when they work together, and they make it known when others make an outstanding contribution, not only to recognize their coworkers efforts, but also to further a culture where others continue to do the same.
 
 ### 6. Ship early, ship often
 
@@ -39,10 +41,14 @@ If there's one phrase that epitomizes successful engineers at GitHub, it's "don'
 
 There's two sides to this. First, lots of ideas don't make it past the pull request stage, past the team ship stage, or even the staff ship phase, but it's far preferable to learn that something isn't a good fit before it hits `master` than it is to learn once users have begin relying on it. At the same time, it's important to balance the optimization or polish versus the potential impact, to ensure you're always making forward progress. Even if a peer's code review reveals an internal script could be rewritten, your time may be better spent focusing elsewhere, even if you know it's not yet perfect (and may never be). Effective GitHubbers [surface work early for feedback](http://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#surface-work-early-for-feedback), and consistently get small increments of features in hands of users as quickly as possible, as they strive towards perfection, not after they achieve it. In a single buzzword, *iterate*.
 
-### 7. Honesty, integrity, authenticity
+### 7. Honesty, integrity, and authenticity
 
-All throughout GitHub lore we have phrases like "speak like a human" or "when in doubt, be classy". Granted no one's always perfect, these are more than mere buzzwords. Internally, there's a strong sense that "talk is cheap" and that "action speaks louder than words". It's one thing to say you'll be transparent, it's another thing to work in the open. Successful GitHubbers consistently do what they say they'll do. They're also willing to work past the their own self-consciousness to have awkward conversations, be they positive or negative. Everyone's better when things are in the open. Finally, when things aren't great, they don't gloss over the not-so-great, or put on a fake face.
+All throughout GitHub lore we have phrases like "speak like a human" and "when in doubt, be classy". Granted no one's always perfect, these are more than mere buzzwords. Internally, there's a strong sense that action speaks louder than words. It's one thing to say you'll be transparent or collaborative, it's another thing to work in the open, provide opportunities to participate, and ultimately implement the feedback you receive. While here in the Beltway there may be a strong tradition of gushing "It's so great to see you!", even when you know it isn't, at GitHub, there's a strong premium placed on remaining true to GitHub's values (and thus a heavy price, at least in terms of trust, for hypocrisy and inconsistency).
+
+Effective GitHubbers consistently do what they say they'll do. They're also willing to work past their own self-consciousness to have awkward conversations (often made more difficult by being remote), be they positive or negative. Everyone's better when things are in the open. Finally, when things aren't great, they don't gloss over the not-so-great, or put on a fake face.
 
 ---
 
 [^suit]: Case in point, I wore a suit for the majority of my first three years at GitHub. I also used words like "heretofore" a lot. Even in our legal writing, we strive for human readability over tradition or obfuscation by legalese.
+
+[^rework]: You should really read [Rework](https://www.amazon.com/dp/B002MUAJ2A/?tag=benbalter-20), but TL;DR: when you create a one-to-one relationship between doing something you love and formal compensation, you make doing that thing you love a means to an end as the more tangible financial value supplants the less tangible emotional or intellectual value you once derived from the activity.
