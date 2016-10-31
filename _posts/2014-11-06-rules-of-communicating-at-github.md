@@ -50,7 +50,7 @@ In practice, that means [creating a lot of niche teams](https://help.github.com/
 
 ### 5. Be mindful of noise
 
-A comment on an issue may take 20 seconds to read, from the time the notification is recieved, the page loads, the reader gains the necessary context, and a decision is made as to what action, if any, is necessary on their part. If there are 50 people subscribed to the thread or mentioned, you've just spent more than 15 minutes of your company's collective time. Was it worth it?
+A comment on an issue may take 20 seconds to read, from the time the notification is received, the page loads, the reader gains the necessary context, and a decision is made as to what action, if any, is necessary on their part. If there are 50 people subscribed to the thread or mentioned, you've just spent more than 15 minutes of your company's collective time. Was it worth it?
 
 In practice, that means three things:
 
