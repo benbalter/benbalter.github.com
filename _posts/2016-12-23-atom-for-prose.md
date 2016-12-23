@@ -1,5 +1,5 @@
 ---
-title: How I Atom for prose
+title: How I Atom (for prose)
 description: How I customize the hackable Atom text editor for writing prose and Markdown.
 ---
 
