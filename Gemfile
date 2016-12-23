@@ -12,5 +12,5 @@ group :test, :development do
   gem 'rubocop'
   gem 'nokogiri'
   gem 'rspec'
-  gem 'sinatra/cross_origin' # Jekyll Admin
+  gem 'sinatra-cross_origin' # Jekyll Admin
 end
