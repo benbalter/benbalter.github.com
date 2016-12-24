@@ -28,7 +28,7 @@ These packages shave seconds (sometimes minutes) off your day, and given their s
 There's a number of Markdown-specific packages I use. Here's a few:
 
 * [atomic-chrome](https://atom.io/packages/atomic-chrome) - One of my favorite Atom plugins, if you're in a textarea in Google Chrome, click the menu icon to open that textarea as an Atom editor, complete with all of Atom's bells and whistles.
-* [markdown-lists](https://atom.io/packages/markdown-lists) - If you're in the middle of a Markdown list and hits return, it inserts the bullet on the next line for you.
+* [markdown-lists](https://atom.io/packages/markdown-lists) - If you're in the middle of a Markdown list and hit return, it inserts the bullet on the next line for you.
 * [markdown-table-formatter](https://atom.io/packages/markdown-table-formatter) - If you create a Markdown table, on save, it aligns the columns such that the table is both human and machine readable.
 * [wordcount](https://atom.io/packages/wordcount) - Exactly what it sounds like, it adds a word (and character) count to the gutter. Useful for composing conference abstracts, Tweets, basically anything with a set limit.
 
@@ -44,7 +44,7 @@ There are a few prose-specific linters I credit for improving my day-to-day writ
 
 * [linter-write-good](https://atom.io/packages/linter-write-good) - A grammar linter, Write Good checks all sorts of things, like cliches, passive voice, and unnecessarily wordy phrases.
 * [linter-markdown](https://atom.io/packages/linter-markdown) - This linter, based on [Remark JS](https://github.com/gnab/remark) lints Markdown formatting, ensuring things like headings are surrounded by whitespace and bulleted lists are consistent.
-* [linter-alex](https://atom.io/packages/linter-alex) - [Alex](xhttps://github.com/wooorm/alex) checks your writing for biased or insensitive language.
+* [linter-alex](https://atom.io/packages/linter-alex) - [Alex](https://github.com/wooorm/alex) checks your writing for biased or insensitive language.
 * [linter-just-say-no](https://atom.io/packages/linter-just-say-no) - Discourages you from using hedge words that weaken's the impact of your writing.
 
 ### How I manage Atom
