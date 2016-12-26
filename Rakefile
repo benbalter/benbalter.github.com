@@ -32,8 +32,6 @@ end
 task :build do
   Rake::Task[:set_env].invoke
   options = {
-    'trace'       => true,
-    'verbose'     => true,
     'config' => %w(_config.yml _config_test.yml)
   }
   Jekyll::Commands::Build.process(options)
