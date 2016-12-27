@@ -44,7 +44,7 @@ There are a few prose-specific linters I credit for improving my day-to-day writ
 
 * [linter-write-good](https://atom.io/packages/linter-write-good) - A grammar linter, Write Good checks all sorts of things, like cliches, passive voice, and unnecessarily wordy phrases.
 * [linter-markdown](https://atom.io/packages/linter-markdown) - This linter, based on [Remark JS](https://github.com/gnab/remark) lints Markdown formatting, ensuring things like headings are surrounded by whitespace and bulleted lists are consistent.
-* [linter-alex](https://atom.io/packages/linter-alex) - [Alex](xhttps://github.com/wooorm/alex) checks your writing for biased or insensitive language.
+* [linter-alex](https://atom.io/packages/linter-alex) - [Alex](https://github.com/wooorm/alex) checks your writing for biased or insensitive language.
 * [linter-just-say-no](https://atom.io/packages/linter-just-say-no) - Discourages you from using hedge words that weaken's the impact of your writing.
 
 ### How I manage Atom
