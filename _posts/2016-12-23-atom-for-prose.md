@@ -28,7 +28,7 @@ These packages shave seconds (sometimes minutes) off your day, and given their s
 There's a number of Markdown-specific packages I use. Here's a few:
 
 * [atomic-chrome](https://atom.io/packages/atomic-chrome) - One of my favorite Atom plugins, if you're in a textarea in Google Chrome, click the menu icon to open that textarea as an Atom editor, complete with all of Atom's bells and whistles.
-* [markdown-lists](https://atom.io/packages/markdown-lists) - If you're in the middle of a Markdown list and hits return, it inserts the bullet on the next line for you.
+* [markdown-lists](https://atom.io/packages/markdown-lists) - If you're in the middle of a Markdown list and hit return, it inserts the bullet on the next line for you.
 * [markdown-table-formatter](https://atom.io/packages/markdown-table-formatter) - If you create a Markdown table, on save, it aligns the columns such that the table is both human and machine readable.
 * [wordcount](https://atom.io/packages/wordcount) - Exactly what it sounds like, it adds a word (and character) count to the gutter. Useful for composing conference abstracts, Tweets, basically anything with a set limit.
 
