@@ -18,10 +18,9 @@ Think about the type of user that's going to take the time to open an issue: the
 Instead of optimizing for the most vocal, feature requests should be evaluated through the lens of "*what would benefit 80% of users?*" — the [silent majority](https://en.wikipedia.org/wiki/Silent_majority), to borrow a phrase from politics. I suspect, for most projects, the exact opposite is sure, that 80% of feature requests come from just 20% of users (or [as few as 1%](https://en.wikipedia.org/wiki/1%25_rule_(Internet_culture))). Combined with the fact that these requests often represent the "fun" problems, this [80/20 rule](https://en.wikipedia.org/wiki/Pareto_principle) means that in many cases, absent your intervention, the majority of features implemented, will provide little or no benefit to the majority of users.
 
 |                      | Technically simple | Technically complex |
-| :------------------- | :----------------- | :------------------ |
+|:---------------------|:-------------------|:--------------------|
 | **Solution obvious** | Feature creep      | Edge cases          |
 | **Solution unclear** | Core use           | Power users         |
-
 {: .table style="max-width:60%" .aligncenter }
 
 ### Anything added dilutes everything else
