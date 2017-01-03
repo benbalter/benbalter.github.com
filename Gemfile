@@ -7,10 +7,10 @@ gem 'jekyll-avatar'
 
 group :test, :development do
   gem 'html-proofer'
-  gem 'rake'
-  gem 'pry'
-  gem 'rubocop'
   gem 'nokogiri'
+  gem 'pry'
+  gem 'rake'
   gem 'rspec'
+  gem 'rubocop'
   gem 'sinatra-cross_origin' # Jekyll Admin
 end
