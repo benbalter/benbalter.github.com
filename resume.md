@@ -20,7 +20,7 @@ certifications:
   - authority: Bar Association of the District of Columbia
     name: Member, license 1021576
   - authority: WSET — Wine & Spirit Education Trust
-    name: Level 3 Award in Wines and Spirits (QCF)
+    name: Level 3 Award in Wines
 ---
 
 ### Experience
