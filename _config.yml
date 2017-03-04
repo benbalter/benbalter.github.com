@@ -3,7 +3,8 @@ description: Attorney, open source developer, product manager
 author: benbalter
 
 repository: benbalter/benbalter.github.com
-logo: "/assets/img/headshot.jpg"
+#logo: "/assets/img/headshot.jpg"
+logo: "/assets/img/lyonsheader.jpg"
 
 twitter:
   username: "@benbalter"
