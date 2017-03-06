@@ -106,22 +106,22 @@ nav_pages:
 
 contact_links:
   - name: Twitter
-    url: https:
+    url: https://lyons-zhang
     icon: twitter
   - name: Facebook
-    url: https://
+    url: https://lyons-zhang
     icon: facebook
   - name: LinkedIn
-    url: https:
+    url: https://lyons-zhang
     icon: linkedin
   - name: Google
-    url: https:
+    url: https://lyons-zhang
     icon: google-plus
   - name: GitHub
-    url: https:
+    url: https://lyons-zhang
     icon: github
   - name: Keybase
-    url: https:
+    url: https://lyons-zhang
     icon: key
 
 amazon:
