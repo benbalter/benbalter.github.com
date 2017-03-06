@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 
 gem 'github-pages', '>= 104', group: :jekyll_plugins
 gem 'jekyll-admin', group: :jekyll_plugins
-gem 'jekyll-avatar'
 
 group :test, :development do
   gem 'html-proofer'
@@ -12,5 +11,6 @@ group :test, :development do
   gem 'rake'
   gem 'rspec'
   gem 'rubocop'
+  gem 'jekyll-avatar'
   gem 'sinatra-cross_origin' # Jekyll Admin
 end
