@@ -7,6 +7,6 @@ icons: true
 ---
 
 {: .center }
-If you have any questions about wireless communication, or just questions in digital communication, you can ask me anything over in **[benbalter/feedback](https://github.com/benbalter/feedback)**, otherwise, feel free to e-mail me at <mailto:fpgapalyer@gmail.com> or you can find me on these social networks:
+If you have any questions about wireless communication, or just questions in digital communication, you can ask me anything over in **[lyons-zhang/feedback](https://github.com/benbalter/feedback)**, otherwise, feel free to e-mail me at <mailto:fpgapalyer@gmail.com> or you can find me on these social networks:
 
 {% include contact-links.html %}
