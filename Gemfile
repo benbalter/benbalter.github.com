@@ -11,5 +11,6 @@ group :test, :development do
   gem 'rake'
   gem 'rspec'
   gem 'rubocop'
+  gem 'jekyll-avatar'
   gem 'sinatra-cross_origin' # Jekyll Admin
 end
