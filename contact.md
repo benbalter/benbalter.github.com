@@ -1,6 +1,6 @@
 ---
 title: Contact
-excerpt: Contact Ben
+excerpt: Contact lyons
 layout: page
 permalink: /contact/
 icons: true
