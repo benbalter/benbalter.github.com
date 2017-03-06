@@ -19,5 +19,3 @@ Prior to GitHub, Ben was a member of the inaugural class of Presidential Innovat
 As an attorney passionate about the disruptive potential of technology, Ben holds a J.D. and an M.B.A. from the George Washington University and is a member of the DC Bar. When not trying to change the world, he enjoys tackling otherwise-impossible challenges to sharing information using nothing more than duct tape, version control, and occasionally a pack of bubblegum.
 
 Feel free to e-mail him at <mailto:fpgaplayer@gmail.com> or you can find him on these social networks:
-
-{% include contact-links.html %}
