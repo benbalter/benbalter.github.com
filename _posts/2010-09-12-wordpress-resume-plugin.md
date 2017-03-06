@@ -1,5 +1,5 @@
 ---
-title: WordPress Resume Plugin
+title: Example
 description: WP Resume is an out-of-the-box solution to get your resume online and keep it updated. Built on WordPress 3.0's custom post type functionality, it offers a uniquely familiar approach to publishing. If you've got a WordPress site, you already know how to use WP Resume.
 ---
 
