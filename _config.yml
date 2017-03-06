@@ -1,28 +1,22 @@
-title: Ben Balter
-description: Attorney, open source developer, product manager
-author: benbalter
-
-repository: benbalter/benbalter.github.com
+title: lyons-zhang
+description: Wireless Communication Specialist, FPGA Developer
+author: lyons-zhang
+repository: lyons-zhang/lyons-zhang.github.io
 logo: "/assets/img/headshot.jpg"
 
 twitter:
-  username: "@benbalter"
+  username: "@lyons-zhang"
 
 social:
-  name: Ben Balter
+  name: lyons zhang
   links:
-    - https://twitter.com/BenBalter
-    - https://www.facebook.com/ben.balter
-    - https://www.linkedin.com/in/BenBalter
-    - https://plus.google.com/+BenBalter
-    - https://github.com/benbalter
-    - https://keybase.io/benbalter
+    - https://lyons-zhang
 
 disqus:
-  shortname: benbalter
+  shortname: lyons
 
-google_plus_id: BenBalter
-ga_username: UA-18088627-1
+google_plus_id: 
+ga_username: 
 
 exclude:
   - CONTRIBUTING.md
@@ -74,7 +68,7 @@ defaults:
       layout: page
       comments: false
 
-timezone: America/New_York
+timezone: Asia/Shanghai
 encoding: UTF-8
 lang: en-US
 branch: master
@@ -89,7 +83,8 @@ gems:
   - jekyll-seo-tag
   - jekyll-avatar
   - jekyll-github-metadata
-
+  - jekyll-admin
+  
 sass:
   style: :compressed
   sass_dir: retlab/_sass
@@ -111,23 +106,23 @@ nav_pages:
 
 contact_links:
   - name: Twitter
-    url: https://twitter.com/BenBalter
+    url: https://lyons-zhang
     icon: twitter
   - name: Facebook
-    url: https://facebook.com/BenBalter
+    url: https://lyons-zhang
     icon: facebook
   - name: LinkedIn
-    url: https://www.linkedin.com/in/BenBalter
+    url: https://lyons-zhang
     icon: linkedin
   - name: Google
-    url: https://plus.google.com/107848665104278257250?rel=author
+    url: https://lyons-zhang
     icon: google-plus
   - name: GitHub
-    url: https://github.com/benbalter
+    url: https://lyons-zhang
     icon: github
   - name: Keybase
-    url: https://keybase.io/benbalter
+    url: https://lyons-zhang
     icon: key
 
 amazon:
-  affiliates_tag: benbalter07-20
+  affiliates_tag: 

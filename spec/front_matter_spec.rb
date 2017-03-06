@@ -2,6 +2,7 @@
 RSpec.describe 'front matter' do
   context 'pages' do
     pages_to_check.each do |page|
+      next unless required_front_matter['pages']
       context "the #{File.join(page.dir, page.name)} page" do
         required_front_matter['pages'].each do |field|
           it "has a #{field}" do
@@ -9,7 +10,7 @@ RSpec.describe 'front matter' do
             expect(page.data).to have_key(field), msg
           end
         end
-      end if required_front_matter['pages']
+      end
     end
   end
 
@@ -18,12 +19,12 @@ RSpec.describe 'front matter' do
       context "the #{label} collection" do
         collection.docs.each do |doc|
           context "the #{doc.relative_path} #{label}" do
-            required_front_matter[label].each do |field|
+            required_front_matter[label]&.each do |field|
               it "has a #{field}" do
                 msg = "Keys: #{doc.data.keys.join(', ')}"
                 expect(doc.data).to have_key(field), msg
               end
-            end if required_front_matter[label]
+            end
           end
         end
       end

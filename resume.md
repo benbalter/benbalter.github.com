@@ -1,5 +1,4 @@
 ---
-author: Benjamin J. Balter
 title: Resume
 description: Ben Balter is an attorney, an open source developer, and a Product Manager at GitHub, the world's largest software development network.
 layout: page
@@ -20,7 +19,7 @@ certifications:
   - authority: Bar Association of the District of Columbia
     name: Member, license 1021576
   - authority: WSET — Wine & Spirit Education Trust
-    name: Level 2 Award in Wines and Spirits (QCF) — pass with distinction
+    name: Level 3 Award in Wines
 ---
 
 ### Experience
