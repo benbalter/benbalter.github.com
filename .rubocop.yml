@@ -9,3 +9,7 @@ Style/Documentation:
 
 Metrics/LineLength:
   Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
