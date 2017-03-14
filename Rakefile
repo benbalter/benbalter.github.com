@@ -54,7 +54,7 @@ task :format_yaml do
     content = File.read(path)
     next unless content =~ Jekyll::Document::YAML_FRONT_MATTER_REGEXP
     parts = content.split Jekyll::Document::YAML_FRONT_MATTER_REGEXP
-    yaml = YAML.load(parts[1])
+    yaml = YAML.safe_load(parts[1])
     %w(title description).each { |key| yaml[key] = strip_whitespace(yaml[key]) if yaml[key] }
     %w(tags category categories post_format).each { |key| yaml.delete(key) }
     File.write(path, yaml.to_yaml(line_width: -1) + "---\n\n" + parts[4].to_s)
