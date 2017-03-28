@@ -52,7 +52,7 @@ exclude:
   - assets/vendor/modernizr/feature-detects
   - assets/vendor/modernizr/media
   - assets/vendor/modernizr/test
-  - assets/vendor/anchor-js/index.html
+  - assets/vendor/anchor-js/README.md
   - ".bundle"
   - vendor
   - node_modules
@@ -90,7 +90,7 @@ gems:
   - jekyll-avatar
   - jekyll-github-metadata
   - jekyll-admin
-  
+
 sass:
   style: :compressed
   sass_dir: retlab/_sass
