@@ -89,7 +89,7 @@ gems:
   - jekyll-seo-tag
   - jekyll-avatar
   - jekyll-github-metadata
-  - jekyll-admin
+#  - jekyll-admin
 
 sass:
   style: :compressed
