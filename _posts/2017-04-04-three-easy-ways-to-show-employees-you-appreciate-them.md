@@ -1,6 +1,6 @@
 ---
 title: Three easy ways to show employees they're appreciated
-description: Celebrate everyday occurrences shows others that you appreciate them as individuals and makes your workplace a better place to work
+description: Celebrate everyday occurrences to show others that you appreciate them as individuals and make your workplace a better place to work
 ---
 
 As a manager (or a coworker) one small thing you can do to make wherever it is that you work a better place to work is to notice and celebrate everyday occurrences, to show those you work with that you appreciate them not just for what they do, but also for who they are. This is true even if all you know is the information on a standard HR form. Here's three easy ways to show that you appreciate the humans you work with:
