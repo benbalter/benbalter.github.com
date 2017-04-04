@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class AmazonLinkCheck < HTMLProofer::Check
   def affiliate_id
     @affiliate_id ||= YAML.load_file('_config.yml')['amazon']['affiliates_tag']
