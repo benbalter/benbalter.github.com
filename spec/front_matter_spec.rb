@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe 'front matter' do
   context 'pages' do
     pages_to_check.each do |page|
