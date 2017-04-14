@@ -2,8 +2,7 @@
 
 source 'https://rubygems.org'
 
-gem 'github-pages', '>= 104', group: :jekyll_plugins
-gem 'jekyll-avatar'
+gem 'github-pages', group: :jekyll_plugins
 
 group :test, :development do
   gem 'html-proofer'
