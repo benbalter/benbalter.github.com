@@ -1,6 +1,6 @@
 ---
 title: Your project's README is your project's constitution
-description: Your project README doesn't just communicate the "what" and "how", it communicates the "why", and serves as your most effective tool to combat scope creep and keep your project on track.
+description: Your project README doesn't just communicate the "what" and "how", it communicates the "why", and serves as your most effective tool to combat open source scope creep and technical debt.
 ---
 
 Most open source project maintainer treat READMEs as mere marketing material or technical documentation. Yes, your project README can and should tell others what your project does and how they can use it, but at its most fundamental level, the README serves as your project's foundational document, memorializing and communicating the projects core goals, philosophies, and underlying assumptions.
