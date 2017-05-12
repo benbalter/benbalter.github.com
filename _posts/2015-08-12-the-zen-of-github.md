@@ -40,6 +40,7 @@ These aren't mere words. There's [an API endpoint to retrieve random Zen](https:
 If you haven't already, I'd encourage you to spend a cycle documenting those assumptions that drive (or constrain) your organization's efforts. You'd be surprised how much less squishy culture becomes when culture has a URL.
 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
 <script>
 $(function() {
   return $.get("https://api.github.com/octocat", function(data) {

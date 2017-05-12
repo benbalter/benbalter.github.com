@@ -7,7 +7,7 @@ As a manager (or a coworker) one small thing you can do to make wherever it is t
 
 ### Birthdays
 
-*What*: Most humans have birthdays. Some humans don't care much for candles, singing, or mass attention, but  many humans would at least appreciate a quick "*Happy Birthday! I hope you have something fun planned this weekend.*" DM or email. Even better, throw in some emoji or an animated GIF for good measure.
+*What*: Most humans have birthdays. Some humans don't care much for candles, singing, or mass attention, but many humans would at least appreciate a quick "*Happy Birthday! I hope you have something fun planned this weekend.*" DM or email. Even better, throw in some emoji or an animated GIF for good measure.
 
 *Why*: This is especially true if you're remote. While onsite culture provides not-so-subtle queues like flower deliveries and stumble-upon opportunities like cake in the break room or communal drinks after work, when you're remote, you don't have such luxuries and it's even more important that you go out of your way to recognize your coworkers' birthdays.
 
