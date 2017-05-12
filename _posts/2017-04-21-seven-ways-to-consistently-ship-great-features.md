@@ -3,7 +3,7 @@ title: Seven ways to consistently ship great features
 description:
 ---
 
-I've written before about [rules for communicating at GitHub](http://ben.balter.com/2014/11/06/rules-of-communicating-at-github/), [habits common to effective GitHubbers](http://ben.balter.com/2016/09/13/seven-habits-of-highly-effective-githubbers/), and [philosophies that make great products](http://ben.balter.com/2016/08/22/ten-ways-to-make-a-product-great/). Today, I'd like to focus on seven characteristics I admire in developers that I see consistently shipping great features:
+I've written before about [rules for communicating at GitHub](http://ben.balter.com/2014/11/06/rules-of-communicating-at-github/), [habits common to effective GitHubbers](http://ben.balter.com/2016/09/13/seven-habits-of-highly-effective-githubbers/), and [philosophies that make great products](http://ben.balter.com/2016/08/22/ten-ways-to-make-a-product-great/). In this post, I'd like to focus on seven characteristics I admire in developers that I see consistently shipping great features:
 
 ### 1. Over communicate
 
