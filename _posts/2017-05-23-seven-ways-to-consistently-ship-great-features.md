@@ -3,7 +3,7 @@ title: Seven ways to consistently ship great features
 description: Seven habits I admire in developers that I see consistently shipping great, user-centric features.
 ---
 
-As a product manager, I spend most of my day working with developers to get features out the door and into the hands of users, both internally and for several open source projects. This gives me a unique sideline view of some of the habits successful (and not-so-successful) developers adopt, a view many aren't afforded when working in the code day-to-day. Here are seven habits I admire in developers that I see consistently shipping great, user-centric features:
+As a product manager, I spend most of my day working with developers to get features out the door and into the hands of users, both internally and for several open source projects. This gives me a unique sideline view of some of the habits successful (and not-so-successful) developers adopt, a perspective many may not be afforded when working in the code day-to-day. Here are seven habits I admire in developers that I see consistently shipping great, user-centric features:
 
 ### 1. Over communicate
 
