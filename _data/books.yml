@@ -1,5 +1,27 @@
 ---
 
+IT Management:
+
+  - title: "Managing Humans: Biting and Humorous Tales of a Software Engineering Manager"
+    asin: B00ACC5Z1U
+    tldr: How to make the transition from geek to manager. You'll learn how to navigate corporate politcs, how to manage conflict, how to manage your boss, how to manage other geeks, and this crazy ritual called meetings.
+
+  - title: High Output Management
+    asin: B015VACHOK
+    tldr: I know it looks like it belongs in the end case of the airport bookstore's "important business traveler" section, but judging a book by its cover and all that. The former CEO of Intel walks through how to build and grow teams, with a technlogy industry focus.
+
+  - title: "Crucial Conversations: Tools for Talking When Stakes Are High"
+    asin: B005K0AYH4
+    tldr: How to have conversations you know you should, but don't want to have. The author calls these "high-stakes situations". I'd call it "real talk". It's a quick read. A big part of it is strategies for separating out emotion but it also offers a framework for actually structuring the converation.
+
+  - title: "The Manager's Path: A Guide for Tech Leaders Navigating Growth and Change"
+    asin: B06XP3GJ7F
+    tldr: The former Rent the Runway CTO walks through each step of an IT leader's career, from mentoring interns, to running small teams, to rising through the ranks, with practical advice and examples at each step.
+
+  - title: "First, Break All the Rules: What the World's Greatest Managers Do Differently"
+    asin: B002IU6LR6
+    tldr: Gallop asked 80,000 employees 12 seemling simply questions like "do yo have the resources to do your job?", and from the results, propose a counter intuitive approach to management that focuses on growing employees strengths, rather than coaching away their weeknesses.
+
 Career and corporate life:
 
   - title: "Being Geek: The Software Developer's Career Handbook"
@@ -10,21 +32,9 @@ Career and corporate life:
     asin: B00DY5A8X2
     tldr: The major issues of software development are human, not technical—and managers ignore them at their peril.
 
-  - title: "Managing Humans: Biting and Humorous Tales of a Software Engineering Manager"
-    asin: B00ACC5Z1U
-    tldr: How to make the transition from geek to manager. You'll learn how to navigate corporate politcs, how to manage conflict, how to manage your boss, how to manage other geeks, and this crazy ritual called meetings.
-
   - title: "The Personal MBA: Master the Art of Business"
     asin: B0046ECJ8M
     tldr: Business for Dummies, but not for dummies. A high-level overview of they key concepts you'd learn in any MBA program, with a slighly modern twist. Value creation and delivery, sales, marketing, finance, humans, systems... it's all there. While obviously not a substitute for a two-year MBA program, it's well worth the read, and you'll walk away at least conversant in the moving parts of any business.
-
-  - title: High Output Management
-    asin: B015VACHOK
-    tldr: I know it looks like it belongs in the end case of the airport bookstore's "important business traveler" section, but judging a book by its cover and all that. The former CEO of Intel walks through how to build and grow teams, with a technlogy industry focus.
-
-  - title: "Crucial Conversations: Tools for Talking When Stakes Are High"
-    asin: B005K0AYH4
-    tldr: How to have conversations you know you should, but don't want to have. The author calls these "high-stakes situations". I'd call it "real talk". It's a quick read. A big part of it is strategies for separating out emotion but it also offers a framework for actually structuring the converation. 
 
 Open source:
 

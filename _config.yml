@@ -1,7 +1,9 @@
 title: Ben Balter
 description: Attorney, open source developer, product manager
-author: benbalter
-
+author:
+  name: Ben Balter
+  twitter: benbalter
+  
 repository: benbalter/benbalter.github.com
 logo: "/assets/img/headshot.jpg"
 
@@ -52,7 +54,7 @@ exclude:
   - assets/vendor/modernizr/feature-detects
   - assets/vendor/modernizr/media
   - assets/vendor/modernizr/test
-  - assets/vendor/anchor-js/index.html
+  - assets/vendor/anchor-js/README.md
   - ".bundle"
   - vendor
   - node_modules
@@ -89,8 +91,8 @@ gems:
   - jekyll-seo-tag
   - jekyll-avatar
   - jekyll-github-metadata
-  - jekyll-admin
-  
+#  - jekyll-admin
+
 sass:
   style: :compressed
   sass_dir: retlab/_sass

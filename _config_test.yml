@@ -7,6 +7,9 @@ proofer:
     - http://ben.balter.com/404/
     - /edit/master/404.html
   :check_html: true
+  :check_opengraph: true
+  :internal_domains:
+    - "http://localhost:4000"
   :url_swap:
     "http://localhost:4000/": "/"
   :cache:
@@ -14,7 +17,7 @@ proofer:
   :parallel:
     :in_processes: 3
   :disable_external: true
-  
+
 github:
   repository_nwo: "benbalter/benbalter.github.com"
   owner_url: "https://github.com/benbalter"
