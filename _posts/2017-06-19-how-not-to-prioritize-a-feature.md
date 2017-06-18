@@ -1,9 +1,9 @@
 ---
 title: How not to prioritize a feature
-description:
+description: The hardest part of software development is not deciding what feature you should build, but instead, what features will have the biggest impact.
 ---
 
-Sometimes great ideas, customer needs, product priorities, and engineering resources align. Sometimes a feature is so simple, that it makes more sense just to implement than to take the time to prioritize or sequence it. In my experience, those two cases represent the vast minority of features, and in a world of near-endless possibilities, the hardest part of software development is not deciding what feature you should build, but instead, what features will have the biggest impact. Here's seven anti-patterns I've seen both in open and closed source, for prioritizing feature requests:
+Sometimes great ideas, customer needs, product priorities, and engineering resources align. Sometimes a feature is so simple, that it makes more sense just to implement than to take the time to prioritize or sequence it. In my experience, those two cases represent the vast minority of features, and in a world of near-endless possibilities, the hardest part of software development is not deciding what features you should build, but instead, what features will have the biggest impact. Here's seven anti-patterns I've seen both in open and closed source, for prioritizing feature requests:
 
 ### 1. Someone is willing to build it
 
@@ -47,4 +47,8 @@ Most products have three broad classes of users: new users, mainstream users, an
 
 It can be hard to balance two seemingly diametrically opposed use cases, but keep in mind that for every power user that writes in asking for a feature, there's a new user (or potentially ten) that felt the opposite way, but are still on boarding and didn't have enough at stake to warrant letting you know. If you're just trying out an app and see something you don't like, you move on to the next app. That's not the case if you've been using it for years. When you're evaluating potential features, part of your role is to be an advocate for the long tail of users that won't yet advocate for themselves.
 
-### The theme makes sense in terms of your product vision
+### Prioritizing featues that will have the biggest impact
+
+So what features should you build then? In short, you should be focusing on themes that support a more unified product vision, and the individual features that build towards them. Before a feature request comes in, you should know who your target users are, the use cases you'd like to support, and roughly the direction you want your product heading towards in six months or a year.
+
+Great product ideas come from unexpected sources and at unexpected times. Software is more art than science, and sometimes it takes getting one feature into the hands of users to realize you need another. While it may be tempting to shortsightedly tackle features that are easy to implement or loudly requested, when ideas do come in, they should be evaluated against established product themes, not what requests make sense in isolation or at the moment.
