@@ -1,9 +1,9 @@
 ---
 title: How not to prioritize a feature
-description: The hardest part of software development is not deciding what feature you should build, but instead, what features will have the biggest impact.
+description: The hardest part of software development is not coming up with features to build, but instead, deciding what features will have the biggest impact.
 ---
 
-Sometimes great ideas, customer needs, product priorities, and engineering resources just align perfectly. Sometimes a feature is so simple that it makes more sense to just implement than to take the time to prioritize or sequence it. In my experience, those features represent the vast minority of features, and in a world of near-endless possibilities (and limited developer hours), the hardest part of software development is not deciding what features you should build, but instead, what features will have the biggest impact. Here's seven anti-patterns I've seen both in open and closed source, for prioritizing feature requests:
+Sometimes great ideas, customer needs, product priorities, and engineering resources just align perfectly. Sometimes a feature is so simple that it makes more sense to just implement than to take the time to prioritize or sequence it. In my experience, those features represent the vast minority of features, and in a world of near-endless possibilities (and limited developer hours), the hardest part of software development is not coming up with features to build, but instead, deciding what features will have the biggest impact. Here's seven anti-patterns I've seen both in open and closed source, for prioritizing feature requests:
 
 ### 1. Someone is willing to build it
 
