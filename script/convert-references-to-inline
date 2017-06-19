@@ -5,7 +5,7 @@
 # To inline-style markdown links in place
 
 Dir.foreach('_posts') do |item|
-  next if item == '.' || item == '..'
+  next if ['.', '..'].include? item
   path = File.expand_path item, '_posts'
   content = File.open(path).read
   refs = content.scan(/(\[.*?\]\[([0-9]+)\])/)
