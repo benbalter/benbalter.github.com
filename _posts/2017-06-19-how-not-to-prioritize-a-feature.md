@@ -47,7 +47,7 @@ Most products have three broad classes of users: new users, mainstream users, an
 
 It can be hard to balance two seemingly diametrically opposed use cases, but keep in mind that for every power user that writes in asking for a feature, there's one new user (and ten potential users) that felt the opposite way, but are still on boarding and didn't have enough at stake to warrant letting you know. If you're just trying out an app and see something you don't like, you move on to the next app. That's not the case if you've been using it for years and have a high switching cost. When you're evaluating potential features, part of your role is to be an advocate for the long tail of users that won't yet advocate for themselves.
 
-### Prioritizing featues that will have the biggest impact
+### Prioritizing features that will have the biggest impact
 
 So what features should you build then? In short, you should be focusing on themes that support a more unified product vision, and the individual features that build towards them. Before a feature request comes in, you should know who your target users are, the use cases you'd like to support, and roughly the direction you want your product heading towards in six months or a year.
 
