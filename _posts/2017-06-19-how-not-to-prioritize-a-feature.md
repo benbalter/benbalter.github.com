@@ -3,7 +3,7 @@ title: How not to prioritize a feature
 description: The hardest part of software development is not coming up with features to build, but instead, deciding what features will have the biggest impact.
 ---
 
-Sometimes great ideas, customer needs, product priorities, and engineering resources just align perfectly. Sometimes a feature is so simple that it makes more sense to just implement than to take the time to prioritize or sequence it. In my experience, those features represent the vast minority of features, and in a world of near-endless possibilities (and limited developer hours), the hardest part of software development is not coming up with features to build, but instead, deciding what features will have the biggest impact. Here's seven anti-patterns I've seen both in open and closed source, for prioritizing feature requests:
+Sometimes great ideas, customer needs, product priorities, and engineering resources just align perfectly. Sometimes a feature is so simple that it makes more sense to just implement than to take the time to prioritize or sequence it. In my experience, those features represent the vast minority of features, and in a world of near-endless possibilities (and limited developer hours), the hardest part of software development is not coming up with features to build, but instead, deciding what features will have the biggest impact. Here are seven anti-patterns I've seen both in open and closed source, for prioritizing feature requests:
 
 ### 1. Someone is willing to build it
 
@@ -13,7 +13,7 @@ Maybe the idea comes from a developer who's experienced the problem themselves. 
 
 ### 2. Sales says a lot of/a big/a potential customer is asking for it
 
-Your Sales team is one of your most robust means of getting feedback from customers. If an existing or potential customer has a suggestion, it's in everyone's best interest for that idea to be communicated via the sales rep to those who are in a position to implement it. But it's all too easy to confuse that which you hear from an important customer, with that which is most important. Sure, there may occasionally be overriding business concerns, but in general, product development and project management is neither a democracy nor a pure customer oligarchy.
+Your Sales team is one of your most robust means of getting feedback from customers. If an existing or potential customer has a suggestion, it's in everyone's best interest for that idea to be communicated via the sales rep to those who are in a position to implement it. But it's all too easy to confuse that which you hear from an important customer, with that which is most important. Sure, there may occasionally be overriding business concerns, but in general, product development and project management are neither a democracy nor a pure customer oligarchy.
 
 Your users are experts at using your product, not building, supporting, or maintaining it. Feedback via your sales channels should be one of your primary means of understanding user challenges, and it may make sense to take logos or seats into account, but it should not be your primary means of feature definition or prioritization, nor should it be your only means of feedback.
 
@@ -21,13 +21,13 @@ Your users are experts at using your product, not building, supporting, or maint
 
 People in technology tend to have friends in technology. It's not uncommon for friends to be users, and for conversations at meetups, over dinner, or during happy hour to turn to talking shop. Nobody wants to disappoint someone they respect, and showing that you listened to their advice or were in a position to implement their suggestion is a proven recipe to garner admiration.
 
-Unless you're building a product for developers, it's unlikely that your friends are your target audience, and even if you're are, they're not going to be representative of the full range of both current and potential users. Friends can be the source of some of your most honest, direct, and immediate critical feedback, but keep in mind that one data point does not create a pattern.
+Unless you're building a product for developers, it's unlikely that your friends are your target audience, and even if you are, they're not going to be representative of the full range of both current and potential users. Friends can be the source of some of your most honest, direct, and immediate critical feedback, but keep in mind that one data point does not create a pattern.
 
 ### 4. It's easy to do it
 
-There are always going to be certain number of no-brainer, quick wins that are trivial to implement and serve as "quality of life" improvements for users. When you're looking at adding a toggle to turn off a feature or supporting a one-off workflow, it can be tempting to just click merge, especially when the depth of discussion becomes disproportionate to the technical lift.
+There are always going to be a certain number of no-brainer, quick wins that are trivial to implement and serve as "quality of life" improvements for users. When you're looking at adding a toggle to turn off a feature or supporting a one-off workflow, it can be tempting to just click merge, especially when the depth of discussion becomes disproportionate to the technical lift.
 
-Just because something's easy to implement, doesn't mean that you necessarily should. For one, every feature you add creates an implicit and perpetual contract with your users, a contract that obligates you to maintain, support, and build around that feature in every subsequent release. For another, [a well curated project is a feature in itself](http://ben.balter.com/2016/07/21/removing-a-feature-is-a-feature/). Sometimes taking the time to implement the technically more complex solution will be better for users and maintainers in the long run.
+Just because something's easy to implement, doesn't mean that you necessarily should. For one, every feature you add creates an implicit and perpetual contract with your users, a contract that obligates you to maintain, support, and build around that feature in every subsequent release. For another, [a well-curated project is a feature in itself](http://ben.balter.com/2016/07/21/removing-a-feature-is-a-feature/). Sometimes taking the time to implement the technically more complex solution will be better for users and maintainers in the long run.
 
 ### 5. Our competitor does it
 
@@ -39,7 +39,7 @@ In the short run, a single feature may make or break a deal, but in the long run
 
 There's always that user. There's a pet feature they want. Maybe they're the only one experiencing it. Maybe it's something you've deprioritized for other reasons. Whatever the reason, they're not taking "no" for an answer and they use every opportunity they can to remind you of it. Whether it's emailing weekly, using hyperbolic language with support or sales, or threatening to move to a competitor, you know you're going to continue to be bombarded by requests until you give in.
 
-Product development is not a shouting match. Just because someone shouts an idea loudly or frequently doesn't mean it's a good one. You may be tempted to fulfill the request to please the customer (or end the request DoS), but more-often-than-not, as soon as you do, they'll have another equally critical feature to fixate on next. Sometimes there are truly take-it-or-leave-it features that may make business sense to implement, but I've found often in these cases it's the customer, not the product, and it may worth taking the risk that they realize it's just not the right fit. Everyone will be better off in the long run.
+Product development is not a shouting match. Just because someone shouts an idea loudly or frequently doesn't mean it's a good one. You may be tempted to fulfill the request to please the customer (or end the request DoS), but more often than not, as soon as you do, they'll have another equally critical feature to fixate on next. Sometimes there are truly take-it-or-leave-it features that may make business sense to implement, but I've found often in these cases it's the customer, not the product, and it may worth taking the risk that they realize it's just not the right fit. Everyone will be better off in the long run.
 
 ### 7. A handful of power users are asking for it
 
