@@ -21,7 +21,7 @@ Your users are experts at using your product, not building, supporting, or maint
 
 People in technology tend to have friends in technology. It's not uncommon for friends to be users, and for conversations at meetups, over dinner, or during happy hour to turn to talking shop. Nobody wants to disappoint someone they respect, and showing that you listened to their advice or were in a position to implement their suggestion is a proven recipe to garner admiration.
 
-Unless you're building a product for developers, it's unlikely that your friends are your target audience, and even if you're are, they're not going to be representative of the full range of both current and potential users. Friends can be the source of some of your most honest, direct, and immediate critical feedback, but keep in mind that one data point does not create a pattern.
+Unless you're building a product for developers, it's unlikely that your friends are your target audience, and even if you are, they're not going to be representative of the full range of both current and potential users. Friends can be the source of some of your most honest, direct, and immediate critical feedback, but keep in mind that one data point does not create a pattern.
 
 ### 4. It's easy to do it
 
