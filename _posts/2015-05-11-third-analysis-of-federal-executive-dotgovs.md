@@ -3,10 +3,10 @@ title: Analysis of federal .gov domains, 2015 edition
 description: A quick analysis of the technology and capabilities that power each federal .gov domain such as non-www, SSL, and IPv6 support, or what server/cms they use
 ---
 
-In [2011](http://ben.balter.com/2011/09/07/analysis-of-federal-executive-domains/) and then again in [2014](http://ben.balter.com/2014/07/07/analysis-of-federal-executive-domains-part-deux/) I used
+In [2011](//ben.balter.com/2011/09/07/analysis-of-federal-executive-domains/) and then again in [2014](//ben.balter.com/2014/07/07/analysis-of-federal-executive-domains-part-deux/) I used
 [a small tool](https://github.com/benbalter/site-inspector) that I wrote to crawl every site on the [publicly available list of Federal Executive .gov domains](https://github.com/GSA/data/tree/gh-pages/dotgov-domains) to get a better sense of the state of federal IT, at least when it comes to agencies' public-facing web presence. This weekend, I decided to resurrect that effort, with the recently updated list of .gov domains, and with a more finely tuned version of the [open source Site Inspector tool](https://github.com/benbalter/site-inspector), thanks to some contributions from [Eric Mill](https://konklone.com/).
 
-You can always compare them to the original [2011](http://ben.balter.com/2011/09/07/analysis-of-federal-executive-domains/) or [2014](http://ben.balter.com/2014/07/07/analysis-of-federal-executive-domains-part-deux/) crawls, or [browse the entire dataset for yourself](https://dotgov-browser.herokuapp.com){: data-proofer-ignore="true" }, but here are some highlights of what I found:
+You can always compare them to the original [2011](//ben.balter.com/2011/09/07/analysis-of-federal-executive-domains/) or [2014](//ben.balter.com/2014/07/07/analysis-of-federal-executive-domains-part-deux/) crawls, or [browse the entire dataset for yourself](https://dotgov-browser.herokuapp.com){: data-proofer-ignore="true" }, but here are some highlights of what I found:
 
 * 1177 of those domains [are live](https://dotgov-browser.herokuapp.com/domains?up=true){: data-proofer-ignore="true" } (about 86%, up from 83% last year, and 73% originally)
 * Of those live domains [only 75% are reachable without the `www.` prefix](https://dotgov-browser.herokuapp.com/domains?root=true&up=true){: data-proofer-ignore="true" }, down from 83% last year

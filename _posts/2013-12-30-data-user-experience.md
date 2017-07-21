@@ -8,7 +8,7 @@ Publishing government information is about much more than simply throwing 0's an
 
 Go to any agency website, and chances are you'll find at least one dataset sitting idly by because the barrier to consume it is *too damn high*. It doesn't matter how hard stakeholders had to fight to get the data out the door or how valuable the dataset is, it's never going to become the next GPS or weather data.
 
-[We can build cruft to get around the hurdles](http://ben.balter.com/2013/07/01/technologys-the-easy-part/), but so long as the workflow is optimized for the publisher, not the consumer, we're always going to be setting ourselves up to give the naysayers even more fodder to point at as an example for why we shouldn't waste agency resources on open government initiatives.
+[We can build cruft to get around the hurdles](//ben.balter.com/2013/07/01/technologys-the-easy-part/), but so long as the workflow is optimized for the publisher, not the consumer, we're always going to be setting ourselves up to give the naysayers even more fodder to point at as an example for why we shouldn't waste agency resources on open government initiatives.
 
 There was [an interesting Hacker News comment](https://news.ycombinator.com/item?id=6385623) that caught my eye around the release of [a Bureau of Labor and Statistics API](http://www.bls.gov/developers/api_FAQs.htm). User @[nmcfarl](https://news.ycombinator.com/user?id=nmcfarl) wrote:
 

@@ -7,7 +7,7 @@ Today's New York Times article [outlining law enforcement officials' attempts to
 
 But why does this shift matter? Simply put, in [the cloud](http://en.wikipedia.org/wiki/Cloud_computing "Wikipedia: Cloud Computing"), there is no door for the police to kick in. While the law is clear in that your physical files and those computer files stored on your computer itself enjoy the protections of the fourth amendment, those stored in the cloud do not, and the standards of proof required differ dramatically.[^6]
 
-![Skyline with logos of cloud service providers superimposed on the clouds cleverly](http://ben.balter.com/wp-content/uploads/2010/09/4502026170_4bf31f04e6.jpg "Cloud Computing - 500px"){: .aligncenter }
+![Skyline with logos of cloud service providers superimposed on the clouds cleverly](//ben.balter.com/wp-content/uploads/2010/09/4502026170_4bf31f04e6.jpg "Cloud Computing - 500px"){: .aligncenter }
 
 Consider this: you are the target of a criminal investigation and the police believe that six months ago you e-mailed an accomplice to discuss the crime. Depending on your e-mail settings and which service you use (e.g., if the "leave downloaded messages on server" option is checked), the police may need only offer "specific and articulable facts" that they suspect the e-mail is related to the crime.[^9] That same e-mail stored on your computer (e.g., if the setting is not checked), would require a search warrant and showing of probable cause, and thus would be afforded significantly greater protections under the law.[^10]
 

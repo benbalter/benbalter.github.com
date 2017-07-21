@@ -21,7 +21,7 @@ I watch day in and day out as many of my former colleagues fight tooth-and-nail 
 
 ### A culture that's criminal
 
-The problem isn't that government agencies want to share vast swaths of public data, or that they want to share it with increasing frequency, or to the point, that they lack the tools to do so properly. In fact, it's the exact opposite. It's that sharing data is seen as being too onerous. It's too taxing. It forces me to learn something new. It diverts funding from mission. It's a political liability. Foundationally, it goes against the organizational culture. And frankly, [we're not helping](http://ben.balter.com/2013/05/14/we-ve-been-selling-open-source-wrong/).
+The problem isn't that government agencies want to share vast swaths of public data, or that they want to share it with increasing frequency, or to the point, that they lack the tools to do so properly. In fact, it's the exact opposite. It's that sharing data is seen as being too onerous. It's too taxing. It forces me to learn something new. It diverts funding from mission. It's a political liability. Foundationally, it goes against the organizational culture. And frankly, [we're not helping](//ben.balter.com/2013/05/14/we-ve-been-selling-open-source-wrong/).
 
 We should be co-opting proven tools already in the hands of public servants and making it so ridiculously straightforward for government agencies to distribute information and build collaborative communities around shared problems that it would be criminal for them not to. To break the bad habits. To get rid of the excuses. To educate. To inform. To inspire. To get the mole on our side, rather than continuing to fight it.
 

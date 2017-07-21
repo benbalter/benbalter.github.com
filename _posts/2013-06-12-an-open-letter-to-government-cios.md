@@ -11,7 +11,7 @@ But hey, the good news is that you're not in it alone. We (the Internet) are her
 
 ### Lean
 
-If there's a less heavyweight solution, and you're not using it, you've over-engineered things. Look to existing tools (think open source), services (think APIs), and practices (think shared standards). Simpler applications are easier to scale, easier to maintain, and have fewer components that can break. Prefer [JSON](http://jsonapi.org/) to [XML](http://www.codinghorror.com/blog/2008/05/xml-the-angle-bracket-tax.html), [REST](https://github.com/whitehouse/api-standards#pragmatic-rest) to [SOAP](http://en.wikipedia.org/wiki/SOAP), and [static](http://jekyllrb.com) to [dynamic](http://ben.balter.com/2012/10/01/welcome-to-the-post-cms-world/). Fear complexity.
+If there's a less heavyweight solution, and you're not using it, you've over-engineered things. Look to existing tools (think open source), services (think APIs), and practices (think shared standards). Simpler applications are easier to scale, easier to maintain, and have fewer components that can break. Prefer [JSON](http://jsonapi.org/) to [XML](http://www.codinghorror.com/blog/2008/05/xml-the-angle-bracket-tax.html), [REST](https://github.com/whitehouse/api-standards#pragmatic-rest) to [SOAP](http://en.wikipedia.org/wiki/SOAP), and [static](http://jekyllrb.com) to [dynamic](//ben.balter.com/2012/10/01/welcome-to-the-post-cms-world/). Fear complexity.
 
 ### Iterative
 

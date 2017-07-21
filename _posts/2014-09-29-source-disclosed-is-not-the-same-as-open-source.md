@@ -7,9 +7,9 @@ redirect_from:
 - "/2014/09/29/source-disclosed-!=-open-source/"
 ---
 
-It's not uncommon for government agencies to contact GitHub, looking for advice on how best to "publish" government-funded source code for "consumption" by the open source community. While a necessary and admirable first step, [efforts to "release" source code, in reality, often fall short of actually being open source](http://ben.balter.com/2012/10/15/open-source-is-not-a-verb/).
+It's not uncommon for government agencies to contact GitHub, looking for advice on how best to "publish" government-funded source code for "consumption" by the open source community. While a necessary and admirable first step, [efforts to "release" source code, in reality, often fall short of actually being open source](//ben.balter.com/2012/10/15/open-source-is-not-a-verb/).
 
-[The argument](http://ben.balter.com/2014/09/22/open-source-is-not-insecure/) for open source [in government](http://ben.balter.com/2014/06/02/beyond-open-government/) is [well documented](http://ben.balter.com/2012/06/26/why-you-should-always-write-software-as-open-source/), but open source [is about more than having access to the software's human-readable code](http://ben.balter.com/2014/01/27/open-collaboration/). Open source is a philosophy, a workflow, and most importantly a collaborative community, the basis of which is the opportunity to participate.
+[The argument](//ben.balter.com/2014/09/22/open-source-is-not-insecure/) for open source [in government](//ben.balter.com/2014/06/02/beyond-open-government/) is [well documented](//ben.balter.com/2012/06/26/why-you-should-always-write-software-as-open-source/), but open source [is about more than having access to the software's human-readable code](//ben.balter.com/2014/01/27/open-collaboration/). Open source is a philosophy, a workflow, and most importantly a collaborative community, the basis of which is the opportunity to participate.
 
 ### Disclosed source
 
@@ -21,7 +21,7 @@ In addition to disclosing the underlying source code, in order to conform to wit
 
 Agencies that simply publish code with no intention to foster community involvement, curate community feedback, or accept community contributions find themselves, almost without exception, [engaging in an unsuccessful endeavor](http://www.theverge.com/2013/10/18/4852720/why-the-government-unpublished-the-source-code-for-healthcare-gov-github){: data-proofer-ignore="true" }. Rather than abandoning the code on the open-source community's collective doorstep, the agency should expend effort, post-release, to ensure the project's continued success.
 
-At the most simple level, this is a matter of communicating the project's goals and status to [potential contributors](http://ben.balter.com/2013/08/11/everyone-contributes/), [explaining how to contribute](http://ben.balter.com/2013/08/11/friction/), and ensuring relevant stakeholders within the agency are empowered to review and accept such contributions. But, successful projects go a step further, and take steps to ensure there is no imbalance of information between developers on opposing sides of the agency firewall.[^1]
+At the most simple level, this is a matter of communicating the project's goals and status to [potential contributors](//ben.balter.com/2013/08/11/everyone-contributes/), [explaining how to contribute](//ben.balter.com/2013/08/11/friction/), and ensuring relevant stakeholders within the agency are empowered to review and accept such contributions. But, successful projects go a step further, and take steps to ensure there is no imbalance of information between developers on opposing sides of the agency firewall.[^1]
 
 ### Free like a puppy
 

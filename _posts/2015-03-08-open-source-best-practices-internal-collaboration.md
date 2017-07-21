@@ -3,7 +3,7 @@ title: 'Five best practices in open source: internal collaboration'
 description: The way your organization works internally will necessarily be a mirror image of how your organization works externally, and if that workflow is closed or untrusting, you'll likely have trouble embracing to open source
 ---
 
-Before you can participate in the open source community, you must first learn to collaborate. That's because [Open source is not a verb](http://ben.balter.com/2012/10/15/open-source-is-not-a-verb/). It's a workflow, a philosophy, a modern approach to software development. It's much more than simply hitting publish. To think you can [breed code in captivity behind a firewall](http://ben.balter.com/2013/05/14/we-ve-been-selling-open-source-wrong/), using closed, hostile, or waterfall methodologies, and that once that code leaves the firewall, it will grow wings, is a fundamental misunderstanding of what it means to participate in the open source community.
+Before you can participate in the open source community, you must first learn to collaborate. That's because [Open source is not a verb](//ben.balter.com/2012/10/15/open-source-is-not-a-verb/). It's a workflow, a philosophy, a modern approach to software development. It's much more than simply hitting publish. To think you can [breed code in captivity behind a firewall](//ben.balter.com/2013/05/14/we-ve-been-selling-open-source-wrong/), using closed, hostile, or waterfall methodologies, and that once that code leaves the firewall, it will grow wings, is a fundamental misunderstanding of what it means to participate in the open source community.
 
 Working regularly with government agencies to help ensure their first (or second) step into the open source world is a successful one, here are five best practices for pursuing open source in government (or any large organization for that matter):
 
@@ -15,9 +15,9 @@ The true challenge is whether or not you can foster the internal culture necessa
 
 ### 2. Start small, go through the motions
 
-There's an anti-pattern within government that when an agency decides to start participating in the open source community, they bet big and do it with a flagship initiative, often with a strong policy component (and executive's reputation) at stake. In reality, [your first open source project is likely going to be a flop](http://ben.balter.com/2015/02/11/why-your-first-open-source-project-is-going-to-be-a-dud/).
+There's an anti-pattern within government that when an agency decides to start participating in the open source community, they bet big and do it with a flagship initiative, often with a strong policy component (and executive's reputation) at stake. In reality, [your first open source project is likely going to be a flop](//ben.balter.com/2015/02/11/why-your-first-open-source-project-is-going-to-be-a-dud/).
 
-You wouldn’t run a marathon without training first, would you? Like your body, organizations have a strong muscle memory. You've most likely encountered [the organization's subconscious "no" reflex](http://ben.balter.com/2014/03/21/want-to-innovate-in-government-focus-on-culture/#bureaucracy-is-an-organism) when you unintentionally strike a nerve. If the organism doesn't recognize the antibodies of a new idea, it will attack it as a means of self preservation. Like introducing any new idea, introducing open source is no exception. Most stakeholders will say "no" at first glance, and certainly not on the proposal's merit.
+You wouldn’t run a marathon without training first, would you? Like your body, organizations have a strong muscle memory. You've most likely encountered [the organization's subconscious "no" reflex](//ben.balter.com/2014/03/21/want-to-innovate-in-government-focus-on-culture/#bureaucracy-is-an-organism) when you unintentionally strike a nerve. If the organism doesn't recognize the antibodies of a new idea, it will attack it as a means of self preservation. Like introducing any new idea, introducing open source is no exception. Most stakeholders will say "no" at first glance, and certainly not on the proposal's merit.
 
 Instead, start by experimenting by collaborating openly, but in private, within the safety of your team or organization. Create a list of best lunch places near your office or the team's favorite chocolate chip cookie recipe. Go through the motions of collaborating and master the basics when it doesn't matter if you make a mistake. Then get other stakeholders involved, legal, procurement, ethics, everyone. Abstract concepts like version control are much easier to justify when discussing concrete use cases.
 
@@ -43,7 +43,7 @@ This idea comes into play in three distinct ways:
 
 ### 4. Embrace the constraints of open source
 
-Open source is bound by certain workflow constraints. [Rarely are two people in the same place at the same time let alone working on the same thing at the same time](http://ben.balter.com/2014/11/06/rules-of-communicating-at-github/), and yet they almost always produce better results than their proprietary, purpose-built counterparts. It's the story of Wikipedia versus Encyclopedia Britannica.
+Open source is bound by certain workflow constraints. [Rarely are two people in the same place at the same time let alone working on the same thing at the same time](//ben.balter.com/2014/11/06/rules-of-communicating-at-github/), and yet they almost always produce better results than their proprietary, purpose-built counterparts. It's the story of Wikipedia versus Encyclopedia Britannica.
 
 You can't un-constrain open source, nor would you want to. If you want to engage the open source community on equal footing, you must embrace their constraints, and chances are, by adopting modern, asynchronous tools, your workflow will improve for the better. With a few adaptations, as @rtomayko [wrote a few years back](http://tomayko.com/writings/adopt-an-open-source-process-constraints), there are four constraints:
 
@@ -65,4 +65,4 @@ Put another way, if you’re happy with your code when it leaves the firewall, i
 
 While it's certainly possible for your organization to maintain a waterfall or closed-source workflow and then hit publish, the likelihood of that project's open source success is exceedingly rare. If you're looking to take your first (or second) step into the open source community, start not by optimizing for external engagement, but by optimizing for internal collaboration.
 
-***This post is part of a series on best practices in open source. You may also be interested in [Five best practices in open source: external engagement](http://ben.balter.com/2015/03/17/open-source-best-practices-external-engagement/).***
+***This post is part of a series on best practices in open source. You may also be interested in [Five best practices in open source: external engagement](//ben.balter.com/2015/03/17/open-source-best-practices-external-engagement/).***
