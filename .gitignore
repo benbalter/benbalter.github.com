@@ -8,6 +8,10 @@ assets/vendor/font-awesome/src
 assets/vendor/modernizr/feature-detects
 assets/vendor/modernizr/media
 assets/vendor/modernizr/test
+assets/vendor/turbolinks/bin
+assets/vendor/turbolinks/src
+assets/vendor/turbolinks/test
+assets/vendor/turbolinks/*.md
 .bundle
 Gemfile.lock
 /html
