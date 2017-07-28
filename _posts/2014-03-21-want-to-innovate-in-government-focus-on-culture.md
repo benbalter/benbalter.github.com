@@ -4,9 +4,9 @@ comments: true
 description: The key to innovation in government is engendering a greater appreciation of technology among non-technical stakeholders
 ---
 
-When innovating in government, [the technology's the easy part](http://ben.balter.com/2013/07/01/technologys-the-easy-part/). Innovative efforts often do one of two things:
+When innovating in government, [the technology's the easy part](//ben.balter.com/2013/07/01/technologys-the-easy-part/). Innovative efforts often do one of two things:
 
-1. They take long-established [technology from the private sector](http://ben.balter.com/2013/09/30/ten-things-you-learn-as-a-presidential-innovation-fellow/#innovative-efforts-in-government-are-standard-practice-in-the-startup-world) and inject it into an agency, or
+1. They take long-established [technology from the private sector](//ben.balter.com/2013/09/30/ten-things-you-learn-as-a-presidential-innovation-fellow/#innovative-efforts-in-government-are-standard-practice-in-the-startup-world) and inject it into an agency, or
 
 2. They reimagine long-assumed processes [from the citizen's perspective](https://twitter.com/BenBalter/status/444941012016713728).
 
@@ -48,7 +48,7 @@ The idea is to pop the beltway bubble — expose otherwise isolated, non-tec
 
 ### Empowering lawyer linebackers
 
-Those three components — lightning talks, outside conferences, and targeted trainings — have the potential to unlock an army of [lawyer linebackers](http://ben.balter.com/2013/09/30/ten-things-you-learn-as-a-presidential-innovation-fellow/#make-friends-with-a-lawyer-on-day-one), non-technical stakeholders that serve as a force multiplier for technical talent, and ultimately the change we all desire.
+Those three components — lightning talks, outside conferences, and targeted trainings — have the potential to unlock an army of [lawyer linebackers](//ben.balter.com/2013/09/30/ten-things-you-learn-as-a-presidential-innovation-fellow/#make-friends-with-a-lawyer-on-day-one), non-technical stakeholders that serve as a force multiplier for technical talent, and ultimately the change we all desire.
 
 What if when you first approached your general counsel for "approval" of your innovative new idea, you didn't have to justify each layer of the technology stack — open source software, APIs, and distributed version control — but could say "hey, we're launching a Rails app with a read-only API. The code's going to be on GitHub", and they simply responded "awesome, how can we help?". What if those you relied on understood or at least appreciated not necessarily the how, but at least the why?
 

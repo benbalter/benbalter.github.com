@@ -5,7 +5,7 @@ description: 'There are two types of change agents in the open government/data/s
 
 In the world of government IT, change happens at the hands of two separate, yet equally important groups: the geeks who build systems and the suits who implement them:
 
-* **Geeks** are the doers, the creators, the ones often relegated to the basement, desk stereotypically strewn with Doritos crumbs and Mountain Dew cans. To them, the status quo is nails screeching down the world's largest chalkboard. They may be coders, designers, or UX experts, but at their core, [they're hackers](http://ben.balter.com/2013/02/04/what-is-a-hacker/). They're excited about the next big thing, and have the means to make it happen, at least technically.
+* **Geeks** are the doers, the creators, the ones often relegated to the basement, desk stereotypically strewn with Doritos crumbs and Mountain Dew cans. To them, the status quo is nails screeching down the world's largest chalkboard. They may be coders, designers, or UX experts, but at their core, [they're hackers](//ben.balter.com/2013/02/04/what-is-a-hacker/). They're excited about the next big thing, and have the means to make it happen, at least technically.
 
 * **Suits** are the sayers, the thought leaders, the ones in the corner office, desk stereotypically strewn with business cards and printed Power Point decks. To them, the future is an opportunity to improve on key performance metrics. They may be CxOs, program managers, or policymakers, but at their core, they're not technical (at least not any more). They're excited about the next big thing, and may have the means to make it happen, at least in terms of capital, both political and financial.
 
