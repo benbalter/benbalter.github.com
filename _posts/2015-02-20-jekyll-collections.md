@@ -62,7 +62,7 @@ collections:
 
 This tells Jekyll to look in the `_cupcakes` and `_cookies` folders for documents, and to read them into the appropriate collection, including [YAML front matter](http://jekyllrb.com/docs/frontmatter/), just as it would posts (but again, without the date, because collection documents aren't date specific).
 
-By default, collections are read in (and exposed as `site.[collection]`, an alias per-collection),but not included in the final site; at least not individually like you might expect posts or pages to. If you wanted a page for each type of cupcake, you'd have to modify the `_config.yml` a bit:
+By default, collections are read in (and exposed as `site.[collection]`, an alias per-collection), but not included in the final site; at least not individually like you might expect posts or pages to. If you wanted a page for each type of cupcake, you'd have to modify the `_config.yml` a bit:
 
 ```yaml
 collections:
