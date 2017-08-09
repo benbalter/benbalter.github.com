@@ -37,7 +37,7 @@ Slides (and recordings) from some of the talks I’ve given over the years. Have
 
 * [Software developer as civic service](https://speakerdeck.com/benbalter/software-development-as-civic-service)
 
-* [The revolution will be forked: how open collaboration is reimaging the way government works](//ben.balter.com/open-sourcing-government/) ([source](https://github.com/benbalter/open-sourcing-government/))
+* [The revolution will be forked: how open collaboration is reimagining the way government works](//ben.balter.com/open-sourcing-government/) ([source](https://github.com/benbalter/open-sourcing-government/))
 
 * [Make Government better together: Moving from open government to collaborative government](//ben.balter.com/make-government-better-together/) ([source](https://github.com/benbalter/make-government-better-together/))
 
@@ -45,7 +45,7 @@ Slides (and recordings) from some of the talks I’ve given over the years. Have
 
 * [Open source software licensing: empowering others to use your code](//ben.balter.com/open-source-software-licensing/) ([source](https://github.com/benbalter/open-source-software-licensing/))
 
-* [Collaborative policymaking: how technology is making it easier to work together than alone](//ben.balter.com/collaborative-policymaking/) ([source](https://github.com/benbalter/collaborative-policymaking/))
+* [Collaborative policy making: how technology is making it easier to work together than alone](//ben.balter.com/collaborative-policymaking/) ([source](https://github.com/benbalter/collaborative-policymaking/))
 
 * [Project open data: a case study in collaborative governance](https://www.youtube.com/watch?v=EL3-UwY3qGE) (video)
 

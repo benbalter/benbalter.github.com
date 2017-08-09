@@ -18,7 +18,7 @@ Option 1 almost always ends in a choice between scope creep and hurt feelings, b
 
 ### Defer to the README
 
-With option 2, you link back to the README, explain that you don’t believe the pull request will advance the project’s purpose, and suggest that if the contributor thinks the project’s goals should be revised or expanded, that it’s a valid suggestion, but that the appropriate forum to do so is in a pull request updating the README, where the entire community of contributors — not just those interested in this particular feature — could have a dedicated and in-depth conversation about the project’s *raison d’etre*. As we wrote in [`opensource.guide`](https://opensource.guide/building-community/#treat-your-readme-as-a-constitution):
+With option 2, you link back to the README, explain that you don’t believe the pull request will advance the project’s purpose, and suggest that if the contributor thinks the project’s goals should be revised or expanded, that it’s a valid suggestion, but that the appropriate forum to do so is in a pull request updating the README, where the entire community of contributors — not just those interested in this particular feature — could have a dedicated and in-depth conversation about the project’s *raison d'être*. As we wrote in [`opensource.guide`](https://opensource.guide/building-community/#treat-your-readme-as-a-constitution):
 
 > If people are overly focused on debating the merit of a particular feature, it may help to revisit your README and talk about the higher vision of your project. Focusing on your README also depersonalizes the conversation, so you can have a constructive discussion.
 

@@ -35,7 +35,7 @@ The idea resurfaced again in 2010 on [a now defunct StackOverflow thread](http:/
 
 Heck, there’s even a Dilbert comic about it (with a unique twist):
 
-[![Dilbert commic](http://assets.amuniversal.com/9df021106cc801301d50001dd8b71c47)](http://dilbert.com/strip/2007-02-02)
+[![Dilbert comic](http://assets.amuniversal.com/9df021106cc801301d50001dd8b71c47)](http://dilbert.com/strip/2007-02-02)
 
 ### Bikeshed honeypots in the corporate world
 

@@ -1,17 +1,29 @@
 'use strict';
 
+var fs = require('fs');
+var path = require('path');
 var unified = require('unified');
 var english = require('retext-english');
 
+// Dictonaries
+var enUS = require('dictionary-en-us');
+
+var personal = fs
+  .readFileSync(path.join(__dirname, 'dictionary.txt'), 'utf8')
+  .replace(/#.+/gm, '');
+
 var retextSettings = {
   plugins: [
+    require('retext-syntax-mentions'),
+    require('retext-syntax-urls'),
     [require('retext-sentence-spacing'), {preferred: 1}],
     [require('retext-quotes'), {preferred: 'smart'}],
     require('retext-diacritics'),
     require('retext-redundant-acronyms'),
     require('retext-repeated-words'),
     require('retext-indefinite-article'),
-    require('retext-contractions')
+    require('retext-contractions'),
+    [require('retext-spell'), {dictionary: enUS, personal: personal}]
   ]
 };
 

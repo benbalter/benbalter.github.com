@@ -6,6 +6,7 @@
   "dependencies": {},
   "description": "[![Build Status](https://travis-ci.org/benbalter/benbalter.github.com.png?branch=master)](https://travis-ci.org/benbalter/benbalter.github.com)",
   "devDependencies": {
+    "dictionary-en-us": "^2.0.0",
     "json-lint": "^0.1.0",
     "jsonlint": "^1.6.2",
     "offline-issues": "^1.0.0",
@@ -42,6 +43,9 @@
     "retext-redundant-acronyms": "^1.2.1",
     "retext-repeated-words": "^1.2.1",
     "retext-sentence-spacing": "^2.0.1",
+    "retext-spell": "^2.3.1",
+    "retext-syntax-mentions": "^1.1.4",
+    "retext-syntax-urls": "^1.0.0",
     "typographic-base": "^1.0.4",
     "unified": "^6.1.5",
     "xo": "^0.18.2"

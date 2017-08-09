@@ -1,0 +1,69 @@
+# Dictionary of some extra words that are not in the
+# default list. The stuff after the slash is a word
+# it’s modelled after.
+# More info:
+# <https://github.com/wooorm/nspell#personal-dictionary-documents>
+
+# Jekyll
+endfor
+endunless
+
+# Me
+Balter
+benbalter
+benbalter-centric
+Retlab
+
+# Tech
+Autoblog
+GeoJSON
+APIs
+SEO
+JS
+npm
+SMS
+Analytics
+GitHubbers
+codebase
+README
+dropdown
+GIFs
+Hubberversaries
+webcal
+DM
+commenter
+bikeshed
+
+# Jargon
+Unported
+lifecycle
+
+# French to sound fancy
+raison d'être
+de jure
+
+# Gov
+FedScoop
+FISMA
+OFAC
+ITAR
+GovCloud
+AWS
+reseller
+Fed50
+
+# Words I apparently made up
+reimagining
+reimagination
+reimagined
+badass
+Disruptor
+roadmap
+Architected
+deprioritized
+no-brainer
+downscope
+discoverable
+user-centric
+foundational
+bajillion

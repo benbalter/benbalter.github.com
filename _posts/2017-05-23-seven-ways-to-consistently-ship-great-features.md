@@ -7,7 +7,7 @@ As a product manager, I spend most of my day working with developers to get feat
 
 ### 1. Over communicate
 
-When it comes to feature development, there is no such thing as over-communicating. What problem are we solving? Who are we solving it for? Why are we solving *this* problem? What solutions were proposed? Which was selected? How are we implementing it? What product or design considerations did we make? Do we have to make technical tradeoffs? Are there any outstanding questions? Does it actually solve what we set out to solve? What’s the current status? Are there any blockers? What do we need to do to ship it? Make it all explicit, memorialized, and discoverable.
+When it comes to feature development, there is no such thing as over-communicating. What problem are we solving? Who are we solving it for? Why are we solving *this* problem? What solutions were proposed? Which was selected? How are we implementing it? What product or design considerations did we make? Do we have to make technical trade offs? Are there any outstanding questions? Does it actually solve what we set out to solve? What’s the current status? Are there any blockers? What do we need to do to ship it? Make it all explicit, memorialized, and discoverable.
 
 It doesn’t have to be a formal template, but great developers make sure all the above question are answered at each step of the development process, and that everyone who needs to be aware, is, and that it’s updated as circumstances change. The old developer adage, that there should be “more comments than code” is true here, except those comments often take the form of issue and pull request comments, rather than code comments. Most importantly, create a web of context through cross links so that others can find it. As a simple rule, if you reference something that has a URL, [you must provide a link](//ben.balter.com/2014/11/06/rules-of-communicating-at-github/#double-bonus-if-it-has-a-url-link-to-it).
 
@@ -15,7 +15,7 @@ It doesn’t have to be a formal template, but great developers make sure all th
 
 The difference between a feature and code is that a feature is defined by the user experience and the code is defined by how it’s implemented. Writing code is by far the easiest part of software development. Sure, there are technical challenges to overcome, styles to be enforced, and methods to be optimized, but most days, those are routinely solvable problems. The challenge is building well-thought out, well-implemented features.
 
-Describe what you’re going to write, write it, and then describe what you wrote. Before you write a single line of code, propose to your teamates what you’d like to do and how you’d like to do it. Many code-review-induced rewrites could have been avoided by more explicit communication upfront. After the code’s written, make sure non-developers can understand (and provide feedback) on what you did.
+Describe what you’re going to write, write it, and then describe what you wrote. Before you write a single line of code, propose to your teammates what you’d like to do and how you’d like to do it. Many code-review-induced rewrites could have been avoided by more explicit communication upfront. After the code’s written, make sure non-developers can understand (and provide feedback) on what you did.
 
 ### 3. Get it in users’ hands, not on `master`
 

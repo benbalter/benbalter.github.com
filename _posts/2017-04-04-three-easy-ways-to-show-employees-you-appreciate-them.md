@@ -23,7 +23,7 @@ As a manager (or a coworker) one small thing you can do to make wherever it is t
 
 ### Major lifecycle events (e.g., moving)
 
-*What*: The final easy way to show your fellow humans that you appreciate them as bonafide human beings is to recognize major lifecycle events. This can be anything as small as taking on a new hobby, or as big as shipping a human, a house, or a husband/wife. Are they going out to celebrate? Would their friend get them something to acknowledge it? Chances are you should too.
+*What*: The final easy way to show your fellow humans that you appreciate them as bona fide human beings is to recognize major lifecycle events. This can be anything as small as taking on a new hobby, or as big as shipping a human, a house, or a husband/wife. Are they going out to celebrate? Would their friend get them something to acknowledge it? Chances are you should too.
 
 *Why*: This is especially true if your company’s distributed. If everyone’s onsite, it’s easy to bump into someone at the water cooler, see their wedding ring, ask how their weekend was, and learn not only that they have a son, but that he’s into tee-ball (and won on Saturday). When there’s no water cooler to congregate around and no desk to walk by and see family photos, that interaction becomes significantly harder and requires a purposeful step on your part to ensure it happens.
 
