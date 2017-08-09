@@ -4,27 +4,27 @@
   "description": "[![Build Status](https://travis-ci.org/benbalter/benbalter.github.com.png?branch=master)](https://travis-ci.org/benbalter/benbalter.github.com)",
   "main": "script/server",
   "dependencies": {
-    "offline-issues": "^1.0.0",
-    "remark-cli": "^3.0.1",
     "remark-heading-gap": "^3.0.0",
+    "remark-textr": "^3.0.1"
+  },
+  "devDependencies": {
+    "offline-issues": "^1.0.0",
+    "remark-cli": "^4.0.0",
+    "remark-frontmatter": "^1.1.0",
+    "remark-github": "^7.0.1",
     "remark-inline-links": "^3.0.4",
     "remark-lint": "^6.0.0",
     "remark-lint-code": "^2.0.0",
     "remark-lint-no-empty-sections": "^2.0.0",
-    "remark-normalize-headings": "^1.0.0",
-    "remark-slug": "^4.2.3",
+    "remark-preset-lint-consistent": "^2.0.0",
+    "remark-preset-lint-markdown-style-guide": "^2.0.0",
+    "remark-preset-lint-recommended": "^3.0.0",
     "remark-squeeze-paragraphs": "^3.0.1",
-    "remark-textr": "^3.0.1",
-    "remark-validate-links": "^6.1.0",
-    "typographic-em-dashes": "^1.0.2",
-    "typographic-en-dashes": "^1.0.1",
-    "typographic-markdown": "^3.1.1",
-    "typographic-numbers": "^2.0.2",
-    "typographic-single-spaces": "^1.0.2"
+    "typographic-base": "^1.0.4"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "script/cibuild"
+    "test": "script/cibuild",
+    "lint-md": "remark ."
   },
   "repository": {
     "type": "git",

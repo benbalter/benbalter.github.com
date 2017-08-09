@@ -1,70 +1,27 @@
 {
-  "settings": {
-    "bullet": "*",
-    "emphasis": "*",
-    "strong": "*",
-    "fence": "`",
-    "rule": "-",
-    "ruleSpaces": false,
-    "ruleRepetition": 3,
-    "gfm": true,
-    "yaml": true,
-    "footnotes": true,
-    "listItemIndent": "1",
-    "commonmark": false,
-    "pedantic": false,
-    "entities": false,
-    "fences": true,
-    "spacedTable": true
-  },
-  "plugins": {
-    "remark-squeeze-paragraphs": {},
-    "remark-slug": {},
-    "remark-heading-gap": {
-      "2": {
-        "before": "",
-        "after": ""
-      },
-    "validate-links": {}
-    },
-    "remark-inline-links": {},
-    "remark-textr": {
-      "options": {
-        "locale": "en-us"
-      },
-      "plugins": [
-        "typographic-em-dashes",
-        "typographic-en-dashes",
-        "typographic-single-spaces"
-      ]
-    },
-    "remark-lint": {
-      "blockquote-indentation": 2,
-      "checkbox-character-style": {
-        "checked": "x",
-        "unchecked": " "
-      },
-      "code-block-style": "fenced",
-      "fenced-code-marker": "`",
-      "fenced-code-flag": {
-        "allowEmpty": true
-      },
-      "emphasis-marker": "*",
-      "file-extension": "md",
-      "heading-style": "atx",
-      "ordered-list-marker-style": ".",
-      "ordered-list-marker-value": "ordered",
-      "rule-style": "---",
-      "strong-marker": "*",
-      "unordered-list-marker-style": "*",
-      "maximum-line-length": false,
-      "list-item-indent": "space",
-      "table-cell-padding": "padded",
-      "no-literal-urls": false,
-      "list-item-spacing": false,
-      "first-heading-level": false,
-      "no-html": false,
-      "maximum-heading-length": false
-    }
-  }
+  "plugins": [
+    "remark-preset-lint-recommended",
+    "remark-preset-lint-consistent",
+    "remark-preset-lint-markdown-style-guide",
+    "remark-lint-code",
+    "remark-lint-no-empty-sections",
+    "remark-squeeze-paragraphs",
+    "remark-inline-links",
+    "remark-github",
+    ["no-undefined-references", false],
+    ["remark-heading-gap", 2],
+    ["remark-lint-maximum-line-length", false],
+    ["remark-lint-unordered-list-marker-style", "*"],
+    ["remark-lint-list-item-indent", "space"],
+    ["remark-lint-no-shortcut-reference-link", false],
+    ["remark-lint-no-shortcut-reference-image", false],
+    ["remark-frontmatter", "yaml"],
+    ["remark-textr", {
+      "options": {"locale": "en-us"},
+      "plugins": ["typographic-base"]
+    }],
+    ["remark-lint-list-item-spacing", false],
+    ["remark-lint-maximum-heading-length", false],
+    ["remark-lint-ordered-list-marker-value", false]
+  ]
 }
