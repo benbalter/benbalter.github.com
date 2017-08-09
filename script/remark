@@ -2,8 +2,4 @@
 
 set -e
 
-if [ "$CI" = "1" ]; then
-  ./node_modules/.bin/remark .
-else
-  ./node_modules/.bin/remark --output .
-fi
+npm run lint-md

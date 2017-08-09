@@ -58,7 +58,7 @@
     "lint": "npm run lint-js && npm run lint-json && npm run lint-md",
     "lint-js": "xo .remarkrc.js --ignore-pattern !.remarkrc.js --fix",
     "lint-json": "jsonlint package.json --in-place --sort-keys",
-    "lint-md": "remark .",
+    "lint-md": "remark . --output",
     "test": "script/cibuild"
   },
   "version": "1.0.0",
