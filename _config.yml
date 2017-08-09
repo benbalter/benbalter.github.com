@@ -60,7 +60,8 @@ exclude:
   - node_modules
   - Rakefile
   - retlab
-
+  - dictionary.txt
+  
 permalink: "/:year/:month/:day/:title/"
 defaults:
   - scope:

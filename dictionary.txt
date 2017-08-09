@@ -47,6 +47,8 @@ Berne
 Ra11y
 Proofer
 Travis
+IIS
+Joomla
 
 # GitHub
 GitHub
@@ -123,6 +125,11 @@ scalability
 programatic
 templating
 favicon
+permalink
+IRL
+technology-centric
+BDFL
+IPv6
 
 # Jargon
 Unported
@@ -180,6 +187,8 @@ minimus
 se
 franca
 lingua
+née
+à
 
 # Gov
 FedScoop
@@ -269,3 +278,7 @@ mergable
 amongst
 lawyering
 customizable
+reactively
+unskippable
+programmatically
+decreeable

@@ -7,7 +7,7 @@ If you've been around software long enough, there's a good chance that you've he
 
 For example, if you propose building a bike shed, those interested in seeing the bikeshed built will dig their heels in on what color you should paint the shed, not its structure, size, or location. The idea [traces back to a post on a Linux mailing list nearly two decades ago](http://bikeshed.com/):
 
-> \[J]ust because you are capable of building a bikeshed does not mean you should stop others from building one… because you do not like the color they plan to paint it… you need not argue about every little feature just because you know enough to do so.
+> Just because you are capable of building a bikeshed does not mean you should stop others from building one… because you do not like the color they plan to paint it… you need not argue about every little feature just because you know enough to do so.
 
 ### Parkinson's law of triviality
 

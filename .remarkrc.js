@@ -6,11 +6,11 @@ var unified = require('unified');
 var english = require('retext-english');
 
 // Dictonaries
-//var enUS = require('dictionary-en-us');
+var enUS = require('dictionary-en-us');
 
-//var personal = fs
-//  .readFileSync(path.join(__dirname, 'dictionary.txt'), 'utf8')
-//  .replace(/#.+/gm, '');
+var personal = fs
+  .readFileSync(path.join(__dirname, 'dictionary.txt'), 'utf8')
+  .replace(/#.+/gm, '');
 
 var retextSettings = {
   plugins: [
@@ -20,10 +20,10 @@ var retextSettings = {
     // [require('retext-quotes'), {preferred: 'smart'}],
     require('retext-diacritics'),
     require('retext-redundant-acronyms'),
-    require('retext-repeated-words')//,
-//    require('retext-indefinite-article'),
+    require('retext-repeated-words'),
+//    Require('retext-indefinite-article'),
   //  [require('retext-contractions'), {straight: true}],
-//    [require('retext-spell'), {dictionary: enUS, personal: personal}]
+   [require('retext-spell'), {dictionary: enUS, personal: personal}]
   ]
 };
 
@@ -47,7 +47,7 @@ exports.settings = {
 };
 
 exports.plugins = [
-  [require('remark-message-control'),{name: "lint"}],
+  [require('remark-message-control'), {name: 'lint'}],
   require('remark-preset-lint-recommended'),
   require('remark-preset-lint-consistent'),
   require('remark-preset-lint-markdown-style-guide'),

@@ -39,7 +39,7 @@ language: ruby
 script: "rake test" # You may need to use "bundle exec rake test" if Travis fails on the require for the HTML/Proofer
 ```
 
-And finally, you need to head over to [travis-ci.org/profile](https://travis-ci.org/profile) to enable travis for your repository.
+And finally, you need to head over to [travis-ci.org/profile](https://travis-ci.org/profile) to enable Travis for your repository.
 
 Now, each time you push, Travis is going to verify all sorts of things, like whether your images render and contain alt tags, whether your links are valid (including internal anchors), and whether all the JavaScript files you reference actually exist. With some additional configuration, you can have it check all sorts of things like whether [your page has a favicon](https://github.com/gjtorikian/html-proofer#favicon), or whether the [HTML is even valid](https://github.com/gjtorikian/html-proofer#html).
 
