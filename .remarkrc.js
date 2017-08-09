@@ -6,24 +6,24 @@ var unified = require('unified');
 var english = require('retext-english');
 
 // Dictonaries
-var enUS = require('dictionary-en-us');
+//var enUS = require('dictionary-en-us');
 
-var personal = fs
-  .readFileSync(path.join(__dirname, 'dictionary.txt'), 'utf8')
-  .replace(/#.+/gm, '');
+//var personal = fs
+//  .readFileSync(path.join(__dirname, 'dictionary.txt'), 'utf8')
+//  .replace(/#.+/gm, '');
 
 var retextSettings = {
   plugins: [
     require('retext-syntax-mentions'),
     require('retext-syntax-urls'),
     [require('retext-sentence-spacing'), {preferred: 1}],
-    [require('retext-quotes'), {preferred: 'smart'}],
+    // [require('retext-quotes'), {preferred: 'smart'}],
     require('retext-diacritics'),
     require('retext-redundant-acronyms'),
     require('retext-repeated-words'),
     require('retext-indefinite-article'),
-    require('retext-contractions'),
-    [require('retext-spell'), {dictionary: enUS, personal: personal}]
+    [require('retext-contractions'), {straight: true}] // ,
+//    [require('retext-spell'), {dictionary: enUS, personal: personal}]
   ]
 };
 
@@ -55,6 +55,7 @@ exports.plugins = [
   require('remark-lint-no-empty-sections'),
   require('remark-squeeze-paragraphs'),
   require('remark-inline-links'),
+  [require('remark-lint-blockquote-indentation'), {number: 2}],
   [require('remark-heading-gap'), 2],
   [require('remark-lint-maximum-line-length'), false],
   [require('remark-lint-list-item-indent'), 'space'],
@@ -74,9 +75,8 @@ exports.plugins = [
         locale: 'en-us'
       },
       plugins: [
-        'typographic-apostrophes',
-        'typographic-quotes',
-        'typographic-apostrophes-for-possessive-plurals',
+      //  'typographic-apostrophes',
+      //  'typographic-apostrophes-for-possessive-plurals',
         'typographic-arrows',
         'typographic-copyright',
         'typographic-ellipses',

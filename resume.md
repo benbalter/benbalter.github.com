@@ -24,7 +24,7 @@ certifications:
 
 ### Experience
 
-{% assign positions=site.resume_positions | sort: “start_date” %}
+{% assign positions=site.resume_positions | sort: "start_date" %}
 {% for position in positions reversed %}
 
 {% unless position.employer == previous_employer %}

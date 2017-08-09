@@ -3,7 +3,7 @@ title: Publishing Government Data That Developers Will Actually Use
 description: Despite increasing public support (as well as a number of executive mandates) publishing public data in a machine-readable format is not as simple as pressing the "publish" button. Why? Equally important as exposing the information itself is fostering a vibrant developer ecosystem around it. By making the publishing agency, not the public, responsible for making information immediately useful, government can lower the barriers associated with consuming its data and introduce additional citizen services at little to no cost to the agency.
 ---
 
-Despite increasing public support (as well as a number of executive mandates) publishing public data in a machine-readable format is not as simple as pressing the “publish” button. Why? Equally important as exposing the information itself is fostering a vibrant developer ecosystem around it. By making the publishing agency, not the public, responsible for making information immediately useful, government can lower the barriers associated with consuming its data and introduce additional citizen services at little to no cost to the agency.
+Despite increasing public support (as well as a number of executive mandates) publishing public data in a machine-readable format is not as simple as pressing the "publish" button. Why? Equally important as exposing the information itself is fostering a vibrant developer ecosystem around it. By making the publishing agency, not the public, responsible for making information immediately useful, government can lower the barriers associated with consuming its data and introduce additional citizen services at little to no cost to the agency.
 
 ### 1. Garbage in, garbage out
 
@@ -11,11 +11,11 @@ Good, clean data may be surprisingly difficult to come by, especially when worki
 
 ### 2. Eat your own dog food
 
-When organizations consume the products they create, they empirically deliver better, more reliable, and more innovative products. You’d never seek to buy a car from a dealer that’s never driven one, yet we often expect the public to build applications based on APIs (Application Programming Interfaces – how computers talk to one another) published by organizations that have never had to consume their own data. Rather than solving the same problem twice, start by exposing all relevant data through public APIs and then work backward to build internal applications that rely on those externally facing data feeds.
+When organizations consume the products they create, they empirically deliver better, more reliable, and more innovative products. You'd never seek to buy a car from a dealer that's never driven one, yet we often expect the public to build applications based on APIs (Application Programming Interfaces – how computers talk to one another) published by organizations that have never had to consume their own data. Rather than solving the same problem twice, start by exposing all relevant data through public APIs and then work backward to build internal applications that rely on those externally facing data feeds.
 
 ### 3. Data as a citizen service
 
-It is tempting to try and meet open data benchmarks, at least on face, by publishing snapshots of large datasets. Yet multi-gigabyte database exports do little to encourage external development, especially when such data-dumps are delayed and infrequent. Imagine the usefulness of a Facebook feed that showed your friends’ activity from last month. Datasets should be directly exposed so that the public has access to live, real-time data, either in its entirety, or through proper access controls. This not only allows agencies to deliver more useful information, but also reduces the need to store the same data in multiple formats and in multiple locations.
+It is tempting to try and meet open data benchmarks, at least on face, by publishing snapshots of large datasets. Yet multi-gigabyte database exports do little to encourage external development, especially when such data-dumps are delayed and infrequent. Imagine the usefulness of a Facebook feed that showed your friends' activity from last month. Datasets should be directly exposed so that the public has access to live, real-time data, either in its entirety, or through proper access controls. This not only allows agencies to deliver more useful information, but also reduces the need to store the same data in multiple formats and in multiple locations.
 
 ### 4. Curate discrete pieces of data
 
@@ -23,7 +23,7 @@ APIs are most useful when they do the heavy lifting for those consuming them, es
 
 ### 5. Serve data in multiple formats
 
-When providing a service, whether you are a waiter or a CIO, “the customer is always right.” In the context of APIs, that means you need to return the information in the developers’ native tongue, not the server’s. For some languages, heavyweight methods like XML may make sense, for others, especially mobile applications, JSON or JSONP may be preferred. Be prepared to return data in multiple formats, even as those formats continue to evolve.
+When providing a service, whether you are a waiter or a CIO, "the customer is always right." In the context of APIs, that means you need to return the information in the developers' native tongue, not the server's. For some languages, heavyweight methods like XML may make sense, for others, especially mobile applications, JSON or JSONP may be preferred. Be prepared to return data in multiple formats, even as those formats continue to evolve.
 
 ### 6. Minimize the handshake learning curve
 
@@ -43,8 +43,8 @@ When it comes to garnering support for future efforts, nothing can be more power
 
 ### 10. Location, location, location
 
-With the “consumerization” of mobile, datasets are increasingly becoming location based. It’s not what datasets are out there, but rather, what datasets are out there about my immediate world. Likewise, government datasets are increasingly about where, just as much as it is about what. It’s important that this reality be taken into account when building APIs by incorporating geospatial lookups within the API, such a relying on MongoDB or other location-aware data structures.
+With the "consumerization" of mobile, datasets are increasingly becoming location based. It's not what datasets are out there, but rather, what datasets are out there about my immediate world. Likewise, government datasets are increasingly about where, just as much as it is about what. It's important that this reality be taken into account when building APIs by incorporating geospatial lookups within the API, such a relying on MongoDB or other location-aware data structures.
 
-Exposing data as a service is quickly becoming an industry-standard practice. Many popular startups owe their success to the vibrant app communities that surround them, grown simply by lifting some of the burden off of developers’ shoulders. Government agencies may not yet be able to publish data with the mere click of a button, but when done right from the start, exposing additional data sources may be a more trivial task than many expect, and will in turn deliver value to citizens in ways today unimagined by agencies.
+Exposing data as a service is quickly becoming an industry-standard practice. Many popular startups owe their success to the vibrant app communities that surround them, grown simply by lifting some of the burden off of developers' shoulders. Government agencies may not yet be able to publish data with the mere click of a button, but when done right from the start, exposing additional data sources may be a more trivial task than many expect, and will in turn deliver value to citizens in ways today unimagined by agencies.
 
 *This is an excerpt of an article originally published in the June 2012 issue of [Government CIO Magazine](http://www.governmentciomagazine.com).* **[Continue Reading →](http://www.governmentciomagazine.com/2012/06/ten-steps-publishing-government-data-developers-will-actually-use#blog-content)**
