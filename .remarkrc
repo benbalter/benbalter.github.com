@@ -1,4 +1,22 @@
 {
+  "settings": {
+    "bullet": "*",
+    "emphasis": "*",
+    "strong": "*",
+    "fence": "`",
+    "rule": "-",
+    "ruleSpaces": false,
+    "ruleRepetition": 3,
+    "gfm": true,
+    "yaml": true,
+    "footnotes": true,
+    "listItemIndent": "1",
+    "commonmark": false,
+    "pedantic": false,
+    "entities": false,
+    "fences": true,
+    "spacedTable": true
+  },
   "plugins": [
     "remark-preset-lint-recommended",
     "remark-preset-lint-consistent",
@@ -8,20 +26,60 @@
     "remark-squeeze-paragraphs",
     "remark-inline-links",
     "remark-github",
-    ["no-undefined-references", false],
-    ["remark-heading-gap", 2],
-    ["remark-lint-maximum-line-length", false],
-    ["remark-lint-unordered-list-marker-style", "*"],
-    ["remark-lint-list-item-indent", "space"],
-    ["remark-lint-no-shortcut-reference-link", false],
-    ["remark-lint-no-shortcut-reference-image", false],
-    ["remark-frontmatter", "yaml"],
-    ["remark-textr", {
-      "options": {"locale": "en-us"},
-      "plugins": ["typographic-base"]
-    }],
-    ["remark-lint-list-item-spacing", false],
-    ["remark-lint-maximum-heading-length", false],
-    ["remark-lint-ordered-list-marker-value", false]
+    [
+      "no-undefined-references",
+      false
+    ],
+    [
+      "remark-heading-gap",
+      2
+    ],
+    [
+      "remark-lint-maximum-line-length",
+      false
+    ],
+    [
+      "remark-lint-unordered-list-marker-style",
+      "*"
+    ],
+    [
+      "remark-lint-list-item-indent",
+      "space"
+    ],
+    [
+      "remark-lint-no-shortcut-reference-link",
+      false
+    ],
+    [
+      "remark-lint-no-shortcut-reference-image",
+      false
+    ],
+    [
+      "remark-frontmatter",
+      "yaml"
+    ],
+    [
+      "remark-textr",
+      {
+        "options": {
+          "locale": "en-us"
+        },
+        "plugins": [
+          "typographic-base"
+        ]
+      }
+    ],
+    [
+      "remark-lint-list-item-spacing",
+      false
+    ],
+    [
+      "remark-lint-maximum-heading-length",
+      false
+    ],
+    [
+      "remark-lint-ordered-list-marker-value",
+      false
+    ]
   ]
 }
