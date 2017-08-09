@@ -1,39 +1,69 @@
 {
-  "name": "benbalter.github.com",
-  "version": "1.0.0",
-  "description": "[![Build Status](https://travis-ci.org/benbalter/benbalter.github.com.png?branch=master)](https://travis-ci.org/benbalter/benbalter.github.com)",
-  "main": "script/server",
-  "dependencies": {
-    "remark-heading-gap": "^3.0.0",
-    "remark-textr": "^3.0.1"
+  "author": "Ben Balter",
+  "bugs": {
+    "url": "https://github.com/benbalter/benbalter.github.com/issues"
   },
+  "dependencies": {},
+  "description": "[![Build Status](https://travis-ci.org/benbalter/benbalter.github.com.png?branch=master)](https://travis-ci.org/benbalter/benbalter.github.com)",
   "devDependencies": {
+    "json-lint": "^0.1.0",
+    "jsonlint": "^1.6.2",
     "offline-issues": "^1.0.0",
     "remark-cli": "^4.0.0",
     "remark-frontmatter": "^1.1.0",
     "remark-github": "^7.0.1",
+    "remark-heading-gap": "^3.0.0",
     "remark-inline-links": "^3.0.4",
     "remark-lint": "^6.0.0",
     "remark-lint-code": "^2.0.0",
+    "remark-lint-first-heading-level": "^1.1.0",
+    "remark-lint-list-item-indent": "^1.0.0",
+    "remark-lint-list-item-spacing": "^1.1.0",
+    "remark-lint-maximum-heading-length": "^1.0.0",
+    "remark-lint-maximum-line-length": "^1.0.0",
     "remark-lint-no-empty-sections": "^2.0.0",
+    "remark-lint-no-shortcut-reference-image": "^1.0.0",
+    "remark-lint-no-shortcut-reference-link": "^1.0.1",
+    "remark-lint-ordered-list-marker-value": "^1.0.0",
+    "remark-lint-unordered-list-marker-style": "^1.0.0",
     "remark-preset-lint-consistent": "^2.0.0",
     "remark-preset-lint-markdown-style-guide": "^2.0.0",
     "remark-preset-lint-recommended": "^3.0.0",
+    "remark-preset-wooorm": "^3.0.0",
+    "remark-retext": "^3.1.0",
     "remark-squeeze-paragraphs": "^3.0.1",
-    "typographic-base": "^1.0.4"
+    "remark-textr": "^3.0.1",
+    "remark-validate-links": "^6.1.0",
+    "retext-contractions": "^2.1.2",
+    "retext-diacritics": "^1.2.1",
+    "retext-english": "^3.0.0",
+    "retext-indefinite-article": "^1.1.1",
+    "retext-quotes": "^2.0.1",
+    "retext-redundant-acronyms": "^1.2.1",
+    "retext-repeated-words": "^1.2.1",
+    "retext-sentence-spacing": "^2.0.1",
+    "typographic-base": "^1.0.4",
+    "unified": "^6.1.5",
+    "xo": "^0.18.2"
   },
-  "scripts": {
-    "test": "script/cibuild",
-    "lint-md": "remark ."
-  },
+  "homepage": "https://github.com/benbalter/benbalter.github.com#readme",
+  "license": "CC-BY-3.0",
+  "main": "script/server",
+  "name": "benbalter.github.com",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/benbalter/benbalter.github.com.git"
   },
-  "author": "Ben Balter",
-  "license": "CC-BY-3.0",
-  "bugs": {
-    "url": "https://github.com/benbalter/benbalter.github.com/issues"
+  "scripts": {
+    "lint": "npm run lint-js && npm run lint-json && npm run lint-md",
+    "lint-js": "xo .remarkrc.js --ignore-pattern !.remarkrc.js --fix",
+    "lint-json": "jsonlint package.json --in-place --sort-keys",
+    "lint-md": "remark .",
+    "test": "script/cibuild"
   },
-  "homepage": "https://github.com/benbalter/benbalter.github.com#readme"
+  "version": "1.0.0",
+  "xo": {
+    "esnext": false,
+    "space": true
+  }
 }
