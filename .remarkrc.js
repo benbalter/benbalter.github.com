@@ -12,6 +12,10 @@ var personal = fs
   .readFileSync(path.join(__dirname, 'dictionary.txt'), 'utf8')
   .replace(/#.+/gm, '');
 
+// see
+// https://github.com/wooorm/retext-indefinite-article/issues/6,
+// https://github.com/wooorm/retext-indefinite-article/issues/5, and
+//
 var retextSettings = {
   plugins: [
     require('retext-syntax-mentions'),
