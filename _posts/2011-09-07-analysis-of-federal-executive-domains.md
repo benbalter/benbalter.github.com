@@ -31,6 +31,8 @@ The White House's Office of Management and Budget recently released a list of al
 * 93% of *live* domains use no detectable CMS, or use a custom-built solution.
 * Slightly more than half of live servers are powered by commercial software.
 
+<!--lint ignore no-emphasis-as-heading -->
+
 *Please note: This data is to be treated as preliminary and is provided "as is" with no guarantee as to its validity. The source code for all tools used, including the resulting data, is available on GitHub]. If you find a systemic error, I encourage you to fork the code and I will try my best to recrawl the list to improve the data's accuracy.*
 
 **Update (10/4)**: Updated the above statistics (and underlying data) based on an updated domain list published on data.gov and recrawled using the same tools. The above numbers now use the number of *live* sites (rather than total number of domains) as the denominator for percentages, and excludes approximately 300 domains which simply redirects to other .govs.

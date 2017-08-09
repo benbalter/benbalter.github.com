@@ -10,7 +10,7 @@ Nearly three years later, I [resurrected that tool](https://github.com/benbalter
 
 The Highlights:
 
-* Approximately a 1/4 reduction in number of .govs (`1640 - 1229 = 441`)
+* Approximately a quarter reduction in number of .govs (`1640 - 1229 = 441`)
 * 1000 of those domains are live ([about 83%](http://dotgov-browser.herokuapp.com/domains?live=true){: data-proofer-ignore="true" }, up from 73%)
 * Of those live domains, [about 83%](http://dotgov-browser.herokuapp.com/domains?non_www=true){: data-proofer-ignore="true" } are reachable without the `www.` prefix, a negligible increase
 * [Only 64 sites](http://dotgov-browser.herokuapp.com/domains?ipv6=true){: data-proofer-ignore="true" } return an `AAAA` record, the first step towards IPv6 compliance (up from 10)

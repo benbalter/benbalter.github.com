@@ -20,9 +20,9 @@ var retextSettings = {
     // [require('retext-quotes'), {preferred: 'smart'}],
     require('retext-diacritics'),
     require('retext-redundant-acronyms'),
-    require('retext-repeated-words'),
-    require('retext-indefinite-article'),
-    [require('retext-contractions'), {straight: true}] // ,
+    require('retext-repeated-words')//,
+//    require('retext-indefinite-article'),
+  //  [require('retext-contractions'), {straight: true}],
 //    [require('retext-spell'), {dictionary: enUS, personal: personal}]
   ]
 };
@@ -47,7 +47,7 @@ exports.settings = {
 };
 
 exports.plugins = [
-  [require('remark-retext'), unified().use(english).use(retextSettings)],
+  [require('remark-message-control'),{name: "lint"}],
   require('remark-preset-lint-recommended'),
   require('remark-preset-lint-consistent'),
   require('remark-preset-lint-markdown-style-guide'),
@@ -57,6 +57,7 @@ exports.plugins = [
   require('remark-inline-links'),
   [require('remark-lint-blockquote-indentation'), {number: 2}],
   [require('remark-heading-gap'), 2],
+  [require('remark-lint-link-title-style'), false],
   [require('remark-lint-maximum-line-length'), false],
   [require('remark-lint-list-item-indent'), 'space'],
   [require('remark-lint-no-shortcut-reference-link'), false],
@@ -88,5 +89,6 @@ exports.plugins = [
         'typographic-trademark'
       ]
     }
-  ]
+  ],
+  [require('remark-retext'), unified().use(english).use(retextSettings)]
 ];

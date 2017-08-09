@@ -3,6 +3,8 @@ comments: true
 description: The challenges we faced were overwhelmingly administrative, cultural and bureaucratic in nature. Here are 10 things I know now I wish I had known then.
 ---
 
+<!--lint ignore no-emphasis-as-heading-->
+
 *This post originally published as part of [FedScoop's guest column series](http://fedscoop.com/ben-balter-10-things-i-learned-as-a-presidential-innovation-fellow/).*
 
 Looking back on serving in the inaugural class of the Presidential Innovation Fellows program, almost one year to the day we started, it's clear now that going in, many rightfully assumed the challenges we'd face would be largely technical challenges. In hindsight, the challenges we faced were overwhelmingly administrative, cultural and bureaucratic in nature. When driving innovative efforts within government, whether as a fellow or in one's own agency, here are 10 things I know now I wish I had known then:

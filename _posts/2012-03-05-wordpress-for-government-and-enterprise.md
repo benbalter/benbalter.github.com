@@ -33,7 +33,7 @@ When you stack the two side by side (or against any other CMS for that matter), 
 
 Among those empowered to make purchasing decisions, there seems to be a sense that WordPress is what you use on the weekends to post pictures of your lunch while Drupal is what you use for "serious" business, and with good reason. For better or for worse, Drupal has positioned itself as not just a CMS, but rather *the* enterprise solution — an inseparable fifth layer of the increasingly ubiquitous enterprise LAMPD stack.
 
-| Metric            | Drupal                                     | WordPress                                                  |
+| Metric            | Drupal                                     | WordPress                                                  |
 | :---------------- | :----------------------------------------- | :--------------------------------------------------------- |
 | API Hooks         | 267                                        | [1,506](http://adambrown.info/p/wp_hooks/version/3.2) (5x) |
 | Active Sites      | [533,136](http://drupal.org/project/usage) | [65,052,049](http://en.wordpress.com/stats/) (125x)        |
@@ -47,7 +47,7 @@ Among those empowered to make purchasing decisions, there seems to be a sense th
 
 Not surprisingly, the two communities are a reflection of their underlying software's position in the broader market. CodePoet.com, for example, a directory of WordPress consultants curated by Automattic, lists [a mere thirteen firms in North America that seek jobs over $250,000](http://codepoet.com/browse/regions/north-america/platforms/wordpress/project-size/250000-250000/)(often a small price tag for government or corporate sites), while its Drupal counterpart lists roughly 80 firms that specifically target [government](https://drupal.org/drupal-services/all/Government), [enterprise](https://drupal.org/drupal-services/all/Enterprise), and [NGO clients](https://drupal.org/drupal-services/all/Non-profit) daily.
 
-I am not suggesting that freelance developers should bring an end to what makes WordPress WordPress and change out of their shorts and sandals this instant or that they become intimately familiar with the nuances of federal procurement law, nor am I suggesting that small shops seek to bite off more than they can realistically chew anytime soon. I am suggestion, however, that there are small, tangible steps that the community can take to make headway into the government and enterprise space and gradually entrench WordPress as a viable alternative to otherwise subpar software harming innocent public servants.
+I am not suggesting that freelance developers should bring an end to what makes WordPress and change out of their shorts and sandals this instant or that they become intimately familiar with the nuances of federal procurement law, nor am I suggesting that small shops seek to bite off more than they can realistically chew anytime soon. I am suggestion, however, that there are small, tangible steps that the community can take to make headway into the government and enterprise space and gradually entrench WordPress as a viable alternative to otherwise subpar software harming innocent public servants.
 
 ### 1. `_Deprecate( ‘`Outdated Language`' )`
 

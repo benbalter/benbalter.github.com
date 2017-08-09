@@ -77,7 +77,7 @@ That way, `_cupcakes/chocolate.md` is outputted as `cupcakes/chocolate/index.htm
 
 I like to think the decision looks roughly like this:
 
-```
+```console
 +-------------------------------------+         +----------------+
 | Can the things be logically grouped?|---No--->|    Use pages   |
 +-------------------------------------+         +----------------+
@@ -101,7 +101,7 @@ So if you're not about to open a bakery (if you do, please send cookies); what m
 
 * Listing employees on your company's "about" page (or a project's maintainers)
 * Documenting methods in an open source project (or the project's that use it, or the plugins available)
-* Organizing jobs on your resume (or talks given, papers written)
+* Organizing jobs on your résumé (or talks given, papers written)
 * [Articles on a support site](https://github.com/blog/1939-how-github-uses-github-to-document-github)
 * Recipes on your personal blog (or restaurant reviews, or dishes on a menu)
 * Students in a class (or courses being offered, or listing the faculty)

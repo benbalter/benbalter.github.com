@@ -7,13 +7,13 @@ If you've been around software long enough, there's a good chance that you've he
 
 For example, if you propose building a bike shed, those interested in seeing the bikeshed built will dig their heels in on what color you should paint the shed, not its structure, size, or location. The idea [traces back to a post on a Linux mailing list nearly two decades ago](http://bikeshed.com/):
 
-> [J]ust because you are capable of building a bikeshed does not mean you should stop others from building one… because you do not like the color they plan to paint it… you need not argue about every little feature just because you know enough to do so.
+> \[J]ust because you are capable of building a bikeshed does not mean you should stop others from building one… because you do not like the color they plan to paint it… you need not argue about every little feature just because you know enough to do so.
 
 ### Parkinson's law of triviality
 
 Bikeshedding is an application of the broader [Parkinson's law of triviality](https://en.wikipedia.org/wiki/Law_of_triviality), the idea that "members of an organization give disproportionate weight to trivial issues". For example:
 
-> [It's easy to imagine'] a fictional committee whose job was to approve the plans for a nuclear power plant spending the majority of its time on discussions about relatively minor but easy-to-grasp issues, such as what materials to use for the staff bike shed, while neglecting the proposed design of the plant itself, which is far more important but also a far more difficult and complex task.
+> \[It's easy to imagine'] a fictional committee whose job was to approve the plans for a nuclear power plant spending the majority of its time on discussions about relatively minor but easy-to-grasp issues, such as what materials to use for the staff bike shed, while neglecting the proposed design of the plant itself, which is far more important but also a far more difficult and complex task.
 
 You've likely seen it before when presenting to a committee or to higher-ups. You spend months putting together the proposal, and when you ask for questions at the end of your presentation, they fixate on one or two minor, non-substantive details.
 

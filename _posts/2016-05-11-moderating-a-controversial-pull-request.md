@@ -29,7 +29,7 @@ When it's everyone's responsibility, it's no one's responsibility. Before you ki
 
 #### Assign a moderator
 
-Designate a moderator from the onset. This person will be responsible for enforcing all the social norms described above and for keeping the conversation moving. If someone raises an unrelated tangent, they open up an new issue to keep the discussion on track. If the thread gets long, they summarize where the current consensus is. Part crossing guard, part social worker, and part bailiff, their responsible for the discussion being productive, respectful, and fair.
+Designate a moderator from the onset. This person will be responsible for enforcing all the social norms described above and for keeping the conversation moving. If someone raises an unrelated tangent, they open up a new issue to keep the discussion on track. If the thread gets long, they summarize where the current consensus is. Part crossing guard, part social worker, and part bailiff, their responsible for the discussion being productive, respectful, and fair.
 
 #### Make the decider known
 

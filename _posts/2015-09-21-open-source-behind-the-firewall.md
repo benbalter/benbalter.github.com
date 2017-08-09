@@ -3,6 +3,8 @@ title: Bringing open source workflows to the enterprise
 description: How open source workflows and philosophies can be leveraged by the enterprise to produce more modern software, even if that software ultimately remains closed source.
 ---
 
+<!--lint ignore no-emphasis-as-heading-->
+
 *This post originally published on [DLT's Technically Speaking](http://blogs.dlt.com/bringing-open-source-workflows-enterprise/).*
 
 Open source has changed the way we build software. A fully distributed team of strangers, rarely working on the same thing at the same time or in the same place at the same time, yet open source projects consistently produce better software than their closed-source and proprietary counterparts. How then, can this reimagined software development workflow be leveraged by the enterprise to produce more modern software, even if that software ultimately remains closed source?

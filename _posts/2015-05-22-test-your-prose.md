@@ -45,7 +45,7 @@ Now, each time you push, Travis is going to verify all sorts of things, like whe
 
 You can see this in action [on this site](https://travis-ci.org/benbalter/benbalter.github.com). Each time I make a change (or someone proposes one), every link and image is checked to confirm nothing broke. You'll get something that looks like:
 
-```
+```console
 Running ["ScriptCheck", "LinkCheck", "ImageCheck"] checks on ./_site on *.html...
 Checking 1187 external links...
 Ran on 120 files!

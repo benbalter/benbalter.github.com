@@ -166,9 +166,13 @@ Congress has imposed on federal executive agencies an onerous system to ensure i
 
 [^22]: 5 U.S.C.A 552a.
 
+<!--lint ignore retext-contractions -->
+
 [^23]: *Id* 552a(b), (d), (f)*.*
 
 [^24]: 44 U.S.C.A. 3601 *et seq*.
+
+<!--lint ignore retext-contractions -->
 
 [^25]: *Id.* *See generally,* Shahid Khan, <u>"Apps.gov": Assessing Privacy in the Cloud Computing Era</u>, 11 N.C.J.L. & Tech. On. 259, 272 (2010).
 
@@ -177,6 +181,8 @@ Congress has imposed on federal executive agencies an onerous system to ensure i
 [^27]: 44 U.S.C.A. 3501.
 
 [^28]: 44 U.S.C.A. 3502(14) (1994), amended by Paperwork Reduction Act of 1995, Pub. L. No. 104–13, 3502(8), 109 Stat. 163, 166.
+
+<!--lint ignore retext-contractions -->
 
 [^29]: *Id.* at 3502(6).
 

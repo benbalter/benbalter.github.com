@@ -35,7 +35,7 @@ Potential customers aren't the only ones that can benefit from the software bein
 
 As the contractor seeks to attract talent, by the time they step foot in the career fair, or post the job posting to their website, [the most passionate, talented developers in the space already know who they are, already see how they work, and already want to work for them](http://tom.preston-werner.com/2011/11/22/open-source-everything.html).
 
-Better still, because open source is collaborative, there's a good chance you've already had an opportunity to evaluate the applicant. What better way to evaluate how the applicant would contribute to your organization's software, than to be able to evaluate them as they contribute to your organization's software over the lifecycle of an open source project? At GitHub, for example, we're already familiar with many of the developers we hire, well before a resume ever changes hands.
+Better still, because open source is collaborative, there's a good chance you've already had an opportunity to evaluate the applicant. What better way to evaluate how the applicant would contribute to your organization's software, than to be able to evaluate them as they contribute to your organization's software over the lifecycle of an open source project? At GitHub, for example, we're already familiar with many of the developers we hire, well before a résumé ever changes hands.
 
 Open source provide government contractors with a platform to establish a brand among the industry's most committed developers, to attract that same talent, and to evaluate how they'd work, all without spending a single dollar on recruitment.
 

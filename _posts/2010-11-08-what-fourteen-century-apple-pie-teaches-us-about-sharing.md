@@ -19,11 +19,13 @@ The unfortunate incident spawned the ever-venerable [meme](http://en.wikipedia.o
 
 The story, illustrating the true mob-power of the Internet, might be even more interesting if it turns out Cooks Source [isn't in the wrong](http://www.copyright.gov/fls/fl122.html) after all or that the e-mails were actually [made up](http://www.psychologytoday.com/blog/you-20/201011/are-cooks-source-magazine-and-judith-griggs-innocent). So what if Cooks Source has [lost advertisers](http://www.masslive.com/news/index.ssf/2010/11/sunderland-based_magazine_cook.html) and so what if Cooks Source Editor Judith Griggs name has been [forever digi-tarnished](http://www.google.com/search?q=Judith+Griggs+Cooks+Source). The important thing is that internet justice has been served.[^7] It is all too easy to forget that despite its incredible power to democratize and decentralize knowledge, the Web, at it's 3:00 am core, is an echo chamber in which rumors reverberate louder than they would in even the most gossip-centric high school cafeteria — and the worst part is, here, the AV club kids are the bullies. So foodies, aspiring journalists, and internet memesters, copy judiciously, cite liberally,[^8] and [hire a good lawyer](//ben.balter.com/contact/).
 
+<!--lint ignore no-emphasis-as-heading-->
+
 *Ed. Note: Journalism students, please make sure to pay attention in your media law class. Miss one lecture and this is what happens. On second thought, don't go. The legal economy [is](http://online.wsj.com/article/SB10001424052748704866204575224350917718446.html) [bad](http://www.washingtonpost.com/wp-dyn/content/article/2010/10/30/AR2010103004638.html?nav=hcmoduletmv) [enough](http://www.nytimes.com/2009/08/26/business/26lawyers.html?_r=1){: data-proofer-ignore="true"} as it is — we need all the lawsuits we can get.*
 
 **Update (11/11):** Final score: Internet, 1, Cooks Source, 0. It appears the Internet has beaten Cooks Source into submission. Cooks Source has sworn to never "be on Facebook again," canceling its Facebook account and [taking down its Web site](http://www.cookssource.com/), after hackers gained access.[^9] Ironically, Cooks Source claims that their intellectual property rights were violated when [copies of their most-recent issue](http://www.facebook.com/album.php?aid=23582&id=159072764128073) were posted online.[^10] They have made the donation Gaudio requested to the Columbia School of Journalism, as well as a contribution to a local food bank, also in her name [^11]. Moral of the story? Whatever you do, don't post statements in Comic Sans.
 
-*\[Photo used under Creative Commons License courtesy **[belochkavita](http://www.flickr.com/photos/belochkavita/244921874/)**]*
+\[Photo used under Creative Commons License courtesy **[belochkavita](http://www.flickr.com/photos/belochkavita/244921874/)**]
 
 [^1]: *See generally [TechCrunch: If it's on the Internet, It Must Be True.](http://techcrunch.com/2010/08/14/internet-must-be-true/)*
 
@@ -43,6 +45,10 @@ The story, illustrating the true mob-power of the Internet, might be even more i
 
 [^9]: Cooks Source Web site (*Last accessed:* November 11, 2010).
 
+<!--lint ignore retext-contractions-->
+
 [^10]: *Id.*
+
+<!--lint ignore retext-contractions-->
 
 [^11]: *Id.*

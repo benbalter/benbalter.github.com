@@ -17,11 +17,11 @@ Think about it this way: in the traditional office setting, we use management to
 
 This makes sense if you look at the history of the role. In an age when conveying information was onerous, the only way for Adam to tell Becky what he was working on (and thus to ensure Becky was not duplicating efforts) was to stop what he was doing, walk down the hall, and interrupt Becky. So instead of doing this every day, we hire Charlie to facilitate a standing meeting and shuttle that information back and forth. Makes sense.
 
-But what if when that problem first arose Adam could send Becky an e-mail or an IM or post a update to a shared collaboration space. Do you think they'd need Charlie in the first place? Would management as we see it today have arisen in an age where technology reduces the friction of collaboration to nearly nil?
+But what if when that problem first arose Adam could send Becky an e-mail or an IM or post an update to a shared collaboration space. Do you think they'd need Charlie in the first place? Would management as we see it today have arisen in an age where technology reduces the friction of collaboration to nearly nil?
 
 Take the open source community, as a test case, which was afforded just such a unique opportunity. Same problem, same outcome, and (for the most part), no traditional hierarchical structure. How do you overcome the management burden? Transparent, persistent communication — everything from code to decisions happen in the open and are archived for all to see — and pure meritocracy — a bunch of ideas arise and are voted on (through opt-in participation) and the best are seen to fruition.
 
-But does it <del>blend</del> scale? WordPress, the open source content management system had nearly 300 individual contributors to its latest release, in just under four months, all working on a single project downloaded more than a million times within days of its release. And there's no reason this process has to be limited to software. Collaboration is collaboration. 
+But does it <del>blend</del> scale? WordPress, the open source content management system had nearly 300 individual contributors to its latest release, in just under four months, all working on a single project downloaded more than a million times within days of its release. And there's no reason this process has to be limited to software. Collaboration is collaboration.
 
 So what aspects of the open source process make this management free collaboration possible? Ryan Tomayko [outlines](http://tomayko.com/writings/adopt-an-open-source-process-constraints) his experience applying the open source philosophy to an entire (for-profit) venture, noting four key features to the system:
 

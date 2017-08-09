@@ -29,7 +29,7 @@ I'm sure what you do is super interesting. But what's even more interesting is w
 
 ### 3. Describe the 1/4" hole
 
-Your post should focus on what a user can do, not on what the thing you built does. Let's say I have a picture that I want hung on the wall. I'll likely go to a big-box retailer to pick up a 1/4" drill. But in reality, I couldn't care less about the drill. [What I'm really after is the 1/4" hole](https://strategyn.com/jobs-to-be-done/) — the thing the drill ultimately enables me to do. Yet, most technology companies produce digital drills.
+Your post should focus on what a user can do, not on what the thing you built does. Let's say I have a picture that I want hung on the wall. I'll likely go to a big-box retailer to pick up a quarter-inch drill. But in reality, I couldn't care less about the drill. [What I'm really after is the 1/4" hole](https://strategyn.com/jobs-to-be-done/) — the thing the drill ultimately enables me to do. Yet, most technology companies produce digital drills.
 
 Rather than spend time telling me how great your drill is, describe the holes it produces. Show me how well it hangs pictures. Plant the seed in my head for all the great things that I can do with the drill. Airline commercials have pictures of exotic destinations, not cabin interiors. Liquor commercials show people out having a great time, not the underlying grains being grown. When announcing a new feature your post should be almost exclusively about the better hole it empowers the user to create, not the new drill bit they now need to buy.
 

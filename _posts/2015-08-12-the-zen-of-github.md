@@ -7,7 +7,7 @@ I've got a [broadside](https://en.wikipedia.org/wiki/Broadside_(printing)) hangi
 
 > \[A]n organization's taste is defined by the process and style in which they make design decisions. What features belong in our product? Which prototype feels better? Do we need more iterations, or is this good enough? Are these questions answered by tools? By a process? By a person? Those answers are the essence of taste. In other words, an organization's taste is the way the organization makes design decisions.
 
-Kyle uses the term "taste". In government, we often call it "culture". Whatever you call it, it's the underlying assumptions that members of an organization fall back on on as they resolve ambiguity in pursuit of the organization's mission. Should we be iterative or precise? Process driven or outcome oriented? Do we serve end users or execs? Spoken or unspoken, these assumptions will undoubtedly shape [what the entirety of your organization's outputs are optimized for](//ben.balter.com/2015/01/27/on-stickers-and-optimizing-for-happiness/), so why not write them down?
+Kyle uses the term "taste". In government, we often call it "culture". Whatever you call it, it's the underlying assumptions that members of an organization fall back on as they resolve ambiguity in pursuit of the organization's mission. Should we be iterative or precise? Process driven or outcome oriented? Do we serve end users or execs? Spoken or unspoken, these assumptions will undoubtedly shape [what the entirety of your organization's outputs are optimized for](//ben.balter.com/2015/01/27/on-stickers-and-optimizing-for-happiness/), so why not write them down?
 
 At GitHub, we did just that:
 

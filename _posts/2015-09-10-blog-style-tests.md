@@ -64,7 +64,7 @@ The last thing I'd notice from our example post is that the post is [written for
 
 > Instead of telling your users… how much work it was for you to implement the new thing (written from your perspective), tell the user why your work matters to someone using your product (written from the user's perspective). A simple rule of thumb is that there should be more use of the word "you" than of "we".
 
-Once again, that "simple rule of thumb" can be automated. While not as foolproof as a traditional software unit test where inputs and outputs are controlled, we can count the "you"s in the post and the "we"s in the post, and suggest to the author that perhaps they should should rework things a bit:
+Once again, that "simple rule of thumb" can be automated. While not as foolproof as a traditional software unit test where inputs and outputs are controlled, we can count the "you"s in the post and the "we"s in the post, and suggest to the author that perhaps they should rework things a bit:
 
 ```ruby
 class YouWeTest &lt; Blog::Test

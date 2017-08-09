@@ -29,6 +29,8 @@ We should be co-opting proven tools already in the hands of public servants and 
 
 Complex, bleeding edge tools aren't the solution to making government more open. Even our [flagship efforts](http://healthcare.gov) expose that well-established solutions are unfortunately light years ahead of the anachronism that is DC and simply serve to baffle those the government trusts to implement them.[^2] Instead, it's about baby steps. It's about starting with a small real-world proof of concept at each agency, heck, maybe even each bureau, and gradually showing those individuals that may not even realize it, that they are, in fact, empowered to fundamentally reimagine the relationship between citizens and government.
 
+<!--lint ignore retext-indefinite-article-->
+
 Creating a culture of collaboration around government data is great, but let's start small. Let's start with what we know already works. Let's get agencies to begin committing CSVs and geoJSON to GitHub and other proven collaboration platforms, rather than merely uploading them to a unidirectional data portal or condemning the data to some proprietary and inaccessible format. Let's wean bureaucrats off of Word Documents and PDFs. Let's get them drafting in markdown and publishing in HTML. Let's help to make the entire pipeline open from the start. To break the addiction to closed systems.
 
 ### Data as code

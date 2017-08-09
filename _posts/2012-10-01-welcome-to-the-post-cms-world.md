@@ -39,7 +39,7 @@ The CMS is dead. Long live the CMS.
 
 Command: `siege -c 20 -t 30S -b ben.balter.com`
 
-```
+```console
 Transactions:            3600 hits
 Availability:          100.00 %
 Elapsed time:           29.91 secs
@@ -64,7 +64,7 @@ The first test was to benchmark the homepage, the most heavily trafficked page o
 
 ##### Homepage via shared Hosting (Bluehost)
 
-```
+```console
 Transactions:              40 hits
 Availability:          100.00 %
 Elapsed time:           29.54 secs
@@ -81,7 +81,7 @@ Shortest transaction:          0.47
 
 ##### Homepage via Varnish + Microcache + Page Cache + Object Cache (AWS)
 
-```
+```console
 Transactions:            1954 hits
 Availability:          100.00 %
 Elapsed time:           29.39 secs
@@ -98,7 +98,7 @@ Shortest transaction:          0.06
 
 ##### Homepage via Github Pages
 
-```
+```console
 Transactions:            2629 hits
 Availability:          100.00 %
 Elapsed time:           29.42 secs
@@ -121,7 +121,7 @@ The true challenge comes in not from serving a static front page (which is presu
 
 ##### 404s via shared Hosting (Bluehost)
 
-```
+```console
 Transactions:              30 hits
 Availability:           21.43 %
 Elapsed time:           29.58 secs
@@ -138,7 +138,7 @@ Shortest transaction:          0.00
 
 ##### 404s via Varnish + Microcache + Page Cache + Object Cache (AWS)
 
-```
+```console
 Transactions:            1567 hits
 Availability:          100.00 %
 Elapsed time:           29.13 secs
@@ -155,7 +155,7 @@ Shortest transaction:          0.00
 
 ##### 404s via Github Pages
 
-```
+```console
 Transactions:            2373 hits
 Availability:          100.00 %
 Elapsed time:           29.82 secs
