@@ -3,13 +3,13 @@ title: GW Course Schedule and Campus API
 description: George Washington University recently released an iPhone app that allows students to look up the course schedule and each course's open/closed status as well as browse an interactive map of the campus. Below you can find the details on GW's course schedule and campus map API endpoints, as well as an API wrapper to interact with it written in PHP.
 ---
 
-![Course Schedule](//ben.balter.com/wp-content/uploads/2011/01/1430289931_beb7ff6428_b-300x225.jpg "Course Schedule"){: .alignright}George Washington University recently released an [iPhone app](https://gwtoday.gwu.edu/app-gw) that allows students to look up the course schedule and each course’s open/closed status as well as browse an interactive map of the campus. Naturally, upon installing the app, the first thing to do is to try and ferret out the underlying XML API that powers it, a simple enough task given [the right tools](http://blog.jerodsanto.net/2009/06/sniff-your-iphones-network-traffic/).
+![Course Schedule](//ben.balter.com/wp-content/uploads/2011/01/1430289931_beb7ff6428_b-300x225.jpg "Course Schedule"){: .alignright}George Washington University recently released an [iPhone app](https://gwtoday.gwu.edu/app-gw) that allows students to look up the course schedule and each course's open/closed status as well as browse an interactive map of the campus. Naturally, upon installing the app, the first thing to do is to try and ferret out the underlying XML API that powers it, a simple enough task given [the right tools](http://blog.jerodsanto.net/2009/06/sniff-your-iphones-network-traffic/).
 
-Below you can find the details on GW’s course schedule and campus map API endpoints, as well as an API wrapper to interact with it written in ₱. Feel free to grab the code below, or fork and contribute in the [GitHub repo](https://github.com/benbalter/GW-API). Cool data that deserves to be shared with the world, no doubt.
+Below you can find the details on GW's course schedule and campus map API endpoints, as well as an API wrapper to interact with it written in PHP. Feel free to grab the code below, or fork and contribute in the [GitHub repo](https://github.com/benbalter/GW-API). Cool data that deserves to be shared with the world, no doubt.
 
 Creative ideas on how best to leverage the information welcome in the comments below.
 
-*Please Note: I am not a GW employee, nor is use of the API explicitly authorized by the University. The code below is provided “as is” solely for educational purposes. If for any reason you would like this page removed, please [contact me](//ben.balter.com/contact/) immediately and I will do so.*
+*Please Note: I am not a GW employee, nor is use of the API explicitly authorized by the University. The code below is provided "as is" solely for educational purposes. If for any reason you would like this page removed, please [contact me](//ben.balter.com/contact/) immediately and I will do so.*
 
 ---
 
