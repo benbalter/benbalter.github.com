@@ -5,7 +5,7 @@ comments: true
 published: true
 ---
 
-There are many aspects to "making things" that [open source just does better](//ben.balter.com/2012/10/19/we-ve-been-trained-to-make-paper/). Regardless of if at the end of the day you ship bits or cogs, certain aspects of "office" work are universal: ideation, vetting initiatives, resolving conflicts, and shipping product. Now imagine if you had to do all this not across conference tables, but across geographies and timezones. You'd have a pretty kick-ass process for sure. Welcome to the world of open source.
+There are many aspects to "making things" that [open source just does better](https://ben.balter.com/2012/10/19/we-ve-been-trained-to-make-paper/). Regardless of if at the end of the day you ship bits or cogs, certain aspects of "office" work are universal: ideation, vetting initiatives, resolving conflicts, and shipping product. Now imagine if you had to do all this not across conference tables, but across geographies and timezones. You'd have a pretty kick-ass process for sure. Welcome to the world of open source.
 
 Think about it this way: in the traditional office setting, we use management to facilitate this collaborative building process. Management does many things, but at the most basic level they:
 

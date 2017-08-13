@@ -103,7 +103,7 @@ At its most fundamental level, agility is the ability to quickly and effectively
 
 {: #agile-is-iterative-breaking-long-term-projects-into-multiple-independent-manageable-tasks }
 
-[![Comparison of Waterfall to Agile Software Development Timelines](//ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg){: style="width: 75%" .aligncenter }](//ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg){: .aligncenter}
+[![Comparison of Waterfall to Agile Software Development Timelines](https://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg){: style="width: 75%" .aligncenter }](https://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg){: .aligncenter}
 
 *Figure 1 - Agile and Waterfall Development Cycles Compared (PDF)*
 {: .aligncenter}

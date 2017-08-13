@@ -9,6 +9,7 @@
 1970s
 1980s
 1990s
+50s
 70s
 80s
 90s
@@ -65,6 +66,7 @@ Wilshusen
 
 # Foreign words to sound fancy
 Bienvenidos
+blache
 bona
 carte
 d'être
@@ -112,6 +114,7 @@ Sinatra-auth-GitHub
 ATO
 ATOs
 AWS
+BLS
 brutalist
 CFPB
 Comms
@@ -153,14 +156,9 @@ USDS
 65x
 8x
 9x
-AGPL
 analytics
 badging
 benchmarked
-BLS
-browserwrap
-CC0
-clickwrap
 consumerizes
 crowdsourced
 cryptographic
@@ -173,13 +171,10 @@ firehose
 flak
 flaks
 geospatial
-GPLv2
 ideation
 incentivize
 incentivized
-Incentivizing
-infringer
-lawyered
+incentivizing
 lifecycle
 merchantability
 NGO
@@ -202,14 +197,27 @@ subpar
 superfans
 TOS
 TPS
-Unported
 USC
-v2
 WIP
 
 # Jekyll
 endfor
 endunless
+
+# Legal jargon
+AGPL
+arrestee
+browserwrap
+CC0
+clickwrap
+excerpter
+GPLv2
+infringer
+lawyered
+substantiality
+takedown
+Unported
+v2
 
 # markup that's not escaped
 .aligncenter
@@ -259,8 +267,10 @@ CSI
 CUNY
 CyberDuck
 Deloitte
+Diaz
 Disqus
 DLT
+Documentum
 DropBox
 Drupal
 Drush
@@ -268,15 +278,19 @@ EditFlow
 Embedly
 Erlewine
 ESRI
+Feist
+Flickr
 Fogel
 Fordham
 Gantt
+Gaudio
 Gawker
 Geocities
 Gershowitz
-GMail
 Gmail
+GMail
 Godbout
+Griggs
 Groupon
 GSoC
 Hadoop
@@ -289,17 +303,19 @@ iGoogle
 IIS
 Jaquith
 JavaScript
-JetPack
+Jetpack
 Joomla
 Joomlas
 Jorbin
 jQuery
 Kirkendale
 Kundra
+Lefkowitz
 Linch
 LinkedIn
 LivingSocial
 Mackup
+Mashable
 McDonalds
 Mikey
 Minitest
@@ -307,10 +323,12 @@ Mitcho
 MongoDB
 Mou
 MSDN
+MSNBC
 Mullenweg
 Myspace
 MySQL
 Nacin
+Napa
 Nester
 NetIQ
 Nginx
@@ -327,6 +345,7 @@ Ra11y
 Rackspace
 Rapportive
 Riojadirecta
+Rosenfeld
 Roundtable
 Rubix
 RubyGems
@@ -348,6 +367,7 @@ TechDirt
 TeleTech
 TextWrangler
 Thinkpad
+Thunderdome
 TinyMCE
 Tipton
 Tomayko
@@ -360,6 +380,7 @@ W3
 W3C
 Warshak
 WebOS
+WestLaw
 WikiLeaks
 WinSCP
 WordPerfect
@@ -383,6 +404,7 @@ Analytics
 APIs
 architected
 Auth
+autosave
 backdoors
 backend
 backtrace
@@ -391,7 +413,9 @@ barcode
 BDFL
 bikeshed
 bikeshedding
+blogosphere
 CD-ROMs
+CDN
 CDNs
 changelog
 changeset
@@ -399,6 +423,7 @@ ChatOps
 checkboxes
 CIO
 CIOs
+CloudFront
 CMS
 CMSs
 codebase
@@ -431,6 +456,7 @@ dogfooding
 dotfiles
 DRM
 dropdown
+EC2
 favicon
 freemium
 frontmatter
@@ -469,8 +495,8 @@ lookups
 md
 MD5
 mentality
-Microcache
 microcache
+Microcache
 microsites
 modularity
 modularly
@@ -489,17 +515,21 @@ PHP
 programatic
 README
 READMEs
+recrawl
+recrawled
 repo
 RPC
 RSS
 SaaS
 SAML
 scalability
+screencast
 SDK
 SDKs
 SEO
 shortcode
 shortcodes
+shortener
 SMS
 SSL
 stafftools
@@ -509,6 +539,7 @@ textarea
 Texturize
 TLS
 TopoJSON
+trackbacks
 UI/UX
 undecryptable
 unordered
@@ -526,8 +557,10 @@ VPN
 Waterfall
 webcal
 whitelisted
+whitelists
 whitespace
 wifi
+wireframe
 wp-admin
 XML-RPC
 YAML
@@ -542,6 +575,7 @@ articulable
 asker
 badass
 bajillion
+blindspot
 bootcamp
 browsable
 bucketizing
@@ -553,6 +587,7 @@ centricity
 checkable
 checkin
 cheerleading
+Chupacabra
 commoditized
 computering
 consumerization
@@ -565,8 +600,8 @@ cyber
 decisional
 decreeable
 definitional
-Deliverables
 deliverables
+Deliverables
 deprioritized
 discoverable
 disproven
@@ -578,6 +613,7 @@ downscope
 duplicative
 eleventy
 ensnarl
+esque
 evented
 extensibility
 fallbacks
@@ -610,6 +646,7 @@ kidz
 kludgy
 labyrinthian
 lawyering
+lifecasters
 linkable
 meatspace
 mergable
@@ -684,5 +721,6 @@ unstick
 untether
 untraining
 untrusting
+upselling
 walkthroughs
 workspace

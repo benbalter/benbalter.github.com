@@ -3,7 +3,7 @@ title: Fair Use, Excerpting, and Copying Content in the Internet Ecosystem
 description: The Internet's *laissez-faire* Internet ecosystem of liberal excerpting is often at odds with both traditional media and the law.
 ---
 
-![Close up of a copier control panel](//ben.balter.com/wp-content/uploads/2011/04/2146845610_ebd95e5f4e_b-300x200.jpg "Copier"){: .alignleft }
+![Close up of a copier control panel](https://ben.balter.com/wp-content/uploads/2011/04/2146845610_ebd95e5f4e_b-300x200.jpg "Copier"){: .alignleft }
 
 The Internet's *laissez-faire* Internet ecosystem of liberal excerpting is often at odds with both [traditional](http://www.washingtonpost.com/wp-dyn/content/article/2009/07/31/AR2009073102476.html) [media](http://www.niemanlab.org/2009/08/gawker-and-the-washington-post-a-case-study-in-fair-use/) and [the law](http://ilt.eff.org/index.php/Copyright:_Fair_Use), but the bigger concerns for aspiring bloggers should be contributing to an ongoing dialog, rather than muddling it.
 
@@ -44,11 +44,11 @@ In short, so long as you link back to the original source, and contribute someth
 
 The law aside, readers want you to digest and put ideas in your own voice. Take a paragraph from one post, a paragraph from another, and build a common thread between them – that's the bigger hurdle. Give readers a reason to come to your site. Give your site a reason to exist, and nine times out of ten, the law will be on your side.
 
-\[Photo courtesy [tallguy](http://www.flickr.com/photos/talllguy/2146845610/)]
+*Photo courtesy [@tallguy](http://www.flickr.com/photos/talllguy/2146845610/)*
 
 [^1]: Questions asked included: If there's no copyright symbol, is it still copyrighted?; If it's posted online, can I just copy it because its it's in the public domain?; Can I use it if I'm not selling it?; and It's okay to use if I credit the original author, right?.
 
-[^2]: It should be noted that [I'm not an attorney](//ben.balter.com/fine-print/) and my writing should not be substituted for qualified legal advice.
+[^2]: It should be noted that [I'm not an attorney](https://ben.balter.com/fine-print/) and my writing should not be substituted for qualified legal advice.
 
 [^3]: This is a common misconception. While once true, under the [Berne Convention](http://en.wikipedia.org/wiki/Berne_Convention_for_the_Protection_of_Literary_and_Artistic_Works) the author of any content published today is assumed to retain copyright claims.
 

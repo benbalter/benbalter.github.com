@@ -9,7 +9,7 @@ I am gave a brief [lightning talk at April's WordPress DC Meetup](http://www.mee
 
 * The process
 
-  * The server executes PHP and outputs HTML, CSS, JavaScript, etc.![Screenshot of the presentation showing the relationship between server, browser, and user](//ben.balter.com/wp-content/uploads/2011/04/infographic-300x138.png "infographic"){: .alignright }
+  * The server executes PHP and outputs HTML, CSS, JavaScript, etc.![Screenshot of the presentation showing the relationship between server, browser, and user](https://ben.balter.com/wp-content/uploads/2011/04/infographic-300x138.png "infographic"){: .alignright }
   * The user's browser takes that output and renders a visual representation of the page
 
 * Client-side Languages
@@ -53,4 +53,4 @@ I am gave a brief [lightning talk at April's WordPress DC Meetup](http://www.mee
   * [Debug bar](http://wordpress.org/extend/plugins/debug-bar/) plugin
   * [WordPress Codex](http://codex.wordpress.org/)
 
-*Thanks to all who came out or tuned into the live stream. Comments? Questions? I'd love to hear your thoughts below or feel free to [contact me](//ben.balter.com/contact/).*
+*Thanks to all who came out or tuned into the live stream. Comments? Questions? I'd love to hear your thoughts below or feel free to [contact me](https://ben.balter.com/contact/).*

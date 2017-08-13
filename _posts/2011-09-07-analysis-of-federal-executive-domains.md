@@ -9,19 +9,19 @@ The White House's Office of Management and Budget recently released a list of al
 
 * **Agency** (as provided in the data.gov list)
 * **Server status** (response code, if it is reachable, etc.)
-* **Non-WWW support** (is www. required to access the site)
+* **Non-WWW support** (is `www.` required to access the site)
 * **IPv6 Support** (is it reachable via next generation technology)
 * **CDN Provider** (do they use a content distribution network, if so what)
 * **CMS** (do they use a content management system, if so what)
 * **Cloud Provider** (are they hosted in the cloud, if so by whom)
 * **Analytics Source** (do they track visitors, if so how)
 * **Script Library** (do they use common JavaScript libraries)
-* **HTTPs Support** (is the site browsable via the secure HTTPS protocol)
+* **HTTPS Support** (is the site browsable via the secure HTTPS protocol)
 
 ### Key Highlights of the Preliminary Results
 
 * Only 73% of domains are live and in use
-* *Of live domains* 80% are accessible without typing the www. prefix.
+* *Of live domains* 80% are accessible without typing the `www.` prefix.
 * Only 10 sites fully support the federally mandated IPv6 standard.
 * 87 domains use the Akamai content distribution network.
 * 12 are believed to be in the cloud, including 10 in Amazon, and 2 in Rackspace.
