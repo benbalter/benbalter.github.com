@@ -1,6 +1,7 @@
+
 ---
 title: The store that sells only one thing.
-description: 
+description:
 comments: true
 published: true
 ---
@@ -15,4 +16,4 @@ But that's exactly what we do in technology. Traditional software engineers defi
 
 But technology problems come in many yet unseen shapes and sizes, and often times the best solution isn't the same one you used on the last problem, or better yet, hasn't even been invented yet. [Hackers](//ben.balter.com/2013/02/04/what-is-a-hacker/), on the other hand, at least from my experience, often define themselves as a "developer" who *has used* a given language. There's already the possibility there of learning another if the job calls for it. It's a sense of solving the problems at all costs. It's a sense of avoiding self vendor lock-in. It's a passion for technology, not *a technology*.
 
-When a potential customer comes to a technology shop, they're not shopping for mere muscle. They're not hiring unskilled labor. They're shopping for experts. They're shopping for people with a better knowledge of the space than they have. They're shopping for a solution. Sure, a firm can specialize in something, or be known for a given skill. Nordstrom is known for its service. Apple's known for its design, but Nordstom doesn't just sell blue shirts, Apple doesn't just sell desktop computers, and neither should you.
+When a potential customer comes to a technology shop, they're not shopping for mere muscle. They're not hiring unskilled labor. They're shopping for experts. They're shopping for people with a better knowledge of the space than they have. They're shopping for a solution. Sure, a firm can specialize in something, or be known for a given skill. Nordstrom is known for its service. Apple's known for its design, but Nordstrom doesn't just sell blue shirts, Apple doesn't just sell desktop computers, and neither should you.

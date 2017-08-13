@@ -43,11 +43,11 @@ This idea comes into play in three distinct ways:
 
 ### 4. Embrace the constraints of open source
 
-Open source is bound by certain workflow constraints. [Rarely are two people in the same place at the same time let alone working on the same thing at the same time](//ben.balter.com/2014/11/06/rules-of-communicating-at-github/), and yet they almost always produce better results than their proprietary, purpose-built counterparts. It's the story of Wikipedia versus Encyclopedia Britannica.
+Open source is bound by certain workflow constraints. [Rarely are two people in the same place at the same time let alone working on the same thing at the same time](//ben.balter.com/2014/11/06/rules-of-communicating-at-GitHub/), and yet they almost always produce better results than their proprietary, purpose-built counterparts. It's the story of Wikipedia versus Encyclopedia Britannica.
 
 You can't un-constrain open source, nor would you want to. If you want to engage the open source community on equal footing, you must embrace their constraints, and chances are, by adopting modern, asynchronous tools, your workflow will improve for the better. With a few adaptations, as @rtomayko [wrote a few years back](http://tomayko.com/writings/adopt-an-open-source-process-constraints), there are four constraints:
 
-* **Electronic** - Discussion, planning, and operations process should use a high fidelity form of electronic communication like email, github.com, or chat with transcripts wherever possible. Avoid meatspace discussion and meetings.
+* **Electronic** - Discussion, planning, and operations process should use a high fidelity form of electronic communication like email, GitHub.com, or chat with transcripts wherever possible. Avoid meatspace discussion and meetings.
 
 * **Transparent** - Communicate decisions in real time, and forever. Work should be visible and expose process. Work should have a URL. It should be possible to move backward from a piece of product or a system failure and understand how it came to be that way. Prefer git, issues, pull requests, mailing lists, and chat with transcripts over URL-less mediums.
 

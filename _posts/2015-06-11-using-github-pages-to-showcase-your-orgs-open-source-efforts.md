@@ -137,7 +137,7 @@ The problem with this approach, is that as you add more projects, you have to co
 In addition to Markdown, Jekyll also supports a lightweight templating engine called [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers). Liquid allows us to inject a bit of dynamic logic into the otherwise static site. If you're familiar with basic programatic concepts, it supports things like `while`, `if`, and `for` statements. To list all the open source project's in our organization's we might write:
 
 ```html{% raw %}
-{% for repository in site.github.public_repositories %}
+{% for repository in site.GitHub.public_repositories %}
   * {{ repository.name }}
 {% endfor %}
 {% endraw %}
@@ -147,7 +147,7 @@ That should produce identical results to the hard-coded versions above, but in a
 
 ### Supercharging your organization's developer presence
 
-In terms of availability and scalability, the simplicity of GitHub pages makes it extremely resilient for high-traffic sites. You can [read more about GitHub Pages architecture](http://githubengineering.com/rearchitecting-github-pages/), but in short, GitHub Pages is home to about three-quarters of a million sites, serves about a quarter of a million requests each minute, and completes about 20,000 builds each day. Your site is in good hands.
+In terms of availability and scalability, the simplicity of GitHub pages makes it extremely resilient for high-traffic sites. You can [read more about GitHub Pages architecture](http://GitHubengineering.com/rearchitecting-github-pages/), but in short, GitHub Pages is home to about three-quarters of a million sites, serves about a quarter of a million requests each minute, and completes about 20,000 builds each day. Your site is in good hands.
 
 Your organization site is also in good company. [Lots of large organizations](https://github.com/showcases/open-source-organizations) like [Adobe](http://adobe.github.io), [Netflix](http://netflix.github.io), [SAP](http://sap.github.io), [IBM](http://ibm.github.io), and [Microsoft](http://microsoft.github.io) use GitHub Pages to showcase their open source efforts. It provides organizations with a branded developer presence to link to from their `/developer` or similar portals, instead of linking to their standard GitHub profile.
 

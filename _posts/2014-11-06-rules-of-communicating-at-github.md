@@ -1,7 +1,7 @@
 ---
 title: 15 rules for communicating at GitHub
 description: Asynchronous communication through high-fidelity mediums like issues and chat eliminate the endemic 'you had to be there' aspect of most corporate workflows, and reduces the need for a dedicated management class to capture, collection, and shuttle information back and forth between business units.
-redirect_from: "/2014/11/03/rules-of-communicating-at-github/"
+redirect_from: "/2014/11/03/rules-of-communicating-at-GitHub/"
 ---
 
 At GitHub, we have a very specific way of working. For one, we use GitHub to build GitHub. Not just for code, but to collaborate on things like Legal, Marketing, and internal policies. But it's not that the medium defines the workflow (although it certainly helps), in fact, it's the other way around.
@@ -20,7 +20,7 @@ In practice, this means that you essentially *never* "walk over" to a coworker's
 
 ### 2. Don't underestimate high-fidelity mediums
 
-High fidelity, synchronous mediums like meatspace, Hangouts, or chat are extremely valuable, when used correctly. In many workplace cultures, synchronous meetings are the default, and are often used to make (or worse, communicate) decisions, two goals that are better achieved by non-evented means. What are the latest sales numbers? Create a blog post. Which design should we choose? Open a pull request and show me. Reserve such high-fidelty mediums for things that simply can't be accomplished by lower fidelity means.
+High fidelity, synchronous mediums like meatspace, Hangouts, or chat are extremely valuable, when used correctly. In many workplace cultures, synchronous meetings are the default, and are often used to make (or worse, communicate) decisions, two goals that are better achieved by non-evented means. What are the latest sales numbers? Create a blog post. Which design should we choose? Open a pull request and show me. Reserve such high-fidelity mediums for things that simply can't be accomplished by lower fidelity means.
 
 In practice, this can come in three primary forms:
 

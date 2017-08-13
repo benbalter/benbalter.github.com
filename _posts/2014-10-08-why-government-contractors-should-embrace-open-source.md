@@ -43,7 +43,7 @@ Open source provide government contractors with a platform to establish a brand 
 
 There are two big buckets of IT contracts: software development, and operations and maintenance. Traditional software development contracts are often a large, firm-fixed price, agreed upon up front, but once the software is delivered, the revenue stream may dry up depending on whether the agency chooses to invest further in the project by building out additional features.
 
-With open source, there's always a built in maintenance component. Once open sourced, agencies will require someone with the technical knowhow to foster a community around the code, evaluate proposed changes, and answer questions in the support forums, rather than let the project dry up and die on the vine. Whereas an agency may choose not to develop new features, once in the hands of the community, there's a high probability it will be improved upon for a particular use case or that bugs will surface. Most agencies don't have that expertise in-house, and are increasingly turning to industry partners to maintain the day-to-day operations of the project.
+With open source, there's always a built in maintenance component. Once open sourced, agencies will require someone with the technical know-how to foster a community around the code, evaluate proposed changes, and answer questions in the support forums, rather than let the project dry up and die on the vine. Whereas an agency may choose not to develop new features, once in the hands of the community, there's a high probability it will be improved upon for a particular use case or that bugs will surface. Most agencies don't have that expertise in-house, and are increasingly turning to industry partners to maintain the day-to-day operations of the project.
 
 Rather than being a one-off engagement, open source provides government contractors to establish long-term maintenance and engagement contracts, and to advise the agency on open-source best practices throughout the lifecycle of the project.
 
@@ -53,11 +53,11 @@ A lot of the overhead inherent in government contracting comes from shuttling in
 
 Open source eliminates that overhead by facilitating the free-flow of information. Found a bug? Submit an issue describing what you see. Want to know the status of a particular feature? Subscribe to the pull request. All of a sudden the agency has day-to-day visibility into the project's status, and does so at no additional cost to the contractor. In fact, project managers are often freed from serving as an interface to the client, and can concentrate on higher-level tasks like delivering the best software possible.
 
-By unshackling project information from costly corporate chanels, open source streamlines interactions between agency and contractor, ensuring project status is communicated cleanly, efficiently, and without the need for duplication of efforts.
+By unshackling project information from costly corporate channels, open source streamlines interactions between agency and contractor, ensuring project status is communicated cleanly, efficiently, and without the need for duplication of efforts.
 
 ### 7. Internal efficiency
 
-Open source software is developed by teams rarely in the same place at the same time, rarely working on the same thing at the same time, rarely with fully aligned interests, and despite this complexity, consistently delivers higher quality software than its purpose-built and proprietary counterparts. It's the story of Wikipedia versus Encycleopedia Britannica.
+Open source software is developed by teams rarely in the same place at the same time, rarely working on the same thing at the same time, rarely with fully aligned interests, and despite this complexity, consistently delivers higher quality software than its purpose-built and proprietary counterparts. It's the story of Wikipedia versus Encyclopedia Britannica.
 
 Adopting open-source workflows, even if the code itself is never made public, can be a force multiplier for teams, allowing them to shed bureaucratic cruft and adopt leaner, more agile workflows. While it's certainly possible to publish code developed under a waterfall approach, the decentralized nature of open source, absent a centralized planning authority, almost necessitates iterative development.
 

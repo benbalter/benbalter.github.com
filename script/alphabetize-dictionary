@@ -8,7 +8,7 @@ header = sections.delete_at(0)
 sections = sections.map do |section|
   parts = section.split("\n")
   section_header = parts.delete_at(0).strip
-  words = parts.sort_by { |p| p.downcase }
+  words = parts.sort_by { |p| p.downcase }.uniq
   [section_header, words]
 end.to_h
 

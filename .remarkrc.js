@@ -20,6 +20,7 @@ var retextSettings = {
   plugins: [
     require('retext-syntax-mentions'),
     require('retext-syntax-urls'),
+    require('retext-emoji'),
     [require('retext-sentence-spacing'), {preferred: 1}],
     // [require('retext-quotes'), {preferred: 'smart'}],
     require('retext-diacritics'),

@@ -20,7 +20,7 @@ or bower:
 bower install anchor-js --save-dev
 ```
 
-(or just [download it from github](https://github.com/bryanbraun/anchorjs/releases)).
+(or just [download it from GitHub](https://github.com/bryanbraun/anchorjs/releases)).
 
 Then include the anchor.js file (or anchor.min.js) in your webpage.
 

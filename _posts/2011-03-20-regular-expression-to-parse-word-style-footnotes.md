@@ -55,4 +55,4 @@ Thoughts? Improvements? The above code solved a rather stubborn workflow problem
 
 [^1]: Licensed under [GPLv2](http://wordpress.org/about/gpl/)
 
-[^2]: You can even [Fork the plugin over on Github](//ben.balter.com/2011/03/20/regular-expression-to-parse-word-style-footnotes/)
+[^2]: You can even [Fork the plugin over on GitHub](//ben.balter.com/2011/03/20/regular-expression-to-parse-word-style-footnotes/)

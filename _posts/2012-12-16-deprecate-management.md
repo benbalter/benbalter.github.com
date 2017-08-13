@@ -25,7 +25,7 @@ But does it <del>blend</del> scale? WordPress, the open source content managemen
 
 So what aspects of the open source process make this management free collaboration possible? Ryan Tomayko [outlines](http://tomayko.com/writings/adopt-an-open-source-process-constraints) his experience applying the open source philosophy to an entire (for-profit) venture, noting four key features to the system:
 
-> * **Electronic**: Discussion, planning, and operations process should use a high fidelity form of electronic communication like email, github.com, or chat with transcripts wherever possible. Avoid meatspace discussion and meetings.
+> * **Electronic**: Discussion, planning, and operations process should use a high fidelity form of electronic communication like email, GitHub.com, or chat with transcripts wherever possible. Avoid meatspace discussion and meetings.
 >
 > * **Available**: Work should be visible and expose process. Work should have a URL. It should be possible to move backward from a piece of product or a system failure and understand how it came to be that way. Prefer git, issues, pull requests, mailing lists, and chat with transcripts over URL-less mediums.
 >

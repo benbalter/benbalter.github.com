@@ -21,4 +21,4 @@ On a substantive level, the bulk of the policies we've seen have, by-and-large, 
 
 There's been a lot of great momentum generated from the policy side, giving the geeks the environment they need to do what they do best, but [that's just the start](https://18f.gsa.gov).
 
-*The is an excerpt, originally posted [on opensource.com](http://opensource.com/government/14/10/interview-ben-balter-github), and is republished here under a CC-BY-SA license.*
+*The is an excerpt, originally posted [on opensource.com](http://opensource.com/government/14/10/interview-ben-balter-GitHub), and is republished here under a CC-BY-SA license.*

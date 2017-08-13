@@ -96,7 +96,7 @@ Longest transaction:          0.92
 Shortest transaction:          0.06
 ```
 
-##### Homepage via Github Pages
+##### Homepage via GitHub Pages
 
 ```console
 Transactions:            2629 hits
@@ -153,7 +153,7 @@ Longest transaction:          1.13
 Shortest transaction:          0.00
 ```
 
-##### 404s via Github Pages
+##### 404s via GitHub Pages
 
 ```console
 Transactions:            2373 hits

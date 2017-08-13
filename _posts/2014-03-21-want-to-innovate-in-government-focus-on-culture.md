@@ -24,9 +24,9 @@ An innovator's primary goal is the exact opposite. An innovator thrives on susta
 
 ### Never take "no" from someone who can't say "yes"
 
-You could have the most innovative idea, perfectly executed, and fully within the letter of the law, but if any one of the ten to fifteen layers of agency's immune system so much as sniffs an antibody they're not familiar with, the effort's dead in the water. Whether the threat's real or percieved, it's perpetual pollen season and the bureaucracy has chronic allergies.
+You could have the most innovative idea, perfectly executed, and fully within the letter of the law, but if any one of the ten to fifteen layers of agency's immune system so much as sniffs an antibody they're not familiar with, the effort's dead in the water. Whether the threat's real or perceived, it's perpetual pollen season and the bureaucracy has chronic allergies.
 
-So how do you solve for the vocal naysayer minority? What's the Claritin or Zyrtec of bureacuracy? In a word: culture. Culture isn't getting a coworker a card for her birthday, or an office-wide March Madness tournament. Culture is the cross-department set of unspoken assumptions that frame any conversation within an organization. Culture defines the realm of the possible, and in the case of government, it is a powerful exclusionary force.
+So how do you solve for the vocal naysayer minority? What's the Claritin or Zyrtec of bureaucracy ? In a word: culture. Culture isn't getting a coworker a card for her birthday, or an office-wide March Madness tournament. Culture is the cross-department set of unspoken assumptions that frame any conversation within an organization. Culture defines the realm of the possible, and in the case of government, it is a powerful exclusionary force.
 
 ### What if your biggest fight you faced was outside, not inside your organization
 

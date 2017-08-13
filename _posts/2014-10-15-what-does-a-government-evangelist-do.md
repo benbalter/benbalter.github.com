@@ -21,4 +21,4 @@ The government evangelist role provides agencies with someone familiar with open
 
 If we're going to [try and break government out of its anachronistic ways](//ben.balter.com/2014/10/08/why-government-contractors-should-%3C3-open-source/), we're going to need to expose government agencies to new, leaner ways of working. If you've got a project, open source or otherwise, and the government can benefit, [speaking their language is just the start](//ben.balter.com/2014/08/03/why-isnt-all-government-software-open-source/#there-are-fewer-suits-behind-open-source).
 
-*This is an excerpt, originally posted [on opensource.com](http://opensource.com/government/14/10/interview-ben-balter-github), and is republished here under a CC-BY-SA license.*
+*This is an excerpt, originally posted [on opensource.com](http://opensource.com/government/14/10/interview-ben-balter-GitHub), and is republished here under a CC-BY-SA license.*

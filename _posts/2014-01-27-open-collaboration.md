@@ -33,7 +33,7 @@ I've only known a world where open source has already won. When I think open sou
 
 Developers today could [care less what the license is](http://opensource.com/law/13/2/post-open-source-software-licensing) or if non-free software is [an instrument of unjust power](https://www.gnu.org/philosophy/free-software-even-more-important.html). We just want to hack on cool stuff and we know doing things in the open is the best way to do it. Open source has won, and not for political or philosophical reasons. Today, [Microsoft supports open source](http://www.microsoft.com/opensource/directory.aspx) because it makes good business sense, not because of the freedoms it brings.
 
-There are a lot of reasons for that deemphasis. For one, technology has made it easier to work together than alone, shifting the supply-side constrains from projects to contributors, and in turn, has shaped what it means to be open source. As Karl noted:
+There are a lot of reasons for that de-emphasis. For one, technology has made it easier to work together than alone, shifting the supply-side constrains from projects to contributors, and in turn, has shaped what it means to be open source. As Karl noted:
 
 > Pretty much all open source activity (whether software or otherwise) happens online… if it's not online, it's hard for it to be effectively open source, practically speaking.
 
