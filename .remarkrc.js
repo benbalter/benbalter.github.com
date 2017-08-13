@@ -26,7 +26,7 @@ var retextSettings = {
     require('retext-diacritics'),
     require('retext-redundant-acronyms'),
     require('retext-repeated-words'),
-//    Require('retext-indefinite-article'),
+    require('retext-indefinite-article'),
   //  [require('retext-contractions'), {straight: true}],
    [require('retext-spell'), {dictionary: enUS, personal: personal}]
   ]
