@@ -16,6 +16,29 @@
 
 # Footnotes
 Hearn
+Miniwatts
+Mgmt
+MIS
+AIMD-93
+Commc'ns
+Dev.
+Interop
+Kaiyuan
+Za
+Bao
+Grance
+Mell
+Wittow
+Buller
+Shyu
+Schrage
+Nawyn
+Colum
+Lee-Makiyama
+Hindley
+Hosuk
+Gardels
+WL
 Rajiv
 1654A
 2d
@@ -92,7 +115,7 @@ Xia
 
 # Foreign words to sound fancy
 Bienvenidos
-blache
+blanche
 bona
 carte
 d'être
@@ -182,6 +205,9 @@ USDS
 
 # Jargon
 10x
+ITU
+ECIPE
+ICT
 50x
 65x
 8x
@@ -236,6 +262,8 @@ endunless
 
 # Legal jargon
 AGPL
+warrantless
+SCA
 arrestee
 browserwrap
 CC0
@@ -245,6 +273,7 @@ GPLv2
 infringer
 lawyered
 rebaselined
+rebaselining
 substantiality
 takedown
 Unported
@@ -266,6 +295,9 @@ Retlab
 
 # Proper nouns
 37Signals
+Jairs
+Smilin
+EvilRank
 ActiveX
 AddThis
 AirBnB
@@ -429,6 +461,8 @@ Zoolander
 Zuckerberg
 
 # Tech
+telecom
+IMAP
 3D
 404s
 add-ons
@@ -594,11 +628,21 @@ whitelists
 whitespace
 wifi
 wireframe
+wireframes
 wp-admin
 XML-RPC
 YAML
 
 # Words I apparently made up
+inoperably
+transformative
+componentized
+disincentivize
+incongruence
+blowback
+ButHonestlyMonica
+digi-tarnished
+memesters
 0s
 1s
 amongst

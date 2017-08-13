@@ -59,7 +59,7 @@ Whether a federal contracting officer or a provider of IT services, just as the 
 
 [^5]: Wittow, 14 J. Internet L. 1 (2010).
 
-[^6]: J. Nicholas Hoover, *Interop: Oracle Predicts Cloud Confusion to Continue*, InformationWeek, Sept. 17, 2008, http&#x3A;// www.informationweek.com/news/services/hosted_apps/showArticle.jhtml? articlelD=210602225.
+[^6]: J. Nicholas Hoover, *Interop: Oracle Predicts Cloud Confusion to Continue*, InformationWeek, Sept. 17, 2008, <http://www.informationweek.com/news/services/hosted_apps/showArticle.jhtml?articlelD=210602225>.
 
 [^7]: Peter M. Lefkowitz, *Contracting in the Cloud: A Primer,* Boston B.J., Summer 2010, at 9.
 
