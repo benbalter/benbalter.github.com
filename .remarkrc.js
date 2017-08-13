@@ -12,10 +12,6 @@ var personal = fs
   .readFileSync(path.join(__dirname, 'dictionary.txt'), 'utf8')
   .replace(/#.+/gm, '');
 
-// See
-// https://github.com/wooorm/retext-indefinite-article/issues/6,
-// https://github.com/wooorm/retext-indefinite-article/issues/5, and
-//
 var retextSettings = {
   plugins: [
     require('retext-syntax-mentions'),
@@ -27,7 +23,7 @@ var retextSettings = {
     require('retext-repeated-words'),
     require('retext-indefinite-article'),
 //    [require('retext-contractions'), {straight: true}],
-//    [require('retext-quotes'), {preferred: 'smart'}],
+    [require('retext-quotes'), {preferred: 'straight'}],
     [require('retext-spell'), {dictionary: enUS, personal: personal}]
   ]
 };
@@ -81,8 +77,6 @@ exports.plugins = [
         locale: 'en-us'
       },
       plugins: [
-      //  'typographic-apostrophes',
-      //  'typographic-apostrophes-for-possessive-plurals',
         'typographic-arrows',
         'typographic-copyright',
         'typographic-ellipses',

@@ -240,7 +240,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^12]: Robert Gates, *A Balanced Strategy: Reprogramming the Pentagon for a New Age*, Foreign Aff., Jan./Feb. 2009, at 28, 34.
 
-[^13]: *See* Vivek Kundra, U.S. Chief Info. Officer, White House, 25 Point Implementation Plan to Reform Federal Information Technology Management 17 (2010) (calling for "increased communication with industry" and "high functioning, ‘cross-trained' program teams").
+[^13]: *See* Vivek Kundra, U.S. Chief Info. Officer, White House, 25 Point Implementation Plan to Reform Federal Information Technology Management 17 (2010) (calling for "increased communication with industry" and "high functioning, 'cross-trained' program teams").
 
 [^14]: *See* [Memorandum from Peter R. Orszag](http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m-10-26.pdf), Dir. of Office of Mgmt. and Budget, Exec. Office of the President, to Heads of Exec. Dep'ts and Agencies 1 (June 28, 2010) \[hereinafter Orszag Memorandum] , *available at [http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m-10–26.pdf](http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m-10-26.pdf)*
 

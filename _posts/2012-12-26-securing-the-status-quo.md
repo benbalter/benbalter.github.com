@@ -168,7 +168,7 @@ Congress has imposed on federal executive agencies an onerous system to ensure i
 
 <!--lint ignore retext-contractions -->
 
-[^23]: *Id* 552a(b), (d), (f)*.*
+[^23]: *Id.* 552a(b), (d), (f)*.*
 
 [^24]: 44 U.S.C.A. 3601 *et seq*.
 
