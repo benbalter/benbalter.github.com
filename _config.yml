@@ -61,7 +61,8 @@ exclude:
   - Rakefile
   - retlab
   - dictionary.txt
-  
+  - assets/vendor/turbolinks/test/
+
 permalink: "/:year/:month/:day/:title/"
 defaults:
   - scope:
