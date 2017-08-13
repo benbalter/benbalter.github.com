@@ -3,7 +3,7 @@ title: How GitHub uses automated testing to empower developers to write less-cor
 description: Encourage proper voice, tone, and style by adding automated tests to your corporate blog.
 ---
 
-I've written in the past about how you should treat [prose with the same respect that developers treat code](//ben.balter.com/2013/09/16/treat-data-as-code/), how [collaborative content allows you to bring the concept of continuous integration to your organization's writing](//ben.balter.com/2015/05/22/test-your-prose/), and my colleague Zach Holman's got [a great write up about how GitHub embraces those concepts in its own writing](http://zachholman.com/posts/how-github-writes-blog-posts/). Today I'd like to show a bit of how we leverage automated testing at GitHub to empower developers to write [less-corporate blog posts](//ben.balter.com/2015/07/20/write-corporate-blog-posts-as-a-human/) (and how you can too!). Take this marketing speak as an example of a blog post a developer might propose:
+I've written in the past about how you should treat [prose with the same respect that developers treat code](https://ben.balter.com/2013/09/16/treat-data-as-code/), how [collaborative content allows you to bring the concept of continuous integration to your organization's writing](https://ben.balter.com/2015/05/22/test-your-prose/), and my colleague Zach Holman's got [a great write up about how GitHub embraces those concepts in its own writing](http://zachholman.com/posts/how-github-writes-blog-posts/). Today I'd like to show a bit of how we leverage automated testing at GitHub to empower developers to write [less-corporate blog posts](https://ben.balter.com/2015/07/20/write-corporate-blog-posts-as-a-human/) (and how you can too!). Take this marketing speak as an example of a blog post a developer might propose:
 
 > Today, after months of effort, we're excited to announce our new wiz-bang feature...
 
@@ -11,7 +11,7 @@ Whereas traditionally a member of your company's marketing, copy, or editorial t
 
 ### Don't use the word today
 
-If I were reviewing the post, the first issue I'd call out is that [it starts with the word "today"](//ben.balter.com/2015/07/20/write-corporate-blog-posts-as-a-human/#dont-use-the-word-today).
+If I were reviewing the post, the first issue I'd call out is that [it starts with the word "today"](https://ben.balter.com/2015/07/20/write-corporate-blog-posts-as-a-human/#dont-use-the-word-today).
 
 > In practicality, when launching something new, the word "today" often takes the place of more valuable information, like how to actually use the darn thing. When you leave out "today", you're forced to actually describe what's changed.
 
@@ -60,7 +60,7 @@ end
 
 ### Write for users, not for yourself
 
-The last thing I'd notice from our example post is that the post is [written for the company, not for its users](//ben.balter.com/2015/07/20/write-corporate-blog-posts-as-a-human/#write-for-users-not-for-yourself).
+The last thing I'd notice from our example post is that the post is [written for the company, not for its users](https://ben.balter.com/2015/07/20/write-corporate-blog-posts-as-a-human/#write-for-users-not-for-yourself).
 
 > Instead of telling your users... how much work it was for you to implement the new thing (written from your perspective), tell the user why your work matters to someone using your product (written from the user’s perspective). A simple rule of thumb is that there should be more use of the word “you” than of “we”.
 

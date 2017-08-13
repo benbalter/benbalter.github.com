@@ -3,7 +3,7 @@ title: Test your content
 description: 'There''s another workflow that version-controlled, collaborative content enables: continuous integration for prose.'
 ---
 
-I've written before about how we should treat [prose and data with the same respect that developers treat code](//ben.balter.com/2013/09/16/treat-data-as-code/) and how [Jekyll forces you to do just that](//ben.balter.com/2013/10/30/content-is-king/), but there's another workflow that version-controlled, collaborative content enables: continuous integration.
+I've written before about how we should treat [prose and data with the same respect that developers treat code](https://ben.balter.com/2013/09/16/treat-data-as-code/) and how [Jekyll forces you to do just that](https://ben.balter.com/2013/10/30/content-is-king/), but there's another workflow that version-controlled, collaborative content enables: continuous integration.
 
 *Continuous integration* (CI) is the idea that for every change, whether proposed or realized, a standard battery of tests run, to confirm the change does what you intend it to do. In most developer tools, like GitHub, you get instant feedback, in the form of a green light, to let you know that that is in fact the case, or a red light, in the event that something went awry, detailing exactly what doesn't match you specified expectations.
 

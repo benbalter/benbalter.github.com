@@ -23,8 +23,8 @@ Twitter Mentions as Comments does exactly what it promises to do – scours Twit
 * Oauth Authentication to raise API limit (currently unlimited Tweets, but limited to 150 *new* comment authors per hour)
 * Smarter API throttling
 
-The plugin is available in the [WordPress plugin repository](http://wordpress.org/extend/plugins/twitter-mentions-as-comments/), and you can see it in action below or on the [WP Resume plugin page](//ben.balter.com/2010/09/12/wordpress-resume-plugin/#comment-168).
+The plugin is available in the [WordPress plugin repository](http://wordpress.org/extend/plugins/twitter-mentions-as-comments/), and you can see it in action below or on the [WP Resume plugin page](https://ben.balter.com/2010/09/12/wordpress-resume-plugin/#comment-168).
 
-**Looking to filter out a particular user or keyword?** Because Tweets go through the normal comment filter, you can just [blacklist them as described below](//ben.balter.com/2010/11/29/twitter-mentions-as-comments/#comment-246).
+**Looking to filter out a particular user or keyword?** Because Tweets go through the normal comment filter, you can just [blacklist them as described below](https://ben.balter.com/2010/11/29/twitter-mentions-as-comments/#comment-246).
 
 **Update (7/8): Comments have been closed in favor of [expanded support and discussion options](https://github.com/benbalter/Twitter-Mentions-as-Comments/wiki/Where-to-get-Support-or-Report-an-Issue). Additional documentation about the project can now be found in the [Project Wiki](https://github.com/benbalter/Twitter-Mentions-as-Comments/wiki). If you are interested in joining the project at any level of technical expertise, please see [How to Contribute](https://github.com/benbalter/Twitter-Mentions-as-Comments/wiki/How-to-Contribute).**

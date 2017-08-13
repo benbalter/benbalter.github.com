@@ -7,7 +7,7 @@ I gave a brief talk at March's joint [WordPressDC and Hacks/Hackers DC MeetUp](h
 
 ### I invite you to watch, but in short, the main takeaways were
 
-* ![Why Brand?](//ben.balter.com/wp-content/uploads/2011/03/branding-300x224.png "Why Brand?")In the olden days, people used to be scared to put personal information online; they felt the need to be pseudonymous (*see* handles like SparklePrincess87); life online was distinct from life offline.
+* ![Why Brand?](https://ben.balter.com/wp-content/uploads/2011/03/branding-300x224.png "Why Brand?")In the olden days, people used to be scared to put personal information online; they felt the need to be pseudonymous (*see* handles like SparklePrincess87); life online was distinct from life offline.
 * As more of our analog lives became digital, the need for a second identity diminished; we no longer represent ourselves with anonymous screen names, but rather as ourselves.
 * Social networking and mobile computing contributed to this shift by interfacing the online and offline worlds. Today's radical transparency (*e.g.,* lifecasters posting pictures of their lunch) shows we have come a full 180.
 * We shift from corporate brand associations in the 50s (*e.g.,* "I work for IBM") to personal brands today (*e.g.,* "I'm an independent contractor").
@@ -29,8 +29,8 @@ I gave a brief talk at March's joint [WordPressDC and Hacks/Hackers DC MeetUp](h
 
 ### For those interested in the plugins mentioned
 
-* [Resume Plugin for WordPress](//ben.balter.com/2010/09/12/wordpress-resume-plugin/ "WordPress Resume Plugin")
-* [Emphasis Plugin for WordPress](//ben.balter.com/2011/01/11/wordpress-emphasis-plugin/ "WordPress Emphasis Plugin: Highlight and Permalink Text")
+* [Resume Plugin for WordPress](https://ben.balter.com/2010/09/12/wordpress-resume-plugin/ "WordPress Resume Plugin")
+* [Emphasis Plugin for WordPress](https://ben.balter.com/2011/01/11/wordpress-emphasis-plugin/ "WordPress Emphasis Plugin: Highlight and Permalink Text")
 * [All in One SEO](http://wordpress.org/extend/plugins/all-in-one-seo-pack/)
 * [Google Analytics for WordPress](http://yoast.com/wordpress/google-analytics/)
 * [Simple Facebook Connect](http://ottopress.com/wordpress-plugins/simple-facebook-connect/)

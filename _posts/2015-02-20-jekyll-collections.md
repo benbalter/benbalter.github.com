@@ -4,7 +4,7 @@ description: Collections extends Jekyll's post and pages publishing functionalit
 redirect_from: 2015/02/16/jekyll-collections/
 ---
 
-Collections are Jekyll's most powerful and simultaneously least understood feature. If you're not familiar with [Jekyll](http://jekyllrb.com/), Jekyll is a static site generator. Think of it like a content management system (CMS), [without all the complexity](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/) and headache. No need to build a giant content-strangling Rube Goldberg machine to "manage" content, if all you're doing at the end of the day is putting out HTML, Javascript, and CSS, the building blocks of the internet. As a result, Jekyll gets out of your way and [allows you to concentrate on what truly matters](//ben.balter.com/2012/10/01/welcome-to-the-post-cms-world/): your content.
+Collections are Jekyll's most powerful and simultaneously least understood feature. If you're not familiar with [Jekyll](http://jekyllrb.com/), Jekyll is a static site generator. Think of it like a content management system (CMS), [without all the complexity](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/) and headache. No need to build a giant content-strangling Rube Goldberg machine to "manage" content, if all you're doing at the end of the day is putting out HTML, Javascript, and CSS, the building blocks of the internet. As a result, Jekyll gets out of your way and [allows you to concentrate on what truly matters](https://ben.balter.com/2012/10/01/welcome-to-the-post-cms-world/): your content.
 
 ### Posts and pages
 
@@ -12,7 +12,7 @@ Most Jekyll sites are organized around two types of content, posts and pages.
 
 * **[Posts](http://jekyllrb.com/docs/posts/)** are organized reverse chronologically. You might use them for blog posts on a personal blog, or articles on a news site. You can recognize a post by its filename. Posts live in the `_posts` folder, and are always named in the form of `YYYY-MM-DD-post-title.md`. Because posts are dated, they're traditionally not updated regularly once published.
 
-* **[Pages](http://jekyllrb.com/docs/pages/)** are documents that don't have a relationship with one another. They can live anywhere within the site's source directory and don't have a set naming pattern. If you have a personal blog, you might have an `index.html` page ([the site's main page which is used to list posts](//ben.balter.com/)), or [an about me page](//ben.balter.com/about/), to name two examples. Because pages aren't date specific, pages are often updated over time to maintain accuracy.
+* **[Pages](http://jekyllrb.com/docs/pages/)** are documents that don't have a relationship with one another. They can live anywhere within the site's source directory and don't have a set naming pattern. If you have a personal blog, you might have an `index.html` page ([the site's main page which is used to list posts](https://ben.balter.com/)), or [an about me page](https://ben.balter.com/about/), to name two examples. Because pages aren't date specific, pages are often updated over time to maintain accuracy.
 
 The problem is, not everything you might want to publish using a Jekyll falls cleanly into the those two categories of content. As I noted in [the original pitch](https://github.com/jekyll/jekyll/issues/1941), "If people are using blog posts for a non-blog post thing, Jekyll has already failed". That's where Jekyll's [collections](http://jekyllrb.com/docs/collections/) come in.
 

@@ -3,7 +3,7 @@ title: Why your agency's first open source project is going to be a flop
 description: Best practices suggest that you should prime organizational pistons with an open source exercise, before you embark on your first highly publicized open source effort
 ---
 
-If you're a government agency, your first opens source project is likely going to be a flop. In all fairness, [your organization has been set up](//ben.balter.com/2014/08/03/why-isnt-all-government-software-open-source/) to fail. Participating in the open source community bears little relationship to the decade (or century) old processes your agency has established, like those required to publish a press release or respond to a FOIA request. It's not an understatement to say that open source is an animal unlike any your agency has ever seen before, and one that will require the cooperation of multiple departments.
+If you're a government agency, your first opens source project is likely going to be a flop. In all fairness, [your organization has been set up](https://ben.balter.com/2014/08/03/why-isnt-all-government-software-open-source/) to fail. Participating in the open source community bears little relationship to the decade (or century) old processes your agency has established, like those required to publish a press release or respond to a FOIA request. It's not an understatement to say that open source is an animal unlike any your agency has ever seen before, and one that will require the cooperation of multiple departments.
 
 ### The typical startup hockey stick
 
@@ -25,9 +25,9 @@ The irony is that government agencies often initially ship software that would b
 
 ### Think small, then think even smaller
 
-Successful forays into open source begin not with large, flagship initiatives, but with small, nobody-will-notice-if-they-fail efforts. In fact, the story often starts well before a single line of code leaves the firewall. As I've said before, [the technology is the easy part](//ben.balter.com/2013/07/01/technologys-the-easy-part/). It's not a question of if your agency can write the software, or if the agency can publish it.
+Successful forays into open source begin not with large, flagship initiatives, but with small, nobody-will-notice-if-they-fail efforts. In fact, the story often starts well before a single line of code leaves the firewall. As I've said before, [the technology is the easy part](https://ben.balter.com/2013/07/01/technologys-the-easy-part/). It's not a question of if your agency can write the software, or if the agency can publish it.
 
-For open source to work right, a lot of organizational pistons need to fire in perfect timing. It's more of an effort in organizational change than anything else. Look at it this way: despite their best efforts at public engagement, you'd be hard-pressed to find a successful government open source project that's open source publicly, but follows an entirely [closed and waterfall process behind the firewall](//ben.balter.com/2013/05/14/we-ve-been-selling-open-source-wrong/).
+For open source to work right, a lot of organizational pistons need to fire in perfect timing. It's more of an effort in organizational change than anything else. Look at it this way: despite their best efforts at public engagement, you'd be hard-pressed to find a successful government open source project that's open source publicly, but follows an entirely [closed and waterfall process behind the firewall](https://ben.balter.com/2013/05/14/we-ve-been-selling-open-source-wrong/).
 
 Instead, best practices suggest that you should prime those organizational pistons with an open source exercise first, before you embark on a highly publicized effort. Create a list of the best lunch spots near your office in a private repository. Have coworkers submit pull requests with their favorite chocolate chip cookie recipe. Whatever it is, there's immense value in forcing the organizations to go through the motions of open source as part of a smaller-scale skirmish—procurement, security, legal, developers, public affairs—than learning those organizational skills in real time.
 

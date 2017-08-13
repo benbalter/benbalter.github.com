@@ -4,7 +4,7 @@ comments: true
 description: A quick analysis of the technology and capabilities that power each federal domain such as non-www, SSL, and IPv6 support, or what server/cms they use
 ---
 
-In September 2011, in response to the Office of Management and Budget releasing [a list of all federal executive domains](https://github.com/GSA/data/blob/gh-pages/dotgov-domains/current-federal.csv), I built a small tool called [Site Inspector](https://github.com/benbalter/Site-Inspector) and created [a quick analysis of the technology and capabilities that power each federal domain](//ben.balter.com/2011/09/07/analysis-of-federal-executive-domains/).
+In September 2011, in response to the Office of Management and Budget releasing [a list of all federal executive domains](https://github.com/GSA/data/blob/gh-pages/dotgov-domains/current-federal.csv), I built a small tool called [Site Inspector](https://github.com/benbalter/Site-Inspector) and created [a quick analysis of the technology and capabilities that power each federal domain](https://ben.balter.com/2011/09/07/analysis-of-federal-executive-domains/).
 
 Nearly three years later, I [resurrected that tool](https://github.com/benbalter/site-inspector-ruby), albiet a bit smarter, and, using [the latest list](https://explore.data.gov/Federal-Government-Finances-and-Employment/Federal-Executive-Agency-Internet-Domains-as-of-06/ku4m-7ynp?), thought I'd take a look at how things have changed in the time since. Efforts like the Digital Strategy and Open Data Policy have surely moved the needle, right? RIGHT?!
 

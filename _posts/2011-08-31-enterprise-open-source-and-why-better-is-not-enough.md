@@ -27,7 +27,7 @@ So what's the answer? How can open source fanatics and other early adopters resc
 
 The future's coming. That's for sure. Change is inevitable. Firms looking to seek a competitive advantage will begin to look past "*it has to be expensive and complicated*" and start looking toward open-source software, not as a misfit alternative, but as a viable player in the software space, but before that can happen the open-source community must step it up, and strive to be the serious competitor they wish to be treated as.
 
-**Update (9/1):** Not quite "focus-group tested ammunition," but in a sort of meta-dogfooding, I took a stab at articulating "[Why WordPress](//ben.balter.com/2011/09/01/why-wordpress/)." Edits welcome.
+**Update (9/1):** Not quite "focus-group tested ammunition," but in a sort of meta-dogfooding, I took a stab at articulating "[Why WordPress](https://ben.balter.com/2011/09/01/why-wordpress/)." Edits welcome.
 
 Notes:
 

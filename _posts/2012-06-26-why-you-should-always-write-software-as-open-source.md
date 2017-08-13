@@ -3,7 +3,7 @@ title: Why You Should Always Write Software as Open Source, Even When It's Never
 description: When you are the only person that's ever going to see something, you're a lot more likely to "just make it work. Therefore write open source
 ---
 
-![Unsatisfied with your Contractor?](//ben.balter.com/wp-content/uploads/2012/06/mike-holmes-203x300.jpeg){: .alignright}
+![Unsatisfied with your Contractor?](https://ben.balter.com/wp-content/uploads/2012/06/mike-holmes-203x300.jpeg){: .alignright}
 
 There are two kinds of software: cludgy software and open source. Think about it logically. When you (or your organization) is the only person that's ever going to see something, you're a lot more likely to "just make it work." After all, who would ever know? [^1]
 
