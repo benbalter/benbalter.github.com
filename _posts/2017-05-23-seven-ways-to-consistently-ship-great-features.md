@@ -39,7 +39,11 @@ In an industry where "iterative" is the buzzword *de jure*, when a colleague pro
 
 It happens all the time. You're discussing one feature and a related, but logically distinct idea comes up. Look at the issue title at the top of the page. If the idea doesn't solve the problem the title describes, it deserves its own issue. Not only does that keep the current discussion on track, it gives that new idea a dedicated URL where it can be memorialized, tracked, discussed, and cross linked.
 
+<<<<<<< HEAD
 Before you type the words "this is a bug", "we should tackle this in a subsequent iteration", or "that's out of scope", take the time to open a new issue to track that other thing. After all, [issues are free](https://ben.balter.com/2014/11/06/rules-of-communicating-at-GitHub/#3-nobody-gets-fired-for-buying-ibm-opening-an-issue).
+=======
+Before you type the words "*this is a bug*", "*we should tackle this in a subsequent iteration*", or "*that's out of scope*", take the time to open a new issue to track that other thing. After all, [issues are free](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#3-nobody-gets-fired-for-buying-ibm-opening-an-issue).
+>>>>>>> master
 
 ### 7. Optimize for users
 
@@ -47,4 +51,8 @@ For any sufficiently complex feature, you will face a choice between what's best
 
 Practically, that means you should back into the code from the constraints of the desired user experience, not the other way around, and generally, [absorb complexity on behalf of users](https://ben.balter.com/2016/08/22/ten-ways-to-make-a-product-great/#1-absorb-complexity-on-behalf-of-users). You know you've done your job when to users it appears to be a simple problem to solve, but in reality, you labored over the implementation.
 
+<<<<<<< HEAD
 This list is far from exhaustive. I've written before about [rules for communicating at GitHub](https://ben.balter.com/2014/11/06/rules-of-communicating-at-GitHub/), [habits common to effective GitHubbers](https://ben.balter.com/2016/09/13/seven-habits-of-highly-effective-GitHubbers/), and [philosophies that make great products](https://ben.balter.com/2016/08/22/ten-ways-to-make-a-product-great/), which remain true for developers and non-developers alike. These are some of the habits I've notice and admire, but of course, none of the above matters, however, unless you get it out the door. Above all, great developers :ship:.
+=======
+This list is far from exhaustive. I've written before about [rules for communicating at GitHub](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/), [habits common to effective GitHubbers](https://ben.balter.com/2016/09/13/seven-habits-of-highly-effective-githubbers/), and [philosophies that make great products](https://ben.balter.com/2016/08/22/ten-ways-to-make-a-product-great/), which remain true for developers and non-developers alike. These are some of the habits I've notice and admire, but of course, none of the above matters, however, unless you get it out the door. Above all, great developers :ship:.
+>>>>>>> master

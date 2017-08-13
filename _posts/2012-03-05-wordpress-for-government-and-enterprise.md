@@ -34,7 +34,7 @@ When you stack the two side by side (or against any other CMS for that matter), 
 Among those empowered to make purchasing decisions, there seems to be a sense that WordPress is what you use on the weekends to post pictures of your lunch while Drupal is what you use for "serious" business, and with good reason. For better or for worse, Drupal has positioned itself as not just a CMS, but rather *the* enterprise solution — an inseparable fifth layer of the increasingly ubiquitous enterprise LAMPD stack.
 
 | Metric            | Drupal                                     | WordPress                                                  |
-| :---------------- | :----------------------------------------- | :--------------------------------------------------------- |
+|:------------------|:-------------------------------------------|:-----------------------------------------------------------|
 | API Hooks         | 267                                        | [1,506](http://adambrown.info/p/wp_hooks/version/3.2) (5x) |
 | Active Sites      | [533,136](http://drupal.org/project/usage) | [65,052,049](http://en.wordpress.com/stats/) (125x)        |
 | Plugins / Modules | [8,536](http://drupal.org/project/modules) | [16,076](http://wordpress.org/extend/plugins/) (2x)        |
