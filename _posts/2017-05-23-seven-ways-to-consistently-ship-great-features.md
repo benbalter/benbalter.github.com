@@ -39,11 +39,7 @@ In an industry where "iterative" is the buzzword *de jure*, when a colleague pro
 
 It happens all the time. You're discussing one feature and a related, but logically distinct idea comes up. Look at the issue title at the top of the page. If the idea doesn't solve the problem the title describes, it deserves its own issue. Not only does that keep the current discussion on track, it gives that new idea a dedicated URL where it can be memorialized, tracked, discussed, and cross linked.
 
-<<<<<<< HEAD
 Before you type the words "this is a bug", "we should tackle this in a subsequent iteration", or "that's out of scope", take the time to open a new issue to track that other thing. After all, [issues are free](https://ben.balter.com/2014/11/06/rules-of-communicating-at-GitHub/#3-nobody-gets-fired-for-buying-ibm-opening-an-issue).
-=======
-Before you type the words "*this is a bug*", "*we should tackle this in a subsequent iteration*", or "*that's out of scope*", take the time to open a new issue to track that other thing. After all, [issues are free](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#3-nobody-gets-fired-for-buying-ibm-opening-an-issue).
->>>>>>> master
 
 ### 7. Optimize for users
 

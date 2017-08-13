@@ -3,10 +3,6 @@
 [![Build Status](https://travis-ci.org/benbalter/benbalter.github.com.png?branch=master)](https://travis-ci.org/benbalter/benbalter.github.com)
 
 The personal website of Ben Balter. Built using Jekyll, GitHub Pages, and Bootstrap. See [humans.txt](https://ben.balter.com/humans.txt) for more infos.
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 
 ## License
 

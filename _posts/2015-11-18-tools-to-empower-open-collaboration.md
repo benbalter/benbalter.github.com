@@ -15,11 +15,7 @@ In practice at GitHub, like I suspect at many forward-thinking startups, GitHub.
 
 ### Evolving beyond Cold War workflows
 
-<<<<<<< HEAD
 When people say "put it on GitHub", I suspect what they really want, isn't necessarily a particular tool, but rather for it to be put on an open-source-workflow-inspired platform. After all, GitHub is one of many tools that [consumerizes established, open-source norms](https://ben.balter.com/2013/02/06/the-next-big-thing-is-already-here/). Used this way, "put it on GitHub" is a metaphor for using a class of modern collaboration tools that don't simply digitize legacy workflows that predate the advent of the typewriter (and the ubiquity of the internet).
-=======
-When people say "put it on GitHub", I suspect what they really want, isn't necessarily a particular tool, but rather for it to be put on an open-source-workflow-inspired platform. Afterall, GitHub is one of many tools that [consumerizes established, open-source norms](https://ben.balter.com/2013/02/06/the-next-big-thing-is-already-here/). Used this way, "put it on GitHub" is a metaphor for using a class of modern collaboration tools that don't simply digitize legacy workflows that predate the advent of the typewriter (and the ubiquity of the internet).
->>>>>>> master
 
 A few years back @rtomayko described [the four constraints of open source](http://2ndscale.com/rtomayko/2012/adopt-an-open-source-process-constraints) workflows, and why you should adopt them for your own team, open, closed, software or otherwise. Building on that assumption, I'd like to propose that these modern, open-source-inspired collaboration tools I'm describing, today, all have four common characteristics:
 
@@ -31,11 +27,7 @@ Tools designed to support open decision making incentivize collaborators to make
 
 Open means openness for both humans and robots. Practically speaking, programmatic access and machine-readability is key. This is obviously true in some situations: video conferences aren't often an option for those with poor bandwidth. Scanned PDFs are blank pages to the blind. But by separating content from presentation, you make the information available on the platform of the content consumer's choice, rather than locking it into the platform of the content publisher's choosing.
 
-<<<<<<< HEAD
 Developers may feel at home using GitHub, but that doesn't mean lawyers and marketers do too. Platform-agnostic, programmatic access means you can [stand up tools to optimize the experience for a diversity of skillsets](https://ben.balter.com/2015/01/11/hacking-GitHub/). Not to mention, APIs can allow you to present information in different ways such as high-level dashboards and bandwidth- and remote-friendly mobile apps, further opening up the process. My general rule of thumb is to ask, "if we wanted, could we expose this information via ChatOps?".
-=======
-Developers may feel at home using GitHub, but that doesn't mean lawyers and marketers do too. Platform-agnostic, programmatic access means you can [stand up tools to optimize the experience for a diversity of skillsets](https://ben.balter.com/2015/01/11/hacking-github/). Not to mention, APIs can allow you to present information in different ways such as high-level dashboards and bandwidth- and remote-friendly mobile apps, further opening up the process. My general rule of thumb is to ask, "if we wanted, could we expose this information via ChatOps?".
->>>>>>> master
 
 ### 2. Captures and exposes process
 
@@ -103,11 +95,7 @@ I began by noting that the phrase "everything should be on GitHub", doesn't nece
 
 GitHub's not the right tool for all sorts of use cases. It probably doesn't make perfect sense for hiring, for account tracking, for support, or for contract management, to name a few. But in many cases, although far from perfect, if you believe the above ideals are how we should work, or will work in the future, it's part of a suite of tools, that together, represent the best things currently out there.
 
-<<<<<<< HEAD
 Although I think it's the future of knowledge work, this develop-inspired workflow isn't for everyone, at least not today. One of [GitHub's Zen](https://ben.balter.com/2015/08/12/the-zen-of-GitHub/), is to prefer practicality over purity. However pure the workflow might be on paper, if you've got a team of lawyers that have never used anything other than Outlook, Word, and regularly scheduled in-person meetings, absent a strong personal, professional, or philosophical motivation, absent significant untraining and re-education, you'd be hard-pressed to implement a modern workflow that's on a trajectory to succeed.
-=======
-Although I think it's the future of knowledge work, this develop-inspired workflow isn't for everyone, at least not today. One of [GitHub's Zen](https://ben.balter.com/2015/08/12/the-zen-of-github/), is to prefer practicality over purity. However pure the workflow might be on paper, if you've got a team of lawyers that have never used anything other than Outlook, Word, and regularly scheduled in-person meetings, absent a strong personal, professional, or philosophical motivation, absent significant un-training and re-education, you'd be hard-pressed to implement a modern workflow that's on a trajectory to succeed.
->>>>>>> master
 
 [How you work is just as important as what you work on](https://ben.balter.com/2015/09/21/open-source-behind-the-firewall/#how-you-work-is-as-important-as-what-you-work-on). I challenge you to take a critical look at your own workflow, and ask yourself if you're working the way you'd like to work, or just the way everyone else does.
 
