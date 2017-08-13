@@ -1,4 +1,3 @@
-
 ---
 title: The store that sells only one thing.
 description:

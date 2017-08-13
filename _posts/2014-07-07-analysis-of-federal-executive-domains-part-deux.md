@@ -1,5 +1,5 @@
 ---
-title: Analysis of Federal Executive .Govs (Part Deux)
+title: Analysis of Federal Executive .govs (Part Deux)
 comments: true
 description: A quick analysis of the technology and capabilities that power each federal domain such as non-www, SSL, and IPv6 support, or what server/cms they use
 ---

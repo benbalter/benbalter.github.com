@@ -1,5 +1,5 @@
 ---
-title: Analysis of Federal Executive .Govs
+title: Analysis of Federal Executive .govs
 description: Analysis of the technical capabilities of and technology powering all US Federal Executive .gov domains
 ---
 

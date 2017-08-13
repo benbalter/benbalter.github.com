@@ -12,17 +12,17 @@ Open source, at its core, is actually not about code, but about connecting peopl
 
 Put another way, open source is not an alternative workflow or development method. It's not as if you can choose between waterfall, agile, and open source means of producing software in a workplace. Instead, it's an overriding philosophy that guides a project. Like forward thinking, simple, interoperable, system oriented, or open standards. It's how you approach a problem from the start, not what you do after you've already solved it.
 
-To say "hey, we've got something decent here, let's take this closed-sourced project and just hit publish" misses the mark. Your motivation can't be to seek free labor, as in "hey, if developers want to give us their time, great, let's put this out there and see what happens we have nothing to lose", or about sporadically seeking to garner good will from a niche community of dedicated fans. Trust me, an open source developer can smell astroturf a mile a way, and that's exactly how far they'll stay.
+To say "hey, we've got something decent here, let's take this closed-sourced project and just hit publish" misses the mark. Your motivation can't be to seek free labor, as in "hey, if developers want to give us their time, great, let's put this out there and see what happens we have nothing to lose", or about sporadically seeking to garner good will from a niche community of dedicated fans. Trust me, an open source developer can smell AstroTurf a mile a way, and that's exactly how far they'll stay.
 
 ### What makes an open source project truly open source and not simply "published"
 
 * **Shared Vision** - Open source developers want to get behind a cause. Think of it as analogous to volunteering for a political campaign. They want to know what the project stands for, and where it is going. If they contribute, what will their code be used for in a six months or a year?
 * **Clear Goals** - What's the goal of the project? What's the roadmap look like? Do you trust the community enough to share it? Can they shape that roadmap or is it set in stone?
-* **Active Development** - When's the last public commit? Are you commiting privately, bundling together a release and then blessing the community with your efforts or is development occurring in the open?
+* **Active Development** - When's the last public commit? Are you committing privately, bundling together a release and then blessing the community with your efforts or is development occurring in the open?
 * **Us/Them Mentality** - Is there a class system between paid/unpaid contributors? Are outside contributions handled with equal footing? Are any outside developers delegated authority or given commit access?
 * **Mechanics** - Is it in version control or just a static download? Is the bug tracker public? Can I comment and submit? What about documentation? Is it maintained in a wiki?
 * **Communication** - Can developers communicate directly or must they go through the parent organization? (e.g., announcement verses conversation models)
-* **Purpose-built Code** - Is the code writen for open source? Is it sufficiently documented? Is it modular? Is it specific to the initial usecase or abstracted out to the underlying logic?
+* **Purpose-built Code** - Is the code written for open source? Is it sufficiently documented? Is it modular? Is it specific to the initial use case or abstracted out to the underlying logic?
 
 All of the above are underlying principles that drive development from day one, and yet not incompatible with a philosophy that dictates code remains under lock and key until a minimum viable product (MVP) has been reached. They do remain incompatible, however, with a philosophy that says that business as usual can be easily switched mid-stream to a successful open source project by simply not keeping the code secret.
 

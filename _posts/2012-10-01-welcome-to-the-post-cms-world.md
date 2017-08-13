@@ -5,7 +5,7 @@ description: 'Jekyll (and other static-sites) lead to simple, flexible, and reli
 
 You may notice things are bit snappier around here these days, having [recently converted](https://github.com/benbalter/wordpress-to-jekyll-exporter) the site from WordPress, to [Jekyll](https://github.com/mojombo/jekyll).[^4]
 
-Jekyll is a blog-aware static site generator — heavily integrated with the social code sharing service GitHub — the move to which, was primarily motivated by a desire to embrace the brave new, [post-CMS world](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/) we now find ourselves in. While WordPress is great, [130 outages over the past six months (totalling more than a day's worth of downtime)](http://cl.ly/image/1M420a152e1z), left a bit to be desired in terms of hosting.
+Jekyll is a blog-aware static site generator — heavily integrated with the social code sharing service GitHub — the move to which, was primarily motivated by a desire to embrace the brave new, [post-CMS world](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/) we now find ourselves in. While WordPress is great, [130 outages over the past six months (totaling more than a day's worth of downtime)](http://cl.ly/image/1M420a152e1z), left a bit to be desired in terms of hosting.
 
 Although powered by the open-source CMS WordPress, the old site (shared hosting provided by Bluehost) for performance sake, would actually just served flat HTML and Javascript files from disk (generated on a regular basis by an industry-standard plugin known as [W3 Total Cache](http://wordpress.org/extend/plugins/w3-total-cache/)), but fired up WordPress on every request (on top of the already sluggish Apache).
 
@@ -15,13 +15,13 @@ But as much as it pains the developer in me, just like fixies, PBR, and Javascri
 
 The pitch is straightforward. It leads to simple, flexible, and reliable websites that allow for a renewed focus on what actually matters: the content. Dave Cole over at [Development Seed](http://developmentseed.org/) (also powered by Jekyll) [put it best](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/):
 
-> In the past, building websites with features like consistent templates and lists of aggregated content meant setting up complex content management systems. These CMSs consisted of templating logic, application code, and content databases so they could assemble webpages each time they were requested by site visitors. They were complicated systems that depend on many separate applications working together, like a web server to route page requests to a PHP application that uses predefined page layout templates to format content that's stored in a MySQL database. Serving a page request required at least three separate applications all working together — any one failing would bring down the system…
+> In the past, building websites with features like consistent templates and lists of aggregated content meant setting up complex content management systems. These CMSs consisted of templating logic, application code, and content databases so they could assemble web pages each time they were requested by site visitors. They were complicated systems that depend on many separate applications working together, like a web server to route page requests to a PHP application that uses predefined page layout templates to format content that's stored in a MySQL database. Serving a page request required at least three separate applications all working together — any one failing would bring down the system…
 >
-> From open source frameworks like Drupal, Wordpress, and Expression Engine to multi-million dollar proprietary applications that the government and big corporations procure from companies that also build tanks and battle ships, these systems produce the same exact output: HTML, CSS, and JavaScript files that web browsers know how to format into the webpages we see. Additional features like RSS or JSON API feeds are just new templates for the same content, and backend workflow modules like those for embedded media and handling email notifications are really separate systems that introduce complexity when integrated with the publishing system.
+> From open source frameworks like Drupal, Wordpress, and Expression Engine to multi-million dollar proprietary applications that the government and big corporations procure from companies that also build tanks and battle ships, these systems produce the same exact output: HTML, CSS, and JavaScript files that web browsers know how to format into the web pages we see. Additional features like RSS or JSON API feeds are just new templates for the same content, and backend workflow modules like those for embedded media and handling email notifications are really separate systems that introduce complexity when integrated with the publishing system.
 
 And then there's cost. Putting aside the value of time for a moment, shared hosting's going to run you in the ballpark of $7 a month; AWS starts at $14, plus the cost of bandwidth and storage; and Jekyll, if hosted by GitHub? Free.[^3]
 
-I stood up the three options side-by-side, and ran them through the riggors of a performance testing tool humorously called [Siege](http://freecode.com/projects/siege), the results of which can be found below.
+I stood up the three options side-by-side, and ran them through the rigors of a performance testing tool humorously called [Siege](http://freecode.com/projects/siege), the results of which can be found below.
 
 I'm still unpacking some of the boxes of bytes, so if you notice something that doesn't seem right, feel free to [open an issue](https://github.com/benbalter/benbalter.github.com/issues), or better yet, like what you see, feel free to [fork and contribute](https://github.com/benbalter/benbalter.github.com). Embracing somewhat of a crawl, walk, run, or fail-fast philosophy, next up is outputting the pages as JSON and relying on Backbone to do the heavy lifting.
 
@@ -182,7 +182,7 @@ It's cheaper, it's faster, it's simpler, it's worry free, and in my opinion, it'
 
 [^1]: Requesting a page that doesn't exist will require WordPress to run multiple database queries to attempt to find the page, a request that would most likely not be cached in the event that the 404 was sent in error.
 
-[^2]: GitHub's build queue has been backing up every once in a while as of late, but if a change isn't instantanous, I'm okay with that.
+[^2]: GitHub's build queue has been backing up every once in a while as of late, but if a change isn't instantaneous, I'm okay with that.
 
 [^3]: That's free as in speech **and** free as in beer.
 

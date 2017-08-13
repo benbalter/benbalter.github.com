@@ -11,7 +11,7 @@ It's not uncommon for example, for a team to need to write or edit a document to
 
 1. Draft content in Microsoft Word
 2. Save to shared folder or e-mail around for comments and changes
-3. Manually (and opaquely) reconsile changes one-by-one
+3. Manually (and opaquely) reconcile changes one-by-one
 4. Repeat steps 2–3 until satisfied with the document
 5. **Convert to web-friendly format**
 6. Publish
@@ -20,7 +20,7 @@ See what we did there? We're still writing content for print, and then only once
 
 ### Using the wrong tools
 
-Microsoft Word was designed with one purpose in mind: to make paper. Think about it. Its essential elements arose in the early '80s. There are print-centric buttons like left and right align front and center, but new-fangled internet things like hyperlinks or rich media are buried deep inside these labyrinthian sub-menus. Sure, it's industry standard, but it's an industry-standard workflow that arose before the age of the web (and hasn't really changed since).
+Microsoft Word was designed with one purpose in mind: to make paper. Think about it. Its essential elements arose in the early '80s. There are print-centric buttons like left and right align front and center, but newfangled internet things like hyperlinks or rich media are buried deep inside these labyrinthian sub-menus. Sure, it's industry standard, but it's an industry-standard workflow that arose before the age of the web (and hasn't really changed since).
 
 Yet the majority of the documents we create today rarely, if ever, embody physical space. They don't care about the things Microsoft Word cares about — margin width, page breaks, or other properties that assume four sharp corners — and more importantly, they don't handle mobile responsiveness, machine-readability, or other web-specific features.
 
@@ -32,7 +32,7 @@ Geeks solved this problem a long time ago. It's called version control. We built
 
 ### Jailbreaking content
 
-So why doesn't everyone use this "version control"? Because we're trained wrong. We've got to break free of these proprietary, print-only formats. We've got to stop shuttling changes back-and-forth via e-mail or with obscure file names. We've got to unprogram ourselves for an age of print.
+So why doesn't everyone use this "version control"? Because we're trained wrong. We've got to break free of these proprietary, print-only formats. We've got to stop shuttling changes back-and-forth via e-mail or with obscure file names. We've got to un-program ourselves for an age of print.
 
 And here's why: *.doc files are like tiny micro-jails for our content.* Proprietary document formats tend to commingle the text we provide with the commands the software needs to recreate it, and it stores all this in a complicated and inaccessible binary format. That's what makes it proprietary. We put text in — one of the most basic things computers understand — and we get this big mess back that can only be opened by that software. Imagine if the most common way to get water was to buy a can of Coke and run in through a Brita filter. It doesn't need to be so complicated.
 
