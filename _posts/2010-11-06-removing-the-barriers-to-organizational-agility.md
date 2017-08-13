@@ -5,7 +5,7 @@ description: Recording of a GW Tech Alumni panel on Removing the Barriers to Org
 
 <!--lint ignore no-emphasis-as-heading-->
 
-*Recorded at the [The George Washington University Tech Alumni Group](http://www.facebook.com/group.php?gid=154839957865223) Federal Executive Roundtable, November 4, 2010.*
+*Recorded at the [The George Washington University Tech Alumni Group](http://www.facebook.com/group.php?gid=154839957865223) Federal Executive Round Table, November 4, 2010.*
 
 ![Photo of the panelists at the event](//ben.balter.com/wp-content/uploads/2010/11/68153_493302469280_603259280_5451391_4928024_n-300x199.jpg "Steven Bucci, William Kirkendale, Brian Moran, Mark Rosenfeld, Mariano Tan ")
 
@@ -13,7 +13,7 @@ Panelists Steven Bucci, William Kirkendale, Brian Moran, Mark Rosenfeld, and Mar
 
 *(The audio files are no longer available here)*
 
-### Roundtable Participants
+### Round Table Participants
 
 * Hamid Ouyachi, Chief Technology Officer, U.S. Department of Labor
 * Steven Bucci, Cyber Security Lead, Global Leadership Initiative, at IBM & former Deputy Assistant Secretary of Defense for Homeland Defense & Defense Support of Civil Authorities

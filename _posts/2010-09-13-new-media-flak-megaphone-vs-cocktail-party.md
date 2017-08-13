@@ -17,6 +17,6 @@ Simply put, Twitter is not a dumping ground for pre-vetted paper.[^8] The occasi
 
 [^5]: Without too much of a history lesson, see, e.g., Abraham Lincoln overseeing the Civil War from the telegraph office ushering in a new era of hands-on presidential leadership; home telephones giving rise to entire industries dedicated to interrupting families' dinners; Blackberrys changing business e-mail etiquette.
 
-[^7]: Jimmy John's often frat-boy-esq vocabulary may push the limits of informal interactions with stakeholders, but none-the-less serves to promote their brand.
+[^7]: Jimmy John's often frat-boy-esque vocabulary may push the limits of informal interactions with stakeholders, but none-the-less serves to promote their brand.
 
 [^8]: Thank the internet gods that TwitterFeed‘s RSS to Twitter conversion service didn't catch on.

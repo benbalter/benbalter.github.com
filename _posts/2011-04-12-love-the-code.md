@@ -31,7 +31,7 @@ I am gave a brief [lightning talk at April's WordPress DC Meetup](http://www.mee
 
 * HTML
 
-  * [Google: HTML, CSS, & js from the Ground Up](https://www.youtube.com/playlist?list=PL697D36B35F92E9E4)
+  * [Google: HTML, CSS, & JavaScript from the Ground Up](https://www.youtube.com/playlist?list=PL697D36B35F92E9E4)
   * [HTML Dog](http://htmldog.com)
   * [W3 Learning Wiki](http://www.w3.org/wiki/HTML/Training)
   * [W3 Element Wiki](http://www.w3.org/wiki/HTML/Elements)

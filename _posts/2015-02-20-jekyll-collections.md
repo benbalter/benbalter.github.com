@@ -105,7 +105,7 @@ So if you're not about to open a bakery (if you do, please send cookies); what m
 * [Articles on a support site](https://github.com/blog/1939-how-github-uses-github-to-document-GitHub)
 * Recipes on your personal blog (or restaurant reviews, or dishes on a menu)
 * Students in a class (or courses being offered, or listing the faculty)
-* Cheats, tips, tricks and walkthroughs for games (by platform)
+* Cheats, tips, tricks and walk-throughs for games (by platform)
 * Creating re-usable content snippets for your site such as testimonials, forms, sentences, buzz-words or call-outs
 * And honestly just about anything else
 

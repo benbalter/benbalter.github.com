@@ -4,6 +4,8 @@ description: By requiring that detailed specifications be outlined at the onset 
 redirect_from: "/Balter-Towards-a-More-Agile-Government.pdf"
 ---
 
+<!--lint disable retext-spell -->
+
 The Case for Rebooting Federal IT Procurement
 {: .lead}
 
@@ -408,7 +410,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^55]: Szalvay, *supra* note 6, at 1.
 
-[^56]: Audio recording: Removing Barriers to Organizational Agility, George Washington University Tech Alumni Group Federal Executive Roundtable (Nov. 4, 2010) \[hereinafter Federal Executive Roundtable] (on file with author).
+[^56]: Audio recording: Removing Barriers to Organizational Agility, George Washington University Tech Alumni Group Federal Executive Round Table (Nov. 4, 2010) \[hereinafter Federal Executive Round Table] (on file with author).
 
 [^57]: *Id.*
 
@@ -416,13 +418,13 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^59]: *Id*.; Kundra, *supra note* 13, at 17 (observing "the lag between when the \[G]overnment defines its requirements and when the contractor begins to deliver is enough time for the technology to fundamentally change").
 
-[^60]: Federal Executive Roundtable, *supra* note 56.
+[^60]: Federal Executive Round Table, *supra* note 56.
 
 [^61]: Modular Contracting White Paper, *supra* note 41, at 13.
 
 [^62]: A prime example of such a phenomenon is the U.S. Patent and Trademark Office (PTO). In 1983 the PTO initiated a billion-dollar automation effort using waterfall. At the time the PTO's patent files contained some thirty-three million documents, supporting patents issued since 1790, and grew at the rate of approximately one million documents per year. The goal was to have a fully deployed system by 1990, however by 1987, the PTO began to realize that the program was fatally behind schedule and switched to an agile approach. Course Manual , *supra* note 28, at 66–67. The PTO was able to successfully deploy its patent search system (CSIR) later that year, and by 1992 had a significant portion of its automation system integrated into its workflow. U.S. Gov't Accountability Office, GAO/AIMD-93–15, Patent and Trademark Office: Key Processes For Managing Automated Patent Development Are Weak 4 (1993).
 
-[^63]: *See generally* Szalvay, *supra* note 6, at 1. The ability to adapt to change has implications beyond project efficiency as well. Hackers, cyber terrorists, and other malcontents are not bound by the rigidity of waterfall and are often able to adapt more rapidly to government countermeasures than the Government can develop defenses. *See* Federal Executive Roundtable, *supra* note 56. Similarly, after spending nearly two years and 0 million dollars developing handheld computers for use in conjunction with the 2010 census, the U.S. Census Bureau was forced to drop its plans and revert to paper-based collection when it realized the waterfall approach it had adopted would not deliver a working system in time for the census data collection. White House Forum, *supra* note 5, at 5–6.
+[^63]: *See generally* Szalvay, *supra* note 6, at 1. The ability to adapt to change has implications beyond project efficiency as well. Hackers, cyber terrorists, and other malcontents are not bound by the rigidity of waterfall and are often able to adapt more rapidly to government countermeasures than the Government can develop defenses. *See* Federal Executive Round Table, *supra* note 56. Similarly, after spending nearly two years and 0 million dollars developing handheld computers for use in conjunction with the 2010 census, the U.S. Census Bureau was forced to drop its plans and revert to paper-based collection when it realized the waterfall approach it had adopted would not deliver a working system in time for the census data collection. White House Forum, *supra* note 5, at 5–6.
 
 [^64]: The Federal Communications Commission recently procured the National Broadband Map using an agile framework. Within six months, the agencies had a working prototype, and six months following that, a final product. Less than ten percent of the project's total funding was used to make a prototype, the source code of which being distributed alongside the project's RFQ. The contract's first deliverable was requirements documentation outlining a project management plan, but daily scrum meetings provided both agency and contractor the opportunity to revise requirements. FCC Interview, *supra* note 36.
 
@@ -438,7 +440,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^70]: Poppendieck, *supra* note 32 at 6.
 
-[^71]: Federal Executive Roundtable, *supra* note 56.
+[^71]: Federal Executive Round Table, *supra* note 56.
 
 [^72]: Lee & Xia, *supra* note 11, at 88.
 
@@ -456,7 +458,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^79]: *See* Lee & Xia, *supra* note 11, at 89.
 
-[^80]: Federal Executive Roundtable, *supra* note 56.
+[^80]: Federal Executive Round Table, *supra* note 56.
 
 [^81]: Lee & Xia, *supra* note 11, at 90.
 
@@ -470,7 +472,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^86]: *See* Fowler, *supra* note 20.
 
-[^87]: Federal Executive Roundtable, *supra* note 56.
+[^87]: Federal Executive Round Table, *supra* note 56.
 
 [^88]: Cao & Ramesh, *supra* note 28, at 60.
 

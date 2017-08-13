@@ -27,6 +27,6 @@ WP Resume is an out-of-the-box solution to get your résumé online and keep it 
 
 The hardest part of getting your résumé online should be doing the work listed on it, not wrestling the publishing platform. Simply put, WP Resume steps aside and lets your experience shine.
 
-Interested? You can [see it in action](//ben.balter.com/resume/), or if you're ready to take the plunge, [download it from the WordPress plugin repository](http://wordpress.org/extend/plugins/wp-resume/), and [try it today](http://wordpress.org/extend/plugins/wp-resume/installation/). There's even a [great walkthrough put together by the good folks at CUNY Graduate School of Journalism.](http://tech.journalism.cuny.edu/documentation/wp-resume/) Bugs, questions, comments, feedback? I'd love to hear about your experience with WP Resume in the comments below.
+Interested? You can [see it in action](//ben.balter.com/resume/), or if you're ready to take the plunge, [download it from the WordPress plugin repository](http://wordpress.org/extend/plugins/wp-resume/), and [try it today](http://wordpress.org/extend/plugins/wp-resume/installation/). There's even a [great walk-through put together by the good folks at CUNY Graduate School of Journalism.](http://tech.journalism.cuny.edu/documentation/wp-resume/) Bugs, questions, comments, feedback? I'd love to hear about your experience with WP Resume in the comments below.
 
 [^1]: I imagine it would resemble a highly digitized [Rube Goldberg Machine](http://www.youtube.com/watch?v=qybUFnY7Y8w)
