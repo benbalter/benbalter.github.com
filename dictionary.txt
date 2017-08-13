@@ -15,54 +15,80 @@
 90s
 
 # Footnotes
+Hearn
+Rajiv
 1654A
 2d
 53A
 552a
 Alleman
+Balasubramaniam
+Feldman
 Beermann
 Betanews
+Bjørnvig
+Byrne
 Campan
 Cao
 Carlstrom
 Catriona
 Chabrow
 Cheng
+Cibinic
 Cobell
 Conklin
+Coplien
 Crim
+Cusumano
 Dep't
+Dep'ts
 DeShaney
 Edelman
+Elin
 et
 Fanin
 Fn
+Fruth
+Gertrud
 GovWin
 Gunn
+Gwanhoo
+Harv.
 Henke
 Issa
 Issuances
 Jen
 Keneally
+Kesan
 Kime
 Kominers
 Lampton
+Lan
+Lycett
 Maily
 Mechling
+Mgmt.
+Orszag
 Penenberg
 Pinkney
 Poppendieck
 Proc
 Ramesh
+Servs
 Shahid
 Snowe
 Stratcom
 Subcomm.
+Szalvay
 Tricare
 Ukman
 Unelected
 Vijayan
+Vivek
+Weidong
+WESCON
 Wilshusen
+Xia
 
 # Foreign words to sound fancy
 Bienvenidos
@@ -110,14 +136,17 @@ Sinatra-auth-GitHub
 
 # Gov
 .govs
+CRADAs
 18F
 ATO
 ATOs
 AWS
 BLS
 brutalist
+CFOs
 CFPB
 Comms
+COTRs
 DoD
 DOI
 Fed50
@@ -132,6 +161,7 @@ GovCloud
 GovSpeak
 IDIQ
 ITAR
+ITMRA
 MyGov
 NIST
 OFAC
@@ -214,6 +244,7 @@ excerpter
 GPLv2
 infringer
 lawyered
+rebaselined
 substantiality
 takedown
 Unported
@@ -287,8 +318,8 @@ Gaudio
 Gawker
 Geocities
 Gershowitz
-Gmail
 GMail
+Gmail
 Godbout
 Griggs
 Groupon
@@ -333,6 +364,7 @@ Nester
 NetIQ
 Nginx
 Nordstrom
+Orszag
 Ouyachi
 Pandoc
 Panetta
@@ -498,6 +530,7 @@ mentality
 microcache
 Microcache
 microsites
+middleware
 modularity
 modularly
 multisite
@@ -603,6 +636,7 @@ definitional
 deliverables
 Deliverables
 deprioritized
+disaggregated
 discoverable
 disproven
 Disruptor
@@ -639,6 +673,7 @@ interneting
 internets
 internety
 interoperability
+interoperable
 ish
 judgement
 just-posted-to-hacker-news-yeterday
@@ -683,6 +718,7 @@ reimagining
 reimplementation
 remised
 repurposed
+repurposing
 revisionary
 revisioning
 roadmap

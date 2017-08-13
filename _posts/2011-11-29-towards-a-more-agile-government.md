@@ -4,7 +4,7 @@ description: By requiring that detailed specifications be outlined at the onset 
 redirect_from: "/Balter-Towards-a-More-Agile-Government.pdf"
 ---
 
-<!--lint disable retext-spell -->
+<!--lint disable retext-spell-->
 
 The Case for Rebooting Federal IT Procurement
 {: .lead}
@@ -594,7 +594,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^147]: *Id.*; FAR 2.101. A "major system" is a system estimated to exceed million or the threshold defined by OMB Circular A-109 or that is designated a "major system" by the head of the agency responsible for that system. FAR 2.101.
 
-[^148]: FAR 39.103(b). *See* Danielle Conway-Jones, *Research and Development Deliverables under Government Contracts, Grants, Cooperative Agreements and Cradas: University Roles, Government Responsibilities and Contractor Rights*, 9 Computer L. Rev. & Tech. J. 181, 192 n.75 (2004).
+[^148]: FAR 39.103(b). *See* Danielle Conway-Jones, *Research and Development Deliverables under Government Contracts, Grants, Cooperative Agreements and CRADAs: University Roles, Government Responsibilities and Contractor Rights*, 9 Computer L. Rev. & Tech. J. 181, 192 n.75 (2004).
 
 [^149]: FAR 39.103.
 
