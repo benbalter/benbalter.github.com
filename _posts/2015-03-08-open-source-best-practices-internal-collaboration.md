@@ -43,7 +43,7 @@ This idea comes into play in three distinct ways:
 
 ### 4. Embrace the constraints of open source
 
-Open source is bound by certain workflow constraints. [Rarely are two people in the same place at the same time let alone working on the same thing at the same time](https://ben.balter.com/2014/11/06/rules-of-communicating-at-GitHub/), and yet they almost always produce better results than their proprietary, purpose-built counterparts. It's the story of Wikipedia versus Encyclopedia Britannica.
+Open source is bound by certain workflow constraints. [Rarely are two people in the same place at the same time let alone working on the same thing at the same time](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/), and yet they almost always produce better results than their proprietary, purpose-built counterparts. It's the story of Wikipedia versus Encyclopedia Britannica.
 
 You can't un-constrain open source, nor would you want to. If you want to engage the open source community on equal footing, you must embrace their constraints, and chances are, by adopting modern, asynchronous tools, your workflow will improve for the better. With a few adaptations, as @rtomayko [wrote a few years back](http://tomayko.com/writings/adopt-an-open-source-process-constraints), there are four constraints:
 
