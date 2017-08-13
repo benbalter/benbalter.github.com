@@ -49,7 +49,7 @@ You can't un-constrain open source, nor would you want to. If you want to engage
 
 * **Electronic** - Discussion, planning, and operations process should use a high fidelity form of electronic communication like email, github.com, or chat with transcripts wherever possible. Avoid meatspace discussion and meetings.
 
-* **Transparent** - Communicate decisions in realtime, and forever. Work should be visible and expose process. Work should have a URL. It should be possible to move backward from a piece of product or a system failure and understand how it came to be that way. Prefer git, issues, pull requests, mailing lists, and chat with transcripts over URL-less mediums.
+* **Transparent** - Communicate decisions in real time, and forever. Work should be visible and expose process. Work should have a URL. It should be possible to move backward from a piece of product or a system failure and understand how it came to be that way. Prefer git, issues, pull requests, mailing lists, and chat with transcripts over URL-less mediums.
 
 * **Asynchronous** - Focus workflow on code, not meetings. Almost no part of the product development process requires that one person interrupt another's immediate attention or that people be in the same place at the same time, or even that people be in different places at the same time. Even small meetings or short phone calls can wreck flow so consider laying it out in (a thought out) email or sending a pull request instead.
 

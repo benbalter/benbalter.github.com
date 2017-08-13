@@ -11,7 +11,6 @@ endunless
 # Me
 Balter
 benbalter
-benbalter-centric
 Retlab
 
 # Proper nouns
@@ -49,6 +48,23 @@ Proofer
 Travis
 IIS
 Joomla
+Arquillian
+Corillian
+Zuckerberg
+Brin
+Mikey
+Sharepoint
+Socrata
+Myspace
+jQuery
+Claritin
+Gmail
+Thinkpad
+Blackberrys
+Comcast
+Godbout
+RubyGems
+Carfax
 
 # GitHub
 GitHub
@@ -60,8 +76,16 @@ GitHubbers
 Hubot
 Octokittens
 Octocat
+Octokit
+Sinatra-auth-GitHub
 
 # Tech
+decrypt
+VPN
+CDNs
+IPs
+ISPs
+TLS
 3D
 GeoJSON
 APIs
@@ -112,7 +136,6 @@ CMS
 CSS
 upvotes
 DRM
-IT-centric
 CIO
 CIOs
 SaaS
@@ -127,11 +150,36 @@ templating
 favicon
 permalink
 IRL
-technology-centric
 BDFL
 IPv6
+SSL
+JSON
+CSV
+Jailbreaking
+SDK
+OAuth
+i18n
+repo
+docx
+md
+HTML5
+barcode
+userbase
+freemium
+hackathon
+hackathons
+CTO
+CxOs
+UX
+CD-ROMS
+VCS
+Uploader
+Auth
+URI
 
 # Jargon
+datapoint
+TOS
 Unported
 lifecycle
 geospatial
@@ -159,6 +207,20 @@ standup
 signup
 subpar
 infringer
+Fn
+90s
+badging
+onboard
+redlines
+browserwrap
+clickwrap
+AGPL
+CC0
+v2
+lawyered
+USC
+RFP
+CYA
 
 # markup that's not escaped
 ccc
@@ -189,6 +251,9 @@ franca
 lingua
 née
 à
+laissez
+faire
+facto
 
 # Gov
 FedScoop
@@ -212,8 +277,15 @@ MyGov
 18F
 USDS
 PIF
-Citizen-centric
+PIFs
 CFPB
+Comms
+FedRAMP
+OSTP
+NIST
+.govs
+PRA
+ATOs
 
 # Words I apparently made up
 reimagining
@@ -229,7 +301,6 @@ no-brainer
 no-brainers
 downscope
 discoverable
-user-centric
 foundational
 bajillion
 uncreative
@@ -244,18 +315,14 @@ impactful
 centricity
 intentioned
 bulleted
-developer-centric
-human-centric
 fooding
 checkin
 bucketizing
 DMV
 dissatisfactory
-customer-centric
 olde
 Microeconomic
 heartedness
-URL-centric
 meatspace
 internets
 untraining
@@ -270,7 +337,6 @@ transactional
 interoperability
 reimagine
 reengineered
-web-centric
 copyediting
 linkable
 just-posted-to-hacker-news-yeterday
@@ -282,3 +348,23 @@ reactively
 unskippable
 programmatically
 decreeable
+centric
+remised
+rom-com
+architecting
+reimplementation
+unstick
+workspace
+tradeoff
+untether
+toolchain
+Procedurally
+untrusting
+un
+résumé
+walkthroughs
+rollout
+rollouts
+operationalized
+indiscrete
+pre
