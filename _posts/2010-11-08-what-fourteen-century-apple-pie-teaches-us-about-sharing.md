@@ -43,12 +43,8 @@ The story, illustrating the true mob-power of the Internet, might be even more i
 
 [^8]: *See generally supra notes* 1–7.
 
-[^9]: Cooks Source Web site (*Last accessed:* November 11, 2010).
-
-<!--lint ignore retext-contractions-->
+[^11]: *Id.*
 
 [^10]: *Id.*
 
-<!--lint ignore retext-contractions-->
-
-[^11]: *Id.*
+[^9]: Cooks Source Web site (*Last accessed:* November 11, 2010).

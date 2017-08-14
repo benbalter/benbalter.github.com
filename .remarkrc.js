@@ -22,7 +22,7 @@ var retextSettings = {
     require('retext-redundant-acronyms'),
     require('retext-repeated-words'),
     require('retext-indefinite-article'),
-//    [require('retext-contractions'), {straight: true}],
+    [require('retext-contractions'), {straight: true}],
     [require('retext-quotes'), {preferred: 'straight'}],
     [require('retext-spell'), {dictionary: enUS, personal: personal}]
   ]
@@ -57,7 +57,6 @@ exports.plugins = [
   require('remark-squeeze-paragraphs'),
   require('remark-inline-links'),
   [require('remark-lint-blockquote-indentation'), {number: 2}],
-//  [require('remark-heading-gap'), 1],
   [require('remark-lint-link-title-style'), false],
   [require('remark-lint-maximum-line-length'), false],
   [require('remark-lint-list-item-indent'), 'space'],
