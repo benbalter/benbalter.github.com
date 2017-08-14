@@ -137,7 +137,7 @@ The problem with this approach, is that as you add more projects, you have to co
 In addition to Markdown, Jekyll also supports a lightweight templating engine called [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers). Liquid allows us to inject a bit of dynamic logic into the otherwise static site. If you're familiar with basic programatic concepts, it supports things like `while`, `if`, and `for` statements. To list all the open source project's in our organization's we might write:
 
 ```html{% raw %}
-{% for repository in site.GitHub.public_repositories %}
+{% for repository in site.github.public_repositories %}
   * {{ repository.name }}
 {% endfor %}
 {% endraw %}
