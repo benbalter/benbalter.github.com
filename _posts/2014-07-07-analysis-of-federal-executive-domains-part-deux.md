@@ -1,16 +1,16 @@
 ---
-title: Analysis of Federal Executive .Govs (Part Deux)
+title: Analysis of Federal Executive .govs (Part Deux)
 comments: true
 description: A quick analysis of the technology and capabilities that power each federal domain such as non-www, SSL, and IPv6 support, or what server/cms they use
 ---
 
 In September 2011, in response to the Office of Management and Budget releasing [a list of all federal executive domains](https://github.com/GSA/data/blob/gh-pages/dotgov-domains/current-federal.csv), I built a small tool called [Site Inspector](https://github.com/benbalter/Site-Inspector) and created [a quick analysis of the technology and capabilities that power each federal domain](https://ben.balter.com/2011/09/07/analysis-of-federal-executive-domains/).
 
-Nearly three years later, I [resurrected that tool](https://github.com/benbalter/site-inspector-ruby), albiet a bit smarter, and, using [the latest list](https://explore.data.gov/Federal-Government-Finances-and-Employment/Federal-Executive-Agency-Internet-Domains-as-of-06/ku4m-7ynp?), thought I'd take a look at how things have changed in the time since. Efforts like the Digital Strategy and Open Data Policy have surely moved the needle, right? RIGHT?!
+Nearly three years later, I [resurrected that tool](https://github.com/benbalter/site-inspector-ruby), albeit a bit smarter, and, using [the latest list](https://explore.data.gov/Federal-Government-Finances-and-Employment/Federal-Executive-Agency-Internet-Domains-as-of-06/ku4m-7ynp?), thought I'd take a look at how things have changed in the time since. Efforts like the Digital Strategy and Open Data Policy have surely moved the needle, right? RIGHT?!
 
 The Highlights:
 
-* Approximately a 1/4 reduction in number of .govs (`1640 - 1229 = 441`)
+* Approximately a quarter reduction in number of .govs (`1640 - 1229 = 441`)
 * 1000 of those domains are live ([about 83%](http://dotgov-browser.herokuapp.com/domains?live=true){: data-proofer-ignore="true" }, up from 73%)
 * Of those live domains, [about 83%](http://dotgov-browser.herokuapp.com/domains?non_www=true){: data-proofer-ignore="true" } are reachable without the `www.` prefix, a negligible increase
 * [Only 64 sites](http://dotgov-browser.herokuapp.com/domains?ipv6=true){: data-proofer-ignore="true" } return an `AAAA` record, the first step towards IPv6 compliance (up from 10)
@@ -26,4 +26,4 @@ The Highlights:
 
 Math's never been my strong point, so I highly encourage you to check my work. You can browse the full results at [dotgov-browser.herokuapp.com](http://dotgov-browser.herokuapp.com/){: data-proofer-ignore="true" } or check an individual site (.gov or otherwise) at [gov-inspector.herokuapp.com](https://site-inspector.herokuapp.com).
 
-*Please note: This data is to be treated as preliminary and is provided “as is” with no guarantee as to its validity. The source code for all tools used, including the resulting data, is available [on GitHub](https://github.com/benbalter/site-inspector-ruby). If you find an error, I encourage you to [open an issue](https://github.com/benbalter/site-inspector-ruby/issues/new) or [submit a pull request](https://guides.github.com/introduction/flow/).*
+*Please note: This data is to be treated as preliminary and is provided "as is" with no guarantee as to its validity. The source code for all tools used, including the resulting data, is available [on GitHub](https://github.com/benbalter/site-inspector-ruby). If you find an error, I encourage you to [open an issue](https://github.com/benbalter/site-inspector-ruby/issues/new) or [submit a pull request](https://guides.github.com/introduction/flow/).*

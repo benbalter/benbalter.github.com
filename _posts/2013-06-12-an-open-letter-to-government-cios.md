@@ -15,7 +15,7 @@ If there's a less heavyweight solution, and you're not using it, you've over-eng
 
 ### Iterative
 
-If you are not embarrassed by the first version of your product, you’ve launched [too late](http://www.businessinsider.com/the-iterate-fast-and-release-often-philosophy-of-entrepreneurship-2009-11#ixzz2U7lGAS2A). It doesn't need to be perfect or complete. Publicly ship 0.1, not 1.0. Start small and ramp up to where you want things to be. Watch how customers receive things and adapt accordingly. Be transparent, manage expectations. Let your vision evolve.
+If you are not embarrassed by the first version of your product, you've launched [too late](http://www.businessinsider.com/the-iterate-fast-and-release-often-philosophy-of-entrepreneurship-2009-11#ixzz2U7lGAS2A). It doesn't need to be perfect or complete. Publicly ship 0.1, not 1.0. Start small and ramp up to where you want things to be. Watch how customers receive things and adapt accordingly. Be transparent, manage expectations. Let your vision evolve.
 
 ### Decentralized
 

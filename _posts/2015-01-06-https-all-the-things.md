@@ -1,6 +1,6 @@
 ---
 title: Why you should care about HTTPS, even if you have nothing to hide
-description: HTTPS ensures not only the privacy of the content you request, but also, protects the fact that you're even requesting it in the first place. HTTPS isn't just for secure transactions like online banking and ecommerce. HTTPS is for any website that adds to the public dialog.
+description: HTTPS ensures not only the privacy of the content you request, but also, protects the fact that you're even requesting it in the first place. HTTPS isn't just for secure transactions like online banking and e-commerce. HTTPS is for any website that adds to the public dialog.
 ---
 
 You're probably already familiar with technologies like SSL and TLS. They're the little green icon in the top left corner of your browser anytime you visit a website with a URL that begins with `https://`. They're most often used to secure sensitive web requests, like checking your bank account balance or purchasing stuff online. HTTPS encrypts the connection between your computer and the server you're talking to so that nobody can jump in the middle and muck things up.[^injection]
@@ -17,13 +17,13 @@ If you want to block a particular piece of content on a website using HTTPS, say
 
 You've probably seen the [now-famous Google DNS graffiti](http://mashable.com/2014/03/21/twitter-ban-turkey-graffiti/) when Turkey banned Twitter last year. By instructing your computer to use a public DNS server, rather than your internet service provider's, that domain look up, the weak link in the request, instead goes to a third-party beyond the state's control, and the website becomes accessible again.[^armsrace]
 
-HTTPS ensures not only the privacy of the content you request, but also, protects the fact that you've requested it. HTTPS isn't just for online banking and ecommerce. HTTPS is for any website that adds to the public dialog, whether it's political commentary, how to contact a government official, or just a personal blog.[^hypocrisy] If you run a website, especially a government website, even if you never process "sensitive" requests, consider adding HTTPS support and enforcing HTTPS by default.
+HTTPS ensures not only the privacy of the content you request, but also, protects the fact that you've requested it. HTTPS isn't just for online banking and e-commerce. HTTPS is for any website that adds to the public dialog, whether it's political commentary, how to contact a government official, or just a personal blog.[^hypocrisy] If you run a website, especially a government website, even if you never process "sensitive" requests, consider adding HTTPS support and enforcing HTTPS by default.
 
 Ironically, HTTPS is about more than keeping things hidden. It's about keeping things seen.
 
 [^armsrace]: While it's possible to block external DNS entirely, or to block certain IPs, this is exponentially more complex for for-profit, privately owned ISPs to implement, quickly becomes a game of whack-a-mole, and will almost undoubtedly be over inclusive, especially where CDNs or shared hosting is involved.
 
-[^injection]: See, e.g., [Comcast injecting ads](http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/), [Verizon tracking mobile customers](https://www.eff.org/deeplinks/2014/11/verizon-x-uidh), and [spy agencies scrapping Angry Birds for personal data](https://www.propublica.org/article/spy-agencies-probe-angry-birds-and-other-apps-for-personal-data).
+[^injection]: See, e.g., [Comcast injecting ads](http://arstechnica.com/tech-policy/2014/09/why-comcasts-JavaScript-ad-injections-threaten-security-net-neutrality/), [Verizon tracking mobile customers](https://www.eff.org/deeplinks/2014/11/verizon-x-uidh), and [spy agencies scrapping Angry Birds for personal data](https://www.propublica.org/article/spy-agencies-probe-angry-birds-and-other-apps-for-personal-data).
 
 [^url]: For example, without HTTPS, an eavesdropper would see that you were reading `ben.balter.com/2015/01/06/https-all-the-things/`. With HTTPS, all they'd see is that you made an encrypted request to `ben.balter.com`.
 

@@ -22,6 +22,12 @@ bundle exec rake test
 title "checking ruby"
 bundle exec rubocop -D -S
 
+title "checking js"
+npm run lint-js
+
+title "checking json"
+npm run lint-json
+
 title "checking DNS"
 bundle exec github-pages health-check
 

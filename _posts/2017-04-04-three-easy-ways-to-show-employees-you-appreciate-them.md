@@ -7,7 +7,7 @@ As a manager (or a coworker) one small thing you can do to make wherever it is t
 
 ### Birthdays
 
-*What*: Most humans have birthdays. Some humans don't care much for candles, singing, or mass attention, but many humans would at least appreciate a quick "*Happy Birthday! I hope you have something fun planned this weekend.*" DM or email. Even better, throw in some emoji or an animated GIF for good measure.
+*What*: Most humans have birthdays. Some humans don't care much for candles, singing, or mass attention, but many humans would at least appreciate a quick "Happy Birthday! I hope you have something fun planned this weekend." DM or email. Even better, throw in some emoji or an animated GIF for good measure.
 
 *Why*: This is especially true if you're remote. While onsite culture provides not-so-subtle queues like flower deliveries and stumble-upon opportunities like cake in the break room or communal drinks after work, when you're remote, you don't have such luxuries and it's even more important that you go out of your way to recognize your coworkers' birthdays.
 
@@ -15,7 +15,7 @@ As a manager (or a coworker) one small thing you can do to make wherever it is t
 
 ### Work anniversaries
 
-*What*: Another easy way to show that you appreciate your fellow humans is to recognize their work anniversary. At GitHub, we call these Hubberversaries. When you hit your one, two, five, or ten year work milestone, that's something to be celebrated, even if within many organizations it rarely is. There's a good chance your report would be flatered by a quick note letting them know why you're glad they're there or reflecting on all the great contributions they've made in the past year.
+*What*: Another easy way to show that you appreciate your fellow humans is to recognize their work anniversary. At GitHub, we call these Hubberversaries. When you hit your one, two, five, or ten year work milestone, that's something to be celebrated, even if within many organizations it rarely is. There's a good chance your report would be flattered by a quick note letting them know why you're glad they're there or reflecting on all the great contributions they've made in the past year.
 
 *Why*: This is especially true if you're at a younger company. When you've clocked three years at a five year startup, given stereotypical exponential growth, it's almost guaranteed that you've been at the company significantly longer than most of your coworkers. Heck, even if you're at a century-old blue chip company, there's a good chance they've been marking work anniversaries with gold watches for decades.
 
@@ -23,7 +23,7 @@ As a manager (or a coworker) one small thing you can do to make wherever it is t
 
 ### Major lifecycle events (e.g., moving)
 
-*What*: The final easy way to show your fellow humans that you appreciate them as bonafide human beings is to recognize major lifecycle events. This can be anything as small as taking on a new hobby, or as big as shipping a human, a house, or a husband/wife. Are they going out to celebrate? Would their friend get them something to acknowledge it? Chances are you should too.
+*What*: The final easy way to show your fellow humans that you appreciate them as bona fide human beings is to recognize major lifecycle events. This can be anything as small as taking on a new hobby, or as big as shipping a human, a house, or a husband/wife. Are they going out to celebrate? Would their friend get them something to acknowledge it? Chances are you should too.
 
 *Why*: This is especially true if your company's distributed. If everyone's onsite, it's easy to bump into someone at the water cooler, see their wedding ring, ask how their weekend was, and learn not only that they have a son, but that he's into tee-ball (and won on Saturday). When there's no water cooler to congregate around and no desk to walk by and see family photos, that interaction becomes significantly harder and requires a purposeful step on your part to ensure it happens.
 

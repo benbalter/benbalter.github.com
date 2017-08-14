@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+path = File.expand_path '../dictionary.txt', File.dirname(__FILE__)
+contents = File.read(path)
+
+sections = contents.split(/\n\n#/)
+header = sections.delete_at(0)
+sections = sections.map do |section|
+  parts = section.split("\n")
+  section_header = parts.delete_at(0).strip
+  words = parts.sort_by(&:downcase).uniq
+  [section_header, words]
+end.to_h
+
+sections = sections.sort_by { |k, _v| k.downcase }.to_h
+
+output = header
+sections.each do |section_header, words|
+  output << "\n\n"
+  output << "# #{section_header}\n"
+  output << words.join("\n")
+end
+
+File.write path, output

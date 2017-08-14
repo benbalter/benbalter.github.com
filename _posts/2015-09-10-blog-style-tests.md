@@ -5,7 +5,7 @@ description: Encourage proper voice, tone, and style by adding automated tests t
 
 I've written in the past about how you should treat [prose with the same respect that developers treat code](https://ben.balter.com/2013/09/16/treat-data-as-code/), how [collaborative content allows you to bring the concept of continuous integration to your organization's writing](https://ben.balter.com/2015/05/22/test-your-prose/), and my colleague Zach Holman's got [a great write up about how GitHub embraces those concepts in its own writing](http://zachholman.com/posts/how-github-writes-blog-posts/). Today I'd like to show a bit of how we leverage automated testing at GitHub to empower developers to write [less-corporate blog posts](https://ben.balter.com/2015/07/20/write-corporate-blog-posts-as-a-human/) (and how you can too!). Take this marketing speak as an example of a blog post a developer might propose:
 
-> Today, after months of effort, we're excited to announce our new wiz-bang feature...
+> Today, after months of effort, we're excited to announce our new wiz-bang feature…
 
 Whereas traditionally a member of your company's marketing, copy, or editorial team may have needed to take the time to manually review the post before the author could get any feedback (a blocking and time-consuming operation), there are many machine-detectable improvements that an automated process could easily call out without requiring delay or human intervention, unblocking both the author and the editor to continue working unfettered. Let's take a look at a few examples of this idea and how you might implement them for your own team:
 
@@ -36,9 +36,9 @@ With that, you could wire up a service like [Travis CI](https://travisci.org){: 
 
 The next thing I'd notice if I were reviewing the post is that it focuses on the developer's excitement, not why the user should be excited.
 
-> Your users don’t care how excited you are. They don’t care about how much effort you put in. They don’t care how hard it was to do. All they care about is one thing: how does it benefit me?
+> Your users don't care how excited you are. They don't care about how much effort you put in. They don't care how hard it was to do. All they care about is one thing: how does it benefit me?
 
-With a little regex, testing for "We're excited to announced..."-type phrases is equally straightforward:
+With a little regex, testing for "We're excited to announced…"-type phrases is equally straightforward:
 
 ```ruby
 class ExcitedTest &lt; Blog::Test
@@ -62,9 +62,9 @@ end
 
 The last thing I'd notice from our example post is that the post is [written for the company, not for its users](https://ben.balter.com/2015/07/20/write-corporate-blog-posts-as-a-human/#write-for-users-not-for-yourself).
 
-> Instead of telling your users... how much work it was for you to implement the new thing (written from your perspective), tell the user why your work matters to someone using your product (written from the user’s perspective). A simple rule of thumb is that there should be more use of the word “you” than of “we”.
+> Instead of telling your users… how much work it was for you to implement the new thing (written from your perspective), tell the user why your work matters to someone using your product (written from the user's perspective). A simple rule of thumb is that there should be more use of the word "you" than of "we".
 
-Once again, that "simple rule of thumb" can be automated. While not as foolproof as a traditional software unit test where inputs and outputs are controlled, we can count the "you"s in the post and the "we"s in the post, and suggest to the author that perhaps they should should rework things a bit:
+Once again, that "simple rule of thumb" can be automated. While not as foolproof as a traditional software unit test where inputs and outputs are controlled, we can count the "you"s in the post and the "we"s in the post, and suggest to the author that perhaps they should rework things a bit:
 
 ```ruby
 class YouWeTest &lt; Blog::Test
@@ -82,7 +82,7 @@ end
 
 ### Not all automated testing is created equal
 
-At GitHub we use automated testing (CI) on just about every repository, code or othwerise, but tests against our blog posts are different in two distinct ways:
+At GitHub we use automated testing (CI) on just about every repository, code or otherwise, but tests against our blog posts are different in two distinct ways:
 
 First, unlike software tests where [pull requests are not mergable unless the build passes](https://github.com/blog/2051-protected-branches-and-required-status-checks), when working with prose, failing tests are considered suggestions, not requirements, suggestions that the post author is free to ignore along with the advice of the blog team. As [Zach Holman wrote](http://zachholman.com/posts/how-github-writes-blog-posts/):
 

@@ -9,7 +9,7 @@ Government agencies can and should participate in the open source community. Ope
 
 ### Open source licenses generally
 
-Open source licenses are a straight-forward intelectual property license with one unique feature: [they're standardized](http://opensource.org/licenses/category). The software industry has [adopted approximately fifteen mainstream](http://choosealicense.com/licenses/) and [three primary licenses](http://choosealicense.com/). While the wording and specific terms vary, most licenses have the following common clauses:
+Open source licenses are a straight-forward intellectual property license with one unique feature: [they're standardized](http://opensource.org/licenses/category). The software industry has [adopted approximately fifteen mainstream](http://choosealicense.com/licenses/) and [three primary licenses](http://choosealicense.com/). While the wording and specific terms vary, most licenses have the following common clauses:
 
 * An explicit grant to use, copy, modify, redistribute, sublicense, or sell the software.
 
@@ -31,7 +31,7 @@ Some licenses may also include:
 
 #### Why standardized licenses
 
-In order for open source to work, downstream users must be able to use the code free of legal restriction or ambgiuity, and must be able to do so without the need to retain costly legal counsel. Most developers and software firms are familiar with the most common open source licenses and terms, and thus can use such software freely. As such use of a standardized license serves as a proxy for those without legal training to know precisely what they can and can't do with the software.
+In order for open source to work, downstream users must be able to use the code free of legal restriction or ambiguity, and must be able to do so without the need to retain costly legal counsel. Most developers and software firms are familiar with the most common open source licenses and terms, and thus can use such software freely. As such use of a standardized license serves as a proxy for those without legal training to know precisely what they can and can't do with the software.
 
 Unless absolutely required, avoid custom, modified, or non-standard terms, which will serve as a barrier to downstream use of the agency code. The open source community is just that, a community, and one with a strong tradition. Open source software is published so that others may use it, and doing so under a legal framework alien to the community, is the easiest way to make sure it's not used. Optimize for the code's reuse, not its publication.
 
@@ -121,4 +121,4 @@ Although this is my personal blog, agencies should feel free to contact <mailto:
 
 ---
 
-[^1]: The full mechanics of a pull request are beyond the scope of this post, but in short, a member of the public will fork the agency project, or make a copy in their personal account. In many cases, that is all downstream users do. The contributor may then modify the software, in their own personal copy, under the right to modify as granted in the open source license. Again, many downstream users will stop at this point as well, using the modified software for their own purposes. At both steps, the software is freely available to anyone in the world from the user's account and is licensed under the project terms. The upstream project is free to incorporate the downstream users changes as they wish. A contributor may also choose to contribute that code back to the original project, by explicitly asking the upstream project to incorporate their changes. 
+[^1]: The full mechanics of a pull request are beyond the scope of this post, but in short, a member of the public will fork the agency project, or make a copy in their personal account. In many cases, that is all downstream users do. The contributor may then modify the software, in their own personal copy, under the right to modify as granted in the open source license. Again, many downstream users will stop at this point as well, using the modified software for their own purposes. At both steps, the software is freely available to anyone in the world from the user's account and is licensed under the project terms. The upstream project is free to incorporate the downstream users changes as they wish. A contributor may also choose to contribute that code back to the original project, by explicitly asking the upstream project to incorporate their changes.

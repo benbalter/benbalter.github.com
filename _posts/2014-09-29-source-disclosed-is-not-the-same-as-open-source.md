@@ -19,7 +19,7 @@ In addition to disclosing the underlying source code, in order to conform to wit
 
 ### Growing communities around shared challenges
 
-Agencies that simply publish code with no intention to foster community involvement, curate community feedback, or accept community contributions find themselves, almost without exception, [engaging in an unsuccessful endeavor](http://www.theverge.com/2013/10/18/4852720/why-the-government-unpublished-the-source-code-for-healthcare-gov-github){: data-proofer-ignore="true" }. Rather than abandoning the code on the open-source community's collective doorstep, the agency should expend effort, post-release, to ensure the project's continued success.
+Agencies that simply publish code with no intention to foster community involvement, curate community feedback, or accept community contributions find themselves, almost without exception, [engaging in an unsuccessful endeavor](http://www.theverge.com/2013/10/18/4852720/why-the-government-unpublished-the-source-code-for-healthcare-gov-GitHub){: data-proofer-ignore="true" }. Rather than abandoning the code on the open-source community's collective doorstep, the agency should expend effort, post-release, to ensure the project's continued success.
 
 At the most simple level, this is a matter of communicating the project's goals and status to [potential contributors](https://ben.balter.com/2013/08/11/everyone-contributes/), [explaining how to contribute](https://ben.balter.com/2013/08/11/friction/), and ensuring relevant stakeholders within the agency are empowered to review and accept such contributions. But, successful projects go a step further, and take steps to ensure there is no imbalance of information between developers on opposing sides of the agency firewall.[^1]
 
@@ -29,4 +29,4 @@ It's often said that open source is free as in speech, not as in beer, but I pre
 
 Agencies are welcome (and encouraged) to disclose the source code that powers the day-to-day workings of our shared democracy, but they should know that that's neither the last step, nor is that truly open source. Open source is a symbiotic relationship, a shared partnership, not a one-way, one-time, set-it-and-forget-it broadcast.
 
-[^1]: You can read more community building best practices [within the government community on GitHub](https://government-community.githubapp.com/government/best-practices/blob/master/docs/community-building.md) (GitHub login and government email required).
+[^1]: You can read more community building best practices [within the government community on GitHub](https://government-community.GitHubapp.com/government/best-practices/blob/master/docs/community-building.md) (GitHub login and government email required).

@@ -3,7 +3,7 @@ title: How I Atom (for prose)
 description: How I customize the hackable Atom text editor for writing prose and Markdown.
 ---
 
-Inspired by @srobert's ["How I Atom" post](https://sroberts.github.io/2015/06/06/how-i-atom/), I thought I'd share a bit about my own computering environment. I've been using [Atom](https://atom.io) as my day-to-day text editor (and probably the single most used app after my web browser) [since the day I joined GitHub](https://github.com/blog/1432-ben-balter-is-a-githubber), nearly four years ago, and about a year before [it was publicly released](http://blog.atom.io/2014/02/26/introducing-atom.html).
+Inspired by @srobert's ["How I Atom" post](https://sroberts.github.io/2015/06/06/how-i-atom/), I thought I'd share a bit about my own computering environment. I've been using [Atom](https://atom.io) as my day-to-day text editor (and probably the single most used app after my web browser) [since the day I joined GitHub](https://github.com/blog/1432-ben-balter-is-a-GitHubber), nearly four years ago, and about a year before [it was publicly released](http://blog.atom.io/2014/02/26/introducing-atom.html).
 
 While at it's core, Atom is a simple, hackable text editor, what makes Atom so powerful is its extensibility and its ecosystem. There are [some 5,000 community-contributed packages](https://atom.io/packages) (and counting) that extend Atom's functionality and it's relatively easy to customize Atom's behavior using just HTML, CSS, and Javascript.
 
@@ -34,7 +34,7 @@ There's a number of Markdown-specific packages I use. Here's a few:
 
 #### Linters
 
-If you're not familiar with the concept of a linter, it's basically an automated script that goes through the current file and highlights deviations from pre-defined stylistic rules, not too dissimilar to spelling or grammar mistakes on a standard word processor, and I can't recommend them enough.
+If you're not familiar with the concept of a linter, it's basically an automated script that goes through the current file and highlights deviations from predefined stylistic rules, not too dissimilar to spelling or grammar mistakes on a standard word processor, and I can't recommend them enough.
 
 **linter-your-language-of-choice** - Chances are, [there's a linter available for your language of choice](https://atomlinter.github.io), including prose. Whether you're learning the language or a veteran, the contextual hints it gives you will improve whatever it is you're writing.
 
@@ -53,6 +53,6 @@ When I set up a new machine, among the first things I do is [symlink `~/.atom/co
 
 You may also notice that I have a [`packages.txt`](https://github.com/benbalter/dotfiles/blob/master/.atom/packages.txt) file in my Atom config, with each plugin I want to use listed on its own line. While not a standard implementation, to be sure, Atom does come bundled with its own Atom Package Manager (APM), which can be fed a list of package files, via the `apm install --packages-file packages.txt` command, to install a list of desired packages. You can even create that list from your existing plugins [with this one-liner](https://github.com/benbalter/dotfiles/blob/master/script/atom).
 
-Working largely in prose, I can't imagine using a more traditional word processor over something that once customized, is more powerful and more purpose built. I can't count the number of times I've simply pasted in text I'm proofreading and implemented the automated suggestions (or wrote ad-hoc rules to check for my own style nits).
+Working largely in prose, I can't imagine using a more traditional word processor over something that once customized, is more powerful and more purpose built. I can't count the number of times I've simply pasted in text I'm proofreading and implemented the automated suggestions (or wrote ad hoc rules to check for my own style nits).
 
 That's how I Atom, but there are a bajillion packages (and workflows) out there. What packages do you use that you can't live without? How do you Atom?

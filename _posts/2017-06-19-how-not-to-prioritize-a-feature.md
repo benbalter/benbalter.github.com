@@ -7,9 +7,9 @@ Sometimes great ideas, customer needs, product priorities, and engineering resou
 
 ### 1. Someone is willing to build it
 
-In less formal organizations (open source projects included), the biggest barrier to entry is finding someone with the skills necessary to solve an identified problem. Open source issue trackers are replete with "*this is a great idea if anyone willing to submit a pull request*"-type issues. The same is true of non-developer stakeholders and closed source projects, with lawyers, support reps, and marketers shopping around ideas internally in hopes of finding someone willing to implement them.
+In less formal organizations (open source projects included), the biggest barrier to entry is finding someone with the skills necessary to solve an identified problem. Open source issue trackers are replete with "this is a great idea if anyone willing to submit a pull request"-type issues. The same is true of non-developer stakeholders and closed source projects, with lawyers, support reps, and marketers shopping around ideas internally in hopes of finding someone willing to implement them.
 
-Maybe the idea comes from a developer who's experienced the problem themselves. Maybe the external issue or internal ask makes its way in front of a sympathetic engineer willing to dedicate a few cycles. Granted, there will always be no-brainers and quick wins, but in most cases, "*someone is willing to do this*", should not necessarily translate to "*we should do this*".
+Maybe the idea comes from a developer who's experienced the problem themselves. Maybe the external issue or internal ask makes its way in front of a sympathetic engineer willing to dedicate a few cycles. Granted, there will always be no-brainers and quick wins, but in most cases, "someone is willing to do this", should not necessarily translate to "we should do this".
 
 ### 2. Sales says a lot of/a big/a potential customer is asking for it
 

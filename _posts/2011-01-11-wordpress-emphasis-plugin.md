@@ -9,4 +9,4 @@ description: One-click implementation of the New York Times open source emphasis
 
 I adapted the New York Time's implementation into a three-line WordPress plugin for my own site, and it is available in the [WordPress plugin repository](http://wordpress.org/extend/plugins/wp-emphasis/) as a one-click install, if you would like to add it to your own.
 
-The "deep links" plugin allows for permalinking and highlighting of text on a paragraph and sentance level. No need to set anything up. Just install, tap shift twice, and start highlighting.
+The "deep links" plugin allows for permalinking and highlighting of text on a paragraph and sentence level. No need to set anything up. Just install, tap shift twice, and start highlighting.

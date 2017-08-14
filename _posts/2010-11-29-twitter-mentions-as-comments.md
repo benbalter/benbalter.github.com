@@ -20,7 +20,7 @@ Twitter Mentions as Comments does exactly what it promises to do – scours Twit
 
 * Dynamic resizing of Twitter profile images to fit WordPress theme
 * Prioritization of newer posts
-* Oauth Authentication to raise API limit (currently unlimited Tweets, but limited to 150 *new* comment authors per hour)
+* OAuth Authentication to raise API limit (currently unlimited Tweets, but limited to 150 *new* comment authors per hour)
 * Smarter API throttling
 
 The plugin is available in the [WordPress plugin repository](http://wordpress.org/extend/plugins/twitter-mentions-as-comments/), and you can see it in action below or on the [WP Resume plugin page](https://ben.balter.com/2010/09/12/wordpress-resume-plugin/#comment-168).

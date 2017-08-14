@@ -39,13 +39,13 @@ language: ruby
 script: "rake test" # You may need to use "bundle exec rake test" if Travis fails on the require for the HTML/Proofer
 ```
 
-And finally, you need to head over to [travis-ci.org/profile](https://travis-ci.org/profile) to enable travis for your repository.
+And finally, you need to head over to [travis-ci.org/profile](https://travis-ci.org/profile) to enable Travis for your repository.
 
-Now, each time you push, Travis is going to verify all sorts of things, like whether your images render and contain alt tags, whether your links are valid (including internal anchors), and whether all the javascript files you reference actually exist. With some additional configuration, you can have it check all sorts of things like whether [your page has a favicon](https://github.com/gjtorikian/html-proofer#favicon), or whether the [HTML is even valid](https://github.com/gjtorikian/html-proofer#html).
+Now, each time you push, Travis is going to verify all sorts of things, like whether your images render and contain alt tags, whether your links are valid (including internal anchors), and whether all the JavaScript files you reference actually exist. With some additional configuration, you can have it check all sorts of things like whether [your page has a favicon](https://github.com/gjtorikian/html-proofer#favicon), or whether the [HTML is even valid](https://github.com/gjtorikian/html-proofer#html).
 
 You can see this in action [on this site](https://travis-ci.org/benbalter/benbalter.github.com). Each time I make a change (or someone proposes one), every link and image is checked to confirm nothing broke. You'll get something that looks like:
 
-```
+```console
 Running ["ScriptCheck", "LinkCheck", "ImageCheck"] checks on ./_site on *.html...
 Checking 1187 external links...
 Ran on 120 files!
@@ -56,6 +56,6 @@ And with that, you can merge confidently.
 
 ### Beyond "does this thing work?"
 
-Having accurate links and images is a great baseline (that sadly, as I've learned through my own continuous integration, many sites don't check), but what about checking the things you *can't* see like accessability? In the case of §508 compliance, I wrote [Ra11y](https://github.com/benbalter/ra11y), but automated tools exist to check all sorts of things.
+Having accurate links and images is a great baseline (that sadly, as I've learned through my own continuous integration, many sites don't check), but what about checking the things you *can't* see like accessibility? In the case of §508 compliance, I wrote [Ra11y](https://github.com/benbalter/ra11y), but automated tools exist to check all sorts of things.
 
-If you regularly author content for the web, especially if it's collaborative, I'd encourage you to take a look at what developer tools and philosophies your can coopt for your own workflows, CI or otherwise. You content deserves it.
+If you regularly author content for the web, especially if it's collaborative, I'd encourage you to take a look at what developer tools and philosophies your can co-opt for your own workflows, CI or otherwise. You content deserves it.

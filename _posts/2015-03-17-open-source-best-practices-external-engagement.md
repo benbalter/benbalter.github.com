@@ -24,16 +24,16 @@ Here's a short list of personas that likely already care about your project, our
 Even before you hit publish, there's lots of ways to seed your project's ecosystem with different types of contributors, technical and otherwise. Here's a few ways they might contribute:
 
 * Kick the tires, does the thing even work? Does it do what it says it does?
-* Answer the question “what features would you love to see?”
+* Answer the question "what features would you love to see?"
 * Flesh out documentation, ask questions, note where documentation is lacking
 * Community evangelism, speak, teach, and spread your love for the project
-* Submit new questions to the project’s Q&A forums, or take a stab at an answer or two
+* Submit new questions to the project's Q&A forums, or take a stab at an answer or two
 * Host a genius bar at the next local meetup
 * Translate the project into a different language
 * Give feedback on proposed bug fixes and features, propose new ones
 * Recruit new developers, help junior developers grow into the project
 
-In traditional government workflows, many of these functions happen by necessity, but artifacts, if they exist, are invisible to the open source community. Before you seek to engage external stakeholders, shift internal stakeholders off traditional workflows, and have them begin using the same tools you'd use to engage external stakeholders. Have a feature request? Open an issue. Want to review the docuemntation? Here's a link to the public facing README.
+In traditional government workflows, many of these functions happen by necessity, but artifacts, if they exist, are invisible to the open source community. Before you seek to engage external stakeholders, shift internal stakeholders off traditional workflows, and have them begin using the same tools you'd use to engage external stakeholders. Have a feature request? Open an issue. Want to review the documentation? Here's a link to the public facing README.
 
 If you do it right, by the time you're ready to engage the external community, you'll be a pro, having already used the same tools to engage your internal community, which can now be placed on equal footing as external stakeholders. Put another way, your goal should be to support one large community, not two necessary unequal ones.
 
@@ -53,7 +53,7 @@ In practicality, that means standing up public, linkable forums for stakeholders
 
 ### 3. Minimize Friction
 
-At GitHub, we measure workflows in terms of [friction](https://ben.balter.com/2013/08/11/friction/). You can define friction as the time it takes for a potential contributor to go from *"I want to contribute"* to *"I have contributed"*. When contributions are on a volunteer basis, minimizing friction is essential to encouraging first time contributors and to turn those first-time contributors into long-term collaborators.
+At GitHub, we measure workflows in terms of [friction](https://ben.balter.com/2013/08/11/friction/). You can define friction as the time it takes for a potential contributor to go from "I want to contribute" to "I have contributed". When contributions are on a volunteer basis, minimizing friction is essential to encouraging first time contributors and to turn those first-time contributors into long-term collaborators.
 
 Think about it this way. Lets say I find a typo in your app. I need to make what is literally a single character change. The actually change itself should take less than thirty seconds. But what do I have to do to make that change? I'll need to figure out the project dependencies and install them, bootstrap a local development environment, make my change, set up the test suite, run tests, and then figure out how to contribute my change back. That 30 seconds change just became a day long process and when friction is disproportionate to the time it takes to do the thing I set out to do, I'm simply not going to contribute.
 
@@ -65,13 +65,13 @@ A lot of that comes down to contributor-friendly documentation (read: not intern
 
 ### 4. Decentralize governance
 
-Successful open source is all about decentralization and informality, two things large organizations are traditionally terrible at. [Think about what most large organizations optimize for](https://ben.balter.com/2014/08/03/why-isnt-all-government-software-open-source/): meetings, in-house email, strict hierarchy, and tightly held process. In the world of open source, you don't hold a meeting to merge a pull request. Email is foregone and process is exposed through public discussions. Heck, you don't even need to be in the office or wearing a suit to comment on an issue. In order to be successful, and the step most large organizations overlook, is that to participate, you need to be a member of the community, not you the organization, but you the human. Open source developers can tell the difference between someone who is "one of them" and "gets it", and someone who drops in once or week to communicate already-made decisions or follows a telemarketing-like support script when interacting with contributors. Put another way, no matter how much you water it, astroturf will never grow.
+Successful open source is all about decentralization and informality, two things large organizations are traditionally terrible at. [Think about what most large organizations optimize for](https://ben.balter.com/2014/08/03/why-isnt-all-government-software-open-source/): meetings, in-house email, strict hierarchy, and tightly held process. In the world of open source, you don't hold a meeting to merge a pull request. Email is foregone and process is exposed through public discussions. Heck, you don't even need to be in the office or wearing a suit to comment on an issue. In order to be successful, and the step most large organizations overlook, is that to participate, you need to be a member of the community, not you the organization, but you the human. Open source developers can tell the difference between someone who is "one of them" and "gets it", and someone who drops in once or week to communicate already-made decisions or follows a telemarketing-like support script when interacting with contributors. Put another way, no matter how much you water it, AstroTurf will never grow.
 
 When the White House merges a pull request, it's done by a developer familiar with the project. The CIO doesn't bring a laptop into the situation room and ask the President to sign off on the changes. That'd be crazy. The president isn't a software developer, and the people in that room presumably have much better things to do. Yet more often than not, participating in the open source community is seen bureaucratically as public engagement, and thus, must be funneled through a public affairs office or similar committee-like blocking experience.
 
 Instead, push responsibilities to as close to the edge as possible. There's a lot of different ways to think about community engagement, but essentially, there are three big buckets:
 
-* **Community stewardship** - Day-to-day community engagement is going to require responding to issues and providing support. The questions may be technical, but more often than not, this role is best served by a fellow, intern, or other member of the open source community, that knows the lay of the land and has managed an open source project before, even if at a smaller (or personal) scale, and can empower others within your organization to do the same. Think of them as your open-source sherpa.
+* **Community stewardship** - Day-to-day community engagement is going to require responding to issues and providing support. The questions may be technical, but more often than not, this role is best served by a fellow, intern, or other member of the open source community, that knows the lay of the land and has managed an open source project before, even if at a smaller (or personal) scale, and can empower others within your organization to do the same. Think of them as your open-source Sherpa.
 
 * **Code review-ship** - Beyond general engagement, day-to-day project management will require regular, in-depth code review, providing feedback to developers, and generally working with contributors to enforce the project's style and goals. This should be a technical person familiar with the project, whether an external contractor, a community member, or employee it doesn't matter, as long as they're able to understand the technical issues involved and move proposed changes forward at their own pace. This can be the same person who engages the community, but doesn't need to be.
 

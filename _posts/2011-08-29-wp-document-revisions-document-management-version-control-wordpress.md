@@ -35,7 +35,7 @@ redirect_from: 2011/08/29/document-management-version-control-for-wordpress/
 * Provides a full file history in the form of a revision log, accessible via RSS
 * Helps you track and organize documents as they move through your organization's existing workflow
 * Each file gets a permanent, authenticated URL that always points to the latest version
-* Each revision gets its own unique url (e.g.,TPS-Report-revision-3.doc) accessible only to those you deem
+* Each revision gets its own unique URL (e.g.,TPS-Report-revision-3.doc) accessible only to those you deem
 * Files are intuitively checked out and locked to prevent revisions from colliding
 * Toggle documents between public, private, and password protected with a single mouse click
 * Runs in-house or in the cloud
@@ -52,16 +52,16 @@ redirect_from: 2011/08/29/document-management-version-control-for-wordpress/
 * **State Permissions** - allows setting user-level permissions based on a custom taxonomy such as workflow state or other document status
 * **Third Party Encryption** - example of how to integrate at rest encryption using third-party tools
 * **Rename Documents** - changes all references to "Documents" in the interface to any label of your choosing
-* **State Change Notification** - how to use document api to allow users to receive notification whenever documents change workflow state
+* **State Change Notification** - how to use document API to allow users to receive notification whenever documents change workflow state
 * **Bulk Import** - how to batch import a directory (or other list) of files as documents
-* **Filetype Taxonomy** - Adds support to filter by filetype
+* **file type Taxonomy** - Adds support to filter by file type
 * **Track Changes** - Auto-generates and appends revision summaries for changes to taxonomies, title, and visibility
 * **Remove Workflow States** - Completely removes Workflow state taxonomy backend and UI
 * **Change Tracker** - Auto-generates and appends revision summaries for changes to taxonomies, title, and visibility
 
 ### Translations
 
-* French - [Hubert CAMPAN](http://omnimaki.com/)
+* French - [Hubert Campan](http://omnimaki.com/)
 * Spanish - TradiArt
 
 ### Links

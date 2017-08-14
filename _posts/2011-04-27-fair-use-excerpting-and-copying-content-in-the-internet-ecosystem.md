@@ -31,7 +31,7 @@ If a work is no longer subject to copyright claims (and thus falls in the [publi
 
 ### Is it fair use
 
-Even if a work merits copyright protection, it can still be used in many cases. The concept of *fair use* came about in late 1970′s following the Copyright Act of 1976. [^4] Simply put, the Copyright act states, "*purposes such as criticism, comment, news reporting, teaching (including multiple copies for classroom use), scholarship, or research, is not an infringement of copyright.*" While there is no cut-and-dry rule as to when use infringes on the author's copyright, the determination as to whether a given excerpt constitute fair uses is governed by four-factor [balancing test](http://en.wikipedia.org/wiki/Balancing_test): [^5]
+Even if a work merits copyright protection, it can still be used in many cases. The concept of *fair use* came about in late 1970′s following the Copyright Act of 1976. [^4] Simply put, the Copyright act states, "purposes such as criticism, comment, news reporting, teaching (including multiple copies for classroom use), scholarship, or research, is not an infringement of copyright." While there is no cut-and-dry rule as to when use infringes on the author's copyright, the determination as to whether a given excerpt constitute fair uses is governed by four-factor [balancing test](http://en.wikipedia.org/wiki/Balancing_test): [^5]
 
 1. the purpose and character of the use, including whether such use is of a commercial nature or is for nonprofit educational purposes;
 2. the nature of the copyrighted work;
@@ -44,7 +44,7 @@ In short, so long as you link back to the original source, and contribute someth
 
 The law aside, readers want you to digest and put ideas in your own voice. Take a paragraph from one post, a paragraph from another, and build a common thread between them – that's the bigger hurdle. Give readers a reason to come to your site. Give your site a reason to exist, and nine times out of ten, the law will be on your side.
 
-\[Photo courtesy [tallguy](http://www.flickr.com/photos/talllguy/2146845610/)]
+*Photo courtesy [@tallguy](http://www.flickr.com/photos/talllguy/2146845610/)*
 
 [^1]: Questions asked included: If there's no copyright symbol, is it still copyrighted?; If it's posted online, can I just copy it because its it's in the public domain?; Can I use it if I'm not selling it?; and It's okay to use if I credit the original author, right?.
 

@@ -15,23 +15,23 @@ In practice, there are three things to consider: the date, the copyright holder,
 
 Historically, the primary point of putting copyright on anything is because in *ye olden days* (before 1979), [it was a legal requirement that a publisher visually mark their work](https://en.wikipedia.org/wiki/Copyright_notice#Form_of_notice_for_visually_perceptible_copies) in order to secure their copyright under [the United States Copyright Act](https://en.wikipedia.org/wiki/Copyright_law_of_the_United_States). After the US became a signatory of [the Berne convention](https://en.wikipedia.org/wiki/Berne_Convention) (along with [167 other countries](https://en.wikipedia.org/wiki/List_of_parties_to_international_copyright_agreements)), that requirement was dropped, and copyright now automatically vests in the author at the time of publication in the vast majority of countries, notice or no notice.
 
-Today, explicit copyright notices in licenses, footers (or really in general), are not necessary for getting a copyright. They still have some uses, though. First, someone may want to use your work in ways not allowed by your license; notices help them determine who to ask for permission. Explicit notices can help you prove that you and your collaborators really are the copyright holders. They can serve to put a potential infringer on notice by providing an informal sniff test to counter the "*Oh yeah, well I didn't know it was copyrighted*" defense. For some users the copyright notice may suggest higher quality, as they expect that good software will include a notice. A notice may also help people determine when copyright might expire, but the date is ambiguous at best, and I'd suspect we'll have better ways to determine the date of publication 80+ years from now, if your code is still worth protecting. Git can track these things, but people may receive software outside of git or where the git history has not been retained.
+Today, explicit copyright notices in licenses, footers (or really in general), are not necessary for getting a copyright. They still have some uses, though. First, someone may want to use your work in ways not allowed by your license; notices help them determine who to ask for permission. Explicit notices can help you prove that you and your collaborators really are the copyright holders. They can serve to put a potential infringer on notice by providing an informal sniff test to counter the "Oh yeah, well I didn't know it was copyrighted" defense. For some users the copyright notice may suggest higher quality, as they expect that good software will include a notice. A notice may also help people determine when copyright might expire, but the date is ambiguous at best, and I'd suspect we'll have better ways to determine the date of publication 80+ years from now, if your code is still worth protecting. Git can track these things, but people may receive software outside of git or where the git history has not been retained.
 
 Simply put, a notice isn't strictly necessary legally speaking. But a notice is nice to have, has some advantages, and is easy to do.
 
 ### The date
 
-If you chose to include a copyright notice, you'll see that the first half of any copyright notice (after either the word "Copyright" or "©") is a year. Is it the current year? The year you first had the idea? The year year you hit publish? As implied above, when you choose to include a copyright notice, it's traditionally the year of (first) publication.
+If you chose to include a copyright notice, you'll see that the first half of any copyright notice (after either the word "Copyright" or "©") is a year. Is it the current year? The year you first had the idea? The year you hit publish? As implied above, when you choose to include a copyright notice, it's traditionally the year of (first) publication.
 
-For things like books, the year of publication is really easy to determine. If you write a book in 2014, and it hits the shelves in 2015, the title page will most likely reflect a copyright date of 2015. That's the date the original work was reduced to a physical embodiment and publicly distributed. Thats the year it was "published", at least in the eyes of the law. And if a revised edition comes out in 2016, correcting some typos or adding a new forward, the title page would likely include both 2015 and 2016.
+For things like books, the year of publication is really easy to determine. If you write a book in 2014, and it hits the shelves in 2015, the title page will most likely reflect a copyright date of 2015. That's the date the original work was reduced to a physical embodiment and publicly distributed. That's the year it was "published", at least in the eyes of the law. And if a revised edition comes out in 2016, correcting some typos or adding a new forward, the title page would likely include both 2015 and 2016.
 
 #### When is a digital work "published"
 
-But when it comes to digital works, the idea of publication isn't quite the same. When is an open source project (or a website, as that's the most common means of publishing an open source project, e.g., via GitHub's web interface) "*published*"?
+But when it comes to digital works, the idea of publication isn't quite the same. When is an open source project (or a website, as that's the most common means of publishing an open source project, e.g., via GitHub's web interface) "published"?
 
 In this case, of a website like [choosealicense.com](http://choosealicense.com), to take a simple example, the site was "published" when the site launched in 2013. But unlike books, that are published yearly, in set editions, with open source, things are both never finished and constantly changing — the hallmark of a healthy open source project.
 
-If in 2014, someone submits a pull request to add some new content to the site (or in the case of software, to add a new feature to the project), that pull request would contain new content first "published" in 2014. In that case, a copyright notice like "Copyright 2013 - 2014" would be more appropriate, as the project contains works of original authorship, first published in both 2013 and 2014.
+If in 2014, someone submits a pull request to add some new content to the site (or in the case of software, to add a new feature to the project), that pull request would contain new content first "published" in 2014. In that case, a copyright notice like "Copyright 2013 − 2014" would be more appropriate, as the project contains works of original authorship, first published in both 2013 and 2014.
 
 #### So what date should you use
 
@@ -47,7 +47,7 @@ When you use an open source project, you are analogous to the renter, but who's 
 
 #### So whose name should you use
 
-Again, there's a precedence. Going back to our book example, if you look at the copyright page, it'll likely say `Copyright [year] [author]` (or the publisher, depending on their arangement). One contributor, one copyright holder.
+Again, there's a precedence. Going back to our book example, if you look at the copyright page, it'll likely say `Copyright [year] [author]` (or the publisher, depending on their arrangement). One contributor, one copyright holder.
 
 But in the case of open source, there will likely be multiple contributors, each retaining their own copyright. You might write something like `Copyright [year] Alison, Ben, and Charlie`, but as the number of developers grow, things will quickly get out of hand. So lets simplify things and just write, `Copyright [year] the [project] contributors`.
 

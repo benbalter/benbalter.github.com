@@ -29,13 +29,13 @@ So which is it? Is open source about the right to modify or the opportunity to c
 
 ### Open source in a less license-centric world
 
-I've only known a world where open source has already won. When I think open source, I don't think "*is this thing licensed under a Open Source Initiative blessed license?*" Today there are increasingly fewer debates over [the freedoms one receives with software](https://www.gnu.org/philosophy/free-sw.html), and more over seeing it released in the first place, or once released, over exposing process.
+I've only known a world where open source has already won. When I think open source, I don't think "is this thing licensed under a Open Source Initiative blessed license?" Today there are increasingly fewer debates over [the freedoms one receives with software](https://www.gnu.org/philosophy/free-sw.html), and more over seeing it released in the first place, or once released, over exposing process.
 
 Developers today could [care less what the license is](http://opensource.com/law/13/2/post-open-source-software-licensing) or if non-free software is [an instrument of unjust power](https://www.gnu.org/philosophy/free-software-even-more-important.html). We just want to hack on cool stuff and we know doing things in the open is the best way to do it. Open source has won, and not for political or philosophical reasons. Today, [Microsoft supports open source](http://www.microsoft.com/opensource/directory.aspx) because it makes good business sense, not because of the freedoms it brings.
 
-There are a lot of reasons for that deemphasis. For one, technology has made it easier to work together than alone, shifting the supply-side constrains from projects to contributors, and in turn, has shaped what it means to be open source. As Karl noted:
+There are a lot of reasons for that de-emphasis. For one, technology has made it easier to work together than alone, shifting the supply-side constrains from projects to contributors, and in turn, has shaped what it means to be open source. As Karl noted:
 
-> Pretty much all open source activity (whether software or otherwise) happens online... if it's not online, it's hard for it to be effectively open source, practically speaking.
+> Pretty much all open source activity (whether software or otherwise) happens online… if it's not online, it's hard for it to be effectively open source, practically speaking.
 
 But among the biggest reasons for this shift, I'd argue, is that unlike when the open source movement was originally taking shape, today, there is no "source" and "binary" distribution to drive a wedge of imbalance. With web-centric, high-level languages like Ruby, Node, and PHP, it's really hard to distribute the software in such a way that you don't have everything you need to modify it, at least not in terms of code.
 
@@ -43,9 +43,9 @@ But among the biggest reasons for this shift, I'd argue, is that unlike when the
 
 Today, the idea of open source as it is seen outside of software is much more than just rights to "source code". What happens when there is no source versus binary? What does open source data look like? Open source content? Open source law? What happens when there is no OSI-approved license, because the thing I'm sharing simply isn't code. In [trying to distinguish open source from open source *software*](http://haacked.com/archive/2012/02/16/open-source-and-open-source-software-are-not-the-same.aspx/), I argued:
 
-> Open source is more than just publishing. Seeing how the sausage is made is necessary but not sufficient. Discussions in the open, ability to fork and modify, pull requests... collaboration is a key.
+> Open source is more than just publishing. Seeing how the sausage is made is necessary but not sufficient. Discussions in the open, ability to fork and modify, pull requests… collaboration is a key.
 
-Think about it in this context: I'm a government agency, and I publish a plain-text blog. Is that open source? As a government work, you have the right to use, fork, and modify the "open source" content as you see fit. Same with government data in the form of a spreadsheet. The "source" in both cases... what's necessary to rebuild the final intrinsically valuable thing from scratch is not the compiled letters or figures that are published, but exposing the underlying process through which that final product can be recreated (not to mention being the canonical place where the content is published).
+Think about it in this context: I'm a government agency, and I publish a plain-text blog. Is that open source? As a government work, you have the right to use, fork, and modify the "open source" content as you see fit. Same with government data in the form of a spreadsheet. The "source" in both cases… what's necessary to rebuild the final intrinsically valuable thing from scratch is not the compiled letters or figures that are published, but exposing the underlying process through which that final product can be recreated (not to mention being the canonical place where the content is published).
 
 So long as the publisher doesn't provide a mechanism to receive those improvements, or if there's a sufficient imbalance of information between those publishing and those contributing, that thing, be it code, text, or data, is simply published. It's not really open. In software I'd call that "disclosed source". In government, we call that publishing a PDF or simply throwing data over the firewall, but the one thing I would not have called that is open source. But given the right license, that's exactly what it is.
 

@@ -37,7 +37,7 @@ Slides (and recordings) from some of the talks I've given over the years. Have a
 
 * [Software developer as civic service](https://speakerdeck.com/benbalter/software-development-as-civic-service)
 
-* [The revolution will be forked: how open collaboration is reimaging the way government works](https://ben.balter.com/open-sourcing-government/) ([source](https://github.com/benbalter/open-sourcing-government/))
+* [The revolution will be forked: how open collaboration is reimagining the way government works](https://ben.balter.com/open-sourcing-government/) ([source](https://github.com/benbalter/open-sourcing-government/))
 
 * [Make Government better together: Moving from open government to collaborative government](https://ben.balter.com/make-government-better-together/) ([source](https://github.com/benbalter/make-government-better-together/))
 
@@ -45,13 +45,13 @@ Slides (and recordings) from some of the talks I've given over the years. Have a
 
 * [Open source software licensing: empowering others to use your code](https://ben.balter.com/open-source-software-licensing/) ([source](https://github.com/benbalter/open-source-software-licensing/))
 
-* [Collaborative policymaking: how technology is making it easier to work together than alone](https://ben.balter.com/collaborative-policymaking/) ([source](https://github.com/benbalter/collaborative-policymaking/))
+* [Collaborative policy making: how technology is making it easier to work together than alone](https://ben.balter.com/collaborative-policymaking/) ([source](https://github.com/benbalter/collaborative-policymaking/))
 
 * [Project open data: a case study in collaborative governance](https://www.youtube.com/watch?v=EL3-UwY3qGE) (video)
 
 ### Mapping and GeoJSON
 
-* [Open source, open standards, and 50 lines of code: a look behind GitHub's GeoJSON rendering and diffing](https://ben.balter.com/behind-github-geojson/), [source](https://github.com/benbalter/behind-github-geojson/))
+* [Open source, open standards, and 50 lines of code: a look behind GitHub's GeoJSON rendering and diffing](https://ben.balter.com/behind-github-GeoJSON/), [source](https://github.com/benbalter/behind-github-GeoJSON/))
 
 * [Make maps better together: Collaborative mapping the Open Source Way](https://ben.balter.com/make-maps-better-together/) ([video](https://www.youtube.com/watch?v=iGRb5QRqC2w))
 
