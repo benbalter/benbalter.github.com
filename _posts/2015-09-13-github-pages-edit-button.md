@@ -13,7 +13,7 @@ If your site's content is hosted on GitHub (either with Jekyll/GitHub Pages or s
 {% raw %}https://github.com/{{ site.github.repository_nwo }}/edit/{{ site.branch }}/{{ page.path }}}{% endraw %}
 ```
 
-Luckily, GitHub Pages has a nice helper to build that URL automatically:
+Luckily, GitHub Pages has [a nice helper to build that URL automatically](https://jekyll.github.io/github-metadata/edit-on-github-link/):
 
 ```liquid
 {% raw %}{% github_edit_link %}{% endraw %}
@@ -35,4 +35,4 @@ If a user clicks the link, they'll be prompted to login or signup for a GitHub a
 
 Give it a try by clicking the edit button below (suggested improvements to this post welcome), and I encourage you to follow these steps to add a "help improve this content" button to your own site.
 
-**Edit (8/28/18)**: Updated to use the `github_edit_link` helper.
+**Edit (8/28/18)**: Updated to use [the `github_edit_link` helper](https://jekyll.github.io/github-metadata/edit-on-github-link/).
