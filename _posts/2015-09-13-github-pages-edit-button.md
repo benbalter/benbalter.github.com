@@ -10,7 +10,7 @@ The difference between publishing with say, WordPress, and publishing using Jeky
 If your site's content is hosted on GitHub (either with Jekyll/GitHub Pages or something like [wordpress-github-sync](https://github.com/benbalter/wordpress-github-sync)), it's easy to provide readers with a link to submit changes. You simply need to add a vanilla HTML link to the following URL (if you're using another framework, you'll need to build the URL yourself):
 
 ```liquid
-{% raw %}{https://github.com/{{ site.github.repository_nwo }}/edit/{{ site.branch }}/{{ page.path }}}{% endraw %}
+{% raw %}https://github.com/{{ site.github.repository_nwo }}/edit/{{ site.branch }}/{{ page.path }}}{% endraw %}
 ```
 
 Luckily, GitHub Pages has a nice helper to build that URL automatically:
@@ -22,7 +22,13 @@ Luckily, GitHub Pages has a nice helper to build that URL automatically:
 Or, if you wanted the helper to build the link as well:
 
 ```html
-{% raw %}Please {% raw %}{% github_edit_link "Help improve this article" %}{% endraw %}.{% endraw %}
+Please {% raw %}{% github_edit_link "Help improve this article" %}{% endraw %}.
+```
+
+Which would output something like:
+
+```html
+Please <a href="http://github.com/benbalter/benbalter.github.com/edit/master/_posts/2015-09-13-github-pages-edit-button.md">help improve this article</a>.
 ```
 
 If a user clicks the link, they'll be prompted to login or signup for a GitHub account if they haven't already, and will be provided with a web-based editor to edit the page's content. From there, they simply click the big green "propose change" buttons, which will silently submit a pull request to your site on their behalf, no Git or GitHub knowledge necessary.
