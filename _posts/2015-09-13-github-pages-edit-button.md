@@ -35,4 +35,4 @@ If a user clicks the link, they'll be prompted to login or signup for a GitHub a
 
 Give it a try by clicking the edit button below (suggested improvements to this post welcome), and I encourage you to follow these steps to add a "help improve this content" button to your own site.
 
-**Edit (8/28/18)**: Updated to use [the `github_edit_link` helper](https://jekyll.github.io/github-metadata/edit-on-github-link/).
+**Edit (8/28/17)**: Updated to use [the `github_edit_link` helper](https://jekyll.github.io/github-metadata/edit-on-github-link/).
