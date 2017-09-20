@@ -53,7 +53,7 @@ end
 task :format_yaml do
   Dir['*/**.md'].each do |path|
     content = File.read(path)
-    next unless content =~ Jekyll::Document::YAML_FRONT_MATTER_REGEXP
+    next unless content.match?(Jekyll::Document::YAML_FRONT_MATTER_REGEXP)
     parts = content.split Jekyll::Document::YAML_FRONT_MATTER_REGEXP
     yaml = YAML.safe_load(parts[1])
     %w[title description].each { |key| yaml[key] = strip_whitespace(yaml[key]) if yaml[key] }
