@@ -12,14 +12,25 @@ Beyond establishing and enforcing such norms, maintainers seeking to grow commun
 At GitHub, we've created [`opensource.guide`](https://opensource.guide) to memorialize some of those community-builing best practices, and have started prompting users to adopt them via [the community profile](https://github.com/blog/2380-new-community-tools). Beyond that, here are twelve tips for growing communities around your open source project:
 
 ### 1. Solve a shared problem
+
 ### 2. Choose an open source license
+
 ### 3. Link to the repository from wp.org
+
 ### 4. Publish technical documentation
+
 ### 5. Document how to contribute
+
 ### 6. Clarify support v. development
+
 ### 7. Welcome new contributors
+
 ### 8. Set up automated tests
+
 ### 9. Enforce WP code standards
+
 ### 10. Deploy to WordPress.org
+
 ### 11. Adopt a code of conduct
+
 ### 12. Find someone to adopt it
