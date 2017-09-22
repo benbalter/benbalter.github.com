@@ -15,7 +15,7 @@ As long as you're using Jekyll and authoring your content in Markdown, you can a
 
 First, you'll want [jQuery](http://jquery.com/) and [Font Awesome](http://fortawesome.github.io/Font-Awesome/) included in your site template, if they aren't already.
 
-jQuery, a javascript library, helps you select all the headers programmatically, and Font Awesome, an icon library, provides the link icon that the user sees.
+jQuery, a JavaScript library, helps you select all the headers programmatically, and Font Awesome, an icon library, provides the link icon that the user sees.
 
 There are a handful of ways to do this, but the easiest is to add the following in your template's `<head>` section:
 
@@ -51,7 +51,7 @@ h6:hover .header-link {
 
 ### The JavaScript
 
-Last, to tie everything together, you'll also need a bit of javascript magic client side, by adding the following to your site's footer:
+Last, to tie everything together, you'll also need a bit of JavaScript magic client side, by adding the following to your site's footer:
 
 ```html
 <script>

@@ -7,7 +7,7 @@ end_date: 2016-02-01
 
 ###### Open source outreach
 
-* Lead the [outreach efforts](https://government.github.com/) of the world’s largest software development network to encourage adoption of open source, open data, and open government philosophies across nearly 2,000 government organizations in over 75 countries, which resulted in an 8x increase in the number of government users on GitHub, a 9x increase in the number of government organizations on GitHub, and a 10x increase in the amount of revenue derived from government customers
+* Lead the [outreach efforts](https://government.github.com/) of the world's largest software development network to encourage adoption of open source, open data, and open government philosophies across nearly 2,000 government organizations in over 75 countries, which resulted in an 8x increase in the number of government users on GitHub, a 9x increase in the number of government organizations on GitHub, and a 10x increase in the amount of revenue derived from government customers
 * Named one of the [top 25 most influential people in government and technology](http://fedscoop.com/top-federal-it-and-tech-folks-under-40/), FedScoop's Fed50 [Disruptor of the Year](http://fedscoop.com/fedscoop-50-celebrating-2014s-leaders-federal/), and winner of the Open Source People's Choice Award.
 * Lead company-wide editorial and blogging efforts including blog post review, documentation, editorial calendar creation, and tooling.
 * Architected team-wide outreach strategy, analytics pipeline, and tooling to target and quantify organization's outreach efforts.

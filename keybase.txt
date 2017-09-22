@@ -1,6 +1,6 @@
 ---
 permalink: ".well-known/keybase.txt"
-layout: nil
+layout: null
 ---
 
 ==================================================================

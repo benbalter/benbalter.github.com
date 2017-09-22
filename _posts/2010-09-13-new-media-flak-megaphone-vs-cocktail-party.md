@@ -5,7 +5,7 @@ description: A recent back and forth in the opinion pages of GW's paper of note 
 
 A recent [back](http://www.gwhatchet.com/2010/09/07/gwtoday-stop-damaging-gws-reputation/) and [forth](http://www.gwhatchet.com/2010/09/13/conor-rogers-jguiffre-pls-refudiate/) in the opinion pages of GW's paper of note brought to light an emerging divide in publicists' approaches to social media. One the one hand, GW's primary Twitter account, [GWTweets](https://twitter.com/gwtweets), casts the University in a stoic, buttoned-up light, with little, if any interactions with members of the rather active online community (*e.g.*, mentions, @replies, or ReTweets). [GWToday](https://twitter.com/gwtoday) on the other hand, the *de facto* hub of the campus's Twitter scene, and arguably a [significant presence in higher education's social media world](http://www.socialmediahighered.com/), has historically taken a more cavalier approach to serving as the University's digital face. But which approach is "best"?
 
-![Woman using a megaphone to yell at a man](//ben.balter.com/wp-content/uploads/2010/09/3708549622_42a7d7e450_o-1024x363.jpg "Megaphone")
+![Woman using a megaphone to yell at a man](https://ben.balter.com/wp-content/uploads/2010/09/3708549622_42a7d7e450_o-1024x363.jpg "Megaphone")
 
 Technology has the bad habit of upsetting social norms, and as much as we try, there's nothing we can do to stop it.[^5] Organizations looking to establish a presence on Twitter cannot afford to treat social media like other media they may have encountered. Social media is not a megaphone for a flaks to broadcast the press releases they would otherwise post elsewhere, but rather a cocktail party that provide organizations with the unique opportunity to loosen their tie, grab a drink, and work the room.
 
@@ -17,6 +17,6 @@ Simply put, Twitter is not a dumping ground for pre-vetted paper.[^8] The occasi
 
 [^5]: Without too much of a history lesson, see, e.g., Abraham Lincoln overseeing the Civil War from the telegraph office ushering in a new era of hands-on presidential leadership; home telephones giving rise to entire industries dedicated to interrupting families' dinners; Blackberrys changing business e-mail etiquette.
 
-[^7]: Jimmy John's often frat-boy-esq vocabulary may push the limits of informal interactions with stakeholders, but none-the-less serves to promote their brand.
+[^7]: Jimmy John's often frat-boy-esque vocabulary may push the limits of informal interactions with stakeholders, but none-the-less serves to promote their brand.
 
-[^8]: Thank the internet gods that TwitterFeed‘s RSS to Twitter conversion service didn't catch on.
+[^8]: Thank the internet gods that TwitterFeed's RSS to Twitter conversion service didn't catch on.

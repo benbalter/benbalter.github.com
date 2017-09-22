@@ -15,7 +15,7 @@ When organizations consume the products they create, they empirically deliver be
 
 ### 3. Data as a citizen service
 
-It is tempting to try and meet open data benchmarks, at least on face, by publishing snapshots of large datasets. Yet multi-gigabyte database exports do little to encourage external development, especially when such data-dumps are delayed and infrequent. Imagine the usefulness of a Facebook feed that showed your friends' activity from last month. Datasets should be directly exposed so that the public has access to live, real-time data, either in its entirety, or through proper access controls. This not only allows agencies to deliver more useful information, but also reduces the need to store the same data in multiple formats and in multiple locations.
+It is tempting to try and meet open data benchmarks, at least on face, by publishing snapshots of large data sets. Yet multi-gigabyte database exports do little to encourage external development, especially when such data-dumps are delayed and infrequent. Imagine the usefulness of a Facebook feed that showed your friends' activity from last month. data sets should be directly exposed so that the public has access to live, real-time data, either in its entirety, or through proper access controls. This not only allows agencies to deliver more useful information, but also reduces the need to store the same data in multiple formats and in multiple locations.
 
 ### 4. Curate discrete pieces of data
 
@@ -43,7 +43,7 @@ When it comes to garnering support for future efforts, nothing can be more power
 
 ### 10. Location, location, location
 
-With the "consumerization" of mobile, datasets are increasingly becoming location based. It's not what datasets are out there, but rather, what datasets are out there about my immediate world. Likewise, government datasets are increasingly about where, just as much as it is about what. It's important that this reality be taken into account when building APIs by incorporating geospatial lookups within the API, such a relying on MongoDB or other location-aware data structures.
+With the "consumerization" of mobile, data sets are increasingly becoming location based. It's not what data sets are out there, but rather, what data sets are out there about my immediate world. Likewise, government data sets are increasingly about where, just as much as it is about what. It's important that this reality be taken into account when building APIs by incorporating geospatial lookups within the API, such a relying on MongoDB or other location-aware data structures.
 
 Exposing data as a service is quickly becoming an industry-standard practice. Many popular startups owe their success to the vibrant app communities that surround them, grown simply by lifting some of the burden off of developers' shoulders. Government agencies may not yet be able to publish data with the mere click of a button, but when done right from the start, exposing additional data sources may be a more trivial task than many expect, and will in turn deliver value to citizens in ways today unimagined by agencies.
 

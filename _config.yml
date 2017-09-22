@@ -3,7 +3,6 @@ description: Attorney, open source developer, product manager
 author:
   name: Ben Balter
   twitter: benbalter
-url: https://ben.balter.com
 
 repository: benbalter/benbalter.github.com
 logo: "/assets/img/headshot.jpg"
@@ -61,6 +60,8 @@ exclude:
   - node_modules
   - Rakefile
   - retlab
+  - dictionary.txt
+  - assets/vendor/turbolinks/test/
 
 permalink: "/:year/:month/:day/:title/"
 defaults:
@@ -83,7 +84,7 @@ lang: en-US
 branch: master
 future: true
 
-gems:
+plugins:
   - jemoji
   - jekyll-mentions
   - jekyll-redirect-from

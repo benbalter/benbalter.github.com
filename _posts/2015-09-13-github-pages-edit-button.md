@@ -9,22 +9,30 @@ The difference between publishing with say, WordPress, and publishing using Jeky
 
 If your site's content is hosted on GitHub (either with Jekyll/GitHub Pages or something like [wordpress-github-sync](https://github.com/benbalter/wordpress-github-sync)), it's easy to provide readers with a link to submit changes. You simply need to add a vanilla HTML link to the following URL (if you're using another framework, you'll need to build the URL yourself):
 
-```html
-{% raw %}https://github.com/{{ site.github.repository_nwo }}/edit/{{ site.branch }}/{{ page.path }}{% endraw %}
+```liquid
+{% raw %}https://github.com/{{ site.github.repository_nwo }}/edit/{{ site.branch }}/{{ page.path }}}{% endraw %}
 ```
 
-Jekyll and GitHub will automatically fill in the path to your site's repository, as well as the path to the particular page. You'll want to either hard-code `{% raw %}{{ site.branch }}{% endraw %}` to either `master` or `gh-pages`, depending on your site's setup, or add something like the following to your site's `_config.yml` file:
+Luckily, GitHub Pages has [a nice helper to build that URL automatically](https://jekyll.github.io/github-metadata/edit-on-github-link/):
 
-```yaml
-branch: master
+```liquid
+{% raw %}{% github_edit_link %}{% endraw %}
 ```
 
-Putting it all together, you'd get:
+Or, if you wanted the helper to build the link as well:
 
 ```html
-{% raw %}Please <a href="https://github.com/{{ site.github.repository_nwo }}/edit/{{ site.branch }}/{{ page.path }}">help improve this article</a>.{% endraw %}
+Please {% raw %}{% github_edit_link "Help improve this article" %}{% endraw %}.
+```
+
+Which would output something like:
+
+```html
+Please <a href="http://github.com/benbalter/benbalter.github.com/edit/master/_posts/2015-09-13-github-pages-edit-button.md">help improve this article</a>.
 ```
 
 If a user clicks the link, they'll be prompted to login or signup for a GitHub account if they haven't already, and will be provided with a web-based editor to edit the page's content. From there, they simply click the big green "propose change" buttons, which will silently submit a pull request to your site on their behalf, no Git or GitHub knowledge necessary.
 
 Give it a try by clicking the edit button below (suggested improvements to this post welcome), and I encourage you to follow these steps to add a "help improve this content" button to your own site.
+
+**Edit (8/28/17)**: Updated to use [the `github_edit_link` helper](https://jekyll.github.io/github-metadata/edit-on-github-link/).

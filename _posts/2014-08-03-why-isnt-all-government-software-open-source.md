@@ -41,7 +41,7 @@ Once built, it takes humans to bring that code to the escape velocity necessary 
 
 ### Clash of cultures
 
-Even if the agency manages to open source the code, the open source community follows a set of norms vastly different than the rigid hierarchy of government. Government agencies don't always know how best to engage the open source community, or how to integrate an open-source workflow within their own command-and-control culture. Supporting an open source community takes time, something government employees are traditionally short on. And when the agency doesn't follow the open source community's unspoken norms, the naysayer's worst fears become a self-fullfilling prophecy.
+Even if the agency manages to open source the code, the open source community follows a set of norms vastly different than the rigid hierarchy of government. Government agencies don't always know how best to engage the open source community, or how to integrate an open-source workflow within their own command-and-control culture. Supporting an open source community takes time, something government employees are traditionally short on. And when the agency doesn't follow the open source community's unspoken norms, the naysayer's worst fears become a self-fulfilling prophecy.
 
 #### Transparency as a liability
 

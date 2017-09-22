@@ -3,6 +3,8 @@ title: Bringing open source workflows to the enterprise
 description: How open source workflows and philosophies can be leveraged by the enterprise to produce more modern software, even if that software ultimately remains closed source.
 ---
 
+<!--lint ignore no-emphasis-as-heading-->
+
 *This post originally published on [DLT's Technically Speaking](http://blogs.dlt.com/bringing-open-source-workflows-enterprise/).*
 
 Open source has changed the way we build software. A fully distributed team of strangers, rarely working on the same thing at the same time or in the same place at the same time, yet open source projects consistently produce better software than their closed-source and proprietary counterparts. How then, can this reimagined software development workflow be leveraged by the enterprise to produce more modern software, even if that software ultimately remains closed source?
@@ -47,7 +49,7 @@ When it comes to how they work, open source teams are bound by [four distinct co
 >
 > * **Asynchronous**: Almost no part of the product development process requires that one person interrupt another's immediate attention or that people be in the same place at the same time, or even that people be in different places at the same time. Even small meetings or short phone calls can wreck flow so consider laying it out in (a thought out) email or sending a pull request instead.
 >
-> * **Lock free**: Avoid synchronization / lock points when designing process. This is [distributed version control](http://en.wikipedia.org/wiki/Distributed_revision_control) writ large... Work towards a goal should never be blocked on approval. Push approval/rejection to the review stage or automate it, but surface work early to get feedback.
+> * **Lock free**: Avoid synchronization / lock points when designing process. This is [distributed version control](http://en.wikipedia.org/wiki/Distributed_revision_control) writ large… Work towards a goal should never be blocked on approval. Push approval/rejection to the review stage or automate it, but surface work early to get feedback.
 
 By adopting tools that embrace these constraints, both in their own dealings, and in their dealings with external contractors, government agencies can begin to foster modern software development practices more in line with those seen beyond the beltway.
 

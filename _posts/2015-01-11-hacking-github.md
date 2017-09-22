@@ -3,11 +3,11 @@ title: 'Hacking GitHub: 12 simple tools to help introduce open source to the uni
 description: 12 simple apps to introduce open source to the uninitiated, lower the barrier to entry for atypical GitHub users to get started, and to show the power of adding smart tools to the edge of an otherwise dumb platform.
 ---
 
-GitHub's a great platform for collaborating on many different things. It follows the [dumb core, smart edge](//ben.balter.com/2013/11/21/thats-not-how-the-internet-works/#dumb-core-smart-edge) architecture that makes the internet what it is today. Git doesn't care if you're versioning source code, data, or proposed legislation. It simply tracks who made what change when. But sometimes, it's harder to see how dumb, non-use-case-specific tools like GitHub might fit into one's existing workflow, especially for the uninitiated.
+GitHub's a great platform for collaborating on many different things. It follows the [dumb core, smart edge](https://ben.balter.com/2013/11/21/thats-not-how-the-internet-works/#dumb-core-smart-edge) architecture that makes the internet what it is today. Git doesn't care if you're versioning source code, data, or proposed legislation. It simply tracks who made what change when. But sometimes, it's harder to see how dumb, non-use-case-specific tools like GitHub might fit into one's existing workflow, especially for the uninitiated.
 
-Often, when [explaining the potential of open source to government agencies](//ben.balter.com/2014/10/15/what-does-a-government-evangelist-do/) — organizations used to purpose-built processes and bespoke software — this perceived barrier to entry becomes apparent:
+Often, when [explaining the potential of open source to government agencies](https://ben.balter.com/2014/10/15/what-does-a-government-evangelist-do/) — organizations used to purpose-built processes and bespoke software — this perceived barrier to entry becomes apparent:
 
-> *"How can our lawyers use it? They're used to drafting in Microsoft Word." "I need to send this to my boss and he's never going to use GitHub, can you send it as a PDF?" "We love Issues, but is there any way to simplify the interface for our non-technical stakeholders?"*
+> "How can our lawyers use it? They're used to drafting in Microsoft Word." "I need to send this to my boss and he's never going to use GitHub, can you send it as a PDF?" "We love Issues, but is there any way to simplify the interface for our non-technical stakeholders?"
 
 Code speaks louder than words. It's almost always faster to build out the requested feature with a hundred lines of glue code, rather than explaining that it's trivial to implement via the API. And that's exactly what I do most often.
 
@@ -47,6 +47,6 @@ Here are 12 simple apps that I've built to introduce open source to the uninitia
 
 * [**Copy to**](https://github.com/benbalter/copy-to) - A quick-and-dirty Heroku app to simulate running `git clone`, `git remote add`, and `git push` locally.
 
-An astute reader might notice that almost all of these apps are less than a hundred lines of code and are almost exclusively some combination of the same three Ruby Gems: [Sinatra](http://www.sinatrarb.com/) (web server), [Octokit](https://github.com/octokit/octokit.rb) (GitHub API client), and [Sinatra-auth-GitHub](https://github.com/atmos/sinatra_auth_github) (user authentication).
+An astute reader might notice that almost all of these apps are less than a hundred lines of code and are almost exclusively some combination of the same three Ruby Gems: [Sinatra](http://www.sinatrarb.com/) (web server), [Octokit](https://github.com/octokit/octokit.rb) (GitHub API client), and [Sinatra-auth-GitHub](https://github.com/atmos/sinatra_auth_GitHub) (user authentication).
 
 These 12 simple tools have helped improve my own workflow, and many are used inside GitHub to help improve the workflows of my fellow GitHubbers. I encourage you to check them out, and if you find any of these open source projects useful, I'd love your help making them even better. Happy hacking!

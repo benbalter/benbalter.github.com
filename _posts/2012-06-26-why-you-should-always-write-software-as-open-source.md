@@ -3,9 +3,9 @@ title: Why You Should Always Write Software as Open Source, Even When It's Never
 description: When you are the only person that's ever going to see something, you're a lot more likely to "just make it work. Therefore write open source
 ---
 
-![Unsatisfied with your Contractor?](//ben.balter.com/wp-content/uploads/2012/06/mike-holmes-203x300.jpeg){: .alignright}
+![Unsatisfied with your Contractor?](https://ben.balter.com/wp-content/uploads/2012/06/mike-holmes-203x300.jpeg){: .alignright}
 
-There are two kinds of software: cludgy software and open source. Think about it logically. When you (or your organization) is the only person that's ever going to see something, you're a lot more likely to "just make it work." After all, who would ever know? [^1]
+There are two kinds of software: kludgy software and open source. Think about it logically. When you (or your organization) is the only person that's ever going to see something, you're a lot more likely to "just make it work." After all, who would ever know? [^1]
 
 But the same logic that applies to sweeping literal dirt under the rug doesn't apply to writing code. Whereas a rug will always serve to cover the floor, applications evolve over time and code is often constantly reused and repurposed as customers' needs change. Simply put, it's impossible to predict today where your code is going to be a year from now and it's in your best interest to plan accordingly.
 
@@ -17,7 +17,7 @@ Open source hedges this risk by distinguishing generic logic (say posting conten
 
 **A message to your future self** – Ever go back and look at old code, only to scratch your head[^2] as to what's going on? The same you that may be asking yourself what you were thinking when you got a tattoo five years back, is also going to be asking why you wrote that singleton function five years ago. Yet when you write open source, you mitigate that risk by explaining your code in such a way that others (including your future self) can understand it. In a world of system orientated architectures and ever-changing requirements, the chance that a software project is one-and-done is increasingly rare, not to mention the fact that by failing to properly document, you're introducing a significant risk of vendor lock in. Your successor will thank you, and so will the person paying the bills.
 
-The reality of today's business environment is that all software is inherently "open source", even if the scope of the sharing is limited to an organization. Assume the software is open, needs to be modular, and will be repurposed, and you will save significant costs in the long run. And when you require the same of outside contractors, you get better, more flexible code, and offset the risks of vendor or technology lock in in the long run.
+The reality of today's business environment is that all software is inherently "open source", even if the scope of the sharing is limited to an organization. Assume the software is open, needs to be modular, and will be repurposed, and you will save significant costs in the long run. And when you require the same of outside contractors, you get better, more flexible code, and offset the risks of vendor or technology lock in the long run.
 
 Justice Brandeis is famous for noting that "sunlight is the best disinfectant." Likewise, the transparency afforded by the open-source ethos produces more reliable software[^3] – so why not simply assume your code is going to be open source from the start?
 

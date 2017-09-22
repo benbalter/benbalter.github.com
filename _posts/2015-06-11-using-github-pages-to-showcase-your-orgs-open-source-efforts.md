@@ -31,7 +31,7 @@ For a quick way to get started, and as an example, let's create a new file calle
 </html>
 ```
 
-Once you commit (save) the file, if you navigate to `your-org.github.io`, you should see the index file you just created, being served, just like any other website. You can add additional HTML files, CSS files, javascript files, images... any static files you want in this manner. The only thing GitHub Pages doesn't support are dynamic languages like PHP, Ruby, or Python. This allows you to add your organization's logo, color scheme, or any other content you'd like, including dynamic, client-side content like pulling in your organization's most recent Tweets.
+Once you commit (save) the file, if you navigate to `your-org.github.io`, you should see the index file you just created, being served, just like any other website. You can add additional HTML files, CSS files, JavaScript files, images… any static files you want in this manner. The only thing GitHub Pages doesn't support are dynamic languages like PHP, Ruby, or Python. This allows you to add your organization's logo, color scheme, or any other content you'd like, including dynamic, client-side content like pulling in your organization's most recent Tweets.
 
 ### Templating with Jekyll
 
@@ -104,7 +104,7 @@ And if you want to create headings, you prefix the heading with a `# sign` like 
 #### Sub sub heading
 ```
 
-Jekyll will automatically convert Jekyll to HTML each time you push a change to your site. All you have to do is change the the extension from `.html` to `.md`. In our above example, we could change our `index.html` to an `index.md` file with the following content:
+Jekyll will automatically convert Jekyll to HTML each time you push a change to your site. All you have to do is change the extension from `.html` to `.md`. In our above example, we could change our `index.html` to an `index.md` file with the following content:
 
 ```markdown
 ---
@@ -147,7 +147,7 @@ That should produce identical results to the hard-coded versions above, but in a
 
 ### Supercharging your organization's developer presence
 
-In terms of availability and scalability, the simplicity of GitHub pages makes it extremely resilient for high-traffic sites. You can [read more about GitHub Pages architecture](http://githubengineering.com/rearchitecting-github-pages/), but in short, GitHub Pages is home to about three-quarters of a million sites, serves about a quarter of a million requests each minute, and completes about 20,000 builds each day. Your site is in good hands.
+In terms of availability and scalability, the simplicity of GitHub pages makes it extremely resilient for high-traffic sites. You can [read more about GitHub Pages architecture](http://GitHubengineering.com/rearchitecting-github-pages/), but in short, GitHub Pages is home to about three-quarters of a million sites, serves about a quarter of a million requests each minute, and completes about 20,000 builds each day. Your site is in good hands.
 
 Your organization site is also in good company. [Lots of large organizations](https://github.com/showcases/open-source-organizations) like [Adobe](http://adobe.github.io), [Netflix](http://netflix.github.io), [SAP](http://sap.github.io), [IBM](http://ibm.github.io), and [Microsoft](http://microsoft.github.io) use GitHub Pages to showcase their open source efforts. It provides organizations with a branded developer presence to link to from their `/developer` or similar portals, instead of linking to their standard GitHub profile.
 

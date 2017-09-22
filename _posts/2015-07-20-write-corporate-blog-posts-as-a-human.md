@@ -3,7 +3,7 @@ title: 'Speak like a human: 12 ways tech companies can write less-corporate blog
 description: Blog posts are a great way to tell users about ships, but it's all too easy to fall back on the marketing speak we're inundated with each day. Instead, use these tips to write user-centric posts for your corporate blog.
 ---
 
-If there's one thing that corporations are consistently good at, it's talking like a corporation. We've all seen it: you're reading a blog post about an "*innovative, new*" this or a "*first-of-its-kind*" that, and before you realize it, although your now-glazed-over eyes may still be moving over the words, you've stopped reading entirely. You know marketing speak when you see it. They're not talking to you. They're talking at you, and the only thing they've successfully convinced you of is of your need to never visit that marketing-site-disguised-as-a-blog ever again.
+If there's one thing that corporations are consistently good at, it's talking like a corporation. We've all seen it: you're reading a blog post about an "innovative, new" this or a "first-of-its-kind" that, and before you realize it, although your now-glazed-over eyes may still be moving over the words, you've stopped reading entirely. You know marketing speak when you see it. They're not talking to you. They're talking at you, and the only thing they've successfully convinced you of is of your need to never visit that marketing-site-disguised-as-a-blog ever again.
 
 Thankfully, it doesn't have to be that way. Corporations are fully capable of talking like humans do, at least the humans that make up that company are, and unsurprisingly customers respond positively when treated with that kind of base-level respect. If you've ever read [the GitHub Blog](https://github.com/blog), you'll hopefully notice that at GitHub, we pride ourselves in "being human". Not "delivering authentic experiences" or "speaking like a human", but actually being a gosh-darn human talking to other humans. There may be a corporate logo at the top of the page, but blog posts are still exclusively written by, and read by living, breathing humans. My name is on the post and it's simply me, as an individual, talking to customers. No corporate buzzwords or filters needed.
 
@@ -11,7 +11,7 @@ A big part of that philosophy, and an even bigger part of reducing it to writing
 
 Think of the typical corporate ship post. It probably starts something like this:
 
-> Today, after months of effort, we're excited to announce our new wiz-bang feature...
+> Today, after months of effort, we're excited to announce our new wiz-bang feature…
 
 Here's the thing: Your users don't care how excited you are. They don't care about how much effort you put in. They don't care how hard it was to do. All they care about is one thing: *how does it benefit me?*
 
@@ -29,7 +29,7 @@ I'm sure what you do is super interesting. But what's even more interesting is w
 
 ### 3. Describe the 1/4" hole
 
-Your post should focus on what a user can do, not on what the thing you built does. Let's say I have a picture that I want hung on the wall. I'll likely go to a big-box retailer to pick up a 1/4" drill. But in reality, I couldn't care less about the drill. [What I'm really after is the 1/4" hole](https://strategyn.com/jobs-to-be-done/) — the thing the drill ultimately enables me to do. Yet, most technology companies produce digital drills.
+Your post should focus on what a user can do, not on what the thing you built does. Let's say I have a picture that I want hung on the wall. I'll likely go to a big-box retailer to pick up a quarter-inch drill. But in reality, I couldn't care less about the drill. [What I'm really after is the 1/4" hole](https://strategyn.com/jobs-to-be-done/) — the thing the drill ultimately enables me to do. Yet, most technology companies produce digital drills.
 
 Rather than spend time telling me how great your drill is, describe the holes it produces. Show me how well it hangs pictures. Plant the seed in my head for all the great things that I can do with the drill. Airline commercials have pictures of exotic destinations, not cabin interiors. Liquor commercials show people out having a great time, not the underlying grains being grown. When announcing a new feature your post should be almost exclusively about the better hole it empowers the user to create, not the new drill bit they now need to buy.
 
@@ -47,7 +47,7 @@ Readers have an extremely short attention span and even less time to spend readi
 
 ### 6. An animated GIF is worth 10,000 words
 
-The best blog posts are short on words and long on visuals. You could spend 1,000 words describing what the new button looks like, or you can just show me a picture of it. Better yet, create an animated GIF of what happens when I click it. Have fun with it. At GitHub, we often hide easter eggs in screenshots. Think hints of unreleased features or a scene from your favorite movie. The abstract concepts often involved with ships are easier to describe visually and helps the reader to put themselves directly in the shoes of the user, rather than in the shoes of developer trying to describe what a user might do.
+The best blog posts are short on words and long on visuals. You could spend 1,000 words describing what the new button looks like, or you can just show me a picture of it. Better yet, create an animated GIF of what happens when I click it. Have fun with it. At GitHub, we often hide Easter eggs in screenshots. Think hints of unreleased features or a scene from your favorite movie. The abstract concepts often involved with ships are easier to describe visually and helps the reader to put themselves directly in the shoes of the user, rather than in the shoes of developer trying to describe what a user might do.
 
 ### 7. Focus on the one new thing
 
@@ -59,13 +59,13 @@ If you can remove a word, phrase, sentence, or paragraph without the post losing
 
 ### 9. Don't use the word "today"
 
-It's an easy crutch to begin a blog post with "Starting today...". That's like staring a speech with "So I sat down to think about what to write and..." The thing that separates blog posts from just about any other medium on the web is the fact that they have a date at the top, a date which allows them to serve as a snapshot in time. If you write something in a post, users are going to assume it's something timely. In practicality, when launching something new, the word "today" often takes the place of more valuable information, like how to actually use the darn thing. When you leave out "today", you're forced to actually describe what's changed.
+It's an easy crutch to begin a blog post with "Starting today…". That's like staring a speech with "So I sat down to think about what to write and…" The thing that separates blog posts from just about any other medium on the web is the fact that they have a date at the top, a date which allows them to serve as a snapshot in time. If you write something in a post, users are going to assume it's something timely. In practicality, when launching something new, the word "today" often takes the place of more valuable information, like how to actually use the darn thing. When you leave out "today", you're forced to actually describe what's changed.
 
 ### 10. Under promise, over deliver
 
 It's tempting to talk about what's still in development, but don't tease your users with features that they can't yet use, and thus gain nothing from. Generating "buzz" is noticeably self-serving, and your users will respond accordingly. Not to mention, it locks your developers into particular decisions, even if you subsequently gain information that suggests it's ultimately not the right direction for the product. Instead, [manage expectations](http://ozmm.org/posts/managing_expectations.html), both internally and externally.
 
-[This corporate anti-pattern](http://www.slideshare.net/bcantrill/corporate-open-source-antipatterns/10) is especially common in the world of closed-to-open source. "*We intend to open source X*" may be a great forcing function internally, but more often than not leaves your audience asking why it took so long in the first place. "*We open sourced X*" or "*You can now Y*" is a much better start to the conversation.
+[This corporate anti-pattern](http://www.slideshare.net/bcantrill/corporate-open-source-antipatterns/10) is especially common in the world of closed-to-open source. "We intend to open source X" may be a great forcing function internally, but more often than not leaves your audience asking why it took so long in the first place. "We open sourced X" or "You can now Y" is a much better start to the conversation.
 
 ### 11. Embrace structure
 

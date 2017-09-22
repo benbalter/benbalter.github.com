@@ -3,7 +3,7 @@ title: GitHub for Journalism — What WordPress Post Forking could do to Editori
 description: Making the case for a GitHub-style, pull-request collaboration model within the popular WordPress CMS
 ---
 
-Wired Magazine recently took a turn for the meta. In addition to publishing their recent story featuring the popular version control site GitHub on Wired.com as they would normally, they also [published it on GitHub itself under a creative commons license](https://github.com/WiredEnterprise/Lord-of-the-Files), allowing readers to fork and contribute to the story as they saw fit. In [reflecting after the fact](http://www.wired.com/wiredenterprise/2012/02/github-revisited/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+wired%2Findex+%28Wired%3A+Index+3+%28Top+Stories+2%29%29), the Wired team said something that stood out to me:
+Wired Magazine recently took a turn for the meta. In addition to publishing their recent story featuring the popular version control site.github on Wired.com as they would normally, they also [published it on GitHub itself under a creative commons license](https://github.com/WiredEnterprise/Lord-of-the-Files), allowing readers to fork and contribute to the story as they saw fit. In [reflecting after the fact](http://www.wired.com/wiredenterprise/2012/02/github-revisited/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+wired%2Findex+%28Wired%3A+Index+3+%28Top+Stories+2%29%29), the Wired team said something that stood out to me:
 
 > At Wired offices, you hear the question over and over again as we work on stories like the one you're reading now: "Are you out of the story? I want to go in." We have a version control problem. We publish Wired.com on WordPress. It's a decent publishing tool, but when two people change a story at the same time, one of them doesn't get her changes onto the final story.
 >
@@ -43,9 +43,9 @@ In a nutshell:
   2. Two sided non-conflict changes – automatically merge
   3. Conflicted changes – note conflicts in fork and prepare for re-merge
 
-Post forking may make for a killer plugin [^2] or piece of core functionality… and imagine if it could integrate with other collaboration tools like [Edit Flow](http://editflow.org/), or [WP Document Revisions](//ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/)? As in Wired's example, it has the potential to fundamentally change newsrooms and other editorial workflows. All of a sudden, any content becomes either publicly or privately collaborative. Pretty cool, huh? While it may be a bit ahead of it's time from a human standpoint, from a technical standpoint, the technology's there — it's nothing new — just a matter of building it, and hopefully solving the dreaded "are you out yet?" problem.
+Post forking may make for a killer plugin [^2] or piece of core functionality… and imagine if it could integrate with other collaboration tools like [Edit Flow](http://editflow.org/), or [WP Document Revisions](https://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/)? As in Wired's example, it has the potential to fundamentally change newsrooms and other editorial workflows. All of a sudden, any content becomes either publicly or privately collaborative. Pretty cool, huh? While it may be a bit ahead of it's time from a human standpoint, from a technical standpoint, the technology's there — it's nothing new — just a matter of building it, and hopefully solving the dreaded "are you out yet?" problem.
 
-Thoughts? Would you use this? What else would you like to see it do? [Drop me a line](//ben.balter.com/contact/), or let me know in the comments below?
+Thoughts? Would you use this? What else would you like to see it do? [Drop me a line](https://ben.balter.com/contact/), or let me know in the comments below?
 
 **Update (3/5):** The plan right now is to submit this as a Google Summer of Code project, so if all goes well, look for the above-outlined functionality in a WordPress install near you towards the end of the summer. In the mean time, the continued thoughts/feedback is very greatly appreciated.
 
@@ -55,6 +55,6 @@ Thoughts? Would you use this? What else would you like to see it do? [Drop me a 
 
 **Update (10/1):** Introducing [Post Forking for WordPress](http://postforking.wordpress.com/2012/10/01/introducing-post-forking-for-wordpress/) — a more collaborative approach to content curation:
 
-[^1]: Having recently given this a try — using GitHub to curate [a collaboratively edited list of open-source alternatives to proprietary software](//ben.balter.com/2012/02/27/open-source-alternatives-to-proprietary-enterprise-software/) — I know first-hand how off-putting GitHub can be to non-technical users.
+[^1]: Having recently given this a try — using GitHub to curate [a collaboratively edited list of open-source alternatives to proprietary software](https://ben.balter.com/2012/02/27/open-source-alternatives-to-proprietary-enterprise-software/) — I know first-hand how off-putting GitHub can be to non-technical users.
 
 [^2]: Full disclosure: two plugins, [Revisionary](http://wordpress.org/extend/plugins/revisionary/) and [Duplicate Post](http://wordpress.org/extend/plugins/duplicate-post/) exist, but they don't take the idea nearly as far as the above proposes, nor do they do it in "the WordPress way". I'd hope that even if the idea started as a plugin, it would eventually be incorporated as core functionality.

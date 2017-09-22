@@ -7,9 +7,9 @@ Sometimes great ideas, customer needs, product priorities, and engineering resou
 
 ### 1. Someone is willing to build it
 
-In less formal organizations (open source projects included), the biggest barrier to entry is finding someone with the skills necessary to solve an identified problem. Open source issue trackers are replete with "*this is a great idea if anyone willing to submit a pull request*"-type issues. The same is true of non-developer stakeholders and closed source projects, with lawyers, support reps, and marketers shopping around ideas internally in hopes of finding someone willing to implement them.
+In less formal organizations (open source projects included), the biggest barrier to entry is finding someone with the skills necessary to solve an identified problem. Open source issue trackers are replete with "this is a great idea if anyone willing to submit a pull request"-type issues. The same is true of non-developer stakeholders and closed source projects, with lawyers, support reps, and marketers shopping around ideas internally in hopes of finding someone willing to implement them.
 
-Maybe the idea comes from a developer who's experienced the problem themselves. Maybe the external issue or internal ask makes its way in front of a sympathetic engineer willing to dedicate a few cycles. Granted, there will always be no-brainers and quick wins, but in most cases, "*someone is willing to do this*", should not necessarily translate to "*we should do this*".
+Maybe the idea comes from a developer who's experienced the problem themselves. Maybe the external issue or internal ask makes its way in front of a sympathetic engineer willing to dedicate a few cycles. Granted, there will always be no-brainers and quick wins, but in most cases, "someone is willing to do this", should not necessarily translate to "we should do this".
 
 ### 2. Sales says a lot of/a big/a potential customer is asking for it
 
@@ -27,7 +27,7 @@ Unless you're building a product for developers, it's unlikely that your friends
 
 There are always going to be a certain number of no-brainer, quick wins that are trivial to implement and serve as "quality of life" improvements for users. When you're looking at adding a toggle to turn off a feature or supporting a one-off workflow, it can be tempting to just click merge, especially when the depth of discussion becomes disproportionate to the technical lift.
 
-Just because something's easy to implement, doesn't mean that you necessarily should. For one, every feature you add creates an implicit and perpetual contract with your users, a contract that obligates you to maintain, support, and build around that feature in every subsequent release. For another, [a well-curated project is a feature in itself](//ben.balter.com/2016/07/21/removing-a-feature-is-a-feature/). Sometimes taking the time to implement the technically more complex solution will be better for users and maintainers in the long run.
+Just because something's easy to implement, doesn't mean that you necessarily should. For one, every feature you add creates an implicit and perpetual contract with your users, a contract that obligates you to maintain, support, and build around that feature in every subsequent release. For another, [a well-curated project is a feature in itself](https://ben.balter.com/2016/07/21/removing-a-feature-is-a-feature/). Sometimes taking the time to implement the technically more complex solution will be better for users and maintainers in the long run.
 
 ### 5. Our competitor does it
 

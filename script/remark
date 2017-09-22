@@ -2,8 +2,4 @@
 
 set -e
 
-if [ "$CI" = "1" ]; then
-  ./node_modules/.bin/remark --rc-path .remarkrc *.md */**.md
-else
-  ./node_modules/.bin/remark --output --rc-path .remarkrc *.md */**.md
-fi
+npm run lint-md

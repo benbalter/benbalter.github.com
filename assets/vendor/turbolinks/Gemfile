@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
-gem 'rake'
-gem 'sprockets'
+gem 'blade'
 gem 'coffee-script'
 gem 'coffee-script-source', '~> 1.9.1'
 gem 'eco'
+gem 'rake'
+gem 'sprockets'
 gem 'uglifier'
-gem 'blade'

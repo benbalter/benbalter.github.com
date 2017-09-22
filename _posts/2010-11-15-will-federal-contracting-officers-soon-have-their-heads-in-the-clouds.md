@@ -9,7 +9,7 @@ As one Hewlett-Packard chief executive recently put it, cloud computing "is the 
 
 ### What is Cloud Computing
 
-Traditionally, when one thinks of computing power, he or she thinks of an on-site datacenter — a room filled with blinking lights and whirling fans — hardware, software, and data storage all within feet of the users they serve. [^2] The traditional approach to computing generally entails complicated and expensive upgrade procedures scheduled on a semi-regular basis, as well as accommodating the increasing demand for backup and recovery redundancy necessary to reduce downtime should these system fails. [^3] Such datacenters are often managed by their own departments, staffed with the specialized, technical administrators needed to maintain and ensure the day-to-day operation of these increasingly complex and increasingly mission-critical business resources. [^4]
+Traditionally, when one thinks of computing power, he or she thinks of an on-site datacenter — a room filled with blinking lights and whirling fans — hardware, software, and data storage all within feet of the users they serve. [^2] The traditional approach to computing generally entails complicated and expensive upgrade procedures scheduled on a semi-regular basis, as well as accommodating the increasing demand for backup and recovery redundancy necessary to reduce downtime should these system fails. [^3] Such data centers are often managed by their own departments, staffed with the specialized, technical administrators needed to maintain and ensure the day-to-day operation of these increasingly complex and increasingly mission-critical business resources. [^4]
 
 Seen as a virtually unlimited hardware and communications infrastructure managed by a third party-provider, cloud computing, on the other hand, allows for rapid increases in capacity without the need to invest in additional hardware, personnel, or software licensing. [^5] "As a customer, you don't know where the resources are, and for the most part, you don't care. What's really important is the capability to access your application anywhere, move it freely and easily, and inexpensively add resources." [^6] In simplest terms, the cloud uses an off-site service to store, transmit, and process information, and employs the Internet as the means to access that service. [^7]
 
@@ -59,7 +59,7 @@ Whether a federal contracting officer or a provider of IT services, just as the 
 
 [^5]: Wittow, 14 J. Internet L. 1 (2010).
 
-[^6]: J. Nicholas Hoover, *Interop: Oracle Predicts Cloud Confusion to Continue*, InformationWeek, Sept. 17, 2008, http&#x3A;// www.informationweek.com/news/services/hosted_apps/showArticle.jhtml? articlelD=210602225.
+[^6]: J. Nicholas Hoover, *Interop: Oracle Predicts Cloud Confusion to Continue*, InformationWeek, Sept. 17, 2008, <http://www.informationweek.com/news/services/hosted_apps/showArticle.jhtml?articlelD=210602225>.
 
 [^7]: Peter M. Lefkowitz, *Contracting in the Cloud: A Primer,* Boston B.J., Summer 2010, at 9.
 

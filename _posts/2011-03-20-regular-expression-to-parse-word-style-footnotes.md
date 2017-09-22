@@ -49,10 +49,10 @@ Putting it all together, including a filter hook to call our function and a `met
 
 <script src="http://gist-it.appspot.com/github/benbalter/Convert-Microsoft-Word-Footnotes-to-WordPress-Simple-Footnotes/raw/master/parse-footnotes.php"></script>
 
-To use, you can [download the plugin file](https://github.com/benbalter/Convert-Microsoft-Word-Footnotes-to-WordPress-Simple-Footnotes)[^1] and activate (be sure you already have [Simple Footnotes][2] installed). Copy the content from Word, and Paste into the "*Paste from Word*" box (may need to toggle the "[*Kitchen Sink*](https://www.youtube.com/watch?v=fQ6cXXlLczU)".[^2]
+To use, you can [download the plugin file](https://github.com/benbalter/Convert-Microsoft-Word-Footnotes-to-WordPress-Simple-Footnotes)[^1] and activate (be sure you already have [Simple Footnotes][2] installed). Copy the content from Word, and Paste into the "Paste from Word" box (may need to toggle the "[*Kitchen Sink*](https://www.youtube.com/watch?v=fQ6cXXlLczU)".[^2]
 
 Thoughts? Improvements? The above code solved a rather stubborn workflow problem in a project I was working on, and hopefully it can do the same for you. Feel free to use/improve the above code.
 
 [^1]: Licensed under [GPLv2](http://wordpress.org/about/gpl/)
 
-[^2]: You can even [Fork the plugin over on Github](//ben.balter.com/2011/03/20/regular-expression-to-parse-word-style-footnotes/)
+[^2]: You can even [Fork the plugin over on GitHub](https://ben.balter.com/2011/03/20/regular-expression-to-parse-word-style-footnotes/)

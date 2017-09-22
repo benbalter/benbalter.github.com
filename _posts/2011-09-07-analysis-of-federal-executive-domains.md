@@ -1,5 +1,5 @@
 ---
-title: Analysis of Federal Executive .Govs
+title: Analysis of Federal Executive .govs
 description: Analysis of the technical capabilities of and technology powering all US Federal Executive .gov domains
 ---
 
@@ -9,19 +9,19 @@ The White House's Office of Management and Budget recently released a list of al
 
 * **Agency** (as provided in the data.gov list)
 * **Server status** (response code, if it is reachable, etc.)
-* **Non-WWW support** (is www. required to access the site)
+* **Non-WWW support** (is `www.` required to access the site)
 * **IPv6 Support** (is it reachable via next generation technology)
 * **CDN Provider** (do they use a content distribution network, if so what)
 * **CMS** (do they use a content management system, if so what)
 * **Cloud Provider** (are they hosted in the cloud, if so by whom)
 * **Analytics Source** (do they track visitors, if so how)
-* **Script Library** (do they use common javascript libraries)
-* **HTTPs Support** (is the site browsable via the secure HTTPS protocol)
+* **Script Library** (do they use common JavaScript libraries)
+* **HTTPS Support** (is the site browsable via the secure HTTPS protocol)
 
 ### Key Highlights of the Preliminary Results
 
 * Only 73% of domains are live and in use
-* *Of live domains* 80% are accessible without typing the www. prefix.
+* *Of live domains* 80% are accessible without typing the `www.` prefix.
 * Only 10 sites fully support the federally mandated IPv6 standard.
 * 87 domains use the Akamai content distribution network.
 * 12 are believed to be in the cloud, including 10 in Amazon, and 2 in Rackspace.
@@ -30,6 +30,8 @@ The White House's Office of Management and Budget recently released a list of al
 * WordPress is the second most popular primary CMS (17), followed by Microsoft SharePoint (13).
 * 93% of *live* domains use no detectable CMS, or use a custom-built solution.
 * Slightly more than half of live servers are powered by commercial software.
+
+<!--lint ignore no-emphasis-as-heading -->
 
 *Please note: This data is to be treated as preliminary and is provided "as is" with no guarantee as to its validity. The source code for all tools used, including the resulting data, is available on GitHub]. If you find a systemic error, I encourage you to fork the code and I will try my best to recrawl the list to improve the data's accuracy.*
 
