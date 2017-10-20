@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 gem 'github-pages', group: :jekyll_plugins
 gem 'jekyll-avatar'
+gem 'jekyll-remote-theme'
 
 group :test, :development do
   gem 'html-proofer'
