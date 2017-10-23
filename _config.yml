@@ -98,9 +98,7 @@ plugins:
   
 sass:
   style: :compressed
-#  sass_dir: retlab/_sass
-#includes_dir: retlab/_includes
-#layouts_dir: retlab/_layouts
+
 remote_theme: benbalter/retlab
 
 gist:
