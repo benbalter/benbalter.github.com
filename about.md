@@ -10,6 +10,7 @@ seo:
   type: person
 ---
 
+
 <div class="alignright">{% avatar benbalter size=250 %}</div>
 
 Named one of the [top 25 most influential people in government and technology](http://fedscoop.com/top-federal-it-and-tech-folks-under-40/) and Fed50's Disruptor of the Year, described by the US Chief Technology Officer as one of "the baddest of the badass innovators," and winner of the Open Source People's Choice Award, Ben Balter is a Product Manager manager at [GitHub](https://github.com/about), the world's largest software development network, where he oversees a team of product managers responsible for the company's business-to-business and community and safety products. Previously, Ben served as GitHub's Government Evangelist, leading the efforts to encourage government at all levels to adopt open source philosophies for code, for data, and for policy development.
