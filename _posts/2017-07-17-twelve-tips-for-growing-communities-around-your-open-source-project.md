@@ -15,7 +15,7 @@ At GitHub, we've created [`opensource.guide`](https://opensource.guide) to memor
 
 The first step to growing a community is to solve a shared problem. If you open source a library that only connects to one server in your data center on Tuesdays when there's a full moon, it's unlikely that another developer would use the software, let alone see the need to improve or contribute.
 
-Ideally when you're initially architecting the application, but at least before open sourcing, you should abstract your project's logic to the point that it can be widely used beyond your own, specific use case. A library that makes any MySQL database into an API is significantly more likely to thrive as an open source project than an application that wraps your specific database and exposes an API.
+Ideally when you're initially architecting the application, but at least before open sourcing, you should abstract your project's logic to the point that it can be widely used beyond your own, specific use case. A library that makes any MySQL database into an API is significantly more likely to thrive as an open source project than an application that wraps your specific database and exposes an API for only your data.
 
 It's a win-win. You'll get more modular, more robust code (and potential community improvements), and the open source community will gain a library that can be used for problems beyond the one you're trying to solve.
 
@@ -39,13 +39,13 @@ Links from where the users install the project, or expect support from other pro
 
 In my mind, there are three types of documentation: marketing materials (why you should use the project), end-user documentation (how to use the project), and technical documentation (how the project works or how to implement it). Most projects tackle the first two but neglect the last beyond obvious or common use cases. The goal should be to transfer project knowledge from the maintainer's head(s) to potential contributors.
 
-The last two are the difference between documenting anticipated functionality versus method or function level documentation. It could be in-line, auto-generated, or hand curated, but the idea is that you're lowering the cognitive burden to expand your project beyond what was originally anticipated, both technically and in terms of desired functionality.
+The last two are the difference between documenting anticipated behaviors versus method or function level functionality. It could be in-line, auto-generated, or hand curated, but the idea is that you're lowering the cognitive burden to expand your project beyond what was originally anticipated, both technically and in terms of desired functionality.
 
 In my experience expanded technical documentation is a positive feedback loop, in that it forces crisper, more purpose built code and leaves less room for ambiguity (not to mention, it helps onboard new users to your project).
 
 ### 5. Document how to contribute
 
-
+Each project has its own workflow. 
 
 ### 6. Clarify support v. development
 
