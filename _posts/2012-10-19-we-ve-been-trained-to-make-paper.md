@@ -44,7 +44,7 @@ And it's not that hard. You can just click "edit" below (as an example), or the 
 
 1. [Learn](https://gist.github.com/3914310) Markdown - it takes 30 seconds. Honestly.
 2. [Sign up](https://github.com/signup/free) for a GitHub account - it's free!
-3. Install [GitHub for Mac](http://mac.github.com/) (or [GitHub for Windows](http://windows.github.com/)) and [Mou](http://mouapp.com/)
+3. Install [GitHub Desktop](http://desktop.github.com/) and [Mou](http://mouapp.com/)
 4. Create a repository and go to work
 
 Granted some of the tools can be a bit rough around the edges at times, they are getting better, and like lots of other open-source technologies before it, as we move from paper-first to a web-only distribution, the time is ripe for a more evolved, text-centric, distributed workflow to become mainstream. *Stop making paper, start collaborating.*
