@@ -3,6 +3,7 @@ title: Resume
 description: Ben Balter is an attorney, an open source developer, and a Product Manager at GitHub, the world's largest software development network.
 layout: page
 permalink: /resume/
+redirect_from: /cv/
 seo:
   type: person
 degrees:
