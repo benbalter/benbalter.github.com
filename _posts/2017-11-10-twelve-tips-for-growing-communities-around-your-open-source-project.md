@@ -51,15 +51,15 @@ Think through the experience of going from a user to a first-time contributor to
 
 Last, it's not enough to simply write down *how* to contribute. As you think through the contributor UX, and growing a welcoming community of contributors, it becomes necessary to document that users *should* contribute. At the top of your contributing document, be sure to invite users to contribute (not always a safe assumption), explain that the project improves one contribution at a time from users just like them, and thank them in advance for taking the time to make the project better. Provide users with the activation energy to overcome the temptation of working around the problem locally (or finding another project) without contributing their fixes back upstream.
 
-### 6. Clarify support v. development
+### 6. Clarify support versus development
 
-No software is perfect. As your community grows, it's likely users will discover flaws or at least stumble to use the project as you intended. As your project's users seek support, try to anticipate common questions, and clarify your preferred routes for support for those that remain unanswered. Should users open an issue? Do you have a dedicated support forum? Contact paid support? Pop into Slack or Gitter? Hope for the best on StackOverflow? Whatever the preferred path, if you assume your software is imperfect, then you need to tell users how they can best get problems resolved.
-
-There are several ways you can do this:
+No software is perfect. As your community grows, it's likely users will discover flaws or at least stumble to use the project as you intended. As your project's users seek support, try to anticipate common questions, and clarify your preferred routes for support for those that remain unanswered. Should users open an issue? Do you have a dedicated support forum? Contact paid support? Pop into Slack or Gitter? Hope for the best on StackOverflow? There are several ways you can do this:
 
 * **Support files** - If you add a `SUPPORT.md` file to your project's root, `.github`, or `docs/` folder, GitHub will display it at various times users seek support, including above the new issue form. This is a great place to describe what avenues are available to users for support, if any.
 * **Troubleshooting or FAQ docs** - If you find yourself answering common questions, rather than hope users search prior issues before opening a new one, answer common questions/trouble points in a dedicated troubleshooting or FAQ document. Better yet, when you answer new questions, encourage the users to expand the documentation with their solution.
 * **Dedicated support channels** - Many projects like to keep their issue tracker dedicated to capturing the project's ongoing work. If that's the case, then you must establish and communicate alternate support channels. It could be a seperate repo, a Discourse instance, a chat forum, or paid support. Whatever the medium, be sure to document it front and center.
+
+Whatever the preferred path, if you assume your software is imperfect, then you need to tell users how they can best get problems resolved.
 
 ### 7. Welcome new contributors
 
@@ -93,13 +93,11 @@ While I'd certainly recommend manually implementing the above to get a feel for 
 
 ### 11. Adopt a code of conduct
 
-Not every experience with open source is great. Humans are human, and reasonble people can disagree. Your goal, however, should be to keep conversations civil, and ensure anyone who wants to contribute, can. Adding a code of conduct to your project takes seconds, and can signal to those considering contributing that your community is a welcoming community.
+Not every experience on the internet is a great one. Humans are human, and reasonable people can disagree, even when it comes to open source. Your goal as an open source community maintainer should be to keep conversations civil, and ensure that anyone who wants to contribute, can. Adding a code of conduct to your project takes seconds, and can signal to those considering contributing that your community is a welcoming community to which they should contribute.
 
-Commuting a single file, however, isn't enough, and can actually do more harm than good, if you're not willing to enforce it. Be sure to provide a private channel to report violations, and be prepared to take action in response, even if the decision is unpopular.
+Establishing such norms early on can go along way to preventing or mitigating conflict before it arises. Committing a single file, however, isn't enough, and can actually do more harm than good, if you're not willing to enforce it. Be sure to provide a private channel to report violations, and be prepared to take action in response, even if the decision is unpopular.
 
-Several major open source projects have asked high-profile contributors to leave over how they've handled themselves both online and off. When looking at the long-term success of your project, a vibrant, welcoming community of users and contributors is going to do more for your project than any single developer.
-
-In a perfect world, conflicts wouldn't arise, but sometimes a tough conversation and establishing community norms is going to be the best thing for your project in the long-run.
+When looking at the long-term success of your project, a vibrant, welcoming community of users and contributors is going to do more for your project than any single developer or individual feature. In a perfect world, conflicts wouldn't arise, but sometimes a tough conversation and establishing community norms is going to be the best thing for the health of your project in the long-run.
 
 ### 12. Find someone to adopt it
 
@@ -109,4 +107,6 @@ If you have a small cadre of active contributors, often, this is just a matter o
 
 The most important thing you can do is communicate your project's status, whatever it may be. If it's feature complete, say so. No longer maintained? Warn potential users. Is their a better replacement? You don't want a potential contributor to spend hours working on a bug fix, only to find their pull request go unanswered. You created the project, your users and contributors dedicated countless hours, and its your responsibility to ensure they have a good experience from start to finish.
 
- Open source is much more than simply publishing code. It's just as much about community building and the humans behind the software as it is about the software itself. As your project gains in popularity, scaling the community becomes just as important as the technology's ability to scale, and it's your responsibility to do so, if you want your project to grow sustainably. Beyond these high-level suggestions, I also recommend you check out GitHub's [opensource.guide](https://opensource.guide) which goes into detail on how to implement each.
+### It takes a community
+
+Open source is much more than simply publishing code. It's just as much about community building and the humans behind the software as it is about the software itself. As your project gains in popularity, scaling the community becomes just as important as the technology's ability to scale, and it's your responsibility to do so, if you want your project to grow sustainably.
