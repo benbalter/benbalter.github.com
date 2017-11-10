@@ -71,12 +71,40 @@ Once the pull request has been merged, take a moment to thank and congratulate t
 
 ### 8. Set up automated tests
 
+Many developers think of continuous integration (CI) as a workflow tool, or a software quaity tool, but it's actually a powerful community building tool. Rather than needing to wait for a maintainer to review their work, which might span timezones or work schedules, automated tests provide contributors with instant feedback on their contribution. Beyond providing contributors with the opportunity to improve their code before a human review, CI also provides maintainers with confidence that a given feature or bug fix doesn't introduce a regression, without necessarily needing to run the code locally.
 
+CI is often trivial to set up for open source projects, especially if your project already has automated tests. Services like Travis CI have examples for every major framework and language, are completely free, and are often a matter of simply adding the necessary metadata to your project's root. Once enabled, potential contributions are automatically tested, and their status is reported directly on the pull request. Rather than testing each contribution manually, don't force humans to do what computers can.
 
-### 9. Enforce WP code standards
+### 9. Enforce code standards
 
-### 10. Deploy to WordPress.org
+Automated testing can be used for more than just "does this thing work". If your project (or language or framework) has adopted coding standards, use CI to enforce them. Most common languages have customizable linters, or, if necessary, you could always write your own for custom or one-off rules.
+
+As we say at GitHub, "pedantic robots > pedantic humans". If a human comes along and criticizes your coding style or nit-picks every detail of your implementation, you might take it personally. If a robot makes those same suggestions, you're less likely to.
+
+Automated code style enforcement via projects like Rubocop or WPCS not only ensures consistent code style to improve readability, it also allow contributors to get instant feedback on their code, all without your intervention.
+
+### 10. Automate community management
+
+One of the biggest improvements to open source community management in recent memory is [Probot](https://probot.github.io/). Probot is an extensible framework for automating tasks based on your repository's activity. With [dozens of community-maintained apps](https://probot.github.io/apps/) chances are whatever pain point you're current experiencing has already been experienced (and solved) by an open source maintainer.
+
+You can use Probot for things like welcoming first-time users, automatically closing stale issues, requesting more information, or even moderating toxic conversations. Better still, if your problem hasn't been solved, Probot makes it easy to write your own app.
+
+While I'd certainly recommend manually implementing the above to get a feel for what practices best support your community, once you've answered that question, Probot can certainly help automate implementing them.
 
 ### 11. Adopt a code of conduct
 
+Not every experience with open source is great. Humans are human, and reasonble people can disagree. Your goal, however, should be to keep conversations civil, and ensure anyone who wants to contribute, can. Adding a code of conduct to your project takes seconds, and can signal to those considering contributing that your community is a welcoming community.
+
+Commuting a single file, however, isn't enough, and can actually do more harm than good, if you're not willing to enforce it. Be sure to provide a private channel to report violations, and be prepared to take action in response, even if the decision is unpopular.
+
+Several major open source projects have asked high-profile contributors to leave over how they've handled themselves both online and off. When looking at the long-term success of your project, a vibrant, welcoming community of users and contributors is going to do more for your project than any single developer.
+
+In a perfect world, conflicts wouldn't arise, but sometimes a tough conversation and establishing community norms is going to be the best thing for your project in the long-run.
+
 ### 12. Find someone to adopt it
+
+Priorities change. People move jobs. New technology arises. Whatever the reason, if you're heart's no longer into maintaining the project, don't, but also don't abandon it. If you feel your passion start to fade, or if you're feeling burned out, begin actively soliciting new maintainers, and ultimately a developer to adopt your project.
+
+If you have a small cadre of active contributors, often, this is just a matter of formally turning over control to them as maintainers. If you don't, you may need to be a bit more transparent with your intentions, by opening a dedicated "this project is up for adoption issue", making please for financial support (if money's an issue), or reaching out into individual developers you think might be interested.
+
+The most important thing you can do is communicate your project's status, whatever it may be. If it's feature complete, say so. No longer maintained? Warn potential users. Is their a better replacement? You don't want a potential contributor to spend hours working on a bug fix, only to find their pull request go unanswered. You created the project, your users and contributors dedicated countless hours, and its your responsibility to ensure they have a good experience from start to finish.
