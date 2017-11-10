@@ -1,6 +1,6 @@
 ---
 title: Twelve tips for growing communities around your open source project
-description:
+description: After more than ten years maintaining open source projects, and now helping other maintainers to do the same, here's twelve things I've learned about growing healthy, vibrant communities around your open source project.
 ---
 
 The superficial promise of open source is that if you publish your code, others will make it better. Strictly speaking, that's not the case. To reap the benefits of open source, maintainers must seek to grow communities around their project, a step often overlooked when "publishing" code.
