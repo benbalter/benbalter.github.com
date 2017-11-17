@@ -50,5 +50,5 @@ end
 
 def pages_to_check
   blacklist = ['redirect.html', 'index.html']
-  site.pages.select { |page| page.ext == '.html' && !blacklist.include?(page.name) }
+  site.pages.select { |page| page.output_ext == '.html' && !blacklist.include?(page.path) }
 end

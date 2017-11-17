@@ -86,7 +86,7 @@ future: true
 
 plugins:
   - jemoji
-  - jekyll-mentions
+#  - jekyll-mentions
   - jekyll-redirect-from
   - jekyll-sitemap
   - jekyll-feed
@@ -95,7 +95,7 @@ plugins:
   - jekyll-github-metadata
 #  - jekyll-admin
   - jekyll-remote-theme
-  
+
 sass:
   style: :compressed
 
@@ -136,3 +136,10 @@ contact_links:
 
 amazon:
   affiliates_tag: benbalter07-20
+
+# JSON-LD
+email: ben@balter.com
+gender: male
+employer:
+  name: GitHub
+  url: https://github.com
