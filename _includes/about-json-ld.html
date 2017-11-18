@@ -7,7 +7,7 @@
   "gender": {{ site.gender | jsonify }},
   "image": {{ site.logo | absolute_url | jsonify }},
   "url": {{ "/" | absolute_url | jsonify }},
-  "jobTitle": {{ site.title | jsonify }},
+  "jobTitle": {{ site.job_title | jsonify }},
   "worksFor": {
     "@type": "Organization",
     "name": {{ site.employer.name | jsonify }},
