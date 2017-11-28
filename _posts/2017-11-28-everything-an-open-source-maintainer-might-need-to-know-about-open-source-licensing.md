@@ -67,7 +67,7 @@ Patents are a distinct legal right from copyright, but unlike copyright, you don
 
 In my mind, the vast majority of open source projects tackle easy technical, but hard human, user experience, or implementation problems. Pagination, for example, is a solved technical problem, but the value of an open source pagination project like [`will_paginate`](https://github.com/mislav/will_paginate) comes in the API, integration with other frameworks, flexibility, etc. All things that are not, at least on their face, novel or patentable.
 
-If you've made something that's *not* technically trivial to implement, you should probably talk to a lawyer (who in addition to helping you conduct a patent search, might recomend a Patent-aware license like Apache over a simpler license like MIT). If you're in the other 80%+ of left-pad- or Rails-addon-type projects, you're probably fine, at least in terms of patent concerns.
+If you've made something that's *not* technically trivial to implement, you should probably talk to a lawyer (who in addition to helping you conduct a patent search, might recomend a Patent-aware license like Apache over a simpler license like MIT). If you're in the vast majority of left-pad- or Rails-addon-type projects, you're probably fine, at least in terms of patent concerns.
 
 ### Copyright in a distinct legal entity
 
@@ -81,23 +81,25 @@ Whether you're willing to forfeit legal rights just to contribute to an open sou
 
 ### When in doubt, follow the money
 
-The number one lesson I learned from law school was to always follow the money. For 99.99% of open source projects, if you add the MIT or Apache licenses, you will never have to think about copyright or patents.
+The number one lesson I learned in law school was to always follow the money. For the vast majority of open source projects, if you add the MIT or Apache licenses, you will never have to think about copyright or patents and can focus on writing amazing software.
 
-The reason being, if you're a college student, and violate a corporation's patent, they may send you a harshly worded cease-and-desist letter, or DMCA notice, and tell you to take down your project, but it's unlikely that they'll sue you, as it'll cost more in legal fees than they'll likely recover (since college students generally have few assets to their name). Not to mention, the negative PR of going after a student developer would cost them more than the infringement would have likely occurred. Worst case scenario, you've created something that they care about, so you can settle out of court and potentially spin it into a job or internship.
+The reason being, if you're a college student and infringe on a corporation's intelectual property, they may send you a harshly worded cease-and-desist letter, or DMCA notice, and tell you to take down your project, but it's unlikely that they'll sue you, as it'll cost them more in legal fees than they'll likely recover (since college students generally have few assets to their name). Not to mention, the negative PR of going after an aspiring developer would cost them more in good will than they would have likely incurred from the infringement as a function of lost profit, if any. That's not to say you should ignore copyright and patents entirely, but unlike say, those scary pre-VHS-playback FBI warnings, if a mistake is made in good faith, and you respond reasonably, it's unlikely you'll be thrown in jail.
 
-That said, if you're writing software for a major corporation, you may want to be a bit more risk averse, as the copyright holder (your employer) has substantially more to their name (and substantially more for a potential legal adversary to gain, creating an incentive to sue). s
+That said, if you're writing software for a major corporation or a promising startup, you may want to be more risk averse, as the copyright holder (you or your employer) has substantially more to their name (and substantially more for a potential legal adversary to gain, creating an incentive to sue). Not to mention, as a potential competitor, the law does not look favorably upon infringement, the very scenario intellectual property is intended to prevent.
 
 ### See also
 
-There are two other resources you may find helpful:
+If you found this post helpful, there are two other resources you may be interested in reading:
 
 * An overview of the best way to handle [copyright notices for open source projects](https://ben.balter.com/2015/06/03/copyright-notices-for-websites-and-open-source-projects/) in e.g., Licenses or the README, and
 * A similar overview of [open source licensing geared towards government attorneys ](https://ben.balter.com/2014/10/08/open-source-licensing-for-government-attorneys/)
 
 ### That said...
 
-Be sure to read the [fine print](https://ben.balter.com/fine-print/), both here and elsewhere. Each situation is different. I've provided a high-level, highly-simplified overview here, but if you are making a decision that affects your legal rights, you should really consult a licensed attorney in your state. I don't know the specifics of your particular situation, and am not in a position to provide you with legal advice. `</disclaimer>`
+Be sure to read the [fine print](https://ben.balter.com/fine-print/), both here and elsewhere. Each situation is different. I've provided a high-level, highly-simplified, highly-generalized overview here for which I'm sure there are countless "well actually"s. If you are making a decision that affects your legal rights, you should really consult a licensed attorney in your state. I don't know the specifics of your particular situation, and am not in a position to provide you with legal advice. `</disclaimer>`
 
 We've done a lot at GitHub to ensure you don't need to be or hire a lawyer just to participate in the open source community, but we're not there yet. I hope the above overview can help to answer some common questions, but if there's a general open source legal question I didn't answer, [please ask](https://github.com/benbalter/feedback).
 
-[work-for-hire]: In some cases, under what's called the [work for hire doctrine](https://en.wikipedia.org/wiki/Work_for_hire), the developer's employer may be the copyright holder. This is true both of work done by a full-time employee, and often of a contractor given a specific task (unless otherwise specified). There's also [some nuances when it comes to government-created code](https://ben.balter.com/2014/10/08/open-source-licensing-for-government-attorneys/#publishing-open-source-software).
+---
+
+[^work-for-hire]: In some cases, under what's called the [work for hire doctrine](https://en.wikipedia.org/wiki/Work_for_hire), the developer's employer may be the copyright holder. This is true both of work done by a full-time employee, and often of a contractor given a specific task (unless otherwise specified). There's also [some nuances when it comes to government-created code](https://ben.balter.com/2014/10/08/open-source-licensing-for-government-attorneys/#publishing-open-source-software).
