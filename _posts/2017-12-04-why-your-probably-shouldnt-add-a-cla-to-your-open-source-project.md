@@ -22,10 +22,27 @@ Think about it this way: the role of an attorney, especially a transactional att
 
 Contrast that with open source licensing, which often caries equal legal weight, but almost exclusively without the legal safeguards. With that "traditional" baseline in mind, it's natural then, for corporate counsels to suggest the company take steps to "paper" the transaction. But as mentioned earlier, legal's role is to advise business owners how to minimize risk, not how best to run an open source project, and such steps must be balanced against business motivations and the likelihood that the harm might occur.
 
-### 
+### CLAs create a contribution-hostile developer experience
+
+I spend a lot of my day helping open source maintainers to [grow healthy and vibrant communities around their project](https://ben.balter.com/2017/11/10/twelve-tips-for-growing-communities-around-your-open-source-project/). If one of the most common reasons to open source a project is to seek contributions from others, why would a project maintainer add significant [friction](https://ben.balter.com/2013/08/11/friction/) to advancing one of their primary goals? CLAs require that the first interaction between an open source project and a potential contributor to involve a formal and complex legal agreement that requiring them signing away their legal rights.
+
+Most open source developers aren't lawyers, and they shouldn't have to be. If a project is optimizing for the developer experience in hopes of maximizing contributions, it would be antithetical to require a contributor to higher outside counsel to properly evaluate what they're agreeing to, or in many cases, also get the sign off from their employer's corporate counsel before they could contribute, a frustrating experience that can shift even the smallest contributions from minutes to weeks, assuming the developer ultimately gets approval, a outcome that's not guaranteed in many corporate cultures.
+
+Imagine the "give a penny, take a penny" dish at your local convenience store. It's a win-win for customers and the business by facilitating faster cash transactions. It works because dropping a penny in the dish is a near-frictionless experience. Now imagine instead, the corporate counsel walks by seeing this and says "Woah, woah, woah! We don't know where that money's from or if they even intend to donate it!" All of a sudden, customers must now sign and date a short two page contract before can drop a penny in the dish. Even though the risk that a bank robber is going to make a v-line for chips and leave a stack of freshly stolen $100 dollar bills is extremely small, you've also made the likelihoosd that a customer will leave a penny almost as unlikely.
+
+### CLAs require significant administrative overhead
+
+
+
+### CLAs shifts legal blame to the party least equipped to defend against it
+
+
 
 *  CLAs simply shift legal blame for any patent infringement, copyright infringement, or other bad acts from the project (or its legal entity) back onto its contributors.
-* CLA-assent records requires massive administrative overhead.
-* CLAs require the first interaction between a FLOSS project and a new contributor to involve a complex legal negotiation and a formal legal agreement.
-* "nice assurances we'd like to have — all things being equal” and focus on the “what legal assurances our FLOSS project actually needs to assure its thrives”.
+
+### If a license isn't good enough for maintainers, you shouldn't subject users to it
+
+
+
 *  If the project is unwilling to accept (inbound) contribution of code under the terms of the license it chose, that's a clear indication that the project's (outbound) license has serious deficiencies that require immediate remedy.
+* * "nice assurances we'd like to have — all things being equal” and focus on the “what legal assurances our FLOSS project actually needs to assure its thrives”.
