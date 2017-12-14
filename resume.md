@@ -19,8 +19,10 @@ degrees:
 certifications:
   - authority: Bar Association of the District of Columbia
     name: Member, license 1021576
-  - authority: WSET — Wine & Spirit Education Trust
+  - authority: Wine & Spirit Education Trust (WSET)
     name: Level 3 Award in Wines
+  - authority: Regulatory Council of Jerez-Xérès Sherry Denomination of Origin
+    name: Certified Sherry Wine Specialist (CSWS) - Intermediate
 ---
 
 ### Experience

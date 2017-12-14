@@ -113,6 +113,13 @@ When used for public engagement, the agency's use of such platforms is governed 
 
 For platforms like GitHub, per the terms of service, government employees should add their government email address to their existing account, if they have one, or should create a new personal (non-agency-specific account). The service automatically disambiguates between personal and professional contexts to make ownership and agency clear.
 
+### See also
+
+If you found this post helpful, there are two other resources you may be interested in reading:
+
+* A more expansive post on [open source licensing geared towards open source project maintainers ](https://ben.balter.com/2017/11/28/everything-an-open-source-maintainer-might-need-to-know-about-open-source-licensing/)
+* An overview of the best way to handle [copyright notices for open source projects](https://ben.balter.com/2015/06/03/copyright-notices-for-websites-and-open-source-projects/) in e.g., Licenses or the README, and
+
 ### Go forth and open source
 
 This is a high-level overview intended to highlight common legal issues agencies may face when participating in the open source community, and should not be consider to be legal advice or specific to a particular matter.
