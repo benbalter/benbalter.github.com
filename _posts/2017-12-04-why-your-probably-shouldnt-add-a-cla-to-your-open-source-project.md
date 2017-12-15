@@ -32,6 +32,13 @@ Imagine the "give a penny, take a penny" dish at your local convenience store. I
 
 ### CLAs require significant administrative overhead
 
+As stated earlier, CLAs are legal contracts contributors agree to prior to contributing to a project, intended to minimize maintainer (often corporate maintainer) intellectual property risk. How then, does a project know when a contributor has "signed" the CLA?
+
+Like many things in the legal world, in the world of digital contract formation, there's similarly a spectrum of options, depending on how much risk the maintainer is willing to accept that a contributor might later claim they never agreed to the CLA. It's a matter of how "signed" you want the CLA to be. At one end of the spectrum, it might be a link to the CLA with some sort of "by submitting you agree..." disclaimer ("browserwrap") or an explicit "I agree to the CLA" checkbox that enables the submit button. At the other extreme might be the requirement that developers print the CLA and submit a physical "wet" signature before they can contribute. Most projects that have adopted CLAs land someplace in the middle, treating electronic signatures as sufficient, but even electronic signatures create lots of administrative overhead, both for the contributor and for the maintainer.
+
+For the contributor,
+
+For the maintainer,
 
 
 ### CLAs shifts legal blame to the party least equipped to defend against it
@@ -46,3 +53,10 @@ Imagine the "give a penny, take a penny" dish at your local convenience store. I
 
 *  If the project is unwilling to accept (inbound) contribution of code under the terms of the license it chose, that's a clear indication that the project's (outbound) license has serious deficiencies that require immediate remedy.
 * * "nice assurances we'd like to have — all things being equal” and focus on the “what legal assurances our FLOSS project actually needs to assure its thrives”.
+
+https://julien.ponge.org/blog/in-defense-of-contributor-license-agreements/
+
+> Requiring a contributor license agreement is a sign that you intend to sustain your project in the long run with responsible practices regarding intellectual property management. Responsible open source developers aren’t afraid of signing contributor license agreements: they simply understand the legal implications of sharing source code with the rest of the world.
+
+
+http://ebb.org/bkuhn/blog/2014/06/09/do-not-need-cla.html
