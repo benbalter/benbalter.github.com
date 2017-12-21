@@ -94,7 +94,7 @@ If you found this post helpful, there are two other resources you may be interes
 * An overview of the best way to handle [copyright notices for open source projects](https://ben.balter.com/2015/06/03/copyright-notices-for-websites-and-open-source-projects/) in e.g., Licenses or the README, and
 * A similar overview of [open source licensing geared towards government attorneys ](https://ben.balter.com/2014/10/08/open-source-licensing-for-government-attorneys/)
 
-### That said...
+### That said…
 
 Be sure to read the [fine print](https://ben.balter.com/fine-print/), both here and elsewhere. Each situation is different. I've provided a high-level, highly-simplified, highly-generalized overview here for which I'm sure there are countless "well actually"s. If you are making a decision that affects your legal rights, you should really consult a licensed attorney in your state. I don't know the specifics of your particular situation, and am not in a position to provide you with legal advice. `</disclaimer>`
 
