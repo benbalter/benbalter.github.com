@@ -1,6 +1,6 @@
 ---
 title: Talks
-excerpt: Slides and recordings from some of the talks I've given over the years.
+description: Slides and recordings from some of the talks I've given over the years.
 layout: page
 permalink: /talks/
 ---
