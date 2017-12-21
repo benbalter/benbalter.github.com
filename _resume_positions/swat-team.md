@@ -1,8 +1,8 @@
 ---
 employer: Executive Office of the President
 title: SoftWare Automation & Technology (SWAT) Team, Office of Administration
-start_date: 2011-09-01
-end_date: 2012-01-01
+start_date: '2011-09-01'
+end_date: '2012-01-01'
 ---
 
 * Created enterprise business solutions to automate and streamline business processes in support of the President of the United States as part of the White House's first-ever agile software development team.

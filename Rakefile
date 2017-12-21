@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'yaml'
-require 'jekyll'
+require 'github-pages'
 require 'cgi'
 require 'uri'
 

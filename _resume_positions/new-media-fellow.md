@@ -1,8 +1,8 @@
 ---
 employer: Federal Communications Commission
 title: New Media Fellow, Office of the Managing Director
-start_date: 2010-05-01
-end_date: 2012-01-01
+start_date: '2010-05-01'
+end_date: '2012-01-01'
 ---
 
 * Negotiated agency-wide, federal service agreements with the web's top service providers including FISMA-compliant cloud hosting, social media, data manipulation, source code collaboration, and geospatial firms.

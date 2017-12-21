@@ -1,8 +1,8 @@
 ---
 employer: GitHub
 title: Government Evangelist
-start_date: 2013-03-01
-end_date: 2016-02-01
+start_date: '2013-03-01'
+end_date: '2016-02-01'
 ---
 
 ###### Open source outreach
