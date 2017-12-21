@@ -49,10 +49,13 @@ At the end of the day, you have a highly sophisticated, highly resourced legal e
 
 ### If a license isn't good enough for maintainers, you shouldn't subject users to it
 
+For a long time, the basic norm of open source licensing has been `inbound = outbound`, meaning that a contributor contributes to a project under the terms of its open source license. Think about it logically: if I submit code to be incorporated into an open source project, with the knowledge (constructive or actual) that it will be distributed under a certain license, I must intend that code to be licensed similarly. Sure, there's still that "well they could argue..." factor, as with signatures, but more recently, GitHub made that relationship explicit by incorporating an `inbound = outbound` into its Terms of Service, meaning if a pull request is submitted via GitHub, it is under the project's open source license.
 
+The question then becomes, if the project's open source license isn't sufficient enough for maintainers to feel comfortable accepting code, why should end users use it? Put another way, why should project maintainers be granted rights end users (and other contributors) aren't granted? Most often, this is a sign that the license the project's using isn't sufficient for the maintainer's industry or legal posture, and moving to a more patent-aware license like Apache, may resolve the need for a CLA entirely.
 
-*  If the project is unwilling to accept (inbound) contribution of code under the terms of the license it chose, that's a clear indication that the project's (outbound) license has serious deficiencies that require immediate remedy.
-* * "nice assurances we'd like to have — all things being equal” and focus on the “what legal assurances our FLOSS project actually needs to assure its thrives”.
+### Balance business requirements with legal risk
+
+The Software Freedom Conservancy [gives the following advice](https://sfconservancy.org/blog/2014/jun/09/do-not-need-cla/): You (and your lawyers) need to distinguish between what "nice assurances we'd like to have — all things being equal" and "what legal assurances our [open source] project actually needs to assure its thrives".
 
 https://julien.ponge.org/blog/in-defense-of-contributor-license-agreements/
 
