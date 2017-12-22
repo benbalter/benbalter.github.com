@@ -241,6 +241,7 @@ onramp
 operationalizing
 overinclusive
 permissionless
+Rails-addon-type
 redlines
 repos
 RFP
@@ -270,9 +271,11 @@ excerpter
 GPLv2
 infringer
 lawyered
+patentable
 rebaselined
 rebaselining
 SCA
+sublicense
 substantiality
 takedown
 Unported
@@ -287,6 +290,7 @@ warrantless
 1px
 ccc
 data-proofer-ignore
+mailto
 
 # Me
 Balter
@@ -487,6 +491,8 @@ ChatOps
 checkboxes
 CIO
 CIOs
+CLA
+CLAs
 CloudFront
 CMS
 CMSs
@@ -529,6 +535,7 @@ geodata
 GeoJSON
 geolocation
 GIFs
+Gitter
 GPL
 hackable
 hackathon
@@ -560,8 +567,8 @@ lookups
 md
 MD5
 mentality
-microcache
 Microcache
+microcache
 microsites
 middleware
 modularity
@@ -578,6 +585,7 @@ permalinking
 permalinks
 permissioning
 PHP
+Probot
 programatic
 README
 READMEs
@@ -586,6 +594,7 @@ recrawled
 repo
 RPC
 RSS
+Rubocop
 SaaS
 SAML
 scalability
@@ -630,6 +639,7 @@ wifi
 wireframe
 wireframes
 wp-admin
+WPCS
 XML-RPC
 YAML
 
@@ -778,6 +788,7 @@ stageside
 stereotypically
 stymy
 sunsetting
+sustainably
 swirlies
 timezones
 todo
@@ -785,6 +796,7 @@ todos
 toolchain
 toolset
 tradeoff
+tradeoffs
 trainings
 transactional
 transformative

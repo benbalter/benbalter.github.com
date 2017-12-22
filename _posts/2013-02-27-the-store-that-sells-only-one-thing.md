@@ -1,6 +1,6 @@
 ---
 title: The store that sells only one thing.
-description:
+description: Developers should be experts at solving users' problems, not a particular language or technology
 comments: true
 published: true
 ---

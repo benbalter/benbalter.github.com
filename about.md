@@ -1,6 +1,6 @@
 ---
 title: About
-excerpt: "Ben Balter is an attorney, an open source developer, and a Product Manager at GitHub, the world's largest software development network."
+description: Ben Balter is an attorney, an open source developer, and a Product Manager at GitHub, the world's largest software development network.
 layout: about
 permalink: /about/
 published: true

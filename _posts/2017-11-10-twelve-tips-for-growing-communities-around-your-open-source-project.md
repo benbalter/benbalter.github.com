@@ -57,13 +57,13 @@ No software is perfect. As your community grows, it's likely users will discover
 
 * **Support files** - If you add a `SUPPORT.md` file to your project's root, `.github`, or `docs/` folder, GitHub will display it at various times users seek support, including above the new issue form. This is a great place to describe what avenues are available to users for support, if any.
 * **Troubleshooting or FAQ docs** - If you find yourself answering common questions, rather than hope users search prior issues before opening a new one, answer common questions/trouble points in a dedicated troubleshooting or FAQ document. Better yet, when you answer new questions, encourage the users to expand the documentation with their solution.
-* **Dedicated support channels** - Many projects like to keep their issue tracker dedicated to capturing the project's ongoing work. If that's the case, then you must establish and communicate alternate support channels. It could be a seperate repo, a Discourse instance, a chat forum, or paid support. Whatever the medium, be sure to document it front and center.
+* **Dedicated support channels** - Many projects like to keep their issue tracker dedicated to capturing the project's ongoing work. If that's the case, then you must establish and communicate alternate support channels. It could be a separate repo, a Discourse instance, a chat forum, or paid support. Whatever the medium, be sure to document it front and center.
 
 Whatever the preferred path, if you assume your software is imperfect, then you need to tell users how they can best get problems resolved.
 
 ### 7. Welcome new contributors
 
-One of the most impactful ways you can grow your community is to welcome new contributors. Submitting a pull request to a project can be a scary experience, especially if it's a user's first pull request. If after potentially hours of frustrating effort, all you get is a automated merge notification, it's unlikely you'll find the motivation to endure the ordeal a second time.
+One of the most impactful ways you can grow your community is to welcome new contributors. Submitting a pull request to a project can be a scary experience, especially if it's a user's first pull request. If after potentially hours of frustrating effort, all you get is an automated merge notification, it's unlikely you'll find the motivation to endure the ordeal a second time.
 
 The good news is, that as a maintainer, if a first-time contributor submits a pull request, you'll see a "First-time contributor" badge displayed prominently next to their name. As you review the pull request, go out of your way to walk them through the process and ensure they have a good first-time experience. Put another way, you shouldn't review a user's 100th contribution and first contribution the same way. Take the time to explain *why* you're requesting changes, if any, and *how* to implement them, if necessary.
 
@@ -71,7 +71,7 @@ Once the pull request has been merged, take a moment to thank and congratulate t
 
 ### 8. Set up automated tests
 
-Many developers think of continuous integration (CI) as a workflow tool, or a software quaity tool, but it's actually a powerful community building tool. Rather than needing to wait for a maintainer to review their work, which might span timezones or work schedules, automated tests provide contributors with instant feedback on their contribution. Beyond providing contributors with the opportunity to improve their code before a human review, CI also provides maintainers with confidence that a given feature or bug fix doesn't introduce a regression, without necessarily needing to run the code locally.
+Many developers think of continuous integration (CI) as a workflow tool, or a software quality tool, but it's actually a powerful community building tool. Rather than needing to wait for a maintainer to review their work, which might span timezones or work schedules, automated tests provide contributors with instant feedback on their contribution. Beyond providing contributors with the opportunity to improve their code before a human review, CI also provides maintainers with confidence that a given feature or bug fix doesn't introduce a regression, without necessarily needing to run the code locally.
 
 CI is often trivial to set up for open source projects, especially if your project already has automated tests. Services like Travis CI have examples for every major framework and language, are completely free, and are often a matter of simply adding the necessary metadata to your project's root. Once enabled, potential contributions are automatically tested, and their status is reported directly on the pull request. Rather than testing each contribution manually, don't force humans to do what computers can.
 

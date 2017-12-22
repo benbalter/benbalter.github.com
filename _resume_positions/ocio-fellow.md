@@ -1,8 +1,8 @@
 ---
 employer: Executive Office of the President
 title: Fellow, Office of the US Chief Information Officer
-start_date: 2012-01-01
-end_date: 2012-08-01
+start_date: '2012-01-01'
+end_date: '2012-08-01'
 ---
 
 * Assisted with drafting, stakeholder outreach, and coordination of the release of [the President's Digital Government Strategy](http://www.whitehouse.gov/sites/default/files/omb/egov/digital-government/digital-government.html), a fundamental reimagination of the role of technology in the public sector
