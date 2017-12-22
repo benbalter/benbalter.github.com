@@ -1,6 +1,6 @@
 ---
 title: Why your probably shouldn't add a CLA to your open source project
-description:
+description: There's a good chance your open source project shouldn't add a contributor license agreement. Here's why.
 ---
 
 Contributor license agreements or CLAs for short have gained a lot of visibility in recent years as many prominent open source projects have opted to adopt them. If all the cool kids are doing it, should you? Probably not. Here's why:
@@ -33,7 +33,7 @@ Imagine the "give a penny, take a penny" dish at your local convenience store. I
 
 CLAs are legal contracts contributors agree to prior to contributing to a project, intended to minimize maintainer (often corporate maintainer) intellectual property risk. How then, does a project know when a contributor has "signed" a CLA?
 
-Like many things in the legal world, in the world of digital contract formation, there's similarly a spectrum of options, depending on how much risk the maintainer is willing to accept that a contributor might later claim they never agreed to the CLA. It's a matter of how "signed" you want the CLA to be. At one end of the spectrum, it might be a link to the CLA with some sort of "by submitting you agree..." disclaimer ("browserwrap") or an explicit "I agree to the CLA" checkbox that enables the submit button. At the other extreme might be the requirement that developers print the CLA and submit a physical "wet" signature before they can contribute (sadly, still not uncommon among older projects). Most projects that have adopted CLAs land someplace in the middle, treating electronic signatures as sufficient, but even electronic signatures create lots of administrative overhead, both for the contributor and for the maintainer.
+Like many things in the legal world, in the world of digital contract formation, there's similarly a spectrum of options, depending on how much risk the maintainer is willing to accept that a contributor might later claim they never agreed to the CLA. It's a matter of how "signed" you want the CLA to be. At one end of the spectrum, it might be a link to the CLA with some sort of "by submitting you agree…" disclaimer ("browserwrap") or an explicit "I agree to the CLA" checkbox that enables the submit button. At the other extreme might be the requirement that developers print the CLA and submit a physical "wet" signature before they can contribute (sadly, still not uncommon among older projects). Most projects that have adopted CLAs land someplace in the middle, treating electronic signatures as sufficient, but even electronic signatures create lots of administrative overhead, both for the contributor and for the maintainer.
 
 For the contributor, as mentioned earlier, CLAs require the contributor to parse an often dense and complex legal document. Even if they are able to do so, if they work for a company that produces software, there's a good chance that they'll need to get sign off from their employer's lawyers, a non-trivial process. The reason being, CLAs require that developers certify they own the copyright, and that their contribution does not infringe on the rights of others, two non-obvious determinations in the case of professional software developers. For one, depending on the time of day, computer used, type of contribution, or even employee handbook, the code may be the property of the employer. For another, the employee may have theoretical access to trade secrets and other confidential information, meaning they may inadvertently infringe on a patent, even if they didn't intend to do so.
 
@@ -49,17 +49,16 @@ At the end of the day, you have a highly sophisticated, highly resourced legal e
 
 ### If a license isn't good enough for maintainers, you shouldn't subject users to it
 
-For a long time, the basic norm of open source licensing has been `inbound = outbound`, meaning that a contributor contributes to a project under the terms of its open source license. Think about it logically: if I submit code to be incorporated into an open source project, with the knowledge (constructive or actual) that it will be distributed under a certain license, I must intend that code to be licensed similarly. Sure, there's still that "well they could argue..." factor, as with signatures, but more recently, GitHub made that relationship explicit by incorporating an `inbound = outbound` into its Terms of Service, meaning if a pull request is submitted via GitHub, it is under the project's open source license.
+For a long time, the basic norm of open source licensing has been `inbound = outbound`, meaning that a contributor contributes to a project under the terms of its open source license. Think about it logically: if I submit code to be incorporated into an open source project, with the knowledge (constructive or actual) that it will be distributed under a certain license, I must intend that code to be licensed similarly. Sure, there's still that "well they could argue…" factor, as with signatures, but more recently, GitHub made that relationship explicit by incorporating an `inbound = outbound` into its Terms of Service, meaning if a pull request is submitted via GitHub, it is under the project's open source license.
 
 The question then becomes, if the project's open source license isn't sufficient enough for maintainers to feel comfortable accepting code, why should end users use it? Put another way, why should project maintainers be granted rights end users (and other contributors) aren't granted? Most often, this is a sign that the license the project's using isn't sufficient for the maintainer's industry or legal posture, and moving to a more patent-aware license like Apache, may resolve the need for a CLA entirely.
 
 ### Balance business requirements with legal risk
 
-The Software Freedom Conservancy [gives the following advice](https://sfconservancy.org/blog/2014/jun/09/do-not-need-cla/): You (and your lawyers) need to distinguish between what "nice assurances we'd like to have — all things being equal" and "what legal assurances our [open source] project actually needs to assure its thrives".
+The Software Freedom Conservancy [gives the following advice](https://sfconservancy.org/blog/2014/jun/09/do-not-need-cla/): You (and your lawyers) need to distinguish between what "nice assurances we'd like to have — all things being equal" and "what legal assurances our [open source] project actually needs to assure its thrives".
 
-https://julien.ponge.org/blog/in-defense-of-contributor-license-agreements/
+<https://julien.ponge.org/blog/in-defense-of-contributor-license-agreements/>
 
 > Requiring a contributor license agreement is a sign that you intend to sustain your project in the long run with responsible practices regarding intellectual property management. Responsible open source developers aren’t afraid of signing contributor license agreements: they simply understand the legal implications of sharing source code with the rest of the world.
 
-
-http://ebb.org/bkuhn/blog/2014/06/09/do-not-need-cla.html
+<http://ebb.org/bkuhn/blog/2014/06/09/do-not-need-cla.html>
