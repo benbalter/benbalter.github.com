@@ -1,5 +1,5 @@
 ---
-title: Why your probably shouldn't add a CLA to your open source project
+title: Why you probably shouldn't add a CLA to your open source project
 description: There's a good chance your open source project shouldn't add a contributor license agreement. Here's why.
 ---
 
@@ -19,7 +19,7 @@ CLAs are generally a form of [CYA](https://en.wikipedia.org/wiki/Cover_your_ass)
 
 Think about it this way: the role of an attorney, especially a transactional attorney, is to minimize legal risk. For the vast majority of intellectual property transfers in the business world, that means lots of corporate paper and due diligence. When one company buys another company's software, be it a procurement or an acquisition, it often involves lengthy negotiations resulting in contracts with tens or hundreds of pages to ensure both parties exchange exactly what they intended to transfer, no more, no less.
 
-Contrast that with open source licensing, which often caries equal legal weight, but almost exclusively without those heavyweight legal safeguards. With that "traditional" baseline in mind, it's natural then, for corporate counsels to suggest the company take steps to "paper" the transaction. This is especially true when attorneys aren't as familar with the widespread adoption of open-source norms. But as mentioned earlier, legal's role is to advise business owners how to minimize risk, not how best to run an open source project, and such steps must be balanced against business motivations and the likelihood that the harm might occur.
+Contrast that with open source licensing, which often carries equal legal weight, but almost exclusively without those heavyweight legal safeguards. With that "traditional" baseline in mind, it's natural then, for corporate counsels to suggest the company take steps to "paper" the transaction. This is especially true when attorneys aren't as familiar with the widespread adoption of open-source norms. But as mentioned earlier, legal's role is to advise business owners how to minimize risk, not how best to run an open source project, and such steps must be balanced against business motivations and the likelihood that the harm might occur.
 
 ### CLAs create a contribution-hostile developer experience
 
