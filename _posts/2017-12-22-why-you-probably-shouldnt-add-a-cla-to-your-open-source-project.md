@@ -1,9 +1,11 @@
 ---
 title: Why you probably shouldn't add a CLA to your open source project
-description: Contributor license agreements or CLAs create a contributor-hostile developer experience, require significant administrative overhead, and shift legal blame to the party least equipped to defend against it.
+description: Contributor license agreements (a “nice to have” for corporate-backed open source projects) create a contribution-hostile developer experience, require significant administrative overhead, shift legal blame to the party least equipped to defend against it, and are unnecessary given modern development tools.
 ---
 
 Contributor license agreements or CLAs for short have gained a lot of visibility in recent years as many prominent open source projects have opted to adopt them. If all the cool kids are doing it, should you? Probably not. Here's why:
+
+*TL;DR: Contributor license agreements (a "nice to have" for corporate-backed open source projects) [create a contribution-hostile developer experience](#clas-create-a-contribution-hostile-developer-experience), [require significant administrative overhead](#clas-require-significant-administrative-overhead), [shift legal blame to the party least equipped to defend against it](#clas-shifts-legal-blame-to-the-party-least-equipped-to-defend-against-it), and [are unnecessary given modern development tools](#if-a-license-isnt-good-enough-for-maintainers-you-shouldnt-subject-users-to-it).*
 
 ### What is a CLA?
 
@@ -67,4 +69,4 @@ The Software Freedom Conservancy [gives the following advice](https://sfconserva
 
 It's possible to have a successful and sustainable open source project without a CLA. It's not possible to have a successful or sustainable open source project without a strong influx of new contributors.
 
-Each organization's sensitivity to legal risk is different, but as you evaluate adding a CLA to your project, I urge you to balance the legal implications against the practical implications, before deciding what's best for your project. 
+Each organization's sensitivity to legal risk is different, but as you evaluate adding a CLA to your project, I urge you to balance the legal implications against the practical implications, before deciding what's best for your project.
