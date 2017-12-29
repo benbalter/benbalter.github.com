@@ -1,6 +1,6 @@
 ---
 title: Why you probably shouldn't add a CLA to your open source project
-description: There's a good chance your open source project shouldn't add a contributor license agreement. Here's why.
+description: Contributor license agreements or CLAs create a contributor-hostile developer experience, require significant administrative overhead, and shift legal blame to the party least equipped to defend against it.
 ---
 
 Contributor license agreements or CLAs for short have gained a lot of visibility in recent years as many prominent open source projects have opted to adopt them. If all the cool kids are doing it, should you? Probably not. Here's why:
@@ -14,6 +14,12 @@ In short, you can think of a CLA as somewhat of a "reverse open source license".
 Unlike licenses, however, contributor license agreements, or CLAs, are not standardized, meaning if you're a contributor, you'll have to read each CLA to determine what legal rights you're giving away, before contributing (and hope you can parse what's often dense legalese if you're not yourself a lawyer).
 
 ### Why projects adopt a CLA
+
+I suspect projects that adopt a CLA do so because they don't consider (or underestimate) the impact that it will have on potential contributors (and thus the likelihood that they will contribute), or purposely choose to prioritize legal risk over community building. There's not a lot published in support of CLAs. Julien Ponge, a CS professor [writes](https://julien.ponge.org/blog/in-defense-of-contributor-license-agreements/):
+
+> Requiring a contributor license agreement is a sign that you intend to sustain your project in the long run with responsible practices regarding intellectual property management. Responsible open source developers aren’t afraid of signing contributor license agreements: they simply understand the legal implications of sharing source code with the rest of the world.
+
+I'd push back on the assertion that "responsible" open source developers appreciate CLAs (or that fear should be the bar for adoption), as well the implication that projects should only cater to established developers. Much of open source is about growing communities around code, and a big part of that is inspiring the next generation of software developers, especially those from non-formal backgrounds.
 
 CLAs are generally a form of [CYA](https://en.wikipedia.org/wiki/Cover_your_ass), to prevent maintainers (or the project or its corporate backer) from landing in hot water due to the community contributions it accepts. They are an extremely effective way to reduce a maintainer's exposure to intellectual property liability, especially if that maintainer is a for-profit business. Specifically, it makes ownership of (and liability for) the project's intellectual property explicit.
 
@@ -57,10 +63,8 @@ The question then becomes, if the project's open source license isn't sufficient
 
 ### Balance business requirements with legal risk
 
-The Software Freedom Conservancy [gives the following advice](https://sfconservancy.org/blog/2014/jun/09/do-not-need-cla/): You (and your lawyers) need to distinguish between what "nice assurances we'd like to have — all things being equal" and "what legal assurances our [open source] project actually needs to assure its thrives".
+The Software Freedom Conservancy [gives the following advice](https://sfconservancy.org/blog/2014/jun/09/do-not-need-cla/): You (and your lawyers) need to distinguish between what "nice assurances we'd like to have " and "what legal assurances our [open source] project actually needs to assure its thrives", and I tend to agree.
 
-<https://julien.ponge.org/blog/in-defense-of-contributor-license-agreements/>
+It's possible to have a successful and sustainable open source project without a CLA. It's not possible to have a successful or sustainable open source project without a strong influx of new contributors.
 
-> Requiring a contributor license agreement is a sign that you intend to sustain your project in the long run with responsible practices regarding intellectual property management. Responsible open source developers aren’t afraid of signing contributor license agreements: they simply understand the legal implications of sharing source code with the rest of the world.
-
-<http://ebb.org/bkuhn/blog/2014/06/09/do-not-need-cla.html>
+Each organization's sensitivity to legal risk is different, but as you evaluate adding a CLA to your project, I urge you to balance the legal implications against the practical implications, before deciding what's best for your project. 
