@@ -23,7 +23,7 @@ I suspect that projects that adopt a CLA often do so because they don't consider
 
 I'd push back on the assertion that "responsible" open source developers appreciate CLAs (or that "fear" should be the bar for adoption), as well the implication that projects should only cater to established developers. Much of open source is about growing communities around code, and a big part of that is inspiring the next generation of software developers, especially those from non-formal backgrounds.
 
-CLAs are generally a form of [CYA](https://en.wikipedia.org/wiki/Cover_your_ass), to prevent maintainers (or the project or its corporate backer) from landing in hot water due to the community contributions it accepts. They are an extremely effective way to reduce a maintainer's exposure to intellectual property liability, especially if that maintainer is a for-profit business. Specifically, it makes ownership of (and liability for) the project's intellectual property explicit.
+CLAs are generally a form of [CYA](https://en.wikipedia.org/wiki/Cover_your_ass), to prevent maintainers (or the project or its corporate backer) from landing in hot water due to the community contributions it accepts. They are one way to manage a maintainer's exposure to intellectual property liability, especially if that maintainer is a for-profit business. Specifically, it makes ownership of (and liability for) the project's intellectual property explicit.
 
 ### Maintainers should advocate for their community's needs
 
