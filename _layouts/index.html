@@ -7,7 +7,6 @@ hero: true
 
 <!-- SEARCH START -->
 <div id="search-searchbar"></div>
-
 <div id="search-hits"></div>
 <!-- SEARCH END -->
 
@@ -25,3 +24,93 @@ hero: true
   </li>
 {% endfor %}
 </ul><!-- posts -->
+
+
+
+<!-- SEARCH START -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/search.css">
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0"></script>
+<script>
+  var searchHits = document.getElementById('search-hits');
+  var staticContent = document.querySelectorAll('.posts')[0];
+
+  var search = instantsearch({
+    appId: '{{ site.algolia.application_id }}',
+    indexName: '{{ site.algolia.index_name }}',
+    apiKey: 'ff7b0847d8705c279222272303e68527',
+    searchParameters: {
+      hitsPerPage: 15
+    },
+    // Hide all results when no search is made. Only display results when something is typed
+    searchFunction: function(helper) {
+      helper.search();
+
+      if (helper.getQuery().query === '') {
+        searchHits.style.display = 'none';
+        staticContent.style.display = 'block';
+        return;
+      }
+
+      searchHits.style.display = 'block';
+      staticContent.style.display = 'none';
+    }
+  });
+
+  search.addWidget(
+    instantsearch.widgets.searchBox({
+      container: '#search-searchbar',
+      placeholder: 'Search into all posts',
+      poweredBy: true
+    })
+  );
+
+  // Helper function to quickly find tge highlighed version of a key
+  function highlight(hit, key) {
+    if (hit._highlightResult[key]) {
+      return hit._highlightResult[key].value;
+    }
+    return hit.key;
+  }
+  search.addWidget(
+    instantsearch.widgets.hits({
+      container: '#search-hits',
+      templates: {
+        item: function(hit) {
+          var url = `{{ site.baseurl }}${hit.url}#${hit.anchor}`;
+
+          var title = highlight(hit, 'title');
+
+          var date = new Date(hit.date * 1000);
+          var month = date.toLocaleString('en-us', { month: 'long' });
+          var day = ("0" + date.getDate()).slice(-2);
+          var year = date.getFullYear();
+          var readableDate = `${month} ${day}, ${year}`;
+
+          var headings = hit.headings.join(' > ');
+          if (hit._highlightResult.headings) {
+            headings = hit._highlightResult.headings
+              .map(heading => heading.value)
+              .join(' > ');
+          }
+
+          var content = hit._snippetResult.content.value;
+
+          return `
+              <div class="search-hit">
+                <a class="search-hit-title" href="${url}">${title}</a>
+                <div class="search-hit-date">${readableDate}</div>
+                <div class="search-hit-content">
+                  <div class="search-hit-headings">${headings}</div>
+                  ${content}
+                </div>
+              </div>
+              `;
+          }
+        }
+      })
+  );
+  search.start();
+</script>
+<!-- SEARCH END -->
