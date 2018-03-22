@@ -1,0 +1,27 @@
+---
+layout: default
+hero: true
+---
+
+{{ content }}
+
+<!-- SEARCH START -->
+<div id="search-searchbar"></div>
+
+<div id="search-hits"></div>
+<!-- SEARCH END -->
+
+<ul class="posts">
+{% for page in site.posts %}
+  <li class="post">
+    <div class="row">
+        <div class="col-sm-9">
+            <a href="{{ page.url | relative_url }}">{{ page.title | smartify }}</a>
+        </div>
+        <div class="col-sm-3 date">
+            {{ page.date | date: '%B %d, %Y' }}
+        </div>
+    </div>
+  </li>
+{% endfor %}
+</ul><!-- posts -->

@@ -1,0 +1,36 @@
+.ais-search-box {
+  max-width: 600px;
+  display: block;
+  margin: 0 auto 30px auto;
+}
+.search-hit {
+  margin-bottom: 20px;
+}
+.search-hit-title {
+  font-size: 1.1em;
+}
+.search-hit-title .ais-Highlight {
+  font-weight: bold;
+  color: #333;
+  font-style: normal;
+  text-decoration: underline;
+}
+.search-hit-date {
+  float: right;
+  font-size: .9em;
+  color: #bbb;
+  padding-top: .5em;
+}
+.search-hit-headings {
+  font-weight: bold;
+  color: #808080;
+  padding: 5px 0px;
+}
+.search-hit-content {
+  width: 800px;
+}
+.search-hit-content .ais-Highlight {
+  font-weight: bold;
+  color: #337ab7;
+  font-style: normal;
+}
