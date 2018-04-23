@@ -1,6 +1,6 @@
 ---
 employer: GitHub
-title: Senior Product Manager
+title: Senior Manager of Product Management
 start_date: '2016-02-01'
 ---
 
