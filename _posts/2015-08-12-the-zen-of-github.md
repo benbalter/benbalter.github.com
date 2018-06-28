@@ -35,7 +35,7 @@ At GitHub, we did just that:
 </div>
 </div>
 
-These aren't mere words. There's [an API endpoint to retrieve random Zen](https://api.github.com/zen){: data-proofer-ignore="true" } upon request, and heck you, can even have [Ms. Mona Lisa Octocat read the Zen herself](https://api.github.com/octocat){: data-proofer-ignore="true" }, should you ever need it. Whether you've written them down or not, whether you've discussed them or not, whether you've realized them or not, every decision members of your organization make are bound by the constraints of these (often unspoken) [first principles](https://en.wikipedia.org/wiki/First_principle).
+These aren't mere words. There's [an API endpoint to retrieve random Zen](https://api.github.com/zen){: data-proofer-ignore="true" } upon request, and heck, you can even have [Ms. Mona Lisa Octocat read the Zen herself](https://api.github.com/octocat){: data-proofer-ignore="true" }, should you ever need it. Whether you've written them down or not, whether you've discussed them or not, whether you've realized them or not, every decision members of your organization make are bound by the constraints of these (often unspoken) [first principles](https://en.wikipedia.org/wiki/First_principle).
 
 If you haven't already, I'd encourage you to spend a cycle documenting those assumptions that drive (or constrain) your organization's efforts. You'd be surprised how much less squishy culture becomes when culture has a URL.
 
