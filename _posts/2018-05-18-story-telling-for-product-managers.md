@@ -3,23 +3,23 @@ title: Story telling for Product Managers
 description: As a Product Manager, you're often asked to tell your product's story. Here are several lessons I've learned doing just that, and how I approach story telling today.
 ---
 
-My first talk as a GitHub employee was an absolute disaster. I was asked to explain GitHub to a government audience. I jumped right in to explaining what, in my mind, was "GitHub" — issues, pull requests, commits, comments — I even had screenshots of taken from a Blackberry ([no joke](https://speakerdeck.com/benbalter/open-sourcing-government?slide=18)). It was a total flop.
+As a Product Manager, you're often tasked with telling your product's story, even if you don't realize it. At least, I sure didn't. My first talk as a GitHub employee was an absolute disaster. I was asked to explain GitHub to a government audience. I jumped right in to explaining what, in my mind, was "GitHub" — issues, pull requests, commits, comments — I even had screenshots of taken from a Blackberry ([no joke](https://speakerdeck.com/benbalter/open-sourcing-government?slide=18)). It was a total flop.
 
-The problem was, I was focused on the how (or even the what), and not the why. I failed to tell a compelling story. I didn't paint a picture of the future GitHub made possible, or beyond that, a vision for developers and the software they build. I talked about the technology, not the customers or the problems it solved for them.
+The problem was, I was focused on the how (or even the what), and not the why. I failed to tell a compelling product story. I didn't paint a picture of the future GitHub made possible, or beyond that, a vision for developers and the software they build. I talked about the technology, not the humans involved, or the problems the technology could solve for them.
 
 ### Frameworks
 
-If there is one thing Product Managers (and MBA-types generally) are known for, its for their frameworks. I often say, almost every problem can be described in a sufficiently complex 2x2 matrix. Here are three frameworks that every PM should know:
+If there is one thing Product Managers (and MBA-types generally) are known for, its for their frameworks. I often joke, almost every problem can be described in a sufficiently complex 2x2 matrix. Here are three frameworks that I learned, that I believe every PM should at least be aware of:
 
-#### Marketing - The clue train stopped there, but they never took delivery
+#### The Cluetrain Manifesto (Marketing)
 
-Shortly after joining GitHub, I was introduced to the concept of the [Cluetrain manifesto](http://www.cluetrain.com/). In short, it says that "Markets are conversations". Companies can shout as loudly as they'd like about how great their product is, but customers will always have a louder, more trustworthy voice. Rather than creating artificial walls between those that build a product and those that use it, companies (and their employees) should participate in the communities that naturally form around them, and seek to facilitate natural, open, honest dialog among humans. Instead of press releases clearly created by committee, think Twitter replies, Hacker News comments, or replying directly to support requests. As a Product Manager, your job is to be part of that conversation.
+Shortly after joining GitHub, I was introduced to the concept of the [Cluetrain manifesto](http://www.cluetrain.com/) (named for the fact that for many marketers, the clue train stopped there every day, but they never took delivery). In short, it says that "Markets are conversations". Companies can shout as loudly as they'd like about how great their product is, but customers will always have a louder, more trustworthy voice. Rather than creating artificial walls between those that build a product and those that use it, companies (and their employees) should participate in the communities that naturally form around them, and seek to facilitate natural, open, honest dialog among humans. Instead of press releases clearly created by committee, think Twitter replies, Hacker News comments, or replying directly to support requests. As a Product Manager, your job is to be part of that conversation.
 
-#### Product - Jobs to be done
+#### Jobs to be done (Product)
 
 Users are motivated by solving problems, not the tools they use to solve them, or in other words, [jobs to be done](https://hbr.org/2016/09/know-your-customers-jobs-to-be-done). A consumer might walk into a hardware store asking for the best 1/4" drill. They're really after the best 1/4" hole (so that they can hang a picture). More essentially, they're looking for whatever tool can mount the picture to a wall, and going further, a means to remember milestones or important people in their life. They may go to the hardware store asking for a drill, but they may ultimately be best served by 3M strips or photo management app. As a Product Manager, your job is to go beyond what users are asking for, truly understanding what users really need.
 
-#### Sales - Solution selling
+#### Solution selling (Sales)
 
 Well before my first talk as a GitHubber, the first time I pitched a technology was also a flop. It was a presentation to the CIO of a government agency, regarding an intranet overhaul I'd been working on. A few moments in, he said "I need to stop you right there", and handed me a book entitled [SPIN selling](https://www.amazon.com/SPIN-Selling-Neil-Rackham/dp/0070511136?tag=benbalter07-20), before kicking me out of his office. Needless to say, I was floored.
 
@@ -37,7 +37,7 @@ Again, going back to our 1/4" drill scenario, the customer may be asking for a s
 
 As a Product Manager, even when customers come to you with desired solutions (or you have one in mind), it pays to start with the problems you're trying to solve (and the customers you're trying to solve them for). You'd be surprised how many different ways the same problem(s) can be solved.
 
-### Why > What
+### Why over What
 
 The other way to think about talking in terms of problems instead of solutions is that you should spend more time talking about the "why", than you spend talking about the "what". When we implement a new feature, I often describe myself internally describing what we did, not why we did it (or more to the point, how it will help users). This also helps you prioritize end-user value. If you spend months refactoring an app to make it "right" or to utilize a new technology, it's easy to talk about all the work you're doing, but if at the end, the only user-facing value is a small bug fix, it's hard to talk about the why. On the flip-side, if a one-line change can have immense user impact, it's boring to talk about the "what", but you could talk for hours about the "why". As a Product Manager, your job is to optimize for those (ideally boring) low effort, high impact initiatives, and the easiest way is to do that is to focus on the "why", counterbalanced by the effort required, not the other way around.
 
