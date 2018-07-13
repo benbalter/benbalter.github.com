@@ -51,7 +51,7 @@ Slides (and recordings) from some of the talks I've given over the years. Have a
 
 ### Mapping and GeoJSON
 
-* [Open source, open standards, and 50 lines of code: a look behind GitHub's GeoJSON rendering and diffing](https://ben.balter.com/behind-github-GeoJSON/), [source](https://github.com/benbalter/behind-github-GeoJSON/))
+* [Open source, open standards, and 50 lines of code: a look behind GitHub's GeoJSON rendering and diffing](https://ben.balter.com/behind-github-GeoJSON/) ([source](https://github.com/benbalter/behind-github-GeoJSON/))
 
 * [Make maps better together: Collaborative mapping the Open Source Way](https://ben.balter.com/make-maps-better-together/) ([video](https://www.youtube.com/watch?v=iGRb5QRqC2w))
 
