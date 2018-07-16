@@ -117,7 +117,9 @@ Za
 Bienvenidos
 blanche
 bona
+Café
 carte
+cliché
 d'être
 de
 facie
@@ -299,6 +301,7 @@ Retlab
 
 # Proper nouns
 37Signals
+3M
 ActiveX
 AddThis
 AirBnB
@@ -321,6 +324,7 @@ Brita
 Bucci
 Carfax
 CKAN
+CLAHub
 Claritin
 CMS
 ColdFusion
@@ -374,6 +378,7 @@ Joomla
 Joomlas
 Jorbin
 jQuery
+Julien
 Kirkendale
 Kundra
 Lefkowitz
@@ -405,6 +410,7 @@ Pandoc
 Panetta
 Piwik
 PollDaddy
+Ponge
 pre-Yelp
 Preston-Werner
 Proofer
@@ -681,8 +687,8 @@ cyber
 decisional
 decreeable
 definitional
-Deliverables
 deliverables
+Deliverables
 deprioritized
 digi-tarnished
 disaggregated
@@ -711,6 +717,7 @@ GW
 GWToday
 haz
 heartedness
+hobbiest
 impactful
 implementers
 incentivizes
@@ -745,6 +752,7 @@ misconfigured
 mistyped
 moar
 natively
+near-frictionless
 nitty-gritty
 no-brainer
 no-brainers
@@ -815,4 +823,6 @@ untraining
 untrusting
 upselling
 walkthroughs
+woah
+Woah
 workspace

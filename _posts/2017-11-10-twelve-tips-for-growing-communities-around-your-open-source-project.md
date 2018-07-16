@@ -23,9 +23,9 @@ It's a win-win. You'll get more modular, more robust code (and potential communi
 
 Open source software isn't open source without an open source license. It's simply "published code". Open source licenses grant developers the right to use and more importantly, to modify your code. They tell downstream consumers what they can and can't do with your code, and give them the confidence to use your software, without fear of legal repercussion, not to mention, it (often) clarifies under what conditions third-party developers contribute.
 
-While it may be tempting to author your own open source license, [don't](http://ben.balter.com/2016/08/01/why-you-shouldnt-write-your-own-open-source-license/). The difference between open source licenses, and other intellectual property grants, like say, an author’s license to a book publisher, however, is that open source licenses are heavily standardized, with about a dozen mainstream licenses and three primary licenses representing the vast majority of open source projects.
+While it may be tempting to author your own open source license, [don't](http://ben.balter.com/2016/08/01/why-you-shouldnt-write-your-own-open-source-license/). The difference between open source licenses, and other intellectual property grants, like say, an author's license to a book publisher, however, is that open source licenses are heavily standardized, with about a dozen mainstream licenses and three primary licenses representing the vast majority of open source projects.
 
-It shouldn't require a team of lawyers to participate in the open source community, either as a contributor or as a consumer. Standardized open source licenses serve as a three or four letter proxy for those with and without formal legal training to know exactly what they can and can’t do with your code, and thus, make it more likely your code will be used and contributed to.
+It shouldn't require a team of lawyers to participate in the open source community, either as a contributor or as a consumer. Standardized open source licenses serve as a three or four letter proxy for those with and without formal legal training to know exactly what they can and can't do with your code, and thus, make it more likely your code will be used and contributed to.
 
 ### 3. Link to the GitHub repository from your project's distribution channel(s)
 
