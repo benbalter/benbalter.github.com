@@ -22,7 +22,7 @@ Luckily, GitHub Pages has [a nice helper to build that URL automatically](https:
 Or, if you wanted the helper to build the link as well:
 
 ```html
-Please {% raw %}{% github_edit_link "Help improve this article" %}{% endraw %}.
+Please {% raw %}{% github_edit_link "help improve this article" %}{% endraw %}.
 ```
 
 Which would output something like:
