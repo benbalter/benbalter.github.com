@@ -19,6 +19,7 @@ class AmazonLinkCheck < HTMLProofer::Check
 
   def afiiliate_id?
     return false unless params&.key?('tag')
+
     params['tag'].first == affiliate_id
   end
 

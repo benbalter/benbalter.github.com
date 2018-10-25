@@ -4,6 +4,7 @@ RSpec.describe 'front matter' do
   context 'pages' do
     pages_to_check.each do |page|
       next unless required_front_matter['pages']
+
       context "the #{File.join(page.dir, page.name)} page" do
         required_front_matter['pages'].each do |field|
           it "has a #{field}" do
