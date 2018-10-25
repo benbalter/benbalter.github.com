@@ -471,7 +471,6 @@ Zoolander
 Zuckerberg
 
 # Tech
-namespaces
 3D
 404s
 add-ons
@@ -581,6 +580,7 @@ middleware
 modularity
 modularly
 multisite
+namespaces
 npm
 OAuth
 ogr2ogr
