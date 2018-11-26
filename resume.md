@@ -23,6 +23,8 @@ certifications:
     name: Level 3 (Advanced) Award in Wines
   - authority: Regulatory Council of Jerez-Xérès Sherry Denomination of Origin
     name: Certified Sherry Wine Specialist (CSWS) - Intermediate
+  - authority: Professional Association of Diving Instructors (PADI)
+    name: Open water diver
 ---
 
 ### Experience
