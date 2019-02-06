@@ -1,6 +1,7 @@
 ---
 title: What lawyers can learn from open source
 description: How lawyers can adopt the workflows, tools, and philosophies of open source to make their legal practice more remote-friendly
+image: https://lawyerist-khcnq28r8rte6wv.stackpathdns.com/wp-content/uploads/2019/02/podcast-share-image-210-640x427.png
 ---
 
 Inspired by the post [15 rules for communicating at GitHub](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/) from a few years back, I spoke with Sam Glover from [the Lawyerist podcast](https://lawyerist.com/podcast-210-ben-balter/) on how lawyers can adopt the workflows, tools, and philosophies of open source to make their legal practice more remote-friendly.
