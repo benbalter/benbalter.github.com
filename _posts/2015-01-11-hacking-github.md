@@ -21,7 +21,7 @@ Here are ~~12~~ 14 simple apps that I've built to introduce open source to the u
 
 * [**Markdown to Word**](https://github.com/benbalter/markdown_to_word) - Converts GitHub-flavored Markdown to a Word document.
 
-* [**Word Diff**](https://ben.balter.com/2015/02/06/word-diff/) - Word Diff empowers you to be a Markdown person in a Microsoft Word world by automatically converting any Word document committed to a GitHub repo to Markdown.
+* [**Word Diff**](https://ben.balter.com/2015/02/06/word-diff/) - Empowers you to be a Markdown person in a Microsoft Word world by automatically converting any Word document committed to a GitHub repo to Markdown.
 
 ### User-friendly interfaces
 
