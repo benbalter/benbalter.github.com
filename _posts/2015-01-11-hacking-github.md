@@ -1,6 +1,6 @@
 ---
-title: 'Hacking GitHub: 12 simple tools to help introduce open source to the uninitiated'
-description: 12 simple apps to introduce open source to the uninitiated, lower the barrier to entry for atypical GitHub users to get started, and to show the power of adding smart tools to the edge of an otherwise dumb platform.
+title: 'Hacking GitHub: 14 simple tools to help introduce open source to the uninitiated'
+description: 14 simple apps to introduce open source to the uninitiated, lower the barrier to entry for atypical GitHub users to get started, and to show the power of adding smart tools to the edge of an otherwise dumb platform.
 ---
 
 GitHub's a great platform for collaborating on many different things. It follows the [dumb core, smart edge](https://ben.balter.com/2013/11/21/thats-not-how-the-internet-works/#dumb-core-smart-edge) architecture that makes the internet what it is today. Git doesn't care if you're versioning source code, data, or proposed legislation. It simply tracks who made what change when. But sometimes, it's harder to see how dumb, non-use-case-specific tools like GitHub might fit into one's existing workflow, especially for the uninitiated.
