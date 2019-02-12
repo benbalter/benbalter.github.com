@@ -19,6 +19,10 @@ Here are 12 simple apps that I've built to introduce open source to the uninitia
 
 * [**Markdown to PDF**](https://github.com/benbalter/markdown-to-pdf) - On demand generation of enterprise-grade PDFs from GitHub-hosted markdown files.
 
+* [**Markdown to Word**](https://github.com/benbalter/markdown_to_word) - Converts GitHub-flavored Markdown to a Word document.
+
+* [**Word Diff*](https://ben.balter.com/2015/02/06/word-diff/) - Word Diff empowers you to be a Markdown person in a Microsoft Word world by automatically converting any Word document committed to a GitHub repo to Markdown.
+
 ### User-friendly interfaces
 
 * [**Comment Card**](https://github.com/benbalter/comment-card) - A simple interface for non-technical users — both authenticated and pseudonymous — to provide feedback for your GitHub-hosted project.
