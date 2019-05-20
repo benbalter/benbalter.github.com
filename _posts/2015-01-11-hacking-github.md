@@ -1,6 +1,6 @@
 ---
-title: 'Hacking GitHub: 12 simple tools to help introduce open source to the uninitiated'
-description: 12 simple apps to introduce open source to the uninitiated, lower the barrier to entry for atypical GitHub users to get started, and to show the power of adding smart tools to the edge of an otherwise dumb platform.
+title: 'Hacking GitHub: 14 simple tools to help introduce open source to the uninitiated'
+description: 14 simple apps to introduce open source to the uninitiated, lower the barrier to entry for atypical GitHub users to get started, and to show the power of adding smart tools to the edge of an otherwise dumb platform.
 ---
 
 GitHub's a great platform for collaborating on many different things. It follows the [dumb core, smart edge](https://ben.balter.com/2013/11/21/thats-not-how-the-internet-works/#dumb-core-smart-edge) architecture that makes the internet what it is today. Git doesn't care if you're versioning source code, data, or proposed legislation. It simply tracks who made what change when. But sometimes, it's harder to see how dumb, non-use-case-specific tools like GitHub might fit into one's existing workflow, especially for the uninitiated.
@@ -11,13 +11,17 @@ Often, when [explaining the potential of open source to government agencies](htt
 
 Code speaks louder than words. It's almost always faster to build out the requested feature with a hundred lines of glue code, rather than explaining that it's trivial to implement via the API. And that's exactly what I do most often.
 
-Here are 12 simple apps that I've built to introduce open source to the uninitiated, minimize points of friction for atypical users to collaborate using GitHub, and to show the power of adding smart tools to the edge of an otherwise dumb platform:
+Here are ~~12~~ 14 simple apps that I've built to introduce open source to the uninitiated, minimize points of friction for atypical users to collaborate using GitHub, and to show the power of adding smart tools to the edge of an otherwise dumb platform:
 
 ### Working with legacy formats
 
 * [**Word to Markdown**](https://github.com/benbalter/word-to-markdown) - A Ruby gem to liberate content from the jail that is Word documents.
 
 * [**Markdown to PDF**](https://github.com/benbalter/markdown-to-pdf) - On demand generation of enterprise-grade PDFs from GitHub-hosted markdown files.
+
+* [**Markdown to Word**](https://github.com/benbalter/markdown_to_word) - Converts GitHub-flavored Markdown to a Word document.
+
+* [**Word Diff**](https://ben.balter.com/2015/02/06/word-diff/) - Empowers you to be a Markdown person in a Microsoft Word world by automatically converting any Word document committed to a GitHub repo to Markdown.
 
 ### User-friendly interfaces
 
@@ -49,4 +53,6 @@ Here are 12 simple apps that I've built to introduce open source to the uninitia
 
 An astute reader might notice that almost all of these apps are less than a hundred lines of code and are almost exclusively some combination of the same three Ruby Gems: [Sinatra](http://www.sinatrarb.com/) (web server), [Octokit](https://github.com/octokit/octokit.rb) (GitHub API client), and [Sinatra-auth-GitHub](https://github.com/atmos/sinatra_auth_GitHub) (user authentication).
 
-These 12 simple tools have helped improve my own workflow, and many are used inside GitHub to help improve the workflows of my fellow GitHubbers. I encourage you to check them out, and if you find any of these open source projects useful, I'd love your help making them even better. Happy hacking!
+These ~~12~~ 14 simple tools have helped improve my own workflow, and many are used inside GitHub to help improve the workflows of my fellow GitHubbers. I encourage you to check them out, and if you find any of these open source projects useful, I'd love your help making them even better. Happy hacking!
+
+**Edit (2019-02-12)**: Updated with some missing tools.
