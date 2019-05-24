@@ -3,7 +3,11 @@ title: Using protected branches to empower non-code contributors on GitHub
 description: With GitHub's protected branches feature, you can grant collaborators permission to moderate comments, manage issues, or serve as project managers/team leads without the ability to merge pull requests or commit to master.
 ---
 
+<div class="border p-1 m-1" markdown="1">
+
 **Update 2019-05-23**: This is now possible more intuitively with [GitHub's triage role](https://github.blog/changelog/2019-05-23-triage-and-maintain-roles-beta/).
+
+</div>
 
 Out of the box, GitHub enables you to grant collaborators [read, write, or admin permissions](https://help.github.com/articles/repository-permission-levels-for-an-organization/) to a project. It's not uncommon, however, for open source communities to want to empower a class of non-code contributors to moderate comments, manage issues, or serve as project managers/team leads, even if they ultimately don't have permission to modify the code on the repository's primary branch.
 
