@@ -95,6 +95,7 @@ plugins:
   - jekyll-avatar
   - jekyll-github-metadata
   - jekyll-remote-theme
+  - jekyll-include-cache
 
 sass:
   style: :compressed
@@ -110,7 +111,6 @@ collections:
 nav_pages:
   - index.html
   - talks.md
-  - press.md
   - about.md
   - contact.md
 
@@ -124,19 +124,16 @@ contact_links:
     icon: twitter
   - name: Facebook
     url: https://facebook.com/BenBalter
-    icon: facebook
+    icon: facebook-f
   - name: LinkedIn
     url: https://www.linkedin.com/in/BenBalter
-    icon: linkedin
-  - name: Google
-    url: https://plus.google.com/107848665104278257250?rel=author
-    icon: google-plus
+    icon: linkedin-in
   - name: GitHub
     url: https://github.com/benbalter
     icon: github
   - name: Keybase
     url: https://keybase.io/benbalter
-    icon: key
+    icon: keybase
 
 amazon:
   affiliates_tag: benbalter07-20

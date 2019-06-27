@@ -12,8 +12,8 @@ books_per_row: 3
   Looking to edit the list of books? See https://git.io/vKfSv.
 {% endcomment %}
 
-<div class="lead">
-  {{ page.excerpt | mardownify }}
+<div class="lead mb-2">
+  {{ page.description | mardownify }}
 </div>
 
 {% for group in site.data.books %}
@@ -24,24 +24,24 @@ books_per_row: 3
     {% assign column_number = forloop.index0 | modulo:page.books_per_row %}
 
     {% if column_number == 0 %}
-      <div class="row books">
+      <div class="row pt-2">
     {% endif %}
 
-    <div class="col-sm-{{ 12 | divided_by:page.books_per_row }} book">
+    <div class="col-md-{{ 12 | divided_by:page.books_per_row }} text-center">
       <a href="https://www.amazon.com/gp/product/{{ book.asin }}/?tag={{ site.amazon.affiliates_tag }}">
-        <div class="cover">
+        <div class="mb-2">
           <img
             src="https://ws-na.amazon-adsystem.com/widgets/q?ASIN={{ book.asin }}&ServiceVersion={{ page.service_version }}&ID=AsinImage&WS=1&Format=_SL110_&tag={{ site.amazon.affiliates_tag }}"
             alt="{{ book.title | mardownify | strip_html }}"
           />
         </div>
 
-        <div class="title">
+        <div class="title font-weight-bold min-y-5">
           {{ book.title | mardownify }}
         </div>
       </a>
 
-      <div class="tldr">
+      <div class="small text-justify">
         {{ book.tldr | markdownify }}
       </div>
     </div>

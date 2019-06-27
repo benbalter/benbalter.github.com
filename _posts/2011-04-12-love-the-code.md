@@ -9,7 +9,7 @@ I am gave a brief [lightning talk at April's WordPress DC Meetup](http://www.mee
 
 * The process
 
-  * The server executes PHP and outputs HTML, CSS, JavaScript, etc.![Screenshot of the presentation showing the relationship between server, browser, and user](https://ben.balter.com/wp-content/uploads/2011/04/infographic-300x138.png "infographic"){: .alignright }
+  * The server executes PHP and outputs HTML, CSS, JavaScript, etc.![Screenshot of the presentation showing the relationship between server, browser, and user](https://ben.balter.com/wp-content/uploads/2011/04/infographic-300x138.png "infographic"){: .float-right .ml-3 }
   * The user's browser takes that output and renders a visual representation of the page
 
 * Client-side Languages

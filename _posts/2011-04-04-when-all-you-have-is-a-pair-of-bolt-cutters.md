@@ -3,7 +3,7 @@ title: When all you have is a pair of bolt cutters...
 description: A workflow management and version control system building on WordPress's existing core competencies. By treating documents as a custom post type, users can leverage the power of WordPress's extensive attachment, revision, taxonomy, and URL rewriting functionalities.
 ---
 
-[![Golden Hammer](http://imgs.xkcd.com/comics/golden_hammer.png){: .aligncenter}](http://xkcd.com/801/)
+[![Golden Hammer](http://imgs.xkcd.com/comics/golden_hammer.png){: .mx-auto .d-block .img-fluid }](http://xkcd.com/801/)
 
 My biggest gripe with [WordPress](http://wordpress.org), the open-source [content management system](http://en.wikipedia.org/wiki/Content_management_system) that silently works behind the scenes to power [more than 13%](http://w3techs.com/technologies/overview/content_management/all) of the Internet, is that it sets far too high a bar with which other applications must compete. I cannot count the number of times that I have used a proprietary or commercial system and silently thought to myself, "WordPress can do this so much better\*." [^1]
 
@@ -13,7 +13,7 @@ WordPress does many things right. It is an incredibly versatile tool, but like a
 
 Imagine a workflow management and version control system [building on WordPress's existing core competencies](http://lists.automattic.com/pipermail/wp-hackers/2011-March/038727.html). By treating documents as a custom post type, users can leverage the power of WordPress's extensive attachment, revision, taxonomy, and URL rewriting functionalities. Document permalinks can be routed through the traditional rewrite structure such that the latest revision of a file always remains at a static, authenticated URL, and users can toggle the visibility of documents (both internally and externally) as they currently do with post statuses and permissions. Similarly, file locking can extend WordPress's autosave functionality (as a ping), revision logs can extend WordPress's existing revision relationship and can be outputted as a traditional RSS feed, etc.
 
-![Wireframe of the proposed application](https://ben.balter.com/wp-content/uploads/2011/04/wireframe.png "WP Document Revisions Wireframe"){: .alignleft }
+![Wireframe of the proposed application](https://ben.balter.com/wp-content/uploads/2011/04/wireframe.png "WP Document Revisions Wireframe"){: .float-left .mr-3 }
 
 As seen in the above wireframe, document revisions would be inextricably linked to the essential WordPress experience. If you know WordPress, you know document revisions. Why reinvent the wheel when you have the best wheel the world has ever seen, and a passionate global community dedicated to improving it? This approach would not simply be limited to traditional documents. Images, PDFs, code — anything the user wants to collaborate with others on, or have a secure revision history can be thrown at it. Academics, lawyers, government folks, the possibilities are endless.
 

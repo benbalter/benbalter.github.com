@@ -6,7 +6,7 @@ description: How we consume content has changed dramatically, over the past 30 y
 
 Our default content publishing workflow is terribly broken. [We've all been trained to make paper](https://ben.balter.com/2012/10/19/we-ve-been-trained-to-make-paper/), yet today, content authored once is more commonly consumed in multiple formats, and rarely, if ever, does it embody physical form. Put another way, our go-to content authoring workflow remains relatively unchanged since it was conceived in the early '80s.
 
-[![Screenshot of Microsoft Word 1.0](/wp-content/uploads/2014/word1.png){: .alignright style="width: 300px;"}](http://blogs.msdn.com/b/jensenh/archive/2005/10/03/476412.aspx)
+[![Screenshot of Microsoft Word 1.0](/wp-content/uploads/2014/word1.png){: .float-right .ml-3 .w-50 }](http://blogs.msdn.com/b/jensenh/archive/2005/10/03/476412.aspx)
 
 I'm asked regularly by government employees — knowledge workers who fire up a desktop word processor as the first step to any project — for an automated pipeline to convert Microsoft Word documents to [Markdown](http://guides.github.com/overviews/mastering-markdown/), the *lingua franca* of the internet, but as my recent foray into building [just such a converter](http://word-to-markdown.herokuapp.com/) proves, it's not that simple.
 
@@ -27,11 +27,11 @@ When you blindly optimize for one thing — appearances — behind the s
 Put another way, in taking a look at this [sample Word Document](https://github.com/benbalter/word-to-markdown/blob/master/test/fixtures/small-medium-large.docx?raw=true), given the same content represented identically in various formats, as little as less than one quarter of one percent of the file is actually dedicated to storing content:
 
 {: .table .table-striped style="width: 50%; margin-left: auto; margin-right: auto;"}
-| Format | Size | % |
-| ———— | —————- | ——- |
-| Word | 33621 bytes | 100% |
-| HTML | 1359 bytes | 4.04% |
-| Markdown | 80 bytes | 0.24% |
+| Format   | Size        | %     |
+|:---------|:------------|:------|
+| Word     | 33621 bytes | 100%  |
+| HTML     | 1359 bytes  | 4.04% |
+| Markdown | 80 bytes    | 0.24% |
 
 ### Exposing author intent
 

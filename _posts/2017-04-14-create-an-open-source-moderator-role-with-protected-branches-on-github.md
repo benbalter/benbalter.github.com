@@ -17,11 +17,11 @@ If your project is owned by an organization, it's relatively easy to set up on a
 
 1. From the repository in question, navigate to "Settings" → "Branches"
 2. Under "Protected branches" choose your primary branch from the dropdown, or if it is already protected, click "edit"
-   ![Protected branches](https://cloud.GitHubusercontent.com/assets/282759/25056313/056e9944-2136-11e7-8415-5ec036f8ad6a.png){: style="width: 75%; border: 1px solid #ccc; box-shadow: 10px 10px 10px #ccc; margin: 10px"}
+   ![Protected branches](https://cloud.GitHubusercontent.com/assets/282759/25056313/056e9944-2136-11e7-8415-5ec036f8ad6a.png){: .w-75 .border .m-1 style="box-shadow: 10px 10px 10px #ccc;"}
 3. Ensure "Protect this branch" is checked[^pro-tip]
-   ![Protect this branch](https://cloud.GitHubusercontent.com/assets/282759/25056314/05751300-2136-11e7-85c8-6d7d61f10017.png){: style="width: 75%; border: 1px solid #ccc; box-shadow: 10px 10px 10px #ccc; margin: 10px"}
+   ![Protect this branch](https://cloud.GitHubusercontent.com/assets/282759/25056314/05751300-2136-11e7-85c8-6d7d61f10017.png){: .w-75 .border .m-1 style="box-shadow: 10px 10px 10px #ccc;" }
 4. Check "Restrict who can push to this branch"
-   ![Restrict who can push to this branch](https://cloud.GitHubusercontent.com/assets/282759/25056312/056cef5e-2136-11e7-8d09-b6a0cb38d1fe.png){: style="width: 75%; border: 1px solid #ccc; box-shadow: 10px 10px 10px #ccc; margin: 10px"}
+   ![Restrict who can push to this branch](https://cloud.GitHubusercontent.com/assets/282759/25056312/056cef5e-2136-11e7-8d09-b6a0cb38d1fe.png){: .w-75 .border .m-1 style="box-shadow: 10px 10px 10px #ccc;" }
 5. Add any users you want to be able to merge pull requests to this list[^pro-tip-2]
 6. Grant any users you'd like "write" access to the repository as you would normally, confident they can't commit or merge to `master`
 
