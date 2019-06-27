@@ -100,6 +100,4 @@ Be sure to read the [fine print](https://ben.balter.com/fine-print/), both here 
 
 We've done a lot at GitHub to ensure you don't need to be or hire a lawyer just to participate in the open source community, but we're not there yet. I hope the above overview can help to answer some common questions, but if there's a general open source legal question I didn't answer, [please ask](https://github.com/benbalter/feedback).
 
----
-
 [^work-for-hire]: In some cases, under what's called the [work for hire doctrine](https://en.wikipedia.org/wiki/Work_for_hire), the developer's employer may be the copyright holder. This is true both of work done by a full-time employee, and often of a contractor given a specific task (unless otherwise specified). There's also [some nuances when it comes to government-created code](https://ben.balter.com/2014/10/08/open-source-licensing-for-government-attorneys/#publishing-open-source-software).
