@@ -96,6 +96,4 @@ If you're a developer (or an aspiring developers), open source can provide an ea
 
 There are many reasons why you should prefer consuming, publishing, collaborating on, and supporting open source, and if yours isn't listed here, I'd love to hear (and add) it. Whatever your reason, it's clear open source isn't the next big thing. Open source is already here.
 
----
-
 [^laundry-list]: For a much longer, much more comprehensive, much more thoroughly researched list, I highly recommend [David Wheeler's canonical paper, "Why Open Source Software"](http://www.dwheeler.com/oss_fs_why.html), originally published some 15 years ago (and still very much accurate).
