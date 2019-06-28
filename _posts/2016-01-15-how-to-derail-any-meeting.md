@@ -5,10 +5,10 @@ description: How a WWII field manual can help modern knowledge workers identify 
 
 A few weeks ago, the Office of Strategic Services "[Simple Sabotage Field Manual](https://www.gutenberg.org/ebooks/26184){: data-proofer-ignore="true" }" made its way around the internets. The book, published in 1944 by the predecessor to the CIA had headings like "Encouraging Destructiveness", but it was the section on "General Interference with Organizations and Production" that caught my eye, not because I intend to sabotage any organization in the near future, but because I see so many modern knowledge workers unintentionally doing to their own organization exactly what the OSS playbook described doing to adversaries some 70 years ago. Here are a few of my favorite[^disclaimer] from the list:
 
-> * \**Insist on doing everything through "channels."* Never permit short-cuts to be taken in order to expedite decisions.
+> * **Insist on doing everything through "channels."** Never permit short-cuts to be taken in order to expedite decisions.
 > * **Haggle over precise wordings** of communications, minutes, resolutions.
 > * **Refer back to matters decided upon at the last meeting** and attempt to re-open the question of the advisability of that decision.
-> * \**Advocate "caution."* Be "reasonable" and urge your fellow-conferees to be "reasonable" and avoid haste which might result in embarrassments or difficulties later on.
+> * **Advocate "caution."** Be "reasonable" and urge your fellow-conferees to be "reasonable" and avoid haste which might result in embarrassments or difficulties later on.
 > * **Be worried about the propriety of any decision** — raise the question of whether such action as is contemplated lies within the jurisdiction of the group or whether it might conflict with the policy of some higher echelon.
 > * When possible, **refer all matters to committees**, for "further study and consideration." Attempt to make the committees as large as possible — never less than five.
 > * Make "speeches." **Talk as frequently as possible and at great length.** Illustrate your "points" by long anecdotes and accounts of personal experiences.
@@ -32,7 +32,5 @@ With that in mind, here's how I'd update the *Simple Sabotage Field Manual* for 
 * Whenever you sense a decision nearing, insist that the group **forego decision making** until stakeholders not originally invited to the meeting can have the opportunity to weigh in.
 
 *That's what I'd add to the list if I were giving it a refresh for 2016. What would you add? What corporate anti-patterns have you seen in your own organization? Do you have reason to suspect any of your colleagues are inadvertent saboteurs?*
-
----
 
 [^disclaimer]: Emphasis *mine*.

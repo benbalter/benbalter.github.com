@@ -77,10 +77,10 @@ At its most fundamental level, agility is the ability to quickly and effectively
 
 ##### i. Agile is iterative, breaking long-term projects into multiple independent, manageable tasks
 
-[![Comparison of Waterfall to Agile Software Development Timelines](https://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg){: style="width: 75%" .aligncenter }](https://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg){: .aligncenter}
+[![Comparison of Waterfall to Agile Software Development Timelines](https://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg){: .img-fluid }](https://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg)
 
 *Figure 1 - Agile and Waterfall Development Cycles Compared (PDF)*
-{: .aligncenter}
+{: .text-center }
 
 Agile development can be thought of as the amalgamation of many short waterfall development cycles.[^75] An agile project consists of multiple coding sprints, commonly known as iterations, in which tasks are chosen from an ongoing feature backlog [^76] and become realized early on through rapid prototyping and testing.[^77] "An iteration produces a small, tested, integrated increment of business value that is validated by customers and used as feedback for the next iteration. Iterations occur at short, regular intervals and they involve everyone: from architects to testers to the help desk staff." [^78] Agile methodologies see the process as dynamic, evolving, and organic, rather than static, predefined, and mechanistic.[^79] Agile breaks a system into smaller, more fungible chunks of immediate value to the user, rather than attempting a software development project as a single, undivided task.[^80]
 

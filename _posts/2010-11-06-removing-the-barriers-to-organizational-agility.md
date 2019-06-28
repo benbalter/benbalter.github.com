@@ -7,7 +7,7 @@ description: Recording of a GW Tech Alumni panel on Removing the Barriers to Org
 
 *Recorded at the [The George Washington University Tech Alumni Group](http://www.facebook.com/group.php?gid=154839957865223) Federal Executive Round Table, November 4, 2010.*
 
-![Photo of the panelists at the event](https://ben.balter.com/wp-content/uploads/2010/11/68153_493302469280_603259280_5451391_4928024_n-300x199.jpg "Steven Bucci, William Kirkendale, Brian Moran, Mark Rosenfeld, Mariano Tan ")
+![Photo of the panelists at the event](https://ben.balter.com/wp-content/uploads/2010/11/68153_493302469280_603259280_5451391_4928024_n-300x199.jpg "Steven Bucci, William Kirkendale, Brian Moran, Mark Rosenfeld, Mariano Tan "){: .float-right .ml-3 .rounded }
 
 Panelists Steven Bucci, William Kirkendale, Brian Moran, Mark Rosenfeld, and Mariano Tan / Photo: GW Tech Alumni Group
 

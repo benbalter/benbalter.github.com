@@ -76,7 +76,7 @@ The four qualities above are ideals. In practice, there are a handful of specifi
 I began by noting that the phrase "everything should be on GitHub", doesn't necessitate a certain tool, but if you believe working the way described above is valuable, few of today's consumer collaboration tools encourage open source inspired workflows. Let's take a look at a few:
 
 | Tool          | Open               | Captures Process      | Linkable                         | Async              |
-| :------------ | :----------------- | :-------------------- | :------------------------------- | :----------------- |
+|:--------------|:-------------------|:----------------------|:---------------------------------|:-------------------|
 | GitHub        | :heavy_check_mark: | :heavy_check_mark:    | :heavy_check_mark:               | :heavy_check_mark: |
 | (Text) Chat   | :heavy_check_mark: | :heavy_check_mark:    | :heavy_check_mark:               | :heavy_check_mark: |
 | Wikis         | :heavy_check_mark: | :heavy_check_mark:    | :heavy_check_mark:               | :heavy_check_mark: |
@@ -88,8 +88,7 @@ I began by noting that the phrase "everything should be on GitHub", doesn't nece
 | Box/DropBox   | :x:[^proprietary]  | :x:                   | :heavy_check_mark: [^deep-links] | :heavy_check_mark: |
 | Video chat    | :x:                | :x:                   | :x:[^recordings]                 | :x:[^recordings]   |
 | IRL Meetings  | :x:                | :x:                   | :x:                              | :x:                |
-
-{: .table style="width: 60%; margin-left: auto; margin-right: auto;" }
+{: .table .w-50 .mx-auto }
 
 ### Practicality beats purity
 
@@ -98,8 +97,6 @@ GitHub's not the right tool for all sorts of use cases. It probably doesn't make
 Although I think it's the future of knowledge work, this develop-inspired workflow isn't for everyone, at least not today. One of [GitHub's Zen](https://ben.balter.com/2015/08/12/the-zen-of-github/), is to prefer practicality over purity. However pure the workflow might be on paper, if you've got a team of lawyers that have never used anything other than Outlook, Word, and regularly scheduled in-person meetings, absent a strong personal, professional, or philosophical motivation, absent significant untraining and re-education, you'd be hard-pressed to implement a modern workflow that's on a trajectory to succeed.
 
 [How you work is just as important as what you work on](https://ben.balter.com/2015/09/21/open-source-behind-the-firewall/#how-you-work-is-as-important-as-what-you-work-on). I challenge you to take a critical look at your own workflow, and ask yourself if you're working the way you'd like to work, or just the way everyone else does.
-
----
 
 [^git-blog]: It's possible for a blog to capture and expose process if it is created using tools such as GitHub and GitHub Pages, like this blog is. But this is not (yet) the case for the vast majority of blogs.
 
