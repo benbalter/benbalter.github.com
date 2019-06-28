@@ -58,8 +58,15 @@ certifications:
 
 ### {{ degree.school }}
 
-<div class="date">{{ degree.date | date: "%B %Y" }}</div>
-{{ degree.degree }}
+<div class="row">
+  <div class="col">
+    {{ degree.degree }}
+  </div>
+  <div class="col-md-4 text-right">
+    {{ degree.date | date: "%B %Y" }}
+  </div>
+</div>
+
 {% endfor %}
 
 ## Certifications
