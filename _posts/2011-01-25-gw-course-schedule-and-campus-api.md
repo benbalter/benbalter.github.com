@@ -16,8 +16,11 @@ Creative ideas on how best to leverage the information welcome in the comments b
 ### Course Schedule
 
 1. Departments
+
 2. Endpoint: `http://my.gwu.edu/mod/pws/scheduleXML.cfm`
+
 3. Parameters: `termCode=[YYYY][01=spring, 02=summer, 03=fall]`
+
 4. Returns
 
    ```xml
@@ -37,6 +40,7 @@ Creative ideas on how best to leverage the information welcome in the comments b
 5. Courses
 
    1. Endpoint: `http://my.gwu.edu/mod/pws/scheduleXML.cfm`
+
    2. Parameters:
 
       1. `termCode=[YYYY][01=spring, 02=summer, 03=fall]`
@@ -79,7 +83,9 @@ Creative ideas on how best to leverage the information welcome in the comments b
    ### Campus Map
 
 6. Categories
+
 7. Endpoint: `http://citl.gwu.edu/iphonedev/maps/categories.xml`
+
 8. Return:
 
    ```xml

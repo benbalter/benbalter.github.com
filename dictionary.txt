@@ -381,6 +381,7 @@ jQuery
 Julien
 Kirkendale
 Kundra
+Lawyerist
 Lefkowitz
 Linch
 LinkedIn
@@ -427,8 +428,8 @@ Schwab
 Shapefile
 Shapefiles
 Sharedaddy
-Sharepoint
 SharePoint
+Sharepoint
 SharePoints
 ShareThis
 Smilin
@@ -580,6 +581,7 @@ middleware
 modularity
 modularly
 multisite
+namespaces
 npm
 OAuth
 ogr2ogr

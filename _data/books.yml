@@ -22,6 +22,10 @@ IT Management:
     asin: B002IU6LR6
     tldr: Gallop asked 80,000 employees 12 seemingly simply questions like "do yo have the resources to do your job?", and from the results, propose a counter intuitive approach to management that focuses on growing employees strengths, rather than coaching away their weaknesses.
 
+  - title: "Good Strategy Bad Strategy: The Difference and Why It Matters"
+    asin: B004J4WKEC
+    tldr: 'Good strategies leverage insight to your advantage. The book "clears out the mumbo jumbo and muddled thinking underlying too many strategies and provides a clear way to create and implement a powerful action-oriented strategy for the real world."'
+
 Career and corporate life:
 
   - title: "Being Geek: The Software Developer's Career Handbook"
@@ -61,6 +65,10 @@ Startups and innovation:
     tldr: The lean startup - Inspired by lessons from lean manufacturing, it relies on “validated learning,” rapid scientific experimentation, as well as a number of counter-intuitive practices that shorten product development cycles, measure actual progress without resorting to vanity metrics, and learn what customers really want. It enables a company to shift directions with agility, altering plans inch by inch, minute by minute.
 
 Product management:
+
+  - title: "Escaping the Build Trap: How Effective Product Management Creates Real Value"
+    asin: B07K3QBWG1
+    tldr: To stay competitive in today’s market, organizations need to adopt a culture of customer-centric practices that focus on outcomes rather than outputs. Companies that live and die by outputs often fall into the "build trap," cranking out features to meet their schedule rather than the customer’s needs.
 
   - title: "Inspired: How To Create Products Customers Love"
     asin: B077NRB36N
@@ -119,5 +127,9 @@ Everything else:
     tldr: Artists create art, musicians create music, lawyers create legal documents. Lawyers should care not just about the content of their output, but also the form and function it embodies. This how-to book explains why typography matters, and how to create professional legal type worthy of the words it communicates.
 
   - title: "The Internet Of Garbage"
-    asin: B011JAV030
+    asin: B07GT9C337
     tldr: "Content platforms and social media networks do not have the power to restrain stalkers, end intimate partner violence, eliminate child abuse, or stop street harassment. But they can cultivate better interactions and better discourse, through thoughtful architecture, active moderation and community management."
+
+  - title: "Technically Wrong: Sexist Apps, Biased Algorithms, and Other Threats of Toxic Tech"
+    asin: B06XJBGPT9
+    tldr: '"Buying groceries, tracking our health, finding a date: whatever we want to do, odds are that we can now do it online... Many of the services we rely on are full of oversights, biases, and downright ethical nightmares... Technically Wrong takes an unflinching look at the values, processes, and assumptions that lead to these problems and more."'
