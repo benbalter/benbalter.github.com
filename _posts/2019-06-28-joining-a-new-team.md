@@ -1,5 +1,5 @@
 ---
-title: Go near, go far, and meet in the middle
+title: Go near, go far, meet in the middle
 description: When joining an existing team as a Product Manager, you should tackle those tasks you know you need to tackle, build consensus around a shared product vision, and facilitate discovery for how you will get there.
 ---
 
