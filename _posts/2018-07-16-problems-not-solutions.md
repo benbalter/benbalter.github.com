@@ -33,6 +33,4 @@ As cliché as it may be in some circles, one of the most important questions tha
 
 As technologists, the solutions are the fun part. Many of us got into the field because we love building things or overcoming complex technical challenges. [Great PMs don't spend their time on solutions](https://www.intercom.com/blog/great-product-managers-dont-spend-time-on-solutions/). Despite the most visible or tangible artifact being what we ship at the end of the day, the most valuable contribution a product manager can make is properly framing the problem at the onset, to ensure we're delivering the right solution, to the right customer, at the right time.
 
----
-
 [^1]: Performance, uptime, quality, and reliability are and should be seen as features. As such, they should be prioritized like any other feature, and evaluated through the lens of user impact.

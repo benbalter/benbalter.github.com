@@ -3,7 +3,7 @@ title: What's Missing from CFPB's Awesome New Source Code Policy
 description: The Consumer Financial Protection Bureau's (CFPB) new open source policy is a great start, but should go further
 ---
 
-![CFPB Logo](http://www.treasury.gov/press-center/news/PublishingImages/CFPB.jpg "CFPB Logo"){: .alignright}
+![CFPB Logo](http://www.treasury.gov/press-center/news/PublishingImages/CFPB.jpg "CFPB Logo"){: .float-right .ml-3 }
 
 Most often, when we talk about open source in government, it's talked about in one of two ways: either it's [the pitfalls of the federal IT procurement model](https://ben.balter.com/2011/11/29/towards-a-more-agile-government/) that can't seem to comprehend a world in which open-source is an option, much less potentially a superior choice (["acquisition as a roadblock](http://radar.oreilly.com/2011/09/open-source-government-it-goscon.html)"), or it's reiterating the same open-source talking points that haven't seemed to give open source much parity with the wall of organizational inertia proprietary software seems to have gained over the years ("[open source as an alternative](http://benbalter.github.com/open-source-alternatives/)").
 
