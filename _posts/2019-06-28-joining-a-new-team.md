@@ -21,7 +21,7 @@ The idea is that you should drive towards consensus both within the team and amo
 
 After that, it's a matter of meeting in the middle. With a shared understanding of where the team is today and appreciation for where the team wants to go, how does the team get there? This is where solutions (and solution validation) first comes in. Your role is often mainly to facilitate the discovery conversation. You'll work closely with the engineering team (and potentially other stakeholders) to define your first few milestones (prototype, MVP, etc.) to start proving out your solution, as well as setting a goal for what "launch" or "v1.0" looks like, and some of the intermediate ships necessary to get there (X core functionality, N users in a private beta, go to market, etc.).
 
-Largely, your tasks at this stage look like typical product management. Depending on the size of the project, this can take the form of qualitative and quantitative research, solution discovery, breaking big ideas into discrete tasks, roadmapping, iterating and getting user feedback, or prioritizing and sequencing the newly fleshed out backlog of features or user stories.
+Largely, your tasks at this stage look like [typical product management](https://www.amazon.com/gp/product/B077NRB36N/?tag=benbalter07-20). Depending on the size of the project, this can take the form of qualitative and quantitative research, solution discovery, breaking big ideas into discrete tasks, roadmapping, iterating and getting user feedback, or prioritizing and sequencing the newly fleshed out backlog of features or user stories.
 
 ### Repeat
 
