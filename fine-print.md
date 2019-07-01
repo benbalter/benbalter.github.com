@@ -13,7 +13,7 @@ You should know that I am not an expert. My views do not constitute legal advice
 
 You should also know that some external links, e.g., book recomendations, may contain an affiliate code, meaning at no additional cost to you, I may earn a small comission if you click through and make a purchase.
 
-Finally, be aware that I often use the [old AP style for "Web site"](http://twitter.com/APStylebook/status/12296505018) out of habit and am a strong proponent of the [serial comma](http://en.wikipedia.org/wiki/Serial_comma).
+Finally, be aware that I often use the [old AP style for "Web site"](http://twitter.com/APStylebook/status/12296505018) out of habit and am a strong proponent of the [serial comma](http://en.wikipedia.org/wiki/Serial_comma), and, well, commas in general.
 
 ### Licensing
 
