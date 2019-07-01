@@ -27,6 +27,6 @@ Largely, your tasks at this stage look like typical product management. Dependin
 
 Once you have a defined path to 1.0 and work is underway, it's already time to start thinking about subsequent ships, both early follow-ups that might fall out of scope for the initial launch, as well as more ambitious efforts that you might think of as the 2.0 or 3.0 of the product or initiative. The process is roughly the same. If you assume you're in a post-1.0 world, what does the product look like in a year or two and how will the team get it there, all informed by what you learned during the first iteration.
 
-One of the things I enjoy most about product management is the ability to help build things that solve problems for users or customers, and there's no more exciting an opportunity when kicking off a new project or initiative. This is my approach, and while far from perfect, helps me to structure my thinking when joining a new team.
+One of the things I enjoy most about product management is the ability to help build things that solve problems for users, and there’s no more exciting a time than when kicking off a new project or initiative. This is my approach, and while far from perfect, helps me to structure my thinking when joining a new team.
 
 _If you take a different approach, I'd love to hear them in the comments below._
