@@ -7,7 +7,17 @@ permalink: /talks/
 
 Slides (and recordings) from some of the talks I've given over the years. Have a suggestion? [I'd love to hear it](https://github.com/benbalter/talks/issues).
 
+### Community management
+
+* [A community of communities: Empowering maintainers to grow communities around their code](https://speakerdeck.com/benbalter/a-community-of-communities-empowering-maintainers-to-grow-communities-around-their-code)
+
+* [It takes a digital village: An analytical-ish look at what grows strong communities on GitHub.com](https://speakerdeck.com/benbalter/it-takes-a-digital-village)
+
+* [Growing open source communities on GitHub around your WordPress plugin or theme](https://speakerdeck.com/benbalter/growing-open-source-communities-on-github-around-your-wordpress-plugin-or-theme)
+
 ### Collaboration and open source
+
+* [Fostering a culture of collaboration](https://speakerdeck.com/benbalter/fostering-a-culture-of-collaboration)
 
 * [Closed source (just) a few things](https://speakerdeck.com/benbalter/closed-source-a-few-things)
 
@@ -60,3 +70,5 @@ Slides (and recordings) from some of the talks I've given over the years. Have a
 * [A benbalter-centric history of GitHub Pages and Autoblog](https://speakerdeck.com/benbalter/an-at-benbalter-centric-history-of-github-pages-and-autoblog)
 
 * [The next cultural commons: how the internet has been quietly assembling the next cultural cannon](https://ben.balter.com/the-next-cultural-commons/) ([source](https://github.com/benbalter/the-next-cultural-commons//))
+
+[_More talks_](https://speakerdeck.com/benbalter)
