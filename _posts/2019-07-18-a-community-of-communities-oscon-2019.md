@@ -18,7 +18,7 @@ GitHub’s Community and Safety team is like many other services’ Trust and Sa
 
 <div class="row">
     <div class="col-md-6 text-center mb-2">
-        <a href="https://www.youtube.com/embed/MNQiPeAGzQo">View on YouTube</a>
+        <a href="https://www.youtube.com/watch?v=MNQiPeAGzQo">View on YouTube</a>
     </div>
     <div class="col-md-6 text-center mb-2">
         <a href="https://speakerdeck.com/benbalter/a-community-of-communities-empowering-maintainers-to-grow-communities-around-their-code">View on Speakerdeck</a>
