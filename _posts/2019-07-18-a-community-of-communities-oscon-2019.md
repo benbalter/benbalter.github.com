@@ -1,6 +1,7 @@
 ---
 title: "A community of communities: Empowering maintainers to grow communities around their code"
-description: "In this talk from OSCON 2019, I walk through GitHub’s approach to empowering open source maintainers to grow a federation of semi-independent, safe, and welcoming open source communities that can scale along side the code."
+description: "In this talk from OSCON 2019, I walk through GitHub’s approach to empowering maintainers to grow a federation of semi-independent, safe, and welcoming open source communities that can scale along side the code."
+image: https://user-images.githubusercontent.com/282759/63184636-c69cd280-c025-11e9-9f2b-12f0f48be965.png
 ---
 
 Open source is about much more than publishing code. It’s about building communities around shared problems, communities no different than the offline communities we participate in each day. Yet, it can still be a challenge for maintainers of projects, both large and small, to grow safe and welcoming communities around their code.
@@ -25,4 +26,4 @@ GitHub’s Community and Safety team is like many other services’ Trust and Sa
     </div>
 </div>
 
-In [this talk from O'Reilly's 2019 Open Source Software Conference (OSCON)](https://conferences.oreilly.com/oscon/oscon-or/public/schedule/detail/76027), I walk through GitHub’s approach to empowering open source maintainers to grow a federation of semi-independent, safe, and welcoming open source communities that can scale along side the code, as well as what tools and resources are available today and in the future, looking at how various community management approaches encourage or discourage community growth and participation.
+In [this talk from O'Reilly's 2019 Open Source Software Conference (OSCON)](https://conferences.oreilly.com/oscon/oscon-or/public/schedule/detail/76027), I walk through GitHub’s approach to empowering maintainers to grow a federation of semi-independent, safe, and welcoming open source communities that can scale along side the code, as well as what tools and resources are available today and in the future, looking at how various community management approaches encourage or discourage community growth and participation.
