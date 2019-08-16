@@ -9,7 +9,7 @@ Slides (and recordings) from some of the talks I've given over the years. Have a
 
 ### Community management
 
-* [A community of communities: Empowering maintainers to grow communities around their code](https://speakerdeck.com/benbalter/a-community-of-communities-empowering-maintainers-to-grow-communities-around-their-code)
+* [A community of communities: Empowering maintainers to grow communities around their code](https://ben.balter.com/2019/07/18/a-community-of-communities-oscon-2019/)
 
 * [It takes a digital village: An analytical-ish look at what grows strong communities on GitHub.com](https://speakerdeck.com/benbalter/it-takes-a-digital-village)
 
