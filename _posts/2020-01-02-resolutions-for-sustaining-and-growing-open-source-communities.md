@@ -49,3 +49,5 @@ That’s not necessarily true for organization-backed open source projects that 
 If you’re Facebook or Google and you’re starting an open source project, it may make sense to include a standardized code of conduct or contributing guidelines for all your projects on day one to start things off on the right foot and set yourself up for success as the project grows.
 
 Whether it’s an image of a black hole or your favorite mobile app, software development is a team sport. When you import an open source library into your project, remember that you’re not just adding code. You are adding a team of developers to your project. As we head into the new year, I hope these resolutions will help us all continue to work on being better members of the community together.
+
+_This post originally published on [Hackernoon](https://hackernoon.com/resolutions-for-sustaining-and-growing-open-source-communities-h91e3zil)._
