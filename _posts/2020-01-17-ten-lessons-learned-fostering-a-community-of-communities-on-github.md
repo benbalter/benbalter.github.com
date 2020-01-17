@@ -108,6 +108,6 @@ I'm proud to say that just over three years after we first gathered in that Toro
 
 This all took a village and then some. There were countless managers, engineers, lawyers, designers, analysts, doc writers, data scientists, policy folks, and more over the years that I won't mention by name because many don't talk about their work publicly, but that undeniably deserve credit for their contributions and efforts. 
 
-Due to the often proprietary nature of social networks and potentially adversarial nature of trust and safety we don't, as an industry, always talk openly about our efforts or how we go about solving shared problems. In hopes that what I learned could help other platforms starting down the same path, I wanted to share how I've thought about federated community management at GitHub over the years. YMMV.
+Due to the often proprietary nature of social networks and potentially adversarial nature of trust and safety we don't, as an industry, always talk openly about our efforts or how we go about solving shared problems. In hopes that what I learned could help other platforms starting down the same path, I wanted to share how I've thought about federated community management at GitHub over the past three years. YMMV.
 
 _And of course, as always, these thoughts are [my own](/fine-print/)._
