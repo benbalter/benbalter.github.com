@@ -1,6 +1,6 @@
 ---
-title: Blocking vs muting
-description:
+title: User blocking vs. user muting
+description: Most social networks offer some form of user blocking, user muting, or both. Here's the difference between the two and why GitHub takes a unique approach to blocking that relies on federated community management for content moderation.
 ---
 
 Most social networks offer some form of user blocking, user muting, or both. Typically, each feature is roughly:
@@ -28,7 +28,7 @@ Now if the inventor makes the shouter wear special ear plugs that prevents them 
 
 If this type of disruptive behavior occurred in a real-world town square, the town would have police, a legal system, and centuries of legal tradition to amicably enforce societal norms, but as the types of conversations that traditionally occurred in town squares move online, platforms have been understandably reluctant or slow to police digital town squares themselves, at least not in the same way.
 
-There's an ongoing debate as to the role platforms should play in policing online discourse, and different platforms have different purposes and constraints, but if I were that hypothetical megaphone inventor, I'd feel ethically compelled to ensure that my invention wasn't used as an instrument to harm others. After all, [the inventor is not required to invent the megaphone in the first place](https://ben.balter.com/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#10-be-purposeful-about-the-role-you-play), nor would they be obligated to amplify all voices or amplify all voices equally.
+There's an ongoing debate as to the role platforms should play in policing online discourse, and different platforms have different purposes and constraints, but if I were that hypothetical megaphone inventor, I'd personally feel ethically compelled to ensure that my invention wasn't used as an instrument to harm others. After all, [the inventor is not required to invent the megaphone in the first place](https://ben.balter.com/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#10-be-purposeful-about-the-role-you-play), nor would they be obligated to amplify all voices or amplify all voices equally.
 
 ### User blocking on GitHub
 
@@ -38,3 +38,10 @@ At GitHub, we take a slightly different approach from most social networks. We d
 2. GitHub doesn't have any common spaces (timelines, newsfeeds, etc.) where you'll see content from users other than events from those you explicitly opt-in to following. Conversations exclusively happen in spaces governed by other users, users who have an incentive to keep conversations on-topic and respectful in order to support their project and grow a community around their code.
 
 Extending the metaphor from earlier, imagine a town with no town's square, no common places to congregate. The disruptive townsperson can shout all they want in their living room or at a club house, but it's unlikely that many non-likeminded people will hear what they have to say. If they wander into the local cobbler or blacksmith and try shouting there, the owner can tell them to quiet down, or if necessary, kick them out.
+
+### It's not that simple
+
+What may seem simple on the surface "hide their post" or "don't let them comment", is [surprising complex when you look at all the facets](https://twitter.com/benbalter/status/1222956533794906113), but there are two aspects I'd specifically like to call out:
+
+1. Hiding the blocked user's content - If you block a user on GitHub, we continue to show you the blocked user's content under the belief that "disappearing" the content would be more disruptive to your ability to collaborate with others in the event that you both find yourself in an issue or pull request together, or if before they were blocked, they provided constructive contributions such as bug reports or feature requests you may still want to reference. If the blocked user's posts are truly disruptive, repository owners can hide the blocked user's content, such that their content within the repo is minimized by default for all users on page load.
+2. Protecting against maintainer abuse - 
