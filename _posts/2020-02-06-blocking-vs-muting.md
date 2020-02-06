@@ -3,7 +3,9 @@ title: User blocking vs. user muting
 description: Most platforms offer some form of user blocking, user muting, or both. Here's why GitHub has taken a bit of a unique approach to blocking that diverges from what you might see on other social networks.
 ---
 
-Most platforms offer some form of user blocking, user muting, or both. Here's why GitHub has taken a bit of a unique approach to blocking that diverges from what you might see on other social networks. Typically, each user safety feature is roughly:
+Most platforms offer some form of user blocking, user muting, or both. Here's a brief look at why GitHub has taken a bit of a unique approach to blocking that diverges from what you might see on other social networks and some of the special considerations that come as a result. 
+
+Typically, social networks offer at least two distinct user safety features which are roughly:
 
 * **User muting** - You don't see _the blocked user's_ content.
 * **User blocking** - The blocked user doesn't see _your_ content.
@@ -14,21 +16,21 @@ Muting is most useful when there's content you don't want to see or don't want t
 
 ### User blocking (on most sites)
 
-User blocking, at least on most sites, includes all the features of user muting (you can't see and don't get notifications for their content), but goes a step further and also prevents the blocked user from seeing _your_ content.
+User blocking, at least on most sites, includes all the features of user muting (you can't see and don't get notifications for their content), but goes a step further in that it also prevents the blocked user from seeing _your_ content.
 
-Because they can't see your content, the blocked user logically can't interact with your content. Blocked users are almost always able to figure out (or are explicitly told) that you've blocked them, thus making blocking inherently more confrontational than muting. Not to mention, in reality, the block only adds friction to the unwanted behavior, as the blocked user can simply log out or create a new (sock puppet) account to see or interact with your content.
+Because they can't see your content, the blocked user logically can't interact with your content (reply, down vote, etc.). Blocked users are almost always able to figure out (or are explicitly told) that you've blocked them, thus making blocking inherently more confrontational than muting. Not to mention, in reality, the block only adds friction to the unwanted behavior, as the blocked user can simply log out or create a new (sock puppet) account to see or interact with your content.
 
 ### The problem with blocking and muting on most sites
 
 Imagine a simpler time before social networks or even the internet. Now imagine one day, that an inventor comes along and hands everyone a megaphone. The megaphone allows anyone to shout anything they went, and when they do, anyone in earshot can hear it.
 
-Now one day, one townsperson stands in the middle of the town's square shouting something terrible about you. The megaphone inventor is quick to give you ear plugs so that you don’t have to hear them (muting), but other people, namely your friends and neighbors still do, and not only is someone shouting into a megaphone all day likely disruptive to your friends' and neighbors' routines, the person with the megaphone is still saying terrible things about you. Now you just don’t know what they're saying (and thus can’t defend yourself).[^1] 
+The next day, one townsperson stands in the middle of the town's square and uses one of those megaphones to shout something terrible about you. The megaphone inventor is quick to give you ear plugs so that you don’t have to hear what they're saying (muting), but other people, namely your friends and neighbors still do, and not only is someone shouting into a megaphone all day likely disruptive to your friends' and neighbors' daily routines, the person with the megaphone is still saying terrible things about you - you just don’t know what they're saying (and thus can’t defend yourself).[^1] 
 
-Now if the inventor makes the shouter wear special ear plugs that prevents them from hearing what you say (blocking), they can no longer respond or interact with you directly, but they're still welcome to shout all they want in that town square for all others to hear, and in most cases, could probably remove the ear plugs any time they wanted - far from ideal.
+Now if the inventor makes the person saying all those terrible things wear some sort of special ear plugs that prevents them from hearing what you say (blocking), they can no longer respond or interact with you directly, but they're still welcome to shout all they want in that town square for all others to hear, and in most cases, could probably remove the ear plugs any time they wanted - far from ideal.
 
 ### Platforms' role in policing digital town squares
 
-If this type of disruptive behavior occurred in a real-world town square, the town would have police, a justice system, and centuries of legal tradition to amicably enforce societal norms, but as the types of conversations that traditionally occurred in town squares move online, platforms have been understandably reluctant or slow to police digital town squares themselves, at least not in the same way or with the same level of maturity.
+If this type of disruptive behavior occurred in a real-world town square, the town would have police, a justice system, and centuries of legal tradition to amicably enforce well-understood societal norms, but as the types of conversations that traditionally occurred in town squares move online, platforms have been understandably reluctant or slow to police digital town squares themselves, at least not in the same way or with the same level of maturity.
 
 There's an ongoing debate as to the role platforms should play in policing online discourse. Different platforms have different purposes and constraints, but if I were that hypothetical megaphone inventor, at minimum, I'd personally feel ethically compelled to ensure that my invention wasn't used as an instrument to harm others. After all, the inventor is not required to invent the megaphone in the first place, [nor are they be obligated to amplify all voices or amplify all voices equally](https://ben.balter.com/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#10-be-purposeful-about-the-role-you-play).
 
@@ -39,13 +41,13 @@ At GitHub, we've historically take a slightly different approach from most socia
 1. **GitHub is a software development platform**, meaning users come to the site to be productive - to collaborate with others to create software - not (primarily) so that their content is seen by others. This means that we, as a platform, are able to make opinionated product decisions that explicitly optimize for code collaboration, including [limiting](https://ben.balter.com/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#7-offer-tiered-moderation-tools) disruptions to users' ability to collaboratively build software.
 2. **GitHub doesn't have any common spaces** (timelines, newsfeeds, etc.) where you'll see content from users other than events from those you explicitly opt-in to follow. Conversations exclusively happen in spaces governed by other users, users who have an incentive to keep conversations on-topic, constructive, and respectful in order to support their project and grow a community around their code.
 
-Extending the metaphor from earlier, imagine a town with no town's square, no common places to congregate. The disruptive townsperson can shout all they want in their living room or at a club house, but it's unlikely that many non-like-minded people will hear what they have to say. If they wander into the local cobbler or blacksmith and try shouting there, the owner can tell them to quiet down, or if necessary, kick them out if they think it's sufficiently bad for business.
+Extending the metaphor from earlier, imagine a town with no town's square, no common places to congregate. The disruptive townsperson can shout all they want in their living room or at a club house, but it's unlikely that many non-like-minded people will hear what they have to say. If they wander into the local cobbler or blacksmith's sop and try shouting there, the owner can tell them to quiet down, or if necessary, kick them out if they think it's sufficiently bad for business.
 
 On GitHub, users[^2] "control" certain spaces, such as repositories they own, or issues or comments they author in other user's repositories, with the ability to limit blocked user from interacting with content they control, regardless of its namespace.[^3] In the real world, just as a proprietor has dominion over their shop, your front lawn is yours, as is your seat at a coffee shop or your table at a restaurant, albeit temporarily and more limited in scope.
 
 ### It's _complicated_
 
-What may seem simple on the surface as "hide their post" or "don't let them comment", is [surprising complex when you look at all the facets](https://twitter.com/benbalter/status/1222956533794906113), but there are two aspects I'd specifically like to call out:
+The megaphone metaphor illustrates an extreme. Not all disruptive behavior is malicious or intentional, nor is disruptive behavior always objectively disruptive, leaving lots of gray area between the absolutes. What may seem simple on the surface as "hide their post" or "don't let them comment", is [surprising complex when you look at all the facets](https://twitter.com/benbalter/status/1222956533794906113), but there are two aspects I'd specifically like to call out:
 
 #### 1. Hiding the blocked user's content
 
@@ -61,13 +63,13 @@ While I'd like to believe that all maintainers would be both well intentioned an
 
 While we primarily think of blocking on GitHub as user-to-user or project-to-user, the logical constraints must, as a result of that potential risk, also account for user-to-maintainer blocks. If a contributor has blocked a maintainer, the maintainer can still minimize (hide) or delete the contributor's comments (in the event that they are truly disruptive), but cannot edit, reply, or react to them, to avoid fanning the flames.
 
-While it might be tempting to say that maintainers should have absolute control over their repositories, we've seen that even well-intentioned replies can escalate otherwise volatile situations into an all out flame war, instead preferring anonymous moderation tools or forced cool-down periods to encourage all parties to seek the most constructive resolution.
+It might be tempting to say that maintainers should have absolute control over their repositories, but we've seen that even well-intentioned replies can escalate otherwise volatile situations into an all out flame war, instead preferring anonymous moderation tools or forced cool-down periods to encourage all parties to seek the most constructive resolution.
 
 ### Putting it all together
 
-GitHub has historically taken a different approach to user blocking and user muting than most other platforms and can do so due to its unique structure and purpose. That's not to say that such an approach is without its complications, but I think the end result has allowed for a [largely federated moderation system](https://ben.balter.com/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#6-let-communities-opt-in-to-self-governance), where both contributors are protected and maintainrs can (and want to) keep conversations productive. 
+GitHub has historically taken a different approach to user blocking and user muting than most other platforms and can do so due to its unique structure and purpose. That's not to say that such an approach is without its complications, but I think the end result has allowed for a [largely federated moderation system](https://ben.balter.com/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#6-let-communities-opt-in-to-self-governance), where contributors are protected and maintainers can (and want to) keep conversations productive to grow healthy communities around their code.
 
-It's definitely not the right approach for all platforms, and far from perfect even for our own, but I wanted to share a bit more about how I've historically thought about user-to-user protections on GitHub. As always, [these views are my own](/fine-print/).
+It's definitely not the right approach for all platforms, and far from perfect even for our own, but I wanted to share a bit more about how I've historically thought about user-to-user protections on GitHub in hopes that it could help other platforms facing similar challenges. As always, [these views are my own](/fine-print/).
 
 [^1]: The ear plugs might work if everyone in the town wore them, thus nullifying the effects of the megaphone, but that's unlikely to happen (and isn't efficient in terms of allocating the externality).
 
