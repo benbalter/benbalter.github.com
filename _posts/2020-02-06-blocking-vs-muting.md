@@ -47,7 +47,7 @@ On GitHub, users[^2] "control" certain spaces, such as repositories they own, or
 
 ### It's _complicated_
 
-The megaphone metaphor illustrates an extreme. Not all disruptive behavior is malicious, intentional, or personal, nor is disruptive behavior always objectively disruptive, leaving lots of gray area between the absolutes. What may seem simple on the surface as "hide their post" or "don't let them comment", is [surprising complex when you look at all the facets](https://twitter.com/benbalter/status/1222956533794906113), but there are two aspects I'd specifically like to call out:
+The megaphone metaphor illustrates an extreme. Not all disruptive behavior is malicious, intentional, or personal, nor is disruptive behavior always objectively disruptive, leaving [lots of gray area](https://ben.balter.com/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#7-offer-tiered-moderation-tools) between the absolutes. What may seem simple on the surface as "hide their post" or "don't let them comment", is [surprising complex when you look at all the facets](https://twitter.com/benbalter/status/1222956533794906113), but there are two aspects I'd specifically like to call out:
 
 #### 1. Hiding the blocked user's content
 
