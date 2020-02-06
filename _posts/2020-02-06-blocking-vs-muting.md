@@ -1,6 +1,6 @@
 ---
 title: User blocking vs. user muting
-description: Most platforms offer some form of user blocking, user muting, or both. Here's why GitHub has taken a bit of a unique approach to blocking that diverges from what you might see on other social networks.
+description: Most platforms offer some form of user blocking, user muting, or both. Here's a brief look at why GitHub has taken a bit of a unique approach to blocking that diverges from what you might see on other social networks and some of the special considerations that come as a result.
 ---
 
 Most platforms offer some form of user blocking, user muting, or both. Here's a brief look at why GitHub has taken a bit of a unique approach to blocking that diverges from what you might see on other social networks and some of the special considerations that come as a result. 
