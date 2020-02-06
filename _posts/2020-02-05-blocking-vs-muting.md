@@ -1,9 +1,11 @@
 ---
 title: User blocking vs. user muting
-description: Most social networks offer some form of user blocking, user muting, or both. Here's the difference between the two and why GitHub takes a unique approach to blocking that relies on federated community management for content moderation.
+description: Most platforms offer some form of user blocking, user muting, or both. Here's why GitHub takes a unique approach to blocking that relies on federated community management and how it takes into account mutually shared goals, but also the potential that those trusted to moderate communities may themselves be the ones that need to be blocked.
 ---
 
-Most social networks offer some form of user blocking, user muting, or both. Typically, each feature is roughly:
+Most platforms offer some form of user blocking, user muting, or both. Here's why GitHub takes a unique approach to blocking that relies on federated community management, and how it takes into account mutually shared goals, but also the potential that those trusted to moderate communities may themselves be the ones that need to be blocked. 
+
+Typically, each user safety feature is roughly:
 
 * **User Muting** - You don't see _the blocked user's_ content.
 * **User blocking** - The blocked user doesn't see _your_ content.
@@ -69,9 +71,7 @@ While it might be tempting to say that maintainers should have absolute control 
 
 GitHub has historically taken a different approach to user blocking and user muting than most other platforms, and can do so due to its unique structure and purpose. That's not to say that such an approach is without its complications, but I think the end result has allowed for a [largely federated moderation system](https://ben.balter.com/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#6-let-communities-opt-in-to-self-governance), where both contributors are protected and maintainrs can (and want to) keep conversations productive. 
 
-It's definately not the right approach for all platforms, but wanted to share a bit more about how I think about user-to-user protections on GitHub.
-
----
+It's definately not the right approach for all platforms, but I wanted to share a bit more about how I think about user-to-user protections on GitHub.
 
 [^1]: The ear plugs might work if everyone in the town wore them, thus nullifying the effects of the megaphone, but that's unlikely to happen (and isn't efficient in terms of allocating the externality).
 
