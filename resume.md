@@ -20,7 +20,7 @@ certifications:
   - authority: Bar Association of the District of Columbia
     name: Member, license 1021576
   - authority: International Information System Security Certification Consortium (ISC)²
-    name: Systems Security Certified Professional (SSCP) - Provisional
+    name: Systems Security Certified Practitioner (SSCP) - Provisional
   - authority: Wine & Spirit Education Trust (WSET)
     name: Level 3 (Advanced) Award in Wines
   - authority: Regulatory Council of Jerez-Xérès Sherry Denomination of Origin
