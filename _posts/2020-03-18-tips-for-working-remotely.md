@@ -1,5 +1,5 @@
 ---
-title: 8 tips for working remotely
+title: Eight tips for working remotely
 description: When embracing remote work, you could have the best tools in the world, but without the necessary social norms, you're setting yourself up for failure. Here are eight cultural "rules" that represent the intangible of successful remote communication, regardless of your industry, your role, or what tools you use.
 ---
 
