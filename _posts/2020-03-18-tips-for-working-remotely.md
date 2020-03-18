@@ -1,9 +1,9 @@
 ---
 title: 8 tips for working remotely
-description:  
+description: When embracing remote work, you could have the best tools in the world, but without the necessary social norms, you're setting yourself up for failure. Here are eight cultural "rules" that represent the intangible of successful remote communication, regardless of your industry, your role, or what tools you use.
 ---
 
-*Recently new to remote work culture? Whether your team is using Slack, Zoom, and Google Docs or Skype, Microsoft Teams, and Office 365, this post is a non-software-specific adaption of my popular post [15 rules for communicating at GitHub](2014/11/06/rules-of-communicating-at-github/) with "rules" adapted for successful remote communication, regardless of what tools you use or what industry you're in. Looking for help choosing the best tools to support remote workflows? Check out my other post [four characteristics of modern collaboration tools](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/).*
+*Recently new to remote work culture? This post is a non-software-specific adaption of my popular post [15 rules for communicating at GitHub](2014/11/06/rules-of-communicating-at-github/) with "rules" adapted for successful remote communication, regardless of what tools you use or what industry you're in. Looking for help choosing the best tools to support remote workflows? Check out my other post [four characteristics of modern collaboration tools](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/).*
 
 I've been working remotely for the past seven years at a company that creates tools for software developers to, well, work remotely to build software together (meta, right?). At GitHub, with the majority of the company being remote (including our top executives), we have developed a unique culture around how we work. We use our platform to collaborate on everything from Marketing and Legal to internal policies, but it's not that the medium defines the workflow (although it certainly helps), in fact, it's the other way around.
 
@@ -11,7 +11,7 @@ GitHub's remote-first communication style can be summed up in one word: [asynchr
 
 [Asynchronous communication through mediums like chat or collaborative document editing](http://zachholman.com/posts/github-communication/) eliminate the endemic "you had to be there" aspect of most corporate workflows, and [reduces the administrative overhead necessary to capture, collect, and shuttle information back and forth between business units](https://ben.balter.com/2012/12/16/deprecate-management/). You could have the best tools in the world, but without the necessary social norms, you're setting yourself up for failure.
 
-Culture's inherently hard to define, but here are eight "rules" that represent the intangible of successful remote communication, regardless of your industry, your role, or what tools you use:
+Culture's inherently hard to define, but here are eight cultural "rules" that represent the intangible of successful remote communication, regardless of your industry, your role, or what tools you use:
 
 ### 1. Prefer asynchronous communication
 
