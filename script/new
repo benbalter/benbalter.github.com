@@ -16,4 +16,4 @@ echo -e "---\ntitle: $title\ndescription:\n---\n\n" > "$file"
 git add "$file"
 git commit -m "Create $file"
 
-atom-beta pwd "$file"
+vsc pwd "$file"
