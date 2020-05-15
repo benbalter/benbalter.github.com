@@ -5,13 +5,13 @@ description:
 
 Maintaining a popular open source project presents unique challenges of open source community management at scale. 
 
-### Set contributors up for success
+### 1. Set contributors up for success
 
 Before a user interacts with your project for the first time, you want to do everything you can to set them up for success to ensure that they can discover and understand your project, that they can contribute constructively, and that everyone (yourself included) has a good experience. If this is your first time managing a popular open source project (congrats! :tada:), or even if it's not, but you could use a quick refresher, the [Building Welcoming Communities](https://opensource.guide/building-community/) and [Best Practices for Maintainers](https://opensource.guide/best-practices/) guides from [opensource.guide](https://opensource.guide/) are an incredible resource. Here a few specific suggestions to consider when setting up your project for healthy contributions:
 
 #### Guide users down the contributor funnel
 
-My colleague Mike McQuaid has the concept of the [contributor funnel](https://mikemcquaid.com/2018/08/14/the-open-source-contributor-funnel-why-people-dont-contribute-to-your-open-source-project/). Similar to prospects traveling down a sales funnel, maintainers should market their project to attract users, provide opportunities for those users to contribute, and encourage repeat contributors to take on additional responsibilities to help maintain the project.
+My colleague Mike McQuaid has the concept of the [contributor funnel](https://mikemcquaid.com/2018/08/14/the-open-source-contributor-funnel-why-people-dont-contribute-to-your-open-source-project/). Similar to prospects traveling down a sales funnel, maintainers should market their project to attract users, provide easy opportunities for those users to contribute, and encourage repeat contributors to take on additional responsibilities to help maintain the project.
 
 #### Make it easy for someone to use your project
 
@@ -27,11 +27,11 @@ Bug reports and feature requests can quickly become an overwhelming burden if yo
 
 #### Make it easy for users to contribute back
 
-Just as you think through your end-user experience, think critically about your developer and contributor experience. The easier it is for users to contribute, and to contribute in the ways you expect, the more contributions you'll get, and the less maintainers will have to intervene to enforce process or norms. In practice, that means [minimizing the fricion](https://ben.balter.com/2013/08/11/friction/) one must overcome to contribute and [document how to contribute](https://ben.balter.com/2017/11/10/twelve-tips-for-growing-communities-around-your-open-source-project/#5-document-how-to-contribute-and-that-you-want-contributions).
+Just as you think through your end-user experience, think critically about your developer and contributor experience. The easier it is for users to contribute, and to contribute in the ways you expect, the more contributions you'll get, and the less maintainers will have to intervene to enforce process or norms. In practice, that means [minimizing the friction](https://ben.balter.com/2013/08/11/friction/) one must overcome to contribute and [documenting how to contribute](https://ben.balter.com/2017/11/10/twelve-tips-for-growing-communities-around-your-open-source-project/#5-document-how-to-contribute-and-that-you-want-contributions).
 
-#### Issue/PR templates
+#### Set up issue and pull request templates
 
-ttps://help.github.com/en/github/building-a-strong-community/about-issue-and-pull-request-templates
+Encourage high-quality bug reports and feature requests and make it easier for users to follow your project's contributing guidelines by setting up [issue and pull request templates](https://help.github.com/en/github/building-a-strong-community/about-issue-and-pull-request-templates). Templates can also help streamline the triage process, by automatically applying labels or assignees. You can even add custom links to the new issue flow (such as to an external support forum or bug bounty program) or disable blank issues entirely. It's a delicate balance to strike, but be mindful of not introducing too much friction to the process, which might discourage contributions.
 
 #### Be responsive
 
@@ -42,7 +42,7 @@ For more information on how to put these concepts into action, see the [Setting 
 
 
 
-### Automate common community management tasks
+### 2. Automate common community management tasks
 
 * CI and style linters https://ben.balter.com/2017/11/10/, twelve-tips-for-growing-communities-around-your-open-source-project/#8-set-up-automated-tests, https://ben.balter.com/2017/11/10/twelve-tips-for-growing-communities-around-your-open-source-project/#9-enforce-code-standards
 * Welcome new contributors - https://github.com/actions/first-interaction, https://probot.github.io/apps/welcome/
@@ -51,7 +51,7 @@ For more information on how to put these concepts into action, see the [Setting 
 * Let folks know when an issue's been resolved - https://github.com/release-notifier/release-notifier
 * Label issues - https://github.com/actions/labeler
 
-### A note on Probot
+#### A note on Probot
 
 [Probot](https://probot.github.io/) is a great framework for building tools for automating many common maintainer workflows. It has an extensive plugin ecosystem for most common tasks, and can be installed to your repository with a single click, as plugins are distributed as hosted GitHub apps, running on the developers' infrastructure (often Heroku). 
 
@@ -59,7 +59,7 @@ Probot predates [GitHub Actions](https://github.com/features/actions), which all
 
 Whether you use Probot, a community-maintained Actions workflow, or your own Actions workflow is up to you, and largely depends on how much you're willing to trust a hosted tool versus being willing to stand up and maintain the execution environment yourself. The important thing is that you're automating common community management tasks. "Never force a human to do what a robot can", as I like to say.
 
-### Share
+### 3. Share
 
 * Org owned
 * 2FA enforcement
@@ -67,7 +67,7 @@ Whether you use Probot, a community-maintained Actions workflow, or your own Act
 * Advanced features
 * Community manager
 
-### Moderate conversations to keep them constructive
+### 4. Moderate conversations to keep them constructive
 
 * Code of conduct
 * Hide disruptive comments - https://help.github.com/en/github/building-a-strong-community/managing-disruptive-comments#hiding-a-comment
