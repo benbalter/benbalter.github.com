@@ -5,7 +5,7 @@ description: The next time you begin a new project, adopt a high-fidelity, elect
 
 <div class="border pt-3 px-2 m-1" markdown="1">
 
-**This post is about crafting human-centric URLs. Looking to better understand why things should have a URL in the first place? Check out my less-creatively-titled, but more to the point post [Why everything should have a URL](https://ben.balter.com/2015/11/12/why-urls/).**
+**This post is about crafting human-centric URLs. Looking to better understand why things should have a URL in the first place? Check out my less-creatively-titled, but more to the point post [Why everything should have a URL](https://ben.balter.com/2015/11/12/why-urls/). 👈**
 
 </div>
 
