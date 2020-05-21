@@ -20,7 +20,7 @@ In practice, this means that you essentially *never* "walk over" to a coworker's
 
 ### 2. Don't underestimate high-fidelity mediums
 
-High fidelity, synchronous mediums like meatspace, Hangouts, or chat are extremely valuable, when used correctly. In many workplace cultures, synchronous meetings are the default, and are often used to make (or worse, communicate) decisions, two goals that are better achieved by non-evented means. What are the latest sales numbers? Create a blog post. Which design should we choose? Open a pull request and show me. Reserve such high-fidelity mediums for things that simply can't be accomplished by lower fidelity means.
+High fidelity, synchronous mediums like Meetspace, Hangouts, or chat are extremely valuable, when used correctly. In many workplace cultures, synchronous meetings are the default, and are often used to make (or worse, communicate) decisions, two goals that are better achieved by non-evented means. What are the latest sales numbers? Create a blog post. Which design should we choose? Open a pull request and show me. Reserve such high-fidelity mediums for things that simply can't be accomplished by lower fidelity means.
 
 In practice, this can come in three primary forms:
 
