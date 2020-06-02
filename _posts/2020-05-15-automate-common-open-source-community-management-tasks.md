@@ -1,11 +1,27 @@
 ---
-title: automate common open source community management tasks
+title: How to automate common open source community management tasks
 description:
 ---
 
-### 2. Automate common community management tasks
+*This post is the second in a series on successfully managing open source communities at scale.*
 
-* CI and style linters https://ben.balter.com/2017/11/10/, twelve-tips-for-growing-communities-around-your-open-source-project/#8-set-up-automated-tests, https://ben.balter.com/2017/11/10/twelve-tips-for-growing-communities-around-your-open-source-project/#9-enforce-code-standards
+
+### Set up continuous integration
+
+Many developers think of continuous integration (CI) as a workflow tool, or a software quality tool, but it’s actually a powerful community building tool. Rather than needing to wait for a maintainer to review their work, which might span timezones or work schedules, automated tests provide contributors with instant feedback on their contribution. Beyond providing contributors with the opportunity to improve their code before a human review, CI also provides maintainers with confidence that a given feature or bug fix doesn’t introduce a regression, without necessarily needing to run the code locally.
+
+Automated testing can be used for more than just “does this thing work”. If your project (or language or framework) has adopted coding standards, use CI to enforce them. Most common languages have customizable linters, or, if necessary, you could always write your own for custom or one-off rules.
+
+As we say at GitHub, “pedantic robots > pedantic humans”. If a human comes along and criticizes your coding style or nit-picks every detail of your implementation, you might take it personally. If a robot makes those same suggestions, you’re less likely to.
+
+Automated code style enforcement via projects like Rubocop or WPCS not only ensures consistent code style to improve readability, it also allow contributors to get instant feedback on their code, all without your intervention.
+
+* CI and style linters https://ben.balter.com/2017/11/10/twelve-tips-for-growing-communities-around-your-open-source-project/#8-set-up-automated-tests, https://ben.balter.com/2017/11/10/twelve-tips-for-growing-communities-around-your-open-source-project/#9-enforce-code-standards
+
+
+### Automate common community management tasks
+
+
 * Welcome new contributors - https://github.com/actions/first-interaction, https://probot.github.io/apps/welcome/
 * Close stale issues and PRs - https://github.com/actions/stale, https://probot.github.io/apps/stale/
 * Request more info - https://probot.github.io/apps/request-info/, https://probot.github.io/apps/no-response/
