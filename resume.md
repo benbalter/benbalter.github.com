@@ -58,7 +58,7 @@ certifications:
 
 {% for degree in page.degrees %}
 
-### {{ degree.school }}
+#### {{ degree.school }}
 
 <div class="row">
   <div class="col">
@@ -75,7 +75,7 @@ certifications:
 
 {% for certification in page.certifications %}
 
-### {{ certification.authority }}
+#### {{ certification.authority }}
 
 {{ certification.name }}
 {% endfor %}
