@@ -1,6 +1,6 @@
 ---
 title: Automate common open source community management tasks
-description:
+description: Successful open source projects rely heavily on automation to implement and enforce community workflows and to make contributing a more self-serve experience.
 ---
 
 *This post is the second in a series on successfully managing open source communities at scale.*
@@ -44,3 +44,4 @@ Whether you use Probot, a community-maintained Actions workflow, or your own Act
 
 Finally, take a critical look at repetitive or time consuming tasks that can be automated to support your own workflow. Can releases be automated to get pushed to a package manager as soon as a release is cut? Can you automate generating the changelog or list of contributors based on pull requests merged since the last release? What about updating dependencies? If you can automate it, often times you should, as doing so frees you up to work on higher-value, more human-centric work.
 
+We often start open source projects to solve shared or novel technical challenges, but as a project grows, a maintainer's focus naturally shifts from the code to the people and processes around it. By automating common open source community management tasks, maintainers can better scale their own efforts, can create a better experience for contributors, and can create the space to focus on the types of problems maintainers are uniquely positioned to solve.
