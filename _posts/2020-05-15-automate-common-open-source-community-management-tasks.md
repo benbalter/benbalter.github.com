@@ -5,9 +5,7 @@ description:
 
 *This post is the second in a series on successfully managing open source communities at scale.*
 
-Successful open source projects rely heavily on automation.
-
-Don’t force humans to do what computers can.
+Successful open source projects rely heavily on automation to implement and enforce community workflows and to make contributing a more self-serve experience. Once you've [set open source contributors up for success](https://ben.balter.com/2020/05/15/set-open-source-contributors-up-for-success/), you can and should automate common community management tasks like issue triage, initial code review, and pruning your project backlog to ensure you can scale your own efforts and contributors continue to have a great experience and want to contribute, even as your community grows. Better yet, it can often be done with without writing any code that you have to host or maintain. As I like to say, never force a human to do what a computer can.
 
 ### Automate code review
 
@@ -41,3 +39,8 @@ Here are a few of my favorite Probot plugins and GitHub Actions for community ma
 Probot predates [GitHub Actions](https://github.com/features/actions), which allows you to run custom code in response to various repository events. Although the Actions ecosystem for automating common community management tasks is significantly smaller, many Probot plugins are being converted to GitHub Actions workflows. You can even [run existing Probot plugins on Actions](https://github.com/probot/actions-adapter) by adding them to your repository. 
 
 Whether you use Probot, a community-maintained Actions workflow, or your own Actions workflow is up to you, and largely depends on how much you're willing to trust a hosted tool versus being willing to stand up and maintain the execution environment yourself. The important thing is that you're automating common community management tasks.
+
+### Automate maintainer workflows
+
+Finally, take a critical look at repetitive or time consuming tasks that can be automated to support your own workflow. Can releases be automated to get pushed to a package manager as soon as a release is cut? Can you automate generating the changelog or list of contributors based on pull requests merged since the last release? What about updating dependencies? If you can automate it, often times you should, as doing so frees you up to work on higher-value, more human-centric work.
+
