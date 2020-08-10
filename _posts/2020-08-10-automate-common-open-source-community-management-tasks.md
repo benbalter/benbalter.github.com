@@ -29,6 +29,7 @@ Here are a few of my favorite Probot plugins and GitHub Actions for community ma
 | Close stale issues and PRs | [Stale](https://probot.github.io/apps/stale/)                                                                          | [Stale](https://github.com/actions/stale)                         |
 | Request more info          | [Request info](https://probot.github.io/apps/request-info/), [No response](https://probot.github.io/apps/no-response/) |                                                                   |
 | Label issues               | [Issue labeler](https://probot.github.io/apps/issuelabeler/)                                                           | [Labeler](https://github.com/actions/labeler)                     |
+{: .table }
 
 *Have a favorite community management Probot Plugin or GitHub Action not listed here? Please {% github_edit_link "Add it" %}.*
 
