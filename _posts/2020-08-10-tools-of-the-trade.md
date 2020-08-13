@@ -8,6 +8,7 @@ description:
 * Default to open, visible, and discoverable
 * Prefer asynchronous, unless the conversation requires higher-fidelity
 * Use systems that naturally capture and expose process. If not, memorialize after the fact.
+* Optimize for discoverability. Prefer "fewer places to look" over "the best tool for _this particular_ job"
 * Use the best tool for the job, but favor to GitHub
 * Err on the side of over-communicating
 * Write things down and capture the "why"
