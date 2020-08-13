@@ -20,14 +20,6 @@ Regardless of the tools you use, here are a few overarching principles that shou
 
 Now, as for when to use specific tools:
 
-### Google Docs
-
-* **When**: Early ideation and definition (or in-meeting note taking), with the goal of ultimately memorializing the document in an issue or pull request for visibility and reach. Think of it as "top-of-the funnel collaboration".
-* **Who**: Small group of trusted stakeholders (grant access liberally to avoid contributor friction)
-* **Why**: Quick iteration cycles, collaborative editing
-
-*Caveat emptor: Google Docs discovery is poor, as is understanding the state of a document once you discover it. Use Google docs early in an idea's lifecycle, but burn it down as soon as possible and replace the content with a link to the canonical source to avoid confusion.*
-
 ### Issues
 
 * **When**: Task tracking. Think of issues as team- or organization-wide TODOs. Issues should be the default unless another medium is more appropriate.
@@ -40,6 +32,26 @@ Now, as for when to use specific tools:
 * **Who**: Entire teams or the entire organization.
 * **Why**: Many of the benefits of issues, except they don't have an open/closed state and thus are more suited for ongoing discussions or blog-like posts with comments.
 
+### Documentation (Git)
+
+* **Who**: Team, stakeholders, the entire organization
+* **When**: Project plans, technical overviews, ADRs, team process, etc. - anything non-ephemeral and without an open/closed state
+* **Why**: Discoverability, auditability, permanence.
+  
+### Google Docs
+
+* **When**: Early ideation and definition (or in-meeting note taking), with the goal of ultimately memorializing the document in an issue or pull request for visibility and reach. Think of it as "top-of-the funnel collaboration".
+* **Who**: Small group of trusted stakeholders (grant access liberally to avoid contributor friction)
+* **Why**: Quick iteration cycles, collaborative editing
+
+*Caveat emptor: Google Docs discovery is poor, as is understanding the state of a document once you discover it. Use Google docs early in an idea's lifecycle, but burn it down as soon as possible and replace the content with a link to the canonical source to avoid confusion.*
+ 
+### Google Slides
+
+* **When**: Briefings, proposals, and updates that summarize information captured by other means (e.g., Issues, Git). 
+* **Who**: Leadership
+* **Why**: Short-form and easily digestible. Be sure to memorialize in-person decisions after the fact.
+
 ### Chat
 
 Generally, use chat for informal office communication, community comradery, water cooler talk, tactical coordination, and to amplify messages communicated elsewhere, not as a canonical source of truth. Chat is useful but it's ephemeral and provides no guarantee of delivery, especially across timezones where it can be unintentionally exclusive. Treat chat as transient and hold each other accountable for writing important things down more durably. Specifically:
@@ -48,13 +60,13 @@ Generally, use chat for informal office communication, community comradery, wate
 
 * **When**: Urgent needs, conversations not appropriate for any other channel
 * **Who**: Peers, manager, directs
-* **Why**: 
+* **Why**: Sometimes a private side-conversation is necessary, but to ensure context is surfaced, it should be the exception, not the default.
 
 #### Small group DMs
 
 * **When**: Only if absolutely necessary for short-lived and ad-hoc coordination. 
 * **Who**: Peers
-* **Why**: While immediately convenient, small group DMs don't allow you to add additional recipients, can't be descriptively named, push all messages by default, and are difficult to recall after the fact. Preferred (named) private or public channels whenever you can.
+* **Why**: While immediately convenient, small group DMs don't allow you to add additional recipients, can't be descriptively named, push all messages by default, and are difficult to recall after the fact. Prefer (named) private or public channels whenever you can.
 
 #### Private channels
 
@@ -68,30 +80,18 @@ Generally, use chat for informal office communication, community comradery, wate
 * **Who**: Team, stakeholders, the entire organization.
 * **Why**: Discoverability, passive awareness, and learning.
 
-### Documentation (Git)
-
-* **Who**: Team, stakeholders, the entire organization
-* **When**: Project plans, technical overviews, ADRs, team process, etc. - anything non-ephemeral and without an open/closed state
-* **Why**: Discoverability, auditability, permanence.
- 
-### Google Slides
-
-* **When**: Briefings, proposals, and updates that summarize information captured by other means (e.g., Issues, Git). 
-* **Who**: Leadership
-* **Why**: Short-form and easily digestible. Be sure to memorialize in-person decisions after the fact.
-
 ### Video chat and meatspace
 
 #### In-person 1:1s
 
-* **When**: 
-* **Who**:
-* **Why**:
+* **When**: Regular checkins, manager 1:1s, catching up, resolving conflict, etc.
+* **Who**: Peers, manager, directs
+* **Why**: [Human conversations deserve human faces](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#2-dont-underestimate-high-fidelity-mediums).
 
 #### In-person meetings
 
-* **When**: 
-* **Who**: 
-* **Why**:
+* **When**: Regular syncs, resolving complex issues, ideation, project kickoffs, social time, etc.
+* **Who**: Teams, extended stakeholders, peers.
+* **Why**: Some conversations require higher fidelity than issues or chat can offer. Be sure to have an agenda and goals. Memorialize decisions after the fact in a more-permanent medium.
 
-Huge H/T @corywilkerson
+At least, that's how I communicate at GitHub. A huge hat tip to @corywilkerson, who's words inspired (and in some cases compromise) this post. Do you use these tools differently? Find other tools get the job done better? Let me know in the comments below.
