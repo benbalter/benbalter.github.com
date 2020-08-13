@@ -37,16 +37,18 @@ Now, as for when to use specific tools:
 * **Who**: Team, stakeholders, the entire organization
 * **When**: Project plans, technical overviews, ADRs, team process, etc. - anything non-ephemeral and without an open/closed state
 * **Why**: Discoverability, auditability, permanence.
-  
-### Google Docs
+
+### Google (and Office)
+
+Caveat emptor: Google Docs discovery is poor, as is understanding the state of a document once you discover it. Use Google docs (or Office) early in an idea's lifecycle, but burn it down as soon as possible and replace the content with a link to the canonical source to avoid confusion.
+
+#### Docs
 
 * **When**: Early ideation and definition (or in-meeting note taking), with the goal of ultimately memorializing the document in an issue or pull request for visibility and reach. Think of it as "top-of-the funnel collaboration".
 * **Who**: Small group of trusted stakeholders (grant access liberally to avoid contributor friction)
 * **Why**: Quick iteration cycles, collaborative editing
-
-*Caveat emptor: Google Docs discovery is poor, as is understanding the state of a document once you discover it. Use Google docs early in an idea's lifecycle, but burn it down as soon as possible and replace the content with a link to the canonical source to avoid confusion.*
  
-### Google Slides
+#### Slides
 
 * **When**: Briefings, proposals, and updates that summarize information captured by other means (e.g., Issues, Git). 
 * **Who**: Leadership
