@@ -1,20 +1,24 @@
 ---
 title: "Tools of the trade: How I communicate at GitHub"
-description:
+description: How I work and how I think about the tools we use to communicate at GitHub
 ---
 
-I've [long said](https://twitter.com/benbalter/status/1236050708996243456), "how we work is as important as what we work on". Here's how I work and how I think about the tools we use to communicate at GitHub: 
+I've [long said](https://twitter.com/benbalter/status/1236050708996243456), "how we work is as important as what we work on". Here's how I work and how I think about the tools we use to communicate at GitHub:
 
-### Principles
+### First principles
 
-* Default to open, visible, and discoverable
-* Prefer asynchronous, unless the conversation requires higher-fidelity
-* Use systems that naturally capture and expose process. If not, memorialize after the fact.
-* Optimize for discoverability. Prefer "fewer places to look" over "the best tool for _this particular_ job"
-* Use the best tool for the job, but favor to GitHub
-* Err on the side of over-communicating
-* Write things down and capture the "why"
-* [Everything should have a URL](https://ben.balter.com/2015/11/12/why-urls/)
+Regardless of the tools you use, here are a few overarching principles that should guide your choices:
+
+* Default to open, visible, and discoverable.
+* Prefer asynchronous, unless the conversation requires higher-fidelity.
+* Use systems that naturally capture and expose process. If you don't, memorialize after the fact.
+* Use the best tool for the job, but favor to GitHub.
+* Optimize for discoverability. Solve for "fewer places to look".
+* Err on the side of over-communicating.
+* Write things down and capture the "why".
+* [Everything should have a URL](https://ben.balter.com/2015/11/12/why-urls/).
+
+Now, as for when to use specific tools:
 
 ### Google Docs
 
