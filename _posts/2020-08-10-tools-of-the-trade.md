@@ -3,6 +3,8 @@ title: "Tools of the trade: How I communicate at GitHub"
 description:
 ---
 
+I've [long said](https://twitter.com/benbalter/status/1236050708996243456), "how we work is as important as what we work on". Here's how I work and how I think about the tools we use to communicate at GitHub: 
+
 ### Principles
 
 * Default to open, visible, and discoverable
@@ -29,7 +31,7 @@ description:
 * **Why**: Issues naturally capture and expose process, can easily loop in additional stakeholders, create opt-out-able notifications, cross link to other issues for ease of discoverability, and can be closed out once the required action is complete to increase the visibility of in-flight efforts.
 
 ### Discussions
-
+ 
 * **When**: Long-lived conversations that don't involve an open/closed state. This can be Q&A, internal updates, or social discussions. you can even treat discussions like an internal blog.
 * **Who**: Entire teams or the entire organization.
 * **Why**: Many of the benefits of issues, except they don't have an open/closed state and thus are more suited for ongoing discussions or blog-like posts with comments.
@@ -65,7 +67,7 @@ Generally, use chat for informal office communication, community comradery, wate
 ### Documentation (Git)
 
 * **Who**: Team, stakeholders, the entire organization
-* **When**: Project plans, technical overviews, ADRs, team process, etc. - anything non-ephemeral and without state
+* **When**: Project plans, technical overviews, ADRs, team process, etc. - anything non-ephemeral and without an open/closed state
 * **Why**: Discoverability, auditability, permanence.
  
 ### Google Slides
