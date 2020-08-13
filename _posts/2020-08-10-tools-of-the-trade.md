@@ -20,6 +20,8 @@ description:
 * **Who**: Small group of trusted stakeholders (grant access liberally to avoid contributor friction)
 * **Why**: Quick iteration cycles, collaborative editing
 
+*Caveat emptor: Google Docs discovery is poor, as is understanding the state of a document once you discover it. Use Google docs early in an idea's lifecycle, but burn it down as soon as possible and replace the content with a link to the canonical source to avoid confusion.*
+
 ### Issues
 
 * **When**: Task tracking. Think of issues as team- or organization-wide TODOs. Issues should be the default unless another medium is more appropriate.
