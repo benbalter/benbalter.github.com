@@ -21,7 +21,7 @@ If tools constrain our communication patterns and thus the outcomes they produce
 * Err on the side of [over-communicating](https://ben.balter.com/2017/05/23/seven-ways-to-consistently-ship-great-features/#1-over-communicate).
 * Write things down and capture the "why".
 * [Everything should have a URL](https://ben.balter.com/2015/11/12/why-urls/).
-* [Practicality beats purity](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/#practicality-beats-purity)
+* [Practicality beats purity](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/#practicality-beats-purity).
 
 ### The tools I use (and why I use them)
 
@@ -42,7 +42,7 @@ Here's how I think about the tools we use to communicate at GitHub: **What** too
 
 #### Discussions
  
-* **When**: Long-lived conversations that don't involve an open/closed state. This can be Q&A, internal updates, or social discussions. you can even treat discussions like an internal blog.
+* **When**: Long-lived conversations that don't involve an open/closed state. This can be Q&A, internal updates, or social discussions. You can even treat discussions like an internal blog.
 * **Who**: Entire teams or the entire organization.
 * **Why**: Many of the benefits of issues, except they don't have an open/closed state and thus are more suited for ongoing discussions or blog-like posts with comments that live outside day-to-day workstreams.
 
