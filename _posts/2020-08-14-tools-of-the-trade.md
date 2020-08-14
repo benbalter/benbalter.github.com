@@ -117,6 +117,6 @@ Generally, use chat for informal office communication, community comradery, wate
 * **Who**: Customers, partners, and other external stakeholders
 * **Why**: [Email is a terrible, terrible collaboration medium, and an even worse mechanism for storing organizational knowledge](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#11-secrets-secrets-are-no-fun).
 
-At least, that's how I communicate at GitHub, and I often see those communication patterns reflected in the products my teams produce. Why does your organizations (or team) communicate the way it does? Are those principles written down? Do the tools you use reflect the outcomes you'd like to drive?
+At least, that's how I communicate at GitHub, and I often see those communication patterns reflected in the products my teams produce. Why does your organization (or team) communicate the way it does? Are those principles written down? Do the tools you use reflect the outcomes you'd like to drive?
 
 *A huge hat tip to @corywilkerson, whose words inspired (and in some cases comprise) this post.* 
