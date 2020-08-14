@@ -101,7 +101,7 @@ Generally, use chat for informal office communication, community comradery, wate
 
 ###### In-person meetings
 
-* **When**: Regular syncs, working through complex issues, ideation, project kickoffs, retros, social time, etc. Meetings shouldn't be used for status updates, to force work, or any task that best handled asynchronously. [Reserve high-fidelity mediums for the types of conversations that benefit from being face-to-face or ephemeral](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/#4-asynchronous-decision-making)
+* **When**: Regular syncs, working through complex issues, ideation, project kickoffs, retros, social time, etc. Meetings shouldn't be used for status updates, to force work, or any task that's best handled asynchronously. [Reserve high-fidelity mediums for the types of conversations that benefit from being face-to-face or ephemeral](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/#4-asynchronous-decision-making).
 * **Who**: Teams, extended stakeholders, peers.
 * **Why**: Some conversations require higher fidelity than issues or chat can offer. Be sure to have an agenda and goals. Memorialize decisions after the fact in a more-permanent medium. 
 
@@ -113,4 +113,4 @@ Generally, use chat for informal office communication, community comradery, wate
 
 At least, that's how I communicate at GitHub, and I often see those communication patterns reflected in the products my teams produce. Why does your organizations (or team) communicate the way it does? Are those principles written down? Do the tools you use reflect the outcomes you'd like to drive?
 
-*A huge hat tip to @corywilkerson, who's words inspired (and in some cases compromise) this post.* 
+*A huge hat tip to @corywilkerson, who's words inspired (and in some cases comprise) this post.* 
