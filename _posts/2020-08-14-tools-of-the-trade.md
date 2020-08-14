@@ -11,7 +11,7 @@ Many organizations are dogmatic about how they communicate and the tools they us
 
 ### First principles
 
-If tools constrain our communication patterns and thus the outcomes they produce, before choosing a tool for a given job, you need to first understand what outcomes you want the system to optimize for. Every organization is different, but here are some guiding principles for how I believe organizations best communicate, principles largely based on [GitHub's historic communication patterns](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/) (and before that, the open source community as a whole):
+If tools constrain our communication patterns and thus the outcomes they produce, before choosing a tool for a given job, you need to first understand what outcomes you want the system to optimize for. Every organization is different, but here are some guiding principles for [how I believe organizations best communicate](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/), principles largely based on [GitHub's historic communication patterns](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/) (and before that, the open source community as a whole):
 
 * Default to [open](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/#1-open).
 * [Prefer asynchronous](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#1-prefer-asynchronous-communication), unless the conversation requires higher-fidelity.
