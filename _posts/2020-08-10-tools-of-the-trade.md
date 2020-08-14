@@ -13,11 +13,11 @@ Here's how I think about the tools we use to communicate at GitHub: **What** too
 
 ### First principles
 
-Regardless of the tools you use, here are a few overarching principles that should guide your choices:
+As mentioned earlier, all tools constrain and shape our communication patterns, and thus our outcomes. Before choosing a tool, you need to first understand what outcomes you want to optimize for. Here are some guiding principles for how I believe organizations best communicate, principles largely based on [GitHub's historic communication patterns](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/) (and before that, the open source community as a whole):
 
 * Default to open, visible, and discoverable.
 * Prefer asynchronous, unless the conversation requires higher-fidelity.
-* Use systems that naturally capture and expose process. If you don't, memorialize after the fact.
+* Use systems that naturally capture and expose process. If you don't, memorialize outcomes after the fact.
 * Use the best tool for the job, but favor to GitHub.
 * Optimize for discoverability. Solve for "fewer places to look".
 * Err on the side of over-communicating.
