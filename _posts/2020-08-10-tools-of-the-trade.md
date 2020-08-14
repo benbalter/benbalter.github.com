@@ -3,7 +3,13 @@ title: "Tools of the trade: How I communicate at GitHub"
 description: How I work and how I think about the tools we use to communicate at GitHub
 ---
 
-I've [long said](https://twitter.com/benbalter/status/1236050708996243456), "how we work is as important as what we work on". Here's how I work and how I think about the tools we use to communicate at GitHub:
+I've [long said](https://ben.balter.com/2015/09/21/open-source-behind-the-firewall/#how-you-work-is-as-important-as-what-you-work-on), "How you work is as important as what you work on":
+
+> The tools you choose matter. Tools are more than mere convenience. Tools force teams into particular workflows, workflows that constrain not just how software is produced, but what software is possible. It’s no coincidence then that the open source community, in order to produce the type of software it produces, adopts vastly different tools than most enterprise developers have available to them at their office.
+
+Many organizations are opinionated about how they communicate and the tools they use, some purposefully, some out of habit or default. But even among opinionated organizations, so many fail to communicate _why_ they choose to work the way they do. This can lead to somewhat of a [cargo cult](https://en.wikipedia.org/wiki/Cargo_cult) mentality in which tools are used, often superficially, because they've observed others use them, even if they're not the best tool for the job.
+
+Here's how I think about the tools we use to communicate at GitHub: **What** tools I use, **when** I use them, **who** I use them to collaborate with, and most importantly, **why** I believe you should use that particular tool for the job.
 
 ### First principles
 
@@ -38,9 +44,9 @@ Now, as for when to use specific tools:
 * **When**: Project plans, technical overviews, ADRs, team process, etc. - anything non-ephemeral and without an open/closed state
 * **Why**: Discoverability, auditability, permanence.
 
-### Google (and Office)
+### Real-time collaborative editing
 
-Caveat emptor: Google Docs discovery is poor, as is understanding the state of a document once you discover it. Use Google docs (or Office) early in an idea's lifecycle, but burn it down as soon as possible and replace the content with a link to the canonical source to avoid confusion.
+Caveat emptor: Google Docs (and Office) discovery is poor, as is understanding the state of a document once you discover it. Use Google docs (or Office) early in an idea's lifecycle, but burn it down as soon as possible and replace the content with a link to the canonical source to avoid confusion.
 
 #### Docs
 
