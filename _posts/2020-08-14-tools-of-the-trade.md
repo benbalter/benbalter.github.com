@@ -16,7 +16,7 @@ If tools constrain our communication patterns and thus the outcomes they produce
 * Default to [open](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/#1-open).
 * [Prefer asynchronous](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#1-prefer-asynchronous-communication), unless the conversation requires higher-fidelity.
 * Use systems that [naturally capture and expose process](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/#2-captures-and-exposes-process). If you don't, memorialize outcomes after the fact.
-* Use the best tool for the job, but favor to GitHub.
+* Use the best tool for the job, but favor GitHub.
 * Optimize for discoverability. Solve for "fewer places to look".
 * Err on the side of [over-communicating](https://ben.balter.com/2017/05/23/seven-ways-to-consistently-ship-great-features/#1-over-communicate).
 * Write things down and capture the "why".
