@@ -34,6 +34,12 @@ Here's how I think about the tools we use to communicate at GitHub: **What** too
 * **Why**: Issues naturally capture and expose process, can easily loop in additional teams, create opt-out-able notifications, cross link to other issues for ease of discoverability, and can be closed out once the required action is complete to increase the visibility of in-flight efforts. They’re not perfect, but as GitHub's most common medium, issues start conversations, allow stakeholders to opt-in to additional context, and create permanent, searchable, and linkable records of who made what decision when and why. 
 * **How**: [Keep discussions logically distinct](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#9-keep-discussions-logically-distinct). When opening an issue (or commenting on one), [be sure to offer sufficient context](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#3-nobody-gets-fired-for-buying-ibm-opening-an-issue).
 
+#### Projects
+
+* **When**: Project tracking and task-level coordination
+* **Who**: Entire team, occasionally extended stakeholders
+* **Why**: If issues track state at the task level, projects track state at the project level - what's on deck, what's in flight, what's done, who's working on what, etc. If using issues (instead of cards), projects have all the benefits of issues, but offer a perspective one level of abstraction up.
+
 #### Discussions
  
 * **When**: Long-lived conversations that don't involve an open/closed state. This can be Q&A, internal updates, or social discussions. you can even treat discussions like an internal blog.
