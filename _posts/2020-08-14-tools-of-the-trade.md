@@ -113,4 +113,4 @@ Generally, use chat for informal office communication, community comradery, wate
 
 At least, that's how I communicate at GitHub, and I often see those communication patterns reflected in the products my teams produce. Why does your organizations (or team) communicate the way it does? Are those principles written down? Do the tools you use reflect the outcomes you'd like to drive?
 
-*A huge hat tip to @corywilkerson, who's words inspired (and in some cases comprise) this post.* 
+*A huge hat tip to @corywilkerson, whose words inspired (and in some cases comprise) this post.* 
