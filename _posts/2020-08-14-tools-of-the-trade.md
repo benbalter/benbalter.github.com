@@ -38,7 +38,7 @@ Here's how I think about the tools we use to communicate at GitHub: **What** too
 
 * **When**: Project tracking and task-level coordination
 * **Who**: Entire team, occasionally extended stakeholders
-* **Why**: If issues track state at the task level, projects track state at the project level - what's on deck, what's in flight, what's done, who's working on what, etc. If using issues (instead of cards), projects have all the benefits of issues, but offer a perspective one level of abstraction up.
+* **Why**: If issues track state at the task level, projects track state at the project level - what's on deck, what's in flight, what's done, who's working on what, etc. When using issues (instead of cards) to track work, projects have all the benefits of issues, but offer a perspective one level of abstraction up.
 
 #### Discussions
  
