@@ -40,7 +40,7 @@ Should that fail and a user post something disruptive, your next line of defense
 
 Even more impactful (and most challenging) would be to prevent that content from being created in the first place by encouraging good behavior from the onset. This involves encouraging community leaders to establish and document community norms and providing the tools to (often aggressively) communicate those norms to new community members.
 
-Defense in depth is a time-tested concept within the security community and the same principles apply to content moderation. You can't solely offer safeguards like user blocking or muting and expect an overall-welcoming community absent additional before- and after-the-fact product interventions.
+Defense in depth is a time-tested concept within the security community and the same principles apply to content moderation. You can't solely offer [safeguards like user blocking or muting](https://ben.balter.com/2020/02/06/blocking-vs-muting/) and expect an overall-welcoming community absent additional before- and after-the-fact product interventions.
 
 ### 4. Encourage good "online citizenship"
 
