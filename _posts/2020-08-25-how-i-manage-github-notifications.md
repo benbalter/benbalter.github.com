@@ -1,6 +1,6 @@
 ---
 title: How I manage GitHub notifications
-description: My philosophy, workflow, settings, and tools for how I manage the onslaught of notifications on GitHub.
+description: My philosophy, workflow, settings, and tools for how I manage the never-ending stream of notifications on GitHub.
 ---
 
 As a Product Manager at GitHub, GitHub.com is my primary means of communication day-to-day. I'm constantly reading and replying to GitHub threads to coordinate work within and across teams. On the average work day it's not uncommon that I'll receive upwards of 200 GitHub notifications (about 15 per hour on average during the work day). While that volume could easily become distracting or overwhelming, it's not (well, not usually at least). Here's how I manage GitHub notifications to remain focused and productive:
