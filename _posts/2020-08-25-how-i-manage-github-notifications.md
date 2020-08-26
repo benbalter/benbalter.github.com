@@ -7,7 +7,7 @@ As a Product Manager at GitHub, GitHub.com is my primary means of communication 
 
 ### Philosophy and workflow
 
-*TL;DR: I use web notifications for everything but @mentions, which I have pushed to me via email. I subscribe to lots of repositories to ensure I don't miss anything, but unsubscribe from any thread not immediately relevant to me to keep noise to a minimum. I also have a few tools I've built to customize GitHub notifications for [the way I work](http://localhost:4000/2020/08/14/tools-of-the-trade/).*
+*TL;DR: I use web notifications for everything but @mentions, which I have pushed to me via email. I subscribe to lots of repositories to ensure I don't miss anything, but unsubscribe from any thread not immediately relevant to me to keep noise to a minimum. I also have a few tools I've built to customize GitHub notifications for [the way I work](/2020/08/14/tools-of-the-trade/).*
 
 #### Work on GitHub is asynchronous
 
