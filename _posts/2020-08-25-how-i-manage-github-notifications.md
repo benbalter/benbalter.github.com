@@ -62,7 +62,7 @@ When I click through a notification, I want to know exactly what's being asked o
 
 #### Notifier for GitHub
 
-While the blue notification light at the top of every page is great, I like easier access to the `/notifications` page when I'm not on GitHub. [Notified for GitHub](https://github.com/sindresorhus/notifier-for-github), is a browser extension that adds a GitHub notification badge (with number of unread notifications) to your address bar to that you always have easy access.
+While the blue notification light at the top of every page is great, I like easier access to the `/notifications` page when I'm not on GitHub. [Notifier for GitHub](https://github.com/sindresorhus/notifier-for-github), is a browser extension that adds a GitHub notification badge (with number of unread notifications) to your address bar to that you always have easy access.
 
 #### Bot notification silencer
 
