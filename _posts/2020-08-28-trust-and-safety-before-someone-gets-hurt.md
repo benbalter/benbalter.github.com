@@ -41,7 +41,7 @@ Your Terms of Service establishes a baseline for acceptable behavior that genera
 
 When you receive a report of abuse or harassment, you'll want to ensure your content moderation team (you have one, right?) has the necessary audit trail available to them to recreate the incident sufficiently to accurately and fairly apply your platform's policy. That means that any potentially harmful or destructive action should establish an immutable record that captures, retains, and exposes all relevant information. Equally important is capturing what action, if any, the moderation team took, and why to build an ongoing "[rap sheet](https://en.wikipedia.org/wiki/Criminal_record)" for the account in the event of subsequent infractions.
 
-### Always seek user consent
+### User consent
 
 Many negative interactions occur [when well-intentioned features assume implicit consent among those involved](https://ben.balter.com/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#9-always-seek-user-consent). Platforms let their users down when one user’s disruptive behavior is able to negatively impact another user without any action on their part. Users should be given the information necessary to make an informed decision to opt-in to engage in every activity on your platform. The easiest way to do this is to establish safe defaults with a bias towards privacy and ask for permission prior to any potentially disruptive interaction.
 
