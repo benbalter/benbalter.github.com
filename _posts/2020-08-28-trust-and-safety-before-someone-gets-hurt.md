@@ -47,7 +47,7 @@ Many negative interactions occur [when well-intentioned features assume implicit
 
 ### Internal education, consulting, shared services, and expertise
 
-Just building tools or establishing policies will never be enough. Equally important is cultivating a team with deep, platform-specific, subject-matter expertise that can build shared systems, educate feature teams as to the risks and remediations, consult on features for potential abuse vectors early in the product lifecycle, and drive a safety-centric product and engineering culture more broadly. Trust and Safety is only truly successful when it's part of the company's DNA and enjoys widespread executive and grassroots support.
+Just building tools or establishing policies will never be enough. Equally important is cultivating a team with deep, platform-specific, subject-matter expertise that can build shared systems, educate feature teams as to the risks and remediations, consult on features for potential abuse vectors early in the product lifecycle, and drive a safety-centric product and engineering culture more broadly. Trust and Safety is only truly successful in the long-run when it's part of the company's DNA and enjoys widespread executive and grassroots support.
 
 ### Tables stakes for any platform with user-to-user interactions
 
