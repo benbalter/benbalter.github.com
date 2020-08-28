@@ -1,5 +1,5 @@
 ---
-title: N Trust and Safety features to build into your product before someone gets hurt
+title: Seven Trust and Safety features to build into your product before someone gets hurt
 description:
 ---
 
@@ -49,7 +49,7 @@ Many negative interactions occur [when well-intentioned features assume implicit
 
 Just building tools or establishing policies will never be enough. Equally important is cultivating a team with deep, platform-specific, subject-matter expertise that can build shared systems, educate feature teams as to the risks and remediations, consult on features for potential abuse vectors early in the product lifecycle, and drive a safety-centric product and engineering culture more broadly. Trust and Safety is only truly successful when it's part of the company's DNA and enjoys widespread executive and grassroots support.
 
-### Tables takes for any platform with user-to-user interaction
+### Tables stakes for any platform with user-to-user interaction
 
 Looking at this list, it may be easy to ask why, if GitHub implemented these features, why Kat's experience was still possible. The list above represents the bare-minumum I'd expect of any modern social network today. The reality is that Trust and Safety is an adversarial space, and it requires a baseline of ongoing investment to stay one step ahead of those who wish to do harm to others - [federated community management](https://ben.balter.com/2019/07/18/a-community-of-communities-oscon-2019/), automated flagging, sentiment analysis, [sockpuppet](https://en.wikipedia.org/wiki/Sockpuppet_(Internet)) corelation, [brigade](https://www.merriam-webster.com/words-at-play/brigading-online-poll-meaning) prevention, anomaly detection, reducing the visibility or discoverability of toxic content, temporary interaction limits, reputation scores, identity verification, minimizing product bias, platform policy - the list goes on. And that's _only_ looking at targeted harassment, without addressing privacy, spam, inauthentic behavior, faking signals of trust, intentionally misleading content, impersonation, phishing, illegal content[^2], malware, namespace reuse, financial fraud, resource abuse, rate limiting, or account security among other potential threats to your users and your community.
 
