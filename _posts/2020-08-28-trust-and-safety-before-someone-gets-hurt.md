@@ -15,19 +15,42 @@ At best, abuse and harassment is disruptive and diminishes the user experience, 
 
 As I've transitioned from Trust and Safety to product Security, I'm starting to see just how differently we treat product security from user safety. If you knew of a security vulnerability in your product, you wouldn't deprioritize it because it had only been exploited "a few" times. Ideally, you'd remediate it before it's used even once, and in the event you weren't able to do so, almost without question, it becomes a p0 priority as soon as you discover the first instance of it's exploitation. So why would we protect our user's data with better care than we'd seek to protect the user themselves?
 
-There are a number of incentive-based and ___ reasons for that, but if you're building a product and to take ab use and harassment seriously _before_ someone gets hurt, here are N trust and safety features to build into your product early on:
+There are a number of incentive-based and ___ reasons for that, but if you're building a product and want to take abuse and harassment seriously _before_ someone gets hurt, here are N trust and safety features to build into your product early on:
 
-### Spam and suspension
-Blocking or muting
-Internal education, consulting, and shared services
-Per-content reporting
-Moderation tools
-Staff moderation
-Community moderation
-CoC
+### Blocking or muting
+
+When a user experiences abuse or harassment, at minimum, they need basic tools to minimize their continued exposure to the unwanted behavior. On most platforms, user muting is a feature that prevents you from seeing or receiving notifications for the activity of another user. User blocking, includes all the features of user muting, but goes a step further in that it also prevents the blocked user from seeing your content. Because they can’t see your content, the blocked user logically can’t interact with your content either. I've [written before about the shortfalls of user blocking and muting](https://ben.balter.com/2020/02/06/blocking-vs-muting/), but at minimum, you'll want some way for a user experiencing abuse, harassment, or other unwanted content to be able to minimize the impact on their experience.
+
+### Reporting
+
+Once a user has taken steps to minimize their exposure to the abuse or harassment, you'll want some mechanism for them to report the abuse to you to escalate a response. This could be per-account, but ideally, it should be associated with the content in question, and as frictionless as possible. The user may have just had an upsetting or unsettling experience, and the last thing you want to do is add to it with an endless maze of forms as captchas. Collect as much metadata as you can automatically to absorb the complexity on behalf of the reporting user, and associate it with the report. More mature abuse reporting systems also provide the reporting user with transparency as to the resolution of their report.
+
+### Hiding content
+
+You'll want some way to hide existing content. Ideally, you'd have the ability to hide both specific pieces of content and all content from a specific user, preventing their content from being seen by others. The moderation can be transparent, or in the form of a [shadow ban](https://en.wikipedia.org/wiki/Shadow_banning) to prevent the actor from shifting tactics. 
+
+### Account suspension
+
+Beyond hiding existing content, you'll also want some way to prevent the creation of new content. This is often done by preventing the user from logging in entirely and can be used in the event of an ongoing or egregious violation of your terms of service or community guidelines where continued use of the platform isn't justified.
+
+### Community guidelines
+
+Your Terms of Service establishes a baseline for acceptable behavior that generally hovers somewhere around “don’t do anything illegal”. To ensure you have the policy means to respond to abuse and harassment on your platform, you should also establish heightened community guidelines beyond those bare minimums, that establishes “golden-rule”-type expectations like don’t be a bully or don’t threaten other users. As I've [said before](https://ben.balter.com/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#10-be-purposeful-about-the-role-you-play), platforms should be mindful of the role they play as the builders and maintainers of digital town squares.
+
+### Consent
+
+### Internal education, consulting, and shared services
+
+Just building tools or establishing policies will never be enough. 
+
+### Auditability
+
 Capture, expose, and retain relevant info
-CSAM
 
-Looking at this list, it may be easy to ask why, if GitHub implemented these features, why Kat's experience was still possible. The reality is that Trust and Safety is an adversarial space, and it requires a baseline of ongoing investment to stay one step ahead of those who wish to do harm to others. Just as your product will never be 100% secure, your platform will never be 100% safe, but ____ in both humans and engineering efforts 
+Looking at this list, it may be easy to ask why, if GitHub implemented these features, why Kat's experience was still possible. The list above represents the bare-minumum I'd expect of any modern social network today. The reality is that Trust and Safety is an adversarial space, and it requires a baseline of ongoing investment to stay one step ahead of those who wish to do harm to others - [federated community management](https://ben.balter.com/2019/07/18/a-community-of-communities-oscon-2019/), automated flagging, sentiment analysis, [sockpuppet](https://en.wikipedia.org/wiki/Sockpuppet_(Internet)) corelation, [brigade](https://www.merriam-webster.com/words-at-play/brigading-online-poll-meaning) prevention, anomaly detection, reducing the visibility or discoverability of toxic content, temporary interaction limits, reputation scores, identity verification, minimizing product bias, platform policy - the list goes on. And that's _only_ looking at targeted harassment, without addressing privacy, spam, inauthentic behavior, faking signals of trust, intentionally misleading content, impersonation, phishing, illegal content[^2], malware, namespace reuse, financial fraud, resource abuse, rate limiting, or account security among other potential threats to your users and your community.
+
+What may appear to be an "edge case" on the surface, is in fact, the reality of being a service provider on the internet today, one that's unfortunately increasingly at the front of our ongoing conversation as to the role social networks play in our modern society. While Kat's experience is undeniably terrible, if this can happen to someone who spends their day building strong and welcoming communities (and on a platform that had invested in trust and safety for some time), imagine what harm you might cause to your users, your community, and your business, if you don't take trust and safety seriously before someone (like Kat) gets hurt. 
 
 [^1]: A [study by the Anti-Defamation League] found that 1 in 3 Americans, and half of those 18-29 years old experience severe online harassment. 38% withdrew from the platform after the experience. GitHub's [open source survey](https://github.com/github/open-source-survey), found that 20% of users who experienced _or witnessed_ negative interactions stopped contributing as a result.
+
+[^2]: E.g., child sexual abuse material (CSAM) or terrorist and violent extremist content (TVEC).
