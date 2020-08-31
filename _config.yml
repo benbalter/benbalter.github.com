@@ -70,13 +70,13 @@ exclude:
 permalink: "/:year/:month/:day/:title/"
 defaults:
   - scope:
-      path: ''
+      path: ""
       type: posts
     values:
       layout: post
       comments: true
   - scope:
-      path: ''
+      path: ""
       type: pages
     values:
       layout: page
@@ -98,6 +98,7 @@ plugins:
   - jekyll-github-metadata
   - jekyll-remote-theme
   - jekyll-include-cache
+  - jekyll-mentions
 
 sass:
   style: :compressed
