@@ -1,9 +1,9 @@
 ---
 title: Seven trust and safety features to build into your product before someone gets hurt
-description: 
+description: Basic features to prevent abuse and harassment that you should build into your platform early on.
 ---
 
-I've [written before](/2020/08/31/trust-and-safety-is-not-a-product-edge-case/) about the importance of investing in trust and safety. If you're building a product and want to proactively take on abuse and harassment _before_ someone gets hurt, here are seven trust and safety features to build into your product early on:
+I've [written before](/2020/08/31/trust-and-safety-is-not-a-product-edge-case/) about the importance of investing in trust and safety early on. If you're building a product or platform and want to proactively take on abuse and harassment _before_ someone gets hurt, here are seven trust and safety features to build into your product early on:
 
 ### 1. Blocking or muting
 
@@ -35,4 +35,6 @@ Many negative interactions occur [when well-intentioned features assume implicit
 
 ### Also necessary: Internal education, consulting, shared services, and expertise
 
-Just building tools or establishing policies will never be enough. Equally important is cultivating a team with deep, platform-specific, subject-matter expertise that can build shared systems, educate feature teams as to the risks and remediations, consult on features for potential abuse vectors early in the product lifecycle, and drive a safety-centric product and engineering culture more broadly. Trust and safety is only truly successful in the long-run when it's part of the company's DNA and enjoys widespread executive and grassroots support. 
+Just building one-off tools or establishing policies will never be enough. Equally important is cultivating a team with deep, platform-specific, subject-matter expertise that can build shared systems, educate feature teams as to the risks and remediations, consult on features for potential abuse vectors early in the product lifecycle, thoughtfully and contextually set policy and moderate content, and drive a safety-centric product and engineering culture more broadly. Trust and safety is only truly successful in the long-run when it's part of the company's DNA and enjoys widespread executive and grassroots support.
+
+These features, while essential to ensure the safety of your users and your platform, are [just the start](/2020/08/31/trust-and-safety-is-not-a-product-edge-case/#beyond-blocking). Trust and safety is a highly-specialized, adversarial space, and it requires a baseline of ongoing investment to stay one step ahead of those who wish to use your platform to do harm to others. Looking to invest further in building a strong, welcoming community around your product? Take a look at some [lessons learned](/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/) fostering a community of communities at GitHub, which I hope can be adapted to the community building nuances of your own platform. 
