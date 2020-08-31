@@ -3,7 +3,7 @@ title: Seven trust and safety features to build into your product before someone
 description: 
 ---
 
-I've [written before](#) about the importance of investing in trust and safety. If you're building a product and want to proactively take on abuse and harassment _before_ someone gets hurt, here are seven trust and safety features to build into your product early on:
+I've [written before](/2020/08/31/trust-and-safety-is-not-a-product-edge-case/) about the importance of investing in trust and safety. If you're building a product and want to proactively take on abuse and harassment _before_ someone gets hurt, here are seven trust and safety features to build into your product early on:
 
 ### 1. Blocking or muting
 
