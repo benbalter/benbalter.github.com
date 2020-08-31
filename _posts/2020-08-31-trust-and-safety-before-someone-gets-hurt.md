@@ -27,7 +27,7 @@ Your Terms of Service establishes a baseline for acceptable behavior that genera
 
 ### 6. Auditability
 
-When you receive a report of abuse or harassment, you'll want to ensure your content moderation team (you have one, right?) has the necessary audit trail available to them to recreate the incident sufficiently to accurately and fairly apply your platform's policy. That means that any potentially harmful or destructive action should establish an immutable record that captures, retains, and exposes all relevant information. Equally important is capturing what action, if any, the moderation team took, and why to build an ongoing "[rap sheet](https://en.wikipedia.org/wiki/Criminal_record)" for the account in the event of subsequent infractions.
+When you receive a report of abuse or harassment, you'll want to ensure your content moderation team (you have one, right?) has the necessary audit trail available to them to recreate the incident sufficiently to accurately and fairly apply your platform's policy. That means that any potentially harmful or destructive action should establish an immutable record that captures, retains, and exposes all relevant information. Equally important is capturing what action, if any, the moderation team took, and why they took that action, to build an ongoing "[rap sheet](https://en.wikipedia.org/wiki/Criminal_record)" for the account in the event of subsequent infractions.
 
 ### 7. User consent
 
