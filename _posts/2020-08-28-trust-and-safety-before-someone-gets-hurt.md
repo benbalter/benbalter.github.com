@@ -7,7 +7,7 @@ I've [written before](#) about the importance of investing in trust and safety. 
 
 ### 1. Blocking or muting
 
-When a user experiences abuse or harassment, they need basic tools to minimize their continued exposure to the unwanted behavior. On most platforms, user muting is a feature that prevents you from seeing or receiving notifications for the activity of another user. User blocking, includes all the features of user muting, but goes a step further in that it also prevents the blocked user from seeing your content. Because they can’t see your content, the blocked user logically can’t interact with your content either. I've [written before about the shortfalls of user blocking and muting](https://ben.balter.com/2020/02/06/blocking-vs-muting/), but at minimum, you'll want some way for a user experiencing abuse, harassment, or other unwanted content to be able to minimize the impact on their experience.
+When a user experiences abuse or harassment, they need basic tools to minimize their continued exposure to the unwanted behavior. On most platforms, user muting is a feature that prevents you from seeing or receiving notifications for the activity of another user. User blocking includes all the features of user muting, but goes a step further in that it also prevents the blocked user from seeing your content. Because they can’t see your content, the blocked user logically can’t interact with your content either. I've [written before about the shortfalls of user blocking and muting](https://ben.balter.com/2020/02/06/blocking-vs-muting/), but at minimum, you'll want some way for a user experiencing abuse, harassment, or other unwanted content to be able to minimize the impact on their experience.
 
 ### 2. Reporting
 
