@@ -3,7 +3,11 @@ title: Seven trust and safety features to build into your product before someone
 description: Basic features to prevent abuse and harassment that you should build into your platform early on.
 ---
 
-I've [written before](/2020/08/31/trust-and-safety-is-not-a-product-edge-case/) about the importance of investing in trust and safety early on. If you're building a product or platform and want to proactively take on abuse and harassment _before_ someone gets hurt, here are seven trust and safety features to build into your product early on:
+I've [written before](/2020/08/31/trust-and-safety-is-not-a-product-edge-case/) about the importance of investing in trust and safety early on:
+
+> It's uncomfortable to acknowledge the darker corners of the internet, especially when most social networks' business models are built on the internet's ability to connect like-minded strangers and paying this necessary internet tax might risk short-term revenue goals. We don't like to admit it out loud, but just as the internet is often an amazing place in connecting the best parts of humanity, the internet is sometimes a terrible place in also bringing out the worst of it. It's truly tempting to forgo abuse and harassment as a "tomorrow" problem (or a "we're different" problem), especially in a growing startup or a highly competitive industry, but more-often-than-not, "tomorrow" arrives once it's too late and you find yourself in the midst of urgent damage control. The challenge is in taking trust and safety seriously when it's still a hypothetical risk, and not after someone has been hurt and it's a painfully known problem. 
+
+If you're building a product or a platform and want to proactively take on abuse and harassment _before_ someone gets hurt, here are seven trust and safety features to build into your product early on:
 
 ### 1. Blocking or muting
 
