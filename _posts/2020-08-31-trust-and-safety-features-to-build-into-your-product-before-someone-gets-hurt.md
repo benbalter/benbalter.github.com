@@ -1,6 +1,7 @@
 ---
 title: Seven trust and safety features to build into your product before someone gets hurt
 description: Basic features to prevent abuse and harassment that you should build into your platform early on.
+redirect_from: "/2020/08/31/trust-and-safety-before-someone-gets-hurt/"
 ---
 
 I've [written before](/2020/08/31/trust-and-safety-is-not-a-product-edge-case/) about the importance of investing in trust and safety early on:
