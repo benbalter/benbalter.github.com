@@ -1,14 +1,14 @@
 on: push
 name: CI
 jobs:
-  test:
+  content:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Set up Node.js
         uses: actions/setup-node@v2-beta
-      - name: NPM Install
+      - name: Install
         run: npm install
       - name: Lint JS
         run: npm run lint-js
@@ -18,9 +18,14 @@ jobs:
         run: npm run lint-md
       - name: Lint Text
         run: npm run lint-text
+  code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Setup Ruby
         uses: actions/setup-ruby@v1
-      - name: bundle install
+      - name: Install
         run: bundle install
       - name: Check Ruby
         run: bundle exec rubocop -D -S
