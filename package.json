@@ -6,6 +6,7 @@
   "dependencies": {},
   "description": "[![Build Status](https://travis-ci.org/benbalter/benbalter.github.com.png?branch=master)](https://travis-ci.org/benbalter/benbalter.github.com)",
   "devDependencies": {
+    "@textlint-rule/textlint-rule-no-unmatched-pair": "^1.0.7",
     "dictionary-en-us": "^2.2.1",
     "json-lint": "^0.1.0",
     "jsonlint": "^1.6.3",
@@ -46,6 +47,16 @@
     "retext-spell": "^2.4.1",
     "retext-syntax-mentions": "^1.1.6",
     "retext-syntax-urls": "^1.0.2",
+    "textlint": "^11.7.6",
+    "textlint-rule-alex": "^3.0.0",
+    "textlint-rule-common-misspellings": "^1.0.1",
+    "textlint-rule-date-weekday-mismatch": "^1.0.5",
+    "textlint-rule-diacritics": "^1.0.0",
+    "textlint-rule-footnote-order": "^1.0.3",
+    "textlint-rule-no-start-duplicated-conjunction": "^2.0.2",
+    "textlint-rule-stop-words": "^2.0.7",
+    "textlint-rule-terminology": "^2.1.4",
+    "textlint-rule-write-good": "^1.6.2",
     "typographic-base": "^1.0.4",
     "unified": "^7.1.0",
     "xo": "^0.23.0"
@@ -63,6 +74,7 @@
     "lint-js": "xo .remarkrc.js --ignore-pattern !.remarkrc.js --fix",
     "lint-json": "jsonlint package.json --in-place --sort-keys",
     "lint-md": "remark . --output",
+    "lint-text": "textlint *.md _posts/*.md _resume_positions/*.md --fix",
     "test": "script/cibuild"
   },
   "version": "1.0.0",

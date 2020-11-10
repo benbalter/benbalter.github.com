@@ -95,7 +95,7 @@ A central tenet of open source software is contributing downstream improvements 
 
 Whether a contribution to the community-maintained project directly (e.g., contributing to WordPress or Drupal), or a derivative work (a plugin, theme, or module), agency contributions should be licensed under the terms of the parent project, using the project's standard workflow and distribution channels.
 
-One thing to watch out for are contributor license agreements (CLAs) which may proscribe an explicit copyright grant (as opposed to a license), or the granting of additional rights beyond the copyright license, which may conflict with the contributor's obligations as a government employee.
+One thing to watch out for are contributor license agreements (CLAss) which may proscribe an explicit copyright grant (as opposed to a license), or the granting of additional rights beyond the copyright license, which may conflict with the contributor's obligations as a government employee.
 
 ### Accepting contributions from the public
 

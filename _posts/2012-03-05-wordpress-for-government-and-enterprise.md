@@ -74,7 +74,7 @@ NASA's space-race supercharging of the aerospace industry brought consumers ever
 
 ### Frenemies
 
-It's important to note, though, it's not a zero-sum game. Drupal doesn't compete with WordPress like McDonalds does with Burger King or Coke with Pepsi. Government support for open-source software is a good thing, regardless of what form it takes. True, an infusion of publicly funded effort into the WordPress code base would invariably advance the software just as government funded research advances hard sciences, but, in the end, everybody wins here.
+It's important to note, though, it's not a zero-sum game. Drupal doesn't compete with WordPress like McDonalds does with Burger King or Coke with Pepsi. Government support for open-source software is a good thing, regardless of what form it takes. True, an infusion of publicly funded effort into the WordPress codebase would invariably advance the software just as government funded research advances hard sciences, but, in the end, everybody wins here.
 
 WordPress and government just make sense. As public institutions both large and small face growing budget concerns and begin to shift many of their services to the web, a platform like WordPress built with engagement, collaboration, and dialogue is the ideal fit, not to mention, incredibly persuasive when compared to expensive, propriety, or purpose-built alternatives.
 

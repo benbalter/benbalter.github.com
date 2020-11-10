@@ -16,6 +16,9 @@ script/branding
 title "checking markdown"
 script/remark
 
+title "checking text"
+script/lint-text
+
 title "checking site"
 bundle exec rake test
 

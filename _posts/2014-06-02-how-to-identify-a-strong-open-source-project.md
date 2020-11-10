@@ -12,7 +12,7 @@ While there's no litmus test for "good" open source, there are several common, l
 
 * **Issues** — Issues are a good thing, really. If you find an open source project with no open issues that doesn't mean it's perfect. Far from it. In fact, it often means the exact opposite. A vibrant support community with heated discussions and an endless list of proposed features in the roadmap means you've got lots of eyes reviewing the code and driving its development. Open issues are great, closed issues are even better.
 
-* **Forks, stars, downloads** - Each distribution platform provides its own metrics to describe popularity. On GitHub, watchers, stars, and forks are the strongest indicator of a project's popularity and use. On WordPress.org, for example, you can see the number of downloads a plugin's received, as well as its average user rating. If distributed via a package manager (e.g., Rubygems, NPM), you can see the number of installs. These indicators show how much the project is used, which can be helpful, but be careful not to confuse adoption with quality.
+* **Forks, stars, downloads** - Each distribution platform provides its own metrics to describe popularity. On GitHub, watchers, stars, and forks are the strongest indicator of a project's popularity and use. On WordPress.org, for example, you can see the number of downloads a plugin's received, as well as its average user rating. If distributed via a package manager (e.g., Rubygems, npm), you can see the number of installs. These indicators show how much the project is used, which can be helpful, but be careful not to confuse adoption with quality.
 
 * **Documentation** - How is the project documented? Is it simply a written up in a README or a dedicated documentation site? Documentation that glosses over technical assumptions (e.g., how to install, requirements, dependencies) often indicates more casually developed software. Dedicated marketing sites (e.g., [jekyllrb.com](http://jekyllrb.com)) show that the project maintainers are serious about getting their code into the hands of users (and thus are more likely to support it).
 
@@ -28,6 +28,6 @@ While there's no litmus test for "good" open source, there are several common, l
 
 Software is written by humans, for humans. When in doubt, ask. Open an issue requesting information on the project purpose and status. Is it a fun hobby or will it be around in a year? Who else is using this? Should I base my business on this? Developers want you to use their software and will be glad to help.
 
-There's good software and there's bad software. Luckily open source provides us with a handful of built in metrics to gauge a project's quality and longevity, even without reading a single line of code. Before bringing open source code into your next project, if you don't know the author, be sure to take a closer look.
+There's good software and there's bad software. Luckily open source provides us with a handful of built-in metrics to gauge a project's quality and longevity, even without reading a single line of code. Before bringing open source code into your next project, if you don't know the author, be sure to take a closer look.
 
 Everyone has their own heuristics. How do you judge the quality of code?

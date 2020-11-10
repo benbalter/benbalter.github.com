@@ -3,7 +3,7 @@ title: Copyright notices for open source projects
 description: What is the appropriate copyright notice for opens source projects? Who is the copyright holder? What year(s) should you put? Do you even need a copyright notice in the first place?
 ---
 
-The question's come up several times, as to what's the appropriate copyright notice for the footer of documentation websites or in an open source project's license. In short, assuming your project's under active development, it should be:
+The question's come up several times, as to what's the appropriate copyright notice for the footer of documentation sites or in an open source project's license. In short, assuming your project's under active development, it should be:
 
 `Copyright [year project started] - [current year], [project founder] and the [project name] contributors`.
 
@@ -29,7 +29,7 @@ For things like books, the year of publication is really easy to determine. If y
 
 But when it comes to digital works, the idea of publication isn't quite the same. When is an open source project (or a website, as that's the most common means of publishing an open source project, e.g., via GitHub's web interface) "published"?
 
-In this case, of a website like [choosealicense.com](http://choosealicense.com), to take a simple example, the site was "published" when the site launched in 2013. But unlike books, that are published yearly, in set editions, with open source, things are both never finished and constantly changing — the hallmark of a healthy open source project.
+In this case, of a site like [choosealicense.com](http://choosealicense.com), to take a simple example, the site was "published" when the site launched in 2013. But unlike books, that are published yearly, in set editions, with open source, things are both never finished and constantly changing — the hallmark of a healthy open source project.
 
 If in 2014, someone submits a pull request to add some new content to the site (or in the case of software, to add a new feature to the project), that pull request would contain new content first "published" in 2014. In that case, a copyright notice like "Copyright 2013 − 2014" would be more appropriate, as the project contains works of original authorship, first published in both 2013 and 2014.
 
@@ -61,6 +61,6 @@ As a mater of practicality, as a project founder, you're fully entitled to take 
 
 Assuming your project's under active development, you should write `Copyright [year project started] - [current year], [project founder] and the [project name] contributors`. While not strictly necessary to obtain a copyright, if you're going to add a copyright notice, that'll accurately represent the years of publication and all copyright holders.
 
-Of course there are many edge cases, and the above is a simplification of what goes into a copyright notice. Things like contributor license agreements (CLAs), contributing while on the clock (work for hire), or derivative works complicate copyright considerations. Heck, with open source almost always being developed within a version control system — a system designed to track and make known who made what change when — as @bkeepers [pointed out](https://github.com/benbalter/benbalter.github.com/issues/254#issuecomment-97044362), the copyright notice may be even more of an anachronism than it already is.
+Of course there are many edge cases, and the above is a simplification of what goes into a copyright notice. Things like contributor license agreements (CLAss), contributing while on the clock (work for hire), or derivative works complicate copyright considerations. Heck, with open source almost always being developed within a version control system — a system designed to track and make known who made what change when — as @bkeepers [pointed out](https://github.com/benbalter/benbalter.github.com/issues/254#issuecomment-97044362), the copyright notice may be even more of an anachronism than it already is.
 
 *As they say on the internet, IANYL, so, as always, [please consult your own legal counsel](https://ben.balter.com/fine-print/) before making decisions regarding how you license your own works. If you're looking for information about software copyright in government, here's [everything a government attorney needs to know about open source software licensing](https://ben.balter.com/2014/10/08/open-source-licensing-for-government-attorneys/).*

@@ -12,7 +12,7 @@ The United States Federal Government is the single largest purchaser of informat
 
 Yet, despite all these histrionics, successful attacks against the nations most hardened systems are perpetrated each day. In 2005, for example, a lone hacker in the United Kingdom was able to remotely render more than 300 computers at an American Naval Station completely inoperable, by simply deleting a single file.[^7] In 2011, foreign intruders gained access to more than 24,000 files including those concerning the military's most sensitive systems surveillance technologies, satellite communications systems, and network security protocols,[^8] and as recently as October of 2012, the Chinese government attempted to infect computers within the White House office responsible for maintaining the Presidents nuclear launch codes.[^9]
 
-At the same time, the government computer systems that agencies rely on for many internal processes are often years behind the technology readily available to consumers who can run entire websites form the smartphone resting within their pocket. Whereas once the federal government pushed the capabilities of information systems — using the first computers to calculate projectile trajectories during the cold war or interconnecting the first machines to give rise to what is today the Internet — today government and innovation are far from synonymous. Over the past few decades the IT industry has undergone a radical transformation towards consumerization, a transformation that has largely left the public sector behind. Whereas once deploying a technology solution would require months of upfront planning and investment, today lean, iterative, and decentralized solutions dominate the marketplace — technologies ill suited for adoption within the governments paperwork-laden security regime.
+At the same time, the government computer systems that agencies rely on for many internal processes are often years behind the technology readily available to consumers who can run entire sites form the mobile phone resting within their pocket. Whereas once the federal government pushed the capabilities of information systems — using the first computers to calculate projectile trajectories during the cold war or interconnecting the first machines to give rise to what is today the internet — today government and innovation are far from synonymous. Over the past few decades the IT industry has undergone a radical transformation towards consumerization, a transformation that has largely left the public sector behind. Whereas once deploying a technology solution would require months of upfront planning and investment, today lean, iterative, and decentralized solutions dominate the marketplace — technologies ill suited for adoption within the governments paperwork-laden security regime.
 
 Current government security restrictions rightful seek to protect large, mission-critical systems. Yet such efforts often come at the cost of significantly hindering the adoption of smaller, less vital system, many of which — such as blogs or social media tools — can have a greater impact on the day-to-day life of average Americans. The availability of cheaper, leaner solutions, now commonplace in the private sector, can not only provide government with a unique opportunity to meet citizens demands to do more with less, but can also empower it to expand service offerings into new verticals such as transacting additional citizen services online, or offering greater transparency within existing offerings. To unlock the potential of emerging technologies, security requirements for pilot programs should be relaxed so that agencies are empowered to follow private sector best practices to rapidly bring prototypical solutions to market and are given the freedom to tap existing third-party, often free services.
 
@@ -32,7 +32,7 @@ The most recent definition of information system comes from the 1995 revision of
 
 The second threshold determination complicated by recent advances in technology is the creation of a system of records. The Privacy Act requires agencies to report the systems of records that they maintain, and for each system, to describe in detail, what information is collected, the purpose of the information collection, and to whom requests for records should be sent.[^32] Prior to establishing any new system of records, agencies are required to go through a lengthy approval process, and to publish a System of Records Notice (SORN) in the Federal Register.[^33] The term system of records is an artificial distinction, legislatively created to identify those groups of records to which the Privacy Act applies, and those to which it does not apply.[^34] The Act itself defines a system of records as a group of any records under the control of any agency from which information is retrieved by the name of the individual or by some identifying number, symbol, or other identifying particular assigned to the individual.[^35] This analysis involves examining the actual methods a given system uses to store and retrieve information.[^36]
 
-Such an analysis is easy to apply to physical systems of records (e.g., records in a doctors office organized by patient name or social security number) or the first computerized databases that required strict, predefined indexes to efficiently retrieve a given record. Today however, most methods of storage and retrieval allow filtering records by any composite data element (e.g., SQL), and emerging methods of searching large amounts of data (e.g., MapReduce, Hadoop) have no index at all. This raises a question of how many retrievals of information using ones name or other unique identifier, even if not via a traditional index, are sufficient to create a system of records.[^37] Compounding the fact, industry best practices dictate that even the simplest systems — be they public facing systems like a website or internal business process systems to aid in agency functions — assign unique identifiers to each record to aid in retrieval. Clearly, the privacy act has not kept with the reality of how technology is actually used to support an agency's mission.
+Such an analysis is easy to apply to physical systems of records (e.g., records in a doctors office organized by patient name or social security number) or the first computerized databases that required strict, predefined indexes to efficiently retrieve a given record. Today however, most methods of storage and retrieval allow filtering records by any composite data element (e.g., SQL), and emerging methods of searching large amounts of data (e.g., MapReduce, Hadoop) have no index at all. This raises a question of how many retrievals of information using ones name or other unique identifier, even if not via a traditional index, are sufficient to create a system of records.[^37] Compounding the fact, industry best practices dictate that even the simplest systems — be they public facing systems like a site or internal business process systems to aid in agency functions — assign unique identifiers to each record to aid in retrieval. Clearly, the privacy act has not kept with the reality of how technology is actually used to support an agency's mission.
 
 #### C. Formal Guidance
 
@@ -46,7 +46,7 @@ The myriad guidance and labyrinthian requirements may do less to secure our nati
 
 This focus on reporting requirements and audits, rather than actual information security may explain why cyber attacks increased some 250% between 2007 and 2009.[^50] The Community Emergency Response Team (CERT) estimates that 95% of intrusions exploited known software vulnerabilities to which counter measures were readily available.[^51] Given the fluid nature of the technology industry, and the reliance on cash flow to support operations, software manufacturers face increased pressure to rush their products to market in order to better capitalize on the product's innovation.[^52] This creates a race to the bottom in terms of software quality. Given strict budgets and timelines, agencies our forced to either cut desired functionality or skirt security requirements.
 
-Such a focus on reporting and managerial controls rather than on actual information security manifests itself on a near daily basis. Despite our nations best efforts at complying with codified security policy, thousands of computers on our military networks were infected by malware,[^53] unauthorized users in Iran were able to gain access to blueprints and other information about a helicopter in the Presidents fleet,[^54] and the State and Defense departments have lost more than six terabytes of information due to digital espionage, an amount equal to one-sixth of the information contained within the Library of Congress.[^55] As recently as last year, even, a single Army private was able to steal more than a quarter of a million classified State Department cables and nearly 100,000 intelligence reports.[^56] This deficiency however, is not limited to threats to national security. It is also personal. The Department of Defense was hit with a $4.9 billion class action suit as a result of the theft of the personal information of some 4.9 million uniform service members and their families,[^57] the Department of Veterans Affairs lost health records and other sensitive personal information for approximately 26.5 million veterans and their spouses, [^58] the Secretary of Defenses unclassified e-mail was hacked,[^59] and the Navy CIO had his personal information compromised not once or twice, but on six distinct occasions.[^60]
+Such a focus on reporting and managerial controls rather than on actual information security manifests itself on a near daily basis. Despite our nations best efforts at complying with codified security policy, thousands of computers on our military networks were infected by malware,[^53] unauthorized users in Iran were able to gain access to blueprints and other information about a helicopter in the Presidents fleet,[^54] and the State and Defense departments have lost more than six terabytes of information due to digital espionage, an amount equal to one-sixth of the information contained within the Library of Congress.[^55] As recently as last year, even, a single Army private was able to steal more than a quarter of a million classified State Department cables and nearly 100,000 intelligence reports.[^56] This deficiency however, is not limited to threats to national security. It is also personal. The Department of Defense was hit with a $4.9 billion class action suit as a result of the theft of the personal information of some 4.9 million uniform service members and their families,[^57] the Department of Veterans Affairs lost health records and other sensitive personal information for approximately 26.5 million veterans and their spouses, [^58] the Secretary of Defenses unclassified email was hacked,[^59] and the Navy CIO had his personal information compromised not once or twice, but on six distinct occasions.[^60]
 
 ### III. Problems with Existing Information Security Policy
 
@@ -56,7 +56,7 @@ Existing security policies fail to properly protect federal information systems.
 
 Empirically, agencies struggle to meet the requirements asked of them by existing security policy. To date, none of the 24 major agencies[^61] have fully implemented the agency-wide information security programs required by FISMA.[^62] Seven of such agencies described their security as poor, nine as satisfactory, and only six as good.[^63] It should come as no surprise then, that the House Government Reform Committee rated government-wide FISMA compliance D+.[^64] In 2004, two years after the act was penned, 23% of federal IT systems lacked the risk assessment required, and one in four lacked the contingency plans necessary to ensure continuity of operations. Of those with plans, a mere 57% had ever been tested. Nine of the 24 agencies did not even have a complete inventory of their IT systems.[^65] Today, nearly a decade after FISMA was enacted, the numbers name similarly bleak. As the federal IT footprint continues to swell and budgets continue to tighten, in FY 2011, only 33% of agencies reported compliance with FISMA's risk management requirements, and that same one in three ratio had programs compliant with the contingency planning requirements. Only one in four were complaint with configuration management, POA&M, and identify and access management requirements. Thirteen percent had not even begun to implement continuous monitoring programs, and one in five still lacked an accurate IT inventory.[^66]
 
-One example of agencies difficulty complying can be seen in the Department of Veterans Affairs (VA). In 2007, a hard drive containing nearly 200,000 veterans records went missing from a safe. The Office of the Inspector General concluded that VA's security plan did not comply with its own rules for securing data, and that the it improperly allowed an IT Specialist trusted with the data access to information beyond his clearance.[^67] After public disclosure, a lawsuit arose, and when the opinion was issued nearly two years later, the court noted that it had no reason to think that all of the alleged violations have been remedied. Robert T. Howard, Assistant Secretary for Information and Technology, stated before a Senate inquiry that the hard drive theft was a wake up call and that \[a]s a result of that incident we began to create the environment needed to better protect the sensitive information entrusted to us.[^68] Despite the lesson learned, four years after the incident, the VA reported that only 55% of its portable devices had FISMA-mandated encryption.[^69] A related case involving the Bureau of Indian Affairs (BIA) resulted in an injunction requiring that various IT systems be disconnected from the Internet due to inadequate information security. The court noted that the agency's FISMA compliance had lagged behind the expansion of the department's Internet presence.[^70] Although anecdotal, both incidents confirm one thing: on the whole federal agencies are unable to adequately implement the requirements imposed on them by FISMA.
+One example of agencies difficulty complying can be seen in the Department of Veterans Affairs (VA). In 2007, a hard drive containing nearly 200,000 veterans records went missing from a safe. The Office of the Inspector General concluded that VA's security plan did not comply with its own rules for securing data, and that the it improperly allowed an IT Specialist trusted with the data access to information beyond his clearance.[^67] After public disclosure, a lawsuit arose, and when the opinion was issued nearly two years later, the court noted that it had no reason to think that all of the alleged violations have been remedied. Robert T. Howard, Assistant Secretary for Information and Technology, stated before a Senate inquiry that the hard drive theft was a wake up call and that \[a]s a result of that incident we began to create the environment needed to better protect the sensitive information entrusted to us.[^68] Despite the lesson learned, four years after the incident, the VA reported that only 55% of its portable devices had FISMA-mandated encryption.[^69] A related case involving the Bureau of Indian Affairs (BIA) resulted in an injunction requiring that various IT systems be disconnected from the internet due to inadequate information security. The court noted that the agency's FISMA compliance had lagged behind the expansion of the department's internet presence.[^70] Although anecdotal, both incidents confirm one thing: on the whole federal agencies are unable to adequately implement the requirements imposed on them by FISMA.
 
 #### B. Ambiguity
 
@@ -82,11 +82,11 @@ Such a heavyweight information security policy affects taxpayers in two ways. Fi
 
 #### A. Administrative Costs
 
-As noted earlier, FISMA and its associated implementation guidance impose a significant administrative burden on agencies. For example, assume for a moment a federal agency would like to establish a simple blog for a newly announced short-term initiative. The blog would have the ability for agency staff members to post updates on the initiative on a regular basis, would provide members of the public with the opportunity to post comments, a fairly standard practice among similar websites. In the private sector, even a non-technical content creator or subject-matter expert could simply navigate to one of the many companies that provide blog hosting as a service, enter a purchase card number, and have an entire website standing in a matter of minutes. In the public sector however, such is not the case.
+As noted earlier, FISMA and its associated implementation guidance impose a significant administrative burden on agencies. For example, assume for a moment a federal agency would like to establish a simple blog for a newly announced short-term initiative. The blog would have the ability for agency staff members to post updates on the initiative on a regular basis, would provide members of the public with the opportunity to post comments, a fairly standard practice among similar sites. In the private sector, even a non-technical content creator or subject-matter expert could simply navigate to one of the many companies that provide blog hosting as a service, enter a purchase card number, and have an entire site standing in a matter of minutes. In the public sector however, such is not the case.
 
-The program office initiating the request would have to contact the chief security officer to begin the FIPS-199 mandated process of determining the FISMA risk level, which in this hypothetical, after some work, we can assume will be low given the non-essential nature of the website. Next, the software and the facilities that host it will be required to undergo a C&A process, even if another agencies has already done the same. This process may require a significant investment of time, if for example, the hosting company has not previously undergone an evasive third-party security audit, and may even require the agency to host the software within its own datacenter (thus adding to the overall cost), if the hosting company, presumably a small technology startup, is unwilling to do so. Once a primary datacenter and application is certified, COOP may also require a fallback, parallel website be concurrently established on a separate system (potentially doubling the cost imposed).
+The program office initiating the request would have to contact the chief security officer to begin the FIPS-199 mandated process of determining the FISMA risk level, which in this hypothetical, after some work, we can assume will be low given the non-essential nature of the site. Next, the software and the facilities that host it will be required to undergo a C&A process, even if another agencies has already done the same. This process may require a significant investment of time, if for example, the hosting company has not previously undergone an evasive third-party security audit, and may even require the agency to host the software within its own datacenter (thus adding to the overall cost), if the hosting company, presumably a small technology startup, is unwilling to do so. Once a primary datacenter and application is certified, COOP may also require a fallback, parallel site be concurrently established on a separate system (potentially doubling the cost imposed).
 
-Once technical requirements are met, significant legal requirements must be met as well. If, as in this hypothetical, the agency wishes to allow citizens who provide their name the opportunity to respond to each post (much like Facebook or most blogs on the Internet today), the agency will most likely be required to conduct a PIA, including the 30 and 60 day comment periods, receive OMB approval for the information collection under the PRA, and publish a SORN if comments are to be retrieved by the commenters name as is generally the case with blogs.
+Once technical requirements are met, significant legal requirements must be met as well. If, as in this hypothetical, the agency wishes to allow citizens who provide their name the opportunity to respond to each post (much like Facebook or most blogs on the internet today), the agency will most likely be required to conduct a PIA, including the 30 and 60 day comment periods, receive OMB approval for the information collection under the PRA, and publish a SORN if comments are to be retrieved by the commenters name as is generally the case with blogs.
 
 Finally, the agency must establish a formal security plan and administrative controls. The security plan would outline rules of behavior, training, personnel controls, incident response, continuity of support, technical security, and if externally hosted as in the above example, an interconnection agreement with the third party hosting company. Last, the agency would have to design and fully implement SP 800 controls including management controls — security assessment and authorization, risk assessment, system and services acquisition, and program management; operational controls — personnel security, physical and environmental security, contingency planning, configuration management, maintenance, systems and information integrity, media protection, incident response, and awareness and training; and technical controls — identification and authorization, access control, audit and accountability, and system and communications protection.
 
@@ -112,7 +112,7 @@ Certifications and other collateral should be fully transferable between agencie
 
 #### B. Modular Administration
 
-OMB should create guidance to decouple the various components that make up an information system from the administrative assets that must accompany them. An agency website, for example, might consist of the cloud service provider, the generic software image from which the server is based, and the content management system which generates the output visitors see (collectively, often referred to as the technology stack). As many of these components are often reused between information systems (e.g., another website may share the same server image, or database or other application may share the same datacenter), if agencies could analyze each component independently, in a modular fashion, it could realize a significant savings in the long run, especially if such certifications could be shared among agencies.
+OMB should create guidance to decouple the various components that make up an information system from the administrative assets that must accompany them. An agency website, for example, might consist of the cloud service provider, the generic software image from which the server is based, and the content management system which generates the output visitors see (collectively, often referred to as the technology stack). As many of these components are often reused between information systems (e.g., another site may share the same server image, or database or other application may share the same datacenter), if agencies could analyze each component independently, in a modular fashion, it could realize a significant savings in the long run, especially if such certifications could be shared among agencies.
 
 #### C. A Grace Period for Pilot Programs
 
@@ -122,7 +122,7 @@ Last, and most importantly, congress should carve a pilot program exception with
 
 Congress has imposed on federal executive agencies an onerous system to ensure information security benchmarks are met. Despite OMB's best efforts, however, compliance is low, and successful attacks continue. Agencies are finding it difficult to complete the myriad requirements that become increasingly ambiguous in sight of an ever-changing technology landscape. This may be due, at least in part, to an indifference endemic of both agency implementers and the public. Such requirements, however, do not come without a cost. FISMA creates significant administrative overhead for agencies looking to innovate, and in many cases, may do so to such an extent so as to retard or otherwise prevent adoption. As a result, some argue, that by inhibiting such innovation, today's federal security policies simply secure nothing more than the status quo. As communications technology becomes increasingly consumerized, the opportunity for federal agencies to do more with less, and to streamline the delivery of, or expand into new citizen services has never been more apparent. Yet at the same time, public sector adoption is increasingly falling behind private sector counterparts. Instead, OMB should seek to incentivize those agencies that best secure federal information assets and seek out innovative, secure solutions to transacting the nations business. Existing requirements can be streamlined, such as breaking security analyses into the disparate technology components they represent, and allowing such modules of certification to be shared among systems and agencies. Finally, a formal grace period, for low risk, high impact, citizen-facing systems can usher in a new era of transparency and collaborative democracy yet unimagined. Our nations information is one of its chief resources, and great care should be taken to secure it, just as we secure our territories and tangible interests. Such security, however, and the overhead required to implement it, should be proportionate to the risk involved, and should secure the information systems of tomorrow, not simple the status quo.
 
-[^1]: Ctr. for Strategic & Int'l Studies, Securing Cyberspace for the 44th Presidency 56 (2008), available at <https://csis.org/files/media/csis/pubs/081208_securingcyberspace_44.pdf>
+[^1]: Ctr. for Strategic & Int'l Studies, Securing Cyberspace for the 44th Presidency 56 (2008), available at <https://csis.org/files/media/csis/pubs/081208_securingcyberspace_44.PDF>
 
 [^2]: Chief Financial Officers Act of 1990, Pub.L. 101–576, Nov. 15, 1990, 104 Stat. 2838.
 
@@ -148,15 +148,15 @@ Congress has imposed on federal executive agencies an onerous system to ensure i
 
 [^13]: 44 U.S.C. 3543(a).
 
-[^14]: Id. 3543(a)(5).
+[^14]: ID. 3543(a)(5).
 
 [^15]: 44 U.S.C.A. 3543(a).
 
-[^16]: Federal Information Processing Standards Publication 199, Standards for Security Categorization of Federal Information Systems 1, 2 (Feb. 2004), available at <http://csrc.nist.gov/publications/fips/fips199/FIPS-PUB-199-final.pdf>. FAR 11.102 and 11.201 include references to the FIPS PUB standards.
+[^16]: Federal Information Processing Standards Publication 199, Standards for Security Categorization of Federal Information Systems 1, 2 (Feb. 2004), available at <http://csrc.nist.gov/publications/fips/fips199/FIPS-PUB-199-final.PDF>. FAR 11.102 and 11.201 include references to the FIPS PUB standards.
 
 [^17]: Daniel M. White, The Federal Information Security Management Act of 2002: A Potemkin Village, 79 Fordham L. Rev. 369, 380–81 (2010)
 
-[^18]: Id., citing Arthur Conklin, Why FISMA Falls Short: The Need for Security Metrics, 41 Wireless Internet S. Provider Proc. 1, 1–8 (2008); see also Agencies in Peril (internal citations omitted).
+[^18]: Id., citing Arthur Conklin, Why FISMA Falls Short: The Need for Security Metrics, 41 Wireless internet S. Provider Proc. 1, 1–8 (2008); see also Agencies in Peril (internal citations omitted).
 
 [^19]: 44 U.S.C.A. 3544(b)(8).
 
@@ -168,13 +168,13 @@ Congress has imposed on federal executive agencies an onerous system to ensure i
 
 <!--lint ignore retext-contractions -->
 
-[^23]: *Id.* 552a(b), (d), (f)*.*
+[^23]: *ID.* 552a(b), (d), (f)*.*
 
 [^24]: 44 U.S.C.A. 3601 *et seq*.
 
 <!--lint ignore retext-contractions -->
 
-[^25]: *Id.* *See generally,* Shahid Khan, <u>"Apps.gov": Assessing Privacy in the Cloud Computing Era</u>, 11 N.C.J.L. & Tech. On. 259, 272 (2010).
+[^25]: *ID.* *See generally,* Shahid Khan, <u>"Apps.gov": Assessing Privacy in the Cloud Computing Era</u>, 11 N.C.J.L. & Tech. On. 259, 272 (2010).
 
 [^26]: 44 U.S.C.A. 3601 at 208(b)(2)(b)(i), 116 Stat. 2922.
 
@@ -184,7 +184,7 @@ Congress has imposed on federal executive agencies an onerous system to ensure i
 
 <!--lint ignore retext-contractions -->
 
-[^29]: *Id.* at 3502(6).
+[^29]: *ID.* at 3502(6).
 
 [^30]: *See* Shahid Khan, <u>"Apps.gov": Assessing Privacy in the Cloud Computing Era</u>, 11 N.C.J.L. & Tech. On. 259, 273 (2010)
 
@@ -198,13 +198,13 @@ Congress has imposed on federal executive agencies an onerous system to ensure i
 
 [^35]: 5 U.S.C.A. 552(a)(5) (2000).
 
-[^36]: Henke v. Dept of Commerce, 83 F.3d 1553, 1459–60 (D.C. Cir. 1996).
+[^36]: Henke v. Dept of Commerce, 83 F.3D 1553, 1459–60 (D.C. Cir. 1996).
 
-[^37]: *See* Sullivan, citing Henke, 83 F.3d at 1461 (noting that when records are compiled for investigatory purposes, even a few retrievals might be sufficient to create a system of records).
+[^37]: *See* Sullivan, citing Henke, 83 F.3D at 1461 (noting that when records are compiled for investigatory purposes, even a few retrievals might be sufficient to create a system of records).
 
 [^38]: FAR 7.103(w). *See* generally Appendix III to OMB Circular No. A-130, Office of Management and Budget, available at <http://1.usa.gov/RlibPS>.
 
-[^39]: FIPS PUB 199, Standards for Security Categorization of Federal Information and Information Systems 1, 2 (Feb. 2004), <http://csrc.nist.gov/publications/fips/fips199/FIPS-PUB-199-final.pdf>; NIST Special Publication 800–53, Rev. 3, Recommended Security Controls for Federal Information Systems and Organizations 6, 2.1 (May 2010), <http://1.usa.gov/9DDoih>.
+[^39]: FIPS PUB 199, Standards for Security Categorization of Federal Information and Information Systems 1, 2 (Feb. 2004), <http://csrc.nist.gov/publications/fips/fips199/FIPS-PUB-199-final.PDF>; NIST Special Publication 800–53, Rev. 3, Recommended Security Controls for Federal Information Systems and Organizations 6, 2.1 (May 2010), <http://1.usa.gov/9DDoih>.
 
 [^40]: *See, e.g.,* OMB Memorandum 11–33, FY 2011 Reporting Instructions for the Federal Information Security Management Act and Agency Privacy Management (Sept. 14, 2011) (enclosing DHS Memorandum FISM 11–02 (Aug. 24, 2011)), <http://1.usa.gov/oCB4it>.
 
@@ -214,19 +214,19 @@ Congress has imposed on federal executive agencies an onerous system to ensure i
 
 [^43]: Daniel M. White, The Federal Information Security Management Act of 2002: A Potemkin Village, 79 Fordham L. Rev. 369, 372 (2010) (internal citations omitted).
 
-[^44]: See Wm. Arthur Conklin, Why FISMA Falls Short: The Need for Security Metrics, 41 Wireless Internet S. Provider Proc. 1, 1–8 (2008); *see also* Agencies in Peril: Are We Doing Enough to Protect Federal IT and Secure Sensitive Information?: Hearing Before the S. Subcomm. on Fed. Fin. Mgmt., Gov't, Info., Fed. Servs., and Int'l Sec., 110th Cong. 1 (2008) at 2–6 (statement of Tim Bennett, President of Cyber Security Industry Alliance) (identifying general flaws in FISMA reporting); Angela Gunn, Fed Having Fits over FISMA and Cybersecurity, Betanews (Dec. 12, 2008), <http://bit.ly/X16RFd>. *See* *generally* Daniel M. White, The Federal Information Security Management Act of 2002: A Potemkin Village, 79 Fordham L. Rev. 369, 380 (2010).
+[^44]: See Wm. Arthur Conklin, Why FISMA Falls Short: The Need for Security Metrics, 41 Wireless internet S. Provider Proc. 1, 1–8 (2008); *see also* Agencies in Peril: Are We Doing Enough to Protect Federal IT and Secure Sensitive Information?: Hearing Before the S. Subcomm. on Fed. Fin. Mgmt., Gov't, Info., Fed. Servs., and Int'l Sec., 110th Cong. 1 (2008) at 2–6 (statement of Tim Bennett, President of Cyber Security Industry Alliance) (identifying general flaws in FISMA reporting); Angela Gunn, Fed Having Fits over FISMA and Cybersecurity, Betanews (Dec. 12, 2008), <http://bit.ly/X16RFd>. *See* *generally* Daniel M. White, The Federal Information Security Management Act of 2002: A Potemkin Village, 79 Fordham L. Rev. 369, 380 (2010).
 
 [^45]: *Id.*
 
-[^46]: Vijayan, Jaikumar, Critics question value of federal IT security report card, Computerworld, May 21st, 2008, available at <http://www.networkworld.com/article/2279783/lan-wan/critics-question-value-of-federal-it-security-report-card.html> (noting some agencies that are making an effort to comply with the true intent of the 396-page FISMA requirements document are getting poor grades on the annual report card, while others that have treated the process as a mere paperwork exercise are getting good grades.) (Internal quotation marks omitted).
+[^46]: Vijayan, Jaikumar, Critics question value of federal IT security report card, Computerworld, May 21st, 2008, available at <http://www.networkworld.com/article/2279783/lan-wan/critics-question-value-of-federal-it-security-report-card.HTML> (noting some agencies that are making an effort to comply with the true intent of the 396-page FISMA requirements document are getting poor grades on the annual report card, while others that have treated the process as a mere paperwork exercise are getting good grades.) (Internal quotation marks omitted).
 
-[^47]: White, 79 Fordham L. Rev 369, 382; *Id.* (commenting First, Congress creates waste by writing FISMA in a way that demands useless reporting, and then it highlights the useless scores in a way that in some cases provides incentives for federal agencies to deliver misleading results.).
+[^47]: White, 79 Fordham L. Rev 369, 382; *ID.* (commenting First, Congress creates waste by writing FISMA in a way that demands useless reporting, and then it highlights the useless scores in a way that in some cases provides incentives for federal agencies to deliver misleading results.).
 
 [^48]: White, 79 Fordham L. Rev 369, 381–82.
 
-[^49]: *Id.* at 381.
+[^49]: *ID.* at 381.
 
-[^50]: Gregg Carlstrom, Net Attacks Triple in 2 Years, Fed. Times (Aug. 3, 2009). (a conservative estimated since many agencies under report by as much as 50%, and since the statistic excludes the Department of Defense which receives millions of scans and probes each year.); *See also* Conklin, 41 Wireless Internet S. Provider Proc. 1 (The recent spate of highly publicized information security failures in Federal agencies highlight the limitations of the current FISMA based approach…. The fact that … some agencies have not had an information security failure\[s may be due to] lack of knowledge.). *See generally id.* at 382.
+[^50]: Gregg Carlstrom, Net Attacks Triple in 2 Years, Fed. Times (Aug. 3, 2009). (a conservative estimated since many agencies under report by as much as 50%, and since the statistic excludes the Department of Defense which receives millions of scans and probes each year.); *See also* Conklin, 41 Wireless internet S. Provider Proc. 1 (The recent spate of highly publicized information security failures in Federal agencies highlight the limitations of the current FISMA based approach…. The fact that … some agencies have not had an information security failure\[s may be due to] lack of knowledge.). *See generally ID.* at 382.
 
 [^51]: Kevin R. Pinkney, Putting Blame Where Blame Is Due: Software Manufacturer and Customer Liability for Security-Related Software Failure, 13 Alb. L.J. Sci. & Tech. 43, 66 (2002).
 
@@ -260,7 +260,7 @@ Congress has imposed on federal executive agencies an onerous system to ensure i
 
 [^66]: OMB 2011 FISMA Report, Table A, *available at* <http://1.usa.gov/yiyFBb>.
 
-[^67]: Fanin v. U.S. Dep't of Veterans Affairs, 572 F.3d 868, 870–71 (11th Cir. 2009).
+[^67]: Fanin v. U.S. Dep't of Veterans Affairs, 572 F.3D 868, 870–71 (11th Cir. 2009).
 
 [^68]: Agencies in Peril: Are We Doing Enough to Protect Federal IT and Secure Sensitive Information?: Hearing Before the S. Subcomm. on Fed. Fin. Mgmt., Gov't, Info., Fed. Servs., and Int'l Sec., 110th Cong. 1 (2008).
 
@@ -272,11 +272,11 @@ Congress has imposed on federal executive agencies an onerous system to ensure i
 
 [^72]: In addition, contractors and third-party service providers are implicated under 44 U.S.C.A. 3544(a)-(b) (including information systems provided or managed by contractor, or other source), and DHS Memorandum FISM 11–02 as enclosed in OMB Memorandum M-11–33, Reporting Instructions for the Federal Information Security Management Act and Agency Privacy Management (DHS identified… contractors most likely to be subject to FISMA requirements \[including] Service providers–e.g… managed services, like subscriptions to software services.).
 
-[^73]: *Id.*, citing H.R. Rep. No. 107–787, pt.1, at 76–88 (2002).
+[^73]: *ID.*, citing H.R. Rep. No. 107–787, pt.1, at 76–88 (2002).
 
-[^74]: *Id*. at 1853.
+[^74]: *ID*. at 1853.
 
-[^75]: NetIQ, NetIQ FISMA Compliance & Risk Management Solutions 2 (2005), available at <http://www.fedtek.com/wp-content/uploads/2010/05/fisma_broch.pdf>. *See generally* White, 79 Fordham L. Rev. 369, 405.
+[^75]: NetIQ, NetIQ FISMA Compliance & Risk Management Solutions 2 (2005), available at <http://www.fedtek.com/wp-content/uploads/2010/05/fisma_broch.PDF>. *See generally* White, 79 Fordham L. Rev. 369, 405.
 
 [^76]: Silvers, 81 N.Y.U. L. Rev. 1844, 1859–60 (citing L.L. Cummings & Donald P. Schwab, Performance in Organizations: Determinants and Appraisals 90–101 (1973)).
 
@@ -286,16 +286,16 @@ Congress has imposed on federal executive agencies an onerous system to ensure i
 
 [^79]: Silvers, 81 N.Y.U. L. Rev. 1844, 1852 (2006) (citing 394 F. Supp. 2d at 261 (quoting trial testimony of W. Hord Tipton, Chief Information Officer, DOI)).
 
-[^80]: *Id.* at 1860–61.
+[^80]: *ID.* at 1860–61.
 
-[^81]: *Id. See* Jack M. Beermann, Essay, Administrative Failure and Local Democracy: The Politics of DeShaney, 1990 Duke L.J. 1078, 1105 (Administrative failures may be so low on the political agenda that they will not even be addressed in the electoral process.).
+[^81]: *ID. See* Jack M. Beermann, Essay, Administrative Failure and Local Democracy: The Politics of DeShaney, 1990 Duke L.J. 1078, 1105 (Administrative failures may be so low on the political agenda that they will not even be addressed in the electoral process.).
 
-[^82]: *Id.* at 1862, *See* Beermann, supra note 79, at 1106 (Unelected agents are shielded from direct political scrutiny. Thus, given the difficulty of effective oversight, agency actions may not be brought into line with legislatively stated goals.).
+[^82]: *ID.* at 1862, *See* Beermann, supra note 79, at 1106 (Unelected agents are shielded from direct political scrutiny. Thus, given the difficulty of effective oversight, agency actions may not be brought into line with legislatively stated goals.).
 
 [^83]: Silver, 81 N.Y.U. L. Rev. at 1862.
 
 [^84]: *See generally* Silvers, 81 N.Y.U. L. Rev. 1844 at 1868.
 
-[^85]: *Id.* (citing Randal O'Toole, Reforming the Forest Service 104 (1988) (For top managers, larger budgets mean greater prestige. For middle managers, larger budgets mean more people on their staff, and this generally provides them with higher salaries. For lower managers, larger budgets mean greater opportunities for advancement.)).
+[^85]: *ID.* (citing Randal O'Toole, Reforming the Forest Service 104 (1988) (For top managers, larger budgets mean greater prestige. For middle managers, larger budgets mean more people on their staff, and this generally provides them with higher salaries. For lower managers, larger budgets mean greater opportunities for advancement.)).
 
-[^86]: *Id.* at 1871.
+[^86]: *ID.* at 1871.

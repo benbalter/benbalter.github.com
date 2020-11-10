@@ -3,7 +3,7 @@ title: Why open source
 description: 25 reasons why you and your organization should consume, publish, contribute to, & support open source.
 ---
 
-Open source is awesome. There are many reasons why you might consider consuming, publishing, collaborating on, or supporting open source.[^laundry-list] Here are a few of them:
+Open source is awesome. There are many reasons why you might consider consuming, publishing, collaborating on, or supporting open source.[^1] Here are a few of them:
 
 ### Microeconomic motivations
 
@@ -89,10 +89,10 @@ Open source affords software stakeholders, both technical and non-technical, the
 
 If you're a developer (or an aspiring developers), open source can provide an easy (and free) onramp to and path for personal growth within the software development community:
 
-* **Learn to code** - Open source is a great way to learn how to code. Want to know how your favorite website works? Hitting "view source" in your web browser can go a long way to point you in the right direction. You can read the documentation of the software that powers it, and potentially even stand up your own clone. Want to learn more? Join the local meetup for the framework or language. Better still, submit a pull request to the project to fix a small bug or add a new feature. While there are certainly time and opportunity costs involved, all of this comes without any direct cost to the aspiring developer, at least not in terms of software, and is infinitely more inclusive than doing the same within a proprietary community, especially as an outsider. There's a reason nearly every coding school today outside of traditional academia teaches open source.
+* **Learn to code** - Open source is a great way to learn how to code. Want to know how your favorite site works? Hitting "view source" in your web browser can go a long way to point you in the right direction. You can read the documentation of the software that powers it, and potentially even stand up your own clone. Want to learn more? Join the local meetup for the framework or language. Better still, submit a pull request to the project to fix a small bug or add a new feature. While there are certainly time and opportunity costs involved, all of this comes without any direct cost to the aspiring developer, at least not in terms of software, and is infinitely more inclusive than doing the same within a proprietary community, especially as an outsider. There's a reason nearly every coding school today outside of traditional academia teaches open source.
 
 * **It's fun** - According to Wikipedia, [open source is a hobby](https://en.wikipedia.org/wiki/List_of_hobbies#cite_ref-8). In fact, open source has traditionally had the reputation of being the product of hobbyists (although I'd argue that's less true today). Open source is fun. If you're [a hacker](https://ben.balter.com/2013/02/04/what-is-a-hacker/) it provides an endless set of ever-changing set of Rubix cubes for you to solve on weekends. Just as puzzles (both crossword and jigsaw) provide bite-sized intellectual escapes, the order and symmetry of open source can often be a rock garden of code (especially for those for which football is an embarrassing non-starter).
 
 There are many reasons why you should prefer consuming, publishing, collaborating on, and supporting open source, and if yours isn't listed here, I'd love to hear (and add) it. Whatever your reason, it's clear open source isn't the next big thing. Open source is already here.
 
-[^laundry-list]: For a much longer, much more comprehensive, much more thoroughly researched list, I highly recommend [David Wheeler's canonical paper, "Why Open Source Software"](http://www.dwheeler.com/oss_fs_why.html), originally published some 15 years ago (and still very much accurate).
+[^1]: For a much longer, much more comprehensive, much more thoroughly researched list, I highly recommend [David Wheeler's canonical paper, "Why Open Source Software"](http://www.dwheeler.com/oss_fs_why.html), originally published some 15 years ago (and still very much accurate).

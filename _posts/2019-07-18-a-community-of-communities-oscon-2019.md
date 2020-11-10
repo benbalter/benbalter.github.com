@@ -26,4 +26,4 @@ GitHub’s Community and Safety team is like many other services’ Trust and Sa
     </div>
 </div>
 
-In [this talk from O'Reilly's 2019 Open Source Software Conference (OSCON)](https://conferences.oreilly.com/oscon/oscon-or/public/schedule/detail/76027), I walk through GitHub’s approach to empowering maintainers to grow a federation of semi-independent, safe, and welcoming open source communities that can scale along side the code, as well as what tools and resources are available today and in the future, looking at how various community management approaches encourage or discourage community growth and participation.
+In [this talk from O'Reilly's 2019 Open Source Software Conference (OSCON)](https://conferences.oreilly.com/oscon/oscon-or/public/schedule/detail/76027), I walkthrough GitHub’s approach to empowering maintainers to grow a federation of semi-independent, safe, and welcoming open source communities that can scale along side the code, as well as what tools and resources are available today and in the future, looking at how various community management approaches encourage or discourage community growth and participation.

@@ -16,7 +16,7 @@ end_date: '2016-02-01'
 
 * Lead [a bottom-up rewrite of GitHub Pages](https://github.com/blog/1992-eight-lessons-learned-hacking-on-github-pages-for-six-months), GitHub's documentation and static-site hosting service that hosts more than a million sites and serves more than a quarter of a million pages every minute.
 * Developed and integrated [GeoJSON rendering and diffing](https://github.com/blog/1541-geojson-rendering-improvements) into GitHub.com and GitHub Enterprise, empowering government agencies and civic hackers to publish more than half a million geospatial data sets.
-* Launched and maintained [choosealicense.com](http://choosealicense.com), a website dedicated to demystifying open source licensing for developers.
+* Launched and maintained [choosealicense.com](http://choosealicense.com), a site dedicated to demystifying open source licensing for developers.
 * Developed and launched [license detection API](https://github.com/blog/1964-open-source-license-usage-on-github-com) for detecting and verifying open source licenses across all GitHub-hosted projects.
 
 ###### Contracting and compliance

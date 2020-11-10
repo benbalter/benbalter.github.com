@@ -5,7 +5,7 @@ description: How I customize the hackable Atom text editor for writing prose and
 
 Inspired by @srobert's ["How I Atom" post](https://sroberts.github.io/2015/06/06/how-i-atom/), I thought I'd share a bit about my own computering environment. I've been using [Atom](https://atom.io) as my day-to-day text editor (and probably the single most used app after my web browser) [since the day I joined GitHub](https://github.com/blog/1432-ben-balter-is-a-GitHubber), nearly four years ago, and about a year before [it was publicly released](http://blog.atom.io/2014/02/26/introducing-atom.html).
 
-While at it's core, Atom is a simple, hackable text editor, what makes Atom so powerful is its extensibility and its ecosystem. There are [some 5,000 community-contributed packages](https://atom.io/packages) (and counting) that extend Atom's functionality and it's relatively easy to customize Atom's behavior using just HTML, CSS, and Javascript.
+While at it's core, Atom is a simple, hackable text editor, what makes Atom so powerful is its extensibility and its ecosystem. There are [some 5,000 community-contributed packages](https://atom.io/packages) (and counting) that extend Atom's functionality and it's relatively easy to customize Atom's behavior using just HTML, CSS, and JavaScript.
 
 First and foremost, I'm a developer. While these days I may only occasionally write more than a few lines of code at any given time, over the years, I've grown accustomed to developer tools and developer workflows for all sorts of knowledge work, even if now, the majority of my time in Atom is spent authoring [Markdown](https://guides.github.com/features/mastering-markdown/) and prose. It's natural then, that I use a developer-centric text editor for the majority of my work, even if it's authoring English, and not say, Ruby.
 
@@ -42,7 +42,7 @@ If you're not familiar with the concept of a linter, it's basically an automated
 
 There are a few prose-specific linters I credit for improving my day-to-day writing:
 
-* [linter-write-good](https://atom.io/packages/linter-write-good) - A grammar linter, Write Good checks all sorts of things, like cliches, passive voice, and unnecessarily wordy phrases.
+* [linter-write-good](https://atom.io/packages/linter-write-good) - A grammar linter, Write Good checks all sorts of things, like falses, passive voice, and unnecessarily wordy phrases.
 * [linter-markdown](https://atom.io/packages/linter-markdown) - This linter, based on [Remark JS](https://github.com/gnab/remark) lints Markdown formatting, ensuring things like headings are surrounded by whitespace and bulleted lists are consistent.
 * [linter-alex](https://atom.io/packages/linter-alex) - [Alex](https://github.com/wooorm/alex) checks your writing for biased or insensitive language.
 * [linter-just-say-no](https://atom.io/packages/linter-just-say-no) - Discourages you from using hedge words that weaken's the impact of your writing.

@@ -16,4 +16,4 @@ Described by the US Chief Technology Officer as one of "the baddest of the badas
 
 As an attorney passionate about the disruptive potential of technology, Ben holds a J.D. and an M.B.A. from the George Washington University and is a member of the DC Bar. When not trying to change the world, he enjoys tackling otherwise-impossible challenges to sharing information using nothing more than duct tape, version control, and occasionally a pack of bubblegum.
 
-Feel free to e-mail him at [Ben@Balter.com](mailto:Ben@Balter.com) or you can find him on these social networks:
+Feel free to email him at [Ben@Balter.com](mailto:Ben@Balter.com) or you can find him on these social networks:

@@ -113,7 +113,7 @@ Generally, use chat for informal office communication, community comradery, wate
 
 #### Email
 
-* **When**: Use e-mail as a last resort or when necessary with external parties.
+* **When**: Use email as a last resort or when necessary with external parties.
 * **Who**: Customers, partners, and other external stakeholders
 * **Why**: [Email is a terrible, terrible collaboration medium, and an even worse mechanism for storing organizational knowledge](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#11-secrets-secrets-are-no-fun).
 

@@ -16,7 +16,7 @@ There was [an interesting Hacker News comment](https://news.ycombinator.com/item
 
 This struck me for two reasons. First, it shows that the data publishers still believe that key stakeholders within government, do not yet understand [the concept of or value in producing an API](http://www.youtube.com/watch?v=nyqHClC_UXo), a chilling thought considering the critical role open government data can, should, and is playing in shaping our economy and reimagining how citizens interact with their government.
 
-Second, the fact that the documentation is geared not towards developers, but towards internal stakeholders shows a lack of consideration for the data consumer's user experience. In this case, listing ID's is just scratching the surface of [what a developer might expect from the private sector](http://developer.github.com/). Is the API responsive? Does it return data in a usable format? Are related queries properly linked? The list goes on.
+Second, the fact that the documentation is geared not towards developers, but towards internal stakeholders shows a lack of consideration for the data consumer's user experience. In this case, listing IDs is just scratching the surface of [what a developer might expect from the private sector](http://developer.github.com/). Is the API responsive? Does it return data in a usable format? Are related queries properly linked? The list goes on.
 
 All experiences — government experience especially — should be optimized for the consumer, not for the publisher, regardless of format or internal politics.
 

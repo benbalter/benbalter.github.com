@@ -58,7 +58,7 @@ There are four tools I use regularly to support my notification workflow:
 
 #### GitHub mention highlighter
 
-When I click through a notification, I want to know exactly what's being asked of me, if anything. I use my own [GitHub Mention Highlighter plugin](https://github.com/benbalter/github-mention-highlighter) to highlight any personal or team @mentions in high-visibility florescent yellow, so that I can skim lengthy threads more easily.
+When I click through a notification, I want to know exactly what's being asked of me, if anything. I use my own [GitHub Mention Highlighter plugin](https://github.com/benbalter/github-mention-highlighter) to highlight any personal or team @mentions in high-visibility fluorescent yellow, so that I can skim lengthy threads more easily.
 
 #### Notifier for GitHub
 

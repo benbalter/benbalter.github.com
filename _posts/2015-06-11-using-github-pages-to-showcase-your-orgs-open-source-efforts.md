@@ -31,11 +31,11 @@ For a quick way to get started, and as an example, let's create a new file calle
 </html>
 ```
 
-Once you commit (save) the file, if you navigate to `your-org.github.io`, you should see the index file you just created, being served, just like any other website. You can add additional HTML files, CSS files, JavaScript files, images… any static files you want in this manner. The only thing GitHub Pages doesn't support are dynamic languages like PHP, Ruby, or Python. This allows you to add your organization's logo, color scheme, or any other content you'd like, including dynamic, client-side content like pulling in your organization's most recent Tweets.
+Once you commit (save) the file, if you navigate to `your-org.github.io`, you should see the index file you just created, being served, just like any other site. You can add additional HTML files, CSS files, JavaScript files, images… any static files you want in this manner. The only thing GitHub Pages doesn't support are dynamic languages like PHP, Ruby, or Python. This allows you to add your organization's logo, color scheme, or any other content you'd like, including dynamic, client-side content like pulling in your organization's most recent Tweets.
 
 ### Templating with Jekyll
 
-The true power of GitHub Pages comes from a built in static site generator called [Jekyll](http://jekyllrb.com). If you just have a single page site with straightforward content, our index example above is likely sufficient, but if you'd like to have multiple pages, or if you'd like to support content that's a bit more dynamic, you'll likely want to leverage Jekyll to make things a bit easier to maintain.
+The true power of GitHub Pages comes from a built-in static site generator called [Jekyll](http://jekyllrb.com). If you just have a single page site with straightforward content, our index example above is likely sufficient, but if you'd like to have multiple pages, or if you'd like to support content that's a bit more dynamic, you'll likely want to leverage Jekyll to make things a bit easier to maintain.
 
 Going back to our index example above, lets say you wanted to add a second page, "About us". You could copy and paste the index template into a second file, but if you'd like to change the header on both pages, you'd have to make the same page twice, and things can easily get out of sync.
 

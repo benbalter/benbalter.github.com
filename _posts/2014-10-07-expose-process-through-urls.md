@@ -51,7 +51,7 @@ Just as internal communication should prefer high-fidelity, electronic mediums i
 
 ### Great URLs
 
-Having a digital-first workflow and a standards compliant website is a great first step, but to truly put content on a pedestal, great URLs take digital publication three steps further:
+Having a digital-first workflow and a standards compliant site is a great first step, but to truly put content on a pedestal, great URLs take digital publication three steps further:
 
 * **They're semantic** - URLs may be consumed by machines, but they are primarily built for humans. As such, [they should describe the thing they represent in human-readable, not just machine-readable terms](https://en.wikipedia.org/wiki/Semantic_URL). We've all looked to the top of our screen when browsing, only to discover `domain.com/index.php?page_id=23784` or a similar obscure database ID. Great URLs make it immediately clear what they represent. Just by seeing `ben.balter.com/2014/10/02/expose-process-through-urls` you immediately know (A) that this is an article, (B) who the author of that article is, © when it was published, and (D) what it's about.
 

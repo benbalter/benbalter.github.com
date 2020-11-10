@@ -37,7 +37,7 @@ Links from where the users install the project, or expect support from other pro
 
 ### 4. Publish technical documentation
 
-In my mind, there are three types of documentation: marketing materials (why you should use the project), end-user documentation (how to use the project), and technical documentation (how the project works or how to implement it). Most projects tackle the first two but neglect the last beyond obvious or common use cases. The goal should be to transfer project knowledge from the maintainer's head(s) to potential contributors.
+In my mind, there are three types of documentation: marketing materials (why you should use the project), end user documentation (how to use the project), and technical documentation (how the project works or how to implement it). Most projects tackle the first two but neglect the last beyond obvious or common use cases. The goal should be to transfer project knowledge from the maintainer's head(s) to potential contributors.
 
 The last two are the difference between documenting anticipated behaviors versus method or function level functionality. It could be in-line, auto-generated, or hand curated, but the idea is that you're lowering the cognitive burden to expand your project beyond what was originally anticipated, both technically and in terms of desired functionality.
 
@@ -71,7 +71,7 @@ Once the pull request has been merged, take a moment to thank and congratulate t
 
 ### 8. Set up automated tests
 
-Many developers think of continuous integration (CI) as a workflow tool, or a software quality tool, but it's actually a powerful community building tool. Rather than needing to wait for a maintainer to review their work, which might span timezones or work schedules, automated tests provide contributors with instant feedback on their contribution. Beyond providing contributors with the opportunity to improve their code before a human review, CI also provides maintainers with confidence that a given feature or bug fix doesn't introduce a regression, without necessarily needing to run the code locally.
+Many developers think of continuous integration (CI) as a workflow tool, or a software quality tool, but it's actually a powerful community building tool. Rather than needing to wait for a maintainer to review their work, which might span timezones or work schedules, automated tests provide contributors with instant feedback on their contribution. Beyond providing contributors with the opportunity to improve their code before a human review, CI also provides maintainers with confidence that a given feature or bugfix doesn't introduce a regression, without necessarily needing to run the code locally.
 
 CI is often trivial to set up for open source projects, especially if your project already has automated tests. Services like Travis CI have examples for every major framework and language, are completely free, and are often a matter of simply adding the necessary metadata to your project's root. Once enabled, potential contributions are automatically tested, and their status is reported directly on the pull request. Rather than testing each contribution manually, don't force humans to do what computers can.
 

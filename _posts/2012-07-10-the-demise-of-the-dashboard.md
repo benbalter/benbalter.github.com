@@ -5,7 +5,7 @@ description: When building consumer applications, favor simplicity over complex 
 
 [![Dashboard all the things](https://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things-300x225.jpeg){: .float-right .ml-3 }](https://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things.jpeg)
 
-I was recently asked how I would architect a personalized dashboard experience for visitors to a large, customer-facing website. My response? *I wouldn't.*
+I was recently asked how I would architect a personalized dashboard experience for visitors to a large, customer-facing site. My response? *I wouldn't.*
 
 A dashboard in a car or airplane makes sense. It's not as if I could click "speedometer" while driving or press the "altimeter" button while flying. I simply need everything at all times. But virtual interfaces don't have that same limitation. In fact they don't have any limitations. A dashboard can have as much information as the most ambitious engineer can dream — and that's exactly the problem.
 

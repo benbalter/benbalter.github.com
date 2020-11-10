@@ -25,7 +25,7 @@ In an environment where agencies are receiving increasing pressure to do more wi
 
 ### 3. Free advertising
 
-Government contractors are often contractually prohibited from disclosing the nature of their work performed under government contract. That's why contractor's websites are notably silent on portfolios or long lists of satisfied clients. Open sourcing work performed under a contract makes that project's history a matter of public record. Any member of the public can browse the project's commit history, and depending on the specifics of the contract, the contractor may then be able to talk freely about their efforts.
+Government contractors are often contractually prohibited from disclosing the nature of their work performed under government contract. That's why contractor's sites are notably silent on portfolios or long lists of satisfied clients. Open sourcing work performed under a contract makes that project's history a matter of public record. Any member of the public can browse the project's commit history, and depending on the specifics of the contract, the contractor may then be able to talk freely about their efforts.
 
 Open source provides government contractors with the ability to build a portfolio of past performance, whereby members of the community can evaluate the quality of the work and better understand how the firm approaches software development without the need to write a single line of procurement legalese.
 
@@ -43,7 +43,7 @@ Open source provide government contractors with a platform to establish a brand 
 
 There are two big buckets of IT contracts: software development, and operations and maintenance. Traditional software development contracts are often a large, firm-fixed price, agreed upon up front, but once the software is delivered, the revenue stream may dry up depending on whether the agency chooses to invest further in the project by building out additional features.
 
-With open source, there's always a built in maintenance component. Once open sourced, agencies will require someone with the technical know-how to foster a community around the code, evaluate proposed changes, and answer questions in the support forums, rather than let the project dry up and die on the vine. Whereas an agency may choose not to develop new features, once in the hands of the community, there's a high probability it will be improved upon for a particular use case or that bugs will surface. Most agencies don't have that expertise in-house, and are increasingly turning to industry partners to maintain the day-to-day operations of the project.
+With open source, there's always a built-in maintenance component. Once open sourced, agencies will require someone with the technical know-how to foster a community around the code, evaluate proposed changes, and answer questions in the support forums, rather than let the project dry up and die on the vine. Whereas an agency may choose not to develop new features, once in the hands of the community, there's a high probability it will be improved upon for a particular use case or that bugs will surface. Most agencies don't have that expertise in-house, and are increasingly turning to industry partners to maintain the day-to-day operations of the project.
 
 Rather than being a one-off engagement, open source provides government contractors to establish long-term maintenance and engagement contracts, and to advise the agency on open-source best practices throughout the lifecycle of the project.
 

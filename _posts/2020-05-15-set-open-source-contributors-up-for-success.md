@@ -29,7 +29,7 @@ Bug reports and feature requests can quickly become an overwhelming burden if yo
 
 ### 5. Make it easy for users to contribute back
 
-Just as you think through your end-user experience, think critically about your developer and contributor experience. The easier it is for users to contribute, and to contribute in the ways you expect, the more contributions you'll get, and the less maintainers will have to intervene to enforce process or norms. In practice, that means [minimizing the friction](https://ben.balter.com/2013/08/11/friction/) one must overcome to contribute and [documenting how to contribute](https://ben.balter.com/2017/11/10/twelve-tips-for-growing-communities-around-your-open-source-project/#5-document-how-to-contribute-and-that-you-want-contributions) so that they can.
+Just as you think through your end user experience, think critically about your developer and contributor experience. The easier it is for users to contribute, and to contribute in the ways you expect, the more contributions you'll get, and the less maintainers will have to intervene to enforce process or norms. In practice, that means [minimizing the friction](https://ben.balter.com/2013/08/11/friction/) one must overcome to contribute and [documenting how to contribute](https://ben.balter.com/2017/11/10/twelve-tips-for-growing-communities-around-your-open-source-project/#5-document-how-to-contribute-and-that-you-want-contributions) so that they can.
 
 ### 6. Set up issue and pull request templates
 
