@@ -11,7 +11,7 @@ files.each do |path|
   next unless content.match? REGEX
 
   content.gsub!(REGEX, "|\n\1{")
-  content.gsub!('', '')
+  content.delete!('')
 
   File.write(path, content)
 end

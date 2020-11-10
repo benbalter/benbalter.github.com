@@ -15,5 +15,7 @@ group :test, :development do
   gem 'rake'
   gem 'rspec'
   gem 'rubocop'
+  gem 'rubocop-performance'
+  gem 'rubocop-rspec'
   gem 'sinatra-cross_origin' # Jekyll Admin
 end

@@ -59,7 +59,7 @@ task :format_yaml do
     yaml = YAML.safe_load(parts[1])
     %w[title description].each { |key| yaml[key] = strip_whitespace(yaml[key]) if yaml[key] }
     %w[tags category categories post_format].each { |key| yaml.delete(key) }
-    File.write(path, yaml.to_yaml(line_width: -1) + "---\n\n" + parts[4].to_s)
+    File.write(path, "#{yaml.to_yaml(line_width: -1)}---\n\n#{parts[4]}")
   end
 end
 

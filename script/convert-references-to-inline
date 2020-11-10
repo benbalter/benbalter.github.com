@@ -11,7 +11,7 @@ Dir.foreach('_posts') do |item|
   content = File.open(path).read
   refs = content.scan(/(\[.*?\]\[([0-9]+)\])/)
   refs.each do |string, num|
-    link = content.match(/^\[#{num}\]\: (.*?)\n/)
+    link = content.match(/^\[#{num}\]: (.*?)\n/)
     next unless link
 
     replacement = string.gsub(/\[#{num}\]$/, "(#{link[1]})")

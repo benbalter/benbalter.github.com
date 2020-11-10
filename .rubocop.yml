@@ -1,4 +1,11 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
 AllCops:
+  NewCops: enable
   Exclude:
     - _site/**/*
     - node_modules/**/*
@@ -7,7 +14,7 @@ AllCops:
 Style/Documentation:
   Enabled: false
 
-Metrics/LineLength:
+Layout/LineLength:
   Enabled: false
 
 Metrics/BlockLength:
