@@ -33,7 +33,7 @@ Contrast that with open source licensing, which often carries equal legal weight
 
 As project maintainers work with their corporate counsel to decide if they should add a CLA to their project, keep in mind that legal's role (and area of expertise) is to advise business owners how to minimize risk, not how best to run a successful open source project (the maintainer's area of expertise). Such risk mitigation measures (and the likelihood that the feared harm might occur) must be balanced against your business motivations (e.g, your project's goals and its long-term viability), and I'd argue, should be resolved in favor of contributors, not the corporation:
 
-### CLAss create a contribution-hostile developer experience
+### CLAs create a contribution-hostile developer experience
 
 I spend a lot of my day helping open source maintainers to [grow healthy and vibrant communities around their projects](https://ben.balter.com/2017/11/10/twelve-tips-for-growing-communities-around-your-open-source-project/). If one of the most common reasons to open source a project (and indicators of success) is to receive contributions from others, why then would a project maintainer add significant [friction](https://ben.balter.com/2013/08/11/friction/) to advancing one of their primary goals? CLAss require that the first interaction between an open source project and a potential contributor to involve a formal and complex legal agreement which signs away their legal rights — not exactly a warm welcome. Submitting one's first contribution to an open source project is already scary enough as it is, even without the threat of a lawsuit as the first volley.
 
