@@ -1,5 +1,5 @@
 ---
-title: "Tools of the trade: How I communicate at GitHub (and why)"
+title: 'Tools of the trade: How I communicate at GitHub (and why)'
 description: How I work and how I think about the tools we use to communicate at GitHub
 ---
 
