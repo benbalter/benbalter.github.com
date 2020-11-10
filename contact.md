@@ -10,4 +10,4 @@ icons: true
 If you have any questions about open government, or just questions in general, you can ask me anything over in **[benbalter/feedback](https://github.com/benbalter/feedback)**, otherwise, feel free to email me at &lt;
 {{ site.email }}> or you can find me on these social networks:
 
-{% include contact-links.HTML %}
+{% include contact-links.html %}
