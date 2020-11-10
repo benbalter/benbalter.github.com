@@ -78,7 +78,7 @@ In practice, that may mean two things:
 
 ### 8. Master the gentle bump
 
-We're all busy. Sometimes things get past us. Sometimes we don't care about things, or want to give others space to weigh in. If a pull request has been open for a sufficient amount of time, and a relevant stakeholder was mentioned but hasn't weighed in (or has an action item that they hasn't completed), gently bump the thread. Yes, the entire thread. Public shaming goes a long way (or someone else will jump in on their behalf).
+We're all busy. Sometimes things get past us. Sometimes we don't care about things, or want to give others space to weigh in. If a pull request has been open for a sufficient amount of time, and a relevant stakeholder was mentioned but hasn't weighed in (or has an action item that they haven't completed), gently bump the thread. Yes, the entire thread. Public shaming goes a long way (or someone else will jump in on their behalf).
 
 In practice, there's a few reasons it's called the "gentle" bump:
 
