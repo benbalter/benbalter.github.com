@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Fixes table formatting broken by remark
+
+REGEX = /\|\n\n(\s*?)\{/.freeze
+
+files = Dir['_posts/*']
+files.each do |path|
+  content = File.read(path)
+  next unless content.match? REGEX
+
+  content.gsub!(REGEX, "|\n\1{")
+  content.gsub!('', '')
+
+  File.write(path, content)
+end

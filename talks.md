@@ -71,4 +71,4 @@ Slides (and recordings) from some of the talks I've given over the years. Have a
 
 * [The next cultural commons: how the internet has been quietly assembling the next cultural cannon](https://ben.balter.com/the-next-cultural-commons/) ([source](https://github.com/benbalter/the-next-cultural-commons//))
 
-[_More talks_](https://speakerdeck.com/benbalter)
+[*More talks*](https://speakerdeck.com/benbalter)

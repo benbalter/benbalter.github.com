@@ -5,7 +5,7 @@ description: With GitHub's protected branches feature, you can grant collaborato
 
 <div class="border p-1 m-1" markdown="1">
 
-**Update 2019-05-23**: This is now possible more intuitively with [GitHub's triage role](https://github.blog/changelog/2019-05-23-triage-and-maintain-roles-beta/).
+**Update 2019–05–23**: This is now possible more intuitively with [GitHub's triage role](https://github.blog/changelog/2019-05-23-triage-and-maintain-roles-beta/).
 
 </div>
 

@@ -76,7 +76,7 @@ The four qualities above are ideals. In practice, there are a handful of specifi
 I began by noting that the phrase "everything should be on GitHub", doesn't necessitate a certain tool, but if you believe working the way described above is valuable, few of today's consumer collaboration tools encourage open source inspired workflows. Let's take a look at a few:
 
 | Tool          | Open               | Captures Process      | Linkable                         | Async              |
-|:--------------|:-------------------|:----------------------|:---------------------------------|:-------------------|
+| :------------ | :----------------- | :-------------------- | :------------------------------- | :----------------- |
 | GitHub        | :heavy_check_mark: | :heavy_check_mark:    | :heavy_check_mark:               | :heavy_check_mark: |
 | (Text) Chat   | :heavy_check_mark: | :heavy_check_mark:    | :heavy_check_mark:               | :heavy_check_mark: |
 | Wikis         | :heavy_check_mark: | :heavy_check_mark:    | :heavy_check_mark:               | :heavy_check_mark: |

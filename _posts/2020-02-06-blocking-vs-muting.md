@@ -7,8 +7,8 @@ Most platforms offer some form of user blocking, user muting, or both. Here's a 
 
 Typically, social networks offer at least two distinct user safety features which are roughly:
 
-* **User muting** - You don't see _the blocked user's_ content.
-* **User blocking** - The blocked user doesn't see _your_ content.
+* **User muting** - You don't see *the blocked user's* content.
+* **User blocking** - The blocked user doesn't see *your* content.
 
 ### User muting
 
@@ -16,7 +16,7 @@ Muting is most useful when there's content you don't want to see or don't want t
 
 ### User blocking (on most sites)
 
-User blocking, at least on most sites, includes all the features of user muting (you can't see and don't get notifications for their content), but goes a step further in that it also prevents the blocked user from seeing _your_ content.
+User blocking, at least on most sites, includes all the features of user muting (you can't see and don't get notifications for their content), but goes a step further in that it also prevents the blocked user from seeing *your* content.
 
 Because they can't see your content, the blocked user logically can't interact with your content (reply, down vote, etc.). Blocked users are almost always able to figure out (or are explicitly told) that you've blocked them, thus making blocking inherently more confrontational than muting. Not to mention, in reality, the block only adds friction to the unwanted behavior, as the blocked user can simply log out or create a new (sock puppet) account to see or interact with your content.
 
@@ -45,7 +45,7 @@ Extending the metaphor from earlier, imagine a town with no town's square, no co
 
 On GitHub, users[^2] "control" certain spaces, such as repositories they own, or issues or comments they author in other user's repositories, with the ability to limit blocked user from interacting with content they control, regardless of its namespace.[^3] In the real world, just as a proprietor has dominion over their shop, your front lawn is yours, as is your seat at a coffee shop or your table at a restaurant, albeit temporarily and more limited in scope.
 
-### It's _complicated_
+### It's *complicated*
 
 The megaphone metaphor illustrates an extreme. Not all disruptive behavior is malicious, intentional, or personal, nor is disruptive behavior always objectively disruptive, leaving [lots of gray area](https://ben.balter.com/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#7-offer-tiered-moderation-tools) between the absolutes. What may seem simple on the surface as "hide their post" or "don't let them comment", is [surprising complex when you look at all the facets](https://twitter.com/benbalter/status/1222956533794906113), but there are two aspects I'd specifically like to call out:
 
@@ -53,9 +53,9 @@ The megaphone metaphor illustrates an extreme. Not all disruptive behavior is ma
 
 If you block a user on GitHub, we continue to show you the blocked user's content under the belief that magically "disappearing" the content would be more disruptive to your ability to collaborate with others than if we continued to show that content in the context of ongoing conversations. This stems from the belief that users [are not inherently "good" or "bad"](https://ben.balter.com/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#2-focus-on-behaviors-not-users), and that they may make both constructive and disruptive contributions to projects, even if you may not want them to interact with you (or your project) going forward.
 
-Imagine that you find yourself viewing an issue or pull request where the blocked user is an active (and constructive at the time) participant, either before or after you blocked them. Perhaps they opened a detailed bug report to which other users offered reproduction steps or made a feature request which other contributors have :+1:'d. It'd be confusing if everyone else could see the blocked user's contributions, but you could not, not to mention, given the technical nature of _most_ discussions on GitHub, you may still want to reference their contribution, regardless of your current relationship with the author.
+Imagine that you find yourself viewing an issue or pull request where the blocked user is an active (and constructive at the time) participant, either before or after you blocked them. Perhaps they opened a detailed bug report to which other users offered reproduction steps or made a feature request which other contributors have :+1:'d. It'd be confusing if everyone else could see the blocked user's contributions, but you could not, not to mention, given the technical nature of *most* discussions on GitHub, you may still want to reference their contribution, regardless of your current relationship with the author.
 
-If the blocked user's posts are truly disruptive, repository owners can hide the blocked user's content _for all users_, not just you, such that their content within the repository is minimized by default when a user views the page, requiring them to explicitly opt-in to view it, or if inherently inappropriate, can be edited or deleted entirely to keep conversations constructive, welcoming, and on topic for all users. Not to mention, when maintainers moderate content within their community, [they signal acceptable behavior to community members](https://ben.balter.com/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#8-moderate-transparently), reducing the likelihood that other users will be similarly disruptive in the future.
+If the blocked user's posts are truly disruptive, repository owners can hide the blocked user's content *for all users*, not just you, such that their content within the repository is minimized by default when a user views the page, requiring them to explicitly opt-in to view it, or if inherently inappropriate, can be edited or deleted entirely to keep conversations constructive, welcoming, and on topic for all users. Not to mention, when maintainers moderate content within their community, [they signal acceptable behavior to community members](https://ben.balter.com/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#8-moderate-transparently), reducing the likelihood that other users will be similarly disruptive in the future.
 
 #### 2. Protecting against maintainer abuse
 
@@ -75,4 +75,4 @@ It's definitely not the right approach for all platforms, and far from perfect e
 
 [^2]: In this context, organizations can block users, preventing the blocked user from interacting with the organization's repositories, but the organization cannot open issues or comment in other user's repositories. Also to note, users cannot block organizations.
 
-[^3]: For logical reasons, maintainers of projects are always granted _most_ content moderation privileges in projects they maintain, regardless of if the author of the content they are moderating has blocked the moderator.
+[^3]: For logical reasons, maintainers of projects are always granted *most* content moderation privileges in projects they maintain, regardless of if the author of the content they are moderating has blocked the moderator.

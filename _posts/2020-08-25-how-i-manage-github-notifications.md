@@ -39,8 +39,8 @@ To put that philosophy into practice, I have set the following settings via [`gi
 
 1. Enabled both email and Web notifications for all "participating" and "watching" conversations
 2. Under "Email notification preferences":
-    1. Set my "Default notification email" to my personal email to default non-work (e.g., open source) notifications to my personal inbox
-    2. Enabled notifications for "Comments on Issues and Pull Requests" and "Pull Request reviews", but not pushes or my own updates
+   1. Set my "Default notification email" to my personal email to default non-work (e.g., open source) notifications to my personal inbox
+   2. Enabled notifications for "Comments on Issues and Pull Requests" and "Pull Request reviews", but not pushes or my own updates
 3. Under "Custom routing", set custom organization routing rules to route work-related emails to my work email address
 
 ### GMail filters

@@ -7,7 +7,7 @@ One of my favorite "laws" is [Conway's Law](https://en.wikipedia.org/wiki/Conway
 
 > The tools you choose matter. Tools are more than mere convenience. Tools force teams into particular workflows, workflows that constrain not just how software is produced, but what software is possible. It’s no coincidence then that the open source community, in order to produce the type of software it produces, adopts vastly different tools than most enterprise developers have available to them at their office.
 
-Many organizations are dogmatic about how they communicate and the tools they use, some purposefully, some out of habit or default. But even among opinionated organizations, so many fail to communicate _why_ they choose to work the way they do. This missed connection can lead to somewhat of a [cargo cult mentality](https://en.wikipedia.org/wiki/Cargo_cult) in which tools are (mis)used, often superficially, solely because they've observed others use them, and without appreciating what value they bring to the organization. Understandably, when those opaque-to-the-user tools introduce friction or bring their own learning curve, it's easy for frustration (and skepticism) to result.
+Many organizations are dogmatic about how they communicate and the tools they use, some purposefully, some out of habit or default. But even among opinionated organizations, so many fail to communicate *why* they choose to work the way they do. This missed connection can lead to somewhat of a [cargo cult mentality](https://en.wikipedia.org/wiki/Cargo_cult) in which tools are (mis)used, often superficially, solely because they've observed others use them, and without appreciating what value they bring to the organization. Understandably, when those opaque-to-the-user tools introduce friction or bring their own learning curve, it's easy for frustration (and skepticism) to result.
 
 ### First principles
 
@@ -41,7 +41,7 @@ Here's how I think about the tools we use to communicate at GitHub: **What** too
 * **Why**: If issues track state at the task level, projects track state at the project level - what's on deck, what's in flight, what's done, who's working on what, etc. When using issues (instead of cards) to track work, projects have all the benefits of issues, but offer a perspective one level of abstraction up.
 
 #### Discussions
- 
+
 * **When**: Long-lived conversations that don't involve an open/closed state. This can be Q&A, internal updates, or social discussions. You can even treat discussions like an internal blog.
 * **Who**: Entire teams or the entire organization.
 * **Why**: Many of the benefits of issues, except they don't have an open/closed state and thus are more suited for ongoing discussions or blog-like posts with comments that live outside day-to-day workstreams.
@@ -62,7 +62,7 @@ Here's how I think about the tools we use to communicate at GitHub: **What** too
 * **When**: Early ideation and definition (or in-meeting note taking), with the goal of ultimately memorializing the document in an issue or pull request for visibility and reach. Think of it as "top-of-the funnel collaboration".
 * **Who**: Small group of trusted stakeholders (grant access liberally to avoid contributor friction)
 * **Why**: Quick iteration cycles, collaborative editing
- 
+
 ###### Slides
 
 * **When**: Briefings, proposals, and updates that summarize information captured by other means (e.g., Issues, Git). 

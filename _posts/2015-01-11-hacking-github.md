@@ -55,4 +55,4 @@ An astute reader might notice that almost all of these apps are less than a hund
 
 These ~~12~~ 14 simple tools have helped improve my own workflow, and many are used inside GitHub to help improve the workflows of my fellow GitHubbers. I encourage you to check them out, and if you find any of these open source projects useful, I'd love your help making them even better. Happy hacking!
 
-**Edit (2019-02-12)**: Updated with some missing tools.
+**Edit (2019–02–12)**: Updated with some missing tools.
