@@ -1,5 +1,5 @@
 on: push
-name: Remark Lint
+name: CI
 jobs:
   test:
     runs-on: ubuntu-latest
