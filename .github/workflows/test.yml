@@ -8,7 +8,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Set up Node.js
         uses: actions/setup-node@v2-beta
-      - name: Install
+      - name: NPM Install
         run: npm install
       - name: Lint JS
         run: npm run lint-js
@@ -20,6 +20,8 @@ jobs:
         run: npm run lint-text
       - name: Setup Ruby
         uses: actions/setup-ruby@v1
+      - name: bundle install
+        run: bundle install
       - name: Check Ruby
         run: bundle exec rubocop -D -S
       - name: Check site
