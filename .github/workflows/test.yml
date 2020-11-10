@@ -1,0 +1,28 @@
+on: push
+name: Remark Lint
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2-beta
+      - name: Install
+        run: npm install
+      - name: Lint JS
+        run: npm run lint-js
+      - name: Lint JSON
+        run: npm run lint-json
+      - name: Lint MD
+        run: npm run lint-md
+      - name: Lint Text
+        run: npm run lint-text
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+      - name: Check Ruby
+        run: bundle exec rubocop -D -S
+      - name: Check site
+        run: bundle exec rake test
+      - name: Check DNS
+        run: bundle exec github-pages health-check
