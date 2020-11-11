@@ -44,5 +44,4 @@ jobs:
         run: bundle exec rake test
       - name: Check DNS
         run: bundle exec github-pages health-check
-          - uses: actions/checkout@v1
  
