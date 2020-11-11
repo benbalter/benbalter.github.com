@@ -18,6 +18,15 @@ jobs:
         run: npm run lint-md
       - name: Lint Text
         run: npm run lint-text
+      - name: Vale
+        uses: errata-ai/vale-action@v1.3.0
+        with:
+          styles: |
+            https://github.com/benbalter/vale-styles/releases/latest/download/Microsoft.zip
+          config: https://raw.githubusercontent.com/benbalter/benbalter.github.com/master/.vale.ini
+          files: "*.md _posts/*.md resume_positions/*.md"
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
   code:
     runs-on: ubuntu-latest
     steps:
@@ -35,15 +44,3 @@ jobs:
         run: bundle exec rake test
       - name: Check DNS
         run: bundle exec github-pages health-check
-  vale:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Vale
-        uses: errata-ai/vale-action@v1.3.0
-        with:
-          styles: |
-            https://github.com/benbalter/vale-styles/releases/latest/download/Microsoft.zip
-          config: https://raw.githubusercontent.com/benbalter/benbalter.github.com/master/.vale.ini
-          files: "*.md _posts/*.md resume_positions/*.md"
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
