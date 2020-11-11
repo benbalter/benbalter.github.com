@@ -1,4 +1,4 @@
-name: Linting
+name: Vale
 on: [push]
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
           config: https://raw.githubusercontent.com/benbalter/benbalter.github.com/master/.vale.ini
 
           # Optional
-          files: *.md _posts/*.md resume_positions/*.md
+          files: "*.md _posts/*.md resume_positions/*.md"
         env:
           # Required
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
