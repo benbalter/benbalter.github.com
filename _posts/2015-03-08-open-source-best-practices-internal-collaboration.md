@@ -25,7 +25,7 @@ Your first open source release should be something small and inconsequential, no
 
 ### 3. Minimize information imbalance
 
-Open source is about  growing a community. Often when we think about project stakeholders (and build or adopt workflows), we only look to those within our organization. When it comes to open source, you *must* ensure that those outside the firewall are on equal footing — in terms of access to information and ability to influence the project — as those inside the firewall. Simply put, developers are people too.
+Open source is about growing a community. Often when we think about project stakeholders (and build or adopt workflows), we only look to those within our organization. When it comes to open source, you *must* ensure that those outside the firewall are on equal footing — in terms of access to information and ability to influence the project — as those inside the firewall. Simply put, developers are people too.
 
 The default government workflow is to hold synchronous, meatspace meetings in wood-paneled, formerly smoke-filled rooms. Like a bad joke, you "had to be there" in order to be in on it. That's not how you foster a strong open source project.
 
@@ -57,7 +57,7 @@ You can't un-constrain open source, nor would you want to. If you want to engage
 
 ### 5. Open source problems, not solutions
 
-Developers want to  contribute to a cause  not provide free labor. If you set out to solve a problem, and you've published the result, you're not likely to garner a strong open source presence. Why would you? What exciting problems are there for developers to solve? What ways have you provided for them to contribute? Likely few to none (other than bug fixes, for which they have no vested interest).
+Developers want to contribute to a cause not provide free labor. If you set out to solve a problem, and you've published the result, you're not likely to garner a strong open source presence. Why would you? What exciting problems are there for developers to solve? What ways have you provided for them to contribute? Likely few to none (other than bug fixes, for which they have no vested interest).
 
 Think about it this way. President Obama, in his 2008 campaign adopted the slogan of "Yes we can". Notice that that's not "Yes we did." He painted a vision of where the country could be in four years (not where he took it over the past four years), and invited others to help him get it there. Think of open source projects like political campaigns. Paint a vision of where the project could be and encourage developers to get behind the cause.
 

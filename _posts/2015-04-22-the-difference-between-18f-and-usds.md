@@ -20,7 +20,7 @@ The PIF program was a success, and soon after a group called **[18F](https://18f
 
 For 18F, the goal isn't simply to deliver the piece of software that they were asked to create, but to leave the partner agency with a better sense of and appreciation for what modern software development looks like outside the Beltway. For them a win might be their name on the front page of the Washington Post talking about a new citizen-facing service that they launched, but an even better win would be that the partner agency's name was the one in the headline, spiking the football for 18F's work (and continuing 18F's vision once the engagement concludes).
 
-Sure, it's leading by example, but it's also the teach-a-CIO-how-to-fish strategy, and for them, culture's a first-class deliverable right along side the open-source code that that very culture necessitates. Think of them like the "consultant" in the movie Hitch: they're the guy behind the scenes whispering a few pointers in your ear to help you be the best you can be (except without all the food poisoning and rom-com drama).
+Sure, it's leading by example, but it's also the teach-a-CIO-how-to-fish strategy, and for them, culture's a first-class deliverable right alongside the open-source code that that very culture necessitates. Think of them like the "consultant" in the movie Hitch: they're the guy behind the scenes whispering a few pointers in your ear to help you be the best you can be (except without all the food poisoning and rom-com drama).
 
 ### The healthcare.gov wake up call
 
@@ -42,7 +42,7 @@ USDS's strategy is to bring best-of-class, private-sector engineers into governm
 
 Think of USDS like the Men in Black (although as far as I know, there's no adorable pug at the office). To them, the planet's always 24-hours away from destruction by an Arquillian Battle Cruiser or a Corillian Death Ray, but if they do their job right, you'll never know it. And that's the point.
 
-### So what's the difference
+### What's the difference
 
 18F and USDS have divergent goals (getting on the front page, versus not getting on the front page), but there's more than that. I'd break the difference in approaches down to three key-value statements implicit in each team's culture:
 
@@ -72,7 +72,7 @@ To me, 18F embodies [the hacker ethic](https://ben.balter.com/2013/02/04/what-is
 
 USDS may be strongly influenced by non-geek technologists, but that also provides them with a unique opportunity not afforded to 18F. It'd be an understatement to say that there's a lot going on below the surface of USDS. While today USDS is tasked with primarily playing catch-up on too-big-to-fail-type projects, in the long run USDS's vision is to create a much wider-reaching digital service corps, with USDS being the bureaucratic umbrella, providing managerial air cover for non-career technologists at each of the household name agencies (DHS, VA, HHS, etc.). Each agency has been tasked with establish a digital services team by this October, and the size of the corps is budgeted to swell from about 40 today, to 500 by 2016.[^7] For USDS, the play is a top-down reimplementation of how the federal government approaches IT, at least from a human perspective.
 
-### So which one's better
+### Which one's better
 
 Is 18F better? USDS? You're asking to compare Apples to PCs. They exist to serve different masters, and that's a *great* thing. For all that separates their efforts, they share much more in common, both in form and in function. They've both brought some of the smartest, most passionate technologists I've ever met into government to serve their country, and as [any student of organizational change will tell you](http://www.kotterinternational.com/the-8-step-process-for-leading-change/), a two-pronged, top-down-and-bottom-up approach is the only way to unstick the world we find ourselves in today (USDS) while simultaneously bringing about the world we want to live in tomorrow (18F).
 

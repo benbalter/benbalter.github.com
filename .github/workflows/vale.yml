@@ -1,0 +1,25 @@
+name: Linting
+on: [push]
+
+jobs:
+  prose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Vale
+        uses: errata-ai/vale-action@v1.3.0
+        with:
+          # Optional
+          styles: |
+            https://github.com/benbalter/vale-styles/releases/latest/download/Microsoft.zip
+
+          # Optional
+          config: https://raw.githubusercontent.com/benbalter/benbalter.github.com/master/.vale.ini
+
+          # Optional
+          files: *.md _posts/*.md resume_positions/*.md
+        env:
+          # Required
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

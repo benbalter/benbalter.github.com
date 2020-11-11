@@ -9,9 +9,9 @@ There's lots of internet lore around open source licensing. As an attorney and a
 
 ### Copyright versus the right to use
 
-As soon as a developer writes a line of code, they automatically posses certain rights.[^1] Think about it logically: if you write a line of code, you naturally have the right to use it, to modify it, and to distribute it to others. This is called the code's copyright, and you would be the copyright holder.
+As soon as a developer writes a line of code, they automatically possess certain rights.[^1] Think about it logically: if you write a line of code, you naturally have the right to use it, to modify it, and to distribute it to others. This is called the code's copyright, and you would be the copyright holder.
 
-Keep in mind, however, copyright is distinct from the right to use the code. While you may retain the copyright, you might also grant others some or all of those automatic rights by stating your intent to do so in a license. Think of this somewhat like a lease for real property. Your landlord still owns the building, but you have the right to live there. What rights you grant is up to you. For example, if you write closed source code, you may grant users the right to use it (but not modify or redistribute it), and if you write open source code you may grant the write to use or modify it. In either case, you still retain both rights.
+Keep in mind, however, copyright is distinct from the right to use the code. While you may retain the copyright, you might also grant others some or all of those automatic rights by stating your intent to do so in a license. Think of this somewhat like a lease for real property. Your landlord still owns the building, but you have the right to live there. What rights you grant is up to you. For example, if you write closed source code, you may grant users the right to use it (but not modify or redistribute it), and if you write open source code you may grant the right to use or modify it. In either case, you still retain both rights.
 
 When a developer licenses their code under an open source license, they are granting downstream users one or more rights, but in most cases, copyright doesn't transfer. The same is true for when a contributor submits a contribution to your project. Absent an agreement to the contrary, the developer retains the copyright, but grants (to the world), the right to use, modify, distribute, and sublicense the software.
 
@@ -57,7 +57,7 @@ Unless your employer tells you that you need one, most open source projects will
 
 If a project is on GitHub, in addition to the open source license (if any), there's a second legal document at play, GitHub's Terms of Service. Specifically, GitHub recently updated its terms of service to [explicitly include the otherwise-assumed `inbound=outbound` rule](https://help.github.com/articles/github-terms-of-service/#6-contributions-under-repository-license), meaning that by submitting a pull request on GitHub, contributors agree to contribute under that code under the same license as your project (making a CLA unnecessary in most cases).
 
-Additionally, even if your project doesn't have a license, just by posting your code on GitHub, you grant certain rights to other users such as the right to view the code, or to fork it. Logically, you also give GitHub the right to display your code, if the repo's public. That said, if you want others to use your code, you should really [add an open source license](https://help.github.com/articles/adding-a-license-to-a-repository/#including-an-open-source-license-in-your-repository).
+Additionally, even if your project doesn't have a license, just by posting your code on GitHub, you grant certain rights to other users such as the right to view the code, or to fork it. Logically, you also give GitHub the right to display your code, if the repository's public. That said, if you want others to use your code, you should really [add an open source license](https://help.github.com/articles/adding-a-license-to-a-repository/#including-an-open-source-license-in-your-repository).
 
 ### Patents
 
@@ -65,7 +65,7 @@ For most projects, you won't have to worry about patents. If you create an open 
 
 Patents are a distinct legal right from copyright, but unlike copyright, you don't get one just for creating a thing. Think of patented software as inventing an entirely new technology (like the first site to have an online "shopping cart"). The idea being, that the government wants to reward inventors who create new things, by granting them the exclusive right to use that technology for a certain period of time. As an inventor, you may want to register your invention, to secure that right, and as a developer, you'll want to ensure your code does not infringe on a patent.
 
-In my mind, the vast majority of open source projects tackle easy technical, but hard human, user experience, or implementation problems. Pagination, for example, is a solved technical problem, but the value of an open source pagination project like [`will_paginate`](https://github.com/mislav/will_paginate) comes in the API, integration with other frameworks, flexibility, etc. All things that are not, at least on their face, novel or patentable.
+In my mind, the vast majority of open source projects tackle easy technical, but hard human, user experience, or implementation problems. Pagination, for example, is a solved technical problem, but the value of an open source pagination project like [`will_paginate`](https://github.com/mislav/will_paginate) comes in the API, integration with other frameworks, flexibility, etc. All things that are not, at least on their face, novel, or patentable.
 
 If you've made something that's *not* technically trivial to implement, you should probably talk to a lawyer (who in addition to helping you conduct a patent search, might recommend a Patent-aware license like Apache over a simpler license like MIT). If you're in the vast majority of left-pad- or Rails-addon-type projects, you're probably fine, at least in terms of patent concerns.
 
@@ -92,12 +92,12 @@ That said, if you're writing software for a major corporation or a promising sta
 If you found this post helpful, there are two other resources you may be interested in reading:
 
 * An overview of the best way to handle [copyright notices for open source projects](https://ben.balter.com/2015/06/03/copyright-notices-for-websites-and-open-source-projects/) in e.g., Licenses or the README, and
-* A similar overview of [open source licensing geared towards government attorneys ](https://ben.balter.com/2014/10/08/open-source-licensing-for-government-attorneys/)
+* A similar overview of [open source licensing geared towards government attorneys](https://ben.balter.com/2014/10/08/open-source-licensing-for-government-attorneys/)
 
 ### That said…
 
-Be sure to read the [fine print](https://ben.balter.com/fine-print/), both here and elsewhere. Each situation is different. I've provided a high-level, highly-simplified, highly-generalized overview here for which I'm sure there are countless "well actually"s. If you are making a decision that affects your legal rights, you should really consult a licensed attorney in your state. I don't know the specifics of your particular situation, and am not in a position to provide you with legal advice. `</disclaimer>`
+Be sure to read the [fine print](https://ben.balter.com/fine-print/), both here and elsewhere. Each situation is different. I've provided a high-level, highly simplified, highly generalized overview here for which I'm sure there are countless "well actually"s. If you are making a decision that affects your legal rights, you should really consult a licensed attorney in your state. I don't know the specifics of your particular situation, and am not in a position to provide you with legal advice. `</disclaimer>`
 
-We've done a lot at GitHub to ensure you don't need to be or hire a lawyer just to participate in the open source community, but we're not there yet. I hope the above overview can help to answer some common questions, but if there's a general open source legal question I didn't answer, [please ask](https://github.com/benbalter/feedback).
+We've done a lot at GitHub to ensure you don't need to be or hire a lawyer just to participate in the open-source community, but we're not there yet. I hope the above overview can help to answer some common questions, but if there's a general open source legal question I didn't answer, [please ask](https://github.com/benbalter/feedback).
 
 [^1]: In some cases, under what's called the [work for hire doctrine](https://en.wikipedia.org/wiki/Work_for_hire), the developer's employer may be the copyright holder. This is true both of work done by a full-time employee, and often of a contractor given a specific task (unless otherwise specified). There's also [some nuances when it comes to government-created code](https://ben.balter.com/2014/10/08/open-source-licensing-for-government-attorneys/#publishing-open-source-software).

@@ -17,7 +17,7 @@ The first step to growing a community is to solve a shared problem. If you open 
 
 Ideally when you're initially architecting the application, but at least before open sourcing, you should abstract your project's logic to the point that it can be widely used beyond your own, specific use case. A library that makes any MySQL database into an API is significantly more likely to thrive as an open source project than an application that wraps your specific database and exposes an API for only your data.
 
-It's a win-win. You'll get more modular, more robust code (and potential community improvements), and the open source community will gain a library that can be used for problems beyond the one you're trying to solve.
+It's a shared win. You'll get more modular, more robust code (and potential community improvements), and the open-source community will gain a library that can be used for problems beyond the one you're trying to solve.
 
 ### 2. Choose a (widely adopted) open source license
 
@@ -25,7 +25,7 @@ Open source software isn't open source without an open source license. It's simp
 
 While it may be tempting to author your own open source license, [don't](http://ben.balter.com/2016/08/01/why-you-shouldnt-write-your-own-open-source-license/). The difference between open source licenses, and other intellectual property grants, like say, an author's license to a book publisher, however, is that open source licenses are heavily standardized, with about a dozen mainstream licenses and three primary licenses representing the vast majority of open source projects.
 
-It shouldn't require a team of lawyers to participate in the open source community, either as a contributor or as a consumer. Standardized open source licenses serve as a three or four letter proxy for those with and without formal legal training to know exactly what they can and can't do with your code, and thus, make it more likely your code will be used and contributed to.
+It shouldn't require a team of lawyers to participate in the open-source community, either as a contributor or as a consumer. Standardized open source licenses serve as a three or four letter proxy for those with and without formal legal training to know exactly what they can and can't do with your code, and thus, make it more likely your code will be used and contributed to.
 
 ### 3. Link to the GitHub repository from your project's distribution channel(s)
 
@@ -57,7 +57,7 @@ No software is perfect. As your community grows, it's likely users will discover
 
 * **Support files** - If you add a `SUPPORT.md` file to your project's root, `.github`, or `docs/` folder, GitHub will display it at various times users seek support, including above the new issue form. This is a great place to describe what avenues are available to users for support, if any.
 * **Troubleshooting or FAQ docs** - If you find yourself answering common questions, rather than hope users search prior issues before opening a new one, answer common questions/trouble points in a dedicated troubleshooting or FAQ document. Better yet, when you answer new questions, encourage the users to expand the documentation with their solution.
-* **Dedicated support channels** - Many projects like to keep their issue tracker dedicated to capturing the project's ongoing work. If that's the case, then you must establish and communicate alternate support channels. It could be a separate repo, a Discourse instance, a chat forum, or paid support. Whatever the medium, be sure to document it front and center.
+* **Dedicated support channels** - Many projects like to keep their issue tracker dedicated to capturing the project's ongoing work. If that's the case, then you must establish and communicate alternate support channels. It could be a separate repository, a Discourse instance, a chat forum, or paid support. Whatever the medium, be sure to document it front and center.
 
 Whatever the preferred path, if you assume your software is imperfect, then you need to tell users how they can best get problems resolved.
 
@@ -81,7 +81,7 @@ Automated testing can be used for more than just "does this thing work". If your
 
 As we say at GitHub, "pedantic robots > pedantic humans". If a human comes along and criticizes your coding style or nit-picks every detail of your implementation, you might take it personally. If a robot makes those same suggestions, you're less likely to.
 
-Automated code style enforcement via projects like Rubocop or WPCS not only ensures consistent code style to improve readability, it also allow contributors to get instant feedback on their code, all without your intervention.
+Automated code style enforcement via projects like Rubocop or WPCS not only ensures consistent code style to improve readability, it also allows contributors to get instant feedback on their code, all without your intervention.
 
 ### 10. Automate community management
 
