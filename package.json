@@ -84,6 +84,7 @@
     "lint-json": "jsonlint package.json --in-place --sort-keys",
     "lint-md": "remark . --output",
     "lint-text": "textlint *.md _posts/*.md _resume_positions/*.md --fix",
+    "lint-yaml": "yamllint -c .yamllint.yml .github/workflows/ci.yml *.yml _data/*.yml",
     "test": "script/cibuild"
   },
   "version": "1.0.0",
