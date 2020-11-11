@@ -83,10 +83,10 @@ I began by noting that the phrase "everything should be on GitHub", doesn't nece
 | Blogs         | :heavy_check_mark: | :x:[^1]            | :heavy_check_mark:       | :heavy_check_mark: |
 | Google Docs   | :heavy_check_mark: | :x:[^2]            | :x:[^3]                  | :heavy_check_mark: |
 | Microsft Word | :x:[^4]            | :x:[^5]            | :x:                      | :heavy_check_mark: |
-| Sharepoint    | :x:[^6]            | :x:[^12]            | :x:[^7]                  | :heavy_check_mark: |
-| Email         | :x:[^13]            | :heavy_check_mark: | :x:                      | :heavy_check_mark: |
-| Box/DropBox   | :x:[^7]            | :x:                | :heavy_check_mark: [^9] | :heavy_check_mark: |
-| Video chat    | :x:                | :x:                | :x:[^9]                  | :x:[^11]           |
+| Sharepoint    | :x:[^6]            | :x:[^7]            | :x:[^8]                  | :heavy_check_mark: |
+| Email         | :x:[^9]            | :heavy_check_mark: | :x:                      | :heavy_check_mark: |
+| Box/DropBox   | :x:[^12]           | :x:                | :heavy_check_mark: [^10] | :heavy_check_mark: |
+| Video chat    | :x:                | :x:                | :x:[^13]                 | :x:[^11]           |
 | IRL Meetings  | :x:                | :x:                | :x:                      | :x:                |
 {: .table .w-50 .mx-auto }
 
@@ -100,12 +100,12 @@ Although I think it's the future of knowledge work, this develop-inspired workfl
 
 [^1]: It's possible for a blog to capture and expose process if it is created using tools such as GitHub and GitHub Pages, like this blog is. But this is not (yet) the case for the vast majority of blogs.
 
-[^12]: While Google Docs and Microsoft Word can track changes (or you can version files manually via email), changes are tracked on a line-by-line or even character-by-character basis, making it hard to capture an entire revision in a single changeset. Compare a diff on GitHub (e.g., atomic commit) to the revision history menu on Google Docs or "track changes" in Microsoft Word.
+[^7]: While Google Docs and Microsoft Word can track changes (or you can version files manually via email), changes are tracked on a line-by-line or even character-by-character basis, making it hard to capture an entire revision in a single changeset. Compare a diff on GitHub (e.g., atomic commit) to the revision history menu on Google Docs or "track changes" in Microsoft Word.
 
-[^7]: While you can link to the document as a whole, AFAIK, you can't link to individual versions, changes, comments, or decisions.
+[^12]: While you can link to the document as a whole, AFAIK, you can't link to individual versions, changes, comments, or decisions.
 
 [^11]: Video conferences can theoretically be recorded and posted (we do this a lot at GitHub) in order to support asynchronous *viewing*, but video chat doesn't support asynchronous participation, and absent indexed transcripts and search, something beyond most organization's means, doesn't readily support deep linking or discoverability.
 
-[^9]: While you can link to a particular file, [you can't link to content within the file](/2014/10/07/expose-process-through-urls#great-urls) (and assume the reader has the appropriate proprietary software to view it).
+[^13]: While you can link to a particular file, [you can't link to content within the file](/2014/10/07/expose-process-through-urls#great-urls) (and assume the reader has the appropriate proprietary software to view it).
 
-[^13]: While it's certainly possible to share documents as open formats like CSVs and Markdown files (thus rendering them platform agnostic), almost without exception these tools are used to share PDFs and Microsoft Office documents, which assume the reader has proprietary desktop software, and exponentially increases the complexity of machine readability and using the content elsewhere.
+[^9]: While it's certainly possible to share documents as open formats like CSVs and Markdown files (thus rendering them platform agnostic), almost without exception these tools are used to share PDFs and Microsoft Office documents, which assume the reader has proprietary desktop software, and exponentially increases the complexity of machine readability and using the content elsewhere.
