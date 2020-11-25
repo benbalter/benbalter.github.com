@@ -1,11 +1,19 @@
 ---
-title: open source governance
+title: Open source governance
 description:
 ---
 
+### Organization-owned
 
-* Org owned
-* 2FA enforcement
-* Triage role
-* Advanced features
-* Community manager
+
+
+### Enforce 2FA
+### Triage role
+
+
+### Advanced features
+
+Code owners, branch protection
+
+
+### Community manager
