@@ -71,10 +71,6 @@ By creating a free [Cloudflare Gateway account](https://www.cloudflare.com/teams
 
 Finally, update `/etc/cloudflared/config.yml` on the Raspberry Pi to use the `https://*.cloudflare-gateway.com/dns-query` domain you received in the previous step. You'll also want to add `https://1.1.1.2/dns-query` as a secondary address, otherwise I found cloudflared has trouble bootstrapping itself to initially resolve your specific DNS server. `sudo systemctl restart cloudflared` and you should now be blocking ads, trackers, and malware from your network across all devices.
 
-### Block- and allow-lists 
-
-The whole point of a Pi-Hole is to block stuff. Once set up, you'll want to add/configure block- and allow-lists for your Pi-Hole. [firebog.net](https://firebog.net/) is the most popular meta-list. Beyond the ones listed there, I'd also recommend @StevenBlack's popular [lists](https://github.com/StevenBlack/hosts/) as well as @anudeepND's [popular allow list regular expression](https://github.com/anudeepND/whitelist) to ensure popular sites continue to work as expected.
-
 ### Putting it all together
 
 The average DNS request from your network would now look something like this:
@@ -89,18 +85,19 @@ If everything goes as expected, the entire experience should be transparent to d
 
 ### And more!
 
-If you want to take things further, UniFi offers [a number of additional security-related features that you can enable as well](https://help.ui.com/hc/en-us/articles/360006893234-UniFi-USG-UDM-Configuring-Internet-Security-Settings):[^1]
+If you want to take things even further, there are a few more customizations to explore:
 
-* **Intrusion prevention system** (IPS) - Detect and disrupt activity associated with known malware
-* **Deep packet inspection** - Gain visibility into what applications and services devices are communicating with
-* **Endpoint scanner** - Scan devices on your network to identify their operating system and what services they expose
-* **Internal honeypot** - A fake server, attractive to malware, that triggers alerts if something tries to connect to it
-
-Finally, if the "Not secure" icon when accessing the Pi-Hole interface leaves you uneasy, you can [configure the Pi-Hole with a Let's Encrypt cert.](https://www.gilbertotorres.com/install-letsencrypt-ssl-into-pi-hole-server/) so that you can access the Pi-Hole admin interface over HTTPS. 
+* **Additional UniFi security features** - UniFi offers [a number of advanced security-related features that you can enable in parallel](https://help.ui.com/hc/en-us/articles/360006893234-UniFi-USG-UDM-Configuring-Internet-Security-Settings):[^1]
+    * **Intrusion prevention system** (IPS) - Detect and disrupt activity associated with known malware
+    * **Deep packet inspection** - Gain visibility into what applications and services devices are communicating with
+    * **Endpoint scanner** - Scan devices on your network to identify their operating system and what services they expose
+    * **Internal honeypot** - A fake server, attractive to malware, that triggers alerts if something tries to connect to it
+* **Block- and allow-lists** -  The whole point of a Pi-Hole is to block stuff. Once set up, you'll want to add/configure block- and allow-lists for your Pi-Hole. [firebog.net](https://firebog.net/) is the most popular meta-list. Beyond the ones listed there, I'd also recommend @StevenBlack's popular [lists](https://github.com/StevenBlack/hosts/) as well as @anudeepND's [popular allow list regular expression](https://github.com/anudeepND/whitelist) to ensure popular sites continue to work as expected.
+* **Configure the Pi-Hole with a Let's Encrypt cert** - If the "Not secure" icon when accessing the Pi-Hole interface leaves you uneasy, you can [configure the Pi-Hole with a Let's Encrypt cert.](https://www.gilbertotorres.com/install-letsencrypt-ssl-into-pi-hole-server/) so that you can access the Pi-Hole admin interface over HTTPS. 
 
 ### Conclusion
 
-Almost nine months later, things are working better than expected. WiFi speeds are fast, ads are rare (I'm genuinely surprised when I see one), false positives are low (and easy to bypass), and I only accidentally unplugged the Raspberry Pi once (taking the entire network down in the process with it). It was a great project to put knowledge into practice (along with family GSuite and 1Password accounts, I recently heard it described as [rendering your home IT indistinguishable from a small business](https://twitter.com/rklau/status/1222674965951959040)), which I'd highly recommend if you're looking to level up your home-networking game, especially at a time when we're all spending more time at home working, browsing, and streaming.
+Almost nine months later, things are working better than expected. WiFi speeds are fast (faster than my ISP advertises), ads are rare (I'm genuinely surprised when I see one), false positives are low (and easy to bypass), and I only accidentally unplugged the Raspberry Pi once (taking the entire network down in the process with it). It was a great project to put knowledge into practice (along with family GSuite and 1Password accounts, I recently heard it described as [rendering your home IT indistinguishable from a small business](https://twitter.com/rklau/status/1222674965951959040)), which I'd highly recommend if you're looking to level up your home-networking game, especially at a time when we're all spending more time at home working, browsing, and streaming.
 
 Something I missed? Have a tip from your own home network? Leave a comment below and let me know.
 
