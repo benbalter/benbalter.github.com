@@ -1,6 +1,6 @@
 ---
 title: How I over-engineered my home network for privacy and security
-description: How I used a Unifi Dream Machine, VLANs for IoT, Pi-Hole for ads, cloudflared for DNS over HTTPS, and Cloudflare Gateway to optimize my home network for privacy and security.
+description: How I used a UniFi Dream Machine, VLANs for IoT, Pi-Hole for ads, cloudflared for DNS over HTTPS, and Cloudflare Gateway to optimize my home network for privacy and security.
 ---
 
 Back in April, when it looked like we were going to be spending some more time at home for a while, I decided to take on the project of upgrading my home Wi-Fi beyond an off-the-shelf consumer router. I'd been a Wirecutter devotee for almost as long as the site's been around and would have normally just grabbed their top pick, but I had just received [my SSCP (information security) certification](https://www.youracclaim.com/badges/7eb85996-c7fc-4c68-95df-fcd33ec445ba), and was looking for something a bit more advanced than the traditional plug-and-play setup to put my newly learned skills into practice.
