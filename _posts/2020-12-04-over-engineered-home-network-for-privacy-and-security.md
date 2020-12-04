@@ -1,6 +1,6 @@
 ---
 title: How I over-engineered my home network for privacy and security
-description:
+description: How I used a Unifi Dream Machine, Pi-Hole, cloudflared for DNS over HTTPS, and Cloudflare Gateway to optimize my home network for privacy and security.
 ---
 
 Back in April, when it looked like we were going to be spending some more time at home for a while, I decided to take on the project of upgrading my home Wi-Fi beyond an off-the-shelf consumer router. I'd been a Wirecutter devotee for almost as long as the site's been around and would have normally just grabbed their top pick, but I had just received [my SSCP (information security) certification](https://www.youracclaim.com/badges/7eb85996-c7fc-4c68-95df-fcd33ec445ba), and was looking for something a bit more advanced than the traditional plug-and-play setup to put my newly learned skills into practice.
@@ -13,9 +13,14 @@ While most home networking setups generally do a decent job of protect you from 
 * **Ads** - Blocking intrusive, targeted, and malware-laden ads across devices. While you can install an extension on a desktop browser, such ad blockers are often resource intensive, easy for advertisers to restrict, and do little for mobile devices where I do most of my "fun" browsing, not to mention, cannot restrict IoT tracking.
 * **It needs to "just work"** - Whatever solution I chose needed to be out-of-the-box or widely supported. No rooting, flashing new firmware, or modifying software which would lead to never-ending tinkering and could potentially introduce new vulnerabilities in the process.
 
-If you want to head down this route as well, it's relatively straightforward, but definitely a (fun) "project". You'll need some basic familiarity with home networking (understanding how things like DNS and IPs work), as well as being comfortable SSH-ing into a linux device and copying and pasting a few commands. Here's how I over-engineered my home network for privacy and security:
+If you want to head down this route as well, it's relatively straightforward, but definitely a (fun) "project". You'll need some basic familiarity with home networking (understanding how things like DNS and IPs work), as well as being comfortable SSH-ing into a linux device and copying and pasting a few commands. 
 
-### The router - Unify Dream Machine
+Here's how I over-engineered my home network for privacy and security:
+
+* Contents
+{:toc}
+
+### The router - UniFi Dream Machine
 
 I'd always [admired from afar the over-the-top home network setup](https://www.troyhunt.com/ubiquiti-all-the-things-how-i-finally-fixed-my-dodgy-wifi/) Ubiquiti's prosumer line offers, but for the space I'd be installing it in, the four digit minimum price tag to properly support a single access point was a bit beyond reasonable. Luckily UniFi recently came out with their [Dream Machine](https://store.ui.com/collections/unifi-network-routing-switching/products/unifi-dream-machine), which perfectly fit my needs. In UniFi terms it's an access point, switch, security gateway, and network controller all in one (which you'd otherwise have to buy separately).
 
@@ -40,7 +45,7 @@ There are [lots of great walkthroughs of the firewall rules](https://robpickerin
 
 Now it was time to address those pesky ads. [Pi-hole](https://pi-hole.net/) is a great app that can be installed on a Raspberry Pi or in a Docker container on your home network. Unlike an in-browser ad blocker, it filters content on the network level, meaning it works across devices (including mobile devices), doesn't consume system resources, and is more difficult for advertisers to detect and block. Not to mention, it can also prevent IoT and other smart home devices from "phoning home" with your personal information or usage data. The PiHole serves as your primary (or in my case, sole) DNS server. You provide it with a (crowd-sourced) blocklist of disallowed domains that it will refuse to resolve (preventing ads and tracking scripts from being loaded entirely - a process known as [DNS sinkholing](https://en.wikipedia.org/wiki/DNS_sinkhole)), forwarding all other domains to the upstream DNS server you specify.
 
-To install Pi-Hole on a Raspberry Pi, you can follow [these instructions](https://blog.cryptoaustralia.org.au/instructions-for-setting-up-pi-hole/), which should take a few minutes to flash the Raspbian operating system onto an SD card and install the Pi-Hole software with a single command and guided setup. At one point you'll be prompted to set a static IP. You could either use the one assigned and reserve it for the Pi via the Unify UI (my recommendation), or segment the Raspberry Pi on its own subnet. Either way, you'll want to adjust your firewall rules to ensure all local devices can reach your Raspberry Pi on port 53 (DNS).
+To install Pi-Hole on a Raspberry Pi, you can follow [these instructions](https://blog.cryptoaustralia.org.au/instructions-for-setting-up-pi-hole/), which should take a few minutes to flash the Raspbian operating system onto an SD card and install the Pi-Hole software with a single command and guided setup. At one point you'll be prompted to set a static IP. You could either use the one assigned and reserve it for the Pi via the UniFi UI (my recommendation), or segment the Raspberry Pi on its own subnet. Either way, you'll want to adjust your firewall rules to ensure all local devices can reach your Raspberry Pi on port 53 (DNS).
 
 If you followed the linked instructions, your Raspberry Pi should have a static IP, which you need to configure each VLAN to use as its DNS server under `Settings -> Networks -> Local Networks -> $NETWORK_NAME -> Edit -> DHCP Name Server`. 
 
@@ -84,7 +89,7 @@ If everything goes as expected, the entire experience should be transparent to d
 
 ### And more!
 
-If you want to take things further, Unifi offers [a number of additional security-related features that you can enable as well](https://help.ui.com/hc/en-us/articles/360006893234-UniFi-USG-UDM-Configuring-Internet-Security-Settings):[^1]
+If you want to take things further, UniFi offers [a number of additional security-related features that you can enable as well](https://help.ui.com/hc/en-us/articles/360006893234-UniFi-USG-UDM-Configuring-Internet-Security-Settings):[^1]
 
 * **Intrusion prevention system** (IPS) - Detect and disrupt activity associated with known malware
 * **Deep packet inspection** - Gain visibility into what applications and services devices are communicating with
