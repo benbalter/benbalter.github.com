@@ -1,8 +1,10 @@
+---
+---
 <?xml version="1.0" encoding="utf-8"?>
 <browserconfig>
     <msapplication>
         <tile>
-            <square150x150logo src="/mstile-150x150.png?v=2"/>
+            <square150x150logo src="{{ "/mstile-150x150.png?v=" | append: site.github.build_revision | relative_url }}"/>
             <TileColor>#2d89ef</TileColor>
         </tile>
     </msapplication>
