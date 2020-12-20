@@ -105,7 +105,7 @@ plugins:
 sass:
   style: :compressed
 
-remote_theme: benbalter/retlab
+remote_theme: benbalter/retlab@24b99c67e726b2238c96e9c054f7c6e0e22a7799
 
 gist:
   noscript: false
