@@ -29,6 +29,9 @@ disqus:
 google_plus_id: BenBalter
 ga_username: UA-18088627-1
 
+cloudflare:
+  id: 17e540e3b1c8446598fb276866b94931
+
 exclude:
   - CONTRIBUTING.md
   - README.md
