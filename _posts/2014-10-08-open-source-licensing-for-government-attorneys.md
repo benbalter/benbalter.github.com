@@ -5,7 +5,8 @@ description: A high-level overview to highlight common legal issues government a
 
 Government agencies can and should participate in the open source community. Open source software is [more than simply software for which the underlying human-readable code had been made available to the public](https://ben.balter.com/2012/10/15/open-source-is-not-a-verb/). Along with the code comes [an intellectual property license grant](http://opensource.org/osd), a legal framework which government agencies are embracing with increasing frequency. Here are some common legal issues to look out for:
 
-*Note: this is an early draft. If you notice anything wonky, please [help improve it](https://github.com/benbalter/benbalter.github.com/edit/master/_posts/2014-10-08-open-source-licensing-for-government-attorneys.md).*
+*Note: this is an early draft. If you notice anything wonky, please [help improve it](https://github.com/benbalter
+.github.com/edit/master/_posts/2014-10-08-open-source-licensing-for-government-attorneys.md).*
 
 ### Open source licenses generally
 
