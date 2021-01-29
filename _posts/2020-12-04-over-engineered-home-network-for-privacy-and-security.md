@@ -22,9 +22,11 @@ Here's how I over-engineered my home network for privacy and security:
 
 ### The router - UniFi Dream Machine
 
-I'd always [admired from afar the over-the-top home network setup](https://www.troyhunt.com/ubiquiti-all-the-things-how-i-finally-fixed-my-dodgy-wifi/) Ubiquiti's prosumer line offers, but for the space I'd be installing it in, the four digit minimum price tag to properly support a single access point was a bit beyond reasonable. Luckily UniFi recently came out with their [Dream Machine](https://store.ui.com/collections/unifi-network-routing-switching/products/unifi-dream-machine), which perfectly fit my needs. In UniFi terms it's an access point, switch, security gateway, and network controller all in one (which you'd otherwise have to buy separately).
+I'd always [admired from afar the over-the-top home network setup](https://www.troyhunt.com/ubiquiti-all-the-things-how-i-finally-fixed-my-dodgy-wifi/) Ubiquiti's prosumer line offers, but for the space I'd be installing it in, the four digit minimum price tag to properly support a single access point was a bit beyond reasonable. Luckily UniFi recently came out with their [Dream Machine](https://store.ui.com/collections/unifi-network-routing-switching/products/unifi-dream-machine) (UDM), which perfectly fit my needs. In UniFi terms it's an access point, switch, security gateway, and network controller all in one (which you'd otherwise have to buy separately).
 
 While on paper it's similar to other high-end routers (beyond the processor and ram which are closer to a high-end smartphone), what really set it apart for me was [the interface](https://demo.ui.com/manage/site/default/dashboard) (for one, it didn't look like it was designed in the 90s) and level of insights and control it offered such as peeking into individual device's activity. That said, with great power comes great complexity, so there are a number of [footguns](https://en.wiktionary.org/wiki/footgun) you'll need to avoid, but overall, it's the best "router" I've owned.
+
+This write up was written with the UDM in mind, but there's no reason you couldn't recreate this setup with any router that supports guest networks, VLANs, and custom firewall rules.
 
 ### Using VLANs to segment low-trust devices
 
