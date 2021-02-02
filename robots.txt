@@ -12,6 +12,7 @@ disallows:
   - /government-glossary/
   - /make-government-better-together/
   - /make-maps-better-together/
+  - /make-reporting-better-together/
   - /open-source-alternatives/
   - /open-source-demistified/
   - /open-source-software-licensing/
