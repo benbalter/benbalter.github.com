@@ -1,6 +1,7 @@
 ---
 title: Eight things I wish I knew my first week at GitHub
 description: A short list of tips and tricks I offer to new employees when they join GitHub
+redirect_from: /2016/10/31/eight-things-i-wish-i-knew-my-first-week/
 ---
 
 <div class="border p-2 mb-2">
