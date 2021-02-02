@@ -1,20 +1,26 @@
 ---
 layout: null
 disallows:
-  - /tags*
-  - /tag*
-  - /open-source-software-licensing/
-  - /the-dynamic-site-is-dead/
-  - /behind-github-geojson/
-  - /open-source-demistified/
-  - /open-sourcing-government/
-  - /uncle-sams-list/
-  - /make-maps-better-together/
-  - /dont-build-an-api/
-  - /make-government-better-together/
-  - /404.html
-  - /fine-print/
   - /2021-analysis-of-federal-dotgov-domains/
+  - /404.html
+  - /behind-github-geojson/
+  - /collaborative-policymaking/
+  - /digital-government-strategy/
+  - /digital-strategy-reporting/
+  - /dont-build-an-api/
+  - /fine-print/
+  - /government-glossary/
+  - /make-government-better-together/
+  - /make-maps-better-together/
+  - /open-source-alternatives/
+  - /open-source-demistified/
+  - /open-source-software-licensing/
+  - /open-sourcing-government/
+  - /tag*
+  - /tags*
+  - /the-dynamic-site-is-dead/
+  - /the-next-cultural-commons/
+  - /uncle-sams-list/
 ---
 
 User-agent: *{% for disallowed in page.disallows %}
