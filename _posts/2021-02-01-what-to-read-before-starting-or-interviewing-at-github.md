@@ -1,9 +1,9 @@
 ---
 title: What to read before starting (or interviewing) at GitHub
-description: If you're joining (or interviewing) at GitHub, here are a number posts to help you understand how GitHub works and what it's like to be a GitHubber.
+description: If you're starting (or interviewing) at GitHub, here are a number posts to help you understand how GitHub works and what it's like to be a GitHubber.
 ---
 
-Over the years I've written a number of posts about GitHub's culture and communication patterns. If you're joining (or interviewing) at GitHub, here are a number posts that might help you understand how GitHub works and what it's like to be a GitHubber:
+Over the years I've written a number of posts about GitHub's culture and communication patterns. If you're joining (or interviewing at) GitHub, here are a number posts that might help you understand how GitHub works and what it's like to be a GitHubber:
 
 1. [15 rules for communicating at GitHub](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/) - Asynchronous communication through high-fidelity mediums like issues and chat eliminate the endemic 'you had to be there' aspect of most corporate workflows and reduces the need for a dedicated management function to capture, collection, and shuttle information back and forth between business units.
 2. [The seven habits of highly effective GitHubbers](https://ben.balter.com/2016/09/13/seven-habits-of-highly-effective-githubbers/) - GitHub has a unique work culture. Here are seven traits that I’ve observed in successful GitHubbers over the years that I think make GitHubbers more effective. 
