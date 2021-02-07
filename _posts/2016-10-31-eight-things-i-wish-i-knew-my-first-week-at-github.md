@@ -87,6 +87,8 @@ One of my favorite parts of working at GitHub is being able to talk to new GitHu
 
 Welcome to GitHub! I'm glad you're here.
 
+*Interested in learning more about how GitHub works and what it’s like to be a GitHubber? [Check out these popular posts on GitHub’s culture and communication patterns](https://ben.balter.com/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/).*
+
 [^1]: The original post referenced a previous iteration of how we stored and shared knowledge internally, so I opted to remove the system name entirely to keep it future proof (that's not what we really call it). If you're a GitHubber, ask your manager or a teammate. It's the thing with internal policies, docs, guides, updates, etc.
 
 [^2]: As we've grown, this timeline has likely accelerated. Don't be worried if you hit this point sooner.

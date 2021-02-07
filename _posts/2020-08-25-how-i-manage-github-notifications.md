@@ -132,3 +132,5 @@ And
 </details><br />
 
 And that's how I manage GitHub notifications. It's far from perfect (and looks a bit over engineered now that I've written it down), but it works for me and has for 7+ years now. I hope that sharing my notification workflow can help you find one that works best for you. Have a tip or trick for how you manage GitHub notifications? Let me know in the comments below.
+
+*Interested in learning more about how GitHub works and what it’s like to be a GitHubber? [Check out these popular posts on GitHub’s culture and communication patterns](https://ben.balter.com/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/).*
