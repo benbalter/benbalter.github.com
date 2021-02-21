@@ -9,6 +9,8 @@ gem 'jekyll-include-cache'
 gem 'jekyll-remote-theme'
 
 group :test, :development do
+  gem 'classifier-reborn'
+  gem 'gsl'
   gem 'html-proofer'
   gem 'nokogiri'
   gem 'pry'
@@ -17,5 +19,4 @@ group :test, :development do
   gem 'rubocop'
   gem 'rubocop-performance'
   gem 'rubocop-rspec'
-  gem 'sinatra-cross_origin' # Jekyll Admin
 end
