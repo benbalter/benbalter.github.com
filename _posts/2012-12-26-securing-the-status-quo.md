@@ -6,7 +6,7 @@ description: The Effect of Federal IT Security Policies on Innovation
 ### The Effect of Federal IT Security Policies on Innovation
 
 * Table of Contents
-  {:toc}
+{:toc}
 
 The United States Federal Government is the single largest purchaser of information security products.[^1] In FY 2011 alone, a mere 24 agencies[^2] reported a combined IT security budget of $13.3 billion, employing the equivalent of some 84,426 full time employees with major responsibilities for information security.[^3] The gravity of the ongoing threat to our nations cybersecurity has been described in the starkest of terms at the highest levels of government. Describing our current situation, President Obama remarked that \[t]he status quo is no longer acceptable[^4], members of congress from both parties have characterized the risk as a catastrophe in the making,[^5] and Secretary of Defense Leon Panetta warned of an imminent digital Pearl Harbor.[^6]
 
