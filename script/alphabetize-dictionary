@@ -4,7 +4,7 @@
 path = File.expand_path '../dictionary.txt', File.dirname(__FILE__)
 contents = File.read(path)
 
-sections = contents.split(/\n\n#/)
+sections = contents.split("\n\n#")
 header = sections.delete_at(0)
 sections = sections.map do |section|
   parts = section.split("\n")
