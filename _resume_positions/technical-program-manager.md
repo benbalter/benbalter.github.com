@@ -1,5 +1,5 @@
 ---
 employer: GitHub
-title: Senior Technical Program Manager
+title: Staff Technical Program Manager
 start_date: '2021-01-19'
 ---
