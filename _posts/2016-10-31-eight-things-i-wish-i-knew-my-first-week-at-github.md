@@ -63,7 +63,7 @@ GitHub doesn't have a strong permission (or [CYA](https://en.wikipedia.org/wiki/
 
 Rather than wait for someone to give you explicit permission to do something, continue to make forward progress until you hear otherwise. If you're doing something wrong or something that doesn't align with the company's goals, you'll either hear it explicitly or you'll hear silence, both of which indicate that you should maybe be focusing your efforts elsewhere.
 
-*Pro-tip*: For this model to work, it's important that you maintain an open dialog with your manager and cc relevant teams in a way that provides ample opportunity for meaningful feedback *before* what you're doing can have a potential impact on users, both internal and external. Use @mention auto-complete to [liberally cc teams (with context)](http://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#be-mindful-of-noise). For larger ships, [provide an explicit deadline](http://ben.balter.com/2016/05/11/moderating-a-controversial-pull-request/#set-a-timeline) for which you'd like feedback before proceeding.
+*Pro-tip*: For this model to work, it's important that you maintain an open dialog with your manager and cc relevant teams in a way that provides ample opportunity for meaningful feedback *before* what you're doing can have a potential impact on users, both internal and external. Use @mention autocomplete to [liberally cc teams (with context)](http://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#be-mindful-of-noise). For larger ships, [provide an explicit deadline](http://ben.balter.com/2016/05/11/moderating-a-controversial-pull-request/#set-a-timeline) for which you'd like feedback before proceeding.
 
 ### 7. Professional, not formal
 

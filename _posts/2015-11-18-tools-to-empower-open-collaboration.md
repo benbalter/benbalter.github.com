@@ -85,8 +85,8 @@ I began by noting that the phrase "everything should be on GitHub", doesn't nece
 | Microsft Word | :x:[^4]            | :x:[^5]            | :x:                      | :heavy_check_mark: |
 | Sharepoint    | :x:[^6]            | :x:[^7]            | :x:[^8]                  | :heavy_check_mark: |
 | Email         | :x:[^9]            | :heavy_check_mark: | :x:                      | :heavy_check_mark: |
-| Box/DropBox   | :x:[^12]           | :x:                | :heavy_check_mark: [^10] | :heavy_check_mark: |
-| Video chat    | :x:                | :x:                | :x:[^13]                 | :x:[^11]           |
+| Box/DropBox   | :x:[^10]           | :x:                | :heavy_check_mark: [^11] | :heavy_check_mark: |
+| Video chat    | :x:                | :x:                | :x:[^12]                 | :x:[^13]           |
 | IRL Meetings  | :x:                | :x:                | :x:                      | :x:                |
 {: .table .w-50 .mx-auto }
 
@@ -102,10 +102,10 @@ Although I think it's the future of knowledge work, this develop-inspired workfl
 
 [^7]: While Google Docs and Microsoft Word can track changes (or you can version files manually via email), changes are tracked on a line-by-line or even character-by-character basis, making it hard to capture an entire revision in a single changeset. Compare a diff on GitHub (e.g., atomic commit) to the revision history menu on Google Docs or "track changes" in Microsoft Word.
 
-[^12]: While you can link to the document as a whole, AFAIK, you can't link to individual versions, changes, comments, or decisions.
+[^11]: While you can link to the document as a whole, AFAIK, you can't link to individual versions, changes, comments, or decisions.
 
-[^11]: Video conferences can theoretically be recorded and posted (we do this a lot at GitHub) in order to support asynchronous *viewing*, but video chat doesn't support asynchronous participation, and absent indexed transcripts and search, something beyond most organization's means, doesn't readily support deep linking or discoverability.
+[^13]: Video conferences can theoretically be recorded and posted (we do this a lot at GitHub) in order to support asynchronous *viewing*, but video chat doesn't support asynchronous participation, and absent indexed transcripts and search, something beyond most organization's means, doesn't readily support deep linking or discoverability.
 
-[^13]: While you can link to a particular file, [you can't link to content within the file](/2014/10/07/expose-process-through-urls#great-urls) (and assume the reader has the appropriate proprietary software to view it).
+[^12]: While you can link to a particular file, [you can't link to content within the file](/2014/10/07/expose-process-through-urls#great-urls) (and assume the reader has the appropriate proprietary software to view it).
 
 [^9]: While it's certainly possible to share documents as open formats like CSVs and Markdown files (thus rendering them platform agnostic), almost without exception these tools are used to share PDFs and Microsoft Office documents, which assume the reader has proprietary desktop software, and exponentially increases the complexity of machine readability and using the content elsewhere.

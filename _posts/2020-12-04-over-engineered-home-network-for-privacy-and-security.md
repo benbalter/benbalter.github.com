@@ -102,7 +102,7 @@ If you want to take things even further, there are a few more customizations to 
 
 ### Conclusion
 
-Almost nine months later, things are working better than expected. WiFi speeds are fast (faster than my ISP advertises), ads are rare (I'm genuinely surprised when I see one), false positives are low (and easy to bypass), and I only accidentally unplugged the Raspberry Pi once (taking the entire network down in the process with it). It was a great project to put knowledge into practice (along with family GSuite and 1Password accounts, I recently heard it described as [rendering your home IT indistinguishable from a small business](https://twitter.com/rklau/status/1222674965951959040)), which I'd highly recommend if you're looking to level up your home-networking game, especially at a time when we're all spending more time at home working, browsing, and streaming.
+Almost nine months later, things are working better than expected. Wi-Fi speeds are fast (faster than my ISP advertises), ads are rare (I'm genuinely surprised when I see one), false positives are low (and easy to bypass), and I only accidentally unplugged the Raspberry Pi once (taking the entire network down in the process with it). It was a great project to put knowledge into practice (along with family GSuite and 1Password accounts, I recently heard it described as [rendering your home IT indistinguishable from a small business](https://twitter.com/rklau/status/1222674965951959040)), which I'd highly recommend if you're looking to level up your home-networking game, especially at a time when we're all spending more time at home working, browsing, and streaming.
 
 Something I missed? Have a tip from your own home network? Leave a comment below and let me know.
 
