@@ -65,12 +65,15 @@ Surfaces decisions which need to be made - * Enable LT and DRIs to make tradeoff
 
 ### 8. Boundryless engagement 
 
+One of the most defining aspects of a TPMs role is that their scope is organization-wide and boundaryless. What I mean by that is that TPMs are empowered to, and should feel comfortable going to where the program's work is, regardless of organizational lines or corporate hierarchy. In a given day you might interact with senior leadership and individual contributors across multiple functions (Sales, Legal, Finance, Support, Marketing, etc.), and that's the point.
 
-catch issues and tasks without clear ownership
+This ability to move freely throughout the organization allows TPMs to surface and resolve cross-functional program dependencies and to catch issues without clear ownership, especially where organizational lines intersect. 
 
-cross-functional program dependencies
+### 9.  Doing what needs to be done
 
-### 9.  Doing what needs to be done (code, inter-personal conflict, organization, etc.)
+Ultimately, it's the TPMs responsibility to do whatever needs to be done to ensure the program's successful execution. That might mean spending more time than you'd like copying-and-pasting on a given day, 
+
+code, inter-personal conflict, organization, etc.
 
 
 
