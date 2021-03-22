@@ -36,7 +36,7 @@ Although the role may have some functional overlap with Product Management, wher
 
 > Your team should focus on shipping. You should focus on all the meta-work necessary to create the space that allows that to happen. That means memorializing synchronous meetings, shuttling information to other affected teams, and coordinating cross-team efforts (and overcoming any organizational friction that may arise as a result). At GitHub, [we've used the term] servant leadership. As a [program] manager, your job is to provide your team with the all political, yak-shaving, and unblocking air cover necessary so that they can focus exclusively on shipping. Make sure other teams know what you’re up to, are able to opt-in to additional context if they’d like, and harmonize any supporting or parallel efforts across the organization. You should be the most organized person on your team, and be able to tell, at any given moment, exactly what needs to be done to get the [deliverable] shipped (and to make sure that is exactly what happens).
 
-2016 Ben packed a lot in there, but there's three TPM-specific space-creating outcomes that deserve calling out:
+2016 Ben packed a lot in there, but there's three TPM-specific space-creating outcomes that deserve calling out here:
 
 1. **Communicating** decisions and other key updates that may affect other teams
 2. **Coordinating** dependencies and other inter-related efforts across teams
@@ -72,11 +72,9 @@ As a TPM, your role is to force those tough conversations, to bring things out i
 
 ### 7. Drive consensus
 
+As a product manager, I regularly used terms like "alignment" and "clarity" to describe communicating and socializing a product vision. The goal was that everyone from leadership to individual engineers implementing a feature understood the bigger picture and the overarching problems the product was intended to solve for customers. As a TPM, I've built on that vocabulary, using the imperfect term "squishiness" to describe the exact opposite: program ambiguity.
 
-
-/alignment/clarity / reduce ambiguity/squishiness/ 
-
-Surfaces decisions which need to be made - * Enable LT and DRIs to make tradeoffs / resource allocate properly
+It's the TPMs responsibility to reduce program (and work stream and deliverable) ambiguity. That means ensuring everything (and I do mean everything) is documented, discoverable, and socialized. When you spend every day in a space, it's easy to reduce things to shorthand, but when programs span multiple functions, enumerating plans in explicit long form can go a long way to tease out interdependencies, yet-to-be-made decisions, and overall, create a greater sense of cross-team coordination. Often times that comes in the form of going two or three levels deeper than a functional lead might first present a plan or like.[^4] The other form that comes in is in surfacing decisions which need to be made, and ensuring decision makers have the information they need to make tradeoff determinations and allocate resources properly.
 
 ### 8. Boundryless engagement 
 
@@ -100,3 +98,5 @@ That said, the TPM role is only a few months old at GitHub, and I'm confident it
 [^2]: As an example of this distinction, TPMs should ensure that product managers have all that they need to ensure that we're bringing the right product to market, targeting the right customers, and at the right time. If ultimately the product fails to find a product-market fit due to its feature set, its priced too high, or gets the go ahead to launch with a few too many bugs, those decisions are on the program/business owner, not on the TPM.
 
 [^3]: As much as I might like them to be, human-to-human requests, are unlike server-to-server requests. A properly authenticated request from a never-before-seen client is less likely to be fulfilled, or fulfilled in a timely manner even if its facially valid.
+
+[^4]: I resist the urge to compare TPMs to dentists, due to often negative perception associated with "going to the dentist", but "reducing squishiness" is not unlike a dentist poking around in your mouth to find the soft spots in your teeth. Nobody likes having cavities, but brief discomfort and early mitigation is much preferable to the alternative.
