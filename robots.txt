@@ -17,6 +17,7 @@ disallows:
   - /open-source-demistified/
   - /open-source-software-licensing/
   - /open-sourcing-government/
+  - /simple-api/
   - /tag*
   - /tags*
   - /the-dynamic-site-is-dead/
