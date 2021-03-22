@@ -1,6 +1,6 @@
 ---
 title: Nine things a (technical) program manager does
-description:
+description: The nine most important things a program manager can do on any given day
 ---
 
 After five-plus years as a Product Manager, I recently became a founding member of GitHub's newly established Technical Program Management (TPM) organization. Program Management is a new label for me, even if I'm finding that the underlying responsibilities are in hindsight, long familiar. So day-to-day, what does a Program Manager actually do?
