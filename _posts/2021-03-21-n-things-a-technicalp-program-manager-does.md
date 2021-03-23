@@ -84,14 +84,11 @@ This ability to move freely throughout the organization allows TPMs to bring val
 
 ### 9.  Doing what needs to be done
 
-Ultimately, it's the TPMs responsibility to do whatever needs to be done to ensure the program's successful execution. That might mean spending more time than you'd like copying-and-pasting on a given day, 
-
-code, inter-personal conflict, organization, etc.
-
+Ultimately, it's the TPMs responsibility to do whatever needs to be done to ensure the program's successful execution. That might mean spending more time than you'd like copying-and-pasting from one spreadsheet to another on a given day, preparing nearly-identical updates in different formats for different audiences each week, or "brute-forcing" a one-off problem through more clicks than you can count. For better or worse (I think better), the TPM is the "catch all" for any problem, task, or deliverable that doesn't have another logical owner. It's not always glorious or fun, but it's an integral part of the TPM role, and it's another way TPMs uniquely bring value to a program and ensure its successful execution.
 
 ### Conclusion
 
-That said, the TPM role is only a few months old at GitHub, and I'm confident it will continue to evolve as the organization grows and matures. 
+All that said, the TPM role is still in its infancy at GitHub, and I'm confident it will continue to evolve as the organization grows and matures, as there's much, much more ways TPMs bring value to a program and to an organization as a whole.
 
 [^1]: Successful TPMs may find themselves regularly writing non-production "manager code" to automate common administrative tasks and help scale their own efforts.
 
