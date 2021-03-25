@@ -56,7 +56,7 @@ At the end of the day, a program manager is responsible for the program's succes
 
 If a TPM has one direct deliverable, it's to ensure that there are no surprises. That means providing day-to-day and week-to-week, both passive and active situational awareness to leadership and to those directly and indirectly responsible for program deliverables. TPMs should make program execution seem boring, or at the very least predictable.
 
-One unique aspect about being a TPM is that you're directly responsible for program execution, not outcome. That means that you're uniquely incentivized to report the no-BS truth on the ground, regardless of how good or bad it might be. Functional leads may shy away from brining light to a problem area or unmitigated risk for fear of appearances of disappointment, but increasing visibility irregardless of status is one of the easiest ways TPMs can bring value to a program.
+One unique aspect about being a TPM is that you're directly responsible for program execution, not outcome. That means that you're uniquely incentivized to report the no-BS truth on the ground, regardless of how good or bad it might be. Functional leads may shy away from bringing light to a problem area or unmitigated risk for fear of appearances of disappointment, but increasing visibility irregardless of status is one of the easiest ways TPMs can bring value to a program.
 
 ### 5. Relationship management
 
