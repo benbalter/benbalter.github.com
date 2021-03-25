@@ -3,9 +3,7 @@ title: Nine things a (technical) program manager does
 description: The nine most important things a technical program manager can do on any given day
 ---
 
-After five-plus years as a Product Manager, I recently became a founding member of GitHub's Technical Program Management (TPM) organization. Program Management is a new label for me, even if I'm discovering in hindsight that the underlying responsibilities are often long familiar. Not having a formal Program or Project Management background, as I've been settling into this new role, I've been taking notes and critically thinking about what a (Technical) Program Manger does day-to-day, and how they uniquely bring value to a team and to the organization.
-
-A few months in to this exciting journey of discovery, here’s my list of the nine most important things a program manager can do on any given day:
+After five-plus years as a Product Manager, I recently became a founding member of GitHub's Technical Program Management (TPM) organization. Program Management is a new label for me, even if I'm discovering in hindsight that the underlying responsibilities are often long familiar. Not having a formal Program or Project Management background, as I've been settling into this new role, I've been taking notes and critically thinking about what a (Technical) Program Manger does day-to-day, and how they uniquely bring value to a team and to the organization as a whole. A few months in to this exciting journey of discovery, here’s my list of the nine most important things a program manager can do on any given day:
 
 ### 1. Communication, coordination, and facilitation
 
@@ -65,7 +63,7 @@ Ultimately, it's the TPMs responsibility to do whatever needs to be done to ensu
 
 ### Conclusion
 
-Over the past few months I've greatly enjoyed the opportunity to grow and learn from my peers, many of whom bring years of experience and formal training to the role. As I oriented myself to the new role, I found that there was a lot out there describing what role a program manager plays within the larger organization, but it was hard to get a sense for what a program manager’s typical day looked like or what skills I should be focusing on day-to-day to bring value to my team. Here's the more-tactical list I wish I had as I was first stepping into the role, and I hope it helps others do the same.
+Over the past few months I've greatly enjoyed the opportunity to grow and learn from my peers, many of whom bring years of experience and formal training to the new-to-me role. As I first began settling in, I struggle to get a sense of what a program manager’s typical day looked like or what skills I should be focusing on day-to-day to bring value to my team. Here's the list I wish I had as I was first stepping into the role, and I hope it helps others do the same.
 
 [^1]: As much as I might like them to be, human-to-human requests, are unlike server-to-server requests. A properly authenticated request from a never-before-seen client is less likely to be fulfilled, or fulfilled in a timely manner even if its facially valid.
 
