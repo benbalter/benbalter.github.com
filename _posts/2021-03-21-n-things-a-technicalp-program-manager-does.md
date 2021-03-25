@@ -33,7 +33,7 @@ At the end of the day, a program manager is responsible for the program's succes
 
 If a TPM has one direct deliverable, it's to ensure that there are no surprises. That means providing day-to-day and week-to-week, both passive and active situational awareness to leadership and to those directly and indirectly responsible for program deliverables. TPMs should make program execution seem boring, or at the very least predictable.
 
-One unique aspect about being a TPM is that you're directly responsible for program execution, not outcome. That means that you're uniquely incentivized to report the no-BS truth on the ground, regardless of how good or bad it might be. Functional leads may shy away from brining light to a problem area or unmitigated risk for fear of appearances of disappointment, but increasing visibility irregardless of status is one of the easiest ways TPMs can bring value to a program.
+One unique aspect about being a TPM is that you're directly responsible for program execution, not outcome. That means that you're uniquely incentivized to report the no-BS truth on the ground, regardless of how good or bad it might be. Functional leads may shy away from bringing light to a problem area or unmitigated risk for fear of appearances of disappointment, but increasing visibility irregardless of status is one of the easiest ways TPMs can bring value to a program.
 
 ### 5. Relationship management
 
@@ -53,7 +53,7 @@ As a product manager, I regularly used terms like "alignment" and "clarity" to d
 
 It's the TPMs responsibility to reduce program (and work stream and deliverable) ambiguity. That means ensuring everything (and I do mean everything) is documented, discoverable, and socialized. When you spend every day in a space, it's easy to reduce things to shorthand, but when programs span multiple functions, enumerating plans in explicit long form can go a long way to tease out interdependencies, yet-to-be-made decisions, and overall, create a greater sense of cross-team coordination. Often times that comes in the form of going two or three levels deeper than a functional lead might first present a plan or like.[^4] The other form that comes in is in surfacing decisions which need to be made, and ensuring decision makers have the information they need to make tradeoff determinations and allocate resources properly.
 
-### 8. Boundryless engagement 
+### 8. Boundaryless engagement 
 
 One of the most defining aspects of a TPM's role is that the TPM's scope is organization-wide and boundaryless. What I mean by that is that TPMs are empowered to, and should feel comfortable going to where the program's work is, regardless of organizational lines or corporate hierarchy. In a given day you might interact with senior leadership and individual contributors (SVPs to junior engineers) across multiple functions (Sales, Legal, Finance, Support, Marketing, etc.), and that's what makes the role so uniquely effective.
 
