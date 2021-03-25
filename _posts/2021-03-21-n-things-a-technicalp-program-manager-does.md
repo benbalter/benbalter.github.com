@@ -3,9 +3,9 @@ title: Nine things a (technical) program manager does
 description: The nine most important things a program manager can do on any given day
 ---
 
-After five-plus years as a Product Manager, I recently became a founding member of GitHub's newly established Technical Program Management (TPM) organization. Program Management is a new label for me, even if I'm finding that the underlying responsibilities are in hindsight, long familiar. So day-to-day, what does a Program Manager actually do?
+After five-plus years as a Product Manager, I recently became a founding member of GitHub's Technical Program Management (TPM) organization. Program Management is a new label for me, even if I'm finding that the underlying responsibilities are in hindsight, long familiar.
 
-Here’s my list of the nine most important things a program manager can do on any given day:
+Not having a formal Program or Project Management background, as I've settled into the role, I've been taking notes and critically thinking about day-to-day, what Program Manger actually does, and how they bring value to a team and to the organization differently from other roles. A few months in to this exciting journey of discovery, here’s my list of the nine most important things a program manager can do on any given day:
 
 ### 1. Communication, coordination, and facilitation
 
@@ -66,8 +66,6 @@ Ultimately, it's the TPMs responsibility to do whatever needs to be done to ensu
 ### Conclusion
 
 All that said, the TPM role is still in its infancy at GitHub, and I'm confident it will continue to evolve as the organization grows and matures, as there's much, much more ways TPMs bring value to a program and to an organization as a whole.
-
-[^1]: Successful TPMs may find themselves regularly writing non-production "manager code" to automate common administrative tasks and help scale their own efforts.
 
 [^3]: As much as I might like them to be, human-to-human requests, are unlike server-to-server requests. A properly authenticated request from a never-before-seen client is less likely to be fulfilled, or fulfilled in a timely manner even if its facially valid.
 
