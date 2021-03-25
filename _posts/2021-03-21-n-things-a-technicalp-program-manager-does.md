@@ -76,7 +76,7 @@ As a product manager, I regularly used terms like "alignment" and "clarity" to d
 
 It's the TPMs responsibility to reduce program (and work stream and deliverable) ambiguity. That means ensuring everything (and I do mean everything) is documented, discoverable, and socialized. When you spend every day in a space, it's easy to reduce things to shorthand, but when programs span multiple functions, enumerating plans in explicit long form can go a long way to tease out interdependencies, yet-to-be-made decisions, and overall, create a greater sense of cross-team coordination. Often times that comes in the form of going two or three levels deeper than a functional lead might first present a plan or like.[^4] The other form that comes in is in surfacing decisions which need to be made, and ensuring decision makers have the information they need to make tradeoff determinations and allocate resources properly.
 
-### 8. Boundryless engagement 
+### 8. Boundaryless engagement 
 
 One of the most defining aspects of a TPM's role is that the TPM's scope is organization-wide and boundaryless. What I mean by that is that TPMs are empowered to, and should feel comfortable going to where the program's work is, regardless of organizational lines or corporate hierarchy. In a given day you might interact with senior leadership and individual contributors (SVPs to junior engineers) across multiple functions (Sales, Legal, Finance, Support, Marketing, etc.), and that's what makes the role so uniquely effective.
 
