@@ -3,7 +3,7 @@ title: Nine things a (technical) program manager does
 description: The nine most important things a technical program manager can do on any given day
 ---
 
-After five-plus years as a Product Manager, I recently became a founding member of GitHub's Technical Program Management (TPM) organization. Program Management is a new label for me, even if I'm discovering in hindsight that the underlying responsibilities are often long familiar. Not having a formal Program or Project Management background, as I've been settling into this new role, I've been taking notes and critically thinking about what a (Technical) Program Manger does day-to-day, and how they uniquely bring value to a team and to the organization as a whole. A few months in to this exciting journey of discovery, here’s my list of the nine most important things a program manager can do on any given day:
+After five-plus years as a Product Manager, I recently became a founding member of GitHub's Technical Program Management (TPM) organization. Program Management is a new label for me, even if I'm discovering in hindsight that the underlying responsibilities are often long familiar. Not having a formal Program or Project Management background, as I've been settling into this new role, I've been taking notes and critically thinking about what a (Technical) Program Manger does day-to-day, and how they uniquely bring value to a team and to the organization as a. A few months in to this exciting journey of discovery, here’s my list of the nine most important things a program manager can do on any given day:
 
 ### 1. Communication, coordination, and facilitation
 
@@ -49,7 +49,7 @@ As a TPM, your role is to force those tough conversations, to bring things out i
 
 As a product manager, I regularly used terms like "alignment" and "clarity" to describe communicating and socializing a product vision. The goal was that everyone from leadership to individual engineers implementing a feature understood the bigger picture and the overarching problems the product was intended to solve for customers. As a TPM, I've built on that vocabulary, using the imperfect term "squishiness" to describe the exact opposite: program ambiguity.
 
-It's the TPMs responsibility to reduce program (and work stream and deliverable) ambiguity. That means ensuring everything (and I do mean everything) is documented, discoverable, and socialized. When you spend every day in a space, it's easy to reduce things to shorthand, but when programs span multiple functions, enumerating plans in explicit long form can go a long way to tease out interdependencies, yet-to-be-made decisions, and overall, create a greater sense of cross-team coordination ("unknown to some" ambiguity). Often times that comes in the form of going two or three levels deeper than a functional lead might first present a plan or like.[^2] The other form that comes in is in surfacing decisions which need to be made, and ensuring decision makers have the information they need to make tradeoff determinations and allocate resources properly ("known unknown" ambiguity, often captured in a risk register).
+It's the TPMs responsibility to reduce program (and work stream and deliverable) ambiguity. That means ensuring everything (and I do mean everything) is documented, discoverable, and socialized.[^3] When you spend every day in a space, it's easy to reduce things to shorthand or hold quick huddles in Slack, but when programs span multiple functions, enumerating plans in explicit long form can go a long way to tease out interdependencies, yet-to-be-made decisions, and overall, create a greater sense of cross-team coordination ("unknown to some" ambiguity). Often times that comes in the form of going two or three levels deeper than a functional lead might first present a plan or like.[^2] The other form that comes in is in surfacing decisions which need to be made, and ensuring decision makers have the information they need to make tradeoff determinations and allocate resources properly ("known unknown" ambiguity, often captured in a risk register).
 
 ### 8. Boundaryless engagement
 
@@ -63,8 +63,10 @@ Ultimately, it's the TPMs responsibility to do whatever needs to be done to ensu
 
 ### Conclusion
 
-Over the past few months I've greatly enjoyed the opportunity to grow and learn from my peers, many of whom bring years of experience and formal training to the new-to-me role. As I first began settling in, I struggle to get a sense of what a program manager’s typical day looked like or what skills I should be focusing on day-to-day to bring value to my team. Here's the list I wish I had as I was first stepping into the role, and I hope it helps others do the same.
+Over the past few months I've greatly enjoyed the opportunity to grow and learn from my peers, many of whom bring years of experience and formal training to the new-to-me role. As I first began settling in, I struggle to get a sense of what a program manager’s typical day looked like or what skills I should be focusing on day-to-day to bring value to my team. Here's the list I wish I had as I was first stepping into the role, and I hope it helps others to do the same.
 
 [^1]: As much as I might like them to be, human-to-human requests, are unlike server-to-server requests. A properly authenticated request from a never-before-seen client is less likely to be fulfilled, or fulfilled in a timely manner even if its facially valid.
 
 [^2]: I resist the urge to compare TPMs to dentists, due to often negative perception associated with "going to the dentist", but "reducing squishiness" is not unlike a dentist poking around in your mouth to find the soft spots in your teeth. Nobody likes having cavities, but brief discomfort and early mitigation is much preferable to the alternative.
+
+[^3]: If you liked it, [you should have put a URL on it](https://ben.balter.com/2015/11/12/why-urls/).
