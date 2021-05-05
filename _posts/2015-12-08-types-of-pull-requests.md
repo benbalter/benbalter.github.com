@@ -42,6 +42,4 @@ Whether collaborating on code, data, or prose text, there are lots of different 
 
 **When to use it:** When you don't have write access to the source repository (e.g. open source), and would like to make substantial changes to an existing pull request created by another user. For smaller changes, use line-by-line comments with the proposed code.
 
-*Interested in learning more about how GitHub works and what it’s like to be a GitHubber? [Check out these popular posts on GitHub’s culture and communication patterns](https://ben.balter.com/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/).*
-
-
+{% include github-culture.html %}
