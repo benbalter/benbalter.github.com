@@ -3,7 +3,7 @@ title: If you liked it then you should have put a URL on it
 description: The next time you begin a new project, adopt a high-fidelity, electronic medium that allows you to capture and expose process in the form of a URL.
 ---
 
-<div class="border border-primary pt-3 px-2 m-1" markdown="1">
+<div class="border border-primary pt-3 px-3 my-1" markdown="1">
 
 *This post is about crafting human-centric URLs. Looking to better understand why things should have a URL in the first place? Check out my less-creatively-titled, but more to the point post [Why everything should have a URL](https://ben.balter.com/2015/11/12/why-urls/). 👈*
 
