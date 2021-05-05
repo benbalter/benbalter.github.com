@@ -8,6 +8,6 @@ icons: true
 
 {: .text-center }
 If you have any questions about open government, or just questions in general, you can ask me anything over in **[benbalter/feedback](https://github.com/benbalter/feedback)**, otherwise, feel free to email me at 
-<{{ site.email }}> or you can find me on these social networks:
+[ben@balter.com](mailto:ben@balter.com) or you can find me on these social networks:
 
 {% include contact-links.html %}

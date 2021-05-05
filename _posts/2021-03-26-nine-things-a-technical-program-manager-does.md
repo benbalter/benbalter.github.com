@@ -32,7 +32,7 @@ At the end of the day, a program manager is responsible for the program's succes
 
 If a TPM has one direct deliverable, it's to ensure that there are no surprises. That means providing day-to-day and week-to-week, both passive and active situational awareness to leadership and to those directly and indirectly responsible for program deliverables. TPMs should make program execution seem boring, or at the very least predictable.
 
-One unique aspect about being a TPM is that you're directly responsible for program execution, not outcome. That means that you're uniquely incentivized to report the no-BS truth on the ground, regardless of how good or bad it might be. Functional leads may shy away from bringing light to a problem area or unmitigated risk for fear of appearances of disappointment, but increasing visibility irregardless of status is one of the easiest ways TPMs can bring value to a program.
+One unique aspect about being a TPM is that you're directly responsible for program execution, not outcome. That means that you're uniquely incentivized to report the no-BS truth on the ground, regardless of how good or bad it might be. Functional leads may shy away from bringing light to a problem area or unmitigated risk for fear of appearances of disappointment, but increasing visibility regardless of status is one of the easiest ways TPMs can bring value to a program.
 
 ### 5. Relationship management
 
@@ -50,7 +50,7 @@ As a TPM, your role is to force those tough conversations, to bring things out i
 
 As a product manager, I regularly used terms like "alignment" and "clarity" to describe communicating and socializing a product vision. The goal was that everyone from leadership to individual engineers implementing a feature understood the bigger picture and the overarching problems the product was intended to solve for customers. As a TPM, I've built on that vocabulary, using the imperfect term "squishiness" to describe the exact opposite: program ambiguity.
 
-It's the TPMs responsibility to reduce program (and work stream and deliverable) ambiguity. That means ensuring everything (and I do mean everything) is documented, discoverable, and socialized.[^3] When you spend every day in a space, it's easy to reduce things to shorthand or hold quick huddles in Slack, but when programs span multiple functions, enumerating plans in explicit long form can go a long way to tease out interdependencies, yet-to-be-made decisions, and overall, create a greater sense of cross-team coordination ("unknown to some" ambiguity). Often times that comes in the form of going two or three levels deeper than a functional lead might first present a plan or like.[^2] The other form that comes in is in surfacing decisions which need to be made, and ensuring decision makers have the information they need to make tradeoff determinations and allocate resources properly ("known unknown" ambiguity, often captured in a risk register).
+It's the TPMs responsibility to reduce program (and work stream and deliverable) ambiguity. That means ensuring everything (and I do mean everything) is documented, discoverable, and socialized.[^2] When you spend every day in a space, it's easy to reduce things to shorthand or hold quick huddles in Slack, but when programs span multiple functions, enumerating plans in explicit long form can go a long way to tease out interdependencies, yet-to-be-made decisions, and overall, create a greater sense of cross-team coordination ("unknown to some" ambiguity). Often times that comes in the form of going two or three levels deeper than a functional lead might first present a plan or like.[^3] The other form that comes in is in surfacing decisions which need to be made, and ensuring decision makers have the information they need to make tradeoff determinations and allocate resources properly ("known unknown" ambiguity, often captured in a risk register).
 
 ### 8. Boundaryless engagement
 
@@ -58,7 +58,7 @@ One of the most defining aspects of a TPM's role is that the TPM's scope is orga
 
 This ability to move freely throughout the organization allows TPMs to bring value by surfacing and resolving cross-functional program dependencies ("connecting the dots") and to catch issues without clear ownership, especially where organizational lines intersect.
 
-### 9.  Doing what needs to be done
+### 9. Doing what needs to be done
 
 Ultimately, it's the TPMs responsibility to do whatever needs to be done to ensure the program's successful execution. That might mean spending more time than you'd like copying-and-pasting from one spreadsheet to another on a given day, preparing nearly-identical updates in different formats for different audiences each week, or "brute-forcing" a one-off problem through more clicks than you can count. For better or worse (I think better), the TPM is the "catch all" for any problem, task, or deliverable that doesn't have another logical owner (often because it spans or sits on functional lines). It's not always glorious or fun, but it's an integral part of the TPM role, and it's another way TPMs uniquely bring value to a program and ensure its successful execution.
 
@@ -68,6 +68,6 @@ Over the past few months I've greatly enjoyed the opportunity to grow and learn 
 
 [^1]: As much as I might like them to be, human-to-human requests, are unlike server-to-server requests. A properly authenticated request from a never-before-seen client is less likely to be fulfilled, or fulfilled in a timely manner even if its facially valid.
 
-[^2]: I resist the urge to compare TPMs to dentists, due to often negative perception associated with "going to the dentist", but "reducing squishiness" is not unlike a dentist poking around in your mouth to find the soft spots in your teeth. Nobody likes having cavities, but brief discomfort and early mitigation is much preferable to the alternative.
+[^3]: I resist the urge to compare TPMs to dentists, due to often negative perception associated with "going to the dentist", but "reducing squishiness" is not unlike a dentist poking around in your mouth to find the soft spots in your teeth. Nobody likes having cavities, but brief discomfort and early mitigation is much preferable to the alternative.
 
-[^3]: If you liked it, [you should have put a URL on it](https://ben.balter.com/2015/11/12/why-urls/).
+[^2]: If you liked it, [you should have put a URL on it](https://ben.balter.com/2015/11/12/why-urls/).

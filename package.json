@@ -3,7 +3,6 @@
   "bugs": {
     "url": "https://github.com/benbalter/benbalter.github.com/issues"
   },
-  "dependencies": {},
   "description": "[![Build Status](https://travis-ci.org/benbalter/benbalter.github.com.png?branch=master)](https://travis-ci.org/benbalter/benbalter.github.com)",
   "devDependencies": {
     "@textlint-rule/textlint-rule-no-unmatched-pair": "^1.0.7",

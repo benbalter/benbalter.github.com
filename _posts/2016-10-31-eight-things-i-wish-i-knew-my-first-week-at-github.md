@@ -12,7 +12,7 @@ redirect_from: /2016/10/31/eight-things-i-wish-i-knew-my-first-week/
     </p>
 </div>
 
-GitHub is a strange, magical place. We have a quirky culture, work very differently than other companies, and all have access to a never-ending firehose of organizational knowledge. It's been a while since my first week at GitHub, but I can still remember what it was like starting — and it was overwhelming to say the least. GitHub's changed a lot since then, and your mileage may vary, but looking back, here's eight things that I wish I knew when I first started:
+GitHub is a strange, magical place. We have a quirky culture, work very differently than other companies, and all have access to a never-ending firehose of organizational knowledge. It's been a while since my first week at GitHub, but I can still remember what it was like starting — and it was overwhelming to say the least. GitHub's changed a lot since then, and your mileage may vary, but looking back, here's eight things that I wish I knew when I first started:
 
 ### 1. Ship something in your first two weeks
 
@@ -47,11 +47,11 @@ As a GitHubber, you'll be presented with more opportunities to have a meaningful
 
 Given all the opportunities we have as a company and that you have as an individual, the challenge is in deciding what *not* to do (prioritizing lower lift, higher impact work), than deciding what to do.
 
-*Pro-tip*: Remind yourself that you have a limited amount of time, and that every minute you spend on a less impactful task is time you could be spending on the more impactful one. Write down the the top 3-5 things you think are most important to work on in the next year, and stick to them.
+*Pro-tip*: Remind yourself that you have a limited amount of time, and that every minute you spend on a less impactful task is time you could be spending on the more impactful one. Write down the the top 3–5 things you think are most important to work on in the next year, and stick to them.
 
 ### 5. GitHub wants you to grow and learn
 
-There's a reason every GitHubber is given a learning and development stipend. It's because GitHub wants you to be constantly growing and improving. If there's something you're interested in, grab a book on the subject. [Here's a few of my favorites](http://ben.balter.com/books-for-geeks/). If you're getting your work done, you can even take 20-30 minutes out of the workday to read it. Better yet, share the highlights with your team so they can learn as well.
+There's a reason every GitHubber is given a learning and development stipend. It's because GitHub wants you to be constantly growing and improving. If there's something you're interested in, grab a book on the subject. [Here's a few of my favorites](http://ben.balter.com/books-for-geeks/). If you're getting your work done, you can even take 20–30 minutes out of the workday to read it. Better yet, share the highlights with your team so they can learn as well.
 
 In general, you should always be pushing yourself to step 10% outside of your comfort zone. That means taking on tasks you think you're 90% qualified to tackle. Your fellow GitHubbers will help you rise to that last 10%. That might mean that you submit your first pull request to an open source project. Maybe you pair with a developer to implement a simple change (and learn some Ruby in the process). Maybe you ask to be involved in a product launch or marketing plan. Whatever it is, it can't hurt to ask (and try).
 
