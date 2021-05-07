@@ -25,4 +25,4 @@ Justice Brandeis is famous for noting that "sunlight is the best disinfectant." 
 
 [^2]: [twitter.com/BenBalter/status/209356982983999488](https://twitter.com/BenBalter/status/209356982983999488)
 
-[^3]: [coverity.com/library/pdf/coverity-scan-2011-open-source-integrity-report.pdf](http://www.coverity.com/library/pdf/coverity-scan-2011-open-source-integrity-report.pdf)
+[^3]: [coverity.com/library/pdf/coverity-scan-2011-open-source-integrity-report.PDF](http://www.coverity.com/library/pdf/coverity-scan-2011-open-source-integrity-report.pdf)

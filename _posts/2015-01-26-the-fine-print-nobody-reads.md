@@ -55,7 +55,7 @@ Unlike the negotiated amendment which is executed by each agency, the idea here 
 
 ### A few gotchas
 
-No service is *required* to do business with the government. The choice of whether you offer your service to the government or not is a business decision, not a legal one. Compliance may be costly, but the exposure and userbase may be attractive, especially to a growing startup.
+No service is *required* to do business with the government. The choice of whether you offer your service to the government or not is a business decision, not a legal one. Compliance may be costly, but the exposure and user base may be attractive, especially to a growing startup.
 
 When negotiating with government entities at any level of government be sure to be sensitive as to which clauses are objected to because they are prohibited by force of law (e.g., indemnification and the anti-deficiencies act), and which are being objected to out of organizational preference (e.g., forum selection). Many large organizations (whether public or private), will ask for certain things as a matter of habit, before entering into any contract. While the government is often going to be in the superior bargaining position, you may be able to enforce your standard terms of service, especially at the state or local level.
 

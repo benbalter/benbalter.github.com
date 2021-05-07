@@ -34,7 +34,7 @@ When you stack the two side by side (or against any other CMS for that matter), 
 Among those empowered to make purchasing decisions, there seems to be a sense that WordPress is what you use on the weekends to post pictures of your lunch while Drupal is what you use for "serious" business, and with good reason. For better or for worse, Drupal has positioned itself as not just a CMS, but rather *the* enterprise solution — an inseparable fifth layer of the increasingly ubiquitous enterprise LAMPD stack.
 
 | Metric            | Drupal                                     | WordPress                                                  |
-|:------------------|:-------------------------------------------|:-----------------------------------------------------------|
+| :---------------- | :----------------------------------------- | :--------------------------------------------------------- |
 | API Hooks         | 267                                        | [1,506](http://adambrown.info/p/wp_hooks/version/3.2) (5x) |
 | Active Sites      | [533,136](http://drupal.org/project/usage) | [65,052,049](http://en.wordpress.com/stats/) (125x)        |
 | Plugins / Modules | [8,536](http://drupal.org/project/modules) | [16,076](http://wordpress.org/extend/plugins/) (2x)        |
@@ -74,7 +74,7 @@ NASA's space-race supercharging of the aerospace industry brought consumers ever
 
 ### Frenemies
 
-It's important to note, though, it's not a zero-sum game. Drupal doesn't compete with WordPress like McDonalds does with Burger King or Coke with Pepsi. Government support for open-source software is a good thing, regardless of what form it takes. True, an infusion of publicly funded effort into the WordPress code base would invariably advance the software just as government funded research advances hard sciences, but, in the end, everybody wins here.
+It's important to note, though, it's not a zero-sum game. Drupal doesn't compete with WordPress like McDonalds does with Burger King or Coke with Pepsi. Government support for open-source software is a good thing, regardless of what form it takes. True, an infusion of publicly funded effort into the WordPress codebase would invariably advance the software just as government funded research advances hard sciences, but, in the end, everybody wins here.
 
 WordPress and government just make sense. As public institutions both large and small face growing budget concerns and begin to shift many of their services to the web, a platform like WordPress built with engagement, collaboration, and dialogue is the ideal fit, not to mention, incredibly persuasive when compared to expensive, propriety, or purpose-built alternatives.
 

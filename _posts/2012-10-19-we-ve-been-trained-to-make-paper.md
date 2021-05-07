@@ -10,7 +10,7 @@ We've been trained wrong. We've been trained that content creation starts by fir
 It's not uncommon for example, for a team to need to write or edit a document together. Take the typical collaborative publishing process, which generally goes something like this:
 
 1. Draft content in Microsoft Word
-2. Save to shared folder or e-mail around for comments and changes
+2. Save to shared folder or email around for comments and changes
 3. Manually (and opaquely) reconcile changes one-by-one
 4. Repeat steps 2–3 until satisfied with the document
 5. **Convert to web-friendly format**
@@ -32,7 +32,7 @@ Geeks solved this problem a long time ago. It's called version control. We built
 
 ### Jailbreaking content
 
-So why doesn't everyone use this "version control"? Because we're trained wrong. We've got to break free of these proprietary, print-only formats. We've got to stop shuttling changes back-and-forth via e-mail or with obscure file names. We've got to un-program ourselves for an age of print.
+So why doesn't everyone use this "version control"? Because we're trained wrong. We've got to break free of these proprietary, print-only formats. We've got to stop shuttling changes back-and-forth via email or with obscure filenames. We've got to un-program ourselves for an age of print.
 
 And here's why: *.doc files are like tiny micro-jails for our content.* Proprietary document formats tend to commingle the text we provide with the commands the software needs to recreate it, and it stores all this in a complicated and inaccessible binary format. That's what makes it proprietary. We put text in — one of the most basic things computers understand — and we get this big mess back that can only be opened by that software. Imagine if the most common way to get water was to buy a can of Coke and run in through a Brita filter. It doesn't need to be so complicated.
 

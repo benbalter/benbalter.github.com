@@ -14,7 +14,7 @@ Culture's inherently hard to define, but here's 15 "rules", that represent the i
 
 ### 1. Prefer asynchronous communication
 
-As @holman [writes](http://zachholman.com/posts/how-github-works/), "Chat is inherently asynchronous; tapping someone on the shoulder is inherently being a jerk." Knowledge workers, especially those in the technology industry [are most productive](https://en.wikipedia.org/wiki/Flow_(psychology)) when they have large blocks of uninterrupted time. A two hour block is not fungible with four thirty minute blocks. Think about it practically: Developers store large sections of the code base in their head when they work. Designers have a vision they're trying to express on paper or in CSS. Unlike say, working on an assembly line, when knowledge work is interrupted, intentional or not, whether a popup, a meeting, or a "hey, you got a sec?" drive by, there's a significant switching cost to get back to where you were. Think about it as the geek equivalent to needing to put on gym clothes, fill your water bottle, and grab your iPad before you head to the gym each time.
+As @holman [writes](http://zachholman.com/posts/how-github-works/), "Chat is inherently asynchronous; tapping someone on the shoulder is inherently being a jerk." Knowledge workers, especially those in the technology industry [are most productive](https://en.wikipedia.org/wiki/Flow_(psychology)) when they have large blocks of uninterrupted time. A two hour block is not fungible with four thirty minute blocks. Think about it practically: Developers store large sections of the codebase in their head when they work. Designers have a vision they're trying to express on paper or in CSS. Unlike say, working on an assembly line, when knowledge work is interrupted, intentional or not, whether a popup, a meeting, or a "hey, you got a sec?" drive by, there's a significant switching cost to get back to where you were. Think about it as the geek equivalent to needing to put on gym clothes, fill your water bottle, and grab your iPad before you head to the gym each time.
 
 In practice, this means that you essentially *never* "walk over" to a coworker's desk, virtual or otherwise. Whenever possible, prefer issues and chat, to "just in time" communications. And there's an added bonus: Asynchronous mediums necessitate a distributed workflow. There's no "you had to be there", when "there", is online and anytime.
 
@@ -78,7 +78,7 @@ In practice, that may mean two things:
 
 ### 8. Master the gentle bump
 
-We're all busy. Sometimes things get past us. Sometimes we don't care about things, or want to give others space to weigh in. If a pull request has been open for a sufficient amount of time, and a relevant stakeholder was mentioned but hasn't weighed in (or has an action item that he or she hasn't completed), gently bump the thread. Yes, the entire thread. Public shaming goes a long way (or someone else will jump in on their behalf).
+We're all busy. Sometimes things get past us. Sometimes we don't care about things, or want to give others space to weigh in. If a pull request has been open for a sufficient amount of time, and a relevant stakeholder was mentioned but hasn't weighed in (or has an action item that they haven't completed), gently bump the thread. Yes, the entire thread. Public shaming goes a long way (or someone else will jump in on their behalf).
 
 In practice, there's a few reasons it's called the "gentle" bump:
 
@@ -132,7 +132,7 @@ In practice, most chat programs let you mention a user by name at the start of a
 
 ### Bonus: Overcompensate for tone
 
-It's often said that it's hard to capture tone via electronic communications, but that's a filthy lie. There's a reason GitHub's collaboration culture is built on a foundation of emoji and animated GIFs. It's not simply because [animated GIFs of puppies are adorable](http://giphy.com/gifs/puppies-cute-animals-asdfghjkl-6UZFwMYqCeXi8), but because a :trollface: is often the most efficient way to express sarcasm. Be sure to be human. As we say at GitHub, mind your words, they're important.
+It's often said that it's hard to capture tone via electronic communications, but that's a filthy lie. There's a reason GitHub's collaboration culture is built on a foundation of emoji and animated GIFs. It's not simply because animated GIFs of puppies are adorable, but because a :trollface: is often the most efficient way to express sarcasm. Be sure to be human. As we say at GitHub, mind your words, they're important.
 
 ### Double bonus: If it has a URL, link to it
 
@@ -140,6 +140,6 @@ Simply put, if you reference something - be it prior issue, the pull request tha
 
 All that said, the first rule of GitHub, is that there are few hard-and-fast rules at GitHub. We often prefer cultural norms to administrative, policy, or technical constraints because they remain flexible over time as circumstances change. These 15 "rules" for how we communicate at GitHub aren't necessarily written rules, at least not in the GitHub sense, but are my best attempt to surface the current state of our communications culture.
 
-Questions? Feedback? Comment below, or even better, [open an issue](https://github.com/benbalter/feedback).
+{% include github-culture.html %}
 
 **Edit (9/1/2016)**: Added the second bonus.

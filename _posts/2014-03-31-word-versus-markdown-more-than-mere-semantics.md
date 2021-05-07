@@ -27,7 +27,7 @@ When you blindly optimize for one thing — appearances — behind the s
 Put another way, in taking a look at this [sample Word Document](https://github.com/benbalter/word-to-markdown/blob/master/test/fixtures/small-medium-large.docx?raw=true), given the same content represented identically in various formats, as little as less than one quarter of one percent of the file is actually dedicated to storing content:
 
 | Format   | Size        | %     |
-|:---------|:------------|:------|
+| :------- | :---------- | :---- |
 | Word     | 33621 bytes | 100%  |
 | HTML     | 1359 bytes  | 4.04% |
 | Markdown | 80 bytes    | 0.24% |
@@ -37,7 +37,7 @@ Put another way, in taking a look at this [sample Word Document](https://github.
 
 Once content and presentation are decoupled, content written for the web exposes author intent through semantic markup — markup which describes the relationship between elements, not simply their visual representation. It's not simply that a given line is bold or a larger font size, but memorialized in the document itself is that that given line is a heading, a heading which describes the content that follows.
 
-Take a look at how markdown represents an unordered list, for example:
+Take a look at how Markdown represents an unordered list, for example:
 
 ```markdown
 * One

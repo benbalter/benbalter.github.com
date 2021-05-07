@@ -25,7 +25,7 @@ Slides (and recordings) from some of the talks I've given over the years. Have a
 
 * [Open source licensing by the numbers](https://speakerdeck.com/benbalter/open-source-licensing-by-the-numbers)
 
-* [Open source demystified: from command line to community engagement](https://ben.balter.com/open-source-demistified/) ([source](https://github.com/benbalter/open-source-demistified/))
+* [Open source demystified: from command-line to community engagement](https://ben.balter.com/open-source-demistified/) ([source](https://github.com/benbalter/open-source-demistified/))
 
 * [Open collaboration: why you should give open source a second look](http://www.slideshare.net/TechSummitPR/pr-35485194)
 
@@ -71,4 +71,4 @@ Slides (and recordings) from some of the talks I've given over the years. Have a
 
 * [The next cultural commons: how the internet has been quietly assembling the next cultural cannon](https://ben.balter.com/the-next-cultural-commons/) ([source](https://github.com/benbalter/the-next-cultural-commons//))
 
-[_More talks_](https://speakerdeck.com/benbalter)
+[*More talks*](https://speakerdeck.com/benbalter)

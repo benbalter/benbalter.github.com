@@ -5,7 +5,7 @@ published: true
 comments: true
 ---
 
-The internet has a particular way of solving difficult technical challenges. We try a bunch of diverse approaches out, keep only the most elegant, and quickly forget the rest ever happened. That's why the Web is the Internet's preeminent service (as apposed to say [Gopher](http://en.wikipedia.org/wiki/Gopher_%28protocol%29)), clicking the logo in the top left corner of almost any site goes to that site's homepage, and typing a URL in your browser retrieves that particular page. These aren't just design conventions in the sense that a lot of people like them, but rather represent the purposeful result of trial and error.
+The internet has a particular way of solving difficult technical challenges. We try a bunch of diverse approaches out, keep only the most elegant, and quickly forget the rest ever happened. That's why the Web is the internet's preeminent service (as apposed to say [Gopher](http://en.wikipedia.org/wiki/Gopher_%28protocol%29)), clicking the logo in the top left corner of almost any site goes to that site's homepage, and typing a URL in your browser retrieves that particular page. These aren't just design conventions in the sense that a lot of people like them, but rather represent the purposeful result of trial and error.
 
 Over the past few years, as sites become more mature and even more inter-connected, the internet has been coalescing around one such pattern (known as [REST](http://en.wikipedia.org/wiki/Representational_state_transfer)). The idea is simple: a URL should uniquely identify the underlying data it represents. If I have a URL, I shouldn't need anything else to view or otherwise manipulate the information behind it.
 
@@ -13,7 +13,7 @@ WordPress, for the most part, does this well. Each post is given a unique permal
 
 Why does such a nuance matter? Take a look at the direction the net's heading. We're separating content (say, the post itself), from the presentation layer that holds it hostage (say the theme's template), so that we can use it in many, many different ways without starting from scratch. This goes on behind the scenes in many ways you may not even notice, and that's the point. By enabling programmatic access of the underlying data, that same post can be read via a mobile app, a feed reader, posted to a social network, or even embedded within another site altogether.
 
-Websites are quickly becoming the curators of information, not simply the presenters of it. It's a return to content management in its purest form. It's exposing content as a service, and it's coming whether we want it or not.
+Sites are quickly becoming the curators of information, not simply the presenters of it. It's a return to content management in its purest form. It's exposing content as a service, and it's coming whether we want it or not.
 
 WordPress came about as many of these now-standard design conventions were still emerging, and understandably, it doesn't exactly embrace them head on. Yet next generation content management systems — not weighed down by history — have an advantage here, and as folks look to build the next generation of websites, they're obviously going to be looking to where we're going, not where we've been.
 
@@ -43,10 +43,10 @@ We may not get there tomorrow, but I know that with a bit of nuance, WordPress c
 
 1. Transparently map the already-exposed permalink endpoints (e.g., `2012/12/15/post.json`) to their backend counterparts. This may require a bit of rewriting of the WordPress routing system (to understand [HTTP verbs](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods) other than simply GET). At this point, WordPress would expose a fully RESTful API for any content it knows about, but could do so with the traditional WordPress finesse.
 
-2. Add [Backbone](http://backbonejs.org/) to the default theme (it's already used on the backend), and begin to dogfood content on the front end as well as the backend so that clicking a post or page simply retrieves the content, rather than reloading the entire website. There's an opportunity to really rethink templating here. Perhaps `wp_get_ajax_template` or something converts a WordPress template to an underscore template. Perhaps WordPress compiles everything into JST for me.
+2. Add [Backbone](http://backbonejs.org/) to the default theme (it's already used on the backend), and begin to dogfood content on the frontend as well as the backend so that clicking a post or page simply retrieves the content, rather than reloading the entire site. There's an opportunity to really rethink templating here. Perhaps `wp_get_ajax_template` or something converts a WordPress template to an underscore template. Perhaps WordPress compiles everything into JST for me.
 
-As community members sit down to sketch out what the next version of WordPress looks like, I sincerely hope they can at least think about implementing some of the front-end functionality early on, and maybe even make a prototypical wp-admin 2.0 somewhat of a priority.
+As community members sit down to sketch out what the next version of WordPress looks like, I sincerely hope they can at least think about implementing some of the frontend functionality early on, and maybe even make a prototypical wp-admin 2.0 somewhat of a priority.
 
-Technology has this tricky way of bringing about organizational change. Making something so dumb-simple really is an empowering force. WordPress did it once as it first set out to democratize publishing, and it's time to do it again for the next generation of non-blogging websites and applications.
+Technology has this tricky way of bringing about organizational change. Making something so dumb-simple really is an empowering force. WordPress did it once as it first set out to democratize publishing, and it's time to do it again for the next generation of non-blogging sites and applications.
 
 **Update (12/20):** *Not quite REST, but as @scribu points out in the comments below, [#14618](https://core.trac.wordpress.org/ticket/14618) proposed an RPC-like JSON API some two years ago. Looks like the ticket ended up in somewhat over a holy war over standards (XML v. JSON anyone?), but the arguments in favor still stand nonetheless.*

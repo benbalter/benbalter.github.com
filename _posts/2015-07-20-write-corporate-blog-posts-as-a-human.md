@@ -15,7 +15,7 @@ Think of the typical corporate ship post. It probably starts something like this
 
 Here's the thing: Your users don't care how excited you are. They don't care about how much effort you put in. They don't care how hard it was to do. All they care about is one thing: *how does it benefit me?*
 
-Having helped my fellow GitHubbers to post to GitHub's blog for the past couple of years, here are a dozen simple rules[^credit] you can adopt for writing human, user-centric ship posts for your own corporate blog:
+Having helped my fellow GitHubbers to post to GitHub's blog for the past couple of years, here are a dozen simple rules[^1] you can adopt for writing human, user-centric ship posts for your own corporate blog:
 
 ### 1. It's not shipped until you blog about it
 
@@ -79,4 +79,4 @@ In addition to the above, grammar, spelling, tone and style go without saying. T
 
 From infomercials to press releases, we've been trained to think corporations must speak a certain way, but that's far from the case. In fact, corporations don't speak. The humans that make them up do. It's a challenge to unlearn the anti-patterns that surround us, but it's possible to foster a corporate culture whereby interacting with users is seen as a conversation, not a shouting match amongst competitors. Follow these rules, empower your humans to talk to other humans, and your users will respond accordingly.
 
-[^credit]: Some of these rules are adopted from GitHub's own internal blog guidelines, a document that was originally authored well before 2012 when it was added to version control, but `git blame` suggests credit should be given to @defunkt, @kneath, @tnm, @holman, and @kcwatkins among likely many others.
+[^1]: Some of these rules are adopted from GitHub's own internal blog guidelines, a document that was originally authored well before 2012 when it was added to version control, but `git blame` suggests credit should be given to @defunkt, @kneath, @tnm, @holman, and @kcwatkins among likely many others.

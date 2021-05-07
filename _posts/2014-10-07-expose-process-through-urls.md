@@ -3,6 +3,12 @@ title: If you liked it then you should have put a URL on it
 description: The next time you begin a new project, adopt a high-fidelity, electronic medium that allows you to capture and expose process in the form of a URL.
 ---
 
+<div class="border border-primary pt-3 px-3 my-1" markdown="1">
+
+*This post is about crafting human-centric URLs. Looking to better understand why things should have a URL in the first place? Check out my less-creatively-titled, but more to the point post [Why everything should have a URL](https://ben.balter.com/2015/11/12/why-urls/). 👈*
+
+</div>
+
 If there's one thing that made the internet what it is, it's the URL. It's what makes sharing funny cat videos possible. It's the bookmark to access your bank account balance. It's the Wikipedia link you send your buddy to end a heated argument. Why then, are our most online important interactions — collaborating with coworkers, accessing government services, or consuming open data — all too often, tragically URL-less?
 
 ### The humble URL
@@ -45,7 +51,7 @@ Just as internal communication should prefer high-fidelity, electronic mediums i
 
 ### Great URLs
 
-Having a digital-first workflow and a standards compliant website is a great first step, but to truly put content on a pedestal, great URLs take digital publication three steps further:
+Having a digital-first workflow and a standards compliant site is a great first step, but to truly put content on a pedestal, great URLs take digital publication three steps further:
 
 * **They're semantic** - URLs may be consumed by machines, but they are primarily built for humans. As such, [they should describe the thing they represent in human-readable, not just machine-readable terms](https://en.wikipedia.org/wiki/Semantic_URL). We've all looked to the top of our screen when browsing, only to discover `domain.com/index.php?page_id=23784` or a similar obscure database ID. Great URLs make it immediately clear what they represent. Just by seeing `ben.balter.com/2014/10/02/expose-process-through-urls` you immediately know (A) that this is an article, (B) who the author of that article is, © when it was published, and (D) what it's about.
 

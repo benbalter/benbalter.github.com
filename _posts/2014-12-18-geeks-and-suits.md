@@ -3,7 +3,7 @@ title: Geeks and suits
 description: 'There are two types of change agents in the open government/data/source community: geeks and suits, but despite being in an industry built almost exclusively on communications, they never talk to each other'
 ---
 
-In the world of government IT, change happens at the hands of two separate, yet equally important groups: the geeks who build systems and the suits who implement them:
+In the world of government IT, change happens at the hands of two separate, yet equally important groups: the geeks who build tools and the suits who implement them:
 
 * **Geeks** are the doers, the creators, the ones often relegated to the basement, desk stereotypically strewn with Doritos crumbs and Mountain Dew cans. To them, the status quo is nails screeching down the world's largest chalkboard. They may be coders, designers, or UX experts, but at their core, [they're hackers](https://ben.balter.com/2013/02/04/what-is-a-hacker/). They're excited about the next big thing, and have the means to make it happen, at least technically.
 
@@ -45,4 +45,4 @@ What would happen if we did away with tracks at conferences and retooled technic
 
 What would happen if, within organizations, suits regularly checked in with technical teams, not to see the latest release, or discuss proposed features, but to hear what geeks were talking about when they're not talking about the product. What's the new meme? What's trending on Hacker News? What are they excited about? What apps did they try out for the first time this weekend? What tools do they wish they had at work? How are they bending the rules just to get their job done?
 
-I'm not suggesting that every member of the C-suite needs to know how to spin up a Node server, or that developers should spend their lunch breaks reading P&L statements, but in a world where implementation of any organization's strategic goals increasingly relies on technical prowess — when for the first time in our history, government agencies consistently fail to execute large-scale initiatives whenever technology is involved — we could all benefit from a bit more dialog between :necktie:s and :neckbeard:s.
+I'm not suggesting that every member of the C-suite needs to know how to spin up a Node.js server, or that developers should spend their lunch breaks reading P&L statements, but in a world where implementation of any organization's strategic goals increasingly relies on technical prowess — when for the first time in our history, government agencies consistently fail to execute large-scale initiatives whenever technology is involved — we could all benefit from a bit more dialog between :necktie:s and :neckbeard:s.

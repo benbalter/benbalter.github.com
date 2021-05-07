@@ -38,7 +38,7 @@ Open source communities are no different from those offline communities. Just as
 
 As a member of the community, our role is to empower maintainers to grow healthy and welcoming communities around their open source projects. The goal isn’t just to prevent or reduce the visibility of disruptive behavior (blocking users or hiding content), but to actively encourage inclusive behaviors, even if they don’t have previous community management expertise.
 
-### 4.  I will recognize the differences between communities—and look to support their specific needs.
+### 4. I will recognize the differences between communities—and look to support their specific needs.
 
 Smaller, independent projects don’t necessarily need sophisticated workflows or community management practices at the onset, and often, that premature optimization can stifle community growth. I think of project growth through a “community maturity model.” Projects should often wait to establish formal or documented processes as they mature, and not before they need them.
 
@@ -50,4 +50,4 @@ If you’re Facebook or Google and you’re starting an open source project, it 
 
 Whether it’s an image of a black hole or your favorite mobile app, software development is a team sport. When you import an open source library into your project, remember that you’re not just adding code. You are adding a team of developers to your project. As we head into the new year, I hope these resolutions will help us all continue to work on being better members of the community together.
 
-_This post originally published on [Hackernoon](https://hackernoon.com/resolutions-for-sustaining-and-growing-open-source-communities-h91e3zil)._
+*This post originally published on [Hackernoon](https://hackernoon.com/resolutions-for-sustaining-and-growing-open-source-communities-h91e3zil).*

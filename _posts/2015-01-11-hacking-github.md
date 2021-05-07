@@ -17,11 +17,11 @@ Here are ~~12~~ 14 simple apps that I've built to introduce open source to the u
 
 * [**Word to Markdown**](https://github.com/benbalter/word-to-markdown) - A Ruby gem to liberate content from the jail that is Word documents.
 
-* [**Markdown to PDF**](https://github.com/benbalter/markdown-to-pdf) - On demand generation of enterprise-grade PDFs from GitHub-hosted markdown files.
+* [**Markdown to PDF**](https://github.com/benbalter/markdown-to-pdf) - On demand generation of enterprise-grade PDFs from GitHub-hosted Markdown files.
 
 * [**Markdown to Word**](https://github.com/benbalter/markdown_to_word) - Converts GitHub-flavored Markdown to a Word document.
 
-* [**Word Diff**](https://ben.balter.com/2015/02/06/word-diff/) - Empowers you to be a Markdown person in a Microsoft Word world by automatically converting any Word document committed to a GitHub repo to Markdown.
+* [**Word Diff**](https://ben.balter.com/2015/02/06/word-diff/) - Empowers you to be a Markdown person in a Microsoft Word world by automatically converting any Word document committed to a GitHub repository to Markdown.
 
 ### User-friendly interfaces
 
@@ -55,4 +55,4 @@ An astute reader might notice that almost all of these apps are less than a hund
 
 These ~~12~~ 14 simple tools have helped improve my own workflow, and many are used inside GitHub to help improve the workflows of my fellow GitHubbers. I encourage you to check them out, and if you find any of these open source projects useful, I'd love your help making them even better. Happy hacking!
 
-**Edit (2019-02-12)**: Updated with some missing tools.
+**Edit (2019–02–12)**: Updated with some missing tools.

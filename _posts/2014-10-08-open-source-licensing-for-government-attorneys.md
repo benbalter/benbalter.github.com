@@ -95,7 +95,7 @@ A central tenet of open source software is contributing downstream improvements 
 
 Whether a contribution to the community-maintained project directly (e.g., contributing to WordPress or Drupal), or a derivative work (a plugin, theme, or module), agency contributions should be licensed under the terms of the parent project, using the project's standard workflow and distribution channels.
 
-One thing to watch out for are contributor license agreements (CLAs) which may proscribe an explicit copyright grant (as opposed to a license), or the granting of additional rights beyond the copyright license, which may conflict with the contributor's obligations as a government employee.
+One thing to watch out for are contributor license agreements (CLAss) which may proscribe an explicit copyright grant (as opposed to a license), or the granting of additional rights beyond the copyright license, which may conflict with the contributor's obligations as a government employee.
 
 ### Accepting contributions from the public
 
@@ -124,6 +124,6 @@ If you found this post helpful, there are two other resources you may be interes
 
 This is a high-level overview intended to highlight common legal issues agencies may face when participating in the open source community, and should not be consider to be legal advice or specific to a particular matter.
 
-Although this is my personal blog, agencies should feel free to contact <mailto:government@github.com> or post in the [github.com/government](https://github.com/government/welcome) peer group with any open-source related questions.
+Although this is my personal blog, agencies should feel free to contact [government@github.com](mailto:government@github.com) or post in the [github.com/government](https://github.com/government/welcome) peer group with any open-source related questions.
 
 [^1]: The full mechanics of a pull request are beyond the scope of this post, but in short, a member of the public will fork the agency project, or make a copy in their personal account. In many cases, that is all downstream users do. The contributor may then modify the software, in their own personal copy, under the right to modify as granted in the open source license. Again, many downstream users will stop at this point as well, using the modified software for their own purposes. At both steps, the software is freely available to anyone in the world from the user's account and is licensed under the project terms. The upstream project is free to incorporate the downstream users changes as they wish. A contributor may also choose to contribute that code back to the original project, by explicitly asking the upstream project to incorporate their changes.

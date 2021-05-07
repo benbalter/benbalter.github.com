@@ -5,7 +5,7 @@ description: We often think of contributors as developers, but code is just one 
 
 We often think of contributors as developers, but code is just one of the many ways to contribute to an open source project, and it's important to provide avenues of participation for non-technical contributors as well.
 
-Think through the spectrum of stakeholders that an open source project touches throughout its life cycle. On the one extreme, you may have a non-technical, non-user stakeholder, such as a boss, or the one paying the hosting bills, and at the other extreme, you've got a potential developer that hasn't yet learned your project exists. I like to think that the list looks something like this:
+Think through the spectrum of stakeholders that an open source project touches throughout its lifecycle. On the one extreme, you may have a non-technical, non-user stakeholder, such as a boss, or the one paying the hosting bills, and at the other extreme, you've got a potential developer that hasn't yet learned your project exists. I like to think that the list looks something like this:
 
 * Non-technical, non-user stakeholders
 * Potential users
@@ -26,7 +26,7 @@ Think through their needs. A potential user, with a fresh set of eyes, is unique
 * Submit new questions to the project's Q&A forums, or take a stab at an answer
 * Host a genius bar at the next local meetup
 * Translate the project into a different language
-* Give feedback on proposed bug fixes and features, propose new ones
+* Give feedback on proposed bugfixes and features, propose new ones
 * Recruit new developers
 
 There's a lot to be done, yet while most open source project's READMEs outline technical requirements and how to submit a pull request, most are notably silent as to how non-technical stakeholders can begin to contribute, let alone provide sufficient encouragement to overcome the inherent scariness of trying something new. What if you could double the size of your open source project's community over night?

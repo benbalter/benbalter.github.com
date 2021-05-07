@@ -9,7 +9,7 @@ Most often, when we talk about open source in government, it's talked about in o
 
 The [Consumer Financial Protection Bureau](http://cfpb.gov) (CFPB), however, is in a unique position. As the newest kid on the block, it's one of the few government agencies to have been born in a digital era, and more importantly, without the bureaucratic baggage that all too often stymies innovation. They have a chance to "do it right" from the start… and they're doing just that.
 
-### An Agency Born of the Internet Generation
+### An Agency Born of the internet Generation
 
 Yesterday, CFPB [announced a bureau-wide preference for open source](http://cfpb.github.io/source-code-policy/) in its shiny new Source Code Policy, by my [crude research](http://www.google.com/search?sugexp=chrome,mod=4&sourceid=chrome&ie=UTF-8&q=source+code+policy+site%3A.gov), a first for any government agency. There are two watershed shifts here: first, that the agency not only should, but *must* evaluate open source software on equal footing to its proprietary counterparts, a comparison which I believe will [increasingly fall in open source's favor](http://www.amazon.com/The-Wealth-Networks-Production-ebook/dp/B0015GWX0S?tag=benbalter07-20), and second, that unless there's an overriding security or similar concern *not to*, public code must be public. There's nothing new here. All it says is that we should use the best software for the job (a no-brainier), and that that software, the public's property, should belong to the public.
 
