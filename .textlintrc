@@ -1,0 +1,20 @@
+{
+  "filters": {},
+  "rules": {
+    "no-start-duplicated-conjunction": true,
+    "date-weekday-mismatch": true,
+    "terminology": {
+      "exclude": [
+        "HTML"
+      ]
+    },
+    "diacritics": true,
+    "footnote-order": true,
+    "@textlint-rule/no-unmatched-pair": true,
+    "common-misspellings": {
+      "ignore": [
+        "CLAs"
+      ] 
+    },
+  }
+}

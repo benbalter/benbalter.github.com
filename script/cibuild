@@ -16,6 +16,9 @@ script/branding
 title "checking markdown"
 script/remark
 
+title "checking text"
+script/lint-text
+
 title "checking site"
 bundle exec rake test
 
@@ -27,6 +30,12 @@ npm run lint-js
 
 title "checking json"
 npm run lint-json
+
+title "checking yaml"
+npm run lint-yaml
+
+title "checking front matter"
+bundle exec script/lint-front-matter
 
 title "checking DNS"
 bundle exec github-pages health-check

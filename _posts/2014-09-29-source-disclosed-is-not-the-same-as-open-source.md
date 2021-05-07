@@ -2,9 +2,9 @@
 title: Disclosed source is not the same as open source
 description: Agencies that simply publish code with no intention to foster community involvement, curate community feedback, or accept community contributions find themselves, almost without exception, engaging in an unsuccessful endeavor.
 redirect_from:
-- "/2014/09/29/source-disclosed--open-source/"
-- "/2014/09/29/source-disclosed-≠-open-source/"
-- "/2014/09/29/source-disclosed-!=-open-source/"
+  - "/2014/09/29/source-disclosed--open-source/"
+  - "/2014/09/29/source-disclosed-≠-open-source/"
+  - "/2014/09/29/source-disclosed-!=-open-source/"
 ---
 
 It's not uncommon for government agencies to contact GitHub, looking for advice on how best to "publish" government-funded source code for "consumption" by the open source community. While a necessary and admirable first step, [efforts to "release" source code, in reality, often fall short of actually being open source](https://ben.balter.com/2012/10/15/open-source-is-not-a-verb/).

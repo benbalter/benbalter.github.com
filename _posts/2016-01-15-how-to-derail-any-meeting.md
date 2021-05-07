@@ -3,7 +3,7 @@ title: How to derail any meeting
 description: How a WWII field manual can help modern knowledge workers identify those inadvertently sabotaging your organization today.
 ---
 
-A few weeks ago, the Office of Strategic Services "[Simple Sabotage Field Manual](https://www.gutenberg.org/ebooks/26184){: data-proofer-ignore="true" }" made its way around the internets. The book, published in 1944 by the predecessor to the CIA had headings like "Encouraging Destructiveness", but it was the section on "General Interference with Organizations and Production" that caught my eye, not because I intend to sabotage any organization in the near future, but because I see so many modern knowledge workers unintentionally doing to their own organization exactly what the OSS playbook described doing to adversaries some 70 years ago. Here are a few of my favorite[^disclaimer] from the list:
+A few weeks ago, the Office of Strategic Services "[Simple Sabotage Field Manual](https://www.gutenberg.org/ebooks/26184){: data-proofer-ignore="true" }" made its way around the internets. The book, published in 1944 by the predecessor to the CIA had headings like "Encouraging Destructiveness", but it was the section on "General Interference with Organizations and Production" that caught my eye, not because I intend to sabotage any organization in the near future, but because I see so many modern knowledge workers unintentionally doing to their own organization exactly what the OSS playbook described doing to adversaries some 70 years ago. Here are a few of my favorite[^1] from the list:
 
 > * **Insist on doing everything through "channels."** Never permit short-cuts to be taken in order to expedite decisions.
 > * **Haggle over precise wordings** of communications, minutes, resolutions.
@@ -33,4 +33,4 @@ With that in mind, here's how I'd update the *Simple Sabotage Field Manual* for 
 
 *That's what I'd add to the list if I were giving it a refresh for 2016. What would you add? What corporate anti-patterns have you seen in your own organization? Do you have reason to suspect any of your colleagues are inadvertent saboteurs?*
 
-[^disclaimer]: Emphasis *mine*.
+[^1]: Emphasis *mine*.

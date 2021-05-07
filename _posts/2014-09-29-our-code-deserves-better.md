@@ -26,7 +26,7 @@ The value of version control extends beyond being able to `CTRL-Z` a given chang
 
 ### Version control as a hedge against vendor lock in
 
-It used to be that vendor lock in meant a particular format or platform. In many ways the procurement process prefers large, generalist contracting firms that supply everything from tanks and aircraft carriers to websites and mobile apps because the government knows they're going to be around in a decade (and thus can support the government's purchase).
+It used to be that vendor lock in meant a particular format or platform. In many ways the procurement process prefers large, generalist contracting firms that supply everything from tanks and aircraft carriers to sites and mobile apps because the government knows they're going to be around in a decade (and thus can support the government's purchase).
 
 But with open source, when done right, that threat's a moot point. Ruby is Ruby. WordPress is WordPress. Given shared frameworks, shared design patterns, and shared practices, if properly documented, swapping contractor A for contractor B becomes trivial because both are working from the same shared playbook. The secret sauce is now in their approach to difficult challenges, not in the code itself or the additional context they withhold.
 
@@ -34,6 +34,6 @@ But with open source, when done right, that threat's a moot point. Ruby is Ruby.
 
 Forcing a government contractor to show their work not only gives the agency insight into the development process, which allows it to gain a better understanding of the code's strengths and weaknesses (think Carfax for code), but also ensures the contractor doesn't wrongfully hold a monopoly on the associated organizational knowledge.
 
-If you're a government contractor, get ahead of the curve and offer the software's history in your next proposal — none of your competitors are even thinking to do it. If you're a government employee, demand the software's change log as part of your next RFP.
+If you're a government contractor, get ahead of the curve and offer the software's history in your next proposal — none of your competitors are even thinking to do it. If you're a government employee, demand the software's changelog as part of your next RFP.
 
 Version control forces knowledge transfer in a way no human-curated documentation can ever provide, and once in the agency's hands can subsequently be shared with other contractors and open source developers alike, providing a broader picture, and ensuring the government, contractors, and public are all aligned in making the code the best it can be. After all, our code deserves it.

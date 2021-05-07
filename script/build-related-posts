@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Generates _data/related_posts.yml using LSI (not available via GitHub Pages)
+
+require 'jekyll'
+require 'yaml'
+
+options = {
+  'source' => File.expand_path('../', __dir__),
+  'lsi' => true
+}
+config = Jekyll.configuration(options)
+site = Jekyll::Site.new(config)
+
+site.reset
+site.read
+site.generate
+
+relations = {}
+site.posts.docs.each do |post|
+  relations[post.relative_path] = post.related_posts.map(&:relative_path)
+end
+
+yaml = YAML.dump(relations)
+File.write '_data/related_posts.yml', yaml

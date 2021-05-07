@@ -1,5 +1,5 @@
 title: Ben Balter
-description: Attorney, open source developer, product manager
+description: Attorney, open source developer, technical program manager
 author:
   name: Ben Balter
   twitter: benbalter
@@ -8,27 +8,23 @@ pgp_key: 07C6 73FB F30E 01C0 C342 7AB8 DBB6 7C24 6AD3 56C4
 url: "https://ben.balter.com"
 
 repository: benbalter/benbalter.github.com
-logo: "/assets/img/headshot.jpg"
+# logo: "/assets/img/headshot.jpg"
 
 twitter:
   username: "@benbalter"
-  property_id: l6bfl
 
 social:
   name: Ben Balter
   links:
     - https://twitter.com/BenBalter
-    - https://www.facebook.com/ben.balter
-    - https://www.linkedin.com/in/BenBalter
+    - https://facebook.com/ben.balter
+    - https://linkedin.com/in/BenBalter
     - https://plus.google.com/+BenBalter
     - https://github.com/benbalter
     - https://keybase.io/benbalter
 
-disqus:
-  shortname: benbalter
-
-google_plus_id: BenBalter
-ga_username: UA-18088627-1
+cloudflare:
+  id: 17e540e3b1c8446598fb276866b94931
 
 exclude:
   - CONTRIBUTING.md
@@ -70,13 +66,13 @@ exclude:
 permalink: "/:year/:month/:day/:title/"
 defaults:
   - scope:
-      path: ''
+      path: ""
       type: posts
     values:
       layout: post
       comments: true
   - scope:
-      path: ''
+      path: ""
       type: pages
     values:
       layout: page
@@ -98,11 +94,12 @@ plugins:
   - jekyll-github-metadata
   - jekyll-remote-theme
   - jekyll-include-cache
+  - jekyll-mentions
 
 sass:
   style: :compressed
 
-remote_theme: benbalter/retlab
+remote_theme: benbalter/retlab@f15563b55700eccaebcb3ed91aa9eae87d78893d
 
 gist:
   noscript: false
@@ -146,4 +143,4 @@ gender: male
 employer:
   name: GitHub
   url: https://github.com
-job_title: Senior Product Manager
+job_title: Senior Technical Program Manager

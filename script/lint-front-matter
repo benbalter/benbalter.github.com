@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'jekyll'
+require 'open3'
+
+exitstatus = 0
+
+Dir['*/**.md'].each do |path|
+  content = File.read(path)
+  next unless content.match?(Jekyll::Document::YAML_FRONT_MATTER_REGEXP)
+
+  parts = content.split Jekyll::Document::YAML_FRONT_MATTER_REGEXP
+  output, status = Open3.capture2e('yamllint', '-', '-c', '.yamllint.yml', '-f', 'colored', stdin_data: parts[1])
+  next if status.exitstatus.zero?
+
+  puts path
+  puts output
+
+  exitstatus = status.exitstatus if exitstatus < status.exitstatus
+end
+
+exit exitstatus

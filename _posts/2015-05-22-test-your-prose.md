@@ -9,7 +9,7 @@ I've written before about how we should treat [prose and data with the same resp
 
 When you treat content as code, you get the opportunity to co-opt best-of-breed developer workflows, and continuous integration is no exception. We've all been there. You make a simple change and end up breaking two or three other things. Links get out of date. Images move. Imagine if every time you made a change, all those things that you consciously or subconsciously worry about were automatically checked. Are my links accurate? Did any of my images break? Does this darn thing actually render the way I want it to?
 
-With CI services like [Travis CI](https://travis-ci.org/), whether public or private, adding continuous integration to a repository of prose content, whether an entire website or a collection of HTML or Markdown files becomes trivial, especially when you use open source tools like [HTML Proofer](https://github.com/gjtorikian/html-proofer).
+With CI services like [Travis CI](https://travis-ci.org/), whether public or private, adding continuous integration to a repository of prose content, whether an entire site or a collection of HTML or Markdown files becomes trivial, especially when you use open source tools like [HTML Proofer](https://github.com/gjtorikian/html-proofer).
 
 ### Checking links and images
 

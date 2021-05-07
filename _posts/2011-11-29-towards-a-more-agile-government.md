@@ -11,11 +11,14 @@ The Case for Rebooting Federal IT Procurement
 
 <!--lint ignore no-emphasis-as-heading-->
 
-*41 Pub. Cont. L.J. 149<br />The Public Contract Law Journal, Fall 2011*
+*41 Pub. Cont. L.J. 149, The Public Contract Law Journal, Fall 2011*
+
+* Table of Contents
+{:toc}
 
 Like many government computer systems, the U.S. federal information technology (IT) procurement model is slow, outdated, and long overdue for a reboot.[^1] As the largest single purchaser of code, [^2] in fiscal year (FY) 2010 the Federal Government spent more than $77.1 billion on IT procurement, and that number is projected to grow higher by the close of 2011.[^3] This is not a recent trend. Over the past decade, federal IT spending has swelled nearly seventy percent, up from $45.6 billion in 2001, [^4] for a total bill of more than $500 billion.[^5] This growth is partially a result of the unfortunate fact that as few as nine percent of projects are delivered on budget and on time.[^6] The Government Accountability Office (GAO) reports that roughly forty-eight percent of all IT projects must be rebaselined, [^7] and of those rebaselined projects, fifty-one percent must be rebaselined a second time.[^8]
 
-Compounding the problem, end users fail entirely to use nearly forty-five percent of features procured and rarely use another nineteen percent of those features.[^9] Thus, purchasing agencies ultimately utilize only about one-third of all features paid for by American tax dollars.[^10] In the end, nearly forty-five percent of federally procured software features ultimately fail to meet the user's needs.[^11] It is therefore no surprise that the Secretary of the Department of Defense (DoD) Robert Gates called federal IT procurement "baroque." [^12] Too often IT procurement requirements are crafted with the input of neither end-users nor product developers.[^13] As Office of Management Budget (OMB) Director Peter R. Orszag noted, federal IT projects cost more than they should, take longer than they should, and often fail to meet agency needs.[^14] Today's federal regulations shackle government agencies to outdated project management practices and prevent them from harnessing the true power of IT innovations, which have far outpaced the laws that govern them.[^15]
+Compounding the problem, end users fail entirely to use nearly forty-five percent of features procured and rarely use another nineteen percent of those features.[^9] Thus, purchasing agencies ultimately utilize only about one-third of all features paid for by American tax dollars.[^10] In the end, nearly forty-five percent of federally procured software features ultimately fail to meet the user's needs.[^11] It is therefore no surprise that the Secretary of the Department of Defense (DoD) Robert Gates called federal IT procurement "baroque." [^12] Too often IT procurement requirements are crafted with the input of neither end users nor product developers.[^13] As Office of Management Budget (OMB) Director Peter R. Orszag noted, federal IT projects cost more than they should, take longer than they should, and often fail to meet agency needs.[^14] Today's federal regulations shackle government agencies to outdated project management practices and prevent them from harnessing the true power of IT innovations, which have far outpaced the laws that govern them.[^15]
 
 To better embrace innovation and respond to changing organizational needs, the Government must embrace a two-pronged approach involving both regulatory reform and top-down support for best-practices education to empower IT-procuring agencies to pursue more agile software development methods. By requiring that detailed specifications be outlined at the onset of the process, government procurement regulations encourage the less flexible, waterfall development techniques, rather than the more modern, agile development approaches used by the private sector today.[^16] While most prior attempts to reform federal IT procurement focused solely on statutory changes, [^17] this Note proposes more modern project management practices and argues for top-down reform on both a regulatory and a human level.
 
@@ -154,19 +157,19 @@ Where bids are solicited and chosen solely based on cost, traditional acquisitio
 
 ##### ii. Competitive negotiations
 
-A negotiated procurement model allows contracting agencies to solicit proposals, similar to the price-directed model.[^131] Unlike the price-directed model, however, bids are not sealed and agencies are permitted to discuss deficiencies with firms, which may then resubmit their bids.[^133] Nevertheless, the negotiated procurement model still requires the agency to outline technical specifications up front, making it incompatible with agile methods.
+A negotiated procurement model allows contracting agencies to solicit proposals, similar to the price-directed model.[^131] Unlike the price-directed model, however, bids are not sealed and agencies are permitted to discuss deficiencies with firms, which may then resubmit their bids.[^132] Nevertheless, the negotiated procurement model still requires the agency to outline technical specifications up front, making it incompatible with agile methods.
 
 ##### iii. Technology/Conceptual Negotiated Sourcing
 
-Technology or conceptual negotiated sourcing is a two-phase model. First the contracting agency awards the initial phase of design and conception to multiple competing bidders through multiple small-dollar, short-term contracts.[^132] The agency then selects its preferred plan from among the submissions and continues with the procurement as if it were a sealed bid.[^133] This approach is not ideal from an agile perspective, as it lengthens the time for which major resources are committed and delays prototyping until multiple firms can submit project plans.[^134] This approach is also less efficient, as it forces the Government to fund parallel development and planning efforts.[^135] For the federal IT procurement to better embrace innovation, change is needed.
+Technology or conceptual negotiated sourcing is a two-phase model. First the contracting agency awards the initial phase of design and conception to multiple competing bidders through multiple small-dollar, short-term contracts.[^133] The agency then selects its preferred plan from among the submissions and continues with the procurement as if it were a sealed bid.[^134] This approach is not ideal from an agile perspective, as it lengthens the time for which major resources are committed and delays prototyping until multiple firms can submit project plans.[^135] This approach is also less efficient, as it forces the Government to fund parallel development and planning efforts.[^136] For the federal IT procurement to better embrace innovation, change is needed.
 
 ##### iv. Engineering Selection under the Brooks Act
 
-Under the Brooks Act, [^136] initially intended for traditional engineering fields, agencies may use a two-phase negotiated procurement model to procure systems that may justifiably be performed by engineers.[^137] In the first phase, following a solicitation, competing firms submit proposals outlining methodology and techniques.[^138] Purchasers evaluate and rank proposals based not on price but rather on each firm's unique qualifications, performance history, and likelihood of delivering a final product that meets agency needs.[^139] From these rankings, the purchasing agency generates a "short list" and requests more detailed proposals from the top-ranked firms before making a final selection.[^140] Despite the engineering provision's compatibility with agile, however, contracting agencies are statutorily prohibited from using the seemingly ideal contracting vehicle when procuring software.[^141]
+Under the Brooks Act, [^137] initially intended for traditional engineering fields, agencies may use a two-phase negotiated procurement model to procure systems that may justifiably be performed by engineers.[^138] In the first phase, following a solicitation, competing firms submit proposals outlining methodology and techniques.[^139] Purchasers evaluate and rank proposals based not on price but rather on each firm's unique qualifications, performance history, and likelihood of delivering a final product that meets agency needs.[^140] From these rankings, the purchasing agency generates a "short list" and requests more detailed proposals from the top-ranked firms before making a final selection.[^141] Despite the engineering provision's compatibility with agile, however, contracting agencies are statutorily prohibited from using the seemingly ideal contracting vehicle when procuring software.[^142]
 
 ##### v. Modular Contracting
 
-Section 5202 of the Information Technology Management Reform Act of 1996 (ITMRA) [^142] encourages agency heads to use modular contracting when acquiring major information systems.[^143] Designed to transform federal IT acquisitions into a results-oriented procurement system, [^144] under modular contracting, complex systems are disaggregated into several discrete, interoperable services and procured accordingly.[^145] In order to "reduce program risk and incentivize contractor performance while meeting the government's need for timely access to rapidly changing technology," [^146] ITMRA Section 5202 states that agencies *should* "to the maximum extent practicable" use modular contracting to acquire major systems, and *may* use modular contracting for all other systems.[^147] The Act notes that modular contracts are easier to manage, have an increased likelihood of success when implementing complex systems, mitigate risk through compartmentalization, and allow subsequent increments to take advantage of advances in technology.[^148] In its traditional form, however, modular contracting still requires that specifications be known and documented prior to each module, and thus is not fully compatible with agile methods.[^149]
+Section 5202 of the Information Technology Management Reform Act of 1996 (ITMRA) [^143] encourages agency heads to use modular contracting when acquiring major information systems.[^144] Designed to transform federal IT acquisitions into a results-oriented procurement system, [^145] under modular contracting, complex systems are disaggregated into several discrete, interoperable services and procured accordingly.[^146] In order to "reduce program risk and incentivize contractor performance while meeting the government's need for timely access to rapidly changing technology," [^147] ITMRA Section 5202 states that agencies *should* "to the maximum extent practicable" use modular contracting to acquire major systems, and *may* use modular contracting for all other systems.[^148] The Act notes that modular contracts are easier to manage, have an increased likelihood of success when implementing complex systems, mitigate risk through compartmentalization, and allow subsequent increments to take advantage of advances in technology.[^149] In its traditional form, however, modular contracting still requires that specifications be known and documented prior to each module, and thus is not fully compatible with agile methods.[^150]
 
 By forcing requirements to be outlined at the onset of the process, the procurement vehicles outlined above force contracting agencies to utilize outdated development methods and help to perpetuate the stereotype that government systems are overpriced, inefficient, and obsolete at the time of delivery.
 
@@ -180,9 +183,9 @@ Before federal IT procurement can embrace agile methodologies, best-practices ed
 
 ##### i. COs must learn best-practices in agile contracting
 
-Many COs may not know what agile development is, let alone that it is a potential contracting vehicle and how best to implement it. The White House Office of Science and Technology Policy (OSTP) should oversee the joint efforts of the General Services Administration (GSA), the White House OMB, [^150] and the Office of Federal Procurement Policy (OFPP) to educate COs as to agile contracting best practices.[^151]
+Many COs may not know what agile development is, let alone that it is a potential contracting vehicle and how best to implement it. The White House Office of Science and Technology Policy (OSTP) should oversee the joint efforts of the General Services Administration (GSA), the White House OMB, [^151] and the Office of Federal Procurement Policy (OFPP) to educate COs as to agile contracting best practices.[^152]
 
-Solicitations should outline functional rather than technical requirements [^152] and should be crafted without the significant lead time often characteristic of government procurement. The statement of work should specify high-level goals or systems, rather than specific features, and these goals should eventually become the framework that defines each subsequent sprint. The contract should also include specific, functional milestones and accompanying deadlines, which may also be married to an award schedule.
+Solicitations should outline functional rather than technical requirements [^153] and should be crafted without the significant lead time often characteristic of government procurement. The statement of work should specify high-level goals or systems, rather than specific features, and these goals should eventually become the framework that defines each subsequent sprint. The contract should also include specific, functional milestones and accompanying deadlines, which may also be married to an award schedule.
 
 ##### ii. Agency technical contacts (COTRs) must learn best practices in agile project management
 
@@ -190,19 +193,19 @@ Alongside existing professional development efforts, contracting organization te
 
 #### B. Existing Procurement Requirements Demand Extensive Documentation Up Front, Forcing Agencies into Agile Frameworks
 
-Even if an agile-friendly contracts are prepared, executed, and overseen successfully, two statutory stumbling blocks may hinder agile's adoption: (i) the solicitation and subsequent award of the contract; and (ii) the governance of the contract while it is in progress.[^153]
+Even if an agile-friendly contracts are prepared, executed, and overseen successfully, two statutory stumbling blocks may hinder agile's adoption: (i) the solicitation and subsequent award of the contract; and (ii) the governance of the contract while it is in progress.[^154]
 
 ##### i. Engineering services, FAR Part 36
 
 The single largest statutory roadblock to agile-friendly contracts is the requirement for technical specifications prior to solicitation. This requirement locks contracting agencies into a waterfall method post-award and is antithetical to agile methodologies. To pursue an agile framework, agencies should establish functional rather than technical benchmarks, developing a framework that can be used to define the focus of each subsequent sprint.
 
-Part 36 of the FAR provides a modified procedure for procuring architectural and engineering services.[^154] Such a procurement would follow a two-phase procedure. In phase one competing firms would submit proposals including their technical approaches and technical qualifications, but these would not include detailed design information or cost or price information. Agencies would then rank the top firms, which would be asked to submit detailed proposals before the winning firm was selected for a contract to be executed through the design-build framework.[^155]
+Part 36 of the FAR provides a modified procedure for procuring architectural and engineering services.[^155] Such a procurement would follow a two-phase procedure. In phase one competing firms would submit proposals including their technical approaches and technical qualifications, but these would not include detailed design information or cost or price information. Agencies would then rank the top firms, which would be asked to submit detailed proposals before the winning firm was selected for a contract to be executed through the design-build framework.[^156]
 
-Under FAR 36.601(4)(a)(3), to be eligible for the architecture-engineering route, the acquisition must "logically or justifiably require performance by registered architects or engineers or their employees." [^156] Congress should expand the definition of this section to include computer and software engineers to allow IT procurement to follow this route.
+Under FAR 36.601(4)(a)(3), to be eligible for the architecture-engineering route, the acquisition must "logically or justifiably require performance by registered architects or engineers or their employees." [^157] Congress should expand the definition of this section to include computer and software engineers to allow IT procurement to follow this route.
 
 ##### ii. Modular contracting, FAR Part 39
 
-FAR 39.103 allows agencies to break large acquisitions into several smaller acquisition increments.[^157] To aid in accounting, budgeting, and documentation, an agile procurement can be contracted as one overarching contract defining the scope of the work and outlining a schedule by which each sprint's focus will be defined. This large contract may incorporate smaller contracts for each subsequent sprint, if necessary, as part of a process wholly in line with the Government's push toward system-oriented architectures.
+FAR 39.103 allows agencies to break large acquisitions into several smaller acquisition increments.[^158] To aid in accounting, budgeting, and documentation, an agile procurement can be contracted as one overarching contract defining the scope of the work and outlining a schedule by which each sprint's focus will be defined. This large contract may incorporate smaller contracts for each subsequent sprint, if necessary, as part of a process wholly in line with the Government's push toward system-oriented architectures.
 
 #### C. COs Lack Top-Down Support for IT Procurement Reform
 
@@ -228,7 +231,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^6]: Victor Szalvay, Danube Techs., Inc., [An Introduction to Agile Software Development](http://webcache.googleusercontent.com/search?q=cache:5HFgofvhZVIJ:www.danube.com/docs/Intro_to_Agile.pdf+&cd=1&hl=en&ct=clnk&gl=us)1 (2004).
 
-[^7]: DoD Acquisition Report, *supra* note 1, at 44. "Rebaselining" occurs when modifications are made to a project's baseline, i.e. its cost, schedule, and performance goals, to reflect changed development circumstances. U.S. Gov't Accountability Office, GAO-08–925, Information Technology: Agencies Need to Establish Comprehensive Policies to Address Changes to Projects' Costs, Schedule, and Performance Goals 2, 13 (2008). Changes in requirements and objectives (scope creep) was the most commonly cited reason for rebaselining. *Id.* at 8.
+[^7]: DoD Acquisition Report, *supra* note 1, at 44. "Rebaselining" occurs when modifications are made to a project's baseline, i.e. its cost, schedule, and performance goals, to reflect changed development circumstances. U.S. Gov't Accountability Office, GAO-08–925, Information Technology: Agencies Need to Establish Comprehensive Policies to Address Changes to Projects' Costs, Schedule, and Performance Goals 2, 13 (2008). Changes in requirements and objectives (scope creep) was the most commonly cited reason for rebaselining. *ID.* at 8.
 
 [^8]: *Id*.
 
@@ -242,9 +245,9 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^13]: *See* Vivek Kundra, U.S. Chief Info. Officer, White House, 25 Point Implementation Plan to Reform Federal Information Technology Management 17 (2010) (calling for "increased communication with industry" and "high functioning, 'cross-trained' program teams").
 
-[^14]: *See* [Memorandum from Peter R. Orszag](http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m-10-26.pdf), Dir. of Office of Mgmt. and Budget, Exec. Office of the President, to Heads of Exec. Dep'ts and Agencies 1 (June 28, 2010) \[hereinafter Orszag Memorandum] , *available at [http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m-10–26.pdf](http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m-10-26.pdf)*
+[^14]: *See* [Memorandum from Peter R. Orszag](http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m-10-26.pdf), Dir. of Office of Mgmt. and Budget, Exec. Office of the President, to Heads of Exec. Dep'ts and Agencies 1 (June 28, 2010) \[hereinafter Orszag Memorandum] , *available at [http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m-10–26.PDF](http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m-10-26.pdf)*
 
-[^15]: These inefficiencies are troubling, not only because they represent a significant financial cost to the taxpayer, but also because they undoubtedly represent a significant cost to the realization of agency goals. *See* Stanley N. Sherman, Government Procurement Management 30 (1991). As President Barack Obama recently noted at the White House Forum on Modernizing Government, "when we waste billions of dollars, in part because our technology is out of date, that's billions of dollars we're not investing in better schools for our children, in tax relief for our small businesses, in creating jobs and funding research to spur the scientific breakthroughs and economic growth of this new century." *Attachment B: President's Remarks, in* [White House Forum on Modernizing Government: Overview and Next Steps](http://www.whitehouse.gov/sites/default/files/omb/assets/modernizing_government/ModernizingGovernmentOverview.pdf) 17, 18 (2010), *available at* <http://www.whitehouse.gov/sites/default/files/omb/assets/modernizing_government/ModernizingGovernmentOverview.pdf>.
+[^15]: These inefficiencies are troubling, not only because they represent a significant financial cost to the taxpayer, but also because they undoubtedly represent a significant cost to the realization of agency goals. *See* Stanley N. Sherman, Government Procurement Management 30 (1991). As President Barack Obama recently noted at the White House Forum on Modernizing Government, "when we waste billions of dollars, in part because our technology is out of date, that's billions of dollars we're not investing in better schools for our children, in tax relief for our small businesses, in creating jobs and funding research to spur the scientific breakthroughs and economic growth of this new century." *Attachment B: President's Remarks, in* [White House Forum on Modernizing Government: Overview and Next Steps](http://www.whitehouse.gov/sites/default/files/omb/assets/modernizing_government/ModernizingGovernmentOverview.pdf) 17, 18 (2010), *available at* <http://www.whitehouse.gov/sites/default/files/omb/assets/modernizing_government/ModernizingGovernmentOverview.PDF>.
 
 [^16]: DoD Acquisition Report, *supra* note 1, at 16–17 (noting many large corporations have gained a significant advantage from using agile). *See* White House Forum On Modernizing Gov't, Overview And Next Steps 9 ("Federal IT projects are too often marked by milestones spaced too far apart."). *See generally* *infra* Parts III-IV*.*
 
@@ -254,17 +257,17 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^19]: Adrian Royce, *Agile in Government: Successful On-Time Delivery of Software* 1, *in* Conference Papers, 20th Australian Software Engineering Conference (2009).
 
-[^20]: Martin Fowler, *[The New Methodology](http://www.martinfowler.com/articles/newMethodology.html)*, Martin Fowler (Dec. 13, 2005), <http://www.martinfowler.com/articles/newMethodology.html>.
+[^20]: Martin Fowler, *[The New Methodology](http://www.martinfowler.com/articles/newMethodology.html)*, Martin Fowler (Dec. 13, 2005), <http://www.martinfowler.com/articles/newMethodology.HTML>.
 
 [^21]: For example, an architect draws up blueprints for a house and hands them off to a contractor for construction. Should the future homeowner decide after the fact that he wishes to deviate from his original plan, e.g., he prefers the kitchen be five feet wider, such a change would incur substantial time, labor, and material costs as floors are re-laid, pipes re-plumbed, and electrical outlets rewired accordingly.
 
-[^22]: Initially the application of the traditional methodology to the emerging field was much more straightforward. Room-sized mainframe computers required users to painstakingly code instructions on physical cards, submit them to be processed in batches, and await the result. James O. Coplien & Gertrud Bjørnvig, Lean Architecture: For Agile Software Development, 218 (2010). Today, however, advances in technology and the personal computer have allowed the software development environment to embody an interactive process whereby software engineers can receive immediate feedback as to their software's success or failure. *Id.* at 218–19 (noting that originally high computing costs drove up the cost of mistakes such that "rigid disciplines ruled." Today, mistakes are cheap.).
+[^22]: Initially the application of the traditional methodology to the emerging field was much more straightforward. Room-sized mainframe computers required users to painstakingly code instructions on physical cards, submit them to be processed in batches, and await the result. James O. Coplien & Gertrud Bjørnvig, Lean Architecture: For Agile Software Development, 218 (2010). Today, however, advances in technology and the personal computer have allowed the software development environment to embody an interactive process whereby software engineers can receive immediate feedback as to their software's success or failure. *ID.* at 218–19 (noting that originally high computing costs drove up the cost of mistakes such that "rigid disciplines ruled." Today, mistakes are cheap.).
 
-[^23]: Fowler, *supra* note 20. If a federal agency decides that the navigation menu on its new website should be five pixels larger, to make such a change would simply require modifying one or two values in the website's source code, an insubstantial labor cost in a large government contract.
+[^23]: Fowler, *supra* note 20. If a federal agency decides that the navigation menu on its new site should be five pixels larger, to make such a change would simply require modifying one or two values in the website's source code, an insubstantial labor cost in a large government contract.
 
 [^24]: *Id*.
 
-[^25]: Information architecture necessities can include the creation of user profiles (personas of hypothetical system users), use cases (an analysis of the tasks those users might perform), and wireframes (the visual layout of the system's interfaces). *Id.*
+[^25]: Information architecture necessities can include the creation of user profiles (personas of hypothetical system users), use cases (an analysis of the tasks those users might perform), and wireframes (the visual layout of the system's interfaces). *ID.*
 
 [^26]: *See* Fowler, *supra* note 20.
 
@@ -278,7 +281,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^31]: Cao & Ramesh, *supra* note 28, at 63.
 
-[^32]: *Id*. Similarities can be drawn between modern software development and the Japanese auto industry forty years ago. Beginning in the 1970s Japanese auto manufacturers began adopting lean manufacturing practices to develop new vehicles. Michael A. Cusumano, *Japanese Technology Management: Innovations, Transferability, and the Limitations of "Lean" Production* 1 (Sloan Sch. of Mgmt., Mass. Inst. of Tech., Working Paper No. 3477–92, 1992). Due to this refined approach's reduced overhead, Japanese manufacturers were able to generate thirty percent more profit per vehicle than Chrysler, one-hundred percent more per vehicle than Ford, and two-hundred percent more per vehicle than General Motors. Mary Poppendieck, Cutter Consortium Executive Report, *Lean Development and the Predictability Paradox* 1 (2003). When compared to Detroit's traditional design and manufacturing practices, Japanese manufacturers produced higher quality vehicles in one-third less time. *Id.* While in the United States nearly half of all projects missed their target date, in Japan, all but one sixth hit the market on time. *Id.* Japan's lean-manufacturing methods produced cheaper, more successful cars faster. *Id*.
+[^32]: *ID*. Similarities can be drawn between modern software development and the Japanese auto industry forty years ago. Beginning in the 1970s Japanese auto manufacturers began adopting lean manufacturing practices to develop new vehicles. Michael A. Cusumano, *Japanese Technology Management: Innovations, Transferability, and the Limitations of "Lean" Production* 1 (Sloan Sch. of Mgmt., Mass. Inst. of Tech., Working Paper No. 3477–92, 1992). Due to this refined approach's reduced overhead, Japanese manufacturers were able to generate thirty percent more profit per vehicle than Chrysler, one-hundred percent more per vehicle than Ford, and two-hundred percent more per vehicle than General Motors. Mary Poppendieck, Cutter Consortium Executive Report, *Lean Development and the Predictability Paradox* 1 (2003). When compared to Detroit's traditional design and manufacturing practices, Japanese manufacturers produced higher quality vehicles in one-third less time. *ID.* While in the United States nearly half of all projects missed their target date, in Japan, all but one sixth hit the market on time. *ID.* Japan's lean-manufacturing methods produced cheaper, more successful cars faster. *ID*.
 
 [^33]: Darrell A. Fruth, *Economic and Institutional Constraints on the Privatization of Government Information Technology Services*, 13 Harv. J.L. & Tech. 521, 524–25 (2000).
 
@@ -288,7 +291,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^36]: A detailed explanation of the evolution to a service-oriented architecture is beyond the scope of this Note, but in simple terms, if one thinks of information as a product, the evolution mimics the move from individual manufacturers producing a good, to a factory producing a good, to that factory adopting an assembly line approach. A government agency might build a system once, (e.g. an application to calculate the appropriate census block based on a given address,) and then will have subsequent systems query that already-built application, rather than duplicate the functionality. Any given request for information may go through five, ten, perhaps even a hundred systems, each of which can be procured or upgraded individually. Interview with Greg Elin, Chief Data Officer, FCC & Michael Byrne, Chief Geographic Info. Officer, FCC, in Wash., D.C., (Mar. 11, 2011) \[hereinafter FCC Interview].
 
-[^37]: *Id*.; Orszag Memorandum, *supra* note 14, at 1 (noting that "by setting the scope of projects to achieve broad-based business transformations rather than focusing on essential business needs, Federal agencies are experiencing substantial cost overruns and lengthy delays in planned deployments. Compounding the problem, projects persistently fall short of planned functionality and efficiencies once deployed.").
+[^37]: *ID*.; Orszag Memorandum, *supra* note 14, at 1 (noting that "by setting the scope of projects to achieve broad-based business transformations rather than focusing on essential business needs, Federal agencies are experiencing substantial cost overruns and lengthy delays in planned deployments. Compounding the problem, projects persistently fall short of planned functionality and efficiencies once deployed.").
 
 [^38]: *See* *Examining the President's Plan for Eliminating Wasteful Spending in Information Technology: Hearing Before the S. Subcomm. on Fed. Fin. Mgmt., Gov't Info., Fed. Servs., and Int'l Sec.*, 112th Cong. 3–4 (2011) (statement of Vivek Kundra, Fed. Chief Info. Officer, Office of Mgmt. and Budget) (noting that the current procurement model does not align well with the rapid pace of today's technology cycle).
 
@@ -302,9 +305,9 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^43]: *See* W.Royce, *supra* note 40, at 328.
 
-[^44]: *Id.* at 329.
+[^44]: *ID.* at 329.
 
-[^45]: More formally, the standard waterfall process follows five distinct steps: (1) requirements are defined and documented, (2) the system is designed and architected, (3) development teams code the software, (4) the software is tested and validated against the requirements from step one, and finally (5) the system is deployed. *See id*. at 328–29.
+[^45]: More formally, the standard waterfall process follows five distinct steps: (1) requirements are defined and documented, (2) the system is designed and architected, (3) development teams code the software, (4) the software is tested and validated against the requirements from step one, and finally (5) the system is deployed. *See ID*. at 328–29.
 
 [^46]: Richard K. Cheng, *[On Being Agile](http://www.nextgov.com/nextgov/ng_20100923_7965.php)*, NextGov, Sept. 23, 2010, <http://www.nextgov.com/nextgov/ng_20100923_7965.php>.
 
@@ -322,7 +325,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^53]: *Id.*
 
-[^54]: *Id.* Consider the process of documenting the requirements to develop a BlackBerry or iPhone. Both smartphones are roughly 3×5, square with rounded edges, black, have a keypad and on/off switch, make calls, send and receive e-mail and text messages, browse the internet, and have downloadable applications. On paper they are identical. It is difficult to objectively describe, for example, "intuitive interface." Prototyping is the vocabulary agile uses to solve this problem. FCC Interview, *supra* note 36.
+[^54]: *ID.* Consider the process of documenting the requirements to develop a BlackBerry or iPhone. Both mobile phones are roughly 3×5, square with rounded edges, black, have a keypad and on/off switch, make calls, send and receive email and text messages, browse the internet, and have downloadable applications. On paper they are identical. It is difficult to objectively describe, for example, "intuitive interface." Prototyping is the vocabulary agile uses to solve this problem. FCC Interview, *supra* note 36.
 
 [^55]: Szalvay, *supra* note 6, at 1.
 
@@ -332,7 +335,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^58]: *Id.*
 
-[^59]: *Id*.; Kundra, *supra note* 13, at 17 (observing "the lag between when the Government defines its requirements and when the contractor begins to deliver is enough time for the technology to fundamentally change").
+[^59]: *ID*.; Kundra, *supra note* 13, at 17 (observing "the lag between when the Government defines its requirements and when the contractor begins to deliver is enough time for the technology to fundamentally change").
 
 [^60]: Federal Executive Round Table, *supra* note 56.
 
@@ -360,7 +363,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^72]: Lee & Xia, *supra* note 11, at 88.
 
-[^73]: *Id*. at 89.
+[^73]: *ID*. at 89.
 
 [^74]: Szalvay, *supra* note 6, at 3; Poppendieck, *supra* note 32, at 11–12.
 
@@ -378,13 +381,13 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^81]: Lee & Xia, *supra* note 11, at 90.
 
-[^82]: *Id.* at 89, 92.
+[^82]: *ID.* at 89, 92.
 
-[^83]: *Id.* at 89.
+[^83]: *ID.* at 89.
 
 [^84]: Cao & Ramesh, *supra* note 28, at 63.
 
-[^85]: *Id*. at 64.
+[^85]: *ID*. at 64.
 
 [^86]: *See* Fowler, *supra* note 20.
 
@@ -392,7 +395,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^88]: Cao & Ramesh, *supra* note 28, at 60.
 
-[^89]: *See id.* at 63.
+[^89]: *See ID.* at 63.
 
 [^90]: Poppendieck, *supra* note 32, at 3.
 
@@ -414,7 +417,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^99]: *Id*.
 
-[^100]: *Id*.; DoD Acquisition Report, *supra* note 1, at 53.
+[^100]: *ID*.; DoD Acquisition Report, *supra* note 1, at 53.
 
 [^101]: Cao & Ramesh, *supra* note 28, at 65.
 
@@ -428,7 +431,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^106]: *See* Poppendieck, *supra* note 32, at 3.
 
-[^107]: *Id*.; DoD Acquisition Report, *supra* note 1, at 47–48, 53.
+[^107]: *ID*.; DoD Acquisition Report, *supra* note 1, at 47–48, 53.
 
 [^108]: Chief among agile's criticisms in the private sector may be that its emphasis on functional, rather than technical requirements often under-serves the project's non-functional goals. Cao & Ramesh, *supra* note 28, at 64–65.
 
@@ -444,7 +447,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^114]: Cheng, *supra* note 46.
 
-[^115]: *Id.* Multiple, small investments of time and effort acknowledge that humans make mistakes and mitigates project risk through independent, componentized steps. FCC Interview, *supra* note 36.
+[^115]: *ID.* Multiple, small investments of time and effort acknowledge that humans make mistakes and mitigates project risk through independent, componentized steps. FCC Interview, *supra* note 36.
 
 [^116]: Early engagement between technical contacts, COs, and legal teams is crucial to a successful project. The process itself should be agile. The requirements writing process should not be waterfall if the project is not. FCC Interview, *supra* note 36.
 
@@ -460,72 +463,72 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^122]: *See* Jerry Mechling & Victoria Sweeney, Overcoming Budget Barriers: Funding IT Projects in The Public Sector 14 (1997).
 
-[^123]: *See id*. at 8.
+[^123]: *See ID*. at 8.
 
-[^124]: *See id.*
+[^124]: *See ID.*
 
-[^125]: *Id*. at 11.
+[^125]: *ID*. at 11.
 
-[^126]: *See id*.
+[^126]: *See ID*.
 
 [^127]: Cheng, *supra* note 46.
 
 [^128]: Sherman, *supra* note 15, at 230.
 
-[^129]: *See* *id.*; Emmett E. Hearn, Federal Acquisition and Contract Management 55 (5th ed. 2002).
+[^129]: *See* *ID.*; Emmett E. Hearn, Federal Acquisition and Contract Management 55 (5th ed. 2002).
 
 [^130]: Sherman, *supra* note 15, at 251.
 
 [^131]: *See* FAR Part 15.
 
-[^132]: Sherman, *supra* note 15, at 299–301.
+[^133]: Sherman, *supra* note 15, at 299–301.
 
-[^133]: *Id.* at 301.
+[^134]: *ID.* at 301.
 
-[^134]: *Id*. at 302.
+[^135]: *ID*. at 302.
 
-[^135]: *Id.*
+[^136]: *Id.*
 
-[^136]: H.R. Rep. No. 92–1188, at 1, 2 (1972).
+[^137]: H.R. Rep. No. 92–1188, at 1, 2 (1972).
 
-[^137]: FAR 36.6.
+[^138]: FAR 36.6.
 
-[^138]: *Id*.
+[^139]: *Id*.
 
-[^139]: FAR 36.602–1(a).
+[^140]: FAR 36.602–1(a).
 
-[^140]: 40 U.S.C. § 1103(d) (2006).
+[^141]: 40 U.S.C. § 1103(d) (2006).
 
-[^141]: FAR 36.601 specifically notes that "services that do not require performance by a registered or licensed architect or engineer . . . should be acquired pursuant to parts 13, 14, and 15."
+[^142]: FAR 36.601 specifically notes that "services that do not require performance by a registered or licensed architect or engineer . . . should be acquired pursuant to parts 13, 14, and 15."
 
-[^142]: National Defense Authorization Act of 1996, Pub. L. No. 104–106, 110 Stat. 659, 689 (1996) (codified in scattered sections of 40 U.S.C. and 41 U.S.C.). For a comprehensive overview of the ITMRA (later known as the Clinger-Cohen Act) reforms, *see* Stephen W. Feldman, *Clinger-Cohen Act of 1996; GAO Procurement Protest Authority*, 1 Government Contract Awards: Negotiation and Sealed Bidding § 1:12 (2010).
+[^143]: National Defense Authorization Act of 1996, Pub. L. No. 104–106, 110 Stat. 659, 689 (1996) (codified in scattered sections of 40 U.S.C. and 41 U.S.C.). For a comprehensive overview of the ITMRA (later known as the Clinger-Cohen Act) reforms, *see* Stephen W. Feldman, *Clinger-Cohen Act of 1996; GAO Procurement Protest Authority*, 1 Government Contract Awards: Negotiation and Sealed Bidding § 1:12 (2010).
 
-[^143]: FAR 39.103.
+[^144]: FAR 39.103.
 
-[^144]: *Cohen Plans IT Procurement Reform Legislation*, 37 Gov't Contractor ¶ 83, Jan. 15, 1995, at 8–9 (observing that the act's sponsor argued that "by the time a contract is awarded, the technology that is being bought is obsolete").
+[^145]: *Cohen Plans IT Procurement Reform Legislation*, 37 Gov't Contractor ¶ 83, Jan. 15, 1995, at 8–9 (observing that the act's sponsor argued that "by the time a contract is awarded, the technology that is being bought is obsolete").
 
-[^145]: Modular Contracting White Paper, *supra* note 41, at 24 (identifying a module as an "economically and programmatically separable segment" that "should have a substantial programmatic use even if no additional segments are acquired \[and as]… a functional system or solution that is not dependent on any subsequent module in order to perform its significant functions").
+[^146]: Modular Contracting White Paper, *supra* note 41, at 24 (identifying a module as an "economically and programmatically separable segment" that "should have a substantial programmatic use even if no additional segments are acquired \[and as]… a functional system or solution that is not dependent on any subsequent module in order to perform its significant functions").
 
-[^146]: FAR 39.103(a).
+[^147]: FAR 39.103(a).
 
-[^147]: *Id.*; FAR 2.101. A "major system" is a system estimated to exceed million or the threshold defined by OMB Circular A-109 or that is designated a "major system" by the head of the agency responsible for that system. FAR 2.101.
+[^148]: *ID.*; FAR 2.101. A "major system" is a system estimated to exceed million or the threshold defined by OMB Circular A-109 or that is designated a "major system" by the head of the agency responsible for that system. FAR 2.101.
 
-[^148]: FAR 39.103(b). *See* Danielle Conway-Jones, *Research and Development Deliverables under Government Contracts, Grants, Cooperative Agreements and CRADAs: University Roles, Government Responsibilities and Contractor Rights*, 9 Computer L. Rev. & Tech. J. 181, 192 n.75 (2004).
+[^149]: FAR 39.103(b). *See* Danielle Conway-Jones, *Research and Development Deliverables under Government Contracts, Grants, Cooperative Agreements and CRADAs: University Roles, Government Responsibilities and Contractor Rights*, 9 Computer L. Rev. & Tech. J. 181, 192 n.75 (2004).
 
-[^149]: FAR 39.103.
+[^150]: FAR 39.103.
 
-[^150]: Strengthening IT program management by exposing best practices and aligning IT procurement with innovation is a central tenet of the White House's plan to reform federal IT. Kundra, *supra* note 13, at 17 (noting "the acquisition process can require program managers to specify the Government's requirements up front, which can be years in advance of program initiation . . . We need to make real change happen . . . by educating the entire team managing IT projects about the tools available to streamline the acquisition process.").
+[^151]: Strengthening IT program management by exposing best practices and aligning IT procurement with innovation is a central tenet of the White House's plan to reform federal IT. Kundra, *supra* note 13, at 17 (noting "the acquisition process can require program managers to specify the Government's requirements up front, which can be years in advance of program initiation . . . We need to make real change happen . . . by educating the entire team managing IT projects about the tools available to streamline the acquisition process.").
 
-[^151]: Ideally instructors would create a scalable model outlining the various issues contracting agencies must broach before pursuing an agile project, such as how to ensure robust competition, how broad or specific the statements of work should be, whether to award to a single vendor or multiple vendors, and when to use fixed-price contracts or rely instead on other contracting vehicles. *See generally* Kundra, *supra* note 13.
+[^152]: Ideally instructors would create a scalable model outlining the various issues contracting agencies must broach before pursuing an agile project, such as how to ensure robust competition, how broad or specific the statements of work should be, whether to award to a single vendor or multiple vendors, and when to use fixed-price contracts or rely instead on other contracting vehicles. *See generally* Kundra, *supra* note 13.
 
-[^152]: An example of a functional approach would involve requiring that a system use industry best security practices rather than describing a particular encryption algorithm.
+[^153]: An example of a functional approach would involve requiring that a system use industry best security practices rather than describing a particular encryption algorithm.
 
-[^153]: This holds true for both the FAR and DoD regulations. DoD Acquisition Report, *supra* note 1, at 4.
+[^154]: This holds true for both the FAR and DoD regulations. DoD Acquisition Report, *supra* note 1, at 4.
 
-[^154]: FAR 36.601.
+[^155]: FAR 36.601.
 
-[^155]: FAR 36.602–1.
+[^156]: FAR 36.602–1.
 
-[^156]: FAR 36.601(4)(a)(3). The U.S. Bureau of Labor and Statistics classifies the software engineering role as a [subset of computer specialist](http://www.bls.gov/soc/soc_structure_2010.pdf), while all other engineering disciplines are a [subset of engineer](http://www.bls.gov/soc/soc_structure_2010.pdf). Additionally, software engineers do not receive professional engineering licenses from the state. If a state were to grant such a license, this would serve as an interesting test case.
+[^157]: FAR 36.601(4)(a)(3). The U.S. Bureau of Labor and Statistics classifies the software engineering role as a [subset of computer specialist](http://www.bls.gov/soc/soc_structure_2010.pdf), while all other engineering disciplines are a [subset of engineer](http://www.bls.gov/soc/soc_structure_2010.pdf). Additionally, software engineers do not receive professional engineering licenses from the state. If a state were to grant such a license, this would serve as an interesting test case.
 
-[^157]: FAR 39.103 (implementing the Clinger-Cohen Act of 1996, Pub. L. No. 104–106).
+[^158]: FAR 39.103 (implementing the Clinger-Cohen Act of 1996, Pub. L. No. 104–106).

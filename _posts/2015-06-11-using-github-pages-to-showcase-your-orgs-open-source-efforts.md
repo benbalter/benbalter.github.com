@@ -31,11 +31,11 @@ For a quick way to get started, and as an example, let's create a new file calle
 </html>
 ```
 
-Once you commit (save) the file, if you navigate to `your-org.github.io`, you should see the index file you just created, being served, just like any other website. You can add additional HTML files, CSS files, JavaScript files, images… any static files you want in this manner. The only thing GitHub Pages doesn't support are dynamic languages like PHP, Ruby, or Python. This allows you to add your organization's logo, color scheme, or any other content you'd like, including dynamic, client-side content like pulling in your organization's most recent Tweets.
+Once you commit (save) the file, if you navigate to `your-org.github.io`, you should see the index file you just created, being served, just like any other site. You can add additional HTML files, CSS files, JavaScript files, images… any static files you want in this manner. The only thing GitHub Pages doesn't support are dynamic languages like PHP, Ruby, or Python. This allows you to add your organization's logo, color scheme, or any other content you'd like, including dynamic, client-side content like pulling in your organization's most recent Tweets.
 
 ### Templating with Jekyll
 
-The true power of GitHub Pages comes from a built in static site generator called [Jekyll](http://jekyllrb.com). If you just have a single page site with straightforward content, our index example above is likely sufficient, but if you'd like to have multiple pages, or if you'd like to support content that's a bit more dynamic, you'll likely want to leverage Jekyll to make things a bit easier to maintain.
+The true power of GitHub Pages comes from a built-in static site generator called [Jekyll](http://jekyllrb.com). If you just have a single page site with straightforward content, our index example above is likely sufficient, but if you'd like to have multiple pages, or if you'd like to support content that's a bit more dynamic, you'll likely want to leverage Jekyll to make things a bit easier to maintain.
 
 Going back to our index example above, lets say you wanted to add a second page, "About us". You could copy and paste the index template into a second file, but if you'd like to change the header on both pages, you'd have to make the same page twice, and things can easily get out of sync.
 
@@ -151,4 +151,4 @@ In terms of availability and scalability, the simplicity of GitHub pages makes i
 
 Your organization site is also in good company. [Lots of large organizations](https://github.com/showcases/open-source-organizations) like [Adobe](http://adobe.github.io), [Netflix](http://netflix.github.io), [SAP](http://sap.github.io), [IBM](http://ibm.github.io), and [Microsoft](http://microsoft.github.io) use GitHub Pages to showcase their open source efforts. It provides organizations with a branded developer presence to link to from their `/developer` or similar portals, instead of linking to their standard GitHub profile.
 
-To get started, simply create an appropriately named repository within your organization and begin commuting files, or you can read more about using [GitHub Pages](https://help.github.com/categories/github-pages-basics/), [Jekyll](http://jekyllrb.com/docs/home/), and [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers). Of course, if you have any questions, you can always email <mailto:support@github.com>.
+To get started, simply create an appropriately named repository within your organization and begin commuting files, or you can read more about using [GitHub Pages](https://help.github.com/categories/github-pages-basics/), [Jekyll](http://jekyllrb.com/docs/home/), and [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers). Of course, if you have any questions, you can always email [support@github.com](mailto:support@github.com).

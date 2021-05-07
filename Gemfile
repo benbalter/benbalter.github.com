@@ -2,18 +2,21 @@
 
 source 'https://rubygems.org'
 
+gem 'faraday', '< 1.0.0'
 gem 'github-pages', group: :jekyll_plugins
 gem 'jekyll-avatar'
 gem 'jekyll-include-cache'
 gem 'jekyll-remote-theme'
-gem 'faraday', '< 1.0.0'
 
 group :test, :development do
+  gem 'classifier-reborn'
+  gem 'gsl'
   gem 'html-proofer'
   gem 'nokogiri'
   gem 'pry'
   gem 'rake'
   gem 'rspec'
   gem 'rubocop'
-  gem 'sinatra-cross_origin' # Jekyll Admin
+  gem 'rubocop-performance'
+  gem 'rubocop-rspec'
 end

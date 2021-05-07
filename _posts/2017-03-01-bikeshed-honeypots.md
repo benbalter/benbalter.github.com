@@ -31,7 +31,7 @@ Putting the two concepts together, if you know those to whom you're presenting n
 
 The idea of a "bikeshed honeypot" (as I'm calling it) isn't new. The earliest reference I can find is [an MSDN blog from 2005](https://blogs.msdn.microsoft.com/brada/2005/05/13/the-admirals-pipe/) where it's called "The Admiral's Pipe", the idea being that Russian submariners would leave one fairly obvious pipe uncleaned prior to their admiral's regular inspection. "The admiral would find this pipe, insist that it be cleaned and feel satisfied that he found a problem and not dig any deeper", as one Microsoft manager put it.
 
-The idea resurfaced again in 2010 on [a now defunct StackOverflow thread](http://www.stackprinter.com/questions/new-programming-jargon-you-coined.html) (made popular by [Coding Horror in 2012](https://blog.codinghorror.com/new-programming-jargon/)) as "a duck", the legend of a game developer who perfectly animated the game's queen character, then unceremoniously added an easily removable pet duck to every one of her scenes for the producer to criticize (and ultimately remove).
+The idea resurfaced again in 2010 on [a now defunct Stack Overflow thread](http://www.stackprinter.com/questions/new-programming-jargon-you-coined.html) (made popular by [Coding Horror in 2012](https://blog.codinghorror.com/new-programming-jargon/)) as "a duck", the legend of a game developer who perfectly animated the game's queen character, then unceremoniously added an easily removable pet duck to every one of her scenes for the producer to criticize (and ultimately remove).
 
 Heck, there's even a Dilbert comic about it (with a unique twist):
 

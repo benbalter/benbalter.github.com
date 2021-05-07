@@ -1,0 +1,47 @@
+on: push
+name: CI
+jobs:
+  content:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2-beta
+      - name: Install
+        run: npm install
+      - name: Lint JS
+        run: npm run lint-js
+      - name: Lint JSON
+        run: npm run lint-json
+      - name: Lint MD
+        run: npm run lint-md
+      - name: Lint Text
+        run: npm run lint-text
+      - name: Vale
+        uses: errata-ai/vale-action@v1.3.0
+        with:
+          styles: |
+            https://github.com/benbalter/vale-styles/releases/latest/download/Microsoft.zip
+          config: https://raw.githubusercontent.com/benbalter/benbalter.github.com/master/.vale.ini
+          files: "*.md _posts/*.md resume_positions/*.md"
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: "2.6"
+      - name: Install
+        run: bundle install
+      - name: Check Ruby
+        run: bundle exec rubocop -D -S
+      - name: Check site
+        run: bundle exec rake test
+      - name: Check DNS
+        run: bundle exec github-pages health-check
+ 

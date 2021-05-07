@@ -2,11 +2,11 @@
 title: What is a 'Hacker'?
 description: Hackers embody sharing, openness, decentralization — coding to improve the world
 redirect_from:
-- "/2013/02/13/what-is-a-hacker/"
-- "/2013/02/16/what-is-a-hacker/"
+  - "/2013/02/13/what-is-a-hacker/"
+  - "/2013/02/16/what-is-a-hacker/"
 ---
 
-Working in DC, "hacker" can often be seen as a four-letter word. I can't count the number of times a press aide or government attorney has cringed at seeing it in a draft release, or even worse, as an upcoming event audaciously entitled a "hackathon". To the media and many government types "hacking" often conjures up images of malcontents in ski masks crouched over computer screens, but to the rest of the world (and especially the Internet), the term has a very, very different meaning. Heck, even Merriam-Webster [defines hacker](http://www.merriam-webster.com/dictionary/hacker) as:
+Working in DC, "hacker" can often be seen as a four-letter word. I can't count the number of times a press aide or government attorney has cringed at seeing it in a draft release, or even worse, as an upcoming event audaciously entitled a "hackathon". To the media and many government types "hacking" often conjures up images of malcontents in ski masks crouched over computer screens, but to the rest of the world (and especially the internet), the term has a very, very different meaning. Heck, even Merriam-Webster [defines hacker](http://www.merriam-webster.com/dictionary/hacker) as:
 
 1. "One that hacks" (defined as "to write computer programs for enjoyment"),
 2. "a person who is inexperienced or unskilled at a particular activity", and
@@ -26,7 +26,7 @@ But it's more than ideology. There's a practical side to it as well. There's a t
 
 ### Hacker Culture
 
-Last, hackers embody a unique culture that often flies in the face of traditional paradigms. It's a culture of **meritocracy**. Contribution is the sole currency of the Internet. Money and title bare far less weight than meaningful contributions, be they code, copy, design, whatever. It's a culture of **elegance**. Hackers strive for artfully arranged, innovative techniques that perform complicated tasks with as few instructions as possible. and It's a culture of **playful cleverness**. There's a certain lighthearted cleverness to being a hacker, often expressed by injecting dry wit and memes into otherwise mundane tasks.
+Last, hackers embody a unique culture that often flies in the face of traditional paradigms. It's a culture of **meritocracy**. Contribution is the sole currency of the internet. Money and title bare far less weight than meaningful contributions, be they code, copy, design, whatever. It's a culture of **elegance**. Hackers strive for artfully arranged, innovative techniques that perform complicated tasks with as few instructions as possible. and It's a culture of **playful cleverness**. There's a certain lighthearted cleverness to being a hacker, often expressed by injecting dry wit and memes into otherwise mundane tasks.
 
 ### Hackers in the Enterprise
 

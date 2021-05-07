@@ -10,7 +10,7 @@ RSpec.describe 'front matter' do
           it "has a #{field}" do
             msg = "Keys: #{page.data.keys.join(', ')}"
             expect(page.data).to have_key(field), msg
-            expect(page.data[field].to_s).to_not be_empty
+            expect(page.data[field].to_s).not_to be_empty
           end
         end
       end
@@ -26,7 +26,7 @@ RSpec.describe 'front matter' do
               it "has a #{field}" do
                 msg = "Keys: #{doc.data.keys.join(', ')}"
                 expect(doc.data).to have_key(field), msg
-                expect(doc.data[field].to_s).to_not be_empty
+                expect(doc.data[field].to_s).not_to be_empty
               end
             end
           end
