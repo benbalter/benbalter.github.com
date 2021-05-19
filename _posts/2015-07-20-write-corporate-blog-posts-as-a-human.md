@@ -63,7 +63,7 @@ It's an easy crutch to begin a blog post with "Starting today…". That's like s
 
 ### 10. Under promise, over deliver
 
-It's tempting to talk about what's still in development, but don't tease your users with features that they can't yet use, and thus gain nothing from. Generating "buzz" is noticeably self-serving, and your users will respond accordingly. Not to mention, it locks your developers into particular decisions, even if you subsequently gain information that suggests it's ultimately not the right direction for the product. Instead, [manage expectations](http://ozmm.org/posts/managing_expectations.html), both internally and externally.
+It's tempting to talk about what's still in development, but don't tease your users with features that they can't yet use, and thus gain nothing from. Generating "buzz" is noticeably self-serving, and your users will respond accordingly. Not to mention, it locks your developers into particular decisions, even if you subsequently gain information that suggests it's ultimately not the right direction for the product. Instead, [manage expectations](https://web.archive.org/web/20180902232301/http://ozmm.org/posts/managing_expectations.html), both internally and externally.
 
 [This corporate anti-pattern](http://www.slideshare.net/bcantrill/corporate-open-source-antipatterns/10) is especially common in the world of closed-to-open source. "We intend to open source X" may be a great forcing function internally, but more often than not leaves your audience asking why it took so long in the first place. "We open sourced X" or "You can now Y" is a much better start to the conversation.
 
