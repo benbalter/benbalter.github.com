@@ -12,7 +12,7 @@ Kyle uses the term "taste". In government, we often call it "culture". Whatever 
 At GitHub, we did just that:
 
 <div class="row">
-<div class="col-sm-6" markdown="1">
+<div class="col-sm-5" markdown="1">
 
 > * Responsive is better than fast
 > * It's not fully shipped until it's fast
@@ -30,7 +30,7 @@ At GitHub, we did just that:
 > * Keep it logically awesome
 
 </div>
-<div class="col-sm-6">
+<div class="col-sm-7">
   <pre id="zen" class="small p-0"></pre>
 </div>
 </div>
