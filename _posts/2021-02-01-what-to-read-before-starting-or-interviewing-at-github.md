@@ -16,6 +16,6 @@ Over the years I've written a number of posts about GitHub's culture and communi
 And if you're a Product Manager or Technical Program Manager:
 
 * **[Twelve things a product manager does]({{ "/2016/06/06/twelve-things-a-product-manager-does/" | absolute_url }})** (2016) - What a Product Manager’s typical day looks like at GitHub, at least if there is such a thing.
-* **[Nine things a (technical) program manager does]({{ "/2021/03/26/nine-things-a-technical-program-manager-does/" | absolute_url }})** (2021) - What a (Technical) Program Manger does day-to-day at GitHub, and how they uniquely bring value to a team and to the organization as a whole.
+* **[Nine things a (technical) program manager does]({{ "/2021/03/26/nine-things-a-technical-program-manager-does/" | absolute_url }})** (2021) - What a Technical Program Manger does day-to-day at GitHub and how they uniquely bring value to a team and to the organization as a whole.
 
 Of course, these opinions are [my own](https://ben.balter.com/fine-print/), and please take the publication date in mind when reading. GitHub (and I) have changed a lot since 2013, and as organizations grow and mature, cultures and communication patterns naturally evolve. If you have any questions, feel free to reach out on Slack, Twitter, or the comments below.
