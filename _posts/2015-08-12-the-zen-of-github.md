@@ -48,3 +48,5 @@ $(function() {
   });
 });
 </script>
+
+{% include github-culture.html %}
