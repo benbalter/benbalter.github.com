@@ -31,7 +31,7 @@ At GitHub, we did just that:
 
 </div>
 <div class="col-sm-6">
-  <pre id="zen" class="small p-3"></pre>
+  <pre id="zen" class="small p-0"></pre>
 </div>
 </div>
 
