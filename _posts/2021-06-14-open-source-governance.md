@@ -3,7 +3,7 @@ title: Five (and a half) practical tips for governing your open source project
 description: As your open source project grows, here are some practical steps you can take to help operationalize common governance decisions.
 ---
 
-*This post is the third in a series on successfully managing open source communities at scale.*
+{% include foss-at-scale.html nth="third" %}
 
 Successful open source projects are purposeful and thoughtful about not only how development is managed day-to-day, but also how community is governed (and nurtured) from release-to-release. Once you've [set contributors up for success](https://ben.balter.com/2020/05/15/set-open-source-contributors-up-for-success/) and [automated common community-management tasks](https://ben.balter.com/2020/08/10/automate-common-open-source-community-management-tasks/), you should decide (and document) how your project will be governed. Much has been written about [open source leadership and governance](https://opensource.guide/leadership-and-governance/). There's a great deal of nuance to consider when deciding on models, roles, entities, and documentation, which I encourage you to read up on. As your open source project grows and matures, here are some practical steps you can take to help operationalize those governance decisions:
 
