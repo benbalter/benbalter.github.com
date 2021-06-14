@@ -1,11 +1,11 @@
 ---
-title: Open source governance
-description:
+title: Five (and a half) tips for managing open source governance
+description: As your open source project grows, here are some practical steps you can take to help operationalize common governance decisions.
 ---
 
 *This post is the third in a series on successfully managing open source communities at scale.*
 
-Much has been written about [open source leadership and governance](https://opensource.guide/leadership-and-governance/). There's a great deal of nuance to consider when deciding on models, roles, entities, and documentation, which I consider you to read up on. As your open source project grows, here are some practical steps you can take to help operationalize those governance decisions:
+Successful open source projects are purposeful and thoughtful about not only how development is managed day-to-day, but also how community is governed from release-to-release. Once you've [set contributors up for success](https://ben.balter.com/2020/05/15/set-open-source-contributors-up-for-success/) and [automated common community-management tasks](https://ben.balter.com/2020/08/10/automate-common-open-source-community-management-tasks/), you should decide (and document) how your project will be governed. Much has been written about [open source leadership and governance](https://opensource.guide/leadership-and-governance/). There's a great deal of nuance to consider when deciding on models, roles, entities, and documentation, which I encourage you to read up on. As your open source project grows and matures, here are some practical steps you can take to help operationalize those governance decisions:
 
 ### Organization-owned
 
@@ -30,4 +30,4 @@ Two other community management adjacent features are worth calling out here to h
 
 Last, for sufficiently mature open source projects, consider appointing a designated community manager, either paid or volunteer (depending on your project's governance). It's easy to overlook the burden of open source community management, arguably one of the most impactful roles for large or popular open source projects. Community managers bring a number of unique benefits to open source projects often neglected when community management is "everyone's responsibility" such as welcoming new contributors and streamlining the new contributor experience, moderating controversial conversations to ensure issues remain productive, organizing community feature requests and support into actionable feedback, and serving as a community advocate for corporate-backed projects.
 
-CONCLUSION
+As an open source project grows and matures, so too does the complexity of managing just not the software development, but the community around the project as well. Open source governance should not be an afterthought, but hopefully these concrete steps can help minimize the community management burden so that your project, and your community, can continue to grow and thrive.
