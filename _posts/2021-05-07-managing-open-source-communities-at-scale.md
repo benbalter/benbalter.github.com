@@ -7,7 +7,7 @@ Following my rule that [everything should have a URL](https://ben.balter.com/201
 
 1. [Set open source contributors up for success](https://ben.balter.com/2020/05/15/set-open-source-contributors-up-for-success/)
 2. [Automate common open source community management tasks](https://ben.balter.com/2020/08/10/automate-common-open-source-community-management-tasks/)
-3. [Open source governance](#)
+3. [Practical tips for governing your open source project](https://ben.balter.com/2021/06/14/open-source-governance/)
 4. [Moderating open source conversations to keep them productive](#)
 
 I hope that these posts can help set other organizations up for success as they take a similar plunge in joining the open source community. If you (or your organization) is new to open source, you might also want to check out these additional, more "vintage" resources:
