@@ -12,7 +12,7 @@ Kyle uses the term "taste". In government, we often call it "culture". Whatever 
 At GitHub, we did just that:
 
 <div class="row">
-<div class="col-sm-6" markdown="1">
+<div class="col-sm-5" markdown="1">
 
 > * Responsive is better than fast
 > * It's not fully shipped until it's fast
@@ -30,14 +30,14 @@ At GitHub, we did just that:
 > * Keep it logically awesome
 
 </div>
-<div class="col-sm-6">
-  <pre id="zen" class="small p-3"></pre>
+<div class="col-sm-7">
+  <pre id="zen" class="small p-0"></pre>
 </div>
 </div>
 
 These aren't mere words. There's [an API endpoint to retrieve random Zen](https://api.github.com/zen){: data-proofer-ignore="true" } upon request, and heck, you can even have [Ms. Mona Lisa Octocat read the Zen herself](https://api.github.com/octocat){: data-proofer-ignore="true" }, should you ever need it. Whether you've written them down or not, whether you've discussed them or not, whether you've realized them or not, every decision members of your organization make are bound by the constraints of these (often unspoken) [first principles](https://en.wikipedia.org/wiki/First_principle).
 
-If you haven't already, I'd encourage you to spend a cycle documenting those assumptions that drive (or constrain) your organization's efforts. You'd be surprised how much less squishy culture becomes when culture has a URL.
+If you haven't already, I'd encourage you to spend a cycle documenting those assumptions that drive (or constrain) your organization's efforts. You'd be surprised how much less squishy culture becomes when culture [has a URL](https://ben.balter.com/2015/11/12/why-urls/).
 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
@@ -48,3 +48,5 @@ $(function() {
   });
 });
 </script>
+
+{% include github-culture.html %}
