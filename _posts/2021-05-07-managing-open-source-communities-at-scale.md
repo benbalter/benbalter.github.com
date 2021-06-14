@@ -1,9 +1,9 @@
 ---
 title: Managing open source communities at scale
-description: A rollup of my advice for successfully managing open source communities at scale.
+description: A comprehensive rollup of my advice for successfully managing open source communities at scale.
 ---
 
-Following my rule that [everything should have a URL](https://ben.balter.com/2015/11/12/why-urls/), in response to a prominent international organization asking for guidance as they made their first forray into the world of open source with a high-visibility pandemic-related project, I captured my advice into a series of four posts on successfully managing open source communities at scale:
+Following my rule that [everything should have a URL](https://ben.balter.com/2015/11/12/why-urls/), in response to a prominent international organization asking for guidance as they made their first foray into the world of open source with a high-visibility pandemic-related project, I captured my advice into a series of four posts on successfully managing open source communities at scale:
 
 1. [Set open source contributors up for success](https://ben.balter.com/2020/05/15/set-open-source-contributors-up-for-success/)
 2. [Automate common open source community management tasks](https://ben.balter.com/2020/08/10/automate-common-open-source-community-management-tasks/)
