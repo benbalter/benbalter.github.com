@@ -1,5 +1,5 @@
 ---
-title: Five (and a half) tips for managing open source governance
+title: Five (and a half) practical tips for governing your open source project
 description: As your open source project grows, here are some practical steps you can take to help operationalize common governance decisions.
 ---
 
