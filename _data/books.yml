@@ -59,6 +59,19 @@ Startups and innovation:
     asin: B004J4XGN6
     tldr: The lean startup - Inspired by lessons from lean manufacturing, it relies on “validated learning,” rapid scientific experimentation, as well as a number of counter-intuitive practices that shorten product development cycles, measure actual progress without resorting to vanity metrics, and learn what customers really want. It enables a company to shift directions with agility, altering plans inch by inch, minute by minute.
 
+Information security:
+  - title: The Cuckoo's Egg
+    asin: B0083DJXCM
+    tldr: "Cliff Stoll was an astronomer turned systems manager at Lawrence Berkeley Lab when a 75-cent accounting error alerted him to the presence of an unauthorized user on his system... Stoll began a one-man hunt of his own: spying on the spy. It was a dangerous game of deception, broken codes, satellites, and missile bases — a one-man sting operation that finally gained the attention of the CIA."
+
+  - title: "Secrets and Lies: Digital Security in a Networked World"
+    asin: B004UARVS0
+    tldr: A TL;DR on the world of computer security that has withstood the test of time. A great, practical introduction to cryptography and digital security.
+
+  - title: Serious cryptography
+    asin: B0722MTGQV
+    tldr: "This practical guide to modern encryption breaks down the fundamental mathematical concepts at the heart of cryptography without shying away from meaty discussions of how they work. You’ll learn about authenticated encryption, secure randomness, hash functions, block ciphers, and public-key techniques such as RSA and elliptic curve cryptography."
+
 Product management:
   - title: "Escaping the Build Trap: How Effective Product Management Creates Real Value"
     asin: B07K3QBWG1
@@ -124,6 +137,3 @@ Everything else:
     asin: B06XJBGPT9
     tldr: '"Buying groceries, tracking our health, finding a date: whatever we want to do, odds are that we can now do it online... Many of the services we rely on are full of oversights, biases, and downright ethical nightmares... Technically Wrong takes an unflinching look at the values, processes, and assumptions that lead to these problems and more."'
 
-  - title: "Secrets and Lies: Digital Security in a Networked World"
-    asin: B004UARVS0
-    tldr: A TL;DR on the world of computer security that has withstood the test of time. A great, practical introduction to cryptography and digital security.
