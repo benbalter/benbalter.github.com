@@ -5,7 +5,7 @@ description: Successful open source projects create a welcoming community by fos
 
 *This post is the fourth in a series on successfully managing open source communities at scale.*
 
-Successful open source projects create a welcoming community by fostering productive conversations, promoting healthy collaboration, and de-escalating conflict when things get heated or off topic. Once you've [set contributors up for success](https://ben.balter.com/2020/05/15/set-open-source-contributors-up-for-success/), [automated common community-management tasks](https://ben.balter.com/2020/08/10/automate-common-open-source-community-management-tasks/), and [establishd a governance model](#), you should be prepared to moderate conversations in the repositories you maintain, to help [build a strong community](https://help.github.com/en/github/building-a-strong-community) around your code.
+Successful open source projects create a welcoming community by fostering productive conversations, promoting healthy collaboration, and de-escalating conflict when things get heated or off topic. Once you've [set contributors up for success](https://ben.balter.com/2020/05/15/set-open-source-contributors-up-for-success/), [automated common community-management tasks](https://ben.balter.com/2020/08/10/automate-common-open-source-community-management-tasks/), and [establishd a governance model](https://ben.balter.com/2021/06/14/open-source-governance/), you should be prepared to moderate conversations in the repositories you maintain, to help [build a strong community](https://help.github.com/en/github/building-a-strong-community) around your code.
 
 ### Establish a Code of Conduct
 
@@ -35,6 +35,4 @@ When disruptive behavior spills from one or two issues to your entire repository
 
 The final and most aggressive form of moderation is [blocking a disruptive user](https://help.github.com/en/github/building-a-strong-community/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment). Blocking a user prevents them from interacting with your repositories in any way. This ban can be permanent, or if a first infraction, ideally temporary to allow for self-rehabilitation of their behavior. When you block the user, you could do so silently to avoid conflict, or if you'd like to  
 
-
-
-
+By establishing a code of conduct, enabling community reporting, and using GitHub's moderation tools, active community moderation keeps conversations productive and creates a welcoming community by promoting healthy collaboration, keeping discussions on track, and de-escalating conflict when things get heated or off topic.
