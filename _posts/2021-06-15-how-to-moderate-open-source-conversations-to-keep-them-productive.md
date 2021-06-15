@@ -1,6 +1,7 @@
 ---
 title: Moderating open source conversations to keep them productive
 description: Successful open source projects create a welcoming community by fostering productive conversations, promoting healthy collaboration, and de-escalating conflict when things get heated or off topic.
+redirect_from: /2021/06/15/moderating-open-source-conversations-to-keep-them-productive/
 ---
 
 {% include foss-at-scale.html nth="fourth and final" %}
