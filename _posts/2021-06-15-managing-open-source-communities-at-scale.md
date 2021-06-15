@@ -1,10 +1,12 @@
 ---
-title: Managing open source communities at scale
-description: A comprehensive rollup of advice for successfully managing open source communities at scale.
+title: Advice for managing open source communities at scale
+description: As open source projects grow, maintainers' most pressing challenges often shift from the technical to the administrative as they transition from managing code to managing a community of contributors. 
 redirect_from: /2021/06/15/moderating-open-source-conversations-to-keep-them-productive/
 ---
 
-As open source projects grow and mature, maintainers' most pressing challenges often shift from the technical to the administrative as they transition from managing code to managing a growing community of contributors. While I was the responsible for Community and Safety at GitHub, I advised countless organizations on not just how to manage open source projects, but how to manage open source projects *at scale*. Following my rule that [everything should have a URL](https://ben.balter.com/2015/11/12/why-urls/), I captured some of my most common advice over the years into a series of four posts on successfully managing large open source communities:
+As open source projects grow and mature, maintainers' most pressing challenges often shift from the technical to the administrative as they transition from managing code to managing a community of contributors. When I was responsible for Community and Safety at GitHub, I advised countless organizations on not just how to manage open source projects, but how to manage open source projects *at scale*. 
+
+Following my rule that [everything should have a URL](https://ben.balter.com/2015/11/12/why-urls/), I've captured some of the most common advice I offered over the years into a series of four posts on successfully managing large open source communities:
 
 1. [Set open source contributors up for success](https://ben.balter.com/2020/05/15/set-open-source-contributors-up-for-success/)
 2. [Automate common open source community management tasks](https://ben.balter.com/2020/08/10/automate-common-open-source-community-management-tasks/)
