@@ -3,7 +3,7 @@ title: Seven ways to set open source contributors up for success
 description: Successful open source projects do everything they can to set users up for success, well before that user interacts with their project for the first time.
 ---
 
-*This post is the first in a series on successfully managing open source communities at scale.*
+{% include foss-at-scale.html nth="first" %}
 
 Successful open source projects do everything they can to set users up for success, well before that user ever interacts with their project for the first time. These projects ensure that users can discover and understand the project, that they can contribute constructively, and that everyone (maintainers included) will have a good experience. 
 

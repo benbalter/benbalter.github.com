@@ -3,7 +3,7 @@ title: Automate common open source community management tasks
 description: Successful open source projects rely heavily on automation to implement and enforce community workflows and to make contributing a more self-serve experience.
 ---
 
-*This post is the second in a series on successfully managing open source communities at scale.*
+{% include foss-at-scale.html nth="second" %}
 
 Successful open source projects rely heavily on automation to implement and enforce community workflows and to make contributing a more self-serve experience. Once you've [set open source contributors up for success](https://ben.balter.com/2020/05/15/set-open-source-contributors-up-for-success/), you can and should automate common community management tasks like issue triage, initial code review, and pruning your project backlog to ensure you can scale your own efforts and contributors continue to have a great experience and want to contribute, even as your community grows. Better yet, it can often be done with without writing any code that you have to host or maintain. As I like to say, never force a human to do what a computer can.
 
