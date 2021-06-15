@@ -24,4 +24,4 @@ If you have questions about intellectual property, I've also captured some more 
 
 Last, if you (or someone in your organization) is still on the fence about open source in the first place, [there are many reasons](https://ben.balter.com/2015/11/23/why-open-source/) why you might consider consuming, publishing, collaborating on, or supporting open source. 
 
-I hope that these posts can help set you and your project up for success as you take your plunge in joining the open source community and learn to manage open source projects at scale.
+I hope that these posts can help set you and your project up for success as you take your plunge in joining the open source community and learn to manage an open source project (and its community) at scale.
