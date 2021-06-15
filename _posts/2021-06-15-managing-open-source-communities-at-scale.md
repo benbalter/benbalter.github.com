@@ -1,6 +1,7 @@
 ---
 title: Managing open source communities at scale
 description: A comprehensive rollup of my advice for successfully managing open source communities at scale.
+redirect_from: /2021/06/15/moderating-open-source-conversations-to-keep-them-productive/
 ---
 
 Following my rule that [everything should have a URL](https://ben.balter.com/2015/11/12/why-urls/), in response to a prominent international organization asking for guidance as they made their first foray into the world of open source with a high-visibility pandemic-related project, I captured my advice into a series of four posts on successfully managing open source communities at scale:
