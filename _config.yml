@@ -99,7 +99,7 @@ plugins:
 sass:
   style: :compressed
 
-remote_theme: benbalter/retlab@f15563b55700eccaebcb3ed91aa9eae87d78893d
+remote_theme: benbalter/retlab
 
 gist:
   noscript: false

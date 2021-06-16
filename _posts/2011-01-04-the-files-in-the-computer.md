@@ -9,7 +9,7 @@ When drafting and interpreting the fourth amendment, neither the founding father
 
 In *[People v. Diaz](http://en.wikipedia.org/wiki/People_v._Diaz)*, the court ruled that a warrantless search of text messages on a cell phone confiscated subsequent to a lawful arrest did in fact, constitute a valid search. While the dissent realized that mobile phones were increasingly becoming the hubs of our digital world, noting that the decision gave "carte blanche, with no showing of exigency, to rummage at leisure through the wealth of personal and business information that can be carried on a mobile phone or handheld computer merely because the device was taken from an arrestee's person," I do not believe they fully grasped the gravity of the ruling. [^1]
 
-![Ben Still and Owen Wilson stare at a computer from the movie Zoolander](https://ben.balter.com/wp-content/uploads/2011/01/zoolander-300x188.jpg){: .float-left .mr-3 .rounded }
+![Ben Still and Owen Wilson stare at a computer from the movie Zoolander](https://ben.balter.com/wp-content/uploads/2011/01/zoolander-300x188.jpg){: .float-start .me-3 .rounded }
 
 [Much like Ben Stiller and Owen Wilson's characters in the movie Zoolander](http://www.youtube.com/watch?v=_m_PncKuDao&feature=related#t=1m16s), the dissent's analysis is based on the assumption that information "can be carried on" or "in" one's mobile phone, a reality which simply is not the case in today's increasingly cloud-centric world.
 
