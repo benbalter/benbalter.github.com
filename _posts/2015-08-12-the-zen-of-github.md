@@ -45,7 +45,7 @@ xhr = new XMLHttpRequest();
 
 xhr.onload = function() {
   if (xhr.status == 200) {
-      zen.innerHTML = xhr.response.replace(/^\n/, '');
+      zen.innerText = xhr.response.replace(/^\n/, '');
   } else {
     console.log("Zen failed with " + xhr.status + " - " + xhr.statusText);
   }
