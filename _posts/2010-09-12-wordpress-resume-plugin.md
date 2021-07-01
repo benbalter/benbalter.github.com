@@ -3,7 +3,7 @@ title: WordPress Resume Plugin
 description: WP Resume is an out-of-the-box solution to get your résumé online and keep it updated. Built on WordPress 3.0's custom post type functionality, it offers a uniquely familiar approach to publishing. If you've got a WordPress site, you already know how to use WP Resume.
 ---
 
-![WP Resume](https://ben.balter.com/wp-content/uploads/2010/09/wp_resume-300x223.png "Screenshot of Example WP Resume"){: .float-right .ml-3 .border }
+![WP Resume](https://ben.balter.com/wp-content/uploads/2010/09/wp_resume-300x223.png "Screenshot of Example WP Resume"){: .float-end .ms-3 .border }
 
 As I began to set up my own site, I was not a huge fan of the options out there for adding a résumé or CV to a WordPress blog. Many personal sites used lackluster TinyMCE formatting (bold, italic, bullets, nothing else) or simply stuffed pre-styled HTML into an existing page. I can't even begin to fathom the workflows some people must go through every time they want to update their resume.[^1] A few purpose-built plugins offered a slightly more streamlined approach, but cluttered the backend with unnecessary and unfamiliar menus, and spawned legions of database tables to store the data.
 

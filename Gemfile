@@ -8,6 +8,8 @@ gem 'jekyll-avatar'
 gem 'jekyll-include-cache'
 gem 'jekyll-remote-theme'
 
+#gem 'retlab', path: "../retlab"
+
 group :test, :development do
   gem 'classifier-reborn'
   gem 'gsl'

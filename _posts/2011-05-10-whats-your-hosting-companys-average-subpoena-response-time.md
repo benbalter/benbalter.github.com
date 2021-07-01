@@ -3,7 +3,7 @@ title: What's Your Hosting Company's Average Subpoena Response Time?
 description: Your hosting company's willingness (or unwillingness) to comply with Subpoenas may soon be seen as a competitive feature.
 ---
 
-[![Subpoena](http://farm1.staticflickr.com/157/391427627_62f2a23df4_n.jpg){: .float-right .ml-3}](http://www.flickr.com/photos/timsamoff/391427627/)
+[![Subpoena](http://farm1.staticflickr.com/157/391427627_62f2a23df4_n.jpg){: .float-end .ms-3}](http://www.flickr.com/photos/timsamoff/391427627/)
 
 Bluehost, the [web hosting service](http://en.wikipedia.org/wiki/Web_hosting_service) which powers more than [1.9 million](http://en.wikipedia.org/wiki/Bluehost) sites globally, making it one of the top 20 largest hosting companies in the world and approximately 2% of the internet's traffic (link removed), recently came under fire for its decision to depart from well-established [internet standards](http://pubcit.typepad.com/clpblog/2010/07/two-new-cases-on-internet-anonymity.html) and reveal the identity of one of its subscribers, over what [later proved](http://www.sltrib.com/sltrib/money/51780456-79/koch-company-judge-federal.html.csp) to be an [unfounded suit](http://pubcit.typepad.com/files/kochindustries.pdf).
 

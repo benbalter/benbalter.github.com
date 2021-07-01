@@ -44,7 +44,7 @@ certifications:
   <div class="col">
     <h5>{{ position.title }}</h5>
   </div>
-  <div class="col-md-4 text-right">
+  <div class="col-md-4 text-end">
     {{ position.start_date | date: '%B %Y' }} &mdash; {% if position.end_date %}{{ position.end_date | date: '%B %Y' }}{% else %}Present{% endif %}
   </div>
 </div>
@@ -64,7 +64,7 @@ certifications:
   <div class="col">
     {{ degree.degree }}
   </div>
-  <div class="col-md-4 text-right">
+  <div class="col-md-4 text-end">
     {{ degree.date | date: "%B %Y" }}
   </div>
 </div>

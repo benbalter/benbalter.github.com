@@ -3,7 +3,7 @@ title: Fair Use, Excerpting, and Copying Content in the Internet Ecosystem
 description: The Internet's *laissez-faire* Internet ecosystem of liberal excerpting is often at odds with both traditional media and the law.
 ---
 
-![Close up of a copier control panel](https://ben.balter.com/wp-content/uploads/2011/04/2146845610_ebd95e5f4e_b-300x200.jpg "Copier"){: .float-left .mr-3 }
+![Close up of a copier control panel](https://ben.balter.com/wp-content/uploads/2011/04/2146845610_ebd95e5f4e_b-300x200.jpg "Copier"){: .float-start .me-3 }
 
 The internet's *laissez-faire* internet ecosystem of liberal excerpting is often at odds with both [traditional](http://www.washingtonpost.com/wp-dyn/content/article/2009/07/31/AR2009073102476.html) [media](http://www.niemanlab.org/2009/08/gawker-and-the-washington-post-a-case-study-in-fair-use/) and [the law](http://ilt.eff.org/index.php/Copyright:_Fair_Use), but the bigger concerns for aspiring bloggers should be contributing to an ongoing dialog, rather than muddling it.
 
