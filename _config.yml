@@ -139,8 +139,7 @@ amazon:
 
 # JSON-LD
 email: ben@balter.com
-gender: male
 employer:
   name: GitHub
   url: https://github.com
-job_title: Senior Technical Program Manager
+job_title: Chief of Staff, Security
