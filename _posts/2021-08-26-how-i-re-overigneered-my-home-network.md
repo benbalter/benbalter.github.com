@@ -3,18 +3,27 @@ title: How I re-overengineered my home network for privacy and security
 description:
 ---
 
-A little under a year ago I wrote about [how I over-engineered my home network for privacy and security](https://ben.balter.com/2020/12/04/over-engineered-home-network-for-privacy-and-security/). I still stand by everything I wrote in that post, but since I published that post, I've automated some of the setup and management, to get ride of some of those "follow these random blog post instructions" and generally, to get out of the server management or sysadmin hobby and treat my Raspberry Pi less like a pet, and more like a  ___.
+This post is a follow up to my popular post [how I over-engineered my home network for privacy and security](https://ben.balter.com/2020/12/04/over-engineered-home-network-for-privacy-and-security/). If you haven't already checked that post out, it walks through how I used a UniFi Dream Machine, VLANs to segment IoT, a Pi-Hole to block ads, cloudflared for DNS over HTTPS, and Cloudflare Gateway to block malware/phishing to (over) optimize my home network for privacy and security.
 
+What I wrote then remains true, but after having used the setup for over a year now, I've decided that "copy and paste these random commands from StockOverflow or some internet rando's blog" probably isn't the best way to run a security-conscious home network and have made a few improvements to how I setup, maintain, and manage things, that I'd like to share here. Specifically:
+
+1. Using Ansible to setup the underlying "bare metal" hardware
+2. Using Docker-Compose to maintain distinct services
+3. Using Caddy to access the management interface over HTTPS
+
+I was recently introduced to the idea of treating severs like cattle, not pets, and I'd like to get out of the bespoke sysadmin business as much as possible to further my "set it and forget it" goal.
 ## Docker compose
 
-First, rather than running services on "bare metal", I'll be among the first to admit that I know very little about linux system administration, and the less I can trust to me "getting it right", the better. Instead, I chose to make the bare minimum changes to the base image, and then use Docker Compose to run the services I need in containers. This has a number of advantages:
+Rather than running applications on "bare metal" as I described in my original post, I now run the various software bits that support my home network as distinct services managed as Docker containers. For those unfamiliar, [Docker](https://www.docker.com) uses OS-level virtualization to automate the deployment of applications as portable, self-sufficient containers and [Docker Compose](https://docs.docker.com/compose/) is a tool for defining and running multiple Docker containers along side one another.
 
-* **Isolation** - Beyond isolating one process from another through defined compute and networking interfaces, which itself brings a sense security, 
-* **Trusted underlying system** and less muxing with the underling system and thus more confidence that it's working as intended,
-* **Experimentation** -  I can more easily spin up experiments in containers (e.g., should I use `unbound` instead of `cloudflared`?) and quickly and easily clean them up, without worrying if I unintentionally modified something or left behind unnecessary cruft.
-* **Build without drama** - For me, the standard install process for most services is to follow the documentation, and when that inevitably fails, to paste random StackOverflow commands into console until it works - npt exactly ideal. Docker absorbs that complexity on your behalf by having the maintainer define the build process, and ideally, provide a build image for your platform, so that you have one less thing to worry about.[^1]
+At first, the added complexity might feel counter intuitive for what seems like a straightforward service management problem. There are a number of notable advantages:
 
-Here's an example of what my docker-compose file looks like:
+* **Install without drama** - The standard install process for most projects is to follow the documentation until that inevitably fails and then to paste random StackOverflow commands into console until it unexpectedly works. With Docker, I'm essentially outsourcing dependency and configuration management to project maintainers who know significantly more about the ecosystem than I do through standardized build processes and pre-compiled images.[^1]
+* **Isolation** - Docker isolates process from another through defined compute, memory, and networking interfaces, which adds an additional layer of security and predictability. A vulnerability, bug, or misconfiguration in one service is less likely to affect another service, if services can only interact with one another through well-defined and well-understood paths. 
+* **Trusted underlying system** - Docker allows me to make the bare minimum changes to the base image. The less I can trust to me "getting it right", the better. Less muxing with the underling system instills more confidence that things are working as intended.
+* **Experimentation** -  Docker allows me to more easily spin up experiments in containers (for example, should I use `unbound` instead of `cloudflared`?) and quickly and easily clean them up without worrying if I unintentionally modified something or left behind unnecessary cruft. 
+
+Here's an example of what my basic pihole + cloudflared docker-compose file looks like:
 
 ```docker-compose.yml
 version: "3"
@@ -61,15 +70,16 @@ services:
       REV_SERVER: "true"
       REV_SERVER_TARGET: "192.168.1.1"
       REV_SERVER_CIDR: "192.168.0.0/16"
+      VIRTUAL_HOST: dns.example.com
     ports: 
       - "53:53/tcp"
       - "53:53/udp"
-      - "80:80/tcp"
     volumes:
       - './etc-pihole/:/etc/pihole/'
       - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
     networks:
-      net: {}
+      net:
+        ipv4_address: 10.0.0.3
     dns:
       - "10.0.0.2"
     depends_on:
@@ -91,7 +101,9 @@ secrets:
 
 ## Ansible
 
-Beyond service installation and maintenance, the other aspect of PiHole management that was *bespoke* was provisioning. I could maintain a manual checklist that goes from blank SD card to fully functional PiHole, but ideally, that too could be automated, to prevent human error, and perhaps some day soon, allow for redundancy. 
+Download the [Raspberry Pi Imager](https://www.raspberrypi.org/software/) and flash the latest version of Raspberry Pi OS *Lite*.
+
+Beyond service installation and maintenance, the other aspect of PiHole management that was *bespoke* was provisioning. I could maintain a manual checklist that goes from blank SD card to fully functional PiHole, but ideally, that too could be automated to prevent human error, and perhaps some day soon, allow for redundancy.
 
 There's a lot of provisioning tools out there, and you could probably be happy with many of them, but I went with Ansible, since it's simple to setup for a single target.
 
@@ -105,6 +117,23 @@ Here's the minimum you should do to set up docker compose on your Raspberry Pi:
       apt:
         upgrade: dist
         update_cache: true
+    - name: Install network manager
+      become: true
+      apt:
+        name: network-manager
+        state: present
+    - name: configure network
+      become: true
+      community.general.nmcli:
+        state: present
+        conn_name: eth0
+        ifname: eth0
+        type: ethernet
+        # Set Static IP of PiHole
+        ip4: 192.168.1.2/24
+        gw4: 192.168.1.1
+        dns4:
+          - 1.1.1.2
     - name: Install docker dependencies
       become: true
       apt:
@@ -247,6 +276,7 @@ Finally, in my Ansible config, I have a number of security best practices baked 
       apt:
         name: ufw
         state: present
+    # Rate limits SSH attempts
     - name: limit ssh
       become: true
       ufw:
