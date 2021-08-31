@@ -463,6 +463,8 @@ And last, I added the following to my Ansible `playbook.yml` file to make my Clo
 
 ### Conclusion
 
+If you're looking to implement a similar set up (or do and find ways to improve it), you can find all the configuration files references above (and more!) over at [benbalter/pi-hole-cloudflared-docker-compose-ansible-caddy](https://github.com/benbalter/pi-hole-cloudflared-docker-compose-ansible-caddy) on GitHub.
+
 The two-dozen or so clients on my home network generate around 125,000 DNS queries a day on average, of which, about 50% are blocked by the PiHole and a handful more might be blocked by Cloudflare's filtering. Surprisingly, the move to Docker actually seemed to improved performance (I was worried about overhead) with a 0-5% average load and DNS response times generally around 20ms.
 
 Eighteen months since [I originally over-engineered my home network](https://ben.balter.com/2020/12/04/over-engineered-home-network-for-privacy-and-security/), ads remain rare, false positives are still low, and I've learned a lot about many of the behind-the-scenes technologies we've come to take for granted every day. 
