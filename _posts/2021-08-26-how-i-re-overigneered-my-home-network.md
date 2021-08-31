@@ -25,7 +25,11 @@ At first, the added complexity might feel counter intuitive for what seems like 
 
 Here's an example of what my basic pihole + cloudflared docker-compose file looks like:
 
-```docker-compose.yml
+<details markdown=1 class="mb-3">
+<summary><strong>Example <code>docker-compose.yml</code> file</strong></summary>
+
+
+```yml
 version: "3"
 
 services:
@@ -99,17 +103,34 @@ secrets:
     file: .pihole_web_password
 ```
 
+</details>
+
+Docker and Docker Compose introduced some pretty impressive improvements in terms of service maintenance and provisioning, but it didn't account for all the bits that make Docker work or that configure and maintain the underlying Raspberry Pi, which was still a *bespoke* operation.
+
 ## Ansible
 
-Download the [Raspberry Pi Imager](https://www.raspberrypi.org/software/) and flash the latest version of Raspberry Pi OS *Lite*.
+I could maintain a manual checklist that goes from blank SD card to fully functional PiHole, but ideally, that too could be automated to prevent human error, and perhaps some day soon, allow for redundancy. That's where Ansible comes in.
 
-Beyond service installation and maintenance, the other aspect of PiHole management that was *bespoke* was provisioning. I could maintain a manual checklist that goes from blank SD card to fully functional PiHole, but ideally, that too could be automated to prevent human error, and perhaps some day soon, allow for redundancy.
+There's a lot of provisioning tools out there, and you could probably be happy with many of them. I'd never used Ansible before, but I went with it for a few reasons:
 
-There's a lot of provisioning tools out there, and you could probably be happy with many of them, but I went with Ansible, since it's simple to setup for a single target.
+1. **Setup** - Ansible is unique in that it doesn't require a dedicated management server to provision other servers. Instead, it runs as a Python script on your desktop, SSHing in to your Raspberry Pi directly and running the commands you specify, as if you were running them yourself.
+2. **Documentation** - I was immediately impressed by Ansible's documentation. Everything was consistent, thorough, and easy to understand. It even had helpful tips like "avoid unnecessary complexity" (and the design patterns to support them), which I appreciated, given that I was only using it to manage one server.
+3. **Community** - I've yet to find a feature that I was hoping would exist, that wasn't provided via a (core- or) community-maintained package. Set a static IP? Generate and authorize a GitHub deploy key? Clone a private repo? Configure the firewall? Start docker compose? Someone already solved all those problems for you.
 
-Here's the minimum you should do to set up docker compose on your Raspberry Pi:
+My "setup playbook" document went from about two dozen complex steps to the following:
 
-```ansible
+1. Download the [Raspberry Pi Imager](https://www.raspberrypi.org/software/) and flash the latest version of Raspberry Pi OS *Lite*.
+2. Run `ansible-playbook playbook.yml --inventory hosts.yml` from my laptop
+3. Sit back and wait until you have a fully configured PiHole running in about 5-10 minutes
+
+Best of all, since Ansible is idempotent by design, upgrading the underlying distribution, updating dependencies, pulling fresh Docker images, and resolving any configuration drift is as simple as repeating step two above.
+
+Here's the minimum you should do to set up Docker Compose on your Raspberry Pi:
+
+<details markdown=1 class="mb-3">
+<summary><strong>Example Ansible <code>playbook.yml</code> file for running Docker Compose services</strong></summary>
+
+```yml
 - hosts: all
   tasks:
     - name: update and upgrade apt packages
@@ -122,6 +143,7 @@ Here's the minimum you should do to set up docker compose on your Raspberry Pi:
       apt:
         name: network-manager
         state: present
+    # Set Static IP of PiHole so other devices can query it for DNS lookups
     - name: configure network
       become: true
       community.general.nmcli:
@@ -129,7 +151,6 @@ Here's the minimum you should do to set up docker compose on your Raspberry Pi:
         conn_name: eth0
         ifname: eth0
         type: ethernet
-        # Set Static IP of PiHole
         ip4: 192.168.1.2/24
         gw4: 192.168.1.1
         dns4:
@@ -137,7 +158,7 @@ Here's the minimum you should do to set up docker compose on your Raspberry Pi:
     - name: Install docker dependencies
       become: true
       apt:
-        name: "{{ item }}"
+        name: "{% raw %}{{ item }}{% endraw %}"
         state: present
         update_cache: true
       loop:
@@ -161,7 +182,7 @@ Here's the minimum you should do to set up docker compose on your Raspberry Pi:
     - name: install docker
       become: true
       apt:
-        name: "{{ item }}"
+        name: "{% raw %}{{ item }}{% endraw %}"
         state: present
       loop:
         - docker-ce
@@ -186,118 +207,147 @@ Here's the minimum you should do to set up docker compose on your Raspberry Pi:
           - docker
           - docker-compose
           - virtualenv
+    # Set PiHole (Web Admin) password, referenced above. 
+    # Again, I'm using 1Password, but you could use any secret store.
+    - name: Set Pi-Hole secret
+      copy:
+        dest: /home/pi/pi-hole/.pihole_web_password
+        content: "{% raw %}{{ lookup('community.general.onepassword', 'Raspberry pi', field='password') }}{% endraw %}"
     - name: Create and start docker compose services
       community.docker.docker_compose:
-        # Change to path to your docker-compose.yml
+        # Change to path to your docker-compose.yml. See below for how to clone a repo
         project_src: /home/pi/pi-hole
         pull: true
         build: true
+        remove_orphans: true
       register: output
 ```
 
+</details>
+
 Beyond the above, here are a few nice automation to simplify provisioning and maintenance:
-### Nice to have
 
-```ansible
-- hosts: all
-  tasks:
-    # Allows you to SSH in to the PiHole via SSH, instead of password auth
-    - name: Ensure SSH Key is authorized
-      authorized_key:
-        user: pi
-        state: present
-        key: https://github.com/benbalter.keys
-    
-    # Ensure PiHole password is not the default
-    # Here I'm using 1Password as my secret store, but you could use another source
-    - name: Change pi user password
-      become: true
-      user:
-        name: pi
-        update_password: always
-        password: "{{ lookup('community.general.onepassword', 'PiHole', field='Pi@ login') | password_hash('sha512') }}"
+<details markdown=1 class="mb-3">
+<summary><strong>Additional convenience task to add to your Ansible <code>playbook.yml</code> file</strong></summary>
 
-    # A deploy key allows you to pull (or push) from a private GitHub repo
-    - name: Ensure deploy key is present
-      community.crypto.openssh_keypair:
-        path: "~/.ssh/id_github"
-        type: ed25519
-      register: deploy_key
+```yml
+# Allows you to SSH in to the PiHole via SSH, instead of password auth, pulling from your GitHub Public key
+- name: Ensure SSH Key is authorized
+  authorized_key:
+    user: pi
+    state: present
+    key: https://github.com/benbalter.keys
 
-    # If a new deploy key is generated, authorize it for the repo
-    # Again, here I'm using 1Password as my secret store, but you could use another source
-    - name: Ensure deploy key is authorized
-      community.general.github_deploy_key:
-        key: "{{ deploy_key.public_key }}"
-        name: Raspberry Pi
-        state: present
-        owner: benbalter
-        repo: pi-hole
-        token: "{{ lookup('community.general.onepassword', 'PiHole', field='GitHub Token') }}"
+# Ensure PiHole password is not the default
+# Here I'm using 1Password as my secret store, but you could use another source
+- name: Change pi user password
+  become: true
+  user:
+    name: pi
+    update_password: always
+    password: "{% raw %}{{ lookup('community.general.onepassword', 'PiHole', field='Pi@ login') | password_hash('sha512') }}{% endraw %}"
 
-    # I version my config in a private Git Repo, so I clone it down using the deploy key
-    # Note: This will not work without modification, as it's a private repo
-    - name: Clone GitHub repo
-      git:
-        repo: git@github.com:benbalter/pi-hole.git
-        dest: /home/pi/pi-hole/
-        clone: true
-        update: true
-        key_file: ~/.ssh/id_github
-        accept_hostkey: true
+# A deploy key allows you to pull (or push) from a private GitHub repo
+- name: Ensure deploy key is present
+  community.crypto.openssh_keypair:
+    path: "~/.ssh/id_github"
+    type: ed25519
+  register: deploy_key
+
+# If a new deploy key is generated, authorize it for the repo
+# Again, here I'm using 1Password as my secret store, but you could use another source
+- name: Ensure deploy key is authorized
+  community.general.github_deploy_key:
+    key: "{% raw %}{{ deploy_key.public_key }}{% endraw %}"
+    name: Raspberry Pi
+    state: present
+    owner: benbalter
+    repo: pi-hole
+    token: "{% raw %}{{ lookup('community.general.onepassword', 'PiHole', field='GitHub Token') }}{% endraw %}"
+
+# I version my config in a private Git Repo, so I clone it down using the deploy key
+# Note: This will not work without modification, as it's a private repo
+- name: Clone GitHub repo
+  git:
+    repo: git@github.com:benbalter/pi-hole.git
+    dest: /home/pi/pi-hole/
+    clone: true
+    update: true
+    key_file: ~/.ssh/id_github
+    accept_hostkey: true
 ```
 
-Finally, in my Ansible config, I have a number of security best practices baked in:
+</details>
 
-### Even nicer to have
+Finally, in my Ansible config, I have a number of security tasks that I included and recommend you follow:
 
-```ansible
-    # Automatically upgrade apt packages
-    - name: install unattended upgrades
-      become: true
-      apt:
-        name: unattended-upgrades
-        state: present
-    - name: Setup unattended upgrades
-      debconf:
-        name: unattended-upgrades
-        question: unattended-upgrades/enable_auto_updates
-        vtype: boolean
-        value: "true"
-    # Prevents SSH brute force attacks
-    - name: install fail2ban
-      become: true
-      apt:
-        name: fail2ban
-        state: present
-    # Installs firewall
-    - name: install ufw
-      become: true
-      apt:
-        name: ufw
-        state: present
-    # Rate limits SSH attempts
-    - name: limit ssh
-      become: true
-      ufw:
-        rule: limit
-        port: ssh
-        proto: tcp
-    - name: Allow all access to port 22, 53, and 80
-      become: true
-      ufw:
-        rule: allow
-        port: '{{ item }}'
-      loop:
-        - '22'
-        - '53'
-        - '80'
-    - name: enable ufw and default to deny
-      become: true
-      ufw:
-        state: enabled
-        default: deny
+<details markdown=1 class="mb-3">
+<summary><strong>Security best practices I included in my Ansible <code>playbook.yml</code></strong></summary>
+
+```yml
+# Automatically upgrade apt packages
+- name: install unattended upgrades
+  become: true
+  apt:
+    name: unattended-upgrades
+    state: present
+- name: Setup unattended upgrades
+  debconf:
+    name: unattended-upgrades
+    question: unattended-upgrades/enable_auto_updates
+    vtype: boolean
+    value: "true"
+
+# Prevents SSH brute force attacks
+- name: install fail2ban
+  become: true
+  apt:
+    name: fail2ban
+    state: present
+
+# Installs firewall
+- name: install ufw
+  become: true
+  apt:
+    name: ufw
+    state: present
+
+# Rate limits SSH attempts
+- name: limit ssh
+  become: true
+  community.general.ufw:
+    rule: limit
+    port: ssh
+    proto: tcp
+
+# Firewall rules
+- name: Allow all access to SSH, DNS, and WWW
+  become: true
+  community.general.ufw:
+    rule: allow
+    port: '{% raw %}{{ item }}{% endraw %}'
+  loop:
+    - SSH
+    - DNS
+    - WWW
+    - WWW Secure
+- name: enable ufw and default to deny
+  become: true
+  ufw:
+    state: enabled
+    default: deny
 ```
+
+</details>
+
+Between Ansible and Docker Compose, I was happy with my setup and maintained my network, but management of the PiHole Web interface (and API), still sent passwords, tokens, and sensitive data in the clear.
+
+### Caddy
+
+While admittedly, since my PiHole was only available on my home network, and even then, non-DNS traffic was visible to highly-trusted devices, the risk of transferring passwords, tokens, and sensitive data in the clear was low (all other network users had an API key in order to disable blocking when it broke functionality), I still didn't like the idea of accessing something as sensitive as the PiHole web interface over HTTP, especially when it could lead to a DNS poising attack.
+
+
+
 ---
 
 [^1]: While pihole offers `armv7`/`armvf` (what the Raspberry Pi identifies as under the latest version of Raspberry OS) docker images, cloudflared does not, meaning you'll need to build cloudflared yourself. Unlike compiling from source and endless dependency drama, with a simple `docker build` and a few minute patience, you should be good to go.
