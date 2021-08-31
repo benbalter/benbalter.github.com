@@ -126,6 +126,8 @@ Ansible is a provisioning, configuration management, and application-deployment 
 * **Documentation** - I was immediately impressed by Ansible's documentation. Everything was consistent, thorough, and easy to understand. It even had helpful tips like "avoid unnecessary complexity" (and the design patterns to support them), which I appreciated, given that I was only using it to manage one server.
 * **Community** - I've yet to find a feature that I was hoping would exist that wasn't provided via a (core- or) community-maintained package. Install apt packages? Set a static IP? Generate and authorize a GitHub deploy key? Clone a private repo? Configure the firewall? Start Docker and Docker Compose? Someone already solved all those problems for you.
 
+#### Three-step setup
+
 My manual "setup playbook" documentation went from about two dozen complex and error-prone steps down to the following:
 
 1. Download the [Raspberry Pi Imager](https://www.raspberrypi.org/software/) and flash the latest version of Raspberry Pi OS *Lite*.
