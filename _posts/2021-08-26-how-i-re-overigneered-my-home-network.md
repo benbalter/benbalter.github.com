@@ -7,11 +7,12 @@ This post is a follow up to my popular post [how I over-engineered my home netwo
 
 What I wrote then remains true, but after having used the setup for over a year now, I've decided that "copy and paste these random commands from StockOverflow or some internet rando's blog" probably isn't the best way to run a security-conscious home network and have made a few improvements to how I setup, maintain, and manage things, that I'd like to share here. Specifically:
 
-1. Using Ansible to setup the underlying "bare metal" hardware
-2. Using Docker-Compose to maintain distinct services
-3. Using Caddy to access the management interface over HTTPS
+1. [Using Docker-Compose to maintain distinct services](#docker-compose)
+2. [Using Ansible to setup the underlying "bare metal" hardware](#ansible)
+3. [Using Caddy to secure the management interface with HTTPS](#caddy)
 
 I was recently introduced to the idea of treating severs like cattle, not pets, and I'd like to get out of the bespoke sysadmin business as much as possible to further my "set it and forget it" goal.
+
 ## Docker compose
 
 Rather than running applications on "bare metal" as I described in my original post, I now run the various software bits that support my home network as distinct services managed as Docker containers. For those unfamiliar, [Docker](https://www.docker.com) uses OS-level virtualization to automate the deployment of applications as portable, self-sufficient containers and [Docker Compose](https://docs.docker.com/compose/) is a tool for defining and running multiple Docker containers along side one another.
@@ -109,7 +110,7 @@ Docker and Docker Compose introduced some pretty impressive improvements in term
 
 ## Ansible
 
-I could maintain a manual checklist that goes from blank SD card to fully functional PiHole, but ideally, that too could be automated to prevent human error, and perhaps some day soon, allow for redundancy. That's where Ansible comes in.
+I could maintain a manual checklist that goes from blank SD card to fully functional PiHole, but ideally, that too could be automated to prevent human error, and perhaps some day soon, allow for redundancy. That's where [Ansible](https://www.ansible.com) comes in.[^2]
 
 There's a lot of provisioning tools out there, and you could probably be happy with many of them. I'd never used Ansible before, but I went with it for a few reasons:
 
@@ -282,7 +283,7 @@ Beyond the above, here are a few nice automation to simplify provisioning and ma
 Finally, in my Ansible config, I have a number of security tasks that I included and recommend you follow:
 
 <details markdown=1 class="mb-3">
-<summary><strong>Security best practices I included in my Ansible <code>playbook.yml</code></strong></summary>
+<summary><strong>Security best practices I included in my Ansible <code>playbook.yml</code> file</strong></summary>
 
 ```yml
 # Automatically upgrade apt packages
@@ -344,10 +345,30 @@ Between Ansible and Docker Compose, I was happy with my setup and maintained my 
 
 ### Caddy
 
-While admittedly, since my PiHole was only available on my home network, and even then, non-DNS traffic was visible to highly-trusted devices, the risk of transferring passwords, tokens, and sensitive data in the clear was low (all other network users had an API key in order to disable blocking when it broke functionality), I still didn't like the idea of accessing something as sensitive as the PiHole web interface over HTTP, especially when it could lead to a DNS poising attack.
+While admittedly, since my PiHole was only available on my home network, and even then, non-DNS traffic was visible only to highly-trusted devices, the risk of sending passwords, tokens, and other sensitive data in the clear was relatively low (all other network users had an API key in order to temporarily disable blocking when it broke functionality), I still didn't like the idea of accessing something as sensitive as the PiHole web interface over HTTP.[^3]
 
+I had been searching for the best way to expose the PiHole admin (web and API) interfaces over HTTPS, and while the native lighttpd sever can support HTTPS, it required a lot of setup and maintenance on my part, which I was looking to avoid. I settled on the previously unknown to me Caddy project, for a number of reasons:
 
+* **Certificate provisioning and renewal** - One of the most challenging parts of supporting HTTPS is certificate management. Caddy automatically obtains and renews Lets Encrypt certificates for you. It can even handle DNS ACME challenges via its many DNS provider plugins, to support creating certificates for servers not exposed to the public internet.
+* **Setup** - With a ~5 line "Caddyfile", I was ready to go. Caddy serves as a TLS terminator, proxying HTTP requests to the PiHole web interface via Docker's virtualized network. It handles the HTTPS transit over the home network, completely transparent to the PiHole service. 
+* **Standards and defaults** - HTTP/2? HTTP/3? TLS 1.3? Cipher suites? Key rotation? Redirects? Similar to Docker allowing me to offload the build process to maintainers, Caddy's opinionated defaults meant I had a "good" HTTPS connection out of the box, without needing to tweak anything.
 
+```
+dns.example.com
+
+reverse_proxy 10.0.0.3:80
+
+tls you@example.com {
+  # I use cloudflare here for DNS, but you can use any provider
+	dns cloudflare {env.CLOUDFLARE_API_TOKEN}
+  resolvers 10.0.0.3
+}
+
+# Not necessary, but build-in compression can speed things up a bit
+encode zstd gzip
+```
 ---
 
 [^1]: While pihole offers `armv7`/`armvf` (what the Raspberry Pi identifies as under the latest version of Raspberry OS) docker images, cloudflared does not, meaning you'll need to build cloudflared yourself. Unlike compiling from source and endless dependency drama, with a simple `docker build` and a few minute patience, you should be good to go.
+[^2]: The Ansible website doesn't make mention of, let alone link to to its open source repo, for some reason, but rest assured, it's an open source project under the freemium model, and the "community" edition will be enough to meet your needs of managing 1-2 devices.
+[^3]: In theory, a compromised device on my trusted network could sniff the credentials to the PiHole management interface resulting in a DNS poisoning attack. Regardless of the likelihood, it didn't feel right to spend so much time securing my network DNS, only to make the management credentials so readily available.x  
