@@ -11,9 +11,7 @@ What I wrote then remains true, but after having relied on, optimized, and upgra
 * **Outsource to the experts** - The less I can trust to me "getting it right", the better. "Copy and paste these random commands from StockOverflow" isn't the best way to run a security-conscious home network. Instead, rely on the open source community's established, vetted, and maintained builds, configurations, and defaults through known and trusted distribution channels.
 * **It (still) needs to “just work”** - A dependency update shouldn't be able to steal hours of my weekend due to an unexpected conflict or config change. I wanted to get out of the bespoke sysadmin business, provisioning and then immediately walking away from "set it and forget it" systems wherever possible. Ideally, systems would update themselves regularly, and upgrades would be predictable and boring.
 
-If you want to head down [this route](https://github.com/benbalter/pi-hole-cloudflared-docker-compose-ansible-caddy), beyond having read [the original post](https://ben.balter.com/2020/12/04/over-engineered-home-network-for-privacy-and-security/) along with some basic familiarity with home networking (understanding how things like DNS and IPs work), it would help to have some conceptual familiarity with containerization and provisioning tools to adapt the setup to your own needs.
-
-With that, here's how I re-over-engineered my home newtwork with a few improvements to how I setup, maintain, and manage things:
+If you want to head down [this route](https://github.com/benbalter/pi-hole-cloudflared-docker-compose-ansible-caddy), beyond having read [the original post](https://ben.balter.com/2020/12/04/over-engineered-home-network-for-privacy-and-security/) along with some basic familiarity with home networking (understanding how things like DNS and IPs work), it would help to have some conceptual familiarity with containerization and provisioning tools to adapt the setup to your own needs. With that, here's how I re-over-engineered my home network with a few improvements to how I setup, maintain, and manage things:
 
 1. [Using Docker-Compose to maintain distinct services](#docker-compose)
 2. [Using Ansible to setup the underlying "bare metal" hardware](#ansible)
@@ -463,7 +461,7 @@ And last, I added the following to my Ansible `playbook.yml` file to make my Clo
 
 ### Conclusion
 
-While everything I previously described in the ["pulling it all together"](https://ben.balter.com/2020/12/04/over-engineered-home-network-for-privacy-and-security/#putting-it-all-together) section remains true in terms of service-to-service flow, setup, maintenance, and management are now vastly simplified through well-defined and well-understood service definitions.
+While everything I previously described in the "[pulling it all together](https://ben.balter.com/2020/12/04/over-engineered-home-network-for-privacy-and-security/#putting-it-all-together)" section remains true in terms of service-to-service flow, setup, maintenance, and management are now vastly simplified through well-defined and well-understood service definitions.
 
 The two-dozen or so clients on my home network generate around 125,000 DNS queries a day on average, of which, about 50% are blocked by the PiHole and a handful more might be blocked by Cloudflare's filtering. Surprisingly, the move to Docker actually seemed to improved performance[^5] (I was worried about overhead from the virtual network) with a 0-5% average load and DNS response times generally around 20ms. Plenty of reserve capacity to re-re-over-engineer things next summer...
 
