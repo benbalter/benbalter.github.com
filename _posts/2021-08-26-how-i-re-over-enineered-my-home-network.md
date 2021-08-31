@@ -1,5 +1,5 @@
 ---
-title: How I re-overengineered my home network for privacy and security
+title: How I re-over-engineered my home network for privacy and security
 description: How I used Docker Compose, Ansible, and Caddy to re-over-engineer my UniFi Dream Machine, PiHole-, and Cloudflare-based home network for ease of setup, maintenance, and management.
 ---
 
