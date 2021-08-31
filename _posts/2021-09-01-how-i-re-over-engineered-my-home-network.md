@@ -29,6 +29,8 @@ At first, the added complexity might feel counter intuitive for what seems like 
 * **Isolation** - Docker isolates process from one another through defined compute, memory, and networking interfaces, which adds an additional layer of security and predictability. A vulnerability, bug, or misconfiguration in one service is less likely to affect another service if applications can only interact with one another through well-defined and well-understood paths. Think micro-services vs. monolith.
 * **Trusted underlying system** - Docker allows me to make the bare minimum changes to the base image. This is especially valuable when it comes to experimentation (for example, test whether I should use `unbound` instead of `cloudflared`?), being able to quickly and easily clean up short-lived containers without worrying if I unintentionally modified something of consequence or left behind unnecessary cruft.
 
+#### PiHole + cloudflared `docker-compose.yml` file 
+
 Here's an example of what my basic PiHole + cloudflared `docker-compose.yml` file looks like to define the two services:
 
 <details markdown=1 class="mb-3">
@@ -135,6 +137,8 @@ My manual "setup playbook" documentation went from about two dozen complex and e
 3. Sit back and wait until I have a fully configured PiHole running in about 5-10 minutes
 
 Best of all, since Ansible is idempotent by design, upgrading the underlying distribution, updating dependencies, pulling fresh Docker images, and resolving any configuration drift is as simple as repeating step two above to re-run the playbook.
+
+#### Playbook
 
 Here's the minimum playbook you should use to set up Docker Compose on your Raspberry Pi:
 
@@ -366,6 +370,8 @@ I had been searching for the best way to expose the PiHole admin (web and API) i
 * **Setup** - With a ~5 line "Caddyfile", I was ready to go. Caddy serves as a TLS terminator, proxying HTTP requests to the PiHole web interface via Docker's virtualized network. It handles the HTTPS transit over the home network, completely transparent to the PiHole service. 
 * **Standards and defaults** - HTTP/2? HTTP/3? TLS 1.3? Cipher suites? Key rotation? Redirects? Similar to Docker allowing me to offload the build process to maintainers, Caddy's opinionated defaults meant I had a "good" HTTPS connection out of the box, without needing to tweak anything.
 
+#### Docker Compose service to define Caddy
+
 I set up Caddy by adding the following ~25 lines to my Docker Compose definition:
 
 <details markdown=1 class="mb-3">
@@ -424,6 +430,8 @@ COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 
 </details>
 
+#### Caddyfile to proxy HTTPS traffic to Pi-Hole
+
 Here's my Caddy file config to define Caddy's behavior to proxy HTTPS requests back to the PiHole backend:
 
 <details markdown=1 class="mb-3">
@@ -445,6 +453,8 @@ encode zstd gzip
 ```
 
 </details>
+
+#### Ansible Playbook task to support Caddy secrets
 
 And last, I added the following to my Ansible `playbook.yml` file to make my Cloudflare API token available[^4] to Caddy's ACME challenge logic:
 
