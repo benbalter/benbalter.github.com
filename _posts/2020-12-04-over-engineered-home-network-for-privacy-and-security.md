@@ -3,6 +3,12 @@ title: How I over-engineered my home network for privacy and security
 description: How I used a UniFi Dream Machine, VLANs to segment IoT, Pi-Hole to block ads, cloudflared for DNS over HTTPS, and Cloudflare Gateway to block malware/phishing to (over) optimize my home network for privacy and security.
 ---
 
+<div class="border border-primary p-2 mb-4">
+  <p class="mb-0 text-center" markdown="1">
+    *Everything here remains true, but but after having relied on, optimized, and upgraded this configuration for a while, I decided [to re-over-engineering how I setup, maintain, and manage my home network]({{ "/2021/09/01/how-i-re-over-engineered-my-home-network/" | absolute_url }}) using Docker Compose, Ansible, and Caddy. Please do read on here, but rather than clicking through to the individual Pi-Hole or Cloudflared setup instructions on other sites, I recommend you check out [my newer post]({{ "/2021/09/01/how-i-re-over-engineered-my-home-network/" | absolute_url }}) which automates things instead.*
+  </p>
+</div>
+
 Back in April, when it looked like we were going to be spending some more time at home for a while, I decided to take on the project of upgrading my home Wi-Fi beyond an off-the-shelf consumer router. I'd been a Wirecutter devotee for almost as long as the site's been around and would have normally just grabbed their top pick, but I had just received [my SSCP (information security) certification](https://www.youracclaim.com/badges/7eb85996-c7fc-4c68-95df-fcd33ec445ba), and was looking for something a bit more advanced than the traditional plug-and-play setup to put my newly learned skills into practice.
 
 While most home networking setups generally do a decent job of protect you from threats from the outside trying to come in, they don't often do a great job of managing risks originating from within your own network. Specifically, I had a number of goals: 
@@ -103,8 +109,6 @@ If you want to take things even further, there are a few more customizations to 
 ### Conclusion
 
 Almost nine months later, things are working better than expected. Wi-Fi speeds are fast (faster than my ISP advertises), ads are rare (I'm genuinely surprised when I see one), false positives are low (and easy to bypass), and I only accidentally unplugged the Raspberry Pi once (taking the entire network down in the process with it). It was a great project to put knowledge into practice (along with family GSuite and 1Password accounts, I recently heard it described as [rendering your home IT indistinguishable from a small business](https://twitter.com/rklau/status/1222674965951959040)), which I'd highly recommend if you're looking to level up your home-networking game, especially at a time when we're all spending more time at home working, browsing, and streaming.
-
-Something I missed? Have a tip from your own home network? Leave a comment below and let me know.
 
 [^1]: One gotcha, however, you'll see an "apply guest policies" option when you configure the guest network, but that option doesn't do what you might be familiar with a more traditional consumer router. You'll also need to create a dedicated guest VLAN with the explicit "guest" purpose under advanced, and assign that VLAN to the Guest SSID to ensure client isolation. Once you've done that, you should see the guest firewall rules automatically propagate to segment out the guest network. 
 
