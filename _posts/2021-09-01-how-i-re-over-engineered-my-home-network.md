@@ -3,7 +3,7 @@ title: How I re-over-engineered my home network for privacy and security
 description: How I used Docker Compose, Ansible, and Caddy to re-over-engineer my UniFi Dream Machine, PiHole-, and Cloudflare-based home network for ease of setup, maintenance, and management.
 ---
 
-A little less than a year ago, I wrote a now-popular post about [how I over-engineered my home network for privacy and security](https://ben.balter.com/2020/12/04/over-engineered-home-network-for-privacy-and-security/). If you haven't already checked that post out, it walks through how I used a UniFi Dream Machine (although most routers would work), a Pi-Hole to block ads, cloudflared for DNS over HTTPS, and Cloudflare Gateway to block malware/phishing to (over) optimize my home network for privacy and security.
+A little less than a year ago, I wrote a now-popular post about [how I over-engineered my home network for privacy and security](https://ben.balter.com/2020/12/04/over-engineered-home-network-for-privacy-and-security/). If you haven't already checked that post out, it walks through how I used a UniFi Dream Machine (although most routers would work), a Pi-Hole to block ads and tracking, cloudflared for DNS over HTTPS, and Cloudflare Gateway to block malware/phishing to (over) optimize my home network for privacy and security.
 
 What I wrote then remains true, but after having relied on, optimized, and upgraded what I described in my previous post for about eighteen months now, I've decided to build on what's there by ~~revisiting~~ re-over-engineering how I setup, maintain, and manage the software and services that power and protected the network with a number of specific goals in mind:
 
