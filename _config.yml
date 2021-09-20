@@ -23,9 +23,6 @@ social:
     - https://keybase.io/benbalter
     - https://instagram.com/benbalter
 
-cloudflare:
-  id: 17e540e3b1c8446598fb276866b94931
-
 exclude:
   - CONTRIBUTING.md
   - README.md
