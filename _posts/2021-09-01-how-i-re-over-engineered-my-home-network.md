@@ -1,6 +1,6 @@
 ---
 title: How I re-over-engineered my home network for privacy and security
-description: How I used Docker Compose, Ansible, and Caddy to re-over-engineer my UniFi Dream Machine, PiHole-, and Cloudflare-based home network for ease of setup, maintenance, and management.
+description: How I used Docker Compose, Ansible, and Caddy to re-over-engineer my UniFi Dream Machine, PiHole/AdGuard Home, and Cloudflare-based home network for ease of setup, maintenance, and management.
 ---
 
 A little less than a year ago, I wrote a now-popular post about [how I over-engineered my home network for privacy and security](https://ben.balter.com/2020/12/04/over-engineered-home-network-for-privacy-and-security/). If you haven't already checked that post out, it walks through how I used a UniFi Dream Machine (although most routers would work), a Pi-Hole to block ads and tracking, cloudflared for DNS over HTTPS, and Cloudflare Gateway to block malware/phishing to (over) optimize my home network for privacy and security.
@@ -17,6 +17,18 @@ If you want to head down [this route](https://github.com/benbalter/pi-hole-cloud
 2. [Using Ansible to setup the underlying "bare metal" hardware](#ansible)
 3. [Using Caddy to secure the management interface with HTTPS](#caddy)
 
+### Pi-Hole vs AdGuard Home
+
+**Edit (2021-11-4):** Since originally publishing this post, I've swapped out AdGuard Home for Pi-Hole + Cloudflared. While ultimately you could be happy with either, and this guide continues to apply to both, I ended up prefering AdGuard Home for a number of reasons:
+
+* A more modern stack - PHP + dnsmasq vs. Go and React
+* Admin experience - a sleeker web interface with fewer knobs and dials to endlessly tinker with
+* One less point of failure - Native DoH support meant I could illiminate cloudflared entirely, while still using Cloudflare Teams as my upstream resolver
+* Config as code - Settings are contained in a single YAML file that I could version
+* Log rentention policies - To enable debugging without introducing a new privacy risk
+
+Pi-Hole has been around for longer and has a more established community, so again, you could be happy with either, but I've updated this post to reflect that since originally written, I now prefer AdGuard Home. With that, let's get on to the setup:
+
 ### Docker Compose
 
 Rather than running applications on "bare metal" as I described in [my original post](https://ben.balter.com/2020/12/04/over-engineered-home-network-for-privacy-and-security/), I now run the various software bits that support my home network as distinct services managed as Docker containers. 
@@ -29,9 +41,39 @@ At first, the added complexity might feel counter intuitive for what seems like 
 * **Isolation** - Docker isolates process from one another through defined compute, memory, and networking interfaces, which adds an additional layer of security and predictability. A vulnerability, bug, or misconfiguration in one service is less likely to affect another service if applications can only interact with one another through well-defined and well-understood paths. Think micro-services vs. monolith.
 * **Trusted underlying system** - Docker allows me to make the bare minimum changes to the base image. This is especially valuable when it comes to experimentation (for example, test whether I should use `unbound` instead of `cloudflared`?), being able to quickly and easily clean up short-lived containers without worrying if I unintentionally modified something of consequence or left behind unnecessary cruft.
 
+#### AdGuard Home `docker-compose.yml` file 
+
+Here's an example of what my simple AdGuard Home `docker-compose.yml` file looks like to define the services:
+
+<details markdown=1 class="mb-3">
+<summary><strong>Example <code>docker-compose.yml</code> file</strong></summary>
+
+```yml
+version: "3"
+
+services:
+  adguardhome:
+    container_name: adguardhome
+    restart: unless-stopped
+    image: adguard/adguardhome
+    ports:
+      - 53:53/tcp
+      - 53:53/udp
+
+    volumes:
+      - ./adguard-work:/opt/adguardhome/work
+      - ./adguard-conf:/opt/adguardhome/conf
+
+    networks:
+      net:
+        ipv4_address: 10.0.0.2
+```
+
+</details>
+
 #### PiHole + cloudflared `docker-compose.yml` file 
 
-Here's an example of what my basic PiHole + cloudflared `docker-compose.yml` file looks like to define the two services:
+And here's my original, slightly-more-complex PiHole + cloudflared `docker-compose.yml` file that defined the two services:
 
 <details markdown=1 class="mb-3">
 <summary><strong>Example <code>docker-compose.yml</code> file</strong></summary>
@@ -399,8 +441,10 @@ services:
     healthcheck:
         test: ["CMD", "caddy", "version"]
     depends_on:
-      - pihole
-      - cloudflared
+      - adguardhome
+      # Replace with the following for pi-hole:
+      # - pihole
+      # - cloudflared
     networks:
       net: {}
 
@@ -430,9 +474,9 @@ COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 
 </details>
 
-#### Caddyfile to proxy HTTPS traffic to Pi-Hole
+#### Caddyfile to proxy HTTPS traffic to Pi-Hole or AdGuard Home
 
-Here's my Caddy file config to define Caddy's behavior to proxy HTTPS requests back to the PiHole backend:
+Here's my Caddy file config to define Caddy's behavior to proxy HTTPS requests back to the PiHole or AdGuard Home web backend:
 
 <details markdown=1 class="mb-3">
 <summary><strong>Example <code>caddyfile</code> to proxy HTTPS to the PiHole web interface</strong></summary>
@@ -475,7 +519,7 @@ And last, I added the following to my Ansible `playbook.yml` file to make my Clo
 
 While everything I previously described in the "[pulling it all together](https://ben.balter.com/2020/12/04/over-engineered-home-network-for-privacy-and-security/#putting-it-all-together)" section remains true in terms of service-to-service flow, setup, maintenance, and management are now vastly simplified through well-defined and well-understood service definitions.
 
-The two-dozen or so clients on my home network generate around 125,000 DNS queries a day on average, of which, about 50% are blocked by the PiHole and a handful more might be blocked by Cloudflare's filtering. Surprisingly, the move to Docker actually seemed to improved performance[^5] (I was worried about overhead from the virtual network) with a 0-5% average load and DNS response times generally around 20ms. Plenty of reserve capacity to re-re-over-engineer things next summer...
+The two-dozen or so clients on my home network generate around 125,000 DNS queries a day on average, of which, about 50% are blocked by the PiHole and a handful more might be blocked by Cloudflare's filtering. Surprisingly, the move to Docker actually seemed to improved performance[^5] (I was worried about overhead from the virtual network) with a 0-5% average load and DNS response times generally around 2ms with AdGuard Home (20ms when running PiHole). Plenty of reserve capacity to re-re-over-engineer things next summer...
 
 Eighteen months since [I originally over-engineered my home network](https://ben.balter.com/2020/12/04/over-engineered-home-network-for-privacy-and-security/), ads remain rare, false positives are still low, and I've learned a lot about many of the behind-the-scenes technologies we've come to take for granted every day.  If you're looking to implement a similar set up (or do and find ways to improve it), you can find all the configuration files references above (and more!) over at [benbalter/pi-hole-cloudflared-docker-compose-ansible-caddy](https://github.com/benbalter/pi-hole-cloudflared-docker-compose-ansible-caddy) on GitHub. 
 
