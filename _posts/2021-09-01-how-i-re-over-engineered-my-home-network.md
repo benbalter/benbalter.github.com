@@ -22,9 +22,9 @@ If you want to head down [this route](https://github.com/benbalter/pi-hole-cloud
 **Edit (2021-11-4):** Since originally publishing this post, I've swapped out AdGuard Home for Pi-Hole + Cloudflared. While ultimately you could be happy with either, and this guide continues to work for both, I ended up prefering AdGuard Home for a number of reasons:
 
 * **A more modern stack** - PHP + dnsmasq vs. Go and React
-* **Admin experience** - a sleeker web interface with fewer knobs and dials to endlessly tinker with
-* **One less point of failure** - Native DoH support meant I could illiminate cloudflared entirely, while still using Cloudflare Teams as my upstream resolver
-* **Config as code** - Settings are contained in a single YAML file that I could version
+* **Admin experience** - a sleeker web interface with fewer knobs and dials to endlessly tinker with.
+* **One less point of failure** - Native DoH support meant I could illiminate cloudflared entirely, while still using Cloudflare Teams as my upstream resolver.
+* **Config as code** - Settings are contained in a single YAML file that I could version and more easily deploy with Ansible.
 
 Pi-Hole has been around for longer and has a more established community, so again, you could be happy with either, but I've updated this post to reflect that since originally written, I now prefer AdGuard Home. With that, let's get on to the setup:
 
@@ -478,7 +478,7 @@ COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 Here's my Caddy file config to define Caddy's behavior to proxy HTTPS requests back to the PiHole or AdGuard Home web backend:
 
 <details markdown=1 class="mb-3">
-<summary><strong>Example <code>caddyfile</code> to proxy HTTPS to the PiHole web interface</strong></summary>
+<summary><strong>Example <code>caddyfile</code> to proxy HTTPS to the PiHole or AdGuard Home web interface</strong></summary>
 
 ```caddyfile
 dns.example.com
