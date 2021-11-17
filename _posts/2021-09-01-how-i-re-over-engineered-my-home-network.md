@@ -19,7 +19,7 @@ If you want to head down [this route](https://github.com/benbalter/pi-hole-cloud
 
 ### Pi-Hole vs AdGuard Home
 
-**Edit (2021-11-04):** Since originally publishing this post, I've swapped out [AdGuard Home](https://github.com/AdguardTeam/AdGuardHome) for Pi-Hole + Cloudflared, and haven't looked back. While the functionality is largely comperable at this point, and ultimately you could be happy with either, I ended up preferring AdGuard Home for a number of reasons:
+**Edit (2021-11-04):** Since originally publishing this post, I've swapped out Pi-Hole + Cloudflared in favor of [AdGuard Home](https://github.com/AdguardTeam/AdGuardHome), and haven't looked back. While the functionality is largely comperable at this point, and ultimately you could be happy with either, I ended up preferring AdGuard Home for a number of reasons:
 
 * **A more modern stack** - PHP + dnsmasq vs. Go and React
 * **Admin experience** - a sleeker web interface with fewer knobs and dials to endlessly tinker with.
