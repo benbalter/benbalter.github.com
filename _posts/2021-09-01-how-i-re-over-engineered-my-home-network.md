@@ -384,7 +384,7 @@ Finally, in my Ansible config, I have a number of security tasks that I added an
   become: true
   community.general.ufw:
     rule: allow
-    port: '{% raw %}{{ item }}{% endraw %}'
+    app: '{% raw %}{{ item }}{% endraw %}'
   loop:
     - SSH
     - DNS
