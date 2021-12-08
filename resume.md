@@ -20,7 +20,7 @@ certifications:
   - authority: Bar Association of the District of Columbia
     name: Member, license 1021576
   - authority: International Information System Security Certification Consortium (ISC)²
-    name: Certified Information Systems Security Professional (CISSP) - Provisional
+    name: Certified Information Systems Security Professional (CISSP)
   - authority: International Information System Security Certification Consortium (ISC)²
     name: Systems Security Certified Practitioner (SSCP)
     url: https://www.credly.com/badges/7eb85996-c7fc-4c68-95df-fcd33ec445ba/
