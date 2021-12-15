@@ -1,13 +1,13 @@
 ---
 title: Using GitHub Actions to get notified when an API response (or web page) changes 
-description: A customizable GitHub Action workflow that uses cURL, jq, and Twillio to notify you via text message when a web page or API response changes.
+description: A customizable GitHub Action workflow that uses cURL, jq, and Twilio to notify you via text message when a web page or API response changes.
 ---
 
 Given all the uncertainty in the global supply chain these days, I was recently in the dark as to when an eagerly-expected purchase would arrive. Luckily the manufacturer had a hidden API you could call that indicated where in the supply chain the product was as it made its journey around the globe. Better still, as it got closer to delivery, the response also included its estimated delivery date.
 
 Rather than smashing refresh on the endpoint compulsively, I realized I could use GitHub Actions to regularly call the API on my behalf and report back with any changes. These types of easy-on-the-surface projects all too often harbor the risk of over-engineering, so I purposely kept things simple, using `cURL` to fetch the data, [`jq`](https://stedolan.github.io/jq/) to parse the response, and GitHub Action's [native caching library](https://github.com/actions/cache) to maintain state between runs. The implementation was surprisingly easy to implement as a no/low code solution with only a handful of lines of YAML, and it ended up working better than expected.[^1]
 
-If you find yourself needing to track when an API response (or web page) changes - delivery related or otherwise - you're welcome to follow my approach. I used [Twillio's SMS action](https://github.com/twilio-labs/actions-sms) (along with a free trial account) to send a text message when the response changed, but there are a number of existing community Actions available that could be used for notifications, from GitHub Issues, to app-based mobile push, to Slack - you name it.
+If you find yourself needing to track when an API response (or web page) changes - delivery related or otherwise - you're welcome to follow my approach. I used [Twilio's SMS action](https://github.com/twilio-labs/actions-sms) (along with a free trial account) to send a text message when the response changed, but there are a number of existing community Actions available that could be used for notifications, from GitHub Issues, to app-based mobile push, to Slack - you name it.
 
 ### Setup
 
@@ -16,7 +16,7 @@ To set up the notify-on-changes GitHub Action to track changes to your own API o
 1. Save the below snippet as a YAML file in the `.github/workflows/` folder (e.g., `.github/workflows/check.yml`) of a public or private GitHub repository. 
 2. Swap out the `<URL YOU WANT TO CHECK HERE>` placeholder, for the actual API endpoint or web page URL you want to check.[^3]
 3. If you want to parse out the JSON response so that you can include a specific field or fields from the response in the notification you send yourself, modify the `jq` query. Otherwise, you can remove the "Parse data" step entirely.
-4. If using Twillio to receive notifications via text message, follow [the setup instructions](https://github.com/twilio-labs/actions-sms), saving the keys and phone numbers as [repository secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) and customizing the message for your use case. Otherwise, swap out the "Notify if data has changed" step to use your own notification mechanism.[^2]
+4. If using Twilio to receive notifications via text message, follow [the setup instructions](https://github.com/twilio-labs/actions-sms), saving the keys and phone numbers as [repository secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) and customizing the message for your use case. Otherwise, swap out the "Notify if data has changed" step to use your own notification mechanism.[^2]
 5. Commit and effortlessly receive notifications any time the response changes.
 
 ### Example workflow 
