@@ -66,7 +66,7 @@ jobs:
         with:
           fromPhoneNumber: {% raw %}${{ secrets.from_phone }}{% endraw %}
           toPhoneNumber: {% raw %}${{ secrets.to_phone }}{% endraw %}
-          message: "There's been a change! someField is now {% raw %}${{ steps.parse_data.outputs.someField }{% endraw %}."
+          message: "There's been a change! someField is now {% raw %}${{ steps.parse_data.outputs.someField }}{% endraw %}."
 ```
 
 ### Conclusion
