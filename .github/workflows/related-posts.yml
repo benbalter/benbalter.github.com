@@ -1,4 +1,8 @@
-on: push
+on: 
+  push:
+    paths: 
+      - '_posts/**.md'
+
 name: Build related posts
 jobs:
   build-related-posts:
@@ -22,4 +26,3 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "Update related posts"
-          
