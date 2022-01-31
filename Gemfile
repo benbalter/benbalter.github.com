@@ -11,7 +11,7 @@ gem 'jekyll-remote-theme'
 # gem 'retlab', path: "../retlab"
 
 group :test, :development do
-  gem 'classifier-reborn'
+  gem 'classifier-reborn', github: 'jekyll/classifier-reborn'
   gem 'gsl', github: 'SciRuby/rb-gsl'
   gem 'html-proofer'
   gem 'nokogiri'
