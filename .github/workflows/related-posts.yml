@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install GSL
-        run: sudo apt-get -y install libgsl-dev
+        run: sudo apt-get -y install libgsl0-dev
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -24,7 +24,7 @@ jobs:
         run: bundle install
 
       - name: Build posts
-        run: script/build-related-posts
+        run: bundle exec script/build-related-posts
 
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v4
