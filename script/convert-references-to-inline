@@ -8,7 +8,7 @@ Dir.foreach('_posts') do |item|
   next if ['.', '..'].include? item
 
   path = File.expand_path item, '_posts'
-  content = File.open(path).read
+  content = File.read(path)
   refs = content.scan(/(\[.*?\]\[([0-9]+)\])/)
   refs.each do |string, num|
     link = content.match(/^\[#{num}\]: (.*?)\n/)

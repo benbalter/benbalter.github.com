@@ -3,7 +3,7 @@
 
 # Fixes table formatting broken by remark
 
-REGEX = /\|\n\n(\s*?)\{/.freeze
+REGEX = /\|\n\n(\s*?)\{/
 
 files = Dir['_posts/*']
 files.each do |path|
