@@ -2,6 +2,7 @@ on:
   push:
     paths: 
       - '_posts/**.md'
+      - '.github/workflows/related-posts.yml'
 
 name: Build related posts
 jobs:
