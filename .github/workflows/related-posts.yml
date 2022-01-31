@@ -11,6 +11,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Install GSL
+        run: sudo apt-get -y install libgsl-dev
+
       - name: Setup Ruby
         uses: actions/setup-ruby@v1
         with:
