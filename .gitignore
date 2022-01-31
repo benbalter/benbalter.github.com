@@ -22,3 +22,4 @@ comments.json
 /tmp
 /.jekyll-metadata
 /spec/examples.txt
+/vendor/bundle/
