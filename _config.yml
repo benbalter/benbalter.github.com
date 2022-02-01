@@ -93,7 +93,6 @@ plugins:
   - jekyll-avatar
   - jekyll-github-metadata
   - jekyll-remote-theme
-#  - jekyll-include-cache
   - jekyll-mentions
 
 sass:
