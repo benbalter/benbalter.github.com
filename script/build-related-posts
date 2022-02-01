@@ -10,12 +10,17 @@ options = {
   'source' => File.expand_path('../', __dir__),
   'lsi' => true
 }
+
+ignore_list = [
+  '_posts/2011-11-29-towards-a-more-agile-government.md'
+]
+
 config = Jekyll.configuration(options)
 site = Jekyll::Site.new(config)
 
 site.reset
 site.read
-site.generate
+site.posts.docs.delete_if { |post| ignore_list.include?(post.relative_path) }
 
 relations = {}
 site.posts.docs.each do |post|
