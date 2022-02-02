@@ -23,6 +23,8 @@ Traditionally this challenge of scale is solved by introducing [a management abs
 
 ### Collaboration doesn't have to be an O(n<sup>2</sup>) problem
 
+TODO: Transparency as an asset vs. Transparency as a liability. Being "wrong" vs. collaboration leading to better decisions. FUD around the pitchfork brigade. In practice, appreciate transparency, struggle for engagement.
+
 I admit, as GitHub has grown, I’ve fallen astray and am guilty of starting a Slack DM, Google Doc, or Zoom meeting, tempted by the siren song of near-term efficiency that interrupt-driven work offers. 
 
 Synchronous and asynchronous work each comes with their advantages and disadvantages. Just as the absence of work happy hours or serendipitous break room interactions require remote workers to take the affirmative step to get to know their coworkers on a human level, similarly the absence of organic transparency requires managers to take the affirmative step to expose process to their team.
