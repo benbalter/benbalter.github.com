@@ -43,7 +43,7 @@ Beyond the fact that injecting transparency into otherwise opaque workflows take
 
 There are two ways to think of the transparency afforded by open systems: some think of this transparency as a liability and others think of transparency as an asset.
 
-As a liability, transparency in decision making exposes you to the risk of being "wrong", or at the very least, being subject to the fear, uncertainty, and doubt (FUD), that at any moment you may be briggaded with well-intioned, but ultiamtely both time-consuming and difficult to answer questions.
+As a liability, transparency in decision making exposes you to the risk of being "wrong", or at the very least, being subject to the fear, uncertainty, and doubt (FUD), that at any moment you may be briggaded with well-intioned, but ultimately both time-consuming and difficult to answer questions.
 
 As an asset, transparency, is the belief that collaborative decision making leads to the best outcomes. In theory, that unwanted criticism you must address becomes early validation and feedback. In practice, those affected will appreciate the transparency, but often you will find yourself struggling for engagement on most decisions. I've been responsible for and participated in thousands of decisions at GitHub over the years. I can't think of a single example for which up front transparency did not result in a better outcomes.
 
