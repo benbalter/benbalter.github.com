@@ -40,7 +40,7 @@ That's okay. It happened to all of us. Honestly. There's a firehose of informati
 
 ### 4. The challenge is in deciding what *not* to do
 
-As a GitHubber, you'll be presented with more opportunities to have a meaningful impact on what you care about than you'll been able to take advantage of during your time at GitHub. That's true in two ways:
+As a GitHubber, you'll be presented with more opportunities to have a meaningful impact on what you care about than you'll be able to take advantage of during your time at GitHub. That's true in two ways:
 
 1. GitHub itself presents a unique opportunity. The products we build are uniquely positioned to better the open source community, and in many ways, the software industry as a whole. 
 2. GitHub gives you a great deal of freedom in deciding what to work on. If there's something that you care about, and that thing is also something GitHub cares about, there's a good chance the organization will be receptive to you working on it.
