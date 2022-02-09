@@ -17,7 +17,7 @@ Let's start by looking at traditional approaches to scaling decision making. As 
 
 If you're working solo, you enjoy the benefits of absolute transparency and absolute efficiency. You know everything you know, and there's no added cost for sharing that information with yourself. As the number of people solving a problem grows, guarantees of both transparency and efficiency often become exponentially more expensive. A small team may experience minor communication costs in terms of say weekly meetings and daily standups, but as teams and companies grow, the cost of traversing that network layer adds up, rendering absolute participation in decision-making practically impossible.
 
-Instead, organizations naturally add a management layer, [delegating the responsibility to coordinate and align decisions across business units and then subsequently communicate information to affected teams](https://ben.balter.com/2012/12/16/deprecate-management/). Like a game of telephone, some fidelity of decision making is naturally lost in that abstracted process (since it requires a human ETL to shuttle information from one business unit to the next) and with every layer of abstraction, the quality (and efficiency) of that message transmission degrades.
+Instead, organizations naturally add a management layer, [delegating the responsibility to coordinate and align decisions across business units and then subsequently communicate information to affected teams](https://ben.balter.com/2012/12/16/deprecate-management/). Like a game of telephone, some fidelity of decision making is naturally lost in that abstracted process (since it requires a human [ETL](https://www.ibm.com/cloud/learn/etl) layer to shuttle information from one business unit to the next) and with every layer of abstraction, the quality (and efficiency) of that message transmission degrades.
 
 ### Collaboration doesn't have to be an O(n<sup>2</sup>) problem
 
@@ -33,19 +33,21 @@ I admit, as GitHub has grown, I’ve fallen astray and am guilty of starting a S
 
 There's nothing wrong, per se, with using opaque-to-others tools like Slack, Google Docs, or Zoom (FWIW, they're [not my preferred workflow](https://ben.balter.com/2020/08/14/tools-of-the-trade/)), and in fact, some times they are the best tool to address the issue at hand, but if you choose to use such tools, you must then subsequently communicate the decision to those affected.
 
-For many, I suspect that such communication simply involves stating "we decided X". For larger changes this might go so far as to require coordinating communications and roll out plans, but at the core, that's what's generally required for a change to take effect, and to the detriment of those not involved with the original decision or there at the time, could be as simple as mentioning the decision during a team all hands or other in-person meeting.
+For many, I such communication takes the form of stating "we decided X" or "you must do why". For larger changes this might go so far as to require coordinating communications and extensive roll out plans, but at the core, that's what's generally required for a change to take effect, and to the detriment of those not involved with the original decision or there at the time, could be as simple as mentioning the decision during a team all hands or other in-person meeting.
 
-Great leaders, on the other hand, hold themselves and others accountable for showing their work in a more durable medium. At a high level, "showing your work" means capturing who made what decision and when, along with a detailed, but concise description of why and how that decision was made.  EXPLAIN WHY.
+Great leaders, on the other hand, hold themselves and those they work with accountable for showing their work in a more durable medium. At a high level, "showing your work" means capturing who made what decision and when, along with a detailed, but concise description of why and how that decision was made. 
 
-Beyond the fact that injecting transparency into otherwise opaque workflows take an affirmative step on the part of those responsible, why then, don't more leaders show their work?
+EXPLAIN WHY.
+
+Beyond the fact that injecting transparency into otherwise opaque workflows take an affirmative step on the part of those responsible, why then, don't more leaders more consistently show their work?
 
 ### Transparency as a liability vs. transparency as an asset
 
 There are two ways to think of the transparency afforded by open systems: some think of this transparency as a liability and others think of transparency as an asset.
 
-As a liability, transparency in decision making exposes you to the risk of being "wrong", or at the very least, being subject to the fear, uncertainty, and doubt (FUD), that at any moment you may be briggaded with well-intioned, but ultimately both time-consuming and difficult to answer questions.
+As a **liability**, transparency in decision making exposes you to the risk of being "wrong", or at the very least, being subject to the fear, uncertainty, and doubt (FUD), that at any moment you may be briggaded with well-intioned, but ultimately both time-consuming and difficult to answer questions.
 
-As an asset, transparency, is the belief that collaborative decision making leads to the best outcomes. In theory, that unwanted criticism you must address becomes early validation and feedback. In practice, those affected will appreciate the transparency, but often you will find yourself struggling for engagement on most decisions. I've been responsible for and participated in thousands of decisions at GitHub over the years. I can't think of a single example for which up front transparency did not result in a better outcomes.
+As an **asset**, transparency, is the belief that collaborative decision making leads to the best outcomes. In theory, that unwanted criticism you must address becomes early validation and feedback. In practice, those affected will appreciate the transparency, but often you will find yourself struggling for engagement on most decisions. I've been responsible for and participated in thousands of decisions at GitHub over the years. I can't think of a single example for which up front transparency did not result in a better outcomes.
 
 ### How to ensure you are showing your work
 
