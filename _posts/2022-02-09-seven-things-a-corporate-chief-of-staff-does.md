@@ -1,11 +1,11 @@
 ---
-title: N things a corporate chief of staff does
+title: Seven things a corporate chief of staff does
 description:
 ---
 
 In order from most tactical/junior to most strategic/senior:
 
-## Manage the office of the CXO
+### 1. Manage the office of the CXO
 
 * Grow, scale, and run the business more effectively
 * Install, configure, monitor, upgrade, patch, and manage the organizational “operating system”
@@ -22,7 +22,7 @@ In order from most tactical/junior to most strategic/senior:
 * Often oversees business/comms managers
 * Org. "Front door"
 
-## Boundaryless engagement
+### 2. Boundaryless engagement
 
 * Escalation-driven initiative management
 * Projects that are important but not urgent, have no clear leader, or are otherwise are under resourced
@@ -31,7 +31,7 @@ In order from most tactical/junior to most strategic/senior:
 * Solve ambiguous problems ("Ben shaped problem")
 * Change management
 
-## Program management and org. operations
+### 3. Program management and org. operations
 
 ~Staff or principal program manager (https://ben.balter.com/2021/03/26/nine-things-a-technical-program-manager-does/)
 
@@ -43,7 +43,7 @@ In order from most tactical/junior to most strategic/senior:
 * Honest broker / “Hands inside the machine”
 * Enable team to execute with speed and confidence
 
-## Air traffic controller and connector of dots
+### 4. Air traffic controller and connector of dots
 
 * Helps CSO prioritize projects
 * Connect the dots to find possibilities
@@ -52,7 +52,7 @@ In order from most tactical/junior to most strategic/senior:
 * Identify and resolve dependencies
 * Bringing light to a problem areas
   
-## Strategy and planning
+### 5. Strategy and planning
 
 * Vision, OKRs, strategy documents, N year plans
 * Quarterly planning - Work with team and department leadership to establish, document, and communicate quarterly planning materials. Drive the execution rhythm for teams to develop, track, and report progress against OKRs in support of those strategic goals.
@@ -60,7 +60,7 @@ In order from most tactical/junior to most strategic/senior:
 * Policy and politics come together
 * Distill and cascade core tenets of our strategy for internal and external stakeholders.
 
-## Advisor and confidant
+### 6. Advisor and confidant
 
 * Serving as trusted, strategic advisor and counsel to the CXO
 * Extra hands, proxy (meetings, decisions), succession plan
@@ -71,7 +71,7 @@ In order from most tactical/junior to most strategic/senior:
 * Establishing and socializing org. culture, values, and expectations
 * Use cross-functional knowledge to deeply understand issues, trends, and perspectives
 
-## Relationship and brand management
+### 7. Relationship and brand management
 
 * Provided transparency, predictability, consistency, and clarity to create stronger relationships
 * Avoid surprises - Manage expectations between principal, principal's peers, other stakeholders
