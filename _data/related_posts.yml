@@ -4,8 +4,8 @@ _posts/2010-09-12-wordpress-resume-plugin.md:
 - _posts/2014-11-06-rules-of-communicating-at-github.md
 - _posts/2015-11-23-why-open-source.md
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
-- _posts/2015-03-17-open-source-best-practices-external-engagement.md
 - _posts/2015-02-20-jekyll-collections.md
+- _posts/2015-03-17-open-source-best-practices-external-engagement.md
 - _posts/2015-07-20-write-corporate-blog-posts-as-a-human.md
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
@@ -19,8 +19,8 @@ _posts/2010-09-13-new-media-flak-megaphone-vs-cocktail-party.md:
 - _posts/2015-11-23-why-open-source.md
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
 - _posts/2014-11-06-rules-of-communicating-at-github.md
-- _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2020-01-17-ten-lessons-learned-fostering-a-community-of-communities-on-github.md
+- _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2015-07-20-write-corporate-blog-posts-as-a-human.md
 - _posts/2020-02-06-blocking-vs-muting.md
 _posts/2010-10-10-does-every-cloud-have-a-silver-lining.md:
@@ -28,8 +28,8 @@ _posts/2010-10-10-does-every-cloud-have-a-silver-lining.md:
 - _posts/2010-11-15-will-federal-contracting-officers-soon-have-their-heads-in-the-clouds.md
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
-- _posts/2015-11-12-why-urls.md
 - _posts/2015-03-17-open-source-best-practices-external-engagement.md
+- _posts/2015-11-12-why-urls.md
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
 - _posts/2020-12-04-over-engineered-home-network-for-privacy-and-security.md
 - _posts/2021-09-01-how-i-re-over-engineered-my-home-network.md
@@ -42,8 +42,8 @@ _posts/2010-11-06-removing-the-barriers-to-organizational-agility.md:
 - _posts/2014-07-29-fedramp.md
 - _posts/2010-11-29-free-trade-in-china-just-google-it.md
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
-- _posts/2015-10-18-three-biggest-challenges-in-government-it.md
 - _posts/2013-02-27-the-store-that-sells-only-one-thing.md
+- _posts/2015-10-18-three-biggest-challenges-in-government-it.md
 - _posts/2021-03-04-octoversary.md
 - _posts/2014-12-18-geeks-and-suits.md
 - _posts/2011-11-01-federal-agility-a-cultural-solution-to-a-technical-problem.md
@@ -85,8 +85,8 @@ _posts/2010-11-29-free-trade-in-china-just-google-it.md:
 - _posts/2015-07-20-write-corporate-blog-posts-as-a-human.md
 _posts/2010-11-29-twitter-mentions-as-comments.md:
 - _posts/2011-09-01-why-wordpress.md
-- _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2015-07-20-write-corporate-blog-posts-as-a-human.md
+- _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2011-08-29-wp-document-revisions-document-management-version-control-wordpress.md
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2014-11-06-rules-of-communicating-at-github.md
@@ -106,10 +106,10 @@ _posts/2010-12-01-the-internet-is-series-of-tubes.md:
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2020-01-17-ten-lessons-learned-fostering-a-community-of-communities-on-github.md
 - _posts/2015-07-20-write-corporate-blog-posts-as-a-human.md
-- _posts/2010-11-15-will-federal-contracting-officers-soon-have-their-heads-in-the-clouds.md
+- _posts/2015-03-17-open-source-best-practices-external-engagement.md
 _posts/2010-12-20-late-night-infomercials.md:
-- _posts/2010-11-15-will-federal-contracting-officers-soon-have-their-heads-in-the-clouds.md
 - _posts/2015-11-12-why-urls.md
+- _posts/2010-11-15-will-federal-contracting-officers-soon-have-their-heads-in-the-clouds.md
 - _posts/2014-11-06-rules-of-communicating-at-github.md
 - _posts/2015-11-23-why-open-source.md
 - _posts/2014-10-08-open-source-licensing-for-government-attorneys.md
@@ -117,8 +117,8 @@ _posts/2010-12-20-late-night-infomercials.md:
 - _posts/2011-01-04-the-files-in-the-computer.md
 - _posts/2021-09-01-how-i-re-over-engineered-my-home-network.md
 - _posts/2015-03-17-open-source-best-practices-external-engagement.md
-- _posts/2017-11-28-everything-an-open-source-maintainer-might-need-to-know-about-open-source-licensing.md
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
+- _posts/2017-11-28-everything-an-open-source-maintainer-might-need-to-know-about-open-source-licensing.md
 _posts/2011-01-04-the-files-in-the-computer.md:
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
 - _posts/2015-11-12-why-urls.md
@@ -151,8 +151,8 @@ _posts/2011-01-11-wordpress-emphasis-plugin.md:
 - _posts/2015-02-20-jekyll-collections.md
 - _posts/2020-12-04-over-engineered-home-network-for-privacy-and-security.md
 - _posts/2014-11-06-rules-of-communicating-at-github.md
-- _posts/2015-11-12-why-urls.md
 - _posts/2017-11-28-everything-an-open-source-maintainer-might-need-to-know-about-open-source-licensing.md
+- _posts/2015-11-12-why-urls.md
 - _posts/2015-07-20-write-corporate-blog-posts-as-a-human.md
 - _posts/2021-09-01-how-i-re-over-engineered-my-home-network.md
 _posts/2011-01-25-gw-course-schedule-and-campus-api.md:
@@ -202,15 +202,15 @@ _posts/2011-03-20-regular-expression-to-parse-word-style-footnotes.md:
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
-- _posts/2016-10-31-eight-things-i-wish-i-knew-my-first-week-at-github.md
+- _posts/2015-03-17-open-source-best-practices-external-engagement.md
 _posts/2011-04-04-when-all-you-have-is-a-pair-of-bolt-cutters.md:
 - _posts/2015-11-23-why-open-source.md
 - _posts/2011-09-01-why-wordpress.md
 - _posts/2015-03-17-open-source-best-practices-external-engagement.md
-- _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
-- _posts/2015-11-18-tools-to-empower-open-collaboration.md
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
+- _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
+- _posts/2015-11-18-tools-to-empower-open-collaboration.md
 - _posts/2021-09-01-how-i-re-over-engineered-my-home-network.md
 - _posts/2015-11-12-why-urls.md
 - _posts/2012-03-05-wordpress-for-government-and-enterprise.md
@@ -236,21 +236,21 @@ _posts/2011-04-27-fair-use-excerpting-and-copying-content-in-the-internet-ecosys
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
 - _posts/2015-11-12-why-urls.md
 - _posts/2015-03-17-open-source-best-practices-external-engagement.md
-- _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2015-06-03-copyright-notices-for-websites-and-open-source-projects.md
+- _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2014-10-08-open-source-licensing-for-government-attorneys.md
 _posts/2011-05-10-whats-your-hosting-companys-average-subpoena-response-time.md:
 - _posts/2015-11-23-why-open-source.md
 - _posts/2014-11-06-rules-of-communicating-at-github.md
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2015-04-22-the-difference-between-18f-and-usds.md
-- _posts/2020-12-04-over-engineered-home-network-for-privacy-and-security.md
 - _posts/2015-03-17-open-source-best-practices-external-engagement.md
+- _posts/2020-12-04-over-engineered-home-network-for-privacy-and-security.md
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
+- _posts/2015-10-18-three-biggest-challenges-in-government-it.md
 - _posts/2015-07-20-write-corporate-blog-posts-as-a-human.md
-- _posts/2015-11-12-why-urls.md
 _posts/2011-06-16-groupon-and-livingsocial.md:
 - _posts/2015-11-23-why-open-source.md
 - _posts/2014-11-06-rules-of-communicating-at-github.md
@@ -298,7 +298,7 @@ _posts/2011-08-31-enterprise-open-source-and-why-better-is-not-enough.md:
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2015-10-18-three-biggest-challenges-in-government-it.md
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
-- _posts/2018-01-02-why-you-probably-shouldnt-add-a-cla-to-your-open-source-project.md
+- _posts/2012-03-05-wordpress-for-government-and-enterprise.md
 _posts/2011-09-01-why-wordpress.md:
 - _posts/2015-11-23-why-open-source.md
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
@@ -317,10 +317,10 @@ _posts/2011-09-07-analysis-of-federal-executive-domains.md:
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2011-09-01-why-wordpress.md
 - _posts/2021-09-01-how-i-re-over-engineered-my-home-network.md
-- _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2021-01-11-analysis-of-federal-dotgov-domains-pre-biden-edition.md
-- _posts/2010-11-15-will-federal-contracting-officers-soon-have-their-heads-in-the-clouds.md
+- _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
+- _posts/2010-11-15-will-federal-contracting-officers-soon-have-their-heads-in-the-clouds.md
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
 - _posts/2015-03-17-open-source-best-practices-external-engagement.md
 _posts/2011-10-24-advanced-workflow-management-tools-for-wp-document-revisions.md:
@@ -331,8 +331,8 @@ _posts/2011-10-24-advanced-workflow-management-tools-for-wp-document-revisions.m
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2021-09-01-how-i-re-over-engineered-my-home-network.md
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
-- _posts/2014-11-06-rules-of-communicating-at-github.md
 - _posts/2020-12-04-over-engineered-home-network-for-privacy-and-security.md
+- _posts/2014-11-06-rules-of-communicating-at-github.md
 - _posts/2016-06-06-twelve-things-a-product-manager-does.md
 - _posts/2015-03-17-open-source-best-practices-external-engagement.md
 _posts/2011-10-29-why-digital-talent-doesnt-want-to-work-at-your-company.md:
@@ -363,8 +363,8 @@ _posts/2011-11-14-making-wordpress-more-shareable-sociable-and-likeable.md:
 - _posts/2011-09-01-why-wordpress.md
 - _posts/2020-01-17-ten-lessons-learned-fostering-a-community-of-communities-on-github.md
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
-- _posts/2020-02-06-blocking-vs-muting.md
 - _posts/2011-03-09-craft-your-personal-brand.md
+- _posts/2020-02-06-blocking-vs-muting.md
 - _posts/2012-03-05-wordpress-for-government-and-enterprise.md
 - _posts/2014-07-29-fedramp.md
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
@@ -375,8 +375,8 @@ _posts/2012-02-27-open-source-alternatives-to-proprietary-enterprise-software.md
 - _posts/2015-11-23-why-open-source.md
 - _posts/2021-03-04-octoversary.md
 - _posts/2012-03-05-wordpress-for-government-and-enterprise.md
-- _posts/2011-09-01-why-wordpress.md
 - _posts/2014-01-27-open-collaboration.md
+- _posts/2011-09-01-why-wordpress.md
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
 - _posts/2015-03-17-open-source-best-practices-external-engagement.md
 - _posts/2015-04-22-the-difference-between-18f-and-usds.md
@@ -401,8 +401,8 @@ _posts/2012-03-02-php-is-insecure-and-other-enterprise-open-source-fud.md:
 - _posts/2014-11-06-rules-of-communicating-at-github.md
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2015-03-17-open-source-best-practices-external-engagement.md
-- _posts/2017-11-28-everything-an-open-source-maintainer-might-need-to-know-about-open-source-licensing.md
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
+- _posts/2017-11-28-everything-an-open-source-maintainer-might-need-to-know-about-open-source-licensing.md
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2015-07-20-write-corporate-blog-posts-as-a-human.md
 - _posts/2015-04-22-the-difference-between-18f-and-usds.md
@@ -433,8 +433,8 @@ _posts/2012-04-10-whats-missing-from-cfpbs-awesome-new-source-code-policy.md:
 - _posts/2016-08-01-why-you-shouldnt-write-your-own-open-source-license.md
 _posts/2012-04-15-cfpb-accepts-first-citizen-submitted-pull-request-on-behalf-of-federal-government.md:
 - _posts/2015-11-23-why-open-source.md
-- _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2015-03-17-open-source-best-practices-external-engagement.md
+- _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2014-10-08-open-source-licensing-for-government-attorneys.md
 - _posts/2014-11-24-open-source-policy.md
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
@@ -498,8 +498,8 @@ _posts/2012-06-26-why-you-should-always-write-software-as-open-source.md:
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2017-11-28-everything-an-open-source-maintainer-might-need-to-know-about-open-source-licensing.md
 - _posts/2018-01-02-why-you-probably-shouldnt-add-a-cla-to-your-open-source-project.md
-- _posts/2014-11-06-rules-of-communicating-at-github.md
 - _posts/2014-10-08-why-government-contractors-should-embrace-open-source.md
+- _posts/2014-11-06-rules-of-communicating-at-github.md
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
 - _posts/2015-10-18-three-biggest-challenges-in-government-it.md
 - _posts/2015-03-08-open-source-best-practices-internal-collaboration.md
@@ -524,8 +524,8 @@ _posts/2012-07-26-government-release-of-source-code-public-domain-or-open-source
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
 - _posts/2014-01-27-open-collaboration.md
-- _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2014-11-06-rules-of-communicating-at-github.md
+- _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2016-08-01-why-you-shouldnt-write-your-own-open-source-license.md
 _posts/2012-10-01-welcome-to-the-post-cms-world.md:
 - _posts/2015-11-23-why-open-source.md
@@ -600,15 +600,15 @@ _posts/2012-12-16-deprecate-management.md:
 - _posts/2015-10-18-three-biggest-challenges-in-government-it.md
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 _posts/2012-12-27-introducing-jekyllbot.md:
+- _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2015-11-23-why-open-source.md
 - _posts/2021-09-01-how-i-re-over-engineered-my-home-network.md
-- _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2015-06-11-using-github-pages-to-showcase-your-orgs-open-source-efforts.md
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
 - _posts/2020-12-04-over-engineered-home-network-for-privacy-and-security.md
 - _posts/2015-02-20-jekyll-collections.md
-- _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2014-11-06-rules-of-communicating-at-github.md
+- _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
 - _posts/2011-09-01-why-wordpress.md
 _posts/2013-02-04-what-is-a-hacker.md:
@@ -638,10 +638,10 @@ _posts/2013-02-06-the-next-big-thing-is-already-here.md:
 _posts/2013-02-27-the-store-that-sells-only-one-thing.md:
 - _posts/2015-11-23-why-open-source.md
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
-- _posts/2015-04-22-the-difference-between-18f-and-usds.md
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
-- _posts/2014-11-06-rules-of-communicating-at-github.md
+- _posts/2015-04-22-the-difference-between-18f-and-usds.md
 - _posts/2015-10-18-three-biggest-challenges-in-government-it.md
+- _posts/2014-11-06-rules-of-communicating-at-github.md
 - _posts/2017-06-19-how-not-to-prioritize-a-feature.md
 - _posts/2012-03-05-wordpress-for-government-and-enterprise.md
 - _posts/2016-09-13-seven-habits-of-highly-effective-githubbers.md
@@ -679,8 +679,8 @@ _posts/2013-06-26-how-to-convert-shapefiles-to-geojson-for-use-on-github.md:
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
 - _posts/2015-03-17-open-source-best-practices-external-engagement.md
 - _posts/2013-11-21-thats-not-how-the-internet-works.md
-- _posts/2014-11-06-rules-of-communicating-at-github.md
 - _posts/2013-09-16-treat-data-as-code.md
+- _posts/2014-11-06-rules-of-communicating-at-github.md
 - _posts/2021-03-04-octoversary.md
 - _posts/2017-11-28-everything-an-open-source-maintainer-might-need-to-know-about-open-source-licensing.md
 _posts/2013-07-01-technologys-the-easy-part.md:
@@ -717,8 +717,8 @@ _posts/2013-08-11-everyone-contributes.md:
 - _posts/2017-11-28-everything-an-open-source-maintainer-might-need-to-know-about-open-source-licensing.md
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2015-03-08-open-source-best-practices-internal-collaboration.md
-- _posts/2015-11-12-why-urls.md
 - _posts/2013-08-11-friction.md
+- _posts/2015-11-12-why-urls.md
 _posts/2013-08-11-friction.md:
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2015-03-17-open-source-best-practices-external-engagement.md
@@ -766,7 +766,7 @@ _posts/2013-10-30-content-is-king.md:
 - _posts/2014-01-27-open-collaboration.md
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
 - _posts/2016-10-31-eight-things-i-wish-i-knew-my-first-week-at-github.md
-- _posts/2014-10-08-why-government-contractors-should-embrace-open-source.md
+- _posts/2016-06-06-twelve-things-a-product-manager-does.md
 _posts/2013-11-21-thats-not-how-the-internet-works.md:
 - _posts/2015-11-23-why-open-source.md
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
@@ -787,8 +787,8 @@ _posts/2013-12-30-data-user-experience.md:
 - _posts/2015-04-22-the-difference-between-18f-and-usds.md
 - _posts/2015-10-18-three-biggest-challenges-in-government-it.md
 - _posts/2014-11-06-rules-of-communicating-at-github.md
-- _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2015-11-12-why-urls.md
+- _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2015-12-08-open-source-as-yelp-for-software.md
 - _posts/2014-11-24-open-source-policy.md
 _posts/2014-01-27-open-collaboration.md:
@@ -807,8 +807,8 @@ _posts/2014-03-13-pages-anchor-links.md:
 - _posts/2015-06-11-using-github-pages-to-showcase-your-orgs-open-source-efforts.md
 - _posts/2015-07-20-write-corporate-blog-posts-as-a-human.md
 - _posts/2014-11-06-rules-of-communicating-at-github.md
-- _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2020-12-04-over-engineered-home-network-for-privacy-and-security.md
+- _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2015-02-20-jekyll-collections.md
@@ -892,8 +892,8 @@ _posts/2014-08-03-why-isnt-all-government-software-open-source.md:
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
 - _posts/2015-03-17-open-source-best-practices-external-engagement.md
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
-- _posts/2015-10-18-three-biggest-challenges-in-government-it.md
 - _posts/2015-04-22-the-difference-between-18f-and-usds.md
+- _posts/2015-10-18-three-biggest-challenges-in-government-it.md
 - _posts/2014-10-08-why-government-contractors-should-embrace-open-source.md
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2014-11-06-rules-of-communicating-at-github.md
@@ -906,8 +906,8 @@ _posts/2014-08-24-three-things-you-learn.md:
 - _posts/2014-11-06-rules-of-communicating-at-github.md
 - _posts/2015-11-12-why-urls.md
 - _posts/2015-04-22-the-difference-between-18f-and-usds.md
-- _posts/2015-10-18-three-biggest-challenges-in-government-it.md
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
+- _posts/2015-10-18-three-biggest-challenges-in-government-it.md
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2018-01-02-why-you-probably-shouldnt-add-a-cla-to-your-open-source-project.md
@@ -996,8 +996,8 @@ _posts/2014-10-15-federal-it-imho.md:
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2018-01-02-why-you-probably-shouldnt-add-a-cla-to-your-open-source-project.md
 _posts/2014-10-15-what-does-a-government-evangelist-do.md:
-- _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
 - _posts/2015-03-17-open-source-best-practices-external-engagement.md
+- _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
 - _posts/2015-11-23-why-open-source.md
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2014-08-03-why-isnt-all-government-software-open-source.md
@@ -1061,8 +1061,8 @@ _posts/2015-01-06-https-all-the-things.md:
 - _posts/2015-11-23-why-open-source.md
 - _posts/2014-11-06-rules-of-communicating-at-github.md
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
-- _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
 - _posts/2015-03-17-open-source-best-practices-external-engagement.md
+- _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
 - _posts/2015-07-20-write-corporate-blog-posts-as-a-human.md
@@ -1077,8 +1077,8 @@ _posts/2015-01-11-hacking-github.md:
 - _posts/2021-09-01-how-i-re-over-engineered-my-home-network.md
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
 - _posts/2017-11-28-everything-an-open-source-maintainer-might-need-to-know-about-open-source-licensing.md
-- _posts/2011-09-01-why-wordpress.md
 - _posts/2013-11-21-thats-not-how-the-internet-works.md
+- _posts/2011-09-01-why-wordpress.md
 _posts/2015-01-26-the-fine-print-nobody-reads.md:
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
 - _posts/2015-11-23-why-open-source.md
@@ -1238,8 +1238,8 @@ _posts/2015-06-03-copyright-notices-for-websites-and-open-source-projects.md:
 _posts/2015-06-11-using-github-pages-to-showcase-your-orgs-open-source-efforts.md:
 - _posts/2015-11-23-why-open-source.md
 - _posts/2015-03-17-open-source-best-practices-external-engagement.md
-- _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2014-11-06-rules-of-communicating-at-github.md
+- _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2021-09-01-how-i-re-over-engineered-my-home-network.md
 - _posts/2015-02-20-jekyll-collections.md
@@ -1305,8 +1305,8 @@ _posts/2015-08-23-reflecting-on-the-mygov-ideals.md:
 - _posts/2014-11-06-rules-of-communicating-at-github.md
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2014-11-24-open-source-policy.md
-- _posts/2015-11-18-tools-to-empower-open-collaboration.md
 - _posts/2017-11-28-everything-an-open-source-maintainer-might-need-to-know-about-open-source-licensing.md
+- _posts/2015-11-18-tools-to-empower-open-collaboration.md
 _posts/2015-09-10-blog-style-tests.md:
 - _posts/2015-07-20-write-corporate-blog-posts-as-a-human.md
 - _posts/2015-11-23-why-open-source.md
@@ -1325,8 +1325,8 @@ _posts/2015-09-13-github-pages-edit-button.md:
 - _posts/2015-06-11-using-github-pages-to-showcase-your-orgs-open-source-efforts.md
 - _posts/2015-03-17-open-source-best-practices-external-engagement.md
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
-- _posts/2015-11-23-why-open-source.md
 - _posts/2011-09-01-why-wordpress.md
+- _posts/2015-11-23-why-open-source.md
 - _posts/2015-06-03-copyright-notices-for-websites-and-open-source-projects.md
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
 - _posts/2017-11-28-everything-an-open-source-maintainer-might-need-to-know-about-open-source-licensing.md
@@ -1423,10 +1423,10 @@ _posts/2016-01-15-how-to-derail-any-meeting.md:
 - _posts/2015-11-23-why-open-source.md
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
 - _posts/2016-10-31-eight-things-i-wish-i-knew-my-first-week-at-github.md
-- _posts/2020-03-18-tips-for-working-remotely.md
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
-- _posts/2015-04-22-the-difference-between-18f-and-usds.md
+- _posts/2020-03-18-tips-for-working-remotely.md
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
+- _posts/2015-04-22-the-difference-between-18f-and-usds.md
 _posts/2016-03-08-optimizing-for-power-users-and-edge-cases.md:
 - _posts/2016-07-21-removing-a-feature-is-a-feature.md
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
@@ -1462,7 +1462,7 @@ _posts/2016-05-11-moderating-a-controversial-pull-request.md:
 - _posts/2015-07-20-write-corporate-blog-posts-as-a-human.md
 - _posts/2020-03-18-tips-for-working-remotely.md
 - _posts/2018-01-02-why-you-probably-shouldnt-add-a-cla-to-your-open-source-project.md
-- _posts/2016-10-31-eight-things-i-wish-i-knew-my-first-week-at-github.md
+- _posts/2017-11-28-everything-an-open-source-maintainer-might-need-to-know-about-open-source-licensing.md
 _posts/2016-06-06-twelve-things-a-product-manager-does.md:
 - _posts/2014-11-06-rules-of-communicating-at-github.md
 - _posts/2015-11-23-why-open-source.md
@@ -1484,9 +1484,9 @@ _posts/2016-07-11-books-for-geeks.md:
 - _posts/2016-08-01-why-you-shouldnt-write-your-own-open-source-license.md
 - _posts/2017-11-28-everything-an-open-source-maintainer-might-need-to-know-about-open-source-licensing.md
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
+- _posts/2020-08-25-how-i-manage-github-notifications.md
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
 - _posts/2018-01-02-why-you-probably-shouldnt-add-a-cla-to-your-open-source-project.md
-- _posts/2020-08-25-how-i-manage-github-notifications.md
 _posts/2016-07-21-removing-a-feature-is-a-feature.md:
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2015-11-23-why-open-source.md
@@ -1528,8 +1528,8 @@ _posts/2016-09-13-seven-habits-of-highly-effective-githubbers.md:
 - _posts/2015-11-23-why-open-source.md
 - _posts/2016-10-31-eight-things-i-wish-i-knew-my-first-week-at-github.md
 - _posts/2015-03-17-open-source-best-practices-external-engagement.md
-- _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
+- _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
 - _posts/2015-11-12-why-urls.md
@@ -1566,9 +1566,9 @@ _posts/2017-03-01-bikeshed-honeypots.md:
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2015-03-17-open-source-best-practices-external-engagement.md
 - _posts/2015-11-12-why-urls.md
+- _posts/2018-01-02-why-you-probably-shouldnt-add-a-cla-to-your-open-source-project.md
 - _posts/2015-07-20-write-corporate-blog-posts-as-a-human.md
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
-- _posts/2018-01-02-why-you-probably-shouldnt-add-a-cla-to-your-open-source-project.md
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2015-04-22-the-difference-between-18f-and-usds.md
 _posts/2017-04-04-three-easy-ways-to-show-employees-you-appreciate-them.md:
@@ -1614,8 +1614,8 @@ _posts/2017-05-23-seven-ways-to-consistently-ship-great-features.md:
 - _posts/2015-03-17-open-source-best-practices-external-engagement.md
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
-- _posts/2015-07-20-write-corporate-blog-posts-as-a-human.md
 - _posts/2016-06-06-twelve-things-a-product-manager-does.md
+- _posts/2015-07-20-write-corporate-blog-posts-as-a-human.md
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
 - _posts/2016-09-13-seven-habits-of-highly-effective-githubbers.md
 - _posts/2015-11-12-why-urls.md
@@ -1642,7 +1642,7 @@ _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-pr
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
 - _posts/2020-01-17-ten-lessons-learned-fostering-a-community-of-communities-on-github.md
 - _posts/2020-08-10-automate-common-open-source-community-management-tasks.md
-- _posts/2021-09-01-how-i-re-over-engineered-my-home-network.md
+- _posts/2015-11-12-why-urls.md
 _posts/2017-11-28-everything-an-open-source-maintainer-might-need-to-know-about-open-source-licensing.md:
 - _posts/2018-01-02-why-you-probably-shouldnt-add-a-cla-to-your-open-source-project.md
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
@@ -1672,13 +1672,13 @@ _posts/2018-05-04-yes-no-maybe.md:
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2015-11-23-why-open-source.md
-- _posts/2016-10-31-eight-things-i-wish-i-knew-my-first-week-at-github.md
 - _posts/2015-04-22-the-difference-between-18f-and-usds.md
+- _posts/2016-10-31-eight-things-i-wish-i-knew-my-first-week-at-github.md
 - _posts/2015-03-17-open-source-best-practices-external-engagement.md
 - _posts/2015-07-20-write-corporate-blog-posts-as-a-human.md
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
 - _posts/2016-09-13-seven-habits-of-highly-effective-githubbers.md
-- _posts/2020-01-17-ten-lessons-learned-fostering-a-community-of-communities-on-github.md
+- _posts/2015-11-12-why-urls.md
 _posts/2018-07-16-problems-not-solutions.md:
 - _posts/2015-11-23-why-open-source.md
 - _posts/2016-06-06-twelve-things-a-product-manager-does.md
@@ -1688,8 +1688,8 @@ _posts/2018-07-16-problems-not-solutions.md:
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
 - _posts/2015-03-17-open-source-best-practices-external-engagement.md
 - _posts/2014-11-06-rules-of-communicating-at-github.md
-- _posts/2018-01-02-why-you-probably-shouldnt-add-a-cla-to-your-open-source-project.md
 - _posts/2016-07-21-removing-a-feature-is-a-feature.md
+- _posts/2018-01-02-why-you-probably-shouldnt-add-a-cla-to-your-open-source-project.md
 - _posts/2017-06-19-how-not-to-prioritize-a-feature.md
 _posts/2019-02-06-open-source-legal-workflows.md:
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
@@ -1708,8 +1708,8 @@ _posts/2019-06-28-joining-a-new-team.md:
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
 - _posts/2015-03-17-open-source-best-practices-external-engagement.md
 - _posts/2016-06-06-twelve-things-a-product-manager-does.md
-- _posts/2014-11-06-rules-of-communicating-at-github.md
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
+- _posts/2014-11-06-rules-of-communicating-at-github.md
 - _posts/2016-10-31-eight-things-i-wish-i-knew-my-first-week-at-github.md
 - _posts/2015-11-12-why-urls.md
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
@@ -1878,11 +1878,11 @@ _posts/2021-01-11-analysis-of-federal-dotgov-domains-pre-biden-edition.md:
 - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
 - _posts/2015-03-17-open-source-best-practices-external-engagement.md
 - _posts/2015-04-22-the-difference-between-18f-and-usds.md
-- _posts/2015-11-18-tools-to-empower-open-collaboration.md
 - _posts/2011-09-07-analysis-of-federal-executive-domains.md
+- _posts/2015-11-18-tools-to-empower-open-collaboration.md
 - _posts/2021-09-01-how-i-re-over-engineered-my-home-network.md
-- _posts/2021-03-04-octoversary.md
 - _posts/2014-07-07-analysis-of-federal-executive-domains-part-deux.md
+- _posts/2021-03-04-octoversary.md
 _posts/2021-02-01-what-to-read-before-starting-or-interviewing-at-github.md:
 - _posts/2015-11-12-why-urls.md
 - _posts/2014-11-06-rules-of-communicating-at-github.md
@@ -1906,7 +1906,7 @@ _posts/2021-03-04-octoversary.md:
 - _posts/2015-11-18-tools-to-empower-open-collaboration.md
 - _posts/2015-04-22-the-difference-between-18f-and-usds.md
 - _posts/2015-11-12-why-urls.md
-- _posts/2021-09-01-how-i-re-over-engineered-my-home-network.md
+- _posts/2016-10-31-eight-things-i-wish-i-knew-my-first-week-at-github.md
 _posts/2021-03-26-nine-things-a-technical-program-manager-does.md:
 - _posts/2015-11-23-why-open-source.md
 - _posts/2014-11-06-rules-of-communicating-at-github.md
@@ -1954,7 +1954,7 @@ _posts/2021-06-15-managing-open-source-communities-at-scale.md:
 - _posts/2016-08-01-why-you-shouldnt-write-your-own-open-source-license.md
 - _posts/2015-03-08-open-source-best-practices-internal-collaboration.md
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
-- _posts/2014-10-08-open-source-licensing-for-government-attorneys.md
+- _posts/2015-06-22-merge-by-committee.md
 _posts/2021-09-01-how-i-re-over-engineered-my-home-network.md:
 - _posts/2020-12-04-over-engineered-home-network-for-privacy-and-security.md
 - _posts/2015-11-23-why-open-source.md
@@ -1989,5 +1989,5 @@ _posts/2022-01-31-leaders-show-their-work.md:
 - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
 - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
 - _posts/2015-10-18-three-biggest-challenges-in-government-it.md
-- _posts/2020-03-18-tips-for-working-remotely.md
 - _posts/2015-04-22-the-difference-between-18f-and-usds.md
+- _posts/2018-01-02-why-you-probably-shouldnt-add-a-cla-to-your-open-source-project.md
