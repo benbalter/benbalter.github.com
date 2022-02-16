@@ -12,6 +12,7 @@ Over the years I've written a number of posts about GitHub's culture and communi
 * **[Tools of the trade: How I communicate at GitHub (and why)]({{ "/2020/08/14/tools-of-the-trade/" | absolute_url }})** (2020) - How I work and how I think about the tools we use to communicate at GitHub.
 * **[How I manage GitHub notifications]({{ "/2020/08/25/how-i-manage-github-notifications/" | absolute_url }})** (2020) - My philosophy, workflow, settings, and tools for how I manage the never-ending stream of notifications on GitHub.
 * **[The six types of pull requests you see on GitHub]({{ "/2015/12/08/types-of-pull-requests/" | absolute_url }})** (2015) - Whether collaborating on code, data, or prose text, there are lots of different strategies for using pull requests on GitHub.
+* **[Leaders show their work]({{ "2022/02/16/leaders-show-their-work/" | absolute_url }})** (2022) - Leaders should not only communicate what decision was made, but also how the decision was made, and why, to capture historic context, socialize culture and values, teach the next generation of leaders, fuel engagement, and to keep the bar for decision making high.
 
 And if you're a Product Manager or Technical Program Manager:
 
