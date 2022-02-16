@@ -1,6 +1,6 @@
 ---
 title: Leaders show their work
-description: Leaders should not only communicate what decision was made, but also how the decision was made, and why, to capture historic context, socialize culture and values, teach the next generation of leaders, and to ensure the bar for decision making remains high.
+description: Leaders should not only communicate what decision was made, but also how the decision was made, and why, to capture historic context, socialize culture and values, teach the next generation of leaders, fuels engagement, and to ensure the bar for decision making remains high.
 ---
 
 A number of years ago, I [described the value of memorializing decisions through URLs](https://ben.balter.com/2015/11/12/why-urls/):
