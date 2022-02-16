@@ -60,10 +60,10 @@ The easiest way to show your work is to quite literally [prefer asynchronous com
 There's a lot you get for "free" from such naturally transparent tools, but async is not always going to be the best option for every situation. If you are striving to inject transparency after the fact, here are a few ways to hold yourself and others accountable for showing your work:
 
 * Start by stating the problem you're trying to solve and why
-* Communicate not just what, but how, and why the decision came to be
 * Enumerate what your goals were and what principles you followed
-* Include what alternatives you evaluated and why they were dismissed
+* Communicate not just what, but how, and why the decision came to be
 * Link to any source materials or prior art that you used to make the decision
+* Include what alternatives you evaluated and why they were ultimately dismissed
 * If it's not apparent, explain who was involved with the decision along with their roles
 * Set expectations around opportunities for feedback, improvement, or participation, if any
 * Explain the state of the decision (e.g., final, proposed), and when it will be revisited, if ever
@@ -71,8 +71,8 @@ There's a lot you get for "free" from such naturally transparent tools, but asyn
 * Avoid using "best practice", "industry standard", or "parent company/former employer does X" as a justification 
 * Establish clear timelines and provide regular updates to avoid the perception that lack of visibility is lack of movement
 
-Absent working within systems that organically capture and expose process, transparency takes effort, effort well worth the cost in the long run. When necessary, leaders should hold one another accountable for spending the additional cycles to show their work through communicating not only what decision was made, but also how the decision was made, and why. Showing one's work not only captures historic context, but also socializes organizational culture and values, helps grow the next generation of leaders, fuels engagement and continuous improvement, and establishes and maintains a high standard for decision making for the entire organization.
+Absent working within systems that through their day-to-day use captures and exposes process, transparency takes effort, effort well worth the cost in the long run. When necessary, leaders should hold one another accountable for spending the additional cycles to show their work through communicating not only what decision was made, but also how the decision was made, and why. Showing one's work not only captures historic context, but also socializes organizational culture and values, helps grow the next generation of leaders, fuels engagement and continuous improvement, and establishes and maintains a high standard for decision making for the entire organization.
 
-While I still agree [everything should have a URL](https://ben.balter.com/2015/11/12/why-urls/), how we think about thoughtfully creating and curating those URLs - rich with high-value historic context, a gift for others and our future selves - matters more than the fact that the URL itself exists.
+While I still agree [everything should have a URL](https://ben.balter.com/2015/11/12/why-urls/), how we go about thoughtfully creating and curating the content within those URLs - rich with high-value historic context, a gift for others and our future selves - matters more than the fact that the URL itself exists.
 
 [^1]: I use the term "management" here broadly. Yes, this could be a people manager, but the concept applies equally to product managers, program managers, and individual contributors in leadership roles. At GitHub, we have the concept of directly responsible individual (DRI), a role regardless of position within the organization for which visibility of work is an explicit expectation.
