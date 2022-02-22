@@ -3,9 +3,9 @@ title: Seven things a corporate chief of staff does
 description:
 ---
 
-The Chief Of Staff role is often poorly understood and difficult to define succinctly. Before becoming one myself, I had little understanding of the role or its value beyond watching fictional characters like Leo McGarry and Josh Lyman on the West Wing and a few arms-length interactions with non-fictional Chiefs of Staff from my time in government. 
+The Chief Of Staff role is often poorly understood and difficult to define succinctly. Before becoming one myself, I had little understanding of the role or its value beyond watching fictional characters like Leo McGarry and Josh Lyman on the West Wing and a few arms-length interactions with non-fictional congressional and agency Chiefs of Staff from my time in government. 
 
-As I’ve been settling into this new role, I’ve been taking notes and critically thinking about what a (Corporate) Chief of Staff does day-to-day, and how they uniquely bring value to an organization. At a high level, I'd break down a Chief of Staff's responsibilities into three parts:
+As I’ve been settling into this new role, I’ve been taking notes and critically thinking about what a (Corporate) Chief of Staff does day-to-day, and how they uniquely bring value to an organization and to their principal or executive ("CXO"[^1]). At a high level, I'd break down a Chief of Staff's responsibilities into three parts:
 
 1. Tactical - Program management and operations (40%)
 2. Strategic - Strategy and planning activities (40%)
@@ -15,21 +15,12 @@ Adding to the confusion, the Chief of Staff role is unique in that the scope, re
 
 ### 1. Manage the office of the CXO
 
-* Grow, scale, and run the business more effectively
-* Install, configure, monitor, upgrade, patch, and manage the organizational “operating system”
-* Establish, document, and mature repeatable processes for critical "rhythm of the business" functions
-  * budget, strategic planning, headcount planning, communications
-* Manage HR, talent, procurement, legal, etc. operations
-  * Manage contracts, vendor engagements, and purchase renewals  
-* Internal, external, and executive communications
-  * Quarterly business reviews
-  * Team off sites
-  * Conferences, events, interviews, and other engagements
-  * Org. updates
-* Overseeing diversity and culture initiatives
-* Often oversees business/comms managers
-* Org. "Front door"
+At the most basic level, a Chief of Staff is responsible for managing the office of the CXO. At GitHub, we fittingly refer to this as the organizational “operating system”, which Chiefs are responsible for installing, configuring, monitoring, upgrading, and patching to keep everything running smoothly and to help grow, scale, and run the bushiness more efficiently. The specific activities will vary depending on the function the Chief is supporting, but generally, you would expect this to include managing:
 
+1. "Rhythm of the business" - Establish, document, and mature repeatable processes for critical "rhythm of the business" functions like budget planning, strategic planning, headcount planning, and the overall planning and execution cadence of the organization.
+2. Office operations - Manage human resources, talent acquisition, procurement and legal operations to support the organization's business objectives. This may also include being responsible for things like  diversity and culture initiatives, as well as contracts, vendor agreements, and purchase renewals that don't naturally fit into the other functions.
+3. Internal, external, and executive communications - reporting for leadership reviews; organizing meeting agendas, all hands, and team off sites; preparing the CXO for conferences, events, interviews, and other engagements; preparing regular updates on activities; and managing the overall "front door" of the organization to the rest of the company.
+   
 ### 2. Boundaryless engagement
 
 * Escalation-driven initiative management
@@ -88,3 +79,5 @@ Adding to the confusion, the Chief of Staff role is unique in that the scope, re
 * Know who to ask
 * Expand sphere of influence
 * GSD reputation
+
+[^1]: As in Chief X Officer, the corporate executive that the Chief of Staff reports to. This could be a Chief Security Officer, Chief Product Officer, Chief Executive Officer, etc.
