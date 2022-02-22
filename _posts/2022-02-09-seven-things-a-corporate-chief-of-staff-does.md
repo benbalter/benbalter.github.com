@@ -5,7 +5,7 @@ description:
 
 The Chief Of Staff role is often poorly understood and difficult to define succinctly. Before becoming one myself, I had little understanding of the role or its value beyond watching fictional characters like Leo McGarry and Josh Lyman on the West Wing and a few arms-length interactions with non-fictional congressional and agency Chiefs of Staff from my time in government. 
 
-As I’ve been settling into this new role, I’ve been taking notes and critically thinking about what a (Corporate) Chief of Staff does day-to-day, and how they uniquely bring value to an organization and to their principal or executive ("CXO"[^1]). At a high level, I'd break down a Chief of Staff's responsibilities into three parts:
+As I’ve been settling into this new role, I’ve been taking notes and critically thinking about what a (Corporate) Chief of Staff ("CoS") does day-to-day, and how they uniquely bring value to an organization and to their principal or executive ("CXO"[^1]). At a high level, I'd break down a Chief of Staff's responsibilities into three parts:
 
 1. Tactical - Program management and operations (40%)
 2. Strategic - Strategy and planning activities (40%)
@@ -15,7 +15,7 @@ Adding to the confusion, the Chief of Staff role is unique in that the scope, re
 
 ### 1. Manage the office of the CXO
 
-At the most basic level, a Chief of Staff is responsible for managing the office of the CXO. At GitHub, we fittingly refer to this as the organizational “operating system”, which Chiefs are responsible for installing, configuring, monitoring, upgrading, and patching to keep everything running smoothly and to help grow, scale, and run the bushiness more efficiently. The specific activities will vary depending on the function the Chief is supporting, but generally, you would expect this to include managing:
+At the most basic level, a Chief of Staff is responsible for managing the office of the CXO. At GitHub, we fittingly refer to this as the organizational “operating system”, which Chiefs are responsible for installing, configuring, monitoring, upgrading, and patching to keep everything running smoothly and to help grow, scale, and run the bushiness more efficiently. The specific activities will vary depending on the function the Chief is supporting, but generally, you would expect this communication, coordination, and facilitation meta work to include managing:
 
 1. "Rhythm of the business" - Establish, document, and mature repeatable processes for critical "rhythm of the business" functions like budget planning, strategic planning, headcount planning, and the overall planning and execution cadence of the organization.
 2. Office operations - Manage human resources, talent acquisition, procurement and legal operations to support the organization's business objectives. This may also include being responsible for things like  diversity and culture initiatives, as well as contracts, vendor agreements, and purchase renewals that don't naturally fit into the other functions.
@@ -23,13 +23,9 @@ At the most basic level, a Chief of Staff is responsible for managing the office
    
 ### 2. Boundaryless engagement
 
-* Escalation-driven initiative management
-* Projects that are important but not urgent, have no clear leader, or are otherwise are under resourced
-* DRI for “Somebody” should own this -type projects
-* Generally, doing what needs to be done
-* Solve ambiguous problems ("Ben shaped problem")
-* Change management
+One of the most powerful organizational "hacks" Chiefs of Staff enjoy is that their scope is both organization-wide and boundaryless. This allows the Chief to go to where the work is, regardless of organizational lines or corporate hierarchy. This often takes the form of escalation-driven initiative management, but also could involve initiatives important but not urgent, have no clear leader, or are otherwise are under resourced.
 
+In this capacity, you can think you could think of the Chief of Staff as being the directly responsible individual (DRI) for "somebody should own this" -type projects, ambiguous and broad reaching problems that require "connecting the dots", change management, and generally doing what needs to be done without regard for seniority or structure.
 ### 3. Program management and org. operations
 
 ~Staff or principal program manager (https://ben.balter.com/2021/03/26/nine-things-a-technical-program-manager-does/)
