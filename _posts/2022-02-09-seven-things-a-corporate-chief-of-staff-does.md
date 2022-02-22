@@ -3,7 +3,15 @@ title: Seven things a corporate chief of staff does
 description:
 ---
 
-In order from most tactical/junior to most strategic/senior:
+The Chief Of Staff role is often poorly understood and difficult to define succinctly. Before becoming one myself, I had little understanding of the role or its value beyond watching fictional characters like Leo McGarry and Josh Lyman on the West Wing and a few arms-length interactions with non-fictional Chiefs of Staff from my time in government. 
+
+As I’ve been settling into this new role, I’ve been taking notes and critically thinking about what a (Corporate) Chief of Staff does day-to-day, and how they uniquely bring value to an organization. At a high level, I'd break down a Chief of Staff's responsibilities into three parts:
+
+1. Tactical - Program management and operations (40%)
+2. Strategic - Strategy and planning activities (40%)
+3. “Everything else” (20%)
+
+Adding to the confusion, the Chief of Staff role is unique in that the scope, responsibility, and impact can grow dramatically over time from the practical to the strategic based on the maturity of the organization and the seniority of the individual in a role. In order from most tactical/junior to most strategic/senior, here are the seven things successful Chiefs of Staff do:
 
 ### 1. Manage the office of the CXO
 
