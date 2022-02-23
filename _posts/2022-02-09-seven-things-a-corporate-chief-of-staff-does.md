@@ -15,7 +15,7 @@ Adding to the confusion, the Chief of Staff role is unique in that the scope, re
 
 ### 1. Manage the office of the CXO
 
-At the most basic level, a Chief of Staff is responsible for managing the office of the CXO. At GitHub, we fittingly refer to this as the organizational “operating system”, which Chiefs are responsible for installing, configuring, monitoring, upgrading, and patching to keep everything running smoothly and to help grow, scale, and run the bushiness more efficiently. The specific activities will vary depending on the function the Chief is supporting, but generally, you would expect this communication, coordination, and facilitation meta work to include managing:
+At the most basic level, a Chief of Staff is responsible for managing the office of the CXO. At GitHub, we fittingly refer to this as the organizational “operating system”, which Chiefs are responsible for installing, configuring, monitoring, upgrading, and patching to keep everything running smoothly and to help grow, scale, and run the bushiness more efficiently. The specific activities will vary depending on the function the Chief is supporting, but generally, you would expect this meta work[^2] to include managing:
 
 1. "Rhythm of the business" - Establish, document, and mature repeatable processes for critical "rhythm of the business" functions like budget planning, strategic planning, headcount planning, and the overall planning and execution cadence of the organization.
 2. Office operations - Manage human resources, talent acquisition, procurement and legal operations to support the organization's business objectives. This may also include being responsible for things like  diversity and culture initiatives, as well as contracts, vendor agreements, and purchase renewals that don't naturally fit into the other functions.
@@ -26,17 +26,14 @@ At the most basic level, a Chief of Staff is responsible for managing the office
 One of the most powerful organizational "hacks" Chiefs of Staff enjoy is that their scope is both organization-wide and boundaryless. This allows the Chief to go to where the work is, regardless of organizational lines or corporate hierarchy. This often takes the form of escalation-driven initiative management, but also could involve initiatives important but not urgent, have no clear leader, or are otherwise are under resourced.
 
 In this capacity, you can think you could think of the Chief of Staff as being the directly responsible individual (DRI) for "somebody should own this" -type projects, ambiguous and broad reaching problems that require "connecting the dots", change management, and generally doing what needs to be done without regard for seniority or structure.
-### 3. Program management and org. operations
 
-~Staff or principal program manager (https://ben.balter.com/2021/03/26/nine-things-a-technical-program-manager-does/)
+### 3. Portfolio management
 
-* Communication, coordination, and facilitation
-* Cross-functional initiative tracking
-* Reporting up and across to ensure situational awareness at all levels
-* Manage CSO’s portfolio of projects
-* Manages business priorities and risks
-* Honest broker / “Hands inside the machine”
-* Enable team to execute with speed and confidence
+In some ways, you can think of a Chief of Staff as staff or principle program manager, and for many (such as myself), that's a natural transition. As a Chief of Staff, Instead of managing a single program, you manage the CXO's portfolio of responsibilities. I've [written before](https://ben.balter.com/2021/03/26/nine-things-a-technical-program-manager-does/) about the ways program managers bring value to an organization, but there are a few I'd specifically call out as uniquely applicable to Chiefs:
+
+* **[Communication, coordination, and facilitation](https://ben.balter.com/2021/03/26/nine-things-a-technical-program-manager-does/#1-communication-coordination-and-facilitation)** - *Communicating* decisions and other key updates that may affect others, *coordinating* dependencies and other inter-related efforts across teams, and *facilitating* work by ensuring teams have the resources they need (unblocking).
+* **[Reporting up and across](https://ben.balter.com/2021/03/26/nine-things-a-technical-program-manager-does/#4-reporting-up-and-across)** - This often involves capturing and tracking work in flight, especially cross-functional initiative as well as thoughtfully and regularly reporting up and across to ensure situational awareness at all levels.
+* **[Identify, analyze, and mitigate risk](https://ben.balter.com/2021/03/26/nine-things-a-technical-program-manager-does/#3-identify-analyze-and-mitigate-program-risk)** - In this sense, I think of the Chief of Staff being the one with their "hands inside of the organizational machine", serving as an honest broker to drive successful execution and enable teams to ship with speed and confidence.
 
 ### 4. Air traffic controller and connector of dots
 
@@ -77,3 +74,4 @@ In this capacity, you can think you could think of the Chief of Staff as being t
 * GSD reputation
 
 [^1]: As in Chief X Officer, the corporate executive that the Chief of Staff reports to. This could be a Chief Security Officer, Chief Product Officer, Chief Executive Officer, etc.
+[^2]: I [define](https://ben.balter.com/2016/06/06/twelve-things-a-product-manager-does/#5-communicate-coordinate-and-facilitate) meta-work as the work necessary to unblock shipping. It's organizational yak shaving, if you're familiar with the more common engineering term.
