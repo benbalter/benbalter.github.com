@@ -1,5 +1,5 @@
 ---
-title: Seven things a corporate chief of staff does
+title: Seven things a corporate Chief of Staff does
 description:
 ---
 
@@ -7,9 +7,9 @@ The Chief Of Staff role is often poorly understood and difficult to define succi
 
 As I’ve been settling into this new role, I’ve been taking notes and critically thinking about what a (Corporate) Chief of Staff ("CoS") does day-to-day, and how they uniquely bring value to an organization and to their principal or executive ("CXO"[^1]). At a high level, I'd break down a Chief of Staff's responsibilities into three parts:
 
-1. Tactical - Program management and operations (40%)
-2. Strategic - Strategy and planning activities (40%)
-3. “Everything else” (20%)
+1. **Tactical** - Program management and operations (40%)
+2. **Strategic** - Strategy and planning activities (40%)
+3. **“Everything else”** - XX (20%)
 
 Adding to the confusion, the Chief of Staff role is unique in that the scope, responsibility, and impact can grow dramatically over time from the practical to the strategic based on the maturity of the organization and the seniority of the individual in a role. In order from most tactical/junior to most strategic/senior, here are the seven things successful Chiefs of Staff do:
 
@@ -17,9 +17,9 @@ Adding to the confusion, the Chief of Staff role is unique in that the scope, re
 
 At the most basic level, a Chief of Staff is responsible for managing the office of the CXO. At GitHub, we fittingly refer to this as the organizational “operating system”, which Chiefs are responsible for installing, configuring, monitoring, upgrading, and patching to keep everything running smoothly and to help grow, scale, and run the bushiness more efficiently. The specific activities will vary depending on the function the Chief is supporting, but generally, you would expect this meta work[^2] to include managing:
 
-1. "Rhythm of the business" - Establish, document, and mature repeatable processes for critical "rhythm of the business" functions like budget planning, strategic planning, headcount planning, and the overall planning and execution cadence of the organization.
-2. Office operations - Manage human resources, talent acquisition, procurement and legal operations to support the organization's business objectives. This may also include being responsible for things like  diversity and culture initiatives, as well as contracts, vendor agreements, and purchase renewals that don't naturally fit into the other functions.
-3. Internal, external, and executive communications - reporting for leadership reviews; organizing meeting agendas, all hands, and team off sites; preparing the CXO for conferences, events, interviews, and other engagements; preparing regular updates on activities; and managing the overall "front door" of the organization to the rest of the company.
+1. **"Rhythm of the business"** - Establish, document, and mature repeatable processes for critical "rhythm of the business" functions like budget planning, strategic planning, headcount planning, and the overall planning and execution cadence of the organization.
+2. **Office operations** - Manage human resources, talent acquisition, procurement and legal operations to support the organization's business objectives. This may also include being responsible for things like  diversity and culture initiatives, as well as contracts, vendor agreements, and purchase renewals that don't naturally fit into the other functions.
+3. **Internal, external, and executive communications** - reporting for leadership reviews; organizing meeting agendas, all hands, and team off sites; preparing the CXO for conferences, events, interviews, and other engagements; preparing regular updates on activities; and managing the overall "front door" of the organization to the rest of the company.
    
 ### 2. Boundaryless engagement
 
@@ -73,5 +73,5 @@ In some ways, you can think of a Chief of Staff as staff or principle program ma
 * Expand sphere of influence
 * GSD reputation
 
-[^1]: As in Chief X Officer, the corporate executive that the Chief of Staff reports to. This could be a Chief Security Officer, Chief Product Officer, Chief Executive Officer, etc.
+[^1]: As in "Chief X Officer", the corporate executive that the Chief of Staff reports to. This could be a Chief Security Officer, Chief Product Officer, Chief Executive Officer, etc.
 [^2]: I [define](https://ben.balter.com/2016/06/06/twelve-things-a-product-manager-does/#5-communicate-coordinate-and-facilitate) meta-work as the work necessary to unblock shipping. It's organizational yak shaving, if you're familiar with the more common engineering term.
