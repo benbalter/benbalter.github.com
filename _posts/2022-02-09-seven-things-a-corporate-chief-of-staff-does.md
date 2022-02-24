@@ -60,12 +60,11 @@ As a healthy relationship develops between Chief of Staff and CXO, a more senior
 
 ### 6. Relationship and brand management
 
-* Provided transparency, predictability, consistency, and clarity to create stronger relationships
-* Avoid surprises - Manage expectations between principal, principal's peers, other stakeholders
-* Relationship and brand management to enable CXO's success 
+Exceptional Chiefs of Staff offer transparency, predictability, consistency, and clarity to both those they work with and those the CXO work with to establish and grow stronger relationships and be seen as a critical partner. At its core, this is about avoiding surprises by managing expectations between the CXO, the CXO's peers, and other stakeholders. Beyond that, it's about ongoing relationship and brand management to enable the CXO's success by ultimately expanding their sphere of influence.
+
+
 * Lead through persuasion and influence
 * Know who to ask
-* Expand sphere of influence
 * GSD reputation
 
 [^1]: As in "Chief X Officer", the corporate executive that the Chief of Staff reports to. This could be a Chief Security Officer, Chief Product Officer, Chief Executive Officer, etc.
