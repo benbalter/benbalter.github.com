@@ -1,25 +1,27 @@
 ---
 title: Six things a corporate Chief of Staff does
-description: The six 
+description: The six things a corporate Chief of Staff does to bring value to an organization and their principal or executive.
 ---
 
-Due to its amorphous nature, the Chief Of Staff role is often poorly understood and difficult to define succinctly. Before becoming one myself, I had little understanding of the role or its value beyond watching fictional characters like Leo McGarry and Josh Lyman on the West Wing.[^4] 
+Due to its amorphous nature, the Chief Of Staff role is often poorly understood and difficult to define succinctly. Before becoming one myself, I had little understanding of the role or its value beyond watching fictional characters like Leo McGarry and Josh Lyman on the West Wing.[^4] As I’ve been settling into this new-to-me role, I’ve been taking notes and thinking critically about what a (Corporate) Chief of Staff ("CoS") does day-to-day, and how they uniquely bring value to an organization and to their principal or executive ("CXO"[^1]). 
 
-As I’ve been settling into this new-to-me role, I’ve been taking notes and critically thinking about what a (Corporate) Chief of Staff ("CoS") does day-to-day, and how they uniquely bring value to an organization and to their principal or executive ("CXO"[^1]). At a high level, I'd break down a Chief of Staff's responsibilities into three key parts:
+At a high level, I'd break down a Chief of Staff's responsibilities into three key parts:
 
 1. **Tactical** - Program management, execution, and operations 
 2. **Strategic** - Stewardship of strategy, planning, vision, and culture
-3. **“Everything else”** - Serving as advisor, proxy, confident, broker, and generally doing whatever needs to be done to move the organization forward with confidence
+3. **“Everything else”** - Serving as advisor, confident, broker, and generally doing what needs to be done
 
 Adding to the confusion, the Chief of Staff role is unique in that the scope, responsibility, and impact can grow dramatically over time from the tactical to the strategic based on the maturity of the organization they support and the seniority of the individual in a role. In order from most tactical/junior/immature to most strategic/senior/mature, here are the six things great Chiefs of Staff do:
 
 ### 1. Manage the office of the CXO
 
-At the most basic level, the Chief of Staff is responsible for managing the office of the CXO. At GitHub, we fittingly refer to this as the organizational “operating system”, which Chiefs are responsible for installing, configuring, monitoring, upgrading, and patching to keep everything running smoothly and to help scale and operate the bushiness more efficiently. The specific activities will vary depending on the function the Chief is supporting, but generally, you would expect this meta work[^2] to include managing:
+At the most basic level, the Chief of Staff is responsible for managing the office of the CXO. At GitHub, we fittingly refer to this as the organizational “operating system”, which Chiefs are responsible for installing, configuring, monitoring, upgrading, and patching to keep everything running bug free and to help scale and operate the bushiness more efficiently. The specific activities will vary depending on the function the Chief is supporting, but generally, you would expect this meta work[^2] to include managing:
 
 * **"Rhythm of the business"** - Establishing, documenting, and maturing repeatable processes for critical functions that occur on a regular cadence like budget planning, strategic planning, headcount planning, and the overall planning and execution tempo of the organization.
-* **Office operations** - Partnering with human resources, talent acquisition, procurement, and legal among other teams to support the organization's business objectives. This may also include being responsible for things like diversity or morale initiatives, as well "owning" contracts, vendor agreements, and purchase renewals that don't naturally fit into the other functions.
+* **Office operations** - Partnering with human resources, talent acquisition, procurement, and legal among other teams to support the organization's successful operation. This may also include being responsible for things like diversity or morale initiatives, as well "owning" contracts, vendor agreements, and purchase renewals that don't naturally fit into the other functions.
 * **Internal, external, and executive communications** - Reporting for leadership reviews; organizing meeting agendas, all hands, and team off sites; preparing the CXO for conferences, events, interviews, presentations, and other engagements; preparing regular updates on business activities; and managing the overall "front door" of the organization to the rest of the company through documentation, process, and other established (and streamlined) interfaces.
+
+As a CXO's office matures, this may begin as an office of one (the Chief), but can quickly grow to three or more individuals, whom the Chief is expected to manage.
 
 ### 2. Boundaryless engagement
 
