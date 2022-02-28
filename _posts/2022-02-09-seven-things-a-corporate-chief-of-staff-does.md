@@ -3,7 +3,7 @@ title: Six things a corporate Chief of Staff does
 description: The six things a corporate Chief of Staff does to bring value to an organization and their principal or executive.
 ---
 
-Due to its amorphous nature, the Chief Of Staff role is often poorly understood and difficult to define. Before becoming one myself, I had little appreciation for the role beyond watching fictional characters like Leo McGarry and Josh Lyman on the West Wing.[^4] As I’ve been settling into this new-to-me role, I’ve been taking notes and thinking critically about what a (Corporate) Chief of Staff ("CoS") does day-to-day, and how they uniquely bring value to an organization and to their principal or executive ("CXO"[^1]). 
+Due to its amorphous nature, the Chief Of Staff role is often poorly understood and difficult to define. Before becoming one myself, I had little appreciation for the role beyond watching fictional characters like Leo McGarry and Josh Lyman on the West Wing.[^4] As I’ve been settling into this new-to-me role, I’ve been taking notes and thinking critically about what a corporate Chief of Staff does day-to-day, and how they uniquely bring value to their organization and to their principal or executive ("CXO"[^1]). 
 
 At a high level, I'd break down a Chief of Staff's responsibilities into three key parts:
 
@@ -11,17 +11,17 @@ At a high level, I'd break down a Chief of Staff's responsibilities into three k
 2. **Strategic** - Stewardship of strategy, planning, vision, and culture
 3. **“Everything else”** - Serving as advisor, confident, broker, and generally doing what needs to be done
 
-Adding to the confusion, the Chief of Staff function is unique in that the scope, responsibility, and impact can grow dramatically over time from the tactical to the strategic based on the maturity of the organization they support and the seniority of the individual in a role. In order from most tactical/junior/immature to most strategic/senior/mature, here are the six things a great Chief of Staff does:
+Adding to the confusion, the Chief of Staff function is unique in that the scope, responsibility, and impact can grow dramatically over time from the tactical to the strategic based on the maturity of the organization they support and the seniority of the individual in a role. Whether you're considering the role yourself or are working with a Chief of Staff for the first time, in order from most tactical/junior/immature to most strategic/senior/mature, here are the six things a great Chief of Staff does:
 
 ### 1. Manage the office of the CXO
 
 At the most basic level, the Chief of Staff is responsible for managing the "office of the CXO". At GitHub, my team fittingly refers to this as the organizational “operating system”, which the Chief is responsible for installing, configuring, monitoring, upgrading, and patching to keep everything running bug free. In this way, the chief's "software", and by extension, the chief themselves help the business operate more efficiently by scaling the efforts of its leaders and membership. The specific activities will vary depending on the business unit the Chief is supporting, but generally, one would expect this meta work[^2] to include managing:
 
 * **"Rhythm of the business"** - Establishing, documenting, and maturing repeatable processes for critical functions that occur on a regular cadence like budget planning, strategic planning, headcount planning, and the overall planning and execution tempo of the organization.
-* **Office operations** - Partnering with human resources, talent acquisition, procurement, and legal among other teams to support the organization's ongoing operations. This may also include being responsible for things like diversity or morale initiatives, as well "owning" contracts, vendor agreements, and purchase renewals that don't naturally fit into the other functions.
-* **Internal, external, and executive communications** - Reporting for leadership reviews; organizing meeting agendas, all hands, and team off sites; preparing the CXO for conferences, events, interviews, presentations, and other engagements; preparing regular updates on business activities; and managing the overall "front door" of the organization to the rest of the company through documentation, process, and other established (and thanks to the Chief, streamlined) interfaces.
-* **CXO effectiveness** - Serving as a formal and informal gatekeeper to ensure that the CXO is spending their time on the right things. The Chief has the sense to know what to keep "front of mind" for the CXO, and what falls into "I'll let you know if you need to get involved" territory. Put another way, when the Chief brings something to the CXO's attention, they know that it's important.
-* **Leadership team effectiveness** - Improving the effectiveness of CXO's direct reports (the Chief's peers), including everything from meeting agendas to communication cadence to fostering better interpersonal dynamics. 
+* **Office operations** - Partnering with human resources, talent acquisition, procurement, and legal among other teams to support the organization's smooth functioning. This may also include being responsible for things like diversity, engagement, or morale initiatives, as well "owning" contracts, vendor agreements, and purchase renewals that don't naturally fit into the other functions.
+* **Internal, external, and executive communications** - Reporting for leadership or board reviews; running monthly all hands, lunch and learns, demo days, and other team touch points; preparing the CXO for conferences, events, interviews, presentations, and other engagements; compiling regular updates on business activities; and managing the overall "front door" of the organization to the rest of the company through documentation, process, and other established (and thanks to the Chief, streamlined) interfaces.
+* **CXO effectiveness** - Serving as a formal and informal gatekeeper to ensure that the CXO is spending their time on the right things. The Chief has the sense to know what to keep "front of mind" for the CXO, and what falls into "I'll let you know if you need to get involved" territory. When a Chief brings something to the CXO, they know that it's important.
+* **Leadership team effectiveness** - Improving the effectiveness of CXO's direct reports (the Chief's peers). This may involve everything from preparing meeting agendas and planning team off sites to establishing communication patterns and cadence to fostering better interpersonal dynamics. 
 
 As a CXO's office matures, this may begin as an office of one (the Chief), but can quickly grow to three or more individuals, whom the Chief is expected to manage to extend their own reach and impact.
 
@@ -65,12 +65,15 @@ Exceptional Chiefs of Staff offer transparency, predictability, consistency, and
 
 This aspect of the role is the classic leadership through persuasion and influence that relies on knowing who to ask, ____, and maintaining an all around get-stuff-done reputation that makes others trust and want to work with you.
 
+### Conclusion
+
+As I first began settling in, I struggle to get a sense of what a Chief of Staff's typical day looked like (spoiler: there isn't one) or what skills I should be focusing on day-to-day to maximize the value I brought to the principal or executive and to my team. Here’s the list I wish I had as I was first stepping into the role, and I hope it helps others as they do the same and those they work with to better understand the role of a Chief of Staff.
+
 
 * High profile meetings
-* GSD
 
 [^1]: As in "Chief X Officer", the corporate executive that the Chief of Staff reports to. This could be a Chief Security Officer, Chief Product Officer, Chief Executive Officer, Senior Vice President of X, etc.
 [^2]: I [define](https://ben.balter.com/2016/06/06/twelve-things-a-product-manager-does/#5-communicate-coordinate-and-facilitate) meta-work as the work necessary to unblock shipping. It's organizational yak shaving, if you're familiar with the more common engineering term.
-[^3]: Earlier in my career, I'd explicitly avoid gossip and other water cooler talk. [As a Program Manager](https://ben.balter.com/2021/03/26/nine-things-a-technical-program-manager-does/#5-relationship-management) and now as a Chief Of Staff, I see it is not only acceptable, but an expectation of the job to be able to hear the otherwise unstated.
-[^4]: Yes, technically Josh was a *deputy* Chief of Staff. I also technically had a few arms-length interactions with non-fictional congressional and agency Chiefs of Staff from my time in government, but ___________.
+[^3]: Earlier in my career, I'd explicitly avoid gossip and other water cooler talk. [As a Program Manager](https://ben.balter.com/2021/03/26/nine-things-a-technical-program-manager-does/#5-relationship-management) and now as a Chief Of Staff, I see it is not only acceptable, but a requirement of the job to be able to hear the otherwise unstated.
+[^4]: Yes, technically Josh was a *deputy* Chief of Staff. I also technically had a few arms-length interactions with non-fictional congressional and agency Chiefs of Staff from my time in government, but even then, the *focus* of the role differs that of the private sector.
 [^5]: As a former peer and I used to joke of these types of problems, they're the type that are often represented by 2x2 matrices or other frameworks one might expect to be taught in business school.
