@@ -24,3 +24,4 @@ comments.json
 /spec/examples.txt
 /vendor/bundle/
 .jekyll-cache
+.github/styles/*
