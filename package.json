@@ -7,6 +7,7 @@
   "devDependencies": {
     "@textlint-rule/textlint-rule-no-unmatched-pair": "^1.0.7",
     "dictionary-en-us": "^2.2.1",
+    "eslint": "^7.32.0",
     "json-lint": "^0.1.0",
     "jsonlint": "^1.6.3",
     "offline-issues": "^1.0.0",
