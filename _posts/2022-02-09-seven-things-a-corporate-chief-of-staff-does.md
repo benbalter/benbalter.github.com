@@ -67,7 +67,7 @@ An exceptional Chief of Staff is responsible for managing the relationships and 
 
 ### Conclusion
 
-As I first began settling in, I struggle to get a sense of what a Chief of Staff's typical day looked like (spoiler: there isn't one) or what skills I should be focusing on day-to-day to maximize the value I brought to the principal or executive and to my team. Here’s the list I wish I had as I was first stepping into the role, and I hope it helps others as they do the same and those they work with to better understand the role of a Chief of Staff.
+As I first began settling in, I struggle to get a sense of what a Chief of Staff's typical day looked like (spoiler: there isn't one) or what skills I should be focusing on day-to-day to maximize the value I brought to a principal or executive and to my team. Here’s the list I wish I had as I was first stepping into the role, and I hope it helps others as they do the same and those they work with to better understand the role of a Chief of Staff.
 
 
 
