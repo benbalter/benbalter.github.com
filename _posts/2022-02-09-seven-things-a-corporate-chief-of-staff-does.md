@@ -1,5 +1,5 @@
 ---
-title: Six things a corporate Chief of Staff does
+title: The six things a corporate Chief of Staff does
 description: The six things a corporate Chief of Staff does to bring value to an organization and their principal or executive.
 ---
 
@@ -27,10 +27,10 @@ As a CXO's office matures, this may begin as an office of one (the Chief), but c
 
 ### 2. Boundaryless engagement
 
-One of the most powerful organizational "hacks" Chiefs of Staff enjoy is that their scope is both boundaryless and organization-wide. For Chiefs this organizational position can manifest itself in three ways:
+One of the most powerful organizational "hacks" Chiefs of Staff enjoy is that their scope is both boundaryless and organization-wide. For Chiefs this organizational position can manifest itself in the wearing of three "hats":
 
 * **Float, pinch hitter, or general solver of problems** - Going to where the work is regardless of organizational boundaries or corporate hierarchy. This often takes the form of escalation-driven initiative management, but also could involve "important but not urgent" projects that have no clear leader or are otherwise under resourced.
-* **Directly responsible individual (DRI)** - Owning "somebody should own this"-type projects, ambiguous and broad-reaching problems that require "connecting the dots" to uncover true possibilities, complex organizational change management, and generally doing what needs to be done without regard for title or stated responsibility.
+* **Connector of dots** - Serving as directly responsible individual (DRI) to own "somebody should own this"-type projects, ambiguous and broad-reaching problems that require organization-wide understanding to uncover the true manifestations and possibilities, complex organizational change management, and generally doing what needs to be done without regard for title or stated responsibility.
 * **Organizational "air traffic controller"** - Helping the CXO prioritize projects; resolving disputes, ambiguity, or otherwise driving consensus; and serving as an honest broker by facilitating tough conversations, all to ensure that organizational planes take off and land on time and without incident, regardless of their origin, destination, or flight path.
 
 ### 3. Portfolio management
