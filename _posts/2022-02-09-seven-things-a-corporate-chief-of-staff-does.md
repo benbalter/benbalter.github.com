@@ -3,15 +3,15 @@ title: Six things a corporate Chief of Staff does
 description: The six things a corporate Chief of Staff does to bring value to an organization and their principal or executive.
 ---
 
-Due to its amorphous nature, the Chief Of Staff role is often poorly understood and difficult to define. Before becoming one myself, I had little appreciation for the role beyond watching fictional characters like Leo McGarry and Josh Lyman on the West Wing.[^4] As I’ve been settling into this new-to-me role, I’ve been taking notes and thinking critically about what a corporate Chief of Staff does day-to-day, and how they uniquely bring value to their organization and to their principal or executive ("CXO"[^1]). 
+The Chief Of Staff role is often poorly understood and difficult to define. Before becoming one myself, I had little appreciation for the role beyond watching fictional characters like Leo McGarry and Josh Lyman on the West Wing,[^4] but as I’ve been settling into this new-to-me role, I’ve been thinking critically about what a corporate Chief of Staff does day-to-day and how they uniquely bring value to their principal or executive ("CXO"[^1]) and to the organization they support. 
 
 At a high level, I'd break down a Chief of Staff's responsibilities into three key parts:
 
-1. **Tactical** - Program management, execution, and operations 
+1. **Tactical** - Program management, communication, execution, and operations 
 2. **Strategic** - Stewardship of strategy, planning, vision, and culture
 3. **“Everything else”** - Serving as advisor, confident, broker, and generally doing what needs to be done
 
-Adding to the confusion, the Chief of Staff function is unique in that the scope, responsibility, and impact can grow dramatically over time from the tactical to the strategic based on the maturity of the organization they support and the seniority of the individual in a role. Whether you're considering the role yourself or are working with a Chief of Staff for the first time, in order from most tactical/junior/immature to most strategic/senior/mature, here are the six things a great Chief of Staff does:
+Adding to the confusion, the Chief of Staff function is unique in that the scope, responsibility, and impact can grow dramatically over time from the tactical to the strategic based on the maturity of the organization the Chief supports and the seniority of the individual in a role. Whether you're entering the role yourself or are working with a corporate Chief of Staff for the first time, in order from most tactical/junior/immature to most strategic/senior/mature, here are the six things a great Chief of Staff does:
 
 ### 1. Manage the office of the CXO
 
@@ -27,11 +27,11 @@ As a CXO's office matures, this may begin as an office of one (the Chief), but c
 
 ### 2. Boundaryless engagement
 
-One of the most powerful organizational "hacks" Chiefs of Staff enjoy is that their scope is organization-wide, meaning the Chief can go to where the work is, regardless of organizational boundaries or corporate hierarchy. This often takes the form of escalation-driven initiative management, but also could involve "important but not urgent" problems that have no clear leader or are otherwise under resourced.
+One of the most powerful organizational "hacks" Chiefs of Staff enjoy is that their scope is both boundaryless and organization-wide. For Chiefs this organizational position can manifest itself in three ways:
 
-In this capacity, you can think of the Chief of Staff as being the directly responsible individual (DRI) for "somebody should own this"-type projects, ambiguous and broad-reaching problems that require "connecting the dots" to uncover true possibilities, complex organizational change management, and generally doing what needs to be done without regard for title or stated responsibility.
-
-This aspect of the role also can take the form of organizational "air traffic controller", in terms of helping the CXO prioritize projects; resolve disputes, ambiguity, or otherwise driving consensus; and serving as an honest broker by facilitating tough conversations, all to ensure that organizational planes take off and land on time and without incident, regardless of their origin, destination, or flight path.
+* **Float, pinch hitter, or general solver of problems** - Going to where the work is regardless of organizational boundaries or corporate hierarchy. This often takes the form of escalation-driven initiative management, but also could involve "important but not urgent" projects that have no clear leader or are otherwise under resourced.
+* **Directly responsible individual (DRI)** - Owning "somebody should own this"-type projects, ambiguous and broad-reaching problems that require "connecting the dots" to uncover true possibilities, complex organizational change management, and generally doing what needs to be done without regard for title or stated responsibility.
+* **Organizational "air traffic controller"** - Helping the CXO prioritize projects; resolving disputes, ambiguity, or otherwise driving consensus; and serving as an honest broker by facilitating tough conversations, all to ensure that organizational planes take off and land on time and without incident, regardless of their origin, destination, or flight path.
 
 ### 3. Portfolio management
 
