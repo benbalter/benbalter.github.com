@@ -27,7 +27,7 @@ jobs:
           styles: |
             https://github.com/benbalter/vale-styles/releases/latest/download/Microsoft.zip
           config: https://raw.githubusercontent.com/benbalter/benbalter.github.com/master/.vale.ini
-          files: "*.md _posts/*.md resume_positions/*.md"
+          files: '["*.md", "_posts/*.md", "resume_positions/*.md"]'
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
   code:
