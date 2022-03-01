@@ -22,11 +22,13 @@ jobs:
       - name: Lint Text
         run: npm run lint-text
       - name: Vale
-        uses: errata-ai/vale-action@v1.3.0
+        uses: errata-ai/vale-action@v1
         with:
-          styles: https://github.com/benbalter/vale-styles/releases/latest/download/Microsoft.zip
-          config: https://raw.githubusercontent.com/benbalter/benbalter.github.com/master/.vale.ini
-          files: '["*.md", "_posts/*.md", "resume_positions/*.md"]'
+          styles: |
+            https://github.com/errata-ai/Microsoft/releases/latest/download/Microsoft.zip
+            https://github.com/errata-ai/write-good/releases/latest/download/write-good.zip
+            https://github.com/errata-ai/alex/releases/latest/download/alex.zip
+          files: __onlyModified
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
   code:
