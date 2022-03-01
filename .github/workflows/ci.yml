@@ -24,8 +24,7 @@ jobs:
       - name: Vale
         uses: errata-ai/vale-action@v1.3.0
         with:
-          styles: |
-            https://github.com/benbalter/vale-styles/releases/latest/download/Microsoft.zip
+          styles: https://github.com/benbalter/vale-styles/releases/latest/download/Microsoft.zip
           config: https://raw.githubusercontent.com/benbalter/benbalter.github.com/master/.vale.ini
           files: '["*.md", "_posts/*.md", "resume_positions/*.md"]'
         env:
