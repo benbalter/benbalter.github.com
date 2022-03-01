@@ -3,11 +3,11 @@ title: The six things a corporate Chief of Staff does
 description: The six things a corporate Chief of Staff does to bring value to an organization and their principal or executive.
 ---
 
-The Chief Of Staff role is often poorly understood and difficult to define. Before becoming one myself, I had little appreciation for the role beyond watching fictional characters like Leo McGarry and Josh Lyman on the West Wing,[^4] but as I’ve been settling into this new-to-me role, I’ve been thinking critically about what a corporate Chief of Staff does day-to-day and how they uniquely bring value to their principal or executive ("CXO"[^1]) and to the organization they support. 
+The Chief Of Staff role is often poorly understood and difficult to define. Before becoming one myself, I had little appreciation for the role beyond watching fictional characters like Leo McGarry and Josh Lyman on the West Wing,[^4] but as I’ve been settling into this new-to-me role, I’ve been thinking critically about what a corporate Chief of Staff does day-to-day and how they uniquely bring value to their principal or executive ("CXO"[^1]) and to the organization they support.
 
 At a high level, I'd break down a Chief of Staff's responsibilities into three key parts:
 
-1. **Tactical** - Program management, communication, execution, and operations 
+1. **Tactical** - Program management, communication, execution, and operations
 2. **Strategic** - Stewardship of strategy, planning, vision, and culture
 3. **“Everything else”** - Serving as advisor, confident, broker, and generally doing what needs to be done
 
@@ -45,7 +45,7 @@ In some ways, you can think of a Chief of Staff as a staff or principle program 
 
  As a Chief of Staff transitions from the more tactical to the more strategic they play an increasing role in:
 
-* **Strategy** - Shaping the organization's vision, 3/5/10 year plans, OKRs, and other far-reaching strategy documents. At the most basic level, that means working with other leaders to establish, document, and communicate planning materials and to drive the execution rhythm for teams to make progress against those strategic goals.
+* **Strategy** - Shaping the organization's vision, 3-5-or-10-year plans, OKRs, and other far-reaching strategy documents. At the most basic level, that means working with other leaders to establish, document, and communicate planning materials and to drive the execution rhythm for teams to make progress against those strategic goals.
 * **Planning** - Helping leaders carry out the CXO's vision and strategic intent at all levels. You can think of this as where policy and politics come together. Once defined, the Chief of Staff is responsible for communicating the organization's plans by distilling and cascading those core strategic tenants to both internal and external stakeholders where they can eventually be realized.
 * **Culture and values** - Establishing, shaping, debugging, and socializing, organizational culture, values, taste, and behavioral expectations. These are the underlying assumptions that an organization's members fall back on as they resolve ambiguity in pursuit of the organization’s mission. Explicitly and implicitly, Chiefs should set the tone for how the organization prefers to interact, resolve disputes, execute, provide feedback, and solve problems among countless other often invisible decisions that over time can make or break an organization's success.
 
