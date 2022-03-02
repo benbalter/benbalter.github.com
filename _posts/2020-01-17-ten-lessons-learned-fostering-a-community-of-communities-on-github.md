@@ -27,11 +27,11 @@ We originally used the tongue-in-cheek "jerkface" persona to describe all such u
 
 As a platform, your biggest lever is your ability to intervene in otherwise organic human interactions. In the context of disruptive behavior, that intervention could come before, during, or after the disruptive act:
 
-|         | Before                   | During             | After                     |
-| :------ | :----------------------- | :----------------- | :------------------------ |
-| Goal    | Encourage good behavior  | Introduce Friction | Minimize impact           |
-| Type    | User-to-community        | User-to-product    | User-to-user              |
-| Example | Code of conduct adoption | User blocking      | Hiding disruptive content |
+|             | Before                   | During             | After                     |
+| :---------- | :----------------------- | :----------------- | :------------------------ |
+| Goal        | Encourage good behavior  | Introduce Friction | Minimize impact           |
+| Type        | User-to-community        | User-to-product    | User-to-user              |
+| Example     | Code of conduct adoption | User blocking      | Hiding disruptive content |
 {: .table }
 
 Most platforms begin their user safety efforts by focus on during-the-act interventions. These are things like a blocked user not being able to DM or @mention the blocking user that seek to add friction (defined as how easy or hard it is to do something) to creating potentially disruptive content.
@@ -56,7 +56,7 @@ If through friction and product interventions we could get some disruptive users
 
 Site-wide documents like a platform's Terms of Service or Community Guidelines establish a base line for acceptable user behavior. These documents encompass "don't do anything illegal" along with "golden-rule"-type expectations like don't be a bully or don't threaten other users. Deviations from these expectations are generally handled by a platform's Trust and Safety or support teams.
 
-[Individual communities should be empowered and encourage to establish heightened community norms beyond those base line expectations.](https://ben.balter.com/2019/07/18/a-community-of-communities-oscon-2019/) In the GitHub context this can be as mundane as spelling out how to contribute or as sophisticated as a formal code of conduct with specific reporting and review procedures. Some communities might encourage water cooler talk to create a sense of comradery, others might strictly police off-topic posts. Beyond that, communities might be purposeful about being welcoming of new members, while others might be more forward in challenging each others' ideas. 
+[Individual communities should be empowered and encourage to establish heightened community norms beyond those base line expectations.](https://ben.balter.com/2019/07/18/a-community-of-communities-oscon-2019/) In the GitHub context this can be as mundane as spelling out how to contribute or as sophisticated as a formal code of conduct with specific reporting and review procedures. Some communities might encourage water cooler talk to create a sense of comradery, others might strictly police off-topic posts. Beyond that, communities might be purposeful about being welcoming of new members, while others might be more forward in challenging each others' ideas.
 
 Each community can establish their own norms above and beyond the site-wide expectations to make the platform their own and to create a sense of ownership and shared responsibility to keep the community strong and self-sustaining.
 
@@ -84,7 +84,7 @@ Beyond providing the opportunity for the author to ideally recognize how their b
 
 ### 9. Always seek user consent
 
-Many negative interactions occur when well-intentioned features assume implicit consent among those involved. While I'd like to believe that all interactions on the internet are welcomed and positive, the reality is that platforms let their users down when one user's disruptive behavior is able to negatively impact another user without any action (or an unintentional action) on their part. This is why you must often approve followers or friends before they can interact with you or are given additional privileges like access to private content. 
+Many negative interactions occur when well-intentioned features assume implicit consent among those involved. While I'd like to believe that all interactions on the internet are welcomed and positive, the reality is that platforms let their users down when one user's disruptive behavior is able to negatively impact another user without any action (or an unintentional action) on their part. This is why you must often approve followers or friends before they can interact with you or are given additional privileges like access to private content.
 
 Users should be given the information necessary to make an informed decision to *opt-in* to engage in every activity on your platform. This can be a user-to-user interaction, such as messaging another user, or a user-to-platform interaction, such as sharing or publishing personal or activity information. The easiest way to do this is to establish safe defaults with a bias towards privacy and ask for permission prior to any potentially disruptive interaction.
 
@@ -94,7 +94,7 @@ There's much more to be said here. See [Consensual Software: How to prioritize u
 
 Few social platforms begin life as political platforms. Facebook began as a way to connect classmates. Twitter was for telling the world what you ate for lunch that day. Yet today, these platforms are anything but apolitical. While private corporations aren't strictly bound by the First Amendment, as many of those conversations core to free speech protections — the types of conversations that used to occur in small pubs and town square — move online and to for-profit platform, we as builders have an obligation to shape and govern the online society we’re helping to create.
 
-I like to think of online platforms as handing each user a giant megaphone to amplify their voice and reach. If one user stands in that digital town square and starts shouting something mean-spirited or untruthful about you, the platform might give you ear plugs so that you don't have to hear it, but other users, namely your friends and neighbors still do, and now you just don't know about it (and thus can't defend yourself). Instead, platforms should push those conversations into self-moderated spaces, or if necessary, take back the megaphone entirely. Extending the metaphor, the user could say those things all they want in their living room or at a club house, but couldn't do the same on your front lawn. 
+I like to think of online platforms as handing each user a giant megaphone to amplify their voice and reach. If one user stands in that digital town square and starts shouting something mean-spirited or untruthful about you, the platform might give you ear plugs so that you don't have to hear it, but other users, namely your friends and neighbors still do, and now you just don't know about it (and thus can't defend yourself). Instead, platforms should push those conversations into self-moderated spaces, or if necessary, take back the megaphone entirely. Extending the metaphor, the user could say those things all they want in their living room or at a club house, but couldn't do the same on your front lawn.
 
 Platforms are under no obligation to amplify all users' voices, or to do so equally, and should be mindful of the role they play in doing so. Often times this choice can come at the expense of revenue or engagement, and thus is best viewed not solely as a business decision, but as a moral and ethical one as well.
 
@@ -106,7 +106,7 @@ I'm proud to say that just over three years after we first gathered in that Toro
 
 ### I'm just the messenger
 
-This all took a village and then some. There were countless managers, engineers, lawyers, designers, analysts, doc writers, data scientists, policy folks, and more over the years that I won't mention by name because many don't talk about their work publicly, but that undeniably deserve credit for their contributions and efforts. 
+This all took a village and then some. There were countless managers, engineers, lawyers, designers, analysts, doc writers, data scientists, policy folks, and more over the years that I won't mention by name because many don't talk about their work publicly, but that undeniably deserve credit for their contributions and efforts.
 
 Due to the often proprietary nature of social networks and potentially adversarial nature of trust and safety we don't, as an industry, always talk openly about our efforts or how we go about solving shared problems. In hopes that what I learned could help other platforms starting down the same path, I wanted to share how I've thought about federated community management at GitHub over the past three years. YMMV.
 

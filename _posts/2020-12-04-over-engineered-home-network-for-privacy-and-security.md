@@ -11,20 +11,20 @@ description: How I used a UniFi Dream Machine, VLANs to segment IoT, Pi-Hole to 
 
 Back in April, when it looked like we were going to be spending some more time at home for a while, I decided to take on the project of upgrading my home Wi-Fi beyond an off-the-shelf consumer router. I'd been a Wirecutter devotee for almost as long as the site's been around and would have normally just grabbed their top pick, but I had just received [my SSCP (information security) certification](https://www.youracclaim.com/badges/7eb85996-c7fc-4c68-95df-fcd33ec445ba), and was looking for something a bit more advanced than the traditional plug-and-play setup to put my newly learned skills into practice.
 
-While most home networking setups generally do a decent job of protect you from threats from the outside trying to come in, they don't often do a great job of managing risks originating from within your own network. Specifically, I had a number of goals: 
+While most home networking setups generally do a decent job of protect you from threats from the outside trying to come in, they don't often do a great job of managing risks originating from within your own network. Specifically, I had a number of goals:
 
 * **Privacy** - Minimize websites, device manufacturers, and my internet provider's ability to track my activity or monetize my information across all my devices
 * **Security** - Block access to malicious sites to minimize the risk of human error, better understand how devices on my network are (mis)behaving, detect compromised devices, and limit their blast radius
-* **Don't trust internet of things (IoT) devices** - Smart home devices have a notoriously poor track record when it comes to security (and privacy). Beyond manufacturers' lax security practices and general lack of hardening, updates are rare, and are often a manual process, earning minimal trust in my book. 
+* **Don't trust internet of things (IoT) devices** - Smart home devices have a notoriously poor track record when it comes to security (and privacy). Beyond manufacturers' lax security practices and general lack of hardening, updates are rare, and are often a manual process, earning minimal trust in my book.
 * **Ads** - Blocking intrusive, targeted, and malware-laden ads across devices. While you can install an extension on a desktop browser, such ad blockers are often resource intensive, easy for advertisers to restrict, and do little for mobile devices where I do most of my "fun" browsing, not to mention, cannot restrict IoT tracking.
 * **It needs to "just work"** - Whatever solution I chose needed to be out-of-the-box or widely supported. No rooting, flashing new firmware, or modifying software which would lead to never-ending tinkering and could potentially introduce new vulnerabilities in the process.
 
-If you want to head down this route as well, it's relatively straightforward, but definitely a (fun) "project". You'll need some basic familiarity with home networking (understanding how things like DNS and IPs work), as well as being comfortable SSH-ing into a linux device and copying and pasting a few commands. 
+If you want to head down this route as well, it's relatively straightforward, but definitely a (fun) "project". You'll need some basic familiarity with home networking (understanding how things like DNS and IPs work), as well as being comfortable SSH-ing into a linux device and copying and pasting a few commands.
 
 Here's how I over-engineered my home network for privacy and security:
 
 * Contents
-{:toc}
+  {:toc}
 
 ### The router - UniFi Dream Machine
 
@@ -40,11 +40,11 @@ The primary driver for taking on that complexity was [segmenting IoT devices on 
 
 I created three VLANs each with their own subnet, SSID, and capabilities:
 
-| Network | Trust   | Capabilities                                                             |
-| ------- | ------- | ------------------------------------------------------------------------ |
-| Primary | Full    | Connect to the internet and other devices on the network                 |
-| IoT     | Minimal | Connect to the internet and respond to requests from the primary network |
-| Guest   | Zero    | Connect to the internet                                                  |
+| Network     | Trust   | Capabilities                                                             |
+| ----------- | ------- | ------------------------------------------------------------------------ |
+| Primary     | Full    | Connect to the internet and other devices on the network                 |
+| IoT         | Minimal | Connect to the internet and respond to requests from the primary network |
+| Guest       | Zero    | Connect to the internet                                                  |
 {: .table }
 
 There are [lots of great walkthroughs of the firewall rules](https://robpickering.com/ubiquiti-configure-micro-segmentation-for-iot-devices/) already out there, but in short you'll want to create firewall rules to (1) allow connections from the primary network to the IoT network, (2) allow established connections from the IoT network back to the primary network, and (3) block all other connections from the IoT network to the primary network. With that, you'll have three distinct networks, each with their own capabilities and level of trust.[^1]
@@ -55,7 +55,7 @@ Now it was time to address those pesky ads and trackers. [Pi-hole](https://pi-ho
 
 To install Pi-Hole on a Raspberry Pi, you can follow [these instructions](https://blog.cryptoaustralia.org.au/instructions-for-setting-up-pi-hole/), which should take a few minutes to flash the Raspbian operating system onto an SD card and install the Pi-Hole software with a single command and guided setup. At one point you'll be prompted to set a static IP. You could either use the one assigned and reserve it for the Pi via the UniFi UI (my recommendation), or segment the Raspberry Pi on its own subnet. Either way, you'll want to adjust your firewall rules to ensure all local devices can reach your Raspberry Pi on port 53 (DNS).
 
-If you followed the linked instructions, your Raspberry Pi should have a static IP, which you need to configure each VLAN to use as its DNS server under `Settings -> Networks -> Local Networks -> $NETWORK_NAME -> Edit -> DHCP Name Server`. 
+If you followed the linked instructions, your Raspberry Pi should have a static IP, which you need to configure each VLAN to use as its DNS server under `Settings -> Networks -> Local Networks -> $NETWORK_NAME -> Edit -> DHCP Name Server`.
 
 ### Cloudflared for DNS over HTTPS
 
@@ -110,7 +110,7 @@ If you want to take things even further, there are a few more customizations to 
 
 Almost nine months later, things are working better than expected. Wi-Fi speeds are fast (faster than my ISP advertises), ads are rare (I'm genuinely surprised when I see one), false positives are low (and easy to bypass), and I only accidentally unplugged the Raspberry Pi once (taking the entire network down in the process with it). It was a great project to put knowledge into practice (along with family GSuite and 1Password accounts, I recently heard it described as [rendering your home IT indistinguishable from a small business](https://twitter.com/rklau/status/1222674965951959040)), which I'd highly recommend if you're looking to level up your home-networking game, especially at a time when we're all spending more time at home working, browsing, and streaming.
 
-[^1]: One gotcha, however, you'll see an "apply guest policies" option when you configure the guest network, but that option doesn't do what you might be familiar with a more traditional consumer router. You'll also need to create a dedicated guest VLAN with the explicit "guest" purpose under advanced, and assign that VLAN to the Guest SSID to ensure client isolation. Once you've done that, you should see the guest firewall rules automatically propagate to segment out the guest network. 
+[^1]: One gotcha, however, you'll see an "apply guest policies" option when you configure the guest network, but that option doesn't do what you might be familiar with a more traditional consumer router. You'll also need to create a dedicated guest VLAN with the explicit "guest" purpose under advanced, and assign that VLAN to the Guest SSID to ensure client isolation. Once you've done that, you should see the guest firewall rules automatically propagate to segment out the guest network.
 
 [^2]: I've found cloudflared to me more user-friendly than [dnscrypt-proxy](https://github.com/DNSCrypt/dnscrypt-proxy) and easier to set up. dnscrypt-proxy does a lot that I didn't need (upstream resolver load balancing, Tor, anonymized relays, filtering, a DoH server, etc.) that came with added complexity to set up (for example, you can't just add your resolver's domain to the config, but need to use an online tool to create an [opaque DNS stamp](https://dnscrypt.info/stamps)). Cloudflared also has built-in automatic updates, which spoke to my it needs to "just work" goal. In an informal bakeoff between the two, performance seemed about the same with cloudflared maybe a few milliseconds faster on average. If anonymization from your upstream resolver is a priority for you, and you're willing to accept the complexity that comes with it, dnscrypt-proxy could work here equally as well.
 

@@ -185,4 +185,4 @@ echo $department->departmentname . '<br />';
 <?php $buildings = $gwapi->get_maps('academic'); ?>
 ```
 
-\[Photo: [atomicbartbeans](http://www.flickr.com/photos/atomicbartbeans/1430289931/)]
+[Photo: [atomicbartbeans](http://www.flickr.com/photos/atomicbartbeans/1430289931/)]

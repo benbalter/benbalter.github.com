@@ -27,7 +27,7 @@ That organically transparent process is not limited to changes to code. At GitHu
 
 ### Near-term convenience creates long-term communications debt
 
-I admit, as GitHub has grown, I’ve fallen astray and am guilty of starting a Slack DM, Google Doc, or Zoom meeting, tempted by the siren song of near-term efficiency that quickly hashing out a problem in private offers. Similar to how quick technical fixes often saddle an organization with ongoing technical debt, so too can communication shortcuts be an avoidable source of ongoing communications debt. 
+I admit, as GitHub has grown, I’ve fallen astray and am guilty of starting a Slack DM, Google Doc, or Zoom meeting, tempted by the siren song of near-term efficiency that quickly hashing out a problem in private offers. Similar to how quick technical fixes often saddle an organization with ongoing technical debt, so too can communication shortcuts be an avoidable source of ongoing communications debt.
 
 There's nothing wrong, per se, with using opaque-to-others tools like Slack, Google Docs, or Zoom, and in fact, [some times they are the best tool for the job](https://ben.balter.com/2020/08/14/tools-of-the-trade/), but all too often in reaching for such tools, we neglect to account for the organizational cost we incur in needing to subsequently, manually, and thoughtfully communicate outcomes to all those affected over time. For some, communicating a decision can be as straightforward as stating "we decided X" or "you must now do Y". This could be as simple as an email, Slack message, or brief update at the top of an in-person meeting, but at their core, these efforts all too often focus on the "what", even when the "why" or "how" isn't otherwise apparent to outsiders (and arguably given the long-tail of history, these are the more important bits of the decision worth preserving). Such seemingly innocuous, but unintentionally near-sighted and exclusionary forms of communication fail to budget for the true cost that those short-term efficiencies accrue.
 
@@ -68,7 +68,7 @@ There's a lot you get for "free" from such naturally transparent tools, but asyn
 * Set expectations around opportunities for feedback, improvement, or participation, if any
 * Explain the state of the decision (e.g., final, proposed), and when it will be revisited, if ever
 * Distill meeting recordings and chat transcripts to create a concise and easily consumed historic record
-* Avoid using "best practice", "industry standard", or "parent company/former employer does X" as a justification 
+* Avoid using "best practice", "industry standard", or "parent company/former employer does X" as a justification
 * Establish clear timelines and provide regular updates to avoid the perception that lack of visibility is lack of movement
 
 Absent working within systems that through their day-to-day use captures and exposes process, transparency takes effort, effort well worth the cost in the long run. When necessary, leaders should hold one another accountable for spending the additional cycles to show their work through communicating not only what decision was made, but also how the decision was made, and why. Showing one's work not only captures historic context, but also socializes organizational culture and values, helps grow the next generation of leaders, fuels engagement and continuous improvement, and establishes and maintains a high standard for decision making for the entire organization.

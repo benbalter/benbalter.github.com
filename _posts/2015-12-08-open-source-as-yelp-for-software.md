@@ -29,7 +29,7 @@ What if all software had public review forums like most restaurants do today? Th
 
 * **Perception** - Perception begins to play a role, and becomes a very visible metric to measure the project's success. Are there 100 open issues, all without a single comment? Are users posting frustrated comments due to their lack of attention? Do bug reports start "I love this app, but…"?
 
-* **Follow up** - That perception metric creates a disincentive for software publishers to ignore or minimize consumers' complaints. If you email support@company.com, they can ignore your email, and there's not much you can do about it. Worse yet, you have no way to know if they got 100 emails that day with the same request. When that conversation happens in the open, the publisher is all but forced to acknowledge the request for fear of appearing unsympathetic to user needs.
+* **Follow up** - That perception metric creates a disincentive for software publishers to ignore or minimize consumers' complaints. If you email <support@company.com>, they can ignore your email, and there's not much you can do about it. Worse yet, you have no way to know if they got 100 emails that day with the same request. When that conversation happens in the open, the publisher is all but forced to acknowledge the request for fear of appearing unsympathetic to user needs.
 
 * **Customer experience** - From that forced feedback mechanism flows a desire to optimize not for top-down requirements documents, but solving actual customer needs. Software consumers have a direct line and a formal say in the software publishers efforts, and customer-centric features and bugfixes often become prioritized as a result.
 

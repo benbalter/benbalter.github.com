@@ -19,9 +19,9 @@ CI is often trivial to set up for open source projects, especially if your proje
 
 One of the biggest improvements to open source community management in recent memory has been [Probot](https://probot.github.io) and subsequently the GitHub Actions inspired by it. Probot is an extensible framework for automating common tasks based on activity in your repository. With dozens of community-maintained apps, chances are whatever pain point or bottleneck your project is experiencing has already been experienced (and solved) by an open source maintainer.
 
-You can use Probot for things like welcoming first-time users, automatically closing stale issues, requesting more information, or even moderating toxic conversations. Better still, if your problem hasn’t been solved, Probot makes it easy to write your own app. Generally speaking, I'd recommend prototyping processes out manually to get a feel for what practices best support your community before automating them. 
+You can use Probot for things like welcoming first-time users, automatically closing stale issues, requesting more information, or even moderating toxic conversations. Better still, if your problem hasn’t been solved, Probot makes it easy to write your own app. Generally speaking, I'd recommend prototyping processes out manually to get a feel for what practices best support your community before automating them.
 
-Here are a few of my favorite Probot plugins and GitHub Actions for community management: 
+Here are a few of my favorite Probot plugins and GitHub Actions for community management:
 
 | Task                       | Probot Plugin                                                                                                          | GitHub Action                                                     |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
@@ -35,9 +35,9 @@ Here are a few of my favorite Probot plugins and GitHub Actions for community ma
 
 #### A note on Probot
 
-[Probot](https://probot.github.io/) is a great framework for building tools for automating many common maintainer workflows. It has an extensive plugin ecosystem for most common tasks, and can be installed to your repository with a single click, as plugins are distributed as hosted GitHub apps, running on the developers' infrastructure (often Heroku). 
+[Probot](https://probot.github.io/) is a great framework for building tools for automating many common maintainer workflows. It has an extensive plugin ecosystem for most common tasks, and can be installed to your repository with a single click, as plugins are distributed as hosted GitHub apps, running on the developers' infrastructure (often Heroku).
 
-Probot predates [GitHub Actions](https://github.com/features/actions), which allows you to run custom code in response to various repository events. Although the Actions ecosystem for automating common community management tasks is significantly smaller, many Probot plugins are being converted to GitHub Actions workflows. You can even [run existing Probot plugins on Actions](https://github.com/probot/actions-adapter) by adding them to your repository. 
+Probot predates [GitHub Actions](https://github.com/features/actions), which allows you to run custom code in response to various repository events. Although the Actions ecosystem for automating common community management tasks is significantly smaller, many Probot plugins are being converted to GitHub Actions workflows. You can even [run existing Probot plugins on Actions](https://github.com/probot/actions-adapter) by adding them to your repository.
 
 Whether you use Probot, a community-maintained Actions workflow, or your own Actions workflow is up to you, and largely depends on how much you're willing to trust a hosted tool versus being willing to stand up and maintain the execution environment yourself. The important thing is that you're automating common community management tasks.
 

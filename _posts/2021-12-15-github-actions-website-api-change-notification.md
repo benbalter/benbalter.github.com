@@ -13,13 +13,13 @@ If you find yourself needing to track when an API response (or web page) changes
 
 To set up the notify-on-changes GitHub Action to track changes to your own API or web page response, just follow these steps:
 
-1. Save the below snippet as a YAML file in the `.github/workflows/` folder (e.g., `.github/workflows/check.yml`) of a public or private GitHub repository. 
+1. Save the below snippet as a YAML file in the `.github/workflows/` folder (e.g., `.github/workflows/check.yml`) of a public or private GitHub repository.
 2. Swap out the `<URL YOU WANT TO CHECK HERE>` placeholder, for the actual API endpoint or web page URL you want to check.[^3]
 3. If you want to parse out the JSON response so that you can include a specific field or fields from the response in the notification you send yourself, modify the `jq` query. Otherwise, you can remove the "Parse data" step entirely.
 4. If using Twilio to receive notifications via text message, follow [the setup instructions](https://github.com/twilio-labs/actions-sms), saving the keys and phone numbers as [repository secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) and customizing the message for your use case. Otherwise, swap out the "Notify if data has changed" step to use your own notification mechanism.[^2]
 5. Commit and effortlessly receive notifications any time the response changes.
 
-### Example workflow 
+### Example workflow
 
 Here's the annotated YAML for the workflow I used, in its entirety:
 
@@ -74,5 +74,7 @@ jobs:
 I hope that my unnecessarily obsessive product tracking can help others to track status changes or generally save others from needlessly hitting refresh repeatedly for other reasons. If you do adapt the workflow for your own creative use, I'd love to hear about it. Happy change tracking!
 
 [^1]: In fact, the purchase arrived ahead of schedule, but I don't think I can give the workflow credit for that.
+
 [^2]: If you use a different notification mechanism, be sure to include the `if: steps.cache.outputs.cache-hit != 'true'` conditional, to ensure that the notification is only sent if the response has changed.
+
 [^3]: There's no reason it couldn't be an authenticated endpoint that you're checking, just be sure to store your API key as a [repository secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets), to keep the secret out of your codebase.

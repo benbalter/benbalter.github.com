@@ -81,8 +81,7 @@ certifications:
 
 ##### {{ certification.authority }}
 
-{% if certification.url %}
-<a href="{{ certification.url }}">{{ certification.name }}</a>
+{% if certification.url %} <a href="{{ certification.url }}">{{ certification.name }}</a>
 {% else %}
 {{ certification.name }}
 {% endif %}

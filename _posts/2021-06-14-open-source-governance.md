@@ -9,7 +9,7 @@ Successful open source projects are purposeful about not only how development is
 
 ### Organization-owned
 
-Open source projects of a certain maturity should be organization-owned. There a few reasons for this: 
+Open source projects of a certain maturity should be organization-owned. There a few reasons for this:
 
 First, many of GitHub's best community management tools are exclusive to organization-owned repositories. This is a feature intended to reduce the administrative complexity for smaller hobby projects that don't yet need advanced features like community content reporting. It's also an incentive to reduce your project's [bus factor](https://en.wikipedia.org/wiki/Bus_factor).
 
@@ -23,7 +23,7 @@ Supply chain attacks are a reality of modern software development. Without two-f
 
 ### Triage role
 
-In 2019, GitHub [introduced the `triage` role](https://github.blog/2019-10-03-delegate-responsibilities-with-expanded-repository-permissions/) to help maintainers share the burden of community management with the community. If a contributor proves their ability to drive technical discussions or lead development of your project, as the next step in the [contributor funnel](https://ben.balter.com/2020/05/15/set-open-source-contributors-up-for-success/#1-guide-users-down-the-contributor-funnel), you can empower them to take on additional issue management responsibilities without needing to also grant the ability to modify your project’s source code directtly or change potentially destructive repository settings. 
+In 2019, GitHub [introduced the `triage` role](https://github.blog/2019-10-03-delegate-responsibilities-with-expanded-repository-permissions/) to help maintainers share the burden of community management with the community. If a contributor proves their ability to drive technical discussions or lead development of your project, as the next step in the [contributor funnel](https://ben.balter.com/2020/05/15/set-open-source-contributors-up-for-success/#1-guide-users-down-the-contributor-funnel), you can empower them to take on additional issue management responsibilities without needing to also grant the ability to modify your project’s source code directtly or change potentially destructive repository settings.
 
 Specifically, contributors with the `triage` role can help keep things in your project organized by managing labels (such as adding `bug` or `feature` label), issue state (close, reopen, assign), milestones, pull request reviews, discussions, and marking issues as duplicate so that maintainers can focus on the trickier governance problems facing the project. Best of all, the `triage` role does not afford `write` project access, so it can be granted more liberally, with little risk to the code itself.
 

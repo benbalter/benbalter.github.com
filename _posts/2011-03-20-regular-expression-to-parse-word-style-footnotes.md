@@ -10,7 +10,7 @@ The process is surprisingly simple given [WordPress's extensive filter API](http
 ```php
 <?php
 //grab all the Word-style footnotes into an array
-$pattern = '#&lt;a href\\="#_ftnref([0–9-]+)">\[([0–9-]+)]</a> (.\*)#';
+$pattern = '#&lt;a href\\="#_ftnref([0–9-]+)">[([0–9-]+)]</a> (.\*)#';
 preg_match_all( $pattern, $content, $footnotes, PREG_SET_ORDER);
 ?>
 ```
@@ -21,8 +21,8 @@ This creates an array (`$footnotes`) with the both the footnote number and the t
 <?php
 //build find and replace arrays
 foreach ($footnotes as $footnote) {
- $find\[] = '#&lt;a href\\="#_ftn'.$footnote[1].'">\['.$footnote[1].']</a>#';
- $replace\[] = '[ref]' . str_replace( array("\\r\\n", "\\r", "\\n"), "", $footnote[3]) . '[/ref]';
+ $find[] = '#&lt;a href\\="#_ftn'.$footnote[1].'">['.$footnote[1].']</a>#';
+ $replace[] = '[ref]' . str_replace( array("\\r\\n", "\\r", "\\n"), "", $footnote[3]) . '[/ref]';
 }
 ?>
 ```
@@ -32,7 +32,7 @@ Finally, so that the entire replacement can be done in a single pass, push a fin
 ```php
 <?php
 //remove all the original footnotes when done
-$find[] = '#<div>\s*<a href\="\#_ftnref([0-9]+)">\[([0-9]+)\]</a> (.*)\s*</div>\s+#';
+$find[] = '#<div>\s*<a href\="\#_ftnref([0-9]+)">[([0-9]+)\]</a> (.*)\s*</div>\s+#';
 $replace[] = '';
 ?>
 ```

@@ -5,9 +5,9 @@ description: Successful open source projects do everything they can to set users
 
 {% include foss-at-scale.html nth="first" %}
 
-Successful open source projects do everything they can to set users up for success, well before that user ever interacts with their project for the first time. These projects ensure that users can discover and understand the project, that they can contribute constructively, and that everyone (maintainers included) will have a good experience. 
+Successful open source projects do everything they can to set users up for success, well before that user ever interacts with their project for the first time. These projects ensure that users can discover and understand the project, that they can contribute constructively, and that everyone (maintainers included) will have a good experience.
 
-If this is your first time managing a popular open source project (congrats! :tada:), or even if it's not and you could use a quick refresher, the [Building Welcoming Communities](https://opensource.guide/building-community/) and [Best Practices for Maintainers](https://opensource.guide/best-practices/) guides from [opensource.guide](https://opensource.guide/) are an incredible resource. 
+If this is your first time managing a popular open source project (congrats! :tada:), or even if it's not and you could use a quick refresher, the [Building Welcoming Communities](https://opensource.guide/building-community/) and [Best Practices for Maintainers](https://opensource.guide/best-practices/) guides from [opensource.guide](https://opensource.guide/) are an incredible resource.
 
 Beyond those high-level guides, here a few specific tips to keep in mind when setting up your project for healthy contributions:
 
