@@ -61,7 +61,7 @@ Additionally, even if your project doesn't have a license, just by posting your 
 
 ### Patents
 
-For most projects, you won't have to worry about patents. If you create an open source project that's already been implemented in another language, or something that isn't technically novel and non-obvious (e.g., a sidebar widget, a small helper library, etc.), chances are it's not [patentable](https://en.wikipedia.org/wiki/Patentability).
+For most projects, you won't have to worry about patents. If you create an open source project that's already been implemented in another language, or something that isn't technically novel and non-obvious (for example, a sidebar widget, a small helper library, etc.), chances are it's not [patentable](https://en.wikipedia.org/wiki/Patentability).
 
 Patents are a distinct legal right from copyright, but unlike copyright, you don't get one just for creating a thing. Think of patented software as inventing an entirely new technology (like the first site to have an online "shopping cart"). The idea being, that the government wants to reward inventors who create new things, by granting them the exclusive right to use that technology for a certain period of time. As an inventor, you may want to register your invention, to secure that right, and as a developer, you'll want to ensure your code does not infringe on a patent.
 
@@ -91,7 +91,7 @@ That said, if you're writing software for a major corporation or a promising sta
 
 If you found this post helpful, there are two other resources you may be interested in reading:
 
-* An overview of the best way to handle [copyright notices for open source projects](https://ben.balter.com/2015/06/03/copyright-notices-for-websites-and-open-source-projects/) in e.g., Licenses or the README, and
+* An overview of the best way to handle [copyright notices for open source projects](https://ben.balter.com/2015/06/03/copyright-notices-for-websites-and-open-source-projects/) in for example, Licenses or the README, and
 * A similar overview of [open source licensing geared towards government attorneys](https://ben.balter.com/2014/10/08/open-source-licensing-for-government-attorneys/)
 
 ### That said…

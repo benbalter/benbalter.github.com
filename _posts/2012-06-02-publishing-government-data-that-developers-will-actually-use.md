@@ -27,7 +27,7 @@ When providing a service, whether you are a waiter or a CIO, "the customer is al
 
 ### 6. Minimize the handshake learning curve
 
-Authentication may often be necessary, but the pain associated with it does not have to. Ensure that developers can easily register API keys, with minimal effort and without delay, and rely on common authentication frameworks (e.g., OAuth 2.0) to minimize the learning curve. Similarly, whenever practical, provide common API wrappers and other software development kits in multiple languages.
+Authentication may often be necessary, but the pain associated with it does not have to. Ensure that developers can easily register API keys, with minimal effort and without delay, and rely on common authentication frameworks (for example, OAuth 2.0) to minimize the learning curve. Similarly, whenever practical, provide common API wrappers and other software development kits in multiple languages.
 
 ### 7. Encourage adoption through documentation
 

@@ -39,6 +39,6 @@ Notes:
 
 [^4]: Full disclosure, some may argue that I myself risk falling off the bleeding edge of the technology adoption curve, after all, I text in [beta](https://developer.apple.com/), browse in [canary](http://tools.google.com/dlpage/chromesxs), and publish in [trunk](http://wordpress.org/download/svn/).
 
-[^5]: *See, e.g.,* Facebook using PHP, Twitter using Hadoop, and Google supporting Android and Chrome.
+[^5]: *See, for example,* Facebook using PHP, Twitter using Hadoop, and Google supporting Android and Chrome.
 
-[^6]: *See, e.g.,* [bloodletting](http://en.wikipedia.org/wiki/Bloodletting).
+[^6]: *See, for example,* [bloodletting](http://en.wikipedia.org/wiki/Bloodletting).

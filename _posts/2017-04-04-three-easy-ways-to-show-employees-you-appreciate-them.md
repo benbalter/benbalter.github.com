@@ -21,7 +21,7 @@ As a manager (or a coworker) one small thing you can do to make wherever it is t
 
 *How:* If you're connected with your coworker on LinkedIn (yeah, I know), the service will send you push notifications for your connections work milestones, but I don't recommend it. The easier route is to check internal social tools (at GitHub we have a blog-like platform called Team), or external announcements (for years we announced every new hire via the public blog).
 
-### Major lifecycle events (e.g., moving)
+### Major lifecycle events (for example, moving)
 
 *What*: The final easy way to show your fellow humans that you appreciate them as bona fide human beings is to recognize major lifecycle events. This can be anything as small as taking on a new hobby, or as big as shipping a human, a house, or a husband/wife. Are they going out to celebrate? Would their friend get them something to acknowledge it? Chances are you should too.
 

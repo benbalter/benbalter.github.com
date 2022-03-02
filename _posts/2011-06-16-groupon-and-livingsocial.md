@@ -15,7 +15,7 @@ Although Groupon's compulsory non-disclosure agreement renders the majority of t
 
 ### Legal Pitfalls
 
-The economics of the situation are only half the threat. Daily deals live in murky legal waters, and the sites often push small business into the deep end, rather than provide the necessary guidance. Basic economies of scale dictate that it would be significantly more efficient for Groupon or LivingSocial to establish a firm policy around the relevant legal issues (*e.g.,* "we do not offer discounts on alcohol in Chicago"), rather than require each small business to incur what most likely amounts to a relatively large expense (not to mention legal risk), effort duplicated across merchants and states.
+The economics of the situation are only half the threat. Daily deals live in murky legal waters, and the sites often push small business into the deep end, rather than provide the necessary guidance. Basic economies of scale dictate that it would be significantly more efficient for Groupon or LivingSocial to establish a firm policy around the relevant legal issues (*for example,* "we do not offer discounts on alcohol in Chicago"), rather than require each small business to incur what most likely amounts to a relatively large expense (not to mention legal risk), effort duplicated across merchants and states.
 
 As Benjamin Edelman and Paul Kominers [argue](http://www.benedelman.org/voucher-consumer-protection/#liability):
 

@@ -31,4 +31,4 @@ While [I'm generally a fan of preferring social constraints over administrative 
 
 [^1]: It's probably also a good idea to check "Require pull request reviews before merging" and "Require status checks to pass before merging", but those aren't strictly necessary for what we're doing
 
-[^2]: Even better, create a team, e.g., `core-committers` to make managing permissions across repositories even easier
+[^2]: Even better, create a team, for example, `core-committers` to make managing permissions across repositories even easier

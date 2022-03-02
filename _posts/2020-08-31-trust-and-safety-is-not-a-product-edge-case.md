@@ -31,8 +31,8 @@ It doesn't have to be that way. Prioritizing trust and safety efforts today will
 
 [^1]: A [study by the Anti-Defamation League](https://www.wired.com/story/severe-online-harassment-2018-adl-survey/) found that 1 in 3 Americans, and half of those 18–29 years old experience severe online harassment. 38% withdrew from the platform after the experience. GitHub's [open source survey](https://github.com/github/open-source-survey), found that 20% of users who experienced *or witnessed* negative interactions stopped contributing as a result.
 
-[^2]: I'd actually argue that when you look at the competitive advantage healthy, vibrant, and welcoming communities offer platforms (see, e.g., the ongoing TikTok acquisition), trust and safety *is* a revenue generating exercise, although hard to quantify, as it affects growth metrics indirectly, and is most visible when absent.
+[^2]: I'd actually argue that when you look at the competitive advantage healthy, vibrant, and welcoming communities offer platforms (see, for example, the ongoing TikTok acquisition), trust and safety *is* a revenue generating exercise, although hard to quantify, as it affects growth metrics indirectly, and is most visible when absent.
 
-[^3]: E.g., child sexual abuse material (CSAM) or terrorist and violent extremist content (TVEC).
+[^3]: for example, child sexual abuse material (CSAM) or terrorist and violent extremist content (TVEC).
 
 [^4]: All platforms eventually become vehicles for abuse. Even ARPANET, the precursor to the internet [had spam](https://en.wikipedia.org/wiki/History_of_email_spam#The_%22first_spam_email%22_in_1978). If you don't think your platform has abuse today, chances are it does, and you don't know it yet.

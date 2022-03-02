@@ -15,7 +15,7 @@ Simply put, Twitter is not a dumping ground for pre-vetted paper.[^3] The occasi
 
 *[Photo: [tranchis](http://www.flickr.com/photos/tranchis/3708549622/)]*
 
-[^1]: Without too much of a history lesson, see, e.g., Abraham Lincoln overseeing the Civil War from the telegraph office ushering in a new era of hands-on presidential leadership; home telephones giving rise to entire industries dedicated to interrupting families' dinners; Blackberrys changing business email etiquette.
+[^1]: Without too much of a history lesson, see, for example, Abraham Lincoln overseeing the Civil War from the telegraph office ushering in a new era of hands-on presidential leadership; home telephones giving rise to entire industries dedicated to interrupting families' dinners; Blackberrys changing business email etiquette.
 
 [^2]: Jimmy John's often frat-boy-esque vocabulary may push the limits of informal interactions with stakeholders, but none-the-less serves to promote their brand.
 

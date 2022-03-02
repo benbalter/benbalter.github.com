@@ -66,7 +66,7 @@ There's a lot you get for "free" from such naturally transparent tools, but asyn
 * Include what alternatives you evaluated and why they were ultimately dismissed
 * If it's not apparent, explain who was involved with the decision along with their roles
 * Set expectations around opportunities for feedback, improvement, or participation, if any
-* Explain the state of the decision (e.g., final, proposed), and when it will be revisited, if ever
+* Explain the state of the decision (for example, final, proposed), and when it will be revisited, if ever
 * Distill meeting recordings and chat transcripts to create a concise and easily consumed historic record
 * Avoid using "best practice", "industry standard", or "parent company/former employer does X" as a justification
 * Establish clear timelines and provide regular updates to avoid the perception that lack of visibility is lack of movement

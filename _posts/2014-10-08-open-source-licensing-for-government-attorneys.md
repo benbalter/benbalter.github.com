@@ -53,7 +53,7 @@ Any work derived from copyleft-licensed code, if distributed, must be distribute
 
 * **Derivative work** - There are nuances within the particular license, but for most cases, if the new code depends on the original, copyleft-licensed code, such as a WordPress theme or a Drupal module, it is considered a derivative work subject to the copyleft requirements.
 
-* **Distribution** - The copyleft requirements are not triggered unless the derivative work is distributed. Agencies are free to make derivative works and maintain that work as a closed-source project. When the underlying source code is published to the public, distribution is clear. Less clear is distribution to other business units within the same agency, or with other agency. Unless licensed under the AGPL license, using the code as part of a hosted service (e.g., a website) does not trigger that requirement.
+* **Distribution** - The copyleft requirements are not triggered unless the derivative work is distributed. Agencies are free to make derivative works and maintain that work as a closed-source project. When the underlying source code is published to the public, distribution is clear. Less clear is distribution to other business units within the same agency, or with other agency. Unless licensed under the AGPL license, using the code as part of a hosted service (for example, a website) does not trigger that requirement.
 
 When faced with copyleft restrictions, an agency should release code under the least-restrictive means available under the circumstances, which is often the copyleft license itself. While the government's particular code may not be subject to copyright (see below), the project as a whole is encumbered by upstream license restrictions, and thus the agency does not have the right to release the code under less-restrictive terms.
 
@@ -77,7 +77,7 @@ Code created by government employees on government time is consider a government
 
 The internet, and thus open source, however, is not bound by geographic lines. It is not uncommon for government created code to be used by foreign citizens. As such, the agency should make it explicit under what terms foreign citizens can use the code.
 
-[Best practices suggest](https://github.com/project-open-data/project-open-data.github.io/pull/135#issuecomment-23299819) that [agencies release their code](https://github.com/cfpb/qu/pull/94) under [the Creative Commons Zero license](https://creativecommons.org/publicdomain/zero/1.0/), a public domain dedication and copyright disclaimer, to ensure all downstream users receive the same rights in the software. Where not possible, (e.g., a copyleft derivative work), prefer the least-restrictive terms possible.
+[Best practices suggest](https://github.com/project-open-data/project-open-data.github.io/pull/135#issuecomment-23299819) that [agencies release their code](https://github.com/cfpb/qu/pull/94) under [the Creative Commons Zero license](https://creativecommons.org/publicdomain/zero/1.0/), a public domain dedication and copyright disclaimer, to ensure all downstream users receive the same rights in the software. Where not possible, (for example, a copyleft derivative work), prefer the least-restrictive terms possible.
 
 #### Contractor created code
 
@@ -93,7 +93,7 @@ Under the FAR, by default, the government receives unlimited rights in any softw
 
 A central tenet of open source software is contributing downstream improvements to the upstream open source project. Agency-created code should be no exception. While there may be a business decision to prohibit government employees from contributing to community projects on government time, nothing should prohibit them legally.
 
-Whether a contribution to the community-maintained project directly (e.g., contributing to WordPress or Drupal), or a derivative work (a plugin, theme, or module), agency contributions should be licensed under the terms of the parent project, using the project's standard workflow and distribution channels.
+Whether a contribution to the community-maintained project directly (for example, contributing to WordPress or Drupal), or a derivative work (a plugin, theme, or module), agency contributions should be licensed under the terms of the parent project, using the project's standard workflow and distribution channels.
 
 One thing to watch out for are contributor license agreements (CLAss) which may proscribe an explicit copyright grant (as opposed to a license), or the granting of additional rights beyond the copyright license, which may conflict with the contributor's obligations as a government employee.
 
@@ -103,7 +103,7 @@ Once published, there's a high probability a member of the public will submit a 
 
 * **Agency request** - As is common practice in the open source world, the agency may maintain a project roadmap and backlog of known bugs or potential enhancements, but should not directly instruct potential contributors to address a certain issue.
 
-* **License** - The proposed change (often in the form of a "pull request") is licensed under the same terms as the project itself (e.g., MIT, GPL, or CC0) and thus is independent open source software.[^1] The agency is free to incorporate that code into the government project, just as it is free to use any other open source code.
+* **License** - The proposed change (often in the form of a "pull request") is licensed under the same terms as the project itself (for example, MIT, GPL, or CC0) and thus is independent open source software.[^1] The agency is free to incorporate that code into the government project, just as it is free to use any other open source code.
 
 ### Open source community engagement platforms
 
@@ -118,7 +118,7 @@ For platforms like GitHub, per the terms of service, government employees should
 If you found this post helpful, there are two other resources you may be interested in reading:
 
 * A more expansive post on [open source licensing geared towards open source project maintainers ](https://ben.balter.com/2017/11/28/everything-an-open-source-maintainer-might-need-to-know-about-open-source-licensing/)
-* An overview of the best way to handle [copyright notices for open source projects](https://ben.balter.com/2015/06/03/copyright-notices-for-websites-and-open-source-projects/) in e.g., Licenses or the README, and
+* An overview of the best way to handle [copyright notices for open source projects](https://ben.balter.com/2015/06/03/copyright-notices-for-websites-and-open-source-projects/) in for example, Licenses or the README, and
 
 ### Go forth and open source
 

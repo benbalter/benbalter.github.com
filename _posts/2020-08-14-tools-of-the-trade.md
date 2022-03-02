@@ -65,7 +65,7 @@ Here's how I think about the tools we use to communicate at GitHub: **What** too
 
 ###### Slides
 
-* **When**: Briefings, proposals, and updates that summarize information captured by other means (e.g., Issues, Git).
+* **When**: Briefings, proposals, and updates that summarize information captured by other means (for example, Issues, Git).
 * **Who**: Leadership
 * **Why**: Short-form and easily digestible. Be sure to memorialize in-person decisions after the fact.
 

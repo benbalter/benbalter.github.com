@@ -13,7 +13,7 @@ Twitter Mentions as Comments does exactly what it promises to do – scours Twit
 * Checks automatically – no need to do a thing
 * Option to automatically exclude ReTweets
 * Option to store tweets as trackbacks/B
-* Option to specify which posts to check (e.g., 10 most recent posts, all posts, front page only)
+* Option to specify which posts to check (for example, 10 most recent posts, all posts, front page only)
 * Smart Caching of Tweets and user data – retrieves only what it needs to save on API calls and server load
 
 ### Planned Features
