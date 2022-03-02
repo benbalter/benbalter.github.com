@@ -40,6 +40,6 @@ Whether collaborating on code, data, or prose text, there are lots of different 
 
 **How it works:** You submit a pull request, that instead of requesting a merge into the `master` branch, requests that its changes be merged into a branch that is the basis of another pull request.
 
-**When to use it:** When you don't have write access to the source repository (e.g. open source), and would like to make substantial changes to an existing pull request created by another user. For smaller changes, use line-by-line comments with the proposed code.
+**When to use it:** When you don't have write access to the source repository (for example, open source), and would like to make substantial changes to an existing pull request created by another user. For smaller changes, use line-by-line comments with the proposed code.
 
 {% include github-culture.html %}

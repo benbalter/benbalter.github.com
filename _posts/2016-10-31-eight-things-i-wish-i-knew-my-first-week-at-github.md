@@ -47,7 +47,7 @@ As a GitHubber, you'll be presented with more opportunities to have a meaningful
 
 Given all the opportunities we have as a company and that you have as an individual, the challenge is in deciding what *not* to do (prioritizing lower lift, higher impact work), than deciding what to do.
 
-*Pro-tip*: Remind yourself that you have a limited amount of time, and that every minute you spend on a less impactful task is time you could be spending on the more impactful one. Write down the the top 3–5 things you think are most important to work on in the next year, and stick to them.
+*Pro-tip*: Remind yourself that you have a limited amount of time, and that every minute you spend on a less impactful task is time you could be spending on the more impactful one. Write down the top 3–5 things you think are most important to work on in the next year, and stick to them.
 
 ### 5. GitHub wants you to grow and learn
 

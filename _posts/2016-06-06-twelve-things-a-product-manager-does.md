@@ -41,7 +41,7 @@ Throughout a product's lifecycle, you'll generally see two types of tasks, those
 
 ### 9. Don't confuse measurable with important
 
-Organizations have a bad habit of confusing what's measurable or visible with what's important, and neglecting the immeasurable as a result. Just because something suddenly comes into focus, doesn't mean that that thing deserves your immediate focus. Gaining the ability to track page views for example, (and seeing how few there are) doesn't mean you should drop everything and shift to maximizing eyeballs. Your job as a product manager is to think purposefully about what metrics you should be collecting, what can't be quantified, and what you should be optimizing for, both today, and in the long run.
+Organizations have a bad habit of confusing what's measurable or visible with what's important, and neglecting the immeasurable as a result. Just because something suddenly comes into focus, doesn't mean that the thing deserves your immediate focus. Gaining the ability to track page views for example, (and seeing how few there are) doesn't mean you should drop everything and shift to maximizing eyeballs. Your job as a product manager is to think purposefully about what metrics you should be collecting, what can't be quantified, and what you should be optimizing for, both today, and in the long run.
 
 ### 10. Capture every idea in an issue backlog
 
