@@ -63,7 +63,7 @@ const retextSettings = {
     retextSyntaxMentions,
     retextSyntaxURLs,
     retextSimplify,
-    retextEquality``
+    retextEquality
   ]
 };
 
