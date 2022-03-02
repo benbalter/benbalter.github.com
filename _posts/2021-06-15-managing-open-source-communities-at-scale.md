@@ -1,6 +1,6 @@
 ---
 title: Advice for managing open source communities at scale
-description: As open source projects grow, maintainers' most pressing challenges often shift from the technical to the administrative as they transition from managing code to managing a community of contributors. 
+description: As open source projects grow, maintainers' most pressing challenges often shift from the technical to the administrative as they transition from managing code to managing a community of contributors.
 ---
 
 As open source projects grow and mature, maintainers' most pressing challenges often shift from the technical to the administrative as they transition from managing code to managing a community of contributors. When I was responsible for Community and Safety at GitHub, I advised countless organizations on not just how to manage open source projects, but how to manage open source projects *at scale*.

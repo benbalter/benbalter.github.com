@@ -1,5 +1,5 @@
 ---
-title: Using GitHub Actions to get notified when an API response (or web page) changes 
+title: Using GitHub Actions to get notified when an API response (or web page) changes
 description: A customizable GitHub Action workflow that uses cURL, jq, and Twilio to notify you via text message when a web page or API response changes.
 ---
 
