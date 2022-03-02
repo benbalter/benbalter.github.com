@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -e
-
 npm run lint-md
-bundle exec script/fix-tables
+
+echo "Cleaning up..."
+script/fix-lint

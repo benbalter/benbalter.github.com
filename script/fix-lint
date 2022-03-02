@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Fixes formatting broken by remark
+
+REGEXES = {
+  /\|\n\n(\s*?)\{/ => "|\n\1{",
+  "\\[" => "[",
+  "\\(" => "(",
+  "\\)" => ")",
+  "\\_" => "_",
+  /^\|\s*\{: (\.table.*?) \}.*$/ => '{: \1 }',
+  '\&' => '&'
+}
+
+REGEX = Regexp.union(REGEXES.keys)
+
+files = Dir['_posts/*'] + Dir['*.md']
+files.each do |path|
+  content = File.read(path)
+  next unless content.match? REGEX
+
+  REGEXES.each do |regex, replacement|
+    content.gsub!(regex, replacement)
+  end
+
+  content.delete!('')
+
+  File.write(path, content)
+end
