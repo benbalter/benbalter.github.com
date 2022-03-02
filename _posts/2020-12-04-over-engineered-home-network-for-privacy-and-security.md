@@ -5,7 +5,7 @@ description: How I used a UniFi Dream Machine, VLANs to segment IoT, Pi-Hole to 
 
 <div class="border border-primary p-2 mb-4">
   <p class="mb-0 text-center" markdown="1">
-    *Everything here remains true, but but after having relied on, optimized, and upgraded this configuration for a while, I decided [to re-over-engineering how I setup, maintain, and manage my home network]({{ "/2021/09/01/how-i-re-over-engineered-my-home-network/" | absolute_url }}) using Docker Compose, Ansible, and Caddy. Please do read on here, but rather than clicking through to the individual Pi-Hole or Cloudflared setup instructions on other sites, I recommend you check out [my newer post]({{ "/2021/09/01/how-i-re-over-engineered-my-home-network/" | absolute_url }}) which automates things for greater reliability instead.*
+    *Everything here remains true, but after having relied on, optimized, and upgraded this configuration for a while, I decided [to re-over-engineering how I setup, maintain, and manage my home network]({{ "/2021/09/01/how-i-re-over-engineered-my-home-network/" | absolute_url }}) using Docker Compose, Ansible, and Caddy. Please do read on here, but rather than clicking through to the individual Pi-Hole or Cloudflared setup instructions on other sites, I recommend you check out [my newer post]({{ "/2021/09/01/how-i-re-over-engineered-my-home-network/" | absolute_url }}) which automates things for greater reliability instead.*
   </p>
 </div>
 
