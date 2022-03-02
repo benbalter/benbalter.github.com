@@ -1,0 +1,50 @@
+settings:
+  bullet: "*"
+  emphasis: "*"
+  strong: "*"
+  fence: "`"
+  rule: "-"
+  ruleSpaces: false
+  ruleRepetition: 3
+  listItemIndent: one
+  fences: true
+plugins: 
+  - remark-preset-lint-consistent
+  - remark-preset-lint-markdown-style-guide
+  - remark-preset-lint-recommended
+  - remark-inline-links
+  - remark-gfm
+  - remark-lint-code
+  - remark-lint-match-punctuation
+  - remark-lint-mdash-style
+  - remark-lint-no-empty-sections
+  - remark-lint-write-good
+  - remark-squeeze-paragraphs
+  - - remark-frontmatter
+    - yaml
+  - - remark-lint-blockquote-indentation
+    - number: 2
+  - - remark-lint-first-heading-level
+    - false
+  - - remark-lint-link-title-style
+    - false
+  - - remark-lint-list-item-indent
+    - space
+  - - remark-lint-list-item-spacing
+    - false
+  - - remark-lint-maximum-heading-length
+    - false
+  - - remark-lint-maximum-line-length
+    - false
+  - - remark-lint-no-shortcut-reference-image
+    - false
+  - - remark-lint-no-shortcut-reference-link
+    - false
+  - - remark-lint-ordered-list-marker-value
+    - false
+  - - remark-lint-unordered-list-marker-style
+    - "*"
+  - - remark-message-control
+    - name: lint
+  - - remark-validate-links
+    - false
