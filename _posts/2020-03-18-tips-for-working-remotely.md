@@ -67,7 +67,7 @@ It's often said that it's hard to capture tone via electronic communications, bu
 
 ### 8. If it has a URL, link to it
 
-Simply put, if you reference something - be it prior discussion, a document, a specific comment or message, whatever — and [that thing has a URL](https://ben.balter.com/2015/11/12/why-urls/), it's your obligation to find that URL and make that reference a link. Even if the reader could theoretically search for it, you are infinitely more familiar with the thing you're referencing, and given a comment read by 5, 10, or 50 people, it's more efficient for you to look it up once, than for readers to look it up 50 times, even if it takes a few minutes to do so. Linking to another discussion creates a visible cross reference, meaning that just by commenting, you create an organic map of the organization's knowledge.
+Simply put, if you reference something - be it prior discussion, a document, a specific comment or message, whatever—and [that thing has a URL](https://ben.balter.com/2015/11/12/why-urls/), it's your obligation to find that URL and make that reference a link. Even if the reader could theoretically search for it, you are infinitely more familiar with the thing you're referencing, and given a comment read by 5, 10, or 50 people, it's more efficient for you to look it up once, than for readers to look it up 50 times, even if it takes a few minutes to do so. Linking to another discussion creates a visible cross reference, meaning that just by commenting, you create an organic map of the organization's knowledge.
 
 ### How you work is as important as what you work on
 

@@ -3,7 +3,7 @@ title: User blocking vs. user muting
 description: Most platforms offer some form of user blocking, user muting, or both. Here's a brief look at why GitHub has taken a bit of a unique approach to blocking that diverges from what you might see on other social networks and some of the special considerations that come as a result.
 ---
 
-Most platforms offer some form of user blocking, user muting, or both. Here's a brief look at why GitHub has taken a bit of a unique approach to blocking that diverges from what you might see on other social networks and some of the special considerations that come as a result. 
+Most platforms offer some form of user blocking, user muting, or both. Here's a brief look at why GitHub has taken a bit of a unique approach to blocking that diverges from what you might see on other social networks and some of the special considerations that come as a result.
 
 Typically, social networks offer at least two distinct user safety features which are roughly:
 
@@ -24,7 +24,7 @@ Because they can't see your content, the blocked user logically can't interact w
 
 Imagine a simpler time before social networks or even the internet. Now imagine one day, that an inventor comes along and hands everyone a megaphone. The megaphone allows anyone to shout anything they went, and when they do, anyone in earshot can hear it.
 
-The next day, one townsperson stands in the middle of the town's square and uses one of those megaphones to shout something terrible about you. The megaphone inventor is quick to give you ear plugs so that you don’t have to hear what they're saying (muting), but other people, namely your friends and neighbors still do, and not only is someone shouting into a megaphone all day likely disruptive to your friends' and neighbors' daily routines, the person with the megaphone is still saying terrible things about you - you just don’t know what they're saying (and thus can’t defend yourself).[^1] 
+The next day, one townsperson stands in the middle of the town's square and uses one of those megaphones to shout something terrible about you. The megaphone inventor is quick to give you ear plugs so that you don’t have to hear what they're saying (muting), but other people, namely your friends and neighbors still do, and not only is someone shouting into a megaphone all day likely disruptive to your friends' and neighbors' daily routines, the person with the megaphone is still saying terrible things about you - you just don’t know what they're saying (and thus can’t defend yourself).[^1]
 
 Now if the inventor makes the person saying all those terrible things wear some sort of special ear plugs that prevents them from hearing what you say (blocking), they can no longer respond or interact with you directly, but they're still welcome to shout all they want in that town square for all others to hear, and in most cases, could probably remove the ear plugs any time they wanted - far from ideal.
 

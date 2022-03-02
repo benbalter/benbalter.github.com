@@ -20,7 +20,7 @@ Once a user has taken steps to minimize their exposure to the abuse or harassmen
 
 ### 3. Hiding content
 
-You'll want some way to hide existing content. Ideally, you'd have the ability to hide both specific pieces of content and all content from a specific user, preventing their content from being seen by others. The moderation can be temporary (e.g., a spam flag) or permanent (e.g., deleting the content) and transparent or in the form of a [shadow ban](https://en.wikipedia.org/wiki/Shadow_banning) to prevent the actor from shifting tactics. Going a step further, for minor infractions or gray areas, you can reduce the visibility or discoverability of the objectionable content.
+You'll want some way to hide existing content. Ideally, you'd have the ability to hide both specific pieces of content and all content from a specific user, preventing their content from being seen by others. The moderation can be temporary (for example, a spam flag) or permanent (for example, deleting the content) and transparent or in the form of a [shadow ban](https://en.wikipedia.org/wiki/Shadow_banning) to prevent the actor from shifting tactics. Going a step further, for minor infractions or gray areas, you can reduce the visibility or discoverability of the objectionable content.
 
 ### 4. Preventing new content
 

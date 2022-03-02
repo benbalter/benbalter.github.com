@@ -11,7 +11,7 @@ Before this week, I, like I suspect most people, thought HTTPS was only for requ
 
 Whether a corporate firewall or a country-wide block, intercepting and screening an HTTPS-backed site becomes significantly harder. While an ISP or employer could easily stand up a proxy or other firewall to inspect and filter incoming traffic for objectionable content, if that traffic is encrypted, [the only datapoint exposed to third parties is the requested domain](https://gemfury.com/help/url-string-over-https), not what content you're requesting from the server.[^2]
 
-Typically, when you make a request to a website, the first step is to convert the human-readable domain name (e.g., `example.com`) to a computer-readable IP address (e.g, `93.184.216.34`) by querying your internet provider's domain server. Think of it like checking the yellow pages for a company's phone number. But if you're the internet provider, there's no reason you can't instruct your domain server to return no IP address, making it look like the requested domain simply doesn't exist, or worse, to return a malicious site in its place.
+Typically, when you make a request to a website, the first step is to convert the human-readable domain name (for example, `example.com`) to a computer-readable IP address (e.g, `93.184.216.34`) by querying your internet provider's domain server. Think of it like checking the yellow pages for a company's phone number. But if you're the internet provider, there's no reason you can't instruct your domain server to return no IP address, making it look like the requested domain simply doesn't exist, or worse, to return a malicious site in its place.
 
 If you want to block a particular piece of content on a site using HTTPS, say a blog post on WordPress.com, your only choice is to poison the DNS entry to block the entire site, as there's no way to know if the user's request is for objectionable or innocuous content. This forces a baby-with-the-bathwater choice and is exactly how most internet censorship is implemented today, at least on the state level.[^3]
 
@@ -23,7 +23,7 @@ Ironically, HTTPS is about more than keeping things hidden. It's about keeping t
 
 [^4]: While it's possible to block external DNS entirely, or to block certain IPs, this is exponentially more complex for for-profit, privately owned ISPs to implement, quickly becomes a game of whack-a-mole, and will almost undoubtedly be over inclusive, especially where CDNs or shared hosting is involved.
 
-[^1]: See, e.g., [Comcast injecting ads](http://arstechnica.com/tech-policy/2014/09/why-comcasts-JavaScript-ad-injections-threaten-security-net-neutrality/), [Verizon tracking mobile customers](https://www.eff.org/deeplinks/2014/11/verizon-x-uidh), and [spy agencies scrapping Angry Birds for personal data](https://www.propublica.org/article/spy-agencies-probe-angry-birds-and-other-apps-for-personal-data).
+[^1]: See, for example, [Comcast injecting ads](http://arstechnica.com/tech-policy/2014/09/why-comcasts-JavaScript-ad-injections-threaten-security-net-neutrality/), [Verizon tracking mobile customers](https://www.eff.org/deeplinks/2014/11/verizon-x-uidh), and [spy agencies scrapping Angry Birds for personal data](https://www.propublica.org/article/spy-agencies-probe-angry-birds-and-other-apps-for-personal-data).
 
 [^2]: For example, without HTTPS, an eavesdropper would see that you were reading `ben.balter.com/2015/01/06/https-all-the-things/`. With HTTPS, all they'd see is that you made an encrypted request to `ben.balter.com`.
 

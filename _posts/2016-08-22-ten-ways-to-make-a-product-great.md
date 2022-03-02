@@ -39,7 +39,7 @@ Once you've added a feature, you've entered an implicit but perpetual contract w
 
 I don't remember the last time I read a user manual, physical, software, or otherwise. It'd be unfair to assume your user has read your documentation, especially not if it's changed since they first started using your product six months, a year, or five years ago. Instead, every time you communicate with your user, being it copy around a setting's toggle, an error message, or blog post announcing a new feature, always provide a link to the relevant documentation in the form of a call to action. Any time you don't, you're pushing your user into a dead end that will likely result in both frustration and ultimately opening an issue or a support request. With every interaction, always provide the user with the next step in the form of a URL.
 
-*Example*: Every time you receive a build failure or warning from GitHub, we have continuous integration tests to ensure not only that that email has a link to the relevant documentation (and thus the remediation steps), but that the link is still valid. Additionally, most Pages interfaces have either explicit or implicit links to their relevant documentation for further explanation whenever we surface an error.
+*Example*: Every time you receive a build failure or warning from GitHub, we have continuous integration tests to ensure not only that the email has a link to the relevant documentation (and thus the remediation steps), but that the link is still valid. Additionally, most Pages interfaces have either explicit or implicit links to their relevant documentation for further explanation whenever we surface an error.
 
 ### 7. Be as lean as possible
 

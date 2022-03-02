@@ -88,7 +88,7 @@ First, unlike software tests where [pull requests are not mergable unless the bu
 
 > Think of this process like a syntax linter for your words: breaking the build isn't necessarily bad, per se, but it might give you suggestions you might want to incorporate. It gives you immediate feedback without requiring a lot of additional overhead by our blog editors.
 
-Second, also unlike software tests, which run the test suite against the entire software project, blog posts are not necessarily interrelated, nor do we need to enforce style retroactively across all files. As a result, blog tests are only run on those posts which the pull requests changes (e.g., the proposed post). If you're using Git, you can get a list of changed files with the `git diff` command. If we were to pipe it into the helper method implied above, you'd get something like:
+Second, also unlike software tests, which run the test suite against the entire software project, blog posts are not necessarily interrelated, nor do we need to enforce style retroactively across all files. As a result, blog tests are only run on those posts which the pull requests changes (for example, the proposed post). If you're using Git, you can get a list of changed files with the `git diff` command. If we were to pipe it into the helper method implied above, you'd get something like:
 
 ```ruby
 def posts

@@ -15,7 +15,7 @@ I primarily use GitHub [web notifications](https://github.com/notifications) to 
 
 #### @mentions are important
 
-I treat @mentions (when a colleague specifically mentions you by name) as high signal-to-noise and potentially blocking. @mentions go to email, which causes a desktop (and mobile) notification which I can easily ignore, or choose to immediately respond to, if necessary. This somewhat mirrors how Slack works by default, with @mentions causing a notification and messages in channels queueing up as unread until you have a chance to read them. 
+I treat @mentions (when a colleague specifically mentions you by name) as high signal-to-noise and potentially blocking. @mentions go to email, which causes a desktop (and mobile) notification which I can easily ignore, or choose to immediately respond to, if necessary. This somewhat mirrors how Slack works by default, with @mentions causing a notification and messages in channels queueing up as unread until you have a chance to read them.
 
 #### Watch liberally, unsubscribe frequently
 
@@ -39,7 +39,7 @@ To put that philosophy into practice, I have set the following settings via [`gi
 
 1. Enabled both email and Web notifications for all "participating" and "watching" conversations
 2. Under "Email notification preferences":
-   1. Set my "Default notification email" to my personal email to default non-work (e.g., open source) notifications to my personal inbox
+   1. Set my "Default notification email" to my personal email to default non-work (for example, open source) notifications to my personal inbox
    2. Enabled notifications for "Comments on Issues and Pull Requests" and "Pull Request reviews", but not pushes or my own updates
 3. Under "Custom routing", set custom organization routing rules to route work-related emails to my work email address
 
@@ -48,9 +48,9 @@ To put that philosophy into practice, I have set the following settings via [`gi
 Because I have both web and email notifications enabled (and there's no way to only get @mentions via email without also getting notifications for any thread you participate in), I use the following GMail filters to further customize how and when I receive GitHub notifications:
 
 * `from:(notifications@github.com) cc:mention@noreply.github.com` - Apply label "github/mention", Never send it to Spam, Mark it as important to ensure I get notifications for @mentions
-* `from:(notifications@github.com) cc:REASON@noreply.github.com` - Skip Inbox, Apply label "github/REASON" to ensure all non-@mentions are immediately archived
+* `from:(notifications@github.com) cc:REASON@noreply.github.com` - Skip Inbox, Apply label "github/REASON" to ensure all non-\@mentions are immediately archived
 
-You'll notice that GitHub cc's a specific email address based on the reason for the notification. In the second filter, you need to replace `REASON` with all of [the documented cc-able reasons](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications) and create one filter for each. If you don't care about applying the GMail labels/folders and are looking for something simpler, you can just use two filters, one `from:(notifications@github.com) -@USERANME` and one `from:(notifications@github.com) @USERNAME` to more easily segment mentions from other notifications. 
+You'll notice that GitHub cc's a specific email address based on the reason for the notification. In the second filter, you need to replace `REASON` with all of [the documented cc-able reasons](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications) and create one filter for each. If you don't care about applying the GMail labels/folders and are looking for something simpler, you can just use two filters, one `from:(notifications@github.com) -@USERANME` and one `from:(notifications@github.com) @USERNAME` to more easily segment mentions from other notifications.
 
 ### Tools
 

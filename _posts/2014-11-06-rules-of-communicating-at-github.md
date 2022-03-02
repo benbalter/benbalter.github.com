@@ -62,7 +62,7 @@ In practice, that means three things:
 
 ### 6. Use checklists to make blockers explicit
 
-In biz speak, we call them "action items". In GitHub speak, [we call them task lists](https://github.com/blog/1375%0A-task-lists-in-gfm-issues-pulls-comments). The intent is the same: make it explicit what needs to be done, and who's responsible for doing it. Curating an always-up-to-date task list at the top of an issue is a great way to clear up long or complex issues, or to create meta-issues for track large, multi-issue projects.
+In biz speak, we call them "action items". In GitHub speak, [we call them task lists](https://github.com/blog/1375%0A-task-lists-in-gfm-issues-pulls-comments). The intent is the same: make it explicit what needs to be done, and who's responsible for doing it. Curating an always-up-to-date task list at the top of an issue is a great way to clear up long or complex issues, or to create meta-issues for tracking large, multi-issue projects.
 
 In practice, link each action item to the associated issue, describe the task, and [@mention](https://github.com/blog/821-mention-somebody-they-re-notified) the person who's responsible. If you use the proper syntax, GitHub will render the task lists as checkable tasks, and various views will automatically show their completion.
 
@@ -116,7 +116,7 @@ In practice, that means opening a pull request against the relevant project, and
 
 Pull requests, and thus diffs are at the core of our workflow. Whether the change is to code, configuration, or prose text, being able to see exactly what's proposed, on an extremely granular level, without the need to download special software or leave my browser is key. If I can't see what you're proposing, there's no way for us to have a serious discussion on its merits.
 
-In practice, that means, as early as the drafting stage, preferring formats like Markdown and CSV over proprietary or binary formats like Word or Excel. Open formats not only allow for diffing, but also facilitate targeted discussions through line-by-line commenting. When that's not possible, e.g., when making tweaks to a site's design, provide before and after screenshots within the pull request body to minimize the burden on reviewers. Remember, you're asking others to take time out of their day to provide feedback on your proposed change. Optimize for their experience, not yours.
+In practice, that means, as early as the drafting stage, preferring formats like Markdown and CSV over proprietary or binary formats like Word or Excel. Open formats not only allow for diffing, but also facilitate targeted discussions through line-by-line commenting. When that's not possible, for example, when making tweaks to a site's design, provide before and after screenshots within the pull request body to minimize the burden on reviewers. Remember, you're asking others to take time out of their day to provide feedback on your proposed change. Optimize for their experience, not yours.
 
 ### 14. Pull requests are community property
 

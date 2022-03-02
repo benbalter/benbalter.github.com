@@ -20,7 +20,7 @@ redirect_from: 2011/08/29/document-management-version-control-for-wordpress/
 
 **Document History** - At each step of the authoring process, WP Document Revisions gives you an instant snapshot of your team's progress and the document's history. It even gives you the option to revert back to a previous revision — so don't fret if you make a mistake — or receive updates on changes to the document right in your favorite feed reader.
 
-**Access Control** - Each document is given a persistent URL (e.g., yourcompany.com/documents/2011/08/TPS-Report.doc) which can be private (securely delivered only to members of your organization), password protected (available only to those you select such as clients or contractors), or public (published and hosted for the world to see). If you catch a typo and upload a new version, that URL will continue to point to the latest version, regardless of how many changes you make.
+**Access Control** - Each document is given a persistent URL (for example, yourcompany.com/documents/2011/08/TPS-Report.doc) which can be private (securely delivered only to members of your organization), password protected (available only to those you select such as clients or contractors), or public (published and hosted for the world to see). If you catch a typo and upload a new version, that URL will continue to point to the latest version, regardless of how many changes you make.
 
 **Enterprise Security** - Worried about storing propriety or sensitive information? WP Document Revisions was built from the first line of code with government- and enterprise-grade security in mind. Each file is masked behind an anonymous 128-bit [MD5 hash](http://en.wikipedia.org/wiki/MD5) as soon as it touches the server, and requests for files are transparently routed through WordPress's time-tested URL rewriting, authentication, and permission systems (which can even [integrate with existing enterprise active directory](http://wordpress.org/extend/plugins/active-directory-integration/) or [LDAP servers](http://wordpress.org/extend/plugins/simple-ldap-login/)). Need more security? WP Document Revisions allows you to store documents in a folder above the `htdocs` or `public_html` [web root](http://httpd.apache.org/docs/2.0/mod/core.html#documentroot), further ensuring that only those you authorize have access to your work.
 
@@ -35,7 +35,7 @@ redirect_from: 2011/08/29/document-management-version-control-for-wordpress/
 * Provides a full file history in the form of a revision log, accessible via RSS
 * Helps you track and organize documents as they move through your organization's existing workflow
 * Each file gets a permanent, authenticated URL that always points to the latest version
-* Each revision gets its own unique URL (e.g.,TPS-Report-revision-3.doc) accessible only to those you deem
+* Each revision gets its own unique URL (for example,TPS-Report-revision-3.doc) accessible only to those you deem
 * Files are intuitively checked out and locked to prevent revisions from colliding
 * Toggle documents between public, private, and password protected with a single mouse click
 * Runs in-house or in the cloud

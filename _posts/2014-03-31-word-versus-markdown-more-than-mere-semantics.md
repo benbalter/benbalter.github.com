@@ -26,11 +26,11 @@ When you blindly optimize for one thing — appearances — behind the s
 
 Put another way, in taking a look at this [sample Word Document](https://github.com/benbalter/word-to-markdown/blob/master/test/fixtures/small-medium-large.docx?raw=true), given the same content represented identically in various formats, as little as less than one quarter of one percent of the file is actually dedicated to storing content:
 
-| Format   | Size        | %     |
-| :------- | :---------- | :---- |
-| Word     | 33621 bytes | 100%  |
-| HTML     | 1359 bytes  | 4.04% |
-| Markdown | 80 bytes    | 0.24% |
+| Format                                    | Size        | %     |
+| :---------------------------------------- | :---------- | :---- |
+| Word                                      | 33621 bytes | 100%  |
+| HTML                                      | 1359 bytes  | 4.04% |
+| Markdown                                  | 80 bytes    | 0.24% |
 {: .table .table-striped .w-50 .mx-auto }
 
 ### Exposing author intent

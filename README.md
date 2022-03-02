@@ -1,4 +1,4 @@
-# Ben.Balter.com
+# `Ben.Balter.com`
 
 [![Build Status](https://travis-ci.org/benbalter/benbalter.github.com.png?branch=master)](https://travis-ci.org/benbalter/benbalter.github.com)
 

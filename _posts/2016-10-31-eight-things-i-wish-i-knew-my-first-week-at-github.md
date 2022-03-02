@@ -42,12 +42,12 @@ That's okay. It happened to all of us. Honestly. There's a firehose of informati
 
 As a GitHubber, you'll be presented with more opportunities to have a meaningful impact on what you care about than you'll be able to take advantage of during your time at GitHub. That's true in two ways:
 
-1. GitHub itself presents a unique opportunity. The products we build are uniquely positioned to better the open source community, and in many ways, the software industry as a whole. 
+1. GitHub itself presents a unique opportunity. The products we build are uniquely positioned to better the open source community, and in many ways, the software industry as a whole.
 2. GitHub gives you a great deal of freedom in deciding what to work on. If there's something that you care about, and that thing is also something GitHub cares about, there's a good chance the organization will be receptive to you working on it.
 
 Given all the opportunities we have as a company and that you have as an individual, the challenge is in deciding what *not* to do (prioritizing lower lift, higher impact work), than deciding what to do.
 
-*Pro-tip*: Remind yourself that you have a limited amount of time, and that every minute you spend on a less impactful task is time you could be spending on the more impactful one. Write down the the top 3–5 things you think are most important to work on in the next year, and stick to them.
+*Pro-tip*: Remind yourself that you have a limited amount of time, and that every minute you spend on a less impactful task is time you could be spending on the more impactful one. Write down the top 3–5 things you think are most important to work on in the next year, and stick to them.
 
 ### 5. GitHub wants you to grow and learn
 
@@ -83,7 +83,7 @@ At the same time, be prepared to "unlearn" some prior habits and workflows. GitH
 
 ### Conclusion
 
-One of my favorite parts of working at GitHub is being able to talk to new GitHubbers. Looking back, these were eight things I wished I knew my first week, but they were my experience, and as GitHub continues to evolve, YMMV. In any case, new GitHubber, feel free to DM me any time, if you have a question. It's often helpful to be able to talk to someone outside your report structure, especially once you've passed the awkward "it's too late for me to ask their name" stage of onboarding. 
+One of my favorite parts of working at GitHub is being able to talk to new GitHubbers. Looking back, these were eight things I wished I knew my first week, but they were my experience, and as GitHub continues to evolve, YMMV. In any case, new GitHubber, feel free to DM me any time, if you have a question. It's often helpful to be able to talk to someone outside your report structure, especially once you've passed the awkward "it's too late for me to ask their name" stage of onboarding.
 
 Welcome to GitHub! I'm glad you're here.
 
@@ -93,4 +93,4 @@ Welcome to GitHub! I'm glad you're here.
 
 [^2]: As we've grown, this timeline has likely accelerated. Don't be worried if you hit this point sooner.
 
-[^3]: To the auditors out there reading this (👋), in hindsight, I'm not sure how realistic that non-aspiration was, but either way, since then we've added a number of developer-friendly technical and administrative controls. 
+[^3]: To the auditors out there reading this (👋), in hindsight, I'm not sure how realistic that non-aspiration was, but either way, since then we've added a number of developer-friendly technical and administrative controls.

@@ -2,15 +2,17 @@
   "filters": {},
   "rules": {
     "no-start-duplicated-conjunction": true,
-    "date-weekday-mismatch": true,
     "terminology": {
       "exclude": [
-        "HTML"
+        "HTML",
+        "ID",
+        "URL"
       ]
     },
     "diacritics": true,
-    "footnote-order": true,
+    "doubled-spaces": true,
     "@textlint-rule/no-unmatched-pair": true,
+    "@textlint-rule/no-duplicate-abbr": true,
     "common-misspellings": {
       "ignore": [
         "CLAs"
