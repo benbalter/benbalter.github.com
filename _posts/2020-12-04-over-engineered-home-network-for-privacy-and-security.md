@@ -24,7 +24,7 @@ If you want to head down this route as well, it's relatively straightforward, bu
 Here's how I over-engineered my home network for privacy and security:
 
 * Contents
-  {:toc}
+{:toc}
 
 ### The router - UniFi Dream Machine
 
