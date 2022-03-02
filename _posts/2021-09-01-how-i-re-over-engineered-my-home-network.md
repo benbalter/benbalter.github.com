@@ -26,7 +26,7 @@ If you want to head down [this route](https://github.com/benbalter/pi-hole-cloud
 * **One less point of failure** - Native DoH support meant I could eliminate cloudflared, while still using Cloudflare Teams as my upstream resolver.
 * **Config as code** - Settings are contained in a single YAML file that I could version and more easily deploy with Ansible.
 
-Pi-Hole has been around for longer and has a more established community, so again, you could be happy with either, but I've updated this post to reflect that since originally written, I now personally prefer and generally recomend AdGuard Home. With that, let's get on to the setup (which continues to work for both):
+Pi-Hole has been around for longer and has a more established community, so again, you could be happy with either, but I've updated this post to reflect that since originally written, I now personally prefer and generally recommend AdGuard Home. With that, let's get on to the setup (which continues to work for both):
 
 ### Docker Compose
 
@@ -37,7 +37,7 @@ For those unfamiliar, [Docker](https://www.docker.com) uses OS-level virtualizat
 At first, the added complexity might feel counter intuitive for what seems like a straightforward service management problem, but there are a number of notable advantages to using Docker here:
 
 * **Install without drama** - The standard install process for most projects is to follow the documentation until the instructions inevitably fail and then to paste random commands from the internet in to console until it inexplicably works. With Docker, I'm essentially outsourcing dependency and configuration management (through standardized build processes and pre-compiled images) to the projects' maintainers who know infinitely more about the ecosystem than I ever will.[^1]
-* **Isolation** - Docker isolates process from one another through defined compute, memory, and networking interfaces, which adds an additional layer of security and predictability. A vulnerability, bug, or misconfiguration in one service is less likely to affect another service if applications can only interact with one another through well-defined and well-understood paths. Think micro-services vs. monolith.
+* **Isolation** - Docker isolates process from one another through defined compute, memory, and networking interfaces, which adds an additional layer of security and predictability. A vulnerability, bug, or misconfiguration in one service is less likely to affect another service if applications can only interact with one another through well-defined and well-understood paths. Think microservices vs. monolith.
 * **Trusted underlying system** - Docker allows me to make the bare minimum changes to the base image. This is especially valuable when it comes to experimentation (for example, test whether I should use `unbound` instead of `cloudflared`?), being able to quickly and easily clean up short-lived containers without worrying if I unintentionally modified something of consequence or left behind unnecessary cruft.
 
 #### AdGuard Home `docker-compose.yml` file 
@@ -525,7 +525,7 @@ Eighteen months since [I originally over-engineered my home network](https://ben
 Now that my privacy- and security-centric home network is codified as code, [pull requests are welcome](https://github.com/benbalter/pi-hole-cloudflared-docker-compose-ansible-caddy)!
 
 [^1]: While pihole offers `armv7`/`armvf` (what the Raspberry Pi identifies as under the latest version of Raspberry OS) docker images, cloudflared does not, meaning you'll need to build cloudflared yourself. Unlike compiling from source and endless dependency drama, with a simple `docker build` and a few minute patience, you should be good to go.
-[^2]: The Ansible website doesn't make mention of, let alone link to to its open source repo, for some reason, but rest assured, it's an open source project under the freemium model, and the "community" edition will be enough to meet your needs of managing 1-2 devices.
+[^2]: The Ansible site doesn't make mention of, let alone link to to its open source repo, for some reason, but rest assured, it's an open source project under the freemium model, and the "community" edition will be enough to meet your needs of managing 1-2 devices.
 [^3]: In theory, a compromised device on my trusted network could sniff the credentials to the PiHole management interface resulting in a DNS poisoning attack. Regardless of the likelihood, it didn't feel right to spend so much time securing my network DNS, only to make the management credentials so readily available.
 [^4]: Ideally, I would have used Docker's native secret management, but secrets can only be exposed as a file, not an environmental variable which Caddy expects. I used a narrowly scoped API token to mitigate the risk.
 [^5]: I may have been using the non-"lite" Raspberry Pi image previously (which includes desktop components), but without a version-controlled system definition, I ironically, have no way to be sure, and thus no accurate performance baseline to compare.
