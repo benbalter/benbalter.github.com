@@ -55,9 +55,9 @@ redirect_from: 2011/08/29/document-management-version-control-for-wordpress/
 * **State Change Notification** - how to use document API to allow users to receive notification whenever documents change workflow state
 * **Bulk Import** - how to batch import a directory (or other list) of files as documents
 * **file type Taxonomy** - Adds support to filter by file type
-* **Track Changes** - Auto-generates and appends revision summaries for changes to taxonomies, title, and visibility
+* **Track Changes** - Autogenerates and appends revision summaries for changes to taxonomies, title, and visibility
 * **Remove Workflow States** - Completely removes Workflow state taxonomy backend and UI
-* **Change Tracker** - Auto-generates and appends revision summaries for changes to taxonomies, title, and visibility
+* **Change Tracker** - Autogenerates and appends revision summaries for changes to taxonomies, title, and visibility
 
 ### Translations
 

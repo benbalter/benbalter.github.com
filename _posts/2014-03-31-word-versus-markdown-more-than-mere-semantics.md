@@ -35,7 +35,7 @@ Put another way, in taking a look at this [sample Word Document](https://github.
 
 ### Exposing author intent
 
-Once content and presentation are decoupled, content written for the web exposes author intent through semantic markup — markup which describes the relationship between elements, not simply their visual representation. It's not simply that a given line is bold or a larger font size, but memorialized in the document itself is that that given line is a heading, a heading which describes the content that follows.
+Once content and presentation are decoupled, content written for the web exposes author intent through semantic markup — markup which describes the relationship between elements, not simply their visual representation. It's not simply that a given line is bold or a larger font size, but memorialized in the document itself is that the given line is a heading, a heading which describes the content that follows.
 
 Take a look at how Markdown represents an unordered list, for example:
 
