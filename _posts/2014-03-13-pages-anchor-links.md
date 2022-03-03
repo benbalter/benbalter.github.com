@@ -9,7 +9,7 @@ When you send someone one of the resulting anchor URLs, which includes the name 
 
 As long as you're using Jekyll and authoring your content in Markdown, you can actually achieve this feature on GitHub Pages much easier than you might expect:
 
-**Edit (5/10/2015):** @bryanbraun has created the awesome AnchorJS library. I'd suggest you [just use that](https://github.com/bryanbraun/anchorjs#installation), instead of creating your own implementation.
+**Edit (May 10, 2015):** @bryanbraun has created the awesome AnchorJS library. I'd suggest you [just use that](https://github.com/bryanbraun/anchorjs#installation), instead of creating your own implementation.
 
 ### Font Awesome and jQuery
 

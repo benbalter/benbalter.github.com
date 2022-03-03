@@ -19,6 +19,9 @@ script/remark
 title "checking text"
 script/lint-text
 
+title "checking vale"
+script/vale
+
 title "checking site"
 bundle exec rake test
 

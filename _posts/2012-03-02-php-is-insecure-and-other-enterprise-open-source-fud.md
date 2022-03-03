@@ -19,7 +19,7 @@ It's next to impossible to say a given language is "insecure." That'd be like sa
 >
 > Bob thinks Alice is nuts. Why tell people how your lock works? They'll just pick it more easily.
 >
-> Fine, says Alice, good luck keeping your design a secret. It's going to get out, no matter what you do. And frankly, Bob, your lock probably isn't all that great. Okay, neither is mine. Not yet. But now that it's published, people will suggest improvements. Students will do Ph.D. dissertations on making it better. Companies will compete to develop stronger versions. And long after your design has leaked, and instructions for picking it are all over the Internet, my vastly improved lock will be far more secure. Even though everybody will know how it works.
+> Fine, says Alice, good luck keeping your design a secret. It's going to get out, no matter what you do. And frankly, Bob, your lock probably isn't all that great. Okay, neither is mine. Not yet. But now that it's published, people will suggest improvements. Students will do PhD dissertations on making it better. Companies will compete to develop stronger versions. And long after your design has leaked, and instructions for picking it are all over the Internet, my vastly improved lock will be far more secure. Even though everybody will know how it works.
 
 Put another way, unlike many of its commercial counterparts for which obfuscation is a security staple, open source relies on inherently sound security practices to ensure that whatever you want to remain private, remains private.
 
