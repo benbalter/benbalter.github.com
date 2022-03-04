@@ -1,6 +1,6 @@
 ---
 title: 15 rules for communicating at GitHub
-description: Asynchronous communication through high-fidelity mediums like issues and chat eliminate the endemic 'you had to be there' aspect of most corporate workflows, and reduces the need for a dedicated management class to capture, collection, and shuttle information back and forth between business units.
+description: Asynchronous communication through high-fidelity mediums like issues and chat eliminate the endemic "you had to be there" aspect of most corporate workflows, and reduces the need for a dedicated management class to capture, collection, and shuttle information back and forth between business units.
 redirect_from: "/2014/11/03/rules-of-communicating-at-github/"
 ---
 
