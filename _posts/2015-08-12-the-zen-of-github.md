@@ -55,4 +55,4 @@ xhr.open('GET', 'https://api.github.com/octocat');
 xhr.send();
 </script>
 
-{% include github-culture.html %}
+{% include_cached github-culture.html %}

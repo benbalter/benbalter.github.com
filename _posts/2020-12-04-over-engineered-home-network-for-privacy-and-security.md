@@ -3,11 +3,10 @@ title: How I over-engineered my home network for privacy and security
 description: How I used a UniFi Dream Machine, VLANs to segment IoT, Pi-Hole to block ads, cloudflared for DNS over HTTPS, and Cloudflare Gateway to block malware/phishing to (over) optimize my home network for privacy and security.
 ---
 
-<div class="border border-primary p-2 mb-4">
-  <p class="mb-0 text-center" markdown="1">
-    *Everything here remains true, but after having relied on, optimized, and upgraded this configuration for a while, I decided [to re-over-engineering how I setup, maintain, and manage my home network]({{ "/2021/09/01/how-i-re-over-engineered-my-home-network/" | absolute_url }}) using Docker Compose, Ansible, and Caddy. Please do read on here, but rather than clicking through to the individual Pi-Hole or Cloudflared setup instructions on other sites, I recommend you check out [my newer post]({{ "/2021/09/01/how-i-re-over-engineered-my-home-network/" | absolute_url }}) which automates things for greater reliability instead.*
-  </p>
-</div>
+{% capture update %}
+  Everything here remains true, but after having relied on, optimized, and upgraded this configuration for a while, I decided <a href="{{ "/2021/09/01/how-i-re-over-engineered-my-home-network/" | absolute_url }}" class="alert-link">to re-over-engineering how I setup, maintain, and manage my home network</a> using Docker Compose, Ansible, and Caddy. Please do read on here, but rather than clicking through to the individual Pi-Hole or Cloudflared setup instructions on other sites, I recommend you check out <a href="{{ "/2021/09/01/how-i-re-over-engineered-my-home-network/" | absolute_url }}" class="alert-link">my newer post</a> which automates things for greater reliability instead.
+{% endcapture %}
+{% include callout.html content=update %}
 
 Back in April, when it looked like we were going to be spending some more time at home for a while, I decided to take on the project of upgrading my home Wi-Fi beyond an off-the-shelf consumer router. I'd been a Wirecutter devotee for almost as long as the site's been around and would have normally just grabbed their top pick, but I had just received [my SSCP (information security) certification](https://www.youracclaim.com/badges/7eb85996-c7fc-4c68-95df-fcd33ec445ba), and was looking for something a bit more advanced than the traditional plug-and-play setup to put my newly learned skills into practice.
 

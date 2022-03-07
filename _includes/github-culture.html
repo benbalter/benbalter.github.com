@@ -1,5 +1,6 @@
-<div class="border border-primary p-2 mb-4">
-  <p class="mb-0 text-center" markdown="1">
-    *Interested in learning more about how GitHub works and what it’s like to be a GitHubber?<br />[Check out these popular posts on GitHub’s culture and communication patterns]({{ "/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/" | absolute_url }}).*
-  </p>
-</div>
+{% capture content -%}
+Interested in learning more about how GitHub works and what it's like to be a GitHubber?<br />
+<a href="{{ "/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/" | absolute_url }}" class="alert-link">Check out these popular posts on GitHub's culture and communication patterns</a>.
+{%- endcapture %}
+
+{% include callout.html content=content %}

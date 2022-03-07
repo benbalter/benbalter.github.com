@@ -1,5 +1,5 @@
-<div class="border border-primary p-2 mb-4">
-  <p class="mb-0 text-center" markdown="1">
-    *This is the {{ include.nth }} post in [a series on successfully managing open source communities at scale]({{ "/2021/06/15/managing-open-source-communities-at-scale/" | absolute_url }}).*
-  </p>
-</div>
+{% capture content -%}
+This is the {{ include.nth }} post in <a href="{{ "/2021/06/15/managing-open-source-communities-at-scale/" | absolute_url }}" class="alert-link">a series</a> on successfully managing open source communities at scale.
+{%- endcapture %}
+
+{% include callout.html content=content %}
