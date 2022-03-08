@@ -1,6 +1,6 @@
 ---
 title: 15 rules for communicating at GitHub
-description: Asynchronous communication through high-fidelity mediums like issues and chat eliminate the endemic 'you had to be there' aspect of most corporate workflows, and reduces the need for a dedicated management class to capture, collection, and shuttle information back and forth between business units.
+description: Asynchronous communication through high-fidelity mediums like issues and chat eliminate the endemic "you had to be there" aspect of most corporate workflows, and reduces the need for a dedicated management class to capture, collection, and shuttle information back and forth between business units.
 redirect_from: "/2014/11/03/rules-of-communicating-at-github/"
 ---
 
@@ -140,6 +140,6 @@ Simply put, if you reference something - be it prior issue, the pull request tha
 
 All that said, the first rule of GitHub, is that there are few hard-and-fast rules at GitHub. We often prefer cultural norms to administrative, policy, or technical constraints because they remain flexible over time as circumstances change. These 15 "rules" for how we communicate at GitHub aren't necessarily written rules, at least not in the GitHub sense, but are my best attempt to surface the current state of our communications culture.
 
-{% include github-culture.html %}
+{% include_cached github-culture.html %}
 
 **Edit (September 1, 2016)**: Added the second bonus.

@@ -108,7 +108,6 @@ collections:
 
 nav_pages:
   - index.html
-  - talks.md
   - about.md
   - contact.md
 

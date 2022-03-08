@@ -1,6 +1,6 @@
 ---
 title: The seven habits of highly effective GitHubbers
-description: GitHub has a unique work culture. Here are seven traits that I've observed in successful GitHubbers over the years that I think make GitHubbers more effective. YMMV.
+description: GitHub has a unique work culture. Here are seven traits that I've observed in successful GitHubbers over the years that I think make GitHubbers more effective.
 ---
 
 I started working at GitHub when we were just over a hundred employees. A few weeks ago, we passed 600. A lot has changed, including the people (and my role several times), but a lot has also remained the same. GitHub has a unique work culture, and as I recently struggled to describe that culture to my coworkers, I decided instead to document some of the common traits I've consistently observed in successful GitHubbers. There are likely more than seven, but I couldn't pass up the title, so here are at least *some* of the qualities that I think make GitHub employees more effective, and ultimately more successful:
@@ -49,7 +49,7 @@ While here in the Beltway there may be a strong tradition of gushing "it's so gr
 
 These are some of the common traits that I've witnessed in successful GitHubbers over the years. Your millage may vary, but as I try to describe some of the more unique aspects of GitHub's work culture, I figured I'd share my observations in hopes that they help make you more effective as well, both in GitHub, and out.
 
-{% include github-culture.html %}
+{% include_cached github-culture.html %}
 
 [^2]: Case in point, I wore a suit for the majority of my first three years at GitHub. I also used words like "heretofore" a lot. Even in our legal writing, we strive for human readability over tradition or obfuscation by legalese.
 

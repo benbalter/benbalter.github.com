@@ -110,7 +110,7 @@ const remarkConfig = {
     remarkLintMatchPunctuation,
     remarkLintMdashStyle,
     remarkLintNoEmptySections,
-    //remarkLintWriteGood,
+    remarkLintWriteGood,
     remarkPresetLintConsistent,
     remarkPresetLintMarkdownStyleGuide,
     remarkPresetLintRecommended,
