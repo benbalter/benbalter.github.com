@@ -79,7 +79,7 @@ As I first began settling in, I struggled to get a sense of what a Chief of Staf
 
 [^2]: I [define](https://ben.balter.com/2016/06/06/twelve-things-a-product-manager-does/#5-communicate-coordinate-and-facilitate) meta-work as the work necessary to unblock shipping. It's organizational yak shaving, if you're familiar with the more common engineering term.
 
-[^3]: Earlier in my career, I'd explicitly avoid gossip and other water cooler talk. [As a Program Manager](https://ben.balter.com/2021/03/26/nine-things-a-technical-program-manager-does/#5-relationship-management) and now as a Chief Of Staff, I see it is not only acceptable, but a requirement of the job to be able to hear the otherwise unstated.
+[^3]: Earlier in my career, I'd explicitly avoid gossip and other water cooler talk. [As a Program Manager](https://ben.balter.com/2021/03/26/nine-things-a-technical-program-manager-does/#5-relationship-management) and now as a Chief of Staff, I see it is not only acceptable, but a requirement of the job to be able to hear the otherwise unstated.
 
 [^4]: Yes, technically Josh was a *deputy* Chief of Staff. I also technically had a few arms-length interactions with non-fictional congressional and agency Chiefs of Staff from my time in government, but even then, the *focus* of the role differs that of the private sector.
 
