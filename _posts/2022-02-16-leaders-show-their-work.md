@@ -74,6 +74,8 @@ Absent working within systems that through their day-to-day use captures and exp
 
 While I still agree [everything should have a URL](https://ben.balter.com/2015/11/12/why-urls/), how we go about thoughtfully creating and curating the content within those URLs - rich with high-value historic context, a gift for others and our future selves - matters more than the fact that the URL itself exists.
 
+{% include_cached github-culture.html %}
+
 [^1]: I use the term "management" here broadly. Yes, this could be a people manager, but the concept applies equally to product managers, program managers, and individual contributors in leadership roles. At GitHub, we have the concept of directly responsible individual (DRI), a role regardless of position within the organization for which visibility of work is an explicit expectation.
 [^2]: A small team may experience minor communication costs in terms of say weekly meetings and daily standups, but as teams and companies grow, the cost of traversing that network layer adds up, rendering absolute participation in decision-making practically impossible.
 [^3]: Since it requires a human [extract, transform, and load](https://www.ibm.com/cloud/learn/etl) operation to shuttle information from one reporting structure to the next
