@@ -25,11 +25,11 @@ As a CXO's office matures, this may begin as an office of one (the Chief), but c
 
 ### 2. Improve organization effectiveness
 
-If there's one thing that describes the value a Chief of Staff brings to an organization, it's "effectiveness".
+If there's one thing that describes the value a Chief of Staff brings to an organization, it's "effectiveness". Unlike other roles, it's not enough for the Chief themselves to be effective, but rather they are expected to improve the effectiveness of the CXO, the organization's leadership team, and the organization as a whole. Specifically:
 
 * **CXO effectiveness** - Serving as a formal and informal gatekeeper to ensure that the CXO is spending their time on the right things. The Chief has the sense to know what to keep "front of mind" for the CXO, and what falls into "I'll let you know if you need to get involved" territory.
 * **Leadership team effectiveness** - Improving the effectiveness of CXO's direct reports (the Chief's peers). This may involve everything from preparing meeting agendas and planning team off sites to establishing communication patterns and cadence to fostering better interpersonal dynamics.
-* **Process effectiveness** - Somewhat similar to a Product Manager, the Chief often learns the nuances of a specific area of the business in order to debug particular systems or processes, identify [problems](https://ben.balter.com/2018/07/16/problems-not-solutions/) and other sources of [friction](https://ben.balter.com/2013/08/11/friction/) affecting internal customers, and implementing technical or non-technical improvements to get it to a better steady state, before moving on to the next least efficient area of the business.
+* **Business effectiveness** - Somewhat similar to a Product Manager, the Chief often learns the nuances of a specific area of the business in order to debug particular systems or processes, identify [problems](https://ben.balter.com/2018/07/16/problems-not-solutions/) and other sources of [friction](https://ben.balter.com/2013/08/11/friction/) affecting internal customers, and implementing technical or non-technical improvements to get it to a better steady state, before moving on to the next least efficient area of the business.
 
 ### 3. Boundaryless engagement
 
