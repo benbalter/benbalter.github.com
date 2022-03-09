@@ -1,6 +1,6 @@
 ---
 title: The seven things a corporate Chief of Staff does
-description: Chiefs of Staff manage the office of the CXO, improve organization effectiveness, solve problems without regard for organizational boundaries, manage the CXO's portfolio of responsibilities, shape organizational strategy and culture, serve as trusted counsel to the CXO, and manage the CXO and the organization's relationships and brand.
+description: Chiefs of Staff [manage the office of the CXO](#1-manage-the-office-of-the-cxo), [improve organization effectiveness](#2-improve-organization-effectiveness), [solve problems without regard for organizational boundaries](#3-boundaryless-engagement), [manage the CXO's portfolio of responsibilities](#4-portfolio-management), [shape organizational strategy and culture](#5-strategy-planning-culture-and-values), [serve as trusted counsel to the CXO](#6-advisor-and-confidant), and [manage the CXO and the organization's relationships and brand](#7-relationship-and-brand-management).
 ---
 
 The Chief Of Staff role is often poorly understood and difficult to define. Before becoming one myself, I had little appreciation for the role beyond watching fictional characters like Leo McGarry and Josh Lyman on the West Wing,[^4] but as I’ve been settling into this new-to-me role, I’ve been thinking critically about what a corporate Chief of Staff does day-to-day and how they uniquely bring value to their principal or executive (whom I'll generally call "CXO" here[^1]) and to the organization they support.
