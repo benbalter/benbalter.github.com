@@ -83,6 +83,6 @@ As I first began settling in, I struggled to get a sense of what a Chief of Staf
 
 [^4]: Yes, technically Josh was a *deputy* Chief of Staff. I also technically had a few arms-length interactions with non-fictional congressional and agency Chiefs of Staff from my time in government, but even then, the *focus* of the role differs that of the private sector.
 
-[^5]: As a former peer and I used to joke of these types of problems, they're the type that are often represented by 2x2 matrices or other frameworks one might expect to be taught in business school.
+[^5]: As a former peer and I used to joke of these types of problems, they're the type that are often best represented by 2x2 matrices or other frameworks one might expect to be taught in business school.
 
 [^6]: The ["Kinds of projects \[Chief of Staff Team\] to the CEO works on"](https://about.gitlab.com/handbook/ceo/chief-of-staff-team/#what-projects-does-the-cost-work-on) section of Git**Lab**'s handbook, does a really great job of enumerating this particular aspect of the Chief of Staff's role.
