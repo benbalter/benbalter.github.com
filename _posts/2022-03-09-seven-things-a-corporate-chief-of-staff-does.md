@@ -81,7 +81,7 @@ As I first began settling in, I struggled to get a sense of what a Chief of Staf
 
 [^3]: Earlier in my career, I'd explicitly avoid gossip and other water cooler talk. [As a Program Manager](https://ben.balter.com/2021/03/26/nine-things-a-technical-program-manager-does/#5-relationship-management) and now as a Chief of Staff, I see it is not only acceptable, but a requirement of the job to be able to hear the otherwise unstated.
 
-[^4]: Yes, technically Josh was a *deputy* Chief of Staff. I also technically had a few arms-length interactions with non-fictional congressional and agency Chiefs of Staff from my time in government, but even then, the *focus* of the role differs that of the private sector.
+[^4]: Yes, technically Josh was a *deputy* Chief of Staff. I also technically had a few arms-length interactions with non-fictional congressional and agency Chiefs of Staff from my time in government, but even then, the *focus* of the role differs from that of the private sector.
 
 [^5]: As a former peer and I used to joke of these types of problems, they're the type that are often best represented by 2x2 matrices or other frameworks one might expect to be taught in business school.
 
