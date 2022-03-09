@@ -1,6 +1,6 @@
 ---
 title: The six types of pull requests you see on GitHub
-description: Whether collaborating on code, data, or prose text, there are lots of different strategies for using pull requests on GitHub.
+description: Whether collaborating on code, data, or prose text, there are lots of different strategies for using pull requests on GitHub.  Specifically, [just a heads up](#just-a-heads-up), [sanity check](#sanity-check), [work in progress (WIP)](#work-in-progress-wip), [early feedback](#early-feedback), [line-by-line review](#line-by-line-review), and [pull request to a pull request](#pull-request-to-a-pull-request)."
 redirect_from: "/2014/12/08/types-of-pull-requests/"
 ---
 
