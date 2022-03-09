@@ -1,6 +1,6 @@
 ---
 title: 'Tools of the trade: How I communicate at GitHub (and why)'
-description: How I work and how I think about the tools we use to communicate at GitHub
+description: How I think about the tools we use to communicate at GitHub across [issues](#issues), [projects](#projects), [discussions](#discussions), [documentation](#documentation), [Google Docs](#real-time-collaborative-editing), [Slack](#chat), [Zoom and in-person meetings](#video-chat-and-meatspace), and [email](#email).
 ---
 
 One of my favorite "laws" is [Conway's Law](https://en.wikipedia.org/wiki/Conway%27s_law), an adage that organizations will design systems that mirror their communication structure. As I've [long said](https://ben.balter.com/2015/09/21/open-source-behind-the-firewall/#how-you-work-is-as-important-as-what-you-work-on), "how you work is as important as what you work on":
