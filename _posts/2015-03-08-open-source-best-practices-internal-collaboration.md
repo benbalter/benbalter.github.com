@@ -65,4 +65,8 @@ Put another way, if you're happy with your code when it leaves the firewall, if 
 
 While it's certainly possible for your organization to maintain a waterfall or closed-source workflow and then hit publish, the likelihood of that project's open source success is exceedingly rare. If you're looking to take your first (or second) step into the open source community, start not by optimizing for external engagement, but by optimizing for internal collaboration.
 
-***This post is part of a series on best practices in open source. You may also be interested in [Five best practices in open source: external engagement](https://ben.balter.com/2015/03/17/open-source-best-practices-external-engagement/).***
+{% capture content -%}
+This post is part of a series on best practices in open source.<br />You may also be interested in <a href="https://ben.balter.com/2015/03/17/open-source-best-practices-external-engagement/" class="alert-link">Five best practices in open source: external engagement</a>.
+{%- endcapture %}
+
+{% include callout.html content=content %}

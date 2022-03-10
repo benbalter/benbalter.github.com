@@ -96,3 +96,9 @@ As a result, to be successful, you'll want to explicitly let developers know tha
 There's a world of difference between uploading a zip file to an FTP server and open source. Open source is about fostering communities around shared challenges, and as the maintainer of an open source project, that responsibility falls squarely on your shoulders. To be successful, simply publishing code isn't enough. Go out of your way to encourage, praise, and support each contributor and each contribution as if the project's success depended on it, because in reality, it does.
 
 ***This post is part of a series on best practices in open source. You may also be interested in [Five best practices in open source: internal collaboration](https://ben.balter.com/2015/03/08/open-source-best-practices-internal-collaboration/).***
+
+{% capture content -%}
+This post is part of a series on best practices in open source.<br />You may also be interested in <a href="https://ben.balter.com/2015/03/08/open-source-best-practices-internal-collaboration/" class="alert-link">Five best practices in open source: internal collaboration</a>.
+{%- endcapture %}
+
+{% include callout.html content=content %}
