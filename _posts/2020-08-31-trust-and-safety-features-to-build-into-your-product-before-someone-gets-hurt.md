@@ -1,6 +1,6 @@
 ---
 title: Seven trust and safety features to build into your product before someone gets hurt
-description: Basic features to prevent abuse and harassment that you should build into your platform early on.
+description: Basic features to prevent abuse and harassment that you should build into your platform early on. Specificaly, [blocking or muting](#1-blocking-or-muting), [reporting](#2-reporting), [hiding content](#3-hiding-content), [preventing new content](#4-preventing-new-content), [community guidelines](#5-community-guidelines), [auditability](#6-auditability), and [user consent](#7-user-consent), alongside [Internal education, consulting, shared services, and expertise](#also-necessary-internal-education-consulting-shared-services-and-expertise).
 redirect_from: "/2020/08/31/trust-and-safety-before-someone-gets-hurt/"
 ---
 

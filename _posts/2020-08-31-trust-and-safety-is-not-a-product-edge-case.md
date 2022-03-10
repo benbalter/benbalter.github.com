@@ -1,6 +1,6 @@
 ---
 title: Trust and safety is not a product edge case
-description: Online abuse and harassment may appear to be an "edge case", but it's the unfortunate reality of being a social network today
+description: Prioritizing trust and safety efforts today will prevent the darker corners of the internet from coming to light on your platform tomorrow. What may appear to be an “edge case” on the surface, is in fact the unfortunate reality of being an online service provider.
 ---
 
 Last week, my colleague @katmeister chronicled [her recent experience with online harassment](https://www.tinykat.cafe/on-all-that-fuckery) (content warning: racist, sexist, transphobic, hateful language, and online abuse). Kat's post is well worth reading if you want to better understand how people (most of whom don't look like me) experience the internet daily, but one line in particular stood out to me:
