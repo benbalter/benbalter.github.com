@@ -1,6 +1,6 @@
 ---
 title: How I over-engineered my home network for privacy and security
-description: How I used a UniFi Dream Machine, VLANs to segment IoT, Pi-Hole to block ads, cloudflared for DNS over HTTPS, and Cloudflare Gateway to block malware/phishing to (over) optimize my home network for privacy and security.
+description: How I used a [UniFi Dream Machine](#the-router---unifi-dream-machine), [VLANs to segment IoT](#using-vlans-to-segment-low-trust-devices), [Pi-Hole to block ads](#pi-hole-to-block-ads-and-trackers), [cloudflared for DNS over HTTPS](#cloudflared-for-dns-over-https), and [Cloudflare Gateway to block malware/phishing](#cloudflare-teams-to-block-malicious-sites) to (over) optimize my home network for privacy and security.
 ---
 
 {% capture update %}

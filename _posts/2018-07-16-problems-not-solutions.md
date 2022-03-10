@@ -3,8 +3,6 @@ title: Problems, not solutions
 description: If there's one thing that defines the shift from another technology role to Product Management, it's the shift from thinking in terms of solutions to thinking in terms of problems.
 ---
 
-If there's one thing that defines the shift from another technology role to Product Management, it's the shift from thinking in terms of solutions to thinking in terms of problems.
-
 As Engineers (or just about any other technical profession), we're trained to think in terms of solutions (what feature to build, how to build them, subsequent improvements, etc.), but given a sufficiently defined problem, the solution is often the easy part (even if the implementation itself may be technically complex). The real challenge lies in understanding customers' true needs (not just their stated ones), defining and prioritizing user problems, and evaluating potential solutions to determine the right one (and where your efforts can have the biggest impact).
 
 ### Jobs to be done

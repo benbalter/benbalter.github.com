@@ -1,6 +1,6 @@
 ---
 title: Seven ways to consistently ship great features
-description: Seven habits I admire in developers that I see consistently shipping great, user-centric features.
+description: Developers that I see consistently shipping great, user-centric features [over communicate](#1-over-communicate); [write features first, then code](#2-write-features-first-then-code); [get it in users' hands, not on `main`](#3-get-it-in-users-hands-not-on-master); [ship the smallest delta possible](#4-ship-the-smallest-delta-possible); appreciate that ["Next iteration" doesn't mean "never"](#5-next-iteration-doesnt-mean-never); [always open issues](#6-always-be-opening-issues); and [optimize for users](#7-optimize-for-users).
 ---
 
 As a product manager, I spend most of my day working with developers to get features out the door and into the hands of users, both internally and for several open source projects. This gives me a unique sideline view of some of the habits successful (and not-so-successful) developers adopt, a perspective many may not be afforded when working in the code day-to-day. Here are seven habits I admire in developers that I see consistently shipping great, user-centric features:
