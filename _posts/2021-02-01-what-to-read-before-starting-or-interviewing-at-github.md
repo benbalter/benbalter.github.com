@@ -6,6 +6,7 @@ posts:
   - /2016/09/13/seven-habits-of-highly-effective-githubbers/
   - /2016/10/31/eight-things-i-wish-i-knew-my-first-week-at-github/
   - /2015/11/12/why-urls/
+  - /2022/03/17/why-async/
   - /2022/02/16/leaders-show-their-work/
   - /2017/05/23/seven-ways-to-consistently-ship-great-features/
   - /2015/11/18/tools-to-empower-open-collaboration/
