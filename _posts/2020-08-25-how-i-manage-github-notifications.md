@@ -1,21 +1,19 @@
 ---
 title: How I manage GitHub notifications
-description: My philosophy, workflow, settings, and tools for how I manage the never-ending stream of notifications on GitHub.
+description: I use web notifications for everything but `@mentions`, which I have pushed to me via email. I subscribe to lots of repositories to ensure I don't miss anything, but unsubscribe from any thread not immediately relevant to me to keep noise to a minimum. I also have a few tools I've built to customize GitHub notifications for [the way I work](http://localhost:4000/2020/08/14/tools-of-the-trade/).
 ---
 
 As a Product Manager at GitHub, GitHub.com is my primary means of communication day-to-day. I'm constantly reading and replying to GitHub threads to coordinate work within and across teams. On the average work day it's not uncommon that I'll receive upwards of 200 GitHub notifications (about 15 per hour on average during the work day). While that volume could easily become distracting or overwhelming, it's not (well, not usually at least). Here's how I manage GitHub notifications to remain focused and productive:
 
 ### Philosophy and workflow
 
-*TL;DR: I use web notifications for everything but @mentions, which I have pushed to me via email. I subscribe to lots of repositories to ensure I don't miss anything, but unsubscribe from any thread not immediately relevant to me to keep noise to a minimum. I also have a few tools I've built to customize GitHub notifications for [the way I work](/2020/08/14/tools-of-the-trade/).*
-
 #### Work on GitHub is asynchronous
 
 I primarily use GitHub [web notifications](https://github.com/notifications) to stay abreast of work (and as a result, get maybe a handful of emails a day). I read most notifications in batches during natural breaks (via `github.com/notifications`) to avoid context switching and to encourage flow. Web notifications also have the added benefit of syncing state with the GitHub mobile app for when you're away from your desk. If you wanted to take it further, you could make a point to check web notifications at the top of every hour for example, but natural stopping points in whatever I'm doing (meetings, writing, etc.) work well enough for me.
 
-#### @mentions are important
+#### `@mentions` are important
 
-I treat @mentions (when a colleague specifically mentions you by name) as high signal-to-noise and potentially blocking. @mentions go to email, which causes a desktop (and mobile) notification which I can easily ignore, or choose to immediately respond to, if necessary. This somewhat mirrors how Slack works by default, with @mentions causing a notification and messages in channels queueing up as unread until you have a chance to read them. 
+I treat `@mentions` (when a colleague specifically mentions you by name) as high signal-to-noise and potentially blocking. `@mentions` go to email, which causes a desktop (and mobile) notification which I can easily ignore, or choose to immediately respond to, if necessary. This somewhat mirrors how Slack works by default, with `@mentions` causing a notification and messages in channels queueing up as unread until you have a chance to read them.
 
 #### Watch liberally, unsubscribe frequently
 
@@ -27,11 +25,11 @@ While I'm not one of those tabs-as-todo people, I do make extensive use of brows
 
 #### Triage then focus
 
-I block off the first hour of the workday to triage notifications so that I can free up the rest of the day to focus on less reactive and more impactful work. Being on the East Coast and working for a globally distributed and asynchronous company, there's almost always a hefty backlog of notifications waiting to greet me in the morning when I get to my desk. I'll check email (@mentions) first then web notifications, which also helps to avoid duplicates since viewing a notification via email will automatically mark the corresponding web notification as read.
+I block off the first hour of the workday to triage notifications so that I can free up the rest of the day to focus on less reactive and more impactful work. Being on the East Coast and working for a globally distributed and asynchronous company, there's almost always a hefty backlog of notifications waiting to greet me in the morning when I get to my desk. I'll check email (`@mentions`) first then web notifications, which also helps to avoid duplicates since viewing a notification via email will automatically mark the corresponding web notification as read.
 
 #### One search to rule them all
 
-Even though I only use email for @mentions, I still send all notifications to GMail (more on how below). While GitHub's search function is powerful, it's not always perfect, and sometimes I can't find what I'm looking for (or remember if it was on GitHub, A Google Doc, or in an email). I know I can always search GMail to find something across both GSuite and GitHub. As an added benefit, it's naturally limited to threads I'm watching instead of all activity I have access to across GitHub or the organization.
+Even though I only use email for `@mentions`, I still send all notifications to GMail (more on how below). While GitHub's search function is powerful, it's not always perfect, and sometimes I can't find what I'm looking for (or remember if it was on GitHub, A Google Doc, or in an email). I know I can always search GMail to find something across both GSuite and GitHub. As an added benefit, it's naturally limited to threads I'm watching instead of all activity I have access to across GitHub or the organization.
 
 ### Settings
 
@@ -39,18 +37,18 @@ To put that philosophy into practice, I have set the following settings via [`gi
 
 1. Enabled both email and Web notifications for all "participating" and "watching" conversations
 2. Under "Email notification preferences":
-   1. Set my "Default notification email" to my personal email to default non-work (e.g., open source) notifications to my personal inbox
+   1. Set my "Default notification email" to my personal email to default non-work (for example, open source) notifications to my personal inbox
    2. Enabled notifications for "Comments on Issues and Pull Requests" and "Pull Request reviews", but not pushes or my own updates
 3. Under "Custom routing", set custom organization routing rules to route work-related emails to my work email address
 
 ### GMail filters
 
-Because I have both web and email notifications enabled (and there's no way to only get @mentions via email without also getting notifications for any thread you participate in), I use the following GMail filters to further customize how and when I receive GitHub notifications:
+Because I have both web and email notifications enabled (and there's no way to only get `@mentions` via email without also getting notifications for any thread you participate in), I use the following GMail filters to further customize how and when I receive GitHub notifications:
 
-* `from:(notifications@github.com) cc:mention@noreply.github.com` - Apply label "github/mention", Never send it to Spam, Mark it as important to ensure I get notifications for @mentions
-* `from:(notifications@github.com) cc:REASON@noreply.github.com` - Skip Inbox, Apply label "github/REASON" to ensure all non-@mentions are immediately archived
+* `from:(notifications@github.com) cc:mention@noreply.github.com` - Apply label "github/mention", Never send it to Spam, Mark it as important to ensure I get notifications for `@mentions`
+* `from:(notifications@github.com) cc:REASON@noreply.github.com` - Skip Inbox, Apply label "github/REASON" to ensure all non-\`@mentions` are immediately archived
 
-You'll notice that GitHub cc's a specific email address based on the reason for the notification. In the second filter, you need to replace `REASON` with all of [the documented cc-able reasons](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications) and create one filter for each. If you don't care about applying the GMail labels/folders and are looking for something simpler, you can just use two filters, one `from:(notifications@github.com) -@USERANME` and one `from:(notifications@github.com) @USERNAME` to more easily segment mentions from other notifications. 
+You'll notice that GitHub cc's a specific email address based on the reason for the notification. In the second filter, you need to replace `REASON` with all of [the documented cc-able reasons](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications) and create one filter for each. If you don't care about applying the GMail labels/folders and are looking for something simpler, you can just use two filters, one `from:(notifications@github.com) -@USERANME` and one `from:(notifications@github.com) @USERNAME` to more easily segment mentions from other notifications.
 
 ### Tools
 
@@ -58,7 +56,7 @@ There are four tools I use regularly to support my notification workflow:
 
 #### GitHub mention highlighter
 
-When I click through a notification, I want to know exactly what's being asked of me, if anything. I use my own [GitHub Mention Highlighter plugin](https://github.com/benbalter/github-mention-highlighter) to highlight any personal or team @mentions in high-visibility fluorescent yellow, so that I can skim lengthy threads more easily.
+When I click through a notification, I want to know exactly what's being asked of me, if anything. I use my own [GitHub Mention Highlighter plugin](https://github.com/benbalter/github-mention-highlighter) to highlight any personal or team `@mentions` in high-visibility fluorescent yellow, so that I can skim lengthy threads more easily.
 
 #### Notifier for GitHub
 
@@ -113,7 +111,7 @@ local notificationFilters = [
 And
 
 ```jsonnet
-// GitHub @mentions
+// GitHub `@mentions`
 {
   filter: {
     and: [
@@ -133,4 +131,4 @@ And
 
 And that's how I manage GitHub notifications. It's far from perfect (and looks a bit over engineered now that I've written it down), but it works for me and has for 7+ years now. I hope that sharing my notification workflow can help you find one that works best for you. Have a tip or trick for how you manage GitHub notifications? Let me know in the comments below.
 
-{% include github-culture.html %}
+{% include_cached github-culture.html %}

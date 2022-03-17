@@ -1,6 +1,6 @@
 ---
 title: Seven trust and safety features to build into your product before someone gets hurt
-description: Basic features to prevent abuse and harassment that you should build into your platform early on.
+description: Basic features to prevent abuse and harassment that you should build into your platform early on. Specificaly, [blocking or muting](#1-blocking-or-muting), [reporting](#2-reporting), [hiding content](#3-hiding-content), [preventing new content](#4-preventing-new-content), [community guidelines](#5-community-guidelines), [auditability](#6-auditability), and [user consent](#7-user-consent), alongside [Internal education, consulting, shared services, and expertise](#also-necessary-internal-education-consulting-shared-services-and-expertise).
 redirect_from: "/2020/08/31/trust-and-safety-before-someone-gets-hurt/"
 ---
 
@@ -20,7 +20,7 @@ Once a user has taken steps to minimize their exposure to the abuse or harassmen
 
 ### 3. Hiding content
 
-You'll want some way to hide existing content. Ideally, you'd have the ability to hide both specific pieces of content and all content from a specific user, preventing their content from being seen by others. The moderation can be temporary (e.g., a spam flag) or permanent (e.g., deleting the content) and transparent or in the form of a [shadow ban](https://en.wikipedia.org/wiki/Shadow_banning) to prevent the actor from shifting tactics. Going a step further, for minor infractions or gray areas, you can reduce the visibility or discoverability of the objectionable content.
+You'll want some way to hide existing content. Ideally, you'd have the ability to hide both specific pieces of content and all content from a specific user, preventing their content from being seen by others. The moderation can be temporary (for example, a spam flag) or permanent (for example, deleting the content) and transparent or in the form of a [shadow ban](https://en.wikipedia.org/wiki/Shadow_banning) to prevent the actor from shifting tactics. Going a step further, for minor infractions or gray areas, you can reduce the visibility or discoverability of the objectionable content.
 
 ### 4. Preventing new content
 

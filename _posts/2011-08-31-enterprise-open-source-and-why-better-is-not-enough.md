@@ -3,11 +3,11 @@ title: Enterprise, Open Source, and Why Better is not Enough
 description: Firms looking to seek a competitive advantage will begin to look past "it has to be expensive and complicated" and start looking toward open-source software, not as a misfit alternative, but as a viable player in the software space, but before that can happen the open-source community must strive to be the serious competitor they wish to be treated as.
 ---
 
-> "In 1876, the president of Western Union brushed off Alexander Graham Bell's telephone as little more than an "electric toy*," and the company called Bell's proposal to put one in every home "utterly out of the question*." Oxford University professor Erasmus Wilson predicted that when the 1878 Paris Exhibition closed, the electric light would "close with it and no more will be heard of it*." A Michigan banker advised his client not to invest in Henry Ford's company in 1903 because "the horse is here to stay, but the automobile is only a novelty*." …If there is one constant through out time, it's that conventional wisdom often misses the mark, especially in the early days of technological transformation." [^1]
+> "In 1876, the president of Western Union brushed off Alexander Graham Bell's telephone as little more than an "electric toy\*," and the company called Bell's proposal to put one in every home "utterly out of the question\*." Oxford University professor Erasmus Wilson predicted that when the 1878 Paris Exhibition closed, the electric light would "close with it and no more will be heard of it\*." A Michigan banker advised his client not to invest in Henry Ford's company in 1903 because "the horse is here to stay, but the automobile is only a novelty\*." …If there is one constant through out time, it's that conventional wisdom often misses the mark, especially in the early days of technological transformation." [^1]
 
 I've never heard any individual, upon being asked what they thought of a recent automobile purchase respond, "well, it's got this weird 'new car' smell, so it's going to take some getting used to." [^2] Yet for many, such is the typical reaction to experiencing a new technology. [^3]
 
-What is it about technological progress that sends many running for their digital security blankets? [^4] For some reason, much of the resistance appears to be [uniformed doubt](http://opensource.sys-con.com/node/692407) (*e.g.*, "It's different"), rather than [calculated avoidance](http://www.infoworld.com/article/2652198/security/gartner--seven-cloud-computing-security-risks.html){: data-proofer-ignore="true"} (*e.g.*, "It's less secure because you can't prevent X"). To be fair, the business world, and even more so CIO's, see avoiding uncertainty and minimizing risk as a core competency, but I don't think that's the whole story.
+What is it about technological progress that sends many running for their digital security blankets? [^4] For some reason, much of the resistance appears to be [uniformed doubt](http://opensource.sys-con.com/node/692407) (*For example*, "It's different"), rather than [calculated avoidance](http://www.infoworld.com/article/2652198/security/gartner--seven-cloud-computing-security-risks.html){: data-proofer-ignore="true"} (*For example*, "It's less secure because you can't prevent X"). To be fair, the business world, and even more so CIO's, see avoiding uncertainty and minimizing risk as a core competency, but I don't think that's the whole story.
 
 The rapid pace of innovation has rendered many stakeholders and decision makers out of the loop when it comes to where a given technology stands in relation to their current practices, and for good reason: disruptive technology poses a risk not only on an organization level, but on a personal level as well.
 
@@ -39,6 +39,6 @@ Notes:
 
 [^4]: Full disclosure, some may argue that I myself risk falling off the bleeding edge of the technology adoption curve, after all, I text in [beta](https://developer.apple.com/), browse in [canary](http://tools.google.com/dlpage/chromesxs), and publish in [trunk](http://wordpress.org/download/svn/).
 
-[^5]: *See, e.g.,* Facebook using PHP, Twitter using Hadoop, and Google supporting Android and Chrome.
+[^5]: *See, for example,* Facebook using PHP, Twitter using Hadoop, and Google supporting Android and Chrome.
 
-[^6]: *See, e.g.,* [bloodletting](http://en.wikipedia.org/wiki/Bloodletting).
+[^6]: *See, for example,* [bloodletting](http://en.wikipedia.org/wiki/Bloodletting).

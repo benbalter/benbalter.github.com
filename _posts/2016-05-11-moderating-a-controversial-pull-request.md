@@ -11,7 +11,7 @@ It doesn't have to be that way. If you're about to open a controversial (or wide
 
 ### Lay out the ground rules upfront
 
-First, lay out the ground rules up front. This can either be in the body of the issue itself, or someplace more global, like the repository's `README` or `CONTRIBUTING` file. If the conversation is occurring within a finite group, e.g., a company or an open source project, it may make sense to curate those rules alongside other organization-wide policy documents, and to seek to integrate them within your organization's culture more broadly.
+First, lay out the ground rules up front. This can either be in the body of the issue itself, or someplace more global, like the repository's `README` or `CONTRIBUTING` file. If the conversation is occurring within a finite group, for example, a company or an open source project, it may make sense to curate those rules alongside other organization-wide policy documents, and to seek to integrate them within your organization's culture more broadly.
 
 #### Keep it civil
 

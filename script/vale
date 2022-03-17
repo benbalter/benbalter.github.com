@@ -1,0 +1,3 @@
+#!/bin/sh
+
+vale *.md _posts/*.md _resume_positions/*.md --minAlertLevel=error

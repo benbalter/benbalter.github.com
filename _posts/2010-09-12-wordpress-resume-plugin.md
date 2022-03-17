@@ -13,7 +13,7 @@ WP Resume is an out-of-the-box solution to get your résumé online and keep it 
 
 ### Features include
 
-* Support for sections (e.g., education, experience), organizations (e.g., somewhere state university, Cogs, Inc.), positions (e.g., bachelor of arts, chief widget specialist), and details (e.g., grew bottom line by 15%, president of the sustainability club)
+* Support for sections (for example, education, experience), organizations (for example, somewhere state university, Cogs, Inc.), positions (for example, bachelor of arts, chief widget specialist), and details (for example, grew bottom line by 15%, president of the sustainability club)
 * Follows best practices in resume layout and design
 * One click install, just start adding content
 * Drag and drop ordering of resume elements

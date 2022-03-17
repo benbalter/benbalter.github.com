@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'jekyll'
+
+content = File.read ARGV[0]
+headings = content.scan(/^(#+)\s+(.*)$/)
+headings = headings.map do |heading|
+  anchor = "##{Jekyll::Utils.slugify(heading[1])}"
+  heading = heading[1].gsub(/^\d+\. /, '')
+  heading[0] = heading[0].downcase
+  "[#{heading}](#{anchor})"
+end
+puts headings.join(', ')

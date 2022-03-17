@@ -13,7 +13,7 @@ id: /press
   {% for clip in clips %}
     <li class="mb-3">
       <a href="{{ clip.url }}" class="title" {% if clip.ignore_check %}data-proofer-ignore="true"{% endif %}>{{ clip.title }}</a><br />
-      <span class="small">{{ clip.publication }} — <em>{{ clip.date | date: '%B %d, %Y' }}</em></span>
+      <span class="small">{{ clip.publication }} | <em>{{ clip.date | date: '%B %d, %Y' }}</em></span>
     </li>
   {% endfor %}
 </ul>

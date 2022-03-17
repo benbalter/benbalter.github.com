@@ -1,11 +1,9 @@
 ---
 title: Why you probably shouldn't add a CLA to your open source project
-description: Contributor license agreements (a “nice to have” for corporate-backed open source projects) create a contribution-hostile developer experience, require significant administrative overhead, shift legal blame to the party least equipped to defend against it, and are unnecessary given modern development tools.
+description: Contributor license agreements (a "nice to have" for many corporate-backed open source projects) [create a contribution-hostile developer experience](#clas-create-a-contribution-hostile-developer-experience), [require significant administrative overhead](#clas-require-significant-administrative-overhead), [shift legal blame to the party least equipped to defend against it](#clas-shifts-legal-blame-to-the-party-least-equipped-to-defend-against-it), and [are unnecessary given modern development tools](#if-a-license-isnt-good-enough-for-maintainers-you-shouldnt-subject-users-to-it).
 ---
 
 Contributor license agreements (or CLAs for short) have gained a lot of visibility in recent years as some prominent open source projects have opted to adopt them. If all the cool kids are doing it, should your open source project? Probably not. Here's why:
-
-*TL;DR: Contributor license agreements (a "nice to have" for many corporate-backed open source projects) [create a contribution-hostile developer experience](#clas-create-a-contribution-hostile-developer-experience), [require significant administrative overhead](#clas-require-significant-administrative-overhead), [shift legal blame to the party least equipped to defend against it](#clas-shifts-legal-blame-to-the-party-least-equipped-to-defend-against-it), and [are unnecessary given modern development tools](#if-a-license-isnt-good-enough-for-maintainers-you-shouldnt-subject-users-to-it).*
 
 ### What is a CLA?
 

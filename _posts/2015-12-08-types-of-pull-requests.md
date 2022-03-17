@@ -1,6 +1,6 @@
 ---
 title: The six types of pull requests you see on GitHub
-description: Whether collaborating on code, data, or prose text, there are lots of different strategies for using pull requests on GitHub.
+description: Whether collaborating on code, data, or prose text, there are lots of different strategies for using pull requests on GitHub.  Specifically, [just a heads up](#just-a-heads-up), [sanity check](#sanity-check), [work in progress (WIP)](#work-in-progress-wip), [early feedback](#early-feedback), [line-by-line review](#line-by-line-review), and [pull request to a pull request](#pull-request-to-a-pull-request)."
 redirect_from: "/2014/12/08/types-of-pull-requests/"
 ---
 
@@ -40,6 +40,6 @@ Whether collaborating on code, data, or prose text, there are lots of different 
 
 **How it works:** You submit a pull request, that instead of requesting a merge into the `master` branch, requests that its changes be merged into a branch that is the basis of another pull request.
 
-**When to use it:** When you don't have write access to the source repository (e.g. open source), and would like to make substantial changes to an existing pull request created by another user. For smaller changes, use line-by-line comments with the proposed code.
+**When to use it:** When you don't have write access to the source repository (for example, open source), and would like to make substantial changes to an existing pull request created by another user. For smaller changes, use line-by-line comments with the proposed code.
 
-{% include github-culture.html %}
+{% include_cached github-culture.html %}

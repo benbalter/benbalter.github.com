@@ -4,6 +4,8 @@ on:
       - '_posts/**.md'
       - '.github/workflows/related-posts.yml'
       - 'script/build-related-posts.'
+    branches:
+      - main
 
 name: Build related posts
 jobs:

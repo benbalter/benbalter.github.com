@@ -27,7 +27,7 @@ For things like books, the year of publication is really easy to determine. If y
 
 #### When is a digital work "published"
 
-But when it comes to digital works, the idea of publication isn't quite the same. When is an open source project (or a website, as that's the most common means of publishing an open source project, e.g., via GitHub's web interface) "published"?
+But when it comes to digital works, the idea of publication isn't quite the same. When is an open source project (or a website, as that's the most common means of publishing an open source project, for example, via GitHub's web interface) "published"?
 
 In this case, of a site like [choosealicense.com](http://choosealicense.com), to take a simple example, the site was "published" when the site launched in 2013. But unlike books, that are published yearly, in set editions, with open source, things are both never finished and constantly changing — the hallmark of a healthy open source project.
 
@@ -43,7 +43,7 @@ In terms of websites, if you have a page that updates daily (think the front pag
 
 As noted above, when an author creates an original work (be they a writer or developer), copyright automatically vests in the author. Think of that roughly like owning a building. If the author then want others to be able to use that work, they may choose to grant them a license. Think of that license roughly like renting out an apartment in that building. The author retains ownership (the building), and the tenant has a lease saying they have the right to use it (a license).
 
-When you use an open source project, you are analogous to the renter, but who's the landlord (copyright holder)? If the project only has a single author, things are clear: the copyright holder is the project creator. When you have multiple contributors, all authoring code for the same project, absent an explicit agreement to the contrary, they each retain copyright to their own contribution.
+When you use an open source project, you are analogous to the renter, but who's the building owner (copyright holder)? If the project only has a single author, things are clear: the copyright holder is the project creator. When you have multiple contributors, all authoring code for the same project, absent an explicit agreement to the contrary, they each retain copyright to their own contribution.
 
 #### So whose name should you use
 

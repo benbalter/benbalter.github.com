@@ -4,7 +4,7 @@
 # Generates _data/related_posts.yml using LSI (not available via GitHub Pages)
 
 require 'jekyll'
-require 'yaml'
+require 'psych'
 
 options = {
   'source' => File.expand_path('../', __dir__),
@@ -28,5 +28,5 @@ site.posts.docs.each do |post|
   relations[post.relative_path] = post.related_posts.map(&:relative_path)
 end
 
-yaml = YAML.dump(relations)
+yaml = Psych.dump(relations, indentation: 2).gsub(/^- /, '  - ')
 File.write '_data/related_posts.yml', yaml

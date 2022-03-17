@@ -1,6 +1,6 @@
 ---
 title: Why open source
-description: 25 reasons why you and your organization should consume, publish, contribute to, & support open source.
+description: Twenty five [microeconomic](#microeconomic-motivations), [macroeconomic](#macroeconomic-motivations), [moral](#moral-motivations), [transparency](#transparency-motivations), [participatory](#participatory-motivations), and [personal](#personal-motivations) motivations why you and your organization should consume, publish, contribute to, and support open source. 
 ---
 
 Open source is awesome. There are many reasons why you might consider consuming, publishing, collaborating on, or supporting open source.[^1] Here are a few of them:
@@ -13,12 +13,12 @@ Open source is in your best interest, whether you're an individual, a corporatio
 
 * **Lower total cost of ownership** (TCO) - Using open source software yields a lower total cost of ownership when compared to closed source and proprietary alternatives. Adopting open source software generally has a lower up-front cost (because the software often comes at no cost or relatively low cost), and shifts the cost center from licensing (an operating expense) to customization and implementation (a capital expense). Additional costs like training, maintenance, and support are sunk costs. You're going to be paying for both regardless of if the software is open or closed source, the cost often being baked into the license in the case of commercial, off-the-shelf software (COTS). What makes open source unique is that you're not paying for the right to use the underlying intellectual property.
 
-  | Cost           | Open source        | Proprietary        |
-  | :------------- | :----------------- | :----------------- |
-  | Licensing      | :x:                | :heavy_check_mark: |
-  | Implementation | :heavy_check_mark: | :heavy_check_mark: |
-  | Maintenance    | :heavy_check_mark: | :heavy_check_mark: |
-  | Support        | :heavy_check_mark: | :heavy_check_mark: |
+  | Cost                       | Open source          | Proprietary          |
+  | :------------------------- | :------------------- | :------------------- |
+  | Licensing                  | :x:                  | :heavy_check_mark: |
+  | Implementation             | :heavy_check_mark: | :heavy_check_mark: |
+  | Maintenance                | :heavy_check_mark: | :heavy_check_mark: |
+  | Support                    | :heavy_check_mark: | :heavy_check_mark: |
   {: .table .w-50 .mx-auto }
 
 * [**Given enough eyeballs, all bugs are shallow**](https://blogs.microsoft.com/cybertrust/2006/06/07/linuss-law-aka-many-eyes-make-all-bugs-shallow/) (Linus's Law) - [Empirically, open source tends to produce better quality software than its proprietary or alternative counterparts](http://www.dwheeler.com/oss_fs_why.html). When you write closed source software, the only developers that can potentially detect, diagnose, triage, and resolve software bugs are those that happen to be employed by the company that publishes the software (or more likely, the arms-length contractor they pay to build it). Open source provides three advantages: first, you have the opportunity to tap the knowledge of the world's best developers, not just those on one organization's payroll. Second, the number of potentially contributing developers and thus the potential knowledge pool is orders of magnitude larger. Finally, open source software gets adapted to a variety of use cases, not just the one the publisher originally intended, surfacing bugs and edge cases much more rapidly than traditional, predictive QA processes.
@@ -43,7 +43,7 @@ GitHub Cofounder Tom Preston-Werner lays out some additional arguments in his po
 
 * **Attract talent** - Developers want to work on yet-unsolved problems. Open source allows you to showcase to the developer community, the interesting challenges you face, and how you think about solving them. Open source developers can casually contribute to projects, to learn how you work, and what it's like developing software for a particular set of challenges. If they like what they see, there's a much better chance that they'll apply for a job, than if your organization was a black box when it comes to what it's like to work there. "Smart developers like to hang out with smart code."
 
-* **Best technical interview possible** - Technical interviews traditionally involve working on a simulated problem that can be tackled in a set amount of time with little additional context. Such simulations, by definition, aren't real world use cases, nor do they show what working with an applicant would be like. Open source provides visibility into both how a candidate solves problems, and how they work with others. You can hire much more confidently if, for the past six months, the candidate has been contributing to the project you want them work on, and you like their work. "\[T]he best technical interview possible is the one you don't have to do because the candidate is already kicking ass on one of your open source projects."
+* **Best technical interview possible** - Technical interviews traditionally involve working on a simulated problem that can be tackled in a set amount of time with little additional context. Such simulations, by definition, aren't real world use cases, nor do they show what working with an applicant would be like. Open source provides visibility into both how a candidate solves problems, and how they work with others. You can hire much more confidently if, for the past six months, the candidate has been contributing to the project you want them work on, and you like their work. "[T]he best technical interview possible is the one you don't have to do because the candidate is already kicking ass on one of your open source projects."
 
 ### Macroeconomic motivations
 
@@ -61,7 +61,7 @@ The formal name for open source is [free/libre open source software](https://en.
 
 * **Free as in speech, not as in beer** - Open source software is not without cost. When open source software is called "free", it is a reference to the rights the software consumers receive, not the cost they must pay. Adobe's Flash player, for example, is free software in the economic sense, but is still at the core of proprietary (non-free) software (and formats). Specifically, [free software refers to four core freedoms](https://www.gnu.org/philosophy/free-sw.en.html): the freedom to run the software, the freedom to study and modify the software, the freedom to redistribute the software, and the freedom to distribute your modifications.
 
-  As [the Free Software Movement argues](https://www.gnu.org/philosophy/free-software-even-more-important.html), non-free software risks software that can control the user (with the publisher controlling the software). This creates the potential for the software becoming an instrument of unjust power. Today, it's not uncommon for proprietary software to spy on users (e.g., phoning home), to restrict them (e.g., DRM), to censor them (e.g., corporate firewalls), or to take advantage of them (e.g., unskippable commercials). This becomes even more important as the internet of things emerges, and risks turning the world into "the internet of telemarketers" or "the internet of snoopers". Free software places power back in the hands of users and ensures users control the software they use, not the other way around.
+  As [the Free Software Movement argues](https://www.gnu.org/philosophy/free-software-even-more-important.html), non-free software risks software that can control the user (with the publisher controlling the software). This creates the potential for the software becoming an instrument of unjust power. Today, it's not uncommon for proprietary software to spy on users (for example, phoning home), to restrict them (for example, DRM), to censor them (for example, corporate firewalls), or to take advantage of them (for example, unskippable commercials). This becomes even more important as the internet of things emerges, and risks turning the world into "the internet of telemarketers" or "the internet of snoopers". Free software places power back in the hands of users and ensures users control the software they use, not the other way around.
 
 * **Obligation to give back** - Open source is the give-a-penny-take-a-penny jar of software. If you consume open source, be it a server, a desktop publishing application, or a software library, you have an obligation to give back to the community. After all, without the contribution of others, the micro- and macroeconomic motivations would no longer hold true, and open source as we know it would cease to exist. This is [the Golden Rule](https://en.wikipedia.org/wiki/Golden_Rule), or in traditional philosophical terms, a [categorical imperative](https://en.wikipedia.org/wiki/Categorical_imperative).
 

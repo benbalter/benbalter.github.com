@@ -1,6 +1,6 @@
 ---
 title: 'Tools of the trade: How I communicate at GitHub (and why)'
-description: How I work and how I think about the tools we use to communicate at GitHub
+description: How I think about the tools we use to communicate at GitHub across [issues](#issues), [projects](#projects), [discussions](#discussions), [documentation](#documentation), [Google Docs](#real-time-collaborative-editing), [Slack](#chat), [Zoom and in-person meetings](#video-chat-and-meatspace), and [email](#email).
 ---
 
 One of my favorite "laws" is [Conway's Law](https://en.wikipedia.org/wiki/Conway%27s_law), an adage that organizations will design systems that mirror their communication structure. As I've [long said](https://ben.balter.com/2015/09/21/open-source-behind-the-firewall/#how-you-work-is-as-important-as-what-you-work-on), "how you work is as important as what you work on":
@@ -31,7 +31,7 @@ Here's how I think about the tools we use to communicate at GitHub: **What** too
 
 * **When**: Task tracking. Think of issues as team- or [organization-wide TODOs](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#7-issues-are-organization-wide-todos). Issues should be the default unless another medium is more appropriate.
 * **Who**: Directly responsible parties and extended stakeholders
-* **Why**: Issues naturally capture and expose process, can easily loop in additional teams, create opt-out-able notifications, cross link to other issues for ease of discoverability, and can be closed out once the required action is complete to increase the visibility of in-flight efforts. They’re not perfect, but as GitHub's most common medium, issues start conversations, allow stakeholders to opt-in to additional context, and create permanent, searchable, and linkable records of who made what decision when and why. 
+* **Why**: Issues naturally capture and expose process, can easily loop in additional teams, create opt-out-able notifications, cross link to other issues for ease of discoverability, and can be closed out once the required action is complete to increase the visibility of in-flight efforts. They’re not perfect, but as GitHub's most common medium, issues start conversations, allow stakeholders to opt-in to additional context, and create permanent, searchable, and linkable records of who made what decision when and why.
 * **How**: [Keep discussions logically distinct](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#9-keep-discussions-logically-distinct). When opening an issue (or commenting on one), [be sure to offer sufficient context](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#3-nobody-gets-fired-for-buying-ibm-opening-an-issue).
 
 #### Projects
@@ -65,7 +65,7 @@ Here's how I think about the tools we use to communicate at GitHub: **What** too
 
 ###### Slides
 
-* **When**: Briefings, proposals, and updates that summarize information captured by other means (e.g., Issues, Git). 
+* **When**: Briefings, proposals, and updates that summarize information captured by other means (for example, Issues, Git).
 * **Who**: Leadership
 * **Why**: Short-form and easily digestible. Be sure to memorialize in-person decisions after the fact.
 
@@ -93,7 +93,7 @@ Generally, use chat for informal office communication, community comradery, wate
 
 ###### Small group DMs
 
-* **When**: Only if absolutely necessary for short-lived and ad-hoc coordination 
+* **When**: Only if absolutely necessary for short-lived and ad-hoc coordination
 * **Who**: Peers
 * **Why**: While immediately convenient, small group DMs don't allow you to add additional recipients, can't be descriptively named, push all messages by default, and are difficult to recall after the fact. Prefer (named) private or public channels whenever you can.
 
@@ -109,7 +109,7 @@ Generally, use chat for informal office communication, community comradery, wate
 
 * **When**: Regular syncs, working through complex issues, ideation, project kickoffs, retros, social time, etc. Meetings shouldn't be used for status updates, to force work, or any task that's best handled asynchronously. [Reserve high-fidelity mediums for the types of conversations that benefit from being face-to-face or ephemeral](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/#4-asynchronous-decision-making).
 * **Who**: Teams, extended stakeholders, peers.
-* **Why**: Some conversations require higher fidelity than issues or chat can offer. Be sure to have an agenda and goals. Memorialize decisions after the fact in a more-permanent medium. 
+* **Why**: Some conversations require higher fidelity than issues or chat can offer. Be sure to have an agenda and goals. Memorialize decisions after the fact in a more-permanent medium.
 
 #### Email
 
@@ -119,6 +119,6 @@ Generally, use chat for informal office communication, community comradery, wate
 
 At least, that's how I communicate at GitHub, and I often see those communication patterns reflected in the products my teams produce. Why does your organization (or team) communicate the way it does? Are those principles written down? Do the tools you use reflect the outcomes you'd like to drive?
 
-{% include github-culture.html %}
+{% include_cached github-culture.html %}
 
-*A huge hat tip to @corywilkerson, whose words inspired (and in some cases comprise) this post. Curious how I handle all the noise this workflow generates? Check out this related post on [how I manage GitHub notifications](/2020/08/25/how-i-manage-github-notifications/).* 
+*A huge hat tip to @corywilkerson, whose words inspired (and in some cases comprise) this post. Curious how I handle all the noise this workflow generates? Check out this related post on [how I manage GitHub notifications](/2020/08/25/how-i-manage-github-notifications/).*

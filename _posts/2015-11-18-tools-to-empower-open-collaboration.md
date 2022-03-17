@@ -53,7 +53,7 @@ Modern tools support and encourage asynchronous decision making. Today, in-perso
 
 Meetings are an appendix of organizational evolution. When it was hard to share information between organizational units, status updates and inter-team alignment exercises were a necessity. If you're not working on X, the most efficient way for you to know about X is for me to tell you. Management has many roles, but for purposes of shuttling information around an organization and achieving consensus around shared goals, [there's nothing inherently unique or advantageous about a dozen people clearing their schedule to sit in a room for sixty minutes around a table](/2012/12/16/deprecate-management).
 
-There are many examples where conversations will require higher-fidelity, real-time mediums (e.g., squishy human stuff, brainstorming, etc.), but today, technology has rendered many common meeting types not only unnecessary, but in an increasingly distributed and remote workplace, significantly less efficient than the alternative.
+There are many examples where conversations will require higher-fidelity, real-time mediums (for example, squishy human stuff, brainstorming, etc.), but today, technology has rendered many common meeting types not only unnecessary, but in an increasingly distributed and remote workplace, significantly less efficient than the alternative.
 
 There's a strong case to be made that in-person, synchronous meetings should be the exception, not the rule, and in many organizations, they are no longer the default. For one, asynchronous workflows almost necessitate adopting systems that naturally capture, expose, and share process. At the same time, asynchronous workflows encourage data-driven decision making, through their ease of weaving external sources into the conversation on equal footing as the primary discussion. It's much easier (technically and culturally) to embed a chart or link to an external source in a GitHub issue, than it is to share it in a meatspace meeting ("hold on, let me see if I can't find that thing Bob emailed last year").
 
@@ -75,19 +75,19 @@ The four qualities above are ideals. In practice, there are a handful of specifi
 
 I began by noting that the phrase "everything should be on GitHub", doesn't necessitate a certain tool, but if you believe working the way described above is valuable, few of today's consumer collaboration tools encourage open source inspired workflows. Let's take a look at a few:
 
-| Tool          | Open               | Captures<br /> Process | Linkable                         | Async              |
-|:--------------|:-------------------|:-----------------------|:---------------------------------|:-------------------|
-| GitHub        | :heavy_check_mark: | :heavy_check_mark:     | :heavy_check_mark:               | :heavy_check_mark: |
-| (Text) Chat   | :heavy_check_mark: | :heavy_check_mark:     | :heavy_check_mark:               | :heavy_check_mark: |
-| Wikis         | :heavy_check_mark: | :heavy_check_mark:     | :heavy_check_mark:               | :heavy_check_mark: |
-| Blogs         | :heavy_check_mark: | :x:[^git-blog]         | :heavy_check_mark:               | :heavy_check_mark: |
-| Google Docs   | :heavy_check_mark: | :x:[^tracked-changes]  | :x:[^links]                      | :heavy_check_mark: |
-| Microsft Word | :x:[^proprietary]  | :x:[^tracked-changes]  | :x:                              | :heavy_check_mark: |
-| Sharepoint    | :x:[^proprietary]  | :x:[^tracked-changes]  | :x:[^links]                      | :heavy_check_mark: |
-| Email         | :x:[^proprietary]  | :heavy_check_mark:     | :x:                              | :heavy_check_mark: |
-| Box/DropBox   | :x:[^proprietary]  | :x:                    | :heavy_check_mark: [^deep-links] | :heavy_check_mark: |
-| Video chat    | :x:                | :x:                    | :x:[^recordings]                 | :x:[^recordings]   |
-| IRL Meetings  | :x:                | :x:                    | :x:                              | :x:                |
+| Tool                                                                   | Open                 | Captures<br /> Process | Linkable                           | Async                |
+| :--------------------------------------------------------------------- | :------------------- | :--------------------- | :--------------------------------- | :------------------- |
+| GitHub                                                                 | :heavy_check_mark: | :heavy_check_mark:   | :heavy_check_mark:               | :heavy_check_mark: |
+| (Text) Chat                                                            | :heavy_check_mark: | :heavy_check_mark:   | :heavy_check_mark:               | :heavy_check_mark: |
+| Wikis                                                                  | :heavy_check_mark: | :heavy_check_mark:   | :heavy_check_mark:               | :heavy_check_mark: |
+| Blogs                                                                  | :heavy_check_mark: | :x:[^git-blog]         | :heavy_check_mark:               | :heavy_check_mark: |
+| Google Docs                                                            | :heavy_check_mark: | :x:[^tracked-changes]  | :x:[^links]                        | :heavy_check_mark: |
+| Microsft Word                                                          | :x:[^proprietary]    | :x:[^tracked-changes]  | :x:                                | :heavy_check_mark: |
+| Sharepoint                                                             | :x:[^proprietary]    | :x:[^tracked-changes]  | :x:[^links]                        | :heavy_check_mark: |
+| Email                                                                  | :x:[^proprietary]    | :heavy_check_mark:   | :x:                                | :heavy_check_mark: |
+| Box/DropBox                                                            | :x:[^proprietary]    | :x:                    | :heavy_check_mark: [^deep-links] | :heavy_check_mark: |
+| Video chat                                                             | :x:                  | :x:                    | :x:[^recordings]                   | :x:[^recordings]     |
+| IRL Meetings                                                           | :x:                  | :x:                    | :x:                                | :x:                  |
 {: .table style="width: 60%; margin-left: auto; margin-right: auto;" }
 
 ### Practicality beats purity
@@ -96,11 +96,14 @@ GitHub's not the right tool for all sorts of use cases. It probably doesn't make
 
 Although I think it's the future of knowledge work, this develop-inspired workflow isn't for everyone, at least not today. One of [GitHub's Zen](https://ben.balter.com/2015/08/12/the-zen-of-github/), is to prefer practicality over purity. However pure the workflow might be on paper, if you've got a team of lawyers that have never used anything other than Outlook, Word, and regularly scheduled in-person meetings, absent a strong personal, professional, or philosophical motivation, absent significant untraining and re-education, you'd be hard-pressed to implement a modern workflow that's on a trajectory to succeed.
 
+{% include_cached github-culture.html %}
+
+
 [How you work is just as important as what you work on](https://ben.balter.com/2015/09/21/open-source-behind-the-firewall/#how-you-work-is-as-important-as-what-you-work-on). I challenge you to take a critical look at your own workflow, and ask yourself if you're working the way you'd like to work, or just the way everyone else does.
 
 [^git-blog]: It's possible for a blog to capture and expose process if it is created using tools such as GitHub and GitHub Pages, like this blog is. But this is not (yet) the case for the vast majority of blogs.
 
-[^tracked-changes]: While Google Docs and Microsoft Word can track changes (or you can version files manually via email), changes are tracked on a line-by-line or even character-by-character basis, making it hard to capture an entire revision in a single changeset. Compare a diff on GitHub (e.g., atomic commit) to the revision history menu on Google Docs or "track changes" in Microsoft Word.
+[^tracked-changes]: While Google Docs and Microsoft Word can track changes (or you can version files manually via email), changes are tracked on a line-by-line or even character-by-character basis, making it hard to capture an entire revision in a single changeset. Compare a diff on GitHub (for example, atomic commit) to the revision history menu on Google Docs or "track changes" in Microsoft Word.
 
 [^links]: While you can link to the document as a whole, AFAIK, you can't link to individual versions, changes, comments, or decisions.
 

@@ -8,6 +8,9 @@ jobs:
         uses: actions/checkout@v2
       - name: Set up Node.js
         uses: actions/setup-node@v2-beta
+        with:
+          node-version: 16
+          cache: 'npm'
       - name: Install
         run: npm install
       - name: Lint JS
@@ -19,12 +22,14 @@ jobs:
       - name: Lint Text
         run: npm run lint-text
       - name: Vale
-        uses: errata-ai/vale-action@v1.3.0
+        uses: errata-ai/vale-action@v1
         with:
           styles: |
-            https://github.com/benbalter/vale-styles/releases/latest/download/Microsoft.zip
-          config: https://raw.githubusercontent.com/benbalter/benbalter.github.com/master/.vale.ini
-          files: "*.md _posts/*.md resume_positions/*.md"
+            https://github.com/errata-ai/Microsoft/releases/latest/download/Microsoft.zip
+            https://github.com/errata-ai/write-good/releases/latest/download/write-good.zip
+            https://github.com/errata-ai/alex/releases/latest/download/alex.zip
+            https://github.com/benbalter/vale-styles/archive/refs/heads/master.zip
+          files: __onlyModified
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
   code:
@@ -32,10 +37,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Setup Ruby
-        uses: actions/setup-ruby@v1
+      - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "2.6"
+          bundler-cache: true
       - name: Install
         run: bundle install
       - name: Check Ruby
@@ -44,4 +48,3 @@ jobs:
         run: bundle exec rake test
       - name: Check DNS
         run: bundle exec github-pages health-check
- 

@@ -61,7 +61,7 @@ If a maintainer spends a few hours at the onset improving documentation and scri
 
 In practice, that means walking through the contribution flow from discovery to merge and deployment, and anticipating the potential contributor's needs at each step. How do I find the source code? Am I familiar with this language or platform? Where's the documentation? Have I seen this license before, or do I need to hire a lawyer to know if I can contribute? What are the local system requirements? How do I bootstrap those dependencies? Tests? Once I've made my change, what's the workflow for submitting an improvement? How long should I expect to wait on feedback? How long will it take to get merged so I can go work on the next thing?
 
-A lot of that comes down to contributor-friendly documentation (read: not internal policy), but a sane workflow (e.g., merging pull requests as they come in, not in a standing meeting on the 2nd Tuesday of the month) and some simple tooling can go a long way. At GitHub we have what we call culture tools, meaning I can jump into any project and know how to set things up and submit my proposed fix without reading a single line of documentation. @parkr expanded on that idea with what he calls ["Language-Agnostic Interfaces for Software Development"](https://byparker.com/blog/2015/language-agnostic-interfaces-for-software-development/){: data-proofer-ignore="true"}. Whatever you call it, running `script/bootstrap` is a heck of a lot easier than spending a few hours learning how some random package manager works.
+A lot of that comes down to contributor-friendly documentation (read: not internal policy), but a sane workflow (for example, merging pull requests as they come in, not in a standing meeting on the 2nd Tuesday of the month) and some simple tooling can go a long way. At GitHub we have what we call culture tools, meaning I can jump into any project and know how to set things up and submit my proposed fix without reading a single line of documentation. @parkr expanded on that idea with what he calls ["Language-Agnostic Interfaces for Software Development"](https://byparker.com/blog/2015/language-agnostic-interfaces-for-software-development/){: data-proofer-ignore="true"}. Whatever you call it, running `script/bootstrap` is a heck of a lot easier than spending a few hours learning how some random package manager works.
 
 ### 4. Decentralize governance
 
@@ -95,4 +95,8 @@ As a result, to be successful, you'll want to explicitly let developers know tha
 
 There's a world of difference between uploading a zip file to an FTP server and open source. Open source is about fostering communities around shared challenges, and as the maintainer of an open source project, that responsibility falls squarely on your shoulders. To be successful, simply publishing code isn't enough. Go out of your way to encourage, praise, and support each contributor and each contribution as if the project's success depended on it, because in reality, it does.
 
-***This post is part of a series on best practices in open source. You may also be interested in [Five best practices in open source: internal collaboration](https://ben.balter.com/2015/03/08/open-source-best-practices-internal-collaboration/).***
+{% capture content -%}
+This post is part of a series on best practices in open source.<br />You may also be interested in <a href="https://ben.balter.com/2015/03/08/open-source-best-practices-internal-collaboration/" class="alert-link">Five best practices in open source: internal collaboration</a>.
+{%- endcapture %}
+
+{% include callout.html content=content %}

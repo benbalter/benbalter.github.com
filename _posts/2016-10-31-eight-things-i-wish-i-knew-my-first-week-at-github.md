@@ -1,16 +1,14 @@
 ---
 title: Eight things I wish I knew my first week at GitHub
-description: A short list of tips and tricks I offer to new employees when they join GitHub
+description: A short list of tips and tricks I offer to new employees when they join GitHub. Specifically, [ship something in your first two weeks](#1-ship-something-in-your-first-two-weeks); [spend your first month learning how to learn and how we communicate](#2-spend-your-first-month-learning-how-to-learn-and-how-we-communicate); [about one month in you'll get overwhelmed](#3-about-one-month-in-you-ll-get-overwhelmed); [the challenge is in deciding what *not* to do](#4-the-challenge-is-in-deciding-what-not-to-do); [GitHub wants you to grow and learn](#5-github-wants-you-to-grow-and-learn); [just do it](#6-just-do-it-but-keep-others-in-the-loop); [professional, not formal](#7-professional-not-formal); and [share your past experiences, but be prepared to unlearn things](#8-share-your-past-experiences-but-be-prepared-to-unlearn-things).
 redirect_from: /2016/10/31/eight-things-i-wish-i-knew-my-first-week/
 ---
 
-<div class="border p-2 mb-2">
-    <p class="mb-0">
-        <em>
-            This post was originally published on a personal-but-internal-to-GitHub blog in 2016. In early 2021, I revisited the writing and realized there was no reason it couldn't be public. I've republished it here with limited modification, mainly to remove internal references. If I were authoring the post today, there are a number of things I'd change (I'd like to think that both GitHub and I have grown in the past four years), but I present it here as a snapshot in time, in hopes it's helpful to future Hubbers and non-Hubbers alike.
-        </em>
-    </p>
-</div>
+{% capture disclaimer -%}
+This post was originally published on a personal-but-internal-to-GitHub blog in 2016. In early 2021, I revisited the writing and realized there was no reason it couldn't be public. I've republished it here with limited modification, mainly to remove internal references. If I were authoring the post today, there are a number of things I'd change (I'd like to think that both GitHub and I have grown in the past four years), but I present it here as a snapshot in time, in hopes it's helpful to future Hubbers and non-Hubbers alike.
+{%- endcapture %}
+
+{% include callout.html content=disclaimer %}
 
 GitHub is a strange, magical place. We have a quirky culture, work very differently than other companies, and all have access to a never-ending firehose of organizational knowledge. It's been a while since my first week at GitHub, but I can still remember what it was like starting — and it was overwhelming to say the least. GitHub's changed a lot since then, and your mileage may vary, but looking back, here's eight things that I wish I knew when I first started:
 
@@ -42,12 +40,12 @@ That's okay. It happened to all of us. Honestly. There's a firehose of informati
 
 As a GitHubber, you'll be presented with more opportunities to have a meaningful impact on what you care about than you'll be able to take advantage of during your time at GitHub. That's true in two ways:
 
-1. GitHub itself presents a unique opportunity. The products we build are uniquely positioned to better the open source community, and in many ways, the software industry as a whole. 
+1. GitHub itself presents a unique opportunity. The products we build are uniquely positioned to better the open source community, and in many ways, the software industry as a whole.
 2. GitHub gives you a great deal of freedom in deciding what to work on. If there's something that you care about, and that thing is also something GitHub cares about, there's a good chance the organization will be receptive to you working on it.
 
 Given all the opportunities we have as a company and that you have as an individual, the challenge is in deciding what *not* to do (prioritizing lower lift, higher impact work), than deciding what to do.
 
-*Pro-tip*: Remind yourself that you have a limited amount of time, and that every minute you spend on a less impactful task is time you could be spending on the more impactful one. Write down the the top 3–5 things you think are most important to work on in the next year, and stick to them.
+*Pro-tip*: Remind yourself that you have a limited amount of time, and that every minute you spend on a less impactful task is time you could be spending on the more impactful one. Write down the top 3–5 things you think are most important to work on in the next year, and stick to them.
 
 ### 5. GitHub wants you to grow and learn
 
@@ -83,14 +81,14 @@ At the same time, be prepared to "unlearn" some prior habits and workflows. GitH
 
 ### Conclusion
 
-One of my favorite parts of working at GitHub is being able to talk to new GitHubbers. Looking back, these were eight things I wished I knew my first week, but they were my experience, and as GitHub continues to evolve, YMMV. In any case, new GitHubber, feel free to DM me any time, if you have a question. It's often helpful to be able to talk to someone outside your report structure, especially once you've passed the awkward "it's too late for me to ask their name" stage of onboarding. 
+One of my favorite parts of working at GitHub is being able to talk to new GitHubbers. Looking back, these were eight things I wished I knew my first week, but they were my experience, and as GitHub continues to evolve, YMMV. In any case, new GitHubber, feel free to DM me any time, if you have a question. It's often helpful to be able to talk to someone outside your report structure, especially once you've passed the awkward "it's too late for me to ask their name" stage of onboarding.
 
 Welcome to GitHub! I'm glad you're here.
 
-{% include github-culture.html %}
+{% include_cached github-culture.html %}
 
 [^1]: The original post referenced a previous iteration of how we stored and shared knowledge internally, so I opted to remove the system name entirely to keep it future proof (that's not what we really call it). If you're a GitHubber, ask your manager or a teammate. It's the thing with internal policies, docs, guides, updates, etc.
 
 [^2]: As we've grown, this timeline has likely accelerated. Don't be worried if you hit this point sooner.
 
-[^3]: To the auditors out there reading this (👋), in hindsight, I'm not sure how realistic that non-aspiration was, but either way, since then we've added a number of developer-friendly technical and administrative controls. 
+[^3]: To the auditors out there reading this (👋), in hindsight, I'm not sure how realistic that non-aspiration was, but either way, since then we've added a number of developer-friendly technical and administrative controls.

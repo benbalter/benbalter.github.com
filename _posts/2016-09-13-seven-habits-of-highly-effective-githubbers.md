@@ -1,6 +1,6 @@
 ---
 title: The seven habits of highly effective GitHubbers
-description: GitHub has a unique work culture. Here are seven traits that I've observed in successful GitHubbers over the years that I think make GitHubbers more effective. YMMV.
+description: GitHub has a unique work culture. Here are seven traits that I've observed in successful GitHubbers over the years that I think make GitHubbers more effective. Specifically, [professional, but not formal](#1-professional-but-not-formal); [ship early, ship often](#2-ship-early-ship-often); [if you see something, say something](#3-if-you-see-something-say-something); [curiosity and self-improvement](#4-curiosity-and-self-improvement); [always be willing to help](#5-always-be-willing-to-help-but-know-when-to-say-no); [contribute to the appreciation economy](#6-contribute-to-the-appreciation-economy); and [honesty, integrity, and authenticity](#7-honesty-integrity-and-authenticity).
 ---
 
 I started working at GitHub when we were just over a hundred employees. A few weeks ago, we passed 600. A lot has changed, including the people (and my role several times), but a lot has also remained the same. GitHub has a unique work culture, and as I recently struggled to describe that culture to my coworkers, I decided instead to document some of the common traits I've consistently observed in successful GitHubbers. There are likely more than seven, but I couldn't pass up the title, so here are at least *some* of the qualities that I think make GitHub employees more effective, and ultimately more successful:
@@ -37,7 +37,7 @@ To be fair though, "always be willing to help" is a bit of an overstatement. Eff
 
 ### 6. Contribute to the appreciation economy
 
-Likely influenced by [Rework](https://www.amazon.com/dp/B002MUAJ2A/?tag=benbalter07-20), which suggests that in many cases, public recognition is going to be a more appropriate response to someone going above-and-beyond than a monetary reward,[^3] it could be said that GitHub operates on somewhat of an appreciation economy. What I mean by that, is that appreciation (in the emotional sense) is the currency that makes many of the day-to-day interactions at GitHub possible. For a while, that took the form of company-wide "shoutout" every Friday (e.g., "shoutout to Ben for taking the time to help me learn X"), but as you can imagine, that didn't scale as the company grew.
+Likely influenced by [Rework](https://www.amazon.com/dp/B002MUAJ2A/?tag=benbalter07-20), which suggests that in many cases, public recognition is going to be a more appropriate response to someone going above-and-beyond than a monetary reward,[^3] it could be said that GitHub operates on somewhat of an appreciation economy. What I mean by that, is that appreciation (in the emotional sense) is the currency that makes many of the day-to-day interactions at GitHub possible. For a while, that took the form of company-wide "shoutout" every Friday (for example, "shoutout to Ben for taking the time to help me learn X"), but as you can imagine, that didn't scale as the company grew.
 
 Today, that appreciation economy often takes the form of the `.sparkles` or tongue-in-cheek roles ChatOps commands, posts to our internal Team blog, and a culture of going out of your way to give credit where credit is due, either on an in-progress issue, in private direct messages, or indirectly through a manager. You can see it in other forms as well. There's a reason new feature announcements are almost without exception authored by the team that created the feature, rather than a faceless corporate account. Effective GitHubbers realize that they're more effective when they work together, and they make it known that their coworkers' contributions are appreciated, not only to recognize and reward their coworkers efforts, but also to further a culture where others continue to do the same.
 
@@ -49,7 +49,7 @@ While here in the Beltway there may be a strong tradition of gushing "it's so gr
 
 These are some of the common traits that I've witnessed in successful GitHubbers over the years. Your millage may vary, but as I try to describe some of the more unique aspects of GitHub's work culture, I figured I'd share my observations in hopes that they help make you more effective as well, both in GitHub, and out.
 
-{% include github-culture.html %}
+{% include_cached github-culture.html %}
 
 [^2]: Case in point, I wore a suit for the majority of my first three years at GitHub. I also used words like "heretofore" a lot. Even in our legal writing, we strive for human readability over tradition or obfuscation by legalese.
 

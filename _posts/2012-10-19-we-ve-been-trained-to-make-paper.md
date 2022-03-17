@@ -38,7 +38,7 @@ And here's why: *.doc files are like tiny micro-jails for our content.* Propriet
 
 ### Break the habit
 
-Let's just concentrate on what matters: the content. When you separate design from content, things get a lot cleaner and a lot easier to work with. From now on, instead of clicking the little blue "W" out of habit, ask "does this really need to be a piece of paper?" If not, all of a sudden you can now use the best collaboration tools that mankind has made to date, rather than publishing tools that were made for a bygone generation.
+Let's just concentrate on what matters: the content. When you separate design from content, things get a lot cleaner and a lot easier to work with. From now on, instead of clicking the little blue "W" out of habit, ask "does this really need to be a piece of paper?" If not, all of a sudden you can now use the best collaboration tools that human kind has made to date, rather than publishing tools that were made for a bygone generation.
 
 And it's not that hard. You can just click "edit" below (as an example), or the next project that comes across your plate, give git a try:
 

@@ -39,9 +39,9 @@ More broadly, when contracting for cloud services, organizations have several te
 
 ### How to Get Into the Cloud
 
-Several avenues exist for organizations looking to experiment with the cloud. For federal agencies, the General Service Administration, through Apps.gov, will soon be rolling out a Federal private cloud. While the specifics have not yet been announced, this service is expected to provide federal agencies with storage, virtual machine, and Web hosting services at a relatively low cost. [^19] Some of this service's potential has already been hinted at by the recent launch of Apps.Gov NOW, a hosted service that provides federal agencies with out-of-the-box blogs (site publishing platforms), Wikis (sites editable by members of a community), and online bulletin boards (sites to facilitate online discussions), all at no cost. [^20]
+Several avenues exist for organizations looking to experiment with the cloud. For federal agencies, the General Service Administration, through Apps.gov, will soon be rolling out a Federal private cloud. While the specifics have not yet been announced, this service is expected to provide federal agencies with storage, virtual machine, and Web hosting services at a relatively low cost. [^19] Some of this service's potential has already been hinted at by the recent launch of `Apps.Gov` NOW, a hosted service that provides federal agencies with out-of-the-box blogs (site publishing platforms), Wikis (sites editable by members of a community), and online bulletin boards (sites to facilitate online discussions), all at no cost. [^20]
 
-Second, many federal sites such as the Federal Communications Commission and Recovery.Gov are in the process of seeking or have already sought third-party cloud hosting services likes Amazon Web Services (AWS) as mentioned above. [^21] Federal agencies opting for such a route must be sure to work closely with the appropriate parties to ensure, federal IT security standards are met, such as FISMA [^22] requirements, or that record retention standards are met, for example, where data stored in the cloud constitutes a system of records under the privacy act. [^23]
+Second, many federal sites such as the Federal Communications Commission and `Recovery.Gov` are in the process of seeking or have already sought third-party cloud hosting services likes Amazon Web Services (AWS) as mentioned above. [^21] Federal agencies opting for such a route must be sure to work closely with the appropriate parties to ensure, federal IT security standards are met, such as FISMA [^22] requirements, or that record retention standards are met, for example, where data stored in the cloud constitutes a system of records under the privacy act. [^23]
 
 Finally, earlier this summer, Google announced FISMA moderate certification of its Google Apps for Government data centers, providing mail, calendar, document, video, and Web hosting services to Federal agencies in a private cloud hosted entirely within the United States. [^24] Agencies wishing to contract their traditional IT infrastructure out to Google can do so for as low as $50 per user per year, however, such savings may come at a cost. Special attention must be paid to the risks associated with trusting a third-party with what may potentially be an agency's most sensitive data.
 
@@ -85,11 +85,11 @@ Whether a federal contracting officer or a provider of IT services, just as the 
 
 [^18]: Newton, 73 Tex. B.J. 632.
 
-[^19]: Cloud IT Services, Apps.Gov
+[^19]: Cloud IT Services, `Apps.Gov`
 
-[^20]: Apps.Gov Now, General Services Administration
+[^20]: `Apps.Gov` Now, General Services Administration
 
-[^21]: Cloud Services, Federal Business Opportunities, <https://www.fbo.gov/index?s=opportunity&mode=form&id=d63c725d5a3006919289698350e3d4b3&tab=core&_cview=1> (last visited October 5, 2010); J. Nicholas Hoover, *Recovert.Gov Moved to Amazon Cloud*, Information Week, May 12, 2010, <http://www.informationweek.com/news/government/cloud-saas/showArticle.jhtml?articleID=224701861>.
+[^21]: Cloud Services, Federal Business Opportunities, <https://www.fbo.gov/index?s=opportunity&mode=form&id=d63c725d5a3006919289698350e3d4b3&tab=core&_cview=1> (last visited October 5, 2010); J. Nicholas Hoover, *`Recovery.Gov` Moved to Amazon Cloud*, Information Week, May 12, 2010, <http://www.informationweek.com/news/government/cloud-saas/showArticle.jhtml?articleID=224701861>.
 
 [^22]: Federal Information Security Management Act of 2002.
 
