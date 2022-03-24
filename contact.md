@@ -7,6 +7,6 @@ icons: true
 ---
 
 {: .text-center }
-Looking to get in touch? You can email me at <ben@balter.com> or you can find me on these social networks:
+Looking to get in touch? Email <ben@balter.com> or I'm `@benbalter` most places:
 
 {% include contact-links.html %}

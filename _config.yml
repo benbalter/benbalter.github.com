@@ -97,7 +97,7 @@ plugins:
 sass:
   style: :compressed
 
-remote_theme: benbalter/retlab
+remote_theme: retlab
 
 gist:
   noscript: false
@@ -115,15 +115,21 @@ footer_pages:
   - fine-print.md
 
 contact_links:
+  - name: Email
+    url: "mailto:ben@balter.com"
+    icon: fa-solid fa-envelope
   - name: Twitter
-    url: https://twitter.com/BenBalter
-    icon: twitter
+    url: https://twitter.com/benbalter
+    icon: fa-brands fa-twitter
   - name: LinkedIn
-    url: https://www.linkedin.com/in/BenBalter
-    icon: linkedin-in
+    url: https://www.linkedin.com/in/benbalter
+    icon: fa-brands fa-linkedin
   - name: GitHub
     url: https://github.com/benbalter
-    icon: github
+    icon: fa-brands fa-github
+  - name: vCard
+    url: https://ben.balter.com/vcard.vcf
+    icon: fa-solid fa-address-card
 
 amazon:
   affiliates_tag: benbalter07-20
@@ -134,3 +140,4 @@ employer:
   name: GitHub
   url: https://github.com
 job_title: Chief of Staff, Security
+handle: benbalter
