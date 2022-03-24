@@ -17,9 +17,9 @@ social:
   name: Ben Balter
   links:
     - https://twitter.com/BenBalter
-    - https://facebook.com/ben.balter
     - https://linkedin.com/in/BenBalter
     - https://github.com/benbalter
+    - https://facebook.com/ben.balter
     - https://instagram.com/benbalter
 
 cloudflare:
@@ -118,15 +118,15 @@ contact_links:
   - name: Twitter
     url: https://twitter.com/BenBalter
     icon: twitter
-  - name: Facebook
-    url: https://facebook.com/BenBalter
-    icon: facebook-f
   - name: LinkedIn
     url: https://www.linkedin.com/in/BenBalter
     icon: linkedin-in
   - name: GitHub
     url: https://github.com/benbalter
     icon: github
+  - name: Facebook
+    url: https://facebook.com/BenBalter
+    icon: facebook-f
 
 amazon:
   affiliates_tag: benbalter07-20
