@@ -124,9 +124,6 @@ contact_links:
   - name: GitHub
     url: https://github.com/benbalter
     icon: github
-  - name: Facebook
-    url: https://facebook.com/BenBalter
-    icon: facebook-f
 
 amazon:
   affiliates_tag: benbalter07-20
