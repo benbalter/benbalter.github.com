@@ -20,7 +20,6 @@ social:
     - https://facebook.com/ben.balter
     - https://linkedin.com/in/BenBalter
     - https://github.com/benbalter
-    - https://keybase.io/benbalter
     - https://instagram.com/benbalter
 
 cloudflare:
@@ -128,9 +127,6 @@ contact_links:
   - name: GitHub
     url: https://github.com/benbalter
     icon: github
-  - name: Keybase
-    url: https://keybase.io/benbalter
-    icon: keybase
 
 amazon:
   affiliates_tag: benbalter07-20
