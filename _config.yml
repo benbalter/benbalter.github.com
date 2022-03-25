@@ -98,6 +98,7 @@ sass:
   style: :compressed
 
 remote_theme: benbalter/retlab
+#theme: retlab
 
 gist:
   noscript: false
@@ -118,6 +119,9 @@ contact_links:
   - name: Email
     url: "mailto:ben@balter.com"
     icon: fa-solid fa-envelope
+  - name: vCard
+    url: https://ben.balter.com/vcard.vcf
+    icon: fa-solid fa-address-card
   - name: Twitter
     url: https://twitter.com/benbalter
     icon: fa-brands fa-twitter
@@ -127,9 +131,6 @@ contact_links:
   - name: GitHub
     url: https://github.com/benbalter
     icon: fa-brands fa-github
-  - name: vCard
-    url: https://ben.balter.com/vcard.vcf
-    icon: fa-solid fa-address-card
 
 amazon:
   affiliates_tag: benbalter07-20
