@@ -95,7 +95,7 @@ plugins:
   - jekyll-mentions
 
 sass:
-  style: :compressed
+  style: compressed
 
 remote_theme: benbalter/retlab
 #theme: retlab
@@ -119,7 +119,7 @@ contact_links:
   - name: Email
     url: "mailto:ben@balter.com"
     icon: fa-solid fa-envelope
-  - name: vCard
+  - name: Add to contacts
     url: https://ben.balter.com/vcard.vcf
     icon: fa-solid fa-address-card
   - name: Twitter
