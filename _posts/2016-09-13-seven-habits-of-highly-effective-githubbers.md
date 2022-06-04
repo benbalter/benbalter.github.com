@@ -47,7 +47,7 @@ All throughout GitHub lore we have phrases like "speak like a human" and "when i
 
 While here in the Beltway there may be a strong tradition of gushing "it's so great to see you!", even when everyone knows it isn't, or using double speak to gloss over a prior misstep, at GitHub, there's a premium placed on remaining true to GitHub's values (and your own), and thus a heavy price, at least in terms of trust and social capital, for hypocrisy and inconsistency, no matter how small. This is as true of technical failure as it is of human error, both often taking the form of a blameless postmortem or retrospective. Implicit in that belief is also a willingness to work past one's own self-consciousness, to have the awkward conversations (often made more difficult by being remote), even when you don't want to. Effective GitHubbers speak openly, whether positive or negative, and consistently do what they say they'll do (or that others should).
 
-These are some of the common traits that I've witnessed in successful GitHubbers over the years. Your millage may vary, but as I try to describe some of the more unique aspects of GitHub's work culture, I figured I'd share my observations in hopes that they help make you more effective as well, both in GitHub, and out.
+These are some of the common traits that I've witnessed in successful GitHubbers over the years. Your mileage may vary, but as I try to describe some of the more unique aspects of GitHub's work culture, I figured I'd share my observations in hopes that they help make you more effective as well, both in GitHub, and out.
 
 {% include_cached github-culture.html %}
 
