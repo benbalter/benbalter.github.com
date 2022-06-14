@@ -1,6 +1,6 @@
 ---
 title: How I manage GitHub notifications
-description: I use web notifications for everything but `@mentions`, which I have pushed to me via email. I subscribe to lots of repositories to ensure I don't miss anything, but unsubscribe from any thread not immediately relevant to me to keep noise to a minimum. I also have a few tools I've built to customize GitHub notifications for [the way I work](http://localhost:4000/2020/08/14/tools-of-the-trade/).
+description: I use web notifications for everything but `@mentions`, which I have pushed to me via email. I subscribe to lots of repositories to ensure I don't miss anything, but unsubscribe from any thread not immediately relevant to me to keep noise to a minimum. I also have a few tools I've built to customize GitHub notifications for [the way I work](http://ben.balter.com/2020/08/14/tools-of-the-trade/).
 ---
 
 As a Product Manager at GitHub, GitHub.com is my primary means of communication day-to-day. I'm constantly reading and replying to GitHub threads to coordinate work within and across teams. On the average work day it's not uncommon that I'll receive upwards of 200 GitHub notifications (about 15 per hour on average during the work day). While that volume could easily become distracting or overwhelming, it's not (well, not usually at least). Here's how I manage GitHub notifications to remain focused and productive:
