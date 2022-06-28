@@ -116,7 +116,7 @@ Creative ideas on how best to leverage the information welcome in the comments b
         <address>1776 G St</address>
         <geoLocation>38.897984,-77.04146</geoLocation>
         <shortname>NA</shortname>
-        <picturelink><http://www.gwu.edu/~newsctr/mobile/images/maps/1776-G-ST_UP_WLA_2010-6618.jpg></picturelink>
+        <picturelink>http://www.gwu.edu/~newsctr/mobile/images/maps/1776-G-ST_UP_WLA_2010-6618.jpg</picturelink>
     </building>
     <building>
         <buildingNumber>136</buildingNumber>
@@ -126,7 +126,7 @@ Creative ideas on how best to leverage the information welcome in the comments b
         <address>1957 E St</address>
         <geoLocation>38.896193,-77.044294</geoLocation>
         <shortname>1957E</shortname>
-        <picturelink><http://www.gwu.edu/~newsctr/mobile/images/maps/Elliot_School_UP_WLA_2010-3102.jpg></picturelink>
+        <picturelink>http://www.gwu.edu/~newsctr/mobile/images/maps/Elliot_School_UP_WLA_2010-3102.jpg</picturelink>
     </building>
   </buildings>
   ```
