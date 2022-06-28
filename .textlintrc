@@ -2,7 +2,6 @@
   "filters": {},
   "rules": {
     "no-start-duplicated-conjunction": true,
-    "date-weekday-mismatch": true,
     "terminology": {
       "exclude": [
         "HTML",
@@ -12,7 +11,6 @@
     },
     "write-good": true,
     "diacritics": true,
-    "alex": true,
     "doubled-spaces": true,
     "stop-words": {
       "exclude": [
