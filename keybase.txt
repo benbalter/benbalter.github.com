@@ -1,6 +1,7 @@
 ---
 permalink: ".well-known/keybase.txt"
 layout: null
+sitemap: false
 ---
 
 ==================================================================

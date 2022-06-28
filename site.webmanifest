@@ -1,6 +1,6 @@
 ---
 layout: null
-sitemape: false
+sitemap: false
 ---
 {
     "name": "{{ site.title }}",
