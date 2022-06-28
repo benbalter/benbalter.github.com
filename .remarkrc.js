@@ -43,6 +43,10 @@ import retextSpell from 'retext-spell'
 import retextSyntaxMentions from 'retext-syntax-mentions'
 import retextSyntaxURLs from 'retext-syntax-urls'
 import remarkPrettier from 'remark-prettier'
+import retextIntensify from 'retext-intensify'
+import retextPassive from 'retext-passive'
+import retextProfanities from 'retext-profanities'
+import retextReadability from 'retext-readability'
 
 var personal = fs
   .readFileSync('dictionary.txt', 'utf8')
@@ -63,7 +67,11 @@ const retextSettings = {
     retextSyntaxMentions,
     retextSyntaxURLs,
     retextSimplify,
-    retextEquality
+    retextEquality,
+    retextIntensify,
+    retextPassive,
+    retextProfanities,
+    retextReadability
   ]
 };
 
