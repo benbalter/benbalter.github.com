@@ -66,7 +66,7 @@
     "retext-syntax-mentions": "^3.1.0",
     "retext-syntax-urls": "^3.1.2",
     "textlint": "^12.2.1",
-    "textlint-rule-alex": "^3.0.0",
+    "textlint-rule-alex": "^1.0.1",
     "textlint-rule-common-misspellings": "^1.0.1",
     "textlint-rule-diacritics": "^1.0.0",
     "textlint-rule-no-start-duplicated-conjunction": "^2.0.2",
