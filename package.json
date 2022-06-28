@@ -16,8 +16,7 @@
     "@textlint-rule/textlint-rule-no-unmatched-pair": "^1.0.8",
     "dictionary-en-us": "^2.2.1",
     "eslint": "^8.18.0",
-    "json-lint": "^0.1.0",
-    "jsonlint": "^1.6.3",
+    "eslint-plugin-json": "^3.1.0",
     "markdownlint-cli": "^0.31.1",
     "remark-cli": "^11.0.0",
     "remark-comment-config": "^7.0.1",
@@ -93,7 +92,7 @@
   "scripts": {
     "lint": "npm run lint-js && npm run lint-json && npm run lint-md",
     "lint-js": "xo .remarkrc.js --ignore-pattern !.remarkrc.js --fix",
-    "lint-json": "jsonlint package.json --in-place --sort-keys",
+    "lint-json": "eslint . --ext json --fix",
     "lint-md": "remark . --output",
     "lint-text": "textlint *.md _posts/*.md _resume_positions/*.md --fix",
     "lint-yaml": "yamllint -c .yamllint.yml .github/workflows/ci.yml *.yml _data/*.yml",
