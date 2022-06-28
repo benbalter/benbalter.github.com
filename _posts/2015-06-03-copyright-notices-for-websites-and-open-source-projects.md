@@ -27,7 +27,7 @@ For things like books, the year of publication is really easy to determine. If y
 
 #### When is a digital work "published"
 
-But when it comes to digital works, the idea of publication isn't quite the same. When is an open source project (or a website, as that's the most common means of publishing an open source project, for example, via GitHub's web interface) "published"?
+But when it comes to digital works, the idea of publication isn't quite the same. When is an open source project (or a site, as that's the most common means of publishing an open source project, for example, via GitHub's web interface) "published"?
 
 In this case, of a site like [choosealicense.com](http://choosealicense.com), to take a simple example, the site was "published" when the site launched in 2013. But unlike books, that are published yearly, in set editions, with open source, things are both never finished and constantly changing — the hallmark of a healthy open source project.
 
@@ -37,7 +37,7 @@ If in 2014, someone submits a pull request to add some new content to the site (
 
 There's precedent for this practice. If you ever look at the copyright page of a book, it will likely say copyright 2001, 2004, 2006–2007, etc., noting each year of publication. Here, the same legal theory is at play, with the digital project being unbridled from the confines of the physical world, and thus publishing a bit more frequently, likely being "published", the year the project was started, and every year thereafter.
 
-In terms of websites, if you have a page that updates daily (think the front page of `nytimes.com`), then the current year is sufficient, because everything on that page was "published" that year, and thus received copyright that year (excluding the design and branding elements for a moment). If you have a page where some content was "published" in 2013, and some in 2014 (think our `choosealicense.com` example), then to really properly put a potential infringer on notice (see the sniff-test rationale above) you'd want `[original publish date] - [last published date]`. Again, just like books, each year it was published, concatenating consecutive years.
+In terms of sites, if you have a page that updates daily (think the front page of `nytimes.com`), then the current year is sufficient, because everything on that page was "published" that year, and thus received copyright that year (excluding the design and branding elements for a moment). If you have a page where some content was "published" in 2013, and some in 2014 (think our `choosealicense.com` example), then to really properly put a potential infringer on notice (see the sniff-test rationale above) you'd want `[original publish date] - [last published date]`. Again, just like books, each year it was published, concatenating consecutive years.
 
 ### The copyright holder
 

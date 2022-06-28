@@ -9,7 +9,7 @@ Wired Magazine recently took a turn for the meta. In addition to publishing thei
 >
 > We published our GitHub story on GitHub because it was meta-cool. But we also did it to see if GitHub might actually help us solve our problem.
 
-Spoiler alert: it didn't. GitHub's great for a lot of things, source code chief among them, but it's not for the faint of heart. There's a great deal of command line, and general geekery involved that raise the barriers to entry just high enough to keep it out of everyday newsrooms and editorial workflows. [^1]
+Spoiler alert: it didn't. GitHub's great for a lot of things, source code chief among them, but it's not for the faint of heart. There's a great deal of command-line, and general geekery involved that raise the barriers to entry just high enough to keep it out of everyday newsrooms and editorial workflows. [^1]
 
 **The Pitch:** *What if we could re-imagine WordPress's ease-of-use and intuitively dumb-simple workflow to introduce a layer of GitHub's collaborative fork-and-merge horsepower under the hood?*
 

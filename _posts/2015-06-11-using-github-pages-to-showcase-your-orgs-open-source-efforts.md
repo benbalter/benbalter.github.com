@@ -9,11 +9,11 @@ GitHub Pages is GitHub's static site hosting service. It's used primarily for tw
 
 ### Organization profile pages
 
-Let's say you're the Consumer Financial Protection Bureau. You have a GitHub organization called @CFPB. If you navigate to [github.com/cfpb](https://github.com/cfpb) you'll see your organization's profile page. It'll have things like your organization's name, logo, location, and website, along with a list of your open source project's and a short description of each in order that they were last updated, but you generally can't tailor the look-and-feel to suit your organization's unique needs. If you want a more customized presence, you'll need to use GitHub Pages.
+Let's say you're the Consumer Financial Protection Bureau. You have a GitHub organization called @CFPB. If you navigate to [github.com/cfpb](https://github.com/cfpb) you'll see your organization's profile page. It'll have things like your organization's name, logo, location, and site, along with a list of your open source project's and a short description of each in order that they were last updated, but you generally can't tailor the look-and-feel to suit your organization's unique needs. If you want a more customized presence, you'll need to use GitHub Pages.
 
 ### How GitHub Pages works
 
-GitHub pages is deceptively simple, but incredibly powerful service. To start using GitHub Pages, you'll want to create a new repository named `[your-organization].github.io`. In our CFPB example above, the repository would be [`cfpb/cfpb.github.io`](https://github.com/cfpb/cfpb.github.io). From there, any static files you commit (HTML, CSS, Javascript, images, etc.) will be served as `your-organization.github.io` (or in the case of our example, [`cfpb.github.io`](http://cfpb.github.io)).
+GitHub pages is deceptively simple, but incredibly powerful service. To start using GitHub Pages, you'll want to create a new repository named `[your-organization].github.io`. In our CFPB example above, the repository would be [`cfpb/cfpb.github.io`](https://github.com/cfpb/cfpb.github.io). From there, any static files you commit (HTML, CSS, JavaScript, images, etc.) will be served as `your-organization.github.io` (or in the case of our example, [`cfpb.github.io`](http://cfpb.github.io)).
 
 ### Getting started with GitHub Pages
 

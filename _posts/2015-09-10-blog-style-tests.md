@@ -38,7 +38,7 @@ The next thing I'd notice if I were reviewing the post is that it focuses on the
 
 > Your users don't care how excited you are. They don't care about how much effort you put in. They don't care how hard it was to do. All they care about is one thing: how does it benefit me?
 
-With a little regex, testing for "We're excited to announced…"-type phrases is equally straightforward:
+With a little regular expression, testing for "We're excited to announced…"-type phrases is equally straightforward:
 
 ```ruby
 class ExcitedTest &lt; Blog::Test

@@ -6,7 +6,7 @@ description: The next time you publish a data source, whether in government or o
 
 Publishing government information is about much more than simply throwing 0's and 1's over the firewall. It's about building ecosystems and communities. It's about solving shared challenges. It's about consumption — after all, that's the American way.
 
-Go to any agency website, and chances are you'll find at least one dataset sitting idly by because the barrier to consume it is *too damn high*. It doesn't matter how hard stakeholders had to fight to get the data out the door or how valuable the dataset is, it's never going to become the next GPS or weather data.
+Go to any agency site, and chances are you'll find at least one dataset sitting idly by because the barrier to consume it is *too damn high*. It doesn't matter how hard stakeholders had to fight to get the data out the door or how valuable the dataset is, it's never going to become the next GPS or weather data.
 
 [We can build cruft to get around the hurdles](https://ben.balter.com/2013/07/01/technologys-the-easy-part/), but so long as the workflow is optimized for the publisher, not the consumer, we're always going to be setting ourselves up to give the naysayers even more fodder to point at as an example for why we shouldn't waste agency resources on open government initiatives.
 
@@ -22,6 +22,6 @@ All experiences — government experience especially — should be optim
 
 The General Services Administration, much to their credit, has begun a "[First Fridays](http://www.usability.gov/how-to-and-tools/guidance/gsa-first-fridays-program.html)" usability testing program, which is the tangible result of a much larger and much needed effort to educate publishers of government information as to the importance of and necessity for a purposeful commitment to user experience.
 
-But as we increasingly push for government information to be published in machine-readable formats, what becomes of that focus on the consumer's user experience? Is the user experience format agnostic? Here, the immediate consumer of the information is a civic hacker or other developer, and the interface is an API rather than an agency website, but the intention and importance is just the same.
+But as we increasingly push for government information to be published in machine-readable formats, what becomes of that focus on the consumer's user experience? Is the user experience format agnostic? Here, the immediate consumer of the information is a civic hacker or other developer, and the interface is an API rather than an agency site, but the intention and importance is just the same.
 
-The next time you publish a data source, whether in government or out, just as you should with any website, ask yourself one simple question: *How can you optimize the experience for the consumer?*
+The next time you publish a data source, whether in government or out, just as you should with any site, ask yourself one simple question: *How can you optimize the experience for the consumer?*

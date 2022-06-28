@@ -11,7 +11,7 @@ Although powered by the open-source CMS WordPress, the old site (shared hosting 
 
 Don't get me wrong. WordPress can be [configured to fly](http://wordpress.org/extend/plugins/batcache/) given the right setup, and that's exactly what I set out to do. I got the best of the best. I spun up a shiny new AWS box, got Nginx with microcache up and running, APC for opcode, page, and object cache, and even put everything behind Varnish.
 
-But as much as it pains the developer in me, just like fixies, PBR, and Javascript, static sites are back in style. Reduce the complexity, push it to the edge, and let the visitor's browser call APIs directly to generate any dynamic content you may need. Same functionality, same experience, no headache.
+But as much as it pains the developer in me, just like fixies, PBR, and JavaScript, static sites are back in style. Reduce the complexity, push it to the edge, and let the visitor's browser call APIs directly to generate any dynamic content you may need. Same functionality, same experience, no headache.
 
 The pitch is straightforward. It leads to simple, flexible, and reliable sites that allow for a renewed focus on what actually matters: the content. Dave Cole over at [Development Seed](http://developmentseed.org/) (also powered by Jekyll) [put it best](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/):
 

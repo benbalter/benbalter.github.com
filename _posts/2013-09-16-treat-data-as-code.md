@@ -19,7 +19,7 @@ I'd argue that open data today is exactly where open source was some two decades
 
 ### Open sourcing data
 
-We're not talking about reinventing the wheel here. We're talking about taking a proven practice in one industry, and introducing it to a related one. And from an agency perspective, it's not a radical change either. Instead of FTPing static files to an agency server or updating a custom front-end, simply commit the file like the open source community would code. Heck, with GitHub for Windows/Mac, it's a matter of drag, drop, sync. No command-line or neck beard necessary.
+We're not talking about reinventing the wheel here. We're talking about taking a proven practice in one industry, and introducing it to a related one. And from an agency perspective, it's not a radical change either. Instead of FTPing static files to an agency server or updating a custom frontend, simply commit the file like the open source community would code. Heck, with GitHub for Windows/Mac, it's a matter of drag, drop, sync. No command-line or neck beard necessary.
 
 All of a sudden we're doing a few things: First, we're empowering subject matter experts to be publishers. There's no longer a Rube Goldberg machine necessary to publish data. Second, we're starting a conversation between data publishers and data consumers. That's where the issues and pull requests come into play. Finally, we're exposing process, ensuring that open data becomes not simply "published data", but can truly be open, dedicated community and all.
 

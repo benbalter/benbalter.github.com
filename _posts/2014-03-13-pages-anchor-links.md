@@ -51,7 +51,7 @@ h6:hover .header-link {
 
 ### The JavaScript
 
-Last, to tie everything together, you'll also need a bit of JavaScript magic client side, by adding the following to your site's footer:
+Last, to tie everything together, you'll also need a bit of JavaScript magic client-side, by adding the following to your site's footer:
 
 ```html
 <script>

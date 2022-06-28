@@ -1,6 +1,6 @@
 ---
 title: Why open source
-description: Twenty five [microeconomic](#microeconomic-motivations), [macroeconomic](#macroeconomic-motivations), [moral](#moral-motivations), [transparency](#transparency-motivations), [participatory](#participatory-motivations), and [personal](#personal-motivations) motivations why you and your organization should consume, publish, contribute to, and support open source. 
+description: Twenty five [microeconomic](#microeconomic-motivations), [macroeconomic](#macroeconomic-motivations), [moral](#moral-motivations), [transparency](#transparency-motivations), [participatory](#participatory-motivations), and [personal](#personal-motivations) motivations why you and your organization should consume, publish, contribute to, and support open source.
 ---
 
 Open source is awesome. There are many reasons why you might consider consuming, publishing, collaborating on, or supporting open source.[^1] Here are a few of them:

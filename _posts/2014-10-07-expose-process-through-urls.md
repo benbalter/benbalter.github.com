@@ -25,7 +25,7 @@ We rarely use email for exactly that reason. It's not available to those not ori
 
 ### Where things go wrong
 
-If the fabric of the internet is so necessarily sewn with URLs, why then, do websites, especially government websites, so often violate this sacred cyber-norm?
+If the fabric of the internet is so necessarily sewn with URLs, why then, do sites, especially government sites, so often violate this sacred cyber-norm?
 
 #### URLs don't require additional instructions
 

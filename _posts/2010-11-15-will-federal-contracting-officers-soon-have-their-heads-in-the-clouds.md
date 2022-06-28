@@ -15,7 +15,7 @@ Seen as a virtually unlimited hardware and communications infrastructure managed
 
 ### How Cloud Computing Came About
 
-Several innovations fueled the shift toward computing in the cloud. First, the rise and adoption of both broadband internet access, which allowed for reduced load times, and a programming technique known as AJAX, which allowed sites to look and feel more like desktop programs through a constant push-and-pull of information, combined to usher in a greater reliance on remote applications. [^8] At the same time the growth of enterprise data centers, and the public's increasing comfort with Web 2.0 services like GMail and Facebook provided a technical and social infrastructure to support such a push. [^9]
+Several innovations fueled the shift toward computing in the cloud. First, the rise and adoption of both broadband internet access, which allowed for reduced load times, and a programming technique known as Ajax, which allowed sites to look and feel more like desktop programs through a constant push-and-pull of information, combined to usher in a greater reliance on remote applications. [^8] At the same time the growth of enterprise data centers, and the public's increasing comfort with Web 2.0 services like GMail and Facebook provided a technical and social infrastructure to support such a push. [^9]
 
 The biggest breakthrough, however, the core and true power behind cloud computing, came from the consolidation of physical servers through system virtualization. Through virtualization, one physical server can become the host to many virtual servers. [^10] Because the resources are dynamically allocated across physical servers as the virtual servers require them, the physical resources are used more efficiently. [^11] If server *A*, say an email server like one may see in most corporate or government offices sees a sudden spike in activity, rather than slowing, it can borrow resources from server *B*, a site hosted on the same physical server. The user, unaware that this shift has even occurred, sees the two servers as discrete and unconnected despite their physical location.
 
@@ -25,9 +25,9 @@ The biggest implication however, is that computing resources can be provisioned 
 
 Cloud computing exists in several forms today. The most basic, "infrastructure as a service" (IAAS), uses shared facilities, hardware, and networks to hold and move data. Customers, given virtual servers, may then install, configure, and utilize their own software freely. [^13] As indicated above, however, customers do not rent the physical servers (merely their equivalent processing power), and providers may move virtual servers between physical servers as necessary. [^14] Amazon's EC2, S3, and CloudFront are prime examples of cloud computing, storage, and delivery respectively.
 
-Second, and slightly more advanced, "platform as a service" (PAAS) allows providers to serve customers with a shared computing platform and software environment. The customer can upload software code in a predetermined programming language (such as Java or PHP) and the provider executes that code and returns the result. [^15] Google Apps Engine is a prime example of such an arrangement.
+Second, and slightly more advanced, "platform as a service" (PaaS) allows providers to serve customers with a shared computing platform and software environment. The customer can upload software code in a predetermined programming language (such as Java or PHP) and the provider executes that code and returns the result. [^15] Google Apps Engine is a prime example of such an arrangement.
 
-Finally, "software as a service" (SAAS) is most associated with Web-based consumer services such as Facebook or Flickr but can find application in business and government environments as well. The provider hosts software designed to perform a specific function, such as social networking or photo sharing, and the user interacts with that application being run on the provider's server. [^16]
+Finally, "software as a service" (SaaS) is most associated with Web-based consumer services such as Facebook or Flickr but can find application in business and government environments as well. The provider hosts software designed to perform a specific function, such as social networking or photo sharing, and the user interacts with that application being run on the provider's server. [^16]
 
 One additional distinction among cloud services can be made. Each of the three approaches listed above can be hosted in either a public cloud, meaning one customer's virtual servers may be freely intermingled with another customer's among physical servers, or in a private cloud in which the physical servers, infrastructure, or datacenter may be entirely segregated from those used to provide services to other clients. [^17]
 
@@ -59,7 +59,7 @@ Whether a federal contracting officer or a provider of IT services, just as the 
 
 [^5]: Wittow, 14 J. Internet L. 1 (2010).
 
-[^6]: J. Nicholas Hoover, *Interop: Oracle Predicts Cloud Confusion to Continue*, InformationWeek, Sept. 17, 2008, <http://www.informationweek.com/news/services/hosted_apps/showArticle.jhtml?articlelD=210602225>.
+[^6]: J. Nicholas Hoover, *Interop: Oracle Predicts Cloud Confusion to Continue*, InformationWeek, Sept. 17, 2008, <http://www.informationweek.com/news/services/hosted_apps/showArticle.jHTML?articlelD=210602225>.
 
 [^7]: Peter M. Lefkowitz, *Contracting in the Cloud: A Primer,* Boston B.J., Summer 2010, at 9.
 
@@ -89,7 +89,7 @@ Whether a federal contracting officer or a provider of IT services, just as the 
 
 [^20]: `Apps.Gov` Now, General Services Administration
 
-[^21]: Cloud Services, Federal Business Opportunities, <https://www.fbo.gov/index?s=opportunity&mode=form&id=d63c725d5a3006919289698350e3d4b3&tab=core&_cview=1> (last visited October 5, 2010); J. Nicholas Hoover, *`Recovery.Gov` Moved to Amazon Cloud*, Information Week, May 12, 2010, <http://www.informationweek.com/news/government/cloud-saas/showArticle.jhtml?articleID=224701861>.
+[^21]: Cloud Services, Federal Business Opportunities, <https://www.fbo.gov/index?s=opportunity&mode=form&id=d63c725d5a3006919289698350e3d4b3&tab=core&_cview=1> (last visited October 5, 2010); J. Nicholas Hoover, *`Recovery.Gov` Moved to Amazon Cloud*, Information Week, May 12, 2010, <http://www.informationweek.com/news/government/cloud-saas/showArticle.jHTML?articleID=224701861>.
 
 [^22]: Federal Information Security Management Act of 2002.
 

@@ -37,7 +37,7 @@ There are a lot of reasons for that de-emphasis. For one, technology has made it
 
 > Pretty much all open source activity (whether software or otherwise) happens online… if it's not online, it's hard for it to be effectively open source, practically speaking.
 
-But among the biggest reasons for this shift, I'd argue, is that unlike when the open source movement was originally taking shape, today, there is no "source" and "binary" distribution to drive a wedge of imbalance. With web-centric, high-level languages like Ruby, Node, and PHP, it's really hard to distribute the software in such a way that you don't have everything you need to modify it, at least not in terms of code.
+But among the biggest reasons for this shift, I'd argue, is that unlike when the open source movement was originally taking shape, today, there is no "source" and "binary" distribution to drive a wedge of imbalance. With web-centric, high-level languages like Ruby, Node.js, and PHP, it's really hard to distribute the software in such a way that you don't have everything you need to modify it, at least not in terms of code.
 
 ### Open source <del>software</del>
 

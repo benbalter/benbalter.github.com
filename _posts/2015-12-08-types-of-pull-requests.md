@@ -22,7 +22,7 @@ Whether collaborating on code, data, or prose text, there are lots of different 
 
 **How it works:** Prefix the pull request title with `WIP:`. Optionally add :warning: emoji and "DO NOT MERGE" in bold if you're ultra-paranoid.
 
-**When to use it:** When you've started a new feature, document, or bug fix, that's not quite ready for others to review, but you want to let your teammates know that you're working on the feature. This can be used to prevent the duplication of effort, save work that you've started, or complement your team's workflow.
+**When to use it:** When you've started a new feature, document, or bugfix, that's not quite ready for others to review, but you want to let your teammates know that you're working on the feature. This can be used to prevent the duplication of effort, save work that you've started, or complement your team's workflow.
 
 ### Early feedback
 

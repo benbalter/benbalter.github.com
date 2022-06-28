@@ -33,7 +33,7 @@ Open source provides government contractors with the ability to build a portfoli
 
 Potential customers aren't the only ones that can benefit from the software being public. Being an active member of the open source community allows the government contractor to become a known quantity, and to establish a reputation as a firm that supports open source software. You can't buy goodwill like that.
 
-As the contractor seeks to attract talent, by the time they step foot in the career fair, or post the job posting to their website, [the most passionate, talented developers in the space already know who they are, already see how they work, and already want to work for them](http://tom.preston-werner.com/2011/11/22/open-source-everything.html).
+As the contractor seeks to attract talent, by the time they step foot in the career fair, or post the job posting to their site, [the most passionate, talented developers in the space already know who they are, already see how they work, and already want to work for them](http://tom.preston-werner.com/2011/11/22/open-source-everything.html).
 
 Better still, because open source is collaborative, there's a good chance you've already had an opportunity to evaluate the applicant. What better way to evaluate how the applicant would contribute to your organization's software, than to be able to evaluate them as they contribute to your organization's software over the lifecycle of an open source project? At GitHub, for example, we're already familiar with many of the developers we hire, well before a résumé ever changes hands.
 
@@ -75,6 +75,6 @@ Assuming you engage in more than one project over the lifetime of the contractin
 
 Open source has traditionally [gotten a bad rap](https://ben.balter.com/2014/09/22/open-source-is-not-insecure/) as being a fringe effort, being buggy, or being hard to break into. All three of those assumptions have changed dramatically in the past years, especially in government, as we see open source increasingly used in place of traditional, "enterprise-grade" solutions with positive results.
 
-If you haven't recently, take a closer look at open source. I think you'll be surprised. Find something small — a bug in the software that powers your website, a shared library used internally, or a tool used to facilitate your own workflows — and open source it. Government contractors may be stereotypically hesitant to embrace the latest industry trend, but open source is neither risky, nor a passing fad. Open source is here to stay.
+If you haven't recently, take a closer look at open source. I think you'll be surprised. Find something small — a bug in the software that powers your site, a shared library used internally, or a tool used to facilitate your own workflows — and open source it. Government contractors may be stereotypically hesitant to embrace the latest industry trend, but open source is neither risky, nor a passing fad. Open source is here to stay.
 
 As young firms begin to bring their open source experience to the marketplace, the only questions is whether existing government contracting firms will finally get ahead of, or continue to lag behind the technology adoption curve.
