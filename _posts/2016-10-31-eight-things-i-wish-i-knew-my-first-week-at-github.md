@@ -26,7 +26,7 @@ GitHub has a unique and awesome way of communicating. We communicate [a lot more
 
 If your first ship is something small like documentation, your second ship for your second two weeks should be learning how we work, and more importantly, learning how to learn. If you don't know something, what do you do? Where do you look? Who should you ask? Keep in mind, that information at GitHub is largely available to all. Don't be alarmed if someone answers a question [with a URL](https://ben.balter.com/2015/11/12/why-urls/). Over time you'll build up the mental model to be able to find the information yourself (and do the same for others).
 
-*Pro-tip:* When I don't know something, I usually look in the following places, in order: 1. Searching the company's "internal knowledge base", 2. Doing [a code search](https://github.com/search) with the keyword "@github" (to scope it to the GitHub org), 3. trying to find a logically named channel in Slack and asking the question there.
+*Pro-tip:* When I don't know something, I usually look in the following places, in order: 1. Searching the company's "internal knowledge base", 2. Doing [a code search](https://github.com/search) with the keyword "@GitHub" (to scope it to the GitHub org), 3. trying to find a logically named channel in Slack and asking the question there.
 
 ### 3. About one month in you'll get overwhelmed
 

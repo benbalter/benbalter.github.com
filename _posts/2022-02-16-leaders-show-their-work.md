@@ -77,7 +77,11 @@ While I still agree [everything should have a URL](https://ben.balter.com/2015/1
 {% include_cached github-culture.html %}
 
 [^1]: I use the term "management" here broadly. Yes, this could be a people manager, but the concept applies equally to product managers, program managers, and individual contributors in leadership roles. At GitHub, we have the concept of directly responsible individual (DRI), a role regardless of position within the organization for which visibility of work is an explicit expectation.
+
 [^2]: A small team may experience minor communication costs in terms of say weekly meetings and daily standups, but as teams and companies grow, the cost of traversing that network layer adds up, rendering absolute participation in decision-making practically impossible.
+
 [^3]: Since it requires a human [extract, transform, and load](https://www.ibm.com/cloud/learn/etl) operation to shuttle information from one reporting structure to the next
+
 [^4]: Let's take a typical software development workflow as an example: bugs and feature requests are captured as detailed [problem statements](https://ben.balter.com/2018/07/16/problems-not-solutions/) and are prioritized transparently by managers in a curated backlog. Developers pick issues off the top of that queue, open up a pull request with their proposed solution (along with a reference back to the associated issue and an @mention to the responsible team), and the changes are reviewed, discussed, iterated on, and ultimately merged, all available for anyone in the organization (or in the case of open source, the world) to see. Six months or a year later, others interested in the decisions made can use the changed file's history, `git blame`, or issue search among other tools to find exactly who made what change and why, as if they were party to the decision contemporaneously.
+
 [^5]: For some, communicating a decision can be as straightforward as stating "we decided X" or "you must now do Y". This could be as simple as an email, Slack message, or brief update at the top of an in-person meeting, but at their core, these efforts all too often focus on the "what", even when the "why" or "how" isn't otherwise apparent to outsiders (and arguably given the long-tail of history, these are the more important bits of the decision worth preserving).

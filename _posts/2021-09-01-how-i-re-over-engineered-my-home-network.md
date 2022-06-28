@@ -525,7 +525,7 @@ Now that my privacy- and security-centric home network is codified as code, [pul
 
 [^1]: While pihole offers `armv7`/`armvf` (what the Raspberry Pi identifies as under the latest version of Raspberry OS) docker images, cloudflared does not, meaning you'll need to build cloudflared yourself. Unlike compiling from source and endless dependency drama, with a simple `docker build` and a few minute patience, you should be good to go.
 
-[^2]: The Ansible site doesn't make mention of, let alone link to its open source repo, for some reason, but rest assured, it's an open source project under the freemium model, and the "community" edition will be enough to meet your needs of managing 1–2 devices.
+[^2]: The Ansible site doesn't make mention of, let alone link to its open source repository, for some reason, but rest assured, it's an open source project under the freemium model, and the "community" edition will be enough to meet your needs of managing 1–2 devices.
 
 [^3]: In theory, a compromised device on my trusted network could sniff the credentials to the PiHole management interface resulting in a DNS poisoning attack. Regardless of the likelihood, it didn't feel right to spend so much time securing my network DNS, only to make the management credentials so readily available.
 

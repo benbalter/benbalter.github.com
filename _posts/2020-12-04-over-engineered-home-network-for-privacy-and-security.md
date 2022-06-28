@@ -4,7 +4,7 @@ description: How I used a [UniFi Dream Machine](#the-router---unifi-dream-machin
 ---
 
 {% capture update %}
-  Everything here remains true, but after having relied on, optimized, and upgraded this configuration for a while, I decided <a href="{{ "/2021/09/01/how-i-re-over-engineered-my-home-network/" | absolute_url }}" class="alert-link">to re-over-engineering how I setup, maintain, and manage my home network</a> using Docker Compose, Ansible, and Caddy. Please do read on here, but rather than clicking through to the individual Pi-Hole or Cloudflared setup instructions on other sites, I recommend you check out <a href="{{ "/2021/09/01/how-i-re-over-engineered-my-home-network/" | absolute_url }}" class="alert-link">my newer post</a> which automates things for greater reliability instead.
+Everything here remains true, but after having relied on, optimized, and upgraded this configuration for a while, I decided <a href="{{ "/2021/09/01/how-i-re-over-engineered-my-home-network/" | absolute_url }}" class="alert-link">to re-over-engineering how I setup, maintain, and manage my home network</a> using Docker Compose, Ansible, and Caddy. Please do read on here, but rather than clicking through to the individual Pi-Hole or Cloudflared setup instructions on other sites, I recommend you check out <a href="{{ "/2021/09/01/how-i-re-over-engineered-my-home-network/" | absolute_url }}" class="alert-link">my newer post</a> which automates things for greater reliability instead.
 {% endcapture %}
 {% include callout.html content=update %}
 
@@ -12,7 +12,7 @@ Back in April, when it looked like we were going to be spending some more time a
 
 While most home networking setups generally do a decent job of protect you from threats from the outside trying to come in, they don't often do a great job of managing risks originating from within your own network. Specifically, I had a number of goals:
 
-* **Privacy** - Minimize websites, device manufacturers, and my internet provider's ability to track my activity or monetize my information across all my devices
+* **Privacy** - Minimize sites, device manufacturers, and my internet provider's ability to track my activity or monetize my information across all my devices
 * **Security** - Block access to malicious sites to minimize the risk of human error, better understand how devices on my network are (mis)behaving, detect compromised devices, and limit their blast radius
 * **Don't trust internet of things (IoT) devices** - Smart home devices have a notoriously poor track record when it comes to security (and privacy). Beyond manufacturers' lax security practices and general lack of hardening, updates are rare, and are often a manual process, earning minimal trust in my book.
 * **Ads** - Blocking intrusive, targeted, and malware-laden ads across devices. While you can install an extension on a desktop browser, such ad blockers are often resource intensive, easy for advertisers to restrict, and do little for mobile devices where I do most of my "fun" browsing, not to mention, cannot restrict IoT tracking.
@@ -29,7 +29,7 @@ Here's how I over-engineered my home network for privacy and security:
 
 I'd always [admired from afar the over-the-top home network setup](https://www.troyhunt.com/ubiquiti-all-the-things-how-i-finally-fixed-my-dodgy-wifi/) Ubiquiti's prosumer line offers, but for the space I'd be installing it in, the four digit minimum price tag to properly support a single access point was a bit beyond reasonable. Luckily UniFi recently came out with their [Dream Machine](https://store.ui.com/collections/unifi-network-routing-switching/products/unifi-dream-machine) (UDM), which perfectly fit my needs. In UniFi terms it's an access point, switch, security gateway, and network controller all in one (which you'd otherwise have to buy separately).
 
-While on paper it's similar to other high-end routers (beyond the processor and ram which are closer to a high-end smartphone), what really set it apart for me was [the interface](https://demo.ui.com/manage/site/default/dashboard) (for one, it didn't look like it was designed in the 90s) and level of insights and control it offered such as peeking into individual device's activity. That said, with great power comes great complexity, so there are a number of [footguns](https://en.wiktionary.org/wiki/footgun) you'll need to avoid, but overall, it's the best "router" I've owned.
+While on paper it's similar to other high-end routers (beyond the processor and ram which are closer to a high-end mobile phone), what really set it apart for me was [the interface](https://demo.ui.com/manage/site/default/dashboard) (for one, it didn't look like it was designed in the 90s) and level of insights and control it offered such as peeking into individual device's activity. That said, with great power comes great complexity, so there are a number of [footguns](https://en.wiktionary.org/wiki/footgun) you'll need to avoid, but overall, it's the best "router" I've owned.
 
 This write up was written with the UDM in mind, but there's no reason you couldn't recreate this setup with any router that supports guest networks, VLANs, and custom firewall rules.
 
