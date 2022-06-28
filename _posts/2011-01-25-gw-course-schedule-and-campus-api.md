@@ -135,7 +135,7 @@ Creative ideas on how best to leverage the information welcome in the comments b
 
 #### Source
 
-[`github/benbalter/GW-API`](https://github/benbalter/GW-API)
+[`github/benbalter/GW-API`](https://github.com/benbalter/GW-API)
 
 #### Usage
 
