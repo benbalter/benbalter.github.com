@@ -1,4 +1,5 @@
 <!-- markdownlint-disable-next-line MD002 -->
+
 # `Ben.Balter.com`
 
 [![CI](https://github.com/benbalter/benbalter.github.com/actions/workflows/ci.yml/badge.svg)](https://github.com/benbalter/benbalter.github.com/actions/workflows/ci.yml)
