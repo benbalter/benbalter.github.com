@@ -33,14 +33,14 @@ certifications:
     name: Open water diver
 ---
 
-## Experience
+### Experience
 
 {% assign positions=site.resume_positions | sort: "start_date" %}
 {% for position in positions reversed %}
 
 {% unless position.employer == previous_employer %}
 
-### {{ position.employer }}
+#### {{ position.employer }}
 
 {% endunless %}
 
@@ -58,11 +58,11 @@ certifications:
 {% assign previous_employer=position.employer %}
 {% endfor %}
 
-## Education
+### Education
 
 {% for degree in page.degrees %}
 
-##### {{ degree.school }}
+#### {{ degree.school }}
 
 <div class="row">
   <div class="col">
@@ -79,7 +79,7 @@ certifications:
 
 {% for certification in page.certifications %}
 
-##### {{ certification.authority }}
+### {{ certification.authority }}
 
 {% if certification.url %} <a href="{{ certification.url }}">{{ certification.name }}</a>
 {% else %}

@@ -18,6 +18,7 @@
     "eslint": "^8.18.0",
     "json-lint": "^0.1.0",
     "jsonlint": "^1.6.3",
+    "markdownlint-cli": "^0.31.1",
     "offline-issues": "^1.0.0",
     "remark-cli": "^11.0.0",
     "remark-comment-config": "^7.0.1",
