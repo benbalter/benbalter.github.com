@@ -19,22 +19,21 @@ Creative ideas on how best to leverage the information welcome in the comments b
 
 * Endpoint: `http://my.gwu.edu/mod/pws/scheduleXML.cfm`
 * Parameters: `termCode=[YYYY][01=spring, 02=summer, 03=fall]`
+* Returns:
 
-##### Returns
-
-```xml
-<?xml version="1.0" encoding="iso-8859-1" ?>
-<departments>
-  <department>
-    <departmentcode><![CDATA[ACCY]]></departmentcode>
-    <departmentname><![CDATA[Accountancy]]></departmentname>
-  </department>
-  <department>
-    <departmentcode><![CDATA[AH]]></departmentcode>
-    <departmentname><![CDATA[Art/Art History]]></departmentname>
-  </department>
-</departments>
-```
+  ```xml
+  <?xml version="1.0" encoding="iso-8859-1" ?>
+  <departments>
+    <department>
+      <departmentcode><![CDATA[ACCY]]></departmentcode>
+      <departmentname><![CDATA[Accountancy]]></departmentname>
+    </department>
+    <department>
+      <departmentcode><![CDATA[AH]]></departmentcode>
+      <departmentname><![CDATA[Art/Art History]]></departmentname>
+    </department>
+  </departments>
+  ```
 
 #### Courses
 
@@ -42,98 +41,95 @@ Creative ideas on how best to leverage the information welcome in the comments b
 * Parameters:
   1. `termCode=[YYYY][01=spring, 02=summer, 03=fall]`
   2. `deptCode=[Dept. Code]`
+* Returns:
 
-##### Returns
-
-```xml
-<?xml version="1.0" encoding="iso-8859-1" ?>
-<courses>
-  <course>
-    <coursedepartment><![CDATA[ACCY]]></coursedepartment>
-    <coursenumber><![CDATA[6101]]></coursenumber>
-    <coursecrn><![CDATA[55164]]></coursecrn>
-    <coursetitle><![CDATA[FinAcctingI:BasicFinStatements]]></coursetitle>
-    <courseinstructor><![CDATA[ Singleton, L]]></courseinstructor>
-    <courselocation><![CDATA[<A HREF="http://www.gwu.edu/~map/building.cfm?BLDG=DUQUES" target="_blank" >DUQUES</a> 258]]></courselocation>
-    <coursedays><![CDATA[MW 06:10PM - 09:05PM]]></coursedays>
-    <coursetime><![CDATA[]]></coursetime>
-    <coursestatus><![CDATA[OPEN]]></coursestatus>
-    <coursesection><![CDATA[81]]></coursesection>
-    <coursecredit><![CDATA[1.50  ]]></coursecredit>
-  </course>
-  <course>
-    <coursedepartment><![CDATA[ACCY]]></coursedepartment>
-    <coursenumber><![CDATA[6102]]></coursenumber>
-    <coursecrn><![CDATA[55165]]></coursecrn>
-    <coursetitle><![CDATA[Fin Accting II: FinAcc Choices]]></coursetitle>
-    <courseinstructor><![CDATA[ Tarpley, R]]></courseinstructor>
-    <courselocation><![CDATA[<A HREF="http://www.gwu.edu/~map/building.cfm?BLDG=DUQUES" target="_blank" >DUQUES</a> 258]]></courselocation>
-    <coursedays><![CDATA[MW 06:10PM - 09:05PM]]></coursedays>
-    <coursetime><![CDATA[]]></coursetime>
-    <coursestatus><![CDATA[OPEN]]></coursestatus>
-    <coursesection><![CDATA[80]]></coursesection>
-    <coursecredit><![CDATA[1.50  ]]></coursecredit>
-  </course>
-</courses>
-```
+  ```xml
+  <?xml version="1.0" encoding="iso-8859-1" ?>
+  <courses>
+    <course>
+      <coursedepartment><![CDATA[ACCY]]></coursedepartment>
+      <coursenumber><![CDATA[6101]]></coursenumber>
+      <coursecrn><![CDATA[55164]]></coursecrn>
+      <coursetitle><![CDATA[FinAcctingI:BasicFinStatements]]></coursetitle>
+      <courseinstructor><![CDATA[ Singleton, L]]></courseinstructor>
+      <courselocation><![CDATA[<A HREF="http://www.gwu.edu/~map/building.cfm?BLDG=DUQUES" target="_blank" >DUQUES</a> 258]]></courselocation>
+      <coursedays><![CDATA[MW 06:10PM - 09:05PM]]></coursedays>
+      <coursetime><![CDATA[]]></coursetime>
+      <coursestatus><![CDATA[OPEN]]></coursestatus>
+      <coursesection><![CDATA[81]]></coursesection>
+      <coursecredit><![CDATA[1.50  ]]></coursecredit>
+    </course>
+    <course>
+      <coursedepartment><![CDATA[ACCY]]></coursedepartment>
+      <coursenumber><![CDATA[6102]]></coursenumber>
+      <coursecrn><![CDATA[55165]]></coursecrn>
+      <coursetitle><![CDATA[Fin Accting II: FinAcc Choices]]></coursetitle>
+      <courseinstructor><![CDATA[ Tarpley, R]]></courseinstructor>
+      <courselocation><![CDATA[<A HREF="http://www.gwu.edu/~map/building.cfm?BLDG=DUQUES" target="_blank" >DUQUES</a> 258]]></courselocation>
+      <coursedays><![CDATA[MW 06:10PM - 09:05PM]]></coursedays>
+      <coursetime><![CDATA[]]></coursetime>
+      <coursestatus><![CDATA[OPEN]]></coursestatus>
+      <coursesection><![CDATA[80]]></coursesection>
+      <coursecredit><![CDATA[1.50  ]]></coursecredit>
+    </course>
+  </courses>
+  ```
 
 ### Campus Map
 
 #### Categories
 
-Endpoint: `http://citl.gwu.edu/iphonedev/maps/categories.xml`
+* Endpoint: `http://citl.gwu.edu/iphonedev/maps/categories.xml`
+* Returns:
 
-##### Returns
-
-```xml
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<categories xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <category>
-        <categoryId>1</categoryId>
-        <shortname>academic</shortname>
-        <categoryName>Academic</categoryName>
-        <state>Yes</state>
-    </category>
-    <category>
-        <categoryId>2</categoryId>
-        <shortname>administrative</shortname>
-        <categoryName>Administrative</categoryName>
-        <state>Yes</state>
-    </category>
-</categories>
-```
+  ```xml
+  <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <categories xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <category>
+          <categoryId>1</categoryId>
+          <shortname>academic</shortname>
+          <categoryName>Academic</categoryName>
+          <state>Yes</state>
+      </category>
+      <category>
+          <categoryId>2</categoryId>
+          <shortname>administrative</shortname>
+          <categoryName>Administrative</categoryName>
+          <state>Yes</state>
+      </category>
+  </categories>
+  ```
 
 #### Buildings
 
-Endpoint: `http://citl.gwu.edu/iphonedev/maps/[shortname].xml`
-
-##### Returns
-
-```xml
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<buildings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <building>
-      <buildingNumber>153</buildingNumber>
-      <campus>Foggy Bottom</campus>
-      <UsageClassification>Academic</UsageClassification>
-      <buildingName>1776 G St</buildingName>
-      <address>1776 G St</address>
-      <geoLocation>38.897984,-77.04146</geoLocation>
-      <shortname>NA</shortname>
-      <picturelink><http://www.gwu.edu/~newsctr/mobile/images/maps/1776-G-ST_UP_WLA_2010-6618.jpg></picturelink>
-  </building>
-  <building>
-      <buildingNumber>136</buildingNumber>
-      <campus>Foggy Bottom</campus>
-      <UsageClassification>Academic</UsageClassification>
-      <buildingName>1957 E St</buildingName>
-      <address>1957 E St</address>
-      <geoLocation>38.896193,-77.044294</geoLocation>
-      <shortname>1957E</shortname>
-      <picturelink><http://www.gwu.edu/~newsctr/mobile/images/maps/Elliot_School_UP_WLA_2010-3102.jpg></picturelink>
-  </building>
-</buildings>
-```
+* Endpoint: `http://citl.gwu.edu/iphonedev/maps/[shortname].xml`
+* Returns:
+  
+  ```xml
+  <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <buildings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <building>
+        <buildingNumber>153</buildingNumber>
+        <campus>Foggy Bottom</campus>
+        <UsageClassification>Academic</UsageClassification>
+        <buildingName>1776 G St</buildingName>
+        <address>1776 G St</address>
+        <geoLocation>38.897984,-77.04146</geoLocation>
+        <shortname>NA</shortname>
+        <picturelink><http://www.gwu.edu/~newsctr/mobile/images/maps/1776-G-ST_UP_WLA_2010-6618.jpg></picturelink>
+    </building>
+    <building>
+        <buildingNumber>136</buildingNumber>
+        <campus>Foggy Bottom</campus>
+        <UsageClassification>Academic</UsageClassification>
+        <buildingName>1957 E St</buildingName>
+        <address>1957 E St</address>
+        <geoLocation>38.896193,-77.044294</geoLocation>
+        <shortname>1957E</shortname>
+        <picturelink><http://www.gwu.edu/~newsctr/mobile/images/maps/Elliot_School_UP_WLA_2010-3102.jpg></picturelink>
+    </building>
+  </buildings>
+  ```
 
 ### API Wrapper
 
