@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 gem 'faraday', '< 1.0.0'
 
-#gem 'retlab', path: '../retlab'
+# gem 'retlab', path: '../retlab'
 
 group :jekyll_plugins do
   if ENV['JEKYLL4'] == '1'
