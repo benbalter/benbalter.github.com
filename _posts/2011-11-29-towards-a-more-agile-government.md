@@ -11,7 +11,7 @@ The Case for Rebooting Federal IT Procurement
 
 <!--lint ignore no-emphasis-as-heading-->
 
-*41 Pub. Cont. L.J. 149, The Public Contract Law Journal, Fall 2011*
+*41 Pub. Cont. L.J. 149, The Public Contract Law Journal, Fall 2011* <!-- markdownlint-disable-line no-emphasis-as-header -->
 
 * Table of Contents
 {:toc}

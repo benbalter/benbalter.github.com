@@ -1,6 +1,4 @@
-<!-- markdownlint-disable-next-line MD002 -->
-
-# `Ben.Balter.com`
+# `Ben.Balter.com` <!-- markdownlint-disable-line MD002 -->
 
 [![CI](https://github.com/benbalter/benbalter.github.com/actions/workflows/ci.yml/badge.svg)](https://github.com/benbalter/benbalter.github.com/actions/workflows/ci.yml)
 

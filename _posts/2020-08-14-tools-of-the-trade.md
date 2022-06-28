@@ -57,13 +57,13 @@ Here's how I think about the tools we use to communicate at GitHub: **What** too
 
 *Caveat emptor*: Google Docs (and Office) discovery is poor, as is understanding the state of a document once you discover it. Use Google docs (or Office) early in an idea's lifecycle, but burn it down as soon as possible and replace the content with a link to the canonical source (see above) to avoid confusion. Specifically:
 
-###### Docs
+##### Docs
 
 * **When**: Early ideation and definition (or in-meeting note taking), with the goal of ultimately memorializing the document in an issue or pull request for visibility and reach. Think of it as "top-of-the funnel collaboration".
 * **Who**: Small group of trusted stakeholders (grant access liberally to avoid contributor friction)
 * **Why**: Quick iteration cycles, collaborative editing
 
-###### Slides
+##### Slides
 
 * **When**: Briefings, proposals, and updates that summarize information captured by other means (for example, Issues, Git).
 * **Who**: Leadership
@@ -73,25 +73,25 @@ Here's how I think about the tools we use to communicate at GitHub: **What** too
 
 Generally, use chat for informal office communication, community comradery, water cooler talk, tactical coordination, to amplify messages communicated elsewhere, and other time-sensitive matters that are best handled semi-synchronously, but **not** as a primary means of decision making or a canonical source of truth (due to its lack of discoverability and permanence). If important conversations do occur via chat, memorialize them in issues. Unless it’s sensitive, prefer shared channels over private DMs for sake of discoverability, shared responsibility, and creating a shared team context. Chat is useful but it's ephemeral and provides no guarantee of delivery, especially across timezones where it can be unintentionally exclusive. Treat chat as transient and hold each other accountable for writing important things down more durably. Specifically:
 
-###### Public (to the company) channels
+##### Public (to the company) channels
 
 * **When**: Questions, updates, coordination, and to amplify messages communicated elsewhere. This should be your default method of chat unless DMs or a private channel are required.
 * **Who**: Team, stakeholders, the entire organization.
 * **Why**: Discoverability, passive awareness, and learning.
 
-###### Private channels
+##### Private channels
 
 * **When**: Conversations not appropriate for public channels - social, sensitive, frank, or any time you want to encourage participants to share freely, but aren't concerned with capturing context or excluding others.
 * **Who**: Teams, affinity groups, etc.
 * **Why**: Informal, ephemeral, and uncensored conversations not appropriate for public channels
 
-###### 1:1 DMs
+##### 1:1 DMs
 
 * **When**: Urgent needs, conversations not appropriate for any other channel
 * **Who**: Peers, manager, directs
 * **Why**: Sometimes a private side-conversation is necessary, but to ensure context is surfaced, it should be the exception, not the default.
 
-###### Small group DMs
+##### Small group DMs
 
 * **When**: Only if absolutely necessary for short-lived and ad-hoc coordination
 * **Who**: Peers
@@ -99,13 +99,13 @@ Generally, use chat for informal office communication, community comradery, wate
 
 #### Video chat and meatspace
 
-###### In-person 1:1s
+##### In-person 1:1s
 
 * **When**: Regular checkins, manager 1:1s, catching up, feedback, resolving conflict, etc.
 * **Who**: Peers, manager, directs
 * **Why**: [Human conversations deserve human faces](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#2-dont-underestimate-high-fidelity-mediums).
 
-###### In-person meetings
+##### In-person meetings
 
 * **When**: Regular syncs, working through complex issues, ideation, project kickoffs, retros, social time, etc. Meetings shouldn't be used for status updates, to force work, or any task that's best handled asynchronously. [Reserve high-fidelity mediums for the types of conversations that benefit from being face-to-face or ephemeral](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/#4-asynchronous-decision-making).
 * **Who**: Teams, extended stakeholders, peers.

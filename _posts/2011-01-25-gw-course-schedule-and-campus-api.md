@@ -80,7 +80,7 @@ Creative ideas on how best to leverage the information welcome in the comments b
       </courses>
       ```
 
-   ### Campus Map
+### Campus Map
 
 6. Categories
 

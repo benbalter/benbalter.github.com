@@ -3,7 +3,7 @@ title: Removing the Barriers to Organizational Agility
 description: Recording of a GW Tech Alumni panel on Removing the Barriers to Organizational Agility
 ---
 
-<!--lint ignore no-emphasis-as-heading-->
+
 
 *Recorded at the [The George Washington University Tech Alumni Group](http://www.facebook.com/group.php?gid=154839957865223) Federal Executive Round Table, November 4, 2010.*
 
@@ -11,7 +11,7 @@ description: Recording of a GW Tech Alumni panel on Removing the Barriers to Org
 
 Panelists Steven Bucci, William Kirkendale, Brian Moran, Mark Rosenfeld, and Mariano Tan / Photo: GW Tech Alumni Group
 
-*(The audio files are no longer available here)*
+*(The audio files are no longer available here)* <!--markdownlint-disable-line no-emphasis-as-heading-->
 
 ### Round Table Participants
 
