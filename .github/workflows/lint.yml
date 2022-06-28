@@ -21,6 +21,7 @@ jobs:
           DEFAULT_BRANCH: main
           VALIDATE_XML: false
           VALIDATE_NATURAL_LANGUAGE: false
+          VALIDATE_GITLEAKS: false
           RUBY_CONFIG_FILE: .rubocop.yml
           LINTER_RULES_PATH: .
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
