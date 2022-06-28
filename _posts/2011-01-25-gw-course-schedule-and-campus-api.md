@@ -102,6 +102,7 @@ Endpoint: `http://citl.gwu.edu/iphonedev/maps/categories.xml`
     </category>
 </categories>
 ```
+
 #### Buildings
 
 Endpoint: `http://citl.gwu.edu/iphonedev/maps/[shortname].xml`
@@ -136,7 +137,7 @@ Endpoint: `http://citl.gwu.edu/iphonedev/maps/[shortname].xml`
 
 ### API Wrapper
 
-####  Source
+#### Source
 
 [`github/benbalter/GW-API`](https://github/benbalter/GW-API)
 
