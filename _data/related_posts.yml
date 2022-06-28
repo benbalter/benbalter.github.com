@@ -163,10 +163,10 @@ _posts/2011-01-25-gw-course-schedule-and-campus-api.md:
   - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
   - _posts/2011-09-01-why-wordpress.md
   - _posts/2014-11-06-rules-of-communicating-at-github.md
-  - _posts/2021-03-04-octoversary.md
   - _posts/2014-10-08-open-source-licensing-for-government-attorneys.md
   - _posts/2015-04-22-the-difference-between-18f-and-usds.md
-  - _posts/2015-11-12-why-urls.md
+  - _posts/2021-03-04-octoversary.md
+  - _posts/2020-01-17-ten-lessons-learned-fostering-a-community-of-communities-on-github.md
 _posts/2011-02-03-a-site-by-any-other-name.md:
   - _posts/2015-11-23-why-open-source.md
   - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
@@ -1322,8 +1322,8 @@ _posts/2015-09-10-blog-style-tests.md:
 _posts/2015-09-13-github-pages-edit-button.md:
   - _posts/2014-11-06-rules-of-communicating-at-github.md
   - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
-  - _posts/2015-06-11-using-github-pages-to-showcase-your-orgs-open-source-efforts.md
   - _posts/2015-03-17-open-source-best-practices-external-engagement.md
+  - _posts/2015-06-11-using-github-pages-to-showcase-your-orgs-open-source-efforts.md
   - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
   - _posts/2011-09-01-why-wordpress.md
   - _posts/2015-11-23-why-open-source.md
@@ -1396,8 +1396,8 @@ _posts/2015-12-08-open-source-as-yelp-for-software.md:
   - _posts/2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project.md
   - _posts/2015-03-17-open-source-best-practices-external-engagement.md
   - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
-  - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
   - _posts/2014-11-06-rules-of-communicating-at-github.md
+  - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
   - _posts/2015-11-12-why-urls.md
   - _posts/2018-01-02-why-you-probably-shouldnt-add-a-cla-to-your-open-source-project.md
   - _posts/2015-04-22-the-difference-between-18f-and-usds.md
@@ -1850,8 +1850,8 @@ _posts/2020-08-31-trust-and-safety-is-not-a-product-edge-case.md:
 _posts/2020-09-12-10-years.md:
   - _posts/2015-11-23-why-open-source.md
   - _posts/2016-08-22-ten-ways-to-make-a-product-great.md
-  - _posts/2015-11-18-tools-to-empower-open-collaboration.md
   - _posts/2015-04-22-the-difference-between-18f-and-usds.md
+  - _posts/2015-11-18-tools-to-empower-open-collaboration.md
   - _posts/2021-03-04-octoversary.md
   - _posts/2015-11-12-why-urls.md
   - _posts/2015-04-21-why-technologists-dont-want-to-work-at-your-agency.md
