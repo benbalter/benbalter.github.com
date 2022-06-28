@@ -2,6 +2,7 @@
   "filters": {},
   "rules": {
     "no-start-duplicated-conjunction": true,
+    "date-weekday-mismatch": true,
     "terminology": {
       "exclude": [
         "HTML",
@@ -9,8 +10,15 @@
         "URL"
       ]
     },
+    "write-good": true,
     "diacritics": true,
+    "alex": true,
     "doubled-spaces": true,
+    "stop-words": {
+      "exclude": [
+        "so as to"
+      ]
+    },
     "@textlint-rule/no-unmatched-pair": true,
     "@textlint-rule/no-duplicate-abbr": true,
     "common-misspellings": {

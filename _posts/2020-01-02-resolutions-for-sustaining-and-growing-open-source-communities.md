@@ -24,7 +24,7 @@ Think of an open source project like the world’s most distributed dinner party
 
 Open source is no different, except instead of taking coats or offering hour d'oeuvres, you’re offering documentation and your responsiveness. And just as a dinner party guest should take care to arrive on time or might consider bringing a small gift to thank the host, as open source guests, contributors should likewise be empathetic, supportive, and understanding of open source maintainers and what is often their volunteered time.
 
-Being an open source maintainer is often closer to being a manager than it is to being an engineer. You often start a project to solve a specific technical problem, but as the community grows, in order to scale your own efforts and to have the biggest impact on your project, your role often shifts to solving the human and the workflow side of open source, rather than the technical.
+Being an open source maintainer is often closer to being a manager than it is to being an engineer. You often start a project to solve a specific technical problem, but as the community grows, to scale your own efforts and to have the biggest impact on your project, your role often shifts to solving the human and the workflow side of open source, rather than the technical.
 
 Specifically, community management (moderation, delegation, and organization), marketing, recruitment and evangelism, automation and tooling, and providing “white glove” support to high-profile users. The more sophisticated the project, the less likely it is that maintainers’ primary contribution is in the form of code.
 

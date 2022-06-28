@@ -15,7 +15,7 @@ To set up the notify-on-changes GitHub Action to track changes to your own API o
 
 1. Save the below snippet as a YAML file in the `.github/workflows/` folder (for example, `.github/workflows/check.yml`) of a public or private GitHub repository.
 2. Swap out the `<URL YOU WANT TO CHECK HERE>` placeholder, for the actual API endpoint or web page URL you want to check.[^3]
-3. If you want to parse out the JSON response so that you can include a specific field or fields from the response in the notification you send yourself, modify the `jq` query. Otherwise, you can remove the "Parse data" step entirely.
+3. To parse out the JSON response so that you can include a specific field or fields from the response in the notification you send yourself, modify the `jq` query. Otherwise, you can remove the "Parse data" step entirely.
 4. If using Twilio to receive notifications via text message, follow [the setup instructions](https://github.com/twilio-labs/actions-sms), saving the keys and phone numbers as [repository secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) and customizing the message for your use case. Otherwise, swap out the "Notify if data has changed" step to use your own notification mechanism.[^2]
 5. Commit and effortlessly receive notifications any time the response changes.
 

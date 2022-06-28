@@ -23,7 +23,7 @@ The biggest implication however, is that computing resources can be provisioned 
 
 ### Types of Cloud Computing
 
-Cloud computing exists in several forms today. The most basic, "infrastructure as a service" (IAAS), uses shared facilities, hardware, and networks to hold and move data. Customers, given virtual servers, may then install, configure, and utilize their own software freely. [^13] As indicated above, however, customers do not rent the physical servers (merely their equivalent processing power), and providers may move virtual servers between physical servers as necessary. [^14] Amazon's EC2, S3, and CloudFront are prime examples of cloud computing, storage, and delivery respectively.
+Cloud computing exists in several forms today. The most basic, "infrastructure as a service" (IAAS), uses shared facilities, hardware, and networks to hold and move data. Customers, given virtual servers, may then install, configure, and use their own software freely. [^13] As indicated above, however, customers do not rent the physical servers (merely their equivalent processing power), and providers may move virtual servers between physical servers as necessary. [^14] Amazon's EC2, S3, and CloudFront are prime examples of cloud computing, storage, and delivery respectively.
 
 Second, and slightly more advanced, "platform as a service" (PaaS) allows providers to serve customers with a shared computing platform and software environment. The customer can upload software code in a predetermined programming language (such as Java or PHP) and the provider executes that code and returns the result. [^15] Google Apps Engine is a prime example of such an arrangement.
 

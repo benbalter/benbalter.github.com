@@ -94,7 +94,7 @@ The same goes for bullet points (unordered lists, in HTML):
 * item
 ```
 
-And if you want to create headings, you prefix the heading with a `# sign` like this:
+And to create headings, you prefix the heading with a `# sign` like this:
 
 ```markdown
 # Top level heading

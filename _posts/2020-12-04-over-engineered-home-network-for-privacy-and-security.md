@@ -18,7 +18,7 @@ While most home networking setups generally do a decent job of protect you from 
 * **Ads** - Blocking intrusive, targeted, and malware-laden ads across devices. While you can install an extension on a desktop browser, such ad blockers are often resource intensive, easy for advertisers to restrict, and do little for mobile devices where I do most of my "fun" browsing, not to mention, cannot restrict IoT tracking.
 * **It needs to "just work"** - Whatever solution I chose needed to be out-of-the-box or widely supported. No rooting, flashing new firmware, or modifying software which would lead to never-ending tinkering and could potentially introduce new vulnerabilities in the process.
 
-If you want to head down this route as well, it's relatively straightforward, but definitely a (fun) "project". You'll need some basic familiarity with home networking (understanding how things like DNS and IPs work), as well as being comfortable SSH-ing into a linux device and copying and pasting a few commands.
+To head down this route as well, it's relatively straightforward, but definitely a (fun) "project". You'll need some basic familiarity with home networking (understanding how things like DNS and IPs work), as well as being comfortable SSH-ing into a linux device and copying and pasting a few commands.
 
 Here's how I over-engineered my home network for privacy and security:
 
@@ -66,7 +66,7 @@ While [Cloudflare recommended the DNSCrypt route at one point](https://blog.clou
 
 ### Blocking all other DNS lookups
 
-Device manufacturers rely on the ability to "phone home" in order to monetize your usage information. To avoid the exact type of blocking I just described above, many devices (for example, Roku) come with Google or another DNS server hardcoded. Such devices will ignore the DNS server your router specifies and instead will try to use the manufacturer-defined DNS server, avoiding all the great ad-blocking and privacy securing networking we just set up. The good news is that most (all?) devices will fall back to your router-specified DNS server, if the default is unreachable.
+Device manufacturers rely on the ability to "phone home" to monetize your usage information. To avoid the exact type of blocking I just described above, many devices (for example, Roku) come with Google or another DNS server hardcoded. Such devices will ignore the DNS server your router specifies and instead will try to use the manufacturer-defined DNS server, avoiding all the great ad-blocking and privacy securing networking we just set up. The good news is that most (all?) devices will fall back to your router-specified DNS server, if the default is unreachable.
 
 To ensure devices *must* use the Pi-Hole and DoH for DNS lookups, you could create a firewall rule to block Google's DNS specifically (as many online tutorial suggest), but I took it a step further and prevented all outbound requests over port `53` (DNS's dedicated port) entirely to ensure all DNS from the network was filtered and encrypted. You can do this by creating a "DNS" port group on the UDM (port 53), and adding a WAN out reject rule for any traffic to that port. To confirm it's working, `dig example.com @8.8.8.8` should timeout when run from a device on your network (including the Raspberry Pi), but `dig example.com` should work as expected (and the page should load in your browser).
 
@@ -76,7 +76,7 @@ If you *really* want to be sure everything is going through your preferred DNS, 
 
 If you followed the Pi-Hole instructions above, cloudflared is most likely using the default [`1.1.1.1`](https://1.1.1.1) resolver, which is great, but does not block any malicious domains by default. You could update your `/etc/cloudflared/config.yml` file to point to [`1.1.1.2`](https://1.1.1.2) which filters phishing and malware (or `1.1.1.3` which also filters NSFW content), but I wanted a bit more control over what domains were filtered and why.
 
-By creating a free [Cloudflare Gateway account](https://www.cloudflare.com/teams/gateway/), you essentially get your own `1.1.1.x` service, which you can more granularly configure, and also have the added benefit of seeing what domains were blocked, and why (to unblock, in the event of an over-eager rule). Once signed up, you'll want to create a "policy" (I creatively called mine "policy") and select which security threats and content categories you want to block. You'll also create a location (again, creatively called "home"), and grab the unique DNS over HTTPS address Cloudflare gives you for that policy-assigned location.
+By creating a free [Cloudflare Gateway account](https://www.cloudflare.com/teams/gateway/), you essentially get your own `1.1.1.x` service, which you can more granularly configure, and also have the added benefit of seeing what domains were blocked, and why (to unblock, if an over-eager rule). Once signed up, you'll want to create a "policy" (I creatively called mine "policy") and select which security threats and content categories you want to block. You'll also create a location (again, creatively called "home"), and grab the unique DNS over HTTPS address Cloudflare gives you for that policy-assigned location.
 
 Finally, update `/etc/cloudflared/config.yml` on the Raspberry Pi to use the `https://*.cloudflare-gateway.com/dns-query` domain you received in the previous step. You'll also want to add `https://1.1.1.2/dns-query` as a secondary address, otherwise I found cloudflared has trouble bootstrapping itself to initially resolve your specific DNS server. `sudo systemctl restart cloudflared` and you should now be blocking ads, trackers, and malware from your network across all devices.
 
@@ -94,7 +94,7 @@ If everything goes as expected, the entire experience should be transparent to d
 
 ### And more!
 
-If you want to take things even further, there are a few more customizations to explore:
+To take things even further, there are a few more customizations to explore:
 
 * **Additional UniFi security features** - UniFi offers [a number of advanced security-related features that you can enable in parallel](https://help.ui.com/hc/en-us/articles/360006893234-UniFi-USG-UDM-Configuring-Internet-Security-Settings):[^3]
   * **Intrusion prevention system** (IPS) - Detect and disrupt activity associated with known malware

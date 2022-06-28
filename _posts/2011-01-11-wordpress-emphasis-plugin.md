@@ -9,6 +9,6 @@ The New York Times [recently open-sourced](http://open.blogs.nytimes.com/2011/01
 
 > Emphasis provides dynamic paragraph-specific anchor links and the ability to highlight text in a document, all of which is made available in the URL hash so it can be emailed, bookmarked, or shared.
 
-I adapted the New York Time's implementation into a three-line WordPress plugin for my own site, and it is available in the [WordPress plugin repository](http://wordpress.org/extend/plugins/wp-emphasis/) as a one-click install, if you would like to add it to your own.
+I adapted the New York Time's implementation into a three-line WordPress plugin for my own site, and it is available in the [WordPress plugin repository](http://wordpress.org/extend/plugins/wp-emphasis/) as a one-click install, to add it to your own.
 
 The "deep links" plugin allows for permalinking and highlighting of text on a paragraph and sentence level. No need to set anything up. Just install, tap shift twice, and start highlighting.

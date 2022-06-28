@@ -11,7 +11,7 @@ It's a lot easier to contribute to open source when you're building on an open p
 
 #### The demand for "enterprise" solutions
 
-There's a good deal of FUD — fear, uncertainty, and doubt — in government CIO shops that open source is less secure, buggy, or more costly, and that you'll be in for a lifetime of pain if you don't invest in a real "enterprise solution". For one, if an agency writes a check to a software vendor, they know what they're getting. The contract spells out features, upgrade schedules, and allocates liability in the event that something goes wrong. More importantly, the vendor provides a phone number that the agency can call if they need help. "Post in the support forums and someone will reply" can be a scary proposition for a CIO.
+There's a good deal of FUD — fear, uncertainty, and doubt — in government CIO shops that open source is less secure, buggy, or more costly, and that you'll be in for a lifetime of pain if you don't invest in a real "enterprise solution". For one, if an agency writes a check to a software vendor, they know what they're getting. The contract spells out features, upgrade schedules, and allocates liability if something goes wrong. More importantly, the vendor provides a phone number that the agency can call if they need help. "Post in the support forums and someone will reply" can be a scary proposition for a CIO.
 
 #### There are fewer suits behind open source
 

@@ -98,7 +98,7 @@ In practice, that means discussions should have one purpose, defined by the titl
 
 Unless it's a minor typo, so irrefutable that no one would possibly question it or need to be notified of the change, the only way to change community content is with a pull request. It doesn't matter if it's code, configuration, or internal policy.
 
-In practice, this may mean submitting pull requests that you immediately self-merge, in order to notify your teammates of the change, or may mean having a longer discussion before merging, in order to justify the change to others. For 99% of changes, committing directly to `master` is not the appropriate choice.
+In practice, this may mean submitting pull requests that you immediately self-merge, to notify your teammates of the change, or may mean having a longer discussion before merging, to justify the change to others. For 99% of changes, committing directly to `master` is not the appropriate choice.
 
 ### 11. Secrets, secrets, are no fun
 

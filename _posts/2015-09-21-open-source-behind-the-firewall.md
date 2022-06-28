@@ -37,7 +37,7 @@ What if both agency and contractor adopted and shared tools that naturally captu
 
 ### How you work is as important as what you work on
 
-The tools you choose matter. Tools are more than mere convenience. Tools force teams into particular workflows, workflows that constrain not just how software is produced, but what software is possible. It's no coincidence then that the open source community, in order to produce the type of software it produces, adopts vastly different tools than most enterprise developers have available to them at their office.
+The tools you choose matter. Tools are more than mere convenience. Tools force teams into particular workflows, workflows that constrain not just how software is produced, but what software is possible. It's no coincidence then that the open source community, to produce the type of software it produces, adopts vastly different tools than most enterprise developers have available to them at their office.
 
 Open source tools tend to be more organic, rather than process-driven, and prefer social norms to technical constraints. Open source tools must also be able to support the constraints of distributed, open source teams. For example, a 9:00 AM standup meeting is not an option when your development team spans every timezone, let alone, isn't in the same office.
 

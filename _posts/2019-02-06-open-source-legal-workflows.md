@@ -10,4 +10,4 @@ You can listen on [iTunes](https://itunes.apple.com/us/podcast/210-rules-for-com
 
 <iframe src="https://legaltalknetwork.com/podcasts/lawyerist-podcast/2019/02/210-rules-for-communication-in-a-remote-workplace-with-ben-balter/?embed" style="border:none;width:100%;" scrolling="no"></iframe><script src="https://legaltalknetwork.com/embed-iframe-resize.js" integrity="sha384-6ylpXBj05/E+mOA1bu6EaEkVtX1JgLISOt+78nefFFx/kXAGvzu9AZ6FpOy+dApB" crossorigin="anonymous"></script>
 
-If you want to learn more about how GitHub uses GitHub for non-code things like legal and HR, [this Fast Company article](https://www.fastcompany.com/40430104/how-github-employees-use-github-for-projects-beyond-coding) is a great read.
+To learn more about how GitHub uses GitHub for non-code things like legal and HR, [this Fast Company article](https://www.fastcompany.com/40430104/how-github-employees-use-github-for-projects-beyond-coding) is a great read.

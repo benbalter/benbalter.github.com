@@ -29,7 +29,7 @@ The second form of open source FUD attacks open source as a workflow, meaning th
 
 The idea that anyone can make changes is simply untrue — FUD at its best. Like with closed projects, only authorized maintainers can approve changes to open source projects. I suspect this misunderstanding stems from using Wikipedia as an analogy to describe open source to the uninitiated. Simply put, it comes from a place of ignorance. You're not going to wake up one day and mysteriously, your code will be riddled with malware and backdoors.
 
-Instead, open source often has better controls to ensure pedigree than its closed-source counterparts. Open source, by its nature, must use advanced version control systems, in order to facilitate discussions (two things often absent from closed-source software). Every change, no matter how small, whether by the project creator or a first-time contributor, must be publicly proposed, discussed, and stringently reviewed, the change history available for all to see.
+Instead, open source often has better controls to ensure pedigree than its closed-source counterparts. Open source, by its nature, must use advanced version control systems, to facilitate discussions (two things often absent from closed-source software). Every change, no matter how small, whether by the project creator or a first-time contributor, must be publicly proposed, discussed, and stringently reviewed, the change history available for all to see.
 
 #### Anyone can see where the vulnerabilities are (and fix them)
 

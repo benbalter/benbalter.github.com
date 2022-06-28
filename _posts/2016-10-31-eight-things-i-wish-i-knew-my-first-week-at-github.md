@@ -77,7 +77,7 @@ Every new Hubber joining a team, almost without exception, injects a renewed sen
 
 At the same time, be prepared to "unlearn" some prior habits and workflows. GitHub works and thinks in a unique way, and "this is how we did things at X", or "this is how the industry generally solves X problem" is not often persuasive, absent a strong reason *why* that approach is better than whatever we're currently doing or what's proposed. The status meeting/Sharepoint/Google Docs workflow at your last job may have it's advantages, but so does ours. Approach [GitHub's workflows and culture](https://ben.balter.com/2020/08/14/tools-of-the-trade/) with an open mind. Give it a few months before you choose to write it off as too difficult (once you get the hang of it, chances are, you'll find that you like it).
 
-*Pro-tip:* Although Markdown, pull requests, and GitHub issues may be the end result of most workflows at GitHub, they're not always the start. Feel free to draft documents in a Google Doc and share it with some trusted colleagues for early feedback before sharing more broadly if you're more comfortable working that way, especially to start.
+*Pro-tip:* Although Markdown, pull requests, and GitHub issues may be the result of most workflows at GitHub, they're not always the start. Feel free to draft documents in a Google Doc and share it with some trusted colleagues for early feedback before sharing more broadly if you're more comfortable working that way, especially to start.
 
 ### Conclusion
 

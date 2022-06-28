@@ -24,7 +24,7 @@ You'll want some way to hide existing content. Ideally, you'd have the ability t
 
 ### 4. Preventing new content
 
-Beyond hiding existing content, you'll also want some way to prevent the creation of new content. This is often done by preventing the user from logging in entirely and can be used in the event of an ongoing or egregious violation of your Terms of Service or Community Guidelines where continued use of the platform isn't warranted.
+Beyond hiding existing content, you'll also want some way to prevent the creation of new content. This is often done by preventing the user from logging in entirely and can be used if an ongoing or egregious violation of your Terms of Service or Community Guidelines where continued use of the platform isn't warranted.
 
 ### 5. Community guidelines
 
@@ -32,7 +32,7 @@ Your Terms of Service establishes a baseline for acceptable behavior that genera
 
 ### 6. Auditability
 
-When you receive a report of abuse or harassment, you'll want to ensure your content moderation team (you have one, right?) has the necessary audit trail available to them to recreate the incident sufficiently to accurately and fairly apply your platform's policy. That means that any potentially harmful or destructive action should establish an immutable record that captures, retains, and exposes all relevant information. Equally important is capturing what action, if any, the moderation team took, and why they took that action, to build an ongoing "[rap sheet](https://en.wikipedia.org/wiki/Criminal_record)" for the account in the event of subsequent infractions.
+When you receive a report of abuse or harassment, you'll want to ensure your content moderation team (you have one, right?) has the necessary audit trail available to them to recreate the incident sufficiently to accurately and fairly apply your platform's policy. That means that any potentially harmful or destructive action should establish an immutable record that captures, retains, and exposes all relevant information. Equally important is capturing what action, if any, the moderation team took, and why they took that action, to build an ongoing "[rap sheet](https://en.wikipedia.org/wiki/Criminal_record)" for the account if subsequent infractions.
 
 ### 7. User consent
 

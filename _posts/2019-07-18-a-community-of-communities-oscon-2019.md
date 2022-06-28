@@ -6,7 +6,7 @@ image: https://user-images.githubusercontent.com/282759/63184636-c69cd280-c025-1
 
 Open source is about much more than publishing code. It’s about building communities around shared problems, communities no different than the offline communities we participate in each day. Yet, it can still be a challenge for maintainers of projects, both large and small, to grow safe and welcoming communities around their code.
 
-GitHub’s Community and Safety team is like many other services’ Trust and Safety teams in that we are tasked with ensuring that users aren’t required to risk their privacy or personal safety in order to participate in the community on GitHub. Beyond discouraging disruptive behavior in the form of spam, abuse, or harassment, the Community and Safety team also goes beyond that and instead, actively seeks to encourage good online citizenship by both making it easier for users to contribute constructively and for maintainers to adopt community management best practices.
+GitHub’s Community and Safety team is like many other services’ Trust and Safety teams in that we are tasked with ensuring that users aren’t required to risk their privacy or personal safety to participate in the community on GitHub. Beyond discouraging disruptive behavior in the form of spam, abuse, or harassment, the Community and Safety team also goes beyond that and instead, actively seeks to encourage good online citizenship by both making it easier for users to contribute constructively and for maintainers to adopt community management best practices.
 
 <div class="row">
     <div class="col-md-6 pb-2">
