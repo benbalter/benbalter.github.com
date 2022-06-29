@@ -68,7 +68,7 @@ certifications:
   <div class="col">
     {{ degree.degree }}
   </div>
-  <div class="col-md-4 text-end">
+  <div class="col-md-4 text-enZd">
     {{ degree.date | date: "%B %Y" }}
   </div>
 </div>
@@ -81,8 +81,5 @@ certifications:
 
 ### <span class="h5">{{ certification.authority }}</span>
 
-{% if certification.url %} <a href="{{ certification.url }}">{{ certification.name }}</a>
-{% else %}
-{{ certification.name }}
-{% endif %}
+{% if certification.url %}<a href="{{ certification.url }}">{{ certification.name }}</a>{% else %}{{ certification.name }}{% endif %}
 {% endfor %}
