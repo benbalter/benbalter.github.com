@@ -33,20 +33,20 @@ certifications:
     name: Open water diver
 ---
 
-### Experience
+## Experience
 
 {% assign positions=site.resume_positions | sort: "start_date" %}
 {% for position in positions reversed %}
 
 {% unless position.employer == previous_employer %}
 
-#### {{ position.employer }}
+### {{ position.employer }}
 
 {% endunless %}
 
 <div class="row">
   <div class="col">
-    <h5>{{ position.title }}</h5>
+    <h4>{{ position.title }}</h4>
   </div>
   <div class="col-md-4 text-end">
     {{ position.start_date | date: '%B %Y' }}&mdash;{% if position.end_date %}{{ position.end_date | date: '%B %Y' }}{% else %}Present{% endif %}
@@ -58,11 +58,11 @@ certifications:
 {% assign previous_employer=position.employer %}
 {% endfor %}
 
-### Education
+## Education
 
 {% for degree in page.degrees %}
 
-#### {{ degree.school }}
+### <span class="h5">{{ degree.school }}</span>
 
 <div class="row">
   <div class="col">
@@ -79,7 +79,7 @@ certifications:
 
 {% for certification in page.certifications %}
 
-### {{ certification.authority }}
+### <span class="h5">{{ certification.authority }}</span>
 
 {% if certification.url %} <a href="{{ certification.url }}">{{ certification.name }}</a>
 {% else %}
