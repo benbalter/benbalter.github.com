@@ -7,15 +7,15 @@ GitHub is a great place to share your work with the world, but sometimes large o
 
 GitHub Pages is GitHub's static site hosting service. It's used primarily for two things: for documenting open source projects, both from a technical and marketing standpoint, and for providing a unified, fully customizable presence to showcase your efforts on GitHub. This post focuses on how to do the latter.
 
-### Organization profile pages
+## Organization profile pages
 
 Let's say you're the Consumer Financial Protection Bureau. You have a GitHub organization called @CFPB. If you navigate to [github.com/cfpb](https://github.com/cfpb) you'll see your organization's profile page. It'll have things like your organization's name, logo, location, and site, along with a list of your open source project's and a short description of each in order that they were last updated, but you generally can't tailor the look-and-feel to suit your organization's unique needs. If you want a more customized presence, you'll need to use GitHub Pages.
 
-### How GitHub Pages works
+## How GitHub Pages works
 
 GitHub pages is deceptively simple, but incredibly powerful service. To start using GitHub Pages, you'll want to create a new repository named `[your-organization].github.io`. In our CFPB example above, the repository would be [`cfpb/cfpb.github.io`](https://github.com/cfpb/cfpb.github.io). From there, any static files you commit (HTML, CSS, JavaScript, images, etc.) will be served as `your-organization.github.io` (or in the case of our example, [`cfpb.github.io`](http://cfpb.github.io)).
 
-### Getting started with GitHub Pages
+## Getting started with GitHub Pages
 
 For a quick way to get started, and as an example, let's create a new file called `index.html` (you can do this from the `your-organization.github.io` repository by clicking the `+` sign) and add the following contents:
 
@@ -33,7 +33,7 @@ For a quick way to get started, and as an example, let's create a new file calle
 
 Once you commit (save) the file, if you navigate to `your-org.github.io`, you should see the index file you just created, being served, just like any other site. You can add additional HTML files, CSS files, JavaScript files, images… any static files you want in this manner. The only thing GitHub Pages doesn't support are dynamic languages like PHP, Ruby, or Python. This allows you to add your organization's logo, color scheme, or any other content you'd like, including dynamic, client-side content like pulling in your organization's most recent Tweets.
 
-### Templating with Jekyll
+## Templating with Jekyll
 
 The true power of GitHub Pages comes from a built-in static site generator called [Jekyll](http://jekyllrb.com). If you just have a single page site with straightforward content, our index example above is likely sufficient, but if you'd like to have multiple pages, or if you'd like to support content that's a bit more dynamic, you'll likely want to leverage Jekyll to make things a bit easier to maintain.
 
@@ -74,7 +74,7 @@ layout: default
 <p>Our awesome org is...</p>
 ```
 
-### Markdown
+## Markdown
 
 Another big advantage of using Jekyll is the ability to work in [Markdown](https://guides.github.com/features/mastering-markdown/). Markdown is the *lingua franca* of open source. It's a way to describe the format and structure of content, without having to learn HTML. Markdown makes it easier for less-technical stakeholders to contribute directly to your site, separates content from presentation so that it can be used in multiple places or formats, and makes comparing changes between versions more natural.
 
@@ -99,9 +99,9 @@ And to create headings, you prefix the heading with a `# sign` like this:
 ```markdown
 # Top level heading
 
-### Sub heading
+## Sub heading
 
-#### Sub sub heading
+### Sub sub heading
 ```
 
 Jekyll will automatically convert Jekyll to HTML each time you push a change to your site. All you have to do is change the extension from `.html` to `.md`. In our above example, we could change our `index.html` to an `index.md` file with the following content:
@@ -116,7 +116,7 @@ layout: default
 
 Again, the output should be identical. Need to include something in the page that you can't represent as Markdown? You can always use HTML within the Markdown file as well.
 
-### Listing your organization's open source projects
+## Listing your organization's open source projects
 
 GitHub Pages is great for showcasing your organization's open source efforts. Up until this point, we've created a branded web presence, but we haven't included information about our open source project's yet. You could, if you wanted, just list your open source projects. In our `index.md` file, we might add:
 
@@ -145,7 +145,7 @@ In addition to Markdown, Jekyll also supports a lightweight templating engine ca
 
 That should produce identical results to the hard-coded versions above, but in a way that updates as your organization's projects do. You could also include additional information in the same way, such as the project's descriptions or number of stars. You can see a full list of the organization metadata available to GitHub Pages in [this help article](https://help.github.com/articles/repository-metadata-on-github-pages/).
 
-### Supercharging your organization's developer presence
+## Supercharging your organization's developer presence
 
 In terms of availability and scalability, the simplicity of GitHub pages makes it extremely resilient for high-traffic sites. You can [read more about GitHub Pages architecture](http://GitHubengineering.com/rearchitecting-github-pages/), but in short, GitHub Pages is home to about three-quarters of a million sites, serves about a quarter of a million requests each minute, and completes about 20,000 builds each day. Your site is in good hands.
 

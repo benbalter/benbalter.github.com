@@ -5,7 +5,7 @@ description: Twenty five [microeconomic](#microeconomic-motivations), [macroecon
 
 Open source is awesome. There are many reasons why you might consider consuming, publishing, collaborating on, or supporting open source.[^1] Here are a few of them:
 
-### Microeconomic motivations
+## Microeconomic motivations
 
 Open source is in your best interest, whether you're an individual, a corporation, a small business, a non-profit, or a government agency:
 
@@ -45,7 +45,7 @@ GitHub Cofounder Tom Preston-Werner lays out some additional arguments in his po
 
 * **Best technical interview possible** - Technical interviews traditionally involve working on a simulated problem that can be tackled in a set amount of time with little additional context. Such simulations, by definition, aren't real world use cases, nor do they show what working with an applicant would be like. Open source provides visibility into both how a candidate solves problems, and how they work with others. You can hire much more confidently if, for the past six months, the candidate has been contributing to the project you want them work on, and you like their work. "[T]he best technical interview possible is the one you don't have to do because the candidate is already kicking ass on one of your open source projects."
 
-### Macroeconomic motivations
+## Macroeconomic motivations
 
 By combining and augmenting parallel or related efforts, open source makes a society more efficient at producing higher quality software:
 
@@ -55,7 +55,7 @@ By combining and augmenting parallel or related efforts, open source makes a soc
 
 * **Fuel the marketplace of ideas** - Software is nothing more than technical knowledge. There was once a time when alchemists would withhold the results of their work, claiming their discoveries as proprietary. Each had to learn the hard way the result on the human body of drinking lead. When those alchemists began sharing their work, we began calling them scientists, and the scientific revolution was born. The same is true of mathematics, literature, and computer software. Two developers working individually may come up with two solutions to a given problem, but through dialog and collaboration, each bringing their own knowledge and experience, may discover three, five, or ten solutions to the same, and society is better as a result.
 
-### Moral motivations
+## Moral motivations
 
 The formal name for open source is [free/libre open source software](https://en.wikipedia.org/wiki/Free_and_open-source_software). As such, open source motivations have a strong moral component:
 
@@ -69,7 +69,7 @@ The formal name for open source is [free/libre open source software](https://en.
 
 * **Teaching the next generation** - Many of the industry's most prominent engineers today cut their teeth by learning from open source. When software's underlying code is made available for inspection, consumers can learn how their favorite software works and computer science courses can analyze how the industry's cutting edge technology is built. This goes a long way to train the next generation of software engineers (who without open source would be left guessing at the inner-workings of prior iterations).
 
-### Transparency motivations
+## Transparency motivations
 
 Open source allows for greater transparency of process, whether that's the transparency necessary to check a government action or the quasi-governmental function of a private company's software.
 
@@ -77,7 +77,7 @@ Open source allows for greater transparency of process, whether that's the trans
 
 * **Positions of public trust** - As the software produced by private corporations are increasingly placed in positions of public trust, the transparency obligation extends into the private sector as well. Did the voting machine accurately count my vote? When given a lose-lose choice, does the self-driving car conform to community norms? For example, if a closed-source software package is used to compare DNA at a crime scene, unlike a medical expert who can be cross examined, that proprietary algorithm is shielded from scrutiny by copyright (or patent) law. Open source, at least partial open source of particular components, will become essential as private companies automate quasi-government functions.
 
-### Participatory motivations
+## Participatory motivations
 
 Open source affords software stakeholders, both technical and non-technical, the opportunity to shape any given software development project:
 
@@ -85,7 +85,7 @@ Open source affords software stakeholders, both technical and non-technical, the
 
 * **Customer feedback** - Open source empowers consumers to have a combined, powerful voice in the private sector development process. Think of it like Yelp for software. Without Yelp, a restaurants is free to upset a single customer. At most, that dissatisfied patrons could dissuade 5–10 other potential patrons. In a post-Yelp world, customers read the reviews of strangers before they choose where to go. Open source amplifies the voice of software consumers within the consumer-publisher relationship. Not to mention, the feedback the private company receives can go towards better informing product decisions and improve the overall product. Open source gives companies a direct line to their most passionate customers.
 
-### Personal motivations
+## Personal motivations
 
 If you're a developer (or an aspiring developer), open source can provide an easy (and free) onramp to and path for personal growth within the software development community:
 

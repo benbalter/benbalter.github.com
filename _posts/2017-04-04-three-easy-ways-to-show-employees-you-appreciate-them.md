@@ -5,7 +5,7 @@ description: Celebrating everyday occurrences show others that you appreciate th
 
 As a manager (or a coworker) one small thing you can do to make wherever it is that you work a better place to work is to notice and celebrate everyday occurrences, to show those you work with that you appreciate them not just for what they do, but also for who they are. This is true even if all you know is the information on a standard HR form. Here's three easy ways to show that you appreciate the humans you work with:
 
-### Birthdays
+## Birthdays
 
 *What*: Most humans have birthdays. Some humans don't care much for candles, singing, or mass attention, but many humans would at least appreciate a quick "Happy Birthday! I hope you have something fun planned this weekend." DM or email. Even better, throw in some emoji or an animated GIF for good measure.
 
@@ -13,7 +13,7 @@ As a manager (or a coworker) one small thing you can do to make wherever it is t
 
 *How*: If you're Facebook friends with your coworkers, you can add a webcal feed of your friends' birthdays to your calendar, and many HR systems let you do the same. At the very least, you can ask for their birth month and day with minimal awkwardness and add it to your calendar as a reoccurring event.
 
-### Work anniversaries
+## Work anniversaries
 
 *What*: Another easy way to show that you appreciate your fellow humans is to recognize their work anniversary. At GitHub, we call these Hubberversaries. When you hit your one, two, five, or ten year work milestone, that's something to be celebrated, even if within many organizations it rarely is. There's a good chance your report would be flattered by a quick note letting them know why you're glad they're there or reflecting on all the great contributions they've made in the past year.
 
@@ -21,7 +21,7 @@ As a manager (or a coworker) one small thing you can do to make wherever it is t
 
 *How:* If you're connected with your coworker on LinkedIn (yeah, I know), the service will send you push notifications for your connections work milestones, but I don't recommend it. The easier route is to check internal social tools (at GitHub we have a blog-like platform called Team), or external announcements (for years we announced every new hire via the public blog).
 
-### Major lifecycle events (for example, moving)
+## Major lifecycle events (for example, moving)
 
 *What*: The final easy way to show your fellow humans that you appreciate them as bona fide human beings is to recognize major lifecycle events. This can be anything as small as taking on a new hobby, or as big as shipping a human, a house, or a husband/wife. Are they going out to celebrate? Would their friend get them something to acknowledge it? Chances are you should too.
 

@@ -6,13 +6,13 @@ image: "//ben.balter.com/wp-content/uploads/2015/18f-vs-usds.png"
 
 You may have noticed two parallel efforts at modernizing the way government approaches technology taking foothold in the Beltway over the past several months: 18F and the U.S. Digital Service (USDS). Although similar on paper, the two approach the challenge with two very divergent goals: one was created to ship culture and the other was created to ship confidence. It's the age-old saga of [geeks vs. suits](https://ben.balter.com/2014/12/18/geeks-and-suits/).
 
-### A long time in the making
+## A long time in the making
 
 The story of 18F and USDS (and their divergence) begins about three years ago with the introduction of the [**Presidential Innovation Fellows**](http://presidentialinnovation.org) (PIF) program. Modeled after [Code for America](http://codeforamerica.org) and the [Presidential Management Fellows program](http://pmf.gov), the PIF program was designed to parachute 18 skilled, private-sector technologists into government for six-month stints at a particular agency, technologists that wouldn't otherwise consider a career in government. The goal was simple: burst the stereotypical beltway bubble and expose government employees and bureaucratic workflows to mainstream technology thinking.[^1]
 
 The PIF program was a success, and soon after a group called **[18F](https://18f.gsa.gov)** was created within the General Services Administration (GSA) not only to house the PIFs, both physically and bureaucratically,[^2] but also to continue and augment their efforts — to centralize forward-thinking technologists in government under one administrative umbrella, and to provide a vehicle for change that wasn't tied so closely to the administration and the highly political world in which it operates on a daily basis.[^3] In practice, 18F attracts the same type of outside-the-Beltway talent that the PIF program was designed to attract, and embodies a similar open-source-first mentality, but unlike the PIF program where many fellows simply took sabbaticals from their private-sector jobs, members of 18F traditionally jump ship and are in federal government for the long-haul, signing up for significantly longer terms than PIFs do.[^4]
 
-### 18F — Here's the best way to build software (and you can too!)
+## 18F — Here's the best way to build software (and you can too!)
 
 18F is an odd duck, at least when compared to how bureaucratic entities normally interact with one another. There's a bit of nuance in how 18F maintains engagements with "partner" agencies (just as a private sector firm might have "clients"),[^5] rather than embedding technologists in the agency itself (like the PIF program did), but the play's essentially the same.
 
@@ -22,7 +22,7 @@ For 18F, the goal isn't simply to deliver the piece of software that they were a
 
 Sure, it's leading by example, but it's also the teach-a-CIO-how-to-fish strategy, and for them, culture's a first-class deliverable right alongside the open-source code that the very culture necessitates. Think of them like the "consultant" in the movie Hitch: they're the guy behind the scenes whispering a few pointers in your ear to help you be the best you can be (except without all the food poisoning and rom-com drama).
 
-### The healthcare.gov wake up call
+## The healthcare.gov wake up call
 
 To get a better sense of the full picture, let's take a step back for a second: On October 1st, 2013 `healthcare.gov` happened. While surely it wasn't the impetus for modern IT reform efforts, it certainly made them a priority among non-technical decision makers. [The administration quickly realized that simply throwing more money at "enterprise grade solutions" wasn't a defensible strategy](https://ben.balter.com/2014/12/18/geeks-and-suits/#the-age-of-the-geek), at least not in the long run. The West Wing knew that the government needed to get smart about technology, and needed to get smart fast, not to mention, coming off the tech-centric 2008 and 2012 campaign cycles, there was a legacy as "the technology president" at stake.
 
@@ -30,7 +30,7 @@ Although `healthcare.gov` was the first time that a recent policy initiative ris
 
 Imagine that it's October 2013 and you're one of the President's senior advisers. You're getting asked questions about `healthcare.gov`, which is currently the lead story on just about every news channel globally. Your immediate concern is putting out the fire — getting the site back up — and if we're honest, being able to report to the press that you've righted the wrong so that you can get it out of the news. But once the crisis subsides, you're going to start to be asked a second round of equally disconcerting questions: *How'd this happen? What's going to be the next `healthcare.gov` and how can we prevent it?*.
 
-### USDS — We're on it boss (okay, listen, here's what you're going to do)
+## USDS — We're on it boss (okay, listen, here's what you're going to do)
 
 That's where **[USDS](https://www.whitehouse.gov/digital/united-states-digital-service)** comes in. At least in the near term, the US Digital Service exists to prevent the next `healthcare.gov`.[^6]
 
@@ -42,11 +42,11 @@ USDS's strategy is to bring best-of-class, private-sector engineers into governm
 
 Think of USDS like the Men in Black (although as far as I know, there's no adorable pug at the office). To them, the planet's always 24-hours away from destruction by an Arquillian Battle Cruiser or a Corillian Death Ray, but if they do their job right, you'll never know it. And that's the point.
 
-### What's the difference
+## What's the difference
 
 18F and USDS have divergent goals (getting on the front page, versus not getting on the front page), but there's more than that. I'd break the difference in approaches down to three key-value statements implicit in each team's culture:
 
-#### 1. Transparency as an asset versus transparency as a liability
+### 1. Transparency as an asset versus transparency as a liability
 
 When others outside your organization can see what you're working on, you provide them with the right to criticize your work. You also provide them with the opportunity to improve it.
 
@@ -56,7 +56,7 @@ USDS on the other hand falls on the "transparency as a liability" side of things
 
 Whereas 18F uses its position to paint an opinionated vision of federal IT, USDS seems to use its single-page web presence almost exclusively for recruitment. An important task, don't get me wrong, and I'm sure they've got more pressing, more immediate fires to put out, but there's something to be said for the fact that if you google "USDS", the first result (after their Twitter feed) is a page entitled "US Digital Service *Recruitment*" (with the first heading being "Join the US Digital Service"), while the first result for "18F" is "18F Digital Services *Delivery*" (with the first heading being "Building the 21st century digital government").
 
-#### 2. Show versus tell
+### 2. Show versus tell
 
 In creative writing there are two ways to convey an idea. You can tell your reader explicitly, or you can explain the facts to your reader, and let them draw their own conclusion. Technology is no different. It's the reason we write instructional manuals.
 
@@ -64,7 +64,7 @@ For 18F, the play is "show". For one, it's the only way they will ever scale. Th
 
 For USDS, the play is "tell". For one, they're in a position to do so. Whether recruiting for their own ranks or architecting an agency site, a call from the White House is an insanely powerful thing. For another, coming from a management-point-of-view, they have the unique ability to change agency org. charts when they need to, placing the technologists they trust in positions bureaucratically that allow them to bypass the "show" step. They've also got enough political runway to ride things out until the end of the administration, without the need to prove their value, internally or externally.
 
-#### 3. Management versus hacker
+### 3. Management versus hacker
 
 Crazy successful startups are founded and run by geeks — think Zuckerberg, Gates, Brin and Page to name a few. When creating an organization dedicated to building software, there's something to be said for optimizing for developers above external constraints. I've written before about [the distinction between geeks and suits](https://ben.balter.com/2014/12/18/geeks-and-suits/). Nowhere is that more apparent than when you look at 18F and USDS. It's product delivery versus management consulting.
 
@@ -72,7 +72,7 @@ To me, 18F embodies [the hacker ethic](https://ben.balter.com/2013/02/04/what-is
 
 USDS may be strongly influenced by non-geek technologists, but that also provides them with a unique opportunity not afforded to 18F. It'd be an understatement to say that there's a lot going on below the surface of USDS. While today USDS is tasked with primarily playing catch-up on too-big-to-fail-type projects, in the long run USDS's vision is to create a much wider-reaching digital service corps, with USDS being the bureaucratic umbrella, providing managerial air cover for non-career technologists at each of the household name agencies (DHS, VA, HHS, etc.). Each agency has been tasked with establish a digital services team by this October, and the size of the corps is budgeted to swell from about 40 today, to 500 by 2016.[^7] For USDS, the play is a top-down reimplementation of how the federal government approaches IT, at least from a human perspective.
 
-### Which one's better
+## Which one's better
 
 Is 18F better? USDS? You're asking to compare Apples to PCs. They exist to serve different masters, and that's a *great* thing. For all that separates their efforts, they share much more in common, both in form and in function. They've both brought some of the smartest, most passionate technologists I've ever met into government to serve their country, and as [any student of organizational change will tell you](http://www.kotterinternational.com/the-8-step-process-for-leading-change/), a two-pronged, top-down-and-bottom-up approach is the only way to unstick the world we find ourselves in today (USDS) while simultaneously bringing about the world we want to live in tomorrow (18F).
 

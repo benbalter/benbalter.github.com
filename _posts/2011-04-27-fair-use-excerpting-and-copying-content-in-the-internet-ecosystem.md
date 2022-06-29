@@ -13,13 +13,13 @@ Not getting in hot water with the fuzz is important, but it is simply one checkb
 
 It seems internet copyright law has become somewhat of a digital [Chupacabra](https://www.youtube.com/watch?v=_yq_0KuXu64) — the subject of endless urban legend and fact-less speculation. Despite [widespread misunderstanding](http://www.llrx.com/features/bloggersbeware.htm), in practice, both the contours of fair use law and the cultural norms of the net lay clear guidelines for bloggers and content producers. Put another way, *the law's the easy part*. Worry about the content and the law will take care of itself.
 
-### The Culture
+## The Culture
 
 Much like its roots in academia, the cornerstone of the internet is the ability to contribute to an ongoing dialog by building on the ideas of others. With few exceptions, if your use of another's work does not *add value* to the discussion, you may be fine legally, but practically, you're just wasting space on the internet. Criticism, commentary, and the synthesis of ideas not only enjoy fair use protections, but more importantly, give visitors a reason to read your content, drives traffic to your site, and justifies its existence. Likewise, facts and ideas are usually fair game, as are promotional materials and logos if you are discussing a specific company or product, but the reason for such an exception is not to give bloggers fodder for an easy blog post, but rather the exception is designed as a stimulus package for the marketplace of ideas.
 
 The culture of the internet is not that it's okay to *copy* others, but that it's okay to *criticize* others, and if in doing so you quote or reference their work, that's considered okay. So if you have something to say, where exactly does the law draw the line? [^2]
 
-### Is it copyrighted
+## Is it copyrighted
 
 If a work is no longer subject to copyright claims (and thus falls in the [public domain](http://www.law.duke.edu/cspd/comics/zoomcomic.html)), the discussion of fair use becomes a moot point. Such a determination does not, strictly speaking turn on the inclusion of the copyright symbol. [^3] Instead, a work is [in the public domain](http://www.unc.edu/\~unclng/public-d.htm) if it was created:
 
@@ -29,7 +29,7 @@ If a work is no longer subject to copyright claims (and thus falls in the [publi
 * between 1923–1963 without a copyright notice, or
 * before 1923.
 
-### Is it fair use
+## Is it fair use
 
 Even if a work merits copyright protection, it can still be used in many cases. The concept of *fair use* came about in late 1970′s following the Copyright Act of 1976. [^4] Simply put, the Copyright act states, "purposes such as criticism, comment, news reporting, teaching (including multiple copies for classroom use), scholarship, or research, is not an infringement of copyright." While there is no cut-and-dry rule as to when use infringes on the author's copyright, the determination as to whether a given excerpt constitute fair uses is governed by four-factor [balancing test](http://en.wikipedia.org/wiki/Balancing_test): [^5]
 

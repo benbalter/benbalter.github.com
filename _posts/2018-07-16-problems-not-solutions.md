@@ -5,7 +5,7 @@ description: If there's one thing that defines the shift from another technology
 
 As Engineers (or just about any other technical profession), we're trained to think in terms of solutions (what feature to build, how to build them, subsequent improvements, etc.), but given a sufficiently defined problem, the solution is often the easy part (even if the implementation itself may be technically complex). The real challenge lies in understanding customers' true needs (not just their stated ones), defining and prioritizing user problems, and evaluating potential solutions to determine the right one (and where your efforts can have the biggest impact).
 
-### Jobs to be done
+## Jobs to be done
 
 Ultimately, customers [hire products to do a job](https://hbr.org/2016/09/know-your-customers-jobs-to-be-done). Imagine a customer comes to you asking for a 1/4" drill (a solution). Their stated problem may be the need for a 1/4" hole, but what they're really after is the ability to hang a picture (which could be accomplished a number of ways - a hammer and nail, 3M Command strips, etc.). Going further, the underlying customer problem may really be the desire to remember milestones or important people in their life, which may be best served by an app on their phone or a digital picture frame which avoids the need to hang something altogether. You can build the world's best drill, but it may be the right solution to the wrong problem.
 
@@ -15,7 +15,7 @@ As a Product Manager, even when customers come to you with desired solutions (or
 
 Worse yet, you may find you're implementing an intellectually interesting solution in search of a problem. If you're truly building a product for your users, everything you do should stem from a user need.
 
-### Why over What
+## Why over What
 
 The other way to think about talking in terms of problems instead of solutions is that you should spend more time talking about the "why", than you spend talking about the "what", or at least translating between the two.
 
@@ -25,7 +25,7 @@ If you spend months refactoring an app to make it "right", to use an exciting ne
 
 As a Product Manager, your job is to optimize for those (ideally boring) low effort, high impact initiatives, that improve the experience for users and give you the best value in terms of time and effort, and the easiest way is to do that is to focus on why you're doing things, and who you're doing them for, counterbalanced by the effort required, not the other way around.
 
-### What problem are we solving?
+## What problem are we solving?
 
 As cliché as it may be in some circles, one of the most important questions that you can ask as a Product Manager (of yourself or others), is "what problem are we trying to solve?". I can't tell you the number of times the answer is, alarmingly, "that's a good question…", even among projects that were well underway. If you don't know what user problem you're solving — what jobs your doing for the user — and by extension, what end-user-value you're seeking to deliver — then you're just doing work for the sake of doing work, and not to better your product or the customer experience.
 

@@ -5,7 +5,7 @@ description: Contributor license agreements (a "nice to have" for many corporate
 
 Contributor license agreements (or CLAs for short) have gained a lot of visibility in recent years as some prominent open source projects have opted to adopt them. If all the cool kids are doing it, should your open source project? Probably not. Here's why:
 
-### What is a CLA?
+## What is a CLA?
 
 If you're new to concepts like copyright, patents, and licensing, this primer on [everything an open source maintainer might need to know about open source licensing](https://ben.balter.com/2017/11/28/everything-an-open-source-maintainer-might-need-to-know-about-open-source-licensing/) may provide some helpful background.
 
@@ -13,7 +13,7 @@ In short, you can think of a CLA as somewhat of a "reverse open source license".
 
 Unlike licenses, however, contributor license agreements, or CLAs, are not standardized, meaning if you're a contributor, you'll have to read each CLA to determine what legal rights you're giving away, before contributing (and hope you can parse what's often dense legalese if you're not yourself a lawyer).
 
-### Why projects adopt a CLA
+## Why projects adopt a CLA
 
 I suspect that projects that adopt a CLA often do so because they don't consider (or underestimate) the impact that it will have on potential contributors (and thus the likelihood that they will contribute), or purposely choose to prioritize minimizing legal risk over maximizing the project's potential community. There's not a lot published in support of CLAs, but Julien Ponge, a CS professor [writes](https://julien.ponge.org/blog/in-defense-of-contributor-license-agreements/):
 
@@ -23,7 +23,7 @@ I'd push back on the assertion that "responsible" open source developers appreci
 
 CLAs are generally a form of [CYA](https://en.wikipedia.org/wiki/Cover_your_ass), to prevent maintainers (or the project or its corporate backer) from landing in hot water due to the community contributions it accepts. They are one way to manage a maintainer's exposure to intellectual property liability, especially if that maintainer is a for-profit business. Specifically, it makes ownership of (and liability for) the project's intellectual property explicit.
 
-### Maintainers should advocate for their community's needs
+## Maintainers should advocate for their community's needs
 
 The role of an attorney, especially a transactional attorney, is to minimize legal risk. For the vast majority of intellectual property transfers in the business world, that means lots of corporate paper and due diligence. When one company buys another company's software, be it a procurement or an acquisition, it often involves lengthy negotiations resulting in contracts with tens or hundreds of pages to ensure both parties exchange exactly what they intended to transfer, no more, no less. When dealing with other corporations (and their attorneys), there's often little downside to doing so, but a big potential downside if they don't (and something goes wrong).
 
@@ -31,7 +31,7 @@ Contrast that with open source licensing, which often carries equal legal weight
 
 As project maintainers work with their corporate counsel to decide if they should add a CLA to their project, keep in mind that legal's role (and area of expertise) is to advise business owners how to minimize risk, not how best to run a successful open source project (the maintainer's area of expertise). Such risk mitigation measures (and the likelihood that the feared harm might occur) must be balanced against your business motivations (e.g, your project's goals and its long-term viability), and I'd argue, should be resolved in favor of contributors, not the corporation:
 
-### CLAs create a contribution-hostile developer experience
+## CLAs create a contribution-hostile developer experience
 
 I spend a lot of my day helping open source maintainers to [grow healthy and vibrant communities around their projects](https://ben.balter.com/2017/11/10/twelve-tips-for-growing-communities-around-your-open-source-project/). If one of the most common reasons to open source a project (and indicators of success) is to receive contributions from others, why then would a project maintainer add significant [friction](https://ben.balter.com/2013/08/11/friction/) to advancing one of their primary goals? CLAs require that the first interaction between an open source project and a potential contributor to involve a formal and complex legal agreement which signs away their legal rights — not exactly a warm welcome. Submitting one's first contribution to an open source project is already scary enough as it is, even without the threat of a lawsuit as the first volley.
 
@@ -41,7 +41,7 @@ Imagine the "give a penny, take a penny" dish at your local convenience store. I
 
 In the software world, because potential contributors silently opt-out, that means more bugs are fixed and features implemented by downstream consumers, without being contributed back to the community (or the project ever knowing such contributions were chilled).
 
-### CLAs require significant administrative overhead
+## CLAs require significant administrative overhead
 
 CLAs are legal contracts contributors agree to prior to contributing to a project, intended to minimize maintainer risk. How then, does a project know when a contributor has "signed" a CLA?
 
@@ -51,7 +51,7 @@ For the contributor, as mentioned earlier, CLAs require the contributor to parse
 
 For the maintainer, the project needs to stand up a system to track every potential contributor that has signed the agreement, as well as a CI-like mechanism to ensure commits cannot be merged unless covered by the CLA. Yes, there are services out there like CLAHub, but in my experience, since CLAs are non-standard, so too are the process required to implement them, meaning many projects will need to create their own acceptance experience. Regardless of the means, unlike say, a license, in almost all CLAs, assent isn't manifested by use (or in this case submission), meaning there's an additional system, custom or third-party, that maintainers must stand up and maintain, third-party or otherwise.
 
-### CLAs shifts legal blame to the party least equipped to defend against it
+## CLAs shifts legal blame to the party least equipped to defend against it
 
 From a maintainer's perspective, CLAs make a lot of legal sense. "We shouldn't accept code unless we know it's clean." The problem comes when you take a step back and look at the system as a whole. At least among projects that implement CLAs, the maintainer is most likely a corporate or a non-profit, both sophisticated organizations that likely have intellectual property attorneys on staff or on retainer.
 
@@ -59,13 +59,13 @@ Contributors, on the other-hand, are most often individuals. If they're a studen
 
 Ultimately, you have a highly sophisticated, highly resourced legal entity, and an individual with little to no legal training. When designing a system intended to foster the free flow of information, where would be the best place to allocate legal risk? CLAs shift the legal risk for copyright infringement, patent infringement or other bad acts, intentional or otherwise, from the project (the entity best positioned to defend a legal claim, and often the one most directly benefiting financially), to the contributor (the one in at the least advantaged negotiation position, often volunteering their time for the project's benefit).
 
-### If a license isn't good enough for maintainers, you shouldn't subject users to it
+## If a license isn't good enough for maintainers, you shouldn't subject users to it
 
 For a long time, [the basic norm of open source licensing has been `inbound = outbound`](https://opensource.com/law/11/7/trouble-harmony-part-1#contribution-policies-and-free-software-tradition), meaning that a contributor contributes to a project under the terms of its open source license. Think about it logically: if I submit code to be incorporated into an open source project, with the knowledge (constructive or actual) that it will be distributed under a certain license, I must intend that code to be licensed similarly. Sure, there's still that "well they could argue…" factor, as with digital signatures, but more recently, [GitHub made that relationship explicit by incorporating an `inbound = outbound` clause into its Terms of Service](https://help.github.com/articles/github-terms-of-service/#6-contributions-under-repository-license), meaning if a pull request is submitted via GitHub, it is submitted under the project's open source license.
 
 The question then becomes, if the project's open source license isn't sufficient enough for maintainers to feel comfortable accepting code, why should end users be expected to feel comfortable enough to do so? Put another way, why should project maintainers be granted rights and protections beyond those granted to end users (and other contributors)? Most often, this is a sign that the license the project's using isn't sufficient for the project's industry or the maintainer's legal posture, and moving to a more patent-aware license like Apache, may resolve the need for a CLA entirely.
 
-### Your project's legal framework should help it thrive
+## Your project's legal framework should help it thrive
 
 The Software Freedom Conservancy [gives the following advice](https://sfconservancy.org/blog/2014/jun/09/do-not-need-cla/): you (and your lawyers) need to distinguish between what "nice assurances we'd like to have " and "what legal assurances our [open source] project actually needs to assure its thrives", and I tend to agree.
 

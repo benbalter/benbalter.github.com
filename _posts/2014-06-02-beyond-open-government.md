@@ -11,7 +11,7 @@ But printing presses and fax machines have two limitations: they are one-way and
 
 As technology allows us to communicate with greater frequency and greater fidelity, we have the chance to make our government not only transparent, but truly collaborative.
 
-### The open source workflow
+## The open source workflow
 
 Open source software — software for which the underlying source code is not only made available to the public, but to which users of the software are encouraged to submit bug reports and propose improvements — started out the same way. Originally, open source was merely published source, mostly due to the limitations of technology. Everyone had access to the code, but it was published in a one-way medium — by mail, via FTP, or via a read-only site. Over the past two decades, open source has moved to a more distributed workflow, one that exposes process, lives and dies by the URL, and allows anyone in the world to propose improvements, free from the shackles of the original author's foreknowledge and consent. Today, in contrast, technology allows the process of building open source software to be inherently collaborative.
 
@@ -19,7 +19,7 @@ Open source's original workflow may sound familiar. If I had a question about a 
 
 From software code to legal code, lack of access to the creation process of these kinds of code forces one to go to the publisher, rather than the content, in an opaque, one-to-one interaction.
 
-### Beyond hub and spoke
+## Beyond hub and spoke
 
 There are two problems with this hub-and-spoke model of bespoke collaboration. First, those one-off conversations generally happen in private. No URL, no change history, no way to trace back the eventual outcome to its original impetus. In open source, this means you don't always know a code's pedigree or intent. *Who knows this code and who should I ask about this bug?* In government, the same scenario is stereotypically more nefarious, with quintessential smoke-filled back rooms and briefcases of money. *Who authored this law? What were their interests and objectives?*
 
@@ -27,7 +27,7 @@ Second, when conversations are transacted via email (or notice and comment) or o
 
 In the software world, this often means that multiple users experiencing the same bug ask the same question or file the same bug report multiple times, not to mention, absent a system of self–help, the bottleneck it creates in time required to respond to these issues. There's no opportunity for a fellow user to say "I had the problem last week, here's what I did", as we often see by Googling many common problems. In government that's also true, with the added harm of hindering the marketplace of ideas. "Here's a bunch of ideas, government. You figure them out" is a lot less effective at solving shared problems then an ongoing dialogue between citizens building towards a rough consensus.
 
-### Learning from open source
+## Learning from open source
 
 So how do we encourage policymakers and bureaucrats to move from open government to collaborative government, to learn open source's lessons about openness and collaboration at scale?
 

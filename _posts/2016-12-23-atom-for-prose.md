@@ -11,11 +11,11 @@ First and foremost, I'm a developer. While these days I may only occasionally wr
 
 Spending so much time in Atom, I've taken a great deal of care to shape every facet of my writing environment, and I'd like to share both some of the tweaks I've made, and how I manage them:
 
-### Atom packages I use
+## Atom packages I use
 
 I highly recommend [taking a look at the packages @sroberts mentioned](https://sroberts.github.io/2015/06/06/how-i-atom/), if you haven't already, as I used most of them every day. Beyond that:
 
-#### Quality of life
+### Quality of life
 
 These packages shave seconds (sometimes minutes) off your day, and given their small size (and overhead), really set Atom apart from other text editors:
 
@@ -23,7 +23,7 @@ These packages shave seconds (sometimes minutes) off your day, and given their s
 * [highlight-selected](https://atom.io/packages/highlight-selected) - this one's hard to appreciate until you actually use it (or until it's missing). Double click a word to highlight all its uses in the current buffer. Useful for manual find-and-replace operations.
 * [theme-switcher](https://atom.io/packages/theme-switcher) - Switch between dark and light themes, helpful if you ever work outside.
 
-#### Markdown
+### Markdown
 
 There's a number of Markdown-specific packages I use. Here's a few:
 
@@ -32,13 +32,13 @@ There's a number of Markdown-specific packages I use. Here's a few:
 * [markdown-table-formatter](https://atom.io/packages/markdown-table-formatter) - If you create a Markdown table, on save, it aligns the columns such that the table is both human and machine readable.
 * [wordcount](https://atom.io/packages/wordcount) - Exactly what it sounds like, it adds a word (and character) count to the gutter. Useful for composing conference abstracts, Tweets, basically anything with a set limit.
 
-#### Linters
+### Linters
 
 If you're not familiar with the concept of a linter, it's basically an automated script that goes through the current file and highlights deviations from predefined stylistic rules, not too dissimilar to spelling or grammar mistakes on a standard word processor, and I can't recommend them enough.
 
 **linter-your-language-of-choice** - Chances are, [there's a linter available for your language of choice](https://atomlinter.github.io), including prose. Whether you're learning the language or a veteran, the contextual hints it gives you will improve whatever it is you're writing.
 
-### Prose linters
+## Prose linters
 
 There are a few prose-specific linters I credit for improving my day-to-day writing:
 
@@ -47,7 +47,7 @@ There are a few prose-specific linters I credit for improving my day-to-day writ
 * [linter-alex](https://atom.io/packages/linter-alex) - [Alex](https://github.com/wooorm/alex) checks your writing for biased or insensitive language.
 * [linter-just-say-no](https://atom.io/packages/linter-just-say-no) - Discourages you from using hedge words that weaken's the impact of your writing.
 
-### How I manage Atom
+## How I manage Atom
 
 When I set up a new machine, among the first things I do is [symlink `~/.atom/config.cson` and `~/.atom/keymap.cson` to copies versioned as part of my dotfiles](https://github.com/benbalter/dotfiles/blob/master/script/setup/atom). Of course, if that's beyond your technical prowess (or willingness), or you need to keep secrets in your Atom config (like API keys), you can use something like [Mackup](https://github.com/lra/mackup) to sync the config files via Dropbox. Since Atom stores its config as nearly human-readable `.cson` files, it's easy to version settings and keep them in sync across machines. If you're really interested, since my dotfiles are open source, you can even [browse my Atom config](https://github.com/benbalter/dotfiles/tree/master/.atom).
 

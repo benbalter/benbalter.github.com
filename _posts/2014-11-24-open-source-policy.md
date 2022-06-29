@@ -16,7 +16,7 @@ The White House [has committed to creating an open source policy](http://e-pluri
 
 As a geek, as a former government technologist, and as a life-long member of the open source community, here's three things I hope the White House Open Source Policy embodies:
 
-### 1. Prefer (existing) open source platforms (*Open source as a platform*)
+## 1. Prefer (existing) open source platforms (*Open source as a platform*)
 
 Every government IT project begins (and ends) with procurement. Non-technical government employees spec out a list of detailed technical requirements, based on what's been done in the past, not what should be done at the time of delivery. While it's surely possible to build on a closed-source platform and then later publish your efforts, (A) that code will be received by a smaller, less-receptive community, limiting the code's lifetime impact and (B) utilizing that code requires developers to purchase expensive licenses to use that closed source platform to contribute — not exactly in the spirit of open source. Both aspects of the closed platform minimize the promise of open source and become a self-fulfilling prophecy for naysayers.
 
@@ -24,7 +24,7 @@ At the same time, government agencies have a habit of seeing themselves as a uni
 
 That said, if there's an overwhelming business case to the contrary, government shouldn't use open source for open source's sake. There's a reason that it's a preference, and there's a reason many geeks prefer Gmail to clunkier open-source desktop alternatives. Shared open source platforms should be the strong preference, with custom-built open source, custom-built closed-source, and proprietary platforms servings as reasoned fallbacks.
 
-### 2. Open source, not source disclosed (*Open source as a design philosophy*)
+## 2. Open source, not source disclosed (*Open source as a design philosophy*)
 
 Open source does not simply mean [government software for which the underlying code has been published](https://ben.balter.com/2014/09/29/source-disclosed-%E2%89%A0-open-source/). In the industry, that's called disclosed source. Instead, open source is about growing communities around shared challenges. That has several implications:
 
@@ -34,7 +34,7 @@ Instead, software should be modular by design and flexible from the start, with 
 
 [Open source is not a verb](https://ben.balter.com/2012/10/15/open-source-is-not-a-verb/). Successful open source projects are open source from day two (if not day one), are not so purpose built as to render them useless outside the agency, and do not participate in the open source community solely to garner good will. Instead, great open source projects are open source, because they know their software is better as a result.
 
-### 3. Shared to the widest extent possible (*Open source as a workflow*)
+## 3. Shared to the widest extent possible (*Open source as a workflow*)
 
 If they wish to be successful, agencies looking to participate in the open source community, must first take the open source philosophy and workflow and apply it to their own, internal development efforts, regardless of if that code is every going to be made public.
 
@@ -44,7 +44,7 @@ As I've said before, [the technology's the easy part](https://ben.balter.com/201
 
 Agencies should license and share code, data, and documentation, to the widest extent possible, limited only by weighed privacy, security, or other business concerns, whether shared within a team, a bureau, an agency, across government, or with the general public.
 
-### A community effort
+## A community effort
 
 The White House set a high bar with [Project Open Data](https://project-open-data.github.io), the White House Open Data Policy. All too often, especially in the world of government IT, by the time policy goes through the vetting process, it's already outdated at the time of publication, and even worse, it's encased in carbonite, forever memorialized as an unmovable PDF. Project Open Data, by contrast, was published as a living, collaborative document, whereby any government employee or member of the public was (and is) invited to improve the document. Since the document's release, it's been revised more than 500 times, all the result of post-release, public discussions with end users both technical and non-technical.
 

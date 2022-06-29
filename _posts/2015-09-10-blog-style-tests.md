@@ -9,7 +9,7 @@ I've written in the past about how you should treat [prose with the same respect
 
 Whereas traditionally a member of your company's marketing, copy, or editorial team may have needed to take the time to manually review the post before the author could get any feedback (a blocking and time-consuming operation), there are many machine-detectable improvements that an automated process could easily call out without requiring delay or human intervention, unblocking both the author and the editor to continue working unfettered. Let's take a look at a few examples of this idea and how you might implement them for your own team:
 
-### Don't use the word today
+## Don't use the word today
 
 If I were reviewing the post, the first issue I'd call out is that [it starts with the word "today"](https://ben.balter.com/2015/07/20/write-corporate-blog-posts-as-a-human/#dont-use-the-word-today).
 
@@ -32,7 +32,7 @@ end
 
 With that, you could wire up a service like [Travis CI](https://travisci.org){: data-proofer-ignore="true" } to fire on each commit, and provide the author with immediate feedback and a link to the appropriate internal documentation, all without requiring blocking human intervention. Not to mention, that editor is now free to move to less-remedial, higher-value work like curating an editorial calendar or refining the voice guidelines themselves.
 
-### Don't tell users how excited you are
+## Don't tell users how excited you are
 
 The next thing I'd notice if I were reviewing the post is that it focuses on the developer's excitement, not why the user should be excited.
 
@@ -58,7 +58,7 @@ class ExcitedTest &lt; Blog::Test
 end
 ```
 
-### Write for users, not for yourself
+## Write for users, not for yourself
 
 The last thing I'd notice from our example post is that the post is [written for the company, not for its users](https://ben.balter.com/2015/07/20/write-corporate-blog-posts-as-a-human/#write-for-users-not-for-yourself).
 
@@ -80,7 +80,7 @@ class YouWeTest &lt; Blog::Test
 end
 ```
 
-### Not all automated testing is created equal
+## Not all automated testing is created equal
 
 At GitHub we use automated testing (CI) on just about every repository, code or otherwise, but tests against our blog posts are different in two distinct ways:
 
@@ -96,7 +96,7 @@ def posts
 end
 ```
 
-### The smart way and the hard way
+## The smart way and the hard way
 
 When engineering workflows, for any given problem there is often two solutions: a heavy-weight, human-driven process, and a light-weight, machine-driven tool. Both workflows produce significantly similar outcomes, but one requires significantly less upkeep and time.
 

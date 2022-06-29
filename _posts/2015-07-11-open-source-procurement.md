@@ -5,19 +5,19 @@ description: What IT procurement might look like, in a world in which government
 
 Government IT has been on [an in increasingly agile trajectory](/2011/11/29/towards-a-more-agile-government/). Where once waterfall development was the only option, today agile development has become the norm, with agencies increasingly turning to open source platforms and open source solutions. But no discussion of government IT would be complete, without mentioning the "P" word: procurement. What then, assuming the trend continues, does IT procurement look like, in a world in which government agencies adopt open source methodologies as their primary means of software development? Are we headed towards a world where open procurement begets open source?
 
-### From Waterfall to Agile
+## From Waterfall to Agile
 
 Traditionally, when the government needs a piece of code, lets say a site, they spend months gathering a detailed list of requirements from internal stakeholders. Once finalized, these requirements are set in stone, and are made available for government contractors to bid on. Whichever firm tenders the lowest, technically acceptable offer is awarded the contract, and months to years later, a site (not necessarily the code) is delivered to the agency, regardless of if the agency still wants the features it originally outlined months or years earlier.
 
 That tide has shifted, towards agile procurement, whereby agencies typically procure software development services in bulk via the same requirements and award process, but rather than describing features for a particular site, describe the development capabilities of the firm. Once the contract is awarded, the agency works with the vendor to maintain an ongoing backlog of feature requests and over the course of two- to four-week code sprints, choose, develop, test, and deploy particular features across one or more applications. In this sense, the agency gets a "delivery" of new functionality once or twice a month, rather than once every few years. It's an iterative process designed to reduce the risk inherent with outlining detailed requirements upfront, requirements that would undoubtedly change as both technology and the organization evolve during the course of the contract.
 
-### Applying agile to open source
+## Applying agile to open source
 
 One thing that open source does extremely well is to capture and organize feature requirements as they evolve. Head to any major open source project's issue tracker, and you'll see extremely detailed, extremely active discussions around both bugs and feature requests — it's the hallmark of a healthy open source project. It's also the perfect Agile backlog.
 
 A stakeholder, technical or otherwise, will open an issue. Typically "I can't get this to work…", or "wouldn't it be great if…" type requests. Other stakeholders weigh in, noting that they've experience similar trouble, or that they too would benefit from a proposed feature. They may also propose suggested improvements. Technical stakeholders weigh in on potential approaches to solving the problem, and the relative merits of each are discussed. This entire discussion (along who made what argument in favor of what approach) is captured, public, and linkable from anywhere on the internet. You not only know what decisions were made, but how and why.
 
-### A tale of two issue trackers
+## A tale of two issue trackers
 
 Today, government agencies, just like the maintainer of any open source project keep an ongoing backlog of bugs and feature requests (the "issue queue") in the open, in places like GitHub. The problem is, stuck in their old ways, government agencies often continue to also maintain an Excel spreadsheet, or other means of capturing and organizing potential task orders which they then hand off to contractors, in a typically bureaucratic process.
 
@@ -25,7 +25,7 @@ In reality, however, due to this hierarchy, rarely if ever does feedback from ex
 
 Internal stakeholders, on the other hand, primarily email program managers directly, or voice their ideas at in-person meetings open only to agency staff. Once voiced, the program manager captures the request in an internal spreadsheet, and that spreadsheet is used to plan the next subsequent code sprint. Needless to say, the requests of internal stakeholders are almost always prioritized by virtue of having a direct line to the program manger's ear.
 
-### Automating issue tracking
+## Automating issue tracking
 
 If there's one thing government is known for, it's paperwork, and if there's one thing technology is known for, it's for reducing paperwork. In the typical government development workflow, you have a civil servant for which a significant potion of his or her job is spent being a human issue tracker, a task that the open source community has automated out of necessity for decades. Practically, a non-trivial part of the government employee's day is spent collecting feedback, organizing feedback into tasks, and prioritizing which tasks should be given to an external contractor.
 
@@ -35,7 +35,7 @@ What if, rather than duplicating its efforts and maintaining an internal feature
 
 As an added benefit, the agency is now empowered to provide the contractor not with a rough description of the desired functionality in layman's terms, filtered through ten intermediaries, but with the entire request's technical history, straight from the stakeholder's mouth, all in a single URL.
 
-### From agile procurement to open procurement
+## From agile procurement to open procurement
 
 Using a single, public issue tracker to track and prioritize potential tasks is just the start. What if, instead of procuring generic developer hours at the onset with set requirements — still a fundamentally waterfall mindset — instead, agencies chose issues for a given sprint, and sought contractors to bid on tackling those particular issues.
 

@@ -9,7 +9,7 @@ Rather than smashing refresh on the endpoint compulsively, I realized I could us
 
 If you find yourself needing to track when an API response (or web page) changes - delivery related or otherwise - you're welcome to follow my approach. I used [Twilio's SMS action](https://github.com/twilio-labs/actions-sms) (along with a free trial account) to send a text message when the response changed, but there are a number of existing community Actions available that could be used for notifications, from GitHub Issues, to app-based mobile push, to Slack - you name it.
 
-### Setup
+## Setup
 
 To set up the notify-on-changes GitHub Action to track changes to your own API or web page response, just follow these steps:
 
@@ -19,7 +19,7 @@ To set up the notify-on-changes GitHub Action to track changes to your own API o
 4. If using Twilio to receive notifications via text message, follow [the setup instructions](https://github.com/twilio-labs/actions-sms), saving the keys and phone numbers as [repository secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) and customizing the message for your use case. Otherwise, swap out the "Notify if data has changed" step to use your own notification mechanism.[^2]
 5. Commit and effortlessly receive notifications any time the response changes.
 
-### Example workflow
+## Example workflow
 
 Here's the annotated YAML for the workflow I used, in its entirety:
 
@@ -69,7 +69,7 @@ jobs:
           message: "There's been a change! someField is now {% raw %}${{ steps.parse_data.outputs.someField }}{% endraw %}."
 ```
 
-### Conclusion
+## Conclusion
 
 I hope that my unnecessarily obsessive product tracking can help others to track status changes or generally save others from needlessly hitting refresh repeatedly for other reasons. If you do adapt the workflow for your own creative use, I'd love to hear about it. Happy change tracking!
 

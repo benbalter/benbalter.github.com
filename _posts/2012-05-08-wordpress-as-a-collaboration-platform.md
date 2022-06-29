@@ -11,7 +11,7 @@ Recording of the presentation (starts at the 10:00 mark):
 
 <iframe width="480" height="296" src="http://www.ustream.tv/embed/recorded/22454841?wmode=direct" scrolling="no" frameborder="0" style="border: 0px none transparent;" title="Recording of the presentation"></iframe>
 
-### Plugins Mentioned
+## Plugins Mentioned
 
 * [WP Document Revisions](https://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/)
 * [Edit Flow](http://editflow.org)

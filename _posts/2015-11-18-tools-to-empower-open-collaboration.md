@@ -7,19 +7,19 @@ At GitHub, we have a unique way of working. Some might say it's the future of kn
 
 [We use GitHub to build GitHub](http://zachholman.com/talk/how-github-uses-github-to-build-github/). While that's obviously true for developers, and for writing the software that powers GitHub.com, it's less obviously true that we also use GitHub issues, pull requests, and Markdown to manage all sorts of non-code things from internal policies to legal to HR to Sales. Need a contract reviewed? Open an issue. Want to propose a change to our vacation policy? Submit a pull request. After all, [how you work is just as important as what you work on](https://ben.balter.com/2015/09/21/open-source-behind-the-firewall/#how-you-work-is-as-important-as-what-you-work-on), so why not use the best, most modern tools available.
 
-### Not all internet-based tools are created equal
+## Not all internet-based tools are created equal
 
 Internally, this practice is often described as "everything should be on GitHub", but that's far from true. Modern, developer-centric workflows use all sort of non-GitHub tools to share information. We use Slack for real-time chat and as a distributed water cooler. We have an internal blog called "Team" for posting company-wide announcements like ships and new Octokittens. Heck, every once in a while, we even, *gasp*, meet in person.
 
 In practice at GitHub, like I suspect at many forward-thinking startups, GitHub.com has become a one-size-fits-all hammer for any [tangentially development-related nail](https://18f.gsa.gov/2015/11/06/micro-purchase-lessons/). In reality, there are lots of great, purpose-built tools that can be used to achieve the same ends. Sales teams have Salesforce. HR Teams have things like Zenefits. But not all internet-based tools are created equal.
 
-### Evolving beyond Cold War workflows
+## Evolving beyond Cold War workflows
 
 When people say "put it on GitHub", I suspect what they really want, isn't necessarily a particular tool, but rather for it to be put on an open-source-workflow-inspired platform. After all, GitHub is one of many tools that [consumerizes established, open-source norms](https://ben.balter.com/2013/02/06/the-next-big-thing-is-already-here/). Used this way, "put it on GitHub" is a metaphor for using a class of modern collaboration tools that don't simply digitize legacy workflows that predate the advent of the typewriter (and the ubiquity of the internet).
 
 A few years back @rtomayko described [the four constraints of open source](http://2ndscale.com/rtomayko/2012/adopt-an-open-source-process-constraints) workflows, and why you should adopt them for your own team, open, closed, software or otherwise. Building on that assumption, I'd like to propose that these modern, open-source-inspired collaboration tools I'm describing, today, all have four common characteristics:
 
-### 1. Open
+## 1. Open
 
 Modern tools are built around the assumption that a diversity of contributors is essential to good decision making. While this statement isn't absolute (at a certain point adding more voices will have diminishing returns as the friction required to accommodate the Nth person will outweigh their potential contribution), modern tools seek to minimize that friction, ensuring that all relevant stakeholders can be included in discussions.
 
@@ -29,7 +29,7 @@ Open means openness for both humans and robots. Practically speaking, programmat
 
 Developers may feel at home using GitHub, but that doesn't mean lawyers and marketers do too. Platform-agnostic, programmatic access means you can [stand up tools to optimize the experience for a diversity of skillsets](https://ben.balter.com/2015/01/11/hacking-github/). Not to mention, APIs can allow you to present information in different ways such as high-level dashboards and bandwidth- and remote-friendly mobile apps, further opening up the process. My general rule of thumb is to ask, "if we wanted, could we expose this information via ChatOps?".
 
-### 2. Captures and exposes process
+## 2. Captures and exposes process
 
 Modern tools [naturally capture and expose process](/2015/11/12/why-urls#systems-that-naturally-capture-and-expose-process). As teams go about their day-to-day business, they discuss matters, make decisions, and generate all sorts of artifacts of their process (meeting minutes, slide decks, spreadsheets, documents, etc.). While not every single artifact needs to be captured indefinitely, modern tools incentivize participants to prefer workflows that render context time and location agnostic, both culturally and technically.
 
@@ -39,7 +39,7 @@ Tools that naturally capture and expose process know that you should never force
 
 Capturing process is about capturing not only what decision was made, but who made it, what alternatives were rejected, that information that was relied on, and why. It's the antithesis of "I guess you had to be there". It renders organizational context time and location agnostic and provides value not just to those that weren't able to attend because they were out sick, traveling, remote, or even not yet part of the organization at the time, but also to those that were at the meeting, when they revisit the same or similar decisions, weeks, months, or years later with full fidelity.
 
-### 3. Linkable
+## 3. Linkable
 
 Modern tools are built around URLs. [URLs are the primary means for sharing information in the age of the internet](/2015/11/12/why-urls#urls-are-how-we-share-information-today). Maybe in 10 years that'll change, but for now, every modern system (collaborative or otherwise) today assigns a globally unique identifier (a URL) to each distinct "thing" it knows about. Tweets, Amazon products, and New York Times articles all have distinct URLs. If you find an interesting article you'd like to share, most people don't print and snail mail the article to their friends. This has several implications for how teams work:
 
@@ -47,7 +47,7 @@ For one, it becomes ridiculously easy to share context. Here we're talking about
 
 URLs make sharing discussions a one-to-many relationship. It's no longer me explaining to you what happened in a meeting, or passing documents around via email, both processes that would not scale as the organization grows. The same effort required to expose a link to one person also exposes it to one hundred, and can do so, without your intervention. Posting a link in chat or on your company intranet is a fundamentally different function than describing where a document is on a shared drive. Not only does it automate (and render time and location agnostic) the dissemination of context (a reader can discover and click that link at any time, from anywhere, and click it without requiring any additional action on your part), it also allows you to link related concepts to one another, creating a network graph of your organization's inter-related knowledge over time. Put another way, links create an endless, self-sustaining rabbit hole of information for readers to go down should any given task require that they gain additional context.
 
-### 4. Asynchronous decision making
+## 4. Asynchronous decision making
 
 Modern tools support and encourage asynchronous decision making. Today, in-person meetings are a crutch for forcing organizational action. Given inefficient tools and finite resources, people must triage what tasks they can tackle at any given moment, and more-often-than-not, those tasks which they feel ownership of get priority (because failure to do so would reflect poorly on them, rather than the group). If you want someone to do something, you call a meeting. Their computer dings, they step away, and for sixty minutes they are forced to concentrate on the thing you want them to concentrate on (and in all likelihood, this is the only time they're thinking about it). Compounding the problem, each meeting has a non-negligble switching cost, making "work time" even more scarce. Imagine if meetings weren't the default workflow. Imagine if you organization used tools that encouraged and empowered you (and your coworkers) to advance goals without being in the same place at the same time or working on the same thing at the same time.
 
@@ -57,7 +57,7 @@ There are many examples where conversations will require higher-fidelity, real-t
 
 There's a strong case to be made that in-person, synchronous meetings should be the exception, not the rule, and in many organizations, they are no longer the default. For one, asynchronous workflows almost necessitate adopting systems that naturally capture, expose, and share process. At the same time, asynchronous workflows encourage data-driven decision making, through their ease of weaving external sources into the conversation on equal footing as the primary discussion. It's much easier (technically and culturally) to embed a chart or link to an external source in a GitHub issue, than it is to share it in a meatspace meeting ("hold on, let me see if I can't find that thing Bob emailed last year").
 
-### Tools in practice
+## Tools in practice
 
 The four qualities above are ideals. In practice, there are a handful of specific design patterns that often implement them. Here are a handful that I've seen across tools I like at GitHub:
 
@@ -71,7 +71,7 @@ The four qualities above are ideals. In practice, there are a handful of specifi
 * **RESTful API** - A complete and documented API avoids vendor/system lock in, and supports accessing the information from multiple platforms and in multiple formats.
 * **Cross-platform link notifications** - When you link to one issue on GitHub, from another, the target issue automatically notes the link, and the originating issue's status. This helps make links bidirectional and surfaces the organization's knowledge graph without requiring an additional step.
 
-### Evaluating existing Tools
+## Evaluating existing Tools
 
 I began by noting that the phrase "everything should be on GitHub", doesn't necessitate a certain tool, but if you believe working the way described above is valuable, few of today's consumer collaboration tools encourage open source inspired workflows. Let's take a look at a few:
 
@@ -90,7 +90,7 @@ I began by noting that the phrase "everything should be on GitHub", doesn't nece
 | IRL Meetings                                                           | :x:                  | :x:                    | :x:                                | :x:                  |
 {: .table style="width: 60%; margin-left: auto; margin-right: auto;" }
 
-### Practicality beats purity
+## Practicality beats purity
 
 GitHub's not the right tool for all sorts of use cases. It probably doesn't make perfect sense for hiring, for account tracking, for support, or for contract management, to name a few. But in many cases, although far from perfect, if you believe the above ideals are how we should work, or will work in the future, it's part of a suite of tools, that together, represent the best things currently out there.
 

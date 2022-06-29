@@ -3,17 +3,17 @@ title: Will Federal Contracting Officers Soon Have Their Heads in the Clouds?
 description: As one Hewlett Package Chief executive recently put it, cloud computing "is the next generation of the internet." Whether you realize it or not, if you use services like Facebook or Gmail, your personal data already lives in "the cloud," and the same transformative power that connects long-lost classmates at the click of a mouse can be harnessed by federal agencies to approach modern governance in incredibly powerful ways.
 ---
 
-### A Brief Look at the Imminent Cloud-Computing Storm Front
+## A Brief Look at the Imminent Cloud-Computing Storm Front
 
 As one Hewlett-Packard chief executive recently put it, cloud computing "is the next generation of the internet." [^1] Whether you realize it or not, if you use services like Facebook or Gmail, your personal data already lives in "the cloud," and the same transformative power that connects long-lost classmates at the click of a mouse can be harnessed by federal agencies to approach modern governance in incredibly powerful ways.
 
-### What is Cloud Computing
+## What is Cloud Computing
 
 Traditionally, when one thinks of computing power, they think of an on-site datacenter — a room filled with blinking lights and whirling fans — hardware, software, and data storage all within feet of the users they serve. [^2] The traditional approach to computing generally entails complicated and expensive upgrade procedures scheduled on a semi-regular basis, as well as accommodating the increasing demand for backup and recovery redundancy necessary to reduce downtime should these system fails. [^3] Such data centers are often managed by their own departments, staffed with the specialized, technical administrators needed to maintain and ensure the day-to-day operation of these increasingly complex and increasingly mission-critical business resources. [^4]
 
 Seen as a virtually unlimited hardware and communications infrastructure managed by a third party-provider, cloud computing, on the other hand, allows for rapid increases in capacity without the need to invest in additional hardware, personnel, or software licensing. [^5] "As a customer, you don't know where the resources are, and for the most part, you don't care. What's really important is the capability to access your application anywhere, move it freely and easily, and inexpensively add resources." [^6] In simplest terms, the cloud uses an off-site service to store, transmit, and process information, and employs the internet as the means to access that service. [^7]
 
-### How Cloud Computing Came About
+## How Cloud Computing Came About
 
 Several innovations fueled the shift toward computing in the cloud. First, the rise and adoption of both broadband internet access, which allowed for reduced load times, and a programming technique known as Ajax, which allowed sites to look and feel more like desktop programs through a constant push-and-pull of information, combined to usher in a greater reliance on remote applications. [^8] At the same time the growth of enterprise data centers, and the public's increasing comfort with Web 2.0 services like GMail and Facebook provided a technical and social infrastructure to support such a push. [^9]
 
@@ -21,7 +21,7 @@ The biggest breakthrough, however, the core and true power behind cloud computin
 
 The biggest implication however, is that computing resources can be provisioned and released on demand and as needed. [^12] If agency *X* is a government agency that requires a great deal of information to be processed at the close of the stock market each day, it can pay for five servers up until 3:59 each day, be charged solely for the increased processing power and storage it requires from 4:00 to 4:05, and can return to five server for the remainder of the day. Under a traditional approach, all 100 servers, for example, it required at its peak, would have to be operational 24 hours a day, with the necessary personnel and infrastructure to support it.
 
-### Types of Cloud Computing
+## Types of Cloud Computing
 
 Cloud computing exists in several forms today. The most basic, "infrastructure as a service" (IAAS), uses shared facilities, hardware, and networks to hold and move data. Customers, given virtual servers, may then install, configure, and use their own software freely. [^13] As indicated above, however, customers do not rent the physical servers (merely their equivalent processing power), and providers may move virtual servers between physical servers as necessary. [^14] Amazon's EC2, S3, and CloudFront are prime examples of cloud computing, storage, and delivery respectively.
 
@@ -31,13 +31,13 @@ Finally, "software as a service" (SaaS) is most associated with Web-based consum
 
 One additional distinction among cloud services can be made. Each of the three approaches listed above can be hosted in either a public cloud, meaning one customer's virtual servers may be freely intermingled with another customer's among physical servers, or in a private cloud in which the physical servers, infrastructure, or datacenter may be entirely segregated from those used to provide services to other clients. [^17]
 
-### Implications of Cloud Computing
+## Implications of Cloud Computing
 
 Cloud computing has several implication for members of the government contracting community. First, inherent in the nature of cloud computing is the fact that one organization must trust a third party with its data, something which may have far-reaching ethical and legal implication depending on the type of data stored and the parties involved.
 
 More broadly, when contracting for cloud services, organizations have several technical aspects to take into account. From a security standpoint, customers should evaluate data encryption (can others access my data?), physical security (can others access the datacenter?), and provider viability (will the service be around in ten years?). From a data integrity standpoint, those looking to enter the cloud should inquire as to data locality (is my data being hosted outside the United States?), data portability (what happens if I want to leave the service?), and redundancy (what happens if there is a natural disaster near their data center?). Finally, from a legal perspective, customers should evaluate terms of service, privacy policies, and service level (uptime) agreements. [^18]
 
-### How to Get Into the Cloud
+## How to Get Into the Cloud
 
 Several avenues exist for organizations looking to experiment with the cloud. For federal agencies, the General Service Administration, through Apps.gov, will soon be rolling out a Federal private cloud. While the specifics have not yet been announced, this service is expected to provide federal agencies with storage, virtual machine, and Web hosting services at a relatively low cost. [^19] Some of this service's potential has already been hinted at by the recent launch of `Apps.Gov` NOW, a hosted service that provides federal agencies with out-of-the-box blogs (site publishing platforms), Wikis (sites editable by members of a community), and online bulletin boards (sites to facilitate online discussions), all at no cost. [^20]
 

@@ -11,7 +11,7 @@ As long as you're using Jekyll and authoring your content in Markdown, you can a
 
 **Edit (May 10, 2015):** @bryanbraun has created the awesome AnchorJS library. I'd suggest you [just use that](https://github.com/bryanbraun/anchorjs#installation), instead of creating your own implementation.
 
-### Font Awesome and jQuery
+## Font Awesome and jQuery
 
 First, you'll want [jQuery](http://jquery.com/) and [Font Awesome](http://fortawesome.github.io/Font-Awesome/) included in your site template, if they aren't already.
 
@@ -25,7 +25,7 @@ There are a handful of ways to do this, but the easiest is to add the following 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 ```
 
-### The CSS
+## The CSS
 
 We need to tell the browser how to position the link icon, and to only display it when the visitor hovers over your heading. You'll want to add the following to your site's CSS file:
 
@@ -49,7 +49,7 @@ h6:hover .header-link {
 }
 ```
 
-### The JavaScript
+## The JavaScript
 
 Last, to tie everything together, you'll also need a bit of JavaScript magic client-side, by adding the following to your site's footer:
 

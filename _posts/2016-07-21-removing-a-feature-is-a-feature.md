@@ -7,7 +7,7 @@ Features aren't what make a product great. Being the best at solving a particula
 
 Ultimately, your users use your product because [they're trying to solve a specific problem](https://strategyn.com/jobs-to-be-done/). It could be getting from point A to point B, finding their next romantic interest, or having some place to store their vacation photos. Whatever reason, they have a specific task in mind, and your product is simply a means to an end. That means that every "nice to have" feature that doesn't solve the problem they're trying to solve, isn't just product cruft, it's actively standing in their way.
 
-### Features aren't free
+## Features aren't free
 
 Features come with a very real cost to users. As [I wrote a few months back](https://ben.balter.com/2016/03/08/optimizing-for-power-users-and-edge-cases/):
 
@@ -17,7 +17,7 @@ Features come with a very real cost to users. As [I wrote a few months back](htt
 
 With every new feature you add, users will need to go through that learning process all over again, not to mention, that new knob you added for User B, because "why not?, it's just one knob", is going to make it harder for User A to find the knob they're actually looking for.
 
-### There's no such thing as declaring "feature bankruptcy"
+## There's no such thing as declaring "feature bankruptcy"
 
 Even though we often call it "technical debt", sadly, there's no such thing as declaring "feature bankruptcy". Every feature you add creates an implicit contract with your users that you're going to support that feature in perpetuity. That means that every dependency update, every redesign, every refactor, becomes exponentially more complex with each new feature, as you have an ever-increasing list of things that you must now support, and this technical debt quickly adds up to create a perpetual engineering tax on feature development in the form of ongoing maintenance and backwards compatibility.
 
@@ -25,7 +25,7 @@ Product debt isn't a foregone inevitability. Chances are, users don't need quite
 
 Unfortunately, once a feature's been added, once it's in the hands of users, whenever you make a change, regardless of what the change is, [a non-zero number of users are going to complain that the change broke their workflow](https://xkcd.com/1172/). Thus, the easiest way to avoid upsetting users is often to prevent the feature from being added in the first place.
 
-### Playing feature goalie
+## Playing feature goalie
 
 Absent your intervention, projects have a tendency to become feature Christmas trees, with each stakeholder adding their own domain-specific ornaments. This happens for several, easily avoidable reasons, at least if you can learn to spot them ahead of time:
 

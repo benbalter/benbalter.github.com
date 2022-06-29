@@ -9,7 +9,7 @@ For example, if you propose building a bike shed, those interested in seeing the
 
 > Just because you are capable of building a bikeshed does not mean you should stop others from building one… because you do not like the color they plan to paint it… you need not argue about every little feature just because you know enough to do so.
 
-### Parkinson's law of triviality
+## Parkinson's law of triviality
 
 Bikeshedding is an application of the broader [Parkinson's law of triviality](https://en.wikipedia.org/wiki/Law_of_triviality), the idea that "members of an organization give disproportionate weight to trivial issues". For example:
 
@@ -19,7 +19,7 @@ You've likely seen it before when presenting to a committee or to higher-ups. Yo
 
 Part of this stems from Parkinson's law, but part of this also stems from corporate social norms. If you spend 45 minutes giving a presentation, ask for feedback, and those to whom you were presenting have nothing to say, others might think they weren't listening (or worse, have nothing to add).
 
-### Honeypots
+## Honeypots
 
 If you've been around software long enough, there's also a good chance that you've heard the term "honeypot". Honeypots come in many forms from Tom Clancy novels to real-life KGB operations, but in computer security, a honeypot is essentially an electronic sting operation.
 
@@ -27,7 +27,7 @@ A honeypot is something that looks attractive (and real), but is ultimately fict
 
 Putting the two concepts together, if you know those to whom you're presenting need to say *something*, and know the type of thing they're most likely to say, why not then provide them with deliberate, low-risk opportunities to contribute?
 
-### An old idea with a new name
+## An old idea with a new name
 
 The idea of a "bikeshed honeypot" (as I'm calling it) isn't new. The earliest reference I can find is [an MSDN blog from 2005](https://blogs.msdn.microsoft.com/brada/2005/05/13/the-admirals-pipe/) where it's called "The Admiral's Pipe", the idea being that Russian submariners would leave one fairly obvious pipe uncleaned prior to their admiral's regular inspection. "The admiral would find this pipe, insist that it be cleaned and feel satisfied that he found a problem and not dig any deeper", as one Microsoft manager put it.
 
@@ -37,7 +37,7 @@ Heck, there's even a Dilbert comic about it (with a unique twist):
 
 [![Dilbert comic](http://assets.amuniversal.com/9df021106cc801301d50001dd8b71c47){: .img-fluid }](http://dilbert.com/strip/2007-02-02)
 
-### Bikeshed honeypots in the corporate world
+## Bikeshed honeypots in the corporate world
 
 A *bikeshed honeypot* is a mistake, obvious flaw, or trivial decision that you purposely place (or leave) in a proposal in hopes that those to whom you're seeking input will fixate on the honeypot ("bikeshed"), diverting their attention from the aspects of your proposal that you feel most strongly about. It's the inflatable tanks on D-Day. It's a magician's carefully rehearsed misdirection.
 

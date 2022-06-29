@@ -5,7 +5,7 @@ description: Change aversion, lack of technocratic leadership, and heavyweight p
 
 It's often said that government IT is 5–10 years behind the private sector, and most places in government you look, that's probably true. It's as if the government learned how to "computer" right around the time Windows XP was released, set its comfort level for risk, and has maintained purposeful blinders to progress since. But why? I'd argue there are three key factors keeping it there: change aversion, lack of technocratic leadership, and processes that don't scale down.
 
-### Change aversion
+## Change aversion
 
 If there's one thing that defines government IT, it's [the culture of "no"](http://blog.dobt.co/2015/02/24/culture-of-no/). If you're a change agent, a technologist, heck, even someone that wants to use an iPhone instead of your government-mandated Blackberry, at every potential turn, [the organizational immune system](https://ben.balter.com/2014/03/21/want-to-innovate-in-government-focus-on-culture/#bureaucracy-is-an-organism) will release risk-reducing antibodies any time it so much as sniffs something it doesn't recognize.
 
@@ -21,7 +21,7 @@ Government should be risk averse. Take a look at DC's brutalist architecture and
 
 *A system that seeks to reduce risk by instituting process will increase risk in the long run when that very process fails to adapt to the changing environment it seeks to control.*
 
-### Lack of technocratic leadership
+## Lack of technocratic leadership
 
 `healthcare.gov` was [the best thing to happen to government IT](https://ben.balter.com/2015/04/22/the-difference-between-18f-and-usds/#the-healthcaregov-wakeup-call). Traditionally, there's been two classes of change agents in government, [geeks and suits](https://ben.balter.com/2014/12/18/geeks-and-suits/). The geeks are exactly what you'd expect to find in the sub-basement of the government agency in a dimly lit room strewn with Mountain Dew cans and Doritos crumbs. They're the ones that understand today's IT landscape. The suits are exactly what you'd expect to find on the top floor of the agency, windowed room strewn with business cards and printed Power Point decks. They're the ones that understanding today's organizational politics. The problem is, only one has a seat at the table, and it produces exactly the outcomes you'd expect.
 
@@ -35,7 +35,7 @@ Government should be risk averse. Take a look at DC's brutalist architecture and
 
 *Non-technical leadership will optimize for easily measurable, non-technical concerns at the expense of solving for long-term technical concerns.*
 
-### Processes that don't scale down
+## Processes that don't scale down
 
 Government process tends to be both heavyweight, and designed for distrust. And when government designs a process, it designs exactly one. We use the same systems to procure battleships and buildings that we use to procure paperclips and sites. When you're spending millions of dollars on a multi-year contract, it makes sense to spend months accounting for every possible contingency. When you're buying a $300 SaaS product on the open market, the obligatory environmental protection clauses (among a dozen other government-specific requirements), although well intentioned, create a disproportionate burden and serve to exclude many potential mainstream vendors.
 
@@ -49,6 +49,6 @@ All government practices are predicated on the belief that if an actor can do so
 
 *A process that doesn't scale down will optimize for the worst possible outcome at the cost of desired outcomes.*
 
-### Conclusion
+## Conclusion
 
 There's a lot that can be said for why government IT looks like what it looks like today. Procurement, culture, staffing, recruiting, anachronistic regulations, and politics all play a significant role, but aren't necessarily specific to IT as much as they affect general management practices. Having spent more time than I'd like to admit trying to get the federal government back in sync with the private sector, to fast forward through 5–10 years of stagnation, these three challenges - change aversion, lack of technocratic leadership, and processes that don't scale down - keep coming up as the biggest blockers each time.

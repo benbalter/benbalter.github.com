@@ -26,7 +26,7 @@ Here's how I over-engineered my home network for privacy and security:
 * Contents
 {:toc}
 
-### The router - UniFi Dream Machine
+## The router - UniFi Dream Machine
 
 I'd always [admired from afar the over-the-top home network setup](https://www.troyhunt.com/ubiquiti-all-the-things-how-i-finally-fixed-my-dodgy-wifi/) Ubiquiti's prosumer line offers, but for the space I'd be installing it in, the four digit minimum price tag to properly support a single access point was a bit beyond reasonable. Luckily UniFi recently came out with their [Dream Machine](https://store.ui.com/collections/unifi-network-routing-switching/products/unifi-dream-machine) (UDM), which perfectly fit my needs. In UniFi terms it's an access point, switch, security gateway, and network controller all in one (which you'd otherwise have to buy separately).
 
@@ -34,7 +34,7 @@ While on paper it's similar to other high-end routers (beyond the processor and 
 
 This write up was written with the UDM in mind, but there's no reason you couldn't recreate this setup with any router that supports guest networks, VLANs, and custom firewall rules.
 
-### Using VLANs to segment low-trust devices
+## Using VLANs to segment low-trust devices
 
 The primary driver for taking on that complexity was [segmenting IoT devices on their own network](https://www.zdnet.com/article/fbi-recommends-that-you-keep-your-iot-devices-on-a-separate-network/). Rather than connect them to a "guest" network as I had previously, I wanted devices I trust (my phone, tablet, or laptop) to be able to connect to and control smart home devices directly, but also wanted to make sure untrusted IoT devices couldn't monitor other network activity or try to access my trusted devices on their own.
 
@@ -49,7 +49,7 @@ I created three VLANs each with their own subnet, SSID, and capabilities:
 
 There are [lots of great walkthroughs of the firewall rules](https://robpickering.com/ubiquiti-configure-micro-segmentation-for-iot-devices/) already out there, but in short you'll want to create firewall rules to (1) allow connections from the primary network to the IoT network, (2) allow established connections from the IoT network back to the primary network, and (3) block all other connections from the IoT network to the primary network. With that, you'll have three distinct networks, each with their own capabilities and level of trust.[^1]
 
-### Pi-Hole to block ads and trackers
+## Pi-Hole to block ads and trackers
 
 Now it was time to address those pesky ads and trackers. [Pi-hole](https://pi-hole.net/) is a great app that can be installed on a Raspberry Pi or in a Docker container on your home network. Unlike an in-browser ad blocker, it filters content on the network level, meaning it works across devices (including mobile devices), doesn't consume system resources, and is more difficult for advertisers to detect and block. Not to mention, it can also prevent IoT and other smart home devices from "phoning home" with your personal information or usage data. The PiHole serves as your primary (or in my case, sole) DNS server. You provide it with a (crowd-sourced) blocklist of disallowed domains that it will refuse to resolve (preventing ads and tracking scripts from being loaded entirely - a process known as [DNS sinkholing](https://en.wikipedia.org/wiki/DNS_sinkhole)), forwarding all other domains to the upstream DNS server you specify.
 
@@ -57,7 +57,7 @@ To install Pi-Hole on a Raspberry Pi, you can follow [these instructions](https:
 
 If you followed the linked instructions, your Raspberry Pi should have a static IP, which you need to configure each VLAN to use as its DNS server under `Settings -> Networks -> Local Networks -> $NETWORK_NAME -> Edit -> DHCP Name Server`.
 
-### Cloudflared for DNS over HTTPS
+## Cloudflared for DNS over HTTPS
 
 Out of the box, the Raspberry Pi is going to forward any non-blocklisted domain lookups to the upstream DNS sever you set up in the previous step (Google, OpenDNS, etc.). The problem with this is that requests will leave your network unencrypted meaning your ISP and others can spy on, and potentially manipulate such requests and their response. While [DNSSEC](https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions) provides some assurance that you're talking to the DNS server you think you're talking to (which is why you should enable it under your Pi-Hole's DNS settings), it's not widely adopted and does little to address privacy concerns.
 
@@ -65,7 +65,7 @@ Enter [DNS over HTTPS](https://www.eff.org/deeplinks/2019/10/dns-over-https-will
 
 While [Cloudflare recommended the DNSCrypt route at one point](https://blog.cloudflare.com/deploying-gateway-using-a-raspberry-pi-dns-over-https-and-pi-hole/), which I suspect you'd be equally happy with,[^2] I opted to use their first-party [cloudflared](https://github.com/cloudflare/cloudflared) app, since I knew I wanted to use Cloudflare as my upstream DoH provider. You can follow [the official Pi-Hole DNS over HTTPS guide](https://docs.pi-hole.net/guides/dns-over-https/) to install and configure cloudflared. As part of that configuration, you'll tell the Pi-Hole to use cloudflared as its upstream DNS server (by default, `127.0.0.1#5053`) instead of one of the commercial ones provided. With that, any non-blocklisted domain lookups will be forwarded to cloudflared, which itself will forward them to Cloudflare's DNS server over HTTPS for resolution, meaning all DNS queries made using your Pi-Hole will always leave your network encrypted.
 
-### Blocking all other DNS lookups
+## Blocking all other DNS lookups
 
 Device manufacturers rely on the ability to "phone home" to monetize your usage information. To avoid the exact type of blocking I just described above, many devices (for example, Roku) come with Google or another DNS server hardcoded. Such devices will ignore the DNS server your router specifies and instead will try to use the manufacturer-defined DNS server, avoiding all the great ad-blocking and privacy securing networking we just set up. The good news is that most (all?) devices will fall back to your router-specified DNS server, if the default is unreachable.
 
@@ -73,7 +73,7 @@ To ensure devices *must* use the Pi-Hole and DoH for DNS lookups, you could crea
 
 If you *really* want to be sure everything is going through your preferred DNS, you can add [the DNS over HTTPS server list](https://raw.githubusercontent.com/oneoffdallas/dohservers/master/list.txt) to your Pi-Hole ad list to block hard-coded DoH servers, and additionally create a firewall rule similar to the one for port `53`, but for port `853` DNS over TLS's dedicated port.
 
-### Cloudflare Teams to block malicious sites
+## Cloudflare Teams to block malicious sites
 
 If you followed the Pi-Hole instructions above, cloudflared is most likely using the default [`1.1.1.1`](https://1.1.1.1) resolver, which is great, but does not block any malicious domains by default. You could update your `/etc/cloudflared/config.yml` file to point to [`1.1.1.2`](https://1.1.1.2) which filters phishing and malware (or `1.1.1.3` which also filters NSFW content), but I wanted a bit more control over what domains were filtered and why.
 
@@ -81,7 +81,7 @@ By creating a free [Cloudflare Gateway account](https://www.cloudflare.com/teams
 
 Finally, update `/etc/cloudflared/config.yml` on the Raspberry Pi to use the `https://*.cloudflare-gateway.com/dns-query` domain you received in the previous step. You'll also want to add `https://1.1.1.2/dns-query` as a secondary address, otherwise I found cloudflared has trouble bootstrapping itself to initially resolve your specific DNS server. `sudo systemctl restart cloudflared` and you should now be blocking ads, trackers, and malware from your network across all devices.
 
-### Putting it all together
+## Putting it all together
 
 The average DNS request from your network would now look something like this:
 
@@ -93,7 +93,7 @@ The average DNS request from your network would now look something like this:
 
 If everything goes as expected, the entire experience should be transparent to devices on your network, and should "just work" with no need for ongoing upkeep, tinkering, or maintenance (not to mention, your devices will now benefit from all the privacy and security benefits described above).
 
-### And more
+## And more
 
 To take things even further, there are a few more customizations to explore:
 
@@ -106,7 +106,7 @@ To take things even further, there are a few more customizations to explore:
 * **Configure the Pi-Hole with a Let's Encrypt cert** - If the "Not secure" icon when accessing the Pi-Hole interface leaves you uneasy, you can configure the Pi-Hole with a Let's Encrypt cert so that you can access the Pi-Hole admin interface over HTTPS. *Edit: While I previously linked to manual set up instructions, for my own setup, [I now use Caddy](https://ben.balter.com/2021/09/01/how-i-re-over-engineered-my-home-network/#caddy) to automate certificate issuance and renewal.*
 * **Mobile Apps** - Be sure to install the UniFi app ([iOS](https://apps.apple.com/us/app/unifi-network/id1057750338), [Android](https://play.google.com/store/apps/details?id=com.ubnt.easyunifi&hl=en_US&gl=US)) to receive push notifications for network alerts, and one of the many Pi-Hole apps ([Pi-Hole remote for iOS](https://apps.apple.com/us/app/pi-hole-remote/id1515445551), [FlutterHole for Android](https://play.google.com/store/apps/details?id=sterrenburg.github.flutterhole&hl=en_US&gl=US)) to quickly disable ad blocking in the (rare) event it breaks a site.
 
-### Conclusion
+## Conclusion
 
 Almost nine months later, things are working better than expected. Wi-Fi speeds are fast (faster than my ISP advertises), ads are rare (I'm genuinely surprised when I see one), false positives are low (and easy to bypass), and I only accidentally unplugged the Raspberry Pi once (taking the entire network down in the process with it). It was a great project to put knowledge into practice (along with family GSuite and 1Password accounts, I recently heard it described as [rendering your home IT indistinguishable from a small business](https://twitter.com/rklau/status/1222674965951959040)), which I'd highly recommend if you're looking to level up your home-networking game, especially at a time when we're all spending more time at home working, browsing, and streaming.
 

@@ -9,19 +9,19 @@ The problem's not budgetary, legal, or policy constraints, although I'm those su
 
 But hey, the good news is that you're not in it alone. We (the internet) are here to help. We've been here before, and we're still here to tell the story. Just follow this simple Style Guide for building new systems going forward, and you'll be shipping quality code in no time:
 
-### Lean
+## Lean
 
 If there's a less heavyweight solution, and you're not using it, you've over-engineered things. Look to existing tools (think open source), services (think APIs), and practices (think shared standards). Simpler applications are easier to scale, easier to maintain, and have fewer components that can break. Prefer [JSON](http://jsonapi.org/) to [XML](http://www.codinghorror.com/blog/2008/05/xml-the-angle-bracket-tax.html), [REST](https://github.com/whitehouse/api-standards#pragmatic-rest) to [SOAP](http://en.wikipedia.org/wiki/SOAP), and [static](http://jekyllrb.com) to [dynamic](https://ben.balter.com/2012/10/01/welcome-to-the-post-cms-world/). Fear complexity.
 
-### Iterative
+## Iterative
 
 If you are not embarrassed by the first version of your product, you've launched [too late](http://www.businessinsider.com/the-iterate-fast-and-release-often-philosophy-of-entrepreneurship-2009-11#ixzz2U7lGAS2A). It doesn't need to be perfect or complete. Publicly ship 0.1, not 1.0. Start small and ramp up to where you want things to be. Watch how customers receive things and adapt accordingly. Be transparent, manage expectations. Let your vision evolve.
 
-### Decentralized
+## Decentralized
 
 Avoid single points of failure, both in systems and in people. Foster communities. Push decisions to the edge. Put your faith in the crowd. Don't bake in <a href="http://en.wikipedia.org/wiki/Lock_(computer_science)">locks</a>. Avoid blockers. Automate wherever possible. Eliminate all humans.
 
-### Open
+## Open
 
 Barriers to the free-flow of information just add friction and more often than not, you just end up shooting yourself in the foot. Make open the default. Open standards, open formats, open systems. Expose process. Prefer social and cultural norms to technical constraints. Don't lock it down unless you absolutely have to. Trust people.
 

@@ -13,9 +13,9 @@ Creative ideas on how best to leverage the information welcome in the comments b
 
 ---
 
-### Course Schedule
+## Course Schedule
 
-#### Departments
+### Departments
 
 * Endpoint: `http://my.gwu.edu/mod/pws/scheduleXML.cfm`
 * Parameters: `termCode=[YYYY][01=spring, 02=summer, 03=fall]`
@@ -35,7 +35,7 @@ Creative ideas on how best to leverage the information welcome in the comments b
   </departments>
   ```
 
-#### Courses
+### Courses
 
 * Endpoint: `http://my.gwu.edu/mod/pws/scheduleXML.cfm`
 * Parameters:
@@ -75,9 +75,9 @@ Creative ideas on how best to leverage the information welcome in the comments b
   </courses>
   ```
 
-### Campus Map
+## Campus Map
 
-#### Categories
+### Categories
 
 * Endpoint: `http://citl.gwu.edu/iphonedev/maps/categories.xml`
 * Returns:
@@ -100,7 +100,7 @@ Creative ideas on how best to leverage the information welcome in the comments b
   </categories>
   ```
 
-#### Buildings
+### Buildings
 
 * Endpoint: `http://citl.gwu.edu/iphonedev/maps/[shortname].xml`
 * Returns:
@@ -131,21 +131,21 @@ Creative ideas on how best to leverage the information welcome in the comments b
   </buildings>
   ```
 
-### API Wrapper
+## API Wrapper
 
-#### Source
+### Source
 
 [`github/benbalter/GW-API`](https://github.com/benbalter/GW-API)
 
-#### Usage
+### Usage
 
-##### Initialize
+#### Initialize
 
 ```php
 <?php $gwapi = new gw_api; ?>
 ```
 
-##### List Departments
+#### List Departments
 
 ```php
 <?php
@@ -155,25 +155,25 @@ echo $department->departmentname . '<br />';
 ?>
 ```
 
-##### Get Course Schedule for Fall 2011
+#### Get Course Schedule for Fall 2011
 
 ```php
 <?php $courses = $gwapi->get_schedule('2011','03','ACCY');?>
 ```
 
-##### Get Course Schedule for current term
+#### Get Course Schedule for current term
 
 ```php
 <?php $courses = $gwapi->get_schedule(null,null,'ACCY'); ?>
 ```
 
-##### Get map categories
+#### Get map categories
 
 ```php
 <?php $categories = $gwapi->get_map(); ?>
 ```
 
-##### Get Buildings
+#### Get Buildings
 
 ```php
 <?php $buildings = $gwapi->get_maps('academic'); ?>

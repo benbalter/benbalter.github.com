@@ -31,7 +31,7 @@ The CMS is dead. Long live the CMS.
 
 <!-- more -->
 
-### The Results
+## The Results
 
 *WARNING: Geek Content!*
 
@@ -56,13 +56,13 @@ Shortest transaction:          0.04
 
 ---
 
-#### Homepage
+### Homepage
 
 Command: `siege -c 20 -t 30S -b ben.balter.com`
 
 The first test was to benchmark the homepage, the most heavily trafficked page on the site. Given 30 seconds of continuous traffic from 20 concurrent users, Bluehost was able to serve a meager 40 users. AWS managed an impressive 2000 users during that same time period (a 50x performance improvement), and did so twice as fast. Enter Jekyll with more than 2600 users (65x increase), responding on average to each in less than a quarter of a second.
 
-##### Homepage via shared Hosting (Bluehost)
+#### Homepage via shared Hosting (Bluehost)
 
 ```console
 Transactions:              40 hits
@@ -79,7 +79,7 @@ Longest transaction:          0.71
 Shortest transaction:          0.47
 ```
 
-##### Homepage via Varnish + Microcache + Page Cache + Object Cache (AWS)
+#### Homepage via Varnish + Microcache + Page Cache + Object Cache (AWS)
 
 ```console
 Transactions:            1954 hits
@@ -96,7 +96,7 @@ Longest transaction:          0.92
 Shortest transaction:          0.06
 ```
 
-##### Homepage via GitHub Pages
+#### Homepage via GitHub Pages
 
 ```console
 Transactions:            2629 hits
@@ -113,13 +113,13 @@ Longest transaction:          1.38
 Shortest transaction:          0.06
 ```
 
-#### 404s
+### 404s
 
 Command: `siege -c 20 -t 30S -b ben.balter.com/aaaaaaa/`
 
 The true challenge comes in not from serving a static front page (which is presumably cached by WordPress after the first request), but in what happens when it has to reach into the database to retrieve content, for example, when processing a page that doesn't exist.[^3] Bluehost squeezed out a single response each second, AWS just over 50, and Jekyll didn't flinch at 80.
 
-##### 404s via shared Hosting (Bluehost)
+#### 404s via shared Hosting (Bluehost)
 
 ```console
 Transactions:              30 hits
@@ -136,7 +136,7 @@ Longest transaction:         22.88
 Shortest transaction:          0.00
 ```
 
-##### 404s via Varnish + Microcache + Page Cache + Object Cache (AWS)
+#### 404s via Varnish + Microcache + Page Cache + Object Cache (AWS)
 
 ```console
 Transactions:            1567 hits
@@ -153,7 +153,7 @@ Longest transaction:          1.13
 Shortest transaction:          0.00
 ```
 
-##### 404s via GitHub Pages
+#### 404s via GitHub Pages
 
 ```console
 Transactions:            2373 hits
@@ -170,13 +170,13 @@ Longest transaction:          1.42
 Shortest transaction:          0.00
 ```
 
-#### Uptime
+### Uptime
 
 The other concern was uptime. With the AWS route you may get the performance, but with all that complexity, it's increasingly more like that something would go wrong, harder to diagnose and resolve, and unlike shared or managed hosting, if your site goes down at 3:00 AM, the only person to call is yourself. (no thanks.)
 
 With Jekyll, because the files are simply sitting on the server, absent a catastrophic failure, when things go wrong with Jekyll, it simply keeps serving the old content.[^4]
 
-### Conclusion
+## Conclusion
 
 It's cheaper, it's faster, it's simpler, it's worry free, and in my opinion, it's the future. Welcome to the post-CMS world.
 

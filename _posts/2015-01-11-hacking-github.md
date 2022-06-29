@@ -13,7 +13,7 @@ Code speaks louder than words. It's almost always faster to build out the reques
 
 Here are ~~12~~ 14 simple apps that I've built to introduce open source to the uninitiated, minimize points of friction for atypical users to collaborate using GitHub, and to show the power of adding smart tools to the edge of an otherwise dumb platform:
 
-### Working with legacy formats
+## Working with legacy formats
 
 * [**Word to Markdown**](https://github.com/benbalter/word-to-markdown) - A Ruby gem to liberate content from the jail that is Word documents.
 
@@ -23,7 +23,7 @@ Here are ~~12~~ 14 simple apps that I've built to introduce open source to the u
 
 * [**Word Diff**](https://ben.balter.com/2015/02/06/word-diff/) - Empowers you to be a Markdown person in a Microsoft Word world by automatically converting any Word document committed to a GitHub repository to Markdown.
 
-### User-friendly interfaces
+## User-friendly interfaces
 
 * [**Comment Card**](https://github.com/benbalter/comment-card) - A simple interface for non-technical users — both authenticated and pseudonymous — to provide feedback for your GitHub-hosted project.
 
@@ -31,7 +31,7 @@ Here are ~~12~~ 14 simple apps that I've built to introduce open source to the u
 
 * [**Redliner**](https://github.com/benbalter/redliner) - A tool for facilitating the redlining of documents by the GitHub uninitiated.
 
-### GitHub as a data store
+## GitHub as a data store
 
 * [**GitHub Forms**](https://github.com/benbalter/github-forms) - A RESTful API for submitting standard HTML form data to a GitHub-hosted CSV.
 
@@ -39,13 +39,13 @@ Here are ~~12~~ 14 simple apps that I've built to introduce open source to the u
 
 * [**Change Agent**](https://github.com/benbalter/change_agent) - A Git-backed key-value store, for tracking changes to documents and other files over time.
 
-### Authentication
+## Authentication
 
 * [**Jekyll Auth**](https://github.com/benbalter/jekyll-auth) - A simple way to use GitHub OAuth to serve a protected Jekyll (GitHub Pages) site to your GitHub organization.
 
 * [**Add to Org**](https://github.com/benbalter/add-to-org) - A simple OAuth App to automatically add users to an organization based on preset criteria.
 
-### Web interfaces for command-line tasks
+## Web interfaces for command-line tasks
 
 * [**GitHub Uploader**](https://github.com/benbalter/github-uploader) - A simple app to enable drag-and-drop uploading of binary and other assets to GitHub repositories.
 

@@ -5,7 +5,7 @@ description: Recording and slides from my brief talk at March's joint WordCampDC
 
 I gave a brief talk at March's joint [WordPress DC and Hacks/Hackers DC MeetUp](http://www.meetup.com/wordpressdc/events/16178194/) on leveraging WordPress to craft your personal brand. Below are slides and a recording of the livestream.
 
-### I invite you to watch, but in short, the main takeaways were
+## I invite you to watch, but in short, the main takeaways were
 
 ![Why Brand?](https://ben.balter.com/wp-content/uploads/2011/03/branding-300x224.png "Why Brand?"){: .float-end .ms-3 }
 
@@ -17,7 +17,7 @@ I gave a brief talk at March's joint [WordPress DC and Hacks/Hackers DC MeetUp](
 * Unlike in the real world where you are the only one in control of what you say, online, content has a life of its own — you must be proactive.
 * WordPress makes it dumb simple to tell the world your story.
 
-### My five big steps to launching your brand
+## My five big steps to launching your brand
 
 1. Grab a domain
 2. Define your personal brand
@@ -25,11 +25,11 @@ I gave a brief talk at March's joint [WordPress DC and Hacks/Hackers DC MeetUp](
 4. Socialize your content
 5. Upgrade your résumé
 
-### Recording of the livestream
+## Recording of the livestream
 
 *[Greg Linch](http://www.greglinch.com/) opens by discussing WordPress and Journalism, I begin at 30 minutes 10 seconds*
 
-### For those interested in the plugins mentioned
+## For those interested in the plugins mentioned
 
 * [Resume Plugin for WordPress](https://ben.balter.com/2010/09/12/wordpress-resume-plugin/ "WordPress Resume Plugin")
 * [Emphasis Plugin for WordPress](https://ben.balter.com/2011/01/11/wordpress-emphasis-plugin/ "WordPress Emphasis Plugin: Highlight and Permalink Text")
@@ -40,7 +40,7 @@ I gave a brief talk at March's joint [WordPress DC and Hacks/Hackers DC MeetUp](
 * [Subscribe to Comments](http://wordpress.org/plugins/subscribe-to-comments/)
 * [Syntax Highlighter Evolved](http://wordpress.org/plugins/syntaxhighlighter/)
 
-### Additional Resources
+## Additional Resources
 
 * [Rapportive](http://rapportive.com/)
 * [How to generate a QR code](http://thenextweb.com/socialmedia/2010/10/13/bit-ly-now-lets-you-add-qr-codes-to-links-in-seconds/)

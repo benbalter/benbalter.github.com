@@ -9,7 +9,7 @@ The question's come up several times, as to what's the appropriate copyright not
 
 In practice, there are three things to consider: the date, the copyright holder, and the need to have a copyright notice in the first place. Let's take a quick look at each.
 
-### Do you even need a copyright notice
+## Do you even need a copyright notice
 
 *No, not to get a copyright* - but notices *are* helpful for other reasons, and they are easy to add.
 
@@ -19,13 +19,13 @@ Today, explicit copyright notices in licenses, footers (or really in general), a
 
 Simply put, a notice isn't strictly necessary legally speaking. But a notice is nice to have, has some advantages, and is easy to do.
 
-### The date
+## The date
 
 If you chose to include a copyright notice, you'll see that the first half of any copyright notice (after either the word "Copyright" or "©") is a year. Is it the current year? The year you first had the idea? The year you hit publish? As implied above, when you choose to include a copyright notice, it's traditionally the year of (first) publication.
 
 For things like books, the year of publication is really easy to determine. If you write a book in 2014, and it hits the shelves in 2015, the title page will most likely reflect a copyright date of 2015. That's the date the original work was reduced to a physical embodiment and publicly distributed. That's the year it was "published", at least in the eyes of the law. And if a revised edition comes out in 2016, correcting some typos or adding a new forward, the title page would likely include both 2015 and 2016.
 
-#### When is a digital work "published"
+### When is a digital work "published"
 
 But when it comes to digital works, the idea of publication isn't quite the same. When is an open source project (or a site, as that's the most common means of publishing an open source project, for example, via GitHub's web interface) "published"?
 
@@ -33,31 +33,31 @@ In this case, of a site like [choosealicense.com](http://choosealicense.com), to
 
 If in 2014, someone submits a pull request to add some new content to the site (or in the case of software, to add a new feature to the project), that pull request would contain new content first "published" in 2014. In that case, a copyright notice like "Copyright 2013 − 2014" would be more appropriate, as the project contains works of original authorship, first published in both 2013 and 2014.
 
-#### So what date should you use
+### So what date should you use
 
 There's precedent for this practice. If you ever look at the copyright page of a book, it will likely say copyright 2001, 2004, 2006–2007, etc., noting each year of publication. Here, the same legal theory is at play, with the digital project being unbridled from the confines of the physical world, and thus publishing a bit more frequently, likely being "published", the year the project was started, and every year thereafter.
 
 In terms of sites, if you have a page that updates daily (think the front page of `nytimes.com`), then the current year is sufficient, because everything on that page was "published" that year, and thus received copyright that year (excluding the design and branding elements for a moment). If you have a page where some content was "published" in 2013, and some in 2014 (think our `choosealicense.com` example), then to really properly put a potential infringer on notice (see the sniff-test rationale above) you'd want `[original publish date] - [last published date]`. Again, just like books, each year it was published, concatenating consecutive years.
 
-### The copyright holder
+## The copyright holder
 
 As noted above, when an author creates an original work (be they a writer or developer), copyright automatically vests in the author. Think of that roughly like owning a building. If the author then want others to be able to use that work, they may choose to grant them a license. Think of that license roughly like renting out an apartment in that building. The author retains ownership (the building), and the tenant has a lease saying they have the right to use it (a license).
 
 When you use an open source project, you are analogous to the renter, but who's the building owner (copyright holder)? If the project only has a single author, things are clear: the copyright holder is the project creator. When you have multiple contributors, all authoring code for the same project, absent an explicit agreement to the contrary, they each retain copyright to their own contribution.
 
-#### So whose name should you use
+### So whose name should you use
 
 Again, there's a precedence. Going back to our book example, if you look at the copyright page, it'll likely say `Copyright [year] [author]` (or the publisher, depending on their arrangement). One contributor, one copyright holder.
 
 But in the case of open source, there will likely be multiple contributors, each retaining their own copyright. You might write something like `Copyright [year] Alison, Ben, and Charlie`, but as the number of developers grow, things will quickly get out of hand. So lets simplify things and just write, `Copyright [year] the [project] contributors`.
 
-#### The founder-contributor distinction
+### The founder-contributor distinction
 
 While there's nothing wrong with that copyright notice, to be super technical, that statement doesn't accurately represent the distribution of contributions across most projects. Likely the project creator (the [BDFL](https://en.wikipedia.org/wiki/Benevolent_dictator_for_life)) with have started the project off with a bunch of commits, and may continue to be the largest contributor for some time. While legally the long tail of contributors technically retain copyright, their share of the total intellectual property might be 1% or less.
 
 As a mater of practicality, as a project founder, you're fully entitled to take credit for the project, even as the project begins to garner contributions from other users. Think of it like many projects continuing to live in the founder's personal GitHub account, giving their name a prominent positions, despite others contributing. So to be super technical, there's no reason you couldn't say `[project founder] and the [project name] contributors`. In either case, just putting the project founder or maintainer is strictly speaking wrong, assuming others have contributed.
 
-### Putting it all together
+## Putting it all together
 
 Assuming your project's under active development, you should write `Copyright [year project started] - [current year], [project founder] and the [project name] contributors`. While not strictly necessary to obtain a copyright, if you're going to add a copyright notice, that'll accurately represent the years of publication and all copyright holders.
 

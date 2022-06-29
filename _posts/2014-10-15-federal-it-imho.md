@@ -5,13 +5,13 @@ description: There's been a lot of great momentum generated from the policy side
 
 While a government employee, as a developer and as an attorney, I had the opportunity to work in government IT, from both a technical perspective, implementing policy at various government agencies, and from a policy perspective, shaping that same policy at the White House. Here's what's next for federal IT policy, IMHO:
 
-### Shedding Cold-War era workflows
+## Shedding Cold-War era workflows
 
 From the standpoint of workflow, we may as well be using a typewriter. Heck, the process would be essentially the same. An analyst fires up a desktop word processor, types out the policy, and then emails it around to increasingly larger circles of stakeholders, often creating a punch list of proposed changes (using their desktop spreadsheet application, of course) to opaquely track feedback after each round. Did you miss my comments? Did you disagree with them? Who'd you discuss them with and what were the arguments against it? After several months of this, the document is set in stone and finally pushed outside the firewall, sans this rich pedigree, often as a PDF, and given the pace of technological change, is almost undoubtedly already out of date.
 
 I was fortunate enough to be part of the small teams the drafted the White House Digital Strategy and Open Data Policy. For the digital strategy, we took the baby step of [publishing the digital strategy](http://www.whitehouse.gov/sites/default/files/omb/egov/digital-government/digital-government.html) — a document which begged and pleaded agencies to use machine readable formats — in HTML, rather than PDF, a somewhat unheard of move at the time. For the open data policy, we took that a step further and drafted in, and [published the policy as a living, collaborative document](https://project-open-data.cio.gov/) on GitHub, where anyone — government employees and civic hackers alike — were invited to submit proposed improvements.
 
-### Industry-standard practices as policy
+## Industry-standard practices as policy
 
 On a substantive level, the bulk of the policies we've seen have, by-and-large, taken a basic assumption on how the open source community approaches software development (open standards, shared tools, lean workflows), and codifies them into law. It's an uphill battle, for sure, but there are two areas where we should start to see movement:
 

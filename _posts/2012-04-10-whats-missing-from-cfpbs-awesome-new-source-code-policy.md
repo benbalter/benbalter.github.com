@@ -9,19 +9,19 @@ Most often, when we talk about open source in government, it's talked about in o
 
 The [Consumer Financial Protection Bureau](http://cfpb.gov) (CFPB), however, is in a unique position. As the newest kid on the block, it's one of the few government agencies to have been born in a digital era, and more importantly, without the bureaucratic baggage that all too often stymies innovation. They have a chance to "do it right" from the start… and they're doing just that.
 
-### An Agency Born of the internet Generation
+## An Agency Born of the internet Generation
 
 Yesterday, CFPB [announced a bureau-wide preference for open source](http://cfpb.github.io/source-code-policy/) in its shiny new Source Code Policy, by my [crude research](http://www.google.com/search?sugexp=chrome,mod=4&sourceid=chrome&ie=UTF-8&q=source+code+policy+site%3A.gov), a first for any government agency. There are two watershed shifts here: first, that the agency not only should, but *must* evaluate open source software on equal footing to its proprietary counterparts, a comparison which I believe will [increasingly fall in open source's favor](http://www.amazon.com/The-Wealth-Networks-Production-ebook/dp/B0015GWX0S?tag=benbalter07-20), and second, that unless there's an overriding security or similar concern *not to*, public code must be public. There's nothing new here. All it says is that we should use the best software for the job (a no-brainier), and that the software, the public's property, should belong to the public.
 
 So why is this news? Plenty of government entities have [released](http://www.fcc.gov/blog/contributing-code-back-fcc-govs-open-source-feedback-loop) [source](http://www.whitehouse.gov/blog/2011/02/11/whitehousegov-releases-second-set-open-source-code) code, or [encouraged the](https://www.gov.uk/government/publications/open-source-procurement-toolkit)[use of open](http://www.finance.gov.au/files/2012/04/AGuidetoOpenSourceSoftware.pdf)-[source software](http://www.tekno.dk/pdf/projekter/p03_opensource_paper_english.pdf). But no one has come out and [plainly stated that they were an "open-source agency"](https://twitter.com/#!/victorzapanta/status/189390759181557760), that open source is the new default, and that absent an affirmative step by some naysayer, that the public will have access to their code. That's huge. It's flipping the burden, and it's the way things should be from the start.
 
-### But Where's the Beef
+## But Where's the Beef
 
 That said, there's one thing the source code policy is noticeably silent on: *the ecosystem*. Posting code is great and it's great that they've done the legal legwork so other agencies can follow suit, but that's just the 1.0. The true power of open source comes not from simply publishing code, but from being a member of a broader coding community. Can a CFPB employee contribute a patch to an existing open source project on CFPB time? [^1] What about contributing to a CFPB project once he or she's left? What happens to my rights when I fork a [CFPB project on GitHub](http://github.com/cfpb) and send the agency a pull request? [^2] Can the agency even accept my code legally? [^3] There's a lot of legal ambiguity there, and it's just the kind of legal ambiguity a well-intentioned government attorney can seize upon to gum up the very gears that are driving this incredible move.
 
 We've seen the same progression in the open data world. The 1.0 is posting 10 XML files at a gigabyte each — an arms-length relationship with developers — arguably open data simply for open data's sake. The secret sauce lies in the relationship, in publishing APIs and web services rather than static data, to build an ecosystem around the agency's work.
 
-### An Innovation Ecosystem
+## An Innovation Ecosystem
 
 Imagine if government agencies served as the catalyst for a [joint public-private effort to drive tomorrow's innovation](https://ben.balter.com/2012/03/05/wordpress-for-government-and-enterprise/). We saw this during the space race, and see it today in terms of government-funded research, but by-and-large, open-source coders have yet to be included. Sure we've seen the "let's have some open-source developers build this for us for free" type challenges, but that's about it. There's no ecosystem, no community, no push-pull or give-and-take, and I'm worried that as CFPB's efforts federate across government, this nuance may not federate along with it.
 
@@ -29,7 +29,7 @@ The agency's already got [it's first public-generated code contribution](https:/
 
 I'd love to see the next iteration of the policy have a third section, "III. Membership in the Open-Source Community" on not just publishing code they've developed in house — don't get me wrong, that's huge — but actually *contributing* meaningful code to the broader ecosystem, and working directly with the open-source community to foster an active partnership that delivers the best citizen services possible. It's a dialog, not a code dump. There needs to be a conversation there.
 
-### Procure, Publish, Participate
+## Procure, Publish, Participate
 
 It's the realization that when you use open-source software, you're not a customer. You're a member of a community. You're invited to a pot-luck dinner. There's not the same sense of entitlement you have with proprietary software. It's not that they owe you a given feature. There's no financial transaction there. It's that the feature hasn't been developed yet, but can be, the same way every other feature has evolved, through community contributions. There's an entirely different philosophy driving the relationship.
 

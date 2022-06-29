@@ -6,7 +6,7 @@ redirect_from: 2015/02/16/jekyll-collections/
 
 Collections are Jekyll's most powerful and simultaneously least understood feature. If you're not familiar with [Jekyll](http://jekyllrb.com/), Jekyll is a static site generator. Think of it like a content management system (CMS), [without all the complexity](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/) and headache. No need to build a giant content-strangling Rube Goldberg machine to "manage" content, if all you're doing at the end of the day is putting out HTML, JavaScript, and CSS, the building blocks of the internet. As a result, Jekyll gets out of your way and [allows you to concentrate on what truly matters](https://ben.balter.com/2012/10/01/welcome-to-the-post-cms-world/): your content.
 
-### Posts and pages
+## Posts and pages
 
 Most Jekyll sites are organized around two types of content, posts and pages.
 
@@ -16,7 +16,7 @@ Most Jekyll sites are organized around two types of content, posts and pages.
 
 The problem is, not everything you might want to publish using a Jekyll falls cleanly into the those two categories of content. As I noted in [the original pitch](https://github.com/jekyll/jekyll/issues/1941), "If people are using blog posts for a non-blog post thing, Jekyll has already failed". That's where Jekyll's [collections](http://jekyllrb.com/docs/collections/) come in.
 
-### Everything that's not a post or a page can be represented as a collection
+## Everything that's not a post or a page can be represented as a collection
 
 Collections add another possibility, or use-case outside of Jekyll's post- and page-publishing functionality; and have the potential to bring Jekyll's zen-like simplicity to all sorts of other types of content that aren't dated (as with posts), but have a set relationship with one another (hence the name, "collection"). If you're familiar with traditional CMS's, you can think of collections like [WordPress custom post types](http://codex.wordpress.org/Post_Types) or [Drupal custom content types](https://www.drupal.org/node/774728), except you do not need to program a specific class, learn any server languages, and the syntax used to specify them is very easily readable.
 
@@ -26,7 +26,7 @@ You wouldn't want to use posts here, because cupcakes aren't chronological, and 
 
 > Collections are a very new feature to Jekyll, and according to the official documentation may be subject to change [Jekyll Documentation on Collections](http://jekyllrb.com/docs/collections/); but you should not let that put you off of using them, because Jekyll is open-source, which means you should trust the community to work-together for the best common-case solution.
 
-### Collections in practice
+## Collections in practice
 
 But what if one day you decided to expand your offerings and sell cookies in addition to cupcakes. Simply introduce a "cookies" collection, adding `chocolate-chip.md` and `peanut-butter.md` to a `_cookies` directory, exposing the cookies as `site.cookies`. You'll notice the collections concept start to show its value here. Pages wouldn't make sense here, because you'd want to be able to list cupcakes and cookies separately, and besides for both being baked goods, the one cookie doesn't really share a relationship with a cupcake, at least not in the same sense that cookies share with one another.
 
@@ -46,11 +46,11 @@ That makes sense, because my bakery's hours is a relatively small dataset. But t
 
 For a more concrete example, take a look at [the source](https://github.com/github/choosealicense.com) for [choosealicense.com](http://choosealicense.com) a site which helps explain open source licenses like the MIT or GPL license. There are pages like "about" and "terms of service", but the actual licenses live in [a licenses collection](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) and are displayed via [a licensed page](https://github.com/github/choosealicense.com/blob/gh-pages/licenses.html).
 
-#### Other use-cases
+### Other use-cases
 
 Of course this is not the only use-case, which is one of the benefits of collections. You can turn on content generation to have the collection contents automatically generated, or use the where syntax to get the contents of specific collections to add common content, or devices to your site.
 
-### Using collections
+## Using collections
 
 The examples above were a slight simplification. There's one other step. Before you can use a collection, you need to tell Jekyll about it. Going back to our bakery example above, I might have a `_config.yml` file that looks something like this:
 
@@ -73,7 +73,7 @@ collections:
 
 That way, `_cupcakes/chocolate.md` is outputted as `cupcakes/chocolate/index.html` when the site is built and would be accessible as `example.com/cupcakes/chocolate/`. The other advantage, is, because the data is now structured and machine readable (rather than in plain text), you could also use the `jsonify` filter to output that same information as an API for use elsewhere.
 
-### When to use a post, a page, or a collection
+## When to use a post, a page, or a collection
 
 I like to think the decision looks roughly like this:
 

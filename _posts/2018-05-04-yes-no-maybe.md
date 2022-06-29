@@ -15,17 +15,17 @@ While customers shouldn't make purchase decisions based on [forward-looking stat
 
 Those two factors combined lead to three possible answers when responding to feature requests:
 
-### Yes - "we're doing that"
+## Yes - "we're doing that"
 
 This three month mark creates a good bright-line where it's safe to say "yes" we're doing that (or are going to soon). Often projects are in flight at this point (or planned and committed to), and even if the exact ship date is unknown, it's likely the project will eventually ship in one form or another. At this point, you should have high confidence that you can say "yes" without risking that you may violate the customer's expectations down the line. "Yes" is a verbal contract between you and the customer that you will do the thing you say you'll do.
 
 For those features not on a team's short-term roadmap, you have two choices:
 
-### No - "we're not doing that"
+## No - "we're not doing that"
 
 If it's something that doesn't make sense for your product strategically, the answer is simple: "No" or "we're not planning on building that in the foreseeable future", more verbosely (ideally with the reason why). While [there are many reason to say "yes"](https://blog.intercom.com/product-strategy-means-saying-no/), and "no" is often the harder choice to convey to customers, if you truly have no plans to implement the feature "no" gives the customer the opportunity to pursue other ways to fix the problem (workflow, policy, tooling, etc.), and shows them that you're being honest and transparent about your product vision and direction, even if the news is unpopular in the short-term.
 
-### Maybe - "we might do that"
+## Maybe - "we might do that"
 
 If it's something you'd like to do but haven't yet committed to (for example, 4+ months out), or something that might make strategic sense but you haven't yet looked into, you give the best answer you can: "maybe". I like to always follow up "maybe" with as much context as I can provide, for example, explaining that it's on our medium or long-term roadmap, but that you can't yet commit to it, or explaining that it's a great idea that you should (genuinely) look into (with a promise to get back to them when you do). Maybe isn't a cop out, but a commitment to follow up with either "yes" or "no" once a decision's been made.
 

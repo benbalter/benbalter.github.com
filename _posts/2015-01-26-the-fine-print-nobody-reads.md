@@ -5,7 +5,7 @@ description: Federal-compatible Terms of Service (TOS) agreements are special ag
 
 If you offer a service online, chances are, government agencies can't agree to your standard terms of service, at least not has posted. [More than 75 of the web's largest services](https://www.digitalgov.gov/resources/negotiated-terms-of-service-agreements/), including Twitter, Facebook, Google, and GitHub have negotiated custom terms of service agreements with the federal government allowing more than 2.7M government employees to use their service. If you're looking to enter the federal market, the following is a read out from a round table discussion at the recent [Collaborate](https://collaborate.fosterly.com/) conference in Washington, D.C.:
 
-### Why federal agencies can't agree to your terms of service
+## Why federal agencies can't agree to your terms of service
 
 Terms of service agreements are often called clickwrap or browserwrap agreements, meaning that by either clicking an "I agree" checkbox when they sign up, or simply by using a service with a terms of service (TOS) linked in the footer of each page, the user has said to agree to be bound by the document, essentially a contract between the service provider and the user. However, terms of service agreements, often written by large companies and agreed to most commonly by individuals contain several unfavorable clauses, that government agencies cannot agree to by force of law. Even if not illegal, the government may be able to pursue their own organizational preference by virtue of their superior bargaining position. Here are a few of the most commonly negotiated clauses:
 
@@ -23,7 +23,7 @@ Terms of service agreements are often called clickwrap or browserwrap agreements
 
 * **Security, records, etc.** - Government agencies have government-specific security, record keeping, and audit requirements. Even if your service does not meet all requirements today, the government may wish to contractually bind you to continue that discussion and to implement those controls as they may need in the future.
 
-### How an agency signs up for a service
+## How an agency signs up for a service
 
 [Office of Management and Budget Memorandum M-13–10](https://www.whitehouse.gov/sites/whitehouse.gov/files/omb/memoranda/2013/m-13-10.pdf) outlines a standard process for government agencies to sign up for social media services (with a definition of "social media" encompassing most web-based services). At a high level, the process looks something like this:
 
@@ -33,7 +33,7 @@ Terms of service agreements are often called clickwrap or browserwrap agreements
 4. If the service has not yet negotiated an agreement with the government, they reach out to the service directly to negotiate a custom amendment
 5. If all goes well, the agency can use the service (and can create as many accounts as they'd like)
 
-### A (slightly) smarter approach
+## A (slightly) smarter approach
 
 If an agency reaches out to your service, chances are, you'll be asked to negotiate a one-off amendment that only governs the relationship between you and that particular agency, not the government as a whole. As a result, each time a new agency wants to use your service (there are thousands of them), you'll have to negotiate, print, sign, fax (yes fax), and countersign an amendment, a process that can take weeks to months each time.
 
@@ -43,7 +43,7 @@ Instead, there are two things you can do to streamline the process:
 
 2. Once an amendment is negotiated with a single agency, [reach out to GSA](https://www.digitalgov.gov/resources/federal-compatible-terms-of-service-agreements/) to get the signed amendment added to their list of social media providers. Beyond the practicalities of a standard starting point to each negotiation, being listed will provide you with greater visibility among government staffers.
 
-### An even smarter approach
+## An even smarter approach
 
 Even if you're using a common template, the time required to execute one-off agreements with each agency can quickly add up, especially as [government users head into the thousands](https://government.github.com/community/#us-federal). Instead, as the government's use of your service grows, you can use the [GSA Standard TOS Amendment Template](https://s3.amazonaws.com/digitalgov/_legacy-img/2014/01/model-amendment-to-tos-for-g.doc) as a starting point, to create a standard terms of service amendment, applicable to all government users.
 
@@ -53,7 +53,7 @@ Unlike the negotiated amendment which is executed by each agency, the idea here 
 2. Staffer sends the fed-friendly TOS amendment to their general counsel for review
 3. If all goes well, agency begins using the service (with no intervention on your part)
 
-### A few gotchas
+## A few gotchas
 
 No service is *required* to do business with the government. The choice of whether you offer your service to the government or not is a business decision, not a legal one. Compliance may be costly, but the exposure and user base may be attractive, especially to a growing startup.
 
@@ -61,7 +61,7 @@ When negotiating with government entities at any level of government be sure to 
 
 Last, I've purposely avoided discussing procurement, which is a much larger issue worthy of its own post. Most social media services used by the government under this model are cost-free, or if offered under a freemium model, are used at the free-usage tier. If you do offer a paid service, be sure to account for the possibility that the agency might upgrade at some point during the relationship.
 
-### Additional resources
+## Additional resources
 
 * [How to Amend Your App's Terms of Service for Federal Agencies](https://zapier.com/blog/federal-government-terms-of-service-amendment/)
 * [Federal-Compatible Terms of Service Agreements](https://www.digitalgov.gov/resources/federal-compatible-terms-of-service-agreements/)

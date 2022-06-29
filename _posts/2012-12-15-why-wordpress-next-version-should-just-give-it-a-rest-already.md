@@ -21,7 +21,7 @@ If WordPress wants to stay relevant as a content management platform, the future
 
 <!-- more -->
 
-### Crawl
+## Crawl
 
 At the very least, lets expose all WordPress content in a machine readable format. This once and for all breaks the content-presentation link. We do this with RSS somewhat, but it's time to put non-HTML formats on equal footing with HTML in core's eyes.
 
@@ -29,7 +29,7 @@ At the very least, lets expose all WordPress content in a machine readable forma
 
 2. Extend that format to indexes (archives in WordPress terms). Again, just as above, every list of posts (by date, by associated term, search results) should have the capability to expose the list in that same machine-readable format. This allows for the programatic discovery of information. A little bit harder than #1, but again, nothing crazy here. Pretty basic stuff.
 
-### Walk
+## Walk
 
 Access to content is half the equation. Allow programmatic management of WordPress content as well. Conceptually, this is nothing radical. WordPress allows remote management of content through the [XML-RPC](http://en.wikipedia.org/wiki/XML-RPC) protocol, a blog-specific format that was designed some 15 years ago. We're just talking about an upgrade.
 
@@ -37,7 +37,7 @@ Access to content is half the equation. Allow programmatic management of WordPre
 
 2. Pick a few high-priority pieces of backend functionality to prototype, such as listing posts or editing an existing post, and rather than reloading the entire administrative interface every time I click something, dogfood the services exposed in #1 to update the content dynamically. Put another way, turn the WordPress backend into a full-fledged client-side content administration application, rather than merely part of a blog. Again, nothing radical here. Gmail does this with mail, Twitter does this with Tweets. It's time for WordPress to start doing this with posts.
 
-### Run
+## Run
 
 We may not get there tomorrow, but I know that with a bit of nuance, WordPress can align itself as the platform of the future and tackle the next generation of web-based applications in the "WordPress way". It's simply a matter of positioning.
 

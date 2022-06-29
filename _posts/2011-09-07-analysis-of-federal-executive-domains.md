@@ -5,7 +5,7 @@ description: Analysis of the technical capabilities of and technology powering a
 
 The White House's Office of Management and Budget recently released a list of all domains owned and operated by federal executive agencies. Leveraging a previous tool I had built called [Site Inspector](https://github.com/benbalter/Site-Inspector) which provides information about a domain and its technical capabilities, I imported the list into the content management system WordPress, and created a plugin called [Domain Inventory](https://github.com/benbalter/Domain-Inventory) to scan each domain and curate the results. A summary of my preliminary results appears below, as well as a link to the browsable dataset.
 
-### The project tracks each Federal Executive .Gov by
+## The project tracks each Federal Executive .Gov by
 
 * **Agency** (as provided in the data.gov list)
 * **Server status** (response code, if it is reachable, etc.)
@@ -18,7 +18,7 @@ The White House's Office of Management and Budget recently released a list of al
 * **Script Library** (do they use common JavaScript libraries)
 * **HTTPS Support** (is the site browsable via the secure HTTPS protocol)
 
-### Key Highlights of the Preliminary Results
+## Key Highlights of the Preliminary Results
 
 * Only 73% of domains are live and in use
 * *Of live domains* 80% are accessible without typing the `www.` prefix.

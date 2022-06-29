@@ -8,7 +8,7 @@ redirect_from: 2011/08/29/document-management-version-control-for-wordpress/
 
 [![WP Document Revisions Screenshot](https://ben.balter.com/wp-content/uploads/2011/07/wp-document-revisions-screen-shot-300x226.png){: .float-end .ms-3 }](https://ben.balter.com/wp-content/uploads/2011/07/wp-document-revisions-screen-shot.png)
 
-### WP Document Revisions is three things
+## WP Document Revisions is three things
 
 1. A **document management system** (DMS), to track, store, and organize files of any format
 2. A **collaboration tool** to empower teams to collaboratively draft, edit, and refine documents
@@ -28,7 +28,7 @@ redirect_from: 2011/08/29/document-management-version-control-for-wordpress/
 
 **Future Proof** - Switching costs a concern? WP Document Revisions is built with tomorrow's uncertainty in mind. Equally at home in an in-house server room as it is in the cloud, moving individual files or entire document repositories in and out of WP Document Revisions is a breeze (history and all). And since the software is open-source, you can easily add tools to automate the process of moving to or integrating with future third-party systems.
 
-### The Vitals
+## The Vitals
 
 * Support for any file type (docs, spreadsheets, images, PDFs — anything!)
 * Securely stores unlimited revisions of your business's essential files
@@ -46,7 +46,7 @@ redirect_from: 2011/08/29/document-management-version-control-for-wordpress/
 * French and Spanish language support (easily translated to your language)
 * Integration with [Edit Flow](http://editflow.org/)
 
-### Features Available via the [Code Cookbook](https://github.com/benbalter/WP-Document-Revisions-Code-Cookbook)
+## Features Available via the [Code Cookbook](https://github.com/benbalter/WP-Document-Revisions-Code-Cookbook)
 
 * **Audit Trail** - creates check in / check out audit trail for all documents
 * **State Permissions** - allows setting user-level permissions based on a custom taxonomy such as workflow state or other document status
@@ -59,12 +59,12 @@ redirect_from: 2011/08/29/document-management-version-control-for-wordpress/
 * **Remove Workflow States** - Completely removes Workflow state taxonomy backend and UI
 * **Change Tracker** - Autogenerates and appends revision summaries for changes to taxonomies, title, and visibility
 
-### Translations
+## Translations
 
 * French - [Hubert Campan](http://omnimaki.com/)
 * Spanish - TradiArt
 
-### Links
+## Links
 
 * [Source Code](https://github.com/benbalter/WP-Document-Revisions/) (GitHub)
 * [Development version](https://github.com/benbalter/WP-Document-Revisions/tree/develop) ([Build Status](http://travis-ci.org/#!/benbalter/WP-Document-Revisions))

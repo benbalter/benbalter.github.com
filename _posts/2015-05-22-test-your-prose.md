@@ -11,7 +11,7 @@ When you treat content as code, you get the opportunity to co-opt best-of-breed 
 
 With CI services like [Travis CI](https://travis-ci.org/), whether public or private, adding continuous integration to a repository of prose content, whether an entire site or a collection of HTML or Markdown files becomes trivial, especially when you use open source tools like [HTML Proofer](https://github.com/gjtorikian/html-proofer).
 
-### Checking links and images
+## Checking links and images
 
 Let's say you have a Jekyll site, versioned on GitHub and published on GitHub Pages, and you'd like Travis to give your content a quick checkup every time you make a change. First, you'll want to add the following to your site's `Gemfile`:
 
@@ -54,7 +54,7 @@ HTML-Proofer finished successfully.
 
 And with that, you can merge confidently.
 
-### Beyond "does this thing work?"
+## Beyond "does this thing work?"
 
 Having accurate links and images is a great baseline (that sadly, as I've learned through my own continuous integration, many sites don't check), but what about checking the things you *can't* see like accessibility? In the case of §508 compliance, I wrote [Ra11y](https://github.com/benbalter/ra11y), but automated tools exist to check all sorts of things.
 

@@ -5,7 +5,7 @@ description: 'I am gave a brief lightning talk at April''s WordPress DC Meetup o
 
 I am gave a brief [lightning talk at April's WordPress DC Meetup](http://www.meetup.com/wordpressdc/events/16887732/) on the basics of HTML and PHP ("coding for dummies"). The goal: learn how to avoid breaking your site if you edit it. Below are the [slides](http://www.slideshare.net/benbalter/how-i-learned-to-stop-worrying-and-love-the-code).
 
-### The Cliff's Notes are
+## The Cliff's Notes are
 
 * The process
 
@@ -27,7 +27,7 @@ I am gave a brief [lightning talk at April's WordPress DC Meetup](http://www.mee
   * Functions – predefined set of actions; always followed by "`( )`"
   * Don't forget semicolons
 
-### Links to Resources Mentioned
+## Links to Resources Mentioned
 
 * HTML
 

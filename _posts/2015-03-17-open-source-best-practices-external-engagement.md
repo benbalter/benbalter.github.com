@@ -7,7 +7,7 @@ When it comes to open source, simply publishing code isn't enough. Open source i
 
 Working regularly with government agencies to help ensure their first (or second) step into the open source world is a successful one, here are five best practices for pursuing open source in government (or any large organization for that matter):
 
-### 1. Expand your definition of stakeholders
+## 1. Expand your definition of stakeholders
 
 Going in to your first open source project, you'll likely have a narrow definition of stakeholders. You've probably accounted for open source developers, internal business owners or subject matter experts, and possibly the press. Open source communities are made out of many more types of stakeholders, on both sides of the firewall. Put a different way, [everyone contributes](https://ben.balter.com/2013/08/11/everyone-contributes/).
 
@@ -37,7 +37,7 @@ In traditional government workflows, many of these functions happen by necessity
 
 If you do it right, by the time you're ready to engage the external community, you'll be a pro, having already used the same tools to engage your internal community, which can now be placed on equal footing as external stakeholders. Put another way, your goal should be to support one large community, not two necessary unequal ones.
 
-### 2. Be the hub, encourage spokes
+## 2. Be the hub, encourage spokes
 
 As the maintainer of an open source project, you should think of your role as being the host of the internet's most boring cocktail party. You are responsible for extending invitations to a diverse list of party goers, providing drinks and snacks, and as attendees arrive one-by-one, taking their coat and providing introductions to one another.
 
@@ -51,7 +51,7 @@ Instead, minimize one-to-one interactions. There's absolutely no way for you to 
 
 In practicality, that means standing up public, linkable forums for stakeholders to ask questions and submit feedback, to engage with one another, and for you to support the community. Communities are created by relationships between humans — humans with names and faces — not between humans and a shared inbox or anonymous organization account. If all that's locked away in a shared inbox or behind a corporate logo, if you hold a monopoly on the ability to communicate and funnel it through a single, tightly controlled access point, well, then, nobody's going to want to come to your party.
 
-### 3. Minimize Friction
+## 3. Minimize Friction
 
 At GitHub, we measure workflows in terms of [friction](https://ben.balter.com/2013/08/11/friction/). You can define friction as the time it takes for a potential contributor to go from "I want to contribute" to "I have contributed". When contributions are on a volunteer basis, minimizing friction is essential to encouraging first time contributors and to turn those first-time contributors into long-term collaborators.
 
@@ -63,7 +63,7 @@ In practice, that means walking through the contribution flow from discovery to 
 
 A lot of that comes down to contributor-friendly documentation (read: not internal policy), but a sane workflow (for example, merging pull requests as they come in, not in a standing meeting on the 2nd Tuesday of the month) and some simple tooling can go a long way. At GitHub we have what we call culture tools, meaning I can jump into any project and know how to set things up and submit my proposed fix without reading a single line of documentation. @parkr expanded on that idea with what he calls ["Language-Agnostic Interfaces for Software Development"](https://byparker.com/blog/2015/language-agnostic-interfaces-for-software-development/){: data-proofer-ignore="true"}. Whatever you call it, running `script/bootstrap` is a heck of a lot easier than spending a few hours learning how some random package manager works.
 
-### 4. Decentralize governance
+## 4. Decentralize governance
 
 Successful open source is all about decentralization and informality, two things large organizations are traditionally terrible at. [Think about what most large organizations optimize for](https://ben.balter.com/2014/08/03/why-isnt-all-government-software-open-source/): meetings, in-house email, strict hierarchy, and tightly held process. In the world of open source, you don't hold a meeting to merge a pull request. Email is foregone and process is exposed through public discussions. Heck, you don't even need to be in the office or wearing a suit to comment on an issue. To be successful, and the step most large organizations overlook, is that to participate, you need to be a member of the community, not you the organization, but you the human. Open source developers can tell the difference between someone who is "one of them" and "gets it", and someone who drops in once or week to communicate already-made decisions or follows a telemarketing-like support script when interacting with contributors. Put another way, no matter how much you water it, AstroTurf will never grow.
 
@@ -79,7 +79,7 @@ Instead, push responsibilities to as close to the edge as possible. There's a lo
 
 All of these roles of very different from writing a blog post or composing a Tweet and require a certain degree of speed, flexibility, and technical acumen. The only way the project is going to be successful is by decentralizing project governance to those most closely involved with the project. Obviously matters of policy as well as large, project-defining decisions should include non-technical stakeholders, but just because a code comment is public, doesn't mean day-to-day maintenance should be the purview of a public affairs office or committee that maintains a standing meeting. Given the pace of open source software development, it's simply not practical. Open source is about collaboration between humans, not between humans and your entire organization.
 
-### 5. Encourage contributors
+## 5. Encourage contributors
 
 In open source, the right to contribute is assumed. In fact, if you don't want contributors, if a project is simply published or if a project has reached end of life and is no longer maintained, you must explicitly disclaim that you are *not* accepting contributions, yet in the world of government and corporate open source, that's sadly not always the case.
 

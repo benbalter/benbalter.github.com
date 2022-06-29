@@ -6,7 +6,7 @@ description: Moving from the federal government, arguably the most bureaucratic 
 
 About a year and a half ago, I moved from the federal government, arguably [the most bureaucratic organization in the history of the world](http://www.washingtonpost.com/sf/national/2014/03/22/sinkhole-of-bureaucracy/), to GitHub, arguably one of [the world's least bureaucratic](http://www.fastcolabs.com/3020181/open-company/inside-GitHubs-super-lean-management-strategy-and-how-it-drives-innovation). Looking back, there were three key organizational differences beyond mere size and the lack of TPS reports:
 
-### 1. Trust your coworkers
+## 1. Trust your coworkers
 
 Much of my job at GitHub involves explaining open source to government employees and (hopefully) inspiring them to adopt more collaborative software-development workflows. The hard part in bridging this anachronistic divide isn't teaching version control or dependency management. Instead, it's the many cultural incongruences between government and open source that derive from one fundamental rift: trust.
 
@@ -18,7 +18,7 @@ Without that culture, management within government starts from a point of distru
 
 *Lesson one: where an organization has the choice between empowering employees to do their job and minimizing risk, large organizations err on the side of minimizing risk, which in effect, creates it.*
 
-### 2. Optimize for happiness
+## 2. Optimize for happiness
 
 GitHub's philosophy, both in terms of internal development and in terms of outward facing product is simple: optimize for (developer) happiness. If there's something *de minimis* that will make me better at my job, be it 20 minutes or 20 dollars, I'm encouraged to do it, and can do so without a three-fold paperwork burden. Just as happy cows make better milk, and in turn better cheese, happy developers build better software, and in turn, ensure more satisfied end users. Happiness is best achieved when you [push decisions to the edge](https://ben.balter.com/2013/06/12/an-open-letter-to-government-cios/#decentralized), put your faith in the crowd, avoid blockers, and automate wherever possible.
 
@@ -28,7 +28,7 @@ Chances are, the process required to change the process, or to get approval for 
 
 *Lesson two: where an organization has the choice between employee happiness and minimizing risk, large organizations err on the size of minimizing risk, often at the cost of efficacy.*
 
-### 3. Relationships are assets
+## 3. Relationships are assets
 
 One thing I noticed, as early as my first day at GitHub, is that there were no gatekeepers, no organizational filters to safeguard (or bottleneck) the traditional interfaces between employees and the public. GitHubbers at all levels, whether engineers or accountants, are encouraged to speak directly to customers, to provide support, to get feedback, and to answer questions about where the product is heading. If a reporter from my hometown paper calls with questions, I'm free to answer them, whether I stick to the company's non-existent talking points or not. The press team is there to amplify me, not to silence me.
 
@@ -38,7 +38,7 @@ Government, on the other hand, still often seeks to dredge as deep a moat as pos
 
 *Lesson three: where an organization has the choice between the free flow of information and minimizing risk, large organizations err on the size of minimizing risk, but information cannot be centrally controlled.*
 
-### More than just size
+## More than just size
 
 I suspect much of this difference comes from the liberty of making decisions in the abstract. It's easy to say, "given the opportunity, our developers are going to do something that reflects poorly on the organization". It's a lot harder to say "I don't trust Bob and Susan. It's just a matter of time before they mess up", especially when you see them in the lunch room each day.
 

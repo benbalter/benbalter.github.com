@@ -12,13 +12,13 @@ I'm asked regularly by government employees — knowledge workers who fire u
 
 Markdown isn't just an alternative format. Markdown forces you to write for the web.
 
-### In the beginning, there was paper
+## In the beginning, there was paper
 
 The first desktop word processors had a simple task: they were designed to make paper. We didn't have email or a vibrant internet sharing digital documents to worry about. The creators of the first desktop word processors simply mirrored the dominant workflow of the time: the typewriter. The final output — the sole embodiment — was physical, and all that mattered was what the document looked like.
 
 Over the past three decades, however, how we consume content has changed dramatically, yet, how we author content remains relatively unchanged. Put another way, [the internet is a fundamentally different animal than the desktop](https://ben.balter.com/2013/07/02/a-brief-history-of-the-internet/). You [can't simply take a desktop format and put it online](https://ben.balter.com/2013/11/21/thats-not-how-the-internet-works/), and "[converting](http://word-to-markdown.herokuapp.com/)" a document to Markdown doesn't do much to solve that.
 
-### Separating content from presentation
+## Separating content from presentation
 
 Desktop formats are a shallow format — all they care about are looks. Desktop publishing software inextricably marries content and presentation. The information you input can only be consumed in one form, and that one form is defined by the medium, in most cases, paper, or more recently, their digital analog, faux margins and all.
 
@@ -33,7 +33,7 @@ Put another way, in taking a look at this [sample Word Document](https://github.
 | Markdown                                  | 80 bytes    | 0.24% |
 {: .table .table-striped .w-50 .mx-auto }
 
-### Exposing author intent
+## Exposing author intent
 
 Once content and presentation are decoupled, content written for the web exposes author intent through semantic markup — markup which describes the relationship between elements, not simply their visual representation. It's not simply that a given line is bold or a larger font size, but memorialized in the document itself is that the given line is a heading, a heading which describes the content that follows.
 
@@ -68,7 +68,7 @@ There's two things you'll notice there. First, the markup isn't semantic, meanin
 
 Second, there's a lot of proprietary metadata in there (everything that's orange or red), useful only for parsing within Microsoft Word. Again, rendering the content as alien anywhere other than its original context, paper.
 
-### Jailbreaking content
+## Jailbreaking content
 
 There's a reason that content authored on the desktop is most commonly shared online as a PDF — a format designed to mimic the properties of paper as closely as possible. Once the content's in a paper-based format, it's stuck there forever.
 

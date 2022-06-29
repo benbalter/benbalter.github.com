@@ -7,13 +7,13 @@ Before you can participate in the open source community, you must first learn to
 
 Working regularly with government agencies to help ensure their first (or second) step into the open source world is a successful one, here are five best practices for pursuing open source in government (or any large organization for that matter):
 
-### 1. The technology is the easy part
+## 1. The technology is the easy part
 
 Whether you realize it or not, when you embark on your organization's (or your team's) first open source project, you're likely going to be using open source as a vehicle for organizational change. From a practical standpoint, open source is a solved problem. It's not a question of if you can publish the source code, if you can stand up a forum to collect community feedback, or if you can track changes to the code over time. Geeks have been doing open source for decades at this point. You can assume it's at least *possible*.
 
 The true challenge is whether or not you can foster the internal culture necessary to support your open source project externally. Put another way, you can't be a closed source culture behind the firewall, and expect to foster an open source culture publicly. Successful open source projects begin well before the first line of code is ever written, let alone published. The way your organization works internally will necessarily be a mirror image of how your organization works externally, and if that workflow is closed, hostile, or untrusting, you'll likely have trouble embracing to open source. Before you embark on your first open source project (whether as an agency, a company, a business unit, or a team), spend a few cycles improving your own internal workflows. Put another way, bad collaboration is bad collaboration, regardless of how closely held or widely shared the result is.
 
-### 2. Start small, go through the motions
+## 2. Start small, go through the motions
 
 There's an anti-pattern within government that when an agency decides to start participating in the open source community, they bet big and do it with a flagship initiative, often with a strong policy component (and executive's reputation) at stake. In reality, [your first open source project is likely going to be a flop](https://ben.balter.com/2015/02/11/why-your-first-open-source-project-is-going-to-be-a-dud/).
 
@@ -23,7 +23,7 @@ Instead, start by experimenting by collaborating openly, but in private, within 
 
 Your first open source release should be something small and inconsequential, not a flagship initiative. Find a few lines of your website's frontend code, a plugin you use in your CMS, or a previously release mobile app. Get that open source 0.1 out the door, before waiting on (and learning from your mistakes as you ship) a 1.0 Your goal is to ensure all the organization's cylinders are firing in sync when it comes to open source, and to go through the motions of open source, with a bit of help from training wheels.
 
-### 3. Minimize information imbalance
+## 3. Minimize information imbalance
 
 Open source is about growing a community. Often when we think about project stakeholders (and build or adopt workflows), we only look to those within our organization. When it comes to open source, you *must* ensure that those outside the firewall are on equal footing — in terms of access to information and ability to influence the project — as those inside the firewall. Simply put, developers are people too.
 
@@ -41,7 +41,7 @@ This idea comes into play in three distinct ways:
 
 * **Long-term** that means documenting (and open sourcing) the project's mission statement, philosophy, goals, features and requirements list, and overall project roadmap.
 
-### 4. Embrace the constraints of open source
+## 4. Embrace the constraints of open source
 
 Open source is bound by certain workflow constraints. [Rarely are two people in the same place at the same time let alone working on the same thing at the same time](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/), and yet they almost always produce better results than their proprietary, purpose-built counterparts. It's the story of Wikipedia versus Encyclopedia Britannica.
 
@@ -55,7 +55,7 @@ You can't un-constrain open source, nor would you want to. To engage the open so
 
 * **Informal** — Adopt cultures, not polices. Organizations should prefer social and cultural constraints to technical or administrative constraints that are unable to adapt to changing circumstances. Workflows should be professional, but not formal. Respond to pull requests with emoji and animated GIFs, not "Dear sir or madam, I am in receipt of your pull request". Be human.
 
-### 5. Open source problems, not solutions
+## 5. Open source problems, not solutions
 
 Developers want to contribute to a cause not provide free labor. If you set out to solve a problem, and you've published the result, you're not likely to garner a strong open source presence. Why would you? What exciting problems are there for developers to solve? What ways have you provided for them to contribute? Likely few to none (other than bugfixes, for which they have no vested interest).
 

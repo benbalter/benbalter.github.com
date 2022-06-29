@@ -14,7 +14,7 @@ Put another way, open source is not an alternative workflow or development metho
 
 To say "hey, we've got something decent here, let's take this closed-sourced project and just hit publish" misses the mark. Your motivation can't be to seek free labor, as in "hey, if developers want to give us their time, great, let's put this out there and see what happens we have nothing to lose", or about sporadically seeking to garner good will from a niche community of dedicated fans. Trust me, an open source developer can smell AstroTurf a mile a way, and that's exactly how far they'll stay.
 
-### What makes an open source project truly open source and not simply "published"
+## What makes an open source project truly open source and not simply "published"
 
 * **Shared Vision** - Open source developers want to get behind a cause. Think of it as analogous to volunteering for a political campaign. They want to know what the project stands for, and where it is going. If they contribute, what will their code be used for in a six months or a year?
 * **Clear Goals** - What's the goal of the project? What's the roadmap look like? Do you trust the community enough to share it? Can they shape that roadmap or is it set in stone?

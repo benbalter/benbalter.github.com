@@ -13,7 +13,7 @@ At a high level, I'd break down a Chief of Staff's responsibilities into three k
 
 Adding to the confusion, the Chief of Staff function is unique in that the scope, responsibility, and impact can grow dramatically over time from the tactical to the strategic based on the maturity of the organization the Chief supports and the seniority of the individual in the role. Whether you're entering the role yourself or are working with a corporate Chief of Staff for the first time, in order from most tactical/junior/immature to most strategic/senior/mature, here are the seven things a great Chief of Staff does:
 
-### 1. Manage the office of the CXO
+## 1. Manage the office of the CXO
 
 At the most basic level, the Chief of Staff is responsible for managing the "office of the CXO". At GitHub, my team fittingly refers to this as the organizational “operating system”, which the Chief is responsible for installing, configuring, monitoring, upgrading, and patching to keep everything running bug free. In this way, the Chief's "software", and by extension, the Chief themselves help the business operate more efficiently by scaling the efforts of its leaders and membership. The specific activities will vary depending on the business unit the Chief is supporting, but generally, one would expect this meta work[^2] to include managing:
 
@@ -23,7 +23,7 @@ At the most basic level, the Chief of Staff is responsible for managing the "off
 
 As a CXO's office matures, this may begin as an office of one (the Chief), but can quickly grow to three or more individuals, whom the Chief is expected to manage to extend their own reach and impact.
 
-### 2. Improve organization effectiveness
+## 2. Improve organization effectiveness
 
 If there's one thing that describes the value a Chief of Staff brings to an organization, it's "effectiveness". Unlike other roles, it's not enough for the Chief themselves to be effective, but rather they are expected to improve the effectiveness of the CXO, the organization's leaders, and the business as a whole. Specifically:
 
@@ -31,7 +31,7 @@ If there's one thing that describes the value a Chief of Staff brings to an orga
 * **Leader effectiveness** - Improving the effectiveness of CXO's direct reports (the Chief's peers) as well as leaders throughout the organization. This may involve everything from preparing meeting agendas and planning team off sites to establishing communication patterns and cadence to fostering better interpersonal dynamics.
 * **Business effectiveness** - Somewhat similar to [how a Product Manager approaches iterative product improvements](https://ben.balter.com/2016/06/06/twelve-things-a-product-manager-does/#6-solve-for-what-the-customer-wants-not-what-theyre-asking-for), the Chief is often required to learn the nuances of a specific area of the business to debug a particular system or process. Once they've identifying the underlying [problems](https://ben.balter.com/2018/07/16/problems-not-solutions/) and other sources of [friction](https://ben.balter.com/2013/08/11/friction/) affecting internal customers, they oversee the implementation of technical or non-technical improvements to get things to a better steady state, before moving on to the next least efficient area of the business and doing the whole thing all over again.
 
-### 3. Boundaryless engagement
+## 3. Boundaryless engagement
 
 One of the most powerful organizational "hacks" Chiefs of Staff enjoy is that their scope is both boundaryless and organization-wide. For Chiefs this organizational position can manifest itself in the wearing of three "hats":
 
@@ -39,7 +39,7 @@ One of the most powerful organizational "hacks" Chiefs of Staff enjoy is that th
 * **Connector of dots** - Serving as directly responsible individual (DRI) to own "somebody should own this"-type projects, ambiguous and broad-reaching problems that require organization-wide understanding to uncover the true manifestations and possibilities, complex organizational change management, and generally doing what needs to be done without regard for title or stated responsibility.
 * **Organizational "air traffic controller"** - Helping the CXO prioritize projects; resolving disputes, ambiguity, or otherwise driving consensus; and serving as an honest broker by facilitating tough conversations, all to ensure that organizational planes take off and land on time and without incident, regardless of their origin, destination, or flight path.
 
-### 4. Portfolio management
+## 4. Portfolio management
 
 In some ways, you can think of a Chief of Staff as a staff or principal program manager, and for many (such as myself), that's a natural place to transition into the role from. However, as a Chief of Staff, instead of managing one or more well-defined programs, you manage the CXO's entire portfolio of responsibilities. I've [written before](https://ben.balter.com/2021/03/26/nine-things-a-technical-program-manager-does/) about the ways program managers bring value to an organization, but there are a few I'd specifically call out as uniquely applicable to Chiefs:
 
@@ -47,7 +47,7 @@ In some ways, you can think of a Chief of Staff as a staff or principal program 
 * **[Reporting up and across](https://ben.balter.com/2021/03/26/nine-things-a-technical-program-manager-does/#4-reporting-up-and-across)** - Establishing, operating, and improving the systems that capture, track, and regularly report on work in flight, especially strategic or other cross-functional initiative, to ensure situational awareness at all levels.
 * **[Identify, analyze, and mitigate risk](https://ben.balter.com/2021/03/26/nine-things-a-technical-program-manager-does/#3-identify-analyze-and-mitigate-program-risk)** - The Chief of Staff is the one with their "hands inside of the organizational machine" to identify "squishiness", bring problem areas to light, drive successful execution, and enable teams to consistently ship with speed and confidence.
 
-### 5. Strategy, planning, culture, and values
+## 5. Strategy, planning, culture, and values
 
 As a Chief of Staff transitions from the more tactical to the more strategic they play an increasing role in not only managing the organization's day-to-day work, but in shaping *what* problems the organization solves, *how* they solve them, and *why*:
 
@@ -55,7 +55,7 @@ As a Chief of Staff transitions from the more tactical to the more strategic the
 * **Planning** - Helping leaders carry out the CXO's vision and strategic intent at all levels. You can think of this as where policy and politics come together. Once they are defined, the Chief of Staff is responsible for communicating the organization's plans by distilling and cascading those core strategic tenants to both internal and external stakeholders where they can eventually be realized.
 * **Culture and values** - Establishing, shaping, debugging, and socializing, organizational culture, values, taste, and behavioral expectations. These are the underlying assumptions that an organization's members fall back on as they resolve ambiguity in pursuit of the organization’s mission. Explicitly and implicitly, Chiefs should set the tone for how the organization prefers to interact, resolve disputes, execute, provide feedback, and solve problems among countless other often invisible decisions that over time can make or break an organization's success.
 
-### 6. Advisor and confidant
+## 6. Advisor and confidant
 
 As a healthy, trust-based relationship develops between Chief of Staff and CXO, a more senior Chief begins to serve as a as strategic advisor and counsel to the CXO by acting as a sounding board as well as second set of eyes, ears, and hands. Specifically:
 
@@ -63,7 +63,7 @@ As a healthy, trust-based relationship develops between Chief of Staff and CXO, 
 * **Deep understanding** - The Chief uses cross-functional knowledge to "scrub in" and deeply understand issues, trends, and perspectives that the CXO may not otherwise have the time to explore in depth. This requires a Chief that thrives in navigating ambiguity through curiosity and research and one that delivers data-driven, concise, and ultimately persuasive recommendations that bring clarity and direction to drive execution. This is not too dissimilar from the role an architect or principal engineer might play within engineering, but for business decisions of the same level of complexity, breadth, and impact.[^5]
 * **Proxy** - A more senior Chief is distinct in that a core responsibility is to serve as implicit or explicit deputy CXO, to attend meetings on behalf of the CXO and speak as their representative. This is so common, in fact, that it's often prudent to clarify when you are speaking on your own behalf and when you are acting as the CXO's stand in. This is one of the many ways the Chief becomes a force multiplier for the CXO, allowing them to be in multiple places at once, at least via proxy. With time, strong Chiefs should also feel comfortable making difficult decisions to advance the business, even in the CXO's absence.
 
-### 7. Relationship and brand management
+## 7. Relationship and brand management
 
 An exceptional Chief of Staff is responsible for managing the relationships and brands of the organization the Chief supports, and by extension both the CXO and the Chief themselves, to ensure the ongoing success of all three. It's the most difficult aspect of the role to define, and begins to approach "good leadership" generally, but I'd summarize this aspect of the role as:
 
@@ -71,7 +71,7 @@ An exceptional Chief of Staff is responsible for managing the relationships and 
 * **Lead through persuasion and influence** - A Chief enjoys *some* fiat authority by virtue of their position within the organization, but using it should almost always be seen as a failure to inspire or persuade. Instead, Chiefs should regularly be establishing and growing relationships at each touch point, both on their own behalf, and on behalf of their CXO. This sets the Chief in a position to "know whom to ask" when situations arise, along with enjoying the necessary groundwork to ensure conversations start off on the right foot. Whether it's the Chief acting directly to solve a problem or facilitating a "high profile" meeting on behalf of others, leading through persuasion expands the Chief and CXO's sphere of influence well beyond their own organization, allowing them to have an even greater overall impact.
 * **Be a thoughtful and kind human leader** - All throughout GitHub lore we have phrases like “when in doubt, be classy”, which I didn't fully understand the implications of when I was first introduced to the phrase, but it applies even more so to a Chief of Staff than it does any role I've held in the past. For me, a critical aspect of being an exceptional Chief is about seeking to connect with those you work with as humans, not as means to an ends. It's about practicing honesty, integrity, decency, fairness, and authenticity in everything you do. Working to support and raise up others, rather than climbing over them to accomplish near-term goals. It's about approaching software development as a team sport, and being willing to be the leader the team needs when necessary, even if uncomfortable, inconvenient, or not in your immediate self interest.
 
-### Conclusion
+## Conclusion
 
 As I first began settling in, I struggled to get a sense of what a Chief of Staff's typical day looked like (spoiler: there isn't one!) or what skills I should be focusing on day-to-day to maximize the value I brought to a principal or executive and to my team. Here’s the list I wish I had as I was first stepping into the role.[^7] I hope it helps others as they step into similar roles (as well as those they work with) to better understand the role the Chief of Staff plays in improving an organization's strategy and tactics, health and maturity, and ultimately its overall likelihood of success.
 
