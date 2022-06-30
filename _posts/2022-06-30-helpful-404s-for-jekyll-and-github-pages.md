@@ -18,7 +18,7 @@ If you were to click an invalid link or typo a URL on my site, the following wou
 
 ## What it looks like
 
-Let's say you tried to navigate to [`/2022/06/30/unhelpful-404s-for-jekyll`](/2022/06/30/unhelpful-404s-for-jekyll){: data-proofer-ignore="true" data-turbo="false" }. Along with a list of recent posts, the experience, would look something like this:
+Let's say you tried to navigate to a path that doesn't exist like [`/2022/06/30/unhelpful-404s-for-jekyll`](/2022/06/30/unhelpful-404s-for-jekyll){: data-proofer-ignore="true" data-turbo="false" }. Along with a list of recent posts, the experience, would look something like this:
 
 <div class="alert alert-primary lead text-center" role="alert">
   The page you are trying to view does not exist. <br />
