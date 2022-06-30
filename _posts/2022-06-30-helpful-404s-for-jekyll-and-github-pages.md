@@ -18,11 +18,11 @@ If you were to click an invalid link or typo a URL on my site, the following wou
 
 ## What it looks like
 
-Let's say you tried to navigate to [`/2022/06/30/unhelpful-404s-for-jekyll`](/2022/06/30/unhelpful-404s-for-jekyll){: data-proofer-ignore="true" }. Along with a list of recent posts, the experience, would look something like this:
+Let's say you tried to navigate to [`/2022/06/30/unhelpful-404s-for-jekyll`](/2022/06/30/unhelpful-404s-for-jekyll){: data-proofer-ignore="true" data-turbo="false" }. Along with a list of recent posts, the experience, would look something like this:
 
 <div class="alert alert-primary lead text-center" role="alert">
   The page you are trying to view does not exist. <br />
-  <strong>Perhaps you're looking for <span id="four-oh-four-suggestion"><a href="/2022/06/30/unhelpful-404s-for-jekyll-and-github-pages/"></a>/2022/06/30/unhelpful-404s-for-jekyll-and-github-pages/</span>?</strong>
+  <strong>Perhaps you're looking for <a href="/2022/06/30/helpful-404s-for-jekyll-and-github-pages/">/2022/06/30/helpful-404s-for-jekyll-and-github-pages/</a>?</strong>
 </div>
 
 ## How it works
