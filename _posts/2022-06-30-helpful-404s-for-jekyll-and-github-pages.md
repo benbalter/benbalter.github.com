@@ -1,6 +1,6 @@
 ---
 title: Helpful 404s for Jekyll (and GitHub Pages)
-description: How to implement `404` (not found) pages for Jekyll and GitHub pages that automatically suggest similar URLs to the one requested based on your site's `sitemap.xml`.
+description: How to implement `404 - not found` pages for Jekyll and GitHub pages that automatically suggest similar URLs to the one requested based on your site's `sitemap.xml`.
 ---
 
 While the internet has long had a soft spot for [clever `404` pages](https://www.pagecloud.com/blog/best-404-pages), it's rare to see one that's actually *helpful*, especially for static sites like Jekyll or GitHub Pages that make dynamic searches more difficult. Great 404 pages should help visitors find what they're looking.
@@ -11,7 +11,7 @@ Here's how I updated the `404` (not found) pages on my own site to resolve typos
 
 If you were to click an invalid link or typo a URL on my site, the following would occur:
 
-1. You'd see a `404` (not found) page[^1]
+1. You'd see a `404 - not found` page[^1]
 2. Your browser would retrieve and parse my site's [`sitemap.xml`](/sitemap.xml)[^2]
 3. Your browser would find the valid path that has the shortest [edit distance](https://en.wikipedia.org/wiki/Levenshtein_distance) from the path you requested
 4. Your browser would update the `404` page with a link to the suggested path
