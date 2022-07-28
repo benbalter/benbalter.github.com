@@ -1,9 +1,22 @@
 ---
-title: Manage like an engineer
+title: Manage like an open source developer
 description:
 ---
 
-## Principals
+Long before the term "inner-source" became popular, GitHub had coopted the workflows and communication patterns of the open source community for its own internal development. While much has been written over the years about "how we use GitHub to build GitHub", the concept of using GitHub to _manage_ GitHub is relatively new. After all, if we believe issues, pull requests, and project boards are the best way to develop software, should it not also be the best way to manage software development?
+
+Rather than tracking bugs or feature requests, in my day-to-day, I use GitHub to track all the "meta work" that supports software development. Need to prepare a deck for a business review? Open an issue. Want to refresh our career ladders? Open an issue. Planning an offsite? You guessed it, open an issue. 
+
+But using GitHub this way is much more than an alternative to your personal todo list. I've written before about [the value of "showing your work"](https://ben.balter.com/2022/02/16/leaders-show-their-work/#the-value-of-showing-your-work). Absent working within systems that naturally capture and expose process, transparency takes effort. There's a lot that you get for "free" when transparency is organic:
+
+> * **Captures institutional knowledge** - When you're purposeful about where and how you share context, you alleviate the need for “you had to be there” and “go ask Susan"-type inquiries.
+> * **Empowers others to learn through observation** - What's routine to you is likely novel to someone in another role or at another level of seniority.
+> * **Socializes organizational culture and values** - An organization's culture and values is comprised in large part of [the underlying assumptions](https://ben.balter.com/2015/08/12/the-zen-of-github/) that its members fall back on as they resolve ambiguity in pursuit of the organization’s mission.
+> * **Fuels engagement** - Transparency offers a sense of agency, situational awareness, and overall engagement that fosters a culture of thoughtful dialog and encourages organization-wide collaborative improvement over time.
+> * **Keeps the bar high** - Showing one's work establishes expectations around justification, thoroughness, and accountability that sets and maintains a high standard for decision making within an organization.
+
+
+## Principles
 
 * **Make work visible** - Proactively share to the widest extent practical given the subject.
 * **Write things down** - Show your work, especially the why and how.[^1] [Ensure that everything has a URL](https://ben.balter.com/2015/11/12/why-urls/). 
