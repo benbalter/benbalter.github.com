@@ -91,14 +91,14 @@ plugins:
   - jekyll-seo-tag
   - jekyll-avatar
   - jekyll-github-metadata
-  - jekyll-remote-theme
+ # - jekyll-remote-theme
   - jekyll-mentions
 
 sass:
   style: compressed
 
-remote_theme: benbalter/retlab
-# theme: retlab
+#remote_theme: benbalter/retlab
+theme: retlab
 
 gist:
   noscript: false
