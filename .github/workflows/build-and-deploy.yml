@@ -33,7 +33,8 @@ jobs:
       - run: bundle exec jekyll build --baseurl ${{ steps.pages.outputs.base_path }}
         env:
         #  JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          JEKYLL_ENV: production
+        #  JEKYLL_ENV: production
+        #  PAGES_REPO_NWO: benbalter/benbalter.github.com
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
