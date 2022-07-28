@@ -6,7 +6,6 @@ author:
 pgp_key: 07C6 73FB F30E 01C0 C342 7AB8 DBB6 7C24 6AD3 56C4
 
 url: "https://ben.balter.com"
-branch: main
 
 repository: benbalter/benbalter.github.com
 # logo: "/assets/img/headshot.jpg"
@@ -81,7 +80,7 @@ defaults:
 timezone: America/New_York
 encoding: UTF-8
 lang: en-US
-branch: master
+branch: main
 future: true
 
 plugins:
@@ -92,13 +91,11 @@ plugins:
   - jekyll-seo-tag
   - jekyll-avatar
   - jekyll-github-metadata
- # - jekyll-remote-theme
   - jekyll-mentions
 
 sass:
   style: compressed
 
-#remote_theme: benbalter/retlab
 theme: retlab
 
 gist:
@@ -143,6 +140,3 @@ employer:
   url: https://github.com
 job_title: Chief of Staff, Security
 handle: benbalter
-
-github:
-  branch: main

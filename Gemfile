@@ -2,8 +2,6 @@
 
 source 'https://rubygems.org'
 
-gem 'faraday', '< 1.0.0'
-
 # gem 'retlab', path: '../retlab'
 
 group :jekyll_plugins do
@@ -15,7 +13,6 @@ group :jekyll_plugins do
   gem 'jekyll-redirect-from'
   gem 'jekyll-relative-links'
   gem 'retlab', github: 'benbalter/retlab'
-  # gem 'jekyll-remote-theme'
   gem 'jekyll-sass-converter'
   gem 'jekyll-seo-tag'
   gem 'jekyll-sitemap'
