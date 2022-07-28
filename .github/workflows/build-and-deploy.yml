@@ -30,7 +30,7 @@ jobs:
         id: pages
         uses: actions/configure-pages@v1
 
-      - run: bundle exec jekyll build --verbose
+      - run: bundle exec jekyll build
         env:
           JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           JEKYLL_ENV: production
