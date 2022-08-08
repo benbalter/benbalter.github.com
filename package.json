@@ -23,7 +23,7 @@
     "remark-footnotes": "^4.0.1",
     "remark-frontmatter": "^4.0.1",
     "remark-gfm": "^3.0.1",
-    "remark-github": "^11.2.3",
+    "remark-github": "^11.2.4",
     "remark-heading-gap": "^5.0.1",
     "remark-inline-links": "^6.0.1",
     "remark-lint": "^9.1.1",
