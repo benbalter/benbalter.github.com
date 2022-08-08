@@ -47,4 +47,4 @@ jobs:
       - name: Check site
         run: bundle exec rake test
       - name: Check DNS
-        run: bundle exec github-pages health-check
+        run: gem install github-pages && github-pages health-check
