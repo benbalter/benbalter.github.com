@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'yaml'
-require 'github-pages'
 require 'cgi'
 require 'uri'
 
