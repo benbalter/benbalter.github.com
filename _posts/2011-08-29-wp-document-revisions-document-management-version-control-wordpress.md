@@ -74,7 +74,7 @@ redirect_from: 2011/08/29/document-management-version-control-for-wordpress/
 
 Questions? Comments? Many may have already been addressed in [the WP Document Revisions FAQ](http://wordpress.org/extend/plugins/wp-document-revisions/faq/), or feel free to simply leave a reply below.
 
-**Give it a try today:**: [Download WP Document Revisions][1] from the WordPress Plugin Repository
+**Give it a try today:**: [Download WP Document Revisions](http://wordpress.org/extend/plugins/wp-document-revisions/) from the WordPress Plugin Repository
 
 *WP Document Revisions was developed by a [law student and a business student](https://ben.balter.com) with a [grant from Google](http://code.google.com/soc/), and in close coordination with and under the watchful eye of WordPress.org's lead developers.* [^1] *Special thanks to [Jon Cave](http://joncave.co.uk/), [Aaron Jorbin](http://aaron.jorb.in/), [Mitcho Erlewine](http://mitcho.com/), and [Andrew Nacin](http://andrewnacin.com/) for their guidance.*
 
