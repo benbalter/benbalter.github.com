@@ -47,4 +47,4 @@ jobs:
       - name: Check site
         run: bundle exec rake test
       - name: Check DNS
-        run: script/lint-dns
+        run: bundle exec script/lint-dns
