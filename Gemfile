@@ -21,6 +21,7 @@ end
 
 group :test, :development do
   gem 'classifier-reborn', github: 'jekyll/classifier-reborn'
+  gem 'github-pages-health-check'
   gem 'gsl', github: 'SciRuby/rb-gsl'
   gem 'html-proofer'
   gem 'nokogiri'
