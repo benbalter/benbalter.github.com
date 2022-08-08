@@ -1,5 +1,5 @@
 import { unified } from 'unified'
-import dictionaryEnUs from 'dictionary-en-us'
+import dictionaryEn from 'dictionary-en'
 import fs from 'fs'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkGFM from 'remark-gfm'
@@ -57,7 +57,7 @@ const retextSettings = {
     [retextContractions, {straight: true}],
     [retextquotes, {preferred: 'straight'}],
     [retextSentenceSpacing, {preferred: 1}],
-    [retextSpell, {dictionary: dictionaryEnUs, personal: personal}],
+    [retextSpell, {dictionary: dictionaryEn, personal: personal}],
     retextDiacritics,
     retextEmoji,
     retextEnglish,
