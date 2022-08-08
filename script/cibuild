@@ -40,8 +40,8 @@ npm run lint-yaml
 title "checking front matter"
 bundle exec script/lint-front-matter
 
-title "checking DNS"
-bundle exec github-pages health-check
+#title "checking DNS"
+#bundle exec github-pages health-check
 
 title "Cleaning up..."
 rm -Rf _site
