@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'github-pages'
+require 'jekyll'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

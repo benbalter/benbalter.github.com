@@ -3,6 +3,7 @@
 require 'yaml'
 require 'cgi'
 require 'uri'
+require 'jekyll'
 
 begin
   require 'rspec/core/rake_task'
