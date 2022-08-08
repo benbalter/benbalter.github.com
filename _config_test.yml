@@ -1,22 +1,27 @@
 url: "http://localhost:4000"
 
 proofer:
-  :url_ignore:
+  :ignore_urls:
     - "#comments"
     - !ruby/regexp '/https?:\/\/(www)?\.youtube\.com\/watch\?v=.*/i'
     - http://ben.balter.com/404/
     - /edit/master/404.html
-  :check_html: true
-  :check_opengraph: true
+  :checks: 
+    - Links
+    - Images
+    - Scripts
+    - Favicon
+    - OpenGraph
   :internal_domains:
     - "http://localhost:4000"
   :url_swap:
     "http://localhost:4000/": "/"
-  :cache:
-    :timeframe: 24h
+  #:cache:
+  #  :timeframe: 24h
   :parallel:
     :in_processes: 3
   :disable_external: true
+  :enforce_https: false
 
 github:
   repository_nwo: "benbalter/benbalter.github.com"
