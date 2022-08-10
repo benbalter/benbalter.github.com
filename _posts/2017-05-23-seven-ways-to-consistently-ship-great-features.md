@@ -17,9 +17,9 @@ The difference between a feature and code is that a feature is defined by the us
 
 Describe what you're going to write, write it, and then describe what you wrote. Before you write a single line of code, propose to your teammates what you'd like to do and how you'd like to do it. Many code-review-induced rewrites could have been avoided by more explicit communication upfront. After the code's written, make sure non-developers can understand (and provide feedback) on what you did.
 
-## 3. Get it in users' hands, not on `master`
+## 3. Get it in users' hands, not on `main`
 
-Great developers don't just write code. The goal isn't to get functionality on `master`, rather to get functionality to users, and everything that entails beyond hitting merge. They own the feature from conception to retirement, writing feature proposals, success metrics, user-facing documentation, internal support playbooks, and the blog post that ultimately announces it to users, in addition to the code itself.
+Great developers don't just write code. The goal isn't to get functionality on `main`, rather to get functionality to users, and everything that entails beyond hitting merge. They own the feature from conception to retirement, writing feature proposals, success metrics, user-facing documentation, internal support playbooks, and the blog post that ultimately announces it to users, in addition to the code itself.
 
 After it ships, they're going through Hacker News, Twitter, support tickets, and metrics dashboards to make sure they've smoothed any rough edges and the feature's solving the problem they intended to solve. At every step of the process, they're asking "what else can I do to get an amazing experience into the hands of users?", and they do just that.
 
