@@ -98,7 +98,7 @@ In practice, that means discussions should have one purpose, defined by the titl
 
 Unless it's a minor typo, so irrefutable that no one would possibly question it or need to be notified of the change, the only way to change community content is with a pull request. It doesn't matter if it's code, configuration, or internal policy.
 
-In practice, this may mean submitting pull requests that you immediately self-merge, to notify your teammates of the change, or may mean having a longer discussion before merging, to justify the change to others. For 99% of changes, committing directly to `master` is not the appropriate choice.
+In practice, this may mean submitting pull requests that you immediately self-merge, to notify your teammates of the change, or may mean having a longer discussion before merging, to justify the change to others. For 99% of changes, committing directly to `main` is not the appropriate choice.
 
 ## 11. Secrets, secrets, are no fun
 
@@ -120,7 +120,7 @@ In practice, that means, as early as the drafting stage, preferring formats like
 
 ## 14. Pull requests are community property
 
-As soon as you hit the big green "submit pull request" button, your code is no longer your baby. The bird has left the nest. You're still primarily responsible for its success, and for seeing that it's eventually merged into `master`, but that primarily involves facilitating a discussion that allows stakeholders to reach a general consensus, not advocating for "your" contribution.
+As soon as you hit the big green "submit pull request" button, your code is no longer your baby. The bird has left the nest. You're still primarily responsible for its success, and for seeing that it's eventually merged into `main`, but that primarily involves facilitating a discussion that allows stakeholders to reach a general consensus, not advocating for "your" contribution.
 
 In practice, that means, at minimum, that it's bad form to title a pull request "@benbalter's edits", but more broadly, it relegates you to the role of gracious host, answering questions, implementing suggestions, and ensuring that necessary teams are involved. At GitHub, we primarily use branch-to-branch pull requests within the same repository, so don't be surprised if someone else jumps in and politely pushes a commit or two.
 
