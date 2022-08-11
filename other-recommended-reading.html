@@ -16,7 +16,7 @@ books_per_row: 3
 {% endcomment %}
 
 <div class="lead mb-2">
-  {{ page.description | markdownify }}
+  {{ page.description | markdownify | smartify | replace:"a href=",'a class="link-secondary" href=' }}
 </div>
 
 {% for group in site.data.books %}
