@@ -26,41 +26,45 @@ cloudflare:
   id: 71539cb18e584e6595f62fa7104b24ca
 
 exclude:
-  - CONTRIBUTING.md
-  - README.md
-  - LICENSE
-  - readme.md
-  - bundle
-  - src
-  - CNAME
-  - Gemfile
-  - Gemfile.lock
-  - bower.json
-  - package.json
-  - script
-  - test
-  - less
-  - scss
-  - media
-  - feature-detects
-  - composer.json
-  - component.json
-  - grunt.js
-  - assets/vendor/bootstrap-sass/stylesheets
-  - assets/vendor/font-awesome/less
-  - assets/vendor/font-awesome/scss
-  - assets/vendor/font-awesome/src
-  - assets/vendor/modernizr/feature-detects
-  - assets/vendor/modernizr/media
-  - assets/vendor/modernizr/test
-  - assets/vendor/anchor-js/README.md
-  - ".bundle"
-  - vendor
-  - node_modules
-  - Rakefile
-  - retlab
-  - dictionary.txt
-  - assets/vendor/turbolinks/test/
+  - /CONTRIBUTING.md
+  - /README.md
+  - /LICENSE
+  - /bundle
+  - /src
+  - /CNAME
+  - /Gemfile
+  - /Gemfile.lock
+  - /bower.json
+  - /package.json
+  - /package-lock.json
+  - /script
+  - /test
+  - /less
+  - /scss
+  - /media
+  - /feature-detects
+  - /composer.json
+  - /component.json
+  - /grunt.js
+  - /assets/vendor/bootstrap-sass/stylesheets
+  - /assets/vendor/font-awesome/less
+  - /assets/vendor/font-awesome/scss
+  - /assets/vendor/font-awesome/src
+  - /assets/vendor/modernizr/feature-detects
+  - /assets/vendor/modernizr/media
+  - /assets/vendor/modernizr/test
+  - /assets/vendor/anchor-js/README.md
+  - "/.bundle"
+  - /vendor
+  - /node_modules
+  - /Rakefile
+  - /retlab
+  - /dictionary.txt
+  - /assets/vendor/turbolinks/test/
+  - /spec/
+  - /comments.xml
+  - /docker-compose.yml
+
 
 permalink: "/:year/:month/:day/:title/"
 defaults:
