@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require 'yaml'
-require 'github-pages'
 require 'cgi'
 require 'uri'
+require 'jekyll'
 
 begin
   require 'rspec/core/rake_task'
@@ -33,7 +33,7 @@ end
 task :build do
   Rake::Task[:set_env].invoke
   options = {
-    'config' => %w[_config.yml _config_test.yml]
+    # 'config' => %w[_config.yml _config_test.yml]
   }
   Jekyll::Commands::Build.process(options)
 end
@@ -43,8 +43,8 @@ task :serve do
   options = {
     'serving' => true,
     'watch' => true,
-    'incremental' => true,
-    'config' => %w[_config.yml _config_local.yml]
+    'incremental' => true
+    # 'config' => %w[_config.yml _config_local.yml]
   }
   Jekyll::Commands::Build.process(options)
   Jekyll::Commands::Serve.process(options)

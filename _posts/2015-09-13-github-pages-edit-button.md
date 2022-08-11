@@ -34,5 +34,3 @@ Please <a href="http://github.com/benbalter/benbalter.github.com/edit/master/_po
 If a user clicks the link, they'll be prompted to login or signup for a GitHub account if they haven't already, and will be provided with a web-based editor to edit the page's content. From there, they simply click the big green "propose change" buttons, which will silently submit a pull request to your site on their behalf, no Git or GitHub knowledge necessary.
 
 Give it a try by clicking the edit button below (suggested improvements to this post welcome), and I encourage you to follow these steps to add a "help improve this content" button to your own site.
-
-**Edit (August 28, 2017)**: Updated to use [the `github_edit_link` helper](https://jekyll.github.io/github-metadata/edit-on-github-link/).

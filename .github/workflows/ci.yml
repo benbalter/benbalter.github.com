@@ -7,7 +7,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Set up Node.js
-        uses: actions/setup-node@v2-beta
+        uses: actions/setup-node@v3.4.1
         with:
           node-version: 16
           cache: 'npm'
@@ -22,7 +22,7 @@ jobs:
       - name: Lint Text
         run: npm run lint-text
       - name: Vale
-        uses: errata-ai/vale-action@v1
+        uses: errata-ai/vale-action@v2
         with:
           styles: |
             https://github.com/errata-ai/Microsoft/releases/latest/download/Microsoft.zip
@@ -47,4 +47,4 @@ jobs:
       - name: Check site
         run: bundle exec rake test
       - name: Check DNS
-        run: bundle exec github-pages health-check
+        run: bundle exec script/lint-dns

@@ -1,6 +1,6 @@
 ---
 title: Seven ways to consistently ship great features
-description: Developers that I see consistently shipping great, user-centric features [over communicate](#1-over-communicate); [write features first, then code](#2-write-features-first-then-code); [get it in users' hands, not on `main`](#3-get-it-in-users-hands-not-on-master); [ship the smallest delta possible](#4-ship-the-smallest-delta-possible); appreciate that ["Next iteration" doesn't mean "never"](#5-next-iteration-doesnt-mean-never); [always open issues](#6-always-be-opening-issues); and [optimize for users](#7-optimize-for-users).
+description: Developers that I see consistently shipping great, user-centric features [over communicate](#1-over-communicate); [write features first, then code](#2-write-features-first-then-code); [get it in users' hands, not on `main`](#3-get-it-in-users-hands-not-on-main); [ship the smallest delta possible](#4-ship-the-smallest-delta-possible); appreciate that ["Next iteration" doesn't mean "never"](#5-next-iteration-doesnt-mean-never); [always open issues](#6-always-be-opening-issues); and [optimize for users](#7-optimize-for-users).
 ---
 
 As a product manager, I spend most of my day working with developers to get features out the door and into the hands of users, both internally and for several open source projects. This gives me a unique sideline view of some of the habits successful (and not-so-successful) developers adopt, a perspective many may not be afforded when working in the code day-to-day. Here are seven habits I admire in developers that I see consistently shipping great, user-centric features:
@@ -17,9 +17,9 @@ The difference between a feature and code is that a feature is defined by the us
 
 Describe what you're going to write, write it, and then describe what you wrote. Before you write a single line of code, propose to your teammates what you'd like to do and how you'd like to do it. Many code-review-induced rewrites could have been avoided by more explicit communication upfront. After the code's written, make sure non-developers can understand (and provide feedback) on what you did.
 
-## 3. Get it in users' hands, not on `master`
+## 3. Get it in users' hands, not on `main`
 
-Great developers don't just write code. The goal isn't to get functionality on `master`, rather to get functionality to users, and everything that entails beyond hitting merge. They own the feature from conception to retirement, writing feature proposals, success metrics, user-facing documentation, internal support playbooks, and the blog post that ultimately announces it to users, in addition to the code itself.
+Great developers don't just write code. The goal isn't to get functionality on `main`, rather to get functionality to users, and everything that entails beyond hitting merge. They own the feature from conception to retirement, writing feature proposals, success metrics, user-facing documentation, internal support playbooks, and the blog post that ultimately announces it to users, in addition to the code itself.
 
 After it ships, they're going through Hacker News, Twitter, support tickets, and metrics dashboards to make sure they've smoothed any rough edges and the feature's solving the problem they intended to solve. At every step of the process, they're asking "what else can I do to get an amazing experience into the hands of users?", and they do just that.
 

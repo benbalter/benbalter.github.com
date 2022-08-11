@@ -11,7 +11,7 @@ description: With GitHub's protected branches feature, you can grant collaborato
 
 Out of the box, GitHub enables you to grant collaborators [read, write, or admin permissions](https://help.github.com/articles/repository-permission-levels-for-an-organization/) to a project. It's not uncommon, however, for open source communities to want to empower a class of non-code contributors to moderate comments, manage issues, or serve as project managers/team leads, even if they ultimately don't have permission to modify the code on the repository's primary branch.
 
-Fortunately, with [GitHub's protected branches feature](https://help.github.com/articles/about-protected-branches), you can grant contributors these permissions without also giving them the ability to merge pull requests or commit directly to `master`.
+Fortunately, with [GitHub's protected branches feature](https://help.github.com/articles/about-protected-branches), you can grant contributors these permissions without also giving them the ability to merge pull requests or commit directly to `main`.
 
 If your project is owned by an organization, it's relatively easy to set up on a per-repository basis:
 
@@ -23,7 +23,7 @@ If your project is owned by an organization, it's relatively easy to set up on a
 4. Check "Restrict who can push to this branch"
    ![Restrict who can push to this branch](https://cloud.GitHubusercontent.com/assets/282759/25056312/056cef5e-2136-11e7-8d09-b6a0cb38d1fe.png){: .w-75 .border .m-1 style="box-shadow: 10px 10px 10px #ccc;" }
 5. Add any users you want to be able to merge pull requests to this list[^2]
-6. Grant any users you'd like "write" access to the repository as you would normally, confident they can't commit or merge to `master`
+6. Grant any users you'd like "write" access to the repository as you would normally, confident they can't commit or merge to `main`
 
 With [branch restrictions](https://help.github.com/articles/about-branch-restrictions/) enforced, these non-code committing users, which you might describe as "community managers", "team leads", or "project managers" can now close/re-open issues, moderate comments, and push to feature branches, but cannot merge pull requests or commit directly to your project's primary branch (only those users you specified in step five above can).
 
