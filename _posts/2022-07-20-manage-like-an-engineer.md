@@ -1,13 +1,14 @@
 ---
 title: Manage like an open source developer
-description:
+description: 
 ---
 
-Long before the term "inner-source" became popular, GitHub had coopted the workflows and communication patterns of the open source community for its own internal development. While much has been written over the years about "how we use GitHub to build GitHub", the concept of using GitHub to _manage_ GitHub is relatively new. After all, if we believe issues, pull requests, and project boards are the best way to develop software, should it not also be the best way to manage software development?
+Many engineering and product leaders begin their career as engineers. On a typical engineering team, work is captured in issues, organized in project backlogs, and reviewed pull requests. But as engineers advance in their career and begin down the management path, they adopt an entirely different set of tools and workflows. If we believe issues, pull requests, and project boards are the best way to develop software, should it not also be the best way to manage software development?[^3]
 
-Rather than tracking bugs or feature requests, in my day-to-day, I use GitHub to track all the "meta work" that supports software development. Need to prepare a deck for a business review? Open an issue. Want to refresh our career ladders? Open an issue. Planning an offsite? You guessed it, open an issue. 
+Rather than tracking bugs or feature requests, in my day-to-day I use GitHub to track all the "meta work" that supports software development. Need to prepare a deck for a business review? Open an issue. Want to refresh our career ladders? Open an issue. Planning an offsite? You guessed it, open an issue. 
+### Show your work
 
-But using GitHub this way is much more than an alternative to your personal todo list. I've written before about [the value of "showing your work"](https://ben.balter.com/2022/02/16/leaders-show-their-work/#the-value-of-showing-your-work). Absent working within systems that naturally capture and expose process, transparency takes effort. There's a lot that you get for "free" when transparency is organic:
+Using GitHub to track management tasks is *much* more than an alternative to your personal todo list or an endless stack of Google Docs or group DMs shared with peers. I've written before about [the value of "showing your work"](https://ben.balter.com/2022/02/16/leaders-show-their-work/#the-value-of-showing-your-work). When you work in systems that naturally capture and expose process, there's a lot of organic transparency that you get for "free":
 
 > * **Captures institutional knowledge** - When you're purposeful about where and how you share context, you alleviate the need for “you had to be there” and “go ask Susan"-type inquiries.
 > * **Empowers others to learn through observation** - What's routine to you is likely novel to someone in another role or at another level of seniority.
@@ -15,19 +16,20 @@ But using GitHub this way is much more than an alternative to your personal todo
 > * **Fuels engagement** - Transparency offers a sense of agency, situational awareness, and overall engagement that fosters a culture of thoughtful dialog and encourages organization-wide collaborative improvement over time.
 > * **Keeps the bar high** - Showing one's work establishes expectations around justification, thoroughness, and accountability that sets and maintains a high standard for decision making within an organization.
 
-
 ## Principles
 
-* **Make work visible** - Proactively share to the widest extent practical given the subject.
+Unfortunately, this transparency is not automatic. Tools help influence outcomes, but ultimately, managers must be deliberate in how they work for their team to benefit. Here are a few of the principles I follow:
+
+* **Make work visible** - Proactively share to the widest extent practical given the subject.[^4]
 * **Write things down** - Show your work, especially the why and how.[^1] [Ensure that everything has a URL](https://ben.balter.com/2015/11/12/why-urls/). 
 * **[Over communicate](https://ben.balter.com/2017/05/23/seven-ways-to-consistently-ship-great-features/#1-over-communicate)** - Use a durable, searchable, and discoverable medium. Let others opt-in to context and subscribe to updates.
-* **Bias for shipping** - [Ship early, ship often](https://ben.balter.com/2016/09/13/seven-habits-of-highly-effective-githubbers/#2-ship-early-ship-often). Whether decisions, process, or code, ship the smallest thing possible and iterate. Minimize batch size. 
+* **Bias for shipping** - [Ship early, ship often](https://ben.balter.com/2016/09/13/seven-habits-of-highly-effective-githubbers/#2-ship-early-ship-often). Whether decisions, process, or "manager code", ship the smallest thing possible and iterate. Minimize batch size. 
 * **Seek efficiency and automation** - Never force a human to do what a robot can. Prefer non-blocking over blocking operations. Codify policy as code.
 * **Collaborate** - How we work is as important as what we work on. Software development is a team sport.
 * **Asynchronous first** - Reserve higher-fidelity mediums for conversations that require them.
 * **Practicality beats purity** - These are guidelines, not rules. Process should drive outcomes.
 
-## Tracking work
+## Tracking work in practice
 
 Issues on GitHub.com are the atomic unit of work across teams and is the primary means by which work is planned, tracked, managed, coordinated, communicated, and shared. Track tasks and their progress in issues, cc relevant teams, and cross reference relevant issues to naturally [capture and expose process](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/#2-captures-and-exposes-process). [^2] 
 
@@ -36,3 +38,7 @@ Teams may choose to organize issues with labels, milestones, assignees, and proj
 [^1]: Successful distributed teams place an emphasis on written and asynchronous communication. Writing things down serves as a message in a bottle to your future self and you future peers, recording what decisions were made, by whom, and why. One common way to capture important decisions is through [an architecture decision record (ADR)](https://github.com/joelparkerhenderson/architecture-decision-record). ADRs capture not just the decision, but also its context and consequences, and do so in a way that allows stakeholders to deeply participate in the process. While ADRs are intended for engineering decisions, the format and rigour of documentation and process can be adapted to any type of impactful or long-lived decision by documenting and discussing key outcomes in issues and pull requests.
 
 [^2]: Issues bring the most value to teams when conversations and status updates happen on and around the issue, rather than holding important discussions in chat or over video with the issue being used merely as a "TODO" with only an open and closed state.
+
+[^3]: Long before the term "inner-source" became popular, GitHub had coopted the workflows and communication patterns of the open source community for its own internal development. While much has been written over the years about "how Github uses GitHub to build GitHub", the concept of using GitHub to _manage_ GitHub fell out of popularity as GitHub grew (and outgrew its own tools). Now that GitHub has native planning-and-tracking capabilities, I believe it's the perfect tool for managers.
+
+[^4]: HR and other personnel matters must often be restricted in their visibility due to their sensitivity, but the vast majority of management work can be shared with increasing circles of trust (peers, other managers, the team, the org, the company, etc.).
