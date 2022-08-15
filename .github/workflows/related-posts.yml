@@ -26,7 +26,26 @@ jobs:
       - name: Build posts
         run: bundle exec script/build-related-posts
 
-      - name: Commit
-        uses: stefanzweifel/git-auto-commit-action@v4
+      - name: Create Pull Request
+        id: create-pull-request
+        uses: peter-evans/create-pull-request@v4
         with:
-          commit_message: "Update related posts"
+          commit-message: Update related posts
+          title: Update related posts
+          add-paths: _data/related_posts.yml
+          delete-branch: true
+          token: ${{ secrets.ACTIONS_TOKEN }}
+
+      - name: Enable Pull Request Auto-merge
+        if: steps.create-pull-request.outputs.pull-request-operation == 'created'
+        uses: peter-evans/enable-pull-request-automerge@v2
+        with:
+          token: ${{ secrets.ACTIONS_TOKEN }}
+          pull-request-number: ${{ steps.create-pull-request.outputs.pull-request-number }}
+
+      - name: Auto approve
+        if: steps.create-pull-request.outputs.pull-request-operation == 'created'
+        uses: juliangruber/approve-pull-request-action@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ steps.create-pull-request.outputs.pull-request-number }}
