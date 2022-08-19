@@ -3,6 +3,7 @@ on: pull_request
 
 permissions:
   pull-requests: write
+  contents: write
 
 jobs:
   dependabot:
@@ -14,13 +15,25 @@ jobs:
         uses: dependabot/fetch-metadata@v1.3.3
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
+
+      # Checkout sets the necessary metadata for gh status to work
+      - uses: actions/checkout@v3
+
+      - name: Get PR Status
+        id: pr-status
+        run: echo "::set-output name=review_decision::$(gh pr status --json reviewDecision -q .currentBranch.reviewDecision)"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          
       - name: Approve a PR
+        if: steps.pr-status.outputs.review_decision != 'APPROVED' && contains(fromJson('["version-update:semver-patch", "version-update:semver-minor"]'), steps.metadata.outputs.update-type)
         run: gh pr review --approve "$PR_URL"
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
       - name: Enable auto-merge for Dependabot PRs
-        if: steps.metadata.outputs.update-type == 'version-update:semver-patch' || steps.metadata.outputs.update-type == 'version-update:semver-minor'
         run: gh pr merge --auto --merge "$PR_URL"
         env:
           PR_URL: ${{github.event.pull_request.html_url}}

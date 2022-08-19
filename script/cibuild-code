@@ -1,0 +1,33 @@
+#!/bin/sh
+
+set -e
+
+export CI=1
+script/branding
+
+script/title "checking site"
+bundle exec rake test
+
+script/title "checking Jekyll"
+bundle exec jekyll doctor
+
+script/title "checking ruby"
+bundle exec rubocop -D -S
+
+script/title "checking js"
+npm run lint-js
+
+script/title "checking json"
+npm run lint-json
+
+script/title "checking yaml"
+npm run lint-yaml
+
+script/title "checking front matter"
+bundle exec script/lint-front-matter
+
+script/title "checking DNS"
+bundle exec script/lint-dns
+
+script/title "Cleaning up..."
+rm -Rf _site

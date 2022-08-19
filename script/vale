@@ -1,3 +1,9 @@
 #!/bin/sh
 
-vale ./*.md _posts/*.md _resume_positions/*.md --minAlertLevel=error
+set -e
+
+if ! [ -x "$(command -v vale)" ]; then
+  echo "Vale not found. Skippintg."
+else 
+  vale ./*.md _posts/*.md _resume_positions/*.md --minAlertLevel=error
+fi

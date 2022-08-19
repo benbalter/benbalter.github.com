@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -e
+
+export CI=1
+script/branding
+
+script/title "checking markdown"
+script/remark
+
+script/title "checking text"
+script/lint-text
+
+script/title "checking vale"
+script/vale
