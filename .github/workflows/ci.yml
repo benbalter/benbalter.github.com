@@ -40,9 +40,15 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3.4.1
+        with:
+          node-version: 16
+          cache: 'npm'
 
-      - name: Install
-        run: bundle install
+      - name: script/bootstrap
+        run: script/bootstrap
 
       - name: script/cibuild-code
         run: script/cibuild-code
