@@ -6,7 +6,7 @@ proofer:
     - !ruby/regexp '/https?:\/\/(www)?\.youtube\.com\/watch\?v=.*/i'
     - http://ben.balter.com/404/
     - /edit/master/404.html
-  :checks: 
+  :checks:
     - Links
     - Images
     - Scripts
