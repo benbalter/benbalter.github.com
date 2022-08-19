@@ -22,7 +22,7 @@ jobs:
       - name: Vale
         uses: errata-ai/vale-action@v2
         with:
-          files: __onlyModified
+          reporter: github-check
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
