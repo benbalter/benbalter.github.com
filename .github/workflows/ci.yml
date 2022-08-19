@@ -35,7 +35,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      
+
       - name: Set up Node.js
         uses: actions/setup-node@v3.4.1
         with:
