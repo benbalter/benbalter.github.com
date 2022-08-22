@@ -49,7 +49,7 @@ Not much. Assuming Groupon scales back its cut and guides merchants through the 
 
 ### Limited Growth
 
-Daily deal sites' most successful contribution to the market are not the deals themselves, but rather the hype ecosystem they generate. Like any viral network, their model is dependent on friends continuously asking friends "oh, have you heard of this cool new thing the kids are doing." With the early adopting Facebook generation arguably tapped, it's only a matter of time before baby boomers become equally saturated.
+Daily deal sites' most successful contribution to the market are not the deals themselves, but rather the hype ecosystem they generate. Like any viral network, their model is dependent on friends continuously asking friends "oh, have you heard of this cool new thing the kids are doing." With the early adopting Facebook generation arguably tapped, it's inevitable that baby boomers will soon become equally saturated.
 
 Sure it's fun to get an email in your inbox with a "super-exclusive" offer, but when everyone's in on it, the artificial scarcity is no longer all that alluring. How many nearly identical offers for half off yoga can one person get before they get tired of misses and simply unsubscribe. Multiply that threat by the increasing number of daily deal sites that are springing up and the problem becomes readily apparent.
 
