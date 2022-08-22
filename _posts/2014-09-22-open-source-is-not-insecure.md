@@ -7,7 +7,7 @@ Spend any time in the enterprise IT world, and you'll quickly be led to believe 
 
 ## Open source as a platform
 
-The first threshold issue, is whether building or using open source software, even if your own particular code isn't published, is somehow inherently less secure. There are a few flavors to this argument.
+The first threshold issue, is whether building or using open source software, even if your own particular code isn't published, is somehow inherently less secure. This argument has a few flavors:
 
 ### This one (high profile) open source project that (once) had a vulnerability
 
@@ -23,7 +23,7 @@ That said, there is something to be said for a distributed workflow. Lots of clo
 
 ## Open source as a workflow
 
-The second form of open source FUD attacks open source as a workflow, meaning that by publishing the source code to your software, by that workflow's very nature, it somehow, becomes less secure. Again, there are several flavors to this argument.
+The second form of open source FUD attacks open source as a workflow, meaning that by publishing the source code to your software, by that workflow's nature, it somehow, becomes less secure. Again, there are several flavors to this argument.
 
 ### Anyone can (not) make changes
 

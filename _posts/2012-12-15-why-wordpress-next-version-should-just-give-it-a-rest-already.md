@@ -5,7 +5,7 @@ published: true
 comments: true
 ---
 
-The internet has a particular way of solving difficult technical challenges. We try a bunch of diverse approaches out, keep only the most elegant, and quickly forget the rest ever happened. That's why the Web is the internet's preeminent service (as apposed to say [Gopher](http://en.wikipedia.org/wiki/Gopher_%28protocol%29)), clicking the logo in the top left corner of almost any site goes to that site's homepage, and typing a URL in your browser retrieves that particular page. These aren't just design conventions in the sense that a lot of people like them, but rather represent the purposeful result of trial and error.
+The internet has a particular way of solving difficult technical challenges. We try a bunch of diverse approaches out, keep only the most elegant, and quickly forget the rest ever happened. That's why the Web is the internet's preeminent service (as apposed to say [Gopher](http://en.wikipedia.org/wiki/Gopher_%28protocol%29)), clicking the logo in the top left corner of almost any site goes to that site's homepage, and typing a URL in your browser retrieves that particular page. These aren't just design conventions in the sense that a lot of people like them, but rather represent the purposeful result of experimentation.
 
 Over the past few years, as sites become more mature and even more inter-connected, the internet has been coalescing around one such pattern (known as [REST](http://en.wikipedia.org/wiki/Representational_state_transfer)). The idea is simple: a URL should uniquely identify the underlying data it represents. If I have a URL, I shouldn't need anything else to view or otherwise manipulate the information behind it.
 
@@ -23,7 +23,7 @@ If WordPress wants to stay relevant as a content management platform, the future
 
 ## Crawl
 
-At the very least, lets expose all WordPress content in a machine readable format. This once and for all breaks the content-presentation link. We do this with RSS somewhat, but it's time to put non-HTML formats on equal footing with HTML in core's eyes.
+At the least, lets expose all WordPress content in a machine readable format. This once and for all breaks the content-presentation link. We do this with RSS somewhat, but it's time to put non-HTML formats on equal footing with HTML in core's eyes.
 
 1. Create a new format ("feed" in WordPress parlance) called JSON, and add the necessary rewrite rules such that I can simply add `.json` to any post and retrieve the underlying information in a machine readable format. This should contain not only the content of the post and information that would normally be accessible via HTML, but all the fields of the posts table (for example, date published, date updated, etc.), all the post's metadata (custom, post-specific information), and all the associated term objects (tags, categories, etc.). Sure we'll need to add a filter or two in their to ensure information folks want private stays private, but from a technical standpoint, we're talking a handful of lines of code here.
 

@@ -27,7 +27,7 @@ Let's say you tried to navigate to a path that doesn't exist like [`/2022/06/30/
 
 ## How it works
 
-This functionality is driven by a deceptively small amount of JavaScript ([really TypeScript](https://github.com/benbalter/retlab/blob/main/js/script.ts)):
+This functionality is driven by a surprisingly small amount of JavaScript ([really TypeScript](https://github.com/benbalter/retlab/blob/main/js/script.ts)):
 
 ```typescript
 import { closest } from 'fastest-levenshtein';
