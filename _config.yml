@@ -22,8 +22,8 @@ social:
     - https://facebook.com/ben.balter
     - https://instagram.com/benbalter
 
-cloudflare:
-  id: 71539cb18e584e6595f62fa7104b24ca
+#cloudflare:
+#  id: 71539cb18e584e6595f62fa7104b24ca
 
 exclude:
   - /CONTRIBUTING.md
