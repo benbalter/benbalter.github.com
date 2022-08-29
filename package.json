@@ -14,11 +14,11 @@
   "description": "[![Build Status](https://travis-ci.org/benbalter/benbalter.github.com.png?branch=master)](https://travis-ci.org/benbalter/benbalter.github.com)",
   "devDependencies": {
     "@textlint-rule/textlint-rule-no-unmatched-pair": "^1.0.8",
-    "@typescript-eslint/eslint-plugin": "^5.33.1",
+    "@typescript-eslint/eslint-plugin": "^5.34.0",
     "dictionary-en": "^3.0.0",
     "eslint": "^8.22.0",
     "eslint-plugin-json": "^3.1.0",
-    "markdownlint-cli": "^0.32.1",
+    "markdownlint-cli": "^0.32.2",
     "remark-cli": "^11.0.0",
     "remark-comment-config": "^7.0.1",
     "remark-footnotes": "^4.0.1",

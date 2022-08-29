@@ -19,13 +19,6 @@ jobs:
       - name: script/cibuild-content
         run: script/cibuild-content
 
-      - name: Vale
-        uses: errata-ai/vale-action@v2
-        with:
-          reporter: github-check
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
   code:
     runs-on: ubuntu-latest
     steps:
