@@ -78,7 +78,7 @@
     "textlint-rule-write-good": "^2.0.0",
     "typographic-base": "^1.0.4",
     "unified": "^10.1.2",
-    "xo": "^0.52.2"
+    "xo": "^0.52.3"
   },
   "homepage": "https://github.com/benbalter/benbalter.github.com#readme",
   "license": "CC-BY-3.0",
