@@ -1,5 +1,5 @@
 ---
-title: Manage like an open source developer
+title: Manage like an engineer
 description: If we believe issues, pull requests, and project boards are the best way to develop software, should it not also be the best way to manage software development?
 ---
 
