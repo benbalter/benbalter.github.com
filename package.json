@@ -14,7 +14,7 @@
   "description": "[![Build Status](https://travis-ci.org/benbalter/benbalter.github.com.png?branch=master)](https://travis-ci.org/benbalter/benbalter.github.com)",
   "devDependencies": {
     "@textlint-rule/textlint-rule-no-unmatched-pair": "^1.0.8",
-    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
     "dictionary-en": "^3.0.0",
     "eslint": "^8.25.0",
     "eslint-plugin-json": "^3.1.0",
