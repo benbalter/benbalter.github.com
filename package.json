@@ -16,7 +16,7 @@
     "@textlint-rule/textlint-rule-no-unmatched-pair": "^1.0.9",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "dictionary-en": "^3.0.0",
-    "eslint": "^8.28.0",
+    "eslint": "^8.29.0",
     "eslint-plugin-json": "^3.1.0",
     "markdownlint-cli": "^0.32.2",
     "remark-cli": "^11.0.0",
