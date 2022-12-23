@@ -12,7 +12,7 @@ group :jekyll_plugins do
   gem 'jekyll-mentions'
   gem 'jekyll-redirect-from'
   gem 'jekyll-relative-links'
-  gem 'jekyll-sass-converter'
+  gem 'jekyll-sass-converter', '~> 3.0'
   gem 'jekyll-seo-tag'
   gem 'jekyll-sitemap'
   gem 'jemoji'
