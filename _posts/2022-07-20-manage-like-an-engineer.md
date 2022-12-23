@@ -19,7 +19,7 @@ Using engineering tools like GitHub to track management tasks is *much* more tha
 
 ## What it means to manage like an engineer
 
-This level of open-source-like managerial transparency is far from automatic nor the default for most management workstreams today. The software tools we use as managers may help influence some outcomes,[^6] but ultimately, leaders must be deliberate in *how* they work for their team to reap the benefits of transparent and collaborative decision making. 
+This level of open-source-like managerial transparency is far from automatic nor the default for most management workstreams today. The software tools we use as managers may help influence some outcomes,[^6] but ultimately, leaders must be deliberate in *how* they work for their team to reap the benefits of transparent and collaborative decision making.
 
 Here are a few of the engineer-inspired "how we work" principles which I strive to embody through my own management:
 
@@ -44,7 +44,7 @@ Managing like an engineer means a manager's go to tool for planning, tracking, a
 
 Issues and project boards create a networked hierarchy of tracking issues that bring visibility to work. This is true both of department-wide goals and initiatives, as well as all the management "meta work" that supports them.
 
-I've written at length before about [how we use issues and projects at GitHub for planning and tracaking](https://github.blog/2022-07-01-how-the-github-security-team-uses-projects-and-github-actions-for-planning-tracking-and-more/). We use issues and a project board to track our department-wide OKRs (quarterly goals). Teams may choose to organize issues with labels, milestones, assignees, and project boards to aid in planning and tracking. Issues can capture work at various levels of abstraction, with different "types" of issues encompassing different units of work (initiatives, epics, etc.).
+I've written at length before about [how we use issues and projects at GitHub for planning and tracking](https://github.blog/2022-07-01-how-the-github-security-team-uses-projects-and-github-actions-for-planning-tracking-and-more/). We use issues and a project board to track our department-wide OKRs (quarterly goals). Teams may choose to organize issues with labels, milestones, assignees, and project boards to aid in planning and tracking. Issues can capture work at various levels of abstraction, with different "types" of issues encompassing different units of work (initiatives, epics, etc.).
 
 All of the department's management tasks are also tracked in issues, which are made visible to everyone in the company as a management backlog via a GitHub Project. Interested stakeholders wishing to learn more about a given initiative or administrative epic can click into the linked issue to learn more or subscribe to automatically receive ongoing updates.
 
