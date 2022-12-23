@@ -9,7 +9,7 @@ Rather than tracking bugs or feature requests, in my day-to-day as a Chief of St
 
 ## Why you should manage like an engineer
 
-Using GitHub to track management tasks is *much* more than an alternative to your personal todo list or an endless stack of Google Docs or group DMs shared with peers. Working like an engineer forces you to work more *transparently* than you would traditionally as a manager. I've written at length before about [the value of leaders "showing their work"](https://ben.balter.com/2022/02/16/leaders-show-their-work/#the-value-of-showing-your-work). When you work in systems that naturally capture and expose process, there's a lot of organic benefits that you and your team get for "free":
+Using engineering tools like GitHub to track management tasks is *much* more than an alternative to your personal todo list or an endless stack of Google Docs or group DMs shared with peers. Working like an engineer forces you to work more *transparently* than you would traditionally as a manager. I've written at length before about [the value of leaders "showing their work"](https://ben.balter.com/2022/02/16/leaders-show-their-work/#the-value-of-showing-your-work). When you work in systems that naturally capture and expose process, there's a lot of organic benefits that you and your team get for "free":
 
 > * **Captures institutional knowledge** - When you're purposeful about where and how you share context, you alleviate the need for “you had to be there” and “go ask Susan"-type inquiries.
 > * **Empowers others to learn through observation** - What's routine to you is likely novel to someone in another role or at another level of seniority.
@@ -34,13 +34,11 @@ Here are a few of the engineer-inspired "how we work" principles which I strive 
 
 ## How to manage like an engineer
 
-Managing like an engineer means a manager's go to tool for planning, tracking, and communicating managerial work is issues, project boards, and pull requests:
+Managing like an engineer means a manager's go to tool for planning, tracking, and communicating managerial work is issues, project boards, and pull requests:[^8]
 
-* **Issues** - Issues on GitHub.com are the atomic unit of work across teams and is the primary means by which work is planned, tracked, coordinated, communicated, and shared.[^2]
+* **Issues** - Issues are the atomic unit of work across teams and is the primary means by which work is planned, tracked, coordinated, communicated, and shared.[^2]
 * **Project Boards** - Project boards are the primary means by which work is organized, managed, prioritized, and made visible.
 * **Pull requests** - Pull requests are the primary means by which proposals are reviewed and decisions are made.
-
-
 
 ### Planning and tracking
 
@@ -76,3 +74,5 @@ Better still, since GitHub is an extensible platform, automation of day-to-day i
 [^6]: For example, transparent and inclusive decision making comes more naturally in a  tools built for collaboration like GitHub than it does in a tool built for conveying information like Slack or email. That's not to say it can't be done, but the tools vision of how work should occur and yours may differ, making things more difficult on both you and you team. When in doubt, start from first principles and ask yourself, "what is the best tool for the job?"
 
 [^7]: Yes, there are different flavors and tools (agile, scrum, JIRA tickets, etc.), but at a high level, most teams have some sort of ongoing list of outstanding TODOs, along with a standard mechanism to review proposed changes.
+
+[^8]: I write about my experience using GitHub, but there's no reason these philosophies couldn't be implemented using another engineering tool. The key is to use a tool that is built for collaboration and transparency and that is extensible via automation.
