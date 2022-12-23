@@ -1,15 +1,15 @@
 ---
 title: Manage like an engineer
-description: If we believe issues, pull requests, and project boards are the best way to develop software, should it not also be the best way to manage software development?
+description: If issues, pull requests, and project boards are the best way to develop software, should it not also be the best way to manage software development?
 ---
 
-Many engineering and product leaders begin their career as engineers. On a typical engineering team, work is captured in issues, organized in project backlogs, and reviewed in pull requests. But as engineers advance in their career and begin down the management path, they too often adopt an entirely different set of tools, workflows, and philosophies. If we believe issues, pull requests, and project boards are the best way to develop software, should it not also be the best way to manage software development?[^3]
+Many engineering and product leaders begin their career as engineers. On a typical engineering team, work is captured in issues, organized in project backlogs, and reviewed in pull requests. But as engineers advance in their career and begin down the management path, they too often adopt an entirely different set of tools, workflows, and philosophies for managing their own work. Such management issues are more cumbersome, more time consuming, and more opaque. If we believe issues, pull requests, and project boards are the best way to develop software, should it not also be the best way to manage software development?[^3]
 
 Rather than tracking bugs or feature requests, in my day-to-day as a Chief of Staff, I use GitHub to track all the "meta work" that supports software development and software development teams. Need to prepare a deck for a business review? Open an issue. Want to refresh our career ladders? Open an issue. Planning an offsite? You guessed it, open an issue.
 
-### Show your work
+## Why you should manage like an engineer
 
-Using GitHub to track management tasks is *much* more than an alternative to your personal todo list or an endless stack of Google Docs or group DMs shared with peers. I've written at length before about [the value of "showing your work"](https://ben.balter.com/2022/02/16/leaders-show-their-work/#the-value-of-showing-your-work). When you work in systems that naturally capture and expose process, there's a lot of organic transparency that you get for "free":
+Using GitHub to track management tasks is *much* more than an alternative to your personal todo list or an endless stack of Google Docs or group DMs shared with peers. Working like an engineer forces you to work more *transparently* than you would traditionally as a manager. I've written at length before about [the value of leaders "showing their work"](https://ben.balter.com/2022/02/16/leaders-show-their-work/#the-value-of-showing-your-work). When you work in systems that naturally capture and expose process, there's a lot of organic benefits that you and your team get for "free":
 
 > * **Captures institutional knowledge** - When you're purposeful about where and how you share context, you alleviate the need for “you had to be there” and “go ask Susan"-type inquiries.
 > * **Empowers others to learn through observation** - What's routine to you is likely novel to someone in another role or at another level of seniority.
@@ -17,15 +17,17 @@ Using GitHub to track management tasks is *much* more than an alternative to you
 > * **Fuels engagement** - Transparency offers a sense of agency, situational awareness, and overall engagement that fosters a culture of thoughtful dialog and encourages organization-wide collaborative improvement over time.
 > * **Keeps the bar high** - Showing one's work establishes expectations around justification, thoroughness, and accountability that sets and maintains a high standard for decision making within an organization.
 
-## Principles
+## What it means to manage like an engineer
 
-This level of transparency is unfortunately neither automatic nor the default. Tools help influence outcomes, but ultimately, managers must be deliberate in how they work for their team to reap the benefits. Here are a few of the principles I follow:
+This level of open-source-like managerial transparency is far from automatic nor the default for most management workstreams today. The software tools we use as managers may help influence some outcomes,[^6] but ultimately, leaders must be deliberate in *how* they work for their team to reap the benefits of transparent and collaborative decision making. 
+
+Here are a few of the engineer-inspired "how we work" principles which I strive to embody through my own management:
 
 * **Make work visible** - Proactively share to the widest extent practical given the subject.[^4]
 * **Write things down** - Especially the why and how. [Ensure that everything has a URL](https://ben.balter.com/2015/11/12/why-urls/). Be generous with links.
 * **[Over communicate](https://ben.balter.com/2017/05/23/seven-ways-to-consistently-ship-great-features/#1-over-communicate)** - Use a durable, searchable, and discoverable medium. Let others opt-in to context and subscribe to updates.
-* **Bias for shipping** - [Ship early, ship often](https://ben.balter.com/2016/09/13/seven-habits-of-highly-effective-githubbers/#2-ship-early-ship-often). Whether decisions, process, or "manager code", ship the smallest thing possible and iterate. Minimize batch size.
-* **Seek efficiency and automation** - Never force a human to do what a robot can. Prefer non-blocking over blocking operations. Codify policy as code.
+* **Bias for shipping** - [Ship early, ship often](https://ben.balter.com/2016/09/13/seven-habits-of-highly-effective-githubbers/#2-ship-early-ship-often). Whether decisions, process, or "manager code", ship an MVP and iterate. Minimize batch size.
+* **Streamline and automate** - Never force a human to do what a robot can. Prefer non-blocking over blocking operations. Codify policy as code.
 * **Embrace collaboration** - How we work is as important as what we work on. Software development is a team sport.[^5]
 * **Asynchronous first** - Reserve higher-fidelity mediums for conversations that require them.
 * **Practicality beats purity** - These are guidelines, not rules. Process should drive outcomes.
@@ -63,3 +65,5 @@ Better still, since GitHub is an extensible platform, automation of day-to-day i
 [^4]: HR and other personnel matters must often be restricted in their visibility due to their sensitivity, but the vast majority of management work can be shared with increasing circles of trust (peers, other managers, the team, the org, the company, etc.).
 
 [^5]: Encourage collaboration among team members, both in terms of setting team-wide goals and executing on individual initiatives. This helps everyone "connect the dots" and understand how their work fits into the bigger picture (and to shape it along the way).
+
+[^6]: For example, transparent and inclusive decision making comes more naturally in a  tools built for collaboration like GitHub than it does in a tool built for conveying information like Slack or email. That's not to say it can't be done, but the tools vision of how work should occur and yours may differ, making things more difficult on both you and you team. When in doubt, start from first principles and ask yourself, "what is the best tool for the job?"
