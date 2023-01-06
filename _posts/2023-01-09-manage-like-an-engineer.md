@@ -59,11 +59,11 @@ While ADRs are intended for engineering decisions, the format and rigour of docu
 
 ### Automate all the things
 
-Better still, since GitHub is an extensible platform, automation of day-to-day issue management can be "cheap" to implement via shared GitHub actions. If a given OKR hasn't received an update in a while, we use Actions to nudge the responsible individual. When status updates come in as issue comments on a regular cadence, Actions updates the project board so that the health of all our OKRs can be seen in a single view. We even use Actions to automate issue creation at the kick off of the planning cycle, or to have regular meeting and 1:1 agendas created each week.[^9] 
+Better still, since GitHub is an extensible platform, automation of day-to-day issue management can be "cheap" to implement via shared GitHub actions. If a given OKR hasn't received an update in a while, we use Actions to nudge the responsible individual. When status updates come in as issue comments on a regular cadence, Actions updates the project board so that the health of all our OKRs can be seen in a single view. We even use Actions to automate issue creation at the kick off of the planning cycle, or to have regular meeting and 1:1 agendas created each week.[^9]
 
 ## Conclusion
 
-Managing like an engineer means using the same tools and workflows that engineers use to plan, track, and communicate their work. It means making work visible, writing things down, and embracing collaboration. 
+Managing like an engineer means using the same tools and workflows that engineers use to plan, track, and communicate their work. It means making work visible, writing things down, and embracing collaboration.
 
 A decade ago, I argued that [working like an open source project would allow us to "Deprecate Management"](https://ben.balter.com/2012/12/16/deprecate-management/). As I wrote then:
 
