@@ -37,7 +37,7 @@ Here are a few of the engineer-inspired "how we work" principles which I strive 
 Managing like an engineer means a manager's go to tool for planning, tracking, and communicating managerial work is issues, project boards, and pull requests:[^8]
 
 * **Issues** - Issues are the atomic unit of work across teams and is the primary means by which work is planned, tracked, coordinated, communicated, and shared.[^2]
-* **Project Boards** - Project boards are the primary means by which work is organized, managed, prioritized, and made visible.
+* **Project boards** - Project boards are the primary means by which work is organized, managed, prioritized, and made visible.
 * **Markdown files** - Markdown files are the primary means by which long-lived information is share. Markdown files are created and modified via Pull Requests.
 * **Pull requests** - Pull requests are the primary means by which proposals are reviewed and decisions are made.
 
@@ -60,7 +60,16 @@ While ADRs are intended for engineering decisions, the format and rigour of docu
 ### Automate all the things
 
 Better still, since GitHub is an extensible platform, automation of day-to-day issue management can be "cheap" to implement via shared GitHub actions. If a given OKR hasn't received an update in a while, we use Actions to nudge the responsible individual. When status updates come in as issue comments on a regular cadence, Actions updates the project board so that the health of all our OKRs can be seen in a single view. We even use Actions to automate issue creation at the kick off of the planning cycle, or to have regular meeting and 1:1 agendas created each week.[^9] 
+
 ## Conclusion
+
+Managing like an engineer means using the same tools and workflows that engineers use to plan, track, and communicate their work. It means making work visible, writing things down, and embracing collaboration. 
+
+A decade ago, I argued that [working like an open source project would allow us to "Deprecate Management"](https://ben.balter.com/2012/12/16/deprecate-management/). As I wrote then:
+
+> There are so many aspects to the work day that we do just because it’s the way thing’s have been done since the dawn of the industrial revolution, and it puzzles me why nobody’s stopped to think critically about how these processes could be reimagined in an age of technology.
+
+Today, I don't believe that complete "deprecation" of management is possible, at least not at scale, but by working in the open, managers can shed a lot of management meta-work, moving managers from lower-level to higher-level, more impactful work.
 
 
 [^2]: Track tasks and their progress in issues, cc relevant teams, and cross reference relevant issues to naturally [capture and expose process](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/#2-captures-and-exposes-process). Issues bring the most value to teams when work happens on and around the issue, rather than holding important discussions in chat or over video with the issue being used merely as a "TODO" with tracking open and closed state or a broadcast medium for occasional formal updates to stakeholders (for which Discussions are better suited).
