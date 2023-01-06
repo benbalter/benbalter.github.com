@@ -34,11 +34,11 @@ Here are a few of the engineer-inspired "how we work" principles which I strive 
 
 ## How to manage like an engineer
 
-Managing like an engineer means a manager's go to tool for planning, tracking, and communicating managerial work is issues, project boards, and pull requests:[^8]
+Managing like an engineer means a manager's go to tool for planning, tracking, and communicating managerial work is issues, project boards, markdown files, and pull requests:[^8]
 
-* **Issues** - Issues are the atomic unit of work across teams and is the primary means by which work is planned, tracked, coordinated, communicated, and shared.[^2]
-* **Project boards** - Project boards are the primary means by which work is organized, managed, prioritized, and made visible.
-* **Markdown files** - Markdown files are the primary means by which long-lived information is share. Markdown files are created and modified via Pull Requests.
+* **Issues** - Issues are the atomic unit of work across teams and is the primary means by which work is planned, tracked, coordinated, and communicated, and where updates are shared.[^2]
+* **Project boards** - Project boards are the primary means by which work (in the form of issues) is organized, managed, prioritized, and made visible.
+* **Markdown files** - Markdown files are the primary means by which long-lived information is memorialized. Markdown files are created and modified via Pull Requests.
 * **Pull requests** - Pull requests are the primary means by which proposals are reviewed and decisions are made.
 
 ### Planning and tracking
@@ -51,7 +51,7 @@ All of the department's management tasks are also tracked in issues, which are m
 
 ### Management decision records
 
-Successful distributed teams place an emphasis on written and asynchronous communication. Writing things down serves as a message in a bottle to your future selves, recording what decisions were made, by whom, and why. If issues and project boards track and organize work, "management decision records" are how decisions are made and communicated.
+Successful distributed teams place an emphasis on written and asynchronous communication. Writing things down serves as a message in a bottle to your future selves, recording what decisions were made, by whom, and why. If issues and project boards track and organize work, "management decision records"[^10] are how decisions are made and communicated.
 
 One common way engineering teams capture important decisions is through [an architecture decision record (ADR)](https://github.com/joelparkerhenderson/architecture-decision-record). ADRs capture not just the decision, but also its context and consequences, and do so in a way that allows stakeholders to deeply participate in the process. In short, the person responsible for a decision writes out their proposal in long form prose, and submits it for discussion and refinement by stakeholders before it is ultimately merged to memorialize the decisions.
 
@@ -63,13 +63,13 @@ Better still, since GitHub is an extensible platform, automation of day-to-day i
 
 ## Conclusion
 
-Managing like an engineer means using the same tools and workflows that engineers use to plan, track, and communicate their work. It means making work visible, writing things down, and embracing collaboration.
-
 A decade ago, I argued that [working like an open source project would allow us to "Deprecate Management"](https://ben.balter.com/2012/12/16/deprecate-management/). As I wrote then:
 
 > There are so many aspects to the work day that we do just because it’s the way thing’s have been done since the dawn of the industrial revolution, and it puzzles me why nobody’s stopped to think critically about how these processes could be reimagined in an age of technology.
 
-Today, I don't believe that complete "deprecation" of management is possible, at least not at scale, but by working in the open, managers can shed a lot of management meta-work, moving managers from lower-level to higher-level, more impactful work.
+Today, I don't believe that a complete "deprecation" of management is possible, at least not at scale, but by working in the open, managers can shed a lot of management meta-work, moving managers from lower-level to higher-level, more impactful work.
+
+Managing like an engineer means using the same tools and workflows that engineers use to plan, track, and communicate their own work. It means making work visible, writing things down, and embracing collaboration. After all, if that's the best way to build software, should it not also be the best way to manage software development?
 
 
 [^2]: Track tasks and their progress in issues, cc relevant teams, and cross reference relevant issues to naturally [capture and expose process](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/#2-captures-and-exposes-process). Issues bring the most value to teams when work happens on and around the issue, rather than holding important discussions in chat or over video with the issue being used merely as a "TODO" with tracking open and closed state or a broadcast medium for occasional formal updates to stakeholders (for which Discussions are better suited).
@@ -87,3 +87,5 @@ Today, I don't believe that complete "deprecation" of management is possible, at
 [^8]: I write about my experience using GitHub, but there's no reason these philosophies couldn't be implemented using another engineering tool. The key is to use a tool that is built for collaboration and transparency and that is extensible via automation.
 
 [^9]: Taking the metaphor further, there's no reason why a manager's workflow couldn't have its own "CI", in the sense that automated checks could keep a high bar for, for example, decision making by ensuring necessary stakeholders were consulted, that ample opportunity was offered to provide feedback, etc. We use this lightly in some places to encourage inclusive language or readability of documentation.
+
+[^10]: Depending on the context, these may also be referred to as "business decision records" (BDRs).
