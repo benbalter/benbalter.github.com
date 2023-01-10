@@ -51,7 +51,7 @@ All of the department's management tasks are also tracked in issues, which are m
 
 ### Management decision records
 
-Successful distributed teams place an emphasis on written and asynchronous communication. Writing things down serves as a message in a bottle to your future selves, recording what decisions were made, by whom, and why. If issues and project boards track and organize work, "management decision records"[^10] are how decisions are made and communicated.
+Successful distributed teams place an emphasis on written and asynchronous communication. Writing things down serves as a message in a bottle to your future selves, recording what decisions were made, by whom, and why. If issues and project boards track and organize work, "management decision records",[^10] socialized and discussed via pull requests are how decisions are made and communicated.
 
 One common way engineering teams capture important decisions is through [an architecture decision record (ADR)](https://github.com/joelparkerhenderson/architecture-decision-record). ADRs capture not just the decision, but also its context and consequences, and do so in a way that allows stakeholders to deeply participate in the process. In short, the person responsible for a decision writes out their proposal in long form prose, and submits it for discussion and refinement by stakeholders before it is ultimately merged to memorialize the decisions.
 
