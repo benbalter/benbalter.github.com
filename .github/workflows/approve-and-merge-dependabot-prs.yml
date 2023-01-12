@@ -15,20 +15,9 @@ jobs:
         uses: dependabot/fetch-metadata@v1.3.5
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
-
-      # Checkout sets the necessary metadata for gh status to work
-      - uses: actions/checkout@v3
-
-      - name: Get PR Status
-        id: pr-status
-        # shellcheck disable=SC2086
-        run: echo "review_decision=$(gh pr status --json reviewDecision -q .currentBranch.reviewDecision)" >> $GITHUB_OUTPUT
-        env:
-          PR_URL: ${{github.event.pull_request.html_url}}
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           
       - name: Approve a PR
-        if: steps.pr-status.outputs.review_decision != 'APPROVED' && contains(fromJson('["version-update:semver-patch", "version-update:semver-minor"]'), steps.metadata.outputs.update-type)
+        if: contains(fromJson('["version-update:semver-patch", "version-update:semver-minor"]'), steps.metadata.outputs.update-type)
         run: gh pr review --approve "$PR_URL"
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
