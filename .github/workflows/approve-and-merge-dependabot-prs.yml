@@ -21,7 +21,7 @@ jobs:
 
       - name: Get PR Status
         id: pr-status
-        run: echo "::set-output name=review_decision::$(gh pr status --json reviewDecision -q .currentBranch.reviewDecision)"
+        run: echo "review_decision=$(gh pr status --json reviewDecision -q .currentBranch.reviewDecision)" >> $GITHUB_OUTPUT
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
