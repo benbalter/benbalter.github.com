@@ -5,7 +5,7 @@
   },
   "dependencies": {
     "@textlint-rule/textlint-rule-no-duplicate-abbr": "^1.0.2",
-    "prettier": "^2.8.1",
+    "prettier": "^2.8.2",
     "remark-prettier": "^2.0.0",
     "retext-equality": "^6.6.0",
     "retext-simplify": "^7.2.0",
@@ -69,7 +69,7 @@
     "retext-spell": "^5.3.0",
     "retext-syntax-mentions": "^3.1.0",
     "retext-syntax-urls": "^3.1.2",
-    "textlint": "^12.4.0",
+    "textlint": "^12.5.1",
     "textlint-rule-common-misspellings": "^1.0.1",
     "textlint-rule-diacritics": "^1.0.0",
     "textlint-rule-no-start-duplicated-conjunction": "^2.0.2",
