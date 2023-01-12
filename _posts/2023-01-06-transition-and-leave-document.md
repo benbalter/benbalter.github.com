@@ -3,7 +3,7 @@ title: How to write a great extended leave document
 description:
 ---
 
-I recently came back from an extended leave to find that my "leave doc" was not only well received by my colleagues, but also that several asked if they could copy the format for their own planned leave. Having transition roles within GitHub now a number of times over the years, I've evolved a format I use for 
+I recently came back from an extended leave to find several of my colleagues asking if they could copy the format of my "leave doc" for their own planned leave. Having transitioned roles within GitHub now a number of times over the years, I've evolved a format I use for 
 
 * Share early and often
 * Human README  
