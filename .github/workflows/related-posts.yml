@@ -28,7 +28,7 @@ jobs:
 
       - name: Create Pull Request
         id: create-pull-request
-        uses: peter-evans/create-pull-request@v5-beta
+        uses: peter-evans/create-pull-request@v4
         with:
           commit-message: Update related posts
           title: Update related posts
