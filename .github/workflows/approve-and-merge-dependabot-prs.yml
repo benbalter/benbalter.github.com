@@ -21,6 +21,7 @@ jobs:
 
       - name: Get PR Status
         id: pr-status
+        # shellcheck disable=SC2086
         run: echo "review_decision=$(gh pr status --json reviewDecision -q .currentBranch.reviewDecision)" >> $GITHUB_OUTPUT
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
