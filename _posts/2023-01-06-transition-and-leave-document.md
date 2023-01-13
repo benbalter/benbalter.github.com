@@ -3,7 +3,7 @@ title: How to write a great extended leave document
 description:
 ---
 
-I recently came back from an extended leave to find several of my colleagues asking to copy my "leave doc" for their own planned leave. Having transitioned roles within GitHub now a number of times over the years, I'm no stranger to temporarily or permanently handing off work, and have evolved a preferred format I use to ensure business continuity during the transition.
+I recently came back from an extended leave to find several of my colleagues asking to copy my "leave doc" for their own planned leave. Having transitioned roles within GitHub now a number of times over the years, I'm no stranger to temporarily or permanently handing off work, and have evolved a preferred format I use to ensure business continuity during the transition. I'm sharing it here in case it's helpful for planning your own leave.
 
 ## Sections to include
 
@@ -77,11 +77,11 @@ This is your long-tail appendix of anything you think your colleague might need 
 
 You could have the best leave or transition document in the world, but if nobody knows about it, it's not much use. Socialize the document with key stakeholders well before your leave to ensure accuracy and completeness[^1], and make your document readily discoverable while you are out by linking to it from your chat status,[^2] the out of office on your calendar, and any other "APIs" you have for communicating with colleagues.
 
-<details markdown="1">
-<summary>Template</summary>
+## Putting it all together
 
+If you're preparing to go on leave (or transition to a new role), feel free to use the template below as a starting point. Of course, if you have any suggestions or propposed improvements, [pull requests are always welcome](#).
 
-```markdown
+```
 # @your leave document
 
 ## ⏳ TL;DR:
@@ -99,11 +99,7 @@ You could have the best leave or transition document in the world, but if nobody
 ## 👉 Stuff you touched recently or hope can be picked up while your out
 
 ## 📁 Important links
-
 ```
-
-
-</details>
 
 [^1]: I often ask, "Are there any questions not answered here that you can imagine might arise while I am out?"
 [^2]: Using an internal or external link shortener (e.g., `bit.ly/benbalter-leave`) to create a more memorable URL for your colleagues to regularly reference your doc.
