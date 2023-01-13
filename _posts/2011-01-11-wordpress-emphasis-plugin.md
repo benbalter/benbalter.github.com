@@ -1,6 +1,7 @@
 ---
 title: 'WordPress Emphasis Plugin: Highlight and Permalink Text'
 description: One-click implementation of the New York Times open source emphasis script as a WordPress plugin which allows for highlighting and permalinking of text on a paragraph and sentence level.
+archived: true
 ---
 
 ![Screenshot of the plugin in use](https://ben.balter.com/wp-content/uploads/2011/01/emphasis-screenshot.png "Screenshot of Emphasis WordPress Plugin"){: .float-start .me-3 .border }

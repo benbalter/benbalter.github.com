@@ -1,6 +1,7 @@
 ---
 title: Removing the Barriers to Organizational Agility
 description: Recording of a GW Tech Alumni panel on Removing the Barriers to Organizational Agility
+archived: true
 ---
 
 *Recorded at the [The George Washington University Tech Alumni Group](http://www.facebook.com/group.php?gid=154839957865223) Federal Executive Round Table, November 4, 2010.*

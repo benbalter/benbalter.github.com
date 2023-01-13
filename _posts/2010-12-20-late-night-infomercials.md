@@ -1,6 +1,7 @@
 ---
 title: 'Late-Night Infomercials: Guaranteed to Extend the 4th Amendment or Your Money Back'
 description: Online accounts may now be afforded greater protection following the Sixth Circuit's ruling in United States v. Warshak. The court, upholding a temporary injunction on e-mail searches extended the fourth amendment's warrant requirements to messages stored on third-party servers.
+archived: true
 ---
 
 Despite some users' [lax approach to safeguarding their identities](http://blogs.wsj.com/digits/2010/12/13/the-top-50-gawker-media-passwords/), online accounts may now be afforded greater protection following the Sixth Circuit's ruling in *[United States v. Warshak](http://www.ca6.uscourts.gov/opinions.pdf/10a0377p-06.pdf).* The court, which upheld a temporary injunction on a fraud investigation involving the all-too-familiar [late-night "Smilin Bob" infomercials](http://blogs.forbes.com/kashmirhill/2010/12/15/your-email-now-warrants-greater-privacy-thanks-to-sex-pill-peddling-dude/), extended the fourth amendment's warrant requirements to messages stored on third-party servers. The Sixth Circuit wrote:

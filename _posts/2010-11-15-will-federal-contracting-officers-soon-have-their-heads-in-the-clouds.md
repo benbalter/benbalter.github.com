@@ -1,6 +1,7 @@
 ---
 title: Will Federal Contracting Officers Soon Have Their Heads in the Clouds?
 description: As one Hewlett Package Chief executive recently put it, cloud computing "is the next generation of the internet." Whether you realize it or not, if you use services like Facebook or Gmail, your personal data already lives in "the cloud," and the same transformative power that connects long-lost classmates at the click of a mouse can be harnessed by federal agencies to approach modern governance in incredibly powerful ways.
+archived: true
 ---
 
 ## A Brief Look at the Imminent Cloud-Computing Storm Front

@@ -1,6 +1,7 @@
 ---
 title: Regular Expression to Parse Word-style Footnotes into WordPress's Simple Footnotes Format
 description: Regular Expression to automatically parse Microsoft Word's footnote format into a more web-friendly format for WordPress's Simple Footnotes plugin
+archived: true
 ---
 
 I needed a quick-and-easy way to parse Microsoft Word's footnote format into a more web-friendly format for a recent project. After a bit of regular expression hacking, I was able to build a WordPress plugin to automatically convert content pasted from Word into a format readable by [Andrew Nacin's](http://andrewnacin.com) popular [Simple Footnotes](http://andrewnacin.com/2010/07/24/simple-footnotes-0-3/) plugin.

@@ -1,6 +1,7 @@
 ---
 title: What Fourteen-Century Apple Pie Teaches Us About Sharing
 description: Last week writer Monica Gaudio received an e-mail from a friend congratulating her on getting an article published in the Northeast-regional cooking magazine Cooks Source. There was only one problem -- she didn't. The article, a recipe for fourteen-century apple pie, was lifted, word-for-word, from Gaudio's Web site.
+archived: true
 ---
 
 Everyone knows the old adage: "If it's on the internet, it must be true free.[^1]" It turns out despite the internet's [otherwise murky attribution waters](http://www.huffingtonpost.com/jay-rosen/the-uncharted-from-off-th_b_96575.html), that's not quite the case.
