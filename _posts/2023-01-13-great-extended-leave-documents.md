@@ -79,7 +79,7 @@ You could have the best leave or transition document in the world, but if nobody
 
 ## Putting it all together
 
-If you're preparing to go on leave (or transition to a new role), feel free to use the template below as a starting point. Of course, if you have any suggestions or propposed improvements, {% github_edit_link "pull requests are always welcome" %}.
+If you're preparing to go on leave (or transition to a new role), feel free to use the template below as a starting point.[^3] Of course, if you have any suggestions or proposed improvements, {% github_edit_link "pull requests are always welcome" %}.
 
 ```
 # @your leave document
@@ -102,4 +102,7 @@ If you're preparing to go on leave (or transition to a new role), feel free to u
 ```
 
 [^1]: I often ask, "Are there any questions not answered here that you can imagine might arise while I am out?"
+
 [^2]: Using an internal or external link shortener (e.g., `bit.ly/benbalter-leave`) to create a more memorable URL for your colleagues to regularly reference your doc.
+
+[^3]: If you're looking for even more extended leave resources, @isethi has a great talk on [navigating parental leave as a senior engineering leader](https://leaddev.com/san-francisco/video/navigating-parental-leave-as-a-senior-engineering-leader). If you're preparing to go on parental leave, be sure to check out her [parental leave checklist template](https://docs.google.com/document/d/1VjY8xvZtHV_4p_xXUz7rRIIC4VT8B_2NasL950pQk4U/edit#heading=h.oso3zy2cszfb) as well.
