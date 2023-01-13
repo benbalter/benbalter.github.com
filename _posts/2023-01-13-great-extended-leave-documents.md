@@ -79,7 +79,7 @@ You could have the best leave or transition document in the world, but if nobody
 
 ## Putting it all together
 
-If you're preparing to go on leave (or transition to a new role), feel free to use the template below as a starting point. Of course, if you have any suggestions or propposed improvements, [pull requests are always welcome](#).
+If you're preparing to go on leave (or transition to a new role), feel free to use the template below as a starting point. Of course, if you have any suggestions or propposed improvements, {% github_edit_link "pull requests are always welcome" %}.
 
 ```
 # @your leave document
