@@ -3,7 +3,7 @@ title: How to write a great extended leave document
 description: This is the template I use to prepare for an extended leave (or to hand off responsibilities as I transition to a new role).
 ---
 
-I recently came back from an extended leave to find several of my colleagues asking to copy my "leave doc" for their own planned leaves. Having transitioned roles within GitHub now a number of times over the years, I'm no stranger to temporarily or permanently handing off work, and have evolved a preferred format I use to ensure business continuity during the transition. I'm sharing it here in case it's helpful for planning your own leave.
+I recently came back from an extended leave to find several of my colleagues asking to copy my "leave doc" for their own planned leaves. Having transitioned roles within GitHub now a number of times over the years, I'm no stranger to temporarily or permanently handing off work, and have evolved a preferred format I use to ensure business continuity during the transition. In service of ["everything should have a URL"](https://ben.balter.com/2015/11/12/why-urls/), I'm sharing my leave template here in case it's helpful for planning your own leave.
 
 ## Sections to include
 
