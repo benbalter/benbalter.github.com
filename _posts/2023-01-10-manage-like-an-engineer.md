@@ -23,7 +23,7 @@ This level of open-source-like managerial transparency is far from automatic nor
 
 Here are a few of the engineer-inspired "how we work" principles which I strive to embody through my own management:
 
-* **Make work visible** - Proactively share to the widest extent practical given the subject.[^4]
+* **Make work visible** - Proactively share to the widest extent practical given the subject.[^4] Like any production system, observability is key.
 * **Write things down** - Especially the why and how. [Ensure that everything has a URL](https://ben.balter.com/2015/11/12/why-urls/). Be generous with links.
 * **[Over communicate](https://ben.balter.com/2017/05/23/seven-ways-to-consistently-ship-great-features/#1-over-communicate)** - Use a durable, searchable, and discoverable medium. Let others opt-in to context and subscribe to updates.
 * **Bias for shipping** - [Ship early, ship often](https://ben.balter.com/2016/09/13/seven-habits-of-highly-effective-githubbers/#2-ship-early-ship-often). Whether decisions, process, or "manager code", ship an MVP and iterate. Minimize batch size.
