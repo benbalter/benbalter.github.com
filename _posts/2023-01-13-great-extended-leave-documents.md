@@ -59,7 +59,7 @@ For everything you touch regularly, list your primary point of contact. This wil
 | Finance | Fran  |
 {: .table .w-50 .mx-auto}
 
-#### 👉 Stuff you touched recently or hope can be picked up while your out
+#### 👉 Stuff you touched recently or hope can be picked up while you're out
 
 List any projects, initiatives, or other work you've been involved in recently, and any that you hope to be able to hand off to others while you are out. I linked out to our team project board, which captured the in-flight work, and created a "@benbalter's GitHub Fan Fiction" document, with the backlog of ships that I had hoped would be GitHub cinematic universe cannon before going on leave. My fan fiction looked something like this, framed in terms of [problems and solutions](https://ben.balter.com/2018/07/16/problems-not-solutions/):
 
