@@ -17,6 +17,7 @@ roles:
   - /2016/06/06/twelve-things-a-product-manager-does/
   - /2021/03/26/nine-things-a-technical-program-manager-does/
   - /2022/03/09/seven-things-a-corporate-chief-of-staff-does/
+  - /2023/01/10/manage-like-an-engineer/
 ---
 
 Over the years I've written a number of posts about GitHub's culture and communication patterns. If you're joining (or preparing for an interview at) GitHub, here are some of my favorite posts that might help you understand how GitHub works and what it's like to be a GitHubber:
@@ -27,8 +28,7 @@ Over the years I've written a number of posts about GitHub's culture and communi
 * **[{{ post.title }}]({{ post.url | absolute_url }})** — {{ post.description | markdownify | strip_html }}
 {% endfor %}
 
-And if you're a Product Manager, Technical Program Manager, or Chief of Staff:
-
+And if you're a Product Manager, Technical Program Manager, Chief of Staff, or Engineering Manager:
 {% for url in page.roles %}
 {%- assign post=site.posts | where:"url",url | first -%}
 
