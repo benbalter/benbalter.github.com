@@ -22,18 +22,27 @@ roles:
 
 Over the years I've written a number of posts about GitHub's culture and communication patterns. If you're joining (or preparing for an interview at) GitHub, here are some of my favorite posts that might help you understand how GitHub works and what it's like to be a GitHubber:
 
+<!-- textlint-disable -->
+
 {% for url in page.posts %}
 {%- assign post=site.posts | where:"url",url | first -%}
 
 * **[{{ post.title }}]({{ post.url | absolute_url }})** — {{ post.description | markdownify | strip_html }}
 {% endfor %}
 
+<!-- textlint-enable -->
+
 And if you're a Product Manager, Technical Program Manager, Chief of Staff, or Engineering Manager:
+
+<!-- textlint-disable -->
+
 {% for url in page.roles %}
 {%- assign post=site.posts | where:"url",url | first -%}
 
 * **[{{ post.title }}]({{ post.url | absolute_url }})** — {{ post.description | markdownify | strip_html }}
 {% endfor %}
+
+<!-- textlint-enable -->
 
 If you're looking to learn even more about how GitHub works, it's culture, and what it's like to be a GitHubber, you can also check out some of [the books that have significantly influenced my time at GitHub](/other-recommended-reading/) that I often recommend to others.
 
