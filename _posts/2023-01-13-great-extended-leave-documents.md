@@ -7,7 +7,7 @@ I recently came back from an extended leave to find several of my colleagues ask
 
 ## Sections to include
 
-#### ⏳ TL;DR:
+#### ⏳ TL;DR: <!-- markdownlint-disable-line MD001 MD026 -->
 
 "Too long, didn't read". This is for the folks who have a question or request, but don't have time to read the whole document. Put it up front and make it visually distinct. The TL;DR can be as simple as:
 
@@ -81,6 +81,7 @@ You could have the best leave or transition document in the world, but if nobody
 
 If you're preparing to go on leave (or transition to a new role), feel free to use the template below as a starting point.[^3] Of course, if you have any suggestions or proposed improvements, {% github_edit_link "pull requests are always welcome" %}.
 
+<!-- markdownlint-disable-next-line MD040 -->
 ```
 # @your leave document
 
