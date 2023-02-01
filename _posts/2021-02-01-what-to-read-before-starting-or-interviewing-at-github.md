@@ -25,7 +25,7 @@ Over the years I've written a number of posts about GitHub's culture and communi
 {% for url in page.posts %}
 {%- assign post=site.posts | where:"url",url | first -%}
 
-* **[{{ post.title }}]({{ post.url | absolute_url }})** — {{ post.description | markdownify | strip_html }}
+* **[{{ post.title }}]({{ post.url | absolute_url }})** — {{ post.description | markdownify | strip_HTML }}
 {% endfor %}
 
 And if you're a Product Manager, Technical Program Manager, Chief of Staff, or Engineering Manager:

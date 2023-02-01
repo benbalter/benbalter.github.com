@@ -15,7 +15,7 @@ I recently came back from an extended leave to find several of my colleagues ask
 
 #### 📅 Dates
 
-When is your last day in the office? When do you anticipate being back? If the exact date of your leave is unknown, you can provide an estimated range, or describe the leave in relative terms (e.g., `event + 2 weeks`). Keep this section up to date as your plans change. Here's an example of what that might look like:
+When is your last day in the office? When do you anticipate being back? If the exact date of your leave is unknown, you can provide an estimated range, or describe the leave in relative terms (for example, `event + 2 weeks`). Keep this section up to date as your plans change. Here's an example of what that might look like:
 
 | &nbsp;       | Start           | End             | Dates                |
 |--------------|-----------------|-----------------|----------------------|
@@ -103,6 +103,6 @@ If you're preparing to go on leave (or transition to a new role), feel free to u
 
 [^1]: I often ask, "Are there any questions not answered here that you can imagine might arise while I am out?"
 
-[^2]: Using an internal or external link shortener (e.g., `bit.ly/benbalter-leave`) to create a more memorable URL for your colleagues to regularly reference your doc.
+[^2]: Using an internal or external link shortener (for example, `bit.ly/benbalter-leave`) to create a more memorable URL for your colleagues to regularly reference your doc.
 
 [^3]: If you're looking for even more extended leave resources, @isethi has a great talk on [navigating parental leave as a senior engineering leader](https://leaddev.com/san-francisco/video/navigating-parental-leave-as-a-senior-engineering-leader). If you're preparing to go on parental leave, be sure to check out her [parental leave checklist template](https://docs.google.com/document/d/1VjY8xvZtHV_4p_xXUz7rRIIC4VT8B_2NasL950pQk4U/edit#heading=h.oso3zy2cszfb) as well.
