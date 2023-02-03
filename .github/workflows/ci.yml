@@ -57,11 +57,15 @@ jobs:
           node-version: 16
           cache: 'npm'
 
-      - name: script/bootstrap
-        run: script/bootstrap
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v3
 
-      - name: script/build
-        run: script/build
+      - run: bundle exec jekyll build
+        env:
+          JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JEKYLL_ENV: production
+          PAGES_ENV: dotcom
 
       - name: run Lighthouse CI
         run: |
