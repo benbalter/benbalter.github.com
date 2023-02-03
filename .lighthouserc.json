@@ -4,7 +4,8 @@
       "staticDistDir": "./_site",
       "url": [
         "http://localhost/index.html",
-        "http://localhost/about/index.html"
+        "http://localhost/about/index.html",
+        "http://localhost/2021/09/01/how-i-re-over-engineered-my-home-network/index.html"
       ]
     }, 
     "assert": {
