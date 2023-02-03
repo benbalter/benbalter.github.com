@@ -3,7 +3,7 @@ on:
     paths: 
       - '_posts/**.md'
       - '.github/workflows/related-posts.yml'
-      - 'script/build-related-posts.'
+      - 'script/build-related-posts'
     branches:
       - main
 
