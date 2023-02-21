@@ -2,6 +2,7 @@
 employer: GitHub
 title: Chief of Staff, Security
 start_date: '2021-07-01'
+end_date: '2023-02-21'
 ---
 
 * **Manage the office of the Chief Security Officer** - Establishing, documenting, and maturing repeatable "rhythm of the bushiness" processes for critical business functions, ensuring the organization’s smooth operation, and managing internal, external, and executive communications.
