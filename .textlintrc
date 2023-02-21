@@ -1,5 +1,7 @@
 {
-  "filters": {},
+  "filters": {
+    "comments": true,
+  },
   "rules": {
     "no-start-duplicated-conjunction": true,
     "terminology": {
