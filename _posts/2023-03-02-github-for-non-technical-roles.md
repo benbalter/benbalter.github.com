@@ -25,7 +25,7 @@ Discussions are like issues, but don't have a specific outcome or sense of state
 
 ## Pull requests
 
-Pull requests are how you propose changes to a repository. If issues describe the problems, pull requests describe the proposed _solutions_). Others can also review your proposed changes and comment on, make suggested changes to, or "approve" your pull request. Pull requests modify files within the repository. Once approved, your pull requested is "merged" into the repository and your proposed changes are "live".
+Pull requests are how you propose changes to a repository. If issues describe the problems, pull requests describe the proposed _solutions_. Others can also review your proposed changes and comment on, make suggested changes to, or "approve" your pull request. Pull requests modify files within the repository. Once approved, your pull requested is "merged" into the repository and your proposed changes are "live".
 
 ## Markdown files
 
