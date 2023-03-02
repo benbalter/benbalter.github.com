@@ -84,7 +84,7 @@ In addition to Markdown you'll often see emoji and animated GIFs used heavily on
 
 ## Project boards
 
-If individual tasks are tracked as issues, project boards are how you track the progress of a project as a whole. Project boards are a visual representation of what issues are on deck, what issues are in progress, and what issues have been completed (todo, doing, done). 
+If individual tasks are tracked as issues, project boards are how you track the progress of a project as a whole. Project boards are a visual representation of what issues are on deck, what issues are in progress, and what issues have been completed (todo, doing, done).
 
 ### Checks
 
@@ -113,7 +113,7 @@ You _may_ see one or more status checks on your pull request. Checks are automat
 11. Once approved and checks pass, your pull request is "merged" and your changes are now "live" on the main branch
 12. Celebrate your first contribution to GitHub!
 
-### Glossary 
+### Glossary
 
 If you come across a term or concept not covered here, be sure to check out [the official GitHub glossary](https://docs.github.com/en/get-started/quickstart/github-glossary).
 
