@@ -1,6 +1,6 @@
 ---
 title: GitHub for non-technical roles
-description: GitHub isn't just for software developers. If you're in a non-technical role, you can use GitHub to collaborate with your team, track your work, and share information. This guide is intended to help you get started with GitHub.
+description: GitHub isn't just for software developers. If you're in a non-technical role, you can use GitHub to follow along, collaborate with your team, track your work, and share information. This guide is will help you get confidently started with GitHub.
 ---
 
 ## What is GitHub?
@@ -13,7 +13,7 @@ Repositories are the most basic unit of GitHub. Each repository represents a rea
 
 ## Markdown
 
-Markdown is how text is formatted on GitHub. If you wanted to format text in a text box that didn't support formatting, you might use `*`s to represent bullets, or wrap a word in `_` to emphasize it. That's Markdown. Markdown is plain text, with optional lightweight formatting that GitHub can render. It sounds like "coding", but you'll get the hang of it in no time. To get started, check out [the official GitHub docs](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github).
+Markdown is how text is formatted on GitHub. If you wanted to format text in a text box that didn't support formatting, you might use `*`s to represent bullets, or wrap a word in `_` to emphasize it. That's Markdown. Markdown is plain text, with optional lightweight formatting that GitHub can render. It sounds like "coding", but you'll get the hang of it in no time. To get started, check out [the official GitHub docs](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
 ## Issues
 
@@ -21,11 +21,11 @@ Issues are how work is tracked on GitHub. You can think of them as "To Do" items
 
 ## Discussions
 
-Discussions are like issues, but don't have a specific outcome or sense of state (open or closed). You can use discussions to ask questions, collaborate on ideas, and share announcement. You can think of discussions like blog posts, a forum, or a chat room for your repository.
+Discussions are like issues, but don't have a specific outcome or sense of state (open or closed). You can use discussions to ask questions, collaborate on ideas, and share announcement. You can think of discussions like blog posts, an online forum, or a chat room for your repository.
 
 ## Pull requests
 
-Pull requests are how you propose changes to a repository. If issues describe the problems, pull requests describe the proposed _solutions). Others can also review your proposed changes and comment on, make suggested changes to, or "approve" your pull request. Pull requests modify files within the repository. Once approved, your pull requested is "merged" into the repository and your proposed changes are "live".
+Pull requests are how you propose changes to a repository. If issues describe the problems, pull requests describe the proposed _solutions_). Others can also review your proposed changes and comment on, make suggested changes to, or "approve" your pull request. Pull requests modify files within the repository. Once approved, your pull requested is "merged" into the repository and your proposed changes are "live".
 
 ## Markdown files
 
@@ -52,7 +52,7 @@ GitHub flow describes the process of making changes to a repository. The basic s
 3. Create a branch to work on the solution
 4. Make changes to files on the branch
 5. Commit those changes
-6. Open a pull request "requesting" that those changes be merged back into the main" branch
+6. Open a pull request "requesting" that those changes be merged back into the "main" branch
 7. Your colleagues review your pull request and either approve them or suggest changes
 8. Once approved, your pull request is "merged" and your changes are now "live" on the main branch
 
@@ -63,6 +63,10 @@ GitHub sends notifications to you when someone mentions you in a comment, assign
 ## @mentions
 
 One of the most powerful GitHub features is @mentions. You can tag anyone into an issue or pull request by typing `@` followed by their GitHub login. They'll receive a notification and can respond. You can also use @mentions to tag teams, like `@github/eng` or `@github/eng-ops`. When @mentioning users or teams, it's best to provide context in the comment so they know why they are receiving the notification.
+
+## Cross references
+
+Another powerful GitHub feature is issue and pull request cross references. You can reference another issue or pull request in a comment by including its number (e.g., `This is related to #123`). When cross referenced, links are created between the two issues or pull requests, making it easier for others to discover and understand the context of the conversation.
 
 ## Desktop vs. web
 
@@ -86,12 +90,28 @@ If individual tasks are tracked as issues, project boards are how you track the 
 
 You _may_ see one or more status checks on your pull request. Checks are automated tests that run against your proposed changes to enforce certain rules (such as formatting, spelling, or style). If a check fails, you'll need to fix the problem before your pull request can be merged. You can click "details" next to a failed check to learn more.
 
-### When to use an issue vs. a pull request vs. a discussion vs. a markdown file
+### When to use an issue vs. a pull request vs. a discussion vs. a markdown file vs. a project board
 
 * Discussions - Opened-ended conversation without a specific outcome or concept of "done"
 * Issues - How problems are tracked and discussed
 * Pull requests - How solutions/changes are proposed and reviewed
 * Markdown files - How long-lived information is shared and stored (documentation, policy, procedures, etc.).
+* Project boards - How project progress is tracked (as multiple issues)
+
+## Putting it all together, editing a file on the web
+
+1. Open the repository you want to edit
+2. Navigate to the file you want to edit
+3. Click the pencil icon to edit the file
+4. Make your changes
+5. Click "Commit changes" to save your changes
+6. Describe your changes in the commit message
+7. Name your branch
+8. Click "Propose changes" to open a pull request
+9. Describe your changes in the pull request, ideally referencing the issue you're solving (e.g., `Closes #123`)
+10. Your colleagues review your pull request and either approve them or suggest changes
+11. Once approved and checks pass, your pull request is "merged" and your changes are now "live" on the main branch
+12. Celebrate your first contribution to GitHub!
 
 ### Glossary 
 
