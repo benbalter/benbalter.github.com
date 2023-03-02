@@ -66,7 +66,7 @@ One of the most powerful GitHub features is @mentions. You can tag anyone into a
 
 ## Cross references
 
-Another powerful GitHub feature is issue and pull request cross references. You can reference another issue or pull request in a comment by including its number (e.g., `This is related to #123`). When cross referenced, links are created between the two issues or pull requests, making it easier for others to discover and understand the context of the conversation.
+Another powerful GitHub feature is issue and pull request [cross references](https://ben.balter.com/2015/11/12/why-urls/). You can reference another issue or pull request in a comment by including its number (e.g., `This is related to #123`). When cross referenced, links are created between the two issues or pull requests, making it easier for others to discover and understand the context of the conversation.
 
 ## Desktop vs. web
 
