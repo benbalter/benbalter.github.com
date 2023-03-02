@@ -118,3 +118,5 @@ You _may_ see one or more status checks on your pull request. Checks are automat
 If you come across a term or concept not covered here, be sure to check out [the official GitHub glossary](https://docs.github.com/en/get-started/quickstart/github-glossary).
 
 Happy GitHubbing! 🎉
+
+{% include_cached github-culture.html %}
