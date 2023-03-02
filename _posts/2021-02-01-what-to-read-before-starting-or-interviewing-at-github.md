@@ -2,6 +2,7 @@
 title: What to read before starting (or interviewing) at GitHub
 description: If you're starting (or preparing for an interview) at GitHub, here are a few of my favorite posts to help you understand how GitHub works, its culture and communication patterns, and what it's like to be a GitHubber.
 posts:
+  - /2023/03/02/github-for-non-technical-roles/
   - /2014/11/06/rules-of-communicating-at-github/
   - /2016/09/13/seven-habits-of-highly-effective-githubbers/
   - /2016/10/31/eight-things-i-wish-i-knew-my-first-week-at-github/
