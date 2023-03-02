@@ -1,5 +1,5 @@
 ---
-title: GitHub for non-technical roles
+title: Intro to GitHub for non-technical roles
 description: GitHub isn't just for software developers. If you're in a non-technical role, you can use GitHub to follow along, collaborate with your team, track your work, and share information. This guide is will help you get confidently started with GitHub.
 ---
 
