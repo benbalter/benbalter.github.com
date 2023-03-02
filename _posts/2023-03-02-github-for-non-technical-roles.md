@@ -21,7 +21,7 @@ Issues are how work is tracked on GitHub. You can think of them as "To Do" items
 
 ## Discussions
 
-Discussions are like issues, but don't have a specific outcome or sense of state (open or closed). You can use discussions to ask questions, collaborate on ideas, and share announcement. You can think of discussions like blog posts, an online forum, or a chat room for your repository.
+Discussions are like issues, but don't have a specific outcome or sense of state (open or closed). You can use discussions to ask questions, collaborate on ideas, and share announcements. You can think of discussions like blog posts, an online forum, or a chat room for your repository.
 
 ## Pull requests
 
