@@ -92,11 +92,14 @@ You _may_ see one or more status checks on your pull request. Checks are automat
 
 ### When to use an issue vs. a pull request vs. a discussion vs. a markdown file vs. a project board
 
+Work generally flows through a repository in this order:
+
 * Discussions - Opened-ended conversation without a specific outcome or concept of "done"
 * Issues - How problems are tracked and discussed
-* Pull requests - How solutions/changes are proposed and reviewed
-* Markdown files - How long-lived information is shared and stored (documentation, policy, procedures, etc.).
-* Project boards - How project progress is tracked (as multiple issues)
+* Pull requests - How solutions/changes are proposed and reviewed. Generally pull requests should tie back to the issue they are solving.
+* Markdown files - How long-lived information is shared and stored (documentation, policy, procedures, etc.). Markdown files are changed via pull request.
+
+As a project proceeds in one or more repositories, high-level project progress is tracked on one or more project boards (which visually organizes the state of multiple issues).
 
 ## Putting it all together, editing a file on the web
 
