@@ -76,7 +76,7 @@ Almost everything you'd want to do on GitHub you can do entirely through the web
 
 ### Pushing and pulling
 
-If you're using the web interface, you don't have to worry about pushing or pulling. If you're using the desktop client, you can think of pushing (in some cases called cloning) as downloading (pulling the files from GitHub) and pushing as uploading (pushing the files back to GitHub).
+If you're using the web interface, you don't have to worry about pushing or pulling. If you're using the desktop client, you can think of pulling (in some cases called cloning) as downloading (pulling the files from GitHub) and pushing as uploading (pushing the files back to GitHub).
 
 ### Emoji and animated GIFs
 
