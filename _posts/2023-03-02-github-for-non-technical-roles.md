@@ -9,7 +9,7 @@ If you're not a software developer, you can think of GitHub like Dropbox, Google
 
 ## Repositories
 
-Repositories are the most basic unit of GitHub. Each repository represents a real-world project, initiative, or team. Repositories contain issues, discussions, and pull requests (more on that in a moment), as well as "code", which for non-technical roles, is often text files in the form of Markdown (more on that too). [Official docs](https://docs.github.com/en/repositories).
+[Repositories](https://docs.github.com/en/repositories) are the most basic unit of GitHub. Each repository represents a real-world project, initiative, or team. Repositories contain issues, discussions, and pull requests (more on that in a moment), as well as "code", which for non-technical roles, is often text files in the form of Markdown (more on that too).
 
 ## Markdown
 
@@ -19,15 +19,14 @@ Markdown is how text is formatted on GitHub. If you wanted to format text in a t
 
 ## Issues
 
-Issues are how work is tracked on GitHub. You can think of them as "To Do" items (or "tickets" in some contexts). Issues describe the *problems* you or your team want to solve, with the list of potential problems being referred to as team's "issue backlog". You can comment on issues, like you would a blog post, assign them to people, and close them when they have been completed. Issues can also be labeled for ease of discoverability and for tracking additional metadata. For especially complex problems, the body of the issue can even include a task list with checkboxes, to track progress of individual sub-tasks. [Official docs](https://docs.github.com/en/issues).
-
+[Issues](https://docs.github.com/en/issues) are how work is tracked on GitHub. You can think of them as "To Do" items (or "tickets" in some contexts). Issues describe the *problems* you or your team want to solve, with the list of potential problems being referred to as team's "issue backlog". You can comment on issues, like you would a blog post, assign them to people, and close them when they have been completed. Issues can also be labeled for ease of discoverability and for tracking additional metadata. For especially complex problems, the body of the issue can even include a task list with checkboxes, to track progress of individual sub-tasks.
 ## Discussions
 
-Discussions are like issues, but don't have a specific outcome or sense of state (open or closed). You can use discussions to ask questions, collaborate on ideas, and share announcements. You can think of discussions like blog posts, an online forum, or a chat room for your repository. [Official docs](https://docs.github.com/en/discussions).
+[Discussions](https://docs.github.com/en/discussions) are like issues, but don't have a specific outcome or sense of state (open or closed). You can use discussions to ask questions, collaborate on ideas, and share announcements. You can think of discussions like blog posts, an online forum, or a chat room for your repository.
 
 ## Pull requests
 
-Pull requests are how you propose changes to a repository. If issues describe the problems, pull requests describe the proposed *solutions*. Others can also review your proposed changes and comment on, make suggested changes to, or "approve" your pull request. Pull requests modify files within the repository. Once approved, your pull requested is "merged" into the repository and your proposed changes are "live". [Official docs](https://docs.github.com/en/pull-requests).
+[Pull requests](https://docs.github.com/en/pull-requests) are how you propose changes to a repository. If issues describe the problems, pull requests describe the proposed *solutions*. Others can also review your proposed changes and comment on, make suggested changes to, or "approve" your pull request. Pull requests modify files within the repository. Once approved, your pull requested is "merged" into the repository and your proposed changes are "live".
 
 ## Markdown files
 
@@ -39,15 +38,15 @@ At the core of GitHub is a version control system called Git. Git tracks changes
 
 ## Commits
 
-Git tracks changes as "commits". A commit is a snapshot of the file (or files) at a point in time. Each commit should have a brief, descriptive message describing the changes from the previous version, to help you and your colleagues understand what's going on. [Official docs](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/about-commits).
+Git tracks changes as "[commits](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/about-commits)". A commit is a snapshot of the file (or files) at a point in time. Each commit should have a brief, descriptive message describing the changes from the previous version, to help you and your colleagues understand what's going on.
 
 ## Branches
 
-Branches are like parallel universes or alternate timelines for your files. You can make changes to a branch without affecting files on the "main" branch. Branches contain one or more commits, and when you're ready, you can merge your changes (commits) into the main branch to update the files there. You can think of branches as saving a copy of a file so that you can work on changes without affecting others' work, but in a way that makes it easier to merge any changes you make back in with the original when you're ready. [Official docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches).
+[Branches](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches) are like parallel universes or alternate timelines for your files. You can make changes to a branch without affecting files on the "main" branch. Branches contain one or more commits, and when you're ready, you can merge your changes (commits) into the main branch to update the files there. You can think of branches as saving a copy of a file so that you can work on changes without affecting others' work, but in a way that makes it easier to merge any changes you make back in with the original when you're ready.
 
 ## GitHub flow
 
-GitHub flow describes the process of making changes to a repository. The basic steps are:
+[GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow) describes the process of making changes to a repository. The basic steps are:
 
 1. Open an issue describing the problem you want to solve
 2. Once there is agreement that the problem should be solved, decide on the best solution
@@ -58,11 +57,9 @@ GitHub flow describes the process of making changes to a repository. The basic s
 7. Your colleagues review your pull request and either approve them or suggest changes
 8. Once approved, your pull request is "merged" and your changes are now "live" on the main branch
 
-[Official docs](https://docs.github.com/en/get-started/quickstart/github-flow).
-
 ## Notifications
 
-GitHub sends notifications to you when someone mentions you in a comment, assigns you to an issue, or requests your review on a pull request. You can also (and often should) "subscribe" to repositories to be notified about some or all activity. Likewise, you can unsubscribe from individual issues if you're not interested. By default you'll receive notifications via email, but you can also configure GitHub to use "web notifications", or even set up notifications in your Slack or Teams channel. [Official docs](https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
+GitHub sends [notifications](https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications) to you when someone mentions you in a comment, assigns you to an issue, or requests your review on a pull request. You can also (and often should) "subscribe" to repositories to be notified about some or all activity. Likewise, you can unsubscribe from individual issues if you're not interested. By default you'll receive notifications via email, but you can also configure GitHub to use "web notifications", or even set up notifications in your Slack or Teams channel.
 
 ## @mentions
 
@@ -88,7 +85,7 @@ In addition to Markdown you'll often see emoji and animated GIFs used heavily on
 
 ## Project boards
 
-If individual tasks are tracked as issues, project boards are how you track the progress of a project as a whole. Project boards are a visual representation of what issues are on deck, what issues are in progress, and what issues have been completed (todo, doing, done). [Official docs](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).
+If individual tasks are tracked as issues, [project boards](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) are how you track the progress of a project as a whole. Project boards are a visual representation of what issues are on deck, what issues are in progress, and what issues have been completed (todo, doing, done).
 
 ## Finding information
 
@@ -104,7 +101,7 @@ With so much information available on GitHub, it's often intimidating to find wh
 
 ### Checks
 
-You *may* see one or more status checks on your pull request. Checks are automated tests that run against your proposed changes to enforce certain rules (such as formatting, spelling, or style). If a check fails, you'll need to fix the problem before your pull request can be merged. You can click "details" next to a failed check to learn more. [Official docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks).
+You *may* see one or more [status checks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks) on your pull request. Checks are automated tests that run against your proposed changes to enforce certain rules (such as formatting, spelling, or style). If a check fails, you'll need to fix the problem before your pull request can be merged. You can click "details" next to a failed check to learn more.
 
 ### When to use an issue vs. a pull request vs. a discussion vs. a markdown file vs. a project board
 
