@@ -15,9 +15,11 @@ Repositories are the most basic unit of GitHub. Each repository represents a rea
 
 Markdown is how text is formatted on GitHub. If you wanted to format text in a text box that didn't support formatting, you might use `*`s to represent bullets, or wrap a word in `_` to emphasize it. That's Markdown. Markdown is plain text, with optional lightweight formatting that GitHub can render. It sounds like "coding", but you'll get the hang of it in no time. To get started, check out [the official GitHub docs](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
+*Pro-tip: To convert a Word or Google Doc to Markdown, you can use my very own [Word to Markdown converter](https://word2md.com).*
+
 ## Issues
 
-Issues are how work is tracked on GitHub. You can think of them as "To Do" items (or "tickets" in some contexts). Issues describe the _problems_ you or your team want to solve, with the list of potential problems being referred to as team's "issue backlog". You can comment on issues, like you would a blog post, assign them to people, and close them when they have been completed. Issues can also be labeled for ease of discoverability and for tracking additional metadata.
+Issues are how work is tracked on GitHub. You can think of them as "To Do" items (or "tickets" in some contexts). Issues describe the _problems_ you or your team want to solve, with the list of potential problems being referred to as team's "issue backlog". You can comment on issues, like you would a blog post, assign them to people, and close them when they have been completed. Issues can also be labeled for ease of discoverability and for tracking additional metadata. For especially complex problems, the body of the issue can even include a task list with checkboxes, to track progress of individual sub-tasks.
 
 ## Discussions
 
