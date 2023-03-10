@@ -78,13 +78,23 @@ Almost everything you'd want to do on GitHub you can do entirely through the web
 
 If you're using the web interface, you don't have to worry about pushing or pulling. If you're using the desktop client, you can think of pushing (in some cases called cloning) as downloading (pulling the files from GitHub) and pushing as uploading (pushing the files back to GitHub).
 
-### Emoji and animated GIFs
+### Emoji and animated GIFs :tada:
 
 In addition to Markdown you'll often see emoji and animated GIFs used heavily on issues and pull requests. You can think of emoji and animated GIFs as the facial expressions and body language of GitHub. They make it easier to convey emotion in written text. I like to describe the communication style on GitHub as "professional but informal", meaning don't be afraid to use emoji and animated GIFs to make your comments more expressive (while remaining appropriate, of course).
 
 ## Project boards
 
 If individual tasks are tracked as issues, project boards are how you track the progress of a project as a whole. Project boards are a visual representation of what issues are on deck, what issues are in progress, and what issues have been completed (todo, doing, done).
+
+## Finding information
+
+With so much information available on GitHub, it's often intimidating to find what you're looking for. Here are some tips for using [GitHub's powerful search](https://github.com/search) to find anything on GitHub:
+
+* Use keyword search, just like you would any search engine. For example, searching for `widgets` will find all repositories, issues, pull requests, and discussions that contain the word "widgets".
+* Scope your search to an organization or repository by using the `org:` or `repo:` qualifiers. For example, `org:github` will find all issues in all repositories in the `github` organization, or `repo:github/docs` will find all issues in the `github/docs` repository.
+* You can further refine your search to only show threads that you're involved in by using the `involves:@me` modifier. For example, `widgets involves:@me` will find all issues, pull requests, and discussions that contain the word "widgets" and that you are involved in.
+* Different types of information (issues, pull requests, discussions, markdown) are displayed as seperate results. Be sure to check the side bar to see all the different types of information that match your search.
+* You can limit a "code" search to only Markdown files, by clicking "Markdown" in the sidebar to filter results, or adding `language:Markdown` to your search query.
 
 ### Checks
 
