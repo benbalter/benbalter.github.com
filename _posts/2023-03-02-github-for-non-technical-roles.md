@@ -19,7 +19,7 @@ Markdown is how text is formatted on GitHub. If you wanted to format text in a t
 
 ## Issues
 
-Issues are how work is tracked on GitHub. You can think of them as "To Do" items (or "tickets" in some contexts). Issues describe the _problems_ you or your team want to solve, with the list of potential problems being referred to as team's "issue backlog". You can comment on issues, like you would a blog post, assign them to people, and close them when they have been completed. Issues can also be labeled for ease of discoverability and for tracking additional metadata. For especially complex problems, the body of the issue can even include a task list with checkboxes, to track progress of individual sub-tasks.
+Issues are how work is tracked on GitHub. You can think of them as "To Do" items (or "tickets" in some contexts). Issues describe the *problems* you or your team want to solve, with the list of potential problems being referred to as team's "issue backlog". You can comment on issues, like you would a blog post, assign them to people, and close them when they have been completed. Issues can also be labeled for ease of discoverability and for tracking additional metadata. For especially complex problems, the body of the issue can even include a task list with checkboxes, to track progress of individual sub-tasks.
 
 ## Discussions
 
@@ -27,7 +27,7 @@ Discussions are like issues, but don't have a specific outcome or sense of state
 
 ## Pull requests
 
-Pull requests are how you propose changes to a repository. If issues describe the problems, pull requests describe the proposed _solutions_. Others can also review your proposed changes and comment on, make suggested changes to, or "approve" your pull request. Pull requests modify files within the repository. Once approved, your pull requested is "merged" into the repository and your proposed changes are "live".
+Pull requests are how you propose changes to a repository. If issues describe the problems, pull requests describe the proposed *solutions*. Others can also review your proposed changes and comment on, make suggested changes to, or "approve" your pull request. Pull requests modify files within the repository. Once approved, your pull requested is "merged" into the repository and your proposed changes are "live".
 
 ## Markdown files
 
@@ -80,7 +80,7 @@ Almost everything you'd want to do on GitHub you can do entirely through the web
 
 If you're using the web interface, you don't have to worry about pushing or pulling. If you're using the desktop client, you can think of pushing (in some cases called cloning) as downloading (pulling the files from GitHub) and pushing as uploading (pushing the files back to GitHub).
 
-### Emoji and animated GIFs :tada:
+### Emoji and animated GIFs 🎉
 
 In addition to Markdown you'll often see emoji and animated GIFs used heavily on issues and pull requests. You can think of emoji and animated GIFs as the facial expressions and body language of GitHub. They make it easier to convey emotion in written text. I like to describe the communication style on GitHub as "professional but informal", meaning don't be afraid to use emoji and animated GIFs to make your comments more expressive (while remaining appropriate, of course).
 
@@ -100,7 +100,7 @@ With so much information available on GitHub, it's often intimidating to find wh
 
 ### Checks
 
-You _may_ see one or more status checks on your pull request. Checks are automated tests that run against your proposed changes to enforce certain rules (such as formatting, spelling, or style). If a check fails, you'll need to fix the problem before your pull request can be merged. You can click "details" next to a failed check to learn more.
+You *may* see one or more status checks on your pull request. Checks are automated tests that run against your proposed changes to enforce certain rules (such as formatting, spelling, or style). If a check fails, you'll need to fix the problem before your pull request can be merged. You can click "details" next to a failed check to learn more.
 
 ### When to use an issue vs. a pull request vs. a discussion vs. a markdown file vs. a project board
 
