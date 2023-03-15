@@ -59,6 +59,7 @@ But at earlier GitHub, it was a conversation. It was a chance to ask questions, 
 * Work being more important than the game of work
 * Default to yes, vs default to let’s talk
 * Healthy debate good intentions
+* Emoji, GIFs for celebrations
 
 Things we did keep:
 
