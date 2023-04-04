@@ -9,11 +9,9 @@ Here are N things from GitHub's earlier days, that I wish we could bring back at
 
 ## Culture tools 
 
-We used to have a concept called "culture tools" to describe how we crafted internal tooling. As the documentation then put it: "GitHubbers work differently than other people. It is important that our tools not only reflect this, but encourage it and support it." Culture tools were more than just get-the-job-done internal tools, but brought the samae level of attention to detail, taste, and craftsmanship to internal products as we did our customer-facing ones. 
+We used to have a concept called "culture tools" to describe how we crafted internal tooling.[^3] Culture tools were more than just get-the-job-done internal tools, but brought the samae level of attention to detail, taste, and craftsmanship to internal products as we did our customer-facing ones. 
 
-Their character was driven by the culture of GitHub and the way we work. The foundational mechanics of communication at GitHub (at the time) was URLs, @mentions, subscriptions, autocompletion, markdown, emoji, accessibility, simplicity, and BEAUTY. These weren't just features we wished our internal tools had. These were features we expected them to have. They were features that let us work the way we want to work - Asynchronously, whenever, wherever, on whatever - and let us jump from tool to tool, and things just worked the way you'd expect them to without any learning curve. 
-
-These tools, at their core, helped us optimize for Hubber happiness. As the Culture Tools "Ethos" put it, "Actions required of a hubber that do not benefit the hubber == process. Don't do this. Ever... Work with hubbers, not against them. Features should fit the way hubbers already work."
+Their character was driven by the culture of GitHub and the way we worked. The foundational mechanics of communication at GitHub (at the time) was things like URLs, @mentions, markdown, and emoji. These weren't just features we wished our internal tools had. These were features we expected them to have. They were features that let us work the way we want to work - Asynchronously, whenever, wherever, on whatever - and let us jump from tool to tool, and things just worked the way you'd expect them to without any learning curve. These tools, at their core, helped us optimize for Hubber happiness.[^4]
 
 ## Being oppinionated about how we worked
 
@@ -51,7 +49,12 @@ But at earlier GitHub, it was a conversation. It was a chance to ask questions, 
 * Safety of being wrong
 * Time to learn/tinker/hack
 * Not shipping the org chart / quality / wholistic experience
-* Speaking like a human 
+
+## Speaking like a human 
+
+We used to use the phrase "speak like a human" to describe the "GitHub voice". From our documentation to our in-product copy to our [public-facing blog posts](https://ben.balter.com/2015/07/20/write-corporate-blog-posts-as-a-human/), we sought to connect human to human, not as corporation to customer. Internally, we didn't adopt the traditional "BizSpeak", pinging servers, not humans, driving consensus, not "alignment", and taking things offline __.
+
+
 * demo days
 * Individual customer focus
 * Memes and having fun
@@ -66,9 +69,18 @@ Things we did keep:
 * developer happiness
 * Output > input
 
+Things we got rid of:
+
+* Shipping for the sake of shipping
+* Changing direction every 6 months
+
 
 Link to twitter thread.
 
 [^1]: Rework
 
 [^2]: TL;DR: Everything we touch and experience can be designed. The choice to care about these things is up to us. We can all be designers.
+
+[^3]:  As the documentation then put it: "GitHubbers work differently than other people. It is important that our tools not only reflect this, but encourage it and support it." 
+
+[^4]: As the Culture Tools "Ethos" put it, "Actions required of a hubber that do not benefit the hubber == process. Don't do this. Ever... Work with hubbers, not against them. Features should fit the way hubbers already work."
