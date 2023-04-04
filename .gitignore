@@ -25,3 +25,4 @@ comments.json
 /vendor/bundle/
 .jekyll-cache
 .github/styles/*
+.frontmatter
