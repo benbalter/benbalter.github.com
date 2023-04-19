@@ -38,7 +38,7 @@ The story, illustrating the true mob-power of the internet, might be even more i
 
 [^4]: [*Copyright Basics*](http://www.copyright.gov/circs/circ01.pdf). U.S. Copyright Office (July 2008) (noting that for works created after the 1988 ratification of the [Berne Convention](http://en.wikipedia.org/wiki/Berne_Convention_for_the_Protection_of_Literary_and_Artistic_Works), copyright is assumed, thus neither notice nor registration is required to invoke protections).
 
-[^5]: Edward Champion, [The Cooks Source Scandal: How a Magazine Profits on Theft][7].
+[^5]: Edward Champion, [The Cooks Source Scandal: How a Magazine Profits on Theft](http://www.edrants.com/the-cooks-source-scandal-how-a-magazine-profits-on-theft/).
 
 [^6]: *See generally* [Goodwin's Law](http://en.wikipedia.org/wiki/Godwin's_law).
 
