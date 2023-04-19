@@ -20,6 +20,7 @@ Markdown is how text is formatted on GitHub. If you wanted to format text in a t
 ## Issues
 
 [Issues](https://docs.github.com/en/issues) are how work is tracked on GitHub. You can think of them as "To Do" items (or "tickets" in some contexts). Issues describe the *problems* you or your team want to solve, with the list of potential problems being referred to as team's "issue backlog". You can comment on issues, like you would a blog post, assign them to people, and close them when they have been completed. Issues can also be labeled for ease of discoverability and for tracking additional metadata. For especially complex problems, the body of the issue can even include a task list with checkboxes, to track progress of individual sub-tasks.
+
 ## Discussions
 
 [Discussions](https://docs.github.com/en/discussions) are like issues, but don't have a specific outcome or sense of state (open or closed). You can use discussions to ask questions, collaborate on ideas, and share announcements. You can think of discussions like blog posts, an online forum, or a chat room for your repository.
