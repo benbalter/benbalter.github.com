@@ -3,7 +3,7 @@ title: Meetings are a point of escalation, not the starting point of a conversat
 description: Default to transferring context asynchronously. Hold colleagues accountable for being async first. If you receive a meeting invite without context, an agenda, or a read-ahead doc, consider politely declining.
 ---
 
-Asynchronous communication (Issues, PRs, Google Docs, and sometimes Slack) should be the default, reserving more synchronous mediums (like video calls and in-person meetings) for the types of conversations that uniquely benefit from their higher fidelity (brainstorming, whiteboarding, inter-personal conflict, social connection, etc). Put another way, the phrase "async first" should be taken literally.
+Asynchronous communication (Issues, PRs, Google Docs, and sometimes Slack) should be the default, reserving more synchronous mediums (like video calls and in-person meetings) for the types of conversations that uniquely benefit from their higher fidelity (brainstorming, whiteboarding, interpersonal conflict, social connection, etc). Put another way, the phrase "async first" should be taken literally.
 
 ## Default to transferring context asynchronously
 
