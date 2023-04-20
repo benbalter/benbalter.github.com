@@ -15,7 +15,7 @@ Instead, next time, consider transferring that context asynchronously (as a GitH
 
 You may be skeptical. I was curious, so [I wrote a quick script to pull stats from my own calendar](https://github.com/benbalter/gmail-and-google-calendar-stats). My first year at GitHub (2013), I had a grand total of **16** internal meetings. Yes, we were smaller back then, but we were also *dogmatic* about being async first, almost to a fault. As we grew, my second year I had 43 meetings, and things gradually increased from there. This year, I'm on track to have over **600** meetings. There's got to be a better way!
 
-![meetings-over-time](https://user-images.githubusercontent.com/282759/233466397-ff9737ce-7b51-45c1-a643-88a00bbce4cf.png){: .w-75 .d-block}
+![meetings-over-time](https://user-images.githubusercontent.com/282759/233466397-ff9737ce-7b51-45c1-a643-88a00bbce4cf.png){: .w-75 .d-block .mx-auto}
 
 [Working asynchronously by default](https://ben.balter.com/2022/03/17/why-async/#benefits-of-working-asynchronously) fosters a more inclusive culture, facilitates discoverability and permanence, create space for learning, allows for greater work-life balance, and produces better outcomes, faster. Async is also the key to making remote work, work.
 
