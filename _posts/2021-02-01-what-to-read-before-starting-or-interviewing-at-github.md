@@ -9,6 +9,7 @@ posts:
   - /2015/11/12/why-urls/
   - /2022/03/17/why-async/
   - /2022/02/16/leaders-show-their-work/
+  - /2023/04/20/meetings-are-a-point-of-escalation/
   - /2017/05/23/seven-ways-to-consistently-ship-great-features/
   - /2015/11/18/tools-to-empower-open-collaboration/
   - /2020/08/14/tools-of-the-trade/
