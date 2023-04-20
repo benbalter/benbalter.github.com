@@ -19,7 +19,7 @@ You may be skeptical. I was curious, so [I wrote a quick script to pull stats fr
 
 [Working asynchronously by default](https://ben.balter.com/2022/03/17/why-async/#benefits-of-working-asynchronously) fosters a more inclusive culture, facilitates discoverability and permanence, create space for learning, allows for greater work-life balance, and produces better outcomes, faster. Async is also the key to making remote work, work.
 
-### Hold each other accountable for being truly async first
+### Hold colleagues accountable for being truly async first
 
 If you receive a meeting invite (or if a colleague requests permission to send you a meeting invite) without context, an agenda, or a read-ahead doc, consider politely declining, or at least asking for one - it's well within your rights (you can even link to this discussion post as a "get out of ~~jail~~ meeting free" card). After all, if the person requesting the meeting hasn't taken the time to distill their thoughts into writing, why should they be able to decide how you spend your own time?
 
