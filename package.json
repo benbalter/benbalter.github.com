@@ -52,7 +52,7 @@
     "remark-retext": "^5.0.1",
     "remark-squeeze-paragraphs": "^5.0.1",
     "remark-textr": "^5.0.1",
-    "remark-validate-links": "^12.1.0",
+    "remark-validate-links": "^12.1.1",
     "retext-contractions": "^5.2.0",
     "retext-diacritics": "^4.2.0",
     "retext-emoji": "^8.1.0",
