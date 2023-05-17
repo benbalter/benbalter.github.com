@@ -41,7 +41,7 @@
     "remark-lint-no-empty-sections": "^4.0.0",
     "remark-lint-no-shortcut-reference-image": "^3.1.1",
     "remark-lint-no-shortcut-reference-link": "^3.1.2",
-    "remark-lint-ordered-list-marker-value": "^3.1.1",
+    "remark-lint-ordered-list-marker-value": "^3.1.2",
     "remark-lint-unordered-list-marker-style": "^3.1.2",
     "remark-lint-write-good": "^1.2.0",
     "remark-message-control": "^7.1.1",
