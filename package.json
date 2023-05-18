@@ -32,7 +32,7 @@
     "remark-lint-code": "^2.0.0",
     "remark-lint-first-heading-level": "^3.1.2",
     "remark-lint-link-title-style": "^3.1.2",
-    "remark-lint-list-item-indent": "^3.1.1",
+    "remark-lint-list-item-indent": "^3.1.2",
     "remark-lint-list-item-spacing": "^4.1.1",
     "remark-lint-match-punctuation": "^0.2.1",
     "remark-lint-maximum-heading-length": "^3.1.1",
