@@ -36,7 +36,7 @@
     "remark-lint-list-item-spacing": "^4.1.2",
     "remark-lint-match-punctuation": "^0.2.1",
     "remark-lint-maximum-heading-length": "^3.1.1",
-    "remark-lint-maximum-line-length": "^3.1.2",
+    "remark-lint-maximum-line-length": "^3.1.3",
     "remark-lint-mdash-style": "^1.1.1",
     "remark-lint-no-empty-sections": "^4.0.0",
     "remark-lint-no-shortcut-reference-image": "^3.1.2",
