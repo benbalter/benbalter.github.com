@@ -8,7 +8,7 @@ Time zones are one of the harder parts of software development, but it doesn't h
 * When discussing dates, consider writing numeric dates in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) (YYYY-MM-DD) or other month/day unambiguous formats.
 * When referring to a time, always include the timezone.
 * Avoid location-specific language like "tomorrow", "this afternoon", or "in the spring".
-* Be mindful of holidays and working hours, especially across time zones. 
+* Be mindful of holidays, weekends, and working hours, especially across time zones. 
 * Consider “speedy meetings” (end 5/10 minutes early or start 5/10 minutes late) to allow for time to be human between meetings, and be strict about ending at that earlier time.
 * On that note, meetings should start and end on time. If you finish early, consider using the remainder of the time for informal conversations and to connect as humans. 
 
