@@ -1,6 +1,6 @@
 ---
 title: Pull requests are a form of documentation
-description: When authoring a pull request, use the body as an opportunity to document the proposed change, especially the "why", and cross link any related issues or other PRs to create a trail of breadcrumbs for future contributors.*
+description: When authoring a pull request, use the body as an opportunity to document the proposed change, especially the "why", and cross link any related issues or other PRs to create a trail of breadcrumbs for future contributors.
 ---
 
 We often think of pull requests purely as a code review mechanism, but they are also an organic and natural form of documentation. I can't count the number of times I've spelunked historic GitHub PRs to understand the context around a feature or product decision.
