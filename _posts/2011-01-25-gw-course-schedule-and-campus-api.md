@@ -105,7 +105,7 @@ Creative ideas on how best to leverage the information welcome in the comments b
 
 * Endpoint: `http://citl.gwu.edu/iphonedev/maps/[shortname].xml`
 * Returns:
-  
+
   ```xml
   <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
   <buildings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">

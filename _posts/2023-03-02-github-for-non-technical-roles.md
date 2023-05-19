@@ -31,7 +31,7 @@ Markdown is how text is formatted on GitHub. If you wanted to format text in a t
 
 ## Markdown files
 
-Repositories contain files. These files can be anything, but are often text files in the form of Markdown. You can edit these files directly on GitHub, or you can clone the repository to your computer and edit them there (more on that below). You can also upload files directly to GitHub by dragging-and-dropping them. Generally file names are lower case and use hyphens instead of spaces. Files, as Markdown is generally how long-lived information is shared and stored (documentation, policy, procedures, etc.).
+Repositories contain files. These files can be anything, but are often text files in the form of Markdown. You can edit these files directly on GitHub, or you can clone the repository to your computer and edit them there (more on that below). You can also upload files directly to GitHub by dragging-and-dropping them. Generally filenames are lower case and use hyphens instead of spaces. Files, as Markdown is generally how long-lived information is shared and stored (documentation, policy, procedures, etc.).
 
 ## Tracking changes
 
@@ -68,7 +68,7 @@ One of the most powerful GitHub features is @mentions. You can tag anyone into a
 
 ## Cross references
 
-Another powerful GitHub feature is issue and pull request [cross references](https://ben.balter.com/2015/11/12/why-urls/). You can reference another issue or pull request in a comment by including its number (e.g., `This is related to #123`). When cross referenced, links are created between the two issues or pull requests, making it easier for others to discover and understand the context of the conversation.
+Another powerful GitHub feature is issue and pull request [cross references](https://ben.balter.com/2015/11/12/why-urls/). You can reference another issue or pull request in a comment by including its number (for example, `This is related to #123`). When cross referenced, links are created between the two issues or pull requests, making it easier for others to discover and understand the context of the conversation.
 
 ## Desktop vs. web
 
@@ -95,7 +95,7 @@ With so much information available on GitHub, it's often intimidating to find wh
 * Use keyword search, just like you would any search engine. For example, searching for `widgets` will find all repositories, issues, pull requests, and discussions that contain the word "widgets".
 * Scope your search to an organization or repository by using the `org:` or `repo:` qualifiers. For example, `org:github` will find all issues in all repositories in the `github` organization, or `repo:github/docs` will find all issues in the `github/docs` repository.
 * You can further refine your search to only show threads that you're involved in by using the `involves:@me` modifier. For example, `widgets involves:@me` will find all issues, pull requests, and discussions that contain the word "widgets" and that you are involved in.
-* Different types of information (issues, pull requests, discussions, markdown) are displayed as seperate results. Be sure to check the side bar to see all the different types of information that match your search.
+* Different types of information (issues, pull requests, discussions, Markdown) are displayed as separate results. Be sure to check the side bar to see all the different types of information that match your search.
 * You can limit a "code" search to only Markdown files, by clicking "Markdown" in the sidebar to filter results, or adding `language:Markdown` to your search query.
 
 [Official docs](https://docs.github.com/en/search-github/github-code-search/using-github-code-search).
@@ -104,7 +104,7 @@ With so much information available on GitHub, it's often intimidating to find wh
 
 You *may* see one or more [status checks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks) on your pull request. Checks are automated tests that run against your proposed changes to enforce certain rules (such as formatting, spelling, or style). If a check fails, you'll need to fix the problem before your pull request can be merged. You can click "details" next to a failed check to learn more.
 
-### When to use an issue vs. a pull request vs. a discussion vs. a markdown file vs. a project board
+### When to use an issue vs. a pull request vs. a discussion vs. a Markdown file vs. a project board
 
 Project work generally flows in this order:
 
@@ -125,7 +125,7 @@ As a project proceeds in one or more repositories, high-level project progress i
 6. Describe your changes in the commit message
 7. Name your branch
 8. Click "Propose changes" to open a pull request
-9. Describe your changes in the pull request, ideally referencing the issue you're solving (e.g., `Closes #123`)
+9. Describe your changes in the pull request, ideally referencing the issue you're solving (for example, `Closes #123`)
 10. Your colleagues review your pull request and either approve them or suggest changes
 11. Once approved and checks pass, your pull request is "merged" and your changes are now "live" on the main branch
 12. Celebrate your first contribution to GitHub!
