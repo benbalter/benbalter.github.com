@@ -30,6 +30,9 @@ jobs:
         id: pages
         uses: actions/configure-pages@v3
 
+      - name: Build related posts
+        run: bundle exec script/build-related-posts
+
       - run: bundle exec jekyll build
         env:
           JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
