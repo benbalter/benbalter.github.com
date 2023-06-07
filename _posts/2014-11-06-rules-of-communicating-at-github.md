@@ -82,7 +82,7 @@ We're all busy. Sometimes things get past us. Sometimes we don't care about thin
 
 In practice, there's a few reasons it's called the "gentle" bump:
 
-1. **It's not the obnoxious bump** - Be sincere, explicit, and charming. "@benbalter, the gentlest of bumps on this. Have two minute to take a look at this error? :smile:". Your goal is to make sure that they are aware of the ask, not to trample their right to manage their own time.
+1. **It's not the obnoxious bump** - Be sincere, explicit, and charming. "@benbalter, the gentlest of bumps on this. Have two minutes to take a look at this error? :smile:". Your goal is to make sure that they are aware of the ask, not to trample their right to manage their own time.
 
 2. **No news isn't good news** - If you've proposed an idea or change and haven't heard back despite repeated attempts to solicit feedback, it may be time to take the hint. If your colleagues aren't opinionated enough to even comment on the proposal, chances are, it's not the next big thing.
 
