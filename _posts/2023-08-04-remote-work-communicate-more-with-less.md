@@ -1,6 +1,6 @@
 ---
 title: Remote work requires communicating more, less frequently
-description: Like gzip for web requests, async allows for greater communications throughput using fewer "packets".
+description: Remote work requires communicating more, less frequently, because asynchronous communication involves less frequent, but richer communication, meaning there is less time talking *about* the work and more time *doing* it, allowing the system to optimize for throughput and flow.
 ---
 
 
@@ -8,7 +8,7 @@ Remote work is not simply a matter of replicating the office environment online.
 
 I've [written before](https://ben.balter.com/2022/03/17/why-async/#benefits-of-working-asynchronously) about the benefits of working asynchronously, but less obvious, it also changes the _way_ we think and work. Async work allows for more reflection, research, and synthesis. Those working async can and should take the time to think, learn, and synthesize before sharing their ideas, opinions, or solutions, distilling them down to the most critical. This improves the quality and clarity of the communication, and most importantly, the overall throughput of the communications channel. 
 
-Think of it like gzip compression, but for human-to-human communication. Yes, there's slightly more processing overhead at the start, but it allows us to communicate more using less.[^1] How can you communicate more, less frequently? Here's a few tips I often keep in mind:
+Think of it like gzip compression, but for human-to-human communication. Yes, there's slightly more processing overhead at the start, but it allows greater communications throughput using fewer "packets" (communicate more using less).[^1] How can you communicate more, less frequently? Here's a few tips I often keep in mind:
 
 - **Choose the right medium for the message** - Remote workers should use the most appropriate and effective form of communication for the purpose, audience, and context. For example, use writing for documenting, explaining, or persuading; use video for demonstrating, teaching, or storytelling; use chat for coordinating, clarifying, or socializing.
 - **Write clearly, concisely, and comprehensively** - Remote workers should write with the reader in mind, using simple language, short sentences, and clear structure. They should also provide enough detail, context, and evidence to support their points, answer potential questions, and avoid ambiguity.
