@@ -5,7 +5,7 @@ description: How the andon principle from lean manufacturing can help you spot a
 
 The shift from waterfall to agile was predicated on the belief that what worked for the factory floor during the industrial revolution would not work for knowledge work in the information age, but assembly lines and modern software development have more in common than you might think.
 
-Agile development can trace its roots back to the production floor of Toyota as far back as the 40s and 50s. At the core of the [Toyota Production System](https://en.wikipedia.org/wiki/Toyota_Production_System) (what eventually inspired the the [lean manufacturing](https://en.wikipedia.org/wiki/Lean_manufacturing) movement) was the concept of an [andon](https://en.wikipedia.org/wiki/Andon_(manufacturing)), a concept we continue to see driving benefit in modern software development today.
+Agile development can trace its roots back to the production floor of Toyota as far back as the 40s and 50s. At the core of the [Toyota Production System](https://en.wikipedia.org/wiki/Toyota_Production_System) (what eventually inspired the [lean manufacturing](https://en.wikipedia.org/wiki/Lean_manufacturing) movement) was the concept of an [andon](https://en.wikipedia.org/wiki/Andon_(manufacturing)), a concept we continue to see driving benefit in modern software development today.
 
 ## Anyone can stop the line for any reason
 
@@ -38,8 +38,6 @@ The benefits of transparent collaboration outweigh the costs, especially in a co
 
 ## Conclusion
 
-If you've ever worked in a software development team, you've probably experienced the frustration of finding out too late that something went wrong. Maybe a bug slipped through the testing process, a feature didn't meet the user's needs, or a dependency changed unexpectedly. Maybe you spent hours or days fixing something that could have been prevented or resolved earlier, or you missed a deadline or a customer expectation.
-
-These kinds of problems are not only costly and stressful, but also demoralizing and demotivating. They erode the trust and confidence of the team, the stakeholders, and the users. 
+If you've ever worked in a software development team, you've probably experienced the frustration of finding out too late that something went wrong. Maybe a bug slipped through the testing process, a feature didn't meet the user's needs, or a dependency changed unexpectedly.
 
 Software development is not the same as manufacturing, but it shares some similarities. Both are complex, iterative, and collaborative processes that involve creating and delivering value to customers. Both also face challenges such as quality, efficiency, and innovation. And both can benefit from the andon principle.
