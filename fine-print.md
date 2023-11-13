@@ -1,5 +1,5 @@
 ---
-author: Benjamin J. Balter
+author: Ben Balter
 title: Fine Print
 permalink: /fine-print/
 robots: noindex
