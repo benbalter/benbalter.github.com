@@ -31,7 +31,7 @@ TODO:
 
 * By **industry** - The self direction of the bazaar model wouldn't be a good fit for the military given the stakes, while the rigidity of the cathedral model would not excel in a fast-paced startup given the need for experimentation and adaptation.
 * By **individual** - A more junior engineer is going to need the structure and clarity offered by the cathedral model, while a more senior engineer might feel constrained, preferring the freedom to roam and find interesting challenges that the bazaar model offers. Likewise, some individuals are less comfortable living with ambiguity, while others prefer uncertainty, and the opportunity for autonomy that comes with it.
-* By **role** - (Barista vs Bar tender)
+* By **role** - Outside of engineering, you might expect the cathedral model to work well for a line cook, where the recipe is well defined and consistency is key, while the bazaar model might work better for a chef, where creativity and experimentation are valued as they seek to create new dishes.
 
 The key is to find the right balance between the two styles, and to be able to switch between them as needed.
 
