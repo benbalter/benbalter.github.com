@@ -13,7 +13,7 @@ Using engineering tools like GitHub to track management tasks is *much* more tha
 
 > * **Captures institutional knowledge** - When you're purposeful about where and how you share context, you alleviate the need for “you had to be there” and “go ask Susan"-type inquiries.
 > * **Empowers others to learn through observation** - What's routine to you is likely novel to someone in another role or at another level of seniority.
-> * **Socializes organizational culture and values** - An organization's culture and values is comprised in large part of [the underlying assumptions](https://ben.balter.com/2015/08/12/the-zen-of-github/) that its members fall back on as they resolve ambiguity in pursuit of the organization’s mission.
+> * **Socializes organizational culture and values** - An organization's culture and values is composed in large part of [the underlying assumptions](https://ben.balter.com/2015/08/12/the-zen-of-github/) that its members fall back on as they resolve ambiguity in pursuit of the organization’s mission.
 > * **Fuels engagement** - Transparency offers a sense of agency, situational awareness, and overall engagement that fosters a culture of thoughtful dialog and encourages organization-wide collaborative improvement over time.
 > * **Keeps the bar high** - Showing one's work establishes expectations around justification, thoroughness, and accountability that sets and maintains a high standard for decision making within an organization.
 
@@ -34,7 +34,7 @@ Here are a few of the engineer-inspired "how we work" principles which I strive 
 
 ## How to manage like an engineer
 
-Managing like an engineer means a manager's go to tool for planning, tracking, and communicating managerial work is issues, project boards, markdown files, and pull requests:[^8]
+Managing like an engineer means a manager's go to tool for planning, tracking, and communicating managerial work is issues, project boards, Markdown files, and pull requests:[^8]
 
 * **Issues** - Issues are the atomic unit of work across teams and is the primary means by which work is planned, tracked, coordinated, and communicated, and where updates are shared.[^2]
 * **Project boards** - Project boards are the primary means by which work (in the form of issues) is organized, managed, prioritized, and made visible.
@@ -73,13 +73,13 @@ Managing like an engineer means using the same tools and workflows that engineer
 
 [^2]: Track tasks and their progress in issues, cc relevant teams, and cross reference relevant issues to naturally [capture and expose process](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/#2-captures-and-exposes-process). Issues bring the most value to teams when work happens on and around the issue, rather than holding important discussions in chat or over video with the issue being used merely as a "TODO" with tracking open and closed state or a broadcast medium for occasional formal updates to stakeholders (for which Discussions are better suited).
 
-[^3]: Long before the term "inner-source" became popular, GitHub had coopted the workflows and communication patterns of the open source community for its own internal development. While much has been written over the years about "how Github uses GitHub to build GitHub", the concept of using GitHub to *manage* GitHub fell out of popularity as GitHub grew (and outgrew its own tools). Now that GitHub has native planning-and-tracking capabilities, it's the perfect tool for managers.
+[^3]: Long before the term "inner-source" became popular, GitHub had coopted the workflows and communication patterns of the open source community for its own internal development. While much has been written over the years about "how GitHub uses GitHub to build GitHub", the concept of using GitHub to *manage* GitHub fell out of popularity as GitHub grew (and outgrew its own tools). Now that GitHub has native planning-and-tracking capabilities, it's the perfect tool for managers.
 
 [^4]: HR and other personnel matters must often be restricted in their visibility due to their sensitivity, but the vast majority of management work can be shared with increasing circles of trust (peers, other managers, the team, the org, the company, etc.). I've even seen one team use [Mermaid diagrams in Markdown files](https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/) to visualize their org chart. Re-org by PR? :thinking:
 
 [^5]: Encourage collaboration among team members, both in terms of setting team-wide goals and executing on individual initiatives. This helps everyone "connect the dots" and understand how their work fits into the bigger picture (and to shape it along the way).
 
-[^6]: For example, transparent and inclusive decision making comes more naturally in a  tools built for collaboration like GitHub than it does in a tool built for conveying information like Slack or email. That's not to say it can't be done, but the tools vision of how work should occur and yours may differ, making things more difficult on both you and you team. When in doubt, start from first principles and ask yourself, "what is the best tool for the job?"
+[^6]: For example, transparent and inclusive decision making comes more naturally in a tools built for collaboration like GitHub than it does in a tool built for conveying information like Slack or email. That's not to say it can't be done, but the tools vision of how work should occur and yours may differ, making things more difficult on both you and you team. When in doubt, start from first principles and ask yourself, "what is the best tool for the job?"
 
 [^7]: Yes, there are different flavors and tools (agile, scrum, JIRA tickets, etc.), but at a high level, most teams have some sort of ongoing list of outstanding TODOs, along with a standard mechanism to review proposed changes.
 

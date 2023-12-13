@@ -30,6 +30,9 @@ jobs:
         id: pages
         uses: actions/configure-pages@v3
 
+      - name: Build related posts
+        run: bundle exec script/build-related-posts
+
       - run: bundle exec jekyll build
         env:
           JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -48,4 +51,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v2

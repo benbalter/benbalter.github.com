@@ -15,13 +15,13 @@ I recently came back from an extended leave to find several of my colleagues ask
 
 #### 📅 Dates
 
-When is your last day in the office? When do you anticipate being back? If the exact date of your leave is unknown, you can provide an estimated range, or describe the leave in relative terms (e.g., `event + 2 weeks`). Keep this section up to date as your plans change. Here's an example of what that might look like:
+When is your last day in the office? When do you anticipate being back? If the exact date of your leave is unknown, you can provide an estimated range, or describe the leave in relative terms (for example, `event + 2 weeks`). Keep this section up to date as your plans change. Here's an example of what that might look like:
 
-| &nbsp;       | Start           | End             | Dates                |
-|--------------|-----------------|-----------------|----------------------|
-| First Leave  | Event           | Event + 2 weeks | 1/1/2020 - 1/15/2020 |
-| Second Leave | Event + 4 weeks | Event + 6 weeks | 2/1/2020 - 2/15/2020 |
-{: .table .w-75 .mx-auto}
+|                           | Start           | End             | Dates                |
+| ------------------------- | --------------- | --------------- | -------------------- |
+| First Leave               | Event           | Event + 2 weeks | 1/1/2020 − 1/15/2020 |
+| Second Leave              | Event + 4 weeks | Event + 6 weeks | 2/1/2020 − 2/15/2020 |
+| {: .table .w-75 .mx-auto} |                 |                 |                      |
 
 #### ☎️ Contact preferences
 
@@ -31,33 +31,33 @@ How do you want to be contacted while on leave, if at all? What do you want to b
 
 Enumerate all your ongoing responsibilities, along with a point of contact that will be responsible while you are on leave. Be sure to include "points of escalation" for anything not accounted for within your doc, and be sure to check with each named individual to ensure they are comfortable with the responsibility and have the bandwidth to take it on. Consider a dedicated "responsibilities to handoff" section for any key milestones, deadlines, or events expected to occur while you are out. Example:
 
-| What              | Who    |
-|-------------------|--------|
-| Widget production | Walter |
-| People management | Paula  |
-{: .table .w-50 .mx-auto}
+| What                      | Who    |
+| ------------------------- | ------ |
+| Widget production         | Walter |
+| People management         | Paula  |
+| {: .table .w-50 .mx-auto} |        |
 
 #### 📹 Regular meetings
 
 List any recurring meetings you normally run or attend, their frequency, and who if anyone will be taking your place at those meetings. Be explicit with any host or presenter responsibilities, and include links to standing agendas or other supporting documents.
 
-| Meeting           | Frequency      | Responsibilities      | Who   |
-|-------------------|----------------|-----------------------|-------|
-| Staff meeting     | Mondays @ 10AM | Set agenda, run       | Susie |
-| 1:1s with directs | Weekly         | Take notes, follow up | Danny |
-{: .table .w-75 .mx-auto}
+| Meeting                   | Frequency      | Responsibilities      | Who   |
+| ------------------------- | -------------- | --------------------- | ----- |
+| Staff meeting             | Mondays @ 10AM | Set agenda, run       | Susie |
+| 1:1s with directs         | Weekly         | Take notes, follow up | Danny |
+| {: .table .w-75 .mx-auto} |                |                       |       |
 
 #### 👥 Rolodex
 
 For everything you touch regularly, list your primary point of contact. This will allow others to unblock themselves if they have a question or request of another department or team. Example:
 
-| What    | Who   |
-|---------|-------|
-| HR      | Henry |
-| IT      | Iris  |
-| Legal   | Larry |
-| Finance | Fran  |
-{: .table .w-50 .mx-auto}
+| What                      | Who   |
+| ------------------------- | ----- |
+| HR                        | Henry |
+| IT                        | Iris  |
+| Legal                     | Larry |
+| Finance                   | Fran  |
+| {: .table .w-50 .mx-auto} |       |
 
 #### 👉 Stuff you touched recently or hope can be picked up while you're out
 
@@ -104,6 +104,6 @@ If you're preparing to go on leave (or transition to a new role), feel free to u
 
 [^1]: I often ask, "Are there any questions not answered here that you can imagine might arise while I am out?"
 
-[^2]: Using an internal or external link shortener (e.g., `bit.ly/benbalter-leave`) to create a more memorable URL for your colleagues to regularly reference your doc.
+[^2]: Using an internal or external link shortener (for example, `bit.ly/benbalter-leave`) to create a more memorable URL for your colleagues to regularly reference your doc.
 
 [^3]: If you're looking for even more extended leave resources, @isethi has a great talk on [navigating parental leave as a senior engineering leader](https://leaddev.com/san-francisco/video/navigating-parental-leave-as-a-senior-engineering-leader). If you're preparing to go on parental leave, be sure to check out her [parental leave checklist template](https://docs.google.com/document/d/1VjY8xvZtHV_4p_xXUz7rRIIC4VT8B_2NasL950pQk4U/edit#heading=h.oso3zy2cszfb) as well.

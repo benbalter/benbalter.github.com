@@ -67,6 +67,6 @@ task :test do
   Rake::Task[:spec].invoke
   Rake::Task[:build].invoke
   require 'html-proofer'
-  require_relative './spec/amazon_link_check'
+  require_relative 'spec/amazon_link_check'
   HTMLProofer.check_directory('./_site', test_config['proofer']).run
 end

@@ -9,27 +9,29 @@ If you're not a software developer, you can think of GitHub like Dropbox, Google
 
 ## Repositories
 
-Repositories are the most basic unit of GitHub. Each repository represents a real-world project, initiative, or team. Repositories contain issues, discussions, and pull requests (more on that in a moment), as well as "code", which for non-technical roles, is often text files in the form of Markdown (more on that too).
+[Repositories](https://docs.github.com/en/repositories) are the most basic unit of GitHub. Each repository represents a real-world project, initiative, or team. Repositories contain issues, discussions, and pull requests (more on that in a moment), as well as "code", which for non-technical roles, is often text files in the form of Markdown (more on that too).
 
 ## Markdown
 
 Markdown is how text is formatted on GitHub. If you wanted to format text in a text box that didn't support formatting, you might use `*`s to represent bullets, or wrap a word in `_` to emphasize it. That's Markdown. Markdown is plain text, with optional lightweight formatting that GitHub can render. It sounds like "coding", but you'll get the hang of it in no time. To get started, check out [the official GitHub docs](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
+*Pro-tip: To convert a Word or Google Doc to Markdown, you can use my very own [Word to Markdown converter](https://word2md.com).*
+
 ## Issues
 
-Issues are how work is tracked on GitHub. You can think of them as "To Do" items (or "tickets" in some contexts). Issues describe the _problems_ you or your team want to solve, with the list of potential problems being referred to as team's "issue backlog". You can comment on issues, like you would a blog post, assign them to people, and close them when they have been completed. Issues can also be labeled for ease of discoverability and for tracking additional metadata.
+[Issues](https://docs.github.com/en/issues) are how work is tracked on GitHub. You can think of them as "To Do" items (or "tickets" in some contexts). Issues describe the *problems* you or your team want to solve, with the list of potential problems being referred to as team's "issue backlog". You can comment on issues, like you would a blog post, assign them to people, and close them when they have been completed. Issues can also be labeled for ease of discoverability and for tracking additional metadata. For especially complex problems, the body of the issue can even include a task list with checkboxes, to track progress of individual sub-tasks.
 
 ## Discussions
 
-Discussions are like issues, but don't have a specific outcome or sense of state (open or closed). You can use discussions to ask questions, collaborate on ideas, and share announcements. You can think of discussions like blog posts, an online forum, or a chat room for your repository.
+[Discussions](https://docs.github.com/en/discussions) are like issues, but don't have a specific outcome or sense of state (open or closed). You can use discussions to ask questions, collaborate on ideas, and share announcements. You can think of discussions like blog posts, an online forum, or a chat room for your repository.
 
 ## Pull requests
 
-Pull requests are how you propose changes to a repository. If issues describe the problems, pull requests describe the proposed _solutions_. Others can also review your proposed changes and comment on, make suggested changes to, or "approve" your pull request. Pull requests modify files within the repository. Once approved, your pull requested is "merged" into the repository and your proposed changes are "live".
+[Pull requests](https://docs.github.com/en/pull-requests) are how you propose changes to a repository. If issues describe the problems, pull requests describe the proposed *solutions*. Others can also review your proposed changes and comment on, make suggested changes to, or "approve" your pull request. Pull requests modify files within the repository. Once approved, your pull requested is "merged" into the repository and your proposed changes are "live".
 
 ## Markdown files
 
-Repositories contain files. These files can be anything, but are often text files in the form of Markdown. You can edit these files directly on GitHub, or you can clone the repository to your computer and edit them there (more on that below). You can also upload files directly to GitHub by dragging-and-dropping them. Generally file names are lower case and use hyphens instead of spaces. Files, as Markdown is generally how long-lived information is shared and stored (documentation, policy, procedures, etc.).
+Repositories contain files. These files can be anything, but are often text files in the form of Markdown. You can edit these files directly on GitHub, or you can clone the repository to your computer and edit them there (more on that below). You can also upload files directly to GitHub by dragging-and-dropping them. Generally filenames are lower case and use hyphens instead of spaces. Files, as Markdown is generally how long-lived information is shared and stored (documentation, policy, procedures, etc.).
 
 ## Tracking changes
 
@@ -37,15 +39,15 @@ At the core of GitHub is a version control system called Git. Git tracks changes
 
 ## Commits
 
-Git tracks changes as "commits". A commit is a snapshot of the file (or files) at a point in time. Each commit should have a brief, descriptive message describing the changes from the previous version, to help you and your colleagues understand what's going on.
+Git tracks changes as "[commits](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/about-commits)". A commit is a snapshot of the file (or files) at a point in time. Each commit should have a brief, descriptive message describing the changes from the previous version, to help you and your colleagues understand what's going on.
 
 ## Branches
 
-Branches are like parallel universes or alternate timelines for your files. You can make changes to a branch without affecting files on the "main" branch. Branches contain one or more commits, and when you're ready, you can merge your changes (commits) into the main branch to update the files there. You can think of branches as saving a copy of a file so that you can work on changes without affecting others' work, but in a way that makes it easier to merge any changes you make back in with the original when you're ready.
+[Branches](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches) are like parallel universes or alternate timelines for your files. You can make changes to a branch without affecting files on the "main" branch. Branches contain one or more commits, and when you're ready, you can merge your changes (commits) into the main branch to update the files there. You can think of branches as saving a copy of a file so that you can work on changes without affecting others' work, but in a way that makes it easier to merge any changes you make back in with the original when you're ready.
 
 ## GitHub flow
 
-GitHub flow describes the process of making changes to a repository. The basic steps are:
+[GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow) describes the process of making changes to a repository. The basic steps are:
 
 1. Open an issue describing the problem you want to solve
 2. Once there is agreement that the problem should be solved, decide on the best solution
@@ -58,7 +60,7 @@ GitHub flow describes the process of making changes to a repository. The basic s
 
 ## Notifications
 
-GitHub sends notifications to you when someone mentions you in a comment, assigns you to an issue, or requests your review on a pull request. You can also (and often should) "subscribe" to repositories to be notified about some or all activity. Likewise, you can unsubscribe from individual issues if you're not interested. By default you'll receive notifications via email, but you can also configure GitHub to use "web notifications", or even set up notifications in your Slack or Teams channel.
+GitHub sends [notifications](https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications) to you when someone mentions you in a comment, assigns you to an issue, or requests your review on a pull request. You can also (and often should) "subscribe" to repositories to be notified about some or all activity. Likewise, you can unsubscribe from individual issues if you're not interested. By default you'll receive notifications via email, but you can also configure GitHub to use "web notifications", or even set up notifications in your Slack or Teams channel.
 
 ## @mentions
 
@@ -66,7 +68,7 @@ One of the most powerful GitHub features is @mentions. You can tag anyone into a
 
 ## Cross references
 
-Another powerful GitHub feature is issue and pull request [cross references](https://ben.balter.com/2015/11/12/why-urls/). You can reference another issue or pull request in a comment by including its number (e.g., `This is related to #123`). When cross referenced, links are created between the two issues or pull requests, making it easier for others to discover and understand the context of the conversation.
+Another powerful GitHub feature is issue and pull request [cross references](https://ben.balter.com/2015/11/12/why-urls/). You can reference another issue or pull request in a comment by including its number (for example, `This is related to #123`). When cross referenced, links are created between the two issues or pull requests, making it easier for others to discover and understand the context of the conversation.
 
 ## Desktop vs. web
 
@@ -78,19 +80,31 @@ Almost everything you'd want to do on GitHub you can do entirely through the web
 
 If you're using the web interface, you don't have to worry about pushing or pulling. If you're using the desktop client, you can think of pulling (in some cases called cloning) as downloading (pulling the files from GitHub) and pushing as uploading (pushing the files back to GitHub).
 
-### Emoji and animated GIFs
+### Emoji and animated GIFs 🎉
 
 In addition to Markdown you'll often see emoji and animated GIFs used heavily on issues and pull requests. You can think of emoji and animated GIFs as the facial expressions and body language of GitHub. They make it easier to convey emotion in written text. I like to describe the communication style on GitHub as "professional but informal", meaning don't be afraid to use emoji and animated GIFs to make your comments more expressive (while remaining appropriate, of course).
 
 ## Project boards
 
-If individual tasks are tracked as issues, project boards are how you track the progress of a project as a whole. Project boards are a visual representation of what issues are on deck, what issues are in progress, and what issues have been completed (todo, doing, done).
+If individual tasks are tracked as issues, [project boards](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) are how you track the progress of a project as a whole. Project boards are a visual representation of what issues are on deck, what issues are in progress, and what issues have been completed (todo, doing, done).
+
+## Finding information
+
+With so much information available on GitHub, it's often intimidating to find what you're looking for. Here are some tips for using [GitHub's powerful search](https://github.com/search) to find anything on GitHub:
+
+* Use keyword search, just like you would any search engine. For example, searching for `widgets` will find all repositories, issues, pull requests, and discussions that contain the word "widgets".
+* Scope your search to an organization or repository by using the `org:` or `repo:` qualifiers. For example, `org:github` will find all issues in all repositories in the `github` organization, or `repo:github/docs` will find all issues in the `github/docs` repository.
+* You can further refine your search to only show threads that you're involved in by using the `involves:@me` modifier. For example, `widgets involves:@me` will find all issues, pull requests, and discussions that contain the word "widgets" and that you are involved in.
+* Different types of information (issues, pull requests, discussions, Markdown) are displayed as separate results. Be sure to check the side bar to see all the different types of information that match your search.
+* You can limit a "code" search to only Markdown files, by clicking "Markdown" in the sidebar to filter results, or adding `language:Markdown` to your search query.
+
+[Official docs](https://docs.github.com/en/search-github/github-code-search/using-github-code-search).
 
 ### Checks
 
-You _may_ see one or more status checks on your pull request. Checks are automated tests that run against your proposed changes to enforce certain rules (such as formatting, spelling, or style). If a check fails, you'll need to fix the problem before your pull request can be merged. You can click "details" next to a failed check to learn more.
+You *may* see one or more [status checks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks) on your pull request. Checks are automated tests that run against your proposed changes to enforce certain rules (such as formatting, spelling, or style). If a check fails, you'll need to fix the problem before your pull request can be merged. You can click "details" next to a failed check to learn more.
 
-### When to use an issue vs. a pull request vs. a discussion vs. a markdown file vs. a project board
+### When to use an issue vs. a pull request vs. a discussion vs. a Markdown file vs. a project board
 
 Project work generally flows in this order:
 
@@ -111,7 +125,7 @@ As a project proceeds in one or more repositories, high-level project progress i
 6. Describe your changes in the commit message
 7. Name your branch
 8. Click "Propose changes" to open a pull request
-9. Describe your changes in the pull request, ideally referencing the issue you're solving (e.g., `Closes #123`)
+9. Describe your changes in the pull request, ideally referencing the issue you're solving (for example, `Closes #123`)
 10. Your colleagues review your pull request and either approve them or suggest changes
 11. Once approved and checks pass, your pull request is "merged" and your changes are now "live" on the main branch
 12. Celebrate your first contribution to GitHub!

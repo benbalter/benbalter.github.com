@@ -22,7 +22,7 @@ social:
     - https://facebook.com/ben.balter
     - https://instagram.com/benbalter
 
-#cloudflare:
+# cloudflare:
 #  id: 71539cb18e584e6595f62fa7104b24ca
 
 exclude:
@@ -142,5 +142,5 @@ email: ben@balter.com
 employer:
   name: GitHub
   url: https://github.com
-job_title: Chief of Staff, Security
+job_title: Director of Engineering Operations and Culture
 handle: benbalter
