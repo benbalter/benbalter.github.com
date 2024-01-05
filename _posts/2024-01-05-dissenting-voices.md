@@ -21,7 +21,7 @@ Attempting to "control the narrative" by silencing dissent is not only ineffecti
 
 Your team's reaction is equally human, and I'd argue, actually a good thing.[^1] It means their engaged. It means they care. While you're ready to move on, they're still processing. They're still trying to understand. The difference between good leaders and great leaders is in the follow through. Specifically, in their willingness to engage in the *emotional labor* of helping their team figure out how to move forward.
 
-That dissent isn't disengagement or obstructionism as it may be easy to misread. Quite the opposite. They're likely "caremad" - they're upset because they care about ensuring the best possible outcomes and are trying to figure out how to do that. The reality is, questions and dissenting voices are a sign that people care about the decision being made. They want to understand the reasoning behind it and they want to have a say in the process. And as a leader, it's your job to listen to those voices and to take their concerns into account.
+That dissent isn't disengagement or obstructionism as it may be easy to misread. Quite the opposite. They're likely "caremad"[^2] - they're upset because they care about ensuring the best possible outcomes and are trying to figure out how to do that. The reality is, questions and dissenting voices are a sign that people care about the decision being made. They want to understand the reasoning behind it and they want to have a say in the process. And as a leader, it's your job to listen to those voices and to take their concerns into account.
 
 ## The alternative
 
@@ -38,3 +38,5 @@ The alternative to the "I don't like what they're saying so they shouldn't be al
 In fact, I would argue that covering one's ears and humming in the face of questions shows a lack of leadership in the moment. It's the equivalent of saying "I would have gotten away with it if it weren't for you mangy kids..." (a reference to Scooby Doo, for those of you who didn't grow up watching Saturday morning cartoons).
 
 [^1]: I'd take an engaged team that can have healthy, productive, and respectful disagreement any day over a team that's checkout out, indifferent, or apathetic. If they don't care enough about this thing to speak up, it's likely that there are other, bigger things that they're not speaking up about either.
+
+[^2]: - A portmanteau of "care" and "mad", meaning a software developer who is passionate, enthusiastic, and diligent about their work, and who cares deeply about the quality, functionality, and impact of their code and products. A caremad developer is not satisfied with mediocrity, but strives for excellence, innovation, and continuous improvement. For example, "She's caremad about accessibility, she always makes sure every feature is compatible with screen readers and keyboard navigation."
