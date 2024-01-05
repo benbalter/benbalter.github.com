@@ -13,9 +13,9 @@ It's easy to dismiss that negativity as ignorant, personal, or a vocal minority 
 
 Attempting to "control the narrative" by silencing dissent is not only ineffective, it's also counterproductive:
 
-* **It erodes trust** - When you shut down the conversation, you send a message that you don't value the input, the perspective, or the feelings of those affected by your decision. You also signal that you have something to hide, or that you're not confident in your own reasoning.
+* **It erodes psychological safety** - When you shut down the conversation, you send a message that you don't value the input, the perspective, or the feelings of those affected by your decision. You also signal that you have something to hide, or that you're not confident in your own reasoning, further eroding trust.
 * **It invites negativity** - When you ignore the questions, you don't make them go away. You just push them underground, where they fester and grow. People will start to speculate, gossip, and complain. They will feel resentful, frustrated, and alienated. They will look for ways to resist, sabotage, or undermine your decision.
-* **It stifles learning** - When you avoid the scrutiny, you miss an opportunity to "[show your work](https://ben.balter.com/2022/02/16/leaders-show-their-work/)" and teach through action. An organization’s culture and values is comprised of the underlying assumptions that its members fall back on in pursuit of the organization’s mission. When decisions are transparent, you offer opportunities for the next generation of leaders to learn and grow through passive observation and lightweight participation.
+* **It stifles learning** - When you avoid the scrutiny, you miss an opportunity to "[show your work](https://ben.balter.com/2022/02/16/leaders-show-their-work/)" and teach through action. An organization’s culture and values is comprised of the underlying assumptions that its members use to make decision. When decisions are transparent, you offer opportunities for the next generation of leaders to learn and grow through passive observation and lightweight participation.
 
 ## "Caremad" is a good thing
 
