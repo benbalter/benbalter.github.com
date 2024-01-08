@@ -1,6 +1,7 @@
 ---
 title: The "I don't like what they're saying so they shouldn't be allowed to say it" approach to crisis management
 description: Leaders often face push back when they make tough decisions. Trying to "control the narrative" by ignoring or shutting down dissent is a bad idea. It erodes trust, invites negativity, and stifles learning. A better approach is to be transparent, open, and accountable. This builds trust, invites positivity, and fosters learning.
+image: https://github.com/benbalter/benbalter.github.com/assets/282759/aca327ea-9252-4080-919e-363ed18ae50f
 ---
 
 Every seasoned leader I've worked with has had to make an unpopular or controversial decision. It's one of the hallmarks of good leadership. But almost as important as the decision itself, is how you engage with your team following the decision.
