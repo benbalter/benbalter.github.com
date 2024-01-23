@@ -97,7 +97,7 @@ If you're preparing to go on leave (or transition to a new role), feel free to u
 
 ## 👥 Rolodex
 
-## 👉 Stuff you touched recently or hope can be picked up while your out
+## 👉 Stuff you touched recently or hope can be picked up while you're out
 
 ## 📁 Important links
 ```
