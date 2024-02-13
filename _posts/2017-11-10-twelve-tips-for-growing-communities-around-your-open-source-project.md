@@ -103,7 +103,7 @@ When looking at the long-term success of your project, a vibrant, welcoming comm
 
 Priorities change. People move jobs. New technology arises. Whatever the reason, if you're heart's no longer into maintaining the project, don't, but also don't abandon it. If you feel your passion start to fade, or if you're feeling burned out, begin actively soliciting new maintainers, and ultimately a developer to adopt your project.
 
-If you have a small cadre of active contributors, often, this is just a matter of formally turning over control to them as maintainers. If you don't, you may need to be a bit more transparent with your intentions, by opening a dedicated "this project is up for adoption issue", making please for financial support (if money's an issue), or reaching out into individual developers you think might be interested.
+If you have a small cadre of active contributors, often, this is just a matter of formally turning over control to them as maintainers. If you don't, you may need to be a bit more transparent with your intentions, by opening a dedicated "this project is up for adoption issue", making pleas for financial support (if money's an issue), or reaching out into individual developers you think might be interested.
 
 The most important thing you can do is communicate your project's status, whatever it may be. If it's feature complete, say so. No longer maintained? Warn potential users. Is their a better replacement? You don't want a potential contributor to spend hours working on a bugfix, only to find their pull request go unanswered. You created the project, your users and contributors dedicated countless hours, and its your responsibility to ensure they have a good experience from start to finish.
 
