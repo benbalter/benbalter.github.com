@@ -110,7 +110,9 @@ In practice, that means email is typically reserved only for things like personn
 
 Code speaks louder than words. If you have an idea, time box a small amount of time, mock up a proof of concept or prototype, and spike out a work-in-progress pull request. This process replaces the role traditionally filled by meetings in many corporate cultures.
 
-In practice, that means opening a pull request against the relevant project, and prepending "WIP:" to the title. Is this a good idea? A terrible one? The wrong approach? Get early feedback from your coworkers, and iterate openly (or scrap it). The final product will be better as a result.
+In practice, that means opening a [draft pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests) against the relevant project. Is this a good idea? A terrible one? The wrong approach? Get early feedback from your coworkers, and iterate openly (or scrap it). The final product will be better as a result.
+
+[Related draft pull requests announcement blog post](https://github.blog/2019-02-14-introducing-draft-pull-requests/)
 
 ## 13. If you can't diff it, don't use it
 
