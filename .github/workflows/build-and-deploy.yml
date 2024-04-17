@@ -30,8 +30,8 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
 
-      - name: Build related posts
-        run: bundle exec script/build-related-posts
+      #- name: Build related posts
+      #  run: bundle exec script/build-related-posts
 
       - run: bundle exec jekyll build
         env:
