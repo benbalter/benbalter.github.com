@@ -103,7 +103,7 @@ const remarkConfig = {
     gfm: true,
     yaml: true,
     footnotes: true,
-    listItemIndent: '1',
+   // listItemIndent: '1',
     commonmark: false,
     pedantic: false,
     entities: false,
