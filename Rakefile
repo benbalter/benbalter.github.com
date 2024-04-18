@@ -13,7 +13,7 @@ rescue LoadError
 end
 
 def test_config
-  YAML.load_file('_config_test.yml')
+  YAML.load_file('_config_test.yml', permitted_classes: [Psych])
 end
 
 def token
