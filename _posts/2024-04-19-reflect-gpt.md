@@ -29,6 +29,8 @@ The code is nothing special (a few API calls using the GitHub SDK), but the prom
 
 ## Conclusion
 
+TODO: this is just one portion of a more thorough review, and the bots can't help you think about growth areas etc
+
 Reflect GPT (as I jokingly named it) began as a fun way to learn more about how LLMs work, and to see if they could be a useful tool in my day-to-day writing. It's been a fun experiment, and I've learned a lot about how to structure prompts to get better results from the AI. Better still, it's also helped over 200 of my colleagues write their self-reviews, likely saving countless hours of manual work.
 
 AI is getting a lot of hype right now, and there are a lot of places where it's gratuitous or just not a good fit. I'm still trying to get it to help write weekly progress reports, with largely mixed results. That said, it's been fun to find small tasks to experiment with like this one, to learn more about this emerging and powerful technology. *I, for one, welcome our new robot interns.*
