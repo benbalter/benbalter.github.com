@@ -2,6 +2,7 @@
 employer: GitHub
 title: Director of Engineering Operations and Culture
 start_date: '2023-02-21'
+end_date: '2024-07-08'
 ---
 
 * **Technical Business Operations** - Established and led a team of seven "Mini Chiefs of Staff", business technologists tasked with supporting Engineering executives to improve the overall business operations and effectiveness of their department and the Engineering organization as a whole, through internal communication, data-driven decision-making, escalation-based initiative management, and strategic planning.
