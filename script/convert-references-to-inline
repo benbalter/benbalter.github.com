@@ -9,12 +9,12 @@ Dir.foreach('_posts') do |item|
 
   path = File.expand_path item, '_posts'
   content = File.read(path)
-  refs = content.scan(/([.*?\][([0-9]+)\])/)
+  refs = content.scan(/(\[.*?\]\[([0-9]+)\])/)
   refs.each do |string, num|
-    link = content.match(/^[#{num}\]: (.*?)\n/)
+    link = content.match(/^\[#{num}\]: (.*?)\n/)
     next unless link
 
-    replacement = string.gsub(/[#{num}\]$/, "(#{link[1]})")
+    replacement = string.gsub(/\[#{num}\]$/, "(#{link[1]})")
     content.sub! string, replacement
     content.sub! link[0], ''
   end

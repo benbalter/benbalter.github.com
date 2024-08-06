@@ -12,7 +12,7 @@ In *[People v. Diaz](http://en.wikipedia.org/wiki/People_v._Diaz)*, the court ru
 
 ![Ben Still and Owen Wilson stare at a computer from the movie Zoolander](https://ben.balter.com/wp-content/uploads/2011/01/zoolander-300x188.jpg){: .float-start .me-3 .rounded }
 
-[Much like Ben Stiller and Owen Wilson's characters in the movie Zoolander](http://www.youtube.com/watch?v=_m_PncKuDao\&feature=related#t=1m16s), the dissent's analysis is based on the assumption that information "can be carried on" or "in" one's mobile phone, a reality which simply is not the case in today's increasingly cloud-centric world.
+[Much like Ben Stiller and Owen Wilson's characters in the movie Zoolander](http://www.youtube.com/watch?v=_m_PncKuDao&feature=related#t=1m16s), the dissent's analysis is based on the assumption that information "can be carried on" or "in" one's mobile phone, a reality which simply is not the case in today's increasingly cloud-centric world.
 
 Today, and even more so tomorrow, information will not be "carried on" a phone, but rather, that phone will merely be the vehicle used to access information stored elsewhere, information that would otherwise carry the highest expectation of privacy. Put another way, the device holds, both literally and metaphorically, the address, keys, and means to access one's digital home, a breach of privacy that would not be tolerated if it occurred in a more tangible sense.
 

@@ -42,7 +42,7 @@ Here's how I think about the tools we use to communicate at GitHub: **What** too
 
 ### Discussions
 
-* **When**: Long-lived conversations that don't involve an open/closed state. This can be Q\&A, internal updates, or social discussions. You can even treat discussions like an internal blog.
+* **When**: Long-lived conversations that don't involve an open/closed state. This can be Q&A, internal updates, or social discussions. You can even treat discussions like an internal blog.
 * **Who**: Entire teams or the entire organization.
 * **Why**: Many of the benefits of issues, except they don't have an open/closed state and thus are more suited for ongoing discussions or blog-like posts with comments that live outside day-to-day workstreams.
 

@@ -88,7 +88,7 @@ I began by noting that the phrase "everything should be on GitHub", doesn't nece
 | Box/DropBox                                                            | :x:[^proprietary]    | :x:                    | :heavy_check_mark: [^deep-links] | :heavy_check_mark: |
 | Video chat                                                             | :x:                  | :x:                    | :x:[^recordings]                   | :x:[^recordings]     |
 | IRL Meetings                                                           | :x:                  | :x:                    | :x:                                | :x:                  |
-| {: .table style="width: 60%; margin-left: auto; margin-right: auto;" } |                      |                        |                                    |                      |
+{: .table style="width: 60%; margin-left: auto; margin-right: auto;" }
 
 ## Practicality beats purity
 
