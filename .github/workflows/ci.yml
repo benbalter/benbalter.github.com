@@ -4,7 +4,7 @@ name: CI
 permissions:
   contents: read
   statuses: write
-  
+
 jobs:
   content:
     runs-on: ubuntu-latest
