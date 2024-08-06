@@ -15,7 +15,7 @@ The true challenge is whether or not you can foster the internal culture necessa
 
 ## 2. Start small, go through the motions
 
-There's an anti-pattern within government that when an agency decides to start participating in the open source community, they bet big and do it with a flagship initiative, often with a strong policy component (and executive's reputation) at stake. In reality, [your first open source project is likely going to be a flop](https://ben.balter.com/2015/02/11/why-your-first-open-source-project-is-going-to-be-a-dud/).
+There's an antipattern within government that when an agency decides to start participating in the open source community, they bet big and do it with a flagship initiative, often with a strong policy component (and executive's reputation) at stake. In reality, [your first open source project is likely going to be a flop](https://ben.balter.com/2015/02/11/why-your-first-open-source-project-is-going-to-be-a-dud/).
 
 You wouldn't run a marathon without training first, would you? Like your body, organizations have a strong muscle memory. You've most likely encountered [the organization's subconscious "no" reflex](https://ben.balter.com/2014/03/21/want-to-innovate-in-government-focus-on-culture/#bureaucracy-is-an-organism) when you unintentionally strike a nerve. If the organism doesn't recognize the antibodies of a new idea, it will attack it as a means of self preservation. Like introducing any new idea, introducing open source is no exception. Most stakeholders will say "no" at first glance, and certainly not on the proposal's merit.
 
@@ -49,7 +49,7 @@ You can't un-constrain open source, nor would you want to. To engage the open so
 
 * **Electronic** - Discussion, planning, and operations process should use a high fidelity form of electronic communication like email, GitHub.com, or chat with transcripts wherever possible. Avoid meatspace discussion and meetings.
 
-* **Transparent** - Communicate decisions in real time, and forever. Work should be visible and expose process. Work should have a URL. It should be possible to move backward from a piece of product or a system failure and understand how it came to be that way. Prefer git, issues, pull requests, mailing lists, and chat with transcripts over URL-less mediums.
+* **Transparent** - Communicate decisions in real time, and forever. Work should be visible and expose process. Work should have a URL. It should be possible to move backward from a piece of product or a system failure and understand how it came to be that way. Prefer Git, issues, pull requests, mailing lists, and chat with transcripts over URL-less mediums.
 
 * **Asynchronous** - Focus workflow on code, not meetings. Almost no part of the product development process requires that one person interrupt another's immediate attention or that people be in the same place at the same time, or even that people be in different places at the same time. Even small meetings or short phone calls can wreck flow so consider laying it out in (a thought out) email or sending a pull request instead.
 

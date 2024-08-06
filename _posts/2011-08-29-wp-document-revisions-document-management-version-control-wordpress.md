@@ -40,7 +40,7 @@ redirect_from: 2011/08/29/document-management-version-control-for-wordpress/
 * Toggle documents between public, private, and password protected with a single mouse click
 * Runs in-house or in the cloud
 * Secure: filenames are hashed on upload and files are only accessible through WordPress's proven authentication system
-* Can move document upload folder to location outside of web root to further ensure government- and enterprise-grade security
+* Can move document upload folder to location outside web root to further ensure government- and enterprise-grade security
 * Documents and Revisions shortcodes, Recently Revised Documents widget
 * Multisite and Windows (XAMPP) support
 * French and Spanish language support (easily translated to your language)

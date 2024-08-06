@@ -19,7 +19,7 @@ Before that transaction even occurs, the closed-source platform likely has a fla
 
 ### Closed source contractors
 
-Last, these closed source platforms are what government contractors know, because it's what's taught in computer science programs, and what they've always been asked to supply. If an experienced development firm has a bunch of ColdFusion developers, when they bid on a contract, they're going to recommend that the thing be built-in ColdFusion. Not to mention, the government's RFP may be scoped to favor the legacy technology they already know. All this means that before the first line of code is ever written, the odds are stacked against the project from ever seeing the outside of the agency's firewall.
+Last, these closed source platforms are what government contractors know, because it's what's taught in computer science programs, and what they've always been asked to supply. If an experienced development firm has a bunch of ColdFusion developers, when they bid on a contract, they're going to recommend that the thing be built-in ColdFusion. Not to mention, the government's RFP may be scoped to favor the legacy technology they already know. All this means that before the first line of code is ever written, the odds are stacked against the project from ever seeing the outside the agency's firewall.
 
 But even if the agency's using a closed-source platform, there's no reason their custom code can't still be [open sourced](https://github.com/trending?l=cfm&since=monthly).
 
@@ -45,7 +45,7 @@ Even if the agency manages to open source the code, the open source community fo
 
 ### Transparency as a liability
 
-Open sourcing code exposes the agency to the potential for criticism from millions of highly-technical, critical eyes, with little perceived upside from the agency's perspective. The non-technical agency team may not have the ability to evaluate the craftsmanship of the code internally, and it's often preferable to sweep things under the rug, rather than potentially air their dirty laundry to some of the internet's most skilled trolls. Not to mention, the benefits of open source that advocates espouse are often not realized, and thus cannot serve as a counterbalance, if the code is so purpose built so as to render it unusable outside of government, thus attracting no outside contributors, or if the project is poorly managed, so as to scare those contributors away.
+Open sourcing code exposes the agency to the potential for criticism from millions of highly-technical, critical eyes, with little perceived upside from the agency's perspective. The non-technical agency team may not have the ability to evaluate the craftsmanship of the code internally, and it's often preferable to sweep things under the rug, rather than potentially air their dirty laundry to some of the internet's most skilled trolls. Not to mention, the benefits of open source that advocates espouse are often not realized, and thus cannot serve as a counterbalance, if the code is so purpose built so as to render it unusable outside government, thus attracting no outside contributors, or if the project is poorly managed, so as to scare those contributors away.
 
 Meanwhile, unreleased source code poses absolutely zero liability in today's political climate. Which one would you choose?
 

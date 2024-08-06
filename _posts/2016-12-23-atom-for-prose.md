@@ -20,7 +20,7 @@ I highly recommend [taking a look at the packages @sroberts mentioned](https://s
 These packages shave seconds (sometimes minutes) off your day, and given their small size (and overhead), really set Atom apart from other text editors:
 
 * [atom-alignment](https://atom.io/packages/atom-alignment) - Have a bunch of `-`s, `:`s, or `=`s that your type-A mind can't stand to see vertically unaligned? Banish them with a single keystroke.
-* [highlight-selected](https://atom.io/packages/highlight-selected) - this one's hard to appreciate until you actually use it (or until it's missing). Double click a word to highlight all its uses in the current buffer. Useful for manual find-and-replace operations.
+* [highlight-selected](https://atom.io/packages/highlight-selected) - this one's hard to appreciate until you actually use it (or until it's missing). double-click a word to highlight all its uses in the current buffer. Useful for manual find-and-replace operations.
 * [theme-switcher](https://atom.io/packages/theme-switcher) - Switch between dark and light themes, helpful if you ever work outside.
 
 ### Markdown

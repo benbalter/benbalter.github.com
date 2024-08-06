@@ -41,7 +41,7 @@ But among the biggest reasons for this shift, I'd argue, is that unlike when the
 
 ## Open source <del>software</del>
 
-Today, the idea of open source as it is seen outside of software is much more than just rights to "source code". What happens when there is no source versus binary? What does open source data look like? Open source content? Open source law? What happens when there is no OSI-approved license, because the thing I'm sharing simply isn't code. In [trying to distinguish open source from open source *software*](http://haacked.com/archive/2012/02/16/open-source-and-open-source-software-are-not-the-same.aspx/), I argued:
+Today, the idea of open source as it is seen outside software is much more than just rights to "source code". What happens when there is no source versus binary? What does open source data look like? Open source content? Open source law? What happens when there is no OSI-approved license, because the thing I'm sharing simply isn't code. In [trying to distinguish open source from open source *software*](http://haacked.com/archive/2012/02/16/open-source-and-open-source-software-are-not-the-same.aspx/), I argued:
 
 > Open source is more than just publishing. Seeing how the sausage is made is necessary but not sufficient. Discussions in the open, ability to fork and modify, pull requests… collaboration is a key.
 

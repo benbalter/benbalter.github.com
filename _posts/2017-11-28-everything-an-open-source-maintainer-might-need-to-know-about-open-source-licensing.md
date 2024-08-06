@@ -47,7 +47,7 @@ While there are many philosophical and political reasons in support of copyleft 
 
 ## Contributor License Agreements
 
-In addition to an open source license, many large, often-corporate-backed projects also use a second type of legal contract called a Contributor License Agreement. Unlike licenses, contributor license agreements, or CLAss, are not standardized, meaning if you're a contributor, you'll have to read each CLA to determine what legal rights you're giving away, before contributing (and hope you can parse what's often dense legalese if you're not a lawyer).
+In addition an open source license, many large, often-corporate-backed projects also use a second type of legal contract called a Contributor License Agreement. Unlike licenses, contributor license agreements, or CLAss, are not standardized, meaning if you're a contributor, you'll have to read each CLA to determine what legal rights you're giving away, before contributing (and hope you can parse what's often dense legalese if you're not a lawyer).
 
 Whereas open source licenses can be thought of as the copyright grant for users to use the project, a contributor license agreement, at its core, is the right for the project to incorporate a contributor's code. While absent a CLA, most contributions are assumed to be under the terms of the project's license, for high-risk projects or risk-averse maintainers, a CLA makes that understanding explicit. Contributors may also be required to attest that they have the right to submit the code, or the CLA may include an explicit patent grant (see [below](#patents)). Some CLAss go so far as to actually assign the developers copyright to the project. Regardless of the specific clauses, CLAss are generally a form of CYA, to prevent maintainers (or the project) from landing in hot water due to the community contributions it accepts.
 
@@ -55,7 +55,7 @@ Unless your employer tells you that you need one, most open source projects will
 
 ## Copyright on GitHub
 
-If a project is on GitHub, in addition to the open source license (if any), there's a second legal document at play, GitHub's Terms of Service. Specifically, GitHub recently updated its terms of service to [explicitly include the otherwise-assumed `inbound=outbound` rule](https://help.github.com/articles/github-terms-of-service/#6-contributions-under-repository-license), meaning that by submitting a pull request on GitHub, contributors agree to contribute under that code under the same license as your project (making a CLA unnecessary in most cases).
+If a project is on GitHub, in addition the open source license (if any), there's a second legal document at play, GitHub's Terms of Service. Specifically, GitHub recently updated its terms of service to [explicitly include the otherwise-assumed `inbound=outbound` rule](https://help.github.com/articles/github-terms-of-service/#6-contributions-under-repository-license), meaning that by submitting a pull request on GitHub, contributors agree to contribute under that code under the same license as your project (making a CLA unnecessary in most cases).
 
 Additionally, even if your project doesn't have a license, just by posting your code on GitHub, you grant certain rights to other users such as the right to view the code, or to fork it. Logically, you also give GitHub the right to display your code, if the repository's public. That said, if you want others to use your code, you should really [add an open source license](https://help.github.com/articles/adding-a-license-to-a-repository/#including-an-open-source-license-in-your-repository).
 
@@ -65,9 +65,9 @@ For most projects, you won't have to worry about patents. If you create an open 
 
 Patents are a distinct legal right from copyright, but unlike copyright, you don't get one just for creating a thing. Think of patented software as inventing an entirely new technology (like the first site to have an online "shopping cart"). The idea being, that the government wants to reward inventors who create new things, by granting them the exclusive right to use that technology for a certain period of time. As an inventor, you may want to register your invention, to secure that right, and as a developer, you'll want to ensure your code does not infringe on a patent.
 
-In my mind, the vast majority of open source projects tackle easy technical, but hard human, user experience, or implementation problems. Pagination, for example, is a solved technical problem, but the value of an open source pagination project like [`will_paginate`](https://github.com/mislav/will_paginate) comes in the API, integration with other frameworks, flexibility, etc. All things that are not, at least on their face, novel, or patentable.
+In my mind, the vast majority of open source projects tackle easy technical, but hard human, user experience, or implementation problems. Pagination, for example, is a solved technical problem, but the value of an open source pagination project like [`will_paginate`](https://github.com/mislav/will_paginate) comes in the API, integration with other frameworks, flexibility, and so on All things that are not, at least on their face, novel, or patentable.
 
-If you've made something that's *not* technically trivial to implement, you should probably talk to a lawyer (who in addition to helping you conduct a patent search, might recommend a Patent-aware license like Apache over a simpler license like MIT). If you're in the vast majority of left-pad- or Rails-addon-type projects, you're probably fine, at least in terms of patent concerns.
+If you've made something that's *not* technically trivial to implement, you should probably talk to a lawyer (who in addition helping you conduct a patent search, might recommend a Patent-aware license like Apache over a simpler license like MIT). If you're in the vast majority of left-pad- or Rails-addon-type projects, you're probably fine, at least in terms of patent concerns.
 
 ## Copyright in a distinct legal entity
 
@@ -75,9 +75,9 @@ Some more mature projects opt to form a distinct legal entity to hold the projec
 
 The same is true of code. If copyright is distributed among hundreds or thousands of developers and a conflict arises, the project may have to secure additional legal rights from hundreds or thousands of people across multiple countries, languages, and jurisdictions. In the case of WordPress, [copyleft-licensed software](#copyleft-and-the-gpl), if I create and sell WordPress-Pro, and don't make the code available to users, the WordPress foundation may rightfully sue me (although it may be practically difficult for them to do so).
 
-Many CLAss, in addition to the explicit copyright grant also include either a *transfer* of copyright (meaning the foundation owns the code and the developer forfeits all rights), or some form of limited power of attorney, meaning the foundation can sue on the developers behalf to enforce their copyright. Because of this, CLAss are almost exclusively associated with project's maintained by distinct legal entities (rather than an individual or small group of developers).
+Many CLAss, in addition the explicit copyright grant also include either a *transfer* of copyright (meaning the foundation owns the code and the developer forfeits all rights), or some form of limited power of attorney, meaning the foundation can sue on the developers behalf to enforce their copyright. Because of this, CLAss are almost exclusively associated with project's maintained by distinct legal entities (rather than an individual or small group of developers).
 
-Whether you're willing to forfeit legal rights just to contribute to an open source project is a personal decision that you'll have to make, and if you're drafting or evaluating a CLA for use within your own project (despite my warning), hopefully you have sophisticated enough legal counsel to walk you through the various tradeoffs and alternatives.
+Whether you're willing to forfeit legal rights just to contribute to an open source project is a personal decision that you'll have to make, and if you're drafting or evaluating a CLA for use within your own project (despite my warning), hopefully you have sophisticated enough legal counsel to walk you through the various trade-offs and alternatives.
 
 ## When in doubt, follow the money
 
@@ -91,7 +91,7 @@ That said, if you're writing software for a major corporation or a promising sta
 
 If you found this post helpful, there are two other resources you may be interested in reading:
 
-* An overview of the best way to handle [copyright notices for open source projects](https://ben.balter.com/2015/06/03/copyright-notices-for-websites-and-open-source-projects/) in for example, Licenses or the README, and
+* An overview of the best way to handle [copyright notices for open source projects](https://ben.balter.com/2015/06/03/copyright-notices-for-websites-and-open-source-projects/) in for example, Licenses or the readme, and
 * A similar overview of [open source licensing geared towards government attorneys](https://ben.balter.com/2014/10/08/open-source-licensing-for-government-attorneys/)
 
 ## That said…

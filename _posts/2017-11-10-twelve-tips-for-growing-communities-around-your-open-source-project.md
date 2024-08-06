@@ -53,7 +53,7 @@ Last, it's not enough to simply write down *how* to contribute. As you think thr
 
 ## 6. Clarify support versus development
 
-No software is perfect. As your community grows, it's likely users will discover flaws or at least stumble to use the project as you intended. As your project's users seek support, try to anticipate common questions, and clarify your preferred routes for support for those that remain unanswered. Should users open an issue? Do you have a dedicated support forum? Contact paid support? Pop into Slack or Gitter? Hope for the best on StackOverflow? There are several ways you can do this:
+No software is perfect. As your community grows, it's likely users will discover flaws or at least stumble to use the project as you intended. As your project's users seek support, try to anticipate common questions, and clarify your preferred routes for support for those that remain unanswered. Should users open an issue? Do you have a dedicated support forum? Contact paid support? Pop into Slack or Gitter? Hope for the best on Stack Overflow? There are several ways you can do this:
 
 * **Support files** - If you add a `SUPPORT.md` file to your project's root, `.github`, or `docs/` folder, GitHub will display it at various times users seek support, including above the new issue form. This is a great place to describe what avenues are available to users for support, if any.
 * **Troubleshooting or FAQ docs** - If you find yourself answering common questions, rather than hope users search prior issues before opening a new one, answer common questions/trouble points in a dedicated troubleshooting or FAQ document. Better yet, when you answer new questions, encourage the users to expand the documentation with their solution.

@@ -27,7 +27,7 @@ At the least, lets expose all WordPress content in a machine readable format. Th
 
 1. Create a new format ("feed" in WordPress parlance) called JSON, and add the necessary rewrite rules such that I can simply add `.json` to any post and retrieve the underlying information in a machine readable format. This should contain not only the content of the post and information that would normally be accessible via HTML, but all the fields of the posts table (for example, date published, date updated, etc.), all the post's metadata (custom, post-specific information), and all the associated term objects (tags, categories, etc.). Sure we'll need to add a filter or two in their to ensure information folks want private stays private, but from a technical standpoint, we're talking a handful of lines of code here.
 
-2. Extend that format to indexes (archives in WordPress terms). Again, just as above, every list of posts (by date, by associated term, search results) should have the capability to expose the list in that same machine-readable format. This allows for the programatic discovery of information. A little bit harder than #1, but again, nothing crazy here. Pretty basic stuff.
+2. Extend that format to indices (archives in WordPress terms). Again, just as above, every list of posts (by date, by associated term, search results) should have the capability to expose the list in that same machine-readable format. This allows for the programatic discovery of information. A little bit harder than #1, but again, nothing crazy here. Pretty basic stuff.
 
 ## Walk
 

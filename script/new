@@ -11,7 +11,7 @@ title=${1//-/ }
 git checkout -B "$1"
 
 touch "$file"
-echo -e "---\ntitle: $title\ndescription:\n---\n\n" > "$file"
+echo -e "---\ntitle: $title\ndescription:\n---\n\n" >"$file"
 
 git add "$file"
 git commit -m "Create $file"

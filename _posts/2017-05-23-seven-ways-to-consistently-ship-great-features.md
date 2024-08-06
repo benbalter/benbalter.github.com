@@ -7,7 +7,7 @@ As a product manager, I spend most of my day working with developers to get feat
 
 ## 1. Over communicate
 
-When it comes to feature development, there is no such thing as over-communicating. What problem are we solving? Who are we solving it for? Why are we solving *this* problem? What solutions were proposed? Which was selected? How are we implementing it? What product or design considerations did we make? Do we have to make technical trade offs? Are there any outstanding questions? Does it actually solve what we set out to solve? What's the current status? Are there any blockers? What do we need to do to ship it? Make it all explicit, memorialized, and discoverable.
+When it comes to feature development, there is no such thing as over-communicating. What problem are we solving? Who are we solving it for? Why are we solving *this* problem? What solutions were proposed? Which was selected? How are we implementing it? What product or design considerations did we make? Do we have to make technical trade-offs? Are there any outstanding questions? Does it actually solve what we set out to solve? What's the current status? Are there any blockers? What do we need to do to ship it? Make it all explicit, memorialized, and discoverable.
 
 It doesn't have to be a formal template, but great developers make sure all the above question are answered at each step of the development process, and that everyone who needs to be aware, is, and that it's updated as circumstances change. The old developer adage, that there should be "more comments than code" is true here, except those comments often take the form of issue and pull request comments, rather than code comments. Most importantly, create a web of context through cross links so that others can find it. As a simple rule, if you reference something that has a URL, [you must provide a link](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#double-bonus-if-it-has-a-url-link-to-it).
 
@@ -19,7 +19,7 @@ Describe what you're going to write, write it, and then describe what you wrote.
 
 ## 3. Get it in users' hands, not on `main`
 
-Great developers don't just write code. The goal isn't to get functionality on `main`, rather to get functionality to users, and everything that entails beyond hitting merge. They own the feature from conception to retirement, writing feature proposals, success metrics, user-facing documentation, internal support playbooks, and the blog post that ultimately announces it to users, in addition to the code itself.
+Great developers don't just write code. The goal isn't to get functionality on `main`, rather to get functionality to users, and everything that entails beyond hitting merge. They own the feature from conception to retirement, writing feature proposals, success metrics, user-facing documentation, internal support playbooks, and the blog post that ultimately announces it to users, in addition the code itself.
 
 After it ships, they're going through Hacker News, Twitter, support tickets, and metrics dashboards to make sure they've smoothed any rough edges and the feature's solving the problem they intended to solve. At every step of the process, they're asking "what else can I do to get an amazing experience into the hands of users?", and they do just that.
 

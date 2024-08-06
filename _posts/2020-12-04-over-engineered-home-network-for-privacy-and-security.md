@@ -21,10 +21,9 @@ While most home networking setups generally do a decent job of protect you from 
 
 To head down this route as well, it's relatively straightforward, but definitely a (fun) "project". You'll need some basic familiarity with home networking (understanding how things like DNS and IPs work), as well as being comfortable SSH-ing into a linux device and copying and pasting a few commands.
 
-Here's how I over-engineered my home network for privacy and security:
+Here's how I overengineered my home network for privacy and security:
 
-* Contents
-{:toc}
+* Contents {:toc}
 
 ## The router - UniFi Dream Machine
 
@@ -71,7 +70,7 @@ Device manufacturers rely on the ability to "phone home" to monetize your usage 
 
 To ensure devices *must* use the Pi-Hole and DoH for DNS lookups, you could create a firewall rule to block Google's DNS specifically (as many online tutorial suggest), but I took it a step further and prevented all outbound requests over port `53` (DNS's dedicated port) entirely to ensure all DNS from the network was filtered and encrypted. You can do this by creating a "DNS" port group on the UDM (port 53), and adding a WAN out reject rule for any traffic to that port. To confirm it's working, `dig example.com @8.8.8.8` should timeout when run from a device on your network (including the Raspberry Pi), but `dig example.com` should work as expected (and the page should load in your browser).
 
-If you *really* want to be sure everything is going through your preferred DNS, you can add [the DNS over HTTPS server list](https://raw.githubusercontent.com/oneoffdallas/dohservers/master/list.txt) to your Pi-Hole ad list to block hard-coded DoH servers, and additionally create a firewall rule similar to the one for port `53`, but for port `853` DNS over TLS's dedicated port.
+If you *really* want to be sure everything is going through your preferred DNS, you can add [the DNS over HTTPS server list](https://raw.githubusercontent.com/oneoffdallas/dohservers/master/list.txt) to your Pi-Hole ad list to block hardcoded DoH servers, and additionally create a firewall rule similar to the one for port `53`, but for port `853` DNS over TLS's dedicated port.
 
 ## Cloudflare Teams to block malicious sites
 

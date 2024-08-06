@@ -11,7 +11,7 @@ That’s still true today, but there’s some critical nuance not sufficiently c
 
 ## The challenges of decision making at scale
 
-As teams scale, traditional approaches to decision making force a tradeoff between transparency and efficiency:
+As teams scale, traditional approaches to decision making force a trade-off between transparency and efficiency:
 
 If you're working solo, you enjoy the benefits of absolute transparency and absolute efficiency. You know everything you know, and there's no added cost for sharing that information with yourself. As the number of people solving a problem grows, guarantees of both transparency and efficiency often become exponentially more expensive.[^2]
 
@@ -21,7 +21,7 @@ To overcome these limitations of scale, many organizations logically add a manag
 
 The easiest way to ensure everyone can understand the how and why of a decision is to adopt systems that, through their daily operation, ensure such context is automatically and readily available to those who might want it (and explicitly not only those who presently need it). At GitHub, historically adopting workflows inspired by the open source community, we often see this in the form of working transparently within the context of GitHub issues and pull requests.[^4]
 
-That organically transparent process is not limited to changes to code. At GitHub we often use that flow to propose, discuss, and ultimately implement changes to architecture, policy, programs, process, documentation, and ironically, how we work. The idea being, that even though working transparently may require additional effort on the part of the moving party initially, doing so benefits the organization in the long run, and does so in a manner that far outweighs any short-term costs. This learned reality short circuits that tradeoff between transparency and efficiency that limits traditional approaches to decision making through managerial abstraction.
+That organically transparent process is not limited to changes to code. At GitHub we often use that flow to propose, discuss, and ultimately implement changes to architecture, policy, programs, process, documentation, and ironically, how we work. The idea being, that even though working transparently may require additional effort on the part of the moving party initially, doing so benefits the organization in the long run, and does so in a manner that far outweighs any short-term costs. This learned reality short circuits that trade-off between transparency and efficiency that limits traditional approaches to decision making through managerial abstraction.
 
 ## Near-term convenience creates long-term communications debt
 

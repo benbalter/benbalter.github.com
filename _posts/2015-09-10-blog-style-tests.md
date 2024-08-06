@@ -100,6 +100,6 @@ end
 
 When engineering workflows, for any given problem there is often two solutions: a heavy-weight, human-driven process, and a light-weight, machine-driven tool. Both workflows produce significantly similar outcomes, but one requires significantly less upkeep and time.
 
-While changing organizational culture and unlearning the corporate speak anti-patterns that surround us may seem like a daunting task, by leveraging concepts that have been proven in the open source worlds for decades, you can empower your organization's humans to be more, well, human.
+While changing organizational culture and unlearning the corporate speak antipatterns that surround us may seem like a daunting task, by leveraging concepts that have been proven in the open source worlds for decades, you can empower your organization's humans to be more, well, human.
 
 *Have a favorite test you use in your own writing? Drop it in the comments below.*

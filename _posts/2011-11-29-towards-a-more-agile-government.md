@@ -13,8 +13,7 @@ The Case for Rebooting Federal IT Procurement
 
 *41 Pub. Cont. L.J. 149, The Public Contract Law Journal, Fall 2011* <!-- markdownlint-disable-line no-emphasis-as-header -->
 
-* Table of Contents
-{:toc}
+* Table of Contents {:toc}
 
 Like many government computer systems, the U.S. federal information technology (IT) procurement model is slow, outdated, and long overdue for a reboot.[^1] As the largest single purchaser of code, [^2] in fiscal year (FY) 2010 the Federal Government spent more than $77.1 billion on IT procurement, and that number is projected to grow higher by the close of 2011.[^3] This is not a recent trend. Over the past decade, federal IT spending has swelled nearly seventy percent, up from $45.6 billion in 2001, [^4] for a total bill of more than $500 billion.[^5] This growth is partially a result of the unfortunate fact that as few as nine percent of projects are delivered on budget and on time.[^6] The Government Accountability Office (GAO) reports that roughly forty-eight percent of all IT projects must be rebaselined, [^7] and of those rebaselined projects, fifty-one percent must be rebaselined a second time.[^8]
 
@@ -38,7 +37,7 @@ Agile development adopts an incremental approach to software development, but it
 
 ### C. Modern Trends in Both Governance and Technology Push Federal Procurement Towards Agility
 
-Today's government IT landscape reflects a purposeful march toward privatization.[^33] Growing budget deficits in recent decades have rendered the Government anxious to deliver smarter, more cost-effective services to its citizens.[^34] In addition to advances in hardware and technology, the Government's approach to building complex, national systems has also evolved from the stand-alone computer systems of the 1960s, to the networked stovepipes of the 1970s and 1980s, to the glued-together middleware systems of the 1990s, and finally to the present day disaggregated, service-oriented architecture model.[^35] In a setting like today's, mission-critical applications are distributed across multiple, loosely-coupled systems that communicate freely with one another, [^36] allowing for rapid development and repurposing of investments.[^37] Despite advancing industry approaches to large IT projects, by forcing all requirements to be outlined upfront, federal procurement regulations continue to lock agencies into large, single-pass procurements.[^38]
+Today's government IT landscape reflects a purposeful march toward privatization.[^33] Growing budget deficits in recent decades have rendered the Government anxious to deliver smarter, more cost-effective services to its citizens.[^34] In addition advances in hardware and technology, the Government's approach to building complex, national systems has also evolved from the stand-alone computer systems of the 1960s, to the networked stovepipes of the 1970s and 1980s, to the glued-together middleware systems of the 1990s, and finally to the present day disaggregated, service-oriented architecture model.[^35] In a setting like today's, mission-critical applications are distributed across multiple, loosely-coupled systems that communicate freely with one another, [^36] allowing for rapid development and repurposing of investments.[^37] Despite advancing industry approaches to large IT projects, by forcing all requirements to be outlined upfront, federal procurement regulations continue to lock agencies into large, single-pass procurements.[^38]
 
 ## II. Despite its Advantages and Long-Standing History, the Rigidity of Traditional Software Development Bears Risks Disproportionate to its Returns
 
@@ -91,7 +90,7 @@ Agile development can be thought of as the amalgamation of many short waterfall 
 
 To facilitate agile's hallmark rapid delivery in place of time-consuming formal documentation and rigid structure, agile relies on extensive person-to-person communication and organic processes. In simplest terms, agility is defined by a software team's ability "to efficiently and effectively respond to and incorporate requirement changes during the project lifecycle." [^81] To achieve this goal agile focuses on collaboration rather than documentation. Agile promotes frequent, continuous delivery of working software and embraces changing requirements through close collaboration, self-organizing and self-motivated teams, face-to-face communications, and in turn, continuous adaptation.[^82]
 
-In practical terms, agile values individuals and interactions over processes and tools, working software over comprehensive documentation, customer collaboration over contract negotiation, and responding to change over following a plan.[^83] Because agile prioritizes one-on-one communication over formal documentation, unnecessary documentation is wholly alleviated and overhead costs are reduced.[^84] Moreover, requirements tend to be more concrete and clearer and to produce a better final product.[^85] Given that project teams undertake smaller projects under an agile framework, systems can be delivered without the sluggishness inherent to waterfall projects.
+In practical terms, agile values individuals and interactions over processes and tools, working software over comprehensive documentation, customer collaboration over contract negotiation, and responding to change over following a plan.[^83] Because agile prioritizes one-on-one communication over formal documentation, unnecessary documentation is wholly alleviated and overhead costs are reduced.[^84] In addition, requirements tend to be more concrete and clearer and to produce a better final product.[^85] Given that project teams undertake smaller projects under an agile framework, systems can be delivered without the sluggishness inherent to waterfall projects.
 
 #### iii. Agile is adaptive rather than predictive
 
@@ -222,8 +221,6 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 [^1]: This holds true for both civilian and military procurement systems. *See generally* Office of the Under Sec'y of Def. for Acquisition, Tech., and Logistics, Report of the Defense Science Board Task Force on Department of Defense Policies and Procedures for the Acquisition of Information Technology (2009) [hereinafter DoD Acquisition Report].
 
 [^2]: Jay P. Kesan & Rajiv C. Shah, *Shaping Code*, 18 Harv. J.L. & Tech. 319, 373 (2005).
-
-[^3]: *Trends*, IT Dashboard, <http://www.itdashboard.gov/> (last visited Sept. 6, 2011).
 
 [^4]: *Id.*
 
@@ -369,7 +366,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^75]: Cheng, *supra* note 46.
 
-[^76]: From the agency's perspective, an agile backlog is simply a wish list of features in priority of business value, wherein the agency lists the functionality it desires from a system and when that can be expected. From the contractor's perspective, the backlog is a to-do list, in order of priority, listing the project deliverables and their deadlines.
+[^76]: From the agency's perspective, an agile backlog is simply a wish list of features in priority of business value, wherein the agency lists the functionality it desires from a system and when that can be expected. From the contractor's perspective, the backlog is a todo list, in order of priority, listing the project deliverables and their deadlines.
 
 [^77]: For a more detailed explanation, *see* Fowler, *supra* note 20.
 

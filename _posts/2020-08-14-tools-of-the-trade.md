@@ -38,7 +38,7 @@ Here's how I think about the tools we use to communicate at GitHub: **What** too
 
 * **When**: Project tracking and task-level coordination
 * **Who**: Entire team, occasionally extended stakeholders
-* **Why**: If issues track state at the task level, projects track state at the project level - what's on deck, what's in flight, what's done, who's working on what, etc. When using issues (instead of cards) to track work, projects have all the benefits of issues, but offer a perspective one level of abstraction up.
+* **Why**: If issues track state at the task level, projects track state at the project level - what's on deck, what's in flight, what's done, who's working on what, and so on When using issues (instead of cards) to track work, projects have all the benefits of issues, but offer a perspective one level of abstraction up.
 
 ### Discussions
 
@@ -49,7 +49,7 @@ Here's how I think about the tools we use to communicate at GitHub: **What** too
 ### Documentation
 
 * **Who**: Team, stakeholders, the entire organization
-* **When**: Project plans, technical overviews, [ADRs](https://github.blog/2020-08-13-why-write-adrs/), team process, how-to's, company policies, etc. - anything non-ephemeral and without an open/closed state
+* **When**: Project plans, technical overviews, [ADRs](https://github.blog/2020-08-13-why-write-adrs/), team process, how-to's, company policies, and so on - anything non-ephemeral and without an open/closed state
 * **Why**: Discoverability, auditability, permanence, and ease of contribution.
 * **How**: Tracked in Git as Markdown in the most-logical repository. [If you can't diff it, don't use it](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#13-if-you-cant-diff-it-dont-use-it).
 
@@ -82,7 +82,7 @@ Generally, use chat for informal office communication, community comradery, wate
 #### Private channels
 
 * **When**: Conversations not appropriate for public channels - social, sensitive, frank, or any time you want to encourage participants to share freely, but aren't concerned with capturing context or excluding others.
-* **Who**: Teams, affinity groups, etc.
+* **Who**: Teams, affinity groups, and so on
 * **Why**: Informal, ephemeral, and uncensored conversations not appropriate for public channels
 
 #### 1:1 DMs
@@ -101,13 +101,13 @@ Generally, use chat for informal office communication, community comradery, wate
 
 #### In-person 1:1s
 
-* **When**: Regular checkins, manager 1:1s, catching up, feedback, resolving conflict, etc.
+* **When**: Regular checkins, manager 1:1s, catching up, feedback, resolving conflict, and so on
 * **Who**: Peers, manager, directs
 * **Why**: [Human conversations deserve human faces](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#2-dont-underestimate-high-fidelity-mediums).
 
 #### In-person meetings
 
-* **When**: Regular syncs, working through complex issues, ideation, project kickoffs, retros, social time, etc. Meetings shouldn't be used for status updates, to force work, or any task that's best handled asynchronously. [Reserve high-fidelity mediums for the types of conversations that benefit from being face-to-face or ephemeral](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/#4-asynchronous-decision-making).
+* **When**: Regular syncs, working through complex issues, ideation, project kickoffs, retros, social time, and so on Meetings shouldn't be used for status updates, to force work, or any task that's best handled asynchronously. [Reserve high-fidelity mediums for the types of conversations that benefit from being face-to-face or ephemeral](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/#4-asynchronous-decision-making).
 * **Who**: Teams, extended stakeholders, peers.
 * **Why**: Some conversations require higher fidelity than issues or chat can offer. Be sure to have an agenda and goals. Memorialize decisions after the fact in a more-permanent medium.
 

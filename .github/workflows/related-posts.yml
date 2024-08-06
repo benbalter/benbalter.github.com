@@ -8,6 +8,11 @@ on:
       - main
 
 name: Build related posts
+
+permissions:
+  contents: write
+  statuses: write
+  
 jobs:
   build-related-posts:
     runs-on: ubuntu-latest
