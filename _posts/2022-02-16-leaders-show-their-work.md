@@ -5,13 +5,13 @@ description: Absent working within systems that naturally capture and expose pro
 
 A number of years ago, I [described the value of memorializing decisions through URLs](https://ben.balter.com/2015/11/12/why-urls/):
 
-> [URLs] provides a single, incontrovertible source of truth for the organization’s intentions, and equally important, exposes the reasoning behind the decision, reducing the tendency for top-down decisions to be communicated as “because I said so”.
+> \[URLs] provides a single, incontrovertible source of truth for the organization’s intentions, and equally important, exposes the reasoning behind the decision, reducing the tendency for top-down decisions to be communicated as “because I said so”.
 
 That’s still true today, but there’s some critical nuance not sufficiently captured in that excerpt: a URL is necessary, but not sufficient to communicate organizational intentionality. For an organization to reap [the benefits of transparency](https://ben.balter.com/2015/11/12/why-urls/#the-value-of-giving-concepts-urls), its leaders must not only communicate via URL *what* decisions were made, but must also explain *why* they made those decisions and *how*. There are two ways to do that: [adopt systems that naturally capture and expose process](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/), or absent those systems, leaders must hold one another accountable for spending the additional cycles to *show their work*.
 
 ## The challenges of decision making at scale
 
-As teams scale, traditional approaches to decision making force a tradeoff between transparency and efficiency:
+As teams scale, traditional approaches to decision making force a trade-off between transparency and efficiency:
 
 If you're working solo, you enjoy the benefits of absolute transparency and absolute efficiency. You know everything you know, and there's no added cost for sharing that information with yourself. As the number of people solving a problem grows, guarantees of both transparency and efficiency often become exponentially more expensive.[^2]
 
@@ -21,7 +21,7 @@ To overcome these limitations of scale, many organizations logically add a manag
 
 The easiest way to ensure everyone can understand the how and why of a decision is to adopt systems that, through their daily operation, ensure such context is automatically and readily available to those who might want it (and explicitly not only those who presently need it). At GitHub, historically adopting workflows inspired by the open source community, we often see this in the form of working transparently within the context of GitHub issues and pull requests.[^4]
 
-That organically transparent process is not limited to changes to code. At GitHub we often use that flow to propose, discuss, and ultimately implement changes to architecture, policy, programs, process, documentation, and ironically, how we work. The idea being, that even though working transparently may require additional effort on the part of the moving party initially, doing so benefits the organization in the long run, and does so in a manner that far outweighs any short-term costs. This learned reality short circuits that tradeoff between transparency and efficiency that limits traditional approaches to decision making through managerial abstraction.
+That organically transparent process is not limited to changes to code. At GitHub we often use that flow to propose, discuss, and ultimately implement changes to architecture, policy, programs, process, documentation, and ironically, how we work. The idea being, that even though working transparently may require additional effort on the part of the moving party initially, doing so benefits the organization in the long run, and does so in a manner that far outweighs any short-term costs. This learned reality short circuits that trade-off between transparency and efficiency that limits traditional approaches to decision making through managerial abstraction.
 
 ## Near-term convenience creates long-term communications debt
 
@@ -74,7 +74,7 @@ Absent working within systems that through their day-to-day use captures and exp
 
 While I still agree [everything should have a URL](https://ben.balter.com/2015/11/12/why-urls/), how we go about thoughtfully creating and curating the content within those URLs - rich with high-value historic context, a gift for others and our future selves - matters more than the fact that the URL itself exists.
 
-{% include_cached github-culture.html %}
+{% include\_cached github-culture.html %}
 
 [^1]: I use the term "management" here broadly. Yes, this could be a people manager, but the concept applies equally to product managers, program managers, and individual contributors in leadership roles. At GitHub, we have the concept of directly responsible individual (DRI), a role regardless of position within the organization for which visibility of work is an explicit expectation.
 

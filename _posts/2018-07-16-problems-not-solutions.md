@@ -19,7 +19,7 @@ Worse yet, you may be implementing an intellectually engaging solution in search
 
 The other way to think about talking in terms of problems instead of solutions is that you should spend more time talking about the "why" than you spend talking about the "what," or at least translating between the two.
 
-If your team agrees its goal is to do X, it's natural that you'll spend more time discussing and tracking what you need to do to get to X than what X does. While managing work may be part of a PM's role, your language must constantly frame things through a lens of end-user value. Put another way, throughout the development process, you should serve as the user's voice, advocating for their needs at every step.
+If your team agrees its goal is to do X, it's natural that you'll spend more time discussing and tracking what you need to do to get to X than what X does. While managing work may be part of a PM's role, your language must constantly frame things through a lens of end user value. Put another way, throughout the development process, you should serve as the user's voice, advocating for their needs at every step.
 
 #### Focus on low-effort, high (user) impact
 

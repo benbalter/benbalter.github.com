@@ -18,7 +18,7 @@ The problem is, not everything you might want to publish using a Jekyll falls cl
 
 ## Everything that's not a post or a page can be represented as a collection
 
-Collections add another possibility, or use-case outside of Jekyll's post- and page-publishing functionality; and have the potential to bring Jekyll's zen-like simplicity to all sorts of other types of content that aren't dated (as with posts), but have a set relationship with one another (hence the name, "collection"). If you're familiar with traditional CMS's, you can think of collections like [WordPress custom post types](http://codex.wordpress.org/Post_Types) or [Drupal custom content types](https://www.drupal.org/node/774728), except you do not need to program a specific class, learn any server languages, and the syntax used to specify them is very easily readable.
+Collections add another possibility, or use-case outside Jekyll's post- and page-publishing functionality; and have the potential to bring Jekyll's zen-like simplicity to all sorts of other types of content that aren't dated (as with posts), but have a set relationship with one another (hence the name, "collection"). If you're familiar with traditional CMS's, you can think of collections like [WordPress custom post types](http://codex.wordpress.org/Post_Types) or [Drupal custom content types](https://www.drupal.org/node/774728), except you do not need to program a specific class, learn any server languages, and the syntax used to specify them is very easily readable.
 
 What then, might you use collections for? Let's say you're making a site for a bakery and want to list the different cupcakes varieties you sell. You might use a collection called "cupcakes". You'd create a `_cupcakes` folder, and would add `chocolate.md` or `vanilla.md` to it. And just like posts or pages, your list of cupcakes would be accessible as `site.cupcakes`.
 
@@ -28,7 +28,7 @@ You wouldn't want to use posts here, because cupcakes aren't chronological, and 
 
 ## Collections in practice
 
-But what if one day you decided to expand your offerings and sell cookies in addition to cupcakes. Simply introduce a "cookies" collection, adding `chocolate-chip.md` and `peanut-butter.md` to a `_cookies` directory, exposing the cookies as `site.cookies`. You'll notice the collections concept start to show its value here. Pages wouldn't make sense here, because you'd want to be able to list cupcakes and cookies separately, and besides for both being baked goods, the one cookie doesn't really share a relationship with a cupcake, at least not in the same sense that cookies share with one another.
+But what if one day you decided to expand your offerings and sell cookies in addition cupcakes. Simply introduce a "cookies" collection, adding `chocolate-chip.md` and `peanut-butter.md` to a `_cookies` directory, exposing the cookies as `site.cookies`. You'll notice the collections concept start to show its value here. Pages wouldn't make sense here, because you'd want to be able to list cupcakes and cookies separately, and besides for both being baked goods, the one cookie doesn't really share a relationship with a cupcake, at least not in the same sense that cookies share with one another.
 
 Of course you could at this stage, choose to have a more generic collection `products`, which you could develop liquid layouts for, so that you and other developers could get the basic functionality needed to display all products, with specific includes for `cupcakes` and `cookies`.
 

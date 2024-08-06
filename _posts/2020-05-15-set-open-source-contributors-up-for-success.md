@@ -17,7 +17,7 @@ My colleague Mike McQuaid has the concept of the [contributor funnel](https://mi
 
 ## 2. Make it easy for someone to use your project
 
-The first step into the funnel is making it as easy as possible for users to discover and use your project. Not only will this increase the top of your funnel and make using your project a better experience, but the easier it is for users to get started and self-troubleshoot, the less likely they are to require support. At minimum, [add topics](https://help.github.com/en/github/administering-a-repository/classifying-your-repository-with-topics) to your project, so it's easier to find, and surface user-facing documentation [via a README](https://opensource.guide/starting-a-project/#writing-a-readme), `docs/` folder, or GitHub Pages site. Assume this is the reader's first foray into open source. As a simple rule, if I have to answer a question twice, I add it to the documentation so that I never have to answer it again.
+The first step into the funnel is making it as easy as possible for users to discover and use your project. Not only will this increase the top of your funnel and make using your project a better experience, but the easier it is for users to get started and self-troubleshoot, the less likely they are to require support. At minimum, [add topics](https://help.github.com/en/github/administering-a-repository/classifying-your-repository-with-topics) to your project, so it's easier to find, and surface user-facing documentation [via a readme](https://opensource.guide/starting-a-project/#writing-a-readme), `docs/` folder, or GitHub Pages site. Assume this is the reader's first foray into open source. As a simple rule, if I have to answer a question twice, I add it to the documentation so that I never have to answer it again.
 
 ## 3. Encourage community support
 
@@ -25,7 +25,7 @@ You write software so that others can use it, but no software is perfect, and so
 
 ## 4. Call out good "first issues"
 
-Bug reports and feature requests can quickly become an overwhelming burden if you don't have the bandwidth to take them on. Encourage commenters, reporters, and requesters to make their first code contribution by adding [good first issue labels](https://help.github.com/en/github/building-a-strong-community/encouraging-helpful-contributions-to-your-project-with-labels) to bite-size issues. "Be the pull request you want to see in the world", as I jokingly like to say. In addition to calling out good starting points for the uninitiated, good first issues are also surfaced throughout GitHub's discovery tools, attracting additional potential contributors to your projects to help further reduce the backlog.
+Bug reports and feature requests can quickly become an overwhelming burden if you don't have the bandwidth to take them on. Encourage commenters, reporters, and requesters to make their first code contribution by adding [good first issue labels](https://help.github.com/en/github/building-a-strong-community/encouraging-helpful-contributions-to-your-project-with-labels) to bite-size issues. "Be the pull request you want to see in the world", as I jokingly like to say. In addition calling out good starting points for the uninitiated, good first issues are also surfaced throughout GitHub's discovery tools, attracting additional potential contributors to your projects to help further reduce the backlog.
 
 ## 5. Make it easy for users to contribute back
 

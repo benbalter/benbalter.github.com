@@ -65,7 +65,7 @@ Whether shared with the development team, the agency, or with the public, open s
 
 ## 8. Better code
 
-Open source is not just a workflow and a philosophy, but also a development style. When you write code you know is going to be shared with others, you're less likely to hard-wire custom functionality, or hard-code deployment-specific considerations. As a result, you get abstracted, modular code that can be repurposed, redeployed, and more-easily upgraded in part, rather than in whole.
+Open source is not just a workflow and a philosophy, but also a development style. When you write code you know is going to be shared with others, you're less likely to hard-wire custom functionality, or hardcode deployment-specific considerations. As a result, you get abstracted, modular code that can be repurposed, redeployed, and more-easily upgraded in part, rather than in whole.
 
 You also gain the benefit of more mature code. Many contracts may call for the same challenge to be solved. Rather than writing a custom XML library for each project, open source allows you to reduce duplication of efforts internally, by allowing you to adopt an existing library, or to start your own shared library. More eyes, more time, and more use cases, means more stringently field-tested and proven code for both projects on day one.
 

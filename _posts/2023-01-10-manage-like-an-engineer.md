@@ -55,11 +55,11 @@ Successful distributed teams place an emphasis on written and asynchronous commu
 
 One common way engineering teams capture important decisions is through [an architecture decision record (ADR)](https://github.com/joelparkerhenderson/architecture-decision-record). ADRs capture not just the decision, but also its context and consequences, and do so in a way that allows stakeholders to deeply participate in the process. In short, the person responsible for a decision writes out their proposal in long form prose, and submits it for discussion and refinement by stakeholders before it is ultimately merged to memorialize the decisions.
 
-While ADRs are intended for engineering decisions, the format and rigour of documentation and process can be adapted to any type of impactful or long-lived decision, especially management decisions with broad impact. That's not to say that management decision records democratize or crowd source management. Rather it formalizes and makes transparent the socializing process that already happens in the course of making such management decisions.
+While ADRs are intended for engineering decisions, the format and rigour of documentation and process can be adapted to any type of impactful or long-lived decision, especially management decisions with broad impact. That's not to say that management decision records democratize or crowd source management. Rather it formalizes and makes transparent the socializing process that already happens during making such management decisions.
 
 ### Automate all the things
 
-Better still, since GitHub is an extensible platform, automation of day-to-day issue management can be "cheap" to implement via shared GitHub actions. If a given OKR hasn't received an update in a while, we use Actions to nudge the responsible individual. When status updates come in as issue comments on a regular cadence, Actions updates the project board so that the health of all our OKRs can be seen in a single view. We even use Actions to automate issue creation at the kick off of the planning cycle, or to have regular meeting and 1:1 agendas created each week.[^9]
+Better still, since GitHub is an extensible platform, automation of day-to-day issue management can be "cheap" to implement via shared GitHub Actions. If a given OKR hasn't received an update in a while, we use Actions to nudge the responsible individual. When status updates come in as issue comments on a regular cadence, Actions updates the project board so that the health of all our OKRs can be seen in a single view. We even use Actions to automate issue creation at the kick off of the planning cycle, or to have regular meeting and 1:1 agendas created each week.[^9]
 
 ## Conclusion
 
@@ -81,10 +81,10 @@ Managing like an engineer means using the same tools and workflows that engineer
 
 [^6]: For example, transparent and inclusive decision making comes more naturally in a tools built for collaboration like GitHub than it does in a tool built for conveying information like Slack or email. That's not to say it can't be done, but the tools vision of how work should occur and yours may differ, making things more difficult on both you and you team. When in doubt, start from first principles and ask yourself, "what is the best tool for the job?"
 
-[^7]: Yes, there are different flavors and tools (agile, scrum, JIRA tickets, etc.), but at a high level, most teams have some sort of ongoing list of outstanding TODOs, along with a standard mechanism to review proposed changes.
+[^7]: Yes, there are different flavors and tools (agile, scrum, Jira tickets, etc.), but at a high level, most teams have some sort of ongoing list of outstanding todos, along with a standard mechanism to review proposed changes.
 
 [^8]: I write about my experience using GitHub, but there's no reason these philosophies couldn't be implemented using another engineering tool. The key is to use a tool that is built for collaboration and transparency and that is extensible via automation.
 
-[^9]: Taking the metaphor further, there's no reason why a manager's workflow couldn't have its own "CI", in the sense that automated checks could keep a high bar for, for example, decision making by ensuring necessary stakeholders were consulted, that ample opportunity was offered to provide feedback, etc. We use this lightly in some places to encourage inclusive language or readability of documentation.
+[^9]: Taking the metaphor further, there's no reason why a manager's workflow couldn't have its own "CI", in the sense that automated checks could keep a high bar for, for example, decision making by ensuring necessary stakeholders were consulted, that ample opportunity was offered to provide feedback, and so on We use this lightly in some places to encourage inclusive language or readability of documentation.
 
 [^10]: Depending on the context, these may also be referred to as "business decision records" (BDRs).

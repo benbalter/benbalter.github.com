@@ -18,7 +18,7 @@ Find something small and inconsequential to ship in your first two weeks. The fi
 
 It can be a single character, a word, or a sentence, code or prose, whatever, it doesn't matter. The important thing is that you're going through the motions and learning the workflow. If it's day 15 and you haven't gotten anything out the door, don't sweat it, but at least set the goal on day one, and push yourself slightly outside your comfort zone. If you work openly and ask for help when you don't know the answer, you won't take down the site, I promise.
 
-*Pro-tip:* If you're looking for something to ship, as you're onboarding, read the internal and user-facing docs with a critical eye. Is something out of date? Did the author skip a step? Could something be clarified? Whether it's an article on our "internal knowledge base"[^1], your team's README, or `help.github.com`, even so much as correcting a typo provides your fellow GitHubbers value and is a great way to learn how we work.
+*Pro-tip:* If you're looking for something to ship, as you're onboarding, read the internal and user-facing docs with a critical eye. Is something out of date? Did the author skip a step? Could something be clarified? Whether it's an article on our "internal knowledge base"[^1], your team's readme, or `help.github.com`, even so much as correcting a typo provides your fellow GitHubbers value and is a great way to learn how we work.
 
 ## 2. Spend your first month learning how to learn and how we communicate
 
@@ -51,7 +51,7 @@ Given all the opportunities we have as a company and that you have as an individ
 
 There's a reason every GitHubber is given a learning and development stipend. It's because GitHub wants you to be constantly growing and improving. If there's something you're interested in, grab a book on the subject. [Here's a few of my favorites](http://ben.balter.com/books-for-geeks/). If you're getting your work done, you can even take 20–30 minutes out of the workday to read it. Better yet, share the highlights with your team so they can learn as well.
 
-In general, you should always be pushing yourself to step 10% outside of your comfort zone. That means taking on tasks you think you're 90% qualified to tackle. Your fellow GitHubbers will help you rise to that last 10%. That might mean that you submit your first pull request to an open source project. Maybe you pair with a developer to implement a simple change (and learn some Ruby in the process). Maybe you ask to be involved in a product launch or marketing plan. Whatever it is, it can't hurt to ask (and try).
+In general, you should always be pushing yourself to step 10% outside your comfort zone. That means taking on tasks you think you're 90% qualified to tackle. Your fellow GitHubbers will help you rise to that last 10%. That might mean that you submit your first pull request to an open source project. Maybe you pair with a developer to implement a simple change (and learn some Ruby in the process). Maybe you ask to be involved in a product launch or marketing plan. Whatever it is, it can't hurt to ask (and try).
 
 *Pro-tip*: GitHub's learning and development benefit is explicitly for your personal development. If there's a class, certification, whatever, that you've been eyeing, talk to your manager to see if GitHub can foot the bill.
 
@@ -85,9 +85,9 @@ One of my favorite parts of working at GitHub is being able to talk to new GitHu
 
 Welcome to GitHub! I'm glad you're here.
 
-{% include_cached github-culture.html %}
+{% include\_cached github-culture.html %}
 
-[^1]: The original post referenced a previous iteration of how we stored and shared knowledge internally, so I opted to remove the system name entirely to keep it future proof (that's not what we really call it). If you're a GitHubber, ask your manager or a teammate. It's the thing with internal policies, docs, guides, updates, etc.
+[^1]: The original post referenced a previous iteration of how we stored and shared knowledge internally, so I opted to remove the system name entirely to keep it future proof (that's not what we really call it). If you're a GitHubber, ask your manager or a teammate. It's the thing with internal policies, docs, guides, updates, and so on
 
 [^2]: As we've grown, this timeline has likely accelerated. Don't be worried if you hit this point sooner.
 

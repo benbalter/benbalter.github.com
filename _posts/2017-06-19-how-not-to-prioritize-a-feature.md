@@ -3,7 +3,7 @@ title: How not to prioritize a feature
 description: The hardest part of software development is not coming up with features to build, but instead, deciding what features will have the biggest impact.
 ---
 
-Sometimes, great ideas, customer needs, product priorities, and engineering resources align perfectly. Sometimes, a feature is so simple that it makes more sense to implement it than to take the time to prioritize or sequence it. In my experience, those features represent the vast minority of features. In a world of near-endless possibilities (and limited developer hours), the most challenging part of software development is not coming up with features to build but instead deciding what features will have the most significant impact. Here are seven anti-patterns I've seen, both in open and closed source, for prioritizing feature requests:
+Sometimes, great ideas, customer needs, product priorities, and engineering resources align perfectly. Sometimes, a feature is so simple that it makes more sense to implement it than to take the time to prioritize or sequence it. In my experience, those features represent the vast minority of features. In a world of near-endless possibilities (and limited developer hours), the most challenging part of software development is not coming up with features to build but instead deciding what features will have the most significant impact. Here are seven antipatterns I've seen, both in open and closed source, for prioritizing feature requests:
 
 ### Someone is willing to build it
 
@@ -39,7 +39,7 @@ Ultimately, a single feature may make or break a deal, but in the long run, if t
 
 There's always that user. There's a pet feature they want. Maybe they're the only ones experiencing it. Perhaps it's something you've deprioritized for other reasons. Whatever the reason, they're not taking "no" for an answer, and they use every opportunity they can to remind you of it. Whether emailing weekly, using hyperbolic language with support or sales, or threatening to move to a competitor, you know you will continue to be bombarded by requests until you give in.
 
-Product development is not a shouting match. Just because someone shouts an idea loudly or frequently doesn't mean it's a good one. You may be tempted to fulfill the request to please the customer (or end the request DoS), but more often than not, as soon as you do, they'll have another equally critical feature to fixate on next. Sometimes, genuinely take-it-or-leave-it features may make business sense to implement, but I've often found it's the customer, not the product, and it may be worth taking the risk that they realize it's just not the right fit. Everyone will ultimately be better off.
+Product development is not a shouting match. Just because someone shouts an idea loudly or often doesn't mean it's a good one. You may be tempted to fulfill the request to please the customer (or end the request DoS), but more often than not, as soon as you do, they'll have another equally critical feature to fixate on next. Sometimes, genuinely take-it-or-leave-it features may make business sense to implement, but I've often found it's the customer, not the product, and it may be worth taking the risk that they realize it's just not the right fit. Everyone will ultimately be better off.
 
 ### A handful of power users are asking for it
 

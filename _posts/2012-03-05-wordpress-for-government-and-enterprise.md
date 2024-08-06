@@ -40,7 +40,7 @@ Among those empowered to make purchasing decisions, there seems to be a sense th
 | Plugins / Modules | [8,536](http://drupal.org/project/modules) | [16,076](http://wordpress.org/extend/plugins/) (2x)        |
 | Themes            | [893](http://drupal.org/project/themes)    | [1,426](http://wordpress.org/extend/themes/) (1.5x)        |
 | Community[^2]     | 1.5 Million                                | N/A                                                        |
-{: .table }
+| {: .table }       |                                            |                                                            |
 
 ## **Beyond Cowboy Coders**
 
@@ -58,7 +58,7 @@ Especially in the buttoned-up context of corporate and government installs, "blo
 
 In a typical procurement, be it a federal agency, mid-sized corporation, or local municipality, the CMS does not come first. In fact, many stakeholders wouldn't know the site's underlying technology if it weren't for the logo on the login screen. A firm with a strong reputation in the industry is sought, and based largely on their recommendation, the technology – be it proprietary, open-source, or purpose-built – is chosen by evaluating each across a handful of metrics.
 
-We all know the decision points. Performance and scaling, handing of complex data types, managing user roles, etc. All challenges that WordPress doesn't even flinch at, yet the perception among the uninitiated is still widely that between open-source alternatives, WordPress is the least-accomplished in the bunch. Whether its reaching out and inviting nearby firms to your next meetup, giving a WordPress talk at a non-WordPress conference, or just being an exemplar in your local development community, we need to show the tie-wearing few in the conference room that you don't have to be boring, overly complex, or unnecessarily expensive to get the job done right.
+We all know the decision points. Performance and scaling, handing of complex data types, managing user roles, and so on All challenges that WordPress doesn't even flinch at, yet the perception among the uninitiated is still widely that between open-source alternatives, WordPress is the least-accomplished in the bunch. Whether its reaching out and inviting nearby firms to your next meetup, giving a WordPress talk at a non-WordPress conference, or just being an exemplar in your local development community, we need to show the tie-wearing few in the conference room that you don't have to be boring, overly complex, or unnecessarily expensive to get the job done right.
 
 ## 3. But Wait, There's More…
 
@@ -86,4 +86,4 @@ Whether WordPress is your primary source of income, a hobby, or just the thing t
 
 [^2]: Jen Lampton, "Why WordPress is Better than Drupal, Developers Take Note" (July, 2010)
 
-[^3]: **Update (3/8):** The features page is part of a community edited Wiki (the WordPress Codex) and since originally posted, I've gone through and reworked much of the blog-specific language. [View the original](http://codex.wordpress.org/index.php?title=WordPress_Features&oldid=113531).
+[^3]: **Update (3/8):** The features page is part of a community edited Wiki (the WordPress Codex) and since originally posted, I've gone through and reworked much of the blog-specific language. [View the original](http://codex.wordpress.org/index.php?title=WordPress_Features\&oldid=113531).

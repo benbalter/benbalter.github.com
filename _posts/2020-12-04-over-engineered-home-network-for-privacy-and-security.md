@@ -21,10 +21,9 @@ While most home networking setups generally do a decent job of protect you from 
 
 To head down this route as well, it's relatively straightforward, but definitely a (fun) "project". You'll need some basic familiarity with home networking (understanding how things like DNS and IPs work), as well as being comfortable SSH-ing into a linux device and copying and pasting a few commands.
 
-Here's how I over-engineered my home network for privacy and security:
+Here's how I overengineered my home network for privacy and security:
 
-* Contents
-{:toc}
+* Contents {:toc}
 
 ## The router - UniFi Dream Machine
 
@@ -45,7 +44,7 @@ I created three VLANs each with their own subnet, SSID, and capabilities:
 | Primary     | Full    | Connect to the internet and other devices on the network                 |
 | IoT         | Minimal | Connect to the internet and respond to requests from the primary network |
 | Guest       | Zero    | Connect to the internet                                                  |
-{: .table }
+| {: .table } |         |                                                                          |
 
 There are [lots of great walkthroughs of the firewall rules](https://robpickering.com/ubiquiti-configure-micro-segmentation-for-iot-devices/) already out there, but in short you'll want to create firewall rules to (1) allow connections from the primary network to the IoT network, (2) allow established connections from the IoT network back to the primary network, and (3) block all other connections from the IoT network to the primary network. With that, you'll have three distinct networks, each with their own capabilities and level of trust.[^1]
 
@@ -71,7 +70,7 @@ Device manufacturers rely on the ability to "phone home" to monetize your usage 
 
 To ensure devices *must* use the Pi-Hole and DoH for DNS lookups, you could create a firewall rule to block Google's DNS specifically (as many online tutorial suggest), but I took it a step further and prevented all outbound requests over port `53` (DNS's dedicated port) entirely to ensure all DNS from the network was filtered and encrypted. You can do this by creating a "DNS" port group on the UDM (port 53), and adding a WAN out reject rule for any traffic to that port. To confirm it's working, `dig example.com @8.8.8.8` should timeout when run from a device on your network (including the Raspberry Pi), but `dig example.com` should work as expected (and the page should load in your browser).
 
-If you *really* want to be sure everything is going through your preferred DNS, you can add [the DNS over HTTPS server list](https://raw.githubusercontent.com/oneoffdallas/dohservers/master/list.txt) to your Pi-Hole ad list to block hard-coded DoH servers, and additionally create a firewall rule similar to the one for port `53`, but for port `853` DNS over TLS's dedicated port.
+If you *really* want to be sure everything is going through your preferred DNS, you can add [the DNS over HTTPS server list](https://raw.githubusercontent.com/oneoffdallas/dohservers/master/list.txt) to your Pi-Hole ad list to block hardcoded DoH servers, and additionally create a firewall rule similar to the one for port `53`, but for port `853` DNS over TLS's dedicated port.
 
 ## Cloudflare Teams to block malicious sites
 
@@ -104,7 +103,7 @@ To take things even further, there are a few more customizations to explore:
   * **Internal honeypot** - A fake server, attractive to malware, that triggers alerts if something tries to connect to it
 * **Block- and allow-lists** - The whole point of a Pi-Hole is to block stuff. Once set up, you'll want to add/configure block- and allow-lists for your Pi-Hole. [firebog.net](https://firebog.net/) is the most popular meta-list. Beyond the ones listed there, I'd also recommend @StevenBlack's popular [lists](https://github.com/StevenBlack/hosts/) as well as @anudeepND's [popular allow list regular expression](https://github.com/anudeepND/whitelist) to ensure popular sites continue to work as expected.
 * **Configure the Pi-Hole with a Let's Encrypt cert** - If the "Not secure" icon when accessing the Pi-Hole interface leaves you uneasy, you can configure the Pi-Hole with a Let's Encrypt cert so that you can access the Pi-Hole admin interface over HTTPS. *Edit: While I previously linked to manual set up instructions, for my own setup, [I now use Caddy](https://ben.balter.com/2021/09/01/how-i-re-over-engineered-my-home-network/#caddy) to automate certificate issuance and renewal.*
-* **Mobile Apps** - Be sure to install the UniFi app ([iOS](https://apps.apple.com/us/app/unifi-network/id1057750338), [Android](https://play.google.com/store/apps/details?id=com.ubnt.easyunifi&hl=en_US&gl=US)) to receive push notifications for network alerts, and one of the many Pi-Hole apps ([Pi-Hole remote for iOS](https://apps.apple.com/us/app/pi-hole-remote/id1515445551), [FlutterHole for Android](https://play.google.com/store/apps/details?id=sterrenburg.github.flutterhole&hl=en_US&gl=US)) to quickly disable ad blocking in the (rare) event it breaks a site.
+* **Mobile Apps** - Be sure to install the UniFi app ([iOS](https://apps.apple.com/us/app/unifi-network/id1057750338), [Android](https://play.google.com/store/apps/details?id=com.ubnt.easyunifi\&hl=en_US\&gl=US)) to receive push notifications for network alerts, and one of the many Pi-Hole apps ([Pi-Hole remote for iOS](https://apps.apple.com/us/app/pi-hole-remote/id1515445551), [FlutterHole for Android](https://play.google.com/store/apps/details?id=sterrenburg.github.flutterhole\&hl=en_US\&gl=US)) to quickly disable ad blocking in the (rare) event it breaks a site.
 
 ## Conclusion
 

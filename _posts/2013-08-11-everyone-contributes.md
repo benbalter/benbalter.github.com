@@ -23,13 +23,13 @@ Think through their needs. A potential user, with a fresh set of eyes, is unique
 * Answer the question: "what features would you *love* to see?"
 * Flesh out documentation, note where documentation is lacking
 * Community evangelism, speak, teach, and spread your love for the project
-* Submit new questions to the project's Q&A forums, or take a stab at an answer
+* Submit new questions to the project's Q\&A forums, or take a stab at an answer
 * Host a genius bar at the next local meetup
 * Translate the project into a different language
 * Give feedback on proposed bugfixes and features, propose new ones
 * Recruit new developers
 
-There's a lot to be done, yet while most open source project's READMEs outline technical requirements and how to submit a pull request, most are notably silent as to how non-technical stakeholders can begin to contribute, let alone provide sufficient encouragement to overcome the inherent scariness of trying something new. What if you could double the size of your open source project's community over night?
+There's a lot to be done, yet while most open source project's readmes outline technical requirements and how to submit a pull request, most are notably silent as to how non-technical stakeholders can begin to contribute, let alone provide sufficient encouragement to overcome the inherent scariness of trying something new. What if you could double the size of your open source project's community over night?
 
 Version your documentation along side your project's source code, and encourage non-developer users to leverage tools like [prose.io](http://prose.io) to submit improvements. Point non-coders to Issues, and get them involved discussing features early along the pipeline. Connect them with a local technology meetup, and let them teach others. Empower them to contribute any way they know how. Give them an out, and make the experience awesome.
 

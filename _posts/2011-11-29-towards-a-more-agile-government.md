@@ -13,10 +13,9 @@ The Case for Rebooting Federal IT Procurement
 
 *41 Pub. Cont. L.J. 149, The Public Contract Law Journal, Fall 2011* <!-- markdownlint-disable-line no-emphasis-as-header -->
 
-* Table of Contents
-{:toc}
+* Table of Contents {:toc}
 
-Like many government computer systems, the U.S. federal information technology (IT) procurement model is slow, outdated, and long overdue for a reboot.[^1] As the largest single purchaser of code, [^2] in fiscal year (FY) 2010 the Federal Government spent more than $77.1 billion on IT procurement, and that number is projected to grow higher by the close of 2011.[^3] This is not a recent trend. Over the past decade, federal IT spending has swelled nearly seventy percent, up from $45.6 billion in 2001, [^4] for a total bill of more than $500 billion.[^5] This growth is partially a result of the unfortunate fact that as few as nine percent of projects are delivered on budget and on time.[^6] The Government Accountability Office (GAO) reports that roughly forty-eight percent of all IT projects must be rebaselined, [^7] and of those rebaselined projects, fifty-one percent must be rebaselined a second time.[^8]
+Like many government computer systems, the U.S. federal information technology (IT) procurement model is slow, outdated, and long overdue for a reboot.[^1] As the largest single purchaser of code, [^2] in fiscal year (FY) 2010 the Federal Government spent more than $77.1 billion on IT procurement, and that number is projected to grow higher by the close of 2011.\[^3] This is not a recent trend. Over the past decade, federal IT spending has swelled nearly seventy percent, up from $45.6 billion in 2001, [^4] for a total bill of more than $500 billion.[^5] This growth is partially a result of the unfortunate fact that as few as nine percent of projects are delivered on budget and on time.[^6] The Government Accountability Office (GAO) reports that roughly forty-eight percent of all IT projects must be rebaselined, [^7] and of those rebaselined projects, fifty-one percent must be rebaselined a second time.[^8]
 
 Compounding the problem, end users fail entirely to use nearly forty-five percent of features procured and rarely use another nineteen percent of those features.[^9] Thus, purchasing agencies ultimately use only about one-third of all features paid for by American tax dollars.[^10] In the end, nearly forty-five percent of federally procured software features ultimately fail to meet the user's needs.[^11] It is therefore no surprise that the Secretary of the Department of Defense (DoD) Robert Gates called federal IT procurement "baroque." [^12] Too often IT procurement requirements are crafted with the input of neither end users nor product developers.[^13] As Office of Management Budget (OMB) Director Peter R. Orszag noted, federal IT projects cost more than they should, take longer than they should, and often fail to meet agency needs.[^14] Today's federal regulations shackle government agencies to outdated project management practices and prevent them from harnessing the true power of IT innovations, which have far outpaced the laws that govern them.[^15]
 
@@ -38,7 +37,7 @@ Agile development adopts an incremental approach to software development, but it
 
 ### C. Modern Trends in Both Governance and Technology Push Federal Procurement Towards Agility
 
-Today's government IT landscape reflects a purposeful march toward privatization.[^33] Growing budget deficits in recent decades have rendered the Government anxious to deliver smarter, more cost-effective services to its citizens.[^34] In addition to advances in hardware and technology, the Government's approach to building complex, national systems has also evolved from the stand-alone computer systems of the 1960s, to the networked stovepipes of the 1970s and 1980s, to the glued-together middleware systems of the 1990s, and finally to the present day disaggregated, service-oriented architecture model.[^35] In a setting like today's, mission-critical applications are distributed across multiple, loosely-coupled systems that communicate freely with one another, [^36] allowing for rapid development and repurposing of investments.[^37] Despite advancing industry approaches to large IT projects, by forcing all requirements to be outlined upfront, federal procurement regulations continue to lock agencies into large, single-pass procurements.[^38]
+Today's government IT landscape reflects a purposeful march toward privatization.[^33] Growing budget deficits in recent decades have rendered the Government anxious to deliver smarter, more cost-effective services to its citizens.[^34] In addition advances in hardware and technology, the Government's approach to building complex, national systems has also evolved from the stand-alone computer systems of the 1960s, to the networked stovepipes of the 1970s and 1980s, to the glued-together middleware systems of the 1990s, and finally to the present day disaggregated, service-oriented architecture model.[^35] In a setting like today's, mission-critical applications are distributed across multiple, loosely-coupled systems that communicate freely with one another, [^36] allowing for rapid development and repurposing of investments.[^37] Despite advancing industry approaches to large IT projects, by forcing all requirements to be outlined upfront, federal procurement regulations continue to lock agencies into large, single-pass procurements.[^38]
 
 ## II. Despite its Advantages and Long-Standing History, the Rigidity of Traditional Software Development Bears Risks Disproportionate to its Returns
 
@@ -91,7 +90,7 @@ Agile development can be thought of as the amalgamation of many short waterfall 
 
 To facilitate agile's hallmark rapid delivery in place of time-consuming formal documentation and rigid structure, agile relies on extensive person-to-person communication and organic processes. In simplest terms, agility is defined by a software team's ability "to efficiently and effectively respond to and incorporate requirement changes during the project lifecycle." [^81] To achieve this goal agile focuses on collaboration rather than documentation. Agile promotes frequent, continuous delivery of working software and embraces changing requirements through close collaboration, self-organizing and self-motivated teams, face-to-face communications, and in turn, continuous adaptation.[^82]
 
-In practical terms, agile values individuals and interactions over processes and tools, working software over comprehensive documentation, customer collaboration over contract negotiation, and responding to change over following a plan.[^83] Because agile prioritizes one-on-one communication over formal documentation, unnecessary documentation is wholly alleviated and overhead costs are reduced.[^84] Moreover, requirements tend to be more concrete and clearer and to produce a better final product.[^85] Given that project teams undertake smaller projects under an agile framework, systems can be delivered without the sluggishness inherent to waterfall projects.
+In practical terms, agile values individuals and interactions over processes and tools, working software over comprehensive documentation, customer collaboration over contract negotiation, and responding to change over following a plan.[^83] Because agile prioritizes one-on-one communication over formal documentation, unnecessary documentation is wholly alleviated and overhead costs are reduced.[^84] In addition, requirements tend to be more concrete and clearer and to produce a better final product.[^85] Given that project teams undertake smaller projects under an agile framework, systems can be delivered without the sluggishness inherent to waterfall projects.
 
 #### iii. Agile is adaptive rather than predictive
 
@@ -145,7 +144,7 @@ For three reasons, government contracts are not written for agile.[^117] First, 
 
 ### B. Government Procurement Embodies a Culture Averse to Agile Methodologies
 
-Government procurement embraces an entrenched culture of rigid parameters, documentation, and meticulously defined processes.[^121] This manifests itself in several forms. For one, government budgeting focuses on projects that fall within a single budget year, are controlled by a single budget program, and promise an easily predicted, low-risk return.[^122] Additionally, at the most basic level, it is not agencies who procure IT but rather individuals on behalf of those agencies. As in any sector, these individuals' incentives may not align with their employer's goals. A CO who chooses an innovative but ultimately flawed contracting vehicle may face termination or reprimand, and without specific financial incentives, may gain nothing if the innovation proves beneficial.[^123] Thus even if federal acquisition regulations on paper allow for agile development, in practice, COs have an incentive to avoid the near-term risk presented by innovation.[^124] Third, new ideas must compete against proven ones and "urgent needs […] take precedence over [future] possibilities." [^125] High-value but high-risk ideas like agile require support from upper management to take hold, and this support by-and-large does not exist.[^126] Finally, across the board both COs and in-house IT departments are either unfamiliar with or unaccustomed to agile methods.[^127] Before agile's adoption, significant cultural reform and education must take place on both an organizational and an individual level.
+Government procurement embraces an entrenched culture of rigid parameters, documentation, and meticulously defined processes.[^121] This manifests itself in several forms. For one, government budgeting focuses on projects that fall within a single budget year, are controlled by a single budget program, and promise an easily predicted, low-risk return.[^122] Additionally, at the most basic level, it is not agencies who procure IT but rather individuals on behalf of those agencies. As in any sector, these individuals' incentives may not align with their employer's goals. A CO who chooses an innovative but ultimately flawed contracting vehicle may face termination or reprimand, and without specific financial incentives, may gain nothing if the innovation proves beneficial.[^123] Thus even if federal acquisition regulations on paper allow for agile development, in practice, COs have an incentive to avoid the near-term risk presented by innovation.[^124] Third, new ideas must compete against proven ones and "urgent needs \[…] take precedence over \[future] possibilities." [^125] High-value but high-risk ideas like agile require support from upper management to take hold, and this support by-and-large does not exist.[^126] Finally, across the board both COs and in-house IT departments are either unfamiliar with or unaccustomed to agile methods.[^127] Before agile's adoption, significant cultural reform and education must take place on both an organizational and an individual level.
 
 ### C. Current IT Procurement Methods are Not Amenable to Agile Development
 
@@ -157,7 +156,7 @@ Where bids are solicited and chosen solely based on cost, traditional acquisitio
 
 #### ii. Competitive negotiations
 
-A negotiated procurement model allows contracting agencies to solicit proposals, similar to the price-directed model.[^131] Unlike the price-directed model, however, bids are not sealed and agencies are permitted to discuss deficiencies with firms, which may then resubmit their bids.[^132] Nevertheless, the negotiated procurement model still requires the agency to outline technical specifications up front, making it incompatible with agile methods.
+A negotiated procurement model allows contracting agencies to solicit proposals, similar to the price-directed model.[^131] Unlike the price-directed model, however, bids are not sealed and agencies are permitted to discuss deficiencies with firms, which may then resubmit their bids.\[^132] Nevertheless, the negotiated procurement model still requires the agency to outline technical specifications up front, making it incompatible with agile methods.
 
 #### iii. Technology/Conceptual Negotiated Sourcing
 
@@ -219,17 +218,15 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 *Originally published in The Public Contract Law Journal, Volume 41, Issue 1. Available for public use under a [Creative Commons BY-NC-SA license](http://creativecommons.org/licenses/by-nc-sa/3.0/).*
 
-[^1]: This holds true for both civilian and military procurement systems. *See generally* Office of the Under Sec'y of Def. for Acquisition, Tech., and Logistics, Report of the Defense Science Board Task Force on Department of Defense Policies and Procedures for the Acquisition of Information Technology (2009) [hereinafter DoD Acquisition Report].
+[^1]: This holds true for both civilian and military procurement systems. *See generally* Office of the Under Sec'y of Def. for Acquisition, Tech., and Logistics, Report of the Defense Science Board Task Force on Department of Defense Policies and Procedures for the Acquisition of Information Technology (2009) \[hereinafter DoD Acquisition Report].
 
 [^2]: Jay P. Kesan & Rajiv C. Shah, *Shaping Code*, 18 Harv. J.L. & Tech. 319, 373 (2005).
-
-[^3]: *Trends*, IT Dashboard, <http://www.itdashboard.gov/> (last visited Sept. 6, 2011).
 
 [^4]: *Id.*
 
 [^5]: White House Forum on Modernizing Gov't, Overview and Next Steps 5 (2010).
 
-[^6]: Victor Szalvay, Danube Techs., Inc., [An Introduction to Agile Software Development](http://webcache.googleusercontent.com/search?q=cache:5HFgofvhZVIJ:www.danube.com/docs/Intro_to_Agile.pdf+&cd=1&hl=en&ct=clnk&gl=us)1 (2004).
+[^6]: Victor Szalvay, Danube Techs., Inc., [An Introduction to Agile Software Development](http://webcache.googleusercontent.com/search?q=cache:5HFgofvhZVIJ:www.danube.com/docs/Intro_to_Agile.pdf+\&cd=1\&hl=en\&ct=clnk\&gl=us)1 (2004).
 
 [^7]: DoD Acquisition Report, *supra* note 1, at 44. "Rebaselining" occurs when modifications are made to a project's baseline, for example, its cost, schedule, and performance goals, to reflect changed development circumstances. U.S. Gov't Accountability Office, GAO-08–925, Information Technology: Agencies Need to Establish Comprehensive Policies to Address Changes to Projects' Costs, Schedule, and Performance Goals 2, 13 (2008). Changes in requirements and objectives (scope creep) was the most commonly cited reason for rebaselining. *ID.* at 8.
 
@@ -245,7 +242,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^13]: *See* Vivek Kundra, U.S. Chief Info. Officer, White House, 25 Point Implementation Plan to Reform Federal Information Technology Management 17 (2010) (calling for "increased communication with industry" and "high functioning, 'cross-trained' program teams").
 
-[^14]: *See* [Memorandum from Peter R. Orszag](http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m-10-26.pdf), Dir. of Office of Mgmt. and Budget, Exec. Office of the President, to Heads of Exec. Dep'ts and Agencies 1 (June 28, 2010) [hereinafter Orszag Memorandum] , *available at [http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m-10–26.PDF](http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m-10-26.pdf)*
+[^14]: *See* [Memorandum from Peter R. Orszag](http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m-10-26.pdf), Dir. of Office of Mgmt. and Budget, Exec. Office of the President, to Heads of Exec. Dep'ts and Agencies 1 (June 28, 2010) \[hereinafter Orszag Memorandum] , *available at [http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda\_2010/m-10–26.PDF](http://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m-10-26.pdf)*
 
 [^15]: These inefficiencies are troubling, not only because they represent a significant financial cost to the taxpayer, but also because they undoubtedly represent a significant cost to the realization of agency goals. *See* Stanley N. Sherman, Government Procurement Management 30 (1991). As President Barack Obama recently noted at the White House Forum on Modernizing Government, "when we waste billions of dollars, in part because our technology is out of date, that's billions of dollars we're not investing in better schools for our children, in tax relief for our small businesses, in creating jobs and funding research to spur the scientific breakthroughs and economic growth of this new century." *Attachment B: President's Remarks, in* [White House Forum on Modernizing Government: Overview and Next Steps](http://www.whitehouse.gov/sites/default/files/omb/assets/modernizing_government/ModernizingGovernmentOverview.pdf) 17, 18 (2010), *available at* <http://www.whitehouse.gov/sites/default/files/omb/assets/modernizing_government/ModernizingGovernmentOverview.PDF>.
 
@@ -273,7 +270,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^27]: Mark Lycett et al., Migrating Agile Methods to Standardized Development Practice, Computer, June 2003, at 79, 79.
 
-[^28]: Szalvay, *supra* note 6, at 2; Government Contracting for Software Development Course Manual 33 (1994) [hereinafter Course Manual]; Lan Cao & Balasubramaniam Ramesh, *Agile Requirements Engineering Practices: An Empirical Study*, IEEE Software, Jan./Feb. 2008, at 60, 64; Fowler, *supra* note 20 (noting engineers' "nature is to resist change. The agile methods, however, welcome change").
+[^28]: Szalvay, *supra* note 6, at 2; Government Contracting for Software Development Course Manual 33 (1994) \[hereinafter Course Manual]; Lan Cao & Balasubramaniam Ramesh, *Agile Requirements Engineering Practices: An Empirical Study*, IEEE Software, Jan./Feb. 2008, at 60, 64; Fowler, *supra* note 20 (noting engineers' "nature is to resist change. The agile methods, however, welcome change").
 
 [^29]: Fowler, *supra* note 20.
 
@@ -289,7 +286,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^35]: DoD Acquisition Report, *supra* note 1, at 7.
 
-[^36]: A detailed explanation of the evolution to a service-oriented architecture is beyond the scope of this Note, but in simple terms, if one thinks of information as a product, the evolution mimics the move from individual manufacturers producing a good, to a factory producing a good, to that factory adopting an assembly line approach. A government agency might build a system once, (for example, an application to calculate the appropriate census block based on a given address,) and then will have subsequent systems query that already-built application, rather than duplicate the functionality. Any given request for information may go through five, ten, perhaps even a hundred systems, each of which can be procured or upgraded individually. Interview with Greg Elin, Chief Data Officer, FCC & Michael Byrne, Chief Geographic Info. Officer, FCC, in Wash., D.C., (Mar. 11, 2011) [hereinafter FCC Interview].
+[^36]: A detailed explanation of the evolution to a service-oriented architecture is beyond the scope of this Note, but in simple terms, if one thinks of information as a product, the evolution mimics the move from individual manufacturers producing a good, to a factory producing a good, to that factory adopting an assembly line approach. A government agency might build a system once, (for example, an application to calculate the appropriate census block based on a given address,) and then will have subsequent systems query that already-built application, rather than duplicate the functionality. Any given request for information may go through five, ten, perhaps even a hundred systems, each of which can be procured or upgraded individually. Interview with Greg Elin, Chief Data Officer, FCC & Michael Byrne, Chief Geographic Info. Officer, FCC, in Wash., D.C., (Mar. 11, 2011) \[hereinafter FCC Interview].
 
 [^37]: *ID*.; Orszag Memorandum, *supra* note 14, at 1 (noting that "by setting the scope of projects to achieve broad-based business transformations rather than focusing on essential business needs, Federal agencies are experiencing substantial cost overruns and lengthy delays in planned deployments. Compounding the problem, projects persistently fall short of planned functionality and efficiencies once deployed.").
 
@@ -299,7 +296,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^40]: Winston W. Royce, *Managing the Development of Large Software Systems: Concepts and Techniques*, *in* Proceedings of IEEE WESCON (1970), *reprinted in* Proceedings of the Ninth International Conference on Software Engineering 328, 328 (1987).
 
-[^41]: Gen. Servs. Admin. Strategic Info. Tech. Analysis Div., White Paper: Modular Contracting 16, 8 (1997) [hereinafter Modular Contracting White Paper]. *See* Kundra, *supra* note 13, at 17 (noting "the acquisition process can require program managers to specify the government's requirements up front, which can be years in advance of program initiation"); Orszag, *supra* note 14, at 2 (observing that "historically government IT projects have involved expansive, long-term projects that attempt to change almost every aspect of a business system at once… [and have] taken years, sometimes a decade, and have failed at alarming rates").
+[^41]: Gen. Servs. Admin. Strategic Info. Tech. Analysis Div., White Paper: Modular Contracting 16, 8 (1997) \[hereinafter Modular Contracting White Paper]. *See* Kundra, *supra* note 13, at 17 (noting "the acquisition process can require program managers to specify the government's requirements up front, which can be years in advance of program initiation"); Orszag, *supra* note 14, at 2 (observing that "historically government IT projects have involved expansive, long-term projects that attempt to change almost every aspect of a business system at once… \[and have] taken years, sometimes a decade, and have failed at alarming rates").
 
 [^42]: Course Manual, *supra* note 28, at 33.
 
@@ -315,7 +312,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^48]: *See* Mark Leicester, *Government Projects the Agile Way: Can It Be Done?*, St. Services Commission (Apr. 16, 2009).
 
-[^49]: Modular Contracting White Paper, *supra* note 41, at 7; Cao & Ramesh, *supra* note 28, at 63. *See Further Details on Modular Contracting Left for Public Meeting–Proposed Rule Adds Little to Clinger-Cohen Act*, 39 Gov't Contractor ¶ 161, Apr. 2, 1997 [hereinafter *Further Details*].
+[^49]: Modular Contracting White Paper, *supra* note 41, at 7; Cao & Ramesh, *supra* note 28, at 63. *See Further Details on Modular Contracting Left for Public Meeting–Proposed Rule Adds Little to Clinger-Cohen Act*, 39 Gov't Contractor ¶ 161, Apr. 2, 1997 \[hereinafter *Further Details*].
 
 [^50]: Modular Contracting White Paper, *supra* note 41, at 7 (noting that "forcing this rigidity into the systems development acquisition process – intending to minimize risks and mistakes – can actually exacerbate the same."). As FCC Geographic Information Officer Michael Byrne commented, "procurement is like a board game. You are trying to move your pieces to the other side. This would be easy if you had no opponent. When the other team begins moving forward there's no way to… know how to optimally get to the other side, and waterfall software development expects just that. Data changes, technology changes, policy changes, governance changes – this is the opposing player – and there's no way to predict the interaction with my pieces." FCC Interview, *supra* note 36.
 
@@ -329,7 +326,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^55]: Szalvay, *supra* note 6, at 1.
 
-[^56]: Audio recording: Removing Barriers to Organizational Agility, George Washington University Tech Alumni Group Federal Executive Round Table (Nov. 4, 2010) [hereinafter Federal Executive Round Table] (on file with author).
+[^56]: Audio recording: Removing Barriers to Organizational Agility, George Washington University Tech Alumni Group Federal Executive Round Table (Nov. 4, 2010) \[hereinafter Federal Executive Round Table] (on file with author).
 
 [^57]: *Id.*
 
@@ -369,7 +366,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^75]: Cheng, *supra* note 46.
 
-[^76]: From the agency's perspective, an agile backlog is simply a wish list of features in priority of business value, wherein the agency lists the functionality it desires from a system and when that can be expected. From the contractor's perspective, the backlog is a to-do list, in order of priority, listing the project deliverables and their deadlines.
+[^76]: From the agency's perspective, an agile backlog is simply a wish list of features in priority of business value, wherein the agency lists the functionality it desires from a system and when that can be expected. From the contractor's perspective, the backlog is a todo list, in order of priority, listing the project deliverables and their deadlines.
 
 [^77]: For a more detailed explanation, *see* Fowler, *supra* note 20.
 
@@ -507,7 +504,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^145]: *Cohen Plans IT Procurement Reform Legislation*, 37 Gov't Contractor ¶ 83, Jan. 15, 1995, at 8–9 (observing that the act's sponsor argued that "by the time a contract is awarded, the technology that is being bought is obsolete").
 
-[^146]: Modular Contracting White Paper, *supra* note 41, at 24 (identifying a module as an "economically and programmatically separable segment" that "should have a substantial programmatic use even if no additional segments are acquired [and as]… a functional system or solution that is not dependent on any subsequent module to perform its significant functions").
+[^146]: Modular Contracting White Paper, *supra* note 41, at 24 (identifying a module as an "economically and programmatically separable segment" that "should have a substantial programmatic use even if no additional segments are acquired \[and as]… a functional system or solution that is not dependent on any subsequent module to perform its significant functions").
 
 [^147]: FAR 39.103(a).
 

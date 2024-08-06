@@ -15,7 +15,7 @@ I primarily use GitHub [web notifications](https://github.com/notifications) to 
 
 I treat `@mentions` (when a colleague specifically mentions you by name) as high signal-to-noise and potentially blocking. `@mentions` go to email, which causes a desktop (and mobile) notification which I can easily ignore, or choose to immediately respond to, if necessary. This somewhat mirrors how Slack works by default, with `@mentions` causing a notification and messages in channels queueing up as unread until you have a chance to read them.
 
-### Watch liberally, unsubscribe frequently
+### Watch liberally, unsubscribe often
 
 I watch a lot of repositories (more than 200, as of this writing) to be able to flag initiatives that might affect my teams. I often care about issues and pull requests being opened (for example, when an item is added to our internal roadmap), but unless I'm directly involved with the matter, I often don't care about the subsequent conversation and will quickly unsubscribe from or mute the thread to avoid additional noise. You can do this when managing your web notifications by clicking the speaker icon, or in GMail by pressing `m` while viewing the message. As an added benefit, if you're ever @mentioned in the thread, you'll be automatically resubscribed via GitHub and your email will appear in the to the `to` field to break the mute in GMail.
 
@@ -129,6 +129,6 @@ And
 
 </details><br />
 
-And that's how I manage GitHub notifications. It's far from perfect (and looks a bit over engineered now that I've written it down), but it works for me and has for 7+ years now. I hope that sharing my notification workflow can help you find one that works best for you. Have a tip or trick for how you manage GitHub notifications? Let me know in the comments below.
+And that's how I manage GitHub notifications. It's far from perfect (and looks a bit overengineered now that I've written it down), but it works for me and has for 7+ years now. I hope that sharing my notification workflow can help you find one that works best for you. Have a tip or trick for how you manage GitHub notifications? Let me know in the comments below.
 
-{% include_cached github-culture.html %}
+{% include\_cached github-culture.html %}

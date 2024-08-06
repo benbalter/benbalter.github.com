@@ -134,7 +134,7 @@ layout: default
 
 The problem with this approach, is that as you add more projects, you have to constantly update your GitHub Pages site. Luckily, GitHub Pages already knows a lot about your organization, including your organization's open source projects.
 
-In addition to Markdown, Jekyll also supports a lightweight templating engine called [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers). Liquid allows us to inject a bit of dynamic logic into the otherwise static site. If you're familiar with basic programatic concepts, it supports things like `while`, `if`, and `for` statements. To list all the open source project's in our organization's we might write:
+In addition Markdown, Jekyll also supports a lightweight templating engine called [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers). Liquid allows us to inject a bit of dynamic logic into the otherwise static site. If you're familiar with basic programatic concepts, it supports things like `while`, `if`, and `for` statements. To list all the open source project's in our organization's we might write:
 
 ```html{% raw %}
 {% for repository in site.github.public_repositories %}
@@ -143,7 +143,7 @@ In addition to Markdown, Jekyll also supports a lightweight templating engine ca
 {% endraw %}
 ```
 
-That should produce identical results to the hard-coded versions above, but in a way that updates as your organization's projects do. You could also include additional information in the same way, such as the project's descriptions or number of stars. You can see a full list of the organization metadata available to GitHub Pages in [this help article](https://help.github.com/articles/repository-metadata-on-github-pages/).
+That should produce identical results to the hardcoded versions above, but in a way that updates as your organization's projects do. You could also include additional information in the same way, such as the project's descriptions or number of stars. You can see a full list of the organization metadata available to GitHub Pages in [this help article](https://help.github.com/articles/repository-metadata-on-github-pages/).
 
 ## Supercharging your organization's developer presence
 

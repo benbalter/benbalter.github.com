@@ -21,7 +21,7 @@ Terms of service agreements are often called clickwrap or browserwrap agreements
 
 * **Endorsement** - An agency is going to require that their use of your service not be used in promotional materials in a way that implies endorsement. But note, most amendments will allow you to carve out a logically necessary exception for public-facing profiles, which you can use and link to freely.
 
-* **Security, records, etc.** - Government agencies have government-specific security, record keeping, and audit requirements. Even if your service does not meet all requirements today, the government may wish to contractually bind you to continue that discussion and to implement those controls as they may need in the future.
+* **Security, records, and so on** - Government agencies have government-specific security, record keeping, and audit requirements. Even if your service does not meet all requirements today, the government may wish to contractually bind you to continue that discussion and to implement those controls as they may need in the future.
 
 ## How an agency signs up for a service
 

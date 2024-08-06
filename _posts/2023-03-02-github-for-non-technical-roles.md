@@ -82,7 +82,7 @@ If you're using the web interface, you don't have to worry about pushing or pull
 
 ### Emoji and animated GIFs 🎉
 
-In addition to Markdown you'll often see emoji and animated GIFs used heavily on issues and pull requests. You can think of emoji and animated GIFs as the facial expressions and body language of GitHub. They make it easier to convey emotion in written text. I like to describe the communication style on GitHub as "professional but informal", meaning don't be afraid to use emoji and animated GIFs to make your comments more expressive (while remaining appropriate, of course).
+In addition Markdown you'll often see emoji and animated GIFs used heavily on issues and pull requests. You can think of emoji and animated GIFs as the facial expressions and body language of GitHub. They make it easier to convey emotion in written text. I like to describe the communication style on GitHub as "professional but informal", meaning don't be afraid to use emoji and animated GIFs to make your comments more expressive (while remaining appropriate, of course).
 
 ## Project boards
 
@@ -136,4 +136,4 @@ If you come across a term or concept not covered here, be sure to check out [the
 
 Happy GitHubbing! 🎉
 
-{% include_cached github-culture.html %}
+{% include\_cached github-culture.html %}

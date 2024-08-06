@@ -25,7 +25,7 @@ When is your last day in the office? When do you anticipate being back? If the e
 
 #### ☎️ Contact preferences
 
-How do you want to be contacted while on leave, if at all? What do you want to be contacted about? What's considered urgent? Set expectations as to how often you will be checking email, Slack, your phone, etc. if you are going to check them at all, so that colleagues know how to get in touch with you, and when to expect a response.
+How do you want to be contacted while on leave, if at all? What do you want to be contacted about? What's considered urgent? Set expectations as to how often you will be checking email, Slack, your phone, and so on if you are going to check them at all, so that colleagues know how to get in touch with you, and when to expect a response.
 
 #### ✍️ Points of contact
 
@@ -79,10 +79,11 @@ You could have the best leave or transition document in the world, but if nobody
 
 ## Putting it all together
 
-If you're preparing to go on leave (or transition to a new role), feel free to use the template below as a starting point.[^3] Of course, if you have any suggestions or proposed improvements, {% github_edit_link "pull requests are always welcome" %}.
+If you're preparing to go on leave (or transition to a new role), feel free to use the template below as a starting point.[^3] Of course, if you have any suggestions or proposed improvements, {% github\_edit\_link "pull requests are always welcome" %}.
 
 <!-- markdownlint-disable-next-line MD040 -->
-```
+
+```markdown
 # @your leave document
 
 ## ⏳ TL;DR:
