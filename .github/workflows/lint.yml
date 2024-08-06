@@ -4,7 +4,11 @@ on:
   push: {}
   pull_request:
     branches: [master, main]
-    
+
+permissions:
+  contents: read
+  statuses: write
+  
 jobs:
   build:
     name: Lint Code Base
