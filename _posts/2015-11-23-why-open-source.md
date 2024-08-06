@@ -15,10 +15,10 @@ Open source is in your best interest, whether you're an individual, a corporatio
 
   | Cost                       | Open source          | Proprietary          |
   | :------------------------- | :------------------- | :------------------- |
-  | Licensing                  | :x:                  | :heavy\_check\_mark: |
-  | Implementation             | :heavy\_check\_mark: | :heavy\_check\_mark: |
-  | Maintenance                | :heavy\_check\_mark: | :heavy\_check\_mark: |
-  | Support                    | :heavy\_check\_mark: | :heavy\_check\_mark: |
+  | Licensing                  | :x:                  | :heavy_check_mark: |
+  | Implementation             | :heavy_check_mark: | :heavy_check_mark: |
+  | Maintenance                | :heavy_check_mark: | :heavy_check_mark: |
+  | Support                    | :heavy_check_mark: | :heavy_check_mark: |
   | {: .table .w-50 .mx-auto } |                      |                      |
 
 * [**Given enough eyeballs, all bugs are shallow**](https://blogs.microsoft.com/cybertrust/2006/06/07/linuss-law-aka-many-eyes-make-all-bugs-shallow/) (Linus's Law) - [Empirically, open source tends to produce better quality software than its proprietary or alternative counterparts](http://www.dwheeler.com/oss_fs_why.html). When you write closed source software, the only developers that can potentially detect, diagnose, triage, and resolve software bugs are those that happen to be employed by the company that publishes the software (or more likely, the arms-length contractor they pay to build it). Open source provides three advantages: first, you have the opportunity to tap the knowledge of the world's best developers, not just those on one organization's payroll. Second, the number of potentially contributing developers and thus the potential knowledge pool is orders of magnitude larger. Finally, open source software gets adapted to a variety of use cases, not just the one the publisher originally intended, surfacing bugs and edge cases much more rapidly than traditional, predictive QA processes.
@@ -43,7 +43,7 @@ GitHub Cofounder Tom Preston-Werner lays out some additional arguments in his po
 
 * **Attract talent** - Developers want to work on yet-unsolved problems. Open source allows you to showcase to the developer community, the interesting challenges you face, and how you think about solving them. Open source developers can casually contribute to projects, to learn how you work, and what it's like developing software for a particular set of challenges. If they like what they see, there's a much better chance that they'll apply for a job, than if your organization was a black box when it comes to what it's like to work there. "Smart developers like to hang out with smart code."
 
-* **Best technical interview possible** - Technical interviews traditionally involve working on a simulated problem that can be tackled in a set amount of time with little additional context. Such simulations, by definition, aren't real world use cases, nor do they show what working with an applicant would be like. Open source provides visibility into both how a candidate solves problems, and how they work with others. You can hire much more confidently if, for the past six months, the candidate has been contributing to the project you want them work on, and you like their work. "\[T]he best technical interview possible is the one you don't have to do because the candidate is already kicking ass on one of your open source projects."
+* **Best technical interview possible** - Technical interviews traditionally involve working on a simulated problem that can be tackled in a set amount of time with little additional context. Such simulations, by definition, aren't real world use cases, nor do they show what working with an applicant would be like. Open source provides visibility into both how a candidate solves problems, and how they work with others. You can hire much more confidently if, for the past six months, the candidate has been contributing to the project you want them work on, and you like their work. "[T]he best technical interview possible is the one you don't have to do because the candidate is already kicking ass on one of your open source projects."
 
 ## Macroeconomic motivations
 

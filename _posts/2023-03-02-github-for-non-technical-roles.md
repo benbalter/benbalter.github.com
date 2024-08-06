@@ -136,4 +136,4 @@ If you come across a term or concept not covered here, be sure to check out [the
 
 Happy GitHubbing! 🎉
 
-{% include\_cached github-culture.html %}
+{% include_cached github-culture.html %}

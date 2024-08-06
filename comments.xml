@@ -3178,7 +3178,7 @@
 <forum>benbalter</forum>
 <category dsq:id="714374" />
 <link>http://localhost:4000/math-on-denenberg-us</link>
-<title>About \(m\alef ^tH\) on this site.</title>
+<title>About (m\alef ^tH\) on this site.</title>
 <message />
 <createdAt>2020-03-06T04:13:40Z</createdAt>
 <author>
@@ -6360,7 +6360,7 @@
 </post>
 <post dsq:id="668226920">
 <id>wp_id=1092</id>
-<message><![CDATA[<p>very cool idea! however, for me the pattern doesn't work. my content contains, for example this:</p><p>... blablabla ....<a href="/Users/Marc%20Chehab/Documents/My%20Dropbox/violence%202%20superedit.docx#_ftnref5" rel="nofollow noopener" title="/Users/Marc%20Chehab/Documents/My%20Dropbox/violence%202%20superedit.docx#_ftnref5">[5]</a>  aspodufasufb aposubaorug</p><p>preg_match or preg_match_all don't find that with your pattern: '#\<a>\[([0-9]+)\]\</a> (.*)#'</p><p>I'm horrible with preg_match patterns. if I get around to do it I'll post it...</p><p>@James: I'm not a wordpress guy but adding a plugin is probably best. add a "bb_parse_footnotes" directory in contens/plugins. add a file bb_parse_footnotes.php and add this above the function in the blog entry. don't forget to add a "?&gt;" at the end. once that is done, go to the admin panel and activate the plugin under plugins...</p><p>&lt;?php<br>/*<br>Plugin Name: bb_parse_footnotes<br>Plugin URI: <a href="http://ben.balter.com/2011/03/20/regular-expression-to-parse-word-style-footnotes/" rel="nofollow noopener" title="http://ben.balter.com/2011/03/20/regular-expression-to-parse-word-style-footnotes/">http://ben.balter.com/2011/...</a><br>Description: Convert word to simple footnotes<br>Version: 0.1<br>Author: Ben Balter<br>Author URI: <a href="http://ben.balter.com/" rel="nofollow noopener" title="http://ben.balter.com/">http://ben.balter.com/</a><br>*/</p>]]></message>
+<message><![CDATA[<p>very cool idea! however, for me the pattern doesn't work. my content contains, for example this:</p><p>... blablabla ....<a href="/Users/Marc%20Chehab/Documents/My%20Dropbox/violence%202%20superedit.docx#_ftnref5" rel="nofollow noopener" title="/Users/Marc%20Chehab/Documents/My%20Dropbox/violence%202%20superedit.docx#_ftnref5">[5]</a>  aspodufasufb aposubaorug</p><p>preg_match or preg_match_all don't find that with your pattern: '#\<a>[([0-9]+)\]\</a> (.*)#'</p><p>I'm horrible with preg_match patterns. if I get around to do it I'll post it...</p><p>@James: I'm not a wordpress guy but adding a plugin is probably best. add a "bb_parse_footnotes" directory in contens/plugins. add a file bb_parse_footnotes.php and add this above the function in the blog entry. don't forget to add a "?&gt;" at the end. once that is done, go to the admin panel and activate the plugin under plugins...</p><p>&lt;?php<br>/*<br>Plugin Name: bb_parse_footnotes<br>Plugin URI: <a href="http://ben.balter.com/2011/03/20/regular-expression-to-parse-word-style-footnotes/" rel="nofollow noopener" title="http://ben.balter.com/2011/03/20/regular-expression-to-parse-word-style-footnotes/">http://ben.balter.com/2011/...</a><br>Description: Convert word to simple footnotes<br>Version: 0.1<br>Author: Ben Balter<br>Author URI: <a href="http://ben.balter.com/" rel="nofollow noopener" title="http://ben.balter.com/">http://ben.balter.com/</a><br>*/</p>]]></message>
 <createdAt>2011-04-19T18:14:38Z</createdAt>
 <isDeleted>false</isDeleted>
 <isSpam>false</isSpam>
@@ -6462,7 +6462,7 @@
 </post>
 <post dsq:id="668226974">
 <id>wp_id=1100</id>
-<message><![CDATA[<p>like this?<br>...href\="\[^#]*_ftnref...</p><p>my regex is veeerry rusty :)</p>]]></message>
+<message><![CDATA[<p>like this?<br>...href\="[^#]*_ftnref...</p><p>my regex is veeerry rusty :)</p>]]></message>
 <createdAt>2011-04-19T19:13:29Z</createdAt>
 <isDeleted>false</isDeleted>
 <isSpam>false</isSpam>
@@ -6488,7 +6488,7 @@
 </post>
 <post dsq:id="668226980">
 <id>wp_id=1102</id>
-<message><![CDATA[<p>got it!! :D I had to put a backslash before " as well as .*</p><p><code><br>    //grab all the Word-style footnotes into an array<br><br>    $pattern = '#\<a>\[([0-9]+)\]\</a> (.*)#';<br><br>    preg_match_all( $pattern, $content, $footnotes, PREG_SET_ORDER);<br><br> <br><br>    //build find and replace arrays<br><br>    foreach ($footnotes as $footnote) {<br><br>        $find[] = '#\<a>\['.$footnote[1].'\]\</a>#';<br><br>        $replace[] = '[ref]' . str_replace( array("\r\n", "\r", "\n"), "", $footnote[3]) . '[/ref]';<br><br>    }<br><br> <br><br>    //remove all the original footnotes when done<br><br>    $find[] = '#\\s*<a>\[([0-9]+)\]\</a> (.*)\s*\\s+#';<br><br>    $replace[] = '';<br></code></p>]]></message>
+<message><![CDATA[<p>got it!! :D I had to put a backslash before " as well as .*</p><p><code><br>    //grab all the Word-style footnotes into an array<br><br>    $pattern = '#\<a>[([0-9]+)\]\</a> (.*)#';<br><br>    preg_match_all( $pattern, $content, $footnotes, PREG_SET_ORDER);<br><br> <br><br>    //build find and replace arrays<br><br>    foreach ($footnotes as $footnote) {<br><br>        $find[] = '#\<a>['.$footnote[1].'\]\</a>#';<br><br>        $replace[] = '[ref]' . str_replace( array("\r\n", "\r", "\n"), "", $footnote[3]) . '[/ref]';<br><br>    }<br><br> <br><br>    //remove all the original footnotes when done<br><br>    $find[] = '#\\s*<a>[([0-9]+)\]\</a> (.*)\s*\\s+#';<br><br>    $replace[] = '';<br></code></p>]]></message>
 <createdAt>2011-04-19T19:47:35Z</createdAt>
 <isDeleted>false</isDeleted>
 <isSpam>false</isSpam>
@@ -6588,7 +6588,7 @@
 </post>
 <post dsq:id="668226937">
 <id>wp_id=1133</id>
-<message><![CDATA[<p>oh, sorry, I also added a (\)? before the link. let's hope the code tag work:</p><p>[code]$find[] = '#\&lt;div\&gt;\s*(\&lt;p\&gt;)?&lt;a href\=\".*\#_ftnref([0-9]+)\"\&gt;\[([0-9]+)\]\&lt;/a\&gt;.*\&lt;/div\&gt;\s+#s';[/code]</p><p>I posted the essay again without any changes, so that you can have a look (if you're interested). the issue is, like I said, new lines and paragraphs within footnotes.</p><p><a href="http://www.marcchehab.org/?p=484" rel="nofollow noopener" title="http://www.marcchehab.org/?p=484">http://www.marcchehab.org/?...</a></p>]]></message>
+<message><![CDATA[<p>oh, sorry, I also added a (\)? before the link. let's hope the code tag work:</p><p>[code]$find[] = '#\&lt;div\&gt;\s*(\&lt;p\&gt;)?&lt;a href\=\".*\#_ftnref([0-9]+)\"\&gt;[([0-9]+)\]\&lt;/a\&gt;.*\&lt;/div\&gt;\s+#s';[/code]</p><p>I posted the essay again without any changes, so that you can have a look (if you're interested). the issue is, like I said, new lines and paragraphs within footnotes.</p><p><a href="http://www.marcchehab.org/?p=484" rel="nofollow noopener" title="http://www.marcchehab.org/?p=484">http://www.marcchehab.org/?...</a></p>]]></message>
 <createdAt>2011-04-25T16:43:45Z</createdAt>
 <isDeleted>false</isDeleted>
 <isSpam>false</isSpam>

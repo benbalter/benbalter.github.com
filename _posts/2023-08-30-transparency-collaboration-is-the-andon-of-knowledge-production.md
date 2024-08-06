@@ -5,7 +5,7 @@ description: How the andon principle from lean manufacturing can help you spot a
 
 The shift from waterfall to agile was predicated on the belief that what worked for the factory floor during the industrial revolution would not work for knowledge work in the information age, but assembly lines and modern software development have more in common than you might think:
 
-Agile development can trace its roots back to the production floor of Toyota as far back as the 40s and 50s. At the core of the [Toyota Production System](https://en.wikipedia.org/wiki/Toyota_Production_System) (what eventually inspired the [lean manufacturing](https://en.wikipedia.org/wiki/Lean_manufacturing) movement) was the concept of an [andon](https://en.wikipedia.org/wiki/Andon_\(manufacturing\)), a concept we continue to see driving benefit in modern software development today.
+Agile development can trace its roots back to the production floor of Toyota as far back as the 40s and 50s. At the core of the [Toyota Production System](https://en.wikipedia.org/wiki/Toyota_Production_System) (what eventually inspired the [lean manufacturing](https://en.wikipedia.org/wiki/Lean_manufacturing) movement) was the concept of an [andon](https://en.wikipedia.org/wiki/Andon_(manufacturing\)), a concept we continue to see driving benefit in modern software development today.
 
 ## Anyone can stop the line for any reason
 

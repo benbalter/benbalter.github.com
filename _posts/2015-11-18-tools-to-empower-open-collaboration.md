@@ -77,15 +77,15 @@ I began by noting that the phrase "everything should be on GitHub", doesn't nece
 
 | Tool                                                                   | Open                 | Captures<br /> Process | Linkable                           | Async                |
 | :--------------------------------------------------------------------- | :------------------- | :--------------------- | :--------------------------------- | :------------------- |
-| GitHub                                                                 | :heavy\_check\_mark: | :heavy\_check\_mark:   | :heavy\_check\_mark:               | :heavy\_check\_mark: |
-| (Text) Chat                                                            | :heavy\_check\_mark: | :heavy\_check\_mark:   | :heavy\_check\_mark:               | :heavy\_check\_mark: |
-| Wikis                                                                  | :heavy\_check\_mark: | :heavy\_check\_mark:   | :heavy\_check\_mark:               | :heavy\_check\_mark: |
-| Blogs                                                                  | :heavy\_check\_mark: | :x:[^git-blog]         | :heavy\_check\_mark:               | :heavy\_check\_mark: |
-| Google Docs                                                            | :heavy\_check\_mark: | :x:[^tracked-changes]  | :x:[^links]                        | :heavy\_check\_mark: |
-| Microsft Word                                                          | :x:[^proprietary]    | :x:[^tracked-changes]  | :x:                                | :heavy\_check\_mark: |
-| Sharepoint                                                             | :x:[^proprietary]    | :x:[^tracked-changes]  | :x:[^links]                        | :heavy\_check\_mark: |
-| Email                                                                  | :x:[^proprietary]    | :heavy\_check\_mark:   | :x:                                | :heavy\_check\_mark: |
-| Box/DropBox                                                            | :x:[^proprietary]    | :x:                    | :heavy\_check\_mark: [^deep-links] | :heavy\_check\_mark: |
+| GitHub                                                                 | :heavy_check_mark: | :heavy_check_mark:   | :heavy_check_mark:               | :heavy_check_mark: |
+| (Text) Chat                                                            | :heavy_check_mark: | :heavy_check_mark:   | :heavy_check_mark:               | :heavy_check_mark: |
+| Wikis                                                                  | :heavy_check_mark: | :heavy_check_mark:   | :heavy_check_mark:               | :heavy_check_mark: |
+| Blogs                                                                  | :heavy_check_mark: | :x:[^git-blog]         | :heavy_check_mark:               | :heavy_check_mark: |
+| Google Docs                                                            | :heavy_check_mark: | :x:[^tracked-changes]  | :x:[^links]                        | :heavy_check_mark: |
+| Microsft Word                                                          | :x:[^proprietary]    | :x:[^tracked-changes]  | :x:                                | :heavy_check_mark: |
+| Sharepoint                                                             | :x:[^proprietary]    | :x:[^tracked-changes]  | :x:[^links]                        | :heavy_check_mark: |
+| Email                                                                  | :x:[^proprietary]    | :heavy_check_mark:   | :x:                                | :heavy_check_mark: |
+| Box/DropBox                                                            | :x:[^proprietary]    | :x:                    | :heavy_check_mark: [^deep-links] | :heavy_check_mark: |
 | Video chat                                                             | :x:                  | :x:                    | :x:[^recordings]                   | :x:[^recordings]     |
 | IRL Meetings                                                           | :x:                  | :x:                    | :x:                                | :x:                  |
 | {: .table style="width: 60%; margin-left: auto; margin-right: auto;" } |                      |                        |                                    |                      |
@@ -96,7 +96,7 @@ GitHub's not the right tool for all sorts of use cases. It probably doesn't make
 
 Although I think it's the future of knowledge work, this developer-inspired workflow isn't for everyone, at least not today. One of [GitHub's Zen](https://ben.balter.com/2015/08/12/the-zen-of-github/), is to prefer practicality over purity. However pure the workflow might be on paper, if you've got a team of lawyers that have never used anything other than Outlook, Word, and regularly scheduled in-person meetings, absent a strong personal, professional, or philosophical motivation, absent significant untraining and re-education, you'd be hard-pressed to implement a modern workflow that's on a trajectory to succeed.
 
-{% include\_cached github-culture.html %}
+{% include_cached github-culture.html %}
 
 [How you work is just as important as what you work on](https://ben.balter.com/2015/09/21/open-source-behind-the-firewall/#how-you-work-is-as-important-as-what-you-work-on). I challenge you to take a critical look at your own workflow, and ask yourself if you're working the way you'd like to work, or just the way everyone else does.
 

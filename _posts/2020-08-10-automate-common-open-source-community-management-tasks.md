@@ -31,7 +31,7 @@ Here are a few of my favorite Probot plugins and GitHub Actions for community ma
 | Label issues               | [Issue labeler](https://probot.github.io/apps/issuelabeler/)                                                           | [Labeler](https://github.com/actions/labeler)                     |
 | {: .table }                |                                                                                                                        |                                                                   |
 
-*Have a favorite community management Probot Plugin or GitHub Action not listed here? Please {% github\_edit\_link "Add it" %}.*
+*Have a favorite community management Probot Plugin or GitHub Action not listed here? Please {% github_edit_link "Add it" %}.*
 
 ### A note on Probot
 
