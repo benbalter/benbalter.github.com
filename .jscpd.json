@@ -1,5 +1,5 @@
 {
- "ignore": [
-  "**/_posts/2014-03-31-word-versus-markdown-more-than-mere-semantics.md"
- ]
+  "ignore": [
+    "**/_posts/2014-03-31-word-versus-markdown-more-than-mere-semantics.md"
+  ]
 }
