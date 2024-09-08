@@ -10,13 +10,13 @@ group :jekyll_plugins do
   gem 'jekyll-feed'
   gem 'jekyll-github-metadata'
   gem 'jekyll-mentions'
+  gem 'jekyll-og-image'
   gem 'jekyll-redirect-from'
   gem 'jekyll-relative-links'
   gem 'jekyll-sass-converter', '~> 3.0'
   gem 'jekyll-seo-tag'
   gem 'jekyll-sitemap'
   gem 'jemoji'
-  gem 'jekyll-og-image'
   gem 'retlab', github: 'benbalter/retlab'
 end
 
