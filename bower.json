@@ -3,17 +3,11 @@
   "main": "index.html",
   "version": "0.0.1",
   "homepage": "http://ben.balter.com",
-  "authors": [
-    "Ben Balter <ben.balter@github.com>"
-  ],
+  "authors": ["Ben Balter <ben.balter@github.com>"],
   "description": "The personal website of Ben Balter. Built using Jekyll and GitHub Pages. See humans.txt for more infos.",
   "license": "MIT",
   "private": true,
-  "ignore": [
-    "node_modules",
-    "test",
-    "tests"
-  ],
+  "ignore": ["node_modules", "test", "tests"],
   "dependencies": {
     "anchor-js": "*",
     "font-awesome": "*"

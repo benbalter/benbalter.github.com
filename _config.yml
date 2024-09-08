@@ -67,7 +67,6 @@ exclude:
   - /comments.xml
   - /docker-compose.yml
 
-
 permalink: "/:year/:month/:day/:title/"
 defaults:
   - scope:
