@@ -16,6 +16,7 @@ group :jekyll_plugins do
   gem 'jekyll-seo-tag'
   gem 'jekyll-sitemap'
   gem 'jemoji'
+  gem 'jekyll-og-image'
   gem 'retlab', github: 'benbalter/retlab'
 end
 

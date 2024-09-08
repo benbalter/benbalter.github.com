@@ -98,6 +98,7 @@ plugins:
   - jekyll-avatar
   - jekyll-github-metadata
   - jekyll-mentions
+  - jekyll-og-image
 
 sass:
   style: compressed
@@ -146,3 +147,10 @@ employer:
   url: https://github.com
 job_title: Director of Engineering Operations and Culture
 handle: benbalter
+
+og_image:
+  domain: ben.balter.com
+  border_bottom:
+    width: 20
+    fill:
+      - "#4285F4"
