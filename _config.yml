@@ -149,6 +149,7 @@ handle: benbalter
 
 og_image:
   domain: ben.balter.com
+  image: ./assets/img/headshot.jpg
   border_bottom:
     width: 20
     fill:
