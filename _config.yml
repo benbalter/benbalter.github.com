@@ -126,9 +126,9 @@ contact_links:
   - name: Add to contacts
     url: https://ben.balter.com/vcard.vcf
     icon: fa-solid fa-address-card
-  - name: Twitter
-    url: https://twitter.com/benbalter
-    icon: fa-brands fa-twitter
+  - name: Bluesky
+    url: https://bsky.app/profile/ben.balter.com
+    icon: fa-brands fa-bluesky
   - name: LinkedIn
     url: https://www.linkedin.com/in/benbalter
     icon: fa-brands fa-linkedin
