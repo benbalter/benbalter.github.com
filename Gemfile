@@ -23,7 +23,9 @@ end
 group :test, :development do
   gem 'classifier-reborn', github: 'jekyll/classifier-reborn'
   gem 'github-pages-health-check'
-  # gem 'gsl', github: 'SciRuby/rb-gsl'
+  #gem 'gsl', github: 'SciRuby/rb-gsl' Not compatible with Ruby 3.0
+  gem 'numo-narray'
+  gem 'numo-linalg'
   gem 'html-proofer'
   gem 'nokogiri'
   gem 'pry'

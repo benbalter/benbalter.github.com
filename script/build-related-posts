@@ -8,7 +8,8 @@ require 'psych'
 
 options = {
   'source' => File.expand_path('../', __dir__),
-  'lsi' => true
+  'lsi' => true,
+  'verbose' => true,
 }
 
 ignore_list = [
@@ -16,6 +17,7 @@ ignore_list = [
   '_posts/2012-12-26-securing-the-status-quo.md'
 ]
 
+Jekyll.logger.info "Building site"
 config = Jekyll.configuration(options)
 site = Jekyll::Site.new(config)
 
@@ -23,6 +25,7 @@ site.reset
 site.read
 site.posts.docs.delete_if { |post| ignore_list.include?(post.relative_path) }
 
+Jekyll.logger.info "Building related posts"
 relations = {}
 site.posts.docs.each do |post|
   relations[post.relative_path] = post.related_posts.map(&:relative_path)
