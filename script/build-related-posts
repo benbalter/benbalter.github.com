@@ -23,7 +23,7 @@ site = Jekyll::Site.new(config)
 
 site.reset
 site.read
-site.posts.docs.delete_if { |post| ignore_list.include?(post.relative_path) }
+site.posts.docs.delete_if { |post| ignore_list.include?(post.relative_path) || post.data['archived'] }
 
 Jekyll.logger.info "Building related posts"
 relations = {}
