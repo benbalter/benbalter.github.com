@@ -25,11 +25,11 @@ If you previously installed the `languagetool` cask,[^disambiguation] or acciden
 3. `brew services start languagetool`
 4. Optionally reinstall the frontend (see below)
 
-## LanguageTool in Chrome
+## LanguageTool in your browser (Chrome, Edge, Firefox)
 
-LanguageTool works great in Chrome for any text box, Google Doc, GitHub issue, etc. Here's how to set it up:
+LanguageTool works great in your browser for any text box, Google Doc, GitHub issue, etc. Here's how to set it up:
 
-1. Install the [LanguageTool Chrome extension](https://languagetool.org/chrome/)
+1. Install the LanguageTool extension for your browser - [Chrome](https://languagetool.org/chrome/), [Edge](https://microsoftedge.microsoft.com/addons/detail/ai-grammar-checker-para/hfjadhjooeceemgojogkhlppanjkbobc), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/languagetool/)
 2. In the extension settings, set the "API Server URL" to "Local server".
 
 That last step is important because the extension defaults to using the public LanguageTool server, which is not the one you just installed.
@@ -51,7 +51,7 @@ LanguageTool also has a macOS-native frontend that provides support for Slack, M
 
 ## LanguageTool in Safari
 
-Safari does not allow extensions to make calls from HTTPS pages to HTTP endpoints (the local server), meaning we'll need to set up an HTTPS proxy if we want it to work on HTTPS websites. Here's an easy way to do that:
+Safari does not allow extensions to make calls from HTTPS pages to HTTP endpoints (the local server), meaning before we can use the Safari LanguageTool extension, we'll need to set up an HTTPS proxy so that it will work on HTTPS websites. Here's an easy way to do that:
 
 1. `brew install caddy`
 2. Create a `/opt/homebrew/etc/Caddyfile` file with the following contents:
@@ -62,7 +62,8 @@ Safari does not allow extensions to make calls from HTTPS pages to HTTP endpoint
     ```
 
 3. `brew services start caddy`. Note: You will be asked to `sudo` as Caddy creates a locally trusted certificate.
-4. In the Safari extension, for "API Server URL" choose "Other server" and enter `https://localhost:8082/v2`.
+4. Install [the Safari extension](https://apps.apple.com/us/app/languagetool-grammar-checker/id1534275760)
+5. In the Safari extension, for "API Server URL" choose "Other server" and enter `https://localhost:8082/v2`.
 
 This will set up a reverse proxy that listens on port `8082` and forwards requests to the local LanguageTool server. If you'd like to test that the server and proxy are running you can run `curl --data "language=en-US&text=a simple test" https://localhost:8082/v2/check`
 
