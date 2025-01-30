@@ -12,7 +12,7 @@ First you need to install the backend server, which is a Java application. You c
 1. `brew install languagetool`
 2. `brew services start languagetool`
 
-This will install the LanguageTool server and set it to start automatically on boot as a Homebrew-managed service. Once you have the server running, you can use LanguageTool in your browser, in Slack, VS Code, etc. Read on for how to set up each (you can pick and choose once you've installed the server). 
+This will install the LanguageTool server and set it to start automatically on boot as a Homebrew-managed service. Once you have the server running, you can use LanguageTool in your browser, in Slack, VS Code, etc. Read on for how to set up each (you can pick and choose once you've installed the server).
 
 Note: If you'd like to test that the server is running at this point, you can run `curl --data "language=en-US&text=a simple test" http://localhost:8081/v2/check`.
 
@@ -21,9 +21,9 @@ Note: If you'd like to test that the server is running at this point, you can ru
 If you previously installed the `languagetool` cask,[^disambiguation] or accidentally installed it first, installing the non-cask version will likely fail to set up the backend service, due to the namespace conflict. The `install` command itself won't fail, but you'll see a "missing path" error in the installation output and the service will not be running. If so, here's how to fix it:
 
 1. `brew uninstall languagetool --cask`
-3. `brew reinstall languagetool`
-4. `brew services start languagetool`
-5. Optionally reinstall the frontend (see below)
+2. `brew reinstall languagetool`
+3. `brew services start languagetool`
+4. Optionally reinstall the frontend (see below)
 
 ## LanguageTool in Chrome
 
@@ -41,8 +41,8 @@ LanguageTool also has a macOS-native frontend that provides support for Slack, M
 1. `brew install languagetool --cask`
 2. Launch the app from the Applications folder
 3. Open the LanguageTool settings via the menubar icon (LT icon > Gear icon > Settings)
-2. Under "Advanced", set the "API Server URL" to "Local server" (again, otherwise it will default to the public server)
-3. Under "Active apps", enable LanguageTool for Slack, etc.
+4. Under "Advanced", set the "API Server URL" to "Local server" (again, otherwise it will default to the public server)
+5. Under "Active apps", enable LanguageTool for Slack, etc.
 
 ## LanguageTool in VS Code
 
@@ -52,15 +52,17 @@ LanguageTool also has a macOS-native frontend that provides support for Slack, M
 ## LanguageTool in Safari
 
 Safari does not allow extensions to make calls from HTTPS pages to HTTP endpoints (the local server), meaning we'll need to set up an HTTPS proxy if we want it to work on HTTPS websites. Here's an easy way to do that:
- 
+
 1. `brew install caddy`
 2. Create a `/opt/homebrew/etc/Caddyfile` file with the following contents:
-    ```    
-    localhost:8082    
+    
+    ```
+    localhost:8082
     reverse_proxy :8081
     ```
+
 3. `brew services start caddy`. Note: You will be asked to `sudo` as Caddy creates a locally trusted certificate.
-4. In the Safari extension, for "API Server URL" choose "Other server" and enter `https://localhost:8082/v2`. 
+4. In the Safari extension, for "API Server URL" choose "Other server" and enter `https://localhost:8082/v2`.
 
 This will set up a reverse proxy that listens on port `8082` and forwards requests to the local LanguageTool server. If you'd like to test that the server and proxy are running you can run `curl --data "language=en-US&text=a simple test" https://localhost:8082/v2/check`
 
