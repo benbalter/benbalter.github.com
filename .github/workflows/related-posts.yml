@@ -12,6 +12,7 @@ name: Build related posts
 permissions:
   contents: write
   statuses: write
+  pull-requests: write
   
 jobs:
   build-related-posts:
