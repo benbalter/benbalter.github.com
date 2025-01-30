@@ -90,8 +90,6 @@ If you *really* want to make sure what you type doesn't traverse the internet, y
 
 That's it! You now have a powerful, privacy-respecting grammar checker that you can use in your browser, in Slack, in VS Code, and in other common work applications. Happy writing!
 
----
-
 [^disambiguation]: The non-cask version is the backend Java server. The cask version (by the same name) is the macOS frontend that provides a menubar icon and settings UI.
 [^homebrew]: If you're not familiar with Homebrew, it's a macOS package manager that makes it easy to install, manage, and update command-line software. If you don't have it installed, you can do so by running the following command: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`.
 [^grammarly]: Nothing against Grammarly. It's a great product. I prefer to use open source tools whenever I can.
