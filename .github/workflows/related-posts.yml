@@ -44,7 +44,7 @@ jobs:
           title: Update related posts
           add-paths: _data/related_posts.yml
           delete-branch: true
-          token: ${{ secrets.ACTIONS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Enable Pull Request Auto-merge
         if: steps.create-pull-request.outputs.pull-request-operation == 'created'
