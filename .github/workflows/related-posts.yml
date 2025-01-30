@@ -20,8 +20,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install vips
-        run: sudo apt-get update && sudo apt-get -y install liblapacke-dev libopenblas-dev
+      - name: Install apt dependencies
+        run: sudo apt-get update && sudo apt-get -y install libvips-dev liblapacke-dev libopenblas-dev
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
