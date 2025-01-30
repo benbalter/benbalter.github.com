@@ -6,6 +6,7 @@ on:
       - 'script/build-related-posts'
     branches:
       - main
+  workflow_dispatch: {}
 
 name: Build related posts
 
