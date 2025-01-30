@@ -50,7 +50,7 @@ jobs:
         if: steps.create-pull-request.outputs.pull-request-operation == 'created'
         run: gh pr merge --merge --auto ${{ steps.create-pull-request.outputs.pull-request-number }}
         env:
-          GH_TOKEN: ${{ secrets.PAT }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Auto approve
         if: steps.create-pull-request.outputs.pull-request-operation == 'created'
