@@ -1,0 +1,34 @@
+---
+layout: null
+---
+# Ben Balter
+
+> Technology leadership, collaboration, and open source. Personal site of Ben Balter, Director of Hubber Enablement at GitHub, attorney, and open source developer.
+
+Ben Balter is a technology leader focused on open source, collaboration, and government innovation. This site contains his writings on technology leadership, open source development, government modernization, and product management. The content spans over a decade of experience working at the intersection of technology and policy, including roles at GitHub and the White House.
+
+## About and Professional Information
+
+* [About Ben Balter]({{ site.url }}/about/): Biography and professional background
+* [Resume]({{ site.url }}/resume/): Complete professional history and experience
+* [Contact]({{ site.url }}/contact/): How to get in touch
+
+## Recent Blog Posts
+
+* [How to Run Language Tool (Open Source Grammarly Alternative) on macOS]({{ site.url }}/2025/01/30/how-to-run-language-tool-open-source-grammarly-alternative-on-macos/): Setting up LanguageTool as a local grammar checker
+* [Dissenting Voices]({{ site.url }}/2024/01/08/dissenting-voices/): The importance of encouraging dissent and constructive disagreement
+* [Cathedral vs. Bazaar Management]({{ site.url }}/2023/12/08/cathedral-bazaar-management/): Management philosophies inspired by open source development models
+* [How to Communicate Like a GitHub Engineer]({{ site.url }}/2023/10/04/how-to-communicate-like-a-github-engineer/): Communication practices and principles
+* [Transparency + Collaboration is the Andon of Knowledge Production]({{ site.url }}/2023/08/30/transparency-collaboration-is-the-andon-of-knowledge-production/): Applying manufacturing principles to knowledge work
+
+## Additional Pages
+
+* [Talks]({{ site.url }}/talks/): Speaking engagements and presentations
+* [Press]({{ site.url }}/press/): Media coverage and interviews
+* [Other Recommended Reading]({{ site.url }}/other-recommended-reading/): Curated list of recommended articles and resources
+
+## Site Information
+
+* [RSS Feed]({{ site.url }}/feed.xml): Subscribe to all posts
+* [Site Source Code](https://github.com/{{ site.repository }}): This site's Jekyll source code on GitHub
+* [Fine Print]({{ site.url }}/fine-print/): Legal information and site policies
