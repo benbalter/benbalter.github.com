@@ -3,9 +3,10 @@ layout: null
 ---
 # {{ site.title }}
 
-> {{ site.description }}. Personal site of Ben Balter, Director of Hubber Enablement at GitHub, attorney, and open source developer.
+> {{ site.description }}
 
-Ben Balter is a technology leader focused on open source, collaboration, and government innovation. This site contains his writings on technology leadership, open source development, government modernization, and product management. The content spans over a decade of experience working at the intersection of technology and policy, including roles at GitHub and the White House.
+{% assign about_page = site.pages | where: "permalink", "/about/" | first %}
+{{ about_page.content | strip_html | truncate: 500 }}
 
 ## About and Professional Information
 
@@ -25,13 +26,21 @@ Ben Balter is a technology leader focused on open source, collaboration, and gov
 
 ## GitHub Culture
 
+{% assign culture_post = site.posts | where: "url", "/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/" | first %}
 Understanding GitHub's unique culture and communication patterns:
 
-* [What to read before starting (or interviewing) at GitHub]({{ site.url }}/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/): Essential reading for understanding GitHub's culture
-* [Seven habits of highly effective GitHubbers]({{ site.url }}/2016/09/13/seven-habits-of-highly-effective-githubbers/): Core practices and principles
-* [Rules of communicating at GitHub]({{ site.url }}/2014/11/06/rules-of-communicating-at-github/): Communication norms and expectations
-* [Eight things I wish I knew my first week at GitHub]({{ site.url }}/2016/10/31/eight-things-i-wish-i-knew-my-first-week-at-github/): Onboarding insights and tips
-* [Why async]({{ site.url }}/2022/03/17/why-async/): Understanding asynchronous work practices
+{% for post_url in culture_post.posts %}
+{%- assign post = site.posts | where: "url", post_url | first %}
+* [{{ post.title }}]({{ site.url }}{{ post.url }}): {{ post.description }}
+{%- endfor %}
+
+{% if culture_post.roles and culture_post.roles.size > 0 %}
+And for specific roles:
+{% for post_url in culture_post.roles %}
+{%- assign post = site.posts | where: "url", post_url | first %}
+* [{{ post.title }}]({{ site.url }}{{ post.url }}): {{ post.description }}
+{%- endfor %}
+{% endif %}
 
 ## Additional Pages
 
