@@ -27,4 +27,4 @@ Last, because open-source projects like PHP are almost always monitored 24/7 by 
 
 Is there insecure PHP code out there? No doubt. I've seen it. Does that mean all PHP is insecure? Far from it. Next time someone you know says something to the contrary, subtly mention in passing that you're really surprised to hear that the company behind their favorite piece of commercial software recently announced they were sunsetting the project, and see how they handle a taste of their own FUD.
 
-[^1]: In simplified terms, if I have the variable $logged\_in in my page to store whether a user is logged in or not, and I don't first set it to false before checking, a visitor could go to mysite.com?logged\_in=true, and the page would erroneously think I was logged in.
+[^1]: In simplified terms, if I have the variable $logged_in in my page to store whether a user is logged in or not, and I don't first set it to false before checking, a visitor could go to mysite.com?logged_in=true, and the page would erroneously think I was logged in.
