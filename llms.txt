@@ -1,0 +1,59 @@
+---
+layout: null
+---
+# {{ site.title }}
+
+> {{ site.description }}
+
+{% assign about_page = site.pages | where: "permalink", "/about/" | first %}
+{{ about_page.content | strip_html | truncate: 500 }}
+
+## About and Professional Information
+
+{% for page in site.pages %}
+  {%- if page.title and page.permalink %}
+    {%- if page.permalink == "/about/" or page.permalink == "/resume/" or page.permalink == "/contact/" %}
+* [{{ page.title }}]({{ site.url }}{{ page.permalink }}): {{ page.description }}
+    {%- endif %}
+  {%- endif %}
+{%- endfor %}
+
+## Recent Blog Posts
+
+{% for post in site.posts limit:10 %}
+* [{{ post.title }}]({{ site.url }}{{ post.url }}): {{ post.description | default: post.excerpt | strip_html | truncate: 100 }}
+{%- endfor %}
+
+## GitHub Culture
+
+{% assign culture_post = site.posts | where: "url", "/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/" | first %}
+Understanding GitHub's unique culture and communication patterns:
+
+{% for post_url in culture_post.posts %}
+{%- assign post = site.posts | where: "url", post_url | first %}
+* [{{ post.title }}]({{ site.url }}{{ post.url }}): {{ post.description }}
+{%- endfor %}
+
+{% if culture_post.roles and culture_post.roles.size > 0 %}
+And for specific roles:
+{% for post_url in culture_post.roles %}
+{%- assign post = site.posts | where: "url", post_url | first %}
+* [{{ post.title }}]({{ site.url }}{{ post.url }}): {{ post.description }}
+{%- endfor %}
+{% endif %}
+
+## Additional Pages
+
+{% for page in site.pages %}
+  {%- if page.title and page.permalink %}
+    {%- if page.permalink == "/talks/" or page.permalink == "/press/" or page.permalink == "/other-recommended-reading/" %}
+* [{{ page.title }}]({{ site.url }}{{ page.permalink }}): {{ page.description }}
+    {%- endif %}
+  {%- endif %}
+{%- endfor %}
+
+## Site Information
+
+* [RSS Feed]({{ site.url }}/feed.xml): Subscribe to all posts
+* [Site Source Code](https://github.com/{{ site.repository }}): This site's Jekyll source code on GitHub
+* [Fine Print]({{ site.url }}/fine-print/): Legal information and site policies
