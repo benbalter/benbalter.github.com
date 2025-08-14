@@ -5,7 +5,11 @@ layout: null
 
 > {{ site.description }}
 
-{% include_cached mini-bio.html | markdownify | strip_html %}
+{% capture bio %}
+{% include_cached mini-bio.html %}
+{% endcapture %}
+
+{{ bio | markdownify | strip_html }}
 
 ## About and Professional Information
 
