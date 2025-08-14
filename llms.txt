@@ -5,8 +5,7 @@ layout: null
 
 > {{ site.description }}
 
-{% assign about_page = site.pages | where: "permalink", "/about/" | first %}
-{{ about_page.content | strip_html | truncate: 500 }}
+{% include_cached mini-bio.html | markdownify | strip_html %}
 
 ## About and Professional Information
 
@@ -41,16 +40,6 @@ And for specific roles:
 * [{{ post.title }}]({{ site.url }}{{ post.url }}): {{ post.description }}
 {%- endfor %}
 {% endif %}
-
-## Additional Pages
-
-{% for page in site.pages %}
-  {%- if page.title and page.permalink %}
-    {%- if page.permalink == "/talks/" or page.permalink == "/press/" or page.permalink == "/other-recommended-reading/" %}
-* [{{ page.title }}]({{ site.url }}{{ page.permalink }}): {{ page.description }}
-    {%- endif %}
-  {%- endif %}
-{%- endfor %}
 
 ## Site Information
 
