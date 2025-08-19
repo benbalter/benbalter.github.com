@@ -10,4 +10,4 @@ Driving the Hubber experience to reduce friction and time-to-productivity, incre
 - Elevated continuous learning (including AI fluency)
 - Internal synchronous (events) and asynchronous (written) communications
 - Orchestrated global Hubber Offsites program
-- Streamlined critical processes through automation and AI
+- Streamlined critical business processes through automation and AI
