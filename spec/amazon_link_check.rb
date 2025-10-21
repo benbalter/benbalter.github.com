@@ -26,8 +26,8 @@ class AmazonLinkCheck < HTMLProofer::Check
   def run
     @html.css('a').each do |node|
       @link = create_element(node)
-      @uri = nil  # Reset memoized URI for new link
-      @params = nil  # Reset memoized params for new link
+      @uri = nil # Reset memoized URI for new link
+      @params = nil # Reset memoized params for new link
       next if @link.data_proofer_ignore || @link.href.nil?
 
       if amazon_link? && !affiliate_id?
