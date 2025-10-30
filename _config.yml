@@ -149,8 +149,23 @@ job_title: Director of Engineering Operations and Culture
 handle: benbalter
 
 og_image:
+  output_dir: assets/images/og
   domain: ben.balter.com
   image: ./assets/img/headshot.jpg
+  verbose: false
+  force: false
+  skip_drafts: true
+  margin_bottom: 100
+  canvas:
+    width: 1200
+    height: 600
+    background_color: "#FFFFFF"
+  header:
+    font_family: "Helvetica, Bold"
+    color: "#2f313d"
+  content:
+    font_family: "Helvetica, Regular"
+    color: "#535358"
   border_bottom:
     width: 20
     fill:
