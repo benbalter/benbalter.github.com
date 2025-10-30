@@ -111,7 +111,7 @@ og_image:
 ## Tips for Choosing Colors
 
 1. **Consistency**: Use the same color scheme for related posts to create visual patterns
-2. **Contrast**: Ensure text colors have sufficient contrast against backgrounds
+2. **Contrast**: Ensure text colors have sufficient contrast against backgrounds (aim for WCAG AA compliance: 4.5:1 ratio for normal text, 3:1 for large text)
 3. **Brand alignment**: Consider using colors that match referenced brands or topics
 4. **Emotional impact**: Colors convey emotion - choose intentionally
    - Blue: Trust, stability, professionalism
@@ -121,18 +121,25 @@ og_image:
 
 ## Testing Your Changes
 
-To test OG image configuration changes:
-
-1. Add the configuration to your post's front matter
-2. Delete the existing OG image: `rm assets/images/og/posts/[post-slug].png`
-3. Build the site: `bundle exec jekyll build`
-4. Check the generated image: `open assets/images/og/posts/[post-slug].png`
-
-Or use force mode in `_config.yml`:
+To regenerate OG images for testing, the safest approach is to use force mode in `_config.yml`:
 
 ```yaml
 og_image:
   force: true  # Regenerate all images
 ```
 
-Remember to set `force: false` after testing to avoid unnecessary regeneration.
+Then build the site:
+
+```bash
+bundle exec jekyll build
+```
+
+Remember to set `force: false` after testing to avoid unnecessary regeneration on every build.
+
+Alternatively, you can manually delete specific images to regenerate them:
+
+```bash
+# Delete a specific image to regenerate it
+rm assets/images/og/posts/[post-slug].png
+bundle exec jekyll build
+```
