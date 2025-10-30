@@ -51,7 +51,30 @@ og_image:
     background_color: "#F0F0F0"
   header:
     color: "#000000"
+  border_bottom:
+    fill:
+      - "#DB4437"  # Use red instead of blue
 ---
+```
+
+### Color Palette Suggestions
+
+For topic-specific visual branding, consider these Google color combinations:
+
+- **Default (Blue)**: `#4285F4` - General content
+- **Red**: `#DB4437` - Important announcements or leadership topics
+- **Yellow**: `#F4B400` - Creative or innovation topics
+- **Green**: `#0F9D58` - Success stories or growth topics
+
+You can also use gradient fills with multiple colors:
+
+```yaml
+border_bottom:
+  fill:
+    - "#4285F4"
+    - "#DB4437"
+    - "#F4B400"
+    - "#0F9D58"
 ```
 
 ## Image Output
