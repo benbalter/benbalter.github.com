@@ -170,3 +170,5 @@ og_image:
     width: 20
     fill:
       - "#4285F4"
+# Note: This site uses a custom fork of jekyll-og-image that includes description text support
+# Future improvement: Merge upstream changes to support pages and collections
