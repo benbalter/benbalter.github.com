@@ -40,7 +40,11 @@ og_image:
 
 ## Per-Post Override
 
-Individual posts can override the global configuration by adding an `og_image` section to their front matter:
+Individual posts can override the global configuration by adding an `og_image` section to their front matter.
+
+For detailed examples, see [OG Image Examples](og-image-examples.md).
+
+### Basic Example
 
 ```yaml
 ---
