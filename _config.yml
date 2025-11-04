@@ -161,10 +161,10 @@ og_image:
     height: 600
     background_color: "#FFFFFF"
   header:
-    font_family: "Helvetica, Bold"
+    font_family: "Helvetica, Bold"  # Format: "Font Name, Weight" (plugin-specific)
     color: "#2f313d"
   content:
-    font_family: "Helvetica, Regular"
+    font_family: "Helvetica, Regular"  # Format: "Font Name, Weight" (plugin-specific)
     color: "#535358"
   border_bottom:
     width: 20

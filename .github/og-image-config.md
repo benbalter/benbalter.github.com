@@ -27,16 +27,18 @@ og_image:
     height: 600                          # Canvas height in pixels
     background_color: "#FFFFFF"          # Background color
   header:
-    font_family: "Helvetica, Bold"       # Title font
+    font_family: "Helvetica, Bold"       # Title font (format: "Font, Weight")
     color: "#2f313d"                     # Title color
   content:
-    font_family: "Helvetica, Regular"    # Description font
+    font_family: "Helvetica, Regular"    # Description font (format: "Font, Weight")
     color: "#535358"                     # Description color
   border_bottom:
     width: 20                            # Bottom border width
     fill:
       - "#4285F4"                        # Bottom border color (Google Blue)
 ```
+
+**Note on Font Format**: The `font_family` setting uses the format `"Font Name, Weight"` (e.g., "Helvetica, Bold"). This is the format required by the jekyll-og-image plugin, which passes it directly to the underlying image library. Don't separate font family and weight into different properties.
 
 ## Per-Post Override
 
