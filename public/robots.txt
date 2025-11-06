@@ -1,32 +1,26 @@
----
-layout: null
-disallows:
-  - /2021-analysis-of-federal-dotgov-domains/
-  - /404.html
-  - /behind-github-geojson/
-  - /collaborative-policymaking/
-  - /digital-government-strategy/
-  - /digital-strategy-reporting/
-  - /dont-build-an-api/
-  - /fine-print/
-  - /government-glossary/
-  - /make-government-better-together/
-  - /make-maps-better-together/
-  - /make-reporting-better-together/
-  - /open-source-alternatives/
-  - /open-source-demistified/
-  - /open-source-software-licensing/
-  - /open-sourcing-government/
-  - /simple-api/
-  - /tag*
-  - /tags*
-  - /the-dynamic-site-is-dead/
-  - /the-next-cultural-commons/
-  - /uncle-sams-list/
----
-
-User-agent: *{% for disallowed in page.disallows %}
-Disallow: {{ disallowed }}{% endfor %}
+User-agent: *
+Disallow: /2021-analysis-of-federal-dotgov-domains/
+Disallow: /404.html
+Disallow: /behind-github-geojson/
+Disallow: /collaborative-policymaking/
+Disallow: /digital-government-strategy/
+Disallow: /digital-strategy-reporting/
+Disallow: /dont-build-an-api/
+Disallow: /fine-print/
+Disallow: /government-glossary/
+Disallow: /make-government-better-together/
+Disallow: /make-maps-better-together/
+Disallow: /make-reporting-better-together/
+Disallow: /open-source-alternatives/
+Disallow: /open-source-demistified/
+Disallow: /open-source-software-licensing/
+Disallow: /open-sourcing-government/
+Disallow: /simple-api/
+Disallow: /tag*
+Disallow: /tags*
+Disallow: /the-dynamic-site-is-dead/
+Disallow: /the-next-cultural-commons/
+Disallow: /uncle-sams-list/
 Allow: /
-Sitemap: http://ben.balter.com/sitemap.xml
+Sitemap: https://ben.balter.com/sitemap.xml
 Host: ben.balter.com

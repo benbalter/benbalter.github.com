@@ -1,17 +1,14 @@
----
-layout: none
----
 BEGIN:VCARD
 VERSION:3.0
-FN:{{ site.author.name }}
-N:{% assign parts=site.author.name | split: " "%}{{ parts[1] }};{{ parts[0] }}
-NICKNAME:@{{ site.handle }}
-EMAIL:{{ site.email }}
-KEY;TYPE=PGP:{{ "/key.asc" | absolute_url }}
-PHOTO;TYPE=JPEG;VALUE=URI:{{ "assets/img/headshot.jpg" | absolute_url }}
-SOURCE:{{ "vcard.vcf" | absolute_url }}
-TITLE:{{ site.job_title | replace: ",", "\," }}
-ORG:{{ site.employer.name }}
-TZ:{{ site.timezone }}
-URL:{{ site.url }}
+FN:Ben Balter
+N:Balter;Ben
+NICKNAME:@benbalter
+EMAIL:ben@balter.com
+KEY;TYPE=PGP:https://ben.balter.com/key.asc
+PHOTO;TYPE=JPEG;VALUE=URI:https://ben.balter.com/assets/img/headshot.jpg
+SOURCE:https://ben.balter.com/vcard.vcf
+TITLE:Director of Engineering Operations and Culture
+ORG:GitHub
+TZ:America/New_York
+URL:https://ben.balter.com
 END:VCARD

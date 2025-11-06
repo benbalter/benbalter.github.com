@@ -1,13 +1,8 @@
----
-layout: null
----
 /* SITE */
-Last Updated: {{ site.time | date:"%Y/%m/%d" }}
+Last Updated: 2025/01/01
 Standards: HTML5, CSS3
-Components: {% for dependency in site.github.versions %}{{ dependency[0] }}{% if forloop.rindex0 > 0 %}, {% endif %}{% endfor %}
+Components: Next.js, React
 
 /* TEAM */
-{% for contributor in site.github.contributors %}
-Name: {{ contributor.login }}
-Site: {{ contributor.html_url }}
-{% endfor %}
+Name: benbalter
+Site: https://github.com/benbalter
