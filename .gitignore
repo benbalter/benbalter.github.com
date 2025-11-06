@@ -26,3 +26,8 @@ comments.json
 .jekyll-cache
 .github/styles/*
 .frontmatter
+
+# Next.js
+.next/
+out/
+next-env.d.ts
