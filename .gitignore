@@ -26,3 +26,6 @@ comments.json
 .jekyll-cache
 .github/styles/*
 .frontmatter
+assets/css/style.css
+assets/js/bundle.js
+assets/js/bundle.js.LICENSE.txt

@@ -21,6 +21,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -34,6 +40,12 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install libvips-dev -y
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build assets
+        run: npm run build
 
       #- name: Build related posts
       #  run: bundle exec script/build-related-posts

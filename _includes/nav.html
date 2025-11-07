@@ -1,0 +1,25 @@
+<div class="navbar navbar-expand-md bg-secondary-subtle text-secondary border-start border-end border-bottom {% unless layout.hero %}border-top rounded-top{% endunless %} rounded-bottom mb-3">
+  <div class="container-fluid px-3">
+    <a class="navbar-brand fw-bold" href="{{ "" | absolute_url }}/">{{ site.title }}</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar" role="navigation">
+      <ul class="navbar-nav mr-auto">
+        {% for path in site.nav_pages %}
+          {% assign nav_page=site.pages | where:"path",path | first %}
+          <li class="nav-item">
+            <a href="{{ nav_page.url | relative_url }}" class="nav-link{% if page.url == nav_page.url %} active{% endif %}">
+              {{ nav_page.title | default: "Posts" }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <span class="navbar-text text-end">
+      {{ site.description }}
+    </span>
+    </div>
+</div>

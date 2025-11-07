@@ -1,0 +1,18 @@
+---
+layout: default
+hero: true
+---
+
+{{ content }}
+
+{% assign posts = site.posts | where_exp:"post","post.archived != true" %}
+{% for page in posts %}
+  <div class="row mb-2">
+      <div class="col-sm-9">
+          <a href="{{ page.url | relative_url }}">{{ page.title | smartify }}</a>
+      </div>
+      <div class="col-sm-3 text-muted text-md-end">
+          <small>{{ page.date | date: '%B %-d, %Y' }}</small>
+      </div>
+  </div>
+{% endfor %}

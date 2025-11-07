@@ -9,6 +9,7 @@ group :jekyll_plugins do
   gem 'jekyll-avatar'
   gem 'jekyll-feed'
   gem 'jekyll-github-metadata'
+  gem 'jekyll-include-cache'
   gem 'jekyll-mentions'
   gem 'jekyll-og-image', github: 'benbalter/jekyll-og-image'
   gem 'jekyll-redirect-from'
@@ -17,7 +18,6 @@ group :jekyll_plugins do
   gem 'jekyll-seo-tag'
   gem 'jekyll-sitemap'
   gem 'jemoji'
-  gem 'retlab', github: 'benbalter/retlab'
 end
 
 group :test, :development do
