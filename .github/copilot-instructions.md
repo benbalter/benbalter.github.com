@@ -15,8 +15,8 @@ This is the personal website of Ben Balter, built using Jekyll and hosted on Git
 ## Tech Stack
 
 ### Core Technologies
-- **Jekyll**: ~4.0 (static site generator)
-- **Ruby**: 3.x (see `.ruby-version` for exact version)
+- **Jekyll**: ~> 4.0 (static site generator)
+- **Ruby**: 3.3.5 (see `.ruby-version` for exact version)
 - **Node.js**: For JavaScript tooling and linting
 - **GitHub Pages**: Hosting platform
 
@@ -44,6 +44,7 @@ This is the personal website of Ben Balter, built using Jekyll and hosted on Git
 - **textlint**: Natural language linting
 - **remark**: Markdown processing
 - **Vale**: Prose linting
+- **yamllint**: YAML file linting
 
 ## Development Commands
 
