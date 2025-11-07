@@ -318,7 +318,7 @@ The following are generated and should never be committed (already in `.gitignor
 - Check for running processes: `lsof -i :4000`
 
 **Asset compilation errors**
-- Solution: Rebuild JavaScript/CSS bundles with `npm run build` or `npm run webpack`
+- Solution: Rebuild JavaScript/CSS bundles with `npm run build`
 - Ensure all npm dependencies are installed: `npm install`
 - Check `webpack.config.js` for configuration issues
 
