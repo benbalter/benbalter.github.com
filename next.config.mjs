@@ -8,6 +8,9 @@ const nextConfig = {
     unoptimized: true,
   },
   
+  // Output to .next-output directory temporarily (will be merged to _site by build script)
+  distDir: '.next-output',
+  
   // Base path configuration (can be adjusted later)
   // basePath: '',
   

@@ -21,7 +21,7 @@ Before that transaction even occurs, the closed-source platform likely has a fla
 
 Last, these closed source platforms are what government contractors know, because it's what's taught in computer science programs, and what they've always been asked to supply. If an experienced development firm has a bunch of ColdFusion developers, when they bid on a contract, they're going to recommend that the thing be built-in ColdFusion. Not to mention, the government's RFP may be scoped to favor the legacy technology they already know. All this means that before the first line of code is ever written, the odds are stacked against the project from ever seeing the outside the agency's firewall.
 
-But even if the agency's using a closed-source platform, there's no reason their custom code can't still be [open sourced](https://github.com/trending?l=cfm&since=monthly).
+But even if the agency's using a closed-source platform, there's no reason their custom code can't still be [open sourced](https://github.com/trending?l=cfm\&since=monthly).
 
 ## Contributing to open source
 

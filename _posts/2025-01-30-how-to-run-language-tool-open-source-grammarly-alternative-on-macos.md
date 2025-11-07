@@ -54,15 +54,18 @@ LanguageTool also has a macOS-native frontend that provides support for Slack, M
 Safari does not allow extensions to make calls from HTTPS pages to HTTP endpoints (the local server), meaning before we can use the Safari LanguageTool extension, we'll need to set up an HTTPS proxy so that it will work on HTTPS websites. Here's an easy way to do that:
 
 1. `brew install caddy`
+
 2. Create a `/opt/homebrew/etc/Caddyfile` file with the following contents:
 
-    ```caddyfile
-    localhost:8082
-    reverse_proxy :8081
-    ```
+   ```caddyfile
+   localhost:8082
+   reverse_proxy :8081
+   ```
 
 3. `brew services start caddy`. Note: You will be asked to `sudo` as Caddy creates a locally trusted certificate.
+
 4. Install [the Safari extension](https://apps.apple.com/us/app/languagetool-grammar-checker/id1534275760)
+
 5. In the Safari extension, for "API Server URL" choose "Other server" and enter `https://localhost:8082/v2`.
 
 This will set up a reverse proxy that listens on port `8082` and forwards requests to the local LanguageTool server. If you'd like to test that the server and proxy are running you can run `curl --data "language=en-US&text=a simple test" https://localhost:8082/v2/check`
@@ -94,6 +97,9 @@ If you *really* want to make sure what you type doesn't traverse the internet, y
 That's it! You now have a powerful, privacy-respecting grammar checker that you can use in your browser, in Slack, in VS Code, and in other common work applications. Happy writing!
 
 [^disambiguation]: The non-cask version is the backend Java server. The cask version (by the same name) is the macOS frontend that provides a menubar icon and settings UI.
+
 [^homebrew]: If you're not familiar with Homebrew, it's a macOS package manager that makes it easy to install, manage, and update command-line software. If you don't have it installed, you can do so by running the following command: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`.
+
 [^grammarly]: Nothing against Grammarly. It's a great product. I prefer to use open source tools whenever I can.
+
 [^vscode]: I used the VS Code extension to write this post, so I *really* hope there aren't any typos.

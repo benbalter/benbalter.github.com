@@ -2,31 +2,72 @@
 
 [![CI](https://github.com/benbalter/benbalter.github.com/actions/workflows/ci.yml/badge.svg)](https://github.com/benbalter/benbalter.github.com/actions/workflows/ci.yml)
 
-The personal site of Ben Balter. Currently in transition from Jekyll to Next.js.
+The personal site of Ben Balter. Built with Jekyll and Next.js, deployed to GitHub Pages.
 
-## Current Setup
+## Architecture
 
-This site currently supports both Jekyll (legacy) and Next.js (in development):
+This site uses a hybrid approach combining Jekyll and Next.js:
 
-### Jekyll (Legacy - Active)
+### Jekyll (Site Structure)
 
-The site is currently built using Jekyll, GitHub Pages, and Bootstrap. See [humans.txt](https://ben.balter.com/humans.txt) for more infos.
+Jekyll handles the overall site structure, including:
 
-### Next.js (In Development)
+* Homepage, about page, contact page, etc.
+* Site layouts and templates
+* Resume section
+* Asset compilation (CSS, JS via webpack)
+* RSS feeds and sitemaps
 
-A Next.js structure has been set up for the future migration. The Next.js app is configured to:
+### Next.js (Blog Posts)
 
-* Use the App Router (`app/` directory)
-* Export static HTML for GitHub Pages compatibility
-* Support TypeScript with React
+Next.js handles all blog posts dynamically:
 
-#### Next.js Commands
+* Posts are read from `_posts/*.md` files
+* Dynamic routes at `/:year/:month/:day/:slug/`
+* Blog index page at `/blog/`
+* Markdown parsing with gray-matter and remark
+* Static HTML export for GitHub Pages compatibility
+
+## Building the Site
+
+The site uses a combined build process that merges Jekyll and Next.js output:
+
+```bash
+npm run build       # Run combined Jekyll + Next.js build
+```
+
+This script:
+
+1. Builds Jekyll to `_site/`
+2. Builds Next.js posts to `.next-output/`
+3. Merges Next.js posts into `_site/`
+
+### Individual Builds
+
+```bash
+npm run build:jekyll    # Build only Jekyll site
+npm run build:next      # Build only Next.js posts
+npm run build:webpack   # Build only webpack assets
+```
+
+### Development
+
+```bash
+npm run dev             # Start Next.js development server (posts only)
+bundle exec rake serve  # Start Jekyll development server (full site)
+```
+
+## Next.js Commands
 
 ```bash
 npm run dev          # Start Next.js development server (http://localhost:3000)
-npm run next:build   # Build Next.js for production (outputs to /out)
+npm run next:build   # Build Next.js for production (outputs to .next-output/)
 npm run next:start   # Start Next.js production server
 ```
+
+## Deployment
+
+The site is deployed to GitHub Pages from the `_site/` directory, which contains the merged output of Jekyll and Next.js.
 
 ## License
 

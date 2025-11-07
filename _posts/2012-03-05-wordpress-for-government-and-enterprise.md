@@ -40,7 +40,7 @@ Among those empowered to make purchasing decisions, there seems to be a sense th
 | Plugins / Modules | [8,536](http://drupal.org/project/modules) | [16,076](http://wordpress.org/extend/plugins/) (2x)        |
 | Themes            | [893](http://drupal.org/project/themes)    | [1,426](http://wordpress.org/extend/themes/) (1.5x)        |
 | Community[^2]     | 1.5 Million                                | N/A                                                        |
-{: .table }
+| {: .table }       |                                            |                                                            |
 
 ## **Beyond Cowboy Coders**
 
@@ -86,4 +86,4 @@ Whether WordPress is your primary source of income, a hobby, or just the thing t
 
 [^2]: Jen Lampton, "Why WordPress is Better than Drupal, Developers Take Note" (July, 2010)
 
-[^3]: **Update (3/8):** The features page is part of a community edited Wiki (the WordPress Codex) and since originally posted, I've gone through and reworked much of the blog-specific language. [View the original](http://codex.wordpress.org/index.php?title=WordPress_Features&oldid=113531).
+[^3]: **Update (3/8):** The features page is part of a community edited Wiki (the WordPress Codex) and since originally posted, I've gone through and reworked much of the blog-specific language. [View the original](http://codex.wordpress.org/index.php?title=WordPress_Features\&oldid=113531).

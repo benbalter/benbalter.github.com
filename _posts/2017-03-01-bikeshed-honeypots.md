@@ -13,7 +13,7 @@ For example, if you propose building a bike shed, those interested in seeing the
 
 Bikeshedding is an application of the broader [Parkinson's law of triviality](https://en.wikipedia.org/wiki/Law_of_triviality), the idea that "members of an organization give disproportionate weight to trivial issues." For example:
 
-> [It's easy to imagine] a fictional committee whose job was to approve the plans for a nuclear power plant spending the majority of its time on discussions about relatively minor but easy-to-grasp issues, such as what materials to use for the staff bike shed, while neglecting the proposed design of the plant itself, which is far more critical but also a far more complicated and complex task.
+> \[It's easy to imagine] a fictional committee whose job was to approve the plans for a nuclear power plant spending the majority of its time on discussions about relatively minor but easy-to-grasp issues, such as what materials to use for the staff bike shed, while neglecting the proposed design of the plant itself, which is far more critical but also a far more complicated and complex task.
 
 You've likely seen it before when presenting to a committee or higher-ups. You spend months putting together the proposal, and when you ask for questions at the end of your presentation, they fixate on one or two minor, non-substantive details.
 

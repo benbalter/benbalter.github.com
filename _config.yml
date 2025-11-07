@@ -67,6 +67,12 @@ exclude:
   - /spec/
   - /comments.xml
   - /docker-compose.yml
+  - /lib  # Next.js lib directory
+  - /app  # Next.js app directory
+  - /.next  # Next.js build cache
+  - /next.config.mjs  # Next.js config
+  - /next-env.d.ts  # Next.js types
+  - /tsconfig.json  # TypeScript config
 
 permalink: "/:year/:month/:day/:title/"
 defaults:

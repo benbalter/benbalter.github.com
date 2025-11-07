@@ -67,7 +67,7 @@ The question then becomes, if the project's open source license isn't sufficient
 
 ## Your project's legal framework should help it thrive
 
-The Software Freedom Conservancy [gives the following advice](https://sfconservancy.org/blog/2014/jun/09/do-not-need-cla/): you (and your lawyers) need to distinguish between what "nice assurances we'd like to have " and "what legal assurances our [open source] project actually needs to assure its thrives", and I tend to agree.
+The Software Freedom Conservancy [gives the following advice](https://sfconservancy.org/blog/2014/jun/09/do-not-need-cla/): you (and your lawyers) need to distinguish between what "nice assurances we'd like to have " and "what legal assurances our \[open source] project actually needs to assure its thrives", and I tend to agree.
 
 Does your project *need* a CLA? In most cases, probably not, and I'd argue that such a position should be the community default absent a strong and specific reason to the contrary. That said, if you're lucky enough to have a long-established project where contributions aren't a concern and your project's backer [places a legal target on your back](https://ben.balter.com/2017/11/28/everything-an-open-source-maintainer-might-need-to-know-about-open-source-licensing/#when-in-doubt-follow-the-money), it might make sense.
 
