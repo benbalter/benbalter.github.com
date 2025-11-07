@@ -9,9 +9,10 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   try {
-    const post = await getPostData(params.slug);
+    const post = await getPostData(slug);
     return {
       title: `${post.title} - Ben Balter`,
       description: post.description,
@@ -23,11 +24,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export default async function Post({ params }: { params: { slug: string } }) {
+export default async function Post({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   let post;
   
   try {
-    post = await getPostData(params.slug);
+    post = await getPostData(slug);
   } catch (error) {
     notFound();
   }

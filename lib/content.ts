@@ -43,9 +43,17 @@ export function getAllPageSlugs() {
 
 export async function getPostData(slug: string): Promise<PostData> {
   const fileNames = fs.readdirSync(postsDirectory);
-  const fileName = fileNames.find((name) => name.includes(slug));
+  
+  // Find the file that contains the slug
+  const fileName = fileNames.find((name) => {
+    const match = name.match(/^\d{4}-\d{2}-\d{2}-(.+)\.md$/);
+    const fileSlug = match ? match[1] : name.replace(/\.md$/, '');
+    return fileSlug === slug;
+  });
   
   if (!fileName) {
+    console.error(`Post not found for slug: ${slug}`);
+    console.error(`Available files: ${fileNames.slice(0, 5).join(', ')}...`);
     throw new Error(`Post not found: ${slug}`);
   }
 

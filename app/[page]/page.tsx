@@ -8,9 +8,10 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { page: string } }) {
+export async function generateMetadata({ params }: { params: Promise<{ page: string }> }) {
+  const { page } = await params;
   try {
-    const pageData = await getPageData(params.page);
+    const pageData = await getPageData(page);
     return {
       title: `${pageData.title} - Ben Balter`,
       description: pageData.description,
@@ -22,11 +23,12 @@ export async function generateMetadata({ params }: { params: { page: string } })
   }
 }
 
-export default async function Page({ params }: { params: { page: string } }) {
+export default async function Page({ params }: { params: Promise<{ page: string }> }) {
+  const { page } = await params;
   let pageData;
   
   try {
-    pageData = await getPageData(params.page);
+    pageData = await getPageData(page);
   } catch (error) {
     notFound();
   }
