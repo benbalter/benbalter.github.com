@@ -12,7 +12,10 @@
     "@hotwired/turbo": "^8.0.5",
     "anchor-js": "^5.0.0",
     "bootstrap": "^5.3.3",
-    "fastest-levenshtein": "^1.0.16"
+    "fastest-levenshtein": "^1.0.16",
+    "next": "^16.0.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",
@@ -23,6 +26,8 @@
     "@types/anchor-js": "^5.0.3",
     "@types/bootstrap": "^5.2.10",
     "@types/node": "^20.14.9",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
     "@types/webpack": "^5.28.5",
     "@typescript-eslint/eslint-plugin": "^7.4.0",
     "autoprefixer": "^10.4.19",
@@ -92,6 +97,9 @@
   },
   "scripts": {
     "build": "npm run webpack",
+    "dev": "next dev",
+    "next:build": "next build",
+    "next:start": "next start",
     "lint": "npm run lint-js && npm run lint-json && npm run lint-md",
     "lint-js": "xo .remarkrc.js --ignore-pattern !.remarkrc.js --fix",
     "lint-json": "eslint . --ext json --fix",
