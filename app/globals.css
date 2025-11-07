@@ -1,0 +1,147 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.site-header {
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 40px;
+}
+
+.site-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.site-title a {
+  color: #333;
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.site-nav a {
+  color: #666;
+}
+
+.site-content {
+  min-height: 60vh;
+  padding: 20px 0;
+}
+
+.site-footer {
+  padding: 40px 0;
+  margin-top: 80px;
+  border-top: 1px solid #eee;
+  text-align: center;
+  color: #666;
+}
+
+.post-list {
+  list-style: none;
+}
+
+.post-list li {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #eee;
+}
+
+.post-list li:last-child {
+  border-bottom: none;
+}
+
+.post-date {
+  color: #999;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.post-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.post-description {
+  color: #666;
+}
+
+.post-content,
+.page-content {
+  line-height: 1.8;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.page-content h1,
+.page-content h2,
+.page-content h3 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.post-content p,
+.page-content p {
+  margin-bottom: 15px;
+}
+
+.post-content ul,
+.post-content ol,
+.page-content ul,
+.page-content ol {
+  margin-bottom: 15px;
+  margin-left: 30px;
+}
+
+.post-content code,
+.page-content code {
+  background: #f5f5f5;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+}
+
+.post-content pre,
+.page-content pre {
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin-bottom: 15px;
+}
+
+.post-content pre code,
+.page-content pre code {
+  background: none;
+  padding: 0;
+}

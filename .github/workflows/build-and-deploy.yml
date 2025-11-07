@@ -27,37 +27,20 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
 
-      - name: install libvips
-        run: |
-          sudo apt-get update
-          sudo apt-get install libvips-dev -y
-
       - name: Install dependencies
         run: npm ci
 
-      - name: Build assets
+      - name: Build Next.js site
         run: npm run build
-
-      #- name: Build related posts
-      #  run: bundle exec script/build-related-posts
-
-      - run: bundle exec jekyll build
-        env:
-          JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          JEKYLL_ENV: production
-          PAGES_ENV: dotcom
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
 
   deploy:
     environment:
