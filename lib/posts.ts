@@ -23,7 +23,7 @@ export interface Post extends PostMetadata {
 function parseFilename(filename: string): { date: string; slug: string } {
   const match = filename.match(/^(\d{4}-\d{2}-\d{2})-(.+)\.md$/);
   if (!match) {
-    throw new Error(`Invalid post filename format: ${filename}`);
+    throw new Error(`Invalid post filename format: ${filename}. Expected format: YYYY-MM-DD-slug.md`);
   }
   return {
     date: match[1],
@@ -61,7 +61,7 @@ export function getPostBySlug(year: string, month: string, day: string, slug: st
   const fullPath = path.join(postsDirectory, filename);
   
   if (!fs.existsSync(fullPath)) {
-    throw new Error(`Post not found: ${filename}`);
+    throw new Error(`Post not found: ${fullPath}`);
   }
   
   const fileContents = fs.readFileSync(fullPath, 'utf8');

@@ -31,13 +31,20 @@ echo "✅ Next.js build complete"
 echo "📦 Merging Next.js posts into _site..."
 
 # Copy all year directories (which contain the posts)
-for year_dir in .next-output/20*/; do
+# This finds any 4-digit year directories (e.g., 2023, 2024, etc.)
+for year_dir in .next-output/[0-9][0-9][0-9][0-9]/; do
   if [ -d "$year_dir" ]; then
     year=$(basename "$year_dir")
     echo "  Copying $year posts..."
     cp -r "$year_dir" "_site/"
   fi
 done
+
+# Copy blog index
+if [ -d ".next-output/blog" ]; then
+  echo "  Copying blog index..."
+  cp -r .next-output/blog _site/
+fi
 
 # Copy Next.js runtime and assets
 if [ -d ".next-output/_next" ]; then
