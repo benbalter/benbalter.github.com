@@ -8,6 +8,9 @@ const nextConfig = {
     unoptimized: true,
   },
   
+  // Output to _site directory (same as Jekyll) for GitHub Pages
+  distDir: '_site',
+  
   // Base path configuration (can be adjusted later)
   // basePath: '',
   
