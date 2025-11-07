@@ -99,6 +99,7 @@ plugins:
   - jekyll-github-metadata
   - jekyll-mentions
   - jekyll-og-image
+  - jekyll-include-cache
 
 sass:
   style: compressed
