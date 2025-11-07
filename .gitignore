@@ -32,4 +32,5 @@ assets/js/bundle.js.LICENSE.txt
 
 # Next.js build artifacts
 .next/
+.next-output/
 out/

@@ -8,8 +8,8 @@ const nextConfig = {
     unoptimized: true,
   },
   
-  // Output to _site directory (same as Jekyll) for GitHub Pages
-  distDir: '_site',
+  // Output to .next-output directory temporarily (will be merged to _site by build script)
+  distDir: '.next-output',
   
   // Base path configuration (can be adjusted later)
   // basePath: '',

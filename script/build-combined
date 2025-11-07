@@ -1,0 +1,55 @@
+#!/bin/bash
+# Build script that combines Jekyll and Next.js output to _site directory
+
+set -e
+
+echo "🏗️  Building combined Jekyll + Next.js site..."
+
+# Step 1: Build Jekyll site to _site
+echo "📝 Building Jekyll site..."
+if [ -n "$JEKYLL_GITHUB_TOKEN" ] || [ -n "$GITHUB_TOKEN" ]; then
+  export JEKYLL_GITHUB_TOKEN="${JEKYLL_GITHUB_TOKEN:-$GITHUB_TOKEN}"
+fi
+export DISABLE_WHITELIST=true
+
+# Use bundle exec if Gemfile exists, otherwise use jekyll directly
+if [ -f "Gemfile" ]; then
+  bundle exec jekyll build --config _config.yml,_config_test.yml || { echo "❌ Jekyll build failed"; exit 1; }
+else
+  jekyll build --config _config.yml,_config_test.yml || { echo "❌ Jekyll build failed"; exit 1; }
+fi
+
+echo "✅ Jekyll build complete"
+
+# Step 2: Build Next.js (to .next-output directory)
+echo "⚛️  Building Next.js posts..."
+npm run next:build || { echo "❌ Next.js build failed"; exit 1; }
+
+echo "✅ Next.js build complete"
+
+# Step 3: Copy Next.js output to _site, overwriting Jekyll's post pages
+echo "📦 Merging Next.js posts into _site..."
+
+# Copy all year directories (which contain the posts)
+for year_dir in .next-output/20*/; do
+  if [ -d "$year_dir" ]; then
+    year=$(basename "$year_dir")
+    echo "  Copying $year posts..."
+    cp -r "$year_dir" "_site/"
+  fi
+done
+
+# Copy Next.js runtime and assets
+if [ -d ".next-output/_next" ]; then
+  echo "  Copying Next.js runtime..."
+  cp -r .next-output/_next _site/
+fi
+
+# Copy 404 page if it exists and doesn't conflict
+if [ -f ".next-output/404.html" ] && [ ! -f "_site/404.html" ]; then
+  echo "  Copying Next.js 404 page..."
+  cp .next-output/404.html _site/
+fi
+
+echo "✅ Build complete! Site ready in _site/"
+echo "🚀 You can now deploy the _site directory to GitHub Pages"
