@@ -99,7 +99,10 @@
     "url": "git+https://github.com/benbalter/benbalter.github.com.git"
   },
   "scripts": {
-    "build": "npm run webpack",
+    "build": "script/build-combined",
+    "build:webpack": "webpack",
+    "build:jekyll": "bundle exec jekyll build",
+    "build:next": "next build",
     "dev": "next dev",
     "next:build": "next build",
     "next:start": "next start",
