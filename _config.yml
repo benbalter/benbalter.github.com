@@ -31,6 +31,7 @@ social:
 exclude:
   - /CONTRIBUTING.md
   - /README.md
+  - /NEXTJS_README.md
   - /LICENSE
   - /bundle
   - /src
@@ -67,6 +68,14 @@ exclude:
   - /spec/
   - /comments.xml
   - /docker-compose.yml
+  - /app
+  - /lib
+  - /out
+  - /.next
+  - /next-env.d.ts
+  - /next.config.mjs
+  - /tsconfig.json
+  - /tsconfig.tsbuildinfo
 
 permalink: "/:year/:month/:day/:title/"
 defaults:
