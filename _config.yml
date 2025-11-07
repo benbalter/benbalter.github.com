@@ -103,8 +103,6 @@ plugins:
 sass:
   style: compressed
 
-theme: retlab
-
 gist:
   noscript: false
 
