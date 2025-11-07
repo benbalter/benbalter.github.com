@@ -31,6 +31,11 @@ export default async function PostPage({ params }: Props) {
   const post = getPostBySlug(year, month, day, slug);
   const content = await markdownToHtml(post.content);
   
+  // Security note: dangerouslySetInnerHTML is used here for markdown content.
+  // All content comes from _posts/ directory which is controlled by the site owner.
+  // post.title and post.description are rendered as React text children and are
+  // automatically escaped by React to prevent XSS.
+  
   return (
     <main>
       <article>

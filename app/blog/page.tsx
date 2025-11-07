@@ -9,6 +9,10 @@ export const metadata = {
 export default function BlogIndex() {
   const posts = getAllPosts();
   
+  // Note: post.title and post.description are rendered as React text children,
+  // which are automatically escaped by React to prevent XSS.
+  // All content comes from _posts/ directory controlled by site owner.
+  
   return (
     <main>
       <h1>Blog Posts</h1>
