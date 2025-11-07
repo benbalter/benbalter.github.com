@@ -52,8 +52,6 @@ export async function getPostData(slug: string): Promise<PostData> {
   });
   
   if (!fileName) {
-    console.error(`Post not found for slug: ${slug}`);
-    console.error(`Available files: ${fileNames.slice(0, 5).join(', ')}...`);
     throw new Error(`Post not found: ${slug}`);
   }
 
@@ -64,6 +62,8 @@ export async function getPostData(slug: string): Promise<PostData> {
   const { data, content } = matter(fileContents);
 
   // Convert markdown to HTML
+  // Note: sanitize is disabled because the content is from trusted markdown files,
+  // not user-generated content. All posts are authored and reviewed before deployment.
   const processedContent = await remark()
     .use(remarkGfm)
     .use(html, { sanitize: false })
@@ -97,6 +97,8 @@ export async function getPageData(slug: string): Promise<PageData> {
   const { data, content } = matter(fileContents);
 
   // Convert markdown to HTML
+  // Note: sanitize is disabled because the content is from trusted markdown files,
+  // not user-generated content. All pages are authored and reviewed before deployment.
   const processedContent = await remark()
     .use(remarkGfm)
     .use(html, { sanitize: false })

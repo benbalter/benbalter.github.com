@@ -103,7 +103,6 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next build",
     "webpack": "webpack",
     "lint": "npm run lint-js && npm run lint-json && npm run lint-md",
     "lint-js": "xo .remarkrc.js --ignore-pattern !.remarkrc.js --fix",
