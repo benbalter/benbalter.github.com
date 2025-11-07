@@ -17,15 +17,15 @@ bundle exec jekyll build
 # Step 3: Copy Next.js post pages over Jekyll's post pages
 echo "Step 3: Merging Next.js posts into _site..."
 
-# Remove Jekyll-generated post pages
-if [ -d "_site/20" ]; then
+# Remove Jekyll-generated post pages (any 4-digit year directories)
+if [ -d "_site" ]; then
   echo "Removing Jekyll-generated posts..."
-  rm -rf _site/20*/
+  find _site -maxdepth 1 -type d -name '[0-9][0-9][0-9][0-9]' -exec rm -rf {} \; 2>/dev/null || true
 fi
 
-# Copy Next.js-generated posts
+# Copy Next.js-generated posts (any 4-digit year directories)
 echo "Copying Next.js-generated posts..."
-cp -r out/20*/ _site/ 2>/dev/null || true
+find out -maxdepth 1 -type d -name '[0-9][0-9][0-9][0-9]' -exec cp -r {} _site/ \; 2>/dev/null || true
 
 # Copy Next.js static assets (_next directory)
 echo "Copying Next.js static assets..."

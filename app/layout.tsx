@@ -30,7 +30,6 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="msapplication-TileColor" content="#2d89ef" />
-        <meta name="theme-color" content="#337ab7" />
         
         {/* Main stylesheet from Jekyll build */}
         <link href="/assets/css/style.css" rel="stylesheet" media="screen" />
