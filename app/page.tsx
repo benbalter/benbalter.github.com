@@ -8,7 +8,7 @@ export default async function Home() {
   const activePosts = posts.filter(post => !post.archived);
 
   return (
-    <main className="container">
+    <>
       {activePosts.map(post => (
         <div key={`${post.year}-${post.month}-${post.day}-${post.slug}`} className="row mb-2">
           <div className="col-sm-9">
@@ -27,6 +27,6 @@ export default async function Home() {
           </div>
         </div>
       ))}
-    </main>
+    </>
   );
 }

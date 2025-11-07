@@ -59,41 +59,39 @@ export default async function PostPage({ params }: PostPageProps) {
   });
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-10 offset-md-1">
-          <article className={`post post-${slug}`}>
-            <h1 className="display-4 text-primary">{post.title}</h1>
-            
-            {post.archived && (
-              <div className="alert alert-warning" role="alert">
-                <strong>❗ Heads up!</strong> This post is archived and here for historical purposes. 
-                It may no longer be accurate or reflect my views. Proceed at your own risk.
-              </div>
-            )}
-
-            <div className="mb-2 text-muted small">
-              Published {dateString}
+    <div className="row">
+      <div className="col-md-10 offset-md-1">
+        <article className={`post post-${slug}`}>
+          <h1 className="display-4 text-primary">{post.title}</h1>
+          
+          {post.archived && (
+            <div className="alert alert-warning" role="alert">
+              <strong>❗ Heads up!</strong> This post is archived and here for historical purposes. 
+              It may no longer be accurate or reflect my views. Proceed at your own risk.
             </div>
+          )}
 
-            <div 
-              className="entrybody"
-              dangerouslySetInnerHTML={{ __html: post.content }}
-            />
+          <div className="mb-2 text-muted small">
+            Published {dateString}
+          </div>
 
-            <div className="mb-2 text-muted small">
-              Originally published {dateString} | 
-              <a 
-                className="link-secondary" 
-                href={`https://github.com/benbalter/benbalter.github.com/commits/main/_posts/${year}-${month}-${day}-${slug}.md`}
-                target="_blank" 
-                rel="noopener"
-              >
-                {' '}View revision history
-              </a>
-            </div>
-          </article>
-        </div>
+          <div 
+            className="entrybody"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
+
+          <div className="mb-2 text-muted small">
+            Originally published {dateString} | 
+            <a 
+              className="link-secondary" 
+              href={`https://github.com/benbalter/benbalter.github.com/commits/main/_posts/${year}-${month}-${day}-${slug}.md`}
+              target="_blank" 
+              rel="noopener"
+            >
+              {' '}View revision history
+            </a>
+          </div>
+        </article>
       </div>
     </div>
   );
