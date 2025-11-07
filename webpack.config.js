@@ -14,8 +14,7 @@ const config = {
   },
   mode: 'production',
   plugins: [
-    new MiniCssExtractPlugin({ filename: 'css/style.css' }),
-    autoprefixer
+    new MiniCssExtractPlugin({ filename: 'css/style.css' })
   ],
   optimization: {
     minimize: true
