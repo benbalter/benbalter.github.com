@@ -58,13 +58,13 @@ This repository includes a devcontainer configuration (`.devcontainer/devcontain
 
 ### Setup
 ```bash
-script/bootstrap        # Recommended: runs all setup steps
+script/bootstrap        # Recommended: runs script/branding, bundle install, and npm install
 # OR manually:
 bundle install          # Install Ruby dependencies
 npm install            # Install Node.js dependencies
 ```
 
-**Note:** The `script/bootstrap` script also runs `script/branding` and is the preferred setup method.
+**Note:** The `script/bootstrap` script runs `script/branding` (sets up branding), `bundle install` (installs Ruby gems), and `npm install` (installs Node packages). It is the preferred setup method.
 
 ### Building
 ```bash
@@ -281,7 +281,7 @@ The following are generated and should never be committed (already in `.gitignor
 - `assets/js/bundle.js`: Compiled JavaScript (built with webpack)
 - `.sass-cache/`: Sass compilation cache
 - `.jekyll-cache/` and `.jekyll-metadata`: Jekyll build cache
-- `Gemfile.lock`: Locked in production but not committed
+- `Gemfile.lock`: Not committed (GitHub Pages manages Ruby dependency versions)
 
 ### Development Workflow
 1. Create a feature branch: `git checkout -b feature-name`
@@ -304,7 +304,10 @@ The following are generated and should never be committed (already in `.gitignor
 ### Common Issues
 
 **Jekyll build fails with "command not found: bundle"**
-- Solution: Run `gem install bundler` or use the devcontainer
+- First check if Ruby is installed: `ruby --version`
+- If Ruby is missing, install Ruby 3.3.5 (see `.ruby-version`)
+- Then install bundler: `gem install bundler`
+- Or use the devcontainer which has everything pre-configured
 
 **Missing libvips library error**
 - Solution: Install libvips: `sudo apt-get install libvips-dev`
@@ -315,8 +318,9 @@ The following are generated and should never be committed (already in `.gitignor
 - Check for running processes: `lsof -i :4000`
 
 **Asset compilation errors**
-- Solution: Run `npm run webpack` to rebuild JavaScript/CSS bundles
+- Solution: Rebuild JavaScript/CSS bundles with `npm run build` or `npm run webpack`
 - Ensure all npm dependencies are installed: `npm install`
+- Check `webpack.config.js` for configuration issues
 
 **Test failures after changes**
 - Check if changes broke front matter requirements
