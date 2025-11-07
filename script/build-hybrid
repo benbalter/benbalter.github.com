@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+# Build script that combines Jekyll and Next.js outputs
+# Jekyll handles everything, Next.js handles blog posts
+
+set -e
+
+echo "Building site with Jekyll + Next.js hybrid approach..."
+
+# Step 1: Build Next.js posts
+echo "Step 1: Building blog posts with Next.js..."
+npm run next:build
+
+# Step 2: Build Jekyll site (including everything)
+echo "Step 2: Building site with Jekyll..."
+bundle exec jekyll build
+
+# Step 3: Copy Next.js post pages over Jekyll's post pages
+echo "Step 3: Merging Next.js posts into _site..."
+
+# Remove Jekyll-generated post pages
+if [ -d "_site/20" ]; then
+  echo "Removing Jekyll-generated posts..."
+  rm -rf _site/20*/
+fi
+
+# Copy Next.js-generated posts
+echo "Copying Next.js-generated posts..."
+cp -r out/20*/ _site/ 2>/dev/null || true
+
+# Copy Next.js static assets (_next directory)
+echo "Copying Next.js static assets..."
+if [ -d "out/_next" ]; then
+  rm -rf _site/_next
+  cp -r out/_next _site/
+fi
+
+# Note: Keep Jekyll's index page for now (list of posts)
+# Could optionally replace it with Next.js version:
+# cp out/index.html _site/index.html
+
+echo "✓ Build complete! Site is in _site/"
+echo ""
+echo "Posts are served by Next.js, everything else by Jekyll."
