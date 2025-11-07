@@ -1,0 +1,14 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Ben Balter
+N:Balter;Ben
+NICKNAME:@benbalter
+EMAIL:ben@balter.com
+KEY;TYPE=PGP:https://ben.balter.com/key.asc
+PHOTO;TYPE=JPEG;VALUE=URI:https://ben.balter.com/assets/img/headshot.jpg
+SOURCE:https://ben.balter.com/vcard.vcf
+TITLE:Director of Engineering Operations and Culture
+ORG:GitHub
+TZ:America/New_York
+URL:https://ben.balter.com
+END:VCARD

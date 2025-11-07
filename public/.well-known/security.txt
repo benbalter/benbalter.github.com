@@ -1,0 +1,5 @@
+Contact: mailto:ben@balter.com
+Expires: 2026-05-05T00:00:00+00:00
+Encryption: https://ben.balter.com/key.asc
+Canonical: https://ben.balter.com/.well-known/security.txt
+Policy: https://github.com/benbalter/benbalter.github.com/security/policy

@@ -1,0 +1,17 @@
+# Ben Balter
+
+> Technology leadership, collaboration, and open source
+
+Ben Balter is the Director of Engineering Operations and Culture at GitHub, the world's largest software development platform. He helps teams build better software by applying open source principles to internal processes, focusing on asynchronous communication, documentation, and inclusive decision-making.
+
+## About and Professional Information
+
+* [About](https://ben.balter.com/about/): More about Ben Balter
+* [Resume](https://ben.balter.com/resume/): Professional experience and background
+* [Contact](https://ben.balter.com/contact/): Get in touch
+
+## Site Information
+
+* [RSS Feed](https://ben.balter.com/feed/rss.xml): Subscribe to all posts
+* [Site Source Code](https://github.com/benbalter/benbalter.github.com): This site's Next.js source code on GitHub
+* [Fine Print](https://ben.balter.com/fine-print/): Legal information and site policies

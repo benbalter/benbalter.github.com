@@ -1,0 +1,8 @@
+/* SITE */
+Last Updated: 2025/01/01
+Standards: HTML5, CSS3
+Components: Next.js, React
+
+/* TEAM */
+Name: benbalter
+Site: https://github.com/benbalter
