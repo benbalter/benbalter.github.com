@@ -200,6 +200,30 @@ Blog posts must include:
 - [Site Source Code](https://github.com/benbalter/benbalter.github.com)
 - [Ben Balter's Blog](https://ben.balter.com)
 
+## Custom Agents
+
+This repository includes specialized GitHub Copilot custom agents in `.github/agents/`:
+
+### Code Agent (`code.md`)
+Specialized for code-related tasks including:
+- Ruby (Jekyll plugins, RSpec tests, Rake tasks)
+- JavaScript/TypeScript (Next.js, webpack, linting)
+- HTML/Liquid templates
+- SCSS/CSS styling
+- Configuration files (YAML, JSON)
+
+Use this agent for development tasks that involve modifying or creating code files.
+
+### Writing Agent (`writing.md`)
+Specialized for content creation and editing including:
+- Blog posts (Markdown with front matter)
+- Technical documentation
+- README and guide files
+- SEO optimization
+- Style and grammar compliance
+
+Use this agent for creating or editing blog posts and documentation.
+
 ## Notes for Copilot
 - This is a **production website**—be conservative with changes
 - Preserve existing functionality unless explicitly asked to modify
