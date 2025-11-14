@@ -28,6 +28,15 @@ npm run next:build   # Build Next.js for production (outputs to /out)
 npm run next:start   # Start Next.js production server
 ```
 
+## GitHub Copilot Custom Agents
+
+This repository includes specialized GitHub Copilot custom agents to assist with development:
+
+- **Code Agent**: For Ruby, JavaScript/TypeScript, HTML/Liquid, and CSS development
+- **Writing Agent**: For blog posts and documentation
+
+See `.github/agents/` for their configurations.
+
 ## License
 
 * Content: [Creative Commons, BY](http://creativecommons.org/licenses/by/3.0/)
