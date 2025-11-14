@@ -14,7 +14,7 @@ There is a generation of communications directors and public affairs vice presid
 
 Simply put, Twitter is not a dumping ground for pre-vetted paper.[^3] The occasional typo or personal quip doesn't hurt a company's reputation, but rather humanizes it. So long as GWToday (or any corporate handle for that matter) falls short of sharing a [picture of what they're having for lunch](https://twitter.com/search?q=nom%20pic.twitter.com), we can only hope that they continue to be the model for establishing an online presence, rather than the exception.
 
-*\[Photo: [tranchis](http://www.flickr.com/photos/tranchis/3708549622/)]*
+*[Photo: [tranchis](http://www.flickr.com/photos/tranchis/3708549622/)]*
 
 [^1]: Without too much of a history lesson, see, for example, Abraham Lincoln overseeing the Civil War from the telegraph office ushering in a new era of hands-on presidential leadership; home telephones giving rise to entire industries dedicated to interrupting families' dinners; Blackberrys changing business email etiquette.
 
