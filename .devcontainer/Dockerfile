@@ -37,5 +37,6 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
         fonts-kacst \
         fonts-freefont-ttf \
         libxss1 \
+        yamllint \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
