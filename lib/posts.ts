@@ -66,11 +66,6 @@ export function getPostBySlug(slug: string): Post | null {
   return posts.find(post => post.slug === slug) || null;
 }
 
-export function getPostByDate(year: string, month: string, day: string, slug: string): Post | null {
-  const posts = getAllPosts();
-  return findPostByDate(posts, year, month, day, slug);
-}
-
 export function getAllPostParams(): Array<{year: string; month: string; day: string; slug: string}> {
   const posts = getAllPosts();
   
