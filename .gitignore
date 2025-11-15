@@ -33,3 +33,8 @@ assets/js/bundle.js.LICENSE.txt
 # Next.js build artifacts
 .next/
 out/
+
+# Playwright artifacts
+/test-results/
+/playwright-report/
+/playwright/.cache/
