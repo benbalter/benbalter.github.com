@@ -70,13 +70,15 @@ export function getAllPostParams(): Array<{year: string; month: string; day: str
   const posts = getAllPosts();
   
   return posts.map(post => {
-    const [year, month, day, ...rest] = post.slug.split('-');
-    return {
-      year,
-      month,
-      day,
-      slug: rest.join('-'),
-    };
+    // Use regex to extract year, month, day, and slug from post.slug
+    const match = post.slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
+    if (match) {
+      const [, year, month, day, slug] = match;
+      return { year, month, day, slug };
+    } else {
+      // Fallback: return undefined values if pattern doesn't match
+      return { year: '', month: '', day: '', slug: post.slug };
+    }
   });
 }
 
