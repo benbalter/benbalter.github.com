@@ -1,0 +1,68 @@
+---
+title: The seven habits of highly effective GitHubbers
+description: GitHub has a unique work culture. Here are seven traits that I've observed
+  in successful GitHubbers over the years that I think make GitHubbers more effective.
+  Specifically, [professional, but not formal](#1-professional-but-not-formal); [ship
+  early, ship often](#2-ship-early-ship-often); [if you see something, say something](#3-if-you-see-something-say-something);
+  [curiosity and self-improvement](#4-curiosity-and-self-improvement); [always be
+  willing to help](#5-always-be-willing-to-help-but-know-when-to-say-no); [contribute
+  to the appreciation economy](#6-contribute-to-the-appreciation-economy); and [honesty,
+  integrity, and authenticity](#7-honesty-integrity-and-authenticity).
+date: '2016-09-13'
+---
+
+I started working at GitHub when we were just over a hundred employees. A few weeks ago, we passed 600. A lot has changed, including the people (and my role several times), but a lot has also remained the same. GitHub has a unique work culture, and as I recently struggled to describe that culture to my coworkers, I decided instead to document some of the common traits I've consistently observed in successful GitHubbers. There are likely more than seven, but I couldn't pass up the title, so here are at least *some* of the qualities that I think make GitHub employees more effective, and ultimately more successful:
+
+## 1. Professional, but not formal
+
+There's a difference between being professional and being formal. Being professional is defined by mastery of one's craft. Professionals are efficient. They're methodical. They're systematic. They're organized. Professionals carry out the task at hand without being overly distracted by personal or petty concerns. Formality is about a strict adherence to rule and convention, often at the cost of efficiency. Formalism is about stiffness. About being overly concerned with ceremony over substance. About a focus on outward appearance over actually shipping.
+
+You can be professional without being formal. When you get a pull request, you can respond tactfully, be helpful, and display technical prowess, without beginning your response "Dear sir or madam, I am in receipt of your pull request dated 2nd of November, 2016…". You can use emoji, animated GIFs, and a human-centric tone to conduct business,[^1] while still maintaining laser-like focus on the job to be done. Highly effective GitHubbers know the difference between professionalism and formality, are always professional, and are only formal when the situation requires it.[^2]
+
+## 2. Ship early, ship often
+
+If there's one phrase that epitomizes successful engineers at GitHub, it's "don't let perfect be the enemy of good", but that mantra can be extended to just about any craft. In everyday development, we make liberal use of what we call "feature flags", essentially a line of code that lets us ship features to a team, to all staff, or to a subset of users with the click of a button. Almost without exception, as a new feature is being developed, it's exposed to the team responsible for early feedback. After a round (or several) of improvements, its shipped to staff for further tire-kicking, and if things goes well, it's slowly rolled out to users. Again, we use this most often for code, but there's no reason the same process can't be applied to a document, a policy, or a program. In short, you want to ship 0.1, not 1.0 (and set expectations accordingly).
+
+There's two sides to this. First, lots of ideas don't make it past the idea stage, past the pull request stage, past the team ship stage, or even the staff ship phase, but it's far preferable to learn that something isn't a good fit before it hits `main` than it is to learn it after users have begun relying on the feature. One of the worst things you can do is "hide" code for fear of negative feedback. At the same time, it's important to balance endless optimizations and polish with the potential impact or improvement to ensure you're always making forward progress. Even if a peer's code review reveals that an internal script could be rewritten in fewer lines, you need to decide if your time is better spent focusing elsewhere, even if you know it's not yet perfect (and may never be). That's okay. Effective GitHubbers [surface work early for feedback](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#surface-work-early-for-feedback), and consistently get small increments of features into the hands of users as quickly as possible, as they strive towards perfection, not after they've ultimately achieved it. In a single buzzword, *iterate*.
+
+## 3. If you see something, say something
+
+They say that once you've gotten off the ground, [the hardest part of software development is finding the problem, not solving it](https://en.wikipedia.org/wiki/Linus%27s_Law). At GitHub we have a strong tradition of "staff shipping" features for a day, a week, even a few months to get a better sense of how the feature performs within the context of a user's workflow. [We're among our most critical users](https://ben.balter.com/2016/08/22/ten-ways-to-make-a-product-great/#drink-your-own-champagne), the idea being, that when something goes awry, we can be the first to notice. Whether it's a staff-only feature, or a feature that's been baked into the product for years, we'd much rather a fellow GitHubber find (and report) the problem, than subjecting a user to the experience.
+
+[Issues are cheap](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#nobody-gets-fired-for-delbuying-ibmdel-opening-an-issue) and are easily closed if not in order. If you see something that looks wonky, even if you're not sure if it's a thing or not, open an issue and cc the relevant team. Worst case scenario, they say thank you and close the issue. Best case scenario, without writing a single line of code, you just made the product better (by exposing an otherwise, unknown problem). But you can take that idea a step further: [borrowing a page from the Boy Scouts handbook](http://programmer.97things.oreilly.com/wiki/index.php/The_Boy_Scout_Rule), when fixing an unrelated bug or implementing a new feature, always leave the codebase better than you found it, regardless of who originally made the mess. Effective GitHubbers take ownership of the product as a whole and personally invest in its success whenever they see something that could be better (even if not directly responsible).
+
+## 4. Curiosity and self-improvement
+
+Curiosity is a core component of [the hacker way](https://ben.balter.com/2013/02/04/what-is-a-hacker/#the-hacker-way). For some, there's a constant intellectual itch just begging to be scratched, be it with code, with policy, or with systems and processes. For these people, the world is full of problems just waiting to be solved. Just as athletes seek delight in pushing their bodies past their physical limits, hackers seek the thrill of pushing themselves (and their tools) beyond what is known, what is solved, and what is possible.
+
+At GitHub, there's a strong history of rewarding that curiosity. Most formally, we have a reading stipend, whereby GitHubbers are encouraged to constantly refine their craft (and learn new ones). Beyond that, there's a sense that if you see something you don't know or understand, you can (and should) take the time to understand it. That could be a new part of the application or an entirely new language or technology. The worst thing you can do, when you experience something unknown is to give up or consider yourself blocked. Effective GitHubbers nurture this curiosity and constantly strive to improve themselves, both personally and professionally.
+
+## 5. Always be willing to help (but know when to say "no")
+
+One of the things that I first noticed when I joined GitHub was that my fellow Hubbers were always willing to help. I could jump into any channel, née chatroom (we use chat for just about everything), ask a question about a topic with which I was unfamiliar, and within seconds, several Hubbers would drop what they were doing to help, not just to explain how to do whatever it was that I was trying to do, but to walk me through the process itself. Later, I recognized a similar and parallel long-standing tradition of over-documenting as you worked, to help future generations of Hubbers continue your efforts where you left off. That dedication to going out of your way to empower others to contribute was by-and-large the rule, not the exception.
+
+To be fair though, "always be willing to help" is a bit of an overstatement. Effective GitHubbers also know when to say "no" to a request. At a certain point you'll realize that you are presented with more opportunities than you have time to act on. That means that you have to prioritize which asks of your time have the highest potential impact, and decline the rest. You quickly learn that saying "no" to the lower-impact task allows you to tackle the higher impact one (and appreciate the same, when asking for the time of others). We're all experts at something: a part of the codebase, a process, a particular subject matter, or that thing that you did last week. Effective Hubbers take the time to share their knowledge to ensure that other Hubbers can be even more effective.
+
+## 6. Contribute to the appreciation economy
+
+Likely influenced by [Rework](https://www.amazon.com/dp/B002MUAJ2A/?tag=benbalter07-20), which suggests that in many cases, public recognition is going to be a more appropriate response to someone going above-and-beyond than a monetary reward,[^3] it could be said that GitHub operates on somewhat of an appreciation economy. What I mean by that, is that appreciation (in the emotional sense) is the currency that makes many of the day-to-day interactions at GitHub possible. For a while, that took the form of company-wide "shoutout" every Friday (for example, "shoutout to Ben for taking the time to help me learn X"), but as you can imagine, that didn't scale as the company grew.
+
+Today, that appreciation economy often takes the form of the `.sparkles` or tongue-in-cheek roles ChatOps commands, posts to our internal Team blog, and a culture of going out of your way to give credit where credit is due, either on an in-progress issue, in private direct messages, or indirectly through a manager. You can see it in other forms as well. There's a reason new feature announcements are almost without exception authored by the team that created the feature, rather than a faceless corporate account. Effective GitHubbers realize that they're more effective when they work together, and they make it known that their coworkers' contributions are appreciated, not only to recognize and reward their coworkers efforts, but also to further a culture where others continue to do the same.
+
+## 7. Honesty, integrity, and authenticity
+
+All throughout GitHub lore we have phrases like "speak like a human" and "when in doubt, be classy". Granted no one's always perfect, these are more than mere buzzwords.[^4] Externally, that takes the form of viewing [markets as conversations](http://www.cluetrain.com/book/markets.html), with individual GitHubbers participating as human proxies. Internally, there's a strong sense that action speaks louder than words. It's one thing to say you'll be transparent or collaborative, it's another thing to work in the open, provide opportunities to participate, and ultimately implement the feedback you receive.
+
+While here in the Beltway there may be a strong tradition of gushing "it's so great to see you!", even when everyone knows it isn't, or using double speak to gloss over a prior misstep, at GitHub, there's a premium placed on remaining true to GitHub's values (and your own), and thus a heavy price, at least in terms of trust and social capital, for hypocrisy and inconsistency, no matter how small. This is as true of technical failure as it is of human error, both often taking the form of a blameless postmortem or retrospective. Implicit in that belief is also a willingness to work past one's own self-consciousness, to have the awkward conversations (often made more difficult by being remote), even when you don't want to. Effective GitHubbers speak openly, whether positive or negative, and consistently do what they say they'll do (or that others should).
+
+These are some of the common traits that I've witnessed in successful GitHubbers over the years. Your millage may vary, but as I try to describe some of the more unique aspects of GitHub's work culture, I figured I'd share my observations in hopes that they help make you more effective as well, both in GitHub, and out.
+
+{% include_cached github-culture.html %}
+
+[^2]: Case in point, I wore a suit for the majority of my first three years at GitHub. I also used words like "heretofore" a lot. Even in our legal writing, we strive for human readability over tradition or obfuscation by legalese.
+
+[^3]: You should really read [Rework](https://www.amazon.com/dp/B002MUAJ2A/?tag=benbalter07-20), but TL;DR: when you create a one-to-one relationship between doing something you love and formal compensation, you make doing that thing you love a means to an end as the more tangible financial value supplants the less tangible emotional or intellectual value you once derived from the activity.
+
+[^1]: I'd argue that, especial on distributed teams, emoji and animated GIFs can actually help get the job done, by overcompensating for the tone that's often lost over lower-fidelity mediums.
+
+[^4]: It's true however, that all millennials prefer "#authentic" experiences.
