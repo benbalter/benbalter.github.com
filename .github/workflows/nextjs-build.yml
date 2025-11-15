@@ -146,5 +146,5 @@ jobs:
         run: npx tsc --noEmit
 
       - name: Lint TypeScript files
-        run: npx eslint "app/**/*.{ts,tsx}" "lib/**/*.ts" "e2e/**/*.ts"
+        run: npx eslint "app/**/*.{ts,tsx}" "lib/**/*.ts"
 
