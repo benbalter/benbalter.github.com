@@ -113,8 +113,8 @@ export async function checkLinksValid(page: Page, selector = 'a[href]') {
  * Wait for page to be fully loaded including images
  */
 export async function waitForFullLoad(page: Page) {
-  await page.waitForLoadState('networkidle');
   await page.waitForLoadState('domcontentloaded');
+  await page.waitForLoadState('networkidle');
 }
 
 /**
