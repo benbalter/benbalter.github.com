@@ -41,10 +41,11 @@ test.describe('Homepage', () => {
 
   test('should display blog posts', async ({ page }) => {
     // Check for post listings or content
-    const posts = page.locator('article, .post, [class*="post"]');
-    const count = await posts.count();
+    // Posts are displayed in rows with links
+    const postLinks = page.locator('a[href*="/20"]'); // Blog posts have year in URL
+    const count = await postLinks.count();
     
-    // Should have at least some content
+    // Should have at least some blog post links
     expect(count).toBeGreaterThan(0);
   });
 
