@@ -73,6 +73,42 @@ This repository includes specialized GitHub Copilot custom agents to assist with
 
 See `.github/agents/` for their configurations.
 
+## Testing
+
+### RSpec Tests (Ruby)
+
+The repository includes RSpec tests for Jekyll site structure and front matter validation:
+
+```bash
+bundle exec rspec
+```
+
+### Playwright E2E Tests
+
+Comprehensive end-to-end tests using Playwright test the site on Chromium:
+
+```bash
+# Run all E2E tests
+npm run test:e2e
+
+# Run tests in UI mode for debugging
+npm run test:e2e:ui
+
+# Run tests in headed mode
+npm run test:e2e:headed
+```
+
+**Test Coverage:** 115 unique tests
+
+Tests cover:
+- Homepage, blog posts, resume, and static pages
+- Accessibility (WCAG compliance, keyboard navigation)
+- Performance (load times, asset optimization)
+- SEO (meta tags, Open Graph, structured data)
+- Responsive design
+
+See [e2e/README.md](e2e/README.md) for detailed testing documentation.
+
 ## License
 
 * Content: [Creative Commons, BY](http://creativecommons.org/licenses/by/3.0/)
