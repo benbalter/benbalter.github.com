@@ -87,4 +87,4 @@ Use the issue description to link to related issues and provide context. Use the
 
 By separating these concerns, you'll find that both conversations become more focused, reviews go faster, and your team makes better decisions. Issues help you build the right thing. Pull requests help you build the thing right. Both are essential, but they're not the same thing.
 
-{% include\_cached github-culture.html %}
+{% include_cached github-culture.html %}
