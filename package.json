@@ -108,7 +108,7 @@
   "scripts": {
     "build": "npm run webpack",
     "dev": "next dev",
-    "next:build": "next build",
+    "next:build": "next build && node script/generate-redirects.mjs",
     "next:start": "serve out",
     "lint": "npm run lint-js && npm run lint-json && npm run lint-md",
     "lint-js": "xo .remarkrc.js --ignore-pattern !.remarkrc.js --fix",
