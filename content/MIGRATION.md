@@ -92,22 +92,22 @@ Data files (YAML) copied as-is - no changes needed.
 
 12 posts use `redirect_from` frontmatter (Jekyll redirect plugin). These have been preserved as `_legacy_redirect_from` and will need alternative implementation:
 
-* 2011–08–29-wp-document-revisions-document-management-version-control-wordpress.md
-* 2011–11–29-towards-a-more-agile-government.md
-* 2013–02–04-what-is-a-hacker.md
-* 2014–01–27-open-collaboration.md
-* 2014–09–29-our-code-deserves-better.md
-* 2014–09–29-source-disclosed-is-not-the-same-as-open-source.md
-* 2014–10–08-why-government-contractors-should-embrace-open-source.md
-* 2014–11–06-rules-of-communicating-at-github.md
-* 2014–11–24-open-source-policy.md
-* 2015–02–20-jekyll-collections.md
-* 2015–12–08-types-of-pull-requests.md
-* 2016–10–31-eight-things-i-wish-i-knew-my-first-week-at-github.md
-* 2020–08–31-trust-and-safety-features-to-build-into-your-product-before-someone-gets-hurt.md
-* 2021–03–26-nine-things-a-technical-program-manager-does.md
-* 2021–06–15-how-to-moderate-open-source-conversations-to-keep-them-productive.md
-* 2023–12–08-cathedral-bazaar-management.md
+* 2011-08-29-wp-document-revisions-document-management-version-control-wordpress.md
+* 2011-11-29-towards-a-more-agile-government.md
+* 2013-02-04-what-is-a-hacker.md
+* 2014-01-27-open-collaboration.md
+* 2014-09-29-our-code-deserves-better.md
+* 2014-09-29-source-disclosed-is-not-the-same-as-open-source.md
+* 2014-10-08-why-government-contractors-should-embrace-open-source.md
+* 2014-11-06-rules-of-communicating-at-github.md
+* 2014-11-24-open-source-policy.md
+* 2015-02-20-jekyll-collections.md
+* 2015-12-08-types-of-pull-requests.md
+* 2016-10-31-eight-things-i-wish-i-knew-my-first-week-at-github.md
+* 2020-08-31-trust-and-safety-features-to-build-into-your-product-before-someone-gets-hurt.md
+* 2021-03-26-nine-things-a-technical-program-manager-does.md
+* 2021-06-15-how-to-moderate-open-source-conversations-to-keep-them-productive.md
+* 2023-12-08-cathedral-bazaar-management.md
 
 ## Required Next.js Implementation
 

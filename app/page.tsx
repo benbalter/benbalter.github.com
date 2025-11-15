@@ -1,4 +1,4 @@
-import { getAllPosts } from '@/lib/posts';
+import { getAllPosts, getPostUrlParts } from '@/lib/posts';
 import Link from 'next/link';
 
 export default function Home() {
@@ -12,9 +12,7 @@ export default function Home() {
       <h2>Recent Posts</h2>
       <ul>
         {posts.map(post => {
-          const [year, month, day, ...rest] = post.slug.split('-');
-          const slug = rest.join('-');
-          const url = `/${encodeURIComponent(year)}/${encodeURIComponent(month)}/${encodeURIComponent(day)}/${encodeURIComponent(slug)}/`;
+          const { url } = getPostUrlParts(post);
           
           return (
             <li key={post.slug}>

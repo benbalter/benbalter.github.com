@@ -102,3 +102,15 @@ export function findPostByDate(posts: Post[], year: string, month: string, day: 
   const fullSlug = `${year}-${month}-${day}-${slug}`;
   return posts.find(post => post.slug === fullSlug) || null;
 }
+
+/**
+ * Extract URL parts from a post slug.
+ * Handles the date/slug splitting logic consistently across the app.
+ */
+export function getPostUrlParts(post: Post): { year: string; month: string; day: string; slug: string; url: string } {
+  const [year, month, day, ...rest] = post.slug.split('-');
+  const slug = rest.join('-');
+  const url = `/${encodeURIComponent(year)}/${encodeURIComponent(month)}/${encodeURIComponent(day)}/${encodeURIComponent(slug)}/`;
+  
+  return { year, month, day, slug, url };
+}

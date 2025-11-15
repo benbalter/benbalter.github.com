@@ -1,4 +1,4 @@
-import { getAllPosts } from '@/lib/posts';
+import { getAllPosts, getPostUrlParts } from '@/lib/posts';
 import Link from 'next/link';
 
 export default function NotFound() {
@@ -14,9 +14,7 @@ export default function NotFound() {
       <h4>Recent posts</h4>
       <ul>
         {posts.map(post => {
-          const [year, month, day, ...rest] = post.slug.split('-');
-          const slug = rest.join('-');
-          const url = `/${year}/${month}/${day}/${encodeURIComponent(slug)}/`;
+          const { url } = getPostUrlParts(post);
           
           return (
             <li key={post.slug}>
