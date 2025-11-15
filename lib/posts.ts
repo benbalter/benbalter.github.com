@@ -68,20 +68,6 @@ export function getPostBySlug(slug: string): Post | null {
 
 export function getAllPostParams(): Array<{year: string; month: string; day: string; slug: string}> {
   const posts = getAllPosts();
-  
-  return posts.map(post => {
-    // Use regex to extract year, month, day, and slug from post.slug
-    const match = post.slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
-    if (match) {
-      const [, year, month, day, slug] = match;
-      return { year, month, day, slug };
-    } else {
-      // Fallback: return undefined values if pattern doesn't match
-      return { year: '', month: '', day: '', slug: post.slug };
-    }
-  });
-}
-
 export function findPostByDate(posts: Post[], year: string, month: string, day: string, slug: string): Post | null {
   const fullSlug = `${year}-${month}-${day}-${slug}`;
   return posts.find(post => post.slug === fullSlug) || null;
