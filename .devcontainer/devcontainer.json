@@ -2,12 +2,9 @@
   "name": "Ben Balter's Website",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "lts"
-    },
-    "ghcr.io/devcontainers/features/ruby:1": {
-      "version": "3.3"
-    }
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/devcontainers/features/ruby:1": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
   "customizations": {
     "vscode": {
@@ -35,9 +32,6 @@
   },
   "onCreateCommand": "bash -lc 'bundle install && npm install'",
   "postCreateCommand": "bash -lc 'npx playwright install --with-deps chromium && echo Devcontainer ready. Run \"rake serve\" or \"script/server\" to start Jekyll.'",
-  "mounts": [
-    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
-  ],
   "forwardPorts": [4000],
   "portsAttributes": {
     "4000": {
