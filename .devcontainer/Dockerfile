@@ -1,5 +1,5 @@
 # Use the same Ruby base image as before
-FROM mcr.microsoft.com/devcontainers/ruby:1-3.8-bookworm
+FROM mcr.microsoft.com/devcontainers/ruby:1-3.5-bookworm
 
 # Pre-install system dependencies required for Google Chrome
 # This significantly speeds up container creation by having dependencies cached in the image
