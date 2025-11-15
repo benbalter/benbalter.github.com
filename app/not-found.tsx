@@ -16,7 +16,7 @@ export default function NotFound() {
         {posts.map(post => {
           const [year, month, day, ...rest] = post.slug.split('-');
           const slug = rest.join('-');
-          const url = `/${year}/${month}/${day}/${slug}/`;
+          const url = `/${year}/${month}/${day}/${encodeURIComponent(slug)}/`;
           
           return (
             <li key={post.slug}>
