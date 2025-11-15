@@ -184,7 +184,7 @@ test.describe('Next.js Build HTML Structure', () => {
     const content = fs.readFileSync(indexPath, 'utf-8');
     
     // Check for Next.js script tags
-    expect(content).toMatch(/<script[^>]*>/);
+    expect(content).toMatch(/<script[^>]*>/i);
   });
 
   test('should render blog posts with substantial content', () => {
