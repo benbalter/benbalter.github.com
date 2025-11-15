@@ -2,8 +2,6 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-const postsDirectory = path.join(process.cwd(), 'content/posts');
-
 export interface Post {
   slug: string;
   date: string;
@@ -15,6 +13,7 @@ export interface Post {
 }
 
 export function getAllPosts(): Post[] {
+  const postsDirectory = path.join(process.cwd(), 'content/posts');
   const fileNames = fs.readdirSync(postsDirectory);
   
   const posts = fileNames

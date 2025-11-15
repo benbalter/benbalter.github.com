@@ -2,9 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
 
-const dataDirectory = path.join(process.cwd(), 'content/data');
-
 export function loadData<T = any>(filename: string): T {
+  const dataDirectory = path.join(process.cwd(), 'content/data');
   const fullPath = path.join(dataDirectory, filename);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   return yaml.load(fileContents) as T;

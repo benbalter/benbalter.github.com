@@ -2,8 +2,6 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-const pagesDirectory = path.join(process.cwd(), 'content/pages');
-
 export interface Page {
   slug: string;
   title?: string;
@@ -13,6 +11,7 @@ export interface Page {
 }
 
 export function getPageBySlug(slug: string): Page | null {
+  const pagesDirectory = path.join(process.cwd(), 'content/pages');
   const extensions = ['.md', '.html'];
   
   for (const ext of extensions) {
@@ -36,6 +35,7 @@ export function getPageBySlug(slug: string): Page | null {
 }
 
 export function getAllPages(): Page[] {
+  const pagesDirectory = path.join(process.cwd(), 'content/pages');
   const fileNames = fs.readdirSync(pagesDirectory);
   
   return fileNames
