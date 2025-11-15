@@ -34,3 +34,4 @@ test-results/
 # Next.js build artifacts
 .next/
 out/
+tsconfig.tsbuildinfo
