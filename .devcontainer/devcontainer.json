@@ -1,6 +1,8 @@
 {
   "name": "Ben Balter's Website",
-  "image": "mcr.microsoft.com/devcontainers/ruby:1-3.3-bookworm",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
       "version": "20"
@@ -31,7 +33,7 @@
       }
     }
   },
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y libvips-dev && script/bootstrap && npx playwright install --with-deps",
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y libvips-dev && script/bootstrap && npx playwright install chrome",
   "forwardPorts": [4000],
   "portsAttributes": {
     "4000": {
