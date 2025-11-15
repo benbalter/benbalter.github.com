@@ -1,7 +1,7 @@
 name: Next.js Build
 
 on:
-  push:
+  push: {}
 
 permissions:
   contents: read
