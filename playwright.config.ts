@@ -2,7 +2,7 @@ import { defineConfig, devices } from '@playwright/test';
 
 /**
  * Playwright configuration for Ben Balter's website
- * Tests both the Jekyll build and Next.js app
+ * Tests the Jekyll build only
  */
 export default defineConfig({
   testDir: './e2e',
