@@ -15,13 +15,14 @@
         "sissel.shopify-liquid",
         "redhat.vscode-yaml",
         "esbenp.prettier-vscode",
-        "dbaeumer.vscode-eslint"
+        "dbaeumer.vscode-eslint",
+        "ms-playwright.playwright"
       ],
       "settings": {
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "[ruby]": {
-          "editor.defaultFormatter": "shopify.ruby-lsp",
+          "editor.defaultFormatter": "Shopify.ruby-lsp",
           "editor.formatOnSave": true
         },
         "[markdown]": {
@@ -30,7 +31,7 @@
       }
     }
   },
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y libvips-dev && script/bootstrap",
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y libvips-dev && script/bootstrap && npx playwright install --with-deps",
   "forwardPorts": [4000],
   "portsAttributes": {
     "4000": {
