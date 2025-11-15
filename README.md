@@ -19,6 +19,7 @@ A Next.js structure has been set up for the future migration. The Next.js app is
 * Use the App Router (`app/` directory)
 * Export static HTML for GitHub Pages compatibility
 * Support TypeScript with React
+* Automatic legacy URL redirect generation from YAML frontmatter
 
 #### Next.js Commands
 
@@ -27,6 +28,10 @@ npm run dev          # Start Next.js development server (http://localhost:3000)
 npm run next:build   # Build Next.js for production (outputs to /out)
 npm run next:start   # Start Next.js production server
 ```
+
+#### Legacy URL Redirects
+
+The build process automatically generates static HTML redirect pages for all `redirect_from` and `redirect_to` directives in YAML frontmatter. See [docs/REDIRECTS.md](docs/REDIRECTS.md) for details.
 
 ## Development
 
