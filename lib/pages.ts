@@ -36,7 +36,13 @@ export function getPageBySlug(slug: string): Page | null {
 
 export function getAllPages(): Page[] {
   const pagesDirectory = path.join(process.cwd(), 'content/pages');
-  const fileNames = fs.readdirSync(pagesDirectory);
+  let fileNames: string[] = [];
+  try {
+    fileNames = fs.readdirSync(pagesDirectory);
+  } catch (err) {
+    // Directory does not exist or is unreadable; return empty array
+    return [];
+  }
   
   return fileNames
     .filter(fileName => fileName.endsWith('.md') || fileName.endsWith('.html'))
