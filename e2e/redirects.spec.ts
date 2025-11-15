@@ -37,7 +37,7 @@ test.describe('Legacy URL Redirects', () => {
 
   test('should show redirect message before redirecting', async ({ page }) => {
     // Navigate to a redirect page
-    const response = await page.goto('/cv/', { waitUntil: 'domcontentloaded' });
+    await page.goto('/cv/', { waitUntil: 'domcontentloaded' });
     
     // Check for redirect HTML elements
     const heading = await page.locator('h1').textContent();
