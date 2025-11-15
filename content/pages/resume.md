@@ -38,10 +38,10 @@ certifications:
 
 ## Experience
 
-{% assign positions=site.resume\_positions | sort: "start\_date" %}
+{% assign positions=site.resume_positions | sort: "start_date" %}
 {% for position in positions reversed %}
 
-{% unless position.employer == previous\_employer %}
+{% unless position.employer == previous_employer %}
 
 ### {{ position.employer }}
 
@@ -58,7 +58,7 @@ certifications:
 
 {{ position.output }}
 
-{% assign previous\_employer=position.employer %}
+{% assign previous_employer=position.employer %}
 {% endfor %}
 
 ## Education

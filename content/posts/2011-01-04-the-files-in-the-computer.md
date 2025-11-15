@@ -16,7 +16,7 @@ In *[People v. Diaz](http://en.wikipedia.org/wiki/People_v._Diaz)*, the court ru
 
 ![Ben Still and Owen Wilson stare at a computer from the movie Zoolander](https://ben.balter.com/wp-content/uploads/2011/01/zoolander-300x188.jpg){: .float-start .me-3 .rounded }
 
-[Much like Ben Stiller and Owen Wilson's characters in the movie Zoolander](http://www.youtube.com/watch?v=_m_PncKuDao\&feature=related#t=1m16s), the dissent's analysis is based on the assumption that information "can be carried on" or "in" one's mobile phone, a reality which simply is not the case in today's increasingly cloud-centric world.
+[Much like Ben Stiller and Owen Wilson's characters in the movie Zoolander](http://www.youtube.com/watch?v=_m_PncKuDao&feature=related#t=1m16s), the dissent's analysis is based on the assumption that information "can be carried on" or "in" one's mobile phone, a reality which simply is not the case in today's increasingly cloud-centric world.
 
 Today, and even more so tomorrow, information will not be "carried on" a phone, but rather, that phone will merely be the vehicle used to access information stored elsewhere, information that would otherwise carry the highest expectation of privacy. Put another way, the device holds, both literally and metaphorically, the address, keys, and means to access one's digital home, a breach of privacy that would not be tolerated if it occurred in a more tangible sense.
 
@@ -26,7 +26,7 @@ The majority's decision was well argued by legal minds much wiser than my own, b
 
 While it may not be practical to install [Faraday cages](http://en.wikipedia.org/wiki/Faraday_cage) in every police station to ferret out what information can be gleamed from a mobile device without it querying a remote server (if there is any information at all), the majority's opinion fails to take into account the reality of how mobile phones are used today, let alone, how they will be most likely be used in the not-to-distant future. While the courts sort out [what fourth amendment protections are extended into the digital world](https://ben.balter.com/2010/12/20/late-night-infomercials/), I for one, will be sure to put a password on my phone next time I cross the California state line.[^5]
 
-\[photo: [Thomas Hawk](http://www.flickr.com/photos/thomashawk/61076493/)]
+[photo: [Thomas Hawk](http://www.flickr.com/photos/thomashawk/61076493/)]
 
 Notes:
 
