@@ -22,7 +22,7 @@
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "[ruby]": {
-          "editor.defaultFormatter": "shopify.ruby-lsp",
+          "editor.defaultFormatter": "Shopify.ruby-lsp",
           "editor.formatOnSave": true
         },
         "[markdown]": {
