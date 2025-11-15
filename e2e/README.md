@@ -26,6 +26,7 @@ npx playwright install
 ```
 
 > **Note:** The `libvips-dev` package (used for image processing in Jekyll via plugins like `jekyll-og-image`) is only required for CI/production builds that generate Open Graph images. For basic local e2e testing, you do **not** need to install `libvips-dev` unless you specifically want to test image generation features.
+
 ### Local Development
 
 ```bash
@@ -61,76 +62,85 @@ npx playwright test --project=chromium
 ## Test Coverage
 
 ### Homepage Tests
-- Page loads successfully
-- Navigation and footer present
-- Responsive design
-- Semantic HTML structure
-- Meta tags and SEO
+
+* Page loads successfully
+* Navigation and footer present
+* Responsive design
+* Semantic HTML structure
+* Meta tags and SEO
 
 ### Blog Post Tests
-- Post listing accessible
-- Individual posts render correctly
-- Metadata present
-- Images have alt text
-- Links are valid
+
+* Post listing accessible
+* Individual posts render correctly
+* Metadata present
+* Images have alt text
+* Links are valid
 
 ### Resume Tests
-- Page loads and displays content
-- Work experience section present
-- Contact information available
-- Print-friendly layout
+
+* Page loads and displays content
+* Work experience section present
+* Contact information available
+* Print-friendly layout
 
 ### Static Pages Tests
-- About, Contact, Talks, and Press pages load
-- Content is meaningful
-- Navigation works
-- Proper titles
+
+* About, Contact, Talks, and Press pages load
+* Content is meaningful
+* Navigation works
+* Proper titles
 
 ### Accessibility Tests
-- Basic WCAG compliance
-- Heading hierarchy
-- Lang attribute
-- Skip links/main landmarks
-- Form labels
-- Button accessible names
-- Link accessible text
-- Keyboard navigation
+
+* Basic WCAG compliance
+* Heading hierarchy
+* Lang attribute
+* Skip links/main landmarks
+* Form labels
+* Button accessible names
+* Link accessible text
+* Keyboard navigation
 
 ### Performance Tests
-- Load time within acceptable limits
-- Reasonable number of requests
-- JavaScript optimization
-- Image optimization
-- Asset caching
-- Font loading
+
+* Load time within acceptable limits
+* Reasonable number of requests
+* JavaScript optimization
+* Image optimization
+* Asset caching
+* Font loading
 
 ### SEO Tests
-- Meta descriptions
-- Open Graph tags
-- Twitter Card tags
-- Canonical URLs
-- Proper title tags
-- Robots meta tags
-- Structured data (JSON-LD)
-- Sitemap accessibility
-- robots.txt
-- RSS feed
+
+* Meta descriptions
+* Open Graph tags
+* Twitter Card tags
+* Canonical URLs
+* Proper title tags
+* Robots meta tags
+* Structured data (JSON-LD)
+* Sitemap accessibility
+* robots.txt
+* RSS feed
 
 ## Configuration
 
 The Playwright configuration is in [`playwright.config.ts`](../playwright.config.ts) at the root of the repository.
 
 Key settings:
-- **Base URL**: `http://localhost:4000` (can be overridden with `BASE_URL` env var)
-- **Browser**: Chromium (Desktop Chrome)
-- **Retries**: 2 retries on CI, 0 locally
-- **Reporters**: HTML and list reporters, GitHub Actions reporter on CI
+
+* **Base URL**: `http://localhost:4000` (can be overridden with `BASE_URL` env var)
+* **Browser**: Chromium (Desktop Chrome)
+* **Retries**: 2 retries on CI, 0 locally
+* **Reporters**: HTML and list reporters, GitHub Actions reporter on CI
 
 ## CI Integration
 
 Tests run automatically on every push via the GitHub Actions workflow at [`.github/workflows/playwright.yml`](../.github/workflows/playwright.yml).
 
 The workflow:
+
 1. Checks out the code
 2. Sets up Ruby and Node.js
 3. Builds the Jekyll site
@@ -171,13 +181,15 @@ test.describe('New Feature', () => {
 ### Failed Tests
 
 When tests fail, Playwright captures:
-- Screenshots (on failure)
-- Videos (on failure)
-- Traces (on retry)
+
+* Screenshots (on failure)
+* Videos (on failure)
+* Traces (on retry)
 
 These are saved to:
-- `test-results/` - Test output
-- `playwright-report/` - HTML report
+
+* `test-results/` - Test output
+* `playwright-report/` - HTML report
 
 ### Debug Mode
 
@@ -206,7 +218,7 @@ npm run test:e2e:ui
 
 ## Resources
 
-- [Playwright Documentation](https://playwright.dev/docs/intro)
-- [Best Practices](https://playwright.dev/docs/best-practices)
-- [Writing Tests](https://playwright.dev/docs/writing-tests)
-- [Debugging Guide](https://playwright.dev/docs/debug)
+* [Playwright Documentation](https://playwright.dev/docs/intro)
+* [Best Practices](https://playwright.dev/docs/best-practices)
+* [Writing Tests](https://playwright.dev/docs/writing-tests)
+* [Debugging Guide](https://playwright.dev/docs/debug)

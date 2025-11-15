@@ -1,14 +1,30 @@
+import { getAllPosts, getPostUrlParts } from '@/lib/posts';
+import Link from 'next/link';
+
 export default function Home() {
+  const posts = getAllPosts();
+  
   return (
     <main>
       <h1>Ben Balter</h1>
       <p>Technology leadership, collaboration, and open source</p>
-      <p>
-        <em>
-          Note: This is a placeholder Next.js page. The site is currently being
-          migrated from Jekyll to Next.js.
-        </em>
-      </p>
+      
+      <h2>Recent Posts</h2>
+      <ul>
+        {posts.map(post => {
+          const { url } = getPostUrlParts(post);
+          
+          return (
+            <li key={post.slug}>
+              <Link href={url}>
+                {post.title}
+              </Link>
+              {post.description && <p>{post.description}</p>}
+              <time dateTime={post.date}>{post.date}</time>
+            </li>
+          );
+        })}
+      </ul>
     </main>
   );
 }
