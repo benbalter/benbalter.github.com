@@ -1,11 +1,12 @@
 {
   "name": "Ben Balter's Website",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
-      "version": "20"
+      "version": "lts"
+    },
+    "ghcr.io/devcontainers/features/ruby:1": {
+      "version": "3.3"
     }
   },
   "customizations": {
@@ -22,18 +23,18 @@
       ],
       "settings": {
         "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
         "[ruby]": {
           "editor.defaultFormatter": "Shopify.ruby-lsp",
           "editor.formatOnSave": true
         },
         "[markdown]": {
-          "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+          "editor.defaultFormatter": "vscode.markdown-language-features"
         }
       }
     }
   },
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y libvips-dev docker.io libx11-xcb1 && sudo usermod -aG docker vscode && script/bootstrap && npx playwright install",
+  "onCreateCommand": "bash -lc 'bundle install && npm install'",
+  "postCreateCommand": "bash -lc 'npx playwright install --with-deps chromium && echo Devcontainer ready. Run \"rake serve\" or \"script/server\" to start Jekyll.'",
   "mounts": [
     "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
   ],

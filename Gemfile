@@ -20,6 +20,8 @@ group :jekyll_plugins do
   gem 'jemoji'
 end
 
+gem 'csv'
+
 group :test, :development do
   gem 'classifier-reborn', github: 'jekyll/classifier-reborn'
   gem 'github-pages-health-check'
