@@ -106,7 +106,7 @@ jobs:
           timeout 30 bash -c 'until curl -sf http://localhost:3000; do sleep 1; done'
 
       - name: Run Next.js E2E tests
-        run: BASE_URL=http://localhost:3000 playwright test e2e/nextjs-site.spec.ts
+        run: BASE_URL=http://localhost:3000 npx playwright test e2e/nextjs-site.spec.ts
         env:
           CI: true
 
