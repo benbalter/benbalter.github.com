@@ -12,8 +12,9 @@ export interface Post {
   [key: string]: any;
 }
 
+const postsDirectory = path.join(process.cwd(), 'content/posts');
+
 export function getAllPosts(): Post[] {
-  const postsDirectory = path.join(process.cwd(), 'content/posts');
   const fileNames = fs.readdirSync(postsDirectory);
   
   const posts = fileNames
@@ -66,8 +67,8 @@ export function getPostBySlug(slug: string): Post | null {
 }
 
 export function getPostByDate(year: string, month: string, day: string, slug: string): Post | null {
-  const fullSlug = `${year}-${month}-${day}-${slug}`;
-  return getPostBySlug(fullSlug);
+  const posts = getAllPosts();
+  return findPostByDate(posts, year, month, day, slug);
 }
 
 export function getAllPostParams(): Array<{year: string; month: string; day: string; slug: string}> {
@@ -82,4 +83,9 @@ export function getAllPostParams(): Array<{year: string; month: string; day: str
       slug: rest.join('-'),
     };
   });
+}
+
+export function findPostByDate(posts: Post[], year: string, month: string, day: string, slug: string): Post | null {
+  const fullSlug = `${year}-${month}-${day}-${slug}`;
+  return posts.find(post => post.slug === fullSlug) || null;
 }

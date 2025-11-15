@@ -1,22 +1,36 @@
-import { getPostByDate, getAllPostParams } from '@/lib/posts';
+import { getAllPosts, findPostByDate } from '@/lib/posts';
 import { markdownToHtml } from '@/lib/markdown';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 
-interface Params {
-  year: string;
-  month: string;
-  day: string;
-  slug: string;
+interface PageProps {
+  params: Promise<{
+    year: string;
+    month: string;
+    day: string;
+    slug: string;
+  }>;
 }
 
 export async function generateStaticParams() {
-  return getAllPostParams();
+  const posts = getAllPosts();
+
+  return posts.map(post => {
+    const [year, month, day, ...rest] = post.slug.split('-');
+
+    return {
+      year,
+      month,
+      day,
+      slug: rest.join('-'),
+    };
+  });
 }
 
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const { year, month, day, slug } = params;
-  const post = getPostByDate(year, month, day, slug);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { year, month, day, slug } = await params;
+  const posts = getAllPosts();
+  const post = findPostByDate(posts, year, month, day, slug);
   
   if (!post) {
     return {};
@@ -33,9 +47,10 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   };
 }
 
-export default async function Post({ params }: { params: Params }) {
-  const { year, month, day, slug } = params;
-  const post = getPostByDate(year, month, day, slug);
+export default async function Post({ params }: PageProps) {
+  const { year, month, day, slug } = await params;
+  const posts = getAllPosts();
+  const post = findPostByDate(posts, year, month, day, slug);
   
   if (!post) {
     notFound();
