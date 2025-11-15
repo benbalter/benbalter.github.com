@@ -68,8 +68,8 @@ script/super-linter   # Direct script invocation
 
 This repository includes specialized GitHub Copilot custom agents to assist with development:
 
-* **Code Agent**: For Ruby, JavaScript/TypeScript, HTML/Liquid, and CSS development
-* **Writing Agent**: For blog posts and documentation
+- **Code Agent**: For Ruby, JavaScript/TypeScript, HTML/Liquid, and CSS development
+- **Writing Agent**: For blog posts and documentation
 
 See `.github/agents/` for their configurations.
 
