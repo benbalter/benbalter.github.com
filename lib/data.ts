@@ -5,8 +5,14 @@ import yaml from 'js-yaml';
 export function loadData<T = any>(filename: string): T {
   const dataDirectory = path.join(process.cwd(), 'content/data');
   const fullPath = path.join(dataDirectory, filename);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
-  return yaml.load(fileContents) as T;
+  try {
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    return yaml.load(fileContents) as T;
+  } catch (err: any) {
+    throw new Error(
+      `Failed to load YAML data from "${fullPath}": ${err.message}`
+    );
+  }
 }
 
 export interface Book {
