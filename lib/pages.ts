@@ -23,10 +23,11 @@ export function getPageBySlug(slug: string): Page | null {
       
       return {
         slug,
-        title: data.title,
-        description: data.description,
         content,
         ...data,
+        // Ensure these take precedence over any conflicting keys in ...data
+        title: data.title,
+        description: data.description,
       };
     }
   }
@@ -54,10 +55,11 @@ export function getAllPages(): Page[] {
       
       return {
         slug,
-        title: data.title,
-        description: data.description,
         content,
         ...data,
+        // Ensure these take precedence over any conflicting keys in ...data
+        title: data.title,
+        description: data.description,
       };
     });
 }

@@ -204,6 +204,7 @@ All migrated content:
 ## Next Steps for Next.js Implementation
 
 1. Install Markdown processing libraries:
+
    ```bash
    npm install gray-matter remark remark-html js-yaml
    ```

@@ -49,12 +49,13 @@ export function getAllPosts(): Post[] {
       
       return {
         slug,
+        content,
+        ...data,
+        // Ensure these take precedence over any conflicting keys in ...data
         date,
         title,
         description: data.description,
         image: data.image,
-        content,
-        ...data,
       };
     });
   
@@ -69,9 +70,35 @@ export function getPostBySlug(slug: string): Post | null {
   return posts.find(post => post.slug === slug) || null;
 }
 
-export function getAllPostParams(): Array<{year: string; month: string; day: string; slug: string}> {
-  const posts = getAllPosts();
+/**
+ * Validates that the given year, month, and day form a valid date.
+ * This ensures URLs match the expected Jekyll format.
+ */
+export function isValidDate(year: string, month: string, day: string): boolean {
+  const yearNum = parseInt(year, 10);
+  const monthNum = parseInt(month, 10);
+  const dayNum = parseInt(day, 10);
+  
+  // Basic range checks
+  if (yearNum < 1000 || yearNum > 9999) return false;
+  if (monthNum < 1 || monthNum > 12) return false;
+  if (dayNum < 1 || dayNum > 31) return false;
+  
+  // Create a date and verify it matches the input (handles invalid dates like Feb 30)
+  const date = new Date(yearNum, monthNum - 1, dayNum);
+  return (
+    date.getFullYear() === yearNum &&
+    date.getMonth() === monthNum - 1 &&
+    date.getDate() === dayNum
+  );
+}
+
 export function findPostByDate(posts: Post[], year: string, month: string, day: string, slug: string): Post | null {
+  // Validate the date components before attempting to find the post
+  if (!isValidDate(year, month, day)) {
+    return null;
+  }
+  
   const fullSlug = `${year}-${month}-${day}-${slug}`;
   return posts.find(post => post.slug === fullSlug) || null;
 }

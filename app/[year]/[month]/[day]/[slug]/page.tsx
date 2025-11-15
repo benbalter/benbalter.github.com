@@ -12,8 +12,18 @@ interface PageProps {
   }>;
 }
 
+// Cache posts at module level to avoid re-reading files on every request
+let cachedPosts: ReturnType<typeof getAllPosts> | null = null;
+
+function getCachedPosts() {
+  if (!cachedPosts) {
+    cachedPosts = getAllPosts();
+  }
+  return cachedPosts;
+}
+
 export async function generateStaticParams() {
-  const posts = getAllPosts();
+  const posts = getCachedPosts();
 
   return posts.map(post => {
     const [year, month, day, ...rest] = post.slug.split('-');
@@ -29,7 +39,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { year, month, day, slug } = await params;
-  const posts = getAllPosts();
+  const posts = getCachedPosts();
   const post = findPostByDate(posts, year, month, day, slug);
   
   if (!post) {
@@ -49,7 +59,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function Post({ params }: PageProps) {
   const { year, month, day, slug } = await params;
-  const posts = getAllPosts();
+  const posts = getCachedPosts();
   const post = findPostByDate(posts, year, month, day, slug);
   
   if (!post) {
