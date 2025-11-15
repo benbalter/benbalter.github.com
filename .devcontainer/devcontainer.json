@@ -32,8 +32,12 @@
   },
   "onCreateCommand": "bash -lc 'bundle install && npm install'",
   "postCreateCommand": "bash -lc 'sudo apt-get update && sudo apt-get install -y libvips && ./node_modules/.bin/playwright install --with-deps chromium && echo Devcontainer ready. Run \\\"rake serve\\\" or \\\"script/server\\\" to start Jekyll.'",
-  "forwardPorts": [4000],
+  "forwardPorts": [3000, 4000],
   "portsAttributes": {
+    "3000": {
+      "label": "Next.js Dev Server",
+      "onAutoForward": "notify"
+    },
     "4000": {
       "label": "Jekyll Server",
       "onAutoForward": "notify"
