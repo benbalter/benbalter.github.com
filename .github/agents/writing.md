@@ -126,8 +126,10 @@ Based on existing posts, focus on:
 npm run lint-md        # Lint Markdown files
 npm run lint-text      # Check text quality (textlint)
 remark . --output      # Format Markdown consistently
-script/fix-lint        # Auto-fix linting issues
+script/fix-lint        # Auto-fix linting issues (ALWAYS run after remark/markdown linting)
 ```
+
+**Important**: After running markdown linting (`npm run lint-md` or `remark`), **ALWAYS** run `script/fix-lint` to remove excessive escaping that remark adds, which can break the build.
 
 ### Testing
 
@@ -150,7 +152,7 @@ rake serve             # Start Jekyll server to preview posts
 5. **Format**: Use proper Markdown and headings
 6. **Links**: Add relevant internal links to related posts
 7. **Proofread**: Check grammar, spelling, and flow
-8. **Lint**: Run linting tools and fix issues
+8. **Lint**: Run linting tools and fix issues (run `script/fix-lint` after markdown linting)
 9. **Test**: Preview the post locally
 10. **Metadata**: Verify front matter is complete and correct
 
@@ -195,7 +197,7 @@ Before finalizing content:
 * [ ] Code examples are accurate and formatted
 * [ ] Links are relevant and working
 * [ ] Spelling and grammar are correct
-* [ ] Linters pass without errors
+* [ ] Linters pass without errors (ran `script/fix-lint` after markdown linting)
 * [ ] Post preview looks good
 * [ ] Front matter is complete
 
