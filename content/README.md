@@ -124,16 +124,16 @@ end_date: '2024-01-01'
 
 All content files use standard Markdown with YAML frontmatter:
 
-- **Frontmatter**: Delimited by `---` at the start of the file
-- **Body**: Standard Markdown after the frontmatter
+* **Frontmatter**: Delimited by `---` at the start of the file
+* **Body**: Standard Markdown after the frontmatter
 
 ## Notes
 
-- Original Jekyll content is preserved in the repository root
-- See `MIGRATION.md` for detailed migration documentation
-- Fields prefixed with `_legacy_` are Jekyll-specific and may need Next.js alternatives
-- Date format is YYYY-MM-DD
-- Blog post filenames follow the pattern: `YYYY-MM-DD-title.md`
+* Original Jekyll content is preserved in the repository root
+* See `MIGRATION.md` for detailed migration documentation
+* Fields prefixed with `_legacy_` are Jekyll-specific and may need Next.js alternatives
+* Date format is YYYY-MM-DD
+* Blog post filenames follow the pattern: `YYYY-MM-DD-title.md`
 
 ## Dependencies
 

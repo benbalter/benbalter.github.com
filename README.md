@@ -68,8 +68,8 @@ script/super-linter   # Direct script invocation
 
 This repository includes specialized GitHub Copilot custom agents to assist with development:
 
-- **Code Agent**: For Ruby, JavaScript/TypeScript, HTML/Liquid, and CSS development
-- **Writing Agent**: For blog posts and documentation
+* **Code Agent**: For Ruby, JavaScript/TypeScript, HTML/Liquid, and CSS development
+* **Writing Agent**: For blog posts and documentation
 
 See `.github/agents/` for their configurations.
 
@@ -101,11 +101,12 @@ npm run test:e2e:headed
 **Test Coverage:** 115 unique tests
 
 Tests cover:
-- Homepage, blog posts, resume, and static pages
-- Accessibility (WCAG compliance, keyboard navigation)
-- Performance (load times, asset optimization)
-- SEO (meta tags, Open Graph, structured data)
-- Responsive design
+
+* Homepage, blog posts, resume, and static pages
+* Accessibility (WCAG compliance, keyboard navigation)
+* Performance (load times, asset optimization)
+* SEO (meta tags, Open Graph, structured data)
+* Responsive design
 
 See [e2e/README.md](e2e/README.md) for detailed testing documentation.
 
