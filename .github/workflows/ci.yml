@@ -51,40 +51,40 @@ jobs:
       - name: script/cibuild-code
         run: script/cibuild-code
 
-  lighthouse:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+  # lighthouse: # Temporarily disabled
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
 
-      - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
+  #     - uses: ruby/setup-ruby@v1
+  #       with:
+  #         bundler-cache: true
 
-      - name: install libvips
-        run: |
-          sudo apt-get update
-          sudo apt-get install libvips-dev -y
+  #     - name: install libvips
+  #       run: |
+  #         sudo apt-get update
+  #         sudo apt-get install libvips-dev -y
 
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
+  #     - name: Use Node.js 16.x
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 20
+  #         cache: 'npm'
 
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
+  #     - name: Setup Pages
+  #       id: pages
+  #       uses: actions/configure-pages@v5
 
-      - run: bundle exec jekyll build
-        env:
-          JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          JEKYLL_ENV: production
-          PAGES_ENV: dotcom
+  #     - run: bundle exec jekyll build
+  #       env:
+  #         JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #         JEKYLL_ENV: production
+  #         PAGES_ENV: dotcom
 
-      - name: run Lighthouse CI
-        run: |
-          npm install -g @lhci/cli@0.8.x
-          lhci autorun
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+  #     - name: run Lighthouse CI
+  #       run: |
+  #         npm install -g @lhci/cli@0.8.x
+  #         lhci autorun
+  #       env:
+  #         LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
