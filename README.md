@@ -26,7 +26,11 @@ A Next.js structure has been set up for the future migration. The Next.js app is
 npm run dev          # Start Next.js development server (http://localhost:3000)
 npm run next:build   # Build Next.js for production (outputs to /out)
 npm run next:start   # Start Next.js production server
+npm run next:test    # Run Next.js build tests
+npm run next:test:e2e # Run Next.js E2E tests
 ```
+
+See [docs/NEXTJS_TESTING.md](docs/NEXTJS_TESTING.md) for comprehensive Next.js testing documentation.
 
 ## Development
 
@@ -85,10 +89,10 @@ bundle exec rspec
 
 ### Playwright E2E Tests
 
-Comprehensive end-to-end tests using Playwright test the site on Chromium:
+Comprehensive end-to-end tests using Playwright test both Jekyll and Next.js sites on Chromium:
 
 ```bash
-# Run all E2E tests
+# Run all E2E tests (Jekyll + Next.js)
 npm run test:e2e
 
 # Run tests in UI mode for debugging
@@ -96,9 +100,15 @@ npm run test:e2e:ui
 
 # Run tests in headed mode
 npm run test:e2e:headed
+
+# Run Next.js specific tests
+npm run next:test      # Build validation tests
+npm run next:test:e2e  # Next.js E2E tests
 ```
 
-**Test Coverage:** 115 unique tests
+**Test Coverage:** 
+- Jekyll tests: ~90 tests
+- Next.js tests: 44 tests (20 build tests + 24 E2E tests)
 
 Tests cover:
 
@@ -107,8 +117,10 @@ Tests cover:
 * Performance (load times, asset optimization)
 * SEO (meta tags, Open Graph, structured data)
 * Responsive design
+* Next.js build output and static export
 
-See [e2e/README.md](e2e/README.md) for detailed testing documentation.
+See [e2e/README.md](e2e/README.md) for Jekyll testing documentation.
+See [docs/NEXTJS_TESTING.md](docs/NEXTJS_TESTING.md) for Next.js testing documentation.
 
 ## License
 
