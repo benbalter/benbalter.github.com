@@ -1,0 +1,40 @@
+#!/bin/sh
+
+set -e
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+
+# Check if Docker is available
+if ! command -v docker >/dev/null 2>&1; then
+  echo "${RED}Error: Docker is required to run Super Linter locally${NC}"
+  echo "Please install Docker: https://docs.docker.com/get-docker/"
+  exit 1
+fi
+
+# Get the absolute path of the repository
+REPO_PATH="$(cd "$(dirname "$0")/.." && pwd)"
+
+echo "${GREEN}Running Super Linter locally...${NC}"
+echo "Repository: ${REPO_PATH}"
+echo ""
+
+# Run Super Linter with the same configuration as in CI
+# Using the slim image to reduce download size
+docker run \
+  --rm \
+  -e RUN_LOCAL=true \
+  -e DEFAULT_BRANCH=main \
+  -e VALIDATE_XML=false \
+  -e VALIDATE_NATURAL_LANGUAGE=false \
+  -e VALIDATE_GITLEAKS=false \
+  -e RUBY_CONFIG_FILE=.rubocop.yml \
+  -e LINTER_RULES_PATH=. \
+  -e LOG_LEVEL=NOTICE \
+  -v "${REPO_PATH}":/tmp/lint \
+  ghcr.io/github/super-linter/slim:v7
+
+echo ""
+echo "${GREEN}Super Linter completed!${NC}"
