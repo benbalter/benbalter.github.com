@@ -7,6 +7,9 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './e2e',
   
+  /* Maximum time one test can run for. */
+  timeout: 30 * 1000,
+  
   /* Run tests in files in parallel */
   fullyParallel: true,
   
@@ -37,6 +40,12 @@ export default defineConfig({
     
     /* Video on failure */
     video: 'retain-on-failure',
+    
+    /* Increase timeout for actions */
+    actionTimeout: 10000,
+    
+    /* Increase timeout for navigation */
+    navigationTimeout: 30000,
   },
 
   /* Configure project for Chromium browser */
