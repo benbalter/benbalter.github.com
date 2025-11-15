@@ -121,12 +121,20 @@ test.describe('SEO', () => {
   });
 
   test('sitemap should be accessible', async ({ page }) => {
-    const response = await page.goto('/sitemap.xml');
-    expect(response?.status()).toBe(200);
+    // Try both sitemap.xml and sitemap_index.xml
+    let response = await page.goto('/sitemap.xml');
+    let status = response?.status();
+    
+    if (status === 404) {
+      response = await page.goto('/sitemap_index.xml');
+      status = response?.status();
+    }
+    
+    expect(status).toBe(200);
     
     const content = await page.content();
     expect(content).toContain('<?xml');
-    expect(content).toContain('urlset');
+    expect(content).toMatch(/urlset|sitemapindex/);
   });
 
   test('robots.txt should be accessible', async ({ page }) => {
@@ -139,16 +147,24 @@ test.describe('SEO', () => {
   });
 
   test('RSS feed should be accessible', async ({ page }) => {
-    const response = await page.goto('/feed.xml');
+    // Try multiple feed locations
+    const feedPaths = ['/feed.xml', '/feed/', '/feed/index.xml', '/atom.xml'];
+    let foundFeed = false;
     
-    // Feed might not exist, so check if 200 or 404
-    const status = response?.status();
-    
-    if (status === 200) {
-      const content = await page.content();
-      expect(content).toContain('<?xml');
-      expect(content).toMatch(/rss|feed/i);
+    for (const feedPath of feedPaths) {
+      const response = await page.goto(feedPath);
+      const status = response?.status();
+      
+      if (status === 200) {
+        const content = await page.content();
+        if (content.includes('<?xml') && (content.match(/rss|feed|atom/i))) {
+          foundFeed = true;
+          break;
+        }
+      }
     }
+    
+    expect(foundFeed, 'RSS/Atom feed should be accessible at one of the standard paths').toBeTruthy();
   });
 });
 

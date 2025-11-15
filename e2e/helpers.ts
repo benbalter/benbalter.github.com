@@ -29,9 +29,9 @@ export async function checkNavigation(page: Page) {
  * Check footer elements
  */
 export async function checkFooter(page: Page) {
-  // Check for footer
-  const footer = page.locator('footer');
-  await expect(footer).toBeVisible();
+  // Check for footer - site uses nav element for footer
+  const footer = page.locator('footer, nav:has-text("Atom Feed"), nav.border-top');
+  await expect(footer.first()).toBeVisible();
 }
 
 /**

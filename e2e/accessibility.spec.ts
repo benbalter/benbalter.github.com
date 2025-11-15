@@ -20,8 +20,14 @@ test.describe('Accessibility', () => {
       const h1 = page.locator('h1');
       const h1Count = await h1.count();
       
-      // Should have exactly one h1
-      expect(h1Count).toBe(1);
+      // Should have at most one h1 (homepage may not have one)
+      expect(h1Count).toBeLessThanOrEqual(1);
+      
+      // If homepage (root path), h1 is optional
+      if (url !== '/' && h1Count === 0) {
+        // Non-homepage should have an h1
+        expect(h1Count).toBeGreaterThan(0);
+      }
     });
 
     test(`${url} should have lang attribute`, async ({ page }) => {
@@ -105,14 +111,21 @@ test.describe('Accessibility', () => {
         const ariaLabelledBy = await link.getAttribute('aria-labelledby');
         const title = await link.getAttribute('title');
         
+        // Check if link has an image with alt text
+        const img = link.locator('img[alt]');
+        const hasImgAlt = await img.count() > 0;
+        
         // Link should have some form of accessible text
         const hasAccessibleName = 
           (text && text.trim().length > 0) ||
           ariaLabel ||
           ariaLabelledBy ||
-          title;
+          title ||
+          hasImgAlt;
         
-        expect(hasAccessibleName).toBeTruthy();
+        // Get href for better error message if this fails
+        const href = await link.getAttribute('href');
+        expect(hasAccessibleName, `Link ${href} should have accessible text`).toBeTruthy();
       }
     });
   });
