@@ -180,7 +180,6 @@ test.describe('Blog Post SEO', () => {
         await articleAuthor.count() > 0;
       
       // Article meta is good but not required
-      expect(true).toBeTruthy(); // Always pass, just checking
     }
   });
 });
