@@ -134,7 +134,6 @@ test.describe('Performance', () => {
 
 test.describe('Mobile Performance', () => {
   test.use({ 
-
     viewport: { width: 375, height: 667 } // iPhone SE size
   });
 
