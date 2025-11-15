@@ -15,6 +15,9 @@ export interface Post {
 const postsDirectory = path.join(process.cwd(), 'content/posts');
 
 export function getAllPosts(): Post[] {
+  if (!fs.existsSync(postsDirectory)) {
+    return [];
+  }
   const fileNames = fs.readdirSync(postsDirectory);
   
   const posts = fileNames
