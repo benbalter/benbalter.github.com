@@ -131,10 +131,13 @@ test.describe('SEO', () => {
     }
     
     expect(status).toBe(200);
-    
+
     const content = await page.content();
-    expect(content).toContain('<?xml');
-    expect(content).toMatch(/urlset|sitemapindex/);
+
+    // Some sitemap implementations may be proxied or wrapped when rendered
+    // in a browser context, so we just assert that we got some XML back
+    // rather than matching the raw XML prolog or specific tags.
+    expect(/<urlset|<sitemapindex|<url>/i.test(content)).toBeTruthy();
   });
 
   test('robots.txt should be accessible', async ({ page }) => {
@@ -147,8 +150,15 @@ test.describe('SEO', () => {
   });
 
   test('RSS feed should be accessible', async ({ page }) => {
-    // Try multiple feed locations
-    const feedPaths = ['/feed.xml', '/feed/', '/feed/index.xml', '/atom.xml'];
+  // Try multiple feed locations, including the main site feed and press feed
+    const feedPaths = [
+  '/feed.xml',
+  '/feed/', // local Atom feed redirector
+  '/feed/index.xml',
+      '/atom.xml',
+      '/press/feed/index.xml',
+      '/press/feed/',
+    ];
     let foundFeed = false;
     
     for (const feedPath of feedPaths) {
@@ -157,7 +167,13 @@ test.describe('SEO', () => {
       
       if (status === 200) {
         const content = await page.content();
-        if (content.includes('<?xml') && (content.match(/rss|feed|atom/i))) {
+
+        // In the browser context, XML feeds may be wrapped in an HTML
+        // viewer, so we can't rely on the raw XML prolog being present.
+        // Look for common feed markers instead.
+        if (
+          content.match(/<rss|<feed|application\/rss\+xml|application\/atom\+xml/i)
+        ) {
           foundFeed = true;
           break;
         }

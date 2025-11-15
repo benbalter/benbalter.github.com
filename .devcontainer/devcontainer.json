@@ -31,7 +31,7 @@
     }
   },
   "onCreateCommand": "bash -lc 'bundle install && npm install'",
-  "postCreateCommand": "bash -lc 'npx playwright install --with-deps chromium && echo Devcontainer ready. Run \"rake serve\" or \"script/server\" to start Jekyll.'",
+  "postCreateCommand": "bash -lc 'sudo apt-get update && sudo apt-get install -y libvips && ./node_modules/.bin/playwright install --with-deps chromium && echo Devcontainer ready. Run \\\"rake serve\\\" or \\\"script/server\\\" to start Jekyll.'",
   "forwardPorts": [4000],
   "portsAttributes": {
     "4000": {

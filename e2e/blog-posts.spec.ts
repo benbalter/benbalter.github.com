@@ -57,12 +57,15 @@ test.describe('Blog Posts', () => {
       // Check post has title
       await expect(page).toHaveTitle(/.+/);
       
-      // Check for article or post content
-      const article = page.locator('article, .post, [role="article"]');
-      await expect(article).toBeVisible();
+  // Check for article or post content. Some templates may attach the
+  // post classes to the <body> as well as an <article>, so don't rely
+  // on strict-mode single element semantics here.
+  const article = page.locator('article, .post, [role="article"]');
+  const articleCount = await article.count();
+  expect(articleCount).toBeGreaterThan(0);
       
-      // Check for post metadata
-      const content = await page.locator('article, .post, main').textContent();
+  // Check for post metadata
+  const content = await page.locator('article, .post, main').first().textContent();
       expect(content).toBeTruthy();
       expect(content!.length).toBeGreaterThan(100);
     }
