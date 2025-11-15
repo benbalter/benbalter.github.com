@@ -1,0 +1,86 @@
+/* Global styles for Next.js app */
+
+/* Import Bootstrap and custom styles from webpack-compiled CSS */
+/* This will be built separately and included in public assets */
+
+/* Color variables matching Jekyll site */
+:root {
+  --bs-blue: #337ab7;
+  --bs-primary: #337ab7;
+}
+
+/* Ensure proper box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Typography improvements */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Anchor JS styles (for heading anchors) */
+.anchorjs-link {
+  text-decoration: none;
+  color: inherit;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+h1:hover .anchorjs-link,
+h2:hover .anchorjs-link,
+h3:hover .anchorjs-link,
+h4:hover .anchorjs-link,
+h5:hover .anchorjs-link,
+h6:hover .anchorjs-link {
+  opacity: 0.5;
+}
+
+.anchorjs-link:hover {
+  opacity: 1 !important;
+}
+
+/* Content area styles */
+.content {
+  min-height: 400px;
+}
+
+/* Post/article content styles */
+.entrybody img {
+  max-width: 100%;
+  height: auto;
+}
+
+.entrybody table {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-collapse: collapse;
+}
+
+.entrybody table th,
+.entrybody table td {
+  padding: 0.75rem;
+  border: 1px solid #dee2e6;
+}
+
+.entrybody table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+
+/* Avatar styles */
+.mini-bio .avatar {
+  float: left;
+  margin-right: 1rem;
+  margin-top: 0.25rem;
+}
+
+/* Ensure images in dark mode work well */
+@media (prefers-color-scheme: dark) {
+  img {
+    opacity: 0.9;
+  }
+}
