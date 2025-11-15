@@ -40,7 +40,6 @@
     "eslint-plugin-json": "^3.1.0",
     "markdownlint-cli2-formatter-pretty": "^0.0.6",
     "mini-css-extract-plugin": "^2.9.0",
-    "npx": "^10.2.2",
     "postcss-loader": "^8.1.1",
     "remark-cli": "^12.0.0",
     "remark-frontmatter": "^5.0.0",
