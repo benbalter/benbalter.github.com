@@ -2,7 +2,7 @@ import { defineConfig, devices } from '@playwright/test';
 
 /**
  * Playwright configuration for Ben Balter's website
- * Tests the Jekyll build only
+ * Tests both Jekyll and Next.js builds
  */
 export default defineConfig({
   testDir: './e2e',
@@ -57,9 +57,11 @@ export default defineConfig({
   ],
 
   /* Run your local dev server before starting the tests */
+  /* For Jekyll tests: bundle exec jekyll serve */
+  /* For Next.js tests: use BASE_URL=http://localhost:3000 with next dev */
   webServer: process.env.CI ? undefined : {
-    command: 'bundle exec jekyll serve',
-    url: 'http://localhost:4000',
+    command: process.env.TEST_NEXTJS ? 'npm run dev' : 'bundle exec jekyll serve',
+    url: process.env.TEST_NEXTJS ? 'http://localhost:3000' : 'http://localhost:4000',
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,
   },
