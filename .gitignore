@@ -38,3 +38,6 @@ out/
 /test-results/
 /playwright-report/
 /playwright/.cache/
+
+# TypeScript build info
+*.tsbuildinfo
