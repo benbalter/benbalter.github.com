@@ -2,6 +2,7 @@ import { getAllPosts, findPostByDate } from '@/lib/posts';
 import { markdownToHtml } from '@/lib/markdown';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import { cache } from 'react';
 
 interface PageProps {
   params: Promise<{
@@ -12,15 +13,8 @@ interface PageProps {
   }>;
 }
 
-// Cache posts at module level to avoid re-reading files on every request
-let cachedPosts: ReturnType<typeof getAllPosts> | null = null;
-
-function getCachedPosts() {
-  if (!cachedPosts) {
-    cachedPosts = getAllPosts();
-  }
-  return cachedPosts;
-}
+// Use React's cache() for proper request-level memoization during SSG
+const getCachedPosts = cache(() => getAllPosts());
 
 export async function generateStaticParams() {
   const posts = getCachedPosts();
