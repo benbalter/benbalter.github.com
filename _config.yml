@@ -68,6 +68,7 @@ exclude:
   - /comments.xml
   - /docker-compose.yml
   - /playwright-report/
+  - /content
 
 permalink: "/:year/:month/:day/:title/"
 defaults:
