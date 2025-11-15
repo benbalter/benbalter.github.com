@@ -39,5 +39,3 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
         libxss1 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-
-
