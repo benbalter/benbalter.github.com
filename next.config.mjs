@@ -13,6 +13,11 @@ const nextConfig = {
   
   // Trailing slash for GitHub Pages
   trailingSlash: true,
+
+  // Legacy URL redirects from Jekyll
+  // Note: redirects() is not supported with output: 'export'
+  // These will need to be implemented via middleware or custom 404 handling
+  // For now, documenting them for future implementation
 };
 
 export default nextConfig;

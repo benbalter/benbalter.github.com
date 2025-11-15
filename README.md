@@ -19,6 +19,7 @@ A Next.js structure has been set up for the future migration. The Next.js app is
 * Use the App Router (`app/` directory)
 * Export static HTML for GitHub Pages compatibility
 * Support TypeScript with React
+* Automatic legacy URL redirect generation from YAML frontmatter
 
 #### Next.js Commands
 
@@ -31,6 +32,9 @@ npm run next:test:e2e # Run Next.js E2E tests
 ```
 
 See [docs/NEXTJS_TESTING.md](docs/NEXTJS_TESTING.md) for comprehensive Next.js testing documentation.
+#### Legacy URL Redirects
+
+The build process automatically generates static HTML redirect pages for all `redirect_from` and `redirect_to` directives in YAML frontmatter. See [docs/REDIRECTS.md](docs/REDIRECTS.md) for details.
 
 ## Development
 
