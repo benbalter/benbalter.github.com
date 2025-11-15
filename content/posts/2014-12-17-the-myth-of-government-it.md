@@ -16,7 +16,7 @@ You'd be hard pressed to find a private-sector firm today worth its venture-capi
 
 ## Management by FUD
 
-In government, there's the law, and then there's the much larger myth that surrounds it and more often it's the myth that gets in the way of progress (although the law's usually blamed). Just because something has been done a certain way, doesn't mean that it must be done that way, or that that's the only way to do it. Greg Godbout from 18F put it best when he said ["there's a tendency to think that your habit is a policy or a law."](http://fcw.com/Articles/2014/08/22/18F-Greg-Godbout-Hacking-Bureaucracy.aspx?m=1\&Page=2)
+In government, there's the law, and then there's the much larger myth that surrounds it and more often it's the myth that gets in the way of progress (although the law's usually blamed). Just because something has been done a certain way, doesn't mean that it must be done that way, or that that's the only way to do it. Greg Godbout from 18F put it best when he said ["there's a tendency to think that your habit is a policy or a law."](http://fcw.com/Articles/2014/08/22/18F-Greg-Godbout-Hacking-Bureaucracy.aspx?m=1&Page=2)
 
 It's not malicious, but, given the demographics of government IT, new ideas like open source can feel both personally and professionally threatening. To take an example from just a few years back, the government employee who spent a decade securing funding and headcount to grow the fiefdom that is "his" or "her" datacenter may not immediately see what role they can play in a world where their agency is exclusively in the cloud. In this model, it doesn't matter what the technology is. The indictment is always the same.
 
