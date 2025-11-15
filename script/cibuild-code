@@ -5,6 +5,10 @@ set -e
 export CI=1
 script/branding
 
+script/title "building assets"
+npm ci
+npm run build
+
 script/title "checking site"
 bundle exec rake test
 
