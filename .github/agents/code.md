@@ -66,8 +66,10 @@ npm run lint           # Run all linters
 npm run lint-js        # Lint JavaScript
 npm run lint-json      # Lint JSON files
 rubocop                # Ruby linting
-script/fix-lint        # Auto-fix linting issues
+script/fix-lint        # Auto-fix linting issues (ALWAYS run after markdown linting)
 ```
+
+**Important**: After running markdown linting, **ALWAYS** run `script/fix-lint` to remove excessive escaping that remark adds.
 
 ### Building
 
@@ -113,7 +115,7 @@ npm run dev            # Start Next.js dev server
 1. Understand existing code patterns first
 2. Write or update tests as needed
 3. Follow the project's coding standards
-4. Run linters and fix issues
+4. Run linters and fix issues (run `script/fix-lint` after markdown linting)
 5. Test your changes thoroughly
 6. Ensure builds pass
 7. Keep changes focused and minimal

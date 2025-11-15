@@ -84,8 +84,10 @@ npm run lint-md        # Lint Markdown files
 npm run lint-text      # Lint text content
 npm run lint-yaml      # Lint YAML files
 rubocop                # Ruby linting
-script/fix-lint        # Auto-fix linting issues
+script/fix-lint        # Auto-fix linting issues (ALWAYS run after markdown linting)
 ```
+
+**Important**: After running markdown linting (`npm run lint-md` or `remark`), **ALWAYS** run `script/fix-lint` to remove excessive escaping that remark adds, which can break the build.
 
 ### Development Server
 
