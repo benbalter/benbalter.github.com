@@ -1,42 +1,52 @@
 # Use the same Ruby base image as before
 FROM mcr.microsoft.com/devcontainers/ruby:latest
 
-# Pre-install system dependencies required for Google Chrome
-# This significantly speeds up container creation by having dependencies cached in the image
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get install -y --no-install-recommends \
-        # Chrome/Chromium dependencies
-        libnss3 \
-        libnspr4 \
-        libatk1.0-0 \
-        libatk-bridge2.0-0 \
-        libcups2 \
-        libdrm2 \
-        libdbus-1-3 \
-        libxkbcommon0 \
-        libxcomposite1 \
-        libxdamage1 \
-        libxfixes3 \
-        libxrandr2 \
-        libgbm1 \
-        libpango-1.0-0 \
-        libcairo2 \
-        libasound2 \
-        libatspi2.0-0 \
-        libxshmfence1 \
-        # Additional required libraries
-        fonts-liberation \
-        libappindicator3-1 \
-        libgbm-dev \
-        xdg-utils \
-        # Font packages for international support
-        fonts-ipafont-gothic \
-        fonts-wqy-zenhei \
-        fonts-thai-tlwg \
-        fonts-khmeros \
-        fonts-kacst \
-        fonts-freefont-ttf \
-        libxss1 \
-        yamllint \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+## Install Node.js (required for npx) and Playwright dependencies and browsers
+RUN apt-get update \
+	&& apt-get install -y --no-install-recommends \
+		ca-certificates \
+		curl \
+		# Node.js (LTS) setup
+		gnupg \
+		# Playwright system deps (Chromium, Firefox, WebKit)
+		libasound2 \
+		libatk1.0-0 \
+		libatk-bridge2.0-0 \
+		libatspi2.0-0 \
+		libcairo2 \
+		libcups2 \
+		libdbus-1-3 \
+		libdrm2 \
+		libexpat1 \
+		libfontconfig1 \
+		libgbm1 \
+		libglib2.0-0 \
+		libgtk-3-0 \
+		libnss3 \
+		libpango-1.0-0 \
+		libx11-6 \
+		libx11-xcb1 \
+		libxcb1 \
+		libxcomposite1 \
+		libxdamage1 \
+		libxext6 \
+		libxfixes3 \
+		libxrandr2 \
+		libxrender1 \
+		libxshmfence1 \
+		libxtst6 \
+		xdg-utils \
+		fonts-liberation \
+		libu2f-udev \
+		libvulkan1 \
+		wget \
+	&& curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /usr/share/keyrings/nodesource.gpg \
+	&& echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" > /etc/apt/sources.list.d/nodesource.list \
+	&& apt-get update \
+	&& apt-get install -y nodejs \
+	&& rm -rf /var/lib/apt/lists/*
+
+# Install Playwright browsers via npx (Node installed above)
+RUN npx --yes playwright@latest install --with-deps
+
+

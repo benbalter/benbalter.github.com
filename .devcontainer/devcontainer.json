@@ -33,7 +33,10 @@
       }
     }
   },
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y libvips-dev && script/bootstrap && npx playwright install chrome",
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y libvips-dev docker.io libx11-xcb1 && sudo usermod -aG docker vscode && script/bootstrap && npx playwright install",
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+  ],
   "forwardPorts": [4000],
   "portsAttributes": {
     "4000": {
