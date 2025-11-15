@@ -25,6 +25,7 @@ npm install
 npx playwright install
 ```
 
+> **Note:** The `libvips-dev` package (used for image processing in Jekyll via plugins like `jekyll-og-image`) is only required for CI/production builds that generate Open Graph images. For basic local e2e testing, you do **not** need to install `libvips-dev` unless you specifically want to test image generation features.
 ### Local Development
 
 ```bash

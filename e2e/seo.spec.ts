@@ -110,7 +110,11 @@ test.describe('SEO', () => {
           expect(content).toBeTruthy();
           
           // Should be valid JSON
-          expect(() => JSON.parse(content!)).not.toThrow();
+          try {
+            JSON.parse(content!);
+          } catch (e) {
+            throw new Error('Invalid JSON in structured data');
+          }
         }
       });
     });
@@ -175,9 +179,9 @@ test.describe('Blog Post SEO', () => {
       const articlePublishedTime = page.locator('meta[property="article:published_time"]');
       const articleAuthor = page.locator('meta[property="article:author"]');
       
-      const hasArticleMeta = 
-        await articlePublishedTime.count() > 0 ||
-        await articleAuthor.count() > 0;
+      const publishedTimeCount = await articlePublishedTime.count();
+      const authorCount = await articleAuthor.count();
+      const hasArticleMeta = publishedTimeCount > 0 || authorCount > 0;
       
       // Article meta is good but not required
     }

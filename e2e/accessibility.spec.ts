@@ -20,9 +20,8 @@ test.describe('Accessibility', () => {
       const h1 = page.locator('h1');
       const h1Count = await h1.count();
       
-      // Should have at least one h1
-      expect(h1Count).toBeGreaterThan(0);
-      expect(h1Count).toBeLessThanOrEqual(1); // Should have exactly one h1
+      // Should have exactly one h1
+      expect(h1Count).toBe(1);
     });
 
     test(`${url} should have lang attribute`, async ({ page }) => {

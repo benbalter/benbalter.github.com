@@ -87,14 +87,17 @@ export async function checkLinksValid(page: Page, selector = 'a[href]') {
   for (const link of links) {
     const href = await link.getAttribute('href');
     
-    // Skip external links, anchors, and potentially dangerous schemes
-    if (!href || 
-        href.startsWith('http://') || 
-        href.startsWith('https://') || 
-        href.startsWith('#') || 
+    // Skip dangerous schemes first
+    if (!href ||
         href.startsWith('javascript:') ||
         href.startsWith('data:') ||
         href.startsWith('vbscript:')) {
+      continue;
+    }
+    // Then skip external links and anchors
+    if (href.startsWith('http://') ||
+        href.startsWith('https://') ||
+        href.startsWith('#')) {
       continue;
     }
     
