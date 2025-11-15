@@ -4,4 +4,13 @@
 set -e
 
 script/branding
-DISABLE_WHITELIST=1 JEKYLL_GITHUB_TOKEN=$(cat ~/.token) bundle exec jekyll serve --watch --open --livereload
+
+TOKEN_FILE="$HOME/.token"
+if [ -f "$TOKEN_FILE" ]; then
+	JEKYLL_GITHUB_TOKEN=$(cat "$TOKEN_FILE")
+else
+	echo "Warning: $TOKEN_FILE not found; continuing without JEKYLL_GITHUB_TOKEN" >&2
+	JEKYLL_GITHUB_TOKEN=""
+fi
+
+DISABLE_WHITELIST=1 JEKYLL_GITHUB_TOKEN="$JEKYLL_GITHUB_TOKEN" bundle exec jekyll serve --watch --open --livereload

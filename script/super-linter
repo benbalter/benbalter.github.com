@@ -14,6 +14,8 @@ if ! command -v docker >/dev/null 2>&1; then
   exit 1
 fi
 
+echo "If you get a permission denied, run 'docker login ghcr.io' to authenticate."
+
 # Get the absolute path of the repository
 REPO_PATH="$(cd "$(dirname "$0")/.." && pwd)"
 
@@ -22,8 +24,9 @@ echo "Repository: ${REPO_PATH}"
 echo ""
 
 # Run Super Linter with the same configuration as in CI
-# Using the slim image to reduce download size
+# Use the latest multi-arch image (works on amd64 and arm64)
 docker run \
+  --platform linux/amd64 \
   --rm \
   -e RUN_LOCAL=true \
   -e DEFAULT_BRANCH=main \
@@ -34,7 +37,7 @@ docker run \
   -e LINTER_RULES_PATH=. \
   -e LOG_LEVEL=NOTICE \
   -v "${REPO_PATH}":/tmp/lint \
-  ghcr.io/github/super-linter/slim:v7
+  ghcr.io/super-linter/super-linter:slim-latest
 
 echo ""
 echo "${GREEN}Super Linter completed!${NC}"
