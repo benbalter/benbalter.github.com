@@ -7,9 +7,6 @@
 
 import { test, expect } from '@playwright/test';
 import { 
-  checkCommonElements, 
-  checkNavigation, 
-  checkResponsiveMeta,
   waitForFullLoad 
 } from './helpers';
 
