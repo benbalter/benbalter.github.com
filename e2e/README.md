@@ -121,8 +121,7 @@ The Playwright configuration is in [`playwright.config.ts`](../playwright.config
 
 Key settings:
 - **Base URL**: `http://localhost:4000` (can be overridden with `BASE_URL` env var)
-- **Browsers**: Chromium, Firefox, WebKit
-- **Mobile**: Tests also run on mobile viewports (Pixel 5, iPhone 12)
+- **Browser**: Chromium (Desktop Chrome)
 - **Retries**: 2 retries on CI, 0 locally
 - **Reporters**: HTML and list reporters, GitHub Actions reporter on CI
 
@@ -146,7 +145,7 @@ When adding new tests, follow these guidelines:
 2. **Be specific**: Test specific functionality, not everything at once
 3. **Be independent**: Tests should not depend on each other
 4. **Use descriptive names**: Test names should clearly describe what they test
-5. **Handle edge cases**: Consider mobile viewports, missing content, etc.
+5. **Handle edge cases**: Consider missing content, error states, etc.
 6. **Follow patterns**: Look at existing tests for patterns to follow
 
 ### Example Test

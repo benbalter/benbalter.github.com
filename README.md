@@ -49,7 +49,7 @@ bundle exec rspec
 
 ### Playwright E2E Tests
 
-Comprehensive end-to-end tests using Playwright test the site across multiple browsers and viewports:
+Comprehensive end-to-end tests using Playwright test the site on Chromium:
 
 ```bash
 # Run all E2E tests
@@ -62,15 +62,14 @@ npm run test:e2e:ui
 npm run test:e2e:headed
 ```
 
-**Test Coverage:** 118 unique tests × 5 browsers/viewports = **590 total test scenarios**
+**Test Coverage:** 115 unique tests
 
 Tests cover:
 - Homepage, blog posts, resume, and static pages
 - Accessibility (WCAG compliance, keyboard navigation)
 - Performance (load times, asset optimization)
 - SEO (meta tags, Open Graph, structured data)
-- Responsive design (mobile and desktop)
-- Cross-browser compatibility (Chromium, Firefox, WebKit)
+- Responsive design
 
 See [e2e/README.md](e2e/README.md) for detailed testing documentation.
 
