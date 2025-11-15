@@ -15,58 +15,10 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import matter from 'gray-matter';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-/**
- * Extract YAML frontmatter from a markdown file
- */
-function extractFrontmatter(content) {
-  const match = content.match(/^---\s*\n(.*?)\n---\s*\n/s);
-  if (!match) return null;
-  
-  const yaml = match[1];
-  const frontmatter = {};
-  
-  // Simple YAML parser for our needs
-  let currentKey = null;
-  let arrayValues = [];
-  
-  yaml.split('\n').forEach(line => {
-    // Check for key: value
-    const keyValueMatch = line.match(/^(\w+):\s*(.*)$/);
-    if (keyValueMatch) {
-      // Save previous array if any
-      if (currentKey && arrayValues.length > 0) {
-        frontmatter[currentKey] = arrayValues;
-        arrayValues = [];
-      }
-      
-      currentKey = keyValueMatch[1];
-      const value = keyValueMatch[2].trim();
-      
-      if (value) {
-        // Single value
-        frontmatter[currentKey] = value.replace(/^["']|["']$/g, '');
-      }
-      // else, might be an array following
-    } else if (line.trim().startsWith('-')) {
-      // Array item
-      const value = line.trim().substring(1).trim().replace(/^["']|["']$/g, '');
-      if (value) {
-        arrayValues.push(value);
-      }
-    }
-  });
-  
-  // Save last array if any
-  if (currentKey && arrayValues.length > 0) {
-    frontmatter[currentKey] = arrayValues;
-  }
-  
-  return frontmatter;
-}
 
 /**
  * Extract date and slug from filename
@@ -100,7 +52,7 @@ function findRedirects() {
       
       const filepath = path.join(postsDir, filename);
       const content = fs.readFileSync(filepath, 'utf-8');
-      const frontmatter = extractFrontmatter(content);
+      const { data: frontmatter } = matter(content);
       
       if (!frontmatter) return;
       
@@ -143,7 +95,7 @@ function findRedirects() {
       
       const filepath = path.join(contentPostsDir, filename);
       const content = fs.readFileSync(filepath, 'utf-8');
-      const frontmatter = extractFrontmatter(content);
+      const { data: frontmatter } = matter(content);
       
       if (!frontmatter) return;
       
@@ -197,7 +149,7 @@ function findRedirects() {
     
     const filepath = path.join(process.cwd(), filename);
     const content = fs.readFileSync(filepath, 'utf-8');
-    const frontmatter = extractFrontmatter(content);
+    const { data: frontmatter } = matter(content);
     
     if (!frontmatter) return;
     
@@ -228,7 +180,7 @@ function findRedirects() {
       
       const filepath = path.join(contentPagesDir, filename);
       const content = fs.readFileSync(filepath, 'utf-8');
-      const frontmatter = extractFrontmatter(content);
+      const { data: frontmatter } = matter(content);
       
       if (!frontmatter) return;
       
