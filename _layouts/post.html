@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<div class="row">
+  <div class="col-md-10 offset-md-1">
+      <article id="post{{ page.id | replace:"/","-" }}" class="post post{{ page.id | replace:"/","-" }}">
+
+      <h1 class="display-4 text-primary">{{ page.title | smartify }}</h1>
+
+      
+      {% include tldr.html %}
+
+      {% if page.archived %}
+        <div class="alert alert-warning" role="alert">
+          <strong>❗ Heads up!</strong> This post is archived and here for historical purposes. It may no longer be accurate or reflect my views. Proceed at your own risk.
+        </div>
+      {% endif %}
+
+      {% include reading-time.html %}
+
+      <div class="entrybody">
+        {{ content }}
+      </div>
+
+      <div class="mb-2 text-muted small">
+        Originally published {{ page.date | date: '%B %-d, %Y' }} | <a class="link-secondary" href="{{ site.github.repository_url }}/commits/{{ site.github.source.branch }}/{{ page.path }}" target="_blank" rel="noopener">View revision history</a>
+      </div>
+
+      {% if site.data.related_posts[page.relative_path] %}
+        {% include related_posts.html %}
+      {% endif %}
+
+      <div class="row border-top pt-3">
+        <div class="col">
+          {% include_cached mini-bio.html %}
+        </div>
+        <div class="col-lg-2 text-center pb-3">
+          <p>
+            <small>This page is open source. Please {% github_edit_link "help improve it" %}.</small>
+          </p>
+          <a class="btn btn-outline-primary btn-lg btn-sm" href="{% github_edit_link %}" title="Help improve article {{ page.path }}">Edit</a>
+        </div>
+      </div>      
+    </article>
+  </div>
+</div>

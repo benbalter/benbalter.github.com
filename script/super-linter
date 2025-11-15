@@ -1,0 +1,77 @@
+#!/bin/sh
+
+set -e
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+
+# Check if Docker is available
+if ! command -v docker >/dev/null 2>&1; then
+  echo "${RED}Error: Docker is required to run Super Linter locally${NC}"
+  echo "Please install Docker: https://docs.docker.com/get-docker/"
+  exit 1
+fi
+
+echo "If you get a permission denied, run 'docker login ghcr.io' to authenticate."
+
+# Get the absolute path of the repository
+REPO_PATH="$(cd "$(dirname "$0")/.." && pwd)"
+
+echo "${GREEN}Running Super Linter locally...${NC}"
+echo "Repository: ${REPO_PATH}"
+echo ""
+
+# Run Super Linter with the same configuration as in CI
+# Use the latest multi-arch image (works on amd64 and arm64)
+docker run \
+  --platform linux/amd64 \
+  --rm \
+  -e RUN_LOCAL=true \
+  -e DEFAULT_BRANCH=main \
+  -e VALIDATE_ANSIBLE=false \
+  -e VALIDATE_ARM=false \
+  -e VALIDATE_CLOJURE=false \
+  -e VALIDATE_CLOUDFORMATION=false \
+  -e VALIDATE_CSHARP=false \
+  -e VALIDATE_DART=false \
+  -e VALIDATE_DOCKER=false \
+  -e VALIDATE_GO=false \
+  -e VALIDATE_GROOVY=false \
+  -e VALIDATE_JAVA=false \
+  -e VALIDATE_KOTLIN=false \
+  -e VALIDATE_LATEX=false \
+  -e VALIDATE_LUA=false \
+  -e VALIDATE_PERL=false \
+  -e VALIDATE_PHP_BUILTIN=false \
+  -e VALIDATE_PHP_PHPCS=false \
+  -e VALIDATE_PHP_PHPSTAN=false \
+  -e VALIDATE_PHP_PSALM=false \
+  -e VALIDATE_POWERSHELL=false \
+  -e VALIDATE_PROTOBUF=false \
+  -e VALIDATE_PYTHON_BLACK=false \
+  -e VALIDATE_PYTHON_FLAKE8=false \
+  -e VALIDATE_PYTHON_ISORT=false \
+  -e VALIDATE_PYTHON_MYPY=false \
+  -e VALIDATE_PYTHON_PYLINT=false \
+  -e VALIDATE_R=false \
+  -e VALIDATE_REST=false \
+  -e VALIDATE_RUST=false \
+  -e VALIDATE_SCALA=false \
+  -e VALIDATE_SQL=false \
+  -e VALIDATE_SWIFT=false \
+  -e VALIDATE_TERRAFORM_FMT=false \
+  -e VALIDATE_TERRAFORM_TFLINT=false \
+  -e VALIDATE_TERRAFORM_TERRASCAN=false \
+  -e VALIDATE_XML=false \
+  -e VALIDATE_NATURAL_LANGUAGE=false \
+  -e VALIDATE_GITLEAKS=false \
+  -e RUBY_CONFIG_FILE=.rubocop.yml \
+  -e LINTER_RULES_PATH=. \
+  -e LOG_LEVEL=NOTICE \
+  -v "${REPO_PATH}":/tmp/lint \
+  ghcr.io/super-linter/super-linter:slim-latest
+
+echo ""
+echo "${GREEN}Super Linter completed!${NC}"

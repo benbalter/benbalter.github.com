@@ -1,7 +1,43 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "name": "Ben Balter's Website",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
+    "ghcr.io/devcontainers/features/node:1": {},
     "ghcr.io/devcontainers/features/ruby:1": {},
-    "ghcr.io/devcontainers/features/node:1": {}
-  }
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "shopify.ruby-lsp",
+        "yzhang.markdown-all-in-one",
+        "davidanson.vscode-markdownlint",
+        "sissel.shopify-liquid",
+        "redhat.vscode-yaml",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "ms-playwright.playwright"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "[ruby]": {
+          "editor.defaultFormatter": "Shopify.ruby-lsp",
+          "editor.formatOnSave": true
+        },
+        "[markdown]": {
+          "editor.defaultFormatter": "vscode.markdown-language-features"
+        }
+      }
+    }
+  },
+  "onCreateCommand": "bash -lc 'bundle install && npm install'",
+  "postCreateCommand": "bash -lc 'sudo apt-get update && sudo apt-get install -y libvips && ./node_modules/.bin/playwright install --with-deps chromium && echo Devcontainer ready. Run \\\"rake serve\\\" or \\\"script/server\\\" to start Jekyll.'",
+  "forwardPorts": [4000],
+  "portsAttributes": {
+    "4000": {
+      "label": "Jekyll Server",
+      "onAutoForward": "notify"
+    }
+  },
+  "remoteUser": "vscode"
 }

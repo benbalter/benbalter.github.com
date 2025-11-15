@@ -1,0 +1,80 @@
+$header-path: "/assets/img/header.jpg";
+$blue: #337ab7;
+$enable-shadows: true;
+$enable-gradients: true;
+$tooltip-max-width: 350px;
+$color-mode-type: media-query;
+
+@import "~bootstrap/scss/bootstrap";
+
+abbr[data-bs-original-title] {
+    @extend abbr, [title]
+}
+
+@media (prefers-color-scheme: dark) {
+    @import 'base16.dark';
+    
+    .highlight {
+        background-color: var(--bs-body-bg)
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    @import 'base16.light';
+}
+
+.footnotes {
+    @extend small;
+    @extend .border-top;
+    @extend .pt-3;
+}
+
+.footnotes::before {
+    content: "Notes:";
+    @extend .mb-3;
+    @extend .d-block;
+}
+
+.footnotes ol {
+    @extend .ps-3
+}
+
+.footnotes ol li p {
+    @extend .mb-1
+}
+
+.hero-unit {
+    background-image: url($header-path);
+    background-size: cover;
+    background-position: top left;
+    height: 400px;
+}
+
+.gist {
+    .gist-it-gist .gist-file .gist-data,
+    .gist-meta {
+        background: #fcfcff !important;
+    }
+
+    .pl-c {
+        color: #757775 !important;
+    }
+
+    .pl-c1 {
+        color: #007faa !important;
+    }
+}
+
+.min-y-5 {
+    min-height: 5em;
+}
+
+blockquote {
+    border-left: 5px solid $gray-300;
+    padding-left: 1em;
+}
+
+.avatar {
+    @extend .img-fluid;
+    @extend .rounded;
+}

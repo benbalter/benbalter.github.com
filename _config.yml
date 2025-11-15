@@ -67,6 +67,8 @@ exclude:
   - /spec/
   - /comments.xml
   - /docker-compose.yml
+  - /playwright-report/
+  - /content
 
 permalink: "/:year/:month/:day/:title/"
 defaults:
@@ -99,11 +101,10 @@ plugins:
   - jekyll-github-metadata
   - jekyll-mentions
   - jekyll-og-image
+  - jekyll-include-cache
 
 sass:
   style: compressed
-
-theme: retlab
 
 gist:
   noscript: false

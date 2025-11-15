@@ -1,0 +1,86 @@
+.highlight {
+  table {
+    td {
+      padding: 5px;
+    }
+
+    pre {
+      margin: 0;
+    }
+  }
+
+  color: #d0d0d0;
+  background-color: #151515;
+
+  .w {
+    color: #d0d0d0;
+    background-color: #151515;
+  }
+
+  .err {
+    color: #151515;
+    background-color: #ac4142;
+  }
+
+  .c, .ch, .cd, .cm, .cpf, .c1, .cs {
+    color: #505050;
+  }
+
+  .cp, .nt {
+    color: #f4bf75;
+  }
+
+  .o, .ow, .p, .pi {
+    color: #d0d0d0;
+  }
+
+  .gi {
+    color: #90a959;
+  }
+
+  .gd {
+    color: #ac4142;
+  }
+
+  .gh {
+    color: #6a9fb5;
+    background-color: #151515;
+    font-weight: bold;
+  }
+
+  .k, .kn, .kp, .kr, .kv {
+    color: #aa759f;
+  }
+
+  .kc, .kt, .kd {
+    color: #d28445;
+  }
+
+  .s, .sb, .sc, .dl, .sd, .s2, .sh, .sx, .s1 {
+    color: #90a959;
+  }
+
+  .sa {
+    color: #aa759f;
+  }
+
+  .sr {
+    color: #75b5aa;
+  }
+
+  .si, .se {
+    color: #8f5536;
+  }
+
+  .nn, .nc, .no {
+    color: #f4bf75;
+  }
+
+  .na {
+    color: #6a9fb5;
+  }
+
+  .m, .mb, .mf, .mh, .mi, .il, .mo, .mx, .ss {
+    color: #90a959;
+  }
+}
