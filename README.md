@@ -73,6 +73,15 @@ This repository includes specialized GitHub Copilot custom agents to assist with
 
 See `.github/agents/` for their configurations.
 
+## Features
+
+* Automatically generates Open Graph images for social media sharing
+* Responsive design with Bootstrap
+* SEO optimized with jekyll-seo-tag
+* Built-in social sharing capabilities
+
+For details on configuring Open Graph images, see [OG Image Configuration](.github/og-image-config.md).
+
 ## License
 
 * Content: [Creative Commons, BY](http://creativecommons.org/licenses/by/3.0/)
