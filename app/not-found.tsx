@@ -1,15 +1,17 @@
 import { getAllPosts } from '@/lib/posts';
 import Link from 'next/link';
 
-export default function Home() {
-  const posts = getAllPosts();
+export default function NotFound() {
+  const posts = getAllPosts().slice(0, 10);
   
   return (
-    <main>
-      <h1>Ben Balter</h1>
-      <p>Technology leadership, collaboration, and open source</p>
+    <div>
+      <div style={{ textAlign: 'center' }}>
+        <h1>Not Found 😢</h1>
+        <p>The page you are trying to view does not exist.</p>
+      </div>
       
-      <h2>Recent Posts</h2>
+      <h4>Recent posts</h4>
       <ul>
         {posts.map(post => {
           const [year, month, day, ...rest] = post.slug.split('-');
@@ -18,15 +20,11 @@ export default function Home() {
           
           return (
             <li key={post.slug}>
-              <Link href={url}>
-                {post.title}
-              </Link>
-              {post.description && <p>{post.description}</p>}
-              <time dateTime={post.date}>{post.date}</time>
+              <Link href={url}>{post.title}</Link>
             </li>
           );
         })}
       </ul>
-    </main>
+    </div>
   );
 }
