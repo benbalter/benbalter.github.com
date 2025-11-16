@@ -5,10 +5,6 @@ jest.mock('remark', () => ({
   remark: jest.fn(),
 }));
 
-jest.mock('remark-html', () => ({
-  default: jest.fn(),
-}));
-
 jest.mock('remark-gfm', () => ({
   default: jest.fn(),
 }));
@@ -17,11 +13,19 @@ jest.mock('remark-github', () => ({
   default: jest.fn(),
 }));
 
+jest.mock('remark-rehype', () => ({
+  default: jest.fn(),
+}));
+
 jest.mock('rehype-slug', () => ({
   default: jest.fn(),
 }));
 
 jest.mock('rehype-autolink-headings', () => ({
+  default: jest.fn(),
+}));
+
+jest.mock('rehype-stringify', () => ({
   default: jest.fn(),
 }));
 
