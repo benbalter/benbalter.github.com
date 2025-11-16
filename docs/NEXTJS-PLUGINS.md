@@ -4,22 +4,27 @@ This document describes the Next.js equivalents for all Jekyll plugins used in t
 
 ## Overview
 
-All Jekyll plugins have been successfully migrated to Next.js equivalents. The implementation uses TypeScript utilities in the `lib/` directory and build-time scripts for generating static assets.
+All Jekyll plugins have been successfully migrated to Next.js equivalents. The implementation uses TypeScript utilities in the `lib/` directory, industry-standard open-source libraries, and build-time scripts for generating static assets.
+
+**Open-Source Libraries Used:**
+- **node-emoji** (v2.2.0) - Comprehensive emoji support with 1800+ emoji
+- **feed** (v5.1.0) - Standards-compliant RSS/Atom feed generation
+- **sitemap** (v9.0.0) - XML sitemap generation
 
 ## Plugin Migration Status
 
-| Jekyll Plugin | Status | Next.js Equivalent | Notes |
-|---------------|--------|-------------------|-------|
-| Related Posts (retlab) | ✅ Complete | `script/build-related-posts.ts` | TF-IDF similarity analysis |
-| jekyll-redirect-from | ✅ Complete | `script/generate-redirects.mjs` | Static HTML redirect pages |
-| jekyll-feed | ✅ Complete | `lib/rss.ts` + `script/generate-feeds.mjs` | RSS 2.0 feeds |
-| jekyll-sitemap | ✅ Complete | `lib/sitemap.ts` + `script/generate-feeds.mjs` | XML sitemap |
-| jekyll-seo-tag | ✅ Complete | `lib/seo.ts` | Enhanced metadata + JSON-LD |
-| jekyll-github-metadata | ✅ Complete | `lib/github.ts` | Repository metadata utilities |
-| jekyll-avatar | ✅ Complete | `lib/avatar.ts` + `components/GitHubAvatar.tsx` | Avatar URLs and component |
-| jekyll-mentions | ✅ Complete | `lib/mentions.ts` | @username to GitHub links |
-| jemoji | ✅ Complete | `lib/emoji.ts` | :emoji: to Unicode conversion |
-| jekyll-og-image | ✅ Complete | `lib/og-image.ts` | OG image URL resolution |
+| Jekyll Plugin | Status | Next.js Equivalent | Libraries Used | Notes |
+|---------------|--------|-------------------|----------------|-------|
+| Related Posts (retlab) | ✅ Complete | `script/build-related-posts.ts` | natural | TF-IDF similarity analysis |
+| jekyll-redirect-from | ✅ Complete | `script/generate-redirects.mjs` | - | Static HTML redirect pages |
+| jekyll-feed | ✅ Complete | `lib/rss.ts` + `script/generate-feeds.mjs` | **feed** | RSS 2.0 feeds |
+| jekyll-sitemap | ✅ Complete | `lib/sitemap.ts` + `script/generate-feeds.mjs` | **sitemap** | XML sitemap |
+| jekyll-seo-tag | ✅ Complete | `lib/seo.ts` | - | Enhanced metadata + JSON-LD |
+| jekyll-github-metadata | ✅ Complete | `lib/github.ts` | - | Repository metadata utilities |
+| jekyll-avatar | ✅ Complete | `lib/avatar.ts` + `components/GitHubAvatar.tsx` | - | Avatar URLs and component |
+| jekyll-mentions | ✅ Complete | `lib/mentions.ts` | - | @username to GitHub links |
+| jemoji | ✅ Complete | `lib/emoji.ts` | **node-emoji** | :emoji: to Unicode conversion |
+| jekyll-og-image | ✅ Complete | `lib/og-image.ts` | - | OG image URL resolution |
 
 ## Implementation Details
 
@@ -74,7 +79,7 @@ redirect_to: https://external-site.com/new-page
 ### 3. RSS Feeds (`jekyll-feed`)
 
 **Jekyll:** jekyll-feed plugin  
-**Next.js:** Custom RSS generation
+**Next.js:** `feed` library (v5.1.0)
 
 **Location:** `lib/rss.ts`, `script/generate-feeds.mjs`
 
@@ -89,15 +94,16 @@ npm run next:build
 ```
 
 **Features:**
-- RSS 2.0 format with Atom namespace
-- Proper XML escaping
+- Standards-compliant RSS 2.0 format
+- Proper CDATA handling
 - Full post metadata (title, description, pubDate, guid)
 - Press clips from `_data/clips.yml`
+- Uses the industry-standard `feed` library
 
 ### 4. Sitemap (`jekyll-sitemap`)
 
 **Jekyll:** jekyll-sitemap plugin  
-**Next.js:** Custom sitemap generation
+**Next.js:** `sitemap` library (v9.0.0)
 
 **Location:** `lib/sitemap.ts`, `script/generate-feeds.mjs`
 
@@ -112,10 +118,11 @@ npm run next:build
 ```
 
 **Features:**
-- XML sitemap with all URLs
+- Standards-compliant XML sitemap
 - Proper lastmod, changefreq, priority
 - Homepage, pages, and all blog posts
 - Full URL generation from config
+- Uses the industry-standard `sitemap` library
 
 ### 5. SEO Tags (`jekyll-seo-tag`)
 
@@ -224,7 +231,7 @@ const html = await markdownToHtml(markdown);
 ### 9. Emoji (`jemoji`)
 
 **Jekyll:** jemoji plugin  
-**Next.js:** Emoji conversion before markdown processing
+**Next.js:** `node-emoji` library (v2.2.0)
 
 **Location:** `lib/emoji.ts`, integrated in `lib/markdown.ts`
 
@@ -239,14 +246,14 @@ const html = await markdownToHtml(markdown);
 
 **Features:**
 - Converts `:emoji_name:` to Unicode emoji
-- 100+ common emoji supported
-- Smileys, objects, symbols, nature
+- 1800+ emoji supported via node-emoji
 - GitHub-compatible emoji names
+- Full emoji database maintained by the community
 
-**Supported emoji categories:**
-- Smileys & Emotion (smile, heart, thumbsup, etc.)
-- Objects & Symbols (rocket, fire, checkmark, etc.)
-- Nature (sunny, tree, leaves, etc.)
+**Supported emoji:**
+- All standard Unicode emoji
+- GitHub shortcode names (`:+1:`, `:rocket:`, `:wave:`, etc.)
+- Comprehensive coverage across all categories
 
 ### 10. OG Images (`jekyll-og-image`)
 
@@ -342,8 +349,8 @@ All plugin features are automatically processed during:
 
 ### Emoji
 - **Jekyll:** Full GitHub emoji support (1000+ emoji)
-- **Next.js:** Common emoji subset (100+ emoji)
-- **Note:** Can be extended by adding more mappings to `lib/emoji.ts`
+- **Next.js:** Full emoji support via `node-emoji` library (1800+ emoji)
+- **Note:** Now using the industry-standard node-emoji library with comprehensive coverage
 
 ### GitHub Metadata
 - **Jekyll:** Automatic GitHub API integration via Jekyll environment
@@ -356,6 +363,14 @@ All plugin features are automatically processed during:
 - **Note:** Images already exist in `assets/images/og/posts/`
 
 ### Redirects
+- **Jekyll:** Server-side redirects on GitHub Pages
+- **Next.js:** Client-side redirects via meta refresh and JavaScript
+- **Note:** Both approaches work for static hosting
+
+### RSS & Sitemap
+- **Jekyll:** Generated by Jekyll plugins
+- **Next.js:** Generated using industry-standard libraries (`feed`, `sitemap`)
+- **Note:** Standards-compliant output with better test coverage
 - **Jekyll:** Server-side redirects on GitHub Pages
 - **Next.js:** Client-side redirects via meta refresh and JavaScript
 - **Note:** Both approaches work for static hosting
