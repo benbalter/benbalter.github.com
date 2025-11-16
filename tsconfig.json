@@ -4,30 +4,33 @@
     "paths": {
       "@/*": ["./*"]
     },
+    "strict": true,
     "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "moduleResolution": "bundler",
+    "module": "esnext",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
+    "target": "ES2017",
+    "jsx": "react-jsx",
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
     "noEmit": true,
     "incremental": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "react-jsx",
     "plugins": [
       {
         "name": "next"
       }
-    ],
-    "target": "ES2017"
+    ]
   },
   "include": [
     "next-env.d.ts",
@@ -42,7 +45,8 @@
     "node_modules",
     "js/**/*",
     "assets/**/*",
-    "webpack.config.js"
+    "webpack.config.js",
+    "out"
   ],
   "typeRoots": [
     "types"
