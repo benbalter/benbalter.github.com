@@ -324,7 +324,7 @@ const html = await markdownToHtml(markdown);
 * Uses official remark-github plugin
 * Automatic @mention linking to GitHub profiles
 * Issue and PR reference linking (#123)
-* Commit SHA linking (7–40 character SHAs)
+* Commit SHA linking (7-40 character SHAs)
 * User/org disambiguation
 * Preserves original syntax in display
 * Integrated into remark markdown pipeline
