@@ -8,6 +8,9 @@ import { useEffect } from 'react';
  * 
  * Note: FontAwesome is now handled via React components (@fortawesome/react-fontawesome)
  * instead of DOM watching, which is more performant and type-safe
+ * 
+ * Note: Anchor links are now generated server-side using rehype-slug and rehype-autolink-headings
+ * instead of client-side with AnchorJS, which is more performant and SEO-friendly
  */
 export default function ClientScripts() {
   useEffect(() => {
