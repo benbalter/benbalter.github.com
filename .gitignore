@@ -41,6 +41,9 @@ out/
 /playwright-report/
 /playwright/.cache/
 
+# Jest coverage
+coverage/
+
 # TypeScript build info
 *.tsbuildinfopublic/assets/images/og/
 /vendor/

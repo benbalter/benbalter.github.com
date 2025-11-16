@@ -1,7 +1,7 @@
-import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { cache } from 'react';
+import { readContentFile, findFileWithExtensions, readDirectory, createContentItem } from './content-loader';
 
 export interface Page {
   slug: string;
@@ -51,7 +51,12 @@ export function getPageBySlug(slug: string): Page | null {
     }
   }
   
-  return null;
+  const { data, content } = readContentFile(filePath);
+  
+  return createContentItem(slug, data, content, {
+    title: data.title,
+    description: data.description,
+  }) as Page;
 }
 
 /**
@@ -60,13 +65,7 @@ export function getPageBySlug(slug: string): Page | null {
  */
 export const getAllPages = cache((): Page[] => {
   const pagesDirectory = path.join(process.cwd(), 'content/pages');
-  let fileNames: string[] = [];
-  try {
-    fileNames = fs.readdirSync(pagesDirectory);
-  } catch (err) {
-    // Directory does not exist or is unreadable; return empty array
-    return [];
-  }
+  const fileNames = readDirectory(pagesDirectory);
   
   return fileNames
     .filter(fileName => fileName.endsWith('.md') || fileName.endsWith('.html'))
