@@ -151,7 +151,7 @@ The tests have been optimized for speed:
 
 * **`waitForPageReady()`**: Fast load helper (recommended for most tests)
   * Waits for `domcontentloaded` and `load` states
-  * ~1-3 seconds faster than `waitForFullLoad`
+  * \~1–3 seconds faster than `waitForFullLoad`
   * Use when you don't need to wait for all network activity
 
 * **`waitForFullLoad()`**: Complete load helper (use sparingly)
@@ -243,29 +243,29 @@ npm run test:e2e:ui
 
 ## Best Practices
 
-1. **Keep tests fast**: 
+1. **Keep tests fast**:
    * Use `waitForPageReady()` instead of `waitForFullLoad()` when possible
    * Group tests with `beforeEach` to avoid redundant navigations
    * Use efficient selectors
    * Avoid unnecessary waits
 
-2. **Keep tests reliable**: 
+2. **Keep tests reliable**:
    * Use proper wait conditions, not fixed timeouts
    * Wait for elements to be visible/hidden before interacting
    * Handle async operations properly
 
-3. **Keep tests maintainable**: 
+3. **Keep tests maintainable**:
    * Use helpers for common operations
    * Avoid duplication
    * Extract complex selectors into variables
 
-4. **Keep tests readable**: 
+4. **Keep tests readable**:
    * Clear test names
    * Good structure with describe blocks
    * Comments when needed
    * One assertion focus per test
 
-5. **Run tests frequently**: 
+5. **Run tests frequently**:
    * Run locally before committing
    * Check CI results
    * Fix flaky tests immediately

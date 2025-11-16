@@ -34,7 +34,7 @@ Put another way, in taking a look at this [sample Word Document](https://github.
 | Word                                      | 33621 bytes | 100%  |
 | HTML                                      | 1359 bytes  | 4.04% |
 | Markdown                                  | 80 bytes    | 0.24% |
-{: .table .table-striped .w-50 .mx-auto }
+| {: .table .table-striped .w-50 .mx-auto } |             |       |
 
 ## Exposing author intent
 
