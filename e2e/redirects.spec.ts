@@ -1,4 +1,9 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
+
+const expectPathname = (page: Page, expectedPath: string) => {
+  const currentPath = new URL(page.url()).pathname;
+  expect(currentPath).toBe(expectedPath);
+};
 
 test.describe('Legacy URL Redirects', () => {
   test('should redirect /cv/ to /resume/', async ({ page }) => {
@@ -6,22 +11,22 @@ test.describe('Legacy URL Redirects', () => {
     await page.goto('/cv/');
     
     // Should redirect to the new URL
-    await expect(page).toHaveURL('/resume/');
+    expectPathname(page, '/resume/');
   });
 
   test('should redirect /books/ to /other-recommended-reading/', async ({ page }) => {
     await page.goto('/books/');
-    await expect(page).toHaveURL('/other-recommended-reading/');
+    expectPathname(page, '/other-recommended-reading/');
   });
 
   test('should redirect post with typo /2014/01/27/open-collabortion/', async ({ page }) => {
     await page.goto('/2014/01/27/open-collabortion/');
-    await expect(page).toHaveURL('/2014/01/27/open-collaboration/');
+    expectPathname(page, '/2014/01/27/open-collaboration/');
   });
 
   test('should redirect post with wrong date /2014/12/08/types-of-pull-requests/', async ({ page }) => {
     await page.goto('/2014/12/08/types-of-pull-requests/');
-    await expect(page).toHaveURL('/2015/12/08/types-of-pull-requests/');
+    expectPathname(page, '/2015/12/08/types-of-pull-requests/');
   });
 
   test('should redirect to external site for /2023/10/04/how-to-communicate-like-a-github-engineer/', async ({ page }) => {
