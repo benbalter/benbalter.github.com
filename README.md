@@ -158,7 +158,7 @@ Tests cover:
 * Performance (load times, asset optimization)
 * SEO (meta tags, Open Graph, structured data)
 * Responsive design
-* **Static HTML generation** (validates SSG output)
+* Static HTML generation and SSG compliance
 
 See [e2e/README.md](e2e/README.md) for detailed testing documentation.
 
