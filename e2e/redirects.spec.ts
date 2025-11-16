@@ -7,25 +7,31 @@ const expectPathname = (page: Page, expectedPath: string) => {
 
 test.describe('Legacy URL Redirects', () => {
   test('should redirect /cv/ to /resume/', async ({ page }) => {
-    // Start on the legacy URL
-    await page.goto('/cv/');
+    // Start on the legacy URL and wait for JavaScript redirect to complete
+    await page.goto('/cv/', { waitUntil: 'networkidle' });
+    
+    // Wait for redirect to complete (JavaScript replaces location)
+    await page.waitForURL('**/resume/', { timeout: 5000 });
     
     // Should redirect to the new URL
     expectPathname(page, '/resume/');
   });
 
   test('should redirect /books/ to /other-recommended-reading/', async ({ page }) => {
-    await page.goto('/books/');
+    await page.goto('/books/', { waitUntil: 'networkidle' });
+    await page.waitForURL('**/other-recommended-reading/', { timeout: 5000 });
     expectPathname(page, '/other-recommended-reading/');
   });
 
   test('should redirect post with typo /2014/01/27/open-collabortion/', async ({ page }) => {
-    await page.goto('/2014/01/27/open-collabortion/');
+    await page.goto('/2014/01/27/open-collabortion/', { waitUntil: 'networkidle' });
+    await page.waitForURL('**/2014/01/27/open-collaboration/', { timeout: 5000 });
     expectPathname(page, '/2014/01/27/open-collaboration/');
   });
 
   test('should redirect post with wrong date /2014/12/08/types-of-pull-requests/', async ({ page }) => {
-    await page.goto('/2014/12/08/types-of-pull-requests/');
+    await page.goto('/2014/12/08/types-of-pull-requests/', { waitUntil: 'networkidle' });
+    await page.waitForURL('**/2015/12/08/types-of-pull-requests/', { timeout: 5000 });
     expectPathname(page, '/2015/12/08/types-of-pull-requests/');
   });
 
