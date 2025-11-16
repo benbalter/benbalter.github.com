@@ -438,14 +438,12 @@ export default async function RelatedPosts({ postSlug }) {
 Before merging any changes:
 
 1. **Check for 'use client' usage**:
-
    ```bash
    grep -r '^["'\'']use client["'\'']' app/
    # Should only show ClientScripts.tsx and Navigation.tsx
    ```
 
 2. **Verify build output is static**:
-
    ```bash
    npm run next:build
    # Check that all routes are marked with ○ (Static) or ● (SSG)
@@ -453,7 +451,6 @@ Before merging any changes:
    ```
 
 3. **Check JavaScript bundle size**:
-
    ```bash
    ls -lh out/_next/static/chunks/
    # Verify minimal JS bundle size

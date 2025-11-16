@@ -20,7 +20,7 @@ The economics of the situation are only half the threat. Daily deals live in mur
 
 As Benjamin Edelman and Paul Kominers [argue](http://www.benedelman.org/voucher-consumer-protection/#liability):
 
-> \[T]he legal and regulatory questions… are questions that arise distinctively in the context of discount vouchers: a merchant would never confront such questions were it not for discount vouchers. Having created the transactions giving rise to this regulatory complexity… discount voucher services should be expected to achieve compliance.
+> [T]he legal and regulatory questions… are questions that arise distinctively in the context of discount vouchers: a merchant would never confront such questions were it not for discount vouchers. Having created the transactions giving rise to this regulatory complexity… discount voucher services should be expected to achieve compliance.
 
 Edelman and Kominers [continue](http://www.benedelman.org/voucher-consumer-protection/):
 

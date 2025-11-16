@@ -52,29 +52,23 @@ This site has been migrated from Jekyll to Next.js using the App Router and stat
 ### Getting Started
 
 1. **Install dependencies:**
-
    ```bash
    npm install
    ```
 
 2. **Start the development server:**
-
    ```bash
    npm run dev
    ```
-
    Visit <http://localhost:3000> to see your changes in real-time.
 
 3. **Build for production:**
-
    ```bash
    npm run next:build
    ```
-
    Generates static HTML in the `out/` directory.
 
 4. **Preview production build:**
-
    ```bash
    npm run next:start
    ```
@@ -223,7 +217,6 @@ export function getPost(slug: string): Post | null {
 ### 6. Performance Optimization
 
 * **React's cache()**: Use for request-level memoization
-
   ```typescript
   import { cache } from 'react';
   const getCachedPosts = cache(() => getAllPosts());

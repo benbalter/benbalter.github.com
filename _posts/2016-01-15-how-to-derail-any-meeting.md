@@ -3,7 +3,7 @@ title: How to derail any meeting
 description: How a WWII field manual can help modern knowledge workers identify those inadvertently sabotaging your organization today.
 ---
 
-The Office of Strategic Services "[Simple Sabotage Field Manual](https://www.gutenberg.org/ebooks/26184)" was declassified and subsequently made its way around the internet. The book, published in 1944 by the predecessor to the CIA, had headings like "Encouraging Destructiveness." Still, it was the section on "General Interference with Organizations and Production" that caught my eye, not because I intend to sabotage any organization shortly, but because I see so many modern knowledge workers unintentionally doing to their organization precisely what the OSS playbook described doing to adversaries some 70 years ago. Here are a few of my favorite\[^emphasis-mine] from the list:
+The Office of Strategic Services "[Simple Sabotage Field Manual](https://www.gutenberg.org/ebooks/26184)" was declassified and subsequently made its way around the internet. The book, published in 1944 by the predecessor to the CIA, had headings like "Encouraging Destructiveness." Still, it was the section on "General Interference with Organizations and Production" that caught my eye, not because I intend to sabotage any organization shortly, but because I see so many modern knowledge workers unintentionally doing to their organization precisely what the OSS playbook described doing to adversaries some 70 years ago. Here are a few of my favorite[^emphasis-mine] from the list:
 
 > * **Insist on doing everything through "channels."** Never permit shortcuts to be taken to expedite decisions.
 > * **Haggle over precise wordings** of communications, minutes, and resolutions.

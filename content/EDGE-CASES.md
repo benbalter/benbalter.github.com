@@ -79,7 +79,7 @@ Two HTML pages were migrated and will need special handling:
 
 ## Frontmatter Edge Cases
 
-### Multiple Values in redirect\_from
+### Multiple Values in redirect_from
 
 Example from `2023-12-08-cathedral-bazaar-management.md`:
 
@@ -133,7 +133,7 @@ Category Name:
 
 **Usage**: Display press mentions sorted by date.
 
-### related\_posts.yml Structure
+### related_posts.yml Structure
 
 ```yaml
 post-slug-without-date:
