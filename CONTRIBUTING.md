@@ -21,44 +21,30 @@ This project follows a code of conduct that all contributors are expected to adh
 
 * **Node.js**: Version 20.x or later
 * **npm**: Version 10.x or later (comes with Node.js)
-* **Ruby**: Version 3.4.x (for Jekyll legacy features)
+* **Ruby**: Version 3.3.x (for Jekyll legacy features)
 * **Git**: For version control
 
-### Setup Options
-
-#### Option 1: Dev Container (Recommended)
-
-Use the included VS Code Dev Container for a pre-configured development environment:
-
-1. **Install prerequisites:**
-   * [Docker Desktop](https://www.docker.com/products/docker-desktop)
-   * [VS Code](https://code.visualstudio.com/)
-   * [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-
-2. **Open in container:**
-   * Open the repository in VS Code
-   * Click "Reopen in Container" when prompted
-   * Wait for the container to build and dependencies to install
-
-The devcontainer includes Ruby, Node.js, system dependencies, and all necessary VS Code extensions pre-configured.
-
-#### Option 2: Local Setup
+### Setup
 
 1. **Fork and clone the repository:**
+
    ```bash
    git clone https://github.com/YOUR_USERNAME/benbalter.github.com.git
    cd benbalter.github.com
    ```
 
 2. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 3. **Start development server:**
+
    ```bash
    npm run dev
    ```
+
    Visit <http://localhost:3000> to see your changes.
 
 ## Development Workflow
@@ -148,9 +134,11 @@ export function calculateReadingTime(content: string): number {
 ### Code Style
 
 * Run linters before committing:
+
   ```bash
   npm run lint
   ```
+
 * Follow existing code patterns
 * Write clear, descriptive variable names
 * Keep functions focused and small
@@ -194,17 +182,20 @@ npm run test:e2e:headed  # Watch tests run in browser
 ### Before Submitting
 
 1. **Test your changes:**
+
    ```bash
    npm run next:build  # Verify production build
    npm test            # Run all tests
    ```
 
 2. **Lint your code:**
+
    ```bash
    npm run lint
    ```
 
 3. **Check TypeScript:**
+
    ```bash
    npx tsc --noEmit
    ```
@@ -212,17 +203,20 @@ npm run test:e2e:headed  # Watch tests run in browser
 ### Creating a Pull Request
 
 1. **Create a feature branch:**
+
    ```bash
    git checkout -b feature/your-feature-name
    ```
 
 2. **Make your changes** and commit with descriptive messages:
+
    ```bash
    git add .
    git commit -m "Add feature: brief description"
    ```
 
 3. **Push to your fork:**
+
    ```bash
    git push origin feature/your-feature-name
    ```
