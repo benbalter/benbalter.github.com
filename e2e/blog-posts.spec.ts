@@ -4,13 +4,13 @@ import {
   checkNavigation, 
   checkFooter,
   checkSocialMeta,
-  waitForFullLoad 
+  waitForPageReady 
 } from './helpers';
 
 test.describe('Blog Posts', () => {
   test('should have a posts listing page accessible from home', async ({ page }) => {
     await page.goto('/');
-    await waitForFullLoad(page);
+    await waitForPageReady(page);
     
     // Try to find posts on homepage or navigate to posts page
     const postLinks = page.locator('a[href*="/20"]'); // Blog posts typically have year in URL
@@ -24,7 +24,7 @@ test.describe('Blog Posts', () => {
       const archiveLink = page.locator('a[href*="archive"], a[href*="posts"], a[href*="blog"]');
       if (await archiveLink.count() > 0) {
         await archiveLink.first().click();
-        await waitForFullLoad(page);
+        await waitForPageReady(page);
       }
     }
   });
@@ -32,7 +32,7 @@ test.describe('Blog Posts', () => {
   test('should render individual blog post correctly', async ({ page }) => {
     // First, get a blog post URL from the homepage
     await page.goto('/');
-    await waitForFullLoad(page);
+    await waitForPageReady(page);
     
     const postLinks = page.locator('a[href*="/20"]');
     const count = await postLinks.count();
@@ -47,7 +47,7 @@ test.describe('Blog Posts', () => {
     
     if (firstPostUrl) {
       await page.goto(firstPostUrl);
-      await waitForFullLoad(page);
+      await waitForPageReady(page);
       
       // Check common elements
       await checkCommonElements(page);
@@ -73,7 +73,7 @@ test.describe('Blog Posts', () => {
 
   test('blog post should have proper metadata', async ({ page }) => {
     await page.goto('/');
-    await waitForFullLoad(page);
+    await waitForPageReady(page);
     
     const postLinks = page.locator('a[href*="/20"]');
     const count = await postLinks.count();
@@ -87,7 +87,7 @@ test.describe('Blog Posts', () => {
     
     if (firstPostUrl) {
       await page.goto(firstPostUrl);
-      await waitForFullLoad(page);
+      await waitForPageReady(page);
       
       // Check for meta description
       const metaDescription = page.locator('meta[name="description"]');
@@ -100,7 +100,7 @@ test.describe('Blog Posts', () => {
 
   test('blog post should have readable content', async ({ page }) => {
     await page.goto('/');
-    await waitForFullLoad(page);
+    await waitForPageReady(page);
     
     const postLinks = page.locator('a[href*="/20"]');
     const count = await postLinks.count();
@@ -114,7 +114,7 @@ test.describe('Blog Posts', () => {
     
     if (firstPostUrl) {
       await page.goto(firstPostUrl);
-      await waitForFullLoad(page);
+      await waitForPageReady(page);
       
       // Check for paragraphs or content blocks
       const paragraphs = page.locator('article p, .post p, main p');
@@ -126,7 +126,7 @@ test.describe('Blog Posts', () => {
 
   test('blog post images should have alt text', async ({ page }) => {
     await page.goto('/');
-    await waitForFullLoad(page);
+    await waitForPageReady(page);
     
     const postLinks = page.locator('a[href*="/20"]');
     const count = await postLinks.count();
@@ -140,7 +140,7 @@ test.describe('Blog Posts', () => {
     
     if (firstPostUrl) {
       await page.goto(firstPostUrl);
-      await waitForFullLoad(page);
+      await waitForPageReady(page);
       
       // Check all images in the post have alt text
       const images = await page.locator('article img, .post img, main img').all();
@@ -157,7 +157,7 @@ test.describe('Blog Posts', () => {
 
   test('blog post links should be valid', async ({ page }) => {
     await page.goto('/');
-    await waitForFullLoad(page);
+    await waitForPageReady(page);
     
     const postLinks = page.locator('a[href*="/20"]');
     const count = await postLinks.count();
@@ -171,7 +171,7 @@ test.describe('Blog Posts', () => {
     
     if (firstPostUrl) {
       await page.goto(firstPostUrl);
-      await waitForFullLoad(page);
+      await waitForPageReady(page);
       
       // Check links in content have href attribute
       const contentLinks = page.locator('article a[href], .post a[href], main a[href]');

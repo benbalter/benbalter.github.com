@@ -3,13 +3,13 @@ import {
   checkCommonElements, 
   checkNavigation, 
   checkFooter,
-  waitForFullLoad 
+  waitForPageReady 
 } from './helpers';
 
 test.describe('Resume Page', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/resume');
-    await waitForFullLoad(page);
+    await waitForPageReady(page);
   });
 
   test('should load successfully', async ({ page }) => {
