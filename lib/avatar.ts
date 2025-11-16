@@ -4,6 +4,11 @@
  * 
  * Provides GitHub avatar URLs and components
  * Uses Octokit for fetching avatar URLs from GitHub API
+ * 
+ * Usage:
+ * - For React components: Use app/components/GitHubAvatar.tsx (uses Next.js Image)
+ * - For server-side HTML: Use getAvatarImageTag() functions (returns <img> tag)
+ * - For direct URLs: Use getGitHubAvatarUrl() or getGitHubAvatarUrlSync()
  */
 
 import { Octokit } from '@octokit/rest';
@@ -65,6 +70,11 @@ export function getGitHubAvatarUrlSync(username: string, size: number = 40): str
 
 /**
  * Get avatar image tag HTML (synchronous for SSG)
+ * 
+ * Note: For React components, use app/components/GitHubAvatar.tsx instead,
+ * which uses Next.js Image component for better optimization.
+ * This function is for server-side HTML generation (RSS feeds, etc.)
+ * 
  * @param username GitHub username
  * @param size Avatar size in pixels (default: 40)
  * @param className Optional CSS class name
@@ -79,6 +89,11 @@ export function getAvatarImageTag(username: string, size: number = 40, className
 
 /**
  * Get avatar image tag HTML (async version with API)
+ * 
+ * Note: For React components, use app/components/GitHubAvatar.tsx instead,
+ * which uses Next.js Image component for better optimization.
+ * This function is for server-side HTML generation with API calls.
+ * 
  * @param username GitHub username
  * @param size Avatar size in pixels (default: 40)
  * @param className Optional CSS class name
