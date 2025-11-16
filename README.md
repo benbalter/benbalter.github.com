@@ -20,6 +20,28 @@ A Next.js structure has been set up for the future migration. The Next.js app is
 * Export static HTML for GitHub Pages compatibility
 * Support TypeScript with React
 * Automatic legacy URL redirect generation from YAML frontmatter
+* **Maximize Static Site Generation (SSG)** - All pages are pre-rendered as static HTML
+* **Minimize client-side JavaScript** - Use server components by default
+
+#### Next.js Development Guidelines
+
+**IMPORTANT: This site prioritizes Static Site Generation (SSG) and server components.**
+
+* ✅ **DO**: Use server components by default (no 'use client' directive)
+* ✅ **DO**: Pre-render all pages as static HTML using `generateStaticParams`
+* ✅ **DO**: Use HTML and CSS for interactive features when possible
+* ❌ **DON'T**: Use 'use client' unless ABSOLUTELY necessary
+* ❌ **DON'T**: Use client-side state management when server components work
+* ❌ **DON'T**: Add unnecessary JavaScript for features that can be HTML/CSS only
+
+**When 'use client' IS necessary:**
+
+* Browser APIs (localStorage, window, document)
+* React hooks (useState, useEffect, usePathname, etc.)
+* Event handlers that require client-side state
+* Third-party libraries that require client-side initialization
+
+**Always ask: "Can this be done with SSG and server components?"**
 
 #### Next.js Commands
 
@@ -81,6 +103,30 @@ This repository includes specialized GitHub Copilot custom agents to assist with
 
 See `.github/agents/` for their configurations.
 
+## Next.js Development Guidelines
+
+This site uses **Static Site Generation (SSG) with minimal client-side JavaScript.**
+
+See [docs/SSG-BEST-PRACTICES.md](docs/SSG-BEST-PRACTICES.md) for complete guidelines on:
+
+* Server components vs client components
+* When to use 'use client' (rarely!)
+* Maximizing static HTML generation
+* Preferring HTML/CSS over JavaScript
+
+**Key principle**: NEVER use 'use client' unless absolutely necessary. The site currently has only 2 client components and should stay that way.
+
+### Copilot Development Environment
+
+The repository includes a `.github/workflows/copilot-setup-steps.yml` workflow that automatically configures the development environment for GitHub Copilot coding agent. This workflow:
+
+* Sets up Ruby (with version from `.ruby-version`)
+* Sets up Node.js (version 20)
+* Installs system dependencies (libvips for image processing)
+* Installs all Ruby gems and npm packages via `script/bootstrap`
+
+This ensures Copilot can build, test, and work with the codebase in a properly configured environment.
+
 ## Testing
 
 ### RSpec Tests (Ruby)
@@ -122,6 +168,7 @@ Tests cover:
 * SEO (meta tags, Open Graph, structured data)
 * Responsive design
 * Next.js build output and static export
+* Static HTML generation and SSG compliance
 
 See [e2e/README.md](e2e/README.md) for Jekyll testing documentation.
 See [docs/NEXTJS_TESTING.md](docs/NEXTJS_TESTING.md) for Next.js testing documentation.

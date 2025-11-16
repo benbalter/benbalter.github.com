@@ -73,11 +73,9 @@ export default function RootLayout({
   const footerPages = getFooterPages();
   
   return (
-    <html lang="en">
+    <html lang="en-US">
       <head>
-        <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="color-scheme" content="light dark" />
         <meta name="theme-color" content="#111111" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#eeeeee" media="(prefers-color-scheme: dark)" />

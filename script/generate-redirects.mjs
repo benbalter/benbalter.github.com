@@ -77,35 +77,26 @@ function addRedirect(redirects, source, destination, type) {
 
 /**
  * Scan content directories for redirect directives
+ * Optimized to read each directory only once
  */
 function findRedirects() {
   const redirects = [];
-
-  // Scan _posts directory
-  const postsDir = path.join(process.cwd(), '_posts');
-  if (fs.existsSync(postsDir)) {
-    const files = fs.readdirSync(postsDir);
-
-    files.forEach(filename => {
-      if (!filename.endsWith('.md')) return;
-
-      const filepath = path.join(postsDir, filename);
+  
+  // Helper to process a file and extract redirects
+  function processFile(filepath, destination) {
+    try {
       const content = fs.readFileSync(filepath, 'utf-8');
       const { data: frontmatter } = matter(content);
 
       if (!frontmatter) return;
-
-      const parsed = parsePostFilename(filename);
-      if (!parsed) return;
-
-      const destination = parsed.permalink;
-
-      // Handle redirect_from
-      if (frontmatter.redirect_from) {
-        const sources = Array.isArray(frontmatter.redirect_from)
-          ? frontmatter.redirect_from
-          : [frontmatter.redirect_from];
-
+      
+      // Handle redirect_from (both regular and legacy)
+      const redirectFromField = frontmatter.redirect_from || frontmatter._legacy_redirect_from;
+      if (redirectFromField) {
+        const sources = Array.isArray(redirectFromField) 
+          ? redirectFromField 
+          : [redirectFromField];
+        
         sources.forEach(source => {
           addRedirect(redirects, source, destination, 'redirect_from');
         });
@@ -119,58 +110,40 @@ function findRedirects() {
           type: 'redirect_to'
         });
       }
+    } catch (error) {
+      console.warn(`Warning: Failed to process ${filepath}:`, error.message);
+    }
+  }
+  
+  // Scan _posts directory (legacy Jekyll location)
+  const postsDir = path.join(process.cwd(), '_posts');
+  if (fs.existsSync(postsDir)) {
+    const files = fs.readdirSync(postsDir);
+    
+    files.forEach(filename => {
+      if (!filename.endsWith('.md')) return;
+      
+      const parsed = parsePostFilename(filename);
+      if (!parsed) return;
+      
+      const filepath = path.join(postsDir, filename);
+      processFile(filepath, parsed.permalink);
     });
   }
-
-  // Scan content/posts directory (for Next.js migration)
+  
+  // Scan content/posts directory (Next.js migration location)
   const contentPostsDir = path.join(process.cwd(), 'content', 'posts');
   if (fs.existsSync(contentPostsDir)) {
     const files = fs.readdirSync(contentPostsDir);
 
     files.forEach(filename => {
       if (!filename.endsWith('.md')) return;
-
-      const filepath = path.join(contentPostsDir, filename);
-      const content = fs.readFileSync(filepath, 'utf-8');
-      const { data: frontmatter } = matter(content);
-
-      if (!frontmatter) return;
-
+      
       const parsed = parsePostFilename(filename);
       if (!parsed) return;
-
-      const destination = parsed.permalink;
-
-      // Handle _legacy_redirect_from (in migrated content)
-      if (frontmatter._legacy_redirect_from) {
-        const sources = Array.isArray(frontmatter._legacy_redirect_from)
-          ? frontmatter._legacy_redirect_from
-          : [frontmatter._legacy_redirect_from];
-
-        sources.forEach(source => {
-          addRedirect(redirects, source, destination, 'redirect_from');
-        });
-      }
-
-      // Handle redirect_from (current)
-      if (frontmatter.redirect_from) {
-        const sources = Array.isArray(frontmatter.redirect_from)
-          ? frontmatter.redirect_from
-          : [frontmatter.redirect_from];
-
-        sources.forEach(source => {
-          addRedirect(redirects, source, destination, 'redirect_from');
-        });
-      }
-
-      // Handle redirect_to
-      if (frontmatter.redirect_to) {
-        redirects.push({
-          source: destination,
-          destination: frontmatter.redirect_to.trim(),
-          type: 'redirect_to'
-        });
-      }
+      
+      const filepath = path.join(contentPostsDir, filename);
+      processFile(filepath, parsed.permalink);
     });
   }
 
@@ -188,17 +161,7 @@ function findRedirects() {
 
     // Get destination from permalink or filename
     const destination = frontmatter.permalink || `/${filename.replace(/\.(md|html)$/, '')}/`;
-
-    // Handle redirect_from
-    if (frontmatter.redirect_from) {
-      const sources = Array.isArray(frontmatter.redirect_from)
-        ? frontmatter.redirect_from
-        : [frontmatter.redirect_from];
-
-      sources.forEach(source => {
-        addRedirect(redirects, source, destination, 'redirect_from');
-      });
-    }
+    processFile(filepath, destination);
   });
 
   // Scan content/pages directory
@@ -217,18 +180,7 @@ function findRedirects() {
 
       // Get destination from permalink or filename
       const destination = frontmatter.permalink || frontmatter._legacy_permalink || `/${filename.replace(/\.(md|html)$/, '')}/`;
-
-      // Handle redirect_from
-      if (frontmatter.redirect_from || frontmatter._legacy_redirect_from) {
-        const redirectField = frontmatter.redirect_from || frontmatter._legacy_redirect_from;
-        const sources = Array.isArray(redirectField)
-          ? redirectField
-          : [redirectField];
-
-        sources.forEach(source => {
-          addRedirect(redirects, source, destination, 'redirect_from');
-        });
-      }
+      processFile(filepath, destination);
     });
   }
 
