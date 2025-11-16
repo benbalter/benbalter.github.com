@@ -1,3 +1,4 @@
+import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { cache } from 'react';
@@ -51,12 +52,7 @@ export function getPageBySlug(slug: string): Page | null {
     }
   }
   
-  const { data, content } = readContentFile(filePath);
-  
-  return createContentItem(slug, data, content, {
-    title: data.title,
-    description: data.description,
-  }) as Page;
+  return null;
 }
 
 /**
