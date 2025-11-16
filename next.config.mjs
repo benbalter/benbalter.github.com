@@ -33,7 +33,7 @@ const nextConfig = {
   // See: https://nextjs.org/docs/app/api-reference/next-config-js/reactStrictMode
   reactStrictMode: true,
 
-  // Power preference for better performance
+  // Remove 'X-Powered-By: Next.js' header for security (reduce information disclosure)
   // See: https://nextjs.org/docs/app/api-reference/next-config-js/poweredByHeader
   poweredByHeader: false,
 
