@@ -64,7 +64,7 @@ RSpec.describe 'prose quality' do
           content.lines.each do |line|
             next if line.include?('data-proofer-ignore')
 
-            line.scan(%r{\[([^\]]+)\]\((/[^)]+)\)}).each_value do |url|
+            line.scan(%r{\[([^\]]+)\]\((/[^)]+)\)}).each do |_text, url|
               # Skip generated files
               next if url.start_with?('/sitemap.xml')
 
