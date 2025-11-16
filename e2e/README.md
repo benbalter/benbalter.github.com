@@ -132,8 +132,32 @@ Key settings:
 
 * **Base URL**: `http://localhost:4000` (can be overridden with `BASE_URL` env var)
 * **Browser**: Chromium (Desktop Chrome)
+* **Workers**: 4 workers in CI for parallel execution, unlimited locally
+* **Timeouts**: 15s navigation, 5s actions (optimized for fast static site)
 * **Retries**: 2 retries on CI, 0 locally
 * **Reporters**: HTML and list reporters, GitHub Actions reporter on CI
+
+## Performance Optimizations
+
+The tests have been optimized for speed:
+
+1. **Parallel Execution**: 4 workers in CI run tests concurrently
+2. **Fast Page Loads**: `waitForPageReady()` uses `load` state instead of `networkidle` for most tests
+3. **Reduced Timeouts**: Navigation and action timeouts reduced from 30s/10s to 15s/5s
+4. **Shared Page State**: `beforeEach` hooks eliminate redundant page navigations
+5. **Minimal Waits**: Only wait for `networkidle` when necessary (e.g., performance tests)
+
+### Helper Functions
+
+* **`waitForPageReady()`**: Fast load helper (recommended for most tests)
+  * Waits for `domcontentloaded` and `load` states
+  * ~1-3 seconds faster than `waitForFullLoad`
+  * Use when you don't need to wait for all network activity
+
+* **`waitForFullLoad()`**: Complete load helper (use sparingly)
+  * Waits for `domcontentloaded` and `networkidle` states
+  * Ensures all network activity has ceased
+  * Use for performance tests or when testing lazy-loaded content
 
 ## CI Integration
 
@@ -145,7 +169,7 @@ The workflow:
 2. Sets up Ruby and Node.js
 3. Builds the Jekyll site
 4. Starts a Jekyll server
-5. Runs Playwright tests
+5. Runs Playwright tests (4 workers in parallel)
 6. Uploads test reports as artifacts
 
 ## Writing New Tests
@@ -153,25 +177,34 @@ The workflow:
 When adding new tests, follow these guidelines:
 
 1. **Use helpers**: Import and use helper functions from `helpers.ts` for common checks
-2. **Be specific**: Test specific functionality, not everything at once
-3. **Be independent**: Tests should not depend on each other
-4. **Use descriptive names**: Test names should clearly describe what they test
-5. **Handle edge cases**: Consider missing content, error states, etc.
-6. **Follow patterns**: Look at existing tests for patterns to follow
+2. **Use `waitForPageReady()`**: Prefer this over `waitForFullLoad()` for faster tests
+3. **Group related tests**: Use `beforeEach` to navigate once for multiple tests
+4. **Be specific**: Test specific functionality, not everything at once
+5. **Be independent**: Tests should not depend on each other
+6. **Use descriptive names**: Test names should clearly describe what they test
+7. **Handle edge cases**: Consider missing content, error states, etc.
+8. **Follow patterns**: Look at existing tests for patterns to follow
 
 ### Example Test
 
 ```typescript
 import { test, expect } from '@playwright/test';
-import { checkCommonElements, waitForFullLoad } from './helpers';
+import { checkCommonElements, waitForPageReady } from './helpers';
 
 test.describe('New Feature', () => {
-  test('should do something specific', async ({ page }) => {
+  test.beforeEach(async ({ page }) => {
     await page.goto('/some-page');
-    await waitForFullLoad(page);
-    
-    // Your test assertions
+    await waitForPageReady(page); // Use waitForPageReady for speed
+  });
+
+  test('should do something specific', async ({ page }) => {
+    // Your test assertions - page is already loaded from beforeEach
     await expect(page.locator('.some-element')).toBeVisible();
+  });
+  
+  test('should do another thing', async ({ page }) => {
+    // No need to navigate again - page state is shared
+    await expect(page.locator('.another-element')).toBeVisible();
   });
 });
 ```
@@ -210,11 +243,32 @@ npm run test:e2e:ui
 
 ## Best Practices
 
-1. **Keep tests fast**: Avoid unnecessary waits, use efficient selectors
-2. **Keep tests reliable**: Use proper wait conditions, not fixed timeouts
-3. **Keep tests maintainable**: Use helpers, avoid duplication
-4. **Keep tests readable**: Clear names, good structure, comments when needed
-5. **Run tests frequently**: Run locally before committing
+1. **Keep tests fast**: 
+   * Use `waitForPageReady()` instead of `waitForFullLoad()` when possible
+   * Group tests with `beforeEach` to avoid redundant navigations
+   * Use efficient selectors
+   * Avoid unnecessary waits
+
+2. **Keep tests reliable**: 
+   * Use proper wait conditions, not fixed timeouts
+   * Wait for elements to be visible/hidden before interacting
+   * Handle async operations properly
+
+3. **Keep tests maintainable**: 
+   * Use helpers for common operations
+   * Avoid duplication
+   * Extract complex selectors into variables
+
+4. **Keep tests readable**: 
+   * Clear test names
+   * Good structure with describe blocks
+   * Comments when needed
+   * One assertion focus per test
+
+5. **Run tests frequently**: 
+   * Run locally before committing
+   * Check CI results
+   * Fix flaky tests immediately
 
 ## Resources
 
