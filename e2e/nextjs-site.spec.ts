@@ -205,8 +205,8 @@ test.describe('Next.js Site - Accessibility', () => {
     await page.goto('/');
     await waitForFullLoad(page);
     
-    // Check for semantic HTML elements - layout uses div.content with role="main"
-    const mainContent = page.locator('[role="main"], main, .content');
+    // Check for semantic HTML elements - layout uses div.content with role="main" and id="content"
+    const mainContent = page.locator('#content[role="main"]');
     await expect(mainContent).toHaveCount(1);
     
     // Check that main content has text

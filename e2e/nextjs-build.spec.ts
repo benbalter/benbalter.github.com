@@ -166,7 +166,7 @@ test.describe('Next.js Build HTML Structure', () => {
     
     expect(content).toMatch(/<html[^>]*>/);
     expect(content).toContain('<head>');
-    expect(content).toContain('<body>');
+    expect(content).toMatch(/<body[^>]*>/);  // Body tag may have attributes
     expect(content).toContain('</html>');
   });
 
