@@ -1,3 +1,4 @@
+import { memo, useMemo } from 'react';
 import Image from 'next/image';
 import { getGitHubAvatarUrlSync } from '@/lib/avatar';
 
@@ -9,19 +10,25 @@ interface GitHubAvatarProps {
 }
 
 /**
- * GitHub Avatar component
+ * GitHub Avatar component (optimized for React)
  * Displays a user's GitHub avatar image
  * Replaces jekyll-avatar plugin functionality
  * Uses Next.js Image component for optimization
  * Uses Octokit-compatible avatar URL generation
+ * Memoized for performance
  */
-export default function GitHubAvatar({ 
+function GitHubAvatar({ 
   username, 
   size = 40, 
   className = '',
   alt 
 }: GitHubAvatarProps) {
-  const avatarUrl = getGitHubAvatarUrlSync(username, size);
+  // Memoize avatar URL computation
+  const avatarUrl = useMemo(
+    () => getGitHubAvatarUrlSync(username, size),
+    [username, size]
+  );
+  
   const altText = alt || `${username}'s avatar`;
   
   return (
@@ -34,3 +41,6 @@ export default function GitHubAvatar({
     />
   );
 }
+
+// Export memoized component for React optimization
+export default memo(GitHubAvatar);

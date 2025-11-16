@@ -64,14 +64,28 @@ export function getGitHubAvatarUrlSync(username: string, size: number = 40): str
 }
 
 /**
- * Get avatar image tag HTML
+ * Get avatar image tag HTML (synchronous for SSG)
  * @param username GitHub username
  * @param size Avatar size in pixels (default: 40)
  * @param className Optional CSS class name
  * @returns HTML img tag string
  */
 export function getAvatarImageTag(username: string, size: number = 40, className?: string): string {
-  const url = getGitHubAvatarUrl(username, size);
+  const url = getGitHubAvatarUrlSync(username, size);
+  const classAttr = className ? ` class="${className}"` : '';
+  
+  return `<img src="${url}" alt="${username}'s avatar" width="${size}" height="${size}"${classAttr} />`;
+}
+
+/**
+ * Get avatar image tag HTML (async version with API)
+ * @param username GitHub username
+ * @param size Avatar size in pixels (default: 40)
+ * @param className Optional CSS class name
+ * @returns HTML img tag string
+ */
+export async function getAvatarImageTagAsync(username: string, size: number = 40, className?: string): Promise<string> {
+  const url = await getGitHubAvatarUrl(username, size);
   const classAttr = className ? ` class="${className}"` : '';
   
   return `<img src="${url}" alt="${username}'s avatar" width="${size}" height="${size}"${classAttr} />`;
