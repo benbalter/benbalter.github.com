@@ -4,6 +4,7 @@
  * Generates _data/related_posts.yml using TF-IDF similarity analysis
  * Replaces the Ruby-based LSI implementation with modern TypeScript
  * Uses the 'natural' library for robust NLP processing
+ * Uses 'remark' for proper markdown-to-text conversion
  */
 
 import fs from 'node:fs';
@@ -12,6 +13,8 @@ import process from 'node:process';
 import matter from 'gray-matter';
 import yaml from 'js-yaml';
 import natural from 'natural';
+import {remark} from 'remark';
+import stripMarkdown from 'strip-markdown';
 
 type Post = {
   path: string;
@@ -33,30 +36,29 @@ const ignoreList = new Set([
 ]);
 
 /**
- * Extract plain text from markdown content
+ * Extract plain text from markdown content using remark
  */
-export function extractPlainText(markdown: string): string {
-  // Convert markdown to plain text
-  // Remove HTML tags, code blocks, and other markdown syntax
-  const text = markdown
-    .replaceAll(/```[\s\S]*?```/g, '') // Remove code blocks
-    .replaceAll(/`[^`]+`/g, '') // Remove inline code
-    .replaceAll(/\[([^\]]+)]\([^)]+\)/g, '$1') // Convert links to text
-    .replaceAll(/[#*_~`]/g, '') // Remove markdown symbols
-    .replaceAll(/\n+/g, ' ') // Replace newlines with spaces
-    .replaceAll(/\s+/g, ' ') // Normalize whitespace
-    .trim();
+export async function extractPlainText(markdown: string): Promise<string> {
+  // Use remark to properly convert markdown to plain text
+  const file = await remark()
+    .use(stripMarkdown)
+    .process(markdown);
 
-  return text.toLowerCase();
+  const text = String(file)
+    .replaceAll(/\s+/g, ' ') // Normalize whitespace
+    .trim()
+    .toLowerCase();
+
+  return text;
 }
 
 /**
  * Read all markdown files from the posts directory
  */
-export function readPosts(): Post[] {
+export async function readPosts(): Promise<Post[]> {
   const postsPath = path.resolve(postsDirectory);
   const files = fs.readdirSync(postsPath);
-  const posts: Post[] = [];
+  const postPromises: Array<Promise<Post | undefined>> = [];
 
   for (const file of files) {
     if (!file.endsWith('.md')) {
@@ -71,24 +73,34 @@ export function readPosts(): Post[] {
     }
 
     const filePath = path.join(postsPath, file);
-    const fileContent = fs.readFileSync(filePath, 'utf8');
-    const {data, content} = matter(fileContent);
 
-    // Skip archived posts
-    if (data.archived) {
-      continue;
-    }
+    // Create a promise for each post
+    const postPromise = (async () => {
+      const fileContent = fs.readFileSync(filePath, 'utf8');
+      const {data, content} = matter(fileContent);
 
-    // Extract plain text from markdown
-    const plainText = extractPlainText(content);
+      // Skip archived posts
+      if (data.archived) {
+        return null;
+      }
 
-    posts.push({
-      path: postPath,
-      content: plainText,
-      title: (data.title as string | undefined) ?? '',
-      archived: data.archived as boolean | undefined,
-    });
+      // Extract plain text from markdown using remark
+      const plainText = await extractPlainText(content);
+
+      return {
+        path: postPath,
+        content: plainText,
+        title: (data.title as string | undefined) ?? '',
+        archived: data.archived as boolean | undefined,
+      };
+    })();
+
+    postPromises.push(postPromise);
   }
+
+  // Wait for all posts to be processed
+  const results = await Promise.all(postPromises);
+  const posts = results.filter((post): post is Post => post !== null);
 
   console.log(`Read ${posts.length} posts from ${postsDirectory}`);
   return posts;
@@ -113,6 +125,11 @@ export function findRelatedPosts(posts: Post[]): RelatedPosts {
 
   // For each post, find the most similar posts
   for (let i = 0; i < posts.length; i++) {
+    // Add progress logging for large datasets
+    if (i % 10 === 0 && i > 0) {
+      console.log(`Processed ${i}/${posts.length} posts...`);
+    }
+
     const currentPost = posts[i];
     const similarities: Array<{path: string; similarity: number}> = [];
 
@@ -131,6 +148,8 @@ export function findRelatedPosts(posts: Post[]): RelatedPosts {
     }
 
     // Sort by similarity (highest first) and take top N
+    // Note: If there are fewer posts than relatedPostsCount + 1,
+    // this will return fewer related posts (which is acceptable)
     similarities.sort((a, b) => b.similarity - a.similarity);
     relations[currentPost.path] = similarities
       .slice(0, relatedPostsCount)
@@ -211,14 +230,12 @@ export function writeYaml(relations: RelatedPosts): void {
   console.log(`Wrote related posts to ${outputFile}`);
 }
 
-/**
- * Main execution
- */
-function main(): void {
+// Only run main if this is the main module
+if (import.meta.url === `file://${process.argv[1]}`) {
   console.log('Building related posts using natural library TF-IDF...');
 
   try {
-    const posts = readPosts();
+    const posts = await readPosts();
 
     if (posts.length === 0) {
       console.error('No posts found!');
@@ -233,9 +250,4 @@ function main(): void {
     console.error('Error building related posts:', error);
     process.exit(1);
   }
-}
-
-// Only run main if this is the main module
-if (import.meta.url === `file://${process.argv[1]}`) {
-  main();
 }
