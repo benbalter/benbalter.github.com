@@ -23,7 +23,7 @@ const nextConfig = {
 
   // Compiler options for production optimization
   compiler: {
-    // Remove console logs in production for better performance
+    // Remove console logs in production for cleaner output and reduced bundle size
     removeConsole: process.env.NODE_ENV === 'production' ? {
       exclude: ['error', 'warn'],
     } : false,
