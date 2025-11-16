@@ -106,7 +106,9 @@ export default function PostContent({ slug }) {
   useEffect(() => {
     fetch(`/api/posts/${slug}`).then(r => r.json()).then(setPost);
   }, [slug]);
-  return post ? <article>{post.html}</article> : <div>Loading...</div>;
+  // Note: Using dangerouslySetInnerHTML is risky in both server and client components.
+  // The key difference here is where data fetching happens (server vs client), not the rendering approach.
+  return post ? <article dangerouslySetInnerHTML={{ __html: post.html }} /> : <div>Loading...</div>;
 }
 ```
 
