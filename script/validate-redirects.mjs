@@ -175,18 +175,7 @@ function validateRedirectFile(source, expectedDestination) {
   
   // Normalize source path
   const sourcePath = source.endsWith('/') ? source.slice(0, -1) : source;
-  
-  // Check if source looks like a file (has an extension)
-  const hasExtension = /\.[a-z0-9]+$/i.test(sourcePath);
-  
-  let filePath;
-  if (hasExtension) {
-    // For file-like paths, the redirect is the file itself
-    filePath = path.join(outDir, sourcePath);
-  } else {
-    // For directory paths, look for index.html
-    filePath = path.join(outDir, sourcePath, 'index.html');
-  }
+  const filePath = path.join(outDir, sourcePath, 'index.html');
   
   if (!fs.existsSync(filePath)) {
     return {

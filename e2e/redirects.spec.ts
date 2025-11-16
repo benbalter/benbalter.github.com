@@ -157,7 +157,8 @@ test.describe('Legacy URL Redirects', () => {
 
   test.describe('PDF and File Redirects', () => {
     test('should redirect PDF to post', async ({ page }) => {
-      await page.goto('/Balter-Towards-a-More-Agile-Government.pdf', { waitUntil: 'networkidle' });
+      // Note: Static servers serve index.html from directories, so we need the trailing slash
+      await page.goto('/Balter-Towards-a-More-Agile-Government.pdf/', { waitUntil: 'networkidle' });
       await page.waitForURL('**/2011/11/29/towards-a-more-agile-government/', { timeout: 5000 });
       expectPathname(page, '/2011/11/29/towards-a-more-agile-government/');
     });
