@@ -6,7 +6,7 @@ description: The question for developers isn't how should the US government best
 date: '2012-07-26'
 ---
 
-A petition was recently posted on [We The People](https://petitions.whitehouse.gov/) demanding [that federally funded software be released under an open source license](https://petitions.whitehouse.gov/petition/maximize-public-benefit-federal-technology-sharing-government-developed-software-under-open-source/6n5ZBBwf?utm_source=wh.gov\&utm_medium=shorturl\&utm_campaign=shorturl). Makes sense. The public should have access to what is technically their property.
+A petition was recently posted on [We The People](https://petitions.whitehouse.gov/) demanding [that federally funded software be released under an open source license](https://petitions.whitehouse.gov/petition/maximize-public-benefit-federal-technology-sharing-government-developed-software-under-open-source/6n5ZBBwf?utm_source=wh.gov&utm_medium=shorturl&utm_campaign=shorturl). Makes sense. The public should have access to what is technically their property.
 
 However, [TechDirt posed the question](http://www.techdirt.com/articles/20120723/12181319800/should-software-created-federal-govt-be-open-source-licensed-public-domain.shtml) of whether it should be released under an open-source license or public domain, and I'm afraid they really missed the point.
 
