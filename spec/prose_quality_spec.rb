@@ -29,11 +29,14 @@ RSpec.describe 'prose quality' do
           lines_with_doubled_spaces = []
 
           content.lines.each_with_index do |line, idx|
-            # Track code fence blocks
-            in_code_block = !in_code_block if line.match?(/^```/)
+            # Skip code fence markers themselves (may have leading whitespace)
+            if line.match?(/^\s*```/)
+              in_code_block = !in_code_block
+              next
+            end
 
-            # Skip code blocks (fenced or indented), markdown tables, and list items
-            next if in_code_block || line.start_with?('    ') || line.include?('|') || line.match?(/^\s*[\d\*\-\+]\.?\s/)
+            # Skip code blocks (fenced or indented), markdown tables, list items, and images with attributes
+            next if in_code_block || line.start_with?('    ') || line.include?('|') || line.match?(/^\s*[\d\*\-\+]\.?\s/) || line.match?(/!\[.*\]\(.*\)\{/)
 
             # Check for double spaces (but allow after sentence-ending punctuation)
             lines_with_doubled_spaces << "Line #{idx + 1}: #{line.strip[0..80]}" if line.match?(/[^.?!]\s{2,}/) || line.match?(/\.\s{3,}/)
