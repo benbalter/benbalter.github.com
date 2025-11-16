@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface MiniBioProps {
   className?: string;
@@ -11,7 +12,7 @@ export default function MiniBio({ className = '', authorName, githubHandle, bioT
   return (
     <div className={`mini-bio ${className}`}>
       <div className="float-start pt-1 pe-3">
-        <img
+        <Image
           src={`https://github.com/${githubHandle}.png?size=100`}
           alt={authorName}
           className="avatar img-fluid rounded"
