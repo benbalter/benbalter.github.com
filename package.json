@@ -83,6 +83,7 @@
     "textlint-rule-terminology": "^5.2.6",
     "textlint-rule-write-good": "^2.0.0",
     "ts-node": "^10.9.2",
+    "tsx": "^4.20.6",
     "typescript": "^5.5.2",
     "typographic-arrows": "^1.0.3",
     "typographic-copyright": "^1.0.1",
@@ -107,6 +108,7 @@
   },
   "scripts": {
     "build": "npm run webpack",
+    "build:related-posts": "tsx script/build-related-posts.ts",
     "dev": "next dev",
     "next:build": "next build && node script/generate-redirects.mjs",
     "next:start": "serve out",
