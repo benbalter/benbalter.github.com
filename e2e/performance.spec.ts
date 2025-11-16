@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { waitForFullLoad } from './helpers';
+import { waitForPageReady } from './helpers';
 
 test.describe('Performance', () => {
   test('homepage should load within acceptable time', async ({ page }) => {
@@ -21,7 +21,7 @@ test.describe('Performance', () => {
     });
     
     await page.goto('/');
-    await waitForFullLoad(page);
+    await waitForPageReady(page);
     
     // Reasonable number of requests for a static site
     // This can be adjusted based on actual site needs
@@ -38,7 +38,7 @@ test.describe('Performance', () => {
     });
     
     await page.goto('/');
-    await waitForFullLoad(page);
+    await waitForPageReady(page);
     
     // Static site shouldn't need too many JS files
     expect(jsRequests.length).toBeLessThan(20);
@@ -46,7 +46,7 @@ test.describe('Performance', () => {
 
   test('images should be optimized', async ({ page }) => {
     await page.goto('/');
-    await waitForFullLoad(page);
+    await waitForPageReady(page);
     
     const images = await page.locator('img[src]').all();
     
@@ -84,7 +84,7 @@ test.describe('Performance', () => {
     });
     
     await page.goto('/');
-    await waitForFullLoad(page);
+    await waitForPageReady(page);
     
     // At least some text resources should be compressed
     // Note: In local dev mode, compression might not be enabled
@@ -95,7 +95,7 @@ test.describe('Performance', () => {
 
   test('should cache static assets', async ({ page }) => {
     await page.goto('/');
-    await waitForFullLoad(page);
+    await waitForPageReady(page);
     
     // Second visit should use cache
     const cachedRequests: string[] = [];
@@ -109,7 +109,7 @@ test.describe('Performance', () => {
     });
     
     await page.reload();
-    await waitForFullLoad(page);
+    await waitForPageReady(page);
     
     // Some requests should be cached
     expect(cachedRequests.length).toBeGreaterThan(0);
@@ -125,7 +125,7 @@ test.describe('Performance', () => {
     });
     
     await page.goto('/');
-    await waitForFullLoad(page);
+    await waitForPageReady(page);
     
     // Should not load excessive fonts
     expect(fontRequests.length).toBeLessThan(10);
@@ -141,7 +141,7 @@ test.describe('Mobile Performance', () => {
     const startTime = Date.now();
     
     await page.goto('/');
-    await waitForFullLoad(page);
+    await waitForPageReady(page);
     
     const loadTime = Date.now() - startTime;
     
@@ -151,7 +151,7 @@ test.describe('Mobile Performance', () => {
 
   test('should be responsive on mobile viewport', async ({ page }) => {
     await page.goto('/');
-    await waitForFullLoad(page);
+    await waitForPageReady(page);
     
     // Check that content fits in viewport
     const body = page.locator('body');

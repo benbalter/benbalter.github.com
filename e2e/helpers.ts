@@ -111,10 +111,22 @@ export async function checkLinksValid(page: Page, selector = 'a[href]') {
 
 /**
  * Wait for page to be fully loaded including images
+ * Uses networkidle which waits for no network activity for 500ms
+ * This is slower but more thorough
  */
 export async function waitForFullLoad(page: Page) {
   await page.waitForLoadState('domcontentloaded');
   await page.waitForLoadState('networkidle');
+}
+
+/**
+ * Wait for page to be loaded and interactive
+ * Faster alternative that doesn't wait for all network activity to cease
+ * Use this for most tests where you don't need to wait for all images/assets
+ */
+export async function waitForPageReady(page: Page) {
+  await page.waitForLoadState('domcontentloaded');
+  await page.waitForLoadState('load');
 }
 
 /**
