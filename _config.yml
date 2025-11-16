@@ -35,6 +35,9 @@ social:
 # cloudflare:
 #  id: 71539cb18e584e6595f62fa7104b24ca
 
+include:
+  - apple-touch-icon.png
+
 exclude:
   - /CONTRIBUTING.md
   - /README.md
@@ -78,7 +81,6 @@ exclude:
   - /content
   - /public
   - /app
-  - "!/apple-touch-icon.png"
   - /docs
   - /lib
   - /e2e
