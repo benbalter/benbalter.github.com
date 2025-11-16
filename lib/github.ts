@@ -36,7 +36,9 @@ export interface GitHubMetadata {
  */
 export function getGitHubMetadata(): GitHubMetadata {
   const config = getSiteConfig();
-  const [owner, repo] = config.repository.split('/');
+  const parts = config.repository.split('/');
+  const owner = parts[0] || '';
+  const repo = parts[1] || '';
   const baseUrl = `https://github.com/${owner}/${repo}`;
   
   return {
@@ -64,7 +66,9 @@ export async function fetchContributors(limit: number = 30): Promise<Array<{
   html_url: string;
 }>> {
   const config = getSiteConfig();
-  const [owner, repo] = config.repository.split('/');
+  const parts = config.repository.split('/');
+  const owner = parts[0] || '';
+  const repo = parts[1] || '';
   
   try {
     const octokit = getOctokit();
@@ -105,7 +109,9 @@ export async function fetchRepositoryInfo(): Promise<{
   pushed_at: string | null;
 } | null> {
   const config = getSiteConfig();
-  const [owner, repo] = config.repository.split('/');
+  const parts = config.repository.split('/');
+  const owner = parts[0] || '';
+  const repo = parts[1] || '';
   
   try {
     const octokit = getOctokit();

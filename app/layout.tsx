@@ -6,42 +6,13 @@ import Footer from './components/Footer';
 import ClientScripts from './components/ClientScripts';
 import { getSiteConfig } from '@/lib/config';
 import { getAllPageSlugs, getPageBySlug } from '@/lib/pages';
+import { getSharedMetadata } from '@/lib/metadata';
 
 // Load site configuration from _config.yml
 const config = getSiteConfig();
 
-export const metadata: Metadata = {
-  title: {
-    default: config.title,
-    template: `%s | ${config.title}`,
-  },
-  description: config.description,
-  metadataBase: new URL(config.url),
-  authors: [{ name: config.author.name, url: config.url }],
-  openGraph: {
-    title: config.title,
-    description: config.description,
-    url: config.url,
-    siteName: config.title,
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary',
-    title: config.title,
-    description: config.description,
-    creator: config.author.twitter,
-  },
-  icons: {
-    icon: [
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-    ],
-    apple: '/apple-touch-icon.png',
-    shortcut: '/favicon.ico',
-  },
-  manifest: '/site.webmanifest',
-};
+// Export shared metadata using the centralized metadata configuration
+export const metadata: Metadata = getSharedMetadata();
 
 // Get navigation and footer pages
 function getNavPages() {

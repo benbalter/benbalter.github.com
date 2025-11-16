@@ -108,8 +108,11 @@ export function findPostByDate(posts: Post[], year: string, month: string, day: 
  * Handles the date/slug splitting logic consistently across the app.
  */
 export function getPostUrlParts(post: Post): { year: string; month: string; day: string; slug: string; url: string } {
-  const [year, month, day, ...rest] = post.slug.split('-');
-  const slug = rest.join('-');
+  const parts = post.slug.split('-');
+  const year = parts[0] || '';
+  const month = parts[1] || '';
+  const day = parts[2] || '';
+  const slug = parts.slice(3).join('-');
   const url = `/${encodeURIComponent(year)}/${encodeURIComponent(month)}/${encodeURIComponent(day)}/${encodeURIComponent(slug)}/`;
   
   return { year, month, day, slug, url };

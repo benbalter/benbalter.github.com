@@ -75,5 +75,5 @@ export function getAuthorBio(): string {
   // Get first paragraph (text until first double newline)
   const firstParagraph = withoutFrontMatter.trim().split('\n\n')[0];
   
-  return firstParagraph;
+  return firstParagraph || '';
 }

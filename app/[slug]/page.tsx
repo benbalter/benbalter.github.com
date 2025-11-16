@@ -2,6 +2,7 @@ import { getPageBySlug, getAllPageSlugs } from '@/lib/pages';
 import { markdownToHtml } from '@/lib/markdown';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import { getPageMetadata } from '@/lib/metadata';
 
 interface PageProps {
   params: Promise<{
@@ -24,10 +25,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {};
   }
   
-  return {
+  // Use centralized metadata configuration
+  return getPageMetadata({
     title: page.title,
     description: page.description,
-  };
+    slug,
+  });
 }
 
 export default async function Page({ params }: PageProps) {

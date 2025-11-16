@@ -12,6 +12,7 @@ import PostContent from '@/app/components/PostContent';
 import PostMetadata from '@/app/components/PostMetadata';
 import EditButton from '@/app/components/EditButton';
 import { getSiteConfig, getAuthorBio } from '@/lib/config';
+import { getPostMetadata } from '@/lib/metadata';
 
 // Load site configuration
 const config = getSiteConfig();
@@ -53,15 +54,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {};
   }
   
-  return {
-    title: post.title,
-    description: post.description,
-    openGraph: {
-      title: post.title,
-      description: post.description,
-      images: post.image ? [{ url: post.image }] : [],
-    },
-  };
+  // Use the centralized metadata configuration for consistency
+  return getPostMetadata(post);
 }
 
 export default async function Post({ params }: PageProps) {
