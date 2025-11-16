@@ -22,7 +22,7 @@ describe('ReadingTime', () => {
     const content = 'Test content for reading time calculation.';
     const { container } = render(<ReadingTime content={content} />);
     
-    const icon = container.querySelector('i.fa-clock');
+    const icon = container.querySelector('svg[data-icon="clock"]');
     expect(icon).toBeInTheDocument();
   });
 

@@ -47,3 +47,4 @@ coverage/
 # TypeScript build info
 *.tsbuildinfopublic/assets/images/og/
 /vendor/
+tsconfig.tsbuildinfo

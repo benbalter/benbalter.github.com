@@ -35,6 +35,71 @@ You specialize in:
 * Use TypeScript for Next.js components when applicable
 * Prefer modern JavaScript features
 
+### Next.js and React (CRITICAL GUIDELINES)
+
+**This site uses Static Site Generation (SSG) with minimal client-side JavaScript.**
+
+#### Server Components First
+
+* **ALL components should be server components by default** (no 'use client' directive)
+* Server components can fetch data, render markdown, generate metadata
+* Server components reduce JavaScript bundle size and improve performance
+
+#### When to Use 'use client' (RARE CASES ONLY)
+
+Use 'use client' ONLY when you need:
+
+1. **React Hooks**: `useState`, `useEffect`, `useContext`, `usePathname`, etc.
+2. **Browser APIs**: `window`, `document`, `localStorage`, `sessionStorage`
+3. **Event Handlers with State**: Click handlers that update component state
+4. **Third-Party Libraries**: Libraries that require browser environment
+
+#### When NOT to Use 'use client'
+
+* ❌ **Navigation Links**: Use `<Link>` from 'next/link' in server components
+* ❌ **Data Display**: Fetch data in server components, pass as props
+* ❌ **Markdown Rendering**: Process markdown at build time in server components
+* ❌ **Metadata/SEO**: Use `generateMetadata` function in server components
+* ❌ **Styling/Layouts**: CSS and HTML work in server components
+* ❌ **Static Content**: All static content should be in server components
+
+#### Before Adding 'use client', Ask:
+
+1. Can this be pure HTML/CSS?
+2. Can this be a server component with no interactivity?
+3. Can the parent be a server component and only a small child be a client component?
+4. Is the client-side JavaScript absolutely necessary?
+
+**Example of Good Architecture:**
+
+```typescript
+// app/posts/[slug]/page.tsx - Server Component (no 'use client')
+export default async function PostPage({ params }) {
+  const post = await getPost(params.slug);
+  return (
+    <article>
+      <PostContent content={post.content} />
+      <NavigationLinks /> {/* Client component for active links */}
+    </article>
+  );
+}
+
+// app/components/NavigationLinks.tsx - Tiny client component
+'use client';
+import { usePathname } from 'next/navigation';
+export default function NavigationLinks() {
+  const pathname = usePathname();
+  // Uses pathname for active state
+}
+```
+
+#### Current Client Components (2 total - both necessary)
+
+1. **ClientScripts.tsx**: Initializes Bootstrap and FontAwesome (requires `useEffect`)
+2. **Navigation.tsx**: Active link highlighting (requires `usePathname` hook)
+
+These are the ONLY client components in the codebase. Keep it this way.
+
 ### HTML/Liquid Templates
 
 * Use `{% include_cached %}` for frequently included partials

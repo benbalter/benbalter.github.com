@@ -6,7 +6,32 @@ This document describes the Next.js equivalents for all Jekyll plugins used in t
 
 All Jekyll plugins have been successfully migrated to Next.js equivalents. **The implementation prioritizes using industry-standard open-source libraries to the maximum extent possible**, complemented by minimal TypeScript utilities and build-time scripts for generating static assets.
 
-## Philosophy: Open-Source First
+## Architecture Philosophy
+
+### Static Site Generation (SSG) First
+
+**This site is built entirely with Static Site Generation (SSG).** All pages are pre-rendered as static HTML at build time with minimal client-side JavaScript.
+
+* ✅ **Pre-rendered HTML**: All pages generated at build time
+* ✅ **Server Components**: Default for all React components
+* ✅ **Build-Time Processing**: Markdown, data files, feeds processed during build
+* ✅ **Minimal JavaScript**: Only 2 client components (Bootstrap init, navigation)
+* ✅ **Zero Runtime APIs**: No server-side rendering or API routes needed
+
+### Client-Side JavaScript: AVOID Unless Necessary
+
+**The entire site uses only 2 client components:**
+
+1. `ClientScripts.tsx` - Bootstrap/FontAwesome initialization
+2. `Navigation.tsx` - Active link highlighting with usePathname()
+
+**Before adding any client-side code, ask:**
+
+* Can this be done with HTML/CSS only?
+* Can this be pre-rendered at build time?
+* Can this be a server component?
+
+### Open-Source First
 
 **All implementations rely on open-source libraries wherever possible.** This approach provides:
 
@@ -21,11 +46,14 @@ All Jekyll plugins have been successfully migrated to Next.js equivalents. **The
 **Open-Source Libraries Used:**
 
 * **@octokit/rest** (v21.0.2) - Official GitHub API client for avatars and metadata
+* **@fortawesome/react-fontawesome** - Type-safe FontAwesome icons as React components
 * **remark-github** (v12.0.0) - GitHub-flavored markdown with @mentions, issues, commits
 * **node-emoji** (v2.2.0) - Comprehensive emoji support with 1800+ GitHub-compatible emoji
 * **feed** (v5.1.0) - Standards-compliant RSS/Atom feed generation
 * **sitemap** (v9.0.0) - XML sitemap generation with proper escaping
 * **natural** - TF-IDF analysis for related posts
+* **react-markdown** - React-based markdown rendering (alternative to dangerouslySetInnerHTML)
+* **@next/bundle-analyzer** - Bundle size analysis and optimization
 
 ## Plugin Migration Status
 
@@ -299,7 +327,7 @@ const html = await markdownToHtml(markdown);
 * Uses official remark-github plugin
 * Automatic @mention linking to GitHub profiles
 * Issue and PR reference linking (#123)
-* Commit SHA linking (7–40 character SHAs)
+* Commit SHA linking (7-40 character SHAs)
 * User/org disambiguation
 * Preserves original syntax in display
 * Integrated into remark markdown pipeline
@@ -555,3 +583,102 @@ This implementation demonstrates the benefits of **relying on open-source librar
 ✅ **Less Code** - Minimal custom code to maintain
 
 **Key Principle:** When implementing new features, always search for and evaluate existing open-source libraries before writing custom code. This ensures better quality, maintainability, and community support.
+
+## Recent Enhancements (2025)
+
+### React FontAwesome Integration
+
+**Migration from string-based icons to React components:**
+
+Previously (string-based):
+```tsx
+<i className="fas fa-rss" title="Atom Feed"></i>
+<i className="far fa-clock"></i>
+```
+
+Now (React components):
+```tsx
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRss } from '@fortawesome/free-solid-svg-icons';
+import { faClock } from '@fortawesome/free-regular-svg-icons';
+
+<FontAwesomeIcon icon={faRss} title="Atom Feed" />
+<FontAwesomeIcon icon={faClock} />
+```
+
+**Benefits:**
+* **Type-safe** - TypeScript ensures correct icon names
+* **Tree-shaking** - Only used icons are included in bundle
+* **No DOM manipulation** - Pure React rendering
+* **Better performance** - No need for DOM watcher
+* **Easier testing** - React components are easier to test
+
+**Components Updated:**
+* `app/components/Footer.tsx` - RSS icon
+* `app/components/ReadingTime.tsx` - Clock icon
+* `app/components/ClientScripts.tsx` - Removed FontAwesome DOM watcher
+
+### Next.js Image Component
+
+**Migration from `<img>` to Next.js `Image`:**
+
+Previously:
+```tsx
+<img src={url} alt={alt} width={100} height={100} />
+```
+
+Now:
+```tsx
+import Image from 'next/image';
+
+<Image src={url} alt={alt} width={100} height={100} />
+```
+
+**Benefits:**
+* Automatic image optimization
+* Lazy loading out of the box
+* Responsive images
+* Better Core Web Vitals scores
+
+**Components Updated:**
+* `app/components/MiniBio.tsx` - Author avatar
+* `app/components/GitHubAvatar.tsx` - Already using Image
+
+### Next.js Configuration Enhancements
+
+**Added to `next.config.mjs`:**
+
+1. **Bundle Analyzer** - Analyze bundle size with `ANALYZE=true npm run next:build`
+2. **React Strict Mode** - Better development experience
+3. **Compiler Optimizations** - Remove console logs in production
+4. **Turbopack Support** - Next.js 16+ compatibility
+5. **Webpack Tree-shaking** - Optimize bundle size
+
+### React Markdown Alternative
+
+**Created `app/components/MarkdownContent.tsx`:**
+
+Alternative to `dangerouslySetInnerHTML` using `react-markdown`:
+
+```tsx
+import MarkdownContent from '@/app/components/MarkdownContent';
+
+<MarkdownContent markdown={markdownString} className="content" />
+```
+
+**Benefits:**
+* Type-safe React component rendering
+* Automatic HTML sanitization via `rehype-sanitize`
+* No `dangerouslySetInnerHTML`
+* Better React integration
+
+**Note:** Currently optional - existing pages can migrate incrementally
+
+### MDX Support Ready
+
+Installed `@next/mdx` for future MDX-based content:
+* Mix React components with markdown
+* Interactive code examples
+* Dynamic content
+
+Ready to use when needed - no migration required yet.

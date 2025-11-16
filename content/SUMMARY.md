@@ -216,6 +216,7 @@ The Jekyll to Next.js content migration is **complete and validated**. All 206 c
 ## Next Steps
 
 1. Install required npm packages for Next.js:
+
    ```bash
    npm install gray-matter remark remark-html js-yaml
    ```

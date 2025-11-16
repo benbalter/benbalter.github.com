@@ -2,7 +2,6 @@ import { getAllPosts, findPostByDate } from '@/lib/posts';
 import { markdownToHtml } from '@/lib/markdown';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { cache } from 'react';
 import ReadingTime from '@/app/components/ReadingTime';
 import MiniBio from '@/app/components/MiniBio';
 import PostHeader from '@/app/components/PostHeader';
@@ -26,11 +25,8 @@ interface PageProps {
   }>;
 }
 
-// Use React's cache() for proper request-level memoization during SSG
-const getCachedPosts = cache(() => getAllPosts());
-
 export async function generateStaticParams() {
-  const posts = getCachedPosts();
+  const posts = getAllPosts();
 
   return posts.map(post => {
     const [year, month, day, ...rest] = post.slug.split('-');
@@ -46,7 +42,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { year, month, day, slug } = await params;
-  const posts = getCachedPosts();
+  const posts = getAllPosts();
   const post = findPostByDate(posts, year, month, day, slug);
   
   if (!post) {
@@ -66,7 +62,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function Post({ params }: PageProps) {
   const { year, month, day, slug } = await params;
-  const posts = getCachedPosts();
+  const posts = getAllPosts();
   const post = findPostByDate(posts, year, month, day, slug);
   
   if (!post) {
