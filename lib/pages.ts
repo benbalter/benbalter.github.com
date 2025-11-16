@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { cache } from 'react';
-import { readContentFile, findFileWithExtensions, readDirectory, createContentItem } from './content-loader';
+import { readDirectory } from './content-loader';
 
 export interface Page {
   slug: string;
