@@ -216,7 +216,7 @@ test.describe('Static Site Generation Validation', () => {
     await page.goto(samplePost.url, { waitUntil: 'domcontentloaded' });
     
     // Should have actual content, not just a loading state
-    const content = await page.locator('article, .post, main').textContent();
+    const content = await page.locator('article, .post, main').first().textContent();
     expect(content).toBeTruthy();
     expect(content!.length).toBeGreaterThan(100);
   });
