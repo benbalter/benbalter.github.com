@@ -1,5 +1,3 @@
-'use client';
-
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkGithub from 'remark-github';
@@ -14,6 +12,7 @@ interface MarkdownContentProps {
 
 /**
  * Markdown content renderer using react-markdown
+ * Server component for static site generation (SSG)
  * Replaces dangerouslySetInnerHTML with safer React component rendering
  * 
  * Benefits:
@@ -21,6 +20,7 @@ interface MarkdownContentProps {
  * - Better integration with React ecosystem
  * - Automatic sanitization with rehype-sanitize
  * - No dangerouslySetInnerHTML
+ * - Works with SSG (no client-side JavaScript needed)
  */
 export default function MarkdownContent({ markdown, className = '' }: MarkdownContentProps) {
   const config = getSiteConfig();
