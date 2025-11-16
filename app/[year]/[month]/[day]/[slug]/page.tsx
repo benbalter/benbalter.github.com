@@ -1,4 +1,4 @@
-import { getAllPosts, findPostByDate } from '@/lib/posts';
+import { getAllPosts, findPostByDate, getPostUrlParts } from '@/lib/posts';
 import { markdownToHtml } from '@/lib/markdown';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
@@ -11,7 +11,9 @@ import PostContent from '@/app/components/PostContent';
 import PostMetadata from '@/app/components/PostMetadata';
 import EditButton from '@/app/components/EditButton';
 import { getSiteConfig, getAuthorBio } from '@/lib/config';
-import { getPostMetadata, getPostJsonLd } from '@/lib/seo';
+import { getPostMetadata } from '@/lib/seo';
+import { jsonLdScriptProps } from 'react-schemaorg';
+import type { BlogPosting } from 'schema-dts';
 
 // Load site configuration
 const config = getSiteConfig();
@@ -73,15 +75,37 @@ export default async function Post({ params }: PageProps) {
   const revisionHistoryUrl = `${config.url.replace(/\/$/, '')}/${config.repository}/commits/${config.branch}/_posts/${post.slug}.md`;
   const editUrl = `${config.url.replace(/\/$/, '')}/${config.repository}/edit/${config.branch}/_posts/${post.slug}.md`;
   
-  // Generate JSON-LD structured data for the post
-  const jsonLd = getPostJsonLd(post);
+  // Get post URL for JSON-LD
+  const { url } = getPostUrlParts(post);
+  const fullUrl = `${config.url}${url}`;
   
   return (
     <>
       {/* JSON-LD structured data for SEO */}
       <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        {...jsonLdScriptProps<BlogPosting>({
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
+          headline: post.title,
+          description: post.description || config.description,
+          image: post.image || `${config.url}/assets/img/headshot.jpg`,
+          datePublished: new Date(post.date).toISOString(),
+          dateModified: new Date(post.date).toISOString(),
+          author: {
+            '@type': 'Person',
+            name: config.author.name,
+            url: config.url,
+          },
+          publisher: {
+            '@type': 'Person',
+            name: config.author.name,
+            url: config.url,
+          },
+          mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': fullUrl,
+          },
+        })}
       />
       
       <div className="row">

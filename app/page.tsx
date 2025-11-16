@@ -1,24 +1,43 @@
 import { getAllPosts, getPostUrlParts } from '@/lib/posts';
-import { getWebsiteJsonLd, getPersonJsonLd } from '@/lib/seo';
+import { getSiteConfig } from '@/lib/config';
+import { jsonLdScriptProps } from 'react-schemaorg';
+import type { WebSite, Person } from 'schema-dts';
 import Link from 'next/link';
 
 export default function Home() {
   const posts = getAllPosts().filter(post => !post.archived);
-  
-  // Generate JSON-LD structured data
-  const websiteJsonLd = getWebsiteJsonLd();
-  const personJsonLd = getPersonJsonLd();
+  const config = getSiteConfig();
   
   return (
     <>
       {/* JSON-LD structured data for SEO */}
       <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        {...jsonLdScriptProps<WebSite>({
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: config.title,
+          description: config.description,
+          url: config.url,
+          author: {
+            '@type': 'Person',
+            name: config.author.name,
+          },
+        })}
       />
       <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        {...jsonLdScriptProps<Person>({
+          '@context': 'https://schema.org',
+          '@type': 'Person',
+          name: config.author.name,
+          url: config.url,
+          sameAs: config.social.links,
+          jobTitle: config.job_title,
+          worksFor: {
+            '@type': 'Organization',
+            name: config.employer.name,
+            url: config.employer.url,
+          },
+        })}
       />
       
       {/* Hero header image */}
