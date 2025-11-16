@@ -32,16 +32,14 @@ Many prose issues can be automatically fixed:
 
 ```bash
 # Run markdown linting with auto-fix
+# Run markdown linting with auto-fix
 npm run lint-md
-
-# Clean up excessive escaping added by remark (ALWAYS run after lint-md)
-script/fix-lint
 
 # Run textlint with auto-fix (use --fix flag, not --dry-run)
 textlint *.md _posts/*.md _resume_positions/*.md --fix
 ```
 
-**Important:** After running `npm run lint-md`, **always** run `script/fix-lint` to remove excessive escaping that remark adds, which can break the build.
+**Note:** The `npm run lint-md` command now uses remark for linting only (without rewriting files) and markdownlint-cli2 for auto-fixing. This eliminates the need for `script/fix-lint` to clean up aggressive character escaping that remark previously added.
 
 ## Test Tools
 
@@ -87,13 +85,10 @@ textlint *.md _posts/*.md _resume_positions/*.md --fix
 
 **Custom Dictionary:** `dictionary.txt` contains project-specific terms
 
-**Typographic Corrections:**
-The remark configuration automatically applies typographic improvements:
-* Smart quotes (" " instead of " ")
-* Em dashes (— instead of --)
-* En dashes (– for ranges)
-* Proper copyright/trademark symbols
-* Math symbols (×, ÷, etc.)
+**How Remark Works:**
+Remark now runs in lint-only mode, checking for issues without rewriting files. This change eliminates the aggressive character escaping (e.g., `\[`, `\_`, `\(`) that previously required `script/fix-lint` to clean up.
+
+Typographic corrections (smart quotes, em/en dashes, etc.) are applied by the textr plugin during linting but don't modify files. Use markdownlint-cli2 for actual file fixes.
 
 ### 3. Vale (Optional)
 
@@ -189,9 +184,8 @@ If prose tests are breaking builds:
 
 1. **Run tests locally** before committing to catch issues early
 2. **Use auto-fix** when available (`npm run lint-md`, `--fix` for textlint)
-3. **Always run `script/fix-lint`** after `npm run lint-md`
-4. **Add terms to dictionary** rather than ignoring spell check
-5. **Balance strictness** - some rules are intentionally relaxed for readability
+3. **Add terms to dictionary** rather than ignoring spell check
+4. **Balance strictness** - some rules are intentionally relaxed for readability
 
 ## Future Improvements
 
