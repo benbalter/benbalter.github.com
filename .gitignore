@@ -42,4 +42,4 @@ out/
 /playwright/.cache/
 
 # TypeScript build info
-*.tsbuildinfo
+*.tsbuildinfopublic/assets/images/og/
