@@ -5,10 +5,11 @@ This file provides example code for integrating the migrated content with Next.j
 **IMPORTANT: This site uses Static Site Generation (SSG) with minimal client-side JavaScript.**
 
 See [docs/SSG-BEST-PRACTICES.md](../docs/SSG-BEST-PRACTICES.md) for complete guidelines on:
-- When to use server components vs client components
-- How to avoid unnecessary 'use client' directives
-- Maximizing static HTML generation
-- Preferring HTML/CSS over JavaScript
+
+* When to use server components vs client components
+* How to avoid unnecessary 'use client' directives
+* Maximizing static HTML generation
+* Preferring HTML/CSS over JavaScript
 
 ## Installation
 
@@ -223,7 +224,7 @@ export function stripHtml(html: string): string {
 
 ## Dynamic Routes
 
-### app/[year]/[month]/[day]/[slug]/page.tsx
+### app/\[year]/\[month]/\[day]/\[slug]/page.tsx
 
 ```typescript
 import { getPostByDate, getAllPosts } from '@/lib/posts';
@@ -293,7 +294,7 @@ export async function generateMetadata({ params }: { params: Params }) {
 }
 ```
 
-### app/[slug]/page.tsx
+### app/\[slug]/page.tsx
 
 ```typescript
 import { getPageBySlug, getAllPages } from '@/lib/pages';
