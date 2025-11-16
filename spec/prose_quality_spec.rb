@@ -36,7 +36,7 @@ RSpec.describe 'prose quality' do
             end
 
             # Skip code blocks (fenced or indented), markdown tables, list items, and images with attributes
-            next if in_code_block || line.start_with?('    ') || line.include?('|') || line.match?(/^\s*[\d\*\-\+]\.?\s/) || line.match?(/!\[.*\]\(.*\)\{/)
+            next if in_code_block || line.start_with?('    ') || line.include?('|') || line.match?(/^\s*[\d*\-+]\.?\s/) || line.match?(/!\[.*\]\(.*\)\{/)
 
             # Check for double spaces (but allow after sentence-ending punctuation)
             lines_with_doubled_spaces << "Line #{idx + 1}: #{line.strip[0..80]}" if line.match?(/[^.?!]\s{2,}/) || line.match?(/\.\s{3,}/)
@@ -64,7 +64,9 @@ RSpec.describe 'prose quality' do
           content.lines.each do |line|
             next if line.include?('data-proofer-ignore')
 
+            # rubocop:disable Style/HashEachMethods
             line.scan(%r{\[([^\]]+)\]\((/[^)]+)\)}).each do |_text, url|
+              # rubocop:enable Style/HashEachMethods
               # Skip generated files
               next if url.start_with?('/sitemap.xml')
 

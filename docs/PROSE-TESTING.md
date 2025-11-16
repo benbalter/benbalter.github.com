@@ -132,6 +132,20 @@ script/vale
 bundle exec rspec spec/prose_quality_spec.rb
 ```
 
+**Code Quality:**
+
+The RSpec prose tests follow Ruby best practices and are checked with rubocop:
+
+```bash
+# Check code style
+bundle exec rubocop spec/prose_quality_spec.rb
+
+# Auto-correct style issues
+bundle exec rubocop -a spec/prose_quality_spec.rb
+```
+
+Note: Some rubocop suggestions may be disabled in the code when they conflict with correct test implementation (e.g., `Style/HashEachMethods` is disabled for scan results that return arrays, not hashes).
+
 ## CI Integration
 
 Prose tests run automatically in CI via the `content` job in `.github/workflows/ci.yml`:
@@ -153,6 +167,7 @@ This runs:
 * `.vale.ini` - Vale style guide configuration
 * `dictionary.txt` - Custom dictionary for spell checking
 * `.remarkignore` - Files to exclude from remark processing
+* `.rubocop.yml` - Ruby code style rules for RSpec tests
 
 ## Troubleshooting
 
