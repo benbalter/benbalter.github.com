@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { waitForPageReady } from './helpers';
+import { waitForPageReady, waitForFullLoad } from './helpers';
 
 test.describe('Performance', () => {
   test('homepage should load within acceptable time', async ({ page }) => {
@@ -21,7 +21,7 @@ test.describe('Performance', () => {
     });
     
     await page.goto('/');
-    await waitForPageReady(page);
+    await waitForFullLoad(page);
     
     // Reasonable number of requests for a static site
     // This can be adjusted based on actual site needs
@@ -38,7 +38,7 @@ test.describe('Performance', () => {
     });
     
     await page.goto('/');
-    await waitForPageReady(page);
+    await waitForFullLoad(page);
     
     // Static site shouldn't need too many JS files
     expect(jsRequests.length).toBeLessThan(20);
@@ -84,7 +84,7 @@ test.describe('Performance', () => {
     });
     
     await page.goto('/');
-    await waitForPageReady(page);
+    await waitForFullLoad(page);
     
     // At least some text resources should be compressed
     // Note: In local dev mode, compression might not be enabled
@@ -95,7 +95,7 @@ test.describe('Performance', () => {
 
   test('should cache static assets', async ({ page }) => {
     await page.goto('/');
-    await waitForPageReady(page);
+    await waitForFullLoad(page);
     
     // Second visit should use cache
     const cachedRequests: string[] = [];
@@ -125,7 +125,7 @@ test.describe('Performance', () => {
     });
     
     await page.goto('/');
-    await waitForPageReady(page);
+    await waitForFullLoad(page);
     
     // Should not load excessive fonts
     expect(fontRequests.length).toBeLessThan(10);
