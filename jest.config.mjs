@@ -30,7 +30,7 @@ const config = {
   
   // Transform ES modules from node_modules
   transformIgnorePatterns: [
-    'node_modules/(?!(@octokit)/)',
+    'node_modules/(?!(unified|remark.*|rehype.*|@octokit|micromark.*|mdast.*|unist.*|hast.*|vfile.*|bail|is-plain-obj|trough|devlop|trim-lines|zwitch)/)',
   ],
   
   // Module name mapper for CSS and static files
