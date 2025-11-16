@@ -7,7 +7,7 @@ export interface Page {
   title?: string;
   description?: string;
   content: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export function getPageBySlug(slug: string): Page | null {

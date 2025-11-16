@@ -9,7 +9,7 @@ export interface Post {
   description?: string;
   image?: string;
   content: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 const postsDirectory = path.join(process.cwd(), 'content/posts');

@@ -9,6 +9,13 @@
  * This script reads redirect_from and redirect_to directives from YAML frontmatter
  * in content files and generates appropriate redirect pages.
  * 
+ * Special Character Handling:
+ * - Some legacy URLs contain characters that are invalid in Windows/NTFS filesystems
+ *   (e.g., <, >, :, ", |, ?, *)
+ * - The script sanitizes these characters by URL-encoding them for filesystem paths
+ * - Both the original URL and its encoded version are created as redirects to ensure
+ *   compatibility with browsers that may send either version
+ * 
  * This script should be run after `next build` to add redirect pages to the output.
  */
 
@@ -26,7 +33,7 @@ const __dirname = path.dirname(__filename);
 function parsePostFilename(filename) {
   const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)\.md$/);
   if (!match) return null;
-  
+
   return {
     year: match[1],
     month: match[2],
@@ -37,172 +44,194 @@ function parsePostFilename(filename) {
 }
 
 /**
+ * Add a redirect and its URL-encoded version if it contains special characters
+ */
+function addRedirect(redirects, source, destination, type) {
+  if (!source || !source.trim()) return;
+
+  const trimmedSource = source.trim();
+  redirects.push({ source: trimmedSource, destination, type });
+
+  // Also add URL-encoded version if the source contains special characters
+  // This ensures both encoded and literal URLs work
+  // We only encode specific invalid filesystem characters, not all special chars
+  if (/[<>:"|?*]/.test(trimmedSource)) {
+    // Split by '/' to preserve path structure, encode each segment separately
+    const encodedSource = trimmedSource.split('/').map(segment => {
+      // Only encode the specific characters that are invalid in filesystems
+      return segment
+        .replace(/</g, '%3C')
+        .replace(/>/g, '%3E')
+        .replace(/:/g, '%3A')
+        .replace(/"/g, '%22')
+        .replace(/\|/g, '%7C')
+        .replace(/\?/g, '%3F')
+        .replace(/\*/g, '%2A');
+    }).join('/');
+
+    if (encodedSource !== trimmedSource) {
+      redirects.push({ source: encodedSource, destination, type: 'redirect_from' });
+    }
+  }
+}
+
+/**
  * Scan content directories for redirect directives
  */
 function findRedirects() {
   const redirects = [];
-  
+
   // Scan _posts directory
   const postsDir = path.join(process.cwd(), '_posts');
   if (fs.existsSync(postsDir)) {
     const files = fs.readdirSync(postsDir);
-    
+
     files.forEach(filename => {
       if (!filename.endsWith('.md')) return;
-      
+
       const filepath = path.join(postsDir, filename);
       const content = fs.readFileSync(filepath, 'utf-8');
       const { data: frontmatter } = matter(content);
-      
+
       if (!frontmatter) return;
-      
+
       const parsed = parsePostFilename(filename);
       if (!parsed) return;
-      
+
       const destination = parsed.permalink;
-      
+
       // Handle redirect_from
       if (frontmatter.redirect_from) {
-        const sources = Array.isArray(frontmatter.redirect_from) 
-          ? frontmatter.redirect_from 
+        const sources = Array.isArray(frontmatter.redirect_from)
+          ? frontmatter.redirect_from
           : [frontmatter.redirect_from];
-        
+
         sources.forEach(source => {
-          if (source && source.trim()) {
-            redirects.push({ source: source.trim(), destination, type: 'redirect_from' });
-          }
+          addRedirect(redirects, source, destination, 'redirect_from');
         });
       }
-      
+
       // Handle redirect_to
       if (frontmatter.redirect_to) {
-        redirects.push({ 
-          source: destination, 
-          destination: frontmatter.redirect_to.trim(), 
-          type: 'redirect_to' 
+        redirects.push({
+          source: destination,
+          destination: frontmatter.redirect_to.trim(),
+          type: 'redirect_to'
         });
       }
     });
   }
-  
+
   // Scan content/posts directory (for Next.js migration)
   const contentPostsDir = path.join(process.cwd(), 'content', 'posts');
   if (fs.existsSync(contentPostsDir)) {
     const files = fs.readdirSync(contentPostsDir);
-    
+
     files.forEach(filename => {
       if (!filename.endsWith('.md')) return;
-      
+
       const filepath = path.join(contentPostsDir, filename);
       const content = fs.readFileSync(filepath, 'utf-8');
       const { data: frontmatter } = matter(content);
-      
+
       if (!frontmatter) return;
-      
+
       const parsed = parsePostFilename(filename);
       if (!parsed) return;
-      
+
       const destination = parsed.permalink;
-      
+
       // Handle _legacy_redirect_from (in migrated content)
       if (frontmatter._legacy_redirect_from) {
-        const sources = Array.isArray(frontmatter._legacy_redirect_from) 
-          ? frontmatter._legacy_redirect_from 
+        const sources = Array.isArray(frontmatter._legacy_redirect_from)
+          ? frontmatter._legacy_redirect_from
           : [frontmatter._legacy_redirect_from];
-        
+
         sources.forEach(source => {
-          if (source && source.trim()) {
-            redirects.push({ source: source.trim(), destination, type: 'redirect_from' });
-          }
+          addRedirect(redirects, source, destination, 'redirect_from');
         });
       }
-      
+
       // Handle redirect_from (current)
       if (frontmatter.redirect_from) {
-        const sources = Array.isArray(frontmatter.redirect_from) 
-          ? frontmatter.redirect_from 
+        const sources = Array.isArray(frontmatter.redirect_from)
+          ? frontmatter.redirect_from
           : [frontmatter.redirect_from];
-        
+
         sources.forEach(source => {
-          if (source && source.trim()) {
-            redirects.push({ source: source.trim(), destination, type: 'redirect_from' });
-          }
+          addRedirect(redirects, source, destination, 'redirect_from');
         });
       }
-      
+
       // Handle redirect_to
       if (frontmatter.redirect_to) {
-        redirects.push({ 
-          source: destination, 
-          destination: frontmatter.redirect_to.trim(), 
-          type: 'redirect_to' 
+        redirects.push({
+          source: destination,
+          destination: frontmatter.redirect_to.trim(),
+          type: 'redirect_to'
         });
       }
     });
   }
-  
+
   // Scan root directory for pages
   const rootFiles = fs.readdirSync(process.cwd());
   rootFiles.forEach(filename => {
     if (!filename.endsWith('.md') && !filename.endsWith('.html')) return;
     if (filename.startsWith('_')) return;
-    
+
     const filepath = path.join(process.cwd(), filename);
     const content = fs.readFileSync(filepath, 'utf-8');
     const { data: frontmatter } = matter(content);
-    
+
     if (!frontmatter) return;
-    
+
     // Get destination from permalink or filename
     const destination = frontmatter.permalink || `/${filename.replace(/\.(md|html)$/, '')}/`;
-    
+
     // Handle redirect_from
     if (frontmatter.redirect_from) {
-      const sources = Array.isArray(frontmatter.redirect_from) 
-        ? frontmatter.redirect_from 
+      const sources = Array.isArray(frontmatter.redirect_from)
+        ? frontmatter.redirect_from
         : [frontmatter.redirect_from];
-      
+
       sources.forEach(source => {
-        if (source && source.trim()) {
-          redirects.push({ source: source.trim(), destination, type: 'redirect_from' });
-        }
+        addRedirect(redirects, source, destination, 'redirect_from');
       });
     }
   });
-  
+
   // Scan content/pages directory
   const contentPagesDir = path.join(process.cwd(), 'content', 'pages');
   if (fs.existsSync(contentPagesDir)) {
     const files = fs.readdirSync(contentPagesDir);
-    
+
     files.forEach(filename => {
       if (!filename.endsWith('.md') && !filename.endsWith('.html')) return;
-      
+
       const filepath = path.join(contentPagesDir, filename);
       const content = fs.readFileSync(filepath, 'utf-8');
       const { data: frontmatter } = matter(content);
-      
+
       if (!frontmatter) return;
-      
+
       // Get destination from permalink or filename
       const destination = frontmatter.permalink || frontmatter._legacy_permalink || `/${filename.replace(/\.(md|html)$/, '')}/`;
-      
+
       // Handle redirect_from
       if (frontmatter.redirect_from || frontmatter._legacy_redirect_from) {
         const redirectField = frontmatter.redirect_from || frontmatter._legacy_redirect_from;
-        const sources = Array.isArray(redirectField) 
-          ? redirectField 
+        const sources = Array.isArray(redirectField)
+          ? redirectField
           : [redirectField];
-        
+
         sources.forEach(source => {
-          if (source && source.trim()) {
-            redirects.push({ source: source.trim(), destination, type: 'redirect_from' });
-          }
+          addRedirect(redirects, source, destination, 'redirect_from');
         });
       }
     });
   }
-  
+
   return redirects;
 }
 
@@ -212,7 +241,7 @@ function findRedirects() {
 function createRedirectHTML(destination, source) {
   const isExternal = destination.startsWith('http://') || destination.startsWith('https://');
   const destinationURL = isExternal ? destination : `https://ben.balter.com${destination}`;
-  
+
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -235,46 +264,69 @@ function createRedirectHTML(destination, source) {
 }
 
 /**
+ * Sanitize a path for filesystem use while preserving URL structure
+ * Replaces invalid filesystem characters with URL-encoded equivalents
+ */
+function sanitizePathForFilesystem(urlPath) {
+  // Map of characters that are invalid in Windows/NTFS filesystems
+  const invalidChars = {
+    '<': '%3C',
+    '>': '%3E',
+    ':': '%3A',
+    '"': '%22',
+    '|': '%7C',
+    '?': '%3F',
+    '*': '%2A'
+  };
+
+  return urlPath.replace(/[<>:"|?*]/g, char => invalidChars[char] || char);
+}
+
+/**
  * Generate redirect pages in the output directory
  */
 function generateRedirectPages() {
   const outDir = path.join(process.cwd(), 'out');
-  
+
   // Check if out directory exists
   if (!fs.existsSync(outDir)) {
     console.error('Error: Output directory not found. Please run `next build` first.');
     process.exit(1);
   }
-  
+
   console.log('🔍 Scanning for redirects in content files...\n');
   const redirects = findRedirects();
-  
+
   if (redirects.length === 0) {
     console.log('⚠️  No redirects found in content files.');
     return;
   }
-  
+
   console.log(`Found ${redirects.length} redirects\n`);
-  
+
   let count = 0;
-  
+
   redirects.forEach(({ source, destination, type }) => {
     // Normalize source path - remove trailing slash for directory creation
     const sourcePath = source.endsWith('/') ? source.slice(0, -1) : source;
-    const fullPath = path.join(outDir, sourcePath);
-    
+
+    // Sanitize the path for filesystem compatibility
+    const sanitizedPath = sanitizePathForFilesystem(sourcePath);
+    const fullPath = path.join(outDir, sanitizedPath);
+
     // Create directory structure
     fs.mkdirSync(fullPath, { recursive: true });
-    
-    // Write redirect HTML
+
+    // Write redirect HTML (using original unsanitized source for the redirect logic)
     const htmlPath = path.join(fullPath, 'index.html');
     fs.writeFileSync(htmlPath, createRedirectHTML(destination, source));
-    
+
     const icon = type === 'redirect_to' ? '🔗' : '↪️';
-    console.log(`${icon} ${source} → ${destination}`);
+    const displaySource = sanitizedPath !== sourcePath ? `${source} (saved as ${sanitizedPath})` : source;
+    console.log(`${icon} ${displaySource} → ${destination}`);
     count++;
   });
-  
+
   console.log(`\n✅ Generated ${count} redirect pages`);
 }
 

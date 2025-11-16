@@ -12,3 +12,10 @@ plugins:
 extends: 
   - "plugin:json/recommended"
   - "plugin:@typescript-eslint/recommended"
+
+overrides:
+  - files: '*.json'
+    extends:
+      - "plugin:json/recommended"
+    parserOptions:
+      project: null
