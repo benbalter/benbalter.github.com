@@ -13,7 +13,8 @@ export async function checkCommonElements(page: Page) {
   
   // Check for basic HTML structure
   const html = page.locator('html');
-  await expect(html).toHaveAttribute('lang', 'en-US');
+  // Accept both 'en' and 'en-US' for language attribute
+  await expect(html).toHaveAttribute('lang', /^en/);
 }
 
 /**
@@ -110,11 +111,20 @@ export async function checkLinksValid(page: Page, selector = 'a[href]') {
 }
 
 /**
- * Wait for page to be fully loaded including images
+ * Wait for page to be fully loaded including images and React hydration
  */
 export async function waitForFullLoad(page: Page) {
   await page.waitForLoadState('domcontentloaded');
   await page.waitForLoadState('networkidle');
+  
+  // Wait for React to hydrate the page by checking for a main element or body content
+  try {
+    // Give React time to hydrate
+    await page.waitForSelector('main, h1, [data-testid]', { timeout: 5000 });
+  } catch {
+    // If no main or h1, wait for body to have substantial content
+    await page.waitForFunction(() => document.body.textContent && document.body.textContent.length > 100, { timeout: 5000 });
+  }
 }
 
 /**

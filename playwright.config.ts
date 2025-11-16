@@ -4,8 +4,17 @@ import { defineConfig, devices } from '@playwright/test';
  * Playwright configuration for Ben Balter's website
  * Tests both Jekyll and Next.js builds
  */
+
+// Detect if testing Next.js (port 3000 or TEST_NEXTJS env var)
+const isNextJsTest = process.env.BASE_URL?.includes(':3000') || process.env.TEST_NEXTJS;
+
 export default defineConfig({
   testDir: './e2e',
+  
+  /* Only run Next.js-specific tests when testing Next.js build */
+  testMatch: isNextJsTest 
+    ? '**/nextjs-*.spec.ts'
+    : '**/*.spec.ts',
   
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
