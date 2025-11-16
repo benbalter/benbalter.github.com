@@ -8,12 +8,12 @@ This site has been migrated from Jekyll to Next.js using the App Router and stat
 
 ### Tech Stack
 
-- **Next.js 16**: Modern React framework with App Router
-- **TypeScript**: Type-safe development
-- **React 19**: Latest React features including React Server Components
-- **Static Export**: Generates static HTML for GitHub Pages hosting
-- **Bootstrap 5**: UI framework (via webpack build)
-- **Remark/Unified**: Markdown processing with GitHub-flavored Markdown support
+* **Next.js 16**: Modern React framework with App Router
+* **TypeScript**: Type-safe development
+* **React 19**: Latest React features including React Server Components
+* **Static Export**: Generates static HTML for GitHub Pages hosting
+* **Bootstrap 5**: UI framework (via webpack build)
+* **Remark/Unified**: Markdown processing with GitHub-flavored Markdown support
 
 ### Directory Structure
 
@@ -60,7 +60,7 @@ This site has been migrated from Jekyll to Next.js using the App Router and stat
    ```bash
    npm run dev
    ```
-   Visit http://localhost:3000 to see your changes in real-time.
+   Visit <http://localhost:3000> to see your changes in real-time.
 
 3. **Build for production:**
    ```bash
@@ -75,13 +75,13 @@ This site has been migrated from Jekyll to Next.js using the App Router and stat
 
 ### Available Scripts
 
-- `npm run dev` - Start Next.js development server with hot reload
-- `npm run next:build` - Build production site and generate redirects/feeds
-- `npm run next:start` - Serve production build locally
-- `npm run build:related-posts` - Generate related posts data
-- `npm run lint` - Run all linters (JavaScript, JSON, Markdown)
-- `npm run test` - Run full test suite
-- `npm run test:e2e` - Run Playwright end-to-end tests
+* `npm run dev` - Start Next.js development server with hot reload
+* `npm run next:build` - Build production site and generate redirects/feeds
+* `npm run next:start` - Serve production build locally
+* `npm run build:related-posts` - Generate related posts data
+* `npm run lint` - Run all linters (JavaScript, JSON, Markdown)
+* `npm run test` - Run full test suite
+* `npm run test:e2e` - Run Playwright end-to-end tests
 
 ## Key Features
 
@@ -127,9 +127,10 @@ Post content here...
 ```
 
 The migration preserves Jekyll compatibility by prefixing Jekyll-specific fields with `_legacy_`:
-- `layout` → `_legacy_layout`
-- `permalink` → `_legacy_permalink`
-- `redirect_from` → `_legacy_redirect_from`
+
+* `layout` → `_legacy_layout`
+* `permalink` → `_legacy_permalink`
+* `redirect_from` → `_legacy_redirect_from`
 
 ### Redirects
 
@@ -138,9 +139,10 @@ Legacy Jekyll URLs are preserved using static HTML redirect files generated at b
 ### RSS Feeds
 
 RSS feeds are generated during the build process by `script/generate-feeds.mjs`:
-- `/feed.xml` - Main blog feed
-- `/press/feed/index.xml` - Press clips feed
-- `/sitemap.xml` - XML sitemap
+
+* `/feed.xml` - Main blog feed
+* `/press/feed/index.xml` - Press clips feed
+* `/sitemap.xml` - XML sitemap
 
 ## Best Practices
 
@@ -183,14 +185,16 @@ export async function generateMetadata({ params }) {
 ### 3. Error Handling
 
 Use error boundaries for graceful error handling:
-- `app/error.tsx` - Root error boundary
-- `app/[year]/[month]/[day]/[slug]/error.tsx` - Post-specific errors
+
+* `app/error.tsx` - Root error boundary
+* `app/[year]/[month]/[day]/[slug]/error.tsx` - Post-specific errors
 
 ### 4. Loading States
 
 Provide loading UI with `loading.tsx` files:
-- `app/loading.tsx` - Root loading state
-- `app/[year]/[month]/[day]/[slug]/loading.tsx` - Post loading skeleton
+
+* `app/loading.tsx` - Root loading state
+* `app/[year]/[month]/[day]/[slug]/loading.tsx` - Post loading skeleton
 
 ### 5. Type Safety
 
@@ -212,15 +216,17 @@ export function getPost(slug: string): Post | null {
 
 ### 6. Performance Optimization
 
-- **React's cache()**: Use for request-level memoization
+* **React's cache()**: Use for request-level memoization
   ```typescript
   import { cache } from 'react';
   const getCachedPosts = cache(() => getAllPosts());
   ```
 
-- **Remove console logs in production**: Configured in `next.config.mjs`
-- **Code splitting**: Automatic with Next.js App Router
-- **Static assets**: Optimized and cached by CDN
+* **Remove console logs in production**: Configured in `next.config.mjs`
+
+* **Code splitting**: Automatic with Next.js App Router
+
+* **Static assets**: Optimized and cached by CDN
 
 ### 7. Image Optimization
 
@@ -234,18 +240,20 @@ images: {
 ```
 
 For production, consider:
-- Using responsive images with `srcset`
-- Optimizing images before build
-- Serving WebP/AVIF formats
+
+* Using responsive images with `srcset`
+* Optimizing images before build
+* Serving WebP/AVIF formats
 
 ## Migration from Jekyll
 
 ### Content Migration
 
 Content has been migrated to `content/` directory:
-- Blog posts: `_posts/*.md` → `content/posts/*.md`
-- Pages: `*.md` → `content/pages/*.md`
-- Data: `_data/*.yml` → `content/data/*.yml`
+
+* Blog posts: `_posts/*.md` → `content/posts/*.md`
+* Pages: `*.md` → `content/pages/*.md`
+* Data: `_data/*.yml` → `content/data/*.yml`
 
 ### Liquid Templates
 
@@ -264,11 +272,12 @@ Jekyll's Liquid templates need to be converted to React components:
 ### Jekyll Plugins
 
 Jekyll plugins have Next.js equivalents:
-- `jekyll-feed` → `script/generate-feeds.mjs`
-- `jekyll-sitemap` → Sitemap generation in feed script
-- `jekyll-seo-tag` → `lib/metadata.ts`
-- `jekyll-mentions` → `remark-github` plugin
-- `jemoji` → Custom emoji processing in `lib/emoji.ts`
+
+* `jekyll-feed` → `script/generate-feeds.mjs`
+* `jekyll-sitemap` → Sitemap generation in feed script
+* `jekyll-seo-tag` → `lib/metadata.ts`
+* `jekyll-mentions` → `remark-github` plugin
+* `jemoji` → Custom emoji processing in `lib/emoji.ts`
 
 ## Deployment
 
@@ -287,6 +296,7 @@ npm run next:build
 ```
 
 This command:
+
 1. Runs `next build` - Generates static pages
 2. Runs `generate-redirects.mjs` - Creates redirect HTML files
 3. Runs `generate-feeds.mjs` - Generates RSS feeds and sitemap
@@ -296,6 +306,7 @@ This command:
 ### Unit Tests
 
 Run TypeScript tests for build scripts:
+
 ```bash
 npm run test:related-posts
 ```
@@ -303,6 +314,7 @@ npm run test:related-posts
 ### E2E Tests
 
 Playwright tests cover critical user paths:
+
 ```bash
 npm run test:e2e          # Headless
 npm run test:e2e:ui       # UI mode
@@ -323,6 +335,7 @@ npm run lint-md     # Markdown files
 ### Build Failures
 
 If build fails:
+
 1. Check TypeScript errors: `npx tsc --noEmit`
 2. Clear Next.js cache: `rm -rf .next`
 3. Reinstall dependencies: `rm -rf node_modules && npm install`
@@ -330,6 +343,7 @@ If build fails:
 ### Missing Pages
 
 If a page isn't generating:
+
 1. Check `generateStaticParams()` includes the route
 2. Verify content file exists in `content/` directory
 3. Check frontmatter has required fields
@@ -337,17 +351,18 @@ If a page isn't generating:
 ### Redirect Issues
 
 If redirects aren't working:
+
 1. Check `_legacy_redirect_from` in frontmatter
 2. Run redirect generation: `node script/generate-redirects.mjs`
 3. Verify HTML files exist in `out/` directory
 
 ## Resources
 
-- [Next.js Documentation](https://nextjs.org/docs)
-- [App Router Guide](https://nextjs.org/docs/app)
-- [Static Exports](https://nextjs.org/docs/app/building-your-application/deploying/static-exports)
-- [Metadata API](https://nextjs.org/docs/app/building-your-application/optimizing/metadata)
-- [TypeScript in Next.js](https://nextjs.org/docs/app/building-your-application/configuring/typescript)
+* [Next.js Documentation](https://nextjs.org/docs)
+* [App Router Guide](https://nextjs.org/docs/app)
+* [Static Exports](https://nextjs.org/docs/app/building-your-application/deploying/static-exports)
+* [Metadata API](https://nextjs.org/docs/app/building-your-application/optimizing/metadata)
+* [TypeScript in Next.js](https://nextjs.org/docs/app/building-your-application/configuring/typescript)
 
 ## Contributing
 
@@ -362,5 +377,5 @@ When contributing to the Next.js codebase:
 
 ## License
 
-- Content: [Creative Commons, BY](http://creativecommons.org/licenses/by/3.0/)
-- Code: [MIT](http://opensource.org/licenses/mit-license.php)
+* Content: [Creative Commons, BY](http://creativecommons.org/licenses/by/3.0/)
+* Code: [MIT](http://opensource.org/licenses/mit-license.php)
