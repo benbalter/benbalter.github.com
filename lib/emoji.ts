@@ -96,7 +96,6 @@ const emojiMap: Record<string, string> = {
   
   // Nature
   'sunny': '☀️',
-  'cloud': '☁️',
   'umbrella': '☂️',
   'snowflake': '❄️',
   'tree': '🌲',

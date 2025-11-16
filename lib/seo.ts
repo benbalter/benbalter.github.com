@@ -5,6 +5,7 @@
 
 import { getSiteConfig } from './config';
 import { getPostUrlParts, type Post } from './posts';
+import { getPostOgImage, getPageOgImage } from './og-image';
 import type { Page } from './pages';
 import type { Metadata } from 'next';
 
@@ -17,8 +18,8 @@ export function getPostMetadata(post: Post): Metadata {
   const fullUrl = `${config.url}${url}`;
   const publishDate = new Date(post.date).toISOString();
   
-  // Use OG image if specified, otherwise use default
-  const ogImage = post.image || post.og_image || `${config.url}/assets/img/headshot.jpg`;
+  // Get OG image using the helper
+  const ogImage = getPostOgImage(post);
   
   return {
     title: post.title,
@@ -59,6 +60,7 @@ export function getPostMetadata(post: Post): Metadata {
 export function getPageMetadata(page: Page, path: string): Metadata {
   const config = getSiteConfig();
   const fullUrl = `${config.url}${path}`;
+  const ogImage = getPageOgImage(page.image);
   
   return {
     title: page.title || config.title,
@@ -71,12 +73,19 @@ export function getPageMetadata(page: Page, path: string): Metadata {
       siteName: config.title,
       locale: 'en_US',
       type: 'website',
+      images: [
+        {
+          url: ogImage,
+          alt: page.title || config.title,
+        },
+      ],
     },
     twitter: {
       card: 'summary',
       title: page.title || config.title,
       description: page.description || config.description,
       creator: `@${config.author.twitter}`,
+      images: [ogImage],
     },
     alternates: {
       canonical: fullUrl,
