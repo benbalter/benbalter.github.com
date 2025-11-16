@@ -20,7 +20,17 @@ This is the personal website of Ben Balter, built using Jekyll and hosted on Git
 * **Jekyll**: \~> 4.0 (static site generator)
 * **Ruby**: 3.3.5 (see `.ruby-version` for exact version)
 * **Node.js**: For JavaScript tooling and linting
+* **Next.js**: In development for migration (App Router with SSG)
 * **GitHub Pages**: Hosting platform
+
+### Next.js Architecture
+
+This site is transitioning to Next.js with a **Static Site Generation (SSG) first** approach:
+
+* **Static HTML Generation**: All pages pre-rendered at build time
+* **Server Components**: Default for all React components
+* **Minimal Client JavaScript**: Only when absolutely necessary
+* **GitHub Pages Compatible**: Exported as static files (`output: 'export'`)
 
 ### Key Dependencies
 
@@ -275,3 +285,10 @@ Use this agent for creating or editing blog posts and documentation.
 * When adding new features, ensure they align with Jekyll best practices
 * Maintain the site's clean, minimal aesthetic
 * Prioritize performance and accessibility
+* **CRITICAL: Maximize use of SSG and server components**:
+  * Never use 'use client' unless absolutely necessary
+  * Prefer HTML and CSS over JavaScript
+  * Pre-render all pages as static HTML
+  * Minimize JavaScript bundle size
+  * Use server components for all data fetching and rendering
+  * Only use client components when browser APIs or React hooks are required
