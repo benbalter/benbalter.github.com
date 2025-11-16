@@ -6,6 +6,14 @@ const nextConfig = {
   // Disable image optimization for static export
   images: {
     unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
   
   // Base path configuration (can be adjusted later)
