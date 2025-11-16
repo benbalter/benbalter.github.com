@@ -2,10 +2,20 @@
  * GitHub metadata utilities
  * Replaces jekyll-github-metadata plugin functionality
  * 
- * Provides repository metadata from GitHub API or static config
+ * Provides repository metadata from GitHub API using Octokit
  */
 
+import { Octokit } from '@octokit/rest';
 import { getSiteConfig } from './config';
+
+/**
+ * Get Octokit instance with optional authentication
+ */
+function getOctokit(): Octokit {
+  return new Octokit({
+    auth: process.env.GITHUB_TOKEN,
+  });
+}
 
 export interface GitHubMetadata {
   owner: string;
@@ -44,7 +54,7 @@ export function getGitHubMetadata(): GitHubMetadata {
 }
 
 /**
- * Get repository contributors from GitHub API
+ * Get repository contributors from GitHub API using Octokit
  * This should be called during build time and cached
  */
 export async function fetchContributors(limit: number = 30): Promise<Array<{
@@ -57,39 +67,33 @@ export async function fetchContributors(limit: number = 30): Promise<Array<{
   const [owner, repo] = config.repository.split('/');
   
   try {
-    const response = await fetch(
-      `https://api.github.com/repos/${owner}/${repo}/contributors?per_page=${limit}`,
-      {
-        headers: {
-          'Accept': 'application/vnd.github.v3+json',
-          // Use GITHUB_TOKEN if available for higher rate limits
-          ...(process.env.GITHUB_TOKEN && {
-            'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`,
-          }),
-        },
-      }
-    );
+    const octokit = getOctokit();
+    const { data } = await octokit.repos.listContributors({
+      owner,
+      repo,
+      per_page: limit,
+    });
     
-    if (!response.ok) {
-      console.warn(`Failed to fetch contributors: ${response.status} ${response.statusText}`);
-      return [];
-    }
-    
-    return await response.json();
+    return data.map(contributor => ({
+      login: contributor.login || '',
+      contributions: contributor.contributions,
+      avatar_url: contributor.avatar_url || '',
+      html_url: contributor.html_url || '',
+    }));
   } catch (error) {
-    console.warn('Error fetching contributors:', error);
+    console.warn('Error fetching contributors with Octokit:', error);
     return [];
   }
 }
 
 /**
- * Get repository information from GitHub API
+ * Get repository information from GitHub API using Octokit
  * This should be called during build time and cached
  */
 export async function fetchRepositoryInfo(): Promise<{
   name: string;
   full_name: string;
-  description: string;
+  description: string | null;
   html_url: string;
   stargazers_count: number;
   forks_count: number;
@@ -98,32 +102,34 @@ export async function fetchRepositoryInfo(): Promise<{
   default_branch: string;
   created_at: string;
   updated_at: string;
-  pushed_at: string;
+  pushed_at: string | null;
 } | null> {
   const config = getSiteConfig();
   const [owner, repo] = config.repository.split('/');
   
   try {
-    const response = await fetch(
-      `https://api.github.com/repos/${owner}/${repo}`,
-      {
-        headers: {
-          'Accept': 'application/vnd.github.v3+json',
-          ...(process.env.GITHUB_TOKEN && {
-            'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`,
-          }),
-        },
-      }
-    );
+    const octokit = getOctokit();
+    const { data } = await octokit.repos.get({
+      owner,
+      repo,
+    });
     
-    if (!response.ok) {
-      console.warn(`Failed to fetch repository info: ${response.status} ${response.statusText}`);
-      return null;
-    }
-    
-    return await response.json();
+    return {
+      name: data.name,
+      full_name: data.full_name,
+      description: data.description,
+      html_url: data.html_url,
+      stargazers_count: data.stargazers_count,
+      forks_count: data.forks_count,
+      open_issues_count: data.open_issues_count,
+      watchers_count: data.watchers_count,
+      default_branch: data.default_branch,
+      created_at: data.created_at,
+      updated_at: data.updated_at,
+      pushed_at: data.pushed_at,
+    };
   } catch (error) {
-    console.warn('Error fetching repository info:', error);
+    console.warn('Error fetching repository info with Octokit:', error);
     return null;
   }
 }

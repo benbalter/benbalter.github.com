@@ -10,6 +10,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.7.1",
     "@fortawesome/free-solid-svg-icons": "^6.7.1",
     "@hotwired/turbo": "^8.0.5",
+    "@octokit/rest": "^22.0.1",
     "@types/natural": "^5.1.5",
     "anchor-js": "^5.0.0",
     "bootstrap": "^5.3.3",
@@ -26,6 +27,7 @@
     "reading-time": "^1.5.0",
     "remark": "^15.0.1",
     "remark-gfm": "^4.0.1",
+    "remark-github": "^12.0.0",
     "remark-html": "^16.0.1",
     "sitemap": "^9.0.0",
     "strip-markdown": "^6.0.0"

@@ -2,7 +2,7 @@ import { describe, it } from 'node:test';
 import assert from 'node:assert';
 import { processEmoji, hasEmojiSyntax } from './emoji';
 import { processMentions, extractMentions, hasMentions } from './mentions';
-import { getGitHubAvatarUrl } from './avatar';
+import { getGitHubAvatarUrlSync } from './avatar';
 
 describe('Emoji Processing', () => {
   it('should convert emoji syntax to unicode', () => {
@@ -53,8 +53,8 @@ describe('Mentions Processing', () => {
 });
 
 describe('GitHub Avatar', () => {
-  it('should generate correct avatar URL', () => {
-    assert.strictEqual(getGitHubAvatarUrl('benbalter'), 'https://avatars.githubusercontent.com/benbalter?s=40');
-    assert.strictEqual(getGitHubAvatarUrl('benbalter', 80), 'https://avatars.githubusercontent.com/benbalter?s=80');
+  it('should generate correct avatar URL (sync)', () => {
+    assert.strictEqual(getGitHubAvatarUrlSync('benbalter'), 'https://avatars.githubusercontent.com/benbalter?s=40');
+    assert.strictEqual(getGitHubAvatarUrlSync('benbalter', 80), 'https://avatars.githubusercontent.com/benbalter?s=80');
   });
 });

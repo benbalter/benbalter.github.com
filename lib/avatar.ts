@@ -3,16 +3,63 @@
  * Replaces jekyll-avatar plugin functionality
  * 
  * Provides GitHub avatar URLs and components
+ * Uses Octokit for fetching avatar URLs from GitHub API
  */
 
+import { Octokit } from '@octokit/rest';
+
+// Cache for avatar URLs to avoid repeated API calls
+const avatarCache = new Map<string, string>();
+
 /**
- * Get GitHub avatar URL for a username
+ * Get Octokit instance with optional authentication
+ */
+function getOctokit(): Octokit {
+  return new Octokit({
+    auth: process.env.GITHUB_TOKEN,
+  });
+}
+
+/**
+ * Get GitHub avatar URL for a username using Octokit
  * @param username GitHub username
  * @param size Avatar size in pixels (default: 40)
  * @returns Avatar image URL
  */
-export function getGitHubAvatarUrl(username: string, size: number = 40): string {
-  // GitHub's avatar API
+export async function getGitHubAvatarUrl(username: string, size: number = 40): Promise<string> {
+  const cacheKey = `${username}:${size}`;
+  
+  // Return cached value if available
+  if (avatarCache.has(cacheKey)) {
+    return avatarCache.get(cacheKey)!;
+  }
+  
+  try {
+    const octokit = getOctokit();
+    const { data } = await octokit.users.getByUsername({ username });
+    
+    // GitHub avatar API supports size parameter
+    const avatarUrl = `${data.avatar_url}&s=${size}`;
+    avatarCache.set(cacheKey, avatarUrl);
+    
+    return avatarUrl;
+  } catch (error) {
+    console.warn(`Failed to fetch avatar for ${username}, falling back to direct URL:`, error);
+    // Fallback to direct URL construction
+    const fallbackUrl = `https://avatars.githubusercontent.com/${username}?s=${size}`;
+    avatarCache.set(cacheKey, fallbackUrl);
+    return fallbackUrl;
+  }
+}
+
+/**
+ * Get GitHub avatar URL synchronously (for backward compatibility)
+ * Uses direct URL construction without API call
+ * @param username GitHub username
+ * @param size Avatar size in pixels (default: 40)
+ * @returns Avatar image URL
+ */
+export function getGitHubAvatarUrlSync(username: string, size: number = 40): string {
   return `https://avatars.githubusercontent.com/${username}?s=${size}`;
 }
 
