@@ -140,7 +140,9 @@ export function calculateReadingTime(content: string): number {
   ```
 
 * Follow existing code patterns
+
 * Write clear, descriptive variable names
+
 * Keep functions focused and small
 
 ## Testing

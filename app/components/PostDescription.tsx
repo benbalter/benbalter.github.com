@@ -1,14 +1,14 @@
-import { markdownToHtml } from '@/lib/markdown';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import remarkGithub from 'remark-github';
+import { getSiteConfig } from '@/lib/config';
 
 interface PostDescriptionProps {
   description: string;
 }
 
-export default async function PostDescription({ description }: PostDescriptionProps) {
-  // Convert markdown to HTML and strip paragraph tags to keep it inline
-  // This matches Jekyll's behavior: markdownify | replace: "<p>", "" | replace: "</p>", ""
-  const descriptionHtml = await markdownToHtml(description);
-  const inlineHtml = descriptionHtml.replace(/<\/?p>/g, '');
+export default function PostDescription({ description }: PostDescriptionProps) {
+  const config = getSiteConfig();
   
   return (
     <div className="lead">
@@ -23,7 +23,18 @@ export default async function PostDescription({ description }: PostDescriptionPr
         </abbr>
         :{' '}
       </strong>
-      <span dangerouslySetInnerHTML={{ __html: inlineHtml }} />
+      <ReactMarkdown
+        remarkPlugins={[
+          remarkGfm,
+          [remarkGithub, { repository: config.repository, mentionStrong: false }],
+        ]}
+        components={{
+          // Remove paragraph wrapper to keep content inline
+          p: ({ children }) => <>{children}</>,
+        }}
+      >
+        {description}
+      </ReactMarkdown>
     </div>
   );
 }
