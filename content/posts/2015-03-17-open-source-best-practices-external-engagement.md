@@ -32,7 +32,7 @@ Even before you hit publish, there's lots of ways to seed your project's ecosyst
 * Answer the question "what features would you love to see?"
 * Flesh out documentation, ask questions, note where documentation is lacking
 * Community evangelism, speak, teach, and spread your love for the project
-* Submit new questions to the project's Q&A forums, or take a stab at an answer or two
+* Submit new questions to the project's Q\&A forums, or take a stab at an answer or two
 * Host a genius bar at the next local meetup
 * Translate the project into a different language
 * Give feedback on proposed bugfixes and features, propose new ones
