@@ -181,7 +181,25 @@ The system is designed to avoid redirect chains. Each redirect goes directly fro
 
 ## Testing
 
-### Running Tests
+### Validation Script
+
+The `script/validate-redirects.mjs` script performs comprehensive validation of all redirect pages after build:
+
+```bash
+npm run validate:redirects
+```
+
+This validates:
+
+* ✅ All expected redirect pages exist in `out/` directory
+* ✅ Each redirect page has correct destination URL
+* ✅ Redirect HTML is properly formatted (meta refresh, JS redirect, canonical, noindex)
+* ✅ All destination pages exist in the build
+* ✅ No redirect chains exist
+
+Run this after `npm run next:build` to verify redirect integrity before deployment.
+
+### Running E2E Tests
 
 Run all redirect tests:
 
