@@ -22,14 +22,15 @@ export default function PostError({ error, reset }: ErrorProps) {
     <div className="row">
       <div className="col-md-10 offset-md-1">
         <div className="alert alert-warning" role="alert">
-          <h2 className="alert-heading">Oops! Post not found</h2>
+          <h2 className="alert-heading">404: Post Not Found</h2>
           <p>
-            The blog post you're looking for might have been moved or doesn't exist.
+            Looks like this post has been <code>git rm</code>'d, force-pushed to <code>/dev/null</code>, 
+            or never committed in the first place. Even version control can't help us recover this one.
           </p>
           <hr />
           <div className="d-flex gap-2">
             <a href="/" className="btn btn-primary">
-              Go to homepage
+              Return to main
             </a>
             <button
               className="btn btn-outline-secondary"

@@ -2,7 +2,7 @@ import { getPageBySlug, getAllPageSlugs } from '@/lib/pages';
 import { markdownToHtml } from '@/lib/markdown';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { getPageMetadata } from '@/lib/metadata';
+import { getPageMetadata } from '@/lib/seo';
 
 interface PageProps {
   params: Promise<{
@@ -25,12 +25,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {};
   }
   
-  // Use centralized metadata configuration
-  return getPageMetadata({
-    title: page.title,
-    description: page.description,
-    slug,
-  });
+  // Use centralized SEO metadata from lib/seo.ts
+  return getPageMetadata(page, `/${slug}/`);
 }
 
 export default async function Page({ params }: PageProps) {

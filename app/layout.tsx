@@ -6,13 +6,60 @@ import Footer from './components/Footer';
 import ClientScripts from './components/ClientScripts';
 import { getSiteConfig } from '@/lib/config';
 import { getAllPageSlugs, getPageBySlug } from '@/lib/pages';
-import { getSharedMetadata } from '@/lib/metadata';
 
 // Load site configuration from _config.yml
 const config = getSiteConfig();
 
-// Export shared metadata using the centralized metadata configuration
-export const metadata: Metadata = getSharedMetadata();
+export const metadata: Metadata = {
+  metadataBase: new URL(config.url),
+  title: {
+    default: config.title,
+    template: `%s | ${config.title}`,
+  },
+  description: config.description,
+  authors: [{ name: config.author.name, url: config.url }],
+  creator: config.author.name,
+  publisher: config.author.name,
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: config.url,
+    siteName: config.title,
+    title: config.title,
+    description: config.description,
+  },
+  twitter: {
+    card: 'summary',
+    creator: `@${config.author.twitter}`,
+    title: config.title,
+    description: config.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  icons: {
+    icon: [
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
+    shortcut: '/favicon.ico',
+  },
+  manifest: '/site.webmanifest',
+  alternates: {
+    types: {
+      'application/rss+xml': `${config.url}/feed.xml`,
+    },
+  },
+};
 
 // Get navigation and footer pages
 function getNavPages() {

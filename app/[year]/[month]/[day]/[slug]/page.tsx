@@ -12,7 +12,7 @@ import PostContent from '@/app/components/PostContent';
 import PostMetadata from '@/app/components/PostMetadata';
 import EditButton from '@/app/components/EditButton';
 import { getSiteConfig, getAuthorBio } from '@/lib/config';
-import { getPostMetadata } from '@/lib/metadata';
+import { getPostMetadata } from '@/lib/seo';
 
 // Load site configuration
 const config = getSiteConfig();
@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {};
   }
   
-  // Use the centralized metadata configuration for consistency
+  // Use comprehensive SEO metadata from lib/seo.ts
   return getPostMetadata(post);
 }
 
