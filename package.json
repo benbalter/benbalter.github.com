@@ -136,7 +136,7 @@
     "next:test": "npm run next:build && npx playwright test e2e/nextjs-build.spec.ts",
     "next:test:e2e": "BASE_URL=http://localhost:3000 TEST_NEXTJS=1 npx playwright test e2e/nextjs-site.spec.ts",
     "next:build": "next build && node script/generate-redirects.mjs && tsx script/generate-feeds.mjs",
-    "next:start": "serve out",
+    "next:start": "serve out -l 3000",
     "lint": "npm run lint-js && npm run lint-json && npm run lint-md",
     "lint-js": "xo .remarkrc.js --ignore-pattern !.remarkrc.js --fix",
     "lint-json": "eslint . --ext json --fix",
