@@ -2,9 +2,16 @@
   "name": "Ben Balter's Website",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
-    "ghcr.io/devcontainers/features/node:1": {},
-    "ghcr.io/devcontainers/features/ruby:1": {},
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    },
+    "ghcr.io/devcontainers/features/ruby:1": {
+      "version": "3.4.7"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/git:1": {
+      "version": "latest"
+    }
   },
   "customizations": {
     "vscode": {
@@ -16,22 +23,55 @@
         "redhat.vscode-yaml",
         "esbenp.prettier-vscode",
         "dbaeumer.vscode-eslint",
-        "ms-playwright.playwright"
+        "ms-playwright.playwright",
+        "github.copilot",
+        "github.copilot-chat",
+        "github.vscode-pull-request-github",
+        "ms-vscode.vscode-typescript-next",
+        "bradlc.vscode-tailwindcss",
+        "eamodio.gitlens"
       ],
       "settings": {
         "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": "explicit"
+        },
         "[ruby]": {
           "editor.defaultFormatter": "Shopify.ruby-lsp",
           "editor.formatOnSave": true
         },
         "[markdown]": {
           "editor.defaultFormatter": "vscode.markdown-language-features"
+        },
+        "[typescript]": {
+          "editor.defaultFormatter": "vscode.typescript-language-features"
+        },
+        "[typescriptreact]": {
+          "editor.defaultFormatter": "vscode.typescript-language-features"
+        },
+        "[javascript]": {
+          "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+        },
+        "files.associations": {
+          "*.liquid": "liquid",
+          "*.md": "markdown"
+        },
+        "search.exclude": {
+          "**/node_modules": true,
+          "**/vendor": true,
+          "**/.bundle": true,
+          "_site": true,
+          "out": true
         }
       }
     }
   },
-  "onCreateCommand": "bash -lc 'bundle install && npm install'",
-  "postCreateCommand": "bash -lc 'sudo apt-get update && sudo apt-get install -y libvips && ./node_modules/.bin/playwright install --with-deps chromium && echo Devcontainer ready. Run \\\"rake serve\\\" or \\\"script/server\\\" to start Jekyll.'",
+  "onCreateCommand": "script/bootstrap",
+  "postCreateCommand": {
+    "system-deps": "sudo apt-get update && sudo apt-get install -y libvips-dev",
+    "playwright": "./node_modules/.bin/playwright install --with-deps chromium"
+  },
+  "postStartCommand": "echo '🚀 Devcontainer ready! Run \"rake serve\" or \"script/server\" to start Jekyll, or \"npm run dev\" for Next.js.'",
   "forwardPorts": [3000, 4000],
   "portsAttributes": {
     "3000": {
@@ -43,5 +83,9 @@
       "onAutoForward": "notify"
     }
   },
-  "remoteUser": "vscode"
+  "containerEnv": {
+    "JEKYLL_ENV": "development"
+  },
+  "remoteUser": "vscode",
+  "updateContentCommand": "npm install && bundle install"
 }
