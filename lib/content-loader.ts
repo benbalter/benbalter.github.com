@@ -5,14 +5,14 @@ import matter from 'gray-matter';
 export interface ContentItem {
   slug: string;
   content: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 /**
  * Reads and parses a content file (markdown or HTML) with frontmatter.
  * Returns the parsed data object with content and metadata.
  */
-export function readContentFile(filePath: string): { data: Record<string, any>; content: string } {
+export function readContentFile(filePath: string): { data: Record<string, unknown>; content: string } {
   const fileContents = fs.readFileSync(filePath, 'utf8');
   return matter(fileContents);
 }
@@ -48,9 +48,9 @@ export function findFileWithExtensions(dirPath: string, baseName: string, extens
  */
 export function createContentItem(
   slug: string,
-  data: Record<string, any>,
+  data: Record<string, unknown>,
   content: string,
-  overrides: Record<string, any> = {}
+  overrides: Record<string, unknown> = {}
 ): ContentItem {
   return {
     slug,

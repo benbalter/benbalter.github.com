@@ -1,0 +1,22 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "next-env.d.ts",
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "lib/**/*.ts",
+    "script/**/*.ts",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "app/**/*.test.tsx",
+    "lib/**/*.test.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "js/**/*",
+    "assets/**/*",
+    "webpack.config.js",
+    ".next/dev/**/*",
+    "out"
+  ]
+}
