@@ -18,7 +18,7 @@ RSpec.describe 'prose quality' do
         end
 
         it 'does not have trailing whitespace' do
-          lines_with_trailing_space = content.lines.select { |line| line.match?(/[ \t]+\n?$/) }
+          lines_with_trailing_space = content.lines.grep(/[ \t]+\n?$/)
           expect(lines_with_trailing_space).to be_empty,
                                                "Found #{lines_with_trailing_space.count} lines with trailing whitespace"
         end
@@ -64,7 +64,7 @@ RSpec.describe 'prose quality' do
           content.lines.each do |line|
             next if line.include?('data-proofer-ignore')
 
-            line.scan(%r{\[([^\]]+)\]\((/[^)]+)\)}).each do |_text, url|
+            line.scan(%r{\[([^\]]+)\]\((/[^)]+)\)}).each_value do |url|
               # Skip generated files
               next if url.start_with?('/sitemap.xml')
 
@@ -78,11 +78,11 @@ RSpec.describe 'prose quality' do
             path = link.split('#').first
             # Remove trailing slash
             path = path.sub(%r{/$}, '')
-            
+
             # Convert Jekyll date-based permalink to filename
             # E.g., /2020/08/25/post-title -> _posts/2020-08-25-post-title.md
             if path.match?(%r{^/\d{4}/\d{2}/\d{2}/})
-              date_and_slug = path.sub(%r{^/}, '').gsub('/', '-')
+              date_and_slug = path.sub(%r{^/}, '').tr('/', '-')
               post_file = File.join(site_path, '_posts', "#{date_and_slug}.md")
               File.exist?(post_file)
             else
