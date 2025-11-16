@@ -58,7 +58,7 @@ export async function extractPlainText(markdown: string): Promise<string> {
 export async function readPosts(): Promise<Post[]> {
   const postsPath = path.resolve(postsDirectory);
   const files = fs.readdirSync(postsPath);
-  const postPromises: Array<Promise<Post | undefined>> = [];
+  const postPromises: Array<Promise<Post | null>> = [];
 
   for (const file of files) {
     if (!file.endsWith('.md')) {
