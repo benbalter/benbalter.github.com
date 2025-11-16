@@ -5,7 +5,7 @@ import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import ClientScripts from './components/ClientScripts';
 import { getSiteConfig } from '@/lib/config';
-import { getAllPageSlugs, getPageBySlug } from '@/lib/pages';
+import { getPageBySlug } from '@/lib/pages';
 
 // Load site configuration from _config.yml
 const config = getSiteConfig();
