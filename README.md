@@ -72,6 +72,25 @@ The build process automatically generates static HTML redirect pages for all `re
 
 ## Development
 
+### Dev Container
+
+This repository includes a VS Code Dev Container configuration for a consistent development environment. The devcontainer includes:
+
+* **Ruby 3.4.7** (matching `.ruby-version`)
+* **Node.js 20** (for Next.js and build tools)
+* **System dependencies** (libvips for image processing)
+* **Playwright** with Chromium for E2E testing
+* **VS Code extensions** for Ruby, TypeScript, Markdown, Liquid, YAML, and more
+
+**To use the devcontainer:**
+
+1. Install [Docker](https://www.docker.com/products/docker-desktop) and [VS Code](https://code.visualstudio.com/)
+2. Install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+3. Open the repository in VS Code
+4. Click "Reopen in Container" when prompted (or use Command Palette: "Dev Containers: Reopen in Container")
+
+The container will automatically install all dependencies via `script/bootstrap` and display a welcome message with commands to start development servers.
+
 ### Running Tests Locally
 
 ```bash
