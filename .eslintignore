@@ -1,0 +1,12 @@
+# ESLint ignore patterns
+node_modules/
+vendor/
+_site/
+.next/
+out/
+
+# Playwright test files (use TypeScript for linting instead)
+e2e/
+playwright.config.ts
+playwright-report/
+test-results/

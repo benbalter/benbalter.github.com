@@ -3,7 +3,7 @@ on:
     paths: 
       - '_posts/**.md'
       - '.github/workflows/related-posts.yml'
-      - 'script/build-related-posts'
+      - 'script/build-related-posts.ts'
     branches:
       - main
   workflow_dispatch: {}
@@ -22,19 +22,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install apt dependencies
-        run: sudo apt-get update && sudo apt-get -y install libvips-dev liblapacke-dev libopenblas-dev
-
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          bundler-cache: true
+          node-version: '20'
+          cache: 'npm'
 
-      - name: Install
-        run: bundle install
+      - name: Install dependencies
+        run: npm ci
 
       - name: Build posts
-        run: bundle exec script/build-related-posts
+        run: npx tsx script/build-related-posts.ts
+
+      - name: Verify output
+        run: npx tsx script/test-build-related-posts.ts
 
       - name: Create Pull Request
         id: create-pull-request

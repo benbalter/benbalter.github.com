@@ -1,0 +1,27 @@
+name: Next.js Build
+
+on:
+  push: {}
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Next.js site
+        run: npm run next:build

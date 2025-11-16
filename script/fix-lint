@@ -16,7 +16,7 @@ REGEXES = {
 
 REGEX = Regexp.union(REGEXES.keys)
 
-files = Dir['_posts/*'] + Dir['*.md']
+files = Dir['_posts/*'] + Dir['*.md'] + Dir['content/**/**/*.md']
 files.each do |path|
   content = File.read(path)
   next unless content.match? REGEX

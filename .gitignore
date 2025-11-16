@@ -29,7 +29,29 @@ comments.json
 assets/css/style.css
 assets/js/bundle.js
 assets/js/bundle.js.LICENSE.txt
+test-results/
+playwright-report/
 
 # Next.js build artifacts
 .next/
 out/
+
+# Playwright artifacts
+/test-results/
+/playwright-report/
+/playwright/.cache/
+
+# Jest coverage
+coverage/
+
+# TypeScript build info
+*.tsbuildinfo
+public/assets/images/og/
+/vendor/
+
+# Environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+tsconfig.tsbuildinfo
