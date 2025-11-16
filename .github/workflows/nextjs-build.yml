@@ -56,14 +56,18 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: nextjs-build
-          path: nextjs-build
 
-      - name: Move artifacts to correct location
+      - name: Verify artifacts downloaded
         run: |
-          mv nextjs-build/.next .next
-          mv nextjs-build/out out
-          ls -la .next
-          ls -la out
+          ls -la
+          if [ -d .next ]; then
+            echo ".next directory found"
+            ls -la .next
+          fi
+          if [ -d out ]; then
+            echo "out directory found"
+            ls -la out
+          fi
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps chromium
