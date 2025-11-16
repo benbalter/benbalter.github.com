@@ -35,7 +35,7 @@ As a platform, your biggest lever is your ability to intervene in otherwise orga
 | Goal        | Encourage good behavior  | Introduce Friction | Minimize impact           |
 | Type        | User-to-community        | User-to-product    | User-to-user              |
 | Example     | Code of conduct adoption | User blocking      | Hiding disruptive content |
-| {: .table } |                          |                    |                           |
+{: .table }
 
 Most platforms begin their user safety efforts by focus on during-the-act interventions. These are things like a blocked user not being able to DM or @mention the blocking user that seek to add friction (defined as how easy or hard it is to do something) to creating potentially disruptive content.
 

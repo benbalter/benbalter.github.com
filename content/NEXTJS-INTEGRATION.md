@@ -215,7 +215,7 @@ export function stripHtml(html: string): string {
 
 ## Dynamic Routes
 
-### app/\[year]/\[month]/\[day]/\[slug]/page.tsx
+### app/[year]/[month]/[day]/[slug]/page.tsx
 
 ```typescript
 import { getPostByDate, getAllPosts } from '@/lib/posts';
@@ -285,7 +285,7 @@ export async function generateMetadata({ params }: { params: Params }) {
 }
 ```
 
-### app/\[slug]/page.tsx
+### app/[slug]/page.tsx
 
 ```typescript
 import { getPageBySlug, getAllPages } from '@/lib/pages';
