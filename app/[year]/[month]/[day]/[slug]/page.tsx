@@ -93,9 +93,9 @@ export default async function Post({ params }: PageProps) {
             <PostDescription description={post.description} />
           )}
           
-          {post.archived && (
+          {post.archived ? (
             <ArchivedWarning />
-          )}
+          ) : null}
           
           <ReadingTime content={post.content} />
           
