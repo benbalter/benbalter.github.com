@@ -10,6 +10,61 @@ import type { Page } from './pages';
 import type { Metadata } from 'next';
 
 /**
+ * Build common Open Graph metadata structure
+ */
+function buildOpenGraphMetadata(
+  title: string,
+  description: string,
+  url: string,
+  imageUrl: string,
+  imageAlt: string,
+  type: 'article' | 'website' = 'website',
+  publishedTime?: string,
+  authors?: string[]
+): NonNullable<Metadata['openGraph']> {
+  const config = getSiteConfig();
+  
+  const openGraph: NonNullable<Metadata['openGraph']> = {
+    title,
+    description,
+    url,
+    siteName: config.title,
+    locale: 'en_US',
+    type,
+    images: [
+      {
+        url: imageUrl,
+        alt: imageAlt,
+      },
+    ],
+    ...(publishedTime && { publishedTime }),
+    ...(authors && { authors }),
+  };
+  
+  return openGraph;
+}
+
+/**
+ * Build common Twitter Card metadata structure
+ */
+function buildTwitterMetadata(
+  title: string,
+  description: string,
+  imageUrl: string,
+  cardType: 'summary' | 'summary_large_image' = 'summary'
+): NonNullable<Metadata['twitter']> {
+  const config = getSiteConfig();
+  
+  return {
+    card: cardType,
+    title,
+    description,
+    creator: `@${config.author.twitter}`,
+    images: [imageUrl],
+  };
+}
+
+/**
  * Generate comprehensive SEO metadata for a blog post
  */
 export function getPostMetadata(post: Post): Metadata {
@@ -17,37 +72,26 @@ export function getPostMetadata(post: Post): Metadata {
   const { url } = getPostUrlParts(post);
   const fullUrl = `${config.url}${url}`;
   const publishDate = new Date(post.date).toISOString();
+  const description = post.description || config.description;
   
   // Get OG image using the helper
   const ogImage = getPostOgImage(post);
   
   return {
     title: post.title,
-    description: post.description || config.description,
+    description,
     authors: [{ name: config.author.name }],
-    openGraph: {
-      title: post.title,
-      description: post.description || config.description,
-      url: fullUrl,
-      siteName: config.title,
-      locale: 'en_US',
-      type: 'article',
-      publishedTime: publishDate,
-      authors: [config.author.name],
-      images: [
-        {
-          url: ogImage,
-          alt: post.title,
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.title,
-      description: post.description || config.description,
-      creator: `@${config.author.twitter}`,
-      images: [ogImage],
-    },
+    openGraph: buildOpenGraphMetadata(
+      post.title,
+      description,
+      fullUrl,
+      ogImage,
+      post.title,
+      'article',
+      publishDate,
+      [config.author.name]
+    ),
+    twitter: buildTwitterMetadata(post.title, description, ogImage, 'summary_large_image'),
     alternates: {
       canonical: fullUrl,
     },
@@ -61,32 +105,15 @@ export function getPageMetadata(page: Page, path: string): Metadata {
   const config = getSiteConfig();
   const fullUrl = `${config.url}${path}`;
   const ogImage = getPageOgImage(page.image);
+  const title = page.title || config.title;
+  const description = page.description || config.description;
   
   return {
-    title: page.title || config.title,
-    description: page.description || config.description,
+    title,
+    description,
     authors: [{ name: config.author.name }],
-    openGraph: {
-      title: page.title || config.title,
-      description: page.description || config.description,
-      url: fullUrl,
-      siteName: config.title,
-      locale: 'en_US',
-      type: 'website',
-      images: [
-        {
-          url: ogImage,
-          alt: page.title || config.title,
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary',
-      title: page.title || config.title,
-      description: page.description || config.description,
-      creator: `@${config.author.twitter}`,
-      images: [ogImage],
-    },
+    openGraph: buildOpenGraphMetadata(title, description, fullUrl, ogImage, title),
+    twitter: buildTwitterMetadata(title, description, ogImage),
     alternates: {
       canonical: fullUrl,
     },
