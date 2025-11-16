@@ -1,11 +1,26 @@
 import { getAllPosts, getPostUrlParts } from '@/lib/posts';
+import { getWebsiteJsonLd, getPersonJsonLd } from '@/lib/seo';
 import Link from 'next/link';
 
 export default function Home() {
   const posts = getAllPosts().filter(post => !post.archived);
   
+  // Generate JSON-LD structured data
+  const websiteJsonLd = getWebsiteJsonLd();
+  const personJsonLd = getPersonJsonLd();
+  
   return (
     <>
+      {/* JSON-LD structured data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+      
       {/* Hero header image */}
       <div 
         className="hero-unit rounded-top position-relative mb-3" 

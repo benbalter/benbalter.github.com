@@ -11,7 +11,7 @@ import PostContent from '@/app/components/PostContent';
 import PostMetadata from '@/app/components/PostMetadata';
 import EditButton from '@/app/components/EditButton';
 import { getSiteConfig, getAuthorBio } from '@/lib/config';
-import { getPostMetadata } from '@/lib/seo';
+import { getPostMetadata, getPostJsonLd } from '@/lib/seo';
 
 // Load site configuration
 const config = getSiteConfig();
@@ -73,10 +73,20 @@ export default async function Post({ params }: PageProps) {
   const revisionHistoryUrl = `${config.url.replace(/\/$/, '')}/${config.repository}/commits/${config.branch}/_posts/${post.slug}.md`;
   const editUrl = `${config.url.replace(/\/$/, '')}/${config.repository}/edit/${config.branch}/_posts/${post.slug}.md`;
   
+  // Generate JSON-LD structured data for the post
+  const jsonLd = getPostJsonLd(post);
+  
   return (
-    <div className="row">
-      <div className="col-md-10 offset-md-1">
-        <article id={`post-${post.slug}`} className={`post post-${post.slug}`}>
+    <>
+      {/* JSON-LD structured data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      
+      <div className="row">
+        <div className="col-md-10 offset-md-1">
+          <article id={`post-${post.slug}`} className={`post post-${post.slug}`}>
           <PostHeader title={post.title} />
           
           {post.description && (
@@ -109,5 +119,6 @@ export default async function Post({ params }: PageProps) {
         </article>
       </div>
     </div>
+    </>
   );
 }
