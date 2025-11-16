@@ -45,7 +45,8 @@ out/
 coverage/
 
 # TypeScript build info
-*.tsbuildinfopublic/assets/images/og/
+*.tsbuildinfo
+public/assets/images/og/
 /vendor/
 
 # Environment variables
