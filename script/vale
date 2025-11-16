@@ -3,7 +3,10 @@
 set -e
 
 if ! [ -x "$(command -v vale)" ]; then
-	echo "Vale not found. Skippintg."
+	echo "Vale not found. Skipping prose linting with Vale."
+	echo "To install Vale, visit: https://vale.sh/docs/vale-cli/installation/"
+	echo "Vale provides additional prose style and grammar checking."
 else
+	echo "Running Vale prose linter..."
 	vale ./*.md _posts/*.md _resume_positions/*.md --minAlertLevel=error
 fi

@@ -6,15 +6,31 @@
       "exclude": [
         "HTML",
         "ID",
-        "URL"
+        "URL",
+        "VS Code",
+        "E2E",
+        "JavaScript",
+        "GitHub"
       ]
     },
-    "write-good": true,
+    "write-good": {
+      "severity": "warning",
+      "passive": false,
+      "adverb": false,
+      "weasel": false,
+      "so": false,
+      "thereIs": false
+    },
     "diacritics": true,
     "doubled-spaces": true,
     "stop-words": {
+      "severity": "warning",
       "exclude": [
-        "so as to"
+        "so as to",
+        "e.g.",
+        "etc.",
+        "i.e.",
+        "if you want to"
       ]
     },
     "@textlint-rule/no-unmatched-pair": true,
@@ -22,7 +38,7 @@
     "common-misspellings": {
       "ignore": [
         "CLAs"
-      ] 
-    },
+      ]
+    }
   }
 }
