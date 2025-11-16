@@ -39,7 +39,12 @@ export function getSiteConfig(): SiteConfig {
   }
 
   const configPath = path.join(process.cwd(), '_config.yml');
-  const fileContents = fs.readFileSync(configPath, 'utf8');
+  let fileContents = fs.readFileSync(configPath, 'utf8');
+  
+  // Remove Jekyll-specific exclude patterns that js-yaml can't parse
+  // Lines like "- !/apple-touch-icon.png" are Jekyll negation patterns
+  fileContents = fileContents.replace(/^\s*-\s*!/gm, '# - !');
+  
   const config = yaml.load(fileContents) as SiteConfig;
   
   cachedConfig = config;
