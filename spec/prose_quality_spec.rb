@@ -45,7 +45,7 @@ RSpec.describe 'prose quality' do
 
         it 'uses consistent heading capitalization' do
           headings = content.scan(/^#+\s+(.+)$/).flatten
-          next if headings.empty?
+          skip 'No headings to check' if headings.empty?
 
           # Check that headings don't end with periods (common style error)
           headings_with_periods = headings.select { |h| h.end_with?('.') }
@@ -57,7 +57,7 @@ RSpec.describe 'prose quality' do
           site_path = File.expand_path('..', File.dirname(__FILE__))
           # Match markdown links that start with / (internal links)
           internal_links = content.scan(%r{\[([^\]]+)\]\((/[^)]+)\)}).map { |_text, url| url }
-          next if internal_links.empty?
+          skip 'No internal links to check' if internal_links.empty?
 
           broken_links = internal_links.reject do |link|
             # Remove anchor
