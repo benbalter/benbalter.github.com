@@ -41,9 +41,13 @@ export default async function Page({ params }: PageProps) {
   const contentHtml = await markdownToHtml(page.content);
   
   return (
-    <div>
-      {page.title && <h1>{page.title}</h1>}
-      <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+    <div className={`page page-${slug}`}>
+      <div className="row">
+        <div className="col-md-10 offset-md-1">
+          {page.title && <h1 className="display-4 text-primary">{page.title}</h1>}
+          <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+        </div>
+      </div>
     </div>
   );
 }

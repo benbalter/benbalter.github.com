@@ -3,6 +3,19 @@ import { markdownToHtml } from '@/lib/markdown';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { cache } from 'react';
+import ReadingTime from '@/app/components/ReadingTime';
+import MiniBio from '@/app/components/MiniBio';
+import PostHeader from '@/app/components/PostHeader';
+import PostDescription from '@/app/components/PostDescription';
+import ArchivedWarning from '@/app/components/ArchivedWarning';
+import PostContent from '@/app/components/PostContent';
+import PostMetadata from '@/app/components/PostMetadata';
+import EditButton from '@/app/components/EditButton';
+import { getSiteConfig, getAuthorBio } from '@/lib/config';
+
+// Load site configuration
+const config = getSiteConfig();
+const authorBio = getAuthorBio();
 
 interface PageProps {
   params: Promise<{
@@ -61,15 +74,50 @@ export default async function Post({ params }: PageProps) {
   }
   
   const contentHtml = await markdownToHtml(post.content);
+  const publishDate = new Date(post.date).toLocaleDateString('en-US', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  });
+  
+  const revisionHistoryUrl = `${config.url.replace(/\/$/, '')}/${config.repository}/commits/${config.branch}/_posts/${post.slug}.md`;
+  const editUrl = `${config.url.replace(/\/$/, '')}/${config.repository}/edit/${config.branch}/_posts/${post.slug}.md`;
   
   return (
-    <article>
-      <header>
-        <h1>{post.title}</h1>
-        {post.description && <p>{post.description}</p>}
-        <time dateTime={post.date}>{post.date}</time>
-      </header>
-      <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
-    </article>
+    <div className="row">
+      <div className="col-md-10 offset-md-1">
+        <article id={`post-${post.slug}`} className={`post post-${post.slug}`}>
+          <PostHeader title={post.title} />
+          
+          {post.description && (
+            <PostDescription description={post.description} />
+          )}
+          
+          {post.archived ? (
+            <ArchivedWarning />
+          ) : null}
+          
+          <ReadingTime content={post.content} />
+          
+          <PostContent contentHtml={contentHtml} />
+          
+          <PostMetadata 
+            publishDate={publishDate}
+            revisionHistoryUrl={revisionHistoryUrl}
+          />
+          
+          <div className="row border-top pt-3">
+            <div className="col">
+              <MiniBio 
+                authorName={config.author.name}
+                githubHandle={config.handle}
+                bioText={authorBio}
+              />
+            </div>
+            <EditButton editUrl={editUrl} postSlug={post.slug} />
+          </div>
+        </article>
+      </div>
+    </div>
   );
 }

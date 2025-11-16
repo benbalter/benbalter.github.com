@@ -111,7 +111,13 @@ export async function checkLinksValid(page: Page, selector = 'a[href]') {
 }
 
 /**
+<<<<<<< HEAD
  * Wait for page to be fully loaded including images and React hydration
+=======
+ * Wait for page to be fully loaded including images
+ * Uses networkidle which waits for no more than 2 network connections for at least 500ms
+ * This is slower but more thorough
+>>>>>>> 8a39bfd27e3aa82d3385ba00e04cca753dfa3091
  */
 export async function waitForFullLoad(page: Page) {
   await page.waitForLoadState('domcontentloaded');
@@ -125,6 +131,16 @@ export async function waitForFullLoad(page: Page) {
     // If no main or h1, wait for body to have substantial content
     await page.waitForFunction(() => document.body.textContent && document.body.textContent.length > 100, { timeout: 5000 });
   }
+}
+
+/**
+ * Wait for page to be loaded and interactive
+ * Faster alternative that doesn't wait for all network activity to cease
+ * Use this for most tests where you don't need to wait for all images/assets
+ */
+export async function waitForPageReady(page: Page) {
+  await page.waitForLoadState('domcontentloaded');
+  await page.waitForLoadState('load');
 }
 
 /**

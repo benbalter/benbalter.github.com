@@ -6,13 +6,29 @@ This directory contains all website content migrated from Jekyll to Next.js-comp
 
 ```
 content/
-├── posts/          # Blog posts (184 files)
-├── pages/          # Site pages (9 files)
-├── data/           # Data files (3 files)
-├── resume/         # Resume positions (10 files)
-├── MIGRATION.md    # Detailed migration documentation
-└── README.md       # This file
+├── posts/                  # Blog posts (184 files)
+├── pages/                  # Site pages (9 files)
+├── data/                   # Data files (3 files)
+├── resume/                 # Resume positions (10 files)
+├── MIGRATION.md            # Detailed migration documentation
+├── EDGE-CASES.md           # Edge cases and special considerations
+├── NEXTJS-INTEGRATION.md   # Next.js integration guide (if exists)
+├── validate-migration.sh   # Validation script
+└── README.md               # This file
 ```
+
+## Validation
+
+To validate the migration, run the validation script:
+
+```bash
+bash content/validate-migration.sh
+```
+
+This script checks:
+- All files are present and organized correctly
+- All required frontmatter fields are present
+- All Jekyll-specific fields are properly prefixed with `_legacy_`
 
 ## Usage in Next.js
 

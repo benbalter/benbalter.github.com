@@ -28,8 +28,8 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   
-  /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  /* Run tests in parallel on CI for faster execution */
+  workers: process.env.CI ? 4 : undefined,
   
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: process.env.CI 
@@ -50,11 +50,11 @@ export default defineConfig({
     /* Video on failure */
     video: 'retain-on-failure',
     
-    /* Increase timeout for actions */
-    actionTimeout: 10000,
+    /* Reduced timeout for actions - most actions complete quickly */
+    actionTimeout: 5000,
     
-    /* Increase timeout for navigation */
-    navigationTimeout: 30000,
+    /* Reduced timeout for navigation - static site loads fast */
+    navigationTimeout: 15000,
   },
 
   /* Configure project for Chromium browser */

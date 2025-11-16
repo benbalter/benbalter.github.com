@@ -61,7 +61,7 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Run Next.js build tests
-        run: npm run next:test
+        run: npx playwright test e2e/nextjs-build.spec.ts
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
