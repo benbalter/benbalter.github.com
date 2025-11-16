@@ -4,8 +4,8 @@ description: Ben Balter is an attorney, an open source developer, and a Technica
   Program Manager at GitHub, the world's largest software development network.
 _legacy_layout: page
 _legacy_permalink: "/resume/"
-redirect_from: "/cv/"
-seo:
+_legacy_redirect_from: "/cv/"
+_legacy_seo:
   type: person
 degrees:
 - school: The George Washington University Law School

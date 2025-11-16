@@ -43,3 +43,4 @@ out/
 
 # TypeScript build info
 *.tsbuildinfopublic/assets/images/og/
+/vendor/
