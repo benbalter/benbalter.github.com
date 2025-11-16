@@ -98,7 +98,7 @@ script/server          # Alternative server command
 
 ## Project Structure
 
-```
+```text
 .
 ├── .github/           # GitHub configuration and workflows
 ├── _config.yml        # Main Jekyll configuration
@@ -217,6 +217,18 @@ Blog posts must include:
 * Keep commits focused and atomic
 * Test locally before committing
 * CI/CD runs on all pushes (see `.github/workflows/`)
+
+## Copilot Setup Workflow
+
+This repository includes a `.github/workflows/copilot-setup-steps.yml` workflow file that helps GitHub Copilot coding agent set up the development environment automatically. The workflow:
+
+* Checks out the repository
+* Sets up Ruby with bundler caching
+* Sets up Node.js with npm caching
+* Installs libvips (required for image processing)
+* Runs `script/bootstrap` to install all dependencies
+
+This ensures Copilot can build, test, and validate code changes in a properly configured environment.
 
 ## Resources
 

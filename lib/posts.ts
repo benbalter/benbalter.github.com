@@ -1,6 +1,5 @@
-import fs from 'fs';
 import path from 'path';
-import matter from 'gray-matter';
+import { readContentFile, readDirectory, createContentItem } from './content-loader';
 
 export interface Post {
   slug: string;
@@ -15,18 +14,14 @@ export interface Post {
 const postsDirectory = path.join(process.cwd(), 'content/posts');
 
 export function getAllPosts(): Post[] {
-  if (!fs.existsSync(postsDirectory)) {
-    return [];
-  }
-  const fileNames = fs.readdirSync(postsDirectory);
+  const fileNames = readDirectory(postsDirectory);
   
   const posts = fileNames
     .filter(fileName => fileName.endsWith('.md'))
     .map(fileName => {
       const slug = fileName.replace(/\.md$/, '');
       const fullPath = path.join(postsDirectory, fileName);
-      const fileContents = fs.readFileSync(fullPath, 'utf8');
-      const { data, content } = matter(fileContents);
+      const { data, content } = readContentFile(fullPath);
       
       // Extract date from filename if not in frontmatter
       let date = data.date;
@@ -47,16 +42,12 @@ export function getAllPosts(): Post[] {
           .replace(/\b\w/g, l => l.toUpperCase());
       }
       
-      return {
-        slug,
-        content,
-        ...data,
-        // Ensure these take precedence over any conflicting keys in ...data
+      return createContentItem(slug, data, content, {
         date,
         title,
         description: data.description,
         image: data.image,
-      };
+      }) as Post;
     });
   
   // Sort by date (newest first)

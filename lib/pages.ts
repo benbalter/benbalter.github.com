@@ -1,6 +1,5 @@
-import fs from 'fs';
 import path from 'path';
-import matter from 'gray-matter';
+import { readContentFile, findFileWithExtensions, readDirectory, createContentItem } from './content-loader';
 
 export interface Page {
   slug: string;
@@ -14,53 +13,35 @@ export function getPageBySlug(slug: string): Page | null {
   const pagesDirectory = path.join(process.cwd(), 'content/pages');
   const extensions = ['.md', '.html'];
   
-  for (const ext of extensions) {
-    const fullPath = path.join(pagesDirectory, `${slug}${ext}`);
-    
-    if (fs.existsSync(fullPath)) {
-      const fileContents = fs.readFileSync(fullPath, 'utf8');
-      const { data, content } = matter(fileContents);
-      
-      return {
-        slug,
-        content,
-        ...data,
-        // Ensure these take precedence over any conflicting keys in ...data
-        title: data.title,
-        description: data.description,
-      };
-    }
+  const filePath = findFileWithExtensions(pagesDirectory, slug, extensions);
+  
+  if (!filePath) {
+    return null;
   }
   
-  return null;
+  const { data, content } = readContentFile(filePath);
+  
+  return createContentItem(slug, data, content, {
+    title: data.title,
+    description: data.description,
+  }) as Page;
 }
 
 export function getAllPages(): Page[] {
   const pagesDirectory = path.join(process.cwd(), 'content/pages');
-  let fileNames: string[] = [];
-  try {
-    fileNames = fs.readdirSync(pagesDirectory);
-  } catch (err) {
-    // Directory does not exist or is unreadable; return empty array
-    return [];
-  }
+  const fileNames = readDirectory(pagesDirectory);
   
   return fileNames
     .filter(fileName => fileName.endsWith('.md') || fileName.endsWith('.html'))
     .map(fileName => {
       const slug = fileName.replace(/\.(md|html)$/, '');
       const fullPath = path.join(pagesDirectory, fileName);
-      const fileContents = fs.readFileSync(fullPath, 'utf8');
-      const { data, content } = matter(fileContents);
+      const { data, content } = readContentFile(fullPath);
       
-      return {
-        slug,
-        content,
-        ...data,
-        // Ensure these take precedence over any conflicting keys in ...data
+      return createContentItem(slug, data, content, {
         title: data.title,
         description: data.description,
-      };
+      }) as Page;
     });
 }
 

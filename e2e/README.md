@@ -59,6 +59,23 @@ npx playwright test --grep "accessibility"
 npx playwright test --project=chromium
 ```
 
+### Testing Next.js Build
+
+The tests can also be run against the Next.js static export:
+
+```bash
+# Run tests for Next.js build
+npm run test:e2e:nextjs
+
+# This uses playwright-nextjs.config.ts and tests the static export
+# served at http://localhost:3000
+```
+
+## Test Configurations
+
+* **Jekyll Tests** (default): `playwright.config.ts` - Tests Jekyll site at `localhost:4000`
+* **Next.js Tests**: `playwright-nextjs.config.ts` - Tests Next.js export at `localhost:3000`
+
 ## Test Coverage
 
 ### Homepage Tests
