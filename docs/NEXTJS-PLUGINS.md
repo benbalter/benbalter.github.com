@@ -21,7 +21,7 @@ All Jekyll plugins have been successfully migrated to Next.js equivalents. The i
 | jekyll-sitemap | ✅ Complete | `lib/sitemap.ts` + `script/generate-feeds.mjs` | **sitemap** | XML sitemap |
 | jekyll-seo-tag | ✅ Complete | `lib/seo.ts` | - | Enhanced metadata + JSON-LD |
 | jekyll-github-metadata | ✅ Complete | `lib/github.ts` | - | Repository metadata utilities |
-| jekyll-avatar | ✅ Complete | `lib/avatar.ts` + `components/GitHubAvatar.tsx` | - | Avatar URLs and component |
+| jekyll-avatar | ✅ Complete | `lib/avatar.ts` + `app/components/GitHubAvatar.tsx` | - | Avatar URLs and component |
 | jekyll-mentions | ✅ Complete | `lib/mentions.ts` | - | @username to GitHub links |
 | jemoji | ✅ Complete | `lib/emoji.ts` | **node-emoji** | :emoji: to Unicode conversion |
 | jekyll-og-image | ✅ Complete | `lib/og-image.ts` | - | OG image URL resolution |

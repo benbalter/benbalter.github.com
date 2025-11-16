@@ -35,6 +35,8 @@ async function generateFeeds() {
   
   console.log('🔧 Generating RSS feeds and sitemap...\n');
   
+  let hasErrors = false;
+  
   // Generate blog posts RSS feed
   try {
     const postsFeed = generatePostsFeed();
@@ -43,6 +45,7 @@ async function generateFeeds() {
     console.log('✅ Generated feed.xml');
   } catch (error) {
     console.error('❌ Error generating posts feed:', error);
+    hasErrors = true;
   }
   
   // Generate press clips RSS feed
@@ -55,6 +58,7 @@ async function generateFeeds() {
     console.log('✅ Generated press/feed/index.xml');
   } catch (error) {
     console.error('❌ Error generating press feed:', error);
+    hasErrors = true;
   }
   
   // Generate sitemap
@@ -65,6 +69,7 @@ async function generateFeeds() {
     console.log('✅ Generated sitemap.xml');
   } catch (error) {
     console.error('❌ Error generating sitemap:', error);
+    hasErrors = true;
   }
   
   // Generate sitemap index (for compatibility)
@@ -75,6 +80,12 @@ async function generateFeeds() {
     console.log('✅ Generated sitemap_index.xml');
   } catch (error) {
     console.error('❌ Error generating sitemap index:', error);
+    hasErrors = true;
+  }
+  
+  if (hasErrors) {
+    console.log('\n⚠️  Some feeds failed to generate. Check errors above.');
+    process.exit(1);
   }
   
   console.log('\n🎉 Done! All feeds and sitemaps generated successfully.');
