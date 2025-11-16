@@ -2,7 +2,6 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { cache } from 'react';
-import { readContentFile, readDirectory, createContentItem } from './content-loader';
 
 export interface Post {
   slug: string;
