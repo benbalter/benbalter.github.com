@@ -6,6 +6,10 @@ import { cache } from 'react';
 import ReadingTime from '@/app/components/ReadingTime';
 import MiniBio from '@/app/components/MiniBio';
 import Link from 'next/link';
+import { getSiteConfig } from '@/lib/config';
+
+// Load site configuration
+const config = getSiteConfig();
 
 interface PageProps {
   params: Promise<{
@@ -96,7 +100,7 @@ export default async function Post({ params }: PageProps) {
           <div className="mb-2 text-muted small">
             Originally published {publishDate} | {' '}
             <Link 
-              href={`https://github.com/benbalter/benbalter.github.com/commits/main/_posts/${post.slug}.md`}
+              href={`${config.url.replace(/\/$/, '')}/${config.repository}/commits/${config.branch}/_posts/${post.slug}.md`}
               className="link-secondary"
               target="_blank"
               rel="noopener"
@@ -107,7 +111,11 @@ export default async function Post({ params }: PageProps) {
           
           <div className="row border-top pt-3">
             <div className="col">
-              <MiniBio />
+              <MiniBio 
+                authorName={config.author.name}
+                jobTitle={config.job_title}
+                employerName={config.employer.name}
+              />
             </div>
             <div className="col-lg-2 text-center pb-3">
               <p>
@@ -115,7 +123,7 @@ export default async function Post({ params }: PageProps) {
               </p>
               <Link 
                 className="btn btn-outline-primary btn-lg btn-sm"
-                href={`https://github.com/benbalter/benbalter.github.com/edit/main/_posts/${post.slug}.md`}
+                href={`${config.url.replace(/\/$/, '')}/${config.repository}/edit/${config.branch}/_posts/${post.slug}.md`}
                 title={`Help improve article ${post.slug}.md`}
               >
                 Edit

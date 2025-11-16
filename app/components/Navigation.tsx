@@ -3,25 +3,20 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-interface NavPage {
+interface NavigationProps {
   title: string;
-  path: string;
+  description: string;
+  navPages: Array<{ title: string; path: string }>;
 }
 
-const navPages: NavPage[] = [
-  { title: 'Posts', path: '/' },
-  { title: 'About', path: '/about/' },
-  { title: 'Contact', path: '/contact/' },
-];
-
-export default function Navigation() {
+export default function Navigation({ title, description, navPages }: NavigationProps) {
   const pathname = usePathname();
   
   return (
     <div className="navbar navbar-expand-md bg-secondary-subtle text-secondary border-start border-end border-bottom border-top rounded-top rounded-bottom mb-3">
       <div className="container-fluid px-3">
         <Link className="navbar-brand fw-bold" href="/">
-          Ben Balter
+          {title}
         </Link>
         <button
           className="navbar-toggler"
@@ -51,7 +46,7 @@ export default function Navigation() {
         </div>
 
         <span className="navbar-text text-end">
-          Technology leadership, collaboration, and open source
+          {description}
         </span>
       </div>
     </div>

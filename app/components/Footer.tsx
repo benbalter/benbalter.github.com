@@ -5,12 +5,11 @@ interface FooterPage {
   path: string;
 }
 
-const footerPages: FooterPage[] = [
-  { title: 'Other recommended reading', path: '/other-recommended-reading/' },
-  { title: 'Fine print', path: '/fine-print/' },
-];
+interface FooterProps {
+  footerPages: FooterPage[];
+}
 
-export default function Footer() {
+export default function Footer({ footerPages }: FooterProps) {
   return (
     <nav>
       <ul className="nav justify-content-end border-top px-2 py-3">
