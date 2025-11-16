@@ -11,10 +11,11 @@ import ArchivedWarning from '@/app/components/ArchivedWarning';
 import PostContent from '@/app/components/PostContent';
 import PostMetadata from '@/app/components/PostMetadata';
 import EditButton from '@/app/components/EditButton';
-import { getSiteConfig } from '@/lib/config';
+import { getSiteConfig, getAuthorBio } from '@/lib/config';
 
 // Load site configuration
 const config = getSiteConfig();
+const authorBio = getAuthorBio();
 
 interface PageProps {
   params: Promise<{
@@ -109,8 +110,8 @@ export default async function Post({ params }: PageProps) {
             <div className="col">
               <MiniBio 
                 authorName={config.author.name}
-                jobTitle={config.job_title}
-                employerName={config.employer.name}
+                githubHandle={config.handle}
+                bioText={authorBio}
               />
             </div>
             <EditButton editUrl={editUrl} postSlug={post.slug} />

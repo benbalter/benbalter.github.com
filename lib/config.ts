@@ -23,6 +23,7 @@ interface SiteConfig {
   };
   repository: string;
   branch: string;
+  handle: string;
 }
 
 let cachedConfig: SiteConfig | null = null;
@@ -58,4 +59,21 @@ export function getNavPages(): string[] {
 export function getFooterPages(): string[] {
   const config = getSiteConfig();
   return config.footer_pages || [];
+}
+
+/**
+ * Get the first paragraph of the about page bio
+ * Reads the about.md file and extracts the first paragraph after front matter
+ */
+export function getAuthorBio(): string {
+  const aboutPath = path.join(process.cwd(), 'about.md');
+  const fileContents = fs.readFileSync(aboutPath, 'utf8');
+  
+  // Remove front matter (everything between --- markers)
+  const withoutFrontMatter = fileContents.replace(/^---[\s\S]*?---\n/, '');
+  
+  // Get first paragraph (text until first double newline)
+  const firstParagraph = withoutFrontMatter.trim().split('\n\n')[0];
+  
+  return firstParagraph;
 }
