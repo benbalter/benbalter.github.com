@@ -24,7 +24,10 @@ const config = {
       {
         test: /\.tsx?$/,
         loader: 'babel-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        options: {
+          presets: ['@babel/preset-typescript']
+        }
       },
       {
         test: /\.s[ac]ss$/i,
