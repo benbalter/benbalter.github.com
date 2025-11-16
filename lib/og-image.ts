@@ -27,7 +27,7 @@ export function getPostOgImage(post: Post): string {
   }
   
   // Look for pre-generated OG image
-  const { year, month, day, slug } = getPostUrlParts(post);
+  const { slug } = getPostUrlParts(post);
   const ogImagePath = `/assets/images/og/posts/${slug}.png`;
   
   // Return the OG image path (existence check would require filesystem access at runtime)
