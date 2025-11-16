@@ -78,6 +78,17 @@ This repository includes specialized GitHub Copilot custom agents to assist with
 
 See `.github/agents/` for their configurations.
 
+### Copilot Development Environment
+
+The repository includes a `.github/workflows/copilot-setup-steps.yml` workflow that automatically configures the development environment for GitHub Copilot coding agent. This workflow:
+
+* Sets up Ruby (with version from `.ruby-version`)
+* Sets up Node.js (version 20)
+* Installs system dependencies (libvips for image processing)
+* Installs all Ruby gems and npm packages via `script/bootstrap`
+
+This ensures Copilot can build, test, and work with the codebase in a properly configured environment.
+
 ## Testing
 
 ### RSpec Tests (Ruby)
