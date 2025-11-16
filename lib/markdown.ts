@@ -2,16 +2,22 @@ import { remark } from 'remark';
 import html from 'remark-html';
 import gfm from 'remark-gfm';
 import { convert } from 'html-to-text';
+import { processEmoji } from './emoji';
+import { processMentionsInHtml } from './mentions';
 
 export async function markdownToHtml(markdown: string): Promise<string> {
+  // Process emoji before markdown conversion
+  const markdownWithEmoji = processEmoji(markdown);
+  
   const result = await remark()
     .use(gfm)
     // Sanitization is intentionally disabled because all Markdown content is trusted
     // (authored by the site owner). This allows embedding custom HTML in blog posts and pages.
     .use(html, { sanitize: false })
-    .process(markdown);
+    .process(markdownWithEmoji);
   
-  return result.toString();
+  // Process @mentions in the resulting HTML
+  return processMentionsInHtml(result.toString());
 }
 
 /**
