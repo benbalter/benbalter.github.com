@@ -9,8 +9,7 @@ jest.mock('@octokit/rest', () => ({
 // Mock Next.js Image component
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: (props: any) => {
-    // eslint-disable-next-line jsx-a11y/alt-text, @next/next/no-img-element
+  default: (props: Record<string, unknown>) => {
     return <img {...props} />;
   },
 }));
