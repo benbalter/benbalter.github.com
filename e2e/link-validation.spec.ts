@@ -31,14 +31,16 @@ test.describe('Link Validation', () => {
       const href = await link.getAttribute('href');
       if (!href) continue;
       
-      // Skip external links, anchors, mailto, tel, etc.
+      // Skip external links, anchors, and dangerous protocols
       if (
         href.startsWith('http://') ||
         href.startsWith('https://') ||
         href.startsWith('#') ||
         href.startsWith('mailto:') ||
         href.startsWith('tel:') ||
-        href.startsWith('javascript:')
+        href.startsWith('javascript:') ||
+        href.startsWith('data:') ||
+        href.startsWith('vbscript:')
       ) {
         continue;
       }
@@ -95,14 +97,16 @@ test.describe('Link Validation', () => {
           const href = await link.getAttribute('href');
           if (!href) continue;
           
-          // Skip external links and special protocols
+          // Skip external links, anchors, and dangerous protocols
           if (
             href.startsWith('http://') ||
             href.startsWith('https://') ||
             href.startsWith('#') ||
             href.startsWith('mailto:') ||
             href.startsWith('tel:') ||
-            href.startsWith('javascript:')
+            href.startsWith('javascript:') ||
+            href.startsWith('data:') ||
+            href.startsWith('vbscript:')
           ) {
             continue;
           }
@@ -161,14 +165,16 @@ test.describe('Link Validation', () => {
           const href = await link.getAttribute('href');
           if (!href) continue;
           
-          // Skip external links and special protocols
+          // Skip external links, anchors, and dangerous protocols
           if (
             href.startsWith('http://') ||
             href.startsWith('https://') ||
             href.startsWith('#') ||
             href.startsWith('mailto:') ||
             href.startsWith('tel:') ||
-            href.startsWith('javascript:')
+            href.startsWith('javascript:') ||
+            href.startsWith('data:') ||
+            href.startsWith('vbscript:')
           ) {
             continue;
           }
