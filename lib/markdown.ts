@@ -1,7 +1,10 @@
 import { remark } from 'remark';
-import html from 'remark-html';
 import gfm from 'remark-gfm';
 import remarkGithub from 'remark-github';
+import remarkRehype from 'remark-rehype';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeStringify from 'rehype-stringify';
 import { convert } from 'html-to-text';
 import { processEmoji } from './emoji';
 import { getSiteConfig } from './config';
@@ -21,9 +24,26 @@ export async function markdownToHtml(markdown: string): Promise<string> {
       repository: config.repository || `${owner}/${repo}`,
       mentionStrong: false, // Don't make mentions bold
     })
-    // Sanitization is intentionally disabled because all Markdown content is trusted
-    // (authored by the site owner). This allows embedding custom HTML in blog posts and pages.
-    .use(html, { sanitize: false })
+    // Convert markdown to HTML AST (hast)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    // Add IDs to headings (must come before rehype-autolink-headings)
+    .use(rehypeSlug)
+    // Add anchor links to headings with GitHub-style behavior
+    .use(rehypeAutolinkHeadings, {
+      behavior: 'append',
+      properties: {
+        className: ['anchor-link'],
+        ariaLabel: 'Link to this section',
+      },
+      content: {
+        type: 'element',
+        tagName: 'span',
+        properties: { className: ['anchor-icon'] },
+        children: [{ type: 'text', value: ' #' }],
+      },
+    })
+    // Convert hast to HTML string
+    .use(rehypeStringify, { allowDangerousHtml: true })
     .process(markdownWithEmoji);
   
   return result.toString();
