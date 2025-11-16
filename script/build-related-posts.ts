@@ -131,6 +131,8 @@ export function findRelatedPosts(posts: Post[]): RelatedPosts {
     }
 
     const currentPost = posts[i];
+    if (!currentPost) continue; // Skip if post is undefined
+    
     const similarities: Array<{path: string; similarity: number}> = [];
 
     // Calculate similarity with all other posts
@@ -211,7 +213,10 @@ export function writeYaml(relations: RelatedPosts): void {
   const sortedKeys = Object.keys(relations).sort();
 
   for (const key of sortedKeys) {
-    sortedRelations[key] = relations[key];
+    const value = relations[key];
+    if (value) {
+      sortedRelations[key] = value;
+    }
   }
 
   // Generate YAML with proper indentation

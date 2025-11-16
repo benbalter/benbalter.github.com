@@ -23,7 +23,8 @@ function getOctokit(): Octokit {
  */
 function parseRepository(): [string, string] {
   const config = getSiteConfig();
-  const [owner, repo] = config.repository.split('/');
+  const repoStr = config.repository ?? '';
+  const [owner = '', repo = ''] = repoStr.split('/');
   return [owner, repo];
 }
 
