@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { getGitHubAvatarUrl } from '@/lib/avatar';
 
 interface GitHubAvatarProps {
@@ -11,6 +12,7 @@ interface GitHubAvatarProps {
  * GitHub Avatar component
  * Displays a user's GitHub avatar image
  * Replaces jekyll-avatar plugin functionality
+ * Uses Next.js Image component for optimization
  */
 export default function GitHubAvatar({ 
   username, 
@@ -22,13 +24,12 @@ export default function GitHubAvatar({
   const altText = alt || `${username}'s avatar`;
   
   return (
-    <img 
+    <Image 
       src={avatarUrl}
       alt={altText}
       width={size}
       height={size}
       className={className}
-      loading="lazy"
     />
   );
 }
