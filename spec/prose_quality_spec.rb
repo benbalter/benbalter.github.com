@@ -59,15 +59,37 @@ RSpec.describe 'prose quality' do
         it 'does not have broken internal links' do
           site_path = File.expand_path('..', File.dirname(__FILE__))
           # Match markdown links that start with / (internal links)
-          internal_links = content.scan(%r{\[([^\]]+)\]\((/[^)]+)\)}).map { |_text, url| url }
+          # Skip links with data-proofer-ignore attribute
+          internal_links = []
+          content.lines.each do |line|
+            next if line.include?('data-proofer-ignore')
+
+            line.scan(%r{\[([^\]]+)\]\((/[^)]+)\)}).each do |_text, url|
+              # Skip generated files
+              next if url.start_with?('/sitemap.xml')
+
+              internal_links << url
+            end
+          end
           skip 'No internal links to check' if internal_links.empty?
 
           broken_links = internal_links.reject do |link|
             # Remove anchor
             path = link.split('#').first
-            # Check if file exists
-            full_path = File.join(site_path, path.sub(%r{^/}, ''))
-            File.exist?(full_path) || File.exist?("#{full_path}.md")
+            # Remove trailing slash
+            path = path.sub(%r{/$}, '')
+            
+            # Convert Jekyll date-based permalink to filename
+            # E.g., /2020/08/25/post-title -> _posts/2020-08-25-post-title.md
+            if path.match?(%r{^/\d{4}/\d{2}/\d{2}/})
+              date_and_slug = path.sub(%r{^/}, '').gsub('/', '-')
+              post_file = File.join(site_path, '_posts', "#{date_and_slug}.md")
+              File.exist?(post_file)
+            else
+              # For non-post pages, check if file exists
+              full_path = File.join(site_path, path.sub(%r{^/}, ''))
+              File.exist?(full_path) || File.exist?("#{full_path}.md") || File.exist?("#{full_path}.html")
+            end
           end
 
           expect(broken_links).to be_empty,
