@@ -45,7 +45,7 @@ export function extractMentions(text: string): string[] {
     /(?<![\w\/]|`)@([a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?)(?![@\w])/g
   );
   
-  return Array.from(matches, match => match[1]);
+  return Array.from(matches, match => match[1] || '').filter(Boolean);
 }
 
 /**

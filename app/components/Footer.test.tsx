@@ -19,7 +19,7 @@ describe('Footer', () => {
   it('should render RSS feed icon', () => {
     const { container } = render(<Footer footerPages={mockFooterPages} />);
     
-    const rssIcon = container.querySelector('i.fa-rss');
+    const rssIcon = container.querySelector('svg[data-icon="rss"]');
     expect(rssIcon).toBeInTheDocument();
   });
 
@@ -36,7 +36,7 @@ describe('Footer', () => {
   it('should have RSS feed link', () => {
     render(<Footer footerPages={mockFooterPages} />);
     
-    const feedLink = screen.getByLabelText('Atom Feed');
+    const feedLink = screen.getByRole('link', { name: 'Atom Feed' });
     expect(feedLink).toHaveAttribute('href', '/feed.xml');
   });
 
@@ -44,7 +44,7 @@ describe('Footer', () => {
     const { container } = render(<Footer footerPages={[]} />);
     
     // Should still render the RSS feed
-    const rssIcon = container.querySelector('i.fa-rss');
+    const rssIcon = container.querySelector('svg[data-icon="rss"]');
     expect(rssIcon).toBeInTheDocument();
   });
 

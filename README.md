@@ -16,10 +16,13 @@ The site is currently built using Jekyll, GitHub Pages, and Bootstrap. See [huma
 
 A Next.js structure has been set up for the future migration. The Next.js app is configured to:
 
-* Use the App Router (`app/` directory)
+* Use the **App Router** (`app/` directory) with React Server Components
 * Export static HTML for GitHub Pages compatibility
-* Support TypeScript with React
+* Support **TypeScript** with strict type checking
+* Implement **error boundaries** and loading states for better UX
+* Use **centralized metadata** configuration for SEO
 * Automatic legacy URL redirect generation from YAML frontmatter
+* Follow Next.js 16 best practices for static site generation
 * **Maximize Static Site Generation (SSG)** - All pages are pre-rendered as static HTML
 * **Minimize client-side JavaScript** - Use server components by default
 
@@ -53,7 +56,16 @@ npm run next:test    # Run Next.js build tests
 npm run next:test:e2e # Run Next.js E2E tests
 ```
 
+#### Next.js Documentation
+
+See [docs/NEXTJS.md](docs/NEXTJS.md) for comprehensive documentation including:
 See [docs/NEXTJS_TESTING.md](docs/NEXTJS_TESTING.md) for comprehensive Next.js testing documentation.
+
+* Architecture and directory structure
+* Development workflow and best practices
+* Migration guide from Jekyll
+* Troubleshooting tips
+
 #### Legacy URL Redirects
 
 The build process automatically generates static HTML redirect pages for all `redirect_from` and `redirect_to` directives in YAML frontmatter. See [docs/REDIRECTS.md](docs/REDIRECTS.md) for details.

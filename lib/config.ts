@@ -6,6 +6,7 @@ interface SiteConfig {
   title: string;
   description: string;
   url: string;
+  keywords?: string[];
   author: {
     name: string;
     twitter: string;
@@ -75,5 +76,5 @@ export function getAuthorBio(): string {
   // Get first paragraph (text until first double newline)
   const firstParagraph = withoutFrontMatter.trim().split('\n\n')[0];
   
-  return firstParagraph;
+  return firstParagraph || '';
 }

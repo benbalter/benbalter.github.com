@@ -45,5 +45,13 @@ out/
 coverage/
 
 # TypeScript build info
-*.tsbuildinfopublic/assets/images/og/
+*.tsbuildinfo
+public/assets/images/og/
 /vendor/
+
+# Environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+tsconfig.tsbuildinfo
