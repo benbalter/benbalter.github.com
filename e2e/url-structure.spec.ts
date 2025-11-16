@@ -23,60 +23,64 @@ function parsePostFilename(filename: string): { year: string; month: string; day
   };
 }
 
+// Shared helper to read and parse files from a directory
+function readAndParseFiles<T>(
+  dir: string,
+  filterFn: (filename: string) => boolean,
+  mapFn: (filename: string, fullPath: string, data: any, content: string) => T | null
+): T[] {
+  if (!fs.existsSync(dir)) {
+    return [];
+  }
+  const files = fs.readdirSync(dir);
+  return files
+    .filter(filterFn)
+    .map(f => {
+      const fullPath = path.join(dir, f);
+      const content = fs.readFileSync(fullPath, 'utf8');
+      const { data } = matter(content);
+      return mapFn(f, fullPath, data, content);
+    })
+    .filter(Boolean) as T[];
+}
+
 // Helper to get all posts
 function getAllPosts() {
   const postsDir = path.join(process.cwd(), 'content', 'posts');
-  if (!fs.existsSync(postsDir)) {
-    return [];
-  }
-  
-  const files = fs.readdirSync(postsDir);
-  return files
-    .filter(f => f.endsWith('.md'))
-    .map(f => {
+  return readAndParseFiles(
+    postsDir,
+    f => f.endsWith('.md'),
+    (f, fullPath, data, content) => {
       const parsed = parsePostFilename(f);
       if (!parsed) return null;
-      
-      const fullPath = path.join(postsDir, f);
-      const content = fs.readFileSync(fullPath, 'utf8');
-      const { data } = matter(content);
-      
       return {
         filename: f,
         url: `/${parsed.year}/${parsed.month}/${parsed.day}/${parsed.slug}/`,
         ...parsed,
         frontmatter: data,
       };
-    })
-    .filter(Boolean);
+    }
+  );
 }
 
 // Helper to get all pages
 function getAllPages() {
   const pagesDir = path.join(process.cwd(), 'content', 'pages');
-  if (!fs.existsSync(pagesDir)) {
-    return [];
-  }
-  
-  const files = fs.readdirSync(pagesDir);
-  return files
-    .filter(f => f.endsWith('.md') || f.endsWith('.html'))
-    .map(f => {
+  return readAndParseFiles(
+    pagesDir,
+    f => f.endsWith('.md') || f.endsWith('.html'),
+    (f, fullPath, data, content) => {
       const slug = f.replace(/\.(md|html)$/, '');
-      const fullPath = path.join(pagesDir, f);
-      const content = fs.readFileSync(fullPath, 'utf8');
-      const { data } = matter(content);
-      
       // Use permalink if specified, otherwise use slug
       const url = data.permalink || (slug === 'index' ? '/' : `/${slug}/`);
-      
       return {
         filename: f,
         slug,
         url,
         frontmatter: data,
       };
-    });
+    }
+  );
 }
 
 test.describe('URL Structure Validation', () => {
