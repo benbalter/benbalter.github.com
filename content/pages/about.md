@@ -7,7 +7,7 @@ _legacy_permalink: "/about/"
 published: true
 id: "/about"
 icons: true
-seo:
+_legacy_seo:
   type: person
 ---
 

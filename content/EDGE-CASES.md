@@ -2,23 +2,17 @@
 
 ## Posts Without Titles
 
-Three posts have descriptions but no explicit titles. The titles are inferred from filenames:
+~~Three posts have descriptions but no explicit titles. The titles are inferred from filenames:~~
 
-1. `2013-08-11-everyone-contributes.md` - Everyone Contributes
-2. `2013-09-16-treat-data-as-code.md` - Treat Data as Code
-3. `2013-09-30-ten-things-you-learn-as-a-presidential-innovation-fellow.md` - Ten Things You Learn as a Presidential Innovation Fellow
+**UPDATE**: All posts now have explicit titles added. The following posts were updated:
 
-**Next.js Implementation Note**: Generate titles from filenames when the `title` field is missing. Use the pattern:
+1. `2013-08-11-everyone-contributes.md` - Added title: "Everyone Contributes"
+2. `2013-09-16-treat-data-as-code.md` - Added title: "Treat Data as Code"
+3. `2013-09-30-ten-things-you-learn-as-a-presidential-innovation-fellow.md` - Added title: "Ten Things You Learn as a Presidential Innovation Fellow"
 
-```javascript
-function getTitleFromFilename(filename) {
-  return filename
-    .replace(/^\d{4}-\d{2}-\d{2}-/, '') // Remove date prefix
-    .replace(/\.md$/, '')                // Remove extension
-    .replace(/-/g, ' ')                  // Replace hyphens with spaces
-    .replace(/\b\w/g, l => l.toUpperCase()); // Capitalize words
-}
-```
+~~**Next.js Implementation Note**: Generate titles from filenames when the `title` field is missing.~~
+
+**Next.js Implementation Note**: All posts now have explicit titles in frontmatter, so filename-based title generation is no longer needed.
 
 ## HTML Pages
 
@@ -98,9 +92,12 @@ Some posts have multiple redirect URLs. Next.js should handle all redirects.
 
 ### SEO Field (Rare)
 
-Only one page uses the `seo` field:
+~~Only one page uses the `seo` field:~~
 
-* `content/pages/about.md`: `seo: { type: person }`
+**UPDATE**: Two pages had the `seo` field, now prefixed as `_legacy_seo`:
+
+* `content/pages/about.md`: `_legacy_seo: { type: person }`
+* `content/pages/resume.md`: `_legacy_seo: { type: person }`
 
 This should be converted to Next.js metadata or JSON-LD.
 
@@ -223,7 +220,7 @@ const date = new Date(frontmatter.date);
 * **Total files migrated**: 206
 * **Posts with liquid tags**: 28
 * **Posts with redirects**: 16
-* **Posts without titles**: 3
+* **Posts without titles**: ~~3~~ 0 (all fixed)
 * **HTML pages**: 2
 * **Data files**: 3
 * **Resume positions**: 10
@@ -239,3 +236,6 @@ const date = new Date(frontmatter.date);
 ✅ Original files preserved in repository
 ✅ Comprehensive documentation created
 ✅ Edge cases identified and documented
+✅ All posts have explicit titles
+✅ All pages have required frontmatter (title, description)
+✅ All Jekyll-specific frontmatter fields properly prefixed
