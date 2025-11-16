@@ -435,7 +435,7 @@ Before merging any changes:
 
 1. **Check for 'use client' usage**:
    ```bash
-   grep -r "use client" app/
+   grep -r '^["'\'']use client["'\'']' app/
    # Should only show ClientScripts.tsx and Navigation.tsx
    ```
 
