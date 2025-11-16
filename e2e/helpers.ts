@@ -111,7 +111,7 @@ export async function checkLinksValid(page: Page, selector = 'a[href]') {
 
 /**
  * Wait for page to be fully loaded including images
- * Uses networkidle which waits for no network activity for 500ms
+ * Uses networkidle which waits for no more than 2 network connections for at least 500ms
  * This is slower but more thorough
  */
 export async function waitForFullLoad(page: Page) {
