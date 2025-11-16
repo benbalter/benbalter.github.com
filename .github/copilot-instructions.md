@@ -292,10 +292,3 @@ Use this agent for creating or editing blog posts and documentation.
   * Minimize JavaScript bundle size
   * Use server components for all data fetching and rendering
   * Only use client components when browser APIs or React hooks are required
-* **CRITICAL: Maximize use of SSG and server components**:
-  * Never use 'use client' unless absolutely necessary
-  * Prefer HTML and CSS over JavaScript
-  * Pre-render all pages as static HTML
-  * Minimize JavaScript bundle size
-  * Use server components for all data fetching and rendering
-  * Only use client components when browser APIs or React hooks are required
