@@ -5,7 +5,12 @@ import type { Metadata } from 'next';
 import { cache } from 'react';
 import ReadingTime from '@/app/components/ReadingTime';
 import MiniBio from '@/app/components/MiniBio';
-import Link from 'next/link';
+import PostHeader from '@/app/components/PostHeader';
+import PostDescription from '@/app/components/PostDescription';
+import ArchivedWarning from '@/app/components/ArchivedWarning';
+import PostContent from '@/app/components/PostContent';
+import PostMetadata from '@/app/components/PostMetadata';
+import EditButton from '@/app/components/EditButton';
 import { getSiteConfig } from '@/lib/config';
 
 // Load site configuration
@@ -74,40 +79,31 @@ export default async function Post({ params }: PageProps) {
     day: 'numeric' 
   });
   
+  const revisionHistoryUrl = `${config.url.replace(/\/$/, '')}/${config.repository}/commits/${config.branch}/_posts/${post.slug}.md`;
+  const editUrl = `${config.url.replace(/\/$/, '')}/${config.repository}/edit/${config.branch}/_posts/${post.slug}.md`;
+  
   return (
     <div className="row">
       <div className="col-md-10 offset-md-1">
         <article id={`post-${post.slug}`} className={`post post-${post.slug}`}>
-          <h1 className="display-4 text-primary">{post.title}</h1>
+          <PostHeader title={post.title} />
           
           {post.description && (
-            <div className="alert alert-info" role="alert">
-              <strong>TL;DR:</strong> {post.description}
-            </div>
+            <PostDescription description={post.description} />
           )}
           
           {post.archived && (
-            <div className="alert alert-warning" role="alert">
-              <strong>❗ Heads up!</strong> This post is archived and here for historical purposes. 
-              It may no longer be accurate or reflect my views. Proceed at your own risk.
-            </div>
+            <ArchivedWarning />
           )}
           
           <ReadingTime content={post.content} />
           
-          <div className="entrybody" dangerouslySetInnerHTML={{ __html: contentHtml }} />
+          <PostContent contentHtml={contentHtml} />
           
-          <div className="mb-2 text-muted small">
-            Originally published {publishDate} | {' '}
-            <Link 
-              href={`${config.url.replace(/\/$/, '')}/${config.repository}/commits/${config.branch}/_posts/${post.slug}.md`}
-              className="link-secondary"
-              target="_blank"
-              rel="noopener"
-            >
-              View revision history
-            </Link>
-          </div>
+          <PostMetadata 
+            publishDate={publishDate}
+            revisionHistoryUrl={revisionHistoryUrl}
+          />
           
           <div className="row border-top pt-3">
             <div className="col">
@@ -117,18 +113,7 @@ export default async function Post({ params }: PageProps) {
                 employerName={config.employer.name}
               />
             </div>
-            <div className="col-lg-2 text-center pb-3">
-              <p>
-                <small>This page is open source. Please help improve it.</small>
-              </p>
-              <Link 
-                className="btn btn-outline-primary btn-lg btn-sm"
-                href={`${config.url.replace(/\/$/, '')}/${config.repository}/edit/${config.branch}/_posts/${post.slug}.md`}
-                title={`Help improve article ${post.slug}.md`}
-              >
-                Edit
-              </Link>
-            </div>
+            <EditButton editUrl={editUrl} postSlug={post.slug} />
           </div>
         </article>
       </div>
