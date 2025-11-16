@@ -97,7 +97,7 @@ npm run next:build
 - Standards-compliant RSS 2.0 format
 - Proper CDATA handling
 - Full post metadata (title, description, pubDate, guid)
-- Press clips from `_data/clips.yml`
+- Press clips from `content/data/clips.yml`
 - Uses the industry-standard `feed` library
 
 ### 4. Sitemap (`jekyll-sitemap`)
