@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type APIRequestContext } from '@playwright/test';
 import fs from 'fs';
 import path from 'path';
 
@@ -19,6 +19,36 @@ interface LinkResult {
 // Cache for tested URLs to avoid redundant requests
 const urlCache = new Map<string, number>();
 
+/**
+ * Helper function to check if a URL should be skipped (external or dangerous protocol)
+ */
+function isExternalOrDangerousUrl(href: string): boolean {
+  return (
+    href.startsWith('http://') ||
+    href.startsWith('https://') ||
+    href.startsWith('#') ||
+    href.startsWith('mailto:') ||
+    href.startsWith('tel:') ||
+    href.startsWith('javascript:') ||
+    href.startsWith('data:') ||
+    href.startsWith('vbscript:')
+  );
+}
+
+/**
+ * Helper function to validate and cache a URL
+ */
+async function validateAndCacheUrl(href: string, request: APIRequestContext): Promise<number> {
+  if (!urlCache.has(href)) {
+    const response = await request.get(href, { 
+      failOnStatusCode: false,
+      timeout: 10000 
+    });
+    urlCache.set(href, response.status());
+  }
+  return urlCache.get(href)!;
+}
+
 test.describe('Link Validation', () => {
   test('homepage should not have broken internal links', async ({ page, request }) => {
     await page.goto('/', { waitUntil: 'networkidle' });
@@ -32,29 +62,11 @@ test.describe('Link Validation', () => {
       if (!href) continue;
       
       // Skip external links, anchors, and dangerous protocols
-      if (
-        href.startsWith('http://') ||
-        href.startsWith('https://') ||
-        href.startsWith('#') ||
-        href.startsWith('mailto:') ||
-        href.startsWith('tel:') ||
-        href.startsWith('javascript:') ||
-        href.startsWith('data:') ||
-        href.startsWith('vbscript:')
-      ) {
+      if (isExternalOrDangerousUrl(href)) {
         continue;
       }
       
-      // Check if URL is cached
-      if (!urlCache.has(href)) {
-        const response = await request.get(href, { 
-          failOnStatusCode: false,
-          timeout: 10000 
-        });
-        urlCache.set(href, response.status());
-      }
-      
-      const status = urlCache.get(href)!;
+      const status = await validateAndCacheUrl(href, request);
       results.push({
         source: '/',
         href,
@@ -98,29 +110,11 @@ test.describe('Link Validation', () => {
           if (!href) continue;
           
           // Skip external links, anchors, and dangerous protocols
-          if (
-            href.startsWith('http://') ||
-            href.startsWith('https://') ||
-            href.startsWith('#') ||
-            href.startsWith('mailto:') ||
-            href.startsWith('tel:') ||
-            href.startsWith('javascript:') ||
-            href.startsWith('data:') ||
-            href.startsWith('vbscript:')
-          ) {
+          if (isExternalOrDangerousUrl(href)) {
             continue;
           }
           
-          // Check if URL is cached
-          if (!urlCache.has(href)) {
-            const response = await request.get(href, { 
-              failOnStatusCode: false,
-              timeout: 10000 
-            });
-            urlCache.set(href, response.status());
-          }
-          
-          const status = urlCache.get(href)!;
+          const status = await validateAndCacheUrl(href, request);
           if (status !== 200) {
             allBrokenLinks.push({
               source: url,
@@ -166,16 +160,7 @@ test.describe('Link Validation', () => {
           if (!href) continue;
           
           // Skip external links, anchors, and dangerous protocols
-          if (
-            href.startsWith('http://') ||
-            href.startsWith('https://') ||
-            href.startsWith('#') ||
-            href.startsWith('mailto:') ||
-            href.startsWith('tel:') ||
-            href.startsWith('javascript:') ||
-            href.startsWith('data:') ||
-            href.startsWith('vbscript:')
-          ) {
+          if (isExternalOrDangerousUrl(href)) {
             continue;
           }
           
@@ -185,16 +170,7 @@ test.describe('Link Validation', () => {
             continue;
           }
           
-          // Check if URL is cached
-          if (!urlCache.has(href)) {
-            const response = await request.get(href, { 
-              failOnStatusCode: false,
-              timeout: 10000 
-            });
-            urlCache.set(href, response.status());
-          }
-          
-          const status = urlCache.get(href)!;
+          const status = await validateAndCacheUrl(href, request);
           if (status !== 200) {
             allBrokenLinks.push({
               source: url,
@@ -230,21 +206,12 @@ test.describe('Link Validation', () => {
       const href = await link.getAttribute('href');
       if (!href) continue;
       
-      // Skip external links
-      if (href.startsWith('http://') || href.startsWith('https://') || href.startsWith('#')) {
+      // Skip external links, anchors, and dangerous protocols
+      if (isExternalOrDangerousUrl(href)) {
         continue;
       }
       
-      // Check if URL is cached
-      if (!urlCache.has(href)) {
-        const response = await request.get(href, { 
-          failOnStatusCode: false,
-          timeout: 10000 
-        });
-        urlCache.set(href, response.status());
-      }
-      
-      const status = urlCache.get(href)!;
+      const status = await validateAndCacheUrl(href, request);
       if (status !== 200) {
         brokenLinks.push({
           source: 'navigation',
@@ -276,26 +243,12 @@ test.describe('Link Validation', () => {
       const href = await link.getAttribute('href');
       if (!href) continue;
       
-      // Skip external links and special protocols
-      if (
-        href.startsWith('http://') ||
-        href.startsWith('https://') ||
-        href.startsWith('#') ||
-        href.startsWith('mailto:')
-      ) {
+      // Skip external links, anchors, and dangerous protocols
+      if (isExternalOrDangerousUrl(href)) {
         continue;
       }
       
-      // Check if URL is cached
-      if (!urlCache.has(href)) {
-        const response = await request.get(href, { 
-          failOnStatusCode: false,
-          timeout: 10000 
-        });
-        urlCache.set(href, response.status());
-      }
-      
-      const status = urlCache.get(href)!;
+      const status = await validateAndCacheUrl(href, request);
       if (status !== 200) {
         brokenLinks.push({
           source: 'footer',
