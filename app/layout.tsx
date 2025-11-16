@@ -11,26 +11,40 @@ import { getAllPageSlugs, getPageBySlug } from '@/lib/pages';
 const config = getSiteConfig();
 
 export const metadata: Metadata = {
+  metadataBase: new URL(config.url),
   title: {
     default: config.title,
     template: `%s | ${config.title}`,
   },
   description: config.description,
-  metadataBase: new URL(config.url),
+  keywords: config.keywords,
   authors: [{ name: config.author.name, url: config.url }],
+  creator: config.author.name,
+  publisher: config.author.name,
   openGraph: {
-    title: config.title,
-    description: config.description,
+    type: 'website',
+    locale: 'en_US',
     url: config.url,
     siteName: config.title,
-    locale: 'en_US',
-    type: 'website',
+    title: config.title,
+    description: config.description,
   },
   twitter: {
     card: 'summary',
+    creator: `@${config.author.twitter}`,
     title: config.title,
     description: config.description,
-    creator: config.author.twitter,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   icons: {
     icon: [
@@ -41,6 +55,11 @@ export const metadata: Metadata = {
     shortcut: '/favicon.ico',
   },
   manifest: '/site.webmanifest',
+  alternates: {
+    types: {
+      'application/rss+xml': `${config.url}/feed.xml`,
+    },
+  },
 };
 
 // Get navigation and footer pages
