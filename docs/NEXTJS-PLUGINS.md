@@ -327,7 +327,7 @@ const html = await markdownToHtml(markdown);
 * Uses official remark-github plugin
 * Automatic @mention linking to GitHub profiles
 * Issue and PR reference linking (#123)
-* Commit SHA linking (7-40 character SHAs)
+* Commit SHA linking (7–40 character SHAs)
 * User/org disambiguation
 * Preserves original syntax in display
 * Integrated into remark markdown pipeline
@@ -588,12 +588,14 @@ This implementation demonstrates the benefits of **relying on open-source librar
 **Migration from string-based icons to React components:**
 
 Previously (string-based):
+
 ```tsx
 <i className="fas fa-rss" title="Atom Feed"></i>
 <i className="far fa-clock"></i>
 ```
 
 Now (React components):
+
 ```tsx
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRss } from '@fortawesome/free-solid-svg-icons';
@@ -604,6 +606,7 @@ import { faClock } from '@fortawesome/free-regular-svg-icons';
 ```
 
 **Benefits:**
+
 * **Type-safe** - TypeScript ensures correct icon names
 * **Tree-shaking** - Only used icons are included in bundle
 * **No DOM manipulation** - Pure React rendering
@@ -611,6 +614,7 @@ import { faClock } from '@fortawesome/free-regular-svg-icons';
 * **Easier testing** - React components are easier to test
 
 **Components Updated:**
+
 * `app/components/Footer.tsx` - RSS icon
 * `app/components/ReadingTime.tsx` - Clock icon
 * `app/components/ClientScripts.tsx` - Removed FontAwesome DOM watcher
@@ -620,11 +624,13 @@ import { faClock } from '@fortawesome/free-regular-svg-icons';
 **Migration from `<img>` to Next.js `Image`:**
 
 Previously:
+
 ```tsx
 <img src={url} alt={alt} width={100} height={100} />
 ```
 
 Now:
+
 ```tsx
 import Image from 'next/image';
 
@@ -632,12 +638,14 @@ import Image from 'next/image';
 ```
 
 **Benefits:**
+
 * Automatic image optimization
 * Lazy loading out of the box
 * Responsive images
 * Better Core Web Vitals scores
 
 **Components Updated:**
+
 * `app/components/MiniBio.tsx` - Author avatar
 * `app/components/GitHubAvatar.tsx` - Already using Image
 
@@ -664,6 +672,7 @@ import MarkdownContent from '@/app/components/MarkdownContent';
 ```
 
 **Benefits:**
+
 * Type-safe React component rendering
 * Automatic HTML sanitization via `rehype-sanitize`
 * No `dangerouslySetInnerHTML`
@@ -674,6 +683,7 @@ import MarkdownContent from '@/app/components/MarkdownContent';
 ### MDX Support Ready
 
 Installed `@next/mdx` for future MDX-based content:
+
 * Mix React components with markdown
 * Interactive code examples
 * Dynamic content
