@@ -21,28 +21,10 @@ This project follows a code of conduct that all contributors are expected to adh
 
 * **Node.js**: Version 20.x or later
 * **npm**: Version 10.x or later (comes with Node.js)
-* **Ruby**: Version 3.4.x (for Jekyll legacy features)
+* **Ruby**: Version 3.3.x (for Jekyll legacy features)
 * **Git**: For version control
 
-### Setup Options
-
-#### Option 1: Dev Container (Recommended)
-
-Use the included VS Code Dev Container for a pre-configured development environment:
-
-1. **Install prerequisites:**
-   * [Docker Desktop](https://www.docker.com/products/docker-desktop)
-   * [VS Code](https://code.visualstudio.com/)
-   * [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-
-2. **Open in container:**
-   * Open the repository in VS Code
-   * Click "Reopen in Container" when prompted
-   * Wait for the container to build and dependencies to install
-
-The devcontainer includes Ruby, Node.js, system dependencies, and all necessary VS Code extensions pre-configured.
-
-#### Option 2: Local Setup
+### Setup
 
 1. **Fork and clone the repository:**
 

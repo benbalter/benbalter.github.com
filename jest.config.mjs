@@ -30,7 +30,7 @@ const config = {
   
   // Transform ES modules from node_modules
   transformIgnorePatterns: [
-    'node_modules/(?!(unified|remark.*|rehype.*|@octokit|micromark.*|mdast.*|unist.*|hast.*|vfile.*|bail|is-plain-obj|trough|devlop|trim-lines|zwitch)/)',
+    'node_modules/(?!(@octokit|react-markdown|remark-gfm|remark-github|rehype-raw|rehype-sanitize|unified|unist-util-visit|unist-util-is|vfile|micromark|mdast-util|decode-named-character-reference|character-entities|hast-util|property-information|space-separated-tokens|comma-separated-tokens|bail|trough|devlop)/)',
   ],
   
   // Module name mapper for CSS and static files
