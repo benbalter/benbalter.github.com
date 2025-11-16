@@ -205,13 +205,25 @@ function generateRedirectPages() {
   redirects.forEach(({ source, destination, type }) => {
     // Normalize source path - remove trailing slash for directory creation
     const sourcePath = source.endsWith('/') ? source.slice(0, -1) : source;
-    const fullPath = path.join(outDir, sourcePath);
     
-    // Create directory structure
-    fs.mkdirSync(fullPath, { recursive: true });
+    // Check if source looks like a file (has an extension)
+    const hasExtension = /\.[a-z0-9]+$/i.test(sourcePath);
+    
+    let htmlPath;
+    if (hasExtension) {
+      // For file-like paths (e.g., .pdf, .html), create the file directly
+      const fullPath = path.join(outDir, sourcePath);
+      const dir = path.dirname(fullPath);
+      fs.mkdirSync(dir, { recursive: true });
+      htmlPath = fullPath;
+    } else {
+      // For directory paths, create directory and index.html
+      const fullPath = path.join(outDir, sourcePath);
+      fs.mkdirSync(fullPath, { recursive: true });
+      htmlPath = path.join(fullPath, 'index.html');
+    }
     
     // Write redirect HTML
-    const htmlPath = path.join(fullPath, 'index.html');
     fs.writeFileSync(htmlPath, createRedirectHTML(destination, source));
     
     const icon = type === 'redirect_to' ? '🔗' : '↪️';
