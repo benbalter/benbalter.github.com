@@ -57,7 +57,7 @@ Two HTML pages were migrated and will need special handling:
 
 ```javascript
 // Include → React Component
-{% include github-culture.html %} 
+{% include github-culture.html %}
 → <GitHubCulture />
 
 // Loop → map()

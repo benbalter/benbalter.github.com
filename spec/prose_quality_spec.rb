@@ -18,7 +18,7 @@ RSpec.describe 'prose quality' do
         end
 
         it 'does not have trailing whitespace' do
-          lines_with_trailing_space = content.lines.select { |line| line.match?(/\s+$/) && line != "\n" }
+          lines_with_trailing_space = content.lines.select { |line| line.match?(/[ \t]+\n?$/) }
           expect(lines_with_trailing_space).to be_empty,
                                                "Found #{lines_with_trailing_space.count} lines with trailing whitespace"
         end

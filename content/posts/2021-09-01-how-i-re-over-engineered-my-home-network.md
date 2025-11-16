@@ -113,7 +113,7 @@ services:
     image: pihole/pihole
     secrets:
       - pihole_web_password
-    environment: 
+    environment:
       # Replace with your desired configuration
       TZ: America/New_York
       DNSSEC: "true"
@@ -126,7 +126,7 @@ services:
       REV_SERVER_TARGET: "192.168.1.1"
       REV_SERVER_CIDR: "192.168.0.0/16"
       VIRTUAL_HOST: dns.example.com
-    ports: 
+    ports:
       - "53:53/tcp"
       - "53:53/udp"
     volumes:
@@ -151,7 +151,7 @@ networks:
 
 # PiHole Web password lives in a .pihole_web_password to keep it out of the config
 secrets:
-  pihole_web_password: 
+  pihole_web_password:
     file: .pihole_web_password
 ```
 
@@ -243,7 +243,7 @@ Here's the minimum playbook you should use to set up Docker Compose on your Rasp
           - docker
           - docker-compose
           - virtualenv
-    # Set PiHole (Web Admin) password, referenced above. 
+    # Set PiHole (Web Admin) password, referenced above.
     # I'm using 1Password, but you could use any secret store.
     - name: Set Pi-Hole secret
       copy:

@@ -203,12 +203,12 @@ import { useState } from 'react';
 export default function SearchBox() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
-  
+
   const handleSearch = async () => {
     const data = await fetch(`/api/search?q=${query}`).then(r => r.json());
     setResults(data);
   };
-  
+
   return (
     <div>
       <input value={query} onChange={e => setQuery(e.target.value)} />
@@ -228,18 +228,18 @@ import { useState, useEffect } from 'react';
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState('light');
-  
+
   useEffect(() => {
     const saved = localStorage.getItem('theme');
     if (saved) setTheme(saved);
   }, []);
-  
+
   const toggle = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
   };
-  
+
   return <button onClick={toggle}>Toggle Theme</button>;
 }
 ```
@@ -257,7 +257,7 @@ import { InteractiveLikes } from './InteractiveLikes';
 
 export default async function PostPage({ params }) {
   const post = await getPost(params.slug);
-  
+
   return (
     <article>
       <h1>{post.title}</h1>
@@ -291,16 +291,16 @@ import { useState, useEffect } from 'react';
 export default function PostPage({ params }) {
   const [post, setPost] = useState(null);
   const [likes, setLikes] = useState(0);
-  
+
   useEffect(() => {
     // ❌ Anti-pattern: Fetch post client-side (bad for SEO, slow, and WILL NOT WORK with SSG/static export)
     // This will fail because API routes like `/api/posts/${params.slug}` do not exist in a static export.
     // Do NOT use client-side fetch for page data in SSG. Use static data fetching at build time instead.
     fetch(`/api/posts/${params.slug}`).then(r => r.json()).then(setPost);
   }, [params.slug]);
-  
+
   if (!post) return <div>Loading...</div>;
-  
+
   return (
     <article>
       <h1>{post.title}</h1>
