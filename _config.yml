@@ -78,7 +78,7 @@ exclude:
   - /content
   - /public
   - /app
-  - !/apple-touch-icon.png
+  - "!/apple-touch-icon.png"
   - /docs
   - /lib
   - /e2e
