@@ -24,23 +24,27 @@ test.describe('Legacy URL Redirects', () => {
     await expect(page).toHaveURL('/2015/12/08/types-of-pull-requests/');
   });
 
-  test('should redirect to external site for /2023/10/04/how-to-communicate-like-a-github-engineer/', async ({ page, context }) => {
-    // Set up to allow navigation to external URL
-    const [newPage] = await Promise.all([
-      context.waitForEvent('page'),
-      page.goto('/2023/10/04/how-to-communicate-like-a-github-engineer/')
-    ]);
+  test('should redirect to external site for /2023/10/04/how-to-communicate-like-a-github-engineer/', async ({ page }) => {
+    // Navigate to the redirect page
+    await page.goto('/2023/10/04/how-to-communicate-like-a-github-engineer/');
     
-    // Should redirect to GitHub blog
-    await expect(newPage).toHaveURL(/github\.blog/);
+    // Should redirect to GitHub blog (same page, not new tab)
+    await expect(page).toHaveURL(/github\.blog/);
   });
 
-  test('should show redirect message before redirecting', async ({ page }) => {
-    // Navigate to a redirect page
-    await page.goto('/cv/', { waitUntil: 'domcontentloaded' });
+  test('should show redirect message before redirecting', async ({ request }) => {
+    // Fetch the redirect page HTML directly without following redirects
+    const response = await request.get('/cv/', { 
+      maxRedirects: 0,
+      failOnStatusCode: false 
+    });
     
-    // Check for redirect HTML elements
-    const heading = await page.locator('h1').textContent();
-    expect(heading).toBe('Redirecting...');
+    const content = await response.text();
+    
+    // Check that the redirect HTML contains proper elements
+    expect(content).toContain('Redirecting');
+    expect(content).toContain('<h1>');
+    expect(content).toContain('/resume/');
+    expect(content).toContain('meta http-equiv="refresh"');
   });
 });
