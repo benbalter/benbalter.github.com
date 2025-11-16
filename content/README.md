@@ -26,9 +26,10 @@ bash content/validate-migration.sh
 ```
 
 This script checks:
-- All files are present and organized correctly
-- All required frontmatter fields are present
-- All Jekyll-specific fields are properly prefixed with `_legacy_`
+
+* All files are present and organized correctly
+* All required frontmatter fields are present
+* All Jekyll-specific fields are properly prefixed with `_legacy_`
 
 ## Usage in Next.js
 
