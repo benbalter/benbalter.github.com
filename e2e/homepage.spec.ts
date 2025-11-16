@@ -5,13 +5,13 @@ import {
   checkFooter,
   checkResponsiveMeta,
   checkSocialMeta,
-  waitForFullLoad 
+  waitForPageReady 
 } from './helpers';
 
 test.describe('Homepage', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
-    await waitForFullLoad(page);
+    await waitForPageReady(page);
   });
 
   test('should load successfully', async ({ page }) => {

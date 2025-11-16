@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { waitForFullLoad } from './helpers';
+import { waitForPageReady } from './helpers';
 
 test.describe('SEO', () => {
   const pages = [
@@ -10,10 +10,12 @@ test.describe('SEO', () => {
 
   pages.forEach(({ url, name }) => {
     test.describe(name, () => {
-      test('should have meta description', async ({ page }) => {
+      test.beforeEach(async ({ page }) => {
         await page.goto(url);
-        await waitForFullLoad(page);
-        
+        await waitForPageReady(page);
+      });
+
+      test('should have meta description', async ({ page }) => {
         const metaDescription = page.locator('meta[name="description"]');
         await expect(metaDescription).toHaveCount(1);
         
@@ -24,9 +26,6 @@ test.describe('SEO', () => {
       });
 
       test('should have Open Graph tags', async ({ page }) => {
-        await page.goto(url);
-        await waitForFullLoad(page);
-        
         // Check for required OG tags
         const ogTitle = page.locator('meta[property="og:title"]');
         const ogDescription = page.locator('meta[property="og:description"]');
@@ -44,9 +43,6 @@ test.describe('SEO', () => {
       });
 
       test('should have Twitter Card tags', async ({ page }) => {
-        await page.goto(url);
-        await waitForFullLoad(page);
-        
         const twitterCard = page.locator('meta[name="twitter:card"]');
         const count = await twitterCard.count();
         
@@ -58,9 +54,6 @@ test.describe('SEO', () => {
       });
 
       test('should have canonical URL', async ({ page }) => {
-        await page.goto(url);
-        await waitForFullLoad(page);
-        
         const canonical = page.locator('link[rel="canonical"]');
         const count = await canonical.count();
         
@@ -72,9 +65,6 @@ test.describe('SEO', () => {
       });
 
       test('should have proper title tag', async ({ page }) => {
-        await page.goto(url);
-        await waitForFullLoad(page);
-        
         const title = await page.title();
         
         expect(title).toBeTruthy();
@@ -83,9 +73,6 @@ test.describe('SEO', () => {
       });
 
       test('should have robots meta tag or be indexable', async ({ page }) => {
-        await page.goto(url);
-        await waitForFullLoad(page);
-        
         const robotsMeta = page.locator('meta[name="robots"]');
         const count = await robotsMeta.count();
         
@@ -97,9 +84,6 @@ test.describe('SEO', () => {
       });
 
       test('should have structured data', async ({ page }) => {
-        await page.goto(url);
-        await waitForFullLoad(page);
-        
         // Check for JSON-LD or microdata
         const jsonLd = page.locator('script[type="application/ld+json"]');
         const count = await jsonLd.count();
@@ -187,7 +171,7 @@ test.describe('SEO', () => {
 test.describe('Blog Post SEO', () => {
   test('blog posts should have proper meta tags', async ({ page }) => {
     await page.goto('/');
-    await waitForFullLoad(page);
+    await waitForPageReady(page);
     
     const postLinks = page.locator('a[href*="/20"]');
     const count = await postLinks.count();
@@ -201,7 +185,7 @@ test.describe('Blog Post SEO', () => {
     
     if (firstPostUrl) {
       await page.goto(firstPostUrl);
-      await waitForFullLoad(page);
+      await waitForPageReady(page);
       
       // Check for meta description
       const metaDescription = page.locator('meta[name="description"]');

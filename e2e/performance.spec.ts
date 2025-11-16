@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { waitForFullLoad } from './helpers';
+import { waitForPageReady, waitForFullLoad } from './helpers';
 
 test.describe('Performance', () => {
   test('homepage should load within acceptable time', async ({ page }) => {
@@ -46,7 +46,7 @@ test.describe('Performance', () => {
 
   test('images should be optimized', async ({ page }) => {
     await page.goto('/');
-    await waitForFullLoad(page);
+    await waitForPageReady(page);
     
     const images = await page.locator('img[src]').all();
     
@@ -109,7 +109,7 @@ test.describe('Performance', () => {
     });
     
     await page.reload();
-    await waitForFullLoad(page);
+    await waitForPageReady(page);
     
     // Some requests should be cached
     expect(cachedRequests.length).toBeGreaterThan(0);
@@ -141,7 +141,7 @@ test.describe('Mobile Performance', () => {
     const startTime = Date.now();
     
     await page.goto('/');
-    await waitForFullLoad(page);
+    await waitForPageReady(page);
     
     const loadTime = Date.now() - startTime;
     
@@ -151,7 +151,7 @@ test.describe('Mobile Performance', () => {
 
   test('should be responsive on mobile viewport', async ({ page }) => {
     await page.goto('/');
-    await waitForFullLoad(page);
+    await waitForPageReady(page);
     
     // Check that content fits in viewport
     const body = page.locator('body');
