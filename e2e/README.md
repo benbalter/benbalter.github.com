@@ -156,7 +156,7 @@ The tests have been optimized for speed:
 
 * **`waitForFullLoad()`**: Complete load helper (use sparingly)
   * Waits for `domcontentloaded` and `networkidle` states
-  * Ensures all network activity has ceased
+  * Waits until there are no more than 2 network connections for at least 500ms
   * Use for performance tests or when testing lazy-loaded content
 
 ## CI Integration
