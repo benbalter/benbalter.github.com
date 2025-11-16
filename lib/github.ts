@@ -23,7 +23,8 @@ function getOctokit(): Octokit {
  */
 function parseRepository(): [string, string] {
   const config = getSiteConfig();
-  const [owner, repo] = config.repository.split('/');
+  const repoStr = config.repository ?? '';
+  const [owner = '', repo = ''] = repoStr.split('/');
   return [owner, repo];
 }
 
@@ -45,10 +46,6 @@ export interface GitHubMetadata {
  * Uses _config.yml repository field
  */
 export function getGitHubMetadata(): GitHubMetadata {
-  const config = getSiteConfig();
-  const parts = config.repository.split('/');
-  const owner = parts[0] || '';
-  const repo = parts[1] || '';
   const [owner, repo] = parseRepository();
   const baseUrl = `https://github.com/${owner}/${repo}`;
   
@@ -76,10 +73,6 @@ export async function fetchContributors(limit: number = 30): Promise<Array<{
   avatar_url: string;
   html_url: string;
 }>> {
-  const config = getSiteConfig();
-  const parts = config.repository.split('/');
-  const owner = parts[0] || '';
-  const repo = parts[1] || '';
   const [owner, repo] = parseRepository();
   
   try {
@@ -120,10 +113,6 @@ export async function fetchRepositoryInfo(): Promise<{
   updated_at: string;
   pushed_at: string | null;
 } | null> {
-  const config = getSiteConfig();
-  const parts = config.repository.split('/');
-  const owner = parts[0] || '';
-  const repo = parts[1] || '';
   const [owner, repo] = parseRepository();
   
   try {
