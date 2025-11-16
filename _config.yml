@@ -77,6 +77,19 @@ exclude:
   - /playwright-report/
   - /content
   - /public
+  - /app
+  - !/apple-touch-icon.png
+  - /docs
+  - /lib
+  - /e2e
+  - /out
+  - next.config.mjs
+  - next-env.d.ts
+  - tsconfig.json
+  - jest.config.mjs
+  - jest.setup.mjs
+  - playwright.config.ts
+  - playwright-nextjs.config.ts
 
 permalink: "/:year/:month/:day/:title/"
 defaults:
