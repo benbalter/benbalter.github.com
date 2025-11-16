@@ -1,38 +1,31 @@
 {
   "compilerOptions": {
-    // Path aliases for cleaner imports
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
     },
-    // Strict type checking for better code quality
-    // See: https://www.typescriptlang.org/tsconfig#strict
     "strict": true,
     "strictNullChecks": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    // Module resolution settings
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "bundler",
     "module": "esnext",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    // Library support
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
-    // Build settings
     "target": "ES2017",
     "jsx": "react-jsx",
     "allowJs": true,
     "skipLibCheck": true,
     "noEmit": true,
     "incremental": true,
-    // Next.js plugin for enhanced IDE support
     "plugins": [
       {
         "name": "next"
