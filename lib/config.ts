@@ -6,6 +6,7 @@ interface SiteConfig {
   title: string;
   description: string;
   url: string;
+  keywords?: string[];
   author: {
     name: string;
     twitter: string;

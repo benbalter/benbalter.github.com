@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     template: `%s | ${config.title}`,
   },
   description: config.description,
+  keywords: config.keywords,
   authors: [{ name: config.author.name, url: config.url }],
   creator: config.author.name,
   publisher: config.author.name,
