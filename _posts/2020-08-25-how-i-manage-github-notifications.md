@@ -131,4 +131,4 @@ And
 
 And that's how I manage GitHub notifications. It's far from perfect (and looks a bit overengineered now that I've written it down), but it works for me and has for 7+ years now. I hope that sharing my notification workflow can help you find one that works best for you. Have a tip or trick for how you manage GitHub notifications? Let me know in the comments below.
 
-{% include\_cached github-culture.html %}
+{% include_cached github-culture.html %}

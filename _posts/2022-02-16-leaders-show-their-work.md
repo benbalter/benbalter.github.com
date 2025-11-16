@@ -5,7 +5,7 @@ description: Absent working within systems that naturally capture and expose pro
 
 A number of years ago, I [described the value of memorializing decisions through URLs](https://ben.balter.com/2015/11/12/why-urls/):
 
-> \[URLs] provides a single, incontrovertible source of truth for the organization’s intentions, and equally important, exposes the reasoning behind the decision, reducing the tendency for top-down decisions to be communicated as “because I said so”.
+> [URLs] provides a single, incontrovertible source of truth for the organization’s intentions, and equally important, exposes the reasoning behind the decision, reducing the tendency for top-down decisions to be communicated as “because I said so”.
 
 That’s still true today, but there’s some critical nuance not sufficiently captured in that excerpt: a URL is necessary, but not sufficient to communicate organizational intentionality. For an organization to reap [the benefits of transparency](https://ben.balter.com/2015/11/12/why-urls/#the-value-of-giving-concepts-urls), its leaders must not only communicate via URL *what* decisions were made, but must also explain *why* they made those decisions and *how*. There are two ways to do that: [adopt systems that naturally capture and expose process](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/), or absent those systems, leaders must hold one another accountable for spending the additional cycles to *show their work*.
 
@@ -74,7 +74,7 @@ Absent working within systems that through their day-to-day use captures and exp
 
 While I still agree [everything should have a URL](https://ben.balter.com/2015/11/12/why-urls/), how we go about thoughtfully creating and curating the content within those URLs - rich with high-value historic context, a gift for others and our future selves - matters more than the fact that the URL itself exists.
 
-{% include\_cached github-culture.html %}
+{% include_cached github-culture.html %}
 
 [^1]: I use the term "management" here broadly. Yes, this could be a people manager, but the concept applies equally to product managers, program managers, and individual contributors in leadership roles. At GitHub, we have the concept of directly responsible individual (DRI), a role regardless of position within the organization for which visibility of work is an explicit expectation.
 

@@ -19,4 +19,4 @@ Specifically he points out:
 
 I think the argument could be extended to hiring 20-somethings more broadly ([I'm looking at your Federal Government](http://www.nextgov.com/nextgov/ng_20100423_7313.php)), but a great read, nonetheless.
 
-\[via [Fast Company](https://www.fastcompany.com/1779120/why-digital-talent-doesn%E2%80%99t-want-work-your-company){: data-proofer-ignore="true"}]
+[via [Fast Company](https://www.fastcompany.com/1779120/why-digital-talent-doesn%E2%80%99t-want-work-your-company){: data-proofer-ignore="true"}]

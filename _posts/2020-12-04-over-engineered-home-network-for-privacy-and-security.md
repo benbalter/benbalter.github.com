@@ -44,7 +44,7 @@ I created three VLANs each with their own subnet, SSID, and capabilities:
 | Primary     | Full    | Connect to the internet and other devices on the network                 |
 | IoT         | Minimal | Connect to the internet and respond to requests from the primary network |
 | Guest       | Zero    | Connect to the internet                                                  |
-| {: .table } |         |                                                                          |
+{: .table }
 
 There are [lots of great walkthroughs of the firewall rules](https://robpickering.com/ubiquiti-configure-micro-segmentation-for-iot-devices/) already out there, but in short you'll want to create firewall rules to (1) allow connections from the primary network to the IoT network, (2) allow established connections from the IoT network back to the primary network, and (3) block all other connections from the IoT network to the primary network. With that, you'll have three distinct networks, each with their own capabilities and level of trust.[^1]
 
@@ -103,7 +103,7 @@ To take things even further, there are a few more customizations to explore:
   * **Internal honeypot** - A fake server, attractive to malware, that triggers alerts if something tries to connect to it
 * **Block- and allow-lists** - The whole point of a Pi-Hole is to block stuff. Once set up, you'll want to add/configure block- and allow-lists for your Pi-Hole. [firebog.net](https://firebog.net/) is the most popular meta-list. Beyond the ones listed there, I'd also recommend @StevenBlack's popular [lists](https://github.com/StevenBlack/hosts/) as well as @anudeepND's [popular allow list regular expression](https://github.com/anudeepND/whitelist) to ensure popular sites continue to work as expected.
 * **Configure the Pi-Hole with a Let's Encrypt cert** - If the "Not secure" icon when accessing the Pi-Hole interface leaves you uneasy, you can configure the Pi-Hole with a Let's Encrypt cert so that you can access the Pi-Hole admin interface over HTTPS. *Edit: While I previously linked to manual set up instructions, for my own setup, [I now use Caddy](https://ben.balter.com/2021/09/01/how-i-re-over-engineered-my-home-network/#caddy) to automate certificate issuance and renewal.*
-* **Mobile Apps** - Be sure to install the UniFi app ([iOS](https://apps.apple.com/us/app/unifi-network/id1057750338), [Android](https://play.google.com/store/apps/details?id=com.ubnt.easyunifi\&hl=en_US\&gl=US)) to receive push notifications for network alerts, and one of the many Pi-Hole apps ([Pi-Hole remote for iOS](https://apps.apple.com/us/app/pi-hole-remote/id1515445551), [FlutterHole for Android](https://play.google.com/store/apps/details?id=sterrenburg.github.flutterhole\&hl=en_US\&gl=US)) to quickly disable ad blocking in the (rare) event it breaks a site.
+* **Mobile Apps** - Be sure to install the UniFi app ([iOS](https://apps.apple.com/us/app/unifi-network/id1057750338), [Android](https://play.google.com/store/apps/details?id=com.ubnt.easyunifi&hl=en_US&gl=US)) to receive push notifications for network alerts, and one of the many Pi-Hole apps ([Pi-Hole remote for iOS](https://apps.apple.com/us/app/pi-hole-remote/id1515445551), [FlutterHole for Android](https://play.google.com/store/apps/details?id=sterrenburg.github.flutterhole&hl=en_US&gl=US)) to quickly disable ad blocking in the (rare) event it breaks a site.
 
 ## Conclusion
 
