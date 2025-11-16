@@ -3,14 +3,15 @@
 /**
  * Generates _data/related_posts.yml using TF-IDF similarity analysis
  * Replaces the Ruby-based LSI implementation with modern TypeScript
+ * Uses the 'natural' library for robust NLP processing
  */
 
 import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
 import matter from 'gray-matter';
-import {convert} from 'html-to-text';
 import yaml from 'js-yaml';
+import natural from 'natural';
 
 type Post = {
   path: string;
@@ -18,8 +19,6 @@ type Post = {
   title: string;
   archived?: boolean;
 };
-
-type TfIdf = Record<string, number>;
 
 type RelatedPosts = Record<string, string[]>;
 
@@ -34,9 +33,27 @@ const ignoreList = new Set([
 ]);
 
 /**
+ * Extract plain text from markdown content
+ */
+export function extractPlainText(markdown: string): string {
+  // Convert markdown to plain text
+  // Remove HTML tags, code blocks, and other markdown syntax
+  const text = markdown
+    .replaceAll(/```[\s\S]*?```/g, '') // Remove code blocks
+    .replaceAll(/`[^`]+`/g, '') // Remove inline code
+    .replaceAll(/\[([^\]]+)]\([^)]+\)/g, '$1') // Convert links to text
+    .replaceAll(/[#*_~`]/g, '') // Remove markdown symbols
+    .replaceAll(/\n+/g, ' ') // Replace newlines with spaces
+    .replaceAll(/\s+/g, ' ') // Normalize whitespace
+    .trim();
+
+  return text.toLowerCase();
+}
+
+/**
  * Read all markdown files from the posts directory
  */
-function readPosts(): Post[] {
+export function readPosts(): Post[] {
   const postsPath = path.resolve(postsDirectory);
   const files = fs.readdirSync(postsPath);
   const posts: Post[] = [];
@@ -78,107 +95,81 @@ function readPosts(): Post[] {
 }
 
 /**
- * Extract plain text from markdown content
+ * Find related posts for each post using TF-IDF similarity from natural library
  */
-function extractPlainText(markdown: string): string {
-  // Convert markdown to plain text
-  // Remove HTML tags, code blocks, and other markdown syntax
-  const text = markdown
-    .replaceAll(/```[\s\S]*?```/g, '') // Remove code blocks
-    .replaceAll(/`[^`]+`/g, '') // Remove inline code
-    .replaceAll(/\[([^\]]+)]\([^)]+\)/g, '$1') // Convert links to text
-    .replaceAll(/[#*_~`]/g, '') // Remove markdown symbols
-    .replaceAll(/\n+/g, ' ') // Replace newlines with spaces
-    .replaceAll(/\s+/g, ' ') // Normalize whitespace
-    .trim();
+export function findRelatedPosts(posts: Post[]): RelatedPosts {
+  console.log('Calculating TF-IDF vectors using natural library...');
 
-  return text.toLowerCase();
-}
+  // Create TF-IDF instance
+  const tfidf = new natural.TfIdf();
 
-/**
- * Tokenize text into words
- */
-function tokenize(text: string): string[] {
-  return text
-    .toLowerCase()
-    .replaceAll(/[^\w\s]/g, ' ')
-    .split(/\s+/)
-    .filter(word => word.length > 2); // Filter out very short words
-}
-
-/**
- * Calculate term frequency for a document
- */
-function calculateTf(tokens: string[]): TfIdf {
-  const tf: TfIdf = {};
-  const totalTerms = tokens.length;
-
-  for (const term of tokens) {
-    tf[term] = (tf[term] ?? 0) + 1;
-  }
-
-  // Normalize by document length
-  for (const term of Object.keys(tf)) {
-    tf[term] /= totalTerms;
-  }
-
-  return tf;
-}
-
-/**
- * Calculate inverse document frequency
- */
-function calculateIdf(posts: Post[]): Map<string, number> {
-  const idf = new Map<string, number>();
-  const documentCount = posts.length;
-  const termDocumentCount = new Map<string, number>();
-
-  // Count how many documents each term appears in
+  // Add all documents to TF-IDF
   for (const post of posts) {
-    const tokens = tokenize(post.content);
-    const uniqueTerms = new Set(tokens);
+    tfidf.addDocument(post.content);
+  }
 
-    for (const term of uniqueTerms) {
-      termDocumentCount.set(term, (termDocumentCount.get(term) ?? 0) + 1);
+  console.log('Finding related posts...');
+  const relations: RelatedPosts = {};
+
+  // For each post, find the most similar posts
+  for (let i = 0; i < posts.length; i++) {
+    const currentPost = posts[i];
+    const similarities: Array<{path: string; similarity: number}> = [];
+
+    // Calculate similarity with all other posts
+    for (const [index, post] of posts.entries()) {
+      if (i === index) {
+        continue; // Skip self
+      }
+
+      // Calculate cosine similarity between documents
+      const similarity = calculateCosineSimilarity(tfidf, i, index);
+      similarities.push({
+        path: post.path,
+        similarity,
+      });
     }
+
+    // Sort by similarity (highest first) and take top N
+    similarities.sort((a, b) => b.similarity - a.similarity);
+    relations[currentPost.path] = similarities
+      .slice(0, relatedPostsCount)
+      .map(s => s.path);
   }
 
-  // Calculate IDF for each term
-  for (const [term, count] of termDocumentCount.entries()) {
-    idf.set(term, Math.log(documentCount / count));
-  }
-
-  return idf;
+  return relations;
 }
 
 /**
- * Calculate TF-IDF vector for a document
+ * Calculate cosine similarity between two documents in TF-IDF
  */
-function calculateTfIdf(tokens: string[], idf: Map<string, number>): TfIdf {
-  const tf = calculateTf(tokens);
-  const tfidf: TfIdf = {};
+function calculateCosineSimilarity(
+  tfidf: natural.TfIdf,
+  document1Index: number,
+  document2Index: number,
+): number {
+  // Get TF-IDF vectors for both documents
+  const vector1 = new Map<string, number>();
+  const vector2 = new Map<string, number>();
 
-  for (const term of Object.keys(tf)) {
-    const idfValue = idf.get(term) ?? 0;
-    tfidf[term] = tf[term] * idfValue;
+  for (const item of tfidf.listTerms(document1Index)) {
+    vector1.set(item.term, item.tfidf);
   }
 
-  return tfidf;
-}
+  for (const item of tfidf.listTerms(document2Index)) {
+    vector2.set(item.term, item.tfidf);
+  }
 
-/**
- * Calculate cosine similarity between two TF-IDF vectors
- */
-function cosineSimilarity(vec1: TfIdf, vec2: TfIdf): number {
+  // Calculate cosine similarity
   let dotProduct = 0;
   let mag1 = 0;
   let mag2 = 0;
 
-  const allTerms = new Set([...Object.keys(vec1), ...Object.keys(vec2)]);
+  const allTerms = new Set([...vector1.keys(), ...vector2.keys()]);
 
   for (const term of allTerms) {
-    const value1 = vec1[term] || 0;
-    const value2 = vec2[term] || 0;
+    const value1 = vector1.get(term) ?? 0;
+    const value2 = vector2.get(term) ?? 0;
 
     dotProduct += value1 * value2;
     mag1 += value1 * value1;
@@ -193,54 +184,9 @@ function cosineSimilarity(vec1: TfIdf, vec2: TfIdf): number {
 }
 
 /**
- * Find related posts for each post using TF-IDF similarity
- */
-function findRelatedPosts(posts: Post[]): RelatedPosts {
-  console.log('Calculating TF-IDF vectors...');
-
-  // Calculate IDF for all terms
-  const idf = calculateIdf(posts);
-
-  // Calculate TF-IDF vectors for all posts
-  const tfidfVectors = posts.map(post => ({
-    post,
-    vector: calculateTfIdf(tokenize(post.content), idf),
-  }));
-
-  console.log('Finding related posts...');
-  const relations: RelatedPosts = {};
-
-  // For each post, find the most similar posts
-  for (let i = 0; i < tfidfVectors.length; i++) {
-    const {post, vector} = tfidfVectors[i];
-    const similarities: Array<{path: string; similarity: number}> = [];
-
-    for (const [index, tfidfVector] of tfidfVectors.entries()) {
-      if (i === index) {
-        continue; // Skip self
-      }
-
-      const similarity = cosineSimilarity(vector, tfidfVector.vector);
-      similarities.push({
-        path: tfidfVector.post.path,
-        similarity,
-      });
-    }
-
-    // Sort by similarity (highest first) and take top N
-    similarities.sort((a, b) => b.similarity - a.similarity);
-    relations[post.path] = similarities
-      .slice(0, relatedPostsCount)
-      .map(s => s.path);
-  }
-
-  return relations;
-}
-
-/**
  * Write related posts to YAML file
  */
-function writeYaml(relations: RelatedPosts): void {
+export function writeYaml(relations: RelatedPosts): void {
   // Sort keys alphabetically for consistent output
   const sortedRelations: RelatedPosts = {};
   const sortedKeys = Object.keys(relations).sort();
@@ -269,7 +215,7 @@ function writeYaml(relations: RelatedPosts): void {
  * Main execution
  */
 function main(): void {
-  console.log('Building related posts using TF-IDF similarity...');
+  console.log('Building related posts using natural library TF-IDF...');
 
   try {
     const posts = readPosts();
@@ -289,4 +235,7 @@ function main(): void {
   }
 }
 
-main();
+// Only run main if this is the main module
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main();
+}
