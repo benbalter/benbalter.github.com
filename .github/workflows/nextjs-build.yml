@@ -94,6 +94,8 @@ jobs:
 
       - name: Build Next.js site
         run: npm run next:build
+        env:
+          NODE_ENV: production
 
       - name: Start Next.js server
         run: |
