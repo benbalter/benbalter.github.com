@@ -4,7 +4,7 @@
 
 These files currently use Jekyll's Liquid templating and need to be migrated to Next.js:
 
-### Files to Migrate (in `public/` directory):
+### Files to Migrate (in `public/` directory)
 
 1. **press-feed.xml** (`public/press-feed.xml`)
    * RSS feed for press clips
@@ -42,7 +42,7 @@ These files currently use Jekyll's Liquid templating and need to be migrated to 
    * Has front matter with `sitemap: false`
    * Needs: Build-time generation or simple static file with fixed paths
 
-### Migration Strategy:
+### Migration Strategy
 
 * **Option 1**: Generate these files statically during the Next.js build process
   * Use a build script in `script/` directory
@@ -62,7 +62,7 @@ These files currently use Jekyll's Liquid templating and need to be migrated to 
   * Cache responses appropriately
   * Alternative approach for any of the above files
 
-### Recommended Approach by File:
+### Recommended Approach by File
 
 * **browserconfig.xml**: Build-time generation - simple static file with config values
 * **robots.txt**: Build-time generation - read disallow list from front matter or config
@@ -71,7 +71,7 @@ These files currently use Jekyll's Liquid templating and need to be migrated to 
 * **humans.txt**: API route - fetch contributors from GitHub API dynamically
 * **press-feed.xml**: API route or build-time generation from `_data/clips.yml`
 
-### Implementation Notes:
+### Implementation Notes
 
 1. **Build-time generation**: Create a `script/generate-metadata-files.mjs` script that:
    * Reads `_config.yml` for site metadata
@@ -81,6 +81,7 @@ These files currently use Jekyll's Liquid templating and need to be migrated to 
    * Runs as part of the build process in package.json
 
 2. **API routes**: For dynamic files, create routes like:
+
    ```typescript
    // app/api/press-feed.xml/route.ts
    export async function GET() {
@@ -99,14 +100,14 @@ These files currently use Jekyll's Liquid templating and need to be migrated to 
 
 The `/public/assets/images/og/` directory contains 184 Open Graph images for posts. These were excluded from the initial migration to reduce diff size.
 
-### TODO:
+### TODO
 
 * Copy OG images from Jekyll `assets/images/og/` to Next.js `public/assets/images/og/`
 * Ensure post metadata correctly references OG images
 * Verify images are accessible in production build
 * Consider generating OG images dynamically using `@vercel/og` or similar
 
-## Other Migration Tasks:
+## Other Migration Tasks
 
 * Migrate any remaining Jekyll plugins to Next.js equivalents
 * Set up RSS feed generation for blog posts
