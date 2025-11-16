@@ -17,11 +17,13 @@ The site uses two main dynamic route patterns:
 Handles all blog posts using Jekyll's permalink format: `/YYYY/MM/DD/slug/`
 
 **Example URLs:**
-- `/2024/01/08/dissenting-voices/`
-- `/2023/12/08/cathedral-bazaar-management/`
-- `/2022/02/16/leaders-show-their-work/`
+
+* `/2024/01/08/dissenting-voices/`
+* `/2023/12/08/cathedral-bazaar-management/`
+* `/2022/02/16/leaders-show-their-work/`
 
 **Implementation:**
+
 ```typescript
 export async function generateStaticParams() {
   const posts = getAllPosts();
@@ -39,12 +41,14 @@ export async function generateStaticParams() {
 Handles all static pages like About, Contact, Resume, etc.
 
 **Example URLs:**
-- `/about/`
-- `/contact/`
-- `/resume/`
-- `/talks/`
+
+* `/about/`
+* `/contact/`
+* `/resume/`
+* `/talks/`
 
 **Implementation:**
+
 ```typescript
 export async function generateStaticParams() {
   const slugs = getAllPageSlugs();
@@ -79,6 +83,7 @@ npm run next:build
 ```
 
 This runs:
+
 1. `next build` - Generates static site
 2. `script/generate-redirects.mjs` - Creates redirect pages
 3. `script/generate-feeds.mjs` - Generates RSS feeds
@@ -101,6 +106,7 @@ out/
 ### Implementation
 
 Legacy URLs from Jekyll are handled via static HTML redirect pages with:
+
 1. Meta refresh tag
 2. JavaScript `window.location.replace()`
 3. Fallback link for non-JavaScript browsers
@@ -152,6 +158,7 @@ This scans all content files for `redirect_from` and `redirect_to` directives an
 **Filename Format:** `YYYY-MM-DD-slug.md`
 
 **Frontmatter:**
+
 ```yaml
 ---
 title: Post Title
@@ -171,6 +178,7 @@ redirect_from:
 **Filename:** `slug.md` or `slug.html`
 
 **Frontmatter:**
+
 ```yaml
 ---
 title: Page Title
@@ -190,30 +198,33 @@ redirect_from:
 #### 1. URL Structure Validation (`e2e/url-structure.spec.ts`)
 
 Validates:
-- All blog posts accessible via Jekyll-style URLs
-- All static pages accessible
-- Home page loads correctly
-- 404 handling
-- SSG pre-rendering
-- Correct number of routes generated
+
+* All blog posts accessible via Jekyll-style URLs
+* All static pages accessible
+* Home page loads correctly
+* 404 handling
+* SSG pre-rendering
+* Correct number of routes generated
 
 #### 2. Redirect Validation (`e2e/redirects.spec.ts`)
 
 Validates:
-- Internal redirects work correctly
-- Post URL corrections (typos, date changes)
-- External redirects display correctly
-- Redirect pages contain proper meta tags and JavaScript
+
+* Internal redirects work correctly
+* Post URL corrections (typos, date changes)
+* External redirects display correctly
+* Redirect pages contain proper meta tags and JavaScript
 
 #### 3. Link Validation (`e2e/link-validation.spec.ts`)
 
 Validates:
-- Homepage internal links
-- Blog post internal links
-- Static page internal links
-- Navigation links
-- Footer links
-- No broken internal links
+
+* Homepage internal links
+* Blog post internal links
+* Static page internal links
+* Navigation links
+* Footer links
+* No broken internal links
 
 ### Running Tests
 
@@ -229,26 +240,26 @@ npm run test:e2e:nextjs -- e2e/url-structure.spec.ts
 
 ### Current Site Scale
 
-- **Blog Posts:** 184 posts
-- **Static Pages:** 9 pages
-- **Redirect Pages:** 56 redirects
-- **Total HTML Files:** ~219 files
+* **Blog Posts:** 184 posts
+* **Static Pages:** 9 pages
+* **Redirect Pages:** 56 redirects
+* **Total HTML Files:** \~219 files
 
 ### All Tests Passing ✅
 
-- **URL Structure Tests:** 9/9 passing
-- **Redirect Tests:** 6/6 passing
-- **Link Validation Tests:** 6/6 passing
-- **Total:** 21/21 tests passing
+* **URL Structure Tests:** 9/9 passing
+* **Redirect Tests:** 6/6 passing
+* **Link Validation Tests:** 6/6 passing
+* **Total:** 21/21 tests passing
 
 ## Server Components
 
 The entire site uses React Server Components by default, minimizing client-side JavaScript:
 
-- **Zero 'use client' directives** in page routes
-- **Static HTML generation** for all content
-- **Minimal JavaScript** - only for Bootstrap and navigation highlighting
-- **Optimal performance** - pre-rendered HTML served directly
+* **Zero 'use client' directives** in page routes
+* **Static HTML generation** for all content
+* **Minimal JavaScript** - only for Bootstrap and navigation highlighting
+* **Optimal performance** - pre-rendered HTML served directly
 
 ## Deployment
 
@@ -264,18 +275,20 @@ The site is deployed to GitHub Pages using the static export:
 ### From Jekyll to Next.js
 
 ✅ **Preserved:**
-- All blog post URLs (`/YYYY/MM/DD/slug/`)
-- All static page URLs (`/slug/`)
-- All redirect functionality
-- Same content structure
-- Same permalink patterns
+
+* All blog post URLs (`/YYYY/MM/DD/slug/`)
+* All static page URLs (`/slug/`)
+* All redirect functionality
+* Same content structure
+* Same permalink patterns
 
 ✅ **Improved:**
-- Modern React-based templating
-- Type-safe TypeScript code
-- Component-based architecture
-- Better developer experience
-- Incremental migration path
+
+* Modern React-based templating
+* Type-safe TypeScript code
+* Component-based architecture
+* Better developer experience
+* Incremental migration path
 
 ## Troubleshooting
 
@@ -289,7 +302,7 @@ The site is deployed to GitHub Pages using the static export:
 
 ### Test Failures
 
-**Problem:** Tests fail with "ERR_CONNECTION_REFUSED"
+**Problem:** Tests fail with "ERR\_CONNECTION\_REFUSED"
 **Solution:** Ensure the dev server is running: `npm run next:start`
 
 **Problem:** Playwright browser not found
@@ -315,7 +328,7 @@ Possible improvements for the routing system:
 
 ## References
 
-- [Next.js App Router Documentation](https://nextjs.org/docs/app)
-- [Next.js Static Exports](https://nextjs.org/docs/app/building-your-application/deploying/static-exports)
-- [Jekyll Permalinks](https://jekyllrb.com/docs/permalinks/)
-- [GitHub Pages Documentation](https://docs.github.com/en/pages)
+* [Next.js App Router Documentation](https://nextjs.org/docs/app)
+* [Next.js Static Exports](https://nextjs.org/docs/app/building-your-application/deploying/static-exports)
+* [Jekyll Permalinks](https://jekyllrb.com/docs/permalinks/)
+* [GitHub Pages Documentation](https://docs.github.com/en/pages)
