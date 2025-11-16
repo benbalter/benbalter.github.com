@@ -50,7 +50,7 @@
     "webpack.config.js",
     ".next/dev/**/*",
     "**/*.test.ts",
-    "**/*.test.tsx"
+    "**/*.test.tsx",
     "out"
   ],
   "typeRoots": [
