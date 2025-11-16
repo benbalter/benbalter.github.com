@@ -4,26 +4,41 @@ This document describes the Next.js equivalents for all Jekyll plugins used in t
 
 ## Overview
 
-All Jekyll plugins have been successfully migrated to Next.js equivalents. The implementation uses TypeScript utilities in the `lib/` directory, industry-standard open-source libraries, and build-time scripts for generating static assets.
+All Jekyll plugins have been successfully migrated to Next.js equivalents. **The implementation prioritizes using industry-standard open-source libraries to the maximum extent possible**, complemented by minimal TypeScript utilities and build-time scripts for generating static assets.
+
+## Philosophy: Open-Source First
+
+**All implementations rely on open-source libraries wherever possible.** This approach provides:
+
+- ✅ **Better maintenance** - Active communities and regular updates
+- ✅ **More features** - Comprehensive functionality beyond basic needs
+- ✅ **Better tested** - Extensive test coverage and real-world usage
+- ✅ **Standards compliance** - Adherence to industry standards and specifications
+- ✅ **Type safety** - Modern TypeScript definitions and tooling support
+- ✅ **Security updates** - Automatic vulnerability patches from maintainers
+- ✅ **Reduced custom code** - Less code to write, maintain, and debug
 
 **Open-Source Libraries Used:**
-- **node-emoji** (v2.2.0) - Comprehensive emoji support with 1800+ emoji
+- **@octokit/rest** (v21.0.2) - Official GitHub API client for avatars and metadata
+- **remark-github** (v12.0.0) - GitHub-flavored markdown with @mentions, issues, commits
+- **node-emoji** (v2.2.0) - Comprehensive emoji support with 1800+ GitHub-compatible emoji
 - **feed** (v5.1.0) - Standards-compliant RSS/Atom feed generation
-- **sitemap** (v9.0.0) - XML sitemap generation
+- **sitemap** (v9.0.0) - XML sitemap generation with proper escaping
+- **natural** - TF-IDF analysis for related posts
 
 ## Plugin Migration Status
 
-| Jekyll Plugin | Status | Next.js Equivalent | Libraries Used | Notes |
-|---------------|--------|-------------------|----------------|-------|
-| Related Posts (retlab) | ✅ Complete | `script/build-related-posts.ts` | natural | TF-IDF similarity analysis |
+| Jekyll Plugin | Status | Next.js Equivalent | Open-Source Libraries | Notes |
+|---------------|--------|-------------------|----------------------|-------|
+| Related Posts (retlab) | ✅ Complete | `script/build-related-posts.ts` | **natural** | TF-IDF similarity analysis |
 | jekyll-redirect-from | ✅ Complete | `script/generate-redirects.mjs` | - | Static HTML redirect pages |
-| jekyll-feed | ✅ Complete | `lib/rss.ts` + `script/generate-feeds.mjs` | **feed** | RSS 2.0 feeds |
-| jekyll-sitemap | ✅ Complete | `lib/sitemap.ts` + `script/generate-feeds.mjs` | **sitemap** | XML sitemap |
+| jekyll-feed | ✅ Complete | `lib/rss.ts` + `script/generate-feeds.mjs` | **feed** | RSS 2.0 with CDATA, XML escaping |
+| jekyll-sitemap | ✅ Complete | `lib/sitemap.ts` + `script/generate-feeds.mjs` | **sitemap** | XML sitemap with escaping |
 | jekyll-seo-tag | ✅ Complete | `lib/seo.ts` | - | Enhanced metadata + JSON-LD |
-| jekyll-github-metadata | ✅ Complete | `lib/github.ts` | - | Repository metadata utilities |
-| jekyll-avatar | ✅ Complete | `lib/avatar.ts` + `app/components/GitHubAvatar.tsx` | - | Avatar URLs and component |
-| jekyll-mentions | ✅ Complete | `lib/mentions.ts` | - | @username to GitHub links |
-| jemoji | ✅ Complete | `lib/emoji.ts` | **node-emoji** | :emoji: to Unicode conversion |
+| jekyll-github-metadata | ✅ Complete | `lib/github.ts` | **@octokit/rest** | Official GitHub API client |
+| jekyll-avatar | ✅ Complete | `lib/avatar.ts` + `app/components/GitHubAvatar.tsx` | **@octokit/rest**, Next.js Image | Avatar URLs via Octokit |
+| jekyll-mentions | ✅ Complete | `lib/markdown.ts` | **remark-github** | @mentions, issues, PRs, commits |
+| jemoji | ✅ Complete | `lib/emoji.ts` | **node-emoji** | :emoji: to Unicode (1800+ emoji) |
 | jekyll-og-image | ✅ Complete | `lib/og-image.ts` | - | OG image URL resolution |
 
 ## Implementation Details
@@ -79,9 +94,11 @@ redirect_to: https://external-site.com/new-page
 ### 3. RSS Feeds (`jekyll-feed`)
 
 **Jekyll:** jekyll-feed plugin  
-**Next.js:** `feed` library (v5.1.0)
+**Next.js:** **feed** library (v5.1.0)
 
 **Location:** `lib/rss.ts`, `script/generate-feeds.mjs`
+
+**Open-Source Library:** **feed** - Industry-standard RSS/Atom feed generator
 
 **Outputs:**
 - `feed.xml` - Latest 20 blog posts
@@ -94,18 +111,26 @@ npm run next:build
 ```
 
 **Features:**
-- Standards-compliant RSS 2.0 format
+- Uses feed library for standards-compliant RSS 2.0
+- Automatic XML escaping (handled by library)
 - Proper CDATA handling
 - Full post metadata (title, description, pubDate, guid)
 - Press clips from `content/data/clips.yml`
-- Uses the industry-standard `feed` library
+
+**Why feed library:**
+- Used by thousands of projects
+- Standards-compliant output
+- Automatic handling of XML edge cases
+- Better tested than custom implementations
 
 ### 4. Sitemap (`jekyll-sitemap`)
 
 **Jekyll:** jekyll-sitemap plugin  
-**Next.js:** `sitemap` library (v9.0.0)
+**Next.js:** **sitemap** library (v9.0.0)
 
 **Location:** `lib/sitemap.ts`, `script/generate-feeds.mjs`
+
+**Open-Source Library:** **sitemap** - Industry-standard sitemap generator
 
 **Outputs:**
 - `sitemap.xml` - All posts and pages
@@ -118,11 +143,18 @@ npm run next:build
 ```
 
 **Features:**
-- Standards-compliant XML sitemap
+- Uses sitemap library for standards-compliant XML
+- Automatic XML escaping (handled by library)
+- Stream-based for better performance
 - Proper lastmod, changefreq, priority
 - Homepage, pages, and all blog posts
 - Full URL generation from config
-- Uses the industry-standard `sitemap` library
+
+**Why sitemap library:**
+- Industry standard for sitemap generation
+- Automatic handling of XML escaping
+- Better performance than manual string building
+- Standards-compliant output
 
 ### 5. SEO Tags (`jekyll-seo-tag`)
 
@@ -159,101 +191,133 @@ export async function generateMetadata({ params }) {
 ### 6. GitHub Metadata (`jekyll-github-metadata`)
 
 **Jekyll:** jekyll-github-metadata plugin  
-**Next.js:** Config-based + API utilities
+**Next.js:** **@octokit/rest** library (v21.0.2) - Official GitHub API client
 
 **Location:** `lib/github.ts`
 
+**Open-Source Library:** **@octokit/rest** - The official GitHub REST API client
+
 **Usage:**
 ```typescript
-import { getGitHubMetadata, fetchContributors } from '@/lib/github';
+import { getGitHubMetadata, fetchContributors, fetchRepositoryInfo } from '@/lib/github';
 
 const metadata = getGitHubMetadata();
 // { owner, repo, url, contributorsUrl, issuesUrl, ... }
 
-// At build time:
+// At build time using Octokit:
 const contributors = await fetchContributors(30);
+const repoInfo = await fetchRepositoryInfo();
 ```
 
 **Features:**
+- Uses official GitHub API client (@octokit/rest)
+- Better type safety with TypeScript definitions
+- Automatic authentication with GITHUB_TOKEN
+- Rate limit handling
 - Repository metadata from `_config.yml`
 - URL generators (commits, issues, releases, etc.)
-- GitHub API integration for contributors
-- Repository info fetching
-- Supports `GITHUB_TOKEN` env var for higher rate limits
+- Contributors list via `octokit.repos.listContributors()`
+- Repository info via `octokit.repos.get()`
 
 ### 7. Avatars (`jekyll-avatar`)
 
 **Jekyll:** jekyll-avatar plugin  
-**Next.js:** Avatar utilities + React component
+**Next.js:** **@octokit/rest** + Next.js Image component
 
 **Location:** `lib/avatar.ts`, `app/components/GitHubAvatar.tsx`
 
+**Open-Source Libraries:**
+- **@octokit/rest** - Fetches avatar URLs from GitHub API
+- **Next.js Image** - Optimized image component
+
 **Usage:**
 ```typescript
-// As a utility
+// Async with Octokit API
 import { getGitHubAvatarUrl } from '@/lib/avatar';
-const url = getGitHubAvatarUrl('username', 80);
+const url = await getGitHubAvatarUrl('username', 80);
 
-// As a component
+// Sync (direct URL construction)
+import { getGitHubAvatarUrlSync } from '@/lib/avatar';
+const url = getGitHubAvatarUrlSync('username', 80);
+
+// As a component with Next.js Image
 import GitHubAvatar from '@/app/components/GitHubAvatar';
 <GitHubAvatar username="benbalter" size={40} />
 ```
 
 **Features:**
-- GitHub Avatars API integration
+- Uses Octokit's `users.getByUsername()` for avatar URLs
+- Caching to minimize API calls
+- Fallback to direct URL construction
+- Next.js Image component for optimization
 - Configurable size
-- React component with lazy loading
-- HTML img tag generation
+- Lazy loading by default
 
 ### 8. Mentions (`jekyll-mentions`)
 
 **Jekyll:** jekyll-mentions plugin  
-**Next.js:** Markdown post-processing
+**Next.js:** **remark-github** plugin (v12.0.0)
 
-**Location:** `lib/mentions.ts`, integrated in `lib/markdown.ts`
+**Location:** `lib/markdown.ts` (integrated into markdown processing)
+
+**Open-Source Library:** **remark-github** - Official remark plugin for GitHub features
 
 **Usage:**
 ```typescript
-import { processMentions, extractMentions } from '@/lib/mentions';
-
-// Automatic in markdown processing
+// Automatic in markdown processing via remark-github
 const html = await markdownToHtml(markdown);
 // @username becomes <a href="https://github.com/username">@username</a>
+// #123 becomes link to issue/PR #123
+// Commit SHAs become commit links
 ```
 
 **Features:**
-- Converts `@username` to GitHub profile links
-- Preserves original @ syntax in display
-- Avoids email addresses
-- Extracts all mentions from text
-- Safe HTML processing (doesn't affect existing links)
+- Uses official remark-github plugin
+- Automatic @mention linking to GitHub profiles
+- Issue and PR reference linking (#123)
+- Commit SHA linking (7-40 character SHAs)
+- User/org disambiguation
+- Preserves original syntax in display
+- Integrated into remark markdown pipeline
+
+**Note:** `lib/mentions.ts` contains custom utilities kept for backward compatibility, but the primary implementation uses remark-github.
 
 ### 9. Emoji (`jemoji`)
 
 **Jekyll:** jemoji plugin  
-**Next.js:** `node-emoji` library (v2.2.0)
+**Next.js:** **node-emoji** library (v2.2.0)
 
 **Location:** `lib/emoji.ts`, integrated in `lib/markdown.ts`
+
+**Open-Source Library:** **node-emoji** - Community-maintained emoji database
 
 **Usage:**
 ```typescript
 import { processEmoji } from '@/lib/emoji';
 
-// Automatic in markdown processing
+// Automatic in markdown processing via node-emoji
 const html = await markdownToHtml(markdown);
 // :rocket: becomes 🚀
 ```
 
 **Features:**
+- Uses node-emoji's `emojify()` function
 - Converts `:emoji_name:` to Unicode emoji
-- 1800+ emoji supported via node-emoji
+- 1800+ emoji supported (vs ~100 in custom implementations)
 - GitHub-compatible emoji names
 - Full emoji database maintained by the community
+- Better tested than custom implementations
 
 **Supported emoji:**
 - All standard Unicode emoji
 - GitHub shortcode names (`:+1:`, `:rocket:`, `:wave:`, etc.)
 - Comprehensive coverage across all categories
+
+**Why node-emoji:**
+- Industry-standard library with 2.3M+ weekly downloads
+- Actively maintained with regular updates
+- Comprehensive test suite
+- Better emoji coverage than custom implementations
 
 ### 10. OG Images (`jekyll-og-image`)
 
@@ -417,8 +481,32 @@ Potential improvements:
 
 ## Resources
 
+### Open-Source Libraries
+- [@octokit/rest](https://github.com/octokit/rest.js) - Official GitHub REST API client
+- [remark-github](https://github.com/remarkjs/remark-github) - GitHub-flavored markdown plugin
+- [node-emoji](https://github.com/omnidan/node-emoji) - Emoji support for Node.js
+- [feed](https://github.com/jpmonette/feed) - RSS/Atom feed generator
+- [sitemap](https://github.com/ekalinin/sitemap.js) - Sitemap generator
+- [natural](https://github.com/NaturalNode/natural) - Natural language processing for TF-IDF
+
+### Documentation
 - [Next.js Metadata API](https://nextjs.org/docs/app/api-reference/functions/generate-metadata)
 - [RSS 2.0 Specification](https://www.rssboard.org/rss-specification)
 - [Sitemap Protocol](https://www.sitemaps.org/protocol.html)
 - [Open Graph Protocol](https://ogp.me/)
 - [Schema.org Documentation](https://schema.org/)
+
+## Summary: Open-Source First Approach
+
+This implementation demonstrates the benefits of **relying on open-source libraries to the maximum extent possible**:
+
+✅ **5 Major Open-Source Libraries** replace custom implementations
+✅ **Better Maintained** - Active communities with regular updates
+✅ **More Features** - Comprehensive functionality beyond basic needs
+✅ **Better Tested** - Extensive test suites and real-world usage
+✅ **Standards Compliant** - Adherence to industry specifications
+✅ **Type Safe** - Modern TypeScript definitions
+✅ **Secure** - Automatic vulnerability patches
+✅ **Less Code** - Minimal custom code to maintain
+
+**Key Principle:** When implementing new features, always search for and evaluate existing open-source libraries before writing custom code. This ensures better quality, maintainability, and community support.
