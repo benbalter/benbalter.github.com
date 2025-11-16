@@ -164,7 +164,7 @@ test.describe('Legacy URL Redirects', () => {
   });
 
   test.describe('Redirect HTML Structure', () => {
-    test('should have proper meta refresh tag', async ({ request }) => {
+    test('should have all required HTML elements and proper structure', async ({ request }) => {
       const response = await request.get('/cv/', { 
         maxRedirects: 0,
         failOnStatusCode: false 
@@ -175,53 +175,17 @@ test.describe('Legacy URL Redirects', () => {
       // Check meta refresh tag
       expect(content).toContain('meta http-equiv="refresh"');
       expect(content).toContain('content="0; url=/resume/"');
-    });
-
-    test('should have JavaScript redirect', async ({ request }) => {
-      const response = await request.get('/cv/', { 
-        maxRedirects: 0,
-        failOnStatusCode: false 
-      });
-      
-      const content = await response.text();
       
       // Check JavaScript redirect
       expect(content).toContain('window.location.replace');
       expect(content).toContain('/resume/');
-    });
-
-    test('should have canonical link', async ({ request }) => {
-      const response = await request.get('/cv/', { 
-        maxRedirects: 0,
-        failOnStatusCode: false 
-      });
-      
-      const content = await response.text();
       
       // Check canonical link
       expect(content).toContain('<link rel="canonical"');
       expect(content).toContain('https://ben.balter.com/resume/');
-    });
-
-    test('should have noindex meta tag', async ({ request }) => {
-      const response = await request.get('/cv/', { 
-        maxRedirects: 0,
-        failOnStatusCode: false 
-      });
-      
-      const content = await response.text();
       
       // Check robots noindex
       expect(content).toContain('<meta name="robots" content="noindex">');
-    });
-
-    test('should have user-friendly fallback message', async ({ request }) => {
-      const response = await request.get('/cv/', { 
-        maxRedirects: 0,
-        failOnStatusCode: false 
-      });
-      
-      const content = await response.text();
       
       // Check fallback content for users with JavaScript disabled
       expect(content).toContain('<h1>Redirecting...</h1>');
