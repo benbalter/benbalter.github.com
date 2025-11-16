@@ -3,8 +3,11 @@
 import { useEffect } from 'react';
 
 /**
- * Client component to initialize Bootstrap components and FontAwesome
+ * Client component to initialize Bootstrap components
  * This component should be included in the root layout
+ * 
+ * Note: FontAwesome is now handled via React components (@fortawesome/react-fontawesome)
+ * instead of DOM watching, which is more performant and type-safe
  */
 export default function ClientScripts() {
   useEffect(() => {
@@ -15,12 +18,6 @@ export default function ClientScripts() {
       tooltipTriggerList.forEach((tooltipTriggerEl) => {
         new bootstrap.Tooltip(tooltipTriggerEl);
       });
-    });
-
-    // Initialize FontAwesome
-    import('@fortawesome/fontawesome-svg-core').then((fontawesome) => {
-      fontawesome.config.mutateApproach = 'sync';
-      fontawesome.dom.watch();
     });
   }, []);
 

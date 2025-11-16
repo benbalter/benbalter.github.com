@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
+import { cache } from 'react';
 
 export function loadData<T = any>(filename: string): T {
   const dataDirectory = path.join(process.cwd(), 'content/data');
@@ -21,9 +22,12 @@ export interface Book {
   tldr: string;
 }
 
-export function getBooks(): Record<string, Book[]> {
+/**
+ * Get books data with React cache for request-level memoization
+ */
+export const getBooks = cache((): Record<string, Book[]> => {
   return loadData('books.yml');
-}
+});
 
 export interface Clip {
   title: string;
@@ -32,10 +36,16 @@ export interface Clip {
   date: string;
 }
 
-export function getClips(): Clip[] {
+/**
+ * Get clips data with React cache for request-level memoization
+ */
+export const getClips = cache((): Clip[] => {
   return loadData('clips.yml');
-}
+});
 
-export function getRelatedPosts(): Record<string, string[]> {
+/**
+ * Get related posts mapping with React cache for request-level memoization
+ */
+export const getRelatedPosts = cache((): Record<string, string[]> => {
   return loadData('related_posts.yml');
-}
+});

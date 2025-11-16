@@ -1,5 +1,8 @@
+import fs from 'fs';
 import path from 'path';
-import { readContentFile, findFileWithExtensions, readDirectory, createContentItem } from './content-loader';
+import matter from 'gray-matter';
+import { cache } from 'react';
+import { readDirectory } from './content-loader';
 
 export interface Page {
   slug: string;
@@ -9,41 +12,61 @@ export interface Page {
   [key: string]: any;
 }
 
+/**
+ * Internal function to parse a page file
+ * Extracted for reuse in both getAllPages and getPageBySlug
+ */
+function parsePageFile(fileName: string, pagesDirectory: string): Page {
+  const slug = fileName.replace(/\.(md|html)$/, '');
+  const fullPath = path.join(pagesDirectory, fileName);
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const { data, content } = matter(fileContents);
+  
+  return {
+    slug,
+    content,
+    ...data,
+    // Ensure these take precedence over any conflicting keys in ...data
+    title: data.title,
+    description: data.description,
+  };
+}
+
+/**
+ * Get a single page by slug, optimized with direct file checks
+ */
 export function getPageBySlug(slug: string): Page | null {
   const pagesDirectory = path.join(process.cwd(), 'content/pages');
   const extensions = ['.md', '.html'];
   
-  const filePath = findFileWithExtensions(pagesDirectory, slug, extensions);
-  
-  if (!filePath) {
-    return null;
+  for (const ext of extensions) {
+    const fileName = `${slug}${ext}`;
+    const fullPath = path.join(pagesDirectory, fileName);
+    
+    if (fs.existsSync(fullPath)) {
+      try {
+        return parsePageFile(fileName, pagesDirectory);
+      } catch (error) {
+        console.warn(`Failed to parse page file ${fileName}:`, error);
+      }
+    }
   }
   
-  const { data, content } = readContentFile(filePath);
-  
-  return createContentItem(slug, data, content, {
-    title: data.title,
-    description: data.description,
-  }) as Page;
+  return null;
 }
 
-export function getAllPages(): Page[] {
+/**
+ * Get all pages with React cache for request-level memoization
+ * This ensures getAllPages() is only executed once per request during SSG
+ */
+export const getAllPages = cache((): Page[] => {
   const pagesDirectory = path.join(process.cwd(), 'content/pages');
   const fileNames = readDirectory(pagesDirectory);
   
   return fileNames
     .filter(fileName => fileName.endsWith('.md') || fileName.endsWith('.html'))
-    .map(fileName => {
-      const slug = fileName.replace(/\.(md|html)$/, '');
-      const fullPath = path.join(pagesDirectory, fileName);
-      const { data, content } = readContentFile(fullPath);
-      
-      return createContentItem(slug, data, content, {
-        title: data.title,
-        description: data.description,
-      }) as Page;
-    });
-}
+    .map(fileName => parsePageFile(fileName, pagesDirectory));
+});
 
 export function getAllPageSlugs(): string[] {
   const pages = getAllPages();
