@@ -104,7 +104,7 @@ export function getPostMetadata(post: Post): Metadata {
 export function getPageMetadata(page: Page, path: string): Metadata {
   const config = getSiteConfig();
   const fullUrl = `${config.url}${path}`;
-  const ogImage = getPageOgImage(page.image);
+  const ogImage = getPageOgImage(page.image as string | undefined);
   const title = page.title || config.title;
   const description = page.description || config.description;
   

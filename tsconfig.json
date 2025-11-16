@@ -35,16 +35,15 @@
     "app/**/*.tsx",
     "lib/**/*.ts",
     "script/**/*.ts",
-    ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",
     "js/**/*",
     "assets/**/*",
-    "webpack.config.js"
-  ],
-  "typeRoots": [
-    "types"
+    "webpack.config.js",
+    ".next/dev/**/*",
+    "**/*.test.ts",
+    "**/*.test.tsx"
   ]
 }

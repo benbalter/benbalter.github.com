@@ -37,7 +37,7 @@ export function getPostOgImage(post: Post): string {
   }
   
   // Check for og_image in frontmatter
-  const normalizedOgImage = normalizeImageUrl(post.og_image);
+  const normalizedOgImage = normalizeImageUrl(post.og_image as string | undefined);
   if (normalizedOgImage) {
     return normalizedOgImage;
   }

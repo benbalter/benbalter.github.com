@@ -34,7 +34,7 @@ export async function generateSitemap(): Promise<string> {
     .filter(page => page.slug !== 'index' && page.slug !== '404')
     .forEach(page => {
       const url = page.permalink
-        ? encodeURI(page.permalink)
+        ? encodeURI(page.permalink as string)
         : `/${encodeURIComponent(page.slug)}/`;
       links.push({
         url,
