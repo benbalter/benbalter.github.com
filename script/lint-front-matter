@@ -6,12 +6,19 @@ require 'open3'
 
 exitstatus = 0
 
+# Pre-collect all files to avoid re-reading during iteration
+files_with_yaml = []
 Dir['*/**.md'].each do |path|
   content = File.read(path)
   next unless content.match?(Jekyll::Document::YAML_FRONT_MATTER_REGEXP)
 
   parts = content.split Jekyll::Document::YAML_FRONT_MATTER_REGEXP
-  output, status = Open3.capture2e('yamllint', '-', '-c', '.yamllint.yml', '-f', 'colored', stdin_data: parts[1])
+  files_with_yaml << [path, parts[1]]
+end
+
+# Process all collected files
+files_with_yaml.each do |path, yaml_content|
+  output, status = Open3.capture2e('yamllint', '-', '-c', '.yamllint.yml', '-f', 'colored', stdin_data: yaml_content)
   next if status.exitstatus.zero?
 
   puts path
