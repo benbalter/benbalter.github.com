@@ -284,8 +284,8 @@ function findRedirectChains(redirects) {
       current = redirectMap.get(current);
     }
     
-    // If we found a chain (more than just source -> destination)
-    if (chain.length > 1) {
+    // If the destination itself is a redirect source (i.e., a chain exists)
+    if (redirectMap.has(destination)) {
       chain.push(current);
       chains.push(chain);
     }
