@@ -59,7 +59,7 @@ async function generateFeeds() {
   
   // Generate sitemap
   try {
-    const sitemap = generateSitemap();
+    const sitemap = await generateSitemap();
     const sitemapPath = path.join(outDir, 'sitemap.xml');
     fs.writeFileSync(sitemapPath, sitemap, 'utf-8');
     console.log('✅ Generated sitemap.xml');
@@ -69,7 +69,7 @@ async function generateFeeds() {
   
   // Generate sitemap index (for compatibility)
   try {
-    const sitemapIndex = generateSitemapIndex();
+    const sitemapIndex = await generateSitemapIndex();
     const sitemapIndexPath = path.join(outDir, 'sitemap_index.xml');
     fs.writeFileSync(sitemapIndexPath, sitemapIndex, 'utf-8');
     console.log('✅ Generated sitemap_index.xml');

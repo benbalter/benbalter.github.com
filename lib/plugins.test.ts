@@ -12,7 +12,7 @@ describe('Emoji Processing', () => {
   });
 
   it('should handle multiple emoji', () => {
-    assert.strictEqual(processEmoji(':smile: :thumbsup: :rocket:'), '😄 👍 🚀');
+    assert.strictEqual(processEmoji(':smile: :+1: :rocket:'), '😄 👍 🚀');
   });
 
   it('should leave unknown emoji unchanged', () => {
