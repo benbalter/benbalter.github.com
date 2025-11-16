@@ -291,7 +291,9 @@ export default function PostPage({ params }) {
   const [likes, setLikes] = useState(0);
   
   useEffect(() => {
-    // Fetch post client-side (bad for SEO, slow)
+    // ❌ Anti-pattern: Fetch post client-side (bad for SEO, slow, and WILL NOT WORK with SSG/static export)
+    // This will fail because API routes like `/api/posts/${params.slug}` do not exist in a static export.
+    // Do NOT use client-side fetch for page data in SSG. Use static data fetching at build time instead.
     fetch(`/api/posts/${params.slug}`).then(r => r.json()).then(setPost);
   }, [params.slug]);
   
