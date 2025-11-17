@@ -63,6 +63,13 @@ See [docs/NEXTJS.md](docs/NEXTJS.md) for comprehensive documentation including:
 * Migration guide from Jekyll
 * Troubleshooting tips
 
+See [docs/REACT_HELMET.md](docs/REACT_HELMET.md) for React Helmet integration:
+
+* When to use React Helmet vs Next.js Metadata API
+* Usage examples and best practices
+* Testing guidelines
+* Component documentation
+
 #### Legacy URL Redirects
 
 The build process automatically generates static HTML redirect pages for all `redirect_from` and `redirect_to` directives in YAML frontmatter. See [docs/REDIRECTS.md](docs/REDIRECTS.md) for details.
@@ -144,7 +151,11 @@ See [docs/SSG-BEST-PRACTICES.md](docs/SSG-BEST-PRACTICES.md) for complete guidel
 * Maximizing static HTML generation
 * Preferring HTML/CSS over JavaScript
 
-**Key principle**: NEVER use 'use client' unless absolutely necessary. The site currently has only 2 client components and should stay that way.
+**Key principle**: NEVER use 'use client' unless absolutely necessary. The site currently has 3 essential client components:
+
+1. **ClientScripts.tsx** - Bootstrap and FontAwesome initialization
+2. **Navigation.tsx** - Active link highlighting with usePathname
+3. **HelmetProvider.tsx** - React Helmet context (for optional dynamic metadata)
 
 ### Copilot Development Environment
 
