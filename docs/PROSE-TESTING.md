@@ -50,7 +50,6 @@ textlint *.md _posts/*.md _resume_positions/*.md --fix
 **Configuration:** `.textlintrc`
 
 **Key Rules:**
-
 * `common-misspellings` - Catches typos
 * `terminology` - Enforces consistent terminology (e.g., "GitHub" not "Github")
 * `write-good` - Suggests improvements (warnings only to reduce noise)
@@ -59,7 +58,6 @@ textlint *.md _posts/*.md _resume_positions/*.md --fix
 * `doubled-spaces` - Catches double spaces
 
 **Customization:**
-
 * Most rules set to "warning" severity to avoid blocking builds
 * Technical terms (HTML, URL, VS Code, E2E) excluded from terminology checks
 * Common abbreviations (e.g., etc., i.e.) allowed in stop-words
@@ -71,7 +69,6 @@ textlint *.md _posts/*.md _resume_positions/*.md --fix
 **Configuration:** `.remarkrc.js`
 
 **Active Prose Plugins:**
-
 * `retext-equality` - Checks for insensitive language
 * `retext-indefinite-article` - Validates a/an usage
 * `retext-repeated-words` - Catches duplicated words
@@ -81,7 +78,6 @@ textlint *.md _posts/*.md _resume_positions/*.md --fix
 * `retext-sentence-spacing` - Ensures consistent spacing
 
 **Disabled Plugins** (too noisy for technical writing):
-
 * `retext-passive` - Passive voice detection
 * `retext-readability` - Readability scoring
 * `retext-simplify` - Word simplification suggestions
@@ -101,7 +97,6 @@ Typographic corrections (smart quotes, em/en dashes, etc.) are applied by the te
 **Configuration:** `.vale.ini`
 
 **Status:** Vale is not installed by default. If installed, it runs additional style checks using:
-
 * Microsoft Writing Style Guide
 * Alex (inclusive language)
 * Proselint (writing advice)
@@ -111,7 +106,6 @@ Typographic corrections (smart quotes, em/en dashes, etc.) are applied by the te
 **Installation:** See https://vale.sh/docs/vale-cli/installation/
 
 **Usage:**
-
 ```bash
 # Install Vale (macOS example)
 brew install vale
@@ -127,7 +121,6 @@ script/vale
 **File:** `spec/prose_quality_spec.rb`
 
 **Tests:**
-
 * No multiple consecutive blank lines
 * No trailing whitespace
 * No doubled spaces in prose
@@ -135,7 +128,6 @@ script/vale
 * No broken internal links
 
 **Running:**
-
 ```bash
 bundle exec rspec spec/prose_quality_spec.rb
 ```
@@ -164,7 +156,6 @@ Prose tests run automatically in CI via the `content` job in `.github/workflows/
 ```
 
 This runs:
-
 1. `script/remark` - Markdown and prose linting
 2. `script/lint-text` - Textlint grammar/style checking
 3. `script/vale` - Vale style checking (if installed)
