@@ -14,6 +14,7 @@ import { getSiteConfig, getAuthorBio } from '@/lib/config';
 import { getPostMetadata } from '@/lib/seo';
 import { ArticleJsonLd } from 'next-seo';
 import { getPostUrlParts } from '@/lib/posts';
+import { getPostOgImage } from '@/lib/og-image';
 
 // Load site configuration
 const config = getSiteConfig();
@@ -79,6 +80,9 @@ export default async function Post({ params }: PageProps) {
   const fullUrl = `${config.url}${url}`;
   const isoDate = new Date(post.date).toISOString();
   
+  // Get normalized image URL (absolute URL)
+  const imageUrl = getPostOgImage(post);
+  
   return (
     <>
       {/* JSON-LD structured data for the article */}
@@ -94,7 +98,7 @@ export default async function Post({ params }: PageProps) {
           name: config.author.name,
           url: config.url,
         }}
-        image={post.image ? [post.image] : [`${config.url}/assets/img/headshot.jpg`]}
+        image={[imageUrl]}
         publisher={{
           name: config.author.name,
           logo: {
@@ -102,11 +106,9 @@ export default async function Post({ params }: PageProps) {
             url: `${config.url}/assets/img/headshot.jpg`,
           },
         }}
-        additionalProps={{
-          mainEntityOfPage: {
-            '@type': 'WebPage',
-            '@id': fullUrl,
-          },
+        mainEntityOfPage={{
+          '@type': 'WebPage',
+          '@id': fullUrl,
         }}
       />
       
