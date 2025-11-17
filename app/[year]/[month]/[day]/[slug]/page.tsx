@@ -12,6 +12,9 @@ import PostMetadata from '@/app/components/PostMetadata';
 import EditButton from '@/app/components/EditButton';
 import { getSiteConfig, getAuthorBio } from '@/lib/config';
 import { getPostMetadata } from '@/lib/seo';
+import { ArticleJsonLd } from 'next-seo';
+import { getPostUrlParts } from '@/lib/posts';
+import { getPostOgImage } from '@/lib/og-image';
 
 // Load site configuration
 const config = getSiteConfig();
@@ -73,41 +76,77 @@ export default async function Post({ params }: PageProps) {
   const revisionHistoryUrl = `${config.url.replace(/\/$/, '')}/${config.repository}/commits/${config.branch}/_posts/${post.slug}.md`;
   const editUrl = `${config.url.replace(/\/$/, '')}/${config.repository}/edit/${config.branch}/_posts/${post.slug}.md`;
   
+  const { url } = getPostUrlParts(post);
+  const fullUrl = `${config.url}${url}`;
+  const isoDate = new Date(post.date).toISOString();
+  
+  // Get normalized image URL (absolute URL)
+  const imageUrl = getPostOgImage(post);
+  
   return (
-    <div className="row">
-      <div className="col-md-10 offset-md-1">
-        <article id={`post-${post.slug}`} className={`post post-${post.slug}`}>
-          <PostHeader title={post.title} />
-          
-          {post.description && (
-            <PostDescription description={post.description} />
-          )}
-          
-          {post.archived && (
-            <ArchivedWarning />
-          )}
-          
-          <ReadingTime content={post.content} />
-          
-          <PostContent contentHtml={contentHtml} />
-          
-          <PostMetadata 
-            publishDate={publishDate}
-            revisionHistoryUrl={revisionHistoryUrl}
-          />
-          
-          <div className="row border-top pt-3">
-            <div className="col">
-              <MiniBio 
-                authorName={config.author.name}
-                githubHandle={config.handle}
-                bioText={authorBio}
-              />
+    <>
+      {/* JSON-LD structured data for the article */}
+      <ArticleJsonLd
+        type="BlogPosting"
+        url={fullUrl}
+        headline={post.title}
+        description={post.description || config.description}
+        datePublished={isoDate}
+        dateModified={isoDate}
+        author={{
+          '@type': 'Person',
+          name: config.author.name,
+          url: config.url,
+        }}
+        image={[imageUrl]}
+        publisher={{
+          name: config.author.name,
+          logo: {
+            '@type': 'ImageObject',
+            url: `${config.url}/assets/img/headshot.jpg`,
+          },
+        }}
+        mainEntityOfPage={{
+          '@type': 'WebPage',
+          '@id': fullUrl,
+        }}
+      />
+      
+      <div className="row">
+        <div className="col-md-10 offset-md-1">
+          <article id={`post-${post.slug}`} className={`post post-${post.slug}`}>
+            <PostHeader title={post.title} />
+            
+            {post.description && (
+              <PostDescription description={post.description} />
+            )}
+            
+            {post.archived && (
+              <ArchivedWarning />
+            )}
+            
+            <ReadingTime content={post.content} />
+            
+            <PostContent contentHtml={contentHtml} />
+            
+            <PostMetadata 
+              publishDate={publishDate}
+              revisionHistoryUrl={revisionHistoryUrl}
+            />
+            
+            <div className="row border-top pt-3">
+              <div className="col">
+                <MiniBio 
+                  authorName={config.author.name}
+                  githubHandle={config.handle}
+                  bioText={authorBio}
+                />
+              </div>
+              <EditButton editUrl={editUrl} postSlug={post.slug} />
             </div>
-            <EditButton editUrl={editUrl} postSlug={post.slug} />
-          </div>
-        </article>
+          </article>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
