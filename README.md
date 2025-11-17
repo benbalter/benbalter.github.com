@@ -113,6 +113,8 @@ npm run lint-yaml    # Lint YAML files
 rubocop              # Lint Ruby code
 ```
 
+**Prose Testing:** The repository includes comprehensive prose quality testing with textlint, remark/retext, and optional Vale. See [docs/PROSE-TESTING.md](docs/PROSE-TESTING.md) for details.
+
 ### Super Linter
 
 Run the same comprehensive linting used in CI locally using Docker:

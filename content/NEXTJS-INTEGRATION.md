@@ -39,7 +39,7 @@ export interface Post {
 
 export function getAllPosts(): Post[] {
   const fileNames = fs.readdirSync(postsDirectory);
-  
+
   const posts = fileNames
     .filter(fileName => fileName.endsWith('.md'))
     .map(fileName => {
@@ -47,7 +47,7 @@ export function getAllPosts(): Post[] {
       const fullPath = path.join(postsDirectory, fileName);
       const fileContents = fs.readFileSync(fullPath, 'utf8');
       const { data, content } = matter(fileContents);
-      
+
       // Extract date from filename if not in frontmatter
       let date = data.date;
       if (!date) {
@@ -56,7 +56,7 @@ export function getAllPosts(): Post[] {
           date = `${match[1]}-${match[2]}-${match[3]}`;
         }
       }
-      
+
       // Generate title from filename if not in frontmatter
       let title = data.title;
       if (!title) {
@@ -66,7 +66,7 @@ export function getAllPosts(): Post[] {
           .replace(/-/g, ' ')
           .replace(/\b\w/g, l => l.toUpperCase());
       }
-      
+
       return {
         slug,
         date,
@@ -77,7 +77,7 @@ export function getAllPosts(): Post[] {
         ...data,
       };
     });
-  
+
   // Sort by date (newest first)
   return posts.sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
@@ -114,14 +114,14 @@ export interface Page {
 
 export function getPageBySlug(slug: string): Page | null {
   const extensions = ['.md', '.html'];
-  
+
   for (const ext of extensions) {
     const fullPath = path.join(pagesDirectory, `${slug}${ext}`);
-    
+
     if (fs.existsSync(fullPath)) {
       const fileContents = fs.readFileSync(fullPath, 'utf8');
       const { data, content } = matter(fileContents);
-      
+
       return {
         slug,
         title: data.title,
@@ -131,13 +131,13 @@ export function getPageBySlug(slug: string): Page | null {
       };
     }
   }
-  
+
   return null;
 }
 
 export function getAllPages(): Page[] {
   const fileNames = fs.readdirSync(pagesDirectory);
-  
+
   return fileNames
     .filter(fileName => fileName.endsWith('.md') || fileName.endsWith('.html'))
     .map(fileName => {
@@ -145,7 +145,7 @@ export function getAllPages(): Page[] {
       const fullPath = path.join(pagesDirectory, fileName);
       const fileContents = fs.readFileSync(fullPath, 'utf8');
       const { data, content } = matter(fileContents);
-      
+
       return {
         slug,
         title: data.title,
@@ -212,7 +212,7 @@ export async function markdownToHtml(markdown: string): Promise<string> {
     .use(footnotes, { inlineNotes: true })
     .use(html, { sanitize: false })
     .process(markdown);
-  
+
   return result.toString();
 }
 
@@ -239,7 +239,7 @@ interface Params {
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
-  
+
   return posts.map(post => {
     const [year, month, day, ...rest] = post.slug.split('-');
     return {
@@ -254,13 +254,13 @@ export async function generateStaticParams() {
 export default async function Post({ params }: { params: Params }) {
   const { year, month, day, slug } = params;
   const post = getPostByDate(year, month, day, slug);
-  
+
   if (!post) {
     notFound();
   }
-  
+
   const contentHtml = await markdownToHtml(post.content);
-  
+
   return (
     <article>
       <header>
@@ -276,11 +276,11 @@ export default async function Post({ params }: { params: Params }) {
 export async function generateMetadata({ params }: { params: Params }) {
   const { year, month, day, slug } = params;
   const post = getPostByDate(year, month, day, slug);
-  
+
   if (!post) {
     return {};
   }
-  
+
   return {
     title: post.title,
     description: post.description,
@@ -307,13 +307,13 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const page = getPageBySlug(params.slug);
-  
+
   if (!page) {
     notFound();
   }
-  
+
   const contentHtml = await markdownToHtml(page.content);
-  
+
   return (
     <div>
       {page.title && <h1>{page.title}</h1>}
@@ -331,7 +331,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  
+
   async redirects() {
     // Handle legacy redirects from _legacy_redirect_from fields
     const redirects = [
@@ -342,7 +342,7 @@ const nextConfig = {
       },
       // Add more redirects as needed
     ];
-    
+
     return redirects;
   },
 };
@@ -394,7 +394,7 @@ import { getAllPosts } from '@/lib/posts';
 
 export default function BlogIndex() {
   const posts = getAllPosts();
-  
+
   return (
     <div>
       <h1>Blog Posts</h1>
@@ -419,7 +419,7 @@ import { getBooks, getClips } from '@/lib/data';
 
 export default function BooksPage() {
   const books = getBooks();
-  
+
   return (
     <div>
       {Object.entries(books).map(([category, bookList]) => (
@@ -450,7 +450,7 @@ describe('Posts', () => {
     const posts = getAllPosts();
     expect(posts.length).toBeGreaterThan(0);
   });
-  
+
   it('should have valid frontmatter', () => {
     const posts = getAllPosts();
     posts.forEach(post => {
@@ -459,7 +459,7 @@ describe('Posts', () => {
       expect(post.content).toBeDefined();
     });
   });
-  
+
   it('should generate title from filename if missing', () => {
     const post = getPostBySlug('2013-08-11-everyone-contributes');
     expect(post?.title).toBe('Everyone Contributes');

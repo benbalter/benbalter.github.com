@@ -218,7 +218,7 @@ test.describe('New Feature', () => {
     // Your test assertions - page is already loaded from beforeEach
     await expect(page.locator('.some-element')).toBeVisible();
   });
-  
+
   test('should do another thing', async ({ page }) => {
     // No need to navigate again - page state is shared
     await expect(page.locator('.another-element')).toBeVisible();
