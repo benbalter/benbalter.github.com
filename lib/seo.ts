@@ -8,6 +8,7 @@ import { getPostUrlParts, type Post } from './posts';
 import { getPostOgImage, getPageOgImage } from './og-image';
 import type { Page } from './pages';
 import type { Metadata } from 'next';
+import type { WebSite, Person, BlogPosting, WithContext } from 'schema-dts';
 
 /**
  * Build common Open Graph metadata structure
@@ -123,7 +124,7 @@ export function getPageMetadata(page: Page, path: string): Metadata {
 /**
  * Generate JSON-LD structured data for a blog post
  */
-export function getPostJsonLd(post: Post): object {
+export function getPostJsonLd(post: Post): WithContext<BlogPosting> {
   const config = getSiteConfig();
   const { url } = getPostUrlParts(post);
   const fullUrl = `${config.url}${url}`;
@@ -156,7 +157,7 @@ export function getPostJsonLd(post: Post): object {
 /**
  * Generate JSON-LD structured data for the site/person
  */
-export function getPersonJsonLd(): object {
+export function getPersonJsonLd(): WithContext<Person> {
   const config = getSiteConfig();
   
   return {
@@ -177,7 +178,7 @@ export function getPersonJsonLd(): object {
 /**
  * Generate JSON-LD structured data for a website
  */
-export function getWebsiteJsonLd(): object {
+export function getWebsiteJsonLd(): WithContext<WebSite> {
   const config = getSiteConfig();
   
   return {
