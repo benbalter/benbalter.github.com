@@ -121,4 +121,4 @@ At least, that's how I communicate at GitHub, and I often see those communicatio
 
 {% include_cached github-culture.html %}
 
-*A huge hat tip to @corywilkerson, whose words inspired (and in some cases comprise) this post. Curious how I handle all the noise this workflow generates? Check out this related post on [how I manage GitHub notifications](/2020/08/25/how-i-manage-github-notifications/).*
+*A huge hat tip to @corywilkerson, whose words inspired (and in some cases comprise) this post. Curious how I handle all the noise this workflow generates? Check out this related post on [how I manage GitHub notifications](/2020/08/25/how-i-manage-github-notifications).*

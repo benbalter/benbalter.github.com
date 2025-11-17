@@ -69,7 +69,7 @@ It might be tempting to say that maintainers should have absolute control over t
 
 GitHub has taken a different approach to user blocking and user muting than most other platforms and can do so due to its unique structure and purpose. That's not to say that such an approach is without its complications, but I think the result has largely allowed for a [federated moderation system](https://ben.balter.com/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/#6-let-communities-opt-in-to-self-governance), where contributors are protected and maintainers can (and want to) keep conversations constructive to grow healthy and productive communities around their code.
 
-It's definitely not the right approach for all platforms, and far from perfect even for our own, but I wanted to share a bit more about how I've historically thought about user-to-user protections on GitHub in hopes that it could help other platforms facing similar challenges to plot their own path. As always, [these views are my own](/fine-print/).
+It's definitely not the right approach for all platforms, and far from perfect even for our own, but I wanted to share a bit more about how I've historically thought about user-to-user protections on GitHub in hopes that it could help other platforms facing similar challenges to plot their own path. As always, [these views are my own](/2015/01/26/the-fine-print-nobody-reads/).
 
 [^1]: The ear plugs might work if everyone in the town wore them, thus nullifying the effects of the megaphone, but that's unlikely to happen (and isn't efficient in terms of allocating the externality).
 
