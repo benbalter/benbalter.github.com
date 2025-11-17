@@ -111,18 +111,28 @@ jobs:
 
       - name: Start Next.js server
         run: |
-          npm run next:start &
+          nohup npm run next:start > server.log 2>&1 &
           echo $! > nextjs.pid
-          sleep 5
+          sleep 10
 
       - name: Wait for server to be ready
         run: |
-          timeout 30 bash -c 'until curl -sf http://localhost:3000; do sleep 1; done'
+          timeout 60 bash -c 'until curl -sf http://localhost:3000; do echo "Waiting for server..."; sleep 2; done'
+          echo "Server is ready"
+          curl -v http://localhost:3000 || true
 
       - name: Run Next.js E2E tests
         run: BASE_URL=http://localhost:3000 npx playwright test e2e/nextjs-site.spec.ts
         env:
           CI: true
+
+      - name: Upload server logs
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nextjs-server-logs
+          path: server.log
+          retention-days: 7
 
       - name: Stop Next.js server
         if: always()
