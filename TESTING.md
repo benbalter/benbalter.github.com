@@ -1,10 +1,31 @@
 # Testing Documentation
 
-This repository includes comprehensive testing for both Jekyll and Next.js builds.
+This repository includes comprehensive testing for both Jekyll and Next.js builds, as well as content quality testing.
 
 ## Test Suites
 
-### 1. Jest Unit Tests (42 tests ✅)
+### 1. Prose Quality Tests (920 tests ⚠️)
+
+RSpec tests for content quality and consistency in blog posts.
+
+**Test File:**
+* `spec/prose_quality_spec.rb` - Prose structure and quality checks
+
+**Tests:**
+* No multiple consecutive blank lines
+* No trailing whitespace
+* No doubled spaces in prose
+* Consistent heading capitalization
+* No broken internal links
+
+**Commands:**
+```bash
+bundle exec rspec spec/prose_quality_spec.rb
+```
+
+**Note:** Many posts currently have trailing whitespace issues that should be cleaned up over time.
+
+### 2. Jest Unit Tests (42 tests ✅)
 
 Unit tests for Next.js components and utilities using Jest and React Testing Library.
 
@@ -27,7 +48,7 @@ npm run test:jest:coverage     # With coverage
 - `jest.config.mjs` - Jest configuration with Next.js support
 - `jest.setup.mjs` - Test environment setup
 
-### 2. Playwright E2E Tests (120 tests ✅)
+### 3. Playwright E2E Tests (120 tests ✅)
 
 End-to-end tests using Playwright for both Jekyll and Next.js builds.
 
@@ -58,7 +79,7 @@ npm run test:e2e:nextjs        # Run E2E tests for Next.js build
 - `playwright.config.ts` - Jekyll build testing (port 4000)
 - `playwright-nextjs.config.ts` - Next.js build testing (port 3000)
 
-### 3. Node Test Runner Tests
+### 4. Node Test Runner Tests
 
 Legacy tests using Node's built-in test runner:
 - `lib/plugins.test.ts` - Plugin utilities
@@ -92,12 +113,13 @@ All tests run automatically in GitHub Actions:
 
 ## Test Coverage Summary
 
-| Test Suite | Tests | Status |
-|------------|-------|--------|
-| Jest Unit Tests | 42 | ✅ All passing |
-| Playwright E2E | 120 | ✅ All passing (1 skipped) |
-| Node Tests | 18 | ⚠️ 2 failing (pre-existing) |
-| **Total** | **180** | **162 passing** |
+| Test Suite          | Tests | Status                      |
+| ------------------- | ----- | --------------------------- |
+| Prose Quality Tests | 920   | ⚠️ 206 failing (fixable)    |
+| Jest Unit Tests     | 42    | ✅ All passing               |
+| Playwright E2E      | 120   | ✅ All passing (1 skipped)   |
+| Node Tests          | 18    | ⚠️ 2 failing (pre-existing) |
+| **Total**           | **1100** | **1072 passing**         |
 
 ## Running All Tests
 
@@ -154,6 +176,45 @@ npm run test:e2e:nextjs
 - Review screenshots/videos in `test-results/`
 
 ### CI Failures
+
 - Check workflow logs in GitHub Actions
 - Download artifacts for detailed reports
 - Verify all dependencies are installed correctly
+
+## Prose Linting and Content Quality
+
+In addition to automated tests, this repository uses multiple prose linting tools to ensure content quality. See [docs/PROSE-TESTING.md](docs/PROSE-TESTING.md) for detailed documentation.
+
+### Quick Start
+
+```bash
+# Run all prose linting (part of CI)
+script/cibuild-content
+
+# Individual tools
+npm run lint-md          # Markdown + prose (remark/retext)
+npm run lint-text        # Grammar/style (textlint)
+script/vale              # Style guide (if installed)
+bundle exec rspec spec/prose_quality_spec.rb  # Structure tests
+```
+
+### Configuration Files
+
+* `.textlintrc` - Grammar and style rules (textlint)
+* `.remarkrc.js` - Markdown and prose linting (remark/retext)
+* `.vale.ini` - Style guide configuration (Vale, optional)
+* `dictionary.txt` - Custom dictionary for spell checking
+* `spec/prose_quality_spec.rb` - Structural quality tests
+
+### Key Features
+
+* **Reduced false positives**: Prose plugins configured to minimize noise
+* **Auto-fixing**: Many issues can be fixed automatically
+* **Custom dictionary**: Add project-specific terms to avoid false spell-check errors
+* **Structural tests**: RSpec tests catch formatting issues (trailing whitespace, broken links)
+
+See the [prose testing documentation](docs/PROSE-TESTING.md) for complete details.
+
+* Check workflow logs in GitHub Actions
+* Download artifacts for detailed reports
+* Verify all dependencies are installed correctly

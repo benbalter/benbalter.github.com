@@ -43,19 +43,19 @@ import matter from 'gray-matter';
 export function getAllPosts() {
   const postsDirectory = path.join(process.cwd(), 'content/posts');
   const filenames = fs.readdirSync(postsDirectory);
-  
+
   const posts = filenames.map((filename) => {
     const filePath = path.join(postsDirectory, filename);
     const fileContents = fs.readFileSync(filePath, 'utf8');
     const { data, content } = matter(fileContents);
-    
+
     return {
       slug: filename.replace(/\.md$/, ''),
       frontmatter: data,
       content: content,
     };
   });
-  
+
   // Sort by date
   return posts.sort((a, b) => {
     return new Date(b.frontmatter.date) - new Date(a.frontmatter.date);
@@ -71,7 +71,7 @@ export function getPage(slug) {
   const filePath = path.join(pagesDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(filePath, 'utf8');
   const { data, content } = matter(fileContents);
-  
+
   return {
     frontmatter: data,
     content: content,
