@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import ClientScripts from './components/ClientScripts';
 import { getSiteConfig } from '@/lib/config';
 import { getAllPageSlugs, getPageBySlug } from '@/lib/pages';
+import { JsonLdScript } from 'next-seo';
 
 // Load site configuration from _config.yml
 const config = getSiteConfig();
@@ -103,6 +104,23 @@ export default function RootLayout({
         ))}
         {/* Load Bootstrap and custom styles from webpack build */}
         <link rel="stylesheet" href="/assets/css/style.css" />
+        {/* Structured data for the site author */}
+        <JsonLdScript
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: config.author.name,
+            url: config.url,
+            sameAs: config.social.links,
+            jobTitle: config.job_title,
+            worksFor: {
+              '@type': 'Organization',
+              name: config.employer.name,
+              url: config.employer.url,
+            },
+          }}
+          scriptKey="person-schema"
+        />
       </head>
       <body className="mt-2">
         <div className="container">
