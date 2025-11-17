@@ -2,5 +2,8 @@
 
 npm run lint-md
 
-echo "Cleaning up..."
+# Note: script/fix-lint is no longer needed since remark runs in lint-only mode
+# and doesn't aggressively escape characters anymore. Keeping this for backwards
+# compatibility in case of edge cases.
+echo "Cleaning up (if needed)..."
 script/fix-lint
