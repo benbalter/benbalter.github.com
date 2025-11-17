@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRss } from '@fortawesome/free-solid-svg-icons';
@@ -13,6 +11,11 @@ interface FooterProps {
   footerPages: FooterPage[];
 }
 
+/**
+ * Footer component (Server Component)
+ * Displays site footer navigation with RSS feed link
+ * Works with SSG - no client-side JavaScript needed
+ */
 export default function Footer({ footerPages }: FooterProps) {
   return (
     <nav>
