@@ -102,6 +102,12 @@ export default async function Post({ params }: PageProps) {
             url: `${config.url}/assets/img/headshot.jpg`,
           },
         }}
+        additionalProps={{
+          mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': fullUrl,
+          },
+        }}
       />
       
       <div className="row">
