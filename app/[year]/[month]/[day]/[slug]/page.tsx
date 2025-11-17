@@ -89,7 +89,11 @@ export default async function Post({ params }: PageProps) {
         description={post.description || config.description}
         datePublished={isoDate}
         dateModified={isoDate}
-        author={config.author.name}
+        author={{
+          '@type': 'Person',
+          name: config.author.name,
+          url: config.url,
+        }}
         image={post.image ? [post.image] : [`${config.url}/assets/img/headshot.jpg`]}
         publisher={{
           name: config.author.name,
