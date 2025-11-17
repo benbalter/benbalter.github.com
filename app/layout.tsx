@@ -4,6 +4,7 @@ import './globals.css';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import ClientScripts from './components/ClientScripts';
+import HelmetProvider from './components/HelmetProvider';
 import { getSiteConfig } from '@/lib/config';
 import { getAllPageSlugs, getPageBySlug } from '@/lib/pages';
 
@@ -105,19 +106,21 @@ export default function RootLayout({
         <link rel="stylesheet" href="/assets/css/style.css" />
       </head>
       <body className="mt-2">
-        <div className="container">
-          <Navigation 
-            title={config.title} 
-            description={config.description}
-            navPages={navPages}
-          />
-          <div className="content" id="content" role="main">
-            {children}
+        <HelmetProvider>
+          <div className="container">
+            <Navigation 
+              title={config.title} 
+              description={config.description}
+              navPages={navPages}
+            />
+            <div className="content" id="content" role="main">
+              {children}
+            </div>
+            <Footer footerPages={footerPages} />
           </div>
-          <Footer footerPages={footerPages} />
-        </div>
-        <ClientScripts />
-        <Script src="/assets/js/bundle.js" strategy="afterInteractive" />
+          <ClientScripts />
+          <Script src="/assets/js/bundle.js" strategy="afterInteractive" />
+        </HelmetProvider>
       </body>
     </html>
   );
