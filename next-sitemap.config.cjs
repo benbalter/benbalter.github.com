@@ -3,7 +3,7 @@ module.exports = {
   siteUrl: process.env.SITE_URL || 'https://ben.balter.com',
   generateRobotsTxt: true,
   generateIndexSitemap: true, // Creates sitemap.xml (index) and sitemap-0.xml, sitemap-1.xml, etc.
-  // Note: For legacy compatibility with /sitemap_index.xml, consider adding a redirect in next.config.js
+  // Note: Legacy compatibility redirect from /sitemap_index.xml to /sitemap.xml is handled in script/generate-redirects.mjs
   changefreq: 'monthly',
   priority: 0.7,
   sitemapSize: 5000,
