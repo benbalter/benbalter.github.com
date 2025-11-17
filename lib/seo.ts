@@ -8,7 +8,54 @@ import { getPostUrlParts, type Post } from './posts';
 import { getPostOgImage, getPageOgImage } from './og-image';
 import type { Page } from './pages';
 import type { Metadata } from 'next';
-import type { WebSite, Person, BlogPosting, WithContext } from 'schema-dts';
+
+/**
+ * JSON-LD Schema types for structured data
+ */
+interface JsonLdBase {
+  '@context'?: 'https://schema.org';
+  '@type': string;
+}
+
+interface JsonLdOrganization {
+  '@type': 'Organization';
+  name: string;
+  url: string;
+}
+
+interface JsonLdPerson extends JsonLdBase {
+  '@type': 'Person';
+  name: string;
+  url?: string;
+  sameAs?: string[];
+  jobTitle?: string;
+  worksFor?: JsonLdOrganization;
+}
+
+interface JsonLdWebSite extends JsonLdBase {
+  '@type': 'WebSite';
+  name: string;
+  description: string;
+  url: string;
+  author?: JsonLdPerson;
+}
+
+interface JsonLdWebPage {
+  '@type': 'WebPage';
+  '@id': string;
+}
+
+interface JsonLdBlogPosting extends JsonLdBase {
+  '@type': 'BlogPosting';
+  headline: string;
+  description: string;
+  image: string;
+  datePublished: string;
+  dateModified: string;
+  author: JsonLdPerson;
+  publisher: JsonLdPerson;
+  mainEntityOfPage: JsonLdWebPage;
+}
 
 /**
  * Build common Open Graph metadata structure
@@ -24,7 +71,7 @@ function buildOpenGraphMetadata(
   authors?: string[]
 ): NonNullable<Metadata['openGraph']> {
   const config = getSiteConfig();
-  
+
   const openGraph: NonNullable<Metadata['openGraph']> = {
     title,
     description,
@@ -41,7 +88,7 @@ function buildOpenGraphMetadata(
     ...(publishedTime && { publishedTime }),
     ...(authors && { authors }),
   };
-  
+
   return openGraph;
 }
 
@@ -55,7 +102,7 @@ function buildTwitterMetadata(
   cardType: 'summary' | 'summary_large_image' = 'summary'
 ): NonNullable<Metadata['twitter']> {
   const config = getSiteConfig();
-  
+
   return {
     card: cardType,
     title,
@@ -74,10 +121,10 @@ export function getPostMetadata(post: Post): Metadata {
   const fullUrl = `${config.url}${url}`;
   const publishDate = new Date(post.date).toISOString();
   const description = post.description || config.description;
-  
+
   // Get OG image using the helper
   const ogImage = getPostOgImage(post);
-  
+
   return {
     title: post.title,
     description,
@@ -108,7 +155,7 @@ export function getPageMetadata(page: Page, path: string): Metadata {
   const ogImage = getPageOgImage(page.image);
   const title = page.title || config.title;
   const description = page.description || config.description;
-  
+
   return {
     title,
     description,
@@ -124,11 +171,11 @@ export function getPageMetadata(page: Page, path: string): Metadata {
 /**
  * Generate JSON-LD structured data for a blog post
  */
-export function getPostJsonLd(post: Post): WithContext<BlogPosting> {
+export function getPostJsonLd(post: Post): JsonLdBlogPosting {
   const config = getSiteConfig();
   const { url } = getPostUrlParts(post);
   const fullUrl = `${config.url}${url}`;
-  
+
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -157,9 +204,9 @@ export function getPostJsonLd(post: Post): WithContext<BlogPosting> {
 /**
  * Generate JSON-LD structured data for the site/person
  */
-export function getPersonJsonLd(): WithContext<Person> {
+export function getPersonJsonLd(): JsonLdPerson {
   const config = getSiteConfig();
-  
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
@@ -178,9 +225,9 @@ export function getPersonJsonLd(): WithContext<Person> {
 /**
  * Generate JSON-LD structured data for a website
  */
-export function getWebsiteJsonLd(): WithContext<WebSite> {
+export function getWebsiteJsonLd(): JsonLdWebSite {
   const config = getSiteConfig();
-  
+
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
