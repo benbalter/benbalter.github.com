@@ -3,7 +3,7 @@ title: 'Open procurement: procurement in an increasingly open source world'
 description: What IT procurement might look like, in a world in which government agencies adopt open source methodologies as their primary means of development
 ---
 
-Government IT has been on [an in increasingly agile trajectory](/2011/11/29/towards-a-more-agile-government/). Where once waterfall development was the only option, today agile development has become the norm, with agencies increasingly turning to open source platforms and open source solutions. But no discussion of government IT would be complete, without mentioning the "P" word: procurement. What then, assuming the trend continues, does IT procurement look like, in a world in which government agencies adopt open source methodologies as their primary means of software development? Are we headed towards a world where open procurement begets open source?
+Government IT has been on [an in increasingly agile trajectory](/2011/11/29/towards-a-more-agile-government). Where once waterfall development was the only option, today agile development has become the norm, with agencies increasingly turning to open source platforms and open source solutions. But no discussion of government IT would be complete, without mentioning the "P" word: procurement. What then, assuming the trend continues, does IT procurement look like, in a world in which government agencies adopt open source methodologies as their primary means of software development? Are we headed towards a world where open procurement begets open source?
 
 ## From Waterfall to Agile
 

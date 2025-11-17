@@ -46,7 +46,7 @@ jobs:
       - name: Parse data
         id: parse_data
         run: echo '::set-output name=someField::'$(jq -r '.someField' data.json)
-          
+
       # Compare the response to the previous run, using a hash of the response as the cache key
       - name: Fetch Cache
         id: cache
@@ -54,7 +54,7 @@ jobs:
         with:
           path: data.json
           key: {% raw %}${{ hashFiles('data.json') }}{% endraw %}
-      
+
       # If there was not a cache hit (meaning the response changed), notify me via text message
       # See https://github.com/twilio-labs/actions-sms for setup instructions
       # You could use a different notification action here, so long as you include the `if` condition below

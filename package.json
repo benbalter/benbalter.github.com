@@ -141,7 +141,7 @@
     "lint": "npm run lint-js && npm run lint-json && npm run lint-md",
     "lint-js": "xo .remarkrc.js --ignore-pattern !.remarkrc.js --fix",
     "lint-json": "eslint . --ext json --fix",
-    "lint-md": "remark . --output && markdownlint-cli2 --fix \"**/*.{md,mdx}\" \"!node_modules\" \"!.github\"",
+    "lint-md": "remark . && markdownlint-cli2 --fix \"**/*.{md,mdx}\" \"!node_modules\" \"!.github\"",
     "lint-text": "textlint *.md _posts/*.md _resume_positions/*.md --fix --dry-run",
     "lint-yaml": "yamllint -c .yamllint.yml .github/workflows/ci.yml *.yml _data/*.yml",
     "super-linter": "script/super-linter",

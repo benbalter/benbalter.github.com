@@ -25,13 +25,14 @@ const retextSettings = {
     retextEnglish,
     retextEquality,
     retextIndefiniteArticle,
-    retextPassive,
-    retextReadability,
+    // Disabled noisy plugins that generate too many false positives:
+    // - retextPassive: too many warnings about passive voice in technical writing
+    // - retextReadability: too strict for blog post style
+    // - retextSimplify: too many suggestions that don't improve clarity
+    // - retextIntensify: generates warnings about hedge/weasel words that are often appropriate
     retextRepeatedWords,
-    retextSimplify,
     [retextSpell, { dictionary: dictionaryEn, personal: personalDict }],
     //  retextContractions,
-    retextIntensify,
     retextProfanities,
     retextRedundantAcronyms,
     retextSentenceSpacing,
