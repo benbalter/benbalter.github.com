@@ -2,7 +2,8 @@
 module.exports = {
   siteUrl: process.env.SITE_URL || 'https://ben.balter.com',
   generateRobotsTxt: true,
-  generateIndexSitemap: true,
+  generateIndexSitemap: true, // Creates sitemap.xml (index) and sitemap-0.xml, sitemap-1.xml, etc.
+  // Note: For legacy compatibility with /sitemap_index.xml, consider adding a redirect in next.config.js
   changefreq: 'monthly',
   priority: 0.7,
   sitemapSize: 5000,
@@ -97,8 +98,8 @@ module.exports = {
   // Custom transformation for URLs
   transform: async (config, path) => {
     // Default priority for different types of pages
-    let priority = config.priority;
-    let changefreq = config.changefreq;
+    let priority;
+    let changefreq;
     
     // Homepage gets highest priority
     if (path === '/') {
@@ -120,7 +121,8 @@ module.exports = {
       loc: path,
       changefreq,
       priority,
-      lastmod: new Date().toISOString(),
+      // Note: lastmod omitted - would need actual file modification dates
+      // Using build time for all URLs defeats the purpose of lastmod
     };
   },
 };

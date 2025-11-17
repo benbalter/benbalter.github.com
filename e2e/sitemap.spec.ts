@@ -55,7 +55,7 @@ test.describe('Sitemap Generation', () => {
     
     // Should have required elements
     expect(content).toContain('<loc>');
-    expect(content).toContain('<lastmod>');
+    // Note: lastmod omitted - using build time for all URLs defeats the purpose
     expect(content).toContain('<changefreq>');
     expect(content).toContain('<priority>');
   });
