@@ -97,7 +97,10 @@ export default async function Post({ params }: PageProps) {
         image={post.image ? [post.image] : [`${config.url}/assets/img/headshot.jpg`]}
         publisher={{
           name: config.author.name,
-          logo: `${config.url}/assets/img/headshot.jpg`,
+          logo: {
+            '@type': 'ImageObject',
+            url: `${config.url}/assets/img/headshot.jpg`,
+          },
         }}
       />
       
