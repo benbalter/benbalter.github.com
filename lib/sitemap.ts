@@ -5,6 +5,14 @@ import { getAllPages } from './pages';
 import { getSiteConfig } from './config';
 
 /**
+ * @deprecated This custom sitemap generation is no longer used.
+ * Sitemap generation is now handled by the next-sitemap package.
+ * See next-sitemap.config.cjs for sitemap configuration.
+ * 
+ * This file is kept for reference but is not used in the build process.
+ */
+
+/**
  * Generate sitemap XML for all site content
  * Replaces jekyll-sitemap plugin functionality
  * Uses the 'sitemap' library for standards-compliant sitemap generation

@@ -1,32 +1,10 @@
----
-layout: null
-disallows:
-  - /2021-analysis-of-federal-dotgov-domains/
-  - /404.html
-  - /behind-github-geojson/
-  - /collaborative-policymaking/
-  - /digital-government-strategy/
-  - /digital-strategy-reporting/
-  - /dont-build-an-api/
-  - /fine-print/
-  - /government-glossary/
-  - /make-government-better-together/
-  - /make-maps-better-together/
-  - /make-reporting-better-together/
-  - /open-source-alternatives/
-  - /open-source-demistified/
-  - /open-source-software-licensing/
-  - /open-sourcing-government/
-  - /simple-api/
-  - /tag*
-  - /tags*
-  - /the-dynamic-site-is-dead/
-  - /the-next-cultural-commons/
-  - /uncle-sams-list/
----
-
-User-agent: *{% for disallowed in page.disallows %}
-Disallow: {{ disallowed }}{% endfor %}
+# *
+User-agent: *
 Allow: /
-Sitemap: http://ben.balter.com/sitemap.xml
-Host: ben.balter.com
+
+# Host
+Host: https://ben.balter.com
+
+# Sitemaps
+Sitemap: https://ben.balter.com/sitemap.xml
+Sitemap: https://ben.balter.com/tweets/sitemap.xml
