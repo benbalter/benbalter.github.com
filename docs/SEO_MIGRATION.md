@@ -60,7 +60,7 @@ fileContents = fileContents.replace(/^\s*-\s*!/gm, '# - !');
 **Implementation**:
 - Homepage: Embeds WebSite and Person schemas
 - Blog posts: Embeds BlogPosting schema
-- Uses helper functions from `lib/seo.ts`
+- Duplicates JSON-LD logic inline instead of using helper functions from `lib/seo.ts`
 - Properly embedded in `<script type="application/ld+json">` tags
 
 **Example** (Homepage):
