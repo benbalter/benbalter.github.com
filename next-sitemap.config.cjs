@@ -6,6 +6,7 @@ module.exports = {
   changefreq: 'monthly',
   priority: 0.7,
   sitemapSize: 5000,
+  outDir: './out',
   
   // Exclude paths that shouldn't be in sitemap
   exclude: [
