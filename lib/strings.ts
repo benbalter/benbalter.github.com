@@ -2,8 +2,12 @@
  * String utility functions for text manipulation
  */
 
+import { slug } from 'github-slugger';
+
 /**
  * Convert a string to a URL-friendly slug
+ * Uses github-slugger to match GitHub's markdown heading slug behavior
+ * 
  * @param text The text to slugify
  * @returns A lowercase, hyphenated string suitable for URLs and IDs
  * 
@@ -12,10 +16,5 @@
  * slugify('Category & Name!') // 'category-name'
  */
 export function slugify(text: string): string {
-  return text
-    .trim()
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-');
+  return slug(text);
 }
