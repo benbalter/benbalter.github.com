@@ -1,5 +1,4 @@
 import { getAllPosts, findPostByDate } from '@/lib/posts';
-import { markdownToHtml } from '@/lib/markdown';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import ReadingTime from '@/app/components/ReadingTime';
@@ -67,7 +66,6 @@ export default async function Post({ params }: PageProps) {
     notFound();
   }
   
-  const contentHtml = await markdownToHtml(post.content);
   const publishDate = new Date(post.date).toLocaleDateString('en-US', { 
     year: 'numeric', 
     month: 'long', 
@@ -128,7 +126,7 @@ export default async function Post({ params }: PageProps) {
             
             <ReadingTime content={post.content} />
             
-            <PostContent contentHtml={contentHtml} />
+            <PostContent content={post.content} />
             
             {post.show_github_culture_callout && (
               <GitHubCultureCallout />

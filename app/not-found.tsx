@@ -1,5 +1,5 @@
-import { getAllPosts, getPostUrlParts } from '@/lib/posts';
-import Link from 'next/link';
+import { getAllPosts } from '@/lib/posts';
+import RecentPostsList from './components/RecentPostsList';
 
 export default function NotFound() {
   const posts = getAllPosts().slice(0, 10);
@@ -13,18 +13,7 @@ export default function NotFound() {
           <p className="lead">The page you are trying to view does not exist.</p>
         </div>
         
-        <h4 className="border-top pt-3">Recent posts</h4>
-        <ul>
-          {posts.map(post => {
-            const { url } = getPostUrlParts(post);
-            
-            return (
-              <li key={post.slug}>
-                <Link href={url}>{post.title}</Link>
-              </li>
-            );
-          })}
-        </ul>
+        <RecentPostsList posts={posts} />
       </div>
     </div>
   );
