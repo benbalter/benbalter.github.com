@@ -115,7 +115,7 @@ test.describe('Next.js Features and Performance', () => {
       
       const newUrl = page.url();
       expect(newUrl).not.toBe(initialUrl);
-      expect(newUrl).toContain('/about');
+      expect(newUrl).toContain('/about/');
     }
   });
 
@@ -221,8 +221,8 @@ test.describe('Next.js Features and Performance', () => {
     
     // Check h1 has proper styling
     const h1Classes = await h1.getAttribute('class');
-    expect(h1Classes).toContain('display-4');
-    expect(h1Classes).toContain('text-primary');
+    expect(h1Classes).toEqual(expect.stringContaining('display-4'));
+    expect(h1Classes).toEqual(expect.stringContaining('text-primary'));
   });
 
   test('pages should not have JavaScript errors', async ({ page }) => {
@@ -254,8 +254,11 @@ test.describe('Next.js Features and Performance', () => {
     }
     
     // Filter out known/acceptable errors
+    // These are common false positives that don't indicate real issues:
+    // - favicon: Browser requests for missing favicon variants
+    // - chrome-extension: Browser extension interference
+    // - ERR_BLOCKED_BY_CLIENT: Ad blockers or privacy extensions
     const significantErrors = errors.filter(error => {
-      // Filter out common false positives
       return !error.includes('favicon') && 
              !error.includes('chrome-extension') &&
              !error.includes('ERR_BLOCKED_BY_CLIENT');

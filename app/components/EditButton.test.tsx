@@ -37,6 +37,7 @@ describe('EditButton', () => {
     const button = screen.getByRole('link', { name: 'Edit' });
     expect(button).toHaveClass('btn');
     expect(button).toHaveClass('btn-outline-primary');
+    // Note: Component has both btn-lg and btn-sm classes (contradictory but matches actual implementation)
     expect(button).toHaveClass('btn-lg');
     expect(button).toHaveClass('btn-sm');
   });

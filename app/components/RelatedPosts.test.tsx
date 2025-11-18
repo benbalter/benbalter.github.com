@@ -4,7 +4,7 @@ import RelatedPosts from './RelatedPosts';
 // Mock the posts module
 jest.mock('@/lib/posts', () => ({
   getPostUrlParts: jest.fn((post) => ({
-    url: `/2024/01/01/${post.slug}/`,
+    url: `/2024/01/01/${post.slug}`,
   })),
 }));
 
@@ -76,11 +76,10 @@ describe('RelatedPosts', () => {
 
   it('should render single related post', () => {
     const singlePost = [mockRelatedPosts[0]];
-    render(<RelatedPosts relatedPosts={singlePost} />);
+    const { container } = render(<RelatedPosts relatedPosts={singlePost} />);
     
     expect(screen.getByRole('link', { name: 'First Related Post' })).toBeInTheDocument();
     
-    const { container } = render(<RelatedPosts relatedPosts={singlePost} />);
     const listItems = container.querySelectorAll('li');
     expect(listItems).toHaveLength(1);
   });

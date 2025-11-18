@@ -250,7 +250,8 @@ test.describe('Next.js Blog Post Pages', () => {
     const jsonLdContent = await jsonLd.first().textContent();
     expect(jsonLdContent).toBeTruthy();
     
-    const data = JSON.parse(jsonLdContent!);
+    // TypeScript knows jsonLdContent is not null after the expect above
+    const data = JSON.parse(jsonLdContent as string);
     expect(data['@context']).toBeTruthy();
     expect(data['@type']).toBeTruthy();
   });

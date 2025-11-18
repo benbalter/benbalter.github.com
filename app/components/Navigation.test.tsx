@@ -9,8 +9,8 @@ jest.mock('next/navigation', () => ({
 describe('Navigation', () => {
   const mockNavPages = [
     { title: 'Home', path: '/' },
-    { title: 'About', path: '/about/' },
-    { title: 'Resume', path: '/resume/' },
+    { title: 'About', path: '/about' },
+    { title: 'Resume', path: '/resume' },
   ];
 
   const mockProps = {
@@ -63,7 +63,7 @@ describe('Navigation', () => {
 
   it('should mark active page', () => {
     const { usePathname } = require('next/navigation');
-    usePathname.mockReturnValue('/about/');
+    usePathname.mockReturnValue('/about');
     
     render(<Navigation {...mockProps} />);
     
@@ -73,7 +73,7 @@ describe('Navigation', () => {
 
   it('should not mark inactive pages as active', () => {
     const { usePathname } = require('next/navigation');
-    usePathname.mockReturnValue('/about/');
+    usePathname.mockReturnValue('/about');
     
     render(<Navigation {...mockProps} />);
     

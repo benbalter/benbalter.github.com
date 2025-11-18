@@ -121,10 +121,9 @@ test.describe('Next.js Static Pages', () => {
       await aboutLink.click();
       await waitForPageReady(page);
       
-      // Verify we're on the about page (check for about in URL or content)
+      // Verify we're on the about page (check URL only)
       const url = page.url();
-      const isOnAboutPage = url.includes('/about') || await page.locator(':has-text("About")').count() > 0;
-      expect(isOnAboutPage).toBeTruthy();
+      expect(url).toContain('/about');
       
       // Check content loaded
       await checkCommonElements(page);
