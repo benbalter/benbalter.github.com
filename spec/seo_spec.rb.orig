@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable RSpec/MultipleExpectations
-
 require 'nokogiri'
 
 RSpec.describe 'SEO' do
@@ -24,11 +22,9 @@ RSpec.describe 'SEO' do
     nil
   end
 
-  context 'with pages' do
+  context 'pages' do
     pages_to_check.each do |page|
-      # rubocop:disable RSpec/ContextWording
       context "the #{File.join(page.dir, page.name)} page" do
-        # rubocop:enable RSpec/ContextWording
         let(:page) { page }
 
         it 'has a title tag' do
@@ -121,14 +117,12 @@ RSpec.describe 'SEO' do
     end
   end
 
-  context 'with blog posts' do
+  context 'blog posts' do
     site.posts.docs.each do |post|
       # Skip redirect posts as they use a minimal redirect layout
       next if post.data['redirect_to']
 
-      # rubocop:disable RSpec/ContextWording
       context "the #{post.relative_path} post" do
-        # rubocop:enable RSpec/ContextWording
         let(:page) { post }
 
         it 'has a title tag' do
@@ -267,5 +261,3 @@ RSpec.describe 'SEO' do
     end
   end
 end
-
-# rubocop:enable RSpec/MultipleExpectations
