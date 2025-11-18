@@ -61,7 +61,13 @@ export const getAllResumePositions = cache((): ResumePosition[] => {
   
   const positions = fileNames
     .filter(fileName => fileName.endsWith('.md'))
-    .map(fileName => parsePositionFile(fileName, positionsDirectory));
+    .map(fileName => parsePositionFile(fileName, positionsDirectory))
+    // Filter out positions with invalid or missing start_date
+    .filter(position => {
+      if (!position.start_date) return false;
+      const date = new Date(position.start_date);
+      return !isNaN(date.getTime());
+    });
   
   // Sort by start_date, most recent first
   return positions.sort((a, b) => {
