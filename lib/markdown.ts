@@ -8,6 +8,7 @@ import rehypeStringify from 'rehype-stringify';
 import { convert } from 'html-to-text';
 import { processEmoji } from './emoji';
 import { getSiteConfig } from './config';
+import rehypeLiquidIncludes from './rehype-liquid-includes';
 
 export async function markdownToHtml(markdown: string): Promise<string> {
   // Process emoji before markdown conversion
@@ -26,6 +27,8 @@ export async function markdownToHtml(markdown: string): Promise<string> {
     })
     // Convert markdown to HTML AST (hast)
     .use(remarkRehype, { allowDangerousHtml: true })
+    // Process Liquid include tags (Jekyll legacy syntax)
+    .use(rehypeLiquidIncludes)
     // Add IDs to headings (must come before rehype-autolink-headings)
     .use(rehypeSlug)
     // Add anchor links to headings with GitHub-style behavior
