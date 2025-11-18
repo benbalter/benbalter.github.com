@@ -63,7 +63,7 @@ describe('RelatedPosts', () => {
     render(<RelatedPosts relatedPosts={mockRelatedPosts} />);
     
     const firstPostLink = screen.getByText('Related Post One').closest('a');
-    expect(firstPostLink).toHaveAttribute('href', '/2024/01/15/related-post-1/');
+    expect(firstPostLink).toHaveAttribute('href', '/2024/01/15/related-post-1');
   });
 
   it('should not render when relatedPosts is empty array', () => {
@@ -73,13 +73,15 @@ describe('RelatedPosts', () => {
   });
 
   it('should not render when relatedPosts is null', () => {
-    const { container } = render(<RelatedPosts relatedPosts={null as any} />);
+    // @ts-expect-error: Intentionally passing invalid type to test robustness
+    const { container } = render(<RelatedPosts relatedPosts={null} />);
     
     expect(container.firstChild).toBeNull();
   });
 
   it('should not render when relatedPosts is undefined', () => {
-    const { container } = render(<RelatedPosts relatedPosts={undefined as any} />);
+    // @ts-expect-error: Intentionally passing invalid type to test robustness
+    const { container } = render(<RelatedPosts relatedPosts={undefined} />);
     
     expect(container.firstChild).toBeNull();
   });

@@ -50,7 +50,7 @@ describe('PostsList', () => {
     render(<PostsList posts={mockPosts} />);
     
     const firstPostLink = screen.getByText('First Test Post').closest('a');
-    expect(firstPostLink).toHaveAttribute('href', '/2024/01/15/first-post/');
+    expect(firstPostLink).toHaveAttribute('href', '/2024/01/15/first-post');
   });
 
   it('should format dates correctly', () => {

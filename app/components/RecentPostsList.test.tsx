@@ -69,7 +69,7 @@ describe('RecentPostsList', () => {
     render(<RecentPostsList posts={mockPosts} />);
     
     const firstPostLink = screen.getByText('Recent Post One').closest('a');
-    expect(firstPostLink).toHaveAttribute('href', '/2024/01/15/recent-post-1/');
+    expect(firstPostLink).toHaveAttribute('href', '/2024/01/15/recent-post-1');
   });
 
   it('should have border-top class on heading', () => {

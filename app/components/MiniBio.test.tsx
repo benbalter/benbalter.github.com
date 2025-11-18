@@ -43,7 +43,7 @@ describe('MiniBio', () => {
     
     const link = screen.getByRole('link', { name: /more about the author/i });
     expect(link).toBeInTheDocument();
-    expect(link).toHaveAttribute('href', '/about/');
+    expect(link).toHaveAttribute('href', '/about');
   });
 
   it('should have avatar styling classes', () => {

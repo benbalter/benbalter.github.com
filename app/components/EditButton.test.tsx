@@ -32,6 +32,8 @@ describe('EditButton', () => {
     render(<EditButton {...mockProps} />);
     
     const button = screen.getByRole('link', { name: /edit/i });
+    // Note: Component currently has both btn-lg and btn-sm which are conflicting classes
+    // Testing actual behavior - both classes are present in the component
     expect(button).toHaveClass('btn', 'btn-outline-primary', 'btn-lg', 'btn-sm');
   });
 

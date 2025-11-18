@@ -22,7 +22,8 @@ describe('PostContent', () => {
     const { getByTestId } = render(<PostContent content={testContent} />);
     
     const content = getByTestId('markdown-content');
-    expect(content).toHaveTextContent(testContent);
+    // The mock strips out newlines, so we test for the content without them
+    expect(content).toHaveTextContent('# Heading This is a test post content.');
   });
 
   it('should apply entrybody class', () => {
