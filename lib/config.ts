@@ -2,6 +2,12 @@ import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
 
+export interface ContactLink {
+  name: string;
+  url: string;
+  icon: string;
+}
+
 interface SiteConfig {
   title: string;
   description: string;
@@ -25,6 +31,9 @@ interface SiteConfig {
   repository: string;
   branch: string;
   handle: string;
+  contact_links?: ContactLink[];
+  pgp_key?: string;
+  email?: string;
 }
 
 let cachedConfig: SiteConfig | null = null;
