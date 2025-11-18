@@ -1,0 +1,190 @@
+---
+title: Other recommended reading
+description: Here are some of the books that have had a significant influence on my career, management style, and professional development that I often recommend to others interested in IT management and leadership, career and corporate life, open source, startups and innovation, information security, product management, marketing, technology policy, government and organizing, and everything else.
+_legacy_layout: page
+_legacy_permalink: "/other-recommended-reading/"
+_legacy_redirect_from:
+- "/books/"
+- "/books-for-geeks/"
+- "/recommended-reading/"
+---
+
+Here are some of the books that have had a significant influence on my career, management style, and professional development that I often recommend to others interested in [IT management and leadership](#it-management-and-leadership), [career and corporate life](#career-and-corporate-life), [open source](#open-source), [startups and innovation](#startups-and-innovation), [information security](#information-security), [product management](#product-management), [marketing](#marketing), [technology policy](#technology-policy), [government and organizing](#government-and-organizing), and [everything else](#everything-else).
+
+
+## IT Management and Leadership
+
+### [Managing Humans: Biting and Humorous Tales of a Software Engineering Manager](https://www.amazon.com/gp/product/B00ACC5Z1U/)
+
+How to make the transition from geek to manager. You'll learn how to navigate corporate politics, how to manage conflict, how to manage your boss, how to manage other geeks, and this crazy ritual called meetings.
+
+### [The Art of Leadership: Small Things, Done Well](https://www.amazon.com/gp/product/B088KV4P6T/)
+
+Many people think leadership is a higher calling that resides exclusively with a select few who practice and preach big, complex leadership philosophies. But as this practical book reveals, what’s most important for leadership is principled consistency. Time and again, small things done well build trust and respect within a team.
+
+### [The Culture Code: The Secrets of Highly Successful Groups](https://www.amazon.com/gp/product/B01MSY1Y6Z/)
+
+The Culture Code offers a roadmap for creating an environment where innovation flourishes, problems get solved, and expectations are exceeded. It offers an empirical analysis of high-performing teams to find specific strategies that trigger learning, spark collaboration, build trust, and drive positive change.
+
+### [High Output Management](https://www.amazon.com/gp/product/B015VACHOK/)
+
+I know it looks like it belongs in the end case of the airport bookstore's "important business traveler" section, but judging a book by its cover and all that. The former CEO of Intel walks through how to build and grow teams, with a technology industry focus.
+
+### [Crucial Conversations: Tools for Talking When Stakes Are High](https://www.amazon.com/gp/product/B005K0AYH4/)
+
+How to have conversations you know you should, but don't want to have. The author calls these "high-stakes situations". I'd call it "real talk". It's a quick read. A big part of it is strategies for separating out emotion but it also offers a framework for actually structuring the conversation.
+
+### [The Manager's Path: A Guide for Tech Leaders Navigating Growth and Change](https://www.amazon.com/gp/product/B06XP3GJ7F/)
+
+The former Rent the Runway CTO walks through each step of an IT leader's career, from mentoring interns, to running small teams, to rising through the ranks, with practical advice and examples at each step.
+
+### [The Making of a Manager: What to Do When Everyone Looks to You](https://www.amazon.com/gp/product/B079WNPRL2/)
+
+A modern field guide to people management in tech. told through the lense of a design manager at Facebook.
+
+### [First, Break All the Rules: What the World's Greatest Managers Do Differently](https://www.amazon.com/gp/product/B01E7M6INO/)
+
+Gallop asked 80,000 employees 12 seemingly simply questions like "do yo have the resources to do your job?", and from the results, propose a counter intuitive approach to management that focuses on growing employees strengths, rather than coaching away their weaknesses.
+
+### [Good Strategy Bad Strategy: The Difference and Why It Matters](https://www.amazon.com/gp/product/B004J4WKEC/)
+
+Good strategies leverage insight to your advantage. The book "clears out the mumbo jumbo and muddled thinking underlying too many strategies and provides a clear way to create and implement a powerful action-oriented strategy for the real world."
+
+### [Remote Not Distant: Design a Company Culture That Will Help You Thrive in a Hybrid Workplace](https://www.amazon.com/gp/product/B09VXX4FN3/)
+
+How to design a company culture that will help you thrive in a hybrid workplace, such as culture, keeping your team connected, asynchronous communication, facilitating courageous conversations, and defining the right hybrid model for your organization.
+
+
+## Career and corporate life
+
+### [Being Geek: The Software Developer's Career Handbook](https://www.amazon.com/gp/product/B003XDUCEU/)
+
+As a software engineer, you recognize at some point that there's much more to your career than dealing with code. Is it time to become a manager? Tell your boss he’s a jerk? Join that startup?  If you're a geek, this book is an owner's manual for yourself.
+
+### [Peopleware: Productive Projects and Teams](https://www.amazon.com/gp/product/B00DY5A8X2/)
+
+The major issues of software development are human, not technical—and managers ignore them at their peril.
+
+### [The Personal MBA: Master the Art of Business](https://www.amazon.com/gp/product/B08H5PKGGG/)
+
+Business for Dummies, but not for dummies. A high-level overview of they key concepts you'd learn in any MBA program, with a slighly modern twist. Value creation and delivery, sales, marketing, finance, humans, systems... it's all there. While obviously not a substitute for a two-year MBA program, it's well worth the read, and you'll walk away at least conversant in the moving parts of any business.
+
+
+## Open source
+
+### [Producing Open Source Software: How to Run a Successful Free Software Project](https://www.amazon.com/gp/product/B0026OR37Q/)
+
+The overwhelming majority of free software projects fail. To help you beat the odds, "Producing Open Source Software" recommends tried and true steps to help free software developers work together toward a common goal. Not just for developers who are considering starting their own free software project, this book will also help those who want to participate in the process at any level.
+
+### [The Cathedral & the Bazaar: Musings on Linux and Open Source by an Accidental Revolutionary](https://www.amazon.com/gp/product/B0026OR3LM/)
+
+Open source is being embraced and studied by many of the biggest players in the high-tech industry. The Cathedral & the Bazaar is a must for anyone who cares about the future of the computer industry or the dynamics of the information economy. It has been called the, "great contribution to the success of the open source revolution, to the adoption of Linux-based operating systems, and to the success of open source users and the companies that supply them."
+
+### [Hackers: Heroes of the Computer Revolution](https://www.amazon.com/gp/product/B003PDMKIY/)
+
+The history of the hands-on need to take something apart, figure out how it works, share that information, and build something better.
+
+
+## Startups and innovation
+
+### [The Innovator's Dilemma: When New Technologies Cause Great Firms to Fail](https://www.amazon.com/gp/product/B012BLTM6I/)
+
+Why most companies miss out on new waves of innovation. No matter the industry, a successful company with established products WILL get pushed aside unless managers know how and when to abandon traditional business practices.
+
+### [The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses](https://www.amazon.com/gp/product/B004J4XGN6/)
+
+The lean startup - Inspired by lessons from lean manufacturing, it relies on “validated learning,” rapid scientific experimentation, as well as a number of counter-intuitive practices that shorten product development cycles, measure actual progress without resorting to vanity metrics, and learn what customers really want. It enables a company to shift directions with agility, altering plans inch by inch, minute by minute.
+
+
+## Information security
+
+### [The Cuckoo's Egg](https://www.amazon.com/gp/product/B0083DJXCM/)
+
+Cliff Stoll was an astronomer turned systems manager at Lawrence Berkeley Lab when a 75-cent accounting error alerted him to the presence of an unauthorized user on his system... Stoll began a one-man hunt of his own: spying on the spy. It was a dangerous game of deception, broken codes, satellites, and missile bases — a one-man sting operation that finally gained the attention of the CIA.
+
+### [Secrets and Lies: Digital Security in a Networked World](https://www.amazon.com/gp/product/B004UARVS0/)
+
+A TL;DR on the world of computer security that has withstood the test of time. A great, practical introduction to cryptography and digital security.
+
+### [Serious cryptography](https://www.amazon.com/gp/product/B0722MTGQV/)
+
+This practical guide to modern encryption breaks down the fundamental mathematical concepts at the heart of cryptography without shying away from meaty discussions of how they work. You’ll learn about authenticated encryption, secure randomness, hash functions, block ciphers, and public-key techniques such as RSA and elliptic curve cryptography.
+
+
+## Product management
+
+### [Escaping the Build Trap: How Effective Product Management Creates Real Value](https://www.amazon.com/gp/product/B07K3QBWG1/)
+
+To stay competitive in today’s market, organizations need to adopt a culture of customer-centric practices that focus on outcomes rather than outputs. Companies that live and die by outputs often fall into the "build trap," cranking out features to meet their schedule rather than the customer’s needs.
+
+### [Inspired: How To Create Products Customers Love](https://www.amazon.com/gp/product/B077NRB36N/)
+
+The *TL;DR* of Product Management. It will walk you through start to finish how to be a successful product manager (how to decide which products to create, user research, product's relationship with other parts of the organization, balancing priorities, creating product specs, etc.).s
+
+### [Users, Not Customers: Who Really Determines the Success of Your Business](https://www.amazon.com/gp/product/B00AK3WDZW/)
+
+Rather than trying to get people to buy stuff online, hone in on the user experience; building relationships between people and their brand has huge value, even if those users aren't spending a dime on their products (yet).
+
+### [The Design of Everyday Things](https://www.amazon.com/gp/product/B00E257T6C/)
+
+A classic book that serves as a great design thinking 101. "The rules are simple: make things visible, exploit natural relationships that couple function and control, and make intelligent use of constraints. The goal: guide the user effortlessly to the right action on the right control at the right time."
+
+
+## Marketing
+
+### [The Cluetrain Manifesto](https://www.amazon.com/gp/product/B002EF2AE8/)
+
+Markets are conversations. The internet has changed the balance of power between brands and consumers. Today, the best brands are not faceless corporate blobs shouting a coordinated message as loudly as possible, but rather, is made up of the humans behind them, engaging with their customers in one-to-one, authentic, helpful interactions.
+
+### [Made to Stick: Why Some Ideas Survive and Others Die](https://www.amazon.com/gp/product/B000N2HCKQ/)
+
+Urban legends, conspiracy theories, and bogus public-health scares circulate effortlessly. Meanwhile, people with important ideas–business people, teachers, politicians, journalists, and others– struggle to make their ideas “stick.”  What makes ideas viral?
+
+### [The Long Tail: Why the Future of Business Is Selling Less of More](https://www.amazon.com/gp/product/B000JMKSE2/)
+
+"Today, Web sites and online retailers offer seemingly infinite inventory, and the result is the "shattering of the mainstream into a zillion different cultural shards." These "countless niches" are market opportunities for those who cast a wide net and de-emphasize the search for blockbusters"
+
+
+## Technology policy
+
+### [The Master Switch: The Rise and Fall of Information Empires](https://www.amazon.com/gp/product/B003F3PKTK/)
+
+"In this age of an open Internet, it is easy to forget that every American information industry, beginning with the telephone, has eventually been taken captive by some ruthless monopoly or cartel. With all our media now traveling a single network, an unprecedented potential is building for centralized control over what Americans see and hear."
+
+### [The Wealth of Networks: How Social Production Transforms Markets and Freedom](https://www.amazon.com/gp/product/B0015GWX0S/)
+
+Collaborators and non-market actors (wikipedia, open source) are king in the approaching "industrial information economy"
+
+
+## Government and organizing
+
+### [Hack Your Bureaucracy: Get Things Done No Matter What Your Role on Any Team](https://www.amazon.com/gp/product/B09PL57GRD/)
+
+\"Change doesn’t happen just because the person in charge declares it should, even if that person is the CEO of your company or the President of the United States. Regardless of your industry, role, or team, Hack Your Bureaucracy shows how to get started, take initiative on your own, and transform your ideas into impact.\"
+
+### [Bureaucracy: What Government Agencies Do And Why They Do It](https://www.amazon.com/gp/product/0465007856/)
+
+\"[An explanation] bureaucratic behavior, beginning with a contrast of similar institutions (armies, prisons, and schools) that have succeeded and failed. He finds that neither the liberal view (more money, new programs) or the conservative ideology (smaller government) provides the single answer. Wilson's key contribution here is his emphasis on the "bottom" of the bureaucracy--those who do the work. Policy, he says, is developed by those with no understanding of its implementation\"
+
+### [Tribal Leadership: Leveraging Natural Groups to Build a Thriving Organization](https://www.amazon.com/gp/product/B006IDG1K6/)
+
+Organizations consist of tribes - self-organizing groups of 20-150 - that have have the greatest influence in determining how much and what quality work gets done. The book looks at research from a 10-year study of more than 24,000 people in two dozen organizations and outlines five stages of tribal development: Life sucks, My life sucks, I'm great and you're not, We're great, and Life is great.
+
+### [Here Comes Everybody: The Power of Organizing Without Organizations](https://www.amazon.com/gp/product/B0013TTKQC/)
+
+The wildfire-like spread of new forms of social interaction enabled by technology is changing the way humans form groups and exist within them, with profound long-term economic and social effects-for good.
+
+
+## Everything else
+
+### [Typography for Lawyers](https://www.amazon.com/gp/product/1598390775/)
+
+Artists create art, musicians create music, lawyers create legal documents. Lawyers should care not just about the content of their output, but also the form and function it embodies. This how-to book explains why typography matters, and how to create professional legal type worthy of the words it communicates.
+
+### [The Internet Of Garbage](https://www.amazon.com/gp/product/B07GT9C337/)
+
+Content platforms and social media networks do not have the power to restrain stalkers, end intimate partner violence, eliminate child abuse, or stop street harassment. But they can cultivate better interactions and better discourse, through thoughtful architecture, active moderation and community management.
+
+### [Technically Wrong: Sexist Apps, Biased Algorithms, and Other Threats of Toxic Tech](https://www.amazon.com/gp/product/B06XJBGPT9/)
+
+"Buying groceries, tracking our health, finding a date: whatever we want to do, odds are that we can now do it online... Many of the services we rely on are full of oversights, biases, and downright ethical nightmares... Technically Wrong takes an unflinching look at the values, processes, and assumptions that lead to these problems and more."
