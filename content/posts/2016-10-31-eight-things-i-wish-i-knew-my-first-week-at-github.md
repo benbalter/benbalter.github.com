@@ -10,6 +10,7 @@ description: A short list of tips and tricks I offer to new employees when they 
   and [share your past experiences, but be prepared to unlearn things](#8-share-your-past-experiences-but-be-prepared-to-unlearn-things).
 date: '2016-10-31'
 _legacy_redirect_from: "/2016/10/31/eight-things-i-wish-i-knew-my-first-week/"
+show_github_culture_callout: true
 ---
 
 {% capture disclaimer -%}
@@ -93,7 +94,6 @@ One of my favorite parts of working at GitHub is being able to talk to new GitHu
 
 Welcome to GitHub! I'm glad you're here.
 
-{% include_cached github-culture.html %}
 
 [^1]: The original post referenced a previous iteration of how we stored and shared knowledge internally, so I opted to remove the system name entirely to keep it future proof (that's not what we really call it). If you're a GitHubber, ask your manager or a teammate. It's the thing with internal policies, docs, guides, updates, and so on
 

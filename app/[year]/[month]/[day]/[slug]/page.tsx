@@ -7,6 +7,7 @@ import MiniBio from '@/app/components/MiniBio';
 import PostHeader from '@/app/components/PostHeader';
 import PostDescription from '@/app/components/PostDescription';
 import ArchivedWarning from '@/app/components/ArchivedWarning';
+import GitHubCultureCallout from '@/app/components/GitHubCultureCallout';
 import PostContent from '@/app/components/PostContent';
 import PostMetadata from '@/app/components/PostMetadata';
 import EditButton from '@/app/components/EditButton';
@@ -128,6 +129,10 @@ export default async function Post({ params }: PageProps) {
             <ReadingTime content={post.content} />
             
             <PostContent contentHtml={contentHtml} />
+            
+            {post.show_github_culture_callout && (
+              <GitHubCultureCallout />
+            )}
             
             <PostMetadata 
               publishDate={publishDate}
