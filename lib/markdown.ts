@@ -8,11 +8,14 @@ import rehypeStringify from 'rehype-stringify';
 import { convert } from 'html-to-text';
 import { processEmoji } from './emoji';
 import { getSiteConfig } from './config';
-import remarkLiquidIncludes from './remark-liquid-includes';
+import { processLiquidIncludes } from './liquid-includes';
 
 export async function markdownToHtml(markdown: string): Promise<string> {
   // Process emoji before markdown conversion
   const markdownWithEmoji = processEmoji(markdown);
+  
+  // Replace Liquid include tags with HTML (before markdown parsing)
+  const markdownWithIncludes = processLiquidIncludes(markdownWithEmoji);
   
   // Get repository info for remark-github
   const config = getSiteConfig();
@@ -20,8 +23,6 @@ export async function markdownToHtml(markdown: string): Promise<string> {
   
   const result = await remark()
     .use(gfm)
-    // Replace Liquid include tags with HTML
-    .use(remarkLiquidIncludes)
     // Use remark-github plugin for @mentions, #issues, and other GitHub references
     .use(remarkGithub, {
       repository: config.repository || `${owner}/${repo}`,
@@ -47,7 +48,7 @@ export async function markdownToHtml(markdown: string): Promise<string> {
     })
     // Convert hast to HTML string
     .use(rehypeStringify, { allowDangerousHtml: true })
-    .process(markdownWithEmoji);
+    .process(markdownWithIncludes);
   
   return result.toString();
 }
