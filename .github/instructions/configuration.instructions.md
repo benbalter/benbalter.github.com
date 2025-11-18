@@ -10,43 +10,43 @@ When working with YAML and JSON configuration files, follow these guidelines:
 
 ### Front Matter (`_config.yml`, post headers)
 
-- Use consistent indentation (2 spaces)
-- Quote strings with special characters
-- Use proper YAML types (strings, numbers, booleans, arrays, objects)
-- Validate YAML syntax before committing
+* Use consistent indentation (2 spaces)
+* Quote strings with special characters
+* Use proper YAML types (strings, numbers, booleans, arrays, objects)
+* Validate YAML syntax before committing
 
 ### Jekyll Configuration (`_config.yml`)
 
-- Changes require Jekyll restart to take effect
-- Test configuration changes locally first
-- Document non-obvious settings with comments
-- Use environment-specific configs when needed:
-  - `_config.yml` - Production config
-  - `_config_local.yml` - Local development overrides
-  - `_config_test.yml` - Test environment
+* Changes require Jekyll restart to take effect
+* Test configuration changes locally first
+* Document non-obvious settings with comments
+* Use environment-specific configs when needed:
+  * `_config.yml` - Production config
+  * `_config_local.yml` - Local development overrides
+  * `_config_test.yml` - Test environment
 
 ### Data Files (`_data/`)
 
-- Place reusable data in `_data/` directory
-- Access via `site.data.filename`
-- Keep data files focused and organized
-- Use meaningful file and key names
+* Place reusable data in `_data/` directory
+* Access via `site.data.filename`
+* Keep data files focused and organized
+* Use meaningful file and key names
 
 ## JSON Files
 
 ### Package Configuration (`package.json`)
 
-- Follow semver for version numbers
-- Use `^` or `~` for dependency ranges appropriately
-- Organize scripts logically
-- Document non-obvious scripts with comments
+* Follow semver for version numbers
+* Use `^` or `~` for dependency ranges appropriately
+* Organize scripts logically
+* Document non-obvious scripts with comments
 
 ### Tool Configuration
 
-- ESLint: `.eslintrc.yml`
-- Prettier: `frontmatter.json`
-- Next.js: `next.config.mjs` (actually JavaScript)
-- TypeScript: `tsconfig.json`
+* ESLint: `.eslintrc.yml`
+* Prettier: `frontmatter.json`
+* Next.js: `next.config.mjs` (actually JavaScript)
+* TypeScript: `tsconfig.json`
 
 ## Linting Configuration Files
 
@@ -122,10 +122,10 @@ plugin_name:
 
 ## Environment Variables
 
-- Use `.env` for local development (don't commit!)
-- Reference in Jekyll: `ENV['VARIABLE_NAME']`
-- Document required environment variables in README
-- Use `.env.example` as a template
+* Use `.env` for local development (don't commit!)
+* Reference in Jekyll: `ENV['VARIABLE_NAME']`
+* Document required environment variables in README
+* Use `.env.example` as a template
 
 ## Testing Configuration Changes
 

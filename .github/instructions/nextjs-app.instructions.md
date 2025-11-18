@@ -21,14 +21,14 @@ Use 'use client' ONLY when you need:
 
 ### When NOT to Use 'use client'
 
-- ❌ **Navigation Links**: Use `<Link>` from 'next/link' in server components
-- ❌ **Data Display**: Fetch data in server components, pass as props
-- ❌ **Markdown Rendering**: Process markdown at build time in server components
-- ❌ **Metadata/SEO**: Use `generateMetadata` function in server components
-- ❌ **Styling/Layouts**: CSS and HTML work in server components
-- ❌ **Static Content**: All static content should be in server components
+* ❌ **Navigation Links**: Use `<Link>` from 'next/link' in server components
+* ❌ **Data Display**: Fetch data in server components, pass as props
+* ❌ **Markdown Rendering**: Process markdown at build time in server components
+* ❌ **Metadata/SEO**: Use `generateMetadata` function in server components
+* ❌ **Styling/Layouts**: CSS and HTML work in server components
+* ❌ **Static Content**: All static content should be in server components
 
-### Before Adding 'use client', Ask:
+### Before Adding 'use client', Ask
 
 1. Can this be pure HTML/CSS?
 2. Can this be a server component with no interactivity?
@@ -69,17 +69,17 @@ export default function NavigationLinks() {
 
 ## Static Site Generation
 
-- **All pages must be pre-rendered** at build time
-- Use `output: 'export'` in `next.config.mjs` for GitHub Pages compatibility
-- No dynamic routes unless statically generated with `generateStaticParams`
-- Minimize JavaScript bundle size
+* **All pages must be pre-rendered** at build time
+* Use `output: 'export'` in `next.config.mjs` for GitHub Pages compatibility
+* No dynamic routes unless statically generated with `generateStaticParams`
+* Minimize JavaScript bundle size
 
 ## TypeScript
 
-- Use TypeScript for type safety
-- Define proper types for props and return values
-- Avoid `any` types
-- Use interfaces for component props
+* Use TypeScript for type safety
+* Define proper types for props and return values
+* Avoid `any` types
+* Use interfaces for component props
 
 ## Testing Next.js Code
 
