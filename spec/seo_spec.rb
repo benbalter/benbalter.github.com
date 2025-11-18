@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable RSpec/ContextWording
+
 RSpec.describe 'SEO' do
   context 'pages' do
     pages_to_check.each do |page|
@@ -35,7 +37,7 @@ RSpec.describe 'SEO' do
           og_url = doc.css('meta[property="og:url"]').first
           expect(og_url).not_to be_nil
           expect(og_url['content']).not_to be_empty
-          expect(og_url['content']).to match(/^https?:\/\//)
+          expect(og_url['content']).to match(%r{^https?://})
         end
 
         it 'has Open Graph site name' do
@@ -54,7 +56,7 @@ RSpec.describe 'SEO' do
           canonical = doc.css('link[rel="canonical"]').first
           expect(canonical).not_to be_nil
           expect(canonical['href']).not_to be_empty
-          expect(canonical['href']).to match(/^https?:\/\//)
+          expect(canonical['href']).to match(%r{^https?://})
         end
 
         it 'has Twitter card type' do
@@ -72,9 +74,7 @@ RSpec.describe 'SEO' do
           expect(og_title).not_to be_nil
 
           # Twitter title might not always be present, but if it is, it should match
-          if twitter_title
-            expect(twitter_title).to eq(og_title)
-          end
+          expect(twitter_title).to eq(og_title) if twitter_title
         end
 
         it 'has consistent description across meta tags' do
@@ -132,7 +132,7 @@ RSpec.describe 'SEO' do
         it 'has structured data (JSON-LD)' do
           json_ld = doc.css('script[type="application/ld+json"]').first
           expect(json_ld).not_to be_nil
-          
+
           json_data = JSON.parse(json_ld.text)
           expect(json_data['@context']).to eq('https://schema.org')
           expect(json_data['@type']).to eq('BlogPosting')
@@ -160,11 +160,11 @@ RSpec.describe 'SEO' do
           if post.data['image']
             twitter_card = doc.css('meta[name="twitter:card"]').first
             expect(twitter_card['content']).to eq('summary_large_image')
-            
+
             twitter_image = doc.css('meta[property="twitter:image"]').first
             expect(twitter_image).not_to be_nil
             expect(twitter_image['content']).not_to be_empty
-            
+
             og_image = doc.css('meta[property="og:image"]').first
             expect(og_image).not_to be_nil
             expect(og_image['content']).not_to be_empty
@@ -180,3 +180,5 @@ RSpec.describe 'SEO' do
     end
   end
 end
+
+# rubocop:enable RSpec/ContextWording
