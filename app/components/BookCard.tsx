@@ -11,7 +11,7 @@ export default function BookCard({ book, affiliatesTag }: BookCardProps) {
       <a href={`https://www.amazon.com/gp/product/${book.asin}/?tag=${affiliatesTag}`}>
         <div className="mb-2">
           <img
-            src={`http://images.amazon.com/images/P/${book.asin}.01.MZZZZZZZ.jpg`}
+            src={`https://images.amazon.com/images/P/${book.asin}.01.MZZZZZZZ.jpg`}
             alt={book.title}
           />
         </div>

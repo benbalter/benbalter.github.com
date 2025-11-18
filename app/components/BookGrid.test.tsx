@@ -80,4 +80,34 @@ describe('BookGrid', () => {
     
     expect(rows.length).toBe(1);
   });
+
+  it('validates booksPerRow and falls back to 3 for invalid values', () => {
+    const { container } = render(<BookGrid books={mockBooks} affiliatesTag={affiliatesTag} booksPerRow={5} />);
+    const columns = container.querySelectorAll('.col-md-4');
+    
+    // Invalid value 5 should fall back to 3, producing col-md-4
+    expect(columns.length).toBe(4);
+  });
+
+  it('accepts valid booksPerRow value of 1', () => {
+    const { container } = render(<BookGrid books={mockBooks} affiliatesTag={affiliatesTag} booksPerRow={1} />);
+    const columns = container.querySelectorAll('.col-md-12');
+    
+    expect(columns.length).toBe(4);
+  });
+
+  it('accepts valid booksPerRow value of 4', () => {
+    const { container } = render(<BookGrid books={mockBooks} affiliatesTag={affiliatesTag} booksPerRow={4} />);
+    const columns = container.querySelectorAll('.col-md-3');
+    
+    expect(columns.length).toBe(4);
+  });
+
+  it('accepts valid booksPerRow value of 6', () => {
+    const sixBooks = [...mockBooks, { title: 'Book 5', asin: 'B00TEST005', tldr: 'Description 5' }, { title: 'Book 6', asin: 'B00TEST006', tldr: 'Description 6' }];
+    const { container } = render(<BookGrid books={sixBooks} affiliatesTag={affiliatesTag} booksPerRow={6} />);
+    const columns = container.querySelectorAll('.col-md-2');
+    
+    expect(columns.length).toBe(6);
+  });
 });

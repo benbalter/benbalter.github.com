@@ -37,7 +37,7 @@ describe('BookCard', () => {
     
     expect(img).toBeInTheDocument();
     expect(img?.getAttribute('src')).toBe(
-      'http://images.amazon.com/images/P/B00TEST123.01.MZZZZZZZ.jpg'
+      'https://images.amazon.com/images/P/B00TEST123.01.MZZZZZZZ.jpg'
     );
     expect(img?.getAttribute('alt')).toBe('Test Book Title');
   });
