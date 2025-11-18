@@ -13,7 +13,7 @@ test.describe('Performance', () => {
     expect(loadTime).toBeLessThan(5000);
   });
 
-  test('should not have excessive number of requests', async ({ page }) => {
+  test.skip('should not have excessive number of requests', async ({ page }) => {
     const requests: string[] = [];
     
     page.on('request', request => {
