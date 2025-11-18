@@ -3,6 +3,7 @@ import { getAmazonAffiliatesTag } from '@/lib/config';
 import type { Metadata } from 'next';
 import { getPageBySlug } from '@/lib/pages';
 import { getPageMetadata } from '@/lib/seo';
+import BookCategory from '@/app/components/BookCategory';
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = getPageBySlug('other-recommended-reading');
@@ -17,23 +18,10 @@ export async function generateMetadata(): Promise<Metadata> {
   return getPageMetadata(page, '/other-recommended-reading/');
 }
 
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .trim();
-}
-
 export default function OtherRecommendedReadingPage() {
   const booksData = getBooks();
   const affiliatesTag = getAmazonAffiliatesTag();
-  const page = getPageBySlug('other-recommended-reading');
   const booksPerRow = 3;
-
-  // Convert the description with proper link styling
-  const description = page?.description || '';
 
   return (
     <div className="page page-other-recommended-reading">
@@ -59,46 +47,15 @@ export default function OtherRecommendedReadingPage() {
             </p>
           </div>
 
-          {Object.entries(booksData).map(([category, books]) => {
-            // Group books into rows
-            const rows: typeof books[] = [];
-            for (let i = 0; i < books.length; i += booksPerRow) {
-              rows.push(books.slice(i, i + booksPerRow));
-            }
-
-            return (
-              <div key={category}>
-                <h3 id={slugify(category)} className="book-group">
-                  {category}
-                </h3>
-
-                {rows.map((rowBooks, rowIndex) => (
-                  <div key={rowIndex} className="row pt-2">
-                    {rowBooks.map((book) => (
-                      <div key={book.asin} className={`col-md-${12 / booksPerRow} text-center`}>
-                        <a href={`https://www.amazon.com/gp/product/${book.asin}/?tag=${affiliatesTag}`}>
-                          <div className="mb-2">
-                            <img
-                              src={`http://images.amazon.com/images/P/${book.asin}.01.MZZZZZZZ.jpg`}
-                              alt={book.title}
-                            />
-                          </div>
-
-                          <div className="title font-weight-bold min-y-5">
-                            {book.title}
-                          </div>
-                        </a>
-
-                        <div className="small text-justify">
-                          {book.tldr}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            );
-          })}
+          {Object.entries(booksData).map(([category, books]) => (
+            <BookCategory
+              key={category}
+              category={category}
+              books={books}
+              affiliatesTag={affiliatesTag}
+              booksPerRow={booksPerRow}
+            />
+          ))}
         </div>
       </div>
     </div>
