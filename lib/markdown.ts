@@ -3,13 +3,14 @@ import gfm from 'remark-gfm';
 import remarkGithub from 'remark-github';
 import remarkRehype from 'remark-rehype';
 import rehypeRaw from 'rehype-raw';
-import rehypeSanitize from 'rehype-sanitize';
+import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeStringify from 'rehype-stringify';
 import { convert } from 'html-to-text';
 import { processEmoji } from './emoji';
 import { getSiteConfig } from './config';
+import type { Schema } from 'hast-util-sanitize';
 
 /**
  * Converts markdown to sanitized HTML string at build time.
@@ -28,6 +29,27 @@ export async function markdownToHtml(markdown: string): Promise<string> {
   // Get repository info for remark-github
   const config = getSiteConfig();
   const [owner, repo] = config.repository ? config.repository.split('/') : ['', ''];
+  
+  // Create custom sanitization schema that allows our anchor link classes
+  // We need to extend the className property to include our custom classes
+  const sanitizeSchema: Schema = {
+    ...defaultSchema,
+    attributes: {
+      ...defaultSchema.attributes,
+      a: [
+        ...(defaultSchema.attributes?.a || []).filter(
+          attr => !(Array.isArray(attr) && attr[0] === 'className')
+        ),
+        // Allow specific class names for anchor links
+        ['className', 'anchor-link', 'data-footnote-backref'],
+      ],
+      span: [
+        ...(defaultSchema.attributes?.span || []),
+        // Allow anchor-icon class for the span inside anchor links
+        ['className', 'anchor-icon'],
+      ],
+    },
+  };
   
   const result = await remark()
     .use(gfm)
@@ -56,8 +78,8 @@ export async function markdownToHtml(markdown: string): Promise<string> {
         children: [{ type: 'text', value: ' #' }],
       },
     })
-    // Sanitize HTML for security (should be after all other rehype plugins)
-    .use(rehypeSanitize)
+    // Sanitize HTML for security with custom schema (should be after all other rehype plugins)
+    .use(rehypeSanitize, sanitizeSchema)
     // Convert hast to HTML string
     .use(rehypeStringify)
     .process(markdownWithEmoji);
