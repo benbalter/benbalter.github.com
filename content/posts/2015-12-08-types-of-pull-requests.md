@@ -7,6 +7,7 @@ description: Whether collaborating on code, data, or prose text, there are lots 
   and [pull request to a pull request](#pull-request-to-a-pull-request).
 date: '2015-12-08'
 _legacy_redirect_from: "/2014/12/08/types-of-pull-requests/"
+show_github_culture_callout: true
 ---
 
 Whether collaborating on code, data, or prose text, there are lots of different strategies for using pull requests on GitHub. I once saw a post that outlined a handful of ways teams use pull requests, that seems to be subsequently lost forever, despite looking high and low. Here's how I see pull requests used at GitHub:
@@ -49,4 +50,3 @@ Whether collaborating on code, data, or prose text, there are lots of different 
 
 **When to use it:** When you don't have write access to the source repository (for example, open source), and would like to make substantial changes to an existing pull request created by another user. For smaller changes, use line-by-line comments with the proposed code.
 
-{% include_cached github-culture.html %}

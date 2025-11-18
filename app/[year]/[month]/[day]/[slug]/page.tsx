@@ -1,5 +1,4 @@
 import { getAllPosts, findPostByDate } from '@/lib/posts';
-import { markdownToHtml } from '@/lib/markdown';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import ReadingTime from '@/app/components/ReadingTime';
@@ -7,6 +6,7 @@ import MiniBio from '@/app/components/MiniBio';
 import PostHeader from '@/app/components/PostHeader';
 import PostDescription from '@/app/components/PostDescription';
 import ArchivedWarning from '@/app/components/ArchivedWarning';
+import GitHubCultureCallout from '@/app/components/GitHubCultureCallout';
 import PostContent from '@/app/components/PostContent';
 import PostMetadata from '@/app/components/PostMetadata';
 import EditButton from '@/app/components/EditButton';
@@ -66,7 +66,6 @@ export default async function Post({ params }: PageProps) {
     notFound();
   }
   
-  const contentHtml = await markdownToHtml(post.content);
   const publishDate = new Date(post.date).toLocaleDateString('en-US', { 
     year: 'numeric', 
     month: 'long', 
@@ -127,7 +126,11 @@ export default async function Post({ params }: PageProps) {
             
             <ReadingTime content={post.content} />
             
-            <PostContent contentHtml={contentHtml} />
+            <PostContent content={post.content} />
+            
+            {post.show_github_culture_callout && (
+              <GitHubCultureCallout />
+            )}
             
             <PostMetadata 
               publishDate={publishDate}
