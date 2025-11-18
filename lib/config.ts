@@ -25,6 +25,9 @@ interface SiteConfig {
   repository: string;
   branch: string;
   handle: string;
+  amazon?: {
+    affiliates_tag: string;
+  };
 }
 
 let cachedConfig: SiteConfig | null = null;
@@ -60,6 +63,14 @@ export function getNavPages(): string[] {
 export function getFooterPages(): string[] {
   const config = getSiteConfig();
   return config.footer_pages || [];
+}
+
+/**
+ * Get Amazon affiliate tag
+ */
+export function getAmazonAffiliateTag(): string {
+  const config = getSiteConfig();
+  return config.amazon?.affiliates_tag || '';
 }
 
 /**
