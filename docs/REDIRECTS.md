@@ -145,6 +145,7 @@ Posts moved to external sites:
 To add a new redirect:
 
 1. **For internal redirects**: Add `redirect_from` to the destination page's frontmatter:
+
    ```yaml
    ---
    title: My Post
@@ -155,6 +156,7 @@ To add a new redirect:
    ```
 
 2. **For external redirects**: Add `redirect_to` to the source page's frontmatter:
+
    ```yaml
    ---
    title: My Post

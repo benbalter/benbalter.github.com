@@ -235,6 +235,51 @@ npm run test:e2e:headed  # Watch tests run in browser
 * **Update documentation** if needed
 * **Respond to feedback** promptly and professionally
 
+## Working with GitHub Copilot
+
+This repository is configured to work with GitHub Copilot coding agent, which can help with development tasks such as bug fixes, feature implementation, documentation updates, and test creation.
+
+### GitHub Copilot Custom Agents
+
+The repository includes two specialized custom agents:
+
+* **Code Agent** (`.github/agents/code.md`) - Specialized for:
+  * Ruby (Jekyll plugins, RSpec tests, Rake tasks)
+  * JavaScript/TypeScript (Next.js, React, webpack)
+  * HTML/Liquid templates
+  * SCSS/CSS styling
+  * Configuration files (YAML, JSON)
+
+* **Writing Agent** (`.github/agents/writing.md`) - Specialized for:
+  * Blog posts (Markdown with front matter)
+  * Technical documentation
+  * README and guide files
+  * SEO optimization
+  * Style and grammar compliance
+
+### Copilot Development Environment
+
+The repository includes a `.github/workflows/copilot-setup-steps.yml` workflow that automatically configures the development environment for Copilot. This ensures Copilot can build, test, and work with the codebase properly.
+
+### Repository Instructions
+
+All Copilot instructions are documented in `.github/copilot-instructions.md`, including:
+
+* Project overview and architecture
+* Tech stack and dependencies
+* Development commands
+* Coding standards and best practices
+* Testing and linting requirements
+* Security guidelines
+
+### Best Practices for Working Alongside Copilot
+
+* **Review all Copilot-generated PRs** - Treat Copilot like any other contributor
+* **Provide clear feedback** - Comment on PRs with specific suggestions for improvement
+* **Well-defined issues** - When assigning tasks to Copilot, provide clear requirements and acceptance criteria
+* **Human review required** - All changes must be reviewed and approved by a human before merging
+* **Iterative refinement** - Use `@copilot` mentions in PR comments to request changes or clarifications
+
 ## Questions?
 
 If you have questions or need help:
