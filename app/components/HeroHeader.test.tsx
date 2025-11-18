@@ -10,42 +10,49 @@ describe('HeroHeader', () => {
     expect(element).toHaveClass('hero-unit', 'rounded-top', 'position-relative', 'mb-3');
   });
 
-  it('sets background image from imageUrl prop', () => {
-    const { container } = render(<HeroHeader imageUrl="/test.jpg" />);
-    const element = container.firstChild as HTMLElement;
+  it('renders Next.js Image component with correct src', () => {
+    render(<HeroHeader imageUrl="/test.jpg" />);
+    const image = screen.getByRole('img');
     
-    expect(element).toHaveStyle({ backgroundImage: 'url(/test.jpg)' });
+    expect(image).toBeInTheDocument();
+    expect(image).toHaveAttribute('src', expect.stringContaining('test.jpg'));
   });
 
-  it('sets custom height', () => {
-    const { container } = render(<HeroHeader imageUrl="/test.jpg" height="500px" />);
-    const element = container.firstChild as HTMLElement;
+  it('sets custom dimensions', () => {
+    render(<HeroHeader imageUrl="/test.jpg" width={1200} height={450} />);
+    const image = screen.getByRole('img');
     
-    expect(element).toHaveStyle({ height: '500px' });
+    expect(image).toHaveAttribute('width', '1200');
+    expect(image).toHaveAttribute('height', '450');
   });
 
-  it('uses default height when not specified', () => {
-    const { container } = render(<HeroHeader imageUrl="/test.jpg" />);
-    const element = container.firstChild as HTMLElement;
+  it('uses default dimensions when not specified', () => {
+    render(<HeroHeader imageUrl="/test.jpg" />);
+    const image = screen.getByRole('img');
     
-    expect(element).toHaveStyle({ height: '400px' });
+    expect(image).toHaveAttribute('width', '1000');
+    expect(image).toHaveAttribute('height', '379');
   });
 
-  it('has proper background styling', () => {
-    const { container } = render(<HeroHeader imageUrl="/test.jpg" />);
-    const element = container.firstChild as HTMLElement;
+  it('has priority loading enabled', () => {
+    render(<HeroHeader imageUrl="/test.jpg" />);
+    const image = screen.getByRole('img');
     
-    expect(element).toHaveStyle({
-      backgroundSize: 'cover',
-      backgroundPosition: 'top left'
-    });
+    // Next.js Image with priority doesn't have loading="lazy"
+    expect(image).not.toHaveAttribute('loading', 'lazy');
   });
 
-  it('includes accessibility attributes', () => {
-    const { container } = render(<HeroHeader imageUrl="/test.jpg" alt="Test header" />);
-    const element = container.firstChild as HTMLElement;
+  it('includes proper alt text', () => {
+    render(<HeroHeader imageUrl="/test.jpg" alt="Test header" />);
+    const image = screen.getByRole('img');
     
-    expect(element).toHaveAttribute('role', 'img');
-    expect(element).toHaveAttribute('aria-label', 'Test header');
+    expect(image).toHaveAttribute('alt', 'Test header');
+  });
+
+  it('uses default alt text when not specified', () => {
+    render(<HeroHeader imageUrl="/test.jpg" />);
+    const image = screen.getByRole('img');
+    
+    expect(image).toHaveAttribute('alt', 'Header image');
   });
 });
