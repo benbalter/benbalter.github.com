@@ -235,6 +235,33 @@ npm run test:e2e:headed  # Watch tests run in browser
 * **Update documentation** if needed
 * **Respond to feedback** promptly and professionally
 
+## GitHub Copilot Instructions
+
+This repository includes comprehensive instructions for GitHub Copilot coding agents:
+
+### General Instructions
+
+* **`.github/copilot-instructions.md`** - Repository-wide context and guidelines
+
+### Custom Agents
+
+* **`.github/agents/code.md`** - Specialized agent for code changes (Ruby, JavaScript, HTML, CSS)
+* **`.github/agents/writing.md`** - Specialized agent for blog posts and documentation
+
+### Scoped Instructions
+
+The `.github/instructions/` directory contains targeted instructions for specific areas:
+
+* **`jekyll-content.instructions.md`** - Blog posts in `_posts/`
+* **`jekyll-templates.instructions.md`** - Jekyll layouts and includes
+* **`nextjs-app.instructions.md`** - Next.js application code
+* **`ruby-code.instructions.md`** - Ruby plugins, scripts, and tests
+* **`styles.instructions.md`** - CSS and SCSS files
+* **`configuration.instructions.md`** - YAML and JSON configuration
+* **`testing.instructions.md`** - Test files and testing practices
+
+These instructions help Copilot provide better suggestions and maintain code quality standards.
+
 ## Questions?
 
 If you have questions or need help:
