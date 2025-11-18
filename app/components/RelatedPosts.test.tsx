@@ -109,10 +109,9 @@ describe('RelatedPosts', () => {
 
   it('should handle single related post', () => {
     const singlePost = [mockRelatedPosts[0]];
-    render(<RelatedPosts relatedPosts={singlePost} />);
+    const { container } = render(<RelatedPosts relatedPosts={singlePost} />);
     
     expect(screen.getByText('Related Post 1')).toBeInTheDocument();
-    const { container } = render(<RelatedPosts relatedPosts={singlePost} />);
     const listItems = container.querySelectorAll('li');
     expect(listItems.length).toBe(1);
   });
