@@ -3,6 +3,7 @@ import { markdownToHtml } from '@/lib/markdown';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getPageMetadata } from '@/lib/seo';
+import PageContent from '@/app/components/PageContent';
 
 interface PageProps {
   params: Promise<{
@@ -39,14 +40,5 @@ export default async function Page({ params }: PageProps) {
   
   const contentHtml = await markdownToHtml(page.content);
   
-  return (
-    <div className={`page page-${slug}`}>
-      <div className="row">
-        <div className="col-md-10 offset-md-1">
-          {page.title && <h1 className="display-4 text-primary">{page.title}</h1>}
-          <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
-        </div>
-      </div>
-    </div>
-  );
+  return <PageContent slug={slug} title={page.title} contentHtml={contentHtml} />;
 }

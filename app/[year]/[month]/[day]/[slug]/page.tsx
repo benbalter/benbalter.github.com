@@ -2,19 +2,12 @@ import { getAllPosts, findPostByDate } from '@/lib/posts';
 import { markdownToHtml } from '@/lib/markdown';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import ReadingTime from '@/app/components/ReadingTime';
-import MiniBio from '@/app/components/MiniBio';
-import PostHeader from '@/app/components/PostHeader';
-import PostDescription from '@/app/components/PostDescription';
-import ArchivedWarning from '@/app/components/ArchivedWarning';
-import PostContent from '@/app/components/PostContent';
-import PostMetadata from '@/app/components/PostMetadata';
-import EditButton from '@/app/components/EditButton';
 import { getSiteConfig, getAuthorBio } from '@/lib/config';
 import { getPostMetadata } from '@/lib/seo';
 import { ArticleJsonLd } from 'next-seo';
 import { getPostUrlParts } from '@/lib/posts';
 import { getPostOgImage } from '@/lib/og-image';
+import PostArticle from '@/app/components/PostArticle';
 
 // Load site configuration
 const config = getSiteConfig();
@@ -112,41 +105,20 @@ export default async function Post({ params }: PageProps) {
         }}
       />
       
-      <div className="row">
-        <div className="col-md-10 offset-md-1">
-          <article id={`post-${post.slug}`} className={`post post-${post.slug}`}>
-            <PostHeader title={post.title} />
-            
-            {post.description && (
-              <PostDescription description={post.description} />
-            )}
-            
-            {post.archived && (
-              <ArchivedWarning />
-            )}
-            
-            <ReadingTime content={post.content} />
-            
-            <PostContent contentHtml={contentHtml} />
-            
-            <PostMetadata 
-              publishDate={publishDate}
-              revisionHistoryUrl={revisionHistoryUrl}
-            />
-            
-            <div className="row border-top pt-3">
-              <div className="col">
-                <MiniBio 
-                  authorName={config.author.name}
-                  githubHandle={config.handle}
-                  bioText={authorBio}
-                />
-              </div>
-              <EditButton editUrl={editUrl} postSlug={post.slug} />
-            </div>
-          </article>
-        </div>
-      </div>
+      <PostArticle
+        slug={post.slug}
+        title={post.title}
+        description={post.description}
+        archived={post.archived}
+        content={post.content}
+        contentHtml={contentHtml}
+        publishDate={publishDate}
+        revisionHistoryUrl={revisionHistoryUrl}
+        authorName={config.author.name}
+        githubHandle={config.handle}
+        bioText={authorBio}
+        editUrl={editUrl}
+      />
     </>
   );
 }
