@@ -10,6 +10,8 @@ export interface Post {
   description?: string;
   image?: string;
   content: string;
+  archived?: boolean;
+  show_github_culture_callout?: boolean;
   [key: string]: any;
 }
 
