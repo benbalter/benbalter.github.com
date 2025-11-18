@@ -54,7 +54,7 @@ npm run test:jest:coverage     # With coverage
 * `jest.config.mjs` - Jest configuration with Next.js support
 * `jest.setup.mjs` - Test environment setup
 
-### 3. Playwright E2E Tests (120 tests ✅)
+### 3. Playwright E2E Tests (141 tests ✅)
 
 End-to-end tests using Playwright for both Jekyll and Next.js builds.
 
@@ -67,7 +67,45 @@ End-to-end tests using Playwright for both Jekyll and Next.js builds.
 * `e2e/performance.spec.ts` - Performance metrics
 * `e2e/redirects.spec.ts` - URL redirects
 * `e2e/resume.spec.ts` - Resume page
-* `e2e/seo.spec.ts` - SEO metadata
+* `e2e/seo.spec.ts` - SEO metadata (general) - 25 tests
+* `e2e/seo-nextjs.spec.ts` - Next.js-specific SEO tests - 21 tests
+
+**SEO Test Coverage (46 total tests):**
+
+The SEO test suite comprehensively validates search engine optimization features:
+
+*General SEO Tests (`seo.spec.ts` - 25 tests):*
+* Meta descriptions (length validation)
+* Open Graph tags (og:title, og:description, og:type, og:url)
+* Twitter Card tags
+* Canonical URLs
+* Title tags (length validation)
+* Robots meta tags (indexability)
+* Structured data (JSON-LD validation)
+* Sitemap accessibility
+* robots.txt accessibility
+* RSS feed accessibility
+* Blog post specific meta tags
+
+*Next.js-Specific SEO Tests (`seo-nextjs.spec.ts` - 21 tests):*
+* UTF-8 charset declaration
+* Viewport meta tag for responsive design
+* Theme-color meta tags (light/dark mode)
+* X-UA-Compatible for IE
+* Open Graph image tags (og:image, og:image:alt)
+* Twitter image tags
+* Author, creator, and publisher metadata
+* Person structured data schema
+* BlogPosting structured data schema
+* Social media rel="me" links
+* RSS feed alternate link
+* Favicon and icon links (multiple formats)
+* Web manifest link
+* Article-specific Open Graph tags
+* Published time metadata
+* Twitter Card types
+* Keywords meta tag
+* Robots and indexing rules validation
 
 **Commands:**
 
@@ -131,9 +169,9 @@ All tests run automatically in GitHub Actions:
 | ------------------- | ----- | --------------------------- |
 | Prose Quality Tests | 920   | ⚠️ 206 failing (fixable)    |
 | Jest Unit Tests     | 42    | ✅ All passing               |
-| Playwright E2E      | 120   | ✅ All passing (1 skipped)   |
+| Playwright E2E      | 141   | ✅ All passing (1 skipped)   |
 | Node Tests          | 18    | ⚠️ 2 failing (pre-existing) |
-| **Total**           | **1100** | **1072 passing**         |
+| **Total**           | **1121** | **1093 passing**         |
 
 ## Running All Tests
 
