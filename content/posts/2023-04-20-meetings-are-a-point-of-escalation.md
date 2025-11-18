@@ -4,6 +4,7 @@ description: Default to transferring context asynchronously. Hold colleagues acc
   for being async first. If you receive a meeting invite without context, an agenda,
   or a read-ahead doc, consider politely declining.
 date: '2023-04-20'
+show_github_culture_callout: true
 ---
 
 Asynchronous communication (Issues, PRs, Google Docs, and sometimes Slack) should be the default, reserving more synchronous mediums (like video calls and in-person meetings) for the types of conversations that uniquely benefit from their higher fidelity (brainstorming, whiteboarding, interpersonal conflict, social connection, etc). Put another way, the phrase "async first" should be taken literally.
@@ -26,4 +27,3 @@ You may be skeptical. I was curious, so [I wrote a quick script to pull stats fr
 
 If you receive a meeting invite (or if a colleague requests permission to send you a meeting invite) without context, an agenda, or a read-ahead doc, consider politely declining, or at least asking for one - it's well within your rights (you can even link to this discussion post as a "get out of ~~jail~~ meeting free" card). After all, if the person requesting the meeting hasn't taken the time to distill their thoughts into writing, why should they be able to decide how you spend your own time?
 
-{% include_cached github-culture.html %}

@@ -5,6 +5,7 @@ description: GitHub isn't just for software developers. If you're in a non-techn
   work, and share information. This brief guide includes everything you need to know
   to get started confidently with GitHub.
 date: '2023-03-02'
+show_github_culture_callout: true
 ---
 
 ## What is GitHub?
@@ -140,4 +141,3 @@ If you come across a term or concept not covered here, be sure to check out [the
 
 Happy GitHubbing! 🎉
 
-{% include_cached github-culture.html %}

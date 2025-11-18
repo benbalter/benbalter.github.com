@@ -17,6 +17,15 @@ jest.mock('remark-rehype', () => ({
   default: jest.fn(),
 }));
 
+jest.mock('rehype-raw', () => ({
+  default: jest.fn(),
+}));
+
+jest.mock('rehype-sanitize', () => ({
+  default: jest.fn(),
+  defaultSchema: {},
+}));
+
 jest.mock('rehype-slug', () => ({
   default: jest.fn(),
 }));

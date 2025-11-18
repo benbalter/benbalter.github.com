@@ -3,6 +3,9 @@ import { defineConfig, devices } from '@playwright/test';
 /**
  * Playwright configuration for Next.js build testing
  * Tests the static Next.js export served via local server
+ * 
+ * Note: This is now the same as the default playwright.config.ts
+ * This file is kept for backwards compatibility
  */
 export default defineConfig({
   testDir: './e2e',

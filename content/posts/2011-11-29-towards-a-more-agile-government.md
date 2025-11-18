@@ -5,7 +5,6 @@ description: By requiring that detailed specifications be outlined at the onset 
   development techniques, rather than the more modern, agile development approaches
   used by the private sector today.
 date: '2011-11-29'
-_legacy_redirect_from: "/Balter-Towards-a-More-Agile-Government.pdf"
 ---
 
 <!--lint disable retext-spell-->

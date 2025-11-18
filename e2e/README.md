@@ -25,12 +25,10 @@ npm install
 npx playwright install
 ```
 
-> **Note:** The `libvips-dev` package (used for image processing in Jekyll via plugins like `jekyll-og-image`) is only required for CI/production builds that generate Open Graph images. For basic local e2e testing, you do **not** need to install `libvips-dev` unless you specifically want to test image generation features.
-
 ### Local Development
 
 ```bash
-# Run all tests (starts Jekyll server automatically)
+# Run all tests (starts Next.js server automatically)
 npm run test:e2e
 
 # Run tests in headed mode (see browser)
@@ -59,22 +57,28 @@ npx playwright test --grep "accessibility"
 npx playwright test --project=chromium
 ```
 
-### Testing Next.js Build
+### Testing Different Builds
 
-The tests can also be run against the Next.js static export:
+The tests can be run against different builds:
 
 ```bash
-# Run tests for Next.js build
+# Run tests for Next.js build (default)
+npm run test:e2e
+
+# Run tests for Next.js build (explicit)
 npm run test:e2e:nextjs
 
-# This uses playwright-nextjs.config.ts and tests the static export
-# served at http://localhost:3000
+# Run tests for Jekyll build (legacy)
+npm run test:e2e:jekyll
 ```
 
 ## Test Configurations
 
-* **Jekyll Tests** (default): `playwright.config.ts` - Tests Jekyll site at `localhost:4000`
-* **Next.js Tests**: `playwright-nextjs.config.ts` - Tests Next.js export at `localhost:3000`
+* **Next.js Tests** (default): `playwright.config.ts` - Tests Next.js export at `localhost:3000`
+* **Next.js Tests** (explicit): `playwright-nextjs.config.ts` - Same as default (kept for backwards compatibility)
+* **Jekyll Tests** (legacy): `playwright-jekyll.config.ts` - Tests Jekyll site at `localhost:4000`
+
+> **Note:** The default configuration now tests the Next.js build as the site is transitioning from Jekyll to Next.js.
 
 ## Test Coverage
 
@@ -147,7 +151,7 @@ The Playwright configuration is in [`playwright.config.ts`](../playwright.config
 
 Key settings:
 
-* **Base URL**: `http://localhost:4000` (can be overridden with `BASE_URL` env var)
+* **Base URL**: `http://localhost:3000` (can be overridden with `BASE_URL` env var)
 * **Browser**: Chromium (Desktop Chrome)
 * **Workers**: 4 workers in CI for parallel execution, unlimited locally
 * **Timeouts**: 15s navigation, 5s actions (optimized for fast static site)

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Generate static RSS feeds and sitemap for Next.js static export
+ * Generate static RSS feeds for Next.js static export
  * 
  * This script generates:
  * - RSS feed for blog posts (feed.xml)
@@ -35,7 +35,7 @@ async function generateFeeds() {
     process.exit(1);
   }
   
-  console.log('🔧 Generating RSS feeds and sitemap...\n');
+  console.log('🔧 Generating RSS feeds...\n');
   
   let hasErrors = false;
   
@@ -53,34 +53,12 @@ async function generateFeeds() {
   // Press feed is excluded from Next.js build
   // It remains available in the Jekyll build
   
-  // Generate sitemap
-  try {
-    const sitemap = await generateSitemap();
-    const sitemapPath = path.join(outDir, 'sitemap.xml');
-    fs.writeFileSync(sitemapPath, sitemap, 'utf-8');
-    console.log('✅ Generated sitemap.xml');
-  } catch (error) {
-    console.error('❌ Error generating sitemap:', error);
-    hasErrors = true;
-  }
-  
-  // Generate sitemap index (for compatibility)
-  try {
-    const sitemapIndex = await generateSitemapIndex();
-    const sitemapIndexPath = path.join(outDir, 'sitemap_index.xml');
-    fs.writeFileSync(sitemapIndexPath, sitemapIndex, 'utf-8');
-    console.log('✅ Generated sitemap_index.xml');
-  } catch (error) {
-    console.error('❌ Error generating sitemap index:', error);
-    hasErrors = true;
-  }
-  
   if (hasErrors) {
     console.log('\n⚠️  Some feeds failed to generate. Check errors above.');
     process.exit(1);
   }
   
-  console.log('\n🎉 Done! All feeds and sitemaps generated successfully.');
+  console.log('\n🎉 Done! All feeds generated successfully.');
 }
 
 // Run the generator
