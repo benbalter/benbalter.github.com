@@ -105,10 +105,9 @@ describe('RecentPostsList', () => {
 
   it('should handle single post', () => {
     const singlePost = [mockPosts[0]];
-    render(<RecentPostsList posts={singlePost} />);
+    const { container } = render(<RecentPostsList posts={singlePost} />);
     
     expect(screen.getByText('Recent Post 1')).toBeInTheDocument();
-    const { container } = render(<RecentPostsList posts={singlePost} />);
     const listItems = container.querySelectorAll('li');
     expect(listItems.length).toBe(1);
   });
