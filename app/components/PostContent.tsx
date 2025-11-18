@@ -1,9 +1,11 @@
+import MarkdownContent from './MarkdownContent';
+
 interface PostContentProps {
-  contentHtml: string;
+  content: string;
 }
 
-export default function PostContent({ contentHtml }: PostContentProps) {
+export default function PostContent({ content }: PostContentProps) {
   return (
-    <div className="entrybody" dangerouslySetInnerHTML={{ __html: contentHtml }} />
+    <MarkdownContent markdown={content} className="entrybody" />
   );
 }
