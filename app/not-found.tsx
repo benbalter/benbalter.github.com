@@ -1,5 +1,6 @@
 import { getAllPosts, getPostUrlParts } from '@/lib/posts';
 import Link from 'next/link';
+import NotFoundSuggestion from './components/NotFoundSuggestion';
 
 export default function NotFound() {
   const posts = getAllPosts().slice(0, 10);
@@ -7,10 +8,9 @@ export default function NotFound() {
   return (
     <div className="row">
       <div className="col-md-10 offset-md-1">
-        <div className="text-center mb-4">
-          <h1 className="display-1">404</h1>
-          <h2>Not Found 😢</h2>
-          <p className="lead">The page you are trying to view does not exist.</p>
+        <div className="alert alert-primary lead text-center" role="alert">
+          The page you are trying to view does not exist. <br />
+          <strong>Perhaps you&apos;re looking for <NotFoundSuggestion />?</strong>
         </div>
         
         <h4 className="border-top pt-3">Recent posts</h4>
