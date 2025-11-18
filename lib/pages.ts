@@ -13,11 +13,6 @@ export interface Page {
 }
 
 /**
- * Pages to exclude from static generation
- */
-const EXCLUDED_PAGE_SLUGS = ['index', '404', 'press'];
-
-/**
  * Internal function to parse a page file
  * Extracted for reuse in both getAllPages and getPageBySlug
  */
@@ -72,6 +67,12 @@ export const getAllPages = cache((): Page[] => {
     .filter(fileName => fileName.endsWith('.md') || fileName.endsWith('.html'))
     .map(fileName => parsePageFile(fileName, pagesDirectory));
 });
+
+/**
+ * Pages that should not be rendered via the [slug] route
+ * because they have dedicated routes or are special pages
+ */
+const EXCLUDED_PAGE_SLUGS = ['index', '404', 'resume'];
 
 export function getAllPageSlugs(): string[] {
   const pages = getAllPages();
