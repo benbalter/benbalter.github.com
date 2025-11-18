@@ -68,7 +68,13 @@ export const getAllPages = cache((): Page[] => {
     .map(fileName => parsePageFile(fileName, pagesDirectory));
 });
 
+/**
+ * Pages that should not be rendered via the [slug] route
+ * because they have dedicated routes or are special pages
+ */
+const EXCLUDED_PAGE_SLUGS = ['index', '404', 'resume'];
+
 export function getAllPageSlugs(): string[] {
   const pages = getAllPages();
-  return pages.map(page => page.slug).filter(slug => slug !== 'index' && slug !== '404' && slug !== 'resume');
+  return pages.map(page => page.slug).filter(slug => !EXCLUDED_PAGE_SLUGS.includes(slug));
 }
