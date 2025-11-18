@@ -2,7 +2,11 @@ import { defineConfig, devices } from '@playwright/test';
 
 /**
  * Playwright configuration for Ben Balter's website
+<<<<<<< HEAD
  * Tests both Jekyll and Next.js builds
+=======
+ * Tests the Next.js build (default)
+>>>>>>> main
  */
 
 // Detect if testing Next.js (port 3000 or TEST_NEXTJS env var)
@@ -39,7 +43,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.BASE_URL || 'http://localhost:4000',
+    baseURL: process.env.BASE_URL || 'http://localhost:3000',
     
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -65,12 +69,10 @@ export default defineConfig({
     },
   ],
 
-  /* Run your local dev server before starting the tests */
-  /* For Jekyll tests: bundle exec jekyll serve */
-  /* For Next.js tests: use BASE_URL=http://localhost:3000 with next dev */
+  /* Run local Next.js server before starting the tests */
   webServer: process.env.CI ? undefined : {
-    command: process.env.TEST_NEXTJS ? 'npm run dev' : 'bundle exec jekyll serve',
-    url: process.env.TEST_NEXTJS ? 'http://localhost:3000' : 'http://localhost:4000',
+    command: 'npm run next:start',
+    url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,
   },

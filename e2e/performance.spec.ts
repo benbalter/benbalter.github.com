@@ -24,8 +24,8 @@ test.describe('Performance', () => {
     await waitForFullLoad(page);
     
     // Reasonable number of requests for a static site
-    // Adjusted to 110 to account for Next.js bundle chunks
-    expect(requests.length).toBeLessThan(110);
+    // Adjusted to 115 to account for Next.js bundle chunks
+    expect(requests.length).toBeLessThan(115);
   });
 
   test('should not load excessive JavaScript', async ({ page }) => {

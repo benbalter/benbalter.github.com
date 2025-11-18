@@ -280,6 +280,20 @@ function generateRedirectPages() {
   });
 
   console.log(`\n✅ Generated ${count} redirect pages`);
+  
+  // Add legacy sitemap_index.xml redirect for backward compatibility
+  // This is a simple XML redirect file pointing to the new sitemap.xml
+  console.log('\n🔄 Adding legacy sitemap redirect...');
+  const sitemapRedirectPath = path.join(outDir, 'sitemap_index.xml');
+  const sitemapRedirectContent = `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Legacy redirect: This file redirects to sitemap.xml for backward compatibility -->
+  <sitemap>
+    <loc>https://ben.balter.com/sitemap.xml</loc>
+  </sitemap>
+</sitemapindex>`;
+  fs.writeFileSync(sitemapRedirectPath, sitemapRedirectContent);
+  console.log('🔄 /sitemap_index.xml → /sitemap.xml (legacy compatibility)');
 }
 
 // Run the script
