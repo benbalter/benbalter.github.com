@@ -1,10 +1,12 @@
-name: Next.js E2E Tests
+name: Next.js E2E Tests (Deprecated)
+
+# This workflow is deprecated as of the transition to Next.js as the default build.
+# The main Playwright workflow (.github/workflows/playwright.yml) now tests Next.js by default.
+# This file is kept for reference only and may be removed in the future.
 
 on:
-  push:
-    branches: [ main, master, copilot/** ]
-  pull_request:
-    branches: [ main, master ]
+  # Disabled - workflow no longer runs
+  workflow_dispatch:
 
 permissions:
   contents: read
