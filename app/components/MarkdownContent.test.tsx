@@ -8,6 +8,11 @@ jest.mock('@/lib/config', () => ({
   })),
 }));
 
+// Mock emoji module
+jest.mock('@/lib/emoji', () => ({
+  processEmoji: jest.fn((text: string) => text),
+}));
+
 // Mock react-markdown and plugins
 jest.mock('react-markdown', () => ({
   __esModule: true,
@@ -30,6 +35,16 @@ jest.mock('rehype-raw', () => ({
 }));
 
 jest.mock('rehype-sanitize', () => ({
+  __esModule: true,
+  default: jest.fn(),
+}));
+
+jest.mock('rehype-slug', () => ({
+  __esModule: true,
+  default: jest.fn(),
+}));
+
+jest.mock('rehype-autolink-headings', () => ({
   __esModule: true,
   default: jest.fn(),
 }));

@@ -1,60 +1,55 @@
 import { render } from '@testing-library/react';
 import PostContent from './PostContent';
 
+// Mock MarkdownContent component since PostContent now uses it
+jest.mock('./MarkdownContent', () => ({
+  __esModule: true,
+  default: ({ markdown, className }: { markdown: string; className?: string }) => (
+    <div className={className} data-testid="markdown-content">{markdown}</div>
+  ),
+}));
+
 describe('PostContent', () => {
-  it('should render HTML content', () => {
-    const html = '<p>Test content</p>';
-    const { container } = render(<PostContent contentHtml={html} />);
+  it('should render markdown content', () => {
+    const content = '# Test Heading\n\nTest content';
+    const { container } = render(<PostContent content={content} />);
     
-    expect(container.querySelector('p')).toBeInTheDocument();
+    expect(container.textContent).toContain('# Test Heading');
     expect(container.textContent).toContain('Test content');
   });
 
   it('should apply entrybody class', () => {
-    const html = '<p>Content</p>';
-    const { container } = render(<PostContent contentHtml={html} />);
+    const content = '# Content';
+    const { container } = render(<PostContent content={content} />);
     
-    const div = container.firstChild;
+    const div = container.querySelector('[data-testid="markdown-content"]');
     expect(div).toHaveClass('entrybody');
   });
 
-  it('should render complex HTML structure', () => {
-    const html = `
-      <h2>Heading</h2>
-      <p>Paragraph with <strong>bold</strong> text</p>
-      <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
-      </ul>
-    `;
-    const { container } = render(<PostContent contentHtml={html} />);
+  it('should pass content to MarkdownContent', () => {
+    const content = 'Test markdown content';
+    const { container } = render(<PostContent content={content} />);
     
-    expect(container.querySelector('h2')).toBeInTheDocument();
-    expect(container.querySelector('strong')).toBeInTheDocument();
-    expect(container.querySelectorAll('li')).toHaveLength(2);
+    expect(container.textContent).toContain(content);
   });
 
   it('should handle empty content', () => {
-    const { container } = render(<PostContent contentHtml="" />);
+    const { container } = render(<PostContent content="" />);
     
     expect(container.firstChild).toBeInTheDocument();
-    expect(container.textContent).toBe('');
   });
 
-  it('should render code blocks', () => {
-    const html = '<pre><code>const x = 1;</code></pre>';
-    const { container } = render(<PostContent contentHtml={html} />);
+  it('should handle markdown with special characters', () => {
+    const content = '# Heading with **bold** and *italic*';
+    const { container } = render(<PostContent content={content} />);
     
-    expect(container.querySelector('code')).toBeInTheDocument();
+    expect(container.textContent).toContain(content);
+  });
+
+  it('should handle markdown with code blocks', () => {
+    const content = '```javascript\nconst x = 1;\n```';
+    const { container } = render(<PostContent content={content} />);
+    
     expect(container.textContent).toContain('const x = 1;');
-  });
-
-  it('should render links', () => {
-    const html = '<a href="/test">Link text</a>';
-    const { container } = render(<PostContent contentHtml={html} />);
-    
-    const link = container.querySelector('a');
-    expect(link).toBeInTheDocument();
-    expect(link).toHaveAttribute('href', '/test');
   });
 });
