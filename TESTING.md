@@ -33,6 +33,7 @@ bundle exec rspec spec/prose_quality_spec.rb
 Unit tests for Next.js components and utilities using Jest and React Testing Library.
 
 **Test Files:**
+
 * `app/components/Footer.test.tsx` - Footer component (6 tests)
 * `app/components/GitHubAvatar.test.tsx` - Avatar component (6 tests)
 * `app/components/ReadingTime.test.tsx` - Reading time (4 tests)
@@ -49,6 +50,7 @@ npm run test:jest:coverage     # With coverage
 ```
 
 **Configuration:**
+
 * `jest.config.mjs` - Jest configuration with Next.js support
 * `jest.setup.mjs` - Test environment setup
 
@@ -57,6 +59,7 @@ npm run test:jest:coverage     # With coverage
 End-to-end tests using Playwright for both Jekyll and Next.js builds.
 
 **Test Files:**
+
 * `e2e/accessibility.spec.ts` - Accessibility compliance
 * `e2e/blog-posts.spec.ts` - Blog functionality
 * `e2e/homepage.spec.ts` - Homepage tests
@@ -81,12 +84,14 @@ npm run test:e2e:nextjs        # Run E2E tests for Next.js build
 ```
 
 **Configurations:**
+
 * `playwright.config.ts` - Jekyll build testing (port 4000)
 * `playwright-nextjs.config.ts` - Next.js build testing (port 3000)
 
 ### 4. Node Test Runner Tests
 
 Legacy tests using Node's built-in test runner:
+
 * `lib/plugins.test.ts` - Plugin utilities
 * `script/build-related-posts.test.ts` - Related posts algorithm
 
@@ -101,12 +106,14 @@ npm run test:related-posts     # Run related posts tests
 All tests run automatically in GitHub Actions:
 
 ### Jest Tests
+
 * **Workflow:** `.github/workflows/nextjs-jest.yml`
 * Runs on push and PRs
 * Generates coverage reports
 * Uploads artifacts
 
 ### Playwright E2E Tests
+
 * **Jekyll:** `.github/workflows/playwright.yml`
 * **Next.js:** `.github/workflows/nextjs-e2e.yml`  
 * Both run on push and PRs
@@ -114,6 +121,7 @@ All tests run automatically in GitHub Actions:
 * Test multiple scenarios
 
 ### Build Tests
+
 * **Workflow:** `.github/workflows/nextjs-build.yml`
 * Verifies Next.js builds successfully
 
@@ -172,11 +180,13 @@ npm run test:e2e:nextjs
 ## Troubleshooting
 
 ### Jest Issues
+
 * Ensure `NODE_ENV` is set correctly
 * Check for module resolution issues
 * Verify mocks are working
 
 ### Playwright Issues  
+
 * Ensure browsers are installed: `npx playwright install`
 * Check server is running on correct port
 * Review screenshots/videos in `test-results/`

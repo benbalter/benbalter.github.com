@@ -5,6 +5,7 @@ This file provides example code for integrating the migrated content with Next.j
 **IMPORTANT: This site uses Static Site Generation (SSG) with minimal client-side JavaScript.**
 
 See [docs/SSG-BEST-PRACTICES.md](../docs/SSG-BEST-PRACTICES.md) for complete guidelines on:
+
 * When to use server components vs client components
 * How to avoid unnecessary 'use client' directives
 * Maximizing static HTML generation
