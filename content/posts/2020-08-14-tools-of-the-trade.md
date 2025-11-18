@@ -5,6 +5,7 @@ description: How I think about the tools we use to communicate at GitHub across 
   [Google Docs](#real-time-collaborative-editing), [Slack](#chat), [Zoom and in-person
   meetings](#video-chat-and-meatspace), and [email](#email).
 date: '2020-08-14'
+show_github_culture_callout: true
 ---
 
 One of my favorite "laws" is [Conway's Law](https://en.wikipedia.org/wiki/Conway%27s_law), an adage that organizations will design systems that mirror their communication structure. As I've [long said](https://ben.balter.com/2015/09/21/open-source-behind-the-firewall/#how-you-work-is-as-important-as-what-you-work-on), "how you work is as important as what you work on":
@@ -123,6 +124,5 @@ Generally, use chat for informal office communication, community comradery, wate
 
 At least, that's how I communicate at GitHub, and I often see those communication patterns reflected in the products my teams produce. Why does your organization (or team) communicate the way it does? Are those principles written down? Do the tools you use reflect the outcomes you'd like to drive?
 
-{% include_cached github-culture.html %}
 
 *A huge hat tip to @corywilkerson, whose words inspired (and in some cases comprise) this post. Curious how I handle all the noise this workflow generates? Check out this related post on [how I manage GitHub notifications](/2020/08/25/how-i-manage-github-notifications/).*
