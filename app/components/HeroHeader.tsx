@@ -20,22 +20,17 @@ export default function HeroHeader({
   alt = 'Header image' 
 }: HeroHeaderProps) {
   return (
-    <div
-      className="hero-unit rounded-top position-relative mb-3"
-      style={{
-        width: '100%',
-        maxHeight: '400px',
-        height: '379px', // Use default height or pass as prop
-        overflow: 'hidden',
-        position: 'relative',
-      }}
-    >
+    <div className="hero-unit rounded-top position-relative mb-3">
       <Image
         src={imageUrl}
         alt={alt}
+        width={width}
+        height={height}
         priority
-        fill
         style={{
+          width: '100%',
+          height: 'auto',
+          maxHeight: '400px',
           objectFit: 'cover',
           objectPosition: 'top left',
         }}
