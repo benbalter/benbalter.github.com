@@ -2,6 +2,7 @@ import Link from 'next/link';
 import NotFoundSuggestion from './components/not-found-suggestion';
 import { getAllPosts, getPostUrlParts } from '@/lib/posts';
 import { getAllSiteUrls } from '@/lib/urls';
+import RecentPostsList from './components/RecentPostsList';
 
 export default function NotFound() {
   const posts = getAllPosts().slice(0, 10);
@@ -14,19 +15,8 @@ export default function NotFound() {
           The page you are trying to view does not exist. <br />
           <strong>Perhaps you&apos;re looking for <NotFoundSuggestion urls={urls} />?</strong>
         </div>
-
-        <h4>Recent posts</h4>
-        <ul>
-          {posts.map(post => {
-            const {url} = getPostUrlParts(post);
-
-            return (
-              <li key={post.slug}>
-                <Link href={url}>{post.title}</Link>
-              </li>
-            );
-          })}
-        </ul>
+        
+        <RecentPostsList posts={posts} />
       </div>
     </div>
   );
