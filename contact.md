@@ -1,6 +1,6 @@
 ---
 title: Contact
-description: Contact Ben Balter via email or social media
+description: Get in touch with Ben Balter via email or social media platforms
 layout: page
 permalink: /contact/
 icons: true
