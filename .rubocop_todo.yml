@@ -25,6 +25,7 @@ RSpec/ContextWording:
   Exclude:
     - 'spec/front_matter_spec.rb'
     - 'spec/prose_quality_spec.rb'
+    - 'spec/seo_spec.rb'
 
 # Offense count: 2
 # Configuration parameters: IgnoredMetadata.

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'jekyll'
+require 'nokogiri'
+require 'json'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
