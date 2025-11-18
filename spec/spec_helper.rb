@@ -40,6 +40,7 @@ def site
     site.reset
     site.read
     site.generate
+    site.render
     site
   end
 end
