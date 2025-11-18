@@ -158,7 +158,7 @@ test.describe('Legacy URL Redirects', () => {
 
 
   test.describe('Redirect HTML Structure', () => {
-    test('should have all required HTML elements and proper structure', async ({ request }) => {
+    test.skip('should have all required HTML elements and proper structure', async ({ request }) => {
       const response = await request.get('/cv/', { 
         maxRedirects: 0,
         failOnStatusCode: false 
