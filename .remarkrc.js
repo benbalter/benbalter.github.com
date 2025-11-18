@@ -64,7 +64,7 @@ const config = {
     "remark-preset-lint-markdown-style-guide",
     ["remark-lint-no-undefined-references", false], // FIX THIS
     ["remark-lint-maximum-line-length", false],
-    ["remark-lint-unordered-list-marker-style", "*"],
+    ["remark-lint-unordered-list-marker-style", "-"],
     ["remark-lint-maximum-heading-length", false],
     ["remark-frontmatter", "yaml"],
     [remarkTextr, textrSettings],

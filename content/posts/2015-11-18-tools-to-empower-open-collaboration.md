@@ -4,6 +4,7 @@ description: Today, open-source-inspired collaboration tools are open, linkable,
   and naturally capture and expose process. Ask yourself if you're working the way
   you'd like to work, or just the way everyone else does.
 date: '2015-11-18'
+show_github_culture_callout: true
 ---
 
 At GitHub, we have a unique way of working. Some might say it's the future of knowledge work, others might say that we picked up a pair of bolt cutters a few years back, and now [everything looks like the lock on Wolf Blitzer's boat house](https://xkcd.com/801/). In reality, it's probably somewhere in between.
@@ -99,7 +100,6 @@ GitHub's not the right tool for all sorts of use cases. It probably doesn't make
 
 Although I think it's the future of knowledge work, this developer-inspired workflow isn't for everyone, at least not today. One of [GitHub's Zen](https://ben.balter.com/2015/08/12/the-zen-of-github/), is to prefer practicality over purity. However pure the workflow might be on paper, if you've got a team of lawyers that have never used anything other than Outlook, Word, and regularly scheduled in-person meetings, absent a strong personal, professional, or philosophical motivation, absent significant untraining and re-education, you'd be hard-pressed to implement a modern workflow that's on a trajectory to succeed.
 
-{% include_cached github-culture.html %}
 
 [How you work is just as important as what you work on](https://ben.balter.com/2015/09/21/open-source-behind-the-firewall/#how-you-work-is-as-important-as-what-you-work-on). I challenge you to take a critical look at your own workflow, and ask yourself if you're working the way you'd like to work, or just the way everyone else does.
 

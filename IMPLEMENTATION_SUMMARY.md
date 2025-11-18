@@ -110,7 +110,7 @@ npm run next:build
 
 * 184 blog posts accessible via `/YYYY/MM/DD/slug/` format
 * All static pages accessible via `/slug/` format
-* 56 redirect pages for legacy URL compatibility
+* 54 redirect pages for legacy URL compatibility
 * URL structure tests validate Jekyll format compliance
 
 ### ✅ All pages are statically generated and routable

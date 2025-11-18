@@ -6,6 +6,7 @@ description: Asynchronous communication through high-fidelity mediums like issue
   information back and forth between business units.
 date: '2014-11-06'
 _legacy_redirect_from: "/2014/11/03/rules-of-communicating-at-github/"
+show_github_culture_callout: true
 ---
 
 At GitHub, we have a very specific way of working. For one, we use GitHub to build GitHub. Not just for code, but to collaborate on things like Legal, Marketing, and internal policies. But it's not that the medium defines the workflow (although it certainly helps), in fact, it's the other way around.
@@ -146,4 +147,3 @@ Simply put, if you reference something - be it prior issue, the pull request tha
 
 All that said, the first rule of GitHub, is that there are few hard-and-fast rules at GitHub. We often prefer cultural norms to administrative, policy, or technical constraints because they remain flexible over time as circumstances change. These 15 "rules" for how we communicate at GitHub aren't necessarily written rules, at least not in the GitHub sense, but are my best attempt to surface the current state of our communications culture.
 
-{% include_cached github-culture.html %}
