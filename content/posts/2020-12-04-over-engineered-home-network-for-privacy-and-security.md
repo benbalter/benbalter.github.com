@@ -8,11 +8,9 @@ description: How I used a [UniFi Dream Machine](#the-router---unifi-dream-machin
 date: '2020-12-04'
 ---
 
-{% capture update %}
-Everything here remains true, but after having relied on, optimized, and upgraded this configuration for a while, I decided [to re-over-engineering how I setup, maintain, and manage my home network](/2021/09/01/how-i-re-over-engineered-my-home-network/){: .alert-link } using Docker Compose, Ansible, and Caddy. Please do read on here, but rather than clicking through to the individual Pi-Hole or Cloudflared setup instructions on other sites, I recommend you check out [my newer post](/2021/09/01/how-i-re-over-engineered-my-home-network/){: .alert-link } which automates things for greater reliability instead.
-{% endcapture %}
-{% assign update = update | markdownify %}
-{% include callout.html content=update %}
+<div class="alert alert-info" role="alert">
+<strong>Update (September 2021):</strong> Everything here remains true, but after having relied on, optimized, and upgraded this configuration for a while, I decided <a href="/2021/09/01/how-i-re-over-engineered-my-home-network/" class="alert-link">to re-over-engineering how I setup, maintain, and manage my home network</a> using Docker Compose, Ansible, and Caddy. Please do read on here, but rather than clicking through to the individual Pi-Hole or Cloudflared setup instructions on other sites, I recommend you check out <a href="/2021/09/01/how-i-re-over-engineered-my-home-network/" class="alert-link">my newer post</a> which automates things for greater reliability instead.
+</div>
 
 Back in April, when it looked like we were going to be spending some more time at home for a while, I decided to take on the project of upgrading my home Wi-Fi beyond an off-the-shelf consumer router. I'd been a Wirecutter devotee for almost as long as the site's been around and would have normally just grabbed their top pick, but I had just received [my SSCP (information security) certification](https://www.youracclaim.com/badges/7eb85996-c7fc-4c68-95df-fcd33ec445ba), and was looking for something a bit more advanced than the traditional plug-and-play setup to put my newly learned skills into practice.
 

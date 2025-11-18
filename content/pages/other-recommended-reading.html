@@ -18,6 +18,19 @@ service_version: 20070822
 books_per_row: 3
 ---
 
+<!-- 
+  TODO: Convert this HTML page to a Next.js component
+  This page uses Liquid template syntax that needs to be converted to use
+  JavaScript helpers from lib/liquidFilters.ts:
+  - markdownify() for converting markdown to HTML
+  - stripHtml() for removing HTML tags
+  - absoluteUrl() for resolving URLs (if needed)
+  
+  The site.data.books data should be loaded using lib/data.ts
+  
+  See: content/MIGRATION.md for migration details
+-->
+
 {% comment %}
   Looking to edit the list of books? See https://git.io/vKfSv.
 {% endcomment %}
