@@ -13,11 +13,6 @@ export interface Page {
 }
 
 /**
- * Pages to exclude from static generation
- */
-const EXCLUDED_PAGE_SLUGS = ['index', '404', 'press'];
-
-/**
  * Internal function to parse a page file
  * Extracted for reuse in both getAllPages and getPageBySlug
  */
@@ -77,7 +72,7 @@ export const getAllPages = cache((): Page[] => {
  * Page slugs to exclude from static site generation
  * These pages may still exist in content but won't be built
  */
-const EXCLUDED_PAGE_SLUGS = ['index', '404', 'press'];
+const EXCLUDED_PAGE_SLUGS = ['index', '404', 'press', 'resume'];
 
 export function getAllPageSlugs(): string[] {
   const pages = getAllPages();
