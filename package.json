@@ -42,7 +42,8 @@
     "remark-html": "^16.0.1",
     "remark-rehype": "^11.1.2",
     "sitemap": "^9.0.0",
-    "strip-markdown": "^6.0.0"
+    "strip-markdown": "^6.0.0",
+    "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",

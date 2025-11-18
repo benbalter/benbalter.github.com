@@ -8,6 +8,7 @@ import rehypeStringify from 'rehype-stringify';
 import { convert } from 'html-to-text';
 import { processEmoji } from './emoji';
 import { getSiteConfig } from './config';
+import remarkLiquidIncludes from './remark-liquid-includes';
 
 export async function markdownToHtml(markdown: string): Promise<string> {
   // Process emoji before markdown conversion
@@ -19,6 +20,8 @@ export async function markdownToHtml(markdown: string): Promise<string> {
   
   const result = await remark()
     .use(gfm)
+    // Replace Liquid include tags with HTML
+    .use(remarkLiquidIncludes)
     // Use remark-github plugin for @mentions, #issues, and other GitHub references
     .use(remarkGithub, {
       repository: config.repository || `${owner}/${repo}`,
