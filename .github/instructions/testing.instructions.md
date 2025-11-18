@@ -11,10 +11,10 @@ When working with tests, follow these guidelines to ensure quality and reliabili
 
 ### RSpec Tests (`spec/`)
 
-- Ruby unit tests for Jekyll plugins and build process
-- Test front matter requirements
-- Verify Jekyll builds successfully
-- Check HTML output structure
+* Ruby unit tests for Jekyll plugins and build process
+* Test front matter requirements
+* Verify Jekyll builds successfully
+* Check HTML output structure
 
 ```bash
 bundle exec rspec                  # Run all RSpec tests
@@ -24,10 +24,10 @@ rake test                          # Run RSpec + HTML Proofer
 
 ### End-to-End Tests (`e2e/`)
 
-- Playwright tests for Jekyll and Next.js builds
-- Test user flows and interactions
-- Verify pages render correctly
-- Check responsive design
+* Playwright tests for Jekyll and Next.js builds
+* Test user flows and interactions
+* Verify pages render correctly
+* Check responsive design
 
 ```bash
 npm run test:e2e:jekyll           # E2E tests for Jekyll
@@ -37,9 +37,9 @@ npm run test:e2e                  # All E2E tests
 
 ### HTML Validation
 
-- html-proofer checks generated HTML
-- Validates links, images, and structure
-- Ensures accessibility baseline
+* html-proofer checks generated HTML
+* Validates links, images, and structure
+* Ensures accessibility baseline
 
 ```bash
 rake test                          # Includes html-proofer
@@ -94,26 +94,26 @@ test.describe('Feature', () => {
 
 ### RSpec Guidelines
 
-- Use `context` to group related tests
-- Use `describe` for the feature/class being tested
-- Use `it` for individual test cases
-- Use `let` for test data setup
-- Use `before` hooks sparingly
+* Use `context` to group related tests
+* Use `describe` for the feature/class being tested
+* Use `it` for individual test cases
+* Use `let` for test data setup
+* Use `before` hooks sparingly
 
 ### E2E Guidelines
 
-- Test critical user journeys first
-- Use page object pattern for complex pages
-- Make tests resilient to minor UI changes
-- Test accessibility where applicable
-- Keep tests focused on user behavior, not implementation
+* Test critical user journeys first
+* Use page object pattern for complex pages
+* Make tests resilient to minor UI changes
+* Test accessibility where applicable
+* Keep tests focused on user behavior, not implementation
 
 ## Test Data
 
-- Use fixtures for consistent test data
-- Keep test data minimal but realistic
-- Don't rely on production data
-- Clean up test data after tests run
+* Use fixtures for consistent test data
+* Keep test data minimal but realistic
+* Don't rely on production data
+* Clean up test data after tests run
 
 ## Running Tests Locally
 
@@ -132,10 +132,10 @@ npm run lint                       # Only linting
 
 ### CI/CD
 
-- All tests run automatically on push
-- Tests must pass before merging
-- Check CI logs for failures
-- Fix test failures promptly
+* All tests run automatically on push
+* Tests must pass before merging
+* Check CI logs for failures
+* Fix test failures promptly
 
 ## Debugging Tests
 
@@ -157,10 +157,10 @@ npx playwright codegen                    # Generate test code
 
 ## Test Coverage
 
-- Aim for meaningful coverage, not 100%
-- Focus on critical paths and edge cases
-- Test error handling and validation
-- Don't test framework code
+* Aim for meaningful coverage, not 100%
+* Focus on critical paths and edge cases
+* Test error handling and validation
+* Don't test framework code
 
 ## Common Testing Patterns
 
@@ -201,10 +201,10 @@ end
 
 ## Test Maintenance
 
-- Update tests when functionality changes
-- Remove tests for removed features
-- Keep test code as clean as production code
-- Refactor duplicated test code
-- Document complex test setups
+* Update tests when functionality changes
+* Remove tests for removed features
+* Keep test code as clean as production code
+* Refactor duplicated test code
+* Document complex test setups
 
 Remember: **Good tests give confidence**. Write tests that catch real problems without being fragile.

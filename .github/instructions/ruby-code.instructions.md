@@ -2,41 +2,49 @@
 applyTo: ["lib/**/*.rb", "script/**/*", "spec/**/*.rb", "Rakefile"]
 ---
 
-# Ruby Code Instructions
+# Ruby Code Instructions (LEGACY)
 
-When working with Ruby code (plugins, scripts, tests), follow these guidelines:
+**NOTE: Ruby code is primarily for Jekyll maintenance (legacy) and build scripts. For new features, use TypeScript/JavaScript in the Next.js app.**
+
+When working with Ruby code (Jekyll plugins, scripts, tests) for maintenance purposes, follow these guidelines:
 
 ## Code Style
 
-- Follow Rubocop rules defined in `.rubocop.yml`
-- Use frozen string literals: `# frozen_string_literal: true` at the top of files
-- Use idiomatic Ruby patterns
-- Keep methods focused and readable (single responsibility)
-- Prefer `snake_case` for methods and variables
-- Use descriptive names
+* Follow Rubocop rules defined in `.rubocop.yml`
+* Use frozen string literals: `# frozen_string_literal: true` at the top of files
+* Use idiomatic Ruby patterns
+* Keep methods focused and readable (single responsibility)
+* Prefer `snake_case` for methods and variables
+* Use descriptive names
 
-## Jekyll Plugins (`lib/`)
+## Jekyll Plugins (`lib/`) - LEGACY
 
-- Place custom Jekyll plugins in `lib/`
-- Plugins extend Jekyll's functionality (filters, tags, generators, etc.)
-- Test plugins thoroughly as they affect the entire site build
-- Document plugin usage in comments if not obvious
+**Only modify for maintenance, not for new features.**
+
+* Place custom Jekyll plugins in `lib/`
+* Plugins extend Jekyll's functionality (filters, tags, generators, etc.)
+* Test plugins thoroughly as they affect the entire site build
+* Document plugin usage in comments if not obvious
 
 ## Scripts (`script/`)
 
-- Scripts automate development tasks (build, test, deploy)
-- Follow the Scripts to Rule Them All pattern where applicable
-- Make scripts idempotent (safe to run multiple times)
-- Include error handling and clear output messages
-- Document script usage with `--help` flags or comments
+Scripts in this directory automate development tasks for both Jekyll (legacy) and Next.js:
 
-## RSpec Tests (`spec/`)
+* Follow the Scripts to Rule Them All pattern where applicable
+* Make scripts idempotent (safe to run multiple times)
+* Include error handling and clear output messages
+* Document script usage with `--help` flags or comments
+* Scripts may support both Jekyll and Next.js builds
 
-- Place test files in `spec/` directory
-- Use descriptive test names with `context` and `it` blocks
-- Test front matter requirements for pages and collections
-- Verify Jekyll builds successfully
-- Check HTML output when applicable
+## RSpec Tests (`spec/`) - LEGACY
+
+**Only modify when maintaining Jekyll functionality.**
+
+* Place test files in `spec/` directory
+* Use descriptive test names with `context` and `it` blocks
+* Test front matter requirements for pages and collections
+* Verify Jekyll builds successfully
+* Check HTML output when applicable
 
 ### Test Structure
 
@@ -81,17 +89,17 @@ rake serve                     # Start development server
 
 ## Dependencies
 
-- Add Ruby gems to `Gemfile`
-- Run `bundle install` after adding dependencies
-- Use conservative version constraints (`~>`)
-- Keep dependencies up to date via Dependabot
+* Add Ruby gems to `Gemfile`
+* Run `bundle install` after adding dependencies
+* Use conservative version constraints (`~>`)
+* Keep dependencies up to date via Dependabot
 
 ## Security
 
-- Never commit secrets or tokens
-- Use environment variables for sensitive data (e.g., `JEKYLL_GITHUB_TOKEN`)
-- Validate user input in plugins
-- Avoid shell injection in scripts (use Ruby methods instead of backticks when possible)
+* Never commit secrets or tokens
+* Use environment variables for sensitive data (e.g., `JEKYLL_GITHUB_TOKEN`)
+* Validate user input in plugins
+* Avoid shell injection in scripts (use Ruby methods instead of backticks when possible)
 
 ## Best Practices
 
