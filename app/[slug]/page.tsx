@@ -1,9 +1,8 @@
 import { getPageBySlug, getAllPageSlugs } from '@/lib/pages';
-import { markdownToHtml } from '@/lib/markdown';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getPageMetadata } from '@/lib/seo';
-import HtmlContent from '@/app/components/HtmlContent';
+import MarkdownContent from '@/app/components/MarkdownContent';
 import PageTitle from '@/app/components/PageTitle';
 
 interface PageProps {
@@ -39,14 +38,12 @@ export default async function Page({ params }: PageProps) {
     notFound();
   }
   
-  const contentHtml = await markdownToHtml(page.content);
-  
   return (
     <div className={`page page-${slug}`}>
       <div className="row">
         <div className="col-md-10 offset-md-1">
           {page.title && <PageTitle title={page.title} />}
-          <HtmlContent html={contentHtml} />
+          <MarkdownContent markdown={page.content} />
         </div>
       </div>
     </div>

@@ -1,11 +1,11 @@
-import HtmlContent from './HtmlContent';
+import MarkdownContent from './MarkdownContent';
 
 interface PostContentProps {
-  contentHtml: string;
+  content: string;
 }
 
-export default function PostContent({ contentHtml }: PostContentProps) {
+export default function PostContent({ content }: PostContentProps) {
   return (
-    <HtmlContent html={contentHtml} className="entrybody" />
+    <MarkdownContent markdown={content} className="entrybody" />
   );
 }
