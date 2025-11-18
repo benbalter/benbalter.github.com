@@ -279,6 +279,32 @@ All Copilot instructions are documented in `.github/copilot-instructions.md`, in
 * **Well-defined issues** - When assigning tasks to Copilot, provide clear requirements and acceptance criteria
 * **Human review required** - All changes must be reviewed and approved by a human before merging
 * **Iterative refinement** - Use `@copilot` mentions in PR comments to request changes or clarifications
+## GitHub Copilot Instructions
+
+This repository includes comprehensive instructions for GitHub Copilot coding agents:
+
+### General Instructions
+
+* **`.github/copilot-instructions.md`** - Repository-wide context and guidelines
+
+### Custom Agents
+
+* **`.github/agents/code.md`** - Specialized agent for code changes (Ruby, JavaScript, HTML, CSS)
+* **`.github/agents/writing.md`** - Specialized agent for blog posts and documentation
+
+### Scoped Instructions
+
+The `.github/instructions/` directory contains targeted instructions for specific areas:
+
+* **`jekyll-content.instructions.md`** - Blog posts in `_posts/`
+* **`jekyll-templates.instructions.md`** - Jekyll layouts and includes
+* **`nextjs-app.instructions.md`** - Next.js application code
+* **`ruby-code.instructions.md`** - Ruby plugins, scripts, and tests
+* **`styles.instructions.md`** - CSS and SCSS files
+* **`configuration.instructions.md`** - YAML and JSON configuration
+* **`testing.instructions.md`** - Test files and testing practices
+
+These instructions help Copilot provide better suggestions and maintain code quality standards.
 
 ## Questions?
 

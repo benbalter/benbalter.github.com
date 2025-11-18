@@ -25,6 +25,9 @@ interface SiteConfig {
   repository: string;
   branch: string;
   handle: string;
+  amazon?: {
+    affiliates_tag: string;
+  };
 }
 
 let cachedConfig: SiteConfig | null = null;
@@ -77,4 +80,12 @@ export function getAuthorBio(): string {
   const firstParagraph = withoutFrontMatter.trim().split('\n\n')[0];
   
   return firstParagraph || '';
+}
+
+/**
+ * Get Amazon affiliates tag from configuration
+ */
+export function getAmazonAffiliatesTag(): string {
+  const config = getSiteConfig();
+  return config.amazon?.affiliates_tag || 'benbalter07-20';
 }

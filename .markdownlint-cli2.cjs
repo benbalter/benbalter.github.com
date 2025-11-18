@@ -1,4 +1,4 @@
-const options = require('@github/markdownlint-github').init({ 'line-length': false, 'first-line-heading': false })
+const options = require('@github/markdownlint-github').init({ 'line-length': false, 'first-line-heading': false, 'ul-style': { 'style': 'dash' } })
 module.exports = {
   config: options,
   customRules: ["@github/markdownlint-github"],

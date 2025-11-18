@@ -6,6 +6,7 @@ description: I use web notifications for everything but `@mentions`, which I hav
   noise to a minimum. I also have a few tools I've built to customize GitHub notifications
   for [the way I work](http://ben.balter.com/2020/08/14/tools-of-the-trade/).
 date: '2020-08-25'
+show_github_culture_callout: true
 ---
 
 As a Product Manager at GitHub, GitHub.com is my primary means of communication day-to-day. I'm constantly reading and replying to GitHub threads to coordinate work within and across teams. On the average work day it's not uncommon that I'll receive upwards of 200 GitHub notifications (about 15 per hour on average during the work day). While that volume could easily become distracting or overwhelming, it's not (well, not usually at least). Here's how I manage GitHub notifications to remain focused and productive:
@@ -136,4 +137,3 @@ And
 
 And that's how I manage GitHub notifications. It's far from perfect (and looks a bit overengineered now that I've written it down), but it works for me and has for 7+ years now. I hope that sharing my notification workflow can help you find one that works best for you. Have a tip or trick for how you manage GitHub notifications? Let me know in the comments below.
 
-{% include_cached github-culture.html %}

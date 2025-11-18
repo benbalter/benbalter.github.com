@@ -22,6 +22,7 @@ The redirect system was already functional before this PR:
 **File**: `e2e/redirects.spec.ts`
 
 Organized test suites covering:
+
 * Page redirects (4 tests)
 * Post typo corrections (3 tests)
 * Wrong date corrections (7 tests)
@@ -30,6 +31,7 @@ Organized test suites covering:
 * HTML structure validation (1 test)
 
 All tests verify:
+
 * Navigation to legacy URL
 * Redirect to correct destination
 * Proper HTML structure (meta refresh, JS redirect, canonical, noindex)
@@ -39,6 +41,7 @@ All tests verify:
 **File**: `script/validate-redirects.mjs`
 
 Automated validation tool that:
+
 * ✅ Scans all content for expected redirects
 * ✅ Verifies redirect HTML files exist
 * ✅ Validates HTML structure (meta, JS, canonical, noindex)
@@ -54,6 +57,7 @@ Automated validation tool that:
 **File**: `docs/REDIRECTS.md`
 
 Complete documentation including:
+
 * System overview and architecture
 * All 27 redirect rules categorized by type
 * Implementation details
@@ -74,12 +78,14 @@ Complete documentation including:
 ## Redirect Categories
 
 ### Page Redirects (4)
+
 * `/cv/` → `/resume/`
 * `/books/` → `/other-recommended-reading/`
 * `/books-for-geeks/` → `/other-recommended-reading/`
 * `/recommended-reading/` → `/other-recommended-reading/`
 
 ### Post Typo Corrections (4)
+
 * Typos in post slugs (collabortion → collaboration)
 * Title word corrections (your → our)
 * Abbreviation expansions (n-things → nine-things)
@@ -193,6 +199,7 @@ npm run next:start  # Start local server
 ### No Ongoing Maintenance Required
 
 The system is fully automated:
+
 * Redirects defined in content files
 * Generated at build time
 * Validated before deployment
@@ -221,15 +228,18 @@ The system is fully automated:
 ## Files Modified/Created
 
 ### Created
+
 * `script/validate-redirects.mjs` - Validation script
 * No other new files (tests and docs existed but were enhanced)
 
 ### Modified
+
 * `e2e/redirects.spec.ts` - Enhanced from 6 to 29 tests
 * `docs/REDIRECTS.md` - Expanded from basic to comprehensive documentation
 * `package.json` - Added `validate:redirects` script
 
 ### Unchanged (Already Working)
+
 * `script/generate-redirects.mjs` - Redirect generation (working perfectly)
 * `next.config.mjs` - Static export configuration
 * Content files - All `redirect_from` and `redirect_to` directives preserved
