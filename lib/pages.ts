@@ -70,5 +70,5 @@ export const getAllPages = cache((): Page[] => {
 
 export function getAllPageSlugs(): string[] {
   const pages = getAllPages();
-  return pages.map(page => page.slug).filter(slug => slug !== 'index' && slug !== '404');
+  return pages.map(page => page.slug).filter(slug => slug !== 'index' && slug !== '404' && slug !== 'press');
 }

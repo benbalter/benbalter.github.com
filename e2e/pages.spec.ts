@@ -11,7 +11,6 @@ test.describe('Static Pages', () => {
     { url: '/about', name: 'About' },
     { url: '/contact', name: 'Contact' },
     { url: '/talks', name: 'Talks' },
-    { url: '/press', name: 'Press' },
   ];
 
   pages.forEach(({ url, name }) => {
