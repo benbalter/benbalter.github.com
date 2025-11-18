@@ -1,4 +1,5 @@
 import type { Book } from '@/lib/data';
+import { slugify } from '@/lib/strings';
 import BookGrid from './BookGrid';
 
 interface BookCategoryProps {
@@ -6,15 +7,6 @@ interface BookCategoryProps {
   books: Book[];
   affiliatesTag: string;
   booksPerRow?: number;
-}
-
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .trim();
 }
 
 export default function BookCategory({ category, books, affiliatesTag, booksPerRow = 3 }: BookCategoryProps) {
