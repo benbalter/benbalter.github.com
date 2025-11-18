@@ -13,11 +13,6 @@ export interface Page {
 }
 
 /**
- * Pages to exclude from static generation
- */
-const EXCLUDED_PAGE_SLUGS = ['index', '404', 'press'];
-
-/**
  * Internal function to parse a page file
  * Extracted for reuse in both getAllPages and getPageBySlug
  */
