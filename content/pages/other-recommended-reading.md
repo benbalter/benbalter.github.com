@@ -11,7 +11,6 @@ _legacy_redirect_from:
 
 Here are some of the books that have had a significant influence on my career, management style, and professional development that I often recommend to others interested in [IT management and leadership](#it-management-and-leadership), [career and corporate life](#career-and-corporate-life), [open source](#open-source), [startups and innovation](#startups-and-innovation), [information security](#information-security), [product management](#product-management), [marketing](#marketing), [technology policy](#technology-policy), [government and organizing](#government-and-organizing), and [everything else](#everything-else).
 
-
 ## IT Management and Leadership
 
 ### [Managing Humans: Biting and Humorous Tales of a Software Engineering Manager](https://www.amazon.com/gp/product/B00ACC5Z1U/)
@@ -54,7 +53,6 @@ Good strategies leverage insight to your advantage. The book "clears out the mum
 
 How to design a company culture that will help you thrive in a hybrid workplace, such as culture, keeping your team connected, asynchronous communication, facilitating courageous conversations, and defining the right hybrid model for your organization.
 
-
 ## Career and corporate life
 
 ### [Being Geek: The Software Developer's Career Handbook](https://www.amazon.com/gp/product/B003XDUCEU/)
@@ -68,7 +66,6 @@ The major issues of software development are human, not technical—and managers
 ### [The Personal MBA: Master the Art of Business](https://www.amazon.com/gp/product/B08H5PKGGG/)
 
 Business for Dummies, but not for dummies. A high-level overview of they key concepts you'd learn in any MBA program, with a slighly modern twist. Value creation and delivery, sales, marketing, finance, humans, systems... it's all there. While obviously not a substitute for a two-year MBA program, it's well worth the read, and you'll walk away at least conversant in the moving parts of any business.
-
 
 ## Open source
 
@@ -84,7 +81,6 @@ Open source is being embraced and studied by many of the biggest players in the 
 
 The history of the hands-on need to take something apart, figure out how it works, share that information, and build something better.
 
-
 ## Startups and innovation
 
 ### [The Innovator's Dilemma: When New Technologies Cause Great Firms to Fail](https://www.amazon.com/gp/product/B012BLTM6I/)
@@ -94,7 +90,6 @@ Why most companies miss out on new waves of innovation. No matter the industry, 
 ### [The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses](https://www.amazon.com/gp/product/B004J4XGN6/)
 
 The lean startup - Inspired by lessons from lean manufacturing, it relies on “validated learning,” rapid scientific experimentation, as well as a number of counter-intuitive practices that shorten product development cycles, measure actual progress without resorting to vanity metrics, and learn what customers really want. It enables a company to shift directions with agility, altering plans inch by inch, minute by minute.
-
 
 ## Information security
 
@@ -109,7 +104,6 @@ A TL;DR on the world of computer security that has withstood the test of time. A
 ### [Serious cryptography](https://www.amazon.com/gp/product/B0722MTGQV/)
 
 This practical guide to modern encryption breaks down the fundamental mathematical concepts at the heart of cryptography without shying away from meaty discussions of how they work. You’ll learn about authenticated encryption, secure randomness, hash functions, block ciphers, and public-key techniques such as RSA and elliptic curve cryptography.
-
 
 ## Product management
 
@@ -129,7 +123,6 @@ Rather than trying to get people to buy stuff online, hone in on the user experi
 
 A classic book that serves as a great design thinking 101. "The rules are simple: make things visible, exploit natural relationships that couple function and control, and make intelligent use of constraints. The goal: guide the user effortlessly to the right action on the right control at the right time."
 
-
 ## Marketing
 
 ### [The Cluetrain Manifesto](https://www.amazon.com/gp/product/B002EF2AE8/)
@@ -144,7 +137,6 @@ Urban legends, conspiracy theories, and bogus public-health scares circulate eff
 
 "Today, Web sites and online retailers offer seemingly infinite inventory, and the result is the "shattering of the mainstream into a zillion different cultural shards." These "countless niches" are market opportunities for those who cast a wide net and de-emphasize the search for blockbusters"
 
-
 ## Technology policy
 
 ### [The Master Switch: The Rise and Fall of Information Empires](https://www.amazon.com/gp/product/B003F3PKTK/)
@@ -154,7 +146,6 @@ Urban legends, conspiracy theories, and bogus public-health scares circulate eff
 ### [The Wealth of Networks: How Social Production Transforms Markets and Freedom](https://www.amazon.com/gp/product/B0015GWX0S/)
 
 Collaborators and non-market actors (wikipedia, open source) are king in the approaching "industrial information economy"
-
 
 ## Government and organizing
 
@@ -173,7 +164,6 @@ Organizations consist of tribes - self-organizing groups of 20-150 - that have h
 ### [Here Comes Everybody: The Power of Organizing Without Organizations](https://www.amazon.com/gp/product/B0013TTKQC/)
 
 The wildfire-like spread of new forms of social interaction enabled by technology is changing the way humans form groups and exist within them, with profound long-term economic and social effects-for good.
-
 
 ## Everything else
 
