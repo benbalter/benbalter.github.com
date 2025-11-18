@@ -1,9 +1,11 @@
+import HtmlContent from './HtmlContent';
+
 interface PostContentProps {
   contentHtml: string;
 }
 
 export default function PostContent({ contentHtml }: PostContentProps) {
   return (
-    <div className="entrybody" dangerouslySetInnerHTML={{ __html: contentHtml }} />
+    <HtmlContent html={contentHtml} className="entrybody" />
   );
 }
