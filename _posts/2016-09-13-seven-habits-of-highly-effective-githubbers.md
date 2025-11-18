@@ -49,7 +49,10 @@ While here in the Beltway there may be a strong tradition of gushing "it's so gr
 
 These are some of the common traits that I've witnessed in successful GitHubbers over the years. Your millage may vary, but as I try to describe some of the more unique aspects of GitHub's work culture, I figured I'd share my observations in hopes that they help make you more effective as well, both in GitHub, and out.
 
-{% include_cached github-culture.html %}
+<div class="alert alert-primary text-center" role="alert">
+Interested in learning more about how GitHub works and what it's like to be a GitHubber?<br />
+<a href="/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/" class="alert-link">Check out these popular posts on GitHub's culture and communication patterns</a>.
+</div>
 
 [^2]: Case in point, I wore a suit for the majority of my first three years at GitHub. I also used words like "heretofore" a lot. Even in our legal writing, we strive for human readability over tradition or obfuscation by legalese.
 

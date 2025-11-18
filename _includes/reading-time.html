@@ -1,6 +1,4 @@
-{% capture read_time %}
-  {{ page.content | number_of_words | divided_by: 265 }}
-{% endcapture %}
+{% assign read_time = page.content | number_of_words | divided_by: 265 %}
 
 {% if read_time == 0 %}
   {% assign read_time = 1 %}

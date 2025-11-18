@@ -74,7 +74,10 @@ Absent working within systems that through their day-to-day use captures and exp
 
 While I still agree [everything should have a URL](https://ben.balter.com/2015/11/12/why-urls/), how we go about thoughtfully creating and curating the content within those URLs - rich with high-value historic context, a gift for others and our future selves - matters more than the fact that the URL itself exists.
 
-{% include_cached github-culture.html %}
+<div class="alert alert-primary text-center" role="alert">
+Interested in learning more about how GitHub works and what it's like to be a GitHubber?<br />
+<a href="/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/" class="alert-link">Check out these popular posts on GitHub's culture and communication patterns</a>.
+</div>
 
 [^1]: I use the term "management" here broadly. Yes, this could be a people manager, but the concept applies equally to product managers, program managers, and individual contributors in leadership roles. At GitHub, we have the concept of directly responsible individual (DRI), a role regardless of position within the organization for which visibility of work is an explicit expectation.
 

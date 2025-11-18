@@ -140,4 +140,7 @@ If you come across a term or concept not covered here, be sure to check out [the
 
 Happy GitHubbing! 🎉
 
-{% include_cached github-culture.html %}
+<div class="alert alert-primary text-center" role="alert">
+Interested in learning more about how GitHub works and what it's like to be a GitHubber?<br />
+<a href="/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/" class="alert-link">Check out these popular posts on GitHub's culture and communication patterns</a>.
+</div>

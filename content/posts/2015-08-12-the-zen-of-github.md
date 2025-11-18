@@ -58,4 +58,7 @@ xhr.open('GET', 'https://api.github.com/octocat');
 xhr.send();
 </script>
 
-{% include_cached github-culture.html %}
+<div class="alert alert-primary text-center" role="alert">
+Interested in learning more about how GitHub works and what it's like to be a GitHubber?<br />
+<a href="/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/" class="alert-link">Check out these popular posts on GitHub's culture and communication patterns</a>.
+</div>

@@ -12,11 +12,9 @@ date: '2016-10-31'
 _legacy_redirect_from: "/2016/10/31/eight-things-i-wish-i-knew-my-first-week/"
 ---
 
-{% capture disclaimer -%}
+<div class="alert alert-primary text-center" role="alert">
 This post was originally published on a personal-but-internal-to-GitHub blog in 2016. In early 2021, I revisited the writing and realized there was no reason it couldn't be public. I've republished it here with limited modification, mainly to remove internal references. If I were authoring the post today, there are a number of things I'd change (I'd like to think that both GitHub and I have grown in the past four years), but I present it here as a snapshot in time, in hopes it's helpful to future Hubbers and non-Hubbers alike.
-{%- endcapture %}
-
-{% include callout.html content=disclaimer %}
+</div>
 
 GitHub is a strange, magical place. We have a quirky culture, work very differently than other companies, and all have access to a never-ending firehose of organizational knowledge. It's been a while since my first week at GitHub, but I can still remember what it was like starting — and it was overwhelming to say the least. GitHub's changed a lot since then, and your mileage may vary, but looking back, here's eight things that I wish I knew when I first started:
 
@@ -93,7 +91,10 @@ One of my favorite parts of working at GitHub is being able to talk to new GitHu
 
 Welcome to GitHub! I'm glad you're here.
 
-{% include_cached github-culture.html %}
+<div class="alert alert-primary text-center" role="alert">
+Interested in learning more about how GitHub works and what it's like to be a GitHubber?<br />
+<a href="/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/" class="alert-link">Check out these popular posts on GitHub's culture and communication patterns</a>.
+</div>
 
 [^1]: The original post referenced a previous iteration of how we stored and shared knowledge internally, so I opted to remove the system name entirely to keep it future proof (that's not what we really call it). If you're a GitHubber, ask your manager or a teammate. It's the thing with internal policies, docs, guides, updates, and so on
 

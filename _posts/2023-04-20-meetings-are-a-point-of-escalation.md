@@ -23,4 +23,7 @@ You may be skeptical. I was curious, so [I wrote a quick script to pull stats fr
 
 If you receive a meeting invite (or if a colleague requests permission to send you a meeting invite) without context, an agenda, or a read-ahead doc, consider politely declining, or at least asking for one - it's well within your rights (you can even link to this discussion post as a "get out of ~~jail~~ meeting free" card). After all, if the person requesting the meeting hasn't taken the time to distill their thoughts into writing, why should they be able to decide how you spend your own time?
 
-{% include_cached github-culture.html %}
+<div class="alert alert-primary text-center" role="alert">
+Interested in learning more about how GitHub works and what it's like to be a GitHubber?<br />
+<a href="/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/" class="alert-link">Check out these popular posts on GitHub's culture and communication patterns</a>.
+</div>

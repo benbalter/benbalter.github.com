@@ -3,11 +3,10 @@ title: If you liked it then you should have put a URL on it
 description: The next time you begin a new project, adopt a high-fidelity, electronic medium that allows you to capture and expose process in the form of a URL.
 ---
 
-{% capture update %}
+<div class="alert alert-primary text-center" role="alert">
 This post is about crafting human-centric URLs. Looking to better understand why things should have a URL in the first place? <br />
 Check out my less-creatively-titled, but more to the point post <a href="https://ben.balter.com/2015/11/12/why-urls/" class="alert-link">Why everything should have a URL</a>. 👈
-{% endcapture %}
-{% include callout.html content=update %}
+</div>
 
 If there's one thing that made the internet what it is, it's the URL. It's what makes sharing funny cat videos possible. It's the bookmark to access your bank account balance. It's the Wikipedia link you send your buddy to end a heated argument. Why then, are our most online important interactions — collaborating with coworkers, accessing government services, or consuming open data — all too often, tragically URL-less?
 

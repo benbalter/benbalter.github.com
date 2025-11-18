@@ -96,7 +96,10 @@ GitHub's not the right tool for all sorts of use cases. It probably doesn't make
 
 Although I think it's the future of knowledge work, this developer-inspired workflow isn't for everyone, at least not today. One of [GitHub's Zen](https://ben.balter.com/2015/08/12/the-zen-of-github/), is to prefer practicality over purity. However pure the workflow might be on paper, if you've got a team of lawyers that have never used anything other than Outlook, Word, and regularly scheduled in-person meetings, absent a strong personal, professional, or philosophical motivation, absent significant untraining and re-education, you'd be hard-pressed to implement a modern workflow that's on a trajectory to succeed.
 
-{% include_cached github-culture.html %}
+<div class="alert alert-primary text-center" role="alert">
+Interested in learning more about how GitHub works and what it's like to be a GitHubber?<br />
+<a href="/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/" class="alert-link">Check out these popular posts on GitHub's culture and communication patterns</a>.
+</div>
 
 [How you work is just as important as what you work on](https://ben.balter.com/2015/09/21/open-source-behind-the-firewall/#how-you-work-is-as-important-as-what-you-work-on). I challenge you to take a critical look at your own workflow, and ask yourself if you're working the way you'd like to work, or just the way everyone else does.
 

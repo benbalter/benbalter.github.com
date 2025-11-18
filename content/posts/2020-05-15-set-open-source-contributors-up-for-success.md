@@ -5,7 +5,9 @@ description: Successful open source projects do everything they can to set users
 date: '2020-05-15'
 ---
 
-{% include foss-at-scale.html nth="first" %}
+<div class="alert alert-primary text-center" role="alert">
+This is the first post in <a href="/2021/06/15/managing-open-source-communities-at-scale/" class="alert-link">a series</a> on successfully managing open source communities at scale.
+</div>
 
 Successful open source projects do everything they can to set users up for success, well before that user ever interacts with their project for the first time. These projects ensure that users can discover and understand the project, that they can contribute constructively, and that everyone (maintainers included) will have a good experience.
 

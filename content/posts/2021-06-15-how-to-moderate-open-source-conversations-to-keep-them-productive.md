@@ -7,7 +7,9 @@ date: '2021-06-15'
 _legacy_redirect_from: "/2021/06/15/moderating-open-source-conversations-to-keep-them-productive/"
 ---
 
-{% include foss-at-scale.html nth="fourth and final" %}
+<div class="alert alert-primary text-center" role="alert">
+This is the fourth and final post in <a href="/2021/06/15/managing-open-source-communities-at-scale/" class="alert-link">a series</a> on successfully managing open source communities at scale.
+</div>
 
 Successful open source projects create a welcoming community by fostering productive conversations, promoting healthy collaboration, and de-escalating conflict when things get heated or off topic. Once you've [set contributors up for success](https://ben.balter.com/2020/05/15/set-open-source-contributors-up-for-success/), [automated common community-management tasks](https://ben.balter.com/2020/08/10/automate-common-open-source-community-management-tasks/), and [establishd a governance model](https://ben.balter.com/2021/06/14/open-source-governance/), you should be prepared to moderate conversations in the repositories you maintain, to help [build a strong community](https://help.github.com/en/github/building-a-strong-community) around your code.
 
