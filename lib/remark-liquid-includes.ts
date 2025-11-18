@@ -81,6 +81,18 @@ export default function remarkLiquidIncludes() {
         replacements.push({ start: match.index, end: match.index + match[0].length, html: '' });
       }
       
+      // Replace {% capture variable %}...{% endcapture %}{% assign variable = variable | markdownify %}{% include callout.html content=variable %}
+      const calloutWithMarkdownifyRegex = /\{%\s*capture\s+(\w+)\s*%\}([\s\S]*?)\{%\s*endcapture\s*%\}\s*\{%\s*assign\s+\1\s*=\s*\1\s*\|\s*markdownify\s*%\}\s*\{%\s*include\s+callout\.html\s+content=\1\s*%\}/g;
+      while ((match = calloutWithMarkdownifyRegex.exec(content)) !== null) {
+        if (match[2]) {
+          const capturedContent = match[2].trim();
+          const html = `<div class="alert alert-primary text-center" role="alert">
+  ${capturedContent}
+</div>`;
+          replacements.push({ start: match.index, end: match.index + match[0].length, html });
+        }
+      }
+      
       // Replace {% capture variable %}...{% endcapture %}{% include callout.html content=variable %}
       const calloutRegex = /\{%\s*capture\s+(\w+)\s*%\}([\s\S]*?)\{%\s*endcapture\s*%\}\s*\{%\s*include\s+callout\.html\s+content=\1\s*%\}/g;
       while ((match = calloutRegex.exec(content)) !== null) {
