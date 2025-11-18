@@ -68,7 +68,13 @@ export const getAllPages = cache((): Page[] => {
     .map(fileName => parsePageFile(fileName, pagesDirectory));
 });
 
+/**
+ * Page slugs to exclude from static site generation
+ * These pages may still exist in content but won't be built
+ */
+const EXCLUDED_PAGE_SLUGS = ['index', '404', 'press'];
+
 export function getAllPageSlugs(): string[] {
   const pages = getAllPages();
-  return pages.map(page => page.slug).filter(slug => slug !== 'index' && slug !== '404' && slug !== 'press');
+  return pages.map(page => page.slug).filter(slug => !EXCLUDED_PAGE_SLUGS.includes(slug));
 }

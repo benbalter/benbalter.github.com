@@ -5,9 +5,11 @@
  * 
  * This script generates:
  * - RSS feed for blog posts (feed.xml)
- * - RSS feed for press clips (press/feed/index.xml)
  * - Sitemap (sitemap.xml)
  * - Sitemap index (sitemap_index.xml)
+ * 
+ * Note: Press feed (press/feed/index.xml) is excluded from Next.js build
+ * and remains available only in the Jekyll build.
  * 
  * Run this after `next build` to add these files to the output directory.
  */
@@ -22,7 +24,7 @@ const __dirname = path.dirname(__filename);
 // Import the generator functions
 async function generateFeeds() {
   // Dynamic imports to use the TypeScript modules
-  const { generatePostsFeed, generatePressFeed } = await import('../lib/rss.ts');
+  const { generatePostsFeed } = await import('../lib/rss.ts');
   const { generateSitemap, generateSitemapIndex } = await import('../lib/sitemap.ts');
   
   const outDir = path.join(process.cwd(), 'out');
@@ -48,18 +50,8 @@ async function generateFeeds() {
     hasErrors = true;
   }
   
-  // Generate press clips RSS feed
-  try {
-    const pressFeed = generatePressFeed();
-    const pressFeedDir = path.join(outDir, 'press', 'feed');
-    fs.mkdirSync(pressFeedDir, { recursive: true });
-    const pressFeedPath = path.join(pressFeedDir, 'index.xml');
-    fs.writeFileSync(pressFeedPath, pressFeed, 'utf-8');
-    console.log('✅ Generated press/feed/index.xml');
-  } catch (error) {
-    console.error('❌ Error generating press feed:', error);
-    hasErrors = true;
-  }
+  // Press feed is excluded from Next.js build
+  // It remains available in the Jekyll build
   
   // Generate sitemap
   try {
