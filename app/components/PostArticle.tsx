@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import PostHeader from './PostHeader';
 import PostDescription from './PostDescription';
 import ArchivedWarning from './ArchivedWarning';

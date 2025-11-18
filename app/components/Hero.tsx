@@ -9,7 +9,7 @@ interface HeroProps {
  * Displays a hero header image
  * Works with SSG - no client-side JavaScript needed
  */
-export default function Hero({ imageUrl, alt = '', height = '400px' }: HeroProps) {
+export default function Hero({ imageUrl, alt = 'Hero banner image', height = '400px' }: HeroProps) {
   return (
     <div 
       className="hero-unit rounded-top position-relative mb-3" 
