@@ -7,7 +7,7 @@ import MiniBio from '@/app/components/MiniBio';
 import PostHeader from '@/app/components/PostHeader';
 import PostDescription from '@/app/components/PostDescription';
 import ArchivedWarning from '@/app/components/ArchivedWarning';
-import PostContent from '@/app/components/PostContent';
+import EnhancedPostContent from '@/app/components/EnhancedPostContent';
 import PostMetadata from '@/app/components/PostMetadata';
 import EditButton from '@/app/components/EditButton';
 import { getSiteConfig, getAuthorBio } from '@/lib/config';
@@ -127,7 +127,7 @@ export default async function Post({ params }: PageProps) {
             
             <ReadingTime content={post.content} />
             
-            <PostContent contentHtml={contentHtml} />
+            <EnhancedPostContent contentHtml={contentHtml} postData={post} />
             
             <PostMetadata 
               publishDate={publishDate}

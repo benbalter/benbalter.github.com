@@ -38,51 +38,12 @@ certifications:
 
 ## Experience
 
-{% assign positions=site.resume_positions | sort: "start_date" %}
-{% for position in positions reversed %}
-
-{% unless position.employer == previous_employer %}
-
-### {{ position.employer }}
-
-{% endunless %}
-
-<div class="row">
-  <div class="col">
-    <h4>{{ position.title }}</h4>
-  </div>
-  <div class="col-md-4 text-end">
-    {{ position.start_date | date: '%B %Y' }}&mdash;{% if position.end_date %}{{ position.end_date | date: '%B %Y' }}{% else %}Present{% endif %}
-  </div>
-</div>
-
-{{ position.output }}
-
-{% assign previous_employer=position.employer %}
-{% endfor %}
+<!-- RESUME_POSITIONS_PLACEHOLDER -->
 
 ## Education
 
-{% for degree in page.degrees %}
-
-### <span class="h5">{{ degree.school }}</span>
-
-<div class="row">
-  <div class="col">
-    {{ degree.degree }}
-  </div>
-  <div class="col-md-4 text-enZd">
-    {{ degree.date | date: "%B %Y" }}
-  </div>
-</div>
-
-{% endfor %}
+<!-- EDUCATION_SECTION_PLACEHOLDER -->
 
 ## Certifications
 
-{% for certification in page.certifications %}
-
-### <span class="h5">{{ certification.authority }}</span>
-
-{% if certification.url %}<a href="{{ certification.url }}">{{ certification.name }}</a>{% else %}{{ certification.name }}{% endif %}
-{% endfor %}
+<!-- CERTIFICATIONS_SECTION_PLACEHOLDER -->
