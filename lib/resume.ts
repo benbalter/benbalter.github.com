@@ -43,12 +43,12 @@ function parsePositionFile(fileName: string, positionsDirectory: string): Resume
   const { data, content } = matter(fileContents);
   
   return {
+    content,
+    ...data,
     employer: data.employer || '',
     title: data.title || '',
     start_date: data.start_date || '',
     end_date: data.end_date,
-    content,
-    ...data,
   };
 }
 
@@ -84,11 +84,11 @@ export const getResumeData = cache((): ResumeData => {
   const positions = getAllResumePositions();
   
   return {
+    ...data,
     title: data.title,
     description: data.description,
     degrees: data.degrees || [],
     certifications: data.certifications || [],
     positions,
-    ...data,
   };
 });
