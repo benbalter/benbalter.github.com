@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'jekyll'
+require 'nokogiri'
+require 'json'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -40,6 +42,7 @@ def site
     site.reset
     site.read
     site.generate
+    site.render
     site
   end
 end
