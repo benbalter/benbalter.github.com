@@ -1,4 +1,4 @@
-import {render, screen, waitFor} from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import NotFoundSuggestion from './not-found-suggestion';
 
 // Mock fastest-levenshtein
@@ -23,16 +23,16 @@ describe('NotFoundSuggestion', () => {
     jest.clearAllMocks();
   });
 
-  it('should render nothing initially until effect runs', async () => {
+  it('should show loading placeholder and then suggestion', async () => {
     const { closest } = await import('fastest-levenshtein');
     const closestMock = closest as jest.Mock;
     closestMock.mockReturnValue('http://localhost/2022/06/30/helpful-404s-for-jekyll-and-github-pages/');
 
-    const { container } = render(<NotFoundSuggestion urls={mockUrls} />);
+    render(<NotFoundSuggestion urls={mockUrls} />);
     
     // After effect runs, should render suggestion
     await waitFor(() => {
-      expect(container.textContent).not.toBe('');
+      expect(screen.getByRole('link')).toBeInTheDocument();
     });
   });
 
@@ -45,7 +45,8 @@ describe('NotFoundSuggestion', () => {
 
     await waitFor(() => {
       const link = screen.getByRole('link');
-      expect(link).toHaveAttribute('href', 'http://localhost/2022/06/30/helpful-404s-for-jekyll-and-github-pages/');
+      // Next.js Link removes trailing slash from hrefs
+      expect(link).toHaveAttribute('href', '/2022/06/30/helpful-404s-for-jekyll-and-github-pages');
       expect(link).toHaveTextContent('/2022/06/30/helpful-404s-for-jekyll-and-github-pages/');
     });
 
@@ -63,7 +64,7 @@ describe('NotFoundSuggestion', () => {
 
   it('should handle empty URLs array gracefully', () => {
     const { container } = render(<NotFoundSuggestion urls={[]} />);
-    expect(container.textContent).toBe('');
+    expect(container.textContent).toBe('...');
   });
 
   it('should fallback to home page on error', async () => {
@@ -92,8 +93,8 @@ describe('NotFoundSuggestion', () => {
     // The component checks if window is undefined in useEffect
     const { container } = render(<NotFoundSuggestion urls={[]} />);
     
-    // With empty urls array, should render nothing
-    expect(container.textContent).toBe('');
+    // With empty urls array, should show loading placeholder
+    expect(container.textContent).toBe('...');
   });
 
   it('should use pathname from suggestion link', async () => {

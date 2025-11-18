@@ -1,5 +1,5 @@
-import {getAllPosts, getPostUrlParts} from './posts';
-import {getAllPages} from './pages';
+import { getAllPosts, getPostUrlParts } from './posts';
+import { getAllPages } from './pages';
 
 /**
  * Get all valid URLs in the site for 404 suggestion matching

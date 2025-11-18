@@ -1,7 +1,8 @@
 'use client';
 
-import {useEffect, useState} from 'react';
-import {closest} from 'fastest-levenshtein';
+import { useEffect, useState } from 'react';
+import { closest } from 'fastest-levenshtein';
+import Link from 'next/link';
 
 type NotFoundSuggestionProperties = {
   urls: string[];
@@ -20,9 +21,6 @@ export default function NotFoundSuggestion({urls}: NotFoundSuggestionProperties)
     }
 
     try {
-      // Get the current URL that resulted in a 404
-      const currentPath = window.location.pathname;
-
       // Build full URLs from the paths
       const baseUrl = `${window.location.protocol}//${window.location.host}`;
       const fullUrls = urls.map(path => `${baseUrl}${path}`);
@@ -46,10 +44,10 @@ export default function NotFoundSuggestion({urls}: NotFoundSuggestionProperties)
   }, [urls]);
 
   if (!suggestion) {
-    return null;
+    return <span>...</span>;
   }
 
   return (
-    <a href={suggestion.href}>{suggestion.pathname}</a>
+    <Link href={suggestion.pathname}>{suggestion.pathname}</Link>
   );
 }

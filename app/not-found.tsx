@@ -1,16 +1,16 @@
 import Link from 'next/link';
 import NotFoundSuggestion from './components/not-found-suggestion';
-import {getAllPosts, getPostUrlParts} from '@/lib/posts';
-import {getAllSiteUrls} from '@/lib/urls';
+import { getAllPosts, getPostUrlParts } from '@/lib/posts';
+import { getAllSiteUrls } from '@/lib/urls';
 
 export default function NotFound() {
   const posts = getAllPosts().slice(0, 10);
   const urls = getAllSiteUrls();
 
   return (
-    <div className='row'>
-      <div className='col-md-10 offset-md-1'>
-        <div className='alert alert-primary lead text-center' role='alert'>
+    <div className="row">
+      <div className="col-md-10 offset-md-1">
+        <div className="alert alert-primary lead text-center" role="alert">
           The page you are trying to view does not exist. <br />
           <strong>Perhaps you&apos;re looking for <NotFoundSuggestion urls={urls} />?</strong>
         </div>
