@@ -140,13 +140,6 @@ Posts moved to external sites:
 * `/2015/04/27/eight-lessons-learned-hacking-on-github-pages-for-six-months/` → `https://github.com/blog/1992-eight-lessons-learned-hacking-on-github-pages-for-six-months`
 * `/2012/04/23/enterprise-open-source-usage-is-up-but-challenges-remain/` → `http://techcrunch.com/2012/04/22/enterprise-open-source-usage-is-up-but-challenges-remain/`
 
-### PDF and File Redirects
-
-Redirecting PDF downloads to web posts:
-
-* `/Balter-Towards-a-More-Agile-Government.pdf` → `/2011/11/29/towards-a-more-agile-government/`
-* `2011/08/29/document-management-version-control-for-wordpress/` → `/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/`
-
 ## Adding New Redirects
 
 To add a new redirect:
@@ -222,10 +215,9 @@ The test suite covers:
 * ✅ Post URL corrections for wrong dates (7 tests)
 * ✅ Post URL corrections for special characters (5 tests)
 * ✅ External redirects (3 tests)
-* ✅ PDF and file redirects (1 test)
-* ✅ Redirect HTML structure validation (6 tests)
+* ✅ Redirect HTML structure validation (1 test)
 
-**Total**: 29 comprehensive test cases
+**Total**: 19 comprehensive test cases
 
 ### Manual Testing
 

@@ -155,15 +155,7 @@ test.describe('Legacy URL Redirects', () => {
     });
   });
 
-  test.describe('PDF and File Redirects', () => {
-    test('should redirect PDF to post', async ({ page }) => {
-      // GitHub Pages automatically serves index.html from directories
-      // The serve package shows directory listing, so we test the actual redirect file
-      await page.goto('/Balter-Towards-a-More-Agile-Government.pdf/index.html', { waitUntil: 'networkidle' });
-      await page.waitForURL('**/2011/11/29/towards-a-more-agile-government/', { timeout: 5000 });
-      expectPathname(page, '/2011/11/29/towards-a-more-agile-government/');
-    });
-  });
+
 
   test.describe('Redirect HTML Structure', () => {
     test('should have all required HTML elements and proper structure', async ({ request }) => {

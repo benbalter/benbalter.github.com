@@ -27,8 +27,7 @@ Organized test suites covering:
 - Wrong date corrections (7 tests)
 - Special character handling (5 tests)
 - External redirects (3 tests)
-- PDF/file redirects (1 test)
-- HTML structure validation (6 tests)
+- HTML structure validation (1 test)
 
 All tests verify:
 - Navigation to legacy URL
@@ -66,11 +65,11 @@ Complete documentation including:
 
 ## Redirect Statistics
 
-- **Total redirect rules**: 27 unique rules
-- **Total redirect pages generated**: 56 (including duplicates from both `_posts/` and `content/posts/`)
+- **Total redirect rules**: 26 unique rules
+- **Total redirect pages generated**: 54 (including duplicates from both `_posts/` and `content/posts/`)
 - **External redirects**: 3 (to github.blog, github.com/blog, techcrunch.com)
 - **Redirect chains**: 0 (all direct redirects)
-- **Test cases**: 29 comprehensive scenarios
+- **Test cases**: 19 comprehensive scenarios
 
 ## Redirect Categories
 
@@ -94,9 +93,6 @@ URLs with special characters (≠, <3, !=) redirect to proper text equivalents
 
 ### External Redirects (3)
 Posts moved to external platforms redirect with proper messaging
-
-### PDF/File Redirects (2)
-Legacy PDF and file URLs redirect to web content
 
 ## How It Works
 
@@ -149,13 +145,13 @@ Legacy PDF and file URLs redirect to web content
 ```bash
 npm run validate:redirects
 ```
-Validates all 56 redirect pages after build.
+Validates all 54 redirect pages after build.
 
 ### E2E Testing
 ```bash
 npm run test:e2e -- e2e/redirects.spec.ts
 ```
-Runs 29 comprehensive test cases (requires server running).
+Runs 19 comprehensive test cases (requires server running).
 
 ### Manual Testing
 ```bash
@@ -194,7 +190,7 @@ The system is fully automated:
 
 ## Quality Assurance
 
-✅ All 56 redirect pages generated correctly
+✅ All 54 redirect pages generated correctly
 ✅ All destinations exist in build output
 ✅ No redirect chains detected
 ✅ All HTML properly formatted
