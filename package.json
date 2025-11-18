@@ -152,6 +152,7 @@
     "test:jest:coverage": "jest --coverage",
     "test:related-posts": "tsx --test script/build-related-posts.test.ts",
     "test:e2e": "playwright test",
+    "test:e2e:jekyll": "playwright test --config=playwright-jekyll.config.ts",
     "test:e2e:nextjs": "playwright test --config=playwright-nextjs.config.ts",
     "test:e2e:headed": "playwright test --headed",
     "test:e2e:ui": "playwright test --ui",
