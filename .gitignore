@@ -55,4 +55,3 @@ public/assets/images/og/
 .env.test.local
 .env.production.local
 tsconfig.tsbuildinfo
-public/sitemap-urls.json

@@ -43,7 +43,6 @@
     "remark-html": "^16.0.1",
     "remark-rehype": "^11.1.2",
     "sitemap": "^9.0.0",
-    "sitemapper": "^4.0.2",
     "strip-markdown": "^6.0.0"
   },
   "devDependencies": {
@@ -139,7 +138,7 @@
     "build": "npm run webpack",
     "build:related-posts": "tsx script/build-related-posts.ts",
     "dev": "next dev",
-    "next:build": "next build && next-sitemap --config next-sitemap.config.cjs && node script/generate-sitemap-urls.mjs && node script/generate-redirects.mjs && tsx script/generate-feeds.mjs",
+    "next:build": "next build && next-sitemap --config next-sitemap.config.cjs && node script/generate-redirects.mjs && tsx script/generate-feeds.mjs",
     "next:start": "serve out",
     "lint": "npm run lint-js && npm run lint-json && npm run lint-md",
     "lint-js": "xo .remarkrc.js --ignore-pattern !.remarkrc.js --fix",
