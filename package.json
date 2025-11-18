@@ -159,7 +159,8 @@
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:debug": "playwright test --debug",
     "test:e2e:report": "playwright show-report",
-    "webpack": "webpack"
+    "webpack": "webpack",
+    "validate:redirects": "node script/validate-redirects.mjs"
   },
   "type": "module",
   "version": "1.0.0",
