@@ -118,12 +118,15 @@ test.describe('Next.js Static Pages', () => {
     // Click on About link
     const aboutLink = page.locator('nav a:has-text("About"), a:has-text("About")').first();
     if (await aboutLink.count() > 0) {
-      await aboutLink.click();
+      // Wait for navigation to complete
+      await Promise.all([
+        page.waitForURL(/\/about/),
+        aboutLink.click(),
+      ]);
       await waitForPageReady(page);
       
-      // Verify we're on the about page (check URL only)
-      const url = page.url();
-      expect(url).toContain('/about');
+      // Verify we're on the about page
+      expect(page.url()).toContain('/about');
       
       // Check content loaded
       await checkCommonElements(page);
