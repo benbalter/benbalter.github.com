@@ -18,41 +18,41 @@ Here are ~~12~~ 14 simple apps that I've built to introduce open source to the u
 
 ## Working with legacy formats
 
-* [**Word to Markdown**](https://github.com/benbalter/word-to-markdown) - A Ruby gem to liberate content from the jail that is Word documents.
+- [**Word to Markdown**](https://github.com/benbalter/word-to-markdown) - A Ruby gem to liberate content from the jail that is Word documents.
 
-* [**Markdown to PDF**](https://github.com/benbalter/markdown-to-pdf) - On demand generation of enterprise-grade PDFs from GitHub-hosted Markdown files.
+- [**Markdown to PDF**](https://github.com/benbalter/markdown-to-pdf) - On demand generation of enterprise-grade PDFs from GitHub-hosted Markdown files.
 
-* [**Markdown to Word**](https://github.com/benbalter/markdown_to_word) - Converts GitHub-flavored Markdown to a Word document.
+- [**Markdown to Word**](https://github.com/benbalter/markdown_to_word) - Converts GitHub-flavored Markdown to a Word document.
 
-* [**Word Diff**](https://ben.balter.com/2015/02/06/word-diff/) - Empowers you to be a Markdown person in a Microsoft Word world by automatically converting any Word document committed to a GitHub repository to Markdown.
+- [**Word Diff**](https://ben.balter.com/2015/02/06/word-diff/) - Empowers you to be a Markdown person in a Microsoft Word world by automatically converting any Word document committed to a GitHub repository to Markdown.
 
 ## User-friendly interfaces
 
-* [**Comment Card**](https://github.com/benbalter/comment-card) - A simple interface for non-technical users — both authenticated and pseudonymous — to provide feedback for your GitHub-hosted project.
+- [**Comment Card**](https://github.com/benbalter/comment-card) - A simple interface for non-technical users — both authenticated and pseudonymous — to provide feedback for your GitHub-hosted project.
 
-* [**Problem Child**](https://github.com/benbalter/problem_child) - Allows authenticated or anonymous users to fill out a standard web form to create GitHub issues.
+- [**Problem Child**](https://github.com/benbalter/problem_child) - Allows authenticated or anonymous users to fill out a standard web form to create GitHub issues.
 
-* [**Redliner**](https://github.com/benbalter/redliner) - A tool for facilitating the redlining of documents by the GitHub uninitiated.
+- [**Redliner**](https://github.com/benbalter/redliner) - A tool for facilitating the redlining of documents by the GitHub uninitiated.
 
 ## GitHub as a data store
 
-* [**GitHub Forms**](https://github.com/benbalter/github-forms) - A RESTful API for submitting standard HTML form data to a GitHub-hosted CSV.
+- [**GitHub Forms**](https://github.com/benbalter/github-forms) - A RESTful API for submitting standard HTML form data to a GitHub-hosted CSV.
 
-* [**WordPress-GitHub Sync**](https://github.com/benbalter/wordpress-github-sync) - A WordPress plugin to sync content with a GitHub repository (or Jekyll site).
+- [**WordPress-GitHub Sync**](https://github.com/benbalter/wordpress-github-sync) - A WordPress plugin to sync content with a GitHub repository (or Jekyll site).
 
-* [**Change Agent**](https://github.com/benbalter/change_agent) - A Git-backed key-value store, for tracking changes to documents and other files over time.
+- [**Change Agent**](https://github.com/benbalter/change_agent) - A Git-backed key-value store, for tracking changes to documents and other files over time.
 
 ## Authentication
 
-* [**Jekyll Auth**](https://github.com/benbalter/jekyll-auth) - A simple way to use GitHub OAuth to serve a protected Jekyll (GitHub Pages) site to your GitHub organization.
+- [**Jekyll Auth**](https://github.com/benbalter/jekyll-auth) - A simple way to use GitHub OAuth to serve a protected Jekyll (GitHub Pages) site to your GitHub organization.
 
-* [**Add to Org**](https://github.com/benbalter/add-to-org) - A simple OAuth App to automatically add users to an organization based on preset criteria.
+- [**Add to Org**](https://github.com/benbalter/add-to-org) - A simple OAuth App to automatically add users to an organization based on preset criteria.
 
 ## Web interfaces for command-line tasks
 
-* [**GitHub Uploader**](https://github.com/benbalter/github-uploader) - A simple app to enable drag-and-drop uploading of binary and other assets to GitHub repositories.
+- [**GitHub Uploader**](https://github.com/benbalter/github-uploader) - A simple app to enable drag-and-drop uploading of binary and other assets to GitHub repositories.
 
-* [**Copy to**](https://github.com/benbalter/copy-to) - A quick-and-dirty Heroku app to simulate running `git clone`, `git remote add`, and `git push` locally.
+- [**Copy to**](https://github.com/benbalter/copy-to) - A quick-and-dirty Heroku app to simulate running `git clone`, `git remote add`, and `git push` locally.
 
 An astute reader might notice that almost all of these apps are less than a hundred lines of code and are almost exclusively some combination of the same three Ruby Gems: [Sinatra](http://www.sinatrarb.com/) (web server), [Octokit](https://github.com/octokit/octokit.rb) (GitHub API client), and [Sinatra-auth-GitHub](https://github.com/atmos/sinatra_auth_GitHub) (user authentication).
 
