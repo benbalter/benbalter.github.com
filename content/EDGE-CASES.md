@@ -20,38 +20,38 @@ Two HTML pages were migrated and will need special handling:
 
 ### index.html
 
-* **Original**: Jekyll homepage with Liquid templates
-* **Migrated to**: `content/pages/index.html`
-* **Recommendation**: Convert to React component or Markdown
+- **Original**: Jekyll homepage with Liquid templates
+- **Migrated to**: `content/pages/index.html`
+- **Recommendation**: Convert to React component or Markdown
 
 ### other-recommended-reading.html
 
-* **Original**: Jekyll page with Liquid templates
-* **Migrated to**: `content/pages/other-recommended-reading.html`
-* **Recommendation**: Convert to React component or Markdown
+- **Original**: Jekyll page with Liquid templates
+- **Migrated to**: `content/pages/other-recommended-reading.html`
+- **Recommendation**: Convert to React component or Markdown
 
 ## Liquid Template Tags Requiring Replacement
 
 ### Common Patterns Found
 
 1. **Includes**:
-   * `{% include_cached github-culture.html %}`
-   * `{% include callout.html content=update %}`
-   * `{% include foss-at-scale.html nth="second" %}`
-   * `{% include contact-links.html %}`
+   - `{% include_cached github-culture.html %}`
+   - `{% include callout.html content=update %}`
+   - `{% include foss-at-scale.html nth="second" %}`
+   - `{% include contact-links.html %}`
 
 2. **Loops**:
-   * `{% for url in page.posts %}`
-   * `{% endfor %}`
+   - `{% for url in page.posts %}`
+   - `{% endfor %}`
 
 3. **Variables**:
-   * `{% capture update %}`
-   * `{% endcapture %}`
+   - `{% capture update %}`
+   - `{% endcapture %}`
 
 4. **Filters**:
-   * `{{ post.title }}`
-   * `{{ post.url | absolute_url }}`
-   * `{{ post.description | markdownify | strip_html }}`
+   - `{{ post.title }}`
+   - `{{ post.url | absolute_url }}`
+   - `{{ post.description | markdownify | strip_html }}`
 
 ### Recommended Next.js Replacements
 
@@ -96,8 +96,8 @@ Some posts have multiple redirect URLs. Next.js should handle all redirects.
 
 **UPDATE**: Two pages had the `seo` field, now prefixed as `_legacy_seo`:
 
-* `content/pages/about.md`: `_legacy_seo: { type: person }`
-* `content/pages/resume.md`: `_legacy_seo: { type: person }`
+- `content/pages/about.md`: `_legacy_seo: { type: person }`
+- `content/pages/resume.md`: `_legacy_seo: { type: person }`
 
 This should be converted to Next.js metadata or JSON-LD.
 
@@ -105,9 +105,9 @@ This should be converted to Next.js metadata or JSON-LD.
 
 Some posts have unique fields that should be preserved:
 
-* `posts` (array): Used in "what-to-read-before-starting-or-interviewing-at-github.md"
-* `roles` (array): Used in the same post
-* `icons` (boolean): Used in contact.md and about.md
+- `posts` (array): Used in "what-to-read-before-starting-or-interviewing-at-github.md"
+- `roles` (array): Used in the same post
+- `icons` (boolean): Used in contact.md and about.md
 
 ## Data File Considerations
 
@@ -171,11 +171,11 @@ async redirects() {
 
 All files are UTF-8 encoded. Some posts contain:
 
-* Em dashes (—)
-* En dashes (–)
-* Smart quotes (" " ' ')
-* Emoji (via jemoji plugin)
-* Special characters
+- Em dashes (—)
+- En dashes (–)
+- Smart quotes (" " ' ')
+- Emoji (via jemoji plugin)
+- Special characters
 
 Ensure Next.js handles UTF-8 properly and consider emoji replacement libraries.
 
@@ -217,15 +217,15 @@ const date = new Date(frontmatter.date);
 
 ## Migration Statistics
 
-* **Total files migrated**: 206
-* **Posts with liquid tags**: 28
-* **Posts with redirects**: 16
-* **Posts without titles**: ~~3~~ 0 (all fixed)
-* **HTML pages**: 2
-* **Data files**: 3
-* **Resume positions**: 10
-* **Regular pages**: 9
-* **Blog posts**: 184
+- **Total files migrated**: 206
+- **Posts with liquid tags**: 28
+- **Posts with redirects**: 16
+- **Posts without titles**: ~~3~~ 0 (all fixed)
+- **HTML pages**: 2
+- **Data files**: 3
+- **Resume positions**: 10
+- **Regular pages**: 9
+- **Blog posts**: 184
 
 ## Success Criteria
 

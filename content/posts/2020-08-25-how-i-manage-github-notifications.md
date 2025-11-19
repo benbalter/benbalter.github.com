@@ -51,8 +51,8 @@ To put that philosophy into practice, I have set the following settings via [`gi
 
 Because I have both web and email notifications enabled (and there's no way to only get `@mentions` via email without also getting notifications for any thread you participate in), I use the following GMail filters to further customize how and when I receive GitHub notifications:
 
-* `from:(notifications@github.com) cc:mention@noreply.github.com` - Apply label "github/mention", Never send it to Spam, Mark it as important to ensure I get notifications for `@mentions`
-* `from:(notifications@github.com) cc:REASON@noreply.github.com` - Skip Inbox, Apply label "github/REASON" to ensure all non- `@mentions` are immediately archived
+- `from:(notifications@github.com) cc:mention@noreply.github.com` - Apply label "github/mention", Never send it to Spam, Mark it as important to ensure I get notifications for `@mentions`
+- `from:(notifications@github.com) cc:REASON@noreply.github.com` - Skip Inbox, Apply label "github/REASON" to ensure all non- `@mentions` are immediately archived
 
 You'll notice that GitHub cc's a specific email address based on the reason for the notification. In the second filter, you need to replace `REASON` with all of [the documented cc-able reasons](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications) and create one filter for each. If you don't care about applying the GMail labels/folders and are looking for something simpler, you can just use two filters, one `from:(notifications@github.com) -@USERANME` and one `from:(notifications@github.com) @USERNAME` to more easily segment mentions from other notifications.
 
@@ -136,4 +136,3 @@ And
 </details><br />
 
 And that's how I manage GitHub notifications. It's far from perfect (and looks a bit overengineered now that I've written it down), but it works for me and has for 7+ years now. I hope that sharing my notification workflow can help you find one that works best for you. Have a tip or trick for how you manage GitHub notifications? Let me know in the comments below.
-

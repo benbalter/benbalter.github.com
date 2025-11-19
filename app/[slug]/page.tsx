@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { getPageMetadata } from '@/lib/seo';
 import MarkdownContent from '@/app/components/MarkdownContent';
 import PageTitle from '@/app/components/PageTitle';
+import ContactLinks from '@/app/components/ContactLinks';
 
 interface PageProps {
   params: Promise<{
@@ -38,12 +39,16 @@ export default async function Page({ params }: PageProps) {
     notFound();
   }
   
+  // Pages that should show contact links
+  const showContactLinks = ['about', 'contact'].includes(slug);
+  
   return (
     <div className={`page page-${slug}`}>
       <div className="row">
         <div className="col-md-10 offset-md-1">
           {page.title && <PageTitle title={page.title} />}
           <MarkdownContent markdown={page.content} />
+          {showContactLinks && <ContactLinks />}
         </div>
       </div>
     </div>
