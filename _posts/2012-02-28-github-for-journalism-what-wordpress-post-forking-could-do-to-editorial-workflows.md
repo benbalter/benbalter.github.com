@@ -15,10 +15,10 @@ Spoiler alert: it didn't. GitHub's great for a lot of things, source code chief 
 
 Users would have the ability to "clone" an existing post, make any changes they want, and then merge those change back into the original before publishing. There are four distinct use cases where this feature may come into play:
 
-- Collaborative editing (by resolving two users' conflicted saves – Wired's example)
-- Saving draft changes of already-published content
-- Scheduling pending changes to already-published content
-- Allowing users without edit or publish capabilities to edit and submit changes to content (similar to GitHub's pull request system)
+* Collaborative editing (by resolving two users' conflicted saves – Wired's example)
+* Saving draft changes of already-published content
+* Scheduling pending changes to already-published content
+* Allowing users without edit or publish capabilities to edit and submit changes to content (similar to GitHub's pull request system)
 
 I'd imagine the workflow would go something like this:
 
@@ -31,13 +31,13 @@ I'd imagine the workflow would go something like this:
 
 In a nutshell:
 
-- Extends WordPress's existing revision system
-- Clone existing posts, edit, and "republish"
-- Schedule changes to posts, including taxonomies and metadata
-- Pending changes diff view, frontend preview of changes
-- Using WordPress's pending-review system, integrates with existing plugins for notifications, management, and so on
-- Ability to store "commit messages" with each post revision to explain to others what changes were made and why
-- Automatically merges (non-conflicted) changes (based on existing diff engine)
+* Extends WordPress's existing revision system
+* Clone existing posts, edit, and "republish"
+* Schedule changes to posts, including taxonomies and metadata
+* Pending changes diff view, frontend preview of changes
+* Using WordPress's pending-review system, integrates with existing plugins for notifications, management, and so on
+* Ability to store "commit messages" with each post revision to explain to others what changes were made and why
+* Automatically merges (non-conflicted) changes (based on existing diff engine)
 
   1. One sided changes – one overwrites the other
   2. Two sided non-conflict changes – automatically merge

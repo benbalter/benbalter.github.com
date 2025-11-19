@@ -11,8 +11,8 @@ Most platforms offer some form of user blocking, user muting, or both. Here's a 
 
 Typically, social networks offer at least two distinct user safety features which are roughly:
 
-- **User muting** - You don't see *the blocked user's* content.
-- **User blocking** - The blocked user doesn't see *your* content.
+* **User muting** - You don't see *the blocked user's* content.
+* **User blocking** - The blocked user doesn't see *your* content.
 
 ## User muting
 

@@ -6,10 +6,10 @@ This file provides example code for integrating the migrated content with Next.j
 
 See [docs/SSG-BEST-PRACTICES.md](../docs/SSG-BEST-PRACTICES.md) for complete guidelines on:
 
-- When to use server components vs client components
-- How to avoid unnecessary 'use client' directives
-- Maximizing static HTML generation
-- Preferring HTML/CSS over JavaScript
+* When to use server components vs client components
+* How to avoid unnecessary 'use client' directives
+* Maximizing static HTML generation
+* Preferring HTML/CSS over JavaScript
 
 ## Installation
 

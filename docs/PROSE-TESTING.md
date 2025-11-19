@@ -6,10 +6,10 @@ This repository includes comprehensive prose testing to ensure content quality, 
 
 Prose tests check the quality of written content in markdown files, including:
 
-- **Spelling and grammar** - via textlint and retext plugins
-- **Style consistency** - via Vale (optional) and remark
-- **Structural quality** - via RSpec tests
-- **Typographic corrections** - automatic fixes for quotes, dashes, etc.
+* **Spelling and grammar** - via textlint and retext plugins
+* **Style consistency** - via Vale (optional) and remark
+* **Structural quality** - via RSpec tests
+* **Typographic corrections** - automatic fixes for quotes, dashes, etc.
 
 ## Running Prose Tests
 
@@ -51,18 +51,18 @@ textlint *.md _posts/*.md _resume_positions/*.md --fix
 
 **Key Rules:**
 
-- `common-misspellings` - Catches typos
-- `terminology` - Enforces consistent terminology (e.g., "GitHub" not "Github")
-- `write-good` - Suggests improvements (warnings only to reduce noise)
-- `stop-words` - Suggests alternatives for weak words (warnings only)
-- `no-unmatched-pair` - Checks for balanced brackets/quotes
-- `doubled-spaces` - Catches double spaces
+* `common-misspellings` - Catches typos
+* `terminology` - Enforces consistent terminology (e.g., "GitHub" not "Github")
+* `write-good` - Suggests improvements (warnings only to reduce noise)
+* `stop-words` - Suggests alternatives for weak words (warnings only)
+* `no-unmatched-pair` - Checks for balanced brackets/quotes
+* `doubled-spaces` - Catches double spaces
 
 **Customization:**
 
-- Most rules set to "warning" severity to avoid blocking builds
-- Technical terms (HTML, URL, VS Code, E2E) excluded from terminology checks
-- Common abbreviations (e.g., etc., i.e.) allowed in stop-words
+* Most rules set to "warning" severity to avoid blocking builds
+* Technical terms (HTML, URL, VS Code, E2E) excluded from terminology checks
+* Common abbreviations (e.g., etc., i.e.) allowed in stop-words
 
 ### 2. Remark + Retext
 
@@ -72,20 +72,20 @@ textlint *.md _posts/*.md _resume_positions/*.md --fix
 
 **Active Prose Plugins:**
 
-- `retext-equality` - Checks for insensitive language
-- `retext-indefinite-article` - Validates a/an usage
-- `retext-repeated-words` - Catches duplicated words
-- `retext-spell` - Spell checking with custom dictionary
-- `retext-profanities` - Flags profane language
-- `retext-redundant-acronyms` - Catches "ATM machine" style errors
-- `retext-sentence-spacing` - Ensures consistent spacing
+* `retext-equality` - Checks for insensitive language
+* `retext-indefinite-article` - Validates a/an usage
+* `retext-repeated-words` - Catches duplicated words
+* `retext-spell` - Spell checking with custom dictionary
+* `retext-profanities` - Flags profane language
+* `retext-redundant-acronyms` - Catches "ATM machine" style errors
+* `retext-sentence-spacing` - Ensures consistent spacing
 
 **Disabled Plugins** (too noisy for technical writing):
 
-- `retext-passive` - Passive voice detection
-- `retext-readability` - Readability scoring
-- `retext-simplify` - Word simplification suggestions
-- `retext-intensify` - Hedge/weasel word detection
+* `retext-passive` - Passive voice detection
+* `retext-readability` - Readability scoring
+* `retext-simplify` - Word simplification suggestions
+* `retext-intensify` - Hedge/weasel word detection
 
 **Custom Dictionary:** `dictionary.txt` contains project-specific terms
 
@@ -102,11 +102,11 @@ Typographic corrections (smart quotes, em/en dashes, etc.) are applied by the te
 
 **Status:** Vale is not installed by default. If installed, it runs additional style checks using:
 
-- Microsoft Writing Style Guide
-- Alex (inclusive language)
-- Proselint (writing advice)
-- write-good
-- Custom styles
+* Microsoft Writing Style Guide
+* Alex (inclusive language)
+* Proselint (writing advice)
+* write-good
+* Custom styles
 
 **Installation:** See https://vale.sh/docs/vale-cli/installation/
 
@@ -128,11 +128,11 @@ script/vale
 
 **Tests:**
 
-- No multiple consecutive blank lines
-- No trailing whitespace
-- No doubled spaces in prose
-- Consistent heading capitalization (no periods at end)
-- No broken internal links
+* No multiple consecutive blank lines
+* No trailing whitespace
+* No doubled spaces in prose
+* Consistent heading capitalization (no periods at end)
+* No broken internal links
 
 **Running:**
 
@@ -171,12 +171,12 @@ This runs:
 
 ## Configuration Files
 
-- `.textlintrc` - Textlint rules
-- `.remarkrc.js` - Remark and retext configuration
-- `.vale.ini` - Vale style guide configuration
-- `dictionary.txt` - Custom dictionary for spell checking
-- `.remarkignore` - Files to exclude from remark processing
-- `.rubocop.yml` - Ruby code style rules for RSpec tests
+* `.textlintrc` - Textlint rules
+* `.remarkrc.js` - Remark and retext configuration
+* `.vale.ini` - Vale style guide configuration
+* `dictionary.txt` - Custom dictionary for spell checking
+* `.remarkignore` - Files to exclude from remark processing
+* `.rubocop.yml` - Ruby code style rules for RSpec tests
 
 ## Troubleshooting
 
@@ -213,7 +213,7 @@ If prose tests are breaking builds:
 
 ## Future Improvements
 
-- Consider installing Vale in CI for consistent style checking
-- Add more RSpec tests for prose structure
-- Create pre-commit hooks for prose testing
-- Add prose testing to the Next.js content pipeline
+* Consider installing Vale in CI for consistent style checking
+* Add more RSpec tests for prose structure
+* Create pre-commit hooks for prose testing
+* Add prose testing to the Next.js content pipeline

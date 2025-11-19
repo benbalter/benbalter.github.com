@@ -8,38 +8,38 @@ This site is built with **Static Site Generation (SSG)** as the primary renderin
 
 ### Why SSG?
 
-- ⚡ **Performance**: Fastest possible page loads (pre-rendered HTML)
-- 🔒 **Security**: No server-side code execution, no APIs to exploit
-- 💰 **Cost**: Free hosting on GitHub Pages
-- 📈 **SEO**: Perfect for search engines (fully rendered HTML)
-- 🌍 **Reliability**: No servers to crash, no databases to fail
-- ♿ **Accessibility**: Works without JavaScript
+* ⚡ **Performance**: Fastest possible page loads (pre-rendered HTML)
+* 🔒 **Security**: No server-side code execution, no APIs to exploit
+* 💰 **Cost**: Free hosting on GitHub Pages
+* 📈 **SEO**: Perfect for search engines (fully rendered HTML)
+* 🌍 **Reliability**: No servers to crash, no databases to fail
+* ♿ **Accessibility**: Works without JavaScript
 
 ## Architecture Overview
 
 ### Current State
 
-- **Total Pages**: \~200 (blog posts + static pages)
-- **Build Output**: Static HTML files only (`output: 'export'`)
-- **Client Components**: 2 (see below)
-- **Server Components**: All others (\~15+ components)
-- **JavaScript Bundle**: Minimal (\~50KB including Bootstrap)
+* **Total Pages**: \~200 (blog posts + static pages)
+* **Build Output**: Static HTML files only (`output: 'export'`)
+* **Client Components**: 2 (see below)
+* **Server Components**: All others (\~15+ components)
+* **JavaScript Bundle**: Minimal (\~50KB including Bootstrap)
 
 ### The Two Client Components
 
 **ONLY these two components use 'use client' (both necessary):**
 
 1. **`app/components/ClientScripts.tsx`**
-   - **Purpose**: Initialize Bootstrap tooltips and FontAwesome icons
-   - **Why Client**: Requires `useEffect` to run after DOM ready
-   - **Usage**: Included once in root layout
-   - **Size**: \~500 bytes
+   * **Purpose**: Initialize Bootstrap tooltips and FontAwesome icons
+   * **Why Client**: Requires `useEffect` to run after DOM ready
+   * **Usage**: Included once in root layout
+   * **Size**: \~500 bytes
 
 2. **`app/components/Navigation.tsx`**
-   - **Purpose**: Highlight active navigation link
-   - **Why Client**: Requires `usePathname()` hook from Next.js
-   - **Usage**: Navigation bar in header
-   - **Size**: \~1KB
+   * **Purpose**: Highlight active navigation link
+   * **Why Client**: Requires `usePathname()` hook from Next.js
+   * **Usage**: Navigation bar in header
+   * **Size**: \~1KB
 
 **These are the ONLY client components. Keep it this way.**
 
@@ -460,32 +460,32 @@ Before merging any changes:
    ```
 
 4. **Disable JavaScript and test**:
-   - Open site in browser
-   - Disable JavaScript in DevTools
-   - Verify navigation, links, and content still work
-   - Only interactive features (Bootstrap dropdowns, etc.) should break
+   * Open site in browser
+   * Disable JavaScript in DevTools
+   * Verify navigation, links, and content still work
+   * Only interactive features (Bootstrap dropdowns, etc.) should break
 
 ## Migration Checklist
 
 When migrating Jekyll to Next.js or adding new features:
 
-- [ ] Is this page pre-rendered at build time using `generateStaticParams`?
-- [ ] Are all components server components (no 'use client')?
-- [ ] Is data fetched at build time, not runtime?
-- [ ] Are Markdown files processed at build time?
-- [ ] Are RSS feeds and sitemaps generated at build time?
-- [ ] Are redirects handled with static HTML files?
-- [ ] Is interactivity limited to absolutely necessary features?
-- [ ] Are CSS and HTML preferred over JavaScript?
-- [ ] Does the site work without JavaScript enabled?
+* [ ] Is this page pre-rendered at build time using `generateStaticParams`?
+* [ ] Are all components server components (no 'use client')?
+* [ ] Is data fetched at build time, not runtime?
+* [ ] Are Markdown files processed at build time?
+* [ ] Are RSS feeds and sitemaps generated at build time?
+* [ ] Are redirects handled with static HTML files?
+* [ ] Is interactivity limited to absolutely necessary features?
+* [ ] Are CSS and HTML preferred over JavaScript?
+* [ ] Does the site work without JavaScript enabled?
 
 ## Resources
 
-- [Next.js Static Exports](https://nextjs.org/docs/app/building-your-application/deploying/static-exports)
-- [Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components)
-- [Client Components](https://nextjs.org/docs/app/building-your-application/rendering/client-components)
-- [When to use Server vs Client Components](https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns)
-- [Static Site Generation with App Router](https://nextjs.org/docs/app/building-your-application/data-fetching/caching-and-revalidating)
+* [Next.js Static Exports](https://nextjs.org/docs/app/building-your-application/deploying/static-exports)
+* [Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components)
+* [Client Components](https://nextjs.org/docs/app/building-your-application/rendering/client-components)
+* [When to use Server vs Client Components](https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns)
+* [Static Site Generation with App Router](https://nextjs.org/docs/app/building-your-application/data-fetching/caching-and-revalidating)
 
 ## Summary
 

@@ -15,19 +15,19 @@ If you offer a service online, chances are, government agencies can't agree to y
 
 Terms of service agreements are often called clickwrap or browserwrap agreements, meaning that by either clicking an "I agree" checkbox when they sign up, or simply by using a service with a terms of service (TOS) linked in the footer of each page, the user has said to agree to be bound by the document, essentially a contract between the service provider and the user. However, terms of service agreements, often written by large companies and agreed to most commonly by individuals contain several unfavorable clauses, that government agencies cannot agree to by force of law. Even if not illegal, the government may be able to pursue their own organizational preference by virtue of their superior bargaining position. Here are a few of the most commonly negotiated clauses:
 
-- **The contracting parties** - Most terms of service agreements are written to bind an individual user, not their employer. Most government employees are not in a position to bind the federal government. Even if so, a service provider should prefer the agreement be executed on behalf of the employer, not the individual (who for example, would presumably have deeper pockets in the event the relationship went south).
+* **The contracting parties** - Most terms of service agreements are written to bind an individual user, not their employer. Most government employees are not in a position to bind the federal government. Even if so, a service provider should prefer the agreement be executed on behalf of the employer, not the individual (who for example, would presumably have deeper pockets in the event the relationship went south).
 
-- **Forum selection** - If you're a California based start up, you'll likely want any dispute to be heard in California courts. As a matter of pure practicality, it's a lot easier to go to the courthouse downtown, than to hire a law firm across the country and fly out key witnesses. For government agencies based out of Washington, D.C., they'll likely prefer the parties agree that courts in DC would hear any potential dispute.
+* **Forum selection** - If you're a California based start up, you'll likely want any dispute to be heard in California courts. As a matter of pure practicality, it's a lot easier to go to the courthouse downtown, than to hire a law firm across the country and fly out key witnesses. For government agencies based out of Washington, D.C., they'll likely prefer the parties agree that courts in DC would hear any potential dispute.
 
-- **Choice of law** - Regardless of where the dispute is heard publicly, your standard terms of service may state that a particular state's law (likely either California or Delaware) will govern the relationship, but federal agencies will prefer federal law prevail (due to a little thing called the Supremacy Clause), and state/local agencies will likely prefer their local law.
+* **Choice of law** - Regardless of where the dispute is heard publicly, your standard terms of service may state that a particular state's law (likely either California or Delaware) will govern the relationship, but federal agencies will prefer federal law prevail (due to a little thing called the Supremacy Clause), and state/local agencies will likely prefer their local law.
 
-- **Indemnification** - Indemnification requires the user, here the government agency, to cover the service provider for any loss arising out of the contract. Under the [Anti-Deficiency Act](https://en.wikipedia.org/wiki/Antideficiency_Act), such an agreement would be consider an unaccounted for allocation, meaning the government is essentially guaranteeing an unknown amount of federal funds for a potential dispute.
+* **Indemnification** - Indemnification requires the user, here the government agency, to cover the service provider for any loss arising out of the contract. Under the [Anti-Deficiency Act](https://en.wikipedia.org/wiki/Antideficiency_Act), such an agreement would be consider an unaccounted for allocation, meaning the government is essentially guaranteeing an unknown amount of federal funds for a potential dispute.
 
-- **Dispute resolution** - Your terms of service might have an alternative dispute resolution clause, whereby you require a wronged party to first submit their claim to mediation or binding arbitration. As a small start up, this may allow you to save legal costs for many disputes (due to the relaxed rules), but for the government which knows the federal court system and has many attorneys on staff, they'd prefer to go straight to court.
+* **Dispute resolution** - Your terms of service might have an alternative dispute resolution clause, whereby you require a wronged party to first submit their claim to mediation or binding arbitration. As a small start up, this may allow you to save legal costs for many disputes (due to the relaxed rules), but for the government which knows the federal court system and has many attorneys on staff, they'd prefer to go straight to court.
 
-- **Endorsement** - An agency is going to require that their use of your service not be used in promotional materials in a way that implies endorsement. But note, most amendments will allow you to carve out a logically necessary exception for public-facing profiles, which you can use and link to freely.
+* **Endorsement** - An agency is going to require that their use of your service not be used in promotional materials in a way that implies endorsement. But note, most amendments will allow you to carve out a logically necessary exception for public-facing profiles, which you can use and link to freely.
 
-- **Security, records, and so on** - Government agencies have government-specific security, record keeping, and audit requirements. Even if your service does not meet all requirements today, the government may wish to contractually bind you to continue that discussion and to implement those controls as they may need in the future.
+* **Security, records, and so on** - Government agencies have government-specific security, record keeping, and audit requirements. Even if your service does not meet all requirements today, the government may wish to contractually bind you to continue that discussion and to implement those controls as they may need in the future.
 
 ## How an agency signs up for a service
 
@@ -69,10 +69,10 @@ Last, I've purposely avoided discussing procurement, which is a much larger issu
 
 ## Additional resources
 
-- [How to Amend Your App's Terms of Service for Federal Agencies](https://zapier.com/blog/federal-government-terms-of-service-amendment/)
-- [Federal-Compatible Terms of Service Agreements](https://www.digitalgov.gov/resources/federal-compatible-terms-of-service-agreements/)
-- [Negotiated Terms of Service Agreements](https://www.digitalgov.gov/resources/negotiated-terms-of-service-agreements/)
-- [Model TOS template](https://s3.amazonaws.com/digitalgov/_legacy-img/2014/01/model-amendment-to-tos-for-g.doc)
-- [OMB Memorandum M-13–10 on Anti-deficiency Act Implications of Certain Online Terms of Service Agreements](https://www.whitehouse.gov/sites/whitehouse.gov/files/omb/memoranda/2013/m-13-10.pdf)
+* [How to Amend Your App's Terms of Service for Federal Agencies](https://zapier.com/blog/federal-government-terms-of-service-amendment/)
+* [Federal-Compatible Terms of Service Agreements](https://www.digitalgov.gov/resources/federal-compatible-terms-of-service-agreements/)
+* [Negotiated Terms of Service Agreements](https://www.digitalgov.gov/resources/negotiated-terms-of-service-agreements/)
+* [Model TOS template](https://s3.amazonaws.com/digitalgov/_legacy-img/2014/01/model-amendment-to-tos-for-g.doc)
+* [OMB Memorandum M-13–10 on Anti-deficiency Act Implications of Certain Online Terms of Service Agreements](https://www.whitehouse.gov/sites/whitehouse.gov/files/omb/memoranda/2013/m-13-10.pdf)
 
 *As always, as they say on the internet, [I am not your lawyer](https://ben.balter.com/fine-print/) (IANYL). The above is clearly a general discussion on the topic of federal terms of service agreements, and it should not be mistaken for legal advice. Heck, I don't even know what your startup does. Even if I did, I probably wouldn't understand it (but I'll take a beta invite if you've got one). I hope the above read out from the Collaborate round table was informative, but if you're a social media provider heading down this route, be sure to retain your own legal counsel before talking to the government.*

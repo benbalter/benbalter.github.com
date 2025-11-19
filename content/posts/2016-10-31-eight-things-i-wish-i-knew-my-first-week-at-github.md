@@ -94,6 +94,7 @@ One of my favorite parts of working at GitHub is being able to talk to new GitHu
 
 Welcome to GitHub! I'm glad you're here.
 
+
 [^1]: The original post referenced a previous iteration of how we stored and shared knowledge internally, so I opted to remove the system name entirely to keep it future proof (that's not what we really call it). If you're a GitHubber, ask your manager or a teammate. It's the thing with internal policies, docs, guides, updates, and so on
 
 [^2]: As we've grown, this timeline has likely accelerated. Don't be worried if you hit this point sooner.

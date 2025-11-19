@@ -19,11 +19,11 @@ Recording of the presentation (starts at the 10:00 mark):
 
 ## Plugins Mentioned
 
-- [WP Document Revisions](https://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/)
-- [Edit Flow](http://editflow.org)
-- [Members](http://wordpress.org/extend/plugins/members/)
-- [Advanced Custom Fields](http://wordpress.org/extend/plugins/advanced-custom-fields/)
-- [Display Custom Fields](http://wordpress.org/extend/plugins/wp-display-custom-fields/)
-- [Count Shortcode](http://wordpress.org/extend/plugins/count-shortcode/)
-- [Faceted Search Widget](http://wordpress.org/extend/plugins/faceted-search-widget/)
-- [Custom Taxonomy Generator](https://generatewp.com/taxonomy/)
+* [WP Document Revisions](https://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/)
+* [Edit Flow](http://editflow.org)
+* [Members](http://wordpress.org/extend/plugins/members/)
+* [Advanced Custom Fields](http://wordpress.org/extend/plugins/advanced-custom-fields/)
+* [Display Custom Fields](http://wordpress.org/extend/plugins/wp-display-custom-fields/)
+* [Count Shortcode](http://wordpress.org/extend/plugins/count-shortcode/)
+* [Faceted Search Widget](http://wordpress.org/extend/plugins/faceted-search-widget/)
+* [Custom Taxonomy Generator](https://generatewp.com/taxonomy/)
