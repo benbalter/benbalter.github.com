@@ -18,9 +18,9 @@ Handles all blog posts using Jekyll's permalink format: `/YYYY/MM/DD/slug/`
 
 **Example URLs:**
 
-- `/2024/01/08/dissenting-voices/`
-- `/2023/12/08/cathedral-bazaar-management/`
-- `/2022/02/16/leaders-show-their-work/`
+* `/2024/01/08/dissenting-voices/`
+* `/2023/12/08/cathedral-bazaar-management/`
+* `/2022/02/16/leaders-show-their-work/`
 
 **Implementation:**
 
@@ -42,10 +42,10 @@ Handles all static pages like About, Contact, Resume, etc.
 
 **Example URLs:**
 
-- `/about/`
-- `/contact/`
-- `/resume/`
-- `/talks/`
+* `/about/`
+* `/contact/`
+* `/resume/`
+* `/talks/`
 
 **Implementation:**
 
@@ -199,32 +199,32 @@ redirect_from:
 
 Validates:
 
-- All blog posts accessible via Jekyll-style URLs
-- All static pages accessible
-- Home page loads correctly
-- 404 handling
-- SSG pre-rendering
-- Correct number of routes generated
+* All blog posts accessible via Jekyll-style URLs
+* All static pages accessible
+* Home page loads correctly
+* 404 handling
+* SSG pre-rendering
+* Correct number of routes generated
 
 #### 2. Redirect Validation (`e2e/redirects.spec.ts`)
 
 Validates:
 
-- Internal redirects work correctly
-- Post URL corrections (typos, date changes)
-- External redirects display correctly
-- Redirect pages contain proper meta tags and JavaScript
+* Internal redirects work correctly
+* Post URL corrections (typos, date changes)
+* External redirects display correctly
+* Redirect pages contain proper meta tags and JavaScript
 
 #### 3. Link Validation (`e2e/link-validation.spec.ts`)
 
 Validates:
 
-- Homepage internal links
-- Blog post internal links
-- Static page internal links
-- Navigation links
-- Footer links
-- No broken internal links
+* Homepage internal links
+* Blog post internal links
+* Static page internal links
+* Navigation links
+* Footer links
+* No broken internal links
 
 ### Running Tests
 
@@ -240,26 +240,26 @@ npm run test:e2e:nextjs -- e2e/url-structure.spec.ts
 
 ### Current Site Scale
 
-- **Blog Posts:** 184 posts
-- **Static Pages:** 9 pages
-- **Redirect Pages:** 56 redirects
-- **Total HTML Files:** \~219 files
+* **Blog Posts:** 184 posts
+* **Static Pages:** 9 pages
+* **Redirect Pages:** 56 redirects
+* **Total HTML Files:** \~219 files
 
 ### All Tests Passing ✅
 
-- **URL Structure Tests:** 9/9 passing
-- **Redirect Tests:** 6/6 passing
-- **Link Validation Tests:** 6/6 passing
-- **Total:** 21/21 tests passing
+* **URL Structure Tests:** 9/9 passing
+* **Redirect Tests:** 6/6 passing
+* **Link Validation Tests:** 6/6 passing
+* **Total:** 21/21 tests passing
 
 ## Server Components
 
 The entire site uses React Server Components by default, minimizing client-side JavaScript:
 
-- **Zero 'use client' directives** in page routes
-- **Static HTML generation** for all content
-- **Minimal JavaScript** - only for Bootstrap and navigation highlighting
-- **Optimal performance** - pre-rendered HTML served directly
+* **Zero 'use client' directives** in page routes
+* **Static HTML generation** for all content
+* **Minimal JavaScript** - only for Bootstrap and navigation highlighting
+* **Optimal performance** - pre-rendered HTML served directly
 
 ## Deployment
 
@@ -276,19 +276,19 @@ The site is deployed to GitHub Pages using the static export:
 
 ✅ **Preserved:**
 
-- All blog post URLs (`/YYYY/MM/DD/slug/`)
-- All static page URLs (`/slug/`)
-- All redirect functionality
-- Same content structure
-- Same permalink patterns
+* All blog post URLs (`/YYYY/MM/DD/slug/`)
+* All static page URLs (`/slug/`)
+* All redirect functionality
+* Same content structure
+* Same permalink patterns
 
 ✅ **Improved:**
 
-- Modern React-based templating
-- Type-safe TypeScript code
-- Component-based architecture
-- Better developer experience
-- Incremental migration path
+* Modern React-based templating
+* Type-safe TypeScript code
+* Component-based architecture
+* Better developer experience
+* Incremental migration path
 
 ## Troubleshooting
 
@@ -328,7 +328,7 @@ Possible improvements for the routing system:
 
 ## References
 
-- [Next.js App Router Documentation](https://nextjs.org/docs/app)
-- [Next.js Static Exports](https://nextjs.org/docs/app/building-your-application/deploying/static-exports)
-- [Jekyll Permalinks](https://jekyllrb.com/docs/permalinks/)
-- [GitHub Pages Documentation](https://docs.github.com/en/pages)
+* [Next.js App Router Documentation](https://nextjs.org/docs/app)
+* [Next.js Static Exports](https://nextjs.org/docs/app/building-your-application/deploying/static-exports)
+* [Jekyll Permalinks](https://jekyllrb.com/docs/permalinks/)
+* [GitHub Pages Documentation](https://docs.github.com/en/pages)

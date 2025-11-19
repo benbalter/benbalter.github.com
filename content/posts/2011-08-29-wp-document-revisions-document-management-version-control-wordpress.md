@@ -33,47 +33,47 @@ _legacy_redirect_from: 2011/08/29/document-management-version-control-for-wordpr
 
 ## The Vitals
 
-- Support for any file type (docs, spreadsheets, images, PDFs — anything!)
-- Securely stores unlimited revisions of your business's essential files
-- Provides a full file history in the form of a revision log, accessible via RSS
-- Helps you track and organize documents as they move through your organization's existing workflow
-- Each file gets a permanent, authenticated URL that always points to the latest version
-- Each revision gets its own unique URL (for example,TPS-Report-revision-3.doc) accessible only to those you deem
-- Files are intuitively checked out and locked to prevent revisions from colliding
-- Toggle documents between public, private, and password protected with a single mouse click
-- Runs in-house or in the cloud
-- Secure: filenames are hashed on upload and files are only accessible through WordPress's proven authentication system
-- Can move document upload folder to location outside web root to further ensure government- and enterprise-grade security
-- Documents and Revisions shortcodes, Recently Revised Documents widget
-- Multisite and Windows (XAMPP) support
-- French and Spanish language support (easily translated to your language)
-- Integration with [Edit Flow](http://editflow.org/)
+* Support for any file type (docs, spreadsheets, images, PDFs — anything!)
+* Securely stores unlimited revisions of your business's essential files
+* Provides a full file history in the form of a revision log, accessible via RSS
+* Helps you track and organize documents as they move through your organization's existing workflow
+* Each file gets a permanent, authenticated URL that always points to the latest version
+* Each revision gets its own unique URL (for example,TPS-Report-revision-3.doc) accessible only to those you deem
+* Files are intuitively checked out and locked to prevent revisions from colliding
+* Toggle documents between public, private, and password protected with a single mouse click
+* Runs in-house or in the cloud
+* Secure: filenames are hashed on upload and files are only accessible through WordPress's proven authentication system
+* Can move document upload folder to location outside web root to further ensure government- and enterprise-grade security
+* Documents and Revisions shortcodes, Recently Revised Documents widget
+* Multisite and Windows (XAMPP) support
+* French and Spanish language support (easily translated to your language)
+* Integration with [Edit Flow](http://editflow.org/)
 
 ## Features Available via the [Code Cookbook](https://github.com/benbalter/WP-Document-Revisions-Code-Cookbook)
 
-- **Audit Trail** - creates check in / check out audit trail for all documents
-- **State Permissions** - allows setting user-level permissions based on a custom taxonomy such as workflow state or other document status
-- **Third Party Encryption** - example of how to integrate at rest encryption using third-party tools
-- **Rename Documents** - changes all references to "Documents" in the interface to any label of your choosing
-- **State Change Notification** - how to use document API to allow users to receive notification whenever documents change workflow state
-- **Bulk Import** - how to batch import a directory (or other list) of files as documents
-- **file type Taxonomy** - Adds support to filter by file type
-- **Track Changes** - Autogenerates and appends revision summaries for changes to taxonomies, title, and visibility
-- **Remove Workflow States** - Completely removes Workflow state taxonomy backend and UI
-- **Change Tracker** - Autogenerates and appends revision summaries for changes to taxonomies, title, and visibility
+* **Audit Trail** - creates check in / check out audit trail for all documents
+* **State Permissions** - allows setting user-level permissions based on a custom taxonomy such as workflow state or other document status
+* **Third Party Encryption** - example of how to integrate at rest encryption using third-party tools
+* **Rename Documents** - changes all references to "Documents" in the interface to any label of your choosing
+* **State Change Notification** - how to use document API to allow users to receive notification whenever documents change workflow state
+* **Bulk Import** - how to batch import a directory (or other list) of files as documents
+* **file type Taxonomy** - Adds support to filter by file type
+* **Track Changes** - Autogenerates and appends revision summaries for changes to taxonomies, title, and visibility
+* **Remove Workflow States** - Completely removes Workflow state taxonomy backend and UI
+* **Change Tracker** - Autogenerates and appends revision summaries for changes to taxonomies, title, and visibility
 
 ## Translations
 
-- French - [Hubert Campan](http://omnimaki.com/)
-- Spanish - TradiArt
+* French - [Hubert Campan](http://omnimaki.com/)
+* Spanish - TradiArt
 
 ## Links
 
-- [Source Code](https://github.com/benbalter/WP-Document-Revisions/) (GitHub)
-- [Development version](https://github.com/benbalter/WP-Document-Revisions/tree/develop) ([Build Status](http://travis-ci.org/#!/benbalter/WP-Document-Revisions))
-- [Code Cookbook](https://github.com/benbalter/WP-Document-Revisions-Code-Cookbook)
-- [User support forums](http://wordpress.org/tags/wp-document-revisions)
-- [Submit a bug/feature request](https://github.com/benbalter/WP-Document-Revisions/issues)
+* [Source Code](https://github.com/benbalter/WP-Document-Revisions/) (GitHub)
+* [Development version](https://github.com/benbalter/WP-Document-Revisions/tree/develop) ([Build Status](http://travis-ci.org/#!/benbalter/WP-Document-Revisions))
+* [Code Cookbook](https://github.com/benbalter/WP-Document-Revisions-Code-Cookbook)
+* [User support forums](http://wordpress.org/tags/wp-document-revisions)
+* [Submit a bug/feature request](https://github.com/benbalter/WP-Document-Revisions/issues)
 
 Questions? Comments? Many may have already been addressed in [the WP Document Revisions FAQ](http://wordpress.org/extend/plugins/wp-document-revisions/faq/), or feel free to simply leave a reply below.
 

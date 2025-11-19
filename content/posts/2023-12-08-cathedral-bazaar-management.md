@@ -34,9 +34,9 @@ At the core of the bazaar style is the belief that team members are competent, s
 
 As a manager or as someone who is managed, you should know which style you prefer, and which style your manager prefers. You may find that your team is a mix of cathedrals and bazaars styles, or it may even change depending on the scenario, and that's okay. Here are some common ways in which the two styles can differ:
 
-- By **industry** - The self direction of the bazaar model wouldn't be a good fit for the military given the stakes, while the rigidity of the cathedral model would not excel in a fast-paced startup given the need for experimentation and adaptation.
-- By **individual** - A more junior engineer is going to need the structure and clarity offered by the cathedral model, while a more senior engineer might feel constrained, preferring the freedom to roam and find interesting challenges that the bazaar model offers. Likewise, some individuals are less comfortable living with ambiguity, while others prefer uncertainty, and the opportunity for autonomy that comes with it.
-- By **role** - Outside engineering, you might expect the cathedral model to work well for a line cook, where the recipe is well defined and consistency is key, while the bazaar model might work better for a chef, where creativity and experimentation are valued as they seek to create new dishes.
+* By **industry** - The self direction of the bazaar model wouldn't be a good fit for the military given the stakes, while the rigidity of the cathedral model would not excel in a fast-paced startup given the need for experimentation and adaptation.
+* By **individual** - A more junior engineer is going to need the structure and clarity offered by the cathedral model, while a more senior engineer might feel constrained, preferring the freedom to roam and find interesting challenges that the bazaar model offers. Likewise, some individuals are less comfortable living with ambiguity, while others prefer uncertainty, and the opportunity for autonomy that comes with it.
+* By **role** - Outside engineering, you might expect the cathedral model to work well for a line cook, where the recipe is well defined and consistency is key, while the bazaar model might work better for a chef, where creativity and experimentation are valued as they seek to create new dishes.
 
 The key is to find the right balance between the two styles, and to be able to switch between them as needed.
 

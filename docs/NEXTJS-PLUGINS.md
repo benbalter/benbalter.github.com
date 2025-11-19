@@ -12,11 +12,11 @@ All Jekyll plugins have been successfully migrated to Next.js equivalents. **The
 
 **This site is built entirely with Static Site Generation (SSG).** All pages are pre-rendered as static HTML at build time with minimal client-side JavaScript.
 
-- ✅ **Pre-rendered HTML**: All pages generated at build time
-- ✅ **Server Components**: Default for all React components
-- ✅ **Build-Time Processing**: Markdown, data files, feeds processed during build
-- ✅ **Minimal JavaScript**: Only 2 client components (Bootstrap init, navigation)
-- ✅ **Zero Runtime APIs**: No server-side rendering or API routes needed
+* ✅ **Pre-rendered HTML**: All pages generated at build time
+* ✅ **Server Components**: Default for all React components
+* ✅ **Build-Time Processing**: Markdown, data files, feeds processed during build
+* ✅ **Minimal JavaScript**: Only 2 client components (Bootstrap init, navigation)
+* ✅ **Zero Runtime APIs**: No server-side rendering or API routes needed
 
 ### Client-Side JavaScript: AVOID Unless Necessary
 
@@ -27,33 +27,33 @@ All Jekyll plugins have been successfully migrated to Next.js equivalents. **The
 
 **Before adding any client-side code, ask:**
 
-- Can this be done with HTML/CSS only?
-- Can this be pre-rendered at build time?
-- Can this be a server component?
+* Can this be done with HTML/CSS only?
+* Can this be pre-rendered at build time?
+* Can this be a server component?
 
 ### Open-Source First
 
 **All implementations rely on open-source libraries wherever possible.** This approach provides:
 
-- ✅ **Better maintenance** - Active communities and regular updates
-- ✅ **More features** - Comprehensive functionality beyond basic needs
-- ✅ **Better tested** - Extensive test coverage and real-world usage
-- ✅ **Standards compliance** - Adherence to industry standards and specifications
-- ✅ **Type safety** - Modern TypeScript definitions and tooling support
-- ✅ **Security updates** - Automatic vulnerability patches from maintainers
-- ✅ **Reduced custom code** - Less code to write, maintain, and debug
+* ✅ **Better maintenance** - Active communities and regular updates
+* ✅ **More features** - Comprehensive functionality beyond basic needs
+* ✅ **Better tested** - Extensive test coverage and real-world usage
+* ✅ **Standards compliance** - Adherence to industry standards and specifications
+* ✅ **Type safety** - Modern TypeScript definitions and tooling support
+* ✅ **Security updates** - Automatic vulnerability patches from maintainers
+* ✅ **Reduced custom code** - Less code to write, maintain, and debug
 
 **Open-Source Libraries Used:**
 
-- **@octokit/rest** (v21.0.2) - Official GitHub API client for avatars and metadata
-- **@fortawesome/react-fontawesome** - Type-safe FontAwesome icons as React components
-- **remark-github** (v12.0.0) - GitHub-flavored markdown with @mentions, issues, commits
-- **node-emoji** (v2.2.0) - Comprehensive emoji support with 1800+ GitHub-compatible emoji
-- **feed** (v5.1.0) - Standards-compliant RSS/Atom feed generation
-- **sitemap** (v9.0.0) - XML sitemap generation with proper escaping
-- **natural** - TF-IDF analysis for related posts
-- **react-markdown** - React-based markdown rendering (alternative to dangerouslySetInnerHTML)
-- **@next/bundle-analyzer** - Bundle size analysis and optimization
+* **@octokit/rest** (v21.0.2) - Official GitHub API client for avatars and metadata
+* **@fortawesome/react-fontawesome** - Type-safe FontAwesome icons as React components
+* **remark-github** (v12.0.0) - GitHub-flavored markdown with @mentions, issues, commits
+* **node-emoji** (v2.2.0) - Comprehensive emoji support with 1800+ GitHub-compatible emoji
+* **feed** (v5.1.0) - Standards-compliant RSS/Atom feed generation
+* **sitemap** (v9.0.0) - XML sitemap generation with proper escaping
+* **natural** - TF-IDF analysis for related posts
+* **react-markdown** - React-based markdown rendering (alternative to dangerouslySetInnerHTML)
+* **@next/bundle-analyzer** - Bundle size analysis and optimization
 
 ## Plugin Migration Status
 
@@ -89,11 +89,11 @@ Generates `_data/related_posts.yml` with related post mappings.
 
 **How it works:**
 
-- Reads all markdown posts from `_posts/`
-- Extracts plain text using remark
-- Calculates TF-IDF vectors using the `natural` library
-- Computes cosine similarity between documents
-- Outputs YAML file with top 11 related posts per post
+* Reads all markdown posts from `_posts/`
+* Extracts plain text using remark
+* Calculates TF-IDF vectors using the `natural` library
+* Computes cosine similarity between documents
+* Outputs YAML file with top 11 related posts per post
 
 ### 2. Redirects (`jekyll-redirect-from`)
 
@@ -111,10 +111,10 @@ npm run next:build
 
 **How it works:**
 
-- Scans all markdown files for `redirect_from` and `redirect_to` frontmatter
-- Generates static HTML pages with meta refresh and JavaScript redirects
-- Creates directory structure matching source paths
-- Supports both internal and external redirects
+* Scans all markdown files for `redirect_from` and `redirect_to` frontmatter
+* Generates static HTML pages with meta refresh and JavaScript redirects
+* Creates directory structure matching source paths
+* Supports both internal and external redirects
 
 **Example frontmatter:**
 
@@ -136,8 +136,8 @@ redirect_to: https://external-site.com/new-page
 
 **Outputs:**
 
-- `feed.xml` - Latest 20 blog posts
-- `press/feed/index.xml` - Press clips feed
+* `feed.xml` - Latest 20 blog posts
+* `press/feed/index.xml` - Press clips feed
 
 **Usage:**
 
@@ -148,18 +148,18 @@ npm run next:build
 
 **Features:**
 
-- Uses feed library for standards-compliant RSS 2.0
-- Automatic XML escaping (handled by library)
-- Proper CDATA handling
-- Full post metadata (title, description, pubDate, guid)
-- Press clips from `content/data/clips.yml`
+* Uses feed library for standards-compliant RSS 2.0
+* Automatic XML escaping (handled by library)
+* Proper CDATA handling
+* Full post metadata (title, description, pubDate, guid)
+* Press clips from `content/data/clips.yml`
 
 **Why feed library:**
 
-- Used by thousands of projects
-- Standards-compliant output
-- Automatic handling of XML edge cases
-- Better tested than custom implementations
+* Used by thousands of projects
+* Standards-compliant output
+* Automatic handling of XML edge cases
+* Better tested than custom implementations
 
 ### 4. Sitemap (`jekyll-sitemap`)
 
@@ -172,8 +172,8 @@ npm run next:build
 
 **Outputs:**
 
-- `sitemap.xml` - All posts and pages
-- `sitemap_index.xml` - Sitemap index (for compatibility)
+* `sitemap.xml` - All posts and pages
+* `sitemap_index.xml` - Sitemap index (for compatibility)
 
 **Usage:**
 
@@ -184,19 +184,19 @@ npm run next:build
 
 **Features:**
 
-- Uses sitemap library for standards-compliant XML
-- Automatic XML escaping (handled by library)
-- Stream-based for better performance
-- Proper lastmod, changefreq, priority
-- Homepage, pages, and all blog posts
-- Full URL generation from config
+* Uses sitemap library for standards-compliant XML
+* Automatic XML escaping (handled by library)
+* Stream-based for better performance
+* Proper lastmod, changefreq, priority
+* Homepage, pages, and all blog posts
+* Full URL generation from config
 
 **Why sitemap library:**
 
-- Industry standard for sitemap generation
-- Automatic handling of XML escaping
-- Better performance than manual string building
-- Standards-compliant output
+* Industry standard for sitemap generation
+* Automatic handling of XML escaping
+* Better performance than manual string building
+* Standards-compliant output
 
 ### 5. SEO Tags (`jekyll-seo-tag`)
 
@@ -219,19 +219,19 @@ export async function generateMetadata({ params }) {
 
 **Features:**
 
-- OpenGraph tags (og:title, og:description, og:image, etc.)
-- Twitter Card tags
-- Canonical URLs
-- JSON-LD structured data
-- Schema.org markup for Person, BlogPosting, WebSite
+* OpenGraph tags (og:title, og:description, og:image, etc.)
+* Twitter Card tags
+* Canonical URLs
+* JSON-LD structured data
+* Schema.org markup for Person, BlogPosting, WebSite
 
 **Functions:**
 
-- `getPostMetadata(post)` - Blog post SEO metadata
-- `getPageMetadata(page, path)` - Page SEO metadata
-- `getPostJsonLd(post)` - BlogPosting structured data
-- `getPersonJsonLd()` - Person structured data
-- `getWebsiteJsonLd()` - WebSite structured data
+* `getPostMetadata(post)` - Blog post SEO metadata
+* `getPageMetadata(page, path)` - Page SEO metadata
+* `getPostJsonLd(post)` - BlogPosting structured data
+* `getPersonJsonLd()` - Person structured data
+* `getWebsiteJsonLd()` - WebSite structured data
 
 ### 6. GitHub Metadata (`jekyll-github-metadata`)
 
@@ -257,14 +257,14 @@ const repoInfo = await fetchRepositoryInfo();
 
 **Features:**
 
-- Uses official GitHub API client (@octokit/rest)
-- Better type safety with TypeScript definitions
-- Automatic authentication with GITHUB\_TOKEN
-- Rate limit handling
-- Repository metadata from `_config.yml`
-- URL generators (commits, issues, releases, etc.)
-- Contributors list via `octokit.repos.listContributors()`
-- Repository info via `octokit.repos.get()`
+* Uses official GitHub API client (@octokit/rest)
+* Better type safety with TypeScript definitions
+* Automatic authentication with GITHUB\_TOKEN
+* Rate limit handling
+* Repository metadata from `_config.yml`
+* URL generators (commits, issues, releases, etc.)
+* Contributors list via `octokit.repos.listContributors()`
+* Repository info via `octokit.repos.get()`
 
 ### 7. Avatars (`jekyll-avatar`)
 
@@ -275,8 +275,8 @@ const repoInfo = await fetchRepositoryInfo();
 
 **Open-Source Libraries:**
 
-- **@octokit/rest** - Fetches avatar URLs from GitHub API
-- **Next.js Image** - Optimized image component
+* **@octokit/rest** - Fetches avatar URLs from GitHub API
+* **Next.js Image** - Optimized image component
 
 **Usage:**
 
@@ -296,12 +296,12 @@ import GitHubAvatar from '@/app/components/GitHubAvatar';
 
 **Features:**
 
-- Uses Octokit's `users.getByUsername()` for avatar URLs
-- Caching to minimize API calls
-- Fallback to direct URL construction
-- Next.js Image component for optimization
-- Configurable size
-- Lazy loading by default
+* Uses Octokit's `users.getByUsername()` for avatar URLs
+* Caching to minimize API calls
+* Fallback to direct URL construction
+* Next.js Image component for optimization
+* Configurable size
+* Lazy loading by default
 
 ### 8. Mentions (`jekyll-mentions`)
 
@@ -324,13 +324,13 @@ const html = await markdownToHtml(markdown);
 
 **Features:**
 
-- Uses official remark-github plugin
-- Automatic @mention linking to GitHub profiles
-- Issue and PR reference linking (#123)
-- Commit SHA linking (7-40 character SHAs)
-- User/org disambiguation
-- Preserves original syntax in display
-- Integrated into remark markdown pipeline
+* Uses official remark-github plugin
+* Automatic @mention linking to GitHub profiles
+* Issue and PR reference linking (#123)
+* Commit SHA linking (7-40 character SHAs)
+* User/org disambiguation
+* Preserves original syntax in display
+* Integrated into remark markdown pipeline
 
 **Note:** `lib/mentions.ts` contains custom utilities kept for backward compatibility, but the primary implementation uses remark-github.
 
@@ -355,25 +355,25 @@ const html = await markdownToHtml(markdown);
 
 **Features:**
 
-- Uses node-emoji's `emojify()` function
-- Converts `:emoji_name:` to Unicode emoji
-- 1800+ emoji supported (vs \~100 in custom implementations)
-- GitHub-compatible emoji names
-- Full emoji database maintained by the community
-- Better tested than custom implementations
+* Uses node-emoji's `emojify()` function
+* Converts `:emoji_name:` to Unicode emoji
+* 1800+ emoji supported (vs \~100 in custom implementations)
+* GitHub-compatible emoji names
+* Full emoji database maintained by the community
+* Better tested than custom implementations
 
 **Supported emoji:**
 
-- All standard Unicode emoji
-- GitHub shortcode names (`:+1:`, `:rocket:`, `:wave:`, etc.)
-- Comprehensive coverage across all categories
+* All standard Unicode emoji
+* GitHub shortcode names (`:+1:`, `:rocket:`, `:wave:`, etc.)
+* Comprehensive coverage across all categories
 
 **Why node-emoji:**
 
-- Industry-standard library with 2.3M+ weekly downloads
-- Actively maintained with regular updates
-- Comprehensive test suite
-- Better emoji coverage than custom implementations
+* Industry-standard library with 2.3M+ weekly downloads
+* Actively maintained with regular updates
+* Comprehensive test suite
+* Better emoji coverage than custom implementations
 
 ### 10. OG Images (`jekyll-og-image`)
 
@@ -393,10 +393,10 @@ const ogImage = getPostOgImage(post);
 
 **Features:**
 
-- Resolves OG images from frontmatter
-- Falls back to pre-generated images in `assets/images/og/posts/`
-- Default image fallback
-- Full URL generation
+* Resolves OG images from frontmatter
+* Falls back to pre-generated images in `assets/images/og/posts/`
+* Default image fallback
+* Full URL generation
 
 **Image priority:**
 
@@ -429,9 +429,9 @@ npx tsx --test lib/plugins.test.ts
 
 Tests cover:
 
-- Emoji conversion (4 tests)
-- Mentions processing (5 tests)
-- Avatar URL generation (1 test)
+* Emoji conversion (4 tests)
+* Mentions processing (5 tests)
+* Avatar URL generation (1 test)
 
 ## Configuration
 
@@ -467,54 +467,54 @@ Thanks @benbalter for the help!
 
 All plugin features are automatically processed during:
 
-- Markdown to HTML conversion (emoji, mentions)
-- Build time (redirects, RSS, sitemap)
-- Metadata generation (SEO, OG images)
+* Markdown to HTML conversion (emoji, mentions)
+* Build time (redirects, RSS, sitemap)
+* Metadata generation (SEO, OG images)
 
 ## Differences from Jekyll
 
 ### Emoji
 
-- **Jekyll:** Full GitHub emoji support (1000+ emoji)
-- **Next.js:** Full emoji support via `node-emoji` library (1800+ emoji)
-- **Note:** Now using the industry-standard node-emoji library with comprehensive coverage
+* **Jekyll:** Full GitHub emoji support (1000+ emoji)
+* **Next.js:** Full emoji support via `node-emoji` library (1800+ emoji)
+* **Note:** Now using the industry-standard node-emoji library with comprehensive coverage
 
 ### GitHub Metadata
 
-- **Jekyll:** Automatic GitHub API integration via Jekyll environment
-- **Next.js:** Opt-in API fetching with `GITHUB_TOKEN` environment variable
-- **Note:** Most metadata derived from config file
+* **Jekyll:** Automatic GitHub API integration via Jekyll environment
+* **Next.js:** Opt-in API fetching with `GITHUB_TOKEN` environment variable
+* **Note:** Most metadata derived from config file
 
 ### OG Images
 
-- **Jekyll:** Dynamic generation at build time
-- **Next.js:** Uses pre-generated images or frontmatter values
-- **Note:** Images already exist in `assets/images/og/posts/`
+* **Jekyll:** Dynamic generation at build time
+* **Next.js:** Uses pre-generated images or frontmatter values
+* **Note:** Images already exist in `assets/images/og/posts/`
 
 ### Redirects
 
-- **Jekyll:** Server-side redirects on GitHub Pages
-- **Next.js:** Client-side redirects via meta refresh and JavaScript
-- **Note:** Both approaches work for static hosting
+* **Jekyll:** Server-side redirects on GitHub Pages
+* **Next.js:** Client-side redirects via meta refresh and JavaScript
+* **Note:** Both approaches work for static hosting
 
 ### RSS & Sitemap
 
-- **Jekyll:** Generated by Jekyll plugins
-- **Next.js:** Generated using industry-standard libraries (`feed`, `sitemap`)
-- **Note:** Standards-compliant output with better test coverage
-- **Jekyll:** Server-side redirects on GitHub Pages
-- **Next.js:** Client-side redirects via meta refresh and JavaScript
-- **Note:** Both approaches work for static hosting
+* **Jekyll:** Generated by Jekyll plugins
+* **Next.js:** Generated using industry-standard libraries (`feed`, `sitemap`)
+* **Note:** Standards-compliant output with better test coverage
+* **Jekyll:** Server-side redirects on GitHub Pages
+* **Next.js:** Client-side redirects via meta refresh and JavaScript
+* **Note:** Both approaches work for static hosting
 
 ## Performance
 
 All plugin features are optimized for static generation:
 
-- **Related posts:** Pre-computed once, stored in YAML
-- **Redirects:** Static HTML files
-- **RSS/Sitemap:** Generated once at build time
-- **Emoji/Mentions:** Processed once during build
-- **Avatars:** External GitHub API (cached by browsers)
+* **Related posts:** Pre-computed once, stored in YAML
+* **Redirects:** Static HTML files
+* **RSS/Sitemap:** Generated once at build time
+* **Emoji/Mentions:** Processed once during build
+* **Avatars:** External GitHub API (cached by browsers)
 
 No runtime overhead or API calls in production.
 
@@ -531,43 +531,43 @@ Potential improvements:
 
 ### Emoji not rendering
 
-- Check emoji name matches supported set in `lib/emoji.ts`
-- Add custom emoji to the `emojiMap` object
+* Check emoji name matches supported set in `lib/emoji.ts`
+* Add custom emoji to the `emojiMap` object
 
 ### Mentions not linking
 
-- Ensure username is alphanumeric with optional hyphens
-- Check username doesn't conflict with email patterns
+* Ensure username is alphanumeric with optional hyphens
+* Check username doesn't conflict with email patterns
 
 ### RSS feed not updating
 
-- Run `npm run next:build` to regenerate
-- Check `content/posts/` directory has latest posts
+* Run `npm run next:build` to regenerate
+* Check `content/posts/` directory has latest posts
 
 ### OG images missing
 
-- Verify image exists in `assets/images/og/posts/`
-- Check frontmatter for `image` or `og_image` field
-- Falls back to default headshot if not found
+* Verify image exists in `assets/images/og/posts/`
+* Check frontmatter for `image` or `og_image` field
+* Falls back to default headshot if not found
 
 ## Resources
 
 ### Open-Source Libraries
 
-- [@octokit/rest](https://github.com/octokit/rest.js) - Official GitHub REST API client
-- [remark-github](https://github.com/remarkjs/remark-github) - GitHub-flavored markdown plugin
-- [node-emoji](https://github.com/omnidan/node-emoji) - Emoji support for Node.js
-- [feed](https://github.com/jpmonette/feed) - RSS/Atom feed generator
-- [sitemap](https://github.com/ekalinin/sitemap.js) - Sitemap generator
-- [natural](https://github.com/NaturalNode/natural) - Natural language processing for TF-IDF
+* [@octokit/rest](https://github.com/octokit/rest.js) - Official GitHub REST API client
+* [remark-github](https://github.com/remarkjs/remark-github) - GitHub-flavored markdown plugin
+* [node-emoji](https://github.com/omnidan/node-emoji) - Emoji support for Node.js
+* [feed](https://github.com/jpmonette/feed) - RSS/Atom feed generator
+* [sitemap](https://github.com/ekalinin/sitemap.js) - Sitemap generator
+* [natural](https://github.com/NaturalNode/natural) - Natural language processing for TF-IDF
 
 ### Documentation
 
-- [Next.js Metadata API](https://nextjs.org/docs/app/api-reference/functions/generate-metadata)
-- [RSS 2.0 Specification](https://www.rssboard.org/rss-specification)
-- [Sitemap Protocol](https://www.sitemaps.org/protocol.html)
-- [Open Graph Protocol](https://ogp.me/)
-- [Schema.org Documentation](https://schema.org/)
+* [Next.js Metadata API](https://nextjs.org/docs/app/api-reference/functions/generate-metadata)
+* [RSS 2.0 Specification](https://www.rssboard.org/rss-specification)
+* [Sitemap Protocol](https://www.sitemaps.org/protocol.html)
+* [Open Graph Protocol](https://ogp.me/)
+* [Schema.org Documentation](https://schema.org/)
 
 ## Summary: Open-Source First Approach
 
@@ -610,17 +610,17 @@ import { faClock } from '@fortawesome/free-regular-svg-icons';
 
 **Benefits:**
 
-- **Type-safe** - TypeScript ensures correct icon names
-- **Tree-shaking** - Only used icons are included in bundle
-- **No DOM manipulation** - Pure React rendering
-- **Better performance** - No need for DOM watcher
-- **Easier testing** - React components are easier to test
+* **Type-safe** - TypeScript ensures correct icon names
+* **Tree-shaking** - Only used icons are included in bundle
+* **No DOM manipulation** - Pure React rendering
+* **Better performance** - No need for DOM watcher
+* **Easier testing** - React components are easier to test
 
 **Components Updated:**
 
-- `app/components/Footer.tsx` - RSS icon
-- `app/components/ReadingTime.tsx` - Clock icon
-- `app/components/ClientScripts.tsx` - Removed FontAwesome DOM watcher
+* `app/components/Footer.tsx` - RSS icon
+* `app/components/ReadingTime.tsx` - Clock icon
+* `app/components/ClientScripts.tsx` - Removed FontAwesome DOM watcher
 
 ### Next.js Image Component
 
@@ -642,15 +642,15 @@ import Image from 'next/image';
 
 **Benefits:**
 
-- Automatic image optimization
-- Lazy loading out of the box
-- Responsive images
-- Better Core Web Vitals scores
+* Automatic image optimization
+* Lazy loading out of the box
+* Responsive images
+* Better Core Web Vitals scores
 
 **Components Updated:**
 
-- `app/components/MiniBio.tsx` - Author avatar
-- `app/components/GitHubAvatar.tsx` - Already using Image
+* `app/components/MiniBio.tsx` - Author avatar
+* `app/components/GitHubAvatar.tsx` - Already using Image
 
 ### Next.js Configuration Enhancements
 
@@ -676,10 +676,10 @@ import MarkdownContent from '@/app/components/MarkdownContent';
 
 **Benefits:**
 
-- Type-safe React component rendering
-- Automatic HTML sanitization via `rehype-sanitize`
-- No `dangerouslySetInnerHTML`
-- Better React integration
+* Type-safe React component rendering
+* Automatic HTML sanitization via `rehype-sanitize`
+* No `dangerouslySetInnerHTML`
+* Better React integration
 
 **Note:** Currently optional - existing pages can migrate incrementally
 
@@ -687,8 +687,8 @@ import MarkdownContent from '@/app/components/MarkdownContent';
 
 Installed `@next/mdx` for future MDX-based content:
 
-- Mix React components with markdown
-- Interactive code examples
-- Dynamic content
+* Mix React components with markdown
+* Interactive code examples
+* Dynamic content
 
 Ready to use when needed - no migration required yet.

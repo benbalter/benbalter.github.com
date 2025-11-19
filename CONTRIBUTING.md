@@ -4,12 +4,12 @@ Thank you for your interest in contributing to this project! This document provi
 
 ## Table of Contents
 
-- [Code of Conduct](#code-of-conduct)
-- [Getting Started](#getting-started)
-- [Development Workflow](#development-workflow)
-- [Coding Standards](#coding-standards)
-- [Testing](#testing)
-- [Submitting Changes](#submitting-changes)
+* [Code of Conduct](#code-of-conduct)
+* [Getting Started](#getting-started)
+* [Development Workflow](#development-workflow)
+* [Coding Standards](#coding-standards)
+* [Testing](#testing)
+* [Submitting Changes](#submitting-changes)
 
 ## Code of Conduct
 
@@ -19,10 +19,10 @@ This project follows a code of conduct that all contributors are expected to adh
 
 ### Prerequisites
 
-- **Node.js**: Version 20.x or later
-- **npm**: Version 10.x or later (comes with Node.js)
-- **Ruby**: Version 3.3.x (for Jekyll legacy features)
-- **Git**: For version control
+* **Node.js**: Version 20.x or later
+* **npm**: Version 10.x or later (comes with Node.js)
+* **Ruby**: Version 3.3.x (for Jekyll legacy features)
+* **Git**: For version control
 
 ### Setup
 
@@ -53,11 +53,11 @@ This project follows a code of conduct that all contributors are expected to adh
 
 This project is transitioning from Jekyll to Next.js:
 
-- `app/` - Next.js App Router pages and components
-- `lib/` - Utility libraries and helpers
-- `content/` - Markdown content (posts, pages, data)
-- `public/` - Static assets
-- `script/` - Build and utility scripts
+* `app/` - Next.js App Router pages and components
+* `lib/` - Utility libraries and helpers
+* `content/` - Markdown content (posts, pages, data)
+* `public/` - Static assets
+* `script/` - Build and utility scripts
 
 See [docs/NEXTJS.md](docs/NEXTJS.md) for detailed architecture documentation.
 
@@ -106,10 +106,10 @@ export default function MyComponent({ title, description }: MyComponentProps) {
 
 ### TypeScript
 
-- Use **strict TypeScript** (enabled in tsconfig.json)
-- Avoid `any` types - use proper types or `unknown`
-- Handle null/undefined cases explicitly
-- Document complex functions with JSDoc comments
+* Use **strict TypeScript** (enabled in tsconfig.json)
+* Avoid `any` types - use proper types or `unknown`
+* Handle null/undefined cases explicitly
+* Document complex functions with JSDoc comments
 
 ```typescript
 /**
@@ -126,22 +126,22 @@ export function calculateReadingTime(content: string): number {
 
 ### React Best Practices
 
-- **Server Components by default** - Only use Client Components when needed
-- **Error boundaries** - Add error.tsx for route segments
-- **Loading states** - Add loading.tsx for better UX
-- **Metadata** - Use generateMetadata() for SEO
+* **Server Components by default** - Only use Client Components when needed
+* **Error boundaries** - Add error.tsx for route segments
+* **Loading states** - Add loading.tsx for better UX
+* **Metadata** - Use generateMetadata() for SEO
 
 ### Code Style
 
-- Run linters before committing:
+* Run linters before committing:
 
   ```bash
   npm run lint
   ```
 
-- Follow existing code patterns
-- Write clear, descriptive variable names
-- Keep functions focused and small
+* Follow existing code patterns
+* Write clear, descriptive variable names
+* Keep functions focused and small
 
 ## Testing
 
@@ -163,10 +163,10 @@ npm run test:e2e
 
 ### Writing Tests
 
-- Add tests for new functionality
-- Follow existing test patterns
-- Test edge cases and error conditions
-- Keep tests focused and readable
+* Add tests for new functionality
+* Follow existing test patterns
+* Test edge cases and error conditions
+* Keep tests focused and readable
 
 ### E2E Tests
 
@@ -222,18 +222,18 @@ npm run test:e2e:headed  # Watch tests run in browser
    ```
 
 4. **Open a Pull Request** on GitHub with:
-   - Clear title describing the change
-   - Detailed description of what and why
-   - Screenshots for UI changes
-   - Reference any related issues
+   * Clear title describing the change
+   * Detailed description of what and why
+   * Screenshots for UI changes
+   * Reference any related issues
 
 ### Pull Request Guidelines
 
-- **Keep PRs focused** - One feature or fix per PR
-- **Write clear commit messages** - Explain what and why
-- **Add tests** for new functionality
-- **Update documentation** if needed
-- **Respond to feedback** promptly and professionally
+* **Keep PRs focused** - One feature or fix per PR
+* **Write clear commit messages** - Explain what and why
+* **Add tests** for new functionality
+* **Update documentation** if needed
+* **Respond to feedback** promptly and professionally
 
 ## GitHub Copilot Instructions
 
@@ -241,24 +241,24 @@ This repository includes comprehensive instructions for GitHub Copilot coding ag
 
 ### General Instructions
 
-- **`.github/copilot-instructions.md`** - Repository-wide context and guidelines
+* **`.github/copilot-instructions.md`** - Repository-wide context and guidelines
 
 ### Custom Agents
 
-- **`.github/agents/code.md`** - Specialized agent for code changes (Ruby, JavaScript, HTML, CSS)
-- **`.github/agents/writing.md`** - Specialized agent for blog posts and documentation
+* **`.github/agents/code.md`** - Specialized agent for code changes (Ruby, JavaScript, HTML, CSS)
+* **`.github/agents/writing.md`** - Specialized agent for blog posts and documentation
 
 ### Scoped Instructions
 
 The `.github/instructions/` directory contains targeted instructions for specific areas:
 
-- **`jekyll-content.instructions.md`** - Blog posts in `_posts/`
-- **`jekyll-templates.instructions.md`** - Jekyll layouts and includes
-- **`nextjs-app.instructions.md`** - Next.js application code
-- **`ruby-code.instructions.md`** - Ruby plugins, scripts, and tests
-- **`styles.instructions.md`** - CSS and SCSS files
-- **`configuration.instructions.md`** - YAML and JSON configuration
-- **`testing.instructions.md`** - Test files and testing practices
+* **`jekyll-content.instructions.md`** - Blog posts in `_posts/`
+* **`jekyll-templates.instructions.md`** - Jekyll layouts and includes
+* **`nextjs-app.instructions.md`** - Next.js application code
+* **`ruby-code.instructions.md`** - Ruby plugins, scripts, and tests
+* **`styles.instructions.md`** - CSS and SCSS files
+* **`configuration.instructions.md`** - YAML and JSON configuration
+* **`testing.instructions.md`** - Test files and testing practices
 
 These instructions help Copilot provide better suggestions and maintain code quality standards.
 
@@ -266,15 +266,15 @@ These instructions help Copilot provide better suggestions and maintain code qua
 
 If you have questions or need help:
 
-- Open an [issue](https://github.com/benbalter/benbalter.github.com/issues)
-- Check existing [documentation](docs/)
-- Review the [Next.js documentation](https://nextjs.org/docs)
+* Open an [issue](https://github.com/benbalter/benbalter.github.com/issues)
+* Check existing [documentation](docs/)
+* Review the [Next.js documentation](https://nextjs.org/docs)
 
 ## License
 
 By contributing to this project, you agree that your contributions will be licensed under:
 
-- **Content**: [Creative Commons BY 3.0](http://creativecommons.org/licenses/by/3.0/)
-- **Code**: [MIT License](http://opensource.org/licenses/mit-license.php)
+* **Content**: [Creative Commons BY 3.0](http://creativecommons.org/licenses/by/3.0/)
+* **Code**: [MIT License](http://opensource.org/licenses/mit-license.php)
 
 Thank you for contributing! 🎉

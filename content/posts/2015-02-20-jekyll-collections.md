@@ -13,9 +13,9 @@ Collections are Jekyll's most powerful and simultaneously least understood featu
 
 Most Jekyll sites are organized around two types of content, posts and pages.
 
-- **[Posts](http://jekyllrb.com/docs/posts/)** are organized reverse chronologically. You might use them for blog posts on a personal blog, or articles on a news site. You can recognize a post by its filename. Posts live in the `_posts` folder, and are always named in the form of `YYYY-MM-DD-post-title.md`. Because posts are dated, they're traditionally not updated regularly once published.
+* **[Posts](http://jekyllrb.com/docs/posts/)** are organized reverse chronologically. You might use them for blog posts on a personal blog, or articles on a news site. You can recognize a post by its filename. Posts live in the `_posts` folder, and are always named in the form of `YYYY-MM-DD-post-title.md`. Because posts are dated, they're traditionally not updated regularly once published.
 
-- **[Pages](http://jekyllrb.com/docs/pages/)** are documents that don't have a relationship with one another. They can live anywhere within the site's source directory and don't have a set naming pattern. If you have a personal blog, you might have an `index.html` page ([the site's main page which is used to list posts](https://ben.balter.com/)), or [an about me page](https://ben.balter.com/about/), to name two examples. Because pages aren't date specific, pages are often updated over time to maintain accuracy.
+* **[Pages](http://jekyllrb.com/docs/pages/)** are documents that don't have a relationship with one another. They can live anywhere within the site's source directory and don't have a set naming pattern. If you have a personal blog, you might have an `index.html` page ([the site's main page which is used to list posts](https://ben.balter.com/)), or [an about me page](https://ben.balter.com/about/), to name two examples. Because pages aren't date specific, pages are often updated over time to maintain accuracy.
 
 The problem is, not everything you might want to publish using a Jekyll falls cleanly into the those two categories of content. As I noted in [the original pitch](https://github.com/jekyll/jekyll/issues/1941), "If people are using blog posts for a non-blog post thing, Jekyll has already failed". That's where Jekyll's [collections](http://jekyllrb.com/docs/collections/) come in.
 
@@ -102,15 +102,15 @@ I like to think the decision looks roughly like this:
 
 So if you're not about to open a bakery (if you do, please send cookies); what might you use collections for? In short, any discrete group of "things" that can be logically grouped by a common theme (that's not their date). Here's a few examples:
 
-- Listing employees on your company's "about" page (or a project's maintainers)
-- Documenting methods in an open source project (or the project's that use it, or the plugins available)
-- Organizing jobs on your résumé (or talks given, papers written)
-- [Articles on a support site](https://github.com/blog/1939-how-github-uses-github-to-document-GitHub)
-- Recipes on your personal blog (or restaurant reviews, or dishes on a menu)
-- Students in a class (or courses being offered, or listing the faculty)
-- Cheats, tips, tricks and walkthroughs for games (by platform)
-- Creating re-usable content snippets for your site such as testimonials, forms, sentences, buzz-words or call-outs
-- And honestly just about anything else
+* Listing employees on your company's "about" page (or a project's maintainers)
+* Documenting methods in an open source project (or the project's that use it, or the plugins available)
+* Organizing jobs on your résumé (or talks given, papers written)
+* [Articles on a support site](https://github.com/blog/1939-how-github-uses-github-to-document-GitHub)
+* Recipes on your personal blog (or restaurant reviews, or dishes on a menu)
+* Students in a class (or courses being offered, or listing the faculty)
+* Cheats, tips, tricks and walkthroughs for games (by platform)
+* Creating re-usable content snippets for your site such as testimonials, forms, sentences, buzz-words or call-outs
+* And honestly just about anything else
 
 Collections are a powerful (and often misunderstood) Jekyll feature, but hopefully you've now got an idea or two for your next Jekyll project. Of course, if you're looking to dig in to collections, be sure to check out [the formal documentation](http://jekyllrb.com/docs/collections/) for a much more in-depth explanation.
 

@@ -7,9 +7,9 @@ date: '2018-05-04'
 
 As a leader, you're going to get questions. Sometimes it's a question from a customer asking about an upcoming feature, sometimes it's a question from a team member asking about a new process or policy. Originally intended for product managers, but general enough for any leader, I often use the "yes, no, maybe" framework. It's a simple way to set expectations. There are three possible responses:
 
-- **Yes** — We have committed to implement it in the next three months
-- **No** — We have no plans to implement it in the foreseeable future
-- **Maybe** — We might implement it down the road, but either need more information or plan to, but can't commit to it right now
+* **Yes** — We have committed to implement it in the next three months
+* **No** — We have no plans to implement it in the foreseeable future
+* **Maybe** — We might implement it down the road, but either need more information or plan to, but can't commit to it right now
 
 Regarding feature development, I've always enjoyed "under promise, over-deliver" philosophy, and I bring that same approach to leading teams. The worst place you can find yourself as a leader is promising something to stakeholders (again, internal or external) that you cannot deliver, mainly if they rely on you for it. It's human nature to avoid uncertainty, so it's only natural for others to take interest in your direction, vision, and what they might expect down the line.
 
