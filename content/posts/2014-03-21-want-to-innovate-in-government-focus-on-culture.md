@@ -40,9 +40,9 @@ To foster innovation, when an innovator approaches a non-technical stakeholder, 
 
 Looking back at some proto-open-data-policy brainstorming emails from Summer 2012, there was a third punch to go along side the one-two punch of policy and tools that was [the White House Open Data Policy](http://project-open-data.github.io), a punch that ultimately did not make the final version. There were three specific proposals to foster a more open data friendly culture:
 
-> * [Google-style lectures](https://www.youtube.com/watch?v=zJOS0sV2a24) - Bring in the smartest of the smartest (Google, Twitter, Foursquare, whatever), put them in a bullpen, and have them talk to Government IT folks about what's big in terms of technology today, how to, etc.
-> * Conferences - Establish a fund to get government folks to private sector (read: outside of DC) conferences on technology
-> * Technology crash course - 1/2 day gov-only bootcamp for non-technical folks to learn what's out there. Open source, how easy it is to build an API on top of a dataset using Rails, etc. a.k.a, empower the government to become an informed consumer
+> - [Google-style lectures](https://www.youtube.com/watch?v=zJOS0sV2a24) - Bring in the smartest of the smartest (Google, Twitter, Foursquare, whatever), put them in a bullpen, and have them talk to Government IT folks about what's big in terms of technology today, how to, etc.
+> - Conferences - Establish a fund to get government folks to private sector (read: outside of DC) conferences on technology
+> - Technology crash course - 1/2 day gov-only bootcamp for non-technical folks to learn what's out there. Open source, how easy it is to build an API on top of a dataset using Rails, etc. a.k.a, empower the government to become an informed consumer
 
 What if every Wednesday [18F](http://18f.gsa.gov) invited an innovator — a CEO or CIO of a prominent private sector company — to come inspire government employees, both technical and otherwise, to hear how their company works on a day-to-day basis and streamed it to anyone with a government email address. We're not talking about a sales pitch, we're talking a super-informal, Inside the Actor's Studio style "ask me anything". *How do you handle hiring? Customer service? How do you decide which ideas to run with? What's in your stack? How often do you deploy?*
 

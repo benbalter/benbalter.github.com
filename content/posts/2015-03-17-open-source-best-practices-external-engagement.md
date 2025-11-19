@@ -18,25 +18,25 @@ Going in to your first open source project, you'll likely have a narrow definiti
 
 Here's a short list of personas that likely already care about your project, our would care, if properly engaged:
 
-* Non-technical, non-user stakeholders
-* Potential users
-* Veteran (or curious) users
-* Subject matter experts (accessibility, content, i18n)
-* Technical users
-* Active developers
-* Potential developers
+- Non-technical, non-user stakeholders
+- Potential users
+- Veteran (or curious) users
+- Subject matter experts (accessibility, content, i18n)
+- Technical users
+- Active developers
+- Potential developers
 
 Even before you hit publish, there's lots of ways to seed your project's ecosystem with different types of contributors, technical and otherwise. Here's a few ways they might contribute:
 
-* Kick the tires, does the thing even work? Does it do what it says it does?
-* Answer the question "what features would you love to see?"
-* Flesh out documentation, ask questions, note where documentation is lacking
-* Community evangelism, speak, teach, and spread your love for the project
-* Submit new questions to the project's Q&A forums, or take a stab at an answer or two
-* Host a genius bar at the next local meetup
-* Translate the project into a different language
-* Give feedback on proposed bugfixes and features, propose new ones
-* Recruit new developers, help junior developers grow into the project
+- Kick the tires, does the thing even work? Does it do what it says it does?
+- Answer the question "what features would you love to see?"
+- Flesh out documentation, ask questions, note where documentation is lacking
+- Community evangelism, speak, teach, and spread your love for the project
+- Submit new questions to the project's Q&A forums, or take a stab at an answer or two
+- Host a genius bar at the next local meetup
+- Translate the project into a different language
+- Give feedback on proposed bugfixes and features, propose new ones
+- Recruit new developers, help junior developers grow into the project
 
 In traditional government workflows, many of these functions happen by necessity, but artifacts, if they exist, are invisible to the open source community. Before you seek to engage external stakeholders, shift internal stakeholders off traditional workflows, and have them begin using the same tools you'd use to engage external stakeholders. Have a feature request? Open an issue. Want to review the documentation? Here's a link to the public facing readme.
 
@@ -76,11 +76,11 @@ When the White House merges a pull request, it's done by a developer familiar wi
 
 Instead, push responsibilities to as close to the edge as possible. There's a lot of different ways to think about community engagement, but essentially, there are three big buckets:
 
-* **Community stewardship** - Day-to-day community engagement is going to require responding to issues and providing support. The questions may be technical, but more often than not, this role is best served by a fellow, intern, or other member of the open source community, that knows the lay of the land and has managed an open source project before, even if at a smaller (or personal) scale, and can empower others within your organization to do the same. Think of them as your open-source Sherpa.
+- **Community stewardship** - Day-to-day community engagement is going to require responding to issues and providing support. The questions may be technical, but more often than not, this role is best served by a fellow, intern, or other member of the open source community, that knows the lay of the land and has managed an open source project before, even if at a smaller (or personal) scale, and can empower others within your organization to do the same. Think of them as your open-source Sherpa.
 
-* **Code review-ship** - Beyond general engagement, day-to-day project management will require regular, in-depth code review, providing feedback to developers, and generally working with contributors to enforce the project's style and goals. This should be a technical person familiar with the project, whether an external contractor, a community member, or employee it doesn't matter, as long as they're able to understand the technical issues involved and move proposed changes forward at their own pace. This can be the same person who engages the community, but doesn't need to be.
+- **Code review-ship** - Beyond general engagement, day-to-day project management will require regular, in-depth code review, providing feedback to developers, and generally working with contributors to enforce the project's style and goals. This should be a technical person familiar with the project, whether an external contractor, a community member, or employee it doesn't matter, as long as they're able to understand the technical issues involved and move proposed changes forward at their own pace. This can be the same person who engages the community, but doesn't need to be.
 
-* **Leadership** - Last, you'll want someone to serve in a role the open source community would most often call "lead developer". There can be multiple lead developers, and those developers can be the ones to provide early code review and feedback, but again, it's important that they have a firm grasp of the technical issues at play. They'll be responsible for accepting or rejecting pull requests on behalf of the project, long-term planning, working with the community to establish project roadmaps, coordinating releases, and so on
+- **Leadership** - Last, you'll want someone to serve in a role the open source community would most often call "lead developer". There can be multiple lead developers, and those developers can be the ones to provide early code review and feedback, but again, it's important that they have a firm grasp of the technical issues at play. They'll be responsible for accepting or rejecting pull requests on behalf of the project, long-term planning, working with the community to establish project roadmaps, coordinating releases, and so on
 
 All of these roles of very different from writing a blog post or composing a Tweet and require a certain degree of speed, flexibility, and technical acumen. The only way the project is going to be successful is by decentralizing project governance to those most closely involved with the project. Obviously matters of policy as well as large, project-defining decisions should include non-technical stakeholders, but just because a code comment is public, doesn't mean day-to-day maintenance should be the purview of a public affairs office or committee that maintains a standing meeting. Given the pace of open source software development, it's simply not practical. Open source is about collaboration between humans, not between humans and your entire organization.
 
@@ -92,11 +92,11 @@ I've personally contributed to open source projects maintained by government and
 
 As a result, to be successful, you'll want to explicitly let developers know that you're not only capable of accepting contributions at the pace that they'd expect, but that you *want* them to contribute. Practically, that comes in a few different forms:
 
-* **In advance** - Include a phase like "we encourage you to contribute" in the project's documentation, along with instructions on how to do so. Fork, create a descriptively named feature branch and submit a pull request? Great. Beyond workflow, these instructions should include what to expect from the project maintainers, and the technical requirements to run the projects locally. You'll want to assume this is the contributor's first time contributing, because likely it is.
+- **In advance** - Include a phase like "we encourage you to contribute" in the project's documentation, along with instructions on how to do so. Fork, create a descriptively named feature branch and submit a pull request? Great. Beyond workflow, these instructions should include what to expect from the project maintainers, and the technical requirements to run the projects locally. You'll want to assume this is the contributor's first time contributing, because likely it is.
 
-* **Daily** - You must provide constructive support, praise, and feedback with *every* contribution. Mentor first-time or junior contributors until they're at the point where they can mentor others. If something doesn't conform to your standards, hold their digital hand and help them fix it. Most importantly, always express gratitude when merging or commenting. An emoji thank you from the White House or well-known brand can go a long way to guaranteeing the contributor will submit their second (and third) pull request.
+- **Daily** - You must provide constructive support, praise, and feedback with *every* contribution. Mentor first-time or junior contributors until they're at the point where they can mentor others. If something doesn't conform to your standards, hold their digital hand and help them fix it. Most importantly, always express gratitude when merging or commenting. An emoji thank you from the White House or well-known brand can go a long way to guaranteeing the contributor will submit their second (and third) pull request.
 
-* **Going forward** - While not vital on day one, automated testing will go a long way to give potential contributors the confidence to know that their contribution didn't break anything, and will give project maintainers the confidence to merge it expeditiously. With GitHub and a service like Travis CI, contributors can get early feedback on pull request, simply by submitting a pull request, and all without the project maintainers reading a single line of code. Continuous integration will not only ensure software quality, but can be used to enforce project norms around documentation, style, or other things your organization cares about, in a friendly, self-help way. Ensure you're not a blocker.
+- **Going forward** - While not vital on day one, automated testing will go a long way to give potential contributors the confidence to know that their contribution didn't break anything, and will give project maintainers the confidence to merge it expeditiously. With GitHub and a service like Travis CI, contributors can get early feedback on pull request, simply by submitting a pull request, and all without the project maintainers reading a single line of code. Continuous integration will not only ensure software quality, but can be used to enforce project norms around documentation, style, or other things your organization cares about, in a friendly, self-help way. Ensure you're not a blocker.
 
 There's a world of difference between uploading a ZIP file to an FTP server and open source. Open source is about fostering communities around shared challenges, and as the maintainer of an open source project, that responsibility falls squarely on your shoulders. To be successful, simply publishing code isn't enough. Go out of your way to encourage, praise, and support each contributor and each contribution as if the project's success depended on it, because in reality, it does.
 

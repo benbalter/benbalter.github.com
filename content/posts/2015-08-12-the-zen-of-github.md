@@ -18,20 +18,20 @@ At GitHub, we did just that:
 <div class="row">
 <div class="col-sm-5" markdown="1">
 
-> * Responsive is better than fast
-> * It's not fully shipped until it's fast
-> * Anything added dilutes everything else
-> * Practicality beats purity
-> * Approachable is better than simple
-> * Mind your words, they are important
-> * Speak like a human
-> * Half measures are as bad as nothing at all
-> * Encourage flow
-> * Non-blocking is better than blocking
-> * Favor focus over features
-> * Avoid administrative distraction
-> * Design for failure
-> * Keep it logically awesome
+> - Responsive is better than fast
+> - It's not fully shipped until it's fast
+> - Anything added dilutes everything else
+> - Practicality beats purity
+> - Approachable is better than simple
+> - Mind your words, they are important
+> - Speak like a human
+> - Half measures are as bad as nothing at all
+> - Encourage flow
+> - Non-blocking is better than blocking
+> - Favor focus over features
+> - Avoid administrative distraction
+> - Design for failure
+> - Keep it logically awesome
 
 </div>
 <div class="col-sm-7">
@@ -58,4 +58,3 @@ xhr.onload = function() {
 xhr.open('GET', 'https://api.github.com/octocat');
 xhr.send();
 </script>
-

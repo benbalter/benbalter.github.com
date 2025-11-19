@@ -10,9 +10,9 @@ The redirect system was already functional before this PR:
 
 1. **Jekyll Configuration**: `jekyll-redirect-from` plugin in `_config.yml`
 2. **Redirect Generation Script**: `script/generate-redirects.mjs`
-   * Scans content for `redirect_from` and `redirect_to` in YAML frontmatter
-   * Generates static HTML redirect pages in `out/` directory
-   * Integrated into `next:build` process
+   - Scans content for `redirect_from` and `redirect_to` in YAML frontmatter
+   - Generates static HTML redirect pages in `out/` directory
+   - Integrated into `next:build` process
 3. **Static HTML Redirects**: Meta refresh + JavaScript for GitHub Pages compatibility
 
 ## What This PR Adds
@@ -23,18 +23,18 @@ The redirect system was already functional before this PR:
 
 Organized test suites covering:
 
-* Page redirects (4 tests)
-* Post typo corrections (3 tests)
-* Wrong date corrections (7 tests)
-* Special character handling (5 tests)
-* External redirects (3 tests)
-* HTML structure validation (1 test)
+- Page redirects (4 tests)
+- Post typo corrections (3 tests)
+- Wrong date corrections (7 tests)
+- Special character handling (5 tests)
+- External redirects (3 tests)
+- HTML structure validation (1 test)
 
 All tests verify:
 
-* Navigation to legacy URL
-* Redirect to correct destination
-* Proper HTML structure (meta refresh, JS redirect, canonical, noindex)
+- Navigation to legacy URL
+- Redirect to correct destination
+- Proper HTML structure (meta refresh, JS redirect, canonical, noindex)
 
 ### 2. Validation Script
 
@@ -42,13 +42,13 @@ All tests verify:
 
 Automated validation tool that:
 
-* ✅ Scans all content for expected redirects
-* ✅ Verifies redirect HTML files exist
-* ✅ Validates HTML structure (meta, JS, canonical, noindex)
-* ✅ Checks destination pages exist
-* ✅ Detects redirect chains
-* ✅ Provides colorized output
-* ✅ Exits with error code on failures
+- ✅ Scans all content for expected redirects
+- ✅ Verifies redirect HTML files exist
+- ✅ Validates HTML structure (meta, JS, canonical, noindex)
+- ✅ Checks destination pages exist
+- ✅ Detects redirect chains
+- ✅ Provides colorized output
+- ✅ Exits with error code on failures
 
 **Usage**: `npm run validate:redirects` (after `npm run next:build`)
 
@@ -58,38 +58,38 @@ Automated validation tool that:
 
 Complete documentation including:
 
-* System overview and architecture
-* All 27 redirect rules categorized by type
-* Implementation details
-* Instructions for adding new redirects
-* Testing procedures
-* Troubleshooting guide
-* SEO considerations
-* Performance characteristics
+- System overview and architecture
+- All 27 redirect rules categorized by type
+- Implementation details
+- Instructions for adding new redirects
+- Testing procedures
+- Troubleshooting guide
+- SEO considerations
+- Performance characteristics
 
 ## Redirect Statistics
 
-* **Total redirect rules**: 26 unique rules
-* **Total redirect pages generated**: 54 (including duplicates from both `_posts/` and `content/posts/`)
-* **External redirects**: 3 (to github.blog, github.com/blog, techcrunch.com)
-* **Redirect chains**: 0 (all direct redirects)
-* **Test cases**: 19 comprehensive scenarios
+- **Total redirect rules**: 26 unique rules
+- **Total redirect pages generated**: 54 (including duplicates from both `_posts/` and `content/posts/`)
+- **External redirects**: 3 (to github.blog, github.com/blog, techcrunch.com)
+- **Redirect chains**: 0 (all direct redirects)
+- **Test cases**: 19 comprehensive scenarios
 
 ## Redirect Categories
 
 ### Page Redirects (4)
 
-* `/cv/` → `/resume/`
-* `/books/` → `/other-recommended-reading/`
-* `/books-for-geeks/` → `/other-recommended-reading/`
-* `/recommended-reading/` → `/other-recommended-reading/`
+- `/cv/` → `/resume/`
+- `/books/` → `/other-recommended-reading/`
+- `/books-for-geeks/` → `/other-recommended-reading/`
+- `/recommended-reading/` → `/other-recommended-reading/`
 
 ### Post Typo Corrections (4)
 
-* Typos in post slugs (collabortion → collaboration)
-* Title word corrections (your → our)
-* Abbreviation expansions (n-things → nine-things)
-* Gerund form corrections (moderating → how-to-moderate)
+- Typos in post slugs (collabortion → collaboration)
+- Title word corrections (your → our)
+- Abbreviation expansions (n-things → nine-things)
+- Gerund form corrections (moderating → how-to-moderate)
 
 ### Wrong Date Corrections (9)
 
@@ -108,15 +108,15 @@ Posts moved to external platforms redirect with proper messaging
 ### Generation Process
 
 1. **Build Time**: `npm run next:build` runs:
-   * `next build` - Generates static site
-   * `node script/generate-redirects.mjs` - Generates redirect pages
-   * `tsx script/generate-feeds.mjs` - Generates RSS feeds
+   - `next build` - Generates static site
+   - `node script/generate-redirects.mjs` - Generates redirect pages
+   - `tsx script/generate-feeds.mjs` - Generates RSS feeds
 
 2. **Redirect Scanning**: Script scans:
-   * `_posts/*.md` (legacy Jekyll)
-   * `content/posts/*.md` (migrated Next.js)
-   * `*.md` and `*.html` in root (pages)
-   * `content/pages/*.md` (migrated pages)
+   - `_posts/*.md` (legacy Jekyll)
+   - `content/posts/*.md` (migrated Next.js)
+   - `*.md` and `*.html` in root (pages)
+   - `content/pages/*.md` (migrated pages)
 
 3. **HTML Generation**: For each redirect, creates:
 
@@ -144,10 +144,10 @@ Posts moved to external platforms redirect with proper messaging
 
 ### SEO Optimization
 
-* `<link rel="canonical">` - Tells search engines the correct URL
-* `<meta name="robots" content="noindex">` - Prevents indexing redirect pages
-* Instant redirect (0ms) - Minimal user impact
-* External URLs get full URL in canonical tag
+- `<link rel="canonical">` - Tells search engines the correct URL
+- `<meta name="robots" content="noindex">` - Prevents indexing redirect pages
+- Instant redirect (0ms) - Minimal user impact
+- External URLs get full URL in canonical tag
 
 ## Validation and Testing
 
@@ -200,10 +200,10 @@ npm run next:start  # Start local server
 
 The system is fully automated:
 
-* Redirects defined in content files
-* Generated at build time
-* Validated before deployment
-* No server-side code required
+- Redirects defined in content files
+- Generated at build time
+- Validated before deployment
+- No server-side code required
 
 ## Quality Assurance
 
@@ -218,38 +218,38 @@ The system is fully automated:
 
 ## Acceptance Criteria Met
 
-* ✅ All redirects extracted from Jekyll config, plugins, and content
-* ✅ Next.js redirects configured (via static HTML generation for GitHub Pages)
-* ✅ All legacy URLs redirect correctly
-* ✅ No broken links
-* ✅ Complex scenarios tested (special characters, external redirects, etc.)
-* ✅ Comprehensive validation and testing infrastructure
+- ✅ All redirects extracted from Jekyll config, plugins, and content
+- ✅ Next.js redirects configured (via static HTML generation for GitHub Pages)
+- ✅ All legacy URLs redirect correctly
+- ✅ No broken links
+- ✅ Complex scenarios tested (special characters, external redirects, etc.)
+- ✅ Comprehensive validation and testing infrastructure
 
 ## Files Modified/Created
 
 ### Created
 
-* `script/validate-redirects.mjs` - Validation script
-* No other new files (tests and docs existed but were enhanced)
+- `script/validate-redirects.mjs` - Validation script
+- No other new files (tests and docs existed but were enhanced)
 
 ### Modified
 
-* `e2e/redirects.spec.ts` - Enhanced from 6 to 29 tests
-* `docs/REDIRECTS.md` - Expanded from basic to comprehensive documentation
-* `package.json` - Added `validate:redirects` script
+- `e2e/redirects.spec.ts` - Enhanced from 6 to 29 tests
+- `docs/REDIRECTS.md` - Expanded from basic to comprehensive documentation
+- `package.json` - Added `validate:redirects` script
 
 ### Unchanged (Already Working)
 
-* `script/generate-redirects.mjs` - Redirect generation (working perfectly)
-* `next.config.mjs` - Static export configuration
-* Content files - All `redirect_from` and `redirect_to` directives preserved
+- `script/generate-redirects.mjs` - Redirect generation (working perfectly)
+- `next.config.mjs` - Static export configuration
+- Content files - All `redirect_from` and `redirect_to` directives preserved
 
 ## Performance Impact
 
-* **Build time**: +2-3 seconds for redirect generation (56 HTML files)
-* **File size**: ~500 bytes per redirect page = ~28KB total
-* **Runtime**: Zero - static HTML with instant redirects
-* **SEO**: Positive - maintains link equity via canonical tags
+- **Build time**: +2-3 seconds for redirect generation (56 HTML files)
+- **File size**: ~500 bytes per redirect page = ~28KB total
+- **Runtime**: Zero - static HTML with instant redirects
+- **SEO**: Positive - maintains link equity via canonical tags
 
 ## Deployment Notes
 
@@ -261,10 +261,10 @@ The system is fully automated:
 
 ## Success Metrics
 
-* **0** broken legacy URLs
-* **0** redirect chains
-* **56/56** redirects working correctly
-* **29/29** test cases passing
-* **100%** validation coverage
-* **3** external redirects properly handled
-* **27** unique redirect rules preserved from Jekyll
+- **0** broken legacy URLs
+- **0** redirect chains
+- **56/56** redirects working correctly
+- **29/29** test cases passing
+- **100%** validation coverage
+- **3** external redirects properly handled
+- **27** unique redirect rules preserved from Jekyll

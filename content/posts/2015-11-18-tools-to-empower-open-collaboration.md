@@ -65,15 +65,15 @@ There's a strong case to be made that in-person, synchronous meetings should be 
 
 The four qualities above are ideals. In practice, there are a handful of specific design patterns that often implement them. Here are a handful that I've seen across tools I like at GitHub:
 
-* **@mentions** - Like Twitter or Facebook, @mentions allow you to invite others to a conversation on equal footing and with equal context.
-* **The ability to opt in and opt out** - Unlike email where CC's are controlled by the sender, not the receiver, one of my favorite GitHub features is the ability to opt-in to any conversation by clicking subscribe, and to opt-out, just as easily, if @mentioned. This encourages liberally mentioning teams and teammates while minimizing noise.
-* **Single sign on** - If you're using more than a single collaboration tool, single sign on is crucial to ensuring openness. If I have to ask someone to create an account every time I'm linked to a resource in a new system, it will significantly hamper one's ability to share and receive information.
-* **Emoji** - Emoji isn't just for fun. When you shift conversations from in-person to text-based media, emoji become essential to expression. You can write a thousand words to show sincerity, sarcasm, light heartedness, or delight, or you can use a single emoji character to convey the same thing.
-* **Markdown** - Markdown isn't just a matter of preference. [Markdown forces structured, semantic writing](/2014/03/31/word-versus-markdown-more-than-mere-semantics), makes it easy to bring in external resources, and encourages sharing information between media.
-* **Deep links** - Deep links [link to particular content within a page](/2014/10/07/expose-process-through-urls#great-urls). Being able to link to a particular comment, post, or point encourages grounded discussions, much more so than linking to an entire document which readers are much less likely to consume in full.
-* **Mobile** - Mobile apps and views support distributed team members and frequent travelers.
-* **RESTful API** - A complete and documented API avoids vendor/system lock in, and supports accessing the information from multiple platforms and in multiple formats.
-* **Cross-platform link notifications** - When you link to one issue on GitHub, from another, the target issue automatically notes the link, and the originating issue's status. This helps make links bidirectional and surfaces the organization's knowledge graph without requiring an additional step.
+- **@mentions** - Like Twitter or Facebook, @mentions allow you to invite others to a conversation on equal footing and with equal context.
+- **The ability to opt in and opt out** - Unlike email where CC's are controlled by the sender, not the receiver, one of my favorite GitHub features is the ability to opt-in to any conversation by clicking subscribe, and to opt-out, just as easily, if @mentioned. This encourages liberally mentioning teams and teammates while minimizing noise.
+- **Single sign on** - If you're using more than a single collaboration tool, single sign on is crucial to ensuring openness. If I have to ask someone to create an account every time I'm linked to a resource in a new system, it will significantly hamper one's ability to share and receive information.
+- **Emoji** - Emoji isn't just for fun. When you shift conversations from in-person to text-based media, emoji become essential to expression. You can write a thousand words to show sincerity, sarcasm, light heartedness, or delight, or you can use a single emoji character to convey the same thing.
+- **Markdown** - Markdown isn't just a matter of preference. [Markdown forces structured, semantic writing](/2014/03/31/word-versus-markdown-more-than-mere-semantics), makes it easy to bring in external resources, and encourages sharing information between media.
+- **Deep links** - Deep links [link to particular content within a page](/2014/10/07/expose-process-through-urls#great-urls). Being able to link to a particular comment, post, or point encourages grounded discussions, much more so than linking to an entire document which readers are much less likely to consume in full.
+- **Mobile** - Mobile apps and views support distributed team members and frequent travelers.
+- **RESTful API** - A complete and documented API avoids vendor/system lock in, and supports accessing the information from multiple platforms and in multiple formats.
+- **Cross-platform link notifications** - When you link to one issue on GitHub, from another, the target issue automatically notes the link, and the originating issue's status. This helps make links bidirectional and surfaces the organization's knowledge graph without requiring an additional step.
 
 ## Evaluating existing Tools
 
@@ -99,7 +99,6 @@ I began by noting that the phrase "everything should be on GitHub", doesn't nece
 GitHub's not the right tool for all sorts of use cases. It probably doesn't make perfect sense for hiring, for account tracking, for support, or for contract management, to name a few. But in many cases, although far from perfect, if you believe the above ideals are how we should work, or will work in the future, it's part of a suite of tools, that together, represent the best things currently out there.
 
 Although I think it's the future of knowledge work, this developer-inspired workflow isn't for everyone, at least not today. One of [GitHub's Zen](https://ben.balter.com/2015/08/12/the-zen-of-github/), is to prefer practicality over purity. However pure the workflow might be on paper, if you've got a team of lawyers that have never used anything other than Outlook, Word, and regularly scheduled in-person meetings, absent a strong personal, professional, or philosophical motivation, absent significant untraining and re-education, you'd be hard-pressed to implement a modern workflow that's on a trajectory to succeed.
-
 
 [How you work is just as important as what you work on](https://ben.balter.com/2015/09/21/open-source-behind-the-firewall/#how-you-work-is-as-important-as-what-you-work-on). I challenge you to take a critical look at your own workflow, and ask yourself if you're working the way you'd like to work, or just the way everyone else does.
 

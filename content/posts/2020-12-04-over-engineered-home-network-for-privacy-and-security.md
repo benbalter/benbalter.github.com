@@ -18,17 +18,17 @@ Back in April, when it looked like we were going to be spending some more time a
 
 While most home networking setups generally do a decent job of protect you from threats from the outside trying to come in, they don't often do a great job of managing risks originating from within your own network. Specifically, I had a number of goals:
 
-* **Privacy** - Minimize sites, device manufacturers, and my internet provider's ability to track my activity or monetize my information across all my devices
-* **Security** - Block access to malicious sites to minimize the risk of human error, better understand how devices on my network are (mis)behaving, detect compromised devices, and limit their blast radius
-* **Don't trust internet of things (IoT) devices** - Smart home devices have a notoriously poor track record when it comes to security (and privacy). Beyond manufacturers' lax security practices and general lack of hardening, updates are rare, and are often a manual process, earning minimal trust in my book.
-* **Ads** - Blocking intrusive, targeted, and malware-laden ads across devices. While you can install an extension on a desktop browser, such ad blockers are often resource intensive, easy for advertisers to restrict, and do little for mobile devices where I do most of my "fun" browsing, not to mention, cannot restrict IoT tracking.
-* **It needs to "just work"** - Whatever solution I chose needed to be out-of-the-box or widely supported. No rooting, flashing new firmware, or modifying software which would lead to never-ending tinkering and could potentially introduce new vulnerabilities in the process.
+- **Privacy** - Minimize sites, device manufacturers, and my internet provider's ability to track my activity or monetize my information across all my devices
+- **Security** - Block access to malicious sites to minimize the risk of human error, better understand how devices on my network are (mis)behaving, detect compromised devices, and limit their blast radius
+- **Don't trust internet of things (IoT) devices** - Smart home devices have a notoriously poor track record when it comes to security (and privacy). Beyond manufacturers' lax security practices and general lack of hardening, updates are rare, and are often a manual process, earning minimal trust in my book.
+- **Ads** - Blocking intrusive, targeted, and malware-laden ads across devices. While you can install an extension on a desktop browser, such ad blockers are often resource intensive, easy for advertisers to restrict, and do little for mobile devices where I do most of my "fun" browsing, not to mention, cannot restrict IoT tracking.
+- **It needs to "just work"** - Whatever solution I chose needed to be out-of-the-box or widely supported. No rooting, flashing new firmware, or modifying software which would lead to never-ending tinkering and could potentially introduce new vulnerabilities in the process.
 
 To head down this route as well, it's relatively straightforward, but definitely a (fun) "project". You'll need some basic familiarity with home networking (understanding how things like DNS and IPs work), as well as being comfortable SSH-ing into a linux device and copying and pasting a few commands.
 
 Here's how I overengineered my home network for privacy and security:
 
-* Contents {:toc}
+- Contents {:toc}
 
 ## The router - UniFi Dream Machine
 
@@ -101,14 +101,14 @@ If everything goes as expected, the entire experience should be transparent to d
 
 To take things even further, there are a few more customizations to explore:
 
-* **Additional UniFi security features** - UniFi offers [a number of advanced security-related features that you can enable in parallel](https://help.ui.com/hc/en-us/articles/360006893234-UniFi-USG-UDM-Configuring-Internet-Security-Settings):[^3]
-  * **Intrusion prevention system** (IPS) - Detect and disrupt activity associated with known malware
-  * **Deep packet inspection** - Gain visibility into what applications and services devices are communicating with
-  * **Endpoint scanner** - Scan devices on your network to identify their operating system and what services they expose
-  * **Internal honeypot** - A fake server, attractive to malware, that triggers alerts if something tries to connect to it
-* **Block- and allow-lists** - The whole point of a Pi-Hole is to block stuff. Once set up, you'll want to add/configure block- and allow-lists for your Pi-Hole. [firebog.net](https://firebog.net/) is the most popular meta-list. Beyond the ones listed there, I'd also recommend @StevenBlack's popular [lists](https://github.com/StevenBlack/hosts/) as well as @anudeepND's [popular allow list regular expression](https://github.com/anudeepND/whitelist) to ensure popular sites continue to work as expected.
-* **Configure the Pi-Hole with a Let's Encrypt cert** - If the "Not secure" icon when accessing the Pi-Hole interface leaves you uneasy, you can configure the Pi-Hole with a Let's Encrypt cert so that you can access the Pi-Hole admin interface over HTTPS. *Edit: While I previously linked to manual set up instructions, for my own setup, [I now use Caddy](https://ben.balter.com/2021/09/01/how-i-re-over-engineered-my-home-network/#caddy) to automate certificate issuance and renewal.*
-* **Mobile Apps** - Be sure to install the UniFi app ([iOS](https://apps.apple.com/us/app/unifi-network/id1057750338), [Android](https://play.google.com/store/apps/details?id=com.ubnt.easyunifi&hl=en_US&gl=US)) to receive push notifications for network alerts, and one of the many Pi-Hole apps ([Pi-Hole remote for iOS](https://apps.apple.com/us/app/pi-hole-remote/id1515445551), [FlutterHole for Android](https://play.google.com/store/apps/details?id=sterrenburg.github.flutterhole&hl=en_US&gl=US)) to quickly disable ad blocking in the (rare) event it breaks a site.
+- **Additional UniFi security features** - UniFi offers [a number of advanced security-related features that you can enable in parallel](https://help.ui.com/hc/en-us/articles/360006893234-UniFi-USG-UDM-Configuring-Internet-Security-Settings):[^3]
+  - **Intrusion prevention system** (IPS) - Detect and disrupt activity associated with known malware
+  - **Deep packet inspection** - Gain visibility into what applications and services devices are communicating with
+  - **Endpoint scanner** - Scan devices on your network to identify their operating system and what services they expose
+  - **Internal honeypot** - A fake server, attractive to malware, that triggers alerts if something tries to connect to it
+- **Block- and allow-lists** - The whole point of a Pi-Hole is to block stuff. Once set up, you'll want to add/configure block- and allow-lists for your Pi-Hole. [firebog.net](https://firebog.net/) is the most popular meta-list. Beyond the ones listed there, I'd also recommend @StevenBlack's popular [lists](https://github.com/StevenBlack/hosts/) as well as @anudeepND's [popular allow list regular expression](https://github.com/anudeepND/whitelist) to ensure popular sites continue to work as expected.
+- **Configure the Pi-Hole with a Let's Encrypt cert** - If the "Not secure" icon when accessing the Pi-Hole interface leaves you uneasy, you can configure the Pi-Hole with a Let's Encrypt cert so that you can access the Pi-Hole admin interface over HTTPS. *Edit: While I previously linked to manual set up instructions, for my own setup, [I now use Caddy](https://ben.balter.com/2021/09/01/how-i-re-over-engineered-my-home-network/#caddy) to automate certificate issuance and renewal.*
+- **Mobile Apps** - Be sure to install the UniFi app ([iOS](https://apps.apple.com/us/app/unifi-network/id1057750338), [Android](https://play.google.com/store/apps/details?id=com.ubnt.easyunifi&hl=en_US&gl=US)) to receive push notifications for network alerts, and one of the many Pi-Hole apps ([Pi-Hole remote for iOS](https://apps.apple.com/us/app/pi-hole-remote/id1515445551), [FlutterHole for Android](https://play.google.com/store/apps/details?id=sterrenburg.github.flutterhole&hl=en_US&gl=US)) to quickly disable ad blocking in the (rare) event it breaks a site.
 
 ## Conclusion
 
