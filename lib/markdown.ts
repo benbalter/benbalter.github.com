@@ -9,6 +9,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeStringify from 'rehype-stringify';
 import { convert } from 'html-to-text';
 import { processEmoji } from './emoji';
+import { processLiquid } from './liquid';
 import { getSiteConfig } from './config';
 import type { Schema } from 'hast-util-sanitize';
 
@@ -21,10 +22,16 @@ import type { Schema } from 'hast-util-sanitize';
  * - Smaller client-side bundle (no react-markdown dependency)
  * - Automatic sanitization for security
  * - Better performance for static sites
+ * 
+ * @param markdown - The markdown content to convert
+ * @param context - Optional context for liquid template processing (e.g., page data)
  */
-export async function markdownToHtml(markdown: string): Promise<string> {
+export async function markdownToHtml(markdown: string, context?: Record<string, any>): Promise<string> {
+  // Process Liquid template syntax first (before emoji and markdown)
+  const markdownWithLiquid = await processLiquid(markdown, context);
+  
   // Process emoji before markdown conversion
-  const markdownWithEmoji = processEmoji(markdown);
+  const markdownWithEmoji = processEmoji(markdownWithLiquid);
   
   // Get repository info for remark-github
   const config = getSiteConfig();
