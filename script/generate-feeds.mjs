@@ -5,8 +5,6 @@
  * 
  * This script generates:
  * - RSS feed for blog posts (feed.xml)
- * - Sitemap (sitemap.xml)
- * - Sitemap index (sitemap_index.xml)
  * 
  * Note: Press feed (press/feed/index.xml) is excluded from Next.js build
  * and remains available only in the Jekyll build.
@@ -25,7 +23,6 @@ const __dirname = path.dirname(__filename);
 async function generateFeeds() {
   // Dynamic imports to use the TypeScript modules
   const { generatePostsFeed } = await import('../lib/rss.ts');
-  const { generateSitemap, generateSitemapIndex } = await import('../lib/sitemap.ts');
   
   const outDir = path.join(process.cwd(), 'out');
   
