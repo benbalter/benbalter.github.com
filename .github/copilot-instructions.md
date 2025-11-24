@@ -408,6 +408,13 @@ Use this agent for creating or editing blog posts and documentation.
 * When adding new features, ensure they align with Next.js best practices
 * Maintain the site's clean, minimal aesthetic
 * Prioritize performance and accessibility
+* **CRITICAL: Make MINIMAL changes**:
+  * **ONLY modify files directly related to the feature or bug fix**
+  * **DO NOT run linters (npm run lint-md, remark, etc.) on all files**
+  * **DO NOT auto-fix formatting on unrelated files**
+  * If you must lint, target specific files: `npx eslint path/to/file.js`
+  * Running `npm run lint-md` reformats ALL markdown files—avoid this
+  * Only run broad linters if explicitly asked by the user
 * **CRITICAL: Maximize use of SSG and server components**:
   * Never use 'use client' unless absolutely necessary
   * Prefer HTML and CSS over JavaScript

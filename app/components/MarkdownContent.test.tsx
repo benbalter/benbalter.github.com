@@ -60,7 +60,7 @@ describe('MarkdownContent', () => {
       markdown: 'Test markdown',
     });
     
-    expect(markdownToHtml).toHaveBeenCalledWith('Test markdown');
+    expect(markdownToHtml).toHaveBeenCalledWith('Test markdown', undefined);
   });
 
   it('should render HTML from markdownToHtml', async () => {

@@ -126,7 +126,12 @@ export default async function Post({ params }: PageProps) {
             
             <ReadingTime content={post.content} />
             
-            <PostContent content={post.content} />
+            <PostContent content={post.content} context={{ 
+              path: `_posts/${post.slug}.md`,
+              title: post.title,
+              date: post.date,
+              slug: post.slug,
+            }} />
             
             {post.show_github_culture_callout && (
               <GitHubCultureCallout />

@@ -3,6 +3,7 @@ import { markdownToHtml } from '@/lib/markdown';
 interface MarkdownContentProps {
   markdown: string;
   className?: string;
+  context?: Record<string, any>;
 }
 
 /**
@@ -18,15 +19,16 @@ interface MarkdownContentProps {
  * - Still a server component (no client-side JS)
  * 
  * The markdownToHtml function handles:
+ * - Liquid template syntax (Jekyll compatibility)
  * - GitHub Flavored Markdown (GFM)
  * - Emoji processing
  * - GitHub references (@mentions, #issues)
  * - Heading IDs and anchor links
  * - HTML sanitization
  */
-export default async function MarkdownContent({ markdown, className = '' }: MarkdownContentProps) {
-  // Convert markdown to HTML at build time
-  const html = await markdownToHtml(markdown);
+export default async function MarkdownContent({ markdown, className = '', context }: MarkdownContentProps) {
+  // Convert markdown to HTML at build time, including liquid template processing
+  const html = await markdownToHtml(markdown, context);
   
   return (
     <div 

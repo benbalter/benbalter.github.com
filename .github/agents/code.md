@@ -154,8 +154,14 @@ npm run dev            # Start Next.js dev server
 ## Important Considerations
 
 1. **Minimal Changes**: Make the smallest possible changes to achieve the goal
+   - **CRITICAL**: Only modify files directly related to the feature or bug fix
+   - **DO NOT** run linters (npm run lint, npm run lint-md, remark, etc.) without specific file targets
+   - **DO NOT** auto-fix formatting on unrelated files (markdown, YAML, etc.)
+   - If you must lint, use file-specific commands: `npx eslint path/to/file.js` or `remark path/to/file.md`
+   - Example BAD: `npm run lint-md` (lints ALL markdown files)
+   - Example GOOD: `remark lib/liquid.ts -o` (lints only the file you changed)
 2. **Preserve Functionality**: Never break existing working code
-3. **Test Early**: Run tests and linters frequently
+3. **Test Early**: Run tests and linters frequently on files you modify
 4. **Follow Patterns**: Use existing code patterns as examples
 5. **Documentation**: Update inline comments only if they match existing style
 6. **Dependencies**: Only add new dependencies if absolutely necessary
