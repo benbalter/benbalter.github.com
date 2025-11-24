@@ -11,7 +11,8 @@ This directory contains comprehensive end-to-end tests for Ben Balter's website 
 * **`pages.spec.ts`**: Tests for static pages (About, Contact, Talks, Press)
 * **`accessibility.spec.ts`**: Accessibility tests (WCAG compliance)
 * **`performance.spec.ts`**: Performance and optimization tests
-* **`seo.spec.ts`**: SEO and metadata tests
+* **`seo.spec.ts`**: General SEO and metadata tests (25 tests)
+* **`seo-nextjs.spec.ts`**: Next.js-specific SEO tests (21 tests)
 
 ## Running Tests
 
@@ -134,16 +135,48 @@ npm run test:e2e:jekyll
 
 ### SEO Tests
 
-* Meta descriptions
-* Open Graph tags
+**General SEO Tests (`seo.spec.ts` - 25 tests):**
+* Meta descriptions (with length validation)
+* Open Graph tags (og:title, og:description, og:type, og:url)
 * Twitter Card tags
 * Canonical URLs
-* Proper title tags
-* Robots meta tags
-* Structured data (JSON-LD)
+* Proper title tags (with length validation)
+* Robots meta tags (indexability)
+* Structured data (JSON-LD validation)
 * Sitemap accessibility
-* robots.txt
-* RSS feed
+* robots.txt accessibility
+* RSS feed accessibility
+* Blog post specific meta tags
+
+**Next.js-Specific SEO Tests (`seo-nextjs.spec.ts` - 21 tests):**
+* Core HTML meta tags:
+  * UTF-8 charset declaration
+  * Viewport meta tag for responsive design
+  * Theme-color meta tags (light/dark mode)
+  * X-UA-Compatible for IE
+* Open Graph images:
+  * og:image tags with absolute URLs
+  * og:image:alt for accessibility
+  * Twitter image tags
+* Author and creator metadata:
+  * Author, creator, and publisher metadata
+* Structured data (JSON-LD):
+  * Person schema on homepage
+  * BlogPosting schema on blog posts
+* Social media integration:
+  * rel="me" links for social profiles
+* RSS/feed metadata:
+  * RSS feed alternate link
+* Favicon and icons:
+  * Multiple favicon formats
+  * Web manifest link
+* Blog post SEO:
+  * Article-specific Open Graph tags
+  * Published time metadata
+  * Twitter Card types (summary/summary_large_image)
+* Keywords and indexing:
+  * Keywords meta tag
+  * Robots and indexing rules validation
 
 ## Configuration
 
