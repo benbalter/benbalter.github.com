@@ -94,22 +94,6 @@ function findRedirects() {
     });
   }
   
-  // Scan content/posts directory (Next.js migration location)
-  const contentPostsDir = path.join(process.cwd(), 'content', 'posts');
-  if (fs.existsSync(contentPostsDir)) {
-    const files = fs.readdirSync(contentPostsDir);
-    
-    files.forEach(filename => {
-      if (!filename.endsWith('.md')) return;
-      
-      const parsed = parsePostFilename(filename);
-      if (!parsed) return;
-      
-      const filepath = path.join(contentPostsDir, filename);
-      processFile(filepath, parsed.permalink);
-    });
-  }
-  
   // Scan root directory for pages
   const rootFiles = fs.readdirSync(process.cwd());
   rootFiles.forEach(filename => {
@@ -126,26 +110,6 @@ function findRedirects() {
     const destination = frontmatter.permalink || `/${filename.replace(/\.(md|html)$/, '')}/`;
     processFile(filepath, destination);
   });
-  
-  // Scan content/pages directory
-  const contentPagesDir = path.join(process.cwd(), 'content', 'pages');
-  if (fs.existsSync(contentPagesDir)) {
-    const files = fs.readdirSync(contentPagesDir);
-    
-    files.forEach(filename => {
-      if (!filename.endsWith('.md') && !filename.endsWith('.html')) return;
-      
-      const filepath = path.join(contentPagesDir, filename);
-      const content = fs.readFileSync(filepath, 'utf-8');
-      const { data: frontmatter } = matter(content);
-      
-      if (!frontmatter) return;
-      
-      // Get destination from permalink or filename
-      const destination = frontmatter.permalink || frontmatter._legacy_permalink || `/${filename.replace(/\.(md|html)$/, '')}/`;
-      processFile(filepath, destination);
-    });
-  }
   
   return redirects;
 }

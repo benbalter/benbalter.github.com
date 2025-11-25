@@ -29,7 +29,7 @@ import React from 'react';
 import { getSiteConfig, type SiteConfig } from '../lib/config';
 
 // Configuration
-const POSTS_DIR = path.join(process.cwd(), 'content/posts');
+const POSTS_DIR = path.join(process.cwd(), '_posts');
 const OUTPUT_DIR = path.join(process.cwd(), 'assets/images/og/posts');
 const HEADSHOT_PATH = path.join(process.cwd(), 'assets/img/headshot.jpg');
 

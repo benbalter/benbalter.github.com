@@ -136,12 +136,12 @@ collections:
   - resume_positions
 
 nav_pages:
-  - index.html
+  - index.md
   - about.md
   - contact.md
 
 footer_pages:
-  - other-recommended-reading.html
+  - other-recommended-reading.md
   - fine-print.md
 
 contact_links:
