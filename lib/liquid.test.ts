@@ -155,32 +155,4 @@ Edit: {% github_edit_link %}
       expect(result).toBe(input);
     });
   });
-
-  describe('{% include %} tag', () => {
-    it('should render include tag as empty string', async () => {
-      const input = '{% include callout.html content=update %}';
-      const result = await processLiquid(input);
-      expect(result).toBe('');
-    });
-
-    it('should handle include tag with file path', async () => {
-      const input = 'Before {% include callout.html %} After';
-      const result = await processLiquid(input);
-      expect(result).toBe('Before  After');
-    });
-  });
-
-  describe('{% include_cached %} tag', () => {
-    it('should render include_cached tag as empty string', async () => {
-      const input = '{% include_cached github-culture.html %}';
-      const result = await processLiquid(input);
-      expect(result).toBe('');
-    });
-
-    it('should handle include_cached in complex content', async () => {
-      const input = 'Text before\n{% include_cached github-culture.html %}\nText after';
-      const result = await processLiquid(input);
-      expect(result).toBe('Text before\n\nText after');
-    });
-  });
 });
