@@ -8,11 +8,6 @@ jest.mock('next/link', () => {
   };
 });
 
-// Mock Next.js usePathname hook
-jest.mock('next/navigation', () => ({
-  usePathname: jest.fn(),
-}));
-
 describe('Navigation', () => {
   const mockProps = {
     title: 'Ben Balter',
@@ -23,12 +18,6 @@ describe('Navigation', () => {
       { title: 'Talks', path: '/talks' },
     ],
   };
-
-  beforeEach(() => {
-    // Reset the mock before each test
-    const { usePathname } = require('next/navigation');
-    usePathname.mockReturnValue('/');
-  });
 
   it('should render site title', () => {
     render(<Navigation {...mockProps} />);
@@ -60,25 +49,39 @@ describe('Navigation', () => {
     expect(resumeLink).toHaveAttribute('href', '/resume');
   });
 
-  it('should mark current page as active', () => {
-    const { usePathname } = require('next/navigation');
-    usePathname.mockReturnValue('/about');
-    
+  it('should have data-nav-path attributes for active link detection', () => {
     render(<Navigation {...mockProps} />);
     
     const aboutLink = screen.getByText('About').closest('a');
-    expect(aboutLink).toHaveClass('nav-link', 'active');
+    expect(aboutLink).toHaveAttribute('data-nav-path', '/about');
+    
+    const resumeLink = screen.getByText('Resume').closest('a');
+    expect(resumeLink).toHaveAttribute('data-nav-path', '/resume');
+    
+    const talksLink = screen.getByText('Talks').closest('a');
+    expect(talksLink).toHaveAttribute('data-nav-path', '/talks');
   });
 
-  it('should not mark non-current pages as active', () => {
-    const { usePathname } = require('next/navigation');
-    usePathname.mockReturnValue('/about');
+  it('should render inline script for client-side active link detection', () => {
+    const { container } = render(<Navigation {...mockProps} />);
     
+    const script = container.querySelector('script');
+    expect(script).toBeInTheDocument();
+    expect(script?.innerHTML).toContain('window.location.pathname');
+    expect(script?.innerHTML).toContain('data-nav-path');
+    expect(script?.innerHTML).toContain('classList.add');
+  });
+
+  it('should not have active class on server render (added client-side)', () => {
     render(<Navigation {...mockProps} />);
     
     const resumeLink = screen.getByText('Resume').closest('a');
     expect(resumeLink).toHaveClass('nav-link');
     expect(resumeLink).not.toHaveClass('active');
+    
+    const aboutLink = screen.getByText('About').closest('a');
+    expect(aboutLink).toHaveClass('nav-link');
+    expect(aboutLink).not.toHaveClass('active');
   });
 
   it('should have navbar toggler button', () => {
