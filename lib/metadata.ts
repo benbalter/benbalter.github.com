@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import matter from 'gray-matter';
 import { getSiteConfig, getAuthorBio } from './config';
 import { getAllPosts, type Post } from './posts';
 
@@ -13,18 +14,8 @@ function getPages(): Array<{ title: string; description: string; permalink: stri
     if (!fs.existsSync(fullPath)) return null;
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     
-    // Parse front matter
-    const match = fileContents.match(/^---\n([\s\S]*?)\n---/);
-    if (!match || !match[1]) return null;
-    
-    const lines = match[1].split('\n');
-    const data: Record<string, string> = {};
-    for (const line of lines) {
-      const [key, ...rest] = line.split(':');
-      if (key && rest.length) {
-        data[key.trim()] = rest.join(':').trim().replace(/^['"]|['"]$/g, '');
-      }
-    }
+    // Parse front matter using gray-matter for consistency with posts
+    const { data } = matter(fileContents);
     
     return {
       title: data.title || f.replace('.md', ''),

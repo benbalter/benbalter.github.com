@@ -74,7 +74,7 @@ function convertJekyllIncludes(content: string): string {
     let liquidParams = '';
     if (params) {
       // Replace = with : for each parameter, handling quoted and unquoted values
-      liquidParams = params.trim().replace(/(\w+)=(".*?"|'.*?'|\S+)/g, (m, key, value) => {
+      liquidParams = params.trim().replace(/(\w+)=(".*?"|'.*?'|\S+)/g, (_m: string, key: string, value: string) => {
         // Remove surrounding quotes if present
         if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
           value = value.slice(1, -1);
@@ -144,15 +144,34 @@ function registerCustomFilters(engine: Liquid) {
     return value.startsWith('/') ? value : `/${value}`;
   });
   
-  // Register markdownify filter (simple version - converts to HTML)
+  // Register markdownify filter - converts markdown to HTML
+  // This is a simplified implementation for use in Liquid templates
+  // Note: The full markdownToHtml function in lib/markdown.ts is used for post content
   engine.registerFilter('markdownify', (value: string) => {
     if (!value) return value;
-    // Simple markdown processing - replace links, bold, etc.
-    // For complex markdown, we'd need a full markdown processor
-    return value
-      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-      .replace(/\*([^*]+)\*/g, '<em>$1</em>')
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+    
+    // Strip Kramdown attributes like {: .class } before processing
+    let processed = value.replace(/\{:[^}]+\}/g, '');
+    
+    // Process markdown syntax:
+    // Bold: **text** or __text__
+    processed = processed.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    processed = processed.replace(/__([^_]+)__/g, '<strong>$1</strong>');
+    
+    // Italic: *text* or _text_ (but not inside words)
+    processed = processed.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+    processed = processed.replace(/(?<![a-zA-Z])_([^_]+)_(?![a-zA-Z])/g, '<em>$1</em>');
+    
+    // Links: [text](url)
+    processed = processed.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+    
+    // Code: `code`
+    processed = processed.replace(/`([^`]+)`/g, '<code>$1</code>');
+    
+    // Line breaks
+    processed = processed.replace(/\n/g, '<br>');
+    
+    return processed;
   });
   
   // Register strip_html filter

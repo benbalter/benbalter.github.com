@@ -25,6 +25,7 @@ interface SiteConfig {
   repository: string;
   branch: string;
   handle: string;
+  email?: string;
   amazon?: {
     affiliates_tag: string;
   };
