@@ -1,0 +1,13 @@
+{% capture read_time %}
+  {{ page.content | number_of_words | divided_by: 265 }}
+{% endcapture %}
+
+{% if read_time == 0 %}
+  {% assign read_time = 1 %}
+{% endif %}
+
+{% if page.read_time != false %}
+  <div class="text-muted small mb-3">
+    <i class="fa-regular fa-clock"></i> {{ read_time }} minute read
+  </div>
+{% endif %}

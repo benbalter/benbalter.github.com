@@ -1,0 +1,10 @@
+<h2 class="border-top pt-3 h6">If you enjoyed this post, you might also enjoy:</h2>
+
+<ul>
+{% for relative_path in site.data.related_posts[page.relative_path] %}
+  {% assign post = site.posts | where: "relative_path", relative_path | first %}
+    <li>
+      <a href="{{ post | relative_url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>

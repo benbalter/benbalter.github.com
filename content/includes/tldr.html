@@ -1,0 +1,11 @@
+{% if page.description %}
+      <div class="lead">
+        {% capture tldr %}
+<strong>
+  <abbr title="&quot;Too Long; Didn't Read&quot; &mdash; Internet shorthand for &quot;a brief summary of longer writing&quot;" class="initialism" data-bs-toggle="tooltip" data-bs-placement="right">TL;DR</abbr>: 
+</strong>
+        {% endcapture %}
+
+        {{ page.description | prepend: tldr | markdownify | smartify | replace: "<p>", "" | replace: "</p>", "" }}
+      </div>
+{% endif %}
