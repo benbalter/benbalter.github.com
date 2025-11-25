@@ -24,8 +24,14 @@
 
   // Border radius for code blocks
   border-radius: 6px;
-  padding: 1rem;
   overflow-x: auto;
+
+  // Apply padding only to direct pre children (non-table code blocks)
+  // Table-based code blocks handle their own padding via td
+  > pre {
+    padding: 1rem;
+    margin: 0;
+  }
 
   // Whitespace
   .w {
