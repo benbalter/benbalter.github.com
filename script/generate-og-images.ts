@@ -60,42 +60,66 @@ interface FontConfig {
   style: FontStyle;
 }
 
+// Font URLs from Google Fonts CDN
+const FONT_URLS = {
+  regular: 'https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hjp-Ek-_EeA.woff',
+  bold: 'https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZ9hjp-Ek-_EeA.woff',
+};
+
+// Date prefix pattern for post filenames (YYYY-MM-DD-)
+const DATE_PREFIX_PATTERN = /^\d{4}-\d{2}-\d{2}-/;
+
 /**
  * Load font for Satori rendering
- * Uses a system font fallback approach
+ * Fetches Inter font from Google Fonts CDN with error handling
  */
 async function loadFonts(): Promise<FontConfig[]> {
-  // Try to load a bundled font, or use a Google Fonts fetch
-  // For simplicity, we'll fetch Inter font from Google Fonts CDN
-  const regularFontUrl = 'https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hjp-Ek-_EeA.woff';
-  const boldFontUrl = 'https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZ9hjp-Ek-_EeA.woff';
-  
-  const [regularResponse, boldResponse] = await Promise.all([
-    fetch(regularFontUrl),
-    fetch(boldFontUrl),
-  ]);
-  
-  const [regularFont, boldFont] = await Promise.all([
-    regularResponse.arrayBuffer(),
-    boldResponse.arrayBuffer(),
-  ]);
-  
-  return [
-    { name: 'Inter', data: regularFont, weight: 400 as FontWeight, style: 'normal' as FontStyle },
-    { name: 'Inter', data: boldFont, weight: 700 as FontWeight, style: 'normal' as FontStyle },
-  ];
+  try {
+    const [regularResponse, boldResponse] = await Promise.all([
+      fetch(FONT_URLS.regular),
+      fetch(FONT_URLS.bold),
+    ]);
+    
+    if (!regularResponse.ok || !boldResponse.ok) {
+      throw new Error(`Font fetch failed: regular=${regularResponse.status}, bold=${boldResponse.status}`);
+    }
+    
+    const [regularFont, boldFont] = await Promise.all([
+      regularResponse.arrayBuffer(),
+      boldResponse.arrayBuffer(),
+    ]);
+    
+    return [
+      { name: 'Inter', data: regularFont, weight: 400 as FontWeight, style: 'normal' as FontStyle },
+      { name: 'Inter', data: boldFont, weight: 700 as FontWeight, style: 'normal' as FontStyle },
+    ];
+  } catch (error) {
+    console.error('❌ Failed to load fonts from Google Fonts CDN.');
+    console.error('   Please check your network connection and try again.');
+    throw error;
+  }
 }
+
+// Cache for headshot base64 data
+let cachedHeadshotBase64: string | null = null;
 
 /**
  * Read headshot image and convert to base64 data URI
+ * Uses caching to avoid repeated file reads during batch generation
  */
 function loadHeadshotBase64(): string {
+  if (cachedHeadshotBase64 !== null) {
+    return cachedHeadshotBase64;
+  }
+  
   if (!fs.existsSync(HEADSHOT_PATH)) {
     console.warn(`⚠️ Headshot not found at ${HEADSHOT_PATH}`);
+    cachedHeadshotBase64 = '';
     return '';
   }
   const imageBuffer = fs.readFileSync(HEADSHOT_PATH);
-  return `data:image/jpeg;base64,${imageBuffer.toString('base64')}`;
+  cachedHeadshotBase64 = `data:image/jpeg;base64,${imageBuffer.toString('base64')}`;
+  return cachedHeadshotBase64;
 }
 
 /**
@@ -115,7 +139,7 @@ function getAllPosts(): Post[] {
     const { data } = matter(fileContents);
     
     // Extract slug from filename (remove date prefix and .md extension)
-    const slug = fileName.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
+    const slug = fileName.replace(DATE_PREFIX_PATTERN, '').replace(/\.md$/, '');
     
     return {
       slug,
