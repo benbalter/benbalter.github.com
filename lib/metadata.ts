@@ -193,8 +193,8 @@ Policy: https://github.com/${repository}/security/policy
  * Generate browserconfig.xml content
  */
 export function generateBrowserconfigXml(): string {
-  // Use a simple revision string based on current date
-  const buildRevision = 'midtgz9x';
+  // Use a revision string from environment variable, or fallback to build timestamp
+  const buildRevision = process.env.BUILD_REVISION || new Date().toISOString().replace(/[-:T.]/g, '').slice(0, 14);
   
   return `<?xml version="1.0" encoding="utf-8"?>
 <browserconfig>
