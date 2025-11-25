@@ -23,7 +23,7 @@ body {
 }
 
 /* Skip to main content link for accessibility */
-/* Uses Bootstrap's visually-hidden-focusable utility */
+/* Hidden until focused, then appears at the top of the page */
 .skip-link {
   position: absolute;
   top: -40px;
