@@ -105,10 +105,25 @@ export const getAllPages = cache((): Page[] => {
 });
 
 /**
- * Page slugs to exclude from static site generation
- * These pages may still exist in content but won't be built
+ * Page slugs to exclude from static site generation via the generic [slug] route.
+ * These pages are excluded because:
+ * - 'index', '404': System pages handled at root level
+ * - 'press': Intentionally not replicated in Next.js (per issue requirements)
+ * - 'resume', 'about', 'contact', 'talks', 'other-recommended-reading': Have dedicated routes with custom layouts
  */
-const EXCLUDED_PAGE_SLUGS = ['index', '404', 'press', 'resume'];
+const EXCLUDED_PAGE_SLUGS = [
+  // System pages
+  'index',
+  '404',
+  // Intentionally not replicated
+  'press',
+  // Pages with dedicated routes and custom layouts
+  'resume',
+  'about',
+  'contact',
+  'talks',
+  'other-recommended-reading',
+];
 
 export function getAllPageSlugs(): string[] {
   const pages = getAllPages();

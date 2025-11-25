@@ -1,5 +1,11 @@
 import type { Metadata, Viewport } from 'next';
-import Script from 'next/script';
+// FontAwesome CSS must be imported before other styles to ensure proper icon sizing
+// This ensures FontAwesome icons are sized correctly by loading its CSS first
+import { config as fontAwesomeConfig } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+// Prevent FontAwesome from adding the CSS automatically since we import it above
+fontAwesomeConfig.autoAddCss = false;
+
 import './styles.scss';
 import './globals.css';
 import Navigation from './components/Navigation';
@@ -110,6 +116,10 @@ export default function RootLayout({
     <html lang="en-US">
       <head>
         <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        {/* Preconnect to third-party origins for faster resource loading */}
+        <link rel="preconnect" href="https://avatars.githubusercontent.com" crossOrigin="" />
+        <link rel="preconnect" href="https://github.com" crossOrigin="" />
+        <link rel="preconnect" href="https://images.amazon.com" crossOrigin="" />
         {config.social.links.map((link) => (
           <link key={link} rel="me" href={link} />
         ))}
@@ -148,7 +158,6 @@ export default function RootLayout({
           <Footer footerPages={footerPages} />
         </div>
         <ClientScripts />
-        <Script src="/assets/js/bundle.js" strategy="afterInteractive" />
       </body>
     </html>
   );
