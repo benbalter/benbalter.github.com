@@ -1,5 +1,10 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import NotFoundSuggestion from './not-found-suggestion';
+
+// Mock fastest-levenshtein
+jest.mock('fastest-levenshtein', () => ({
+  closest: jest.fn(),
+}));
 
 describe('NotFoundSuggestion', () => {
   const mockUrls = [
@@ -9,65 +14,99 @@ describe('NotFoundSuggestion', () => {
     '/'
   ];
 
-  it('should render placeholder span with data-urls attribute', () => {
+  beforeEach(() => {
+    // Reset mocks
+    jest.clearAllMocks();
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should show loading placeholder and then suggestion', async () => {
+    const { closest } = await import('fastest-levenshtein');
+    const closestMock = closest as jest.Mock;
+    closestMock.mockReturnValue('http://localhost/2022/06/30/helpful-404s-for-jekyll-and-github-pages/');
+
     render(<NotFoundSuggestion urls={mockUrls} />);
     
-    const span = screen.getByText('...');
-    expect(span).toBeInTheDocument();
-    expect(span).toHaveAttribute('id', 'not-found-suggestion');
-    expect(span).toHaveAttribute('data-urls', JSON.stringify(mockUrls));
+    // After effect runs, should render suggestion
+    await waitFor(() => {
+      expect(screen.getByRole('link')).toBeInTheDocument();
+    });
   });
 
-  it('should render inline script for client-side suggestion calculation', () => {
-    const { container } = render(<NotFoundSuggestion urls={mockUrls} />);
-    
-    const script = container.querySelector('script');
-    expect(script).toBeInTheDocument();
-    expect(script?.innerHTML).toContain('levenshtein');
-    expect(script?.innerHTML).toContain('closest');
-    expect(script?.innerHTML).toContain('not-found-suggestion');
+  it('should suggest the closest matching URL', async () => {
+    const { closest } = await import('fastest-levenshtein');
+    const closestMock = closest as jest.Mock;
+    closestMock.mockReturnValue('http://localhost/2022/06/30/helpful-404s-for-jekyll-and-github-pages/');
+
+    render(<NotFoundSuggestion urls={mockUrls} />);
+
+    await waitFor(() => {
+      const link = screen.getByRole('link');
+      // Next.js Link removes trailing slash from hrefs
+      expect(link).toHaveAttribute('href', '/2022/06/30/helpful-404s-for-jekyll-and-github-pages');
+      expect(link).toHaveTextContent('/2022/06/30/helpful-404s-for-jekyll-and-github-pages/');
+    });
+
+    // Verify closest was called
+    expect(closestMock).toHaveBeenCalledTimes(1);
+    expect(closestMock.mock.calls[0][1]).toEqual(
+      expect.arrayContaining([
+        expect.stringContaining('/2022/06/30/helpful-404s-for-jekyll-and-github-pages/'),
+        expect.stringContaining('/2022/06/01/another-post/'),
+        expect.stringContaining('/about/'),
+        expect.stringContaining('/')
+      ])
+    );
   });
 
-  it('should include Levenshtein distance implementation in script', () => {
-    const { container } = render(<NotFoundSuggestion urls={mockUrls} />);
-    
-    const script = container.querySelector('script');
-    expect(script?.innerHTML).toContain('function levenshtein(a, b)');
-    expect(script?.innerHTML).toContain('matrix');
+  it('should handle empty URLs array gracefully', () => {
+    const { container } = render(<NotFoundSuggestion urls={[]} />);
+    expect(container.textContent).toBe('...');
   });
 
-  it('should include fallback logic in script', () => {
-    const { container } = render(<NotFoundSuggestion urls={mockUrls} />);
-    
-    const script = container.querySelector('script');
-    expect(script?.innerHTML).toContain('fallbackLink');
-    expect(script?.innerHTML).toContain("href = '/'");
+  it('should fallback to home page on error', async () => {
+    const { closest } = await import('fastest-levenshtein');
+    const closestMock = closest as jest.Mock;
+    closestMock.mockImplementation(() => {
+      throw new Error('Test error');
+    });
+
+    const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
+
+    render(<NotFoundSuggestion urls={mockUrls} />);
+
+    await waitFor(() => {
+      const link = screen.getByRole('link');
+      expect(link).toHaveAttribute('href', '/');
+      expect(link).toHaveTextContent('/');
+    });
+
+    expect(consoleSpy).toHaveBeenCalledWith('Error finding closest URL:', expect.any(Error));
+    consoleSpy.mockRestore();
   });
 
-  it('should handle empty URLs array by encoding as empty JSON array', () => {
-    render(<NotFoundSuggestion urls={[]} />);
+  it('should handle server-side rendering gracefully', async () => {
+    // We can't truly simulate SSR in jsdom, but we can test the condition
+    // The component checks if window is undefined in useEffect
+    const { container } = render(<NotFoundSuggestion urls={[]} />);
     
-    const span = screen.getByText('...');
-    expect(span).toHaveAttribute('data-urls', '[]');
+    // With empty urls array, should show loading placeholder
+    expect(container.textContent).toBe('...');
   });
 
-  it('should properly JSON encode URLs with special characters', () => {
-    const urlsWithSpecialChars = ['/path/with"quotes/', '/path/with<angle>/'];
-    render(<NotFoundSuggestion urls={urlsWithSpecialChars} />);
-    
-    const span = screen.getByText('...');
-    expect(span).toHaveAttribute('data-urls', JSON.stringify(urlsWithSpecialChars));
-  });
+  it('should use pathname from suggestion link', async () => {
+    const { closest } = await import('fastest-levenshtein');
+    const closestMock = closest as jest.Mock;
+    closestMock.mockReturnValue('http://localhost/about/');
 
-  it('should use DOM manipulation instead of innerHTML for security', () => {
-    const { container } = render(<NotFoundSuggestion urls={mockUrls} />);
-    
-    const script = container.querySelector('script');
-    // Should use createElement and textContent instead of innerHTML
-    expect(script?.innerHTML).toContain('createElement');
-    expect(script?.innerHTML).toContain('textContent');
-    expect(script?.innerHTML).toContain('appendChild');
-    // Should NOT use innerHTML in the dynamic content areas
-    expect(script?.innerHTML).not.toMatch(/el\.innerHTML\s*=/);
+    render(<NotFoundSuggestion urls={mockUrls} />);
+
+    await waitFor(() => {
+      const link = screen.getByRole('link');
+      expect(link).toHaveTextContent('/about/');
+    });
   });
 });

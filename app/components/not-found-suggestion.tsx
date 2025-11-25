@@ -1,107 +1,53 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import { closest } from 'fastest-levenshtein';
+import Link from 'next/link';
+
 type NotFoundSuggestionProperties = {
   urls: string[];
 };
 
 /**
- * Server component that suggests the closest matching URL to the 404 page
- * Uses inline vanilla JS with Levenshtein distance to find the most similar URL
- * 
- * Security note: The URLs passed to this component come from the site's own content
- * (getAllSiteUrls in not-found.tsx), not from user input. The script is static and
- * only reads URLs from the data attribute, using DOM manipulation (not innerHTML).
+ * Client component that suggests the closest matching URL to the 404 page
+ * Uses Levenshtein distance to find the most similar URL to what was requested
  */
 export default function NotFoundSuggestion({urls}: NotFoundSuggestionProperties) {
-  const urlsJson = JSON.stringify(urls);
+  const [suggestion, setSuggestion] = useState<{href: string; pathname: string} | undefined>(undefined);
 
-  const inlineScript = `
-(function() {
-  function levenshtein(a, b) {
-    if (a.length === 0) return b.length;
-    if (b.length === 0) return a.length;
-    var matrix = [];
-    for (var i = 0; i <= b.length; i++) {
-      matrix[i] = [i];
-    }
-    for (var j = 0; j <= a.length; j++) {
-      matrix[0][j] = j;
-    }
-    for (i = 1; i <= b.length; i++) {
-      for (j = 1; j <= a.length; j++) {
-        if (b.charAt(i - 1) === a.charAt(j - 1)) {
-          matrix[i][j] = matrix[i - 1][j - 1];
-        } else {
-          matrix[i][j] = Math.min(
-            matrix[i - 1][j - 1] + 1,
-            matrix[i][j - 1] + 1,
-            matrix[i - 1][j] + 1
-          );
-        }
-      }
-    }
-    return matrix[b.length][a.length];
-  }
-
-  function closest(target, candidates) {
-    if (!candidates || candidates.length === 0) return null;
-    var minDistance = Infinity;
-    var closestCandidate = candidates[0];
-    for (var i = 0; i < candidates.length; i++) {
-      var distance = levenshtein(target, candidates[i]);
-      if (distance < minDistance) {
-        minDistance = distance;
-        closestCandidate = candidates[i];
-      }
-    }
-    return closestCandidate;
-  }
-
-  var el = null;
-  try {
-    el = document.getElementById('not-found-suggestion');
-    if (!el) return;
-    var urls = JSON.parse(el.getAttribute('data-urls') || '[]');
-    if (urls.length === 0) {
-      var fallbackLink = document.createElement('a');
-      fallbackLink.href = '/';
-      fallbackLink.textContent = '/';
-      el.textContent = '';
-      el.appendChild(fallbackLink);
+  useEffect(() => {
+    if (typeof window === 'undefined' || urls.length === 0) {
       return;
     }
-    var baseUrl = window.location.protocol + '//' + window.location.host;
-    var fullUrls = urls.map(function(path) { return baseUrl + path; });
-    var closestUrl = closest(window.location.href, fullUrls);
-    if (!closestUrl) {
-      var fallbackLink = document.createElement('a');
-      fallbackLink.href = '/';
-      fallbackLink.textContent = '/';
-      el.textContent = '';
-      el.appendChild(fallbackLink);
-      return;
+
+    try {
+      // Build full URLs from the paths
+      const baseUrl = `${window.location.protocol}//${window.location.host}`;
+      const fullUrls = urls.map(path => `${baseUrl}${path}`);
+
+      // Find the closest matching URL using Levenshtein distance
+      const closestPath = closest(window.location.href, fullUrls);
+      const url = new URL(closestPath);
+
+      setSuggestion({
+        href: url.href,
+        pathname: url.pathname,
+      });
+    } catch (error) {
+      console.error('Error finding closest URL:', error);
+      // Fallback to home page
+      setSuggestion({
+        href: '/',
+        pathname: '/',
+      });
     }
-    var url = new URL(closestUrl);
-    var link = document.createElement('a');
-    link.href = url.pathname;
-    link.textContent = url.pathname;
-    el.textContent = '';
-    el.appendChild(link);
-  } catch (e) {
-    console.error('Error finding closest URL:', e);
-    if (el) {
-      var fallbackLink = document.createElement('a');
-      fallbackLink.href = '/';
-      fallbackLink.textContent = '/';
-      el.textContent = '';
-      el.appendChild(fallbackLink);
-    }
+  }, [urls]);
+
+  if (!suggestion) {
+    return <span>...</span>;
   }
-})();
-`;
 
   return (
-    <>
-      <span id="not-found-suggestion" data-urls={urlsJson}>...</span>
-      <script dangerouslySetInnerHTML={{__html: inlineScript}} />
-    </>
+    <Link href={suggestion.pathname}>{suggestion.pathname}</Link>
   );
 }
