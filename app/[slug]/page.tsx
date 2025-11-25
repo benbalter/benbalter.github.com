@@ -1,7 +1,8 @@
 import { getPageBySlug, getAllPageSlugs } from '@/lib/pages';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { getPageMetadata } from '@/lib/seo';
+import { getPageMetadata, getWebPageJsonLd, getPageBreadcrumbJsonLd } from '@/lib/seo';
+import { JsonLdScript } from 'next-seo';
 import MarkdownContent from '@/app/components/MarkdownContent';
 import PageTitle from '@/app/components/PageTitle';
 
@@ -38,14 +39,26 @@ export default async function Page({ params }: PageProps) {
     notFound();
   }
   
+  const path = `/${slug}/`;
+  const webPageJsonLd = getWebPageJsonLd(page, path);
+  const breadcrumbJsonLd = getPageBreadcrumbJsonLd(page, path);
+  
   return (
-    <div className={`page page-${slug}`}>
-      <div className="row">
-        <div className="col-md-10 offset-md-1">
-          {page.title && <PageTitle title={page.title} />}
-          <MarkdownContent markdown={page.content} />
+    <>
+      {/* WebPage structured data */}
+      <JsonLdScript data={webPageJsonLd} scriptKey="webpage-schema" />
+      
+      {/* Breadcrumb structured data for navigation */}
+      <JsonLdScript data={breadcrumbJsonLd} scriptKey="breadcrumb-schema" />
+      
+      <div className={`page page-${slug}`}>
+        <div className="row">
+          <div className="col-md-10 offset-md-1">
+            {page.title && <PageTitle title={page.title} />}
+            <MarkdownContent markdown={page.content} />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

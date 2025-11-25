@@ -1,0 +1,217 @@
+// Main styles for Next.js app
+// This file imports Bootstrap and custom styles natively in Next.js
+
+// Custom variables (before Bootstrap import)
+$header-path: "/assets/img/header.jpg";
+$blue: #337ab7;
+$enable-shadows: true;
+$enable-gradients: true;
+$tooltip-max-width: 350px;
+$color-mode-type: media-query;
+
+// Import Bootstrap
+@import "bootstrap/scss/bootstrap";
+
+// Custom abbr styling
+abbr[data-bs-original-title] {
+  @extend abbr, [title];
+}
+
+// Syntax highlighting - Common styles (shared between dark and light modes)
+.highlight {
+  table {
+    td {
+      padding: 5px;
+    }
+
+    pre {
+      margin: 0;
+    }
+  }
+
+  .ge {
+    font-style: italic;
+  }
+
+  .ges {
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  .gs {
+    font-weight: bold;
+  }
+
+  .gh {
+    font-weight: bold;
+  }
+
+  .err {
+    background-color: #ab4642;
+  }
+
+  // Shared color values (same in both themes)
+  .c, .ch, .cd, .cm, .cpf, .c1, .cs {
+    color: #585858;
+  }
+
+  .cp, .nt {
+    color: #f7ca88;
+  }
+
+  .gi {
+    color: #a1b56c;
+  }
+
+  .gd {
+    color: #ab4642;
+  }
+
+  .k, .kn, .kp, .kr, .kv {
+    color: #ba8baf;
+  }
+
+  .kc, .kt, .kd {
+    color: #dc9656;
+  }
+
+  .s, .sb, .sc, .dl, .sd, .s2, .sh, .sx, .s1 {
+    color: #a1b56c;
+  }
+
+  .sa {
+    color: #ba8baf;
+  }
+
+  .sr {
+    color: #86c1b9;
+  }
+
+  .si, .se {
+    color: #a16946;
+  }
+
+  .nn, .nc, .no {
+    color: #f7ca88;
+  }
+
+  .na {
+    color: #7cafc2;
+  }
+
+  .m, .mb, .mf, .mh, .mi, .il, .mo, .mx, .ss {
+    color: #a1b56c;
+  }
+}
+
+// Syntax highlighting - Dark mode (color differences only)
+@media (prefers-color-scheme: dark) {
+  .highlight {
+    color: #d8d8d8;
+    background-color: var(--bs-body-bg);
+
+    .w {
+      color: #d8d8d8;
+      background-color: #181818;
+    }
+
+    .err {
+      color: #181818;
+    }
+
+    .o, .ow, .p, .pi {
+      color: #d8d8d8;
+    }
+
+    .gh {
+      color: #7cafc2;
+      background-color: #181818;
+    }
+  }
+}
+
+// Syntax highlighting - Light mode (color differences only)
+@media (prefers-color-scheme: light) {
+  .highlight {
+    color: #383838;
+
+    .w {
+      color: #383838;
+    }
+
+    .err {
+      color: #181818;
+    }
+
+    .o, .ow, .p, .pi {
+      color: #d8d8d8;
+    }
+
+    .gh {
+      color: #7cafc2;
+      background-color: #181818;
+    }
+  }
+}
+
+// Footnotes styling
+.footnotes {
+  @extend small;
+  @extend .border-top;
+  @extend .pt-3;
+
+  &::before {
+    content: "Notes:";
+    @extend .mb-3;
+    @extend .d-block;
+  }
+
+  ol {
+    @extend .ps-3;
+
+    li p {
+      @extend .mb-1;
+    }
+  }
+}
+
+// Hero unit
+.hero-unit {
+  background-image: url($header-path);
+  background-size: cover;
+  background-position: top left;
+  height: 400px;
+}
+
+// Gist styling
+.gist {
+  .gist-it-gist .gist-file .gist-data,
+  .gist-meta {
+    background: #fcfcff !important;
+  }
+
+  .pl-c {
+    color: #757775 !important;
+  }
+
+  .pl-c1 {
+    color: #007faa !important;
+  }
+}
+
+// Utility classes
+.min-y-5 {
+  min-height: 5em;
+}
+
+// Blockquote styling
+blockquote {
+  border-left: 5px solid $gray-300;
+  padding-left: 1em;
+}
+
+// Avatar styling
+.avatar {
+  @extend .img-fluid;
+  @extend .rounded;
+}
