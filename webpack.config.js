@@ -50,7 +50,17 @@ const config = {
             }
           },
           {
-            loader: 'sass-loader'
+            loader: 'sass-loader',
+            options: {
+              // Use the modern Dart Sass API
+              api: 'modern',
+              sassOptions: {
+                // Silence deprecation warnings from dependencies (Bootstrap 5.3.x)
+                // These will be fixed when Bootstrap migrates to the new Sass module system
+                // See: https://sass-lang.com/d/import and https://sass-lang.com/d/color-functions
+                silenceDeprecations: ['import', 'global-builtin', 'color-functions']
+              }
+            }
           }
         ]
       }

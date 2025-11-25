@@ -62,6 +62,13 @@ const nextConfig = {
   // See: https://nextjs.org/docs/app/api-reference/next-config-js/reactStrictMode
   reactStrictMode: true,
 
+  // Sass options to silence deprecation warnings from dependencies (Bootstrap 5.3.x)
+  // These will be fixed when Bootstrap migrates to the new Sass module system
+  // See: https://sass-lang.com/d/import and https://sass-lang.com/d/color-functions
+  sassOptions: {
+    silenceDeprecations: ['import', 'global-builtin', 'color-functions'],
+  },
+
   // Experimental features for performance optimization
   experimental: {
     // Optimize package imports for faster builds and smaller bundles
