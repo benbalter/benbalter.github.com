@@ -11,8 +11,8 @@ import PostContent from '@/app/components/PostContent';
 import PostMetadata from '@/app/components/PostMetadata';
 import EditButton from '@/app/components/EditButton';
 import { getSiteConfig, getAuthorBio } from '@/lib/config';
-import { getPostMetadata } from '@/lib/seo';
-import { ArticleJsonLd } from 'next-seo';
+import { getPostMetadata, getPostBreadcrumbJsonLd } from '@/lib/seo';
+import { ArticleJsonLd, JsonLdScript } from 'next-seo';
 import { getPostUrlParts } from '@/lib/posts';
 import { getPostOgImage } from '@/lib/og-image';
 
@@ -82,6 +82,9 @@ export default async function Post({ params }: PageProps) {
   // Get normalized image URL (absolute URL)
   const imageUrl = getPostOgImage(post);
   
+  // Generate breadcrumb data for search engines
+  const breadcrumbJsonLd = getPostBreadcrumbJsonLd(post);
+  
   return (
     <>
       {/* JSON-LD structured data for the article */}
@@ -110,6 +113,9 @@ export default async function Post({ params }: PageProps) {
           '@id': fullUrl,
         }}
       />
+      
+      {/* Breadcrumb structured data for navigation */}
+      <JsonLdScript data={breadcrumbJsonLd} scriptKey="breadcrumb-schema" />
       
       <div className="row">
         <div className="col-md-10 offset-md-1">
