@@ -15,7 +15,7 @@ export interface Post {
   [key: string]: any;
 }
 
-const postsDirectory = path.join(process.cwd(), 'content/posts');
+const postsDirectory = path.join(process.cwd(), '_posts');
 
 /**
  * Internal function to parse a post file
