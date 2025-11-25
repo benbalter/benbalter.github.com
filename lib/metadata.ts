@@ -178,7 +178,7 @@ export function generateSecurityTxt(): string {
   const expirationDate = new Date(now.getTime() + (180 * 24 * 60 * 60 * 1000));
   const isoDate = expirationDate.toISOString();
   
-  const email = (config as any).email || 'ben@balter.com';
+  const email = config.email || 'ben@balter.com';
   const repository = config.repository || 'benbalter/benbalter.github.com';
   
   return `Contact: mailto:${email}
