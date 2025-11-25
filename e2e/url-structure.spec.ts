@@ -117,7 +117,8 @@ test.describe('URL Structure Validation', () => {
     // Test each page
     for (const pageInfo of pages) {
       // Skip 404 page as it returns 404 status
-      if (pageInfo.slug === '404') continue;
+      // Skip press page as it's excluded from Next.js build (Jekyll-only)
+      if (pageInfo.slug === '404' || pageInfo.slug === 'press') continue;
       
       const response = await page.goto(pageInfo.url, { waitUntil: 'domcontentloaded' });
       

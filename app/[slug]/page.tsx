@@ -12,6 +12,10 @@ interface PageProps {
   }>;
 }
 
+// Disable dynamic params - only allow statically generated paths
+// This ensures 404 for any unknown slugs at build time (SSG best practice)
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const slugs = getAllPageSlugs();
   return slugs.map((slug) => ({
