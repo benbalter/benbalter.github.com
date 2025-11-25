@@ -2,35 +2,34 @@ import { render, screen } from '@testing-library/react';
 import Callout from './Callout';
 
 describe('Callout', () => {
-  it('should render children content', () => {
+  it('renders children content', () => {
     render(<Callout>Test callout content</Callout>);
     
     expect(screen.getByText('Test callout content')).toBeInTheDocument();
   });
 
-  it('should have alert role for accessibility', () => {
-    render(<Callout>Test content</Callout>);
+  it('renders with alert role for accessibility', () => {
+    render(<Callout>Alert content</Callout>);
     
-    expect(screen.getByRole('alert')).toBeInTheDocument();
+    const alert = screen.getByRole('alert');
+    expect(alert).toBeInTheDocument();
   });
 
-  it('should have correct CSS classes', () => {
-    const { container } = render(<Callout>Test content</Callout>);
+  it('applies correct Bootstrap classes', () => {
+    render(<Callout>Styled content</Callout>);
     
-    const callout = container.firstChild;
-    expect(callout).toHaveClass('alert');
-    expect(callout).toHaveClass('alert-primary');
-    expect(callout).toHaveClass('text-center');
+    const alert = screen.getByRole('alert');
+    expect(alert).toHaveClass('alert', 'alert-primary', 'text-center');
   });
 
-  it('should render complex children', () => {
+  it('renders complex children including JSX elements', () => {
     render(
       <Callout>
-        <strong>Bold text</strong> and <a href="/test">a link</a>
+        <strong>Bold text</strong> and <a href="/link">a link</a>
       </Callout>
     );
     
     expect(screen.getByText('Bold text')).toBeInTheDocument();
-    expect(screen.getByText('a link')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'a link' })).toBeInTheDocument();
   });
 });

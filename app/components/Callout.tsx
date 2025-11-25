@@ -1,12 +1,10 @@
-import { ReactNode } from 'react';
-
 interface CalloutProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 /**
- * Callout component (Server Component)
- * Displays an alert/callout box, matching Jekyll's callout.html include
+ * A Bootstrap-styled alert callout component.
+ * Equivalent to Jekyll's _includes/callout.html
  */
 export default function Callout({ children }: CalloutProps) {
   return (
