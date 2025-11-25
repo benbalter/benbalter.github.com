@@ -35,6 +35,7 @@ export interface Clip {
   publication: string;
   url: string;
   date: string;
+  ignore_check?: boolean;
 }
 
 /**
