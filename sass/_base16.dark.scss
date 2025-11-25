@@ -5,50 +5,52 @@
 // This file defines CSS custom properties for dark mode syntax highlighting.
 // Applied when (prefers-color-scheme: dark).
 
-.highlight {
-  // Base colors
-  --highlight-fg: #c9d1d9;
-  --highlight-bg: #161b22;
+@media (prefers-color-scheme: dark) {
+  .highlight {
+    // Base colors
+    --highlight-fg: #c9d1d9;
+    --highlight-bg: #161b22;
 
-  // Error
-  --highlight-err-fg: #f0f6fc;
-  --highlight-err-bg: #8e1519;
+    // Error
+    --highlight-err-fg: #f0f6fc;
+    --highlight-err-bg: #8e1519;
 
-  // Comments
-  --highlight-comment: #8b949e;
+    // Comments
+    --highlight-comment: #8b949e;
 
-  // Keywords
-  --highlight-keyword: #ff7b72;
+    // Keywords
+    --highlight-keyword: #ff7b72;
 
-  // Constants, numbers, variables
-  --highlight-constant: #79c0ff;
+    // Constants, numbers, variables
+    --highlight-constant: #79c0ff;
 
-  // Operators
-  --highlight-operator: #79c0ff;
+    // Operators
+    --highlight-operator: #79c0ff;
 
-  // Strings
-  --highlight-string: #a5d6ff;
+    // Strings
+    --highlight-string: #a5d6ff;
 
-  // Regex
-  --highlight-regex: #7ee787;
+    // Regex
+    --highlight-regex: #7ee787;
 
-  // Attributes, tags
-  --highlight-attribute: #7ee787;
+    // Attributes, tags
+    --highlight-attribute: #7ee787;
 
-  // Builtins, class names, namespaces
-  --highlight-builtin: #ffa657;
+    // Builtins, class names, namespaces
+    --highlight-builtin: #ffa657;
 
-  // Functions, decorators
-  --highlight-function: #d2a8ff;
+    // Functions, decorators
+    --highlight-function: #d2a8ff;
 
-  // Headings (git diff headers)
-  --highlight-heading: #1f6feb;
+    // Headings (git diff headers)
+    --highlight-heading: #1f6feb;
 
-  // Diff inserted
-  --highlight-inserted-fg: #aff5b4;
-  --highlight-inserted-bg: #033a16;
+    // Diff inserted
+    --highlight-inserted-fg: #aff5b4;
+    --highlight-inserted-bg: #033a16;
 
-  // Diff deleted
-  --highlight-deleted-fg: #ffdcd7;
-  --highlight-deleted-bg: #67060c;
+    // Diff deleted
+    --highlight-deleted-fg: #ffdcd7;
+    --highlight-deleted-bg: #67060c;
+  }
 }
