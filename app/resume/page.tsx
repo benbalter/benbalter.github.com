@@ -45,7 +45,7 @@ export default async function ResumePage() {
       path: 'resume.md',
     },
     { loadCollections: true },
-  ) : '';
+  ) : '<p>Resume content could not be loaded.</p>';
   
   const webPageJsonLd = getWebPageJsonLd(pageData, PAGE_PATH);
   const breadcrumbJsonLd = getPageBreadcrumbJsonLd(pageData, PAGE_PATH);
