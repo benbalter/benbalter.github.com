@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
+import './styles.scss';
 import './globals.css';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
@@ -111,8 +112,6 @@ export default function RootLayout({
         {config.social.links.map((link) => (
           <link key={link} rel="me" href={link} />
         ))}
-        {/* Load Bootstrap and custom styles from webpack build */}
-        <link rel="stylesheet" href="/assets/css/style.css" />
         {/* Structured data for the site author */}
         <JsonLdScript
           data={{

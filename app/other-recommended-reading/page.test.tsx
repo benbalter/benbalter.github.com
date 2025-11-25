@@ -28,6 +28,15 @@ jest.mock('@/lib/data', () => ({
 
 jest.mock('@/lib/config', () => ({
   getAmazonAffiliatesTag: jest.fn(() => 'test-tag-20'),
+  getSiteConfig: jest.fn(() => ({
+    title: 'Ben Balter',
+    description: 'Technology leadership, collaboration, and open source',
+    url: 'https://ben.balter.com',
+    author: {
+      name: 'Ben Balter',
+      twitter: 'benbalter',
+    },
+  })),
 }));
 
 jest.mock('@/lib/pages', () => ({
