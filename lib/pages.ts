@@ -73,7 +73,8 @@ export function getPageBySlug(slug: string): Page | null {
     
     // Security: Verify resolved path stays within pagesDirectory
     const resolvedPath = path.resolve(fullPath);
-    if (!resolvedPath.startsWith(pagesDirectory)) {
+    const resolvedPageDir = path.resolve(pagesDirectory);
+    if (!resolvedPath.startsWith(resolvedPageDir)) {
       continue;
     }
     
