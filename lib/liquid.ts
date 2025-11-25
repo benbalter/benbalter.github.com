@@ -1,62 +1,46 @@
-import { Liquid } from 'liquidjs';
-import { getSiteConfig } from './config';
 import path from 'path';
+import {Liquid} from 'liquidjs';
+import {getSiteConfig} from './config';
 
 /**
  * Process Liquid template syntax in markdown content.
  * This handles Jekyll-style Liquid tags used in blog posts.
- * 
+ *
  * Supported tags:
  * - {% raw %} / {% endraw %} - Pass through content without processing
  * - {% github_edit_link %} - Generate GitHub edit links
- * - {% capture %} / {% endcapture %} - Capture content to a variable
- * - {% include %} / {% include_cached %} - Include partial templates
- * - Variables: {{ site.* }}, {{ page.* }}
- * 
- * Note: Some complex Jekyll tags ({% for %}, etc.) may need
- * additional implementation if encountered.
- * - {% include %} - Jekyll includes (rendered as empty, handled by React components)
- * - {% include_cached %} - Cached Jekyll includes (rendered as empty, handled by React components)
- * - Variables: {{ site.* }}, {{ page.* }}
- * 
- * Note: Jekyll includes are stripped out because they are handled by React components
- * in the Next.js build (e.g., GitHubCultureCallout component).
+ * - {% include filename.html %} - Include Jekyll includes from _includes/
+ * - {% include_cached filename.html %} - Same as include (caching is handled by build)
+ * - Variables: {{ site.* }}, {{ page.* }}, {{ include.* }}
+ *
+ * This allows Next.js to reuse Jekyll includes from the _includes/ directory,
+ * reducing duplication and ensuring parity with the Jekyll build.
  */
 export async function processLiquid(content: string, context: Record<string, any> = {}): Promise<string> {
-  // Pre-process Jekyll-style includes to liquidjs format
-  // Jekyll: {% include callout.html content=update %}
-  // Liquidjs: {% include "callout" content: update %}
-  const processedContent = convertJekyllIncludes(content);
-  
-  // Create Liquid engine with includes root path
+  // Create Liquid engine with Jekyll-compatible settings
   const engine = new Liquid({
     // Don't throw on undefined variables - just render empty string
     strictVariables: false,
     // Don't throw on undefined filters - just pass through
     strictFilters: false,
-    // Set root path for includes - prefer content/includes (liquidjs format) over _includes (Jekyll format)
-    root: [
-      path.join(process.cwd(), 'content/includes'),
-      path.join(process.cwd(), '_includes'),
-    ],
-    // Allow dynamic includes
-    dynamicPartials: true,
-    // Use .html extension by default for partials
-    extname: '.html',
+    // Root path for includes - use _includes directory
+    root: path.join(process.cwd(), '_includes'),
+    // Enable caching for performance
+    cache: true,
+    // Enable Jekyll-style include syntax (no quotes around filename)
+    // This allows: {% include callout.html content=var %}
+    jekyllInclude: true,
   });
-  
+
   // Register custom tags
   registerCustomTags(engine);
-  
-  // Register custom filters
-  registerCustomFilters(engine);
-  
+
   // Prepare template context with site config and page data
   const templateContext = prepareContext(context);
-  
+
   try {
     // Parse and render the liquid template
-    const result = await engine.parseAndRender(processedContent, templateContext);
+    const result = await engine.parseAndRender(content, templateContext);
     return result;
   } catch (error) {
     // If liquid parsing fails, log warning and return original content
@@ -66,38 +50,18 @@ export async function processLiquid(content: string, context: Record<string, any
 }
 
 /**
- * Convert Jekyll-style include syntax to liquidjs format
- * Jekyll: {% include file.html param=value %}
- * Jekyll: {% include_cached file.html param=value %}
- * Liquidjs: {% include "file" param: value %}
- */
-function convertJekyllIncludes(content: string): string {
-  // Match {% include filename.html param=value %} or {% include_cached filename.html param=value %}
-  const includeRegex = /\{%\s*include(?:_cached)?\s+([a-zA-Z0-9_-]+)\.html(?:\s+([^%]*))?\s*%\}/g;
-  
-  return content.replace(includeRegex, (match, filename, params) => {
-    // Convert params from Jekyll format (param=value) to liquidjs format (param: value)
-    let liquidParams = '';
-    if (params) {
-      // Replace = with : for each parameter, handling quoted and unquoted values
-      liquidParams = params.trim().replace(/(\w+)=(".*?"|'.*?'|\S+)/g, (_m: string, key: string, value: string) => {
-        // Remove surrounding quotes if present
-        if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
-          value = value.slice(1, -1);
-        }
-        return `${key}: ${value}`;
-      }) + ' ';
-    }
-    
-    // Return liquidjs-compatible include syntax
-    return `{% include "${filename}" ${liquidParams}%}`;
-  });
-}
-
-/**
- * Register custom Jekyll tags that need special handling
+ * Register custom Jekyll tags and filters that need special handling
  */
 function registerCustomTags(engine: Liquid) {
+  const config = getSiteConfig();
+
+  // Register Jekyll's include_cached tag as an alias for include
+  // In Next.js SSG, caching is handled by the build process
+  const includeTag = engine.tags.include;
+  if (includeTag) {
+    engine.registerTag('include_cached', includeTag);
+  }
+
   // Register {% github_edit_link %} tag
   // Usage: {% github_edit_link %} or {% github_edit_link "text" %}
   engine.registerTag('github_edit_link', {
@@ -105,125 +69,42 @@ function registerCustomTags(engine: Liquid) {
       // Extract optional link text from tag arguments
       this.linkText = token.args.trim().replace(/^["']|["']$/g, '') || 'help improve this content';
     },
-    render(ctx) {
-      const site = ctx.get(['site']) as any;
-      const page = ctx.get(['page']) as any;
-      
+    render(context) {
+      const site = context.get(['site']) as any;
+      const page = context.get(['page']) as any;
+
       // Build GitHub edit URL
       const repository = site?.github?.repository_nwo || site?.repository || 'benbalter/benbalter.github.com';
       const branch = site?.branch || 'main';
-      const path = page?.path || '';
-      
-      const url = `https://github.com/${repository}/edit/${branch}/${path}`;
+      const pagePath = page?.path || '';
+
+      const url = `https://github.com/${repository}/edit/${branch}/${pagePath}`;
       const linkText = this.linkText;
-      
+
       return `<a href="${url}">${linkText}</a>`;
     },
   });
-  
-  // Register {% include_cached %} tag - used in Jekyll for caching includes
-  // In Next.js, includes like github-culture.html are handled by React components,
-  // so we return empty string and let the component system handle them
-  engine.registerTag('include_cached', {
-    parse() {
-      // File argument is parsed by LiquidJS but not used since includes are stripped
-    },
-    render() {
-      // Return empty - includes are handled by React components
-      return '';
-    },
-  });
-  
-  // Register {% include %} tag - Jekyll include directive
-  // Similar to include_cached, these are handled by React components in Next.js
-  engine.registerTag('include', {
-    parse() {
-      // File argument is parsed by LiquidJS but not used since includes are stripped
-    },
-    render() {
-      // Return empty - includes are handled by React components
-      return '';
-    },
-  });
-}
 
-/**
- * Register custom filters for Jekyll compatibility
- */
-function registerCustomFilters(engine: Liquid) {
-  // Register absolute_url filter
-  engine.registerFilter('absolute_url', (value: string) => {
-    if (!value) return value;
-    const config = getSiteConfig();
-    // If already absolute, return as-is
-    if (value.startsWith('http://') || value.startsWith('https://')) {
-      return value;
+  // Register Jekyll's absolute_url filter
+  // Converts relative URLs to absolute URLs using site.url
+  engine.registerFilter('absolute_url', (relativePath: string) => {
+    if (!relativePath) {
+      return config.url;
     }
-    // Add site URL from config
-    const url = config.url;
-    if (!url) {
-      // If no URL configured, return relative path
-      return value.startsWith('/') ? value : `/${value}`;
+
+    // Ensure path has leading slash for proper URL concatenation
+    const cleanPath = relativePath.startsWith('/') ? relativePath : `/${relativePath}`;
+    return `${config.url.replace(/\/$/, '')}${cleanPath}`;
+  });
+
+  // Register Jekyll's relative_url filter
+  // Returns the path unchanged (Next.js handles base paths differently)
+  engine.registerFilter('relative_url', (relativePath: string) => {
+    if (!relativePath) {
+      return '/';
     }
-    return `${url}${value.startsWith('/') ? '' : '/'}${value}`;
-  });
-  
-  // Register relative_url filter  
-  engine.registerFilter('relative_url', (value: string) => {
-    if (!value) return value;
-    // For static export, just return the path as-is
-    return value.startsWith('/') ? value : `/${value}`;
-  });
-  
-  // Register markdownify filter - converts markdown to HTML
-  // This is a simplified implementation for use in Liquid templates
-  // Note: The full markdownToHtml function in lib/markdown.ts is used for post content
-  engine.registerFilter('markdownify', (value: string) => {
-    if (!value) return value;
-    
-    // Strip Kramdown attributes like {: .class } before processing
-    let processed = value.replace(/\{:[^}]+\}/g, '');
-    
-    // Process markdown syntax:
-    // Bold: **text** or __text__
-    processed = processed.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-    processed = processed.replace(/__([^_]+)__/g, '<strong>$1</strong>');
-    
-    // Italic: *text* or _text_ (but not inside words)
-    processed = processed.replace(/\*([^*]+)\*/g, '<em>$1</em>');
-    processed = processed.replace(/(?<![a-zA-Z])_([^_]+)_(?![a-zA-Z])/g, '<em>$1</em>');
-    
-    // Links: [text](url)
-    processed = processed.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
-    
-    // Code: `code`
-    processed = processed.replace(/`([^`]+)`/g, '<code>$1</code>');
-    
-    // Line breaks
-    processed = processed.replace(/\n/g, '<br>');
-    
-    return processed;
-  });
-  
-  // Register strip_html filter
-  // Uses a loop to ensure all tags are removed, even malformed ones
-  engine.registerFilter('strip_html', (value: string) => {
-    if (!value) return value;
-    // Repeatedly remove tags until no more are found
-    // This handles cases like <scr<script>ipt> that single-pass regex misses
-    let result = value;
-    let previous = '';
-    while (result !== previous) {
-      previous = result;
-      result = result.replace(/<[^>]*>/g, '');
-    }
-    return result;
-  });
-  
-  // Register newline_to_br filter
-  engine.registerFilter('newline_to_br', (value: string) => {
-    if (!value) return value;
-    return value.replace(/\n/g, '<br />');
+
+    return relativePath.startsWith('/') ? relativePath : `/${relativePath}`;
   });
 }
 
@@ -232,7 +113,7 @@ function registerCustomFilters(engine: Liquid) {
  */
 function prepareContext(pageData: Record<string, any> = {}): Record<string, any> {
   const config = getSiteConfig();
-  
+
   // Build site context matching Jekyll's structure
   const siteContext = {
     title: config.title,
@@ -244,14 +125,14 @@ function prepareContext(pageData: Record<string, any> = {}): Record<string, any>
       repository_nwo: config.repository,
     },
   };
-  
+
   // Merge page data with default path
   const pageContext = {
     path: pageData.path || '',
     title: pageData.title || '',
     ...pageData,
   };
-  
+
   return {
     site: siteContext,
     page: pageContext,
