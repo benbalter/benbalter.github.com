@@ -8,23 +8,36 @@ import {getAllResumePositions, type ResumePosition} from './resume';
  * Used for rendering collection item content (like resume positions)
  * where Liquid templating is not needed and would cause circular dependencies.
  */
+// Cache the markdown processor instance
+let cachedMarkdownProcessor: any = null;
+
+async function getMarkdownProcessor() {
+  if (!cachedMarkdownProcessor) {
+    const {remark} = await import('remark');
+    const gfm = (await import('remark-gfm')).default;
+    const remarkRehype = (await import('remark-rehype')).default;
+    const rehypeRaw = (await import('rehype-raw')).default;
+    const rehypeSanitize = (await import('rehype-sanitize')).default;
+    const rehypeStringify = (await import('rehype-stringify')).default;
+
+    cachedMarkdownProcessor = remark()
+      .use(gfm)
+      .use(remarkRehype, {allowDangerousHtml: true})
+      .use(rehypeRaw)
+      .use(rehypeSanitize)
+      .use(rehypeStringify);
+  }
+  return cachedMarkdownProcessor;
+}
+
+/**
+ * Render markdown to HTML without Liquid processing.
+ * Used for rendering collection item content (like resume positions)
+ * where Liquid templating is not needed and would cause circular dependencies.
+ */
 async function renderSimpleMarkdown(markdown: string): Promise<string> {
-  // Dynamic import to avoid circular dependency issues
-  const {remark} = await import('remark');
-  const gfm = (await import('remark-gfm')).default;
-  const remarkRehype = (await import('remark-rehype')).default;
-  const rehypeRaw = (await import('rehype-raw')).default;
-  const rehypeSanitize = (await import('rehype-sanitize')).default;
-  const rehypeStringify = (await import('rehype-stringify')).default;
-
-  const result = await remark()
-    .use(gfm)
-    .use(remarkRehype, {allowDangerousHtml: true})
-    .use(rehypeRaw)
-    .use(rehypeSanitize)
-    .use(rehypeStringify)
-    .process(markdown);
-
+  const processor = await getMarkdownProcessor();
+  const result = await processor.process(markdown);
   return result.toString();
 }
 
