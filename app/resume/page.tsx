@@ -42,7 +42,7 @@ export default async function ResumePage() {
     {
       // Pass frontmatter data for page.degrees, page.certifications, etc.
       ...pageData,
-      path: 'content/pages/resume.md',
+      path: 'resume.md',
     },
     { loadCollections: true },
   ) : '';
