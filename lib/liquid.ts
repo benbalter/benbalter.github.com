@@ -72,8 +72,8 @@ function registerCustomTags(engine: Liquid) {
   // In Next.js, includes like github-culture.html are handled by React components,
   // so we return empty string and let the component system handle them
   engine.registerTag('include_cached', {
-    parse(token) {
-      this.file = token.args.trim();
+    parse() {
+      // File argument is parsed by LiquidJS but not used since includes are stripped
     },
     render() {
       // Return empty - includes are handled by React components
@@ -84,8 +84,8 @@ function registerCustomTags(engine: Liquid) {
   // Register {% include %} tag - Jekyll include directive
   // Similar to include_cached, these are handled by React components in Next.js
   engine.registerTag('include', {
-    parse(token) {
-      this.file = token.args.trim();
+    parse() {
+      // File argument is parsed by LiquidJS but not used since includes are stripped
     },
     render() {
       // Return empty - includes are handled by React components
