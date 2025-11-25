@@ -1,4 +1,164 @@
-import { processLiquid } from './liquid';
+import { processLiquid, extractComponentPlaceholders, splitContentAtPlaceholders } from './liquid';
+
+describe('extractComponentPlaceholders', () => {
+  it('should extract callout includes with quoted content', () => {
+    const content = 'Before {% include callout.html content="Test content" %} After';
+    const result = extractComponentPlaceholders(content);
+    
+    expect(result.components).toHaveLength(1);
+    expect(result.components[0]).toEqual({
+      type: 'callout',
+      props: { content: 'Test content' },
+      id: 'component-0',
+    });
+    expect(result.content).toBe('Before <div data-component="component-0"></div> After');
+  });
+  
+  it('should extract foss-at-scale includes', () => {
+    const content = '{% include foss-at-scale.html nth="first" %}';
+    const result = extractComponentPlaceholders(content);
+    
+    expect(result.components).toHaveLength(1);
+    expect(result.components[0]).toEqual({
+      type: 'foss-at-scale',
+      props: { nth: 'first' },
+      id: 'component-0',
+    });
+  });
+  
+  it('should extract github-culture includes', () => {
+    const content = '{% include_cached github-culture.html %}';
+    const result = extractComponentPlaceholders(content);
+    
+    expect(result.components).toHaveLength(1);
+    expect(result.components[0]).toEqual({
+      type: 'github-culture',
+      props: {},
+      id: 'component-0',
+    });
+  });
+  
+  it('should extract github-culture without _cached', () => {
+    const content = '{% include github-culture.html %}';
+    const result = extractComponentPlaceholders(content);
+    
+    expect(result.components).toHaveLength(1);
+    expect(result.components[0].type).toBe('github-culture');
+  });
+  
+  it('should extract multiple components', () => {
+    const content = `
+{% include foss-at-scale.html nth="first" %}
+Some content
+{% include callout.html content="A callout" %}
+More content
+{% include_cached github-culture.html %}
+    `;
+    const result = extractComponentPlaceholders(content);
+    
+    expect(result.components).toHaveLength(3);
+    // Components are extracted in order: callout regex first, then foss-at-scale, then github-culture
+    // But since they appear in different positions, the order depends on regex execution
+    const types = result.components.map(c => c.type);
+    expect(types).toContain('foss-at-scale');
+    expect(types).toContain('callout');
+    expect(types).toContain('github-culture');
+  });
+  
+  it('should return empty components array when no includes found', () => {
+    const content = 'Just some regular content without includes';
+    const result = extractComponentPlaceholders(content);
+    
+    expect(result.components).toHaveLength(0);
+    expect(result.content).toBe(content);
+  });
+  
+  it('should handle varying whitespace in include syntax', () => {
+    const content1 = '{%include foss-at-scale.html nth="test"%}';
+    const content2 = '{%  include  foss-at-scale.html  nth="test"  %}';
+    
+    const result1 = extractComponentPlaceholders(content1);
+    const result2 = extractComponentPlaceholders(content2);
+    
+    expect(result1.components).toHaveLength(1);
+    expect(result2.components).toHaveLength(1);
+  });
+});
+
+describe('splitContentAtPlaceholders', () => {
+  it('should return single segment when no components', () => {
+    const html = '<p>Simple content</p>';
+    const result = splitContentAtPlaceholders(html, []);
+    
+    expect(result).toHaveLength(1);
+    expect(result[0]).toEqual({ type: 'html', content: html });
+  });
+  
+  it('should split content at placeholder markers', () => {
+    const html = '<p>Before</p><div data-component="component-0"></div><p>After</p>';
+    const components = [{ type: 'callout' as const, props: { content: 'test' }, id: 'component-0' }];
+    
+    const result = splitContentAtPlaceholders(html, components);
+    
+    expect(result).toHaveLength(3);
+    expect(result[0]).toEqual({ type: 'html', content: '<p>Before</p>' });
+    expect(result[1]).toEqual({ type: 'component', component: components[0] });
+    expect(result[2]).toEqual({ type: 'html', content: '<p>After</p>' });
+  });
+  
+  it('should handle component at start', () => {
+    const html = '<div data-component="component-0"></div><p>After</p>';
+    const components = [{ type: 'foss-at-scale' as const, props: { nth: 'first' }, id: 'component-0' }];
+    
+    const result = splitContentAtPlaceholders(html, components);
+    
+    expect(result).toHaveLength(2);
+    expect(result[0]).toEqual({ type: 'component', component: components[0] });
+    expect(result[1]).toEqual({ type: 'html', content: '<p>After</p>' });
+  });
+  
+  it('should handle component at end', () => {
+    const html = '<p>Before</p><div data-component="component-0"></div>';
+    const components = [{ type: 'github-culture' as const, props: {}, id: 'component-0' }];
+    
+    const result = splitContentAtPlaceholders(html, components);
+    
+    expect(result).toHaveLength(2);
+    expect(result[0]).toEqual({ type: 'html', content: '<p>Before</p>' });
+    expect(result[1]).toEqual({ type: 'component', component: components[0] });
+  });
+  
+  it('should handle multiple components', () => {
+    const html = '<p>A</p><div data-component="component-0"></div><p>B</p><div data-component="component-1"></div><p>C</p>';
+    const components = [
+      { type: 'callout' as const, props: { content: '1' }, id: 'component-0' },
+      { type: 'callout' as const, props: { content: '2' }, id: 'component-1' },
+    ];
+    
+    const result = splitContentAtPlaceholders(html, components);
+    
+    expect(result).toHaveLength(5);
+    expect(result[0].type).toBe('html');
+    expect(result[1].type).toBe('component');
+    expect(result[2].type).toBe('html');
+    expect(result[3].type).toBe('component');
+    expect(result[4].type).toBe('html');
+  });
+  
+  it('should skip empty HTML segments', () => {
+    const html = '<div data-component="component-0"></div><div data-component="component-1"></div>';
+    const components = [
+      { type: 'callout' as const, props: { content: '1' }, id: 'component-0' },
+      { type: 'callout' as const, props: { content: '2' }, id: 'component-1' },
+    ];
+    
+    const result = splitContentAtPlaceholders(html, components);
+    
+    expect(result).toHaveLength(2);
+    expect(result[0].type).toBe('component');
+    expect(result[1].type).toBe('component');
+  });
+});
 
 describe('processLiquid', () => {
   describe('{% raw %} tag', () => {
