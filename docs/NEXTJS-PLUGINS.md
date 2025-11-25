@@ -68,7 +68,7 @@ All Jekyll plugins have been successfully migrated to Next.js equivalents. **The
 | jekyll-avatar          | ✅ Complete | `lib/avatar.ts` + `app/components/GitHubAvatar.tsx` | **@octokit/rest**, Next.js Image | Avatar URLs via Octokit          |
 | jekyll-mentions        | ✅ Complete | `lib/markdown.ts`                                   | **remark-github**                | @mentions, issues, PRs, commits  |
 | jemoji                 | ✅ Complete | `lib/emoji.ts`                                      | **node-emoji**                   | :emoji: to Unicode (1800+ emoji) |
-| jekyll-og-image        | ✅ Complete | `lib/og-image.ts`                                   | -                                | OG image URL resolution          |
+| jekyll-og-image        | ✅ Complete | `script/generate-og-images.ts` + `lib/og-image.ts`  | **satori**, **@resvg/resvg-js**  | Build-time OG image generation   |
 
 ## Implementation Details
 
@@ -378,13 +378,27 @@ const html = await markdownToHtml(markdown);
 ### 10. OG Images (`jekyll-og-image`)
 
 **Jekyll:** jekyll-og-image plugin (generates images)\
-**Next.js:** OG image URL resolution
+**Next.js:** Build-time OG image generation + URL resolution
 
-**Location:** `lib/og-image.ts`
+**Location:** `script/generate-og-images.ts`, `lib/og-image.ts`
+
+**Open-Source Libraries:**
+
+* **satori** - JSX to SVG rendering (from Vercel)
+* **@resvg/resvg-js** - SVG to PNG conversion
 
 **Usage:**
 
+```bash
+# Generate OG images for posts without existing images
+npm run build:og-images
+
+# Force regenerate all OG images
+npm run build:og-images -- --force
+```
+
 ```typescript
+// URL resolution in components
 import { getPostOgImage, getPageOgImage } from '@/lib/og-image';
 
 const ogImage = getPostOgImage(post);
@@ -393,16 +407,29 @@ const ogImage = getPostOgImage(post);
 
 **Features:**
 
+* Generates 1200x600 PNG images at build time
+* Uses JSX templates with Satori for consistent rendering
+* Matches Jekyll plugin visual style (title, description, headshot, border)
 * Resolves OG images from frontmatter
-* Falls back to pre-generated images in `assets/images/og/posts/`
+* Falls back to generated images in `assets/images/og/posts/`
 * Default image fallback
 * Full URL generation
+
+**Image Generation:**
+
+The generated images include:
+
+* Post title (bold, top left)
+* Author headshot with rounded corners (top right)
+* Post description (bottom left)
+* Domain name (bottom right)
+* Blue accent border at bottom
 
 **Image priority:**
 
 1. `image` field in frontmatter
 2. `og_image` field in frontmatter
-3. Pre-generated image at `/assets/images/og/posts/{slug}.png`
+3. Generated image at `/assets/images/og/posts/{slug}.png`
 4. Default site image
 
 ## Build Process
@@ -487,9 +514,9 @@ All plugin features are automatically processed during:
 
 ### OG Images
 
-* **Jekyll:** Dynamic generation at build time
-* **Next.js:** Uses pre-generated images or frontmatter values
-* **Note:** Images already exist in `assets/images/og/posts/`
+* **Jekyll:** Dynamic generation at build time using Ruby/ImageMagick
+* **Next.js:** Dynamic generation at build time using Satori + Resvg
+* **Note:** Both generate identical visual output; Next.js version uses JSX templates
 
 ### Redirects
 
@@ -514,6 +541,7 @@ All plugin features are optimized for static generation:
 * **Redirects:** Static HTML files
 * **RSS/Sitemap:** Generated once at build time
 * **Emoji/Mentions:** Processed once during build
+* **OG Images:** Generated once at build time using Satori
 * **Avatars:** External GitHub API (cached by browsers)
 
 No runtime overhead or API calls in production.
@@ -522,10 +550,9 @@ No runtime overhead or API calls in production.
 
 Potential improvements:
 
-1. **Dynamic OG Image Generation:** Use `@vercel/og` to generate images on-demand
-2. **Extended Emoji Support:** Add full GitHub emoji set or use `node-emoji` library
-3. **GitHub Metadata Caching:** Cache API responses during build
-4. **Incremental Related Posts:** Only recalculate changed posts
+1. **GitHub Metadata Caching:** Cache API responses during build
+2. **Incremental Related Posts:** Only recalculate changed posts
+3. **Custom OG Image Templates:** Support per-post custom templates
 
 ## Troubleshooting
 
@@ -546,6 +573,8 @@ Potential improvements:
 
 ### OG images missing
 
+* Run `npm run build:og-images` to generate missing images
+* Use `npm run build:og-images -- --force` to regenerate all images
 * Verify image exists in `assets/images/og/posts/`
 * Check frontmatter for `image` or `og_image` field
 * Falls back to default headshot if not found
@@ -560,6 +589,8 @@ Potential improvements:
 * [feed](https://github.com/jpmonette/feed) - RSS/Atom feed generator
 * [sitemap](https://github.com/ekalinin/sitemap.js) - Sitemap generator
 * [natural](https://github.com/NaturalNode/natural) - Natural language processing for TF-IDF
+* [satori](https://github.com/vercel/satori) - JSX to SVG rendering for OG images
+* [@resvg/resvg-js](https://github.com/nicois/resvg-js) - SVG to PNG conversion
 
 ### Documentation
 
