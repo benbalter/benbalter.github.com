@@ -95,6 +95,53 @@ export async function markdownToHtml(markdown: string, context?: Record<string, 
 }
 
 /**
+ * Converts inline markdown to sanitized HTML string at build time.
+ * Optimized for short text like descriptions, where heading IDs and liquid processing aren't needed.
+ * 
+ * Key differences from markdownToHtml:
+ * - No liquid template processing (faster, simpler)
+ * - No heading slug generation (not needed for inline text)
+ * - No autolink headings (not needed for inline text)
+ * - Strips wrapping <p> tags for inline usage (single paragraph only)
+ * 
+ * @param markdown - The inline markdown content to convert
+ */
+export async function inlineMarkdownToHtml(markdown: string): Promise<string> {
+  // Process emoji before markdown conversion
+  const markdownWithEmoji = processEmoji(markdown);
+  
+  // Get repository info for remark-github
+  const config = getSiteConfig();
+  
+  const result = await remark()
+    .use(gfm)
+    // Use remark-github plugin for @mentions, #issues, and other GitHub references
+    .use(remarkGithub, {
+      repository: config.repository,
+      mentionStrong: false, // Don't make mentions bold
+    })
+    // Convert markdown to HTML AST (hast)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    // Allow raw HTML in markdown
+    .use(rehypeRaw)
+    // Sanitize HTML for security
+    .use(rehypeSanitize, defaultSchema)
+    // Convert hast to HTML string
+    .use(rehypeStringify)
+    .process(markdownWithEmoji);
+  
+  // Remove wrapping <p> tags for inline usage (only for single paragraph content)
+  // The [^]* pattern matches any character without crossing multiple paragraphs unintentionally
+  // We use a non-greedy match and ensure no nested <p> tags
+  const html = result.toString();
+  const singleParagraphMatch = html.match(/^<p>([^]*?)<\/p>\n?$/);
+  if (singleParagraphMatch && !singleParagraphMatch[1]?.includes('<p>')) {
+    return singleParagraphMatch[1] ?? html;
+  }
+  return html;
+}
+
+/**
  * Converts HTML to plain text using a proper HTML parser.
  * Handles HTML comments, script/style tags, and complex edge cases correctly.
  */
