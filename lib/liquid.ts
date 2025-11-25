@@ -1,6 +1,69 @@
 import path from 'path';
 import {Liquid} from 'liquidjs';
 import {getSiteConfig} from './config';
+import {getAllResumePositions, type ResumePosition} from './resume';
+
+/**
+ * Render markdown to HTML without Liquid processing.
+ * Used for rendering collection item content (like resume positions)
+ * where Liquid templating is not needed and would cause circular dependencies.
+ */
+// Cache the markdown processor instance
+let cachedMarkdownProcessor: any = null;
+
+async function getMarkdownProcessor() {
+  if (!cachedMarkdownProcessor) {
+    const {remark} = await import('remark');
+    const gfm = (await import('remark-gfm')).default;
+    const remarkRehype = (await import('remark-rehype')).default;
+    const rehypeRaw = (await import('rehype-raw')).default;
+    const rehypeSanitize = (await import('rehype-sanitize')).default;
+    const rehypeStringify = (await import('rehype-stringify')).default;
+
+    cachedMarkdownProcessor = remark()
+      .use(gfm)
+      .use(remarkRehype, {allowDangerousHtml: true})
+      .use(rehypeRaw)
+      .use(rehypeSanitize)
+      .use(rehypeStringify);
+  }
+  return cachedMarkdownProcessor;
+}
+
+/**
+ * Render markdown to HTML without Liquid processing.
+ * Used for rendering collection item content (like resume positions)
+ * where Liquid templating is not needed and would cause circular dependencies.
+ */
+async function renderSimpleMarkdown(markdown: string): Promise<string> {
+  const processor = await getMarkdownProcessor();
+  const result = await processor.process(markdown);
+  return result.toString();
+}
+
+/**
+ * Load resume positions with rendered markdown content.
+ * Separated from prepareContext to allow lazy loading only when needed.
+ */
+async function loadResumePositions(): Promise<Record<string, any>[]> {
+  const rawPositions = getAllResumePositions();
+  return Promise.all(
+    rawPositions.map(async (position: ResumePosition) => ({
+      ...position,
+      // Jekyll uses 'output' for rendered markdown content
+      output: await renderSimpleMarkdown(position.content),
+    })),
+  );
+}
+
+export interface LiquidOptions {
+  /**
+   * If true, load Jekyll collections (like resume_positions) into the context.
+   * This enables templates to use site.resume_positions, etc.
+   * Default is false for backward compatibility and performance.
+   */
+  loadCollections?: boolean;
+}
 
 /**
  * Process Liquid template syntax in markdown content.
@@ -11,12 +74,21 @@ import {getSiteConfig} from './config';
  * - {% github_edit_link %} - Generate GitHub edit links
  * - {% include filename.html %} - Include Jekyll includes from _includes/
  * - {% include_cached filename.html %} - Same as include (caching is handled by build)
+ * - {% for %} / {% endfor %} - Loop iteration
+ * - {% if %} / {% elsif %} / {% else %} / {% endif %} - Conditionals
+ * - {% unless %} / {% endunless %} - Negative conditionals
+ * - {% assign %} - Variable assignment
  * - Variables: {{ site.* }}, {{ page.* }}, {{ include.* }}
+ * - Filters: | date, | sort, | absolute_url, | relative_url
  *
  * This allows Next.js to reuse Jekyll includes from the _includes/ directory,
  * reducing duplication and ensuring parity with the Jekyll build.
  */
-export async function processLiquid(content: string, context: Record<string, any> = {}): Promise<string> {
+export async function processLiquid(
+  content: string,
+  context: Record<string, any> = {},
+  options: LiquidOptions = {},
+): Promise<string> {
   // Create Liquid engine with Jekyll-compatible settings
   const engine = new Liquid({
     // Don't throw on undefined variables - just render empty string
@@ -32,11 +104,11 @@ export async function processLiquid(content: string, context: Record<string, any
     jekyllInclude: true,
   });
 
-  // Register custom tags
+  // Register custom tags and filters
   registerCustomTags(engine);
 
-  // Prepare template context with site config and page data
-  const templateContext = prepareContext(context);
+  // Prepare template context with site config, page data, and optionally collections
+  const templateContext = await prepareContext(context, options);
 
   try {
     // Parse and render the liquid template
@@ -109,13 +181,16 @@ function registerCustomTags(engine: Liquid) {
 }
 
 /**
- * Prepare template context with site configuration and page data
+ * Prepare template context with site configuration, page data, and optionally collections
  */
-function prepareContext(pageData: Record<string, any> = {}): Record<string, any> {
+async function prepareContext(
+  pageData: Record<string, any> = {},
+  options: LiquidOptions = {},
+): Promise<Record<string, any>> {
   const config = getSiteConfig();
 
   // Build site context matching Jekyll's structure
-  const siteContext = {
+  const siteContext: Record<string, any> = {
     title: config.title,
     description: config.description,
     url: config.url,
@@ -125,6 +200,11 @@ function prepareContext(pageData: Record<string, any> = {}): Record<string, any>
       repository_nwo: config.repository,
     },
   };
+
+  // Only load collections if explicitly requested (for performance and test compatibility)
+  if (options.loadCollections) {
+    siteContext.resume_positions = await loadResumePositions();
+  }
 
   // Merge page data with default path
   const pageContext = {
