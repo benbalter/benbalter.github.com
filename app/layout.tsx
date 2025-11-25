@@ -111,9 +111,9 @@ export default function RootLayout({
       <head>
         <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         {/* Preconnect to third-party origins for faster resource loading */}
-        <link rel="preconnect" href="https://avatars.githubusercontent.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://github.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://images.amazon.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://avatars.githubusercontent.com" crossOrigin="" />
+        <link rel="preconnect" href="https://github.com" crossOrigin="" />
+        <link rel="preconnect" href="https://images.amazon.com" crossOrigin="" />
         {config.social.links.map((link) => (
           <link key={link} rel="me" href={link} />
         ))}
