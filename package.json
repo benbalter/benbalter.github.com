@@ -139,7 +139,7 @@
     "build": "npm run webpack",
     "build:related-posts": "tsx script/build-related-posts.ts",
     "dev": "next dev",
-    "next:build": "next build && next-sitemap --config next-sitemap.config.cjs && node script/generate-redirects.mjs && tsx script/generate-feeds.mjs && node script/generate-metadata-files.mjs",
+    "next:build": "next build && next-sitemap --config next-sitemap.config.cjs && node script/generate-redirects.mjs && tsx script/generate-feeds.mjs",
     "next:start": "serve out",
     "lint": "npm run lint-js && npm run lint-json && npm run lint-md",
     "lint-js": "xo .remarkrc.js --ignore-pattern !.remarkrc.js --fix",
