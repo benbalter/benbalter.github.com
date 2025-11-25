@@ -29,6 +29,10 @@ interface PageProps {
   }>;
 }
 
+// Disable dynamic params - only allow statically generated paths
+// This ensures 404 for any unknown post URLs at build time (SSG best practice)
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const posts = getAllPosts();
 
