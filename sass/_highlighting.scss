@@ -120,6 +120,7 @@
   // Strings: .s (string), .sa (affix), .sb (backtick), .sc (char),
   // .dl (delimiter), .sd (doc), .s2 (double), .se (escape),
   // .sh (heredoc), .sx (other), .s1 (single), .ss (symbol)
+  // Note: .ss (symbols) are styled with strings per GitHub's theme
   .s, .sa, .sb, .sc, .dl, .sd, .s2, .se, .sh, .sx, .s1, .ss {
     color: var(--highlight-string);
   }
