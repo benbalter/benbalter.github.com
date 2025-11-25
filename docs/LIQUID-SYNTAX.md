@@ -5,7 +5,6 @@ This document describes the Liquid template syntax support added to the Next.js 
 ## Overview
 
 The site now supports Jekyll-style Liquid template syntax in markdown files, enabling:
-
 - Custom tags like `{% github_edit_link %}`
 - Variable interpolation (`{{ site.title }}`, `{{ page.title }}`)
 - Raw content blocks (`{% raw %}...{% endraw %}`)
@@ -49,20 +48,17 @@ HTML Output
 Generates a link to edit the current page on GitHub.
 
 **Syntax:**
-
 ```liquid
 {% github_edit_link %}
 {% github_edit_link "custom text" %}
 ```
 
 **Example:**
-
 ```markdown
 Please {% github_edit_link "help improve this article" %}.
 ```
 
 **Output:**
-
 ```html
 Please <a href="https://github.com/benbalter/benbalter.github.com/edit/main/_posts/2023-01-13-great-extended-leave-documents.md">help improve this article</a>.
 ```
@@ -72,13 +68,11 @@ Please <a href="https://github.com/benbalter/benbalter.github.com/edit/main/_pos
 Preserves Liquid syntax without processing (useful for code examples).
 
 **Example:**
-
 ```markdown
 To use variables, write:
 ```liquid
 {% raw %}{{ site.title }}{% endraw %}
 ```
-
 ```
 
 ## Variable Interpolation
@@ -108,7 +102,6 @@ Access current page metadata:
 ## Error Handling
 
 If Liquid parsing fails (e.g., malformed syntax):
-
 1. Warning is logged to console
 2. Original content is returned unchanged
 3. Page continues to render
@@ -118,7 +111,6 @@ This prevents broken posts from breaking the entire build.
 ## Testing
 
 Comprehensive test coverage in `lib/liquid.test.ts`:
-
 - `{% raw %}` tag preservation
 - `{% github_edit_link %}` with default and custom text
 - Variable interpolation (site and page)
@@ -133,7 +125,6 @@ Comprehensive test coverage in `lib/liquid.test.ts`:
 ## Migration from Jekyll
 
 Posts with existing Liquid syntax work without modification:
-
 - `{% raw %}` blocks preserved for code examples
 - `{% github_edit_link %}` processed correctly
 - Variable references work with site config
@@ -141,19 +132,16 @@ Posts with existing Liquid syntax work without modification:
 ## Examples in Production
 
 ### Post with `{% github_edit_link %}`
-
 - `content/posts/2023-01-13-great-extended-leave-documents.md`
 - Uses: `{% github_edit_link "pull requests are always welcome" %}`
 
 ### Post with `{% raw %}` blocks
-
 - `content/posts/2015-09-13-github-pages-edit-button.md`
 - Uses: `{% raw %}{{ site.title }}{% endraw %}` in code examples
 
 ## Future Enhancements
 
 Potential additions:
-
 - More Jekyll tags (e.g., `{% include %}`, `{% for %}`)
 - Custom filters
 - Conditional logic support

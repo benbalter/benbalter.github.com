@@ -43,13 +43,13 @@ Open source tools tend to be more organic, rather than process-driven, and prefe
 
 When it comes to how they work, open source teams are bound by [four distinct constraints](http://2ndscale.com/rtomayko/2012/adopt-an-open-source-process-constraints):
 
-> - **Electronic**: Discussion, planning, and operations process should use a high fidelity form of electronic communication like email, GitHub.com, or chat with transcripts wherever possible. Avoid meatspace discussion and meetings.
+> * **Electronic**: Discussion, planning, and operations process should use a high fidelity form of electronic communication like email, GitHub.com, or chat with transcripts wherever possible. Avoid meatspace discussion and meetings.
 >
-> - **Available**: Work should be visible and expose process. Work should have a URL. It should be possible to move backward from a piece of product or a system failure and understand how it came to be that way. Prefer Git, issues, pull requests, mailing lists, and chat with transcripts over URL-less mediums.
+> * **Available**: Work should be visible and expose process. Work should have a URL. It should be possible to move backward from a piece of product or a system failure and understand how it came to be that way. Prefer Git, issues, pull requests, mailing lists, and chat with transcripts over URL-less mediums.
 >
-> - **Asynchronous**: Almost no part of the product development process requires that one person interrupt another's immediate attention or that people be in the same place at the same time, or even that people be in different places at the same time. Even small meetings or short phone calls can wreck flow so consider laying it out in (a thought out) email or sending a pull request instead.
+> * **Asynchronous**: Almost no part of the product development process requires that one person interrupt another's immediate attention or that people be in the same place at the same time, or even that people be in different places at the same time. Even small meetings or short phone calls can wreck flow so consider laying it out in (a thought out) email or sending a pull request instead.
 >
-> - **Lock free**: Avoid synchronization / lock points when designing process. This is [distributed version control](http://en.wikipedia.org/wiki/Distributed_revision_control) writ large… Work towards a goal should never be blocked on approval. Push approval/rejection to the review stage or automate it, but surface work early to get feedback.
+> * **Lock free**: Avoid synchronization / lock points when designing process. This is [distributed version control](http://en.wikipedia.org/wiki/Distributed_revision_control) writ large… Work towards a goal should never be blocked on approval. Push approval/rejection to the review stage or automate it, but surface work early to get feedback.
 
 By adopting tools that embrace these constraints, both in their own dealings, and in their dealings with external contractors, government agencies can begin to foster modern software development practices more in line with those seen beyond the beltway.
 

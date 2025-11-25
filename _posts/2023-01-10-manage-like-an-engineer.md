@@ -11,11 +11,11 @@ Rather than tracking bugs or feature requests, in my day-to-day as a Chief of St
 
 Using engineering tools like GitHub to track management tasks is *much* more than an alternative to your personal todo list or an endless stack of Google Docs or group DMs shared with peers. Working like an engineer forces you to work more *transparently* than you would traditionally as a manager. I've written at length before about [the value of leaders "showing their work"](https://ben.balter.com/2022/02/16/leaders-show-their-work/#the-value-of-showing-your-work). When you work in systems that naturally capture and expose process, there's a lot of organic benefits that you and your team get for "free":
 
-> - **Captures institutional knowledge** - When you're purposeful about where and how you share context, you alleviate the need for “you had to be there” and “go ask Susan"-type inquiries.
-> - **Empowers others to learn through observation** - What's routine to you is likely novel to someone in another role or at another level of seniority.
-> - **Socializes organizational culture and values** - An organization's culture and values is composed in large part of [the underlying assumptions](https://ben.balter.com/2015/08/12/the-zen-of-github/) that its members fall back on as they resolve ambiguity in pursuit of the organization’s mission.
-> - **Fuels engagement** - Transparency offers a sense of agency, situational awareness, and overall engagement that fosters a culture of thoughtful dialog and encourages organization-wide collaborative improvement over time.
-> - **Keeps the bar high** - Showing one's work establishes expectations around justification, thoroughness, and accountability that sets and maintains a high standard for decision making within an organization.
+> * **Captures institutional knowledge** - When you're purposeful about where and how you share context, you alleviate the need for “you had to be there” and “go ask Susan"-type inquiries.
+> * **Empowers others to learn through observation** - What's routine to you is likely novel to someone in another role or at another level of seniority.
+> * **Socializes organizational culture and values** - An organization's culture and values is composed in large part of [the underlying assumptions](https://ben.balter.com/2015/08/12/the-zen-of-github/) that its members fall back on as they resolve ambiguity in pursuit of the organization’s mission.
+> * **Fuels engagement** - Transparency offers a sense of agency, situational awareness, and overall engagement that fosters a culture of thoughtful dialog and encourages organization-wide collaborative improvement over time.
+> * **Keeps the bar high** - Showing one's work establishes expectations around justification, thoroughness, and accountability that sets and maintains a high standard for decision making within an organization.
 
 ## What it means to manage like an engineer
 
@@ -23,23 +23,23 @@ This level of open-source-like managerial transparency is far from automatic nor
 
 Here are a few of the engineer-inspired "how we work" principles which I strive to embody through my own management:
 
-- **Make work visible** - Proactively share to the widest extent practical given the subject.[^4] Like any production system, observability is key.
-- **Write things down** - Especially the why and how. [Ensure that everything has a URL](https://ben.balter.com/2015/11/12/why-urls/). Be generous with links.
-- **[Over communicate](https://ben.balter.com/2017/05/23/seven-ways-to-consistently-ship-great-features/#1-over-communicate)** - Use a durable, searchable, and discoverable medium. Let others opt-in to context and subscribe to updates.
-- **Bias for shipping** - [Ship early, ship often](https://ben.balter.com/2016/09/13/seven-habits-of-highly-effective-githubbers/#2-ship-early-ship-often). Whether decisions, process, or "manager code", ship an MVP and iterate. Minimize batch size.
-- **Streamline and automate** - Never force a human to do what a robot can. Prefer non-blocking over blocking operations. Codify policy as code.
-- **Embrace collaboration** - How we work is as important as what we work on. Software development is a team sport.[^5]
-- **Asynchronous first** - Reserve higher-fidelity mediums for conversations that require them.
-- **Practicality beats purity** - These are guidelines, not rules. Process should drive outcomes.
+* **Make work visible** - Proactively share to the widest extent practical given the subject.[^4] Like any production system, observability is key.
+* **Write things down** - Especially the why and how. [Ensure that everything has a URL](https://ben.balter.com/2015/11/12/why-urls/). Be generous with links.
+* **[Over communicate](https://ben.balter.com/2017/05/23/seven-ways-to-consistently-ship-great-features/#1-over-communicate)** - Use a durable, searchable, and discoverable medium. Let others opt-in to context and subscribe to updates.
+* **Bias for shipping** - [Ship early, ship often](https://ben.balter.com/2016/09/13/seven-habits-of-highly-effective-githubbers/#2-ship-early-ship-often). Whether decisions, process, or "manager code", ship an MVP and iterate. Minimize batch size.
+* **Streamline and automate** - Never force a human to do what a robot can. Prefer non-blocking over blocking operations. Codify policy as code.
+* **Embrace collaboration** - How we work is as important as what we work on. Software development is a team sport.[^5]
+* **Asynchronous first** - Reserve higher-fidelity mediums for conversations that require them.
+* **Practicality beats purity** - These are guidelines, not rules. Process should drive outcomes.
 
 ## How to manage like an engineer
 
 Managing like an engineer means a manager's go to tool for planning, tracking, and communicating managerial work is issues, project boards, Markdown files, and pull requests:[^8]
 
-- **Issues** - Issues are the atomic unit of work across teams and is the primary means by which work is planned, tracked, coordinated, and communicated, and where updates are shared.[^2]
-- **Project boards** - Project boards are the primary means by which work (in the form of issues) is organized, managed, prioritized, and made visible.
-- **Markdown files** - Markdown files are the primary means by which long-lived information is memorialized. Markdown files are created and modified via Pull Requests.
-- **Pull requests** - Pull requests are the primary means by which proposals are reviewed and decisions are made.
+* **Issues** - Issues are the atomic unit of work across teams and is the primary means by which work is planned, tracked, coordinated, and communicated, and where updates are shared.[^2]
+* **Project boards** - Project boards are the primary means by which work (in the form of issues) is organized, managed, prioritized, and made visible.
+* **Markdown files** - Markdown files are the primary means by which long-lived information is memorialized. Markdown files are created and modified via Pull Requests.
+* **Pull requests** - Pull requests are the primary means by which proposals are reviewed and decisions are made.
 
 ### Planning and tracking
 

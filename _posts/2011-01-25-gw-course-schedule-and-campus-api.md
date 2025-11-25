@@ -18,9 +18,9 @@ Creative ideas on how best to leverage the information welcome in the comments b
 
 ### Departments
 
-- Endpoint: `http://my.gwu.edu/mod/pws/scheduleXML.cfm`
-- Parameters: `termCode=[YYYY][01=spring, 02=summer, 03=fall]`
-- Returns:
+* Endpoint: `http://my.gwu.edu/mod/pws/scheduleXML.cfm`
+* Parameters: `termCode=[YYYY][01=spring, 02=summer, 03=fall]`
+* Returns:
 
   ```xml
   <?xml version="1.0" encoding="iso-8859-1" ?>
@@ -38,11 +38,11 @@ Creative ideas on how best to leverage the information welcome in the comments b
 
 ### Courses
 
-- Endpoint: `http://my.gwu.edu/mod/pws/scheduleXML.cfm`
-- Parameters:
+* Endpoint: `http://my.gwu.edu/mod/pws/scheduleXML.cfm`
+* Parameters:
   1. `termCode=[YYYY][01=spring, 02=summer, 03=fall]`
   2. `deptCode=[Dept. Code]`
-- Returns:
+* Returns:
 
   ```xml
   <?xml version="1.0" encoding="iso-8859-1" ?>
@@ -80,8 +80,8 @@ Creative ideas on how best to leverage the information welcome in the comments b
 
 ### Categories
 
-- Endpoint: `http://citl.gwu.edu/iphonedev/maps/categories.xml`
-- Returns:
+* Endpoint: `http://citl.gwu.edu/iphonedev/maps/categories.xml`
+* Returns:
 
   ```xml
   <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -103,8 +103,8 @@ Creative ideas on how best to leverage the information welcome in the comments b
 
 ### Buildings
 
-- Endpoint: `http://citl.gwu.edu/iphonedev/maps/[shortname].xml`
-- Returns:
+* Endpoint: `http://citl.gwu.edu/iphonedev/maps/[shortname].xml`
+* Returns:
 
   ```xml
   <?xml version="1.0" encoding="UTF-8" standalone="yes"?>

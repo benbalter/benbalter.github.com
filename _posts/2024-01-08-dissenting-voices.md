@@ -14,9 +14,9 @@ It's easy to dismiss that negativity as ignorant, personal, or a vocal minority 
 
 Attempting to "control the narrative" by silencing dissent is not only ineffective, it's also counterproductive:
 
-- **It erodes psychological safety** - When you shut down the conversation, you send a message that you don't value the input, the perspective, or the feelings of those affected by your decision. You also signal that you have something to hide, or that you're not confident in your own reasoning, further eroding trust.
-- **It invites negativity** - When you ignore the questions, you don't make them go away. You just push them underground, where they fester and grow. People will start to speculate, gossip, and complain. They will feel resentful, frustrated, and alienated. They will look for ways to resist, sabotage, or undermine your decision.
-- **It stifles learning** - When you avoid the scrutiny, you miss an opportunity to "[show your work](https://ben.balter.com/2022/02/16/leaders-show-their-work/)" and teach through action. An organization’s culture and values is comprised of the underlying assumptions that its members use to make decision. When decisions are transparent, you offer opportunities for the next generation of leaders to learn and grow through passive observation and lightweight participation.
+* **It erodes psychological safety** - When you shut down the conversation, you send a message that you don't value the input, the perspective, or the feelings of those affected by your decision. You also signal that you have something to hide, or that you're not confident in your own reasoning, further eroding trust.
+* **It invites negativity** - When you ignore the questions, you don't make them go away. You just push them underground, where they fester and grow. People will start to speculate, gossip, and complain. They will feel resentful, frustrated, and alienated. They will look for ways to resist, sabotage, or undermine your decision.
+* **It stifles learning** - When you avoid the scrutiny, you miss an opportunity to "[show your work](https://ben.balter.com/2022/02/16/leaders-show-their-work/)" and teach through action. An organization’s culture and values is comprised of the underlying assumptions that its members use to make decision. When decisions are transparent, you offer opportunities for the next generation of leaders to learn and grow through passive observation and lightweight participation.
 
 ## "Caremad" is a good thing
 
@@ -28,9 +28,9 @@ That dissent isn't disengagement or obstructionism as it may be easy to misread.
 
 The best leaders I've worked with have always been open to dissenting voices. They've always been willing to listen to the other side of the argument, and to engage with it, even if they're not willing to change their mind. The playbook is simple: be transparent, open, and accountable. This means:
 
-- **Be transparent** - Share the information, the data, and the evidence that informed your decision. Explain the criteria, the trade-offs, and the implications. Acknowledge the limitations, the uncertainties, and the challenges. Don't hide, spin, or sugarcoat the facts. Be honest, clear, and consistent.
-- **Be open** - Invite the questions, the feedback, and the dialogue. Listen to the concerns, the objections, and the suggestions. Respond with respect, empathy, and curiosity. Don't dismiss, deflect, or rebut the views. Be receptive, humble, and collaborative.
-- **Be accountable** - Take responsibility for your decision, your actions, and your results. Admit any mistakes, apologize, correct, and improve. Don't blame, deny, or justify the faults. Don't put the burden on others. Be honest, humble, and results-focused.
+* **Be transparent** - Share the information, the data, and the evidence that informed your decision. Explain the criteria, the trade-offs, and the implications. Acknowledge the limitations, the uncertainties, and the challenges. Don't hide, spin, or sugarcoat the facts. Be honest, clear, and consistent.
+* **Be open** - Invite the questions, the feedback, and the dialogue. Listen to the concerns, the objections, and the suggestions. Respond with respect, empathy, and curiosity. Don't dismiss, deflect, or rebut the views. Be receptive, humble, and collaborative.
+* **Be accountable** - Take responsibility for your decision, your actions, and your results. Admit any mistakes, apologize, correct, and improve. Don't blame, deny, or justify the faults. Don't put the burden on others. Be honest, humble, and results-focused.
 
 ## Conclusion
 

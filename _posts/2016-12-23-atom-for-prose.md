@@ -19,18 +19,18 @@ I highly recommend [taking a look at the packages @sroberts mentioned](https://s
 
 These packages shave seconds (sometimes minutes) off your day, and given their small size (and overhead), really set Atom apart from other text editors:
 
-- [atom-alignment](https://atom.io/packages/atom-alignment) - Have a bunch of `-`s, `:`s, or `=`s that your type-A mind can't stand to see vertically unaligned? Banish them with a single keystroke.
-- [highlight-selected](https://atom.io/packages/highlight-selected) - this one's hard to appreciate until you actually use it (or until it's missing). double-click a word to highlight all its uses in the current buffer. Useful for manual find-and-replace operations.
-- [theme-switcher](https://atom.io/packages/theme-switcher) - Switch between dark and light themes, helpful if you ever work outside.
+* [atom-alignment](https://atom.io/packages/atom-alignment) - Have a bunch of `-`s, `:`s, or `=`s that your type-A mind can't stand to see vertically unaligned? Banish them with a single keystroke.
+* [highlight-selected](https://atom.io/packages/highlight-selected) - this one's hard to appreciate until you actually use it (or until it's missing). double-click a word to highlight all its uses in the current buffer. Useful for manual find-and-replace operations.
+* [theme-switcher](https://atom.io/packages/theme-switcher) - Switch between dark and light themes, helpful if you ever work outside.
 
 ### Markdown
 
 There's a number of Markdown-specific packages I use. Here's a few:
 
-- [atomic-chrome](https://atom.io/packages/atomic-chrome) - One of my favorite Atom plugins, if you're in a textarea in Google Chrome, click the menu icon to open that textarea as an Atom editor, complete with all of Atom's bells and whistles.
-- [markdown-lists](https://atom.io/packages/markdown-lists) - If you're in the middle of a Markdown list and hit return, it inserts the bullet on the next line for you.
-- [markdown-table-formatter](https://atom.io/packages/markdown-table-formatter) - If you create a Markdown table, on save, it aligns the columns such that the table is both human and machine readable.
-- [wordcount](https://atom.io/packages/wordcount) - Exactly what it sounds like, it adds a word (and character) count to the gutter. Useful for composing conference abstracts, Tweets, basically anything with a set limit.
+* [atomic-chrome](https://atom.io/packages/atomic-chrome) - One of my favorite Atom plugins, if you're in a textarea in Google Chrome, click the menu icon to open that textarea as an Atom editor, complete with all of Atom's bells and whistles.
+* [markdown-lists](https://atom.io/packages/markdown-lists) - If you're in the middle of a Markdown list and hit return, it inserts the bullet on the next line for you.
+* [markdown-table-formatter](https://atom.io/packages/markdown-table-formatter) - If you create a Markdown table, on save, it aligns the columns such that the table is both human and machine readable.
+* [wordcount](https://atom.io/packages/wordcount) - Exactly what it sounds like, it adds a word (and character) count to the gutter. Useful for composing conference abstracts, Tweets, basically anything with a set limit.
 
 ### Linters
 
@@ -42,10 +42,10 @@ If you're not familiar with the concept of a linter, it's basically an automated
 
 There are a few prose-specific linters I credit for improving my day-to-day writing:
 
-- [linter-write-good](https://atom.io/packages/linter-write-good) - A grammar linter, Write Good checks all sorts of things, like falses, passive voice, and unnecessarily wordy phrases.
-- [linter-markdown](https://atom.io/packages/linter-markdown) - This linter, based on [Remark JS](https://github.com/gnab/remark) lints Markdown formatting, ensuring things like headings are surrounded by whitespace and bulleted lists are consistent.
-- [linter-alex](https://atom.io/packages/linter-alex) - [Alex](https://github.com/wooorm/alex) checks your writing for biased or insensitive language.
-- [linter-just-say-no](https://atom.io/packages/linter-just-say-no) - Discourages you from using hedge words that weaken's the impact of your writing.
+* [linter-write-good](https://atom.io/packages/linter-write-good) - A grammar linter, Write Good checks all sorts of things, like falses, passive voice, and unnecessarily wordy phrases.
+* [linter-markdown](https://atom.io/packages/linter-markdown) - This linter, based on [Remark JS](https://github.com/gnab/remark) lints Markdown formatting, ensuring things like headings are surrounded by whitespace and bulleted lists are consistent.
+* [linter-alex](https://atom.io/packages/linter-alex) - [Alex](https://github.com/wooorm/alex) checks your writing for biased or insensitive language.
+* [linter-just-say-no](https://atom.io/packages/linter-just-say-no) - Discourages you from using hedge words that weaken's the impact of your writing.
 
 ## How I manage Atom
 

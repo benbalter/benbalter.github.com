@@ -14,17 +14,17 @@ WP Resume is an out-of-the-box solution to get your résumé online and keep it 
 
 ## Features include
 
-- Support for sections (for example, education, experience), organizations (for example, somewhere state university, Cogs, Inc.), positions (for example, bachelor of arts, chief widget specialist), and details (for example, grew bottom line by 15%, president of the sustainability club)
-- Follows best practices in resume layout and design
-- One click install, just start adding content
-- Drag and drop ordering of resume elements
-- Built on existing WordPress code, utilizing a single custom post type and two custom taxonomies
-- The WYSIWYG editing experience you know and love
-- Revisioning
-- Integrates with your theme like they were made for each other
-- Custom URL
-- Does not use pretentious accents on the word "resume"
-- Extremely original title
+* Support for sections (for example, education, experience), organizations (for example, somewhere state university, Cogs, Inc.), positions (for example, bachelor of arts, chief widget specialist), and details (for example, grew bottom line by 15%, president of the sustainability club)
+* Follows best practices in resume layout and design
+* One click install, just start adding content
+* Drag and drop ordering of resume elements
+* Built on existing WordPress code, utilizing a single custom post type and two custom taxonomies
+* The WYSIWYG editing experience you know and love
+* Revisioning
+* Integrates with your theme like they were made for each other
+* Custom URL
+* Does not use pretentious accents on the word "resume"
+* Extremely original title
 
 The hardest part of getting your résumé online should be doing the work listed on it, not wrestling the publishing platform. Simply put, WP Resume steps aside and lets your experience shine.
 
