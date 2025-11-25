@@ -5,7 +5,7 @@
 // This file defines CSS custom properties for light mode syntax highlighting.
 // Applied when (prefers-color-scheme: light).
 
-:root {
+.highlight {
   // Base colors
   --highlight-fg: #24292f;
   --highlight-bg: #f6f8fa;
