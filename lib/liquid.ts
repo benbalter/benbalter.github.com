@@ -67,7 +67,7 @@ function registerCustomTags(engine: Liquid) {
   engine.registerTag('github_edit_link', {
     parse(token) {
       // Extract optional link text from tag arguments
-      this.linkText = token.args.trim().replaceAll(/^["']|["']$/g, '') || 'help improve this content';
+      this.linkText = token.args.trim().replace(/^["']|["']$/g, '') || 'help improve this content';
     },
     render(context) {
       const site = context.get(['site']) as any;
@@ -92,7 +92,7 @@ function registerCustomTags(engine: Liquid) {
       return config.url;
     }
 
-    // Remove leading slash if present to avoid double slashes
+    // Ensure path has leading slash for proper URL concatenation
     const cleanPath = relativePath.startsWith('/') ? relativePath : `/${relativePath}`;
     return `${config.url.replace(/\/$/, '')}${cleanPath}`;
   });
