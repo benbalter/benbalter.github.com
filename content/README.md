@@ -1,12 +1,11 @@
 # Content Directory
 
-This directory contains all website content migrated from Jekyll to Next.js-compatible Markdown format.
+This directory contains supplementary website content for Next.js. Blog posts are read from the `_posts` directory in the repository root for backwards compatibility with Jekyll.
 
 ## Structure
 
 ```
 content/
-├── posts/                  # Blog posts (184 files)
 ├── pages/                  # Site pages (9 files)
 ├── data/                   # Data files (3 files)
 ├── resume/                 # Resume positions (10 files)
@@ -16,6 +15,8 @@ content/
 ├── validate-migration.sh   # Validation script
 └── README.md               # This file
 ```
+
+Note: Blog posts are located in `_posts/` in the repository root (not in this directory).
 
 ## Validation
 
@@ -35,13 +36,15 @@ This script checks:
 
 ### Reading Blog Posts
 
+Blog posts are read from the `_posts` directory in the repository root for backwards compatibility with Jekyll:
+
 ```javascript
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
 export function getAllPosts() {
-  const postsDirectory = path.join(process.cwd(), 'content/posts');
+  const postsDirectory = path.join(process.cwd(), '_posts');
   const filenames = fs.readdirSync(postsDirectory);
 
   const posts = filenames.map((filename) => {

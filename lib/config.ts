@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
 
-interface SiteConfig {
+export interface SiteConfig {
   title: string;
   description: string;
   url: string;
@@ -28,6 +28,14 @@ interface SiteConfig {
   email?: string;
   amazon?: {
     affiliates_tag: string;
+  };
+  og_image?: {
+    domain?: string;
+    image?: string;
+    border_bottom?: {
+      width?: number;
+      fill?: string[];
+    };
   };
 }
 
