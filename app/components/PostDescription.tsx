@@ -1,14 +1,18 @@
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import remarkGithub from 'remark-github';
-import { getSiteConfig } from '@/lib/config';
+import { inlineMarkdownToHtml } from '@/lib/markdown';
 
 interface PostDescriptionProps {
   description: string;
 }
 
-export default function PostDescription({ description }: PostDescriptionProps) {
-  const config = getSiteConfig();
+/**
+ * Post description component (Server Component)
+ * Displays the TL;DR summary of a blog post with markdown support.
+ * Uses build-time HTML generation instead of runtime ReactMarkdown
+ * for smaller bundle size and better SSG performance.
+ */
+export default async function PostDescription({ description }: PostDescriptionProps) {
+  // Convert markdown to HTML at build time
+  const descriptionHtml = await inlineMarkdownToHtml(description);
   
   return (
     <div className="lead">
@@ -23,18 +27,7 @@ export default function PostDescription({ description }: PostDescriptionProps) {
         </abbr>
         :{' '}
       </strong>
-      <ReactMarkdown
-        remarkPlugins={[
-          remarkGfm,
-          [remarkGithub, { repository: config.repository, mentionStrong: false }],
-        ]}
-        components={{
-          // Remove paragraph wrapper to keep content inline
-          p: ({ children }) => <>{children}</>,
-        }}
-      >
-        {description}
-      </ReactMarkdown>
+      <span dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
     </div>
   );
 }
