@@ -1,11 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { remark } from 'remark';
-import stripMarkdown from 'strip-markdown';
 import { getSiteConfig, getAuthorBio } from './config';
 import { getAllPosts, type Post } from './posts';
-import { stripHtml } from './markdown';
 
 /**
  * Get pages metadata for llms.txt
@@ -29,30 +26,32 @@ function getPages(): Array<{ title: string; description: string; permalink: stri
 }
 
 /**
- * Strip markdown and HTML from text using open source libraries
- * Uses remark + strip-markdown for markdown, and stripHtml for HTML
- * (stripHtml uses the html-to-text library under the hood)
+ * Strip markdown and HTML from text
  */
-async function stripFormatting(text: string): Promise<string> {
-  // First strip markdown using remark + strip-markdown
-  const file = await remark()
-    .use(stripMarkdown)
-    .process(text);
+function stripFormatting(text: string): string {
+  let stripped = text
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/\*([^*]+)\*/g, '$1');
   
-  const markdownStripped = String(file);
+  // Repeatedly remove HTML tags until no more are found
+  let previous = '';
+  while (stripped !== previous) {
+    previous = stripped;
+    stripped = stripped.replace(/<[^>]+>/g, '');
+  }
   
-  // Then strip any remaining HTML using stripHtml (which uses html-to-text)
-  return stripHtml(markdownStripped).trim();
+  return stripped;
 }
 
 /**
  * Generate llms.txt content
  */
-export async function generateLlmsTxt(): Promise<string> {
+export function generateLlmsTxt(): string {
   const config = getSiteConfig();
   const posts = getAllPosts();
   const pages = getPages();
-  const bio = await stripFormatting(getAuthorBio());
+  const bio = stripFormatting(getAuthorBio());
   
   const recentPosts = posts.slice(0, 10);
   
