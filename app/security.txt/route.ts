@@ -1,13 +1,3 @@
-import { generateSecurityTxt } from '@/lib/metadata';
+import { generateSecurityTxt, createMetadataRouteHandler } from '@/lib/metadata';
 
-export const dynamic = 'force-static';
-
-export async function GET() {
-  const content = generateSecurityTxt();
-  
-  return new Response(content, {
-    headers: {
-      'Content-Type': 'text/plain; charset=utf-8',
-    },
-  });
-}
+export const { dynamic, GET } = createMetadataRouteHandler(generateSecurityTxt);
