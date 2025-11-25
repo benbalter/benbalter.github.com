@@ -7,18 +7,19 @@ $color-mode-type: media-query;
 
 @import "~bootstrap/scss/bootstrap";
 
+// Syntax highlighting styles
+@import 'highlighting';
+
 abbr[data-bs-original-title] {
     @extend abbr, [title]
 }
 
+// Dark mode syntax highlighting colors
 @media (prefers-color-scheme: dark) {
     @import 'base16.dark';
-    
-    .highlight {
-        background-color: var(--bs-body-bg)
-    }
 }
 
+// Light mode syntax highlighting colors (default)
 @media (prefers-color-scheme: light) {
     @import 'base16.light';
 }
