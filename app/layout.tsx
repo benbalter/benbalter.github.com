@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from 'next';
-import Script from 'next/script';
 import './styles.scss';
 import './globals.css';
 import Navigation from './components/Navigation';
@@ -147,7 +146,6 @@ export default function RootLayout({
           <Footer footerPages={footerPages} />
         </div>
         <ClientScripts />
-        <Script src="/assets/js/bundle.js" strategy="afterInteractive" />
       </body>
     </html>
   );
