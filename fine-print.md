@@ -18,11 +18,11 @@ Finally, be aware that I am a strong proponent of the [serial comma](http://en.
 ### Licensing
 
 <div class="text-center mb-3">
-  <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">
-    <img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Creative Commons License" />
+  <a rel="license" href="https://creativecommons.org/licenses/by/3.0/">
+    <img src="/assets/images/cc-by-88x31.png" alt="Creative Commons License" />
   </a>
 </div>
 
-* All original content on `Ben.Balter.com` is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a> attributable to <a rel="cc:attributionURL" href="{{ site.github.url }}">{{ site.title }}</a>.
+* All original content on `Ben.Balter.com` is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a> attributable to <a rel="cc:attributionURL" href="{{ site.github.url }}">{{ site.title }}</a>.
 * Header image courtesy [FedScoop](http://fedscoop.com/), © 2013.
 * All code available [on GitHub](https://github.com/benbalter/benbalter.github.com) and licensed under the MIT license.
