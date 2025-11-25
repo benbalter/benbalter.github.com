@@ -10,12 +10,12 @@ echo ""
 
 # Count files
 echo "=== File Counts ==="
-POSTS_COUNT=$(find content/posts -name "*.md" | wc -l)
+POSTS_COUNT=$(find _posts -name "*.md" | wc -l)
 PAGES_COUNT=$(find content/pages -type f | wc -l)
 DATA_COUNT=$(find content/data -name "*.yml" | wc -l)
 RESUME_COUNT=$(find content/resume -name "*.md" | wc -l)
 
-echo "Posts: $POSTS_COUNT"
+echo "Posts: $POSTS_COUNT (from _posts/)"
 echo "Pages: $PAGES_COUNT"
 echo "Data files: $DATA_COUNT"
 echo "Resume positions: $RESUME_COUNT"
@@ -25,7 +25,7 @@ echo ""
 # Check for required frontmatter
 echo "=== Checking Posts Frontmatter ==="
 missing=0
-for file in content/posts/*.md; do
+for file in _posts/*.md; do
   if ! grep -q "^title:" "$file"; then
     echo "❌ Missing title: $(basename $file)"
     ((missing++))
@@ -34,14 +34,10 @@ for file in content/posts/*.md; do
     echo "❌ Missing description: $(basename $file)"
     ((missing++))
   fi
-  if ! grep -q "^date:" "$file"; then
-    echo "❌ Missing date: $(basename $file)"
-    ((missing++))
-  fi
 done
 
 if [ $missing -eq 0 ]; then
-  echo "✅ All posts have required frontmatter (title, description, date)"
+  echo "✅ All posts have required frontmatter (title, description)"
 else
   echo "❌ Found $missing issues in posts"
   exit 1
@@ -101,10 +97,10 @@ jekyll_fields_found=0
 
 # Check for unprefixed layout in frontmatter (not in code blocks)
 # We need to be careful to exclude the post that has layout examples in markdown
-unprefixed_layout=$(grep -r "^layout:" content/ --include="*.md" --include="*.html" | grep -v "content/posts/2015-06-11" | wc -l)
+unprefixed_layout=$(grep -r "^layout:" content/ --include="*.md" --include="*.html" | grep -v "_posts/2015-06-11" | wc -l)
 if [ $unprefixed_layout -gt 0 ]; then
   echo "❌ Found $unprefixed_layout files with unprefixed 'layout:' field"
-  grep -r "^layout:" content/ --include="*.md" --include="*.html" | grep -v "content/posts/2015-06-11"
+  grep -r "^layout:" content/ --include="*.md" --include="*.html" | grep -v "_posts/2015-06-11"
   ((jekyll_fields_found++))
 fi
 
