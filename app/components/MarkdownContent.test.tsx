@@ -11,8 +11,8 @@ jest.mock('@/lib/markdown', () => ({
 
 // Mock the liquid utility
 jest.mock('@/lib/liquid', () => ({
-  extractComponentPlaceholders: jest.fn((content: string) => ({
-    content,
+  extractComponentPlaceholders: jest.fn((html: string) => ({
+    content: html,
     components: [],
   })),
   splitContentAtPlaceholders: jest.fn((html: string) => [
@@ -68,21 +68,24 @@ describe('MarkdownContent', () => {
     expect(container.firstChild).toBeInTheDocument();
   });
 
-  it('should call markdownToHtml with extracted content', async () => {
+  it('should call markdownToHtml first, then extractComponentPlaceholders on result', async () => {
     const { markdownToHtml } = require('@/lib/markdown');
     const { extractComponentPlaceholders } = require('@/lib/liquid');
     
+    markdownToHtml.mockResolvedValueOnce('<p>Rendered HTML</p>');
     extractComponentPlaceholders.mockReturnValueOnce({
-      content: 'Extracted content',
+      content: '<p>Rendered HTML</p>',
       components: [],
     });
-    markdownToHtml.mockResolvedValueOnce('<p>Extracted content</p>');
     
     await MarkdownContent({ 
       markdown: 'Test markdown',
     });
     
-    expect(markdownToHtml).toHaveBeenCalledWith('Extracted content', undefined);
+    // markdownToHtml should be called with original markdown
+    expect(markdownToHtml).toHaveBeenCalledWith('Test markdown', undefined);
+    // extractComponentPlaceholders should be called with rendered HTML
+    expect(extractComponentPlaceholders).toHaveBeenCalledWith('<p>Rendered HTML</p>');
   });
 
   it('should render HTML from markdownToHtml', async () => {
@@ -127,15 +130,18 @@ describe('MarkdownContent', () => {
     expect(container.querySelector('strong')).toHaveTextContent('Bold text');
   });
 
-  it('should render FossAtScale component when extracted', async () => {
+  it('should render FossAtScale component when extracted from HTML', async () => {
     const { markdownToHtml } = require('@/lib/markdown');
     const { extractComponentPlaceholders, splitContentAtPlaceholders } = require('@/lib/liquid');
     
+    // Simulate Liquid rendering the foss-at-scale include to HTML
+    markdownToHtml.mockResolvedValueOnce('<div class="alert alert-primary text-center" role="alert">This is the first post in a series</div>');
+    
+    // extractComponentPlaceholders detects the callout pattern and extracts it
     extractComponentPlaceholders.mockReturnValueOnce({
       content: '<div data-component="component-0"></div>',
       components: [{ type: 'foss-at-scale', props: { nth: 'first' }, id: 'component-0' }],
     });
-    markdownToHtml.mockResolvedValueOnce('<div data-component="component-0"></div>');
     splitContentAtPlaceholders.mockReturnValueOnce([
       { type: 'component', component: { type: 'foss-at-scale', props: { nth: 'first' }, id: 'component-0' } },
     ]);
@@ -144,22 +150,22 @@ describe('MarkdownContent', () => {
       markdown: '{% include foss-at-scale.html nth="first" %}',
     });
     
-    const { container } = render(MarkdownContentResolved);
+    render(MarkdownContentResolved);
     
     // FossAtScale component renders with alert role
     expect(screen.getByRole('alert')).toBeInTheDocument();
     expect(screen.getByText(/This is the first post in/i)).toBeInTheDocument();
   });
 
-  it('should render GitHubCultureCallout component when extracted', async () => {
+  it('should render GitHubCultureCallout component when extracted from HTML', async () => {
     const { markdownToHtml } = require('@/lib/markdown');
     const { extractComponentPlaceholders, splitContentAtPlaceholders } = require('@/lib/liquid');
     
+    markdownToHtml.mockResolvedValueOnce('<div class="alert alert-primary text-center" role="alert">GitHub culture content</div>');
     extractComponentPlaceholders.mockReturnValueOnce({
       content: '<div data-component="component-0"></div>',
       components: [{ type: 'github-culture', props: {}, id: 'component-0' }],
     });
-    markdownToHtml.mockResolvedValueOnce('<div data-component="component-0"></div>');
     splitContentAtPlaceholders.mockReturnValueOnce([
       { type: 'component', component: { type: 'github-culture', props: {}, id: 'component-0' } },
     ]);
@@ -168,21 +174,21 @@ describe('MarkdownContent', () => {
       markdown: '{% include_cached github-culture.html %}',
     });
     
-    const { container } = render(MarkdownContentResolved);
+    render(MarkdownContentResolved);
     
     expect(screen.getByRole('alert')).toBeInTheDocument();
     expect(screen.getByText(/Interested in learning more about how GitHub works/i)).toBeInTheDocument();
   });
 
-  it('should render Callout component when extracted', async () => {
+  it('should render Callout component when extracted from HTML', async () => {
     const { markdownToHtml } = require('@/lib/markdown');
     const { extractComponentPlaceholders, splitContentAtPlaceholders } = require('@/lib/liquid');
     
+    markdownToHtml.mockResolvedValueOnce('<div class="alert alert-primary text-center" role="alert">Test callout</div>');
     extractComponentPlaceholders.mockReturnValueOnce({
       content: '<div data-component="component-0"></div>',
       components: [{ type: 'callout', props: { content: 'Test callout' }, id: 'component-0' }],
     });
-    markdownToHtml.mockResolvedValueOnce('<div data-component="component-0"></div>');
     splitContentAtPlaceholders.mockReturnValueOnce([
       { type: 'component', component: { type: 'callout', props: { content: 'Test callout' }, id: 'component-0' } },
     ]);
@@ -191,7 +197,7 @@ describe('MarkdownContent', () => {
       markdown: '{% include callout.html content="Test callout" %}',
     });
     
-    const { container } = render(MarkdownContentResolved);
+    render(MarkdownContentResolved);
     
     expect(screen.getByRole('alert')).toBeInTheDocument();
     expect(screen.getByText('Test callout')).toBeInTheDocument();
@@ -201,11 +207,11 @@ describe('MarkdownContent', () => {
     const { markdownToHtml } = require('@/lib/markdown');
     const { extractComponentPlaceholders, splitContentAtPlaceholders } = require('@/lib/liquid');
     
+    markdownToHtml.mockResolvedValueOnce('<p>Before</p><div class="alert alert-primary text-center" role="alert">Callout</div><p>After</p>');
     extractComponentPlaceholders.mockReturnValueOnce({
-      content: 'Before <div data-component="component-0"></div> After',
+      content: '<p>Before</p><div data-component="component-0"></div><p>After</p>',
       components: [{ type: 'foss-at-scale', props: { nth: 'second' }, id: 'component-0' }],
     });
-    markdownToHtml.mockResolvedValueOnce('<p>Before</p><div data-component="component-0"></div><p>After</p>');
     splitContentAtPlaceholders.mockReturnValueOnce([
       { type: 'html', content: '<p>Before</p>' },
       { type: 'component', component: { type: 'foss-at-scale', props: { nth: 'second' }, id: 'component-0' } },
@@ -216,7 +222,7 @@ describe('MarkdownContent', () => {
       markdown: 'Before {% include foss-at-scale.html nth="second" %} After',
     });
     
-    const { container } = render(MarkdownContentResolved);
+    render(MarkdownContentResolved);
     
     expect(screen.getByText('Before')).toBeInTheDocument();
     expect(screen.getByText('After')).toBeInTheDocument();

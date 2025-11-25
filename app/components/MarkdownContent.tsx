@@ -17,13 +17,13 @@ interface MarkdownContentProps {
 function renderComponent(component: ComponentPlaceholder): React.ReactNode {
   switch (component.type) {
     case 'callout':
-      // Callout content is extracted from the Liquid include before markdown processing.
-      // The content is simple text from the blog post's Liquid template, not user input.
-      // Since this is static site generation (SSG), the content comes from trusted 
-      // markdown files in the repository, not from external/user sources.
+      // Callout content comes from the rendered Liquid include after variable resolution.
+      // The content is HTML that was rendered by the Jekyll include, so we use
+      // dangerouslySetInnerHTML. Since this is SSG with trusted markdown files
+      // from the repository (not user input), this is safe.
       return (
         <Callout key={component.id}>
-          {component.props.content || ''}
+          <span dangerouslySetInnerHTML={{ __html: component.props.content || '' }} />
         </Callout>
       );
     case 'foss-at-scale':
@@ -63,11 +63,13 @@ function renderComponent(component: ComponentPlaceholder): React.ReactNode {
  * - {% include_cached github-culture.html %} -> GitHubCultureCallout
  */
 export default async function MarkdownContent({ markdown, className = '', context }: MarkdownContentProps) {
-  // Extract component placeholders before Liquid processing
-  const { content: contentWithPlaceholders, components } = extractComponentPlaceholders(markdown);
-  
   // Convert markdown to HTML at build time, including liquid template processing
-  const html = await markdownToHtml(contentWithPlaceholders, context);
+  // This resolves all Liquid variables and renders includes to HTML
+  const html = await markdownToHtml(markdown, context);
+  
+  // Extract component placeholders AFTER Liquid processing
+  // This ensures all variables are resolved before we detect component patterns
+  const { content: contentWithPlaceholders, components } = extractComponentPlaceholders(html);
   
   // If no components were extracted, use the simple dangerouslySetInnerHTML approach
   if (components.length === 0) {
@@ -80,7 +82,7 @@ export default async function MarkdownContent({ markdown, className = '', contex
   }
   
   // Split content at placeholders and render with React components
-  const segments = splitContentAtPlaceholders(html, components);
+  const segments = splitContentAtPlaceholders(contentWithPlaceholders, components);
   
   return (
     <div className={className}>

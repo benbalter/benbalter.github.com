@@ -1,87 +1,75 @@
 import { processLiquid, extractComponentPlaceholders, splitContentAtPlaceholders } from './liquid';
 
 describe('extractComponentPlaceholders', () => {
-  it('should extract callout includes with quoted content', () => {
-    const content = 'Before {% include callout.html content="Test content" %} After';
-    const result = extractComponentPlaceholders(content);
+  // extractComponentPlaceholders now works on rendered HTML after Liquid processing
+  // It detects specific HTML patterns output by Jekyll includes
+  
+  it('should extract generic callout from rendered HTML', () => {
+    const html = '<p>Before</p><div class="alert alert-primary text-center" role="alert">Test content</div><p>After</p>';
+    const result = extractComponentPlaceholders(html);
     
     expect(result.components).toHaveLength(1);
-    expect(result.components[0]).toEqual({
-      type: 'callout',
-      props: { content: 'Test content' },
-      id: 'component-0',
-    });
-    expect(result.content).toBe('Before <div data-component="component-0"></div> After');
+    expect(result.components[0].type).toBe('callout');
+    expect(result.components[0].props.content).toBe('Test content');
+    expect(result.content).toContain('<div data-component="component-0"></div>');
   });
   
-  it('should extract foss-at-scale includes', () => {
-    const content = '{% include foss-at-scale.html nth="first" %}';
-    const result = extractComponentPlaceholders(content);
-    
-    expect(result.components).toHaveLength(1);
-    expect(result.components[0]).toEqual({
-      type: 'foss-at-scale',
-      props: { nth: 'first' },
-      id: 'component-0',
-    });
-  });
-  
-  it('should extract github-culture includes', () => {
-    const content = '{% include_cached github-culture.html %}';
-    const result = extractComponentPlaceholders(content);
-    
-    expect(result.components).toHaveLength(1);
-    expect(result.components[0]).toEqual({
-      type: 'github-culture',
-      props: {},
-      id: 'component-0',
-    });
-  });
-  
-  it('should extract github-culture without _cached', () => {
-    const content = '{% include github-culture.html %}';
-    const result = extractComponentPlaceholders(content);
+  it('should extract github-culture callout from rendered HTML', () => {
+    const html = '<div class="alert alert-primary text-center" role="alert">Check out <a href="/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/">these posts</a></div>';
+    const result = extractComponentPlaceholders(html);
     
     expect(result.components).toHaveLength(1);
     expect(result.components[0].type).toBe('github-culture');
   });
   
+  it('should extract foss-at-scale callout from rendered HTML', () => {
+    const html = '<div class="alert alert-primary text-center" role="alert">This is the first post in <a href="/2021/06/15/managing-open-source-communities-at-scale/">a series</a></div>';
+    const result = extractComponentPlaceholders(html);
+    
+    expect(result.components).toHaveLength(1);
+    expect(result.components[0].type).toBe('foss-at-scale');
+    expect(result.components[0].props.nth).toBe('first');
+  });
+  
+  it('should extract nth value correctly for foss-at-scale', () => {
+    const html = '<div class="alert alert-primary text-center" role="alert">This is the second post in <a href="/2021/06/15/managing-open-source-communities-at-scale/">a series</a></div>';
+    const result = extractComponentPlaceholders(html);
+    
+    expect(result.components[0].props.nth).toBe('second');
+  });
+  
   it('should extract multiple components', () => {
-    const content = `
-{% include foss-at-scale.html nth="first" %}
-Some content
-{% include callout.html content="A callout" %}
-More content
-{% include_cached github-culture.html %}
+    const html = `
+<div class="alert alert-primary text-center" role="alert">This is the first post in <a href="/2021/06/15/managing-open-source-communities-at-scale/">a series</a></div>
+<p>Some content</p>
+<div class="alert alert-primary text-center" role="alert">Simple callout</div>
+<p>More content</p>
+<div class="alert alert-primary text-center" role="alert">Check out <a href="/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/">GitHub culture</a></div>
     `;
-    const result = extractComponentPlaceholders(content);
+    const result = extractComponentPlaceholders(html);
     
     expect(result.components).toHaveLength(3);
-    // Components are extracted in order: callout regex first, then foss-at-scale, then github-culture
-    // But since they appear in different positions, the order depends on regex execution
     const types = result.components.map(c => c.type);
     expect(types).toContain('foss-at-scale');
     expect(types).toContain('callout');
     expect(types).toContain('github-culture');
   });
   
-  it('should return empty components array when no includes found', () => {
-    const content = 'Just some regular content without includes';
-    const result = extractComponentPlaceholders(content);
+  it('should return empty components array when no callouts found', () => {
+    const html = '<p>Just some regular content without callouts</p>';
+    const result = extractComponentPlaceholders(html);
     
     expect(result.components).toHaveLength(0);
-    expect(result.content).toBe(content);
+    expect(result.content).toBe(html);
   });
   
-  it('should handle varying whitespace in include syntax', () => {
-    const content1 = '{%include foss-at-scale.html nth="test"%}';
-    const content2 = '{%  include  foss-at-scale.html  nth="test"  %}';
+  it('should handle callout content with HTML', () => {
+    const html = '<div class="alert alert-primary text-center" role="alert"><strong>Bold</strong> and <em>italic</em></div>';
+    const result = extractComponentPlaceholders(html);
     
-    const result1 = extractComponentPlaceholders(content1);
-    const result2 = extractComponentPlaceholders(content2);
-    
-    expect(result1.components).toHaveLength(1);
-    expect(result2.components).toHaveLength(1);
+    expect(result.components).toHaveLength(1);
+    expect(result.components[0].props.content).toContain('<strong>Bold</strong>');
+    expect(result.components[0].props.content).toContain('<em>italic</em>');
   });
 });
 

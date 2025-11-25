@@ -17,65 +17,71 @@ export interface ComponentPlaceholder {
  * Result of extracting components from content.
  */
 export interface ExtractedComponents {
-  /** The content with placeholders replaced by marker comments */
+  /** The content with component HTML replaced by placeholder markers */
   content: string;
   /** Array of components to render */
   components: ComponentPlaceholder[];
 }
 
 /**
- * Extracts React component placeholders from Liquid include syntax.
- * Replaces supported includes with HTML comments that can be used to split
- * the rendered content and insert React components.
+ * Extracts React component placeholders from rendered HTML.
+ * This function works on HTML AFTER Liquid processing, so all variables are resolved.
  * 
- * Supported includes:
- * - {% include callout.html content="..." %} -> Callout component
- * - {% include foss-at-scale.html nth="..." %} -> FossAtScale component
- * - {% include_cached github-culture.html %} -> GitHubCultureCallout component
+ * It detects specific HTML patterns rendered by Jekyll includes and replaces them
+ * with React component placeholders. This allows the Liquid engine to resolve all
+ * variables and filters first, then we extract the rendered content for React.
  * 
- * @param content - The raw markdown content with Liquid includes
+ * Detected patterns:
+ * - callout.html: <div class="alert alert-primary text-center" role="alert">content</div>
+ * - github-culture.html: Specific content pattern for GitHub culture callout
+ * - foss-at-scale.html: Specific content pattern for FOSS at scale series
+ * 
+ * @param html - The rendered HTML content after Liquid processing
  * @returns Object containing modified content and extracted components
  */
-export function extractComponentPlaceholders(content: string): ExtractedComponents {
+export function extractComponentPlaceholders(html: string): ExtractedComponents {
   const components: ComponentPlaceholder[] = [];
-  let modifiedContent = content;
+  let modifiedContent = html;
   let placeholderId = 0;
   
-  // Match {% include callout.html content=... %}
-  // Supports both content="value" and content=variable
-  const calloutRegex = /\{%\s*include\s+callout\.html\s+content\s*=\s*(?:"([^"]*)"|([\w]+))\s*%\}/g;
-  modifiedContent = modifiedContent.replace(calloutRegex, (match, quotedContent, variableContent) => {
-    const id = `component-${placeholderId++}`;
-    components.push({
-      type: 'callout',
-      props: { content: quotedContent || variableContent || '' },
-      id,
-    });
-    // Use a div with data attribute that will survive HTML sanitization
-    return `<div data-component="${id}"></div>`;
-  });
+  // Match callout HTML pattern: <div class="alert alert-primary text-center" role="alert">content</div>
+  // This pattern is rendered by _includes/callout.html after Liquid processing
+  // Use [^]* instead of .* to match across newlines
+  const calloutRegex = /<div\s+class="alert alert-primary text-center"\s+role="alert">\s*([^]*?)\s*<\/div>/g;
   
-  // Match {% include foss-at-scale.html nth="..." %}
-  const fossRegex = /\{%\s*include\s+foss-at-scale\.html\s+nth\s*=\s*"([^"]*)"\s*%\}/g;
-  modifiedContent = modifiedContent.replace(fossRegex, (match, nth) => {
+  modifiedContent = modifiedContent.replace(calloutRegex, (match, content) => {
     const id = `component-${placeholderId++}`;
-    components.push({
-      type: 'foss-at-scale',
-      props: { nth },
-      id,
-    });
-    return `<div data-component="${id}"></div>`;
-  });
-  
-  // Match {% include_cached github-culture.html %} or {% include github-culture.html %}
-  const githubCultureRegex = /\{%\s*include(?:_cached)?\s+github-culture\.html\s*%\}/g;
-  modifiedContent = modifiedContent.replace(githubCultureRegex, () => {
-    const id = `component-${placeholderId++}`;
-    components.push({
-      type: 'github-culture',
-      props: {},
-      id,
-    });
+    
+    // Detect if this is a github-culture callout by checking for specific link
+    if (content.includes('/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/')) {
+      components.push({
+        type: 'github-culture',
+        props: {},
+        id,
+      });
+    }
+    // Detect if this is a foss-at-scale callout by checking for specific link and pattern
+    else if (content.includes('/2021/06/15/managing-open-source-communities-at-scale/') && content.includes('post in')) {
+      // Extract the "nth" value (e.g., "first", "second", etc.)
+      const nthMatch = content.match(/This is the ([^<]+) post in/);
+      const nth = nthMatch ? nthMatch[1].trim() : '';
+      
+      components.push({
+        type: 'foss-at-scale',
+        props: { nth },
+        id,
+      });
+    }
+    // Generic callout
+    else {
+      components.push({
+        type: 'callout',
+        props: { content: content.trim() },
+        id,
+      });
+    }
+    
+    // Replace with a placeholder div
     return `<div data-component="${id}"></div>`;
   });
   
