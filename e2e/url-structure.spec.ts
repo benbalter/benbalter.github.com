@@ -65,11 +65,15 @@ function getAllPosts() {
 
 // Helper to get all pages
 function getAllPages() {
-  const pagesDir = path.join(process.cwd(), 'content', 'pages');
-  return readAndParseFiles(
-    pagesDir,
-    f => f.endsWith('.md') || f.endsWith('.html'),
-    (f, fullPath, data, content) => {
+  const pagesDir = process.cwd();
+  // Filter for specific page files that exist in root
+  const pageFiles = ['about.md', 'contact.md', 'fine-print.md', 'other-recommended-reading.html', 'talks.md', 'resume.md', 'press.md', 'index.html', '404.md'];
+  return pageFiles
+    .filter(f => fs.existsSync(path.join(pagesDir, f)))
+    .map(f => {
+      const fullPath = path.join(pagesDir, f);
+      const content = fs.readFileSync(fullPath, 'utf8');
+      const { data } = matter(content);
       const slug = f.replace(/\.(md|html)$/, '');
       // Use permalink if specified, otherwise use slug
       const url = data.permalink || (slug === 'index' ? '/' : `/${slug}/`);
@@ -79,8 +83,7 @@ function getAllPages() {
         url,
         frontmatter: data,
       };
-    }
-  );
+    });
 }
 
 test.describe('URL Structure Validation', () => {
