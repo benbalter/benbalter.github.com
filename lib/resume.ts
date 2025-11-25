@@ -83,7 +83,6 @@ export const getAllResumePositions = cache((): ResumePosition[] => {
  */
 export const getResumeData = cache((): ResumeData => {
   // Get resume page front matter from root-level resume.md
-  // Get resume page front matter from resume.md in root
   const resumePagePath = path.join(process.cwd(), 'resume.md');
   const fileContents = fs.readFileSync(resumePagePath, 'utf8');
   const { data } = matter(fileContents);
