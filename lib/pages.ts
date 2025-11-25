@@ -69,10 +69,10 @@ export const getAllPages = cache((): Page[] => {
 });
 
 /**
- * Pages that should not be rendered via the [slug] route
- * because they have dedicated routes or are special pages
+ * Page slugs to exclude from static site generation
+ * These pages may still exist in content but won't be built
  */
-const EXCLUDED_PAGE_SLUGS = ['index', '404', 'resume'];
+const EXCLUDED_PAGE_SLUGS = ['index', '404', 'press', 'resume'];
 
 export function getAllPageSlugs(): string[] {
   const pages = getAllPages();
