@@ -1,99 +1,54 @@
+// GitHub Dark Theme for Syntax Highlighting
+// Based on GitHub's dark mode syntax highlighting colors
+// See: https://primer.style/primitives/colors
+//
+// This file defines CSS custom properties for dark mode syntax highlighting.
+// Applied when (prefers-color-scheme: dark).
+
 .highlight {
-  table {
-    td {
-      padding: 5px;
-    }
+  // Base colors
+  --highlight-fg: #c9d1d9;
+  --highlight-bg: #161b22;
 
-    pre {
-      margin: 0;
-    }
-  }
+  // Error
+  --highlight-err-fg: #f0f6fc;
+  --highlight-err-bg: #8e1519;
 
-  color: #d8d8d8;
-  background-color: #181818;
+  // Comments
+  --highlight-comment: #8b949e;
 
-  .w {
-    color: #d8d8d8;
-    background-color: #181818;
-  }
+  // Keywords
+  --highlight-keyword: #ff7b72;
 
-  .err {
-    color: #181818;
-    background-color: #ab4642;
-  }
+  // Constants, numbers, variables
+  --highlight-constant: #79c0ff;
 
-  .c, .ch, .cd, .cm, .cpf, .c1, .cs {
-    color: #585858;
-  }
+  // Operators
+  --highlight-operator: #79c0ff;
 
-  .cp, .nt {
-    color: #f7ca88;
-  }
+  // Strings
+  --highlight-string: #a5d6ff;
 
-  .o, .ow, .p, .pi {
-    color: #d8d8d8;
-  }
+  // Regex
+  --highlight-regex: #7ee787;
 
-  .gi {
-    color: #a1b56c;
-  }
+  // Attributes, tags
+  --highlight-attribute: #7ee787;
 
-  .gd {
-    color: #ab4642;
-  }
+  // Builtins, class names, namespaces
+  --highlight-builtin: #ffa657;
 
-  .gh {
-    color: #7cafc2;
-    background-color: #181818;
-    font-weight: bold;
-  }
+  // Functions, decorators
+  --highlight-function: #d2a8ff;
 
-  .ge {
-    font-style: italic;
-  }
+  // Headings (git diff headers)
+  --highlight-heading: #1f6feb;
 
-  .ges {
-    font-weight: bold;
-    font-style: italic;
-  }
+  // Diff inserted
+  --highlight-inserted-fg: #aff5b4;
+  --highlight-inserted-bg: #033a16;
 
-  .gs {
-    font-weight: bold;
-  }
-
-  .k, .kn, .kp, .kr, .kv {
-    color: #ba8baf;
-  }
-
-  .kc, .kt, .kd {
-    color: #dc9656;
-  }
-
-  .s, .sb, .sc, .dl, .sd, .s2, .sh, .sx, .s1 {
-    color: #a1b56c;
-  }
-
-  .sa {
-    color: #ba8baf;
-  }
-
-  .sr {
-    color: #86c1b9;
-  }
-
-  .si, .se {
-    color: #a16946;
-  }
-
-  .nn, .nc, .no {
-    color: #f7ca88;
-  }
-
-  .na {
-    color: #7cafc2;
-  }
-
-  .m, .mb, .mf, .mh, .mi, .il, .mo, .mx, .ss {
-    color: #a1b56c;
-  }
+  // Diff deleted
+  --highlight-deleted-fg: #ffdcd7;
+  --highlight-deleted-bg: #67060c;
 }
