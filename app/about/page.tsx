@@ -37,8 +37,8 @@ export default async function AboutPage() {
   const breadcrumbJsonLd = getPageBreadcrumbJsonLd(page, PAGE_PATH);
   const personJsonLd = getPersonJsonLd();
   
-  // Link to raw headshot image
-  const headshotUrl = `https://github.com/${config.repository}/raw/master/assets/img/headshot.jpg`;
+  // Link to raw headshot image - use branch from config
+  const headshotUrl = `https://github.com/${config.repository}/raw/${config.branch}/assets/img/headshot.jpg`;
   
   return (
     <>

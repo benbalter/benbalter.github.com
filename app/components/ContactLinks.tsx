@@ -16,8 +16,10 @@ interface ContactLinksProps {
 }
 
 /**
- * Map FontAwesome icon class names to icon definitions
- * This allows using the same icon names as Jekyll
+ * Map FontAwesome icon class names to icon definitions.
+ * This allows using the same icon names as Jekyll's _config.yml.
+ * The mapping is intentionally limited to icons used in the site's contact_links
+ * configuration. Unknown icons fall back to using the raw class name with <i> tag.
  */
 function getIconFromClass(iconClass: string): IconDefinition | null {
   const iconMap: Record<string, IconDefinition> = {
