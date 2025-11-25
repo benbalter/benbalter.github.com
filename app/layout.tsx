@@ -1,5 +1,6 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
+import './styles.scss';
 import './globals.css';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
@@ -10,6 +11,18 @@ import { JsonLdScript } from 'next-seo';
 
 // Load site configuration from _config.yml
 const config = getSiteConfig();
+
+// Viewport configuration for responsive design
+// See: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#111111' },
+    { media: '(prefers-color-scheme: dark)', color: '#eeeeee' },
+  ],
+  colorScheme: 'light dark',
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(config.url),
@@ -96,14 +109,9 @@ export default function RootLayout({
     <html lang="en-US">
       <head>
         <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <meta name="color-scheme" content="light dark" />
-        <meta name="theme-color" content="#111111" media="(prefers-color-scheme: light)" />
-        <meta name="theme-color" content="#eeeeee" media="(prefers-color-scheme: dark)" />
         {config.social.links.map((link) => (
           <link key={link} rel="me" href={link} />
         ))}
-        {/* Load Bootstrap and custom styles from webpack build */}
-        <link rel="stylesheet" href="/assets/css/style.css" />
         {/* Structured data for the site author */}
         <JsonLdScript
           data={{
@@ -123,15 +131,19 @@ export default function RootLayout({
         />
       </head>
       <body className="mt-2">
+        {/* Skip to main content link for keyboard accessibility */}
+        <a href="#main" className="skip-link visually-hidden-focusable">
+          Skip to main content
+        </a>
         <div className="container">
           <Navigation 
             title={config.title} 
             description={config.description}
             navPages={navPages}
           />
-          <div className="content" id="content" role="main">
+          <main id="main" className="content">
             {children}
-          </div>
+          </main>
           <Footer footerPages={footerPages} />
         </div>
         <ClientScripts />
