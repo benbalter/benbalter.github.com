@@ -49,6 +49,6 @@ def required_front_matter
 end
 
 def pages_to_check
-  blacklist = ['redirect.html', 'index.html', 'index.md']
+  blacklist = ['redirect.html', 'index.md']
   site.pages.select { |page| page.output_ext == '.html' && !blacklist.include?(page.path) }
 end
