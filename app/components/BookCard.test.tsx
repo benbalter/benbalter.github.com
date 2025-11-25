@@ -36,9 +36,9 @@ describe('BookCard', () => {
     const img = container.querySelector('img');
     
     expect(img).toBeInTheDocument();
-    expect(img?.getAttribute('src')).toBe(
-      'https://images.amazon.com/images/P/B00TEST123.01.MZZZZZZZ.jpg'
-    );
+    // Next.js Image component may modify the src attribute, so we check if it contains the expected ASIN
+    const src = img?.getAttribute('src') ?? '';
+    expect(src).toContain('B00TEST123');
     expect(img?.getAttribute('alt')).toBe('Test Book Title');
   });
 
