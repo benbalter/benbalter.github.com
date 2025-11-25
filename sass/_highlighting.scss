@@ -19,8 +19,8 @@
   }
 
   // Default text and background
-  color: var(--highlight-fg);
-  background-color: var(--highlight-bg);
+  color: var(--highlight-fg, #24292f);
+  background-color: var(--highlight-bg, #f6f8fa);
 
   // Border radius for code blocks
   border-radius: 6px;
