@@ -1,10 +1,12 @@
 import { getPageBySlug } from '@/lib/pages';
+import { getContactLinks, getPgpKey, getSiteConfig } from '@/lib/config';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getPageMetadata, getWebPageJsonLd, getPageBreadcrumbJsonLd } from '@/lib/seo';
 import { JsonLdScript } from 'next-seo';
-import MarkdownContent from '@/app/components/MarkdownContent';
+import Link from 'next/link';
 import PageTitle from '@/app/components/PageTitle';
+import ContactLinks from '@/app/components/ContactLinks';
 
 const PAGE_PATH = '/contact/';
 
@@ -25,6 +27,10 @@ export default async function ContactPage() {
     notFound();
   }
   
+  const config = getSiteConfig();
+  const contactLinks = getContactLinks();
+  const pgpKey = getPgpKey();
+  
   const webPageJsonLd = getWebPageJsonLd(page, PAGE_PATH);
   const breadcrumbJsonLd = getPageBreadcrumbJsonLd(page, PAGE_PATH);
   
@@ -41,8 +47,19 @@ export default async function ContactPage() {
           <div className="col-md-10 offset-md-1">
             {page.title && <PageTitle title={page.title} />}
             
-            {/* Contact links are rendered via the {% include contact-links.html %} in contact.md */}
-            <MarkdownContent markdown={page.content} />
+            {/* Render intro text directly instead of using MarkdownContent with Jekyll includes */}
+            <p className="text-center">
+              Looking to get in touch?{' '}
+              {config.email && (
+                <>
+                  Email <Link href={`mailto:${config.email}`}>{config.email}</Link> or{' '}
+                </>
+              )}
+              I&apos;m <code>@{config.handle}</code> most places:
+            </p>
+            
+            {/* Use the ContactLinks React component instead of Jekyll include */}
+            <ContactLinks contactLinks={contactLinks} pgpKey={pgpKey} />
           </div>
         </div>
       </div>
