@@ -36,6 +36,9 @@ playwright-report/
 .next/
 out/
 
+# Lighthouse CI artifacts
+.lighthouseci/
+
 # Playwright artifacts
 /test-results/
 /playwright-report/
