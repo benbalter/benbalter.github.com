@@ -15,15 +15,15 @@ Drupal powers twice as many federal .govs as every other CMS combined. That's mo
 
 ### Typical Enterprise Misconceptions
 
-* WordPress is a blogging platform
-* WordPress doesn't scale well
-* Most plugins are written by hobbyists, not professionals
-* WordPress is less secure
-* WordPress can't handle complex data types or user roles
-* There's no enterprise support
-* There aren't many WordPress developers
-* No "serious" people use WordPress
-* The WordPress codebase is immature
+- WordPress is a blogging platform
+- WordPress doesn't scale well
+- Most plugins are written by hobbyists, not professionals
+- WordPress is less secure
+- WordPress can't handle complex data types or user roles
+- There's no enterprise support
+- There aren't many WordPress developers
+- No "serious" people use WordPress
+- The WordPress codebase is immature
 
 </div>
 

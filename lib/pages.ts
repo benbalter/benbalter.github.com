@@ -108,7 +108,7 @@ export const getAllPages = cache((): Page[] => {
  * Page slugs to exclude from static site generation
  * These pages may still exist in content but won't be built
  */
-const EXCLUDED_PAGE_SLUGS = ['index', '404', 'press', 'resume'];
+const EXCLUDED_PAGE_SLUGS = ['index', '404', 'press', 'resume', 'about', 'contact', 'talks', 'other-recommended-reading'];
 
 export function getAllPageSlugs(): string[] {
   const pages = getAllPages();
