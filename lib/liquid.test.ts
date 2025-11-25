@@ -46,6 +46,60 @@ describe('processLiquid', () => {
     });
   });
 
+  describe('{% include %} and {% include_cached %} tags', () => {
+    it('should render Jekyll includes from _includes directory', async () => {
+      // Test includes callout.html which is in _includes/
+      const input = '{% include callout.html content="Test callout content" %}';
+      const result = await processLiquid(input);
+      expect(result).toContain('alert-primary');
+      expect(result).toContain('Test callout content');
+    });
+
+    it('should render include_cached the same as include', async () => {
+      // include_cached should work identically to include in Next.js
+      const input = '{% include_cached github-culture.html %}';
+      const result = await processLiquid(input);
+      expect(result).toContain('alert-primary');
+      expect(result).toContain('what-to-read-before-starting-or-interviewing-at-github');
+    });
+
+    it('should pass variables to includes', async () => {
+      // foss-at-scale.html uses include.nth parameter
+      const input = '{% include foss-at-scale.html nth="first" %}';
+      const result = await processLiquid(input);
+      expect(result).toContain('This is the first post');
+      expect(result).toContain('managing-open-source-communities-at-scale');
+    });
+
+    it('should handle nested includes', async () => {
+      // foss-at-scale.html includes callout.html internally
+      const input = '{% include foss-at-scale.html nth="second" %}';
+      const result = await processLiquid(input);
+      expect(result).toContain('alert-primary');
+      expect(result).toContain('This is the second post');
+    });
+  });
+
+  describe('Jekyll filters', () => {
+    it('should handle absolute_url filter', async () => {
+      const input = '{{ "/about/" | absolute_url }}';
+      const result = await processLiquid(input);
+      expect(result).toBe('https://ben.balter.com/about/');
+    });
+
+    it('should handle relative_url filter', async () => {
+      const input = '{{ "/about/" | relative_url }}';
+      const result = await processLiquid(input);
+      expect(result).toBe('/about/');
+    });
+
+    it('should add leading slash to relative_url if missing', async () => {
+      const input = '{{ "about/" | relative_url }}';
+      const result = await processLiquid(input);
+      expect(result).toBe('/about/');
+    });
+  });
+
   describe('variable interpolation', () => {
     it('should replace site variables', async () => {
       const input = '{{ site.title }}';
@@ -99,34 +153,6 @@ Edit: {% github_edit_link %}
       const result = await processLiquid(input);
       // Should fallback to returning original content
       expect(result).toBe(input);
-    });
-  });
-
-  describe('{% include %} tag', () => {
-    it('should render include tag as empty string', async () => {
-      const input = '{% include callout.html content=update %}';
-      const result = await processLiquid(input);
-      expect(result).toBe('');
-    });
-
-    it('should handle include tag with file path', async () => {
-      const input = 'Before {% include callout.html %} After';
-      const result = await processLiquid(input);
-      expect(result).toBe('Before  After');
-    });
-  });
-
-  describe('{% include_cached %} tag', () => {
-    it('should render include_cached tag as empty string', async () => {
-      const input = '{% include_cached github-culture.html %}';
-      const result = await processLiquid(input);
-      expect(result).toBe('');
-    });
-
-    it('should handle include_cached in complex content', async () => {
-      const input = 'Text before\n{% include_cached github-culture.html %}\nText after';
-      const result = await processLiquid(input);
-      expect(result).toBe('Text before\n\nText after');
     });
   });
 });
