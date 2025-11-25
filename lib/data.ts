@@ -4,6 +4,7 @@ import yaml from 'js-yaml';
 import { cache } from 'react';
 
 export function loadData<T = any>(filename: string): T {
+  // Read from Jekyll's _data directory
   const dataDirectory = path.join(process.cwd(), '_data');
   const fullPath = path.join(dataDirectory, filename);
   try {

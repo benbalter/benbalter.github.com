@@ -12,6 +12,25 @@ export interface Page {
 }
 
 /**
+ * List of page files at the root level (Jekyll-style)
+ * These are the actual page files to include, filtering out non-page files
+ * like README.md, CONTRIBUTING.md, TODO.md, etc.
+ * 
+ * When adding new pages, add the filename here.
+ */
+const PAGE_FILES = [
+  'about.md',
+  'contact.md',
+  'fine-print.md',
+  'talks.md',
+  'press.md',
+  'resume.md',
+  'other-recommended-reading.html',
+  'index.html',
+  '404.md',
+];
+
+/**
  * Internal function to parse a page file
  * Extracted for reuse in both getAllPages and getPageBySlug
  */
@@ -33,14 +52,31 @@ function parsePageFile(fileName: string, pagesDirectory: string): Page {
 
 /**
  * Get a single page by slug, optimized with direct file checks
+ * Reads from root-level files (Jekyll-style directory structure)
  */
 export function getPageBySlug(slug: string): Page | null {
   const pagesDirectory = process.cwd();
   const extensions = ['.md', '.html'];
   
+  // Security: Validate slug doesn't contain path traversal characters
+  if (slug.includes('/') || slug.includes('\\') || slug.includes('..')) {
+    return null;
+  }
+  
   for (const ext of extensions) {
     const fileName = `${slug}${ext}`;
+    // Only allow known page files (allowlist for security)
+    if (!PAGE_FILES.includes(fileName)) {
+      continue;
+    }
     const fullPath = path.join(pagesDirectory, fileName);
+    
+    // Security: Verify resolved path stays within pagesDirectory
+    const resolvedPath = path.resolve(fullPath);
+    const resolvedPageDir = path.resolve(pagesDirectory);
+    if (!resolvedPath.startsWith(resolvedPageDir)) {
+      continue;
+    }
     
     if (fs.existsSync(fullPath)) {
       try {
@@ -56,13 +92,14 @@ export function getPageBySlug(slug: string): Page | null {
 
 /**
  * Get all pages with React cache for request-level memoization
- * This ensures getAllPages() is only executed once per request during SSG
+ * This ensures getAllPages() is only executed once per request during SSG.
+ * The fs.existsSync calls only happen once per build due to React's cache().
+ * Reads from root-level files (Jekyll-style directory structure)
  */
 export const getAllPages = cache((): Page[] => {
   const pagesDirectory = process.cwd();
-  // Filter for specific page files that exist in root
-  const pageFiles = ['about.md', 'contact.md', 'fine-print.md', 'other-recommended-reading.html', 'talks.md', 'resume.md', 'press.md', 'index.html', '404.md'];
-  return pageFiles
+  
+  return PAGE_FILES
     .filter(fileName => fs.existsSync(path.join(pagesDirectory, fileName)))
     .map(fileName => parsePageFile(fileName, pagesDirectory));
 });
