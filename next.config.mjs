@@ -1,11 +1,22 @@
 import bundleAnalyzer from '@next/bundle-analyzer';
+import createMDX from '@next/mdx';
 
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 });
 
+// Configure MDX for native .mdx file support
+// Note: For remark/rehype plugin support with MDX, the markdown is processed
+// at runtime via lib/markdown.ts which uses the full remark/rehype pipeline.
+// This MDX config enables importing .mdx files as React components.
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Enable MDX page extensions
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   // Output static site for GitHub Pages compatibility
   output: 'export',
   
@@ -51,6 +62,19 @@ const nextConfig = {
   // See: https://nextjs.org/docs/app/api-reference/next-config-js/reactStrictMode
   reactStrictMode: true,
 
+  // Experimental features for performance optimization
+  experimental: {
+    // Optimize package imports for faster builds and smaller bundles
+    // See: https://nextjs.org/docs/app/api-reference/next-config-js/optimizePackageImports
+    optimizePackageImports: [
+      '@fortawesome/fontawesome-svg-core',
+      '@fortawesome/free-brands-svg-icons',
+      '@fortawesome/free-regular-svg-icons',
+      '@fortawesome/free-solid-svg-icons',
+      '@fortawesome/react-fontawesome',
+    ],
+  },
+
   // Remove 'X-Powered-By: Next.js' header for security (reduce information disclosure)
   // See: https://nextjs.org/docs/app/api-reference/next-config-js/poweredByHeader
   poweredByHeader: false,
@@ -77,4 +101,8 @@ const nextConfig = {
   },
 };
 
-export default withBundleAnalyzer(nextConfig);
+// Compose configuration wrappers
+// Order: innermost to outermost (MDX first, then Bundle Analyzer)
+// MDX wrapper modifies pageExtensions and adds the MDX loader
+// Bundle Analyzer wrapper adds optional bundle analysis support
+export default withBundleAnalyzer(withMDX(nextConfig));
