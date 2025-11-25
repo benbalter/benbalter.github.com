@@ -1,7 +1,4 @@
-'use client';
-
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
 interface NavigationProps {
   title: string;
@@ -9,9 +6,12 @@ interface NavigationProps {
   navPages: Array<{ title: string; path: string }>;
 }
 
+/**
+ * Navigation component (Server Component)
+ * Renders the main navigation bar with nav links
+ * Active link highlighting is handled client-side by bundle.js on turbo:load
+ */
 export default function Navigation({ title, description, navPages }: NavigationProps) {
-  const pathname = usePathname();
-  
   return (
     <div className="navbar navbar-expand-md bg-secondary-subtle text-secondary border-start border-end border-bottom border-top rounded-top rounded-bottom mb-3">
       <div className="container-fluid px-3">
@@ -36,7 +36,8 @@ export default function Navigation({ title, description, navPages }: NavigationP
               <li className="nav-item" key={page.path}>
                 <Link
                   href={page.path}
-                  className={`nav-link${pathname === page.path ? ' active' : ''}`}
+                  className="nav-link"
+                  data-nav-path={page.path}
                 >
                   {page.title}
                 </Link>

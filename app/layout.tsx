@@ -1,10 +1,8 @@
 import type { Metadata, Viewport } from 'next';
-import Script from 'next/script';
 import './styles.scss';
 import './globals.css';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
-import ClientScripts from './components/ClientScripts';
 import { getSiteConfig } from '@/lib/config';
 import { getAllPageSlugs, getPageBySlug } from '@/lib/pages';
 import { JsonLdScript } from 'next-seo';
@@ -80,9 +78,10 @@ export const metadata: Metadata = {
 function getNavPages() {
   return config.nav_pages.map(pagePath => {
     const page = getPageBySlug(pagePath.replace(/\.(md|html)$/, '').replace(/^index$/, ''));
+    const isIndex = pagePath === 'index.html' || pagePath === 'index.md';
     return {
-      title: page?.title || (pagePath === 'index.html' ? 'Posts' : pagePath),
-      path: pagePath === 'index.html' ? '/' : `/${pagePath.replace(/\.(md|html)$/, '')}/`,
+      title: page?.title || (isIndex ? 'Posts' : pagePath),
+      path: isIndex ? '/' : `/${pagePath.replace(/\.(md|html)$/, '')}/`,
     };
   });
 }
@@ -146,8 +145,9 @@ export default function RootLayout({
           </main>
           <Footer footerPages={footerPages} />
         </div>
-        <ClientScripts />
-        <Script src="/assets/js/bundle.js" strategy="afterInteractive" />
+        {/* Load bundle.js which includes Bootstrap, Turbo, and FontAwesome initialization */}
+        {/* Using plain script tag instead of next/script to reduce client-side JS overhead */}
+        <script src="/assets/js/bundle.js" async />
       </body>
     </html>
   );
