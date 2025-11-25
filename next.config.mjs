@@ -66,7 +66,7 @@ const nextConfig = {
   // These will be fixed when Bootstrap migrates to the new Sass module system
   // See: https://sass-lang.com/d/import and https://sass-lang.com/d/color-functions
   sassOptions: {
-    silenceDeprecations: ['import', 'global-builtin', 'color-functions'],
+    quietDeps: true, // Silence warnings from dependencies (Bootstrap, etc.)
   },
 
   // Experimental features for performance optimization
