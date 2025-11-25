@@ -2,19 +2,24 @@ import { render } from '@testing-library/react';
 import ClientScripts from './ClientScripts';
 
 // Mock next/navigation
-const mockPathname = '/';
+let mockPathname = '/';
 jest.mock('next/navigation', () => ({
   usePathname: jest.fn(() => mockPathname),
 }));
 
 // Mock dynamic imports
+const mockDispose = jest.fn();
 jest.mock('bootstrap', () => ({
-  Tooltip: Object.assign(jest.fn(), {
+  Tooltip: Object.assign(jest.fn(() => ({ dispose: mockDispose })), {
     getInstance: jest.fn(() => null),
   }),
 }), { virtual: true });
 
 describe('ClientScripts', () => {
+  beforeEach(() => {
+    mockPathname = '/';
+  });
+
   it('should render without crashing', () => {
     const { container } = render(<ClientScripts />);
     expect(container).toBeInTheDocument();
@@ -61,7 +66,6 @@ describe('ClientScripts', () => {
   });
 
   it('should not reinitialize already initialized tooltips', async () => {
-    // Add a tooltip element to the DOM
     document.body.innerHTML = `
       <button data-bs-toggle="tooltip" title="Test tooltip">Button</button>
     `;
@@ -69,27 +73,91 @@ describe('ClientScripts', () => {
     const bootstrap = await import('bootstrap');
     const TooltipMock = bootstrap.Tooltip as jest.Mock;
     const getInstanceMock = bootstrap.Tooltip.getInstance as jest.Mock;
+    const { usePathname } = await import('next/navigation');
+    const usePathnameMock = usePathname as jest.Mock;
     
-    // First render - getInstance returns null (not initialized)
+    // First render at root path
+    mockPathname = '/';
+    usePathnameMock.mockReturnValue('/');
     TooltipMock.mockClear();
     getInstanceMock.mockReturnValue(null);
     
-    render(<ClientScripts />);
+    const { rerender } = render(<ClientScripts />);
     await new Promise(resolve => setTimeout(resolve, 100));
     
     expect(TooltipMock).toHaveBeenCalledTimes(1);
     
-    // Simulate tooltip already initialized
-    getInstanceMock.mockReturnValue({ _element: {} }); // Return a truthy value
+    // Simulate navigation to different path with tooltip already initialized
+    mockPathname = '/blog';
+    usePathnameMock.mockReturnValue('/blog');
+    getInstanceMock.mockReturnValue({ _element: {} });
     TooltipMock.mockClear();
     
-    // Re-render (simulates navigation)
-    const { rerender } = render(<ClientScripts />);
     rerender(<ClientScripts />);
     await new Promise(resolve => setTimeout(resolve, 100));
     
     // Tooltip should not be initialized again
     expect(TooltipMock).not.toHaveBeenCalled();
+  });
+
+  it('should initialize tooltips for new elements after navigation', async () => {
+    const bootstrap = await import('bootstrap');
+    const TooltipMock = bootstrap.Tooltip as jest.Mock;
+    const getInstanceMock = bootstrap.Tooltip.getInstance as jest.Mock;
+    const { usePathname } = await import('next/navigation');
+    const usePathnameMock = usePathname as jest.Mock;
+    
+    // Initial page with one tooltip
+    mockPathname = '/';
+    usePathnameMock.mockReturnValue('/');
+    document.body.innerHTML = `<button data-bs-toggle="tooltip" title="Tooltip 1">Button 1</button>`;
+    getInstanceMock.mockReturnValue(null);
+    TooltipMock.mockClear();
+    
+    const { rerender } = render(<ClientScripts />);
+    await new Promise(resolve => setTimeout(resolve, 100));
+    
+    expect(TooltipMock).toHaveBeenCalledTimes(1);
+    
+    // Navigate to new page with different tooltip
+    mockPathname = '/blog';
+    usePathnameMock.mockReturnValue('/blog');
+    document.body.innerHTML = `<button data-bs-toggle="tooltip" title="Tooltip 2">Button 2</button>`;
+    getInstanceMock.mockReturnValue(null);
+    TooltipMock.mockClear();
+    
+    rerender(<ClientScripts />);
+    await new Promise(resolve => setTimeout(resolve, 100));
+    
+    expect(TooltipMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('should dispose tooltips on cleanup', async () => {
+    document.body.innerHTML = `
+      <button data-bs-toggle="tooltip" title="Test tooltip">Button</button>
+    `;
+
+    const bootstrap = await import('bootstrap');
+    const TooltipMock = bootstrap.Tooltip as jest.Mock;
+    const getInstanceMock = bootstrap.Tooltip.getInstance as jest.Mock;
+    const { usePathname } = await import('next/navigation');
+    const usePathnameMock = usePathname as jest.Mock;
+    
+    mockPathname = '/';
+    usePathnameMock.mockReturnValue('/');
+    getInstanceMock.mockReturnValue(null);
+    TooltipMock.mockClear();
+    mockDispose.mockClear();
+    
+    const { unmount } = render(<ClientScripts />);
+    await new Promise(resolve => setTimeout(resolve, 100));
+    
+    expect(TooltipMock).toHaveBeenCalledTimes(1);
+    
+    // Unmount should trigger cleanup
+    unmount();
+    
+    expect(mockDispose).toHaveBeenCalled();
   });
 
   afterEach(() => {
