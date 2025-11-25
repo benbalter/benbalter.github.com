@@ -50,6 +50,11 @@ export async function markdownToHtml(
     ...defaultSchema,
     attributes: {
       ...defaultSchema.attributes,
+      // Allow data-* attributes on all elements for React component placeholders
+      '*': [
+        ...(defaultSchema.attributes?.['*'] || []),
+        ['data*'],
+      ],
       a: [
         ...(defaultSchema.attributes?.a || []).filter(
           attr => !(Array.isArray(attr) && attr[0] === 'className')

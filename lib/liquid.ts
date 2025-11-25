@@ -66,6 +66,135 @@ export interface LiquidOptions {
 }
 
 /**
+ * Component placeholder that represents a React component to be rendered inline.
+ * Used to replace Liquid includes with React components during SSG.
+ */
+export interface ComponentPlaceholder {
+  type: 'callout' | 'foss-at-scale' | 'github-culture';
+  props: Record<string, string>;
+  /** Unique identifier for the placeholder in the content */
+  id: string;
+}
+
+/**
+ * Result of extracting components from content.
+ */
+export interface ExtractedComponents {
+  /** The content with component HTML replaced by placeholder markers */
+  content: string;
+  /** Array of components to render */
+  components: ComponentPlaceholder[];
+}
+
+/**
+ * Extracts React component placeholders from rendered HTML.
+ * This function works on HTML AFTER Liquid processing, so all variables are resolved.
+ * 
+ * It detects specific HTML patterns rendered by Jekyll includes and replaces them
+ * with React component placeholders. This allows the Liquid engine to resolve all
+ * variables and filters first, then we extract the rendered content for React.
+ * 
+ * Detected patterns:
+ * - callout.html: <div class="alert alert-primary text-center" role="alert">content</div>
+ * - github-culture.html: Specific content pattern for GitHub culture callout
+ * - foss-at-scale.html: Specific content pattern for FOSS at scale series
+ * 
+ * @param html - The rendered HTML content after Liquid processing
+ * @returns Object containing modified content and extracted components
+ */
+export function extractComponentPlaceholders(html: string): ExtractedComponents {
+  const components: ComponentPlaceholder[] = [];
+  let modifiedContent = html;
+  let placeholderId = 0;
+  
+  // Match callout HTML pattern: <div class="alert alert-primary text-center" role="alert">content</div>
+  // This pattern is rendered by _includes/callout.html after Liquid processing
+  // Use [^]* instead of .* to match across newlines
+  const calloutRegex = /<div\s+class="alert alert-primary text-center"\s+role="alert">\s*([^]*?)\s*<\/div>/g;
+  
+  modifiedContent = modifiedContent.replace(calloutRegex, (match, content) => {
+    const id = `component-${placeholderId++}`;
+    
+    // Detect if this is a github-culture callout by checking for specific link
+    if (content.includes('/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/')) {
+      components.push({
+        type: 'github-culture',
+        props: {},
+        id,
+      });
+    }
+    // Detect if this is a foss-at-scale callout by checking for specific link and pattern
+    else if (content.includes('/2021/06/15/managing-open-source-communities-at-scale/') && content.includes('post in')) {
+      // Extract the "nth" value (e.g., "first", "second", etc.)
+      const nthMatch = content.match(/This is the ([^<]+) post in/);
+      const nth = nthMatch ? nthMatch[1].trim() : '';
+      
+      components.push({
+        type: 'foss-at-scale',
+        props: { nth },
+        id,
+      });
+    }
+    // Generic callout
+    else {
+      components.push({
+        type: 'callout',
+        props: { content: content.trim() },
+        id,
+      });
+    }
+    
+    // Replace with a placeholder div
+    return `<div data-component="${id}"></div>`;
+  });
+  
+  return { content: modifiedContent, components };
+}
+
+/**
+ * Splits HTML content at component placeholder markers.
+ * Returns an array of content segments that can be interleaved with React components.
+ * 
+ * @param html - The processed HTML content with <div data-component="id"></div> markers
+ * @param components - The array of component placeholders
+ * @returns Array of segments, each with type 'html' or 'component'
+ */
+export function splitContentAtPlaceholders(
+  html: string, 
+  components: ComponentPlaceholder[]
+): Array<{ type: 'html'; content: string } | { type: 'component'; component: ComponentPlaceholder }> {
+  if (components.length === 0) {
+    return [{ type: 'html', content: html }];
+  }
+  
+  const segments: Array<{ type: 'html'; content: string } | { type: 'component'; component: ComponentPlaceholder }> = [];
+  const componentMap = new Map(components.map(c => [c.id, c]));
+  
+  // Split by component placeholder divs
+  // The regex captures the component ID from the data-component attribute
+  const parts = html.split(/<div data-component="(component-\d+)"><\/div>/);
+  
+  for (let i = 0; i < parts.length; i++) {
+    const part = parts[i];
+    if (part === undefined) continue;
+    
+    // Even indices are HTML content, odd indices are component IDs
+    if (i % 2 === 0) {
+      if (part.trim()) {
+        segments.push({ type: 'html', content: part });
+      }
+    } else {
+      const component = componentMap.get(part);
+      if (component) {
+        segments.push({ type: 'component', component });
+      }
+    }
+  }
+  
+  return segments;
+}
+
+/**
  * Process Liquid template syntax in markdown content.
  * This handles Jekyll-style Liquid tags used in blog posts.
  *
