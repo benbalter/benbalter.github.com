@@ -9,9 +9,11 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeStringify from 'rehype-stringify';
 import { convert } from 'html-to-text';
 import { processEmoji } from './emoji';
-import { processLiquid } from './liquid';
+import { processLiquid, type LiquidOptions } from './liquid';
 import { getSiteConfig } from './config';
 import type { Schema } from 'hast-util-sanitize';
+
+export interface MarkdownOptions extends LiquidOptions {}
 
 /**
  * Converts markdown to sanitized HTML string at build time.
@@ -25,10 +27,15 @@ import type { Schema } from 'hast-util-sanitize';
  * 
  * @param markdown - The markdown content to convert
  * @param context - Optional context for liquid template processing (e.g., page data)
+ * @param options - Optional options for markdown processing
  */
-export async function markdownToHtml(markdown: string, context?: Record<string, any>): Promise<string> {
+export async function markdownToHtml(
+  markdown: string,
+  context?: Record<string, any>,
+  options?: MarkdownOptions,
+): Promise<string> {
   // Process Liquid template syntax first (before emoji and markdown)
-  const markdownWithLiquid = await processLiquid(markdown, context);
+  const markdownWithLiquid = await processLiquid(markdown, context, options);
   
   // Process emoji before markdown conversion
   const markdownWithEmoji = processEmoji(markdownWithLiquid);

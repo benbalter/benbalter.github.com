@@ -1,10 +1,10 @@
 import { getResumeData } from '@/lib/resume';
+import { getPageBySlug } from '@/lib/pages';
+import { markdownToHtml } from '@/lib/markdown';
 import type { Metadata } from 'next';
 import { getPageMetadata, getWebPageJsonLd, getPageBreadcrumbJsonLd } from '@/lib/seo';
 import { JsonLdScript } from 'next-seo';
-import ResumeExperience from '@/app/components/ResumeExperience';
-import ResumeEducation from '@/app/components/ResumeEducation';
-import ResumeCertifications from '@/app/components/ResumeCertifications';
+import PageTitle from '@/app/components/PageTitle';
 
 const PAGE_PATH = '/resume/';
 
@@ -32,6 +32,21 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function ResumePage() {
   const pageData = getResumePageData();
   
+  // Get the resume page content from markdown
+  const page = getPageBySlug('resume');
+  
+  // Render the markdown content with Liquid processing and collections
+  // This enables Jekyll-like experience with {% for position in site.resume_positions %}
+  const contentHtml = page ? await markdownToHtml(
+    page.content,
+    {
+      // Pass frontmatter data for page.degrees, page.certifications, etc.
+      ...pageData,
+      path: 'resume.md',
+    },
+    { loadCollections: true },
+  ) : '<p>Resume content could not be loaded.</p>';
+  
   const webPageJsonLd = getWebPageJsonLd(pageData, PAGE_PATH);
   const breadcrumbJsonLd = getPageBreadcrumbJsonLd(pageData, PAGE_PATH);
   
@@ -46,11 +61,8 @@ export default async function ResumePage() {
       <div className="page page-resume">
         <div className="row">
           <div className="col-md-10 offset-md-1">
-            <h1 className="display-4 text-primary">{pageData.title}</h1>
-            
-            <ResumeExperience positions={pageData.positions} />
-            <ResumeEducation degrees={pageData.degrees} />
-            <ResumeCertifications certifications={pageData.certifications} />
+            <PageTitle title={pageData.title || 'Resume'} />
+            <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
           </div>
         </div>
       </div>
