@@ -46,7 +46,7 @@ function readAndParseFiles<T>(
 
 // Helper to get all posts
 function getAllPosts() {
-  const postsDir = path.join(process.cwd(), 'content', 'posts');
+  const postsDir = path.join(process.cwd(), '_posts');
   return readAndParseFiles(
     postsDir,
     f => f.endsWith('.md'),

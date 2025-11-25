@@ -8,10 +8,12 @@ import { getSiteConfig } from './config';
  * Supported tags:
  * - {% raw %} / {% endraw %} - Pass through content without processing
  * - {% github_edit_link %} - Generate GitHub edit links
+ * - {% include %} - Jekyll includes (rendered as empty, handled by React components)
+ * - {% include_cached %} - Cached Jekyll includes (rendered as empty, handled by React components)
  * - Variables: {{ site.* }}, {{ page.* }}
  * 
- * Note: Some complex Jekyll tags ({% include %}, {% for %}, etc.) may need
- * additional implementation if encountered.
+ * Note: Jekyll includes are stripped out because they are handled by React components
+ * in the Next.js build (e.g., GitHubCultureCallout component).
  */
 export async function processLiquid(content: string, context: Record<string, any> = {}): Promise<string> {
   // Create Liquid engine
@@ -63,6 +65,31 @@ function registerCustomTags(engine: Liquid) {
       const linkText = this.linkText;
       
       return `<a href="${url}">${linkText}</a>`;
+    },
+  });
+  
+  // Register {% include_cached %} tag - used in Jekyll for caching includes
+  // In Next.js, includes like github-culture.html are handled by React components,
+  // so we return empty string and let the component system handle them
+  engine.registerTag('include_cached', {
+    parse() {
+      // File argument is parsed by LiquidJS but not used since includes are stripped
+    },
+    render() {
+      // Return empty - includes are handled by React components
+      return '';
+    },
+  });
+  
+  // Register {% include %} tag - Jekyll include directive
+  // Similar to include_cached, these are handled by React components in Next.js
+  engine.registerTag('include', {
+    parse() {
+      // File argument is parsed by LiquidJS but not used since includes are stripped
+    },
+    render() {
+      // Return empty - includes are handled by React components
+      return '';
     },
   });
 }
