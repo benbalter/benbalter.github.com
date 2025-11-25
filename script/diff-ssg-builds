@@ -1,4 +1,9 @@
 #!/bin/bash
+# NOTE: This script requires bash because it uses bash-specific features:
+#   - Arrays (KEY_PAGES)
+#   - [[ ... ]] conditionals
+#   - $BASH_SOURCE
+# For maximum portability, use bash. Do not change to /bin/sh.
 #
 # Build both Jekyll and Next.js SSG sites and diff the output of key pages
 #
@@ -62,7 +67,7 @@ while [[ $# -gt 0 ]]; do
       shift
       ;;
     --help)
-      head -n 18 "$0" | tail -n 15
+      head -n 22 "$0" | tail -n 15
       exit 0
       ;;
     *)
@@ -89,6 +94,26 @@ log_error() {
   echo -e "${RED}[ERROR]${NC} $1"
 }
 
+# Fallback text extraction using sed (basic, doesn't handle multi-line script/style)
+# Note: The sed patterns for script/style tags only work for single-line tags.
+# Multi-line script/style blocks won't be fully removed. This is acceptable
+# because the primary path uses html-to-text which handles this correctly.
+extract_text_with_sed() {
+  local html_file="$1"
+  local output_file="$2"
+  
+  cat "$html_file" \
+    | sed 's/<script[^>]*>.*<\/script>//g' \
+    | sed 's/<style[^>]*>.*<\/style>//g' \
+    | sed 's/<[^>]*>//g' \
+    | sed 's/&nbsp;/ /g' \
+    | sed 's/&amp;/\&/g' \
+    | sed 's/&lt;/</g' \
+    | sed 's/&gt;/>/g' \
+    | tr -s '[:space:]' ' ' \
+    > "$output_file"
+}
+
 # Check if html-to-text is available, if not try to use other methods
 extract_text() {
   local html_file="$1"
@@ -96,65 +121,56 @@ extract_text() {
   
   if [ ! -f "$html_file" ]; then
     echo "File not found: $html_file" > "$output_file"
-    return 1
+    return 0
   fi
   
   # Use Node.js html-to-text if available (installed in package.json)
   if command -v npx &> /dev/null; then
-    # Create a simple inline script to extract text
-    node -e "
-      const { convert } = require('html-to-text');
-      const fs = require('fs');
-      
-      const html = fs.readFileSync('$html_file', 'utf8');
-      const text = convert(html, {
-        wordwrap: 120,
-        selectors: [
-          { selector: 'a', options: { ignoreHref: true } },
-          { selector: 'img', format: 'skip' },
-          { selector: 'script', format: 'skip' },
-          { selector: 'style', format: 'skip' },
-          { selector: 'nav', format: 'skip' },
-          { selector: 'footer', format: 'skip' },
-          { selector: 'header', format: 'skip' },
-          { selector: '.navbar', format: 'skip' },
-          { selector: '#navbar', format: 'skip' },
-        ],
-        preserveNewlines: false,
-      });
-      
-      // Normalize whitespace and sort lines for better comparison
-      const normalized = text
-        .replace(/\\s+/g, ' ')
-        .replace(/\\n\\s*\\n/g, '\\n')
-        .trim();
-      
-      fs.writeFileSync('$output_file', normalized);
-    " 2>/dev/null || {
-      # Fallback to simple text extraction
-      cat "$html_file" \
-        | sed 's/<script[^>]*>.*<\/script>//g' \
-        | sed 's/<style[^>]*>.*<\/style>//g' \
-        | sed 's/<[^>]*>//g' \
-        | sed 's/&nbsp;/ /g' \
-        | sed 's/&amp;/\&/g' \
-        | sed 's/&lt;/</g' \
-        | sed 's/&gt;/>/g' \
-        | tr -s '[:space:]' ' ' \
-        > "$output_file"
-    }
+    # Create a temporary JavaScript file to avoid shell interpolation issues
+    local tmp_script
+    tmp_script=$(mktemp)
+    cat > "$tmp_script" << 'EOF'
+const { convert } = require('html-to-text');
+const fs = require('fs');
+
+const htmlFile = process.argv[2];
+const outputFile = process.argv[3];
+
+const html = fs.readFileSync(htmlFile, 'utf8');
+const text = convert(html, {
+  wordwrap: 120,
+  selectors: [
+    { selector: 'a', options: { ignoreHref: true } },
+    { selector: 'img', format: 'skip' },
+    { selector: 'script', format: 'skip' },
+    { selector: 'style', format: 'skip' },
+    { selector: 'nav', format: 'skip' },
+    { selector: 'footer', format: 'skip' },
+    { selector: 'header', format: 'skip' },
+    { selector: '.navbar', format: 'skip' },
+    { selector: '#navbar', format: 'skip' },
+  ],
+  preserveNewlines: false,
+});
+
+// Normalize whitespace for better comparison
+const normalized = text
+  .replace(/\s+/g, ' ')
+  .trim();
+
+fs.writeFileSync(outputFile, normalized);
+EOF
+    
+    if node "$tmp_script" "$html_file" "$output_file" 2>/dev/null; then
+      rm -f "$tmp_script"
+    else
+      rm -f "$tmp_script"
+      # Fallback to sed-based text extraction
+      extract_text_with_sed "$html_file" "$output_file"
+    fi
   else
     # Fallback to sed-based text extraction
-    cat "$html_file" \
-      | sed 's/<script[^>]*>.*<\/script>//g' \
-      | sed 's/<style[^>]*>.*<\/style>//g' \
-      | sed 's/<[^>]*>//g' \
-      | sed 's/&nbsp;/ /g' \
-      | sed 's/&amp;/\&/g' \
-      | sed 's/&lt;/</g' \
-      | sed 's/&gt;/>/g' \
-      | tr -s '[:space:]' ' ' \
-      > "$output_file"
+    extract_text_with_sed "$html_file" "$output_file"
   fi
 }
 
@@ -190,7 +206,7 @@ build_nextjs() {
   rm -rf "$PROJECT_DIR/.next"
   
   # Build with Next.js
-  npm run next:build --silent
+  npm run next:build
   
   if [ -d "$NEXTJS_OUTPUT" ]; then
     log_success "Next.js build complete: $NEXTJS_OUTPUT"
@@ -249,8 +265,9 @@ diff_page() {
 # Find recent blog posts to compare
 find_recent_posts() {
   # Get 3 most recent blog posts from Jekyll output
+  # Pattern matches 4-digit years for future-proofing
   if [ -d "$JEKYLL_OUTPUT" ]; then
-    find "$JEKYLL_OUTPUT" -path "*/20[0-9][0-9]/*/index.html" -type f 2>/dev/null | sort -r | head -3 | while read -r file; do
+    find "$JEKYLL_OUTPUT" -path "*/[0-9][0-9][0-9][0-9]/*/index.html" -type f 2>/dev/null | sort -r | head -3 | while read -r file; do
       echo "${file#$JEKYLL_OUTPUT/}"
     done
   fi
