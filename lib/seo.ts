@@ -14,6 +14,22 @@ const OG_IMAGE_WIDTH = 1200;
 const OG_IMAGE_HEIGHT = 630;
 
 /**
+ * Get the full absolute URL for a given path
+ */
+function getFullUrl(path: string): string {
+  const config = getSiteConfig();
+  return `${config.url}${path}`;
+}
+
+/**
+ * Get the full absolute URL for a blog post
+ */
+function getFullPostUrl(post: Post): string {
+  const { url } = getPostUrlParts(post);
+  return getFullUrl(url);
+}
+
+/**
  * Build common Open Graph metadata structure
  */
 function buildOpenGraphMetadata(
@@ -75,8 +91,7 @@ function buildTwitterMetadata(
  */
 export function getPostMetadata(post: Post): Metadata {
   const config = getSiteConfig();
-  const { url } = getPostUrlParts(post);
-  const fullUrl = `${config.url}${url}`;
+  const fullUrl = getFullPostUrl(post);
   const publishDate = new Date(post.date).toISOString();
   const description = post.description || config.description;
   
@@ -109,7 +124,7 @@ export function getPostMetadata(post: Post): Metadata {
  */
 export function getPageMetadata(page: Page, path: string): Metadata {
   const config = getSiteConfig();
-  const fullUrl = `${config.url}${path}`;
+  const fullUrl = getFullUrl(path);
   const ogImage = getPageOgImage(page.image);
   const title = page.title || config.title;
   const description = page.description || config.description;
@@ -131,8 +146,7 @@ export function getPageMetadata(page: Page, path: string): Metadata {
  */
 export function getPostJsonLd(post: Post): object {
   const config = getSiteConfig();
-  const { url } = getPostUrlParts(post);
-  const fullUrl = `${config.url}${url}`;
+  const fullUrl = getFullPostUrl(post);
   
   return {
     '@context': 'https://schema.org',
@@ -205,8 +219,7 @@ export function getWebsiteJsonLd(): object {
  */
 export function getPostBreadcrumbJsonLd(post: Post): object {
   const config = getSiteConfig();
-  const { url } = getPostUrlParts(post);
-  const fullUrl = `${config.url}${url}`;
+  const fullUrl = getFullPostUrl(post);
   
   return {
     '@context': 'https://schema.org',
@@ -234,7 +247,7 @@ export function getPostBreadcrumbJsonLd(post: Post): object {
  */
 export function getPageBreadcrumbJsonLd(page: Page, path: string): object {
   const config = getSiteConfig();
-  const fullUrl = `${config.url}${path}`;
+  const fullUrl = getFullUrl(path);
   const title = page.title || 'Page';
   
   return {
@@ -263,7 +276,7 @@ export function getPageBreadcrumbJsonLd(page: Page, path: string): object {
  */
 export function getWebPageJsonLd(page: Page, path: string): object {
   const config = getSiteConfig();
-  const fullUrl = `${config.url}${path}`;
+  const fullUrl = getFullUrl(path);
   const title = page.title || config.title;
   const description = page.description || config.description;
   
