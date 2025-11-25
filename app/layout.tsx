@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 // FontAwesome CSS must be imported before other styles to ensure proper icon sizing
-// This prevents the FOUC (Flash of Unstyled Content) where icons appear huge
+// This ensures FontAwesome icons are sized correctly by loading its CSS first
 import { config as fontAwesomeConfig } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 // Prevent FontAwesome from adding the CSS automatically since we import it above
