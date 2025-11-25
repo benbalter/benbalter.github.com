@@ -19,7 +19,7 @@ Finally, be aware that I am a strong proponent of the [serial comma](http://en.
 
 <div class="text-center mb-3">
   <a rel="license" href="https://creativecommons.org/licenses/by/3.0/">
-    <img src="https://licensebuttons.net/l/by/3.0/88x31.png" alt="Creative Commons License" />
+    <img src="/assets/images/cc-by-88x31.png" alt="Creative Commons License" />
   </a>
 </div>
 
