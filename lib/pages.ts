@@ -2,7 +2,6 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { cache } from 'react';
-import { readDirectory } from './content-loader';
 
 export interface Page {
   slug: string;
@@ -36,7 +35,7 @@ function parsePageFile(fileName: string, pagesDirectory: string): Page {
  * Get a single page by slug, optimized with direct file checks
  */
 export function getPageBySlug(slug: string): Page | null {
-  const pagesDirectory = path.join(process.cwd(), 'content/pages');
+  const pagesDirectory = process.cwd();
   const extensions = ['.md', '.html'];
   
   for (const ext of extensions) {
@@ -60,11 +59,11 @@ export function getPageBySlug(slug: string): Page | null {
  * This ensures getAllPages() is only executed once per request during SSG
  */
 export const getAllPages = cache((): Page[] => {
-  const pagesDirectory = path.join(process.cwd(), 'content/pages');
-  const fileNames = readDirectory(pagesDirectory);
-  
-  return fileNames
-    .filter(fileName => fileName.endsWith('.md') || fileName.endsWith('.html'))
+  const pagesDirectory = process.cwd();
+  // Filter for specific page files that exist in root
+  const pageFiles = ['about.md', 'contact.md', 'fine-print.md', 'other-recommended-reading.html', 'talks.md', 'resume.md', 'press.md', 'index.html', '404.md'];
+  return pageFiles
+    .filter(fileName => fs.existsSync(path.join(pagesDirectory, fileName)))
     .map(fileName => parsePageFile(fileName, pagesDirectory));
 });
 
