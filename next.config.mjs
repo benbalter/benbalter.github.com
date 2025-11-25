@@ -40,8 +40,8 @@ const nextConfig = {
   trailingSlash: true,
 
   // Compiler options for production optimization
+  // Remove console logs in production for cleaner output and reduced bundle size
   compiler: {
-    // Remove console logs in production for cleaner output and reduced bundle size
     removeConsole: process.env.NODE_ENV === 'production' ? {
       exclude: ['error', 'warn'],
     } : false,
