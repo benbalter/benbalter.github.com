@@ -79,10 +79,11 @@ export const metadata: Metadata = {
 // Get navigation and footer pages
 function getNavPages() {
   return config.nav_pages.map(pagePath => {
-    const page = getPageBySlug(pagePath.replace(/\.(md|html)$/, '').replace(/^index$/, ''));
+    const slug = pagePath.replace(/\.(md|html)$/, '');
+    const page = slug === 'index' ? getPageBySlug('index') : getPageBySlug(slug);
     return {
-      title: page?.title || (pagePath === 'index.html' ? 'Posts' : pagePath),
-      path: pagePath === 'index.html' ? '/' : `/${pagePath.replace(/\.(md|html)$/, '')}/`,
+      title: page?.title || (slug === 'index' ? 'Posts' : pagePath),
+      path: slug === 'index' ? '/' : `/${slug}/`,
     };
   });
 }

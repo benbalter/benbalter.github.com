@@ -25,8 +25,8 @@ const PAGE_FILES = [
   'talks.md',
   'press.md',
   'resume.md',
-  'other-recommended-reading.html',
-  'index.html',
+  'other-recommended-reading.md',
+  'index.md',
   '404.md',
 ];
 
