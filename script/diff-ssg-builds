@@ -1,0 +1,356 @@
+#!/bin/bash
+#
+# Build both Jekyll and Next.js SSG sites and diff the output of key pages
+#
+# This script:
+# 1. Builds the Jekyll site to _site
+# 2. Builds the Next.js site to out
+# 3. Extracts text content from key pages
+# 4. Generates a diff report showing differences
+#
+# Usage: script/diff-ssg-builds [--pages-only] [--build-only] [--help]
+#
+# Options:
+#   --pages-only   Skip builds, only diff existing output
+#   --build-only   Only build, don't diff
+#   --verbose      Show more detailed output
+#   --help         Show this help message
+
+set -e
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Configuration
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+DIFF_OUTPUT_DIR="$PROJECT_DIR/tmp/diff-output"
+JEKYLL_OUTPUT="$PROJECT_DIR/_site"
+NEXTJS_OUTPUT="$PROJECT_DIR/out"
+
+# Key pages to compare
+# These are critical pages that should be equivalent between builds
+KEY_PAGES=(
+  "index.html"
+  "about/index.html"
+  "resume/index.html"
+  "contact/index.html"
+  "fine-print/index.html"
+)
+
+# Parse arguments
+SKIP_BUILD=false
+BUILD_ONLY=false
+VERBOSE=false
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --pages-only)
+      SKIP_BUILD=true
+      shift
+      ;;
+    --build-only)
+      BUILD_ONLY=true
+      shift
+      ;;
+    --verbose)
+      VERBOSE=true
+      shift
+      ;;
+    --help)
+      head -n 18 "$0" | tail -n 15
+      exit 0
+      ;;
+    *)
+      echo "Unknown option: $1"
+      exit 1
+      ;;
+  esac
+done
+
+# Helper functions
+log_info() {
+  echo -e "${BLUE}[INFO]${NC} $1"
+}
+
+log_success() {
+  echo -e "${GREEN}[SUCCESS]${NC} $1"
+}
+
+log_warning() {
+  echo -e "${YELLOW}[WARNING]${NC} $1"
+}
+
+log_error() {
+  echo -e "${RED}[ERROR]${NC} $1"
+}
+
+# Check if html-to-text is available, if not try to use other methods
+extract_text() {
+  local html_file="$1"
+  local output_file="$2"
+  
+  if [ ! -f "$html_file" ]; then
+    echo "File not found: $html_file" > "$output_file"
+    return 1
+  fi
+  
+  # Use Node.js html-to-text if available (installed in package.json)
+  if command -v npx &> /dev/null; then
+    # Create a simple inline script to extract text
+    node -e "
+      const { convert } = require('html-to-text');
+      const fs = require('fs');
+      
+      const html = fs.readFileSync('$html_file', 'utf8');
+      const text = convert(html, {
+        wordwrap: 120,
+        selectors: [
+          { selector: 'a', options: { ignoreHref: true } },
+          { selector: 'img', format: 'skip' },
+          { selector: 'script', format: 'skip' },
+          { selector: 'style', format: 'skip' },
+          { selector: 'nav', format: 'skip' },
+          { selector: 'footer', format: 'skip' },
+          { selector: 'header', format: 'skip' },
+          { selector: '.navbar', format: 'skip' },
+          { selector: '#navbar', format: 'skip' },
+        ],
+        preserveNewlines: false,
+      });
+      
+      // Normalize whitespace and sort lines for better comparison
+      const normalized = text
+        .replace(/\\s+/g, ' ')
+        .replace(/\\n\\s*\\n/g, '\\n')
+        .trim();
+      
+      fs.writeFileSync('$output_file', normalized);
+    " 2>/dev/null || {
+      # Fallback to simple text extraction
+      cat "$html_file" \
+        | sed 's/<script[^>]*>.*<\/script>//g' \
+        | sed 's/<style[^>]*>.*<\/style>//g' \
+        | sed 's/<[^>]*>//g' \
+        | sed 's/&nbsp;/ /g' \
+        | sed 's/&amp;/\&/g' \
+        | sed 's/&lt;/</g' \
+        | sed 's/&gt;/>/g' \
+        | tr -s '[:space:]' ' ' \
+        > "$output_file"
+    }
+  else
+    # Fallback to sed-based text extraction
+    cat "$html_file" \
+      | sed 's/<script[^>]*>.*<\/script>//g' \
+      | sed 's/<style[^>]*>.*<\/style>//g' \
+      | sed 's/<[^>]*>//g' \
+      | sed 's/&nbsp;/ /g' \
+      | sed 's/&amp;/\&/g' \
+      | sed 's/&lt;/</g' \
+      | sed 's/&gt;/>/g' \
+      | tr -s '[:space:]' ' ' \
+      > "$output_file"
+  fi
+}
+
+# Build Jekyll site
+build_jekyll() {
+  log_info "Building Jekyll site..."
+  cd "$PROJECT_DIR"
+  
+  # Clean previous build
+  rm -rf "$JEKYLL_OUTPUT"
+  
+  # Build with Jekyll
+  DISABLE_WHITELIST=true bundle exec jekyll build --quiet
+  
+  if [ -d "$JEKYLL_OUTPUT" ]; then
+    log_success "Jekyll build complete: $JEKYLL_OUTPUT"
+    if [ "$VERBOSE" = true ]; then
+      echo "  Files: $(find "$JEKYLL_OUTPUT" -type f | wc -l)"
+    fi
+  else
+    log_error "Jekyll build failed - no output directory"
+    exit 1
+  fi
+}
+
+# Build Next.js site
+build_nextjs() {
+  log_info "Building Next.js site..."
+  cd "$PROJECT_DIR"
+  
+  # Clean previous build
+  rm -rf "$NEXTJS_OUTPUT"
+  rm -rf "$PROJECT_DIR/.next"
+  
+  # Build with Next.js
+  npm run next:build --silent
+  
+  if [ -d "$NEXTJS_OUTPUT" ]; then
+    log_success "Next.js build complete: $NEXTJS_OUTPUT"
+    if [ "$VERBOSE" = true ]; then
+      echo "  Files: $(find "$NEXTJS_OUTPUT" -type f | wc -l)"
+    fi
+  else
+    log_error "Next.js build failed - no output directory"
+    exit 1
+  fi
+}
+
+# Diff a single page
+diff_page() {
+  local page="$1"
+  local jekyll_file="$JEKYLL_OUTPUT/$page"
+  local nextjs_file="$NEXTJS_OUTPUT/$page"
+  local page_name=$(echo "$page" | sed 's/\/index.html//' | sed 's/index.html/homepage/' | tr '/' '-')
+  
+  [ -z "$page_name" ] && page_name="homepage"
+  
+  local jekyll_text="$DIFF_OUTPUT_DIR/jekyll-$page_name.txt"
+  local nextjs_text="$DIFF_OUTPUT_DIR/nextjs-$page_name.txt"
+  local diff_file="$DIFF_OUTPUT_DIR/diff-$page_name.txt"
+  
+  if [ "$VERBOSE" = true ]; then
+    log_info "Comparing: $page"
+  fi
+  
+  # Check if files exist
+  if [ ! -f "$jekyll_file" ]; then
+    log_warning "Jekyll page not found: $page"
+    echo "MISSING" > "$jekyll_text"
+  else
+    extract_text "$jekyll_file" "$jekyll_text"
+  fi
+  
+  if [ ! -f "$nextjs_file" ]; then
+    log_warning "Next.js page not found: $page"
+    echo "MISSING" > "$nextjs_text"
+  else
+    extract_text "$nextjs_file" "$nextjs_text"
+  fi
+  
+  # Generate diff
+  if diff -u "$jekyll_text" "$nextjs_text" > "$diff_file" 2>&1; then
+    echo -e "  ${GREEN}✓${NC} $page_name - identical"
+    return 0
+  else
+    local diff_lines=$(wc -l < "$diff_file")
+    echo -e "  ${YELLOW}△${NC} $page_name - $diff_lines lines differ (see $diff_file)"
+    return 1
+  fi
+}
+
+# Find recent blog posts to compare
+find_recent_posts() {
+  # Get 3 most recent blog posts from Jekyll output
+  if [ -d "$JEKYLL_OUTPUT" ]; then
+    find "$JEKYLL_OUTPUT" -path "*/20[0-9][0-9]/*/index.html" -type f 2>/dev/null | sort -r | head -3 | while read -r file; do
+      echo "${file#$JEKYLL_OUTPUT/}"
+    done
+  fi
+}
+
+# Main diff function
+run_diff() {
+  log_info "Starting page comparison..."
+  echo ""
+  
+  # Create output directory
+  mkdir -p "$DIFF_OUTPUT_DIR"
+  rm -f "$DIFF_OUTPUT_DIR"/*.txt
+  
+  local total=0
+  local identical=0
+  local different=0
+  
+  # Compare key pages
+  echo "Comparing key pages:"
+  for page in "${KEY_PAGES[@]}"; do
+    total=$((total + 1))
+    if diff_page "$page"; then
+      identical=$((identical + 1))
+    else
+      different=$((different + 1))
+    fi
+  done
+  
+  echo ""
+  
+  # Compare recent blog posts
+  echo "Comparing recent blog posts:"
+  while IFS= read -r post; do
+    if [ -n "$post" ]; then
+      total=$((total + 1))
+      if diff_page "$post"; then
+        identical=$((identical + 1))
+      else
+        different=$((different + 1))
+      fi
+    fi
+  done < <(find_recent_posts)
+  
+  echo ""
+  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  echo "Summary:"
+  echo "  Total pages compared: $total"
+  echo -e "  ${GREEN}Identical: $identical${NC}"
+  echo -e "  ${YELLOW}Different: $different${NC}"
+  echo ""
+  echo "Diff files saved to: $DIFF_OUTPUT_DIR"
+  
+  if [ "$different" -gt 0 ]; then
+    echo ""
+    echo "To view differences:"
+    echo "  cat $DIFF_OUTPUT_DIR/diff-*.txt"
+    return 1
+  fi
+  
+  return 0
+}
+
+# Main execution
+main() {
+  echo ""
+  echo "╔════════════════════════════════════════╗"
+  echo "║   Jekyll vs Next.js SSG Build Diff     ║"
+  echo "╚════════════════════════════════════════╝"
+  echo ""
+  
+  cd "$PROJECT_DIR"
+  
+  if [ "$SKIP_BUILD" = false ]; then
+    build_jekyll
+    echo ""
+    build_nextjs
+    echo ""
+  else
+    log_info "Skipping builds (--pages-only)"
+    echo ""
+    
+    # Verify outputs exist
+    if [ ! -d "$JEKYLL_OUTPUT" ]; then
+      log_error "Jekyll output not found at $JEKYLL_OUTPUT"
+      exit 1
+    fi
+    
+    if [ ! -d "$NEXTJS_OUTPUT" ]; then
+      log_error "Next.js output not found at $NEXTJS_OUTPUT"
+      exit 1
+    fi
+  fi
+  
+  if [ "$BUILD_ONLY" = true ]; then
+    log_success "Build complete (--build-only)"
+    exit 0
+  fi
+  
+  run_diff
+}
+
+main
