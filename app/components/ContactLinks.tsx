@@ -3,12 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faAddressCard } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faGithub, faBluesky } from '@fortawesome/free-brands-svg-icons';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-
-interface ContactLink {
-  name: string;
-  url: string;
-  icon: string;
-}
+import type { ContactLink } from '@/lib/config';
 
 interface ContactLinksProps {
   contactLinks: ContactLink[];

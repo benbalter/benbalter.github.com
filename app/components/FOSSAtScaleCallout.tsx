@@ -15,7 +15,7 @@ export default function FOSSAtScaleCallout({ nth }: FOSSAtScaleCalloutProps) {
     <Callout>
       This is the {nth} post in{' '}
       <Link 
-        href="/2021/06/15/managing-open-source-communities-at-scale/" 
+        href="/2021/06/15/managing-open-source-communities-at-scale" 
         className="alert-link"
       >
         a series
