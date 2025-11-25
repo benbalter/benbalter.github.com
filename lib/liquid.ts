@@ -73,8 +73,14 @@ function convertJekyllIncludes(content: string): string {
     // Convert params from Jekyll format (param=value) to liquidjs format (param: value)
     let liquidParams = '';
     if (params) {
-      // Replace = with : for each parameter
-      liquidParams = params.trim().replace(/(\w+)=(\w+)/g, '$1: $2') + ' ';
+      // Replace = with : for each parameter, handling quoted and unquoted values
+      liquidParams = params.trim().replace(/(\w+)=(".*?"|'.*?'|\S+)/g, (m, key, value) => {
+        // Remove surrounding quotes if present
+        if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+          value = value.slice(1, -1);
+        }
+        return `${key}: ${value}`;
+      }) + ' ';
     }
     
     // Return liquidjs-compatible include syntax
