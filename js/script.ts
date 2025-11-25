@@ -29,17 +29,6 @@ document.addEventListener('turbo:load', () => {
     new Tooltip(el) // eslint-disable-line no-new
   })
 
-  // Highlight active navigation link based on current path
-  const navLinks = document.querySelectorAll('[data-nav-path]')
-  const currentPath = window.location.pathname
-  navLinks.forEach((link) => {
-    const navPath = link.getAttribute('data-nav-path')
-    link.classList.remove('active')
-    if (navPath === currentPath) {
-      link.classList.add('active')
-    }
-  })
-
   const div = document.getElementById('four-oh-four-suggestion')
   if (div != null) {
     const xhr = new XMLHttpRequest()

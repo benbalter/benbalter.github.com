@@ -3,6 +3,7 @@ import './styles.scss';
 import './globals.css';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
+import ClientScripts from './components/ClientScripts';
 import { getSiteConfig } from '@/lib/config';
 import { getAllPageSlugs, getPageBySlug } from '@/lib/pages';
 import { JsonLdScript } from 'next-seo';
@@ -145,9 +146,9 @@ export default function RootLayout({
           </main>
           <Footer footerPages={footerPages} />
         </div>
-        {/* Load bundle.js which includes Bootstrap, Turbo, and FontAwesome initialization */}
-        {/* Using plain script tag instead of next/script to reduce client-side JS overhead */}
-        <script src="/assets/js/bundle.js" async />
+        {/* ClientScripts handles Bootstrap, AnchorJS, FontAwesome, and active nav link highlighting */}
+        {/* This replaces the Webpack bundle.js for Next.js while Jekyll continues to use bundle.js */}
+        <ClientScripts />
       </body>
     </html>
   );
