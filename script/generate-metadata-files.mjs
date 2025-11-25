@@ -103,11 +103,18 @@ function getAuthorBio() {
   const firstParagraph = withoutFrontMatter.trim().split('\n\n')[0];
   
   // Strip markdown links but keep the text
-  const stripped = firstParagraph
+  // Use a loop to ensure all HTML tags are removed, even malformed ones
+  let stripped = firstParagraph
     .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
     .replace(/\*\*([^*]+)\*\*/g, '$1')
-    .replace(/\*([^*]+)\*/g, '$1')
-    .replace(/<[^>]+>/g, '');
+    .replace(/\*([^*]+)\*/g, '$1');
+  
+  // Repeatedly remove HTML tags until no more are found
+  let previous = '';
+  while (stripped !== previous) {
+    previous = stripped;
+    stripped = stripped.replace(/<[^>]+>/g, '');
+  }
   
   return stripped;
 }
@@ -177,7 +184,7 @@ Understanding GitHub's unique culture and communication patterns:
 ## Site Information
 
 * [RSS Feed](${config.url}/feed.xml): Subscribe to all posts
-* [Site Source Code](https://github.com/${config.repository}): This site's Jekyll source code on GitHub
+* [Site Source Code](https://github.com/${config.repository}): This site's source code on GitHub
 * [Fine Print](${config.url}/fine-print/): Legal information and site policies
 `;
 

@@ -122,8 +122,12 @@ function registerCustomFilters(engine: Liquid) {
     if (value.startsWith('http://') || value.startsWith('https://')) {
       return value;
     }
-    // Add site URL
-    const url = config.url || 'https://ben.balter.com';
+    // Add site URL from config
+    const url = config.url;
+    if (!url) {
+      // If no URL configured, return relative path
+      return value.startsWith('/') ? value : `/${value}`;
+    }
     return `${url}${value.startsWith('/') ? '' : '/'}${value}`;
   });
   
@@ -146,9 +150,18 @@ function registerCustomFilters(engine: Liquid) {
   });
   
   // Register strip_html filter
+  // Uses a loop to ensure all tags are removed, even malformed ones
   engine.registerFilter('strip_html', (value: string) => {
     if (!value) return value;
-    return value.replace(/<[^>]*>/g, '');
+    // Repeatedly remove tags until no more are found
+    // This handles cases like <scr<script>ipt> that single-pass regex misses
+    let result = value;
+    let previous = '';
+    while (result !== previous) {
+      previous = result;
+      result = result.replace(/<[^>]*>/g, '');
+    }
+    return result;
   });
   
   // Register newline_to_br filter
