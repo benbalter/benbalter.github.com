@@ -6,30 +6,34 @@ import ResumeExperience from '@/app/components/ResumeExperience';
 import ResumeEducation from '@/app/components/ResumeEducation';
 import ResumeCertifications from '@/app/components/ResumeCertifications';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const resumeData = getResumeData();
-  
-  // Use centralized SEO metadata from lib/seo.ts
-  return getPageMetadata({
-    slug: 'resume',
-    title: resumeData.title,
-    description: resumeData.description,
-    content: '', // Not used for metadata generation
-  }, '/resume/');
-}
+const PAGE_PATH = '/resume/';
 
-export default async function ResumePage() {
+/**
+ * Helper to get resume page data for SEO
+ * Consolidates data retrieval to avoid duplicate calls
+ */
+function getResumePageData() {
   const resumeData = getResumeData();
-  
-  const page = {
+  return {
     slug: 'resume',
     title: resumeData.title,
     description: resumeData.description,
     content: '',
+    // Include full resume data for component rendering
+    ...resumeData,
   };
-  const path = '/resume/';
-  const webPageJsonLd = getWebPageJsonLd(page, path);
-  const breadcrumbJsonLd = getPageBreadcrumbJsonLd(page, path);
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const pageData = getResumePageData();
+  return getPageMetadata(pageData, PAGE_PATH);
+}
+
+export default async function ResumePage() {
+  const pageData = getResumePageData();
+  
+  const webPageJsonLd = getWebPageJsonLd(pageData, PAGE_PATH);
+  const breadcrumbJsonLd = getPageBreadcrumbJsonLd(pageData, PAGE_PATH);
   
   return (
     <>
@@ -42,11 +46,11 @@ export default async function ResumePage() {
       <div className="page page-resume">
         <div className="row">
           <div className="col-md-10 offset-md-1">
-            <h1 className="display-4 text-primary">{resumeData.title}</h1>
+            <h1 className="display-4 text-primary">{pageData.title}</h1>
             
-            <ResumeExperience positions={resumeData.positions} />
-            <ResumeEducation degrees={resumeData.degrees} />
-            <ResumeCertifications certifications={resumeData.certifications} />
+            <ResumeExperience positions={pageData.positions} />
+            <ResumeEducation degrees={pageData.degrees} />
+            <ResumeCertifications certifications={pageData.certifications} />
           </div>
         </div>
       </div>

@@ -6,17 +6,25 @@ import { getPageMetadata, getWebPageJsonLd, getPageBreadcrumbJsonLd } from '@/li
 import { JsonLdScript } from 'next-seo';
 import BookCategory from '@/app/components/BookCategory';
 
+const PAGE_PATH = '/other-recommended-reading/';
+const DEFAULT_PAGE = {
+  slug: 'other-recommended-reading',
+  title: 'Other recommended reading',
+  description: 'Books that have influenced my career, management style, and professional development',
+  content: '',
+};
+
+/**
+ * Helper to get page data with fallback
+ * Consolidates page data retrieval to avoid duplicate calls
+ */
+function getOtherRecommendedReadingPageData() {
+  return getPageBySlug('other-recommended-reading') || DEFAULT_PAGE;
+}
+
 export async function generateMetadata(): Promise<Metadata> {
-  const page = getPageBySlug('other-recommended-reading');
-  
-  if (!page) {
-    return {
-      title: 'Other recommended reading',
-      description: 'Books that have influenced my career, management style, and professional development',
-    };
-  }
-  
-  return getPageMetadata(page, '/other-recommended-reading/');
+  const pageData = getOtherRecommendedReadingPageData();
+  return getPageMetadata(pageData, PAGE_PATH);
 }
 
 export default function OtherRecommendedReadingPage() {
@@ -24,18 +32,10 @@ export default function OtherRecommendedReadingPage() {
   const affiliatesTag = getAmazonAffiliatesTag();
   const booksPerRow = 3;
   
-  // Get page data for JSON-LD
-  const page = getPageBySlug('other-recommended-reading');
-  const path = '/other-recommended-reading/';
-  const defaultPage = {
-    slug: 'other-recommended-reading',
-    title: 'Other recommended reading',
-    description: 'Books that have influenced my career, management style, and professional development',
-    content: '',
-  };
-  const pageData = page || defaultPage;
-  const webPageJsonLd = getWebPageJsonLd(pageData, path);
-  const breadcrumbJsonLd = getPageBreadcrumbJsonLd(pageData, path);
+  // Get page data for JSON-LD (uses cached helper)
+  const pageData = getOtherRecommendedReadingPageData();
+  const webPageJsonLd = getWebPageJsonLd(pageData, PAGE_PATH);
+  const breadcrumbJsonLd = getPageBreadcrumbJsonLd(pageData, PAGE_PATH);
 
   // Category links for the introduction
   const categoryLinks = [
