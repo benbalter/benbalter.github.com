@@ -9,12 +9,14 @@ type NavigationProperties = {
 // Inline script to add 'active' class to the current navigation link
 // This runs client-side after the page loads to highlight the active nav item
 // Using an IIFE to avoid polluting global scope, with DOM readiness check
+// Note: This script uses only static nav paths from site config, not user input
 const navActiveScript = `
 (function() {
+  function normalize(p) {
+    return p.endsWith('/') ? p : p + '/';
+  }
   function setActiveLink() {
     var pathname = window.location.pathname;
-    // Normalize pathname: ensure trailing slash for consistency
-    var normalizedPath = pathname.endsWith('/') ? pathname : pathname + '/';
     var links = document.querySelectorAll('[data-nav-path]');
     for (var i = 0; i < links.length; i++) {
       var linkPath = links[i].getAttribute('data-nav-path');
@@ -23,12 +25,8 @@ const navActiveScript = `
         if (pathname === '/' || pathname === '') {
           links[i].classList.add('active');
         }
-      } else {
-        // For other paths, compare with normalized version
-        var normalizedLinkPath = linkPath.endsWith('/') ? linkPath : linkPath + '/';
-        if (normalizedPath === normalizedLinkPath) {
-          links[i].classList.add('active');
-        }
+      } else if (normalize(pathname) === normalize(linkPath)) {
+        links[i].classList.add('active');
       }
     }
   }

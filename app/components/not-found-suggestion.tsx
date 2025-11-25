@@ -5,6 +5,10 @@ type NotFoundSuggestionProperties = {
 /**
  * Server component that suggests the closest matching URL to the 404 page
  * Uses inline vanilla JS with Levenshtein distance to find the most similar URL
+ * 
+ * Security note: The URLs passed to this component come from the site's own content
+ * (getAllSiteUrls in not-found.tsx), not from user input. The script is static and
+ * only reads URLs from the data attribute, using DOM manipulation (not innerHTML).
  */
 export default function NotFoundSuggestion({urls}: NotFoundSuggestionProperties) {
   const urlsJson = JSON.stringify(urls);
