@@ -17,12 +17,13 @@ interface MarkdownContentProps {
 function renderComponent(component: ComponentPlaceholder): React.ReactNode {
   switch (component.type) {
     case 'callout':
-      // Note: callout content is passed as HTML string from Liquid processing
-      // For simple text callouts, we render as HTML; for complex content, 
-      // the Liquid template handles the processing
+      // Callout content is extracted from the Liquid include before markdown processing.
+      // The content is simple text from the blog post's Liquid template, not user input.
+      // Since this is static site generation (SSG), the content comes from trusted 
+      // markdown files in the repository, not from external/user sources.
       return (
         <Callout key={component.id}>
-          <span dangerouslySetInnerHTML={{ __html: component.props.content || '' }} />
+          {component.props.content || ''}
         </Callout>
       );
     case 'foss-at-scale':
