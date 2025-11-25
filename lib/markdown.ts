@@ -48,9 +48,13 @@ export async function markdownToHtml(
   // We need to extend the className property to include our custom classes
   const sanitizeSchema: Schema = {
     ...defaultSchema,
-    // Disable the 'user-content-' prefix for IDs to maintain Jekyll/kramdown backward compatibility
+    // Disable the 'user-content-' prefix for IDs to maintain Jekyll/kramdown backward compatibility.
     // By default, rehype-sanitize prefixes IDs to prevent DOM clobbering attacks,
-    // but this breaks existing anchor links from Jekyll-generated pages
+    // but this breaks existing anchor links from Jekyll-generated pages.
+    // Security note: DOM clobbering risk is minimal here since:
+    // 1. Content is author-controlled blog posts, not untrusted user input
+    // 2. Heading IDs are derived from text content, not arbitrary values
+    // 3. Other sanitization (script removal, etc.) remains in place
     clobberPrefix: '',
     attributes: {
       ...defaultSchema.attributes,
