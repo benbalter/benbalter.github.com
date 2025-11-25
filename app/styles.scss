@@ -1,16 +1,19 @@
 // Main styles for Next.js app
 // This file imports Bootstrap and custom styles natively in Next.js
 
-// Custom variables (before Bootstrap import)
+// Custom variable for header background
 $header-path: "/assets/img/header.jpg";
-$blue: #337ab7;
-$enable-shadows: true;
-$enable-gradients: true;
-$tooltip-max-width: 350px;
-$color-mode-type: media-query;
 
-// Import Bootstrap
-@import "bootstrap/scss/bootstrap";
+// Import Bootstrap with custom variable overrides using @use (Sass module syntax)
+// This replaces the deprecated @import syntax
+// The `as *` allows accessing Bootstrap variables without namespace prefix
+@use "bootstrap/scss/bootstrap" as * with (
+  $blue: #337ab7,
+  $enable-shadows: true,
+  $enable-gradients: true,
+  $tooltip-max-width: 350px,
+  $color-mode-type: media-query
+);
 
 // Custom abbr styling
 abbr[data-bs-original-title] {
