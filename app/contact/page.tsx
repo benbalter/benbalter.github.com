@@ -34,10 +34,6 @@ export default async function ContactPage() {
   const webPageJsonLd = getWebPageJsonLd(page, PAGE_PATH);
   const breadcrumbJsonLd = getPageBreadcrumbJsonLd(page, PAGE_PATH);
   
-  // Get email and handle from config
-  const email = config.email || 'ben@balter.com';
-  const handle = config.handle || 'benbalter';
-  
   return (
     <>
       {/* WebPage structured data */}
@@ -53,9 +49,13 @@ export default async function ContactPage() {
             
             {/* Render intro text directly instead of using MarkdownContent with Jekyll includes */}
             <p className="text-center">
-              Looking to get in touch? Email{' '}
-              <Link href={`mailto:${email}`}>{email}</Link>{' '}
-              or I&apos;m <code>@{handle}</code> most places:
+              Looking to get in touch?{' '}
+              {config.email && (
+                <>
+                  Email <Link href={`mailto:${config.email}`}>{config.email}</Link> or{' '}
+                </>
+              )}
+              I&apos;m <code>@{config.handle}</code> most places:
             </p>
             
             {/* Use the ContactLinks React component instead of Jekyll include */}
