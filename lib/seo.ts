@@ -5,9 +5,29 @@
 
 import { getSiteConfig } from './config';
 import { getPostUrlParts, type Post } from './posts';
-import { getPostOgImage, getPageOgImage } from './og-image';
+import { getPostOgImage, getPageOgImage, getDefaultOgImage } from './og-image';
 import type { Page } from './pages';
 import type { Metadata } from 'next';
+
+// Standard OG image dimensions for social sharing
+const OG_IMAGE_WIDTH = 1200;
+const OG_IMAGE_HEIGHT = 630;
+
+/**
+ * Get the full absolute URL for a given path
+ */
+function getFullUrl(path: string): string {
+  const config = getSiteConfig();
+  return `${config.url}${path}`;
+}
+
+/**
+ * Get the full absolute URL for a blog post
+ */
+function getFullPostUrl(post: Post): string {
+  const { url } = getPostUrlParts(post);
+  return getFullUrl(url);
+}
 
 /**
  * Build common Open Graph metadata structure
@@ -35,6 +55,8 @@ function buildOpenGraphMetadata(
       {
         url: imageUrl,
         alt: imageAlt,
+        width: OG_IMAGE_WIDTH,
+        height: OG_IMAGE_HEIGHT,
       },
     ],
     ...(publishedTime && { publishedTime }),
@@ -69,8 +91,7 @@ function buildTwitterMetadata(
  */
 export function getPostMetadata(post: Post): Metadata {
   const config = getSiteConfig();
-  const { url } = getPostUrlParts(post);
-  const fullUrl = `${config.url}${url}`;
+  const fullUrl = getFullPostUrl(post);
   const publishDate = new Date(post.date).toISOString();
   const description = post.description || config.description;
   
@@ -103,7 +124,7 @@ export function getPostMetadata(post: Post): Metadata {
  */
 export function getPageMetadata(page: Page, path: string): Metadata {
   const config = getSiteConfig();
-  const fullUrl = `${config.url}${path}`;
+  const fullUrl = getFullUrl(path);
   const ogImage = getPageOgImage(page.image);
   const title = page.title || config.title;
   const description = page.description || config.description;
@@ -125,8 +146,7 @@ export function getPageMetadata(page: Page, path: string): Metadata {
  */
 export function getPostJsonLd(post: Post): object {
   const config = getSiteConfig();
-  const { url } = getPostUrlParts(post);
-  const fullUrl = `${config.url}${url}`;
+  const fullUrl = getFullPostUrl(post);
   
   return {
     '@context': 'https://schema.org',
@@ -189,6 +209,139 @@ export function getWebsiteJsonLd(): object {
     author: {
       '@type': 'Person',
       name: config.author.name,
+    },
+  };
+}
+
+/**
+ * Generate JSON-LD BreadcrumbList for a blog post
+ * Provides navigation context for search engines
+ */
+export function getPostBreadcrumbJsonLd(post: Post): object {
+  const config = getSiteConfig();
+  const fullUrl = getFullPostUrl(post);
+  
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: config.url,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: post.title,
+        item: fullUrl,
+      },
+    ],
+  };
+}
+
+/**
+ * Generate JSON-LD BreadcrumbList for a page
+ * Provides navigation context for search engines
+ */
+export function getPageBreadcrumbJsonLd(page: Page, path: string): object {
+  const config = getSiteConfig();
+  const fullUrl = getFullUrl(path);
+  const title = page.title || 'Page';
+  
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: config.url,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: title,
+        item: fullUrl,
+      },
+    ],
+  };
+}
+
+/**
+ * Generate JSON-LD structured data for a WebPage
+ * Used for non-blog pages like About, Contact, Resume, etc.
+ */
+export function getWebPageJsonLd(page: Page, path: string): object {
+  const config = getSiteConfig();
+  const fullUrl = getFullUrl(path);
+  const title = page.title || config.title;
+  const description = page.description || config.description;
+  
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: title,
+    description,
+    url: fullUrl,
+    author: {
+      '@type': 'Person',
+      name: config.author.name,
+      url: config.url,
+    },
+    isPartOf: {
+      '@type': 'WebSite',
+      name: config.title,
+      url: config.url,
+    },
+  };
+}
+
+/**
+ * Generate SEO metadata for the home page
+ * Includes WebSite schema and enhanced OG metadata
+ */
+export function getHomePageMetadata(): Metadata {
+  const config = getSiteConfig();
+  const ogImage = getDefaultOgImage();
+  
+  return {
+    title: config.title,
+    description: config.description,
+    keywords: config.keywords,
+    authors: [{ name: config.author.name, url: config.url }],
+    creator: config.author.name,
+    publisher: config.author.name,
+    openGraph: {
+      type: 'website',
+      locale: 'en_US',
+      url: config.url,
+      siteName: config.title,
+      title: config.title,
+      description: config.description,
+      images: [
+        {
+          url: ogImage,
+          alt: config.title,
+          width: OG_IMAGE_WIDTH,
+          height: OG_IMAGE_HEIGHT,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary',
+      creator: `@${config.author.twitter}`,
+      title: config.title,
+      description: config.description,
+      images: [ogImage],
+    },
+    alternates: {
+      canonical: config.url,
+      types: {
+        'application/rss+xml': `${config.url}/feed.xml`,
+      },
     },
   };
 }
