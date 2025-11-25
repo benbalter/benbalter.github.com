@@ -21,7 +21,6 @@ export default function BookCard({ book, affiliatesTag }: BookCardProps) {
             alt={book.title}
             width={110}
             height={160}
-            style={{ width: 'auto', height: 'auto' }}
           />
         </div>
 
