@@ -1,10 +1,9 @@
 import { getPageBySlug } from '@/lib/pages';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { getPageMetadata, getWebPageJsonLd, getPageBreadcrumbJsonLd } from '@/lib/seo';
-import { JsonLdScript } from 'next-seo';
+import { getPageMetadata } from '@/lib/seo';
 import MarkdownContent from '@/app/components/MarkdownContent';
-import PageTitle from '@/app/components/PageTitle';
+import PageLayout from '@/app/components/PageLayout';
 
 const PAGE_PATH = '/talks/';
 
@@ -25,26 +24,9 @@ export default async function TalksPage() {
     notFound();
   }
   
-  const webPageJsonLd = getWebPageJsonLd(page, PAGE_PATH);
-  const breadcrumbJsonLd = getPageBreadcrumbJsonLd(page, PAGE_PATH);
-  
   return (
-    <>
-      {/* WebPage structured data */}
-      <JsonLdScript data={webPageJsonLd} scriptKey="webpage-schema" />
-      
-      {/* Breadcrumb structured data for navigation */}
-      <JsonLdScript data={breadcrumbJsonLd} scriptKey="breadcrumb-schema" />
-      
-      <div className="page page-talks">
-        <div className="row">
-          <div className="col-md-10 offset-md-1">
-            {page.title && <PageTitle title={page.title} />}
-            
-            <MarkdownContent markdown={page.content} />
-          </div>
-        </div>
-      </div>
-    </>
+    <PageLayout page={page} path={PAGE_PATH}>
+      <MarkdownContent markdown={page.content} />
+    </PageLayout>
   );
 }
