@@ -325,6 +325,8 @@ async function prepareContext(
     url: config.url,
     repository: config.repository,
     branch: config.branch,
+    contact_links: config.contact_links || [],
+    pgp_key: config.pgp_key,
     github: {
       repository_nwo: config.repository,
     },
