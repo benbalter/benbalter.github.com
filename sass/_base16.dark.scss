@@ -5,7 +5,7 @@
 // This file defines CSS custom properties for dark mode syntax highlighting.
 // Applied when (prefers-color-scheme: dark).
 
-:root {
+.highlight {
   // Base colors
   --highlight-fg: #c9d1d9;
   --highlight-bg: #161b22;
