@@ -3,34 +3,6 @@
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
-// Import FontAwesome
-import { config, library, dom } from '@fortawesome/fontawesome-svg-core';
-import { faRss } from '@fortawesome/free-solid-svg-icons/faRss';
-import { faRetweet } from '@fortawesome/free-solid-svg-icons/faRetweet';
-import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons/faLinkedin';
-import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope';
-import { faAddressCard } from '@fortawesome/free-solid-svg-icons/faAddressCard';
-import { faBluesky } from '@fortawesome/free-brands-svg-icons/faBluesky';
-import { faClock } from '@fortawesome/free-regular-svg-icons/faClock';
-import { faHeart } from '@fortawesome/free-regular-svg-icons/faHeart';
-
-// Configure FontAwesome
-config.mutateApproach = 'sync';
-library.add(
-  faRss,
-  faTwitter,
-  faLinkedin,
-  faGithub,
-  faEnvelope,
-  faAddressCard,
-  faRetweet,
-  faHeart,
-  faClock,
-  faBluesky
-);
-
 /**
  * ClientScripts component handles client-side JavaScript initialization for Next.js
  * This replaces the functionality previously provided by bundle.js (Webpack build)
@@ -46,27 +18,39 @@ export default function ClientScripts() {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Initialize FontAwesome DOM watching
-    dom.watch();
+    // Track tooltip instances for cleanup
+    // Using Bootstrap.Tooltip type would require importing it, but we dynamically import Bootstrap
+    // so we define a minimal interface matching the dispose method we need
+    interface BootstrapTooltip { dispose(): void }
+    const tooltipInstances: BootstrapTooltip[] = [];
+    let isMounted = true;
 
-    // Dynamically import AnchorJS (it's a client-only library)
-    const initAnchorJS = async () => {
-      const AnchorJS = (await import('anchor-js')).default;
-      const anchors = new AnchorJS();
-      anchors.add();
-    };
-    initAnchorJS();
+    // Dynamically import Bootstrap JS on the client side
+    import('bootstrap').then((bootstrap) => {
+      // Don't initialize if component was unmounted during import
+      if (!isMounted) return;
 
-    // Initialize Bootstrap tooltips
-    const initTooltips = async () => {
-      const { Tooltip } = await import('bootstrap');
-      const tooltipElements = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-      tooltipElements.forEach((el) => {
-        new Tooltip(el);
+      // Initialize Bootstrap tooltips for all tooltip elements
+      // Re-run on pathname change to initialize tooltips on newly rendered elements
+      // after client-side navigation
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+      tooltipTriggerList.forEach((tooltipTriggerEl) => {
+        // Check if tooltip is already initialized to avoid duplicates
+        const existingTooltip = bootstrap.Tooltip.getInstance(tooltipTriggerEl);
+        if (!existingTooltip) {
+          const tooltip = new bootstrap.Tooltip(tooltipTriggerEl);
+          tooltipInstances.push(tooltip);
+        }
       });
+    });
+
+    // Cleanup function to dispose tooltips when pathname changes
+    // This prevents memory leaks from orphaned tooltip instances
+    return () => {
+      isMounted = false;
+      tooltipInstances.forEach(tooltip => tooltip.dispose());
     };
-    initTooltips();
-  }, []);
+  }, [pathname]);
 
   // Update active navigation link when pathname changes
   useEffect(() => {

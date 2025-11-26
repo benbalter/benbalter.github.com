@@ -8,6 +8,13 @@ jest.mock('next/link', () => {
   };
 });
 
+// Mock Next.js Script component
+jest.mock('next/script', () => {
+  return ({ id, strategy, children, ...props }: any) => {
+    return <script id={id} data-strategy={strategy} {...props}>{children}</script>;
+  };
+});
+
 describe('Navigation', () => {
   const mockProps = {
     title: 'Ben Balter',
@@ -49,7 +56,7 @@ describe('Navigation', () => {
     expect(resumeLink).toHaveAttribute('href', '/resume/');
   });
 
-  it('should include data-nav-path attribute for client-side active highlighting', () => {
+  it('should have data-nav-path attributes for active link detection', () => {
     render(<Navigation {...mockProps} />);
     
     const aboutLink = screen.getByText('About').closest('a');
@@ -57,6 +64,33 @@ describe('Navigation', () => {
     
     const resumeLink = screen.getByText('Resume').closest('a');
     expect(resumeLink).toHaveAttribute('data-nav-path', '/resume/');
+    
+    const talksLink = screen.getByText('Talks').closest('a');
+    expect(talksLink).toHaveAttribute('data-nav-path', '/talks/');
+  });
+
+  it('should render Next.js Script component for client-side active link detection', () => {
+    const { container } = render(<Navigation {...mockProps} />);
+    
+    const script = container.querySelector('script');
+    expect(script).toBeInTheDocument();
+    expect(script).toHaveAttribute('id', 'nav-active-script');
+    expect(script).toHaveAttribute('data-strategy', 'afterInteractive');
+    expect(script?.innerHTML).toContain('window.location.pathname');
+    expect(script?.innerHTML).toContain('data-nav-path');
+    expect(script?.innerHTML).toContain('classList.add');
+  });
+
+  it('should not have active class on server render (added client-side)', () => {
+    render(<Navigation {...mockProps} />);
+    
+    const resumeLink = screen.getByText('Resume').closest('a');
+    expect(resumeLink).toHaveClass('nav-link');
+    expect(resumeLink).not.toHaveClass('active');
+    
+    const aboutLink = screen.getByText('About').closest('a');
+    expect(aboutLink).toHaveClass('nav-link');
+    expect(aboutLink).not.toHaveClass('active');
   });
 
   it('should have navbar toggler button', () => {

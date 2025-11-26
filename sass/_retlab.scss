@@ -1,3 +1,4 @@
+// Custom Bootstrap variables (must be defined before importing Bootstrap)
 $header-path: "/assets/img/header.jpg";
 $blue: #337ab7;
 $enable-shadows: true;
@@ -5,23 +6,21 @@ $enable-gradients: true;
 $tooltip-max-width: 350px;
 $color-mode-type: media-query;
 
+// Import Bootstrap
+// Note: Bootstrap 5.3.x still uses @import internally. The deprecation warning
+// is silenced via sass-loader configuration until Bootstrap migrates to @use.
 @import "~bootstrap/scss/bootstrap";
 
 // Syntax highlighting styles
 @import 'highlighting';
 
+// Dark and light mode syntax highlighting colors
+// Each partial now contains its own @media query wrapper
+@import 'base16.dark';
+@import 'base16.light';
+
 abbr[data-bs-original-title] {
     @extend abbr, [title]
-}
-
-// Dark mode syntax highlighting colors
-@media (prefers-color-scheme: dark) {
-    @import 'base16.dark';
-}
-
-// Light mode syntax highlighting colors (default)
-@media (prefers-color-scheme: light) {
-    @import 'base16.light';
 }
 
 .footnotes {
@@ -78,4 +77,31 @@ blockquote {
 .avatar {
     @extend .img-fluid;
     @extend .rounded;
+}
+
+// Footer link accessibility fix
+// Bootstrap's link-secondary uses gray-600 (#6c757d) which has ~4.48:1 contrast ratio
+// against white, below WCAG AA requirement of 4.5:1. Using gray-700 (#495057) provides
+// ~7.13:1 contrast ratio, meeting both WCAG AA and AAA requirements.
+footer .link-secondary,
+nav .border-top .link-secondary {
+    color: var(--bs-gray-700) !important;
+
+    &:hover,
+    &:focus {
+        color: var(--bs-gray-800) !important;
+    }
+}
+
+// Dark mode footer link adjustment
+@media (prefers-color-scheme: dark) {
+    footer .link-secondary,
+    nav .border-top .link-secondary {
+        color: var(--bs-gray-400) !important;
+
+        &:hover,
+        &:focus {
+            color: var(--bs-gray-300) !important;
+        }
+    }
 }

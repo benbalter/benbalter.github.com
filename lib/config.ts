@@ -2,6 +2,12 @@ import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
 
+export interface ContactLink {
+  name: string;
+  url: string;
+  icon: string;
+}
+
 export interface SiteConfig {
   title: string;
   description: string;
@@ -17,6 +23,8 @@ export interface SiteConfig {
   };
   nav_pages: string[];
   footer_pages: string[];
+  contact_links: ContactLink[];
+  pgp_key?: string;
   job_title: string;
   employer: {
     name: string;
@@ -97,4 +105,20 @@ export function getAuthorBio(): string {
 export function getAmazonAffiliatesTag(): string {
   const config = getSiteConfig();
   return config.amazon?.affiliates_tag || 'benbalter07-20';
+}
+
+/**
+ * Get contact links from configuration
+ */
+export function getContactLinks(): ContactLink[] {
+  const config = getSiteConfig();
+  return config.contact_links || [];
+}
+
+/**
+ * Get PGP key from configuration
+ */
+export function getPgpKey(): string | undefined {
+  const config = getSiteConfig();
+  return config.pgp_key;
 }

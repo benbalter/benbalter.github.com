@@ -23,34 +23,31 @@ books_per_row: 3
 
 <h3 id="{{ group[0] | slugify }}" class="book-group">{{ group[0] }}</h3>
 
-  {% for book in group[1] %}
-    {% assign column_number = forloop.index0 | modulo:page.books_per_row %}
+{% for book in group[1] %}
+{% assign column_number = forloop.index0 | modulo:page.books_per_row %}
 
-    {% if column_number == 0 %}
-      <div class="row pt-2">
-    {% endif %}
+{% if column_number == 0 %}
+<div class="row pt-2">
+{% endif %}
 
-    <div class="col-md-{{ 12 | divided_by:page.books_per_row }} text-center">
-      <a href="https://www.amazon.com/gp/product/{{ book.asin }}/?tag={{ site.amazon.affiliates_tag }}">
-        <div class="mb-2">
-          <img
-            src="http://images.amazon.com/images/P/{{ book.asin }}.01.MZZZZZZZ.jpg"
-            alt="{{ book.title | mardownify | strip_html }}"
-          />
-        </div>
+<div class="col-md-{{ 12 | divided_by:page.books_per_row }} text-center">
+<a href="https://www.amazon.com/gp/product/{{ book.asin }}/?tag={{ site.amazon.affiliates_tag }}">
+<div class="mb-2">
+<img src="http://images.amazon.com/images/P/{{ book.asin }}.01.MZZZZZZZ.jpg" alt="{{ book.title | markdownify | strip_html }}" />
+</div>
 
-        <div class="title font-weight-bold min-y-5">
-          {{ book.title | mardownify }}
-        </div>
-      </a>
+<div class="title font-weight-bold min-y-5">
+{{ book.title | markdownify }}
+</div>
+</a>
 
-      <div class="small text-justify">
-        {{ book.tldr | markdownify }}
-      </div>
-    </div>
+<div class="small text-justify">
+{{ book.tldr | markdownify }}
+</div>
+</div>
 
-    {% if column_number == 2 or forloop.rindex == 1 %}
-      </div>
-    {% endif %}
-  {% endfor %}
+{% if column_number == 2 or forloop.rindex == 1 %}
+</div>
+{% endif %}
+{% endfor %}
 {% endfor %}

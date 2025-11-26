@@ -1,4 +1,11 @@
 import type { Metadata, Viewport } from 'next';
+// FontAwesome CSS must be imported before other styles to ensure proper icon sizing
+// This ensures FontAwesome icons are sized correctly by loading its CSS first
+import { config as fontAwesomeConfig } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+// Prevent FontAwesome from adding the CSS automatically since we import it above
+fontAwesomeConfig.autoAddCss = false;
+
 import './styles.scss';
 import './globals.css';
 import Navigation from './components/Navigation';
@@ -78,11 +85,11 @@ export const metadata: Metadata = {
 // Get navigation and footer pages
 function getNavPages() {
   return config.nav_pages.map(pagePath => {
-    const page = getPageBySlug(pagePath.replace(/\.(md|html)$/, '').replace(/^index$/, ''));
-    const isIndex = pagePath === 'index.html' || pagePath === 'index.md';
+    const slug = pagePath.replace(/\.(md|html)$/, '');
+    const page = slug === 'index' ? getPageBySlug('index') : getPageBySlug(slug);
     return {
-      title: page?.title || (isIndex ? 'Posts' : pagePath),
-      path: isIndex ? '/' : `/${pagePath.replace(/\.(md|html)$/, '')}/`,
+      title: page?.title || (slug === 'index' ? 'Posts' : pagePath),
+      path: slug === 'index' ? '/' : `/${slug}/`,
     };
   });
 }
@@ -109,6 +116,10 @@ export default function RootLayout({
     <html lang="en-US">
       <head>
         <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        {/* Preconnect to third-party origins for faster resource loading */}
+        <link rel="preconnect" href="https://avatars.githubusercontent.com" crossOrigin="" />
+        <link rel="preconnect" href="https://github.com" crossOrigin="" />
+        <link rel="preconnect" href="https://images.amazon.com" crossOrigin="" />
         {config.social.links.map((link) => (
           <link key={link} rel="me" href={link} />
         ))}
@@ -146,8 +157,8 @@ export default function RootLayout({
           </main>
           <Footer footerPages={footerPages} />
         </div>
-        {/* ClientScripts handles Bootstrap, AnchorJS, FontAwesome, and active nav link highlighting */}
-        {/* This replaces the Webpack bundle.js for Next.js while Jekyll continues to use bundle.js */}
+        {/* ClientScripts handles Bootstrap tooltip initialization */}
+        {/* Jekyll continues to use bundle.js for backwards compatibility */}
         <ClientScripts />
       </body>
     </html>

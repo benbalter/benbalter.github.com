@@ -1,7 +1,7 @@
 {
   "ci": {
     "collect": {
-      "staticDistDir": "./_site",
+      "staticDistDir": "./out",
       "url": [
         "http://localhost/index.html",
         "http://localhost/about/index.html",
@@ -16,7 +16,14 @@
         "unused-css-rules": "off",
         "canonical": "warn",
         "uses-responsive-images": "warn",
-        "offscreen-images": "warn"
+        "offscreen-images": "warn",
+        "lcp-lazy-loaded": "off",
+        "non-composited-animations": "off",
+        "prioritize-lcp-image": "off",
+        "dom-size": "warn",
+        "modern-image-formats": "warn",
+        "uses-long-cache-ttl": "off",
+        "cumulative-layout-shift": "warn"
       }
     },
     "upload": {

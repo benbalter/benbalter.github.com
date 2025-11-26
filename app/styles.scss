@@ -1,16 +1,19 @@
 // Main styles for Next.js app
 // This file imports Bootstrap and custom styles natively in Next.js
 
-// Custom variables (before Bootstrap import)
+// Custom variable for header background
 $header-path: "/assets/img/header.jpg";
-$blue: #337ab7;
-$enable-shadows: true;
-$enable-gradients: true;
-$tooltip-max-width: 350px;
-$color-mode-type: media-query;
 
-// Import Bootstrap
-@import "bootstrap/scss/bootstrap";
+// Import Bootstrap with custom variable overrides using @use (Sass module syntax)
+// This replaces the deprecated @import syntax
+// The `as *` allows accessing Bootstrap variables without namespace prefix
+@use "bootstrap/scss/bootstrap" as * with (
+  $blue: #337ab7,
+  $enable-shadows: true,
+  $enable-gradients: true,
+  $tooltip-max-width: 350px,
+  $color-mode-type: media-query
+);
 
 // Custom abbr styling
 abbr[data-bs-original-title] {
@@ -214,4 +217,31 @@ blockquote {
 .avatar {
   @extend .img-fluid;
   @extend .rounded;
+}
+
+// Footer link accessibility fix
+// Bootstrap's link-secondary uses gray-600 (#6c757d) which has ~4.48:1 contrast ratio
+// against white, below WCAG AA requirement of 4.5:1. Using gray-700 (#495057) provides
+// ~7.13:1 contrast ratio, meeting both WCAG AA and AAA requirements.
+footer .link-secondary,
+nav .border-top .link-secondary {
+  color: var(--bs-gray-700) !important;
+
+  &:hover,
+  &:focus {
+    color: var(--bs-gray-800) !important;
+  }
+}
+
+// Dark mode footer link adjustment
+@media (prefers-color-scheme: dark) {
+  footer .link-secondary,
+  nav .border-top .link-secondary {
+    color: var(--bs-gray-400) !important;
+
+    &:hover,
+    &:focus {
+      color: var(--bs-gray-300) !important;
+    }
+  }
 }
