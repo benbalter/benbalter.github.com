@@ -1,5 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
 import { render } from '@testing-library/react';
-import ClientScripts from './ClientScripts';
 
 // Mock next/navigation
 let mockPathname = '/';
@@ -15,6 +17,9 @@ jest.mock('bootstrap', () => ({
   }),
 }), { virtual: true });
 
+// Import ClientScripts after mocking
+import ClientScripts from './ClientScripts';
+
 describe('ClientScripts', () => {
   beforeEach(() => {
     mockPathname = '/';
@@ -22,7 +27,8 @@ describe('ClientScripts', () => {
 
   it('should render without crashing', () => {
     const { container } = render(<ClientScripts />);
-    expect(container).toBeInTheDocument();
+    // ClientScripts returns null, so container should be empty
+    expect(container.firstChild).toBeNull();
   });
 
   it('should not render any visible content', () => {

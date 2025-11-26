@@ -157,6 +157,8 @@ export default function RootLayout({
           </main>
           <Footer footerPages={footerPages} />
         </div>
+        {/* ClientScripts handles Bootstrap tooltip initialization */}
+        {/* Jekyll continues to use bundle.js for backwards compatibility */}
         <ClientScripts />
       </body>
     </html>
