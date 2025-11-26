@@ -79,11 +79,9 @@ export default function Navigation({title, description, navPages}: NavigationPro
           {description}
         </span>
       </div>
-      <Script
-        id="nav-active-script"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{__html: navActiveScript}}
-      />
+      <Script id="nav-active-script" strategy="afterInteractive">
+        {navActiveScript}
+      </Script>
     </div>
   );
 }

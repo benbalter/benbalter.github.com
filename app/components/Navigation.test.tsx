@@ -10,8 +10,8 @@ jest.mock('next/link', () => {
 
 // Mock Next.js Script component
 jest.mock('next/script', () => {
-  return ({ id, strategy, dangerouslySetInnerHTML, ...props }: any) => {
-    return <script id={id} data-strategy={strategy} dangerouslySetInnerHTML={dangerouslySetInnerHTML} {...props} />;
+  return ({ id, strategy, children, ...props }: any) => {
+    return <script id={id} data-strategy={strategy} {...props}>{children}</script>;
   };
 });
 
