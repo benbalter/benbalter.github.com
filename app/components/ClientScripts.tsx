@@ -52,17 +52,5 @@ export default function ClientScripts() {
     };
   }, [pathname]);
 
-  // Update active navigation link when pathname changes
-  useEffect(() => {
-    const navLinks = document.querySelectorAll('[data-nav-path]');
-    navLinks.forEach((link) => {
-      const navPath = link.getAttribute('data-nav-path');
-      link.classList.remove('active');
-      if (navPath === pathname) {
-        link.classList.add('active');
-      }
-    });
-  }, [pathname]);
-
   return null;
 }
