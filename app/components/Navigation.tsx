@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Script from 'next/script';
 
 type NavigationProperties = {
   title: string;
@@ -78,7 +79,11 @@ export default function Navigation({title, description, navPages}: NavigationPro
           {description}
         </span>
       </div>
-      <script dangerouslySetInnerHTML={{__html: navActiveScript}} />
+      <Script
+        id="nav-active-script"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{__html: navActiveScript}}
+      />
     </div>
   );
 }

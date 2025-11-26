@@ -8,6 +8,13 @@ jest.mock('next/link', () => {
   };
 });
 
+// Mock Next.js Script component
+jest.mock('next/script', () => {
+  return ({ id, strategy, dangerouslySetInnerHTML, ...props }: any) => {
+    return <script id={id} data-strategy={strategy} dangerouslySetInnerHTML={dangerouslySetInnerHTML} {...props} />;
+  };
+});
+
 describe('Navigation', () => {
   const mockProps = {
     title: 'Ben Balter',
@@ -62,11 +69,13 @@ describe('Navigation', () => {
     expect(talksLink).toHaveAttribute('data-nav-path', '/talks');
   });
 
-  it('should render inline script for client-side active link detection', () => {
+  it('should render Next.js Script component for client-side active link detection', () => {
     const { container } = render(<Navigation {...mockProps} />);
     
     const script = container.querySelector('script');
     expect(script).toBeInTheDocument();
+    expect(script).toHaveAttribute('id', 'nav-active-script');
+    expect(script).toHaveAttribute('data-strategy', 'afterInteractive');
     expect(script?.innerHTML).toContain('window.location.pathname');
     expect(script?.innerHTML).toContain('data-nav-path');
     expect(script?.innerHTML).toContain('classList.add');
