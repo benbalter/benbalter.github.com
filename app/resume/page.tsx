@@ -2,9 +2,8 @@ import { getResumeData } from '@/lib/resume';
 import { getPageBySlug } from '@/lib/pages';
 import { markdownToHtml } from '@/lib/markdown';
 import type { Metadata } from 'next';
-import { getPageMetadata, getWebPageJsonLd, getPageBreadcrumbJsonLd } from '@/lib/seo';
-import { JsonLdScript } from 'next-seo';
-import PageTitle from '@/app/components/PageTitle';
+import { getPageMetadata } from '@/lib/seo';
+import PageLayout from '@/app/components/PageLayout';
 
 const PAGE_PATH = '/resume/';
 
@@ -47,25 +46,9 @@ export default async function ResumePage() {
     { loadCollections: true },
   ) : '<p>Resume content could not be loaded.</p>';
   
-  const webPageJsonLd = getWebPageJsonLd(pageData, PAGE_PATH);
-  const breadcrumbJsonLd = getPageBreadcrumbJsonLd(pageData, PAGE_PATH);
-  
   return (
-    <>
-      {/* WebPage structured data */}
-      <JsonLdScript data={webPageJsonLd} scriptKey="webpage-schema" />
-      
-      {/* Breadcrumb structured data for navigation */}
-      <JsonLdScript data={breadcrumbJsonLd} scriptKey="breadcrumb-schema" />
-      
-      <div className="page page-resume">
-        <div className="row">
-          <div className="col-md-10 offset-md-1">
-            <PageTitle title={pageData.title || 'Resume'} />
-            <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
-          </div>
-        </div>
-      </div>
-    </>
+    <PageLayout page={pageData} path={PAGE_PATH}>
+      <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+    </PageLayout>
   );
 }

@@ -109,7 +109,9 @@ export const getAllPages = cache((): Page[] => {
  * These pages are excluded because:
  * - 'index', '404': System pages handled at root level
  * - 'press': Intentionally not replicated in Next.js (per issue requirements)
- * - 'resume', 'about', 'contact', 'talks', 'other-recommended-reading': Have dedicated routes with custom layouts
+ * - 'resume', 'about', 'other-recommended-reading': Have dedicated routes with custom layouts
+ * 
+ * Note: 'contact' and 'talks' use the generic [slug] route since they have no custom layout
  */
 const EXCLUDED_PAGE_SLUGS = [
   // System pages
@@ -120,8 +122,6 @@ const EXCLUDED_PAGE_SLUGS = [
   // Pages with dedicated routes and custom layouts
   'resume',
   'about',
-  'contact',
-  'talks',
   'other-recommended-reading',
 ];
 
