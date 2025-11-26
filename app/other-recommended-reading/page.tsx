@@ -2,9 +2,9 @@ import { getBooks } from '@/lib/data';
 import { getAmazonAffiliatesTag } from '@/lib/config';
 import type { Metadata } from 'next';
 import { getPageBySlug } from '@/lib/pages';
-import { getPageMetadata, getWebPageJsonLd, getPageBreadcrumbJsonLd } from '@/lib/seo';
-import { JsonLdScript } from 'next-seo';
+import { getPageMetadata } from '@/lib/seo';
 import BookCategory from '@/app/components/BookCategory';
+import PageLayout from '@/app/components/PageLayout';
 
 const PAGE_PATH = '/other-recommended-reading/';
 const DEFAULT_PAGE = {
@@ -32,10 +32,8 @@ export default function OtherRecommendedReadingPage() {
   const affiliatesTag = getAmazonAffiliatesTag();
   const booksPerRow = 3;
   
-  // Get page data for JSON-LD (uses cached helper)
+  // Get page data for layout (uses cached helper)
   const pageData = getOtherRecommendedReadingPageData();
-  const webPageJsonLd = getWebPageJsonLd(pageData, PAGE_PATH);
-  const breadcrumbJsonLd = getPageBreadcrumbJsonLd(pageData, PAGE_PATH);
 
   // Category links for the introduction
   const categoryLinks = [
@@ -52,44 +50,32 @@ export default function OtherRecommendedReadingPage() {
   ];
 
   return (
-    <>
-      {/* WebPage structured data */}
-      <JsonLdScript data={webPageJsonLd} scriptKey="webpage-schema" />
+    <PageLayout page={pageData} path={PAGE_PATH} showTitle={false}>
+      <h1 className="display-4 text-primary">Other recommended reading</h1>
       
-      {/* Breadcrumb structured data for navigation */}
-      <JsonLdScript data={breadcrumbJsonLd} scriptKey="breadcrumb-schema" />
-      
-      <div className="page page-other-recommended-reading">
-        <div className="row">
-          <div className="col-md-10 offset-md-1">
-            <h1 className="display-4 text-primary">Other recommended reading</h1>
-            
-            <div className="lead mb-2">
-              <p>
-                Here are some of the books that have had a significant influence on my career, 
-                management style, and professional development that I often recommend to others 
-                interested in{' '}
-                {categoryLinks.map((link, index) => (
-                  <span key={link.href}>
-                    <a className="link-secondary" href={link.href}>{link.text}</a>
-                    {index < categoryLinks.length - 1 && (index === categoryLinks.length - 2 ? ', and ' : ', ')}
-                  </span>
-                ))}.
-              </p>
-            </div>
-
-            {Object.entries(booksData).map(([category, books]) => (
-              <BookCategory
-                key={category}
-                category={category}
-                books={books}
-                affiliatesTag={affiliatesTag}
-                booksPerRow={booksPerRow}
-              />
-            ))}
-          </div>
-        </div>
+      <div className="lead mb-2">
+        <p>
+          Here are some of the books that have had a significant influence on my career, 
+          management style, and professional development that I often recommend to others 
+          interested in{' '}
+          {categoryLinks.map((link, index) => (
+            <span key={link.href}>
+              <a className="link-secondary" href={link.href}>{link.text}</a>
+              {index < categoryLinks.length - 1 && (index === categoryLinks.length - 2 ? ', and ' : ', ')}
+            </span>
+          ))}.
+        </p>
       </div>
-    </>
+
+      {Object.entries(booksData).map(([category, books]) => (
+        <BookCategory
+          key={category}
+          category={category}
+          books={books}
+          affiliatesTag={affiliatesTag}
+          booksPerRow={booksPerRow}
+        />
+      ))}
+    </PageLayout>
   );
 }
