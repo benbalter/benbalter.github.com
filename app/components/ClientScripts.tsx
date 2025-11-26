@@ -4,15 +4,15 @@ import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
 /**
- * ClientScripts component handles client-side JavaScript initialization for Next.js
+ * ClientScripts component handles client-side JavaScript initialization for Next.js.
  * This replaces the functionality previously provided by bundle.js (Webpack build)
- * while maintaining backwards compatibility with Jekyll (which still uses bundle.js)
- * 
+ * while maintaining backwards compatibility with Jekyll (which still uses bundle.js).
+ *
  * Features:
  * - Bootstrap tooltip initialization
- * - AnchorJS for heading anchors
- * - FontAwesome icon rendering
- * - Active navigation link highlighting
+ *
+ * Note: Other features such as heading anchors (AnchorJS), FontAwesome icon rendering,
+ * and active navigation link highlighting are handled elsewhere in the codebase.
  */
 export default function ClientScripts() {
   const pathname = usePathname();

@@ -9,12 +9,6 @@ jest.mock('next/navigation', () => ({
   usePathname: jest.fn(() => mockPathname),
 }));
 
-// Mock next/navigation
-let mockPathname = '/';
-jest.mock('next/navigation', () => ({
-  usePathname: jest.fn(() => mockPathname),
-}));
-
 // Mock dynamic imports
 const mockDispose = jest.fn();
 jest.mock('bootstrap', () => ({
