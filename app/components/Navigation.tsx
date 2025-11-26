@@ -1,10 +1,10 @@
 import Link from 'next/link';
 
-type NavigationProperties = {
+interface NavigationProps {
   title: string;
   description: string;
   navPages: Array<{title: string; path: string}>;
-};
+}
 
 // Inline script to add 'active' class to the current navigation link
 // This runs client-side after the page loads to highlight the active nav item
@@ -39,7 +39,7 @@ const navActiveScript = `
 })();
 `;
 
-export default function Navigation({title, description, navPages}: NavigationProperties) {
+export default function Navigation({title, description, navPages}: NavigationProps) {
   return (
     <div className='navbar navbar-expand-md bg-secondary-subtle text-secondary border-start border-end border-bottom border-top rounded-top rounded-bottom mb-3'>
       <div className='container-fluid px-3'>
