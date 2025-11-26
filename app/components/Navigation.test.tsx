@@ -67,6 +67,13 @@ describe('Navigation', () => {
     
     const talksLink = screen.getByText('Talks').closest('a');
     expect(talksLink).toHaveAttribute('data-nav-path', '/talks/');
+    expect(aboutLink).toHaveAttribute('data-nav-path', '/about');
+    
+    const resumeLink = screen.getByText('Resume').closest('a');
+    expect(resumeLink).toHaveAttribute('data-nav-path', '/resume');
+    
+    const talksLink = screen.getByText('Talks').closest('a');
+    expect(talksLink).toHaveAttribute('data-nav-path', '/talks');
   });
 
   it('should render Next.js Script component for client-side active link detection', () => {
