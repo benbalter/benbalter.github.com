@@ -1,20 +1,14 @@
 import { getPageBySlug, getAllPageSlugs } from '@/lib/pages';
+import { markdownToHtml } from '@/lib/markdown';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { getPageMetadata, getWebPageJsonLd, getPageBreadcrumbJsonLd } from '@/lib/seo';
-import { JsonLdScript } from 'next-seo';
-import MarkdownContent from '@/app/components/MarkdownContent';
-import PageTitle from '@/app/components/PageTitle';
+import { getPageMetadata } from '@/lib/seo';
 
 interface PageProps {
   params: Promise<{
     slug: string;
   }>;
 }
-
-// Disable dynamic params - only allow statically generated paths
-// This ensures 404 for any unknown slugs at build time (SSG best practice)
-export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const slugs = getAllPageSlugs();
@@ -43,26 +37,16 @@ export default async function Page({ params }: PageProps) {
     notFound();
   }
   
-  const path = `/${slug}/`;
-  const webPageJsonLd = getWebPageJsonLd(page, path);
-  const breadcrumbJsonLd = getPageBreadcrumbJsonLd(page, path);
+  const contentHtml = await markdownToHtml(page.content);
   
   return (
-    <>
-      {/* WebPage structured data */}
-      <JsonLdScript data={webPageJsonLd} scriptKey="webpage-schema" />
-      
-      {/* Breadcrumb structured data for navigation */}
-      <JsonLdScript data={breadcrumbJsonLd} scriptKey="breadcrumb-schema" />
-      
-      <div className={`page page-${slug}`}>
-        <div className="row">
-          <div className="col-md-10 offset-md-1">
-            {page.title && <PageTitle title={page.title} />}
-            <MarkdownContent markdown={page.content} />
-          </div>
+    <div className={`page page-${slug}`}>
+      <div className="row">
+        <div className="col-md-10 offset-md-1">
+          {page.title && <h1 className="display-4 text-primary">{page.title}</h1>}
+          <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
         </div>
       </div>
-    </>
+    </div>
   );
 }
