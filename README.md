@@ -195,6 +195,15 @@ Tests cover:
 
 See [e2e/README.md](e2e/README.md) for detailed testing documentation.
 
+## Features
+
+* Automatically generates Open Graph images for social media sharing
+* Responsive design with Bootstrap
+* SEO optimized with jekyll-seo-tag
+* Built-in social sharing capabilities
+
+For details on configuring Open Graph images, see [OG Image Configuration](.github/og-image-config.md).
+
 ## License
 
 * Content: [Creative Commons, BY](http://creativecommons.org/licenses/by/3.0/)
