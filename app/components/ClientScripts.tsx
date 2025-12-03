@@ -4,14 +4,15 @@ import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
 /**
- * Client component to initialize Bootstrap components
- * This component should be included in the root layout
- * 
- * Note: FontAwesome is now handled via React components (@fortawesome/react-fontawesome)
- * instead of DOM watching, which is more performant and type-safe
- * 
- * Note: Anchor links are now generated server-side using rehype-slug and rehype-autolink-headings
- * instead of client-side with AnchorJS, which is more performant and SEO-friendly
+ * ClientScripts component handles client-side JavaScript initialization for Next.js.
+ * This replaces the functionality previously provided by bundle.js (Webpack build)
+ * while maintaining backwards compatibility with Jekyll (which still uses bundle.js).
+ *
+ * Features:
+ * - Bootstrap tooltip initialization
+ *
+ * Note: Other features such as heading anchors (AnchorJS), FontAwesome icon rendering,
+ * and active navigation link highlighting are handled elsewhere in the codebase.
  */
 export default function ClientScripts() {
   const pathname = usePathname();
