@@ -140,7 +140,7 @@ export function generateHumansTxt(): string {
   const dependencies = packageJson.dependencies || {};
   
   const components = Object.entries(dependencies)
-    .filter(([name]) => ['next', 'react', 'react-dom', 'bootstrap', 'liquidjs', 'gray-matter'].includes(name))
+    .filter(([name]) => ['next', 'react', 'react-dom', 'bootstrap', 'gray-matter'].includes(name))
     .map(([name, version]) => `${name} ${(version as string).replace('^', '')}`)
     .join(', ');
 
@@ -197,43 +197,4 @@ export function generateBrowserconfigXml(): string {
     </msapplication>
 </browserconfig>
 `;
-}
-
-/**
- * Content types for static metadata files
- */
-type MetadataContentType = 'text/plain' | 'application/xml';
-
-/**
- * Creates a static route handler for metadata files
- * 
- * This factory function generates a standardized route handler for static metadata
- * files (e.g., humans.txt, llms.txt, security.txt, browserconfig.xml). Each handler:
- * - Sets `dynamic = 'force-static'` for static site generation
- * - Returns the generated content with the appropriate Content-Type header
- * 
- * @param generator - Function that generates the file content
- * @param contentType - MIME type for the Content-Type header (default: 'text/plain')
- * @returns An object with `dynamic` export and `GET` handler for Next.js route
- * 
- * @example
- * // In app/humans.txt/route.ts:
- * import { generateHumansTxt, createMetadataRouteHandler } from '@/lib/metadata';
- * export const { dynamic, GET } = createMetadataRouteHandler(generateHumansTxt);
- */
-export function createMetadataRouteHandler(
-  generator: () => string,
-  contentType: MetadataContentType = 'text/plain'
-) {
-  return {
-    dynamic: 'force-static' as const,
-    GET: async () => {
-      const content = generator();
-      return new Response(content, {
-        headers: {
-          'Content-Type': `${contentType}; charset=utf-8`,
-        },
-      });
-    },
-  };
 }

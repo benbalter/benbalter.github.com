@@ -10,13 +10,20 @@ jest.mock('next/image', () => ({
   },
 }));
 
-// Mock markdownToHtml to return HTML
-jest.mock('@/lib/markdown', () => ({
-  markdownToHtml: jest.fn(async (markdown: string) => {
-    // Simple mock that converts basic markdown to HTML
-    // Wrap in <p> tags to simulate real markdown processing
-    return `<p>${markdown.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')}</p>`;
-  }),
+// Mock MarkdownContent component to render a simple div with text
+jest.mock('./MarkdownContent', () => ({
+  __esModule: true,
+  default: ({ markdown }: { markdown: string }) => {
+    // Simple mock that renders markdown as text with link extraction
+    return (
+      <div data-testid="markdown-content">
+        {markdown.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, text, href) => text)}
+        {markdown.includes('/about/') && (
+          <a href="/about/">More about the author →</a>
+        )}
+      </div>
+    );
+  },
 }));
 
 describe('MiniBio', () => {
@@ -85,27 +92,12 @@ describe('MiniBio', () => {
     expect(img).toHaveClass('avatar', 'img-fluid', 'rounded');
   });
 
-  it('should render markdown links in bio text', async () => {
-    const propsWithMarkdown = {
-      ...mockProps,
-      bioText: 'Ben works at [GitHub](https://github.com).',
-    };
-    
-    const component = await MiniBio(propsWithMarkdown);
+  it('should pass markdown with about link to MarkdownContent', async () => {
+    const component = await MiniBio(mockProps);
     const { container } = render(component);
     
-    const link = container.querySelector('a[href="https://github.com"]');
-    expect(link).toBeInTheDocument();
-    expect(link?.textContent).toBe('GitHub');
-  });
-
-  it('should convert bio markdown to HTML', async () => {
-    const { markdownToHtml } = require('@/lib/markdown');
-    
-    const component = await MiniBio(mockProps);
-    render(component);
-    
-    // Verify markdownToHtml was called with the bio text
-    expect(markdownToHtml).toHaveBeenCalledWith(mockProps.bioText);
+    // The MarkdownContent should receive markdown with the about link appended
+    const markdownContent = container.querySelector('[data-testid="markdown-content"]');
+    expect(markdownContent).toBeInTheDocument();
   });
 });

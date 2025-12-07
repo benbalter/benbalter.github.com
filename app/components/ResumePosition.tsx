@@ -1,4 +1,4 @@
-import { markdownToHtml } from '@/lib/markdown';
+import MarkdownContent from './MarkdownContent';
 import type { ResumePosition as ResumePositionType } from '@/lib/resume';
 
 interface ResumePositionProps {
@@ -6,7 +6,6 @@ interface ResumePositionProps {
 }
 
 export default async function ResumePosition({ position }: ResumePositionProps) {
-  const contentHtml = await markdownToHtml(position.content);
   const startDate = new Date(position.start_date);
   const endDate = position.end_date ? new Date(position.end_date) : null;
   
@@ -22,7 +21,7 @@ export default async function ResumePosition({ position }: ResumePositionProps) 
           {endDate ? endDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) : 'Present'}
         </div>
       </div>
-      <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+      <MarkdownContent markdown={position.content} />
     </div>
   );
 }

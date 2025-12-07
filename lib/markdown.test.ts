@@ -57,6 +57,10 @@ jest.mock('rehype-stringify', () => ({
   default: jest.fn(),
 }));
 
+jest.mock('./remark-kramdown-attrs', () => ({
+  default: jest.fn(),
+}));
+
 describe('Markdown Processing', () => {
   beforeEach(() => {
     mockProcess.mockReset();

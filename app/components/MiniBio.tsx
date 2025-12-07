@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { markdownToHtml } from '@/lib/markdown';
+import MarkdownContent from './MarkdownContent';
 
 interface MiniBioProps {
   className?: string;
@@ -10,14 +10,8 @@ interface MiniBioProps {
 }
 
 export default async function MiniBio({ className = '', authorName, githubHandle, bioText }: MiniBioProps) {
-  // Convert bio text markdown to HTML at build time
-  const bioHtml = await markdownToHtml(bioText);
-  
-  // Append "More about the author" link to bio HTML
-  const bioWithLink = bioHtml.replace(
-    /<\/p>$/,
-    ' <a href="/about/">More about the author &rarr;</a></p>'
-  );
+  // Append "More about the author" link to bio text as markdown
+  const bioWithLink = `${bioText.trim()} [More about the author →](/about/)`;
   
   return (
     <div className={`mini-bio ${className}`}>
@@ -30,7 +24,7 @@ export default async function MiniBio({ className = '', authorName, githubHandle
           height={100}
         />
       </div>
-      <div dangerouslySetInnerHTML={{ __html: bioWithLink }} />
+      <MarkdownContent markdown={bioWithLink} />
     </div>
   );
 }

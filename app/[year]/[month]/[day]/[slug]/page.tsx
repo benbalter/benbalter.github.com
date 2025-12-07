@@ -1,5 +1,5 @@
 import { getAllPosts, findPostByDate } from '@/lib/posts';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import type { Metadata } from 'next';
 import ReadingTime from '@/app/components/ReadingTime';
 import MiniBio from '@/app/components/MiniBio';
@@ -8,6 +8,7 @@ import PostDescription from '@/app/components/PostDescription';
 import ArchivedWarning from '@/app/components/ArchivedWarning';
 import GitHubCultureCallout from '@/app/components/GitHubCultureCallout';
 import PostContent from '@/app/components/PostContent';
+import MdxPostContent from '@/app/components/MdxPostContent';
 import PostMetadata from '@/app/components/PostMetadata';
 import EditButton from '@/app/components/EditButton';
 import { getSiteConfig, getAuthorBio } from '@/lib/config';
@@ -70,14 +71,24 @@ export default async function Post({ params }: PageProps) {
     notFound();
   }
   
+  // Handle external redirects (redirect_to in frontmatter)
+  if (post.redirect_to) {
+    redirect(post.redirect_to);
+  }
+  
   const publishDate = new Date(post.date).toLocaleDateString('en-US', { 
     year: 'numeric', 
     month: 'long', 
     day: 'numeric' 
   });
   
-  const revisionHistoryUrl = `${config.url.replace(/\/$/, '')}/${config.repository}/commits/${config.branch}/_posts/${post.slug}.md`;
-  const editUrl = `${config.url.replace(/\/$/, '')}/${config.repository}/edit/${config.branch}/_posts/${post.slug}.md`;
+  // Determine source file path based on whether it's an MDX or MD post
+  const sourceFile = post.isMdx 
+    ? `app/_posts/${post.slug}.mdx`
+    : `_posts/${post.slug}.md`;
+  
+  const revisionHistoryUrl = `${config.url.replace(/\/$/, '')}/${config.repository}/commits/${config.branch}/${sourceFile}`;
+  const editUrl = `${config.url.replace(/\/$/, '')}/${config.repository}/edit/${config.branch}/${sourceFile}`;
   
   const { url } = getPostUrlParts(post);
   const fullUrl = `${config.url}${url}`;
@@ -136,12 +147,11 @@ export default async function Post({ params }: PageProps) {
             
             <ReadingTime content={post.content} />
             
-            <PostContent content={post.content} context={{ 
-              path: `_posts/${post.slug}.md`,
-              title: post.title,
-              date: post.date,
-              slug: post.slug,
-            }} />
+            {post.isMdx ? (
+              <MdxPostContent content={post.content} />
+            ) : (
+              <PostContent content={post.content} />
+            )}
             
             {post.show_github_culture_callout && (
               <GitHubCultureCallout />

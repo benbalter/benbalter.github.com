@@ -1,36 +1,64 @@
-import { render, screen } from '@testing-library/react';
-import MarkdownContent from './MarkdownContent';
+import { render } from '@testing-library/react';
 
-// Mock the markdown utility
-jest.mock('@/lib/markdown', () => ({
-  markdownToHtml: jest.fn(async (markdown: string) => {
-    // Simple mock that converts markdown to basic HTML
-    return `<p>${markdown}</p>`;
-  }),
-}));
-
-// Mock the liquid utility
-jest.mock('@/lib/liquid', () => ({
-  extractComponentPlaceholders: jest.fn((html: string) => ({
-    content: html,
-    components: [],
+// Mock ESM modules before importing component
+jest.mock('remark', () => ({
+  remark: jest.fn(() => ({
+    use: jest.fn().mockReturnThis(),
+    process: jest.fn().mockResolvedValue({ toString: () => '<p>Mocked content</p>' }),
   })),
-  splitContentAtPlaceholders: jest.fn((html: string) => [
-    { type: 'html', content: html },
-  ]),
 }));
+
+jest.mock('remark-gfm', () => jest.fn());
+jest.mock('remark-github', () => jest.fn());
+jest.mock('remark-rehype', () => jest.fn());
+jest.mock('rehype-slug', () => jest.fn());
+jest.mock('rehype-autolink-headings', () => jest.fn());
+jest.mock('rehype-raw', () => jest.fn());
+jest.mock('rehype-sanitize', () => {
+  const mock = jest.fn();
+  (mock as unknown as { defaultSchema: object }).defaultSchema = { attributes: {} };
+  return mock;
+});
+jest.mock('rehype-stringify', () => jest.fn());
+
+// Mock config
+jest.mock('@/lib/config', () => ({
+  getSiteConfig: jest.fn(() => ({
+    github: { repository_nwo: 'benbalter/benbalter.github.com' },
+  })),
+}));
+
+// Mock emoji processing
+jest.mock('@/lib/emoji', () => ({
+  processEmoji: jest.fn((text: string) => text),
+}));
+
+// Mock kramdown attrs plugin
+jest.mock('@/lib/remark-kramdown-attrs', () => jest.fn());
+
+// Import after mocks
+import MarkdownContent from './MarkdownContent';
+import { remark } from 'remark';
 
 describe('MarkdownContent', () => {
+  const mockRemark = remark as jest.Mock;
+  
   beforeEach(() => {
-    // Reset mocks before each test
     jest.clearAllMocks();
+    // Reset the mock chain
+    mockRemark.mockReturnValue({
+      use: jest.fn().mockReturnThis(),
+      process: jest.fn().mockResolvedValue({ toString: () => '<p>Mocked content</p>' }),
+    });
   });
 
   it('should render markdown content', async () => {
-    const { markdownToHtml } = require('@/lib/markdown');
-    markdownToHtml.mockResolvedValueOnce('<p>Test content</p>');
+    const mockProcess = jest.fn().mockResolvedValue({ toString: () => '<p>Test content</p>' });
+    mockRemark.mockReturnValue({
+      use: jest.fn().mockReturnThis(),
+      process: mockProcess,
+    });
     
-    // MarkdownContent is an async component, so we need to await it
     const MarkdownContentResolved = await MarkdownContent({ 
       markdown: 'Test content',
     });
@@ -41,8 +69,11 @@ describe('MarkdownContent', () => {
   });
 
   it('should apply custom className', async () => {
-    const { markdownToHtml } = require('@/lib/markdown');
-    markdownToHtml.mockResolvedValueOnce('<p>Content</p>');
+    const mockProcess = jest.fn().mockResolvedValue({ toString: () => '<p>Content</p>' });
+    mockRemark.mockReturnValue({
+      use: jest.fn().mockReturnThis(),
+      process: mockProcess,
+    });
     
     const MarkdownContentResolved = await MarkdownContent({ 
       markdown: 'Content',
@@ -56,8 +87,11 @@ describe('MarkdownContent', () => {
   });
 
   it('should render without className', async () => {
-    const { markdownToHtml } = require('@/lib/markdown');
-    markdownToHtml.mockResolvedValueOnce('<p>Content</p>');
+    const mockProcess = jest.fn().mockResolvedValue({ toString: () => '<p>Content</p>' });
+    mockRemark.mockReturnValue({
+      use: jest.fn().mockReturnThis(),
+      process: mockProcess,
+    });
     
     const MarkdownContentResolved = await MarkdownContent({ 
       markdown: 'Content',
@@ -68,30 +102,29 @@ describe('MarkdownContent', () => {
     expect(container.firstChild).toBeInTheDocument();
   });
 
-  it('should call markdownToHtml first, then extractComponentPlaceholders on result', async () => {
-    const { markdownToHtml } = require('@/lib/markdown');
-    const { extractComponentPlaceholders } = require('@/lib/liquid');
-    
-    markdownToHtml.mockResolvedValueOnce('<p>Rendered HTML</p>');
-    extractComponentPlaceholders.mockReturnValueOnce({
-      content: '<p>Rendered HTML</p>',
-      components: [],
+  it('should call remark pipeline', async () => {
+    const mockUse = jest.fn().mockReturnThis();
+    const mockProcess = jest.fn().mockResolvedValue({ toString: () => '<p>Rendered HTML</p>' });
+    mockRemark.mockReturnValue({
+      use: mockUse,
+      process: mockProcess,
     });
     
     await MarkdownContent({ 
       markdown: 'Test markdown',
     });
     
-    // markdownToHtml should be called with original markdown
-    expect(markdownToHtml).toHaveBeenCalledWith('Test markdown', undefined);
-    // extractComponentPlaceholders should be called with rendered HTML
-    expect(extractComponentPlaceholders).toHaveBeenCalledWith('<p>Rendered HTML</p>');
+    expect(mockRemark).toHaveBeenCalled();
+    expect(mockProcess).toHaveBeenCalled();
   });
 
-  it('should render HTML from markdownToHtml', async () => {
-    const { markdownToHtml } = require('@/lib/markdown');
+  it('should render HTML from remark pipeline', async () => {
     const complexHtml = '<h1>Title</h1><p>Paragraph</p><ul><li>Item</li></ul>';
-    markdownToHtml.mockResolvedValueOnce(complexHtml);
+    const mockProcess = jest.fn().mockResolvedValue({ toString: () => complexHtml });
+    mockRemark.mockReturnValue({
+      use: jest.fn().mockReturnThis(),
+      process: mockProcess,
+    });
     
     const MarkdownContentResolved = await MarkdownContent({ 
       markdown: '# Title\n\nParagraph\n\n- Item',
@@ -105,8 +138,11 @@ describe('MarkdownContent', () => {
   });
 
   it('should handle empty markdown', async () => {
-    const { markdownToHtml } = require('@/lib/markdown');
-    markdownToHtml.mockResolvedValueOnce('');
+    const mockProcess = jest.fn().mockResolvedValue({ toString: () => '' });
+    mockRemark.mockReturnValue({
+      use: jest.fn().mockReturnThis(),
+      process: mockProcess,
+    });
     
     const MarkdownContentResolved = await MarkdownContent({ 
       markdown: '',
@@ -118,8 +154,11 @@ describe('MarkdownContent', () => {
   });
 
   it('should use dangerouslySetInnerHTML for HTML content', async () => {
-    const { markdownToHtml } = require('@/lib/markdown');
-    markdownToHtml.mockResolvedValueOnce('<strong>Bold text</strong>');
+    const mockProcess = jest.fn().mockResolvedValue({ toString: () => '<strong>Bold text</strong>' });
+    mockRemark.mockReturnValue({
+      use: jest.fn().mockReturnThis(),
+      process: mockProcess,
+    });
     
     const MarkdownContentResolved = await MarkdownContent({ 
       markdown: '**Bold text**',
@@ -128,105 +167,5 @@ describe('MarkdownContent', () => {
     const { container } = render(MarkdownContentResolved);
     
     expect(container.querySelector('strong')).toHaveTextContent('Bold text');
-  });
-
-  it('should render FossAtScale component when extracted from HTML', async () => {
-    const { markdownToHtml } = require('@/lib/markdown');
-    const { extractComponentPlaceholders, splitContentAtPlaceholders } = require('@/lib/liquid');
-    
-    // Simulate Liquid rendering the foss-at-scale include to HTML
-    markdownToHtml.mockResolvedValueOnce('<div class="alert alert-primary text-center" role="alert">This is the first post in a series</div>');
-    
-    // extractComponentPlaceholders detects the callout pattern and extracts it
-    extractComponentPlaceholders.mockReturnValueOnce({
-      content: '<div data-component="component-0"></div>',
-      components: [{ type: 'foss-at-scale', props: { nth: 'first' }, id: 'component-0' }],
-    });
-    splitContentAtPlaceholders.mockReturnValueOnce([
-      { type: 'component', component: { type: 'foss-at-scale', props: { nth: 'first' }, id: 'component-0' } },
-    ]);
-    
-    const MarkdownContentResolved = await MarkdownContent({ 
-      markdown: '{% include foss-at-scale.html nth="first" %}',
-    });
-    
-    render(MarkdownContentResolved);
-    
-    // FossAtScale component renders with alert role
-    expect(screen.getByRole('alert')).toBeInTheDocument();
-    expect(screen.getByText(/This is the first post in/i)).toBeInTheDocument();
-  });
-
-  it('should render GitHubCultureCallout component when extracted from HTML', async () => {
-    const { markdownToHtml } = require('@/lib/markdown');
-    const { extractComponentPlaceholders, splitContentAtPlaceholders } = require('@/lib/liquid');
-    
-    markdownToHtml.mockResolvedValueOnce('<div class="alert alert-primary text-center" role="alert">GitHub culture content</div>');
-    extractComponentPlaceholders.mockReturnValueOnce({
-      content: '<div data-component="component-0"></div>',
-      components: [{ type: 'github-culture', props: {}, id: 'component-0' }],
-    });
-    splitContentAtPlaceholders.mockReturnValueOnce([
-      { type: 'component', component: { type: 'github-culture', props: {}, id: 'component-0' } },
-    ]);
-    
-    const MarkdownContentResolved = await MarkdownContent({ 
-      markdown: '{% include_cached github-culture.html %}',
-    });
-    
-    render(MarkdownContentResolved);
-    
-    expect(screen.getByRole('alert')).toBeInTheDocument();
-    expect(screen.getByText(/Interested in learning more about how GitHub works/i)).toBeInTheDocument();
-  });
-
-  it('should render Callout component when extracted from HTML', async () => {
-    const { markdownToHtml } = require('@/lib/markdown');
-    const { extractComponentPlaceholders, splitContentAtPlaceholders } = require('@/lib/liquid');
-    
-    markdownToHtml.mockResolvedValueOnce('<div class="alert alert-primary text-center" role="alert">Test callout</div>');
-    extractComponentPlaceholders.mockReturnValueOnce({
-      content: '<div data-component="component-0"></div>',
-      components: [{ type: 'callout', props: { content: 'Test callout' }, id: 'component-0' }],
-    });
-    splitContentAtPlaceholders.mockReturnValueOnce([
-      { type: 'component', component: { type: 'callout', props: { content: 'Test callout' }, id: 'component-0' } },
-    ]);
-    
-    const MarkdownContentResolved = await MarkdownContent({ 
-      markdown: '{% include callout.html content="Test callout" %}',
-    });
-    
-    render(MarkdownContentResolved);
-    
-    expect(screen.getByRole('alert')).toBeInTheDocument();
-    expect(screen.getByText('Test callout')).toBeInTheDocument();
-  });
-
-  it('should render mixed HTML and components', async () => {
-    const { markdownToHtml } = require('@/lib/markdown');
-    const { extractComponentPlaceholders, splitContentAtPlaceholders } = require('@/lib/liquid');
-    
-    markdownToHtml.mockResolvedValueOnce('<p>Before</p><div class="alert alert-primary text-center" role="alert">Callout</div><p>After</p>');
-    extractComponentPlaceholders.mockReturnValueOnce({
-      content: '<p>Before</p><div data-component="component-0"></div><p>After</p>',
-      components: [{ type: 'foss-at-scale', props: { nth: 'second' }, id: 'component-0' }],
-    });
-    splitContentAtPlaceholders.mockReturnValueOnce([
-      { type: 'html', content: '<p>Before</p>' },
-      { type: 'component', component: { type: 'foss-at-scale', props: { nth: 'second' }, id: 'component-0' } },
-      { type: 'html', content: '<p>After</p>' },
-    ]);
-    
-    const MarkdownContentResolved = await MarkdownContent({ 
-      markdown: 'Before {% include foss-at-scale.html nth="second" %} After',
-    });
-    
-    render(MarkdownContentResolved);
-    
-    expect(screen.getByText('Before')).toBeInTheDocument();
-    expect(screen.getByText('After')).toBeInTheDocument();
-    expect(screen.getByRole('alert')).toBeInTheDocument();
-    expect(screen.getByText(/This is the second post in/i)).toBeInTheDocument();
   });
 });

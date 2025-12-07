@@ -178,6 +178,17 @@ abbr[data-bs-original-title] {
   }
 }
 
+// Make all tables use Bootstrap table styling
+// Excludes syntax highlighting tables which have their own styling
+table:not(.highlight table) {
+  @extend .table;
+}
+
+// Auto-style links inside alerts with alert-link class
+.alert a {
+  @extend .alert-link;
+}
+
 // Hero unit
 .hero-unit {
   background-image: url($header-path);

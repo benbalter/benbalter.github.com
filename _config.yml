@@ -92,6 +92,18 @@ exclude:
   - jest.setup.mjs
   - playwright.config.ts
   - playwright-nextjs.config.ts
+  - .next
+  - docs
+  - out
+  - playwright-report
+  - .github
+  - .git
+  - app
+  - public
+  - scripts
+  - spec
+  - tmp
+  - test-results
 
 permalink: "/:year/:month/:day/:title/"
 defaults:
@@ -109,7 +121,7 @@ defaults:
       comments: false
 
 timezone: America/New_York
-encoding: UTF-8
+encoding: utf-8
 lang: en-US
 branch: main
 future: true
@@ -179,3 +191,25 @@ og_image:
     width: 20
     fill:
       - "#4285F4"
+
+github:
+  username: benbalter
+  repository: benbalter.github.com
+
+# Jekyll.js
+modern:
+  syntaxHighlighting:
+    enabled: true
+    theme: github-dark
+  imageOptimization:
+    enabled: true
+    quality: 80
+    generateWebP: true
+  htmlMinification:
+    enabled: true
+    removeComments: true
+    collapseWhitespace: true
+  resourceHints:
+    enabled: true
+    preloadStyles: true
+    preloadFonts: true

@@ -177,10 +177,10 @@ export default function InteractiveButton() {
 
 ### 2. Metadata and SEO
 
-Use the centralized metadata configuration from `lib/metadata.ts`:
+Use the centralized SEO configuration from `lib/seo.ts`:
 
 ```typescript
-import { getPostMetadata } from '@/lib/metadata';
+import { getPostMetadata } from '@/lib/seo';
 
 export async function generateMetadata({ params }) {
   const post = getPost(params.slug);
@@ -282,7 +282,7 @@ Jekyll plugins have Next.js equivalents:
 
 * `jekyll-feed` → `script/generate-feeds.mjs`
 * `jekyll-sitemap` → Sitemap generation in feed script
-* `jekyll-seo-tag` → `lib/metadata.ts`
+* `jekyll-seo-tag` → `lib/seo.ts`
 * `jekyll-mentions` → `remark-github` plugin
 * `jemoji` → Custom emoji processing in `lib/emoji.ts`
 

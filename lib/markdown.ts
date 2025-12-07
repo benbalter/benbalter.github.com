@@ -4,125 +4,20 @@ import remarkGithub from 'remark-github';
 import remarkRehype from 'remark-rehype';
 import rehypeRaw from 'rehype-raw';
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
-import rehypeSlug from 'rehype-slug';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeStringify from 'rehype-stringify';
 import { convert } from 'html-to-text';
 import { processEmoji } from './emoji';
-import { processLiquid, type LiquidOptions } from './liquid';
 import { getSiteConfig } from './config';
-import type { Schema } from 'hast-util-sanitize';
-
-export interface MarkdownOptions extends LiquidOptions {}
-
-/**
- * Converts markdown to sanitized HTML string at build time.
- * Optimized for Static Site Generation (SSG).
- * 
- * Benefits:
- * - Processes markdown once at build time, not on every page load
- * - Smaller client-side bundle (no react-markdown dependency)
- * - Automatic sanitization for security
- * - Better performance for static sites
- * 
- * @param markdown - The markdown content to convert
- * @param context - Optional context for liquid template processing (e.g., page data)
- * @param options - Optional options for markdown processing
- */
-export async function markdownToHtml(
-  markdown: string,
-  context?: Record<string, any>,
-  options?: MarkdownOptions,
-): Promise<string> {
-  // Process Liquid template syntax first (before emoji and markdown)
-  const markdownWithLiquid = await processLiquid(markdown, context, options);
-  
-  // Process emoji before markdown conversion
-  const markdownWithEmoji = processEmoji(markdownWithLiquid);
-  
-  // Get repository info for remark-github
-  const config = getSiteConfig();
-  const [owner, repo] = config.repository ? config.repository.split('/') : ['', ''];
-  
-  // Create custom sanitization schema that allows our anchor link classes
-  // We need to extend the className property to include our custom classes
-  const sanitizeSchema: Schema = {
-    ...defaultSchema,
-    // Disable the 'user-content-' prefix for IDs to maintain Jekyll/kramdown backward compatibility.
-    // By default, rehype-sanitize prefixes IDs to prevent DOM clobbering attacks,
-    // but this breaks existing anchor links from Jekyll-generated pages.
-    // Security note: DOM clobbering risk is minimal here since:
-    // 1. Content is author-controlled blog posts, not untrusted user input
-    // 2. Heading IDs are derived from text content, not arbitrary values
-    // 3. Other sanitization (script removal, etc.) remains in place
-    clobberPrefix: '',
-    attributes: {
-      ...defaultSchema.attributes,
-      // Allow data-* attributes on all elements for React component placeholders
-      '*': [
-        ...(defaultSchema.attributes?.['*'] || []),
-        ['data*'],
-      ],
-      a: [
-        ...(defaultSchema.attributes?.a || []).filter(
-          attr => !(Array.isArray(attr) && attr[0] === 'className')
-        ),
-        // Allow specific class names for anchor links
-        ['className', 'anchor-link', 'data-footnote-backref'],
-      ],
-      span: [
-        ...(defaultSchema.attributes?.span || []),
-        // Allow anchor-icon class for the span inside anchor links
-        ['className', 'anchor-icon'],
-      ],
-    },
-  };
-  
-  const result = await remark()
-    .use(gfm)
-    // Use remark-github plugin for @mentions, #issues, and other GitHub references
-    .use(remarkGithub, {
-      repository: config.repository || `${owner}/${repo}`,
-      mentionStrong: false, // Don't make mentions bold
-    })
-    // Convert markdown to HTML AST (hast)
-    .use(remarkRehype, { allowDangerousHtml: true })
-    // Allow raw HTML in markdown
-    .use(rehypeRaw)
-    // Add IDs to headings (must come before rehype-autolink-headings)
-    .use(rehypeSlug)
-    // Add anchor links to headings with GitHub-style behavior
-    .use(rehypeAutolinkHeadings, {
-      behavior: 'append',
-      properties: {
-        className: ['anchor-link'],
-        ariaLabel: 'Link to this section',
-      },
-      content: {
-        type: 'element',
-        tagName: 'span',
-        properties: { className: ['anchor-icon'] },
-        children: [{ type: 'text', value: ' #' }],
-      },
-    })
-    // Sanitize HTML for security with custom schema (should be after all other rehype plugins)
-    .use(rehypeSanitize, sanitizeSchema)
-    // Convert hast to HTML string
-    .use(rehypeStringify)
-    .process(markdownWithEmoji);
-  
-  return result.toString();
-}
 
 /**
  * Converts inline markdown to sanitized HTML string at build time.
- * Optimized for short text like descriptions, where heading IDs and liquid processing aren't needed.
  * 
- * Key differences from markdownToHtml:
- * - No liquid template processing (faster, simpler)
- * - No heading slug generation (not needed for inline text)
- * - No autolink headings (not needed for inline text)
- * - Strips wrapping <p> tags for inline usage (single paragraph only)
+ * This is specifically for short text like descriptions where:
+ * - Full MDX compilation is overkill
+ * - We need an HTML string (not React elements)
+ * - Heading slugs aren't needed
+ * 
+ * For post content, use MarkdownContent component with compileMDX instead.
  * 
  * @param markdown - The inline markdown content to convert
  */

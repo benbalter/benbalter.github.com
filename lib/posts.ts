@@ -12,10 +12,12 @@ export interface Post {
   content: string;
   archived?: boolean;
   show_github_culture_callout?: boolean;
+  isMdx?: boolean;
   [key: string]: any;
 }
 
 const postsDirectory = path.join(process.cwd(), '_posts');
+const mdxPostsDirectory = path.join(process.cwd(), 'app', '_posts');
 
 /**
  * Internal function to parse a post file
@@ -59,21 +61,106 @@ function parsePostFile(fileName: string): Post {
 }
 
 /**
- * Get all posts with React cache for request-level memoization
- * This ensures getAllPosts() is only executed once per request during SSG
+ * Parse an MDX post file and return post metadata
  */
-export const getAllPosts = cache((): Post[] => {
-  if (!fs.existsSync(postsDirectory)) {
+function parseMdxPostFile(fileName: string): Post {
+  const slug = fileName.replace(/\.mdx$/, '');
+  const fullPath = path.join(mdxPostsDirectory, fileName);
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const { data, content } = matter(fileContents);
+  
+  // Extract date from filename if not in frontmatter
+  let date = data.date;
+  if (!date) {
+    const match = fileName.match(/^(\d{4})-(\d{2})-(\d{2})-/);
+    if (match) {
+      date = `${match[1]}-${match[2]}-${match[3]}`;
+    }
+  }
+  
+  // Generate title from filename if not in frontmatter
+  let title = data.title;
+  if (!title) {
+    title = fileName
+      .replace(/^\d{4}-\d{2}-\d{2}-/, '')
+      .replace(/\.mdx$/, '')
+      .replace(/-/g, ' ')
+      .replace(/\b\w/g, l => l.toUpperCase());
+  }
+  
+  return {
+    slug,
+    content,
+    ...data,
+    date,
+    title,
+    description: data.description,
+    image: data.image,
+    isMdx: true,
+  };
+}
+
+/**
+ * Get slugs of all MDX posts (posts that have been converted from Liquid)
+ */
+function getMdxPostSlugs(): Set<string> {
+  if (!fs.existsSync(mdxPostsDirectory)) {
+    return new Set();
+  }
+  
+  const fileNames = fs.readdirSync(mdxPostsDirectory);
+  return new Set(
+    fileNames
+      .filter(fileName => fileName.endsWith('.mdx'))
+      .map(fileName => fileName.replace(/\.mdx$/, ''))
+  );
+}
+
+/**
+ * Get all MDX posts from app/_posts directory
+ */
+function getAllMdxPosts(): Post[] {
+  if (!fs.existsSync(mdxPostsDirectory)) {
     return [];
   }
-  const fileNames = fs.readdirSync(postsDirectory);
   
-  const posts = fileNames
-    .filter(fileName => fileName.endsWith('.md'))
-    .map(fileName => parsePostFile(fileName));
+  const fileNames = fs.readdirSync(mdxPostsDirectory);
   
-  // Sort by date (newest first)
-  return posts.sort((a, b) => {
+  return fileNames
+    .filter(fileName => fileName.endsWith('.mdx'))
+    .map(fileName => parseMdxPostFile(fileName));
+}
+
+/**
+ * Get all posts with React cache for request-level memoization
+ * This ensures getAllPosts() is only executed once per request during SSG
+ * Combines both regular Markdown posts and MDX posts (for Liquid conversions)
+ */
+export const getAllPosts = cache((): Post[] => {
+  const mdxSlugs = getMdxPostSlugs();
+  
+  // Get regular Markdown posts, excluding any that have MDX versions
+  const mdPosts: Post[] = [];
+  if (fs.existsSync(postsDirectory)) {
+    const fileNames = fs.readdirSync(postsDirectory);
+    
+    fileNames
+      .filter(fileName => fileName.endsWith('.md'))
+      .forEach(fileName => {
+        const slug = fileName.replace(/\.md$/, '');
+        // Skip if there's an MDX version of this post
+        if (!mdxSlugs.has(slug)) {
+          mdPosts.push(parsePostFile(fileName));
+        }
+      });
+  }
+  
+  // Get all MDX posts
+  const mdxPosts = getAllMdxPosts();
+  
+  // Combine and sort by date (newest first)
+  const allPosts = [...mdPosts, ...mdxPosts];
+  return allPosts.sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
   });
 });

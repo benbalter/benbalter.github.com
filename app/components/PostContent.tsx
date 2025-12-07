@@ -2,11 +2,10 @@ import MarkdownContent from './MarkdownContent';
 
 interface PostContentProps {
   content: string;
-  context?: Record<string, any>;
 }
 
-export default function PostContent({ content, context }: PostContentProps) {
+export default async function PostContent({ content }: PostContentProps) {
   return (
-    <MarkdownContent markdown={content} className="entrybody" context={context} />
+    <MarkdownContent markdown={content} className="entrybody" />
   );
 }

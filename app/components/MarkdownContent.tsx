@@ -1,102 +1,138 @@
-import { markdownToHtml } from '@/lib/markdown';
-import { extractComponentPlaceholders, splitContentAtPlaceholders, type ComponentPlaceholder } from '@/lib/liquid';
-import Callout from './Callout';
-import FossAtScale from './FossAtScale';
-import GitHubCultureCallout from './GitHubCultureCallout';
+import { remark } from 'remark';
+import remarkGfm from 'remark-gfm';
+import remarkGithub from 'remark-github';
+import remarkRehype from 'remark-rehype';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeRaw from 'rehype-raw';
+import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
+import rehypeStringify from 'rehype-stringify';
+import { getSiteConfig } from '@/lib/config';
+import { processEmoji } from '@/lib/emoji';
+import remarkKramdownAttrs from '@/lib/remark-kramdown-attrs';
+import type { Schema } from 'hast-util-sanitize';
 
 interface MarkdownContentProps {
   markdown: string;
   className?: string;
-  context?: Record<string, any>;
 }
 
 /**
- * Renders a component based on its placeholder type and props.
- * This is a server component helper that maps placeholder data to React components.
+ * Remove Jekyll-specific Liquid template syntax from markdown.
+ * Liquid templates like {% capture %}, {% include %}, {{ variables }}
+ * are Jekyll-specific and won't work in Next.js.
  */
-function renderComponent(component: ComponentPlaceholder): React.ReactNode {
-  switch (component.type) {
-    case 'callout':
-      // Callout content comes from the rendered Liquid include after variable resolution.
-      // The content is HTML that was rendered by the Jekyll include, so we use
-      // dangerouslySetInnerHTML. Since this is SSG with trusted markdown files
-      // from the repository (not user input), this is safe.
-      return (
-        <Callout key={component.id}>
-          <span dangerouslySetInnerHTML={{ __html: component.props.content || '' }} />
-        </Callout>
-      );
-    case 'foss-at-scale':
-      return <FossAtScale key={component.id} nth={component.props.nth || ''} />;
-    case 'github-culture':
-      return <GitHubCultureCallout key={component.id} />;
-    default:
-      return null;
-  }
+function removeLiquidSyntax(markdown: string): string {
+  // Remove Liquid template tags
+  let result = markdown.replace(/\{%[\s\S]*?%\}/g, '');
+  
+  // Remove Liquid output tags {{ ... }}
+  result = result.replace(/\{\{[\s\S]*?\}\}/g, '');
+  
+  // Remove Jekyll-specific {:toc} markers
+  result = result.replace(/\{:toc\}/g, '');
+  
+  return result;
 }
 
 /**
- * Optimized markdown content renderer for SSG (Static Site Generation)
+ * Markdown content renderer using remark/rehype pipeline.
  * 
- * This component processes markdown to HTML at build time, not runtime.
- * It also extracts and renders React components for supported Liquid includes.
+ * This component processes markdown to HTML at build time using a traditional
+ * remark/rehype pipeline. This approach is chosen over MDX compilation for
+ * regular markdown because:
  * 
- * Benefits over react-markdown:
- * - Smaller JavaScript bundle (eliminates react-markdown dependency ~88KB)
- * - Faster page loads (no runtime markdown processing)
- * - Better SSG performance (processing happens once at build time)
- * - Maintains security with rehype-sanitize
- * - Still a server component (no client-side JS)
- * - React components for Liquid includes instead of raw HTML
+ * 1. MDX interprets { } as JSX expressions, breaking content with curly braces
+ * 2. Legacy content may contain Liquid syntax that needs removal, not parsing
+ * 3. Better compatibility with kramdown-style attribute lists {: .class }
  * 
- * The markdownToHtml function handles:
- * - Liquid template syntax (Jekyll compatibility)
+ * For content that needs React components, use MDX files (.mdx) instead.
+ * 
+ * Features:
  * - GitHub Flavored Markdown (GFM)
- * - Emoji processing
+ * - Emoji processing (:emoji: syntax)
  * - GitHub references (@mentions, #issues)
  * - Heading IDs and anchor links
- * - HTML sanitization
+ * - Kramdown-style attribute lists {: .class }
+ * - Raw HTML support
+ * - HTML sanitization for security
  * 
- * Supported React component includes:
- * - {% include callout.html content="..." %} -> Callout
- * - {% include foss-at-scale.html nth="..." %} -> FossAtScale  
- * - {% include_cached github-culture.html %} -> GitHubCultureCallout
+ * @see https://github.com/remarkjs/remark
  */
-export default async function MarkdownContent({ markdown, className = '', context }: MarkdownContentProps) {
-  // Convert markdown to HTML at build time, including liquid template processing
-  // This resolves all Liquid variables and renders includes to HTML
-  const html = await markdownToHtml(markdown, context);
+export default async function MarkdownContent({ markdown, className = '' }: MarkdownContentProps) {
+  const config = getSiteConfig();
   
-  // Extract component placeholders AFTER Liquid processing
-  // This ensures all variables are resolved before we detect component patterns
-  const { content: contentWithPlaceholders, components } = extractComponentPlaceholders(html);
+  // Pre-process: emoji and remove Liquid syntax
+  const processedMarkdown = removeLiquidSyntax(processEmoji(markdown));
   
-  // If no components were extracted, use the simple dangerouslySetInnerHTML approach
-  if (components.length === 0) {
-    return (
-      <div 
-        className={className}
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
-    );
-  }
+  // Create custom sanitization schema
+  const sanitizeSchema: Schema = {
+    ...defaultSchema,
+    clobberPrefix: '',
+    attributes: {
+      ...defaultSchema.attributes,
+      '*': [
+        ...(defaultSchema.attributes?.['*'] || []),
+        ['data*'],
+        'style',
+        'className',
+      ],
+      a: [
+        ...(defaultSchema.attributes?.a || []).filter(
+          attr => !(Array.isArray(attr) && attr[0] === 'className')
+        ),
+        'className',
+      ],
+      span: [
+        ...(defaultSchema.attributes?.span || []),
+        'className',
+      ],
+      img: [
+        ...(defaultSchema.attributes?.img || []),
+        'className',
+      ],
+      table: [
+        ...(defaultSchema.attributes?.table || []),
+        'className',
+      ],
+      p: [
+        ...(defaultSchema.attributes?.p || []),
+        'className',
+      ],
+    },
+  };
   
-  // Split content at placeholders and render with React components
-  const segments = splitContentAtPlaceholders(contentWithPlaceholders, components);
-  
+  const result = await remark()
+    .use(remarkGfm)
+    .use(remarkGithub, {
+      repository: config.repository,
+      mentionStrong: false,
+    })
+    .use(remarkKramdownAttrs)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
+    .use(rehypeSlug)
+    .use(rehypeAutolinkHeadings, {
+      behavior: 'append',
+      properties: {
+        className: ['anchor-link'],
+        ariaLabel: 'Link to this section',
+      },
+      content: {
+        type: 'element',
+        tagName: 'span',
+        properties: { className: ['anchor-icon'] },
+        children: [{ type: 'text', value: ' #' }],
+      },
+    })
+    .use(rehypeSanitize, sanitizeSchema)
+    .use(rehypeStringify)
+    .process(processedMarkdown);
+
   return (
-    <div className={className}>
-      {segments.map((segment, index) => {
-        if (segment.type === 'html') {
-          return (
-            <div 
-              key={`html-${index}`}
-              dangerouslySetInnerHTML={{ __html: segment.content }}
-            />
-          );
-        }
-        return renderComponent(segment.component);
-      })}
-    </div>
+    <div 
+      className={className}
+      dangerouslySetInnerHTML={{ __html: result.toString() }}
+    />
   );
 }

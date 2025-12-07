@@ -1,15 +1,25 @@
 import bundleAnalyzer from '@next/bundle-analyzer';
+import createMDX from '@next/mdx';
 
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 });
 
+// MDX configuration
+const withMDX = createMDX({
+  // Add markdown plugins here, as desired
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Only include standard page extensions (js, jsx, ts, tsx)
-  // Markdown files are loaded programmatically via lib/pages.ts and lib/posts.ts
+  // Include MDX page extension for MDX-based pages
+  // Markdown files (.md) are loaded programmatically via lib/pages.ts and lib/posts.ts
   // NOT through Next.js pageExtensions, avoiding over-bundling of .md files
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   // Output static site for GitHub Pages compatibility
   output: 'export',
   
@@ -106,5 +116,6 @@ const nextConfig = {
 };
 
 // Compose configuration wrappers
+// MDX wrapper adds MDX file processing support
 // Bundle Analyzer wrapper adds optional bundle analysis support
-export default withBundleAnalyzer(nextConfig);
+export default withBundleAnalyzer(withMDX(nextConfig));
