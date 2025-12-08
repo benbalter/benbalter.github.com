@@ -5,12 +5,18 @@
   },
   "description": "[![Build Status](https://travis-ci.org/benbalter/benbalter.github.com.png?branch=master)](https://travis-ci.org/benbalter/benbalter.github.com)",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.1",
+    "@fortawesome/free-brands-svg-icons": "^6.7.1",
+    "@fortawesome/free-regular-svg-icons": "^6.7.1",
+    "@fortawesome/free-solid-svg-icons": "^6.7.1",
     "@hotwired/turbo": "^8.0.5",
     "anchor-js": "^5.0.0",
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "fastest-levenshtein": "^1.0.16"
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",
+    "@babel/preset-typescript": "^7.24.7",
     "@github/markdownlint-github": "^0.6.3",
     "@playwright/test": "^1.56.1",
     "@textlint-rule/textlint-rule-no-duplicate-abbr": "^1.0.2",
@@ -20,6 +26,7 @@
     "@types/node": "^20.14.9",
     "@types/webpack": "^5.28.5",
     "autoprefixer": "^10.4.19",
+    "babel-loader": "^9.1.3",
     "css-loader": "^7.1.2",
     "dictionary-en": "^4.0.0",
     "eslint": "^8.40.0",
