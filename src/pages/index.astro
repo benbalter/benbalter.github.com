@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+
+const title = 'Ben Balter';
+const description = 'Product Manager, Attorney, and Open Source Advocate';
+---
+
+<BaseLayout title={title} description={description}>
+  <h1>Welcome to Ben Balter's Astro Site</h1>
+  
+  <section>
+    <h2>About This Build</h2>
+    <p>
+      This is an Astro implementation of Ben Balter's personal website, 
+      running alongside the existing Jekyll and Next.js versions during development.
+    </p>
+    
+    <p>
+      Astro is a modern static site generator that delivers lightning-fast performance
+      with zero JavaScript by default. It supports multiple frameworks and provides
+      excellent developer experience.
+    </p>
+  </section>
+  
+  <section>
+    <h2>Quick Links</h2>
+    <ul>
+      <li><a href="/about/">About Me</a></li>
+      <li><a href="/resume/">Resume</a></li>
+      <li><a href="https://github.com/benbalter" target="_blank" rel="noopener noreferrer">GitHub Profile</a></li>
+    </ul>
+  </section>
+  
+  <section>
+    <h2>Tech Stack Highlights</h2>
+    <div class="feature-grid">
+      <FeatureCard
+        emoji="⚡"
+        title="Static Site Generation"
+        description="All pages pre-rendered at build time for maximum performance"
+      />
+      <FeatureCard
+        emoji="🔧"
+        title="TypeScript Support"
+        description="Type-safe component development with full IntelliSense"
+      />
+      <FeatureCard
+        emoji="🚀"
+        title="GitHub Pages Ready"
+        description="Optimized for static hosting with proper URL structure"
+      />
+      <FeatureCard
+        emoji="📦"
+        title="Zero JS by Default"
+        description="Ship only the JavaScript you need, nothing more"
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  h1 {
+    color: #0366d6;
+    margin-bottom: 1rem;
+  }
+  
+  section {
+    margin-bottom: 2rem;
+  }
+  
+  h2 {
+    color: #333;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  ul {
+    list-style-type: disc;
+    padding-left: 2rem;
+  }
+  
+  li {
+    margin-bottom: 0.5rem;
+  }
+  
+  a {
+    color: #0366d6;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+</style>

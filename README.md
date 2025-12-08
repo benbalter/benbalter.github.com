@@ -2,11 +2,41 @@
 
 [![CI](https://github.com/benbalter/benbalter.github.com/actions/workflows/ci.yml/badge.svg)](https://github.com/benbalter/benbalter.github.com/actions/workflows/ci.yml)
 
-The personal site of Ben Balter built with Jekyll and hosted on GitHub Pages.
+The personal site of Ben Balter. Built with Jekyll and hosted on GitHub Pages, with Astro experimental evaluation.
 
-## About
+## Current Setup
 
 This site is built using Jekyll, GitHub Pages, and Bootstrap. See [humans.txt](https://ben.balter.com/humans.txt) for more info.
+
+### Astro (Experimental)
+
+An Astro implementation has been bootstrapped for evaluation. The Astro setup is configured to:
+
+* Use **Static Site Generation (SSG)** - All pages pre-rendered as static HTML
+* **Zero JavaScript by default** - Ships only necessary JavaScript
+* Support **TypeScript** for type-safe components
+* Export to `dist-astro/` directory (separate from Jekyll `_site/`)
+* Run development server on port 4321 (separate from Jekyll 4000)
+* Full GitHub Pages compatibility with trailing slashes and directory-based URLs
+
+#### Astro Commands
+
+```bash
+npm run astro:dev      # Start Astro development server (http://localhost:4321)
+npm run astro:build    # Build Astro for production (outputs to /dist-astro)
+npm run astro:preview  # Preview production build
+npm run astro:check    # Type-check Astro components
+```
+
+#### Astro Documentation
+
+See [docs/ASTRO.md](docs/ASTRO.md) for comprehensive documentation including:
+
+* Project structure and configuration
+* Coexistence strategy with Jekyll
+* Development workflow and best practices
+* Feature comparison with Jekyll
+* Future migration roadmap
 
 ## Development
 

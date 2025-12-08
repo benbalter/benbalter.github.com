@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'About';
+const description = 'About Ben Balter and this Astro implementation';
+---
+
+<BaseLayout title={title} description={description}>
+  <h1>About This Astro Implementation</h1>
+  
+  <section>
+    <h2>Project Context</h2>
+    <p>
+      This Astro project is part of Ben Balter's personal website repository, 
+      which is currently exploring multiple static site generation approaches:
+    </p>
+    <ul>
+      <li><strong>Jekyll (Legacy)</strong> - The original implementation, currently in production</li>
+      <li><strong>Next.js (In Development)</strong> - A React-based migration with App Router</li>
+      <li><strong>Astro (Experimental)</strong> - This implementation, exploring Astro's capabilities</li>
+    </ul>
+  </section>
+  
+  <section>
+    <h2>Why Astro?</h2>
+    <p>
+      Astro offers several advantages for static sites:
+    </p>
+    <ul>
+      <li><strong>Performance First</strong> - Ships zero JavaScript by default</li>
+      <li><strong>Component Islands</strong> - Partial hydration for interactive components</li>
+      <li><strong>Framework Agnostic</strong> - Use React, Vue, Svelte, or plain HTML</li>
+      <li><strong>Built-in Optimizations</strong> - Image optimization, asset bundling, and more</li>
+      <li><strong>Great DX</strong> - Fast builds, hot module reloading, TypeScript support</li>
+    </ul>
+  </section>
+  
+  <section>
+    <h2>Configuration</h2>
+    <p>This Astro project is configured to coexist with existing implementations:</p>
+    <ul>
+      <li>Build output: <code>dist-astro/</code> (separate from Jekyll <code>_site/</code> and Next.js <code>out/</code>)</li>
+      <li>Development server: Port 4321 (Jekyll uses 4000, Next.js uses 3000)</li>
+      <li>Source directory: <code>src/</code> (Astro-specific)</li>
+      <li>Static assets: <code>public/</code> at repository root (shared with Next.js)</li>
+    </ul>
+  </section>
+  
+  <section>
+    <h2>GitHub Pages Compatibility</h2>
+    <p>
+      The Astro build is configured for static site generation with:
+    </p>
+    <ul>
+      <li>Static output mode (no server-side rendering)</li>
+      <li>Trailing slashes for consistent URLs</li>
+      <li>Directory-based output format</li>
+      <li>Optimized asset handling</li>
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  h1 {
+    color: #0366d6;
+    margin-bottom: 1rem;
+  }
+  
+  section {
+    margin-bottom: 2rem;
+  }
+  
+  h2 {
+    color: #333;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  ul {
+    list-style-type: disc;
+    padding-left: 2rem;
+  }
+  
+  li {
+    margin-bottom: 0.5rem;
+  }
+  
+  code {
+    background-color: #f6f8fa;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+  }
+</style>

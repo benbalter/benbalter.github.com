@@ -32,6 +32,10 @@ assets/js/bundle.js.LICENSE.txt
 test-results/
 playwright-report/
 
+# Astro build artifacts
+dist-astro/
+.astro/
+
 # Lighthouse CI artifacts
 .lighthouseci/
 
