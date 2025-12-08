@@ -35,9 +35,6 @@ function slugify(text: string): string {
 ---
 
 <PageLayout title={title} description={description}>
-  <div class="lead mb-4">
-    <p>{description}</p>
-  </div>
 
   {bookGroups.map(([category, books]) => (
     <section class="book-group mb-5">
