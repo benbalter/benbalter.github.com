@@ -1,6 +1,10 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import remarkEmoji from 'remark-emoji';
+import remarkGfm from 'remark-gfm';
+import { remarkMentions } from './src/lib/remark-mentions.ts';
+import { redirects } from './src/lib/astro-redirects.ts';
 
 // URL patterns for sitemap priority calculation
 const BLOG_POST_PATTERN = /\/\d{4}\/\d{2}\/\d{2}\//;
@@ -52,8 +56,12 @@ export default defineConfig({
     mdx({
       // MDX configuration
       optimize: true,
-      // Support GitHub Flavored Markdown
-      remarkPlugins: [],
+      // Support GitHub Flavored Markdown and Jekyll plugins
+      remarkPlugins: [
+        remarkGfm,      // GitHub Flavored Markdown (tables, strikethrough, etc.)
+        remarkEmoji,    // Convert :emoji: syntax to emoji characters (jemoji)
+        remarkMentions, // Convert @username to GitHub profile links (jekyll-mentions)
+      ],
       rehypePlugins: [],
     }),
     sitemap({
@@ -87,6 +95,7 @@ export default defineConfig({
         };
       },
     }),
+    redirects(), // Generate redirect files from frontmatter (jekyll-redirect-from)
   ],
   
   // Markdown configuration
@@ -100,8 +109,12 @@ export default defineConfig({
     gfm: true,
     // Enable smartypants for typographic punctuation
     smartypants: true,
-    // Remark plugins (for markdown processing)
-    remarkPlugins: [],
+    // Remark plugins (for markdown processing) - also applies to .md files
+    remarkPlugins: [
+      remarkGfm,      // GitHub Flavored Markdown (tables, strikethrough, etc.)
+      remarkEmoji,    // Convert :emoji: syntax to emoji characters (jemoji)
+      remarkMentions, // Convert @username to GitHub profile links (jekyll-mentions)
+    ],
     // Rehype plugins (for HTML processing)
     rehypePlugins: [],
   },
