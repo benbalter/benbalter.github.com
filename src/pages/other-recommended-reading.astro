@@ -17,13 +17,10 @@ const description = 'Here are some of the books that have had a significant infl
 // Load books data from _data/books.yml
 const booksPath = join(process.cwd(), '_data', 'books.yml');
 const booksYaml = readFileSync(booksPath, 'utf-8');
-const booksData = yaml.load(booksYaml) as Record<string, Array<{ title: string; asin: string; tldr: string }>>;
+const booksData = yaml.load(booksYaml, { schema: yaml.SAFE_SCHEMA }) as Record<string, Array<{ title: string; asin: string; tldr: string }>>;
 
 // Amazon affiliate tag
 const amazonAffiliatesTag = 'benbalter07-20';
-
-// Books per row configuration
-const booksPerRow = 3;
 
 // Convert object to array of [category, books] entries
 const bookGroups = Object.entries(booksData);
@@ -57,7 +54,7 @@ function slugify(text: string): string {
             >
               <div class="book-cover">
                 <img 
-                  src={`http://images.amazon.com/images/P/${book.asin}.01.MZZZZZZZ.jpg`}
+                  src={`https://images.amazon.com/images/P/${book.asin}.01.MZZZZZZZ.jpg`}
                   alt={book.title}
                   loading="lazy"
                 />
