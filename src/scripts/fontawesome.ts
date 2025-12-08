@@ -20,6 +20,8 @@ import {
   faHeart,
   faArrowLeft,
   faEdit as faEditSolid,
+  faAddressCard,
+  faCloud,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -27,6 +29,7 @@ import {
   faTwitter,
   faLinkedin,
   faMastodon,
+  faBluesky,
 } from '@fortawesome/free-brands-svg-icons';
 
 // Add icons to the library
@@ -41,11 +44,14 @@ library.add(
   faHeart,
   faArrowLeft,
   faEditSolid,
+  faAddressCard,
+  faCloud,
   // Brand icons
   faGithub,
   faTwitter,
   faLinkedin,
-  faMastodon
+  faMastodon,
+  faBluesky
 );
 
 // Watch the DOM for any icon tags and replace them
