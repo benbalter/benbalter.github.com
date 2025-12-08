@@ -22,7 +22,7 @@ const disallowedPaths = [
   '/make-maps-better-together/',
   '/make-reporting-better-together/',
   '/open-source-alternatives/',
-  '/open-source-demistified/',
+  '/open-source-demystified/',
   '/open-source-software-licensing/',
   '/open-sourcing-government/',
   '/simple-api/',
