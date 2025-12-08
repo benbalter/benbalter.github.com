@@ -22,9 +22,11 @@ function createMockPost(
       description,
       published,
       archived,
-    } as any,
+      comments: false,
+      sitemap: true,
+    },
     render: async () => ({
-      Content: null as any,
+      Content: (() => null) as any,
       headings: [],
       remarkPluginFrontmatter: {},
     }),
@@ -79,9 +81,10 @@ describe('Archived Posts Filtering', () => {
   });
 
   it('should handle posts with undefined archived field as not archived', () => {
-    const posts: CollectionEntry<'posts'>[] = [
-      createMockPost('2024-01-01-post-1', 'Post 1', 'Description 1', true, undefined as any),
-    ];
+    // Create post without passing archived parameter (uses default value)
+    const postWithoutArchived = createMockPost('2024-01-01-post-1', 'Post 1', 'Description 1', true);
+    
+    const posts: CollectionEntry<'posts'>[] = [postWithoutArchived];
 
     const nonArchivedPosts = posts.filter(post => 
       post.data.published !== false && post.data.archived !== true
