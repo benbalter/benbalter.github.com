@@ -43,7 +43,7 @@ RSpec.describe 'reading time' do
 
   context 'display in posts' do
     let(:post_path) { '_site/2023/08/04/remote-work-communicate-more-with-less/index.html' }
-    
+
     before(:all) do
       # Ensure site is built
       unless File.exist?('_site')

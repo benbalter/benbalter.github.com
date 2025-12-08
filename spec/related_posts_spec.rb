@@ -25,7 +25,8 @@ RSpec.describe 'related posts' do
 
     it 'excludes archived posts' do
       # Check that archived posts are not in the related posts data
-      site.posts.docs.select { |post| post.data['archived'] }.each do |archived_post|
+      archived_posts = site.posts.docs.select { |post| post.data['archived'] }
+      archived_posts.each do |archived_post|
         expect(related_posts_data).not_to have_key(archived_post.relative_path)
       end
     end
@@ -33,7 +34,7 @@ RSpec.describe 'related posts' do
 
   context 'display in posts' do
     let(:post_with_related) { '_site/2023/08/04/remote-work-communicate-more-with-less/index.html' }
-    
+
     before(:all) do
       # Ensure site is built
       unless File.exist?('_site')
@@ -54,7 +55,7 @@ RSpec.describe 'related posts' do
     it 'shows related post links' do
       content = File.read(post_with_related)
       # The post should have links to related posts
-      expect(content).to match(/<a href="[^"]+">.*<\/a>/)
+      expect(content).to match(%r{<a href="[^"]+">.*</a>})
     end
   end
 
