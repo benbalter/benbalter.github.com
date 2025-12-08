@@ -1,19 +1,9 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+import { siteConfig, contactLinks } from '../config';
 
 const title = 'About';
 const description = 'Ben Balter is an attorney, an open source developer, and a Senior Technical Program Manager at GitHub, the world\'s largest software development network.';
-
-// Contact links from config
-const contactLinks = [
-  { name: 'Email', url: 'mailto:ben@balter.com', icon: 'fa-solid fa-envelope' },
-  { name: 'Add to contacts', url: '/vcard.vcf', icon: 'fa-solid fa-address-card' },
-  { name: 'Bluesky', url: 'https://bsky.app/profile/ben.balter.com', icon: 'fa-brands fa-bluesky' },
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/benbalter', icon: 'fa-brands fa-linkedin' },
-  { name: 'GitHub', url: 'https://github.com/benbalter', icon: 'fa-brands fa-github' },
-];
-
-const pgpKey = '07C6 73FB F30E 01C0 C342 7AB8 DBB6 7C24 6AD3 56C4';
 ---
 
 <PageLayout title={title} description={description}>
@@ -36,7 +26,7 @@ const pgpKey = '07C6 73FB F30E 01C0 C342 7AB8 DBB6 7C24 6AD3 56C4';
   </p>
 
   <p>
-    Feel free to email him at <a href="mailto:ben@balter.com">Ben@Balter.com</a> or you can find him on these social networks:
+    Feel free to email him at <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> or you can find him on these social networks:
   </p>
 
   <div class="contact-links text-center">
@@ -58,7 +48,7 @@ const pgpKey = '07C6 73FB F30E 01C0 C342 7AB8 DBB6 7C24 6AD3 56C4';
     </div>
 
     <p class="small">
-      <a href="/key.asc">PGP: <code>{pgpKey}</code></a>
+      <a href="/key.asc">PGP: <code>{siteConfig.pgpKey}</code></a>
     </p>
   </div>
 </PageLayout>
