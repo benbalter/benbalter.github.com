@@ -69,7 +69,7 @@ const readingTime = calculateReadingTime(content);
           {description && (
             <div class="lead post-tldr">
               <strong>
-                <abbr title="&quot;Too Long; Didn't Read&quot; — Internet shorthand for &quot;a brief summary of longer writing&quot;" class="initialism">TL;DR</abbr>:
+                <abbr title='"Too Long; Didn\'t Read" — Internet shorthand for "a brief summary of longer writing"' class="initialism">TL;DR</abbr>:
               </strong>
               {' '}
               <span set:html={marked.parseInline(description)} />
