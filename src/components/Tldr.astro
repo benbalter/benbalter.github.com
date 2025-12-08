@@ -25,6 +25,10 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
   document.addEventListener('DOMContentLoaded', () => {
     const tooltipElements = document.querySelectorAll('[data-tooltip="true"]:not([data-tooltip-initialized])');
     
+    // Tooltip transition duration (matches CSS transition)
+    const TOOLTIP_TRANSITION_DURATION = 200;
+    const TOOLTIP_CLEANUP_TIMEOUT = 300; // Fallback timeout with buffer
+    
     tooltipElements.forEach((element) => {
       // Mark as initialized
       element.setAttribute('data-tooltip-initialized', 'true');
@@ -73,8 +77,14 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
         
         tooltipEl.classList.remove('show');
         
-        // Use transitionend event for proper cleanup timing
-        const handleTransitionEnd = () => {
+        // Track if cleanup has been executed
+        let cleanupExecuted = false;
+        
+        // Cleanup function
+        const cleanup = () => {
+          if (cleanupExecuted) return;
+          cleanupExecuted = true;
+          
           if (tooltipEl) {
             tooltipEl.remove();
             tooltipEl = null;
@@ -82,14 +92,20 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
           }
         };
         
+        // Use transitionend event for proper cleanup timing
+        const handleTransitionEnd = () => {
+          cleanup();
+        };
+        
         tooltipEl.addEventListener('transitionend', handleTransitionEnd, { once: true });
         
         // Fallback timeout in case transitionend doesn't fire
         setTimeout(() => {
-          if (tooltipEl && isTooltipVisible) {
-            handleTransitionEnd();
+          if (tooltipEl) {
+            tooltipEl.removeEventListener('transitionend', handleTransitionEnd);
+            cleanup();
           }
-        }, 300);
+        }, TOOLTIP_CLEANUP_TIMEOUT);
       });
     });
   });
