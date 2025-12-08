@@ -16,9 +16,17 @@ As an attorney passionate about the disruptive potential of technology, Ben hold
 
 /**
  * Simple markdown link converter: [text](url) => <a href="url">text</a>
+ * Only allows http(s) and relative URLs for security
  */
 function convertMarkdownLinks(text: string): string {
-  return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+  return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, linkText, url) => {
+    // Validate URL - only allow http(s) and relative URLs
+    if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('/')) {
+      return `<a href="${url}">${linkText}</a>`;
+    }
+    // Return original text if URL is not valid
+    return match;
+  });
 }
 
 /**
