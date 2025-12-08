@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FeatureCard from '../components/FeatureCard.astro';
 
 const title = 'Ben Balter';
 const description = 'Product Manager, Attorney, and Open Source Advocate';
@@ -32,14 +33,29 @@ const description = 'Product Manager, Attorney, and Open Source Advocate';
   </section>
   
   <section>
-    <h2>Tech Stack</h2>
-    <p>This Astro site is configured with:</p>
-    <ul>
-      <li><strong>Static Site Generation (SSG)</strong> - All pages pre-rendered at build time</li>
-      <li><strong>TypeScript Support</strong> - Type-safe component development</li>
-      <li><strong>GitHub Pages Compatible</strong> - Optimized for static hosting</li>
-      <li><strong>Zero JS by Default</strong> - Ship only the JavaScript you need</li>
-    </ul>
+    <h2>Tech Stack Highlights</h2>
+    <div class="feature-grid">
+      <FeatureCard
+        emoji="⚡"
+        title="Static Site Generation"
+        description="All pages pre-rendered at build time for maximum performance"
+      />
+      <FeatureCard
+        emoji="🔧"
+        title="TypeScript Support"
+        description="Type-safe component development with full IntelliSense"
+      />
+      <FeatureCard
+        emoji="🚀"
+        title="GitHub Pages Ready"
+        description="Optimized for static hosting with proper URL structure"
+      />
+      <FeatureCard
+        emoji="📦"
+        title="Zero JS by Default"
+        description="Ship only the JavaScript you need, nothing more"
+      />
+    </div>
   </section>
 </BaseLayout>
 
@@ -56,7 +72,7 @@ const description = 'Product Manager, Attorney, and Open Source Advocate';
   h2 {
     color: #333;
     margin-top: 2rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
   
   ul {
@@ -75,5 +91,12 @@ const description = 'Product Manager, Attorney, and Open Source Advocate';
   
   a:hover {
     text-decoration: underline;
+  }
+  
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
   }
 </style>
