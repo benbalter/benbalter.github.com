@@ -31,6 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Close menu when clicking outside
   document.addEventListener('click', (event) => {
+    if (!event.target) return;
+    
     const isClickInside = toggler.contains(event.target as Node) || 
                           target.contains(event.target as Node);
     
