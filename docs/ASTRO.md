@@ -43,8 +43,7 @@ npm run astro:preview
 │   ├── layouts/        # Layout components
 │   │   └── BaseLayout.astro
 │   └── components/     # Reusable components
-├── src-astro/
-│   └── public/         # Static assets (copied to dist-astro/)
+├── public/             # Static assets (shared with Next.js, copied to dist-astro/)
 ├── astro.config.mjs    # Astro configuration
 └── tsconfig.astro.json # TypeScript config for Astro
 ```
@@ -110,7 +109,7 @@ Astro can potentially leverage existing content from the repository:
 - `_posts/`: Blog posts (markdown files)
 - `_data/`: YAML data files
 - `_resume_positions/`: Resume data
-- `public/`: Static assets
+- `public/`: Static assets (shared with Next.js)
 
 ## Key Differences from Jekyll/Next.js
 
@@ -152,7 +151,7 @@ Once development is complete, replace Jekyll/Next.js with Astro:
 - [ ] Migrate blog posts from `_posts/` to Astro content collections
 - [ ] Migrate resume data from `_resume_positions/`
 - [ ] Migrate data files from `_data/`
-- [ ] Migrate static assets to `src-astro/public/`
+- [ ] Add custom static assets to `public/` (shared with Next.js)
 
 ### Feature Parity
 

@@ -20,11 +20,6 @@
   ],
   "exclude": [
     "node_modules",
-    "dist-astro",
-    "lib/**/*.test.ts",
-    "app/**/*.test.tsx",
-    "script/**/*.test.ts",
-    "**/*.test.ts",
-    "**/*.test.tsx"
+    "dist-astro"
   ]
 }
