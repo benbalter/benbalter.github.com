@@ -166,6 +166,9 @@ test.describe('Accessibility', () => {
   });
 
   test('should have sufficient text contrast in dark mode for post content', async ({ page }) => {
+    // WCAG AA contrast ratio requirement for normal text
+    const WCAG_AA_CONTRAST_RATIO = 4.5;
+    
     // Emulate dark color scheme preference
     await page.emulateMedia({ colorScheme: 'dark' });
     
@@ -186,9 +189,10 @@ test.describe('Accessibility', () => {
       const postStyles = window.getComputedStyle(el);
       const bodyStyles = window.getComputedStyle(document.body);
       
-      // Helper to parse RGB values
-      const parseRgb = (rgbString: string) => {
-        const match = rgbString.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
+      // Helper to parse RGB/RGBA values
+      const parseRgb = (colorString: string) => {
+        // Handle rgb() and rgba() formats
+        const match = colorString.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
         if (match) {
           return {
             r: parseInt(match[1]),
@@ -235,7 +239,7 @@ test.describe('Accessibility', () => {
     
     // WCAG AA requires a contrast ratio of at least 4.5:1 for normal text
     // WCAG AAA requires 7:1, but we'll test for AA minimum
-    expect(contrastCheck.contrastRatio).toBeGreaterThanOrEqual(4.5);
+    expect(contrastCheck.contrastRatio).toBeGreaterThanOrEqual(WCAG_AA_CONTRAST_RATIO);
     
     // Also verify the body has a dark background
     const bodyBg = await page.locator('body').evaluate(el => 
