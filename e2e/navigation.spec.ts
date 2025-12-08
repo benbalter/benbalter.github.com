@@ -6,8 +6,8 @@ test.describe('Navigation Active Link Highlighting', () => {
     await page.goto('/about/');
     await waitForPageReady(page);
     
-    // The active class is applied client-side via script
-    const aboutLink = page.locator('a[data-nav-path="/about/"]');
+    // Jekyll adds active class server-side based on current page
+    const aboutLink = page.locator('a[href="/about/"]');
     await expect(aboutLink).toHaveClass(/active/);
   });
 
@@ -15,7 +15,7 @@ test.describe('Navigation Active Link Highlighting', () => {
     await page.goto('/contact/');
     await waitForPageReady(page);
     
-    const contactLink = page.locator('a[data-nav-path="/contact/"]');
+    const contactLink = page.locator('a[href="/contact/"]');
     await expect(contactLink).toHaveClass(/active/);
   });
 
@@ -24,7 +24,7 @@ test.describe('Navigation Active Link Highlighting', () => {
     await waitForPageReady(page);
     
     // Root path (/) should highlight the home/posts link
-    const homeLink = page.locator('a[data-nav-path="/"]');
+    const homeLink = page.locator('a[href="/"]');
     await expect(homeLink).toHaveClass(/active/);
   });
 
@@ -33,21 +33,21 @@ test.describe('Navigation Active Link Highlighting', () => {
     await page.goto('/');
     await waitForPageReady(page);
     
-    const homeLink = page.locator('a[data-nav-path="/"]');
-    const aboutLink = page.locator('a[data-nav-path="/about/"]');
+    const homeLink = page.locator('a[href="/"]');
+    const aboutLink = page.locator('a[href="/about/"]');
     
     // Home link should be active initially
     await expect(homeLink).toHaveClass(/active/);
     await expect(aboutLink).not.toHaveClass(/active/);
     
     // Navigate to About page using direct navigation (full page load)
-    // This tests that the script correctly runs on each page load
+    // Jekyll adds active class server-side based on current page
     await page.goto('/about/');
     await waitForPageReady(page);
     
     // Re-query the locators after navigation since DOM has changed
-    const aboutLinkAfterNav = page.locator('a[data-nav-path="/about/"]');
-    const homeLinkAfterNav = page.locator('a[data-nav-path="/"]');
+    const aboutLinkAfterNav = page.locator('a[href="/about/"]');
+    const homeLinkAfterNav = page.locator('a[href="/"]');
     
     // About link should now be active, home should not
     await expect(aboutLinkAfterNav).toHaveClass(/active/);
@@ -58,13 +58,13 @@ test.describe('Navigation Active Link Highlighting', () => {
     await page.goto('/about/');
     await waitForPageReady(page);
     
-    // Count nav links with active class
-    const activeLinks = page.locator('[data-nav-path].active');
+    // Count nav links with active class in the main navigation
+    const activeLinks = page.locator('.navbar a.active, nav a.active');
     await expect(activeLinks).toHaveCount(1);
     
     // Verify it's the correct link
     const activeLink = activeLinks.first();
-    await expect(activeLink).toHaveAttribute('data-nav-path', '/about/');
+    await expect(activeLink).toHaveAttribute('href', '/about/');
   });
 
   test('should handle path with or without trailing slash', async ({ page }) => {
@@ -73,7 +73,7 @@ test.describe('Navigation Active Link Highlighting', () => {
     await waitForPageReady(page);
     
     // Should still highlight the about link
-    const aboutLink = page.locator('a[data-nav-path="/about/"]');
+    const aboutLink = page.locator('a[href="/about/"]');
     await expect(aboutLink).toHaveClass(/active/);
   });
 });
