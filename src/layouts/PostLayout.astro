@@ -20,6 +20,7 @@ interface Props {
   author?: string;
   tags?: string[];
   relatedPosts?: CollectionEntry<'posts'>[];
+  postSlug?: string;
 }
 
 const { 
@@ -31,6 +32,7 @@ const {
   author = siteConfig.author,
   tags = [],
   relatedPosts = [],
+  postSlug,
 } = Astro.props;
 
 const formattedDate = pubDate?.toLocaleDateString('en-US', {
@@ -92,7 +94,7 @@ const readingTime = calculateReadingTime(content);
         
         {pubDate && (
           <div class="mb-2 text-muted small">
-            Originally published {formattedDate} | <a class="link-secondary" href={`${siteConfig.githubRepoUrl}/commits/main${Astro.url.pathname.replace(/\/$/, '')}.md`} target="_blank" rel="noopener">View revision history</a>
+            Originally published {formattedDate} | <a class="link-secondary" href={`${siteConfig.githubRepoUrl}/commits/main/_posts/${postSlug}.md`} target="_blank" rel="noopener">View revision history</a>
           </div>
         )}
         
