@@ -11,7 +11,7 @@ const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'
 });
 
 // Sort posts by slug (which contains date in Jekyll format YYYY-MM-DD)
-const posts = allPosts.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => 
+const posts: CollectionEntry<'posts'>[] = allPosts.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => 
   b.slug.localeCompare(a.slug)
 );
 
