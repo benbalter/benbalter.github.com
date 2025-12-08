@@ -63,9 +63,7 @@ export default defineConfig({
         // This includes 404, not-found, and pages like fine-print
         return !EXCLUDED_PAGES.some(pattern => page.includes(pattern));
       },
-      // Customize individual page entries
-      customPages: [],
-      // Generate sitemap with proper URLs
+      // Customize URL entries with priority and changefreq
       serialize: (item) => {
         // Set priority and changefreq based on URL pattern
         let priority = 0.6; // Default for static pages

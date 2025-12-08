@@ -3,9 +3,9 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 // URL patterns for sitemap validation
-const BLOG_POST_URL_PATTERN = /<url><loc>https:\/\/ben\.balter\.com\/\d{4}\/\d{2}\/\d{2}\/[^<]+<\/loc>.*?<\/url>/;
-const HOMEPAGE_URL_PATTERN = /<url><loc>https:\/\/ben\.balter\.com\/<\/loc>.*?<\/url>/;
-const ABOUT_PAGE_URL_PATTERN = /<url><loc>https:\/\/ben\.balter\.com\/about\/<\/loc>.*?<\/url>/;
+const BLOG_POST_URL_PATTERN = /<url><loc>https:\/\/ben\.balter\.com\/\d{4}\/\d{2}\/\d{2}\/[^<]+<\/loc>[\s\S]*?<\/url>/;
+const HOMEPAGE_URL_PATTERN = /<url><loc>https:\/\/ben\.balter\.com\/<\/loc>[\s\S]*?<\/url>/;
+const ABOUT_PAGE_URL_PATTERN = /<url><loc>https:\/\/ben\.balter\.com\/about\/<\/loc>[\s\S]*?<\/url>/;
 
 test.describe('Sitemap Generation', () => {
   const outDir = path.join(process.cwd(), 'out');
@@ -124,11 +124,11 @@ test.describe('Sitemap Generation', () => {
         '/fine-print/', // Has sitemap: false in front matter
       ];
       
-      excludedPaths.forEach(path => {
+      excludedPaths.forEach(excludedPath => {
         // Be careful with regex special characters
-        const escapedPath = path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const escapedPath = excludedPath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         const regex = new RegExp(`<loc>https://ben\\.balter\\.com${escapedPath}`, 'i');
-        expect(content.match(regex), `Should not include ${path} in sitemap`).toBeFalsy();
+        expect(content.match(regex), `Should not include ${excludedPath} in sitemap`).toBeFalsy();
       });
     });
 
@@ -145,8 +145,8 @@ test.describe('Sitemap Generation', () => {
         'https://ben.balter.com/talks/',
       ];
       
-      corePages.forEach(page => {
-        expect(content).toContain(`<loc>${page}</loc>`);
+      corePages.forEach(pageUrl => {
+        expect(content).toContain(`<loc>${pageUrl}</loc>`);
       });
     });
   });
@@ -267,11 +267,11 @@ test.describe('Sitemap Generation', () => {
         '/_not-found/',
       ];
       
-      excludedPaths.forEach(path => {
+      excludedPaths.forEach(excludedPath => {
         // Be careful with regex special characters
-        const escapedPath = path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const escapedPath = excludedPath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         const regex = new RegExp(`<loc>https://ben\\.balter\\.com${escapedPath}`, 'i');
-        expect(content.match(regex), `Should not include ${path} in sitemap`).toBeFalsy();
+        expect(content.match(regex), `Should not include ${excludedPath} in sitemap`).toBeFalsy();
       });
     });
 
