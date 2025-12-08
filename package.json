@@ -49,6 +49,7 @@
     "strip-markdown": "^6.0.0"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.6",
     "@babel/core": "^7.24.7",
     "@babel/preset-typescript": "^7.24.7",
     "@github/markdownlint-github": "^0.6.3",
@@ -69,6 +70,7 @@
     "@types/react-dom": "^19.2.2",
     "@types/webpack": "^5.28.5",
     "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "astro": "^5.16.4",
     "autoprefixer": "^10.4.19",
     "babel-loader": "^9.1.3",
     "css-loader": "^7.1.2",
@@ -142,6 +144,10 @@
     "build:og-images": "tsx script/generate-og-images.ts",
     "build:related-posts": "tsx script/build-related-posts.ts",
     "dev": "next dev",
+    "astro:dev": "astro dev",
+    "astro:build": "astro build",
+    "astro:preview": "astro preview",
+    "astro:check": "astro check --tsconfig tsconfig.astro.json",
     "next:build": "next build && next-sitemap --config next-sitemap.config.cjs && node script/generate-redirects.mjs && tsx script/generate-feeds.mjs",
     "next:start": "serve out",
     "lint": "npm run lint-js && npm run lint-json && npm run lint-md",
