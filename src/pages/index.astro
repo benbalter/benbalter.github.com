@@ -1,9 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FeatureCard from '../components/FeatureCard.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
 const title = 'Ben Balter';
 const description = 'Product Manager, Attorney, and Open Source Advocate';
+
+// Get all published posts, sorted by date (newest first)
+const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => {
+  return data.published !== false;
+});
+
+// Sort posts by slug (which contains date in Jekyll format)
+const posts = allPosts.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => 
+  b.slug.localeCompare(a.slug)
+).slice(0, 5);
 ---
 
 <BaseLayout title={title} description={description}>
@@ -57,6 +68,27 @@ const description = 'Product Manager, Attorney, and Open Source Advocate';
       />
     </div>
   </section>
+<<<<<<< HEAD
+=======
+  
+  <section>
+    <h2>Recent Posts</h2>
+    {posts.length > 0 ? (
+      <ul class="post-list">
+        {posts.map((post: CollectionEntry<'posts'>) => (
+          <li>
+            <a href={`/posts/${post.slug}/`}>
+              <h3>{post.data.title}</h3>
+              <p>{post.data.description}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p>No posts available yet. Check out the example posts in <code>src/content/posts/</code>!</p>
+    )}
+  </section>
+>>>>>>> main
 </BaseLayout>
 
 <style>
@@ -99,4 +131,40 @@ const description = 'Product Manager, Attorney, and Open Source Advocate';
     gap: 1rem;
     margin-top: 1rem;
   }
+<<<<<<< HEAD
+=======
+  
+  .post-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+  
+  .post-list li {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    transition: box-shadow 0.2s;
+  }
+  
+  .post-list li:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .post-list a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .post-list h3 {
+    margin: 0 0 0.5rem 0;
+    color: #0366d6;
+  }
+  
+  .post-list p {
+    margin: 0;
+    color: #586069;
+  }
+>>>>>>> main
 </style>

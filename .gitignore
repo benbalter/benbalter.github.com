@@ -36,6 +36,10 @@ playwright-report/
 dist-astro/
 .astro/
 
+# Astro build artifacts
+dist-astro/
+.astro/
+
 # Lighthouse CI artifacts
 .lighthouseci/
 

@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
+    "@astrojs/mdx": "^4.3.12",
     "@babel/core": "^7.24.7",
     "@babel/preset-typescript": "^7.24.7",
     "@github/markdownlint-github": "^0.6.3",
@@ -92,10 +93,15 @@
   },
   "scripts": {
     "build": "npm run webpack",
+    "build:og-images": "tsx script/generate-og-images.ts",
+    "build:related-posts": "tsx script/build-related-posts.ts",
+    "dev": "next dev",
     "astro:dev": "astro dev",
     "astro:build": "astro build",
     "astro:preview": "astro preview",
     "astro:check": "astro check --tsconfig tsconfig.astro.json",
+    "next:build": "next build && next-sitemap --config next-sitemap.config.cjs && node script/generate-redirects.mjs && tsx script/generate-feeds.mjs",
+    "next:start": "serve out",
     "lint": "npm run lint-js && npm run lint-json && npm run lint-md",
     "lint-js": "xo .remarkrc.js --ignore-pattern !.remarkrc.js --fix",
     "lint-json": "eslint . --ext json --fix",
