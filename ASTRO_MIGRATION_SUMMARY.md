@@ -55,24 +55,24 @@ All other Jekyll frontmatter fields were already supported:
 
 ## URL Structure
 
-### Jekyll Format (Old)
+### Jekyll Format
 ```
 /YYYY/MM/DD/slug/
 Example: /2025/01/30/how-to-run-language-tool/
 ```
 
-### Astro Format (New)
+### Astro Format (Matches Jekyll Exactly)
 ```
-/posts/YYYY-MM-DD-slug/
-Example: /posts/2025-01-30-how-to-run-language-tool/
+/YYYY/MM/DD/slug/
+Example: /2025/01/30/how-to-run-language-tool/
 ```
 
 ### Migration Strategy
-- New URL structure is simpler and more maintainable
-- Uses `/posts/` prefix for namespace clarity
-- Date remains visible in URL (in slug format)
-- `redirect_from` frontmatter field supports backward compatibility
-- See `ASTRO_URL_STRUCTURE.md` for detailed redirect strategy
+- **Perfect backward compatibility** - URLs match Jekyll exactly
+- No redirects needed
+- Existing links continue to work
+- Implemented via `src/pages/[year]/[month]/[day]/[slug].astro`
+- See `ASTRO_URL_STRUCTURE.md` for implementation details
 
 ## Content Validation
 

@@ -16,40 +16,33 @@ For example:
 
 ## Astro URL Format
 
-In Astro, blog posts in `src/content/posts/` use the slug directly as the URL path:
+In Astro, blog posts in `src/content/posts/` now use Jekyll's exact URL structure:
 
 ```
-/posts/YYYY-MM-DD-slug/
+/YYYY/MM/DD/slug/
 ```
 
 For example:
 - File: `src/content/posts/2025-01-30-how-to-run-language-tool.md`
-- URL: `/posts/2025-01-30-how-to-run-language-tool/`
-- Built to: `dist-astro/posts/2025-01-30-how-to-run-language-tool/index.html`
+- URL: `/2025/01/30/how-to-run-language-tool/`
+- Built to: `dist-astro/2025/01/30/how-to-run-language-tool/index.html`
 
 ## URL Differences
 
 | Aspect | Jekyll | Astro |
 |--------|--------|-------|
-| **Path** | `/YYYY/MM/DD/slug/` | `/posts/YYYY-MM-DD-slug/` |
-| **Example** | `/2025/01/30/how-to-run-language-tool/` | `/posts/2025-01-30-how-to-run-language-tool/` |
-| **Date in URL** | Yes (separate segments) | Yes (in slug) |
-| **Prefix** | None | `/posts/` |
+| **Path** | `/YYYY/MM/DD/slug/` | `/YYYY/MM/DD/slug/` |
+| **Example** | `/2025/01/30/how-to-run-language-tool/` | `/2025/01/30/how-to-run-language-tool/` |
+| **Date in URL** | Yes (separate segments) | Yes (separate segments) |
+| **Prefix** | None | None |
 
-## Preserving Jekyll URLs with Redirects
+**Perfect backward compatibility** - URLs match exactly between Jekyll and Astro!
 
-To maintain backward compatibility with existing Jekyll URLs, use the `redirect_from` frontmatter field:
+## Preserving Jekyll URLs
 
-```yaml
----
-title: My Post Title
-description: My post description
-redirect_from:
-  - /2025/01/30/my-post-title/
----
-```
+URLs are automatically preserved because Astro now uses Jekyll's exact URL structure. No redirects are needed!
 
-This is already supported in the Astro content schema and will allow implementing redirects in the future.
+The routing is handled by `src/pages/[year]/[month]/[day]/[slug].astro`, which extracts the date components from the post slug and generates URLs in the format `/YYYY/MM/DD/slug/`.
 
 ## Implementation Options
 
@@ -102,13 +95,15 @@ And restructuring to `src/pages/[year]/[month]/[day]/[slug].astro`.
 
 ## Current Implementation
 
-The current implementation uses **Option 1** (new URL structure with `/posts/` prefix):
+The current implementation uses **Option 2** (Jekyll URL structure for perfect backward compatibility):
 
 - Simple and maintainable
 - Clear URL namespace
 - Works out-of-the-box with Astro's file-based routing
 - Uses Jekyll-compatible filename format (YYYY-MM-DD-slug)
 - Date extraction from slug already implemented for metadata
+- **Matches Jekyll URL structure exactly for backward compatibility**
+- **No redirects needed** - existing links continue to work
 
 ## Redirect Strategy
 
