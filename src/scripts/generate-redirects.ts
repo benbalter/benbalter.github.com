@@ -48,8 +48,8 @@ function generateRedirectHTML(toUrl: string, isExternal: boolean): string {
   <meta charset="utf-8">
   <title>Redirecting&hellip;</title>
   <link rel="canonical" href="${fullUrl}">
-  <script>location="${isExternal ? toUrl : toUrl}"</script>
-  <meta http-equiv="refresh" content="0; url=${isExternal ? toUrl : toUrl}">
+  <script>location="${isExternal ? toUrl : displayUrl}"</script>
+  <meta http-equiv="refresh" content="0; url=${isExternal ? toUrl : displayUrl}">
   <meta name="robots" content="noindex">
 </head>
 <body>
