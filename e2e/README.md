@@ -63,23 +63,19 @@ npx playwright test --project=chromium
 The tests can be run against different builds:
 
 ```bash
-# Run tests for Next.js build (default)
+# Run tests for Jekyll build (default)
 npm run test:e2e
 
-# Run tests for Next.js build (explicit)
-npm run test:e2e:nextjs
-
-# Run tests for Jekyll build (legacy)
-npm run test:e2e:jekyll
+# Run tests for Astro build
+npm run test:e2e:astro
 ```
 
 ## Test Configurations
 
-* **Next.js Tests** (default): `playwright.config.ts` - Tests Next.js export at `localhost:3000`
-* **Next.js Tests** (explicit): `playwright-nextjs.config.ts` - Same as default (kept for backwards compatibility)
-* **Jekyll Tests** (legacy): `playwright-jekyll.config.ts` - Tests Jekyll site at `localhost:4000`
+* **Jekyll Tests** (default): `playwright.config.ts` - Tests Jekyll site at `localhost:4000`
+* **Astro Tests**: `playwright-astro.config.ts` - Tests Astro build at `localhost:4321`
 
-> **Note:** The default configuration now tests the Next.js build as the site is transitioning from Jekyll to Next.js.
+> **Note:** The repository supports multiple site generators (Jekyll, Next.js, Astro) as part of an ongoing migration strategy.
 
 ## Test Coverage
 
