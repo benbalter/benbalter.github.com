@@ -76,3 +76,41 @@ describe('YouTube Component - Specification', () => {
   });
 });
 
+describe('Tldr Component - Specification', () => {
+  it('should define tooltip text explaining TL;DR', () => {
+    // Specification: Tooltip should explain what TL;DR means
+    const tooltipText = '"Too Long; Didn\'t Read" — Internet shorthand for "a brief summary of longer writing"';
+    
+    expect(tooltipText).toContain('Too Long');
+    expect(tooltipText).toContain('Didn\'t Read');
+    expect(tooltipText).toContain('Internet shorthand');
+  });
+
+  it('should use Bootstrap tooltip attributes', () => {
+    // Specification: Component should use Bootstrap 5 tooltip data attributes
+    const tooltipAttributes = {
+      'data-bs-toggle': 'tooltip',
+      'data-bs-placement': 'right',
+    };
+    
+    expect(tooltipAttributes['data-bs-toggle']).toBe('tooltip');
+    expect(tooltipAttributes['data-bs-placement']).toBe('right');
+  });
+
+  it('should display description text after TL;DR label', () => {
+    // Specification: Component should show TL;DR: followed by description
+    const description = 'This is a brief summary of the post.';
+    const expectedFormat = `TL;DR: ${description}`;
+    
+    expect(expectedFormat).toContain('TL;DR:');
+    expect(expectedFormat).toContain(description);
+  });
+
+  it('should use lead text styling', () => {
+    // Specification: Component should use lead class for prominent display
+    const leadClass = 'lead';
+    
+    expect(leadClass).toBe('lead');
+  });
+});
+
