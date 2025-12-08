@@ -25,6 +25,10 @@ const postsCollection = defineCollection({
     image: z.string().optional(), // Open Graph image
     comments: z.boolean().default(false),
     
+    // SEO metadata
+    sitemap: z.boolean().default(true), // Include in sitemap by default
+    robots: z.string().optional(), // Robots meta tag
+    
     // Redirects (Jekyll compatibility)
     // Support both single string and array of strings for redirect_from
     redirect_from: z.union([z.string(), z.array(z.string())]).optional(),
@@ -61,6 +65,8 @@ const pagesCollection = defineCollection({
     icons: z.boolean().optional(),
     
     // SEO metadata
+    sitemap: z.boolean().default(true), // Include in sitemap by default
+    robots: z.string().optional(), // Robots meta tag
     seo: z.object({
       type: z.string().optional(),
     }).optional(),
