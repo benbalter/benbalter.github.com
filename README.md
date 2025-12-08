@@ -155,6 +155,27 @@ The repository includes RSpec tests for Jekyll site structure and front matter v
 bundle exec rspec
 ```
 
+### Vitest Unit Tests (Astro)
+
+Unit tests for Astro components and utilities using Vitest:
+
+```bash
+# Run all tests
+npm run test:vitest
+
+# Run tests in watch mode
+npm run test:vitest:watch
+
+# Run tests with coverage
+npm run test:vitest:coverage
+```
+
+Tests cover:
+
+* Site configuration (contact links, social links, footer links)
+* Component TypeScript logic and interfaces
+* Utility functions
+
 ### Playwright E2E Tests
 
 Comprehensive end-to-end tests using Playwright test the site on Chromium:
@@ -178,7 +199,7 @@ Tests cover:
 * SEO (meta tags, Open Graph, structured data)
 * Responsive design
 
-See [e2e/README.md](e2e/README.md) for detailed testing documentation.
+See [TESTING.md](TESTING.md) for comprehensive testing documentation.
 
 ## License
 
