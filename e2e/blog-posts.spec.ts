@@ -183,4 +183,43 @@ test.describe('Blog Posts', () => {
       }
     }
   });
+
+  test('blog post should display mini-bio component', async ({ page }) => {
+    await page.goto('/');
+    await waitForPageReady(page);
+    
+    const postLinks = page.locator('a[href*="/20"]');
+    const count = await postLinks.count();
+    
+    if (count === 0) {
+      test.skip(true, 'No blog posts found');
+      return;
+    }
+    
+    const firstPostUrl = await postLinks.first().getAttribute('href');
+    
+    if (firstPostUrl) {
+      await page.goto(firstPostUrl);
+      await waitForPageReady(page);
+      
+      // Check for mini-bio component
+      const miniBio = page.locator('.mini-bio');
+      await expect(miniBio).toBeVisible();
+      
+      // Check for avatar image
+      const avatar = miniBio.locator('img[alt="Ben Balter"]');
+      await expect(avatar).toBeVisible();
+      await expect(avatar).toHaveAttribute('src', /avatars\.githubusercontent\.com/);
+      
+      // Check for bio text
+      const bioText = await miniBio.textContent();
+      expect(bioText).toContain('Ben Balter');
+      expect(bioText).toContain('GitHub');
+      
+      // Check for "More about the author" link
+      const aboutLink = miniBio.locator('a[href="/about/"]');
+      await expect(aboutLink).toBeVisible();
+      await expect(aboutLink).toContainText('More about the author');
+    }
+  });
 });

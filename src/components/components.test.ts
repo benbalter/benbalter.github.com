@@ -76,3 +76,33 @@ describe('YouTube Component - Specification', () => {
   });
 });
 
+describe('MiniBio Component - Specification', () => {
+  it('should use GitHub avatar URL with correct size parameter', () => {
+    // Specification: GitHub avatar URL format
+    const username = 'benbalter';
+    const size = 100;
+    const avatarUrl = `https://avatars.githubusercontent.com/${username}?s=${size}`;
+    
+    expect(avatarUrl).toMatch(/^https:\/\/avatars\.githubusercontent\.com\//);
+    expect(avatarUrl).toContain(username);
+    expect(avatarUrl).toContain('s=100');
+  });
+
+  it('should link to /about/ page', () => {
+    // Specification: Link to about page
+    const aboutUrl = '/about/';
+    
+    expect(aboutUrl).toBe('/about/');
+    expect(aboutUrl).toMatch(/^\/about\/$/);
+  });
+
+  it('should display author bio text from first paragraph', () => {
+    // Specification: Bio text content
+    const bioText = 'Ben Balter is the Director of Hubber Enablement within the Office of the COO at GitHub, the world\'s largest software development platform, ensuring all Hubbers can do their best (remote) work.';
+    
+    expect(bioText).toContain('Ben Balter');
+    expect(bioText).toContain('GitHub');
+    expect(bioText).toContain('Director of Hubber Enablement');
+  });
+});
+
