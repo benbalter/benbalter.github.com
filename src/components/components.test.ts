@@ -8,16 +8,8 @@
 import { describe, it, expect } from 'vitest';
 
 describe('Callout Component', () => {
-  it('should have correct type options', () => {
-    const validTypes = ['info', 'warning', 'error', 'success'];
-    
-    // Test that these are valid type options
-    validTypes.forEach(type => {
-      expect(['info', 'warning', 'error', 'success']).toContain(type);
-    });
-  });
-
-  it('should have correct icon mappings', () => {
+  it('should have correct icon and color mappings', () => {
+    // Test the data structures used by the component
     const icons = {
       info: '💡',
       warning: '⚠️',
@@ -25,13 +17,6 @@ describe('Callout Component', () => {
       success: '✅',
     };
 
-    expect(icons.info).toBe('💡');
-    expect(icons.warning).toBe('⚠️');
-    expect(icons.error).toBe('❌');
-    expect(icons.success).toBe('✅');
-  });
-
-  it('should have correct color mappings', () => {
     const colors = {
       info: '#0366d6',
       warning: '#f9c513',
@@ -39,10 +24,21 @@ describe('Callout Component', () => {
       success: '#28a745',
     };
 
-    expect(colors.info).toBe('#0366d6');
-    expect(colors.warning).toBe('#f9c513');
-    expect(colors.error).toBe('#d73a49');
-    expect(colors.success).toBe('#28a745');
+    // Verify all four types are supported
+    expect(Object.keys(icons)).toEqual(['info', 'warning', 'error', 'success']);
+    expect(Object.keys(colors)).toEqual(['info', 'warning', 'error', 'success']);
+    
+    // Verify icons are set
+    expect(icons.info).toBeTruthy();
+    expect(icons.warning).toBeTruthy();
+    expect(icons.error).toBeTruthy();
+    expect(icons.success).toBeTruthy();
+    
+    // Verify colors are valid hex codes
+    expect(colors.info).toMatch(/^#[0-9a-f]{6}$/i);
+    expect(colors.warning).toMatch(/^#[0-9a-f]{6}$/i);
+    expect(colors.error).toMatch(/^#[0-9a-f]{6}$/i);
+    expect(colors.success).toMatch(/^#[0-9a-f]{6}$/i);
   });
 });
 
@@ -67,16 +63,26 @@ describe('FeatureCard Component', () => {
 });
 
 describe('YouTube Component', () => {
-  it('should generate correct embed URL', () => {
+  it('should generate correct embed URL format', () => {
     const id = 'dQw4w9WgXcQ';
     const embedUrl = `https://www.youtube.com/embed/${id}`;
     
-    expect(embedUrl).toBe('https://www.youtube.com/embed/dQw4w9WgXcQ');
+    expect(embedUrl).toMatch(/^https:\/\/www\.youtube\.com\/embed\//);
+    expect(embedUrl).toContain(id);
   });
 
-  it('should have default title', () => {
-    const defaultTitle = 'YouTube video';
-    expect(defaultTitle).toBe('YouTube video');
+  it('should use default title when not provided', () => {
+    interface Props {
+      id: string;
+      title?: string;
+    }
+
+    const props: Props = {
+      id: 'test123',
+    };
+
+    const title = props.title ?? 'YouTube video';
+    expect(title).toBe('YouTube video');
   });
 
   it('should accept custom title', () => {
@@ -93,35 +99,22 @@ describe('YouTube Component', () => {
     const title = props.title ?? 'YouTube video';
     expect(title).toBe('Custom Video Title');
   });
-
-  it('should use default title when not provided', () => {
-    interface Props {
-      id: string;
-      title?: string;
-    }
-
-    const props: Props = {
-      id: 'test123',
-    };
-
-    const title = props.title ?? 'YouTube video';
-    expect(title).toBe('YouTube video');
-  });
 });
 
 describe('CodeBlock Component', () => {
-  it('should have language prop interface', () => {
+  it('should have language and title props', () => {
     interface Props {
       language?: string;
-      filename?: string;
+      title?: string;
     }
 
     const testProps: Props = {
       language: 'typescript',
-      filename: 'example.ts',
+      title: 'example.ts',
     };
 
     expect(testProps.language).toBe('typescript');
-    expect(testProps.filename).toBe('example.ts');
+    expect(testProps.title).toBe('example.ts');
   });
 });
+

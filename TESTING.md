@@ -54,14 +54,14 @@ npm run test:jest:coverage     # With coverage
 * `jest.config.mjs` - Jest configuration with Next.js support
 * `jest.setup.mjs` - Test environment setup
 
-### 3. Vitest Unit Tests (30 tests ✅)
+### 3. Vitest Unit Tests (27 tests ✅)
 
 Unit tests for Astro components and utilities using Vitest.
 
 **Test Files:**
 
 * `src/config.test.ts` - Site configuration (21 tests)
-* `src/components/components.test.ts` - Component logic and interfaces (9 tests)
+* `src/components/components.test.ts` - Component logic and interfaces (6 tests)
 
 **Commands:**
 
@@ -200,10 +200,10 @@ All tests run automatically in GitHub Actions:
 | ------------------- | ----- | --------------------------- |
 | Prose Quality Tests | 920   | ⚠️ 206 failing (fixable)    |
 | Jest Unit Tests     | 42    | ✅ All passing               |
-| Vitest Unit Tests   | 30    | ✅ All passing               |
+| Vitest Unit Tests   | 27    | ✅ All passing               |
 | Playwright E2E      | 141   | ✅ All passing (1 skipped)   |
 | Node Tests          | 18    | ⚠️ 2 failing (pre-existing) |
-| **Total**           | **1151** | **1123 passing**         |
+| **Total**           | **1148** | **1120 passing**         |
 
 ## Running All Tests
 
