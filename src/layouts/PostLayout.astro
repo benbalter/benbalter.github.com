@@ -20,6 +20,7 @@ interface Props {
   author?: string;
   tags?: string[];
   relatedPosts?: CollectionEntry<'posts'>[];
+  archived?: boolean;
 }
 
 const { 
@@ -31,6 +32,7 @@ const {
   author = siteConfig.author,
   tags = [],
   relatedPosts = [],
+  archived = false,
 } = Astro.props;
 
 const formattedDate = pubDate?.toLocaleDateString('en-US', {
@@ -97,6 +99,12 @@ const readingTime = calculateReadingTime(content);
             />
           )}
         </header>
+        
+        {archived && (
+          <div class="alert alert-warning" role="alert">
+            <strong>❗ Heads up!</strong> This post is archived and here for historical purposes. It may no longer be accurate or reflect my views. Proceed at your own risk.
+          </div>
+        )}
         
         <div class="post-content entrybody">
           <slot />
@@ -259,6 +267,20 @@ const readingTime = calculateReadingTime(content);
 
   .rounded {
     border-radius: 0.375rem !important;
+  }
+
+  .alert {
+    position: relative;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.375rem;
+  }
+
+  .alert-warning {
+    color: #664d03;
+    background-color: #fff3cd;
+    border-color: #ffecb5;
   }
   
   .post-content {
