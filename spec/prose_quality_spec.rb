@@ -35,8 +35,8 @@ RSpec.describe 'prose quality' do
               next
             end
 
-            # Skip code blocks (fenced or indented), markdown tables, list items, and images with attributes
-            next if in_code_block || line.start_with?('    ') || line.include?('|') || line.match?(/^\s*[\d*\-+]\.?\s/) || line.match?(/!\[.*\]\(.*\)\{/)
+            # Skip code blocks (fenced or indented), markdown tables, list items, and images
+            next if in_code_block || line.start_with?('    ') || line.include?('|') || line.match?(/^\s*[\d*\-+]\.?\s/) || line.match?(/^\s*!\[/)
 
             # Check for double spaces (but allow after sentence-ending punctuation)
             lines_with_doubled_spaces << "Line #{idx + 1}: #{line.strip[0..80]}" if line.match?(/[^.?!]\s{2,}/) || line.match?(/\.\s{3,}/)
