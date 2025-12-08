@@ -1,5 +1,20 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
+
+// URL patterns for sitemap priority calculation
+const BLOG_POST_PATTERN = /\/\d{4}\/\d{2}\/\d{2}\//;
+
+// Pages that should be excluded from sitemap
+// Add pages here that have sitemap: false in their front matter
+// Format: Use the final URL path with trailing slash
+const EXCLUDED_PAGES = [
+  '/404/',
+  '/_not-found/',
+  '/fine-print/', // Has sitemap: false in original Jekyll source (fine-print.md)
+  // To exclude posts/pages from content collections with sitemap: false,
+  // add their URLs here (e.g., '/2024/01/01/post-slug/')
+];
 
 // https://astro.build/config
 export default defineConfig({
@@ -40,6 +55,37 @@ export default defineConfig({
       // Support GitHub Flavored Markdown
       remarkPlugins: [],
       rehypePlugins: [],
+    }),
+    sitemap({
+      // Customize sitemap generation
+      filter: (page) => {
+        // Exclude pages explicitly marked with sitemap: false
+        // This includes 404, not-found, and pages like fine-print
+        return !EXCLUDED_PAGES.some(pattern => page.includes(pattern));
+      },
+      // Customize URL entries with priority and changefreq
+      serialize: (item) => {
+        // Set priority and changefreq based on URL pattern
+        let priority = 0.6; // Default for static pages
+        let changefreq = 'monthly';
+        
+        // Homepage gets highest priority
+        if (item.url === 'https://ben.balter.com/') {
+          priority = 1.0;
+          changefreq = 'weekly';
+        }
+        // Blog posts get high priority
+        else if (BLOG_POST_PATTERN.test(item.url)) {
+          priority = 0.8;
+          changefreq = 'monthly';
+        }
+        
+        return {
+          ...item,
+          priority,
+          changefreq,
+        };
+      },
     }),
   ],
   
