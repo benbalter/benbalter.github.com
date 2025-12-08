@@ -68,6 +68,30 @@ See [docs/ASTRO.md](docs/ASTRO.md) for comprehensive documentation including:
 * Feature comparison with Jekyll and Next.js
 * Future migration roadmap
 
+## Blog Features
+
+### Reading Time
+
+Blog posts automatically display an estimated reading time based on word count. The calculation uses an average reading speed of 265 words per minute with proper rounding to the nearest minute.
+
+The reading time is displayed at the top of each post and calculated at build time using the `_includes/reading-time.html` template.
+
+### Related Posts
+
+Related posts are automatically suggested at the bottom of each blog post using Jekyll's LSI (Latent Semantic Indexing) feature. The related posts are pre-calculated and stored in `_data/related_posts.yml`.
+
+**To regenerate related posts:**
+
+```bash
+# Using npm (TypeScript wrapper)
+npm run build:related-posts
+
+# Or directly using Ruby
+bundle exec ruby script/build-related-posts.rb
+```
+
+**Note:** Generating related posts requires the classifier-reborn gem with LSI support and system dependencies (libopenblas or liblapack). This is only needed when adding new blog posts or updating related posts data. The pre-generated `_data/related_posts.yml` is committed to the repository and used during normal builds.
+
 ## Development
 
 ### Dev Container
