@@ -8,6 +8,8 @@
 
 import BaseLayout from './BaseLayout.astro';
 import { siteConfig } from '../config';
+import { calculateReadingTime } from '../utils/reading-time';
+import type { CollectionEntry } from 'astro:content';
 
 interface Props {
   title: string;
@@ -17,6 +19,7 @@ interface Props {
   image?: string;
   author?: string;
   tags?: string[];
+  relatedPosts?: CollectionEntry<'posts'>[];
 }
 
 const { 
@@ -27,6 +30,7 @@ const {
   image,
   author = siteConfig.author,
   tags = [],
+  relatedPosts = [],
 } = Astro.props;
 
 const formattedDate = pubDate?.toLocaleDateString('en-US', {
@@ -41,10 +45,9 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('en-US', {
   day: 'numeric',
 });
 
-// Calculate reading time (rough estimate: 200 words per minute)
+// Calculate reading time using improved utility
 const content = await Astro.slots.render('default');
-const wordCount = content.split(/\s+/).length;
-const readingTime = Math.ceil(wordCount / 200);
+const readingTime = calculateReadingTime(content);
 ---
 
 <BaseLayout 
@@ -105,6 +108,27 @@ const readingTime = Math.ceil(wordCount / 200);
             {tags.map((tag) => (
               <span class="badge bg-secondary me-2">{tag}</span>
             ))}
+          </div>
+        )}
+        
+        {relatedPosts.length > 0 && (
+          <div class="related-posts pt-4 mt-4">
+            <h3 class="related-posts-heading">If you enjoyed this post, you might also enjoy:</h3>
+            <ul class="related-posts-list">
+              {relatedPosts.map((post) => {
+                // Extract date from slug (YYYY-MM-DD-slug format)
+                const dateMatch = post.slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
+                const postUrl = dateMatch 
+                  ? `/${dateMatch[1]}/${dateMatch[2]}/${dateMatch[3]}/${dateMatch[4]}/`
+                  : `/posts/${post.slug}/`;
+                
+                return (
+                  <li>
+                    <a href={postUrl}>{post.data.title}</a>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         )}
         
@@ -354,6 +378,40 @@ const readingTime = Math.ceil(wordCount / 200);
 
   .me-2 {
     margin-right: 0.5rem !important;
+  }
+  
+  .related-posts {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+  }
+  
+  .related-posts-heading {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #24292e;
+    margin-bottom: 1rem;
+    border-top: 1px solid #e1e4e8;
+    padding-top: 1rem;
+  }
+  
+  .related-posts-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .related-posts-list li {
+    margin-bottom: 0.75rem;
+  }
+  
+  .related-posts-list a {
+    color: #0366d6;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .related-posts-list a:hover {
+    text-decoration: underline;
   }
   
   .post-footer {

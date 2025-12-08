@@ -1,6 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import PostLayout from '../../../../layouts/PostLayout.astro';
+import { findRelatedPosts } from '../../../../utils/related-posts';
 
 // Generate static paths for all blog posts with Jekyll URL structure
 export async function getStaticPaths() {
@@ -16,7 +17,7 @@ export async function getStaticPaths() {
       const [, year, month, day, slug] = dateMatch;
       return {
         params: { year, month, day, slug },
-        props: { post },
+        props: { post, allPosts: posts },
       };
     }
     
@@ -28,14 +29,18 @@ export async function getStaticPaths() {
 
 interface Props {
   post: CollectionEntry<'posts'>;
+  allPosts: CollectionEntry<'posts'>[];
 }
 
-const { post } = Astro.props;
+const { post, allPosts } = Astro.props;
 const { Content } = await post.render();
 
 // Extract date from params for display
 const { year, month, day } = Astro.params;
 const pubDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+
+// Find related posts (limit to 10)
+const relatedPosts = await findRelatedPosts(post, allPosts, 10);
 ---
 
 <PostLayout
@@ -43,6 +48,7 @@ const pubDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
   description={post.data.description}
   pubDate={pubDate}
   image={post.data.image}
+  relatedPosts={relatedPosts}
 >
   <Content />
 </PostLayout>
