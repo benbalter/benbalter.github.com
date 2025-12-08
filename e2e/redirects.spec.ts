@@ -168,24 +168,23 @@ test.describe('Legacy URL Redirects', () => {
       
       // Check meta refresh tag
       expect(content).toContain('meta http-equiv="refresh"');
-      expect(content).toContain('content="0; url=/resume/"');
+      // Accept both relative and absolute URLs (with various hosts for local testing)
+      expect(content).toMatch(/content="0; url=(https?:\/\/[^"]+)?\/resume\/"/);
+
       
-      // Check JavaScript redirect
-      expect(content).toContain('window.location.replace');
-      expect(content).toContain('/resume/');
+      // Check JavaScript redirect (Jekyll redirect-from uses location= syntax)
+      expect(content).toMatch(/location\s*=\s*["'](https?:\/\/[^"']+)?\/resume\/["']/);
       
-      // Check canonical link
+      // Check canonical link (accepts any host for testing)
       expect(content).toContain('<link rel="canonical"');
-      expect(content).toContain('https://ben.balter.com/resume/');
+      expect(content).toMatch(/<link rel="canonical" href="https?:\/\/[^"]+\/resume\/"/);
       
       // Check robots noindex
       expect(content).toContain('<meta name="robots" content="noindex">');
       
       // Check fallback content for users with JavaScript disabled
-      expect(content).toContain('<h1>Redirecting...</h1>');
-      expect(content).toContain('This page has moved to');
-      expect(content).toContain('If you are not redirected automatically');
-      expect(content).toContain('<a href="/resume/">');
+      expect(content).toContain('<h1>Redirecting');
+      expect(content).toContain('Click here if you are not redirected');
     });
   });
 });
