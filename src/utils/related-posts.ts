@@ -22,6 +22,10 @@ const STOP_WORDS = new Set([
  * Extract and normalize words from text
  */
 function extractWords(text: string): string[] {
+  if (!text) {
+    return [];
+  }
+  
   return text
     .toLowerCase()
     // Remove HTML tags
@@ -46,12 +50,17 @@ function extractWords(text: string): string[] {
 function calculateTermFrequency(words: string[]): Map<string, number> {
   const tf = new Map<string, number>();
   
+  // Handle empty word arrays
+  const totalWords = words.length;
+  if (totalWords === 0) {
+    return tf;
+  }
+  
   for (const word of words) {
     tf.set(word, (tf.get(word) || 0) + 1);
   }
   
   // Normalize by document length
-  const totalWords = words.length;
   for (const [word, count] of tf.entries()) {
     tf.set(word, count / totalWords);
   }
@@ -171,7 +180,8 @@ export async function findRelatedPosts(
   
   for (const post of allPosts) {
     if (post.slug === currentPost.slug) continue;
-    if (post.data.published === false || post.data.archived === true) continue;
+    // Only check archived status since published is already filtered in getStaticPaths
+    if (post.data.archived === true) continue;
     
     const postWords = documents.get(post.slug)!;
     const postTf = calculateTermFrequency(postWords);

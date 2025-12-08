@@ -32,6 +32,8 @@ The reading time is displayed in the post header as: "X min read" with a clock i
 
 **Tests:** `src/utils/reading-time.test.ts` (12 passing tests)
 
+The `reading-time` npm package handles HTML, code blocks, and various content formats automatically.
+
 ### Related Posts
 
 **Location:** `src/utils/related-posts.ts`
@@ -146,8 +148,16 @@ npx vitest run src/utils/
 ```
 
 Current test coverage:
-- Reading time: 12 tests (100% coverage)
-- Related posts: 2 tests (basic structure tests)
+- Reading time: 12 tests (100% passing)
+- Related posts: 8 tests covering:
+  - Content similarity matching
+  - Current post exclusion
+  - Archived post filtering
+  - MaxResults limit
+  - Empty content handling
+  - Similarity score ordering
+  - Single post scenario
+  - Stop word filtering
 
 Integration tests verify the features work end-to-end during the build process.
 
