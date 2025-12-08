@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import remarkEmoji from 'remark-emoji';
 
 // URL patterns for sitemap priority calculation
 const BLOG_POST_PATTERN = /\/\d{4}\/\d{2}\/\d{2}\//;
@@ -53,7 +54,7 @@ export default defineConfig({
       // MDX configuration
       optimize: true,
       // Support GitHub Flavored Markdown
-      remarkPlugins: [],
+      remarkPlugins: [remarkEmoji],
       rehypePlugins: [],
     }),
     sitemap({
@@ -101,7 +102,7 @@ export default defineConfig({
     // Enable smartypants for typographic punctuation
     smartypants: true,
     // Remark plugins (for markdown processing)
-    remarkPlugins: [],
+    remarkPlugins: [remarkEmoji],
     // Rehype plugins (for HTML processing)
     rehypePlugins: [],
   },
