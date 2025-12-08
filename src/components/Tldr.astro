@@ -30,13 +30,19 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
       element.setAttribute('data-tooltip-initialized', 'true');
       
       let tooltipEl: HTMLDivElement | null = null;
+      let isTooltipVisible = false;
       
       // Show tooltip on mouseenter
       element.addEventListener('mouseenter', (e) => {
+        // Prevent creating multiple tooltips
+        if (isTooltipVisible || tooltipEl) return;
+        
         const target = e.currentTarget as HTMLElement;
         const tooltipText = target.getAttribute('data-tooltip-text');
         
         if (!tooltipText) return;
+        
+        isTooltipVisible = true;
         
         // Create tooltip element
         tooltipEl = document.createElement('div');
@@ -45,27 +51,45 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
         document.body.appendChild(tooltipEl);
         
         // Position tooltip to the right of the element
-        const rect = target.getBoundingClientRect();
-        tooltipEl.style.left = `${rect.right + 10}px`;
-        tooltipEl.style.top = `${rect.top + (rect.height / 2) - (tooltipEl.offsetHeight / 2)}px`;
-        
-        // Fade in
-        setTimeout(() => {
-          if (tooltipEl) tooltipEl.classList.add('show');
-        }, 10);
+        // Use requestAnimationFrame to ensure DOM has updated
+        requestAnimationFrame(() => {
+          if (!tooltipEl) return;
+          
+          const rect = target.getBoundingClientRect();
+          const tooltipRect = tooltipEl.getBoundingClientRect();
+          tooltipEl.style.left = `${rect.right + 10}px`;
+          tooltipEl.style.top = `${rect.top + (rect.height / 2) - (tooltipRect.height / 2)}px`;
+          
+          // Fade in using requestAnimationFrame for better performance
+          requestAnimationFrame(() => {
+            if (tooltipEl) tooltipEl.classList.add('show');
+          });
+        });
       });
       
       // Hide tooltip on mouseleave
       element.addEventListener('mouseleave', () => {
-        if (tooltipEl) {
-          tooltipEl.classList.remove('show');
-          setTimeout(() => {
-            if (tooltipEl) {
-              document.body.removeChild(tooltipEl);
-              tooltipEl = null;
-            }
-          }, 200);
-        }
+        if (!tooltipEl) return;
+        
+        tooltipEl.classList.remove('show');
+        
+        // Use transitionend event for proper cleanup timing
+        const handleTransitionEnd = () => {
+          if (tooltipEl) {
+            tooltipEl.remove();
+            tooltipEl = null;
+            isTooltipVisible = false;
+          }
+        };
+        
+        tooltipEl.addEventListener('transitionend', handleTransitionEnd, { once: true });
+        
+        // Fallback timeout in case transitionend doesn't fire
+        setTimeout(() => {
+          if (tooltipEl && isTooltipVisible) {
+            handleTransitionEnd();
+          }
+        }, 300);
       });
     });
   });
