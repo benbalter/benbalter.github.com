@@ -1,86 +1,183 @@
 ---
+/**
+ * Base Layout
+ * 
+ * Core layout for all pages with comprehensive SEO, Open Graph, and Twitter Card support.
+ * Includes site-wide navigation, footer, and metadata.
+ */
+
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  publishedTime?: Date;
+  modifiedTime?: Date;
+  author?: string;
+  keywords?: string[];
+  noindex?: boolean;
 }
 
 const { 
   title = 'Ben Balter', 
-  description = 'Personal website of Ben Balter - Product Manager, Attorney, and Open Source Advocate'
+  description = 'Technology leadership, collaboration, and open source',
+  image,
+  type = 'website',
+  publishedTime,
+  modifiedTime,
+  author = 'Ben Balter',
+  keywords = ['Ben Balter', 'GitHub', 'open source', 'technology leadership', 'collaboration'],
+  noindex = false,
 } = Astro.props;
 
 const fullTitle = title === 'Ben Balter' ? title : `${title} | Ben Balter`;
+const siteUrl = 'https://ben.balter.com';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+
+// Default OG image if none provided
+const ogImage = image 
+  ? new URL(image, siteUrl).toString()
+  : new URL('/assets/img/headshot.jpg', siteUrl).toString();
+
+// Social media handles
+const twitterHandle = '@benbalter';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" xml:lang="en">
   <head>
+    <!-- Basic Meta Tags -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="author" content={author} />
+    {keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
+    {description && <meta name="description" content={description} />}
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     
-    <!-- Favicon -->
+    <!-- Color Scheme and Theme -->
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#111111" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#eeeeee" media="(prefers-color-scheme: dark)" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalUrl} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="Ben Balter" />
+    <meta property="og:locale" content="en_US" />
+    {publishedTime && <meta property="article:published_time" content={publishedTime.toISOString()} />}
+    {modifiedTime && <meta property="article:modified_time" content={modifiedTime.toISOString()} />}
+    {author && <meta property="article:author" content={author} />}
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content={twitterHandle} />
+    <meta name="twitter:creator" content={twitterHandle} />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    
+    <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <!-- Additional Meta -->
+    <link type="text/plain" rel="author" href="/humans.txt" />
+    
+    <!-- Social Links (rel=me for verification) -->
+    <link rel="me" href="https://twitter.com/BenBalter" />
+    <link rel="me" href="https://linkedin.com/in/BenBalter" />
+    <link rel="me" href="https://github.com/benbalter" />
+    <link rel="me" href="https://mastodon.social/@benbalter" />
+    <link rel="me" href="https://bsky.app/profile/ben.balter.com" />
+    
+    <!-- Preconnect to External Domains -->
+    <link rel="preconnect" href="https://avatars.githubusercontent.com" crossorigin />
+    <link rel="preconnect" href="https://github.com" crossorigin />
+    
+    <!-- RSS Feed -->
+    <link rel="alternate" type="application/atom+xml" title="Ben Balter - Atom Feed" href="/feed.xml" />
+    
+    <!-- Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     
     <title>{fullTitle}</title>
   </head>
-  <body>
-    <header>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/resume/">Resume</a>
-      </nav>
-    </header>
+  <body class="mt-2">
+    <div class="container">
+      <Navigation />
+      
+      <main id="content" role="main" class="content">
+        <slot />
+      </main>
+      
+      <Footer />
+    </div>
     
-    <main>
-      <slot />
-    </main>
+    <!-- Bootstrap JS (for navbar toggle on mobile) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-    <footer>
-      <p>&copy; {new Date().getFullYear()} Ben Balter. Built with Astro.</p>
-    </footer>
-    
-    <style>
+    <style is:global>
+      :root {
+        --bs-body-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        --bs-body-line-height: 1.6;
+        --bs-body-color: #24292e;
+        --bs-link-color: #0366d6;
+        --bs-link-hover-color: #0056b3;
+        --bs-border-color: #dee2e6;
+        --bs-secondary-bg: #e9ecef;
+        --bs-secondary: #6c757d;
+      }
+      
       body {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        line-height: 1.6;
-        max-width: 800px;
+        font-family: var(--bs-body-font-family);
+        line-height: var(--bs-body-line-height);
+        color: var(--bs-body-color);
+      }
+      
+      .container {
+        max-width: 1140px;
         margin: 0 auto;
-        padding: 2rem 1rem;
+        padding: 0 1rem;
       }
       
-      header {
-        margin-bottom: 2rem;
-        padding-bottom: 1rem;
-        border-bottom: 1px solid #e0e0e0;
+      .content {
+        min-height: 60vh;
+        padding: 1rem 0;
       }
       
-      nav {
-        display: flex;
-        gap: 1rem;
-      }
-      
-      nav a {
+      a {
+        color: var(--bs-link-color);
         text-decoration: none;
-        color: #0366d6;
       }
       
-      nav a:hover {
+      a:hover {
+        color: var(--bs-link-hover-color);
         text-decoration: underline;
       }
       
-      footer {
-        margin-top: 4rem;
-        padding-top: 2rem;
-        border-top: 1px solid #e0e0e0;
-        text-align: center;
-        color: #666;
+      /* Responsive utilities */
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 0.5rem;
+        }
       }
     </style>
   </body>
 </html>
+<!-- Proudly Powered by Astro | Generated {new Date().toISOString()} -->
