@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { siteConfig } from '../config';
 
 const title = 'Posts';
-const description = 'Technology leadership, collaboration, and open source';
+const description = siteConfig.description;
 
 // Get all published posts, sorted by date (newest first)
 const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => {

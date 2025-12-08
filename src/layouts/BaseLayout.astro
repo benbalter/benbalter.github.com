@@ -8,6 +8,7 @@
 
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+import { siteConfig, socialLinks } from '../config';
 
 interface Props {
   title?: string;
@@ -22,28 +23,24 @@ interface Props {
 }
 
 const { 
-  title = 'Ben Balter', 
-  description = 'Technology leadership, collaboration, and open source',
+  title = siteConfig.name, 
+  description = siteConfig.description,
   image,
   type = 'website',
   publishedTime,
   modifiedTime,
-  author = 'Ben Balter',
-  keywords = ['Ben Balter', 'GitHub', 'open source', 'technology leadership', 'collaboration'],
+  author = siteConfig.author,
+  keywords = siteConfig.keywords,
   noindex = false,
 } = Astro.props;
 
-const fullTitle = title === 'Ben Balter' ? title : `${title} | Ben Balter`;
-const siteUrl = 'https://ben.balter.com';
-const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const fullTitle = title === siteConfig.name ? title : `${title} | ${siteConfig.name}`;
+const canonicalUrl = new URL(Astro.url.pathname, siteConfig.url).toString();
 
 // Default OG image if none provided
 const ogImage = image 
-  ? new URL(image, siteUrl).toString()
-  : new URL('/assets/img/headshot.jpg', siteUrl).toString();
-
-// Social media handles
-const twitterHandle = '@benbalter';
+  ? new URL(image, siteConfig.url).toString()
+  : new URL('/assets/img/headshot.jpg', siteConfig.url).toString();
 ---
 
 <!doctype html>
@@ -73,7 +70,7 @@ const twitterHandle = '@benbalter';
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:site_name" content="Ben Balter" />
+    <meta property="og:site_name" content={siteConfig.name} />
     <meta property="og:locale" content="en_US" />
     {publishedTime && <meta property="article:published_time" content={publishedTime.toISOString()} />}
     {modifiedTime && <meta property="article:modified_time" content={modifiedTime.toISOString()} />}
@@ -81,8 +78,8 @@ const twitterHandle = '@benbalter';
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content={twitterHandle} />
-    <meta name="twitter:creator" content={twitterHandle} />
+    <meta name="twitter:site" content={siteConfig.twitterHandle} />
+    <meta name="twitter:creator" content={siteConfig.twitterHandle} />
     <meta name="twitter:url" content={canonicalUrl} />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
@@ -99,18 +96,16 @@ const twitterHandle = '@benbalter';
     <link type="text/plain" rel="author" href="/humans.txt" />
     
     <!-- Social Links (rel=me for verification) -->
-    <link rel="me" href="https://twitter.com/BenBalter" />
-    <link rel="me" href="https://linkedin.com/in/BenBalter" />
-    <link rel="me" href="https://github.com/benbalter" />
-    <link rel="me" href="https://mastodon.social/@benbalter" />
-    <link rel="me" href="https://bsky.app/profile/ben.balter.com" />
+    {socialLinks.map((link) => (
+      <link rel="me" href={link.url} />
+    ))}
     
     <!-- Preconnect to External Domains -->
     <link rel="preconnect" href="https://avatars.githubusercontent.com" crossorigin />
     <link rel="preconnect" href="https://github.com" crossorigin />
     
     <!-- RSS Feed -->
-    <link rel="alternate" type="application/atom+xml" title="Ben Balter - Atom Feed" href="/feed.xml" />
+    <link rel="alternate" type="application/atom+xml" title={`${siteConfig.name} - Atom Feed`} href="/feed.xml" />
     
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
