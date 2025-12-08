@@ -148,6 +148,7 @@ Once development is complete, replace Jekyll/Next.js with Astro:
 
 ### Content Migration
 
+- [ ] Migrate blog posts from `_posts/` to Astro content collections
 - [x] Configure Markdown and MDX support with @astrojs/mdx integration
 - [x] Define content collections with frontmatter schemas
 - [x] Create example Markdown and MDX posts
