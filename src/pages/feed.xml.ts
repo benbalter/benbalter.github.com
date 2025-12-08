@@ -12,12 +12,12 @@ import { siteConfig } from '../config';
 
 export async function GET(context: APIContext) {
   // Get all published posts, sorted by date (newest first)
-  const posts = await getCollection('posts', ({ data }) => {
+  const posts = await getCollection('posts', ({ data }: { data: any }) => {
     return data.published !== false;
   });
   
   // Sort posts by filename date (newest first)
-  const sortedPosts = posts.sort((a, b) => {
+  const sortedPosts = posts.sort((a: any, b: any) => {
     const dateA = new Date(a.id.substring(0, 10));
     const dateB = new Date(b.id.substring(0, 10));
     return dateB.getTime() - dateA.getTime();
@@ -28,7 +28,7 @@ export async function GET(context: APIContext) {
     description: siteConfig.description,
     site: context.site || siteConfig.url,
     
-    items: sortedPosts.map((post) => {
+    items: sortedPosts.map((post: any) => {
       // Extract date from filename (YYYY-MM-DD-title.md format)
       const dateMatch = post.id.match(/^(\d{4}-\d{2}-\d{2})/);
       const pubDate = dateMatch ? new Date(dateMatch[1]) : new Date();
