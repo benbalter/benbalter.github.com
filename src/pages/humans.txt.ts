@@ -13,6 +13,7 @@ import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = () => {
   // Current date for "Last Updated" field
+  // Format: YYYY/MM/DD (with slashes) to match Jekyll's original format
   const now = new Date();
   const lastUpdated = `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, '0')}/${String(now.getDate()).padStart(2, '0')}`;
   
