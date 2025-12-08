@@ -1,0 +1,64 @@
+---
+title: Octoversary - eight years of optimizing for developer happiness
+description: Reflecting on eight years of shipping at GitHub with a look at some of my most impactful ships.
+---
+
+Today marks my "Octoversary" - eight years to the day from when "[Ben Balter is a GitHubber](http://web.archive.org/web/20140421210430/https://github.com/blog/1432-ben-balter-is-a-githubber)" first became true.[^1] I've had the privilege of shipping [many impactful things over the years](https://github.blog/author/benbalter/), and to mark the occasion, I used the milestone as an opportunity to reflect on eight of my favorite ships in roughly chronological order:
+
+## 1. GeoJSON rendering
+
+My first ship at GitHub was [GeoJSON rendering](https://github.blog/2014-02-05-diffable-more-customizable-maps/) (and later diffing). I still remember pitching @skalnik in the "café" at HQ2 during my onboarding week. The idea at the time was that it was a lot easier for government agencies to publish open data on GitHub (since it was readily understood and already public) than working through the legal, technical, security, cultural, and public affairs challenges of open sourcing software. Not to mention, you get a nice visual artifact, making the value immediately apparent to a wider-audience of non-technical stakeholders (the "boss factor" as I called it then). GeoJSON rendering became part of a broader "land-and-expand" strategy, lowering the barrier to entry for government agencies and the open data community more broadly to take their first step towards joining the open source community on GitHub. To date, about [27 million GeoJSON files have been uploaded to GitHub](https://github.com/search?q=extension%3Ageojson&type=Code), and every map has a link to contribute back to [Open Street Map](https://www.openstreetmap.org), creating a virtuous cycle of open data.
+
+## 2. Government outreach
+
+My first three years at GitHub were as GitHub's "Government Evangelist"[^2] (Née ["Government bureaucat"](https://www.instagram.com/p/ZEVJKzNB-l/) before too many actual government bureaucrats politely pointed out the "typo"), leading the effort to make GitHub the premiere government platform for open source, open data, and of course, open government. During that time [more than 2,000 government organizations across more than 75 countries joined the GitHub community](https://github.blog/2014-08-14-government-opens-up-10k-active-government-users-on-github/), a nine-fold increase from when I joined. It was incredible to see the conversation within the government community shift from "what is open source?" to "why would I open source?" to "how do I open source?" to eventually "how do I open source better?". There were too many amazing milestones to list them all, but we made GitHub available on AWS GovCloud (our first FedRAMP compliant environment) so that US Federal agencies could use GitHub more securely, and were listed on GSA Schedule 70 so that agencies could more easily procure private repos for development with contractors and between agencies. A number of notable projects were also open sourced on GitHub during that time, but my favorite has to be [the White House using GitHub for public comment on the US Open Data Policy](https://github.blog/2013-05-09-the-revolution-will-be-forked/). Today, the efforts [live on](https://government.github.com/community/) in what is now GitHub's Public Sector team.
+
+## 3. GitHub Pages
+
+Shortly after I joined GitHub, there were a number of features I wanted for [my personal site](https://ben.balter.com), which runs on GitHub Pages (namely then, [updating to Jekyll 1.0](https://github.blog/2013-05-13-jekyll-turns-1-0/)). At the time, GitHub's internal repos were run more like open source projects: anyone in the company could submit a pull request, so I did just that. When no one responded, I learned that I had become the *de facto* Pages maintainer, [a role that became "official" a few years later](https://github.blog/2015-04-27-eight-lessons-learned-hacking-on-github-pages-for-six-months/).
+
+When I first encountered the GitHub Pages source code, it was a \~100 line shell script with 10-minute build expectations. 250+ pull requests (plus many more from other contributors like @parkr) later, Pages is more robust, more secure, and more feature rich. The publishing experience for end users went from twelve steps to two (commit a Markdown file and enable GitHub Pages). You can now use plugins ([a number of which](https://rubygems.org/profiles/benbalter) I wrote, themes (both [gem-based](https://github.com/jekyll/jekyll/issues/4510) and [remote](https://github.com/benbalter/jekyll-remote-theme)), and [collections](https://github.com/jekyll/jekyll/issues/1941), and if anything goes wrong, you now get rich build feedback. Not to mention, we [brought worry-free HTTPS to millions of Pages sites](https://github.blog/2018-05-01-github-pages-custom-domains-https/). Today, GitHub Pages is so much more than "Geocities for the next generation". I'm proud of how far it's come in advancing software documentation and the broader dialog within the open source community, and with GitHub Actions in the picture now, I can't wait to see where the team takes it next.
+
+## 4. Blogging
+
+It's no secret that [I’ve written a number of posts about GitHub’s culture and communication patterns](https://ben.balter.com/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/) over the years. More than a hundred, to be exact, and just shy of 200,000 words. That's about a 2,000 word post a month on average for eight years straight. While they weren't all novel or insightful, [a few did gain some notoriety](https://ben.balter.com/2020/09/12/10-years/) within the community.
+
+I was recently asked about how I wrote so "prolifically" (their words). Beyond ranting to the void about minor annoyances[^3] and having a lot of time on planes at a time before in-flight Wi-Fi was tolerable (creating a natural space for disconnect and reflection), I developed a rule in my early years of government outreach so that I could better scale my own efforts of offering white-glove support to our government customers: [If I'm asked the same question twice, I reply the third time with a URL](https://twitter.com/benbalter/status/1294347802122878977). That rule stuck with me as I changed roles across open source, government IT and procurement, collaborative workflows, product management, and trust and safety. It's even become a running joke among some of my peers, as in "I bet you already have a blog post about this, but how do I...?". Have something you'd like me to blog about? [Let me know](https://github.com/benbalter/benbalter.github.com/issues/new).
+
+## 5. Open source licensing
+
+As a side project to scratch an intellectual itch, I created [Licensee](https://github.com/licensee/licensee). The problem I was trying to solve was simple: given an open source project, how do I *know* under what license the project is distributed? Beyond what the project may claim in a readme or package management file, how do I know that the text in the LICENSE file really is the text of the license. How do I know the author didn't add "by using this software, you promise to give me a puppy" to the terms?
+
+To encourage open source license adoption, We [launched choosealicense.com](https://github.blog/2013-07-15-choosing-an-open-source-license/) in hopes of demystifying the confusing world of open source licensing, and added a license picker to the repository creation flow, a move that had [a noticeable impact on the number of open source projects on GitHub](https://github.blog/2015-03-09-open-source-license-usage-on-github-com/). Today, Licensee continues to power license detection on GitHub (and [our own internal compliance tooling](https://github.com/github/licensed)), making high-confidence license information available via the GitHub UI (and API), further demystifying open source licensing by telling you exactly what you can and can't do with a given project, and nudging the universe of open source licensing towards standardization in the process.
+
+## 6. Trust and Safety
+
+In 2016, after surprising my team (and then department head) at an offsite ("mini-summit" in GitHub speak) with a presentation on why my role should be eliminated, I moved to the Product organization, and after several rounds of pleading that I was a poor fit, became the Product Manager for what eventually became our Trust and Safety team - ensuring developers didn't have to risk their privacy or personal safety to participate in the open source community on GitHub.
+
+In my five years on the amazing team, we had [more than 500 incredibly impactful ships](https://ben.balter.com/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/), including site-wide community guidelines, comment edit history, minimized comments, contributor badges, interaction limits, the triage and maintainer roles, and countless internal moderation tools. Not to mention, we closed dozens of abuse vectors, most visible of which were preventing namespace reuse attacks, and closing our largest account takeover vector, which was responsible for tens of thousands of compromised accounts each year. As I moved on to my current role, I'm proud to have left GitHub a safer, more welcoming space for all developers.
+
+## 7. Removing non-essential cookies
+
+The now-ubiquitous cookie consent banners are universally accepted as a subpar user experience when compared to more customer-centric approaches to data collection. Rather than clutter GitHub's interface with cookie consent banners to meet EU regulations, in December of 2020, [we decided to remove Google Analytics and other privacy-invasive trackers from GitHub.com](https://github.blog/2020-12-17-no-cookie-for-you/) and nearly a hundred other domains and subdomains.
+
+When a developer visits GitHub.com, the best experience is one where they don’t have to think about whether their privacy is at risk, trust GitHub to make the decision in their best interest due to GitHub's privacy-centric reputation, and can immediately begin interacting with the site to accomplish their desired task. Fortunately, GitHub is in a unique position, in that it does not rely on ad revenue or otherwise seek to monetize its customers' information. As such, we were able to [absorb that complexity on behalf of customers](https://ben.balter.com/2016/08/22/ten-ways-to-make-a-product-great/#1-absorb-complexity-on-behalf-of-users) by simply limiting what data GitHub collects and how we collect it, avoiding the need for the consent banners in the first place. It's what I believe the EU regulations intended, and a move I hope other privacy-centric companies will follow in the years to come.[^4]
+
+## 8. PhotoDNA
+
+My most recent ship, and arguably the most impactful, was ensuring that GitHub couldn't be used as a platform to further child abuse or violent extremism by scanning uploaded images for evidence of child exploitation and extreme violence. To do this, we implemented Microsoft's industry-standard [PhotoDNA service](https://www.microsoft.com/en-us/photodna), which uses complex fingerprinting methods to detect, disrupt, and report the distribution of various forms of illegal content.
+
+Two aspects of the 2+ year-long project uniquely stand out: First, it's rare even within Trust and Safety to find such an elegant solution to a complex problem. This essentially set-it-and-forget-it feature from GitHub's standpoint has the potential to make the world a tangibly safer place (and can result in someone landing in literal jail). Second, it arose organically, not as a means to a compliance end. Early in the project as we were seeking support from internal stakeholders, when asked where the impetus for the project came about, our team could proudly reply that we were doing it because it was the right thing to do (and it was).
+
+## Conclusion
+
+GitHub has changed a lot since I first joined a quirky startup eight years ago, but also a lot of what makes it special has stayed the same. This week I start a new chapter as a Staff Technical Program Manager at GitHub,[^5] and I'm looking forward to seeing what impactful ships lie in the years ahead. :tada:
+
+[^1]: Get it? Octo, eight... clever, right?
+
+[^3]: Long-form sub-tweeting before sub-tweeting was a thing.
+
+[^4]: I also removed Google Analytics and Twitter Analytics from this site around the same time, but that decision didn't get the same fanfare.
+
+[^2]: Complete with requisite [lapel pin](https://www.instagram.com/p/XLLF4BNB0g/). Bridging the startup world and government, I often wore what I described as [startup formal](https://www.instagram.com/p/qsjyhpNBxA/).
+
+[^5]: Maybe now, I finally won't be called [an intern](https://www.instagram.com/p/BKPL9fVDFEs/).

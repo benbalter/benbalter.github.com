@@ -31,6 +31,16 @@ function formatDate(date: Date): string {
                   'July', 'August', 'September', 'October', 'November', 'December'];
   return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 }
+
+// Helper function to generate Jekyll-style URL from slug
+function getPostUrl(slug: string): string {
+  const match = slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
+  if (match) {
+    const [, year, month, day, postSlug] = match;
+    return `/${year}/${month}/${day}/${postSlug}/`;
+  }
+  return `/posts/${slug}/`; // fallback
+}
 ---
 
 <BaseLayout title={title} description={description}>
@@ -38,10 +48,11 @@ function formatDate(date: Date): string {
     <div class="col-md-10 offset-md-1">
       {posts.map((post) => {
         const postDate = getDateFromSlug(post.slug);
+        const postUrl = getPostUrl(post.slug);
         return (
           <div class="row mb-2">
             <div class="col-sm-9">
-              <a href={`/posts/${post.slug}/`}>{post.data.title}</a>
+              <a href={postUrl}>{post.data.title}</a>
             </div>
             <div class="col-sm-3 text-muted text-md-end">
               <small>{formatDate(postDate)}</small>

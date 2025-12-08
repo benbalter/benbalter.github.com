@@ -19,13 +19,15 @@ const postsCollection = defineCollection({
     layout: z.string().optional(),
     permalink: z.string().optional(),
     published: z.boolean().default(true),
+    archived: z.boolean().default(false), // For archived posts
     
     // Post metadata
     image: z.string().optional(), // Open Graph image
     comments: z.boolean().default(false),
     
     // Redirects (Jekyll compatibility)
-    redirect_from: z.array(z.string()).optional(),
+    // Support both single string and array of strings for redirect_from
+    redirect_from: z.union([z.string(), z.array(z.string())]).optional(),
     redirect_to: z.string().optional(),
     
     // SEO metadata
