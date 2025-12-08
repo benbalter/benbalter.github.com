@@ -19,8 +19,8 @@ export const GET: APIRoute = () => {
   
   const content = `Contact: mailto:${siteConfig.email}
 Expires: ${expiresISO}
-Encryption: https://ben.balter.com/key.asc
-Canonical: https://ben.balter.com/.well-known/security.txt
+Encryption: ${siteConfig.url}/key.asc
+Canonical: ${siteConfig.url}/.well-known/security.txt
 Policy: https://github.com/${siteConfig.githubRepo}/security/policy
 `;
 
