@@ -43,7 +43,6 @@ export const GET: APIRoute = () => {
 ${disallowLines}
 Allow: /
 Sitemap: https://ben.balter.com/sitemap.xml
-Host: ben.balter.com
 `;
 
   return new Response(content, {
