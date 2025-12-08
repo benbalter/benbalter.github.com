@@ -2,6 +2,11 @@ import { test, expect } from '@playwright/test';
 import * as fs from 'fs';
 import * as path from 'path';
 
+// URL patterns for sitemap validation
+const BLOG_POST_URL_PATTERN = /<url><loc>https:\/\/ben\.balter\.com\/\d{4}\/\d{2}\/\d{2}\/[^<]+<\/loc>.*?<\/url>/;
+const HOMEPAGE_URL_PATTERN = /<url><loc>https:\/\/ben\.balter\.com\/<\/loc>.*?<\/url>/;
+const ABOUT_PAGE_URL_PATTERN = /<url><loc>https:\/\/ben\.balter\.com\/about\/<\/loc>.*?<\/url>/;
+
 test.describe('Sitemap Generation', () => {
   const outDir = path.join(process.cwd(), 'out');
   const outDirExists = fs.existsSync(outDir);
@@ -68,7 +73,7 @@ test.describe('Sitemap Generation', () => {
       expect(content).toContain('https://ben.balter.com/</loc>');
       
       // Find the homepage entry and check its priority
-      const homepageMatch = content.match(/<url><loc>https:\/\/ben\.balter\.com\/<\/loc>.*?<\/url>/);
+      const homepageMatch = content.match(HOMEPAGE_URL_PATTERN);
       expect(homepageMatch, 'Homepage should exist in sitemap').toBeTruthy();
       
       if (homepageMatch) {
@@ -83,7 +88,7 @@ test.describe('Sitemap Generation', () => {
       const content = fs.readFileSync(sitemapPath, 'utf-8');
       
       // Find a blog post URL (format: /YYYY/MM/DD/slug/)
-      const blogPostMatch = content.match(/<url><loc>https:\/\/ben\.balter\.com\/\d{4}\/\d{2}\/\d{2}\/[^<]+<\/loc>.*?<\/url>/);
+      const blogPostMatch = content.match(BLOG_POST_URL_PATTERN);
       expect(blogPostMatch, 'Should have at least one blog post in sitemap').toBeTruthy();
       
       if (blogPostMatch) {
@@ -98,7 +103,7 @@ test.describe('Sitemap Generation', () => {
       const content = fs.readFileSync(sitemapPath, 'utf-8');
       
       // Check for a static page like /about/
-      const staticPageMatch = content.match(/<url><loc>https:\/\/ben\.balter\.com\/about\/<\/loc>.*?<\/url>/);
+      const staticPageMatch = content.match(ABOUT_PAGE_URL_PATTERN);
       expect(staticPageMatch, 'Should have /about/ page in sitemap').toBeTruthy();
       
       if (staticPageMatch) {
