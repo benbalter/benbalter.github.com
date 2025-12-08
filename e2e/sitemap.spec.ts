@@ -2,9 +2,154 @@ import { test, expect } from '@playwright/test';
 import * as fs from 'fs';
 import * as path from 'path';
 
+// URL patterns for sitemap validation
+const BLOG_POST_URL_PATTERN = /<url><loc>https:\/\/ben\.balter\.com\/\d{4}\/\d{2}\/\d{2}\/[^<]+<\/loc>[\s\S]*?<\/url>/;
+const HOMEPAGE_URL_PATTERN = /<url><loc>https:\/\/ben\.balter\.com\/<\/loc>[\s\S]*?<\/url>/;
+const ABOUT_PAGE_URL_PATTERN = /<url><loc>https:\/\/ben\.balter\.com\/about\/<\/loc>[\s\S]*?<\/url>/;
+
 test.describe('Sitemap Generation', () => {
   const outDir = path.join(process.cwd(), 'out');
   const outDirExists = fs.existsSync(outDir);
+  
+  const distAstroDir = path.join(process.cwd(), 'dist-astro');
+  const distAstroDirExists = fs.existsSync(distAstroDir);
+  
+  // File-based tests - only run if dist-astro directory exists (after Astro build)
+  test.describe('File System Tests (Astro build)', () => {
+    test.skip(!distAstroDirExists, 'Skipping Astro tests - dist-astro directory does not exist. Run `npm run astro:build` first.');
+    
+    test('sitemap-index.xml should exist in dist-astro directory', () => {
+      const sitemapPath = path.join(distAstroDir, 'sitemap-index.xml');
+      expect(fs.existsSync(sitemapPath), 'sitemap-index.xml should exist in dist-astro directory').toBeTruthy();
+    });
+
+    test('sitemap-index.xml should be valid XML', () => {
+      const sitemapPath = path.join(distAstroDir, 'sitemap-index.xml');
+      const content = fs.readFileSync(sitemapPath, 'utf-8');
+      
+      // Should start with XML declaration
+      expect(content).toContain('<?xml version="1.0" encoding="UTF-8"?>');
+      
+      // Should have sitemapindex root element
+      expect(content).toContain('<sitemapindex');
+      expect(content).toContain('</sitemapindex>');
+    });
+
+    test('sitemap-index.xml should reference sitemap-0.xml', () => {
+      const sitemapPath = path.join(distAstroDir, 'sitemap-index.xml');
+      const content = fs.readFileSync(sitemapPath, 'utf-8');
+      
+      expect(content).toContain('sitemap-0.xml');
+    });
+
+    test('sitemap-0.xml should exist', () => {
+      const sitemapPath = path.join(distAstroDir, 'sitemap-0.xml');
+      expect(fs.existsSync(sitemapPath), 'sitemap-0.xml should exist').toBeTruthy();
+    });
+
+    test('sitemap-0.xml should contain URLs', () => {
+      const sitemapPath = path.join(distAstroDir, 'sitemap-0.xml');
+      const content = fs.readFileSync(sitemapPath, 'utf-8');
+      
+      // Should have urlset root element
+      expect(content).toContain('<urlset');
+      expect(content).toContain('</urlset>');
+      
+      // Should have url entries
+      expect(content).toContain('<url>');
+      expect(content).toContain('</url>');
+      
+      // Should have required elements
+      expect(content).toContain('<loc>');
+      expect(content).toContain('<changefreq>');
+      expect(content).toContain('<priority>');
+    });
+
+    test('sitemap-0.xml should include homepage with highest priority', () => {
+      const sitemapPath = path.join(distAstroDir, 'sitemap-0.xml');
+      const content = fs.readFileSync(sitemapPath, 'utf-8');
+      
+      // Homepage should exist
+      expect(content).toContain('https://ben.balter.com/</loc>');
+      
+      // Find the homepage entry and check its priority
+      const homepageMatch = content.match(HOMEPAGE_URL_PATTERN);
+      expect(homepageMatch, 'Homepage should exist in sitemap').toBeTruthy();
+      
+      if (homepageMatch) {
+        const homepageEntry = homepageMatch[0];
+        expect(homepageEntry).toContain('<priority>1');
+        expect(homepageEntry).toContain('<changefreq>weekly</changefreq>');
+      }
+    });
+
+    test('sitemap-0.xml should include blog posts with correct priority', () => {
+      const sitemapPath = path.join(distAstroDir, 'sitemap-0.xml');
+      const content = fs.readFileSync(sitemapPath, 'utf-8');
+      
+      // Find a blog post URL (format: /YYYY/MM/DD/slug/)
+      const blogPostMatch = content.match(BLOG_POST_URL_PATTERN);
+      expect(blogPostMatch, 'Should have at least one blog post in sitemap').toBeTruthy();
+      
+      if (blogPostMatch) {
+        const blogPostEntry = blogPostMatch[0];
+        expect(blogPostEntry).toContain('<priority>0.8</priority>');
+        expect(blogPostEntry).toContain('<changefreq>monthly</changefreq>');
+      }
+    });
+
+    test('sitemap-0.xml should include static pages with correct priority', () => {
+      const sitemapPath = path.join(distAstroDir, 'sitemap-0.xml');
+      const content = fs.readFileSync(sitemapPath, 'utf-8');
+      
+      // Check for a static page like /about/
+      const staticPageMatch = content.match(ABOUT_PAGE_URL_PATTERN);
+      expect(staticPageMatch, 'Should have /about/ page in sitemap').toBeTruthy();
+      
+      if (staticPageMatch) {
+        const staticPageEntry = staticPageMatch[0];
+        expect(staticPageEntry).toContain('<priority>0.6</priority>');
+        expect(staticPageEntry).toContain('<changefreq>monthly</changefreq>');
+      }
+    });
+
+    test('sitemap-0.xml should not include excluded paths', () => {
+      const sitemapPath = path.join(distAstroDir, 'sitemap-0.xml');
+      const content = fs.readFileSync(sitemapPath, 'utf-8');
+      
+      // Check that excluded paths (404, not-found, and pages with sitemap: false) are not in the sitemap
+      const excludedPaths = [
+        '/404/',
+        '/_not-found/',
+        '/fine-print/', // Has sitemap: false in front matter
+      ];
+      
+      excludedPaths.forEach(excludedPath => {
+        // Be careful with regex special characters
+        const escapedPath = excludedPath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp(`<loc>https://ben\\.balter\\.com${escapedPath}`, 'i');
+        expect(content.match(regex), `Should not include ${excludedPath} in sitemap`).toBeFalsy();
+      });
+    });
+
+    test('sitemap-0.xml should include all core pages', () => {
+      const sitemapPath = path.join(distAstroDir, 'sitemap-0.xml');
+      const content = fs.readFileSync(sitemapPath, 'utf-8');
+      
+      // Core pages that should be in the sitemap
+      const corePages = [
+        'https://ben.balter.com/',
+        'https://ben.balter.com/about/',
+        'https://ben.balter.com/resume/',
+        'https://ben.balter.com/contact/',
+        'https://ben.balter.com/talks/',
+      ];
+      
+      corePages.forEach(pageUrl => {
+        expect(content).toContain(`<loc>${pageUrl}</loc>`);
+      });
+    });
+  });
   
   // File-based tests - only run if out directory exists (after Next.js build)
   test.describe('File System Tests (Next.js build)', () => {
@@ -122,11 +267,11 @@ test.describe('Sitemap Generation', () => {
         '/_not-found/',
       ];
       
-      excludedPaths.forEach(path => {
+      excludedPaths.forEach(excludedPath => {
         // Be careful with regex special characters
-        const escapedPath = path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const escapedPath = excludedPath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         const regex = new RegExp(`<loc>https://ben\\.balter\\.com${escapedPath}`, 'i');
-        expect(content.match(regex), `Should not include ${path} in sitemap`).toBeFalsy();
+        expect(content.match(regex), `Should not include ${excludedPath} in sitemap`).toBeFalsy();
       });
     });
 

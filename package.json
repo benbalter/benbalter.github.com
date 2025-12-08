@@ -18,6 +18,7 @@
     "@astrojs/check": "^0.9.6",
     "@astrojs/mdx": "^4.3.12",
     "@astrojs/rss": "^4.0.14",
+    "@astrojs/sitemap": "^3.6.0",
     "@babel/core": "^7.24.7",
     "@babel/preset-typescript": "^7.24.7",
     "@github/markdownlint-github": "^0.6.3",
