@@ -16,7 +16,7 @@ export const GET: APIRoute = async () => {
   
   const redirectFeed = `<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <link href="${siteConfig.url}/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="${siteConfig.url}/feed.xml" rel="self" type="application/rss+xml" />
   <link href="${siteConfig.url}/" rel="alternate" type="text/html" />
   <updated>${currentDate}</updated>
   <id>${siteConfig.url}/</id>

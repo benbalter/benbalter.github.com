@@ -1,7 +1,7 @@
 /**
- * Main Atom Feed for Blog Posts
+ * Main RSS Feed for Blog Posts
  * 
- * Generates an Atom feed at /feed.xml for all blog posts.
+ * Generates an RSS 2.0 feed at /feed.xml for all blog posts.
  * This matches the Jekyll feed structure and URLs.
  */
 
@@ -57,6 +57,6 @@ export async function GET(context: APIContext) {
     },
     
     // Custom XML namespaces if needed
-    customData: `<atom:link href="${siteConfig.url}/feed.xml" rel="self" type="application/atom+xml" />`,
+    customData: `<atom:link href="${siteConfig.url}/feed.xml" rel="self" type="application/rss+xml" />`,
   });
 }

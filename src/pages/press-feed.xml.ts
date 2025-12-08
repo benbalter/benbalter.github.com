@@ -20,7 +20,7 @@ interface Clip {
 
 export async function GET(context: APIContext) {
   // Cast the imported data to the correct type
-  const clips = clipsData as Clip[];
+  const clips = clipsData as unknown as Clip[];
   
   // Sort clips by date (newest first)
   const sortedClips = [...clips].sort((a, b) => {
@@ -52,7 +52,7 @@ export async function GET(context: APIContext) {
     
     // Custom XML data for RSS 2.0 channel
     customData: [
-      `<atom:link type="application/atom+xml" href="${siteConfig.url}/press-feed.xml" rel="self"/>`,
+      `<atom:link type="application/rss+xml" href="${siteConfig.url}/press-feed.xml" rel="self"/>`,
       `<language>en-US</language>`,
     ].join('\n    '),
   });
