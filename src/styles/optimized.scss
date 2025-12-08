@@ -99,6 +99,46 @@ $color-mode-type: media-query;
 // Each partial now contains its own @media query wrapper
 @import '../../sass/base16.dark';
 @import '../../sass/base16.light';
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.align-items-center {
+    align-items: center !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-start {
+    text-align: left !important;
+}
+
+.text-end {
+    text-align: right !important;
+}
+
+.mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+.mt-2 {
+    margin-top: 0.5rem !important;
+}
+
+// Text alignment utilities for responsive sizes
+@media (min-width: 576px) {
+    .text-sm-center {
+        text-align: center !important;
+    }
+    .text-sm-start {
+        text-align: left !important;
+    }
+}
+
+// Skip the full utilities API to reduce bundle size significantly
+// Component-specific styles will handle their own utility needs
 
 // Typography improvements
 body {

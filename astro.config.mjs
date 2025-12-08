@@ -120,6 +120,9 @@ export default defineConfig({
           loadPaths: ['node_modules'],
           // Suppress deprecation warnings for @import rules (Bootstrap 5.3.x uses them)
           quietDeps: true,
+          // Silence specific deprecation warnings until Bootstrap migrates to @use
+          // See: https://sass-lang.com/documentation/breaking-changes/import
+          silenceDeprecations: ['import'],
         },
       },
     },
