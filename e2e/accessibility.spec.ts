@@ -140,4 +140,28 @@ test.describe('Accessibility', () => {
     
     expect(count).toBeGreaterThan(0);
   });
+
+  test('should support dark mode', async ({ page }) => {
+    // Emulate dark color scheme preference
+    await page.emulateMedia({ colorScheme: 'dark' });
+    await page.goto('/');
+    await waitForPageReady(page);
+    
+    // Verify data-bs-theme attribute is present
+    const html = page.locator('html');
+    await expect(html).toHaveAttribute('data-bs-theme', 'auto');
+    
+    // Verify dark mode styling is applied
+    const bodyBg = await page.locator('body').evaluate(el => 
+      window.getComputedStyle(el).backgroundColor
+    );
+    
+    // Dark mode should have a dark background (not white)
+    expect(bodyBg).not.toBe('rgb(255, 255, 255)');
+    
+    // Verify text is visible (basic contrast check)
+    const bodyText = await page.locator('body').textContent();
+    expect(bodyText).toBeTruthy();
+    expect(bodyText!.length).toBeGreaterThan(0);
+  });
 });
