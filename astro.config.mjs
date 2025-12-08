@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
@@ -40,6 +41,42 @@ export default defineConfig({
       // Support GitHub Flavored Markdown
       remarkPlugins: [],
       rehypePlugins: [],
+    }),
+    sitemap({
+      // Customize sitemap generation
+      filter: (page) => {
+        // Exclude 404 and other non-indexable pages
+        const excludePatterns = [
+          '/404/',
+          '/_not-found/',
+        ];
+        return !excludePatterns.some(pattern => page.includes(pattern));
+      },
+      // Customize individual page entries
+      customPages: [],
+      // Generate sitemap with proper URLs
+      serialize: (item) => {
+        // Set priority and changefreq based on URL pattern
+        let priority = 0.6; // Default for static pages
+        let changefreq = 'monthly';
+        
+        // Homepage gets highest priority
+        if (item.url === 'https://ben.balter.com/') {
+          priority = 1.0;
+          changefreq = 'weekly';
+        }
+        // Blog posts get high priority
+        else if (item.url.match(/\/\d{4}\/\d{2}\/\d{2}\//)) {
+          priority = 0.8;
+          changefreq = 'monthly';
+        }
+        
+        return {
+          ...item,
+          priority,
+          changefreq,
+        };
+      },
     }),
   ],
   
