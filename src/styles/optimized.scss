@@ -30,11 +30,17 @@ $color-mode-type: media-query;
 @import 'bootstrap/scss/containers';
 @import 'bootstrap/scss/grid';
 
+// Navigation components (needed for navbar)
+@import 'bootstrap/scss/nav';
+@import 'bootstrap/scss/navbar';
+
+// Button (needed for navbar toggle on mobile)
+@import 'bootstrap/scss/buttons';
+
 // Skip unused components to reduce bundle size:
-// - buttons (we style our own links)
 // - forms (no forms on static blog)
 // - accordion, alert, badge, breadcrumb, button-group, card, carousel, 
-//   close, dropdown, list-group, modal, nav, navbar, offcanvas, pagination, 
+//   close, dropdown, list-group, modal, offcanvas, pagination, 
 //   placeholders, popover, progress, spinners, toasts, tooltip
 
 // Include only what we need:
