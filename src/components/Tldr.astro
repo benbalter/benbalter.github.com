@@ -1,0 +1,50 @@
+---
+/**
+ * TL;DR Component
+ * 
+ * Displays a "Too Long; Didn't Read" summary with tooltip explanation.
+ * Matches the Jekyll tldr.html include functionality.
+ */
+
+interface Props {
+  description: string;
+}
+
+const { description } = Astro.props;
+
+const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a brief summary of longer writing"';
+---
+
+<div class="lead">
+  <strong><abbr title={tooltipTitle} class="initialism" data-bs-toggle="tooltip" data-bs-placement="right">TL;DR</abbr>:</strong>{' '}
+  {description}
+</div>
+
+<script>
+  // Initialize Bootstrap tooltips after component mounts
+  import { Tooltip } from 'bootstrap';
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const tooltipElements = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    tooltipElements.forEach((element) => {
+      new Tooltip(element);
+    });
+  });
+</script>
+
+<style>
+  .lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
+
+  .initialism {
+    text-decoration: none;
+    cursor: help;
+    border-bottom: 1px dotted currentColor;
+  }
+
+  abbr[data-bs-toggle="tooltip"] {
+    text-decoration: none;
+  }
+</style>
