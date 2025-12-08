@@ -6,31 +6,7 @@
  * Matches the structure and styling of the Jekyll footer.
  */
 
-interface FooterLink {
-  title: string;
-  url: string;
-}
-
-interface SocialLink {
-  name: string;
-  url: string;
-  icon: string;
-}
-
-// Footer navigation links (matching Jekyll's footer_pages)
-const footerLinks: FooterLink[] = [
-  { title: 'Other Recommended Reading', url: '/other-recommended-reading/' },
-  { title: 'Fine Print', url: '/fine-print/' },
-];
-
-// Social links
-const socialLinks: SocialLink[] = [
-  { name: 'Twitter', url: 'https://twitter.com/BenBalter', icon: 'fab fa-twitter' },
-  { name: 'LinkedIn', url: 'https://linkedin.com/in/BenBalter', icon: 'fab fa-linkedin' },
-  { name: 'GitHub', url: 'https://github.com/benbalter', icon: 'fab fa-github' },
-  { name: 'Mastodon', url: 'https://mastodon.social/@benbalter', icon: 'fab fa-mastodon' },
-  { name: 'Bluesky', url: 'https://bsky.app/profile/ben.balter.com', icon: 'fas fa-cloud' },
-];
+import { siteConfig, footerLinks, socialLinks } from '../config';
 ---
 
 <footer>
@@ -68,7 +44,7 @@ const socialLinks: SocialLink[] = [
   
   <div class="copyright text-center text-muted py-2">
     <p class="mb-0">
-      &copy; {new Date().getFullYear()} Ben Balter. Built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>.
+      &copy; {new Date().getFullYear()} {siteConfig.name}. Built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>.
     </p>
   </div>
 </footer>
