@@ -5,6 +5,17 @@ import sitemap from '@astrojs/sitemap';
 // URL patterns for sitemap priority calculation
 const BLOG_POST_PATTERN = /\/\d{4}\/\d{2}\/\d{2}\//;
 
+// Pages that should be excluded from sitemap
+// Add pages here that have sitemap: false in their front matter
+// Format: Use the final URL path with trailing slash
+const EXCLUDED_PAGES = [
+  '/404/',
+  '/_not-found/',
+  '/fine-print/', // Has sitemap: false in fine-print.md
+  // To exclude posts/pages from content collections with sitemap: false,
+  // add their URLs here (e.g., '/2024/01/01/post-slug/')
+];
+
 // https://astro.build/config
 export default defineConfig({
   // Output directory for built site (separate from Jekyll and Next.js)
@@ -48,12 +59,9 @@ export default defineConfig({
     sitemap({
       // Customize sitemap generation
       filter: (page) => {
-        // Exclude 404 and other non-indexable pages
-        const excludePatterns = [
-          '/404/',
-          '/_not-found/',
-        ];
-        return !excludePatterns.some(pattern => page.includes(pattern));
+        // Exclude pages explicitly marked with sitemap: false
+        // This includes 404, not-found, and pages like fine-print
+        return !EXCLUDED_PAGES.some(pattern => page.includes(pattern));
       },
       // Customize individual page entries
       customPages: [],

@@ -117,10 +117,11 @@ test.describe('Sitemap Generation', () => {
       const sitemapPath = path.join(distAstroDir, 'sitemap-0.xml');
       const content = fs.readFileSync(sitemapPath, 'utf-8');
       
-      // Check that truly excluded paths (404, not-found) are not in the sitemap
+      // Check that excluded paths (404, not-found, and pages with sitemap: false) are not in the sitemap
       const excludedPaths = [
         '/404/',
         '/_not-found/',
+        '/fine-print/', // Has sitemap: false in front matter
       ];
       
       excludedPaths.forEach(path => {
