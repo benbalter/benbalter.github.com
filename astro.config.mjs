@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import redirectIntegration from './src/lib/redirect-integration.ts';
 
 // URL patterns for sitemap priority calculation
 const BLOG_POST_PATTERN = /\/\d{4}\/\d{2}\/\d{2}\//;
@@ -87,6 +88,7 @@ export default defineConfig({
         };
       },
     }),
+    redirectIntegration(), // Generate redirect pages after build
   ],
   
   // Markdown configuration
