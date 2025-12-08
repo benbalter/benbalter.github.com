@@ -16,8 +16,13 @@ const description = 'Here are some of the books that have had a significant infl
 
 // Load books data from _data/books.yml
 const booksPath = join(process.cwd(), '_data', 'books.yml');
-const booksYaml = readFileSync(booksPath, 'utf-8');
-const booksData = yaml.load(booksYaml, { schema: yaml.SAFE_SCHEMA }) as Record<string, Array<{ title: string; asin: string; tldr: string }>>;
+let booksData;
+try {
+  const booksYaml = readFileSync(booksPath, 'utf-8');
+  booksData = yaml.load(booksYaml, { schema: yaml.SAFE_SCHEMA }) as Record<string, Array<{ title: string; asin: string; tldr: string }>>;
+} catch (error) {
+  throw new Error(`Failed to load books data from ${booksPath}: ${error instanceof Error ? error.message : String(error)}`);
+}
 
 // Amazon affiliate tag
 const amazonAffiliatesTag = 'benbalter07-20';
