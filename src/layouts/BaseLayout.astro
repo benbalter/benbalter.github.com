@@ -21,6 +21,7 @@ interface Props {
   author?: string;
   keywords?: string[];
   noindex?: boolean;
+  hero?: boolean;
 }
 
 const { 
@@ -33,6 +34,7 @@ const {
   author = siteConfig.author,
   keywords = siteConfig.keywords,
   noindex = false,
+  hero = false,
 } = Astro.props;
 
 const fullTitle = title === siteConfig.name ? title : `${title} | ${siteConfig.name}`;
@@ -108,11 +110,15 @@ const ogImage = image
     <!-- RSS Feed -->
     <link rel="alternate" type="application/rss+xml" title={`${siteConfig.name} - RSS Feed`} href="/feed.xml" />
     
+    {hero && <link rel="preload" href="/assets/img/header.jpg" as="image" fetchpriority="high" />}
+    
     <title>{fullTitle}</title>
   </head>
   <body class="mt-2">
     <div class="container">
-      <Navigation />
+      {hero && <div class="hero-unit rounded-top position-relative">&nbsp;</div>}
+      
+      <Navigation hero={hero} />
       
       <main id="content" role="main" class="content">
         <slot />
