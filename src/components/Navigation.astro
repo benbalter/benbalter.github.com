@@ -37,7 +37,7 @@ const currentPath = Astro.url.pathname;
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="navbar-collapse collapse" id="navbar" role="navigation">
+    <div class="navbar-collapse" id="navbar" role="navigation">
       <ul class="navbar-nav mr-auto">
         {navItems.map((item) => {
           const isActive = currentPath === item.url || 
@@ -119,7 +119,7 @@ const currentPath = Astro.url.pathname;
   }
 
   /* Collapse behavior for mobile */
-  .navbar-collapse.collapse {
+  .navbar-collapse {
     display: none;
   }
 
@@ -127,14 +127,14 @@ const currentPath = Astro.url.pathname;
     display: block;
   }
 
-  @media (min-width: 769px) {
+  @media (min-width: 768px) {
     .navbar-collapse {
       display: flex !important;
       flex-basis: auto;
     }
   }
 
-  @media (max-width: 769px) {
+  @media (max-width: 767px) {
     .navbar-collapse {
       flex-basis: 100%;
       flex-grow: 1;

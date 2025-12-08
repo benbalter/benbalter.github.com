@@ -19,12 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Toggle ARIA attributes
     toggler.setAttribute('aria-expanded', String(!isExpanded));
     
-    // Toggle collapse class
+    // Toggle show class
     if (isExpanded) {
       target.classList.remove('show');
-      target.classList.add('collapse');
     } else {
-      target.classList.remove('collapse');
       target.classList.add('show');
     }
   });
@@ -39,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!isClickInside && target.classList.contains('show')) {
       toggler.setAttribute('aria-expanded', 'false');
       target.classList.remove('show');
-      target.classList.add('collapse');
     }
   });
 
@@ -48,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.key === 'Escape' && target.classList.contains('show')) {
       toggler.setAttribute('aria-expanded', 'false');
       target.classList.remove('show');
-      target.classList.add('collapse');
     }
   });
 });
