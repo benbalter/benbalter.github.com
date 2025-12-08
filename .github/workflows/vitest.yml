@@ -28,10 +28,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run Vitest tests
-        run: npm run test:vitest
-
-      - name: Generate coverage report
+      - name: Run Vitest tests with coverage
         run: npm run test:vitest:coverage
 
       - name: Upload coverage report

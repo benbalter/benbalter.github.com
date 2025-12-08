@@ -54,14 +54,14 @@ npm run test:jest:coverage     # With coverage
 * `jest.config.mjs` - Jest configuration with Next.js support
 * `jest.setup.mjs` - Test environment setup
 
-### 3. Vitest Unit Tests (27 tests ✅)
+### 3. Vitest Unit Tests (25 tests ✅)
 
 Unit tests for Astro components and utilities using Vitest.
 
 **Test Files:**
 
 * `src/config.test.ts` - Site configuration (21 tests)
-* `src/components/components.test.ts` - Component logic and interfaces (6 tests)
+* `src/components/components.test.ts` - Component specification tests (4 tests)
 
 **Commands:**
 
@@ -76,7 +76,7 @@ npm run test:vitest:coverage   # With coverage
 
 * `vitest.config.ts` - Vitest configuration with happy-dom environment
 
-**Note:** Astro components are tested for their TypeScript logic and interfaces. Full component rendering is tested via E2E tests with Playwright.
+**Note:** Component tests are "specification tests" that document expected behavior. They do not test actual component implementations due to Astro's architecture. Full component rendering is tested via E2E tests with Playwright.
 
 ### 4. Playwright E2E Tests (141 tests ✅)
 
@@ -176,7 +176,7 @@ All tests run automatically in GitHub Actions:
 
 ### Vitest Tests
 
-* **Workflow:** `.github/workflows/astro-vitest.yml` (to be added)
+* **Workflow:** `.github/workflows/vitest.yml`
 * Runs on push and PRs
 * Tests Astro components and utilities
 * Generates coverage reports
@@ -200,10 +200,10 @@ All tests run automatically in GitHub Actions:
 | ------------------- | ----- | --------------------------- |
 | Prose Quality Tests | 920   | ⚠️ 206 failing (fixable)    |
 | Jest Unit Tests     | 42    | ✅ All passing               |
-| Vitest Unit Tests   | 27    | ✅ All passing               |
+| Vitest Unit Tests   | 25    | ✅ All passing               |
 | Playwright E2E      | 141   | ✅ All passing (1 skipped)   |
 | Node Tests          | 18    | ⚠️ 2 failing (pre-existing) |
-| **Total**           | **1148** | **1120 passing**         |
+| **Total**           | **1146** | **1118 passing**         |
 
 ## Running All Tests
 
