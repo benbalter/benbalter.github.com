@@ -7,18 +7,12 @@
  */
 
 import { siteConfig } from '../config';
-
-// GitHub username for avatar
-const githubUsername = 'benbalter';
-
-// Bio text - first paragraph from the about page
-const bioText = `Ben Balter is the Director of Hubber Enablement within the Office of the COO at GitHub, the world's largest software development platform, ensuring all Hubbers can do their best (remote) work.`;
 ---
 
 <div class="mini-bio">
   <div class="float-start pt-1 pe-3">
     <img 
-      src={`https://avatars.githubusercontent.com/${githubUsername}?s=100`}
+      src={`https://avatars.githubusercontent.com/${siteConfig.githubUsername}?s=100`}
       alt={siteConfig.author}
       width="100"
       height="100"
@@ -27,7 +21,7 @@ const bioText = `Ben Balter is the Director of Hubber Enablement within the Offi
   </div>
   
   <p>
-    {bioText} <a href="/about/">More about the author &rarr;</a>
+    {siteConfig.authorBio} <a href="/about/">More about the author &rarr;</a>
   </p>
 </div>
 
