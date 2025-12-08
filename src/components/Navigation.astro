@@ -1,0 +1,136 @@
+---
+/**
+ * Navigation Component
+ * 
+ * Site-wide navigation bar with active state highlighting.
+ * Matches the structure and styling of the Jekyll navigation.
+ */
+
+interface NavItem {
+  title: string;
+  url: string;
+}
+
+// Define navigation items (matching Jekyll's nav_pages)
+const navItems: NavItem[] = [
+  { title: 'Posts', url: '/' },
+  { title: 'About', url: '/about/' },
+  { title: 'Contact', url: '/contact/' },
+];
+
+// Get current path for active state
+const currentPath = Astro.url.pathname;
+---
+
+<div class="navbar navbar-expand-md bg-secondary-subtle text-secondary border-start border-end border-bottom border-top rounded-top rounded-bottom mb-3">
+  <div class="container-fluid px-3">
+    <a class="navbar-brand fw-bold" href="/">Ben Balter</a>
+    <button 
+      class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#navbar" 
+      aria-controls="navbar" 
+      aria-expanded="false" 
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar" role="navigation">
+      <ul class="navbar-nav mr-auto">
+        {navItems.map((item) => {
+          const isActive = currentPath === item.url || 
+                          (item.url === '/' && currentPath === '/');
+          return (
+            <li class="nav-item">
+              <a 
+                href={item.url} 
+                class={`nav-link${isActive ? ' active' : ''}`}
+              >
+                {item.title}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+
+    <span class="navbar-text text-end">
+      Technology leadership, collaboration, and open source
+    </span>
+  </div>
+</div>
+
+<style>
+  .navbar {
+    background-color: var(--bs-secondary-bg, #e9ecef) !important;
+    border: 1px solid var(--bs-border-color, #dee2e6);
+    border-radius: 0.375rem;
+    margin-bottom: 1rem;
+  }
+
+  .navbar-brand {
+    font-weight: 700;
+    color: var(--bs-body-color, #212529);
+  }
+
+  .navbar-toggler {
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .nav-item {
+    margin: 0;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--bs-link-color, #0d6efd);
+    text-decoration: none;
+    transition: color 0.15s ease-in-out;
+  }
+
+  .nav-link:hover,
+  .nav-link:focus {
+    color: var(--bs-link-hover-color, #0a58ca);
+  }
+
+  .nav-link.active {
+    color: var(--bs-emphasis-color, #000);
+    font-weight: 500;
+  }
+
+  .navbar-text {
+    color: var(--bs-secondary, #6c757d);
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 768px) {
+    .navbar-collapse {
+      flex-basis: 100%;
+      flex-grow: 1;
+      align-items: center;
+    }
+
+    .navbar-nav {
+      flex-direction: column;
+    }
+
+    .navbar-text {
+      display: none;
+    }
+  }
+</style>
