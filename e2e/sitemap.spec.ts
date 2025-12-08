@@ -149,6 +149,91 @@ test.describe('Sitemap Generation', () => {
         expect(content).toContain(`<loc>${pageUrl}</loc>`);
       });
     });
+
+    test('robots.txt should exist in dist-astro directory', () => {
+      const robotsPath = path.join(distAstroDir, 'robots.txt');
+      expect(fs.existsSync(robotsPath), 'robots.txt should exist in dist-astro directory').toBeTruthy();
+    });
+
+    test('robots.txt should have proper content', () => {
+      const robotsPath = path.join(distAstroDir, 'robots.txt');
+      const content = fs.readFileSync(robotsPath, 'utf-8');
+      
+      // Should have User-agent directive
+      expect(content).toContain('User-agent: *');
+      
+      // Should have Allow directive
+      expect(content).toContain('Allow: /');
+      
+      // Should reference sitemap
+      expect(content).toContain('Sitemap: https://ben.balter.com/sitemap.xml');
+      
+      // Should have Host directive
+      expect(content).toContain('Host: ben.balter.com');
+    });
+
+    test('robots.txt should include disallow directives', () => {
+      const robotsPath = path.join(distAstroDir, 'robots.txt');
+      const content = fs.readFileSync(robotsPath, 'utf-8');
+      
+      // Should have Disallow directives
+      expect(content).toContain('Disallow: /404.html');
+      expect(content).toContain('Disallow: /fine-print/');
+      
+      // Should not contain Jekyll template syntax
+      expect(content).not.toContain('{{');
+      expect(content).not.toContain('{%');
+      expect(content).not.toContain('page.disallows');
+    });
+
+    test('humans.txt should exist in dist-astro directory', () => {
+      const humansPath = path.join(distAstroDir, 'humans.txt');
+      expect(fs.existsSync(humansPath), 'humans.txt should exist in dist-astro directory').toBeTruthy();
+    });
+
+    test('humans.txt should have proper content', () => {
+      const humansPath = path.join(distAstroDir, 'humans.txt');
+      const content = fs.readFileSync(humansPath, 'utf-8');
+      
+      // Should have SITE section
+      expect(content).toContain('/* SITE */');
+      expect(content).toContain('Last Updated:');
+      expect(content).toContain('Standards: HTML5, CSS3');
+      expect(content).toContain('Components:');
+      
+      // Should have TEAM section
+      expect(content).toContain('/* TEAM */');
+      expect(content).toContain('Name: benbalter');
+      expect(content).toContain('Site: https://github.com/benbalter');
+      
+      // Should not contain Jekyll template syntax
+      expect(content).not.toContain('{{');
+      expect(content).not.toContain('{%');
+      expect(content).not.toContain('site.time');
+    });
+
+    test('security.txt should exist at .well-known/security.txt', () => {
+      const securityPath = path.join(distAstroDir, '.well-known', 'security.txt');
+      expect(fs.existsSync(securityPath), 'security.txt should exist at .well-known/security.txt').toBeTruthy();
+    });
+
+    test('security.txt should have proper content', () => {
+      const securityPath = path.join(distAstroDir, '.well-known', 'security.txt');
+      const content = fs.readFileSync(securityPath, 'utf-8');
+      
+      // Should have required fields per RFC 9116
+      expect(content).toContain('Contact: mailto:ben@balter.com');
+      expect(content).toContain('Expires:');
+      expect(content).toContain('Encryption: https://ben.balter.com/key.asc');
+      expect(content).toContain('Canonical: https://ben.balter.com/.well-known/security.txt');
+      expect(content).toContain('Policy: https://github.com/benbalter/benbalter.github.com/security/policy');
+      
+      // Should not contain Jekyll template syntax
+      expect(content).not.toContain('{{');
+      expect(content).not.toContain('{%');
+      expect(content).not.toContain('site.email');
+      expect(content).not.toContain('page.url');
+    });
   });
   
   // File-based tests - only run if out directory exists (after Next.js build)
