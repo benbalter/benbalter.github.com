@@ -145,7 +145,7 @@ export async function findRelatedPosts(
   maxResults = 10
 ): Promise<CollectionEntry<'posts'>[]> {
   // Use title and description for content comparison
-  const currentContent = `${currentPost.data.title} ${currentPost.data.description}`;
+  const currentContent = `${currentPost.data.title} ${currentPost.data.description || ''}`;
   
   // Extract words from all posts
   const documents = new Map<string, string[]>();
@@ -154,7 +154,7 @@ export async function findRelatedPosts(
   // Extract words from other posts
   for (const post of allPosts) {
     if (post.slug === currentPost.slug) continue;
-    const postContent = `${post.data.title} ${post.data.description}`;
+    const postContent = `${post.data.title} ${post.data.description || ''}`;
     documents.set(post.slug, extractWords(postContent));
   }
   

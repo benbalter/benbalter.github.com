@@ -113,7 +113,7 @@ const readingTime = calculateReadingTime(content);
         
         {relatedPosts.length > 0 && (
           <div class="related-posts border-top pt-4 mt-4">
-            <h2 class="h6 border-top pt-3">If you enjoyed this post, you might also enjoy:</h2>
+            <h3 class="related-posts-heading">If you enjoyed this post, you might also enjoy:</h3>
             <ul class="related-posts-list">
               {relatedPosts.map((post) => {
                 // Extract date from slug (YYYY-MM-DD-slug format)
@@ -385,7 +385,7 @@ const readingTime = calculateReadingTime(content);
     padding-top: 1.5rem;
   }
   
-  .related-posts h2 {
+  .related-posts-heading {
     font-size: 1rem;
     font-weight: 600;
     color: #24292e;
