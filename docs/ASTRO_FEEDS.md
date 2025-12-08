@@ -72,7 +72,7 @@ npm run astro:build
 
 To validate the feed:
 ```bash
-python3 -c "import feedparser; print(feedparser.parse('dist-astro/feed.xml').version)"
+python3 -c "import feedparser; print(feedparser.parse(open('dist-astro/feed.xml')).version)"
 ```
 
 ## Migration Notes

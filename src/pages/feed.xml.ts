@@ -6,20 +6,20 @@
  */
 
 import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import type { APIContext } from 'astro';
 import { siteConfig } from '../config';
 
 export async function GET(context: APIContext) {
   // Get all published posts, sorted by date (newest first)
-  const posts = await getCollection('posts', ({ data }: { data: any }) => {
+  const posts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => {
     return data.published !== false;
   });
   
   // Sort posts by filename date (newest first)
-  const sortedPosts = posts.sort((a: any, b: any) => {
-    const dateA = new Date(a.id.substring(0, 10));
-    const dateB = new Date(b.id.substring(0, 10));
+  const sortedPosts = posts.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => {
+    const dateA = new Date(a.slug.substring(0, 10));
+    const dateB = new Date(b.slug.substring(0, 10));
     return dateB.getTime() - dateA.getTime();
   });
 
@@ -28,13 +28,13 @@ export async function GET(context: APIContext) {
     description: siteConfig.description,
     site: context.site || siteConfig.url,
     
-    items: sortedPosts.map((post: any) => {
-      // Extract date from filename (YYYY-MM-DD-title.md format)
-      const dateMatch = post.id.match(/^(\d{4}-\d{2}-\d{2})/);
+    items: sortedPosts.map((post: CollectionEntry<'posts'>) => {
+      // Extract date from filename (YYYY-MM-DD-title format)
+      const dateMatch = post.slug.match(/^(\d{4}-\d{2}-\d{2})/);
       const pubDate = dateMatch ? new Date(dateMatch[1]) : new Date();
       
-      // Extract slug from filename
-      const slug = post.id.replace(/^(\d{4}-\d{2}-\d{2})-/, '').replace(/\.mdx?$/, '');
+      // Extract slug from filename (remove date prefix)
+      const slug = post.slug.replace(/^(\d{4}-\d{2}-\d{2})-/, '');
       
       // Get the year, month, day for the URL path
       const year = pubDate.getFullYear();
@@ -46,17 +46,7 @@ export async function GET(context: APIContext) {
         description: post.data.description,
         link: `${siteConfig.url}/${year}/${month}/${day}/${slug}/`,
         pubDate,
-        // Optional: Include content (commented out to match Jekyll's minimal feed)
-        // content: sanitizeHtml(post.body),
       };
     }),
-    
-    // Atom feed specific settings
-    xmlns: {
-      atom: 'http://www.w3.org/2005/Atom',
-    },
-    
-    // Custom XML namespaces if needed
-    customData: `<atom:link href="${siteConfig.url}/feed.xml" rel="self" type="application/rss+xml" />`,
   });
 }
