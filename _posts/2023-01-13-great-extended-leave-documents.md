@@ -7,7 +7,7 @@ I recently came back from an extended leave to find several of my colleagues ask
 
 ## Sections to include
 
-#### ⏳ TL;DR: <!-- markdownlint-disable-line MD001 MD026 -->
+#### ⏳ TL;DR:
 
 "Too long, didn't read". This is for the folks who have a question or request, but don't have time to read the whole document. Put it up front and make it visually distinct. The TL;DR can be as simple as:
 
@@ -17,11 +17,10 @@ I recently came back from an extended leave to find several of my colleagues ask
 
 When is your last day in the office? When do you anticipate being back? If the exact date of your leave is unknown, you can provide an estimated range, or describe the leave in relative terms (for example, `event + 2 weeks`). Keep this section up to date as your plans change. Here's an example of what that might look like:
 
-|                           | Start           | End             | Dates                |
+|                           | Start           | End             | Dates                |
 | ------------------------- | --------------- | --------------- | -------------------- |
 | First Leave               | Event           | Event + 2 weeks | 1/1/2020 − 1/15/2020 |
 | Second Leave              | Event + 4 weeks | Event + 6 weeks | 2/1/2020 − 2/15/2020 |
-| {: .table .w-75 .mx-auto} |                 |                 |                      |
 
 #### ☎️ Contact preferences
 
@@ -35,7 +34,6 @@ Enumerate all your ongoing responsibilities, along with a point of contact that 
 | ------------------------- | ------ |
 | Widget production         | Walter |
 | People management         | Paula  |
-| {: .table .w-50 .mx-auto} |        |
 
 #### 📹 Regular meetings
 
@@ -45,7 +43,6 @@ List any recurring meetings you normally run or attend, their frequency, and who
 | ------------------------- | -------------- | --------------------- | ----- |
 | Staff meeting             | Mondays @ 10AM | Set agenda, run       | Susie |
 | 1:1s with directs         | Weekly         | Take notes, follow up | Danny |
-| {: .table .w-75 .mx-auto} |                |                       |       |
 
 #### 👥 Rolodex
 
@@ -57,7 +54,6 @@ For everything you touch regularly, list your primary point of contact. This wil
 | IT                        | Iris  |
 | Legal                     | Larry |
 | Finance                   | Fran  |
-| {: .table .w-50 .mx-auto} |       |
 
 #### 👉 Stuff you touched recently or hope can be picked up while you're out
 
@@ -79,9 +75,7 @@ You could have the best leave or transition document in the world, but if nobody
 
 ## Putting it all together
 
-If you're preparing to go on leave (or transition to a new role), feel free to use the template below as a starting point.[^3] Of course, if you have any suggestions or proposed improvements, {% github_edit_link "pull requests are always welcome" %}.
-
-<!-- markdownlint-disable-next-line MD040 -->
+If you're preparing to go on leave (or transition to a new role), feel free to use the template below as a starting point.[^3] Of course, if you have any suggestions or proposed improvements, pull requests are always welcome.
 
 ```markdown
 # @your leave document

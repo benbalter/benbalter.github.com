@@ -7,7 +7,7 @@ If there's one thing that corporations are consistently good at, it's talking li
 
 Thankfully, it doesn't have to be that way. Corporations are fully capable of talking like humans do, at least the humans that make up that company are, and unsurprisingly customers respond positively when treated with that kind of base-level respect. If you've ever read [the GitHub Blog](https://github.com/blog), you'll hopefully notice that at GitHub, we pride ourselves in "being human". Not "delivering authentic experiences" or "speaking like a human", but actually being a gosh-darn human talking to other humans. There may be a corporate logo at the top of the page, but blog posts are still exclusively written by, and read by living, breathing humans. My name is on the post and it's simply me, as an individual, talking to customers. No corporate buzzwords or filters needed.
 
-A big part of that philosophy, and an even bigger part of reducing it to writing can be attributed to @kcwatkins who introduced me to the idea that [markets are conversations](http://newclues.cluetrain.com). Your users don't read your blog to be marketed to. They read your blog to learn about what's going on with your product, and the most effective way to convey product information — to educate current and potential users about a ship — is to be part of that ongoing conversation (that happens with or without your participation), not to stand on top of a hill shouting mindless marketing speak. Put another way, if you wouldn't do it in real life — say when bumping into a customer at a coffee shop — why is it okay to do on your corporate blog?
+A big part of that philosophy, and an even bigger part of reducing it to writing can be attributed to @kcwatkins who introduced me to the idea that [markets are conversations](http://newclues.cluetrain.com). Your users don't read your blog to be marketed to. They read your blog to learn about what's going on with your product, and the most effective way to convey product information — to educate current and potential users about a ship — is to be part of that ongoing conversation (that happens with or without your participation), not to stand on top of a hill shouting mindless marketing speak. Put another way, if you wouldn't do it in real life — say when bumping into a customer at a coffee shop — why is it okay to do on your corporate blog?
 
 Think of the typical corporate ship post. It probably starts something like this:
 
@@ -29,7 +29,7 @@ I'm sure what you do is super interesting. But what's even more interesting is w
 
 ## 3. Describe the 1/4" hole
 
-Your post should focus on what a user can do, not on what the thing you built does. Let's say I have a picture that I want hung on the wall. I'll likely go to a big-box retailer to pick up a quarter-inch drill. But in reality, I couldn't care less about the drill. [What I'm really after is the 1/4" hole](https://strategyn.com/jobs-to-be-done/) — the thing the drill ultimately enables me to do. Yet, most technology companies produce digital drills.
+Your post should focus on what a user can do, not on what the thing you built does. Let's say I have a picture that I want hung on the wall. I'll likely go to a big-box retailer to pick up a quarter-inch drill. But in reality, I couldn't care less about the drill. [What I'm really after is the 1/4" hole](https://strategyn.com/jobs-to-be-done/) — the thing the drill ultimately enables me to do. Yet, most technology companies produce digital drills.
 
 Rather than spend time telling me how great your drill is, describe the holes it produces. Show me how well it hangs pictures. Plant the seed in my head for all the great things that I can do with the drill. Airline commercials have pictures of exotic destinations, not cabin interiors. Liquor commercials show people out having a great time, not the underlying grains being grown. When announcing a new feature your post should be almost exclusively about the better hole it empowers the user to create, not the new drill bit they now need to buy.
 
@@ -53,7 +53,7 @@ The best blog posts are short on words and long on visuals. You could spend 1,00
 
 A blog post gives an idea a URL. It's the thing that I can link to in perpetuity to explain to others what action you took and why. It's how I share with my colleagues that I'm excited about a new feature. When you start sneaking multiple ideas into a single post, or go off on a mini-treatise about the virtue of why you produce widgets, you've broken that one-to-one relationship. Keep posts limited to one single idea, the smallest, most granular idea possible. If you find yourself needing to explain two distinct concepts, ship what you've got before going any further. Feel free to split things into multiple posts. Last, focus on what's new, not what used to be. Avoid apologizing or even mentioning the previous state of things. The post is about what's new, not what's changed.
 
-## 8. Remove <del>unnecessary</del> words
+## 8. Remove ~~unnecessary~~ words
 
 If you can remove a word, phrase, sentence, or paragraph without the post losing its core message, it needs to go. Facts > fluff.
 

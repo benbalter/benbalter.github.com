@@ -53,24 +53,11 @@ Creative ideas on how best to leverage the information welcome in the comments b
       <coursecrn><![CDATA[55164]]></coursecrn>
       <coursetitle><![CDATA[FinAcctingI:BasicFinStatements]]></coursetitle>
       <courseinstructor><![CDATA[ Singleton, L]]></courseinstructor>
-      <courselocation><![CDATA[<A HREF="http://www.gwu.edu/~map/building.cfm?BLDG=DUQUES" target="_blank" >DUQUES</a> 258]]></courselocation>
+      <courselocation><![CDATA[DUQUES 258]]></courselocation>
       <coursedays><![CDATA[MW 06:10PM - 09:05PM]]></coursedays>
       <coursetime><![CDATA[]]></coursetime>
       <coursestatus><![CDATA[OPEN]]></coursestatus>
       <coursesection><![CDATA[81]]></coursesection>
-      <coursecredit><![CDATA[1.50  ]]></coursecredit>
-    </course>
-    <course>
-      <coursedepartment><![CDATA[ACCY]]></coursedepartment>
-      <coursenumber><![CDATA[6102]]></coursenumber>
-      <coursecrn><![CDATA[55165]]></coursecrn>
-      <coursetitle><![CDATA[Fin Accting II: FinAcc Choices]]></coursetitle>
-      <courseinstructor><![CDATA[ Tarpley, R]]></courseinstructor>
-      <courselocation><![CDATA[<A HREF="http://www.gwu.edu/~map/building.cfm?BLDG=DUQUES" target="_blank" >DUQUES</a> 258]]></courselocation>
-      <coursedays><![CDATA[MW 06:10PM - 09:05PM]]></coursedays>
-      <coursetime><![CDATA[]]></coursetime>
-      <coursestatus><![CDATA[OPEN]]></coursestatus>
-      <coursesection><![CDATA[80]]></coursesection>
       <coursecredit><![CDATA[1.50  ]]></coursecredit>
     </course>
   </courses>
@@ -101,81 +88,4 @@ Creative ideas on how best to leverage the information welcome in the comments b
   </categories>
   ```
 
-### Buildings
-
-* Endpoint: `http://citl.gwu.edu/iphonedev/maps/[shortname].xml`
-* Returns:
-
-  ```xml
-  <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-  <buildings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <building>
-        <buildingNumber>153</buildingNumber>
-        <campus>Foggy Bottom</campus>
-        <UsageClassification>Academic</UsageClassification>
-        <buildingName>1776 G St</buildingName>
-        <address>1776 G St</address>
-        <geoLocation>38.897984,-77.04146</geoLocation>
-        <shortname>NA</shortname>
-        <picturelink>http://www.gwu.edu/~newsctr/mobile/images/maps/1776-G-ST_UP_WLA_2010-6618.jpg</picturelink>
-    </building>
-    <building>
-        <buildingNumber>136</buildingNumber>
-        <campus>Foggy Bottom</campus>
-        <UsageClassification>Academic</UsageClassification>
-        <buildingName>1957 E St</buildingName>
-        <address>1957 E St</address>
-        <geoLocation>38.896193,-77.044294</geoLocation>
-        <shortname>1957E</shortname>
-        <picturelink>http://www.gwu.edu/~newsctr/mobile/images/maps/Elliot_School_UP_WLA_2010-3102.jpg</picturelink>
-    </building>
-  </buildings>
-  ```
-
-## API Wrapper
-
-### Source
-
-[`github/benbalter/GW-API`](https://github.com/benbalter/GW-API)
-
-### Usage
-
-#### Initialize
-
-```php
-<?php $gwapi = new gw_api; ?>
-```
-
-#### List Departments
-
-```php
-<?php
-$departments = $gwapi->get_schedule();
-foreach ($departments as $department)
-echo $department->departmentname . '<br />';
-?>
-```
-
-#### Get Course Schedule for Fall 2011
-
-```php
-<?php $courses = $gwapi->get_schedule('2011','03','ACCY');?>
-```
-
-#### Get Course Schedule for current term
-
-```php
-<?php $courses = $gwapi->get_schedule(null,null,'ACCY'); ?>
-```
-
-#### Get map categories
-
-```php
-<?php $categories = $gwapi->get_map(); ?>
-```
-
-#### Get Buildings
-
-```php
-<?php $buildings = $gwapi->get_maps('academic'); ?>
-```
+For more details, check out the [GitHub repository](https://github.com/benbalter/GW-API).

@@ -23,8 +23,8 @@ In addition converting the Shapefile over to GeoJSON, the other step in there, `
 
 ## Why's this is important
 
-For one, you're liberating public geodata that would otherwise be inaccessible to the average citizen and making it available in a dumb-simple point, click, zoom interface that anyone can use. For another, by putting the information on GitHub in an open, text-based format, civic hackers and subject-matter experts can begin treating that data like open source code — forking, merging, diffing, tracking changes over time — and all of a sudden we've opened up not just the data, but the entire collaborative ecosystem that now surrounds it.
+For one, you're liberating public geodata that would otherwise be inaccessible to the average citizen and making it available in a dumb-simple point, click, zoom interface that anyone can use. For another, by putting the information on GitHub in an open, text-based format, civic hackers and subject-matter experts can begin treating that data like open source code — forking, merging, diffing, tracking changes over time — and all of a sudden we've opened up not just the data, but the entire collaborative ecosystem that now surrounds it.
 
 ## The result
 
-<script src="https://embed.github.com/view/geojson/benbalter/dc-maps/master/maps/embassies.geojson">&nbsp;</script>
+View the [DC Embassies map on GitHub](https://github.com/benbalter/dc-maps/blob/master/maps/embassies.geojson).

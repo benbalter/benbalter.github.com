@@ -4,9 +4,9 @@ description: WP Document Revisions is a document management and version control 
 redirect_from: 2011/08/29/document-management-version-control-for-wordpress/
 ---
 
-[WP Document Revisions](http://wordpress.org/extend/plugins/wp-document-revisions/) is a [document management](http://en.wikipedia.org/wiki/Document_management_system) and [version control](http://en.wikipedia.org/wiki/Revision_control) plugin. Built for time-sensitive and mission-critical projects, teams can collaboratively edit files of any format — text documents, spreadsheets, images, sheet music… anything — all the while, seamlessly tracking the document's progress as it moves through your organization's existing workflow.
+[WP Document Revisions](http://wordpress.org/extend/plugins/wp-document-revisions/) is a [document management](http://en.wikipedia.org/wiki/Document_management_system) and [version control](http://en.wikipedia.org/wiki/Revision_control) plugin. Built for time-sensitive and mission-critical projects, teams can collaboratively edit files of any format — text documents, spreadsheets, images, sheet music… anything — all the while, seamlessly tracking the document's progress as it moves through your organization's existing workflow.
 
-[![WP Document Revisions Screenshot](https://ben.balter.com/wp-content/uploads/2011/07/wp-document-revisions-screen-shot-300x226.png){: .float-end .ms-3 }](https://ben.balter.com/wp-content/uploads/2011/07/wp-document-revisions-screen-shot.png)
+[![WP Document Revisions Screenshot](https://ben.balter.com/wp-content/uploads/2011/07/wp-document-revisions-screen-shot-300x226.png)](https://ben.balter.com/wp-content/uploads/2011/07/wp-document-revisions-screen-shot.png)
 
 ## WP Document Revisions is three things
 
@@ -14,11 +14,11 @@ redirect_from: 2011/08/29/document-management-version-control-for-wordpress/
 2. A **collaboration tool** to empower teams to collaboratively draft, edit, and refine documents
 3. A **file hosting solution** to publish and securely deliver files to a team, to clients, or to the public
 
-<iframe width="560" height="315" src="http://www.youtube.com/embed/VpsTNSiJKis" frameborder="0" allowfullscreen="true" title="Video introduction to WP Document Revisions"></iframe>
+Watch the video introduction to WP Document Revisions on [YouTube](https://www.youtube.com/watch?v=VpsTNSiJKis).
 
-**Powerful Collaboration Tools** - *With great power does not have to come great complexity.* Based on a simple philosophy of putting powerful but intuitive tools in the hands of managers and content creators, WP Document Revisions leverages many of the essential WordPress features that, for more than eight years, have been tested and proven across countless industries — posts, attachments, revisions, taxonomies, authentication, and permalinks — to make collaborating on the creation and publication of documents a natural endeavor. Think of it as an [open-source and more intuitive version](https://ben.balter.com/2011/04/04/when-all-you-have-is-a-pair-of-bolt-cutters/) of the popular Microsoft collaboration suite, [Sharepoint.](https://products.office.com/en-US/sharepoint)
+**Powerful Collaboration Tools** - *With great power does not have to come great complexity.* Based on a simple philosophy of putting powerful but intuitive tools in the hands of managers and content creators, WP Document Revisions leverages many of the essential WordPress features that, for more than eight years, have been tested and proven across countless industries — posts, attachments, revisions, taxonomies, authentication, and permalinks — to make collaborating on the creation and publication of documents a natural endeavor. Think of it as an [open-source and more intuitive version](https://ben.balter.com/2011/04/04/when-all-you-have-is-a-pair-of-bolt-cutters/) of the popular Microsoft collaboration suite, [Sharepoint.](https://products.office.com/en-US/sharepoint)
 
-**Document History** - At each step of the authoring process, WP Document Revisions gives you an instant snapshot of your team's progress and the document's history. It even gives you the option to revert back to a previous revision — so don't fret if you make a mistake — or receive updates on changes to the document right in your favorite feed reader.
+**Document History** - At each step of the authoring process, WP Document Revisions gives you an instant snapshot of your team's progress and the document's history. It even gives you the option to revert back to a previous revision — so don't fret if you make a mistake — or receive updates on changes to the document right in your favorite feed reader.
 
 **Access Control** - Each document is given a persistent URL (for example, yourcompany.com/documents/2011/08/TPS-Report.doc) which can be private (securely delivered only to members of your organization), password protected (available only to those you select such as clients or contractors), or public (published and hosted for the world to see). If you catch a typo and upload a new version, that URL will continue to point to the latest version, regardless of how many changes you make.
 
@@ -30,7 +30,7 @@ redirect_from: 2011/08/29/document-management-version-control-for-wordpress/
 
 ## The Vitals
 
-* Support for any file type (docs, spreadsheets, images, PDFs — anything!)
+* Support for any file type (docs, spreadsheets, images, PDFs — anything!)
 * Securely stores unlimited revisions of your business's essential files
 * Provides a full file history in the form of a revision log, accessible via RSS
 * Helps you track and organize documents as they move through your organization's existing workflow
@@ -46,38 +46,6 @@ redirect_from: 2011/08/29/document-management-version-control-for-wordpress/
 * French and Spanish language support (easily translated to your language)
 * Integration with [Edit Flow](http://editflow.org/)
 
-## Features Available via the [Code Cookbook](https://github.com/benbalter/WP-Document-Revisions-Code-Cookbook)
+## Features Available via the Code Cookbook
 
-* **Audit Trail** - creates check in / check out audit trail for all documents
-* **State Permissions** - allows setting user-level permissions based on a custom taxonomy such as workflow state or other document status
-* **Third Party Encryption** - example of how to integrate at rest encryption using third-party tools
-* **Rename Documents** - changes all references to "Documents" in the interface to any label of your choosing
-* **State Change Notification** - how to use document API to allow users to receive notification whenever documents change workflow state
-* **Bulk Import** - how to batch import a directory (or other list) of files as documents
-* **file type Taxonomy** - Adds support to filter by file type
-* **Track Changes** - Autogenerates and appends revision summaries for changes to taxonomies, title, and visibility
-* **Remove Workflow States** - Completely removes Workflow state taxonomy backend and UI
-* **Change Tracker** - Autogenerates and appends revision summaries for changes to taxonomies, title, and visibility
-
-## Translations
-
-* French - [Hubert Campan](http://omnimaki.com/)
-* Spanish - TradiArt
-
-## Links
-
-* [Source Code](https://github.com/benbalter/WP-Document-Revisions/) (GitHub)
-* [Development version](https://github.com/benbalter/WP-Document-Revisions/tree/develop) ([Build Status](http://travis-ci.org/#!/benbalter/WP-Document-Revisions))
-* [Code Cookbook](https://github.com/benbalter/WP-Document-Revisions-Code-Cookbook)
-* [User support forums](http://wordpress.org/tags/wp-document-revisions)
-* [Submit a bug/feature request](https://github.com/benbalter/WP-Document-Revisions/issues)
-
-Questions? Comments? Many may have already been addressed in [the WP Document Revisions FAQ](http://wordpress.org/extend/plugins/wp-document-revisions/faq/), or feel free to simply leave a reply below.
-
-**Give it a try today:**: [Download WP Document Revisions](http://wordpress.org/extend/plugins/wp-document-revisions/) from the WordPress Plugin Repository
-
-*WP Document Revisions was developed by a [law student and a business student](https://ben.balter.com) with a [grant from Google](http://code.google.com/soc/), and in close coordination with and under the watchful eye of WordPress.org's lead developers.* [^1] *Special thanks to [Jon Cave](http://joncave.co.uk/), [Aaron Jorbin](http://aaron.jorb.in/), [Mitcho Erlewine](http://mitcho.com/), and [Andrew Nacin](http://andrewnacin.com/) for their guidance.*
-
-**Update (6/12): Comments have been closed in favor of [expanded support and discussion options](https://github.com/benbalter/WP-Document-Revisions/wiki/Where-to-get-Support-or-Report-an-Issue). Additional documentation about the project can now be found in the [Project Wiki](https://github.com/benbalter/WP-Document-Revisions/wiki). If you are interested in joining the project at any level of technical expertise, please see [How to Contribute](https://github.com/benbalter/WP-Document-Revisions/wiki/How-to-Contribute).**
-
-[^1]: Neither relationship should imply a formal endorsement.
+Check out the [WP Document Revisions Code Cookbook](https://github.com/benbalter/WP-Document-Revisions-Code-Cookbook) for additional features and customizations.

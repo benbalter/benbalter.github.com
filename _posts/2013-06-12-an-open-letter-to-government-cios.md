@@ -19,7 +19,7 @@ If you are not embarrassed by the first version of your product, you've launched
 
 ## Decentralized
 
-Avoid single points of failure, both in systems and in people. Foster communities. Push decisions to the edge. Put your faith in the crowd. Don't bake in <a href="http://en.wikipedia.org/wiki/Lock_(computer_science)">locks</a>. Avoid blockers. Automate wherever possible. Eliminate all humans.
+Avoid single points of failure, both in systems and in people. Foster communities. Push decisions to the edge. Put your faith in the crowd. Don't bake in [locks](http://en.wikipedia.org/wiki/Lock_%28computer_science%29). Avoid blockers. Automate wherever possible. Eliminate all humans.
 
 ## Open
 

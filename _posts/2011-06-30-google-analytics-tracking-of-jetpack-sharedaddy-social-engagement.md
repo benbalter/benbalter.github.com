@@ -10,23 +10,23 @@ If your site uses WordPress's Jetpack plugin with Sharedaddy, and you already ha
 
 To add Google Analytics to Sharedaddy's Twitter share button:
 
-<div>```javascript
+```javascript
 $('a.share-twitter').click( function() {
 _gaq.push( ['_trackSocial', 'twitter', 'share',
 $(this).attr('href').substr(0, $(this).attr('href').indexOf('?'))]);
-});```</div>
+});
+```
 
 …and for Facebook:
 
-<div>```javascript
+```javascript
 $('a.share-facebook').click( function() {
 _gaq.push( ['_trackSocial', 'faceboook', 'share',
 $(this).attr('href').substr(0, $(this).attr('href').indexOf('?'))]);
-});```</div>
+});
+```
 
-The above code simply listens for the share button to be clicked, and if so, passes the target URL back to Google, along with the service's name. Putting it all together into a plugin with a hook to <del>`wp_head`</del> `wp_footer` you get:
-
-<script src="https://gist.github.com/1058469.js"> </script>
+The above code simply listens for the share button to be clicked, and if so, passes the target URL back to Google, along with the service's name. Putting it all together into a plugin with a hook to ~~`wp_head`~~ `wp_footer` you get the full plugin code available as a [GitHub Gist](https://gist.github.com/1058469).
 
 The code should work out of the box with the standard share buttons (seen below), but can easily be adapted with a few minor modifications to apply to like and other iterations of the social media icons.
 

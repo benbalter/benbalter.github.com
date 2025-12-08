@@ -35,9 +35,9 @@ We need to tell the browser how to position the link icon, and to only display i
   left: -0.5em;
   opacity: 0;
 
-  \-webkit-transition: opacity 0.2s ease-in-out 0.1s;
-  \-moz-transition: opacity 0.2s ease-in-out 0.1s;
-  \-ms-transition: opacity 0.2s ease-in-out 0.1s;
+  -webkit-transition: opacity 0.2s ease-in-out 0.1s;
+  -moz-transition: opacity 0.2s ease-in-out 0.1s;
+  -ms-transition: opacity 0.2s ease-in-out 0.1s;
 }
 
 h2:hover .header-link,

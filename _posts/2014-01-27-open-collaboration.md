@@ -39,7 +39,7 @@ There are a lot of reasons for that de-emphasis. For one, technology has made it
 
 But among the biggest reasons for this shift, I'd argue, is that unlike when the open source movement was originally taking shape, today, there is no "source" and "binary" distribution to drive a wedge of imbalance. With web-centric, high-level languages like Ruby, Node.js, and PHP, it's really hard to distribute the software in such a way that you don't have everything you need to modify it, at least not in terms of code.
 
-## Open source <del>software</del>
+## Open source ~~software~~
 
 Today, the idea of open source as it is seen outside software is much more than just rights to "source code". What happens when there is no source versus binary? What does open source data look like? Open source content? Open source law? What happens when there is no OSI-approved license, because the thing I'm sharing simply isn't code. In [trying to distinguish open source from open source *software*](http://haacked.com/archive/2012/02/16/open-source-and-open-source-software-are-not-the-same.aspx/), I argued:
 
@@ -65,7 +65,7 @@ That begs the question: What percentage of the world needs to have access to som
 
 I think that's true. At least, the idea of someone calling something "government-only open source" scares me. But what do we call the millions of developers that adopt open source workflows for their closed-source software? For non-software collaboration? How do we divorce ourselves from a rights-centric viewpoint and the holy wars that go with it (I'm looking at you GPL)? What do you call something that's developed in the open with community involvement that may or may not be software?
 
-Dropping "software" from "open source software" isn't enough. Open source (software) since its inception, has always been about an external supply of freedom — the promise (or threat) that I am granted sufficient rights by the project creator such that I can, at any time, fork the project and go my own way — and it should stay that way. That's exactly what open source is, despite me using the phrase incorrectly for years now. Put another way, open source software solves for modification, not contribution.
+Dropping "software" from "open source software" isn't enough. Open source (software) since its inception, has always been about an external supply of freedom — the promise (or threat) that I am granted sufficient rights by the project creator such that I can, at any time, fork the project and go my own way — and it should stay that way. That's exactly what open source is, despite me using the phrase incorrectly for years now. Put another way, open source software solves for modification, not contribution.
 
 Perhaps what we need is a new word that better describes what we're really doing. @haacked went through the same existential crisis and [landed somewhere near *crowd sourced*](http://haacked.com/archive/2012/02/22/spirit-of-open-source.aspx/), but for me, that implies a hub and spoke model with a highly centralized power structure, not the egalitarian and decentralized web we often think of open source to be. Perhaps what I've been calling "open source" about all along is not really open source, but is in fact "open collaboration".
 
