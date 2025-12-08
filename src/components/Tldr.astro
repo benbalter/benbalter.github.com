@@ -22,12 +22,16 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
 
 <script>
   // Initialize Bootstrap tooltips after component mounts
+  // Use a more specific selector to avoid reinitializing tooltips
   import { Tooltip } from 'bootstrap';
   
   document.addEventListener('DOMContentLoaded', () => {
-    const tooltipElements = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    // Only initialize tooltips that haven't been initialized yet
+    const tooltipElements = document.querySelectorAll('[data-bs-toggle="tooltip"]:not([data-bs-tooltip-initialized])');
     tooltipElements.forEach((element) => {
       new Tooltip(element);
+      // Mark as initialized to prevent duplicate initialization
+      element.setAttribute('data-bs-tooltip-initialized', 'true');
     });
   });
 </script>
