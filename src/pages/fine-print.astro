@@ -1,5 +1,6 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+import { siteConfig } from '../config';
 
 const title = 'Fine Print';
 const description = 'This is my personal Web site. The opinions expressed herein represent my own, and not those of any employer, group, or organization.';
@@ -32,13 +33,13 @@ const description = 'This is my personal Web site. The opinions expressed herein
 
   <ul>
     <li>
-      All original content on <code>Ben.Balter.com</code> is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a> attributable to Ben Balter.
+      All original content on <code>{siteConfig.name}.com</code> is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a> attributable to {siteConfig.author}.
     </li>
     <li>
       Header image courtesy <a href="http://fedscoop.com/">FedScoop</a>, © 2013.
     </li>
     <li>
-      All code available <a href="https://github.com/benbalter/benbalter.github.com">on GitHub</a> and licensed under the MIT license.
+      All code available <a href={siteConfig.githubRepoUrl}>on GitHub</a> and licensed under the MIT license.
     </li>
   </ul>
 </PageLayout>

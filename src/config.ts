@@ -29,6 +29,10 @@ export const siteConfig = {
   url: 'https://ben.balter.com',
   description: 'Technology leadership, collaboration, and open source',
   
+  // Repository information
+  githubRepo: 'benbalter/benbalter.github.com',
+  githubRepoUrl: 'https://github.com/benbalter/benbalter.github.com',
+  
   // Contact information
   email: 'ben@balter.com',
   
