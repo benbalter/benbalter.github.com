@@ -54,7 +54,31 @@ npm run test:jest:coverage     # With coverage
 * `jest.config.mjs` - Jest configuration with Next.js support
 * `jest.setup.mjs` - Test environment setup
 
-### 3. Playwright E2E Tests (141 tests ✅)
+### 3. Vitest Unit Tests (30 tests ✅)
+
+Unit tests for Astro components and utilities using Vitest.
+
+**Test Files:**
+
+* `src/config.test.ts` - Site configuration (21 tests)
+* `src/components/components.test.ts` - Component logic and interfaces (9 tests)
+
+**Commands:**
+
+```bash
+npm run test:vitest            # Run all tests
+npm run test:vitest:watch      # Watch mode
+npm run test:vitest:ui         # Interactive UI mode
+npm run test:vitest:coverage   # With coverage
+```
+
+**Configuration:**
+
+* `vitest.config.ts` - Vitest configuration with happy-dom environment
+
+**Note:** Astro components are tested for their TypeScript logic and interfaces. Full component rendering is tested via E2E tests with Playwright.
+
+### 4. Playwright E2E Tests (141 tests ✅)
 
 End-to-end tests using Playwright for both Jekyll and Next.js builds.
 
@@ -126,7 +150,7 @@ npm run test:e2e:nextjs        # Run E2E tests for Next.js build
 * `playwright.config.ts` - Jekyll build testing (port 4000)
 * `playwright-nextjs.config.ts` - Next.js build testing (port 3000)
 
-### 4. Node Test Runner Tests
+### 5. Node Test Runner Tests
 
 Legacy tests using Node's built-in test runner:
 
@@ -150,6 +174,13 @@ All tests run automatically in GitHub Actions:
 * Generates coverage reports
 * Uploads artifacts
 
+### Vitest Tests
+
+* **Workflow:** `.github/workflows/astro-vitest.yml` (to be added)
+* Runs on push and PRs
+* Tests Astro components and utilities
+* Generates coverage reports
+
 ### Playwright E2E Tests
 
 * **Jekyll:** `.github/workflows/playwright.yml`
@@ -169,9 +200,10 @@ All tests run automatically in GitHub Actions:
 | ------------------- | ----- | --------------------------- |
 | Prose Quality Tests | 920   | ⚠️ 206 failing (fixable)    |
 | Jest Unit Tests     | 42    | ✅ All passing               |
+| Vitest Unit Tests   | 30    | ✅ All passing               |
 | Playwright E2E      | 141   | ✅ All passing (1 skipped)   |
 | Node Tests          | 18    | ⚠️ 2 failing (pre-existing) |
-| **Total**           | **1121** | **1093 passing**         |
+| **Total**           | **1151** | **1123 passing**         |
 
 ## Running All Tests
 
@@ -179,28 +211,42 @@ All tests run automatically in GitHub Actions:
 # Install dependencies
 npm ci
 
-# Run Jest tests
+# Run Jest tests (Next.js)
 npm run test:jest
+
+# Run Vitest tests (Astro)
+npm run test:vitest
 
 # Build Next.js site
 npm run next:build
 
 # Run Playwright tests for Next.js
 npm run test:e2e:nextjs
+
+# Build Astro site
+npm run astro:build
+
+# Run Playwright tests for Astro
+npm run test:e2e:astro
 ```
 
 ## Test Best Practices
 
-1. **Unit Tests (Jest)**
+1. **Unit Tests (Jest - Next.js)**
    * Test components in isolation
    * Mock external dependencies
    * Focus on component behavior and props
 
-2. **E2E Tests (Playwright)**
+2. **Unit Tests (Vitest - Astro)**
+   * Test TypeScript logic and interfaces
+   * Validate configuration and utilities
+   * Component rendering tested via E2E tests
+
+3. **E2E Tests (Playwright)**
    * Test user workflows
    * Verify page content and navigation
    * Check accessibility and performance
-   * Test both Jekyll and Next.js builds
+   * Test Jekyll, Next.js, and Astro builds
 
 3. **CI Integration**
    * All tests must pass before merging
@@ -210,7 +256,8 @@ npm run test:e2e:nextjs
 ## Key Testing Files
 
 * `.gitignore` - Excludes test artifacts and coverage
-* `jest.config.mjs` - Jest configuration
+* `jest.config.mjs` - Jest configuration for Next.js
+* `vitest.config.ts` - Vitest configuration for Astro
 * `playwright.config.ts` - Playwright configuration for Jekyll
 * `playwright-nextjs.config.ts` - Playwright configuration for Next.js
 * `e2e/helpers.ts` - Shared test utilities
@@ -222,6 +269,12 @@ npm run test:e2e:nextjs
 * Ensure `NODE_ENV` is set correctly
 * Check for module resolution issues
 * Verify mocks are working
+
+### Vitest Issues
+
+* Ensure dependencies are installed: `npm ci`
+* Check for TypeScript errors: `npm run astro:check`
+* Verify test files match pattern: `src/**/*.{test,spec}.{ts,tsx}`
 
 ### Playwright Issues  
 
