@@ -161,7 +161,8 @@ th, td {
 
 // Custom styles that extend Bootstrap classes
 abbr[data-bs-original-title] {
-    @extend abbr, [title]
+    @extend abbr;
+    @extend [title];
 }
 
 .footnotes {
