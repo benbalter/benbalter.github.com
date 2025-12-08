@@ -2,58 +2,167 @@
 import PageLayout from '../layouts/PageLayout.astro';
 
 const title = 'About';
-const description = 'About Ben Balter and this Astro implementation';
+const description = 'Ben Balter is an attorney, an open source developer, and a Senior Technical Program Manager at GitHub, the world\'s largest software development network.';
+
+// Contact links from config
+const contactLinks = [
+  { name: 'Email', url: 'mailto:ben@balter.com', icon: 'fa-solid fa-envelope' },
+  { name: 'Add to contacts', url: '/vcard.vcf', icon: 'fa-solid fa-address-card' },
+  { name: 'Bluesky', url: 'https://bsky.app/profile/ben.balter.com', icon: 'fa-brands fa-bluesky' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/benbalter', icon: 'fa-brands fa-linkedin' },
+  { name: 'GitHub', url: 'https://github.com/benbalter', icon: 'fa-brands fa-github' },
+];
+
+const pgpKey = '07C6 73FB F30E 01C0 C342 7AB8 DBB6 7C24 6AD3 56C4';
 ---
 
 <PageLayout title={title} description={description}>
-  <section>
-    <h2>Project Context</h2>
-    <p>
-      This Astro project is part of Ben Balter's personal website repository, 
-      which is currently exploring multiple static site generation approaches:
+  <div class="float-end ms-3 mb-2 headshot">
+    <a href="https://github.com/benbalter/benbalter.github.com/raw/master/assets/img/headshot.jpg">
+      <img src="/assets/img/headshot.jpg" alt="Ben Balter headshot" width="250" height="250" />
+    </a>
+  </div>
+
+  <p>
+    Ben Balter is the Director of Hubber Enablement within the Office of the COO at <a href="https://github.com/about">GitHub</a>, the world's largest software development platform, ensuring all Hubbers can do their best (remote) work. Previously, he served as the Director of Technical Business Operations, and as Chief of Staff for Security, he managed the office of the Chief Security Officer, improving overall business effectiveness of the Security organization through portfolio management, strategy, planning, culture, and values. As a Staff Technical Program manager for Enterprise and Compliance, Ben managed GitHub's on-premises and SaaS enterprise offerings, and as the Senior Product Manager overseeing the platform's Trust and Safety efforts, Ben shipped more than 500 features in support of community management, privacy, compliance, content moderation, product security, platform health, and open source workflows to ensure the GitHub community and platform remained safe, secure, and welcoming for all software developers. Before joining GitHub's Product team, Ben served as GitHub's Government Evangelist, leading the efforts to encourage more than 2,000 government organizations across 75 countries to adopt open source philosophies for code, data, and policy development.
+  </p>
+
+  <p>
+    Described by the US Chief Technology Officer as one of "the baddest of the badass innovators," prior to GitHub, Ben was a member of the inaugural class of Presidential Innovation Fellows where he served as entrepreneur in residence reimagining the role of technology in brokering the relationship between citizens and government. Ben has also served as a Fellow in the Office of the US Chief Information Officer within the Executive Office of the President where he was instrumental in drafting President Obama's Digital Strategy and Open Data Policy, and on the SoftWare Automation and Technology (SWAT) Team, the White House's first agile development team. His paper, <a href="/2011/11/29/towards-a-more-agile-government/">Towards a More Agile Government</a> was published in the Public Contract Law Journal, arguing that Federal IT Procurement should be more amenable to modern, agile development methods.
+  </p>
+
+  <p>
+    As an attorney passionate about the disruptive potential of technology, Ben holds a J.D. and an M.B.A. from the George Washington University and is a member of the DC Bar. When not trying to change the world, he enjoys tackling otherwise-impossible challenges to sharing information using nothing more than duct tape, version control, and occasionally a pack of bubblegum. <a href="/resume/">Full resume</a>.
+  </p>
+
+  <p>
+    Feel free to email him at <a href="mailto:ben@balter.com">Ben@Balter.com</a> or you can find him on these social networks:
+  </p>
+
+  <div class="contact-links text-center">
+    <div class="row justify-content-center">
+      {contactLinks.map((link) => (
+        <div class="col-sm">
+          <a href={link.url} rel="me noopener" target="_blank">
+            <div class="row justify-content-center mb-3 align-items-center">
+              <div class="col-sm-12 col-2 offset-3 offset-sm-0 text-center">
+                <i class={`${link.icon} fa-2x`} aria-hidden="true"></i>
+              </div>
+              <div class="col-sm-12 col-6 text-sm-center text-start">
+                {link.name}
+              </div>
+            </div>
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <p class="small">
+      <a href="/key.asc">PGP: <code>{pgpKey}</code></a>
     </p>
-    <ul>
-      <li><strong>Jekyll (Legacy)</strong> - The original implementation, currently in production</li>
-      <li><strong>Next.js (In Development)</strong> - A React-based migration with App Router</li>
-      <li><strong>Astro (Experimental)</strong> - This implementation, exploring Astro's capabilities</li>
-    </ul>
-  </section>
-  
-  <section>
-    <h2>Why Astro?</h2>
-    <p>
-      Astro offers several advantages for static sites:
-    </p>
-    <ul>
-      <li><strong>Performance First</strong> - Ships zero JavaScript by default</li>
-      <li><strong>Component Islands</strong> - Partial hydration for interactive components</li>
-      <li><strong>Framework Agnostic</strong> - Use React, Vue, Svelte, or plain HTML</li>
-      <li><strong>Built-in Optimizations</strong> - Image optimization, asset bundling, and more</li>
-      <li><strong>Great DX</strong> - Fast builds, hot module reloading, TypeScript support</li>
-    </ul>
-  </section>
-  
-  <section>
-    <h2>Configuration</h2>
-    <p>This Astro project is configured to coexist with existing implementations:</p>
-    <ul>
-      <li>Build output: <code>dist-astro/</code> (separate from Jekyll <code>_site/</code> and Next.js <code>out/</code>)</li>
-      <li>Development server: Port 4321 (Jekyll uses 4000, Next.js uses 3000)</li>
-      <li>Source directory: <code>src/</code> (Astro-specific)</li>
-      <li>Static assets: <code>public/</code> at repository root (shared with Next.js)</li>
-    </ul>
-  </section>
-  
-  <section>
-    <h2>GitHub Pages Compatibility</h2>
-    <p>
-      The Astro build is configured for static site generation with:
-    </p>
-    <ul>
-      <li>Static output mode (no server-side rendering)</li>
-      <li>Trailing slashes for consistent URLs</li>
-      <li>Directory-based output format</li>
-      <li>Optimized asset handling</li>
-    </ul>
-  </section>
+  </div>
 </PageLayout>
+
+<style>
+  .headshot {
+    float: right;
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+    width: 25%;
+  }
+
+  .headshot img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+
+  .contact-links {
+    margin-top: 2rem;
+  }
+
+  .contact-links .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+  .contact-links .col-sm {
+    flex: 1 0 0%;
+    padding: 0 15px;
+  }
+
+  .contact-links a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .contact-links a:hover {
+    color: #0366d6;
+  }
+
+  .contact-links .mb-3 {
+    margin-bottom: 1rem !important;
+  }
+
+  .contact-links .justify-content-center {
+    justify-content: center !important;
+  }
+
+  .contact-links .align-items-center {
+    align-items: center !important;
+  }
+
+  .contact-links .text-center {
+    text-align: center !important;
+  }
+
+  .contact-links .text-start {
+    text-align: left !important;
+  }
+
+  .contact-links .text-sm-center {
+    text-align: center !important;
+  }
+
+  .small {
+    font-size: 0.875em;
+  }
+
+  code {
+    background-color: #f6f8fa;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 0.9em;
+  }
+
+  @media (max-width: 768px) {
+    .headshot {
+      float: none;
+      width: 50%;
+      margin: 0 auto 1rem;
+      display: block;
+    }
+
+    .contact-links .col-sm {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    .contact-links .offset-3 {
+      margin-left: 25%;
+    }
+
+    .contact-links .col-2 {
+      flex: 0 0 auto;
+      width: 16.666667%;
+    }
+
+    .contact-links .col-6 {
+      flex: 0 0 auto;
+      width: 50%;
+    }
+  }
+</style>
