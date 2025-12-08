@@ -1,0 +1,9 @@
+---
+/**
+ * Redirect from /books/ to /other-recommended-reading/
+ * Maintains backward compatibility with old URLs
+ */
+
+// Redirect to the new location
+return Astro.redirect('/other-recommended-reading/', 301);
+---
