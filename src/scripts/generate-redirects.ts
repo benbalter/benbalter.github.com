@@ -40,7 +40,6 @@ interface RedirectMapping {
  */
 function generateRedirectHTML(toUrl: string, isExternal: boolean): string {
   const fullUrl = isExternal ? toUrl : `${SITE_URL}${toUrl}`;
-  const displayUrl = isExternal ? toUrl : toUrl;
   
   return `<!DOCTYPE html>
 <html lang="en-US">
@@ -48,13 +47,13 @@ function generateRedirectHTML(toUrl: string, isExternal: boolean): string {
   <meta charset="utf-8">
   <title>Redirecting&hellip;</title>
   <link rel="canonical" href="${fullUrl}">
-  <script>location="${isExternal ? toUrl : displayUrl}"</script>
-  <meta http-equiv="refresh" content="0; url=${isExternal ? toUrl : displayUrl}">
+  <script>location="${toUrl}"</script>
+  <meta http-equiv="refresh" content="0; url=${toUrl}">
   <meta name="robots" content="noindex">
 </head>
 <body>
   <h1>Redirecting&hellip;</h1>
-  <a href="${displayUrl}">Click here if you are not redirected.</a>
+  <a href="${toUrl}">Click here if you are not redirected.</a>
 </body>
 </html>`;
 }
