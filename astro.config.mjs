@@ -67,5 +67,15 @@ export default defineConfig({
       // Separate chunk directory to avoid conflicts
       assetsDir: 'assets',
     },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // Allow importing from node_modules using ~ prefix (webpack style)
+          loadPaths: ['node_modules'],
+          // Suppress deprecation warnings for @import rules (Bootstrap 5.3.x uses them)
+          quietDeps: true,
+        },
+      },
+    },
   },
 });

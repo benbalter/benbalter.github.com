@@ -1,107 +1,137 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+import { siteConfig, contactLinks } from '../config';
 
 const title = 'Contact';
-const description = 'Get in touch with Ben Balter';
+const description = 'Contact Ben Balter via email or social media';
 ---
 
 <PageLayout title={title} description={description}>
-  <section>
-    <h2>Get in Touch</h2>
-    <p>
-      I'm always interested in hearing about new opportunities, collaborations, 
-      and interesting projects. Feel free to reach out through any of the following channels:
+  <p class="text-center lead">
+    Looking to get in touch? Email <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> or I'm <code>@{siteConfig.socialUsername}</code> most places:
+  </p>
+
+  <div class="contact-links text-center">
+    <div class="row justify-content-center">
+      {contactLinks.map((link) => (
+        <div class="col-sm">
+          <a href={link.url} rel="me noopener" target="_blank">
+            <div class="row justify-content-center mb-3 align-items-center">
+              <div class="col-sm-12 col-2 offset-3 offset-sm-0 text-center">
+                <i class={`${link.icon} fa-2x`} aria-hidden="true"></i>
+              </div>
+              <div class="col-sm-12 col-6 text-sm-center text-start">
+                {link.name}
+              </div>
+            </div>
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <p class="small">
+      <a href="/key.asc">PGP: <code>{siteConfig.pgpKey}</code></a>
     </p>
-  </section>
-  
-  <section>
-    <h2>Contact Information</h2>
-    <ul class="contact-list">
-      <li>
-        <strong><i class="fas fa-envelope"></i> Email:</strong> 
-        <a href="mailto:ben@balter.com">ben@balter.com</a>
-      </li>
-      <li>
-        <strong><i class="fab fa-twitter"></i> Twitter:</strong> 
-        <a href="https://twitter.com/BenBalter" target="_blank" rel="noopener noreferrer">@BenBalter</a>
-      </li>
-      <li>
-        <strong><i class="fab fa-github"></i> GitHub:</strong> 
-        <a href="https://github.com/benbalter" target="_blank" rel="noopener noreferrer">@benbalter</a>
-      </li>
-      <li>
-        <strong><i class="fab fa-linkedin"></i> LinkedIn:</strong> 
-        <a href="https://linkedin.com/in/BenBalter" target="_blank" rel="noopener noreferrer">Ben Balter</a>
-      </li>
-      <li>
-        <strong><i class="fab fa-mastodon"></i> Mastodon:</strong> 
-        <a href="https://mastodon.social/@benbalter" target="_blank" rel="noopener noreferrer me">@benbalter@mastodon.social</a>
-      </li>
-    </ul>
-  </section>
-  
-  <section>
-    <h2>Download vCard</h2>
-    <p>
-      <a href="/vcard.vcf" class="btn btn-primary">
-        <i class="fas fa-address-card"></i> Add to Contacts
-      </a>
-    </p>
-  </section>
+  </div>
 </PageLayout>
-
 <style>
-  .contact-list {
-    list-style: none;
-    padding-left: 0;
+  .text-center {
+    text-align: center !important;
   }
 
-  .contact-list li {
-    margin-bottom: 1rem;
-    padding: 0.5rem 0;
+  .lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
   }
 
-  .contact-list strong {
-    display: inline-block;
-    min-width: 150px;
+  .contact-links {
+    margin-top: 2rem;
   }
 
-  .contact-list i {
-    margin-right: 0.5rem;
-    width: 20px;
-    text-align: center;
+  .contact-links .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
   }
 
-  .btn {
-    display: inline-block;
-    font-weight: 400;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    user-select: none;
-    border: 1px solid transparent;
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: 0.25rem;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+  .contact-links .col-sm {
+    flex: 1 0 0%;
+    padding: 0 15px;
+  }
+
+  .contact-links a {
     text-decoration: none;
+    color: inherit;
+    display: block;
   }
 
-  .btn-primary {
-    color: #fff;
-    background-color: #0366d6;
-    border-color: #0366d6;
+  .contact-links a:hover {
+    color: #0366d6;
   }
 
-  .btn-primary:hover {
-    color: #fff;
-    background-color: #0256b3;
-    border-color: #024a9f;
-    text-decoration: none;
+  .contact-links .mb-3 {
+    margin-bottom: 1rem !important;
   }
 
-  .btn i {
-    margin-right: 0.5rem;
+  .contact-links .justify-content-center {
+    justify-content: center !important;
+  }
+
+  .contact-links .align-items-center {
+    align-items: center !important;
+  }
+
+  .contact-links .text-center {
+    text-align: center !important;
+  }
+
+  .contact-links .text-start {
+    text-align: left !important;
+  }
+
+  .contact-links .text-sm-center {
+    text-align: center !important;
+  }
+
+  .small {
+    font-size: 0.875em;
+    margin-top: 1rem;
+  }
+
+  code {
+    background-color: #f6f8fa;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 0.9em;
+  }
+
+  @media (max-width: 768px) {
+    .contact-links .col-sm {
+      flex: 0 0 100%;
+      max-width: 100%;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-links .offset-3 {
+      margin-left: 25%;
+    }
+
+    .contact-links .col-2 {
+      flex: 0 0 auto;
+      width: 16.666667%;
+    }
+
+    .contact-links .col-6 {
+      flex: 0 0 auto;
+      width: 50%;
+    }
+
+    .contact-links .col-12 {
+      flex: 0 0 auto;
+      width: 100%;
+    }
   }
 </style>
