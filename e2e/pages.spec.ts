@@ -11,6 +11,7 @@ test.describe('Static Pages', () => {
     { url: '/about', name: 'About' },
     { url: '/contact', name: 'Contact' },
     { url: '/talks', name: 'Talks' },
+    { url: '/other-recommended-reading', name: 'Other Recommended Reading' },
   ];
 
   pages.forEach(({ url, name }) => {
@@ -100,5 +101,70 @@ test.describe('Talks Page', () => {
       content?.includes('speak');
     
     expect(hasTalkContent).toBeTruthy();
+  });
+});
+
+test.describe('Other Recommended Reading Page', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/other-recommended-reading');
+    await waitForPageReady(page);
+  });
+
+  test('should display book recommendations', async ({ page }) => {
+    const content = await page.textContent('body');
+    
+    // Should contain book-related content
+    const hasBookContent = 
+      content?.includes('book') ||
+      content?.includes('reading') ||
+      content?.includes('recommend');
+    
+    expect(hasBookContent).toBeTruthy();
+  });
+
+  test('should have book categories', async ({ page }) => {
+    // Check for some expected category headings
+    const categories = page.locator('h3');
+    const count = await categories.count();
+    
+    expect(count).toBeGreaterThan(0);
+  });
+
+  test('should have Amazon affiliate links', async ({ page }) => {
+    // Check for Amazon links with affiliate tag
+    const amazonLinks = page.locator('a[href*="amazon.com"]');
+    const count = await amazonLinks.count();
+    
+    expect(count).toBeGreaterThan(0);
+    
+    // Verify affiliate tag is present
+    const firstLink = amazonLinks.first();
+    const href = await firstLink.getAttribute('href');
+    expect(href).toContain('tag=benbalter07-20');
+  });
+
+  test('should display book images', async ({ page }) => {
+    const bookImages = page.locator('img[alt]');
+    const count = await bookImages.count();
+    
+    expect(count).toBeGreaterThan(0);
+  });
+});
+
+test.describe('Other Recommended Reading Redirects', () => {
+  const oldUrls = [
+    '/books',
+    '/books-for-geeks',
+    '/recommended-reading',
+  ];
+
+  oldUrls.forEach((url) => {
+    test(`should redirect from ${url} to /other-recommended-reading`, async ({ page }) => {
+      await page.goto(url);
+      await page.waitForLoadState('networkidle');
+      
+      // Should be redirected to the new URL
+      expect(page.url()).toContain('/other-recommended-reading');
+    });
   });
 });

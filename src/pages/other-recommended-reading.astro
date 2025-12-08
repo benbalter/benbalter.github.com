@@ -1,0 +1,171 @@
+---
+/**
+ * Other Recommended Reading Page
+ * 
+ * Displays a curated list of book recommendations organized by category.
+ * Books are loaded from _data/books.yml and displayed in a responsive grid.
+ */
+
+import PageLayout from '../layouts/PageLayout.astro';
+import { readFileSync } from 'node:fs';
+import yaml from 'js-yaml';
+import { join } from 'node:path';
+
+const title = 'Other recommended reading';
+const description = 'Here are some of the books that have had a significant influence on my career, management style, and professional development that I often recommend to others interested in IT management and leadership, career and corporate life, open source, startups and innovation, information security, product management, marketing, technology policy, government and organizing, and everything else.';
+
+// Load books data from _data/books.yml
+const booksPath = join(process.cwd(), '_data', 'books.yml');
+let booksData;
+try {
+  const booksYaml = readFileSync(booksPath, 'utf-8');
+  booksData = yaml.load(booksYaml, { schema: yaml.SAFE_SCHEMA }) as Record<string, Array<{ title: string; asin: string; tldr: string }>>;
+} catch (error) {
+  throw new Error(`Failed to load books data from ${booksPath}: ${error instanceof Error ? error.message : String(error)}`);
+}
+
+// Amazon affiliate tag
+const amazonAffiliatesTag = 'benbalter07-20';
+
+// Convert object to array of [category, books] entries
+const bookGroups = Object.entries(booksData);
+
+// Helper function to slugify category names for IDs
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+---
+
+<PageLayout title={title} description={description}>
+
+  {bookGroups.map(([category, books]) => (
+    <section class="book-group mb-5">
+      <h3 id={slugify(category)} class="book-category-title">{category}</h3>
+      
+      <div class="books-container">
+        {books.map((book) => (
+          <div class="book-item">
+            <a 
+              href={`https://www.amazon.com/gp/product/${book.asin}/?tag=${amazonAffiliatesTag}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="book-link"
+            >
+              <div class="book-cover">
+                <img 
+                  src={`https://images.amazon.com/images/P/${book.asin}.01.MZZZZZZZ.jpg`}
+                  alt={book.title}
+                  loading="lazy"
+                />
+              </div>
+              
+              <div class="book-title">
+                {book.title}
+              </div>
+            </a>
+            
+            <div class="book-tldr">
+              {book.tldr}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  ))}
+</PageLayout>
+
+<style>
+  .lead {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #586069;
+  }
+
+  .lead p {
+    margin-bottom: 0;
+  }
+
+  .book-group {
+    margin-bottom: 3rem;
+  }
+
+  .book-category-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #24292e;
+    border-bottom: 2px solid #e1e4e8;
+    padding-bottom: 0.5rem;
+  }
+
+  .books-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .books-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .book-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .book-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: opacity 0.2s;
+  }
+
+  .book-link:hover {
+    opacity: 0.8;
+  }
+
+  .book-cover {
+    margin-bottom: 1rem;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .book-cover img {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+  }
+
+  .book-title {
+    font-weight: 600;
+    color: #0366d6;
+    min-height: 3rem;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .book-tldr {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #586069;
+    text-align: justify;
+    hyphens: auto;
+  }
+</style>
