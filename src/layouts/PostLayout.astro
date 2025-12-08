@@ -70,18 +70,6 @@ const readingTime = calculateReadingTime(content);
           )}
           
           <div class="post-meta text-muted mb-4">
-            {pubDate && (
-              <div class="mb-2">
-                <time datetime={pubDate.toISOString()}>
-                  <i class="far fa-calendar"></i> Published {formattedDate}
-                </time>
-                {updatedDate && (
-                  <span class="ms-3">
-                    <i class="far fa-edit"></i> Updated {formattedUpdatedDate}
-                  </span>
-                )}
-              </div>
-            )}
             {readingTime > 0 && (
               <div>
                 <i class="far fa-clock"></i> {readingTime} min read
@@ -101,6 +89,12 @@ const readingTime = calculateReadingTime(content);
         <div class="post-content entrybody">
           <slot />
         </div>
+        
+        {pubDate && (
+          <div class="mb-2 text-muted small">
+            Originally published {formattedDate} | <a class="link-secondary" href={`${siteConfig.githubRepoUrl}/commits/main${Astro.url.pathname.replace(/\/$/, '')}.md`} target="_blank" rel="noopener">View revision history</a>
+          </div>
+        )}
         
         {tags.length > 0 && (
           <div class="post-tags mt-4 mb-3">
@@ -223,6 +217,20 @@ const readingTime = calculateReadingTime(content);
 
   .mb-2 {
     margin-bottom: 0.5rem !important;
+  }
+
+  .small {
+    font-size: 0.875rem;
+  }
+
+  .link-secondary {
+    color: #6c757d;
+    text-decoration: none;
+  }
+
+  .link-secondary:hover {
+    color: #495057;
+    text-decoration: underline;
   }
 
   .mb-3 {
