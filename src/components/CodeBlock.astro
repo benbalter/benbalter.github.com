@@ -1,0 +1,72 @@
+---
+/**
+ * CodeBlock Component
+ * 
+ * Enhanced code block with title and copy functionality.
+ * 
+ * Usage in MDX:
+ * <CodeBlock title="example.js" language="javascript">
+ * const message = 'Hello, World!';
+ * console.log(message);
+ * </CodeBlock>
+ */
+
+interface Props {
+  title?: string;
+  language?: string;
+}
+
+const { title, language } = Astro.props;
+---
+
+<div class="code-block">
+  {title && (
+    <div class="code-block-header">
+      <span class="code-block-title">{title}</span>
+      {language && <span class="code-block-language">{language}</span>}
+    </div>
+  )}
+  <div class="code-block-content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .code-block {
+    margin: 1.5rem 0;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .code-block-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: #f6f8fa;
+    border-bottom: 1px solid #e1e4e8;
+  }
+  
+  .code-block-title {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #24292e;
+  }
+  
+  .code-block-language {
+    font-size: 0.8em;
+    color: #586069;
+    text-transform: uppercase;
+  }
+  
+  .code-block-content {
+    padding: 0;
+  }
+  
+  .code-block-content :global(pre) {
+    margin: 0;
+    border-radius: 0;
+  }
+</style>

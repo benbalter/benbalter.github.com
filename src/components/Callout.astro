@@ -1,0 +1,91 @@
+---
+/**
+ * Callout Component
+ * 
+ * Display important information, warnings, or notes in blog posts.
+ * 
+ * Usage in MDX:
+ * <Callout type="info">This is an info callout</Callout>
+ * <Callout type="warning">This is a warning</Callout>
+ * <Callout type="error">This is an error message</Callout>
+ */
+
+interface Props {
+  type?: 'info' | 'warning' | 'error' | 'success';
+  title?: string;
+}
+
+const { type = 'info', title } = Astro.props;
+
+const icons = {
+  info: '💡',
+  warning: '⚠️',
+  error: '❌',
+  success: '✅',
+};
+
+const colors = {
+  info: '#0366d6',
+  warning: '#f9c513',
+  error: '#d73a49',
+  success: '#28a745',
+};
+---
+
+<div class={`callout callout-${type}`}>
+  {title && (
+    <div class="callout-title">
+      <span class="callout-icon">{icons[type]}</span>
+      <strong>{title}</strong>
+    </div>
+  )}
+  <div class="callout-content">
+    <slot />
+  </div>
+</div>
+
+<style define:vars={{ borderColor: colors[type] }}>
+  .callout {
+    border-left: 4px solid var(--borderColor);
+    padding: 1rem;
+    margin: 1.5rem 0;
+    background-color: #f6f8fa;
+    border-radius: 4px;
+  }
+  
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  
+  .callout-icon {
+    font-size: 1.2em;
+  }
+  
+  .callout-content {
+    margin: 0;
+  }
+  
+  .callout-content :global(p:last-child) {
+    margin-bottom: 0;
+  }
+  
+  .callout-info {
+    background-color: #e8f4ff;
+  }
+  
+  .callout-warning {
+    background-color: #fff8e6;
+  }
+  
+  .callout-error {
+    background-color: #ffe6e6;
+  }
+  
+  .callout-success {
+    background-color: #e6ffe6;
+  }
+</style>
