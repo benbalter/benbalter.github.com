@@ -11,6 +11,7 @@ import MiniBio from '../components/MiniBio.astro';
 import { siteConfig } from '../config';
 import { calculateReadingTime } from '../utils/reading-time';
 import type { CollectionEntry } from 'astro:content';
+import { marked } from 'marked';
 
 interface Props {
   title: string;
@@ -67,7 +68,13 @@ const readingTime = calculateReadingTime(content);
           <h1 class="display-4 text-primary">{title}</h1>
           
           {description && (
-            <p class="lead post-description">{description}</p>
+            <div class="lead post-tldr">
+              <strong>
+                <abbr title='"Too Long; Didn\'t Read" — Internet shorthand for "a brief summary of longer writing"' class="initialism">TL;DR</abbr>:
+              </strong>
+              {' '}
+              <span set:html={marked.parseInline(description)} />
+            </div>
           )}
           
           <div class="post-meta text-muted mb-4">
@@ -209,10 +216,16 @@ const readingTime = calculateReadingTime(content);
     font-weight: 300;
   }
   
-  .post-description {
+  .post-tldr {
     color: #586069;
     line-height: 1.5;
     margin-bottom: 1.5rem;
+  }
+
+  .post-tldr .initialism {
+    text-decoration: none;
+    border-bottom: 1px dotted #586069;
+    cursor: help;
   }
   
   .post-meta {
