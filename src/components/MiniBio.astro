@@ -3,10 +3,14 @@
  * Mini Bio Component
  * 
  * Displays a brief author bio with avatar for blog posts.
+ * Dynamically pulls the first paragraph from the about page content.
  * Replicates the Jekyll mini-bio.html include functionality.
  */
 
 import { siteConfig } from '../config';
+import { aboutContent, getFirstParagraph } from '../content/about-bio';
+
+const firstParagraph = getFirstParagraph(aboutContent);
 ---
 
 <div class="mini-bio">
@@ -20,9 +24,7 @@ import { siteConfig } from '../config';
     />
   </div>
   
-  <p>
-    {siteConfig.authorBio} <a href="/about/">More about the author &rarr;</a>
-  </p>
+  <p set:html={firstParagraph + ' <a href="/about/">More about the author &rarr;</a>'} />
 </div>
 
 <style>

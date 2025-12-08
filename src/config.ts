@@ -41,9 +41,6 @@ export const siteConfig = {
   socialUsername: 'benbalter',
   githubUsername: 'benbalter',
   
-  // Author bio (used in mini-bio component)
-  authorBio: 'Ben Balter is the Director of Hubber Enablement within the Office of the COO at GitHub, the world\'s largest software development platform, ensuring all Hubbers can do their best (remote) work.',
-  
   // PGP Key
   pgpKey: '07C6 73FB F30E 01C0 C342 7AB8 DBB6 7C24 6AD3 56C4',
   

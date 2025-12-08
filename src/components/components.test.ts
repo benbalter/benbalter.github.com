@@ -96,13 +96,24 @@ describe('MiniBio Component - Specification', () => {
     expect(aboutUrl).toMatch(/^\/about\/$/);
   });
 
-  it('should display author bio text from config', () => {
-    // Specification: Bio text content from siteConfig.authorBio
-    const bioText = 'Ben Balter is the Director of Hubber Enablement within the Office of the COO at GitHub, the world\'s largest software development platform, ensuring all Hubbers can do their best (remote) work.';
+  it('should dynamically extract first paragraph from about content', () => {
+    // Specification: Bio text is dynamically pulled from about-bio.ts
+    // This test validates the content extraction logic
+    const sampleContent = 'First paragraph text.\n\nSecond paragraph text.';
+    const paragraphs = sampleContent.split('\n\n').filter(p => p.trim().length > 0);
+    const firstParagraph = paragraphs[0];
     
-    expect(bioText).toContain('Ben Balter');
-    expect(bioText).toContain('GitHub');
-    expect(bioText).toContain('Director of Hubber Enablement');
+    expect(firstParagraph).toBe('First paragraph text.');
+    expect(firstParagraph).not.toContain('Second paragraph');
+  });
+
+  it('should convert markdown links to HTML', () => {
+    // Specification: Markdown links in bio are converted to HTML
+    const markdownText = 'Text with [link](https://example.com) inside';
+    const htmlText = markdownText.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+    
+    expect(htmlText).toContain('<a href="https://example.com">link</a>');
+    expect(htmlText).not.toContain('[link]');
   });
 });
 
