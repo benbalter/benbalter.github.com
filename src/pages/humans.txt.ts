@@ -10,7 +10,6 @@
  */
 
 import type { APIRoute } from 'astro';
-import { siteConfig } from '../config';
 
 export const GET: APIRoute = () => {
   // Current date for "Last Updated" field
