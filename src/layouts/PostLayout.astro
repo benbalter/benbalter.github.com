@@ -1,0 +1,225 @@
+---
+/**
+ * Blog Post Layout
+ * 
+ * Layout for rendering blog posts with proper metadata and structure.
+ */
+
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate?: Date;
+  updatedDate?: Date;
+  image?: string;
+}
+
+const { title, description, pubDate, updatedDate, image } = Astro.props;
+
+const formattedDate = pubDate?.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const formattedUpdatedDate = updatedDate?.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="blog-post">
+    <header class="post-header">
+      <h1>{title}</h1>
+      
+      {pubDate && (
+        <div class="post-meta">
+          <time datetime={pubDate.toISOString()}>
+            {formattedDate}
+          </time>
+          {updatedDate && (
+            <span class="updated-date">
+              (Updated: {formattedUpdatedDate})
+            </span>
+          )}
+        </div>
+      )}
+      
+      {description && (
+        <p class="post-description">{description}</p>
+      )}
+      
+      {image && (
+        <img 
+          src={image} 
+          alt={title}
+          class="post-image"
+        />
+      )}
+    </header>
+    
+    <div class="post-content">
+      <slot />
+    </div>
+    
+    <footer class="post-footer">
+      <a href="/" class="back-link">← Back to posts</a>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  .blog-post {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .post-header {
+    margin-bottom: 3rem;
+  }
+  
+  .post-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: #24292e;
+  }
+  
+  .post-meta {
+    font-size: 0.9rem;
+    color: #586069;
+    margin-bottom: 1rem;
+  }
+  
+  .updated-date {
+    margin-left: 0.5rem;
+    font-style: italic;
+  }
+  
+  .post-description {
+    font-size: 1.25rem;
+    color: #586069;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+  
+  .post-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+  }
+  
+  .post-content {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #24292e;
+  }
+  
+  .post-content :global(h2) {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: #24292e;
+  }
+  
+  .post-content :global(h3) {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: #24292e;
+  }
+  
+  .post-content :global(p) {
+    margin-bottom: 1.5rem;
+  }
+  
+  .post-content :global(ul),
+  .post-content :global(ol) {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+  }
+  
+  .post-content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+  
+  .post-content :global(pre) {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background-color: #f6f8fa;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+  
+  .post-content :global(code) {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 0.9em;
+  }
+  
+  .post-content :global(p code) {
+    background-color: #f6f8fa;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+  }
+  
+  .post-content :global(blockquote) {
+    border-left: 4px solid #0366d6;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: #586069;
+    font-style: italic;
+  }
+  
+  .post-content :global(a) {
+    color: #0366d6;
+    text-decoration: none;
+  }
+  
+  .post-content :global(a:hover) {
+    text-decoration: underline;
+  }
+  
+  .post-content :global(table) {
+    width: 100%;
+    margin: 1.5rem 0;
+    border-collapse: collapse;
+  }
+  
+  .post-content :global(th),
+  .post-content :global(td) {
+    padding: 0.75rem;
+    border: 1px solid #e1e4e8;
+  }
+  
+  .post-content :global(th) {
+    background-color: #f6f8fa;
+    font-weight: 600;
+  }
+  
+  .post-content :global(tr:nth-child(even)) {
+    background-color: #f6f8fa;
+  }
+  
+  .post-footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e1e4e8;
+  }
+  
+  .back-link {
+    color: #0366d6;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .back-link:hover {
+    text-decoration: underline;
+  }
+</style>

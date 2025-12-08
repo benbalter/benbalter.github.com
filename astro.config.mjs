@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
@@ -31,12 +32,32 @@ export default defineConfig({
     host: true,
   },
   
+  // Integrations
+  integrations: [
+    mdx({
+      // MDX configuration
+      optimize: true,
+      // Support GitHub Flavored Markdown
+      remarkPlugins: [],
+      rehypePlugins: [],
+    }),
+  ],
+  
   // Markdown configuration
   markdown: {
-    // Enable syntax highlighting
+    // Enable syntax highlighting with GitHub theme
     shikiConfig: {
       theme: 'github-light',
+      wrap: true,
     },
+    // Enable GitHub Flavored Markdown
+    gfm: true,
+    // Enable smartypants for typographic punctuation
+    smartypants: true,
+    // Remark plugins (for markdown processing)
+    remarkPlugins: [],
+    // Rehype plugins (for HTML processing)
+    rehypePlugins: [],
   },
   
   // Vite configuration
