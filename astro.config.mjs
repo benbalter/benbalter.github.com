@@ -11,7 +11,7 @@ const BLOG_POST_PATTERN = /\/\d{4}\/\d{2}\/\d{2}\//;
 const EXCLUDED_PAGES = [
   '/404/',
   '/_not-found/',
-  '/fine-print/', // Has sitemap: false in fine-print.md
+  '/fine-print/', // Has sitemap: false in original Jekyll source (fine-print.md)
   // To exclude posts/pages from content collections with sitemap: false,
   // add their URLs here (e.g., '/2024/01/01/post-slug/')
 ];

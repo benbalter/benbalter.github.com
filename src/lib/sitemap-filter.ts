@@ -10,6 +10,14 @@ import { getCollection } from 'astro:content';
 /**
  * Get a list of URLs that should be excluded from the sitemap
  * based on content collection frontmatter (sitemap: false)
+ * 
+ * NOTE: This function is currently not used in astro.config.mjs because
+ * the sitemap integration's filter function is synchronous and cannot await
+ * async functions. Pages with sitemap: false should be manually added to
+ * the EXCLUDED_PAGES array in astro.config.mjs.
+ * 
+ * This function is kept for potential future use if Astro adds support
+ * for async filters or for custom sitemap generation scripts.
  */
 export async function getExcludedUrls(): Promise<string[]> {
   const excludedUrls: string[] = [];
@@ -51,5 +59,5 @@ export async function getExcludedUrls(): Promise<string[]> {
 export const STATIC_EXCLUDED_PAGES = [
   '/404/',
   '/_not-found/',
-  '/fine-print/', // Has sitemap: false in original fine-print.md
+  '/fine-print/', // Has sitemap: false in original Jekyll source (fine-print.md, now fine-print.astro)
 ];
