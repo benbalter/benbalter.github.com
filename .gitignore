@@ -32,10 +32,6 @@ assets/js/bundle.js.LICENSE.txt
 test-results/
 playwright-report/
 
-# Next.js build artifacts
-.next/
-out/
-
 # Lighthouse CI artifacts
 .lighthouseci/
 
@@ -44,12 +40,6 @@ out/
 /playwright-report/
 /playwright/.cache/
 
-# Jest coverage
-coverage/
-
-# TypeScript build info
-*.tsbuildinfo
-public/assets/images/og/
 /vendor/
 
 # Environment variables
@@ -57,4 +47,3 @@ public/assets/images/og/
 .env.development.local
 .env.test.local
 .env.production.local
-tsconfig.tsbuildinfo

@@ -2,70 +2,11 @@
 
 [![CI](https://github.com/benbalter/benbalter.github.com/actions/workflows/ci.yml/badge.svg)](https://github.com/benbalter/benbalter.github.com/actions/workflows/ci.yml)
 
-The personal site of Ben Balter. Currently in transition from Jekyll to Next.js.
+The personal site of Ben Balter built with Jekyll and hosted on GitHub Pages.
 
-## Current Setup
+## About
 
-This site currently supports both Jekyll (legacy) and Next.js (in development):
-
-### Jekyll (Legacy - Active)
-
-The site is currently built using Jekyll, GitHub Pages, and Bootstrap. See [humans.txt](https://ben.balter.com/humans.txt) for more infos.
-
-### Next.js (In Development)
-
-A Next.js structure has been set up for the future migration. The Next.js app is configured to:
-
-* Use the **App Router** (`app/` directory) with React Server Components
-* Export static HTML for GitHub Pages compatibility
-* Support **TypeScript** with strict type checking
-* Implement **error boundaries** and loading states for better UX
-* Use **centralized metadata** configuration for SEO
-* Automatic legacy URL redirect generation from YAML frontmatter
-* Follow Next.js 16 best practices for static site generation
-* **Maximize Static Site Generation (SSG)** - All pages are pre-rendered as static HTML
-* **Minimize client-side JavaScript** - Use server components by default
-
-#### Next.js Development Guidelines
-
-**IMPORTANT: This site prioritizes Static Site Generation (SSG) and server components.**
-
-* ✅ **DO**: Use server components by default (no 'use client' directive)
-* ✅ **DO**: Pre-render all pages as static HTML using `generateStaticParams`
-* ✅ **DO**: Use HTML and CSS for interactive features when possible
-* ❌ **DON'T**: Use 'use client' unless ABSOLUTELY necessary
-* ❌ **DON'T**: Use client-side state management when server components work
-* ❌ **DON'T**: Add unnecessary JavaScript for features that can be HTML/CSS only
-
-**When 'use client' IS necessary:**
-
-* Browser APIs (localStorage, window, document)
-* React hooks (useState, useEffect, usePathname, etc.)
-* Event handlers that require client-side state
-* Third-party libraries that require client-side initialization
-
-**Always ask: "Can this be done with SSG and server components?"**
-
-#### Next.js Commands
-
-```bash
-npm run dev          # Start Next.js development server (http://localhost:3000)
-npm run next:build   # Build Next.js for production (outputs to /out)
-npm run next:start   # Start Next.js production server
-```
-
-#### Next.js Documentation
-
-See [docs/NEXTJS.md](docs/NEXTJS.md) for comprehensive documentation including:
-
-* Architecture and directory structure
-* Development workflow and best practices
-* Migration guide from Jekyll
-* Troubleshooting tips
-
-#### Legacy URL Redirects
-
-The build process automatically generates static HTML redirect pages for all `redirect_from` and `redirect_to` directives in YAML frontmatter. See [docs/REDIRECTS.md](docs/REDIRECTS.md) for details.
+This site is built using Jekyll, GitHub Pages, and Bootstrap. See [humans.txt](https://ben.balter.com/humans.txt) for more info.
 
 ## Development
 
@@ -74,10 +15,10 @@ The build process automatically generates static HTML redirect pages for all `re
 This repository includes a VS Code Dev Container configuration for a consistent development environment. The devcontainer includes:
 
 * **Ruby 3.4.7** (matching `.ruby-version`)
-* **Node.js 20** (for Next.js and build tools)
+* **Node.js 20** (for build tools)
 * **System dependencies** (libvips for image processing)
 * **Playwright** with Chromium for E2E testing
-* **VS Code extensions** for Ruby, TypeScript, Markdown, Liquid, YAML, and more
+* **VS Code extensions** for Ruby, JavaScript, Markdown, Liquid, YAML, and more
 
 **To use the devcontainer:**
 
@@ -128,23 +69,10 @@ script/super-linter   # Direct script invocation
 
 This repository includes specialized GitHub Copilot custom agents to assist with development:
 
-* **Code Agent**: For Ruby, JavaScript/TypeScript, HTML/Liquid, and CSS development
+* **Code Agent**: For Ruby, JavaScript, HTML/Liquid, and CSS development
 * **Writing Agent**: For blog posts and documentation
 
 See `.github/agents/` for their configurations.
-
-## Next.js Development Guidelines
-
-This site uses **Static Site Generation (SSG) with minimal client-side JavaScript.**
-
-See [docs/SSG-BEST-PRACTICES.md](docs/SSG-BEST-PRACTICES.md) for complete guidelines on:
-
-* Server components vs client components
-* When to use 'use client' (rarely!)
-* Maximizing static HTML generation
-* Preferring HTML/CSS over JavaScript
-
-**Key principle**: NEVER use 'use client' unless absolutely necessary. The site currently has only 2 client components and should stay that way.
 
 ### Copilot Development Environment
 
@@ -182,8 +110,6 @@ npm run test:e2e:ui
 npm run test:e2e:headed
 ```
 
-**Test Coverage:** 115 unique tests
-
 Tests cover:
 
 * Homepage, blog posts, resume, and static pages
@@ -191,7 +117,6 @@ Tests cover:
 * Performance (load times, asset optimization)
 * SEO (meta tags, Open Graph, structured data)
 * Responsive design
-* Static HTML generation and SSG compliance
 
 See [e2e/README.md](e2e/README.md) for detailed testing documentation.
 
