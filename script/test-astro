@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+# Test script to verify Astro build is working correctly
+
+set -e
+
+echo "Testing Astro build..."
+
+# Change to repository root
+cd "$(dirname "$0")/.."
+
+# Build the site
+echo "Building Astro site..."
+npm run astro:build
+
+# Check that dist-astro directory was created
+if [ ! -d "dist-astro" ]; then
+    echo "❌ Error: dist-astro directory not found"
+    exit 1
+fi
+
+echo "✓ dist-astro directory exists"
+
+# Check that expected files exist
+expected_files=(
+    "dist-astro/index.html"
+    "dist-astro/about/index.html"
+    "dist-astro/resume/index.html"
+)
+
+for file in "${expected_files[@]}"; do
+    if [ ! -f "$file" ]; then
+        echo "❌ Error: $file not found"
+        exit 1
+    fi
+    echo "✓ $file exists"
+done
+
+# Check that HTML contains expected content
+if ! grep -q "Welcome to Ben Balter's Astro Site" dist-astro/index.html; then
+    echo "❌ Error: Homepage doesn't contain expected content"
+    exit 1
+fi
+
+echo "✓ Homepage contains expected content"
+
+# Check that component was rendered
+if ! grep -q "feature-card" dist-astro/index.html; then
+    echo "❌ Error: FeatureCard component not rendered"
+    exit 1
+fi
+
+echo "✓ FeatureCard component rendered successfully"
+
+# Check file size (basic sanity check)
+size=$(wc -c < dist-astro/index.html)
+if [ "$size" -lt 1000 ]; then
+    echo "❌ Error: Homepage is suspiciously small ($size bytes)"
+    exit 1
+fi
+
+echo "✓ Homepage size is reasonable ($size bytes)"
+
+echo ""
+echo "✅ All Astro build tests passed!"

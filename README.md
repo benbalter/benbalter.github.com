@@ -2,11 +2,11 @@
 
 [![CI](https://github.com/benbalter/benbalter.github.com/actions/workflows/ci.yml/badge.svg)](https://github.com/benbalter/benbalter.github.com/actions/workflows/ci.yml)
 
-The personal site of Ben Balter. Currently in transition from Jekyll to Next.js.
+The personal site of Ben Balter. Currently exploring multiple static site generation approaches.
 
 ## Current Setup
 
-This site currently supports both Jekyll (legacy) and Next.js (in development):
+This site currently supports Jekyll (legacy), Next.js (in development), and Astro (experimental):
 
 ### Jekyll (Legacy - Active)
 
@@ -66,6 +66,36 @@ See [docs/NEXTJS.md](docs/NEXTJS.md) for comprehensive documentation including:
 #### Legacy URL Redirects
 
 The build process automatically generates static HTML redirect pages for all `redirect_from` and `redirect_to` directives in YAML frontmatter. See [docs/REDIRECTS.md](docs/REDIRECTS.md) for details.
+
+### Astro (Experimental)
+
+An Astro implementation has been bootstrapped for evaluation. The Astro setup is configured to:
+
+* Use **Static Site Generation (SSG)** - All pages pre-rendered as static HTML
+* **Zero JavaScript by default** - Ships only necessary JavaScript
+* Support **TypeScript** for type-safe components
+* Export to `dist-astro/` directory (separate from Jekyll `_site/` and Next.js `out/`)
+* Run development server on port 4321 (separate from Jekyll 4000 and Next.js 3000)
+* Full GitHub Pages compatibility with trailing slashes and directory-based URLs
+
+#### Astro Commands
+
+```bash
+npm run astro:dev      # Start Astro development server (http://localhost:4321)
+npm run astro:build    # Build Astro for production (outputs to /dist-astro)
+npm run astro:preview  # Preview production build
+npm run astro:check    # Type-check Astro components
+```
+
+#### Astro Documentation
+
+See [docs/ASTRO.md](docs/ASTRO.md) for comprehensive documentation including:
+
+* Project structure and configuration
+* Coexistence strategy with Jekyll and Next.js
+* Development workflow and best practices
+* Feature comparison with Jekyll and Next.js
+* Future migration roadmap
 
 ## Development
 

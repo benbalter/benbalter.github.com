@@ -1,0 +1,47 @@
+---
+interface Props {
+  emoji: string;
+  title: string;
+  description: string;
+}
+
+const { emoji, title, description } = Astro.props;
+---
+
+<div class="feature-card">
+  <div class="feature-emoji">{emoji}</div>
+  <h3 class="feature-title">{title}</h3>
+  <p class="feature-description">{description}</p>
+</div>
+
+<style>
+  .feature-card {
+    padding: 1.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #fff;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feature-emoji {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .feature-title {
+    color: #0366d6;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .feature-description {
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+  }
+</style>
