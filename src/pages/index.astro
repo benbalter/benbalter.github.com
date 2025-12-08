@@ -1,9 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import FeatureCard from '../components/FeatureCard.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
-const title = 'Ben Balter';
+const title = 'Posts';
 const description = 'Technology leadership, collaboration, and open source';
 
 // Get all published posts, sorted by date (newest first)
@@ -11,72 +10,44 @@ const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'
   return data.published !== false;
 });
 
-// Sort posts by slug (which contains date in Jekyll format)
+// Sort posts by slug (which contains date in Jekyll format YYYY-MM-DD)
 const posts = allPosts.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => 
   b.slug.localeCompare(a.slug)
-).slice(0, 5);
+);
+
+// Helper function to parse date from slug
+function getDateFromSlug(slug: string): Date {
+  const match = slug.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (match) {
+    return new Date(parseInt(match[1]), parseInt(match[2]) - 1, parseInt(match[3]));
+  }
+  return new Date();
+}
+
+// Helper function to format date like Jekyll: "Month Day, Year"
+function formatDate(date: Date): string {
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 
+                  'July', 'August', 'September', 'October', 'November', 'December'];
+  return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+}
 ---
 
 <BaseLayout title={title} description={description}>
   <div class="row">
     <div class="col-md-10 offset-md-1">
-      <section class="hero mb-5">
-        <h1 class="display-3 fw-bold text-primary">Ben Balter</h1>
-        <p class="lead">{description}</p>
-      </section>
-      
-      <section class="mb-5">
-        <h2>About This Site</h2>
-        <p>
-          Welcome! This is the Astro implementation of Ben Balter's personal website. 
-          It demonstrates modern static site generation with comprehensive SEO, 
-          accessible navigation, and excellent performance.
-        </p>
-      </section>
-      
-      <section class="mb-5">
-        <h2>Key Features</h2>
-        <div class="feature-grid">
-          <FeatureCard
-            emoji="⚡"
-            title="Static Site Generation"
-            description="All pages pre-rendered at build time for maximum performance"
-          />
-          <FeatureCard
-            emoji="🔍"
-            title="SEO Optimized"
-            description="Complete meta tags, Open Graph, and Twitter Card support"
-          />
-          <FeatureCard
-            emoji="🎨"
-            title="Modern Design"
-            description="Bootstrap-based responsive design with light visual refresh"
-          />
-          <FeatureCard
-            emoji="♿"
-            title="Accessible"
-            description="WCAG compliant with semantic HTML and ARIA labels"
-          />
-        </div>
-      </section>
-      
-      <section class="mb-5">
-        <h2>Recent Posts</h2>
-        {posts.length > 0 ? (
-          <ul class="post-list">
-            {posts.map((post: CollectionEntry<'posts'>) => (
-              <li>
-                <a href={`/posts/${post.slug}/`}>
-                  <h3>{post.data.title}</h3>
-                  <p>{post.data.description}</p>
-                </a>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>No posts available yet. Check out the example posts in <code>src/content/posts/</code>!</p>
-        )}
-      </section>
+      {posts.map((post) => {
+        const postDate = getDateFromSlug(post.slug);
+        return (
+          <div class="row mb-2">
+            <div class="col-sm-9">
+              <a href={`/posts/${post.slug}/`}>{post.data.title}</a>
+            </div>
+            <div class="col-sm-3 text-muted text-md-end">
+              <small>{formatDate(postDate)}</small>
+            </div>
+          </div>
+        );
+      })}
     </div>
   </div>
 </BaseLayout>
@@ -108,109 +79,36 @@ const posts = allPosts.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'po
     }
   }
 
-  .hero {
-    padding: 2rem 0;
-    text-align: center;
+  .col-sm-9 {
+    flex: 0 0 auto;
+    width: 75%;
   }
 
-  .display-3 {
-    font-size: 3rem;
-    font-weight: 700;
-    line-height: 1.2;
+  .col-sm-3 {
+    flex: 0 0 auto;
+    width: 25%;
   }
 
-  .fw-bold {
-    font-weight: 700 !important;
+  .text-muted {
+    color: #6c757d !important;
   }
 
-  .text-primary {
-    color: #0366d6 !important;
+  .text-md-end {
+    text-align: right;
   }
 
-  .lead {
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: #586069;
-  }
-
-  .mb-5 {
-    margin-bottom: 3rem !important;
-  }
-  
-  h2 {
-    color: #24292e;
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-  }
-  
-  .feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-  }
-  
-  .post-list {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0;
-  }
-  
-  .post-list li {
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    border: 1px solid #e1e4e8;
-    border-radius: 6px;
-    transition: box-shadow 0.2s, transform 0.2s;
-  }
-  
-  .post-list li:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-  }
-  
-  .post-list a {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  .post-list h3 {
-    margin: 0 0 0.5rem 0;
-    color: #0366d6;
-    font-size: 1.5rem;
-    font-weight: 600;
-  }
-  
-  .post-list p {
-    margin: 0;
-    color: #586069;
-    line-height: 1.6;
-  }
-
-  code {
-    background-color: #f6f8fa;
-    padding: 0.2em 0.4em;
-    border-radius: 3px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.9em;
+  .mb-2 {
+    margin-bottom: 0.5rem !important;
   }
 
   @media (max-width: 768px) {
-    .hero {
-      padding: 1rem 0;
+    .col-sm-9,
+    .col-sm-3 {
+      width: 100%;
     }
-
-    .display-3 {
-      font-size: 2.5rem;
-    }
-
-    .lead {
-      font-size: 1.25rem;
-    }
-
-    .feature-grid {
-      grid-template-columns: 1fr;
+    
+    .text-md-end {
+      text-align: left;
     }
   }
 </style>

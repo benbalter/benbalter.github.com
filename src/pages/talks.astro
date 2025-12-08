@@ -1,0 +1,147 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+const title = 'Talks';
+const description = 'Slides and recordings from some of the talks I\'ve given over the years.';
+---
+
+<PageLayout title={title} description={description}>
+  <p>
+    Slides (and recordings) from some of the talks I've given over the years. Have a suggestion? <a href="https://github.com/benbalter/talks/issues">I'd love to hear it</a>.
+  </p>
+
+  <h3>Community management</h3>
+
+  <ul>
+    <li>
+      <a href="/2019/07/18/a-community-of-communities-oscon-2019/">A community of communities: Empowering maintainers to grow communities around their code</a>
+    </li>
+    <li>
+      <a href="https://speakerdeck.com/benbalter/it-takes-a-digital-village">It takes a digital village: An analytical-ish look at what grows strong communities on GitHub.com</a>
+    </li>
+    <li>
+      <a href="https://speakerdeck.com/benbalter/growing-open-source-communities-on-github-around-your-wordpress-plugin-or-theme">Growing open source communities on GitHub around your WordPress plugin or theme</a>
+    </li>
+  </ul>
+
+  <h3>Collaboration and open source</h3>
+
+  <ul>
+    <li>
+      <a href="https://speakerdeck.com/benbalter/fostering-a-culture-of-collaboration">Fostering a culture of collaboration</a>
+    </li>
+    <li>
+      <a href="https://speakerdeck.com/benbalter/closed-source-a-few-things">Closed source (just) a few things</a>
+    </li>
+    <li>
+      <a href="https://speakerdeck.com/benbalter/best-practices-for-open-source-in-government">Best practices for open source in government</a>
+    </li>
+    <li>
+      <a href="https://speakerdeck.com/benbalter/open-source-licensing-by-the-numbers">Open source licensing by the numbers</a>
+    </li>
+    <li>
+      <a href="/open-source-demistified/">Open source demystified: from command-line to community engagement</a> (<a href="https://github.com/benbalter/open-source-demistified/">source</a>)
+    </li>
+    <li>
+      <a href="http://www.slideshare.net/TechSummitPR/pr-35485194">Open collaboration: why you should give open source a second look</a>
+    </li>
+  </ul>
+
+  <h3>Software development and workflows</h3>
+
+  <ul>
+    <li>
+      <a href="https://speakerdeck.com/benbalter/how-to-work-like-an-open-source-project">How to work like an open source project, regardless of what you do</a>
+    </li>
+    <li>
+      <a href="https://speakerdeck.com/benbalter/how-github-works-like-an-open-source-project">How GitHub works like an open source project</a>
+    </li>
+    <li>
+      <a href="https://speakerdeck.com/benbalter/three-simple-rules-for-building-apis">Three simple rules for building APIs</a>
+    </li>
+    <li>
+      <a href="https://speakerdeck.com/benbalter/code-test-deploy">Code, Test, Deploy: How to :ship: software like a startup</a>
+    </li>
+    <li>
+      <a href="https://speakerdeck.com/benbalter/open-sourcing-government">Rapid development, testing, and deployment the open source way</a>
+    </li>
+  </ul>
+
+  <h3>Open government</h3>
+
+  <ul>
+    <li>
+      <a href="https://www.youtube.com/watch?v=E3ftpYQyLOc">What government can learn from open source</a> (<a href="https://speakerdeck.com/benbalter/what-government-can-learn-from-open-source">slides</a>)
+    </li>
+    <li>
+      <a href="https://speakerdeck.com/benbalter/software-development-as-civic-service">Software developer as civic service</a>
+    </li>
+    <li>
+      <a href="/open-sourcing-government/">The revolution will be forked: how open collaboration is reimagining the way government works</a> (<a href="https://github.com/benbalter/open-sourcing-government/">source</a>)
+    </li>
+    <li>
+      <a href="/make-government-better-together/">Make Government better together: Moving from open government to collaborative government</a> (<a href="https://github.com/benbalter/make-government-better-together/">source</a>)
+    </li>
+  </ul>
+
+  <h3>Law and policy</h3>
+
+  <ul>
+    <li>
+      <a href="/open-source-software-licensing/">Open source software licensing: empowering others to use your code</a> (<a href="https://github.com/benbalter/open-source-software-licensing/">source</a>)
+    </li>
+    <li>
+      <a href="/collaborative-policymaking/">Collaborative policy making: how technology is making it easier to work together than alone</a> (<a href="https://github.com/benbalter/collaborative-policymaking/">source</a>)
+    </li>
+    <li>
+      <a href="https://www.youtube.com/watch?v=EL3-UwY3qGE">Project open data: a case study in collaborative governance</a> (video)
+    </li>
+  </ul>
+
+  <h3>Mapping and GeoJSON</h3>
+
+  <ul>
+    <li>
+      <a href="/behind-github-GeoJSON/">Open source, open standards, and 50 lines of code: a look behind GitHub's GeoJSON rendering and diffing</a> (<a href="https://github.com/benbalter/behind-github-GeoJSON/">source</a>)
+    </li>
+    <li>
+      <a href="/make-maps-better-together/">Make maps better together: Collaborative mapping the Open Source Way</a> (<a href="https://www.youtube.com/watch?v=iGRb5QRqC2w">video</a>)
+    </li>
+  </ul>
+
+  <h3>Miscellaneous</h3>
+
+  <ul>
+    <li>
+      <a href="https://speakerdeck.com/benbalter/an-at-benbalter-centric-history-of-github-pages-and-autoblog">A benbalter-centric history of GitHub Pages and Autoblog</a>
+    </li>
+    <li>
+      <a href="/the-next-cultural-commons/">The next cultural commons: how the internet has been quietly assembling the next cultural cannon</a> (<a href="https://github.com/benbalter/the-next-cultural-commons//">source</a>)
+    </li>
+  </ul>
+
+  <p>
+    <a href="https://speakerdeck.com/benbalter"><em>More talks</em></a>
+  </p>
+</PageLayout>
+
+<style>
+  h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  h3:first-of-type {
+    margin-top: 1.5rem;
+  }
+
+  ul {
+    margin-bottom: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+</style>

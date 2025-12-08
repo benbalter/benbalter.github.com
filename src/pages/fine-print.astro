@@ -1,0 +1,77 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+const title = 'Fine Print';
+const description = 'This is my personal Web site. The opinions expressed herein represent my own, and not those of any employer, group, or organization.';
+---
+
+<PageLayout title={title} description={description}>
+  <p>
+    This is my personal site. The opinions expressed herein represent my own, and not those of any employer, group, or organization.
+  </p>
+
+  <p>
+    You should know that I am not an expert. My views do not constitute legal advice, nor is their validity, accuracy, currentness, or completeness guaranteed. If you need a lawyer, please find a licensed attorney in your state.
+  </p>
+
+  <p>
+    As an Amazon Associate I earn from qualifying purchases. You should also know that some external links, for example, book recomendations, may contain an affiliate code, meaning at no additional cost to you, I may earn a small commission if you click through and make a purchase.
+  </p>
+
+  <p>
+    Finally, be aware that I am a strong proponent of the <a href="http://en.wikipedia.org/wiki/Serial_comma">serial comma</a>, and, well, commas in general.
+  </p>
+
+  <h3>Licensing</h3>
+
+  <div class="text-center mb-3">
+    <a rel="license" href="https://creativecommons.org/licenses/by/3.0/">
+      <img src="/assets/images/cc-by-88x31.png" alt="Creative Commons License" />
+    </a>
+  </div>
+
+  <ul>
+    <li>
+      All original content on <code>Ben.Balter.com</code> is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a> attributable to Ben Balter.
+    </li>
+    <li>
+      Header image courtesy <a href="http://fedscoop.com/">FedScoop</a>, © 2013.
+    </li>
+    <li>
+      All code available <a href="https://github.com/benbalter/benbalter.github.com">on GitHub</a> and licensed under the MIT license.
+    </li>
+  </ul>
+</PageLayout>
+
+<style>
+  .text-center {
+    text-align: center !important;
+  }
+
+  .mb-3 {
+    margin-bottom: 1rem !important;
+  }
+
+  h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  code {
+    background-color: #f6f8fa;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 0.9em;
+  }
+
+  ul {
+    margin-top: 1rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+</style>
