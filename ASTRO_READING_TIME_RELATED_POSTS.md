@@ -10,13 +10,12 @@ This document describes the implementation of reading-time calculations and rela
 
 **Location:** `src/utils/reading-time.ts`
 
-The reading time feature calculates an estimated reading time for each blog post based on word count. The calculation:
+The reading time feature uses the [`reading-time`](https://www.npmjs.com/package/reading-time) npm package, which provides Medium-like reading time estimation. The package:
 
 - **Default reading speed:** 200 words per minute (configurable)
-- **Removes HTML tags** to count only actual text
-- **Excludes code blocks** (both fenced and inline)
-- **Filters URLs** to avoid counting them as words
-- **Minimum time:** 1 minute for very short posts
+- **Automatically handles:** HTML, Markdown, plain text
+- **Smart word extraction:** Works with various content formats
+- **Minimum time:** 1 minute for very short posts (enforced by wrapper)
 
 **Usage in PostLayout:**
 
@@ -28,6 +27,8 @@ const readingTime = calculateReadingTime(content);
 ```
 
 The reading time is displayed in the post header as: "X min read" with a clock icon.
+
+**Implementation:** Wraps the `reading-time` package with a simple API that ensures a minimum of 1 minute.
 
 **Tests:** `src/utils/reading-time.test.ts` (12 passing tests)
 
@@ -116,7 +117,7 @@ Styles for both features are defined in `PostLayout.astro`:
 ### Reading Time
 
 - **O(n)** where n = number of words in the post
-- Regex operations for HTML/code removal are efficient
+- Uses the optimized `reading-time` npm package for word extraction
 - Calculated once at build time per post
 
 ### Related Posts
@@ -160,7 +161,7 @@ Integration tests verify the features work end-to-end during the build process.
 
 ### Astro Implementation
 
-- **Reading time:** More sophisticated (removes HTML, code, URLs)
+- **Reading time:** Uses `reading-time` npm package (200 words/min default, handles HTML/Markdown)
 - **Related posts:** TF-IDF algorithm (similar quality to LSI)
 - **Data storage:** Calculated on-the-fly at build time (no data file needed)
 

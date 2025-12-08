@@ -1,9 +1,11 @@
 /**
- * Reading time calculation utilities
+ * Reading time calculation utilities using the reading-time npm package
  * 
- * Calculates estimated reading time for blog posts based on word count.
- * Average reading speed is approximately 200-250 words per minute.
+ * Wraps the reading-time library to provide a consistent API for the Astro site.
+ * The reading-time package provides Medium-like reading time estimation.
  */
+
+import readingTime from 'reading-time';
 
 /**
  * Calculate reading time for content
@@ -16,29 +18,10 @@ export function calculateReadingTime(content: string, wordsPerMinute = 200): num
     return 0;
   }
 
-  // Remove HTML tags
-  const textWithoutHtml = content.replace(/<[^>]*>/g, ' ');
+  const stats = readingTime(content, { wordsPerMinute });
   
-  // Remove code blocks (```...```)
-  const textWithoutCodeBlocks = textWithoutHtml.replace(/```[\s\S]*?```/g, ' ');
-  
-  // Remove inline code (`...`)
-  const textWithoutInlineCode = textWithoutCodeBlocks.replace(/`[^`]*`/g, ' ');
-  
-  // Remove URLs
-  const textWithoutUrls = textWithoutInlineCode.replace(/https?:\/\/[^\s]+/g, ' ');
-  
-  // Split by whitespace and filter empty strings
-  const words = textWithoutUrls
-    .split(/\s+/)
-    .filter(word => word.length > 0);
-  
-  const wordCount = words.length;
-  
-  // Calculate reading time (minimum 1 minute)
-  const minutes = Math.ceil(wordCount / wordsPerMinute);
-  
-  return Math.max(1, minutes);
+  // Return minutes, ensuring minimum of 1 minute
+  return Math.max(1, Math.ceil(stats.minutes));
 }
 
 /**
