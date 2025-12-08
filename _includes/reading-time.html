@@ -1,6 +1,11 @@
-{% capture read_time %}
-  {{ page.content | number_of_words | divided_by: 265 }}
-{% endcapture %}
+{% comment %}
+  Calculate reading time using proper rounding:
+  Add half the divisor (132) before dividing to round to nearest minute
+  For example: 497 words -> (497 + 132) / 265 = 629 / 265 = 2 minutes
+{% endcomment %}
+{% assign word_count = page.content | number_of_words %}
+{% assign adjusted_count = word_count | plus: 132 %}
+{% assign read_time = adjusted_count | divided_by: 265 %}
 
 {% if read_time == 0 %}
   {% assign read_time = 1 %}
