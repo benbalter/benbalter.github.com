@@ -1,0 +1,45 @@
+---
+/**
+ * GitHub Culture Callout Component
+ * 
+ * Displays a callout linking to posts about GitHub's culture.
+ * This replaces the Jekyll {% include_cached github-culture.html %} tag.
+ */
+---
+
+<div class="alert alert-primary text-center" role="alert">
+  Interested in learning more about how GitHub works and what it's like to be a GitHubber?<br />
+  <a href="/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/" class="alert-link">
+    Check out these popular posts on GitHub's culture and communication patterns
+  </a>.
+</div>
+
+<style>
+  .alert {
+    position: relative;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.375rem;
+  }
+  
+  .alert-primary {
+    color: #084298;
+    background-color: #cfe2ff;
+    border-color: #b6d4fe;
+  }
+  
+  .text-center {
+    text-align: center !important;
+  }
+  
+  .alert-link {
+    font-weight: 700;
+    color: #06357a;
+    text-decoration: underline;
+  }
+  
+  .alert-link:hover {
+    color: #04244d;
+  }
+</style>
