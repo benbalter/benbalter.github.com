@@ -51,7 +51,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: data.json
-          key: {% raw %}${{ hashFiles('data.json') }}{% endraw %}
+          key: ${{ hashFiles('data.json') }}
 
       # If there was not a cache hit (meaning the response changed), notify me via text message
       # See https://github.com/twilio-labs/actions-sms for setup instructions
@@ -60,13 +60,13 @@ jobs:
         uses: twilio-labs/actions-sms@v1
         if: steps.cache.outputs.cache-hit != 'true'
         env:
-          TWILIO_ACCOUNT_SID: {% raw %}${{ secrets.TWILIO_ACCOUNT_SID }}{% endraw %}
-          TWILIO_API_KEY: {% raw %}${{ secrets.TWILIO_API_KEY }}{% endraw %}
-          TWILIO_API_SECRET: {% raw %}${{ secrets.TWILIO_API_SECRET }}{% endraw %}
+          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+          TWILIO_API_KEY: ${{ secrets.TWILIO_API_KEY }}
+          TWILIO_API_SECRET: ${{ secrets.TWILIO_API_SECRET }}
         with:
-          fromPhoneNumber: {% raw %}${{ secrets.from_phone }}{% endraw %}
-          toPhoneNumber: {% raw %}${{ secrets.to_phone }}{% endraw %}
-          message: "There's been a change! someField is now {% raw %}${{ steps.parse_data.outputs.someField }}{% endraw %}."
+          fromPhoneNumber: ${{ secrets.from_phone }}
+          toPhoneNumber: ${{ secrets.to_phone }}
+          message: "There's been a change! someField is now ${{ steps.parse_data.outputs.someField }}."
 ```
 
 ## Conclusion

@@ -44,8 +44,8 @@ At first, the added complexity might feel counter intuitive for what seems like 
 
 Here's an example of what my simple AdGuard Home `docker-compose.yml` file looks like to define the services:
 
-<details markdown=1 class="mb-3">
-<summary><strong>Example <code>docker-compose.yml</code> file</strong></summary>
+<details class="mb-3">
+<summary>Example <code>docker-compose.yml</code> file</summary>
 
 ```yml
 version: "3"
@@ -74,8 +74,8 @@ services:
 
 And here's my original, slightly-more-complex PiHole + cloudflared `docker-compose.yml` file that defined the two services:
 
-<details markdown=1 class="mb-3">
-<summary><strong>Example <code>docker-compose.yml</code> file</strong></summary>
+<details class="mb-3">
+<summary>Example <code>docker-compose.yml</code> file</summary>
 
 ```yml
 version: "3"
@@ -182,8 +182,8 @@ Best of all, since Ansible is idempotent by design, upgrading the underlying dis
 
 Here's the minimum playbook you should use to set up Docker Compose on your Raspberry Pi:
 
-<details markdown=1 class="mb-3">
-<summary><strong>Example Ansible <code>playbook.yml</code> file for running Docker Compose services</strong></summary>
+<details class="mb-3">
+<summary>Example Ansible <code>playbook.yml</code> file for running Docker Compose services</summary>
 
 ```yml
 - hosts: all
@@ -191,7 +191,7 @@ Here's the minimum playbook you should use to set up Docker Compose on your Rasp
     - name: Install docker dependencies
       become: true
       apt:
-        name: "{% raw %}{{ item }}{% endraw %}"
+        name: "{{ item }}"
         state: present
         update_cache: true
       loop:
@@ -215,7 +215,7 @@ Here's the minimum playbook you should use to set up Docker Compose on your Rasp
     - name: install docker
       become: true
       apt:
-        name: "{% raw %}{{ item }}{% endraw %}"
+        name: "{{ item }}"
         state: present
       loop:
         - docker-ce
@@ -245,7 +245,7 @@ Here's the minimum playbook you should use to set up Docker Compose on your Rasp
     - name: Set Pi-Hole secret
       copy:
         dest: /home/pi/pi-hole/.pihole_web_password
-        content: "{% raw %}{{ lookup('community.general.onepassword', 'Raspberry pi', field='password') }}{% endraw %}"
+        content: "{{ lookup('community.general.onepassword', 'Raspberry pi', field='password') }}"
     - name: Create and start docker compose services
       community.docker.docker_compose:
         # Change to path to your docker-compose.yml. See below for how to clone a repo
@@ -260,8 +260,8 @@ Here's the minimum playbook you should use to set up Docker Compose on your Rasp
 
 Beyond the above, here are a few nice automation to simplify provisioning and maintenance:
 
-<details markdown=1 class="mb-3">
-<summary><strong>Additional convenience task to add to your Ansible <code>playbook.yml</code> file</strong></summary>
+<details class="mb-3">
+<summary>Additional convenience task to add to your Ansible <code>playbook.yml</code> file</summary>
 
 ```yml
 # Update system-level dependencies
@@ -303,7 +303,7 @@ Beyond the above, here are a few nice automation to simplify provisioning and ma
   user:
     name: pi
     update_password: always
-    password: "{% raw %}{{ lookup('community.general.onepassword', 'PiHole', field='Pi@ login') | password_hash('sha512') }}{% endraw %}"
+    password: "{{ lookup('community.general.onepassword', 'PiHole', field='Pi@ login') | password_hash('sha512') }}"
 
 # A deploy key allows you to pull (or push) from a private GitHub repo
 - name: Ensure deploy key is present
@@ -316,12 +316,12 @@ Beyond the above, here are a few nice automation to simplify provisioning and ma
 # Again, here I'm using 1Password as my secret store, but you could use another source
 - name: Ensure deploy key is authorized
   community.general.github_deploy_key:
-    key: "{% raw %}{{ deploy_key.public_key }}{% endraw %}"
+    key: "{{ deploy_key.public_key }}"
     name: Raspberry Pi
     state: present
     owner: benbalter
     repo: pi-hole
-    token: "{% raw %}{{ lookup('community.general.onepassword', 'PiHole', field='GitHub Token') }}{% endraw %}"
+    token: "{{ lookup('community.general.onepassword', 'PiHole', field='GitHub Token') }}"
 
 # I version my config in a private Git Repo, so I clone it down using the deploy key
 # Note: This will not work without modification, as it's a private repo
@@ -339,8 +339,8 @@ Beyond the above, here are a few nice automation to simplify provisioning and ma
 
 Finally, in my Ansible config, I have a number of security tasks that I added and recommend you include in your playbook:
 
-<details markdown=1 class="mb-3">
-<summary><strong>Security best practices I included in my Ansible <code>playbook.yml</code> file</strong></summary>
+<details class="mb-3">
+<summary>Security best practices I included in my Ansible <code>playbook.yml</code> file</summary>
 
 ```yml
 # Automatically upgrade apt packages
@@ -383,7 +383,7 @@ Finally, in my Ansible config, I have a number of security tasks that I added an
   become: true
   community.general.ufw:
     rule: allow
-    port: '{% raw %}{{ item }}{% endraw %}'
+    port: '{{ item }}'
   loop:
     - SSH
     - DNS
@@ -414,8 +414,8 @@ I had been searching for the best way to expose the PiHole admin (web and API) i
 
 I set up Caddy by adding the following \~25 lines to my Docker Compose definition:
 
-<details markdown=1 class="mb-3">
-<summary><strong>Example <code>docker-compose.yml</code> additions to support Caddy/HTTPS</strong></summary>
+<details class="mb-3">
+<summary>Example <code>docker-compose.yml</code> additions to support Caddy/HTTPS</summary>
 
 ```yml
 services:
@@ -456,8 +456,8 @@ volumes:
 
 Because I was using a DNS-based ACME challenge, instead of the standard HTTP challenge (since the server was not exposed to the public internet), I needed a custom Caddy build that included my DNS provider. Fortunately, the Caddy community makes this easy with a custom Docker build file:
 
-<details markdown=1 class="mb-3">
-<summary><strong>Example <code>caddy.Dockerfile</code> to build Caddy with custom challenge support</strong></summary>
+<details class="mb-3">
+<summary>Example <code>caddy.Dockerfile</code> to build Caddy with custom challenge support</summary>
 
 ```dockerfile
 FROM caddy:builder AS builder
@@ -476,8 +476,8 @@ COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 
 Here's my Caddy file config to define Caddy's behavior to proxy HTTPS requests back to the PiHole or AdGuard Home web server:
 
-<details markdown=1 class="mb-3">
-<summary><strong>Example <code>caddyfile</code> to proxy HTTPS to the PiHole or AdGuard Home web interface</strong></summary>
+<details class="mb-3">
+<summary>Example <code>caddyfile</code> to proxy HTTPS to the PiHole or AdGuard Home web interface</summary>
 
 ```caddyfile
 dns.example.com
@@ -500,15 +500,15 @@ encode zstd gzip
 
 And last, I added the following to my Ansible `playbook.yml` file to make my Cloudflare API token available[^4] to Caddy's ACME challenge logic:
 
-<details markdown=1 class="mb-3">
-<summary><strong>Example Ansible <code>playbook.yml</code> task to expose Cloudflare Token to Caddy</strong></summary>
+<details class="mb-3">
+<summary>Example Ansible <code>playbook.yml</code> task to expose Cloudflare Token to Caddy</summary>
 
 ```yml
 - name: Set Caddy secret
   copy:
     dest: /home/pi/pi-hole/.caddy.env
     # I'm using 1Password here, but you could use any secret store you wanted
-    content: "CLOUDFLARE_API_TOKEN={% raw %}{{ lookup('community.general.onepassword', 'Raspberry pi', field='Cloudflare Token') }}{% endraw %}"
+    content: "CLOUDFLARE_API_TOKEN={{ lookup('community.general.onepassword', 'Raspberry pi', field='Cloudflare Token') }}"
 ```
 
 </details>

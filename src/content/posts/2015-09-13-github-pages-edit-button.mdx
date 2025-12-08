@@ -10,19 +10,19 @@ The difference between publishing with say, WordPress, and publishing using Jeky
 If your site's content is hosted on GitHub (either with Jekyll/GitHub Pages or something like [wordpress-github-sync](https://github.com/benbalter/wordpress-github-sync)), it's easy to provide readers with a link to submit changes. You simply need to add a vanilla HTML link to the following URL (if you're using another framework, you'll need to build the URL yourself):
 
 ```liquid
-{% raw %}https://github.com/{{ site.github.repository_nwo }}/edit/{{ site.branch }}/{{ page.path }}}{% endraw %}
+https://github.com/<!-- {{ site.github.repository_nwo }} -->/edit/<!-- {{ site.branch }} -->/<!-- {{ page.path }} -->}
 ```
 
 Luckily, GitHub Pages has [a nice helper to build that URL automatically](https://jekyll.github.io/github-metadata/edit-on-github-link/):
 
 ```liquid
-{% raw %}{% github_edit_link %}{% endraw %}
+[Edit this page link]
 ```
 
 Or, if you wanted the helper to build the link as well:
 
 ```html
-Please {% raw %}{% github_edit_link "help improve this article" %}{% endraw %}.
+Please [help improve this article].
 ```
 
 Which would output something like:

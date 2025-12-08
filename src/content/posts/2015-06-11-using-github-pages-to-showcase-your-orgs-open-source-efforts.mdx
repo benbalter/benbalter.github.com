@@ -48,12 +48,12 @@ Instead, we'll create a layout (sometimes called a template) that can be shared 
   </head>
 
   <body>
-    {% raw %}{{ content }}{% endraw %}
+    <!-- {{ content }} -->
   </body>
 </html>
 ```
 
-Notice how we swapped out the `<h1>My awesome org</h1>` for `{% raw %}{{ content }}{% endraw %}`? There's one more thing we have to do. We'll want to update the `index.html` with the following:
+Notice how we swapped out the `<h1>My awesome org</h1>` for `<!-- {{ content }} -->`? There's one more thing we have to do. We'll want to update the `index.html` with the following:
 
 ```html
 ---
@@ -63,7 +63,7 @@ layout: default
 <h1>My awesome org</h1>
 ```
 
-If you head back to `your-organization.github.io` the output should be identical. Those two changes instructed Jekyll to generate an `index.html` file by swapping the contents of `index.html` for the `{% raw %}{{ content }}{% endraw %}` line in the template and combining the two for the final output. If we want to add our "About us" page, it's as simple as creating an `about-us.html` file with this content:
+If you head back to `your-organization.github.io` the output should be identical. Those two changes instructed Jekyll to generate an `index.html` file by swapping the contents of `index.html` for the `<!-- {{ content }} -->` line in the template and combining the two for the final output. If we want to add our "About us" page, it's as simple as creating an `about-us.html` file with this content:
 
 ```html
 ---
@@ -136,11 +136,11 @@ The problem with this approach, is that as you add more projects, you have to co
 
 In addition Markdown, Jekyll also supports a lightweight templating engine called [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers). Liquid allows us to inject a bit of dynamic logic into the otherwise static site. If you're familiar with basic programatic concepts, it supports things like `while`, `if`, and `for` statements. To list all the open source project's in our organization's we might write:
 
-```html{% raw %}
-{% for repository in site.github.public_repositories %}
-  * {{ repository.name }}
-{% endfor %}
-{% endraw %}
+```html
+<!-- {% for repository in site.github.public_repositories %}
+  * <!-- {{ repository.name }} -->
+{% endfor %} -->
+
 ```
 
 That should produce identical results to the hardcoded versions above, but in a way that updates as your organization's projects do. You could also include additional information in the same way, such as the project's descriptions or number of stars. You can see a full list of the organization metadata available to GitHub Pages in [this help article](https://help.github.com/articles/repository-metadata-on-github-pages/).
@@ -151,4 +151,4 @@ In terms of availability and scalability, the simplicity of GitHub pages makes i
 
 Your organization site is also in good company. [Lots of large organizations](https://github.com/showcases/open-source-organizations) like [Adobe](http://adobe.github.io), [Netflix](http://netflix.github.io), [SAP](http://sap.github.io), [IBM](http://ibm.github.io), and [Microsoft](http://microsoft.github.io) use GitHub Pages to showcase their open source efforts. It provides organizations with a branded developer presence to link to from their `/developer` or similar portals, instead of linking to their standard GitHub profile.
 
-To get started, simply create an appropriately named repository within your organization and begin commuting files, or you can read more about using [GitHub Pages](https://help.github.com/categories/github-pages-basics/), [Jekyll](http://jekyllrb.com/docs/home/), and [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers). Of course, if you have any questions, you can always email <support@github.com>.
+To get started, simply create an appropriately named repository within your organization and begin commuting files, or you can read more about using [GitHub Pages](https://help.github.com/categories/github-pages-basics/), [Jekyll](http://jekyllrb.com/docs/home/), and [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers). Of course, if you have any questions, you can always email support@github.com.
