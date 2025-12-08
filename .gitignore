@@ -48,6 +48,9 @@ dist-astro/
 /playwright-report/
 /playwright/.cache/
 
+# Vitest coverage
+coverage/
+
 /vendor/
 
 # Environment variables

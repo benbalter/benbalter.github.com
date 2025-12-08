@@ -1,0 +1,48 @@
+---
+/**
+ * FOSS at Scale Component
+ * 
+ * Displays a note about the "FOSS at Scale" blog post series.
+ * Replaces {% include foss-at-scale.html nth="..." %}
+ */
+
+interface Props {
+  nth?: string;
+}
+
+const { nth = "first" } = Astro.props;
+---
+
+<div class="alert alert-primary text-center" role="alert">
+  This is the {nth} post in <a href="/2021/06/15/managing-open-source-communities-at-scale/" class="alert-link">a series</a> on successfully managing open source communities at scale.
+</div>
+
+<style>
+  .alert {
+    position: relative;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.375rem;
+  }
+  
+  .alert-primary {
+    color: #084298;
+    background-color: #cfe2ff;
+    border-color: #b6d4fe;
+  }
+  
+  .text-center {
+    text-align: center !important;
+  }
+  
+  .alert-link {
+    font-weight: 700;
+    color: #06357a;
+    text-decoration: underline;
+  }
+  
+  .alert-link:hover {
+    color: #04244d;
+  }
+</style>

@@ -1,0 +1,48 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import PostLayout from '../../../../layouts/PostLayout.astro';
+
+// Generate static paths for all blog posts with Jekyll URL structure
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => {
+    return data.published !== false;
+  });
+
+  return posts.map((post: CollectionEntry<'posts'>) => {
+    // Extract date from slug (YYYY-MM-DD-slug format)
+    const dateMatch = post.slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
+    
+    if (dateMatch) {
+      const [, year, month, day, slug] = dateMatch;
+      return {
+        params: { year, month, day, slug },
+        props: { post },
+      };
+    }
+    
+    // Fallback for posts without date in slug
+    console.warn(`Post ${post.slug} does not match expected format YYYY-MM-DD-slug`);
+    return null;
+  }).filter(Boolean);
+}
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+// Extract date from params for display
+const { year, month, day } = Astro.params;
+const pubDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+---
+
+<PostLayout
+  title={post.data.title}
+  description={post.data.description}
+  pubDate={pubDate}
+  image={post.data.image}
+>
+  <Content />
+</PostLayout>
