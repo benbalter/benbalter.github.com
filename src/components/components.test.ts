@@ -86,15 +86,15 @@ describe('Tldr Component - Specification', () => {
     expect(tooltipText).toContain('Internet shorthand');
   });
 
-  it('should use Bootstrap tooltip attributes', () => {
-    // Specification: Component should use Bootstrap 5 tooltip data attributes
+  it('should use custom tooltip attributes', () => {
+    // Specification: Component should use custom tooltip data attributes
     const tooltipAttributes = {
-      'data-bs-toggle': 'tooltip',
-      'data-bs-placement': 'right',
+      'data-tooltip': 'true',
+      'data-tooltip-text': '"Too Long; Didn\'t Read" — Internet shorthand for "a brief summary of longer writing"',
     };
     
-    expect(tooltipAttributes['data-bs-toggle']).toBe('tooltip');
-    expect(tooltipAttributes['data-bs-placement']).toBe('right');
+    expect(tooltipAttributes['data-tooltip']).toBe('true');
+    expect(tooltipAttributes['data-tooltip-text']).toContain('Too Long');
   });
 
   it('should display description text after TL;DR label', () => {
