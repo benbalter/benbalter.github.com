@@ -2,13 +2,11 @@
 
 ## Project Overview
 
-This is the personal website of Ben Balter, currently in active migration from Jekyll to Next.js. The site serves as a personal blog, portfolio, and professional profile showcasing posts about technology leadership, collaboration, and open source.
-
-**IMPORTANT: When implementing new features, assume Next.js unless specifically asked to modify Jekyll.**
+This is the personal website of Ben Balter. The site serves as a personal blog, portfolio, and professional profile showcasing posts about technology leadership, collaboration, and open source.
 
 **Key Features:**
 
-* Static site with server-side generation (SSG)
+* Static site generated with Jekyll
 * Blog posts with related posts suggestions
 * Resume and professional information
 * GitHub integration for metadata
@@ -17,60 +15,20 @@ This is the personal website of Ben Balter, currently in active migration from J
 
 ## Tech Stack
 
-### Core Technologies (Prioritized)
+### Core Technologies
 
-* **Next.js**: 16.x (PRIMARY - App Router with SSG) - **Use this for new features**
-* **React**: 19.x with Server Components
-* **TypeScript**: For type safety in Next.js components
+* **Jekyll**: ~> 4.0 (Static site generator)
+* **Ruby**: 3.3.5
 * **Node.js**: For JavaScript tooling and build processes
-* **Jekyll**: \~> 4.0 (LEGACY - Maintained but not for new development)
-* **Ruby**: 3.3.5 (For Jekyll legacy support only)
 * **GitHub Pages**: Hosting platform
 
-### Next.js Architecture (PRIMARY)
+### Jekyll Architecture
 
-**This site uses Next.js with a Static Site Generation (SSG) first approach:**
-
-* **Static HTML Generation**: All pages pre-rendered at build time
-* **Server Components**: Default for all React components
-* **Minimal Client JavaScript**: Only when absolutely necessary
-* **GitHub Pages Compatible**: Exported as static files (`output: 'export'`)
-* **TypeScript**: Strict type checking for components and utilities
-
-**CRITICAL: Maximize use of SSG and server components**:
-
-* Never use 'use client' unless absolutely necessary
-* Prefer HTML and CSS over JavaScript
-* Pre-render all pages as static HTML
-* Minimize JavaScript bundle size
-* Use server components for all data fetching and rendering
-* Only use client components when browser APIs or React hooks are required
-
-### Jekyll Architecture (LEGACY)
-
-**Jekyll is being phased out. Only modify Jekyll code when:**
-
-* Explicitly asked to fix Jekyll-specific bugs
-* Maintaining existing Jekyll plugins until migration is complete
-* Working on Jekyll-to-Next.js migration tasks
-
-Jekyll plugins and Ruby code in `lib/` directory are legacy and should not be extended with new features.
+Jekyll is used to generate the static site from Markdown content and Liquid templates.
 
 ### Key Dependencies
 
-#### Next.js Dependencies (Primary)
-
-* `next`: Next.js framework (16.x)
-* `react` & `react-dom`: React framework (19.x)
-* `@mdx-js/loader` & `@mdx-js/react`: MDX support for blog posts
-* `gray-matter`: Front matter parsing
-* `remark` & `rehype`: Markdown processing
-* `next-sitemap`: XML sitemap generation
-* `reading-time`: Reading time estimation
-* `bootstrap`: UI framework
-* `@fortawesome/react-fontawesome`: Icon library
-
-#### Ruby Gems (Jekyll Plugins - LEGACY)
+#### Ruby Gems (Jekyll Plugins)
 
 * `jekyll-avatar`: GitHub avatar integration
 * `jekyll-feed`: RSS feed generation
@@ -98,15 +56,7 @@ Jekyll plugins and Ruby code in `lib/` directory are legacy and should not be ex
 
 ## Development Commands
 
-### Next.js Commands (Primary)
-
-```bash
-npm run dev            # Start Next.js development server (http://localhost:3000)
-npm run next:build     # Build Next.js for production (outputs to /out)
-npm run next:start     # Start Next.js production server
-```
-
-### Jekyll Commands (Legacy - Maintenance Only)
+### Jekyll Commands
 
 ```bash
 rake build             # Build the Jekyll site
@@ -119,17 +69,15 @@ script/server          # Alternative server command
 
 ```bash
 npm install            # Install Node.js dependencies
-bundle install         # Install Ruby dependencies (for Jekyll legacy support)
+bundle install         # Install Ruby dependencies
 ```
 
 ### Testing
 
 ```bash
 npm test               # Run linting (alias for npm run lint)
-npm run test:e2e       # Run Playwright E2E tests (both Jekyll and Next.js)
-npm run test:e2e:nextjs # Run Next.js E2E tests specifically
-npm run test:e2e:jekyll # Run Jekyll E2E tests (legacy)
-rake test              # Run Jekyll tests (RSpec + HTML Proofer) - legacy
+npm run test:e2e       # Run Playwright E2E tests
+rake test              # Run Jekyll tests (RSpec + HTML Proofer)
 script/cibuild         # CI build script
 ```
 
@@ -137,12 +85,12 @@ script/cibuild         # CI build script
 
 ```bash
 npm run lint           # Run all linters (JS, JSON, Markdown)
-npm run lint-js        # Lint JavaScript/TypeScript files
+npm run lint-js        # Lint JavaScript files
 npm run lint-json      # Lint JSON files
 npm run lint-md        # Lint Markdown files
 npm run lint-text      # Lint text content
 npm run lint-yaml      # Lint YAML files
-rubocop                # Ruby linting (Jekyll legacy only)
+rubocop                # Ruby linting
 script/fix-lint        # Auto-fix linting issues (ALWAYS run after markdown linting)
 ```
 
@@ -153,71 +101,36 @@ script/fix-lint        # Auto-fix linting issues (ALWAYS run after markdown lint
 ```text
 .
 ├── .github/           # GitHub configuration and workflows
-├── app/               # Next.js App Router (PRIMARY - new features go here)
-│   ├── components/    # React components (prefer server components)
-│   ├── [slug]/        # Dynamic routes for pages
-│   ├── [year]/        # Dynamic routes for blog posts by year
-│   ├── layout.tsx     # Root layout with metadata
-│   └── page.tsx       # Home page
-├── content/           # Content source files (shared between Jekyll and Next.js)
 ├── _posts/            # Blog posts (Markdown files with YYYY-MM-DD-title.md format)
-├── _config.yml        # Jekyll configuration (LEGACY)
-├── _data/             # YAML data files (LEGACY - Jekyll only)
-├── _includes/         # Reusable HTML/Liquid snippets (LEGACY)
-├── _layouts/          # Page templates (LEGACY - Jekyll only)
+├── _config.yml        # Jekyll configuration
+├── _data/             # YAML data files
+├── _includes/         # Reusable HTML/Liquid snippets
+├── _layouts/          # Page templates
 ├── _resume_positions/ # Resume position entries
-├── assets/            # Static assets (CSS, JS, images) (LEGACY - Jekyll)
-├── public/            # Next.js static assets (PRIMARY)
+├── assets/            # Static assets (CSS, JS, images)
 ├── script/            # Build and utility scripts
-├── spec/              # RSpec tests (Jekyll legacy)
+├── spec/              # RSpec tests
 ├── e2e/               # Playwright E2E tests
-├── Gemfile            # Ruby dependencies (Jekyll legacy)
+├── Gemfile            # Ruby dependencies
 ├── package.json       # Node.js dependencies
-├── next.config.mjs    # Next.js configuration (PRIMARY)
-├── tsconfig.json      # TypeScript configuration
-└── Rakefile           # Rake tasks (Jekyll legacy)
+└── Rakefile           # Rake tasks
 ```
 
 ### Important Files
 
-* `next.config.mjs`: Next.js configuration (PRIMARY)
-* `app/layout.tsx`: Root layout and metadata
 * `package.json`: Node.js dependencies and scripts
-* `tsconfig.json`: TypeScript configuration
-* `_config.yml`: Jekyll site configuration (LEGACY)
+* `_config.yml`: Jekyll site configuration
 * `llms.txt`: LLM/AI assistant context about the site
 * `humans.txt`: Credits and site information
 * `robots.txt`: Search engine crawler rules
 
 ## Coding Standards and Best Practices
 
-### TypeScript/React (Primary)
-
-* Follow ESLint rules in `.eslintrc.yml`
-* Use TypeScript for type safety
-* Use ES module syntax (`type: "module"` in package.json)
-* Use xo style guide settings (space indentation)
-* Prefer server components over client components
-* Only use 'use client' when absolutely necessary (React hooks, browser APIs)
-* Use proper TypeScript types for props and return values
-* Avoid `any` types
-
-**Server Components vs Client Components:**
-
-* ✅ **DO**: Use server components by default (no 'use client' directive)
-* ✅ **DO**: Pre-render all pages as static HTML using `generateStaticParams`
-* ✅ **DO**: Use HTML and CSS for interactive features when possible
-* ❌ **DON'T**: Use 'use client' unless ABSOLUTELY necessary
-* ❌ **DON'T**: Use client-side state management when server components work
-* ❌ **DON'T**: Add unnecessary JavaScript for features that can be HTML/CSS only
-
-### Ruby (Legacy - Jekyll Only)
-
-**Only modify Ruby code when explicitly maintaining Jekyll functionality.**
+### Ruby (Jekyll)
 
 * Follow Rubocop rules defined in `.rubocop.yml`
 * Use frozen string literals: `# frozen_string_literal: true`
-* Write RSpec tests for new functionality in `spec/` (if adding Jekyll features)
+* Write RSpec tests for new functionality in `spec/`
 * Documentation comments are optional (disabled in Rubocop)
 * Keep methods focused and readable
 
@@ -253,18 +166,11 @@ Blog posts must include:
 
 ### File Naming Conventions
 
-**Next.js:**
-
-* React components: `ComponentName.tsx` (PascalCase)
-* Pages: `page.tsx`, `layout.tsx`, `not-found.tsx`
-* Dynamic routes: `[slug]/page.tsx`, `[year]/[month]/[day]/[slug]/page.tsx`
-* Test files: `ComponentName.test.tsx`
-
-**Content (Shared):**
+**Content:**
 
 * Blog posts: `_posts/YYYY-MM-DD-title-with-hyphens.md`
 
-**Jekyll (Legacy):**
+**Jekyll:**
 
 * Data files: `_data/filename.yml`
 * Layouts: `_layouts/layout-name.html`
@@ -275,25 +181,17 @@ Blog posts must include:
 ### E2E Tests (Playwright)
 
 * Place test files in `e2e/` directory
-* Use Playwright for testing Next.js pages
+* Use Playwright for testing Jekyll pages
 * Test critical user journeys and page rendering
-* Run `npm run test:e2e:nextjs` for Next.js tests
+* Run `npm run test:e2e` for E2E tests
 * Ensure accessibility compliance
 
-### Jest Tests (Unit/Component)
-
-* Place test files alongside components: `ComponentName.test.tsx`
-* Test component behavior and props
-* Run `npm run test:jest` for unit tests
-* Use React Testing Library for component tests
-
-### RSpec Tests (Legacy - Jekyll Only)
+### RSpec Tests (Jekyll)
 
 * Place test files in `spec/` directory
 * Use descriptive test names with `context` and `it` blocks
 * Test front matter requirements for pages and collections
 * Verify Jekyll builds successfully
-* Only modify when maintaining Jekyll functionality
 
 ### HTML Validation
 
@@ -319,18 +217,7 @@ Blog posts must include:
 * Check spelling and grammar (retext-spell, textlint)
 * Use proper typographic conventions (em dashes, en dashes, etc.)
 
-## React Components (Primary)
-
-* Use TypeScript for all new components
-* Prefer server components over client components
-* Use proper prop types with TypeScript interfaces
-* Keep components focused and reusable
-* Follow React 19 best practices
-* Test components with Jest and React Testing Library
-
-## Liquid Templates (Legacy - Jekyll Only)
-
-**Only modify Liquid templates when maintaining Jekyll functionality.**
+## Liquid Templates (Jekyll)
 
 * Use `{% include_cached %}` for frequently included partials
 * Use descriptive variable names
@@ -360,10 +247,7 @@ This ensures Copilot can build, test, and validate code changes in a properly co
 
 ## Resources
 
-* [Next.js Documentation](https://nextjs.org/docs)
-* [React Documentation](https://react.dev/)
-* [TypeScript Documentation](https://www.typescriptlang.org/docs/)
-* [Jekyll Documentation](https://jekyllrb.com/docs/) (Legacy reference)
+* [Jekyll Documentation](https://jekyllrb.com/docs/)
 * [GitHub Pages Documentation](https://docs.github.com/en/pages)
 * [Site Source Code](https://github.com/benbalter/benbalter.github.com)
 * [Ben Balter's Blog](https://ben.balter.com)
@@ -376,10 +260,9 @@ This repository includes specialized GitHub Copilot custom agents in `.github/ag
 
 Specialized for code-related tasks including:
 
-* **TypeScript/React** (Next.js components, hooks, utilities) - **PRIMARY**
 * **JavaScript** (webpack, build tools, linting)
-* **Ruby** (Jekyll plugins, RSpec tests, Rake tasks) - **LEGACY**
-* **HTML/Liquid templates** - **LEGACY**
+* **Ruby** (Jekyll plugins, RSpec tests, Rake tasks)
+* **HTML/Liquid templates**
 * **SCSS/CSS styling**
 * **Configuration files** (YAML, JSON, TypeScript config)
 
@@ -400,12 +283,9 @@ Use this agent for creating or editing blog posts and documentation.
 ## Notes for Copilot
 
 * This is a **production website**—be conservative with changes
-* **Default to Next.js** for new features unless explicitly asked to modify Jekyll
-* **Jekyll is legacy**—only maintain existing functionality, don't add new features
 * Preserve existing functionality unless explicitly asked to modify
 * Follow the established patterns in the codebase
 * Test changes thoroughly with the existing test suite
-* When adding new features, ensure they align with Next.js best practices
 * Maintain the site's clean, minimal aesthetic
 * Prioritize performance and accessibility
 * **CRITICAL: Make MINIMAL changes**:
@@ -415,10 +295,3 @@ Use this agent for creating or editing blog posts and documentation.
   * If you must lint, target specific files: `npx eslint path/to/file.js`
   * Running `npm run lint-md` reformats ALL markdown files—avoid this
   * Only run broad linters if explicitly asked by the user
-* **CRITICAL: Maximize use of SSG and server components**:
-  * Never use 'use client' unless absolutely necessary
-  * Prefer HTML and CSS over JavaScript
-  * Pre-render all pages as static HTML
-  * Minimize JavaScript bundle size
-  * Use server components for all data fetching and rendering
-  * Only use client components when browser APIs or React hooks are required
