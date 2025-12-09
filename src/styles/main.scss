@@ -30,6 +30,10 @@ abbr[data-bs-original-title] {
     @extend small;
     @extend .border-top;
     @extend .pt-3;
+    margin-left: -15px;
+    margin-right: -15px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .footnotes::before {
