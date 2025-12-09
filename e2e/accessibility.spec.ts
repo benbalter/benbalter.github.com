@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { checkBasicAccessibility, waitForPageReady } from './helpers';
+import { checkBasicAccessibility, waitForPageReady, isAstroBuild } from './helpers';
 
 test.describe('Accessibility', () => {
   const pages = ['/', '/about', '/resume', '/contact', '/talks'];
@@ -147,11 +147,15 @@ test.describe('Accessibility', () => {
     await page.goto('/');
     await waitForPageReady(page);
     
-    // Verify data-bs-theme attribute is present
-    const html = page.locator('html');
-    await expect(html).toHaveAttribute('data-bs-theme', 'auto');
+    const astro = await isAstroBuild(page);
     
-    // Verify dark mode styling is applied
+    if (astro) {
+      // Astro: Verify data-bs-theme attribute is present
+      const html = page.locator('html');
+      await expect(html).toHaveAttribute('data-bs-theme', 'auto');
+    }
+    
+    // Both Jekyll and Astro: Verify dark mode styling is applied
     const bodyBg = await page.locator('body').evaluate(el => 
       window.getComputedStyle(el).backgroundColor
     );
@@ -161,9 +165,6 @@ test.describe('Accessibility', () => {
   });
 
   test('should have sufficient text contrast in dark mode for post content', async ({ page }) => {
-    // WCAG AA contrast ratio requirement for normal text
-    const WCAG_AA_CONTRAST_RATIO = 4.5;
-    
     // Emulate dark color scheme preference
     await page.emulateMedia({ colorScheme: 'dark' });
     
@@ -171,12 +172,16 @@ test.describe('Accessibility', () => {
     await page.goto('/2010/09/12/wordpress-resume-plugin/');
     await waitForPageReady(page);
     
-    // Verify data-bs-theme attribute is present
-    const html = page.locator('html');
-    await expect(html).toHaveAttribute('data-bs-theme', 'auto');
+    const astro = await isAstroBuild(page);
     
-    // Check post content exists and is visible
-    const postContent = page.locator('.post-content, .entrybody');
+    if (astro) {
+      // Astro: Verify data-bs-theme attribute is present
+      const html = page.locator('html');
+      await expect(html).toHaveAttribute('data-bs-theme', 'auto');
+    }
+    
+    // Check post content exists and is visible (works for both Jekyll and Astro)
+    const postContent = page.locator('.post-content, .entrybody, article').first();
     await expect(postContent).toBeVisible();
     
     // Get background and text colors of post body and body background
@@ -234,6 +239,7 @@ test.describe('Accessibility', () => {
     
     // WCAG AA requires a contrast ratio of at least 4.5:1 for normal text
     // WCAG AAA requires 7:1, but we'll test for AA minimum
+    const WCAG_AA_CONTRAST_RATIO = 4.5;
     expect(contrastCheck.contrastRatio).toBeGreaterThanOrEqual(WCAG_AA_CONTRAST_RATIO);
     
     // Also verify the body has a dark background

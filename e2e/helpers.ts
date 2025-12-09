@@ -147,3 +147,30 @@ export async function checkBasicAccessibility(page: Page) {
     }
   }
 }
+
+/**
+ * Detect if the site is built with Astro or Jekyll
+ * Astro adds a data-astro-cid attribute to elements
+ * Jekyll does not have this attribute
+ */
+export async function isAstroBuild(page: Page): Promise<boolean> {
+  // Check for Astro-specific attributes
+  const astroElements = await page.locator('[data-astro-cid]').count();
+  if (astroElements > 0) {
+    return true;
+  }
+  
+  // Check for meta generator tag
+  const generator = await page.locator('meta[name="generator"]').getAttribute('content');
+  if (generator?.includes('Astro')) {
+    return true;
+  }
+  
+  // Check for Jekyll-specific generator tag
+  if (generator?.includes('Jekyll')) {
+    return false;
+  }
+  
+  // Default to Jekyll (current production build)
+  return false;
+}
