@@ -58,17 +58,20 @@ const breadcrumbItems = [
 
 // Add path segments to breadcrumbs
 let currentPath = siteConfig.url;
-for (const segment of pathSegments) {
+pathSegments.forEach((segment, index) => {
   currentPath += `/${segment}`;
-  const name = segment.split('-').map(word => 
-    word.charAt(0).toUpperCase() + word.slice(1)
+  // Remove file extension, replace hyphens/underscores with spaces, capitalize words
+  const cleanedSegment = segment.replace(/\.[^/.]+$/, '').replace(/[-_]+/g, ' ');
+  const name = cleanedSegment.split(' ').map(word =>
+    word.length > 0 ? word.charAt(0).toUpperCase() + word.slice(1) : ''
   ).join(' ');
   // Last item doesn't get a URL (it's the current page)
+  const isLastItem = index === pathSegments.length - 1;
   breadcrumbItems.push({ 
     name, 
-    url: pathSegments.indexOf(segment) === pathSegments.length - 1 ? '' : currentPath 
+    url: isLastItem ? '' : currentPath 
   });
-}
+});
 
 const breadcrumbSchema = pathSegments.length > 0 ? generateBreadcrumbSchema(breadcrumbItems) : null;
 

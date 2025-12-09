@@ -7,7 +7,7 @@
  * @see https://github.com/google/schema-dts
  */
 
-import type { Person, Organization, WebSite, BlogPosting, BreadcrumbList, WithContext } from 'schema-dts';
+import type { Person, Organization, WebSite, BlogPosting, BreadcrumbList, ListItem, WithContext } from 'schema-dts';
 import { siteConfig } from '../config';
 
 /**
@@ -66,7 +66,11 @@ export function generateWebSiteSchema(): WithContext<WebSite> {
     '@type': 'WebSite',
     name: siteConfig.name,
     url: siteConfig.url,
-    author: generatePersonSchema(),
+    author: {
+      '@type': 'Person',
+      name: siteConfig.author,
+      url: siteConfig.url,
+    },
     description: siteConfig.description,
   };
 }
@@ -104,14 +108,21 @@ export function generateBlogPostingSchema(props: {
 }
 
 /**
- * Generate BreadcrumbList schema for navigation
+ * Generate BreadcrumbList schema for navigation.
+ *
+ * Each breadcrumb item should have a `name` and may optionally have a `url`.
+ * If `url` is omitted or an empty string, the item is treated as the current page
+ * (i.e., the last breadcrumb item without a link), which is required for Schema.org compliance.
+ *
+ * @param items - Array of breadcrumb items, each with a `name` and optional `url`.
+ * @returns BreadcrumbList schema in JSON-LD format.
  */
 export function generateBreadcrumbSchema(items: Array<{ name: string; url?: string }>): WithContext<BreadcrumbList> {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: items.map((item, index) => {
-      const element: any = {
+      const element: ListItem = {
         '@type': 'ListItem',
         position: index + 1,
         name: item.name,
@@ -129,6 +140,10 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url?: stri
  * Convert schema object to JSON-LD script tag content
  * Handles both single schemas and arrays of schemas
  */
-export function schemaToJsonLd(schema: WithContext<any> | WithContext<any>[]): string {
+export function schemaToJsonLd(
+  schema:
+    | WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList>
+    | Array<WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList>>
+): string {
   return JSON.stringify(schema, null, 2);
 }
