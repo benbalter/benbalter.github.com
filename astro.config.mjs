@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import favicons from 'astro-favicons';
 import redirectIntegration from './src/lib/redirect-integration.ts';
 import remarkEmoji from 'remark-emoji';
 import rehypeSlug from 'rehype-slug';
@@ -75,6 +76,21 @@ export default defineConfig({
   
   // Integrations
   integrations: [
+    favicons({
+      // Use existing high-quality PNG as source
+      // The integration will generate all favicon formats automatically
+      input: {
+        favicons: ['public/android-chrome-512x512.png'],
+      },
+      name: 'Ben Balter',
+      short_name: 'Ben Balter',
+      // Automatically inject favicon tags into all pages
+      output: {
+        images: true,
+        files: true,
+        html: true,
+      },
+    }),
     mdx({
       // MDX configuration
       optimize: true,
