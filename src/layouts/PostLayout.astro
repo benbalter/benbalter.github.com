@@ -7,6 +7,7 @@
  */
 
 import BaseLayout from './BaseLayout.astro';
+import Tldr from '../components/Tldr.astro';
 import MiniBio from '../components/MiniBio.astro';
 import { siteConfig } from '../config';
 import { calculateReadingTime } from '../utils/reading-time';
@@ -73,13 +74,7 @@ const readingTime = calculateReadingTime(content);
           <h1 class="display-4 text-primary">{title}</h1>
           
           {description && (
-            <div class="lead post-tldr">
-              <strong>
-                <abbr title='"Too Long; Didn\'t Read" — Internet shorthand for "a brief summary of longer writing"' class="initialism">TL;DR</abbr>:
-              </strong>
-              {' '}
-              <span set:html={marked.parseInline(description)} />
-            </div>
+            <Tldr description={description} />
           )}
           
           <div class="post-meta text-muted mb-4">
