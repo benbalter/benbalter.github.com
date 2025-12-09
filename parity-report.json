@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-12-09T05:34:12.417Z",
+  "timestamp": "2025-12-09T05:43:40.562Z",
   "html": {
     "jekyllUrls": [
       "/./",
@@ -431,6 +431,7 @@
       "/cv/",
       "/fine-print/",
       "/other-recommended-reading/",
+      "/press/",
       "/recommended-reading/",
       "/resume/",
       "/talks/"
@@ -647,20 +648,19 @@
       "/cv/",
       "/fine-print/",
       "/other-recommended-reading/",
+      "/press/",
       "/recommended-reading/",
       "/resume/",
       "/talks/"
     ],
-    "jekyllOnly": [
-      "/press/"
-    ],
+    "jekyllOnly": [],
     "astroOnly": [
       "/2014/10/08/why-government-contractors-should-%3C3-open-source/"
     ],
     "totalJekyll": 215,
-    "totalAstro": 215,
-    "totalMatching": 214,
-    "parityPercentage": 99.53488372093024
+    "totalAstro": 216,
+    "totalMatching": 215,
+    "parityPercentage": 100
   },
   "specialFiles": {
     "jekyll": [
@@ -678,6 +678,7 @@
       "robots.txt",
       "humans.txt",
       ".well-known/security.txt",
+      "press/feed/index.xml",
       "feed/index.xml"
     ]
   }

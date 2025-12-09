@@ -1,0 +1,64 @@
+🔍 Jekyll to Astro Parity Checker
+
+================================================================================
+
+📂 Scanning directories...
+
+   Jekyll: 215 HTML pages
+   Astro:  216 HTML pages
+
+📊 HTML Pages Parity Report
+
+================================================================================
+
+Total URLs:
+   Jekyll: 215
+   Astro:  216
+   Matching: 215 (100.0%)
+
+✅ Matching URLs by Category:
+
+   Blog Posts: 203
+   Pages: 6
+   Feeds: 0
+   Other: 6
+
+ℹ️  URLs only in Astro (1):
+
+   Blog Posts (1):
+      /2014/10/08/why-government-contractors-should-%3C3-open-source/
+
+================================================================================
+
+🔍 Special Files Check
+
+================================================================================
+
+✅ .well-known/security.txt (Jekyll: 242b, Astro: 241b)
+✅ feed.xml (Jekyll: 77487b, Astro: 104096b)
+⚠️  feed/index.xml
+    Jekyll: 1142 bytes, Astro: 316 bytes (72.3% diff)
+⚠️  humans.txt
+    Jekyll: 5410 bytes, Astro: 1677 bytes (69.0% diff)
+✅ press/feed/index.xml (Jekyll: 26116b, Astro: 27651b)
+✅ robots.txt (Jekyll: 833b, Astro: 813b)
+ℹ️  sitemap-index.xml - Only in Astro (new)
+⚠️  sitemap.xml - Only in Jekyll
+
+================================================================================
+
+📝 Summary
+
+================================================================================
+
+✅ Excellent parity! URLs match between Jekyll and Astro.
+
+📋 Next Steps:
+
+   2. Review Astro-only URLs (redirects, new pages)
+   3. Validate special files (feeds, sitemap, robots.txt)
+   4. Test key URLs manually in both builds
+   5. Run content comparison on matching URLs
+
+📄 Detailed report saved to: /home/runner/work/benbalter.github.com/benbalter.github.com/parity-report.json
+

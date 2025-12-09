@@ -1,0 +1,73 @@
+---
+/**
+ * Press Page
+ * 
+ * Displays media clips and press mentions about Ben Balter.
+ * Lists clips from src/data/clips.yml sorted by date (newest first).
+ */
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { readFileSync } from 'node:fs';
+import { parse } from 'yaml';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
+
+// Load clips data
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const clipsPath = join(__dirname, '../../_data/clips.yml');
+const clipsYaml = readFileSync(clipsPath, 'utf-8');
+const clips = parse(clipsYaml);
+
+// Sort clips by date (newest first)
+const sortedClips = clips.sort((a: any, b: any) => {
+  const dateA = new Date(a.date);
+  const dateB = new Date(b.date);
+  return dateB.getTime() - dateA.getTime();
+});
+
+// Format date
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  });
+}
+---
+
+<BaseLayout
+  title="Press"
+  description="Select media clips of Ben Balter in the press talking about open source, open data, and government innovation."
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <h1 class="mb-4">Press</h1>
+        
+        <p class="lead mb-5">
+          <em>I regularly speak with the press about open source, open data, and innovation within government. Below are some highlights:</em>
+        </p>
+
+        <ul class="list-unstyled">
+          {sortedClips.map((clip: any) => (
+            <li class="mb-3">
+              <a 
+                href={clip.url} 
+                class="title fw-bold"
+                {...(clip.ignore_check ? { 'data-proofer-ignore': 'true' } : {})}
+              >
+                {clip.title}
+              </a>
+              <br />
+              <span class="small text-muted">
+                {clip.publication} | <em>{formatDate(clip.date)}</em>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
