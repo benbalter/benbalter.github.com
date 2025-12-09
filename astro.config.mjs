@@ -175,13 +175,18 @@ export default defineConfig({
           // and names it after one of the pages (e.g., "about"). We rename it to "global"
           // to accurately reflect that it's the site's main stylesheet, not page-specific CSS.
           assetFileNames: (assetInfo) => {
-            if (assetInfo.name && assetInfo.name.endsWith('.css')) {
+            if (!assetInfo || !assetInfo.name) {
+              return 'assets/[name].[hash][extname]';
+            }
+            
+            if (assetInfo.name.endsWith('.css')) {
               const name = assetInfo.name.replace(/\.css$/, '');
               
               // Detect shared stylesheet: simple page names (not dynamic routes like "_slug_")
               // Match: about, contact, resume, index, fine-print, books-for-geeks, etc.
               // Don't match: _slug_, _year_, or other special patterns
-              const isPageName = !name.startsWith('_') && /^[a-z0-9-]+$/.test(name);
+              const PAGE_NAME_PATTERN = /^[a-z0-9-]+$/;
+              const isPageName = !name.startsWith('_') && PAGE_NAME_PATTERN.test(name);
               
               if (isPageName) {
                 // This is the shared global stylesheet - rename it for clarity
@@ -190,6 +195,7 @@ export default defineConfig({
               
               return 'assets/[name].[hash].css';
             }
+            
             return 'assets/[name].[hash][extname]';
           },
         },
