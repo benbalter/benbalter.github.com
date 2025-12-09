@@ -6,7 +6,7 @@ archived: true
 
 In 593 A.D., the first printing press quietly spun into operation in China. Exactly 120 years later, the first paper, *Kaiyuan Za Bao*, began production in Beijing. [^1] In 2010, however, China's information landscape is best characterized not by innovation, but rather by tightly controlled government restriction, and no American corporation is more acutely aware of this austere reality than internet giant Google. The company [recently released](http://googlepublicpolicy.blogspot.com/2010/11/promoting-free-trade-for-internet.html) a [white paper](http://www.google.com/googleblogs/pdfs/trade_free_flow_of_information.pdf) calling out China, among others for violating WTO commitments and urged law makers to break down barriers to free trade and global e-commerce.
 
-![Photo of the Great Wall of China](https://ben.balter.com/wp-content/uploads/2010/11/1194563275_664d6b15e2_b.jpg "Great Wall of China"){: .img-fluid .mx-auto .d-block }
+<img src="https://ben.balter.com/wp-content/uploads/2010/11/1194563275_664d6b15e2_b.jpg" alt="Photo of the Great Wall of China" title="Great Wall of China" class="img-fluid mx-auto d-block" />
 
 The argument is simple: As the internet is increasingly becoming the dominant instrument of industry, blocking access to information is tantamount to blocking access to trade.
 
