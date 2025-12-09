@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import remarkEmoji from 'remark-emoji';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
@@ -55,7 +56,7 @@ export default defineConfig({
       // MDX configuration
       optimize: true,
       // Support GitHub Flavored Markdown
-      remarkPlugins: [],
+      remarkPlugins: [remarkEmoji],
       rehypePlugins: [
         rehypeSlug,
         [rehypeAutolinkHeadings, {
@@ -118,7 +119,7 @@ export default defineConfig({
     // Enable smartypants for typographic punctuation
     smartypants: true,
     // Remark plugins (for markdown processing)
-    remarkPlugins: [],
+    remarkPlugins: [remarkEmoji],
     // Rehype plugins (for HTML processing)
     rehypePlugins: [
       rehypeSlug,
