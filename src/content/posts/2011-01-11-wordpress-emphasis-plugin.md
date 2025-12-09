@@ -4,7 +4,7 @@ description: One-click implementation of the New York Times open source emphasis
 archived: true
 ---
 
-<img src="https://ben.balter.com/wp-content/uploads/2011/01/emphasis-screenshot.png" alt="Screenshot of the plugin in use" title="Screenshot of Emphasis WordPress Plugin" class=".float-start .me-3 .border" />
+<img src="https://ben.balter.com/wp-content/uploads/2011/01/emphasis-screenshot.png" alt="Screenshot of the plugin in use" title="Screenshot of Emphasis WordPress Plugin" class="float-start me-3 border" />
 
 The New York Times [recently open-sourced](http://open.blogs.nytimes.com/2011/01/11/emphasis-update-and-source/) their nifty wizardry which allows users to highlight and link to specific text within an article or post. In their own words:
 

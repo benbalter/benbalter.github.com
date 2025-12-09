@@ -6,7 +6,7 @@ archived: true
 
 Everyone knows the old adage: "If it's on the internet, it must be true free.[^1]" It turns out despite the internet's [otherwise murky attribution waters](http://www.huffingtonpost.com/jay-rosen/the-uncharted-from-off-th_b_96575.html), that's not quite the case.
 
-<img src="https://ben.balter.com/wp-content/uploads/2010/11/244921874_44ec1cbfa9-292x300.jpg" alt="Apple Pie Courtesy @belochkavita" title="Apple Pie Courtesy belochkavita" class=".float-start .me-3 .rounded" />
+<img src="https://ben.balter.com/wp-content/uploads/2010/11/244921874_44ec1cbfa9-292x300.jpg" alt="Apple Pie Courtesy @belochkavita" title="Apple Pie Courtesy belochkavita" class="float-start me-3 rounded" />
 
 Last week writer Monica Gaudio [received an email from a friend](http://illadore.livejournal.com/30674.html) congratulating her on getting an article published in the Northeast-regional cooking magazine [Cooks Source](http://cookssource.com). There was only one problem — she didn't. The article, a recipe for fourteen-century apple pie, was lifted, word-for-word, from [Gaudio's site](http://godecookery.com/twotarts/twotarts.html). After an email back-and-forth in which Gaudio asked for an apology, a copy of the magazine, and a $130 donation to the Columbia Journalism School, Cooks [Source Editor Judith Griggs noted](https://gizmodo.com/attention-the-web-is-not-public-domain-5681714)]:
 

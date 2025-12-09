@@ -23,7 +23,7 @@ This creates an array (`$footnotes`) with the both the footnote number and the t
 //build find and replace arrays
 foreach ($footnotes as $footnote) {
  $find[] = '#&lt;a href\\="#_ftn'.$footnote[1].'">['.$footnote[1].']</a>#';
- $replace[] = '[ref]' . str_replace( array("\\r\\n", "\\r", "\\n"), "", $footnote[3]) . '[/ref]';
+ $replace[] = '[ref]'. str_replace( array("\\r\\n", "\\r", "\\n"), "", $footnote[3]). '[/ref]';
 }
 ?>
 ```

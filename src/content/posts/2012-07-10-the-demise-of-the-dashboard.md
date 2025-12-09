@@ -3,7 +3,7 @@ title: The Demise of the Personal Dashboard
 description: When building consumer applications, favor simplicity over complex personalized dashboards which bombard customers with information.
 ---
 
-[<img src="https://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things-300x225.jpeg" alt="Dashboard all the things" class=".float-end .ms-3" />](https://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things.jpeg)
+[<img src="https://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things-300x225.jpeg" alt="Dashboard all the things" class="float-end ms-3" />](https://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things.jpeg)
 
 I was recently asked how I would architect a personalized dashboard experience for visitors to a large, customer-facing site. My response? *I wouldn't.*
 

@@ -76,7 +76,7 @@ At its most fundamental level, agility is the ability to quickly and effectively
 
 #### i. Agile is iterative, breaking long-term projects into multiple independent, manageable tasks
 
-[<img src="https://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg" alt="Comparison of Waterfall to Agile Software Development Timelines" class=".img-fluid" />](https://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg)
+[<img src="https://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg" alt="Comparison of Waterfall to Agile Software Development Timelines" class="img-fluid" />](https://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg)
 
 <p class="text-center"><em>Figure 1 - Agile and Waterfall Development Cycles Compared (PDF)</em></p>
 
@@ -210,7 +210,7 @@ The above goals cannot be realized without significant top-down support from the
 
 The federal IT procurement system is outdated. Projects are consistently delivered late, over-budget, and obsolete. Much of this trend can be traced back to flawed legal frameworks that lock agencies and contractors into an outdated development model. Through education, reform, and organization-wide support, federal agility can become a reality. Any computer user knows that as systems age they begin to slow. Today, the federal IT procurement system is running slowly, to the detriment of both agencies and the public, and it is long overdue for a system-wide upgrade.
 
-[<img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Creative Commons License" class=".aligncenter" />](https://creativecommons.org/licenses/by/2.0/)
+[<img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Creative Commons License" class="aligncenter" />](https://creativecommons.org/licenses/by/2.0/)
 
 *Originally published in The Public Contract Law Journal, Volume 41, Issue 1. Available for public use under a [Creative Commons BY-NC-SA license](http://creativecommons.org/licenses/by-nc-sa/3.0/).*
 
@@ -492,7 +492,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^141]: 40 U.S.C. § 1103(d) (2006).
 
-[^142]: FAR 36.601 specifically notes that "services that do not require performance by a registered or licensed architect or engineer . . . should be acquired pursuant to parts 13, 14, and 15."
+[^142]: FAR 36.601 specifically notes that "services that do not require performance by a registered or licensed architect or engineer... should be acquired pursuant to parts 13, 14, and 15."
 
 [^143]: National Defense Authorization Act of 1996, Pub. L. No. 104–106, 110 Stat. 659, 689 (1996) (codified in scattered sections of 40 U.S.C. and 41 U.S.C.). For a comprehensive overview of the ITMRA (later known as the Clinger-Cohen Act) reforms, *see* Stephen W. Feldman, *Clinger-Cohen Act of 1996; GAO Procurement Protest Authority*, 1 Government Contract Awards: Negotiation and Sealed Bidding § 1:12 (2010).
 
@@ -510,7 +510,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^150]: FAR 39.103.
 
-[^151]: Strengthening IT program management by exposing best practices and aligning IT procurement with innovation is a central tenet of the White House's plan to reform federal IT. Kundra, *supra* note 13, at 17 (noting "the acquisition process can require program managers to specify the Government's requirements up front, which can be years in advance of program initiation . . . We need to make real change happen . . . by educating the entire team managing IT projects about the tools available to streamline the acquisition process.").
+[^151]: Strengthening IT program management by exposing best practices and aligning IT procurement with innovation is a central tenet of the White House's plan to reform federal IT. Kundra, *supra* note 13, at 17 (noting "the acquisition process can require program managers to specify the Government's requirements up front, which can be years in advance of program initiation... We need to make real change happen... by educating the entire team managing IT projects about the tools available to streamline the acquisition process.").
 
 [^152]: Ideally instructors would create a scalable model outlining the various issues contracting agencies must broach before pursuing an agile project, such as how to ensure robust competition, how broad or specific the statements of work should be, whether to award to a single vendor or multiple vendors, and when to use fixed-price contracts or rely instead on other contracting vehicles. *See generally* Kundra, *supra* note 13.
 
