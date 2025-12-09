@@ -184,7 +184,7 @@ test.describe('Accessibility', () => {
     }
     
     // Check post content exists and is visible (works for both Jekyll and Astro)
-    const postContent = page.locator('.post-content, .entrybody, article').first();
+    const postContent = page.locator('.post-content, .entrybody').first();
     await expect(postContent).toBeVisible();
     
     // Get background and text colors of post body and body background
