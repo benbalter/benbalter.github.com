@@ -11,10 +11,12 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.1",
     "@hotwired/turbo": "^8.0.5",
     "anchor-js": "^5.0.0",
+    "astro-og-canvas": "^0.7.2",
     "bootstrap": "^5.3.3",
     "fastest-levenshtein": "^1.0.16",
     "marked": "^17.0.1",
-    "reading-time": "^1.5.0"
+    "reading-time": "^1.5.0",
+    "satori": "^0.18.3"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",

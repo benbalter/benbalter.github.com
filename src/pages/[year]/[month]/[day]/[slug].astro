@@ -36,8 +36,12 @@ const { post, allPosts } = Astro.props;
 const { Content } = await post.render();
 
 // Extract date from params for display
-const { year, month, day } = Astro.params;
+const { year, month, day, slug } = Astro.params;
 const pubDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+
+// Generate OG image URL for this post
+// If post has a custom image, use that, otherwise use the dynamically generated one
+const ogImageUrl = post.data.image || `/og/${year}/${month}/${day}/${slug}`;
 
 // Find related posts (limit to 10)
 const relatedPosts = await findRelatedPosts(post, allPosts, 10);
@@ -47,7 +51,7 @@ const relatedPosts = await findRelatedPosts(post, allPosts, 10);
   title={post.data.title}
   description={post.data.description}
   pubDate={pubDate}
-  image={post.data.image}
+  image={ogImageUrl}
   relatedPosts={relatedPosts}
   archived={post.data.archived}
   postSlug={post.slug}
