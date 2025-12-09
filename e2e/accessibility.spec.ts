@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { checkBasicAccessibility, waitForPageReady, isAstroBuild } from './helpers';
+import { checkBasicAccessibility, waitForPageReady, detectBuildSystem } from './helpers';
 
 // WCAG AA contrast ratio requirement for normal text
 const WCAG_AA_CONTRAST_RATIO = 4.5;
@@ -150,9 +150,9 @@ test.describe('Accessibility', () => {
     await page.goto('/');
     await waitForPageReady(page);
     
-    const astro = await isAstroBuild(page);
+    const buildSystem = await detectBuildSystem(page);
     
-    if (astro) {
+    if (buildSystem === 'astro') {
       // Astro: Verify data-bs-theme attribute is present
       const html = page.locator('html');
       await expect(html).toHaveAttribute('data-bs-theme', 'auto');
@@ -175,9 +175,9 @@ test.describe('Accessibility', () => {
     await page.goto('/2010/09/12/wordpress-resume-plugin/');
     await waitForPageReady(page);
     
-    const astro = await isAstroBuild(page);
+    const buildSystem = await detectBuildSystem(page);
     
-    if (astro) {
+    if (buildSystem === 'astro') {
       // Astro: Verify data-bs-theme attribute is present
       const html = page.locator('html');
       await expect(html).toHaveAttribute('data-bs-theme', 'auto');
