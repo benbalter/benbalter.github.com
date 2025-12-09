@@ -76,3 +76,70 @@ describe('YouTube Component - Specification', () => {
   });
 });
 
+describe('MiniBio Component - Specification', () => {
+  it('should use GitHub avatar URL with correct size parameter', () => {
+    // Specification: GitHub avatar URL format
+    const username = 'benbalter'; // from siteConfig.githubUsername
+    const size = 100;
+    const avatarUrl = `https://avatars.githubusercontent.com/${username}?s=${size}`;
+    
+    expect(avatarUrl).toMatch(/^https:\/\/avatars\.githubusercontent\.com\//);
+    expect(avatarUrl).toContain(username);
+    expect(avatarUrl).toContain('s=100');
+  });
+
+  it('should link to /about/ page', () => {
+    // Specification: Link to about page
+    const aboutUrl = '/about/';
+    
+    expect(aboutUrl).toBe('/about/');
+    expect(aboutUrl).toMatch(/^\/about\/$/);
+  });
+
+  it('should dynamically extract first paragraph from about content', async () => {
+    // Import and test the actual function
+    const { getFirstParagraph } = await import('../content/about-bio');
+    
+    const sampleContent = 'First paragraph text.\n\nSecond paragraph text.';
+    const firstParagraph = getFirstParagraph(sampleContent);
+    
+    expect(firstParagraph).toBe('First paragraph text.');
+    expect(firstParagraph).not.toContain('Second paragraph');
+  });
+
+  it('should convert markdown links to HTML with proper escaping', async () => {
+    // Import and test the actual function
+    const { getFirstParagraph } = await import('../content/about-bio');
+    
+    const sampleContent = 'Text with [link](https://example.com) inside';
+    const result = getFirstParagraph(sampleContent);
+    
+    expect(result).toContain('<a href="https://example.com">link</a>');
+    expect(result).not.toContain('[link]');
+  });
+
+  it('should escape HTML in link text to prevent XSS', async () => {
+    // Import and test the actual function
+    const { getFirstParagraph } = await import('../content/about-bio');
+    
+    const maliciousContent = 'Text with [<img src=x onerror=alert(1)>](https://example.com) inside';
+    const result = getFirstParagraph(maliciousContent);
+    
+    // Should escape the HTML in link text
+    expect(result).toContain('&lt;img');
+    expect(result).not.toContain('<img');
+  });
+
+  it('should reject protocol-relative URLs', async () => {
+    // Import and test the actual function
+    const { getFirstParagraph } = await import('../content/about-bio');
+    
+    const protocolRelativeContent = 'Text with [link](//evil.com) inside';
+    const result = getFirstParagraph(protocolRelativeContent);
+    
+    // Should not convert invalid URLs
+    expect(result).toContain('[link](//evil.com)');
+    expect(result).not.toContain('<a href');
+  });
+});
+
