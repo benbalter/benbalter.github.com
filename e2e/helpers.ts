@@ -149,36 +149,36 @@ export async function checkBasicAccessibility(page: Page) {
 }
 
 /**
- * Detect if the site is built with Astro or Jekyll
+ * Detect the build system used for the site (Astro, Jekyll, or unknown)
  * 
  * Checks for build system-specific attributes and meta tags:
  * - Astro adds data-astro-cid attributes to elements
  * - Both set a meta generator tag
  * 
  * @param page - The Playwright page object
- * @returns true if Astro build, false if Jekyll build
+ * @returns 'astro' if Astro build, 'jekyll' if Jekyll build, 'unknown' otherwise
  * 
- * Note: Defaults to Jekyll (false) if neither system is detected,
+ * Note: Defaults to 'jekyll' if neither system is detected,
  * as Jekyll is the current production build system.
  */
-export async function isAstroBuild(page: Page): Promise<boolean> {
+export async function detectBuildSystem(page: Page): Promise<'astro' | 'jekyll' | 'unknown'> {
   // Check for Astro-specific attributes
   const astroElements = await page.locator('[data-astro-cid]').count();
   if (astroElements > 0) {
-    return true;
+    return 'astro';
   }
   
   // Check for meta generator tag
   const generator = await page.locator('meta[name="generator"]').getAttribute('content');
   if (generator?.includes('Astro')) {
-    return true;
+    return 'astro';
   }
   
   // Check for Jekyll-specific generator tag
   if (generator?.includes('Jekyll')) {
-    return false;
+    return 'jekyll';
   }
   
   // Default to Jekyll (current production build)
-  return false;
+  return 'jekyll';
 }
