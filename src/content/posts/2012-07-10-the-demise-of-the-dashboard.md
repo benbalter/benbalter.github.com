@@ -3,7 +3,7 @@ title: The Demise of the Personal Dashboard
 description: When building consumer applications, favor simplicity over complex personalized dashboards which bombard customers with information.
 ---
 
-[![Dashboard all the things](https://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things-300x225.jpeg){: .float-end .ms-3 }](https://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things.jpeg)
+[<img src="https://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things-300x225.jpeg" alt="Dashboard all the things" class="float-end ms-3" />](https://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things.jpeg)
 
 I was recently asked how I would architect a personalized dashboard experience for visitors to a large, customer-facing site. My response? *I wouldn't.*
 
@@ -17,7 +17,7 @@ Think about it this way: when customers come to a site, they're not looking to s
 
 So that's it? That's the end of simultaneous streams? [Far from it](http://www.informationweek.com/news/software/productivity_apps/240003296). This once-disruptive technology now has a long journey down the Technology S Curve as it becomes the go-to solution for all the business intelligence and project analyst types that stumble across it, in other words, the late adopters.
 
-Don't get me wrong. I'm sure guilty of building [a dashboard](http://my.fcc.gov/){: data-proofer-ignore="true"} or [two](http://codex.wordpress.org/Dashboard_Screen) in my day. I'm not saying that they've never had a place. What I'm saying is that today, not even the most complex dashboard could give you an accurate snapshot of its genus's future. If not dashes, then what? Beyond turning everything into a ubiquitous search box (*a la* [gov.uk](http://gov.uk)), I'm far from for a UI/UX expert, but I tend to think that startups generally have a pretty good sense of what's next. They have to. If they don't get it right the first time around, they tend not to have a second try. So what do we see?
+Don't get me wrong. I'm sure guilty of building [a dashboard](http://my.fcc.gov/) or [two](http://codex.wordpress.org/Dashboard_Screen) in my day. I'm not saying that they've never had a place. What I'm saying is that today, not even the most complex dashboard could give you an accurate snapshot of its genus's future. If not dashes, then what? Beyond turning everything into a ubiquitous search box (*a la* [gov.uk](http://gov.uk)), I'm far from for a UI/UX expert, but I tend to think that startups generally have a pretty good sense of what's next. They have to. If they don't get it right the first time around, they tend not to have a second try. So what do we see?
 
 * **Activity -** Social apps like Facebook, Twitter, Foursquare, even GitHub are all built around the concept of activity. Whether its a news feed, recent check-ins, or even commit activity, the question I come with is "what's going on?" and it gets answered as in depth as I care to scroll through, not as in depth as an engineer arbitrarily decided I needed a few years back. It's linear. It's [inverted pyramid](http://en.wikipedia.org/wiki/Inverted_pyramid). It's customized by whom or what I follow, not by what I add or (re)arrange.
 

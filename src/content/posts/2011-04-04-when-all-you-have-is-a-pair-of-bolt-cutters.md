@@ -3,7 +3,7 @@ title: When all you have is a pair of bolt cutters...
 description: A workflow management and version control system building on WordPress's existing core competencies. By treating documents as a custom post type, users can leverage the power of WordPress's extensive attachment, revision, taxonomy, and URL rewriting functionalities.
 ---
 
-[![Golden Hammer](http://imgs.xkcd.com/comics/golden_hammer.png){: .mx-auto .d-block .img-fluid }](http://xkcd.com/801/)
+[<img src="http://imgs.xkcd.com/comics/golden_hammer.png" alt="Golden Hammer" class="mx-auto d-block img-fluid" />](http://xkcd.com/801/)
 
 My biggest gripe with [WordPress](http://wordpress.org), the open-source [content management system](http://en.wikipedia.org/wiki/Content_management_system) that silently works behind the scenes to power [more than 13%](http://w3techs.com/technologies/overview/content_management/all) of the internet, is that it sets far too high a bar with which other applications must compete. I cannot count the number of times that I have used a proprietary or commercial system and silently thought to myself, "WordPress can do this so much better\*." [^1]
 
@@ -13,7 +13,7 @@ WordPress does many things right. It is an incredibly versatile tool, but like a
 
 Imagine a workflow management and version control system [building on WordPress's existing core competencies](http://lists.automattic.com/pipermail/wp-hackers/2011-March/038727.html). By treating documents as a custom post type, users can leverage the power of WordPress's extensive attachment, revision, taxonomy, and URL rewriting functionalities. Document permalinks can be routed through the traditional rewrite structure such that the latest revision of a file always remains at a static, authenticated URL, and users can toggle the visibility of documents (both internally and externally) as they currently do with post statuses and permissions. Similarly, file locking can extend WordPress's autosave functionality (as a ping), revision logs can extend WordPress's existing revision relationship and can be outputted as a traditional RSS feed, and so on
 
-![Wireframe of the proposed application](https://ben.balter.com/wp-content/uploads/2011/04/wireframe.png "WP Document Revisions Wireframe"){: .float-start .ms-3 }
+<img src="https://ben.balter.com/wp-content/uploads/2011/04/wireframe.png" alt="Wireframe of the proposed application" title="WP Document Revisions Wireframe" class="float-start ms-3" />
 
 As seen in the above wireframe, document revisions would be inextricably linked to the essential WordPress experience. If you know WordPress, you know document revisions. Why reinvent the wheel when you have the best wheel the world has ever seen, and a passionate global community dedicated to improving it? This approach would not simply be limited to traditional documents. Images, PDFs, code — anything the user wants to collaborate with others on, or have a secure revision history can be thrown at it. Academics, lawyers, government folks, the possibilities are endless.
 
@@ -23,11 +23,11 @@ I am working on submitting this idea as a proposed [Google Summer of Code](http:
 
 **Update (8/29)**: The final result of the project is an [Open Source Document Management and Version Control System](https://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/) for WordPress. An overview of its top-level features including a screencast of a typical use case is available on the WP Document Revisions page.
 
-[^1]: *See, for example,* [Documentum](http://www.emc.com/enterprise-content-management/index.htm){: data-proofer-ignore="true"}, [Liferay](http://www.liferay.com/), [Melange](http://code.google.com/p/soc/wiki/MelangeIntro), and [Gawker's CMS](http://www.mediaite.com/online/worse-than-previously-thought-gawker-content-management-system-hacked/).
+[^1]: *See, for example,* [Documentum](http://www.emc.com/enterprise-content-management/index.htm), [Liferay](http://www.liferay.com/), [Melange](http://code.google.com/p/soc/wiki/MelangeIntro), and [Gawker's CMS](http://www.mediaite.com/online/worse-than-previously-thought-gawker-content-management-system-hacked/).
 
 [^2]: Nearly three years ago, at the time of the feature's inception, [WordPress founder Matt Mullenweg noted](http://wordpress.org/news/2008/07/wordpress-26-tyner/), "With the power of modern computers, it's silly that we still use save and editing metaphors from the time when the most common method of storage was floppy disks… now we're taking that to another level by allowing you to view who made what changes when… through a super-easy interface, much like Wikipedia or a version control system."
 
-[^3]: *See, for example,* WordPress as an [email newsletter](http://net.tutsplus.com/tutorials/wordpress/build-a-wordburner-email-newsletter-manager-using-wordpress-and-feedburner/), [contact manager](http://publisherblog.automattic.com/2008/02/13/wp-contact-manager/){: data-proofer-ignore="true" }, [CRM](http://slipfire.com/wp-crm/), [invoice system](http://wordpress.org/extend/plugins/wp-invoice/), [job bank](http://wordpress.org/extend/plugins/job-manager/), or [real estate directory](http://wordpress.org/extend/plugins/great-real-estate/).
+[^3]: *See, for example,* WordPress as an [email newsletter](http://net.tutsplus.com/tutorials/wordpress/build-a-wordburner-email-newsletter-manager-using-wordpress-and-feedburner/), [contact manager](http://publisherblog.automattic.com/2008/02/13/wp-contact-manager/), [CRM](http://slipfire.com/wp-crm/), [invoice system](http://wordpress.org/extend/plugins/wp-invoice/), [job bank](http://wordpress.org/extend/plugins/job-manager/), or [real estate directory](http://wordpress.org/extend/plugins/great-real-estate/).
 
 [^4]: Let's just call it "Frupal" for the sake of discussion.
 

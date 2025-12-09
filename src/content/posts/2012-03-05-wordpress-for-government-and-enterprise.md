@@ -7,7 +7,7 @@ description: Among potential government and enterprise users, WordPress has a pe
 
 Over the past several years WordPress's market share has enjoyed explosive growth across virtually every industry. Today, it powers [nearly a quarter of new sites](http://techcrunch.com/2011/08/19/wordpress-now-powers-22-percent-of-new-active-websites-in-the-us/), and is the CMS of choice for [more than two thirds of the top-million sites](http://trends.builtwith.com/cms) on the web making it the world's most popular publishing platform by a long shot. Yet one group of seemingly ideal users has been slow to take the former blogging platform seriously: .govs.
 
-Drupal powers twice as many federal .govs as every other CMS combined. That's more than six Drupal sites for every one WordPress .Gov alone, not to mention the Joomlas, MovableTypes, and SharePoints of the world. The build-it-yourself software powers the White House, the House of Representatives, half a dozen agencies, and countless data-driven microsites like Recovery.gov and the IT Spending Dashboard, and its public sector use is [equally if not more impressive abroad](http://groups.drupal.org/node/19885).
+Drupal powers twice as many federal .govs as every other CMS combined. That's more than six Drupal sites for every one WordPress.Gov alone, not to mention the Joomlas, MovableTypes, and SharePoints of the world. The build-it-yourself software powers the White House, the House of Representatives, half a dozen agencies, and countless data-driven microsites like Recovery.gov and the IT Spending Dashboard, and its public sector use is [equally if not more impressive abroad](http://groups.drupal.org/node/19885).
 
 ## A Problem of Perception
 
