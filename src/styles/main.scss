@@ -108,3 +108,27 @@ nav .border-top .link-secondary {
         }
     }
 }
+
+// Header anchor links styling
+// These styles match the behavior of anchor-js used in Jekyll/Next.js
+.anchor-link {
+    text-decoration: none;
+    margin-left: 0.25rem;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    
+    .anchor-icon {
+        color: $blue;
+        font-weight: normal;
+    }
+}
+
+// Show anchor links on hover or focus
+h1, h2, h3, h4, h5, h6 {
+    position: relative;
+    
+    &:hover .anchor-link,
+    & .anchor-link:focus {
+        opacity: 1;
+    }
+}

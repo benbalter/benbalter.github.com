@@ -10,6 +10,7 @@ import PageLayout from '../layouts/PageLayout.astro';
 import { readFileSync } from 'node:fs';
 import yaml from 'js-yaml';
 import { join } from 'node:path';
+import { marked } from 'marked';
 
 const title = 'Other recommended reading';
 const description = 'Here are some of the books that have had a significant influence on my career, management style, and professional development that I often recommend to others interested in IT management and leadership, career and corporate life, open source, startups and innovation, information security, product management, marketing, technology policy, government and organizing, and everything else.';
@@ -67,9 +68,7 @@ function slugify(text: string): string {
               </div>
             </a>
             
-            <div class="book-tldr">
-              {book.tldr}
-            </div>
+            <div class="book-tldr" set:html={marked.parseInline(book.tldr)} />
           </div>
         ))}
       </div>

@@ -1,6 +1,10 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import redirectIntegration from './src/lib/redirect-integration.ts';
+import remarkEmoji from 'remark-emoji';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
 // URL patterns for sitemap priority calculation
 const BLOG_POST_PATTERN = /\/\d{4}\/\d{2}\/\d{2}\//;
@@ -53,8 +57,23 @@ export default defineConfig({
       // MDX configuration
       optimize: true,
       // Support GitHub Flavored Markdown
-      remarkPlugins: [],
-      rehypePlugins: [],
+      remarkPlugins: [remarkEmoji],
+      rehypePlugins: [
+        rehypeSlug,
+        [rehypeAutolinkHeadings, {
+          behavior: 'append',
+          properties: {
+            className: ['anchor-link'],
+            ariaLabel: 'Link to this section',
+          },
+          content: {
+            type: 'element',
+            tagName: 'span',
+            properties: { className: ['anchor-icon'] },
+            children: [{ type: 'text', value: '#' }]
+          }
+        }],
+      ],
     }),
     sitemap({
       // Customize sitemap generation
@@ -87,6 +106,7 @@ export default defineConfig({
         };
       },
     }),
+    redirectIntegration(), // Generate redirect pages after build
   ],
   
   // Markdown configuration
@@ -101,9 +121,24 @@ export default defineConfig({
     // Enable smartypants for typographic punctuation
     smartypants: true,
     // Remark plugins (for markdown processing)
-    remarkPlugins: [],
+    remarkPlugins: [remarkEmoji],
     // Rehype plugins (for HTML processing)
-    rehypePlugins: [],
+    rehypePlugins: [
+      rehypeSlug,
+      [rehypeAutolinkHeadings, {
+        behavior: 'append',
+        properties: {
+          className: ['anchor-link'],
+          ariaLabel: 'Link to this section',
+        },
+        content: {
+          type: 'element',
+          tagName: 'span',
+          properties: { className: ['anchor-icon'] },
+          children: [{ type: 'text', value: '#' }]
+        }
+      }],
+    ],
   },
   
   // Vite configuration
@@ -120,6 +155,12 @@ export default defineConfig({
           loadPaths: ['node_modules'],
           // Suppress deprecation warnings for @import rules (Bootstrap 5.3.x uses them)
           quietDeps: true,
+          // Silence all @import deprecation warnings globally
+          // This affects both our code and Bootstrap's internal @import usage
+          // Bootstrap 5.3.x doesn't support the modern @use module system yet.
+          // TODO: Remove this once Bootstrap 6.x is released with @use support
+          // See: https://sass-lang.com/documentation/breaking-changes/import
+          silenceDeprecations: ['import'],
         },
       },
     },
