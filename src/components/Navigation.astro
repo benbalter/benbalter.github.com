@@ -36,40 +36,44 @@ const navClasses = hero
 ---
 
 <div class={navClasses}>
-  <div class="container-fluid px-3">
-    <a class="navbar-brand fw-bold" href="/">{siteConfig.name}</a>
-    <button 
-      class="navbar-toggler" 
-      type="button" 
-      aria-controls="navbar" 
-      aria-expanded="false" 
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <div class="navbar-inner">
+        <a class="navbar-brand fw-bold" href="/">{siteConfig.name}</a>
+        <button 
+          class="navbar-toggler" 
+          type="button" 
+          aria-controls="navbar" 
+          aria-expanded="false" 
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="navbar-collapse" id="navbar" role="navigation">
-      <ul class="navbar-nav mr-auto">
-        {navItems.map((item) => {
-          const isActive = currentPath === item.url || 
-                          (item.url === '/' && currentPath === '/');
-          return (
-            <li class="nav-item">
-              <a 
-                href={item.url} 
-                class={`nav-link${isActive ? ' active' : ''}`}
-              >
-                {item.title}
-              </a>
-            </li>
-          );
-        })}
-      </ul>
+        <div class="navbar-collapse" id="navbar" role="navigation">
+          <ul class="navbar-nav mr-auto">
+            {navItems.map((item) => {
+              const isActive = currentPath === item.url || 
+                              (item.url === '/' && currentPath === '/');
+              return (
+                <li class="nav-item">
+                  <a 
+                    href={item.url} 
+                    class={`nav-link${isActive ? ' active' : ''}`}
+                  >
+                    {item.title}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
+        <span class="navbar-text text-end">
+          {siteConfig.description}
+        </span>
+      </div>
     </div>
-
-    <span class="navbar-text text-end">
-      {siteConfig.description}
-    </span>
   </div>
 </div>
 
@@ -91,9 +95,47 @@ const navClasses = hero
     border-bottom-right-radius: var(--bs-border-radius, 0.375rem) !important;
   }
 
+  /* Row and column structure to match content layout */
+  .navbar .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    width: 100%;
+  }
+
+  .navbar .col-md-10 {
+    flex: 0 0 auto;
+    width: 83.333333%;
+  }
+
+  .navbar .offset-md-1 {
+    margin-left: 8.333333%;
+  }
+
+  @media (max-width: 768px) {
+    .navbar .col-md-10 {
+      width: 100%;
+    }
+    .navbar .offset-md-1 {
+      margin-left: 0;
+    }
+  }
+
+  /* Inner container to hold navbar content */
+  .navbar-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.5rem 15px;
+  }
+
   .navbar-brand {
     font-weight: 700;
     color: var(--bs-body-color, #212529);
+    margin-right: 1rem;
   }
 
   .navbar-toggler {
@@ -137,6 +179,7 @@ const navClasses = hero
   .navbar-text {
     color: var(--bs-secondary, #6c757d);
     font-size: 0.875rem;
+    margin-left: auto;
   }
 
   /* Collapse behavior for mobile */
@@ -156,14 +199,19 @@ const navClasses = hero
   }
 
   @media (max-width: 767px) {
+    .navbar-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
     .navbar-collapse {
       flex-basis: 100%;
-      flex-grow: 1;
-      align-items: center;
+      width: 100%;
     }
 
     .navbar-nav {
       flex-direction: column;
+      width: 100%;
     }
 
     .navbar-text {
