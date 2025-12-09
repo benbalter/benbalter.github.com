@@ -37,8 +37,8 @@ find dist-astro/assets -name "*.css" -type f -exec ls -lh {} \; | \
 echo ""
 echo -e "${GREEN}Total Bundle Sizes:${NC}"
 echo "-------------------"
-JS_SIZE=$(find dist-astro/assets -name "*.js" -type f -exec du -ch {} + | grep total | cut -f1)
-CSS_SIZE=$(find dist-astro/assets -name "*.css" -type f -exec du -ch {} + | grep total | cut -f1)
+JS_SIZE=$(find dist-astro/assets -name "*.js" -type f -exec du -ch {} + 2>/dev/null | grep total | cut -f1 || echo "0K")
+CSS_SIZE=$(find dist-astro/assets -name "*.css" -type f -exec du -ch {} + 2>/dev/null | grep total | cut -f1 || echo "0K")
 echo -e "JavaScript: ${YELLOW}${JS_SIZE}${NC}"
 echo -e "CSS:        ${YELLOW}${CSS_SIZE}${NC}"
 

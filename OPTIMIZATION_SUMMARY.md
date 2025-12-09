@@ -12,7 +12,7 @@ This PR implements Core Web Vitals and accessibility optimizations for the Astro
 Added a keyboard-accessible skip link that allows users to bypass navigation and jump directly to the main content.
 
 ```astro
-<a href="#content" class="skip-to-content visually-hidden-focusable">
+<a href="#content" class="skip-to-content">
   Skip to main content
 </a>
 ```
@@ -97,10 +97,12 @@ Usage:
 
 | Metric | Before | After | Improvement |
 |--------|--------|-------|-------------|
-| Performance | 75-85 | 85-95 | +10-20 points |
+| Performance | 75-85 | 80-90 | +5-10 points |
 | Accessibility | 85-90 | 95-100 | +10-15 points |
 | Best Practices | 95-100 | 95-100 | No change |
 | SEO | 95-100 | 95-100 | No change |
+
+**Note**: Performance improvements are modest as Astro already provides excellent baseline optimization (inlined JS, optimized images). The main gains come from resource hints and accessibility enhancements.
 
 ### Core Web Vitals (Expected)
 
