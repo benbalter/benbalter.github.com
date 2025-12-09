@@ -37,12 +37,11 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
       let tooltipEl: HTMLDivElement | null = null;
       let isTooltipVisible = false;
       
-      // Show tooltip on mouseenter
-      element.addEventListener('mouseenter', (e) => {
+      // Function to show tooltip
+      const showTooltip = (target: HTMLElement) => {
         // Prevent creating multiple tooltips
         if (isTooltipVisible || tooltipEl) return;
         
-        const target = e.currentTarget as HTMLElement;
         const tooltipText = target.getAttribute('data-tooltip-text');
         
         if (!tooltipText) return;
@@ -70,10 +69,10 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
             if (tooltipEl) tooltipEl.classList.add('show');
           });
         });
-      });
+      };
       
-      // Hide tooltip on mouseleave
-      element.addEventListener('mouseleave', () => {
+      // Function to hide tooltip
+      const hideTooltip = () => {
         if (!tooltipEl) return;
         
         tooltipEl.classList.remove('show');
@@ -108,6 +107,38 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
             cleanup();
           }
         }, TOOLTIP_CLEANUP_TIMEOUT);
+      };
+      
+      // Show tooltip on mouseenter (for desktop)
+      element.addEventListener('mouseenter', (e) => {
+        const target = e.currentTarget as HTMLElement;
+        showTooltip(target);
+      });
+      
+      // Hide tooltip on mouseleave (for desktop)
+      element.addEventListener('mouseleave', () => {
+        hideTooltip();
+      });
+      
+      // Toggle tooltip on click/tap (for mobile and accessibility)
+      element.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const target = e.currentTarget as HTMLElement;
+        
+        if (isTooltipVisible) {
+          hideTooltip();
+        } else {
+          showTooltip(target);
+        }
+      });
+      
+      // Close tooltip when clicking outside
+      document.addEventListener('click', (e) => {
+        if (isTooltipVisible && tooltipEl && !element.contains(e.target as Node)) {
+          hideTooltip();
+        }
       });
     });
   });
