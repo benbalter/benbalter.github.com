@@ -9,7 +9,6 @@
 
 import { siteConfig } from '../config';
 import { aboutContent, getFirstParagraph } from '../content/about-bio';
-import { Image } from 'astro:assets';
 
 const firstParagraph = getFirstParagraph(aboutContent);
 const bioHtml = `${firstParagraph} <a href="/about/">More about the author &rarr;</a>`;
@@ -17,12 +16,13 @@ const bioHtml = `${firstParagraph} <a href="/about/">More about the author &rarr
 
 <div class="mini-bio">
   <div class="float-start pt-1 pe-3">
-    <Image 
+    <img 
       src={`https://avatars.githubusercontent.com/${siteConfig.githubUsername}?s=100`}
       alt={siteConfig.author}
-      width={100}
-      height={100}
+      width="100"
+      height="100"
       class="avatar"
+      loading="lazy"
     />
   </div>
   

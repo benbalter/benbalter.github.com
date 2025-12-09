@@ -57,6 +57,25 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('en-US', {
 // Calculate reading time using improved utility
 const content = await Astro.slots.render('default');
 const readingTime = calculateReadingTime(content);
+
+// Helper function to determine if we should use Image component for optimization
+// Only use Image component for reliable domains that support programmatic access
+function shouldOptimizeImage(url?: string): boolean {
+  if (!url) return false;
+  try {
+    const imageUrl = new URL(url, 'https://ben.balter.com');
+    const hostname = imageUrl.hostname;
+    // Only optimize images from reliable sources
+    return (
+      hostname.includes('github.com') ||
+      hostname.includes('githubusercontent.com') ||
+      hostname === 'ben.balter.com' ||
+      !imageUrl.protocol.startsWith('http') // Local images
+    );
+  } catch {
+    return false;
+  }
+}
 ---
 
 <BaseLayout 
@@ -86,13 +105,22 @@ const readingTime = calculateReadingTime(content);
             )}
           </div>
           
-          {image && (
+          {image && shouldOptimizeImage(image) && (
             <Image 
               src={image} 
               alt={title}
               width={800}
               height={400}
               class="post-image img-fluid rounded"
+            />
+          )}
+          
+          {image && !shouldOptimizeImage(image) && (
+            <img 
+              src={image} 
+              alt={title}
+              class="post-image img-fluid rounded"
+              loading="lazy"
             />
           )}
         </header>
