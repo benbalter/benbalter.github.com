@@ -175,15 +175,26 @@ export default defineConfig({
           assetFileNames: (assetInfo) => {
             // Check if this is a CSS file
             if (assetInfo.name && assetInfo.name.endsWith('.css')) {
-              // If the original name is from a page (like 'about', 'resume', etc.)
-              // but it's actually the shared global stylesheet, rename it to 'global'
               const name = assetInfo.name.replace(/\.css$/, '');
               
-              // Detect if this is likely the main/shared stylesheet by checking common page names
-              // These pages all use BaseLayout which imports optimized.scss
-              const pageNames = ['about', 'contact', 'resume', 'index', 'talks', 'books', 'fine-print'];
-              if (pageNames.includes(name)) {
-                // This is likely the shared global stylesheet
+              // Detect if this is the main/shared stylesheet by checking if it's from a page
+              // and contains layout-level styles (BaseLayout imports optimized.scss)
+              // The shared stylesheet will be named after one of the pages that use BaseLayout
+              // We can identify it because:
+              // 1. It's named after a page (not _slug_ or other special names)
+              // 2. It's shared across multiple pages (Vite/Astro deduplicates common CSS)
+              // 
+              // Since Astro automatically deduplicates CSS imports across pages,
+              // any CSS file that's named after a page but used everywhere is the global bundle.
+              // Page-specific scoped styles are inlined, so external CSS files are shared.
+              // 
+              // We detect this by checking if the name matches common layout pages:
+              // - Doesn't start with underscore (which indicates dynamic routes like _slug_)
+              // - Is a simple page name (not a hash or build artifact)
+              const isPageName = !name.startsWith('_') && /^[a-z-]+$/.test(name);
+              
+              if (isPageName) {
+                // This is the shared global stylesheet that Vite bundled from BaseLayout
                 // Rename it to 'global' to avoid confusion
                 return 'assets/global.[hash].css';
               }
