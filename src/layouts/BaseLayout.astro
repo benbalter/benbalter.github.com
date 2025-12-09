@@ -9,6 +9,7 @@
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import { siteConfig, socialLinks } from '../config';
+import { generatePersonSchema, generateWebSiteSchema, generateBreadcrumbSchema, schemaToJsonLd } from '../utils/structured-data';
 import '../styles/optimized.scss';
 
 interface Props {
@@ -44,6 +45,40 @@ const canonicalUrl = new URL(Astro.url.pathname, siteConfig.url).toString();
 const ogImage = image 
   ? new URL(image, siteConfig.url).toString()
   : new URL('/assets/img/headshot.jpg', siteConfig.url).toString();
+
+// Generate structured data (JSON-LD) for SEO
+const personSchema = generatePersonSchema();
+const websiteSchema = generateWebSiteSchema();
+
+// Generate breadcrumb schema based on URL path
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const breadcrumbItems = [
+  { name: 'Home', url: siteConfig.url }
+];
+
+// Add path segments to breadcrumbs
+let currentPath = siteConfig.url;
+pathSegments.forEach((segment, index) => {
+  currentPath += `/${segment}`;
+  // Remove file extension, replace hyphens/underscores with spaces, capitalize words
+  const cleanedSegment = segment.replace(/\.[^/.]+$/, '').replace(/[-_]+/g, ' ');
+  const name = cleanedSegment.split(' ').map(word =>
+    word.length > 0 ? word.charAt(0).toUpperCase() + word.slice(1) : ''
+  ).join(' ');
+  // Last item doesn't get a URL (it's the current page)
+  const isLastItem = index === pathSegments.length - 1;
+  breadcrumbItems.push({ 
+    name, 
+    url: isLastItem ? '' : currentPath 
+  });
+});
+
+const breadcrumbSchema = pathSegments.length > 0 ? generateBreadcrumbSchema(breadcrumbItems) : null;
+
+// Combine all schemas
+const schemas = breadcrumbSchema 
+  ? [personSchema, websiteSchema, breadcrumbSchema]
+  : [personSchema, websiteSchema];
 ---
 
 <!doctype html>
@@ -87,6 +122,9 @@ const ogImage = image
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" set:html={schemaToJsonLd(schemas)} is:inline></script>
     
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />

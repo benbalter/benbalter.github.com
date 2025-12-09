@@ -6,7 +6,7 @@
  * Matches the structure and styling of the Jekyll footer.
  */
 
-import { siteConfig, footerLinks, socialLinks } from '../config';
+import { siteConfig, footerLinks, contactLinks } from '../config';
 ---
 
 <footer>
@@ -29,7 +29,7 @@ import { siteConfig, footerLinks, socialLinks } from '../config';
   </nav>
   
   <div class="social-links text-center py-3">
-    {socialLinks.map((link) => (
+    {contactLinks.map((link) => (
       <a 
         href={link.url} 
         aria-label={link.name}
