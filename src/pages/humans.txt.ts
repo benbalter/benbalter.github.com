@@ -8,12 +8,16 @@
  */
 
 import type { APIRoute } from 'astro';
+import { siteConfig } from '../config';
 
 interface GitHubContributor {
   login: string;
   html_url: string;
   contributions: number;
 }
+
+// Fallback contributor info if GitHub API fails
+const FALLBACK_CONTRIBUTORS = 'Name: benbalter\nSite: https://github.com/benbalter';
 
 export const GET: APIRoute = async () => {
   // Current date for "Last Updated" field
@@ -33,7 +37,7 @@ export const GET: APIRoute = async () => {
   let contributorsList = '';
   try {
     const response = await fetch(
-      'https://api.github.com/repos/benbalter/benbalter.github.com/contributors',
+      `https://api.github.com/repos/${siteConfig.githubRepo}/contributors`,
       {
         headers: {
           'Accept': 'application/vnd.github.v3+json',
@@ -49,11 +53,11 @@ export const GET: APIRoute = async () => {
         .join('\n\n');
     } else {
       // Fallback if API fails
-      contributorsList = 'Name: benbalter\nSite: https://github.com/benbalter';
+      contributorsList = FALLBACK_CONTRIBUTORS;
     }
   } catch (error) {
     // Fallback if API fails
-    contributorsList = 'Name: benbalter\nSite: https://github.com/benbalter';
+    contributorsList = FALLBACK_CONTRIBUTORS;
   }
   
   const content = `/* SITE */
