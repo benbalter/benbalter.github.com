@@ -1,0 +1,158 @@
+---
+/**
+ * TL;DR Component
+ * 
+ * Displays a "Too Long; Didn't Read" summary with tooltip explanation.
+ * Matches the Jekyll tldr.html include functionality with markdown support.
+ */
+
+import { marked } from 'marked';
+
+interface Props {
+  description: string;
+}
+
+const { description } = Astro.props;
+
+const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a brief summary of longer writing"';
+---
+
+<div class="lead">
+  <strong><abbr title={tooltipTitle} class="initialism" data-tooltip="true" data-tooltip-text={tooltipTitle}>TL;DR</abbr>:</strong>{' '}
+  <span set:html={marked.parseInline(description)} />
+</div>
+
+<script>
+  // Lightweight custom tooltip implementation (no Bootstrap dependency)
+  document.addEventListener('DOMContentLoaded', () => {
+    const tooltipElements = document.querySelectorAll('[data-tooltip="true"]:not([data-tooltip-initialized])');
+    
+    // Tooltip transition duration (should match CSS transition)
+    const TOOLTIP_CLEANUP_TIMEOUT = 300; // Fallback timeout with buffer
+    
+    tooltipElements.forEach((element) => {
+      // Mark as initialized
+      element.setAttribute('data-tooltip-initialized', 'true');
+      
+      let tooltipEl: HTMLDivElement | null = null;
+      let isTooltipVisible = false;
+      
+      // Show tooltip on mouseenter
+      element.addEventListener('mouseenter', (e) => {
+        // Prevent creating multiple tooltips
+        if (isTooltipVisible || tooltipEl) return;
+        
+        const target = e.currentTarget as HTMLElement;
+        const tooltipText = target.getAttribute('data-tooltip-text');
+        
+        if (!tooltipText) return;
+        
+        isTooltipVisible = true;
+        
+        // Create tooltip element
+        tooltipEl = document.createElement('div');
+        tooltipEl.className = 'custom-tooltip';
+        tooltipEl.textContent = tooltipText;
+        document.body.appendChild(tooltipEl);
+        
+        // Position tooltip to the right of the element
+        // Use requestAnimationFrame to ensure DOM has updated
+        requestAnimationFrame(() => {
+          if (!tooltipEl) return;
+          
+          const rect = target.getBoundingClientRect();
+          const tooltipRect = tooltipEl.getBoundingClientRect();
+          tooltipEl.style.left = `${rect.right + 10}px`;
+          tooltipEl.style.top = `${rect.top + (rect.height / 2) - (tooltipRect.height / 2)}px`;
+          
+          // Fade in using requestAnimationFrame for better performance
+          requestAnimationFrame(() => {
+            if (tooltipEl) tooltipEl.classList.add('show');
+          });
+        });
+      });
+      
+      // Hide tooltip on mouseleave
+      element.addEventListener('mouseleave', () => {
+        if (!tooltipEl) return;
+        
+        tooltipEl.classList.remove('show');
+        
+        // Track if cleanup has been executed
+        let cleanupExecuted = false;
+        
+        // Cleanup function
+        const cleanup = () => {
+          if (cleanupExecuted) return;
+          cleanupExecuted = true;
+          
+          if (tooltipEl) {
+            tooltipEl.remove();
+            tooltipEl = null;
+            isTooltipVisible = false;
+          }
+        };
+        
+        // Use transitionend event for proper cleanup timing
+        const handleTransitionEnd = () => {
+          cleanup();
+        };
+        
+        tooltipEl.addEventListener('transitionend', handleTransitionEnd, { once: true });
+        
+        // Fallback timeout in case transitionend doesn't fire
+        // Timeout is longer than CSS transition (0.2s) to ensure transition completes
+        setTimeout(() => {
+          if (tooltipEl) {
+            tooltipEl.removeEventListener('transitionend', handleTransitionEnd);
+            cleanup();
+          }
+        }, TOOLTIP_CLEANUP_TIMEOUT);
+      });
+    });
+  });
+</script>
+
+<style>
+  .lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
+
+  .initialism {
+    text-decoration: none;
+    cursor: help;
+    border-bottom: 1px dotted currentColor;
+  }
+
+  /* Custom tooltip styles */
+  :global(.custom-tooltip) {
+    position: fixed;
+    background-color: #000;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    max-width: 300px;
+    z-index: 1050;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  :global(.custom-tooltip.show) {
+    opacity: 0.9;
+  }
+
+  :global(.custom-tooltip::before) {
+    content: '';
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 5px solid transparent;
+    border-right-color: #000;
+  }
+</style>
