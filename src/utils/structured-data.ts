@@ -2,91 +2,19 @@
  * Structured Data (JSON-LD) Utilities
  * 
  * Generate Schema.org structured data in JSON-LD format for improved SEO.
- * Supports various schema types for different content types.
+ * Uses the open source schema-dts library from Google for type-safe Schema.org types.
+ * 
+ * @see https://github.com/google/schema-dts
  */
 
+import type { Person, Organization, WebSite, BlogPosting, BreadcrumbList, WithContext } from 'schema-dts';
 import { siteConfig } from '../config';
-
-/**
- * Base schema properties that all schemas share
- */
-interface BaseSchema {
-  '@context': string;
-  '@type': string;
-}
-
-/**
- * Person schema for author/profile information
- */
-export interface PersonSchema extends BaseSchema {
-  '@type': 'Person';
-  name: string;
-  url: string;
-  email?: string;
-  jobTitle?: string;
-  sameAs?: string[];
-  image?: string;
-}
-
-/**
- * Organization schema for company/org information
- */
-export interface OrganizationSchema extends BaseSchema {
-  '@type': 'Organization';
-  name: string;
-  url: string;
-  logo?: string;
-  sameAs?: string[];
-}
-
-/**
- * WebSite schema for the website itself
- */
-export interface WebSiteSchema extends BaseSchema {
-  '@type': 'WebSite';
-  name: string;
-  url: string;
-  author: PersonSchema;
-  description?: string;
-}
-
-/**
- * BlogPosting schema for blog articles
- */
-export interface BlogPostingSchema extends BaseSchema {
-  '@type': 'BlogPosting';
-  headline: string;
-  description?: string;
-  image?: string;
-  datePublished: string;
-  dateModified?: string;
-  author: PersonSchema;
-  publisher?: OrganizationSchema | PersonSchema;
-  url: string;
-  mainEntityOfPage: {
-    '@type': 'WebPage';
-    '@id': string;
-  };
-}
-
-/**
- * BreadcrumbList schema for navigation context
- */
-export interface BreadcrumbListSchema extends BaseSchema {
-  '@type': 'BreadcrumbList';
-  itemListElement: Array<{
-    '@type': 'ListItem';
-    position: number;
-    name: string;
-    item?: string;
-  }>;
-}
 
 /**
  * Generate Person schema for Ben Balter
  */
-export function generatePersonSchema(overrides?: Partial<PersonSchema>): PersonSchema {
-  return {
+export function generatePersonSchema(overrides?: Partial<Person>): WithContext<Person> {
+  const person: WithContext<Person> = {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: siteConfig.author,
@@ -101,14 +29,20 @@ export function generatePersonSchema(overrides?: Partial<PersonSchema>): PersonS
       'https://bsky.app/profile/ben.balter.com',
     ],
     image: `${siteConfig.url}/assets/img/headshot.jpg`,
-    ...overrides,
   };
+  
+  // Apply overrides if provided
+  if (overrides) {
+    return Object.assign({}, person, overrides) as WithContext<Person>;
+  }
+  
+  return person;
 }
 
 /**
  * Generate Organization schema for GitHub
  */
-export function generateOrganizationSchema(): OrganizationSchema {
+export function generateOrganizationSchema(): WithContext<Organization> {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -126,7 +60,7 @@ export function generateOrganizationSchema(): OrganizationSchema {
 /**
  * Generate WebSite schema for the blog
  */
-export function generateWebSiteSchema(): WebSiteSchema {
+export function generateWebSiteSchema(): WithContext<WebSite> {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -148,7 +82,7 @@ export function generateBlogPostingSchema(props: {
   modifiedTime?: Date;
   image?: string;
   author?: string;
-}): BlogPostingSchema {
+}): WithContext<BlogPosting> {
   const { title, description, url, publishedTime, modifiedTime, image, author } = props;
 
   return {
@@ -172,7 +106,7 @@ export function generateBlogPostingSchema(props: {
 /**
  * Generate BreadcrumbList schema for navigation
  */
-export function generateBreadcrumbSchema(items: Array<{ name: string; url?: string }>): BreadcrumbListSchema {
+export function generateBreadcrumbSchema(items: Array<{ name: string; url?: string }>): WithContext<BreadcrumbList> {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -193,7 +127,8 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url?: stri
 
 /**
  * Convert schema object to JSON-LD script tag content
+ * Handles both single schemas and arrays of schemas
  */
-export function schemaToJsonLd(schema: BaseSchema | BaseSchema[]): string {
+export function schemaToJsonLd(schema: WithContext<any> | WithContext<any>[]): string {
   return JSON.stringify(schema, null, 2);
 }
