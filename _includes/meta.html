@@ -5,8 +5,11 @@
 <meta name="theme-color" content="#111111" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#eeeeee" media="(prefers-color-scheme: dark)">
 
+<!-- Performance: Preconnect to external domains -->
 <link rel="preconnect" href="https://avatars.githubusercontent.com" crossorigin>
 <link rel="preconnect" href="https://github.com" crossorigin>
+<link rel="dns-prefetch" href="https://avatars.githubusercontent.com">
+<link rel="dns-prefetch" href="https://github.com">
 
 <link type="text/plain" rel="author" href="{{ "humans.txt" | absolute_url }}" />
 <link rel="apple-touch-icon" sizes="180x180" href="{{ "/apple-touch-icon.png?v=" | append: site.github.build_revision | relative_url }}">
@@ -16,7 +19,12 @@
 <link rel="shortcut icon" href="{{ "/favicon.ico?v=" | append: site.github.build_revision | relative_url }}">
 <meta name="msapplication-TileColor" content="#2d89ef">
 <meta name="theme-color" content="#337ab7">
+
+<!-- Performance: Preload critical CSS -->
+<link href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}" rel="preload" as="style">
 <link href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}" rel="stylesheet" media="screen">
+
+<!-- Performance: Defer non-critical JavaScript -->
 <script defer src="{{ "/assets/js/bundle.js?=" | append: site.github.build_revision | relative_url }}"></script>
 
 {% for link in site.social.links %}

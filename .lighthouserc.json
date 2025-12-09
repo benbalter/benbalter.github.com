@@ -23,7 +23,26 @@
         "dom-size": "warn",
         "modern-image-formats": "warn",
         "uses-long-cache-ttl": "off",
-        "cumulative-layout-shift": "warn"
+        "cumulative-layout-shift": "warn",
+        "total-byte-weight": "warn",
+        "bootup-time": "warn",
+        "mainthread-work-breakdown": "warn",
+        "interactive": "warn",
+        "first-contentful-paint": "warn",
+        "largest-contentful-paint": "warn",
+        "speed-index": "warn",
+        "font-display": "warn",
+        "uses-passive-event-listeners": "warn",
+        "document-title": ["error", {"minScore": 1}],
+        "html-has-lang": ["error", {"minScore": 1}],
+        "meta-viewport": ["error", {"minScore": 1}],
+        "color-contrast": ["warn", {"minScore": 0.9}],
+        "link-name": ["warn", {"minScore": 0.9}],
+        "button-name": ["warn", {"minScore": 0.9}],
+        "aria-allowed-attr": ["error", {"minScore": 1}],
+        "aria-required-attr": ["error", {"minScore": 1}],
+        "aria-valid-attr": ["error", {"minScore": 1}],
+        "tap-targets": "warn"
       }
     },
     "upload": {
