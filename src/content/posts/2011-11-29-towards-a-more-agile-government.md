@@ -5,14 +5,12 @@ description: By requiring that detailed specifications be outlined at the onset 
 
 <!--lint disable retext-spell-->
 
-The Case for Rebooting Federal IT Procurement
-{: .lead}
+<p class="lead">The Case for Rebooting Federal IT Procurement</p>
 
 <!--lint ignore no-emphasis-as-heading-->
 
 *41 Pub. Cont. L.J. 149, The Public Contract Law Journal, Fall 2011* <!-- markdownlint-disable-line no-emphasis-as-header -->
 
-* Table of Contents {:toc}
 
 Like many government computer systems, the U.S. federal information technology (IT) procurement model is slow, outdated, and long overdue for a reboot.[^1] As the largest single purchaser of code, [^2] in fiscal year (FY) 2010 the Federal Government spent more than $77.1 billion on IT procurement, and that number is projected to grow higher by the close of 2011.[^3] This is not a recent trend. Over the past decade, federal IT spending has swelled nearly seventy percent, up from $45.6 billion in 2001, [^4] for a total bill of more than $500 billion.[^5] This growth is partially a result of the unfortunate fact that as few as nine percent of projects are delivered on budget and on time.[^6] The Government Accountability Office (GAO) reports that roughly forty-eight percent of all IT projects must be rebaselined, [^7] and of those rebaselined projects, fifty-one percent must be rebaselined a second time.[^8]
 
@@ -78,10 +76,9 @@ At its most fundamental level, agility is the ability to quickly and effectively
 
 #### i. Agile is iterative, breaking long-term projects into multiple independent, manageable tasks
 
-[![Comparison of Waterfall to Agile Software Development Timelines](https://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg){: .img-fluid }](https://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg)
+[<img src="https://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg" alt="Comparison of Waterfall to Agile Software Development Timelines" class=".img-fluid" />](https://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg)
 
-*Figure 1 - Agile and Waterfall Development Cycles Compared (PDF)*
-{: .text-center }
+<p class="text-center"><em>Figure 1 - Agile and Waterfall Development Cycles Compared (PDF)</em></p>
 
 Agile development can be thought of as the amalgamation of many short waterfall development cycles.[^75] An agile project consists of multiple coding sprints, commonly known as iterations, in which tasks are chosen from an ongoing feature backlog [^76] and become realized early on through rapid prototyping and testing.[^77] "An iteration produces a small, tested, integrated increment of business value that is validated by customers and used as feedback for the next iteration. Iterations occur at short, regular intervals and they involve everyone: from architects to testers to the help desk staff." [^78] Agile methodologies see the process as dynamic, evolving, and organic, rather than static, predefined, and mechanistic.[^79] Agile breaks a system into smaller, more fungible chunks of immediate value to the user, rather than attempting a software development project as a single, undivided task.[^80]
 
@@ -213,7 +210,7 @@ The above goals cannot be realized without significant top-down support from the
 
 The federal IT procurement system is outdated. Projects are consistently delivered late, over-budget, and obsolete. Much of this trend can be traced back to flawed legal frameworks that lock agencies and contractors into an outdated development model. Through education, reform, and organization-wide support, federal agility can become a reality. Any computer user knows that as systems age they begin to slow. Today, the federal IT procurement system is running slowly, to the detriment of both agencies and the public, and it is long overdue for a system-wide upgrade.
 
-[![Creative Commons License](http://i.creativecommons.org/l/by/3.0/88x31.png){: .aligncenter}](https://creativecommons.org/licenses/by/2.0/)
+[<img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Creative Commons License" class=".aligncenter" />](https://creativecommons.org/licenses/by/2.0/)
 
 *Originally published in The Public Contract Law Journal, Volume 41, Issue 1. Available for public use under a [Creative Commons BY-NC-SA license](http://creativecommons.org/licenses/by-nc-sa/3.0/).*
 
