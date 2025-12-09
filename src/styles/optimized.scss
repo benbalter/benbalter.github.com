@@ -485,8 +485,9 @@ h1, h2, h3, h4, h5, h6 {
     
     &:focus {
         top: 0;
-        outline: 2px solid var(--bs-primary);
-        outline-offset: 2px;
+        // Use white outline for better contrast against the primary background
+        outline: 3px solid white;
+        outline-offset: -3px;
     }
 }
 
