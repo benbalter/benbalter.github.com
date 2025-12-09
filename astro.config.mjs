@@ -10,6 +10,10 @@ import { remarkGitHubMentions } from './src/lib/remark-github-mentions.ts';
 // URL patterns for sitemap priority calculation
 const BLOG_POST_PATTERN = /\/\d{4}\/\d{2}\/\d{2}\//;
 
+// Pattern for detecting simple page names (not dynamic routes like "_slug_")
+// Used in Vite config below to rename shared CSS bundles
+const PAGE_NAME_PATTERN = /^[a-z0-9-]+$/;
+
 // Pages that should be excluded from sitemap
 // Add pages here that have sitemap: false in their front matter
 // Format: Use the final URL path with trailing slash
@@ -168,6 +172,39 @@ export default defineConfig({
     build: {
       // Separate chunk directory to avoid conflicts
       assetsDir: 'assets',
+      rollupOptions: {
+        output: {
+          // Customize asset file naming to avoid misleading names
+          // Astro/Vite creates a shared CSS bundle from BaseLayout's optimized.scss import
+          // and names it after one of the pages (e.g., "about"). We rename it to "global"
+          // to accurately reflect that it's the site's main stylesheet, not page-specific CSS.
+          assetFileNames: (assetInfo) => {
+            if (!assetInfo || !assetInfo.name) {
+              return 'assets/[name].[hash][extname]';
+            }
+            
+            if (assetInfo.name.endsWith('.css')) {
+              const name = assetInfo.name.replace(/\.css$/, '');
+              
+              // Detect shared stylesheet: simple page names (not dynamic routes like "_slug_")
+              // Match: about, contact, resume, index, fine-print, books-for-geeks, etc.
+              // Don't match: _slug_, _year_, or other special patterns
+              const isNotDynamicRoute = !name.startsWith('_');
+              const matchesPagePattern = PAGE_NAME_PATTERN.test(name);
+              const isPageName = isNotDynamicRoute && matchesPagePattern;
+              
+              if (isPageName) {
+                // This is the shared global stylesheet - rename it for clarity
+                return 'assets/global.[hash].css';
+              }
+              
+              return 'assets/[name].[hash].css';
+            }
+            
+            return 'assets/[name].[hash][extname]';
+          },
+        },
+      },
     },
     css: {
       preprocessorOptions: {
