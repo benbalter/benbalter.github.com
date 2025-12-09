@@ -105,3 +105,49 @@ nav .border-top .link-secondary {
         }
     }
 }
+
+// Accessibility: Respect prefers-reduced-motion
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+// Accessibility: Enhanced focus indicators
+:focus-visible {
+    outline: 2px solid var(--bs-primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+// Skip link for keyboard navigation
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--bs-primary);
+    color: white;
+    padding: 8px;
+    z-index: 100;
+    text-decoration: none;
+
+    &:focus {
+        top: 0;
+    }
+}
+
+// Ensure images don't cause layout shift
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+// Core Web Vitals: Prevent layout shift from lazy-loaded images
+img[loading="lazy"] {
+    min-height: 100px; // Reserve space for lazy-loaded images
+}

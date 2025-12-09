@@ -10,14 +10,32 @@ const config = {
   entry: ['./js/script.ts', './sass/_retlab.scss'],
   output: {
     path: path.resolve(__dirname, 'assets'),
-    filename: 'js/bundle.js'
+    filename: 'js/bundle.js',
+    chunkFilename: 'js/[name].[contenthash:8].chunk.js',
+    publicPath: '/assets/'
   },
   mode: 'production',
   plugins: [
     new MiniCssExtractPlugin({ filename: 'css/style.css' })
   ],
   optimization: {
-    minimize: true
+    minimize: true,
+    splitChunks: {
+      chunks: 'async', // Only split async chunks to avoid main bundle conflicts
+      minSize: 20000,
+      cacheGroups: {
+        defaultVendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+          reuseExistingChunk: true
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+        }
+      }
+    }
   },
   module: {
     rules: [
