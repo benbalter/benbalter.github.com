@@ -38,21 +38,20 @@ interface GroupedPosition {
   positions: ResumePosition[];
 }
 
-const groupedPositions: GroupedPosition[] = [];
-let currentEmployer = '';
-
+// Group all positions by employer, regardless of order
+const employerGroups = new Map<string, ResumePosition[]>();
 for (const position of positions) {
-  if (position.employer !== currentEmployer) {
-    groupedPositions.push({
-      employer: position.employer,
-      positions: [position],
-    });
-    currentEmployer = position.employer;
-  } else {
-    // Add to existing employer group
-    groupedPositions[groupedPositions.length - 1].positions.push(position);
+  if (!employerGroups.has(position.employer)) {
+    employerGroups.set(position.employer, []);
   }
+  employerGroups.get(position.employer)!.push(position);
 }
+
+// Convert to array and sort positions within each employer by start_date (most recent first)
+const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries()).map(([employer, positions]) => ({
+  employer,
+  positions: positions.sort((a, b) => new Date(b.start_date).getTime() - new Date(a.start_date).getTime()),
+}));
 ---
 
 <PageLayout title={title} description={description}>
