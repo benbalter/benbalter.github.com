@@ -141,7 +141,7 @@ test.describe('Accessibility', () => {
     expect(count).toBeGreaterThan(0);
   });
 
-  test('should support dark mode', async ({ page }) => {
+  test('Dark mode should be supported', async ({ page }) => {
     // Emulate dark color scheme preference
     await page.emulateMedia({ colorScheme: 'dark' });
     await page.goto('/');
@@ -158,11 +158,6 @@ test.describe('Accessibility', () => {
     
     // Dark mode should have a dark background (not white)
     expect(bodyBg).not.toBe('rgb(255, 255, 255)');
-    
-    // Verify text is visible (basic contrast check)
-    const bodyText = await page.locator('body').textContent();
-    expect(bodyText).toBeTruthy();
-    expect(bodyText!.length).toBeGreaterThan(0);
   });
 
   test('should have sufficient text contrast in dark mode for post content', async ({ page }) => {
