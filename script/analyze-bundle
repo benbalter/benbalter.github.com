@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+# Script to analyze Astro build bundle sizes
+# Provides insights into JavaScript and CSS bundle sizes for performance optimization
+
+set -e
+
+# Colors for output
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+echo -e "${BLUE}=== Astro Build Bundle Analysis ===${NC}\n"
+
+# Check if dist-astro exists
+if [ ! -d "dist-astro" ]; then
+    echo -e "${YELLOW}dist-astro directory not found. Building...${NC}"
+    npm run astro:build
+    echo ""
+fi
+
+echo -e "${GREEN}JavaScript Bundles:${NC}"
+echo "-------------------"
+find dist-astro/assets -name "*.js" -type f -exec ls -lh {} \; | \
+    awk '{print $5 "\t" $9}' | \
+    sort -h -r | \
+    head -10
+
+echo ""
+echo -e "${GREEN}CSS Bundles:${NC}"
+echo "------------"
+find dist-astro/assets -name "*.css" -type f -exec ls -lh {} \; | \
+    awk '{print $5 "\t" $9}' | \
+    sort -h -r | \
+    head -10
+
+echo ""
+echo -e "${GREEN}Total Bundle Sizes:${NC}"
+echo "-------------------"
+JS_SIZE=$(find dist-astro/assets -name "*.js" -type f -exec du -ch {} + | grep total | cut -f1)
+CSS_SIZE=$(find dist-astro/assets -name "*.css" -type f -exec du -ch {} + | grep total | cut -f1)
+echo -e "JavaScript: ${YELLOW}${JS_SIZE}${NC}"
+echo -e "CSS:        ${YELLOW}${CSS_SIZE}${NC}"
+
+echo ""
+echo -e "${GREEN}Image Optimization:${NC}"
+echo "-------------------"
+WEBP_COUNT=$(find dist-astro/assets -name "*.webp" -type f | wc -l)
+WEBP_SIZE=$(find dist-astro/assets -name "*.webp" -type f -exec du -ch {} + 2>/dev/null | grep total | cut -f1)
+echo -e "WebP Images: ${YELLOW}${WEBP_COUNT}${NC}"
+echo -e "Total Size:  ${YELLOW}${WEBP_SIZE}${NC}"
+
+echo ""
+echo -e "${GREEN}Page Count:${NC}"
+echo "-----------"
+HTML_COUNT=$(find dist-astro -name "index.html" -type f | wc -l)
+echo -e "Total Pages: ${YELLOW}${HTML_COUNT}${NC}"
+
+echo ""
+echo -e "${BLUE}=== Analysis Complete ===${NC}"

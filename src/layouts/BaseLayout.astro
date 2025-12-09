@@ -175,33 +175,19 @@ const schemas = breadcrumbSchema
       <Footer />
     </div>
     
-    <!-- Minimal navigation toggle script (critical, loaded synchronously) -->
+    <!-- Font Awesome icons initialization -->
+    <script>
+      import '../scripts/fontawesome';
+    </script>
+    
+    <!-- Minimal navigation toggle script -->
     <script>
       import '../scripts/navToggle';
     </script>
     
-    <!-- Font Awesome icons initialization (defer to reduce initial load) -->
-    <script type="module">
-      // Lazy load FontAwesome after page is interactive
-      if (document.readyState === 'complete') {
-        import('../scripts/fontawesome');
-      } else {
-        window.addEventListener('load', () => {
-          import('../scripts/fontawesome');
-        });
-      }
-    </script>
-    
-    <!-- Turbo Drive for faster page navigation (defer as it's not critical for first paint) -->
-    <script type="module">
-      // Load Turbo after initial paint
-      if (document.readyState === 'complete') {
-        import('../scripts/turbo');
-      } else {
-        window.addEventListener('load', () => {
-          import('../scripts/turbo');
-        });
-      }
+    <!-- Turbo Drive for faster page navigation -->
+    <script>
+      import '../scripts/turbo';
     </script>
   </body>
 </html>
