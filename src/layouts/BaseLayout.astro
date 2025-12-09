@@ -108,8 +108,8 @@ const schemas = breadcrumbSchema
         ...(type === 'article' && publishedTime ? {
           article: {
             publishedTime: publishedTime.toISOString(),
-            ...(modifiedTime ? { modifiedTime: modifiedTime.toISOString() } : {}),
-            ...(author ? { authors: [author] } : {}),
+            modifiedTime: modifiedTime?.toISOString(),
+            authors: author ? [author] : undefined,
           }
         } : {}),
       }}
