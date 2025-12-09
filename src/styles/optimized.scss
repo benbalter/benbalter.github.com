@@ -79,8 +79,28 @@ $content-padding-x: 15px;
     margin-bottom: 1rem !important;
 }
 
+.mb-2 {
+    margin-bottom: 0.5rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
 .mt-2 {
     margin-top: 0.5rem !important;
+}
+
+.mt-4 {
+    margin-top: 1.5rem !important;
+}
+
+.ms-3 {
+    margin-left: 1rem !important;
+}
+
+.me-2 {
+    margin-right: 0.5rem !important;
 }
 
 // Float utilities (used in MiniBio component)
@@ -97,8 +117,81 @@ $content-padding-x: 15px;
     padding-top: 0.25rem !important;
 }
 
+.pt-3 {
+    padding-top: 1rem !important;
+}
+
+.pb-3 {
+    padding-bottom: 1rem !important;
+}
+
 .pe-3 {
     padding-right: 1rem !important;
+}
+
+// Border utilities
+.border-top {
+    border-top: var(--bs-border-width) solid var(--bs-border-color) !important;
+}
+
+// Badge component (used in PostLayout for tags)
+.badge {
+    display: inline-block;
+    padding: 0.35em 0.65em;
+    font-size: 0.75em;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: var(--bs-border-radius);
+}
+
+.bg-secondary {
+    background-color: var(--bs-secondary) !important;
+}
+
+// Typography utilities
+.small {
+    font-size: 0.875em;
+}
+
+.text-muted {
+    color: var(--bs-secondary-color) !important;
+}
+
+.text-primary {
+    color: var(--bs-primary) !important;
+}
+
+.lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+.display-4 {
+    font-size: calc(1.475rem + 2.7vw);
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+@media (min-width: 1200px) {
+    .display-4 {
+        font-size: 3.5rem;
+    }
+}
+
+// Link utilities
+.link-secondary {
+    color: var(--bs-secondary-color);
+    text-decoration-color: var(--bs-secondary-color);
+}
+
+.link-secondary:hover,
+.link-secondary:focus {
+    color: var(--bs-secondary-color);
+    text-decoration-color: var(--bs-secondary-color);
 }
 
 // Text alignment utilities for responsive sizes
