@@ -129,9 +129,12 @@ export default defineConfig({
   
   // Markdown configuration
   markdown: {
-    // Enable syntax highlighting with GitHub theme
+    // Enable syntax highlighting with GitHub themes (dual theme for dark mode support)
     shikiConfig: {
-      theme: 'github-light',
+      themes: {
+        light: 'github-light',
+        dark: 'github-dark',
+      },
       wrap: true,
     },
     // Enable GitHub Flavored Markdown
