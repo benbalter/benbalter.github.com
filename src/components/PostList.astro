@@ -17,6 +17,18 @@ interface Props {
   field: 'posts' | 'roles';
 }
 
+/**
+ * Helper function to extract URL from post slug
+ * @param slug - Post slug in format YYYY-MM-DD-title
+ * @returns URL in format /YYYY/MM/DD/title/ or null if slug format is invalid
+ */
+function getPostUrl(slug: string): string | null {
+  const dateMatch = slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
+  if (!dateMatch) return null;
+  const [, year, month, day, slugPart] = dateMatch;
+  return `/${year}/${month}/${day}/${slugPart}/`;
+}
+
 const { postSlug, field } = Astro.props;
 
 // Fetch the current post to get its frontmatter
@@ -41,12 +53,8 @@ const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'
 const postsByUrl = new Map<string, CollectionEntry<'posts'>>();
 
 allPosts.forEach(post => {
-  // Extract date from slug (YYYY-MM-DD-slug format)
-  const dateMatch = post.slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
-  
-  if (dateMatch) {
-    const [, year, month, day, slug] = dateMatch;
-    const url = `/${year}/${month}/${day}/${slug}/`;
+  const url = getPostUrl(post.slug);
+  if (url) {
     postsByUrl.set(url, post);
   }
 });
@@ -65,14 +73,11 @@ const matchedPosts = urls
 
 {matchedPosts
   .map(post => {
-    // Extract date from slug for URL construction
-    const dateMatch = post.slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
-    if (!dateMatch) {
+    const url = getPostUrl(post.slug);
+    if (!url) {
       console.error(`PostList: Invalid slug format: ${post.slug}`);
       return null;
     }
-    const [, year, month, day, slug] = dateMatch;
-    const url = `/${year}/${month}/${day}/${slug}/`;
     
     return (
       <li>
