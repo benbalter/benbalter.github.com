@@ -15,14 +15,46 @@ Described by the US Chief Technology Officer as one of "the baddest of the badas
 As an attorney passionate about the disruptive potential of technology, Ben holds a J.D. and an M.B.A. from the George Washington University and is a member of the DC Bar. When not trying to change the world, he enjoys tackling otherwise-impossible challenges to sharing information using nothing more than duct tape, version control, and occasionally a pack of bubblegum. [Full resume](/resume/).`;
 
 /**
+ * Escape HTML special characters to prevent XSS
+ */
+function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+/**
+ * Validate URL to only allow safe protocols
+ */
+function isValidUrl(url: string): boolean {
+  const trimmed = url.trim();
+  
+  // Allow http(s) absolute URLs
+  if (trimmed.startsWith('http://') || trimmed.startsWith('https://')) {
+    try {
+      const parsed = new URL(trimmed);
+      return parsed.protocol === 'http:' || parsed.protocol === 'https:';
+    } catch {
+      return false;
+    }
+  }
+  
+  // Allow root-relative paths but not protocol-relative URLs
+  return trimmed.startsWith('/') && !trimmed.startsWith('//');
+}
+
+/**
  * Simple markdown link converter: [text](url) => <a href="url">text</a>
- * Only allows http(s) and relative URLs for security
+ * Only allows http(s) and relative URLs for security, escapes HTML
  */
 function convertMarkdownLinks(text: string): string {
   return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, linkText, url) => {
-    // Validate URL - only allow http(s) and relative URLs
-    if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('/')) {
-      return `<a href="${url}">${linkText}</a>`;
+    // Validate URL for security
+    if (isValidUrl(url)) {
+      return `<a href="${escapeHtml(url)}">${escapeHtml(linkText)}</a>`;
     }
     // Return original text if URL is not valid
     return match;

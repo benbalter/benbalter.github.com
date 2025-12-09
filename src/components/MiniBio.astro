@@ -11,6 +11,7 @@ import { siteConfig } from '../config';
 import { aboutContent, getFirstParagraph } from '../content/about-bio';
 
 const firstParagraph = getFirstParagraph(aboutContent);
+const bioHtml = `${firstParagraph} <a href="/about/">More about the author &rarr;</a>`;
 ---
 
 <div class="mini-bio">
@@ -24,7 +25,8 @@ const firstParagraph = getFirstParagraph(aboutContent);
     />
   </div>
   
-  <p set:html={firstParagraph + ' <a href="/about/">More about the author &rarr;</a>'} />
+  <!-- firstParagraph is safe for set:html because link text is now escaped in about-bio.ts -->
+  <p set:html={bioHtml} />
 </div>
 
 <style>

@@ -96,24 +96,50 @@ describe('MiniBio Component - Specification', () => {
     expect(aboutUrl).toMatch(/^\/about\/$/);
   });
 
-  it('should dynamically extract first paragraph from about content', () => {
-    // Specification: Bio text is dynamically pulled from about-bio.ts
-    // This test validates the content extraction logic
+  it('should dynamically extract first paragraph from about content', async () => {
+    // Import and test the actual function
+    const { getFirstParagraph } = await import('../content/about-bio');
+    
     const sampleContent = 'First paragraph text.\n\nSecond paragraph text.';
-    const paragraphs = sampleContent.split('\n\n').filter(p => p.trim().length > 0);
-    const firstParagraph = paragraphs[0];
+    const firstParagraph = getFirstParagraph(sampleContent);
     
     expect(firstParagraph).toBe('First paragraph text.');
     expect(firstParagraph).not.toContain('Second paragraph');
   });
 
-  it('should convert markdown links to HTML', () => {
-    // Specification: Markdown links in bio are converted to HTML
-    const markdownText = 'Text with [link](https://example.com) inside';
-    const htmlText = markdownText.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+  it('should convert markdown links to HTML with proper escaping', async () => {
+    // Import and test the actual function
+    const { getFirstParagraph } = await import('../content/about-bio');
     
-    expect(htmlText).toContain('<a href="https://example.com">link</a>');
-    expect(htmlText).not.toContain('[link]');
+    const sampleContent = 'Text with [link](https://example.com) inside';
+    const result = getFirstParagraph(sampleContent);
+    
+    expect(result).toContain('<a href="https://example.com">link</a>');
+    expect(result).not.toContain('[link]');
+  });
+
+  it('should escape HTML in link text to prevent XSS', async () => {
+    // Import and test the actual function
+    const { getFirstParagraph } = await import('../content/about-bio');
+    
+    const maliciousContent = 'Text with [<img src=x onerror=alert(1)>](https://example.com) inside';
+    const result = getFirstParagraph(maliciousContent);
+    
+    // Should escape the HTML in link text
+    expect(result).toContain('&lt;img');
+    expect(result).not.toContain('<img');
+  });
+
+  it('should reject protocol-relative URLs', async () => {
+    // Import and test the actual function
+    const { getFirstParagraph } = await import('../content/about-bio');
+    
+    const protocolRelativeContent = 'Text with [link](//evil.com) inside';
+    const result = getFirstParagraph(protocolRelativeContent);
+    
+    // Should not convert invalid URLs
+    expect(result).toContain('[link](//evil.com)');
+    expect(result).not.toContain('<a href');
   });
 });
 
