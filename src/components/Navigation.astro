@@ -106,6 +106,13 @@ const navClasses = hero
     padding: 0.5rem var(--bs-gutter-x, 1.5rem);
   }
 
+  /* Prevent wrapping at desktop sizes */
+  @media (min-width: 768px) {
+    .navbar-inner {
+      flex-wrap: nowrap;
+    }
+  }
+
   .navbar-brand {
     font-weight: 700;
     color: var(--bs-body-color, #212529);
