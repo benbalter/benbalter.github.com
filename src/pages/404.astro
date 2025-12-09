@@ -1,0 +1,152 @@
+---
+/**
+ * 404 Not Found Page
+ * 
+ * Displays a helpful 404 page with:
+ * - Suggestion for similar URLs based on string similarity (Levenshtein distance)
+ * - List of recent blog posts
+ * 
+ * The similar URL suggestion is populated client-side by fetching the sitemap.xml
+ * and finding the closest match to the requested URL.
+ */
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+const title = 'Not Found 😢';
+const description = 'The page you are trying to view does not exist.';
+
+// Get recent posts (limit to 10)
+const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => {
+  return data.published !== false && data.archived !== true;
+});
+
+// Sort posts by slug (which contains date in Jekyll format YYYY-MM-DD)
+const posts: CollectionEntry<'posts'>[] = allPosts
+  .sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => 
+    b.slug.localeCompare(a.slug)
+  )
+  .slice(0, 10);
+
+// Helper function to generate Jekyll-style URL from slug
+function getPostUrl(slug: string): string {
+  const match = slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
+  if (match) {
+    const [, year, month, day, postSlug] = match;
+    return `/${year}/${month}/${day}/${postSlug}/`;
+  }
+  return `/posts/${slug}/`; // fallback
+}
+---
+
+<BaseLayout title={title} description={description} noindex={true}>
+  <div class="alert alert-primary lead text-center" role="alert">
+    The page you are trying to view does not exist. <br />
+    <strong>Perhaps you're looking for <span id="four-oh-four-suggestion"></span>?</strong>
+  </div>
+
+  <h4>Recent posts</h4>
+
+  <ul>
+    {posts.map((post) => {
+      const postUrl = getPostUrl(post.slug);
+      return (
+        <li>
+          <a href={postUrl}>{post.data.title}</a>
+        </li>
+      );
+    })}
+  </ul>
+
+  <!-- Client-side script to fetch sitemap and suggest similar URL -->
+  <script>
+    import { closest } from 'fastest-levenshtein';
+
+    const div = document.getElementById('four-oh-four-suggestion');
+    if (div) {
+      const xhr = new XMLHttpRequest();
+
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+          const xml = xhr.responseXML;
+          if (xml) {
+            const urls = Array.from(xml.querySelectorAll('urlset > url > loc')).map((el) => el.textContent || '');
+            const url = new URL(closest(window.location.href, urls));
+            div.innerHTML = `<a href="${url.href}">${url.pathname}</a>`;
+          } else {
+            div.innerHTML = '<a href="/">/</a>';
+          }
+        } else {
+          div.innerHTML = '<a href="/">/</a>';
+        }
+      };
+
+      xhr.onerror = () => {
+        div.innerHTML = '<a href="/">/</a>';
+      };
+
+      xhr.open('GET', `${window.location.protocol}//${window.location.host}/sitemap.xml`);
+      xhr.send();
+    }
+  </script>
+</BaseLayout>
+
+<style>
+  .alert {
+    position: relative;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.375rem;
+  }
+
+  .alert-primary {
+    color: #084298;
+    background-color: #cfe2ff;
+    border-color: #b6d4fe;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
+
+  .text-center {
+    text-align: center !important;
+  }
+
+  h4 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  ul {
+    list-style-type: disc;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    color: var(--bs-link-color);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .alert-primary {
+      color: #6ea8fe;
+      background-color: #031633;
+      border-color: #084298;
+    }
+  }
+</style>
