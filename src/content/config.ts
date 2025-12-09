@@ -97,8 +97,23 @@ const pagesCollection = defineCollection({
   }),
 });
 
+// Schema for resume positions
+const resumePositionsCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    // Required fields
+    employer: z.string(),
+    title: z.string(),
+    start_date: z.string(),
+    
+    // Optional fields
+    end_date: z.string().optional(),
+  }),
+});
+
 // Export collections
 export const collections = {
   posts: postsCollection,
   pages: pagesCollection,
+  'resume-positions': resumePositionsCollection,
 };

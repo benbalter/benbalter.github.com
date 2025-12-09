@@ -3,13 +3,11 @@
  * Resume Page
  * 
  * Displays Ben Balter's professional experience, education, and certifications.
- * Loads position data from _resume_positions directory.
+ * Uses Astro content collections for consistent markdown rendering.
  */
 
 import PageLayout from '../layouts/PageLayout.astro';
-import { getEntry } from 'astro:content';
-import { getResumePositions } from '../lib/resume-positions';
-import type { ResumePosition } from '../lib/resume-positions';
+import { getEntry, getCollection, type CollectionEntry } from 'astro:content';
 
 // Load resume page data
 const resumePage = await getEntry('pages', 'resume');
@@ -19,8 +17,13 @@ if (!resumePage) {
 
 const { title, description, degrees, certifications } = resumePage.data;
 
-// Load resume positions
-const positions = await getResumePositions();
+// Load resume positions from content collection
+const allPositions = await getCollection('resume-positions');
+
+// Sort by start_date (most recent first)
+const sortedPositions = allPositions.sort((a, b) => {
+  return new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime();
+});
 
 // Format date helper
 function formatDate(dateString: string): string {
@@ -36,22 +39,25 @@ function formatDate(dateString: string): string {
 // Group positions by employer to handle multiple roles at same company
 interface GroupedPosition {
   employer: string;
-  positions: ResumePosition[];
+  positions: Array<CollectionEntry<'resume-positions'> & { Content: any }>;
 }
 
 // Group all positions by employer, regardless of order
-const employerGroups = new Map<string, ResumePosition[]>();
-for (const position of positions) {
-  if (!employerGroups.has(position.employer)) {
-    employerGroups.set(position.employer, []);
+const employerGroups = new Map<string, Array<CollectionEntry<'resume-positions'> & { Content: any }>>();
+for (const position of sortedPositions) {
+  const { Content } = await position.render();
+  const positionWithContent = { ...position, Content };
+  
+  if (!employerGroups.has(position.data.employer)) {
+    employerGroups.set(position.data.employer, []);
   }
-  employerGroups.get(position.employer)!.push(position);
+  employerGroups.get(position.data.employer)!.push(positionWithContent);
 }
 
 // Convert to array and sort positions within each employer by start_date (most recent first)
 const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries()).map(([employer, positions]) => ({
   employer,
-  positions: positions.sort((a, b) => new Date(b.start_date).getTime() - new Date(a.start_date).getTime()),
+  positions: positions.sort((a, b) => new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime()),
 }));
 ---
 
@@ -67,14 +73,16 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
           <div class="position">
             <div class="position-header">
               <div class="position-title">
-                <h4>{position.title}</h4>
+                <h4>{position.data.title}</h4>
               </div>
               <div class="position-dates">
-                {formatDate(position.start_date)}—{position.end_date ? formatDate(position.end_date) : 'Present'}
+                {formatDate(position.data.start_date)}—{position.data.end_date ? formatDate(position.data.end_date) : 'Present'}
               </div>
             </div>
             
-            <div class="position-content" set:html={position.content} />
+            <div class="position-content">
+              <position.Content />
+            </div>
           </div>
         ))}
       </div>
