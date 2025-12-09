@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import redirectIntegration from './src/lib/redirect-integration.ts';
 import remarkEmoji from 'remark-emoji';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -105,6 +106,7 @@ export default defineConfig({
         };
       },
     }),
+    redirectIntegration(), // Generate redirect pages after build
   ],
   
   // Markdown configuration
