@@ -12,6 +12,7 @@
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { getPostUrl } from '../utils/post-urls';
 
 const title = 'Not Found 😢';
 const description = 'The page you are trying to view does not exist.';
@@ -27,22 +28,12 @@ const posts: CollectionEntry<'posts'>[] = allPosts
     b.slug.localeCompare(a.slug)
   )
   .slice(0, 10);
-
-// Helper function to generate Jekyll-style URL from slug
-function getPostUrl(slug: string): string {
-  const match = slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
-  if (match) {
-    const [, year, month, day, postSlug] = match;
-    return `/${year}/${month}/${day}/${postSlug}/`;
-  }
-  return `/posts/${slug}/`; // fallback
-}
 ---
 
 <BaseLayout title={title} description={description} noindex={true}>
   <div class="alert alert-primary lead text-center" role="alert">
     The page you are trying to view does not exist. <br />
-    <strong>Perhaps you're looking for <span id="four-oh-four-suggestion"></span>?</strong>
+    <strong>Perhaps you're looking for <span id="four-oh-four-suggestion" aria-live="polite"></span>?</strong>
   </div>
 
   <h4>Recent posts</h4>
@@ -64,6 +55,9 @@ function getPostUrl(slug: string): string {
 
     const div = document.getElementById('four-oh-four-suggestion');
     if (div) {
+      // Show loading state
+      div.textContent = 'loading...';
+      
       const xhr = new XMLHttpRequest();
 
       xhr.onload = () => {
@@ -71,18 +65,57 @@ function getPostUrl(slug: string): string {
           const xml = xhr.responseXML;
           if (xml) {
             const urls = Array.from(xml.querySelectorAll('urlset > url > loc')).map((el) => el.textContent || '');
-            const url = new URL(closest(window.location.href, urls));
-            div.innerHTML = `<a href="${url.href}">${url.pathname}</a>`;
+            
+            // Check for empty URLs array
+            if (urls.length === 0) {
+              const link = document.createElement('a');
+              link.href = '/';
+              link.textContent = '/';
+              div.textContent = ''; // Clear loading text
+              div.appendChild(link);
+            } else {
+              try {
+                // Find closest matching URL
+                const urlString = closest(window.location.href, urls);
+                const url = new URL(urlString);
+                
+                // Create link element safely (avoid XSS)
+                const link = document.createElement('a');
+                link.href = url.href;
+                link.textContent = url.pathname;
+                div.textContent = ''; // Clear loading text
+                div.appendChild(link);
+              } catch (e) {
+                // Fallback if URL construction fails
+                const link = document.createElement('a');
+                link.href = '/';
+                link.textContent = '/';
+                div.textContent = ''; // Clear loading text
+                div.appendChild(link);
+              }
+            }
           } else {
-            div.innerHTML = '<a href="/">/</a>';
+            const link = document.createElement('a');
+            link.href = '/';
+            link.textContent = '/';
+            div.textContent = ''; // Clear loading text
+            div.appendChild(link);
           }
         } else {
-          div.innerHTML = '<a href="/">/</a>';
+          const link = document.createElement('a');
+          link.href = '/';
+          link.textContent = '/';
+          div.textContent = ''; // Clear loading text
+          div.appendChild(link);
         }
       };
 
       xhr.onerror = () => {
-        div.innerHTML = '<a href="/">/</a>';
+        const link = document.createElement('a');
+        link.href = '/';
+        link.textContent = '/';
+        div.textContent = ''; // Clear loading text
+        div.appendChild(link);
       };
 
       xhr.open('GET', `${window.location.protocol}//${window.location.host}/sitemap-0.xml`);
