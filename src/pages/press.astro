@@ -1,0 +1,72 @@
+---
+/**
+ * Press Page
+ * 
+ * Displays a list of press clips where Ben Balter has been featured.
+ * Clips are loaded from _data/clips.yml and sorted by date (newest first).
+ */
+
+import PageLayout from '../layouts/PageLayout.astro';
+import { readFileSync } from 'fs';
+import { parse } from 'yaml';
+import { join } from 'path';
+
+const title = 'Press';
+const description = 'Select media clips of Ben Balter in the press talking about open source, open data, and government innovation.';
+
+interface Clip {
+  title: string;
+  publication: string;
+  url: string;
+  date: string;
+  ignore_check?: boolean;
+}
+
+// Read and parse clips.yml from _data directory
+const clipsPath = join(process.cwd(), '_data', 'clips.yml');
+const clipsYaml = readFileSync(clipsPath, 'utf-8');
+const clips = parse(clipsYaml) as Clip[];
+
+// Sort clips by date (newest first)
+const sortedClips = clips.sort((a, b) => {
+  const dateA = new Date(a.date);
+  const dateB = new Date(b.date);
+  return dateB.getTime() - dateA.getTime();
+});
+---
+
+<PageLayout title={title} description={description}>
+  <p>
+    <em>I regularly speak with the press about open source, open data, and innovation within government. Below are some highlights:</em>
+  </p>
+
+  <ul class="list-unstyled">
+    {sortedClips.map((clip) => (
+      <li class="mb-3">
+        <a href={clip.url} class="title">{clip.title}</a><br />
+        <span class="small">{clip.publication} | <em>{new Date(clip.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</em></span>
+      </li>
+    ))}
+  </ul>
+</PageLayout>
+
+<style>
+  .list-unstyled {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .mb-3 {
+    margin-bottom: 1rem;
+  }
+
+  .title {
+    font-weight: 500;
+    font-size: 1.1rem;
+  }
+
+  .small {
+    font-size: 0.9rem;
+    color: #6c757d;
+  }
+</style>

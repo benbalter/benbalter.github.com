@@ -85,6 +85,7 @@ exclude:
   - /lib
   - /e2e
   - /out
+  - /dist-astro
   - next.config.mjs
   - next-env.d.ts
   - tsconfig.json
@@ -92,6 +93,10 @@ exclude:
   - jest.setup.mjs
   - playwright.config.ts
   - playwright-nextjs.config.ts
+  - playwright-astro.config.ts
+  - astro.config.mjs
+  - tsconfig.astro.json
+  - vitest.config.ts
   - .next
   - docs
   - out
