@@ -50,10 +50,10 @@ function getPostUrl(slug: string): string {
       const postUrl = getPostUrl(post.slug);
       return (
         <div class="row mb-2">
-          <div class="col-sm-9">
+          <div class="col-md-9">
             <a href={postUrl}>{post.data.title}</a>
           </div>
-          <div class="col-sm-3 text-muted text-md-end">
+          <div class="col-md-3 text-muted text-md-end">
             <small>{formatDate(postDate)}</small>
           </div>
         </div>
@@ -70,14 +70,14 @@ function getPostUrl(slug: string): string {
     margin-left: 0;
   }
 
-  .col-sm-9 {
+  .col-md-9 {
     flex: 0 0 auto;
     width: 75%;
     padding: 0;
     padding-right: 0.5rem; /* Add spacing between title and date */
   }
 
-  .col-sm-3 {
+  .col-md-3 {
     flex: 0 0 auto;
     width: 25%;
     padding: 0;
@@ -96,8 +96,8 @@ function getPostUrl(slug: string): string {
   }
 
   @media (max-width: 768px) {
-    .col-sm-9,
-    .col-sm-3 {
+    .col-md-9,
+    .col-md-3 {
       width: 100%;
     }
     
