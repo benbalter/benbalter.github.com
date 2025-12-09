@@ -8,7 +8,7 @@ import {
 
 test.describe('Resume Page', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/resume');
+    await page.goto('/resume/');
     await waitForPageReady(page);
   });
 
