@@ -10,7 +10,9 @@ This site is built using Jekyll, GitHub Pages, and Bootstrap. See [humans.txt](h
 
 ### Astro (Experimental)
 
-An Astro implementation has been bootstrapped for evaluation. The Astro setup is configured to:
+An Astro implementation has been bootstrapped for evaluation. **Current status: 80% complete** ([View full audit](ASTRO_AUDIT_SUMMARY.md))
+
+The Astro setup is configured to:
 
 * Use **Static Site Generation (SSG)** - All pages pre-rendered as static HTML
 * **Zero JavaScript by default** - Ships only necessary JavaScript
@@ -30,43 +32,18 @@ npm run astro:check    # Type-check Astro components
 
 #### Astro Documentation
 
-See [docs/ASTRO.md](docs/ASTRO.md) for comprehensive documentation including:
+**Migration Status**:
+* [ASTRO_AUDIT_SUMMARY.md](ASTRO_AUDIT_SUMMARY.md) - Executive summary of migration status (80% complete)
+* [ASTRO_AUDIT.md](ASTRO_AUDIT.md) - Comprehensive audit and gap analysis
 
-* Project structure and configuration
-* Coexistence strategy with Jekyll
-* Development workflow and best practices
-* Feature comparison with Jekyll
-* Future migration roadmap
+**Implementation Details**:
+* [docs/ASTRO.md](docs/ASTRO.md) - Project structure and configuration
+* [ASTRO_MIGRATION_SUMMARY.md](ASTRO_MIGRATION_SUMMARY.md) - Blog post migration details
+* [ASTRO_PLUGIN_MIGRATION.md](ASTRO_PLUGIN_MIGRATION.md) - Jekyll plugin replication
+* [ASTRO_LIQUID_TAGS.md](ASTRO_LIQUID_TAGS.md) - Posts with Liquid tags
+* [ASTRO_REDIRECTS.md](ASTRO_REDIRECTS.md) - Redirect implementation
+* [ASTRO_URL_STRUCTURE.md](ASTRO_URL_STRUCTURE.md) - URL format and routing
 
-### Astro (Experimental)
-
-An Astro implementation has been bootstrapped for evaluation. The Astro setup is configured to:
-
-* Use **Static Site Generation (SSG)** - All pages pre-rendered as static HTML
-* **Zero JavaScript by default** - Ships only necessary JavaScript
-* Support **TypeScript** for type-safe components
-* Export to `dist-astro/` directory (separate from Jekyll `_site/` and Next.js `out/`)
-* Run development server on port 4321 (separate from Jekyll 4000 and Next.js 3000)
-* Full GitHub Pages compatibility with trailing slashes and directory-based URLs
-
-#### Astro Commands
-
-```bash
-npm run astro:dev      # Start Astro development server (http://localhost:4321)
-npm run astro:build    # Build Astro for production (outputs to /dist-astro)
-npm run astro:preview  # Preview production build
-npm run astro:check    # Type-check Astro components
-```
-
-#### Astro Documentation
-
-See [docs/ASTRO.md](docs/ASTRO.md) for comprehensive documentation including:
-
-* Project structure and configuration
-* Coexistence strategy with Jekyll and Next.js
-* Development workflow and best practices
-* Feature comparison with Jekyll and Next.js
-* Future migration roadmap
 
 ## Development
 
