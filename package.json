@@ -12,6 +12,7 @@
     "@hotwired/turbo": "^8.0.5",
     "anchor-js": "^5.0.0",
     "astro-og-canvas": "^0.7.2",
+    "astro-seo": "^0.8.4",
     "bootstrap": "^5.3.3",
     "fastest-levenshtein": "^1.0.16",
     "marked": "^17.0.1",
