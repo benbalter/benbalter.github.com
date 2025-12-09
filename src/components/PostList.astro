@@ -53,7 +53,13 @@ allPosts.forEach(post => {
 
 // Find posts matching the provided URLs
 const matchedPosts = urls
-  .map(url => postsByUrl.get(url))
+  .map(url => {
+    const post = postsByUrl.get(url);
+    if (!post && import.meta.env.DEV) {
+      console.warn(`PostList: URL "${url}" in post "${postSlug}" field "${field}" does not match any post`);
+    }
+    return post;
+  })
   .filter((post): post is CollectionEntry<'posts'> => post !== undefined);
 ---
 
