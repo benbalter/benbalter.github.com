@@ -12,6 +12,7 @@ import MiniBio from '../components/MiniBio.astro';
 import { siteConfig } from '../config';
 import { calculateReadingTime } from '../utils/reading-time';
 import { generateBlogPostingSchema, schemaToJsonLd } from '../utils/structured-data';
+import { Image } from 'astro:assets';
 import ArchivedPostWarning from '../components/ArchivedPostWarning.astro';
 import type { CollectionEntry } from 'astro:content';
 
@@ -61,6 +62,25 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   image,
   author,
 }) : null;
+
+// Helper function to determine if we should use Image component for optimization
+// Only use Image component for reliable domains that support programmatic access
+function shouldOptimizeImage(url?: string): boolean {
+  if (!url) return false;
+  try {
+    const imageUrl = new URL(url, 'https://ben.balter.com');
+    const hostname = imageUrl.hostname;
+    // Only optimize images from reliable sources
+    return (
+      hostname.includes('github.com') ||
+      hostname.includes('githubusercontent.com') ||
+      hostname === 'ben.balter.com' ||
+      !imageUrl.protocol.startsWith('http') // Local images
+    );
+  } catch {
+    return false;
+  }
+}
 ---
 
 <BaseLayout 
@@ -90,11 +110,22 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
             )}
           </div>
           
-          {image && (
+          {image && shouldOptimizeImage(image) && (
+            <Image 
+              src={image} 
+              alt={title}
+              width={800}
+              height={400}
+              class="post-image img-fluid rounded"
+            />
+          )}
+          
+          {image && !shouldOptimizeImage(image) && (
             <img 
               src={image} 
               alt={title}
               class="post-image img-fluid rounded"
+              loading="lazy"
             />
           )}
         </header>

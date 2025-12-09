@@ -5,6 +5,7 @@ import redirectIntegration from './src/lib/redirect-integration.ts';
 import remarkEmoji from 'remark-emoji';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import { remarkGitHubMentions } from './src/lib/remark-github-mentions.ts';
 
 // URL patterns for sitemap priority calculation
 const BLOG_POST_PATTERN = /\/\d{4}\/\d{2}\/\d{2}\//;
@@ -51,13 +52,30 @@ export default defineConfig({
     host: true,
   },
   
+  // Image optimization configuration
+  // Allowlist remote image domains for Astro's Image component
+  image: {
+    domains: [
+      // GitHub avatars (used in MiniBio component)
+      'avatars.githubusercontent.com',
+      // Amazon book covers (used in other-recommended-reading page)
+      'images.amazon.com',
+      // Post header images from various sources
+      'ben.balter.com',
+      'lawyerist-khcnq28r8rte6wv.stackpathdns.com',
+      'user-images.githubusercontent.com',
+      'github.com',
+      'hackernoon.com',
+    ],
+  },
+  
   // Integrations
   integrations: [
     mdx({
       // MDX configuration
       optimize: true,
       // Support GitHub Flavored Markdown
-      remarkPlugins: [remarkEmoji],
+      remarkPlugins: [remarkEmoji, remarkGitHubMentions],
       rehypePlugins: [
         rehypeSlug,
         [rehypeAutolinkHeadings, {
@@ -121,7 +139,7 @@ export default defineConfig({
     // Enable smartypants for typographic punctuation
     smartypants: true,
     // Remark plugins (for markdown processing)
-    remarkPlugins: [remarkEmoji],
+    remarkPlugins: [remarkEmoji, remarkGitHubMentions],
     // Rehype plugins (for HTML processing)
     rehypePlugins: [
       rehypeSlug,
