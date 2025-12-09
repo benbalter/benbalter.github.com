@@ -171,31 +171,20 @@ export default defineConfig({
       rollupOptions: {
         output: {
           // Customize asset file naming to avoid misleading names
-          // The global stylesheet should not be named after a specific page like "about"
+          // Astro/Vite creates a shared CSS bundle from BaseLayout's optimized.scss import
+          // and names it after one of the pages (e.g., "about"). We rename it to "global"
+          // to accurately reflect that it's the site's main stylesheet, not page-specific CSS.
           assetFileNames: (assetInfo) => {
-            // Check if this is a CSS file
             if (assetInfo.name && assetInfo.name.endsWith('.css')) {
               const name = assetInfo.name.replace(/\.css$/, '');
               
-              // Detect if this is the main/shared stylesheet by checking if it's from a page
-              // and contains layout-level styles (BaseLayout imports optimized.scss)
-              // The shared stylesheet will be named after one of the pages that use BaseLayout
-              // We can identify it because:
-              // 1. It's named after a page (not _slug_ or other special names)
-              // 2. It's shared across multiple pages (Vite/Astro deduplicates common CSS)
-              // 
-              // Since Astro automatically deduplicates CSS imports across pages,
-              // any CSS file that's named after a page but used everywhere is the global bundle.
-              // Page-specific scoped styles are inlined, so external CSS files are shared.
-              // 
-              // We detect this by checking if the name matches common layout pages:
-              // - Doesn't start with underscore (which indicates dynamic routes like _slug_)
-              // - Is a simple page name (not a hash or build artifact)
-              const isPageName = !name.startsWith('_') && /^[a-z-]+$/.test(name);
+              // Detect shared stylesheet: simple page names (not dynamic routes like "_slug_")
+              // Match: about, contact, resume, index, fine-print, books-for-geeks, etc.
+              // Don't match: _slug_, _year_, or other special patterns
+              const isPageName = !name.startsWith('_') && /^[a-z0-9-]+$/.test(name);
               
               if (isPageName) {
-                // This is the shared global stylesheet that Vite bundled from BaseLayout
-                // Rename it to 'global' to avoid confusion
+                // This is the shared global stylesheet - rename it for clarity
                 return 'assets/global.[hash].css';
               }
               
