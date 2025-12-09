@@ -1,39 +1,257 @@
 ---
-import PageLayout from '../layouts/PageLayout.astro';
+/**
+ * Resume Page
+ * 
+ * Displays Ben Balter's professional experience, education, and certifications.
+ * Loads position data from _resume_positions directory.
+ */
 
-const title = 'Resume';
-const description = 'Resume example page for Astro implementation';
+import PageLayout from '../layouts/PageLayout.astro';
+import { getEntry } from 'astro:content';
+import { getResumePositions } from '../lib/resume-positions';
+import type { ResumePosition } from '../lib/resume-positions';
+
+// Load resume page data
+const resumePage = await getEntry('pages', 'resume');
+if (!resumePage) {
+  throw new Error('Resume page data not found');
+}
+
+const { title, description, degrees, certifications } = resumePage.data;
+
+// Load resume positions
+const positions = await getResumePositions();
+
+// Format date helper
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+}
+
+// Group positions by employer to handle multiple roles at same company
+interface GroupedPosition {
+  employer: string;
+  positions: ResumePosition[];
+}
+
+const groupedPositions: GroupedPosition[] = [];
+let currentEmployer = '';
+
+for (const position of positions) {
+  if (position.employer !== currentEmployer) {
+    groupedPositions.push({
+      employer: position.employer,
+      positions: [position],
+    });
+    currentEmployer = position.employer;
+  } else {
+    // Add to existing employer group
+    groupedPositions[groupedPositions.length - 1].positions.push(position);
+  }
+}
 ---
 
 <PageLayout title={title} description={description}>
-  <section>
-    <h2>Example Resume Page</h2>
-    <p>
-      This is a placeholder resume page demonstrating Astro's page generation capabilities.
-      In a full implementation, this would pull data from markdown files or a data source.
-    </p>
+  <section class="resume-section">
+    <h2>Experience</h2>
+    
+    {groupedPositions.map((group) => (
+      <div class="employer-group">
+        <h3 class="employer-name">{group.employer}</h3>
+        
+        {group.positions.map((position) => (
+          <div class="position">
+            <div class="position-header">
+              <div class="position-title">
+                <h4>{position.title}</h4>
+              </div>
+              <div class="position-dates">
+                {formatDate(position.start_date)}&mdash;{position.end_date ? formatDate(position.end_date) : 'Present'}
+              </div>
+            </div>
+            
+            <div class="position-content" set:html={position.content} />
+          </div>
+        ))}
+      </div>
+    ))}
   </section>
   
-  <section>
-    <h2>Astro Features Demonstrated</h2>
-    <ul>
-      <li>Static page generation</li>
-      <li>Layout composition</li>
-      <li>TypeScript support</li>
-      <li>Scoped styling</li>
-      <li>SEO-friendly metadata</li>
-    </ul>
-  </section>
+  {degrees && degrees.length > 0 && (
+    <section class="resume-section">
+      <h2>Education</h2>
+      
+      {degrees.map((degree) => (
+        <div class="education-item">
+          <h3 class="school-name h5">{degree.school}</h3>
+          <div class="education-details">
+            <div class="degree-name">{degree.degree}</div>
+            <div class="degree-date">{formatDate(degree.date)}</div>
+          </div>
+        </div>
+      ))}
+    </section>
+  )}
   
-  <section>
-    <h2>Potential Data Sources</h2>
-    <p>Astro can integrate with various data sources:</p>
-    <ul>
-      <li>Markdown/MDX files with frontmatter</li>
-      <li>JSON or YAML data files</li>
-      <li>Content collections (Astro's built-in CMS)</li>
-      <li>External APIs (GitHub, LinkedIn, etc.)</li>
-      <li>Existing Jekyll data files (_data, _resume_positions)</li>
-    </ul>
-  </section>
+  {certifications && certifications.length > 0 && (
+    <section class="resume-section">
+      <h2>Certifications</h2>
+      
+      {certifications.map((cert) => (
+        <div class="certification-item">
+          <h3 class="certification-authority h5">{cert.authority}</h3>
+          <div class="certification-name">
+            {cert.url ? (
+              <a href={cert.url} target="_blank" rel="noopener noreferrer">{cert.name}</a>
+            ) : (
+              cert.name
+            )}
+          </div>
+        </div>
+      ))}
+    </section>
+  )}
 </PageLayout>
+
+<style>
+  .resume-section {
+    margin-bottom: 3rem;
+  }
+  
+  .resume-section h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #24292e;
+    border-bottom: 2px solid #e1e4e8;
+    padding-bottom: 0.5rem;
+  }
+  
+  .employer-group {
+    margin-bottom: 2.5rem;
+  }
+  
+  .employer-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0366d6;
+    margin-bottom: 1rem;
+  }
+  
+  .position {
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+  }
+  
+  .position-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    gap: 1rem;
+  }
+  
+  .position-title h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #24292e;
+    margin: 0;
+  }
+  
+  .position-dates {
+    font-size: 0.95rem;
+    color: #586069;
+    white-space: nowrap;
+    text-align: right;
+  }
+  
+  .position-content {
+    line-height: 1.6;
+    color: #24292e;
+  }
+  
+  .position-content :global(ul) {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+  
+  .position-content :global(li) {
+    margin-bottom: 0.75rem;
+    position: relative;
+    padding-left: 0;
+  }
+  
+  .position-content :global(li strong) {
+    font-weight: 600;
+    color: #24292e;
+  }
+  
+  .education-item,
+  .certification-item {
+    margin-bottom: 1.5rem;
+  }
+  
+  .school-name,
+  .certification-authority {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #24292e;
+    margin-bottom: 0.5rem;
+  }
+  
+  .h5 {
+    font-size: 1.2rem;
+  }
+  
+  .education-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .degree-name {
+    flex: 1;
+    color: #24292e;
+  }
+  
+  .degree-date {
+    font-size: 0.95rem;
+    color: #586069;
+    text-align: right;
+  }
+  
+  .certification-name {
+    color: #24292e;
+  }
+  
+  .certification-name a {
+    color: #0366d6;
+    text-decoration: none;
+  }
+  
+  .certification-name a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .position-header {
+      flex-direction: column;
+    }
+    
+    .position-dates {
+      text-align: left;
+    }
+    
+    .education-details {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .degree-date {
+      text-align: left;
+    }
+  }
+</style>

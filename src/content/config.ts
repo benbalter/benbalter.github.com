@@ -74,6 +74,18 @@ const pagesCollection = defineCollection({
     // Redirects (Jekyll compatibility)
     redirect_from: z.array(z.string()).optional(),
     redirect_to: z.string().optional(),
+    
+    // Resume-specific fields
+    degrees: z.array(z.object({
+      school: z.string(),
+      degree: z.string(),
+      date: z.string(),
+    })).optional(),
+    certifications: z.array(z.object({
+      authority: z.string(),
+      name: z.string(),
+      url: z.string().optional(),
+    })).optional(),
   }),
 });
 
