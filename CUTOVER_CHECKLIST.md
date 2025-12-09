@@ -53,22 +53,24 @@ ls -la dist-astro/
 - 196 pages generated
 - dist-astro/ directory contains full site
 
-#### 2. Update GitHub Pages Configuration
+#### 2. Update GitHub Pages Configuration ✅
 
-Current workflow should deploy from `dist-astro/` instead of `_site/`:
+**COMPLETED:** Deployment workflow updated in `.github/workflows/build-and-deploy.yml`
+
+Updated workflow now deploys from `dist-astro/` instead of `_site/`:
 
 ```yaml
-# .github/workflows/deploy.yml or similar
-- name: Build site
+# .github/workflows/build-and-deploy.yml (UPDATED)
+- name: Build site with Astro
   run: npm run astro:build
 
-- name: Deploy to GitHub Pages
-  uses: peaceiris/actions-gh-pages@v3
+- name: Upload artifact
+  uses: actions/upload-pages-artifact@v3
   with:
-    github_token: ${{ secrets.GITHUB_TOKEN }}
-    publish_dir: ./dist-astro
-    cname: ben.balter.com
+    path: ./dist-astro
 ```
+
+See `DEPLOYMENT_WORKFLOW_UPDATE.md` for complete details.
 
 #### 3. Pre-Deployment Smoke Tests
 - [ ] Homepage loads correctly

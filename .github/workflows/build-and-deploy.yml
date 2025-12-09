@@ -47,17 +47,13 @@ jobs:
       - name: Build assets
         run: npm run build
 
-      #- name: Build related posts
-      #  run: bundle exec script/build-related-posts
-
-      - run: bundle exec jekyll build
-        env:
-          JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          JEKYLL_ENV: production
-          PAGES_ENV: dotcom
+      - name: Build site with Astro
+        run: npm run astro:build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist-astro
 
   deploy:
     environment:
