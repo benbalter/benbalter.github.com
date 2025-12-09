@@ -9,7 +9,8 @@ export interface OGImageConfig {
   // Canvas settings
   width: number;
   height: number;
-  backgroundColor: string;
+  // Gradient background colors for visual depth
+  backgroundGradient: string[];
   
   // Text styling
   title: {
@@ -25,12 +26,6 @@ export interface OGImageConfig {
     fontSize: number;
     color: string;
     lineHeight: number;
-  };
-  
-  domain: {
-    text: string;
-    fontSize: number;
-    color: string;
   };
   
   // Border styling (matches Jekyll config)
@@ -54,7 +49,9 @@ export const defaultOGConfig: OGImageConfig = {
   // Standard OG image dimensions
   width: 1200,
   height: 630,
-  backgroundColor: '#FFFFFF',
+  
+  // Subtle gradient background for visual depth (white to light gray)
+  backgroundGradient: ['#FFFFFF', '#F8F9FA'],
   
   // Title styling
   title: {
@@ -71,13 +68,6 @@ export const defaultOGConfig: OGImageConfig = {
     fontSize: 32,
     color: '#535358',
     lineHeight: 1.4, // Better readability
-  },
-  
-  // Domain text
-  domain: {
-    text: 'ben.balter.com',
-    fontSize: 24,
-    color: '#535358',
   },
   
   // Bottom border with Google blue (#4285F4)

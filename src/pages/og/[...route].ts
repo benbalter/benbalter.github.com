@@ -69,11 +69,8 @@ export const { getStaticPaths, GET } = OGImageRoute({
         size: [100], // Resize width to 100px, height proportional
       },
       
-      // Use subtle gradient background for visual depth
-      bgGradient: [
-        hexToRgb('#FFFFFF'), // White
-        hexToRgb('#F8F9FA'), // Light gray
-      ],
+      // Use gradient background from config for visual depth
+      bgGradient: defaultOGConfig.backgroundGradient.map(hexToRgb),
       
       border: {
         color: borderColor,
