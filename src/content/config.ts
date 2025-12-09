@@ -82,6 +82,32 @@ const pagesCollection = defineCollection({
     // Redirects (Jekyll compatibility)
     redirect_from: z.array(z.string()).optional(),
     redirect_to: z.string().optional(),
+    
+    // Resume-specific fields
+    degrees: z.array(z.object({
+      school: z.string(),
+      degree: z.string(),
+      date: z.string(),
+    })).optional(),
+    certifications: z.array(z.object({
+      authority: z.string(),
+      name: z.string(),
+      url: z.string().optional(),
+    })).optional(),
+  }),
+});
+
+// Schema for resume positions
+const resumePositionsCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    // Required fields
+    employer: z.string(),
+    title: z.string(),
+    start_date: z.string(),
+    
+    // Optional fields
+    end_date: z.string().optional(),
   }),
 });
 
@@ -89,4 +115,5 @@ const pagesCollection = defineCollection({
 export const collections = {
   posts: postsCollection,
   pages: pagesCollection,
+  'resume-positions': resumePositionsCollection,
 };
