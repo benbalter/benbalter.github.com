@@ -93,26 +93,100 @@ $color-mode-type: media-query;
 // Component-specific styles will handle their own utility needs
 
 // Typography improvements
+// Use a modern system font stack for optimal performance and native look
 body {
-    font-size: 1.05rem;
-    line-height: 1.7;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    // Fluid typography - scales between 16px and 18px based on viewport
+    font-size: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+    line-height: 1.6; // Optimal for body text
     font-weight: 400;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1; // Enable kerning, ligatures, and contextual alternates
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
+// Modular scale for harmonious typography
+// Using 1.25 (major third) scale for better hierarchy
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
-    line-height: 1.3;
-    margin-top: 1.5em;
-    margin-bottom: 0.75em;
+    font-weight: 700; // Stronger weight for better hierarchy
+    line-height: 1.25; // Tighter for headings
+    margin-top: 1.75em;
+    margin-bottom: 0.5em;
+    letter-spacing: -0.02em; // Slight negative tracking for large text
+    font-feature-settings: "kern" 1, "liga" 1;
 }
 
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1.25rem; }
+// Fluid heading sizes for better responsive typography
+h1 { 
+    font-size: clamp(1.875rem, 1.5rem + 1.875vw, 2.441rem); // 30px to 39px
+    margin-top: 0;
+}
 
+h2 { 
+    font-size: clamp(1.5rem, 1.25rem + 1.25vw, 1.953rem); // 24px to 31px
+}
+
+h3 { 
+    font-size: clamp(1.25rem, 1.1rem + 0.75vw, 1.563rem); // 20px to 25px
+}
+
+h4 { 
+    font-size: clamp(1.125rem, 1rem + 0.625vw, 1.25rem); // 18px to 20px
+}
+
+h5, h6 { 
+    font-size: 1rem;
+}
+
+// Optimize paragraph typography
 p {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+    orphans: 3;
+    widows: 3;
+}
+
+// Scope optimal line length to main content areas
+article p,
+.content p,
+main p {
+    max-width: 70ch; // Optimal line length for readability
+}
+
+// Improve paragraph after headings
+h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
+    margin-top: 0.5em;
+}
+
+// Improve list styling
+ul, ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+// Scope optimal line length to main content areas for lists
+article ul,
+article ol,
+.content ul,
+.content ol,
+main ul,
+main ol {
+    max-width: 70ch;
+}
+
+li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+li > ul, li > ol {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+// Remove margin from last item
+li:last-child {
+    margin-bottom: 0;
 }
 
 // Improve code block styling
@@ -122,21 +196,52 @@ pre {
     border-radius: var(--bs-border-radius);
     margin: 1.5rem 0;
     overflow-x: auto;
+    line-height: 1.5;
 }
 
 code {
-    font-size: 0.9em;
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    font-size: 0.875em; // Slightly smaller than body
     padding: 0.2em 0.4em;
     background-color: var(--bs-secondary-bg);
     border-radius: 0.25rem;
+    font-feature-settings: normal; // Disable ligatures in code
 }
 
 pre code {
     padding: 0;
     background-color: transparent;
+    font-size: 0.9em;
 }
 
-// Improve link styling
+// Improve link styling - scoped to content areas to avoid affecting navigation
+article a,
+.content a,
+main a:not(.btn):not(.nav-link):not(.navbar-brand) {
+    color: var(--bs-link-color);
+    text-decoration-line: underline;
+    text-decoration-thickness: 0.0625em;
+    text-decoration-skip-ink: auto;
+    text-underline-offset: 0.125em;
+    transition: color 0.15s ease-in-out, text-decoration-color 0.15s ease-in-out;
+}
+
+article a:hover,
+.content a:hover,
+main a:not(.btn):not(.nav-link):not(.navbar-brand):hover {
+    color: var(--bs-link-hover-color);
+    text-decoration-thickness: 0.125em;
+}
+
+article a:focus,
+.content a:focus,
+main a:not(.btn):not(.nav-link):not(.navbar-brand):focus {
+    outline: 2px solid var(--bs-link-color);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+// Default link styling for non-content areas (navigation, etc.)
 a {
     color: var(--bs-link-color);
     text-decoration: none;
@@ -145,16 +250,46 @@ a {
 
 a:hover {
     color: var(--bs-link-hover-color);
-    text-decoration: underline;
+}
+
+// Inline text elements
+strong, b {
+    font-weight: 700;
+}
+
+em, i {
+    font-style: italic;
+}
+
+small {
+    font-size: 0.875em;
+}
+
+// Superscript and subscript
+sup, sub {
+    font-size: 0.75em;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
 }
 
 // Table improvements
 table {
     margin: 1.5rem 0;
+    max-width: 100%;
 }
 
 th, td {
     padding: 0.75rem;
+    line-height: 1.5;
 }
 
 // Custom styles
@@ -193,7 +328,6 @@ abbr[data-bs-original-title] {
     background-size: cover;
     background-position: top left;
     height: 400px;
-    margin-bottom: 2rem;
 }
 
 .gist {
@@ -216,11 +350,29 @@ abbr[data-bs-original-title] {
 }
 
 blockquote {
-    border-left: 5px solid var(--bs-gray-400);
+    border-left: 4px solid var(--bs-gray-400);
     padding-left: 1.5rem;
-    margin: 1.5rem 0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin: 2rem 0;
     color: var(--bs-secondary-color);
     font-style: italic;
+    font-size: 1.125rem;
+    
+    p {
+        margin-bottom: 1rem;
+    }
+    
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// Scope optimal line length to main content areas for blockquotes
+article blockquote,
+.content blockquote,
+main blockquote {
+    max-width: 65ch;
 }
 
 .avatar {
@@ -257,6 +409,36 @@ nav .border-top .link-secondary {
     
     blockquote {
         border-left-color: var(--bs-gray-600);
+    }
+}
+
+// Mobile typography optimizations
+// Use Bootstrap's breakpoint mixin for consistency
+@include media-breakpoint-down(md) {
+    body {
+        // Slightly smaller base font on mobile
+        font-size: clamp(0.9375rem, 0.875rem + 0.3125vw, 1rem);
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        // Reduce letter spacing on mobile
+        letter-spacing: -0.01em;
+    }
+    
+    // Remove max-width constraints on mobile for better use of space
+    article p,
+    .content p,
+    main p,
+    article ul,
+    article ol,
+    .content ul,
+    .content ol,
+    main ul,
+    main ol,
+    article blockquote,
+    .content blockquote,
+    main blockquote {
+        max-width: 100%;
     }
 }
 
