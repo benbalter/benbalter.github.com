@@ -1,0 +1,94 @@
+npm warn exec The following package was not found and will be installed: tsx@4.21.0
+🔍 Jekyll to Astro Parity Checker
+
+================================================================================
+
+📂 Scanning directories...
+
+   Jekyll: 429 HTML pages
+   Astro:  215 HTML pages
+
+📊 HTML Pages Parity Report
+
+================================================================================
+
+Total URLs:
+   Jekyll: 429
+   Astro:  215
+   Matching: 214 (49.9%)
+
+✅ Matching URLs by Category:
+
+   Blog Posts: 203
+   Pages: 5
+   Feeds: 0
+   Other: 6
+
+⚠️  URLs only in Jekyll (215):
+
+   Pages (1):
+      /press/
+
+   Other (214):
+      /dist-astro/
+      /dist-astro/2010/09/12/wordpress-resume-plugin/
+      /dist-astro/2010/09/13/new-media-flak-megaphone-vs-cocktail-party/
+      /dist-astro/2010/10/10/does-every-cloud-have-a-silver-lining/
+      /dist-astro/2010/11/06/removing-the-barriers-to-organizational-agility/
+      /dist-astro/2010/11/08/what-fourteen-century-apple-pie-teaches-us-about-sharing/
+      /dist-astro/2010/11/15/will-federal-contracting-officers-soon-have-their-heads-in-the-clouds/
+      /dist-astro/2010/11/29/free-trade-in-china-just-google-it/
+      /dist-astro/2010/11/29/twitter-mentions-as-comments/
+      /dist-astro/2010/12/01/the-internet-is-series-of-tubes/
+      /dist-astro/2010/12/20/late-night-infomercials/
+      /dist-astro/2011/01/04/the-files-in-the-computer/
+      /dist-astro/2011/01/11/twitter-goes-to-bat-for-wikileaks/
+      /dist-astro/2011/01/11/wordpress-emphasis-plugin/
+      /dist-astro/2011/01/25/gw-course-schedule-and-campus-api/
+      /dist-astro/2011/02/03/a-site-by-any-other-name/
+      /dist-astro/2011/03/09/craft-your-personal-brand/
+      /dist-astro/2011/03/20/regular-expression-to-parse-word-style-footnotes/
+      /dist-astro/2011/04/04/when-all-you-have-is-a-pair-of-bolt-cutters/
+      /dist-astro/2011/04/12/love-the-code/
+      ... and 194 more
+
+ℹ️  URLs only in Astro (1):
+
+   Blog Posts (1):
+      /2014/10/08/why-government-contractors-should-%3C3-open-source/
+
+================================================================================
+
+🔍 Special Files Check
+
+================================================================================
+
+✅ .well-known/security.txt (Jekyll: 242b, Astro: 241b)
+✅ feed.xml (Jekyll: 77487b, Astro: 104096b)
+⚠️  feed/index.xml
+    Jekyll: 1142 bytes, Astro: 316 bytes (72.3% diff)
+⚠️  humans.txt
+    Jekyll: 5410 bytes, Astro: 1677 bytes (69.0% diff)
+⚠️  press/feed/index.xml - Only in Jekyll
+✅ robots.txt (Jekyll: 833b, Astro: 813b)
+ℹ️  sitemap-index.xml - Only in Astro (new)
+⚠️  sitemap.xml - Only in Jekyll
+
+================================================================================
+
+📝 Summary
+
+================================================================================
+
+⚠️  Significant differences found. Review the reports above.
+
+📋 Next Steps:
+
+   1. Review Jekyll-only URLs to determine if they should be in Astro
+   2. Review Astro-only URLs (redirects, new pages)
+   3. Validate special files (feeds, sitemap, robots.txt)
+   4. Test key URLs manually in both builds
+   5. Run content comparison on matching URLs
+
+📄 Detailed report saved to: /home/runner/work/benbalter.github.com/benbalter.github.com/parity-report.json
+
