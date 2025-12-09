@@ -11,6 +11,7 @@ import Tldr from '../components/Tldr.astro';
 import { siteConfig } from '../config';
 import { calculateReadingTime } from '../utils/reading-time';
 import type { CollectionEntry } from 'astro:content';
+import { marked } from 'marked';
 
 interface Props {
   title: string;
@@ -21,6 +22,7 @@ interface Props {
   author?: string;
   tags?: string[];
   relatedPosts?: CollectionEntry<'posts'>[];
+  postSlug: string;
 }
 
 const { 
@@ -32,6 +34,7 @@ const {
   author = siteConfig.author,
   tags = [],
   relatedPosts = [],
+  postSlug,
 } = Astro.props;
 
 const formattedDate = pubDate?.toLocaleDateString('en-US', {
@@ -71,18 +74,6 @@ const readingTime = calculateReadingTime(content);
           )}
           
           <div class="post-meta text-muted mb-4">
-            {pubDate && (
-              <div class="mb-2">
-                <time datetime={pubDate.toISOString()}>
-                  <i class="far fa-calendar"></i> Published {formattedDate}
-                </time>
-                {updatedDate && (
-                  <span class="ms-3">
-                    <i class="far fa-edit"></i> Updated {formattedUpdatedDate}
-                  </span>
-                )}
-              </div>
-            )}
             {readingTime > 0 && (
               <div>
                 <i class="far fa-clock"></i> {readingTime} min read
@@ -102,6 +93,12 @@ const readingTime = calculateReadingTime(content);
         <div class="post-content entrybody">
           <slot />
         </div>
+        
+        {pubDate && (
+          <div class="mb-2 text-muted small">
+            Originally published {formattedDate} | <a class="link-secondary" href={`${siteConfig.githubRepoUrl}/commits/main/_posts/${postSlug}.md`} target="_blank" rel="noopener noreferrer" aria-label="View revision history (opens in new window)">View revision history (opens in new window)</a>
+          </div>
+        )}
         
         {tags.length > 0 && (
           <div class="post-tags mt-4 mb-3">
@@ -207,10 +204,16 @@ const readingTime = calculateReadingTime(content);
     font-weight: 300;
   }
   
-  .post-description {
+  .post-tldr {
     color: #586069;
     line-height: 1.5;
     margin-bottom: 1.5rem;
+  }
+
+  .post-tldr .initialism {
+    text-decoration: none;
+    border-bottom: 1px dotted #586069;
+    cursor: help;
   }
   
   .post-meta {
@@ -224,6 +227,20 @@ const readingTime = calculateReadingTime(content);
 
   .mb-2 {
     margin-bottom: 0.5rem !important;
+  }
+
+  .small {
+    font-size: 0.875rem;
+  }
+
+  .link-secondary {
+    color: #6c757d;
+    text-decoration: none;
+  }
+
+  .link-secondary:hover {
+    color: #495057;
+    text-decoration: underline;
   }
 
   .mb-3 {

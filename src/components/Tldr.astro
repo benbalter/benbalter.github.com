@@ -3,8 +3,10 @@
  * TL;DR Component
  * 
  * Displays a "Too Long; Didn't Read" summary with tooltip explanation.
- * Matches the Jekyll tldr.html include functionality.
+ * Matches the Jekyll tldr.html include functionality with markdown support.
  */
+
+import { marked } from 'marked';
 
 interface Props {
   description: string;
@@ -17,7 +19,7 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
 
 <div class="lead">
   <strong><abbr title={tooltipTitle} class="initialism" data-tooltip="true" data-tooltip-text={tooltipTitle}>TL;DR</abbr>:</strong>{' '}
-  {description}
+  <span set:html={marked.parseInline(description)} />
 </div>
 
 <script>
