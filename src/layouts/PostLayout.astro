@@ -179,17 +179,13 @@ function shouldOptimizeImage(url?: string): boolean {
             </div>
             <div class="col-lg-2 text-center pb-3">
               <p>
-                <small>This page is open source. Please help improve it.</small>
+                <small>This page is open source. Please <a 
+                  href={`${siteConfig.githubRepoUrl}/edit/main/src/content/posts/${postSlug}.md`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Help improve this article"
+                >help improve it</a>.</small>
               </p>
-              <a 
-                href={`${siteConfig.githubRepoUrl}/edit/main${Astro.url.pathname.replace(/\/$/, '')}.md`}
-                class="btn btn-outline-primary"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Help improve this article"
-              >
-                Edit
-              </a>
             </div>
           </div>
         </footer>
