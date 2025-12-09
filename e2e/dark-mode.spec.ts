@@ -31,15 +31,14 @@ test.describe('Dark Mode Support', () => {
       // Light background should be closer to white than black
       // Parse RGB values
       const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
-      if (match) {
-        const r = parseInt(match[1]);
-        const g = parseInt(match[2]);
-        const b = parseInt(match[3]);
-        const brightness = (r + g + b) / 3;
-        
-        // Light mode should have brightness > 200 (closer to white)
-        expect(brightness).toBeGreaterThan(200);
-      }
+      expect(match).toBeTruthy();
+      const r = parseInt(match![1]);
+      const g = parseInt(match![2]);
+      const b = parseInt(match![3]);
+      const brightness = (r + g + b) / 3;
+      
+      // Light mode should have brightness > 200 (closer to white)
+      expect(brightness).toBeGreaterThan(200);
     });
 
     test('should use appropriate syntax highlighting theme in dark mode', async ({ page }) => {
@@ -60,15 +59,14 @@ test.describe('Dark Mode Support', () => {
       // Dark background should be closer to black than white
       // Parse RGB values
       const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
-      if (match) {
-        const r = parseInt(match[1]);
-        const g = parseInt(match[2]);
-        const b = parseInt(match[3]);
-        const brightness = (r + g + b) / 3;
-        
-        // Dark mode should have brightness < 50 (closer to black)
-        expect(brightness).toBeLessThan(50);
-      }
+      expect(match).toBeTruthy();
+      const r = parseInt(match![1]);
+      const g = parseInt(match![2]);
+      const b = parseInt(match![3]);
+      const brightness = (r + g + b) / 3;
+      
+      // Dark mode should have brightness < 50 (closer to black)
+      expect(brightness).toBeLessThan(50);
     });
   });
 
@@ -131,15 +129,14 @@ test.describe('Dark Mode Support', () => {
 
       // Parse RGB and check it's dark
       const match = bodyBg.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
-      if (match) {
-        const r = parseInt(match[1]);
-        const g = parseInt(match[2]);
-        const b = parseInt(match[3]);
-        const brightness = (r + g + b) / 3;
-        
-        // Dark background should have low brightness
-        expect(brightness).toBeLessThan(100);
-      }
+      expect(match).toBeTruthy();
+      const r = parseInt(match![1]);
+      const g = parseInt(match![2]);
+      const b = parseInt(match![3]);
+      const brightness = (r + g + b) / 3;
+      
+      // Dark background should have low brightness
+      expect(brightness).toBeLessThan(100);
     });
 
     test('should have readable text in dark mode', async ({ page }) => {
@@ -156,45 +153,52 @@ test.describe('Dark Mode Support', () => {
 
       // Parse RGB and check it's light
       const match = bodyColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
-      if (match) {
-        const r = parseInt(match[1]);
-        const g = parseInt(match[2]);
-        const b = parseInt(match[3]);
-        const brightness = (r + g + b) / 3;
-        
-        // Light text should have high brightness
-        expect(brightness).toBeGreaterThan(150);
-      }
+      expect(match).toBeTruthy();
+      const r = parseInt(match![1]);
+      const g = parseInt(match![2]);
+      const b = parseInt(match![3]);
+      const brightness = (r + g + b) / 3;
+      
+      // Light text should have high brightness
+      expect(brightness).toBeGreaterThan(150);
     });
   });
 
   test.describe('Callout Component', () => {
-    test('should be visible in both light and dark modes', async ({ page }) => {
-      // Note: This is a placeholder test since we'd need to find a page with callouts
-      // or create a test page. For now, we test that the component exists.
-      
+    test('should be visible and styled correctly in both light and dark modes', async ({ page }) => {
       // Test in light mode
       await page.emulateMedia({ colorScheme: 'light' });
-      await page.goto('/');
+      await page.goto('/2014/10/07/expose-process-through-urls/');
       await waitForPageReady(page);
       
-      // If callouts exist on page, they should be visible
-      const calloutCount = await page.locator('.callout').count();
-      if (calloutCount > 0) {
-        const callout = page.locator('.callout').first();
-        await expect(callout).toBeVisible();
-      }
+      // Check that callout exists and is visible
+      const callout = page.locator('.callout').first();
+      await expect(callout).toBeVisible();
+      
+      // Check light mode background color
+      const lightBgColor = await callout.evaluate(el => 
+        window.getComputedStyle(el).backgroundColor
+      );
+      expect(lightBgColor).toBeTruthy();
 
       // Test in dark mode
       await page.emulateMedia({ colorScheme: 'dark' });
       await page.reload();
       await waitForPageReady(page);
       
-      // If callouts exist on page, they should still be visible
-      if (calloutCount > 0) {
-        const callout = page.locator('.callout').first();
-        await expect(callout).toBeVisible();
-      }
+      // Check that callout is still visible after reload
+      const darkModeCalloutCount = await page.locator('.callout').count();
+      expect(darkModeCalloutCount).toBeGreaterThan(0);
+      
+      const darkCallout = page.locator('.callout').first();
+      await expect(darkCallout).toBeVisible();
+      
+      // Check dark mode background color is different from light mode
+      const darkBgColor = await darkCallout.evaluate(el => 
+        window.getComputedStyle(el).backgroundColor
+      );
+      expect(darkBgColor).toBeTruthy();
+      expect(darkBgColor).not.toBe(lightBgColor);
     });
   });
 });
