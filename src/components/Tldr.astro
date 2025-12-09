@@ -18,7 +18,7 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
 ---
 
 <div class="lead">
-  <strong><abbr title={tooltipTitle} class="initialism" data-tooltip="true" data-tooltip-text={tooltipTitle}>TL;DR</abbr>:</strong>{' '}
+  <strong><abbr class="initialism" data-tooltip="true" data-tooltip-text={tooltipTitle}>TL;DR</abbr>:</strong>{' '}
   <span set:html={marked.parseInline(description)} />
 </div>
 
