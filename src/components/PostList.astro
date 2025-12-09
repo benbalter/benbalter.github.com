@@ -1,0 +1,71 @@
+---
+import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
+
+/**
+ * PostList component - Dynamically renders a list of blog posts with descriptions
+ * 
+ * This component fetches posts by their URLs and displays them with their titles and descriptions,
+ * matching the Jekyll functionality from the original site.
+ * 
+ * Props:
+ * - postSlug: The slug of the current post (to fetch its frontmatter)
+ * - field: Which field to use from frontmatter ('posts' or 'roles')
+ */
+
+interface Props {
+  postSlug: string;
+  field: 'posts' | 'roles';
+}
+
+const { postSlug, field } = Astro.props;
+
+// Fetch the current post to get its frontmatter
+const currentPost = await getEntry('posts', postSlug);
+const postData = currentPost?.data[field];
+
+// Handle both array and object formats for posts
+let urls: string[] = [];
+if (Array.isArray(postData)) {
+  urls = postData;
+} else if (typeof postData === 'object' && postData !== null) {
+  // If it's an object, extract the values (URLs)
+  urls = Object.values(postData);
+}
+
+// Fetch all published posts
+const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => {
+  return data.published !== false;
+});
+
+// Create a map of URL to post for efficient lookup
+const postsByUrl = new Map<string, CollectionEntry<'posts'>>();
+
+allPosts.forEach(post => {
+  // Extract date from slug (YYYY-MM-DD-slug format)
+  const dateMatch = post.slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
+  
+  if (dateMatch) {
+    const [, year, month, day, slug] = dateMatch;
+    const url = `/${year}/${month}/${day}/${slug}/`;
+    postsByUrl.set(url, post);
+  }
+});
+
+// Find posts matching the provided URLs
+const matchedPosts = urls
+  .map(url => postsByUrl.get(url))
+  .filter((post): post is CollectionEntry<'posts'> => post !== undefined);
+---
+
+{matchedPosts.map(post => {
+  // Extract date from slug for URL construction
+  const dateMatch = post.slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
+  const [, year, month, day, slug] = dateMatch!;
+  const url = `/${year}/${month}/${day}/${slug}/`;
+  
+  return (
+    <li>
+      <strong><a href={url}>{post.data.title}</a></strong> — {post.data.description}
+    </li>
+  );
+})}
