@@ -11,9 +11,9 @@ import Tldr from '../components/Tldr.astro';
 import MiniBio from '../components/MiniBio.astro';
 import { siteConfig } from '../config';
 import { calculateReadingTime } from '../utils/reading-time';
+import { generateBlogPostingSchema, schemaToJsonLd } from '../utils/structured-data';
 import ArchivedPostWarning from '../components/ArchivedPostWarning.astro';
 import type { CollectionEntry } from 'astro:content';
-import { marked } from 'marked';
 
 interface Props {
   title: string;
@@ -47,15 +47,20 @@ const formattedDate = pubDate?.toLocaleDateString('en-US', {
   day: 'numeric',
 });
 
-const formattedUpdatedDate = updatedDate?.toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
-
 // Calculate reading time using improved utility
 const content = await Astro.slots.render('default');
 const readingTime = calculateReadingTime(content);
+
+// Generate BlogPosting structured data for blog posts
+const blogPostingSchema = pubDate ? generateBlogPostingSchema({
+  title,
+  description,
+  url: new URL(Astro.url.pathname, siteConfig.url).toString(),
+  publishedTime: pubDate,
+  modifiedTime: updatedDate,
+  image,
+  author,
+}) : null;
 ---
 
 <BaseLayout 
@@ -158,6 +163,10 @@ const readingTime = calculateReadingTime(content);
           </div>
         </footer>
       </article>
+      
+      {blogPostingSchema && (
+        <script type="application/ld+json" set:html={schemaToJsonLd(blogPostingSchema)} is:inline></script>
+      )}
     </div>
   </div>
 </BaseLayout>
