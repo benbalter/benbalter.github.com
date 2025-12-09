@@ -54,7 +54,7 @@ export const { getStaticPaths, GET } = OGImageRoute({
   // OG image configuration matching Jekyll's og_image config
   param: 'route',
   
-  // Custom styling to match Jekyll og_image
+  // Custom styling to match Jekyll og_image with enhancements
   getImageOptions: async (_path, page) => {
     // Convert the first border color from hex to RGB
     const borderColor = hexToRgb(defaultOGConfig.border.colors[0]);
@@ -62,31 +62,53 @@ export const { getStaticPaths, GET } = OGImageRoute({
     return {
       title: page.title,
       description: page.description,
-      bgColor: defaultOGConfig.backgroundColor,
+      
+      // Add logo/headshot for brand recognition (Jekyll og_image feature)
+      logo: {
+        path: './assets/img/headshot.jpg',
+        size: [100], // Resize width to 100px, height proportional
+      },
+      
+      // Use subtle gradient background for visual depth
+      bgGradient: [
+        hexToRgb('#FFFFFF'), // White
+        hexToRgb('#F8F9FA'), // Light gray
+      ],
+      
       border: {
         color: borderColor,
         width: defaultOGConfig.border.height,
         side: 'block-end' as const,
       },
-      padding: 60,
+      
+      // Increased padding for better spacing
+      padding: 80,
+      
       font: {
         title: {
           size: defaultOGConfig.title.fontSize,
           families: ['Inter'],
           color: hexToRgb(defaultOGConfig.title.color),
           weight: 'Bold' as const,
+          lineHeight: 1.1, // Tighter line height for title
         },
         description: {
           size: defaultOGConfig.description.fontSize,
           families: ['Inter'],
           color: hexToRgb(defaultOGConfig.description.color),
+          lineHeight: 1.4, // Better readability for description
         },
       },
+      
       fonts: [
-        // Use system fonts for better compatibility
+        // Use Inter font for better web typography
         'https://api.fontsource.org/v1/fonts/inter/latin-400-normal.ttf',
         'https://api.fontsource.org/v1/fonts/inter/latin-700-normal.ttf',
       ],
+      
+      // Use PNG format for best quality
+      format: 'PNG' as const,
+      quality: 95,
     };
   },
 });

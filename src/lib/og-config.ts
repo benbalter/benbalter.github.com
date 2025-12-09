@@ -1,8 +1,8 @@
 /**
  * Open Graph Image Configuration
  * 
- * Configuration for dynamically generating OG images for blog posts using @vercel/og.
- * Matches the styling from jekyll-og-image with blue accent border.
+ * Configuration for dynamically generating OG images for blog posts using astro-og-canvas.
+ * Matches the styling from jekyll-og-image with enhancements for best practices.
  */
 
 export interface OGImageConfig {
@@ -39,7 +39,7 @@ export interface OGImageConfig {
     colors: string[];
   };
   
-  // Logo/avatar
+  // Logo/avatar - displayed at top of card for brand recognition
   logo?: {
     path: string;
     size: number;
@@ -48,7 +48,7 @@ export interface OGImageConfig {
 
 /**
  * Default OG image configuration
- * Matches the Jekyll og_image config from _config.yml
+ * Matches the Jekyll og_image config from _config.yml with best practices enhancements
  */
 export const defaultOGConfig: OGImageConfig = {
   // Standard OG image dimensions
@@ -58,19 +58,19 @@ export const defaultOGConfig: OGImageConfig = {
   
   // Title styling
   title: {
-    fontFamily: 'sans-serif',
+    fontFamily: 'Inter',
     fontSize: 64,
     color: '#2f313d',
-    lineHeight: 1.2,
+    lineHeight: 1.1, // Tighter for better appearance
     maxLines: 3,
   },
   
   // Description styling
   description: {
-    fontFamily: 'sans-serif',
+    fontFamily: 'Inter',
     fontSize: 32,
     color: '#535358',
-    lineHeight: 1.4,
+    lineHeight: 1.4, // Better readability
   },
   
   // Domain text
@@ -86,10 +86,10 @@ export const defaultOGConfig: OGImageConfig = {
     colors: ['#4285F4'],
   },
   
-  // Logo config (optional - can be used if we want to include avatar)
+  // Logo/headshot for brand recognition (Jekyll og_image feature)
   logo: {
-    path: '/assets/img/headshot.jpg',
-    size: 80,
+    path: './assets/img/headshot.jpg',
+    size: 100, // Display width in pixels
   },
 };
 
