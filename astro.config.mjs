@@ -168,6 +168,32 @@ export default defineConfig({
     build: {
       // Separate chunk directory to avoid conflicts
       assetsDir: 'assets',
+      rollupOptions: {
+        output: {
+          // Customize asset file naming to avoid misleading names
+          // The global stylesheet should not be named after a specific page like "about"
+          assetFileNames: (assetInfo) => {
+            // Check if this is a CSS file
+            if (assetInfo.name && assetInfo.name.endsWith('.css')) {
+              // If the original name is from a page (like 'about', 'resume', etc.)
+              // but it's actually the shared global stylesheet, rename it to 'global'
+              const name = assetInfo.name.replace(/\.css$/, '');
+              
+              // Detect if this is likely the main/shared stylesheet by checking common page names
+              // These pages all use BaseLayout which imports optimized.scss
+              const pageNames = ['about', 'contact', 'resume', 'index', 'talks', 'books', 'fine-print'];
+              if (pageNames.includes(name)) {
+                // This is likely the shared global stylesheet
+                // Rename it to 'global' to avoid confusion
+                return 'assets/global.[hash].css';
+              }
+              
+              return 'assets/[name].[hash].css';
+            }
+            return 'assets/[name].[hash][extname]';
+          },
+        },
+      },
     },
     css: {
       preprocessorOptions: {
