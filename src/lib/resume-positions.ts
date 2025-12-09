@@ -8,6 +8,7 @@
 import { readFile, readdir } from 'node:fs/promises';
 import { join } from 'node:path';
 import matter from 'gray-matter';
+import { marked } from 'marked';
 
 export interface ResumePosition {
   employer: string;
@@ -47,7 +48,7 @@ export async function getResumePositions(): Promise<ResumePosition[]> {
           title: data.title,
           start_date: data.start_date,
           end_date: data.end_date,
-          content: content.trim(),
+          content: await marked.parse(content.trim()),
         } as ResumePosition;
       })
     );
