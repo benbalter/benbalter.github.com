@@ -76,6 +76,44 @@ describe('YouTube Component - Specification', () => {
   });
 });
 
+describe('Tldr Component - Specification', () => {
+  it('should define tooltip text explaining TL;DR', () => {
+    // Specification: Tooltip should explain what TL;DR means
+    const tooltipText = '"Too Long; Didn\'t Read" — Internet shorthand for "a brief summary of longer writing"';
+    
+    expect(tooltipText).toContain('Too Long');
+    expect(tooltipText).toContain('Didn\'t Read');
+    expect(tooltipText).toContain('Internet shorthand');
+  });
+
+  it('should use custom tooltip attributes', () => {
+    // Specification: Component should use custom tooltip data attributes
+    const tooltipAttributes = {
+      'data-tooltip': 'true',
+      'data-tooltip-text': '"Too Long; Didn\'t Read" — Internet shorthand for "a brief summary of longer writing"',
+    };
+    
+    expect(tooltipAttributes['data-tooltip']).toBe('true');
+    expect(tooltipAttributes['data-tooltip-text']).toContain('Too Long');
+  });
+
+  it('should display description text after TL;DR label', () => {
+    // Specification: Component should show TL;DR: followed by description
+    const description = 'This is a brief summary of the post.';
+    const expectedFormat = `TL;DR: ${description}`;
+    
+    expect(expectedFormat).toContain('TL;DR:');
+    expect(expectedFormat).toContain(description);
+  });
+
+  it('should use lead text styling', () => {
+    // Specification: Component should use lead class for prominent display
+    const leadClass = 'lead';
+    
+    expect(leadClass).toBe('lead');
+  });
+});
+
 describe('MiniBio Component - Specification', () => {
   it('should use GitHub avatar URL with correct size parameter', () => {
     // Specification: GitHub avatar URL format

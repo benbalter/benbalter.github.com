@@ -7,10 +7,12 @@
  */
 
 import BaseLayout from './BaseLayout.astro';
+import Tldr from '../components/Tldr.astro';
 import MiniBio from '../components/MiniBio.astro';
 import { siteConfig } from '../config';
 import { calculateReadingTime } from '../utils/reading-time';
 import { Image } from 'astro:assets';
+import ArchivedPostWarning from '../components/ArchivedPostWarning.astro';
 import type { CollectionEntry } from 'astro:content';
 import { marked } from 'marked';
 
@@ -23,6 +25,7 @@ interface Props {
   author?: string;
   tags?: string[];
   relatedPosts?: CollectionEntry<'posts'>[];
+  archived?: boolean;
   postSlug: string;
 }
 
@@ -35,6 +38,7 @@ const {
   author = siteConfig.author,
   tags = [],
   relatedPosts = [],
+  archived = false,
   postSlug,
 } = Astro.props;
 
@@ -71,13 +75,7 @@ const readingTime = calculateReadingTime(content);
           <h1 class="display-4 text-primary">{title}</h1>
           
           {description && (
-            <div class="lead post-tldr">
-              <strong>
-                <abbr title='"Too Long; Didn\'t Read" — Internet shorthand for "a brief summary of longer writing"' class="initialism">TL;DR</abbr>:
-              </strong>
-              {' '}
-              <span set:html={marked.parseInline(description)} />
-            </div>
+            <Tldr description={description} />
           )}
           
           <div class="post-meta text-muted mb-4">
@@ -98,6 +96,8 @@ const readingTime = calculateReadingTime(content);
             />
           )}
         </header>
+        
+        {archived && <ArchivedPostWarning />}
         
         <div class="post-content entrybody">
           <slot />
@@ -207,7 +207,7 @@ const readingTime = calculateReadingTime(content);
   }
 
   .text-primary {
-    color: #0366d6 !important;
+    color: var(--bs-link-color) !important;
   }
 
   .lead {
@@ -216,24 +216,24 @@ const readingTime = calculateReadingTime(content);
   }
   
   .post-tldr {
-    color: #586069;
+    color: var(--bs-secondary-color);
     line-height: 1.5;
     margin-bottom: 1.5rem;
   }
 
   .post-tldr .initialism {
     text-decoration: none;
-    border-bottom: 1px dotted #586069;
+    border-bottom: 1px dotted var(--bs-secondary-color);
     cursor: help;
   }
   
   .post-meta {
     font-size: 0.9rem;
-    color: #586069;
+    color: var(--bs-secondary-color);
   }
 
   .text-muted {
-    color: #6c757d !important;
+    color: var(--bs-secondary-color) !important;
   }
 
   .mb-2 {
@@ -245,12 +245,12 @@ const readingTime = calculateReadingTime(content);
   }
 
   .link-secondary {
-    color: #6c757d;
+    color: var(--bs-secondary-color);
     text-decoration: none;
   }
 
   .link-secondary:hover {
-    color: #495057;
+    color: var(--bs-secondary-color);
     text-decoration: underline;
   }
 
@@ -293,7 +293,7 @@ const readingTime = calculateReadingTime(content);
   .post-content {
     font-size: 1.1rem;
     line-height: 1.7;
-    color: #24292e;
+    color: var(--bs-body-color);
   }
   
   .post-content :global(h2) {
@@ -301,7 +301,7 @@ const readingTime = calculateReadingTime(content);
     font-weight: 600;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
-    color: #24292e;
+    color: var(--bs-emphasis-color);
   }
   
   .post-content :global(h3) {
@@ -309,7 +309,7 @@ const readingTime = calculateReadingTime(content);
     font-weight: 600;
     margin-top: 2rem;
     margin-bottom: 0.75rem;
-    color: #24292e;
+    color: var(--bs-emphasis-color);
   }
   
   .post-content :global(p) {
@@ -329,7 +329,7 @@ const readingTime = calculateReadingTime(content);
   .post-content :global(pre) {
     margin: 1.5rem 0;
     padding: 1rem;
-    background-color: #f6f8fa;
+    background-color: var(--bs-tertiary-bg);
     border-radius: 6px;
     overflow-x: auto;
   }
@@ -340,21 +340,21 @@ const readingTime = calculateReadingTime(content);
   }
   
   .post-content :global(p code) {
-    background-color: #f6f8fa;
+    background-color: var(--bs-tertiary-bg);
     padding: 0.2em 0.4em;
     border-radius: 3px;
   }
   
   .post-content :global(blockquote) {
-    border-left: 4px solid #0366d6;
+    border-left: 4px solid var(--bs-link-color);
     padding-left: 1rem;
     margin: 1.5rem 0;
-    color: #586069;
+    color: var(--bs-secondary-color);
     font-style: italic;
   }
   
   .post-content :global(a) {
-    color: #0366d6;
+    color: var(--bs-link-color);
     text-decoration: none;
   }
   
@@ -371,16 +371,16 @@ const readingTime = calculateReadingTime(content);
   .post-content :global(th),
   .post-content :global(td) {
     padding: 0.75rem;
-    border: 1px solid #e1e4e8;
+    border: 1px solid var(--bs-border-color);
   }
   
   .post-content :global(th) {
-    background-color: #f6f8fa;
+    background-color: var(--bs-tertiary-bg);
     font-weight: 600;
   }
   
   .post-content :global(tr:nth-child(even)) {
-    background-color: #f6f8fa;
+    background-color: var(--bs-tertiary-bg);
   }
 
   .post-tags {
@@ -417,9 +417,9 @@ const readingTime = calculateReadingTime(content);
   .related-posts-heading {
     font-size: 1rem;
     font-weight: 600;
-    color: #24292e;
+    color: var(--bs-emphasis-color);
     margin-bottom: 1rem;
-    border-top: 1px solid #e1e4e8;
+    border-top: 1px solid var(--bs-border-color);
     padding-top: 1rem;
   }
   
@@ -434,7 +434,7 @@ const readingTime = calculateReadingTime(content);
   }
   
   .related-posts-list a {
-    color: #0366d6;
+    color: var(--bs-link-color);
     text-decoration: none;
     font-weight: 500;
   }
@@ -446,7 +446,7 @@ const readingTime = calculateReadingTime(content);
   .post-footer {
     margin-top: 2rem;
     padding-top: 1rem;
-    border-top: 1px solid #e1e4e8;
+    border-top: 1px solid var(--bs-border-color);
   }
 
   .post-footer .row {
@@ -475,7 +475,7 @@ const readingTime = calculateReadingTime(content);
   }
 
   .border-top {
-    border-top: 1px solid #dee2e6 !important;
+    border-top: 1px solid var(--bs-border-color) !important;
   }
 
   .text-center {
@@ -503,15 +503,27 @@ const readingTime = calculateReadingTime(content);
   }
 
   .btn-outline-primary {
-    color: #0366d6;
-    border-color: #0366d6;
+    color: var(--bs-link-color);
+    border-color: var(--bs-link-color);
     background-color: transparent;
   }
 
   .btn-outline-primary:hover {
     color: #fff;
-    background-color: #0366d6;
-    border-color: #0366d6;
+    background-color: var(--bs-link-color);
+    border-color: var(--bs-link-color);
+  }
+  
+  .back-link,
+  .edit-link {
+    color: var(--bs-link-color);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .back-link:hover,
+  .edit-link:hover {
+    text-decoration: underline;
   }
 
   .post-footer small {
