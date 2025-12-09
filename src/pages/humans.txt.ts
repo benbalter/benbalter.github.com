@@ -38,7 +38,16 @@ async function getContributors(): Promise<any[]> {
     });
 
     if (!response.ok) {
-      console.warn(`Failed to fetch contributors: ${response.status}`);
+      // Check for rate limiting
+      if (response.status === 403) {
+        const rateLimitRemaining = response.headers.get('X-RateLimit-Remaining');
+        const rateLimitReset = response.headers.get('X-RateLimit-Reset');
+        if (rateLimitRemaining === '0' && rateLimitReset) {
+          const resetDate = new Date(parseInt(rateLimitReset) * 1000);
+          console.warn(`GitHub API rate limit exceeded. Resets at ${resetDate.toISOString()}`);
+        }
+      }
+      console.warn(`Failed to fetch contributors: ${response.status} ${response.statusText}`);
       return [];
     }
 

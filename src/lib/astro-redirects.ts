@@ -7,6 +7,7 @@ import type { AstroIntegration } from 'astro';
 import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
+import { filenameToUrl } from './post-url-utils';
 
 /**
  * Generate HTML redirect page
@@ -63,12 +64,12 @@ export function redirects(): AstroIntegration {
             // Handle both string and array formats
             const redirectPaths = Array.isArray(redirectFrom) ? redirectFrom : [redirectFrom];
 
-            // Extract date from filename (YYYY-MM-DD-slug.md)
-            const dateMatch = file.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)\.mdx?$/);
-            if (!dateMatch) continue;
-
-            const [, year, month, day, slug] = dateMatch;
-            const targetUrl = `/${year}/${month}/${day}/${slug}/`;
+            // Generate target URL from filename
+            const targetUrl = filenameToUrl(file);
+            if (!targetUrl) {
+              logger.warn(`Skipping ${file}: Invalid filename format`);
+              continue;
+            }
 
             for (const oldPath of redirectPaths) {
               // Normalize path (remove leading/trailing slashes)

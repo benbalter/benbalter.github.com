@@ -6,9 +6,14 @@
  */
 
 import { visit } from 'unist-util-visit';
-import type { Root, Text } from 'mdast';
+import type { Root, Text, Link, PhrasingContent } from 'mdast';
 
-// Match @username pattern (alphanumeric, hyphens, up to 39 chars)
+// Match @username pattern:
+// - Starts with @
+// - Alphanumeric character (a-z, A-Z, 0-9)
+// - Optionally followed by 0-37 characters (alphanumeric or hyphen)
+// - Ends with alphanumeric character
+// Total: 1-39 characters (GitHub username limit)
 const MENTION_PATTERN = /@([a-zA-Z0-9](?:[a-zA-Z0-9-]{0,37}[a-zA-Z0-9])?)/g;
 
 export function remarkMentions() {
@@ -22,7 +27,7 @@ export function remarkMentions() {
       if (matches.length === 0) return;
 
       // Split text into parts and create link nodes
-      const newNodes: any[] = [];
+      const newNodes: PhrasingContent[] = [];
       let lastIndex = 0;
 
       for (const match of matches) {
@@ -38,7 +43,7 @@ export function remarkMentions() {
         }
 
         // Add the mention as a link
-        newNodes.push({
+        const linkNode: Link = {
           type: 'link',
           url: `https://github.com/${username}`,
           title: null,
@@ -48,7 +53,8 @@ export function remarkMentions() {
               value: `@${username}`,
             },
           ],
-        });
+        };
+        newNodes.push(linkNode);
 
         lastIndex = matchIndex + match[0].length;
       }

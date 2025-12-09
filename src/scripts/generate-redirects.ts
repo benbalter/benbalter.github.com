@@ -5,11 +5,15 @@
  * 
  * Creates HTML redirect files for old URLs that point to new locations.
  * This ensures backward compatibility when URLs change.
+ * 
+ * Note: This script can be used independently, but the astro-redirects
+ * integration is preferred as it runs automatically during builds.
  */
 
 import { getCollection } from 'astro:content';
 import fs from 'fs/promises';
 import path from 'path';
+import { generatePostUrl } from '../lib/post-url-utils';
 
 /**
  * Generate HTML redirect page
@@ -52,11 +56,11 @@ export async function generateRedirects(outDir: string = './dist-astro') {
 
       // Get the target URL (current post URL)
       const date = new Date(post.data.date);
-      const year = date.getFullYear();
+      const year = String(date.getFullYear());
       const month = String(date.getMonth() + 1).padStart(2, '0');
       const day = String(date.getDate()).padStart(2, '0');
       const slug = post.slug;
-      const targetUrl = `/${year}/${month}/${day}/${slug}/`;
+      const targetUrl = generatePostUrl(year, month, day, slug);
 
       for (const oldPath of redirectPaths) {
         // Normalize path (remove leading/trailing slashes)
