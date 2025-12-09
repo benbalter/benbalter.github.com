@@ -36,15 +36,22 @@ const { emoji, title, description } = Astro.props;
 <style>
   .feature-card {
     padding: 1.5rem;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--bs-border-color, #e0e0e0);
     border-radius: 8px;
-    background: #fff;
+    background: var(--bs-body-bg, #fff);
     transition: transform 0.2s, box-shadow 0.2s;
   }
   
   .feature-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Dark mode box-shadow adjustment */
+  @media (prefers-color-scheme: dark) {
+    .feature-card:hover {
+      box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    }
   }
   
   .feature-emoji {
@@ -53,13 +60,13 @@ const { emoji, title, description } = Astro.props;
   }
   
   .feature-title {
-    color: #0366d6;
+    color: var(--bs-link-color, #0366d6);
     margin-top: 0;
     margin-bottom: 0.5rem;
   }
   
   .feature-description {
-    color: #666;
+    color: var(--bs-secondary-color, #666);
     line-height: 1.5;
     margin: 0;
   }
