@@ -38,7 +38,7 @@ const navClasses = hero
 <div class={navClasses}>
   <div class="row">
     <div class="col-md-10 offset-md-1">
-      <div class="navbar-inner">
+      <div class="d-flex flex-wrap align-items-center justify-content-between navbar-inner">
         <a class="navbar-brand fw-bold" href="/">{siteConfig.name}</a>
         <button 
           class="navbar-toggler" 
@@ -51,7 +51,7 @@ const navClasses = hero
         </button>
 
         <div class="navbar-collapse" id="navbar" role="navigation" aria-label="Main navigation">
-          <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav">
             {navItems.map((item) => {
               const isActive = currentPath === item.url || 
                               (item.url === '/' && currentPath === '/');
@@ -70,7 +70,7 @@ const navClasses = hero
           </ul>
         </div>
 
-        <span class="navbar-text text-end">
+        <span class="navbar-text text-end small">
           {siteConfig.description}
         </span>
       </div>
@@ -79,29 +79,13 @@ const navClasses = hero
 </div>
 
 <style>
+  /* Minimal custom styles - most styling comes from Bootstrap */
   .navbar {
-    background-color: var(--bs-secondary-bg, #e9ecef) !important;
-    border: 1px solid var(--bs-border-color, #dee2e6);
-    margin-bottom: 1rem;
+    background-color: var(--bs-secondary-bg) !important;
+    border: 1px solid var(--bs-border-color);
   }
 
-  /* Border radius utilities (not included in optimized.scss) */
-  .navbar.rounded-top {
-    border-top-left-radius: var(--bs-border-radius, 0.375rem) !important;
-    border-top-right-radius: var(--bs-border-radius, 0.375rem) !important;
-  }
-
-  .navbar.rounded-bottom {
-    border-bottom-left-radius: var(--bs-border-radius, 0.375rem) !important;
-    border-bottom-right-radius: var(--bs-border-radius, 0.375rem) !important;
-  }
-
-  /* Inner container to hold navbar content */
   .navbar-inner {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
     width: 100%;
     padding: 0.5rem var(--bs-gutter-x, 1.5rem);
   }
@@ -109,13 +93,12 @@ const navClasses = hero
   /* Prevent wrapping at desktop sizes */
   @media (min-width: 768px) {
     .navbar-inner {
-      flex-wrap: nowrap;
+      flex-wrap: nowrap !important;
     }
   }
 
   .navbar-brand {
-    font-weight: 700;
-    color: var(--bs-body-color, #212529);
+    color: var(--bs-body-color);
     margin-right: 1rem;
   }
 
@@ -153,31 +136,26 @@ const navClasses = hero
     margin: 0;
   }
 
-  .nav-item {
-    margin: 0;
-  }
-
   .nav-link {
     display: block;
     padding: 0.5rem 1rem;
-    color: var(--bs-link-color, #0d6efd);
+    color: var(--bs-link-color);
     text-decoration: none;
     transition: color 0.15s ease-in-out;
   }
 
   .nav-link:hover,
   .nav-link:focus {
-    color: var(--bs-link-hover-color, #0a58ca);
+    color: var(--bs-link-hover-color);
   }
 
   .nav-link.active {
-    color: var(--bs-emphasis-color, #000);
+    color: var(--bs-emphasis-color);
     font-weight: 500;
   }
 
   .navbar-text {
-    color: var(--bs-secondary, #6c757d);
-    font-size: 0.875rem;
+    color: var(--bs-secondary);
     margin-left: auto;
   }
 
@@ -200,7 +178,7 @@ const navClasses = hero
   @media (max-width: 767px) {
     .navbar-inner {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: flex-start !important;
     }
 
     .navbar-collapse {

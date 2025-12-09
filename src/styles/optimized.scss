@@ -130,9 +130,81 @@ $content-padding-x: 15px;
     padding-right: 1rem !important;
 }
 
+.px-2 {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
+
+.py-2 {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+}
+
+.py-3 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+// Margin utilities
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.mt-4-custom {
+    margin-top: 4rem !important;
+}
+
 // Border utilities
 .border-top {
     border-top: var(--bs-border-width) solid var(--bs-border-color) !important;
+}
+
+// Border radius utilities
+.rounded {
+    border-radius: var(--bs-border-radius) !important;
+}
+
+.rounded-top {
+    border-top-left-radius: var(--bs-border-radius) !important;
+    border-top-right-radius: var(--bs-border-radius) !important;
+}
+
+.rounded-bottom {
+    border-bottom-left-radius: var(--bs-border-radius) !important;
+    border-bottom-right-radius: var(--bs-border-radius) !important;
+}
+
+// Display utilities
+.d-block {
+    display: block !important;
+}
+
+.d-inline-block {
+    display: inline-block !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+// Flexbox utilities
+.flex-wrap {
+    flex-wrap: wrap !important;
+}
+
+.justify-content-end {
+    justify-content: flex-end !important;
+}
+
+.justify-content-between {
+    justify-content: space-between !important;
+}
+
+// Position utilities
+.clearfix::after {
+    display: block;
+    clear: both;
+    content: "";
 }
 
 // Background color utilities
