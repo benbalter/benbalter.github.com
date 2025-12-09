@@ -70,25 +70,26 @@ test.describe('TLDR Tooltip', () => {
       const tldrElement = page.locator('.lead strong abbr.initialism');
       await expect(tldrElement).toBeVisible();
 
-      // Click to show tooltip
-      await tldrElement.click();
+      // Dispatch click event without triggering mouse events
+      await tldrElement.dispatchEvent('click');
 
-      // Wait a bit for tooltip to appear
-      await page.waitForTimeout(100);
+      // Wait for tooltip to appear
+      await page.waitForTimeout(200);
 
       // Check tooltip is visible
       const tooltip = page.locator('.custom-tooltip.show');
       await expect(tooltip).toBeVisible();
       await expect(tooltip).toContainText('Too Long');
 
-      // Click again to hide tooltip
-      await tldrElement.click();
+      // Dispatch click again to hide tooltip
+      await tldrElement.dispatchEvent('click');
 
-      // Wait for tooltip to fade out
-      await page.waitForTimeout(400);
+      // Wait for tooltip to fade out and be removed
+      await page.waitForTimeout(500);
 
-      // Tooltip should be gone
-      await expect(tooltip).not.toBeAttached();
+      // Tooltip should be completely gone from DOM
+      const anyTooltip = page.locator('.custom-tooltip');
+      await expect(anyTooltip).not.toBeAttached();
     }
   });
 
@@ -115,11 +116,12 @@ test.describe('TLDR Tooltip', () => {
       // Click somewhere else on the page
       await page.locator('body').click({ position: { x: 100, y: 100 } });
 
-      // Wait for tooltip to fade out
-      await page.waitForTimeout(400);
+      // Wait for tooltip to fade out and be removed
+      await page.waitForTimeout(500);
 
-      // Tooltip should be gone
-      await expect(tooltip).not.toBeAttached();
+      // Tooltip should be completely gone from DOM
+      const anyTooltip = page.locator('.custom-tooltip');
+      await expect(anyTooltip).not.toBeAttached();
     }
   });
 

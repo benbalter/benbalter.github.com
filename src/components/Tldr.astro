@@ -30,84 +30,90 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
     // Tooltip transition duration (should match CSS transition)
     const TOOLTIP_CLEANUP_TIMEOUT = 300; // Fallback timeout with buffer
     
+    // Track active tooltips for click-outside handler
+    const activeTooltips = new Map<HTMLElement, HTMLDivElement>();
+    
+    // Global click handler for click-outside functionality
+    const handleGlobalClick = (e: MouseEvent) => {
+      activeTooltips.forEach((tooltipEl, element) => {
+        if (!element.contains(e.target as Node)) {
+          hideTooltip(element);
+        }
+      });
+    };
+    
+    // Function to show tooltip
+    const showTooltip = (target: HTMLElement) => {
+      // If tooltip already exists for this element, don't create another
+      if (activeTooltips.has(target)) return;
+      
+      const tooltipText = target.getAttribute('data-tooltip-text');
+      
+      if (!tooltipText) return;
+      
+      // Create tooltip element
+      const tooltipEl = document.createElement('div');
+      tooltipEl.className = 'custom-tooltip';
+      tooltipEl.textContent = tooltipText;
+      document.body.appendChild(tooltipEl);
+      
+      // Track this tooltip
+      activeTooltips.set(target, tooltipEl);
+      
+      // Position tooltip to the right of the element
+      // Use requestAnimationFrame to ensure DOM has updated
+      requestAnimationFrame(() => {
+        const rect = target.getBoundingClientRect();
+        const tooltipRect = tooltipEl.getBoundingClientRect();
+        tooltipEl.style.left = `${rect.right + 10}px`;
+        tooltipEl.style.top = `${rect.top + (rect.height / 2) - (tooltipRect.height / 2)}px`;
+        
+        // Fade in using requestAnimationFrame for better performance
+        requestAnimationFrame(() => {
+          tooltipEl.classList.add('show');
+        });
+      });
+    };
+    
+    // Function to hide tooltip
+    const hideTooltip = (target: HTMLElement) => {
+      const tooltipEl = activeTooltips.get(target);
+      if (!tooltipEl) return;
+      
+      // Remove from active list immediately to prevent duplicate hide calls
+      activeTooltips.delete(target);
+      
+      tooltipEl.classList.remove('show');
+      
+      // Track if cleanup has been executed
+      let cleanupExecuted = false;
+      
+      // Cleanup function
+      const cleanup = () => {
+        if (cleanupExecuted) return;
+        cleanupExecuted = true;
+        
+        tooltipEl.remove();
+      };
+      
+      // Use transitionend event for proper cleanup timing
+      const handleTransitionEnd = () => {
+        cleanup();
+      };
+      
+      tooltipEl.addEventListener('transitionend', handleTransitionEnd, { once: true });
+      
+      // Fallback timeout in case transitionend doesn't fire
+      // Timeout is longer than CSS transition (0.2s) to ensure transition completes
+      setTimeout(() => {
+        tooltipEl.removeEventListener('transitionend', handleTransitionEnd);
+        cleanup();
+      }, TOOLTIP_CLEANUP_TIMEOUT);
+    };
+    
     tooltipElements.forEach((element) => {
       // Mark as initialized
       element.setAttribute('data-tooltip-initialized', 'true');
-      
-      let tooltipEl: HTMLDivElement | null = null;
-      let isTooltipVisible = false;
-      
-      // Function to show tooltip
-      const showTooltip = (target: HTMLElement) => {
-        // Prevent creating multiple tooltips
-        if (isTooltipVisible || tooltipEl) return;
-        
-        const tooltipText = target.getAttribute('data-tooltip-text');
-        
-        if (!tooltipText) return;
-        
-        isTooltipVisible = true;
-        
-        // Create tooltip element
-        tooltipEl = document.createElement('div');
-        tooltipEl.className = 'custom-tooltip';
-        tooltipEl.textContent = tooltipText;
-        document.body.appendChild(tooltipEl);
-        
-        // Position tooltip to the right of the element
-        // Use requestAnimationFrame to ensure DOM has updated
-        requestAnimationFrame(() => {
-          if (!tooltipEl) return;
-          
-          const rect = target.getBoundingClientRect();
-          const tooltipRect = tooltipEl.getBoundingClientRect();
-          tooltipEl.style.left = `${rect.right + 10}px`;
-          tooltipEl.style.top = `${rect.top + (rect.height / 2) - (tooltipRect.height / 2)}px`;
-          
-          // Fade in using requestAnimationFrame for better performance
-          requestAnimationFrame(() => {
-            if (tooltipEl) tooltipEl.classList.add('show');
-          });
-        });
-      };
-      
-      // Function to hide tooltip
-      const hideTooltip = () => {
-        if (!tooltipEl) return;
-        
-        tooltipEl.classList.remove('show');
-        
-        // Track if cleanup has been executed
-        let cleanupExecuted = false;
-        
-        // Cleanup function
-        const cleanup = () => {
-          if (cleanupExecuted) return;
-          cleanupExecuted = true;
-          
-          if (tooltipEl) {
-            tooltipEl.remove();
-            tooltipEl = null;
-            isTooltipVisible = false;
-          }
-        };
-        
-        // Use transitionend event for proper cleanup timing
-        const handleTransitionEnd = () => {
-          cleanup();
-        };
-        
-        tooltipEl.addEventListener('transitionend', handleTransitionEnd, { once: true });
-        
-        // Fallback timeout in case transitionend doesn't fire
-        // Timeout is longer than CSS transition (0.2s) to ensure transition completes
-        setTimeout(() => {
-          if (tooltipEl) {
-            tooltipEl.removeEventListener('transitionend', handleTransitionEnd);
-            cleanup();
-          }
-        }, TOOLTIP_CLEANUP_TIMEOUT);
-      };
       
       // Show tooltip on mouseenter (for desktop)
       element.addEventListener('mouseenter', (e) => {
@@ -117,30 +123,29 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
       
       // Hide tooltip on mouseleave (for desktop)
       element.addEventListener('mouseleave', () => {
-        hideTooltip();
+        hideTooltip(element as HTMLElement);
       });
       
       // Toggle tooltip on click/tap (for mobile and accessibility)
       element.addEventListener('click', (e) => {
-        e.preventDefault();
+        // Stop propagation to prevent global click handler from firing
         e.stopPropagation();
         
         const target = e.currentTarget as HTMLElement;
         
-        if (isTooltipVisible) {
-          hideTooltip();
+        // Always toggle: if visible, hide it; if hidden, show it
+        if (activeTooltips.has(target)) {
+          hideTooltip(target);
         } else {
           showTooltip(target);
         }
       });
-      
-      // Close tooltip when clicking outside
-      document.addEventListener('click', (e) => {
-        if (isTooltipVisible && tooltipEl && !element.contains(e.target as Node)) {
-          hideTooltip();
-        }
-      });
     });
+    
+    // Add single global click handler for click-outside functionality
+    if (tooltipElements.length > 0) {
+      document.addEventListener('click', handleGlobalClick);
+    }
   });
 </script>
 
