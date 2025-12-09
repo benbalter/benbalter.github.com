@@ -21,7 +21,7 @@ const { title, description, degrees, certifications } = resumePage.data;
 const allPositions = await getCollection('resume-positions');
 
 // Sort by start_date (most recent first)
-const sortedPositions = allPositions.sort((a, b) => {
+const sortedPositions = allPositions.sort((a: CollectionEntry<'resume-positions'>, b: CollectionEntry<'resume-positions'>) => {
   return new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime();
 });
 
@@ -93,7 +93,7 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
     <section class="resume-section">
       <h2>Education</h2>
       
-      {degrees.map((degree) => (
+      {degrees.map((degree: { school: string; degree: string; date: string }) => (
         <div class="education-item">
           <h3 class="school-name h5">{degree.school}</h3>
           <div class="education-details">
@@ -109,7 +109,7 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
     <section class="resume-section">
       <h2>Certifications</h2>
       
-      {certifications.map((cert) => (
+      {certifications.map((cert: { authority: string; name: string; url?: string }) => (
         <div class="certification-item">
           <h3 class="certification-authority h5">{cert.authority}</h3>
           <div class="certification-name">

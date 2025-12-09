@@ -52,7 +52,7 @@ const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'
 // Create a map of URL to post for efficient lookup
 const postsByUrl = new Map<string, CollectionEntry<'posts'>>();
 
-allPosts.forEach(post => {
+allPosts.forEach((post: CollectionEntry<'posts'>) => {
   const url = getPostUrl(post.slug);
   if (url) {
     postsByUrl.set(url, post);

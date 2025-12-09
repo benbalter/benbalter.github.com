@@ -494,3 +494,65 @@ h1, h2, h3, h4, h5, h6 {
         opacity: 1;
     }
 }
+
+// Skip to content link (accessibility best practice)
+// Only visible when focused via keyboard navigation
+.skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--bs-primary);
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 0 0 4px 0;
+    z-index: 100;
+    font-weight: 600;
+    
+    &:focus {
+        top: 0;
+        // Use white outline for better contrast against the primary background
+        outline: 3px solid white;
+        outline-offset: -3px;
+    }
+}
+
+// Bootstrap's visually-hidden-focusable utility for skip link
+.visually-hidden-focusable:not(:focus):not(:focus-within) {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+// Fix: When both .skip-to-content and .visually-hidden-focusable are present,
+//      ensure .skip-to-content's visual hiding/showing takes precedence.
+.skip-to-content.visually-hidden-focusable {
+    position: absolute !important;
+    top: -40px !important;
+    left: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 8px 16px !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    clip: auto !important;
+    white-space: normal !important;
+    border-radius: 0 0 4px 0 !important;
+    border: none !important;
+    background: var(--bs-primary) !important;
+    color: white !important;
+    font-weight: 600 !important;
+    z-index: 100 !important;
+    text-decoration: none !important;
+}
+.skip-to-content.visually-hidden-focusable:focus {
+    top: 0 !important;
+    outline: 3px solid white !important;
+    outline-offset: -3px !important;
+}

@@ -20,7 +20,10 @@ const booksPath = join(process.cwd(), '_data', 'books.yml');
 let booksData;
 try {
   const booksYaml = readFileSync(booksPath, 'utf-8');
-  booksData = yaml.load(booksYaml, { schema: yaml.SAFE_SCHEMA }) as Record<string, Array<{ title: string; asin: string; tldr: string }>>;
+  // js-yaml v4+ uses safe schema by default for load()
+  // This prevents arbitrary code execution and only constructs safe JavaScript types
+  // See: https://github.com/nodeca/js-yaml/blob/master/CHANGELOG.md#400---2021-01-03
+  booksData = yaml.load(booksYaml) as Record<string, Array<{ title: string; asin: string; tldr: string }>>;
 } catch (error) {
   throw new Error(`Failed to load books data from ${booksPath}: ${error instanceof Error ? error.message : String(error)}`);
 }
