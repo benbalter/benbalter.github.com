@@ -41,4 +41,4 @@ We're going to need a smarter way to process real-time and large-scale governmen
 
 [^1]: *See, for example,* SharePoint, Cold Fusion, PDFs, Oracle databases, Blackberrys, and just about "enterprise" anything.
 
-[^2]: *for example,* [not knowing the difference between Ruby and Rails](https://github.com/CMSgov/HealthCare.gov-Open-Source-Release#ruby-on-rails){: data-proofer-ignore="true"}.
+[^2]: *for example,* [not knowing the difference between Ruby and Rails](https://github.com/CMSgov/HealthCare.gov-Open-Source-Release#ruby-on-rails).

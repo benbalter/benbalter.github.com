@@ -4,7 +4,7 @@ description: Despite the hype, daily deal sites like Groupon and LivingSocial ar
 archived: true
 ---
 
-![Groupon logo on an office door](https://ben.balter.com/wp-content/uploads/2011/06/5554901181_664eac93a6_b-300x200.jpg "Groupon"){: .float-start .me-3 }
+<img src="https://ben.balter.com/wp-content/uploads/2011/06/5554901181_664eac93a6_b-300x200.jpg" alt="Groupon logo on an office door" title="Groupon" class="float-start me-3" />
 
 Despite the hype, daily deal sites like Groupon and LivingSocial are not the next wave of e-commerce. Not only are they bad for merchants, their business model simply isn't sustainable as established firms begin to enter the already-crowded market.
 
@@ -32,7 +32,7 @@ This, combined with the fact that [Groupon claims the entirety of the purchase p
 
 ### Gift Cards
 
-First is the question of if a daily deal constitutes a [gift card](http://www.ncsl.org/research/financial-services-and-commerce/gift-cards-and-certificates-statutes-and-legis.aspx){: data-proofer-ignore="true"}, a legal issue with which both Groupon and [LivingSocial](http://www.seattlepi.com/local/article/Seattle-class-action-LivingSocial-expiration-1015493.php) are intimately familiar with, defending at least [12 distinct lawsuits](http://www.benedelman.org/voucher-consumer-protection/#expiration). Despite the expiration date listed online, in print, and often sent in reminder emails, in some states, customers may be eligible to redeem deals long after they expire, or at least have ground to reclaim their initial investment, often at the merchants' expense.
+First is the question of if a daily deal constitutes a [gift card](http://www.ncsl.org/research/financial-services-and-commerce/gift-cards-and-certificates-statutes-and-legis.aspx), a legal issue with which both Groupon and [LivingSocial](http://www.seattlepi.com/local/article/Seattle-class-action-LivingSocial-expiration-1015493.php) are intimately familiar with, defending at least [12 distinct lawsuits](http://www.benedelman.org/voucher-consumer-protection/#expiration). Despite the expiration date listed online, in print, and often sent in reminder emails, in some states, customers may be eligible to redeem deals long after they expire, or at least have ground to reclaim their initial investment, often at the merchants' expense.
 
 ### Sales Tax
 
@@ -56,8 +56,8 @@ Sure it's fun to get an email in your inbox with a "super-exclusive" offer, but 
 
 ### Data Blindspot
 
-Smart sites are driven by data — personal data — and they use it to fuel growth. Amazon leverages my buying history to make personalized recommendations and I buy more stuff. Facebook maps out my social graph and recommends people I know and I friend more people. Netflix tracks my viewing history, going so far as to put up a [$1 million bounty](http://bits.blogs.nytimes.com/2009/09/21/netflix-awards-1-million-prize-and-starts-a-new-contest/){: data-proofer-ignore="true"} to perfect reading my mind. And daily deal sites know that's their [only shot at staying relevant](http://techcrunch.com/2011/01/11/why-we-invested-in-groupon-the-power-of-data/).
+Smart sites are driven by data — personal data — and they use it to fuel growth. Amazon leverages my buying history to make personalized recommendations and I buy more stuff. Facebook maps out my social graph and recommends people I know and I friend more people. Netflix tracks my viewing history, going so far as to put up a [$1 million bounty](http://bits.blogs.nytimes.com/2009/09/21/netflix-awards-1-million-prize-and-starts-a-new-contest/) to perfect reading my mind. And daily deal sites know that's their [only shot at staying relevant](http://techcrunch.com/2011/01/11/why-we-invested-in-groupon-the-power-of-data/).
 
 Despite [Groupon's efforts](http://techcrunch.com/2010/12/07/groupon-everywhere-jiwire/), there's just not enough data there. They may have my age, gender, rough location, and one or two data points of buying history, but compare that to the relative dossier that Google and Amazon both have to have on me, it's always going to be a losing fight. Once first mover advantage begins to lose its shimmer, the big boys' synergies will begin to show their [true](http://www.wired.com/epicenter/2011/04/facebook-deals/) [potential](http://thenextweb.com/us/2011/06/02/amazon-enters-the-daily-deals-space-with-amazonlocal/), and daily deal sites like Groupon and LivingSocial will expire as quickly as the deals they peddle.
 
-*Photo courtesy [@wovox](http://www.flickr.com/photos/wovox/5554901181/){: data-proofer-ignore="true"}*
+*Photo courtesy [@wovox](http://www.flickr.com/photos/wovox/5554901181/)*

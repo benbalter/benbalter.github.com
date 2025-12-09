@@ -6,7 +6,7 @@ description: How we consume content has changed dramatically, over the past 30 y
 
 Our default content publishing workflow is terribly broken. [We've all been trained to make paper](https://ben.balter.com/2012/10/19/we-ve-been-trained-to-make-paper/), yet today, content authored once is more commonly consumed in multiple formats, and rarely, if ever, does it embody physical form. Put another way, our go-to content authoring workflow remains relatively unchanged since it was conceived in the early '80s.
 
-[![Screenshot of Microsoft Word 1.0](/wp-content/uploads/2014/word1.png){: .float-end .ms-3 .w-50 }](http://blogs.msdn.com/b/jensenh/archive/2005/10/03/476412.aspx)
+[<img src="/wp-content/uploads/2014/word1.png" alt="Screenshot of Microsoft Word 1.0" class="float-end ms-3 w-50" />](http://blogs.msdn.com/b/jensenh/archive/2005/10/03/476412.aspx)
 
 I'm asked regularly by government employees — knowledge workers who fire up a desktop word processor as the first step to any project — for an automated pipeline to convert Microsoft Word documents to [Markdown](http://guides.github.com/overviews/mastering-markdown/), the *lingua franca* of the internet, but as my recent foray into building [just such a converter](http://word-to-markdown.herokuapp.com/) proves, it's not that simple.
 
@@ -26,12 +26,32 @@ When you blindly optimize for one thing — appearances — behind the s
 
 Put another way, in taking a look at this [sample Word Document](https://github.com/benbalter/word-to-markdown/blob/master/test/fixtures/small-medium-large.docx?raw=true), given the same content represented identically in various formats, as little as less than one quarter of one percent of the file is actually dedicated to storing content:
 
-| Format                                    | Size        | %     |
-| :---------------------------------------- | :---------- | :---- |
-| Word                                      | 33621 bytes | 100%  |
-| HTML                                      | 1359 bytes  | 4.04% |
-| Markdown                                  | 80 bytes    | 0.24% |
-{: .table .table-striped .w-50 .mx-auto }
+<table class="table table-striped w-50 mx-auto">
+<thead>
+<tr>
+<th align="left">Format</th>
+<th align="left">Size</th>
+<th align="left">%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Word</td>
+<td align="left">33621 bytes</td>
+<td align="left">100%</td>
+</tr>
+<tr>
+<td align="left">HTML</td>
+<td align="left">1359 bytes</td>
+<td align="left">4.04%</td>
+</tr>
+<tr>
+<td align="left">Markdown</td>
+<td align="left">80 bytes</td>
+<td align="left">0.24%</td>
+</tr>
+</tbody>
+</table>
 
 ## Exposing author intent
 

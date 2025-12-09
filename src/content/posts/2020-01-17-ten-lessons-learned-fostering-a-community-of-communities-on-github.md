@@ -27,12 +27,36 @@ We originally used the tongue-in-cheek "jerkface" persona to describe all such u
 
 As a platform, your biggest lever is your ability to intervene in otherwise organic human interactions. In the context of disruptive behavior, that intervention could come before, during, or after the disruptive act:
 
-|             | Before                   | During             | After                     |
-| :---------- | :----------------------- | :----------------- | :------------------------ |
-| Goal        | Encourage good behavior  | Introduce Friction | Minimize impact           |
-| Type        | User-to-community        | User-to-product    | User-to-user              |
-| Example     | Code of conduct adoption | User blocking      | Hiding disruptive content |
-{: .table }
+<table class="table">
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">Before</th>
+<th align="left">During</th>
+<th align="left">After</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Goal</td>
+<td align="left">Encourage good behavior</td>
+<td align="left">Introduce Friction</td>
+<td align="left">Minimize impact</td>
+</tr>
+<tr>
+<td align="left">Type</td>
+<td align="left">User-to-community</td>
+<td align="left">User-to-product</td>
+<td align="left">User-to-user</td>
+</tr>
+<tr>
+<td align="left">Example</td>
+<td align="left">Code of conduct adoption</td>
+<td align="left">User blocking</td>
+<td align="left">Hiding disruptive content</td>
+</tr>
+</tbody>
+</table>
 
 Most platforms begin their user safety efforts by focus on during-the-act interventions. These are things like a blocked user not being able to DM or @mention the blocking user that seek to add friction (defined as how easy or hard it is to do something) to creating potentially disruptive content.
 

@@ -30,7 +30,7 @@ class TodayTest &lt; Blog::Test
 end
 ```
 
-With that, you could wire up a service like [Travis CI](https://travisci.org){: data-proofer-ignore="true" } to fire on each commit, and provide the author with immediate feedback and a link to the appropriate internal documentation, all without requiring blocking human intervention. Not to mention, that editor is now free to move to less-remedial, higher-value work like curating an editorial calendar or refining the voice guidelines themselves.
+With that, you could wire up a service like [Travis CI](https://travisci.org) to fire on each commit, and provide the author with immediate feedback and a link to the appropriate internal documentation, all without requiring blocking human intervention. Not to mention, that editor is now free to move to less-remedial, higher-value work like curating an editorial calendar or refining the voice guidelines themselves.
 
 ## Don't tell users how excited you are
 
