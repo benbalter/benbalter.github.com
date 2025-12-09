@@ -9,6 +9,9 @@ $enable-gradients: true;
 $tooltip-max-width: 350px;
 $color-mode-type: media-query;
 
+// Content container padding (matches grid gutter / 2)
+$content-padding-x: 15px;
+
 // Import Bootstrap
 // Note: Bootstrap 5.3.x still uses @import internally. The deprecation warning
 // is silenced via Vite/Sass configuration (quietDeps) until Bootstrap migrates to @use.
@@ -30,10 +33,10 @@ abbr[data-bs-original-title] {
     @extend small;
     @extend .border-top;
     @extend .pt-3;
-    margin-left: -15px;
-    margin-right: -15px;
-    padding-left: 15px;
-    padding-right: 15px;
+    margin-left: -$content-padding-x;
+    margin-right: -$content-padding-x;
+    padding-left: $content-padding-x;
+    padding-right: $content-padding-x;
 }
 
 .footnotes::before {
