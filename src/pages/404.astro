@@ -1,0 +1,138 @@
+---
+/**
+ * 404 Not Found Page
+ * 
+ * Custom error page for when users navigate to a non-existent URL.
+ * Shows recent posts to help users find what they're looking for.
+ */
+
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Get recent posts (limit to 10)
+const allPosts = await getCollection('posts', ({ data }) => {
+  return data.published !== false;
+});
+
+// Sort by date (newest first) - extract date from slug
+const recentPosts = allPosts
+  .sort((a, b) => {
+    const dateA = a.slug.substring(0, 10);
+    const dateB = b.slug.substring(0, 10);
+    return dateB.localeCompare(dateA);
+  })
+  .slice(0, 10);
+---
+
+<BaseLayout 
+  title="Not Found 😢" 
+  description="The page you are trying to view does not exist."
+>
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="alert alert-primary lead text-center mb-5" role="alert">
+        The page you are trying to view does not exist.<br />
+        <strong>Perhaps you're looking for something else?</strong>
+      </div>
+
+      <h4 class="mb-4">Recent posts</h4>
+      
+      <ul class="list-unstyled">
+        {recentPosts.map((post) => {
+          // Extract date from slug (YYYY-MM-DD-slug format)
+          const dateMatch = post.slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
+          const postUrl = dateMatch 
+            ? `/${dateMatch[1]}/${dateMatch[2]}/${dateMatch[3]}/${dateMatch[4]}/`
+            : `/posts/${post.slug}/`;
+          
+          return (
+            <li class="mb-2">
+              <a href={postUrl}>{post.data.title}</a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .alert {
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.375rem;
+  }
+  
+  .alert-primary {
+    color: #084298;
+    background-color: #cfe2ff;
+    border-color: #b6d4fe;
+  }
+  
+  .lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
+  
+  .text-center {
+    text-align: center !important;
+  }
+  
+  .mb-5 {
+    margin-bottom: 3rem !important;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .mb-2 {
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+  .col-md-8 {
+    flex: 0 0 auto;
+    width: 66.666667%;
+  }
+
+  .offset-md-2 {
+    margin-left: 16.666667%;
+  }
+
+  @media (max-width: 768px) {
+    .col-md-8 {
+      width: 100%;
+    }
+    .offset-md-2 {
+      margin-left: 0;
+    }
+  }
+  
+  .list-unstyled {
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  h4 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  
+  a {
+    color: var(--bs-link-color);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
