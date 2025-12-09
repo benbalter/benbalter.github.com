@@ -92,6 +92,32 @@ $color-mode-type: media-query;
 // Skip the full utilities API to reduce bundle size significantly
 // Component-specific styles will handle their own utility needs
 
+// Accessibility: Skip to content link
+.skip-to-content {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    
+    &:focus {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: auto;
+        height: auto;
+        background: #0366d6;
+        color: white;
+        padding: 8px 16px;
+        text-decoration: none;
+        z-index: 9999;
+        border-radius: 0 0 4px 0;
+        outline: 2px solid #fff;
+        outline-offset: 2px;
+    }
+}
+
 // Typography improvements
 // Use a modern system font stack for optimal performance and native look
 body {
