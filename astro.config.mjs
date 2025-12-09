@@ -120,8 +120,11 @@ export default defineConfig({
           loadPaths: ['node_modules'],
           // Suppress deprecation warnings for @import rules (Bootstrap 5.3.x uses them)
           quietDeps: true,
-          // Silence specific deprecation warnings until Bootstrap migrates to @use
+          // Silence @import deprecation warnings from our own code that imports Bootstrap
+          // Bootstrap 5.3.x doesn't support the modern @use module system yet.
+          // TODO: Remove this once Bootstrap 6.x is released with @use support
           // See: https://sass-lang.com/documentation/breaking-changes/import
+          // See: https://github.com/twbs/bootstrap/issues/36753
           silenceDeprecations: ['import'],
         },
       },
