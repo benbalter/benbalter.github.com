@@ -12,6 +12,9 @@ $enable-gradients: true;
 $tooltip-max-width: 350px;
 $color-mode-type: media-query;
 
+// Content container padding (matches grid gutter / 2)
+$content-padding-x: 15px;
+
 // 3. Include variable defaults
 @import 'bootstrap/scss/variables';
 @import 'bootstrap/scss/variables-dark';
@@ -335,6 +338,10 @@ abbr[data-bs-original-title] {
     border-top: 1px solid var(--bs-border-color);
     padding-top: 1rem;
     margin-top: 3rem;
+    margin-left: -$content-padding-x;
+    margin-right: -$content-padding-x;
+    padding-left: $content-padding-x;
+    padding-right: $content-padding-x;
 }
 
 .footnotes::before {
