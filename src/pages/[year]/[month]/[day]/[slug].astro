@@ -41,7 +41,7 @@ const pubDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
 
 // Generate OG image URL for this post
 // If post has a custom image, use that, otherwise use the dynamically generated one
-const ogImageUrl = post.data.image || `/og/${year}/${month}/${day}/${slug}`;
+const ogImageUrl = post.data.image || `/og/${year}/${month}/${day}/${slug}.png`;
 
 // Find related posts (limit to 10)
 const relatedPosts = await findRelatedPosts(post, allPosts, 10);
