@@ -27,9 +27,9 @@ const { nth = "first" } = Astro.props;
   }
   
   .alert-primary {
-    color: #084298;
-    background-color: #cfe2ff;
-    border-color: #b6d4fe;
+    color: var(--bs-primary-text-emphasis, #084298);
+    background-color: var(--bs-primary-bg-subtle, #cfe2ff);
+    border-color: var(--bs-primary-border-subtle, #b6d4fe);
   }
   
   .text-center {
@@ -38,11 +38,12 @@ const { nth = "first" } = Astro.props;
   
   .alert-link {
     font-weight: 700;
-    color: #06357a;
+    color: var(--bs-primary-text-emphasis, #06357a);
     text-decoration: underline;
   }
   
   .alert-link:hover {
-    color: #04244d;
+    /* Darken by about 15% in light mode, lighten in dark mode handled by Bootstrap */
+    filter: brightness(0.85);
   }
 </style>

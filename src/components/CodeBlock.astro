@@ -34,7 +34,7 @@ const { title, language } = Astro.props;
 <style>
   .code-block {
     margin: 1.5rem 0;
-    border: 1px solid #e1e4e8;
+    border: 1px solid var(--bs-border-color, #e1e4e8);
     border-radius: 6px;
     overflow: hidden;
   }
@@ -44,20 +44,20 @@ const { title, language } = Astro.props;
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 1rem;
-    background-color: #f6f8fa;
-    border-bottom: 1px solid #e1e4e8;
+    background-color: var(--bs-secondary-bg, #f6f8fa);
+    border-bottom: 1px solid var(--bs-border-color, #e1e4e8);
   }
   
   .code-block-title {
     font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
     font-size: 0.9em;
     font-weight: 600;
-    color: #24292e;
+    color: var(--bs-body-color, #24292e);
   }
   
   .code-block-language {
     font-size: 0.8em;
-    color: #586069;
+    color: var(--bs-secondary-color, #586069);
     text-transform: uppercase;
   }
   
