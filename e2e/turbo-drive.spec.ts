@@ -20,7 +20,6 @@ test.describe('Turbo Drive Navigation', () => {
     
     // If Turbo is not loaded, this is an Astro site without Turbo - skip gracefully
     test.skip(!turboLoaded, 'Turbo Drive is not loaded on this site');
-    expect(turboLoaded).toBeTruthy();
   });
 
   test('should intercept link clicks for faster navigation', async ({ page }) => {

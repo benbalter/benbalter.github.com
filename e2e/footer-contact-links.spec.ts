@@ -13,8 +13,8 @@ test.describe('Footer Contact Links', () => {
       links.map(link => link.getAttribute('href')).filter(Boolean)
     );
     
-    // Get contact links from the footer - use more flexible selector
-    const footerLinks = page.locator('footer .social-links a[href], footer .social-link[href]');
+    // Get contact links from the footer - matches Astro Footer component structure
+    const footerLinks = page.locator('footer .social-links a.social-link');
     const footerUrls = await footerLinks.evaluateAll((links) => 
       links.map(link => link.getAttribute('href')).filter(Boolean)
     );
