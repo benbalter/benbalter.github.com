@@ -35,8 +35,11 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
     
     // Global click handler for click-outside functionality
     const handleGlobalClick = (e: MouseEvent) => {
+      const target = e.target;
+      if (!target) return;
+      
       activeTooltips.forEach((tooltipEl, element) => {
-        if (!element.contains(e.target as Node)) {
+        if (!element.contains(target as Node)) {
           hideTooltip(element);
         }
       });
@@ -143,6 +146,8 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
     });
     
     // Add single global click handler for click-outside functionality
+    // This prevents memory leaks by using one handler for all tooltips
+    // The handler will be cleaned up when the page unloads
     if (tooltipElements.length > 0) {
       document.addEventListener('click', handleGlobalClick);
     }
