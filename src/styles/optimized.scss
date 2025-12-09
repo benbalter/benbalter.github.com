@@ -92,14 +92,6 @@ $color-mode-type: media-query;
 // Skip the full utilities API to reduce bundle size significantly
 // Component-specific styles will handle their own utility needs
 
-// Syntax highlighting styles
-@import '../../sass/highlighting';
-
-// Dark and light mode syntax highlighting colors
-// Each partial now contains its own @media query wrapper
-@import '../../sass/base16.dark';
-@import '../../sass/base16.light';
-
 // Typography improvements
 body {
     font-size: 1.05rem;
