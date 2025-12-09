@@ -147,6 +147,13 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
                   title="Help improve this article"
                 >help improve it</a>.</small>
               </p>
+              <a 
+                class="btn btn-outline-primary btn-sm" 
+                href={`${siteConfig.githubRepoUrl}/edit/main/src/content/posts/${postSlug}.md`}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Help improve this article"
+              >Edit</a>
             </div>
           </div>
         </footer>
@@ -491,6 +498,18 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
     color: #fff;
     background-color: var(--bs-link-color);
     border-color: var(--bs-link-color);
+  }
+
+  .btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    border-radius: 0.5rem;
+  }
+
+  .btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.25rem;
   }
   
   .back-link,
