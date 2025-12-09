@@ -2,13 +2,26 @@
  * Related posts calculation using TF-IDF (Term Frequency-Inverse Document Frequency)
  * 
  * This algorithm finds posts that are most similar to a given post based on their content.
- * Uses the 'natural' library for robust TF-IDF implementation.
+ * Uses the 'natural' library for robust TF-IDF implementation with Porter Stemmer.
  */
 
 import type { CollectionEntry } from 'astro:content';
 import natural from 'natural';
 
 const { TfIdf, PorterStemmer } = natural;
+
+/**
+ * Configuration constants for related posts calculation
+ */
+const SIGNIFICANT_TERMS_COUNT = 20; // Number of top TF-IDF terms to consider for similarity
+
+/**
+ * Type definition for natural library's term object
+ */
+interface TermScore {
+  term: string;
+  tfidf: number;
+}
 
 /**
  * Normalize and prepare text for TF-IDF analysis
@@ -35,7 +48,11 @@ function normalizeText(text: string): string {
 }
 
 /**
- * Find related posts for a given post
+ * Find related posts for a given post using TF-IDF similarity
+ * 
+ * The natural library's TfIdf class uses Porter Stemmer by default for tokenization,
+ * which improves matching by reducing words to their root form (e.g., "running" -> "run").
+ * 
  * @param currentPost - The post to find related posts for
  * @param allPosts - All available posts
  * @param maxResults - Maximum number of related posts to return (default: 10)
@@ -46,7 +63,7 @@ export async function findRelatedPosts(
   allPosts: CollectionEntry<'posts'>[],
   maxResults = 10
 ): Promise<CollectionEntry<'posts'>[]> {
-  // Initialize TF-IDF with Porter Stemmer for better matching
+  // Initialize TF-IDF (uses Porter Stemmer by default for tokenization)
   const tfidf = new TfIdf();
   
   // Create a map to store post slugs with their document indices
@@ -83,19 +100,18 @@ export async function findRelatedPosts(
     
     const postIndex = postIndices.get(post.slug)!;
     
-    // Calculate cosine similarity between current post and this post
-    // The natural library's tfidf.tfidf() gives us TF-IDF scores for terms
-    // We'll use a simpler similarity measure based on shared significant terms
+    // Calculate similarity using shared significant terms
+    // Get the most significant terms (highest TF-IDF scores) from current post
     const terms = new Set<string>();
-    
-    // Get terms from current post with high TF-IDF scores
-    tfidf.listTerms(currentPostIndex).slice(0, 20).forEach((item: any) => {
+    const currentTerms = tfidf.listTerms(currentPostIndex).slice(0, SIGNIFICANT_TERMS_COUNT) as TermScore[];
+    currentTerms.forEach((item) => {
       terms.add(item.term);
     });
     
-    // Calculate how many of these terms appear in the candidate post
+    // Calculate how many of these terms appear in the candidate post and their weights
     let sharedTermScore = 0;
-    tfidf.listTerms(postIndex).forEach((item: any) => {
+    const candidateTerms = tfidf.listTerms(postIndex) as TermScore[];
+    candidateTerms.forEach((item) => {
       if (terms.has(item.term)) {
         sharedTermScore += item.tfidf;
       }
