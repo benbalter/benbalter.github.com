@@ -141,9 +141,14 @@ const schemas = breadcrumbSchema
       <link rel="me" href={link.url} />
     ))}
     
-    <!-- Preconnect to External Domains -->
+    <!-- Resource Hints for Performance -->
+    <!-- Preconnect to critical external domains (used on most pages) -->
     <link rel="preconnect" href="https://avatars.githubusercontent.com" crossorigin />
     <link rel="preconnect" href="https://github.com" crossorigin />
+    
+    <!-- DNS Prefetch for other external resources -->
+    <link rel="dns-prefetch" href="https://images.amazon.com" />
+    <link rel="dns-prefetch" href="https://user-images.githubusercontent.com" />
     
     <!-- RSS Feed -->
     <link rel="alternate" type="application/rss+xml" title={`${siteConfig.name} - RSS Feed`} href="/feed.xml" />
@@ -153,31 +158,50 @@ const schemas = breadcrumbSchema
     <title>{fullTitle}</title>
   </head>
   <body class="mt-2">
+    <!-- Skip to main content link for accessibility -->
+    <a href="#content" class="skip-to-content visually-hidden-focusable">
+      Skip to main content
+    </a>
+    
     <div class="container">
       {hero && <div class="hero-unit position-relative"></div>}
       
       <Navigation hero={hero} />
       
-      <main id="content" role="main" class="content">
+      <main id="content" role="main" class="content" tabindex="-1">
         <slot />
       </main>
       
       <Footer />
     </div>
     
-    <!-- Font Awesome icons initialization -->
-    <script>
-      import '../scripts/fontawesome';
-    </script>
-    
-    <!-- Minimal navigation toggle script -->
+    <!-- Minimal navigation toggle script (critical, loaded synchronously) -->
     <script>
       import '../scripts/navToggle';
     </script>
     
-    <!-- Turbo Drive for faster page navigation -->
-    <script>
-      import '../scripts/turbo';
+    <!-- Font Awesome icons initialization (defer to reduce initial load) -->
+    <script type="module">
+      // Lazy load FontAwesome after page is interactive
+      if (document.readyState === 'complete') {
+        import('../scripts/fontawesome');
+      } else {
+        window.addEventListener('load', () => {
+          import('../scripts/fontawesome');
+        });
+      }
+    </script>
+    
+    <!-- Turbo Drive for faster page navigation (defer as it's not critical for first paint) -->
+    <script type="module">
+      // Load Turbo after initial paint
+      if (document.readyState === 'complete') {
+        import('../scripts/turbo');
+      } else {
+        window.addEventListener('load', () => {
+          import('../scripts/turbo');
+        });
+      }
     </script>
   </body>
 </html>
