@@ -50,6 +50,7 @@ const relatedPosts = await findRelatedPosts(post, allPosts, 10);
   image={post.data.image}
   relatedPosts={relatedPosts}
   archived={post.data.archived}
+  postSlug={post.slug}
 >
   <Content />
 </PostLayout>
