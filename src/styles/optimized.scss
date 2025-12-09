@@ -42,12 +42,13 @@ $content-padding-x: 15px;
 
 // Skip unused components to reduce bundle size:
 // - forms (no forms on static blog)
-// - accordion, badge, breadcrumb, button-group, card, carousel, 
+// - accordion, breadcrumb, button-group, card, carousel, 
 //   close, dropdown, list-group, modal, offcanvas, pagination, 
 //   placeholders, popover, progress, spinners, toasts, tooltip
 
 // Include only what we need:
 @import 'bootstrap/scss/alert';       // For alert components (used in FossAtScale, GitHubCulture, ArchivedPostWarning)
+@import 'bootstrap/scss/badge';       // For badge component (used in PostLayout for tags)
 @import 'bootstrap/scss/tables';      // For markdown tables
 @import 'bootstrap/scss/transitions'; // For smooth interactions
 
@@ -134,20 +135,7 @@ $content-padding-x: 15px;
     border-top: var(--bs-border-width) solid var(--bs-border-color) !important;
 }
 
-// Badge component (used in PostLayout for tags)
-.badge {
-    display: inline-block;
-    padding: 0.35em 0.65em;
-    font-size: 0.75em;
-    font-weight: 700;
-    line-height: 1;
-    color: #fff;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: baseline;
-    border-radius: var(--bs-border-radius);
-}
-
+// Background color utilities
 .bg-secondary {
     background-color: var(--bs-secondary) !important;
 }
