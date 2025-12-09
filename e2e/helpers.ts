@@ -182,3 +182,14 @@ export async function detectBuildSystem(page: Page): Promise<'astro' | 'jekyll' 
   // Default to Jekyll (current production build)
   return 'jekyll';
 }
+
+/**
+ * Check if the current page is an Astro build
+ * 
+ * @param page - The Playwright page object
+ * @returns true if the page is an Astro build, false otherwise
+ */
+export async function isAstroBuild(page: Page): Promise<boolean> {
+  const buildSystem = await detectBuildSystem(page);
+  return buildSystem === 'astro';
+}
