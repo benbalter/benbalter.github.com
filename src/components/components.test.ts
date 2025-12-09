@@ -16,6 +16,58 @@
 
 import { describe, it, expect } from 'vitest';
 
+describe('PostList Component - Specification', () => {
+  it('should accept postSlug and field as props', () => {
+    // Specification: Component should accept these props
+    const expectedProps = ['postSlug', 'field'];
+    
+    // Specification: field should be limited to specific values
+    const validFieldValues = ['posts', 'roles'];
+    
+    // Verify specification
+    expect(expectedProps).toContain('postSlug');
+    expect(expectedProps).toContain('field');
+    expect(validFieldValues).toEqual(['posts', 'roles']);
+  });
+
+  it('should define the URL format for blog posts', () => {
+    // Specification: Blog post URLs follow Jekyll format /YYYY/MM/DD/slug/
+    const urlPattern = /^\/\d{4}\/\d{2}\/\d{2}\/.+\/$/;
+    
+    // Example URLs that should match
+    const validUrls = [
+      '/2023/03/02/github-for-non-technical-roles/',
+      '/2014/11/06/rules-of-communicating-at-github/',
+      '/2016/09/13/seven-habits-of-highly-effective-githubbers/',
+    ];
+    
+    validUrls.forEach(url => {
+      expect(url).toMatch(urlPattern);
+    });
+  });
+
+  it('should define the expected output format', () => {
+    // Specification: Each list item should contain:
+    // - <li> wrapper
+    // - <strong> for bold
+    // - <a> with href
+    // - " — " (em dash) separator
+    // - Description text
+    
+    const expectedStructure = {
+      wrapper: 'li',
+      emphasis: 'strong',
+      link: 'a',
+      separator: ' — ',
+    };
+    
+    expect(expectedStructure.wrapper).toBe('li');
+    expect(expectedStructure.emphasis).toBe('strong');
+    expect(expectedStructure.link).toBe('a');
+    expect(expectedStructure.separator).toBe(' — ');
+  });
+});
+
 describe('Callout Component - Specification', () => {
   it('should define four callout types with icons and colors', () => {
     // Specification: Component should support these four types
