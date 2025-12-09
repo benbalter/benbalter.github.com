@@ -8,10 +8,16 @@
 
 import { siteConfig } from '../config';
 
+interface Props {
+  hero?: boolean;
+}
+
 interface NavItem {
   title: string;
   url: string;
 }
+
+const { hero = false } = Astro.props;
 
 // Define navigation items (matching Jekyll's nav_pages)
 const navItems: NavItem[] = [
@@ -22,16 +28,19 @@ const navItems: NavItem[] = [
 
 // Get current path for active state
 const currentPath = Astro.url.pathname;
+
+// Conditionally add border-top and rounded-top classes when hero is not present
+const navClasses = hero 
+  ? "navbar navbar-expand-md bg-secondary-subtle text-secondary border-start border-end border-bottom rounded-bottom mb-3"
+  : "navbar navbar-expand-md bg-secondary-subtle text-secondary border-start border-end border-bottom border-top rounded-top rounded-bottom mb-3";
 ---
 
-<div class="navbar navbar-expand-md bg-secondary-subtle text-secondary border-start border-end border-bottom border-top rounded-top rounded-bottom mb-3">
+<div class={navClasses}>
   <div class="container-fluid px-3">
     <a class="navbar-brand fw-bold" href="/">{siteConfig.name}</a>
     <button 
       class="navbar-toggler" 
       type="button" 
-      data-bs-toggle="collapse" 
-      data-bs-target="#navbar" 
       aria-controls="navbar" 
       aria-expanded="false" 
       aria-label="Toggle navigation"
@@ -39,7 +48,7 @@ const currentPath = Astro.url.pathname;
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbar" role="navigation">
+    <div class="navbar-collapse" id="navbar" role="navigation">
       <ul class="navbar-nav mr-auto">
         {navItems.map((item) => {
           const isActive = currentPath === item.url || 
@@ -120,7 +129,23 @@ const currentPath = Astro.url.pathname;
     font-size: 0.875rem;
   }
 
-  @media (max-width: 768px) {
+  /* Collapse behavior for mobile */
+  .navbar-collapse {
+    display: none;
+  }
+
+  .navbar-collapse.show {
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    .navbar-collapse {
+      display: flex !important;
+      flex-basis: auto;
+    }
+  }
+
+  @media (max-width: 767px) {
     .navbar-collapse {
       flex-basis: 100%;
       flex-grow: 1;

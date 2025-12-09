@@ -13,6 +13,7 @@
     "anchor-js": "^5.0.0",
     "bootstrap": "^5.3.3",
     "fastest-levenshtein": "^1.0.16",
+    "marked": "^17.0.1",
     "reading-time": "^1.5.0"
   },
   "devDependencies": {
@@ -45,6 +46,8 @@
     "markdownlint-cli2-formatter-pretty": "^0.0.6",
     "mini-css-extract-plugin": "^2.9.0",
     "postcss-loader": "^8.1.1",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-slug": "^6.0.0",
     "remark-cli": "^12.0.0",
     "remark-frontmatter": "^5.0.0",
     "remark-inline-links": "^7.0.0",

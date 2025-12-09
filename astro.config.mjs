@@ -2,6 +2,8 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import redirectIntegration from './src/lib/redirect-integration.ts';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
 // URL patterns for sitemap priority calculation
 const BLOG_POST_PATTERN = /\/\d{4}\/\d{2}\/\d{2}\//;
@@ -55,7 +57,22 @@ export default defineConfig({
       optimize: true,
       // Support GitHub Flavored Markdown
       remarkPlugins: [],
-      rehypePlugins: [],
+      rehypePlugins: [
+        rehypeSlug,
+        [rehypeAutolinkHeadings, {
+          behavior: 'append',
+          properties: {
+            className: ['anchor-link'],
+            ariaLabel: 'Link to this section',
+          },
+          content: {
+            type: 'element',
+            tagName: 'span',
+            properties: { className: ['anchor-icon'] },
+            children: [{ type: 'text', value: '#' }]
+          }
+        }],
+      ],
     }),
     sitemap({
       // Customize sitemap generation
@@ -105,7 +122,22 @@ export default defineConfig({
     // Remark plugins (for markdown processing)
     remarkPlugins: [],
     // Rehype plugins (for HTML processing)
-    rehypePlugins: [],
+    rehypePlugins: [
+      rehypeSlug,
+      [rehypeAutolinkHeadings, {
+        behavior: 'append',
+        properties: {
+          className: ['anchor-link'],
+          ariaLabel: 'Link to this section',
+        },
+        content: {
+          type: 'element',
+          tagName: 'span',
+          properties: { className: ['anchor-icon'] },
+          children: [{ type: 'text', value: '#' }]
+        }
+      }],
+    ],
   },
   
   // Vite configuration
