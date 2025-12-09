@@ -44,23 +44,21 @@ function getPostUrl(slug: string): string {
 ---
 
 <BaseLayout title={title} description={description} hero={true}>
-  <div class="row">
-    <div class="col-md-10 offset-md-1">
-      {posts.map((post) => {
-        const postDate = getDateFromSlug(post.slug);
-        const postUrl = getPostUrl(post.slug);
-        return (
-          <div class="row mb-2">
-            <div class="col-sm-9">
-              <a href={postUrl}>{post.data.title}</a>
-            </div>
-            <div class="col-sm-3 text-muted text-md-end">
-              <small>{formatDate(postDate)}</small>
-            </div>
+  <div class="container-fluid px-3">
+    {posts.map((post) => {
+      const postDate = getDateFromSlug(post.slug);
+      const postUrl = getPostUrl(post.slug);
+      return (
+        <div class="row mb-2">
+          <div class="col-md-9">
+            <a href={postUrl}>{post.data.title}</a>
           </div>
-        );
-      })}
-    </div>
+          <div class="col-md-3 text-muted text-md-end">
+            <small>{formatDate(postDate)}</small>
+          </div>
+        </div>
+      );
+    })}
   </div>
 </BaseLayout>
 
@@ -68,37 +66,21 @@ function getPostUrl(slug: string): string {
   .row {
     display: flex;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
+    margin-right: 0;
+    margin-left: 0;
   }
 
-  .col-md-10 {
-    flex: 0 0 auto;
-    width: 83.333333%;
-    padding: 0 15px;
-  }
-
-  .offset-md-1 {
-    margin-left: 8.333333%;
-  }
-
-  @media (max-width: 768px) {
-    .col-md-10 {
-      width: 100%;
-    }
-    .offset-md-1 {
-      margin-left: 0;
-    }
-  }
-
-  .col-sm-9 {
+  .col-md-9 {
     flex: 0 0 auto;
     width: 75%;
+    padding: 0;
+    padding-right: 0.5rem; /* Add spacing between title and date */
   }
 
-  .col-sm-3 {
+  .col-md-3 {
     flex: 0 0 auto;
     width: 25%;
+    padding: 0;
   }
 
   .text-muted {
@@ -114,8 +96,8 @@ function getPostUrl(slug: string): string {
   }
 
   @media (max-width: 768px) {
-    .col-sm-9,
-    .col-sm-3 {
+    .col-md-9,
+    .col-md-3 {
       width: 100%;
     }
     
