@@ -492,7 +492,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^141]: 40 U.S.C. § 1103(d) (2006).
 
-[^142]: FAR 36.601 specifically notes that "services that do not require performance by a registered or licensed architect or engineer... should be acquired pursuant to parts 13, 14, and 15."
+[^142]: FAR 36.601 specifically notes that "services that do not require performance by a registered or licensed architect or engineer ... should be acquired pursuant to parts 13, 14, and 15."
 
 [^143]: National Defense Authorization Act of 1996, Pub. L. No. 104–106, 110 Stat. 659, 689 (1996) (codified in scattered sections of 40 U.S.C. and 41 U.S.C.). For a comprehensive overview of the ITMRA (later known as the Clinger-Cohen Act) reforms, *see* Stephen W. Feldman, *Clinger-Cohen Act of 1996; GAO Procurement Protest Authority*, 1 Government Contract Awards: Negotiation and Sealed Bidding § 1:12 (2010).
 
@@ -510,7 +510,7 @@ The federal IT procurement system is outdated. Projects are consistently deliver
 
 [^150]: FAR 39.103.
 
-[^151]: Strengthening IT program management by exposing best practices and aligning IT procurement with innovation is a central tenet of the White House's plan to reform federal IT. Kundra, *supra* note 13, at 17 (noting "the acquisition process can require program managers to specify the Government's requirements up front, which can be years in advance of program initiation... We need to make real change happen... by educating the entire team managing IT projects about the tools available to streamline the acquisition process.").
+[^151]: Strengthening IT program management by exposing best practices and aligning IT procurement with innovation is a central tenet of the White House's plan to reform federal IT. Kundra, *supra* note 13, at 17 (noting "the acquisition process can require program managers to specify the Government's requirements up front, which can be years in advance of program initiation ... We need to make real change happen ... by educating the entire team managing IT projects about the tools available to streamline the acquisition process.").
 
 [^152]: Ideally instructors would create a scalable model outlining the various issues contracting agencies must broach before pursuing an agile project, such as how to ensure robust competition, how broad or specific the statements of work should be, whether to award to a single vendor or multiple vendors, and when to use fixed-price contracts or rely instead on other contracting vehicles. *See generally* Kundra, *supra* note 13.
 

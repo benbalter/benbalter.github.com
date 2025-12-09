@@ -1,11 +1,11 @@
 ---
-title: Analysis of Federal Executive.govs
-description: Analysis of the technical capabilities of and technology powering all US Federal Executive.gov domains
+title: Analysis of Federal Executive .govs
+description: Analysis of the technical capabilities of and technology powering all US Federal Executive .gov domains
 ---
 
 The White House's Office of Management and Budget recently released a list of all domains owned and operated by federal executive agencies. Leveraging a previous tool I had built called [Site Inspector](https://github.com/benbalter/Site-Inspector) which provides information about a domain and its technical capabilities, I imported the list into the content management system WordPress, and created a plugin called [Domain Inventory](https://github.com/benbalter/Domain-Inventory) to scan each domain and curate the results. A summary of my preliminary results appears below, as well as a link to the browsable dataset.
 
-## The project tracks each Federal Executive.Gov by
+## The project tracks each Federal Executive .Gov by
 
 * **Agency** (as provided in the data.gov list)
 * **Server status** (response code, if it is reachable, etc.)
@@ -35,6 +35,6 @@ The White House's Office of Management and Budget recently released a list of al
 
 *Please note: This data is to be treated as preliminary and is provided "as is" with no guarantee as to its validity. The source code for all tools used, including the resulting data, is available on GitHub]. If you find a systemic error, I encourage you to fork the code and I will try my best to recrawl the list to improve the data's accuracy.*
 
-**Update (10/4)**: Updated the above statistics (and underlying data) based on an updated domain list published on data.gov and recrawled using the same tools. The above numbers now use the number of *live* sites (rather than total number of domains) as the denominator for percentages, and excludes approximately 300 domains which simply redirects to other.govs.
+**Update (10/4)**: Updated the above statistics (and underlying data) based on an updated domain list published on data.gov and recrawled using the same tools. The above numbers now use the number of *live* sites (rather than total number of domains) as the denominator for percentages, and excludes approximately 300 domains which simply redirects to other .govs.
 
 **Update (October 2013)**: The original site is no longer available online. You may use the linked resource to recreate the results.

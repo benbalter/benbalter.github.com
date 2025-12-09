@@ -28,7 +28,7 @@ The most upsetting part, at least for the web developer in me, has to be the sei
 
 As seen in the recent [Wikileaks domain shell game](http://gawker.com/#!5704966/wikileaks-loses-its-domain), its clear that domain servers are the weak link in the online content-delivery chain. When the state can no longer seize something that represent the forefront of our ability to communicate with one another (decentralized information sharing) and replace it with a technology the web collectively deprecated with the rise of CSS (sites which rely on.GIFs to render text), legality and politics aside, the internet will undoubtedly be a better place.
 
-[^1]: 17 U.S.C. § 512(d).
+[^1]: 17 U.S.C. § 512(d) .
 
 [^2]: The relevant provisions of § 2323 allow for the forfeiture of "(A) Any article, the making or trafficking of which is, prohibited under section 506 of title 17″ prohibiting "willful copyright infringement" and "(B) Any property used, or intended to be used, in any manner or part to commit or facilitate the commission of an offense referred to in subparagraph (A)."
 

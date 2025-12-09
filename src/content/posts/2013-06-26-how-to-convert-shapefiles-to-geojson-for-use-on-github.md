@@ -11,7 +11,7 @@ Luckily, a strangely named piece of open source software known as [ogr2ogr](http
 
 1. If you don't already have it, install Homebrew by opening up terminal and running: `$ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"`
 2. Install [gdal](http://www.gdal.org/) with the command: `$ brew install gdal`
-3. Grab a Shapefile (distributed as a.zip file) from the [DC Data Catalog](http://data.dc.gov) or your favorite data source and unzip it someplace convenient
+3. Grab a Shapefile (distributed as a .zip file) from the [DC Data Catalog](http://data.dc.gov) or your favorite data source and unzip it someplace convenient
 4. `cd` into the directory with your shiny new unzipped Shapefile
 5. Run (replacing `[name]` with the name of your downloaded Shapefile): `$ ogr2ogr -f GeoJSON -t_srs crs:84 [name].geojson [name].shp`
 6. Grab the resulting GeoJSON file and commit it to GitHub

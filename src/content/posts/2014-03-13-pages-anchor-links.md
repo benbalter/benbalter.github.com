@@ -40,11 +40,11 @@ We need to tell the browser how to position the link icon, and to only display i
   -ms-transition: opacity 0.2s ease-in-out 0.1s;
 }
 
-h2:hover.header-link,
-h3:hover.header-link,
-h4:hover.header-link,
-h5:hover.header-link,
-h6:hover.header-link {
+h2:hover .header-link,
+h3:hover .header-link,
+h4:hover .header-link,
+h5:hover .header-link,
+h6:hover .header-link {
   opacity: 1;
 }
 ```
