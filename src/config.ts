@@ -39,6 +39,7 @@ export const siteConfig = {
   // Social media handles
   twitterHandle: '@benbalter',
   socialUsername: 'benbalter',
+  githubUsername: 'benbalter',
   
   // PGP Key
   pgpKey: '07C6 73FB F30E 01C0 C342 7AB8 DBB6 7C24 6AD3 56C4',
