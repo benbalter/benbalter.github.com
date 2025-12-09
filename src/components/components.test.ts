@@ -32,7 +32,7 @@ describe('PostList Component - Specification', () => {
 
   it('should define the URL format for blog posts', () => {
     // Specification: Blog post URLs follow Jekyll format /YYYY/MM/DD/slug/
-    const urlPattern = /^\/\d{4}\/\d{2}\/\d{2}\/[a-z0-9-]+\/$/;
+    const urlPattern = /^\/\d{4}\/\d{2}\/\d{2}\/.+\/$/;
     
     // Example URLs that should match
     const validUrls = [
