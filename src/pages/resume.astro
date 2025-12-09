@@ -25,6 +25,10 @@ const positions = await getResumePositions();
 // Format date helper
 function formatDate(dateString: string): string {
   const date = new Date(dateString);
+  // Check if date is valid
+  if (isNaN(date.getTime())) {
+    return dateString; // Return original string if invalid
+  }
   return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 }
 
@@ -66,7 +70,7 @@ for (const position of positions) {
                 <h4>{position.title}</h4>
               </div>
               <div class="position-dates">
-                {formatDate(position.start_date)}&mdash;{position.end_date ? formatDate(position.end_date) : 'Present'}
+                {formatDate(position.start_date)}—{position.end_date ? formatDate(position.end_date) : 'Present'}
               </div>
             </div>
             

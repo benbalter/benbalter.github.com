@@ -36,6 +36,12 @@ export async function getResumePositions(): Promise<ResumePosition[]> {
         const fileContent = await readFile(filePath, 'utf-8');
         const { data, content } = matter(fileContent);
         
+        // Validate required fields
+        if (!data.employer || !data.title || !data.start_date) {
+          console.warn(`Resume position file ${file} is missing required fields (employer, title, or start_date)`);
+          return null;
+        }
+        
         return {
           employer: data.employer,
           title: data.title,
@@ -46,12 +52,18 @@ export async function getResumePositions(): Promise<ResumePosition[]> {
       })
     );
     
+    // Filter out any null entries from validation failures
+    const validPositions = positions.filter((p): p is ResumePosition => p !== null);
+    
     // Sort by start_date (most recent first)
-    return positions.sort((a, b) => {
+    return validPositions.sort((a, b) => {
       return new Date(b.start_date).getTime() - new Date(a.start_date).getTime();
     });
   } catch (error) {
     console.error('Error loading resume positions:', error);
+    if (error instanceof Error) {
+      console.error(`Details: ${error.message}`);
+    }
     return [];
   }
 }
