@@ -106,6 +106,13 @@ const navClasses = hero
     padding: 0.5rem var(--bs-gutter-x, 1.5rem);
   }
 
+  /* Prevent wrapping at desktop sizes */
+  @media (min-width: 768px) {
+    .navbar-inner {
+      flex-wrap: nowrap;
+    }
+  }
+
   .navbar-brand {
     font-weight: 700;
     color: var(--bs-body-color, #212529);
@@ -114,6 +121,13 @@ const navClasses = hero
 
   .navbar-toggler {
     border-color: rgba(0, 0, 0, 0.1);
+  }
+
+  /* Hide toggler at desktop sizes */
+  @media (min-width: 768px) {
+    .navbar-toggler {
+      display: none;
+    }
   }
 
   .navbar-toggler-icon {
