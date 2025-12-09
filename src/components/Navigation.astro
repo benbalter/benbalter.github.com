@@ -95,33 +95,6 @@ const navClasses = hero
     border-bottom-right-radius: var(--bs-border-radius, 0.375rem) !important;
   }
 
-  /* Row and column structure to match content layout */
-  .navbar .row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-    width: 100%;
-  }
-
-  .navbar .col-md-10 {
-    flex: 0 0 auto;
-    width: 83.333333%;
-  }
-
-  .navbar .offset-md-1 {
-    margin-left: 8.333333%;
-  }
-
-  @media (max-width: 768px) {
-    .navbar .col-md-10 {
-      width: 100%;
-    }
-    .navbar .offset-md-1 {
-      margin-left: 0;
-    }
-  }
-
   /* Inner container to hold navbar content */
   .navbar-inner {
     display: flex;
@@ -129,7 +102,7 @@ const navClasses = hero
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 0.5rem 15px;
+    padding: 0.5rem var(--bs-gutter-x, 1.5rem);
   }
 
   .navbar-brand {
