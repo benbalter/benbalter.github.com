@@ -42,12 +42,13 @@ $content-padding-x: 15px;
 
 // Skip unused components to reduce bundle size:
 // - forms (no forms on static blog)
-// - accordion, alert, badge, breadcrumb, button-group, card, carousel, 
+// - accordion, badge, breadcrumb, button-group, card, carousel, 
 //   close, dropdown, list-group, modal, offcanvas, pagination, 
 //   placeholders, popover, progress, spinners, toasts, tooltip
 
 // Include only what we need:
-@import 'bootstrap/scss/tables';     // For markdown tables
+@import 'bootstrap/scss/alert';       // For alert components (used in FossAtScale, GitHubCulture, ArchivedPostWarning)
+@import 'bootstrap/scss/tables';      // For markdown tables
 @import 'bootstrap/scss/transitions'; // For smooth interactions
 
 // 7. Helpers
@@ -80,6 +81,24 @@ $content-padding-x: 15px;
 
 .mt-2 {
     margin-top: 0.5rem !important;
+}
+
+// Float utilities (used in MiniBio component)
+.float-start {
+    float: left !important;
+}
+
+.float-end {
+    float: right !important;
+}
+
+// Padding utilities (used in MiniBio and other components)
+.pt-1 {
+    padding-top: 0.25rem !important;
+}
+
+.pe-3 {
+    padding-right: 1rem !important;
 }
 
 // Text alignment utilities for responsive sizes
