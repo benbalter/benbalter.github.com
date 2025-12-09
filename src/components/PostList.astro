@@ -1,0 +1,89 @@
+---
+import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
+
+/**
+ * PostList component - Dynamically renders a list of blog posts with descriptions
+ * 
+ * This component fetches posts by their URLs and displays them with their titles and descriptions,
+ * matching the Jekyll functionality from the original site.
+ * 
+ * Props:
+ * - postSlug: The slug of the current post (to fetch its frontmatter)
+ * - field: Which field to use from frontmatter ('posts' or 'roles')
+ */
+
+interface Props {
+  postSlug: string;
+  field: 'posts' | 'roles';
+}
+
+/**
+ * Helper function to extract URL from post slug
+ * @param slug - Post slug in format YYYY-MM-DD-title
+ * @returns URL in format /YYYY/MM/DD/title/ or null if slug format is invalid
+ */
+function getPostUrl(slug: string): string | null {
+  const dateMatch = slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
+  if (!dateMatch) return null;
+  const [, year, month, day, slugPart] = dateMatch;
+  return `/${year}/${month}/${day}/${slugPart}/`;
+}
+
+const { postSlug, field } = Astro.props;
+
+// Fetch the current post to get its frontmatter
+const currentPost = await getEntry('posts', postSlug);
+const postData = currentPost?.data[field];
+
+// Handle both array and object formats for posts
+let urls: string[] = [];
+if (Array.isArray(postData)) {
+  urls = postData;
+} else if (typeof postData === 'object' && postData !== null) {
+  // If it's an object, extract the values (URLs)
+  urls = Object.values(postData);
+}
+
+// Fetch all published posts
+const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => {
+  return data.published !== false;
+});
+
+// Create a map of URL to post for efficient lookup
+const postsByUrl = new Map<string, CollectionEntry<'posts'>>();
+
+allPosts.forEach(post => {
+  const url = getPostUrl(post.slug);
+  if (url) {
+    postsByUrl.set(url, post);
+  }
+});
+
+// Find posts matching the provided URLs
+const matchedPosts = urls
+  .map(url => {
+    const post = postsByUrl.get(url);
+    if (!post && import.meta.env.DEV) {
+      console.warn(`PostList: URL "${url}" in post "${postSlug}" field "${field}" does not match any post`);
+    }
+    return post;
+  })
+  .filter((post): post is CollectionEntry<'posts'> => post !== undefined);
+---
+
+{matchedPosts
+  .map(post => {
+    const url = getPostUrl(post.slug);
+    if (!url) {
+      console.error(`PostList: Invalid slug format: ${post.slug}`);
+      return null;
+    }
+    
+    return (
+      <li>
+        <strong><a href={url}>{post.data.title}</a></strong> — {post.data.description}
+      </li>
+    );
+  })
+  .filter(Boolean)
+}
