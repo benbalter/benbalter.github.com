@@ -148,6 +148,14 @@ img {
 }
 
 // Core Web Vitals: Prevent layout shift from lazy-loaded images
+// Use aspect-ratio for better flexibility with different image sizes
 img[loading="lazy"] {
-    min-height: 100px; // Reserve space for lazy-loaded images
+    // Reserve vertical space to prevent layout shift
+    // Images without explicit dimensions will use this
+    aspect-ratio: attr(width) / attr(height);
+    
+    // Fallback for browsers without aspect-ratio support
+    @supports not (aspect-ratio: 1 / 1) {
+        min-height: 100px;
+    }
 }

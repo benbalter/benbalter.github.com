@@ -1,6 +1,14 @@
 import { test, expect } from '@playwright/test';
 import { waitForPageReady, waitForFullLoad } from './helpers';
 
+// Performance test constants
+const PERFORMANCE_TIMEOUT = 5000; // Timeout for performance measurements
+const HOMEPAGE_LOAD_TIME = 5000; // Max acceptable load time for homepage
+const MOBILE_LOAD_TIME = 7000; // Max acceptable load time on mobile
+const MAX_JS_REQUESTS = 20; // Maximum number of JS requests
+const MAX_TOTAL_REQUESTS = 175; // Maximum total requests
+const MAX_FONTS = 10; // Maximum font files
+
 test.describe('Performance', () => {
   test('homepage should load within acceptable time', async ({ page }) => {
     const startTime = Date.now();
@@ -9,8 +17,8 @@ test.describe('Performance', () => {
     
     const loadTime = Date.now() - startTime;
     
-    // Should load within 5 seconds on CI
-    expect(loadTime).toBeLessThan(5000);
+    // Should load within acceptable time on CI
+    expect(loadTime).toBeLessThan(HOMEPAGE_LOAD_TIME);
   });
 
   test('should not have excessive number of requests', async ({ page }) => {
@@ -24,8 +32,8 @@ test.describe('Performance', () => {
     await waitForFullLoad(page);
     
     // Reasonable number of requests for a static site
-    // Adjusted to 175 to account for Next.js bundle chunks and link prefetching
-    expect(requests.length).toBeLessThan(175);
+    // Adjusted to account for Next.js bundle chunks and link prefetching
+    expect(requests.length).toBeLessThan(MAX_TOTAL_REQUESTS);
   });
 
   test('should not load excessive JavaScript', async ({ page }) => {
@@ -41,7 +49,7 @@ test.describe('Performance', () => {
     await waitForFullLoad(page);
     
     // Static site shouldn't need too many JS files
-    expect(jsRequests.length).toBeLessThan(20);
+    expect(jsRequests.length).toBeLessThan(MAX_JS_REQUESTS);
   });
 
   test('images should be optimized', async ({ page }) => {
@@ -128,7 +136,7 @@ test.describe('Performance', () => {
     await waitForFullLoad(page);
     
     // Should not load excessive fonts
-    expect(fontRequests.length).toBeLessThan(10);
+    expect(fontRequests.length).toBeLessThan(MAX_FONTS);
   });
 
   test('should measure Core Web Vitals - LCP', async ({ page }) => {
@@ -136,7 +144,7 @@ test.describe('Performance', () => {
     await waitForPageReady(page);
     
     // Measure Largest Contentful Paint using Performance API
-    const lcp = await page.evaluate(() => {
+    const lcp = await page.evaluate((timeout) => {
       return new Promise((resolve) => {
         new PerformanceObserver((list) => {
           const entries = list.getEntries();
@@ -145,9 +153,9 @@ test.describe('Performance', () => {
         }).observe({ type: 'largest-contentful-paint', buffered: true });
         
         // Fallback timeout
-        setTimeout(() => resolve(0), 5000);
+        setTimeout(() => resolve(0), timeout);
       });
-    });
+    }, PERFORMANCE_TIMEOUT);
     
     // LCP should be under 2.5 seconds (good threshold)
     // Using 4 seconds for CI tolerance
@@ -187,7 +195,7 @@ test.describe('Performance', () => {
     
     await page.goto('/', { waitUntil: 'domcontentloaded' });
     
-    const fcp = await page.evaluate(() => {
+    const fcp = await page.evaluate((timeout) => {
       return new Promise((resolve) => {
         new PerformanceObserver((list) => {
           const entries = list.getEntries();
@@ -195,9 +203,9 @@ test.describe('Performance', () => {
           resolve(entry.startTime);
         }).observe({ type: 'paint', buffered: true });
         
-        setTimeout(() => resolve(0), 5000);
+        setTimeout(() => resolve(0), timeout);
       });
-    });
+    }, PERFORMANCE_TIMEOUT);
     
     // FCP should be under 1.8 seconds (good threshold)
     // Using 3 seconds for CI tolerance
@@ -267,7 +275,7 @@ test.describe('Mobile Performance', () => {
     const loadTime = Date.now() - startTime;
     
     // Mobile should still load within reasonable time
-    expect(loadTime).toBeLessThan(7000);
+    expect(loadTime).toBeLessThan(MOBILE_LOAD_TIME);
   });
 
   test('should be responsive on mobile viewport', async ({ page }) => {

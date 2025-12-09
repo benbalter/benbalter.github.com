@@ -100,11 +100,13 @@ dom.i2svg()
 // Load non-critical features after initial page load
 document.addEventListener('turbo:load', () => {
   // Use requestIdleCallback for better performance or setTimeout as fallback
+  // requestIdleCallback is supported in Chrome, Edge, and Safari
   const scheduleNonCritical = (callback: () => void) => {
     if ('requestIdleCallback' in window) {
       requestIdleCallback(callback)
     } else {
-      setTimeout(callback, 1)
+      // Use 0ms delay to schedule on next tick
+      setTimeout(callback, 0)
     }
   }
 
