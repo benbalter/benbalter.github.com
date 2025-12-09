@@ -78,6 +78,12 @@ The configuration is optimized for GitHub Pages deployment:
 - **Zero JavaScript by default**: Only ship JS when needed
 - **Optimized assets**: Automatic image optimization and bundling
 - **Fast builds**: Vite-powered build system
+- **Turbo Drive**: Accelerated page navigation using [@hotwired/turbo](https://turbo.hotwired.dev/)
+  - Intercepts link clicks and form submissions
+  - Uses `fetch()` to replace page body instead of full page reloads
+  - Provides app-like navigation speed while maintaining SSG benefits
+  - Preserves scroll position on back/forward navigation
+  - Automatically handles browser history and page titles
 
 ### Developer Experience
 
@@ -90,6 +96,43 @@ The configuration is optimized for GitHub Pages deployment:
 - **Semantic HTML**: Accessible markup by default
 - **Meta tags**: SEO-friendly metadata
 - **Fast loading**: Excellent Core Web Vitals
+
+### Turbo Drive Integration
+
+The site uses [Turbo Drive](https://turbo.hotwired.dev/handbook/drive) from @hotwired/turbo to accelerate page navigation:
+
+**How it works:**
+- Turbo Drive automatically intercepts link clicks and form submissions
+- Instead of full page reloads, it uses `fetch()` to get new pages
+- Only the `<body>` content is replaced, keeping `<head>` elements cached
+- Browser history, scroll position, and page titles are managed automatically
+
+**Benefits:**
+- Faster perceived page loads (no white flash between pages)
+- Reduced server load (fewer assets re-downloaded)
+- App-like navigation experience
+- Works seamlessly with static site generation
+
+**Implementation:**
+```typescript
+// src/scripts/turbo.ts
+import '@hotwired/turbo';
+```
+
+The script is loaded in `BaseLayout.astro` and automatically initializes on page load.
+
+**Disabling Turbo for specific links:**
+```html
+<a href="/page/" data-turbo="false">Normal navigation</a>
+```
+
+**Testing:**
+E2E tests for Turbo Drive are in `e2e/turbo-drive.spec.ts` covering:
+- Link interception and navigation
+- Browser history management
+- Scroll position preservation
+- External link handling
+- Form submission interception
 
 ## Integration with Existing Code
 
