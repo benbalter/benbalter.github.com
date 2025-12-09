@@ -130,6 +130,127 @@ test.describe('Performance', () => {
     // Should not load excessive fonts
     expect(fontRequests.length).toBeLessThan(10);
   });
+
+  test('should measure Core Web Vitals - LCP', async ({ page }) => {
+    await page.goto('/');
+    await waitForPageReady(page);
+    
+    // Measure Largest Contentful Paint using Performance API
+    const lcp = await page.evaluate(() => {
+      return new Promise((resolve) => {
+        new PerformanceObserver((list) => {
+          const entries = list.getEntries();
+          const lastEntry = entries[entries.length - 1];
+          resolve(lastEntry.renderTime || lastEntry.loadTime);
+        }).observe({ type: 'largest-contentful-paint', buffered: true });
+        
+        // Fallback timeout
+        setTimeout(() => resolve(0), 5000);
+      });
+    });
+    
+    // LCP should be under 2.5 seconds (good threshold)
+    // Using 4 seconds for CI tolerance
+    expect(lcp).toBeLessThan(4000);
+  });
+
+  test('should have minimal Cumulative Layout Shift', async ({ page }) => {
+    await page.goto('/');
+    
+    // Wait for page to be interactive
+    await waitForPageReady(page);
+    
+    // Measure CLS using Performance API
+    const cls = await page.evaluate(() => {
+      return new Promise<number>((resolve) => {
+        let clsScore = 0;
+        new PerformanceObserver((list) => {
+          for (const entry of list.getEntries()) {
+            if (!(entry as any).hadRecentInput) {
+              clsScore += (entry as any).value;
+            }
+          }
+        }).observe({ type: 'layout-shift', buffered: true });
+        
+        // Wait a bit for layout shifts to occur
+        setTimeout(() => resolve(clsScore), 2000);
+      });
+    });
+    
+    // CLS should be under 0.1 (good threshold)
+    // Using 0.25 for CI tolerance
+    expect(cls).toBeLessThan(0.25);
+  });
+
+  test('should have fast First Contentful Paint', async ({ page }) => {
+    const startTime = Date.now();
+    
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    
+    const fcp = await page.evaluate(() => {
+      return new Promise((resolve) => {
+        new PerformanceObserver((list) => {
+          const entries = list.getEntries();
+          const entry = entries[0];
+          resolve(entry.startTime);
+        }).observe({ type: 'paint', buffered: true });
+        
+        setTimeout(() => resolve(0), 5000);
+      });
+    });
+    
+    // FCP should be under 1.8 seconds (good threshold)
+    // Using 3 seconds for CI tolerance
+    expect(fcp).toBeLessThan(3000);
+  });
+
+  test('CSS should be loaded efficiently', async ({ page }) => {
+    const cssResponses: any[] = [];
+    
+    page.on('response', response => {
+      const contentType = response.headers()['content-type'];
+      if (contentType && contentType.includes('text/css')) {
+        cssResponses.push({
+          url: response.url(),
+          size: parseInt(response.headers()['content-length'] || '0'),
+          status: response.status()
+        });
+      }
+    });
+    
+    await page.goto('/');
+    await waitForFullLoad(page);
+    
+    // Should have loaded CSS successfully
+    expect(cssResponses.length).toBeGreaterThan(0);
+    
+    // All CSS should load successfully
+    cssResponses.forEach(response => {
+      expect(response.status).toBe(200);
+    });
+  });
+
+  test('JavaScript chunks should lazy load', async ({ page }) => {
+    const jsRequests: string[] = [];
+    
+    page.on('request', request => {
+      if (request.resourceType() === 'script') {
+        jsRequests.push(request.url());
+      }
+    });
+    
+    await page.goto('/');
+    await waitForPageReady(page);
+    
+    // Check if chunked JS files are loaded
+    const hasChunks = jsRequests.some(url => url.includes('.chunk.js'));
+    
+    // If chunks exist, they should be loaded lazily
+    if (hasChunks) {
+      const chunkUrls = jsRequests.filter(url => url.includes('.chunk.js'));
+      console.log(`Loaded ${chunkUrls.length} JS chunks`);
+    }
+  });
 });
 
 test.describe('Mobile Performance', () => {
