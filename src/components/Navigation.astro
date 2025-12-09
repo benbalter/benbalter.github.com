@@ -50,7 +50,7 @@ const navClasses = hero
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="navbar-collapse" id="navbar" role="navigation">
+        <div class="navbar-collapse" id="navbar" role="navigation" aria-label="Main navigation">
           <ul class="navbar-nav mr-auto">
             {navItems.map((item) => {
               const isActive = currentPath === item.url || 
@@ -60,6 +60,7 @@ const navClasses = hero
                   <a 
                     href={item.url} 
                     class={`nav-link${isActive ? ' active' : ''}`}
+                    aria-current={isActive ? 'page' : undefined}
                   >
                     {item.title}
                   </a>
