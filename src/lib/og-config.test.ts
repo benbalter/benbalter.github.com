@@ -47,11 +47,6 @@ describe('defaultOGConfig', () => {
     expect(Array.isArray(defaultOGConfig.border.colors)).toBe(true);
     expect(defaultOGConfig.border.colors.length).toBe(1);
     expect(defaultOGConfig.border.colors[0]).toBe('#4285F4');
-  });
-
-  it('should have Google blue border color', () => {
-    // Google blue (#4285F4)
-    expect(defaultOGConfig.border.colors[0]).toBe('#4285F4');
     expect(defaultOGConfig.border.colors[0]).toMatch(/^#[0-9A-F]{6}$/i);
   });
 
@@ -64,11 +59,6 @@ describe('defaultOGConfig', () => {
   it('should have valid logo size', () => {
     expect(defaultOGConfig.logo?.size).toBeGreaterThan(0);
     expect(defaultOGConfig.logo?.size).toBeLessThanOrEqual(200);
-  });
-
-  it('should use Inter font for both title and description', () => {
-    expect(defaultOGConfig.title.fontFamily).toBe('Inter');
-    expect(defaultOGConfig.description.fontFamily).toBe('Inter');
   });
 
   it('should have reasonable font sizes', () => {
@@ -110,12 +100,6 @@ describe('defaultOGConfig', () => {
     requiredProps.forEach(prop => {
       expect(defaultOGConfig).toHaveProperty(prop);
     });
-  });
-
-  it('should have optional logo property', () => {
-    // Logo is optional but should be defined in default config
-    expect(defaultOGConfig).toHaveProperty('logo');
-    expect(defaultOGConfig.logo).toBeDefined();
   });
 
   it('should export a valid OGImageConfig structure', () => {

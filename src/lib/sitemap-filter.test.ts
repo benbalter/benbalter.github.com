@@ -4,7 +4,9 @@
 
 import { describe, it, expect } from 'vitest';
 
-// Test data - these should match the values in sitemap-filter.ts
+// Note: We cannot import STATIC_EXCLUDED_PAGES directly from './sitemap-filter'
+// because it imports 'astro:content' which is not available in vitest.
+// These values should match the exported STATIC_EXCLUDED_PAGES in sitemap-filter.ts
 const STATIC_EXCLUDED_PAGES = [
   '/404/',
   '/_not-found/',
@@ -32,15 +34,13 @@ describe('STATIC_EXCLUDED_PAGES', () => {
     expect(STATIC_EXCLUDED_PAGES).toContain('/fine-print/');
   });
 
-  it('should have URLs with trailing slashes', () => {
+  it('should have properly formatted URL paths', () => {
     STATIC_EXCLUDED_PAGES.forEach(url => {
-      expect(url).toMatch(/\/$/);
-    });
-  });
-
-  it('should have URLs starting with /', () => {
-    STATIC_EXCLUDED_PAGES.forEach(url => {
-      expect(url).toMatch(/^\//);
+      // Should start with / and end with /
+      expect(url).toMatch(/^\/.*\/$/);
+      
+      // Should not have double slashes except at start
+      expect(url.replace(/^\//, '')).not.toMatch(/\/\//);
     });
   });
 
@@ -54,28 +54,6 @@ describe('STATIC_EXCLUDED_PAGES', () => {
   it('should not have duplicate entries', () => {
     const uniquePages = [...new Set(STATIC_EXCLUDED_PAGES)];
     expect(uniquePages.length).toBe(STATIC_EXCLUDED_PAGES.length);
-  });
-
-  it('should match expected excluded pages', () => {
-    const expectedPages = [
-      '/404/',
-      '/_not-found/',
-      '/fine-print/',
-    ];
-
-    expectedPages.forEach(page => {
-      expect(STATIC_EXCLUDED_PAGES).toContain(page);
-    });
-  });
-
-  it('should have properly formatted URL paths', () => {
-    STATIC_EXCLUDED_PAGES.forEach(url => {
-      // Should start with / and end with /
-      expect(url).toMatch(/^\/.*\/$/);
-      
-      // Should not have double slashes except at start
-      expect(url.replace(/^\//, '')).not.toMatch(/\/\//);
-    });
   });
 });
 
@@ -129,45 +107,5 @@ describe('Sitemap filter logic', () => {
     });
 
     expect(filteredPages.length).toBe(pages.length);
-  });
-});
-
-describe('Post URL parsing for sitemap filtering', () => {
-  it('should parse post slug into URL format', () => {
-    const slug = '2024-01-15-my-blog-post';
-    const parts = slug.split('-');
-    const year = parts[0];
-    const month = parts[1];
-    const day = parts[2];
-    const postSlug = parts.slice(3).join('-');
-    const url = `/${year}/${month}/${day}/${postSlug}/`;
-
-    expect(url).toBe('/2024/01/15/my-blog-post/');
-  });
-
-  it('should handle complex post slugs', () => {
-    const slug = '2023-03-02-github-for-non-technical-roles';
-    const parts = slug.split('-');
-    const year = parts[0];
-    const month = parts[1];
-    const day = parts[2];
-    const postSlug = parts.slice(3).join('-');
-    const url = `/${year}/${month}/${day}/${postSlug}/`;
-
-    expect(url).toBe('/2023/03/02/github-for-non-technical-roles/');
-  });
-
-  it('should handle page slugs', () => {
-    const slug = 'about';
-    const url = `/${slug}/`;
-
-    expect(url).toBe('/about/');
-  });
-
-  it('should handle nested page slugs', () => {
-    const slug = 'docs/guide';
-    const url = `/${slug}/`;
-
-    expect(url).toBe('/docs/guide/');
   });
 });

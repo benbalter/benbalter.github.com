@@ -146,14 +146,14 @@ describe('getPostUrlOrNull', () => {
 
   it('should return null for malformed date components', () => {
     const testCases = [
-      '2024-13-01-invalid-month', // Invalid month
-      '2024-01-32-invalid-day', // Invalid day (though regex doesn't validate this)
-      '24-01-01-short-year', // Short year
-      '2024-1-1-no-zero-padding', // No zero padding (though this might still match)
+      '24-01-01-short-year', // Short year (doesn't match \d{4})
+      '2024-1-1-no-zero-padding', // No zero padding (doesn't match \d{2})
     ];
 
-    // Note: The regex only checks format, not validity
-    // These will fail because they don't match YYYY-MM-DD pattern
-    expect(getPostUrlOrNull('24-01-01-short-year')).toBeNull();
+    // Note: The regex only checks format (\d{4}-\d{2}-\d{2}-), not validity
+    // So '2024-13-01' and '2024-01-32' would actually match the regex
+    testCases.forEach(slug => {
+      expect(getPostUrlOrNull(slug)).toBeNull();
+    });
   });
 });
