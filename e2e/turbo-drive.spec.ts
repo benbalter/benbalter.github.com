@@ -33,7 +33,6 @@ test.describe('Turbo Drive Navigation', () => {
     });
     
     // Track Turbo navigation events
-    let turboNavigationCount = 0;
     await page.evaluate(() => {
       document.addEventListener('turbo:visit', () => {
         (window as any).turboVisitFired = true;
@@ -82,6 +81,9 @@ test.describe('Turbo Drive Navigation', () => {
     // Scroll down on the about page
     await page.evaluate(() => window.scrollTo(0, 100));
     
+    // Wait a moment for scroll to complete
+    await page.waitForTimeout(100);
+    
     // Navigate to contact page
     const contactLink = page.locator('a[href="/contact/"]').first();
     await contactLink.click();
@@ -95,6 +97,10 @@ test.describe('Turbo Drive Navigation', () => {
     
     // Verify we're on the about page
     await expect(page).toHaveURL(/\/about\//);
+    
+    // Verify scroll position was preserved (with tolerance for slight variations)
+    const scrollY = await page.evaluate(() => window.scrollY);
+    expect(scrollY).toBeCloseTo(100, -1);
   });
 
   test('should update browser history correctly', async ({ page }) => {
@@ -210,19 +216,6 @@ test.describe('Turbo Drive Navigation', () => {
 });
 
 test.describe('Turbo Drive Configuration', () => {
-  test('should respect data-turbo="false" attribute', async ({ page }) => {
-    await page.goto('/');
-    await waitForPageReady(page);
-    
-    // Check if any links have data-turbo="false"
-    const nonTurboLinks = await page.locator('a[data-turbo="false"]').count();
-    
-    // If there are such links, they should trigger full page loads
-    // This is just a configuration check - actual behavior testing would require
-    // adding such links to the site
-    expect(nonTurboLinks).toBeGreaterThanOrEqual(0);
-  });
-
   test('should work with forms if present', async ({ page }) => {
     await page.goto('/contact/');
     await waitForPageReady(page);
