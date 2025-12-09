@@ -198,7 +198,7 @@ const readingTime = calculateReadingTime(content);
   }
 
   .text-primary {
-    color: #0366d6 !important;
+    color: var(--bs-link-color) !important;
   }
 
   .lead {
@@ -207,18 +207,18 @@ const readingTime = calculateReadingTime(content);
   }
   
   .post-description {
-    color: #586069;
+    color: var(--bs-secondary-color);
     line-height: 1.5;
     margin-bottom: 1.5rem;
   }
   
   .post-meta {
     font-size: 0.9rem;
-    color: #586069;
+    color: var(--bs-secondary-color);
   }
 
   .text-muted {
-    color: #6c757d !important;
+    color: var(--bs-secondary-color) !important;
   }
 
   .mb-2 {
@@ -264,7 +264,7 @@ const readingTime = calculateReadingTime(content);
   .post-content {
     font-size: 1.1rem;
     line-height: 1.7;
-    color: #24292e;
+    color: var(--bs-body-color);
   }
   
   .post-content :global(h2) {
@@ -272,7 +272,7 @@ const readingTime = calculateReadingTime(content);
     font-weight: 600;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
-    color: #24292e;
+    color: var(--bs-emphasis-color);
   }
   
   .post-content :global(h3) {
@@ -280,7 +280,7 @@ const readingTime = calculateReadingTime(content);
     font-weight: 600;
     margin-top: 2rem;
     margin-bottom: 0.75rem;
-    color: #24292e;
+    color: var(--bs-emphasis-color);
   }
   
   .post-content :global(p) {
@@ -300,7 +300,7 @@ const readingTime = calculateReadingTime(content);
   .post-content :global(pre) {
     margin: 1.5rem 0;
     padding: 1rem;
-    background-color: #f6f8fa;
+    background-color: var(--bs-tertiary-bg);
     border-radius: 6px;
     overflow-x: auto;
   }
@@ -311,21 +311,21 @@ const readingTime = calculateReadingTime(content);
   }
   
   .post-content :global(p code) {
-    background-color: #f6f8fa;
+    background-color: var(--bs-tertiary-bg);
     padding: 0.2em 0.4em;
     border-radius: 3px;
   }
   
   .post-content :global(blockquote) {
-    border-left: 4px solid #0366d6;
+    border-left: 4px solid var(--bs-link-color);
     padding-left: 1rem;
     margin: 1.5rem 0;
-    color: #586069;
+    color: var(--bs-secondary-color);
     font-style: italic;
   }
   
   .post-content :global(a) {
-    color: #0366d6;
+    color: var(--bs-link-color);
     text-decoration: none;
   }
   
@@ -342,16 +342,16 @@ const readingTime = calculateReadingTime(content);
   .post-content :global(th),
   .post-content :global(td) {
     padding: 0.75rem;
-    border: 1px solid #e1e4e8;
+    border: 1px solid var(--bs-border-color);
   }
   
   .post-content :global(th) {
-    background-color: #f6f8fa;
+    background-color: var(--bs-tertiary-bg);
     font-weight: 600;
   }
   
   .post-content :global(tr:nth-child(even)) {
-    background-color: #f6f8fa;
+    background-color: var(--bs-tertiary-bg);
   }
 
   .post-tags {
@@ -388,9 +388,9 @@ const readingTime = calculateReadingTime(content);
   .related-posts-heading {
     font-size: 1rem;
     font-weight: 600;
-    color: #24292e;
+    color: var(--bs-emphasis-color);
     margin-bottom: 1rem;
-    border-top: 1px solid #e1e4e8;
+    border-top: 1px solid var(--bs-border-color);
     padding-top: 1rem;
   }
   
@@ -405,7 +405,7 @@ const readingTime = calculateReadingTime(content);
   }
   
   .related-posts-list a {
-    color: #0366d6;
+    color: var(--bs-link-color);
     text-decoration: none;
     font-weight: 500;
   }
@@ -417,11 +417,11 @@ const readingTime = calculateReadingTime(content);
   .post-footer {
     margin-top: 2rem;
     padding-top: 1rem;
-    border-top: 1px solid #e1e4e8;
+    border-top: 1px solid var(--bs-border-color);
   }
 
   .border-top {
-    border-top: 1px solid #dee2e6 !important;
+    border-top: 1px solid var(--bs-border-color) !important;
   }
 
   .text-end {
@@ -437,7 +437,7 @@ const readingTime = calculateReadingTime(content);
   
   .back-link,
   .edit-link {
-    color: #0366d6;
+    color: var(--bs-link-color);
     text-decoration: none;
     font-weight: 500;
   }
