@@ -79,6 +79,7 @@ export default defineConfig({
     favicons({
       // Use existing high-quality PNG as source
       // The integration will generate all favicon formats automatically
+      // Path includes 'public/' as shown in astro-favicons documentation examples
       input: {
         favicons: ['public/android-chrome-512x512.png'],
       },
