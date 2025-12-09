@@ -57,15 +57,22 @@ const matchedPosts = urls
   .filter((post): post is CollectionEntry<'posts'> => post !== undefined);
 ---
 
-{matchedPosts.map(post => {
-  // Extract date from slug for URL construction
-  const dateMatch = post.slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
-  const [, year, month, day, slug] = dateMatch!;
-  const url = `/${year}/${month}/${day}/${slug}/`;
-  
-  return (
-    <li>
-      <strong><a href={url}>{post.data.title}</a></strong> — {post.data.description}
-    </li>
-  );
-})}
+{matchedPosts
+  .map(post => {
+    // Extract date from slug for URL construction
+    const dateMatch = post.slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
+    if (!dateMatch) {
+      console.error(`PostList: Invalid slug format: ${post.slug}`);
+      return null;
+    }
+    const [, year, month, day, slug] = dateMatch;
+    const url = `/${year}/${month}/${day}/${slug}/`;
+    
+    return (
+      <li>
+        <strong><a href={url}>{post.data.title}</a></strong> — {post.data.description}
+      </li>
+    );
+  })
+  .filter(Boolean)
+}
