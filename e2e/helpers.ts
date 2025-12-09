@@ -150,8 +150,16 @@ export async function checkBasicAccessibility(page: Page) {
 
 /**
  * Detect if the site is built with Astro or Jekyll
- * Astro adds a data-astro-cid attribute to elements
- * Jekyll does not have this attribute
+ * 
+ * Checks for build system-specific attributes and meta tags:
+ * - Astro adds data-astro-cid attributes to elements
+ * - Both set a meta generator tag
+ * 
+ * @param page - The Playwright page object
+ * @returns true if Astro build, false if Jekyll build
+ * 
+ * Note: Defaults to Jekyll (false) if neither system is detected,
+ * as Jekyll is the current production build system.
  */
 export async function isAstroBuild(page: Page): Promise<boolean> {
   // Check for Astro-specific attributes

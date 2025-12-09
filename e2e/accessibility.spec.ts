@@ -1,6 +1,9 @@
 import { test, expect } from '@playwright/test';
 import { checkBasicAccessibility, waitForPageReady, isAstroBuild } from './helpers';
 
+// WCAG AA contrast ratio requirement for normal text
+const WCAG_AA_CONTRAST_RATIO = 4.5;
+
 test.describe('Accessibility', () => {
   const pages = ['/', '/about', '/resume', '/contact', '/talks'];
 
@@ -239,7 +242,6 @@ test.describe('Accessibility', () => {
     
     // WCAG AA requires a contrast ratio of at least 4.5:1 for normal text
     // WCAG AAA requires 7:1, but we'll test for AA minimum
-    const WCAG_AA_CONTRAST_RATIO = 4.5;
     expect(contrastCheck.contrastRatio).toBeGreaterThanOrEqual(WCAG_AA_CONTRAST_RATIO);
     
     // Also verify the body has a dark background
