@@ -31,6 +31,7 @@
     "@textlint-rule/textlint-rule-no-unmatched-pair": "^2.0.3",
     "@types/anchor-js": "^5.0.3",
     "@types/bootstrap": "^5.2.10",
+    "@types/js-yaml": "^4.0.9",
     "@types/node": "^20.14.9",
     "@types/webpack": "^5.28.5",
     "@typescript-eslint/eslint-plugin": "^7.4.0",

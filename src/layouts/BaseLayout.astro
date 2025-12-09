@@ -69,7 +69,7 @@ pathSegments.forEach((segment, index) => {
   const isLastItem = index === pathSegments.length - 1;
   breadcrumbItems.push({ 
     name, 
-    url: isLastItem ? '' : currentPath 
+    url: (isLastItem ? '' : currentPath) as typeof siteConfig.url
   });
 });
 

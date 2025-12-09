@@ -20,7 +20,7 @@ const booksPath = join(process.cwd(), '_data', 'books.yml');
 let booksData;
 try {
   const booksYaml = readFileSync(booksPath, 'utf-8');
-  booksData = yaml.load(booksYaml, { schema: yaml.SAFE_SCHEMA }) as Record<string, Array<{ title: string; asin: string; tldr: string }>>;
+  booksData = yaml.load(booksYaml) as Record<string, Array<{ title: string; asin: string; tldr: string }>>;
 } catch (error) {
   throw new Error(`Failed to load books data from ${booksPath}: ${error instanceof Error ? error.message : String(error)}`);
 }

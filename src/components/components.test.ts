@@ -114,8 +114,8 @@ describe('YouTube Component - Specification', () => {
     // Specification: Default title value
     const defaultTitle = 'YouTube video';
     
-    // Verify default is used when title is undefined
-    const title = undefined ?? defaultTitle;
+    // Verify default is used when title is not provided
+    const title = defaultTitle;
     expect(title).toBe('YouTube video');
   });
 
