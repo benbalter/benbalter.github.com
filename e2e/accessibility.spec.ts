@@ -140,4 +140,106 @@ test.describe('Accessibility', () => {
     
     expect(count).toBeGreaterThan(0);
   });
+
+  test('Dark mode should be supported', async ({ page }) => {
+    // Emulate dark color scheme preference
+    await page.emulateMedia({ colorScheme: 'dark' });
+    await page.goto('/');
+    await waitForPageReady(page);
+    
+    // Verify data-bs-theme attribute is present
+    const html = page.locator('html');
+    await expect(html).toHaveAttribute('data-bs-theme', 'auto');
+    
+    // Verify dark mode styling is applied
+    const bodyBg = await page.locator('body').evaluate(el => 
+      window.getComputedStyle(el).backgroundColor
+    );
+    
+    // Dark mode should have a dark background (not white)
+    expect(bodyBg).not.toBe('rgb(255, 255, 255)');
+  });
+
+  test('should have sufficient text contrast in dark mode for post content', async ({ page }) => {
+    // WCAG AA contrast ratio requirement for normal text
+    const WCAG_AA_CONTRAST_RATIO = 4.5;
+    
+    // Emulate dark color scheme preference
+    await page.emulateMedia({ colorScheme: 'dark' });
+    
+    // Navigate to a blog post to test post body content
+    await page.goto('/2010/09/12/wordpress-resume-plugin/');
+    await waitForPageReady(page);
+    
+    // Verify data-bs-theme attribute is present
+    const html = page.locator('html');
+    await expect(html).toHaveAttribute('data-bs-theme', 'auto');
+    
+    // Check post content exists and is visible
+    const postContent = page.locator('.post-content, .entrybody');
+    await expect(postContent).toBeVisible();
+    
+    // Get background and text colors of post body and body background
+    const contrastCheck = await postContent.evaluate(el => {
+      const postStyles = window.getComputedStyle(el);
+      const bodyStyles = window.getComputedStyle(document.body);
+      
+      // Helper to parse RGB/RGBA values
+      const parseRgb = (colorString: string) => {
+        // Handle rgb() and rgba() formats
+        const match = colorString.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+        if (match) {
+          return {
+            r: parseInt(match[1]),
+            g: parseInt(match[2]),
+            b: parseInt(match[3])
+          };
+        }
+        return null;
+      };
+      
+      // Helper to calculate relative luminance (WCAG formula)
+      const getLuminance = (rgb: {r: number, g: number, b: number}) => {
+        const rsRGB = rgb.r / 255;
+        const gsRGB = rgb.g / 255;
+        const bsRGB = rgb.b / 255;
+        
+        const r = rsRGB <= 0.03928 ? rsRGB / 12.92 : Math.pow((rsRGB + 0.055) / 1.055, 2.4);
+        const g = gsRGB <= 0.03928 ? gsRGB / 12.92 : Math.pow((gsRGB + 0.055) / 1.055, 2.4);
+        const b = bsRGB <= 0.03928 ? bsRGB / 12.92 : Math.pow((bsRGB + 0.055) / 1.055, 2.4);
+        
+        return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+      };
+      
+      const textColor = parseRgb(postStyles.color);
+      const bgColor = parseRgb(bodyStyles.backgroundColor);
+      
+      if (!textColor || !bgColor) {
+        return { contrastRatio: 0, textColor: postStyles.color, bgColor: bodyStyles.backgroundColor };
+      }
+      
+      const textLuminance = getLuminance(textColor);
+      const bgLuminance = getLuminance(bgColor);
+      
+      // Calculate contrast ratio (WCAG formula)
+      const contrastRatio = (Math.max(textLuminance, bgLuminance) + 0.05) / 
+                           (Math.min(textLuminance, bgLuminance) + 0.05);
+      
+      return {
+        contrastRatio,
+        textColor: postStyles.color,
+        bgColor: bodyStyles.backgroundColor
+      };
+    });
+    
+    // WCAG AA requires a contrast ratio of at least 4.5:1 for normal text
+    // WCAG AAA requires 7:1, but we'll test for AA minimum
+    expect(contrastCheck.contrastRatio).toBeGreaterThanOrEqual(WCAG_AA_CONTRAST_RATIO);
+    
+    // Also verify the body has a dark background
+    const bodyBg = await page.locator('body').evaluate(el => 
+      window.getComputedStyle(el).backgroundColor
+    );
+    expect(bodyBg).not.toBe('rgb(255, 255, 255)');
+  });
 });

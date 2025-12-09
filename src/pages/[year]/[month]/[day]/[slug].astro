@@ -49,6 +49,7 @@ const relatedPosts = await findRelatedPosts(post, allPosts, 10);
   pubDate={pubDate}
   image={post.data.image}
   relatedPosts={relatedPosts}
+  archived={post.data.archived}
   postSlug={post.slug}
 >
   <Content />
