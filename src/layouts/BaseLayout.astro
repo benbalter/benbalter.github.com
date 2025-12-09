@@ -153,6 +153,9 @@ const schemas = breadcrumbSchema
     <title>{fullTitle}</title>
   </head>
   <body class="mt-2">
+    <!-- Skip to main content link for accessibility -->
+    <a href="#content" class="skip-to-content visually-hidden-focusable">Skip to main content</a>
+    
     <div class="container">
       {hero && <div class="hero-unit position-relative"></div>}
       
