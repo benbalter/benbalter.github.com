@@ -106,7 +106,7 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
           <h3 class="certification-authority h5">{cert.authority}</h3>
           <div class="certification-name">
             {cert.url ? (
-              <a href={cert.url} target="_blank" rel="noopener noreferrer">{cert.name}</a>
+              <a href={cert.url} target="_blank" rel="noopener noreferrer" aria-label={`View ${cert.name} credential`}>{cert.name}</a>
             ) : (
               cert.name
             )}
