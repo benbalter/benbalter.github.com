@@ -10,6 +10,7 @@ import BaseLayout from './BaseLayout.astro';
 import MiniBio from '../components/MiniBio.astro';
 import { siteConfig } from '../config';
 import { calculateReadingTime } from '../utils/reading-time';
+import ArchivedPostWarning from '../components/ArchivedPostWarning.astro';
 import type { CollectionEntry } from 'astro:content';
 import { marked } from 'marked';
 
@@ -22,6 +23,7 @@ interface Props {
   author?: string;
   tags?: string[];
   relatedPosts?: CollectionEntry<'posts'>[];
+  archived?: boolean;
   postSlug: string;
 }
 
@@ -34,6 +36,7 @@ const {
   author = siteConfig.author,
   tags = [],
   relatedPosts = [],
+  archived = false,
   postSlug,
 } = Astro.props;
 
@@ -95,6 +98,8 @@ const readingTime = calculateReadingTime(content);
             />
           )}
         </header>
+        
+        {archived && <ArchivedPostWarning />}
         
         <div class="post-content entrybody">
           <slot />
