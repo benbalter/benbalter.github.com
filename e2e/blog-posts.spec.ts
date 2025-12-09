@@ -238,4 +238,36 @@ test.describe('Blog Posts', () => {
       }
     }
   });
+
+  test('blog post should have edit button', async ({ page }) => {
+    await page.goto('/');
+    await waitForPageReady(page);
+    
+    const postLinks = page.locator('a[href*="/20"]');
+    const count = await postLinks.count();
+    
+    if (count === 0) {
+      test.skip(true, 'No blog posts found');
+      return;
+    }
+    
+    const firstPostUrl = await postLinks.first().getAttribute('href');
+    
+    if (firstPostUrl) {
+      await page.goto(firstPostUrl);
+      await waitForPageReady(page);
+      
+      // Check for "help improve it" text
+      const improveText = page.locator('text=help improve it');
+      await expect(improveText).toBeVisible();
+      
+      // Check for Edit button with proper link to GitHub
+      const editButton = page.locator('a.btn.btn-outline-primary', { hasText: 'Edit' });
+      await expect(editButton).toBeVisible();
+      
+      const href = await editButton.getAttribute('href');
+      expect(href).toContain('github.com');
+      expect(href).toContain('/edit/');
+    }
+  });
 });
