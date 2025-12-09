@@ -9,7 +9,7 @@ seo:
   type: person
 degrees:
   - school: The George Washington University Law School
-    degree: Juris Doctorate
+    degree: Juris Doctor
     date: '2013-05-01'
   - school: The George Washington University School of Business
     degree: Master of Business Administration — Strategic Management and Public Policy
