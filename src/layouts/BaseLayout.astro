@@ -141,9 +141,14 @@ const schemas = breadcrumbSchema
       <link rel="me" href={link.url} />
     ))}
     
-    <!-- Preconnect to External Domains -->
+    <!-- Resource Hints for Performance -->
+    <!-- Preconnect to critical external domains (used on most pages) -->
     <link rel="preconnect" href="https://avatars.githubusercontent.com" crossorigin />
     <link rel="preconnect" href="https://github.com" crossorigin />
+    
+    <!-- DNS Prefetch for other external resources -->
+    <link rel="dns-prefetch" href="https://images.amazon.com" />
+    <link rel="dns-prefetch" href="https://user-images.githubusercontent.com" />
     
     <!-- RSS Feed -->
     <link rel="alternate" type="application/rss+xml" title={`${siteConfig.name} - RSS Feed`} href="/feed.xml" />
@@ -154,14 +159,16 @@ const schemas = breadcrumbSchema
   </head>
   <body class="mt-2">
     <!-- Skip to main content link for accessibility -->
-    <a href="#content" class="skip-to-content visually-hidden-focusable">Skip to main content</a>
+    <a href="#content" class="skip-to-content visually-hidden-focusable">
+      Skip to main content
+    </a>
     
     <div class="container">
       {hero && <div class="hero-unit position-relative"></div>}
       
       <Navigation hero={hero} />
       
-      <main id="content" role="main" class="content">
+      <main id="content" role="main" class="content" tabindex="-1">
         <slot />
       </main>
       
