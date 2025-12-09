@@ -12,8 +12,8 @@ The Astro implementation has successfully replicated **most core Jekyll function
 **Overall Status**: 🟡 **75% Complete** - Core functionality working, but gaps remain
 
 ### Quick Status
-- ✅ **Complete**: 25 items
-- 🟡 **Partial/Needs Work**: 12 items  
+- ✅ **Complete**: 27 items
+- 🟡 **Partial/Needs Work**: 10 items  
 - ❌ **Missing**: 8 items
 - ⚪ **Not Needed**: 3 items
 
@@ -64,13 +64,13 @@ Comparison of Jekyll includes (`_includes/`) with Astro components (`src/compone
 | Mini Bio | `mini-bio.html` | `MiniBio.astro` | ✅ Complete | Author bio |
 | GitHub Culture | `github-culture.html` | `GitHubCulture.astro` | ✅ Complete | Reusable content block |
 | FOSS at Scale | `foss-at-scale.html` | `FossAtScale.astro` | ✅ Complete | Reusable content block |
-| Related Posts | `related_posts.html` | ❌ Missing | 🟡 **Partial** | Algorithm exists but not displayed on post pages |
-| Reading Time | `reading-time.html` | ❌ Missing | 🟡 **Partial** | Utility exists but not displayed on post pages |
+| Related Posts | `related_posts.html` | ✅ Complete | ✅ Complete | TF-IDF algorithm, displayed on post pages |
+| Reading Time | `reading-time.html` | ✅ Complete | ✅ Complete | Displayed in post header (X min read) |
 | About JSON-LD | `about-json-ld.html` | Inline in layout | ✅ Complete | Structured data in BaseLayout |
 | 404 Suggestions | `four-oh-four-suggestion.html` | ❌ Missing | ❌ **Missing** | No 404 page yet |
 | Archived Post Warning | N/A | `ArchivedPostWarning.astro` | ✅ Complete | New component for old posts |
 
-**Summary**: 11/15 components complete, 2 partial, 2 missing
+**Summary**: 13/15 components complete, 0 partial, 2 missing
 
 ---
 
@@ -230,10 +230,10 @@ Comparison of Jekyll includes (`_includes/`) with Astro components (`src/compone
 - ✅ Anchor links on headings
 - ✅ GitHub contributor list in humans.txt
 - ✅ Security.txt (RFC 9116 compliant)
+- ✅ **Reading time**: Displayed on post pages (X min read)
+- ✅ **Related posts**: TF-IDF algorithm shows 10 related posts per post
 
 ### Features Missing/Partial
-- 🟡 **Reading time**: Utility exists (`src/utils/reading-time.ts`) but not displayed on posts
-- 🟡 **Related posts**: Algorithm exists (`src/utils/related-posts.ts`) but not displayed on posts
 - ❌ **Comments**: No comments system (was enabled in Jekyll)
 - ❌ **Search**: No search functionality
 - ❌ **Pagination**: Homepage shows all posts, no pagination
@@ -265,19 +265,15 @@ Comparison of Jekyll includes (`_includes/`) with Astro components (`src/compone
 **Effort**: Low  
 **Action**: Create `src/pages/404.astro`
 
-#### 4. Related Posts Not Displayed 🟡
+#### 4. ~~Related Posts Not Displayed~~ ✅ **IMPLEMENTED**
 **Jekyll**: Shows related posts at bottom of each post  
-**Astro**: Algorithm exists but not integrated  
-**Impact**: Reduced engagement, missing feature  
-**Effort**: Low - component exists, needs integration in PostLayout  
-**Action**: Add related posts section to `src/layouts/PostLayout.astro`
+**Astro**: ✅ **Complete** - TF-IDF algorithm implemented and displayed  
+**Status**: Working correctly with 10 related posts shown per post
 
-#### 5. Reading Time Not Displayed 🟡
+#### 5. ~~Reading Time Not Displayed~~ ✅ **IMPLEMENTED**
 **Jekyll**: Shows "X min read" on posts  
-**Astro**: Utility exists but not shown  
-**Impact**: Missing UX feature  
-**Effort**: Very low  
-**Action**: Add reading time to `src/layouts/PostLayout.astro`
+**Astro**: ✅ **Complete** - Displayed in post header  
+**Status**: Working correctly using reading-time package
 
 ### Medium Priority Gaps
 
@@ -408,8 +404,8 @@ Comparison of Jekyll includes (`_includes/`) with Astro components (`src/compone
 - [ ] ❌ Create Press page (`src/pages/press.astro`)
 - [ ] ❌ Create Press feed (`src/pages/press/feed/index.xml.ts`)
 - [ ] ❌ Create custom 404 page (`src/pages/404.astro`)
-- [ ] 🟡 Add reading time display to post layout
-- [ ] 🟡 Add related posts display to post layout
+- [x] ✅ Add reading time display to post layout (COMPLETE)
+- [x] ✅ Add related posts display to post layout (COMPLETE)
 - [ ] 🟡 Implement pagination on homepage
 - [ ] 🟡 Visual QA: Compare Jekyll and Astro side-by-side
 - [ ] 🟡 Set up HTML validation testing
@@ -560,7 +556,7 @@ Comparison of Jekyll includes (`_includes/`) with Astro components (`src/compone
 
 ## 19. Conclusion
 
-The Astro migration is **75% complete** with strong fundamentals in place:
+The Astro migration is **80% complete** with strong fundamentals in place:
 
 ### Strengths ✅
 - All 184 blog posts migrated
@@ -572,7 +568,6 @@ The Astro migration is **75% complete** with strong fundamentals in place:
 ### Gaps 🟡
 - Missing Press page and feed
 - Missing custom 404 page
-- Reading time and related posts not displayed
 - Homepage needs pagination
 - Testing needs expansion
 
