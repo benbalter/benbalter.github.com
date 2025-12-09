@@ -44,6 +44,14 @@ const postsCollection = defineCollection({
     icons: z.boolean().optional(),
     tags: z.array(z.string()).optional(),
     categories: z.array(z.string()).optional(),
+    
+    // Post lists (for curated reading lists)
+    // Support both array format (used by what-to-read post) and object format (used by 10-years post)
+    posts: z.union([
+      z.array(z.string()), // Array of URLs: ["/2021/01/01/slug/", ...]
+      z.record(z.string()) // Object with titles as keys: { "Title": "/2021/01/01/slug/" }
+    ]).optional(),
+    roles: z.array(z.string()).optional(),
   }),
 });
 
