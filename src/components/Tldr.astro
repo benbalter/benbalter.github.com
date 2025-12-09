@@ -128,8 +128,8 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
   /* Custom tooltip styles */
   :global(.custom-tooltip) {
     position: fixed;
-    background-color: #000;
-    color: #fff;
+    background-color: var(--bs-emphasis-color, #000);
+    color: var(--bs-body-bg, #fff);
     padding: 8px 12px;
     border-radius: 4px;
     font-size: 0.875rem;
@@ -153,6 +153,13 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
     top: 50%;
     transform: translateY(-50%);
     border: 5px solid transparent;
-    border-right-color: #000;
+    border-right-color: var(--bs-emphasis-color, #000);
+  }
+
+  /* Dark mode tooltip adjustments */
+  @media (prefers-color-scheme: dark) {
+    :global(.custom-tooltip) {
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.15);
+    }
   }
 </style>

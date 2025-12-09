@@ -134,9 +134,9 @@ const posts: CollectionEntry<'posts'>[] = allPosts
   }
 
   .alert-primary {
-    color: #084298;
-    background-color: #cfe2ff;
-    border-color: #b6d4fe;
+    color: var(--bs-primary-text-emphasis, #084298);
+    background-color: var(--bs-primary-bg-subtle, #cfe2ff);
+    border-color: var(--bs-primary-border-subtle, #b6d4fe);
   }
 
   .lead {
@@ -172,14 +172,5 @@ const posts: CollectionEntry<'posts'>[] = allPosts
 
   a:hover {
     text-decoration: underline;
-  }
-
-  /* Dark mode support */
-  @media (prefers-color-scheme: dark) {
-    .alert-primary {
-      color: #6ea8fe;
-      background-color: #031633;
-      border-color: #084298;
-    }
   }
 </style>
