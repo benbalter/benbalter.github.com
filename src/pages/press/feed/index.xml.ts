@@ -3,20 +3,19 @@
  * 
  * Generates an RSS feed at /press/feed/index.xml for press clips.
  * This matches the Jekyll press feed structure.
+ * Loads clips from _data/clips.yml in repository root.
  */
 
 import rss from '@astrojs/rss';
 import type { APIContext } from 'astro';
 import { readFileSync } from 'node:fs';
 import { parse } from 'yaml';
-import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
+import { resolve } from 'node:path';
 
 export async function GET(context: APIContext) {
-  // Load clips data
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = dirname(__filename);
-  const clipsPath = join(__dirname, '../../../../_data/clips.yml');
+  // Load clips data from repository root
+  // Using resolve to build path from current working directory
+  const clipsPath = resolve(process.cwd(), '_data/clips.yml');
   const clipsYaml = readFileSync(clipsPath, 'utf-8');
   const clips = parse(clipsYaml);
 
