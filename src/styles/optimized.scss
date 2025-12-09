@@ -104,6 +104,9 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    // Preserve Bootstrap's color mode variables for dark mode support
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
 }
 
 // Modular scale for harmonious typography
