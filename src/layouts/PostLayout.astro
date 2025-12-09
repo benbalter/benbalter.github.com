@@ -10,6 +10,7 @@ import BaseLayout from './BaseLayout.astro';
 import MiniBio from '../components/MiniBio.astro';
 import { siteConfig } from '../config';
 import { calculateReadingTime } from '../utils/reading-time';
+import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import { marked } from 'marked';
 
@@ -88,9 +89,11 @@ const readingTime = calculateReadingTime(content);
           </div>
           
           {image && (
-            <img 
+            <Image 
               src={image} 
               alt={title}
+              width={800}
+              height={400}
               class="post-image img-fluid rounded"
             />
           )}

@@ -7,6 +7,7 @@
  */
 
 import PageLayout from '../layouts/PageLayout.astro';
+import { Image } from 'astro:assets';
 import { readFileSync } from 'node:fs';
 import yaml from 'js-yaml';
 import { join } from 'node:path';
@@ -56,9 +57,11 @@ function slugify(text: string): string {
               class="book-link"
             >
               <div class="book-cover">
-                <img 
+                <Image 
                   src={`https://images.amazon.com/images/P/${book.asin}.01.MZZZZZZZ.jpg`}
                   alt={book.title}
+                  width={160}
+                  height={240}
                   loading="lazy"
                 />
               </div>
