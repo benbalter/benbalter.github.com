@@ -1,0 +1,75 @@
+---
+/**
+ * Mini Bio Component
+ * 
+ * Displays a brief author bio with avatar for blog posts.
+ * Dynamically pulls the first paragraph from the about page content.
+ * Replicates the Jekyll mini-bio.html include functionality.
+ */
+
+import { siteConfig } from '../config';
+import { aboutContent, getFirstParagraph } from '../content/about-bio';
+
+const firstParagraph = getFirstParagraph(aboutContent);
+const bioHtml = `${firstParagraph} <a href="/about/">More about the author &rarr;</a>`;
+---
+
+<div class="mini-bio">
+  <div class="float-start pt-1 pe-3">
+    <img 
+      src={`https://avatars.githubusercontent.com/${siteConfig.githubUsername}?s=100`}
+      alt={siteConfig.author}
+      width="100"
+      height="100"
+      class="avatar"
+    />
+  </div>
+  
+  <!-- firstParagraph is safe for set:html because link text is now escaped in about-bio.ts -->
+  <p set:html={bioHtml} />
+</div>
+
+<style>
+  .mini-bio {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #24292e;
+  }
+
+  .float-start {
+    float: left;
+  }
+
+  .pt-1 {
+    padding-top: 0.25rem;
+  }
+
+  .pe-3 {
+    padding-right: 1rem;
+  }
+
+  .avatar {
+    border-radius: 6px;
+    display: block;
+  }
+
+  .mini-bio p {
+    margin: 0;
+  }
+
+  .mini-bio a {
+    color: #0366d6;
+    text-decoration: none;
+  }
+
+  .mini-bio a:hover {
+    text-decoration: underline;
+  }
+
+  /* Clear float after mini-bio */
+  .mini-bio::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+</style>
