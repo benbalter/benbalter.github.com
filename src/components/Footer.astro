@@ -9,7 +9,7 @@
 import { siteConfig, footerLinks, contactLinks } from '../config';
 ---
 
-<footer>
+<footer class="mt-4-custom">
   <nav aria-label="Footer navigation">
     <ul class="nav justify-content-end border-top px-2 py-3">
       {footerLinks.map((link) => (
@@ -33,7 +33,7 @@ import { siteConfig, footerLinks, contactLinks } from '../config';
       <a 
         href={link.url} 
         aria-label={link.name}
-        class="social-link"
+        class="social-link d-inline-block"
         target="_blank"
         rel="noopener noreferrer me"
       >
@@ -50,55 +50,10 @@ import { siteConfig, footerLinks, contactLinks } from '../config';
 </footer>
 
 <style>
-  footer {
-    margin-top: 4rem;
-  }
-
-  .nav {
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
-    border-top: 1px solid var(--bs-border-color, #dee2e6);
-  }
-
-  .justify-content-end {
-    justify-content: flex-end !important;
-  }
-
-  .nav-item {
-    margin: 0;
-  }
-
-  .nav-link {
-    display: block;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    transition: color 0.15s ease-in-out;
-  }
-
-  .link-secondary {
-    color: var(--bs-secondary, #6c757d);
-  }
-
-  .link-secondary:hover,
-  .link-secondary:focus {
-    color: var(--bs-secondary-hover, #565e64);
-  }
-
-  .nav-link i {
-    font-size: 1rem;
-  }
-
-  .social-links {
-    padding: 1rem 0;
-  }
-
+  /* Custom styles not available in Bootstrap utilities */
   .social-link {
-    display: inline-block;
     margin: 0 0.5rem;
-    color: var(--bs-link-color, #0d6efd);
+    color: var(--bs-link-color);
     font-size: 1.5rem;
     text-decoration: none;
     transition: color 0.15s ease-in-out, transform 0.15s ease-in-out;
@@ -106,17 +61,16 @@ import { siteConfig, footerLinks, contactLinks } from '../config';
 
   .social-link:hover,
   .social-link:focus {
-    color: var(--bs-link-hover-color, #0a58ca);
+    color: var(--bs-link-hover-color);
     transform: translateY(-2px);
   }
 
   .copyright {
     font-size: 0.875rem;
-    padding: 0.5rem 0;
   }
 
   .copyright a {
-    color: var(--bs-link-color, #0d6efd);
+    color: var(--bs-link-color);
     text-decoration: none;
   }
 
@@ -124,20 +78,9 @@ import { siteConfig, footerLinks, contactLinks } from '../config';
     text-decoration: underline;
   }
 
-  .text-center {
-    text-align: center !important;
-  }
-
-  .text-muted {
-    color: var(--bs-secondary, #6c757d) !important;
-  }
-
   @media (max-width: 768px) {
-    .justify-content-end {
-      justify-content: center !important;
-    }
-
     .nav {
+      justify-content: center !important;
       flex-direction: column;
       text-align: center;
     }

@@ -42,12 +42,14 @@ $content-padding-x: 15px;
 
 // Skip unused components to reduce bundle size:
 // - forms (no forms on static blog)
-// - accordion, alert, badge, breadcrumb, button-group, card, carousel, 
+// - accordion, breadcrumb, button-group, card, carousel, 
 //   close, dropdown, list-group, modal, offcanvas, pagination, 
 //   placeholders, popover, progress, spinners, toasts, tooltip
 
 // Include only what we need:
-@import 'bootstrap/scss/tables';     // For markdown tables
+@import 'bootstrap/scss/alert';       // For alert components (used in FossAtScale, GitHubCulture, ArchivedPostWarning)
+@import 'bootstrap/scss/badge';       // For badge component (used in PostLayout for tags)
+@import 'bootstrap/scss/tables';      // For markdown tables
 @import 'bootstrap/scss/transitions'; // For smooth interactions
 
 // 7. Helpers
@@ -78,8 +80,178 @@ $content-padding-x: 15px;
     margin-bottom: 1rem !important;
 }
 
+.mb-2 {
+    margin-bottom: 0.5rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
 .mt-2 {
     margin-top: 0.5rem !important;
+}
+
+.mt-4 {
+    margin-top: 1.5rem !important;
+}
+
+.ms-3 {
+    margin-left: 1rem !important;
+}
+
+.me-2 {
+    margin-right: 0.5rem !important;
+}
+
+// Float utilities (used in MiniBio component)
+.float-start {
+    float: left !important;
+}
+
+.float-end {
+    float: right !important;
+}
+
+// Padding utilities (used in MiniBio and other components)
+.pt-1 {
+    padding-top: 0.25rem !important;
+}
+
+.pt-3 {
+    padding-top: 1rem !important;
+}
+
+.pb-3 {
+    padding-bottom: 1rem !important;
+}
+
+.pe-3 {
+    padding-right: 1rem !important;
+}
+
+.px-2 {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
+
+.py-2 {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+}
+
+.py-3 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+// Margin utilities
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.mt-4-custom {
+    margin-top: 4rem !important;
+}
+
+// Border utilities
+.border-top {
+    border-top: var(--bs-border-width) solid var(--bs-border-color) !important;
+}
+
+// Border radius utilities
+.rounded {
+    border-radius: var(--bs-border-radius) !important;
+}
+
+.rounded-top {
+    border-top-left-radius: var(--bs-border-radius) !important;
+    border-top-right-radius: var(--bs-border-radius) !important;
+}
+
+.rounded-bottom {
+    border-bottom-left-radius: var(--bs-border-radius) !important;
+    border-bottom-right-radius: var(--bs-border-radius) !important;
+}
+
+// Display utilities
+.d-block {
+    display: block !important;
+}
+
+.d-inline-block {
+    display: inline-block !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+// Flexbox utilities
+.flex-wrap {
+    flex-wrap: wrap !important;
+}
+
+.justify-content-end {
+    justify-content: flex-end !important;
+}
+
+.justify-content-between {
+    justify-content: space-between !important;
+}
+
+// Position utilities
+.clearfix::after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+// Background color utilities
+.bg-secondary {
+    background-color: var(--bs-secondary) !important;
+}
+
+// Typography utilities
+.small {
+    font-size: 0.875em;
+}
+
+.text-muted {
+    color: var(--bs-secondary-color) !important;
+}
+
+.text-primary {
+    color: var(--bs-primary) !important;
+}
+
+.lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+.display-4 {
+    font-size: calc(1.475rem + 2.7vw);
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+@media (min-width: 1200px) {
+    .display-4 {
+        font-size: 3.5rem;
+    }
+}
+
+// Link utilities
+.link-secondary {
+    color: var(--bs-secondary-color);
+    text-decoration-color: var(--bs-secondary-color);
+}
+
+.link-secondary:hover,
+.link-secondary:focus {
+    color: var(--bs-secondary-color);
+    text-decoration-color: var(--bs-secondary-color);
 }
 
 // Text alignment utilities for responsive sizes
