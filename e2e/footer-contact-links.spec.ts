@@ -84,16 +84,18 @@ test.describe('Footer Contact Links', () => {
     }
   });
   
-  test('footer contact links should open in new tab (except email and vcard)', async ({ page }) => {
+  test('footer contact links should open in new tab', async ({ page }) => {
     await page.goto('/');
     await waitForPageReady(page);
     
-    // External links should have target="_blank"
-    const externalLinks = page.locator('footer .social-links a[href^="https://"]');
-    const externalCount = await externalLinks.count();
+    // All contact links should have target="_blank" (matching contact/about page behavior)
+    const footerContactLinks = page.locator('footer .social-links a');
+    const count = await footerContactLinks.count();
     
-    for (let i = 0; i < externalCount; i++) {
-      const link = externalLinks.nth(i);
+    expect(count).toBe(5); // Email, vCard, Bluesky, LinkedIn, GitHub
+    
+    for (let i = 0; i < count; i++) {
+      const link = footerContactLinks.nth(i);
       await expect(link).toHaveAttribute('target', '_blank');
       await expect(link).toHaveAttribute('rel', /noopener/);
     }
