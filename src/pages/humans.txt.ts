@@ -4,14 +4,18 @@
  * Generates humans.txt with site metadata, standards, and team information.
  * This replaces the Jekyll template version at the root.
  * 
- * Note: In the original Jekyll version, this used site.github.versions and
- * site.github.contributors which were provided by jekyll-github-metadata plugin.
- * For Astro, we use hardcoded values or could fetch from GitHub API if needed.
+ * Fetches contributors from GitHub API to match jekyll-github-metadata behavior.
  */
 
 import type { APIRoute } from 'astro';
 
-export const GET: APIRoute = () => {
+interface GitHubContributor {
+  login: string;
+  html_url: string;
+  contributions: number;
+}
+
+export const GET: APIRoute = async () => {
   // Current date for "Last Updated" field
   // Format: YYYY/MM/DD (with slashes) to match Jekyll's original format
   const now = new Date();
@@ -25,14 +29,40 @@ export const GET: APIRoute = () => {
     'Node.js',
   ].join(', ');
   
+  // Fetch contributors from GitHub API
+  let contributorsList = '';
+  try {
+    const response = await fetch(
+      'https://api.github.com/repos/benbalter/benbalter.github.com/contributors',
+      {
+        headers: {
+          'Accept': 'application/vnd.github.v3+json',
+          'User-Agent': 'benbalter.github.com',
+        },
+      }
+    );
+    
+    if (response.ok) {
+      const contributors: GitHubContributor[] = await response.json();
+      contributorsList = contributors
+        .map(contributor => `Name: ${contributor.login}\nSite: ${contributor.html_url}`)
+        .join('\n\n');
+    } else {
+      // Fallback if API fails
+      contributorsList = 'Name: benbalter\nSite: https://github.com/benbalter';
+    }
+  } catch (error) {
+    // Fallback if API fails
+    contributorsList = 'Name: benbalter\nSite: https://github.com/benbalter';
+  }
+  
   const content = `/* SITE */
 Last Updated: ${lastUpdated}
 Standards: HTML5, CSS3
 Components: ${components}
 
 /* TEAM */
-Name: benbalter
-Site: https://github.com/benbalter
+${contributorsList}
 `;
 
   return new Response(content, {
