@@ -64,6 +64,6 @@ export async function getResumePositions(): Promise<ResumePosition[]> {
     if (error instanceof Error) {
       console.error(`Details: ${error.message}`);
     }
-    return [];
+    throw new Error('Failed to load resume positions');
   }
 }
