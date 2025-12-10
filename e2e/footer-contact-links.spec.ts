@@ -100,4 +100,56 @@ test.describe('Footer Contact Links', () => {
       await expect(link).toHaveAttribute('rel', /noopener/);
     }
   });
+  
+  test('footer contact link icons should render after Astro navigation', async ({ page }) => {
+    // Start on homepage
+    await page.goto('/');
+    await waitForPageReady(page);
+    
+    // Wait for FontAwesome to process icons on initial load
+    await page.waitForTimeout(200);
+    
+    // Check that icons are present on initial load (FontAwesome converts <i> to <svg>)
+    const initialIcons = page.locator('footer nav > ul > div:first-child svg[data-icon]');
+    const initialIconCount = await initialIcons.count();
+    expect(initialIconCount).toBe(5); // Email, vCard, Bluesky, LinkedIn, GitHub
+    
+    // Navigate to another page using Astro View Transitions
+    const aboutLink = page.locator('a[href="/about/"]').first();
+    await aboutLink.click();
+    await page.waitForURL('**/about/');
+    await waitForPageReady(page);
+    
+    // Wait a moment for FontAwesome to process icons after navigation
+    await page.waitForTimeout(200);
+    
+    // Check that footer contact link icons still render after navigation
+    const iconsAfterNav = page.locator('footer nav > ul > div:first-child svg[data-icon]');
+    const iconCountAfterNav = await iconsAfterNav.count();
+    expect(iconCountAfterNav).toBe(5);
+    
+    // Verify icons are actually visible (not just present in DOM)
+    for (let i = 0; i < iconCountAfterNav; i++) {
+      await expect(iconsAfterNav.nth(i)).toBeVisible();
+    }
+    
+    // Navigate to another page to test multiple navigations
+    const contactLink = page.locator('a[href="/contact/"]').first();
+    await contactLink.click();
+    await page.waitForURL('**/contact/');
+    await waitForPageReady(page);
+    
+    // Wait a moment for FontAwesome to process icons after second navigation
+    await page.waitForTimeout(200);
+    
+    // Check icons still work after second navigation
+    const iconsAfterSecondNav = page.locator('footer nav > ul > div:first-child svg[data-icon]');
+    const iconCountAfterSecondNav = await iconsAfterSecondNav.count();
+    expect(iconCountAfterSecondNav).toBe(5);
+    
+    // Verify all icons are visible
+    for (let i = 0; i < iconCountAfterSecondNav; i++) {
+      await expect(iconsAfterSecondNav.nth(i)).toBeVisible();
+    }
+  });
 });
