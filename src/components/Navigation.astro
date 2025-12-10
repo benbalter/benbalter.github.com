@@ -36,7 +36,7 @@ const navClasses = hero
 ---
 
 <div class={navClasses + ' shadow-sm'}>
-  <div class="d-flex flex-wrap align-items-center justify-content-between navbar-inner">
+  <div class="container-fluid">
     <a class="navbar-brand fw-bold fs-5" href="/">{siteConfig.name}</a>
     <button 
       class="navbar-toggler" 
@@ -48,8 +48,8 @@ const navClasses = hero
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="navbar-collapse" id="navbar" role="navigation" aria-label="Main navigation">
-      <ul class="navbar-nav">
+    <div class="collapse navbar-collapse" id="navbar" role="navigation" aria-label="Main navigation">
+      <ul class="navbar-nav me-auto">
         {navItems.map((item) => {
           const isActive = currentPath === item.url || 
                           (item.url === '/' && currentPath === '/');
@@ -91,14 +91,17 @@ const navClasses = hero
     border: 1px solid var(--bs-border-color);
   }
 
-  .navbar-inner {
-    width: 100%;
+  .container-fluid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
     padding: 0.5rem var(--bs-gutter-x, 1.5rem);
   }
 
   /* Prevent wrapping at desktop sizes */
   @media (min-width: 768px) {
-    .navbar-inner {
+    .container-fluid {
       flex-wrap: nowrap !important;
     }
   }
@@ -134,6 +137,11 @@ const navClasses = hero
     }
   }
 
+  .navbar-collapse {
+    display: flex;
+    align-items: center;
+  }
+
   .navbar-nav {
     display: flex;
     flex-direction: row;
@@ -141,6 +149,7 @@ const navClasses = hero
     list-style: none;
     padding-left: 0;
     margin: 0;
+    margin-right: auto;
   }
 
   .nav-link {
@@ -163,18 +172,10 @@ const navClasses = hero
 
   .navbar-text {
     color: var(--bs-secondary);
-    margin-left: auto;
+    padding: 0.5rem 0;
   }
 
-  /* Collapse behavior for mobile */
-  .navbar-collapse {
-    display: none;
-  }
-
-  .navbar-collapse.show {
-    display: block;
-  }
-
+  /* Collapse behavior for mobile - Bootstrap handles most of this */
   @media (min-width: 768px) {
     .navbar-collapse {
       display: flex !important;
@@ -183,7 +184,7 @@ const navClasses = hero
   }
 
   @media (max-width: 767px) {
-    .navbar-inner {
+    .container-fluid {
       flex-direction: column;
       align-items: flex-start !important;
     }
