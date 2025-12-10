@@ -113,7 +113,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         )}
         
         {relatedPosts.length > 0 && (
-          <div class="related-posts pt-4 mt-4">
+          <div class="related-posts mt-3">
             <h3 class="related-posts-heading">If you enjoyed this post, you might also enjoy:</h3>
             <ul class="related-posts-list">
               {relatedPosts.map((post) => {
@@ -303,8 +303,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   }
   
   .related-posts {
-    margin-top: 1.5rem;
-    padding-top: 1rem;
+    /* Spacing handled by mt-3 utility class (1rem margin-top) */
   }
   
   .related-posts-heading {
