@@ -1,5 +1,6 @@
 ---
 import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
+import { stripMarkdown } from '../utils/strip-markdown';
 
 /**
  * PostList component - Dynamically renders a list of blog posts with descriptions
@@ -81,7 +82,7 @@ const matchedPosts = urls
     
     return (
       <li>
-        <strong><a href={url}>{post.data.title}</a></strong> — {post.data.description}
+        <strong><a href={url}>{post.data.title}</a></strong> — {stripMarkdown(post.data.description)}
       </li>
     );
   })

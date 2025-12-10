@@ -13,8 +13,8 @@ test.describe('Footer Contact Links', () => {
       links.map(link => link.getAttribute('href')).filter(Boolean)
     );
     
-    // Get contact links from the footer
-    const footerLinks = page.locator('footer .social-links a[href]');
+    // Get contact links from the footer nav (first div contains contact links)
+    const footerLinks = page.locator('footer nav > ul > div:first-child a[href]');
     const footerUrls = await footerLinks.evaluateAll((links) => 
       links.map(link => link.getAttribute('href')).filter(Boolean)
     );
@@ -72,7 +72,7 @@ test.describe('Footer Contact Links', () => {
     await page.goto('/');
     await waitForPageReady(page);
     
-    const footerContactLinks = page.locator('footer .social-links a');
+    const footerContactLinks = page.locator('footer nav > ul > div:first-child a');
     const count = await footerContactLinks.count();
     
     expect(count).toBe(5); // Email, vCard, Bluesky, LinkedIn, GitHub
@@ -89,7 +89,7 @@ test.describe('Footer Contact Links', () => {
     await waitForPageReady(page);
     
     // All contact links should have target="_blank" (matching contact/about page behavior)
-    const footerContactLinks = page.locator('footer .social-links a');
+    const footerContactLinks = page.locator('footer nav > ul > div:first-child a');
     const count = await footerContactLinks.count();
     
     expect(count).toBe(5); // Email, vCard, Bluesky, LinkedIn, GitHub
