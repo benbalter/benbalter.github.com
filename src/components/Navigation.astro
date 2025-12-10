@@ -35,48 +35,51 @@ const navClasses = hero
   : "navbar navbar-expand-md bg-secondary-subtle text-secondary border-start border-end border-bottom border-top rounded-top rounded-bottom mb-3";
 ---
 
-<div class={navClasses}>
-  <div class="row">
-    <div class="col-md-10 offset-md-1">
-      <div class="d-flex flex-wrap align-items-center justify-content-between navbar-inner">
-        <a class="navbar-brand fw-bold" href="/">{siteConfig.name}</a>
-        <button 
-          class="navbar-toggler" 
-          type="button" 
-          aria-controls="navbar" 
-          aria-expanded="false" 
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+<nav class={navClasses}>
+  <div class="container-fluid">
+    <div class="row w-100 gx-0">
+      <div class="col-md-10 offset-md-1">
+        <div class="d-flex align-items-center navbar-inner">
+          <a class="navbar-brand fw-bold me-3" href="/">{siteConfig.name}</a>
+          
+          <button 
+            class="navbar-toggler ms-auto" 
+            type="button" 
+            aria-controls="navbar" 
+            aria-expanded="false" 
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-        <div class="navbar-collapse" id="navbar" role="navigation" aria-label="Main navigation">
-          <ul class="navbar-nav">
-            {navItems.map((item) => {
-              const isActive = currentPath === item.url || 
-                              (item.url === '/' && currentPath === '/');
-              return (
-                <li class="nav-item">
-                  <a 
-                    href={item.url} 
-                    class={`nav-link${isActive ? ' active' : ''}`}
-                    aria-current={isActive ? 'page' : undefined}
-                  >
-                    {item.title}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
+          <div class="navbar-collapse" id="navbar" role="navigation" aria-label="Main navigation">
+            <ul class="navbar-nav me-auto">
+              {navItems.map((item) => {
+                const isActive = currentPath === item.url || 
+                                (item.url === '/' && currentPath === '/');
+                return (
+                  <li class="nav-item">
+                    <a 
+                      href={item.url} 
+                      class={`nav-link${isActive ? ' active' : ''}`}
+                      aria-current={isActive ? 'page' : undefined}
+                    >
+                      {item.title}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          <span class="navbar-text small d-none d-md-block ms-auto">
+            {siteConfig.description}
+          </span>
         </div>
-
-        <span class="navbar-text text-end small">
-          {siteConfig.description}
-        </span>
       </div>
     </div>
   </div>
-</div>
+</nav>
 
 <style lang="scss">
   /* Import Bootstrap navigation components (scoped to this component) */
@@ -96,29 +99,29 @@ const navClasses = hero
   }
 
   .navbar-inner {
+    padding: 0.5rem 0;
     width: 100%;
-    padding: 0.5rem var(--bs-gutter-x, 1.5rem);
-  }
-
-  /* Prevent wrapping at desktop sizes */
-  @media (min-width: 768px) {
-    .navbar-inner {
+    
+    /* Ensure proper flex behavior at desktop */
+    @media (min-width: 768px) {
       flex-wrap: nowrap !important;
     }
   }
 
   .navbar-brand {
     color: var(--bs-body-color);
-    margin-right: 1rem;
+    white-space: nowrap;
+    
+    &:hover {
+      color: var(--bs-body-color);
+    }
   }
 
   .navbar-toggler {
     border-color: rgba(0, 0, 0, 0.1);
-  }
-
-  /* Hide toggler at desktop sizes */
-  @media (min-width: 768px) {
-    .navbar-toggler {
+    
+    /* Hide toggler at desktop sizes */
+    @media (min-width: 768px) {
       display: none;
     }
   }
@@ -144,6 +147,11 @@ const navClasses = hero
     list-style: none;
     padding-left: 0;
     margin: 0;
+    
+    @media (max-width: 767px) {
+      flex-direction: column;
+      width: 100%;
+    }
   }
 
   .nav-link {
@@ -152,57 +160,55 @@ const navClasses = hero
     color: var(--bs-link-color);
     text-decoration: none;
     transition: color 0.15s ease-in-out;
-  }
 
-  .nav-link:hover,
-  .nav-link:focus {
-    color: var(--bs-link-hover-color);
-  }
+    &:hover,
+    &:focus {
+      color: var(--bs-link-hover-color);
+    }
 
-  .nav-link.active {
-    color: var(--bs-emphasis-color);
-    font-weight: 500;
+    &.active {
+      color: var(--bs-emphasis-color);
+      font-weight: 500;
+    }
   }
 
   .navbar-text {
     color: var(--bs-secondary);
-    margin-left: auto;
+    white-space: nowrap;
   }
 
   /* Collapse behavior for mobile */
   .navbar-collapse {
     display: none;
-  }
 
-  .navbar-collapse.show {
-    display: block;
-  }
+    &.show {
+      display: block;
+    }
 
-  @media (min-width: 768px) {
-    .navbar-collapse {
+    @media (min-width: 768px) {
       display: flex !important;
       flex-basis: auto;
     }
   }
 
+  /* Mobile adjustments */
   @media (max-width: 767px) {
     .navbar-inner {
-      flex-direction: column;
-      align-items: flex-start !important;
+      flex-wrap: wrap;
     }
 
     .navbar-collapse {
       flex-basis: 100%;
       width: 100%;
+      order: 3;
     }
-
-    .navbar-nav {
-      flex-direction: column;
-      width: 100%;
+    
+    .navbar-brand {
+      order: 1;
     }
-
-    .navbar-text {
-      display: none;
+    
+    .navbar-toggler {
+      order: 2;
     }
   }
 </style>
