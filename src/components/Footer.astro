@@ -7,25 +7,43 @@
  * Matches the structure and styling of the Jekyll footer.
  */
 
-import { siteConfig, footerLinks, contactLinks } from '../config';
+import { footerLinks, contactLinks } from '../config';
 ---
 
 <footer class="mt-5">
   <nav aria-label="Footer navigation">
-    <ul class="nav justify-content-end border-top px-2 py-3">
-      {footerLinks.map((link) => (
+    <ul class="nav justify-content-between border-top px-2 py-3">
+      <div class="d-flex">
+        {contactLinks.map((link) => (
+          <li class="nav-item">
+            <a 
+              href={link.url} 
+              aria-label={link.name}
+              class="nav-link"
+              target="_blank"
+              rel="noopener noreferrer me"
+            >
+              <i class={link.icon} title={link.name}></i>
+            </a>
+          </li>
+        ))}
+      </div>
+      
+      <div class="d-flex">
+        {footerLinks.map((link) => (
+          <li class="nav-item">
+            <a href={link.url} class="nav-link link-secondary">
+              {link.title}
+            </a>
+          </li>
+        ))}
+        
         <li class="nav-item">
-          <a href={link.url} class="nav-link link-secondary">
-            {link.title}
+          <a href="/feed.xml" aria-label="RSS Feed" class="nav-link">
+            <i class="fas fa-rss" title="RSS Feed"></i>
           </a>
         </li>
-      ))}
-      
-      <li class="nav-item">
-        <a href="/feed.xml" aria-label="RSS Feed" class="nav-link">
-          <i class="fas fa-rss" title="RSS Feed"></i>
-        </a>
-      </li>
+      </div>
     </ul>
   </nav>
   

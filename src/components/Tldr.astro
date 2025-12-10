@@ -141,7 +141,8 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
     }, 300);
   };
   
-  document.addEventListener('DOMContentLoaded', () => {
+  // Initialize tooltips function (called on page load and after navigation)
+  const initializeTooltips = () => {
     const tooltipElements = document.querySelectorAll('[data-tooltip="true"]:not([data-tooltip-initialized])');
     
     // Initialize global activeTooltips map
@@ -208,10 +209,16 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
       document.addEventListener('click', handleGlobalClick);
       globalClickHandlerAdded = true;
     }
-  });
+  };
   
-  // Clean up on page unload (for Turbo Drive / SPAs)
-  document.addEventListener('turbo:before-render', () => {
+  // Initialize on initial page load (first time or full page reload)
+  document.addEventListener('DOMContentLoaded', initializeTooltips);
+  
+  // Initialize after Astro View Transitions navigation (SPA-style navigation)
+  document.addEventListener('astro:page-load', initializeTooltips);
+  
+  // Clean up before Astro View Transitions navigation (for SPAs)
+  document.addEventListener('astro:before-preparation', () => {
     if (globalClickHandlerAdded) {
       document.removeEventListener('click', handleGlobalClick);
       globalClickHandlerAdded = false;
