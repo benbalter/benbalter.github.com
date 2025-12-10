@@ -3,6 +3,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
+import type { Person, Organization, WebSite, BlogPosting, BreadcrumbList } from 'schema-dts';
 import {
   generatePersonSchema,
   generateOrganizationSchema,
@@ -15,7 +16,7 @@ import { siteConfig } from '../config';
 
 describe('generatePersonSchema', () => {
   it('should generate valid Person schema', () => {
-    const schema = generatePersonSchema();
+    const schema = generatePersonSchema() as Person & { '@context': string };
     
     expect(schema['@context']).toBe('https://schema.org');
     expect(schema['@type']).toBe('Person');
@@ -25,57 +26,57 @@ describe('generatePersonSchema', () => {
   });
 
   it('should include job title', () => {
-    const schema = generatePersonSchema();
+    const schema = generatePersonSchema() as Person & { '@context': string };
     
     expect(schema.jobTitle).toBe('Senior Technical Program Manager at GitHub');
   });
 
   it('should include social media links', () => {
-    const schema = generatePersonSchema();
+    const schema = generatePersonSchema() as Person & { '@context': string };
     
     expect(Array.isArray(schema.sameAs)).toBe(true);
     expect(schema.sameAs?.length).toBeGreaterThan(0);
   });
 
   it('should include GitHub profile in sameAs', () => {
-    const schema = generatePersonSchema();
+    const schema = generatePersonSchema() as Person & { '@context': string };
     
     expect(schema.sameAs).toContain(`https://github.com/${siteConfig.githubUsername}`);
   });
 
   it('should include Twitter profile in sameAs', () => {
-    const schema = generatePersonSchema();
+    const schema = generatePersonSchema() as Person & { '@context': string };
     
     expect(schema.sameAs).toContain(`https://twitter.com/${siteConfig.socialUsername}`);
   });
 
   it('should include LinkedIn profile in sameAs', () => {
-    const schema = generatePersonSchema();
+    const schema = generatePersonSchema() as Person & { '@context': string };
     
     expect(schema.sameAs).toContain(`https://www.linkedin.com/in/${siteConfig.socialUsername}`);
   });
 
   it('should include Mastodon profile in sameAs', () => {
-    const schema = generatePersonSchema();
+    const schema = generatePersonSchema() as Person & { '@context': string };
     
     expect(schema.sameAs).toContain('https://mastodon.social/@benbalter');
   });
 
   it('should include Bluesky profile in sameAs', () => {
-    const schema = generatePersonSchema();
+    const schema = generatePersonSchema() as Person & { '@context': string };
     
     expect(schema.sameAs).toContain('https://bsky.app/profile/ben.balter.com');
   });
 
   it('should include profile image', () => {
-    const schema = generatePersonSchema();
+    const schema = generatePersonSchema() as Person & { '@context': string };
     
     expect(schema.image).toBe(`${siteConfig.url}/assets/img/headshot.jpg`);
     expect(schema.image).toMatch(/^https:\/\//);
   });
 
   it('should accept overrides', () => {
-    const schema = generatePersonSchema({ jobTitle: 'Custom Job Title' });
+    const schema = generatePersonSchema({ jobTitle: 'Custom Job Title' }) as Person & { '@context': string };
     
     expect(schema.jobTitle).toBe('Custom Job Title');
     // Other fields should remain
@@ -94,40 +95,40 @@ describe('generatePersonSchema', () => {
 
 describe('generateOrganizationSchema', () => {
   it('should generate valid Organization schema', () => {
-    const schema = generateOrganizationSchema();
+    const schema = generateOrganizationSchema() as Organization & { '@context': string };
     
     expect(schema['@context']).toBe('https://schema.org');
     expect(schema['@type']).toBe('Organization');
   });
 
   it('should have GitHub as organization name', () => {
-    const schema = generateOrganizationSchema();
+    const schema = generateOrganizationSchema() as Organization & { '@context': string };
     
     expect(schema.name).toBe('GitHub');
   });
 
   it('should have GitHub URL', () => {
-    const schema = generateOrganizationSchema();
+    const schema = generateOrganizationSchema() as Organization & { '@context': string };
     
     expect(schema.url).toBe('https://github.com');
   });
 
   it('should have GitHub logo', () => {
-    const schema = generateOrganizationSchema();
+    const schema = generateOrganizationSchema() as Organization & { '@context': string };
     
     expect(schema.logo).toBeDefined();
     expect(schema.logo).toContain('GitHub-Mark.png');
   });
 
   it('should include social media links', () => {
-    const schema = generateOrganizationSchema();
+    const schema = generateOrganizationSchema() as Organization & { '@context': string };
     
     expect(Array.isArray(schema.sameAs)).toBe(true);
     expect(schema.sameAs?.length).toBeGreaterThan(0);
   });
 
   it('should include GitHub social profiles', () => {
-    const schema = generateOrganizationSchema();
+    const schema = generateOrganizationSchema() as Organization & { '@context': string };
     
     expect(schema.sameAs).toContain('https://twitter.com/github');
     expect(schema.sameAs).toContain('https://www.linkedin.com/company/github');
