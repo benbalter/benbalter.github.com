@@ -19,65 +19,24 @@ const posts: CollectionEntry<'posts'>[] = allPosts.sort((a: CollectionEntry<'pos
 ---
 
 <BaseLayout title={title} description={description} hero={true}>
-  <div class="container-fluid px-3">
+  <ul class="list-unstyled p-0 m-0">
     {posts.map((post) => {
       const postDate = getDateFromSlug(post.slug);
       const postUrl = getPostUrl(post.slug);
       return (
-        <div class="row mb-2">
-          <div class="col-md-9">
-            <a href={postUrl}>{post.data.title}</a>
+        <li class="post-item py-3 border-bottom">
+          <div class="row g-0">
+            <div class="col-md-9">
+              <div class="mb-1">
+                <a href={postUrl} class="fs-5 fw-semibold text-body text-decoration-none">{post.data.title}</a>
+              </div>
+            </div>
+            <div class="col-md-3 text-md-end">
+              <small class="text-body-secondary">{formatPostDate(postDate)}</small>
+            </div>
           </div>
-          <div class="col-md-3 text-muted text-md-end">
-            <small>{formatPostDate(postDate)}</small>
-          </div>
-        </div>
+        </li>
       );
     })}
-  </div>
+  </ul>
 </BaseLayout>
-
-<style>
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: 0;
-    margin-left: 0;
-  }
-
-  .col-md-9 {
-    flex: 0 0 auto;
-    width: 75%;
-    padding: 0;
-    padding-right: 0.5rem; /* Add spacing between title and date */
-  }
-
-  .col-md-3 {
-    flex: 0 0 auto;
-    width: 25%;
-    padding: 0;
-  }
-
-  .text-muted {
-    color: var(--bs-secondary-color, #6c757d) !important;
-  }
-
-  .text-md-end {
-    text-align: right;
-  }
-
-  .mb-2 {
-    margin-bottom: 0.5rem !important;
-  }
-
-  @media (max-width: 768px) {
-    .col-md-9,
-    .col-md-3 {
-      width: 100%;
-    }
-    
-    .text-md-end {
-      text-align: left;
-    }
-  }
-</style>

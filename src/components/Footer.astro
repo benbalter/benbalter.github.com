@@ -10,16 +10,16 @@
 import { footerLinks, contactLinks } from '../config';
 ---
 
-<footer class="mt-5">
+<footer class="mt-5 pt-4 border-top border-2">
   <nav aria-label="Footer navigation">
-    <ul class="nav justify-content-between border-top px-2 py-3">
+    <ul class="nav justify-content-between px-2 py-3 mb-4">
       <div class="d-flex">
         {contactLinks.map((link) => (
           <li class="nav-item">
             <a 
               href={link.url} 
               aria-label={link.name}
-              class="nav-link"
+              class="nav-link social-link"
               target="_blank"
               rel="noopener noreferrer me"
             >
