@@ -3,6 +3,7 @@
  * TL;DR Component
  * 
  * Displays a "Too Long; Didn't Read" summary with tooltip explanation.
+ * Uses Bootstrap .lead class for prominent display.
  * Matches the Jekyll tldr.html include functionality with markdown support.
  */
 
@@ -140,7 +141,8 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
     }, 300);
   };
   
-  document.addEventListener('DOMContentLoaded', () => {
+  // Initialize tooltips function (called on page load and after navigation)
+  const initializeTooltips = () => {
     const tooltipElements = document.querySelectorAll('[data-tooltip="true"]:not([data-tooltip-initialized])');
     
     // Initialize global activeTooltips map
@@ -207,10 +209,16 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
       document.addEventListener('click', handleGlobalClick);
       globalClickHandlerAdded = true;
     }
-  });
+  };
   
-  // Clean up on page unload (for Turbo Drive / SPAs)
-  document.addEventListener('turbo:before-render', () => {
+  // Initialize on initial page load (first time or full page reload)
+  document.addEventListener('DOMContentLoaded', initializeTooltips);
+  
+  // Initialize after Astro View Transitions navigation (SPA-style navigation)
+  document.addEventListener('astro:page-load', initializeTooltips);
+  
+  // Clean up before Astro View Transitions navigation (for SPAs)
+  document.addEventListener('astro:before-preparation', () => {
     if (globalClickHandlerAdded) {
       document.removeEventListener('click', handleGlobalClick);
       globalClickHandlerAdded = false;
@@ -219,18 +227,14 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
 </script>
 
 <style>
-  .lead {
-    font-size: 1.25rem;
-    font-weight: 300;
-  }
-
+  /* Custom styles for initialism (Bootstrap doesn't include this) */
   .initialism {
     text-decoration: none;
     cursor: help;
     border-bottom: 1px dotted currentColor;
   }
 
-  /* Custom tooltip styles */
+  /* Custom tooltip styles (Bootstrap's tooltip requires JavaScript initialization) */
   :global(.custom-tooltip) {
     position: fixed;
     background-color: var(--bs-dark, #212529);
