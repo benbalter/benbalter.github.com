@@ -142,7 +142,64 @@ function cosineSimilarity(
 }
 
 /**
- * Find related posts for a given post
+ * Cache for extracted words to avoid re-processing the same content
+ */
+const wordsCache = new Map<string, string[]>();
+
+/**
+ * Cache for TF-IDF vectors to avoid recalculating
+ */
+const tfIdfCache = new Map<string, Map<string, number>>();
+
+/**
+ * Cached IDF values computed once for all documents
+ */
+let cachedIdf: Map<string, number> | null = null;
+
+/**
+ * Cached documents map for IDF calculation
+ */
+let cachedDocuments: Map<string, string[]> | null = null;
+
+/**
+ * Clear all caches (useful for testing)
+ */
+export function clearRelatedPostsCache(): void {
+  wordsCache.clear();
+  tfIdfCache.clear();
+  cachedIdf = null;
+  cachedDocuments = null;
+}
+
+/**
+ * Initialize the TF-IDF cache with all posts
+ * This should be called once before processing multiple posts
+ */
+export function initializeRelatedPostsCache(allPosts: CollectionEntry<'posts'>[]): void {
+  // Extract and cache words for all posts
+  const documents = new Map<string, string[]>();
+  
+  for (const post of allPosts) {
+    const postContent = `${post.data.title} ${post.data.description || ''}`;
+    const words = extractWords(postContent);
+    wordsCache.set(post.slug, words);
+    documents.set(post.slug, words);
+  }
+  
+  // Calculate and cache IDF once for all documents
+  cachedIdf = calculateInverseDocumentFrequency(documents);
+  cachedDocuments = documents;
+  
+  // Pre-calculate TF-IDF vectors for all posts
+  for (const [slug, words] of documents.entries()) {
+    const tf = calculateTermFrequency(words);
+    const tfidf = calculateTfIdf(tf, cachedIdf);
+    tfIdfCache.set(slug, tfidf);
+  }
+}
+
+/**
+ * Find related posts for a given post (optimized with caching)
  * @param currentPost - The post to find related posts for
  * @param allPosts - All available posts
  * @param maxResults - Maximum number of related posts to return (default: 10)
@@ -153,29 +210,19 @@ export async function findRelatedPosts(
   allPosts: CollectionEntry<'posts'>[],
   maxResults = 10
 ): Promise<CollectionEntry<'posts'>[]> {
-  // Use title and description for content comparison
-  const currentContent = `${currentPost.data.title} ${currentPost.data.description || ''}`;
-  
-  // Extract words from all posts
-  const documents = new Map<string, string[]>();
-  documents.set(currentPost.slug, extractWords(currentContent));
-  
-  // Extract words from other posts
-  for (const post of allPosts) {
-    if (post.slug === currentPost.slug) continue;
-    const postContent = `${post.data.title} ${post.data.description || ''}`;
-    documents.set(post.slug, extractWords(postContent));
+  // Initialize cache if not already done
+  if (!cachedIdf || !cachedDocuments) {
+    initializeRelatedPostsCache(allPosts);
   }
   
-  // Calculate IDF for all documents
-  const idf = calculateInverseDocumentFrequency(documents);
+  // Get cached TF-IDF for current post
+  const currentTfIdf = tfIdfCache.get(currentPost.slug);
+  if (!currentTfIdf) {
+    // Fallback if post not in cache (shouldn't happen)
+    return [];
+  }
   
-  // Calculate TF-IDF for current post
-  const currentWords = documents.get(currentPost.slug)!;
-  const currentTf = calculateTermFrequency(currentWords);
-  const currentTfIdf = calculateTfIdf(currentTf, idf);
-  
-  // Calculate similarity scores for all other posts
+  // Calculate similarity scores for all other posts using cached TF-IDF
   const similarities: Array<{ post: CollectionEntry<'posts'>; score: number }> = [];
   
   for (const post of allPosts) {
@@ -183,9 +230,8 @@ export async function findRelatedPosts(
     // Only check archived status since published is already filtered in getStaticPaths
     if (post.data.archived === true) continue;
     
-    const postWords = documents.get(post.slug)!;
-    const postTf = calculateTermFrequency(postWords);
-    const postTfIdf = calculateTfIdf(postTf, idf);
+    const postTfIdf = tfIdfCache.get(post.slug);
+    if (!postTfIdf) continue;
     
     const similarity = cosineSimilarity(currentTfIdf, postTfIdf);
     

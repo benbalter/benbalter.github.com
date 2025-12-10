@@ -145,13 +145,14 @@ async function collectPostRedirects(): Promise<RedirectMapping[]> {
   
   try {
     const files = await fs.readdir(POSTS_DIR);
+    const mdFiles = files.filter(file => file.endsWith('.md') || file.endsWith('.mdx'));
     
-    for (const file of files) {
-      if (!file.endsWith('.md') && !file.endsWith('.mdx')) continue;
-      
-      const filePath = path.join(POSTS_DIR, file);
-      const result = await readMarkdownFile(filePath);
-      
+    // Read all files in parallel for better performance
+    const fileResults = await Promise.all(
+      mdFiles.map(file => readMarkdownFile(path.join(POSTS_DIR, file)))
+    );
+    
+    for (const result of fileResults) {
       if (!result) continue;
       
       const { data, filename } = result;
@@ -198,16 +199,18 @@ async function collectPageRedirects(): Promise<RedirectMapping[]> {
   
   try {
     const files = await fs.readdir(PAGES_DIR);
+    const mdFiles = files.filter(file => file.endsWith('.md') || file.endsWith('.mdx'));
     
-    for (const file of files) {
-      if (!file.endsWith('.md') && !file.endsWith('.mdx')) continue;
-      
-      const filePath = path.join(PAGES_DIR, file);
-      const result = await readMarkdownFile(filePath);
-      
+    // Read all files in parallel for better performance
+    const fileResults = await Promise.all(
+      mdFiles.map(file => readMarkdownFile(path.join(PAGES_DIR, file)))
+    );
+    
+    for (const result of fileResults) {
       if (!result) continue;
       
       const { data } = result;
+      const file = result.filename;
       
       // Get page URL from permalink or filename
       const pageUrl = data.permalink
@@ -254,9 +257,11 @@ export async function generateRedirects(): Promise<void> {
   console.log('\n🔄 Generating redirect pages...\n');
   
   try {
-    // Collect all redirects from posts and pages
-    const postRedirects = await collectPostRedirects();
-    const pageRedirects = await collectPageRedirects();
+    // Collect all redirects from posts and pages in parallel
+    const [postRedirects, pageRedirects] = await Promise.all([
+      collectPostRedirects(),
+      collectPageRedirects(),
+    ]);
     const redirects = [...postRedirects, ...pageRedirects];
     
     if (redirects.length === 0) {
@@ -266,14 +271,16 @@ export async function generateRedirects(): Promise<void> {
     
     console.log(`  Found ${redirects.length} redirects to generate\n`);
     
-    // Generate redirect HTML files
-    for (const redirect of redirects) {
-      const html = generateRedirectHTML(
-        redirect.to,
-        redirect.type === 'external'
-      );
-      await writeRedirectFile(redirect.from, html);
-    }
+    // Generate redirect HTML files in parallel for better performance
+    await Promise.all(
+      redirects.map(redirect => {
+        const html = generateRedirectHTML(
+          redirect.to,
+          redirect.type === 'external'
+        );
+        return writeRedirectFile(redirect.from, html);
+      })
+    );
     
     console.log(`\n✅ Generated ${redirects.length} redirect pages\n`);
   } catch (error) {

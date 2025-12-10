@@ -2,8 +2,8 @@
  * Tests for related posts calculations
  */
 
-import { describe, it, expect } from 'vitest';
-import { findRelatedPosts } from './related-posts';
+import { describe, it, expect, beforeEach } from 'vitest';
+import { findRelatedPosts, clearRelatedPostsCache } from './related-posts';
 import type { CollectionEntry } from 'astro:content';
 
 // Helper function to create mock posts for testing
@@ -33,6 +33,11 @@ function createMockPost(
 }
 
 describe('findRelatedPosts', () => {
+  // Clear cache before each test to ensure test isolation
+  beforeEach(() => {
+    clearRelatedPostsCache();
+  });
+
   it('should return related posts based on content similarity', async () => {
     const post1 = createMockPost(
       '2024-01-01-javascript-tutorial',
