@@ -43,7 +43,15 @@ import { siteConfig, footerLinks, contactLinks } from '../config';
   </div>
 </footer>
 
-<style>
+<style lang="scss">
+  /* Import Bootstrap nav component (scoped to this component) */
+  @import 'bootstrap/scss/functions';
+  @import 'bootstrap/scss/variables';
+  @import 'bootstrap/scss/variables-dark';
+  @import 'bootstrap/scss/maps';
+  @import 'bootstrap/scss/mixins';
+  @import 'bootstrap/scss/nav';
+  
   /* Custom styles not available in Bootstrap utilities */
   .social-link {
     margin: 0 0.5rem;

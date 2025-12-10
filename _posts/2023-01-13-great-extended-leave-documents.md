@@ -7,7 +7,7 @@ I recently came back from an extended leave to find several of my colleagues ask
 
 ## Sections to include
 
-#### ⏳ TL;DR:
+#### ⏳ TL;DR
 
 "Too long, didn't read". This is for the folks who have a question or request, but don't have time to read the whole document. Put it up front and make it visually distinct. The TL;DR can be as simple as:
 

@@ -11,6 +11,7 @@ In Jekyll, blog posts in the `_posts/` directory with filenames like `YYYY-MM-DD
 ```
 
 For example:
+
 - File: `_posts/2025-01-30-how-to-run-language-tool.md`
 - URL: `/2025/01/30/how-to-run-language-tool/`
 
@@ -23,6 +24,7 @@ In Astro, blog posts in `src/content/posts/` now use Jekyll's exact URL structur
 ```
 
 For example:
+
 - File: `src/content/posts/2025-01-30-how-to-run-language-tool.md`
 - URL: `/2025/01/30/how-to-run-language-tool/`
 - Built to: `dist-astro/2025/01/30/how-to-run-language-tool/index.html`
@@ -49,6 +51,7 @@ The routing is handled by `src/pages/[year]/[month]/[day]/[slug].astro`, which e
 ### Option 1: Keep New URL Structure (Recommended)
 
 **Pros:**
+
 - Simpler URL structure
 - Easier to maintain
 - Clear namespace separation (`/posts/`)
@@ -56,10 +59,12 @@ The routing is handled by `src/pages/[year]/[month]/[day]/[slug].astro`, which e
 - No complex routing logic needed
 
 **Cons:**
+
 - Different from Jekyll URLs
 - Requires redirects for old links
 
 **Implementation:**
+
 - Use `redirect_from` in frontmatter
 - Set up redirect rules in deployment (Netlify, Vercel, etc.)
 - Or create redirect pages in Astro
@@ -67,17 +72,20 @@ The routing is handled by `src/pages/[year]/[month]/[day]/[slug].astro`, which e
 ### Option 2: Match Jekyll URL Structure Exactly
 
 **Pros:**
+
 - Perfect backward compatibility
 - No redirects needed
 - Existing links continue to work
 
 **Cons:**
+
 - More complex routing in Astro
 - Deeper directory structure
 - Requires custom `getStaticPaths` logic
 
 **Implementation:**
 Would require modifying `src/pages/posts/[slug].astro` to generate paths like:
+
 ```typescript
 return posts.map((post) => {
   const dateMatch = post.slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
@@ -109,7 +117,7 @@ The current implementation uses **Option 2** (Jekyll URL structure for perfect b
 
 For posts with `redirect_from` in frontmatter:
 
-1. **During Build**: 
+1. **During Build**:
    - Astro can generate redirect HTML pages
    - Or output redirect rules for hosting platform
 
@@ -120,6 +128,7 @@ For posts with `redirect_from` in frontmatter:
    - Or `netlify.toml`
 
 Example redirect rule for Netlify:
+
 ```
 /2025/01/30/how-to-run-language-tool/ /posts/2025-01-30-how-to-run-language-tool/ 301
 ```
@@ -138,12 +147,14 @@ Example redirect rule for Netlify:
 ## Examples
 
 ### Example 1: Recent Post
+
 - **File**: `2025-01-30-how-to-run-language-tool-open-source-grammarly-alternative-on-macos.md`
 - **Astro URL**: `/posts/2025-01-30-how-to-run-language-tool-open-source-grammarly-alternative-on-macos/`
 - **Jekyll URL**: `/2025/01/30/how-to-run-language-tool-open-source-grammarly-alternative-on-macos/`
 - **Redirect**: Use `redirect_from` if needed
 
 ### Example 2: Old Post with Redirect
+
 - **File**: `2013-02-04-what-is-a-hacker.md`
 - **Astro URL**: `/posts/2013-02-04-what-is-a-hacker/`
 - **Old URLs** (from frontmatter):

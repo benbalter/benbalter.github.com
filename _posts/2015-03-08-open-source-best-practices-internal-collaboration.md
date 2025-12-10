@@ -35,11 +35,11 @@ The way you hedge against this risk is by working outside the firewall, by level
 
 This idea comes into play in three distinct ways:
 
-* **Procedurally** that means maintaining one issue tracker (that's public), rather than keeping a secret priority list that only you can see. That also means that stakeholders (again, whether internal or external) should have one mechanism to provide feedback or discuss new features. Last, minimize and memorialize meatspace discussions (when absolutely necessary).
+- **Procedurally** that means maintaining one issue tracker (that's public), rather than keeping a secret priority list that only you can see. That also means that stakeholders (again, whether internal or external) should have one mechanism to provide feedback or discuss new features. Last, minimize and memorialize meatspace discussions (when absolutely necessary).
 
-* **Day-to-day** that means communicating the project's status (proof of concept, actively developed, deprecated, etc.) as well as how to submit an issue, propose a feature, or contribute a fix or enhancement.
+- **Day-to-day** that means communicating the project's status (proof of concept, actively developed, deprecated, etc.) as well as how to submit an issue, propose a feature, or contribute a fix or enhancement.
 
-* **Long-term** that means documenting (and open sourcing) the project's mission statement, philosophy, goals, features and requirements list, and overall project roadmap.
+- **Long-term** that means documenting (and open sourcing) the project's mission statement, philosophy, goals, features and requirements list, and overall project roadmap.
 
 ## 4. Embrace the constraints of open source
 
@@ -47,13 +47,13 @@ Open source is bound by certain workflow constraints. [Rarely are two people in 
 
 You can't un-constrain open source, nor would you want to. To engage the open source community on equal footing, you must embrace their constraints, and chances are, by adopting modern, asynchronous tools, your workflow will improve for the better. With a few adaptations, as @rtomayko [wrote a few years back](http://tomayko.com/writings/adopt-an-open-source-process-constraints), there are four constraints:
 
-* **Electronic** - Discussion, planning, and operations process should use a high fidelity form of electronic communication like email, GitHub.com, or chat with transcripts wherever possible. Avoid meatspace discussion and meetings.
+- **Electronic** - Discussion, planning, and operations process should use a high fidelity form of electronic communication like email, GitHub.com, or chat with transcripts wherever possible. Avoid meatspace discussion and meetings.
 
-* **Transparent** - Communicate decisions in real time, and forever. Work should be visible and expose process. Work should have a URL. It should be possible to move backward from a piece of product or a system failure and understand how it came to be that way. Prefer Git, issues, pull requests, mailing lists, and chat with transcripts over URL-less mediums.
+- **Transparent** - Communicate decisions in real time, and forever. Work should be visible and expose process. Work should have a URL. It should be possible to move backward from a piece of product or a system failure and understand how it came to be that way. Prefer Git, issues, pull requests, mailing lists, and chat with transcripts over URL-less mediums.
 
-* **Asynchronous** - Focus workflow on code, not meetings. Almost no part of the product development process requires that one person interrupt another's immediate attention or that people be in the same place at the same time, or even that people be in different places at the same time. Even small meetings or short phone calls can wreck flow so consider laying it out in (a thought out) email or sending a pull request instead.
+- **Asynchronous** - Focus workflow on code, not meetings. Almost no part of the product development process requires that one person interrupt another's immediate attention or that people be in the same place at the same time, or even that people be in different places at the same time. Even small meetings or short phone calls can wreck flow so consider laying it out in (a thought out) email or sending a pull request instead.
 
-* **Informal** — Adopt cultures, not polices. Organizations should prefer social and cultural constraints to technical or administrative constraints that are unable to adapt to changing circumstances. Workflows should be professional, but not formal. Respond to pull requests with emoji and animated GIFs, not "Dear sir or madam, I am in receipt of your pull request". Be human.
+- **Informal** — Adopt cultures, not polices. Organizations should prefer social and cultural constraints to technical or administrative constraints that are unable to adapt to changing circumstances. Workflows should be professional, but not formal. Respond to pull requests with emoji and animated GIFs, not "Dear sir or madam, I am in receipt of your pull request". Be human.
 
 ## 5. Open source problems, not solutions
 

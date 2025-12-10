@@ -78,7 +78,17 @@ const navClasses = hero
   </div>
 </div>
 
-<style>
+<style lang="scss">
+  /* Import Bootstrap navigation components (scoped to this component) */
+  @import 'bootstrap/scss/functions';
+  @import 'bootstrap/scss/variables';
+  @import 'bootstrap/scss/variables-dark';
+  @import 'bootstrap/scss/maps';
+  @import 'bootstrap/scss/mixins';
+  @import 'bootstrap/scss/nav';
+  @import 'bootstrap/scss/navbar';
+  @import 'bootstrap/scss/buttons';
+  
   /* Minimal custom styles - most styling comes from Bootstrap */
   .navbar {
     background-color: var(--bs-secondary-bg) !important;

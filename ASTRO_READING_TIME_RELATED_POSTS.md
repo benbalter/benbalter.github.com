@@ -148,6 +148,7 @@ npx vitest run src/utils/
 ```
 
 Current test coverage:
+
 - Reading time: 12 tests (100% passing)
 - Related posts: 8 tests covering:
   - Content similarity matching

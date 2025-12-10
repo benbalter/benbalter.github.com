@@ -12,12 +12,12 @@ This site is built using Jekyll, GitHub Pages, and Bootstrap. See [humans.txt](h
 
 An Astro implementation has been bootstrapped for evaluation. The Astro setup is configured to:
 
-* Use **Static Site Generation (SSG)** - All pages pre-rendered as static HTML
-* **Zero JavaScript by default** - Ships only necessary JavaScript
-* Support **TypeScript** for type-safe components
-* Export to `dist-astro/` directory (separate from Jekyll `_site/`)
-* Run development server on port 4321 (separate from Jekyll 4000)
-* Full GitHub Pages compatibility with trailing slashes and directory-based URLs
+- Use **Static Site Generation (SSG)** - All pages pre-rendered as static HTML
+- **Zero JavaScript by default** - Ships only necessary JavaScript
+- Support **TypeScript** for type-safe components
+- Export to `dist-astro/` directory (separate from Jekyll `_site/`)
+- Run development server on port 4321 (separate from Jekyll 4000)
+- Full GitHub Pages compatibility with trailing slashes and directory-based URLs
 
 #### Astro Commands
 
@@ -32,22 +32,22 @@ npm run astro:check    # Type-check Astro components
 
 See [docs/ASTRO.md](docs/ASTRO.md) for comprehensive documentation including:
 
-* Project structure and configuration
-* Coexistence strategy with Jekyll
-* Development workflow and best practices
-* Feature comparison with Jekyll
-* Future migration roadmap
+- Project structure and configuration
+- Coexistence strategy with Jekyll
+- Development workflow and best practices
+- Feature comparison with Jekyll
+- Future migration roadmap
 
 ### Astro (Experimental)
 
 An Astro implementation has been bootstrapped for evaluation. The Astro setup is configured to:
 
-* Use **Static Site Generation (SSG)** - All pages pre-rendered as static HTML
-* **Zero JavaScript by default** - Ships only necessary JavaScript
-* Support **TypeScript** for type-safe components
-* Export to `dist-astro/` directory (separate from Jekyll `_site/` and Next.js `out/`)
-* Run development server on port 4321 (separate from Jekyll 4000 and Next.js 3000)
-* Full GitHub Pages compatibility with trailing slashes and directory-based URLs
+- Use **Static Site Generation (SSG)** - All pages pre-rendered as static HTML
+- **Zero JavaScript by default** - Ships only necessary JavaScript
+- Support **TypeScript** for type-safe components
+- Export to `dist-astro/` directory (separate from Jekyll `_site/` and Next.js `out/`)
+- Run development server on port 4321 (separate from Jekyll 4000 and Next.js 3000)
+- Full GitHub Pages compatibility with trailing slashes and directory-based URLs
 
 #### Astro Commands
 
@@ -62,11 +62,11 @@ npm run astro:check    # Type-check Astro components
 
 See [docs/ASTRO.md](docs/ASTRO.md) for comprehensive documentation including:
 
-* Project structure and configuration
-* Coexistence strategy with Jekyll and Next.js
-* Development workflow and best practices
-* Feature comparison with Jekyll and Next.js
-* Future migration roadmap
+- Project structure and configuration
+- Coexistence strategy with Jekyll and Next.js
+- Development workflow and best practices
+- Feature comparison with Jekyll and Next.js
+- Future migration roadmap
 
 ## Development
 
@@ -74,11 +74,11 @@ See [docs/ASTRO.md](docs/ASTRO.md) for comprehensive documentation including:
 
 This repository includes a VS Code Dev Container configuration for a consistent development environment. The devcontainer includes:
 
-* **Ruby 3.4.7** (matching `.ruby-version`)
-* **Node.js 20** (for build tools)
-* **System dependencies** (libvips for image processing)
-* **Playwright** with Chromium for E2E testing
-* **VS Code extensions** for Ruby, JavaScript, Markdown, Liquid, YAML, and more
+- **Ruby 3.4.7** (matching `.ruby-version`)
+- **Node.js 20** (for build tools)
+- **System dependencies** (libvips for image processing)
+- **Playwright** with Chromium for E2E testing
+- **VS Code extensions** for Ruby, JavaScript, Markdown, Liquid, YAML, and more
 
 **To use the devcontainer:**
 
@@ -129,8 +129,8 @@ script/super-linter   # Direct script invocation
 
 This repository includes specialized GitHub Copilot custom agents to assist with development:
 
-* **Code Agent**: For Ruby, JavaScript, HTML/Liquid, and CSS development
-* **Writing Agent**: For blog posts and documentation
+- **Code Agent**: For Ruby, JavaScript, HTML/Liquid, and CSS development
+- **Writing Agent**: For blog posts and documentation
 
 See `.github/agents/` for their configurations.
 
@@ -138,10 +138,10 @@ See `.github/agents/` for their configurations.
 
 The repository includes a `.github/workflows/copilot-setup-steps.yml` workflow that automatically configures the development environment for GitHub Copilot coding agent. This workflow:
 
-* Sets up Ruby (with version from `.ruby-version`)
-* Sets up Node.js (version 20)
-* Installs system dependencies (libvips for image processing)
-* Installs all Ruby gems and npm packages via `script/bootstrap`
+- Sets up Ruby (with version from `.ruby-version`)
+- Sets up Node.js (version 20)
+- Installs system dependencies (libvips for image processing)
+- Installs all Ruby gems and npm packages via `script/bootstrap`
 
 This ensures Copilot can build, test, and work with the codebase in a properly configured environment.
 
@@ -172,9 +172,9 @@ npm run test:vitest:coverage
 
 Tests cover:
 
-* Site configuration (contact links, social links, footer links)
-* Component TypeScript logic and interfaces
-* Utility functions
+- Site configuration (contact links, social links, footer links)
+- Component TypeScript logic and interfaces
+- Utility functions
 
 ### Playwright E2E Tests
 
@@ -193,15 +193,15 @@ npm run test:e2e:headed
 
 Tests cover:
 
-* Homepage, blog posts, resume, and static pages
-* Accessibility (WCAG compliance, keyboard navigation)
-* Performance (load times, asset optimization)
-* SEO (meta tags, Open Graph, structured data)
-* Responsive design
+- Homepage, blog posts, resume, and static pages
+- Accessibility (WCAG compliance, keyboard navigation)
+- Performance (load times, asset optimization)
+- SEO (meta tags, Open Graph, structured data)
+- Responsive design
 
 See [TESTING.md](TESTING.md) for comprehensive testing documentation.
 
 ## License
 
-* Content: [Creative Commons, BY](http://creativecommons.org/licenses/by/3.0/)
-* Code: [MIT](http://opensource.org/licenses/mit-license.php)
+- Content: [Creative Commons, BY](http://creativecommons.org/licenses/by/3.0/)
+- Code: [MIT](http://opensource.org/licenses/mit-license.php)

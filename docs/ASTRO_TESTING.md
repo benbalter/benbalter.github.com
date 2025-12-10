@@ -46,11 +46,11 @@ In CI environments, you need to:
 
 The Astro test configuration is in `playwright-astro.config.ts`:
 
-* **Base URL**: `http://localhost:4321` (Astro's default port)
-* **Test Directory**: `./e2e` (shared with other builds)
-* **Timeout**: 30 seconds per test
-* **Retries**: 2 retries in CI, 0 locally
-* **Workers**: 4 parallel workers in CI
+- **Base URL**: `http://localhost:4321` (Astro's default port)
+- **Test Directory**: `./e2e` (shared with other builds)
+- **Timeout**: 30 seconds per test
+- **Retries**: 2 retries in CI, 0 locally
+- **Workers**: 4 parallel workers in CI
 
 ## Test Results
 
@@ -58,13 +58,13 @@ The Astro test configuration is in `playwright-astro.config.ts`:
 
 The following test categories work well with the Astro build:
 
-* **Basic Page Loading**: Pages load successfully
-* **Navigation**: Navigation links work correctly
-* **Footer**: Footer is present and functional
-* **Responsive Design**: Mobile viewport works
-* **Meta Tags**: Most meta tags are present
-* **Performance**: Fast page loads
-* **Accessibility**: Basic accessibility features
+- **Basic Page Loading**: Pages load successfully
+- **Navigation**: Navigation links work correctly
+- **Footer**: Footer is present and functional
+- **Responsive Design**: Mobile viewport works
+- **Meta Tags**: Most meta tags are present
+- **Performance**: Fast page loads
+- **Accessibility**: Basic accessibility features
 
 ### Known Differences ⚠️
 
@@ -80,29 +80,29 @@ The Astro implementation has some differences from Jekyll/Next.js:
 
 Based on initial testing:
 
-* **Homepage Tests**: 73% passing (8/11 tests)
-* **Static Pages Tests**: 44% passing (7/16 tests)
-* **Other Tests**: Not yet validated
+- **Homepage Tests**: 73% passing (8/11 tests)
+- **Static Pages Tests**: 44% passing (7/16 tests)
+- **Other Tests**: Not yet validated
 
 ## Current Astro Implementation
 
 The Astro build includes:
 
-* **8 pages** generated:
-  * Homepage (`/`)
-  * About page (`/about/`)
-  * Contact page (`/contact/`)
-  * Resume page (`/resume/`)
-  * Talks page (`/talks/`)
-  * Fine Print page (`/fine-print/`)
-  * 2 example blog posts (`/posts/example-markdown-post/`, `/posts/example-mdx-post/`)
+- **8 pages** generated:
+  - Homepage (`/`)
+  - About page (`/about/`)
+  - Contact page (`/contact/`)
+  - Resume page (`/resume/`)
+  - Talks page (`/talks/`)
+  - Fine Print page (`/fine-print/`)
+  - 2 example blog posts (`/posts/example-markdown-post/`, `/posts/example-mdx-post/`)
 
-* **Features**:
-  * Markdown and MDX support
-  * Static site generation
-  * GitHub-style syntax highlighting
-  * Content collections with type safety
-  * Minimal JavaScript (static HTML)
+- **Features**:
+  - Markdown and MDX support
+  - Static site generation
+  - GitHub-style syntax highlighting
+  - Content collections with type safety
+  - Minimal JavaScript (static HTML)
 
 ## Adapting Tests for Astro
 
@@ -172,13 +172,13 @@ To improve Astro test coverage:
 
 ## Related Documentation
 
-* [Astro Configuration](../astro.config.mjs)
-* [Astro Content Documentation](./ASTRO_CONTENT.md)
-* [E2E Testing README](../e2e/README.md)
-* [Playwright Configuration](../playwright-astro.config.ts)
+- [Astro Configuration](../astro.config.mjs)
+- [Astro Content Documentation](./ASTRO_CONTENT.md)
+- [E2E Testing README](../e2e/README.md)
+- [Playwright Configuration](../playwright-astro.config.ts)
 
 ## Resources
 
-* [Playwright Documentation](https://playwright.dev/)
-* [Astro Documentation](https://docs.astro.build/)
-* [Astro Testing Guide](https://docs.astro.build/en/guides/testing/)
+- [Playwright Documentation](https://playwright.dev/)
+- [Astro Documentation](https://docs.astro.build/)
+- [Astro Testing Guide](https://docs.astro.build/en/guides/testing/)

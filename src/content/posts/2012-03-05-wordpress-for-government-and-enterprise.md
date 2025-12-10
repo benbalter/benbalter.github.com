@@ -13,15 +13,15 @@ Drupal powers twice as many federal .govs as every other CMS combined. That's mo
 
 ### Typical Enterprise Misconceptions
 
-* WordPress is a blogging platform
-* WordPress doesn't scale well
-* Most plugins are written by hobbyists, not professionals
-* WordPress is less secure
-* WordPress can't handle complex data types or user roles
-* There's no enterprise support
-* There aren't many WordPress developers
-* No "serious" people use WordPress
-* The WordPress codebase is immature
+- WordPress is a blogging platform
+- WordPress doesn't scale well
+- Most plugins are written by hobbyists, not professionals
+- WordPress is less secure
+- WordPress can't handle complex data types or user roles
+- There's no enterprise support
+- There aren't many WordPress developers
+- No "serious" people use WordPress
+- The WordPress codebase is immature
 
 WordPress's disproportionately low government adoption is arguably the result of a handful of factors. For one, custom post types, the feature that formally graduated WordPress from a mere blogging platform into a full-fledged content management system, has only been around since June of last year. Yet, even among new sites,[^1] the ratio remains somewhat stagnant, if not shrinking, leaving one to believe that the technology has lapped its own already stellar perception.
 

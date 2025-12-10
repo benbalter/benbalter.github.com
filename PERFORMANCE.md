@@ -7,6 +7,7 @@ This document describes the performance and accessibility improvements made to t
 ### JavaScript Bundle Optimization
 
 **Current State**: Astro automatically inlines all JavaScript, resulting in minimal blocking scripts (~1KB total). The site uses:
+
 - FontAwesome for icons (loaded synchronously but inlined by Astro)
 - Turbo Drive for page navigation (loaded synchronously but inlined by Astro)
 - Minimal navigation toggle script (inlined)
@@ -14,6 +15,7 @@ This document describes the performance and accessibility improvements made to t
 **Astro's Optimization**: All scripts are bundled and inlined directly in the HTML during build time, eliminating separate JavaScript file requests. This results in zero external JavaScript files being loaded.
 
 **Impact**:
+
 - No external JavaScript HTTP requests
 - All JavaScript inlined (~1KB per page)
 - Minimal blocking during page load
@@ -34,6 +36,7 @@ Added preconnect and DNS prefetch hints to reduce latency when fetching external
 ```
 
 **Expected Impact**:
+
 - Reduces DNS lookup time by 20-100ms
 - Reduces connection establishment time by 50-200ms
 - Particularly beneficial for GitHub avatars and external images
@@ -41,12 +44,14 @@ Added preconnect and DNS prefetch hints to reduce latency when fetching external
 ### Image Optimization
 
 The site already uses:
+
 - Astro's built-in Image component for automatic optimization
 - WebP format for modern browsers
 - Proper width/height attributes to prevent Cumulative Layout Shift (CLS)
 - Lazy loading for below-the-fold images
 
 **Current State**:
+
 - 26 images optimized during build
 - Average image size reduction: 60-80%
 - WebP format provides 25-35% better compression than JPEG
@@ -64,6 +69,7 @@ Added a keyboard-accessible skip link for screen reader users and keyboard navig
 ```
 
 **Benefits**:
+
 - Allows keyboard users to bypass navigation
 - Improves screen reader experience
 - WCAG 2.1 Level A compliance (Success Criterion 2.4.1)
@@ -90,6 +96,7 @@ Improved semantic HTML and ARIA attributes for better accessibility:
 ```
 
 **Benefits**:
+
 - Clear navigation landmarks for screen readers
 - Current page indication for assistive technologies
 - Improved keyboard navigation flow
@@ -105,12 +112,14 @@ Improved semantic HTML and ARIA attributes for better accessibility:
 | Images | 488KB | WebP | Lazy loaded |
 
 **Key Findings**:
+
 - Astro inlines all JavaScript directly into HTML (~1KB per page)
 - Zero external JavaScript file requests
 - All scripts bundled and tree-shaken by Astro at build time
 - CSS is optimized and tree-shaken (only used Bootstrap components)
 
 **Benefits**:
+
 - No JavaScript HTTP requests = faster page load
 - Minimal blocking JavaScript
 - Optimized CSS reduces render-blocking time
@@ -120,20 +129,24 @@ Improved semantic HTML and ARIA attributes for better accessibility:
 Based on these optimizations, we expect the following improvements in Lighthouse scores:
 
 ### Performance
+
 - **Before**: 75-85 (estimated baseline)
 - **After**: 80-90 (estimated with resource hints and accessibility improvements)
 - **Key improvements**: Resource hints reduce external resource latency
 
 ### Accessibility
+
 - **Before**: 85-90 (estimated)
 - **After**: 95-100 (expected)
 - **Key improvements**: Navigation, keyboard support, ARIA labels
 
 ### Best Practices
+
 - **Expected**: 95-100
 - Already following modern best practices (HTTPS, no console errors, etc.)
 
 ### SEO
+
 - **Expected**: 95-100
 - Comprehensive meta tags, structured data, semantic HTML
 
@@ -165,12 +178,14 @@ npm run lighthouse
 ## Browser Support
 
 All optimizations are compatible with:
+
 - Chrome/Edge 90+
 - Firefox 88+
 - Safari 14+
 - Mobile browsers (iOS Safari 14+, Chrome Android 90+)
 
 Fallbacks are in place for older browsers:
+
 - Skip link works in all browsers with CSS support
 - Lazy loading gracefully degrades to immediate loading
 - Resource hints are ignored by browsers that don't support them
@@ -190,6 +205,7 @@ Potential future improvements:
 ## Monitoring
 
 Set up continuous monitoring with:
+
 - Lighthouse CI in GitHub Actions
 - Chrome UX Report (CrUX) for real user metrics
 - WebPageTest for detailed waterfall analysis

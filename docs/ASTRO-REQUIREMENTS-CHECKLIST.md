@@ -14,21 +14,21 @@
 
 **Implementation:**
 
-* **Content Collections** defined with Zod schemas
-  * `src/content/posts/` - Blog posts collection (184 posts)
-  * `src/content/pages/` - Static pages collection (10 pages)
-  * `src/content/resume-positions/` - Resume positions collection (10 positions)
+- **Content Collections** defined with Zod schemas
+  - `src/content/posts/` - Blog posts collection (184 posts)
+  - `src/content/pages/` - Static pages collection (10 pages)
+  - `src/content/resume-positions/` - Resume positions collection (10 positions)
 
-* **Data Files** organized in `src/data/`
-  * `books.yml` - Book recommendations (159 entries)
-  * `clips.yml` - Press mentions (30+ entries)
-  * `related-posts.yml` - Related posts mapping (generated)
-  * `site.yml` - Site configuration
+- **Data Files** organized in `src/data/`
+  - `books.yml` - Book recommendations (159 entries)
+  - `clips.yml` - Press mentions (30+ entries)
+  - `related-posts.yml` - Related posts mapping (generated)
+  - `site.yml` - Site configuration
 
-* **Type Safety** enforced via Zod schemas
-  * Required fields validated at build time
-  * Optional fields properly typed
-  * Date parsing from filename implemented
+- **Type Safety** enforced via Zod schemas
+  - Required fields validated at build time
+  - Optional fields properly typed
+  - Date parsing from filename implemented
 
 **Documentation:** Sections 2–3 in ASTRO-ARCHITECTURE.md
 
@@ -51,18 +51,18 @@
 
 **URL Preservation:**
 
-* ✅ 100% URL compatibility maintained
-* ✅ All 184 blog post URLs preserved exactly
-* ✅ All 10 static page URLs preserved exactly
-* ✅ 18 redirect mappings documented and implemented
-* ✅ Special URLs (feeds, sitemap) mapped
+- ✅ 100% URL compatibility maintained
+- ✅ All 184 blog post URLs preserved exactly
+- ✅ All 10 static page URLs preserved exactly
+- ✅ 18 redirect mappings documented and implemented
+- ✅ Special URLs (feeds, sitemap) mapped
 
 **Implementation Details:**
 
-* Dynamic route with params extraction from filename
-* Catch-all route for static pages
-* API routes for XML/RSS generation
-* Trailing slash configuration matches Jekyll
+- Dynamic route with params extraction from filename
+- Catch-all route for static pages
+- API routes for XML/RSS generation
+- Trailing slash configuration matches Jekyll
 
 **Documentation:** Section 3 in ASTRO-ARCHITECTURE.md
 
@@ -129,11 +129,11 @@ end_date: string (omit for current position)
 
 **Validation:**
 
-* ✅ All frontmatter fields mapped from Jekyll
-* ✅ Zod schemas enforce field types
-* ✅ Required fields validated at build time
-* ✅ Optional fields have proper defaults
-* ✅ Backward compatible with existing content
+- ✅ All frontmatter fields mapped from Jekyll
+- ✅ Zod schemas enforce field types
+- ✅ Required fields validated at build time
+- ✅ Optional fields have proper defaults
+- ✅ Backward compatible with existing content
 
 **Documentation:** Section 4 in ASTRO-ARCHITECTURE.md
 
@@ -220,38 +220,38 @@ export default defineConfig({
 
 **Blog Post URLs:**
 
-* ✅ Pattern: `/:year/:month/:day/:title/` preserved
-* ✅ All 184 posts maintain exact URLs
-* ✅ Trailing slashes configured
-* ✅ No URL changes
+- ✅ Pattern: `/:year/:month/:day/:title/` preserved
+- ✅ All 184 posts maintain exact URLs
+- ✅ Trailing slashes configured
+- ✅ No URL changes
 
 **Static Page URLs:**
 
-* ✅ Pattern: `/page-name/` preserved
-* ✅ All 10 pages maintain exact URLs
-* ✅ Custom permalinks supported
+- ✅ Pattern: `/page-name/` preserved
+- ✅ All 10 pages maintain exact URLs
+- ✅ Custom permalinks supported
 
 **Special URLs:**
 
-* ✅ `/feed.xml` preserved
-* ✅ `/press/feed/index.xml` preserved
-* ✅ `/sitemap.xml` preserved
-* ✅ `/robots.txt` preserved
-* ✅ `/humans.txt` preserved
-* ✅ `/.well-known/security.txt` preserved
+- ✅ `/feed.xml` preserved
+- ✅ `/press/feed/index.xml` preserved
+- ✅ `/sitemap.xml` preserved
+- ✅ `/robots.txt` preserved
+- ✅ `/humans.txt` preserved
+- ✅ `/.well-known/security.txt` preserved
 
 **Redirects:**
 
-* ✅ All 18 redirect mappings preserved
-* ✅ HTML redirect files generated at build time
-* ✅ Canonical URLs maintained
+- ✅ All 18 redirect mappings preserved
+- ✅ HTML redirect files generated at build time
+- ✅ Canonical URLs maintained
 
 **SEO Impact:**
 
-* ✅ Zero URL changes = Zero SEO risk
-* ✅ No 301 redirects needed for existing content
-* ✅ Search rankings preserved
-* ✅ External links continue to work
+- ✅ Zero URL changes = Zero SEO risk
+- ✅ No 301 redirects needed for existing content
+- ✅ Search rankings preserved
+- ✅ External links continue to work
 
 **Verification Method:**
 
@@ -272,74 +272,74 @@ assert(jekyllUrls === astroUrls);
 
 **Document Details:**
 
-* **File:** `docs/ASTRO-ARCHITECTURE.md`
-* **Length:** 1,163 lines
-* **Sections:** 8 major sections + appendices
-* **Code Examples:** Complete and functional
-* **Migration Plan:** 8-phase, 6-week timeline
+- **File:** `docs/ASTRO-ARCHITECTURE.md`
+- **Length:** 1,163 lines
+- **Sections:** 8 major sections + appendices
+- **Code Examples:** Complete and functional
+- **Migration Plan:** 8-phase, 6-week timeline
 
 **Document Structure:**
 
 1. **Executive Summary** (Lines 1–30)
-   * Overview of migration goals
-   * Key design principles
-   * Table of contents
+   - Overview of migration goals
+   - Key design principles
+   - Table of contents
 
 2. **Directory Structure** (Lines 32–95)
-   * Complete Astro project layout
-   * File organization
-   * Naming conventions
+   - Complete Astro project layout
+   - File organization
+   - Naming conventions
 
 3. **Content Organization** (Lines 97–195)
-   * Content collections with Zod schemas
-   * Posts, pages, resume positions
-   * Type safety implementation
+   - Content collections with Zod schemas
+   - Posts, pages, resume positions
+   - Type safety implementation
 
 4. **URL Structure and Routing** (Lines 197–358)
-   * Blog post routing with dynamic params
-   * Static page catch-all routing
-   * Homepage implementation
-   * Code examples for all routes
+   - Blog post routing with dynamic params
+   - Static page catch-all routing
+   - Homepage implementation
+   - Code examples for all routes
 
 5. **Frontmatter Specification** (Lines 360–436)
-   * Required and optional fields
-   * All content types covered
-   * YAML examples
+   - Required and optional fields
+   - All content types covered
+   - YAML examples
 
 6. **Data Files and Collections** (Lines 438–509)
-   * Site configuration
-   * Books, clips, related posts
-   * Usage patterns
+   - Site configuration
+   - Books, clips, related posts
+   - Usage patterns
 
 7. **Features Implementation** (Lines 511–740)
-   * RSS feeds (main + press)
-   * XML sitemap
-   * Redirects generation
-   * Related posts
-   * SEO meta tags
-   * GitHub features (emoji, mentions, avatars)
-   * Complete code examples
+   - RSS feeds (main + press)
+   - XML sitemap
+   - Redirects generation
+   - Related posts
+   - SEO meta tags
+   - GitHub features (emoji, mentions, avatars)
+   - Complete code examples
 
 8. **Build Pipeline** (Lines 742–872)
-   * Astro configuration
-   * Build steps and scripts
-   * GitHub Actions workflow
-   * CI/CD integration
+   - Astro configuration
+   - Build steps and scripts
+   - GitHub Actions workflow
+   - CI/CD integration
 
 9. **Migration Checklist** (Lines 874–982)
-   * 8 phases with specific tasks
-   * 6-week timeline
-   * Testing requirements
-   * Success criteria
+   - 8 phases with specific tasks
+   - 6-week timeline
+   - Testing requirements
+   - Success criteria
 
 **Quality Metrics:**
 
-* ✅ Comprehensive coverage
-* ✅ Actionable code examples
-* ✅ Clear migration path
-* ✅ Success criteria defined
-* ✅ Risk mitigation included
-* ✅ Timeline estimates provided
+- ✅ Comprehensive coverage
+- ✅ Actionable code examples
+- ✅ Clear migration path
+- ✅ Success criteria defined
+- ✅ Risk mitigation included
+- ✅ Timeline estimates provided
 
 **Documentation:** Complete document at `docs/ASTRO-ARCHITECTURE.md`
 
@@ -361,11 +361,11 @@ assert(jekyllUrls === astroUrls);
 
 ### Migration Benefits
 
-* **Performance:** Faster builds, zero JavaScript by default
-* **Developer Experience:** Modern tooling, TypeScript, fast HMR
-* **Type Safety:** Zod schemas catch errors at build time
-* **SEO:** No URL changes, no ranking loss
-* **Maintainability:** Better ecosystem, active development
+- **Performance:** Faster builds, zero JavaScript by default
+- **Developer Experience:** Modern tooling, TypeScript, fast HMR
+- **Type Safety:** Zod schemas catch errors at build time
+- **SEO:** No URL changes, no ranking loss
+- **Maintainability:** Better ecosystem, active development
 
 ### Risk Assessment
 
@@ -391,11 +391,11 @@ assert(jekyllUrls === astroUrls);
 
 **Deliverable Quality:**
 
-* **Comprehensive:** All aspects of migration covered
-* **Actionable:** Ready for implementation
-* **Type-Safe:** Zod schemas for all content
-* **SEO-Safe:** Zero URL changes
-* **Well-Documented:** Complete code examples
+- **Comprehensive:** All aspects of migration covered
+- **Actionable:** Ready for implementation
+- **Type-Safe:** Zod schemas for all content
+- **SEO-Safe:** Zero URL changes
+- **Well-Documented:** Complete code examples
 
 **Timeline:** 6 weeks for full migration with testing
 

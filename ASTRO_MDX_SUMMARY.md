@@ -7,6 +7,7 @@ This implementation adds comprehensive Markdown and MDX support to the Astro bui
 ### 1. Core Configuration
 
 **File: `astro.config.mjs`**
+
 - Integrated `@astrojs/mdx` for MDX support
 - Configured markdown processing with:
   - GitHub Flavored Markdown (GFM)
@@ -21,6 +22,7 @@ This implementation adds comprehensive Markdown and MDX support to the Astro bui
 Created two content collections with Zod schemas:
 
 #### Posts Collection (`src/content/posts/`)
+
 ```typescript
 {
   title: string;              // Required
@@ -38,6 +40,7 @@ Created two content collections with Zod schemas:
 ```
 
 #### Pages Collection (`src/content/pages/`)
+
 ```typescript
 {
   title: string;              // Required
@@ -53,7 +56,9 @@ Created two content collections with Zod schemas:
 ### 3. Example Content
 
 #### Markdown Post: `src/content/posts/example-markdown-post.md`
+
 Demonstrates:
+
 - Jekyll-compatible frontmatter
 - Standard Markdown features
 - GitHub Flavored Markdown
@@ -61,14 +66,18 @@ Demonstrates:
 - Tables, lists, and formatting
 
 #### MDX Post: `src/content/posts/example-mdx-post.mdx`
+
 Showcases:
+
 - Component imports
 - Custom MDX components
 - Mixed Markdown/component content
 - Rich interactive examples
 
 #### Page: `src/content/pages/example-page.md`
+
 Shows:
+
 - Static page structure
 - Page-specific frontmatter
 - Content organization
@@ -76,29 +85,35 @@ Shows:
 ### 4. Reusable MDX Components
 
 #### Callout Component (`src/components/Callout.astro`)
+
 ```mdx
 <Callout type="info" title="Note">
 Important information here
 </Callout>
 ```
+
 - Types: info, warning, error, success
 - Styled with icons and colors
 - Fully accessible
 
 #### CodeBlock Component (`src/components/CodeBlock.astro`)
+
 ```mdx
 <CodeBlock title="example.js" language="javascript">
 // Code goes here
 </CodeBlock>
 ```
+
 - Title bar with filename
 - Language indicator
 - GitHub-style formatting
 
 #### YouTube Component (`src/components/YouTube.astro`)
+
 ```mdx
 <YouTube id="dQw4w9WgXcQ" title="Video Title" />
 ```
+
 - Responsive 16:9 aspect ratio
 - Accessible with proper attributes
 - Rounded corners for polish
@@ -106,7 +121,9 @@ Important information here
 ### 5. Layouts and Routes
 
 #### PostLayout (`src/layouts/PostLayout.astro`)
+
 Features:
+
 - Metadata display (title, description, date)
 - Open Graph image support
 - Styled content with GitHub theme
@@ -114,12 +131,14 @@ Features:
 - Responsive design
 
 #### Dynamic Route (`src/pages/posts/[slug].astro`)
+
 - Static path generation for all posts
 - Jekyll date extraction from filename
 - Type-safe props with TypeScript
 - Automatic content rendering
 
 #### Updated Index (`src/pages/index.astro`)
+
 - Lists recent posts (5 most recent)
 - Shows titles and descriptions
 - Links to full posts
@@ -128,7 +147,9 @@ Features:
 ### 6. Documentation
 
 #### ASTRO_CONTENT.md
+
 Comprehensive guide covering:
+
 - Content collections setup
 - Frontmatter schemas
 - Markdown and MDX usage
@@ -140,6 +161,7 @@ Comprehensive guide covering:
 ### 7. Build Validation
 
 **All checks passing:**
+
 - ✅ TypeScript type checking (`npm run astro:check`)
 - ✅ Build succeeds with 5 pages generated
 - ✅ Static HTML output in `dist-astro/`
