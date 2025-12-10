@@ -105,3 +105,36 @@ nav .border-top .link-secondary {
         }
     }
 }
+
+// Reduce text sizes for better readability
+.navbar-brand {
+    font-size: 1.125rem; // Reduced from default ~1.25rem
+}
+
+.navbar .nav-link {
+    font-size: 0.9375rem; // Reduced from default 1rem
+}
+
+.navbar-text {
+    font-size: 0.875rem; // Reduced from default 1rem
+}
+
+footer .nav-link {
+    font-size: 0.875rem; // Reduced from default 1rem
+}
+
+// Reduce post list text sizes (for index/home page)
+// NOTE: Add the `.post-list-link` class to anchor tags in the index/home page template for this style to apply.
+.post-list-link {
+    font-size: 0.9375rem; // Slightly smaller post titles
+}
+
+.post-meta {
+    font-size: 0.8125rem; // Reduced from default 0.875rem
+}
+
+// Reduce mini-bio text size
+.mini-bio .avatar + p,
+.mini-bio .avatar ~ p {
+    font-size: 0.9375rem; // Reduced from default 1rem
+}
