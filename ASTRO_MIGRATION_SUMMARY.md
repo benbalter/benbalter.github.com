@@ -218,13 +218,13 @@ Created comprehensive documentation:
 
 ### Medium Priority
 
-4. **Convert Liquid Tags**: Create MDX components for common Liquid includes
+1. **Convert Liquid Tags**: Create MDX components for common Liquid includes
 2. **Internal Link Updates**: Update references to use new URL format
 3. **Analytics Migration**: Update tracking for URL changes
 
 ### Low Priority
 
-7. **Related Posts**: Implement related posts functionality
+1. **Related Posts**: Implement related posts functionality
 2. **Post Archives**: Create date-based archive pages
 3. **Tag/Category Pages**: Build tag and category index pages
 
