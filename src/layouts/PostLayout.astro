@@ -166,7 +166,16 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   </div>
 </BaseLayout>
 
-<style>
+<style lang="scss">
+  /* Import Bootstrap badge and button components (scoped to this component) */
+  @import 'bootstrap/scss/functions';
+  @import 'bootstrap/scss/variables';
+  @import 'bootstrap/scss/variables-dark';
+  @import 'bootstrap/scss/maps';
+  @import 'bootstrap/scss/mixins';
+  @import 'bootstrap/scss/badge';
+  @import 'bootstrap/scss/buttons';
+  
   /* Custom styles for blog post layout */
   /* Note: Bootstrap grid (.row, .col-*) and utility classes are imported globally */
   

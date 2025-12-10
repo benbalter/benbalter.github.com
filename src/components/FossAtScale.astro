@@ -4,8 +4,6 @@
  * 
  * Displays a note about the "FOSS at Scale" blog post series.
  * Replaces {% include foss-at-scale.html nth="..." %}
- * 
- * Note: Uses Bootstrap alert component imported in optimized.scss
  */
 
 interface Props {
@@ -18,3 +16,13 @@ const { nth = "first" } = Astro.props;
 <div class="alert alert-primary text-center" role="alert">
   This is the {nth} post in <a href="/2021/06/15/managing-open-source-communities-at-scale/" class="alert-link">a series</a> on successfully managing open source communities at scale.
 </div>
+
+<style lang="scss">
+  // Import Bootstrap alert component (scoped to this component)
+  @import 'bootstrap/scss/functions';
+  @import 'bootstrap/scss/variables';
+  @import 'bootstrap/scss/variables-dark';
+  @import 'bootstrap/scss/maps';
+  @import 'bootstrap/scss/mixins';
+  @import 'bootstrap/scss/alert';
+</style>

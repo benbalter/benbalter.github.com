@@ -4,8 +4,6 @@
  * 
  * Displays a callout linking to posts about GitHub's culture.
  * This replaces the Jekyll {% include_cached github-culture.html %} tag.
- * 
- * Note: Uses Bootstrap alert component imported in optimized.scss
  */
 ---
 
@@ -15,3 +13,13 @@
     Check out these popular posts on GitHub's culture and communication patterns
   </a>.
 </div>
+
+<style lang="scss">
+  // Import Bootstrap alert component (scoped to this component)
+  @import 'bootstrap/scss/functions';
+  @import 'bootstrap/scss/variables';
+  @import 'bootstrap/scss/variables-dark';
+  @import 'bootstrap/scss/maps';
+  @import 'bootstrap/scss/mixins';
+  @import 'bootstrap/scss/alert';
+</style>
