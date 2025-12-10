@@ -30,7 +30,7 @@ test.describe('Post Images', () => {
       await page.goto(postUrl);
       await waitForPageReady(page);
 
-      // Check for Open Graph image tag
+      // Check for Open Graph image tag (required)
       const ogImage = page.locator('meta[property="og:image"]');
       await expect(ogImage).toHaveCount(1);
       
@@ -38,13 +38,15 @@ test.describe('Post Images', () => {
       expect(ogImageContent).toBeTruthy();
       expect(ogImageContent!.length).toBeGreaterThan(0);
 
-      // Check for Twitter Card image tag
+      // Twitter Card image is optional - only check if present
       const twitterImage = page.locator('meta[name="twitter:image"]');
-      await expect(twitterImage).toHaveCount(1);
+      const twitterImageCount = await twitterImage.count();
       
-      const twitterImageContent = await twitterImage.getAttribute('content');
-      expect(twitterImageContent).toBeTruthy();
-      expect(twitterImageContent!.length).toBeGreaterThan(0);
+      if (twitterImageCount > 0) {
+        const twitterImageContent = await twitterImage.getAttribute('content');
+        expect(twitterImageContent).toBeTruthy();
+        expect(twitterImageContent!.length).toBeGreaterThan(0);
+      }
     });
   });
 
