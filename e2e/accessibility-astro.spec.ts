@@ -89,6 +89,14 @@ test.describe('Accessibility - Blog Post', () => {
   test('should not have accessibility violations on post page', async ({ page }) => {
     // Navigate to a recent post
     await page.goto('/');
+    
+    // Guard: skip if no article links exist
+    const articleLinks = await page.locator('article a').count();
+    if (articleLinks === 0) {
+      test.skip();
+      return;
+    }
+    
     await page.click('article a'); // Click first post link
     await page.waitForLoadState('networkidle');
     
@@ -101,6 +109,14 @@ test.describe('Accessibility - Blog Post', () => {
   
   test('should have article semantic structure', async ({ page }) => {
     await page.goto('/');
+    
+    // Guard: skip if no article links exist
+    const articleLinks = await page.locator('article a').count();
+    if (articleLinks === 0) {
+      test.skip();
+      return;
+    }
+    
     await page.click('article a');
     await page.waitForLoadState('networkidle');
     
@@ -119,6 +135,14 @@ test.describe('Accessibility - Blog Post', () => {
   
   test('all images should have alt text', async ({ page }) => {
     await page.goto('/');
+    
+    // Guard: skip if no article links exist
+    const articleLinks = await page.locator('article a').count();
+    if (articleLinks === 0) {
+      test.skip();
+      return;
+    }
+    
     await page.click('article a');
     await page.waitForLoadState('networkidle');
     

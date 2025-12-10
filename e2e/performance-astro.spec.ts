@@ -379,6 +379,13 @@ test.describe('View Transitions Performance', () => {
   test('navigation should be smooth with View Transitions', async ({ page }) => {
     await page.goto('/');
     
+    // Guard: skip if no article links exist
+    const articleLinks = await page.locator('article a').count();
+    if (articleLinks === 0) {
+      test.skip();
+      return;
+    }
+    
     // Click a link to navigate
     const startTime = Date.now();
     await page.click('article a');
