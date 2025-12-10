@@ -104,12 +104,14 @@ The configuration is optimized for GitHub Pages deployment:
 The site uses [Astro View Transitions](https://docs.astro.build/en/guides/view-transitions/) for smooth page navigation:
 
 **How it works:**
+
 - View Transitions automatically intercept link clicks
 - Instead of full page reloads, Astro fetches new pages and smoothly transitions
 - Uses native browser View Transition API when available, with fallback for unsupported browsers
 - Browser history, scroll position, and page titles are managed automatically
 
 **Benefits:**
+
 - Smooth animations between pages (no white flash)
 - Reduced server load (fewer assets re-downloaded)
 - App-like navigation experience
@@ -117,6 +119,7 @@ The site uses [Astro View Transitions](https://docs.astro.build/en/guides/view-t
 - Works seamlessly with static site generation
 
 **Implementation:**
+
 ```astro
 // src/layouts/BaseLayout.astro
 import { ClientRouter } from 'astro:transitions';
@@ -130,12 +133,14 @@ import { ClientRouter } from 'astro:transitions';
 The component is included in `BaseLayout.astro` and automatically enables View Transitions. Note: `ClientRouter` is the current name for View Transitions in Astro 5.x (previously called `ViewTransitions`).
 
 **Disabling View Transitions for specific links:**
+
 ```html
 <a href="/page/" data-astro-reload>Normal navigation</a>
 ```
 
 **Testing:**
 E2E tests for View Transitions are in `e2e/view-transitions.spec.ts` covering:
+
 - Link interception and navigation
 - Browser history management
 - Scroll position preservation
