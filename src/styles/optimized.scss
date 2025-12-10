@@ -410,7 +410,7 @@ main a:not(.btn):not(.nav-link):not(.navbar-brand):not(.anchor-link) {
     text-decoration-thickness: 0.08em; // Increased from 0.0625em for better visibility
     text-decoration-skip-ink: auto;
     text-underline-offset: 0.15em; // Increased from 0.125em for better separation
-    transition: color 0.2s ease-in-out, text-decoration-color 0.2s ease-in-out, text-decoration-thickness 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out, text-decoration-color 0.2s ease-in-out;
 }
 
 article a:not(.anchor-link):hover,
