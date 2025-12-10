@@ -185,8 +185,6 @@ export default defineConfig({
       },
       wrap: true,
     },
-    // Enable GitHub Flavored Markdown
-    gfm: true,
     // Enable smartypants for typographic punctuation
     smartypants: true,
     // Remark plugins (for markdown processing)
