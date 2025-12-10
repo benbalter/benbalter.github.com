@@ -194,4 +194,39 @@ test.describe('TLDR Tooltip', () => {
       await expect(tldrElement).toHaveAttribute('aria-expanded', 'false');
     }
   });
+
+  test('should work after navigation via View Transitions', async ({ page }) => {
+    const astro = await isAstroBuild(page);
+
+    if (astro) {
+      // Start on homepage
+      await page.goto('/');
+      await waitForPageReady(page);
+
+      // Navigate to a post with TLDR using a link (this triggers View Transitions)
+      await page.click('a[href*="/2015/12/08/types-of-pull-requests/"]');
+      await page.waitForURL('**/2015/12/08/types-of-pull-requests/');
+      await waitForPageReady(page);
+
+      // Wait a moment for Astro View Transitions to complete
+      await page.waitForTimeout(500);
+
+      // Check TLDR component is visible after navigation
+      const tldrElement = page.locator('.lead strong abbr.initialism');
+      await expect(tldrElement).toBeVisible();
+      await expect(tldrElement).toHaveText('TL;DR');
+
+      // Verify tooltip still works after navigation
+      await tldrElement.click();
+
+      // Check tooltip is visible
+      const tooltip = page.locator('.custom-tooltip.show');
+      await expect(tooltip).toBeVisible({ timeout: 1000 });
+      await expect(tooltip).toContainText('Too Long');
+
+      // Clean up - click again to hide
+      await tldrElement.click();
+      await expect(tooltip).not.toBeAttached({ timeout: 1000 });
+    }
+  });
 });

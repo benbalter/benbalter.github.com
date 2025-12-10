@@ -33,24 +33,23 @@ abbr[data-bs-original-title] {
     @extend small;
     @extend .border-top;
     @extend .pt-3;
-    margin-left: -$content-padding-x;
-    margin-right: -$content-padding-x;
-    padding-left: $content-padding-x;
-    padding-right: $content-padding-x;
 }
 
-.footnotes::before {
-    content: "Notes:";
-    @extend .mb-3;
-    @extend .d-block;
+.footnotes h2 {
+    @extend .mb-2;
 }
 
 .footnotes ol {
-    @extend .ps-3
+    @extend .ps-3;
+    @extend .mb-0;
+}
+
+.footnotes ol li {
+    @extend .mb-2;
 }
 
 .footnotes ol li p {
-    @extend .mb-1
+    @extend .mb-0;
 }
 
 .hero-unit {
