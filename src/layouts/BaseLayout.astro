@@ -7,7 +7,7 @@
  */
 
 import { SEO } from 'astro-seo';
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import { siteConfig, socialLinks } from '../config';
@@ -164,8 +164,8 @@ const schemas = breadcrumbSchema
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json" set:html={schemaToJsonLd(schemas)} is:inline></script>
     
-    <!-- Astro View Transitions for smooth page navigation -->
-    <ViewTransitions />
+    <!-- Astro View Transitions (ClientRouter) for smooth page navigation -->
+    <ClientRouter />
     
     <!-- Favicons are automatically injected by astro-favicons integration -->
     
