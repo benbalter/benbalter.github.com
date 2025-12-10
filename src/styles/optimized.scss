@@ -345,7 +345,7 @@ p {
 
 // Improve paragraph after headings
 h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
-    margin-top: 0; // Remove top margin for paragraphs immediately after headings
+    margin-top: 0; // Changed from 0.5em to 0 for tighter spacing between headings and paragraphs
 }
 
 // Improve list styling
