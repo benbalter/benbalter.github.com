@@ -12,6 +12,20 @@ import { footerLinks, contactLinks } from '../config';
 <footer class="mt-4-custom">
   <nav aria-label="Footer navigation">
     <ul class="nav justify-content-end border-top px-2 py-3">
+      {contactLinks.map((link) => (
+        <li class="nav-item">
+          <a 
+            href={link.url} 
+            aria-label={link.name}
+            class="nav-link"
+            target="_blank"
+            rel="noopener noreferrer me"
+          >
+            <i class={link.icon} title={link.name}></i>
+          </a>
+        </li>
+      ))}
+      
       {footerLinks.map((link) => (
         <li class="nav-item">
           <a href={link.url} class="nav-link link-secondary">
@@ -27,24 +41,6 @@ import { footerLinks, contactLinks } from '../config';
       </li>
     </ul>
   </nav>
-  
-  <nav aria-label="Social media links" class="social-links-nav">
-    <ul class="nav justify-content-end border-top px-2 py-3">
-      {contactLinks.map((link) => (
-        <li class="nav-item">
-          <a 
-            href={link.url} 
-            aria-label={link.name}
-            class="nav-link"
-            target="_blank"
-            rel="noopener noreferrer me"
-          >
-            <i class={link.icon} title={link.name}></i>
-          </a>
-        </li>
-      ))}
-    </ul>
-  </nav>
 </footer>
 
 <style lang="scss">
@@ -56,20 +52,16 @@ import { footerLinks, contactLinks } from '../config';
   @import 'bootstrap/scss/mixins';
   @import 'bootstrap/scss/nav';
   
-  /* Custom styles for social links navigation */
-  .social-links-nav {
+  /* Custom styles for icon links */
+  footer {
     .nav-link {
-      color: var(--bs-link-color);
-      transition: color 0.15s ease-in-out, transform 0.15s ease-in-out;
-      
-      &:hover,
-      &:focus {
-        color: var(--bs-link-hover-color);
-        transform: translateY(-2px);
-      }
-      
       i {
         font-size: 1.25rem;
+      }
+      
+      &:hover i,
+      &:focus i {
+        transform: translateY(-2px);
       }
     }
   }
