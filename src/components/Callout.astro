@@ -3,6 +3,7 @@
  * Callout Component
  * 
  * Display important information, warnings, or notes in blog posts.
+ * Uses Bootstrap 5.3 alert component as base with custom border styling.
  * 
  * Usage in MDX:
  * <Callout type="info">This is an info callout</Callout>
@@ -24,91 +25,40 @@ const icons = {
   success: '✅',
 };
 
-const colors = {
-  info: '#0366d6',
-  warning: '#f9c513',
-  error: '#d73a49',
-  success: '#28a745',
+// Map callout types to Bootstrap alert types
+const alertTypeMap = {
+  info: 'info',
+  warning: 'warning',
+  error: 'danger',
+  success: 'success',
 };
+
+const alertType = alertTypeMap[type];
 ---
 
-<div class={`callout callout-${type}`}>
+<div class={`alert alert-${alertType} border-start border-4 my-4 p-3 rounded`} role="alert">
   {title && (
-    <div class="callout-title">
-      <span class="callout-icon">{icons[type]}</span>
+    <div class="d-flex align-items-center gap-2 mb-2 fw-semibold">
+      <span class="fs-5">{icons[type]}</span>
       <strong>{title}</strong>
     </div>
   )}
-  <div class="callout-content">
+  <div class="m-0 callout-content">
     <slot />
   </div>
 </div>
 
-<style define:vars={{ borderColor: colors[type] }}>
-  .callout {
-    border-left: 4px solid var(--borderColor);
-    padding: 1rem;
-    margin: 1.5rem 0;
-    background-color: #f6f8fa;
-    border-radius: 4px;
-  }
+<style lang="scss">
+  // Import Bootstrap alert component
+  @import 'bootstrap/scss/functions';
+  @import 'bootstrap/scss/variables';
+  @import 'bootstrap/scss/variables-dark';
+  @import 'bootstrap/scss/maps';
+  @import 'bootstrap/scss/mixins';
+  @import 'bootstrap/scss/alert';
   
-  .callout-title {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-  }
-  
-  .callout-icon {
-    font-size: 1.2em;
-  }
-  
-  .callout-content {
-    margin: 0;
-  }
-  
+  // Minimal custom style to ensure last paragraph has no bottom margin
   .callout-content :global(p:last-child) {
     margin-bottom: 0;
-  }
-  
-  .callout-info {
-    background-color: #e8f4ff;
-  }
-  
-  .callout-warning {
-    background-color: #fff8e6;
-  }
-  
-  .callout-error {
-    background-color: #ffe6e6;
-  }
-  
-  .callout-success {
-    background-color: #e6ffe6;
-  }
-  
-  /* Dark mode support */
-  @media (prefers-color-scheme: dark) {
-    .callout {
-      background-color: #161b22;
-    }
-    
-    .callout-info {
-      background-color: #0d1829;
-    }
-    
-    .callout-warning {
-      background-color: #2d2416;
-    }
-    
-    .callout-error {
-      background-color: #2d1618;
-    }
-    
-    .callout-success {
-      background-color: #162d1a;
-    }
   }
 </style>
