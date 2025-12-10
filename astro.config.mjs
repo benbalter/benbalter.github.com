@@ -5,8 +5,11 @@ import favicons from 'astro-favicons';
 import compress from 'astro-compress';
 import redirectIntegration from './src/lib/redirect-integration.ts';
 import remarkEmoji from 'remark-emoji';
+import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeExternalLinks from 'rehype-external-links';
+import rehypeUnwrapImages from 'rehype-unwrap-images';
 import { remarkGitHubMentions } from './src/lib/remark-github-mentions.ts';
 
 // URL patterns for sitemap priority calculation
@@ -26,6 +29,26 @@ const EXCLUDED_PAGES = [
   // To exclude posts/pages from content collections with sitemap: false,
   // add their URLs here (e.g., '/2024/01/01/post-slug/')
 ];
+
+// Shared rehype plugin configurations
+const rehypeExternalLinksConfig = [rehypeExternalLinks, {
+  target: '_blank',
+  rel: ['noopener', 'noreferrer'],
+}];
+
+const rehypeAutolinkHeadingsConfig = [rehypeAutolinkHeadings, {
+  behavior: 'append',
+  properties: {
+    className: ['anchor-link'],
+    ariaLabel: 'Link to this section',
+  },
+  content: {
+    type: 'element',
+    tagName: 'span',
+    properties: { className: ['anchor-icon'] },
+    children: [{ type: 'text', value: '#' }]
+  }
+}];
 
 // https://astro.build/config
 export default defineConfig({
@@ -99,22 +122,16 @@ export default defineConfig({
       // MDX configuration
       optimize: true,
       // Support GitHub Flavored Markdown
-      remarkPlugins: [remarkEmoji, remarkGitHubMentions],
+      remarkPlugins: [
+        remarkGfm,
+        remarkEmoji,
+        remarkGitHubMentions,
+      ],
       rehypePlugins: [
         rehypeSlug,
-        [rehypeAutolinkHeadings, {
-          behavior: 'append',
-          properties: {
-            className: ['anchor-link'],
-            ariaLabel: 'Link to this section',
-          },
-          content: {
-            type: 'element',
-            tagName: 'span',
-            properties: { className: ['anchor-icon'] },
-            children: [{ type: 'text', value: '#' }]
-          }
-        }],
+        rehypeAutolinkHeadingsConfig,
+        rehypeUnwrapImages,
+        rehypeExternalLinksConfig,
       ],
     }),
     sitemap({
@@ -173,28 +190,20 @@ export default defineConfig({
       },
       wrap: true,
     },
-    // Enable GitHub Flavored Markdown
-    gfm: true,
     // Enable smartypants for typographic punctuation
     smartypants: true,
     // Remark plugins (for markdown processing)
-    remarkPlugins: [remarkEmoji, remarkGitHubMentions],
+    remarkPlugins: [
+      remarkGfm,
+      remarkEmoji,
+      remarkGitHubMentions,
+    ],
     // Rehype plugins (for HTML processing)
     rehypePlugins: [
       rehypeSlug,
-      [rehypeAutolinkHeadings, {
-        behavior: 'append',
-        properties: {
-          className: ['anchor-link'],
-          ariaLabel: 'Link to this section',
-        },
-        content: {
-          type: 'element',
-          tagName: 'span',
-          properties: { className: ['anchor-icon'] },
-          children: [{ type: 'text', value: '#' }]
-        }
-      }],
+      rehypeAutolinkHeadingsConfig,
+      rehypeUnwrapImages,
+      rehypeExternalLinksConfig,
     ],
   },
   
