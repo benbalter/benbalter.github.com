@@ -80,10 +80,10 @@ The configuration is optimized for GitHub Pages deployment:
 - **Zero JavaScript by default**: Only ship JS when needed
 - **Optimized assets**: Automatic image optimization and bundling
 - **Fast builds**: Vite-powered build system
-- **Turbo Drive**: Accelerated page navigation using [@hotwired/turbo](https://turbo.hotwired.dev/)
-  - Intercepts link clicks and form submissions
-  - Uses `fetch()` to replace page body instead of full page reloads
-  - Provides app-like navigation speed while maintaining SSG benefits
+- **View Transitions**: Smooth page navigation using [Astro View Transitions](https://docs.astro.build/en/guides/view-transitions/)
+  - Intercepts link clicks for seamless navigation
+  - Provides smooth animations between pages
+  - Maintains app-like navigation speed while maintaining SSG benefits
   - Preserves scroll position on back/forward navigation
   - Automatically handles browser history and page titles
 
@@ -99,47 +99,48 @@ The configuration is optimized for GitHub Pages deployment:
 - **Meta tags**: SEO-friendly metadata
 - **Fast loading**: Excellent Core Web Vitals
 
-### Turbo Drive Integration
+### View Transitions Integration
 
-The site uses [Turbo Drive](https://turbo.hotwired.dev/handbook/drive) from @hotwired/turbo to accelerate page navigation:
+The site uses [Astro View Transitions](https://docs.astro.build/en/guides/view-transitions/) for smooth page navigation:
 
 **How it works:**
-
-- Turbo Drive automatically intercepts link clicks and form submissions
-- Instead of full page reloads, it uses `fetch()` to get new pages
-- Only the `<body>` content is replaced, keeping `<head>` elements cached
+- View Transitions automatically intercept link clicks
+- Instead of full page reloads, Astro fetches new pages and smoothly transitions
+- Uses native browser View Transition API when available, with fallback for unsupported browsers
 - Browser history, scroll position, and page titles are managed automatically
 
 **Benefits:**
-
-- Faster perceived page loads (no white flash between pages)
+- Smooth animations between pages (no white flash)
 - Reduced server load (fewer assets re-downloaded)
 - App-like navigation experience
+- Native browser API with progressive enhancement
 - Works seamlessly with static site generation
 
 **Implementation:**
+```astro
+// src/layouts/BaseLayout.astro
+import { ClientRouter } from 'astro:transitions';
 
-```typescript
-// src/scripts/turbo.ts
-import '@hotwired/turbo';
+<head>
+  <!-- ... other head elements ... -->
+  <ClientRouter />
+</head>
 ```
 
-The script is loaded in `BaseLayout.astro` and automatically initializes on page load.
+The component is included in `BaseLayout.astro` and automatically enables View Transitions. Note: `ClientRouter` is the current name for View Transitions in Astro 5.x (previously called `ViewTransitions`).
 
-**Disabling Turbo for specific links:**
-
+**Disabling View Transitions for specific links:**
 ```html
-<a href="/page/" data-turbo="false">Normal navigation</a>
+<a href="/page/" data-astro-reload>Normal navigation</a>
 ```
 
 **Testing:**
-E2E tests for Turbo Drive are in `e2e/turbo-drive.spec.ts` covering:
-
+E2E tests for View Transitions are in `e2e/view-transitions.spec.ts` covering:
 - Link interception and navigation
 - Browser history management
 - Scroll position preservation
 - External link handling
-- Form submission interception
+- View Transitions configuration
 
 ## Integration with Existing Code
 
@@ -225,7 +226,7 @@ See [docs/ASTRO_CONTENT.md](ASTRO_CONTENT.md) for detailed documentation on work
 
 - [ ] Add image optimization for blog posts
 - [ ] Implement partial hydration for interactive components
-- [ ] Add view transitions for smooth navigation
+- [x] Add view transitions for smooth navigation
 - [ ] Optimize bundle size with code splitting
 
 ### Testing
