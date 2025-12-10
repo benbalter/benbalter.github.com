@@ -45,8 +45,8 @@ const {
   .row {
     display: flex;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
+    margin-right: calc(var(--bs-gutter-x, 1.5rem) * -0.5);
+    margin-left: calc(var(--bs-gutter-x, 1.5rem) * -0.5);
   }
 
   .col-md-10 {
@@ -68,7 +68,8 @@ const {
   }
 
   .page-content {
-    padding: 0 15px;
+    padding-left: calc(var(--bs-gutter-x, 1.5rem) * 0.5);
+    padding-right: calc(var(--bs-gutter-x, 1.5rem) * 0.5);
   }
   
   .page-header {
