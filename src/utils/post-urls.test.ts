@@ -234,9 +234,9 @@ describe('formatResumeDate', () => {
     });
   });
 
-  it('should return "Invalid Date" for invalid date strings', () => {
+  it('should return null for invalid date strings', () => {
     const formatted = formatResumeDate('invalid-date');
     
-    expect(formatted).toBe('Invalid Date');
+    expect(formatted).toBeNull();
   });
 });

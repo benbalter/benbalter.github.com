@@ -16,9 +16,7 @@ import type { AstroGlobal } from 'astro';
  * @returns Redirect response
  */
 export function createRedirect(Astro: AstroGlobal, to: string, from?: string): Response {
-  if (from) {
-    // Log for debugging purposes
-    console.log(`Redirecting from ${from} to ${to}`);
-  }
+  // The 'from' parameter is used for documentation purposes only
+  // Logging removed for production safety
   return Astro.redirect(to, 301);
 }

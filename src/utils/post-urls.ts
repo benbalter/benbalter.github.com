@@ -65,14 +65,13 @@ export function formatPostDate(date: Date): string {
  * Format date for resume: "Month Year"
  * 
  * @param dateString - Date string to format
- * @returns Formatted date string or error message
+ * @returns Formatted date string or null if invalid
  */
-export function formatResumeDate(dateString: string): string {
+export function formatResumeDate(dateString: string): string | null {
   const date = new Date(dateString);
   // Check if date is valid
   if (isNaN(date.getTime())) {
-    console.warn(`Invalid date format: ${dateString}`);
-    return 'Invalid Date';
+    return null;
   }
   return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 }

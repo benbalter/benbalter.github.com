@@ -66,7 +66,7 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
                 <h4>{position.data.title}</h4>
               </div>
               <div class="position-dates">
-                {formatResumeDate(position.data.start_date)}—{position.data.end_date ? formatResumeDate(position.data.end_date) : 'Present'}
+                {formatResumeDate(position.data.start_date) ?? 'Unknown'}—{position.data.end_date ? (formatResumeDate(position.data.end_date) ?? 'Unknown') : 'Present'}
               </div>
             </div>
             
@@ -88,7 +88,7 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
           <h3 class="school-name h5">{degree.school}</h3>
           <div class="education-details">
             <div class="degree-name">{degree.degree}</div>
-            <div class="degree-date">{formatResumeDate(degree.date)}</div>
+            <div class="degree-date">{formatResumeDate(degree.date) ?? 'Unknown'}</div>
           </div>
         </div>
       ))}
