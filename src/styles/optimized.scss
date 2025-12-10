@@ -727,9 +727,12 @@ h1, h2, h3, h4, h5, h6 {
 .post-item {
     transition: all 0.2s ease-in-out;
     
-    &:hover {
-        padding-left: 0.5rem;
-        border-left: 3px solid $blue;
+    // Only apply hover effect on devices that support hover
+    @media (hover: hover) {
+        &:hover {
+            padding-left: 0.5rem;
+            border-left: 3px solid $blue;
+        }
     }
     
     a {
@@ -777,15 +780,6 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-// Card-like styling for content sections - only custom hover effect
-.content-card {
-    transition: box-shadow 0.2s ease-in-out;
-    
-    &:hover {
-        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
-    }
-}
-
 // Enhanced footer - only custom hover animations
 footer {
     .social-link {
@@ -793,7 +787,7 @@ footer {
         
         &:hover {
             transform: translateY(-2px);
-            color: $blue !important;
+            color: $blue;
         }
     }
 }
@@ -803,14 +797,7 @@ footer {
     transition: all 0.2s ease-in-out;
     
     &:hover {
-        transform: translateY(-1px);
+        transform: scale(1.02);
         box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
-    }
-}
-
-// Dark mode enhancements - custom shadows for dark mode
-@media (prefers-color-scheme: dark) {
-    .content-card:hover {
-        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.4);
     }
 }
