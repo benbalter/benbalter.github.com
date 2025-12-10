@@ -124,7 +124,8 @@ footer .nav-link {
 }
 
 // Reduce post list text sizes (for index/home page)
-body.index .content .row a {
+// NOTE: Add the `.post-list-link` class to anchor tags in the index/home page template for this style to apply.
+.post-list-link {
     font-size: 0.9375rem; // Slightly smaller post titles
 }
 
