@@ -85,18 +85,16 @@ await Promise.all(
 ### 4. Memory Optimization
 **File**: `src/pages/[year]/[month]/[day]/[slug].astro`
 
-**Before**:
+**Implementation**:
 ```typescript
-props: { post, allPosts: posts }  // Duplicated 184 times
+// Initialize cache once in getStaticPaths to avoid redundant computation
+initializeRelatedPostsCache(posts);
+
+// allPosts is still passed in props for related posts calculation
+props: { post, allPosts: posts }
 ```
 
-**After**:
-```typescript
-props: { post }  // Use module-level cache
-initializeRelatedPostsCache(posts);  // Once in getStaticPaths
-```
-
-**Impact**: 99% reduction in memory footprint
+**Impact**: Cache computed once instead of per-page, reducing CPU usage
 
 ## Performance Results
 

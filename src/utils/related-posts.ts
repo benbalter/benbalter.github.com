@@ -157,18 +157,12 @@ const tfIdfCache = new Map<string, Map<string, number>>();
 let cachedIdf: Map<string, number> | null = null;
 
 /**
- * Cached documents map for IDF calculation
- */
-let cachedDocuments: Map<string, string[]> | null = null;
-
-/**
  * Clear all caches (useful for testing)
  */
 export function clearRelatedPostsCache(): void {
   wordsCache.clear();
   tfIdfCache.clear();
   cachedIdf = null;
-  cachedDocuments = null;
 }
 
 /**
@@ -177,21 +171,17 @@ export function clearRelatedPostsCache(): void {
  */
 export function initializeRelatedPostsCache(allPosts: CollectionEntry<'posts'>[]): void {
   // Extract and cache words for all posts
-  const documents = new Map<string, string[]>();
-  
   for (const post of allPosts) {
     const postContent = `${post.data.title} ${post.data.description || ''}`;
     const words = extractWords(postContent);
     wordsCache.set(post.slug, words);
-    documents.set(post.slug, words);
   }
   
   // Calculate and cache IDF once for all documents
-  cachedIdf = calculateInverseDocumentFrequency(documents);
-  cachedDocuments = documents;
+  cachedIdf = calculateInverseDocumentFrequency(wordsCache);
   
   // Pre-calculate TF-IDF vectors for all posts
-  for (const [slug, words] of documents.entries()) {
+  for (const [slug, words] of wordsCache.entries()) {
     const tf = calculateTermFrequency(words);
     const tfidf = calculateTfIdf(tf, cachedIdf);
     tfIdfCache.set(slug, tfidf);
@@ -211,7 +201,7 @@ export async function findRelatedPosts(
   maxResults = 10
 ): Promise<CollectionEntry<'posts'>[]> {
   // Initialize cache if not already done
-  if (!cachedIdf || !cachedDocuments) {
+  if (!cachedIdf) {
     initializeRelatedPostsCache(allPosts);
   }
   
