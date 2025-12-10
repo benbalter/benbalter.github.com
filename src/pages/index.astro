@@ -44,22 +44,26 @@ function getPostUrl(slug: string): string {
 ---
 
 <BaseLayout title={title} description={description} hero={true}>
-  <div class="container-fluid px-3">
+  <ul class="post-list">
     {posts.map((post) => {
       const postDate = getDateFromSlug(post.slug);
       const postUrl = getPostUrl(post.slug);
       return (
-        <div class="row mb-2">
-          <div class="col-md-9">
-            <a href={postUrl}>{post.data.title}</a>
+        <li class="post-item">
+          <div class="row">
+            <div class="col-md-9">
+              <div class="post-title">
+                <a href={postUrl}>{post.data.title}</a>
+              </div>
+            </div>
+            <div class="col-md-3 post-date text-md-end">
+              {formatDate(postDate)}
+            </div>
           </div>
-          <div class="col-md-3 text-muted text-md-end">
-            <small>{formatDate(postDate)}</small>
-          </div>
-        </div>
+        </li>
       );
     })}
-  </div>
+  </ul>
 </BaseLayout>
 
 <style>
