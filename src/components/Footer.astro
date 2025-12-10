@@ -6,7 +6,7 @@
  * Matches the structure and styling of the Jekyll footer.
  */
 
-import { siteConfig, footerLinks, contactLinks } from '../config';
+import { footerLinks, contactLinks } from '../config';
 ---
 
 <footer class="mt-4-custom">
@@ -28,19 +28,23 @@ import { siteConfig, footerLinks, contactLinks } from '../config';
     </ul>
   </nav>
   
-  <div class="social-links text-center py-3">
-    {contactLinks.map((link) => (
-      <a 
-        href={link.url} 
-        aria-label={link.name}
-        class="social-link d-inline-block"
-        target="_blank"
-        rel="noopener noreferrer me"
-      >
-        <i class={link.icon} title={link.name}></i>
-      </a>
-    ))}
-  </div>
+  <nav aria-label="Social media links" class="social-links-nav">
+    <ul class="nav justify-content-end border-top px-2 py-3">
+      {contactLinks.map((link) => (
+        <li class="nav-item">
+          <a 
+            href={link.url} 
+            aria-label={link.name}
+            class="nav-link"
+            target="_blank"
+            rel="noopener noreferrer me"
+          >
+            <i class={link.icon} title={link.name}></i>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
 </footer>
 
 <style lang="scss">
@@ -52,19 +56,22 @@ import { siteConfig, footerLinks, contactLinks } from '../config';
   @import 'bootstrap/scss/mixins';
   @import 'bootstrap/scss/nav';
   
-  /* Custom styles not available in Bootstrap utilities */
-  .social-link {
-    margin: 0 0.5rem;
-    color: var(--bs-link-color);
-    font-size: 1.5rem;
-    text-decoration: none;
-    transition: color 0.15s ease-in-out, transform 0.15s ease-in-out;
-  }
-
-  .social-link:hover,
-  .social-link:focus {
-    color: var(--bs-link-hover-color);
-    transform: translateY(-2px);
+  /* Custom styles for social links navigation */
+  .social-links-nav {
+    .nav-link {
+      color: var(--bs-link-color);
+      transition: color 0.15s ease-in-out, transform 0.15s ease-in-out;
+      
+      &:hover,
+      &:focus {
+        color: var(--bs-link-hover-color);
+        transform: translateY(-2px);
+      }
+      
+      i {
+        font-size: 1.25rem;
+      }
+    }
   }
 
   @media (max-width: 768px) {
