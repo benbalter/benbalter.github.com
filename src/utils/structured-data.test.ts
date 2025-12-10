@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Tests for structured data (JSON-LD) generation utilities
  */
@@ -138,27 +139,27 @@ describe('generateOrganizationSchema', () => {
 
 describe('generateWebSiteSchema', () => {
   it('should generate valid WebSite schema', () => {
-    const schema = generateWebSiteSchema();
+    const schema = generateWebSiteSchema() as WebSite & { '@context': string };
     
     expect(schema['@context']).toBe('https://schema.org');
     expect(schema['@type']).toBe('WebSite');
   });
 
   it('should have site name and URL', () => {
-    const schema = generateWebSiteSchema();
+    const schema = generateWebSiteSchema() as WebSite & { '@context': string };
     
     expect(schema.name).toBe(siteConfig.name);
     expect(schema.url).toBe(siteConfig.url);
   });
 
   it('should have site description', () => {
-    const schema = generateWebSiteSchema();
+    const schema = generateWebSiteSchema() as WebSite & { '@context': string };
     
     expect(schema.description).toBe(siteConfig.description);
   });
 
   it('should include author information', () => {
-    const schema = generateWebSiteSchema();
+    const schema = generateWebSiteSchema() as WebSite & { '@context': string };
     
     expect(schema.author).toBeDefined();
     expect(schema.author).toHaveProperty('@type', 'Person');
@@ -176,7 +177,7 @@ describe('generateBlogPostingSchema', () => {
       publishedTime: new Date('2024-01-01'),
     };
     
-    const schema = generateBlogPostingSchema(props);
+    const schema = generateBlogPostingSchema(props) as BlogPosting & { '@context': string };
     
     expect(schema['@context']).toBe('https://schema.org');
     expect(schema['@type']).toBe('BlogPosting');
@@ -190,7 +191,7 @@ describe('generateBlogPostingSchema', () => {
       publishedTime: new Date('2024-01-01'),
     };
     
-    const schema = generateBlogPostingSchema(props);
+    const schema = generateBlogPostingSchema(props) as BlogPosting & { '@context': string };
     
     expect(schema.headline).toBe('Test Blog Post');
     expect(schema.description).toBe('This is a test post');
@@ -203,7 +204,7 @@ describe('generateBlogPostingSchema', () => {
       publishedTime: new Date('2024-01-01'),
     };
     
-    const schema = generateBlogPostingSchema(props);
+    const schema = generateBlogPostingSchema(props) as BlogPosting & { '@context': string };
     
     expect(schema.url).toBe('https://ben.balter.com/2024/01/01/test-post/');
   });
@@ -216,7 +217,7 @@ describe('generateBlogPostingSchema', () => {
       publishedTime: publishDate,
     };
     
-    const schema = generateBlogPostingSchema(props);
+    const schema = generateBlogPostingSchema(props) as BlogPosting & { '@context': string };
     
     expect(schema.datePublished).toBe(publishDate.toISOString());
   });
@@ -229,7 +230,7 @@ describe('generateBlogPostingSchema', () => {
       publishedTime: publishDate,
     };
     
-    const schema = generateBlogPostingSchema(props);
+    const schema = generateBlogPostingSchema(props) as BlogPosting & { '@context': string };
     
     expect(schema.dateModified).toBe(publishDate.toISOString());
   });
@@ -244,7 +245,7 @@ describe('generateBlogPostingSchema', () => {
       modifiedTime: modifiedDate,
     };
     
-    const schema = generateBlogPostingSchema(props);
+    const schema = generateBlogPostingSchema(props) as BlogPosting & { '@context': string };
     
     expect(schema.dateModified).toBe(modifiedDate.toISOString());
   });
@@ -257,7 +258,7 @@ describe('generateBlogPostingSchema', () => {
       image: 'https://ben.balter.com/assets/img/custom-image.jpg',
     };
     
-    const schema = generateBlogPostingSchema(props);
+    const schema = generateBlogPostingSchema(props) as BlogPosting & { '@context': string };
     
     expect(schema.image).toBe('https://ben.balter.com/assets/img/custom-image.jpg');
   });
@@ -269,7 +270,7 @@ describe('generateBlogPostingSchema', () => {
       publishedTime: new Date('2024-01-15'),
     };
     
-    const schema = generateBlogPostingSchema(props);
+    const schema = generateBlogPostingSchema(props) as BlogPosting & { '@context': string };
     
     expect(schema.image).toBe(`${siteConfig.url}/assets/img/headshot.jpg`);
   });
@@ -281,7 +282,7 @@ describe('generateBlogPostingSchema', () => {
       publishedTime: new Date('2024-01-15'),
     };
     
-    const schema = generateBlogPostingSchema(props);
+    const schema = generateBlogPostingSchema(props) as BlogPosting & { '@context': string; author: any };
     
     expect(schema.author).toBeDefined();
     expect(schema.author['@type']).toBe('Person');
@@ -296,7 +297,7 @@ describe('generateBlogPostingSchema', () => {
       author: 'Custom Author',
     };
     
-    const schema = generateBlogPostingSchema(props);
+    const schema = generateBlogPostingSchema(props) as BlogPosting & { '@context': string; author: any };
     
     expect(schema.author.name).toBe('Custom Author');
   });
@@ -308,7 +309,7 @@ describe('generateBlogPostingSchema', () => {
       publishedTime: new Date('2024-01-15'),
     };
     
-    const schema = generateBlogPostingSchema(props);
+    const schema = generateBlogPostingSchema(props) as BlogPosting & { '@context': string; publisher: any };
     
     expect(schema.publisher).toBeDefined();
     expect(schema.publisher['@type']).toBe('Person');
@@ -321,7 +322,7 @@ describe('generateBlogPostingSchema', () => {
       publishedTime: new Date('2024-01-15'),
     };
     
-    const schema = generateBlogPostingSchema(props);
+    const schema = generateBlogPostingSchema(props) as BlogPosting & { '@context': string; mainEntityOfPage: any };
     
     expect(schema.mainEntityOfPage).toBeDefined();
     expect(schema.mainEntityOfPage['@type']).toBe('WebPage');
@@ -336,7 +337,7 @@ describe('generateBreadcrumbSchema', () => {
       { name: 'Blog', url: 'https://ben.balter.com/blog/' },
     ];
     
-    const schema = generateBreadcrumbSchema(items);
+    const schema = generateBreadcrumbSchema(items) as BreadcrumbList & { '@context': string };
     
     expect(schema['@context']).toBe('https://schema.org');
     expect(schema['@type']).toBe('BreadcrumbList');
@@ -349,7 +350,7 @@ describe('generateBreadcrumbSchema', () => {
       { name: 'Post' },
     ];
     
-    const schema = generateBreadcrumbSchema(items);
+    const schema = generateBreadcrumbSchema(items) as BreadcrumbList & { '@context': string; itemListElement: any[] };
     
     expect(schema.itemListElement).toHaveLength(3);
     expect(schema.itemListElement[0].position).toBe(1);
@@ -363,7 +364,7 @@ describe('generateBreadcrumbSchema', () => {
       { name: 'Blog', url: 'https://ben.balter.com/blog/' },
     ];
     
-    const schema = generateBreadcrumbSchema(items);
+    const schema = generateBreadcrumbSchema(items) as BreadcrumbList & { '@context': string; itemListElement: any[] };
     
     expect(schema.itemListElement[0].item).toBe('https://ben.balter.com/');
     expect(schema.itemListElement[1].item).toBe('https://ben.balter.com/blog/');
@@ -375,7 +376,7 @@ describe('generateBreadcrumbSchema', () => {
       { name: 'Current Page' },
     ];
     
-    const schema = generateBreadcrumbSchema(items);
+    const schema = generateBreadcrumbSchema(items) as BreadcrumbList & { '@context': string; itemListElement: any[] };
     
     expect(schema.itemListElement[0].item).toBe('https://ben.balter.com/');
     expect(schema.itemListElement[1].item).toBeUndefined();
@@ -387,7 +388,7 @@ describe('generateBreadcrumbSchema', () => {
       { name: 'Current Page', url: '' },
     ];
     
-    const schema = generateBreadcrumbSchema(items);
+    const schema = generateBreadcrumbSchema(items) as BreadcrumbList & { '@context': string; itemListElement: any[] };
     
     expect(schema.itemListElement[1].item).toBeUndefined();
   });
@@ -399,7 +400,7 @@ describe('generateBreadcrumbSchema', () => {
       { name: 'My Post' },
     ];
     
-    const schema = generateBreadcrumbSchema(items);
+    const schema = generateBreadcrumbSchema(items) as BreadcrumbList & { '@context': string; itemListElement: any[] };
     
     expect(schema.itemListElement[0].name).toBe('Home');
     expect(schema.itemListElement[1].name).toBe('Blog Posts');
@@ -411,7 +412,7 @@ describe('generateBreadcrumbSchema', () => {
       { name: 'Home', url: 'https://ben.balter.com/' },
     ];
     
-    const schema = generateBreadcrumbSchema(items);
+    const schema = generateBreadcrumbSchema(items) as BreadcrumbList & { '@context': string; itemListElement: any[] };
     
     expect(schema.itemListElement[0]['@type']).toBe('ListItem');
   });
@@ -419,7 +420,7 @@ describe('generateBreadcrumbSchema', () => {
   it('should handle empty breadcrumb list', () => {
     const items: Array<{ name: string; url?: string }> = [];
     
-    const schema = generateBreadcrumbSchema(items);
+    const schema = generateBreadcrumbSchema(items) as BreadcrumbList & { '@context': string; itemListElement: any[] };
     
     expect(schema.itemListElement).toHaveLength(0);
   });
@@ -427,7 +428,7 @@ describe('generateBreadcrumbSchema', () => {
   it('should handle single breadcrumb item', () => {
     const items = [{ name: 'Home', url: 'https://ben.balter.com/' }];
     
-    const schema = generateBreadcrumbSchema(items);
+    const schema = generateBreadcrumbSchema(items) as BreadcrumbList & { '@context': string; itemListElement: any[] };
     
     expect(schema.itemListElement).toHaveLength(1);
     expect(schema.itemListElement[0].position).toBe(1);
@@ -472,7 +473,7 @@ describe('schemaToJsonLd', () => {
   });
 
   it('should preserve schema structure', () => {
-    const schema = generatePersonSchema();
+    const schema = generatePersonSchema() as Person & { '@context': string };
     const jsonLd = schemaToJsonLd(schema);
     const parsed = JSON.parse(jsonLd);
     
