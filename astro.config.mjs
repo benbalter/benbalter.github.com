@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import favicons from 'astro-favicons';
+import compress from 'astro-compress';
 import redirectIntegration from './src/lib/redirect-integration.ts';
 import remarkEmoji from 'remark-emoji';
 import rehypeSlug from 'rehype-slug';
@@ -48,6 +49,8 @@ export default defineConfig({
     format: 'directory',
     // Assets directory
     assets: 'assets',
+    // Enable inlining of small assets for better performance
+    inlineStylesheets: 'auto',
   },
   
   // Server configuration for development
@@ -146,6 +149,18 @@ export default defineConfig({
       },
     }),
     redirectIntegration(), // Generate redirect pages after build
+    compress({
+      // Compress HTML, CSS, and JavaScript for better performance
+      CSS: true,
+      HTML: {
+        removeAttributeQuotes: false, // Keep quotes for better compatibility
+        collapseWhitespace: true,
+        conservativeCollapse: true,
+      },
+      Image: false, // Images are already optimized by Astro
+      JavaScript: true,
+      SVG: true,
+    }),
   ],
   
   // Markdown configuration
@@ -239,5 +254,8 @@ export default defineConfig({
         },
       },
     },
+    // Enable build optimizations
+    minify: true,
+    cssMinify: true,
   },
 });
