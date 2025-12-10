@@ -209,13 +209,12 @@ async function collectPageRedirects(): Promise<RedirectMapping[]> {
     for (const result of fileResults) {
       if (!result) continue;
       
-      const { data } = result;
-      const file = result.filename;
+      const { data, filename } = result;
       
       // Get page URL from permalink or filename
       const pageUrl = data.permalink
         ? normalizeUrlPath(data.permalink)
-        : normalizeUrlPath(`/${path.basename(file, path.extname(file))}/`);
+        : normalizeUrlPath(`/${path.basename(filename, path.extname(filename))}/`);
       
       // Handle redirect_from
       if (data.redirect_from) {
