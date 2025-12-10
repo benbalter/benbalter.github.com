@@ -132,6 +132,7 @@ npm run test:e2e:astro
 ### SEO Tests
 
 **General SEO Tests (`seo.spec.ts` - 25 tests):**
+
 - Meta descriptions (with length validation)
 - Open Graph tags (og:title, og:description, og:type, og:url)
 - Twitter Card tags
@@ -145,6 +146,7 @@ npm run test:e2e:astro
 - Blog post specific meta tags
 
 **Next.js-Specific SEO Tests (`seo-nextjs.spec.ts` - 21 tests):**
+
 - Core HTML meta tags:
   - UTF-8 charset declaration
   - Viewport meta tag for responsive design

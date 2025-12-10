@@ -99,6 +99,7 @@ End-to-end tests using Playwright for both Jekyll and Next.js builds.
 The SEO test suite comprehensively validates search engine optimization features:
 
 *General SEO Tests (`seo.spec.ts` - 25 tests):*
+
 - Meta descriptions (length validation)
 - Open Graph tags (og:title, og:description, og:type, og:url)
 - Twitter Card tags
@@ -112,6 +113,7 @@ The SEO test suite comprehensively validates search engine optimization features
 - Blog post specific meta tags
 
 *Next.js-Specific SEO Tests (`seo-nextjs.spec.ts` - 21 tests):*
+
 - UTF-8 charset declaration
 - Viewport meta tag for responsive design
 - Theme-color meta tags (light/dark mode)
