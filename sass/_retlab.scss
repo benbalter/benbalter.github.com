@@ -134,7 +134,7 @@ body.index .content .row small {
 }
 
 // Reduce mini-bio text size
-.avatar + p,
-.avatar ~ p {
+.mini-bio .avatar + p,
+.mini-bio .avatar ~ p {
     font-size: 0.9375rem; // Reduced from default 1rem
 }
