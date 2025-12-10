@@ -105,3 +105,35 @@ nav .border-top .link-secondary {
         }
     }
 }
+
+// Reduce text sizes for better readability
+.navbar-brand {
+    font-size: 1.125rem; // Reduced from default ~1.25rem
+}
+
+.navbar .nav-link {
+    font-size: 0.9375rem; // Reduced from default 1rem
+}
+
+.navbar-text {
+    font-size: 0.875rem; // Reduced from default 1rem
+}
+
+footer .nav-link {
+    font-size: 0.875rem; // Reduced from default 1rem
+}
+
+// Reduce post list text sizes (for index/home page)
+body.index .content .row a {
+    font-size: 0.9375rem; // Slightly smaller post titles
+}
+
+body.index .content .row small {
+    font-size: 0.8125rem; // Reduced from default 0.875rem
+}
+
+// Reduce mini-bio text size
+.avatar + p,
+.avatar ~ p {
+    font-size: 0.9375rem; // Reduced from default 1rem
+}
