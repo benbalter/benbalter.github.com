@@ -4,6 +4,7 @@
  * Maintains backward compatibility with old URLs
  */
 
-// Redirect to the new location
-return Astro.redirect('/other-recommended-reading/', 301);
+import { createRedirect } from '../utils/redirect';
+
+return createRedirect(Astro, '/other-recommended-reading/', '/recommended-reading/');
 ---

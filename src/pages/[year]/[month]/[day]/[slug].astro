@@ -1,13 +1,17 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import PostLayout from '../../../../layouts/PostLayout.astro';
-import { findRelatedPosts } from '../../../../utils/related-posts';
+import { findRelatedPosts, initializeRelatedPostsCache } from '../../../../utils/related-posts';
 
 // Generate static paths for all blog posts with Jekyll URL structure
 export async function getStaticPaths() {
   const posts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => {
     return data.published !== false;
   });
+
+  // Initialize the related posts cache once for all posts
+  // This pre-calculates TF-IDF vectors for all posts to avoid redundant computation
+  initializeRelatedPostsCache(posts);
 
   return posts.map((post: CollectionEntry<'posts'>) => {
     // Extract date from slug (YYYY-MM-DD-slug format)
@@ -43,7 +47,7 @@ const pubDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
 // If post has a custom image, use that, otherwise use the dynamically generated one
 const ogImageUrl = post.data.image || `/og/${year}/${month}/${day}/${slug}.png`;
 
-// Find related posts (limit to 10)
+// Find related posts (limit to 10) - uses cached TF-IDF calculations
 const relatedPosts = await findRelatedPosts(post, allPosts, 10);
 ---
 
