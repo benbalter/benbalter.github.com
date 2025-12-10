@@ -342,12 +342,8 @@ p {
     widows: 3;
 }
 
-// Scope optimal line length to main content areas
-article p,
-.content p,
-main p {
-    max-width: 70ch; // Optimal line length for readability
-}
+// Note: Line length is controlled by layout containers (e.g., col-md-10 offset-md-1)
+// rather than max-width constraints, to allow content to fill the container properly
 
 // Improve paragraph after headings
 h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
@@ -360,15 +356,8 @@ ul, ol {
     padding-left: 1.5rem;
 }
 
-// Scope optimal line length to main content areas for lists
-article ul,
-article ol,
-.content ul,
-.content ol,
-main ul,
-main ol {
-    max-width: 70ch;
-}
+// Note: List width is controlled by layout containers
+// rather than max-width constraints
 
 li {
     margin-bottom: 0.5rem;
@@ -502,25 +491,23 @@ abbr[data-bs-original-title] {
     border-top: 1px solid var(--bs-border-color);
     padding-top: 1rem;
     margin-top: 3rem;
-    margin-left: -$content-padding-x;
-    margin-right: -$content-padding-x;
-    padding-left: $content-padding-x;
-    padding-right: $content-padding-x;
 }
 
-.footnotes::before {
-    content: "Notes:";
-    margin-bottom: 1rem;
-    display: block;
-    font-weight: 600;
+.footnotes h2 {
+    margin-bottom: 0.5rem;
 }
 
 .footnotes ol {
     padding-left: 1rem;
+    margin-bottom: 0;
+}
+
+.footnotes ol li {
+    margin-bottom: 0.5rem;
 }
 
 .footnotes ol li p {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
 }
 
 .hero-unit {
@@ -568,12 +555,8 @@ blockquote {
     }
 }
 
-// Scope optimal line length to main content areas for blockquotes
-article blockquote,
-.content blockquote,
-main blockquote {
-    max-width: 65ch;
-}
+// Note: Blockquote width is controlled by layout containers
+// rather than max-width constraints
 
 .avatar {
     max-width: 100%;
@@ -625,21 +608,7 @@ nav .border-top .link-secondary {
         letter-spacing: -0.01em;
     }
     
-    // Remove max-width constraints on mobile for better use of space
-    article p,
-    .content p,
-    main p,
-    article ul,
-    article ol,
-    .content ul,
-    .content ol,
-    main ul,
-    main ol,
-    article blockquote,
-    .content blockquote,
-    main blockquote {
-        max-width: 100%;
-    }
+    // Note: Max-width constraints removed globally, not needed on mobile either
 }
 
 // Header anchor links styling
