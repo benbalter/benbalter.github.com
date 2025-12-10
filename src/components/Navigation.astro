@@ -36,45 +36,41 @@ const navClasses = hero
 ---
 
 <div class={navClasses}>
-  <div class="row">
-    <div class="col-md-10 offset-md-1">
-      <div class="d-flex flex-wrap align-items-center justify-content-between navbar-inner">
-        <a class="navbar-brand fw-bold" href="/">{siteConfig.name}</a>
-        <button 
-          class="navbar-toggler" 
-          type="button" 
-          aria-controls="navbar" 
-          aria-expanded="false" 
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+  <div class="d-flex flex-wrap align-items-center justify-content-between navbar-inner">
+    <a class="navbar-brand fw-bold" href="/">{siteConfig.name}</a>
+    <button 
+      class="navbar-toggler" 
+      type="button" 
+      aria-controls="navbar" 
+      aria-expanded="false" 
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="navbar-collapse" id="navbar" role="navigation" aria-label="Main navigation">
-          <ul class="navbar-nav">
-            {navItems.map((item) => {
-              const isActive = currentPath === item.url || 
-                              (item.url === '/' && currentPath === '/');
-              return (
-                <li class="nav-item">
-                  <a 
-                    href={item.url} 
-                    class={`nav-link${isActive ? ' active' : ''}`}
-                    aria-current={isActive ? 'page' : undefined}
-                  >
-                    {item.title}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-
-        <span class="navbar-text text-end small">
-          {siteConfig.description}
-        </span>
-      </div>
+    <div class="navbar-collapse" id="navbar" role="navigation" aria-label="Main navigation">
+      <ul class="navbar-nav">
+        {navItems.map((item) => {
+          const isActive = currentPath === item.url || 
+                          (item.url === '/' && currentPath === '/');
+          return (
+            <li class="nav-item">
+              <a 
+                href={item.url} 
+                class={`nav-link${isActive ? ' active' : ''}`}
+                aria-current={isActive ? 'page' : undefined}
+              >
+                {item.title}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
     </div>
+
+    <span class="navbar-text text-end small">
+      {siteConfig.description}
+    </span>
   </div>
 </div>
 
