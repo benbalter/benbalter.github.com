@@ -284,9 +284,9 @@ $content-padding-x: 15px;
 // Use a modern system font stack for optimal performance and native look
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-    // Fluid typography - scales between 16px and 18px based on viewport
-    font-size: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
-    line-height: 1.6; // Optimal for body text
+    // Enhanced fluid typography - scales between 16px and 19px based on viewport for better readability
+    font-size: clamp(1rem, 0.9rem + 0.5vw, 1.1875rem);
+    line-height: 1.7; // Increased from 1.6 for better readability
     font-weight: 400;
     font-feature-settings: "kern" 1, "liga" 1, "calt" 1; // Enable kerning, ligatures, and contextual alternates
     -webkit-font-smoothing: antialiased;
@@ -301,11 +301,12 @@ body {
 // Using 1.25 (major third) scale for better hierarchy
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700; // Stronger weight for better hierarchy
-    line-height: 1.25; // Tighter for headings
-    margin-top: 1.75em;
-    margin-bottom: 0.5em;
-    letter-spacing: -0.02em; // Slight negative tracking for large text
+    line-height: 1.3; // Slightly increased from 1.25 for better readability
+    margin-top: 2em; // Increased from 1.75em for better section separation
+    margin-bottom: 0.75em; // Increased from 0.5em for better breathing room
+    letter-spacing: -0.015em; // Reduced from -0.02em for slightly looser tracking
     font-feature-settings: "kern" 1, "liga" 1;
+    color: var(--bs-emphasis-color); // Better contrast for headings
 }
 
 // Fluid heading sizes for better responsive typography
@@ -332,9 +333,12 @@ h5, h6 {
 
 // Optimize paragraph typography
 p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem; // Increased from 1.5rem for better paragraph separation
     orphans: 3;
     widows: 3;
+    // Add subtle hyphenation for long words on narrow screens
+    hyphens: auto;
+    hyphenate-limit-chars: 12 6 3; // Only hyphenate words 12+ chars, leave 6 before, 3 after
 }
 
 // Note: Line length is controlled by layout containers (e.g., col-md-10 offset-md-1)
@@ -342,21 +346,22 @@ p {
 
 // Improve paragraph after headings
 h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
-    margin-top: 0.5em;
+    margin-top: 0; // Remove top margin for paragraphs immediately after headings
 }
 
 // Improve list styling
 ul, ol {
-    margin-bottom: 1.5rem;
-    padding-left: 1.5rem;
+    margin-bottom: 1.75rem; // Increased from 1.5rem to match paragraph spacing
+    padding-left: 2rem; // Increased from 1.5rem for better visual alignment
 }
 
 // Note: List width is controlled by layout containers
 // rather than max-width constraints
 
 li {
-    margin-bottom: 0.5rem;
-    line-height: 1.6;
+    margin-bottom: 0.625rem; // Increased from 0.5rem for better readability
+    line-height: 1.7; // Increased from 1.6 to match body text
+    padding-left: 0.25rem; // Add slight indent for better text alignment
 }
 
 li > ul, li > ol {
@@ -371,27 +376,30 @@ li:last-child {
 
 // Improve code block styling
 pre {
-    padding: 1rem;
+    padding: 1.25rem; // Increased from 1rem for better breathing room
     background-color: var(--bs-secondary-bg);
     border-radius: var(--bs-border-radius);
-    margin: 1.5rem 0;
+    margin: 2rem 0; // Increased from 1.5rem for better separation
     overflow-x: auto;
-    line-height: 1.5;
+    line-height: 1.6; // Increased from 1.5 for better code readability
+    border: 1px solid var(--bs-border-color); // Add subtle border
 }
 
 code {
     font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
-    font-size: 0.875em; // Slightly smaller than body
-    padding: 0.2em 0.4em;
+    font-size: 0.9em; // Increased from 0.875em for better readability
+    padding: 0.2em 0.5em; // Increased horizontal padding from 0.4em to 0.5em
     background-color: var(--bs-secondary-bg);
-    border-radius: 0.25rem;
+    border-radius: 0.3rem; // Increased from 0.25rem for softer appearance
     font-feature-settings: normal; // Disable ligatures in code
+    border: 1px solid var(--bs-border-color); // Add subtle border to inline code
 }
 
 pre code {
     padding: 0;
     background-color: transparent;
-    font-size: 0.9em;
+    font-size: 0.95em; // Increased from 0.9em
+    border: none; // Remove border for code inside pre
 }
 
 // Improve link styling - scoped to content areas to avoid affecting navigation
@@ -400,25 +408,25 @@ article a:not(.anchor-link),
 main a:not(.btn):not(.nav-link):not(.navbar-brand):not(.anchor-link) {
     color: var(--bs-link-color);
     text-decoration-line: underline;
-    text-decoration-thickness: 0.0625em;
+    text-decoration-thickness: 0.08em; // Increased from 0.0625em for better visibility
     text-decoration-skip-ink: auto;
-    text-underline-offset: 0.125em;
-    transition: color 0.15s ease-in-out, text-decoration-color 0.15s ease-in-out;
+    text-underline-offset: 0.15em; // Increased from 0.125em for better separation
+    transition: color 0.2s ease-in-out, text-decoration-color 0.2s ease-in-out, text-decoration-thickness 0.2s ease-in-out;
 }
 
 article a:not(.anchor-link):hover,
 .content a:not(.anchor-link):hover,
 main a:not(.btn):not(.nav-link):not(.navbar-brand):not(.anchor-link):hover {
     color: var(--bs-link-hover-color);
-    text-decoration-thickness: 0.125em;
+    text-decoration-thickness: 0.15em; // Increased from 0.125em for more prominent hover effect
 }
 
 article a:not(.anchor-link):focus,
 .content a:not(.anchor-link):focus,
 main a:not(.btn):not(.nav-link):not(.navbar-brand):not(.anchor-link):focus {
     outline: 2px solid var(--bs-link-color);
-    outline-offset: 2px;
-    border-radius: 2px;
+    outline-offset: 3px; // Increased from 2px for better visibility
+    border-radius: 3px; // Increased from 2px
 }
 
 // Default link styling for non-content areas (navigation, etc.)
@@ -532,14 +540,17 @@ abbr[data-bs-original-title] {
 }
 
 blockquote {
-    border-left: 4px solid var(--bs-gray-400);
-    padding-left: 1.5rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    margin: 2rem 0;
-    color: var(--bs-secondary-color);
+    border-left: 5px solid var(--bs-primary); // Increased from 4px and use primary color for emphasis
+    padding-left: 2rem; // Increased from 1.5rem for better visual separation
+    padding-top: 0.75rem; // Increased from 0.5rem
+    padding-bottom: 0.75rem; // Increased from 0.5rem
+    margin: 2.5rem 0; // Increased from 2rem for more prominence
+    color: var(--bs-body-color); // Changed from secondary-color for better readability
     font-style: italic;
     font-size: 1.125rem;
+    line-height: 1.75; // Added explicit line-height for blockquotes
+    background-color: var(--bs-secondary-bg); // Add subtle background
+    border-radius: 0.25rem; // Add subtle rounding
     
     p {
         margin-bottom: 1rem;
@@ -586,7 +597,8 @@ nav .border-top .link-secondary {
     }
     
     blockquote {
-        border-left-color: var(--bs-gray-600);
+        border-left-color: var(--bs-primary); // Use primary color in dark mode too for consistency
+        background-color: rgba(var(--bs-primary-rgb), 0.05); // Subtle background tint
     }
 }
 
@@ -594,13 +606,31 @@ nav .border-top .link-secondary {
 // Use Bootstrap's breakpoint mixin for consistency
 @include media-breakpoint-down(md) {
     body {
-        // Slightly smaller base font on mobile
-        font-size: clamp(0.9375rem, 0.875rem + 0.3125vw, 1rem);
+        // Optimized base font on mobile - slightly larger minimum for better readability
+        font-size: clamp(1rem, 0.925rem + 0.375vw, 1.0625rem);
+        line-height: 1.65; // Slightly reduced from 1.7 for mobile
     }
     
     h1, h2, h3, h4, h5, h6 {
         // Reduce letter spacing on mobile
         letter-spacing: -0.01em;
+        margin-top: 1.5em; // Reduced from 2em for mobile
+        margin-bottom: 0.5em; // Reduced from 0.75em for mobile
+    }
+    
+    p {
+        margin-bottom: 1.5rem; // Slightly reduced from 1.75rem for mobile
+    }
+    
+    ul, ol {
+        margin-bottom: 1.5rem; // Slightly reduced from 1.75rem for mobile
+        padding-left: 1.5rem; // Slightly reduced from 2rem for mobile
+    }
+    
+    blockquote {
+        margin: 2rem 0; // Reduced from 2.5rem for mobile
+        padding-left: 1.5rem; // Reduced from 2rem for mobile
+        font-size: 1.0625rem; // Slightly smaller on mobile
     }
     
     // Note: Max-width constraints removed globally, not needed on mobile either
