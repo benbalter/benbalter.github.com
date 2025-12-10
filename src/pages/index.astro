@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { siteConfig } from '../config';
+import { getPostUrl, getDateFromSlug, formatPostDate } from '../utils/post-urls';
 
 const title = 'Posts';
 const description = siteConfig.description;
@@ -15,32 +16,6 @@ const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'
 const posts: CollectionEntry<'posts'>[] = allPosts.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => 
   b.slug.localeCompare(a.slug)
 );
-
-// Helper function to parse date from slug
-function getDateFromSlug(slug: string): Date {
-  const match = slug.match(/^(\d{4})-(\d{2})-(\d{2})/);
-  if (match) {
-    return new Date(parseInt(match[1]), parseInt(match[2]) - 1, parseInt(match[3]));
-  }
-  return new Date();
-}
-
-// Helper function to format date like Jekyll: "Month Day, Year"
-function formatDate(date: Date): string {
-  const months = ['January', 'February', 'March', 'April', 'May', 'June', 
-                  'July', 'August', 'September', 'October', 'November', 'December'];
-  return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
-}
-
-// Helper function to generate Jekyll-style URL from slug
-function getPostUrl(slug: string): string {
-  const match = slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
-  if (match) {
-    const [, year, month, day, postSlug] = match;
-    return `/${year}/${month}/${day}/${postSlug}/`;
-  }
-  return `/posts/${slug}/`; // fallback
-}
 ---
 
 <BaseLayout title={title} description={description} hero={true}>
@@ -57,7 +32,7 @@ function getPostUrl(slug: string): string {
               </div>
             </div>
             <div class="col-md-3 text-md-end">
-              <small class="text-body-secondary">{formatDate(postDate)}</small>
+              <small class="text-body-secondary">{formatPostDate(postDate)}</small>
             </div>
           </div>
         </li>
