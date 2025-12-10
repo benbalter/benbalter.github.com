@@ -527,11 +527,11 @@ abbr[data-bs-original-title] {
     }
 
     .pl-c {
-        color: #757775 !important;
+        color: #6f716f !important; // WCAG AA compliant: 4.81:1 contrast ratio
     }
 
     .pl-c1 {
-        color: #007faa !important;
+        color: #0078a1 !important; // WCAG AA compliant: 4.88:1 contrast ratio
     }
 }
 
