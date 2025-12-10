@@ -14,14 +14,12 @@ import { closest } from 'fastest-levenshtein'
 import { Collapse, Tooltip } from 'bootstrap'
 
 import * as AnchorJS from 'anchor-js'
-import * as Turbo from '@hotwired/turbo'
 
-window.Turbo = Turbo
 window.Collapse = Collapse
 window.Tooltip = Tooltip
 const anchors = new AnchorJS()
 
-document.addEventListener('turbo:load', () => {
+document.addEventListener('astro:page-load', () => {
   anchors.add()
 
   const els = document.querySelectorAll('[data-bs-toggle="tooltip"]')

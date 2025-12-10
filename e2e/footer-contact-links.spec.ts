@@ -13,13 +13,14 @@ test.describe('Footer Contact Links', () => {
       links.map(link => link.getAttribute('href')).filter(Boolean)
     );
     
-    // Get contact links from the footer - matches Astro Footer component structure
-    const footerLinks = page.locator('footer .social-links a.social-link');
+    // Get contact links from the footer nav (first div contains contact links)
+    const footerLinks = page.locator('footer nav > ul > div:first-child a[href]');
     const footerUrls = await footerLinks.evaluateAll((links) => 
       links.map(link => link.getAttribute('href')).filter(Boolean)
     );
     
     // Verify footer has the same links as contact page main section
+    // (Contact page also has a PGP key link below, which is not in footer)
     expect(footerUrls).toEqual(contactPageUrls);
   });
   
@@ -62,21 +63,19 @@ test.describe('Footer Contact Links', () => {
     await page.goto('/');
     await waitForPageReady(page);
     
-    // Use broader selector - the footer has github.com links
-    const githubLink = page.locator('footer a[href="https://github.com/benbalter"]');
+    const githubLink = page.locator('footer a[href*="github.com/benbalter"]');
     await expect(githubLink).toHaveCount(1);
+    await expect(githubLink).toHaveAttribute('href', 'https://github.com/benbalter');
   });
   
   test('footer contact links should have proper accessibility attributes', async ({ page }) => {
     await page.goto('/');
     await waitForPageReady(page);
     
-    // Use the actual class from Footer.astro
-    const footerContactLinks = page.locator('footer .social-links a.social-link');
+    const footerContactLinks = page.locator('footer nav > ul > div:first-child a');
     const count = await footerContactLinks.count();
     
-    // Dynamically check based on actual count from contactLinks config
-    expect(count).toBeGreaterThan(0);
+    expect(count).toBe(5); // Email, vCard, Bluesky, LinkedIn, GitHub
     
     // Check each link has aria-label
     for (let i = 0; i < count; i++) {
@@ -89,10 +88,11 @@ test.describe('Footer Contact Links', () => {
     await page.goto('/');
     await waitForPageReady(page);
     
-    const footerContactLinks = page.locator('footer .social-links a.social-link');
+    // All contact links should have target="_blank" (matching contact/about page behavior)
+    const footerContactLinks = page.locator('footer nav > ul > div:first-child a');
     const count = await footerContactLinks.count();
     
-    expect(count).toBeGreaterThan(0);
+    expect(count).toBe(5); // Email, vCard, Bluesky, LinkedIn, GitHub
     
     for (let i = 0; i < count; i++) {
       const link = footerContactLinks.nth(i);

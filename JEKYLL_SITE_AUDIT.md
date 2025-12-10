@@ -10,6 +10,7 @@
 This site (ben.balter.com) is a personal blog and professional portfolio built with Jekyll and hosted on GitHub Pages. The site contains 184 blog posts spanning from 2010 to 2025, multiple static pages, a resume with structured position data, and various data-driven pages. The site uses Jekyll's permalink system, redirects for URL changes, and several GitHub-specific Jekyll plugins.
 
 **Key Findings:**
+
 - **Content Volume:** 184 blog posts, 10 static pages, 10 resume positions, 3 data files
 - **URL Structure:** Posts use `/:year/:month/:day/:title/` format
 - **Special Features:** GitHub-specific plugins (emoji, mentions, avatars), redirects, RSS feeds, structured data (JSON-LD)
@@ -26,11 +27,13 @@ This site (ben.balter.com) is a personal blog and professional portfolio built w
 **Date Range:** 2010-09-12 to 2025-01-30
 
 **File Naming Convention:**
+
 ```
 YYYY-MM-DD-title-with-hyphens.md
 ```
 
 **Standard Front Matter:**
+
 ```yaml
 ---
 title: Post Title
@@ -39,11 +42,13 @@ description: Brief description for SEO (required)
 ```
 
 **Optional Front Matter Fields:**
+
 - `redirect_from:` - Old URLs to redirect from (18 posts use this)
 - `comments: true` - Enable comments (default via config)
 - `permalink:` - Custom permalink (rare, 1 post uses this)
 
 **Categories/Topics:** Posts cover:
+
 - Technology leadership and management
 - Open source development and community
 - GitHub workflows and collaboration
@@ -52,6 +57,7 @@ description: Brief description for SEO (required)
 - Remote work and team culture
 
 **Recent Posts (Last 5):**
+
 1. 2025-01-30: How to run LanguageTool on macOS
 2. 2024-01-08: Dissenting voices
 3. 2023-12-08: Cathedral Bazaar management
@@ -78,6 +84,7 @@ description: Brief description for SEO (required)
 | `404.md` | 404 | `/404/` | Error page |
 
 **Standard Page Front Matter:**
+
 ```yaml
 ---
 title: Page Title
@@ -96,6 +103,7 @@ permalink: /custom-url/
 **Purpose:** Structured data for resume page
 
 **File Format:**
+
 ```yaml
 ---
 employer: GitHub
@@ -109,6 +117,7 @@ end_date: '2024-07-08'
 ```
 
 **Positions:**
+
 1. Director of Engineering Operations and Culture
 2. Hubber Enablement
 3. Chief of Staff
@@ -153,22 +162,26 @@ end_date: '2024-07-08'
 ### Default Permalink Structure
 
 **Configuration:** `_config.yml`
+
 ```yaml
 permalink: "/:year/:month/:day/:title/"
 ```
 
 **Blog Post URL Pattern:**
+
 ```
 https://ben.balter.com/2023/08/30/transparency-collaboration-is-the-andon-of-knowledge-production/
 ```
 
 **Components:**
+
 - `:year` - 4-digit year (2010-2025)
 - `:month` - 2-digit month (01-12)
 - `:day` - 2-digit day (01-31)
 - `:title` - Slugified title from filename
 
 **Examples:**
+
 - `/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github/`
 - `/2011/09/07/analysis-of-federal-executive-domains/`
 - `/2023/03/02/github-for-non-technical-roles/`
@@ -182,6 +195,7 @@ permalink: /page-name/
 ```
 
 **Examples:**
+
 - `/about/`
 - `/resume/`
 - `/contact/`
@@ -194,11 +208,13 @@ permalink: /page-name/
 **Usage:** 18 instances across posts and pages
 
 **Purpose:**
+
 - Typo corrections in URLs
 - Date changes (rescheduled posts)
 - URL structure changes
 
 **Examples:**
+
 ```yaml
 redirect_from: /cv/  # on resume.md
 redirect_from: "/2014/09/29/your-code-deserves-better/"  # old title
@@ -240,21 +256,25 @@ plugins:
 ### GitHub-Specific Features
 
 **1. Emoji Support (`jemoji`)**
+
 - Converts `:emoji_name:` to emoji characters
 - GitHub-style emoji syntax
 - Used throughout blog posts
 
 **2. @Mentions (`jekyll-mentions`)**
+
 - Converts `@username` to GitHub profile links
 - Automatic linking to GitHub users
 - Example: `@benbalter` → link to github.com/benbalter
 
 **3. GitHub Metadata (`jekyll-github-metadata`)**
+
 - Exposes repository information
 - Available via `site.github.*` variables
 - Used for: repository links, build info, avatar URLs
 
 **4. Avatar Images (`jekyll-avatar`)**
+
 - GitHub user avatar images
 - Liquid tag: `{% avatar username %}`
 - Automatic sizing and optimization
@@ -262,6 +282,7 @@ plugins:
 ### SEO and Social Features
 
 **1. SEO Tag (`jekyll-seo-tag`)**
+
 - Generates meta tags automatically
 - Open Graph tags for social sharing
 - Twitter Card tags
@@ -269,6 +290,7 @@ plugins:
 - Schema.org markup
 
 **Configuration in `_config.yml`:**
+
 ```yaml
 title: Ben Balter
 description: Technology leadership, collaboration, and open source
@@ -286,9 +308,11 @@ social:
 ```
 
 **2. Open Graph Images (`jekyll-og-image`)**
+
 - Generates social sharing preview images
 - Custom border styling
 - Configuration:
+
 ```yaml
 og_image:
   domain: ben.balter.com
@@ -300,6 +324,7 @@ og_image:
 ```
 
 **3. Structured Data (JSON-LD)**
+
 - Custom include: `_includes/about-json-ld.html`
 - Person schema markup
 - Used on homepage and about page
@@ -308,18 +333,21 @@ og_image:
 ### Feed Generation
 
 **1. Main Blog Feed**
+
 - Plugin: `jekyll-feed`
 - URL: `/feed.xml`
 - Format: Atom XML
 - Includes all blog posts
 
 **2. Press Feed**
+
 - Custom template: `press-feed.xml`
 - URL: `/press/feed/index.xml`
 - Format: RSS 2.0
 - Source: `_data/clips.yml`
 
 **3. Legacy Feed Redirect**
+
 - File: `feed/index.xml`
 - Purpose: Redirect old feed URL to new location
 - Contains single "feed moved" entry
@@ -390,6 +418,7 @@ og_image:
 ### Site Settings (`_config.yml`)
 
 **Core Configuration:**
+
 ```yaml
 title: Ben Balter
 description: Technology leadership, collaboration, and open source
@@ -403,6 +432,7 @@ future: true  # Show posts with future dates
 ```
 
 **Default Front Matter:**
+
 ```yaml
 defaults:
   - scope:
@@ -420,6 +450,7 @@ defaults:
 ```
 
 **Navigation Pages:**
+
 ```yaml
 nav_pages:
   - index.md
@@ -432,6 +463,7 @@ footer_pages:
 ```
 
 **Contact Links:** (Defined for contact page)
+
 ```yaml
 contact_links:
   - name: Email
@@ -486,6 +518,7 @@ exclude:
 ### Image Assets
 
 **Locations:**
+
 - `/assets/img/` - Site images
 - `apple-touch-icon.png` - iOS home screen icon
 - `android-chrome-*.png` - Android icons
@@ -504,6 +537,7 @@ exclude:
 **Location:** `/assets/js/` and `/js/`
 
 **Libraries:**
+
 - Bootstrap (UI framework)
 - Font Awesome (icons)
 - Custom scripts for interactions
@@ -531,24 +565,28 @@ exclude:
 ### Current SEO Features
 
 **1. Meta Tags**
+
 - Title tags (via jekyll-seo-tag)
 - Description meta tags (required in front matter)
 - Canonical URLs
 - Language tags (`lang="en-US"`)
 
 **2. Structured Data**
+
 - JSON-LD for Person schema
 - Blog posting markup
 - Organization markup
 - Breadcrumb navigation
 
 **3. Social Media**
+
 - Open Graph tags (Facebook, LinkedIn)
 - Twitter Card tags
 - Custom OG images with branded border
 - Social profile links
 
 **4. Technical SEO**
+
 - XML sitemap (`/sitemap.xml`)
 - Robots.txt with sitemap reference
 - Clean URL structure (no file extensions)
@@ -556,6 +594,7 @@ exclude:
 - RSS feeds for content syndication
 
 **5. Content SEO**
+
 - Descriptive permalinks (keyword-rich)
 - Required descriptions on all content
 - Internal linking between posts
@@ -566,6 +605,7 @@ exclude:
 
 **Current Approach:**
 ✅ **Good:**
+
 - Clean URLs (no `.html` extensions)
 - Descriptive slugs
 - Consistent structure
@@ -573,6 +613,7 @@ exclude:
 - Proper redirects for changes
 
 ❌ **Could Improve:**
+
 - Very long URLs (some 60+ characters)
 - Date-dependent URLs (harder to reorganize)
 
@@ -583,32 +624,38 @@ exclude:
 ### Blog Post Patterns
 
 **1. TL;DR Boxes**
+
 - Custom include: `{% include tldr.html %}`
 - Highlighted summary at top of post
 - Improves scannability
 
 **2. Callout Boxes**
+
 - Custom include: `{% include callout.html %}`
 - Styled alert boxes
 - Draw attention to important points
 
 **3. Related Posts**
+
 - Appears at end of posts
 - Data source: `_data/related_posts.yml`
 - Manual curation
 - Include: `{% include related_posts.html %}`
 
 **4. Reading Time**
+
 - Calculated from word count
 - Displayed on post pages
 - Include: `{% include reading-time.html %}`
 
 **5. Tables**
+
 - Markdown tables with Bootstrap styling
 - Responsive table class: `{: .table }`
 - Kramdown attribute syntax
 
 **6. Code Blocks**
+
 - Syntax highlighting
 - Language-specific formatting
 - Copy button (via JavaScript)
@@ -616,16 +663,19 @@ exclude:
 ### Special Content Blocks
 
 **1. GitHub Culture**
+
 - Reusable content about GitHub's culture
 - Include: `{% include github-culture.html %}`
 - Used across multiple posts
 
 **2. FOSS at Scale**
+
 - Free and Open Source Software content
 - Include: `{% include foss-at-scale.html %}`
 - Consistent messaging
 
 **3. Mini Bio**
+
 - Short author bio
 - Include: `{% include mini-bio.html %}`
 - Used on various pages
@@ -637,12 +687,14 @@ exclude:
 ### High Priority Features to Replicate
 
 **1. URL Structure**
+
 - Maintain `/:year/:month/:day/:title/` pattern
 - Implement all `redirect_from` mappings
 - Ensure `/feed.xml` works
 - Keep all static page permalinks
 
 **2. Content Processing**
+
 - Markdown to HTML conversion
 - Emoji support (`:emoji:` syntax)
 - @mentions linking
@@ -650,6 +702,7 @@ exclude:
 - Table styling
 
 **3. SEO Features**
+
 - Meta tag generation
 - Open Graph images
 - JSON-LD structured data
@@ -657,6 +710,7 @@ exclude:
 - RSS feed generation
 
 **4. Data-Driven Pages**
+
 - Resume (from `_resume_positions/`)
 - Press page (from `_data/clips.yml`)
 - Book recommendations (from `_data/books.yml`)
@@ -665,17 +719,20 @@ exclude:
 ### Medium Priority Features
 
 **1. Jekyll Plugins**
+
 - GitHub avatar integration
 - GitHub metadata access
 - Include caching (performance)
 
 **2. Dynamic Features**
+
 - Comments system (if keeping)
 - Related posts algorithm
 - Reading time calculation
 - 404 page suggestions
 
 **3. Build Optimization**
+
 - SCSS compilation
 - JavaScript bundling
 - Image optimization
@@ -684,11 +741,13 @@ exclude:
 ### Low Priority / Consider Removing
 
 **1. Legacy Support**
+
 - Old feed redirects (may not need)
 - Some redirects (if very old)
 - WordPress compatibility features
 
 **2. Unused Features**
+
 - Collections (only used lightly)
 - Some custom includes (if not used)
 
@@ -699,22 +758,26 @@ exclude:
 ### Content Migration
 
 **Blog Posts (184 files):**
+
 - Format: Markdown with YAML front matter ✅ (Astro compatible)
 - Front matter fields: title, description, (optional: redirect_from, comments)
 - Content: Standard Markdown, tables, code blocks, emoji
 - Images: Referenced via relative paths
 
 **Static Pages (10 files):**
+
 - Format: Markdown with YAML front matter ✅ (Astro compatible)
 - Custom permalinks in front matter
 - Some use custom layouts
 
 **Resume Data:**
+
 - Source: `_resume_positions/*.md`
 - Format: YAML front matter + Markdown
 - Need to parse into resume page
 
 **Data Files:**
+
 - Format: YAML ✅ (Can be imported in Astro)
 - Files: books.yml, clips.yml
 - Used in: Static pages and RSS feeds
@@ -722,22 +785,26 @@ exclude:
 ### Asset Migration
 
 **Images:**
+
 - Location: `/assets/img/`
 - Format: PNG, JPG (standard)
 - No special processing needed
 
 **Styles:**
+
 - Source: SCSS files in `/sass/`
 - Framework: Bootstrap
 - Need: SCSS compiler in Astro
 
 **Scripts:**
+
 - Current: Webpack bundled
 - Migration: Move to Astro's asset pipeline
 
 ### Configuration Migration
 
 **Jekyll Config → Astro Config:**
+
 - Site metadata (title, description, URL)
 - Navigation structure
 - Social links
@@ -752,9 +819,11 @@ exclude:
 ### Critical URLs to Preserve
 
 **Homepage:**
+
 - `/` → Blog post listing
 
 **Static Pages:**
+
 - `/about/`
 - `/resume/` (also `/cv/` redirect)
 - `/contact/`
@@ -765,18 +834,22 @@ exclude:
 - `/404/`
 
 **Blog Posts (184):**
+
 - Pattern: `/:year/:month/:day/:title/`
 - Example: `/2023/08/30/transparency-collaboration-is-the-andon-of-knowledge-production/`
 
 **Feeds:**
+
 - `/feed.xml` (main blog feed)
 - `/press/feed/index.xml` (press clips feed)
 
 **SEO Files:**
+
 - `/sitemap.xml`
 - `/robots.txt`
 
 **Redirects (18 instances):**
+
 - Need to implement all `redirect_from` mappings
 - Most common: typo fixes, date changes, title changes
 
@@ -787,22 +860,26 @@ exclude:
 ### Jekyll Gems (Current)
 
 **Core:**
+
 - `jekyll` ~> 4.0
 - Ruby 3.3.5
 
 **Essential Plugins:**
+
 - `jekyll-feed` (RSS)
 - `jekyll-sitemap` (XML sitemap)
 - `jekyll-seo-tag` (Meta tags)
 - `jekyll-redirect-from` (Redirects)
 
 **GitHub-Specific:**
+
 - `jemoji` (Emoji)
 - `jekyll-mentions` (@username)
 - `jekyll-avatar` (Avatars)
 - `jekyll-github-metadata` (Repo data)
 
 **Other:**
+
 - `jekyll-og-image` (Social images)
 - `jekyll-include-cache` (Performance)
 
@@ -831,6 +908,7 @@ exclude:
 **Assets:** SCSS compilation, JS bundling, image optimization
 
 **Jekyll Features Used:**
+
 - Liquid templating
 - YAML data files
 - Markdown processing
@@ -840,6 +918,7 @@ exclude:
 ### Astro Benefits
 
 **Expected Improvements:**
+
 - Faster build times (Vite-based)
 - Better TypeScript support
 - Modern asset pipeline
@@ -847,6 +926,7 @@ exclude:
 - Better image optimization
 
 **Watch Out For:**
+
 - Plugin ecosystem maturity
 - Custom Jekyll plugin replacements
 - Learning curve for Astro patterns
@@ -953,42 +1033,51 @@ exclude:
 ### High Risk Items
 
 **1. URL Structure Changes**
+
 - **Risk:** Breaking SEO if URLs change
 - **Mitigation:** Maintain exact permalink structure, implement all redirects
 
 **2. Missing Redirects**
+
 - **Risk:** 404 errors for old URLs
 - **Mitigation:** Export all `redirect_from` mappings, test thoroughly
 
 **3. Feed Compatibility**
+
 - **Risk:** Breaking RSS readers
 - **Mitigation:** Keep feed URLs identical, test feed format
 
 **4. SEO Regression**
+
 - **Risk:** Loss of search rankings
 - **Mitigation:** Preserve all meta tags, structured data, sitemap
 
 ### Medium Risk Items
 
 **1. GitHub Features**
+
 - **Risk:** Loss of emoji, @mentions, avatar features
 - **Mitigation:** Implement alternatives with remark plugins
 
 **2. Dynamic Content**
+
 - **Risk:** Data-driven pages not working
 - **Mitigation:** Test thoroughly, use Astro's data loading
 
 **3. Performance**
+
 - **Risk:** Build times or site speed issues
 - **Mitigation:** Benchmark before/after, optimize as needed
 
 ### Low Risk Items
 
 **1. Styling Changes**
+
 - **Risk:** Minor visual differences
 - **Mitigation:** Side-by-side comparison, adjust as needed
 
 **2. Comments**
+
 - **Risk:** Loss of comment functionality
 - **Mitigation:** Consider if comments are needed, alternatives exist
 
@@ -1030,6 +1119,7 @@ exclude:
 ### Sample Blog Post Front Matter
 
 **Minimal:**
+
 ```yaml
 ---
 title: My Blog Post Title
@@ -1038,6 +1128,7 @@ description: A brief description for SEO purposes
 ```
 
 **With Redirect:**
+
 ```yaml
 ---
 title: My Blog Post Title
@@ -1095,6 +1186,7 @@ All `redirect_from` entries found in the site:
 This Jekyll site is well-structured, SEO-optimized, and makes heavy use of Jekyll's plugin ecosystem, particularly GitHub-specific features. The migration to Astro is feasible but requires careful planning to preserve SEO value and URL structure.
 
 **Key Success Factors:**
+
 1. Maintain exact URL structure for all content
 2. Implement all redirects without exception
 3. Preserve SEO meta tags and structured data

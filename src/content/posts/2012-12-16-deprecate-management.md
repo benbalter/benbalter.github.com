@@ -9,11 +9,11 @@ There are many aspects to "making things" that [open source just does better](ht
 
 Think about it this way: in the traditional office setting, we use management to facilitate this collaborative building process. Management does many things, but at the most basic level they:
 
-* Shuttle Information
-* Coordinate across business units
-* Align efforts to organization priorities
-* Make sure people do work
-* Recruit new people
+- Shuttle Information
+- Coordinate across business units
+- Align efforts to organization priorities
+- Make sure people do work
+- Recruit new people
 
 This makes sense if you look at the history of the role. In an age when conveying information was onerous, the only way for Adam to tell Becky what he was working on (and thus to ensure Becky was not duplicating efforts) was to stop what he was doing, walk down the hall, and interrupt Becky. So instead of doing this every day, we hire Charlie to facilitate a standing meeting and shuttle that information back and forth. Makes sense.
 
@@ -25,13 +25,13 @@ But does it ~~blend~~ scale? WordPress, the open source content management syste
 
 So what aspects of the open source process make this management free collaboration possible? Ryan Tomayko [outlines](http://tomayko.com/writings/adopt-an-open-source-process-constraints) his experience applying the open source philosophy to an entire (for-profit) venture, noting four key features to the system:
 
-> * **Electronic**: Discussion, planning, and operations process should use a high fidelity form of electronic communication like email, GitHub.com, or chat with transcripts wherever possible. Avoid meatspace discussion and meetings.
+> - **Electronic**: Discussion, planning, and operations process should use a high fidelity form of electronic communication like email, GitHub.com, or chat with transcripts wherever possible. Avoid meatspace discussion and meetings.
 >
-> * **Available**: Work should be visible and expose process. Work should have a URL. It should be possible to move backward from a piece of product or a system failure and understand how it came to be that way. Prefer git, issues, pull requests, mailing lists, and chat with transcripts over URL-less mediums.
+> - **Available**: Work should be visible and expose process. Work should have a URL. It should be possible to move backward from a piece of product or a system failure and understand how it came to be that way. Prefer git, issues, pull requests, mailing lists, and chat with transcripts over URL-less mediums.
 >
-> * **Asynchronous**: Almost no part of the product development process requires that one person interrupt another's immediate attention or that people be in the same place at the same time, or even that people be in different places at the same time. Even small meetings or short phone calls can wreck flow so consider laying it out in (a thought out) email or sending a pull request instead.
+> - **Asynchronous**: Almost no part of the product development process requires that one person interrupt another's immediate attention or that people be in the same place at the same time, or even that people be in different places at the same time. Even small meetings or short phone calls can wreck flow so consider laying it out in (a thought out) email or sending a pull request instead.
 >
-> * **Lock free**: Avoid synchronization / lock points when designing process. This is [distributed version control](http://en.wikipedia.org/wiki/Distributed_revision_control) writ large. We don't have a development manager that grants commit bit to repositories before you can do work, or a release manager that approves deploys, or a product manager that approves work on experimental product ideas. Work toward a goal should never be blocked on approval. Push approval/rejection to the review stage or automate it, but surface work early to get feedback.
+> - **Lock free**: Avoid synchronization / lock points when designing process. This is [distributed version control](http://en.wikipedia.org/wiki/Distributed_revision_control) writ large. We don't have a development manager that grants commit bit to repositories before you can do work, or a release manager that approves deploys, or a product manager that approves work on experimental product ideas. Work toward a goal should never be blocked on approval. Push approval/rejection to the review stage or automate it, but surface work early to get feedback.
 
 Granted, this open-source philosophy doesn't apply to every workplace, but how much better would the process of "making things" be if we could eliminate traditional pain points of managerial friction entirely — conference calls, status meetings, "sync ups", and other non-decisional "check-ins". Work happens in the open, rather than hidden away in one-on-one emails or behind closed doors, and decisions are made by those who show up to do the work.
 

@@ -9,6 +9,7 @@ Liquid template tags were used in Jekyll for including reusable components and d
 ## Common Liquid Patterns Found
 
 ### 1. Include Tags
+
 ```liquid
 {% include callout.html content=content %}
 {% include_cached github-culture.html %}
@@ -17,6 +18,7 @@ Liquid template tags were used in Jekyll for including reusable components and d
 **Conversion**: Create Astro components like `<Callout>` in MDX files.
 
 ### 2. Raw Content
+
 ```liquid
 {% raw %}{{ content }}{% endraw %}
 ```
@@ -24,6 +26,7 @@ Liquid template tags were used in Jekyll for including reusable components and d
 **Conversion**: Use code fences or escape sequences as needed.
 
 ### 3. For Loops
+
 ```liquid
 {% for repository in site.github.public_repositories %}
   ...

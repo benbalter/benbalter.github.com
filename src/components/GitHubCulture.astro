@@ -14,33 +14,12 @@
   </a>.
 </div>
 
-<style>
-  .alert {
-    position: relative;
-    padding: 1rem 1rem;
-    margin-bottom: 1rem;
-    border: 1px solid transparent;
-    border-radius: 0.375rem;
-  }
-  
-  .alert-primary {
-    color: var(--bs-primary-text-emphasis, #084298);
-    background-color: var(--bs-primary-bg-subtle, #cfe2ff);
-    border-color: var(--bs-primary-border-subtle, #b6d4fe);
-  }
-  
-  .text-center {
-    text-align: center !important;
-  }
-  
-  .alert-link {
-    font-weight: 700;
-    color: var(--bs-primary-text-emphasis, #06357a);
-    text-decoration: underline;
-  }
-  
-  .alert-link:hover {
-    color: var(--bs-primary-text-emphasis, #06357a);
-    opacity: 0.85;
-  }
+<style lang="scss">
+  // Import Bootstrap alert component (scoped to this component)
+  @import 'bootstrap/scss/functions';
+  @import 'bootstrap/scss/variables';
+  @import 'bootstrap/scss/variables-dark';
+  @import 'bootstrap/scss/maps';
+  @import 'bootstrap/scss/mixins';
+  @import 'bootstrap/scss/alert';
 </style>

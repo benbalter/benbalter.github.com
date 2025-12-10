@@ -3,6 +3,7 @@
  * FeatureCard Component
  * 
  * Display a feature or service with an emoji icon, title, and description.
+ * Uses Bootstrap card component and utility classes for styling.
  * Used on the about page and other marketing/informational pages.
  * 
  * Props:
@@ -27,18 +28,15 @@ interface Props {
 const { emoji, title, description } = Astro.props;
 ---
 
-<div class="feature-card">
-  <div class="feature-emoji">{emoji}</div>
-  <h3 class="feature-title">{title}</h3>
-  <p class="feature-description">{description}</p>
+<div class="card border rounded-3 p-3 h-100 feature-card">
+  <div class="display-4 mb-3">{emoji}</div>
+  <h3 class="text-primary mt-0 mb-2">{title}</h3>
+  <p class="text-secondary lh-base m-0">{description}</p>
 </div>
 
 <style>
+  /* Minimal custom styles for hover effects */
   .feature-card {
-    padding: 1.5rem;
-    border: 1px solid var(--bs-border-color, #e0e0e0);
-    border-radius: 8px;
-    background: var(--bs-body-bg, #fff);
     transition: transform 0.2s, box-shadow 0.2s;
   }
   
@@ -52,22 +50,5 @@ const { emoji, title, description } = Astro.props;
     .feature-card:hover {
       box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
     }
-  }
-  
-  .feature-emoji {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-  
-  .feature-title {
-    color: var(--bs-link-color, #0366d6);
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-  }
-  
-  .feature-description {
-    color: var(--bs-secondary-color, #666);
-    line-height: 1.5;
-    margin: 0;
   }
 </style>

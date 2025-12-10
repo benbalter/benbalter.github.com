@@ -20,6 +20,7 @@
   ],
   "exclude": [
     "node_modules",
-    "dist-astro"
+    "dist-astro",
+    "_site"
   ]
 }

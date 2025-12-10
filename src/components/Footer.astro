@@ -3,141 +3,64 @@
  * Footer Component
  * 
  * Site-wide footer with navigation links and social connections.
+ * Uses Bootstrap nav utilities and extends with minimal custom styles.
  * Matches the structure and styling of the Jekyll footer.
  */
 
-import { siteConfig, footerLinks, contactLinks } from '../config';
+import { footerLinks, contactLinks } from '../config';
 ---
 
-<footer>
+<footer class="mt-5">
   <nav aria-label="Footer navigation">
-    <ul class="nav justify-content-end border-top px-2 py-3">
-      {footerLinks.map((link) => (
+    <ul class="nav justify-content-between border-top px-2 py-3">
+      <div class="d-flex">
+        {contactLinks.map((link) => (
+          <li class="nav-item">
+            <a 
+              href={link.url} 
+              aria-label={link.name}
+              class="nav-link"
+              target="_blank"
+              rel="noopener noreferrer me"
+            >
+              <i class={link.icon} title={link.name}></i>
+            </a>
+          </li>
+        ))}
+      </div>
+      
+      <div class="d-flex">
+        {footerLinks.map((link) => (
+          <li class="nav-item">
+            <a href={link.url} class="nav-link link-secondary">
+              {link.title}
+            </a>
+          </li>
+        ))}
+        
         <li class="nav-item">
-          <a href={link.url} class="nav-link link-secondary">
-            {link.title}
+          <a href="/feed.xml" aria-label="RSS Feed" class="nav-link">
+            <i class="fas fa-rss" title="RSS Feed"></i>
           </a>
         </li>
-      ))}
-      
-      <li class="nav-item">
-        <a href="/feed.xml" aria-label="RSS Feed" class="nav-link">
-          <i class="fas fa-rss" title="RSS Feed"></i>
-        </a>
-      </li>
+      </div>
     </ul>
   </nav>
-  
-  <div class="social-links text-center py-3">
-    {contactLinks.map((link) => (
-      <a 
-        href={link.url} 
-        aria-label={link.name}
-        class="social-link"
-        target="_blank"
-        rel="noopener noreferrer me"
-      >
-        <i class={link.icon} title={link.name}></i>
-      </a>
-    ))}
-  </div>
-  
-  <div class="copyright text-center text-muted py-2">
-    <p class="mb-0">
-      &copy; {new Date().getFullYear()} {siteConfig.name}. Built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>.
-    </p>
-  </div>
 </footer>
 
-<style>
-  footer {
-    margin-top: 4rem;
-  }
+<style lang="scss">
+  /* Import Bootstrap nav component (scoped to this component) */
+  @import 'bootstrap/scss/functions';
+  @import 'bootstrap/scss/variables';
+  @import 'bootstrap/scss/variables-dark';
+  @import 'bootstrap/scss/maps';
+  @import 'bootstrap/scss/mixins';
+  @import 'bootstrap/scss/nav';
 
-  .nav {
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
-    border-top: 1px solid var(--bs-border-color, #dee2e6);
-  }
-
-  .justify-content-end {
-    justify-content: flex-end !important;
-  }
-
-  .nav-item {
-    margin: 0;
-  }
-
-  .nav-link {
-    display: block;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    transition: color 0.15s ease-in-out;
-  }
-
-  .link-secondary {
-    color: var(--bs-secondary, #6c757d);
-  }
-
-  .link-secondary:hover,
-  .link-secondary:focus {
-    color: var(--bs-secondary-hover, #565e64);
-  }
-
-  .nav-link i {
-    font-size: 1rem;
-  }
-
-  .social-links {
-    padding: 1rem 0;
-  }
-
-  .social-link {
-    display: inline-block;
-    margin: 0 0.5rem;
-    color: var(--bs-link-color, #0d6efd);
-    font-size: 1.5rem;
-    text-decoration: none;
-    transition: color 0.15s ease-in-out, transform 0.15s ease-in-out;
-  }
-
-  .social-link:hover,
-  .social-link:focus {
-    color: var(--bs-link-hover-color, #0a58ca);
-    transform: translateY(-2px);
-  }
-
-  .copyright {
-    font-size: 0.875rem;
-    padding: 0.5rem 0;
-  }
-
-  .copyright a {
-    color: var(--bs-link-color, #0d6efd);
-    text-decoration: none;
-  }
-
-  .copyright a:hover {
-    text-decoration: underline;
-  }
-
-  .text-center {
-    text-align: center !important;
-  }
-
-  .text-muted {
-    color: var(--bs-secondary, #6c757d) !important;
-  }
-
+  /* Responsive layout adjustments */
   @media (max-width: 768px) {
-    .justify-content-end {
-      justify-content: center !important;
-    }
-
     .nav {
+      justify-content: center !important;
       flex-direction: column;
       text-align: center;
     }
