@@ -30,6 +30,26 @@ const EXCLUDED_PAGES = [
   // add their URLs here (e.g., '/2024/01/01/post-slug/')
 ];
 
+// Shared rehype plugin configurations
+const rehypeExternalLinksConfig = [rehypeExternalLinks, {
+  target: '_blank',
+  rel: ['noopener', 'noreferrer'],
+}];
+
+const rehypeAutolinkHeadingsConfig = [rehypeAutolinkHeadings, {
+  behavior: 'append',
+  properties: {
+    className: ['anchor-link'],
+    ariaLabel: 'Link to this section',
+  },
+  content: {
+    type: 'element',
+    tagName: 'span',
+    properties: { className: ['anchor-icon'] },
+    children: [{ type: 'text', value: '#' }]
+  }
+}];
+
 // https://astro.build/config
 export default defineConfig({
   // Output directory for built site (separate from Jekyll and Next.js)
@@ -109,24 +129,9 @@ export default defineConfig({
       ],
       rehypePlugins: [
         rehypeSlug,
-        [rehypeAutolinkHeadings, {
-          behavior: 'append',
-          properties: {
-            className: ['anchor-link'],
-            ariaLabel: 'Link to this section',
-          },
-          content: {
-            type: 'element',
-            tagName: 'span',
-            properties: { className: ['anchor-icon'] },
-            children: [{ type: 'text', value: '#' }]
-          }
-        }],
+        rehypeAutolinkHeadingsConfig,
         rehypeUnwrapImages,
-        [rehypeExternalLinks, {
-          target: '_blank',
-          rel: ['noopener', 'noreferrer'],
-        }],
+        rehypeExternalLinksConfig,
       ],
     }),
     sitemap({
@@ -196,24 +201,9 @@ export default defineConfig({
     // Rehype plugins (for HTML processing)
     rehypePlugins: [
       rehypeSlug,
-      [rehypeAutolinkHeadings, {
-        behavior: 'append',
-        properties: {
-          className: ['anchor-link'],
-          ariaLabel: 'Link to this section',
-        },
-        content: {
-          type: 'element',
-          tagName: 'span',
-          properties: { className: ['anchor-icon'] },
-          children: [{ type: 'text', value: '#' }]
-        }
-      }],
+      rehypeAutolinkHeadingsConfig,
       rehypeUnwrapImages,
-      [rehypeExternalLinks, {
-        target: '_blank',
-        rel: ['noopener', 'noreferrer'],
-      }],
+      rehypeExternalLinksConfig,
     ],
   },
   
