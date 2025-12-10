@@ -23,10 +23,30 @@ disallows:
   - /the-dynamic-site-is-dead/
   - /the-next-cultural-commons/
   - /uncle-sams-list/
+  - /assets/
+  - /_site/
+  - /dist-astro/
 ---
+# Robots.txt for ben.balter.com
+# See https://www.robotstxt.org/ for documentation
 
+# Allow all crawlers by default
 User-agent: *{% for disallowed in page.disallows %}
 Disallow: {{ disallowed }}{% endfor %}
 Allow: /
-Sitemap: http://ben.balter.com/sitemap.xml
+
+# Block AI training crawlers (optional - comment out if you want to allow)
+# User-agent: CCBot
+# Disallow: /
+# User-agent: GPTBot
+# Disallow: /
+# User-agent: ChatGPT-User
+# Disallow: /
+
+# Sitemap locations
+Sitemap: https://ben.balter.com/sitemap-index.xml
+Sitemap: https://ben.balter.com/sitemap.xml
+Sitemap: https://ben.balter.com/feed.xml
+
+# Preferred host
 Host: ben.balter.com
