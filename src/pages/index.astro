@@ -24,11 +24,11 @@ const posts: CollectionEntry<'posts'>[] = allPosts.sort((a: CollectionEntry<'pos
       const postDate = getDateFromSlug(post.slug);
       const postUrl = getPostUrl(post.slug);
       return (
-        <li class="post-item py-3 border-bottom">
+        <li class="post-item py-2 border-bottom">
           <div class="row g-0">
             <div class="col-md-9">
               <div class="mb-1">
-                <a href={postUrl} class="fs-5 fw-semibold text-body text-decoration-none">{post.data.title}</a>
+                <a href={postUrl} class="text-body text-decoration-none">{post.data.title}</a>
               </div>
             </div>
             <div class="col-md-3 text-md-end">
