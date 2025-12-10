@@ -37,7 +37,7 @@ const navClasses = hero
 
 <div class={navClasses + ' shadow-sm'}>
   <div class="d-flex flex-wrap align-items-center justify-content-between navbar-inner">
-    <a class="navbar-brand fw-bold fs-5" href="/">{siteConfig.name}</a>
+    <a class="navbar-brand fw-bold" href="/">{siteConfig.name}</a>
     <button 
       class="navbar-toggler" 
       type="button" 
@@ -57,7 +57,7 @@ const navClasses = hero
             <li class="nav-item">
               <a 
                 href={item.url} 
-                class={`nav-link fw-medium${isActive ? ' active' : ''}`}
+                class={`nav-link${isActive ? ' active' : ''}`}
                 aria-current={isActive ? 'page' : undefined}
               >
                 {item.title}
