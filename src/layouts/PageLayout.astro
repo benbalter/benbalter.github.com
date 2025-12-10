@@ -155,14 +155,6 @@ const {
     color: var(--bs-body-color);
   }
   
-  .page-body :global(blockquote) {
-    border-left: 4px solid var(--bs-gray-400);
-    padding-left: 1rem;
-    margin: 1.5rem 0;
-    color: var(--bs-secondary-color);
-    font-style: italic;
-  }
-  
   .page-body :global(a) {
     color: var(--bs-link-color);
     text-decoration: none;
@@ -198,12 +190,5 @@ const {
     height: auto;
     border-radius: 6px;
     margin: 1.5rem 0;
-  }
-  
-  /* Dark mode adjustments */
-  @media (prefers-color-scheme: dark) {
-    .page-body :global(blockquote) {
-      border-left-color: var(--bs-gray-600);
-    }
   }
 </style>
