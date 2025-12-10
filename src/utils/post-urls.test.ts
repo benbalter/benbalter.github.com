@@ -3,7 +3,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { getPostUrl, getPostUrlOrNull } from './post-urls';
+import { getPostUrl, getPostUrlOrNull, getDateFromSlug, formatPostDate, formatResumeDate } from './post-urls';
 
 describe('getPostUrl', () => {
   it('should generate correct URL from valid slug', () => {
@@ -155,5 +155,88 @@ describe('getPostUrlOrNull', () => {
     testCases.forEach(slug => {
       expect(getPostUrlOrNull(slug)).toBeNull();
     });
+  });
+});
+
+describe('getDateFromSlug', () => {
+  it('should parse date from valid slug', () => {
+    const slug = '2024-03-15-my-post';
+    const date = getDateFromSlug(slug);
+    
+    expect(date.getFullYear()).toBe(2024);
+    expect(date.getMonth()).toBe(2); // 0-indexed, so March is 2
+    expect(date.getDate()).toBe(15);
+  });
+
+  it('should handle different dates correctly', () => {
+    const testCases = [
+      { slug: '2023-01-01-new-year', year: 2023, month: 0, day: 1 },
+      { slug: '2024-12-31-year-end', year: 2024, month: 11, day: 31 },
+      { slug: '2024-06-15-mid-year', year: 2024, month: 5, day: 15 },
+    ];
+
+    testCases.forEach(({ slug, year, month, day }) => {
+      const date = getDateFromSlug(slug);
+      expect(date.getFullYear()).toBe(year);
+      expect(date.getMonth()).toBe(month);
+      expect(date.getDate()).toBe(day);
+    });
+  });
+
+  it('should return current date for invalid slug', () => {
+    const slug = 'invalid-slug';
+    const date = getDateFromSlug(slug);
+    const now = new Date();
+    
+    // Check it returns a valid date (should be close to current time)
+    expect(date).toBeInstanceOf(Date);
+    expect(date.getFullYear()).toBe(now.getFullYear());
+  });
+});
+
+describe('formatPostDate', () => {
+  it('should format date as "Month Day, Year"', () => {
+    const date = new Date(2024, 2, 15); // March 15, 2024
+    const formatted = formatPostDate(date);
+    
+    expect(formatted).toBe('March 15, 2024');
+  });
+
+  it('should handle different months correctly', () => {
+    const testCases = [
+      { date: new Date(2024, 0, 1), expected: 'January 1, 2024' },
+      { date: new Date(2024, 11, 31), expected: 'December 31, 2024' },
+      { date: new Date(2023, 5, 15), expected: 'June 15, 2023' },
+    ];
+
+    testCases.forEach(({ date, expected }) => {
+      expect(formatPostDate(date)).toBe(expected);
+    });
+  });
+});
+
+describe('formatResumeDate', () => {
+  it('should format date as "Month Year"', () => {
+    const formatted = formatResumeDate('2024-03-15');
+    
+    expect(formatted).toBe('March 2024');
+  });
+
+  it('should handle different dates correctly', () => {
+    const testCases = [
+      { dateString: '2023-01-01', expected: 'January 2023' },
+      { dateString: '2024-12-31', expected: 'December 2024' },
+      { dateString: '2024-06-15', expected: 'June 2024' },
+    ];
+
+    testCases.forEach(({ dateString, expected }) => {
+      expect(formatResumeDate(dateString)).toBe(expected);
+    });
+  });
+
+  it('should return "Invalid Date" for invalid date strings', () => {
+    const formatted = formatResumeDate('invalid-date');
+    
+    expect(formatted).toBe('Invalid Date');
   });
 });

@@ -1,7 +1,8 @@
 /**
- * Utility functions for generating post URLs from slugs
+ * Utility functions for generating post URLs from slugs and handling dates
  * 
  * These functions convert Jekyll-style slugs (YYYY-MM-DD-title) to URL paths
+ * and provide date parsing/formatting utilities
  */
 
 /**
@@ -32,4 +33,46 @@ export function getPostUrlOrNull(slug: string): string | null {
     return `/${year}/${month}/${day}/${postSlug}/`;
   }
   return null;
+}
+
+/**
+ * Parse date from Jekyll-style slug
+ * 
+ * @param slug - Post slug in format YYYY-MM-DD-title
+ * @returns Date object parsed from slug
+ */
+export function getDateFromSlug(slug: string): Date {
+  const match = slug.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (match) {
+    return new Date(parseInt(match[1]), parseInt(match[2]) - 1, parseInt(match[3]));
+  }
+  return new Date();
+}
+
+/**
+ * Format date like Jekyll: "Month Day, Year"
+ * 
+ * @param date - Date object to format
+ * @returns Formatted date string
+ */
+export function formatPostDate(date: Date): string {
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 
+                  'July', 'August', 'September', 'October', 'November', 'December'];
+  return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+}
+
+/**
+ * Format date for resume: "Month Year"
+ * 
+ * @param dateString - Date string to format
+ * @returns Formatted date string or error message
+ */
+export function formatResumeDate(dateString: string): string {
+  const date = new Date(dateString);
+  // Check if date is valid
+  if (isNaN(date.getTime())) {
+    console.warn(`Invalid date format: ${dateString}`);
+    return 'Invalid Date';
+  }
+  return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 }
