@@ -5,8 +5,11 @@ import favicons from 'astro-favicons';
 import compress from 'astro-compress';
 import redirectIntegration from './src/lib/redirect-integration.ts';
 import remarkEmoji from 'remark-emoji';
+import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeExternalLinks from 'rehype-external-links';
+import rehypeUnwrapImages from 'rehype-unwrap-images';
 import { remarkGitHubMentions } from './src/lib/remark-github-mentions.ts';
 
 // URL patterns for sitemap priority calculation
@@ -99,7 +102,11 @@ export default defineConfig({
       // MDX configuration
       optimize: true,
       // Support GitHub Flavored Markdown
-      remarkPlugins: [remarkEmoji, remarkGitHubMentions],
+      remarkPlugins: [
+        remarkGfm,
+        remarkEmoji,
+        remarkGitHubMentions,
+      ],
       rehypePlugins: [
         rehypeSlug,
         [rehypeAutolinkHeadings, {
@@ -114,6 +121,11 @@ export default defineConfig({
             properties: { className: ['anchor-icon'] },
             children: [{ type: 'text', value: '#' }]
           }
+        }],
+        rehypeUnwrapImages,
+        [rehypeExternalLinks, {
+          target: '_blank',
+          rel: ['noopener', 'noreferrer'],
         }],
       ],
     }),
@@ -178,7 +190,11 @@ export default defineConfig({
     // Enable smartypants for typographic punctuation
     smartypants: true,
     // Remark plugins (for markdown processing)
-    remarkPlugins: [remarkEmoji, remarkGitHubMentions],
+    remarkPlugins: [
+      remarkGfm,
+      remarkEmoji,
+      remarkGitHubMentions,
+    ],
     // Rehype plugins (for HTML processing)
     rehypePlugins: [
       rehypeSlug,
@@ -194,6 +210,11 @@ export default defineConfig({
           properties: { className: ['anchor-icon'] },
           children: [{ type: 'text', value: '#' }]
         }
+      }],
+      rehypeUnwrapImages,
+      [rehypeExternalLinks, {
+        target: '_blank',
+        rel: ['noopener', 'noreferrer'],
       }],
     ],
   },
