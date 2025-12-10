@@ -41,12 +41,6 @@ import { siteConfig, footerLinks, contactLinks } from '../config';
       </a>
     ))}
   </div>
-  
-  <div class="copyright text-center text-muted py-2">
-    <p class="mb-0">
-      &copy; {new Date().getFullYear()} {siteConfig.name}. Built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>.
-    </p>
-  </div>
 </footer>
 
 <style>
@@ -63,19 +57,6 @@ import { siteConfig, footerLinks, contactLinks } from '../config';
   .social-link:focus {
     color: var(--bs-link-hover-color);
     transform: translateY(-2px);
-  }
-
-  .copyright {
-    font-size: 0.875rem;
-  }
-
-  .copyright a {
-    color: var(--bs-link-color);
-    text-decoration: none;
-  }
-
-  .copyright a:hover {
-    text-decoration: underline;
   }
 
   @media (max-width: 768px) {
