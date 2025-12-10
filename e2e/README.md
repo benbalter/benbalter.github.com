@@ -4,15 +4,15 @@ This directory contains comprehensive end-to-end tests for Ben Balter's website 
 
 ## Test Structure
 
-* **`helpers.ts`**: Common test utilities and helper functions
-* **`homepage.spec.ts`**: Tests for the homepage
-* **`blog-posts.spec.ts`**: Tests for blog post pages
-* **`resume.spec.ts`**: Tests for the resume page
-* **`pages.spec.ts`**: Tests for static pages (About, Contact, Talks, Press)
-* **`accessibility.spec.ts`**: Accessibility tests (WCAG compliance)
-* **`performance.spec.ts`**: Performance and optimization tests
-* **`seo.spec.ts`**: General SEO and metadata tests (25 tests)
-* **`seo-nextjs.spec.ts`**: Next.js-specific SEO tests (21 tests)
+- **`helpers.ts`**: Common test utilities and helper functions
+- **`homepage.spec.ts`**: Tests for the homepage
+- **`blog-posts.spec.ts`**: Tests for blog post pages
+- **`resume.spec.ts`**: Tests for the resume page
+- **`pages.spec.ts`**: Tests for static pages (About, Contact, Talks, Press)
+- **`accessibility.spec.ts`**: Accessibility tests (WCAG compliance)
+- **`performance.spec.ts`**: Performance and optimization tests
+- **`seo.spec.ts`**: General SEO and metadata tests (25 tests)
+- **`seo-nextjs.spec.ts`**: Next.js-specific SEO tests (21 tests)
 
 ## Running Tests
 
@@ -72,8 +72,8 @@ npm run test:e2e:astro
 
 ## Test Configurations
 
-* **Jekyll Tests** (default): `playwright.config.ts` - Tests Jekyll site at `localhost:4000`
-* **Astro Tests**: `playwright-astro.config.ts` - Tests Astro build at `localhost:4321`
+- **Jekyll Tests** (default): `playwright.config.ts` - Tests Jekyll site at `localhost:4000`
+- **Astro Tests**: `playwright-astro.config.ts` - Tests Astro build at `localhost:4321`
 
 > **Note:** The repository supports multiple site generators (Jekyll, Next.js, Astro) as part of an ongoing migration strategy.
 
@@ -81,98 +81,98 @@ npm run test:e2e:astro
 
 ### Homepage Tests
 
-* Page loads successfully
-* Navigation and footer present
-* Responsive design
-* Semantic HTML structure
-* Meta tags and SEO
+- Page loads successfully
+- Navigation and footer present
+- Responsive design
+- Semantic HTML structure
+- Meta tags and SEO
 
 ### Blog Post Tests
 
-* Post listing accessible
-* Individual posts render correctly
-* Metadata present
-* Images have alt text
-* Links are valid
+- Post listing accessible
+- Individual posts render correctly
+- Metadata present
+- Images have alt text
+- Links are valid
 
 ### Resume Tests
 
-* Page loads and displays content
-* Work experience section present
-* Contact information available
-* Print-friendly layout
+- Page loads and displays content
+- Work experience section present
+- Contact information available
+- Print-friendly layout
 
 ### Static Pages Tests
 
-* About, Contact, Talks, and Press pages load
-* Content is meaningful
-* Navigation works
-* Proper titles
+- About, Contact, Talks, and Press pages load
+- Content is meaningful
+- Navigation works
+- Proper titles
 
 ### Accessibility Tests
 
-* Basic WCAG compliance
-* Heading hierarchy
-* Lang attribute
-* Skip links/main landmarks
-* Form labels
-* Button accessible names
-* Link accessible text
-* Keyboard navigation
+- Basic WCAG compliance
+- Heading hierarchy
+- Lang attribute
+- Skip links/main landmarks
+- Form labels
+- Button accessible names
+- Link accessible text
+- Keyboard navigation
 
 ### Performance Tests
 
-* Load time within acceptable limits
-* Reasonable number of requests
-* JavaScript optimization
-* Image optimization
-* Asset caching
-* Font loading
+- Load time within acceptable limits
+- Reasonable number of requests
+- JavaScript optimization
+- Image optimization
+- Asset caching
+- Font loading
 
 ### SEO Tests
 
 **General SEO Tests (`seo.spec.ts` - 25 tests):**
-* Meta descriptions (with length validation)
-* Open Graph tags (og:title, og:description, og:type, og:url)
-* Twitter Card tags
-* Canonical URLs
-* Proper title tags (with length validation)
-* Robots meta tags (indexability)
-* Structured data (JSON-LD validation)
-* Sitemap accessibility
-* robots.txt accessibility
-* RSS feed accessibility
-* Blog post specific meta tags
+- Meta descriptions (with length validation)
+- Open Graph tags (og:title, og:description, og:type, og:url)
+- Twitter Card tags
+- Canonical URLs
+- Proper title tags (with length validation)
+- Robots meta tags (indexability)
+- Structured data (JSON-LD validation)
+- Sitemap accessibility
+- robots.txt accessibility
+- RSS feed accessibility
+- Blog post specific meta tags
 
 **Next.js-Specific SEO Tests (`seo-nextjs.spec.ts` - 21 tests):**
-* Core HTML meta tags:
-  * UTF-8 charset declaration
-  * Viewport meta tag for responsive design
-  * Theme-color meta tags (light/dark mode)
-  * X-UA-Compatible for IE
-* Open Graph images:
-  * og:image tags with absolute URLs
-  * og:image:alt for accessibility
-  * Twitter image tags
-* Author and creator metadata:
-  * Author, creator, and publisher metadata
-* Structured data (JSON-LD):
-  * Person schema on homepage
-  * BlogPosting schema on blog posts
-* Social media integration:
-  * rel="me" links for social profiles
-* RSS/feed metadata:
-  * RSS feed alternate link
-* Favicon and icons:
-  * Multiple favicon formats
-  * Web manifest link
-* Blog post SEO:
-  * Article-specific Open Graph tags
-  * Published time metadata
-  * Twitter Card types (summary/summary_large_image)
-* Keywords and indexing:
-  * Keywords meta tag
-  * Robots and indexing rules validation
+- Core HTML meta tags:
+  - UTF-8 charset declaration
+  - Viewport meta tag for responsive design
+  - Theme-color meta tags (light/dark mode)
+  - X-UA-Compatible for IE
+- Open Graph images:
+  - og:image tags with absolute URLs
+  - og:image:alt for accessibility
+  - Twitter image tags
+- Author and creator metadata:
+  - Author, creator, and publisher metadata
+- Structured data (JSON-LD):
+  - Person schema on homepage
+  - BlogPosting schema on blog posts
+- Social media integration:
+  - rel="me" links for social profiles
+- RSS/feed metadata:
+  - RSS feed alternate link
+- Favicon and icons:
+  - Multiple favicon formats
+  - Web manifest link
+- Blog post SEO:
+  - Article-specific Open Graph tags
+  - Published time metadata
+  - Twitter Card types (summary/summary_large_image)
+- Keywords and indexing:
+  - Keywords meta tag
+  - Robots and indexing rules validation
 
 ## Configuration
 
@@ -180,12 +180,12 @@ The Playwright configuration is in [`playwright.config.ts`](../playwright.config
 
 Key settings:
 
-* **Base URL**: `http://localhost:3000` (can be overridden with `BASE_URL` env var)
-* **Browser**: Chromium (Desktop Chrome)
-* **Workers**: 4 workers in CI for parallel execution, unlimited locally
-* **Timeouts**: 15s navigation, 5s actions (optimized for fast static site)
-* **Retries**: 2 retries on CI, 0 locally
-* **Reporters**: HTML and list reporters, GitHub Actions reporter on CI
+- **Base URL**: `http://localhost:3000` (can be overridden with `BASE_URL` env var)
+- **Browser**: Chromium (Desktop Chrome)
+- **Workers**: 4 workers in CI for parallel execution, unlimited locally
+- **Timeouts**: 15s navigation, 5s actions (optimized for fast static site)
+- **Retries**: 2 retries on CI, 0 locally
+- **Reporters**: HTML and list reporters, GitHub Actions reporter on CI
 
 ## Performance Optimizations
 
@@ -199,15 +199,15 @@ The tests have been optimized for speed:
 
 ### Helper Functions
 
-* **`waitForPageReady()`**: Fast load helper (recommended for most tests)
-  * Waits for `domcontentloaded` and `load` states
-  * \~1–3 seconds faster than `waitForFullLoad`
-  * Use when you don't need to wait for all network activity
+- **`waitForPageReady()`**: Fast load helper (recommended for most tests)
+  - Waits for `domcontentloaded` and `load` states
+  - \~1–3 seconds faster than `waitForFullLoad`
+  - Use when you don't need to wait for all network activity
 
-* **`waitForFullLoad()`**: Complete load helper (use sparingly)
-  * Waits for `domcontentloaded` and `networkidle` states
-  * Waits until there are no more than 2 network connections for at least 500ms
-  * Use for performance tests or when testing lazy-loaded content
+- **`waitForFullLoad()`**: Complete load helper (use sparingly)
+  - Waits for `domcontentloaded` and `networkidle` states
+  - Waits until there are no more than 2 network connections for at least 500ms
+  - Use for performance tests or when testing lazy-loaded content
 
 ## CI Integration
 
@@ -265,14 +265,14 @@ test.describe('New Feature', () => {
 
 When tests fail, Playwright captures:
 
-* Screenshots (on failure)
-* Videos (on failure)
-* Traces (on retry)
+- Screenshots (on failure)
+- Videos (on failure)
+- Traces (on retry)
 
 These are saved to:
 
-* `test-results/` - Test output
-* `playwright-report/` - HTML report
+- `test-results/` - Test output
+- `playwright-report/` - HTML report
 
 ### Debug Mode
 
@@ -294,35 +294,35 @@ npm run test:e2e:ui
 ## Best Practices
 
 1. **Keep tests fast**:
-   * Use `waitForPageReady()` instead of `waitForFullLoad()` when possible
-   * Group tests with `beforeEach` to avoid redundant navigations
-   * Use efficient selectors
-   * Avoid unnecessary waits
+   - Use `waitForPageReady()` instead of `waitForFullLoad()` when possible
+   - Group tests with `beforeEach` to avoid redundant navigations
+   - Use efficient selectors
+   - Avoid unnecessary waits
 
 2. **Keep tests reliable**:
-   * Use proper wait conditions, not fixed timeouts
-   * Wait for elements to be visible/hidden before interacting
-   * Handle async operations properly
+   - Use proper wait conditions, not fixed timeouts
+   - Wait for elements to be visible/hidden before interacting
+   - Handle async operations properly
 
 3. **Keep tests maintainable**:
-   * Use helpers for common operations
-   * Avoid duplication
-   * Extract complex selectors into variables
+   - Use helpers for common operations
+   - Avoid duplication
+   - Extract complex selectors into variables
 
 4. **Keep tests readable**:
-   * Clear test names
-   * Good structure with describe blocks
-   * Comments when needed
-   * One assertion focus per test
+   - Clear test names
+   - Good structure with describe blocks
+   - Comments when needed
+   - One assertion focus per test
 
 5. **Run tests frequently**:
-   * Run locally before committing
-   * Check CI results
-   * Fix flaky tests immediately
+   - Run locally before committing
+   - Check CI results
+   - Fix flaky tests immediately
 
 ## Resources
 
-* [Playwright Documentation](https://playwright.dev/docs/intro)
-* [Best Practices](https://playwright.dev/docs/best-practices)
-* [Writing Tests](https://playwright.dev/docs/writing-tests)
-* [Debugging Guide](https://playwright.dev/docs/debug)
+- [Playwright Documentation](https://playwright.dev/docs/intro)
+- [Best Practices](https://playwright.dev/docs/best-practices)
+- [Writing Tests](https://playwright.dev/docs/writing-tests)
+- [Debugging Guide](https://playwright.dev/docs/debug)

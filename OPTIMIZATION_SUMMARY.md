@@ -9,6 +9,7 @@ This PR implements Core Web Vitals and accessibility optimizations for the Astro
 ### 1. Accessibility Improvements
 
 #### Skip to Content Link
+
 Added a keyboard-accessible skip link that allows users to bypass navigation and jump directly to the main content.
 
 ```astro
@@ -18,16 +19,19 @@ Added a keyboard-accessible skip link that allows users to bypass navigation and
 ```
 
 **Benefits:**
+
 - Improves keyboard navigation experience
 - Essential for screen reader users
 - WCAG 2.1 Level A compliance (Success Criterion 2.4.1)
 
 #### Navigation Enhancements
+
 - Added `aria-current="page"` to active navigation links
 - Added `aria-label` attributes to navigation landmarks
 - Added `tabindex="-1"` to main content for skip link functionality
 
 **Benefits:**
+
 - Clearer indication of current page for assistive technologies
 - Better screen reader navigation experience
 - Improved keyboard navigation flow
@@ -35,6 +39,7 @@ Added a keyboard-accessible skip link that allows users to bypass navigation and
 ### 2. Performance Optimizations
 
 #### Resource Hints
+
 Added preconnect and DNS prefetch hints to reduce latency for external resources:
 
 ```html
@@ -48,11 +53,13 @@ Added preconnect and DNS prefetch hints to reduce latency for external resources
 ```
 
 **Benefits:**
+
 - Reduces DNS lookup time by 20-100ms
 - Reduces connection establishment time by 50-200ms
 - Particularly beneficial for GitHub avatars and external images
 
 #### Astro's Built-in Optimizations
+
 The site already benefits from Astro's aggressive optimizations:
 
 - **JavaScript Inlining**: All scripts are inlined (~1KB total, no external JS files)
@@ -63,7 +70,9 @@ The site already benefits from Astro's aggressive optimizations:
 ### 3. Documentation
 
 #### PERFORMANCE.md
+
 Created comprehensive documentation covering:
+
 - Optimization strategies implemented
 - Bundle size analysis
 - Expected Lighthouse score improvements
@@ -71,13 +80,16 @@ Created comprehensive documentation covering:
 - Monitoring recommendations
 
 #### Bundle Analysis Script
+
 Created `script/analyze-bundle` to measure:
+
 - JavaScript bundle sizes
 - CSS bundle sizes
 - Image optimization statistics
 - Total page count
 
 Usage:
+
 ```bash
 ./script/analyze-bundle
 ```
@@ -124,12 +136,14 @@ Usage:
 ## Browser Compatibility
 
 All optimizations are compatible with:
+
 - Chrome/Edge 90+
 - Firefox 88+
 - Safari 14+
 - Mobile browsers (iOS Safari 14+, Chrome Android 90+)
 
 Graceful degradation for older browsers:
+
 - Skip link works in all browsers with CSS support
 - Resource hints are ignored by unsupported browsers
 - ARIA attributes are ignored by non-assistive technologies

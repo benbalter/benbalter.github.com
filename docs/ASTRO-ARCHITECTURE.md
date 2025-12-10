@@ -10,10 +10,10 @@
 
 This document defines the architecture for migrating ben.balter.com from Jekyll to Astro, ensuring:
 
-* **Identical URL structure** - All URLs remain unchanged
-* **Content preservation** - All posts, pages, and data migrate successfully
-* **Feature parity** - RSS feeds, sitemaps, redirects, and related posts work as expected
-* **SEO maintenance** - Meta tags, structured data, and Open Graph images preserved
+- **Identical URL structure** - All URLs remain unchanged
+- **Content preservation** - All posts, pages, and data migrate successfully
+- **Feature parity** - RSS feeds, sitemaps, redirects, and related posts work as expected
+- **SEO maintenance** - Meta tags, structured data, and Open Graph images preserved
 
 **Key Design Principle:** Static Site Generation (SSG) first - pre-render all pages at build time.
 
@@ -108,8 +108,8 @@ YYYY-MM-DD-title-with-hyphens.md
 
 **Examples:**
 
-* `2023-05-19-pull-requests-are-a-form-of-documentation.md`
-* `2020-01-17-ten-lessons-learned-fostering-a-community-of-communities-on-github.md`
+- `2023-05-19-pull-requests-are-a-form-of-documentation.md`
+- `2020-01-17-ten-lessons-learned-fostering-a-community-of-communities-on-github.md`
 
 **Content Collection Schema** (`src/content/config.ts`):
 
@@ -141,13 +141,13 @@ export const collections = {
 
 **Files:**
 
-* `about.md`
-* `resume.md`
-* `contact.md`
-* `talks.md`
-* `press.md`
-* `fine-print.md`
-* `other-recommended-reading.md`
+- `about.md`
+- `resume.md`
+- `contact.md`
+- `talks.md`
+- `press.md`
+- `fine-print.md`
+- `other-recommended-reading.md`
 
 **Content Collection Schema:**
 
@@ -823,16 +823,19 @@ export default defineConfig({
 ### 2. Build Steps
 
 1. **Pre-build:** Generate related posts data
+
    ```bash
    npm run build:related-posts
    ```
 
 2. **Build:** Generate static site
+
    ```bash
    npm run build
    ```
 
 3. **Post-build:** Generate redirects
+
    ```bash
    npm run build:redirects
    ```
@@ -910,87 +913,87 @@ jobs:
 
 ### Phase 1: Setup (Week 1)
 
-* [ ] Install Astro and dependencies
-* [ ] Configure `astro.config.mjs`
-* [ ] Set up directory structure
-* [ ] Configure content collections
-* [ ] Set up TypeScript
-* [ ] Configure linting and formatting
+- [ ] Install Astro and dependencies
+- [ ] Configure `astro.config.mjs`
+- [ ] Set up directory structure
+- [ ] Configure content collections
+- [ ] Set up TypeScript
+- [ ] Configure linting and formatting
 
 ### Phase 2: Content Migration (Week 1–2)
 
-* [ ] Move blog posts to `src/content/posts/`
-* [ ] Move static pages to `src/content/pages/`
-* [ ] Move resume positions to `src/content/resume-positions/`
-* [ ] Copy data files to `src/data/`
-* [ ] Verify all frontmatter fields
-* [ ] Test content collection schemas
+- [ ] Move blog posts to `src/content/posts/`
+- [ ] Move static pages to `src/content/pages/`
+- [ ] Move resume positions to `src/content/resume-positions/`
+- [ ] Copy data files to `src/data/`
+- [ ] Verify all frontmatter fields
+- [ ] Test content collection schemas
 
 ### Phase 3: Layouts and Components (Week 2–3)
 
-* [ ] Create base layout
-* [ ] Create post layout
-* [ ] Create page layout
-* [ ] Build header component
-* [ ] Build footer component
-* [ ] Build navigation component
-* [ ] Build post card component
-* [ ] Build related posts component
-* [ ] Style components with Bootstrap/SCSS
+- [ ] Create base layout
+- [ ] Create post layout
+- [ ] Create page layout
+- [ ] Build header component
+- [ ] Build footer component
+- [ ] Build navigation component
+- [ ] Build post card component
+- [ ] Build related posts component
+- [ ] Style components with Bootstrap/SCSS
 
 ### Phase 4: Routing (Week 3)
 
-* [ ] Implement `[year]/[month]/[day]/[slug].astro`
-* [ ] Implement `[...slug].astro` for pages
-* [ ] Implement `index.astro` homepage
-* [ ] Test all URL patterns
-* [ ] Verify trailing slashes
+- [ ] Implement `[year]/[month]/[day]/[slug].astro`
+- [ ] Implement `[...slug].astro` for pages
+- [ ] Implement `index.astro` homepage
+- [ ] Test all URL patterns
+- [ ] Verify trailing slashes
 
 ### Phase 5: Features (Week 3–4)
 
-* [ ] Implement RSS feed generation
-* [ ] Implement press feed generation
-* [ ] Configure sitemap integration
-* [ ] Build redirect generation script
-* [ ] Build related posts generation script
-* [ ] Implement SEO meta tags
-* [ ] Add emoji support
-* [ ] Add GitHub mentions support
-* [ ] Add GitHub avatar component
-* [ ] Test all features
+- [ ] Implement RSS feed generation
+- [ ] Implement press feed generation
+- [ ] Configure sitemap integration
+- [ ] Build redirect generation script
+- [ ] Build related posts generation script
+- [ ] Implement SEO meta tags
+- [ ] Add emoji support
+- [ ] Add GitHub mentions support
+- [ ] Add GitHub avatar component
+- [ ] Test all features
 
 ### Phase 6: Testing (Week 4–5)
 
-* [ ] Test all blog post URLs (184 posts)
-* [ ] Test all static page URLs (10 pages)
-* [ ] Test all redirects (18 mappings)
-* [ ] Validate RSS feeds
-* [ ] Validate sitemap
-* [ ] Test SEO meta tags
-* [ ] Test Open Graph images
-* [ ] Test related posts
-* [ ] Performance testing
-* [ ] Accessibility testing
-* [ ] Cross-browser testing
+- [ ] Test all blog post URLs (184 posts)
+- [ ] Test all static page URLs (10 pages)
+- [ ] Test all redirects (18 mappings)
+- [ ] Validate RSS feeds
+- [ ] Validate sitemap
+- [ ] Test SEO meta tags
+- [ ] Test Open Graph images
+- [ ] Test related posts
+- [ ] Performance testing
+- [ ] Accessibility testing
+- [ ] Cross-browser testing
 
 ### Phase 7: Deployment (Week 5–6)
 
-* [ ] Set up GitHub Actions workflow
-* [ ] Configure GitHub Pages
-* [ ] Test deployment pipeline
-* [ ] DNS configuration
-* [ ] SSL/TLS verification
-* [ ] Post-deployment testing
-* [ ] Monitor for broken links
-* [ ] Monitor search rankings
+- [ ] Set up GitHub Actions workflow
+- [ ] Configure GitHub Pages
+- [ ] Test deployment pipeline
+- [ ] DNS configuration
+- [ ] SSL/TLS verification
+- [ ] Post-deployment testing
+- [ ] Monitor for broken links
+- [ ] Monitor search rankings
 
 ### Phase 8: Post-Launch (Week 6+)
 
-* [ ] Monitor analytics
-* [ ] Fix any issues
-* [ ] Gather feedback
-* [ ] Document learnings
-* [ ] Plan future improvements
+- [ ] Monitor analytics
+- [ ] Fix any issues
+- [ ] Gather feedback
+- [ ] Document learnings
+- [ ] Plan future improvements
 
 ---
 
@@ -1042,8 +1045,8 @@ jobs:
 
 **Example:**
 
-* From: `/cv/` → To: `/resume/`
-* From: `/2014/09/29/your-code-deserves-better/` → To: `/2014/09/29/source-disclosed-is-not-the-same-as-open-source/`
+- From: `/cv/` → To: `/resume/`
+- From: `/2014/09/29/your-code-deserves-better/` → To: `/2014/09/29/source-disclosed-is-not-the-same-as-open-source/`
 
 ---
 
@@ -1067,31 +1070,31 @@ jobs:
 ## Benefits of Astro Migration
 
 1. **Performance**
-   * Faster build times
-   * Zero JavaScript by default
-   * Better Core Web Vitals
+   - Faster build times
+   - Zero JavaScript by default
+   - Better Core Web Vitals
 
 2. **Developer Experience**
-   * Modern JavaScript tooling
-   * TypeScript support
-   * Fast HMR
-   * Better error messages
+   - Modern JavaScript tooling
+   - TypeScript support
+   - Fast HMR
+   - Better error messages
 
 3. **Content Safety**
-   * Type-safe content collections
-   * Schema validation
-   * Compile-time errors
+   - Type-safe content collections
+   - Schema validation
+   - Compile-time errors
 
 4. **Flexibility**
-   * Bring your own UI framework
-   * More control over build process
-   * Better integration ecosystem
+   - Bring your own UI framework
+   - More control over build process
+   - Better integration ecosystem
 
 5. **Maintenance**
-   * Active development
-   * Large community
-   * Regular updates
-   * Better documentation
+   - Active development
+   - Large community
+   - Regular updates
+   - Better documentation
 
 ---
 
@@ -1102,37 +1105,37 @@ jobs:
 **Impact:** SEO damage, broken external links\
 **Mitigation:**
 
-* Comprehensive redirect mapping
-* URL verification tests
-* Pre-launch URL audit
+- Comprehensive redirect mapping
+- URL verification tests
+- Pre-launch URL audit
 
 ### Risk 2: Feature Loss
 
 **Impact:** Missing functionality from Jekyll plugins\
 **Mitigation:**
 
-* Feature parity checklist
-* Custom implementations where needed
-* Thorough testing
+- Feature parity checklist
+- Custom implementations where needed
+- Thorough testing
 
 ### Risk 3: Build Complexity
 
 **Impact:** More complex build pipeline\
 **Mitigation:**
 
-* Clear documentation
-* Automated scripts
-* CI/CD integration
+- Clear documentation
+- Automated scripts
+- CI/CD integration
 
 ### Risk 4: Migration Errors
 
 **Impact:** Content corruption, data loss\
 **Mitigation:**
 
-* Version control
-* Automated testing
-* Gradual migration
-* Backup strategy
+- Version control
+- Automated testing
+- Gradual migration
+- Backup strategy
 
 ---
 
@@ -1170,11 +1173,11 @@ jobs:
 
 This architecture design provides a complete roadmap for migrating ben.balter.com from Jekyll to Astro while maintaining:
 
-* **100% URL compatibility** - All existing URLs preserved
-* **Feature parity** - All current features replicated
-* **SEO preservation** - No loss of search rankings
-* **Performance improvement** - Faster builds and page loads
-* **Better DX** - Modern tooling and type safety
+- **100% URL compatibility** - All existing URLs preserved
+- **Feature parity** - All current features replicated
+- **SEO preservation** - No loss of search rankings
+- **Performance improvement** - Faster builds and page loads
+- **Better DX** - Modern tooling and type safety
 
 **Estimated Timeline:** 6 weeks for complete migration with testing
 

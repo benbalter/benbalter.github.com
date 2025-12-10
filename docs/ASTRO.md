@@ -53,12 +53,14 @@ npm run astro:preview
 ### Output Directory
 
 The Astro build outputs to `dist-astro/` to avoid conflicts with:
+
 - Jekyll: `_site/`
 - Next.js: `out/`
 
 ### Development Server
 
 Astro runs on port 4321 to avoid conflicts with:
+
 - Jekyll: port 4000
 - Next.js: port 3000
 
@@ -102,18 +104,21 @@ The configuration is optimized for GitHub Pages deployment:
 The site uses [Turbo Drive](https://turbo.hotwired.dev/handbook/drive) from @hotwired/turbo to accelerate page navigation:
 
 **How it works:**
+
 - Turbo Drive automatically intercepts link clicks and form submissions
 - Instead of full page reloads, it uses `fetch()` to get new pages
 - Only the `<body>` content is replaced, keeping `<head>` elements cached
 - Browser history, scroll position, and page titles are managed automatically
 
 **Benefits:**
+
 - Faster perceived page loads (no white flash between pages)
 - Reduced server load (fewer assets re-downloaded)
 - App-like navigation experience
 - Works seamlessly with static site generation
 
 **Implementation:**
+
 ```typescript
 // src/scripts/turbo.ts
 import '@hotwired/turbo';
@@ -122,12 +127,14 @@ import '@hotwired/turbo';
 The script is loaded in `BaseLayout.astro` and automatically initializes on page load.
 
 **Disabling Turbo for specific links:**
+
 ```html
 <a href="/page/" data-turbo="false">Normal navigation</a>
 ```
 
 **Testing:**
 E2E tests for Turbo Drive are in `e2e/turbo-drive.spec.ts` covering:
+
 - Link interception and navigation
 - Browser history management
 - Scroll position preservation
@@ -173,6 +180,7 @@ Astro can potentially leverage existing content from the repository:
 ### Option 1: Separate Deployment
 
 Deploy Astro build (`dist-astro/`) to a different subdomain or path:
+
 - Main site: `ben.balter.com` (Jekyll/Next.js)
 - Astro: `astro.ben.balter.com` or `ben.balter.com/astro/`
 
@@ -183,6 +191,7 @@ Use GitHub Pages or Netlify deploy previews to compare implementations.
 ### Option 3: Full Migration
 
 Once development is complete, replace Jekyll/Next.js with Astro:
+
 1. Update GitHub Pages deployment to use `dist-astro/`
 2. Archive Jekyll and Next.js implementations
 3. Update documentation
