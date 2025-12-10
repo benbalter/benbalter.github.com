@@ -3,6 +3,7 @@
  * TL;DR Component
  * 
  * Displays a "Too Long; Didn't Read" summary with tooltip explanation.
+ * Uses Bootstrap .lead class for prominent display.
  * Matches the Jekyll tldr.html include functionality with markdown support.
  */
 
@@ -226,18 +227,14 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
 </script>
 
 <style>
-  .lead {
-    font-size: 1.25rem;
-    font-weight: 300;
-  }
-
+  /* Custom styles for initialism (Bootstrap doesn't include this) */
   .initialism {
     text-decoration: none;
     cursor: help;
     border-bottom: 1px dotted currentColor;
   }
 
-  /* Custom tooltip styles */
+  /* Custom tooltip styles (Bootstrap's tooltip requires JavaScript initialization) */
   :global(.custom-tooltip) {
     position: fixed;
     background-color: var(--bs-dark, #212529);
