@@ -46,20 +46,6 @@ import { footerLinks, contactLinks } from '../config';
       </div>
     </ul>
   </nav>
-  
-  <div class="text-center py-3">
-    {contactLinks.map((link) => (
-      <a 
-        href={link.url} 
-        aria-label={link.name}
-        class="social-link d-inline-block mx-2 fs-4"
-        target="_blank"
-        rel="noopener noreferrer me"
-      >
-        <i class={link.icon} title={link.name}></i>
-      </a>
-    ))}
-  </div>
 </footer>
 
 <style lang="scss">
@@ -70,19 +56,6 @@ import { footerLinks, contactLinks } from '../config';
   @import 'bootstrap/scss/maps';
   @import 'bootstrap/scss/mixins';
   @import 'bootstrap/scss/nav';
-  
-  /* Custom styles for social links (extends Bootstrap utilities) */
-  .social-link {
-    color: var(--bs-link-color);
-    text-decoration: none;
-    transition: color 0.15s ease-in-out, transform 0.15s ease-in-out;
-  }
-
-  .social-link:hover,
-  .social-link:focus {
-    color: var(--bs-link-hover-color);
-    transform: translateY(-2px);
-  }
 
   /* Responsive layout adjustments */
   @media (max-width: 768px) {
