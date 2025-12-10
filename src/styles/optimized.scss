@@ -338,7 +338,6 @@ p {
     widows: 3;
     // Add subtle hyphenation for long words on narrow screens
     hyphens: auto;
-    hyphenate-limit-chars: 12 6 3; // Only hyphenate words 12+ chars, leave 6 before, 3 after
 }
 
 // Note: Line length is controlled by layout containers (e.g., col-md-10 offset-md-1)
