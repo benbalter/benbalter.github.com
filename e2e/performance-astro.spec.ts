@@ -145,7 +145,7 @@ test.describe('Page Load Performance', () => {
   });
   
   test('Time to First Byte (TTFB) should be fast', async ({ page }) => {
-    const response = await page.goto('/');
+    await page.goto('/');
     
     const ttfb = await page.evaluate(() => {
       const perfData = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
