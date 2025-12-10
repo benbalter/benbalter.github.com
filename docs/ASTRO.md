@@ -53,12 +53,14 @@ npm run astro:preview
 ### Output Directory
 
 The Astro build outputs to `dist-astro/` to avoid conflicts with:
+
 - Jekyll: `_site/`
 - Next.js: `out/`
 
 ### Development Server
 
 Astro runs on port 4321 to avoid conflicts with:
+
 - Jekyll: port 4000
 - Next.js: port 3000
 
@@ -179,6 +181,7 @@ Astro can potentially leverage existing content from the repository:
 ### Option 1: Separate Deployment
 
 Deploy Astro build (`dist-astro/`) to a different subdomain or path:
+
 - Main site: `ben.balter.com` (Jekyll/Next.js)
 - Astro: `astro.ben.balter.com` or `ben.balter.com/astro/`
 
@@ -189,6 +192,7 @@ Use GitHub Pages or Netlify deploy previews to compare implementations.
 ### Option 3: Full Migration
 
 Once development is complete, replace Jekyll/Next.js with Astro:
+
 1. Update GitHub Pages deployment to use `dist-astro/`
 2. Archive Jekyll and Next.js implementations
 3. Update documentation

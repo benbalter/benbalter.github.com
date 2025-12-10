@@ -30,6 +30,7 @@ The original Jekyll site used 10 plugins defined in `_config.yml`:
 ### ✅ 1. jemoji - Emoji Support
 
 **Jekyll Implementation:**
+
 ```yaml
 # _config.yml
 plugins:
@@ -37,6 +38,7 @@ plugins:
 ```
 
 **Astro Implementation:**
+
 ```javascript
 // astro.config.mjs
 import remarkEmoji from 'remark-emoji';
@@ -60,6 +62,7 @@ export default defineConfig({
 ### ✅ 2. jekyll-redirect-from - URL Redirects
 
 **Jekyll Implementation:**
+
 ```yaml
 # Post frontmatter
 redirect_from:
@@ -69,11 +72,13 @@ redirect_to: https://external-site.com/
 ```
 
 **Astro Implementation:**
+
 - **File:** `src/scripts/generate-redirects.ts`
 - **Integration:** `src/lib/redirect-integration.ts`
 - **Documentation:** `ASTRO_REDIRECTS.md`
 
 **Features:**
+
 - Generates HTML redirect pages with multiple redirect mechanisms
 - Supports single string or array for `redirect_from`
 - Supports external URL redirects with `redirect_to`
@@ -86,6 +91,7 @@ redirect_to: https://external-site.com/
 ### ✅ 3. jekyll-sitemap - XML Sitemap
 
 **Jekyll Implementation:**
+
 ```yaml
 # _config.yml
 plugins:
@@ -93,6 +99,7 @@ plugins:
 ```
 
 **Astro Implementation:**
+
 ```javascript
 // astro.config.mjs
 import sitemap from '@astrojs/sitemap';
@@ -112,6 +119,7 @@ export default defineConfig({
 ```
 
 **Features:**
+
 - Excludes pages with `sitemap: false` in frontmatter
 - Custom priority and changefreq based on URL patterns
 - Homepage: priority 1.0, changefreq weekly
@@ -125,6 +133,7 @@ export default defineConfig({
 ### ✅ 4. jekyll-feed - RSS/Atom Feed
 
 **Jekyll Implementation:**
+
 ```yaml
 # _config.yml
 plugins:
@@ -132,6 +141,7 @@ plugins:
 ```
 
 **Astro Implementation:**
+
 - **File:** `src/pages/feed.xml.ts`
 - **Package:** `@astrojs/rss`
 
@@ -165,15 +175,18 @@ export async function GET(context: APIContext) {
 ### ✅ 5. jekyll-seo-tag - SEO Meta Tags
 
 **Jekyll Implementation:**
+
 ```liquid
 <!-- _layouts/default.html -->
 {% seo %}
 ```
 
 **Astro Implementation:**
+
 - **File:** `src/layouts/BaseLayout.astro`
 
 **Meta Tags Generated:**
+
 - Basic: title, description, author, keywords
 - Canonical URL
 - Open Graph: title, description, image, type, url, site_name, locale
@@ -181,6 +194,7 @@ export async function GET(context: APIContext) {
 - Article metadata: published_time, modified_time, author
 
 **Features:**
+
 - Automatic title formatting: `{title} | {siteName}`
 - Default OG image if none provided
 - Support for article publish/modified times
@@ -193,6 +207,7 @@ export async function GET(context: APIContext) {
 ### ✅ 6. jekyll-github-metadata - GitHub Repository Metadata
 
 **Jekyll Implementation:**
+
 ```liquid
 <!-- humans.txt -->
 {% for contributor in site.github.contributors %}
@@ -202,6 +217,7 @@ export async function GET(context: APIContext) {
 ```
 
 **Astro Implementation:**
+
 - **File:** `src/pages/humans.txt.ts`
 
 ```typescript
@@ -212,6 +228,7 @@ const contributors = await response.json();
 ```
 
 **Features:**
+
 - Fetches contributors from GitHub API at build time
 - Graceful fallback if API fails
 - Lists all contributors with their profile URLs
@@ -223,6 +240,7 @@ const contributors = await response.json();
 ### ✅ 7. jekyll-mentions - GitHub @mentions Support
 
 **Jekyll Implementation:**
+
 ```yaml
 # _config.yml
 plugins:
@@ -230,6 +248,7 @@ plugins:
 ```
 
 **Astro Implementation:**
+
 - **File:** `src/lib/remark-github-mentions.ts`
 - **Package:** `remark-mentions`
 
@@ -244,6 +263,7 @@ export function remarkGitHubMentions() {
 ```
 
 **Configuration:**
+
 ```javascript
 // astro.config.mjs
 import { remarkGitHubMentions } from './src/lib/remark-github-mentions.ts';
@@ -261,11 +281,13 @@ export default defineConfig({
 ```
 
 **Features:**
+
 - Converts `@username` to `<a href="https://github.com/username">@username</a>`
 - Works in both Markdown and MDX files
 - 11+ posts with @mentions now have working links
 
 **Examples:**
+
 - `@benbalter` → [https://github.com/benbalter](https://github.com/benbalter)
 - `@defunkt` → [https://github.com/defunkt](https://github.com/defunkt)
 
@@ -276,6 +298,7 @@ export default defineConfig({
 ### ❌ 8. jekyll-avatar - GitHub Avatar Images
 
 **Jekyll Implementation:**
+
 ```liquid
 {% avatar username %}
 ```
@@ -283,6 +306,7 @@ export default defineConfig({
 **Status:** Not implemented (not actively used)
 
 **Reason:** No usage found in templates or posts. The site uses GitHub avatars via direct URL:
+
 ```html
 <img src="https://avatars.githubusercontent.com/benbalter?s=100" alt="Ben Balter">
 ```
@@ -294,6 +318,7 @@ export default defineConfig({
 ### ❌ 9. jekyll-og-image - Open Graph Image Generation
 
 **Jekyll Implementation:**
+
 ```yaml
 # _config.yml
 plugins:
@@ -312,6 +337,7 @@ og_image:
 **Reason:** 184 pre-generated OG images exist in `assets/images/og/`. These were created by Jekyll during previous builds and don't need regeneration.
 
 **Current Solution:**
+
 - Post frontmatter includes `image` field pointing to existing OG images
 - `BaseLayout.astro` uses these images in Open Graph meta tags
 - Default fallback to `/assets/img/headshot.jpg` if no image specified
@@ -323,6 +349,7 @@ og_image:
 ### ❌ 10. jekyll-include-cache - Cached Includes
 
 **Jekyll Implementation:**
+
 ```liquid
 {% include_cached component.html %}
 ```
@@ -332,6 +359,7 @@ og_image:
 **Reason:** Astro components are built once at compile time and are inherently "cached". The plugin was used in Jekyll for performance optimization during development, but Astro's build process doesn't require this.
 
 **Astro Equivalent:**
+
 ```astro
 ---
 // src/components/Component.astro
@@ -362,6 +390,7 @@ export function calculateReadingTime(content: string): number {
 ```
 
 **Features:**
+
 - Uses `reading-time` npm package
 - 200 words per minute default
 - Minimum 1 minute display
@@ -378,6 +407,7 @@ export function calculateReadingTime(content: string): number {
 **Algorithm:** TF-IDF (Term Frequency-Inverse Document Frequency) with cosine similarity
 
 **Features:**
+
 - Analyzes post titles and descriptions
 - Removes stop words (common English words)
 - Calculates semantic similarity
@@ -391,16 +421,19 @@ export function calculateReadingTime(content: string): number {
 ### Dynamic Metadata Files
 
 **robots.txt** (`src/pages/robots.txt.ts`):
+
 - Generated at build time
 - Configurable disallow list
 - Automatic sitemap reference
 
 **security.txt** (`src/pages/.well-known/security.txt.ts`):
+
 - RFC 9116 compliant security policy
 - Dynamic expiration date calculation
 - Repository and email contact info
 
 **humans.txt** (`src/pages/humans.txt.ts`):
+
 - Dynamic contributor list from GitHub API
 - Current technology stack
 - Last updated date
@@ -429,6 +462,7 @@ export function calculateReadingTime(content: string): number {
 ## Testing and Validation
 
 ### Build Tests
+
 ```bash
 npm run astro:build  # Successful - 194 pages generated
 npm run astro:check  # Type checking passed
@@ -437,34 +471,41 @@ npm run astro:check  # Type checking passed
 ### Functional Tests
 
 **Emoji Support:**
+
 - ✅ `:smile:` renders as 😄
 - ✅ Works in both .md and .mdx files
 
 **Redirects:**
+
 - ✅ 27 redirect pages generated
 - ✅ Old URLs redirect to new URLs
 - ✅ External redirects work correctly
 
 **Sitemap:**
+
 - ✅ `sitemap-index.xml` generated
 - ✅ All pages included except excluded list
 - ✅ Priority and changefreq customized
 
 **RSS Feed:**
+
 - ✅ `/feed.xml` generated
 - ✅ All published posts included
 - ✅ Correct URLs and dates
 
 **SEO Tags:**
+
 - ✅ Title tags correct format
 - ✅ Open Graph tags present
 - ✅ Twitter Card metadata included
 
 **GitHub Metadata:**
+
 - ✅ Contributors fetched from API
 - ✅ 30+ contributors listed in humans.txt
 
 **@mentions:**
+
 - ✅ `@benbalter` → `<a href="https://github.com/benbalter">@benbalter</a>`
 - ✅ Verified in 11+ posts
 - ✅ Links working correctly
@@ -472,11 +513,13 @@ npm run astro:check  # Type checking passed
 ### E2E Tests
 
 Run with:
+
 ```bash
 npm run test:e2e:astro
 ```
 
 Tests cover:
+
 - Page rendering
 - Redirect functionality
 - Navigation
@@ -488,16 +531,19 @@ Tests cover:
 ## Performance Comparison
 
 ### Jekyll Build Time
+
 - Full build: ~8-12 seconds
 - With plugin processing: ~10-15 seconds
 
 ### Astro Build Time
+
 - Full build: ~7-8 seconds
 - 194 pages generated
 - 27 redirects generated
 - Faster than Jekyll
 
 ### Bundle Size
+
 - Jekyll: ~15 MB (with vendor assets)
 - Astro: ~12 MB (optimized assets)
 - 20% smaller
@@ -507,6 +553,7 @@ Tests cover:
 ## Developer Experience
 
 ### Jekyll Workflow
+
 ```bash
 bundle install              # Install Ruby gems
 bundle exec jekyll serve    # Start dev server
@@ -514,6 +561,7 @@ bundle exec jekyll build    # Build site
 ```
 
 ### Astro Workflow
+
 ```bash
 npm install                 # Install Node packages
 npm run astro:dev           # Start dev server
@@ -522,6 +570,7 @@ npm run astro:check         # Type checking
 ```
 
 **Benefits:**
+
 - ✅ TypeScript support with type checking
 - ✅ Faster builds
 - ✅ Modern tooling (Vite, ESM)
@@ -533,21 +582,25 @@ npm run astro:check         # Type checking
 ## Maintenance Notes
 
 ### Adding New Redirects
+
 1. Add `redirect_from` or `redirect_to` to post/page frontmatter
 2. Run `npm run astro:build`
 3. Redirect pages generated automatically
 
 ### Updating Contributors
+
 - Contributors update automatically on each build
 - Fetched from GitHub API
 - Graceful fallback if API fails
 
 ### Modifying SEO Tags
+
 - Edit `src/layouts/BaseLayout.astro`
 - All pages inherit changes
 - Type-safe with TypeScript
 
 ### Adding New Plugins
+
 1. Install package: `npm install remark-plugin-name`
 2. Import in `astro.config.mjs`
 3. Add to `remarkPlugins` array

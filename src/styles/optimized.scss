@@ -25,7 +25,7 @@ $content-padding-x: 15px;
 // 5. Include mixins
 @import 'bootstrap/scss/mixins';
 
-// 6. Layout & components - Only import what we actually use
+// 6. Layout & components - Only import globally-needed components
 @import 'bootstrap/scss/root';
 @import 'bootstrap/scss/reboot';
 @import 'bootstrap/scss/type';
@@ -33,24 +33,16 @@ $content-padding-x: 15px;
 @import 'bootstrap/scss/containers';
 @import 'bootstrap/scss/grid';
 
-// Navigation components (needed for navbar)
-@import 'bootstrap/scss/nav';
-@import 'bootstrap/scss/navbar';
+// Tables are used in markdown content throughout the site
+@import 'bootstrap/scss/tables';
 
-// Button (needed for navbar toggle on mobile)
-@import 'bootstrap/scss/buttons';
+// Transitions for smooth interactions (used globally)
+@import 'bootstrap/scss/transitions';
 
-// Skip unused components to reduce bundle size:
-// - forms (no forms on static blog)
-// - accordion, breadcrumb, button-group, card, carousel, 
-//   close, dropdown, list-group, modal, offcanvas, pagination, 
-//   placeholders, popover, progress, spinners, toasts, tooltip
-
-// Include only what we need:
-@import 'bootstrap/scss/alert';       // For alert components (used in FossAtScale, GitHubCulture, ArchivedPostWarning)
-@import 'bootstrap/scss/badge';       // For badge component (used in PostLayout for tags)
-@import 'bootstrap/scss/tables';      // For markdown tables
-@import 'bootstrap/scss/transitions'; // For smooth interactions
+// Component-specific imports moved to individual Astro components:
+// - alert: Moved to ArchivedPostWarning.astro, FossAtScale.astro, GitHubCulture.astro
+// - badge: Moved to PostLayout.astro
+// - nav/navbar/buttons: Moved to Navigation.astro and Footer.astro
 
 // 7. Helpers
 @import 'bootstrap/scss/helpers';

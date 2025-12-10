@@ -14,12 +14,12 @@ Panelists Steven Bucci, William Kirkendale, Brian Moran, Mark Rosenfeld, and Mar
 
 ## Round Table Participants
 
-* Hamid Ouyachi, Chief Technology Officer, U.S. Department of Labor
-* Steven Bucci, Cyber Security Lead, Global Leadership Initiative, at IBM & former Deputy Assistant Secretary of Defense for Homeland Defense & Defense Support of Civil Authorities
-* William Kirkendale, Chief Information Officer, Court Services and Offender Supervision Agency
-* Mark Bryan Rosenfeld, Associate Partner, Public Sector CRM Call Center Optimization, IBM Global Business Services
-* Mariano Tan, President, TeleTech Government Solutions
+- Hamid Ouyachi, Chief Technology Officer, U.S. Department of Labor
+- Steven Bucci, Cyber Security Lead, Global Leadership Initiative, at IBM & former Deputy Assistant Secretary of Defense for Homeland Defense & Defense Support of Civil Authorities
+- William Kirkendale, Chief Information Officer, Court Services and Offender Supervision Agency
+- Mark Bryan Rosenfeld, Associate Partner, Public Sector CRM Call Center Optimization, IBM Global Business Services
+- Mariano Tan, President, TeleTech Government Solutions
 
 ## Moderator
 
-* Brian Moran, President, GW Tech Alumni Group; CEO, Nester Consulting; & former Director of IT Services, U.S. International Trade Commission
+- Brian Moran, President, GW Tech Alumni Group; CEO, Nester Consulting; & former Director of IT Services, U.S. International Trade Commission

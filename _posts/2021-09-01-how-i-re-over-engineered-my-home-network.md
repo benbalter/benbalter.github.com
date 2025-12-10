@@ -7,9 +7,9 @@ A little less than a year ago, I wrote a now-popular post about [how I overengin
 
 What I wrote then remains true, but after having relied on, optimized, and upgraded what I described in my previous post for about eighteen months now, I've decided to build on what's there by ~~revisiting~~ re-over-engineering how I setup, maintain, and manage the software and services that power and protected the network with a number of specific goals in mind:
 
-* **Config (and infrastructure) as code** - This is by far from a new concept to the industry, but I was somewhat-recently introduced to the idea of [treating servers like cattle, not pets](http://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/). While config as code may come more naturally when managing a cluster of servers, even when managing only a single Raspberry Pi, prefer defined and well-understood changes over guess-and-check server administration.
-* **Outsource to the experts** - The less I can trust to me "getting it right", the better. "Copy and paste these random commands from StockOverflow" isn't the best way to run a security-conscious home network. Instead, rely on the open source community's established, vetted, and maintained builds, configurations, and defaults through known and trusted distribution channels.
-* **It (still) needs to “just work”** - A dependency update shouldn't be able to steal hours of my weekend due to an unexpected conflict or config change. I wanted to get out of the bespoke sysadmin business, provisioning and then immediately walking away from "set it and forget it" systems wherever possible. Ideally, systems would update themselves regularly, and upgrades would be predictable and boring.
+- **Config (and infrastructure) as code** - This is by far from a new concept to the industry, but I was somewhat-recently introduced to the idea of [treating servers like cattle, not pets](http://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/). While config as code may come more naturally when managing a cluster of servers, even when managing only a single Raspberry Pi, prefer defined and well-understood changes over guess-and-check server administration.
+- **Outsource to the experts** - The less I can trust to me "getting it right", the better. "Copy and paste these random commands from StockOverflow" isn't the best way to run a security-conscious home network. Instead, rely on the open source community's established, vetted, and maintained builds, configurations, and defaults through known and trusted distribution channels.
+- **It (still) needs to “just work”** - A dependency update shouldn't be able to steal hours of my weekend due to an unexpected conflict or config change. I wanted to get out of the bespoke sysadmin business, provisioning and then immediately walking away from "set it and forget it" systems wherever possible. Ideally, systems would update themselves regularly, and upgrades would be predictable and boring.
 
 To head down [this route](https://github.com/benbalter/pi-hole-cloudflared-docker-compose-ansible-caddy), beyond having read [the original post](https://ben.balter.com/2020/12/04/over-engineered-home-network-for-privacy-and-security/) along with some basic familiarity with home networking (understanding how things like DNS and IPs work), it would help to have some conceptual familiarity with containerization and provisioning tools to adapt the setup to your own needs. With that, here's how I re-over-engineered my home network with a few improvements to how I setup, maintain, and manage things:
 
@@ -21,10 +21,10 @@ To head down [this route](https://github.com/benbalter/pi-hole-cloudflared-docke
 
 **Edit (2021–11–04):** Since originally publishing this post, I've swapped out Pi-Hole + Cloudflared in favor of [AdGuard Home](https://github.com/AdguardTeam/AdGuardHome), and haven't looked back. While the functionality is largely comperable at this point, and ultimately you could be happy with either, I ended up preferring AdGuard Home for a number of reasons:
 
-* **A more modern stack** - PHP + dnsmasq vs. Go and React
-* **Admin experience** - a sleeker web interface with fewer knobs and dials to endlessly tinker with.
-* **One less point of failure** - Native DoH support meant I could eliminate cloudflared, while still using Cloudflare Teams as my upstream resolver.
-* **Config as code** - Settings are contained in a single YAML file that I could version and more easily deploy with Ansible.
+- **A more modern stack** - PHP + dnsmasq vs. Go and React
+- **Admin experience** - a sleeker web interface with fewer knobs and dials to endlessly tinker with.
+- **One less point of failure** - Native DoH support meant I could eliminate cloudflared, while still using Cloudflare Teams as my upstream resolver.
+- **Config as code** - Settings are contained in a single YAML file that I could version and more easily deploy with Ansible.
 
 Pi-Hole has been around for longer and has a more established community, so again, you could be happy with either, but I've updated this post to reflect that since originally written, I now personally prefer and generally recommend AdGuard Home. With that, let's get on to the setup (which continues to work for both):
 
@@ -36,9 +36,9 @@ For those unfamiliar, [Docker](https://www.docker.com) uses OS-level virtualizat
 
 At first, the added complexity might feel counter intuitive for what seems like a straightforward service management problem, but there are a number of notable advantages to using Docker here:
 
-* **Install without drama** - The standard install process for most projects is to follow the documentation until the instructions inevitably fail and then to paste random commands from the internet in to console until it inexplicably works. With Docker, I'm essentially outsourcing dependency and configuration management (through standardized build processes and pre-compiled images) to the projects' maintainers who know infinitely more about the ecosystem than I ever will.[^1]
-* **Isolation** - Docker isolates process from one another through defined compute, memory, and networking interfaces, which adds an additional layer of security and predictability. A vulnerability, bug, or misconfiguration in one service is less likely to affect another service if applications can only interact with one another through well-defined and well-understood paths. Think microservices vs. monolith.
-* **Trusted underlying system** - Docker allows me to make the bare minimum changes to the base image. This is especially valuable when it comes to experimentation (for example, test whether I should use `unbound` instead of `cloudflared`?), being able to quickly and easily clean up short-lived containers without worrying if I unintentionally modified something of consequence or left behind unnecessary cruft.
+- **Install without drama** - The standard install process for most projects is to follow the documentation until the instructions inevitably fail and then to paste random commands from the internet in to console until it inexplicably works. With Docker, I'm essentially outsourcing dependency and configuration management (through standardized build processes and pre-compiled images) to the projects' maintainers who know infinitely more about the ecosystem than I ever will.[^1]
+- **Isolation** - Docker isolates process from one another through defined compute, memory, and networking interfaces, which adds an additional layer of security and predictability. A vulnerability, bug, or misconfiguration in one service is less likely to affect another service if applications can only interact with one another through well-defined and well-understood paths. Think microservices vs. monolith.
+- **Trusted underlying system** - Docker allows me to make the bare minimum changes to the base image. This is especially valuable when it comes to experimentation (for example, test whether I should use `unbound` instead of `cloudflared`?), being able to quickly and easily clean up short-lived containers without worrying if I unintentionally modified something of consequence or left behind unnecessary cruft.
 
 ### AdGuard Home `docker-compose.yml` file
 
@@ -164,9 +164,9 @@ I had originally maintained a manual copy-and-paste checklist that got me from b
 
 Ansible is a provisioning, configuration management, and application-deployment tool that allows you to further run your infrastructure as code. There's a lot of infrastructure as code tools out there, and you could probably be happy with any of them. While I'd never used Ansible before, I went with it for a few reasons:
 
-* **Setup** - Ansible is unique in that it doesn't require a dedicated management server or cloud service to provision servers. Instead, it runs as a Python app on your desktop. You define a YML file, it SSHes in to your Raspberry Pi directly and implements the directives you specify, as if you were running the underlying commands yourself.
-* **Documentation** - I was immediately impressed by Ansible's documentation. Everything was consistent, thorough, and easy to understand. It even had helpful tips like "avoid unnecessary complexity" (and the design patterns to support them), which I appreciated, given that I was only using it to manage one server.
-* **Community** - I've yet to find a feature that I was hoping would exist that wasn't provided via a (core- or) community-maintained package. Install apt packages? Set a static IP? Generate and authorize a GitHub deploy key? Clone a private repository? Configure the firewall? Start Docker and Docker Compose? Someone already solved all those problems for you.
+- **Setup** - Ansible is unique in that it doesn't require a dedicated management server or cloud service to provision servers. Instead, it runs as a Python app on your desktop. You define a YML file, it SSHes in to your Raspberry Pi directly and implements the directives you specify, as if you were running the underlying commands yourself.
+- **Documentation** - I was immediately impressed by Ansible's documentation. Everything was consistent, thorough, and easy to understand. It even had helpful tips like "avoid unnecessary complexity" (and the design patterns to support them), which I appreciated, given that I was only using it to manage one server.
+- **Community** - I've yet to find a feature that I was hoping would exist that wasn't provided via a (core- or) community-maintained package. Install apt packages? Set a static IP? Generate and authorize a GitHub deploy key? Clone a private repository? Configure the firewall? Start Docker and Docker Compose? Someone already solved all those problems for you.
 
 ### Three-step setup
 
@@ -406,9 +406,9 @@ While admittedly, since my PiHole was only available on my home network, and eve
 
 I had been searching for the best way to expose the PiHole admin (web and API) interfaces over HTTPS, and while the native lighttpd sever can support HTTPS, it required either a self-signed cert., which came with its own challenges, or a lot of setup and maintenance on my part to use a Let's Encrypt or similar cert., which I was looking to avoid. I settled on the previously unknown to me [Caddy project](https://caddyserver.com), for a number of reasons:
 
-* **Certificate provisioning and renewal** - One of the most challenging parts of supporting HTTPS is certificate management. Caddy automatically obtains and renews Lets Encrypt certificates for you. It can even handle DNS ACME challenges via its many DNS provider plugins, to support creating certificates for servers not exposed to the public internet.
-* **Setup** - With a \~5 line "Caddyfile", I was ready to go. Caddy serves as a TLS terminator, proxying HTTP requests to the PiHole web interface via Docker's virtualized network. It handles the HTTPS transit over the home network, completely transparent to the PiHole service.
-* **Standards and defaults** - HTTP/2? HTTP/3? TLS 1.3? Cipher suites? Key rotation? Redirects? Similar to Docker allowing me to offload the build process to maintainers, Caddy's opinionated defaults meant I had a "good" HTTPS connection out of the box, without needing to tweak anything.
+- **Certificate provisioning and renewal** - One of the most challenging parts of supporting HTTPS is certificate management. Caddy automatically obtains and renews Lets Encrypt certificates for you. It can even handle DNS ACME challenges via its many DNS provider plugins, to support creating certificates for servers not exposed to the public internet.
+- **Setup** - With a \~5 line "Caddyfile", I was ready to go. Caddy serves as a TLS terminator, proxying HTTP requests to the PiHole web interface via Docker's virtualized network. It handles the HTTPS transit over the home network, completely transparent to the PiHole service.
+- **Standards and defaults** - HTTP/2? HTTP/3? TLS 1.3? Cipher suites? Key rotation? Redirects? Similar to Docker allowing me to offload the build process to maintainers, Caddy's opinionated defaults meant I had a "good" HTTPS connection out of the box, without needing to tweak anything.
 
 ### Docker Compose service to define Caddy
 

@@ -5,6 +5,7 @@ This document shows real examples of the metadata generated for different page t
 ## Example 1: Static Page (About)
 
 ### URL
+
 `https://ben.balter.com/about/`
 
 ### Generated HTML Meta Tags
@@ -53,6 +54,7 @@ This document shows real examples of the metadata generated for different page t
 ### Social Sharing Preview
 
 **Facebook/LinkedIn:**
+
 ```
 ┌─────────────────────────────────────┐
 │   [Image: Professional headshot]   │
@@ -68,6 +70,7 @@ This document shows real examples of the metadata generated for different page t
 ```
 
 **Twitter:**
+
 ```
 ┌─────────────────────────────────────┐
 │   [Large Image Card]               │
@@ -85,6 +88,7 @@ This document shows real examples of the metadata generated for different page t
 ## Example 2: Blog Post (Article)
 
 ### URL
+
 `https://ben.balter.com/2011/08/31/enterprise-open-source-and-why-better-is-not-enough/`
 
 ### Generated HTML Meta Tags
@@ -136,6 +140,7 @@ This document shows real examples of the metadata generated for different page t
 ### Social Sharing Preview
 
 **Facebook/LinkedIn:**
+
 ```
 ┌─────────────────────────────────────┐
 │   [Image: Professional headshot]   │
@@ -153,6 +158,7 @@ This document shows real examples of the metadata generated for different page t
 ```
 
 **Twitter:**
+
 ```
 ┌─────────────────────────────────────┐
 │   [Large Image Card]               │
@@ -173,6 +179,7 @@ This document shows real examples of the metadata generated for different page t
 ## Example 3: Homepage (Posts List)
 
 ### URL
+
 `https://ben.balter.com/`
 
 ### Generated HTML Meta Tags
@@ -213,6 +220,7 @@ This document shows real examples of the metadata generated for different page t
 ## Testing Your Pages
 
 ### Facebook Sharing Debugger
+
 ```
 URL: https://developers.facebook.com/tools/debug/
 Input: https://ben.balter.com/about/
@@ -226,6 +234,7 @@ Results:
 ```
 
 ### Twitter Card Validator
+
 ```
 URL: https://cards-dev.twitter.com/validator
 Input: https://ben.balter.com/about/
@@ -239,6 +248,7 @@ Results:
 ```
 
 ### LinkedIn Post Inspector
+
 ```
 URL: https://www.linkedin.com/post-inspector/
 Input: https://ben.balter.com/about/
@@ -272,6 +282,7 @@ const image = 'https://example.com/custom-image.jpg';
 ```
 
 **Result:**
+
 - `og:image` and `twitter:image` will use custom image
 - All other metadata generated automatically
 
@@ -288,6 +299,7 @@ Blog post content here...
 ```
 
 **Result:**
+
 - `og:type="article"` automatically set
 - `article:published_time` extracted from filename date
 - Custom image used for social sharing
@@ -306,6 +318,7 @@ Blog post content here...
 ```
 
 **Result:**
+
 - `<meta name="robots" content="noindex, nofollow">` added
 - All other metadata still present for internal tools
 

@@ -41,15 +41,17 @@ import { siteConfig, footerLinks, contactLinks } from '../config';
       </a>
     ))}
   </div>
-  
-  <div class="copyright text-center text-muted py-2">
-    <p class="mb-0">
-      &copy; {new Date().getFullYear()} {siteConfig.name}. Built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>.
-    </p>
-  </div>
 </footer>
 
-<style>
+<style lang="scss">
+  /* Import Bootstrap nav component (scoped to this component) */
+  @import 'bootstrap/scss/functions';
+  @import 'bootstrap/scss/variables';
+  @import 'bootstrap/scss/variables-dark';
+  @import 'bootstrap/scss/maps';
+  @import 'bootstrap/scss/mixins';
+  @import 'bootstrap/scss/nav';
+  
   /* Custom styles not available in Bootstrap utilities */
   .social-link {
     margin: 0 0.5rem;
@@ -63,19 +65,6 @@ import { siteConfig, footerLinks, contactLinks } from '../config';
   .social-link:focus {
     color: var(--bs-link-hover-color);
     transform: translateY(-2px);
-  }
-
-  .copyright {
-    font-size: 0.875rem;
-  }
-
-  .copyright a {
-    color: var(--bs-link-color);
-    text-decoration: none;
-  }
-
-  .copyright a:hover {
-    text-decoration: underline;
   }
 
   @media (max-width: 768px) {

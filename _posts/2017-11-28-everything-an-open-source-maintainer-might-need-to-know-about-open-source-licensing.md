@@ -23,16 +23,16 @@ An open source license is a contract between the person who writes code (often a
 
 While the wording and specific terms may vary from license to license, most licenses include the following three things:
 
-* It gives users the right to use, modify, and (re)distribute the software
-* A promise from users not to sue the developer if the software doesn't work as intended
-* The requirement that the author's name, the license, or both be included if distributed
+- It gives users the right to use, modify, and (re)distribute the software
+- A promise from users not to sue the developer if the software doesn't work as intended
+- The requirement that the author's name, the license, or both be included if distributed
 
 Additionally, some licenses may also include:
 
-* The requirement that any contributions to the project be licensed under the same license
-* The right for users to use any patented technology contained in the software (see [below](#patents))
-* The requirement that any changes to the software be described when distributed
-* Different requirements depending on whether the software is distributed in its human-readable or machine-readable form
+- The requirement that any contributions to the project be licensed under the same license
+- The right for users to use any patented technology contained in the software (see [below](#patents))
+- The requirement that any changes to the software be described when distributed
+- Different requirements depending on whether the software is distributed in its human-readable or machine-readable form
 
 ## Copyleft and the GPL
 
@@ -91,8 +91,8 @@ That said, if you're writing software for a major corporation or a promising sta
 
 If you found this post helpful, there are two other resources you may be interested in reading:
 
-* An overview of the best way to handle [copyright notices for open source projects](https://ben.balter.com/2015/06/03/copyright-notices-for-websites-and-open-source-projects/) in for example, Licenses or the readme, and
-* A similar overview of [open source licensing geared towards government attorneys](https://ben.balter.com/2014/10/08/open-source-licensing-for-government-attorneys/)
+- An overview of the best way to handle [copyright notices for open source projects](https://ben.balter.com/2015/06/03/copyright-notices-for-websites-and-open-source-projects/) in for example, Licenses or the readme, and
+- A similar overview of [open source licensing geared towards government attorneys](https://ben.balter.com/2014/10/08/open-source-licensing-for-government-attorneys/)
 
 ## That said…
 

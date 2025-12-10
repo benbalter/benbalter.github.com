@@ -39,11 +39,13 @@ Feeds are generated at build time as static XML files:
 ### Configuration
 
 The Astro config (`astro.config.mjs`) includes:
+
 - Site URL configuration for feed links
 
 ## Validation
 
 The feed has been validated and parses without errors using:
+
 - Python's `feedparser` library
 - Manual XML structure validation
 - RSS 2.0 schema compliance
@@ -51,6 +53,7 @@ The feed has been validated and parses without errors using:
 ## Feed Metadata
 
 ### Main Feed
+
 - **Title**: Ben Balter
 - **Description**: Technology leadership, collaboration, and open source
 - **Link**: https://ben.balter.com/
@@ -59,18 +62,21 @@ The feed has been validated and parses without errors using:
 ## HTML Integration
 
 Feed links are included in:
+
 1. **HTML `<head>`**: `<link rel="alternate" type="application/rss+xml">`
 2. **Footer**: RSS icon linking to `/feed.xml`
 
 ## Testing
 
 To test the feed locally:
+
 ```bash
 npm run astro:build
 # Feed generated at: dist-astro/feed.xml
 ```
 
 To validate the feed:
+
 ```bash
 python3 -c "import feedparser; print(feedparser.parse(open('dist-astro/feed.xml')).version)"
 ```
@@ -78,6 +84,7 @@ python3 -c "import feedparser; print(feedparser.parse(open('dist-astro/feed.xml'
 ## Migration Notes
 
 When migrating from Jekyll to Astro:
+
 - Feed URL remains the same (`/feed.xml`)
 - Feed format changes from Atom to RSS 2.0 (transparent to most readers)
 - All post metadata and links are preserved

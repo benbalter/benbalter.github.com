@@ -5,6 +5,7 @@ This document describes how the `redirect_from` and `redirect_to` functionality 
 ## Overview
 
 The redirect functionality allows posts and pages to:
+
 1. **redirect_from**: Redirect old URLs to the current post/page URL
 2. **redirect_to**: Redirect the post/page to an external URL
 
@@ -48,6 +49,7 @@ Each redirect page includes (matching Jekyll's format):
 ```
 
 This provides multiple redirect mechanisms:
+
 - **JavaScript redirect**: Instant redirect for modern browsers
 - **Meta refresh**: Fallback for browsers without JavaScript
 - **Canonical link**: SEO signal to search engines
@@ -96,6 +98,7 @@ redirect_to: https://example.com/new-location/
 ### Page Redirects
 
 **Resume page** (`src/content/pages/resume.md`):
+
 ```yaml
 ---
 title: Resume
@@ -110,6 +113,7 @@ redirect_from:
 ### Post Redirects
 
 **Types of Pull Requests** (`src/content/posts/2015-12-08-types-of-pull-requests.mdx`):
+
 ```yaml
 ---
 title: The six types of pull requests you see on GitHub
@@ -122,6 +126,7 @@ redirect_from: "/2014/12/08/types-of-pull-requests/"
 ### External Redirects
 
 **Communicate Like a GitHub Engineer** (`src/content/posts/2023-10-04-how-to-communicate-like-a-github-engineer.md`):
+
 ```yaml
 ---
 title: How to communicate like a GitHub engineer
@@ -134,6 +139,7 @@ redirect_to: https://github.blog/engineering/engineering-principles/how-to-commu
 ## Build Statistics
 
 From the latest build:
+
 - **Total pages generated**: 190
 - **Redirect pages generated**: 27
   - 4 page redirects (cv, books, books-for-geeks, recommended-reading)
@@ -159,12 +165,14 @@ find dist-astro -name "index.html" -type f | grep -E "(cv|books|2014/12/08)" | h
 ### E2E Testing
 
 The E2E test suite in `e2e/redirects.spec.ts` validates:
+
 - Page redirects work correctly
 - Post redirects handle typos, wrong dates, and special characters
 - External redirects display correct HTML
 - Redirect HTML structure matches Jekyll format
 
 Run tests with:
+
 ```bash
 npm run test:e2e:astro -- e2e/redirects.spec.ts
 ```
@@ -219,6 +227,7 @@ If redirects aren't working:
 ## Future Enhancements
 
 Possible improvements:
+
 1. **Server-side redirects**: Generate `_redirects` file for Netlify/Vercel
 2. **Redirect validation**: Check for broken redirect chains or circular redirects
 3. **Redirect analytics**: Track which redirects are being used

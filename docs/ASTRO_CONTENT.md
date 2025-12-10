@@ -6,10 +6,10 @@ This document explains how to work with Markdown and MDX content in the Astro im
 
 Astro supports both Markdown (`.md`) and MDX (`.mdx`) files through its Content Collections API. This provides:
 
-* **Type-safe frontmatter**: Validated with Zod schemas
-* **Jekyll compatibility**: Supports existing Jekyll frontmatter fields
-* **Rich content**: MDX allows using components in Markdown
-* **Performance**: Zero JavaScript by default
+- **Type-safe frontmatter**: Validated with Zod schemas
+- **Jekyll compatibility**: Supports existing Jekyll frontmatter fields
+- **Rich content**: MDX allows using components in Markdown
+- **Performance**: Zero JavaScript by default
 
 ## Content Collections
 
@@ -90,13 +90,13 @@ Content goes here...
 
 ### Features
 
-* **Text formatting**: Bold, italic, strikethrough
-* **Lists**: Ordered and unordered
-* **Links and images**: Standard Markdown syntax
-* **Code blocks**: With syntax highlighting
-* **Tables**: GitHub Flavored Markdown tables
-* **Task lists**: `- [ ]` and `- [x]`
-* **Blockquotes**: Using `>` prefix
+- **Text formatting**: Bold, italic, strikethrough
+- **Lists**: Ordered and unordered
+- **Links and images**: Standard Markdown syntax
+- **Code blocks**: With syntax highlighting
+- **Tables**: GitHub Flavored Markdown tables
+- **Task lists**: `- [ ]` and `- [x]`
+- **Blockquotes**: Using `>` prefix
 
 ## MDX Files (.mdx)
 
@@ -144,6 +144,7 @@ Enhanced code blocks with titles:
 ```javascript
 const message = 'Hello!';
 ```
+
 </CodeBlock>
 ```
 
@@ -167,17 +168,17 @@ The frontmatter schema is designed to be compatible with Jekyll:
 
 ### Supported Jekyll Fields
 
-* `title` - Post/page title
-* `description` - SEO description
-* `layout` - Layout name (mapped to Astro layouts)
-* `permalink` - Custom URL path
-* `published` - Publication status
-* `redirect_from` - Array of old URLs
-* `redirect_to` - Redirect destination
-* `tags` - Post tags
-* `categories` - Post categories
-* `comments` - Enable/disable comments
-* `image` - Open Graph image
+- `title` - Post/page title
+- `description` - SEO description
+- `layout` - Layout name (mapped to Astro layouts)
+- `permalink` - Custom URL path
+- `published` - Publication status
+- `redirect_from` - Array of old URLs
+- `redirect_to` - Redirect destination
+- `tags` - Post tags
+- `categories` - Post categories
+- `comments` - Enable/disable comments
+- `image` - Open Graph image
 
 ### Date Extraction
 
@@ -354,7 +355,7 @@ If content doesn't show up:
 
 ## Resources
 
-* [Astro Content Collections](https://docs.astro.build/en/guides/content-collections/)
-* [Astro Markdown](https://docs.astro.build/en/guides/markdown-content/)
-* [MDX in Astro](https://docs.astro.build/en/guides/integrations-guide/mdx/)
-* [Zod Schema Validation](https://zod.dev/)
+- [Astro Content Collections](https://docs.astro.build/en/guides/content-collections/)
+- [Astro Markdown](https://docs.astro.build/en/guides/markdown-content/)
+- [MDX in Astro](https://docs.astro.build/en/guides/integrations-guide/mdx/)
+- [Zod Schema Validation](https://zod.dev/)

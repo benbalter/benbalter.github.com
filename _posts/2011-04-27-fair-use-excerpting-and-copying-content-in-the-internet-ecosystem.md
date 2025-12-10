@@ -24,11 +24,11 @@ The culture of the internet is not that it's okay to *copy* others, but that it'
 
 If a work is no longer subject to copyright claims (and thus falls in the [public domain](http://www.law.duke.edu/cspd/comics/zoomcomic.html)), the discussion of fair use becomes a moot point. Such a determination does not, strictly speaking turn on the inclusion of the copyright symbol. [^3] Instead, a work is [in the public domain](http://www.unc.edu/~unclng/public-d.htm) if it was created:
 
-* by the federal government, at any time,
-* between 1964–1977 without a copyright notice.
-* between 1923–1963 with a copyright notice, if the copyright was not renewed,
-* between 1923–1963 without a copyright notice, or
-* before 1923.
+- by the federal government, at any time,
+- between 1964–1977 without a copyright notice.
+- between 1923–1963 with a copyright notice, if the copyright was not renewed,
+- between 1923–1963 without a copyright notice, or
+- before 1923.
 
 ## Is it fair use
 
