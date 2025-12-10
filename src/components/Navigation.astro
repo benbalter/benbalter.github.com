@@ -35,9 +35,9 @@ const navClasses = hero
   : "navbar navbar-expand-md bg-secondary-subtle text-secondary border-start border-end border-bottom border-top rounded-top rounded-bottom mb-3";
 ---
 
-<div class={navClasses}>
+<div class={navClasses + ' shadow-sm'}>
   <div class="d-flex flex-wrap align-items-center justify-content-between navbar-inner">
-    <a class="navbar-brand fw-bold" href="/">{siteConfig.name}</a>
+    <a class="navbar-brand fw-bold fs-5" href="/">{siteConfig.name}</a>
     <button 
       class="navbar-toggler" 
       type="button" 
@@ -57,7 +57,7 @@ const navClasses = hero
             <li class="nav-item">
               <a 
                 href={item.url} 
-                class={`nav-link${isActive ? ' active' : ''}`}
+                class={`nav-link fw-medium${isActive ? ' active' : ''}`}
                 aria-current={isActive ? 'page' : undefined}
               >
                 {item.title}
