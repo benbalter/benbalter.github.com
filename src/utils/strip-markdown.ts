@@ -33,9 +33,12 @@ export function stripMarkdown(text: string): string {
   result = result.replace(/\*\*([^*]+)\*\*/g, '$1');
   result = result.replace(/__([^_]+)__/g, '$1');
 
-  // Remove italic *text* or _text_ -> text (be careful not to break underscores in words)
+  // Remove italic *text* or _text_ -> text
+  // For asterisks, just remove them
   result = result.replace(/\*([^*]+)\*/g, '$1');
-  result = result.replace(/\b_([^_]+)_\b/g, '$1');
+  // For underscores, be more careful to avoid breaking snake_case
+  // Only match underscores surrounded by whitespace or punctuation
+  result = result.replace(/(\s|^)_([^_]+)_(\s|$)/g, '$1$2$3');
 
   // Remove inline code `code` -> code
   result = result.replace(/`([^`]+)`/g, '$1');
