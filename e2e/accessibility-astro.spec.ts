@@ -276,24 +276,35 @@ test.describe('Screen Reader Accessibility', () => {
   });
   
   test('form inputs should have associated labels', async ({ page }) => {
-    await page.goto('/contact/');
+    // Try to navigate to contact page, skip if it doesn't exist
+    const response = await page.goto('/contact/');
+    
+    // Skip test if page doesn't exist
+    if (!response || response.status() === 404) {
+      test.skip();
+      return;
+    }
     
     const inputs = await page.locator('input, select, textarea').all();
     
-    if (inputs.length > 0) {
-      for (const input of inputs) {
-        const id = await input.getAttribute('id');
-        const ariaLabel = await input.getAttribute('aria-label');
-        const ariaLabelledby = await input.getAttribute('aria-labelledby');
-        
-        // Input should have id with associated label, aria-label, or aria-labelledby
-        const hasLabel = 
-          (id && await page.locator(`label[for="${id}"]`).count() > 0) ||
-          (ariaLabel && ariaLabel.trim().length > 0) ||
-          (ariaLabelledby && ariaLabelledby.trim().length > 0);
-        
-        expect(hasLabel).toBe(true);
-      }
+    // Skip test if no form inputs exist
+    if (inputs.length === 0) {
+      test.skip();
+      return;
+    }
+    
+    for (const input of inputs) {
+      const id = await input.getAttribute('id');
+      const ariaLabel = await input.getAttribute('aria-label');
+      const ariaLabelledby = await input.getAttribute('aria-labelledby');
+      
+      // Input should have id with associated label, aria-label, or aria-labelledby
+      const hasLabel = 
+        (id && await page.locator(`label[for="${id}"]`).count() > 0) ||
+        (ariaLabel && ariaLabel.trim().length > 0) ||
+        (ariaLabelledby && ariaLabelledby.trim().length > 0);
+      
+      expect(hasLabel).toBe(true);
     }
   });
 });

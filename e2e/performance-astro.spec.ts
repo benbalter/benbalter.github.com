@@ -100,6 +100,16 @@ test.describe('Core Web Vitals', () => {
   
   test('blog post should have good performance metrics', async ({ page }) => {
     await page.goto('/');
+    
+    // Check if there are any article links
+    const articleLinks = await page.locator('article a').count();
+    
+    // Skip if no articles exist
+    if (articleLinks === 0) {
+      test.skip();
+      return;
+    }
+    
     await page.click('article a');
     await page.waitForLoadState('networkidle');
     

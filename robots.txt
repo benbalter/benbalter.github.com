@@ -46,7 +46,6 @@ Allow: /
 # Sitemap locations
 Sitemap: https://ben.balter.com/sitemap-index.xml
 Sitemap: https://ben.balter.com/sitemap.xml
-Sitemap: https://ben.balter.com/feed.xml
 
 # Preferred host
 Host: ben.balter.com
