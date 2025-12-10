@@ -100,8 +100,10 @@ props: { post, allPosts: posts }
 
 ### Build Time
 - **Before**: 74.56 seconds
-- **After**: 10.52 seconds  
-- **Improvement**: 85% reduction (64 seconds saved)
+- **After (Core)**: 10.52 seconds  
+- **After (with Compression)**: 18-20 seconds
+- **Core Improvement**: 85% reduction (64 seconds saved)
+- **Total Improvement**: 73% reduction (55 seconds saved)
 
 ### Breakdown
 ```
@@ -111,16 +113,23 @@ Before Optimization:
 └─ Other: ~12s (17%)
 Total: 74.56s
 
-After Optimization:
+After Optimization (Core Build):
 ├─ Related posts calculation: ~1s (9%)
 ├─ Redirect generation: <0.1s (1%)
 └─ Other: ~9.5s (90%)
 Total: 10.52s
+
+With Compression (Production):
+├─ Core build: ~10s (50%)
+├─ Compression: ~8-10s (50%)
+  └─ 216 HTML files (~323 KB savings)
+Total: 18-20s
 ```
 
 ### Throughput
-- **Pages per second**: 18.5 (was 2.5)
-- **Build efficiency**: 7.4× improvement
+- **Core build pages/second**: 18.5 (was 2.5)
+- **With compression pages/second**: 10.3 (was 2.5)
+- **Build efficiency**: 7.4× improvement (core), 4.1× improvement (total)
 
 ## Testing Verification
 
@@ -181,14 +190,24 @@ Total: 10.52s
 4. `src/scripts/generate-redirects.ts` - Parallel I/O
 5. `ASTRO_PERFORMANCE_IMPROVEMENTS.md` - Detailed documentation
 
+## Compression Trade-off
+
+The site uses astro-compress (added in PR #1278) to optimize production assets:
+- **Benefit**: 323 KB+ reduction in HTML files, smaller JS/CSS/SVG
+- **Cost**: +8-10 seconds to build time
+- **Verdict**: Worthwhile trade-off for production (improves user-facing performance)
+
+For development builds without compression, the core optimizations deliver the full 85% improvement (74s → 10s).
+
 ## Conclusion
 
 Successfully identified and optimized slow code in the Astro site, achieving:
 
-✅ **85% build time reduction** (74s → 11s)  
-✅ **7.4× throughput improvement** (2.5 → 18.5 pages/sec)  
+✅ **85% core build time reduction** (74s → 10s)  
+✅ **73% total build time reduction** (74s → 18-20s with compression)  
+✅ **7.4× throughput improvement** (2.5 → 18.5 pages/sec core)  
 ✅ **Zero functional changes** (only performance)  
 ✅ **All tests passing** (189/189)  
 ✅ **Comprehensive documentation**  
 
-The optimizations are production-ready, well-tested, and deliver massive performance improvements without any breaking changes.
+The optimizations are production-ready, well-tested, and deliver massive performance improvements without any breaking changes. The compression step adds time but significantly improves user-facing performance.

@@ -33,7 +33,8 @@ This document describes the performance optimizations made to the Astro build pr
 **Impact**:
 - Reduced complexity from O(n³) to O(n²) for pre-computation + O(n) per post lookup
 - Eliminated redundant text processing (184 posts × 184 comparisons = 33,856 operations → ~184 operations)
-- Build time reduced by ~85% (74s → 11s)
+- Core build time reduced by ~85% (74s → 10s)
+- Total build time with compression: ~18-20s (compression adds ~8-10s)
 
 ### 2. Parallel File Reading in Redirects
 
@@ -111,13 +112,24 @@ Build Time: 74.56s
 - Other: ~12s
 ```
 
-### After Optimization
+### After Optimization (Core Build)
 ```
-Build Time: 10.52s (85% improvement)
+Core Build Time: 10.52s (85% improvement)
 - Related posts calculation: ~1s (cached TF-IDF)
 - Redirect generation: <0.1s (parallel I/O)
 - Other: ~9.5s
 ```
+
+### With Compression (Production Build)
+```
+Total Build Time: 18-20s (73% improvement from baseline)
+- Core build: ~10s (optimized)
+- Compression: ~8-10s (HTML, CSS, JS, SVG)
+  - 216 HTML files compressed (~323 KB savings)
+  - JavaScript and assets compressed
+```
+
+**Note**: The astro-compress integration (added in PR #1278) provides significant file size reductions but adds ~8-10s to build time. This is a worthwhile trade-off for production deployments as it improves user-facing performance.
 
 ## Technical Details
 
