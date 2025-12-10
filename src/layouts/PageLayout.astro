@@ -83,7 +83,7 @@ const {
   }
 
   .text-primary {
-    color: #0366d6 !important;
+    color: var(--bs-primary) !important;
   }
 
   .lead {
@@ -138,7 +138,7 @@ const {
   .page-body :global(pre) {
     margin: 1.5rem 0;
     padding: 1rem;
-    background-color: #f6f8fa;
+    background-color: var(--bs-secondary-bg);
     border-radius: 6px;
     overflow-x: auto;
   }
@@ -149,21 +149,14 @@ const {
   }
   
   .page-body :global(p code) {
-    background-color: #f6f8fa;
+    background-color: var(--bs-secondary-bg);
     padding: 0.2em 0.4em;
     border-radius: 3px;
-  }
-  
-  .page-body :global(blockquote) {
-    border-left: 4px solid #0366d6;
-    padding-left: 1rem;
-    margin: 1.5rem 0;
-    color: #586069;
-    font-style: italic;
+    color: var(--bs-body-color);
   }
   
   .page-body :global(a) {
-    color: #0366d6;
+    color: var(--bs-link-color);
     text-decoration: none;
   }
   
@@ -180,16 +173,16 @@ const {
   .page-body :global(th),
   .page-body :global(td) {
     padding: 0.75rem;
-    border: 1px solid #e1e4e8;
+    border: 1px solid var(--bs-border-color);
   }
   
   .page-body :global(th) {
-    background-color: #f6f8fa;
+    background-color: var(--bs-secondary-bg);
     font-weight: 600;
   }
   
   .page-body :global(tr:nth-child(even)) {
-    background-color: #f6f8fa;
+    background-color: var(--bs-secondary-bg);
   }
 
   .page-body :global(img) {
