@@ -29,6 +29,7 @@ This guide documents Astro best practices for ben.balter.com, focusing on perfor
 Astro ships static HTML by default, only sending JavaScript for interactive components.
 
 **Implementation:**
+
 - All pages are server-rendered at build time
 - Only 2 client components in entire site:
   - `Navigation.astro` (uses `usePathname` hook)
@@ -37,6 +38,7 @@ Astro ships static HTML by default, only sending JavaScript for interactive comp
 **Why:** Reduces bundle size, improves Core Web Vitals (LCP, FID), faster page loads.
 
 **Verification:**
+
 ```bash
 npm run astro:build
 # Check dist-astro/assets/ for minimal JS bundles
@@ -49,11 +51,13 @@ npm run astro:build
 Only hydrate components that need interactivity using `client:*` directives.
 
 **Implementation:**
+
 - No `client:*` directives used (all components are server-only)
 - Client scripts loaded only where needed (FontAwesome, navigation toggle)
 - View Transitions API used for smooth navigation without full page reloads
 
 **Best Practice:**
+
 ```astro
 <!-- ❌ BAD: Unnecessary client-side rendering -->
 <Component client:load />
@@ -70,6 +74,7 @@ Only hydrate components that need interactivity using `client:*` directives.
 **Status:** IMPLEMENTED
 
 **Configuration (astro.config.mjs):**
+
 ```javascript
 export default defineConfig({
   image: {
@@ -84,12 +89,14 @@ export default defineConfig({
 ```
 
 **Build Output:**
+
 ```
 generating optimized images
   ▶ /assets/headshot.Dj042lO9_22DPWL.webp (before: 2869kB, after: 12kB)
 ```
 
 **Best Practice:**
+
 - Always specify image dimensions
 - Use WebP format for modern browsers
 - Lazy load images below the fold
@@ -100,6 +107,7 @@ generating optimized images
 **Status:** PARTIALLY IMPLEMENTED
 
 **Current Implementation (BaseLayout.astro):**
+
 ```astro
 <!-- Preconnect to critical external domains -->
 <link rel="preconnect" href="https://avatars.githubusercontent.com" crossorigin />
@@ -114,6 +122,7 @@ generating optimized images
 ```
 
 **TODO:**
+
 - [ ] Add font preloading for critical fonts
 - [ ] Preload critical CSS
 - [ ] Add modulepreload for critical JavaScript
@@ -123,12 +132,14 @@ generating optimized images
 **Status:** TODO
 
 **Actions Needed:**
+
 - [ ] Analyze bundle sizes with `astro build --experimental-static-build`
 - [ ] Check for duplicate dependencies
 - [ ] Optimize third-party imports (FontAwesome, Bootstrap)
 - [ ] Use tree-shaking where possible
 
 **Commands:**
+
 ```bash
 # Build and analyze
 npm run astro:build
@@ -143,6 +154,7 @@ du -sh dist-astro/assets/*.css
 **Status:** IMPLEMENTED
 
 **Implementation (BaseLayout.astro):**
+
 ```astro
 import { ClientRouter } from 'astro:transitions';
 
@@ -152,6 +164,7 @@ import { ClientRouter } from 'astro:transitions';
 ```
 
 **Benefits:**
+
 - Smooth page navigation without full reloads
 - Reduced server load (assets cached)
 - App-like user experience
@@ -166,6 +179,7 @@ import { ClientRouter } from 'astro:transitions';
 **Status:** IMPLEMENTED
 
 **Structure:**
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -188,6 +202,7 @@ import { ClientRouter } from 'astro:transitions';
 ```
 
 **Elements Used:**
+
 - `<nav>` for navigation
 - `<main>` for primary content
 - `<article>` for blog posts
@@ -199,6 +214,7 @@ import { ClientRouter } from 'astro:transitions';
 **Status:** IMPLEMENTED (via astro-seo)
 
 **Implementation (BaseLayout.astro):**
+
 ```astro
 import { SEO } from 'astro-seo';
 
@@ -220,6 +236,7 @@ import { SEO } from 'astro-seo';
 ```
 
 **Required Meta Tags:**
+
 - ✅ Title (unique per page)
 - ✅ Description (150-160 characters)
 - ✅ Canonical URL
@@ -234,12 +251,14 @@ import { SEO } from 'astro-seo';
 **Status:** IMPLEMENTED
 
 **Schemas Used:**
+
 - **Person** (author information)
 - **WebSite** (site information)
 - **BlogPosting** (blog posts)
 - **BreadcrumbList** (navigation breadcrumbs)
 
 **Implementation (src/utils/structured-data.ts):**
+
 ```typescript
 export function generatePersonSchema(): Person { ... }
 export function generateWebSiteSchema(): WebSite { ... }
@@ -248,6 +267,7 @@ export function generateBreadcrumbSchema(items): BreadcrumbList { ... }
 ```
 
 **Usage (BaseLayout.astro):**
+
 ```astro
 const schemas = [personSchema, websiteSchema, breadcrumbSchema];
 <script type="application/ld+json" set:html={schemaToJsonLd(schemas)} is:inline></script>
@@ -258,6 +278,7 @@ const schemas = [personSchema, websiteSchema, breadcrumbSchema];
 **Status:** IMPLEMENTED (@astrojs/sitemap)
 
 **Configuration (astro.config.mjs):**
+
 ```javascript
 import sitemap from '@astrojs/sitemap';
 
@@ -276,6 +297,7 @@ export default defineConfig({
 ```
 
 **Output:**
+
 - `sitemap-index.xml` - Main sitemap index
 - Individual sitemaps for posts, pages
 
@@ -284,11 +306,13 @@ export default defineConfig({
 **Status:** IMPLEMENTED
 
 **URL Structure:**
+
 - Blog posts: `/YYYY/MM/DD/slug/` (matches Jekyll exactly)
 - Static pages: `/page-name/` (trailing slash)
 - Feeds: `/feed.xml`, `/press/feed/index.xml`
 
 **Configuration:**
+
 ```javascript
 export default defineConfig({
   trailingSlash: 'always',
@@ -303,6 +327,7 @@ export default defineConfig({
 **Status:** ENFORCED
 
 **Best Practice:**
+
 ```astro
 <!-- ❌ BAD: Missing alt text -->
 <img src="/image.jpg" />
@@ -321,6 +346,7 @@ export default defineConfig({
 **Current Location:** `public/robots.txt`
 
 **TODO:**
+
 - [ ] Review and optimize robots.txt rules
 - [ ] Add specific crawl directives
 - [ ] Add sitemap reference
@@ -334,6 +360,7 @@ export default defineConfig({
 **Status:** IMPLEMENTED
 
 **Implementation (BaseLayout.astro):**
+
 ```astro
 <a href="#content" class="skip-to-content visually-hidden-focusable">
   Skip to main content
@@ -350,12 +377,14 @@ export default defineConfig({
 **Status:** NEEDS TESTING
 
 **Requirements:**
+
 - [ ] All interactive elements accessible via Tab key
 - [ ] Logical tab order
 - [ ] Visible focus indicators
 - [ ] No keyboard traps
 
 **Testing:**
+
 ```bash
 # Run accessibility tests
 npm run test:e2e -- e2e/accessibility.spec.ts
@@ -366,6 +395,7 @@ npm run test:e2e -- e2e/accessibility.spec.ts
 **Status:** PARTIALLY IMPLEMENTED
 
 **Current Usage:**
+
 ```astro
 <!-- Navigation -->
 <nav role="navigation" aria-label="Main navigation">
@@ -378,6 +408,7 @@ npm run test:e2e -- e2e/accessibility.spec.ts
 ```
 
 **TODO:**
+
 - [ ] Audit all interactive components for ARIA labels
 - [ ] Add aria-current for active navigation items
 - [ ] Add aria-expanded for collapsible elements
@@ -387,15 +418,18 @@ npm run test:e2e -- e2e/accessibility.spec.ts
 **Status:** NEEDS VALIDATION
 
 **Requirements:**
+
 - WCAG AA: 4.5:1 for normal text, 3:1 for large text
 - WCAG AAA: 7:1 for normal text, 4.5:1 for large text
 
 **TODO:**
+
 - [ ] Run automated contrast checking
 - [ ] Fix any contrast issues
 - [ ] Add contrast validation to CI
 
 **Tools:**
+
 - axe DevTools
 - Lighthouse accessibility audit
 - WAVE browser extension
@@ -405,6 +439,7 @@ npm run test:e2e -- e2e/accessibility.spec.ts
 **Status:** IMPLEMENTED
 
 **Implementation:**
+
 ```astro
 <!-- Main content can receive focus -->
 <main id="content" role="main" tabindex="-1">
@@ -423,6 +458,7 @@ npm run test:e2e -- e2e/accessibility.spec.ts
 **Status:** N/A (no forms currently)
 
 **Best Practice (for future reference):**
+
 ```astro
 <label for="email">Email Address</label>
 <input type="email" id="email" name="email" required />
@@ -437,6 +473,7 @@ npm run test:e2e -- e2e/accessibility.spec.ts
 **Status:** TODO
 
 **Actions:**
+
 ```javascript
 // astro.config.mjs
 export default defineConfig({
@@ -451,6 +488,7 @@ export default defineConfig({
 **Status:** IMPLEMENTED
 
 **Configuration (astro.config.mjs):**
+
 ```javascript
 vite: {
   build: {
@@ -474,6 +512,7 @@ vite: {
 **Status:** TODO
 
 **Commands:**
+
 ```bash
 # Build and check sizes
 npm run astro:build
@@ -492,6 +531,7 @@ npx vite-bundle-visualizer dist-astro/assets
 **Status:** IMPLEMENTED
 
 **Best Practice:**
+
 ```astro
 <!-- ✅ GOOD: Default server component -->
 ---
@@ -511,10 +551,12 @@ import { useState } from 'react';
 **Status:** IMPLEMENTED (2 components only)
 
 **Current Client Components:**
+
 1. Navigation (uses `usePathname` hook for active state)
 2. FontAwesome/navToggle scripts (client-side initialization)
 
 **Rule:** Only use `client:*` directives when absolutely necessary:
+
 - React hooks (useState, useEffect, etc.)
 - Browser APIs (window, document, localStorage)
 - Event handlers with state
@@ -525,6 +567,7 @@ import { useState } from 'react';
 **Status:** IMPLEMENTED
 
 **Structure:**
+
 ```
 src/
 ├── components/     # Reusable components
@@ -543,6 +586,7 @@ src/
 **Status:** CONFIGURED (Playwright)
 
 **Test Files:**
+
 - `e2e/homepage.spec.ts` - Homepage functionality
 - `e2e/seo.spec.ts` - SEO meta tags
 - `e2e/accessibility.spec.ts` - Accessibility standards
@@ -550,6 +594,7 @@ src/
 - `e2e/navigation.spec.ts` - Navigation functionality
 
 **Run Tests:**
+
 ```bash
 npm run test:e2e:astro
 ```
@@ -559,12 +604,14 @@ npm run test:e2e:astro
 **Status:** TODO
 
 **Metrics to Test:**
+
 - Largest Contentful Paint (LCP) < 2.5s
 - First Input Delay (FID) < 100ms
 - Cumulative Layout Shift (CLS) < 0.1
 - Time to First Byte (TTFB) < 600ms
 
 **Implementation Needed:**
+
 ```typescript
 // e2e/performance-astro.spec.ts
 test('homepage loads fast', async ({ page }) => {
@@ -588,12 +635,14 @@ test('homepage loads fast', async ({ page }) => {
 **Status:** PARTIALLY IMPLEMENTED
 
 **TODO:**
+
 - [ ] Automated axe-core tests
 - [ ] Keyboard navigation tests
 - [ ] Screen reader compatibility tests
 - [ ] Color contrast validation
 
 **Implementation:**
+
 ```typescript
 // e2e/accessibility-astro.spec.ts
 import { test, expect } from '@playwright/test';
@@ -611,6 +660,7 @@ test('homepage should not have accessibility violations', async ({ page }) => {
 **Status:** TODO
 
 **Checks Needed:**
+
 - [ ] All pages have unique titles
 - [ ] All pages have descriptions (150-160 chars)
 - [ ] All images have alt text
@@ -682,17 +732,20 @@ test('homepage should not have accessibility violations', async ({ page }) => {
 ## Resources
 
 ### Official Documentation
+
 - [Astro Documentation](https://docs.astro.build)
 - [Astro Performance Guide](https://docs.astro.build/en/concepts/why-astro/#performance)
 - [Astro SEO](https://github.com/jonasmerlin/astro-seo)
 
 ### Tools
+
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
 - [axe DevTools](https://www.deque.com/axe/devtools/)
 - [WebPageTest](https://www.webpagetest.org/)
 - [PageSpeed Insights](https://pagespeed.web.dev/)
 
 ### Best Practices References
+
 - [Web.dev Performance](https://web.dev/performance/)
 - [WCAG Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
 - [Core Web Vitals](https://web.dev/vitals/)
@@ -702,6 +755,7 @@ test('homepage should not have accessibility violations', async ({ page }) => {
 ## Maintenance
 
 This document should be updated whenever:
+
 - Astro version is upgraded
 - New best practices emerge
 - Performance benchmarks change
