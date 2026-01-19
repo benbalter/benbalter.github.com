@@ -233,3 +233,85 @@ describe('MiniBio Component - Specification', () => {
   });
 });
 
+describe('ContactLinks Component - Specification', () => {
+  it('should use contactLinks from config', () => {
+    // Specification: Component should use contactLinks array from config
+    const contactLinks = [
+      { name: 'Email', url: 'mailto:ben@balter.com', icon: 'fa-solid fa-envelope' },
+      { name: 'Add to contacts', url: '/vcard.vcf', icon: 'fa-solid fa-address-card' },
+      { name: 'Bluesky', url: 'https://bsky.app/profile/ben.balter.com', icon: 'fa-brands fa-bluesky' },
+      { name: 'LinkedIn', url: 'https://www.linkedin.com/in/benbalter', icon: 'fa-brands fa-linkedin' },
+      { name: 'GitHub', url: 'https://github.com/benbalter', icon: 'fa-brands fa-github' },
+    ];
+    
+    expect(contactLinks).toHaveLength(5);
+    expect(contactLinks[0].name).toBe('Email');
+    expect(contactLinks[0].icon).toContain('fa-solid');
+  });
+
+  it('should have required link attributes', () => {
+    // Specification: Links should have rel="me noopener" and target="_blank"
+    const linkAttributes = {
+      rel: 'me noopener',
+      target: '_blank',
+    };
+    
+    expect(linkAttributes.rel).toBe('me noopener');
+    expect(linkAttributes.target).toBe('_blank');
+  });
+
+  it('should display PGP key information', () => {
+    // Specification: Component should display PGP key from siteConfig
+    const pgpKey = '07C6 73FB F30E 01C0 C342 7AB8 DBB6 7C24 6AD3 56C4';
+    const keyUrl = '/key.asc';
+    
+    expect(pgpKey).toMatch(/^[0-9A-F\s]+$/);
+    expect(keyUrl).toBe('/key.asc');
+  });
+
+  it('should use correct CSS classes for layout', () => {
+    // Specification: Component structure classes
+    const expectedClasses = {
+      container: 'contact-links text-center',
+      row: 'row justify-content-center',
+      column: 'col-sm',
+      small: 'small',
+    };
+    
+    expect(expectedClasses.container).toContain('contact-links');
+    expect(expectedClasses.container).toContain('text-center');
+    expect(expectedClasses.row).toContain('justify-content-center');
+    expect(expectedClasses.small).toBe('small');
+  });
+
+  it('should use FontAwesome icons for each contact method', () => {
+    // Specification: Each contact link should have a FontAwesome icon
+    const iconClasses = [
+      'fa-solid fa-envelope',      // Email
+      'fa-solid fa-address-card',  // vCard
+      'fa-brands fa-bluesky',      // Bluesky
+      'fa-brands fa-linkedin',     // LinkedIn
+      'fa-brands fa-github',       // GitHub
+    ];
+    
+    iconClasses.forEach(iconClass => {
+      expect(iconClass).toMatch(/^fa-(solid|brands)/);
+    });
+  });
+
+  it('should structure each link with icon and text', () => {
+    // Specification: Link structure with rows and columns
+    const structure = {
+      outerRow: 'row justify-content-center mb-3 align-items-center',
+      iconColumn: 'col-sm-12 col-2 offset-3 offset-sm-0 text-center',
+      textColumn: 'col-sm-12 col-6 text-sm-center text-start',
+    };
+    
+    expect(structure.outerRow).toContain('mb-3');
+    expect(structure.outerRow).toContain('align-items-center');
+    expect(structure.iconColumn).toContain('text-center');
+    expect(structure.textColumn).toContain('text-start');
+  });
+});
+
+

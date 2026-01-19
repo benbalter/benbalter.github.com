@@ -8,6 +8,7 @@
 
 import PageLayout from '../layouts/PageLayout.astro';
 import { getEntry, getCollection, type CollectionEntry } from 'astro:content';
+import { formatResumeDate } from '../utils/post-urls';
 
 // Load resume page data
 const resumePage = await getEntry('pages', 'resume');
@@ -24,17 +25,6 @@ const allPositions = await getCollection('resume-positions');
 const sortedPositions = allPositions.sort((a: CollectionEntry<'resume-positions'>, b: CollectionEntry<'resume-positions'>) => {
   return new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime();
 });
-
-// Format date helper
-function formatDate(dateString: string): string {
-  const date = new Date(dateString);
-  // Check if date is valid
-  if (isNaN(date.getTime())) {
-    console.warn(`Invalid date format: ${dateString}`);
-    return 'Invalid Date';
-  }
-  return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-}
 
 // Group positions by employer to handle multiple roles at same company
 interface GroupedPosition {
@@ -76,7 +66,7 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
                 <h4>{position.data.title}</h4>
               </div>
               <div class="position-dates">
-                {formatDate(position.data.start_date)}—{position.data.end_date ? formatDate(position.data.end_date) : 'Present'}
+                {formatResumeDate(position.data.start_date) ?? 'Unknown'}—{position.data.end_date ? (formatResumeDate(position.data.end_date) ?? 'Unknown') : 'Present'}
               </div>
             </div>
             
@@ -98,7 +88,7 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
           <h3 class="school-name h5">{degree.school}</h3>
           <div class="education-details">
             <div class="degree-name">{degree.degree}</div>
-            <div class="degree-date">{formatDate(degree.date)}</div>
+            <div class="degree-date">{formatResumeDate(degree.date) ?? 'Unknown'}</div>
           </div>
         </div>
       ))}
