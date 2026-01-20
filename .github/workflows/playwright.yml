@@ -57,7 +57,7 @@ jobs:
           bundler-cache: true
 
       - name: Cache apt packages
-        uses: awalsh128/cache-apt-pkgs-action@latest
+        uses: awalsh128/cache-apt-pkgs-action@v1
         with:
           packages: libvips-dev
           version: 1.0
@@ -76,7 +76,7 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps chromium
 
-      - name: Install Playwright Browser Dependencies
+      - name: Install Playwright Browser System Dependencies
         if: steps.playwright-cache.outputs.cache-hit == 'true'
         run: npx playwright install-deps chromium
 
@@ -89,7 +89,7 @@ jobs:
       - name: Start Jekyll server
         run: |
           bundle exec jekyll serve --detach --skip-initial-build
-          sleep 2
+          sleep 1
 
       - name: Wait for server to be ready
         run: |
