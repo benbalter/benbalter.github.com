@@ -7,6 +7,18 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './e2e',
   
+  /* Exclude Astro-specific tests from Jekyll test run */
+  testIgnore: [
+    '**/accessibility-astro.spec.ts',
+    '**/dark-mode.spec.ts', 
+    '**/footer-contact-links.spec.ts',
+    '**/performance-astro.spec.ts',
+    '**/post-images.spec.ts',
+    '**/sitemap.spec.ts',
+    '**/tldr-tooltip.spec.ts',
+    '**/view-transitions.spec.ts',
+  ],
+  
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
   
