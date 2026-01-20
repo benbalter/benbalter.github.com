@@ -38,8 +38,8 @@ test.describe('Post Images', () => {
       expect(ogImageContent).toBeTruthy();
       expect(ogImageContent!.length).toBeGreaterThan(0);
 
-      // Check for Twitter Card image tag
-      const twitterImage = page.locator('meta[name="twitter:image"]');
+      // Check for Twitter Card image tag (Jekyll SEO tag uses property attribute)
+      const twitterImage = page.locator('meta[property="twitter:image"]');
       await expect(twitterImage).toHaveCount(1);
       
       const twitterImageContent = await twitterImage.getAttribute('content');
