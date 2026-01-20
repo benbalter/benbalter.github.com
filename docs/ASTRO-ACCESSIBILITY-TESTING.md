@@ -21,11 +21,13 @@ This guide outlines accessibility testing strategies and requirements for ben.ba
 ### axe-core Integration
 
 **Installation:**
+
 ```bash
 npm install --save-dev @axe-core/playwright
 ```
 
 **Usage in Playwright Tests:**
+
 ```typescript
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
@@ -44,6 +46,7 @@ test('homepage should not have accessibility violations', async ({ page }) => {
 ### Lighthouse CI
 
 **Configuration (.lighthouserc.json):**
+
 ```json
 {
   "ci": {
@@ -155,10 +158,12 @@ test('homepage should not have accessibility violations', async ({ page }) => {
 ### VoiceOver Testing (macOS)
 
 **Enable VoiceOver:**
+
 - Press `Cmd+F5`
 - Or: System Settings → Accessibility → VoiceOver → Enable
 
 **Basic Commands:**
+
 - `Ctrl+Option+A` - Start reading
 - `Ctrl+Option+Right Arrow` - Next item
 - `Ctrl+Option+Left Arrow` - Previous item
@@ -166,6 +171,7 @@ test('homepage should not have accessibility violations', async ({ page }) => {
 - `Ctrl+Option+U` - Open rotor (navigate by headings, links, etc.)
 
 **Testing Checklist:**
+
 - [ ] Page title announced on load
 - [ ] Landmark regions announced (nav, main, footer)
 - [ ] Headings hierarchy makes sense
@@ -180,6 +186,7 @@ test('homepage should not have accessibility violations', async ({ page }) => {
 **Download:** https://www.nvaccess.org/download/
 
 **Basic Commands:**
+
 - `Ctrl` - Stop reading
 - `Insert+Down Arrow` - Start reading
 - `Insert+Up Arrow` - Current line
@@ -209,11 +216,13 @@ test('homepage should not have accessibility violations', async ({ page }) => {
 ### Requirements
 
 **WCAG AA (Minimum):**
+
 - Normal text: 4.5:1 contrast ratio
 - Large text (18pt+): 3:1 contrast ratio
 - UI components: 3:1 contrast ratio
 
 **WCAG AAA (Enhanced):**
+
 - Normal text: 7:1 contrast ratio
 - Large text: 4.5:1 contrast ratio
 
@@ -259,12 +268,14 @@ test('text should have sufficient contrast', async ({ page }) => {
 ### When to Use ARIA
 
 **Use ARIA when:**
+
 - Native HTML elements don't exist for the functionality
 - Custom widgets need semantic meaning
 - Dynamic content updates need to be announced
 - Visual labels aren't available
 
 **Don't use ARIA when:**
+
 - Native HTML elements exist (`<button>` not `<div role="button">`)
 - The element already has implicit semantics
 - It would duplicate native semantics

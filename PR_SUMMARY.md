@@ -13,6 +13,7 @@ This PR implements performance optimizations for the Astro build of ben.balter.c
 **What it does**: Automatically compresses HTML, CSS, JavaScript, and SVG files during the build process.
 
 **Configuration** (`astro.config.mjs`):
+
 ```javascript
 compress({
   CSS: true,
@@ -32,6 +33,7 @@ compress({
 **What changed**: Explicitly enabled minification settings in Vite configuration.
 
 **Configuration** (`astro.config.mjs`):
+
 ```javascript
 vite: {
   minify: true,
@@ -44,6 +46,7 @@ vite: {
 **What changed**: Added `inlineStylesheets: 'auto'` to Astro build configuration.
 
 **Configuration** (`astro.config.mjs`):
+
 ```javascript
 build: {
   inlineStylesheets: 'auto',
@@ -140,6 +143,7 @@ npm run astro:build
 ```
 
 **Results**:
+
 - ✅ All 195 pages built successfully
 - ✅ Compression applied to 219 files
 - ✅ No build errors or warnings
@@ -148,6 +152,7 @@ npm run astro:build
 ### Manual Verification
 
 Verified the following:
+
 - ✅ HTML is properly compressed (whitespace removed, conservative settings)
 - ✅ CSS and JS bundles are minified
 - ✅ Navigation toggle script is inlined
@@ -230,6 +235,7 @@ See `ASTRO_PERFORMANCE_IMPROVEMENTS.md` for detailed information.
 ### Performance Budget Alerts
 
 Configure alerts when:
+
 - CSS bundle exceeds 100 KB
 - JavaScript bundle exceeds 100 KB
 - Page load time exceeds 3 seconds
