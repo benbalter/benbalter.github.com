@@ -178,8 +178,9 @@ test.describe('Legacy URL Redirects', () => {
       // Check canonical link (accepts any host for testing, with or without quotes around href)
       expect(content).toMatch(/<link\s+(?:href=["']?https?:\/\/[^\s"'>]+\/resume\/["']?\s+)?rel=["']?canonical["']?|<link\s+rel=["']?canonical["']?(?:\s+href=["']?https?:\/\/[^\s"'>]+\/resume\/["']?)?/);
       
-      // Check robots noindex
-      expect(content).toContain('<meta name="robots" content="noindex">');
+      // Check robots noindex (with or without quotes and flexible attribute order)
+      expect(content).toMatch(/<meta\s+(?:name=["']?robots["']?\s+content=["']?noindex["']?|content=["']?noindex["']?\s+name=["']?robots["']?)\s*>/);
+
       
       // Check fallback content for users with JavaScript disabled
       expect(content).toContain('<h1>Redirecting');
