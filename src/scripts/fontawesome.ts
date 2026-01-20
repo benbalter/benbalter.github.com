@@ -56,3 +56,10 @@ library.add(
 
 // Watch the DOM for any icon tags and replace them
 dom.watch();
+
+// Re-process icons after Astro View Transitions navigation
+// This ensures FontAwesome icons render correctly after client-side navigation
+document.addEventListener('astro:page-load', () => {
+  // Convert all <i> tags to <svg> after navigation
+  dom.i2svg();
+});
