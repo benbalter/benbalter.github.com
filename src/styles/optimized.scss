@@ -1,6 +1,9 @@
 // Optimized stylesheet for Astro build
 // This imports only necessary Bootstrap components to reduce bundle size
 
+// Font Awesome SVG Core styles (required for SVG icons to display)
+@import '@fortawesome/fontawesome-svg-core/styles.css';
+
 // 1. Include functions first (required for everything)
 @import 'bootstrap/scss/functions';
 
