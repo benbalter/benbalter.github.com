@@ -1,14 +1,46 @@
-"on": push
+"on":
+  push:
+    branches: [main, master]
+    paths:
+      - '_posts/**'
+      - '_layouts/**'
+      - '_includes/**'
+      - 'assets/**'
+      - 'sass/**'
+      - 'js/**'
+      - '_config*.yml'
+      - 'Gemfile*'
+      - 'package*.json'
+      - 'e2e/**'
+      - 'playwright*.config.ts'
+      - '.github/workflows/playwright.yml'
+  pull_request:
+    paths:
+      - '_posts/**'
+      - '_layouts/**'
+      - '_includes/**'
+      - 'assets/**'
+      - 'sass/**'
+      - 'js/**'
+      - '_config*.yml'
+      - 'Gemfile*'
+      - 'package*.json'
+      - 'e2e/**'
+      - 'playwright*.config.ts'
+      - '.github/workflows/playwright.yml'
 name: Playwright E2E Tests
 
 permissions:
   contents: read
   statuses: write
 
+env:
+  NODE_VERSION: 20
+
 jobs:
   playwright:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -16,7 +48,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
 
       - name: Setup Ruby
@@ -24,16 +56,29 @@ jobs:
         with:
           bundler-cache: true
 
-      - name: install libvips
-        run: |
-          sudo apt-get update
-          sudo apt-get install libvips-dev -y
+      - name: Cache apt packages
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: libvips-dev
+          version: 1.0
 
       - name: Install Node dependencies
         run: npm ci
 
+      - name: Cache Playwright Browsers
+        uses: actions/cache@v4
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
       - name: Install Playwright Browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright Browser Dependencies
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
 
       - name: Build Jekyll site
         run: bundle exec jekyll build
@@ -43,8 +88,8 @@ jobs:
 
       - name: Start Jekyll server
         run: |
-          bundle exec jekyll serve --detach
-          sleep 5
+          bundle exec jekyll serve --detach --skip-initial-build
+          sleep 2
 
       - name: Wait for server to be ready
         run: |
@@ -62,7 +107,7 @@ jobs:
         with:
           name: playwright-report
           path: playwright-report/
-          retention-days: 30
+          retention-days: 14
 
       - name: Upload Test Results
         uses: actions/upload-artifact@v4
@@ -70,4 +115,4 @@ jobs:
         with:
           name: test-results
           path: test-results/
-          retention-days: 30
+          retention-days: 14
