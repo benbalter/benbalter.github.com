@@ -47,7 +47,7 @@ function hexToRgb(hex: string): [number, number, number] {
   return [0, 0, 0]; // Default to black if parsing fails
 }
 
-export const { getStaticPaths, GET } = OGImageRoute({
+export const { getStaticPaths, GET } = await OGImageRoute({
   // Pass the pages object
   pages,
   
