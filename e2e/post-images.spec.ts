@@ -38,9 +38,9 @@ test.describe('Post Images', () => {
       expect(ogImageContent).toBeTruthy();
       expect(ogImageContent!.length).toBeGreaterThan(0);
 
-      // Twitter Card image is optional - only check if present
-      const twitterImage = page.locator('meta[name="twitter:image"]');
-      const twitterImageCount = await twitterImage.count();
+      // Check for Twitter Card image tag (Jekyll SEO tag uses property attribute)
+      const twitterImage = page.locator('meta[property="twitter:image"]');
+      await expect(twitterImage).toHaveCount(1);
       
       if (twitterImageCount > 0) {
         const twitterImageContent = await twitterImage.getAttribute('content');
