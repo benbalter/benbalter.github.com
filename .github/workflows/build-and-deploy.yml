@@ -14,6 +14,9 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
+env:
+  NODE_VERSION: 20
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,7 +27,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
 
       - name: Setup Ruby
@@ -36,10 +39,11 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
 
-      - name: install libvips
-        run: |
-          sudo apt-get update
-          sudo apt-get install libvips-dev -y
+      - name: Cache apt packages
+        uses: awalsh128/cache-apt-pkgs-action@v1
+        with:
+          packages: libvips-dev
+          version: 1.0
 
       - name: Install dependencies
         run: npm ci

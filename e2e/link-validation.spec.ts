@@ -51,7 +51,8 @@ async function validateAndCacheUrl(href: string, request: APIRequestContext): Pr
 
 test.describe('Link Validation', () => {
   test('homepage should not have broken internal links', async ({ page, request }) => {
-    await page.goto('/', { waitUntil: 'networkidle' });
+    // Use domcontentloaded - we only need DOM access to find links
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
     
     // Get all links on the homepage
     const links = await page.locator('a[href]').all();
@@ -100,7 +101,8 @@ test.describe('Link Validation', () => {
     
     for (const url of sampleUrls) {
       try {
-        await page.goto(url, { waitUntil: 'networkidle', timeout: 15000 });
+        // Use domcontentloaded for faster page access - we only need DOM to find links
+        await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 15000 });
         
         // Get all links on this page
         const links = await page.locator('article a[href], .post a[href], main a[href]').all();
@@ -150,7 +152,8 @@ test.describe('Link Validation', () => {
     
     for (const url of pageUrls) {
       try {
-        await page.goto(url, { waitUntil: 'networkidle', timeout: 15000 });
+        // Use domcontentloaded for faster page access - we only need DOM to find links
+        await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 15000 });
         
         // Get all links on this page
         const links = await page.locator('a[href]').all();
@@ -196,7 +199,8 @@ test.describe('Link Validation', () => {
   });
 
   test('navigation links should all work', async ({ page, request }) => {
-    await page.goto('/', { waitUntil: 'networkidle' });
+    // Use domcontentloaded - we only need DOM access to find links
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
     
     // Get all navigation links
     const navLinks = await page.locator('nav a[href], .navbar a[href]').all();
@@ -233,7 +237,8 @@ test.describe('Link Validation', () => {
   });
 
   test('footer links should all work', async ({ page, request }) => {
-    await page.goto('/', { waitUntil: 'networkidle' });
+    // Use domcontentloaded - we only need DOM access to find links
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
     
     // Get all footer links
     const footerLinks = await page.locator('footer a[href], nav.border-top a[href]').all();
