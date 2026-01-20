@@ -5,10 +5,27 @@ on:
     branches:
       - main
       - master
+    paths:
+      - 'src/**/*.ts'
+      - 'src/**/*.tsx'
+      - 'src/**/*.js'
+      - 'vitest.config.ts'
+      - 'package*.json'
+      - '.github/workflows/vitest.yml'
   pull_request:
+    paths:
+      - 'src/**/*.ts'
+      - 'src/**/*.tsx'
+      - 'src/**/*.js'
+      - 'vitest.config.ts'
+      - 'package*.json'
+      - '.github/workflows/vitest.yml'
 
 permissions:
   contents: read
+
+env:
+  NODE_VERSION: 20
 
 jobs:
   vitest:
@@ -22,7 +39,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
 
       - name: Install dependencies
@@ -37,4 +54,4 @@ jobs:
         with:
           name: vitest-coverage
           path: coverage/
-          retention-days: 30
+          retention-days: 14

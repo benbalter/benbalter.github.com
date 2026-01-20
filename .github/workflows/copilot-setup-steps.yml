@@ -9,6 +9,9 @@ name: "Copilot Setup Steps"
     paths:
       - .github/workflows/copilot-setup-steps.yml
 
+env:
+  NODE_VERSION: 20
+
 jobs:
   copilot-setup-steps:
     runs-on: ubuntu-latest
@@ -26,13 +29,14 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
 
-      - name: Install libvips
-        run: |
-          sudo apt-get update
-          sudo apt-get install libvips-dev -y
+      - name: Cache apt packages
+        uses: awalsh128/cache-apt-pkgs-action@v1
+        with:
+          packages: libvips-dev
+          version: 1.0
 
       - name: Install dependencies
         run: script/bootstrap

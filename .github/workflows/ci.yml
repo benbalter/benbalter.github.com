@@ -1,12 +1,82 @@
-"on": push
+"on":
+  push:
+    branches: [main, master]
+  pull_request:
 name: CI
 
 permissions:
   contents: read
   statuses: write
 
+env:
+  # Shared environment variables for all jobs
+  NODE_VERSION: 20
+
 jobs:
+  # Check which jobs need to run based on changed files
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      content: ${{ steps.filter.outputs.content }}
+      code: ${{ steps.filter.outputs.code }}
+      astro: ${{ steps.filter.outputs.astro }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check for file changes
+        uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            content:
+              - '_posts/**'
+              - '_resume_positions/**'
+              - '*.md'
+              - '_data/**'
+              - 'dictionary.txt'
+              - '.remarkrc.js'
+              - '.remarkignore'
+              - '.textlintrc'
+              - '.vale.ini'
+              - '.markdown-lint.yml'
+              - '.markdownlint-cli2.cjs'
+              - 'script/cibuild-content'
+              - 'script/remark'
+              - 'script/lint-text'
+              - 'script/vale'
+            code:
+              - '**/*.rb'
+              - '**/*.js'
+              - '**/*.ts'
+              - '**/*.json'
+              - '**/*.yml'
+              - '**/*.yaml'
+              - '_config*.yml'
+              - 'Gemfile*'
+              - 'package*.json'
+              - 'Rakefile'
+              - '_layouts/**'
+              - '_includes/**'
+              - 'assets/**'
+              - 'sass/**'
+              - 'js/**'
+              - 'lib/**'
+              - 'script/**'
+              - 'spec/**'
+              - '.rubocop*.yml'
+              - '.eslintrc.yml'
+              - 'eslint.config.js'
+              - '.yamllint.yml'
+            astro:
+              - 'src/**'
+              - 'astro.config.mjs'
+              - 'tsconfig.astro.json'
+              - 'public/**'
+
   content:
+    needs: changes
+    if: ${{ needs.changes.outputs.content == 'true' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -15,16 +85,18 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
 
       - name: Install
-        run: npm install
+        run: npm ci
 
       - name: script/cibuild-content
         run: script/cibuild-content
 
   code:
+    needs: changes
+    if: ${{ needs.changes.outputs.code == 'true' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -37,13 +109,14 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
 
-      - name: install libvips
-        run: |
-          sudo apt-get update
-          sudo apt-get install libvips-dev -y
+      - name: Cache apt packages
+        uses: awalsh128/cache-apt-pkgs-action@v1
+        with:
+          packages: libvips-dev
+          version: 1.0
 
       - name: script/bootstrap
         run: script/bootstrap
@@ -52,6 +125,8 @@ jobs:
         run: script/cibuild-code
 
   astro:
+    needs: changes
+    if: ${{ needs.changes.outputs.astro == 'true' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -60,7 +135,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
 
       - name: Install dependencies
@@ -68,41 +143,3 @@ jobs:
 
       - name: Run Astro check
         run: npm run astro:check
-
-  # lighthouse: # Temporarily disabled
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-
-  #     - uses: ruby/setup-ruby@v1
-  #       with:
-  #         bundler-cache: true
-
-  #     - name: install libvips
-  #       run: |
-  #         sudo apt-get update
-  #         sudo apt-get install libvips-dev -y
-
-  #     - name: Use Node.js 16.x
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version: 20
-  #         cache: 'npm'
-
-  #     - name: Setup Pages
-  #       id: pages
-  #       uses: actions/configure-pages@v5
-
-  #     - run: bundle exec jekyll build
-  #       env:
-  #         JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  #         JEKYLL_ENV: production
-  #         PAGES_ENV: dotcom
-
-  #     - name: run Lighthouse CI
-  #       run: |
-  #         npm install -g @lhci/cli@0.8.x
-  #         lhci autorun
-  #       env:
-  #         LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

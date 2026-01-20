@@ -38,15 +38,18 @@ test.describe('Post Images', () => {
       expect(ogImageContent).toBeTruthy();
       expect(ogImageContent!.length).toBeGreaterThan(0);
 
-      // Check for Twitter Card image tag (Jekyll SEO tag uses property attribute)
-      const twitterImage = page.locator('meta[property="twitter:image"]');
-      await expect(twitterImage).toHaveCount(1);
+      // Check for Twitter Card image tag
+      // Jekyll SEO tag uses property attribute, but some implementations use name
+      const twitterImageByProperty = page.locator('meta[property="twitter:image"]');
+      const twitterImageByName = page.locator('meta[name="twitter:image"]');
+      const twitterImageCount = await twitterImageByProperty.count() + await twitterImageByName.count();
+      expect(twitterImageCount).toBeGreaterThanOrEqual(1);
       
-      if (twitterImageCount > 0) {
-        const twitterImageContent = await twitterImage.getAttribute('content');
-        expect(twitterImageContent).toBeTruthy();
-        expect(twitterImageContent!.length).toBeGreaterThan(0);
-      }
+      // Get content from whichever exists
+      const twitterImage = await twitterImageByProperty.count() > 0 ? twitterImageByProperty : twitterImageByName;
+      const twitterImageContent = await twitterImage.getAttribute('content');
+      expect(twitterImageContent).toBeTruthy();
+      expect(twitterImageContent!.length).toBeGreaterThan(0);
     });
   });
 

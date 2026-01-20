@@ -20,9 +20,9 @@ export async function checkCommonElements(page: Page) {
  * Check navigation elements
  */
 export async function checkNavigation(page: Page) {
-  // Check for navigation or header
+  // Check for navigation or header (use .first() to avoid strict mode when multiple matches)
   const nav = page.locator('nav, header');
-  await expect(nav).toBeVisible();
+  await expect(nav.first()).toBeVisible();
 }
 
 /**

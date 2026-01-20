@@ -4,8 +4,8 @@ import { waitForPageReady } from './helpers';
 test.describe('SEO', () => {
   const pages = [
     { url: '/', name: 'Homepage' },
-    { url: '/about', name: 'About' },
-    { url: '/resume', name: 'Resume' },
+    { url: '/about/', name: 'About' },
+    { url: '/resume/', name: 'Resume' },
   ];
 
   pages.forEach(({ url, name }) => {
