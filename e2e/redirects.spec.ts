@@ -179,8 +179,16 @@ test.describe('Legacy URL Redirects', () => {
       // Check canonical link (accepts any host for testing, with or without quotes around href)
       expect(content).toMatch(/<link\s+(?:href=["']?https?:\/\/[^\s"'>]+\/resume\/["']?\s+)?rel=["']?canonical["']?|<link\s+rel=["']?canonical["']?(?:\s+href=["']?https?:\/\/[^\s"'>]+\/resume\/["']?)?/);
       
-      // Check robots noindex (with or without quotes and flexible attribute order)
-      expect(content).toMatch(/<meta\s+(?:name=["']?robots["']?\s+content=["']?noindex["']?|content=["']?noindex["']?\s+name=["']?robots["']?)\s*>/);
+      // Check robots noindex meta tag in a maintainable way:
+      // find all <meta> tags, then ensure at least one has both name="robots" and content="noindex",
+      // regardless of attribute order or quoting
+      const metaTags = content.match(/<meta[^>]*>/gi) || [];
+      const hasRobotsNoindex = metaTags.some((tag) => {
+        const hasNameRobots = /name=["']?robots["']?/i.test(tag);
+        const hasContentNoindex = /content=["']?noindex["']?/i.test(tag);
+        return hasNameRobots && hasContentNoindex;
+      });
+      expect(hasRobotsNoindex).toBeTruthy();
 
       
       // Check fallback content for users with JavaScript disabled
