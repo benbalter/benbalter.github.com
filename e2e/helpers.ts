@@ -169,14 +169,19 @@ export async function detectBuildSystem(page: Page): Promise<'astro' | 'jekyll' 
   }
   
   // Check for meta generator tag
-  const generator = await page.locator('meta[name="generator"]').getAttribute('content');
-  if (generator?.includes('Astro')) {
-    return 'astro';
-  }
+  const generatorMeta = page.locator('meta[name="generator"]');
+  const generatorCount = await generatorMeta.count();
   
-  // Check for Jekyll-specific generator tag
-  if (generator?.includes('Jekyll')) {
-    return 'jekyll';
+  if (generatorCount > 0) {
+    const generator = await generatorMeta.getAttribute('content');
+    if (generator?.includes('Astro')) {
+      return 'astro';
+    }
+    
+    // Check for Jekyll-specific generator tag
+    if (generator?.includes('Jekyll')) {
+      return 'jekyll';
+    }
   }
   
   // Default to Jekyll (current production build)
