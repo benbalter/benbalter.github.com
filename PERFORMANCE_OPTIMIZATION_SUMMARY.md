@@ -1,9 +1,11 @@
 # Performance Optimization Summary
 
 ## Problem Statement
+
 Identify and suggest improvements to slow or inefficient code in the Astro site.
 
 ## Analysis Conducted
+
 Analyzed the Astro site build process and identified multiple performance bottlenecks:
 
 1. **Related Posts TF-IDF Algorithm**: O(n³) complexity with redundant computations
@@ -14,20 +16,24 @@ Analyzed the Astro site build process and identified multiple performance bottle
 ## Optimizations Implemented
 
 ### 1. TF-IDF Caching System
+
 **File**: `src/utils/related-posts.ts`
 
 **Before**:
+
 - Calculated TF-IDF for every post-to-post comparison
 - 184 posts × 184 comparisons = 33,856 full calculations
 - Each calculation included: word extraction, TF, IDF, TF-IDF, similarity
 
 **After**:
+
 - Pre-compute TF-IDF vectors once for all posts
 - Cache word extraction, IDF values, and TF-IDF vectors
 - Only calculate cosine similarity per comparison (lightweight)
 - Total operations reduced from 33,856 to 184 + (184 × 184 fast lookups)
 
 **Code Changes**:
+
 ```typescript
 // Added caching infrastructure
 const wordsCache = new Map<string, string[]>();
@@ -44,9 +50,11 @@ const similarity = cosineSimilarity(currentTfIdf, postTfIdf);
 ```
 
 ### 2. Parallel File I/O
+
 **File**: `src/scripts/generate-redirects.ts`
 
 **Before**:
+
 ```typescript
 for (const file of files) {
   const result = await readMarkdownFile(filePath);
@@ -55,6 +63,7 @@ for (const file of files) {
 ```
 
 **After**:
+
 ```typescript
 const fileResults = await Promise.all(
   mdFiles.map(file => readMarkdownFile(path.join(POSTS_DIR, file)))
@@ -64,9 +73,11 @@ const fileResults = await Promise.all(
 **Impact**: Concurrent file reads instead of sequential
 
 ### 3. Parallel Redirect Generation
+
 **File**: `src/scripts/generate-redirects.ts`
 
 **Before**:
+
 ```typescript
 for (const redirect of redirects) {
   await writeRedirectFile(redirect.from, html);
@@ -74,6 +85,7 @@ for (const redirect of redirects) {
 ```
 
 **After**:
+
 ```typescript
 await Promise.all(
   redirects.map(redirect => writeRedirectFile(redirect.from, html))
@@ -83,9 +95,11 @@ await Promise.all(
 **Impact**: 27 redirects generated concurrently
 
 ### 4. Memory Optimization
+
 **File**: `src/pages/[year]/[month]/[day]/[slug].astro`
 
 **Implementation**:
+
 ```typescript
 // Initialize cache once in getStaticPaths to avoid redundant computation
 initializeRelatedPostsCache(posts);
@@ -99,6 +113,7 @@ props: { post, allPosts: posts }
 ## Performance Results
 
 ### Build Time
+
 - **Before**: 74.56 seconds
 - **After (Core)**: 10.52 seconds  
 - **After (with Compression)**: 18-20 seconds
@@ -106,6 +121,7 @@ props: { post, allPosts: posts }
 - **Total Improvement**: 73% reduction (55 seconds saved)
 
 ### Breakdown
+
 ```
 Before Optimization:
 ├─ Related posts calculation: ~60s (80%)
@@ -127,6 +143,7 @@ Total: 18-20s
 ```
 
 ### Throughput
+
 - **Core build pages/second**: 18.5 (was 2.5)
 - **With compression pages/second**: 10.3 (was 2.5)
 - **Build efficiency**: 7.4× improvement (core), 4.1× improvement (total)
@@ -134,21 +151,27 @@ Total: 18-20s
 ## Testing Verification
 
 ### Unit Tests
+
 ✅ All 189 tests passing
+
 - Related posts algorithm correctness
 - Cache initialization and clearing
 - Edge cases (single post, empty descriptions)
 - Stop word filtering
 
 ### Build Tests
+
 ✅ Three consecutive builds completed successfully
+
 - Build 1: 10.52s
 - Build 2: 10.56s  
 - Build 3: 10.70s
 - **Average**: 10.59s (highly consistent)
 
 ### Type Checking
+
 ✅ Astro type checking passed
+
 - 0 errors
 - 0 warnings
 - 0 hints
@@ -156,16 +179,19 @@ Total: 18-20s
 ## Code Quality
 
 ### Test Coverage
+
 - 8 tests for related posts functionality
 - beforeEach hook for cache clearing (test isolation)
 - Edge cases covered
 
 ### Documentation
+
 - Comprehensive ASTRO_PERFORMANCE_IMPROVEMENTS.md (226 lines)
 - Inline comments explaining caching strategy
 - Clear function documentation
 
 ### Code Review
+
 - Fixed variable shadowing issue
 - Removed unused variables
 - All review comments addressed
@@ -173,11 +199,13 @@ Total: 18-20s
 ## Security Analysis
 
 ### Cache Safety
+
 - Module-level caches are safe (no user input)
 - All cached data is from trusted sources (posts collection)
 - No external data stored in caches
 
 ### Performance Trade-offs
+
 - Small memory increase (~255 KB) for massive computation savings
 - No security vulnerabilities introduced
 - All optimizations are transparent to users
@@ -193,6 +221,7 @@ Total: 18-20s
 ## Compression Trade-off
 
 The site uses astro-compress (added in PR #1278) to optimize production assets:
+
 - **Benefit**: 323 KB+ reduction in HTML files, smaller JS/CSS/SVG
 - **Cost**: +8-10 seconds to build time
 - **Verdict**: Worthwhile trade-off for production (improves user-facing performance)
