@@ -160,8 +160,9 @@ test.describe('Other Recommended Reading Redirects', () => {
 
   oldUrls.forEach((url) => {
     test(`should redirect from ${url} to /other-recommended-reading`, async ({ page }) => {
+      // Use domcontentloaded for faster redirect testing - JS redirects run after DOM is ready
       await page.goto(url);
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('domcontentloaded');
       
       // Should be redirected to the new URL
       expect(page.url()).toContain('/other-recommended-reading');
