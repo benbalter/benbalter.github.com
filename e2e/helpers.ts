@@ -13,7 +13,7 @@ export async function checkCommonElements(page: Page) {
   
   // Check for basic HTML structure
   const html = page.locator('html');
-  await expect(html).toHaveAttribute('lang', 'en-US');
+  await expect(html).toHaveAttribute('lang', 'en');
 }
 
 /**
