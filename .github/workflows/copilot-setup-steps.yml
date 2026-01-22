@@ -10,7 +10,7 @@ name: "Copilot Setup Steps"
       - .github/workflows/copilot-setup-steps.yml
 
 env:
-  NODE_VERSION: 20
+  NODE_VERSION: 24
 
 jobs:
   copilot-setup-steps:
