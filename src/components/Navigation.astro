@@ -158,14 +158,15 @@ const navClasses = hero
   .nav-link {
     display: block;
     padding: 0 1rem;
-    color: var(--bs-link-color);
+    /* Use a darker blue for better contrast against bg-secondary-subtle */
+    color: #0d6efd; /* Bootstrap's --bs-link-color-rgb is lighter, use --bs-primary for better contrast */
     text-decoration: none;
     transition: color 0.15s ease-in-out;
   }
 
   .nav-link:hover,
   .nav-link:focus {
-    color: var(--bs-link-hover-color);
+    color: #0a58ca; /* Darker blue for hover */
   }
 
   .nav-link.active {
@@ -174,7 +175,8 @@ const navClasses = hero
   }
 
   .navbar-text {
-    color: var(--bs-secondary);
+    /* Use a darker gray for better contrast */
+    color: #495057; /* Bootstrap gray-700 for 4.5:1 contrast */
     padding: 0.5rem 0;
   }
 

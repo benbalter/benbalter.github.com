@@ -9,6 +9,8 @@ import AxeBuilder from '@axe-core/playwright';
 
 test.describe('Accessibility - Homepage', () => {
   test.skip('should not have any automatically detectable accessibility violations', async ({ page }) => {
+    // Skipped: Color contrast issues in navbar require design decisions
+    // Current link color #337ab7 against bg #e9ecef has 3.84:1 contrast (needs 4.5:1)
     await page.goto('/');
     
     const accessibilityScanResults = await new AxeBuilder({ page })
@@ -51,7 +53,7 @@ test.describe('Accessibility - Homepage', () => {
     await expect(html).toHaveAttribute('lang', 'en');
   });
   
-  test.skip('should have semantic landmark regions', async ({ page }) => {
+  test('should have semantic landmark regions', async ({ page }) => {
     await page.goto('/');
     
     // Check for main landmark
@@ -60,9 +62,9 @@ test.describe('Accessibility - Homepage', () => {
     await expect(main).toHaveAttribute('id', 'content');
     await expect(main).toHaveAttribute('role', 'main');
     
-    // Check for navigation
-    const nav = page.locator('nav');
-    await expect(nav).toHaveCount(1);
+    // Check for navigation (main navigation in navbar, not footer nav)
+    const mainNav = page.locator('nav[aria-label="Main navigation"]');
+    await expect(mainNav).toHaveCount(1);
     
     // Check for footer
     const footer = page.locator('footer');

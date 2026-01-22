@@ -13,8 +13,8 @@ test.describe('Footer Contact Links', () => {
       links.map(link => link.getAttribute('href')).filter(Boolean)
     );
     
-    // Get contact links from the footer nav (first div contains contact links)
-    const footerLinks = page.locator('footer nav > ul > div:first-child a[href]');
+    // Get contact links from the footer nav (first ul contains contact links)
+    const footerLinks = page.locator('footer nav > div > ul:first-child a[href]');
     const footerUrls = await footerLinks.evaluateAll((links) => 
       links.map(link => link.getAttribute('href')).filter(Boolean)
     );
@@ -72,7 +72,7 @@ test.describe('Footer Contact Links', () => {
     await page.goto('/');
     await waitForPageReady(page);
     
-    const footerContactLinks = page.locator('footer nav > ul > div:first-child a');
+    const footerContactLinks = page.locator('footer nav > div > ul:first-child a');
     const count = await footerContactLinks.count();
     
     expect(count).toBe(5); // Email, vCard, Bluesky, LinkedIn, GitHub
@@ -89,7 +89,7 @@ test.describe('Footer Contact Links', () => {
     await waitForPageReady(page);
     
     // All contact links should have target="_blank" (matching contact/about page behavior)
-    const footerContactLinks = page.locator('footer nav > ul > div:first-child a');
+    const footerContactLinks = page.locator('footer nav > div > ul:first-child a');
     const count = await footerContactLinks.count();
     
     expect(count).toBe(5); // Email, vCard, Bluesky, LinkedIn, GitHub
@@ -110,7 +110,7 @@ test.describe('Footer Contact Links', () => {
     await page.waitForTimeout(200);
     
     // Check that icons are present on initial load (FontAwesome converts <i> to <svg>)
-    const initialIcons = page.locator('footer nav > ul > div:first-child svg[data-icon]');
+    const initialIcons = page.locator('footer nav > div > ul:first-child svg[data-icon]');
     const initialIconCount = await initialIcons.count();
     expect(initialIconCount).toBe(5); // Email, vCard, Bluesky, LinkedIn, GitHub
     
@@ -124,7 +124,7 @@ test.describe('Footer Contact Links', () => {
     await page.waitForTimeout(200);
     
     // Check that footer contact link icons still render after navigation
-    const iconsAfterNav = page.locator('footer nav > ul > div:first-child svg[data-icon]');
+    const iconsAfterNav = page.locator('footer nav > div > ul:first-child svg[data-icon]');
     const iconCountAfterNav = await iconsAfterNav.count();
     expect(iconCountAfterNav).toBe(5);
     
@@ -143,7 +143,7 @@ test.describe('Footer Contact Links', () => {
     await page.waitForTimeout(200);
     
     // Check icons still work after second navigation
-    const iconsAfterSecondNav = page.locator('footer nav > ul > div:first-child svg[data-icon]');
+    const iconsAfterSecondNav = page.locator('footer nav > div > ul:first-child svg[data-icon]');
     const iconCountAfterSecondNav = await iconsAfterSecondNav.count();
     expect(iconCountAfterSecondNav).toBe(5);
     
