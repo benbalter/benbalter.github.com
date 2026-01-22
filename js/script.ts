@@ -19,8 +19,14 @@ window.Collapse = Collapse
 window.Tooltip = Tooltip
 const anchors = new AnchorJS()
 
+// Guard flag to prevent double initialization
+let initialized = false
+
 // Initialize page functionality (for both Astro and Jekyll)
 function initializePage() {
+  if (initialized) return
+  initialized = true
+
   anchors.add()
 
   const els = document.querySelectorAll('[data-bs-toggle="tooltip"]')
