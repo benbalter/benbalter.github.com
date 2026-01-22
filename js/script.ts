@@ -19,7 +19,14 @@ window.Collapse = Collapse
 window.Tooltip = Tooltip
 const anchors = new AnchorJS()
 
-document.addEventListener('astro:page-load', () => {
+// Guard flag to prevent double initialization
+let initialized = false
+
+// Initialize page functionality (for both Astro and Jekyll)
+function initializePage() {
+  if (initialized) return
+  initialized = true
+
   anchors.add()
 
   const els = document.querySelectorAll('[data-bs-toggle="tooltip"]')
@@ -45,7 +52,13 @@ document.addEventListener('astro:page-load', () => {
     xhr.open('GET', `${window.location.protocol}//${window.location.host}/sitemap.xml`)
     xhr.send()
   }
-})
+}
+
+// For Astro: Listen for Astro's page load event
+document.addEventListener('astro:page-load', initializePage)
+
+// For Jekyll: Listen for standard DOMContentLoaded event
+document.addEventListener('DOMContentLoaded', initializePage)
 
 config.mutateApproach = 'sync'
 library.add(
