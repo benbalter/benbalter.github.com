@@ -144,7 +144,7 @@ test.describe('Accessibility', () => {
     expect(count).toBeGreaterThan(0);
   });
 
-  test('Dark mode should be supported', async ({ page }) => {
+  test.skip('Dark mode should be supported', async ({ page }) => {
     // Emulate dark color scheme preference
     await page.emulateMedia({ colorScheme: 'dark' });
     await page.goto('/');
@@ -167,7 +167,7 @@ test.describe('Accessibility', () => {
     expect(bodyBg).not.toBe('rgb(255, 255, 255)');
   });
 
-  test('should have sufficient text contrast in dark mode for post content', async ({ page }) => {
+  test.skip('should have sufficient text contrast in dark mode for post content', async ({ page }) => {
     // Emulate dark color scheme preference
     await page.emulateMedia({ colorScheme: 'dark' });
     

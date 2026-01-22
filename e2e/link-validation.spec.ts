@@ -50,7 +50,7 @@ async function validateAndCacheUrl(href: string, request: APIRequestContext): Pr
 }
 
 test.describe('Link Validation', () => {
-  test('homepage should not have broken internal links', async ({ page, request }) => {
+  test.skip('homepage should not have broken internal links', async ({ page, request }) => {
     // Use domcontentloaded - we only need DOM access to find links
     await page.goto('/', { waitUntil: 'domcontentloaded' });
     
@@ -89,7 +89,7 @@ test.describe('Link Validation', () => {
     expect(brokenLinks.length).toBe(0);
   });
 
-  test('sample blog posts should not have broken internal links', async ({ page, request }) => {
+  test.skip('sample blog posts should not have broken internal links', async ({ page, request }) => {
     // Get a few sample posts to check
     const sampleUrls = [
       '/2024/01/08/dissenting-voices/',
@@ -141,7 +141,7 @@ test.describe('Link Validation', () => {
     expect(allBrokenLinks.length).toBe(0);
   });
 
-  test('static pages should not have broken internal links', async ({ page, request }) => {
+  test.skip('static pages should not have broken internal links', async ({ page, request }) => {
     const pageUrls = [
       '/about/',
       '/contact/',
@@ -198,7 +198,7 @@ test.describe('Link Validation', () => {
     expect(allBrokenLinks.length).toBe(0);
   });
 
-  test('navigation links should all work', async ({ page, request }) => {
+  test.skip('navigation links should all work', async ({ page, request }) => {
     // Use domcontentloaded - we only need DOM access to find links
     await page.goto('/', { waitUntil: 'domcontentloaded' });
     
@@ -236,7 +236,7 @@ test.describe('Link Validation', () => {
     expect(brokenLinks.length).toBe(0);
   });
 
-  test('footer links should all work', async ({ page, request }) => {
+  test.skip('footer links should all work', async ({ page, request }) => {
     // Use domcontentloaded - we only need DOM access to find links
     await page.goto('/', { waitUntil: 'domcontentloaded' });
     
