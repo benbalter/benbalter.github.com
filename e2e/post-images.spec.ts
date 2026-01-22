@@ -30,7 +30,7 @@ test.describe('Post Images', () => {
       await page.goto(postUrl);
       await waitForPageReady(page);
 
-      // Check for Open Graph image tag
+      // Check for Open Graph image tag (required)
       const ogImage = page.locator('meta[property="og:image"]');
       await expect(ogImage).toHaveCount(1);
       

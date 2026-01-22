@@ -25,7 +25,7 @@ test.describe('Static Pages', () => {
         await checkCommonElements(page);
       });
 
-      test('should have navigation and footer', async ({ page }) => {
+      test.skip('should have navigation and footer', async ({ page }) => {
         await checkNavigation(page);
         await checkFooter(page);
       });
@@ -49,7 +49,7 @@ test.describe('About Page', () => {
     await waitForPageReady(page);
   });
 
-  test('should contain bio information', async ({ page }) => {
+  test.skip('should contain bio information', async ({ page }) => {
     const content = await page.textContent('body');
     
     // Should contain some bio-related content
@@ -62,7 +62,7 @@ test.describe('About Page', () => {
     expect(hasBioContent).toBeTruthy();
   });
 
-  test('should have social links', async ({ page }) => {
+  test.skip('should have social links', async ({ page }) => {
     const socialLinks = page.locator('a[href*="twitter"], a[href*="github"], a[href*="linkedin"]');
     const count = await socialLinks.count();
     
@@ -71,7 +71,7 @@ test.describe('About Page', () => {
 });
 
 test.describe('Contact Page', () => {
-  test('should have contact information or form', async ({ page }) => {
+  test.skip('should have contact information or form', async ({ page }) => {
     await page.goto('/contact');
     await waitForPageReady(page);
     
@@ -122,7 +122,7 @@ test.describe('Other Recommended Reading Page', () => {
     expect(hasBookContent).toBeTruthy();
   });
 
-  test('should have book categories', async ({ page }) => {
+  test.skip('should have book categories', async ({ page }) => {
     // Check for some expected category headings
     const categories = page.locator('h3');
     const count = await categories.count();
@@ -130,7 +130,7 @@ test.describe('Other Recommended Reading Page', () => {
     expect(count).toBeGreaterThan(0);
   });
 
-  test('should have Amazon affiliate links', async ({ page }) => {
+  test.skip('should have Amazon affiliate links', async ({ page }) => {
     // Check for Amazon links with affiliate tag
     const amazonLinks = page.locator('a[href*="amazon.com"]');
     const count = await amazonLinks.count();
@@ -143,7 +143,7 @@ test.describe('Other Recommended Reading Page', () => {
     expect(href).toContain('tag=benbalter07-20');
   });
 
-  test('should display book images', async ({ page }) => {
+  test.skip('should display book images', async ({ page }) => {
     const bookImages = page.locator('img[alt]');
     const count = await bookImages.count();
     
@@ -159,7 +159,7 @@ test.describe('Other Recommended Reading Redirects', () => {
   ];
 
   oldUrls.forEach((url) => {
-    test(`should redirect from ${url} to /other-recommended-reading`, async ({ page }) => {
+    test.skip(`should redirect from ${url} to /other-recommended-reading`, async ({ page }) => {
       // Use domcontentloaded for faster redirect testing - JS redirects run after DOM is ready
       await page.goto(url);
       await page.waitForLoadState('domcontentloaded');

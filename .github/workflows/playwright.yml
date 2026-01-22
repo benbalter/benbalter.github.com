@@ -80,25 +80,22 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit == 'true'
         run: npx playwright install-deps chromium
 
-      - name: Build Jekyll site
-        run: bundle exec jekyll build
-        env:
-          JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          JEKYLL_ENV: production
+      - name: Build Astro site
+        run: npm run astro:build
 
-      - name: Start Jekyll server
+      - name: Start Astro preview server
         run: |
-          bundle exec jekyll serve --detach --skip-initial-build
-          sleep 1
+          npm run astro:preview -- --host &
+          sleep 5
 
       - name: Wait for server to be ready
         run: |
-          timeout 30 bash -c 'until curl -sf http://localhost:4000; do sleep 1; done'
+          timeout 30 bash -c 'until curl -sf http://localhost:4321; do sleep 1; done'
 
-      - name: Run Playwright tests
-        run: npm run test:e2e
+      - name: Run Playwright tests (Astro)
+        run: npm run test:e2e:astro
         env:
-          BASE_URL: http://localhost:4000
+          BASE_URL: http://localhost:4321
           CI: true
 
       - name: Upload Playwright Report

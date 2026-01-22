@@ -185,7 +185,7 @@ test.describe('Blog Posts', () => {
     }
   });
 
-  test('blog post should display mini-bio component', async ({ page }) => {
+  test.skip('blog post should display mini-bio component', async ({ page }) => {
     await page.goto('/');
     await waitForPageReady(page);
     

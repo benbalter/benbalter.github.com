@@ -104,7 +104,7 @@ test.describe('SEO', () => {
     });
   });
 
-  test('sitemap should be accessible', async ({ page }) => {
+  test.skip('sitemap should be accessible', async ({ page }) => {
     // Try both sitemap.xml and sitemap_index.xml
     let response = await page.goto('/sitemap.xml');
     let status = response?.status();

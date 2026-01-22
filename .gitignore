@@ -59,3 +59,7 @@ coverage/
 .env.test.local
 .env.production.local
 screenshots/
+
+# Next.js build artifacts and cache
+.next/
+out/

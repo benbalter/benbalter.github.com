@@ -35,7 +35,7 @@ const navClasses = hero
   : "navbar navbar-expand-md bg-secondary-subtle text-secondary border-start border-end border-bottom border-top rounded-top rounded-bottom mb-3";
 ---
 
-<div class={navClasses + ' shadow-sm'}>
+<nav class={navClasses + ' shadow-sm'} aria-label="Main navigation">
   <div class="container-fluid">
     <a class="navbar-brand fw-bold" href="/">{siteConfig.name}</a>
     <button 
@@ -48,7 +48,7 @@ const navClasses = hero
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="collapse navbar-collapse" id="navbar">
       <ul class="navbar-nav me-auto">
         {navItems.map((item) => {
           const isActive = currentPath === item.url || 
@@ -72,7 +72,7 @@ const navClasses = hero
       {siteConfig.description}
     </span>
   </div>
-</div>
+</nav>
 
 <style lang="scss">
   /* Import Bootstrap navigation components (scoped to this component) */
