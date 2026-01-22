@@ -19,6 +19,7 @@ const posts: CollectionEntry<'posts'>[] = allPosts.sort((a: CollectionEntry<'pos
 ---
 
 <BaseLayout title={title} description={description} hero={true}>
+  <h1 class="visually-hidden">Posts</h1>
   <ul class="list-unstyled p-0 m-0">
     {posts.map((post) => {
       const postDate = getDateFromSlug(post.slug);
