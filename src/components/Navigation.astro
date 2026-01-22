@@ -90,6 +90,15 @@ const navClasses = hero
     background-color: var(--bs-secondary-bg) !important;
     border: 1px solid var(--bs-border-color);
   }
+  
+  /* Override Bootstrap nav link colors for better contrast (WCAG AA compliance) */
+  /* These variables are set on .nav by Bootstrap, so we override them here */
+  /* Background color is #e9ecef (bg-secondary-subtle) */
+  /* #1a5490 on #e9ecef = 5.3:1 contrast ratio (exceeds 4.5:1 requirement) */
+  .navbar-nav {
+    --bs-nav-link-color: #1a5490;
+    --bs-nav-link-hover-color: #133d6b;
+  }
 
   .container-fluid {
     display: flex;
@@ -158,23 +167,29 @@ const navClasses = hero
   .nav-link {
     display: block;
     padding: 0 1rem;
-    color: var(--bs-link-color);
+    /* Override Bootstrap's var(--bs-nav-link-color) with a direct color for WCAG AA contrast */
+    /* #1a5490 on #e9ecef = 5.3:1 contrast ratio (exceeds 4.5:1 requirement) */
+    color: #1a5490;
     text-decoration: none;
     transition: color 0.15s ease-in-out;
   }
 
   .nav-link:hover,
   .nav-link:focus {
-    color: var(--bs-link-hover-color);
+    color: #133d6b;
   }
 
   .nav-link.active {
-    color: var(--bs-emphasis-color);
+    /* Use high-contrast color for active link */
+    /* #212529 on #e9ecef = 12.6:1 contrast ratio */
+    color: #212529;
     font-weight: 500;
   }
 
   .navbar-text {
-    color: var(--bs-secondary);
+    /* Use a darker gray for better contrast against bg-secondary-subtle (#e9ecef) */
+    /* WCAG AA requires 4.5:1 contrast ratio. #495057 on #e9ecef = 6.0:1 */
+    color: #495057;
     padding: 0.5rem 0;
   }
 
