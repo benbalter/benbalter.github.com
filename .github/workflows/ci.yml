@@ -10,7 +10,7 @@ permissions:
 
 env:
   # Shared environment variables for all jobs
-  NODE_VERSION: 20
+  NODE_VERSION: 24
 
 jobs:
   # Check which jobs need to run based on changed files
