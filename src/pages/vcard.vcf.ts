@@ -14,18 +14,30 @@ const firstName = nameParts.slice(0, -1).join(' ');
 // Generate filename from author name (e.g., "Ben Balter" -> "ben-balter.vcf")
 const vcfFilename = `${siteConfig.author.toLowerCase().replace(/\s+/g, '-')}.vcf`;
 
+/**
+ * Escape special characters in vCard values according to RFC 6350
+ * Backslashes must be escaped first, then commas, then semicolons, then newlines
+ */
+function escapeVCardValue(value: string): string {
+  return value
+    .replace(/\\/g, '\\\\')  // Escape backslashes first
+    .replace(/,/g, '\\,')    // Escape commas
+    .replace(/;/g, '\\;')    // Escape semicolons
+    .replace(/\n/g, '\\n');  // Escape newlines
+}
+
 export const GET: APIRoute = () => {
   const vCardContent = `BEGIN:VCARD
 VERSION:3.0
-FN:${siteConfig.author}
-N:${lastName};${firstName}
-NICKNAME:@${siteConfig.socialUsername}
+FN:${escapeVCardValue(siteConfig.author)}
+N:${escapeVCardValue(lastName)};${escapeVCardValue(firstName)}
+NICKNAME:@${escapeVCardValue(siteConfig.socialUsername)}
 EMAIL:${siteConfig.email}
 KEY;TYPE=PGP:${siteConfig.url}/key.asc
 PHOTO;TYPE=JPEG;VALUE=URI:${siteConfig.url}/assets/img/headshot.jpg
 SOURCE:${siteConfig.url}/vcard.vcf
-TITLE:${siteConfig.jobTitle.replace(/,/g, '\\,')}
-ORG:${siteConfig.employer}
+TITLE:${escapeVCardValue(siteConfig.jobTitle)}
+ORG:${escapeVCardValue(siteConfig.employer)}
 TZ:${siteConfig.timezone}
 URL:${siteConfig.url}
 END:VCARD`;
