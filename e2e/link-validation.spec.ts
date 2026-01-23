@@ -36,21 +36,40 @@ function isExternalOrDangerousUrl(href: string): boolean {
 }
 
 /**
+ * Helper function to normalize URLs by ensuring trailing slash
+ * Astro is configured with trailingSlash: 'always'
+ */
+function normalizeUrl(href: string): string {
+  // Don't add trailing slash to files with extensions
+  if (href.includes('.') && !href.includes('?')) {
+    return href;
+  }
+  // Add trailing slash if missing
+  if (!href.endsWith('/')) {
+    return href + '/';
+  }
+  return href;
+}
+
+/**
  * Helper function to validate and cache a URL
  */
 async function validateAndCacheUrl(href: string, request: APIRequestContext): Promise<number> {
-  if (!urlCache.has(href)) {
-    const response = await request.get(href, { 
+  // Normalize URL with trailing slash for Astro
+  const normalizedHref = normalizeUrl(href);
+  
+  if (!urlCache.has(normalizedHref)) {
+    const response = await request.get(normalizedHref, { 
       failOnStatusCode: false,
       timeout: 10000 
     });
-    urlCache.set(href, response.status());
+    urlCache.set(normalizedHref, response.status());
   }
-  return urlCache.get(href)!;
+  return urlCache.get(normalizedHref)!;
 }
 
 test.describe('Link Validation', () => {
-  test.skip('homepage should not have broken internal links', async ({ page, request }) => {
+  test('homepage should not have broken internal links', async ({ page, request }) => {
     // Use domcontentloaded - we only need DOM access to find links
     await page.goto('/', { waitUntil: 'domcontentloaded' });
     
@@ -89,7 +108,7 @@ test.describe('Link Validation', () => {
     expect(brokenLinks.length).toBe(0);
   });
 
-  test.skip('sample blog posts should not have broken internal links', async ({ page, request }) => {
+  test('sample blog posts should not have broken internal links', async ({ page, request }) => {
     // Get a few sample posts to check
     const sampleUrls = [
       '/2024/01/08/dissenting-voices/',
@@ -141,7 +160,7 @@ test.describe('Link Validation', () => {
     expect(allBrokenLinks.length).toBe(0);
   });
 
-  test.skip('static pages should not have broken internal links', async ({ page, request }) => {
+  test('static pages should not have broken internal links', async ({ page, request }) => {
     const pageUrls = [
       '/about/',
       '/contact/',
@@ -198,7 +217,7 @@ test.describe('Link Validation', () => {
     expect(allBrokenLinks.length).toBe(0);
   });
 
-  test.skip('navigation links should all work', async ({ page, request }) => {
+  test('navigation links should all work', async ({ page, request }) => {
     // Use domcontentloaded - we only need DOM access to find links
     await page.goto('/', { waitUntil: 'domcontentloaded' });
     
@@ -236,7 +255,7 @@ test.describe('Link Validation', () => {
     expect(brokenLinks.length).toBe(0);
   });
 
-  test.skip('footer links should all work', async ({ page, request }) => {
+  test('footer links should all work', async ({ page, request }) => {
     // Use domcontentloaded - we only need DOM access to find links
     await page.goto('/', { waitUntil: 'domcontentloaded' });
     
