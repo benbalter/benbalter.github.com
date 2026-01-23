@@ -11,8 +11,19 @@ const nameParts = siteConfig.author.split(' ');
 const lastName = nameParts.length > 1 ? nameParts[nameParts.length - 1] : '';
 const firstName = nameParts.slice(0, -1).join(' ');
 
+/**
+ * Sanitize filename to only allow safe characters (alphanumeric, hyphens, underscores, periods)
+ * This prevents HTTP header injection attacks via Content-Disposition header
+ */
+function sanitizeFilename(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/\s+/g, '-')           // Replace spaces with hyphens
+    .replace(/[^a-z0-9\-_.]/g, ''); // Remove any unsafe characters
+}
+
 // Generate filename from author name (e.g., "Ben Balter" -> "ben-balter.vcf")
-const vcfFilename = `${siteConfig.author.toLowerCase().replace(/\s+/g, '-')}.vcf`;
+const vcfFilename = `${sanitizeFilename(siteConfig.author)}.vcf`;
 
 /**
  * Escape special characters in vCard values according to RFC 6350
@@ -32,7 +43,7 @@ VERSION:3.0
 FN:${escapeVCardValue(siteConfig.author)}
 N:${escapeVCardValue(lastName)};${escapeVCardValue(firstName)}
 NICKNAME:@${escapeVCardValue(siteConfig.socialUsername)}
-EMAIL:${siteConfig.email}
+EMAIL:${escapeVCardValue(siteConfig.email)}
 KEY;TYPE=PGP:${siteConfig.url}/key.asc
 PHOTO;TYPE=JPEG;VALUE=URI:${siteConfig.url}/assets/img/headshot.jpg
 SOURCE:${siteConfig.url}/vcard.vcf
