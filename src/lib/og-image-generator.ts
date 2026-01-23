@@ -11,7 +11,7 @@
 
 import satori from 'satori';
 import { readFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { join, resolve, normalize } from 'node:path';
 import { defaultOGConfig, type OGImageConfig } from './og-config';
 
 interface OGImageOptions {
@@ -20,31 +20,73 @@ interface OGImageOptions {
   config?: Partial<OGImageConfig>;
 }
 
-// Cache for loaded assets
+// Cache for loaded assets (persists across image generations)
 let fontDataCache: ArrayBuffer | null = null;
 let headshot: string | null = null;
 
+// Allowed asset directories for security
+const ALLOWED_ASSET_DIRS = ['assets'];
+
 /**
  * Load the Inter font for text rendering
+ * Font is cached after first load for performance
  */
 async function loadFont(): Promise<ArrayBuffer> {
   if (fontDataCache) return fontDataCache;
   
-  // Try to load Inter font from fontsource CDN
-  const response = await fetch(
-    'https://api.fontsource.org/v1/fonts/inter/latin-700-normal.ttf'
+  try {
+    // Load Inter font from fontsource CDN
+    const response = await fetch(
+      'https://api.fontsource.org/v1/fonts/inter/latin-700-normal.ttf'
+    );
+    
+    if (!response.ok) {
+      throw new Error(`Failed to fetch font: ${response.status}`);
+    }
+    
+    fontDataCache = await response.arrayBuffer();
+    return fontDataCache;
+  } catch (error) {
+    throw new Error(`Failed to load font: ${error instanceof Error ? error.message : 'Unknown error'}`);
+  }
+}
+
+/**
+ * Validate that a path is within allowed directories
+ * Prevents path traversal attacks
+ */
+function validateAssetPath(assetPath: string): string {
+  const projectRoot = process.cwd();
+  
+  // Normalize and resolve the path
+  const normalizedPath = normalize(assetPath);
+  const fullPath = resolve(projectRoot, normalizedPath);
+  
+  // Ensure the path starts with an allowed directory
+  const isAllowed = ALLOWED_ASSET_DIRS.some(dir => 
+    normalizedPath.startsWith(dir) || normalizedPath.startsWith(`./${dir}`)
   );
-  fontDataCache = await response.arrayBuffer();
-  return fontDataCache;
+  
+  if (!isAllowed) {
+    throw new Error(`Asset path must be within allowed directories: ${ALLOWED_ASSET_DIRS.join(', ')}`);
+  }
+  
+  // Ensure resolved path is within project root (prevents traversal)
+  if (!fullPath.startsWith(projectRoot)) {
+    throw new Error('Asset path traversal detected');
+  }
+  
+  return fullPath;
 }
 
 /**
  * Load and encode the headshot image as base64 data URI
+ * Image is cached after first load for performance
  */
 async function loadHeadshot(config: OGImageConfig): Promise<string> {
   if (headshot) return headshot;
   
-  const imagePath = join(process.cwd(), config.logo.path);
+  const imagePath = validateAssetPath(config.logo.path);
   const imageBuffer = await readFile(imagePath);
   const base64 = imageBuffer.toString('base64');
   headshot = `data:image/jpeg;base64,${base64}`;
