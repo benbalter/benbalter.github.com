@@ -115,6 +115,21 @@ nav .border-top .link-secondary {
     }
 }
 
+// Shiki dual theme support for dark mode
+// When using dual themes (light/dark), Shiki outputs CSS custom properties
+// that need to be swapped based on the user's color scheme preference.
+// See: https://shiki.style/guide/dual-themes
+@media (prefers-color-scheme: dark) {
+    .astro-code,
+    .astro-code span {
+        color: var(--shiki-dark) !important;
+        background-color: var(--shiki-dark-bg) !important;
+        font-style: var(--shiki-dark-font-style) !important;
+        font-weight: var(--shiki-dark-font-weight) !important;
+        text-decoration: var(--shiki-dark-text-decoration) !important;
+    }
+}
+
 // Header anchor links styling
 // These styles match the behavior of anchor-js used in Jekyll
 .anchor-link {

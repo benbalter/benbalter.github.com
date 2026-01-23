@@ -274,10 +274,3 @@ test.describe('Link Validation', () => {
     expect(brokenLinks.length).toBe(0);
   });
 });
-
-test.describe('Generated Static Files Validation', () => {
-  test.skip('all generated HTML files should exist and be valid', () => {
-    // This test is skipped - it was for Next.js output validation
-    // Jekyll and Astro builds are validated through other tests
-  });
-});

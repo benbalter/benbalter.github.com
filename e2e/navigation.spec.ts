@@ -69,9 +69,12 @@ test.describe('Navigation Active Link Highlighting', () => {
     await expect(activeLink).toHaveAttribute('href', '/about/');
   });
 
+  // This test is intentionally skipped because:
+  // - It tests server-side redirect behavior (HTTP 301/302 from /about to /about/)
+  // - The Astro preview server serves content without redirects
+  // - Production servers (nginx, GitHub Pages, etc.) would handle this redirect
+  // - The functionality is tested implicitly through other navigation tests
   test.skip('should handle path with or without trailing slash', async ({ page }) => {
-    // Skip: This test is about server redirect behavior which depends on the hosting configuration
-    // The Astro preview server doesn't auto-redirect, but production servers (nginx, etc.) would
     // Navigate to /about (without trailing slash)
     await page.goto('/about');
     await waitForPageReady(page);
