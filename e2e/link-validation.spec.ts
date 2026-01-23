@@ -40,12 +40,18 @@ function isExternalOrDangerousUrl(href: string): boolean {
  * Astro is configured with trailingSlash: 'always'
  */
 function normalizeUrl(href: string): string {
-  // Don't add trailing slash to files with extensions
-  if (href.includes('.') && !href.includes('?')) {
+  // Remove query string and fragment for extension check
+  const pathOnly = href.split('?')[0].split('#')[0];
+  const lastSegment = pathOnly.split('/').pop() || '';
+  
+  // Don't add trailing slash to files with extensions (e.g., .html, .xml, .json)
+  // Check if the last segment contains a dot followed by extension
+  if (lastSegment.includes('.') && lastSegment.lastIndexOf('.') > 0) {
     return href;
   }
+  
   // Add trailing slash if missing
-  if (!href.endsWith('/')) {
+  if (!href.endsWith('/') && !href.includes('?') && !href.includes('#')) {
     return href + '/';
   }
   return href;
