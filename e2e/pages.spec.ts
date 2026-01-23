@@ -8,10 +8,10 @@ import {
 
 test.describe('Static Pages', () => {
   const pages = [
-    { url: '/about', name: 'About' },
-    { url: '/contact', name: 'Contact' },
-    { url: '/talks', name: 'Talks' },
-    { url: '/other-recommended-reading', name: 'Other Recommended Reading' },
+    { url: '/about/', name: 'About' },
+    { url: '/contact/', name: 'Contact' },
+    { url: '/talks/', name: 'Talks' },
+    { url: '/other-recommended-reading/', name: 'Other Recommended Reading' },
   ];
 
   pages.forEach(({ url, name }) => {
@@ -25,13 +25,14 @@ test.describe('Static Pages', () => {
         await checkCommonElements(page);
       });
 
-      test.skip('should have navigation and footer', async ({ page }) => {
+      test('should have navigation and footer', async ({ page }) => {
         await checkNavigation(page);
         await checkFooter(page);
       });
 
       test('should have meaningful content', async ({ page }) => {
-        const content = await page.locator('main, article, .content').textContent();
+        // Use .first() to get the main content area (handles both main and article)
+        const content = await page.locator('main, article, .content').first().textContent();
         expect(content).toBeTruthy();
         expect(content!.length).toBeGreaterThan(50);
       });
@@ -45,11 +46,11 @@ test.describe('Static Pages', () => {
 
 test.describe('About Page', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/about');
+    await page.goto('/about/');
     await waitForPageReady(page);
   });
 
-  test.skip('should contain bio information', async ({ page }) => {
+  test('should contain bio information', async ({ page }) => {
     const content = await page.textContent('body');
     
     // Should contain some bio-related content
@@ -62,7 +63,7 @@ test.describe('About Page', () => {
     expect(hasBioContent).toBeTruthy();
   });
 
-  test.skip('should have social links', async ({ page }) => {
+  test('should have social links', async ({ page }) => {
     const socialLinks = page.locator('a[href*="twitter"], a[href*="github"], a[href*="linkedin"]');
     const count = await socialLinks.count();
     
@@ -71,8 +72,8 @@ test.describe('About Page', () => {
 });
 
 test.describe('Contact Page', () => {
-  test.skip('should have contact information or form', async ({ page }) => {
-    await page.goto('/contact');
+  test('should have contact information or form', async ({ page }) => {
+    await page.goto('/contact/');
     await waitForPageReady(page);
     
     // Check for email link or contact form
@@ -88,7 +89,7 @@ test.describe('Contact Page', () => {
 
 test.describe('Talks Page', () => {
   test('should list talks or presentations', async ({ page }) => {
-    await page.goto('/talks');
+    await page.goto('/talks/');
     await waitForPageReady(page);
     
     const content = await page.textContent('body');
@@ -106,7 +107,7 @@ test.describe('Talks Page', () => {
 
 test.describe('Other Recommended Reading Page', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/other-recommended-reading');
+    await page.goto('/other-recommended-reading/');
     await waitForPageReady(page);
   });
 
@@ -122,7 +123,7 @@ test.describe('Other Recommended Reading Page', () => {
     expect(hasBookContent).toBeTruthy();
   });
 
-  test.skip('should have book categories', async ({ page }) => {
+  test('should have book categories', async ({ page }) => {
     // Check for some expected category headings
     const categories = page.locator('h3');
     const count = await categories.count();
@@ -130,7 +131,7 @@ test.describe('Other Recommended Reading Page', () => {
     expect(count).toBeGreaterThan(0);
   });
 
-  test.skip('should have Amazon affiliate links', async ({ page }) => {
+  test('should have Amazon affiliate links', async ({ page }) => {
     // Check for Amazon links with affiliate tag
     const amazonLinks = page.locator('a[href*="amazon.com"]');
     const count = await amazonLinks.count();
@@ -143,7 +144,7 @@ test.describe('Other Recommended Reading Page', () => {
     expect(href).toContain('tag=benbalter07-20');
   });
 
-  test.skip('should display book images', async ({ page }) => {
+  test('should display book images', async ({ page }) => {
     const bookImages = page.locator('img[alt]');
     const count = await bookImages.count();
     
@@ -153,16 +154,19 @@ test.describe('Other Recommended Reading Page', () => {
 
 test.describe('Other Recommended Reading Redirects', () => {
   const oldUrls = [
-    '/books',
-    '/books-for-geeks',
-    '/recommended-reading',
+    '/books/',
+    '/books-for-geeks/',
+    '/recommended-reading/',
   ];
 
   oldUrls.forEach((url) => {
-    test.skip(`should redirect from ${url} to /other-recommended-reading`, async ({ page }) => {
-      // Use domcontentloaded for faster redirect testing - JS redirects run after DOM is ready
+    test(`should redirect from ${url} to /other-recommended-reading`, async ({ page }) => {
+      // Navigate to old URL - the page uses JS redirect and meta refresh
       await page.goto(url);
-      await page.waitForLoadState('domcontentloaded');
+      
+      // Wait for the JS redirect or meta refresh to complete
+      // The redirect page contains: location="/other-recommended-reading/"
+      await page.waitForURL(/other-recommended-reading/, { timeout: 5000 });
       
       // Should be redirected to the new URL
       expect(page.url()).toContain('/other-recommended-reading');

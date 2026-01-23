@@ -36,6 +36,11 @@ export const siteConfig = {
   // Contact information
   email: 'ben@balter.com',
   
+  // Employment information
+  jobTitle: 'Senior Technical Program Manager',
+  employer: 'GitHub',
+  timezone: 'America/New_York',
+  
   // Social media handles
   twitterHandle: '@benbalter',
   socialUsername: 'benbalter',

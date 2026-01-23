@@ -11,9 +11,9 @@ import { footerLinks, contactLinks } from '../config';
 ---
 
 <footer class="mt-5 pt-4 border-top border-2">
-  <nav aria-label="Footer navigation">
-    <ul class="nav justify-content-between px-2 py-3 mb-4">
-      <div class="d-flex">
+  <nav aria-label="Footer navigation" class="footer-nav">
+    <div class="d-flex justify-content-between px-2 py-3 mb-4 flex-wrap">
+      <ul class="nav contact-links">
         {contactLinks.map((link) => (
           <li class="nav-item">
             <a 
@@ -27,9 +27,9 @@ import { footerLinks, contactLinks } from '../config';
             </a>
           </li>
         ))}
-      </div>
+      </ul>
       
-      <div class="d-flex">
+      <ul class="nav footer-links">
         {footerLinks.map((link) => (
           <li class="nav-item">
             <a href={link.url} class="nav-link link-secondary">
@@ -43,8 +43,8 @@ import { footerLinks, contactLinks } from '../config';
             <i class="fas fa-rss" title="RSS Feed"></i>
           </a>
         </li>
-      </div>
-    </ul>
+      </ul>
+    </div>
   </nav>
 </footer>
 
@@ -64,13 +64,14 @@ import { footerLinks, contactLinks } from '../config';
 
   /* Responsive layout adjustments */
   @media (max-width: 768px) {
-    .nav {
+    .footer-nav > div {
       justify-content: center !important;
       flex-direction: column;
       text-align: center;
     }
     
-    .nav > div {
+    .contact-links,
+    .footer-links {
       justify-content: center !important;
     }
   }

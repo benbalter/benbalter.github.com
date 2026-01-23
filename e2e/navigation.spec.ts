@@ -19,21 +19,23 @@ test.describe('Navigation Active Link Highlighting', () => {
     await expect(contactLink).toHaveClass(/active/);
   });
 
-  test.skip('should highlight Posts link when on homepage', async ({ page }) => {
+  test('should highlight Posts link when on homepage', async ({ page }) => {
     await page.goto('/');
     await waitForPageReady(page);
     
     // Root path (/) should highlight the home/posts link
-    const homeLink = page.locator('a[href="/"]');
+    // Use nav-link class to distinguish from navbar-brand which also links to /
+    const homeLink = page.locator('nav .nav-link[href="/"]');
     await expect(homeLink).toHaveClass(/active/);
   });
 
-  test.skip('should update active class when navigating between pages', async ({ page }) => {
+  test('should update active class when navigating between pages', async ({ page }) => {
     // Start on homepage
     await page.goto('/');
     await waitForPageReady(page);
     
-    const homeLink = page.locator('a[href="/"]');
+    // Use nav-link class to distinguish from navbar-brand which also links to /
+    const homeLink = page.locator('nav .nav-link[href="/"]');
     const aboutLink = page.locator('a[href="/about/"]');
     
     // Home link should be active initially
@@ -47,7 +49,7 @@ test.describe('Navigation Active Link Highlighting', () => {
     
     // Re-query the locators after navigation since DOM has changed
     const aboutLinkAfterNav = page.locator('a[href="/about/"]');
-    const homeLinkAfterNav = page.locator('a[href="/"]');
+    const homeLinkAfterNav = page.locator('nav .nav-link[href="/"]');
     
     // About link should now be active, home should not
     await expect(aboutLinkAfterNav).toHaveClass(/active/);
@@ -68,9 +70,14 @@ test.describe('Navigation Active Link Highlighting', () => {
   });
 
   test.skip('should handle path with or without trailing slash', async ({ page }) => {
+    // Skip: This test is about server redirect behavior which depends on the hosting configuration
+    // The Astro preview server doesn't auto-redirect, but production servers (nginx, etc.) would
     // Navigate to /about (without trailing slash)
     await page.goto('/about');
     await waitForPageReady(page);
+    
+    // After redirect, should be on /about/ with about link active
+    expect(page.url()).toContain('/about/');
     
     // Should still highlight the about link
     const aboutLink = page.locator('a[href="/about/"]');
