@@ -33,12 +33,6 @@ excludeAgent: "code-review"  # Optional: exclude specific agents
 
 ### Code
 
-* **`nextjs-app.instructions.md`**
-  * Applies to: `app/**/*.{ts,tsx,js,jsx}`
-  * Next.js and React best practices
-  * Server components vs client components
-  * Static site generation guidelines
-
 * **`ruby-code.instructions.md`**
   * Applies to: `lib/**/*.rb`, `script/**/*`, `spec/**/*.rb`, `Rakefile`
   * Ruby coding standards

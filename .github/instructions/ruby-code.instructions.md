@@ -2,11 +2,11 @@
 applyTo: ["lib/**/*.rb", "script/**/*", "spec/**/*.rb", "Rakefile"]
 ---
 
-# Ruby Code Instructions (LEGACY)
+# Ruby Code Instructions
 
-**NOTE: Ruby code is primarily for Jekyll maintenance (legacy) and build scripts. For new features, use TypeScript/JavaScript in the Next.js app.**
+**NOTE: Ruby code is primarily for Jekyll and build scripts.**
 
-When working with Ruby code (Jekyll plugins, scripts, tests) for maintenance purposes, follow these guidelines:
+When working with Ruby code (Jekyll plugins, scripts, tests), follow these guidelines:
 
 ## Code Style
 
@@ -17,9 +17,7 @@ When working with Ruby code (Jekyll plugins, scripts, tests) for maintenance pur
 * Prefer `snake_case` for methods and variables
 * Use descriptive names
 
-## Jekyll Plugins (`lib/`) - LEGACY
-
-**Only modify for maintenance, not for new features.**
+## Jekyll Plugins (`lib/`)
 
 * Place custom Jekyll plugins in `lib/`
 * Plugins extend Jekyll's functionality (filters, tags, generators, etc.)
@@ -28,17 +26,15 @@ When working with Ruby code (Jekyll plugins, scripts, tests) for maintenance pur
 
 ## Scripts (`script/`)
 
-Scripts in this directory automate development tasks for both Jekyll (legacy) and Next.js:
+Scripts in this directory automate development tasks for Jekyll and Astro:
 
 * Follow the Scripts to Rule Them All pattern where applicable
 * Make scripts idempotent (safe to run multiple times)
 * Include error handling and clear output messages
 * Document script usage with `--help` flags or comments
-* Scripts may support both Jekyll and Next.js builds
+* Scripts may support both Jekyll and Astro builds
 
-## RSpec Tests (`spec/`) - LEGACY
-
-**Only modify when maintaining Jekyll functionality.**
+## RSpec Tests (`spec/`)
 
 * Place test files in `spec/` directory
 * Use descriptive test names with `context` and `it` blocks

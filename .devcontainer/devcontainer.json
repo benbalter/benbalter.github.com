@@ -62,7 +62,6 @@
           "**/vendor": true,
           "**/.bundle": true,
           "_site": true,
-          "out": true,
           "dist-astro": true
         }
       }
@@ -70,13 +69,9 @@
   },
   "onCreateCommand": "script/bootstrap",
   "postCreateCommand": "sudo apt-get update && sudo apt-get install -y libvips-dev && ./node_modules/.bin/playwright install --with-deps chromium",
-  "postStartCommand": "echo '🚀 Devcontainer ready! Run \"rake serve\" or \"script/server\" to start Jekyll, \"npm run dev\" for Next.js, or \"npm run astro:dev\" for Astro.'",
-  "forwardPorts": [3000, 4000, 4321],
+  "postStartCommand": "echo '🚀 Devcontainer ready! Run \"rake serve\" or \"script/server\" to start Jekyll, or \"npm run astro:dev\" for Astro.'",
+  "forwardPorts": [4000, 4321],
   "portsAttributes": {
-    "3000": {
-      "label": "Next.js Dev Server",
-      "onAutoForward": "notify"
-    },
     "4000": {
       "label": "Jekyll Server",
       "onAutoForward": "notify"

@@ -1,6 +1,6 @@
 # Testing Documentation
 
-This repository includes comprehensive testing for both Jekyll and Next.js builds, as well as content quality testing.
+This repository includes comprehensive testing for Jekyll and Astro builds, as well as content quality testing.
 
 ## Test Suites
 
@@ -28,33 +28,7 @@ bundle exec rspec spec/prose_quality_spec.rb
 
 **Note:** Many posts currently have trailing whitespace issues that should be cleaned up over time.
 
-### 2. Jest Unit Tests (42 tests ✅)
-
-Unit tests for Next.js components and utilities using Jest and React Testing Library.
-
-**Test Files:**
-
-- `app/components/Footer.test.tsx` - Footer component (6 tests)
-- `app/components/GitHubAvatar.test.tsx` - Avatar component (6 tests)
-- `app/components/ReadingTime.test.tsx` - Reading time (4 tests)
-- `lib/avatar.test.ts` - Avatar utilities (6 tests)
-- `lib/emoji.test.ts` - Emoji processing (10 tests)
-- `lib/mentions.test.ts` - @mention processing (10 tests)
-
-**Commands:**
-
-```bash
-npm run test:jest              # Run all tests
-npm run test:jest:watch        # Watch mode
-npm run test:jest:coverage     # With coverage
-```
-
-**Configuration:**
-
-- `jest.config.mjs` - Jest configuration with Next.js support
-- `jest.setup.mjs` - Test environment setup
-
-### 3. Vitest Unit Tests (25 tests ✅)
+### 2. Vitest Unit Tests (25 tests ✅)
 
 Unit tests for Astro components and utilities using Vitest.
 
@@ -78,9 +52,9 @@ npm run test:vitest:coverage   # With coverage
 
 **Note:** Component tests are "specification tests" that document expected behavior. They do not test actual component implementations due to Astro's architecture. Full component rendering is tested via E2E tests with Playwright.
 
-### 4. Playwright E2E Tests (141 tests ✅)
+### 3. Playwright E2E Tests (✅)
 
-End-to-end tests using Playwright for both Jekyll and Next.js builds.
+End-to-end tests using Playwright for Jekyll and Astro builds.
 
 **Test Files:**
 
@@ -91,14 +65,13 @@ End-to-end tests using Playwright for both Jekyll and Next.js builds.
 - `e2e/performance.spec.ts` - Performance metrics
 - `e2e/redirects.spec.ts` - URL redirects
 - `e2e/resume.spec.ts` - Resume page
-- `e2e/seo.spec.ts` - SEO metadata (general) - 25 tests
-- `e2e/seo-nextjs.spec.ts` - Next.js-specific SEO tests - 21 tests
+- `e2e/seo.spec.ts` - SEO metadata
 
-**SEO Test Coverage (46 total tests):**
+**SEO Test Coverage:**
 
 The SEO test suite comprehensively validates search engine optimization features:
 
-*General SEO Tests (`seo.spec.ts` - 25 tests):*
+*General SEO Tests (`seo.spec.ts`):*
 
 - Meta descriptions (length validation)
 - Open Graph tags (og:title, og:description, og:type, og:url)
@@ -112,27 +85,6 @@ The SEO test suite comprehensively validates search engine optimization features
 - RSS feed accessibility
 - Blog post specific meta tags
 
-*Next.js-Specific SEO Tests (`seo-nextjs.spec.ts` - 21 tests):*
-
-- UTF-8 charset declaration
-- Viewport meta tag for responsive design
-- Theme-color meta tags (light/dark mode)
-- X-UA-Compatible for IE
-- Open Graph image tags (og:image, og:image:alt)
-- Twitter image tags
-- Author, creator, and publisher metadata
-- Person structured data schema
-- BlogPosting structured data schema
-- Social media rel="me" links
-- RSS feed alternate link
-- Favicon and icon links (multiple formats)
-- Web manifest link
-- Article-specific Open Graph tags
-- Published time metadata
-- Twitter Card types
-- Keywords meta tag
-- Robots and indexing rules validation
-
 **Commands:**
 
 ```bash
@@ -143,16 +95,16 @@ npm run test:e2e:ui            # Interactive UI mode
 npm run test:e2e:debug         # Debug mode
 npm run test:e2e:report        # View test report
 
-# Next.js tests
-npm run test:e2e:nextjs        # Run E2E tests for Next.js build
+# Astro tests
+npm run test:e2e:astro         # Run E2E tests for Astro build
 ```
 
 **Configurations:**
 
 - `playwright.config.ts` - Jekyll build testing (port 4000)
-- `playwright-nextjs.config.ts` - Next.js build testing (port 3000)
+- `playwright-astro.config.ts` - Astro build testing (port 4321)
 
-### 5. Node Test Runner Tests
+### 4. Node Test Runner Tests
 
 Legacy tests using Node's built-in test runner:
 
@@ -169,13 +121,6 @@ npm run test:related-posts     # Run related posts tests
 
 All tests run automatically in GitHub Actions:
 
-### Jest Tests
-
-- **Workflow:** `.github/workflows/nextjs-jest.yml`
-- Runs on push and PRs
-- Generates coverage reports
-- Uploads artifacts
-
 ### Vitest Tests
 
 - **Workflow:** `.github/workflows/vitest.yml`
@@ -185,27 +130,19 @@ All tests run automatically in GitHub Actions:
 
 ### Playwright E2E Tests
 
-- **Jekyll:** `.github/workflows/playwright.yml`
-- **Next.js:** `.github/workflows/nextjs-e2e.yml`  
-- Both run on push and PRs
+- **Workflow:** `.github/workflows/playwright.yml`
+- Runs on push and PRs
 - Upload test reports and videos
-- Test multiple scenarios
-
-### Build Tests
-
-- **Workflow:** `.github/workflows/nextjs-build.yml`
-- Verifies Next.js builds successfully
+- Tests Astro build
 
 ## Test Coverage Summary
 
 | Test Suite          | Tests | Status                      |
 | ------------------- | ----- | --------------------------- |
-| Prose Quality Tests | 920   | ⚠️ 206 failing (fixable)    |
-| Jest Unit Tests     | 42    | ✅ All passing               |
+| Prose Quality Tests | 920   | ⚠️ Some failing (fixable)   |
 | Vitest Unit Tests   | 25    | ✅ All passing               |
-| Playwright E2E      | 141   | ✅ All passing (1 skipped)   |
+| Playwright E2E      | ~100+ | ✅ All passing               |
 | Node Tests          | 18    | ⚠️ 2 failing (pre-existing) |
-| **Total**           | **1146** | **1118 passing**         |
 
 ## Running All Tests
 
@@ -213,17 +150,8 @@ All tests run automatically in GitHub Actions:
 # Install dependencies
 npm ci
 
-# Run Jest tests (Next.js)
-npm run test:jest
-
 # Run Vitest tests (Astro)
 npm run test:vitest
-
-# Build Next.js site
-npm run next:build
-
-# Run Playwright tests for Next.js
-npm run test:e2e:nextjs
 
 # Build Astro site
 npm run astro:build
@@ -234,23 +162,18 @@ npm run test:e2e:astro
 
 ## Test Best Practices
 
-1. **Unit Tests (Jest - Next.js)**
-   - Test components in isolation
-   - Mock external dependencies
-   - Focus on component behavior and props
-
-2. **Unit Tests (Vitest - Astro)**
+1. **Unit Tests (Vitest - Astro)**
    - Test TypeScript logic and interfaces
    - Validate configuration and utilities
    - Component rendering tested via E2E tests
 
-3. **E2E Tests (Playwright)**
+2. **E2E Tests (Playwright)**
    - Test user workflows
    - Verify page content and navigation
    - Check accessibility and performance
-   - Test Jekyll, Next.js, and Astro builds
+   - Test Jekyll and Astro builds
 
-4. **CI Integration**
+3. **CI Integration**
    - All tests must pass before merging
    - Coverage reports help identify gaps
    - Test artifacts preserved for debugging
@@ -258,19 +181,12 @@ npm run test:e2e:astro
 ## Key Testing Files
 
 - `.gitignore` - Excludes test artifacts and coverage
-- `jest.config.mjs` - Jest configuration for Next.js
 - `vitest.config.ts` - Vitest configuration for Astro
 - `playwright.config.ts` - Playwright configuration for Jekyll
-- `playwright-nextjs.config.ts` - Playwright configuration for Next.js
+- `playwright-astro.config.ts` - Playwright configuration for Astro
 - `e2e/helpers.ts` - Shared test utilities
 
 ## Troubleshooting
-
-### Jest Issues
-
-- Ensure `NODE_ENV` is set correctly
-- Check for module resolution issues
-- Verify mocks are working
 
 ### Vitest Issues
 
@@ -323,7 +239,3 @@ bundle exec rspec spec/prose_quality_spec.rb  # Structure tests
 - **Structural tests**: RSpec tests catch formatting issues (trailing whitespace, broken links)
 
 See the [prose testing documentation](docs/PROSE-TESTING.md) for complete details.
-
-- Check workflow logs in GitHub Actions
-- Download artifacts for detailed reports
-- Verify all dependencies are installed correctly

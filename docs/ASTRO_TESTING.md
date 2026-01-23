@@ -4,7 +4,7 @@ This document describes how to run end-to-end tests for the Astro build of Ben B
 
 ## Overview
 
-The Astro build is a modern static site generator implementation that coexists with Jekyll and Next.js builds. Playwright tests can be run against the Astro build to validate functionality.
+The Astro build is a modern static site generator implementation that coexists with the Jekyll build. Playwright tests can be run against the Astro build to validate functionality.
 
 ## Running Tests
 
@@ -68,7 +68,7 @@ The following test categories work well with the Astro build:
 
 ### Known Differences ⚠️
 
-The Astro implementation has some differences from Jekyll/Next.js:
+The Astro implementation has some differences from Jekyll:
 
 1. **Language Attribute**: Uses `lang="en"` instead of `lang="en-US"`
 2. **Blog Post Selectors**: Different HTML structure for post listings
@@ -156,7 +156,7 @@ kill <PID>
 Common reasons for test failures:
 
 1. **Content Differences**: Astro has example content, not full site content
-2. **Selector Mismatches**: Different HTML structure than Jekyll/Next.js
+2. **Selector Mismatches**: Different HTML structure than Jekyll
 3. **Missing Features**: Some Jekyll features not yet implemented in Astro
 4. **Build Issues**: Ensure `npm run astro:build` completes successfully
 

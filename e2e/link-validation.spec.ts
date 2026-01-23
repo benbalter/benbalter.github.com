@@ -276,42 +276,8 @@ test.describe('Link Validation', () => {
 });
 
 test.describe('Generated Static Files Validation', () => {
-  test('all generated HTML files should exist and be valid', () => {
-    const outDir = path.join(process.cwd(), 'out');
-    
-    if (!fs.existsSync(outDir)) {
-      test.skip(true, 'Output directory does not exist - run `npm run next:build` first');
-      return;
-    }
-    
-    // Count HTML files
-    let htmlCount = 0;
-    const checkDir = (dir: string) => {
-      const entries = fs.readdirSync(dir, { withFileTypes: true });
-      
-      for (const entry of entries) {
-        const fullPath = path.join(dir, entry.name);
-        
-        if (entry.isDirectory()) {
-          // Skip _next and asset directories
-          if (!entry.name.startsWith('_') && !entry.name.startsWith('.')) {
-            checkDir(fullPath);
-          }
-        } else if (entry.name === 'index.html') {
-          htmlCount++;
-          
-          // Verify file is not empty
-          const stats = fs.statSync(fullPath);
-          expect(stats.size).toBeGreaterThan(0);
-        }
-      }
-    };
-    
-    checkDir(outDir);
-    
-    console.log(`\n✓ Found ${htmlCount} generated HTML files`);
-    
-    // Should have at least 150 pages (posts + pages + redirects)
-    expect(htmlCount).toBeGreaterThan(150);
+  test.skip('all generated HTML files should exist and be valid', () => {
+    // This test is skipped - it was for Next.js output validation
+    // Jekyll and Astro builds are validated through other tests
   });
 });

@@ -21,7 +21,7 @@ This project follows a code of conduct that all contributors are expected to adh
 
 - **Node.js**: Version 20.x or later
 - **npm**: Version 10.x or later (comes with Node.js)
-- **Ruby**: Version 3.3.x (for Jekyll legacy features)
+- **Ruby**: Version 3.3.x (for Jekyll)
 - **Git**: For version control
 
 ### Setup
@@ -36,100 +36,61 @@ This project follows a code of conduct that all contributors are expected to adh
 2. **Install dependencies:**
 
    ```bash
-   npm install
+   script/bootstrap
    ```
 
 3. **Start development server:**
 
    ```bash
-   npm run dev
+   rake serve              # Start Jekyll server (http://localhost:4000)
+   npm run astro:dev       # Start Astro server (http://localhost:4321)
    ```
-
-   Visit <http://localhost:3000> to see your changes.
 
 ## Development Workflow
 
 ### Project Structure
 
-This project is transitioning from Jekyll to Next.js:
+This project uses Jekyll for production and has an experimental Astro implementation:
 
-- `app/` - Next.js App Router pages and components
-- `lib/` - Utility libraries and helpers
-- `content/` - Markdown content (posts, pages, data)
+- `_posts/` - Blog posts (Markdown files)
+- `_includes/` - Reusable HTML/Liquid snippets
+- `_layouts/` - Page templates
+- `_data/` - YAML data files
+- `src/` - Astro source files (experimental)
 - `public/` - Static assets
 - `script/` - Build and utility scripts
 
-See [docs/NEXTJS.md](docs/NEXTJS.md) for detailed architecture documentation.
+See [docs/ASTRO.md](docs/ASTRO.md) for Astro-specific documentation.
 
 ### Working with Content
 
 #### Blog Posts
 
-Blog posts are Markdown files in `content/posts/` with the format: `YYYY-MM-DD-title.md`
+Blog posts are Markdown files in `_posts/` with the format: `YYYY-MM-DD-title.md`
 
 ```markdown
 ---
 title: "Your Post Title"
 description: "Brief description for SEO"
-date: 2024-01-01
 ---
 
 Your content here...
 ```
 
-#### Creating New Components
-
-When adding React components:
-
-1. Place in `app/components/`
-2. Use TypeScript with proper types
-3. Prefer Server Components (default) over Client Components
-4. Document props and usage
-
-```typescript
-interface MyComponentProps {
-  title: string;
-  description?: string;
-}
-
-export default function MyComponent({ title, description }: MyComponentProps) {
-  return (
-    <div>
-      <h1>{title}</h1>
-      {description && <p>{description}</p>}
-    </div>
-  );
-}
-```
-
 ## Coding Standards
 
-### TypeScript
+### Ruby (Jekyll)
+
+- Follow Rubocop rules defined in `.rubocop.yml`
+- Use frozen string literals: `# frozen_string_literal: true`
+- Write RSpec tests for new functionality in `spec/`
+
+### TypeScript (Astro)
 
 - Use **strict TypeScript** (enabled in tsconfig.json)
 - Avoid `any` types - use proper types or `unknown`
 - Handle null/undefined cases explicitly
 - Document complex functions with JSDoc comments
-
-```typescript
-/**
- * Calculate reading time for content
- * @param content - The text content to analyze
- * @returns Reading time in minutes
- */
-export function calculateReadingTime(content: string): number {
-  const wordsPerMinute = 200;
-  const words = content.trim().split(/\s+/).length;
-  return Math.ceil(words / wordsPerMinute);
-}
-```
-
-### React Best Practices
-
-- **Server Components by default** - Only use Client Components when needed
-- **Error boundaries** - Add error.tsx for route segments
-- **Loading states** - Add loading.tsx for better UX
-- **Metadata** - Use generateMetadata() for SEO
 
 ### Code Style
 
@@ -154,11 +115,12 @@ npm test
 # Linting
 npm run lint
 
-# TypeScript check
-npx tsc --noEmit
+# TypeScript check (Astro)
+npm run astro:check
 
 # E2E tests
 npm run test:e2e
+npm run test:e2e:astro    # For Astro build
 ```
 
 ### Writing Tests
@@ -184,8 +146,9 @@ npm run test:e2e:headed  # Watch tests run in browser
 1. **Test your changes:**
 
    ```bash
-   npm run next:build  # Verify production build
-   npm test            # Run all tests
+   rake build           # Verify Jekyll build
+   npm run astro:build  # Verify Astro build
+   npm test             # Run all tests
    ```
 
 2. **Lint your code:**
@@ -194,10 +157,10 @@ npm run test:e2e:headed  # Watch tests run in browser
    npm run lint
    ```
 
-3. **Check TypeScript:**
+3. **Check TypeScript (if applicable):**
 
    ```bash
-   npx tsc --noEmit
+   npm run astro:check
    ```
 
 ### Creating a Pull Request
@@ -254,7 +217,6 @@ The `.github/instructions/` directory contains targeted instructions for specifi
 
 - **`jekyll-content.instructions.md`** - Blog posts in `_posts/`
 - **`jekyll-templates.instructions.md`** - Jekyll layouts and includes
-- **`nextjs-app.instructions.md`** - Next.js application code
 - **`ruby-code.instructions.md`** - Ruby plugins, scripts, and tests
 - **`styles.instructions.md`** - CSS and SCSS files
 - **`configuration.instructions.md`** - YAML and JSON configuration
@@ -268,7 +230,8 @@ If you have questions or need help:
 
 - Open an [issue](https://github.com/benbalter/benbalter.github.com/issues)
 - Check existing [documentation](docs/)
-- Review the [Next.js documentation](https://nextjs.org/docs)
+- Review the [Jekyll documentation](https://jekyllrb.com/docs/)
+- Review the [Astro documentation](https://docs.astro.build/)
 
 ## License
 

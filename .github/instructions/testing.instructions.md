@@ -24,15 +24,14 @@ rake test                          # Run RSpec + HTML Proofer
 
 ### End-to-End Tests (`e2e/`)
 
-* Playwright tests for Jekyll and Next.js builds
+* Playwright tests for Jekyll and Astro builds
 * Test user flows and interactions
 * Verify pages render correctly
 * Check responsive design
 
 ```bash
-npm run test:e2e:jekyll           # E2E tests for Jekyll
-npm run test:e2e:nextjs           # E2E tests for Next.js
-npm run test:e2e                  # All E2E tests
+npm run test:e2e                  # E2E tests for Jekyll
+npm run test:e2e:astro            # E2E tests for Astro
 ```
 
 ### HTML Validation

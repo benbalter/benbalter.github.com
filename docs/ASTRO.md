@@ -1,6 +1,6 @@
 # Astro Implementation
 
-This directory contains an Astro-based implementation of Ben Balter's personal website, designed to coexist with the existing Jekyll and Next.js implementations during development.
+This directory contains an Astro-based implementation of Ben Balter's personal website, designed to coexist with the existing Jekyll implementation during development.
 
 ## Quick Start
 
@@ -12,7 +12,7 @@ Start the Astro development server:
 npm run astro:dev
 ```
 
-This will start the server at `http://localhost:4321` (different from Jekyll's 4000 and Next.js's 3000).
+This will start the server at `http://localhost:4321` (different from Jekyll's 4000).
 
 ### Build
 
@@ -43,7 +43,7 @@ npm run astro:preview
 │   ├── layouts/        # Layout components
 │   │   └── BaseLayout.astro
 │   └── components/     # Reusable components
-├── public/             # Static assets (shared with Next.js, copied to dist-astro/)
+├── public/             # Static assets (copied to dist-astro/)
 ├── astro.config.mjs    # Astro configuration
 └── tsconfig.astro.json # TypeScript config for Astro
 ```
@@ -55,14 +55,12 @@ npm run astro:preview
 The Astro build outputs to `dist-astro/` to avoid conflicts with:
 
 - Jekyll: `_site/`
-- Next.js: `out/`
 
 ### Development Server
 
 Astro runs on port 4321 to avoid conflicts with:
 
 - Jekyll: port 4000
-- Next.js: port 3000
 
 ### GitHub Pages Compatibility
 
@@ -151,7 +149,7 @@ E2E tests for View Transitions are in `e2e/view-transitions.spec.ts` covering:
 
 ### Coexistence Strategy
 
-This Astro implementation is designed to run alongside Jekyll and Next.js:
+This Astro implementation is designed to run alongside Jekyll:
 
 1. **Separate build outputs**: Each framework builds to its own directory
 2. **Different ports**: Development servers run on different ports
@@ -165,9 +163,9 @@ Astro can potentially leverage existing content from the repository:
 - `_posts/`: Blog posts (markdown files)
 - `_data/`: YAML data files
 - `_resume_positions/`: Resume data
-- `public/`: Static assets (shared with Next.js)
+- `public/`: Static assets
 
-## Key Differences from Jekyll/Next.js
+## Key Differences from Jekyll
 
 ### vs Jekyll
 
@@ -175,19 +173,13 @@ Astro can potentially leverage existing content from the repository:
 - **Component-based**: Component architecture instead of Liquid templates
 - **Zero JS**: No JavaScript by default, unlike Jekyll's asset pipeline
 
-### vs Next.js
-
-- **Simpler**: No React, no complex server/client component split
-- **Faster builds**: Lighter-weight than Next.js for static sites
-- **Multi-framework**: Can mix React, Vue, Svelte if needed
-
 ## Deployment Options
 
 ### Option 1: Separate Deployment
 
 Deploy Astro build (`dist-astro/`) to a different subdomain or path:
 
-- Main site: `ben.balter.com` (Jekyll/Next.js)
+- Main site: `ben.balter.com` (Jekyll)
 - Astro: `astro.ben.balter.com` or `ben.balter.com/astro/`
 
 ### Option 2: A/B Testing
@@ -196,10 +188,10 @@ Use GitHub Pages or Netlify deploy previews to compare implementations.
 
 ### Option 3: Full Migration
 
-Once development is complete, replace Jekyll/Next.js with Astro:
+Once development is complete, replace Jekyll with Astro:
 
 1. Update GitHub Pages deployment to use `dist-astro/`
-2. Archive Jekyll and Next.js implementations
+2. Archive Jekyll implementation
 3. Update documentation
 
 ## Next Steps
@@ -214,7 +206,7 @@ Once development is complete, replace Jekyll/Next.js with Astro:
 - [ ] Migrate blog posts from `_posts/` to `src/content/posts/`
 - [ ] Migrate resume data from `_resume_positions/`
 - [ ] Migrate data files from `_data/`
-- [ ] Add custom static assets to `public/` (shared with Next.js)
+- [ ] Add custom static assets to `public/`
 
 See [docs/ASTRO_CONTENT.md](ASTRO_CONTENT.md) for detailed documentation on working with Markdown and MDX content.
 

@@ -1,18 +1,18 @@
 ---
 name: code
-description: Specialized agent for code changes in this Jekyll/Next.js project including Ruby, JavaScript/TypeScript, HTML/Liquid templates, and SCSS/CSS
+description: Specialized agent for code changes in this Jekyll/Astro project including Ruby, JavaScript/TypeScript, HTML/Liquid templates, and SCSS/CSS
 tools:
   - "*"
 ---
 
-You are a specialized coding agent for Ben Balter's personal website repository. This project is a Jekyll-based blog currently in transition to Next.js, hosted on GitHub Pages.
+You are a specialized coding agent for Ben Balter's personal website repository. This project is a Jekyll-based blog with an experimental Astro implementation, hosted on GitHub Pages.
 
 ## Your Expertise
 
 You specialize in:
 
 * **Ruby**: Jekyll plugins, RSpec tests, Rake tasks, Ruby gems
-* **JavaScript/TypeScript**: Next.js, React, webpack configuration, ES modules
+* **JavaScript/TypeScript**: Astro components, webpack configuration, ES modules
 * **HTML/Liquid**: Jekyll templates, includes, layouts
 * **CSS/SCSS**: Styling with Bootstrap, responsive design
 * **Configuration**: YAML, JSON, JavaScript config files
@@ -32,73 +32,18 @@ You specialize in:
 * Follow ESLint rules in `.eslintrc.yml`
 * Use ES module syntax (`type: "module"` in package.json)
 * Follow xo style guide (space indentation, esnext: false)
-* Use TypeScript for Next.js components when applicable
+* Use TypeScript for Astro components when applicable
 * Prefer modern JavaScript features
 
-### Next.js and React (CRITICAL GUIDELINES)
+### Astro Components
 
 **This site uses Static Site Generation (SSG) with minimal client-side JavaScript.**
 
-#### Server Components First
-
-* **ALL components should be server components by default** (no 'use client' directive)
-* Server components can fetch data, render markdown, generate metadata
-* Server components reduce JavaScript bundle size and improve performance
-
-#### When to Use 'use client' (RARE CASES ONLY)
-
-Use 'use client' ONLY when you need:
-
-1. **React Hooks**: `useState`, `useEffect`, `useContext`, `usePathname`, etc.
-2. **Browser APIs**: `window`, `document`, `localStorage`, `sessionStorage`
-3. **Event Handlers with State**: Click handlers that update component state
-4. **Third-Party Libraries**: Libraries that require browser environment
-
-#### When NOT to Use 'use client'
-
-* ❌ **Navigation Links**: Use `<Link>` from 'next/link' in server components
-* ❌ **Data Display**: Fetch data in server components, pass as props
-* ❌ **Markdown Rendering**: Process markdown at build time in server components
-* ❌ **Metadata/SEO**: Use `generateMetadata` function in server components
-* ❌ **Styling/Layouts**: CSS and HTML work in server components
-* ❌ **Static Content**: All static content should be in server components
-
-#### Before Adding 'use client', Ask:
-
-1. Can this be pure HTML/CSS?
-2. Can this be a server component with no interactivity?
-3. Can the parent be a server component and only a small child be a client component?
-4. Is the client-side JavaScript absolutely necessary?
-
-**Example of Good Architecture:**
-
-```typescript
-// app/posts/[slug]/page.tsx - Server Component (no 'use client')
-export default async function PostPage({ params }) {
-  const post = await getPost(params.slug);
-  return (
-    <article>
-      <PostContent content={post.content} />
-      <NavigationLinks /> {/* Client component for active links */}
-    </article>
-  );
-}
-
-// app/components/NavigationLinks.tsx - Tiny client component
-'use client';
-import { usePathname } from 'next/navigation';
-export default function NavigationLinks() {
-  const pathname = usePathname();
-  // Uses pathname for active state
-}
-```
-
-#### Current Client Components (2 total - both necessary)
-
-1. **ClientScripts.tsx**: Initializes Bootstrap and FontAwesome (requires `useEffect`)
-2. **Navigation.tsx**: Active link highlighting (requires `usePathname` hook)
-
-These are the ONLY client components in the codebase. Keep it this way.
+* **Zero JavaScript by default**: Astro ships no JS unless needed
+* **Component Islands**: Use partial hydration for interactive components
+* Use `.astro` files for static components
+* Use TypeScript for type safety in components
+* Leverage Astro's content collections for blog posts
 
 ### HTML/Liquid Templates
 
@@ -122,6 +67,8 @@ These are the ONLY client components in the codebase. Keep it this way.
 ```bash
 rake test              # Run all tests (RSpec + HTML Proofer)
 bundle exec rspec      # Run Ruby tests only
+npm run test:vitest    # Run Astro unit tests
+npm run test:e2e:astro # Run E2E tests for Astro
 ```
 
 ### Linting
@@ -141,14 +88,14 @@ script/fix-lint        # Auto-fix linting issues (ALWAYS run after markdown lint
 ```bash
 rake build             # Build Jekyll site
 npm run webpack        # Build webpack assets
-npm run next:build     # Build Next.js (in development)
+npm run astro:build    # Build Astro site
 ```
 
 ### Development Server
 
 ```bash
-rake serve             # Start Jekyll dev server
-npm run dev            # Start Next.js dev server
+rake serve             # Start Jekyll dev server (port 4000)
+npm run astro:dev      # Start Astro dev server (port 4321)
 ```
 
 ## Important Considerations
@@ -176,10 +123,10 @@ npm run dev            # Start Next.js dev server
 * `_includes/`: Reusable HTML/Liquid snippets
 * `_layouts/`: Page templates
 * `_data/`: YAML data files
+* `src/`: Astro source files (experimental)
 * `spec/`: RSpec tests
 * `script/`: Build and utility scripts
 * `assets/`: Static assets
-* `app/`: Next.js app directory (in development)
 
 ## When Making Changes
 

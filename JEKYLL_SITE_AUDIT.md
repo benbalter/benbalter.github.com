@@ -503,10 +503,7 @@ exclude:
   - /node_modules
   - /script
   - /spec/
-  - /app        # Next.js files
   - /public
-  - /out
-  - next.config.mjs
   - tsconfig.json
   # ... many more
 ```

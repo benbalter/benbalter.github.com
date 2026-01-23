@@ -52,7 +52,7 @@ const rehypeAutolinkHeadingsConfig = [rehypeAutolinkHeadings, {
 
 // https://astro.build/config
 export default defineConfig({
-  // Output directory for built site (separate from Jekyll and Next.js)
+  // Output directory for built site (separate from Jekyll _site/)
   outDir: './dist-astro',
   
   // Build settings for static site generation
@@ -78,7 +78,7 @@ export default defineConfig({
   
   // Server configuration for development
   server: {
-    // Use a different port than Next.js (3000) and Jekyll (4000)
+    // Use a different port than Jekyll (4000)
     port: 4321,
     host: true,
   },

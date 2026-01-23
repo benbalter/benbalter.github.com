@@ -2,11 +2,9 @@
 applyTo: ["_layouts/**/*.html", "_includes/**/*.html"]
 ---
 
-# Jekyll Templates Instructions (LEGACY)
+# Jekyll Templates Instructions
 
-**NOTE: Jekyll is legacy technology being phased out. Only modify these files for maintenance purposes, not for new features. New features should be implemented in Next.js (see `app/` directory).**
-
-When working with Jekyll layouts and includes for maintenance purposes, follow these guidelines:
+When working with Jekyll layouts and includes, follow these guidelines:
 
 ## Liquid Templates
 
