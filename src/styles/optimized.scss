@@ -828,29 +828,25 @@ blockquote {
 }
 
 // Enhanced text selection styles for better readability
+// Uses rgba derived from $blue (#337ab7) for consistency with codebase patterns
 ::selection {
-    background-color: rgba(51, 122, 183, 0.3); // Primary blue with transparency
+    background-color: rgba($blue, 0.3); // Primary blue with transparency
     color: inherit; // Preserve text color for better contrast
 }
 
 // Dark mode selection adjustment
 @media (prefers-color-scheme: dark) {
     ::selection {
-        background-color: rgba(51, 122, 183, 0.4); // Slightly more opaque for dark mode
+        background-color: rgba($blue, 0.4); // Slightly more opaque for dark mode
     }
-}
-
-// Word spacing optimization for justified text (if used)
-// Slightly tighter word spacing improves readability for long-form content
-article, .post-content, .content {
-    word-spacing: -0.02em; // Subtle tightening for better text flow
 }
 
 // Improved first paragraph styling (lead paragraph)
 // The first paragraph after a heading often benefits from slightly larger text
+// Uses rem units for predictable sizing without compounding with parent font-size
 article > p:first-of-type,
 .post-content > p:first-of-type {
-    font-size: 1.125em; // Slightly larger for engagement
+    font-size: 1.125rem; // Slightly larger for engagement
     line-height: 1.75; // Slightly increased line height for the larger text
 }
 
@@ -910,6 +906,8 @@ article > p:first-of-type,
         content: " (" attr(href) ")";
         font-size: 0.8em;
         color: #666;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
     }
     
     // Hide non-essential elements when printing
