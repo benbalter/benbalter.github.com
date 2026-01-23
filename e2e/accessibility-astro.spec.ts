@@ -8,7 +8,7 @@ import AxeBuilder from '@axe-core/playwright';
  */
 
 test.describe('Accessibility - Homepage', () => {
-  test.skip('should not have any automatically detectable accessibility violations', async ({ page }) => {
+  test('should not have any automatically detectable accessibility violations', async ({ page }) => {
     await page.goto('/');
     
     const accessibilityScanResults = await new AxeBuilder({ page })

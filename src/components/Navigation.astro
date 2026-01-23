@@ -53,12 +53,15 @@ const navClasses = hero
         {navItems.map((item) => {
           const isActive = currentPath === item.url || 
                           (item.url === '/' && currentPath === '/');
+          // Use high-contrast colors that meet WCAG AA (4.5:1 ratio against #e9ecef background)
+          const linkColor = isActive ? '#212529' : '#1a5490';
           return (
             <li class="nav-item">
               <a 
                 href={item.url} 
                 class={`nav-link${isActive ? ' active' : ''}`}
                 aria-current={isActive ? 'page' : undefined}
+                style={`color: ${linkColor} !important;`}
               >
                 {item.title}
               </a>
@@ -89,6 +92,9 @@ const navClasses = hero
   .navbar {
     background-color: var(--bs-secondary-bg) !important;
     border: 1px solid var(--bs-border-color);
+    /* Override Bootstrap link colors for WCAG AA contrast on bg-secondary-subtle (#e9ecef) */
+    --bs-link-color: #1a5490;
+    --bs-link-hover-color: #133d6b;
   }
   
   /* Override Bootstrap nav link colors for better contrast (WCAG AA compliance) */
@@ -96,6 +102,11 @@ const navClasses = hero
   /* Background color is #e9ecef (bg-secondary-subtle) */
   /* #1a5490 on #e9ecef = 5.3:1 contrast ratio (exceeds 4.5:1 requirement) */
   .navbar-nav {
+    --bs-nav-link-color: #1a5490;
+    --bs-nav-link-hover-color: #133d6b;
+  }
+  
+  .nav {
     --bs-nav-link-color: #1a5490;
     --bs-nav-link-hover-color: #133d6b;
   }
@@ -169,20 +180,20 @@ const navClasses = hero
     padding: 0 1rem;
     /* Override Bootstrap's var(--bs-nav-link-color) with a direct color for WCAG AA contrast */
     /* #1a5490 on #e9ecef = 5.3:1 contrast ratio (exceeds 4.5:1 requirement) */
-    color: #1a5490;
+    color: #1a5490 !important;
     text-decoration: none;
     transition: color 0.15s ease-in-out;
   }
 
   .nav-link:hover,
   .nav-link:focus {
-    color: #133d6b;
+    color: #133d6b !important;
   }
 
   .nav-link.active {
     /* Use high-contrast color for active link */
     /* #212529 on #e9ecef = 12.6:1 contrast ratio */
-    color: #212529;
+    color: #212529 !important;
     font-weight: 500;
   }
 

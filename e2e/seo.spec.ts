@@ -104,10 +104,15 @@ test.describe('SEO', () => {
     });
   });
 
-  test.skip('sitemap should be accessible', async ({ page }) => {
-    // Try both sitemap.xml and sitemap_index.xml
-    let response = await page.goto('/sitemap.xml');
+  test('sitemap should be accessible', async ({ page }) => {
+    // Try sitemap-index.xml (Astro format), sitemap.xml, and sitemap_index.xml
+    let response = await page.goto('/sitemap-index.xml');
     let status = response?.status();
+    
+    if (status === 404) {
+      response = await page.goto('/sitemap.xml');
+      status = response?.status();
+    }
     
     if (status === 404) {
       response = await page.goto('/sitemap_index.xml');
