@@ -843,7 +843,7 @@ blockquote {
 // Word spacing optimization for justified text (if used)
 // Slightly tighter word spacing improves readability for long-form content
 article, .post-content, .content {
-    word-spacing: -0.02em; // Subtle tightening for better text color
+    word-spacing: -0.02em; // Subtle tightening for better text flow
 }
 
 // Improved first paragraph styling (lead paragraph)
@@ -856,6 +856,8 @@ article > p:first-of-type,
 
 // Drop cap for engaging article starts (applied via .drop-cap class)
 // Use sparingly - best for feature articles or blog posts
+// Note: Screen readers handle ::first-letter well in modern browsers;
+// the first letter remains part of the word in the accessibility tree
 .drop-cap::first-letter {
     float: left;
     font-size: 3.5em;
@@ -902,8 +904,9 @@ article > p:first-of-type,
         text-decoration: underline;
     }
     
-    // Show URL after links for print
-    article a[href^="http"]::after {
+    // Show URL after links for print (matches both http and https)
+    article a[href^="http://"]::after,
+    article a[href^="https://"]::after {
         content: " (" attr(href) ")";
         font-size: 0.8em;
         color: #666;
@@ -917,8 +920,9 @@ article > p:first-of-type,
 
 // Reduce motion for users who prefer it
 // Respects user accessibility preferences
+// Targets common animated elements rather than using universal selector
 @media (prefers-reduced-motion: reduce) {
-    * {
+    a, button, .btn, .nav-link, .navbar-brand, .post-item, .anchor-link, .social-link {
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
     }
