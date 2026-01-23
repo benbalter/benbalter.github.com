@@ -205,7 +205,7 @@ Blog posts must include:
 * Never commit secrets or tokens to the repository
 * Use environment variables for sensitive data
 * Keep dependencies up to date via Dependabot
-* Follow security best practices for Next.js and static sites
+* Follow security best practices for static sites
 * Validate and sanitize user input in forms
 * Use Content Security Policy (CSP) headers
 

@@ -216,4 +216,4 @@ If prose tests are breaking builds:
 - Consider installing Vale in CI for consistent style checking
 - Add more RSpec tests for prose structure
 - Create pre-commit hooks for prose testing
-- Add prose testing to the Next.js content pipeline
+- Add prose testing to the Astro content pipeline

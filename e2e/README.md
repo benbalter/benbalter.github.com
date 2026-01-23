@@ -11,8 +11,7 @@ This directory contains comprehensive end-to-end tests for Ben Balter's website 
 - **`pages.spec.ts`**: Tests for static pages (About, Contact, Talks, Press)
 - **`accessibility.spec.ts`**: Accessibility tests (WCAG compliance)
 - **`performance.spec.ts`**: Performance and optimization tests
-- **`seo.spec.ts`**: General SEO and metadata tests (25 tests)
-- **`seo-nextjs.spec.ts`**: Next.js-specific SEO tests (21 tests)
+- **`seo.spec.ts`**: General SEO and metadata tests
 
 ## Running Tests
 
@@ -29,7 +28,7 @@ npx playwright install
 ### Local Development
 
 ```bash
-# Run all tests (starts Next.js server automatically)
+# Run all tests (starts Jekyll server automatically)
 npm run test:e2e
 
 # Run tests in headed mode (see browser)
@@ -74,8 +73,6 @@ npm run test:e2e:astro
 
 - **Jekyll Tests** (default): `playwright.config.ts` - Tests Jekyll site at `localhost:4000`
 - **Astro Tests**: `playwright-astro.config.ts` - Tests Astro build at `localhost:4321`
-
-> **Note:** The repository supports multiple site generators (Jekyll, Next.js, Astro) as part of an ongoing migration strategy.
 
 ## Test Coverage
 
@@ -131,7 +128,7 @@ npm run test:e2e:astro
 
 ### SEO Tests
 
-**General SEO Tests (`seo.spec.ts` - 25 tests):**
+**General SEO Tests (`seo.spec.ts`):**
 
 - Meta descriptions (with length validation)
 - Open Graph tags (og:title, og:description, og:type, og:url)
@@ -145,55 +142,24 @@ npm run test:e2e:astro
 - RSS feed accessibility
 - Blog post specific meta tags
 
-**Next.js-Specific SEO Tests (`seo-nextjs.spec.ts` - 21 tests):**
-
-- Core HTML meta tags:
-  - UTF-8 charset declaration
-  - Viewport meta tag for responsive design
-  - Theme-color meta tags (light/dark mode)
-  - X-UA-Compatible for IE
-- Open Graph images:
-  - og:image tags with absolute URLs
-  - og:image:alt for accessibility
-  - Twitter image tags
-- Author and creator metadata:
-  - Author, creator, and publisher metadata
-- Structured data (JSON-LD):
-  - Person schema on homepage
-  - BlogPosting schema on blog posts
-- Social media integration:
-  - rel="me" links for social profiles
-- RSS/feed metadata:
-  - RSS feed alternate link
-- Favicon and icons:
-  - Multiple favicon formats
-  - Web manifest link
-- Blog post SEO:
-  - Article-specific Open Graph tags
-  - Published time metadata
-  - Twitter Card types (summary/summary_large_image)
-- Keywords and indexing:
-  - Keywords meta tag
-  - Robots and indexing rules validation
-
 ## Configuration
 
 The Playwright configuration is in [`playwright.config.ts`](../playwright.config.ts) at the root of the repository.
 
 Key settings:
 
-- **Base URL**: `http://localhost:3000` (can be overridden with `BASE_URL` env var)
+- **Base URL**: `http://localhost:4000` (can be overridden with `BASE_URL` env var)
 - **Browser**: Chromium (Desktop Chrome)
-- **Workers**: 4 workers in CI for parallel execution, unlimited locally
+- **Workers**: 50% of CPUs in CI for parallel execution, unlimited locally
 - **Timeouts**: 15s navigation, 5s actions (optimized for fast static site)
-- **Retries**: 2 retries on CI, 0 locally
+- **Retries**: 1 retry on CI, 0 locally
 - **Reporters**: HTML and list reporters, GitHub Actions reporter on CI
 
 ## Performance Optimizations
 
 The tests have been optimized for speed:
 
-1. **Parallel Execution**: 4 workers in CI run tests concurrently
+1. **Parallel Execution**: Workers in CI run tests concurrently
 2. **Fast Page Loads**: `waitForPageReady()` uses `load` state instead of `networkidle` for most tests
 3. **Reduced Timeouts**: Navigation and action timeouts reduced from 30s/10s to 15s/5s
 4. **Shared Page State**: `beforeEach` hooks eliminate redundant page navigations
@@ -219,9 +185,9 @@ The workflow:
 
 1. Checks out the code
 2. Sets up Ruby and Node.js
-3. Builds the Jekyll site
-4. Starts a Jekyll server
-5. Runs Playwright tests (4 workers in parallel)
+3. Builds the Astro site
+4. Starts an Astro preview server
+5. Runs Playwright tests in parallel
 6. Uploads test reports as artifacts
 
 ## Writing New Tests

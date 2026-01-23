@@ -24,7 +24,6 @@ test.describe('Performance', () => {
     await waitForFullLoad(page);
     
     // Reasonable number of requests for a static site
-    // Adjusted to 175 to account for Next.js bundle chunks and link prefetching
     expect(requests.length).toBeLessThan(175);
   });
 

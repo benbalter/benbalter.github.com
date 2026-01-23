@@ -402,8 +402,7 @@ assert(jekyllUrls === astroUrls);
 **Next Steps:**
 
 1. Review and approve architecture
-2. Decide: Astro or continue with Next.js
-3. If approved: Begin Phase 1 (Setup)
+2. Begin Phase 1 (Setup)
 
 **Status:** Ready for implementation ✅
 

@@ -45,7 +45,7 @@ When working with YAML and JSON configuration files, follow these guidelines:
 
 * ESLint: `.eslintrc.yml`
 * Prettier: `frontmatter.json`
-* Next.js: `next.config.mjs` (actually JavaScript)
+* Astro: `astro.config.mjs`
 * TypeScript: `tsconfig.json`
 
 ## Linting Configuration Files
