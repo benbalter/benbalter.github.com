@@ -11,7 +11,7 @@
 
 import satori from 'satori';
 import { readFile } from 'node:fs/promises';
-import { resolve } from 'node:path';
+import { resolve, sep } from 'node:path';
 import { defaultOGConfig, type OGImageConfig } from './og-config';
 
 interface OGImageOptions {
@@ -66,7 +66,8 @@ function validateAssetPath(assetPath: string): string {
   const fullPath = resolve(projectRoot, assetPath);
   
   // Ensure resolved path is within project root (prevents traversal)
-  if (!fullPath.startsWith(projectRoot + '/')) {
+  // Use platform-specific path separator for cross-platform compatibility
+  if (!fullPath.startsWith(projectRoot + sep)) {
     throw new Error('Asset path traversal detected');
   }
   
@@ -74,8 +75,9 @@ function validateAssetPath(assetPath: string): string {
   const relativePath = fullPath.slice(projectRoot.length + 1);
   
   // Ensure the resolved path starts with an allowed directory
+  // Use platform-specific path separator for cross-platform compatibility
   const isAllowed = ALLOWED_ASSET_DIRS.some(dir => 
-    relativePath.startsWith(dir + '/') || relativePath === dir
+    relativePath.startsWith(dir + sep) || relativePath === dir
   );
   
   if (!isAllowed) {
