@@ -125,14 +125,20 @@ const {
     margin-bottom: 1.5rem;
   }
   
-  .page-body :global(ul),
-  .page-body :global(ol) {
+  .page-body > :global(ul),
+  .page-body > :global(ol) {
     margin-top: 0;
     margin-bottom: 1.5rem;
     padding-left: 2rem;
   }
   
   .page-body :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .page-body :global(li > ul),
+  .page-body :global(li > ol) {
+    margin-top: 0.5rem;
     margin-bottom: 0.5rem;
   }
   

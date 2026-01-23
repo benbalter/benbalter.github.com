@@ -386,6 +386,31 @@ pre + h2, pre + h3, pre + h4, pre + h5, pre + h6 {
     margin-top: 2.5em; // Extra space after content blocks before new sections
 }
 
+// Ensure the same spacing applies within post/page content where headings
+// are restyled with higher-specificity selectors (e.g., .post-content :global(h2))
+.post-content :global(blockquote) + :global(h2),
+.post-content :global(blockquote) + :global(h3),
+.post-content :global(blockquote) + :global(h4),
+.post-content :global(blockquote) + :global(h5),
+.post-content :global(blockquote) + :global(h6),
+.post-content :global(pre) + :global(h2),
+.post-content :global(pre) + :global(h3),
+.post-content :global(pre) + :global(h4),
+.post-content :global(pre) + :global(h5),
+.post-content :global(pre) + :global(h6),
+.page-body :global(blockquote) + :global(h2),
+.page-body :global(blockquote) + :global(h3),
+.page-body :global(blockquote) + :global(h4),
+.page-body :global(blockquote) + :global(h5),
+.page-body :global(blockquote) + :global(h6),
+.page-body :global(pre) + :global(h2),
+.page-body :global(pre) + :global(h3),
+.page-body :global(pre) + :global(h4),
+.page-body :global(pre) + :global(h5),
+.page-body :global(pre) + :global(h6) {
+    margin-top: 2.5em; // Match global spacing after blockquotes/code blocks
+}
+
 // Improve code block styling
 pre {
     padding: 1.25rem; // Increased from 1rem for better breathing room
