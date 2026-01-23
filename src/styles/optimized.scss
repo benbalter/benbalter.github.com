@@ -804,3 +804,122 @@ footer {
         box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
     }
 }
+
+// ============================================================================
+// Web Typography Best Practices - Enhanced readability and engagement
+// ============================================================================
+
+// Text wrapping improvements for headings and paragraphs
+// text-wrap: balance creates more even line lengths in headings
+// text-wrap: pretty avoids orphans in paragraphs
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance; // Creates more visually balanced multi-line headings
+}
+
+p {
+    text-wrap: pretty; // Avoids orphans (single words on last line) for better readability
+}
+
+// Hanging punctuation for blockquotes and pull quotes
+// Pushes punctuation into the margin for optically aligned text edges
+// Note: Currently only supported in Safari, graceful degradation in other browsers
+blockquote {
+    hanging-punctuation: first last; // Hang opening and closing punctuation
+}
+
+// Enhanced text selection styles for better readability
+::selection {
+    background-color: rgba(51, 122, 183, 0.3); // Primary blue with transparency
+    color: inherit; // Preserve text color for better contrast
+}
+
+// Dark mode selection adjustment
+@media (prefers-color-scheme: dark) {
+    ::selection {
+        background-color: rgba(51, 122, 183, 0.4); // Slightly more opaque for dark mode
+    }
+}
+
+// Word spacing optimization for justified text (if used)
+// Slightly tighter word spacing improves readability for long-form content
+article, .post-content, .content {
+    word-spacing: -0.02em; // Subtle tightening for better text color
+}
+
+// Improved first paragraph styling (lead paragraph)
+// The first paragraph after a heading often benefits from slightly larger text
+article > p:first-of-type,
+.post-content > p:first-of-type {
+    font-size: 1.125em; // Slightly larger for engagement
+    line-height: 1.75; // Slightly increased line height for the larger text
+}
+
+// Drop cap for engaging article starts (applied via .drop-cap class)
+// Use sparingly - best for feature articles or blog posts
+.drop-cap::first-letter {
+    float: left;
+    font-size: 3.5em;
+    line-height: 0.8;
+    padding-right: 0.1em;
+    font-weight: 700;
+    color: var(--bs-primary);
+    margin-top: 0.1em;
+}
+
+// Print-optimized typography
+// Ensures excellent readability when users print articles
+@media print {
+    body {
+        font-size: 12pt; // Standard print size
+        line-height: 1.5; // Tighter line height for print
+        color: #000; // Pure black for maximum contrast
+        background: #fff; // White background
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid; // Keep headings with their content
+        color: #000;
+    }
+    
+    p, li, blockquote {
+        orphans: 3; // Minimum lines at bottom of page
+        widows: 3; // Minimum lines at top of page
+    }
+    
+    blockquote {
+        border-left-color: #333; // Darker for print
+        background-color: transparent;
+        page-break-inside: avoid;
+    }
+    
+    pre, code {
+        page-break-inside: avoid;
+        border: 1px solid #ccc;
+    }
+    
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+    
+    // Show URL after links for print
+    article a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #666;
+    }
+    
+    // Hide non-essential elements when printing
+    nav, footer, .skip-to-content {
+        display: none !important;
+    }
+}
+
+// Reduce motion for users who prefer it
+// Respects user accessibility preferences
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
