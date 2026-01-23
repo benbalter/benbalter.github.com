@@ -11,7 +11,7 @@
 
 import satori from 'satori';
 import { readFile } from 'node:fs/promises';
-import { join, resolve, normalize } from 'node:path';
+import { resolve } from 'node:path';
 import { defaultOGConfig, type OGImageConfig } from './og-config';
 
 interface OGImageOptions {
@@ -26,6 +26,10 @@ let headshot: string | null = null;
 
 // Allowed asset directories for security
 const ALLOWED_ASSET_DIRS = ['assets'];
+
+// Layout constants for spacing calculations
+const LOGO_TITLE_GAP = 40; // Gap between title text and logo
+const DOMAIN_WIDTH_RESERVED = 200; // Space reserved for domain on the right
 
 /**
  * Load the Inter font for text rendering
@@ -58,22 +62,24 @@ async function loadFont(): Promise<ArrayBuffer> {
 function validateAssetPath(assetPath: string): string {
   const projectRoot = process.cwd();
   
-  // Normalize and resolve the path
-  const normalizedPath = normalize(assetPath);
-  const fullPath = resolve(projectRoot, normalizedPath);
+  // Resolve the full path first (handles ../ traversal)
+  const fullPath = resolve(projectRoot, assetPath);
   
-  // Ensure the path starts with an allowed directory
+  // Ensure resolved path is within project root (prevents traversal)
+  if (!fullPath.startsWith(projectRoot + '/')) {
+    throw new Error('Asset path traversal detected');
+  }
+  
+  // Get the path relative to project root for allowed directory check
+  const relativePath = fullPath.slice(projectRoot.length + 1);
+  
+  // Ensure the resolved path starts with an allowed directory
   const isAllowed = ALLOWED_ASSET_DIRS.some(dir => 
-    normalizedPath.startsWith(dir) || normalizedPath.startsWith(`./${dir}`)
+    relativePath.startsWith(dir + '/') || relativePath === dir
   );
   
   if (!isAllowed) {
     throw new Error(`Asset path must be within allowed directories: ${ALLOWED_ASSET_DIRS.join(', ')}`);
-  }
-  
-  // Ensure resolved path is within project root (prevents traversal)
-  if (!fullPath.startsWith(projectRoot)) {
-    throw new Error('Asset path traversal detected');
   }
   
   return fullPath;
@@ -106,7 +112,7 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
   ]);
   
   // Calculate available width for title (excluding logo area)
-  const titleMaxWidth = config.width - config.padding * 2 - config.logo.size - 40;
+  const titleMaxWidth = config.width - config.padding * 2 - config.logo.size - LOGO_TITLE_GAP;
   
   const svg = await satori(
     {
@@ -196,7 +202,7 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
                             fontSize: config.description.fontSize,
                             color: config.description.color,
                             lineHeight: config.description.lineHeight,
-                            maxWidth: config.width - config.padding * 2 - 200, // Leave room for domain
+                            maxWidth: config.width - config.padding * 2 - DOMAIN_WIDTH_RESERVED, // Leave room for domain
                             wordBreak: 'break-word',
                           },
                           children: options.description,
