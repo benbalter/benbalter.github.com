@@ -226,7 +226,7 @@ test.describe('Keyboard Navigation', () => {
 });
 
 test.describe('Color Contrast', () => {
-  test.skip('text should have sufficient color contrast', async ({ page }) => {
+  test('text should have sufficient color contrast', async ({ page }) => {
     await page.goto('/');
     
     // Use axe to check color contrast
@@ -373,7 +373,7 @@ test.describe('ARIA Best Practices', () => {
 });
 
 test.describe('Responsive Accessibility', () => {
-  test.skip('should be accessible on mobile viewport', async ({ page }) => {
+  test('should be accessible on mobile viewport', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/');
     
@@ -384,7 +384,7 @@ test.describe('Responsive Accessibility', () => {
     expect(accessibilityScanResults.violations).toEqual([]);
   });
   
-  test.skip('should be accessible on tablet viewport', async ({ page }) => {
+  test('should be accessible on tablet viewport', async ({ page }) => {
     await page.setViewportSize({ width: 768, height: 1024 });
     await page.goto('/');
     
