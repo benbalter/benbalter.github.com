@@ -101,7 +101,7 @@ const {
     font-size: 1.8rem;
     font-weight: 600;
     margin-top: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     color: var(--bs-heading-color);
   }
   
@@ -109,7 +109,7 @@ const {
     font-size: 1.4rem;
     font-weight: 600;
     margin-top: 2rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     color: var(--bs-heading-color);
   }
 
@@ -127,12 +127,23 @@ const {
   
   .page-body :global(ul),
   .page-body :global(ol) {
+    margin-top: 0;
     margin-bottom: 1.5rem;
     padding-left: 2rem;
   }
   
   .page-body :global(li) {
     margin-bottom: 0.5rem;
+  }
+  
+  /* Headings after lists need extra spacing for clear section breaks */
+  .page-body :global(ul + h2),
+  .page-body :global(ul + h3),
+  .page-body :global(ul + h4),
+  .page-body :global(ol + h2),
+  .page-body :global(ol + h3),
+  .page-body :global(ol + h4) {
+    margin-top: 2.75rem;
   }
   
   .page-body :global(pre) {
