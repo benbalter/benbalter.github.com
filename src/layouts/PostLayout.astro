@@ -250,9 +250,11 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   // Headings after lists need extra spacing for clear section breaks
   .post-content :global(ul + h2),
   .post-content :global(ul + h3),
+  .post-content :global(ul + h4),
   .post-content :global(ol + h2),
-  .post-content :global(ol + h3) {
-    margin-top: 2.75rem;
+  .post-content :global(ol + h3),
+  .post-content :global(ol + h4) {
+    margin-top: 2.5em;
   }
   
   .post-content :global(pre) {
