@@ -376,9 +376,9 @@ test.describe('Axe Accessibility Scan - Multiple Pages', () => {
   /**
    * Test Axe accessibility scanning on all key pages
    * This ensures WCAG 2.1 Level AA compliance across the site
+   * Note: Homepage is tested separately in "Accessibility - Homepage" section
    */
   const pagesToTest = [
-    { url: '/', name: 'Homepage' },
     { url: '/about/', name: 'About' },
     { url: '/resume/', name: 'Resume' },
     { url: '/contact/', name: 'Contact' },
