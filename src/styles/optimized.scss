@@ -305,8 +305,8 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700; // Stronger weight for better hierarchy
     line-height: 1.3; // Slightly increased from 1.25 for better readability
-    margin-top: 2em; // Increased from 1.75em for better section separation
-    margin-bottom: 0.75em; // Increased from 0.5em for better breathing room
+    margin-top: 2em; // Space above for clear section separation
+    margin-bottom: 0.5em; // Tighter coupling with following content (best practice: less below, more above)
     letter-spacing: -0.015em; // Reduced from -0.02em for slightly looser tracking
     font-feature-settings: "kern" 1, "liga" 1;
     color: var(--bs-emphasis-color); // Better contrast for headings
@@ -353,16 +353,17 @@ h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
 
 // Improve list styling
 ul, ol {
-    margin-bottom: 1.75rem; // Increased from 1.5rem to match paragraph spacing
-    padding-left: 2rem; // Increased from 1.5rem for better visual alignment
+    margin-top: 0; // Tighter coupling when list immediately follows heading or paragraph
+    margin-bottom: 1.5rem; // Slightly reduced for better rhythm (was 1.75rem)
+    padding-left: 2rem; // Good visual alignment with text
 }
 
 // Note: List width is controlled by layout containers
 // rather than max-width constraints
 
 li {
-    margin-bottom: 0.625rem; // Increased from 0.5rem for better readability
-    line-height: 1.7; // Increased from 1.6 to match body text
+    margin-bottom: 0.5rem; // Slightly tighter list item spacing for better visual grouping
+    line-height: 1.7; // Match body text line-height
     padding-left: 0.25rem; // Add slight indent for better text alignment
 }
 
@@ -374,6 +375,40 @@ li > ul, li > ol {
 // Remove margin from last item
 li:last-child {
     margin-bottom: 0;
+}
+
+// Ensure proper spacing when headings follow lists or other block elements
+// This creates clear visual section breaks in the content
+ul + h2, ul + h3, ul + h4, ul + h5, ul + h6,
+ol + h2, ol + h3, ol + h4, ol + h5, ol + h6,
+blockquote + h2, blockquote + h3, blockquote + h4, blockquote + h5, blockquote + h6,
+pre + h2, pre + h3, pre + h4, pre + h5, pre + h6 {
+    margin-top: 2.5em; // Extra space after content blocks before new sections
+}
+
+// Ensure the same spacing applies within post/page content where headings
+// are restyled with higher-specificity selectors (e.g., .post-content :global(h2))
+.post-content :global(blockquote) + :global(h2),
+.post-content :global(blockquote) + :global(h3),
+.post-content :global(blockquote) + :global(h4),
+.post-content :global(blockquote) + :global(h5),
+.post-content :global(blockquote) + :global(h6),
+.post-content :global(pre) + :global(h2),
+.post-content :global(pre) + :global(h3),
+.post-content :global(pre) + :global(h4),
+.post-content :global(pre) + :global(h5),
+.post-content :global(pre) + :global(h6),
+.page-body :global(blockquote) + :global(h2),
+.page-body :global(blockquote) + :global(h3),
+.page-body :global(blockquote) + :global(h4),
+.page-body :global(blockquote) + :global(h5),
+.page-body :global(blockquote) + :global(h6),
+.page-body :global(pre) + :global(h2),
+.page-body :global(pre) + :global(h3),
+.page-body :global(pre) + :global(h4),
+.page-body :global(pre) + :global(h5),
+.page-body :global(pre) + :global(h6) {
+    margin-top: 2.5em; // Match global spacing after blockquotes/code blocks
 }
 
 // Improve code block styling
@@ -627,7 +662,7 @@ nav .border-top .link-secondary {
     }
     
     ul, ol {
-        margin-bottom: 1.5rem; // Slightly reduced from 1.75rem for mobile
+        margin-bottom: 1.25rem; // Slightly reduced from desktop for mobile
         padding-left: 1.5rem; // Slightly reduced from 2rem for mobile
     }
     

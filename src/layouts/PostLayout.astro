@@ -220,7 +220,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
     font-size: 1.8rem;
     font-weight: 600;
     margin-top: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem; // Tighter coupling with content below
     color: var(--bs-emphasis-color);
   }
   
@@ -228,7 +228,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
     font-size: 1.4rem;
     font-weight: 600;
     margin-top: 2rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem; // Tighter coupling with content below
     color: var(--bs-emphasis-color);
   }
   
@@ -238,12 +238,29 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   
   .post-content :global(ul),
   .post-content :global(ol) {
+    margin-top: 0;
     margin-bottom: 1.5rem;
     padding-left: 2rem;
   }
   
   .post-content :global(li) {
     margin-bottom: 0.5rem;
+  }
+
+  .post-content :global(li > ul),
+  .post-content :global(li > ol) {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  // Headings after lists need extra spacing for clear section breaks
+  .post-content :global(ul + h2),
+  .post-content :global(ul + h3),
+  .post-content :global(ul + h4),
+  .post-content :global(ol + h2),
+  .post-content :global(ol + h3),
+  .post-content :global(ol + h4) {
+    margin-top: 2.5em;
   }
   
   .post-content :global(pre) {
