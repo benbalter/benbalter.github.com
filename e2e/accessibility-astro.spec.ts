@@ -372,6 +372,38 @@ test.describe('ARIA Best Practices', () => {
   });
 });
 
+test.describe('Axe Accessibility Scan - Multiple Pages', () => {
+  /**
+   * Test Axe accessibility scanning on all key pages
+   * This ensures WCAG 2.1 Level AA compliance across the site
+   */
+  const pagesToTest = [
+    { url: '/', name: 'Homepage' },
+    { url: '/about/', name: 'About' },
+    { url: '/resume/', name: 'Resume' },
+    { url: '/contact/', name: 'Contact' },
+    { url: '/talks/', name: 'Talks' },
+  ];
+
+  for (const { url, name } of pagesToTest) {
+    test(`${name} page should pass Axe accessibility scan`, async ({ page }) => {
+      const response = await page.goto(url);
+      
+      // Skip test if page doesn't exist
+      if (!response || response.status() === 404) {
+        test.skip();
+        return;
+      }
+      
+      const accessibilityScanResults = await new AxeBuilder({ page })
+        .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+        .analyze();
+      
+      expect(accessibilityScanResults.violations).toEqual([]);
+    });
+  }
+});
+
 test.describe('Responsive Accessibility', () => {
   test('should be accessible on mobile viewport', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
