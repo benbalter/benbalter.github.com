@@ -305,8 +305,8 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700; // Stronger weight for better hierarchy
     line-height: 1.3; // Slightly increased from 1.25 for better readability
-    margin-top: 2em; // Increased from 1.75em for better section separation
-    margin-bottom: 0.75em; // Increased from 0.5em for better breathing room
+    margin-top: 2em; // Space above for clear section separation
+    margin-bottom: 0.5em; // Tighter coupling with following content (best practice: less below, more above)
     letter-spacing: -0.015em; // Reduced from -0.02em for slightly looser tracking
     font-feature-settings: "kern" 1, "liga" 1;
     color: var(--bs-emphasis-color); // Better contrast for headings
@@ -353,16 +353,17 @@ h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
 
 // Improve list styling
 ul, ol {
-    margin-bottom: 1.75rem; // Increased from 1.5rem to match paragraph spacing
-    padding-left: 2rem; // Increased from 1.5rem for better visual alignment
+    margin-top: 0; // Tighter coupling when list immediately follows heading or paragraph
+    margin-bottom: 1.5rem; // Slightly reduced for better rhythm (was 1.75rem)
+    padding-left: 2rem; // Good visual alignment with text
 }
 
 // Note: List width is controlled by layout containers
 // rather than max-width constraints
 
 li {
-    margin-bottom: 0.625rem; // Increased from 0.5rem for better readability
-    line-height: 1.7; // Increased from 1.6 to match body text
+    margin-bottom: 0.5rem; // Slightly tighter list item spacing for better visual grouping
+    line-height: 1.7; // Match body text line-height
     padding-left: 0.25rem; // Add slight indent for better text alignment
 }
 
@@ -374,6 +375,40 @@ li > ul, li > ol {
 // Remove margin from last item
 li:last-child {
     margin-bottom: 0;
+}
+
+// Ensure proper spacing when headings follow lists or other block elements
+// This creates clear visual section breaks in the content
+ul + h2, ul + h3, ul + h4, ul + h5, ul + h6,
+ol + h2, ol + h3, ol + h4, ol + h5, ol + h6,
+blockquote + h2, blockquote + h3, blockquote + h4, blockquote + h5, blockquote + h6,
+pre + h2, pre + h3, pre + h4, pre + h5, pre + h6 {
+    margin-top: 2.5em; // Extra space after content blocks before new sections
+}
+
+// Ensure the same spacing applies within post/page content where headings
+// are restyled with higher-specificity selectors (e.g., .post-content :global(h2))
+.post-content :global(blockquote) + :global(h2),
+.post-content :global(blockquote) + :global(h3),
+.post-content :global(blockquote) + :global(h4),
+.post-content :global(blockquote) + :global(h5),
+.post-content :global(blockquote) + :global(h6),
+.post-content :global(pre) + :global(h2),
+.post-content :global(pre) + :global(h3),
+.post-content :global(pre) + :global(h4),
+.post-content :global(pre) + :global(h5),
+.post-content :global(pre) + :global(h6),
+.page-body :global(blockquote) + :global(h2),
+.page-body :global(blockquote) + :global(h3),
+.page-body :global(blockquote) + :global(h4),
+.page-body :global(blockquote) + :global(h5),
+.page-body :global(blockquote) + :global(h6),
+.page-body :global(pre) + :global(h2),
+.page-body :global(pre) + :global(h3),
+.page-body :global(pre) + :global(h4),
+.page-body :global(pre) + :global(h5),
+.page-body :global(pre) + :global(h6) {
+    margin-top: 2.5em; // Match global spacing after blockquotes/code blocks
 }
 
 // Improve code block styling
@@ -627,7 +662,7 @@ nav .border-top .link-secondary {
     }
     
     ul, ol {
-        margin-bottom: 1.5rem; // Slightly reduced from 1.75rem for mobile
+        margin-bottom: 1.25rem; // Slightly reduced from desktop for mobile
         padding-left: 1.5rem; // Slightly reduced from 2rem for mobile
     }
     
@@ -802,5 +837,126 @@ footer {
     &:hover {
         transform: scale(1.02);
         box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+    }
+}
+
+// ============================================================================
+// Web Typography Best Practices - Enhanced readability and engagement
+// ============================================================================
+
+// Text wrapping improvements for headings and paragraphs
+// text-wrap: balance creates more even line lengths in headings
+// text-wrap: pretty avoids orphans in paragraphs
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance; // Creates more visually balanced multi-line headings
+}
+
+p {
+    text-wrap: pretty; // Avoids orphans (single words on last line) for better readability
+}
+
+// Hanging punctuation for blockquotes and pull quotes
+// Pushes punctuation into the margin for optically aligned text edges
+// Note: Currently only supported in Safari, graceful degradation in other browsers
+blockquote {
+    hanging-punctuation: first last; // Hang opening and closing punctuation
+}
+
+// Enhanced text selection styles for better readability
+// Uses rgba derived from $blue (#337ab7) for consistency with codebase patterns
+::selection {
+    background-color: rgba($blue, 0.3); // Primary blue with transparency
+    color: inherit; // Preserve text color for better contrast
+}
+
+// Dark mode selection adjustment
+@media (prefers-color-scheme: dark) {
+    ::selection {
+        background-color: rgba($blue, 0.4); // Slightly more opaque for dark mode
+    }
+}
+
+// Improved first paragraph styling (lead paragraph)
+// The first paragraph after a heading often benefits from slightly larger text
+// Uses rem units for predictable sizing without compounding with parent font-size
+article > p:first-of-type,
+.post-content > p:first-of-type {
+    font-size: 1.125rem; // Slightly larger for engagement
+    line-height: 1.75; // Slightly increased line height for the larger text
+}
+
+// Drop cap for engaging article starts (applied via .drop-cap class)
+// Use sparingly - best for feature articles or blog posts
+// Note: Screen readers handle ::first-letter well in modern browsers;
+// the first letter remains part of the word in the accessibility tree
+.drop-cap::first-letter {
+    float: left;
+    font-size: 3.5em;
+    line-height: 0.8;
+    padding-right: 0.1em;
+    font-weight: 700;
+    color: var(--bs-primary);
+    margin-top: 0.1em;
+}
+
+// Print-optimized typography
+// Ensures excellent readability when users print articles
+@media print {
+    body {
+        font-size: 12pt; // Standard print size
+        line-height: 1.5; // Tighter line height for print
+        color: #000; // Pure black for maximum contrast
+        background: #fff; // White background
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid; // Keep headings with their content
+        color: #000;
+    }
+    
+    p, li, blockquote {
+        orphans: 3; // Minimum lines at bottom of page
+        widows: 3; // Minimum lines at top of page
+    }
+    
+    blockquote {
+        border-left-color: #333; // Darker for print
+        background-color: transparent;
+        page-break-inside: avoid;
+    }
+    
+    pre, code {
+        page-break-inside: avoid;
+        border: 1px solid #ccc;
+    }
+    
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+    
+    // Show URL after links for print (matches both http and https)
+    article a[href^="http://"]::after,
+    article a[href^="https://"]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #666;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+    
+    // Hide non-essential elements when printing
+    nav, footer, .skip-to-content {
+        display: none !important;
+    }
+}
+
+// Reduce motion for users who prefer it
+// Respects user accessibility preferences
+// Targets common animated elements rather than using universal selector
+@media (prefers-reduced-motion: reduce) {
+    a, button, .btn, .nav-link, .navbar-brand, .post-item, .anchor-link, .social-link {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
     }
 }
