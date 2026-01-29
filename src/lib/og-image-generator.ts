@@ -39,9 +39,7 @@ const DOMAIN_WIDTH_RESERVED = 200; // Space reserved for domain on the right
  * Returns both regular (400) and bold (700) weights
  */
 async function loadFonts(): Promise<{ regular: ArrayBuffer; bold: ArrayBuffer }> {
-  const loadFont = async (weight: string, cache: ArrayBuffer | null): Promise<ArrayBuffer> => {
-    if (cache) return cache;
-    
+  const fetchFont = async (weight: string): Promise<ArrayBuffer> => {
     const response = await fetch(
       `https://api.fontsource.org/v1/fonts/inter/latin-${weight}-normal.ttf`
     );
@@ -54,15 +52,15 @@ async function loadFonts(): Promise<{ regular: ArrayBuffer; bold: ArrayBuffer }>
   };
   
   try {
-    const [regular, bold] = await Promise.all([
-      fontRegularCache ?? loadFont('400', fontRegularCache),
-      fontBoldCache ?? loadFont('700', fontBoldCache),
-    ]);
+    // Use cached fonts if available, otherwise fetch
+    if (!fontRegularCache) {
+      fontRegularCache = await fetchFont('400');
+    }
+    if (!fontBoldCache) {
+      fontBoldCache = await fetchFont('700');
+    }
     
-    fontRegularCache = regular;
-    fontBoldCache = bold;
-    
-    return { regular, bold };
+    return { regular: fontRegularCache, bold: fontBoldCache };
   } catch (error) {
     throw new Error(`Failed to load fonts: ${error instanceof Error ? error.message : 'Unknown error'}`);
   }
