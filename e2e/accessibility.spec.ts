@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { checkBasicAccessibility, waitForPageReady, detectBuildSystem } from './helpers';
+import { checkBasicAccessibility, waitForPageReady } from './helpers';
 
 // WCAG AA contrast ratio requirement for normal text
 const WCAG_AA_CONTRAST_RATIO = 4.5;
@@ -144,21 +144,13 @@ test.describe('Accessibility', () => {
     expect(count).toBeGreaterThan(0);
   });
 
-  test.skip('Dark mode should be supported', async ({ page }) => {
+  test('Dark mode should be supported', async ({ page }) => {
     // Emulate dark color scheme preference
     await page.emulateMedia({ colorScheme: 'dark' });
     await page.goto('/');
     await waitForPageReady(page);
     
-    const buildSystem = await detectBuildSystem(page);
-    
-    if (buildSystem === 'astro') {
-      // Astro: Verify data-bs-theme attribute is present
-      const html = page.locator('html');
-      await expect(html).toHaveAttribute('data-bs-theme', 'auto');
-    }
-    
-    // Both Jekyll and Astro: Verify dark mode styling is applied
+    // Verify dark mode styling is applied
     const bodyBg = await page.locator('body').evaluate(el => 
       window.getComputedStyle(el).backgroundColor
     );
@@ -167,7 +159,7 @@ test.describe('Accessibility', () => {
     expect(bodyBg).not.toBe('rgb(255, 255, 255)');
   });
 
-  test.skip('should have sufficient text contrast in dark mode for post content', async ({ page }) => {
+  test('should have sufficient text contrast in dark mode for post content', async ({ page }) => {
     // Emulate dark color scheme preference
     await page.emulateMedia({ colorScheme: 'dark' });
     
@@ -175,15 +167,7 @@ test.describe('Accessibility', () => {
     await page.goto('/2010/09/12/wordpress-resume-plugin/');
     await waitForPageReady(page);
     
-    const buildSystem = await detectBuildSystem(page);
-    
-    if (buildSystem === 'astro') {
-      // Astro: Verify data-bs-theme attribute is present
-      const html = page.locator('html');
-      await expect(html).toHaveAttribute('data-bs-theme', 'auto');
-    }
-    
-    // Check post content exists and is visible (works for both Jekyll and Astro)
+    // Check post content exists and is visible
     const postContent = page.locator('.post-content, .entrybody').first();
     await expect(postContent).toBeVisible();
     

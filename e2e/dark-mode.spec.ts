@@ -13,7 +13,7 @@ import { waitForPageReady } from './helpers';
 
 test.describe('Dark Mode Support', () => {
   test.describe('Syntax Highlighting', () => {
-    test.skip('should use appropriate syntax highlighting theme in light mode', async ({ page }) => {
+    test('should use appropriate syntax highlighting theme in light mode', async ({ page }) => {
       await page.emulateMedia({ colorScheme: 'light' });
       await page.goto('/2021/09/01/how-i-re-over-engineered-my-home-network/');
       await waitForPageReady(page);
@@ -41,7 +41,7 @@ test.describe('Dark Mode Support', () => {
       expect(brightness).toBeGreaterThan(128);
     });
 
-    test.skip('should use appropriate syntax highlighting theme in dark mode', async ({ page }) => {
+    test('should use appropriate syntax highlighting theme in dark mode', async ({ page }) => {
       await page.emulateMedia({ colorScheme: 'dark' });
       await page.goto('/2021/09/01/how-i-re-over-engineered-my-home-network/');
       await waitForPageReady(page);
@@ -165,14 +165,14 @@ test.describe('Dark Mode Support', () => {
   });
 
   test.describe('Callout Component', () => {
-    test.skip('should be visible and styled correctly in both light and dark modes', async ({ page }) => {
+    test('should be visible and styled correctly in both light and dark modes', async ({ page }) => {
       // Test in light mode
       await page.emulateMedia({ colorScheme: 'light' });
       await page.goto('/2014/10/07/expose-process-through-urls/');
       await waitForPageReady(page);
       
-      // Check that callout exists and is visible
-      const callout = page.locator('.callout').first();
+      // Check that callout (Bootstrap alert) exists and is visible
+      const callout = page.locator('.alert[role="alert"]').first();
       await expect(callout).toBeVisible();
       
       // Check light mode background color
@@ -187,10 +187,10 @@ test.describe('Dark Mode Support', () => {
       await waitForPageReady(page);
       
       // Check that callout is still visible after reload
-      const darkModeCalloutCount = await page.locator('.callout').count();
+      const darkModeCalloutCount = await page.locator('.alert[role="alert"]').count();
       expect(darkModeCalloutCount).toBeGreaterThan(0);
       
-      const darkCallout = page.locator('.callout').first();
+      const darkCallout = page.locator('.alert[role="alert"]').first();
       await expect(darkCallout).toBeVisible();
       
       // Check dark mode background color is different from light mode
