@@ -1,16 +1,16 @@
 /**
  * Open Graph Image Configuration
  * 
- * Configuration for dynamically generating OG images for blog posts using astro-og-canvas.
- * Matches the styling from jekyll-og-image with enhancements for best practices.
+ * Configuration for dynamically generating OG images for blog posts.
+ * Matches the styling from jekyll-og-image for consistency.
  */
 
 export interface OGImageConfig {
-  // Canvas settings
+  // Canvas settings (matching Jekyll's 1200x600)
   width: number;
   height: number;
-  // Gradient background colors for visual depth
-  backgroundGradient: string[];
+  // Background color
+  backgroundColor: string;
   
   // Text styling
   title: {
@@ -18,7 +18,6 @@ export interface OGImageConfig {
     fontSize: number;
     color: string;
     lineHeight: number;
-    maxLines: number;
   };
   
   description: {
@@ -31,55 +30,78 @@ export interface OGImageConfig {
   // Border styling (matches Jekyll config)
   border: {
     height: number;
-    colors: string[];
+    color: string;
   };
   
-  // Logo/avatar - displayed at top of card for brand recognition
-  logo?: {
+  // Logo/avatar - displayed at top-right (matching Jekyll's gravity: :ne)
+  logo: {
     path: string;
     size: number;
   };
+  
+  // Domain displayed at bottom-right (Jekyll feature)
+  domain: string;
+  
+  // Padding/margins
+  padding: number;
 }
 
 /**
  * Default OG image configuration
- * Matches the Jekyll og_image config from _config.yml with best practices enhancements
+ * 
+ * Values sourced from Jekyll's _config.yml:
+ * - border.height: 20 (from og_image.border_bottom.width)
+ * - border.color: '#4285F4' (from og_image.border_bottom.fill)
+ * - logo.path: './assets/img/headshot.jpg' (from og_image.image)
+ * - domain: 'ben.balter.com' (from og_image.domain)
+ * 
+ * Values chosen to approximate Jekyll's rendered output:
+ * - width/height: 1200x600 (matches Jekyll's canvas)
+ * - backgroundColor: '#FFFFFF' (matches Jekyll default)
+ * - title/description fonts, sizes, colors, lineHeights (tuned to match visual appearance)
+ * - logo.size: 150 (matches Jekyll's image dimensions)
+ * - padding: 80 (approximates Jekyll's layout spacing)
  */
 export const defaultOGConfig: OGImageConfig = {
-  // Standard OG image dimensions
+  // Matches Jekyll's 1200x600 dimensions
   width: 1200,
-  height: 630,
+  height: 600,
   
-  // Subtle gradient background for visual depth (white to light gray)
-  backgroundGradient: ['#FFFFFF', '#F8F9FA'],
+  // White background (matching Jekyll)
+  backgroundColor: '#FFFFFF',
   
-  // Title styling
+  // Title styling (matching Jekyll header config)
   title: {
     fontFamily: 'Inter',
-    fontSize: 64,
+    fontSize: 48, // Adjusted for better fit
     color: '#2f313d',
-    lineHeight: 1.1, // Tighter for better appearance
-    maxLines: 3,
+    lineHeight: 1.2,
   },
   
-  // Description styling
+  // Description styling (matching Jekyll content config)
   description: {
     fontFamily: 'Inter',
-    fontSize: 32,
+    fontSize: 28,
     color: '#535358',
-    lineHeight: 1.4, // Better readability
+    lineHeight: 1.4,
   },
   
-  // Bottom border with Google blue (#4285F4)
+  // Bottom border with Google blue (#4285F4 from _config.yml)
   border: {
     height: 20,
-    colors: ['#4285F4'],
+    color: '#4285F4',
   },
   
-  // Logo/headshot for brand recognition (Jekyll og_image feature)
+  // Logo/headshot for brand recognition (top-right, matching Jekyll)
   logo: {
     path: './assets/img/headshot.jpg',
-    size: 100, // Display width in pixels
+    size: 150, // Matching Jekyll's 150x150
   },
+  
+  // Domain for attribution (from _config.yml og_image.domain)
+  domain: 'ben.balter.com',
+  
+  // Standard padding
+  padding: 80,
 };
 
