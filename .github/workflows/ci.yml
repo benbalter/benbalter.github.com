@@ -143,3 +143,6 @@ jobs:
 
       - name: Run Astro check
         run: npm run astro:check
+
+      - name: Build Astro site
+        run: npm run astro:build
