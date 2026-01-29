@@ -48,7 +48,19 @@ export interface OGImageConfig {
 
 /**
  * Default OG image configuration
- * Matches the Jekyll og_image config from _config.yml exactly
+ * 
+ * Values sourced from Jekyll's _config.yml:
+ * - border.height: 20 (from og_image.border_bottom.width)
+ * - border.color: '#4285F4' (from og_image.border_bottom.fill)
+ * - logo.path: './assets/img/headshot.jpg' (from og_image.image)
+ * - domain: 'ben.balter.com' (from og_image.domain)
+ * 
+ * Values chosen to approximate Jekyll's rendered output:
+ * - width/height: 1200x600 (matches Jekyll's canvas)
+ * - backgroundColor: '#FFFFFF' (matches Jekyll default)
+ * - title/description fonts, sizes, colors, lineHeights (tuned to match visual appearance)
+ * - logo.size: 150 (matches Jekyll's image dimensions)
+ * - padding: 80 (approximates Jekyll's layout spacing)
  */
 export const defaultOGConfig: OGImageConfig = {
   // Matches Jekyll's 1200x600 dimensions

@@ -21,8 +21,10 @@ interface OGImageOptions {
 }
 
 // Cache for loaded assets (persists across image generations)
-let fontDataCache: ArrayBuffer | null = null;
-let headshot: string | null = null;
+let fontBoldCache: ArrayBuffer | null = null;
+let fontRegularCache: ArrayBuffer | null = null;
+// Cache headshot by path to support config overrides
+const headshotCache: Map<string, string> = new Map();
 
 // Allowed asset directories for security
 const ALLOWED_ASSET_DIRS = ['assets'];
@@ -32,26 +34,37 @@ const LOGO_TITLE_GAP = 40; // Gap between title text and logo
 const DOMAIN_WIDTH_RESERVED = 200; // Space reserved for domain on the right
 
 /**
- * Load the Inter font for text rendering
- * Font is cached after first load for performance
+ * Load the Inter fonts for text rendering
+ * Fonts are cached after first load for performance
+ * Returns both regular (400) and bold (700) weights
  */
-async function loadFont(): Promise<ArrayBuffer> {
-  if (fontDataCache) return fontDataCache;
-  
-  try {
-    // Load Inter font from fontsource CDN
+async function loadFonts(): Promise<{ regular: ArrayBuffer; bold: ArrayBuffer }> {
+  const loadFont = async (weight: string, cache: ArrayBuffer | null): Promise<ArrayBuffer> => {
+    if (cache) return cache;
+    
     const response = await fetch(
-      'https://api.fontsource.org/v1/fonts/inter/latin-700-normal.ttf'
+      `https://api.fontsource.org/v1/fonts/inter/latin-${weight}-normal.ttf`
     );
     
     if (!response.ok) {
-      throw new Error(`Failed to fetch font: ${response.status}`);
+      throw new Error(`Failed to fetch font (weight ${weight}): ${response.status}`);
     }
     
-    fontDataCache = await response.arrayBuffer();
-    return fontDataCache;
+    return response.arrayBuffer();
+  };
+  
+  try {
+    const [regular, bold] = await Promise.all([
+      fontRegularCache ?? loadFont('400', fontRegularCache),
+      fontBoldCache ?? loadFont('700', fontBoldCache),
+    ]);
+    
+    fontRegularCache = regular;
+    fontBoldCache = bold;
+    
+    return { regular, bold };
   } catch (error) {
-    throw new Error(`Failed to load font: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    throw new Error(`Failed to load fonts: ${error instanceof Error ? error.message : 'Unknown error'}`);
   }
 }
 
@@ -89,27 +102,32 @@ function validateAssetPath(assetPath: string): string {
 
 /**
  * Load and encode the headshot image as base64 data URI
- * Image is cached after first load for performance
+ * Image is cached by path to support config overrides
  */
 async function loadHeadshot(config: OGImageConfig): Promise<string> {
-  if (headshot) return headshot;
-  
   const imagePath = validateAssetPath(config.logo.path);
+  
+  // Check cache by resolved path
+  const cached = headshotCache.get(imagePath);
+  if (cached) return cached;
+  
   const imageBuffer = await readFile(imagePath);
   const base64 = imageBuffer.toString('base64');
-  headshot = `data:image/jpeg;base64,${base64}`;
-  return headshot;
+  const dataUri = `data:image/jpeg;base64,${base64}`;
+  
+  headshotCache.set(imagePath, dataUri);
+  return dataUri;
 }
 
 /**
  * Generate an OG image SVG using Satori
- * Layout matches Jekyll's jekyll-og-image plugin exactly
+ * Layout approximates Jekyll's jekyll-og-image plugin output
  */
 export async function generateOGImageSVG(options: OGImageOptions): Promise<string> {
   const config = { ...defaultOGConfig, ...options.config };
   
-  const [fontData, headshotDataUri] = await Promise.all([
-    loadFont(),
+  const [fonts, headshotDataUri] = await Promise.all([
+    loadFonts(),
     loadHeadshot(config),
   ]);
   
@@ -140,7 +158,7 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
                 justifyContent: 'space-between',
                 flex: 1,
                 padding: config.padding,
-                paddingBottom: config.padding - 20, // Account for border
+                paddingBottom: config.padding - config.border.height, // Account for border
               },
               children: [
                 // Top section: Title and Logo
@@ -202,6 +220,7 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
                           style: {
                             display: 'flex',
                             fontSize: config.description.fontSize,
+                            fontWeight: 400,
                             color: config.description.color,
                             lineHeight: config.description.lineHeight,
                             maxWidth: config.width - config.padding * 2 - DOMAIN_WIDTH_RESERVED, // Leave room for domain
@@ -217,6 +236,7 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
                           style: {
                             display: 'flex',
                             fontSize: config.description.fontSize,
+                            fontWeight: 400,
                             color: config.description.color,
                           },
                           children: config.domain,
@@ -248,7 +268,13 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
       fonts: [
         {
           name: config.title.fontFamily,
-          data: fontData,
+          data: fonts.regular,
+          weight: 400,
+          style: 'normal',
+        },
+        {
+          name: config.title.fontFamily,
+          data: fonts.bold,
           weight: 700,
           style: 'normal',
         },
