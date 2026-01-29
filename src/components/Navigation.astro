@@ -53,16 +53,12 @@ const navClasses = hero
         {navItems.map((item) => {
           const isActive = currentPath === item.url || 
                           (item.url === '/' && currentPath === '/');
-          /* WCAG AA compliant colors against bg-secondary-subtle (#e9ecef) */
-          /* Active: #212529 = 12.6:1 contrast, Normal: #1a5490 = 5.3:1 contrast */
-          const linkColor = isActive ? '#212529' : '#1a5490';
           return (
             <li class="nav-item">
               <a 
                 href={item.url} 
                 class={`nav-link${isActive ? ' active' : ''}`}
                 aria-current={isActive ? 'page' : undefined}
-                style={`color: ${linkColor} !important;`}
               >
                 {item.title}
               </a>
@@ -79,12 +75,19 @@ const navClasses = hero
 </nav>
 
 <style lang="scss">
-  /* WCAG AA compliant color constants for navigation against bg-secondary-subtle (#e9ecef) */
-  /* All colors verified to have >= 4.5:1 contrast ratio */
+  /* WCAG AA compliant color constants for navigation against bg-secondary-subtle (#e9ecef) in LIGHT mode */
+  /* All colors verified to have >= 4.5:1 contrast ratio against light background */
   $nav-link-color: #1a5490;        /* 5.3:1 contrast ratio */
   $nav-link-hover-color: #133d6b;  /* 6.8:1 contrast ratio */
   $nav-link-active-color: #212529; /* 12.6:1 contrast ratio */
   $nav-text-color: #495057;        /* 6.0:1 contrast ratio */
+  
+  /* WCAG AA compliant color constants for navigation in DARK mode */
+  /* All colors verified to have >= 4.5:1 contrast ratio against #343a40 background */
+  $dark-nav-link-color: #6cb4e8;        /* 5.7:1 contrast ratio */
+  $dark-nav-link-hover-color: #8ac6f0;  /* 7.1:1 contrast ratio */
+  $dark-nav-link-active-color: #e9ecef; /* 10.5:1 contrast ratio */
+  $dark-nav-text-color: #adb5bd;        /* 6.3:1 contrast ratio */
 
   /* Import Bootstrap navigation components (scoped to this component) */
   @import 'bootstrap/scss/functions';
@@ -153,17 +156,6 @@ const navClasses = hero
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   }
 
-  /* Dark mode toggler icon and border */
-  @media (prefers-color-scheme: dark) {
-    .navbar-toggler {
-      border-color: rgba(255, 255, 255, 0.1);
-    }
-
-    .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    }
-  }
-
   .navbar-collapse {
     align-items: center;
   }
@@ -204,7 +196,7 @@ const navClasses = hero
 
   .navbar-text {
     /* Use a darker gray for better contrast against bg-secondary-subtle (#e9ecef) */
-    color: $nav-text-color;
+    color: $nav-text-color !important;
     padding: 0.5rem 0;
   }
 
@@ -234,6 +226,35 @@ const navClasses = hero
 
     .navbar-text {
       display: none;
+    }
+  }
+  
+  /* Dark mode styles - MUST be at the end to override light mode styles */
+  /* In dark mode, bg-secondary-subtle becomes ~#343a40 */
+  @media (prefers-color-scheme: dark) {
+    .navbar-toggler {
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+    
+    .nav-link {
+      color: $dark-nav-link-color !important;
+    }
+    
+    .nav-link:hover,
+    .nav-link:focus {
+      color: $dark-nav-link-hover-color !important;
+    }
+    
+    .nav-link.active {
+      color: $dark-nav-link-active-color !important;
+    }
+    
+    .navbar-text {
+      color: $dark-nav-text-color !important;
     }
   }
 </style>

@@ -812,9 +812,8 @@ h1, h2, h3, h4, h5, h6 {
             transform: scaleX(1);
         }
         
-        &.active {
-            color: $blue !important;
-        }
+        // Note: Active link colors are set in Navigation.astro component
+        // to maintain WCAG AA contrast in both light and dark modes
     }
 }
 
