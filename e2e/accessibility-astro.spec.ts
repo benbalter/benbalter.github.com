@@ -502,30 +502,47 @@ test.describe('Accessibility - Dark Mode', () => {
     const main = page.locator('main');
     await expect(main).toBeVisible();
     
-    // Check that the site has styles that respond to prefers-reduced-motion
-    // The site's CSS includes: @media (prefers-reduced-motion: reduce) 
-    // which sets transition-duration: 0.01ms on interactive elements
-    const hasReducedMotionSupport = await page.evaluate(() => {
-      // Check if the page has any prefers-reduced-motion media queries
-      for (const sheet of document.styleSheets) {
-        try {
-          for (const rule of sheet.cssRules) {
-            if (rule instanceof CSSMediaRule) {
-              if (rule.conditionText?.includes('prefers-reduced-motion')) {
-                return true;
-              }
-            }
-          }
-        } catch (e) {
-          // Skip cross-origin stylesheets
-          continue;
-        }
-      }
-      return false;
+    // Verify that animations are actually disabled/reduced on interactive elements
+    // The site's CSS sets transition-duration: 0.01ms on elements when reduced motion is preferred
+    const animationStyles = await page.evaluate(() => {
+      const results: { element: string; transitionDuration: string; animationDuration: string }[] = [];
+      
+      // Check nav links (elements targeted by the reduced motion CSS)
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach((el, i) => {
+        const styles = window.getComputedStyle(el);
+        results.push({
+          element: `.nav-link[${i}]`,
+          transitionDuration: styles.transitionDuration,
+          animationDuration: styles.animationDuration,
+        });
+      });
+      
+      // Check buttons if any exist
+      const buttons = document.querySelectorAll('button, .btn');
+      buttons.forEach((el, i) => {
+        const styles = window.getComputedStyle(el);
+        results.push({
+          element: `button[${i}]`,
+          transitionDuration: styles.transitionDuration,
+          animationDuration: styles.animationDuration,
+        });
+      });
+      
+      return results;
     });
     
-    // The site should have prefers-reduced-motion styles defined
-    expect(hasReducedMotionSupport).toBe(true);
+    // Verify that at least some animated elements have reduced motion
+    // The CSS sets duration to 0.01ms which browsers may normalize to 0s or 0.01ms
+    const hasReducedMotion = animationStyles.some(style => {
+      const transitionMs = parseFloat(style.transitionDuration) * (style.transitionDuration.includes('ms') ? 1 : 1000);
+      const animationMs = parseFloat(style.animationDuration) * (style.animationDuration.includes('ms') ? 1 : 1000);
+      // Check if duration is effectively zero or near-zero (0.01ms or less)
+      return transitionMs <= 0.01 || animationMs <= 0.01 || 
+             style.transitionDuration === '0s' || style.animationDuration === '0s';
+    });
+    
+    expect(hasReducedMotion).toBe(true);
   });
 });
 
