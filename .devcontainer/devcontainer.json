@@ -19,7 +19,6 @@
         "shopify.ruby-lsp",
         "yzhang.markdown-all-in-one",
         "davidanson.vscode-markdownlint",
-        "sissel.shopify-liquid",
         "redhat.vscode-yaml",
         "esbenp.prettier-vscode",
         "dbaeumer.vscode-eslint",
@@ -53,15 +52,17 @@
         "[javascript]": {
           "editor.defaultFormatter": "dbaeumer.vscode-eslint"
         },
+        "[astro]": {
+          "editor.defaultFormatter": "astro-build.astro-vscode"
+        },
         "files.associations": {
-          "*.liquid": "liquid",
-          "*.md": "markdown"
+          "*.md": "markdown",
+          "*.mdx": "mdx"
         },
         "search.exclude": {
           "**/node_modules": true,
           "**/vendor": true,
           "**/.bundle": true,
-          "_site": true,
           "dist-astro": true
         }
       }
@@ -69,20 +70,13 @@
   },
   "onCreateCommand": "script/bootstrap",
   "postCreateCommand": "sudo apt-get update && sudo apt-get install -y libvips-dev && ./node_modules/.bin/playwright install --with-deps chromium",
-  "postStartCommand": "echo '🚀 Devcontainer ready! Run \"rake serve\" or \"script/server\" to start Jekyll, or \"npm run astro:dev\" for Astro.'",
-  "forwardPorts": [4000, 4321],
+  "postStartCommand": "echo '🚀 Devcontainer ready! Run \"npm run astro:dev\" to start the Astro development server.'",
+  "forwardPorts": [4321],
   "portsAttributes": {
-    "4000": {
-      "label": "Jekyll Server",
-      "onAutoForward": "notify"
-    },
     "4321": {
       "label": "Astro Dev Server",
       "onAutoForward": "notify"
     }
-  },
-  "containerEnv": {
-    "JEKYLL_ENV": "development"
   },
   "remoteUser": "vscode",
   "updateContentCommand": "npm install && bundle install"
