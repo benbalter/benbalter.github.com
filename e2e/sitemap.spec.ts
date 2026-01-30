@@ -232,26 +232,4 @@ test.describe('Sitemap Generation', () => {
       expect(content).not.toContain('page.url');
     });
   });
-
-  // HTTP tests - legacy Jekyll server tests
-  // These tests are now covered by seo.spec.ts for both Jekyll and Astro
-  // Keeping skipped as they're redundant with seo.spec.ts tests
-  test.describe.skip('HTTP Accessibility Tests (Jekyll server)', () => {
-    test('sitemap should be accessible via HTTP', async ({ page }) => {
-      const response = await page.goto('/sitemap.xml');
-      expect(response?.status()).toBe(200);
-      
-      const content = await page.content();
-      expect(content).toContain('sitemapindex');
-    });
-
-    test('robots.txt should be accessible via HTTP', async ({ page }) => {
-      const response = await page.goto('/robots.txt');
-      expect(response?.status()).toBe(200);
-      
-      const content = await page.textContent('body');
-      expect(content).toContain('User-agent');
-      expect(content).toContain('Sitemap');
-    });
-  });
 });
