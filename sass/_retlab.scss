@@ -123,6 +123,20 @@ footer .nav-link {
     font-size: 0.875rem; // Reduced from default 1rem
 }
 
+// Footer responsive layout adjustments
+@media (max-width: 768px) {
+    footer .footer-nav > div {
+        justify-content: center !important;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer .contact-links,
+    footer .footer-links {
+        justify-content: center !important;
+    }
+}
+
 // Reduce post list text sizes (for index/home page)
 // NOTE: Add the `.post-list-link` class to anchor tags in the index/home page template for this style to apply.
 .post-list-link {
