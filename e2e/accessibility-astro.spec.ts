@@ -427,3 +427,183 @@ test.describe('Responsive Accessibility', () => {
     expect(accessibilityScanResults.violations).toEqual([]);
   });
 });
+
+test.describe('Accessibility - Additional Pages', () => {
+  const pages = [
+    { path: '/about/', name: 'About' },
+    { path: '/contact/', name: 'Contact' },
+    { path: '/resume/', name: 'Resume' },
+    { path: '/talks/', name: 'Talks' },
+  ];
+  
+  pages.forEach(({ path, name }) => {
+    test(`${name} page should not have accessibility violations`, async ({ page }) => {
+      await page.goto(path);
+      
+      const accessibilityScanResults = await new AxeBuilder({ page })
+        .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+        .analyze();
+      
+      expect(accessibilityScanResults.violations).toEqual([]);
+    });
+    
+    test(`${name} page should have proper heading hierarchy`, async ({ page }) => {
+      await page.goto(path);
+      
+      // Each page should have exactly one H1
+      const h1s = await page.locator('h1').count();
+      expect(h1s).toBe(1);
+      
+      // H1 text should correspond to the page title, but allow minor formatting differences
+      const rawH1Text = (await page.locator('h1').textContent()) || '';
+      const normalizedH1 = rawH1Text.trim().toLowerCase();
+      const normalizedName = name.trim().toLowerCase();
+      expect(
+        normalizedH1.includes(normalizedName) || normalizedName.includes(normalizedH1)
+      ).toBeTruthy();
+    });
+    
+    test(`${name} page should have semantic structure`, async ({ page }) => {
+      await page.goto(path);
+      
+      // Check for main landmark
+      const main = page.locator('main');
+      await expect(main).toHaveCount(1);
+      
+      // Check for article element
+      const article = page.locator('article');
+      await expect(article).toHaveCount(1);
+      
+      // Check for navigation
+      const nav = page.locator('nav');
+      const navCount = await nav.count();
+      expect(navCount).toBeGreaterThanOrEqual(1);
+    });
+  });
+});
+
+test.describe('Accessibility - Dark Mode', () => {
+  test('should be accessible in dark mode on homepage', async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'dark' });
+    await page.goto('/');
+    
+    const accessibilityScanResults = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa'])
+      .analyze();
+    
+    expect(accessibilityScanResults.violations).toEqual([]);
+  });
+  
+  test('should be accessible in dark mode on blog post', async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'dark' });
+    await page.goto('/');
+    
+    // Guard: skip if no article links exist
+    const articleLinks = await page.locator('article a').count();
+    if (articleLinks === 0) {
+      test.skip();
+      return;
+    }
+    
+    await page.click('article a');
+    await page.waitForLoadState('networkidle');
+    
+    const accessibilityScanResults = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa'])
+      .analyze();
+    
+    expect(accessibilityScanResults.violations).toEqual([]);
+  });
+  
+  test('should have proper color-scheme meta tag', async ({ page }) => {
+    await page.goto('/');
+    
+    // Check for color-scheme meta tag supporting both light and dark
+    const colorScheme = page.locator('meta[name="color-scheme"]');
+    await expect(colorScheme).toHaveCount(1);
+    const content = await colorScheme.getAttribute('content');
+    expect(content).toContain('light');
+    expect(content).toContain('dark');
+  });
+  
+  test('should respect prefers-reduced-motion', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.goto('/');
+    
+    // Verify page loads correctly with reduced motion preference
+    const main = page.locator('main');
+    await expect(main).toBeVisible();
+    
+    // Verify that animations are actually disabled/reduced on interactive elements
+    // The site's CSS sets transition-duration: 0.01ms on elements when reduced motion is preferred
+    const animationStyles = await page.evaluate(() => {
+      const results: { element: string; transitionDuration: string; animationDuration: string }[] = [];
+      
+      // Check nav links (elements targeted by the reduced motion CSS)
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach((el, i) => {
+        const styles = window.getComputedStyle(el);
+        results.push({
+          element: `.nav-link[${i}]`,
+          transitionDuration: styles.transitionDuration,
+          animationDuration: styles.animationDuration,
+        });
+      });
+      
+      // Check buttons if any exist
+      const buttons = document.querySelectorAll('button, .btn');
+      buttons.forEach((el, i) => {
+        const styles = window.getComputedStyle(el);
+        results.push({
+          element: `button[${i}]`,
+          transitionDuration: styles.transitionDuration,
+          animationDuration: styles.animationDuration,
+        });
+      });
+      
+      return results;
+    });
+    
+    // Verify that at least some animated elements have reduced motion
+    // The CSS sets duration to 0.01ms which browsers may normalize to 0s or 0.01ms
+    const hasReducedMotion = animationStyles.some(style => {
+      const transitionMs = parseFloat(style.transitionDuration) * (style.transitionDuration.includes('ms') ? 1 : 1000);
+      const animationMs = parseFloat(style.animationDuration) * (style.animationDuration.includes('ms') ? 1 : 1000);
+      // Check if duration is effectively zero or near-zero (0.01ms or less)
+      return transitionMs <= 0.01 || animationMs <= 0.01 || 
+             style.transitionDuration === '0s' || style.animationDuration === '0s';
+    });
+    
+    expect(hasReducedMotion).toBe(true);
+  });
+});
+
+test.describe('Accessibility - 404 Page', () => {
+  test('404 page should be accessible', async ({ page }) => {
+    await page.goto('/non-existent-page-that-should-404/');
+    
+    const accessibilityScanResults = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa'])
+      .analyze();
+    
+    expect(accessibilityScanResults.violations).toEqual([]);
+  });
+  
+  test('404 page should have helpful navigation', async ({ page }) => {
+    await page.goto('/non-existent-page-that-should-404/');
+    
+    // Should have main navigation
+    const nav = page.locator('nav');
+    const navCount = await nav.count();
+    expect(navCount).toBeGreaterThanOrEqual(1);
+    
+    // Should have link to homepage
+    const homeLink = page.locator('a[href="/"]');
+    const homeLinkCount = await homeLink.count();
+    expect(homeLinkCount).toBeGreaterThanOrEqual(1);
+    
+    // Should have helpful content with recent posts
+    const recentPostsHeading = page.locator('h4');
+    await expect(recentPostsHeading).toContainText('Recent posts');
+  });
+});
