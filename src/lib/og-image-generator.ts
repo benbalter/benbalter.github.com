@@ -1,0 +1,306 @@
+/**
+ * Satori-based Open Graph Image Generator
+ * 
+ * Generates OG images matching the Jekyll og_image layout:
+ * - Logo/headshot in top-right corner
+ * - Title at top-left
+ * - Description at bottom-left
+ * - Domain at bottom-right
+ * - Blue border at bottom
+ */
+
+import satori from 'satori';
+import { readFile } from 'node:fs/promises';
+import { resolve, sep } from 'node:path';
+import { defaultOGConfig, type OGImageConfig } from './og-config';
+
+interface OGImageOptions {
+  title: string;
+  description: string;
+  config?: Partial<OGImageConfig>;
+}
+
+// Cache for loaded assets (persists across image generations)
+let fontBoldCache: ArrayBuffer | null = null;
+let fontRegularCache: ArrayBuffer | null = null;
+// Cache headshot by path to support config overrides
+const headshotCache: Map<string, string> = new Map();
+
+// Allowed asset directories for security
+const ALLOWED_ASSET_DIRS = ['assets'];
+
+// Layout constants for spacing calculations
+const LOGO_TITLE_GAP = 40; // Gap between title text and logo
+const DOMAIN_WIDTH_RESERVED = 200; // Space reserved for domain on the right
+
+/**
+ * Load the Inter fonts for text rendering
+ * Fonts are cached after first load for performance
+ * Returns both regular (400) and bold (700) weights
+ */
+async function loadFonts(): Promise<{ regular: ArrayBuffer; bold: ArrayBuffer }> {
+  const fetchFont = async (weight: string): Promise<ArrayBuffer> => {
+    const response = await fetch(
+      `https://api.fontsource.org/v1/fonts/inter/latin-${weight}-normal.ttf`
+    );
+    
+    if (!response.ok) {
+      throw new Error(`Failed to fetch font (weight ${weight}): ${response.status}`);
+    }
+    
+    return response.arrayBuffer();
+  };
+  
+  try {
+    // Use cached fonts if available, otherwise fetch
+    if (!fontRegularCache) {
+      fontRegularCache = await fetchFont('400');
+    }
+    if (!fontBoldCache) {
+      fontBoldCache = await fetchFont('700');
+    }
+    
+    return { regular: fontRegularCache, bold: fontBoldCache };
+  } catch (error) {
+    throw new Error(`Failed to load fonts: ${error instanceof Error ? error.message : 'Unknown error'}`);
+  }
+}
+
+/**
+ * Validate that a path is within allowed directories
+ * Prevents path traversal attacks
+ */
+function validateAssetPath(assetPath: string): string {
+  const projectRoot = process.cwd();
+  
+  // Resolve the full path first (handles ../ traversal)
+  const fullPath = resolve(projectRoot, assetPath);
+  
+  // Ensure resolved path is within project root (prevents traversal)
+  // Use platform-specific path separator for cross-platform compatibility
+  if (!fullPath.startsWith(projectRoot + sep)) {
+    throw new Error('Asset path traversal detected');
+  }
+  
+  // Get the path relative to project root for allowed directory check
+  const relativePath = fullPath.slice(projectRoot.length + 1);
+  
+  // Ensure the resolved path starts with an allowed directory
+  // Use platform-specific path separator for cross-platform compatibility
+  const isAllowed = ALLOWED_ASSET_DIRS.some(dir => 
+    relativePath.startsWith(dir + sep) || relativePath === dir
+  );
+  
+  if (!isAllowed) {
+    throw new Error(`Asset path must be within allowed directories: ${ALLOWED_ASSET_DIRS.join(', ')}`);
+  }
+  
+  return fullPath;
+}
+
+/**
+ * Load and encode the headshot image as base64 data URI
+ * Image is cached by path to support config overrides
+ */
+async function loadHeadshot(config: OGImageConfig): Promise<string> {
+  const imagePath = validateAssetPath(config.logo.path);
+  
+  // Check cache by resolved path
+  const cached = headshotCache.get(imagePath);
+  if (cached) return cached;
+  
+  const imageBuffer = await readFile(imagePath);
+  const base64 = imageBuffer.toString('base64');
+  const dataUri = `data:image/jpeg;base64,${base64}`;
+  
+  headshotCache.set(imagePath, dataUri);
+  return dataUri;
+}
+
+/**
+ * Generate an OG image SVG using Satori
+ * Layout approximates Jekyll's jekyll-og-image plugin output
+ */
+export async function generateOGImageSVG(options: OGImageOptions): Promise<string> {
+  const config = { ...defaultOGConfig, ...options.config };
+  
+  const [fonts, headshotDataUri] = await Promise.all([
+    loadFonts(),
+    loadHeadshot(config),
+  ]);
+  
+  // Calculate available width for title (excluding logo area)
+  const titleMaxWidth = config.width - config.padding * 2 - config.logo.size - LOGO_TITLE_GAP;
+  
+  const svg = await satori(
+    {
+      type: 'div',
+      props: {
+        style: {
+          display: 'flex',
+          flexDirection: 'column',
+          width: '100%',
+          height: '100%',
+          backgroundColor: config.backgroundColor,
+          fontFamily: config.title.fontFamily,
+          position: 'relative',
+        },
+        children: [
+          // Main content area
+          {
+            type: 'div',
+            props: {
+              style: {
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                flex: 1,
+                padding: config.padding,
+                paddingBottom: config.padding - config.border.height, // Account for border
+              },
+              children: [
+                // Top section: Title and Logo
+                {
+                  type: 'div',
+                  props: {
+                    style: {
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'flex-start',
+                    },
+                    children: [
+                      // Title on the left
+                      {
+                        type: 'div',
+                        props: {
+                          style: {
+                            display: 'flex',
+                            fontSize: config.title.fontSize,
+                            fontWeight: 700,
+                            color: config.title.color,
+                            lineHeight: config.title.lineHeight,
+                            maxWidth: titleMaxWidth,
+                            wordBreak: 'break-word',
+                          },
+                          children: options.title,
+                        },
+                      },
+                      // Logo/headshot on the right
+                      {
+                        type: 'img',
+                        props: {
+                          src: headshotDataUri,
+                          width: config.logo.size,
+                          height: config.logo.size,
+                          style: {
+                            borderRadius: 10,
+                            objectFit: 'cover',
+                          },
+                        },
+                      },
+                    ],
+                  },
+                },
+                // Bottom section: Description and Domain
+                {
+                  type: 'div',
+                  props: {
+                    style: {
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'flex-end',
+                    },
+                    children: [
+                      // Description on the left
+                      {
+                        type: 'div',
+                        props: {
+                          style: {
+                            display: 'flex',
+                            fontSize: config.description.fontSize,
+                            fontWeight: 400,
+                            color: config.description.color,
+                            lineHeight: config.description.lineHeight,
+                            maxWidth: config.width - config.padding * 2 - DOMAIN_WIDTH_RESERVED, // Leave room for domain
+                            wordBreak: 'break-word',
+                          },
+                          children: options.description,
+                        },
+                      },
+                      // Domain on the right
+                      {
+                        type: 'div',
+                        props: {
+                          style: {
+                            display: 'flex',
+                            fontSize: config.description.fontSize,
+                            fontWeight: 400,
+                            color: config.description.color,
+                          },
+                          children: config.domain,
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          // Bottom border
+          {
+            type: 'div',
+            props: {
+              style: {
+                width: '100%',
+                height: config.border.height,
+                backgroundColor: config.border.color,
+              },
+            },
+          },
+        ],
+      },
+    },
+    {
+      width: config.width,
+      height: config.height,
+      fonts: [
+        {
+          name: config.title.fontFamily,
+          data: fonts.regular,
+          weight: 400,
+          style: 'normal',
+        },
+        {
+          name: config.title.fontFamily,
+          data: fonts.bold,
+          weight: 700,
+          style: 'normal',
+        },
+      ],
+    }
+  );
+  
+  return svg;
+}
+
+/**
+ * Convert SVG to PNG using resvg-js
+ * Requires @resvg/resvg-js to be installed
+ */
+export async function generateOGImagePNG(options: OGImageOptions): Promise<Buffer> {
+  const svg = await generateOGImageSVG(options);
+  
+  // Dynamic import for resvg
+  const { Resvg } = await import('@resvg/resvg-js');
+  
+  const config = { ...defaultOGConfig, ...options.config };
+  const resvg = new Resvg(svg, {
+    fitTo: {
+      mode: 'width',
+      value: config.width,
+    },
+  });
+  
+  const pngData = resvg.render();
+  return pngData.asPng();
+}
