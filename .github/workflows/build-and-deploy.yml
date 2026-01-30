@@ -43,6 +43,9 @@ jobs:
       - name: Add .nojekyll file
         run: touch dist-astro/.nojekyll
 
+      - name: Copy CNAME for custom domain
+        run: cp CNAME dist-astro/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
