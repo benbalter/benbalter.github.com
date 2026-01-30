@@ -1,0 +1,26 @@
+# Ben Balter
+
+> Technology leadership, collaboration, and open source
+
+Ben Balter is the Director of Engineering Operations and Culture at GitHub. Before that, he was the Senior Product Manager of Trust and Safety at GitHub, responsible for protecting users, the platform, and the community from abuse and malicious actors.
+
+## About and Professional Information
+
+* [About](https://ben.balter.com/about/): About Ben Balter
+* [Resume](https://ben.balter.com/resume/): Professional resume and work history
+* [Contact](https://ben.balter.com/contact/): Get in touch
+
+## Blog Topics
+
+Ben writes about:
+- Technology leadership and management
+- Open source software and collaboration
+- Remote work and distributed teams
+- GitHub culture and best practices
+- Government technology and digital services
+
+## Site Information
+
+* [RSS Feed](https://ben.balter.com/feed.xml): Subscribe to all posts
+* [Site Source Code](https://github.com/benbalter/benbalter.github.com): This site's source code on GitHub
+* [Fine Print](https://ben.balter.com/fine-print/): Legal information and site policies

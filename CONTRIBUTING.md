@@ -19,9 +19,8 @@ This project follows a code of conduct that all contributors are expected to adh
 
 ### Prerequisites
 
-- **Node.js**: Version 20.x or later
+- **Node.js**: Version 24.x or later
 - **npm**: Version 10.x or later (comes with Node.js)
-- **Ruby**: Version 3.3.x (for Jekyll)
 - **Git**: For version control
 
 ### Setup
@@ -42,7 +41,6 @@ This project follows a code of conduct that all contributors are expected to adh
 3. **Start development server:**
 
    ```bash
-   rake serve              # Start Jekyll server (http://localhost:4000)
    npm run astro:dev       # Start Astro server (http://localhost:4321)
    ```
 
@@ -50,13 +48,14 @@ This project follows a code of conduct that all contributors are expected to adh
 
 ### Project Structure
 
-This project uses Jekyll for production and has an experimental Astro implementation:
+This project uses Astro for static site generation:
 
-- `_posts/` - Blog posts (Markdown files)
-- `_includes/` - Reusable HTML/Liquid snippets
-- `_layouts/` - Page templates
-- `_data/` - YAML data files
-- `src/` - Astro source files (experimental)
+- `src/content/posts/` - Blog posts (Markdown/MDX files)
+- `src/content/resume-positions/` - Resume position entries
+- `src/components/` - Reusable Astro components
+- `src/layouts/` - Page layout templates
+- `src/pages/` - Page routes
+- `src/data/` - YAML data files
 - `public/` - Static assets
 - `script/` - Build and utility scripts
 
@@ -66,7 +65,7 @@ See [docs/ASTRO.md](docs/ASTRO.md) for Astro-specific documentation.
 
 #### Blog Posts
 
-Blog posts are Markdown files in `_posts/` with the format: `YYYY-MM-DD-title.md`
+Blog posts are Markdown files in `src/content/posts/` with the format: `YYYY-MM-DD-title.md`
 
 ```markdown
 ---
@@ -78,12 +77,6 @@ Your content here...
 ```
 
 ## Coding Standards
-
-### Ruby (Jekyll)
-
-- Follow Rubocop rules defined in `.rubocop.yml`
-- Use frozen string literals: `# frozen_string_literal: true`
-- Write RSpec tests for new functionality in `spec/`
 
 ### TypeScript (Astro)
 
@@ -115,7 +108,7 @@ npm test
 # Linting
 npm run lint
 
-# TypeScript check (Astro)
+# TypeScript check
 npm run astro:check
 
 # E2E tests
@@ -146,7 +139,6 @@ npm run test:e2e:headed  # Watch tests run in browser
 1. **Test your changes:**
 
    ```bash
-   rake build           # Verify Jekyll build
    npm run astro:build  # Verify Astro build
    npm test             # Run all tests
    ```
@@ -157,7 +149,7 @@ npm run test:e2e:headed  # Watch tests run in browser
    npm run lint
    ```
 
-3. **Check TypeScript (if applicable):**
+3. **Check TypeScript:**
 
    ```bash
    npm run astro:check
@@ -208,16 +200,13 @@ This repository includes comprehensive instructions for GitHub Copilot coding ag
 
 ### Custom Agents
 
-- **`.github/agents/code.md`** - Specialized agent for code changes (Ruby, JavaScript, HTML, CSS)
+- **`.github/agents/code.md`** - Specialized agent for code changes (JavaScript, TypeScript, HTML, CSS)
 - **`.github/agents/writing.md`** - Specialized agent for blog posts and documentation
 
 ### Scoped Instructions
 
 The `.github/instructions/` directory contains targeted instructions for specific areas:
 
-- **`jekyll-content.instructions.md`** - Blog posts in `_posts/`
-- **`jekyll-templates.instructions.md`** - Jekyll layouts and includes
-- **`ruby-code.instructions.md`** - Ruby plugins, scripts, and tests
 - **`styles.instructions.md`** - CSS and SCSS files
 - **`configuration.instructions.md`** - YAML and JSON configuration
 - **`testing.instructions.md`** - Test files and testing practices
@@ -230,7 +219,6 @@ If you have questions or need help:
 
 - Open an [issue](https://github.com/benbalter/benbalter.github.com/issues)
 - Check existing [documentation](docs/)
-- Review the [Jekyll documentation](https://jekyllrb.com/docs/)
 - Review the [Astro documentation](https://docs.astro.build/)
 
 ## License

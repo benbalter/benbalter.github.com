@@ -58,11 +58,12 @@ jobs:
           VALIDATE_TERRAFORM_FMT: false
           VALIDATE_TERRAFORM_TFLINT: false
           VALIDATE_TERRAFORM_TERRASCAN: false
+          # Disable Ruby validation (Jekyll removed)
+          VALIDATE_RUBY: false
           # Already disabled validators
           VALIDATE_XML: false
           VALIDATE_NATURAL_LANGUAGE: false
           VALIDATE_GITLEAKS: false
           # Configuration
-          RUBY_CONFIG_FILE: .rubocop.yml
           LINTER_RULES_PATH: .
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

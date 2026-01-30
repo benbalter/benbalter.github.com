@@ -30,10 +30,8 @@ jobs:
         with:
           filters: |
             content:
-              - '_posts/**'
-              - '_resume_positions/**'
+              - 'src/content/**'
               - '*.md'
-              - '_data/**'
               - 'dictionary.txt'
               - '.remarkrc.js'
               - '.remarkignore'
@@ -46,26 +44,17 @@ jobs:
               - 'script/lint-text'
               - 'script/vale'
             code:
-              - '**/*.rb'
               - '**/*.js'
               - '**/*.ts'
               - '**/*.json'
               - '**/*.yml'
               - '**/*.yaml'
-              - '_config*.yml'
-              - 'Gemfile*'
               - 'package*.json'
-              - 'Rakefile'
-              - '_layouts/**'
-              - '_includes/**'
+              - 'src/**'
               - 'assets/**'
               - 'sass/**'
               - 'js/**'
-              - 'lib/**'
               - 'script/**'
-              - 'spec/**'
-              - '.rubocop*.yml'
-              - '.eslintrc.yml'
               - 'eslint.config.js'
               - '.yamllint.yml'
             astro:
@@ -102,21 +91,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-
-      - name: Cache apt packages
-        uses: awalsh128/cache-apt-pkgs-action@v1
-        with:
-          packages: libvips-dev
-          version: 1.0
 
       - name: script/bootstrap
         run: script/bootstrap

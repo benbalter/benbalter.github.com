@@ -2,41 +2,42 @@
 
 [![CI](https://github.com/benbalter/benbalter.github.com/actions/workflows/ci.yml/badge.svg)](https://github.com/benbalter/benbalter.github.com/actions/workflows/ci.yml)
 
-The personal site of Ben Balter. Built with Jekyll and hosted on GitHub Pages, with Astro experimental evaluation.
+The personal site of Ben Balter. Built with Astro and hosted on GitHub Pages.
 
-## Current Setup
+## Tech Stack
 
-This site is built using Jekyll, GitHub Pages, and Bootstrap. See [humans.txt](https://ben.balter.com/humans.txt) for more info.
+This site is built using:
 
-### Astro (Experimental)
+- **Astro** - Static Site Generator
+- **TypeScript** - Type-safe components and configuration
+- **Bootstrap** - CSS framework
+- **GitHub Pages** - Hosting
 
-An Astro implementation has been bootstrapped for evaluation. The Astro setup is configured to:
+See [humans.txt](https://ben.balter.com/humans.txt) for more info.
 
-- Use **Static Site Generation (SSG)** - All pages pre-rendered as static HTML
+### Features
+
+- **Static Site Generation (SSG)** - All pages pre-rendered as static HTML
 - **Zero JavaScript by default** - Ships only necessary JavaScript
-- Support **TypeScript** for type-safe components
-- Export to `dist-astro/` directory (separate from Jekyll `_site/`)
-- Run development server on port 4321 (separate from Jekyll 4000)
-- Full GitHub Pages compatibility with trailing slashes and directory-based URLs
+- **TypeScript** - Type-safe components and utilities
+- **Full GitHub Pages compatibility** - Trailing slashes and directory-based URLs
 
-#### Astro Commands
+### Commands
 
 ```bash
-npm run astro:dev      # Start Astro development server (http://localhost:4321)
-npm run astro:build    # Build Astro for production (outputs to /dist-astro)
+npm run astro:dev      # Start development server (http://localhost:4321)
+npm run astro:build    # Build for production (outputs to /dist-astro)
 npm run astro:preview  # Preview production build
 npm run astro:check    # Type-check Astro components
 ```
 
-#### Astro Documentation
+### Documentation
 
 See [docs/ASTRO.md](docs/ASTRO.md) for comprehensive documentation including:
 
 - Project structure and configuration
-- Coexistence strategy with Jekyll
 - Development workflow and best practices
-- Feature comparison with Jekyll
-- Future migration roadmap
+- Component architecture
 
 ## Development
 
@@ -44,11 +45,9 @@ See [docs/ASTRO.md](docs/ASTRO.md) for comprehensive documentation including:
 
 This repository includes a VS Code Dev Container configuration for a consistent development environment. The devcontainer includes:
 
-- **Ruby 3.4.7** (matching `.ruby-version`)
-- **Node.js 20** (for build tools)
-- **System dependencies** (libvips for image processing)
+- **Node.js 24** (for build tools)
 - **Playwright** with Chromium for E2E testing
-- **VS Code extensions** for Ruby, JavaScript, Markdown, Liquid, YAML, and more
+- **VS Code extensions** for JavaScript, TypeScript, Markdown, YAML, and more
 
 **To use the devcontainer:**
 
@@ -63,7 +62,6 @@ The container will automatically install all dependencies via `script/bootstrap`
 
 ```bash
 script/cibuild       # Run full CI build (tests + linters)
-rake test            # Run RSpec tests and HTML Proofer
 npm test             # Run linting (alias for script/cibuild)
 ```
 
@@ -78,7 +76,6 @@ npm run lint-json    # Lint JSON files
 npm run lint-md      # Lint Markdown files
 npm run lint-text    # Lint text content (grammar, spelling)
 npm run lint-yaml    # Lint YAML files
-rubocop              # Lint Ruby code
 ```
 
 **Prose Testing:** The repository includes comprehensive prose quality testing with textlint, remark/retext, and optional Vale. See [docs/PROSE-TESTING.md](docs/PROSE-TESTING.md) for details.
@@ -99,7 +96,7 @@ script/super-linter   # Direct script invocation
 
 This repository includes specialized GitHub Copilot custom agents to assist with development:
 
-- **Code Agent**: For Ruby, JavaScript, HTML/Liquid, and CSS development
+- **Code Agent**: For JavaScript, TypeScript, HTML, and CSS development
 - **Writing Agent**: For blog posts and documentation
 
 See `.github/agents/` for their configurations.
@@ -108,24 +105,14 @@ See `.github/agents/` for their configurations.
 
 The repository includes a `.github/workflows/copilot-setup-steps.yml` workflow that automatically configures the development environment for GitHub Copilot coding agent. This workflow:
 
-- Sets up Ruby (with version from `.ruby-version`)
-- Sets up Node.js (version 20)
-- Installs system dependencies (libvips for image processing)
-- Installs all Ruby gems and npm packages via `script/bootstrap`
+- Sets up Node.js (version 24)
+- Installs all npm packages via `script/bootstrap`
 
 This ensures Copilot can build, test, and work with the codebase in a properly configured environment.
 
 ## Testing
 
-### RSpec Tests (Ruby)
-
-The repository includes RSpec tests for Jekyll site structure and front matter validation:
-
-```bash
-bundle exec rspec
-```
-
-### Vitest Unit Tests (Astro)
+### Vitest Unit Tests
 
 Unit tests for Astro components and utilities using Vitest:
 
@@ -168,8 +155,6 @@ Tests cover:
 - Performance (load times, asset optimization)
 - SEO (meta tags, Open Graph, structured data)
 - Responsive design
-
-See [TESTING.md](TESTING.md) for comprehensive testing documentation.
 
 ## License
 
