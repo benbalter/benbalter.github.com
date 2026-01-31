@@ -210,13 +210,25 @@ const navClasses = hero
 
   @media (max-width: 767px) {
     .container-fluid {
-      flex-direction: column;
-      align-items: flex-start !important;
+      /* Keep title and hamburger on the same row */
+      flex-direction: row;
+      align-items: center !important;
+      justify-content: space-between;
+    }
+
+    .navbar-brand {
+      order: 1;
+    }
+
+    .navbar-toggler {
+      order: 2;
     }
 
     .navbar-collapse {
+      order: 3;
       flex-basis: 100%;
       width: 100%;
+      margin-top: 0.5rem;
     }
 
     .navbar-nav {
