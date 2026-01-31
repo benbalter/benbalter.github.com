@@ -140,8 +140,6 @@ test.describe('TLDR Tooltip - Mobile/iOS', () => {
 
       // On touch devices with any-pointer: coarse, cursor should be 'pointer'
       // This includes iPhones, iPads, and Android devices with touchscreens
-      // Chromium in headless mode may not perfectly emulate media queries, but on real iOS
-      // devices the media query will match and cursor will be 'pointer'
       expect(cursor).toBe('pointer');
     }
 
