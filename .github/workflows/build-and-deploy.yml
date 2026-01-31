@@ -71,14 +71,9 @@ jobs:
       - name: Purge Cloudflare Cache
         if: success()
         run: |
-          response=$(curl -sf -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/purge_cache" \
+          response=$(curl -f -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/purge_cache" \
             -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
             -H "Content-Type: application/json" \
             --data '{"purge_everything":true}')
-          if [ $? -eq 0 ]; then
-            echo "✓ Cloudflare cache purged successfully"
-            echo "$response"
-          else
-            echo "✗ Failed to purge Cloudflare cache"
-            exit 1
-          fi
+          echo "✓ Cloudflare cache purged successfully"
+          echo "$response"
