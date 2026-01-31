@@ -1,26 +1,25 @@
 import { test, expect } from '@playwright/test';
 import { waitForPageReady } from './helpers';
 
-test.describe('Navigation Tagline', () => {
-  test('should show tagline on desktop', async ({ page }) => {
-    await page.setViewportSize({ width: 1024, height: 768 });
-    await page.goto('/');
-    await waitForPageReady(page);
-    
-    const tagline = page.locator('.navbar-text');
-    await expect(tagline).toBeVisible();
-    await expect(tagline).toContainText('Technology leadership, collaboration, and open source');
-  });
+const TAGLINE = 'Technology leadership, collaboration, and open source';
 
-  test('should show tagline on mobile', async ({ page }) => {
-    await page.setViewportSize({ width: 375, height: 667 });
-    await page.goto('/');
-    await waitForPageReady(page);
-    
-    const tagline = page.locator('.navbar-text');
-    await expect(tagline).toBeVisible();
-    await expect(tagline).toContainText('Technology leadership, collaboration, and open source');
-  });
+test.describe('Navigation Tagline', () => {
+  const viewports = [
+    { name: 'desktop', size: { width: 1024, height: 768 } },
+    { name: 'mobile', size: { width: 375, height: 667 } },
+  ];
+
+  for (const { name, size } of viewports) {
+    test(`should show tagline on ${name}`, async ({ page }) => {
+      await page.setViewportSize(size);
+      await page.goto('/');
+      await waitForPageReady(page);
+
+      const tagline = page.locator('.navbar-text');
+      await expect(tagline).toBeVisible();
+      await expect(tagline).toContainText(TAGLINE);
+    });
+  }
 });
 
 test.describe('Navigation Active Link Highlighting', () => {
