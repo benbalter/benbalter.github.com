@@ -7,22 +7,49 @@
  */
 
 import { siteConfig, contactLinks } from '../config';
+import { escapeHtml, wrapEmailOff } from '../utils/html-escape';
+
+// Helper to check if a URL is a mailto link
+const isEmailLink = (url: string) => url.startsWith('mailto:');
+
+/**
+ * Generates HTML for an email link wrapped in Cloudflare's email_off comments
+ * to prevent Cloudflare's email obfuscation from replacing the email address.
+ */
+function emailLinkHtml(url: string, icon: string, name: string): string {
+  const safeUrl = escapeHtml(url);
+  const safeIcon = escapeHtml(icon);
+  const safeName = escapeHtml(name);
+  
+  const linkHtml = `<a href="${safeUrl}" rel="me noopener" target="_blank">` +
+    `<div class="row justify-content-center mb-3 align-items-center">` +
+    `<div class="col-sm-12 col-2 offset-3 offset-sm-0 text-center">` +
+    `<i class="${safeIcon}" aria-hidden="true"></i></div>` +
+    `<div class="col-sm-12 col-6 text-sm-center text-start">${safeName}</div>` +
+    `</div></a>`;
+  
+  return wrapEmailOff(linkHtml);
+}
 ---
 
 <div class="contact-links text-center">
   <div class="row justify-content-center">
     {contactLinks.map((link) => (
       <div class="col-sm">
-        <a href={link.url} rel="me noopener" target="_blank">
-          <div class="row justify-content-center mb-3 align-items-center">
-            <div class="col-sm-12 col-2 offset-3 offset-sm-0 text-center">
-              <i class={`${link.icon}`} aria-hidden="true"></i>
+        {isEmailLink(link.url) ? (
+          <Fragment set:html={emailLinkHtml(link.url, link.icon, link.name)} />
+        ) : (
+          <a href={link.url} rel="me noopener" target="_blank">
+            <div class="row justify-content-center mb-3 align-items-center">
+              <div class="col-sm-12 col-2 offset-3 offset-sm-0 text-center">
+                <i class={`${link.icon}`} aria-hidden="true"></i>
+              </div>
+              <div class="col-sm-12 col-6 text-sm-center text-start">
+                {link.name}
+              </div>
             </div>
-            <div class="col-sm-12 col-6 text-sm-center text-start">
-              {link.name}
-            </div>
-          </div>
-        </a>
+          </a>
+        )}
       </div>
     ))}
   </div>
