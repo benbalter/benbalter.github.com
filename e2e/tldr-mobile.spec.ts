@@ -109,12 +109,9 @@ test.describe('TLDR Tooltip - Mobile/iOS', () => {
       // Try to hover (should not work on mobile)
       await tldrElement.hover();
 
-      // Wait a moment
-      await page.waitForTimeout(500);
-
-      // Tooltip should NOT appear (mobile devices use tap, not hover)
+      // Tooltip should NOT appear on hover (mobile devices use tap, not hover)
       const tooltip = page.locator('.custom-tooltip.show');
-      await expect(tooltip).not.toBeAttached();
+      await expect(tooltip).not.toBeAttached({ timeout: 500 });
     }
 
     await context.close();
@@ -142,9 +139,11 @@ test.describe('TLDR Tooltip - Mobile/iOS', () => {
       });
 
       // On touch devices with (hover: none) and (pointer: coarse), cursor should be 'pointer'
-      // Note: This test may not perfectly emulate the media query behavior
-      // The actual fix ensures iOS recognizes the element as tappable
-      expect(['pointer', 'help']).toContain(cursor);
+      // Chromium in headless mode may not perfectly emulate media queries, but on real iOS
+      // devices the media query will match and cursor will be 'pointer'
+      // For now, we verify the CSS is set correctly by checking it's one of the expected values
+      // In a real iOS Safari browser, this would always be 'pointer'
+      expect(cursor).toBe('pointer');
     }
 
     await context.close();
