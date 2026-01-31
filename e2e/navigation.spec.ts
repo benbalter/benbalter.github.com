@@ -1,6 +1,27 @@
 import { test, expect } from '@playwright/test';
 import { waitForPageReady } from './helpers';
 
+const TAGLINE = 'Technology leadership, collaboration, and open source';
+
+test.describe('Navigation Tagline', () => {
+  const viewports = [
+    { name: 'desktop', size: { width: 1024, height: 768 } },
+    { name: 'mobile', size: { width: 375, height: 667 } },
+  ];
+
+  for (const { name, size } of viewports) {
+    test(`should show tagline on ${name}`, async ({ page }) => {
+      await page.setViewportSize(size);
+      await page.goto('/');
+      await waitForPageReady(page);
+
+      const tagline = page.locator('.navbar-text');
+      await expect(tagline).toBeVisible();
+      await expect(tagline).toContainText(TAGLINE);
+    });
+  }
+});
+
 test.describe('Navigation Active Link Highlighting', () => {
   test('should highlight About link when on About page', async ({ page }) => {
     await page.goto('/about/');

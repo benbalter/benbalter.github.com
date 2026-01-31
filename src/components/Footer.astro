@@ -8,6 +8,26 @@
  */
 
 import { footerLinks, contactLinks } from '../config';
+import { escapeHtml, wrapEmailOff } from '../utils/html-escape';
+
+// Helper to check if a URL is a mailto link
+const isEmailLink = (url: string) => url.startsWith('mailto:');
+
+/**
+ * Generates HTML for an email link wrapped in Cloudflare's email_off comments
+ * to prevent Cloudflare's email obfuscation from replacing the email address.
+ */
+function emailLinkHtml(url: string, icon: string, name: string): string {
+  const safeUrl = escapeHtml(url);
+  const safeIcon = escapeHtml(icon);
+  const safeName = escapeHtml(name);
+  
+  const linkHtml = `<a href="${safeUrl}" aria-label="${safeName}" ` +
+    `class="nav-link social-link" target="_blank" rel="noopener noreferrer me">` +
+    `<i class="${safeIcon}" title="${safeName}"></i></a>`;
+  
+  return wrapEmailOff(linkHtml);
+}
 ---
 
 <footer class="mt-5 pt-4 border-top border-2">
@@ -16,15 +36,19 @@ import { footerLinks, contactLinks } from '../config';
       <ul class="nav contact-links">
         {contactLinks.map((link) => (
           <li class="nav-item">
-            <a 
-              href={link.url} 
-              aria-label={link.name}
-              class="nav-link social-link"
-              target="_blank"
-              rel="noopener noreferrer me"
-            >
-              <i class={link.icon} title={link.name}></i>
-            </a>
+            {isEmailLink(link.url) ? (
+              <Fragment set:html={emailLinkHtml(link.url, link.icon, link.name)} />
+            ) : (
+              <a 
+                href={link.url} 
+                aria-label={link.name}
+                class="nav-link social-link"
+                target="_blank"
+                rel="noopener noreferrer me"
+              >
+                <i class={link.icon} title={link.name}></i>
+              </a>
+            )}
           </li>
         ))}
       </ul>
