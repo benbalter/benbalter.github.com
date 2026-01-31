@@ -22,7 +22,7 @@ The deployment workflow requires two GitHub repository secrets:
 
 1. **`CLOUDFLARE_ZONE_ID`**: Your Cloudflare zone ID
    - Find this in Cloudflare Dashboard → Domain Overview (right sidebar)
-   - Also available in `_config.yml` (commented out): `71539cb18e584e6595f62fa7104b24ca`
+   - Example: `a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6`
 
 2. **`CLOUDFLARE_API_TOKEN`**: An API token with cache purge permissions
    - Create at: Cloudflare Dashboard → My Profile → API Tokens → Create Token
