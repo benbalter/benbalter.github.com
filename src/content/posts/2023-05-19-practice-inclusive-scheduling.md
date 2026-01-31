@@ -12,6 +12,6 @@ Time zones are one of the harder parts of software development, but it doesn't h
 - Consider "speedy meetings" (end 5/10 minutes early or start 5/10 minutes late) to allow for time to be human between meetings, and be strict about ending at that earlier time.
 - On that note, meetings should start and end on time. If you finish early, consider using the remainder of the time for informal conversations and to connect as humans.
 
-[![xkcd comic describing ISO 8601 as the one true date format](https://imgs.xkcd.com/comics/iso_8601_2x.png)](https://xkcd.com/1179/)
+<a href="https://xkcd.com/1179/"><img src="https://imgs.xkcd.com/comics/iso_8601_2x.png" alt="xkcd comic describing ISO 8601 as the one true date format" /></a>
 
 A small nod to inclusively to go a long way to create a sense of belonging and reduce ambiguity, when working with global teams, schedule and communicate with a global (and remote) audience in mind.
