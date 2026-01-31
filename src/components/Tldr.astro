@@ -232,6 +232,16 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
     text-decoration: none;
     cursor: help;
     border-bottom: 1px dotted currentColor;
+    /* iOS touch support */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    touch-action: manipulation;
+  }
+  
+  /* Use pointer cursor on touch devices for better iOS compatibility */
+  @media (hover: none) and (pointer: coarse) {
+    .initialism {
+      cursor: pointer;
+    }
   }
 
   /* Custom tooltip styles (Bootstrap's tooltip requires JavaScript initialization) */
