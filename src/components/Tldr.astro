@@ -242,11 +242,11 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
     touch-action: manipulation;
   }
   
-  /* Use pointer cursor on touch devices for better iOS/iPadOS compatibility */
-  /* Using any-pointer: coarse instead of (hover: none) and (pointer: coarse)
-     because iPadOS reports hover: hover when trackpad/mouse is available,
-     but still needs tap support when using touch */
-  @media (any-pointer: coarse) {
+  /* Use pointer cursor on touch-only devices for better iOS/iPadOS compatibility */
+  /* Use any-pointer: coarse combined with hover: none so that hybrid desktops
+     with both touch and hover-capable pointers (e.g., touch-screen laptops)
+     continue to show the help cursor expected for desktop usage. */
+  @media (any-pointer: coarse) and (hover: none) {
     .initialism {
       cursor: pointer;
     }
