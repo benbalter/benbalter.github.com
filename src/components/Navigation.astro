@@ -124,7 +124,7 @@ const navClasses = hero
   .container-fluid {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: baseline;
     justify-content: space-between;
     padding: 0.5rem var(--bs-gutter-x, 1.5rem);
   }
@@ -157,13 +157,13 @@ const navClasses = hero
   }
 
   .navbar-collapse {
-    align-items: center;
+    align-items: baseline;
   }
 
   .navbar-nav {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: baseline;
     list-style: none;
     padding-left: 0;
     margin: 0;
@@ -171,7 +171,7 @@ const navClasses = hero
 
   .nav-item {
     display: flex;
-    align-items: center;
+    align-items: baseline;
   }
 
   .nav-link {
@@ -205,7 +205,7 @@ const navClasses = hero
     .navbar-collapse {
       display: flex !important;
       flex-basis: auto;
-      align-self: center; /* Ensure nav links align vertically with brand and tagline */
+      align-self: baseline; /* Ensure nav links align vertically with brand and tagline */
     }
   }
 
