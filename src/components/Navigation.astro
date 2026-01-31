@@ -122,23 +122,11 @@ const navClasses = hero
   }
 
   .container-fluid {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem var(--bs-gutter-x, 1.5rem);
-  }
-
-  /* Prevent wrapping at desktop sizes */
-  @media (min-width: 768px) {
-    .container-fluid {
-      flex-wrap: nowrap !important;
-    }
+    padding: 0.5rem 1rem;
   }
 
   .navbar-brand {
     color: var(--bs-body-color);
-    margin-right: 1rem;
   }
 
   .navbar-toggler {
@@ -157,26 +145,18 @@ const navClasses = hero
   }
 
   .navbar-collapse {
-    align-items: center;
+    /* Let Bootstrap handle alignment */
   }
 
   .navbar-nav {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
+    /* Let Bootstrap handle default styling */
   }
 
   .nav-item {
-    display: flex;
-    align-items: center;
+    /* Let Bootstrap handle default styling */
   }
 
   .nav-link {
-    display: block;
-    padding: 0 1rem;
     /* Override Bootstrap's var(--bs-nav-link-color) with a direct color for WCAG AA contrast */
     color: $nav-link-color !important;
     text-decoration: none;
@@ -197,43 +177,12 @@ const navClasses = hero
   .navbar-text {
     /* Use a darker gray for better contrast against bg-secondary-subtle (#e9ecef) */
     color: $nav-text-color !important;
-    padding: 0.5rem 0;
   }
 
-  /* Collapse behavior for mobile - Bootstrap handles most of this */
-  @media (min-width: 768px) {
-    .navbar-collapse {
-      display: flex !important;
-      flex-basis: auto;
-    }
-  }
-
+  /* Mobile styles */
   @media (max-width: 767px) {
-    .container-fluid {
-      /* Keep title and hamburger on the same row */
-      flex-direction: row;
-      align-items: center !important;
-      justify-content: space-between;
-    }
-
-    .navbar-brand {
-      order: 1;
-    }
-
-    .navbar-toggler {
-      order: 2;
-    }
-
-    .navbar-collapse {
-      order: 3;
-      flex-basis: 100%;
-      width: 100%;
-      margin-top: 0.5rem;
-    }
-
-    .navbar-nav {
-      flex-direction: column;
-      width: 100%;
+    .navbar-text {
+      display: none;
     }
   }
   
