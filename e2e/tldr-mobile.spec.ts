@@ -138,12 +138,58 @@ test.describe('TLDR Tooltip - Mobile/iOS', () => {
         return window.getComputedStyle(el).cursor;
       });
 
-      // On touch devices with (hover: none) and (pointer: coarse), cursor should be 'pointer'
+      // On touch devices with any-pointer: coarse, cursor should be 'pointer'
+      // This includes iPhones, iPads, and Android devices with touchscreens
       // Chromium in headless mode may not perfectly emulate media queries, but on real iOS
       // devices the media query will match and cursor will be 'pointer'
-      // For now, we verify the CSS is set correctly by checking it's one of the expected values
-      // In a real iOS Safari browser, this would always be 'pointer'
       expect(cursor).toBe('pointer');
+    }
+
+    await context.close();
+  });
+
+  test('should work on iPad Safari (iPadOS)', async ({ browser }) => {
+    // iPad is a hybrid device: it has hover (via trackpad/mouse) and touch
+    // The media query uses any-pointer: coarse to detect touch capability
+    const context = await browser.newContext({
+      ...devices['iPad Pro 11'],
+    });
+    const page = await context.newPage();
+
+    await page.goto(testPostUrl);
+    await waitForPageReady(page);
+
+    const astro = await isAstroBuild(page);
+
+    if (astro) {
+      const tldrElement = page.locator('.lead strong abbr.initialism');
+      await expect(tldrElement).toBeVisible();
+
+      // Verify touch-action is set for proper iPadOS handling
+      const styles = await tldrElement.evaluate((el) => {
+        const computed = window.getComputedStyle(el);
+        return {
+          touchAction: computed.touchAction,
+          cursor: computed.cursor,
+        };
+      });
+
+      // Verify touch-action is set for proper iPad touch handling
+      expect(styles.touchAction).toBe('manipulation');
+
+      // Tap the element to show tooltip (touch interaction)
+      await tldrElement.tap();
+
+      // Wait for tooltip to appear
+      const tooltip = page.locator('.custom-tooltip.show');
+      await expect(tooltip).toBeVisible({ timeout: 2000 });
+      await expect(tooltip).toContainText('Too Long');
+
+      // Tap again to hide
+      await tldrElement.tap();
+
+      // Tooltip should be gone
+      await expect(tooltip).not.toBeAttached({ timeout: 1000 });
     }
 
     await context.close();
