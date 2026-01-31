@@ -11,6 +11,34 @@ import { footerLinks, contactLinks } from '../config';
 
 // Helper to check if a URL is a mailto link
 const isEmailLink = (url: string) => url.startsWith('mailto:');
+
+/**
+ * Escapes HTML special characters to prevent XSS attacks.
+ * While our contactLinks data is from a trusted config file,
+ * this provides defense-in-depth protection.
+ */
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+/**
+ * Generates HTML for an email link wrapped in Cloudflare's email_off comments
+ * to prevent Cloudflare's email obfuscation from replacing the email address.
+ */
+function emailLinkHtml(url: string, icon: string, name: string): string {
+  const safeUrl = escapeHtml(url);
+  const safeIcon = escapeHtml(icon);
+  const safeName = escapeHtml(name);
+  
+  return `<!--email_off--><a href="${safeUrl}" aria-label="${safeName}" ` +
+    `class="nav-link social-link" target="_blank" rel="noopener noreferrer me">` +
+    `<i class="${safeIcon}" title="${safeName}"></i></a><!--/email_off-->`;
+}
 ---
 
 <footer class="mt-5 pt-4 border-top border-2">
@@ -20,7 +48,7 @@ const isEmailLink = (url: string) => url.startsWith('mailto:');
         {contactLinks.map((link) => (
           <li class="nav-item">
             {isEmailLink(link.url) ? (
-              <Fragment set:html={`<!--email_off--><a href="${link.url}" aria-label="${link.name}" class="nav-link social-link" target="_blank" rel="noopener noreferrer me"><i class="${link.icon}" title="${link.name}"></i></a><!--/email_off-->`} />
+              <Fragment set:html={emailLinkHtml(link.url, link.icon, link.name)} />
             ) : (
               <a 
                 href={link.url} 
