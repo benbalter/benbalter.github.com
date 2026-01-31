@@ -4,7 +4,7 @@ description: 'DHS recently began protecting America''s shores from threats of a 
 archived: true
 ---
 
-![Screenshot of the takedown notice](https://ben.balter.com/wp-content/uploads/2011/02/IPRC_Seized_2010_11-300x225.gif)
+<img src="https://ben.balter.com/wp-content/uploads/2011/02/IPRC_Seized_2010_11-300x225.gif" alt="Screenshot of the takedown notice" />
 
 Violating due process is one thing, but violating web standards... well that's another story.
 
