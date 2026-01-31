@@ -175,8 +175,8 @@ const navClasses = hero
   }
 
   .nav-link {
-    display: block;
-    padding: 0.5rem 1rem;
+    display: inline;
+    padding: 0 1rem;
     /* Override Bootstrap's var(--bs-nav-link-color) with a direct color for WCAG AA contrast */
     color: $nav-link-color !important;
     text-decoration: none;
@@ -197,7 +197,7 @@ const navClasses = hero
   .navbar-text {
     /* Use a darker gray for better contrast against bg-secondary-subtle (#e9ecef) */
     color: $nav-text-color !important;
-    padding: 0.5rem 0;
+    padding: 0;
   }
 
   /* Collapse behavior for mobile - Bootstrap handles most of this */
