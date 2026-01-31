@@ -7,23 +7,10 @@
  */
 
 import { siteConfig, contactLinks } from '../config';
+import { escapeHtml, wrapEmailOff } from '../utils/html-escape';
 
 // Helper to check if a URL is a mailto link
 const isEmailLink = (url: string) => url.startsWith('mailto:');
-
-/**
- * Escapes HTML special characters to prevent XSS attacks.
- * While our contactLinks data is from a trusted config file,
- * this provides defense-in-depth protection.
- */
-function escapeHtml(str: string): string {
-  return str
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
-}
 
 /**
  * Generates HTML for an email link wrapped in Cloudflare's email_off comments
@@ -34,12 +21,14 @@ function emailLinkHtml(url: string, icon: string, name: string): string {
   const safeIcon = escapeHtml(icon);
   const safeName = escapeHtml(name);
   
-  return `<!--email_off--><a href="${safeUrl}" rel="me noopener" target="_blank">` +
+  const linkHtml = `<a href="${safeUrl}" rel="me noopener" target="_blank">` +
     `<div class="row justify-content-center mb-3 align-items-center">` +
     `<div class="col-sm-12 col-2 offset-3 offset-sm-0 text-center">` +
     `<i class="${safeIcon}" aria-hidden="true"></i></div>` +
     `<div class="col-sm-12 col-6 text-sm-center text-start">${safeName}</div>` +
-    `</div></a><!--/email_off-->`;
+    `</div></a>`;
+  
+  return wrapEmailOff(linkHtml);
 }
 ---
 
