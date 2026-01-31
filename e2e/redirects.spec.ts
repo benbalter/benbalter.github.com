@@ -196,4 +196,60 @@ test.describe('Legacy URL Redirects', () => {
       expect(content).toContain('Click here if you are not redirected');
     });
   });
+
+  test.describe('Sitemap Redirects', () => {
+    test('should have meta refresh redirect from /sitemap.xml to /sitemap-0.xml', async ({ request }) => {
+      const response = await request.get('/sitemap.xml', { 
+        maxRedirects: 0,
+        failOnStatusCode: false 
+      });
+      
+      const content = await response.text();
+      
+      // Astro static builds use HTML meta refresh redirects
+      expect(content).toContain('meta http-equiv="refresh"');
+      expect(content).toContain('url=/sitemap-0.xml');
+      expect(content).toContain('robots" content="noindex');
+    });
+
+    test('should have meta refresh redirect from /sitemap_index.xml to /sitemap-index.xml', async ({ request }) => {
+      const response = await request.get('/sitemap_index.xml', { 
+        maxRedirects: 0,
+        failOnStatusCode: false 
+      });
+      
+      const content = await response.text();
+      
+      // Astro static builds use HTML meta refresh redirects
+      expect(content).toContain('meta http-equiv="refresh"');
+      expect(content).toContain('url=/sitemap-index.xml');
+      expect(content).toContain('robots" content="noindex');
+    });
+
+    test('/sitemap.xml redirect should resolve to valid sitemap', async ({ page }) => {
+      // Follow the redirect and verify we get a valid sitemap
+      const response = await page.goto('/sitemap.xml');
+      
+      // Should end up at sitemap-0.xml with 200 status
+      expect(response?.status()).toBe(200);
+      expect(page.url()).toContain('sitemap-0.xml');
+      
+      // Content should be valid XML sitemap
+      const content = await page.content();
+      expect(content).toMatch(/<urlset|<url>/i);
+    });
+
+    test('/sitemap_index.xml redirect should resolve to valid sitemap index', async ({ page }) => {
+      // Follow the redirect and verify we get a valid sitemap index
+      const response = await page.goto('/sitemap_index.xml');
+      
+      // Should end up at sitemap-index.xml with 200 status
+      expect(response?.status()).toBe(200);
+      expect(page.url()).toContain('sitemap-index.xml');
+      
+      // Content should be valid XML sitemap index
+      const content = await page.content();
+      expect(content).toMatch(/<sitemapindex|<sitemap>/i);
+    });
+  });
 });

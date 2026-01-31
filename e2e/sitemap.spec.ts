@@ -162,8 +162,8 @@ test.describe('Sitemap Generation', () => {
       // Should have Allow directive
       expect(content).toContain('Allow: /');
       
-      // Should reference sitemap
-      expect(content).toContain('Sitemap: https://ben.balter.com/sitemap.xml');
+      // Should reference sitemap (Astro uses sitemap-index.xml)
+      expect(content).toContain('Sitemap: https://ben.balter.com/sitemap-index.xml');
       
       // Host directive is optional in robots.txt and not required by spec
       // Removed check: expect(content).toContain('Host: ben.balter.com');

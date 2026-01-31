@@ -42,7 +42,7 @@ export const GET: APIRoute = () => {
   const content = `User-agent: *
 ${disallowLines}
 Allow: /
-Sitemap: https://ben.balter.com/sitemap.xml
+Sitemap: https://ben.balter.com/sitemap-index.xml
 `;
 
   return new Response(content, {
