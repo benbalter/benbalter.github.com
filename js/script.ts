@@ -25,14 +25,29 @@ let initialized = false
 // Track if global click handler has been added
 let globalClickHandlerAdded = false
 
-// Global activeTooltips map (for custom tooltips)
-if (!(window as any).__tldrActiveTooltips) {
-  (window as any).__tldrActiveTooltips = new Map<HTMLElement, HTMLDivElement>()
+// Extend Window interface for custom tooltip state
+declare global {
+  interface Window {
+    __tldrActiveTooltips?: Map<HTMLElement, HTMLDivElement>
+  }
 }
 
-// Function to show custom tooltip
+// Global activeTooltips map (for custom tooltips)
+if (!window.__tldrActiveTooltips) {
+  window.__tldrActiveTooltips = new Map<HTMLElement, HTMLDivElement>()
+}
+
+/**
+ * Shows a custom tooltip for the given target element.
+ * Creates a tooltip element, positions it relative to the target,
+ * and manages ARIA attributes for accessibility.
+ * 
+ * @param target - The HTML element that should display the tooltip
+ */
 function showTooltip(target: HTMLElement) {
-  const activeTooltips = (window as any).__tldrActiveTooltips
+  const activeTooltips = window.__tldrActiveTooltips
+
+  if (!activeTooltips) return
 
   // If tooltip already exists for this element, don't create another
   if (activeTooltips.has(target)) return
@@ -87,9 +102,17 @@ function showTooltip(target: HTMLElement) {
   })
 }
 
-// Function to hide custom tooltip
+/**
+ * Hides and removes the custom tooltip for the given target element.
+ * Cleans up ARIA attributes and removes the tooltip from the DOM
+ * after transition completes.
+ * 
+ * @param target - The HTML element whose tooltip should be hidden
+ */
 function hideTooltip(target: HTMLElement) {
-  const activeTooltips = (window as any).__tldrActiveTooltips
+  const activeTooltips = window.__tldrActiveTooltips
+  if (!activeTooltips) return
+
   const tooltipEl = activeTooltips.get(target)
   if (!tooltipEl) return
 
@@ -134,7 +157,7 @@ const handleGlobalClick = (e: MouseEvent) => {
 
   if (!target) return
 
-  const activeTooltips = (window as any).__tldrActiveTooltips
+  const activeTooltips = window.__tldrActiveTooltips
   if (!activeTooltips) return
 
   activeTooltips.forEach((_tooltipEl: HTMLDivElement, element: HTMLElement) => {
@@ -144,7 +167,12 @@ const handleGlobalClick = (e: MouseEvent) => {
   })
 }
 
-// Initialize custom tooltips
+/**
+ * Initializes custom tooltip functionality for all elements with data-tooltip="true".
+ * Sets up event handlers for hover (desktop), click/tap (mobile), and keyboard
+ * interactions. Uses hover media query to detect device capabilities.
+ * Implements click-outside-to-close behavior with a single global handler.
+ */
 function initializeCustomTooltips() {
   const tooltipElements = document.querySelectorAll('[data-tooltip="true"]:not([data-tooltip-initialized])')
 
@@ -172,7 +200,9 @@ function initializeCustomTooltips() {
       e.stopPropagation()
 
       const target = e.currentTarget as HTMLElement
-      const activeTooltips = (window as any).__tldrActiveTooltips
+      const activeTooltips = window.__tldrActiveTooltips
+
+      if (!activeTooltips) return
 
       // Always toggle: if visible, hide it; if hidden, show it
       if (activeTooltips.has(target)) {
@@ -186,7 +216,9 @@ function initializeCustomTooltips() {
     element.addEventListener('keydown', (e) => {
       const keyEvent = e as KeyboardEvent
       const target = e.currentTarget as HTMLElement
-      const activeTooltips = (window as any).__tldrActiveTooltips
+      const activeTooltips = window.__tldrActiveTooltips
+
+      if (!activeTooltips) return
 
       if (keyEvent.key === 'Enter' || keyEvent.key === ' ') {
         keyEvent.preventDefault()
