@@ -8,6 +8,9 @@
  */
 
 import { footerLinks, contactLinks } from '../config';
+
+// Helper to check if a URL is a mailto link
+const isEmailLink = (url: string) => url.startsWith('mailto:');
 ---
 
 <footer class="mt-5 pt-4 border-top border-2">
@@ -16,15 +19,19 @@ import { footerLinks, contactLinks } from '../config';
       <ul class="nav contact-links">
         {contactLinks.map((link) => (
           <li class="nav-item">
-            <a 
-              href={link.url} 
-              aria-label={link.name}
-              class="nav-link social-link"
-              target="_blank"
-              rel="noopener noreferrer me"
-            >
-              <i class={link.icon} title={link.name}></i>
-            </a>
+            {isEmailLink(link.url) ? (
+              <Fragment set:html={`<!--email_off--><a href="${link.url}" aria-label="${link.name}" class="nav-link social-link" target="_blank" rel="noopener noreferrer me"><i class="${link.icon}" title="${link.name}"></i></a><!--/email_off-->`} />
+            ) : (
+              <a 
+                href={link.url} 
+                aria-label={link.name}
+                class="nav-link social-link"
+                target="_blank"
+                rel="noopener noreferrer me"
+              >
+                <i class={link.icon} title={link.name}></i>
+              </a>
+            )}
           </li>
         ))}
       </ul>
