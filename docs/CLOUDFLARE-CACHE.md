@@ -54,15 +54,20 @@ The cache purge happens in `.github/workflows/build-and-deploy.yml`:
 - name: Purge Cloudflare Cache
   if: success()
   run: |
-    curl -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/purge_cache" \
+    response=$(curl -f -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/purge_cache" \
       -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
       -H "Content-Type: application/json" \
-      --data '{"purge_everything":true}'
+      --data '{"purge_everything":true}') && \
+    echo "✓ Cloudflare cache purged successfully" && \
+    echo "$response"
 ```
 
 **Key Points:**
 
 - Only runs if deployment succeeds (`if: success()`)
+- Uses `-f` flag to fail on HTTP errors (4xx/5xx responses)
+- Captures and displays API response for verification
+- Displays success message only after curl completes successfully
 - Uses `purge_everything: true` to clear all cached content
 - Uses cURL to call Cloudflare API directly
 - No external GitHub Actions dependencies
