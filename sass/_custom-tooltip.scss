@@ -1,0 +1,65 @@
+// Custom tooltip styles for TLDR abbreviation
+// These tooltips support both hover (desktop) and click/tap (mobile/touch)
+
+.initialism {
+  text-decoration: none;
+  cursor: help;
+  border-bottom: 1px dotted currentColor;
+}
+
+.custom-tooltip {
+  position: fixed;
+  background-color: var(--bs-dark, #212529);
+  color: var(--bs-light, #f8f9fa);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  max-width: 300px;
+  z-index: 1050;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.custom-tooltip.show {
+  opacity: 0.9;
+}
+
+// Arrow pointing left (default - tooltip on right side)
+.custom-tooltip::before {
+  content: '';
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-right-color: var(--bs-dark, #212529);
+}
+
+// Arrow pointing right (when tooltip is on left side)
+.custom-tooltip.left::before {
+  right: auto;
+  left: 100%;
+  border-right-color: transparent;
+  border-left-color: var(--bs-dark, #212529);
+}
+
+// Dark mode tooltip adjustments
+@media (prefers-color-scheme: dark) {
+  .custom-tooltip {
+    background-color: var(--bs-light, #f8f9fa);
+    color: var(--bs-dark, #212529);
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.15);
+  }
+
+  .custom-tooltip::before {
+    border-right-color: var(--bs-light, #f8f9fa);
+  }
+
+  .custom-tooltip.left::before {
+    border-right-color: transparent;
+    border-left-color: var(--bs-light, #f8f9fa);
+  }
+}

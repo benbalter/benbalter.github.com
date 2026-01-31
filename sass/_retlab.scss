@@ -19,6 +19,9 @@ $color-mode-type: media-query;
 @import 'base16.dark';
 @import 'base16.light';
 
+// Custom tooltip styles
+@import 'custom-tooltip';
+
 abbr[data-bs-original-title] {
     @extend abbr, [title]
 }

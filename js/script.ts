@@ -22,6 +22,193 @@ const anchors = new AnchorJS()
 // Guard flag to prevent double initialization
 let initialized = false
 
+// Track if global click handler has been added
+let globalClickHandlerAdded = false
+
+// Global activeTooltips map (for custom tooltips)
+if (!(window as any).__tldrActiveTooltips) {
+  (window as any).__tldrActiveTooltips = new Map<HTMLElement, HTMLDivElement>()
+}
+
+// Function to show custom tooltip
+function showTooltip(target: HTMLElement) {
+  const activeTooltips = (window as any).__tldrActiveTooltips
+
+  // If tooltip already exists for this element, don't create another
+  if (activeTooltips.has(target)) return
+
+  const tooltipText = target.getAttribute('data-tooltip-text')
+
+  if (!tooltipText) return
+
+  // Create tooltip element
+  const tooltipEl = document.createElement('div')
+  tooltipEl.className = 'custom-tooltip'
+  tooltipEl.textContent = tooltipText
+  tooltipEl.id = `tooltip-${Math.random().toString(36).substring(2, 11)}`
+  tooltipEl.setAttribute('role', 'tooltip')
+  document.body.appendChild(tooltipEl)
+
+  // Set ARIA attributes
+  target.setAttribute('aria-describedby', tooltipEl.id)
+  target.setAttribute('aria-expanded', 'true')
+
+  // Track this tooltip
+  activeTooltips.set(target, tooltipEl)
+
+  // Position tooltip with viewport boundary checks
+  requestAnimationFrame(() => {
+    const rect = target.getBoundingClientRect()
+    const tooltipRect = tooltipEl.getBoundingClientRect()
+
+    // Default: position to the right
+    let left = rect.right + 10
+    let top = rect.top + (rect.height / 2) - (tooltipRect.height / 2)
+
+    // Check if tooltip would overflow right edge of viewport
+    if (left + tooltipRect.width > window.innerWidth) {
+      // Position to the left instead
+      left = rect.left - tooltipRect.width - 10
+      tooltipEl.classList.add('left')
+    } else {
+      tooltipEl.classList.remove('left')
+    }
+
+    // Clamp top so tooltip doesn't overflow top or bottom
+    top = Math.max(10, Math.min(top, window.innerHeight - tooltipRect.height - 10))
+
+    tooltipEl.style.left = `${left}px`
+    tooltipEl.style.top = `${top}px`
+
+    // Fade in using requestAnimationFrame for better performance
+    requestAnimationFrame(() => {
+      tooltipEl.classList.add('show')
+    })
+  })
+}
+
+// Function to hide custom tooltip
+function hideTooltip(target: HTMLElement) {
+  const activeTooltips = (window as any).__tldrActiveTooltips
+  const tooltipEl = activeTooltips.get(target)
+  if (!tooltipEl) return
+
+  // Clear ARIA attributes
+  target.removeAttribute('aria-describedby')
+  target.setAttribute('aria-expanded', 'false')
+
+  // Remove from active list immediately to prevent duplicate hide calls
+  activeTooltips.delete(target)
+
+  tooltipEl.classList.remove('show')
+
+  // Track if cleanup has been executed
+  let cleanupExecuted = false
+
+  // Cleanup function
+  const cleanup = () => {
+    if (cleanupExecuted) return
+    cleanupExecuted = true
+
+    tooltipEl.remove()
+  }
+
+  // Use transitionend event for proper cleanup timing
+  const handleTransitionEnd = () => {
+    cleanup()
+  }
+
+  tooltipEl.addEventListener('transitionend', handleTransitionEnd, { once: true })
+
+  // Fallback timeout in case transitionend doesn't fire
+  // Timeout is longer than CSS transition (0.2s) to ensure transition completes
+  setTimeout(() => {
+    tooltipEl.removeEventListener('transitionend', handleTransitionEnd)
+    cleanup()
+  }, 300)
+}
+
+// Global click handler for click-outside functionality
+const handleGlobalClick = (e: MouseEvent) => {
+  const target = e.target
+
+  if (!target) return
+
+  const activeTooltips = (window as any).__tldrActiveTooltips
+  if (!activeTooltips) return
+
+  activeTooltips.forEach((_tooltipEl: HTMLDivElement, element: HTMLElement) => {
+    if (!element.contains(target as Node)) {
+      hideTooltip(element)
+    }
+  })
+}
+
+// Initialize custom tooltips
+function initializeCustomTooltips() {
+  const tooltipElements = document.querySelectorAll('[data-tooltip="true"]:not([data-tooltip-initialized])')
+
+  tooltipElements.forEach((element) => {
+    // Mark as initialized
+    element.setAttribute('data-tooltip-initialized', 'true')
+
+    // Only add hover listeners on devices with hover capability
+    if (window.matchMedia('(hover: hover)').matches) {
+      // Show tooltip on mouseenter (for desktop)
+      element.addEventListener('mouseenter', (e) => {
+        const target = e.currentTarget as HTMLElement
+        showTooltip(target)
+      })
+
+      // Hide tooltip on mouseleave (for desktop)
+      element.addEventListener('mouseleave', () => {
+        hideTooltip(element as HTMLElement)
+      })
+    }
+
+    // Toggle tooltip on click/tap (for mobile and accessibility)
+    element.addEventListener('click', (e) => {
+      // Stop propagation to prevent global click handler from firing
+      e.stopPropagation()
+
+      const target = e.currentTarget as HTMLElement
+      const activeTooltips = (window as any).__tldrActiveTooltips
+
+      // Always toggle: if visible, hide it; if hidden, show it
+      if (activeTooltips.has(target)) {
+        hideTooltip(target)
+      } else {
+        showTooltip(target)
+      }
+    })
+
+    // Add keyboard support (Enter, Space to toggle, Escape to close)
+    element.addEventListener('keydown', (e) => {
+      const keyEvent = e as KeyboardEvent
+      const target = e.currentTarget as HTMLElement
+      const activeTooltips = (window as any).__tldrActiveTooltips
+
+      if (keyEvent.key === 'Enter' || keyEvent.key === ' ') {
+        keyEvent.preventDefault()
+        if (activeTooltips.has(target)) {
+          hideTooltip(target)
+        } else {
+          showTooltip(target)
+        }
+      } else if (keyEvent.key === 'Escape' && activeTooltips.has(target)) {
+        hideTooltip(target)
+      }
+    })
+  })
+
+  // Add single global click handler for click-outside functionality
+  // This prevents memory leaks by using one handler for all tooltips
+  if (tooltipElements.length > 0 && !globalClickHandlerAdded) {
+    document.addEventListener('click', handleGlobalClick)
+    globalClickHandlerAdded = true
+  }
+}
+
 // Initialize page functionality (for both Astro and Jekyll)
 function initializePage() {
   if (initialized) return
@@ -29,10 +216,14 @@ function initializePage() {
 
   anchors.add()
 
+  // Initialize Bootstrap tooltips (for legacy elements that still use data-bs-toggle)
   const els = document.querySelectorAll('[data-bs-toggle="tooltip"]')
   Array.from(els).forEach((el) => {
     new Tooltip(el) // eslint-disable-line no-new
   })
+
+  // Initialize custom tooltips (for TLDR and other custom tooltip elements)
+  initializeCustomTooltips()
 
   const div = document.getElementById('four-oh-four-suggestion')
   if (div != null) {

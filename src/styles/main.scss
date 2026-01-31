@@ -25,6 +25,9 @@ $content-padding-x: 15px;
 @import '../../sass/base16.dark';
 @import '../../sass/base16.light';
 
+// Custom tooltip styles
+@import '../../sass/custom-tooltip';
+
 abbr[data-bs-original-title] {
     @extend abbr, [title]
 }
