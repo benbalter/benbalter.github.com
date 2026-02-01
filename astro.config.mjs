@@ -3,14 +3,15 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import favicons from 'astro-favicons';
 import compress from 'astro-compress';
-import redirectIntegration from './src/lib/redirect-integration.ts';
+import redirectFrom from 'astro-redirect-from';
+import redirectToIntegration from './src/lib/redirect-to-integration.ts';
 import remarkEmoji from 'remark-emoji';
 import remarkGfm from 'remark-gfm';
+import remarkMentions from 'remark-mentions';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
 import rehypeUnwrapImages from 'rehype-unwrap-images';
-import { remarkGitHubMentions } from './src/lib/remark-github-mentions.ts';
 
 // URL patterns for sitemap priority calculation
 const BLOG_POST_PATTERN = /\/\d{4}\/\d{2}\/\d{2}\//;
@@ -49,6 +50,31 @@ const rehypeAutolinkHeadingsConfig = [rehypeAutolinkHeadings, {
     children: [{ type: 'text', value: '#' }]
   }
 }];
+
+/**
+ * Configure remark-mentions to link to GitHub profiles
+ */
+const remarkGitHubMentions = [remarkMentions, {
+  usernameLink: (username) => `https://github.com/${username}`,
+}];
+
+/**
+ * Generate slug for posts based on date in filename
+ * Matches the permalink pattern used by the site: /YYYY/MM/DD/slug/
+ */
+function getPostSlug(filePath) {
+  const filename = filePath.split('/').pop() || '';
+  const dateMatch = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)\.(md|mdx)$/);
+  
+  if (dateMatch) {
+    const [, year, month, day, slug] = dateMatch;
+    return `/${year}/${month}/${day}/${slug}`;
+  }
+  
+  // For pages or other content without date pattern, use the default
+  const slug = filename.replace(/\.(md|mdx)$/, '');
+  return `/${slug}`;
+}
 
 // https://astro.build/config
 export default defineConfig({
@@ -165,7 +191,11 @@ export default defineConfig({
         };
       },
     }),
-    redirectIntegration(), // Generate redirect pages after build
+    redirectFrom({
+      contentDir: 'src/content', // Configure to use content collections directory
+      getSlug: getPostSlug, // Use custom slug function for date-based URLs
+    }), // Generate redirect pages for redirect_from frontmatter (using open source astro-redirect-from)
+    redirectToIntegration(), // Generate redirect pages for redirect_to frontmatter (custom integration)
     compress({
       // Compress HTML, CSS, and JavaScript for better performance
       CSS: true,
