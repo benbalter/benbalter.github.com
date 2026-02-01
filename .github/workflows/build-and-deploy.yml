@@ -61,3 +61,26 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # Purge Cloudflare cache after successful deployment
+      # This ensures visitors get fresh content immediately after deployment
+      # Requires two repository secrets:
+      # - CLOUDFLARE_ZONE_ID: Your Cloudflare zone ID (found in domain overview)
+      # - CLOUDFLARE_API_TOKEN: API token with "Zone.Cache Purge" permission
+      # To create an API token: Cloudflare Dashboard → My Profile → API Tokens → Create Token
+      - name: Purge Cloudflare Cache
+        if: success()
+        run: |
+          response=$(curl -sS -f -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/purge_cache" \
+            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            --data '{"purge_everything":true}') || { echo "Cloudflare cache purge request failed"; exit 1; }
+          echo "Cloudflare API response: $response"
+          api_success=$(echo "$response" | jq -r '.success // empty')
+          errors=$(echo "$response" | jq -c '.errors // []')
+          if [ "$api_success" != "true" ] || [ "$errors" != "[]" ]; then
+            echo "Cloudflare cache purge reported failure."
+            echo "Errors: $errors"
+            exit 1
+          fi
+          echo "✓ Cloudflare cache purged successfully"
