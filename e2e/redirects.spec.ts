@@ -9,6 +9,15 @@ const expectPathname = (page: Page, expectedPath: string) => {
   expect(normalizedCurrent).toBe(normalizedExpected);
 };
 
+// Helper to wait for redirect by checking if URL contains the expected path
+const waitForRedirect = async (page: Page, expectedPathSegment: string, timeout = 5000) => {
+  await page.waitForFunction(
+    (segment) => window.location.pathname.includes(segment),
+    expectedPathSegment,
+    { timeout }
+  );
+};
+
 test.describe('Legacy URL Redirects', () => {
   test.describe('Page Redirects', () => {
     test('should redirect /cv/ to /resume/', async ({ page }) => {
@@ -17,8 +26,7 @@ test.describe('Legacy URL Redirects', () => {
       await page.goto('/cv/', { waitUntil: 'domcontentloaded' });
       
       // Wait for redirect to complete (JavaScript replaces location)
-      // Note: Astro preview server may serve URLs without trailing slashes
-      await page.waitForURL('**/resume', { timeout: 5000 });
+      await waitForRedirect(page, '/resume');
       
       // Should redirect to the new URL
       expectPathname(page, '/resume/');
@@ -26,19 +34,19 @@ test.describe('Legacy URL Redirects', () => {
 
     test('should redirect /books/ to /other-recommended-reading/', async ({ page }) => {
       await page.goto('/books/', { waitUntil: 'domcontentloaded' });
-      await page.waitForURL('**/other-recommended-reading', { timeout: 5000 });
+      await waitForRedirect(page, '/other-recommended-reading');
       expectPathname(page, '/other-recommended-reading/');
     });
 
     test('should redirect /books-for-geeks/ to /other-recommended-reading/', async ({ page }) => {
       await page.goto('/books-for-geeks/', { waitUntil: 'domcontentloaded' });
-      await page.waitForURL('**/other-recommended-reading', { timeout: 5000 });
+      await waitForRedirect(page, '/other-recommended-reading');
       expectPathname(page, '/other-recommended-reading/');
     });
 
     test('should redirect /recommended-reading/ to /other-recommended-reading/', async ({ page }) => {
       await page.goto('/recommended-reading/', { waitUntil: 'domcontentloaded' });
-      await page.waitForURL('**/other-recommended-reading', { timeout: 5000 });
+      await waitForRedirect(page, '/other-recommended-reading');
       expectPathname(page, '/other-recommended-reading/');
     });
   });
@@ -46,19 +54,19 @@ test.describe('Legacy URL Redirects', () => {
   test.describe('Post URL Corrections - Typos', () => {
     test('should redirect post with typo /2014/01/27/open-collabortion/', async ({ page }) => {
       await page.goto('/2014/01/27/open-collabortion/', { waitUntil: 'domcontentloaded' });
-      await page.waitForURL('**/2014/01/27/open-collaboration', { timeout: 5000 });
+      await waitForRedirect(page, '/2014/01/27/open-collaboration');
       expectPathname(page, '/2014/01/27/open-collaboration/');
     });
 
     test('should redirect /2014/09/29/your-code-deserves-better/', async ({ page }) => {
       await page.goto('/2014/09/29/your-code-deserves-better/', { waitUntil: 'domcontentloaded' });
-      await page.waitForURL('**/2014/09/29/our-code-deserves-better', { timeout: 5000 });
+      await waitForRedirect(page, '/2014/09/29/our-code-deserves-better');
       expectPathname(page, '/2014/09/29/our-code-deserves-better/');
     });
 
     test('should redirect /2021/03/26/n-things-a-technicalp-program-manager-does/', async ({ page }) => {
       await page.goto('/2021/03/26/n-things-a-technicalp-program-manager-does/', { waitUntil: 'domcontentloaded' });
-      await page.waitForURL('**/2021/03/26/nine-things-a-technical-program-manager-does', { timeout: 5000 });
+      await waitForRedirect(page, '/2021/03/26/nine-things-a-technical-program-manager-does');
       expectPathname(page, '/2021/03/26/nine-things-a-technical-program-manager-does/');
     });
   });
@@ -66,37 +74,37 @@ test.describe('Legacy URL Redirects', () => {
   test.describe('Post URL Corrections - Wrong Dates', () => {
     test('should redirect post with wrong date /2014/12/08/types-of-pull-requests/', async ({ page }) => {
       await page.goto('/2014/12/08/types-of-pull-requests/', { waitUntil: 'domcontentloaded' });
-      await page.waitForURL('**/2015/12/08/types-of-pull-requests', { timeout: 5000 });
+      await waitForRedirect(page, '/2015/12/08/types-of-pull-requests');
       expectPathname(page, '/2015/12/08/types-of-pull-requests/');
     });
 
     test('should redirect /2013/02/13/what-is-a-hacker/ to correct date', async ({ page }) => {
       await page.goto('/2013/02/13/what-is-a-hacker/', { waitUntil: 'domcontentloaded' });
-      await page.waitForURL('**/2013/02/04/what-is-a-hacker', { timeout: 5000 });
+      await waitForRedirect(page, '/2013/02/04/what-is-a-hacker');
       expectPathname(page, '/2013/02/04/what-is-a-hacker/');
     });
 
     test('should redirect /2013/02/16/what-is-a-hacker/ to correct date', async ({ page }) => {
       await page.goto('/2013/02/16/what-is-a-hacker/', { waitUntil: 'domcontentloaded' });
-      await page.waitForURL('**/2013/02/04/what-is-a-hacker', { timeout: 5000 });
+      await waitForRedirect(page, '/2013/02/04/what-is-a-hacker');
       expectPathname(page, '/2013/02/04/what-is-a-hacker/');
     });
 
     test('should redirect /2014/11/03/rules-of-communicating-at-github/ to correct date', async ({ page }) => {
       await page.goto('/2014/11/03/rules-of-communicating-at-github/', { waitUntil: 'domcontentloaded' });
-      await page.waitForURL('**/2014/11/06/rules-of-communicating-at-github', { timeout: 5000 });
+      await waitForRedirect(page, '/2014/11/06/rules-of-communicating-at-github');
       expectPathname(page, '/2014/11/06/rules-of-communicating-at-github/');
     });
 
     test('should redirect /2014/11/17/open-source-policy/ to correct date', async ({ page }) => {
       await page.goto('/2014/11/17/open-source-policy/', { waitUntil: 'domcontentloaded' });
-      await page.waitForURL('**/2014/11/24/open-source-policy', { timeout: 5000 });
+      await waitForRedirect(page, '/2014/11/24/open-source-policy');
       expectPathname(page, '/2014/11/24/open-source-policy/');
     });
 
     test('should redirect /2023/12/07/cathedral-bazaar-management/ to correct date', async ({ page }) => {
       await page.goto('/2023/12/07/cathedral-bazaar-management/', { waitUntil: 'domcontentloaded' });
-      await page.waitForURL('**/2023/12/08/cathedral-bazaar-management', { timeout: 5000 });
+      await waitForRedirect(page, '/2023/12/08/cathedral-bazaar-management');
       expectPathname(page, '/2023/12/08/cathedral-bazaar-management/');
     });
   });
@@ -104,31 +112,31 @@ test.describe('Legacy URL Redirects', () => {
   test.describe('Post URL Corrections - Special Characters', () => {
     test('should redirect source-disclosed--open-source with double dash', async ({ page }) => {
       await page.goto('/2014/09/29/source-disclosed--open-source/', { waitUntil: 'domcontentloaded' });
-      await page.waitForURL('**/2014/09/29/source-disclosed-is-not-the-same-as-open-source', { timeout: 5000 });
+      await waitForRedirect(page, '/2014/09/29/source-disclosed-is-not-the-same-as-open-source');
       expectPathname(page, '/2014/09/29/source-disclosed-is-not-the-same-as-open-source/');
     });
 
     test('should redirect source-disclosed with not-equal symbol', async ({ page }) => {
       await page.goto('/2014/09/29/source-disclosed-≠-open-source/', { waitUntil: 'domcontentloaded' });
-      await page.waitForURL('**/2014/09/29/source-disclosed-is-not-the-same-as-open-source', { timeout: 5000 });
+      await waitForRedirect(page, '/2014/09/29/source-disclosed-is-not-the-same-as-open-source');
       expectPathname(page, '/2014/09/29/source-disclosed-is-not-the-same-as-open-source/');
     });
 
     test('should redirect source-disclosed with != symbol', async ({ page }) => {
       await page.goto('/2014/09/29/source-disclosed-!=-open-source/', { waitUntil: 'domcontentloaded' });
-      await page.waitForURL('**/2014/09/29/source-disclosed-is-not-the-same-as-open-source', { timeout: 5000 });
+      await waitForRedirect(page, '/2014/09/29/source-disclosed-is-not-the-same-as-open-source');
       expectPathname(page, '/2014/09/29/source-disclosed-is-not-the-same-as-open-source/');
     });
 
     test('should redirect why-government-contractors-should-<3-open-source', async ({ page }) => {
       await page.goto('/2014/10/08/why-government-contractors-should-<3-open-source/', { waitUntil: 'domcontentloaded' });
-      await page.waitForURL('**/2014/10/08/why-government-contractors-should-embrace-open-source', { timeout: 5000 });
+      await waitForRedirect(page, '/2014/10/08/why-government-contractors-should-embrace-open-source');
       expectPathname(page, '/2014/10/08/why-government-contractors-should-embrace-open-source/');
     });
 
     test('should redirect why-government-contractors-should-%3C3-open-source (URL encoded)', async ({ page }) => {
       await page.goto('/2014/10/08/why-government-contractors-should-%3C3-open-source/', { waitUntil: 'domcontentloaded' });
-      await page.waitForURL('**/2014/10/08/why-government-contractors-should-embrace-open-source', { timeout: 5000 });
+      await waitForRedirect(page, '/2014/10/08/why-government-contractors-should-embrace-open-source');
       expectPathname(page, '/2014/10/08/why-government-contractors-should-embrace-open-source/');
     });
   });
