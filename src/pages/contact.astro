@@ -9,8 +9,20 @@ const description = 'Contact Ben Balter via email or social media';
 
 <PageLayout title={title} description={description}>
   <p class="text-center lead mb-4">
-    Looking to get in touch? Email <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> or I'm <code class="bg-secondary-subtle px-2 py-1 rounded">{siteConfig.socialUsername}</code> most places:
+    Looking to get in touch? Email <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> or I'm <code class="code-inline">@{siteConfig.socialUsername}</code> most places:
   </p>
 
   <ContactLinks />
 </PageLayout>
+
+<style>
+  /* Code element styling to match original design */
+  .code-inline {
+    background-color: var(--bs-secondary-bg);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 0.9em;
+    color: var(--bs-body-color);
+  }
+</style>

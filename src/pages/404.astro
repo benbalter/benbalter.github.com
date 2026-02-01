@@ -38,7 +38,7 @@ const posts: CollectionEntry<'posts'>[] = allPosts
 
   <h4 class="mt-4 mb-3 fw-medium lh-sm">Recent posts</h4>
 
-  <ul class="list-unstyled ps-4 mb-3">
+  <ul class="ps-4 mb-3">
     {posts.map((post) => {
       const postUrl = getPostUrl(post.slug);
       return (

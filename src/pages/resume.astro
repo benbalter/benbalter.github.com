@@ -70,7 +70,7 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
               </div>
             </div>
             
-            <div class="lh-lg text-body position-content">
+            <div class="position-content">
               <position.Content />
             </div>
           </div>
@@ -116,6 +116,12 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
 </PageLayout>
 
 <style>
+  /* Position content styling to maintain original design */
+  .position-content {
+    line-height: 1.6;
+    color: var(--bs-body-color);
+  }
+  
   /* Remove list bullets from position content */
   .position-content :global(ul) {
     list-style: none;

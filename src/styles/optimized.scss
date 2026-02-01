@@ -54,7 +54,9 @@ $content-padding-x: 15px;
 // This provides all utility classes (margins, padding, text, display, flex, etc.)
 // Optimizes for maintainability and upgradability over minimal CSS
 @import 'bootstrap/scss/utilities';
-@import 'bootstrap/scss/utilities/api';
+
+// Alert component for 404 page
+@import 'bootstrap/scss/alert';
 
 // Accessibility: Skip to content link
 .skip-to-content {

@@ -29,11 +29,11 @@ const {
   <div class="row">
     <div class="col-md-10 offset-md-1 px-3">
       <article class="page-content">
-        <header class="mb-4">
-          <h1 class="display-4 text-primary fw-bold lh-sm mb-3">{title}</h1>
+        <header class="page-header">
+          <h1 class="page-title text-primary">{title}</h1>
         </header>
         
-        <div class="page-body fs-6 lh-lg text-body">
+        <div class="page-body">
           <slot />
         </div>
       </article>
@@ -42,7 +42,23 @@ const {
 </BaseLayout>
 
 <style>
-  /* Typography styles for page content that can't be achieved with Bootstrap utilities */
+  /* Page-specific typography that maintains original design */
+  .page-header {
+    margin-bottom: 2rem;
+  }
+  
+  .page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  
+  .page-body {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--bs-body-color);
+  }
   .page-body :global(h2) {
     font-size: 1.8rem;
     font-weight: 600;

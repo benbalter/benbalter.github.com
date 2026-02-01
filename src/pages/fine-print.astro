@@ -35,7 +35,7 @@ const description = 'This is my personal Web site. The opinions expressed herein
 
   <ul class="mt-3">
     <li class="mb-2">
-      All original content on <code class="bg-secondary-subtle px-2 py-1 rounded">Ben.Balter.com</code> is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a> attributable to {siteConfig.author}.
+      All original content on <code class="code-inline">Ben.Balter.com</code> is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a> attributable to {siteConfig.author}.
     </li>
     <li class="mb-2">
       Header image courtesy <a href="http://fedscoop.com/">FedScoop</a>, © 2013.
@@ -45,3 +45,15 @@ const description = 'This is my personal Web site. The opinions expressed herein
     </li>
   </ul>
 </PageLayout>
+
+<style>
+  /* Code element styling to match original design */
+  .code-inline {
+    background-color: var(--bs-secondary-bg);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 0.9em;
+    color: var(--bs-body-color);
+  }
+</style>
