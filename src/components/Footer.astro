@@ -16,6 +16,7 @@ const isEmailLink = (url: string) => url.startsWith('mailto:');
 /**
  * Generates HTML for an email link wrapped in Cloudflare's email_off comments
  * to prevent Cloudflare's email obfuscation from replacing the email address.
+ * Includes inline styles to match Bootstrap's nav-link display properties.
  */
 function emailLinkHtml(url: string, icon: string, name: string): string {
   const safeUrl = escapeHtml(url);
@@ -23,7 +24,7 @@ function emailLinkHtml(url: string, icon: string, name: string): string {
   const safeName = escapeHtml(name);
   
   const linkHtml = `<a href="${safeUrl}" aria-label="${safeName}" ` +
-    `class="nav-link social-link" target="_blank" rel="noopener noreferrer me">` +
+    `class="nav-link social-link" style="display: block;" target="_blank" rel="noopener noreferrer me">` +
     `<i class="${safeIcon}" title="${safeName}"></i></a>`;
   
   return wrapEmailOff(linkHtml);
