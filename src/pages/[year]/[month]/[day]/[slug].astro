@@ -39,7 +39,7 @@ interface Props {
 const { post, allPosts } = Astro.props;
 const { Content } = await post.render();
 
-// Extract date from params for display
+// Extract date from params for display (use URL params to ensure consistency with the route)
 const { year, month, day, slug } = Astro.params;
 const pubDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
 

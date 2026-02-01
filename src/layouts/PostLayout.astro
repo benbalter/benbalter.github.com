@@ -12,6 +12,7 @@ import MiniBio from '../components/MiniBio.astro';
 import { siteConfig } from '../config';
 import { calculateReadingTime } from '../utils/reading-time';
 import { generateBlogPostingSchema, schemaToJsonLd } from '../utils/structured-data';
+import { formatPostDate, getPostUrl } from '../utils/post-urls';
 import ArchivedPostWarning from '../components/ArchivedPostWarning.astro';
 import type { CollectionEntry } from 'astro:content';
 
@@ -41,11 +42,7 @@ const {
   postSlug,
 } = Astro.props;
 
-const formattedDate = pubDate?.toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
+const formattedDate = pubDate ? formatPostDate(pubDate) : undefined;
 
 // Calculate reading time using improved utility
 const content = await Astro.slots.render('default');
@@ -116,19 +113,11 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
           <div class="related-posts mt-3">
             <h3 class="related-posts-heading">If you enjoyed this post, you might also enjoy:</h3>
             <ul class="related-posts-list">
-              {relatedPosts.map((post) => {
-                // Extract date from slug (YYYY-MM-DD-slug format)
-                const dateMatch = post.slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
-                const postUrl = dateMatch 
-                  ? `/${dateMatch[1]}/${dateMatch[2]}/${dateMatch[3]}/${dateMatch[4]}/`
-                  : `/posts/${post.slug}/`;
-                
-                return (
-                  <li>
-                    <a href={postUrl}>{post.data.title}</a>
-                  </li>
-                );
-              })}
+              {relatedPosts.map((post) => (
+                <li>
+                  <a href={getPostUrl(post.slug)}>{post.data.title}</a>
+                </li>
+              ))}
             </ul>
           </div>
         )}
