@@ -768,6 +768,7 @@ article > p:first-of-type,
 // Main content should smoothly transition between pages
 .content {
     view-transition-name: main-content;
+    margin-bottom: 3rem; // Add spacing before footer (Bootstrap spacing convention)
 }
 
 // Note: Hero unit view-transition-name removed because it only exists on homepage
