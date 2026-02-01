@@ -145,7 +145,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: node_modules/.astro
-          key: astro-cache-${{ runner.os }}-${{ hashFiles('src/**', 'public/**', 'astro.config.mjs') }}
+          key: astro-cache-${{ runner.os }}-${{ hashFiles('src/**/*', 'public/**/*', 'astro.config.mjs') }}
           restore-keys: |
             astro-cache-${{ runner.os }}-
 
