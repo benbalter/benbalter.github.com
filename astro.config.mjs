@@ -3,7 +3,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import favicons from 'astro-favicons';
 import compress from 'astro-compress';
-import redirectIntegration from './src/lib/redirect-integration.ts';
+import redirectFrom from 'astro-redirect-from';
 import remarkEmoji from 'remark-emoji';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
@@ -11,6 +11,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
 import rehypeUnwrapImages from 'rehype-unwrap-images';
 import { remarkGitHubMentions } from './src/lib/remark-github-mentions.ts';
+import { getSlug } from './src/utils/get-slug.ts';
 import { rehypeRelativeUrls } from './src/lib/rehype-relative-urls.ts';
 
 // URL patterns for sitemap priority calculation
@@ -51,6 +52,7 @@ const rehypeAutolinkHeadingsConfig = [rehypeAutolinkHeadings, {
   }
 }];
 
+
 // https://astro.build/config
 export default defineConfig({
   // Output directory for built site (separate from Jekyll _site/)
@@ -66,6 +68,25 @@ export default defineConfig({
   
   // Trailing slashes to match GitHub Pages behavior
   trailingSlash: 'always',
+  
+  // Redirect configuration
+  // External redirects for posts republished on other sites (redirect_to in frontmatter)
+  // Page redirects for backward compatibility (replaces Astro page-based redirects)
+  // Internal redirects (redirect_from) are handled by astro-redirect-from integration
+  redirects: {
+    // External redirects - Posts republished on other sites
+    '/2012/04/23/enterprise-open-source-usage-is-up-but-challenges-remain/': 
+      'http://techcrunch.com/2012/04/22/enterprise-open-source-usage-is-up-but-challenges-remain/',
+    '/2015/04/27/eight-lessons-learned-hacking-on-github-pages-for-six-months/': 
+      'https://github.com/blog/1992-eight-lessons-learned-hacking-on-github-pages-for-six-months',
+    '/2023/10/04/how-to-communicate-like-a-github-engineer/': 
+      'https://github.blog/engineering/engineering-principles/how-to-communicate-like-a-github-engineer-our-principles-practices-and-tools/',
+    
+    // Page redirects - Backward compatibility for renamed pages
+    '/books/': '/other-recommended-reading/',
+    '/books-for-geeks/': '/other-recommended-reading/',
+    '/recommended-reading/': '/other-recommended-reading/',
+  },
   
   // Prefetch configuration for faster navigation
   // Use hover strategy to balance speed with bandwidth usage
@@ -174,7 +195,12 @@ export default defineConfig({
         };
       },
     }),
-    redirectIntegration(), // Generate redirect pages after build
+    // Handle redirects from old URLs (redirect_from in frontmatter)
+    // Must be placed before other integrations that modify HTML
+    redirectFrom({
+      contentDir: 'src/content', // Use content collections directory
+      getSlug, // Use custom slug function that reads permalink from frontmatter
+    }),
     compress({
       // Compress HTML, CSS, and JavaScript for better performance
       CSS: true,
