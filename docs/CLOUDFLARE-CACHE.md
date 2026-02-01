@@ -125,8 +125,6 @@ The current implementation uses `purge_everything: true` because:
 
 For this use case (static site with content-hashed assets), `purge_everything` provides the best balance of simplicity and reliability.
 
-For most use cases, `purge_everything` is simplest and most reliable.
-
 ## Troubleshooting
 
 ### "401 Unauthorized"
