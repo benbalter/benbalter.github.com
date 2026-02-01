@@ -37,6 +37,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Cache Astro build artifacts
+        uses: actions/cache@v4
+        with:
+          path: node_modules/.astro
+          key: astro-cache-${{ runner.os }}-${{ hashFiles('src/**', 'public/**', 'astro.config.mjs') }}
+          restore-keys: |
+            astro-cache-${{ runner.os }}-
+
       - name: Build Astro site
         run: npm run astro:build
 
