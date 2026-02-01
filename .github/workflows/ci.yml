@@ -126,7 +126,7 @@ jobs:
 
   astro:
     needs: changes
-    if: ${{ needs.changes.outputs.astro == 'true' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
+    if: ${{ needs.changes.outputs.astro == 'true' || needs.changes.outputs.content == 'true' || needs.changes.outputs.code == 'true' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
