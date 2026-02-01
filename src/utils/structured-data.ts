@@ -20,13 +20,13 @@ export function generatePersonSchema(overrides?: Partial<Person>): WithContext<P
     name: siteConfig.author,
     url: siteConfig.url,
     email: siteConfig.email,
-    jobTitle: 'Senior Technical Program Manager at GitHub',
+    jobTitle: `${siteConfig.jobTitle} at ${siteConfig.employer}`,
     sameAs: [
       `https://github.com/${siteConfig.githubUsername}`,
       `https://twitter.com/${siteConfig.socialUsername}`,
-      `https://www.linkedin.com/in/${siteConfig.socialUsername}`,
-      'https://mastodon.social/@benbalter',
-      'https://bsky.app/profile/ben.balter.com',
+      siteConfig.linkedinUrl,
+      siteConfig.mastodonUrl,
+      siteConfig.blueskyUrl,
     ],
     image: `${siteConfig.url}/assets/img/headshot.jpg`,
   };
