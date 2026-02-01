@@ -40,7 +40,7 @@ const {
   hero = false,
 } = Astro.props;
 
-const fullTitle = title === siteConfig.name ? title : `${title} | ${siteConfig.name}`;
+const fullTitle = title === siteConfig.name ? `${title} | ${siteConfig.description}` : `${title} | ${siteConfig.name}`;
 const canonicalUrl = new URL(Astro.url.pathname, siteConfig.url).toString();
 
 // Default OG image if none provided

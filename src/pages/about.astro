@@ -12,7 +12,7 @@ const bioParagraphs = getBioParagraphs(aboutContent);
 ---
 
 <PageLayout title={title} description={description}>
-  <div class="float-md-end ms-md-3 mb-3 mx-auto d-block d-md-inline w-50 w-md-25">
+  <div class="float-md-end ms-md-3 mb-3 mx-auto d-block d-md-inline" style="width: 50%; max-width: 250px;">
     <a href={`${siteConfig.githubRepoUrl}/raw/master/assets/img/headshot.jpg`}>
       <Image src={headshotImage} alt={`${siteConfig.author} headshot`} width={250} height={250} class="img-fluid rounded" />
     </a>

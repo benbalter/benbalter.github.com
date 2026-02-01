@@ -238,6 +238,12 @@ pre code {
     border: none; // Remove border for code inside pre
 }
 
+// Improve contrast for inline code inside links
+// Using body color instead of link color ensures proper contrast against secondary background
+a code {
+    color: var(--bs-body-color);
+}
+
 // Improve link styling - scoped to content areas to avoid affecting navigation
 article a:not(.anchor-link),
 .content a:not(.anchor-link),
