@@ -70,8 +70,8 @@ jobs:
       - name: Upload Astro build
         uses: actions/upload-artifact@v6
         with:
-          name: astro-dist
-          path: dist/
+          name: dist-astro
+          path: dist-astro/
           retention-days: 1
 
   playwright:
@@ -95,8 +95,8 @@ jobs:
       - name: Download Astro build
         uses: actions/download-artifact@v6
         with:
-          name: astro-dist
-          path: dist/
+          name: dist-astro
+          path: dist-astro/
 
       - name: Cache Playwright Browsers
         uses: actions/cache@v5
