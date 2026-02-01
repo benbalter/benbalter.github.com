@@ -10,9 +10,9 @@ const description = 'Ben Balter is an attorney, an open source developer, and a 
 ---
 
 <PageLayout title={title} description={description}>
-  <div class="float-end ms-3 mb-2 headshot">
+  <div class="float-end ms-3 mb-2" style="width: 25%;">
     <a href={`${siteConfig.githubRepoUrl}/raw/master/assets/img/headshot.jpg`}>
-      <Image src={headshotImage} alt="Ben Balter headshot" width={250} height={250} />
+      <Image src={headshotImage} alt="Ben Balter headshot" width={250} height={250} class="w-100 h-auto rounded" />
     </a>
   </div>
 
@@ -36,24 +36,12 @@ const description = 'Ben Balter is an attorney, an open source developer, and a 
 </PageLayout>
 
 <style>
-  .headshot {
-    float: right;
-    margin-left: 1rem;
-    margin-bottom: 0.5rem;
-    width: 25%;
-  }
-
-  .headshot img {
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
-  }
-
+  /* Responsive styling for headshot on mobile */
   @media (max-width: 768px) {
-    .headshot {
-      float: none;
-      width: 50%;
-      margin: 0 auto 1rem;
+    .float-end {
+      float: none !important;
+      width: 50% !important;
+      margin: 0 auto 1rem !important;
       display: block;
     }
   }
