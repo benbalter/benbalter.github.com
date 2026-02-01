@@ -13,6 +13,31 @@ import path from 'path';
 import matter from 'gray-matter';
 
 /**
+ * Generate slug from file path without reading frontmatter
+ * Used as fallback when frontmatter cannot be read
+ * 
+ * @param filePath - Relative path to markdown file from content directory
+ * @returns Slug without leading/trailing slashes
+ */
+function getSlugFromFilePath(filePath: string): string {
+  const filename = path.basename(filePath);
+  
+  // For posts, extract date and slug from filename
+  const dateMatch = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)\.(md|mdx)$/);
+  if (dateMatch) {
+    const [, year, month, day, postSlug] = dateMatch;
+    return `${year}/${month}/${day}/${postSlug}`;
+  }
+  
+  // Default: use file path
+  const parsedPath = path.parse(filePath);
+  if (parsedPath.base === 'index.md' || parsedPath.base === 'index.mdx') {
+    return parsedPath.dir;
+  }
+  return `${parsedPath.dir}/${parsedPath.name}`.replace(/^\//, '');
+}
+
+/**
  * Extract slug from file path based on frontmatter and filename
  * 
  * @param filePath - Relative path to markdown file from content directory
@@ -42,30 +67,14 @@ export function getSlug(filePath: string): string {
       return data.permalink.replace(/^\/|\/$/g, ''); // Remove leading/trailing slashes
     }
     
-    // For posts, extract date and slug from filename
-    const filename = path.basename(filePath);
-    const dateMatch = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)\.(md|mdx)$/);
-    if (dateMatch) {
-      const [, year, month, day, postSlug] = dateMatch;
-      return `${year}/${month}/${day}/${postSlug}`;
-    }
-    
-    // Default: use file path
-    const parsedPath = path.parse(filePath);
-    if (parsedPath.base === 'index.md' || parsedPath.base === 'index.mdx') {
-      return parsedPath.dir;
-    }
-    return `${parsedPath.dir}/${parsedPath.name}`.replace(/^\//, '');
+    // Fall back to file path-based slug generation
+    return getSlugFromFilePath(filePath);
   } catch (error) {
-    // Fallback to default slug generation
+    // Fallback to file path-based slug generation
     // This is acceptable as redirects will still work, just with file-path-based URLs
     console.error(`[redirect-from] WARNING: Could not read frontmatter from ${filePath}: ${(error as Error).message}`);
     console.error('[redirect-from] Using fallback slug generation from file path');
     
-    const parsedPath = path.parse(filePath);
-    if (parsedPath.base === 'index.md' || parsedPath.base === 'index.mdx') {
-      return parsedPath.dir;
-    }
-    return `${parsedPath.dir}/${parsedPath.name}`.replace(/^\//, '');
+    return getSlugFromFilePath(filePath);
   }
 }
