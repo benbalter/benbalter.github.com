@@ -12,9 +12,9 @@ const bioParagraphs = getBioParagraphs(aboutContent);
 ---
 
 <PageLayout title={title} description={description}>
-  <div class="float-end ms-3 mb-2 headshot-wrapper">
+  <div class="float-end ms-3 mb-2 headshot">
     <a href={`${siteConfig.githubRepoUrl}/raw/master/assets/img/headshot.jpg`}>
-      <Image src={headshotImage} alt={`${siteConfig.author} headshot`} width={250} height={250} class="w-100 h-auto rounded" />
+      <Image src={headshotImage} alt={`${siteConfig.author} headshot`} width={250} height={250} />
     </a>
   </div>
 
@@ -30,17 +30,24 @@ const bioParagraphs = getBioParagraphs(aboutContent);
 </PageLayout>
 
 <style>
-  /* Headshot sizing - can't be achieved with Bootstrap utilities alone */
-  .headshot-wrapper {
+  .headshot {
+    float: right;
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
     width: 25%;
   }
 
-  /* Responsive styling for headshot on mobile */
+  .headshot img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+
   @media (max-width: 768px) {
-    .headshot-wrapper {
-      float: none !important;
-      width: 50% !important;
-      margin: 0 auto 1rem !important;
+    .headshot {
+      float: none;
+      width: 50%;
+      margin: 0 auto 1rem;
       display: block;
     }
   }

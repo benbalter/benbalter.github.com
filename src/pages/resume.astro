@@ -52,20 +52,20 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
 ---
 
 <PageLayout title={title} description={description}>
-  <section class="mb-5">
-    <h2 class="fs-3 fw-semibold mt-5 mb-4 text-body-emphasis border-bottom border-2 pb-2">Experience</h2>
+  <section class="resume-section">
+    <h2>Experience</h2>
     
     {groupedPositions.map((group) => (
-      <div class="mb-5">
-        <h3 class="fs-4 fw-semibold text-primary mb-3">{group.employer}</h3>
+      <div class="employer-group">
+        <h3 class="employer-name">{group.employer}</h3>
         
         {group.positions.map((position) => (
-          <div class="mb-4 ps-3">
-            <div class="d-flex justify-content-between align-items-start mb-2 gap-3 flex-column flex-md-row">
-              <div>
-                <h4 class="fs-5 fw-semibold text-body-emphasis m-0">{position.data.title}</h4>
+          <div class="position">
+            <div class="position-header">
+              <div class="position-title">
+                <h4>{position.data.title}</h4>
               </div>
-              <div class="text-secondary small text-md-end">
+              <div class="position-dates">
                 {formatResumeDate(position.data.start_date) ?? 'Unknown'}—{position.data.end_date ? (formatResumeDate(position.data.end_date) ?? 'Unknown') : 'Present'}
               </div>
             </div>
@@ -80,15 +80,15 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
   </section>
   
   {degrees && degrees.length > 0 && (
-    <section class="mb-5">
-      <h2 class="fs-3 fw-semibold mt-5 mb-4 text-body-emphasis border-bottom border-2 pb-2">Education</h2>
+    <section class="resume-section">
+      <h2>Education</h2>
       
       {degrees.map((degree: { school: string; degree: string; date: string }) => (
-        <div class="mb-4">
-          <h3 class="fs-5 fw-semibold text-body-emphasis mb-2">{degree.school}</h3>
-          <div class="d-flex justify-content-between align-items-center gap-3 flex-column flex-md-row align-items-md-start">
-            <div class="text-body">{degree.degree}</div>
-            <div class="text-secondary small text-md-end">{formatResumeDate(degree.date) ?? 'Unknown'}</div>
+        <div class="education-item">
+          <h3 class="school-name h5">{degree.school}</h3>
+          <div class="education-details">
+            <div class="degree-name">{degree.degree}</div>
+            <div class="degree-date">{formatResumeDate(degree.date) ?? 'Unknown'}</div>
           </div>
         </div>
       ))}
@@ -96,15 +96,15 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
   )}
   
   {certifications && certifications.length > 0 && (
-    <section class="mb-5">
-      <h2 class="fs-3 fw-semibold mt-5 mb-4 text-body-emphasis border-bottom border-2 pb-2">Certifications</h2>
+    <section class="resume-section">
+      <h2>Certifications</h2>
       
       {certifications.map((cert: { authority: string; name: string; url?: string }) => (
-        <div class="mb-4">
-          <h3 class="fs-5 fw-semibold text-body-emphasis mb-2">{cert.authority}</h3>
-          <div class="text-body">
+        <div class="certification-item">
+          <h3 class="certification-authority h5">{cert.authority}</h3>
+          <div class="certification-name">
             {cert.url ? (
-              <a href={cert.url} target="_blank" rel="noopener noreferrer" class="text-primary text-decoration-none" aria-label={`View ${cert.name} credential`}>{cert.name}</a>
+              <a href={cert.url} target="_blank" rel="noopener noreferrer" aria-label={`View ${cert.name} credential`}>{cert.name}</a>
             ) : (
               cert.name
             )}
@@ -116,27 +116,141 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
 </PageLayout>
 
 <style>
-  /* Position content styling to maintain original design */
+  .resume-section {
+    margin-bottom: 3rem;
+  }
+  
+  .resume-section h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--bs-heading-color);
+    border-bottom: 2px solid var(--bs-border-color);
+    padding-bottom: 0.5rem;
+  }
+  
+  .employer-group {
+    margin-bottom: 2.5rem;
+  }
+  
+  .employer-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--bs-link-color, #0366d6);
+    margin-bottom: 1rem;
+  }
+  
+  .position {
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+  }
+  
+  .position-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    gap: 1rem;
+  }
+  
+  .position-title h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--bs-heading-color);
+    margin: 0;
+  }
+  
+  .position-dates {
+    font-size: 0.95rem;
+    color: var(--bs-secondary-color, #586069);
+    white-space: nowrap;
+    text-align: right;
+  }
+  
   .position-content {
     line-height: 1.6;
     color: var(--bs-body-color);
   }
   
-  /* Remove list bullets from position content */
   .position-content :global(ul) {
     list-style: none;
     padding-left: 0;
     margin: 0;
   }
-
+  
   .position-content :global(li) {
     margin-bottom: 0.75rem;
     position: relative;
     padding-left: 0;
   }
-
+  
   .position-content :global(li strong) {
     font-weight: 600;
     color: var(--bs-body-color);
+  }
+  
+  .education-item,
+  .certification-item {
+    margin-bottom: 1.5rem;
+  }
+  
+  .school-name,
+  .certification-authority {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--bs-heading-color);
+    margin-bottom: 0.5rem;
+  }
+  
+  
+  .education-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .degree-name {
+    flex: 1;
+    color: var(--bs-body-color);
+  }
+  
+  .degree-date {
+    font-size: 0.95rem;
+    color: var(--bs-secondary-color, #586069);
+    text-align: right;
+  }
+  
+  .certification-name {
+    color: var(--bs-body-color);
+  }
+  
+  .certification-name a {
+    color: var(--bs-link-color, #0366d6);
+    text-decoration: none;
+  }
+  
+  .certification-name a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .position-header {
+      flex-direction: column;
+    }
+    
+    .position-dates {
+      text-align: left;
+    }
+    
+    .education-details {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .degree-date {
+      text-align: left;
+    }
   }
 </style>
