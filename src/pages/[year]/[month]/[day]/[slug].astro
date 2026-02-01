@@ -2,6 +2,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import PostLayout from '../../../../layouts/PostLayout.astro';
 import { findRelatedPosts, initializeRelatedPostsCache } from '../../../../utils/related-posts';
+import { getDateFromSlug } from '../../../../utils/post-urls';
 
 // Generate static paths for all blog posts with Jekyll URL structure
 export async function getStaticPaths() {
@@ -41,7 +42,7 @@ const { Content } = await post.render();
 
 // Extract date from params for display
 const { year, month, day, slug } = Astro.params;
-const pubDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+const pubDate = getDateFromSlug(post.slug);
 
 // Generate OG image URL for this post
 // If post has a custom image, use that, otherwise use the dynamically generated one
