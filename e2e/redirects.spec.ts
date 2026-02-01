@@ -232,9 +232,11 @@ test.describe('Legacy URL Redirects', () => {
       
       // Wait for meta refresh redirect to complete (HTML meta refresh may take a moment)
       // The redirect URL contains sitemap-0.xml
+      // Note: Meta refresh may not be followed in all browser configurations,
+      // so we handle both cases: redirect succeeds or we verify the redirect page content
+      let redirectFollowed = true;
       await page.waitForURL('**/sitemap-0.xml', { timeout: 5000 }).catch(() => {
-        // If redirect didn't happen, the meta refresh might not be followed
-        // In that case, the test will check the content directly
+        redirectFollowed = false;
       });
       
       const currentUrl = page.url();
@@ -259,8 +261,11 @@ test.describe('Legacy URL Redirects', () => {
       await page.goto('/sitemap_index.xml');
       
       // Wait for meta refresh redirect to complete
+      // Note: Meta refresh may not be followed in all browser configurations,
+      // so we handle both cases: redirect succeeds or we verify the redirect page content
+      let redirectFollowed = true;
       await page.waitForURL('**/sitemap-index.xml', { timeout: 5000 }).catch(() => {
-        // If redirect didn't happen, handle gracefully
+        redirectFollowed = false;
       });
       
       const currentUrl = page.url();

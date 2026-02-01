@@ -32,7 +32,8 @@ test.describe('Dark Mode Support', () => {
       if (detailsCount > 0) {
         // Expand the first details element that contains a code block
         await detailsElements.first().click();
-        await page.waitForTimeout(100);
+        // Wait for the details element to be open
+        await expect(detailsElements.first()).toHaveAttribute('open', { timeout: 1000 });
       }
 
       // Now check that code block is visible
@@ -74,7 +75,8 @@ test.describe('Dark Mode Support', () => {
       if (detailsCount > 0) {
         // Expand the first details element that contains a code block
         await detailsElements.first().click();
-        await page.waitForTimeout(100);
+        // Wait for the details element to be open
+        await expect(detailsElements.first()).toHaveAttribute('open', { timeout: 1000 });
       }
 
       // Now check that code block is visible
