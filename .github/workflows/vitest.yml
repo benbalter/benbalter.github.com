@@ -1,25 +1,11 @@
 name: Vitest
 
-on:
+"on":
   push:
     branches:
       - main
       - master
-    paths:
-      - 'src/**/*.ts'
-      - 'src/**/*.tsx'
-      - 'src/**/*.js'
-      - 'vitest.config.ts'
-      - 'package*.json'
-      - '.github/workflows/vitest.yml'
   pull_request:
-    paths:
-      - 'src/**/*.ts'
-      - 'src/**/*.tsx'
-      - 'src/**/*.js'
-      - 'vitest.config.ts'
-      - 'package*.json'
-      - '.github/workflows/vitest.yml'
 
 permissions:
   contents: read
@@ -31,7 +17,7 @@ jobs:
   vitest:
     name: Run Vitest Tests
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6

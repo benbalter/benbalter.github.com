@@ -13,72 +13,7 @@ env:
   NODE_VERSION: 24
 
 jobs:
-  # Check which jobs need to run based on changed files
-  changes:
-    runs-on: ubuntu-latest
-    outputs:
-      content: ${{ steps.filter.outputs.content }}
-      code: ${{ steps.filter.outputs.code }}
-      astro: ${{ steps.filter.outputs.astro }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-
-      - name: Check for file changes
-        uses: dorny/paths-filter@v3
-        id: filter
-        with:
-          filters: |
-            content:
-              - '_posts/**'
-              - '_resume_positions/**'
-              - '*.md'
-              - '_data/**'
-              - 'dictionary.txt'
-              - '.remarkrc.js'
-              - '.remarkignore'
-              - '.textlintrc'
-              - '.vale.ini'
-              - '.markdown-lint.yml'
-              - '.markdownlint-cli2.cjs'
-              - 'script/cibuild-content'
-              - 'script/remark'
-              - 'script/lint-text'
-              - 'script/vale'
-            code:
-              - '**/*.rb'
-              - '**/*.js'
-              - '**/*.ts'
-              - '**/*.json'
-              - '**/*.yml'
-              - '**/*.yaml'
-              - '_config*.yml'
-              - 'Gemfile*'
-              - 'package*.json'
-              - 'Rakefile'
-              - '_layouts/**'
-              - '_includes/**'
-              - 'assets/**'
-              - 'sass/**'
-              - 'js/**'
-              - 'lib/**'
-              - 'script/**'
-              - 'spec/**'
-              - 'e2e/**'
-              - 'playwright*.config.ts'
-              - '.rubocop*.yml'
-              - '.eslintrc.yml'
-              - 'eslint.config.js'
-              - '.yamllint.yml'
-            astro:
-              - 'src/**'
-              - 'astro.config.mjs'
-              - 'tsconfig.astro.json'
-              - 'public/**'
-
   content:
-    needs: changes
-    if: ${{ needs.changes.outputs.content == 'true' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -97,8 +32,6 @@ jobs:
         run: script/cibuild-content
 
   code:
-    needs: changes
-    if: ${{ needs.changes.outputs.code == 'true' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -127,8 +60,6 @@ jobs:
         run: script/cibuild-code
 
   astro-build:
-    needs: changes
-    if: ${{ needs.changes.outputs.astro == 'true' || needs.changes.outputs.content == 'true' || needs.changes.outputs.code == 'true' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -162,8 +93,6 @@ jobs:
           retention-days: 1
 
   astro-check:
-    needs: changes
-    if: ${{ needs.changes.outputs.astro == 'true' || needs.changes.outputs.content == 'true' || needs.changes.outputs.code == 'true' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -182,8 +111,6 @@ jobs:
         run: npm run astro:check
 
   vitest:
-    needs: changes
-    if: ${{ needs.changes.outputs.astro == 'true' || needs.changes.outputs.code == 'true' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -197,33 +124,12 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        
+
       - name: Run Vitest tests
         run: npm run test:vitest
-        
-  astro-check:
-    needs: changes
-    if: ${{ needs.changes.outputs.astro == 'true' || needs.changes.outputs.content == 'true' || needs.changes.outputs.code == 'true' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run Astro check
-        run: npm run astro:check
 
   lighthouse:
-    needs: [changes, astro-build]
-    if: ${{ needs.changes.outputs.astro == 'true' || needs.changes.outputs.content == 'true' || needs.changes.outputs.code == 'true' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
+    needs: astro-build
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -251,8 +157,7 @@ jobs:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
   playwright:
-    needs: [changes, astro-build]
-    if: ${{ needs.changes.outputs.astro == 'true' || needs.changes.outputs.content == 'true' || needs.changes.outputs.code == 'true' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
+    needs: astro-build
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
