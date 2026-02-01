@@ -53,14 +53,18 @@ const rehypeAutolinkHeadingsConfig = [rehypeAutolinkHeadings, {
 
 /**
  * Configure remark-mentions to link to GitHub profiles
+ * Usernames are URL-encoded for safety
  */
 const remarkGitHubMentions = [remarkMentions, {
-  usernameLink: (username) => `https://github.com/${username}`,
+  usernameLink: (username) => `https://github.com/${encodeURIComponent(username)}`,
 }];
 
 /**
  * Generate slug for posts based on date in filename
  * Matches the permalink pattern used by the site: /YYYY/MM/DD/slug/
+ * 
+ * @param {string} filePath - Path to the markdown file (e.g., "posts/2023-01-01-title.md")
+ * @returns {string} Date-based URL path (e.g., "/2023/01/01/title") or fallback slug
  */
 function getPostSlug(filePath) {
   const filename = filePath.split('/').pop() || '';

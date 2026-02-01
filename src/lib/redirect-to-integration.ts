@@ -25,19 +25,33 @@ const PAGES_DIR = path.join(__dirname, '../../src/content/pages');
  * Matches Jekyll redirect-from plugin behavior for redirect_to
  */
 function generateRedirectHTML(toUrl: string): string {
+  // Sanitize URL to prevent XSS - only allow http/https URLs
+  const sanitizedUrl = toUrl.trim();
+  if (!sanitizedUrl.startsWith('http://') && !sanitizedUrl.startsWith('https://')) {
+    throw new Error(`Invalid redirect URL: ${sanitizedUrl}. Only http:// and https:// URLs are allowed.`);
+  }
+  
+  // HTML-encode the URL for safe insertion into HTML
+  const encodedUrl = sanitizedUrl
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+  
   return `<!DOCTYPE html>
 <html lang="en-US">
 <head>
   <meta charset="utf-8">
   <title>Redirecting&hellip;</title>
-  <link rel="canonical" href="${toUrl}">
-  <script>location="${toUrl}"</script>
-  <meta http-equiv="refresh" content="0; url=${toUrl}">
+  <link rel="canonical" href="${encodedUrl}">
+  <script>location="${encodedUrl}"</script>
+  <meta http-equiv="refresh" content="0; url=${encodedUrl}">
   <meta name="robots" content="noindex">
 </head>
 <body>
   <h1>Redirecting&hellip;</h1>
-  <a href="${toUrl}">Click here if you are not redirected.</a>
+  <a href="${encodedUrl}">Click here if you are not redirected.</a>
 </body>
 </html>`;
 }
