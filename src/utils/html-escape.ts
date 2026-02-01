@@ -1,7 +1,7 @@
 /**
  * HTML Escape Utilities
  * 
- * Utilities for HTML escaping and Cloudflare email protection.
+ * Utilities for HTML escaping.
  */
 
 /**
@@ -17,15 +17,4 @@ export function escapeHtml(str: string): string {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
-}
-
-/**
- * Wraps HTML content in Cloudflare email_off comments to prevent
- * Cloudflare's email obfuscation from replacing email addresses.
- * 
- * @param html - The HTML content to wrap
- * @returns The HTML wrapped in email_off comments
- */
-export function wrapEmailOff(html: string): string {
-  return `<!--email_off-->${html}<!--/email_off-->`;
 }
