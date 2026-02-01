@@ -155,7 +155,7 @@ describe('rehypeRelativeUrls', () => {
       const html = String(result);
       
       // Should convert to / (empty string after removing siteConfig.url becomes /)
-      expect(html).toMatch(/href="\/?"/);
+      expect(html).toContain('href="/"');
     });
 
     it('should handle root URL with trailing slash', async () => {
