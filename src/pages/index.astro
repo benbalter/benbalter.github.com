@@ -4,7 +4,6 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { siteConfig } from '../config';
 import { getPostUrl, getDateFromSlug, formatPostDate } from '../utils/post-urls';
 
-const title = 'Posts';
 const description = siteConfig.description;
 
 // Get all published posts (excluding archived), sorted by date (newest first)
@@ -18,7 +17,7 @@ const posts: CollectionEntry<'posts'>[] = allPosts.sort((a: CollectionEntry<'pos
 );
 ---
 
-<BaseLayout title={title} description={description} hero={true}>
+<BaseLayout description={description} hero={true}>
   <ul class="list-unstyled p-0 m-0">
     {posts.map((post) => {
       const postDate = getDateFromSlug(post.slug);
