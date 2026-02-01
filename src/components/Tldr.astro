@@ -23,9 +23,10 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
   <span set:html={marked.parseInline(description)} />
 </div>
 
-<script>
+<script data-astro-rerun>
   // Lightweight custom tooltip implementation (no Bootstrap dependency)
   // Track if global handler has been added (for cleanup in SPAs)
+  // Note: data-astro-rerun ensures this script re-executes after View Transitions
   let globalClickHandlerAdded = false;
   
   // Global click handler for click-outside functionality (defined outside DOMContentLoaded for cleanup)
@@ -143,16 +144,35 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
   
   // Initialize tooltips function (called on page load and after navigation)
   const initializeTooltips = () => {
-    const tooltipElements = document.querySelectorAll('[data-tooltip="true"]:not([data-tooltip-initialized])');
+    // Query ALL tooltip elements, then filter to only initialize ones that need it
+    // We use a WeakSet stored globally to track which actual DOM elements have been initialized
+    // This is more reliable than an attribute because the attribute can persist on replaced elements
+    const allTooltipElements = document.querySelectorAll('[data-tooltip="true"]');
     
     // Initialize global activeTooltips map
     if (!(window as any).__tldrActiveTooltips) {
       (window as any).__tldrActiveTooltips = new Map<HTMLElement, HTMLDivElement>();
     }
     
-    tooltipElements.forEach((element) => {
-      // Mark as initialized
-      element.setAttribute('data-tooltip-initialized', 'true');
+    // Initialize global WeakSet to track initialized elements
+    if (!(window as any).__tldrInitializedElements) {
+      (window as any).__tldrInitializedElements = new WeakSet<HTMLElement>();
+    }
+    const initializedElements = (window as any).__tldrInitializedElements as WeakSet<HTMLElement>;
+    
+    allTooltipElements.forEach((element) => {
+      const htmlElement = element as HTMLElement;
+      
+      // Skip if this exact DOM element has already been initialized
+      if (initializedElements.has(htmlElement)) {
+        return;
+      }
+      
+      // Mark this DOM element as initialized (WeakSet holds reference to actual DOM node)
+      initializedElements.add(htmlElement);
+      
+      // Also set the attribute for debugging purposes
+      htmlElement.setAttribute('data-tooltip-initialized', 'true');
       
       // Only add hover listeners on devices with hover capability
       if (window.matchMedia('(hover: hover)').matches) {
@@ -205,7 +225,7 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
     
     // Add single global click handler for click-outside functionality
     // This prevents memory leaks by using one handler for all tooltips
-    if (tooltipElements.length > 0 && !globalClickHandlerAdded) {
+    if (allTooltipElements.length > 0 && !globalClickHandlerAdded) {
       document.addEventListener('click', handleGlobalClick);
       globalClickHandlerAdded = true;
     }
@@ -215,13 +235,37 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
   document.addEventListener('DOMContentLoaded', initializeTooltips);
   
   // Initialize after Astro View Transitions navigation (SPA-style navigation)
+  // astro:page-load fires on initial load AND after every View Transition navigation
   document.addEventListener('astro:page-load', initializeTooltips);
+  
+  // Also listen for astro:after-swap which fires immediately after DOM swap
+  // This ensures tooltips work even if astro:page-load timing is unreliable
+  document.addEventListener('astro:after-swap', initializeTooltips);
+  
+  // Immediately initialize if DOM is already ready (handles View Transitions edge cases)
+  // This catches cases where the script runs after DOMContentLoaded/astro:page-load events
+  if (document.readyState !== 'loading') {
+    initializeTooltips();
+  }
   
   // Clean up before Astro View Transitions navigation (for SPAs)
   document.addEventListener('astro:before-preparation', () => {
     if (globalClickHandlerAdded) {
       document.removeEventListener('click', handleGlobalClick);
       globalClickHandlerAdded = false;
+    }
+    
+    // Clear the initialized attribute from all tooltip elements so they can be
+    // re-initialized after View Transition navigation brings in new DOM elements
+    // This is necessary because the new DOM may have elements that look "initialized"
+    // but don't have event listeners attached (the old listeners were on old DOM nodes)
+    document.querySelectorAll('[data-tooltip-initialized]').forEach((el) => {
+      el.removeAttribute('data-tooltip-initialized');
+    });
+    
+    // Clear the activeTooltips map since the old DOM elements are about to be replaced
+    if ((window as any).__tldrActiveTooltips) {
+      (window as any).__tldrActiveTooltips.clear();
     }
   });
 </script>
