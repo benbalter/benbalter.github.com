@@ -15,8 +15,12 @@ const expectPathname = (page: Page, expectedPath: string) => {
 const waitForRedirect = async (page: Page, urlPattern: string) => {
   // Remove trailing slash from pattern if present
   const basePattern = urlPattern.replace(/\/$/, '');
+  // Escape special regex characters except * (which we want to replace with .*)
+  const escapedPattern = basePattern
+    .replace(/[.+?^${}()|[\]\\]/g, '\\$&')
+    .replace(/\*/g, '.*');
   // Use regex to match with or without trailing slash
-  await page.waitForURL(new RegExp(`${basePattern.replace(/\*/g, '.*')}/?$`), { timeout: 5000 });
+  await page.waitForURL(new RegExp(`${escapedPattern}/?$`), { timeout: 5000 });
 };
 
 test.describe('Legacy URL Redirects', () => {
@@ -204,8 +208,9 @@ test.describe('Legacy URL Redirects', () => {
 
       
       // Check fallback content for users with JavaScript disabled
-      // Astro's redirect-from plugin uses a different message format than Jekyll
-      expect(content).toContain('Redirecting');
+      // Astro's redirect-from plugin includes a link with descriptive text
+      expect(content).toContain('<a href=/resume/');
+      expect(content).toContain('Redirecting from');
     });
   });
 
