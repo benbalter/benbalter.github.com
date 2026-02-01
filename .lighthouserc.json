@@ -1,7 +1,7 @@
 {
   "ci": {
     "collect": {
-      "staticDistDir": "./out",
+      "staticDistDir": "./dist-astro",
       "url": [
         "http://localhost/index.html",
         "http://localhost/about/index.html",
