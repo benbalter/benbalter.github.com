@@ -1,5 +1,4 @@
 ---
-title: Posts
 layout: index
 permalink: /
 ---
