@@ -23,6 +23,8 @@ abbr[data-bs-original-title] {
     @extend abbr, [title]
 }
 
+// Footnotes styling for Jekyll-generated footnotes
+// Extends Bootstrap utilities for consistent styling and spacing
 .footnotes {
     @extend small;
     @extend .border-top;
@@ -43,6 +45,8 @@ abbr[data-bs-original-title] {
     @extend .mb-1
 }
 
+// Hero header image for homepage
+// Uses background-size: cover to ensure the image fills the entire hero area
 .hero-unit {
     background-image: url($header-path);
     background-size: cover;
@@ -50,6 +54,8 @@ abbr[data-bs-original-title] {
     height: 400px;
 }
 
+// GitHub Gist embedded code styling overrides
+// Ensures light theme styling for embedded Gists regardless of site color mode
 .gist {
     .gist-it-gist .gist-file .gist-data,
     .gist-meta {
@@ -65,15 +71,22 @@ abbr[data-bs-original-title] {
     }
 }
 
+// Minimum height utility for book titles on the recommended reading page
+// Ensures consistent card heights when titles vary in length
 .min-y-5 {
     min-height: 5em;
 }
 
+// Blockquote styling for markdown-generated quotes
+// Uses left border for visual distinction, following traditional web design patterns
+// Applies to all <blockquote> elements automatically generated from markdown (>)
 blockquote {
     border-left: 5px solid $gray-300;
     padding-left: 1em;
 }
 
+// Avatar styling for author images
+// Extends Bootstrap utilities for consistent image display
 .avatar {
     @extend .img-fluid;
     @extend .rounded;
