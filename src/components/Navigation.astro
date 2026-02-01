@@ -44,7 +44,7 @@ const navClasses = hero
       
       navLinks.forEach((link) => {
         const href = link.getAttribute('href');
-        const isActive = currentPath === href || (href === '/' && currentPath === '/');
+        const isActive = currentPath === href;
         
         if (isActive) {
           link.classList.add('active');
