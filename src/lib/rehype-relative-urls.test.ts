@@ -20,7 +20,6 @@ describe('rehypeRelativeUrls', () => {
 
   describe('anchor tags', () => {
     it('should convert absolute internal URL to relative', async () => {
-      const markdown = '[About](/about/)';
       // Create a version with absolute URL
       const markdownAbsolute = '[About](https://ben.balter.com/about/)';
       const result = await processor.process(markdownAbsolute);
