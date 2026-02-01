@@ -161,6 +161,26 @@ jobs:
           path: dist-astro/
           retention-days: 1
 
+  astro-check:
+    needs: changes
+    if: ${{ needs.changes.outputs.astro == 'true' || needs.changes.outputs.content == 'true' || needs.changes.outputs.code == 'true' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Astro check
+        run: npm run astro:check
+
   vitest:
     needs: changes
     if: ${{ needs.changes.outputs.astro == 'true' || needs.changes.outputs.code == 'true' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
