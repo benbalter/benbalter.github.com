@@ -604,6 +604,7 @@ export default defineConfig({
 ```
 
 **Benefits:**
+
 - Community-maintained plugin (90% less custom code)
 - Automatic redirect generation at build time
 - Leverages Astro's native redirect system
