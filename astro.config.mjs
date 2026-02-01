@@ -56,6 +56,9 @@ const rehypeAutolinkHeadingsConfig = [rehypeAutolinkHeadings, {
 /**
  * Custom slug function for redirect-from plugin
  * Reads permalink from frontmatter if available, otherwise constructs from file path
+ * 
+ * Note: Uses synchronous file I/O as this function is called during build configuration,
+ * once per markdown file. The plugin interface does not support async getSlug functions.
  */
 function getSlug(filePath) {
   try {
@@ -84,8 +87,11 @@ function getSlug(filePath) {
     }
     return `${parsedPath.dir}/${parsedPath.name}`.replace(/^\//, '');
   } catch (error) {
-    console.warn(`Could not read file ${filePath}:`, error.message);
     // Fallback to default slug generation
+    // This is acceptable as redirects will still work, just with file-path-based URLs
+    console.error(`[redirect-from] WARNING: Could not read frontmatter from ${filePath}: ${error.message}`);
+    console.error('[redirect-from] Using fallback slug generation from file path');
+    
     const parsedPath = path.parse(filePath);
     if (parsedPath.base === 'index.md' || parsedPath.base === 'index.mdx') {
       return parsedPath.dir;
