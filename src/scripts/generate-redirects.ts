@@ -59,10 +59,34 @@ function generateRedirectHTML(toUrl: string, isExternal: boolean): string {
 }
 
 /**
+ * Sanitize URL path to remove characters that are invalid for file systems
+ * GitHub Actions artifact upload doesn't allow these characters in file paths:
+ * Double quote ", Colon :, Less than <, Greater than >, Vertical bar |, 
+ * Asterisk *, Question mark ?, Carriage return \r, Line feed \n
+ */
+function sanitizeUrlPath(urlPath: string): string {
+  try {
+    // URL decode first to handle %3C -> < conversions and other encoded characters
+    urlPath = decodeURIComponent(urlPath);
+  } catch (error) {
+    // If decoding fails (malformed URI), continue with original string
+  }
+  
+  // Replace invalid characters with hyphens in a single pass
+  // Remove whitespace characters completely
+  return urlPath
+    .replace(/[<>":|\*?]/g, '-')
+    .replace(/[\r\n]/g, '');
+}
+
+/**
  * Normalize URL path to ensure it starts with / and ends with /
  */
 function normalizeUrlPath(urlPath: string): string {
   let normalized = urlPath;
+  
+  // First sanitize the path to remove invalid characters
+  normalized = sanitizeUrlPath(normalized);
   
   // Add leading slash if missing
   if (!normalized.startsWith('/')) {
