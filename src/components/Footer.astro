@@ -10,9 +10,9 @@
 import { footerLinks, contactLinks } from '../config';
 ---
 
-<footer class="mt-5 pt-4 border-top border-2" transition:persist>
+<footer class="mt-5 pt-4" transition:persist>
   <nav aria-label="Footer navigation" class="footer-nav">
-    <div class="d-flex justify-content-between px-2 py-3 mb-4 flex-wrap">
+    <div class="d-flex justify-content-between px-2 py-3 mb-4 flex-wrap border-top">
       <ul class="nav contact-links">
         {contactLinks.map((link) => (
           <li class="nav-item">
@@ -29,7 +29,7 @@ import { footerLinks, contactLinks } from '../config';
         ))}
       </ul>
       
-      <ul class="nav footer-links">
+      <ul class="nav footer-links ms-auto">
         {footerLinks.map((link) => (
           <li class="nav-item">
             <a href={link.url} class="nav-link link-secondary">
