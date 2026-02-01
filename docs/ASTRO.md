@@ -79,8 +79,9 @@ The configuration is optimized for GitHub Pages deployment:
 - **Optimized assets**: Automatic image optimization and bundling
 - **Fast builds**: Vite-powered build system
 - **View Transitions**: Smooth page navigation using [Astro View Transitions](https://docs.astro.build/en/guides/view-transitions/)
-  - **Native browser support**: Uses CSS `@view-transition` for zero-JS transitions (Chrome/Edge 126+)
-  - **Aggressive prefetching**: Links in viewport are automatically prefetched for instant navigation
+  - **JavaScript-based routing**: Astro's ClientRouter intercepts link clicks for smooth transitions
+  - **CSS View Transitions API styling**: Uses modern browser APIs for animation effects (Chrome/Edge 126+)
+  - **Hover-based prefetching**: Links are prefetched on hover to balance speed with bandwidth
   - **Persistent elements**: Navigation and footer persist across page changes without re-rendering
   - **Semantic animations**: Smooth transitions for main content while keeping UI elements stable
   - **Accessibility**: Respects `prefers-reduced-motion` preference
@@ -100,54 +101,58 @@ The configuration is optimized for GitHub Pages deployment:
 
 ### View Transitions Optimization
 
-The site uses [Astro View Transitions](https://docs.astro.build/en/guides/view-transitions/) with 2026 best practices for optimal performance and user experience.
+The site uses [Astro View Transitions](https://docs.astro.build/en/guides/view-transitions/) as an experimental approach to enhance page navigation with smooth animations.
 
 **Implementation:**
 
-1. **Native Browser Transitions (Zero-JS)**
+1. **View Transition Styling for Astro's Router**
    ```css
    /* src/styles/optimized.scss */
    @view-transition {
        navigation: auto;
    }
    ```
-   - Uses native CSS View Transitions API (Chrome/Edge 126+)
-   - Zero JavaScript overhead for modern browsers
-   - Graceful fallback to Astro's router for older browsers
+   - Styles Astro's JavaScript-driven View Transitions using the native CSS View Transitions API (Chrome/Edge 126+)
+   - Astro's ClientRouter (JavaScript) handles link interception and page transitions
+   - Graceful fallback to non-animated navigation when View Transitions are not supported
 
 2. **Semantic Animations**
    ```css
    .content {
        view-transition-name: main-content;
    }
-   .hero-unit {
-       view-transition-name: hero;
-   }
    ```
    - Main content smoothly transitions between pages
-   - Hero unit gets its own animation treatment
+   - Hero unit view-transition-name removed to avoid conflicts (only exists on homepage)
 
-3. **Persistent Elements**
+3. **Persistent Elements with Active State Updates**
    ```astro
-   // Navigation and Footer use transition:persist
-   <nav transition:persist>...</nav>
+   // Navigation uses transition:persist with client-side active state management
+   <nav transition:persist="nav">
+     <script>
+       // Update active nav link state on page transitions
+       document.addEventListener('astro:page-load', () => {
+         // Update active class based on current URL
+       });
+     </script>
+   </nav>
    <footer transition:persist>...</footer>
    ```
    - Navigation and footer don't re-render on page changes
-   - Improves perceived performance
-   - Prevents layout shift
+   - JavaScript updates active link highlighting after navigation
+   - Improves perceived performance and prevents layout shift
 
-4. **Aggressive Prefetching**
+4. **Hover-Based Prefetching**
    ```js
    // astro.config.mjs
    prefetch: {
-     prefetchAll: true,
-     defaultStrategy: 'viewport',
+     prefetchAll: false,
+     defaultStrategy: 'hover',
    }
    ```
-   - Links visible in viewport are automatically prefetched
-   - Navigation feels instant for most pages
-   - Smart strategy minimizes unnecessary requests
+   - Links are prefetched when users hover over them (indicating intent)
+   - Balances navigation speed with bandwidth usage
+   - Better for users on slower connections or mobile data
 
 5. **Accessibility Support**
    ```css
@@ -168,20 +173,19 @@ The site uses [Astro View Transitions](https://docs.astro.build/en/guides/view-t
 
 **Benefits:**
 
-- **Zero JavaScript for transitions**: Native browser API handles animations
-- **Instant navigation**: Aggressive prefetching makes navigation feel instant
 - **Smooth UX**: No white flashes or jarring page reloads
+- **Intent-based prefetching**: Hover strategy balances speed with bandwidth usage
 - **Better performance**: Persistent elements don't re-render
 - **Accessible**: Respects `prefers-reduced-motion` preference
 - **Progressive enhancement**: Works in all browsers with appropriate fallbacks
 
 **How it works:**
 
-- View Transitions automatically intercept link clicks
+- Astro's ClientRouter (JavaScript) intercepts link clicks
 - Instead of full page reloads, Astro fetches new pages and smoothly transitions
-- Native browser View Transition API is used when available
+- CSS View Transition API provides animation styling when supported
 - Browser history, scroll position, and page titles are managed automatically
-- Links in viewport are prefetched for instant navigation
+- Links are prefetched on hover for faster navigation
 
 **Implementation in BaseLayout:**
 

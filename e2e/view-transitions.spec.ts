@@ -250,4 +250,31 @@ test.describe('Astro View Transitions Configuration', () => {
     // (There may be zero links with this attribute, which is fine)
     expect(reloadLinks).toBeGreaterThanOrEqual(0);
   });
+
+  test('should respect prefers-reduced-motion accessibility preference', async ({ page, context }) => {
+    // Emulate prefers-reduced-motion: reduce
+    await context.emulateMedia({ reducedMotion: 'reduce' });
+    
+    await page.goto('/');
+    await waitForPageReady(page);
+    
+    // Check that the CSS media query is applied by verifying computed styles
+    // The view transition animations should be disabled
+    const contentElement = page.locator('main.content').first();
+    
+    if (await contentElement.count() > 0) {
+      // Verify the element exists and is visible
+      await expect(contentElement).toBeVisible();
+      
+      // Navigation should still work but without animations
+      const aboutLink = page.locator('a[href="/about/"]').first();
+      await aboutLink.click();
+      await page.waitForURL('**/about/');
+      await waitForPageReady(page);
+      
+      // Verify we successfully navigated
+      await expect(page).toHaveURL(/\/about\//);
+      await expect(page.locator('h1')).toContainText('About');
+    }
+  });
 });

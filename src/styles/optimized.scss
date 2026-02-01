@@ -950,9 +950,9 @@ article > p:first-of-type,
     }
 }
 
-// Astro View Transitions Optimization
-// Enable native browser view transitions (zero-JavaScript approach)
-// Supported in Chrome/Edge 126+, with graceful fallback for other browsers
+// Astro View Transitions Styling
+// Configure styling for Astro's JavaScript-based View Transitions router
+// Uses the native CSS View Transitions API for animation styling
 @view-transition {
     navigation: auto;
 }
@@ -969,10 +969,9 @@ article > p:first-of-type,
     view-transition-name: main-content;
 }
 
-// Hero unit gets its own transition name (only on some pages)
-.hero-unit {
-    view-transition-name: hero;
-}
+// Note: Hero unit view-transition-name removed because it only exists on homepage
+// and causes transition conflicts when navigating to/from pages without a hero.
+// If needed in the future, apply conditionally only during same-layout transitions.
 
 // Note: Navigation and Footer use transition:persist directive in their components
 // so they don't need view-transition-name declarations here (would cause duplicates)

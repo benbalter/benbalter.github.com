@@ -35,7 +35,27 @@ const navClasses = hero
   : "navbar navbar-expand-md bg-secondary-subtle text-secondary border-start border-end border-bottom border-top rounded-top rounded-bottom mb-3";
 ---
 
-<nav class={navClasses + ' shadow-sm'} aria-label="Main navigation" transition:persist>
+<nav class={navClasses + ' shadow-sm'} aria-label="Main navigation" transition:persist="nav">
+  <script>
+    // Update active nav link state on page transitions
+    document.addEventListener('astro:page-load', () => {
+      const currentPath = window.location.pathname;
+      const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+      
+      navLinks.forEach((link) => {
+        const href = link.getAttribute('href');
+        const isActive = currentPath === href || (href === '/' && currentPath === '/');
+        
+        if (isActive) {
+          link.classList.add('active');
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.classList.remove('active');
+          link.removeAttribute('aria-current');
+        }
+      });
+    });
+  </script>
   <div class="container-fluid">
     <a class="navbar-brand fw-bold" href="/">{siteConfig.name}</a>
     <button 

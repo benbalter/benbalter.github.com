@@ -67,10 +67,10 @@ export default defineConfig({
   trailingSlash: 'always',
   
   // Prefetch configuration for faster navigation
-  // Aggressively prefetch links for instant transitions
+  // Use hover strategy to balance speed with bandwidth usage
   prefetch: {
-    prefetchAll: true,
-    defaultStrategy: 'viewport',
+    prefetchAll: false,
+    defaultStrategy: 'hover',
   },
   
   // Build configuration
