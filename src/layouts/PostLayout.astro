@@ -4,6 +4,7 @@
  * 
  * Layout for rendering blog posts with proper metadata, structure, and styling.
  * Matches the Jekyll post layout with enhanced features.
+ * Uses Bootstrap utility classes for maintainability.
  */
 
 import BaseLayout from './BaseLayout.astro';
@@ -70,16 +71,16 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   author={author}
 >
   <div class="row">
-    <div class="col-md-10 offset-md-1">
-      <article class="blog-post post">
-        <header class="post-header">
-          <h1 class="display-4 text-primary">{title}</h1>
+    <div class="col-md-10 offset-md-1 px-3">
+      <article>
+        <header class="mb-4">
+          <h1 class="display-4 text-primary fw-bold">{title}</h1>
           
           {description && (
             <Tldr description={description} />
           )}
           
-          <div class="post-meta text-muted mb-4">
+          <div class="text-body-secondary small mb-4">
             {readingTime > 0 && (
               <div>
                 <i class="far fa-clock"></i> {readingTime} min read
@@ -90,45 +91,45 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         
         {archived && <ArchivedPostWarning />}
         
-        <div class="post-content entrybody">
+        <div class="post-content entrybody fs-5 lh-lg">
           <slot />
         </div>
         
         {pubDate && (
-          <div class="mb-2 text-muted small">
+          <div class="mb-2 text-body-secondary small">
             Originally published {formattedDate} | <a class="link-secondary" href={`${siteConfig.githubRepoUrl}/commits/main/_posts/${postSlug}.md`} target="_blank" rel="noopener noreferrer" aria-label="View revision history">View revision history</a>
           </div>
         )}
         
         {tags.length > 0 && (
-          <div class="post-tags mt-4 mb-3">
+          <div class="mt-4 mb-3">
             <strong>Tags:</strong>
             {tags.map((tag) => (
-              <span class="badge bg-secondary me-2">{tag}</span>
+              <span class="badge bg-secondary ms-2">{tag}</span>
             ))}
           </div>
         )}
         
         {relatedPosts.length > 0 && (
-          <div class="related-posts mt-3">
-            <h3 class="related-posts-heading">If you enjoyed this post, you might also enjoy:</h3>
-            <ul class="related-posts-list">
+          <div class="mt-3">
+            <h3 class="fs-6 fw-semibold text-body-emphasis border-top pt-3 mb-2">If you enjoyed this post, you might also enjoy:</h3>
+            <ul class="ps-4 mb-0">
               {relatedPosts.map((post) => (
-                <li>
-                  <a href={getPostUrl(post.slug)}>{post.data.title}</a>
+                <li class="mb-1">
+                  <a href={getPostUrl(post.slug)} class="text-decoration-none">{post.data.title}</a>
                 </li>
               ))}
             </ul>
           </div>
         )}
         
-        <footer class="post-footer border-top pt-3 mt-4 mb-5">
+        <footer class="border-top pt-3 mt-4 mb-5">
           <div class="row">
             <div class="col">
               <MiniBio />
             </div>
             <div class="col-lg-2 text-center">
-              <p>
+              <p class="mb-2">
                 <small>This page is open source. Please <a 
                   href={`${siteConfig.githubRepoUrl}/edit/main/src/content/posts/${postSlug}.md`}
                   target="_blank"
@@ -165,234 +166,6 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   @import 'bootstrap/scss/badge';
   @import 'bootstrap/scss/buttons';
   
-  /* Custom styles for blog post layout */
-  /* Note: Bootstrap grid (.row, .col-*) and utility classes are imported globally */
-  
-  .blog-post {
-    padding: 0 15px;
-  }
-  
-  .post-header {
-    margin-bottom: 2rem;
-  }
-  
-  .post-tldr {
-    color: var(--bs-secondary-color);
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
-  }
-
-  .post-tldr .initialism {
-    text-decoration: none;
-    border-bottom: 1px dotted var(--bs-secondary-color);
-    cursor: help;
-  }
-  
-  .post-meta {
-    font-size: 0.9rem;
-    color: var(--bs-secondary-color);
-  }
-  
-  .post-meta svg {
-    width: 1em;
-    height: 1em;
-    vertical-align: -0.125em;
-  }
-  
-  .post-content {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--bs-body-color);
-  }
-  
-  .post-content :global(h2) {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-top: 2.5rem;
-    margin-bottom: 0.5rem; // Tighter coupling with content below
-    color: var(--bs-emphasis-color);
-  }
-  
-  .post-content :global(h3) {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-top: 2rem;
-    margin-bottom: 0.5rem; // Tighter coupling with content below
-    color: var(--bs-emphasis-color);
-  }
-  
-  .post-content :global(p) {
-    margin-bottom: 1.5rem;
-  }
-  
-  .post-content :global(ul),
-  .post-content :global(ol) {
-    margin-top: 0;
-    margin-bottom: 1.5rem;
-    padding-left: 2rem;
-  }
-  
-  .post-content :global(li) {
-    margin-bottom: 0.5rem;
-  }
-
-  .post-content :global(li > ul),
-  .post-content :global(li > ol) {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  // Headings after lists need extra spacing for clear section breaks
-  .post-content :global(ul + h2),
-  .post-content :global(ul + h3),
-  .post-content :global(ul + h4),
-  .post-content :global(ol + h2),
-  .post-content :global(ol + h3),
-  .post-content :global(ol + h4) {
-    margin-top: 2.5em;
-  }
-  
-  .post-content :global(pre) {
-    margin: 1.5rem 0;
-    padding: 1rem;
-    background-color: var(--bs-tertiary-bg);
-    border-radius: 6px;
-    overflow-x: auto;
-  }
-  
-  .post-content :global(code) {
-    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-    font-size: 0.9em;
-  }
-  
-  .post-content :global(p code) {
-    background-color: var(--bs-tertiary-bg);
-    padding: 0.2em 0.4em;
-    border-radius: 3px;
-  }
-  
-  .post-content :global(blockquote) {
-    border-left: 4px solid var(--bs-link-color);
-    padding-left: 1rem;
-    margin: 1.5rem 0;
-    color: var(--bs-secondary-color);
-    font-style: italic;
-  }
-  
-  .post-content :global(a) {
-    color: var(--bs-link-color);
-    text-decoration: none;
-  }
-  
-  .post-content :global(a:hover) {
-    text-decoration: underline;
-  }
-  
-  .post-content :global(table) {
-    width: 100%;
-    margin: 1.5rem 0;
-    border-collapse: collapse;
-  }
-  
-  .post-content :global(th),
-  .post-content :global(td) {
-    padding: 0.75rem;
-    border: 1px solid var(--bs-border-color);
-  }
-  
-  .post-content :global(th) {
-    background-color: var(--bs-tertiary-bg);
-    font-weight: 600;
-  }
-  
-  .post-content :global(tr:nth-child(even)) {
-    background-color: var(--bs-tertiary-bg);
-  }
-
-  .post-tags {
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .related-posts {
-    /* Spacing handled by mt-3 utility class (1rem margin-top) */
-  }
-  
-  .related-posts-heading {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--bs-emphasis-color);
-    margin-bottom: 0.75rem;
-    border-top: 1px solid var(--bs-border-color);
-    padding-top: 1rem;
-  }
-  
-  .related-posts-list {
-    list-style: disc;
-    padding-left: 2rem;
-    margin: 0;
-  }
-  
-  .related-posts-list li {
-    margin-bottom: 0.25rem;
-  }
-  
-  .related-posts-list a {
-    color: var(--bs-link-color);
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 400;
-  }
-  
-  .related-posts-list a:hover {
-    text-decoration: underline;
-  }
-  
-  .post-footer {
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--bs-border-color);
-  }
-
-  .post-footer .col {
-    flex: 1 0 0%;
-    padding: 0 15px;
-  }
-
-  .post-footer .col-lg-2 {
-    flex: 0 0 auto;
-    width: 16.666667%;
-    padding: 0 15px;
-  }
-
-  @media (max-width: 992px) {
-    .post-footer .col-lg-2 {
-      width: 100%;
-      margin-top: 1rem;
-    }
-    
-    .post-footer {
-      margin-bottom: 2rem;
-    }
-  }
-  
-  .back-link,
-  .edit-link {
-    color: var(--bs-link-color);
-    text-decoration: none;
-    font-weight: 500;
-  }
-  
-  .back-link:hover,
-  .edit-link:hover {
-    text-decoration: underline;
-  }
-
-  .post-footer small {
-    font-size: 0.875em;
-  }
-
-  .post-footer p {
-    margin-bottom: 0.5rem;
-  }
+  /* Minimal custom styles - Bootstrap utilities handle layout and spacing */
+  /* Typography handled by global optimized.scss */
 </style>
