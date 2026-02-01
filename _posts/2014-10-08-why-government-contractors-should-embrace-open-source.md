@@ -3,7 +3,6 @@ title: Eight reasons why government contractors should embrace open source softw
 description: Government contractors have traditionally been slow to embrace open source software. Here's why government contractors are embracing open source with increasing frequency.
 redirect_from:
   - "/2014/10/08/why-government-contractors-should-%3C3-open-source/"
-  - "/2014/10/08/why-government-contractors-should-<3-open-source/"
   - "/2014/10/08/why-government-contractors-should-3-open-source/"
 ---
 
