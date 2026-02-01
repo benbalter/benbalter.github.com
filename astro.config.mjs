@@ -12,6 +12,7 @@ import rehypeExternalLinks from 'rehype-external-links';
 import rehypeUnwrapImages from 'rehype-unwrap-images';
 import { remarkGitHubMentions } from './src/lib/remark-github-mentions.ts';
 import { getSlug } from './src/utils/get-slug.ts';
+import { rehypeRelativeUrls } from './src/lib/rehype-relative-urls.ts';
 
 // URL patterns for sitemap priority calculation
 const BLOG_POST_PATTERN = /\/\d{4}\/\d{2}\/\d{2}\//;
@@ -159,6 +160,7 @@ export default defineConfig({
         rehypeSlug,
         rehypeAutolinkHeadingsConfig,
         rehypeUnwrapImages,
+        rehypeRelativeUrls,
         rehypeExternalLinksConfig,
       ],
     }),
@@ -236,6 +238,7 @@ export default defineConfig({
       rehypeSlug,
       rehypeAutolinkHeadingsConfig,
       rehypeUnwrapImages,
+      rehypeRelativeUrls,
       rehypeExternalLinksConfig,
     ],
   },

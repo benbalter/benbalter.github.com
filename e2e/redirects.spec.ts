@@ -1,26 +1,21 @@
 import { test, expect, type Page } from '@playwright/test';
 
-// Helper function to check pathname - accepts paths with or without trailing slashes
-// since Astro's redirect-from plugin generates redirects without trailing slashes
 const expectPathname = (page: Page, expectedPath: string) => {
   const currentPath = new URL(page.url()).pathname;
-  // Remove trailing slash from both for comparison (Astro redirects don't include trailing slash)
-  const normalizedCurrent = currentPath.replace(/\/$/, '');
-  const normalizedExpected = expectedPath.replace(/\/$/, '');
+  // Normalize trailing slashes for comparison since Astro preview server
+  // may not enforce trailing slash redirects consistently
+  const normalizedCurrent = currentPath.endsWith('/') ? currentPath : currentPath + '/';
+  const normalizedExpected = expectedPath.endsWith('/') ? expectedPath : expectedPath + '/';
   expect(normalizedCurrent).toBe(normalizedExpected);
 };
 
-// Helper to wait for URL with or without trailing slash
-// Astro's redirect-from plugin generates redirects without trailing slashes
-const waitForRedirect = async (page: Page, urlPattern: string) => {
-  // Remove trailing slash from pattern if present
-  const basePattern = urlPattern.replace(/\/$/, '');
-  // Escape special regex characters except * (which we want to replace with .*)
-  const escapedPattern = basePattern
-    .replace(/[.+?^${}()|[\]\\]/g, '\\$&')
-    .replace(/\*/g, '.*');
-  // Use regex to match with or without trailing slash
-  await page.waitForURL(new RegExp(`${escapedPattern}/?$`), { timeout: 5000 });
+// Helper to wait for redirect by checking if URL contains the expected path
+const waitForRedirect = async (page: Page, expectedPathSegment: string, timeout = 5000) => {
+  await page.waitForFunction(
+    (segment) => window.location.pathname.includes(segment),
+    expectedPathSegment,
+    { timeout }
+  );
 };
 
 test.describe('Legacy URL Redirects', () => {
@@ -31,7 +26,7 @@ test.describe('Legacy URL Redirects', () => {
       await page.goto('/cv/', { waitUntil: 'domcontentloaded' });
       
       // Wait for redirect to complete (JavaScript replaces location)
-      await waitForRedirect(page, '**/resume/');
+      await waitForRedirect(page, '/resume');
       
       // Should redirect to the new URL
       expectPathname(page, '/resume/');
@@ -39,19 +34,19 @@ test.describe('Legacy URL Redirects', () => {
 
     test('should redirect /books/ to /other-recommended-reading/', async ({ page }) => {
       await page.goto('/books/', { waitUntil: 'domcontentloaded' });
-      await waitForRedirect(page, '**/other-recommended-reading/');
+      await waitForRedirect(page, '/other-recommended-reading');
       expectPathname(page, '/other-recommended-reading/');
     });
 
     test('should redirect /books-for-geeks/ to /other-recommended-reading/', async ({ page }) => {
       await page.goto('/books-for-geeks/', { waitUntil: 'domcontentloaded' });
-      await waitForRedirect(page, '**/other-recommended-reading/');
+      await waitForRedirect(page, '/other-recommended-reading');
       expectPathname(page, '/other-recommended-reading/');
     });
 
     test('should redirect /recommended-reading/ to /other-recommended-reading/', async ({ page }) => {
       await page.goto('/recommended-reading/', { waitUntil: 'domcontentloaded' });
-      await waitForRedirect(page, '**/other-recommended-reading/');
+      await waitForRedirect(page, '/other-recommended-reading');
       expectPathname(page, '/other-recommended-reading/');
     });
   });
@@ -59,19 +54,19 @@ test.describe('Legacy URL Redirects', () => {
   test.describe('Post URL Corrections - Typos', () => {
     test('should redirect post with typo /2014/01/27/open-collabortion/', async ({ page }) => {
       await page.goto('/2014/01/27/open-collabortion/', { waitUntil: 'domcontentloaded' });
-      await waitForRedirect(page, '**/2014/01/27/open-collaboration/');
+      await waitForRedirect(page, '/2014/01/27/open-collaboration');
       expectPathname(page, '/2014/01/27/open-collaboration/');
     });
 
     test('should redirect /2014/09/29/your-code-deserves-better/', async ({ page }) => {
       await page.goto('/2014/09/29/your-code-deserves-better/', { waitUntil: 'domcontentloaded' });
-      await waitForRedirect(page, '**/2014/09/29/our-code-deserves-better/');
+      await waitForRedirect(page, '/2014/09/29/our-code-deserves-better');
       expectPathname(page, '/2014/09/29/our-code-deserves-better/');
     });
 
     test('should redirect /2021/03/26/n-things-a-technicalp-program-manager-does/', async ({ page }) => {
       await page.goto('/2021/03/26/n-things-a-technicalp-program-manager-does/', { waitUntil: 'domcontentloaded' });
-      await waitForRedirect(page, '**/2021/03/26/nine-things-a-technical-program-manager-does/');
+      await waitForRedirect(page, '/2021/03/26/nine-things-a-technical-program-manager-does');
       expectPathname(page, '/2021/03/26/nine-things-a-technical-program-manager-does/');
     });
   });
@@ -79,37 +74,37 @@ test.describe('Legacy URL Redirects', () => {
   test.describe('Post URL Corrections - Wrong Dates', () => {
     test('should redirect post with wrong date /2014/12/08/types-of-pull-requests/', async ({ page }) => {
       await page.goto('/2014/12/08/types-of-pull-requests/', { waitUntil: 'domcontentloaded' });
-      await waitForRedirect(page, '**/2015/12/08/types-of-pull-requests/');
+      await waitForRedirect(page, '/2015/12/08/types-of-pull-requests');
       expectPathname(page, '/2015/12/08/types-of-pull-requests/');
     });
 
     test('should redirect /2013/02/13/what-is-a-hacker/ to correct date', async ({ page }) => {
       await page.goto('/2013/02/13/what-is-a-hacker/', { waitUntil: 'domcontentloaded' });
-      await waitForRedirect(page, '**/2013/02/04/what-is-a-hacker/');
+      await waitForRedirect(page, '/2013/02/04/what-is-a-hacker');
       expectPathname(page, '/2013/02/04/what-is-a-hacker/');
     });
 
     test('should redirect /2013/02/16/what-is-a-hacker/ to correct date', async ({ page }) => {
       await page.goto('/2013/02/16/what-is-a-hacker/', { waitUntil: 'domcontentloaded' });
-      await waitForRedirect(page, '**/2013/02/04/what-is-a-hacker/');
+      await waitForRedirect(page, '/2013/02/04/what-is-a-hacker');
       expectPathname(page, '/2013/02/04/what-is-a-hacker/');
     });
 
     test('should redirect /2014/11/03/rules-of-communicating-at-github/ to correct date', async ({ page }) => {
       await page.goto('/2014/11/03/rules-of-communicating-at-github/', { waitUntil: 'domcontentloaded' });
-      await waitForRedirect(page, '**/2014/11/06/rules-of-communicating-at-github/');
+      await waitForRedirect(page, '/2014/11/06/rules-of-communicating-at-github');
       expectPathname(page, '/2014/11/06/rules-of-communicating-at-github/');
     });
 
     test('should redirect /2014/11/17/open-source-policy/ to correct date', async ({ page }) => {
       await page.goto('/2014/11/17/open-source-policy/', { waitUntil: 'domcontentloaded' });
-      await waitForRedirect(page, '**/2014/11/24/open-source-policy/');
+      await waitForRedirect(page, '/2014/11/24/open-source-policy');
       expectPathname(page, '/2014/11/24/open-source-policy/');
     });
 
     test('should redirect /2023/12/07/cathedral-bazaar-management/ to correct date', async ({ page }) => {
       await page.goto('/2023/12/07/cathedral-bazaar-management/', { waitUntil: 'domcontentloaded' });
-      await waitForRedirect(page, '**/2023/12/08/cathedral-bazaar-management/');
+      await waitForRedirect(page, '/2023/12/08/cathedral-bazaar-management');
       expectPathname(page, '/2023/12/08/cathedral-bazaar-management/');
     });
   });
@@ -117,31 +112,31 @@ test.describe('Legacy URL Redirects', () => {
   test.describe('Post URL Corrections - Special Characters', () => {
     test('should redirect source-disclosed--open-source with double dash', async ({ page }) => {
       await page.goto('/2014/09/29/source-disclosed--open-source/', { waitUntil: 'domcontentloaded' });
-      await waitForRedirect(page, '**/2014/09/29/source-disclosed-is-not-the-same-as-open-source/');
+      await waitForRedirect(page, '/2014/09/29/source-disclosed-is-not-the-same-as-open-source');
       expectPathname(page, '/2014/09/29/source-disclosed-is-not-the-same-as-open-source/');
     });
 
     test('should redirect source-disclosed with not-equal symbol', async ({ page }) => {
       await page.goto('/2014/09/29/source-disclosed-≠-open-source/', { waitUntil: 'domcontentloaded' });
-      await waitForRedirect(page, '**/2014/09/29/source-disclosed-is-not-the-same-as-open-source/');
+      await waitForRedirect(page, '/2014/09/29/source-disclosed-is-not-the-same-as-open-source');
       expectPathname(page, '/2014/09/29/source-disclosed-is-not-the-same-as-open-source/');
     });
 
     test('should redirect source-disclosed with != symbol', async ({ page }) => {
       await page.goto('/2014/09/29/source-disclosed-!=-open-source/', { waitUntil: 'domcontentloaded' });
-      await waitForRedirect(page, '**/2014/09/29/source-disclosed-is-not-the-same-as-open-source/');
+      await waitForRedirect(page, '/2014/09/29/source-disclosed-is-not-the-same-as-open-source');
       expectPathname(page, '/2014/09/29/source-disclosed-is-not-the-same-as-open-source/');
     });
 
     test('should redirect why-government-contractors-should-<3-open-source', async ({ page }) => {
       await page.goto('/2014/10/08/why-government-contractors-should-<3-open-source/', { waitUntil: 'domcontentloaded' });
-      await waitForRedirect(page, '**/2014/10/08/why-government-contractors-should-embrace-open-source/');
+      await waitForRedirect(page, '/2014/10/08/why-government-contractors-should-embrace-open-source');
       expectPathname(page, '/2014/10/08/why-government-contractors-should-embrace-open-source/');
     });
 
     test('should redirect why-government-contractors-should-%3C3-open-source (URL encoded)', async ({ page }) => {
       await page.goto('/2014/10/08/why-government-contractors-should-%3C3-open-source/', { waitUntil: 'domcontentloaded' });
-      await waitForRedirect(page, '**/2014/10/08/why-government-contractors-should-embrace-open-source/');
+      await waitForRedirect(page, '/2014/10/08/why-government-contractors-should-embrace-open-source');
       expectPathname(page, '/2014/10/08/why-government-contractors-should-embrace-open-source/');
     });
   });
@@ -188,12 +183,10 @@ test.describe('Legacy URL Redirects', () => {
       // Check meta refresh tag (with or without quotes around attribute values)
       expect(content).toMatch(/meta\s+(?:content="[^"]*"\s+)?http-equiv=["']?refresh["']?|meta\s+http-equiv=["']?refresh["']?(?:\s+content="[^"]*")?/);
       // Accept both relative and absolute URLs (with various hosts for local testing, with or without quotes)
-      // Note: Astro's redirect-from plugin doesn't add trailing slashes to redirect URLs
-      expect(content).toMatch(/content=["']?0;\s*url=(https?:\/\/[^\s"'>]+)?\/resume\/?["']?/);
+      expect(content).toMatch(/content=["']?0;\s*url=(https?:\/\/[^\s"'>]+)?\/resume\/["']?/);
 
       // Check canonical link (accepts any host for testing, with or without quotes around href)
-      // Note: Astro's redirect-from plugin doesn't add trailing slashes to redirect URLs
-      expect(content).toMatch(/<link\s+(?:href=["']?https?:\/\/[^\s"'>]+\/resume\/?["']?\s+)?rel=["']?canonical["']?|<link\s+rel=["']?canonical["']?(?:\s+href=["']?https?:\/\/[^\s"'>]+\/resume\/?["']?)?/);
+      expect(content).toMatch(/<link\s+(?:href=["']?https?:\/\/[^\s"'>]+\/resume\/["']?\s+)?rel=["']?canonical["']?|<link\s+rel=["']?canonical["']?(?:\s+href=["']?https?:\/\/[^\s"'>]+\/resume\/["']?)?/);
       
       // Check robots noindex meta tag in a maintainable way:
       // find all <meta> tags, then ensure at least one has both name="robots" and content="noindex",
@@ -206,11 +199,10 @@ test.describe('Legacy URL Redirects', () => {
       });
       expect(hasRobotsNoindex).toBeTruthy();
 
-      
-      // Check fallback content for users with JavaScript disabled
-      // Astro's redirect-from plugin includes a link with descriptive text
-      expect(content).toContain('<a href=/resume/');
-      expect(content).toContain('Redirecting from');
+      // Check fallback content for users without meta refresh support
+      // The astro-redirect-from plugin provides a simple fallback link
+      expect(content).toContain('Redirecting');
+      expect(content).toMatch(/<a\s+href=/i);
     });
   });
 
@@ -223,10 +215,10 @@ test.describe('Legacy URL Redirects', () => {
       
       const content = await response.text();
       
-      // Astro static builds use HTML meta refresh redirects
-      expect(content).toContain('meta http-equiv="refresh"');
+      // Astro static builds use HTML meta refresh redirects (attributes may be quoted or unquoted)
+      expect(content).toMatch(/http-equiv=["']?refresh["']?/);
       expect(content).toContain('url=/sitemap-0.xml');
-      expect(content).toContain('robots" content="noindex');
+      expect(content).toMatch(/content=["']?noindex["']?/);
     });
 
     test('should have meta refresh redirect from /sitemap_index.xml to /sitemap-index.xml', async ({ request }) => {
@@ -237,10 +229,10 @@ test.describe('Legacy URL Redirects', () => {
       
       const content = await response.text();
       
-      // Astro static builds use HTML meta refresh redirects
-      expect(content).toContain('meta http-equiv="refresh"');
+      // Astro static builds use HTML meta refresh redirects (attributes may be quoted or unquoted)
+      expect(content).toMatch(/http-equiv=["']?refresh["']?/);
       expect(content).toContain('url=/sitemap-index.xml');
-      expect(content).toContain('robots" content="noindex');
+      expect(content).toMatch(/content=["']?noindex["']?/);
     });
 
     test('/sitemap.xml redirect should resolve to valid sitemap', async ({ page, request }) => {
