@@ -87,6 +87,13 @@ export default defineConfig({
     '/recommended-reading/': '/other-recommended-reading/',
   },
   
+  // Prefetch configuration for faster navigation
+  // Use hover strategy to balance speed with bandwidth usage
+  prefetch: {
+    prefetchAll: false,
+    defaultStrategy: 'hover',
+  },
+  
   // Build configuration
   build: {
     // Output format

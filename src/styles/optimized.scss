@@ -950,10 +950,48 @@ article > p:first-of-type,
     }
 }
 
+// Astro View Transitions Styling
+// Configure styling for Astro's JavaScript-based View Transitions router
+// Uses the native CSS View Transitions API for animation styling
+@view-transition {
+    navigation: auto;
+}
+
+// Define view transition names for key elements
+// This allows smooth, semantic animations between pages
+::view-transition-group(root) {
+    animation-duration: 0.3s;
+}
+
+// Optimize specific page sections for smoother transitions
+// Main content should smoothly transition between pages
+.content {
+    view-transition-name: main-content;
+}
+
+// Note: Hero unit view-transition-name removed because it only exists on homepage
+// and causes transition conflicts when navigating to/from pages without a hero.
+// If needed in the future, apply conditionally only during same-layout transitions.
+
+// Note: Navigation and Footer use transition:persist directive in their components
+// so they don't need view-transition-name declarations here (would cause duplicates)
+
 // Reduce motion for users who prefer it
 // Respects user accessibility preferences
 // Targets common animated elements rather than using universal selector
 @media (prefers-reduced-motion: reduce) {
+    // Disable view transitions for reduced motion preference
+    @view-transition {
+        navigation: none;
+    }
+    
+    // Disable all view transition animations
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation: none !important;
+    }
+    
     a, button, .btn, .nav-link, .navbar-brand, .post-item, .anchor-link, .social-link {
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
