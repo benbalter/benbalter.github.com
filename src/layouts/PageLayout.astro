@@ -166,10 +166,21 @@ const {
   }
   
   .page-body :global(p code) {
-    background-color: var(--bs-secondary-bg);
     padding: 0.2em 0.4em;
     border-radius: 3px;
-    color: var(--bs-body-color);
+    /* Light mode: Use explicit colors for better contrast (11.85:1 - WCAG AAA) */
+    background-color: #dee2e6;
+    color: #212529;
+    border: 1px solid #ced4da;
+  }
+
+  /* Dark mode: ensure proper contrast in dark theme (9.70:1 - WCAG AAA) */
+  @media (prefers-color-scheme: dark) {
+    .page-body :global(p code) {
+      background-color: #343a40;
+      color: #e9ecef;
+      border-color: #495057;
+    }
   }
   
   .page-body :global(a) {
