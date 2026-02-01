@@ -12,6 +12,8 @@ import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import matter from 'gray-matter';
+import { escapeHtml } from '../utils/html-escape.js';
+import { getPostUrl } from '../utils/post-urls.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -32,12 +34,7 @@ function generateRedirectHTML(toUrl: string): string {
   }
   
   // HTML-encode the URL for safe insertion into HTML
-  const encodedUrl = sanitizedUrl
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
+  const encodedUrl = escapeHtml(sanitizedUrl);
   
   return `<!DOCTYPE html>
 <html lang="en-US">
@@ -76,50 +73,6 @@ function normalizeUrlPath(urlPath: string): string {
 }
 
 /**
- * Extract date components from filename
- */
-function extractDateFromFilename(filename: string): { year: string; month: string; day: string; postSlug: string } | null {
-  const dateMatch = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)\.(md|mdx)$/);
-  if (dateMatch) {
-    const [, year, month, day, postSlug] = dateMatch;
-    return { year, month, day, postSlug };
-  }
-  return null;
-}
-
-/**
- * Get the canonical URL for a post based on filename
- */
-function getPostUrl(filename: string): string {
-  const dateInfo = extractDateFromFilename(filename);
-  if (dateInfo) {
-    return `/${dateInfo.year}/${dateInfo.month}/${dateInfo.day}/${dateInfo.postSlug}/`;
-  }
-  // Fallback if no date match
-  const slug = filename.replace(/\.(md|mdx)$/, '');
-  return `/posts/${slug}/`;
-}
-
-/**
- * Write redirect HTML file to disk
- */
-async function writeRedirectFile(fromPath: string, html: string): Promise<void> {
-  // Ensure fromPath starts with / and ends with /
-  const normalizedPath = normalizeUrlPath(fromPath);
-  
-  // Convert URL path to file system path
-  const filePath = path.join(OUTPUT_DIR, normalizedPath, 'index.html');
-  
-  // Create directory structure
-  await fs.mkdir(path.dirname(filePath), { recursive: true });
-  
-  // Write file
-  await fs.writeFile(filePath, html, 'utf-8');
-  
-  console.log(`  ✓ Created redirect_to: ${normalizedPath} -> ${html.match(/url=([^"]+)/)?.[1]}`);
-}
-
-/**
  * Process files and collect redirect_to mappings
  */
 async function collectRedirectTo(dirPath: string, isPost: boolean): Promise<Array<{ from: string; to: string }>> {
@@ -137,7 +90,7 @@ async function collectRedirectTo(dirPath: string, isPost: boolean): Promise<Arra
       // Only process files with redirect_to
       if (data.redirect_to && typeof data.redirect_to === 'string') {
         const fromUrl = isPost
-          ? getPostUrl(filename)
+          ? getPostUrl(filename.replace(/\.(md|mdx)$/, '')) // Remove extension for slug
           : (data.permalink
             ? normalizeUrlPath(data.permalink)
             : normalizeUrlPath(`/${path.basename(filename, path.extname(filename))}/`));
@@ -179,9 +132,22 @@ async function generateRedirectToPages(): Promise<void> {
     
     // Generate redirect HTML files
     await Promise.all(
-      redirects.map(redirect => {
+      redirects.map(async redirect => {
         const html = generateRedirectHTML(redirect.to);
-        return writeRedirectFile(redirect.from, html);
+        
+        // Ensure path starts with / and ends with /
+        const normalizedPath = normalizeUrlPath(redirect.from);
+        
+        // Convert URL path to file system path
+        const filePath = path.join(OUTPUT_DIR, normalizedPath, 'index.html');
+        
+        // Create directory structure
+        await fs.mkdir(path.dirname(filePath), { recursive: true });
+        
+        // Write file
+        await fs.writeFile(filePath, html, 'utf-8');
+        
+        console.log(`  ✓ Created redirect_to: ${normalizedPath} -> ${redirect.to}`);
       })
     );
     
