@@ -91,12 +91,23 @@ import { siteConfig, contactLinks } from '../config';
   }
 
   code {
-    background-color: var(--bs-secondary-bg);
     padding: 0.2em 0.4em;
     border-radius: 3px;
     font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
     font-size: 0.9em;
-    color: var(--bs-body-color);
+    /* Light mode: Use darker background (#dee2e6) for better contrast */
+    background-color: #dee2e6;
+    color: #212529;
+    border: 1px solid #ced4da;
+  }
+
+  /* Dark mode: ensure proper contrast in dark theme */
+  @media (prefers-color-scheme: dark) {
+    code {
+      background-color: #343a40;
+      color: #e9ecef;
+      border-color: #495057;
+    }
   }
 
   @media (max-width: 768px) {
