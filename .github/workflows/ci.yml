@@ -154,3 +154,10 @@ jobs:
 
       - name: Build Astro site
         run: npm run astro:build
+
+      - name: Upload Astro build artifacts
+        uses: actions/upload-artifact@v6
+        with:
+          name: astro-dist
+          path: dist/
+          retention-days: 1
