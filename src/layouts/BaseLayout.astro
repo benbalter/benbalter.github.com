@@ -168,28 +168,7 @@ const schemas = breadcrumbSchema
     <ClientRouter />
     
     <!-- Favicons are automatically injected by astro-favicons integration -->
-    
-    <!-- Additional Meta -->
-    <link type="text/plain" rel="author" href="/humans.txt" />
-    
-    <!-- Social Links (rel=me for verification) -->
-    {socialLinks.map((link) => (
-      <link rel="me" href={link.url} />
-    ))}
-    
-    <!-- Resource Hints for Performance -->
-    <!-- Preconnect to critical external domains (used on most pages) -->
-    <link rel="preconnect" href="https://avatars.githubusercontent.com" crossorigin />
-    <link rel="preconnect" href="https://github.com" crossorigin />
-    
-    <!-- DNS Prefetch for other external resources -->
-    <link rel="dns-prefetch" href="https://images.amazon.com" />
-    <link rel="dns-prefetch" href="https://user-images.githubusercontent.com" />
-    
-    <!-- RSS Feed -->
-    <link rel="alternate" type="application/rss+xml" title={`${siteConfig.name} - RSS Feed`} href="/feed.xml" />
-    
-    {hero && <link rel="preload" href="/assets/img/header.jpg" as="image" fetchpriority="high" />}
+    <!-- Resource hints, social links, and RSS feed are configured in SEO component above -->
     
     <title>{fullTitle}</title>
   </head>
