@@ -16,6 +16,8 @@ import {
   TextListType,
   SpecialValueType,
   URIType,
+  MediatypeParameter,
+  ParameterValueType,
 } from 'vcard4';
 import { siteConfig } from '../config';
 
@@ -50,15 +52,17 @@ export const GET: APIRoute = () => {
     new FNProperty([], new TextType(siteConfig.author)),
 
     // N (Name) - Family name; Given name; Additional names; Honorific prefixes; Honorific suffixes
-    // All 5 parts are required - use space for empty parts
+    // All 5 parts are required per RFC 6350
+    // Using empty TextListType arrays for empty components (additional names, suffixes)
+    // Note: TextType requires non-empty strings, so we cannot use empty strings for single-value components
     new NProperty(
       [],
       new SpecialValueType('nproperty', [
         new TextType(lastName || ' '),                      // Family name
         new TextType(firstName || ' '),                     // Given name
-        new TextListType([new TextType(' ')]),              // Additional names (empty)
-        new TextType(' '),                                  // Honorific prefixes (empty)
-        new TextListType([new TextType(' ')]),              // Honorific suffixes (empty)
+        new TextListType([]),                               // Additional names (empty)
+        new TextType(' '),                                  // Honorific prefixes (empty - TextType doesn't accept '')
+        new TextListType([]),                               // Honorific suffixes (empty)
       ])
     ),
 
@@ -69,9 +73,14 @@ export const GET: APIRoute = () => {
     new EmailProperty([], new TextType(siteConfig.email)),
 
     // KEY (PGP key URL)
-    new KeyProperty([], new URIType(`${siteConfig.url}/key.asc`)),
+    // Using MEDIATYPE parameter to indicate PGP key type per vCard 4.0 spec
+    new KeyProperty(
+      [new MediatypeParameter(new ParameterValueType('application/pgp-keys'))],
+      new URIType(`${siteConfig.url}/key.asc`)
+    ),
 
     // PHOTO
+    // In vCard 4.0, PHOTO with URI value doesn't need explicit TYPE or VALUE parameters
     new PhotoProperty([], new URIType(`${siteConfig.url}/assets/img/headshot.jpg`)),
 
     // SOURCE
@@ -99,7 +108,7 @@ export const GET: APIRoute = () => {
   return new Response(vCardContent, {
     status: 200,
     headers: {
-      'Content-Type': 'text/vcard',
+      'Content-Type': 'text/vcard; charset=utf-8',
       'Content-Disposition': `attachment; filename="${vcfFilename}"`,
     },
   });
