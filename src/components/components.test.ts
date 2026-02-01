@@ -231,6 +231,67 @@ describe('MiniBio Component - Specification', () => {
     expect(result).toContain('[link](//evil.com)');
     expect(result).not.toContain('<a href');
   });
+
+  it('should split content into multiple paragraphs', async () => {
+    // Import and test the getBioParagraphs function
+    const { getBioParagraphs } = await import('../content/about-bio');
+    
+    const sampleContent = 'First paragraph.\n\nSecond paragraph.\n\nThird paragraph.';
+    const paragraphs = getBioParagraphs(sampleContent);
+    
+    expect(paragraphs).toHaveLength(3);
+    expect(paragraphs[0]).toBe('First paragraph.');
+    expect(paragraphs[1]).toBe('Second paragraph.');
+    expect(paragraphs[2]).toBe('Third paragraph.');
+  });
+
+  it('should filter out empty paragraphs', async () => {
+    // Import and test the getBioParagraphs function
+    const { getBioParagraphs } = await import('../content/about-bio');
+    
+    const sampleContent = 'First paragraph.\n\n\n\nSecond paragraph.\n\n   \n\nThird paragraph.';
+    const paragraphs = getBioParagraphs(sampleContent);
+    
+    expect(paragraphs).toHaveLength(3);
+    expect(paragraphs).not.toContain('');
+  });
+
+  it('should convert markdown links in all paragraphs', async () => {
+    // Import and test the getBioParagraphs function
+    const { getBioParagraphs } = await import('../content/about-bio');
+    
+    const sampleContent = 'First [link](https://example.com) paragraph.\n\nSecond [link](https://example.org) paragraph.';
+    const paragraphs = getBioParagraphs(sampleContent);
+    
+    expect(paragraphs).toHaveLength(2);
+    expect(paragraphs[0]).toContain('<a href="https://example.com">link</a>');
+    expect(paragraphs[1]).toContain('<a href="https://example.org">link</a>');
+  });
+
+  it('should handle content with no paragraph breaks', async () => {
+    // Import and test the getBioParagraphs function
+    const { getBioParagraphs } = await import('../content/about-bio');
+    
+    const sampleContent = 'Single paragraph with no breaks.';
+    const paragraphs = getBioParagraphs(sampleContent);
+    
+    expect(paragraphs).toHaveLength(1);
+    expect(paragraphs[0]).toBe('Single paragraph with no breaks.');
+  });
+
+  it('should escape HTML in all paragraphs to prevent XSS', async () => {
+    // Import and test the getBioParagraphs function
+    const { getBioParagraphs } = await import('../content/about-bio');
+    
+    const maliciousContent = 'First [<script>alert(1)</script>](https://example.com).\n\nSecond [<img src=x>](https://example.org).';
+    const paragraphs = getBioParagraphs(maliciousContent);
+    
+    expect(paragraphs).toHaveLength(2);
+    expect(paragraphs[0]).toContain('&lt;script&gt;');
+    expect(paragraphs[0]).not.toContain('<script>');
+    expect(paragraphs[1]).toContain('&lt;img');
+    expect(paragraphs[1]).not.toContain('<img');
+  });
 });
 
 describe('ContactLinks Component - Specification', () => {

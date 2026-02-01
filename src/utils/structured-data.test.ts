@@ -27,7 +27,7 @@ describe('generatePersonSchema', () => {
   it('should include job title', () => {
     const schema = generatePersonSchema();
     
-    expect(schema).toHaveProperty('jobTitle', 'Senior Technical Program Manager at GitHub');
+    expect(schema).toHaveProperty('jobTitle', `${siteConfig.jobTitle} at ${siteConfig.employer}`);
   });
 
   it('should include social media links', () => {
@@ -67,7 +67,7 @@ describe('generatePersonSchema', () => {
     
     expect(schema).toHaveProperty('sameAs');
     if (Array.isArray(schemaAny.sameAs)) {
-      expect(schemaAny.sameAs).toContain(`https://www.linkedin.com/in/${siteConfig.socialUsername}`);
+      expect(schemaAny.sameAs).toContain(siteConfig.linkedinUrl);
     }
   });
 
@@ -77,7 +77,7 @@ describe('generatePersonSchema', () => {
     
     expect(schema).toHaveProperty('sameAs');
     if (Array.isArray(schemaAny.sameAs)) {
-      expect(schemaAny.sameAs).toContain('https://mastodon.social/@benbalter');
+      expect(schemaAny.sameAs).toContain(siteConfig.mastodonUrl);
     }
   });
 
@@ -87,7 +87,7 @@ describe('generatePersonSchema', () => {
     
     expect(schema).toHaveProperty('sameAs');
     if (Array.isArray(schemaAny.sameAs)) {
-      expect(schemaAny.sameAs).toContain('https://bsky.app/profile/ben.balter.com');
+      expect(schemaAny.sameAs).toContain(siteConfig.blueskyUrl);
     }
   });
 
