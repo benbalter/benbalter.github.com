@@ -251,9 +251,9 @@ test.describe('Astro View Transitions Configuration', () => {
     expect(reloadLinks).toBeGreaterThanOrEqual(0);
   });
 
-  test('should respect prefers-reduced-motion accessibility preference', async ({ page, context }) => {
+  test('should respect prefers-reduced-motion accessibility preference', async ({ page }) => {
     // Emulate prefers-reduced-motion: reduce
-    await context.emulateMedia({ reducedMotion: 'reduce' });
+    await page.emulateMedia({ reducedMotion: 'reduce' });
     
     await page.goto('/');
     await waitForPageReady(page);
