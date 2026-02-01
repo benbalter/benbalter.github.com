@@ -3,7 +3,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import favicons from 'astro-favicons';
 import compress from 'astro-compress';
-import redirectIntegration from './src/lib/redirect-integration.ts';
+import redirectFrom from 'astro-redirect-from';
 import remarkEmoji from 'remark-emoji';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
@@ -11,6 +11,9 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
 import rehypeUnwrapImages from 'rehype-unwrap-images';
 import { remarkGitHubMentions } from './src/lib/remark-github-mentions.ts';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
 
 // URL patterns for sitemap priority calculation
 const BLOG_POST_PATTERN = /\/\d{4}\/\d{2}\/\d{2}\//;
@@ -50,6 +53,48 @@ const rehypeAutolinkHeadingsConfig = [rehypeAutolinkHeadings, {
   }
 }];
 
+/**
+ * Custom slug function for redirect-from plugin
+ * Reads permalink from frontmatter if available, otherwise constructs from file path
+ */
+function getSlug(filePath) {
+  try {
+    // Read the file content
+    const fullPath = path.join('src/content', filePath);
+    const content = fs.readFileSync(fullPath, 'utf-8');
+    const { data } = matter(content);
+    
+    // Use permalink if available in frontmatter
+    if (data.permalink) {
+      return data.permalink.replace(/^\/|\/$/g, ''); // Remove leading/trailing slashes
+    }
+    
+    // For posts, extract date and slug from filename
+    const filename = path.basename(filePath);
+    const dateMatch = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)\.(md|mdx)$/);
+    if (dateMatch) {
+      const [, year, month, day, postSlug] = dateMatch;
+      return `${year}/${month}/${day}/${postSlug}`;
+    }
+    
+    // Default: use file path
+    const parsedPath = path.parse(filePath);
+    if (parsedPath.base === 'index.md' || parsedPath.base === 'index.mdx') {
+      return parsedPath.dir;
+    }
+    return `${parsedPath.dir}/${parsedPath.name}`.replace(/^\//, '');
+  } catch (error) {
+    console.warn(`Could not read file ${filePath}:`, error.message);
+    // Fallback to default slug generation
+    const parsedPath = path.parse(filePath);
+    if (parsedPath.base === 'index.md' || parsedPath.base === 'index.mdx') {
+      return parsedPath.dir;
+    }
+    return `${parsedPath.dir}/${parsedPath.name}`.replace(/^\//, '');
+  }
+}
+
+
 // https://astro.build/config
 export default defineConfig({
   // Output directory for built site (separate from Jekyll _site/)
@@ -65,6 +110,21 @@ export default defineConfig({
   
   // Trailing slashes to match GitHub Pages behavior
   trailingSlash: 'always',
+  
+  // Redirect configuration
+  // External redirects for posts republished on other sites (redirect_to in frontmatter)
+  // Internal redirects (redirect_from) are handled by astro-redirect-from integration
+  redirects: {
+    // Post republished on TechCrunch
+    '/2012/04/23/enterprise-open-source-usage-is-up-but-challenges-remain/': 
+      'http://techcrunch.com/2012/04/22/enterprise-open-source-usage-is-up-but-challenges-remain/',
+    // Post republished on GitHub Blog (old domain)
+    '/2015/04/27/eight-lessons-learned-hacking-on-github-pages-for-six-months/': 
+      'https://github.com/blog/1992-eight-lessons-learned-hacking-on-github-pages-for-six-months',
+    // Post republished on GitHub Blog (new domain)
+    '/2023/10/04/how-to-communicate-like-a-github-engineer/': 
+      'https://github.blog/engineering/engineering-principles/how-to-communicate-like-a-github-engineer-our-principles-practices-and-tools/',
+  },
   
   // Build configuration
   build: {
@@ -165,7 +225,12 @@ export default defineConfig({
         };
       },
     }),
-    redirectIntegration(), // Generate redirect pages after build
+    // Handle redirects from old URLs (redirect_from in frontmatter)
+    // Must be placed before other integrations that modify HTML
+    redirectFrom({
+      contentDir: 'src/content', // Use content collections directory
+      getSlug, // Use custom slug function that reads permalink from frontmatter
+    }),
     compress({
       // Compress HTML, CSS, and JavaScript for better performance
       CSS: true,
