@@ -219,6 +219,21 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
   
   // Clean up before Astro View Transitions navigation (for SPAs)
   document.addEventListener('astro:before-preparation', () => {
+    // Hide all active tooltips
+    const activeTooltips = (window as any).__tldrActiveTooltips;
+    if (activeTooltips) {
+      activeTooltips.forEach((_tooltipEl: HTMLDivElement, element: HTMLElement) => {
+        hideTooltip(element);
+      });
+    }
+    
+    // Remove initialization markers so elements can be reinitialized after navigation
+    const tooltipElements = document.querySelectorAll('[data-tooltip-initialized]');
+    tooltipElements.forEach((element) => {
+      element.removeAttribute('data-tooltip-initialized');
+    });
+    
+    // Remove global click handler
     if (globalClickHandlerAdded) {
       document.removeEventListener('click', handleGlobalClick);
       globalClickHandlerAdded = false;
