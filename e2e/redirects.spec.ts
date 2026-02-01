@@ -226,63 +226,40 @@ test.describe('Legacy URL Redirects', () => {
       expect(content).toContain('robots" content="noindex');
     });
 
-    test('/sitemap.xml redirect should resolve to valid sitemap', async ({ page }) => {
-      // Follow the redirect and verify we get a valid sitemap
-      await page.goto('/sitemap.xml');
+    test('/sitemap.xml redirect should resolve to valid sitemap', async ({ page, request }) => {
+      // Fetch the redirect page directly to avoid XML parsing issues
+      const response = await request.get('/sitemap.xml');
+      expect(response.status()).toBe(200);
       
-      // Wait for meta refresh redirect to complete (HTML meta refresh may take a moment)
-      // The redirect URL contains sitemap-0.xml
-      // Note: Meta refresh may not be followed in all browser configurations,
-      // so we handle both cases: redirect succeeds or we verify the redirect page content
-      let redirectFollowed = true;
-      await page.waitForURL('**/sitemap-0.xml', { timeout: 5000 }).catch(() => {
-        redirectFollowed = false;
-      });
+      // Astro uses meta refresh redirects - verify it points to the correct destination
+      const content = await response.text();
+      expect(content).toContain('url=/sitemap-0.xml');
       
-      const currentUrl = page.url();
+      // Now verify the actual sitemap is valid
+      const sitemapResponse = await request.get('/sitemap-0.xml');
+      expect(sitemapResponse.status()).toBe(200);
       
-      // If we ended up at sitemap-0.xml, check it's valid
-      if (currentUrl.includes('sitemap-0.xml')) {
-        // Use request API to get raw XML content since page.content() parses XML
-        const response = await page.request.get(currentUrl);
-        const content = await response.text();
-        expect(content).toMatch(/<urlset|<url>/i);
-      } else {
-        // If redirect wasn't followed, verify the redirect page exists
-        // and contains the meta refresh (use request API for raw content)
-        const response = await page.request.get('/sitemap.xml');
-        const content = await response.text();
-        expect(content).toContain('sitemap-0.xml');
-      }
+      // Verify it's a valid sitemap
+      const sitemapContent = await sitemapResponse.text();
+      expect(sitemapContent).toMatch(/<urlset|<url>/i);
     });
 
-    test('/sitemap_index.xml redirect should resolve to valid sitemap index', async ({ page }) => {
-      // Follow the redirect and verify we get a valid sitemap index
-      await page.goto('/sitemap_index.xml');
+    test('/sitemap_index.xml redirect should resolve to valid sitemap index', async ({ page, request }) => {
+      // Fetch the redirect page directly to avoid XML parsing issues
+      const response = await request.get('/sitemap_index.xml');
+      expect(response.status()).toBe(200);
       
-      // Wait for meta refresh redirect to complete
-      // Note: Meta refresh may not be followed in all browser configurations,
-      // so we handle both cases: redirect succeeds or we verify the redirect page content
-      let redirectFollowed = true;
-      await page.waitForURL('**/sitemap-index.xml', { timeout: 5000 }).catch(() => {
-        redirectFollowed = false;
-      });
+      // Astro uses meta refresh redirects - verify it points to the correct destination
+      const content = await response.text();
+      expect(content).toContain('url=/sitemap-index.xml');
       
-      const currentUrl = page.url();
+      // Now verify the actual sitemap index is valid
+      const sitemapResponse = await request.get('/sitemap-index.xml');
+      expect(sitemapResponse.status()).toBe(200);
       
-      // If we ended up at sitemap-index.xml, check it's valid
-      if (currentUrl.includes('sitemap-index.xml')) {
-        // Use request API to get raw XML content since page.content() parses XML
-        const response = await page.request.get(currentUrl);
-        const content = await response.text();
-        expect(content).toMatch(/<sitemapindex|<sitemap>/i);
-      } else {
-        // If redirect wasn't followed, verify the redirect page exists
-        // (use request API for raw content)
-        const response = await page.request.get('/sitemap_index.xml');
-        const content = await response.text();
-        expect(content).toContain('sitemap-index.xml');
-      }
+      // Verify it's a valid sitemap index
+      const sitemapContent = await sitemapResponse.text();
+      expect(sitemapContent).toMatch(/<sitemapindex|<sitemap>/i);
     });
   });
 });

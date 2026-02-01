@@ -4,8 +4,8 @@ import { waitForPageReady } from './helpers';
 const TAGLINE = 'Technology leadership, collaboration, and open source';
 
 test.describe('Navigation Tagline', () => {
-  // Note: The tagline is intentionally hidden on mobile viewports (< 768px) via CSS
-  // See: src/components/Navigation.astro line 183-186
+  // Note: Tagline is intentionally hidden on mobile viewports via CSS
+  // Only test visibility on desktop where it's visible
   test('should show tagline on desktop', async ({ page }) => {
     await page.setViewportSize({ width: 1024, height: 768 });
     await page.goto('/');
@@ -16,12 +16,12 @@ test.describe('Navigation Tagline', () => {
     await expect(tagline).toContainText(TAGLINE);
   });
 
-  test('should hide tagline on mobile', async ({ page }) => {
+  test('should hide tagline on mobile for cleaner UI', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/');
     await waitForPageReady(page);
 
-    // Tagline should exist in DOM but be hidden via CSS on mobile
+    // Tagline is intentionally hidden on mobile to save space
     const tagline = page.locator('.navbar-text');
     await expect(tagline).toBeHidden();
   });

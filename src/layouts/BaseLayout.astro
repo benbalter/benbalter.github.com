@@ -167,10 +167,8 @@ const schemas = breadcrumbSchema
     <!-- Astro View Transitions (ClientRouter) for smooth page navigation -->
     <ClientRouter />
     
-    <!-- Favicons are automatically injected by astro-favicons integration -->
-    <!-- Resource hints, social links, and RSS feed are configured in SEO component above -->
-    
-    <title>{fullTitle}</title>
+    <!-- Note: Title, favicons, meta tags, social links, resource hints, and RSS feed
+         are all declared in the SEO component above. Do not duplicate them here. -->
   </head>
   <body class="mt-2">
     <!-- Skip to main content link for accessibility -->

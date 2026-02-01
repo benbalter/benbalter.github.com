@@ -15,33 +15,16 @@ test.describe('Dark Mode Support', () => {
   test.describe('Syntax Highlighting', () => {
     test('should use appropriate syntax highlighting theme in light mode', async ({ page }) => {
       await page.emulateMedia({ colorScheme: 'light' });
-      await page.goto('/2021/09/01/how-i-re-over-engineered-my-home-network/');
+      // Use a post with code blocks that are NOT inside collapsed <details> elements
+      await page.goto('/2014/03/13/pages-anchor-links/');
       await waitForPageReady(page);
 
-      // The first code blocks may be inside collapsed <details> elements
-      // Find a visible code block (not inside a collapsed details element)
-      const codeBlock = page.locator('pre code:not(details:not([open]) pre code)').first();
-      
-      // Wait for code blocks to be present in DOM
-      await page.waitForSelector('pre code', { state: 'attached' });
-      
-      // Check if the first visible code block exists (may need to expand details)
-      const detailsElements = page.locator('details:has(pre code)');
-      const detailsCount = await detailsElements.count();
-      
-      if (detailsCount > 0) {
-        // Expand the first details element that contains a code block
-        await detailsElements.first().click();
-        // Wait for the details element to be open
-        await expect(detailsElements.first()).toHaveAttribute('open', { timeout: 1000 });
-      }
-
-      // Now check that code block is visible
-      const visibleCodeBlock = page.locator('pre code').first();
-      await expect(visibleCodeBlock).toBeVisible();
+      // Check that code blocks exist
+      const codeBlock = page.locator('pre code').first();
+      await expect(codeBlock).toBeVisible();
 
       // In light mode, code blocks should have light background
-      const bgColor = await visibleCodeBlock.evaluate(el => {
+      const bgColor = await codeBlock.evaluate(el => {
         const pre = el.closest('pre');
         return window.getComputedStyle(pre!).backgroundColor;
       });
@@ -61,39 +44,26 @@ test.describe('Dark Mode Support', () => {
 
     test('should use appropriate syntax highlighting theme in dark mode', async ({ page }) => {
       await page.emulateMedia({ colorScheme: 'dark' });
-      await page.goto('/2021/09/01/how-i-re-over-engineered-my-home-network/');
+      // Use a post with code blocks that are NOT inside collapsed <details> elements
+      await page.goto('/2014/03/13/pages-anchor-links/');
       await waitForPageReady(page);
 
-      // The first code blocks may be inside collapsed <details> elements
-      // Wait for code blocks to be present in DOM
-      await page.waitForSelector('pre code', { state: 'attached' });
-      
-      // Check if the first code blocks are in details elements
-      const detailsElements = page.locator('details:has(pre code)');
-      const detailsCount = await detailsElements.count();
-      
-      if (detailsCount > 0) {
-        // Expand the first details element that contains a code block
-        await detailsElements.first().click();
-        // Wait for the details element to be open
-        await expect(detailsElements.first()).toHaveAttribute('open', { timeout: 1000 });
-      }
+      // Check that code blocks exist
+      const codeBlock = page.locator('pre code').first();
+      await expect(codeBlock).toBeVisible();
 
-      // Now check that code block is visible
-      const visibleCodeBlock = page.locator('pre code').first();
-      await expect(visibleCodeBlock).toBeVisible();
-
-      // Verify the code block exists and has content
-      // Note: Astro's Shiki uses CSS custom properties (--shiki-dark-bg) for dark mode
-      // The inline style may show light mode background, but CSS should override it
-      const preElement = page.locator('pre').first();
-      const hasDualTheme = await preElement.evaluate(el => {
-        const style = el.getAttribute('style') || '';
-        return style.includes('--shiki-dark');
+      // Verify the code block has dark mode CSS custom properties defined
+      // (these are set by Shiki for dual theme support)
+      const hasDarkModeVars = await codeBlock.evaluate(el => {
+        const pre = el.closest('pre');
+        const style = pre?.getAttribute('style') || '';
+        return style.includes('--shiki-dark-bg');
       });
       
-      // Verify dual-theme CSS custom properties are present (Astro's approach to dual themes)
-      expect(hasDualTheme).toBe(true);
+      // The code block should have dark mode CSS variables defined
+      // Note: The actual application of dark mode colors requires CSS rules that 
+      // use these variables with @media (prefers-color-scheme: dark)
+      expect(hasDarkModeVars).toBe(true);
     });
   });
 
