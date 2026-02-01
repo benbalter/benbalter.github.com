@@ -950,10 +950,54 @@ article > p:first-of-type,
     }
 }
 
+// Astro View Transitions Optimization
+// Enable native browser view transitions (zero-JavaScript approach)
+// Supported in Chrome/Edge 126+, with graceful fallback for other browsers
+@view-transition {
+    navigation: auto;
+}
+
+// Define view transition names for key elements
+// This allows smooth, semantic animations between pages
+::view-transition-group(root) {
+    animation-duration: 0.3s;
+}
+
+// Optimize specific page sections for smoother transitions
+.content {
+    view-transition-name: main-content;
+}
+
+.hero-unit {
+    view-transition-name: hero;
+}
+
+// Navigation should persist without animating between pages
+nav {
+    view-transition-name: nav;
+}
+
+// Footer should persist without animating
+footer {
+    view-transition-name: footer;
+}
+
 // Reduce motion for users who prefer it
 // Respects user accessibility preferences
 // Targets common animated elements rather than using universal selector
 @media (prefers-reduced-motion: reduce) {
+    // Disable view transitions for reduced motion preference
+    @view-transition {
+        navigation: none;
+    }
+    
+    // Disable all view transition animations
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation: none !important;
+    }
+    
     a, button, .btn, .nav-link, .navbar-brand, .post-item, .anchor-link, .social-link {
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;

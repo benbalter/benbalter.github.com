@@ -66,6 +66,13 @@ export default defineConfig({
   // Trailing slashes to match GitHub Pages behavior
   trailingSlash: 'always',
   
+  // Prefetch configuration for faster navigation
+  // Aggressively prefetch links for instant transitions
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'viewport',
+  },
+  
   // Build configuration
   build: {
     // Output format

@@ -35,7 +35,7 @@ const navClasses = hero
   : "navbar navbar-expand-md bg-secondary-subtle text-secondary border-start border-end border-bottom border-top rounded-top rounded-bottom mb-3";
 ---
 
-<nav class={navClasses + ' shadow-sm'} aria-label="Main navigation">
+<nav class={navClasses + ' shadow-sm'} aria-label="Main navigation" transition:persist>
   <div class="container-fluid">
     <a class="navbar-brand fw-bold" href="/">{siteConfig.name}</a>
     <button 
