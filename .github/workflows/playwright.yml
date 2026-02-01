@@ -40,7 +40,43 @@ env:
   NODE_VERSION: 24
 
 jobs:
+  build:
+    name: Build Astro Site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Cache Astro build artifacts
+        uses: actions/cache@v5
+        with:
+          path: node_modules/.astro
+          key: astro-cache-${{ runner.os }}-${{ hashFiles('src/**/*', 'public/**/*', 'astro.config.mjs', 'tsconfig.astro.json', 'package-lock.json') }}
+          restore-keys: |
+            astro-cache-${{ runner.os }}-
+
+      - name: Build Astro site
+        run: npm run astro:build
+
+      - name: Upload Astro build
+        uses: actions/upload-artifact@v6
+        with:
+          name: dist-astro
+          path: dist-astro/
+          retention-days: 1
+
   playwright:
+    name: Run Playwright Tests
+    needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -53,19 +89,14 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
 
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-
-      - name: Cache apt packages
-        uses: awalsh128/cache-apt-pkgs-action@v1
-        with:
-          packages: libvips-dev
-          version: 1.0
-
       - name: Install Node dependencies
         run: npm ci
+
+      - name: Download Astro build
+        uses: actions/download-artifact@v6
+        with:
+          name: dist-astro
+          path: dist-astro/
 
       - name: Cache Playwright Browsers
         uses: actions/cache@v5
@@ -81,9 +112,6 @@ jobs:
       - name: Install Playwright Browser System Dependencies
         if: steps.playwright-cache.outputs.cache-hit == 'true'
         run: npx playwright install-deps chromium
-
-      - name: Build Astro site
-        run: npm run astro:build
 
       - name: Start Astro preview server
         run: |
