@@ -16,7 +16,8 @@
     "fastest-levenshtein": "^1.0.16",
     "marked": "^17.0.1",
     "reading-time": "^1.5.0",
-    "satori": "^0.19.1"
+    "satori": "^0.19.1",
+    "vcard4": "^4.0.4"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
