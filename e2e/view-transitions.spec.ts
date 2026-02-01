@@ -262,19 +262,17 @@ test.describe('Astro View Transitions Configuration', () => {
     // The view transition animations should be disabled
     const contentElement = page.locator('main.content').first();
     
-    if (await contentElement.count() > 0) {
-      // Verify the element exists and is visible
-      await expect(contentElement).toBeVisible();
-      
-      // Navigation should still work but without animations
-      const aboutLink = page.locator('a[href="/about/"]').first();
-      await aboutLink.click();
-      await page.waitForURL('**/about/');
-      await waitForPageReady(page);
-      
-      // Verify we successfully navigated
-      await expect(page).toHaveURL(/\/about\//);
-      await expect(page.locator('h1')).toContainText('About');
-    }
+    // Verify the element exists and is visible (no conditional)
+    await expect(contentElement).toBeVisible();
+    
+    // Navigation should still work but without animations
+    const aboutLink = page.locator('a[href="/about/"]').first();
+    await aboutLink.click();
+    await page.waitForURL('**/about/');
+    await waitForPageReady(page);
+    
+    // Verify we successfully navigated
+    await expect(page).toHaveURL(/\/about\//);
+    await expect(page.locator('h1')).toContainText('About');
   });
 });

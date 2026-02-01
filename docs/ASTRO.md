@@ -106,26 +106,31 @@ The site uses [Astro View Transitions](https://docs.astro.build/en/guides/view-t
 **Implementation:**
 
 1. **View Transition Styling for Astro's Router**
+
    ```css
    /* src/styles/optimized.scss */
    @view-transition {
        navigation: auto;
    }
    ```
+
    - Styles Astro's JavaScript-driven View Transitions using the native CSS View Transitions API (Chrome/Edge 126+)
    - Astro's ClientRouter (JavaScript) handles link interception and page transitions
    - Graceful fallback to non-animated navigation when View Transitions are not supported
 
 2. **Semantic Animations**
+
    ```css
    .content {
        view-transition-name: main-content;
    }
    ```
+
    - Main content smoothly transitions between pages
    - Hero unit view-transition-name removed to avoid conflicts (only exists on homepage)
 
 3. **Persistent Elements with Active State Updates**
+
    ```astro
    // Navigation uses transition:persist with client-side active state management
    <nav transition:persist="nav">
@@ -138,11 +143,13 @@ The site uses [Astro View Transitions](https://docs.astro.build/en/guides/view-t
    </nav>
    <footer transition:persist>...</footer>
    ```
+
    - Navigation and footer don't re-render on page changes
    - JavaScript updates active link highlighting after navigation
    - Improves perceived performance and prevents layout shift
 
 4. **Hover-Based Prefetching**
+
    ```js
    // astro.config.mjs
    prefetch: {
@@ -150,11 +157,13 @@ The site uses [Astro View Transitions](https://docs.astro.build/en/guides/view-t
      defaultStrategy: 'hover',
    }
    ```
+
    - Links are prefetched when users hover over them (indicating intent)
    - Balances navigation speed with bandwidth usage
    - Better for users on slower connections or mobile data
 
 5. **Accessibility Support**
+
    ```css
    @media (prefers-reduced-motion: reduce) {
        @view-transition {
@@ -167,6 +176,7 @@ The site uses [Astro View Transitions](https://docs.astro.build/en/guides/view-t
        }
    }
    ```
+
    - Respects user's motion preferences
    - Disables all view transition animations for accessibility
    - Falls back to instant navigation
