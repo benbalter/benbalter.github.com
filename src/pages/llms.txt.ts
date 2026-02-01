@@ -55,7 +55,7 @@ export const GET: APIRoute = async () => {
   const culturePost = allPosts.find((p: CollectionEntry<'posts'>) => p.slug.includes(CULTURE_POST_ID));
 
   // Mini bio - extracted from centralized about-bio.ts
-  // Strip markdown links for plain text output
+  // getFirstParagraph() converts Markdown links to HTML, so strip HTML for plain text
   const miniBio = getFirstParagraph(aboutContent)
     .replace(/<a[^>]*>([^<]*)<\/a>/g, '$1');
 

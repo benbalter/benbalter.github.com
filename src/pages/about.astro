@@ -4,11 +4,11 @@ import { siteConfig } from '../config';
 import { Image } from 'astro:assets';
 import headshotImage from '../../assets/img/headshot.jpg';
 import ContactLinks from '../components/ContactLinks.astro';
-import { getBioParagraphs } from '../content/about-bio';
+import { getBioParagraphs, aboutContent } from '../content/about-bio';
 
 const title = 'About';
 const description = siteConfig.aboutDescription;
-const bioParagraphs = getBioParagraphs(await import('../content/about-bio').then(m => m.aboutContent));
+const bioParagraphs = getBioParagraphs(aboutContent);
 ---
 
 <PageLayout title={title} description={description}>
