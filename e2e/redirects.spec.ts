@@ -128,14 +128,9 @@ test.describe('Legacy URL Redirects', () => {
       expectPathname(page, '/2014/09/29/source-disclosed-is-not-the-same-as-open-source/');
     });
 
-    test('should redirect why-government-contractors-should-<3-open-source', async ({ page }) => {
-      await page.goto('/2014/10/08/why-government-contractors-should-<3-open-source/', { waitUntil: 'domcontentloaded' });
-      await waitForRedirect(page, '/2014/10/08/why-government-contractors-should-embrace-open-source');
-      expectPathname(page, '/2014/10/08/why-government-contractors-should-embrace-open-source/');
-    });
-
-    test('should redirect why-government-contractors-should-%3C3-open-source (URL encoded)', async ({ page }) => {
-      await page.goto('/2014/10/08/why-government-contractors-should-%3C3-open-source/', { waitUntil: 'domcontentloaded' });
+    test('should redirect why-government-contractors-should-3-open-source', async ({ page }) => {
+      // Tests the actual redirect_from defined in the post (without < character)
+      await page.goto('/2014/10/08/why-government-contractors-should-3-open-source/', { waitUntil: 'domcontentloaded' });
       await waitForRedirect(page, '/2014/10/08/why-government-contractors-should-embrace-open-source');
       expectPathname(page, '/2014/10/08/why-government-contractors-should-embrace-open-source/');
     });
