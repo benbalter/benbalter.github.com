@@ -11,6 +11,7 @@
 import type { APIRoute } from 'astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { siteConfig } from '../config';
+import { getFirstParagraph, aboutContent } from '../content/about-bio';
 
 // Constants
 const EXCERPT_LENGTH = 100;
@@ -53,8 +54,10 @@ export const GET: APIRoute = async () => {
   // Get the GitHub culture post and its associated posts
   const culturePost = allPosts.find((p: CollectionEntry<'posts'>) => p.slug.includes(CULTURE_POST_ID));
 
-  // Mini bio - extracted from About page content (simplified for plain text)
-  const miniBio = `Ben Balter is the Director of Hubber Enablement within the Office of the COO at GitHub, the world's largest software development platform, ensuring all Hubbers can do their best (remote) work. Previously, he served as the Director of Technical Business Operations, and as Chief of Staff for Security, he managed the office of the Chief Security Officer, improving overall business effectiveness of the Security organization through portfolio management, strategy, planning, culture, and values.`;
+  // Mini bio - extracted from centralized about-bio.ts
+  // Strip markdown links for plain text output
+  const miniBio = getFirstParagraph(aboutContent)
+    .replace(/<a[^>]*>([^<]*)<\/a>/g, '$1');
 
   // Build the content
   let content = `# ${siteConfig.name}\n\n`;
@@ -62,13 +65,13 @@ export const GET: APIRoute = async () => {
   content += `${miniBio}\n\n`;
 
   content += `## About and Professional Information\n\n`;
-  content += `* [About](${siteConfig.url}/about/): Learn more about Ben Balter's professional background and experience at GitHub.\n`;
+  content += `* [About](${siteConfig.url}/about/): Learn more about ${siteConfig.author}'s professional background and experience at ${siteConfig.employer}.\n`;
   
   if (resumePage) {
     content += `* [${resumePage.data.title}](${siteConfig.url}${resumePage.data.permalink}): ${resumePage.data.description}\n`;
   }
   
-  content += `* [Contact](${siteConfig.url}/contact/): Contact information and social media links for Ben Balter.\n`;
+  content += `* [Contact](${siteConfig.url}/contact/): Contact information and social media links for ${siteConfig.author}.\n`;
 
   content += `\n## Recent Blog Posts\n\n`;
   

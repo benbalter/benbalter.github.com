@@ -32,6 +32,25 @@ describe('siteConfig', () => {
     expect(siteConfig.socialUsername).toBe('benbalter');
   });
 
+  it('should have employment information', () => {
+    expect(siteConfig.jobTitle).toBeDefined();
+    expect(siteConfig.jobDescription).toBeDefined();
+    expect(siteConfig.employer).toBe('GitHub');
+    expect(siteConfig.employerUrl).toBeDefined();
+    expect(siteConfig.timezone).toBe('America/New_York');
+  });
+
+  it('should have social media URLs', () => {
+    expect(siteConfig.mastodonUrl).toMatch(/^https:\/\//);
+    expect(siteConfig.blueskyUrl).toMatch(/^https:\/\//);
+    expect(siteConfig.linkedinUrl).toMatch(/^https:\/\//);
+  });
+
+  it('should have about page description', () => {
+    expect(siteConfig.aboutDescription).toBeDefined();
+    expect(siteConfig.aboutDescription.length).toBeGreaterThan(0);
+  });
+
   it('should have PGP key', () => {
     expect(siteConfig.pgpKey).toBeDefined();
     expect(siteConfig.pgpKey.length).toBeGreaterThan(0);
