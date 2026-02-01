@@ -4,6 +4,7 @@
  * 
  * Layout for static pages (e.g., About, Contact, Resume).
  * Simpler than the PostLayout, focused on content presentation.
+ * Uses Bootstrap utility classes for maintainability.
  */
 
 import BaseLayout from './BaseLayout.astro';
@@ -27,13 +28,13 @@ const {
   image={image}
 >
   <div class="row">
-    <div class="col-md-10 offset-md-1">
+    <div class="col-md-10 offset-md-1 px-3">
       <article class="page-content">
-        <header class="page-header">
-          <h1 class="display-4 text-primary">{title}</h1>
+        <header class="mb-4">
+          <h1 class="display-4 text-primary fw-bold">{title}</h1>
         </header>
         
-        <div class="page-body">
+        <div class="page-body fs-5 lh-lg">
           <slot />
         </div>
       </article>
@@ -42,170 +43,6 @@ const {
 </BaseLayout>
 
 <style>
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-  }
-
-  .col-md-10 {
-    flex: 0 0 auto;
-    width: 83.333333%;
-  }
-
-  .offset-md-1 {
-    margin-left: 8.333333%;
-  }
-
-  @media (max-width: 768px) {
-    .col-md-10 {
-      width: 100%;
-    }
-    .offset-md-1 {
-      margin-left: 0;
-    }
-  }
-
-  .page-content {
-    padding: 0 15px;
-  }
-  
-  .page-header {
-    margin-bottom: 2rem;
-  }
-  
-  .display-4 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-  }
-
-  .text-primary {
-    color: var(--bs-primary) !important;
-  }
-
-  .lead {
-    font-size: 1.25rem;
-    font-weight: 300;
-  }
-  
-  .page-body {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--bs-body-color);
-  }
-  
-  .page-body :global(h2) {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-top: 2.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--bs-heading-color);
-  }
-  
-  .page-body :global(h3) {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-top: 2rem;
-    margin-bottom: 0.5rem;
-    color: var(--bs-heading-color);
-  }
-
-  .page-body :global(h4) {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--bs-heading-color);
-  }
-  
-  .page-body :global(p) {
-    margin-bottom: 1.5rem;
-  }
-  
-  .page-body > :global(ul),
-  .page-body > :global(ol) {
-    margin-top: 0;
-    margin-bottom: 1.5rem;
-    padding-left: 2rem;
-  }
-  
-  .page-body :global(li) {
-    margin-bottom: 0.5rem;
-  }
-
-  .page-body :global(li > ul),
-  .page-body :global(li > ol) {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  /* Headings after lists need extra spacing for clear section breaks */
-  .page-body :global(ul + h2),
-  .page-body :global(ul + h3),
-  .page-body :global(ul + h4),
-  .page-body :global(ol + h2),
-  .page-body :global(ol + h3),
-  .page-body :global(ol + h4) {
-    margin-top: 2.5em;
-  }
-  
-  .page-body :global(pre) {
-    margin: 1.5rem 0;
-    padding: 1rem;
-    background-color: var(--bs-secondary-bg);
-    border-radius: 6px;
-    overflow-x: auto;
-  }
-  
-  .page-body :global(code) {
-    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-    font-size: 0.9em;
-  }
-  
-  .page-body :global(p code) {
-    background-color: var(--bs-secondary-bg);
-    padding: 0.2em 0.4em;
-    border-radius: 3px;
-    color: var(--bs-body-color);
-  }
-  
-  .page-body :global(a) {
-    color: var(--bs-link-color);
-    text-decoration: none;
-  }
-  
-  .page-body :global(a:hover) {
-    text-decoration: underline;
-  }
-  
-  .page-body :global(table) {
-    width: 100%;
-    margin: 1.5rem 0;
-    border-collapse: collapse;
-  }
-  
-  .page-body :global(th),
-  .page-body :global(td) {
-    padding: 0.75rem;
-    border: 1px solid var(--bs-border-color);
-  }
-  
-  .page-body :global(th) {
-    background-color: var(--bs-secondary-bg);
-    font-weight: 600;
-  }
-  
-  .page-body :global(tr:nth-child(even)) {
-    background-color: var(--bs-secondary-bg);
-  }
-
-  .page-body :global(img) {
-    max-width: 100%;
-    height: auto;
-    border-radius: 6px;
-    margin: 1.5rem 0;
-  }
+  /* Minimal page-specific styles - typography handled by global optimized.scss */
+  /* Bootstrap utility classes handle layout, spacing, and typography */
 </style>

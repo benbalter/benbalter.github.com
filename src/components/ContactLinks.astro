@@ -4,16 +4,17 @@
  * 
  * Displays social media contact links with icons.
  * Used on About and Contact pages to avoid duplication.
+ * Uses Bootstrap utility classes for maintainability.
  */
 
 import { siteConfig, contactLinks } from '../config';
 ---
 
-<div class="contact-links text-center">
+<div class="text-center mt-4">
   <div class="row justify-content-center">
     {contactLinks.map((link) => (
       <div class="col-sm">
-        <a href={link.url} rel="me noopener" target="_blank">
+        <a href={link.url} rel="me noopener" target="_blank" class="text-decoration-none text-body-secondary">
           <div class="row justify-content-center mb-3 align-items-center">
             <div class="col-sm-12 col-2 offset-3 offset-sm-0 text-center">
               <i class={`${link.icon}`} aria-hidden="true"></i>
@@ -28,95 +29,20 @@ import { siteConfig, contactLinks } from '../config';
   </div>
 
   <p class="small">
-    <a href="/key.asc">PGP: <code>{siteConfig.pgpKey}</code></a>
+    <a href="/key.asc">PGP: <code class="bg-body-secondary rounded px-1 py-1">{siteConfig.pgpKey}</code></a>
   </p>
 </div>
 
 <style>
-  .contact-links {
-    margin-top: 2rem;
+  /* Minimal custom styles - Bootstrap utilities handle layout */
+  a:hover {
+    color: var(--bs-link-color) !important;
   }
-
-  .contact-links .row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-  }
-
-  .contact-links .col-sm {
-    flex: 1 0 0%;
-    padding: 0 15px;
-  }
-
-  .contact-links a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .contact-links a:hover {
-    color: var(--bs-link-color);
-  }
-
-  .contact-links .mb-3 {
-    margin-bottom: 1rem !important;
-  }
-
-  .contact-links .justify-content-center {
-    justify-content: center !important;
-  }
-
-  .contact-links .align-items-center {
-    align-items: center !important;
-  }
-
-  .contact-links .text-center {
-    text-align: center !important;
-  }
-
-  .contact-links .text-start {
-    text-align: left !important;
-  }
-
-  .contact-links .text-sm-center {
-    text-align: center !important;
-  }
-
-  .contact-links i {
-    font-size: 1rem;
-  }
-
-  .small {
-    font-size: 0.875em;
-  }
-
-  code {
-    background-color: var(--bs-secondary-bg);
-    padding: 0.2em 0.4em;
-    border-radius: 3px;
-    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-    font-size: 0.9em;
-    color: var(--bs-body-color);
-  }
-
+  
   @media (max-width: 768px) {
-    .contact-links .col-sm {
+    .col-sm {
       flex: 0 0 100%;
       max-width: 100%;
-    }
-
-    .contact-links .offset-3 {
-      margin-left: 25%;
-    }
-
-    .contact-links .col-2 {
-      flex: 0 0 auto;
-      width: 16.666667%;
-    }
-
-    .contact-links .col-6 {
-      flex: 0 0 auto;
-      width: 50%;
     }
   }
 </style>
