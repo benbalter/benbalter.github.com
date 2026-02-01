@@ -79,11 +79,12 @@ The configuration is optimized for GitHub Pages deployment:
 - **Optimized assets**: Automatic image optimization and bundling
 - **Fast builds**: Vite-powered build system
 - **View Transitions**: Smooth page navigation using [Astro View Transitions](https://docs.astro.build/en/guides/view-transitions/)
-  - Intercepts link clicks for seamless navigation
-  - Provides smooth animations between pages
-  - Maintains app-like navigation speed while maintaining SSG benefits
-  - Preserves scroll position on back/forward navigation
-  - Automatically handles browser history and page titles
+  - **Native browser support**: Uses CSS `@view-transition` for zero-JS transitions (Chrome/Edge 126+)
+  - **Aggressive prefetching**: Links in viewport are automatically prefetched for instant navigation
+  - **Persistent elements**: Navigation and footer persist across page changes without re-rendering
+  - **Semantic animations**: Smooth transitions for main content while keeping UI elements stable
+  - **Accessibility**: Respects `prefers-reduced-motion` preference
+  - See [View Transitions Optimization](#view-transitions-optimization) section below for details
 
 ### Developer Experience
 
@@ -97,26 +98,92 @@ The configuration is optimized for GitHub Pages deployment:
 - **Meta tags**: SEO-friendly metadata
 - **Fast loading**: Excellent Core Web Vitals
 
-### View Transitions Integration
+### View Transitions Optimization
 
-The site uses [Astro View Transitions](https://docs.astro.build/en/guides/view-transitions/) for smooth page navigation:
+The site uses [Astro View Transitions](https://docs.astro.build/en/guides/view-transitions/) with 2026 best practices for optimal performance and user experience.
+
+**Implementation:**
+
+1. **Native Browser Transitions (Zero-JS)**
+   ```css
+   /* src/styles/optimized.scss */
+   @view-transition {
+       navigation: auto;
+   }
+   ```
+   - Uses native CSS View Transitions API (Chrome/Edge 126+)
+   - Zero JavaScript overhead for modern browsers
+   - Graceful fallback to Astro's router for older browsers
+
+2. **Semantic Animations**
+   ```css
+   .content {
+       view-transition-name: main-content;
+   }
+   .hero-unit {
+       view-transition-name: hero;
+   }
+   ```
+   - Main content smoothly transitions between pages
+   - Hero unit gets its own animation treatment
+
+3. **Persistent Elements**
+   ```astro
+   // Navigation and Footer use transition:persist
+   <nav transition:persist>...</nav>
+   <footer transition:persist>...</footer>
+   ```
+   - Navigation and footer don't re-render on page changes
+   - Improves perceived performance
+   - Prevents layout shift
+
+4. **Aggressive Prefetching**
+   ```js
+   // astro.config.mjs
+   prefetch: {
+     prefetchAll: true,
+     defaultStrategy: 'viewport',
+   }
+   ```
+   - Links visible in viewport are automatically prefetched
+   - Navigation feels instant for most pages
+   - Smart strategy minimizes unnecessary requests
+
+5. **Accessibility Support**
+   ```css
+   @media (prefers-reduced-motion: reduce) {
+       @view-transition {
+           navigation: none;
+       }
+       ::view-transition-group(*),
+       ::view-transition-old(*),
+       ::view-transition-new(*) {
+           animation: none !important;
+       }
+   }
+   ```
+   - Respects user's motion preferences
+   - Disables all view transition animations for accessibility
+   - Falls back to instant navigation
+
+**Benefits:**
+
+- **Zero JavaScript for transitions**: Native browser API handles animations
+- **Instant navigation**: Aggressive prefetching makes navigation feel instant
+- **Smooth UX**: No white flashes or jarring page reloads
+- **Better performance**: Persistent elements don't re-render
+- **Accessible**: Respects `prefers-reduced-motion` preference
+- **Progressive enhancement**: Works in all browsers with appropriate fallbacks
 
 **How it works:**
 
 - View Transitions automatically intercept link clicks
 - Instead of full page reloads, Astro fetches new pages and smoothly transitions
-- Uses native browser View Transition API when available, with fallback for unsupported browsers
+- Native browser View Transition API is used when available
 - Browser history, scroll position, and page titles are managed automatically
+- Links in viewport are prefetched for instant navigation
 
-**Benefits:**
-
-- Smooth animations between pages (no white flash)
-- Reduced server load (fewer assets re-downloaded)
-- App-like navigation experience
-- Native browser API with progressive enhancement
-- Works seamlessly with static site generation
-
-**Implementation:**
+**Implementation in BaseLayout:**
 
 ```astro
 // src/layouts/BaseLayout.astro
@@ -128,7 +195,7 @@ import { ClientRouter } from 'astro:transitions';
 </head>
 ```
 
-The component is included in `BaseLayout.astro` and automatically enables View Transitions. Note: `ClientRouter` is the current name for View Transitions in Astro 5.x (previously called `ViewTransitions`).
+The `ClientRouter` component is included in `BaseLayout.astro` and automatically enables View Transitions. Note: `ClientRouter` is the current name for View Transitions in Astro 5.x (previously called `ViewTransitions`).
 
 **Disabling View Transitions for specific links:**
 
@@ -137,6 +204,7 @@ The component is included in `BaseLayout.astro` and automatically enables View T
 ```
 
 **Testing:**
+
 E2E tests for View Transitions are in `e2e/view-transitions.spec.ts` covering:
 
 - Link interception and navigation
@@ -144,6 +212,7 @@ E2E tests for View Transitions are in `e2e/view-transitions.spec.ts` covering:
 - Scroll position preservation
 - External link handling
 - View Transitions configuration
+- Accessibility (prefers-reduced-motion)
 
 ## Integration with Existing Code
 
