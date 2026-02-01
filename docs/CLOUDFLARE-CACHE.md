@@ -59,9 +59,9 @@ The cache purge happens in `.github/workflows/build-and-deploy.yml`:
       -H "Content-Type: application/json" \
       --data '{"purge_everything":true}') || { echo "Cloudflare cache purge request failed"; exit 1; }
     echo "Cloudflare API response: $response"
-    success=$(echo "$response" | jq -r '.success // empty')
+    api_success=$(echo "$response" | jq -r '.success // empty')
     errors=$(echo "$response" | jq -c '.errors // []')
-    if [ "$success" != "true" ] || [ "$errors" != "[]" ]; then
+    if [ "$api_success" != "true" ] || [ "$errors" != "[]" ]; then
       echo "Cloudflare cache purge reported failure."
       echo "Errors: $errors"
       exit 1
