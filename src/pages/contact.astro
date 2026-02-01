@@ -4,12 +4,12 @@ import { siteConfig } from '../config';
 import ContactLinks from '../components/ContactLinks.astro';
 
 const title = 'Contact';
-const description = 'Contact Ben Balter via email or social media';
+const description = `Contact ${siteConfig.author} via email or social media`;
 ---
 
 <PageLayout title={title} description={description}>
   <p class="text-center lead">
-    Looking to get in touch? Email <!--email_off--><a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a><!--/email_off--> or I'm <code>@{siteConfig.socialUsername}</code> most places:
+    Looking to get in touch? Email <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> or I'm <code>@{siteConfig.socialUsername}</code> most places:
   </p>
 
   <ContactLinks />

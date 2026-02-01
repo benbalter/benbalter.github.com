@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { escapeHtml, wrapEmailOff } from './html-escape';
+import { escapeHtml } from './html-escape';
 
 describe('escapeHtml', () => {
   it('should escape ampersands', () => {
@@ -33,16 +33,5 @@ describe('escapeHtml', () => {
 
   it('should not modify strings without special characters', () => {
     expect(escapeHtml('mailto:ben@balter.com')).toBe('mailto:ben@balter.com');
-  });
-});
-
-describe('wrapEmailOff', () => {
-  it('should wrap content in email_off comments', () => {
-    const html = '<a href="mailto:test@test.com">test@test.com</a>';
-    expect(wrapEmailOff(html)).toBe(`<!--email_off-->${html}<!--/email_off-->`);
-  });
-
-  it('should handle empty string', () => {
-    expect(wrapEmailOff('')).toBe('<!--email_off--><!--/email_off-->');
   });
 });

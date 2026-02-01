@@ -66,6 +66,13 @@ export default defineConfig({
   // Trailing slashes to match GitHub Pages behavior
   trailingSlash: 'always',
   
+  // Prefetch configuration for faster navigation
+  // Use hover strategy to balance speed with bandwidth usage
+  prefetch: {
+    prefetchAll: false,
+    defaultStrategy: 'hover',
+  },
+  
   // Build configuration
   build: {
     // Output format

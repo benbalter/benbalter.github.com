@@ -37,20 +37,29 @@ export const siteConfig = {
   email: 'ben@balter.com',
   
   // Employment information
-  jobTitle: 'Senior Technical Program Manager',
+  jobTitle: 'Director of Hubber Enablement',
+  jobDescription: 'Director of Hubber Enablement within the Office of the COO',
   employer: 'GitHub',
+  employerUrl: 'https://github.com/about',
   timezone: 'America/New_York',
   
   // Social media handles
   twitterHandle: '@benbalter',
   socialUsername: 'benbalter',
   githubUsername: 'benbalter',
+  mastodonHandle: '@benbalter',
+  mastodonUrl: 'https://mastodon.social/@benbalter',
+  blueskyUrl: 'https://bsky.app/profile/ben.balter.com',
+  linkedinUrl: 'https://www.linkedin.com/in/benbalter',
   
   // PGP Key
   pgpKey: '07C6 73FB F30E 01C0 C342 7AB8 DBB6 7C24 6AD3 56C4',
   
   // Default SEO keywords
   keywords: ['Ben Balter', 'GitHub', 'open source', 'technology leadership', 'collaboration'],
+  
+  // About page metadata
+  aboutDescription: 'Ben Balter is an attorney, an open source developer, and a Director of Hubber Enablement at GitHub, the world\'s largest software development network.',
 } as const;
 
 // Contact links (used on About and Contact pages)
