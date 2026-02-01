@@ -101,7 +101,6 @@ Example workflow modification:
 ```
 
 **Trade-offs:**
-
 - **Pros**: Reduces cache purge overhead; preserves cache for unchanged content
 - **Cons**: More complex implementation; requires tracking changed files; risk of missing dependent files (e.g., a CSS file used by an HTML page)
 
@@ -149,7 +148,6 @@ For this use case (static site with content-hashed assets), `purge_everything` p
 1. Check workflow logs in GitHub Actions
 2. Verify secrets are set correctly
 3. Test API manually:
-
    ```bash
    curl -X POST "https://api.cloudflare.com/client/v4/zones/YOUR_ZONE_ID/purge_cache" \
      -H "Authorization: Bearer YOUR_API_TOKEN" \

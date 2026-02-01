@@ -31,19 +31,19 @@ const posts: CollectionEntry<'posts'>[] = allPosts
 ---
 
 <BaseLayout title={title} description={description} noindex={true}>
-  <div class="alert alert-primary text-center fw-light fs-5" role="alert">
+  <div class="alert alert-primary lead text-center" role="alert">
     The page you are trying to view does not exist. <br />
-    <strong class="fw-semibold">Perhaps you're looking for <span id="four-oh-four-suggestion" aria-live="polite"></span>?</strong>
+    <strong>Perhaps you're looking for <span id="four-oh-four-suggestion" aria-live="polite"></span>?</strong>
   </div>
 
-  <h4 class="mt-4 mb-3 fw-medium lh-sm">Recent posts</h4>
+  <h4>Recent posts</h4>
 
-  <ul class="ps-4 mb-3">
+  <ul>
     {posts.map((post) => {
       const postUrl = getPostUrl(post.slug);
       return (
-        <li class="mb-2">
-          <a href={postUrl} class="text-decoration-none">{post.data.title}</a>
+        <li>
+          <a href={postUrl}>{post.data.title}</a>
         </li>
       );
     })}
@@ -123,3 +123,54 @@ const posts: CollectionEntry<'posts'>[] = allPosts
     }
   </script>
 </BaseLayout>
+
+<style>
+  .alert {
+    position: relative;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.375rem;
+  }
+
+  .alert-primary {
+    color: var(--bs-primary-text-emphasis, #084298);
+    background-color: var(--bs-primary-bg-subtle, #cfe2ff);
+    border-color: var(--bs-primary-border-subtle, #b6d4fe);
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
+
+  .text-center {
+    text-align: center !important;
+  }
+
+  h4 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  ul {
+    list-style-type: disc;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    color: var(--bs-link-color);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
