@@ -8,24 +8,16 @@ const description = `Contact ${siteConfig.author} via email or social media`;
 ---
 
 <PageLayout title={title} description={description}>
-  <p class="text-center lead">
-    Looking to get in touch? Email <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> or I'm <code>@{siteConfig.socialUsername}</code> most places:
+  <p class="text-center lead mb-4">
+    Looking to get in touch? Email <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> or I'm <code class="code-inline">@{siteConfig.socialUsername}</code> most places:
   </p>
 
   <ContactLinks />
 </PageLayout>
+
 <style>
-  .text-center {
-    text-align: center !important;
-  }
-
-  .lead {
-    font-size: 1.25rem;
-    font-weight: 300;
-    margin-bottom: 2rem;
-  }
-
-  code {
+  /* Code element styling to match original design */
+  .code-inline {
     background-color: var(--bs-secondary-bg);
     padding: 0.2em 0.4em;
     border-radius: 3px;

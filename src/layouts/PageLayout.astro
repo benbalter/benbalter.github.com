@@ -27,10 +27,10 @@ const {
   image={image}
 >
   <div class="row">
-    <div class="col-md-10 offset-md-1">
+    <div class="col-md-10 offset-md-1 px-3">
       <article class="page-content">
         <header class="page-header">
-          <h1 class="display-4 text-primary">{title}</h1>
+          <h1 class="page-title text-primary">{title}</h1>
         </header>
         
         <div class="page-body">
@@ -42,53 +42,16 @@ const {
 </BaseLayout>
 
 <style>
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-  }
-
-  .col-md-10 {
-    flex: 0 0 auto;
-    width: 83.333333%;
-  }
-
-  .offset-md-1 {
-    margin-left: 8.333333%;
-  }
-
-  @media (max-width: 768px) {
-    .col-md-10 {
-      width: 100%;
-    }
-    .offset-md-1 {
-      margin-left: 0;
-    }
-  }
-
-  .page-content {
-    padding: 0 15px;
-  }
-  
+  /* Page-specific typography that maintains original design */
   .page-header {
     margin-bottom: 2rem;
   }
   
-  .display-4 {
+  .page-title {
     font-size: 2.5rem;
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1rem;
-  }
-
-  .text-primary {
-    color: var(--bs-primary) !important;
-  }
-
-  .lead {
-    font-size: 1.25rem;
-    font-weight: 300;
   }
   
   .page-body {
@@ -96,7 +59,6 @@ const {
     line-height: 1.7;
     color: var(--bs-body-color);
   }
-  
   .page-body :global(h2) {
     font-size: 1.8rem;
     font-weight: 600;

@@ -46,8 +46,8 @@ function slugify(text: string): string {
 <PageLayout title={title} description={description}>
 
   {bookGroups.map(([category, books]) => (
-    <section class="book-group mb-5">
-      <h3 id={slugify(category)} class="book-category-title">{category}</h3>
+    <section class="mb-5">
+      <h3 id={slugify(category)} class="fs-3 fw-semibold mb-4 text-body border-bottom border-2 pb-2">{category}</h3>
       
       <div class="books-container">
         {books.map((book) => (
@@ -56,24 +56,25 @@ function slugify(text: string): string {
               href={`https://www.amazon.com/gp/product/${book.asin}/?tag=${amazonAffiliatesTag}`}
               target="_blank"
               rel="noopener noreferrer"
-              class="book-link"
+              class="text-decoration-none book-link"
             >
-              <div class="book-cover">
+              <div class="book-cover mb-3">
                 <img 
                   src={`https://images.amazon.com/images/P/${book.asin}.01.MZZZZZZZ.jpg`}
                   alt={book.title}
                   width="160"
                   height="240"
                   loading="lazy"
+                  class="shadow-sm rounded"
                 />
               </div>
               
-              <div class="book-title">
+              <div class="book-title text-primary fw-semibold lh-sm mb-2 small">
                 {book.title}
               </div>
             </a>
             
-            <div class="book-tldr" set:html={marked.parseInline(book.tldr)} />
+            <div class="book-tldr small lh-base text-secondary" set:html={marked.parseInline(book.tldr)} />
           </div>
         ))}
       </div>
@@ -82,29 +83,7 @@ function slugify(text: string): string {
 </PageLayout>
 
 <style>
-  .lead {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--bs-secondary-color);
-  }
-
-  .lead p {
-    margin-bottom: 0;
-  }
-
-  .book-group {
-    margin-bottom: 3rem;
-  }
-
-  .book-category-title {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    color: var(--bs-body-color);
-    border-bottom: 2px solid var(--bs-border-color);
-    padding-bottom: 0.5rem;
-  }
-
+  /* Grid layout for books - CSS Grid is needed for responsive book display */
   .books-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -126,8 +105,6 @@ function slugify(text: string): string {
   }
 
   .book-link {
-    text-decoration: none;
-    color: inherit;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -139,7 +116,6 @@ function slugify(text: string): string {
   }
 
   .book-cover {
-    margin-bottom: 1rem;
     min-height: 150px;
     display: flex;
     align-items: center;
@@ -149,26 +125,16 @@ function slugify(text: string): string {
   .book-cover img {
     max-width: 100%;
     height: auto;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
   }
 
   .book-title {
-    font-weight: 600;
-    color: var(--bs-link-color);
     min-height: 3rem;
-    line-height: 1.4;
-    margin-bottom: 0.75rem;
-    font-size: 0.95rem;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   .book-tldr {
-    font-size: 0.875rem;
-    line-height: 1.5;
-    color: var(--bs-secondary-color);
     text-align: justify;
     hyphens: auto;
   }
