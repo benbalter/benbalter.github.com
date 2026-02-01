@@ -10,7 +10,7 @@ const description = 'Ben Balter is an attorney, an open source developer, and a 
 ---
 
 <PageLayout title={title} description={description}>
-  <div class="float-end ms-3 mb-2" style="width: 25%;">
+  <div class="float-end ms-3 mb-2 headshot-wrapper">
     <a href={`${siteConfig.githubRepoUrl}/raw/master/assets/img/headshot.jpg`}>
       <Image src={headshotImage} alt="Ben Balter headshot" width={250} height={250} class="w-100 h-auto rounded" />
     </a>
@@ -36,9 +36,14 @@ const description = 'Ben Balter is an attorney, an open source developer, and a 
 </PageLayout>
 
 <style>
+  /* Headshot sizing - can't be achieved with Bootstrap utilities alone */
+  .headshot-wrapper {
+    width: 25%;
+  }
+
   /* Responsive styling for headshot on mobile */
   @media (max-width: 768px) {
-    .float-end {
+    .headshot-wrapper {
       float: none !important;
       width: 50% !important;
       margin: 0 auto 1rem !important;
