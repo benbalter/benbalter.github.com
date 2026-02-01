@@ -72,7 +72,7 @@ jobs:
         if: success()
         run: |
           response=$(curl -sS -f -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/purge_cache" \
-            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_KEY }}" \
             -H "Content-Type: application/json" \
             --data '{"purge_everything":true}') || { echo "Cloudflare cache purge request failed"; exit 1; }
           echo "Cloudflare API response: $response"
