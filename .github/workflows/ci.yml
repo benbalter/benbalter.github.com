@@ -154,3 +154,39 @@ jobs:
 
       - name: Build Astro site
         run: npm run astro:build
+
+      - name: Upload Astro build artifacts
+        uses: actions/upload-artifact@v6
+        with:
+          name: dist-astro
+          path: dist-astro/
+          retention-days: 1
+
+  lighthouse:
+    needs: [changes, astro]
+    if: ${{ needs.changes.outputs.astro == 'true' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download Astro build artifacts
+        uses: actions/download-artifact@v6
+        with:
+          name: dist-astro
+          path: dist-astro
+
+      - name: Run Lighthouse CI
+        run: npx @lhci/cli@0.14.x autorun
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
