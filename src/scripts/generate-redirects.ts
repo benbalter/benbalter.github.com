@@ -65,25 +65,18 @@ function generateRedirectHTML(toUrl: string, isExternal: boolean): string {
  * Asterisk *, Question mark ?, Carriage return \r, Line feed \n
  */
 function sanitizeUrlPath(urlPath: string): string {
+  try {
+    // URL decode first to handle %3C -> < conversions and other encoded characters
+    urlPath = decodeURIComponent(urlPath);
+  } catch (error) {
+    // If decoding fails (malformed URI), continue with original string
+  }
+  
+  // Replace invalid characters with hyphens in a single pass
+  // Remove whitespace characters completely
   return urlPath
-    // URL decode first to handle %3C -> < conversions
-    .replace(/%3C/gi, '<')
-    .replace(/%3E/gi, '>')
-    .replace(/%22/g, '"')
-    .replace(/%3A/g, ':')
-    .replace(/%7C/g, '|')
-    .replace(/%2A/g, '*')
-    .replace(/%3F/g, '?')
-    // Replace invalid characters with safe alternatives
-    .replace(/</g, '-')
-    .replace(/>/g, '-')
-    .replace(/"/g, '-')
-    .replace(/:/g, '-')
-    .replace(/\|/g, '-')
-    .replace(/\*/g, '-')
-    .replace(/\?/g, '-')
-    .replace(/\r/g, '')
-    .replace(/\n/g, '');
+    .replace(/[<>":|\*?]/g, '-')
+    .replace(/[\r\n]/g, '');
 }
 
 /**
