@@ -138,3 +138,16 @@ h1, h2, h3, h4, h5, h6 {
         opacity: 1;
     }
 }
+
+// Mini-bio component styles
+// Ensures text wraps properly around the floated avatar image
+.mini-bio {
+    // Ensure clearfix behavior for float containment
+    @extend .clearfix;
+    
+    // Reduce text size for mini-bio
+    .avatar + p,
+    .avatar ~ p {
+        font-size: 0.9375rem; // Slightly smaller than default 1rem
+    }
+}
