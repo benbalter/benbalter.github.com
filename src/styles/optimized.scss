@@ -964,23 +964,18 @@ article > p:first-of-type,
 }
 
 // Optimize specific page sections for smoother transitions
+// Main content should smoothly transition between pages
 .content {
     view-transition-name: main-content;
 }
 
+// Hero unit gets its own transition name (only on some pages)
 .hero-unit {
     view-transition-name: hero;
 }
 
-// Navigation should persist without animating between pages
-nav {
-    view-transition-name: nav;
-}
-
-// Footer should persist without animating
-footer {
-    view-transition-name: footer;
-}
+// Note: Navigation and Footer use transition:persist directive in their components
+// so they don't need view-transition-name declarations here (would cause duplicates)
 
 // Reduce motion for users who prefer it
 // Respects user accessibility preferences
