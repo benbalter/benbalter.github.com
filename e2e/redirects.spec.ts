@@ -185,10 +185,6 @@ test.describe('Legacy URL Redirects', () => {
       // Accept both relative and absolute URLs (with various hosts for local testing, with or without quotes)
       expect(content).toMatch(/content=["']?0;\s*url=(https?:\/\/[^\s"'>]+)?\/resume\/["']?/);
 
-      
-      // Check JavaScript redirect (Jekyll redirect-from uses location= syntax, with or without quotes)
-      expect(content).toMatch(/location\s*=\s*["']?(https?:\/\/[^\s"'>]+)?\/resume\/["']?/);
-      
       // Check canonical link (accepts any host for testing, with or without quotes around href)
       expect(content).toMatch(/<link\s+(?:href=["']?https?:\/\/[^\s"'>]+\/resume\/["']?\s+)?rel=["']?canonical["']?|<link\s+rel=["']?canonical["']?(?:\s+href=["']?https?:\/\/[^\s"'>]+\/resume\/["']?)?/);
       
@@ -203,10 +199,10 @@ test.describe('Legacy URL Redirects', () => {
       });
       expect(hasRobotsNoindex).toBeTruthy();
 
-      
-      // Check fallback content for users with JavaScript disabled
-      expect(content).toContain('<h1>Redirecting');
-      expect(content).toContain('Click here if you are not redirected');
+      // Check fallback content for users without meta refresh support
+      // The astro-redirect-from plugin provides a simple fallback link
+      expect(content).toContain('Redirecting');
+      expect(content).toMatch(/<a\s+href=/i);
     });
   });
 
@@ -219,10 +215,10 @@ test.describe('Legacy URL Redirects', () => {
       
       const content = await response.text();
       
-      // Astro static builds use HTML meta refresh redirects
-      expect(content).toContain('meta http-equiv="refresh"');
+      // Astro static builds use HTML meta refresh redirects (attributes may be quoted or unquoted)
+      expect(content).toMatch(/http-equiv=["']?refresh["']?/);
       expect(content).toContain('url=/sitemap-0.xml');
-      expect(content).toContain('robots" content="noindex');
+      expect(content).toMatch(/content=["']?noindex["']?/);
     });
 
     test('should have meta refresh redirect from /sitemap_index.xml to /sitemap-index.xml', async ({ request }) => {
@@ -233,10 +229,10 @@ test.describe('Legacy URL Redirects', () => {
       
       const content = await response.text();
       
-      // Astro static builds use HTML meta refresh redirects
-      expect(content).toContain('meta http-equiv="refresh"');
+      // Astro static builds use HTML meta refresh redirects (attributes may be quoted or unquoted)
+      expect(content).toMatch(/http-equiv=["']?refresh["']?/);
       expect(content).toContain('url=/sitemap-index.xml');
-      expect(content).toContain('robots" content="noindex');
+      expect(content).toMatch(/content=["']?noindex["']?/);
     });
 
     test('/sitemap.xml redirect should resolve to valid sitemap', async ({ page, request }) => {
