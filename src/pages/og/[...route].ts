@@ -16,7 +16,6 @@
 import type { APIRoute, GetStaticPaths } from 'astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { generateOGImagePNG } from '../../lib/og-image-generator';
-import { getPostUrl } from '../../utils/post-urls';
 
 // Get all published posts for OG image generation
 const posts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => {
@@ -27,11 +26,13 @@ const posts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) 
 const pages: Record<string, { title: string; description: string }> = {};
 
 posts.forEach((post: CollectionEntry<'posts'>) => {
-  // Use utility to get post URL, then strip leading/trailing slashes and add .png
-  const postUrl = getPostUrl(post.slug);
-  if (postUrl) {
-    // Remove leading and trailing slashes, add .png extension
-    const path = `${postUrl.replace(/^\/|\/$/g, '')}.png`;
+  // Extract date from slug (YYYY-MM-DD-slug format) for OG image path
+  const dateMatch = post.slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
+  
+  if (dateMatch) {
+    const [, year, month, day, slug] = dateMatch;
+    // Include .png extension in the path
+    const path = `${year}/${month}/${day}/${slug}.png`;
     pages[path] = {
       title: post.data.title,
       description: post.data.description || '',
