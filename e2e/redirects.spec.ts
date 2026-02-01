@@ -226,30 +226,40 @@ test.describe('Legacy URL Redirects', () => {
       expect(content).toContain('robots" content="noindex');
     });
 
-    test('/sitemap.xml redirect should resolve to valid sitemap', async ({ page }) => {
-      // Follow the redirect and verify we get a valid sitemap
-      const response = await page.goto('/sitemap.xml');
+    test('/sitemap.xml redirect should resolve to valid sitemap', async ({ page, request }) => {
+      // Fetch the redirect page directly to avoid XML parsing issues
+      const response = await request.get('/sitemap.xml');
+      expect(response.status()).toBe(200);
       
-      // Should end up at sitemap-0.xml with 200 status
-      expect(response?.status()).toBe(200);
-      expect(page.url()).toContain('sitemap-0.xml');
+      // Astro uses meta refresh redirects - verify it points to the correct destination
+      const content = await response.text();
+      expect(content).toContain('url=/sitemap-0.xml');
       
-      // Content should be valid XML sitemap
-      const content = await page.content();
-      expect(content).toMatch(/<urlset|<url>/i);
+      // Now verify the actual sitemap is valid
+      const sitemapResponse = await request.get('/sitemap-0.xml');
+      expect(sitemapResponse.status()).toBe(200);
+      
+      // Verify it's a valid sitemap
+      const sitemapContent = await sitemapResponse.text();
+      expect(sitemapContent).toMatch(/<urlset|<url>/i);
     });
 
-    test('/sitemap_index.xml redirect should resolve to valid sitemap index', async ({ page }) => {
-      // Follow the redirect and verify we get a valid sitemap index
-      const response = await page.goto('/sitemap_index.xml');
+    test('/sitemap_index.xml redirect should resolve to valid sitemap index', async ({ page, request }) => {
+      // Fetch the redirect page directly to avoid XML parsing issues
+      const response = await request.get('/sitemap_index.xml');
+      expect(response.status()).toBe(200);
       
-      // Should end up at sitemap-index.xml with 200 status
-      expect(response?.status()).toBe(200);
-      expect(page.url()).toContain('sitemap-index.xml');
+      // Astro uses meta refresh redirects - verify it points to the correct destination
+      const content = await response.text();
+      expect(content).toContain('url=/sitemap-index.xml');
       
-      // Content should be valid XML sitemap index
-      const content = await page.content();
-      expect(content).toMatch(/<sitemapindex|<sitemap>/i);
+      // Now verify the actual sitemap index is valid
+      const sitemapResponse = await request.get('/sitemap-index.xml');
+      expect(sitemapResponse.status()).toBe(200);
+      
+      // Verify it's a valid sitemap index
+      const sitemapContent = await sitemapResponse.text();
+      expect(sitemapContent).toMatch(/<sitemapindex|<sitemap>/i);
     });
   });
 });
