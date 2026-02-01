@@ -11,9 +11,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
 import rehypeUnwrapImages from 'rehype-unwrap-images';
 import { remarkGitHubMentions } from './src/lib/remark-github-mentions.ts';
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+import { getSlug } from './src/utils/get-slug.ts';
 
 // URL patterns for sitemap priority calculation
 const BLOG_POST_PATTERN = /\/\d{4}\/\d{2}\/\d{2}\//;
@@ -53,53 +51,6 @@ const rehypeAutolinkHeadingsConfig = [rehypeAutolinkHeadings, {
   }
 }];
 
-/**
- * Custom slug function for redirect-from plugin
- * Reads permalink from frontmatter if available, otherwise constructs from file path
- * 
- * Note: Uses synchronous file I/O as this function is called during build configuration,
- * once per markdown file. The plugin interface does not support async getSlug functions.
- */
-function getSlug(filePath) {
-  try {
-    // Read the file content
-    const fullPath = path.join('src/content', filePath);
-    const content = fs.readFileSync(fullPath, 'utf-8');
-    const { data } = matter(content);
-    
-    // Use permalink if available in frontmatter
-    if (data.permalink) {
-      return data.permalink.replace(/^\/|\/$/g, ''); // Remove leading/trailing slashes
-    }
-    
-    // For posts, extract date and slug from filename
-    const filename = path.basename(filePath);
-    const dateMatch = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)\.(md|mdx)$/);
-    if (dateMatch) {
-      const [, year, month, day, postSlug] = dateMatch;
-      return `${year}/${month}/${day}/${postSlug}`;
-    }
-    
-    // Default: use file path
-    const parsedPath = path.parse(filePath);
-    if (parsedPath.base === 'index.md' || parsedPath.base === 'index.mdx') {
-      return parsedPath.dir;
-    }
-    return `${parsedPath.dir}/${parsedPath.name}`.replace(/^\//, '');
-  } catch (error) {
-    // Fallback to default slug generation
-    // This is acceptable as redirects will still work, just with file-path-based URLs
-    console.error(`[redirect-from] WARNING: Could not read frontmatter from ${filePath}: ${error.message}`);
-    console.error('[redirect-from] Using fallback slug generation from file path');
-    
-    const parsedPath = path.parse(filePath);
-    if (parsedPath.base === 'index.md' || parsedPath.base === 'index.mdx') {
-      return parsedPath.dir;
-    }
-    return `${parsedPath.dir}/${parsedPath.name}`.replace(/^\//, '');
-  }
-}
-
 
 // https://astro.build/config
 export default defineConfig({
@@ -119,17 +70,21 @@ export default defineConfig({
   
   // Redirect configuration
   // External redirects for posts republished on other sites (redirect_to in frontmatter)
+  // Page redirects for backward compatibility (replaces Astro page-based redirects)
   // Internal redirects (redirect_from) are handled by astro-redirect-from integration
   redirects: {
-    // Post republished on TechCrunch
+    // External redirects - Posts republished on other sites
     '/2012/04/23/enterprise-open-source-usage-is-up-but-challenges-remain/': 
       'http://techcrunch.com/2012/04/22/enterprise-open-source-usage-is-up-but-challenges-remain/',
-    // Post republished on GitHub Blog (old domain)
     '/2015/04/27/eight-lessons-learned-hacking-on-github-pages-for-six-months/': 
       'https://github.com/blog/1992-eight-lessons-learned-hacking-on-github-pages-for-six-months',
-    // Post republished on GitHub Blog (new domain)
     '/2023/10/04/how-to-communicate-like-a-github-engineer/': 
       'https://github.blog/engineering/engineering-principles/how-to-communicate-like-a-github-engineer-our-principles-practices-and-tools/',
+    
+    // Page redirects - Backward compatibility for renamed pages
+    '/books/': '/other-recommended-reading/',
+    '/books-for-geeks/': '/other-recommended-reading/',
+    '/recommended-reading/': '/other-recommended-reading/',
   },
   
   // Build configuration
