@@ -44,7 +44,7 @@ After setting up secrets, the next deployment will automatically purge the cache
 
 1. GitHub Actions logs for "Purge Cloudflare Cache" step
 2. Cloudflare Dashboard → Analytics → Security → Cache Purge events
-3. Success indicated by HTTP 200 response from Cloudflare API
+3. Success indicated by Cloudflare API JSON response (`"success": true` and empty `errors`), not just HTTP 200 status
 
 ## Workflow Details
 
@@ -54,35 +54,76 @@ The cache purge happens in `.github/workflows/build-and-deploy.yml`:
 - name: Purge Cloudflare Cache
   if: success()
   run: |
-    response=$(curl -f -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/purge_cache" \
+    response=$(curl -sS -f -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/purge_cache" \
       -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
       -H "Content-Type: application/json" \
-      --data '{"purge_everything":true}') && \
-    echo "✓ Cloudflare cache purged successfully" && \
-    echo "$response"
+      --data '{"purge_everything":true}') || { echo "Cloudflare cache purge request failed"; exit 1; }
+    echo "Cloudflare API response: $response"
+    success=$(echo "$response" | jq -r '.success // empty')
+    errors=$(echo "$response" | jq -c '.errors // []')
+    if [ "$success" != "true" ] || [ "$errors" != "[]" ]; then
+      echo "Cloudflare cache purge reported failure."
+      echo "Errors: $errors"
+      exit 1
+    fi
+    echo "✓ Cloudflare cache purged successfully"
 ```
 
 **Key Points:**
 
 - Only runs if deployment succeeds (`if: success()`)
+- Uses `-sS` flags for silent mode with error display
 - Uses `-f` flag to fail on HTTP errors (4xx/5xx responses)
 - Captures and displays API response for verification
-- Displays success message only after curl completes successfully
+- Validates JSON response to ensure `success: true` and no errors
+- Displays success message only after validating the response
 - Uses `purge_everything: true` to clear all cached content
 - Uses cURL to call Cloudflare API directly
 - No external GitHub Actions dependencies
 
 ## Alternative: Selective Cache Purge
 
-Instead of purging everything, you can purge specific files or tags. Modify the workflow:
+Instead of purging everything, you can purge specific files or use cache tags for more granular control.
+
+### Purge by File URLs
+
+To purge only changed files, you would need to:
+
+1. Determine which files changed in the deployment (e.g., by comparing build artifacts)
+2. Generate a list of URLs for changed files
+3. Pass them to the Cloudflare API
+
+Example workflow modification:
 
 ```yaml
-# Purge by file URLs
+# Purge specific file URLs
 --data '{"files":["https://ben.balter.com/assets/global.css","https://ben.balter.com/index.html"]}'
+```
 
-# Purge by cache tags (requires Enterprise plan)
+**Trade-offs:**
+- **Pros**: Reduces cache purge overhead; preserves cache for unchanged content
+- **Cons**: More complex implementation; requires tracking changed files; risk of missing dependent files (e.g., a CSS file used by an HTML page)
+
+### Purge by Cache Tags (Enterprise only)
+
+Cache tags require a Cloudflare Enterprise plan. If available, you can tag responses and purge by tag:
+
+```yaml
+# Purge by cache tags
 --data '{"tags":["blog","css"]}'
 ```
+
+### Why `purge_everything` is Used
+
+The current implementation uses `purge_everything: true` because:
+
+1. **Simplicity**: No need to track file changes or dependencies
+2. **Reliability**: Ensures all content is fresh, including indirect references
+3. **Asset hashing**: Astro already generates content-hashed filenames for JS/CSS (e.g., `global.E-nqILv5.css`), which provides automatic cache busting for those assets
+4. **Static site**: The entire site rebuilds on each deploy, so most content changes anyway
+5. **Low cost**: Cloudflare allows frequent cache purges without significant performance impact
+
+For this use case (static site with content-hashed assets), `purge_everything` provides the best balance of simplicity and reliability.
 
 For most use cases, `purge_everything` is simplest and most reliable.
 
