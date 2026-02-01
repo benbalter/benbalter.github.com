@@ -12,7 +12,7 @@ const bioParagraphs = getBioParagraphs(aboutContent);
 ---
 
 <PageLayout title={title} description={description}>
-  <div class="float-end ms-3 mb-2 w-25">
+  <div class="float-md-end ms-md-3 mb-3 mx-auto d-block d-md-inline w-50 w-md-25">
     <a href={`${siteConfig.githubRepoUrl}/raw/master/assets/img/headshot.jpg`}>
       <Image src={headshotImage} alt={`${siteConfig.author} headshot`} width={250} height={250} class="img-fluid rounded" />
     </a>
@@ -28,15 +28,3 @@ const bioParagraphs = getBioParagraphs(aboutContent);
 
   <ContactLinks />
 </PageLayout>
-
-<style>
-  /* Minimal custom styles - Bootstrap utilities handle layout */
-  @media (max-width: 768px) {
-    .float-end {
-      float: none !important;
-      width: 50% !important;
-      margin: 0 auto 1rem !important;
-      display: block;
-    }
-  }
-</style>
