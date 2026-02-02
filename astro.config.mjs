@@ -6,10 +6,12 @@ import compress from 'astro-compress';
 import redirectFrom from 'astro-redirect-from';
 import remarkEmoji from 'remark-emoji';
 import remarkGfm from 'remark-gfm';
+import remarkSmartypants from 'remark-smartypants';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
 import rehypeUnwrapImages from 'rehype-unwrap-images';
+import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 import { remarkGitHubMentions } from './src/lib/remark-github-mentions.ts';
 import { getSlug } from './src/utils/get-slug.ts';
 import { rehypeRelativeUrls } from './src/lib/rehype-relative-urls.ts';
@@ -154,12 +156,14 @@ export default defineConfig({
       remarkPlugins: [
         remarkGfm,
         remarkEmoji,
+        remarkSmartypants,
         remarkGitHubMentions,
       ],
       rehypePlugins: [
         rehypeSlug,
         rehypeAutolinkHeadingsConfig,
         rehypeUnwrapImages,
+        rehypeAccessibleEmojis,
         rehypeRelativeUrls,
         rehypeExternalLinksConfig,
       ],
@@ -225,12 +229,13 @@ export default defineConfig({
       },
       wrap: true,
     },
-    // Enable smartypants for typographic punctuation
-    smartypants: true,
+    // Disable built-in smartypants since remark-smartypants handles typography
+    smartypants: false,
     // Remark plugins (for markdown processing)
     remarkPlugins: [
       remarkGfm,
       remarkEmoji,
+      remarkSmartypants,
       remarkGitHubMentions,
     ],
     // Rehype plugins (for HTML processing)
@@ -238,6 +243,7 @@ export default defineConfig({
       rehypeSlug,
       rehypeAutolinkHeadingsConfig,
       rehypeUnwrapImages,
+      rehypeAccessibleEmojis,
       rehypeRelativeUrls,
       rehypeExternalLinksConfig,
     ],
