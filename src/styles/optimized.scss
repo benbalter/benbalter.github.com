@@ -361,7 +361,8 @@ abbr[data-bs-original-title] {
     background-size: cover;
     background-position: top left;
     height: 400px;
-    border-radius: var(--bs-border-radius-lg);
+    border-top-left-radius: var(--bs-border-radius-lg);
+    border-top-right-radius: var(--bs-border-radius-lg);
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
 
