@@ -267,8 +267,8 @@ export default defineConfig({
       },
       wrap: true,
     },
-    // Disable built-in smartypants since remark-smartypants handles typography
-    smartypants: false,
+    // Enable smartypants for typographic punctuation (quotes and apostrophes)
+    smartypants: true,
     // Remark plugins (for markdown processing)
     remarkPlugins: [
       remarkGfm,
