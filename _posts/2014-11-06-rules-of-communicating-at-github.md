@@ -64,7 +64,7 @@ In practice, that means three things:
 
 In biz speak, we call them "action items". In GitHub speak, [we call them task lists](https://github.com/blog/1375%0A-task-lists-in-gfm-issues-pulls-comments). The intent is the same: make it explicit what needs to be done, and who's responsible for doing it. Curating an always-up-to-date task list at the top of an issue is a great way to clear up long or complex issues, or to create meta-issues for tracking large, multi-issue projects.
 
-In practice, link each action item to the associated issue, describe the task, and [@mention](https://github.com/blog/821-mention-somebody-they-re-notified) the person who's responsible. If you use the proper syntax, GitHub will render the task lists as checkable tasks, and various views will automatically show their completion.
+In practice, link each action item to the associated issue, describe the task, and [mention the person who's responsible](https://github.com/blog/821-mention-somebody-they-re-notified). If you use the proper syntax, GitHub will render the task lists as checkable tasks, and various views will automatically show their completion.
 
 ## 7. Issues are organization-wide todos
 
