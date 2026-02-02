@@ -107,12 +107,13 @@ test.describe('Footer Contact Links', () => {
     await page.goto('/');
     await waitForPageReady(page);
     
-    // Wait for FontAwesome to process icons on initial load
+    // Wait for page to stabilize
     await page.waitForTimeout(200);
     
-    // Check that icons are present on initial load (FontAwesome converts <i> to <svg>)
+    // Check that SVG icons are present on initial load
+    // We use inline SVGs instead of FontAwesome for better performance
     // Footer uses ul.contact-links for accessible markup
-    const initialIcons = page.locator('footer ul.contact-links svg[data-icon]');
+    const initialIcons = page.locator('footer ul.contact-links svg.icon');
     const initialIconCount = await initialIcons.count();
     expect(initialIconCount).toBe(5); // Email, vCard, Bluesky, LinkedIn, GitHub
     
@@ -122,11 +123,11 @@ test.describe('Footer Contact Links', () => {
     await page.waitForURL('**/about/');
     await waitForPageReady(page);
     
-    // Wait a moment for FontAwesome to process icons after navigation
+    // Wait a moment for page to stabilize after navigation
     await page.waitForTimeout(200);
     
     // Check that footer contact link icons still render after navigation
-    const iconsAfterNav = page.locator('footer ul.contact-links svg[data-icon]');
+    const iconsAfterNav = page.locator('footer ul.contact-links svg.icon');
     const iconCountAfterNav = await iconsAfterNav.count();
     expect(iconCountAfterNav).toBe(5);
     
@@ -141,11 +142,11 @@ test.describe('Footer Contact Links', () => {
     await page.waitForURL('**/contact/');
     await waitForPageReady(page);
     
-    // Wait a moment for FontAwesome to process icons after second navigation
+    // Wait a moment for page to stabilize after second navigation
     await page.waitForTimeout(200);
     
     // Check icons still work after second navigation
-    const iconsAfterSecondNav = page.locator('footer ul.contact-links svg[data-icon]');
+    const iconsAfterSecondNav = page.locator('footer ul.contact-links svg.icon');
     const iconCountAfterSecondNav = await iconsAfterSecondNav.count();
     expect(iconCountAfterSecondNav).toBe(5);
     

@@ -5,9 +5,12 @@
  * Displays social media contact links with icons.
  * Used on About and Contact pages to avoid duplication.
  * Uses Bootstrap utility classes for maintainability.
+ * 
+ * Uses inline SVG icons via the Icon component for better performance.
  */
 
 import { siteConfig, contactLinks } from '../config';
+import Icon from './Icon.astro';
 ---
 
 <div class="contact-links text-center mt-4">
@@ -17,7 +20,7 @@ import { siteConfig, contactLinks } from '../config';
         <a href={link.url} rel="me noopener" target="_blank" class="text-decoration-none text-body-secondary">
           <div class="row justify-content-center mb-3 align-items-center">
             <div class="col-md-12 col-2 offset-3 offset-md-0 text-center">
-              <i class={`${link.icon}`} aria-hidden="true"></i>
+              <Icon name={link.icon} />
             </div>
             <div class="col-md-12 col-6 text-md-center text-start">
               {link.name}

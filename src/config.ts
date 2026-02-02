@@ -63,25 +63,38 @@ export const siteConfig = {
 } as const;
 
 // Contact links (used on About and Contact pages)
+// icon: Simple icon name for the Icon component (e.g., 'envelope', 'github')
 export const contactLinks: ContactLink[] = [
-  { name: 'Email', url: `mailto:${siteConfig.email}`, icon: 'fa-solid fa-envelope' },
-  { name: 'Add to contacts', url: '/vcard.vcf', icon: 'fa-solid fa-address-card' },
-  { name: 'Bluesky', url: 'https://bsky.app/profile/ben.balter.com', icon: 'fa-brands fa-bluesky' },
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/benbalter', icon: 'fa-brands fa-linkedin' },
-  { name: 'GitHub', url: 'https://github.com/benbalter', icon: 'fa-brands fa-github' },
+  { name: 'Email', url: `mailto:${siteConfig.email}`, icon: 'envelope' },
+  { name: 'Add to contacts', url: '/vcard.vcf', icon: 'address-card' },
+  { name: 'Bluesky', url: 'https://bsky.app/profile/ben.balter.com', icon: 'bluesky' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/benbalter', icon: 'linkedin' },
+  { name: 'GitHub', url: 'https://github.com/benbalter', icon: 'github' },
 ];
 
 // Social links for rel=me verification (used in BaseLayout)
+// icon: Simple icon name for the Icon component (e.g., 'envelope', 'github')
 export const socialLinks: SocialLink[] = [
-  { name: 'Twitter', url: 'https://twitter.com/BenBalter', icon: 'fab fa-twitter' },
-  { name: 'LinkedIn', url: 'https://linkedin.com/in/BenBalter', icon: 'fab fa-linkedin' },
-  { name: 'GitHub', url: 'https://github.com/benbalter', icon: 'fab fa-github' },
-  { name: 'Mastodon', url: 'https://mastodon.social/@benbalter', icon: 'fab fa-mastodon' },
-  { name: 'Bluesky', url: 'https://bsky.app/profile/ben.balter.com', icon: 'fas fa-cloud' },
+  { name: 'Twitter', url: 'https://twitter.com/BenBalter', icon: 'twitter' },
+  { name: 'LinkedIn', url: 'https://linkedin.com/in/BenBalter', icon: 'linkedin' },
+  { name: 'GitHub', url: 'https://github.com/benbalter', icon: 'github' },
+  { name: 'Mastodon', url: 'https://mastodon.social/@benbalter', icon: 'mastodon' },
+  { name: 'Bluesky', url: 'https://bsky.app/profile/ben.balter.com', icon: 'bluesky' },
 ];
 
 // Footer navigation links
 export const footerLinks: FooterLink[] = [
   { title: 'Other Recommended Reading', url: '/other-recommended-reading/' },
   { title: 'Fine Print', url: '/fine-print/' },
+];
+
+// Popular posts - slugs of posts to feature in the "Popular Posts" section
+// These are commonly referenced posts based on site analytics and cross-references
+export const popularPostSlugs: string[] = [
+  '2015-03-17-open-source-best-practices-external-engagement',
+  '2014-11-06-rules-of-communicating-at-github',
+  '2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project',
+  '2015-11-23-why-open-source',
+  '2016-10-31-eight-things-i-wish-i-knew-my-first-week-at-github',
+  '2023-01-10-manage-like-an-engineer',
 ];

@@ -1,8 +1,8 @@
 // Optimized stylesheet for Astro build
 // This imports only necessary Bootstrap components to reduce bundle size
 
-// Font Awesome SVG Core styles (required for SVG icons to display)
-@import '@fortawesome/fontawesome-svg-core/styles.css';
+// Note: FontAwesome has been replaced with inline SVG icons (Icon.astro component)
+// This significantly reduces JavaScript bundle size (~77KB savings)
 
 // 1. Include functions first (required for everything)
 @import 'bootstrap/scss/functions';
