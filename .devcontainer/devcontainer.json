@@ -11,6 +11,9 @@
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     "ghcr.io/devcontainers/features/git:1": {
       "version": "latest"
+    },
+    "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+      "packages": "libvips-dev"
     }
   },
   "customizations": {
@@ -69,7 +72,7 @@
     }
   },
   "onCreateCommand": "script/bootstrap",
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y libvips-dev && ./node_modules/.bin/playwright install --with-deps chromium",
+  "postCreateCommand": "./node_modules/.bin/playwright install --with-deps chromium",
   "postStartCommand": "echo '🚀 Devcontainer ready! Run \"npm run astro:dev\" to start the Astro development server.'",
   "forwardPorts": [4321],
   "portsAttributes": {
@@ -78,6 +81,5 @@
       "onAutoForward": "notify"
     }
   },
-  "remoteUser": "vscode",
-  "updateContentCommand": "npm install && bundle install"
+  "remoteUser": "vscode"
 }
