@@ -85,3 +85,14 @@ export const footerLinks: FooterLink[] = [
   { title: 'Other Recommended Reading', url: '/other-recommended-reading/' },
   { title: 'Fine Print', url: '/fine-print/' },
 ];
+
+// Popular posts - slugs of posts to feature in the "Popular Posts" section
+// These are commonly referenced posts based on site analytics and cross-references
+export const popularPostSlugs: string[] = [
+  '2015-03-17-open-source-best-practices-external-engagement',
+  '2014-11-06-rules-of-communicating-at-github',
+  '2017-11-10-twelve-tips-for-growing-communities-around-your-open-source-project',
+  '2015-11-23-why-open-source',
+  '2016-10-31-eight-things-i-wish-i-knew-my-first-week-at-github',
+  '2023-01-10-manage-like-an-engineer',
+];
