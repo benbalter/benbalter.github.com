@@ -226,6 +226,7 @@ code {
     font-size: 0.9em; // Increased from 0.875em for better readability
     padding: 0.2em 0.5em; // Increased horizontal padding from 0.4em to 0.5em
     background-color: var(--bs-secondary-bg);
+    color: var(--bs-body-color); // Ensure sufficient contrast with background
     border-radius: 0.3rem; // Increased from 0.25rem for softer appearance
     font-feature-settings: normal; // Disable ligatures in code
     border: 1px solid var(--bs-border-color); // Add subtle border to inline code
