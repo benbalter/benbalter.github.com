@@ -3,7 +3,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { getPostUrl, getPostUrlOrNull, getDateFromSlug, formatPostDate, formatResumeDate } from './post-urls';
+import { getPostUrl, getPostUrlOrNull, getDateFromSlug, formatPostDate, formatResumeDate, formatISODate } from './post-urls';
 
 describe('getPostUrl', () => {
   it('should generate correct URL from valid slug', () => {
@@ -238,5 +238,64 @@ describe('formatResumeDate', () => {
     const formatted = formatResumeDate('invalid-date');
     
     expect(formatted).toBeNull();
+  });
+});
+
+describe('formatISODate', () => {
+  it('should format date as "YYYY-MM-DD"', () => {
+    const date = new Date(2024, 2, 15); // March 15, 2024
+    const formatted = formatISODate(date);
+    
+    expect(formatted).toBe('2024-03-15');
+  });
+
+  it('should handle different dates correctly', () => {
+    const testCases = [
+      { date: new Date(2024, 0, 1), expected: '2024-01-01' },
+      { date: new Date(2024, 11, 31), expected: '2024-12-31' },
+      { date: new Date(2023, 5, 15), expected: '2023-06-15' },
+    ];
+
+    testCases.forEach(({ date, expected }) => {
+      expect(formatISODate(date)).toBe(expected);
+    });
+  });
+
+  it('should zero-pad single-digit months and days', () => {
+    const testCases = [
+      { date: new Date(2024, 0, 1), expected: '2024-01-01' }, // January 1
+      { date: new Date(2024, 8, 5), expected: '2024-09-05' }, // September 5
+    ];
+
+    testCases.forEach(({ date, expected }) => {
+      expect(formatISODate(date)).toBe(expected);
+    });
+  });
+
+  it('should be consistent with getDateFromSlug for dates parsed from slugs', () => {
+    // This test ensures that a date parsed from a slug produces the same
+    // ISO date string as the original slug date, avoiding timezone issues
+    const testSlugs = [
+      '2024-01-01-new-year-post',
+      '2023-12-31-year-end-post',
+      '2024-06-15-mid-year-post',
+    ];
+
+    testSlugs.forEach(slug => {
+      const date = getDateFromSlug(slug);
+      const isoDate = formatISODate(date);
+      // Extract expected date from slug
+      const expectedDate = slug.substring(0, 10);
+      expect(isoDate).toBe(expectedDate);
+    });
+  });
+
+  it('should use local date components, not UTC', () => {
+    // Create a date using local components
+    const date = new Date(2024, 0, 1); // January 1, 2024 in local timezone
+    const isoDate = formatISODate(date);
+    
+    // Should always be 2024-01-01 regardless of timezone
+    expect(isoDate).toBe('2024-01-01');
   });
 });
