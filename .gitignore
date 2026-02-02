@@ -59,3 +59,4 @@ coverage/
 .env.test.local
 .env.production.local
 screenshots/
+.lighthouseci/
