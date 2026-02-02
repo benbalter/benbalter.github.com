@@ -88,9 +88,11 @@ describe('contactLinks', () => {
     expect(emailLink?.url).toContain('mailto:');
   });
 
-  it('should have FontAwesome icons', () => {
+  it('should have icon names for the Icon component', () => {
+    // Icons are now simple names (e.g., 'envelope', 'github') used by the Icon component
+    const validIconNames = ['envelope', 'address-card', 'bluesky', 'linkedin', 'github', 'twitter', 'mastodon', 'rss', 'clock', 'cloud'];
     contactLinks.forEach(link => {
-      expect(link.icon).toMatch(/^fa-(solid|brands|regular)\s+fa-/);
+      expect(validIconNames).toContain(link.icon);
     });
   });
 });
