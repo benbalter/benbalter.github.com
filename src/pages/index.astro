@@ -25,7 +25,7 @@ const regularPosts = posts.slice(3);
 
 // Get popular posts based on configured slugs
 const popularPosts = popularPostSlugs
-  .map(slug => allPosts.find(post => post.slug === slug))
+  .map(slug => allPosts.find((post: CollectionEntry<'posts'>) => post.slug === slug))
   .filter((post): post is CollectionEntry<'posts'> => post !== undefined);
 
 // Helper function to get post metadata
