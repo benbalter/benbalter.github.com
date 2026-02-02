@@ -10,6 +10,7 @@
 import BaseLayout from './BaseLayout.astro';
 import Tldr from '../components/Tldr.astro';
 import MiniBio from '../components/MiniBio.astro';
+import Icon from '../components/Icon.astro';
 import { siteConfig } from '../config';
 import { calculateReadingTime } from '../utils/reading-time';
 import { generateBlogPostingSchema, schemaToJsonLd } from '../utils/structured-data';
@@ -83,7 +84,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
           <div class="text-body-secondary small mb-4">
             {readingTime > 0 && (
               <div>
-                <i class="far fa-clock"></i> {readingTime} min read
+                <Icon name="clock" /> {readingTime} min read
               </div>
             )}
           </div>

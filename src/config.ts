@@ -63,21 +63,23 @@ export const siteConfig = {
 } as const;
 
 // Contact links (used on About and Contact pages)
+// icon: Simple icon name for the Icon component (e.g., 'envelope', 'github')
 export const contactLinks: ContactLink[] = [
-  { name: 'Email', url: `mailto:${siteConfig.email}`, icon: 'fa-solid fa-envelope' },
-  { name: 'Add to contacts', url: '/vcard.vcf', icon: 'fa-solid fa-address-card' },
-  { name: 'Bluesky', url: 'https://bsky.app/profile/ben.balter.com', icon: 'fa-brands fa-bluesky' },
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/benbalter', icon: 'fa-brands fa-linkedin' },
-  { name: 'GitHub', url: 'https://github.com/benbalter', icon: 'fa-brands fa-github' },
+  { name: 'Email', url: `mailto:${siteConfig.email}`, icon: 'envelope' },
+  { name: 'Add to contacts', url: '/vcard.vcf', icon: 'address-card' },
+  { name: 'Bluesky', url: 'https://bsky.app/profile/ben.balter.com', icon: 'bluesky' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/benbalter', icon: 'linkedin' },
+  { name: 'GitHub', url: 'https://github.com/benbalter', icon: 'github' },
 ];
 
 // Social links for rel=me verification (used in BaseLayout)
+// icon: Simple icon name for the Icon component (e.g., 'envelope', 'github')
 export const socialLinks: SocialLink[] = [
-  { name: 'Twitter', url: 'https://twitter.com/BenBalter', icon: 'fab fa-twitter' },
-  { name: 'LinkedIn', url: 'https://linkedin.com/in/BenBalter', icon: 'fab fa-linkedin' },
-  { name: 'GitHub', url: 'https://github.com/benbalter', icon: 'fab fa-github' },
-  { name: 'Mastodon', url: 'https://mastodon.social/@benbalter', icon: 'fab fa-mastodon' },
-  { name: 'Bluesky', url: 'https://bsky.app/profile/ben.balter.com', icon: 'fas fa-cloud' },
+  { name: 'Twitter', url: 'https://twitter.com/BenBalter', icon: 'twitter' },
+  { name: 'LinkedIn', url: 'https://linkedin.com/in/BenBalter', icon: 'linkedin' },
+  { name: 'GitHub', url: 'https://github.com/benbalter', icon: 'github' },
+  { name: 'Mastodon', url: 'https://mastodon.social/@benbalter', icon: 'mastodon' },
+  { name: 'Bluesky', url: 'https://bsky.app/profile/ben.balter.com', icon: 'bluesky' },
 ];
 
 // Footer navigation links

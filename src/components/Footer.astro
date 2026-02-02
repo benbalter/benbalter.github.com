@@ -5,9 +5,13 @@
  * Site-wide footer with navigation links and social connections.
  * Uses Bootstrap nav utilities and extends with minimal custom styles.
  * Matches the structure and styling of the Jekyll footer.
+ * 
+ * Uses inline SVG icons via the Icon component for better performance
+ * (eliminates the ~77KB FontAwesome JS bundle).
  */
 
 import { footerLinks, contactLinks } from '../config';
+import Icon from './Icon.astro';
 ---
 
 <footer class="mt-5 pt-4 border-top border-2" transition:persist>
@@ -23,7 +27,7 @@ import { footerLinks, contactLinks } from '../config';
               target="_blank"
               rel="noopener noreferrer me"
             >
-              <i class={link.icon} title={link.name}></i>
+              <Icon name={link.icon} title={link.name} />
             </a>
           </li>
         ))}
@@ -40,7 +44,7 @@ import { footerLinks, contactLinks } from '../config';
         
         <li class="nav-item">
           <a href="/feed.xml" aria-label="RSS Feed" class="nav-link">
-            <i class="fas fa-rss" title="RSS Feed"></i>
+            <Icon name="rss" title="RSS Feed" />
           </a>
         </li>
       </ul>
@@ -76,5 +80,3 @@ import { footerLinks, contactLinks } from '../config';
     }
   }
 </style>
-
-<!-- Note: FontAwesome icons require the FontAwesome library to be loaded in the layout -->
