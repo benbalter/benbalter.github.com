@@ -25,7 +25,9 @@
         "uses-long-cache-ttl": "off",
         "cumulative-layout-shift": "warn",
         "identical-links-same-purpose": "warn",
-        "total-byte-weight": "warn"
+        "total-byte-weight": "warn",
+        "network-dependency-tree-insight": "warn",
+        "image-delivery-insight": "warn"
       }
     },
     "upload": {

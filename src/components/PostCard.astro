@@ -41,9 +41,9 @@ const { title, url, date, isoDate, description, readingTime } = Astro.props;
 
 <article class="card border rounded-3 h-100 post-card">
   <div class="card-body p-3">
-    <h4 class="card-title h5 mb-2">
+    <h3 class="card-title h5 mb-2">
       <a href={url} class="text-body text-decoration-none stretched-link">{title}</a>
-    </h4>
+    </h3>
     <div class="text-body-secondary small mb-2">
       <time datetime={isoDate}>{date}</time>
       <span class="mx-1">•</span>
