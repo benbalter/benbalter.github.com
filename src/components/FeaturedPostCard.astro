@@ -25,6 +25,7 @@
  */
 
 import { formatReadingTime } from '../utils/reading-time';
+import { stripMarkdown } from '../utils/strip-markdown';
 
 interface Props {
   title: string;
@@ -49,7 +50,7 @@ const { title, url, date, isoDate, description, readingTime } = Astro.props;
       <span>{formatReadingTime(readingTime)}</span>
     </div>
     {description && (
-      <p class="card-text text-body-secondary mb-0">{description}</p>
+      <p class="card-text text-body-secondary mb-0">{stripMarkdown(description)}</p>
     )}
   </div>
 </article>
