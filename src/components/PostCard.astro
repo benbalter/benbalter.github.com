@@ -1,0 +1,83 @@
+---
+/**
+ * PostCard Component
+ * 
+ * Display a blog post with title, date, description, and reading time in a card format.
+ * Uses Bootstrap card component and utility classes for styling with hover effects.
+ * 
+ * Props:
+ * - title: Post title
+ * - url: Post URL
+ * - date: Post date (formatted string for display)
+ * - isoDate: Post date in ISO 8601 format (YYYY-MM-DD) for datetime attribute
+ * - description: Post description/excerpt
+ * - readingTime: Reading time in minutes
+ * 
+ * Usage:
+ * <PostCard 
+ *   title="My Post" 
+ *   url="/2024/01/01/my-post/"
+ *   date="January 1, 2024"
+ *   isoDate="2024-01-01"
+ *   description="A brief description"
+ *   readingTime={5}
+ * />
+ */
+
+import { formatReadingTime } from '../utils/reading-time';
+
+interface Props {
+  title: string;
+  url: string;
+  date: string;
+  isoDate: string;
+  description?: string;
+  readingTime: number;
+}
+
+const { title, url, date, isoDate, description, readingTime } = Astro.props;
+---
+
+<article class="card border rounded-3 h-100 post-card">
+  <div class="card-body p-3">
+    <h4 class="card-title h5 mb-2">
+      <a href={url} class="text-body text-decoration-none stretched-link">{title}</a>
+    </h4>
+    <div class="text-body-secondary small mb-2">
+      <time datetime={isoDate}>{date}</time>
+      <span class="mx-1">•</span>
+      <span>{formatReadingTime(readingTime)}</span>
+    </div>
+    {description && (
+      <p class="card-text text-body-secondary mb-0 small">{description}</p>
+    )}
+  </div>
+</article>
+
+<style>
+  /* Minimal custom styles for hover effects */
+  .post-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .post-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Dark mode box-shadow adjustment */
+  @media (prefers-color-scheme: dark) {
+    .post-card:hover {
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+    }
+  }
+  
+  /* Ensure link covers entire card for better UX */
+  .post-card .stretched-link {
+    transition: color 0.2s;
+  }
+  
+  .post-card:hover .stretched-link {
+    color: var(--bs-primary) !important;
+  }
+</style>

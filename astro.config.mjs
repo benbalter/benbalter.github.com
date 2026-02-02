@@ -140,8 +140,10 @@ export default defineConfig({
     format: 'directory',
     // Assets directory
     assets: 'assets',
-    // Enable inlining of small assets for better performance
-    inlineStylesheets: 'auto',
+    // Inline all stylesheets into HTML to eliminate render-blocking CSS requests
+    // This improves Speed Index by allowing content to paint faster
+    // Trade-off: Larger HTML files but faster initial paint
+    inlineStylesheets: 'always',
   },
   
   // Server configuration for development
