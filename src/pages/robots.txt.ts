@@ -11,10 +11,12 @@ import type { APIRoute } from 'astro';
 const disallowedPaths = [
   '/2021-analysis-of-federal-dotgov-domains/',
   '/404.html',
+  '/assets/',
   '/behind-github-geojson/',
   '/collaborative-policymaking/',
   '/digital-government-strategy/',
   '/digital-strategy-reporting/',
+  '/dist-astro/',
   '/dont-build-an-api/',
   '/fine-print/',
   '/government-glossary/',
