@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
-import { siteConfig } from '../config';
+import { siteConfig, popularPostSlugs } from '../config';
 import { getPostUrl, getDateFromSlug, formatPostDate, formatISODate } from '../utils/post-urls';
 import { calculateReadingTime } from '../utils/reading-time';
 import FeaturedPostCard from '../components/FeaturedPostCard.astro';
@@ -22,6 +22,22 @@ const posts: CollectionEntry<'posts'>[] = allPosts.sort((a: CollectionEntry<'pos
 // Split into featured (top 3) and regular posts
 const featuredPosts = posts.slice(0, 3);
 const regularPosts = posts.slice(3);
+
+// Get popular posts based on configured slugs
+const popularPosts = popularPostSlugs
+  .map(slug => allPosts.find((post: CollectionEntry<'posts'>) => post.slug === slug))
+  .filter((post): post is CollectionEntry<'posts'> => post !== undefined);
+
+// Helper function to get post metadata
+function getPostMetadata(post: CollectionEntry<'posts'>) {
+  const postDate = getDateFromSlug(post.slug);
+  return {
+    postUrl: getPostUrl(post.slug),
+    date: formatPostDate(postDate),
+    isoDate: formatISODate(postDate),
+    readingTime: calculateReadingTime(post.body),
+  };
+}
 ---
 
 <BaseLayout description={description} hero={true}>
@@ -31,16 +47,38 @@ const regularPosts = posts.slice(3);
       <h2 class="h4 mb-4">Recent Posts</h2>
       <div class="row g-4">
         {featuredPosts.map((post) => {
-          const postDate = getDateFromSlug(post.slug);
-          const postUrl = getPostUrl(post.slug);
-          const readingTime = calculateReadingTime(post.body);
+          const { postUrl, date, isoDate, readingTime } = getPostMetadata(post);
           return (
             <div class="col-12 col-md-6 col-lg-4">
               <FeaturedPostCard
                 title={post.data.title}
                 url={postUrl}
-                date={formatPostDate(postDate)}
-                isoDate={formatISODate(postDate)}
+                date={date}
+                isoDate={isoDate}
+                description={post.data.description}
+                readingTime={readingTime}
+              />
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  )}
+
+  <!-- Popular Posts Section -->
+  {popularPosts.length > 0 && (
+    <section class="mb-5">
+      <h2 class="h4 mb-4">Popular Posts</h2>
+      <div class="row g-4">
+        {popularPosts.map((post) => {
+          const { postUrl, date, isoDate, readingTime } = getPostMetadata(post);
+          return (
+            <div class="col-12 col-md-6 col-lg-4">
+              <FeaturedPostCard
+                title={post.data.title}
+                url={postUrl}
+                date={date}
+                isoDate={isoDate}
                 description={post.data.description}
                 readingTime={readingTime}
               />
@@ -57,16 +95,14 @@ const regularPosts = posts.slice(3);
       <h2 class="h5 text-body-secondary mb-3">Older Posts</h2>
       <div class="row g-3">
         {regularPosts.map((post) => {
-          const postDate = getDateFromSlug(post.slug);
-          const postUrl = getPostUrl(post.slug);
-          const readingTime = calculateReadingTime(post.body);
+          const { postUrl, date, isoDate, readingTime } = getPostMetadata(post);
           return (
             <div class="col-12 col-md-6">
               <PostCard
                 title={post.data.title}
                 url={postUrl}
-                date={formatPostDate(postDate)}
-                isoDate={formatISODate(postDate)}
+                date={date}
+                isoDate={isoDate}
                 description={post.data.description}
                 readingTime={readingTime}
               />
