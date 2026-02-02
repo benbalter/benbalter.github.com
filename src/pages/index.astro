@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { siteConfig } from '../config';
-import { getPostUrl, getDateFromSlug, formatPostDate } from '../utils/post-urls';
+import { getPostUrl, getDateFromSlug, formatPostDate, formatISODate } from '../utils/post-urls';
 import { calculateReadingTime } from '../utils/reading-time';
 import FeaturedPostCard from '../components/FeaturedPostCard.astro';
 import PostCard from '../components/PostCard.astro';
@@ -40,6 +40,7 @@ const regularPosts = posts.slice(3);
                 title={post.data.title}
                 url={postUrl}
                 date={formatPostDate(postDate)}
+                isoDate={formatISODate(postDate)}
                 description={post.data.description}
                 readingTime={readingTime}
               />
@@ -53,7 +54,7 @@ const regularPosts = posts.slice(3);
   <!-- Older Posts Section -->
   {regularPosts.length > 0 && (
     <section>
-      <h2 class="h5 text-body-secondary mb-3">Older Posts</h2>
+      <h3 class="h5 text-body-secondary mb-3">Older Posts</h3>
       <div class="row g-3">
         {regularPosts.map((post) => {
           const postDate = getDateFromSlug(post.slug);
@@ -65,6 +66,7 @@ const regularPosts = posts.slice(3);
                 title={post.data.title}
                 url={postUrl}
                 date={formatPostDate(postDate)}
+                isoDate={formatISODate(postDate)}
                 description={post.data.description}
                 readingTime={readingTime}
               />
