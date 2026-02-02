@@ -3,7 +3,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { siteConfig, contactLinks, socialLinks, footerLinks } from './config';
+import { siteConfig, contactLinks, socialLinks, footerLinks, popularPostSlugs } from './config';
 
 describe('siteConfig', () => {
   it('should have basic site information', () => {
@@ -149,6 +149,29 @@ describe('footerLinks', () => {
   it('should have URLs starting with /', () => {
     footerLinks.forEach(link => {
       expect(link.url).toMatch(/^\//);
+    });
+  });
+});
+
+describe('popularPostSlugs', () => {
+  it('should be an array', () => {
+    expect(Array.isArray(popularPostSlugs)).toBe(true);
+  });
+
+  it('should have 6 popular posts', () => {
+    expect(popularPostSlugs.length).toBe(6);
+  });
+
+  it('should contain only strings', () => {
+    popularPostSlugs.forEach(slug => {
+      expect(typeof slug).toBe('string');
+    });
+  });
+
+  it('should have slugs in YYYY-MM-DD-title format', () => {
+    const slugPattern = /^\d{4}-\d{2}-\d{2}-.+$/;
+    popularPostSlugs.forEach(slug => {
+      expect(slug).toMatch(slugPattern);
     });
   });
 });
