@@ -215,10 +215,17 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
   document.addEventListener('DOMContentLoaded', initializeTooltips);
   
   // Initialize after Astro View Transitions navigation (SPA-style navigation)
+  // Use both events for reliable initialization:
+  // - astro:after-swap: fires immediately after DOM swap for fast initialization
+  // - astro:page-load: fires after navigation completes as a reliable fallback
+  // The initializeTooltips function is idempotent (checks for data-tooltip-initialized)
+  // so calling it twice is safe and ensures no race conditions
+  document.addEventListener('astro:after-swap', initializeTooltips);
   document.addEventListener('astro:page-load', initializeTooltips);
   
   // Clean up before Astro View Transitions navigation (for SPAs)
-  document.addEventListener('astro:before-preparation', () => {
+  // Use astro:before-swap for cleanup - it fires right before DOM swap
+  document.addEventListener('astro:before-swap', () => {
     // Hide all active tooltips
     const activeTooltips = (window as any).__tldrActiveTooltips;
     if (activeTooltips) {
