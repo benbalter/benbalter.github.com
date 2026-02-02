@@ -6,6 +6,7 @@ import compress from 'astro-compress';
 import redirectFrom from 'astro-redirect-from';
 import remarkEmoji from 'remark-emoji';
 import remarkGfm from 'remark-gfm';
+import remarkTextr from 'remark-textr';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
@@ -13,6 +14,16 @@ import rehypeUnwrapImages from 'rehype-unwrap-images';
 import { remarkGitHubMentions } from './src/lib/remark-github-mentions.ts';
 import { getSlug } from './src/utils/get-slug.ts';
 import { rehypeRelativeUrls } from './src/lib/rehype-relative-urls.ts';
+
+// Import typography plugins for remark-textr
+import typographicArrows from 'typographic-arrows';
+import typographicCopyright from 'typographic-copyright';
+import typographicEmDashes from 'typographic-em-dashes';
+import typographicEnDashes from 'typographic-en-dashes';
+import typographicMathSymbols from 'typographic-math-symbols';
+import typographicRegisteredTrademark from 'typographic-registered-trademark';
+import typographicSingleSpaces from 'typographic-single-spaces';
+import typographicTrademark from 'typographic-trademark';
 
 // URL patterns for sitemap priority calculation
 const BLOG_POST_PATTERN = /\/\d{4}\/\d{2}\/\d{2}\//;
@@ -50,6 +61,32 @@ const rehypeAutolinkHeadingsConfig = [rehypeAutolinkHeadings, {
     properties: { className: ['anchor-icon'] },
     children: [{ type: 'text', value: '#' }]
   }
+}];
+
+// Typography plugin configuration for remark-textr
+// Transforms ASCII characters into proper typographic symbols:
+// - Arrows: -> → <- ←
+// - Copyright: (c) ©
+// - Em-dashes: --- —
+// - En-dashes: -- –
+// - Math symbols: (+/-) ±
+// - Registered trademark: (r) ®
+// - Single spaces: normalizes multiple spaces
+// - Trademark: (tm) ™
+const remarkTextrConfig = [remarkTextr, {
+  options: {
+    locale: 'en-us',
+  },
+  plugins: [
+    typographicArrows,
+    typographicCopyright,
+    typographicEmDashes,
+    typographicEnDashes,
+    typographicMathSymbols,
+    typographicRegisteredTrademark,
+    typographicSingleSpaces,
+    typographicTrademark,
+  ],
 }];
 
 
@@ -155,6 +192,7 @@ export default defineConfig({
         remarkGfm,
         remarkEmoji,
         remarkGitHubMentions,
+        remarkTextrConfig,
       ],
       rehypePlugins: [
         rehypeSlug,
@@ -225,13 +263,14 @@ export default defineConfig({
       },
       wrap: true,
     },
-    // Enable smartypants for typographic punctuation
+    // Enable smartypants for typographic punctuation (quotes and apostrophes)
     smartypants: true,
     // Remark plugins (for markdown processing)
     remarkPlugins: [
       remarkGfm,
       remarkEmoji,
       remarkGitHubMentions,
+      remarkTextrConfig,
     ],
     // Rehype plugins (for HTML processing)
     rehypePlugins: [

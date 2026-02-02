@@ -239,10 +239,25 @@ markdown: {
   },
   // Enable GitHub Flavored Markdown
   gfm: true,
-  // Enable smartypants for typography
+  // Enable smartypants for typography (quotes and apostrophes)
   smartypants: true,
 }
 ```
+
+### Typography
+
+The site uses `remark-textr` with multiple typography plugins to automatically transform ASCII characters into proper typographic symbols:
+
+- **Arrows**: `->` → `→`, `<-` → `←`
+- **Copyright**: `(c)` → `©`
+- **Em-dashes**: `---` → `—`
+- **En-dashes**: `--` → `–`
+- **Math symbols**: `(+/-)` → `±`
+- **Registered trademark**: `(r)` → `®`
+- **Trademark**: `(tm)` → `™`
+- **Single spaces**: Normalizes multiple spaces
+
+Combined with `smartypants: true`, this provides comprehensive typographic improvements for curly quotes, proper apostrophes, and all the symbols above.
 
 ### Remark and Rehype Plugins
 
