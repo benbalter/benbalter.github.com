@@ -54,7 +54,7 @@ const regularPosts = posts.slice(3);
   <!-- Older Posts Section -->
   {regularPosts.length > 0 && (
     <section>
-      <h3 class="h5 text-body-secondary mb-3">Older Posts</h3>
+      <h2 class="h5 text-body-secondary mb-3">Older Posts</h2>
       <div class="row g-3">
         {regularPosts.map((post) => {
           const postDate = getDateFromSlug(post.slug);
