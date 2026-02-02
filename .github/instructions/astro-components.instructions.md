@@ -42,9 +42,9 @@ const posts = await getCollection('posts');
 
 ### Zero JavaScript by Default
 
-* **DO NOT** use `client:*` directives unless absolutely necessary
-* Astro components are server-rendered by default (no JS shipped)
-* Only add interactivity when required for user experience
+- **DO NOT** use `client:*` directives unless absolutely necessary
+- Astro components are server-rendered by default (no JS shipped)
+- Only add interactivity when required for user experience
 
 ```astro
 <!-- ❌ BAD: Unnecessary client-side rendering -->
@@ -59,10 +59,10 @@ const posts = await getCollection('posts');
 
 ### TypeScript Props
 
-* Define proper TypeScript interfaces for component props
-* Use descriptive prop names
-* Provide default values when appropriate
-* Document complex props with JSDoc comments
+- Define proper TypeScript interfaces for component props
+- Use descriptive prop names
+- Provide default values when appropriate
+- Document complex props with JSDoc comments
 
 ```astro
 ---
@@ -86,11 +86,11 @@ const { title, description, date, url } = Astro.props;
 
 ### Content Collections
 
-* Use Astro's content collections for type-safe content
-* Import from `astro:content` module
-* Leverage Zod schemas defined in `src/content/config.ts`
-* Use `getCollection()` for fetching content
-* Use `getEntry()` for single items
+- Use Astro's content collections for type-safe content
+- Import from `astro:content` module
+- Leverage Zod schemas defined in `src/content/config.ts`
+- Use `getCollection()` for fetching content
+- Use `getEntry()` for single items
 
 ```astro
 ---
@@ -113,10 +113,10 @@ const publishedPosts = await getCollection('posts', ({ data }) => {
 
 ### Layout Components
 
-* Place in `src/layouts/` directory
-* Use `<slot />` for content insertion
-* Include common page structure (head, navigation, footer)
-* Accept props for customization (title, description, etc.)
+- Place in `src/layouts/` directory
+- Use `<slot />` for content insertion
+- Include common page structure (head, navigation, footer)
+- Accept props for customization (title, description, etc.)
 
 ```astro
 ---
@@ -143,10 +143,10 @@ const { title, description } = Astro.props;
 
 ### Page Components
 
-* Place in `src/pages/` directory
-* File-based routing: `src/pages/about.astro` → `/about/`
-* Dynamic routes use brackets: `[slug].astro`
-* Export `getStaticPaths()` for dynamic routes
+- Place in `src/pages/` directory
+- File-based routing: `src/pages/about.astro` → `/about/`
+- Dynamic routes use brackets: `[slug].astro`
+- Export `getStaticPaths()` for dynamic routes
 
 ```astro
 ---
@@ -173,21 +173,21 @@ const { post } = Astro.props;
 
 ### Reusable Components
 
-* Place in `src/components/` directory
-* Keep components focused and single-purpose
-* Use semantic HTML elements
-* Ensure accessibility (ARIA labels, alt text, etc.)
-* Follow existing naming conventions (PascalCase)
+- Place in `src/components/` directory
+- Keep components focused and single-purpose
+- Use semantic HTML elements
+- Ensure accessibility (ARIA labels, alt text, etc.)
+- Follow existing naming conventions (PascalCase)
 
 ## TypeScript Utilities
 
 ### Utility Functions
 
-* Place in `src/utils/` directory
-* Write pure functions when possible
-* Include JSDoc comments for complex logic
-* Add unit tests in `.test.ts` files alongside source
-* Export types and functions explicitly
+- Place in `src/utils/` directory
+- Write pure functions when possible
+- Include JSDoc comments for complex logic
+- Add unit tests in `.test.ts` files alongside source
+- Export types and functions explicitly
 
 ```typescript
 /**
@@ -205,10 +205,10 @@ export function generateSlug(title: string): string {
 
 ### Testing
 
-* Use Vitest for unit testing
-* Place test files alongside source: `utility.ts` → `utility.test.ts`
-* Test edge cases and error conditions
-* Use descriptive test names
+- Use Vitest for unit testing
+- Place test files alongside source: `utility.ts` → `utility.test.ts`
+- Test edge cases and error conditions
+- Use descriptive test names
 
 ```typescript
 import { describe, it, expect } from 'vitest';
@@ -229,10 +229,10 @@ describe('generateSlug', () => {
 
 ### Scoped Styles
 
-* Use `<style>` tag in components for scoped styles
-* Use `lang="scss"` for SCSS support
-* Scoped styles only apply to that component
-* Global styles go in `src/styles/`
+- Use `<style>` tag in components for scoped styles
+- Use `lang="scss"` for SCSS support
+- Scoped styles only apply to that component
+- Global styles go in `src/styles/`
 
 ```astro
 <style lang="scss">
@@ -249,10 +249,10 @@ describe('generateSlug', () => {
 
 ### Global Styles
 
-* Import global SCSS in layout components
-* Use Bootstrap classes where appropriate
-* Follow mobile-first responsive design
-* Maintain consistency with Jekyll styles
+- Import global SCSS in layout components
+- Use Bootstrap classes where appropriate
+- Follow mobile-first responsive design
+- Maintain consistency with Jekyll styles
 
 ```astro
 ---
@@ -264,10 +264,10 @@ import '../styles/optimized.scss';
 
 ### Image Optimization
 
-* Use Astro's `<Image>` component for local images
-* Use `<Picture>` for art direction
-* Specify `width` and `height` attributes
-* Use appropriate formats (WebP, AVIF)
+- Use Astro's `<Image>` component for local images
+- Use `<Picture>` for art direction
+- Specify `width` and `height` attributes
+- Use appropriate formats (WebP, AVIF)
 
 ```astro
 ---
@@ -280,19 +280,19 @@ import myImage from '../assets/image.png';
 
 ### Content Loading
 
-* Fetch data in component frontmatter (runs at build time)
-* Avoid client-side data fetching
-* Use `getCollection()` for efficient content queries
-* Filter and transform data at build time
+- Fetch data in component frontmatter (runs at build time)
+- Avoid client-side data fetching
+- Use `getCollection()` for efficient content queries
+- Filter and transform data at build time
 
 ## Accessibility
 
-* Use semantic HTML elements (`<article>`, `<nav>`, `<main>`, etc.)
-* Include ARIA labels for interactive elements
-* Provide alt text for all images
-* Ensure keyboard navigation works
-* Test with screen readers
-* Respect `prefers-reduced-motion` for animations
+- Use semantic HTML elements (`<article>`, `<nav>`, `<main>`, etc.)
+- Include ARIA labels for interactive elements
+- Provide alt text for all images
+- Ensure keyboard navigation works
+- Test with screen readers
+- Respect `prefers-reduced-motion` for animations
 
 ## Running and Testing
 
@@ -352,9 +352,9 @@ const items = ['one', 'two', 'three'];
 
 ## Resources
 
-* [Astro Documentation](https://docs.astro.build/)
-* [Astro Content Collections](https://docs.astro.build/en/guides/content-collections/)
-* [Astro Best Practices](../docs/ASTRO-BEST-PRACTICES.md)
-* [Astro Architecture](../docs/ASTRO-ARCHITECTURE.md)
+- [Astro Documentation](https://docs.astro.build/)
+- [Astro Content Collections](https://docs.astro.build/en/guides/content-collections/)
+- [Astro Best Practices](../docs/ASTRO-BEST-PRACTICES.md)
+- [Astro Architecture](../docs/ASTRO-ARCHITECTURE.md)
 
 Remember: **Performance and accessibility first**. Keep components lightweight, semantic, and accessible.
