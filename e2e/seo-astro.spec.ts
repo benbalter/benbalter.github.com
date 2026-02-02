@@ -438,6 +438,12 @@ test.describe('Robots.txt', () => {
     const content = await page.textContent('body');
     expect(content).toContain('Disallow: /404.html');
   });
+
+  test('should disallow /dist-astro/', async ({ page }) => {
+    await page.goto('/robots.txt');
+    const content = await page.textContent('body');
+    expect(content).toContain('Disallow: /dist-astro/');
+  });
 });
 
 test.describe('Sitemap', () => {
