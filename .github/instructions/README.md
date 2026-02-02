@@ -33,6 +33,13 @@ excludeAgent: "code-review"  # Optional: exclude specific agents
 
 ### Code
 
+* **`astro-components.instructions.md`**
+  * Applies to: `src/**/*.astro`, `src/**/*.ts` (excluding tests)
+  * Astro component structure and best practices
+  * TypeScript utilities and testing
+  * Content collections usage
+  * Performance and accessibility guidelines
+
 * **`ruby-code.instructions.md`**
   * Applies to: `lib/**/*.rb`, `script/**/*`, `spec/**/*.rb`, `Rakefile`
   * Ruby coding standards

@@ -39,11 +39,49 @@ You specialize in:
 
 **This site uses Static Site Generation (SSG) with minimal client-side JavaScript.**
 
+#### Core Principles
+
 * **Zero JavaScript by default**: Astro ships no JS unless needed
-* **Component Islands**: Use partial hydration for interactive components
-* Use `.astro` files for static components
-* Use TypeScript for type safety in components
-* Leverage Astro's content collections for blog posts
+* **Component Islands**: Use partial hydration for interactive components (avoid `client:*` directives unless necessary)
+* **Type Safety**: Use TypeScript for components and utilities
+* **Content Collections**: Leverage Astro's type-safe content collections with Zod schemas
+* **Performance First**: Pre-render everything at build time
+
+#### Component Guidelines
+
+* Use `.astro` files for component structure
+* Define TypeScript interfaces for props in frontmatter
+* Use `getCollection()` and `getEntry()` for content
+* Keep components focused and reusable
+* Follow semantic HTML and accessibility standards
+* Import global styles from `src/styles/optimized.scss`
+* Write scoped styles with `<style lang="scss">` when needed
+* See `.github/instructions/astro-components.instructions.md` for detailed guidelines
+
+#### TypeScript Utilities
+
+* Place utility functions in `src/utils/`
+* Write pure functions when possible
+* Add JSDoc comments for complex logic
+* Write Vitest unit tests alongside source (`.test.ts`)
+* Export types and functions explicitly
+* Follow existing patterns in `src/utils/` and `src/lib/`
+
+#### Content Collections
+
+```typescript
+// Fetch all posts
+import { getCollection } from 'astro:content';
+const posts = await getCollection('posts');
+
+// Fetch single entry
+const post = await getEntry('posts', 'slug');
+
+// Filter with callback
+const published = await getCollection('posts', ({ data }) => {
+  return data.draft !== true;
+});
+```
 
 ### HTML/Liquid Templates
 
@@ -65,10 +103,12 @@ You specialize in:
 ### Testing
 
 ```bash
-rake test              # Run all tests (RSpec + HTML Proofer)
-bundle exec rspec      # Run Ruby tests only
-npm run test:vitest    # Run Astro unit tests
-npm run test:e2e:astro # Run E2E tests for Astro
+rake test                  # Run all tests (RSpec + HTML Proofer)
+bundle exec rspec          # Run Ruby tests only
+npm run test:vitest        # Run Astro unit tests (TypeScript utilities)
+npm run test:vitest:watch  # Run Vitest in watch mode
+npm run test:e2e           # Run E2E tests for Jekyll
+npm run test:e2e:astro     # Run E2E tests for Astro
 ```
 
 ### Linting
@@ -86,9 +126,10 @@ script/fix-lint        # Auto-fix linting issues (ALWAYS run after markdown lint
 ### Building
 
 ```bash
-rake build             # Build Jekyll site
+rake build             # Build Jekyll site (outputs to _site/)
 npm run webpack        # Build webpack assets
-npm run astro:build    # Build Astro site
+npm run astro:build    # Build Astro site (outputs to dist-astro/)
+npm run astro:check    # Type-check Astro TypeScript
 ```
 
 ### Development Server
@@ -97,6 +138,23 @@ npm run astro:build    # Build Astro site
 rake serve             # Start Jekyll dev server (port 4000)
 npm run astro:dev      # Start Astro dev server (port 4321)
 ```
+
+## Astro-Specific Considerations
+
+When working with Astro code:
+
+1. **Type Checking**: Always run `npm run astro:check` before committing Astro changes
+2. **Content Collections**: Use `src/content/config.ts` schemas for type-safe content
+3. **Build Output**: Astro builds to `dist-astro/` (separate from Jekyll's `_site/`)
+4. **File-based Routing**: Pages in `src/pages/` automatically become routes
+   * `src/pages/about.astro` → `/about/`
+   * `src/pages/[year]/[month]/[day]/[slug].astro` → Dynamic blog post routes
+5. **Dynamic Routes**: Export `getStaticPaths()` for routes with parameters
+6. **Testing Strategy**:
+   * Unit tests (Vitest): Test TypeScript utilities in `src/utils/`
+   * E2E tests (Playwright): Test full page rendering and interactions
+7. **Performance**: Keep JavaScript minimal - avoid `client:*` directives
+8. **Documentation**: Refer to `docs/ASTRO-*.md` files for implementation details
 
 ## Important Considerations
 
@@ -119,14 +177,23 @@ npm run astro:dev      # Start Astro dev server (port 4321)
 
 ## File Structure
 
-* `_posts/`: Blog posts (YYYY-MM-DD-title.md format)
-* `_includes/`: Reusable HTML/Liquid snippets
-* `_layouts/`: Page templates
-* `_data/`: YAML data files
+* `_posts/`: Blog posts (YYYY-MM-DD-title.md format) - Used by both Jekyll and Astro
+* `_includes/`: Reusable HTML/Liquid snippets (Jekyll)
+* `_layouts/`: Page templates (Jekyll)
+* `_data/`: YAML data files (Jekyll)
 * `src/`: Astro source files (experimental)
-* `spec/`: RSpec tests
+  * `src/pages/`: Astro page routes (file-based routing)
+  * `src/layouts/`: Astro layouts (BaseLayout, PostLayout, etc.)
+  * `src/components/`: Astro components (reusable .astro files)
+  * `src/content/`: Content collections (posts/, pages/, resume-positions/)
+  * `src/lib/`: Shared libraries (remark/rehype plugins)
+  * `src/utils/`: Utility functions (with .test.ts files)
+  * `src/styles/`: SCSS styles
+  * `src/scripts/`: Client-side scripts
+* `spec/`: RSpec tests (Jekyll)
+* `e2e/`: Playwright E2E tests (both Jekyll and Astro)
 * `script/`: Build and utility scripts
-* `assets/`: Static assets
+* `assets/`: Static assets (Jekyll)
 
 ## When Making Changes
 
