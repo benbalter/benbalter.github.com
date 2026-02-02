@@ -1,0 +1,81 @@
+---
+/**
+ * FeaturedPostCard Component
+ * 
+ * Display a featured blog post with larger, more prominent styling.
+ * Uses Bootstrap card component with enhanced visual hierarchy.
+ * 
+ * Props:
+ * - title: Post title
+ * - url: Post URL
+ * - date: Post date (formatted string)
+ * - description: Post description/excerpt
+ * - readingTime: Reading time in minutes
+ * 
+ * Usage:
+ * <FeaturedPostCard 
+ *   title="My Featured Post" 
+ *   url="/2024/01/01/my-post/"
+ *   date="January 1, 2024"
+ *   description="A brief description"
+ *   readingTime={5}
+ * />
+ */
+
+interface Props {
+  title: string;
+  url: string;
+  date: string;
+  description?: string;
+  readingTime: number;
+}
+
+const { title, url, date, description, readingTime } = Astro.props;
+---
+
+<article class="card border rounded-3 h-100 featured-post-card">
+  <div class="card-body p-4">
+    <h2 class="card-title h4 mb-3">
+      <a href={url} class="text-body text-decoration-none stretched-link">{title}</a>
+    </h2>
+    <div class="text-body-secondary mb-3">
+      <time datetime={date}>{date}</time>
+      <span class="mx-2">•</span>
+      <span>{readingTime} min read</span>
+    </div>
+    {description && (
+      <p class="card-text text-body-secondary mb-0">{description}</p>
+    )}
+  </div>
+</article>
+
+<style>
+  /* Enhanced styles for featured posts */
+  .featured-post-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: var(--bs-body-bg);
+    border-width: 2px !important;
+  }
+  
+  .featured-post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+    border-color: var(--bs-primary) !important;
+  }
+
+  /* Dark mode box-shadow adjustment */
+  @media (prefers-color-scheme: dark) {
+    .featured-post-card:hover {
+      box-shadow: 0 8px 16px rgba(255, 255, 255, 0.12);
+    }
+  }
+  
+  /* Ensure link covers entire card for better UX */
+  .featured-post-card .stretched-link {
+    transition: color 0.2s;
+  }
+  
+  .featured-post-card:hover .stretched-link {
+    color: var(--bs-primary) !important;
+  }
+</style>
