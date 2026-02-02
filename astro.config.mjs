@@ -65,14 +65,14 @@ const rehypeAutolinkHeadingsConfig = [rehypeAutolinkHeadings, {
 
 // Typography plugin configuration for remark-textr
 // Transforms ASCII characters into proper typographic symbols:
-// - Arrows: -> → <- ←
-// - Copyright: (c) ©
-// - Em-dashes: --- —
-// - En-dashes: -- –
-// - Math symbols: (+/-) ±
-// - Registered trademark: (r) ®
+// - Arrows: -> becomes → and <- becomes ←
+// - Copyright: (c) becomes ©
+// - Em-dashes: --- becomes —
+// - En-dashes: -- becomes –
+// - Math symbols: (+/-) becomes ±
+// - Registered trademark: (r) becomes ®
 // - Single spaces: normalizes multiple spaces
-// - Trademark: (tm) ™
+// - Trademark: (tm) becomes ™
 const remarkTextrConfig = [remarkTextr, {
   options: {
     locale: 'en-us',
