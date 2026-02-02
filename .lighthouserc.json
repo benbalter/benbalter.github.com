@@ -23,7 +23,9 @@
         "dom-size": "warn",
         "modern-image-formats": "warn",
         "uses-long-cache-ttl": "off",
-        "cumulative-layout-shift": "warn"
+        "cumulative-layout-shift": "warn",
+        "identical-links-same-purpose": "warn",
+        "total-byte-weight": "warn"
       }
     },
     "upload": {

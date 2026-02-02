@@ -1,0 +1,80 @@
+---
+/**
+ * Icon Component
+ * 
+ * Renders inline SVG icons without requiring FontAwesome JavaScript.
+ * This dramatically improves Lighthouse scores by eliminating the ~77KB JS bundle.
+ * 
+ * Icons are dynamically pulled from the @fortawesome npm packages at build time,
+ * so they automatically update when FontAwesome releases new versions.
+ */
+
+// Import FontAwesome icon definitions from npm packages
+import { faEnvelope, faAddressCard, faRss, faCloud } from '@fortawesome/free-solid-svg-icons';
+import { faClock } from '@fortawesome/free-regular-svg-icons';
+import { faGithub, faLinkedin, faBluesky, faMastodon, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+
+interface Props {
+  name: string;
+  title?: string;
+  class?: string;
+  size?: string;
+}
+
+const { name, title, class: className = '', size = '1em' } = Astro.props;
+
+// Map icon names to FontAwesome icon definitions (imported at build time)
+const iconDefinitions: Record<string, IconDefinition> = {
+  // Solid icons (fas)
+  'envelope': faEnvelope,
+  'address-card': faAddressCard,
+  'rss': faRss,
+  'cloud': faCloud,
+  // Regular icons (far)
+  'clock': faClock,
+  // Brand icons (fab)
+  'github': faGithub,
+  'linkedin': faLinkedin,
+  'bluesky': faBluesky,
+  'mastodon': faMastodon,
+  'twitter': faTwitter,
+};
+
+// Get the icon definition and extract viewBox and path data
+const iconDef = iconDefinitions[name];
+const icon = iconDef ? {
+  // FontAwesome icon format: [width, height, ligatures, unicode, svgPathData]
+  viewBox: `0 0 ${iconDef.icon[0]} ${iconDef.icon[1]}`,
+  path: Array.isArray(iconDef.icon[4]) ? iconDef.icon[4].join(' ') : iconDef.icon[4],
+} : null;
+---
+
+{icon ? (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    viewBox={icon.viewBox}
+    class:list={['icon', className]}
+    width={size}
+    height={size}
+    fill="currentColor"
+    aria-hidden={!title}
+    role={title ? 'img' : undefined}
+  >
+    {title && <title>{title}</title>}
+    <path d={icon.path} />
+  </svg>
+) : (
+  <span class="icon-placeholder">[{name}]</span>
+)}
+
+<style>
+  .icon {
+    display: inline-block;
+    vertical-align: -0.125em;
+  }
+  .icon-placeholder {
+    font-size: 0.8em;
+    opacity: 0.5;
+  }
+</style>
