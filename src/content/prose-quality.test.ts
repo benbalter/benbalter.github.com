@@ -63,15 +63,16 @@ function permalinkToFilePath(permalink: string): string | null {
 }
 
 // Helper to check if a line has problematic double spaces
-// Rules: Allow 2 spaces after sentence-ending punctuation (.?!:;) but not 3+
+// Rules: Allow 2 spaces after sentence-ending punctuation (.?!) but not 3+
 // Disallow 2+ spaces after any other character
+// This matches the original Jekyll RSpec test behavior
 function hasDoubleSpaceIssues(line: string): boolean {
-  // Check for 2+ spaces after non-punctuation characters
-  if (/[^.?!:;]\s{2,}/.test(line)) {
+  // Check for 2+ spaces after non-punctuation characters (.?!)
+  if (/[^.?!]\s{2,}/.test(line)) {
     return true;
   }
-  // Check for 3+ spaces after sentence-ending punctuation
-  if (/[.?!:;]\s{3,}/.test(line)) {
+  // Check for 3+ spaces after period (original Ruby only checked period)
+  if (/\.\s{3,}/.test(line)) {
     return true;
   }
   return false;
