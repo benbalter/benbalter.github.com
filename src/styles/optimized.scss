@@ -335,8 +335,9 @@ abbr[data-bs-original-title] {
 .footnotes {
     font-size: 0.875rem;
     border-top: 1px solid var(--bs-border-color);
-    padding-top: 1rem;
-    margin-top: 3rem;
+    padding-top: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .footnotes h2 {
