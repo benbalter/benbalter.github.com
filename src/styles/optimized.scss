@@ -431,6 +431,20 @@ article .link-secondary {
     }
 }
 
+// Alert link accessibility fix
+// Bootstrap's default alert-link color (#337ab7) on alert-info background (#cff4fc)
+// has 3.9:1 contrast ratio, below WCAG AA requirement of 4.5:1.
+// Using darker blue #0a58ca provides 4.9:1 contrast ratio (WCAG AA compliant)
+// !important is necessary to override Bootstrap's CSS custom property values
+.alert-info .alert-link {
+    color: #0a58ca !important;
+    
+    &:hover,
+    &:focus {
+        color: #084298 !important;
+    }
+}
+
 // Dark mode link adjustment
 @media (prefers-color-scheme: dark) {
     footer .link-secondary,
