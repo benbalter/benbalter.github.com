@@ -5,21 +5,14 @@
     "ghcr.io/devcontainers/features/node:1": {
       "version": "24"
     },
-    "ghcr.io/devcontainers/features/ruby:1": {
-      "version": "3.4"
-    },
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     "ghcr.io/devcontainers/features/git:1": {
       "version": "latest"
-    },
-    "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-      "packages": "libvips-dev"
     }
   },
   "customizations": {
     "vscode": {
       "extensions": [
-        "shopify.ruby-lsp",
         "yzhang.markdown-all-in-one",
         "davidanson.vscode-markdownlint",
         "redhat.vscode-yaml",
@@ -30,7 +23,6 @@
         "github.copilot-chat",
         "github.vscode-pull-request-github",
         "ms-vscode.vscode-typescript-next",
-        "bradlc.vscode-tailwindcss",
         "eamodio.gitlens",
         "astro-build.astro-vscode"
       ],
@@ -38,10 +30,6 @@
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
           "source.fixAll.eslint": "explicit"
-        },
-        "[ruby]": {
-          "editor.defaultFormatter": "Shopify.ruby-lsp",
-          "editor.formatOnSave": true
         },
         "[markdown]": {
           "editor.defaultFormatter": "vscode.markdown-language-features"
@@ -64,16 +52,14 @@
         },
         "search.exclude": {
           "**/node_modules": true,
-          "**/vendor": true,
-          "**/.bundle": true,
           "dist-astro": true
         }
       }
     }
   },
-  "onCreateCommand": "script/bootstrap",
+  "onCreateCommand": "npm install",
   "postCreateCommand": "./node_modules/.bin/playwright install --with-deps chromium",
-  "postStartCommand": "echo '🚀 Devcontainer ready! Run \"npm run astro:dev\" to start the Astro development server.'",
+  "postStartCommand": "echo '🚀 Devcontainer ready! Run \"npm run dev\" to start the Astro development server.'",
   "forwardPorts": [4321],
   "portsAttributes": {
     "4321": {
