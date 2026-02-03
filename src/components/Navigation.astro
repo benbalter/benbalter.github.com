@@ -122,7 +122,8 @@ const navClasses = hero
   /* Minimal custom styles - most styling comes from Bootstrap */
   .navbar {
     background-color: var(--bs-secondary-bg) !important;
-    border: 1px solid var(--bs-border-color);
+    /* Note: Border is controlled by utility classes (border-top, border-start, border-end, border-bottom) */
+    /* to allow conditional top border based on hero prop */
     /* Override Bootstrap link colors for WCAG AA contrast on bg-secondary-subtle (#e9ecef) */
     --bs-link-color: #{$nav-link-color};
     --bs-link-hover-color: #{$nav-link-hover-color};
