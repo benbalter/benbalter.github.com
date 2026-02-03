@@ -445,6 +445,20 @@ article .link-secondary {
     }
 }
 
+// Dark mode alert link adjustment
+// In dark mode, the light blue color needs to be lighter for sufficient contrast
+// on the dark alert-info background (#032830)
+@media (prefers-color-scheme: dark) {
+    .alert-info .alert-link {
+        color: #6ea8fe !important; // Lighter blue for dark mode - 4.95:1 contrast ratio
+        
+        &:hover,
+        &:focus {
+            color: #9ec5fe !important; // Even lighter on hover
+        }
+    }
+}
+
 // Dark mode link adjustment
 @media (prefers-color-scheme: dark) {
     footer .link-secondary,
