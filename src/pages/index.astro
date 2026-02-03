@@ -44,7 +44,10 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
   <!-- Popular Posts Section -->
   {popularPosts.length > 0 && (
     <section class="mb-5">
-      <h2 class="h4 mb-4">Popular Posts</h2>
+      <h2 class="h4 mb-4 section-header">
+        <span class="section-header-accent"></span>
+        Popular Posts
+      </h2>
       <div class="row g-4">
         {popularPosts.map((post) => {
           const { postUrl, date, isoDate, readingTime } = getPostMetadata(post);
@@ -68,7 +71,10 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
   <!-- Recent Posts Section -->
   {featuredPosts.length > 0 && (
     <section class="mb-5">
-      <h2 class="h4 mb-4">Recent Posts</h2>
+      <h2 class="h4 mb-4 section-header">
+        <span class="section-header-accent"></span>
+        Recent Posts
+      </h2>
       <div class="row g-4">
         {featuredPosts.map((post) => {
           const { postUrl, date, isoDate, readingTime } = getPostMetadata(post);
@@ -92,7 +98,10 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
   <!-- Older Posts Section -->
   {regularPosts.length > 0 && (
     <section>
-      <h2 class="h5 text-body-secondary mb-3">Older Posts</h2>
+      <h2 class="h5 text-body-secondary mb-3 section-header">
+        <span class="section-header-accent"></span>
+        Older Posts
+      </h2>
       <div class="row g-3">
         {regularPosts.map((post) => {
           const { postUrl, date, isoDate, readingTime } = getPostMetadata(post);
@@ -113,3 +122,31 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
     </section>
   )}
 </BaseLayout>
+
+<style>
+  /* Enhanced Section Headers */
+  .section-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .section-header-accent {
+    display: inline-block;
+    width: 4px;
+    height: 1.5em;
+    background: var(--bs-primary);
+    border-radius: 2px;
+    opacity: 0.8;
+  }
+
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .section-header-accent {
+      opacity: 0.9;
+    }
+  }
+</style>

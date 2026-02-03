@@ -18,9 +18,18 @@ const { description } = Astro.props;
 const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a brief summary of longer writing"';
 ---
 
-<div class="lead">
-  <strong><abbr class="initialism" data-tooltip="true" data-tooltip-text={tooltipTitle} role="button" aria-expanded="false" tabindex="0">TL;DR</abbr>:</strong>{' '}
-  <span set:html={marked.parseInline(description)} />
+<div class="tldr-container lead">
+  <div class="tldr-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="M12 16v-4"></path>
+      <path d="M12 8h.01"></path>
+    </svg>
+  </div>
+  <div class="tldr-content">
+    <strong><abbr class="initialism" data-tooltip="true" data-tooltip-text={tooltipTitle} role="button" aria-expanded="false" tabindex="0">TL;DR</abbr>:</strong>{' '}
+    <span set:html={marked.parseInline(description)} />
+  </div>
 </div>
 
 <script>
@@ -252,6 +261,49 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
   :root {
     /* TL;DR tap highlight color, configurable for design system consistency */
     --tldr-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Enhanced TL;DR container with visual prominence */
+  .tldr-container {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    background: linear-gradient(
+      135deg,
+      rgba(var(--bs-primary-rgb, 13, 110, 253), 0.05),
+      rgba(var(--bs-primary-rgb, 13, 110, 253), 0.02)
+    );
+    border-left: 4px solid var(--bs-primary);
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Icon styling */
+  .tldr-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    color: var(--bs-primary);
+    margin-top: 0.125rem;
+  }
+  
+  .tldr-content {
+    flex: 1;
+  }
+  
+  /* Dark mode adjustments */
+  @media (prefers-color-scheme: dark) {
+    .tldr-container {
+      background: linear-gradient(
+        135deg,
+        rgba(var(--bs-primary-rgb, 13, 110, 253), 0.12),
+        rgba(var(--bs-primary-rgb, 13, 110, 253), 0.06)
+      );
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
   }
 
   /* Custom styles for initialism (Bootstrap doesn't include this) */

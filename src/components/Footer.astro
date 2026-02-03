@@ -14,7 +14,7 @@ import { footerLinks, contactLinks } from '../config';
 import Icon from './Icon.astro';
 ---
 
-<footer class="mt-5 pt-4 border-top border-2" transition:persist>
+<footer class="mt-5 pt-4 footer-divider" transition:persist>
   <nav aria-label="Footer navigation" class="footer-nav">
     <div class="d-flex justify-content-between px-2 py-3 mb-4 flex-wrap">
       <ul class="nav contact-links">
@@ -36,14 +36,14 @@ import Icon from './Icon.astro';
       <ul class="nav footer-links">
         {footerLinks.map((link) => (
           <li class="nav-item">
-            <a href={link.url} class="nav-link link-secondary">
+            <a href={link.url} class="nav-link link-secondary footer-link">
               {link.title}
             </a>
           </li>
         ))}
         
         <li class="nav-item">
-          <a href="/feed.xml" aria-label="RSS Feed" class="nav-link">
+          <a href="/feed.xml" aria-label="RSS Feed" class="nav-link social-link">
             <Icon name="rss" title="RSS Feed" />
           </a>
         </li>
@@ -60,10 +60,91 @@ import Icon from './Icon.astro';
   @import 'bootstrap/scss/maps';
   @import 'bootstrap/scss/mixins';
   @import 'bootstrap/scss/nav';
+  
+  /* Enhanced footer divider */
+  .footer-divider {
+    border-top: 2px solid rgba(var(--bs-primary-rgb, 13, 110, 253), 0.1);
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(var(--bs-primary-rgb, 13, 110, 253), 0.3) 50%,
+        transparent
+      );
+    }
+  }
 
   /* Reduce footer link sizes */
   .nav-link {
     font-size: 0.875rem;
+    transition: all 0.2s ease;
+  }
+  
+  /* Enhanced social link hover effects */
+  .social-link {
+    position: relative;
+    color: var(--bs-body-color);
+    
+    &:hover {
+      color: var(--bs-primary);
+    }
+    
+    /* Subtle background on hover - using proper stacking context */
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      background: rgba(var(--bs-primary-rgb, 13, 110, 253), 0.1);
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    
+    /* Ensure icon stays above pseudo-element */
+    :global(svg) {
+      position: relative;
+      z-index: 1;
+    }
+    
+    &:hover::before {
+      opacity: 1;
+    }
+  }
+  
+  /* Respect reduced motion preferences for transform animations */
+  @media (prefers-reduced-motion: no-preference) {
+    .social-link:hover {
+      transform: translateY(-2px);
+    }
+  }
+  
+  /* Footer text links */
+  .footer-link {
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 1px;
+      background: currentColor;
+      transition: width 0.2s ease, left 0.2s ease;
+    }
+    
+    &:hover::after {
+      width: 80%;
+      left: 10%;
+    }
   }
 
   /* Responsive layout adjustments */
@@ -77,6 +158,22 @@ import Icon from './Icon.astro';
     .contact-links,
     .footer-links {
       justify-content: center !important;
+    }
+  }
+  
+  /* Dark mode adjustments */
+  @media (prefers-color-scheme: dark) {
+    .footer-divider {
+      border-top-color: rgba(var(--bs-primary-rgb, 13, 110, 253), 0.2);
+      
+      &::before {
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(var(--bs-primary-rgb, 13, 110, 253), 0.4) 50%,
+          transparent
+        );
+      }
     }
   }
 </style>

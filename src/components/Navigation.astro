@@ -147,6 +147,13 @@ const navClasses = hero
 
   .navbar-brand {
     color: var(--bs-body-color);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    transition: color 0.2s ease;
+    
+    &:hover {
+      color: var(--bs-primary);
+    }
   }
 
   .navbar-toggler {
@@ -180,23 +187,56 @@ const navClasses = hero
     /* Override Bootstrap's var(--bs-nav-link-color) with a direct color for WCAG AA contrast */
     color: $nav-link-color !important;
     text-decoration: none;
-    transition: color 0.15s ease-in-out;
+    transition: all 0.2s ease;
+    position: relative;
+    
+    /* Subtle underline animation on hover */
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--bs-primary);
+      transition: width 0.2s ease, left 0.2s ease;
+    }
   }
 
   .nav-link:hover,
   .nav-link:focus {
     color: $nav-link-hover-color !important;
+    
+    &::after {
+      width: 80%;
+      left: 10%;
+    }
   }
 
   .nav-link.active {
     /* Use high-contrast color for active link */
     color: $nav-link-active-color !important;
-    font-weight: 500;
+    font-weight: 600;
+    
+    &::after {
+      width: 80%;
+      left: 10%;
+      background: var(--bs-primary);
+    }
   }
 
   .navbar-text {
     /* Use a darker gray for better contrast against bg-secondary-subtle (#e9ecef) */
     color: $nav-text-color !important;
+  }
+  
+  /* Visual separator only on larger screens */
+  @media (min-width: 768px) {
+    .navbar-text {
+      border-left: 2px solid rgba(var(--bs-primary-rgb, 13, 110, 253), 0.2);
+      padding-left: 1rem;
+      margin-left: 1rem;
+    }
   }
 
   /* Mobile styles */
