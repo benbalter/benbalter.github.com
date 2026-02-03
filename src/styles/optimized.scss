@@ -421,7 +421,7 @@ blockquote {
 // against white, below WCAG AA requirement of 4.5:1. Using gray-700 (#495057) provides
 // ~7.13:1 contrast ratio, meeting both WCAG AA and AAA requirements.
 footer .link-secondary,
-nav .border-top .link-secondary,
+nav.border-top .link-secondary,
 article .link-secondary {
     color: var(--bs-gray-700) !important;
 
@@ -434,7 +434,7 @@ article .link-secondary {
 // Dark mode link adjustment
 @media (prefers-color-scheme: dark) {
     footer .link-secondary,
-    nav .border-top .link-secondary,
+    nav.border-top .link-secondary,
     article .link-secondary {
         color: var(--bs-gray-400) !important;
 
