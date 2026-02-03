@@ -35,13 +35,14 @@ const navClasses = hero
   : "navbar navbar-expand-md bg-secondary-subtle text-secondary border-start border-end border-bottom border-top rounded-top rounded-bottom mb-3";
 ---
 
-<nav class={navClasses + ' shadow-sm'} aria-label="Main navigation" transition:persist="nav">
+<nav class={navClasses + ' shadow-sm'} aria-label="Main navigation" transition:persist="nav" data-has-hero={hero}>
   <script>
-    // Update active nav link state on page transitions
+    // Update active nav link state and border styling on page transitions
     document.addEventListener('astro:page-load', () => {
       const currentPath = window.location.pathname;
       const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
       
+      // Update active link state
       navLinks.forEach((link) => {
         const href = link.getAttribute('href');
         const isActive = currentPath === href;
@@ -54,6 +55,24 @@ const navClasses = hero
           link.removeAttribute('aria-current');
         }
       });
+      
+      // Update navigation border/rounded corners based on whether new page has hero
+      const nav = document.querySelector('nav.navbar');
+      const heroElement = document.querySelector('.hero-unit');
+      const hasHero = heroElement !== null;
+      
+      if (nav) {
+        // Update data attribute for reference
+        nav.setAttribute('data-has-hero', hasHero.toString());
+        
+        if (hasHero) {
+          // Hero page: remove top border and rounded-top
+          nav.classList.remove('border-top', 'rounded-top');
+        } else {
+          // Non-hero page: add top border and rounded-top
+          nav.classList.add('border-top', 'rounded-top');
+        }
+      }
     });
   </script>
   <div class="container-fluid">
