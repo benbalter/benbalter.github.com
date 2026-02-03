@@ -124,18 +124,21 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
           </div>
         )}
         
-        <footer class="border-top pt-3 mt-4 mb-5">
+        <footer class="border-top pt-4 mt-4 mb-5 post-footer">
           <div class="row">
             <div class="col">
-              <MiniBio />
+              <div class="mini-bio-card">
+                <MiniBio />
+              </div>
             </div>
-            <div class="col-lg-2 text-center">
+            <div class="col-lg-2 text-center edit-section">
               <p class="mb-2">
                 <small>This page is open source. Please <a 
                   href={`${siteConfig.githubRepoUrl}/edit/main/src/content/posts/${postSlug}.md`}
                   target="_blank"
                   rel="noopener noreferrer"
                   title="Help improve this article"
+                  class="edit-link"
                 >help improve it</a>.</small>
               </p>
               <a 
@@ -166,6 +169,54 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   @import 'bootstrap/scss/mixins';
   @import 'bootstrap/scss/badge';
   @import 'bootstrap/scss/buttons';
+  
+  /* Enhanced mini bio card styling */
+  .mini-bio-card {
+    padding: 1.5rem;
+    background: linear-gradient(
+      135deg,
+      rgba(var(--bs-primary-rgb, 13, 110, 253), 0.03),
+      rgba(var(--bs-primary-rgb, 13, 110, 253), 0.01)
+    );
+    border-left: 3px solid var(--bs-primary);
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Post footer enhancements */
+  .post-footer {
+    border-top: 2px solid var(--bs-border-color) !important;
+  }
+  
+  .edit-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .edit-link {
+    color: var(--bs-primary);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--bs-primary);
+    transition: border-bottom-color 0.2s ease;
+    
+    &:hover {
+      border-bottom-color: transparent;
+    }
+  }
+  
+  /* Dark mode adjustments */
+  @media (prefers-color-scheme: dark) {
+    .mini-bio-card {
+      background: linear-gradient(
+        135deg,
+        rgba(var(--bs-primary-rgb, 13, 110, 253), 0.08),
+        rgba(var(--bs-primary-rgb, 13, 110, 253), 0.04)
+      );
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+  }
   
   /* Minimal custom styles - Bootstrap utilities handle layout and spacing */
   /* Typography handled by global optimized.scss */

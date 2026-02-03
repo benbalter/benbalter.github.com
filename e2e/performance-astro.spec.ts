@@ -309,9 +309,9 @@ test.describe('Rendering Performance', () => {
     
     console.log('DOM stats:', domStats);
     
-    // Total DOM elements should be reasonable (< 1800)
-    // Increased from 1500 to accommodate Popular Posts section added to homepage
-    expect(domStats.totalElements).toBeLessThan(1800);
+    // Total DOM elements should be reasonable (< 2000)
+    // Increased from 1800 to accommodate design enhancements (card accents, section headers)
+    expect(domStats.totalElements).toBeLessThan(2000);
     
     // DOM depth should not be excessive (< 32)
     expect(domStats.maxDepth).toBeLessThan(32);

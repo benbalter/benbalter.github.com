@@ -57,6 +57,9 @@ const alertType = alertTypeMap[type];
   @import 'bootstrap/scss/mixins';
   @import 'bootstrap/scss/alert';
   
+  // Note: alert-link color contrast fix moved to src/styles/optimized.scss
+  // for global application across all alert components
+  
   // Minimal custom style to ensure last paragraph has no bottom margin
   .callout-content :global(p:last-child) {
     margin-bottom: 0;
