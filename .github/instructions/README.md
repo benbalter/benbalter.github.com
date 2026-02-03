@@ -17,20 +17,6 @@ excludeAgent: "code-review"  # Optional: exclude specific agents
 
 ## Instruction Files
 
-### Content and Templates
-
-* **`jekyll-content.instructions.md`**
-  * Applies to: `_posts/**/*.md`
-  * Blog post creation and editing guidelines
-  * Front matter requirements
-  * Content style and linting rules
-
-* **`jekyll-templates.instructions.md`**
-  * Applies to: `_layouts/**/*.html`, `_includes/**/*.html`
-  * Liquid template best practices
-  * HTML structure and accessibility
-  * Bootstrap and responsive design
-
 ### Code
 
 * **`astro-components.instructions.md`**
@@ -39,12 +25,6 @@ excludeAgent: "code-review"  # Optional: exclude specific agents
   * TypeScript utilities and testing
   * Content collections usage
   * Performance and accessibility guidelines
-
-* **`ruby-code.instructions.md`**
-  * Applies to: `lib/**/*.rb`, `script/**/*`, `spec/**/*.rb`, `Rakefile`
-  * Ruby coding standards
-  * Jekyll plugin development
-  * RSpec testing guidelines
 
 * **`styles.instructions.md`**
   * Applies to: `sass/**/*.scss`, `assets/**/*.css`, `app/**/*.css`
@@ -56,15 +36,15 @@ excludeAgent: "code-review"  # Optional: exclude specific agents
 
 * **`configuration.instructions.md`**
   * Applies to: `**/*.{yml,yaml,json}`
-  * Jekyll configuration
+  * Astro configuration
   * Data files
   * Tool configuration
 
 * **`testing.instructions.md`**
   * Applies to: Test files and Playwright configs
   * Excludes: `code-review` agent
-  * RSpec testing guidelines
   * E2E testing with Playwright
+  * Vitest unit testing
   * Test best practices
 
 ## Related Files

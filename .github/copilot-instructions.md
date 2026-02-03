@@ -6,7 +6,7 @@ This is the personal website of Ben Balter. The site serves as a personal blog, 
 
 **Key Features:**
 
-* Static site generated with Jekyll (primary) and Astro (experimental)
+* Static site generated with Astro
 * Blog posts with related posts suggestions
 * Resume and professional information
 * GitHub integration for metadata
@@ -17,20 +17,14 @@ This is the personal website of Ben Balter. The site serves as a personal blog, 
 
 ### Core Technologies
 
-* **Jekyll**: ~> 4.0 (Primary static site generator)
-* **Astro**: 5.x (Experimental static site generator)
-* **Ruby**: 3.3.5
+* **Astro**: 5.x (Static site generator)
 * **Node.js**: For JavaScript tooling and build processes
 * **TypeScript**: For Astro components and utilities
 * **GitHub Pages**: Hosting platform
 
-### Jekyll Architecture
+### Astro Architecture
 
-Jekyll is used to generate the primary production site from Markdown content and Liquid templates. The site outputs to `_site/` directory.
-
-### Astro Architecture (Experimental)
-
-Astro provides an alternative static site generation approach with:
+Astro provides static site generation with:
 
 * **Static Site Generation (SSG)**: All pages pre-rendered at build time
 * **Zero JavaScript by default**: Ships minimal JavaScript for optimal performance
@@ -38,32 +32,15 @@ Astro provides an alternative static site generation approach with:
 * **TypeScript Support**: Type-safe component development
 * **Component Islands**: Partial hydration for interactive components
 * **View Transitions**: Smooth page navigation using modern browser APIs
-* **Output**: Builds to `dist-astro/` directory (separate from Jekyll)
-* **Development Server**: Runs on port 4321 (separate from Jekyll's 4000)
+* **Output**: Builds to `dist-astro/` directory
+* **Development Server**: Runs on port 4321
 
 ### Key Dependencies
 
-#### Ruby Gems (Jekyll Plugins)
-
-* `jekyll-avatar`: GitHub avatar integration
-* `jekyll-feed`: RSS feed generation
-* `jekyll-github-metadata`: GitHub repository metadata
-* `jekyll-mentions`: GitHub-style @mentions
-* `jekyll-og-image`: Open Graph image generation
-* `jekyll-redirect-from`: URL redirection support
-* `jekyll-relative-links`: Relative link conversion
-* `jekyll-seo-tag`: SEO metadata
-* `jekyll-sitemap`: XML sitemap generation
-* `jemoji`: GitHub emoji support
-* `retlab`: Related posts generation
-
 #### Development Tools
 
-* **RSpec**: Ruby testing framework
-* **Rubocop**: Ruby linter with performance and rspec extensions
-* **html-proofer**: HTML validation and link checking
 * **Vitest**: Unit testing for Astro utilities and components
-* **Playwright**: E2E testing for both Jekyll and Astro
+* **Playwright**: E2E testing
 * **ESLint**: JavaScript and JSON linting
 * **markdownlint**: Markdown linting
 * **textlint**: Natural language linting
@@ -73,40 +50,27 @@ Astro provides an alternative static site generation approach with:
 
 ## Development Commands
 
-### Jekyll Commands
-
-```bash
-rake build             # Build the Jekyll site
-rake serve             # Start Jekyll development server with watch mode
-script/build           # Alternative build command
-script/server          # Alternative server command
-```
-
 ### Astro Commands
 
 ```bash
-npm run astro:dev      # Start Astro development server (port 4321)
-npm run astro:build    # Build Astro site (outputs to dist-astro/)
-npm run astro:preview  # Preview production build
-npm run astro:check    # Type-check Astro components and TypeScript
+npm run dev            # Start Astro development server (port 4321)
+npm run build          # Build Astro site (outputs to dist-astro/)
+npm run preview        # Preview production build
+npm run check          # Type-check Astro components and TypeScript
 ```
 
 ### Setup
 
 ```bash
 npm install            # Install Node.js dependencies
-bundle install         # Install Ruby dependencies
 ```
 
 ### Testing
 
 ```bash
-npm test               # Run linting (alias for npm run lint)
-npm run test:e2e       # Run Playwright E2E tests (Jekyll)
-npm run test:e2e:astro # Run Playwright E2E tests (Astro)
-npm run test:vitest    # Run Vitest unit tests (Astro utilities)
-rake test              # Run Jekyll tests (RSpec + HTML Proofer)
-script/cibuild         # CI build script
+npm test               # Run type check and linting
+npm run test:e2e       # Run Playwright E2E tests
+npm run test:vitest    # Run Vitest unit tests
 ```
 
 ### Linting
@@ -118,7 +82,6 @@ npm run lint-json      # Lint JSON files
 npm run lint-md        # Lint Markdown files
 npm run lint-text      # Lint text content
 npm run lint-yaml      # Lint YAML files
-rubocop                # Ruby linting
 script/fix-lint        # Auto-fix linting issues (ALWAYS run after markdown linting)
 ```
 
@@ -129,36 +92,28 @@ script/fix-lint        # Auto-fix linting issues (ALWAYS run after markdown lint
 ```text
 .
 ├── .github/           # GitHub configuration and workflows
-├── _posts/            # Blog posts (Markdown files with YYYY-MM-DD-title.md format)
-├── _config.yml        # Jekyll configuration
-├── _data/             # YAML data files
-├── _includes/         # Reusable HTML/Liquid snippets
-├── _layouts/          # Page templates
-├── _resume_positions/ # Resume position entries
-├── assets/            # Static assets (CSS, JS, images)
-├── src/               # Astro source files (experimental)
+├── src/               # Astro source files
 │   ├── pages/         # Astro page routes
 │   ├── layouts/       # Astro layouts
 │   ├── components/    # Astro components
 │   ├── content/       # Content collections (posts, pages, resume positions)
+│   ├── data/          # YAML data files
 │   ├── lib/           # Shared libraries (remark/rehype plugins)
 │   ├── utils/         # Utility functions
 │   ├── styles/        # SCSS styles
 │   └── scripts/       # Client-side scripts
+├── public/            # Static assets
 ├── script/            # Build and utility scripts
-├── spec/              # RSpec tests
 ├── e2e/               # Playwright E2E tests
-├── Gemfile            # Ruby dependencies
 ├── package.json       # Node.js dependencies
 ├── astro.config.mjs   # Astro configuration
 ├── tsconfig.astro.json # TypeScript config for Astro
-└── Rakefile           # Rake tasks
+└── vitest.config.ts   # Vitest configuration
 ```
 
 ### Important Files
 
 * `package.json`: Node.js dependencies and scripts
-* `_config.yml`: Jekyll site configuration
 * `astro.config.mjs`: Astro configuration
 * `tsconfig.astro.json`: TypeScript configuration for Astro
 * `llms.txt`: LLM/AI assistant context about the site
@@ -166,14 +121,6 @@ script/fix-lint        # Auto-fix linting issues (ALWAYS run after markdown lint
 * `robots.txt`: Search engine crawler rules
 
 ## Coding Standards and Best Practices
-
-### Ruby (Jekyll)
-
-* Follow Rubocop rules defined in `.rubocop.yml`
-* Use frozen string literals: `# frozen_string_literal: true`
-* Write RSpec tests for new functionality in `spec/`
-* Documentation comments are optional (disabled in Rubocop)
-* Keep methods focused and readable
 
 ### JavaScript (Webpack, Build Tools)
 
@@ -209,7 +156,6 @@ Pages must include:
 
 * `title`: Page title
 * `description`: Brief description (for SEO)
-* `permalink`: URL path (for pages)
 
 Blog posts must include:
 
@@ -221,23 +167,17 @@ Blog posts must include:
 
 **Content:**
 
-* Blog posts: `_posts/YYYY-MM-DD-title-with-hyphens.md`
-
-**Jekyll:**
-
-* Data files: `_data/filename.yml`
-* Layouts: `_layouts/layout-name.html`
-* Includes: `_includes/component-name.html`
+* Blog posts: `src/content/posts/YYYY-MM-DD-title-with-hyphens.md`
+* Resume positions: `src/content/resume-positions/position-name.md`
+* Data files: `src/data/filename.yml`
 
 ## Testing Guidelines
 
 ### E2E Tests (Playwright)
 
 * Place test files in `e2e/` directory
-* Separate configs for Jekyll (`playwright.config.ts`) and Astro (`playwright-astro.config.ts`)
 * Test critical user journeys and page rendering
-* Run `npm run test:e2e` for Jekyll E2E tests
-* Run `npm run test:e2e:astro` for Astro E2E tests
+* Run `npm run test:e2e` for E2E tests
 * Ensure accessibility compliance with axe-core
 * Test performance with Lighthouse
 
@@ -249,13 +189,6 @@ Blog posts must include:
 * Run `npm run test:vitest:coverage` for coverage reports
 * Follow existing test patterns in `src/utils/` and `src/lib/`
 * Use happy-dom for DOM simulation when needed
-
-### RSpec Tests (Jekyll)
-
-* Place test files in `spec/` directory
-* Use descriptive test names with `context` and `it` blocks
-* Test front matter requirements for pages and collections
-* Verify Jekyll builds successfully
 
 ### HTML Validation
 
@@ -280,14 +213,6 @@ Blog posts must include:
 * Maintain readability (checked via retext-readability)
 * Check spelling and grammar (retext-spell, textlint)
 * Use proper typographic conventions (em dashes, en dashes, etc.)
-
-## Liquid Templates (Jekyll)
-
-* Use `{% include_cached %}` for frequently included partials
-* Use descriptive variable names
-* Follow Jekyll's Liquid best practices
-* Leverage site variables from `_config.yml`
-* Use filters appropriately (markdownify, strip\_html, truncate, etc.)
 
 ## Astro Components
 
@@ -315,16 +240,13 @@ Blog posts must include:
 This repository includes a `.github/workflows/copilot-setup-steps.yml` workflow file that helps GitHub Copilot coding agent set up the development environment automatically. The workflow:
 
 * Checks out the repository
-* Sets up Ruby with bundler caching
 * Sets up Node.js with npm caching
-* Installs libvips (required for image processing)
-* Runs `script/bootstrap` to install all dependencies
+* Installs all dependencies via `npm install`
 
 This ensures Copilot can build, test, and validate code changes in a properly configured environment.
 
 ## Resources
 
-* [Jekyll Documentation](https://jekyllrb.com/docs/)
 * [Astro Documentation](https://docs.astro.build/)
 * [GitHub Pages Documentation](https://docs.github.com/en/pages)
 * [Site Source Code](https://github.com/benbalter/benbalter.github.com)
@@ -342,8 +264,6 @@ This repository includes specialized GitHub Copilot custom agents in `.github/ag
 Specialized for code-related tasks including:
 
 * **JavaScript/TypeScript** (webpack, build tools, Astro components, linting)
-* **Ruby** (Jekyll plugins, RSpec tests, Rake tasks)
-* **HTML/Liquid templates**
 * **Astro components** (.astro files)
 * **SCSS/CSS styling**
 * **Configuration files** (YAML, JSON, TypeScript config)

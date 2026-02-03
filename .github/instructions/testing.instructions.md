@@ -1,5 +1,5 @@
 ---
-applyTo: ["**/*.test.{js,ts,jsx,tsx}", "spec/**/*", "e2e/**/*", "playwright*.config.ts"]
+applyTo: ["**/*.test.{js,ts,jsx,tsx}", "e2e/**/*", "playwright*.config.ts"]
 excludeAgent: "code-review"
 ---
 
@@ -9,63 +9,41 @@ When working with tests, follow these guidelines to ensure quality and reliabili
 
 ## Test Types
 
-### RSpec Tests (`spec/`)
-
-* Ruby unit tests for Jekyll plugins and build process
-* Test front matter requirements
-* Verify Jekyll builds successfully
-* Check HTML output structure
-
-```bash
-bundle exec rspec                  # Run all RSpec tests
-bundle exec rspec spec/file_spec.rb # Run specific test
-rake test                          # Run RSpec + HTML Proofer
-```
-
 ### End-to-End Tests (`e2e/`)
 
-* Playwright tests for Jekyll and Astro builds
+* Playwright tests for the Astro build
 * Test user flows and interactions
 * Verify pages render correctly
 * Check responsive design
 
 ```bash
-npm run test:e2e                  # E2E tests for Jekyll
-npm run test:e2e:astro            # E2E tests for Astro
+npm run test:e2e                  # E2E tests
 ```
 
-### HTML Validation
+### Vitest Unit Tests
 
-* html-proofer checks generated HTML
-* Validates links, images, and structure
-* Ensures accessibility baseline
+* Unit tests for TypeScript utilities and functions
+* Place test files alongside source: `src/**/*.{test,spec}.ts`
+* Run with `npm run test:vitest`
 
 ```bash
-rake test                          # Includes html-proofer
+npm run test:vitest               # Run all unit tests
+npm run test:vitest:watch         # Watch mode
+npm run test:vitest:coverage      # With coverage
 ```
 
 ## Writing Tests
 
-### RSpec Test Structure
+### Vitest Test Structure
 
-```ruby
-# frozen_string_literal: true
+```typescript
+import { describe, it, expect } from 'vitest';
 
-require 'spec_helper'
-
-RSpec.describe 'Feature' do
-  context 'when condition is met' do
-    it 'produces expected result' do
-      expect(actual).to eq(expected)
-    end
-  end
-
-  context 'when condition is not met' do
-    it 'handles gracefully' do
-      expect { action }.not_to raise_error
-    end
-  end
-end
+describe('Feature', () => {
+  it('does something expected', () => {
+    expect(actual).toBe(expected);
+  });
+});
 ```
 
 ### Playwright Test Structure
@@ -91,14 +69,6 @@ test.describe('Feature', () => {
 4. **Repeatability**: Tests should produce the same results every time
 5. **Fast**: Keep tests fast by minimizing external dependencies
 
-### RSpec Guidelines
-
-* Use `context` to group related tests
-* Use `describe` for the feature/class being tested
-* Use `it` for individual test cases
-* Use `let` for test data setup
-* Use `before` hooks sparingly
-
 ### E2E Guidelines
 
 * Test critical user journeys first
@@ -120,13 +90,12 @@ test.describe('Feature', () => {
 
 ```bash
 # Run all tests
-rake test                          # RSpec + HTML validation
-npm test                           # Linting
+npm test                           # Type check + linting
 npm run test:e2e                   # E2E tests (if applicable)
 
 # Run specific test suites
-bundle exec rspec                  # Only RSpec
 npm run lint                       # Only linting
+npm run test:vitest                # Only unit tests
 ```
 
 ### CI/CD
@@ -138,20 +107,19 @@ npm run lint                       # Only linting
 
 ## Debugging Tests
 
-### RSpec
+### Vitest
 
 ```bash
-bundle exec rspec --format documentation  # Verbose output
-bundle exec rspec --fail-fast             # Stop on first failure
-bundle exec rspec spec/file:42            # Run test at line 42
+npm run test:vitest -- --reporter=verbose  # Verbose output
+npm run test:vitest -- path/to/file.test.ts # Run specific file
 ```
 
 ### Playwright
 
 ```bash
-npm run test:e2e:jekyll -- --debug        # Debug mode
-npm run test:e2e:jekyll -- --headed       # Run with browser visible
-npx playwright codegen                    # Generate test code
+npm run test:e2e -- --debug        # Debug mode
+npm run test:e2e -- --headed       # Run with browser visible
+npx playwright codegen             # Generate test code
 ```
 
 ## Test Coverage
@@ -163,30 +131,32 @@ npx playwright codegen                    # Generate test code
 
 ## Common Testing Patterns
 
-### Testing Front Matter
+### Testing Utilities
 
-```ruby
-it 'has required front matter fields' do
-  expect(page.data['title']).not_to be_nil
-  expect(page.data['description']).not_to be_nil
-end
-```
+```typescript
+import { describe, it, expect } from 'vitest';
+import { myUtility } from './myUtility';
 
-### Testing Jekyll Build
-
-```ruby
-it 'builds successfully' do
-  expect { Jekyll::Commands::Build.process({}) }.not_to raise_error
-end
+describe('myUtility', () => {
+  it('handles normal input', () => {
+    expect(myUtility('input')).toBe('expected');
+  });
+  
+  it('handles edge cases', () => {
+    expect(myUtility('')).toBe('');
+  });
+});
 ```
 
 ### Testing Page Content
 
-```ruby
-it 'renders content correctly' do
-  content = File.read('_site/page.html')
-  expect(content).to include('expected text')
-end
+```typescript
+import { test, expect } from '@playwright/test';
+
+test('page renders correctly', async ({ page }) => {
+  await page.goto('/about');
+  await expect(page.locator('h1')).toContainText('About');
+});
 ```
 
 ## When Tests Fail
