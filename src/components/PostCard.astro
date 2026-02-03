@@ -126,5 +126,7 @@ const { title, url, date, isoDate, description, readingTime } = Astro.props;
     font-weight: 600;
     letter-spacing: -0.01em;
     line-height: 1.3;
+    /* Override global h3 position: relative to allow stretched-link to work */
+    position: static;
   }
 </style>
