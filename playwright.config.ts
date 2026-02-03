@@ -2,7 +2,7 @@ import { defineConfig, devices } from '@playwright/test';
 
 /**
  * Playwright configuration for Ben Balter's website
- * Tests the Jekyll build
+ * Tests the Astro build
  * 
  * Performance optimizations:
  * - Increased workers for parallel test execution
@@ -12,18 +12,6 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './e2e',
-  
-  /* Exclude Astro-specific tests from Jekyll test run */
-  testIgnore: [
-    '**/accessibility-astro.spec.ts',
-    '**/dark-mode.spec.ts', 
-    '**/footer-contact-links.spec.ts',
-    '**/performance-astro.spec.ts',
-    '**/post-images.spec.ts',
-    '**/sitemap.spec.ts',
-    '**/tldr-tooltip.spec.ts',
-    '**/view-transitions.spec.ts',
-  ],
   
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
@@ -48,7 +36,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.BASE_URL || 'http://localhost:4000',
+    baseURL: process.env.BASE_URL || 'http://localhost:4321',
     
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -76,8 +64,8 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: process.env.CI ? undefined : {
-    command: 'bundle exec jekyll serve',
-    url: 'http://localhost:4000',
+    command: 'npm run astro:dev',
+    url: 'http://localhost:4321',
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,
   },
