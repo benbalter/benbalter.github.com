@@ -187,7 +187,7 @@ const navClasses = hero
     /* Override Bootstrap's var(--bs-nav-link-color) with a direct color for WCAG AA contrast */
     color: $nav-link-color !important;
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: color 0.2s ease;
     position: relative;
     
     /* Subtle underline animation on hover */
@@ -199,6 +199,12 @@ const navClasses = hero
       width: 0;
       height: 2px;
       background: var(--bs-primary);
+    }
+  }
+  
+  /* Respect reduced motion preferences for underline animation */
+  @media (prefers-reduced-motion: no-preference) {
+    .nav-link::after {
       transition: width 0.2s ease, left 0.2s ease;
     }
   }

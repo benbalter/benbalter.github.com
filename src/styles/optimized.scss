@@ -785,42 +785,6 @@ article > p:first-of-type,
 // Note: Navigation and Footer use transition:persist directive in their components
 // so they don't need view-transition-name declarations here (would cause duplicates)
 
-// Design system enhancements
-// Custom properties for consistent design tokens
-:root {
-  // Spacing scale
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  
-  // Border radius scale
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  
-  // Shadow scale for depth
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-  
-  // Transition timing
-  --transition-fast: 0.15s ease;
-  --transition-base: 0.2s ease;
-  --transition-slow: 0.3s ease;
-}
-
-// Dark mode design tokens
-@media (prefers-color-scheme: dark) {
-  :root {
-    // Use darker shadows with higher opacity for better depth perception on dark backgrounds
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
-  }
-}
-
 // Smooth scrolling for better UX (respects reduced motion)
 html {
   scroll-behavior: smooth;
