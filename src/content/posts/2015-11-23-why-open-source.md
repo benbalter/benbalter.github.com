@@ -18,9 +18,9 @@ Open source is in your best interest, whether you're an individual, a corporatio
   | Cost                       | Open source          | Proprietary          |
   | :------------------------- | :------------------- | :------------------- |
   | Licensing                  | :x:                  | :heavy_check_mark: |
-  | Implementation             | :heavy_check_mark: | :heavy_check_mark: |
-  | Maintenance                | :heavy_check_mark: | :heavy_check_mark: |
-  | Support                    | :heavy_check_mark: | :heavy_check_mark: |
+  | Implementation             | :heavy_check_mark:  | :heavy_check_mark: |
+  | Maintenance                | :heavy_check_mark:  | :heavy_check_mark: |
+  | Support                    | :heavy_check_mark:  | :heavy_check_mark: |
 
   </div>
 
