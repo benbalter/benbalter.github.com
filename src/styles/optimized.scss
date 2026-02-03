@@ -815,8 +815,11 @@ article > p:first-of-type,
 // so they don't need view-transition-name declarations here (would cause duplicates)
 
 // Smooth scrolling for better UX (respects reduced motion)
+// scrollbar-gutter: stable prevents horizontal layout shift when navigating
+// between pages with different content heights (e.g., contact page vs home page)
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 @media (prefers-reduced-motion: reduce) {
