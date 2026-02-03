@@ -39,7 +39,7 @@ test.describe('Navigation Styling - Initial Page Load', () => {
       };
     });
     
-    // All corners should be rounded (6px or similar)
+    // All corners should be rounded (not 0px)
     expect(borderRadius.topLeft).not.toBe('0px');
     expect(borderRadius.topRight).not.toBe('0px');
     expect(borderRadius.bottomLeft).not.toBe('0px');
@@ -189,8 +189,8 @@ test.describe('Navigation Styling - Client-Side Navigation', () => {
     expect(borderRadius.topRight).not.toBe('0px');
     
     // Navigate to homepage (hero) via client-side navigation
-    const postsLink = page.locator('a[href="/"]').first();
-    await postsLink.click();
+    const homeLink = page.locator('a[href="/"]').first();
+    await homeLink.click();
     await page.waitForURL('/');
     await waitForPageReady(page);
     
