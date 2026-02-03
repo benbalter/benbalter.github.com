@@ -88,12 +88,13 @@ blockquote {
     @extend .rounded;
 }
 
-// Footer link accessibility fix
+// Link accessibility fix
 // Bootstrap's link-secondary uses gray-600 (#6c757d) which has ~4.48:1 contrast ratio
 // against white, below WCAG AA requirement of 4.5:1. Using gray-700 (#495057) provides
 // ~7.13:1 contrast ratio, meeting both WCAG AA and AAA requirements.
 footer .link-secondary,
-nav .border-top .link-secondary {
+nav.border-top .link-secondary,
+article .link-secondary {
     color: var(--bs-gray-700) !important;
 
     &:hover,
@@ -102,10 +103,11 @@ nav .border-top .link-secondary {
     }
 }
 
-// Dark mode footer link adjustment
+// Dark mode link adjustment
 @media (prefers-color-scheme: dark) {
     footer .link-secondary,
-    nav .border-top .link-secondary {
+    nav.border-top .link-secondary,
+    article .link-secondary {
         color: var(--bs-gray-400) !important;
 
         &:hover,
