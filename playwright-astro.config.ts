@@ -5,7 +5,8 @@ import { defineConfig, devices } from '@playwright/test';
  * Tests the Astro build
  * 
  * Performance optimizations:
- * - Increased workers for parallel test execution
+ * - Test sharding support for parallel CI execution across multiple runners
+ * - Increased workers for parallel test execution within each shard
  * - Disabled video recording (screenshots provide sufficient debugging info)
  * - Reduced retries (static sites have fewer flaky tests)
  * - Optimized timeouts for static site performance
@@ -28,9 +29,10 @@ export default defineConfig({
   /* Increased workers for faster parallel execution on CI */
   workers: process.env.CI ? '50%' : undefined,
   
-  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
+  /* Reporter to use. See https://playwright.dev/docs/test-reporters
+   * In CI with sharding, use blob reporter for mergeable results */
   reporter: process.env.CI 
-    ? [['html', { open: 'never' }], ['list'], ['github']]
+    ? [['blob'], ['list'], ['github']]
     : [['html', { open: 'never' }], ['list']],
   
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */

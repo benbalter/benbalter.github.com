@@ -1,0 +1,250 @@
+name: Astro CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - 'src/**'
+      - 'astro.config.mjs'
+      - 'tsconfig.astro.json'
+      - 'public/**'
+      - '_posts/**'
+      - '_resume_positions/**'
+      - '*.md'
+      - '_data/**'
+      - 'e2e/**'
+      - 'playwright*.config.ts'
+      - 'vitest.config.ts'
+      - '.lighthouserc.json'
+      - 'package*.json'
+      - '.github/workflows/astro.yml'
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'astro.config.mjs'
+      - 'tsconfig.astro.json'
+      - 'public/**'
+      - '_posts/**'
+      - '_resume_positions/**'
+      - '*.md'
+      - '_data/**'
+      - 'e2e/**'
+      - 'playwright*.config.ts'
+      - 'vitest.config.ts'
+      - '.lighthouserc.json'
+      - 'package*.json'
+      - '.github/workflows/astro.yml'
+
+permissions:
+  contents: read
+  statuses: write
+
+env:
+  NODE_VERSION: 24
+
+jobs:
+  # Fast checks that don't need the build - run immediately
+  check:
+    name: Astro Check & Vitest
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Astro check
+        run: npm run astro:check
+
+      - name: Run Vitest tests
+        run: npm run test:vitest:coverage
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: vitest-coverage
+          path: coverage/
+          retention-days: 7
+
+  # Build Astro site - required for E2E and Lighthouse tests
+  build:
+    name: Build Astro Site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Cache Astro build artifacts
+        uses: actions/cache@v4
+        with:
+          path: node_modules/.astro
+          key: astro-cache-${{ runner.os }}-${{ hashFiles('src/**/*', 'public/**/*', 'astro.config.mjs', 'tsconfig.astro.json', 'package-lock.json') }}
+          restore-keys: |
+            astro-cache-${{ runner.os }}-
+
+      - name: Build Astro site
+        run: npm run astro:build
+
+      - name: Upload Astro build artifacts
+        uses: actions/upload-artifact@v6
+        with:
+          name: dist-astro
+          path: dist-astro/
+          retention-days: 1
+          include-hidden-files: true
+
+  # E2E Tests - split into 2 shards for faster execution
+  e2e:
+    name: Playwright Tests (Shard ${{ matrix.shardIndex }}/${{ matrix.shardTotal }})
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        shardIndex: [1, 2]
+        shardTotal: [2]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download Astro build artifacts
+        uses: actions/download-artifact@v6
+        with:
+          name: dist-astro
+          path: dist-astro
+
+      - name: Cache Playwright Browsers
+        uses: actions/cache@v4
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright Browser System Dependencies
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Start Astro preview server
+        run: |
+          npm run astro:preview -- --host &
+          sleep 3
+
+      - name: Wait for server to be ready
+        run: |
+          timeout 30 bash -c 'until curl -sf http://localhost:4321; do sleep 1; done'
+
+      - name: Run Playwright tests
+        run: npm run test:e2e:astro -- --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+        env:
+          BASE_URL: http://localhost:4321
+          CI: true
+
+      - name: Upload blob report
+        uses: actions/upload-artifact@v6
+        if: ${{ !cancelled() }}
+        with:
+          name: blob-report-${{ matrix.shardIndex }}
+          path: blob-report/
+          retention-days: 1
+
+  # Lighthouse CI - runs after build
+  lighthouse:
+    name: Lighthouse CI
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download Astro build artifacts
+        uses: actions/download-artifact@v6
+        with:
+          name: dist-astro
+          path: dist-astro
+
+      - name: Run Lighthouse CI
+        run: npx @lhci/cli@0.14.x autorun
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+  # Merge playwright reports from all shards
+  merge-reports:
+    name: Merge Playwright Reports
+    needs: e2e
+    runs-on: ubuntu-latest
+    if: ${{ !cancelled() }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download all blob reports
+        uses: actions/download-artifact@v6
+        with:
+          pattern: blob-report-*
+          path: all-blob-reports
+          merge-multiple: true
+
+      - name: Merge reports
+        run: |
+          npx playwright merge-reports --reporter html ./all-blob-reports
+
+      - name: Upload merged report
+        uses: actions/upload-artifact@v6
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 14
