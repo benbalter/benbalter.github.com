@@ -41,12 +41,12 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
 ---
 
 <BaseLayout description={description} hero={true}>
-  <!-- Featured Posts Section -->
-  {featuredPosts.length > 0 && (
+  <!-- Popular Posts Section -->
+  {popularPosts.length > 0 && (
     <section class="mb-5">
-      <h2 class="h4 mb-4">Recent Posts</h2>
+      <h2 class="h4 mb-4">Popular Posts</h2>
       <div class="row g-4">
-        {featuredPosts.map((post) => {
+        {popularPosts.map((post) => {
           const { postUrl, date, isoDate, readingTime } = getPostMetadata(post);
           return (
             <div class="col-12 col-md-6 col-lg-4">
@@ -65,12 +65,12 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
     </section>
   )}
 
-  <!-- Popular Posts Section -->
-  {popularPosts.length > 0 && (
+  <!-- Recent Posts Section -->
+  {featuredPosts.length > 0 && (
     <section class="mb-5">
-      <h2 class="h4 mb-4">Popular Posts</h2>
+      <h2 class="h4 mb-4">Recent Posts</h2>
       <div class="row g-4">
-        {popularPosts.map((post) => {
+        {featuredPosts.map((post) => {
           const { postUrl, date, isoDate, readingTime } = getPostMetadata(post);
           return (
             <div class="col-12 col-md-6 col-lg-4">
