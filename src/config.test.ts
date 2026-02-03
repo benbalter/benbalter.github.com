@@ -160,8 +160,8 @@ describe('popularPostSlugs', () => {
     expect(Array.isArray(popularPostSlugs)).toBe(true);
   });
 
-  it('should have 7 popular posts', () => {
-    expect(popularPostSlugs.length).toBe(7);
+  it('should have 10 popular posts', () => {
+    expect(popularPostSlugs.length).toBe(10);
   });
 
   it('should contain only strings', () => {

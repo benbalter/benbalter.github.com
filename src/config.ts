@@ -98,4 +98,7 @@ export const popularPostSlugs: string[] = [
   '2023-01-10-manage-like-an-engineer',
   '2023-04-20-meetings-are-a-point-of-escalation',
   '2014-11-06-rules-of-communicating-at-github',
+  '2023-12-08-cathedral-bazaar-management',
+  '2023-08-30-transparency-collaboration-is-the-andon-of-knowledge-production',
+  '2023-08-04-remote-work-communicate-more-with-less',
 ];
