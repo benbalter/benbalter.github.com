@@ -57,6 +57,18 @@ const alertType = alertTypeMap[type];
   @import 'bootstrap/scss/mixins';
   @import 'bootstrap/scss/alert';
   
+  // Fix color contrast for alert-link on info background
+  // Bootstrap's default #337ab7 on #cff4fc has 3.9:1 contrast ratio
+  // Using darker blue #0a58ca provides 4.9:1 contrast ratio (WCAG AA compliant)
+  .alert-info :global(.alert-link) {
+    color: #0a58ca;
+    
+    &:hover,
+    &:focus {
+      color: #084298;
+    }
+  }
+  
   // Minimal custom style to ensure last paragraph has no bottom margin
   .callout-content :global(p:last-child) {
     margin-bottom: 0;
