@@ -136,7 +136,7 @@
     "lint-json": "eslint . --ext json --fix",
     "lint-md": "remark . && markdownlint-cli2 --fix \"**/*.{md,mdx}\" \"!node_modules\" \"!.github\"",
     "lint-text": "textlint *.md src/content/posts/*.md src/content/resume-positions/*.md --fix --dry-run",
-    "lint-yaml": "yamllint -c .yamllint.yml .github/workflows/*.yml",
+    "lint-yaml": "yamllint -c .yamllint.yml .github/workflows/*.yml .github/dependabot.yml src/data/*.yml",
     "super-linter": "script/super-linter",
     "test": "npm run check && npm run lint",
     "test:e2e": "playwright test",

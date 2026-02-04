@@ -6,64 +6,68 @@ on:
       - main
       - master
     paths:
+      # Content files
       - 'src/**'
       - '*.md'
+      - 'docs/**/*.md'
       - 'dictionary.txt'
+      # Content linting config
       - '.remarkrc.js'
       - '.remarkignore'
       - '.textlintrc'
       - '.vale.ini'
       - '.markdown-lint.yml'
       - '.markdownlint-cli2.cjs'
-      - 'script/cibuild-content'
-      - 'script/remark'
-      - 'script/lint-text'
-      - 'script/vale'
+      # Code files
       - '**/*.js'
+      - '**/*.mjs'
       - '**/*.ts'
       - '**/*.json'
-      - '**/*.yml'
-      - '**/*.yaml'
+      - 'e2e/**'
+      - 'assets/**'
+      # Configuration files
       - 'package*.json'
       - 'astro.config.mjs'
       - 'tsconfig*.json'
       - 'vitest.config.ts'
-      - 'assets/**'
-      - 'js/**'
-      - 'script/**'
       - 'eslint.config.js'
       - '.yamllint.yml'
-      - '.github/workflows/ci.yml'
+      - '.github/workflows/*.yml'
+      - '.github/dependabot.yml'
+      # Build scripts
+      - 'script/**'
   pull_request:
     paths:
+      # Content files
       - 'src/**'
       - '*.md'
+      - 'docs/**/*.md'
       - 'dictionary.txt'
+      # Content linting config
       - '.remarkrc.js'
       - '.remarkignore'
       - '.textlintrc'
       - '.vale.ini'
       - '.markdown-lint.yml'
       - '.markdownlint-cli2.cjs'
-      - 'script/cibuild-content'
-      - 'script/remark'
-      - 'script/lint-text'
-      - 'script/vale'
+      # Code files
       - '**/*.js'
+      - '**/*.mjs'
       - '**/*.ts'
       - '**/*.json'
-      - '**/*.yml'
-      - '**/*.yaml'
+      - 'e2e/**'
+      - 'assets/**'
+      # Configuration files
       - 'package*.json'
       - 'astro.config.mjs'
       - 'tsconfig*.json'
       - 'vitest.config.ts'
-      - 'assets/**'
-      - 'js/**'
-      - 'script/**'
       - 'eslint.config.js'
       - '.yamllint.yml'
-      - '.github/workflows/ci.yml'
+      - '.github/workflows/*.yml'
+      - '.github/dependabot.yml'
+      # Build scripts
+      - 'script/**'
 
 permissions:
   contents: read
@@ -108,11 +112,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install yamllint
+        run: pip install --user yamllint
+
       - name: Lint JavaScript
         run: npm run lint-js
 
       - name: Lint JSON
         run: npm run lint-json
+
+      - name: Lint YAML
+        run: npm run lint-yaml
 
       - name: Type check
         run: npm run check

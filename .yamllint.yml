@@ -3,3 +3,10 @@ extends: default
 rules:
   document-start: disable
   line-length: disable
+  # GitHub Actions uses 'on:' as a keyword, which YAML interprets as boolean true
+  truthy:
+    check-keys: false
+  # Allow GitHub's preferred indentation style for lists
+  indentation:
+    spaces: 2
+    indent-sequences: whatever
