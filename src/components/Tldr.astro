@@ -92,6 +92,12 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
         // Position to the left instead
         left = rect.left - tooltipRect.width - 10;
         tooltipEl.classList.add('left');
+        
+        // Check if tooltip would overflow left edge of viewport
+        if (left < 10) {
+          // Clamp to left edge with margin
+          left = 10;
+        }
       } else {
         tooltipEl.classList.remove('left');
       }
