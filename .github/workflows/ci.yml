@@ -115,7 +115,7 @@ jobs:
         run: npm run lint-json
 
       - name: Lint YAML
-        run: pip install yamllint && npm run lint-yaml
+        run: npm run lint-yaml
 
       - name: Type check
         run: npm run check
