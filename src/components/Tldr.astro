@@ -376,6 +376,13 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
     right: auto;
     left: 100%;
     border-right-color: transparent;
-    border-left-color: #000;
+    border-left-color: var(--bs-dark, #212529);
+  }
+  
+  /* Dark mode: left arrow */
+  @media (prefers-color-scheme: dark) {
+    :global(.custom-tooltip.left::before) {
+      border-left-color: var(--bs-light, #f8f9fa);
+    }
   }
 </style>
