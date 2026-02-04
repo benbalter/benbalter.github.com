@@ -34,8 +34,10 @@ const currentPath = Astro.url.pathname;
 const baseClasses = "navbar flex flex-wrap items-center justify-between py-2 px-4 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm mb-4";
 
 // Conditionally add rounded classes based on hero presence
+// For hero pages: round only bottom corners (top-left and top-right are 0)
+// For non-hero pages: round all corners
 const navClasses = hero 
-  ? `${baseClasses} rounded-b-lg border-t-0`
+  ? `${baseClasses} rounded-t-none rounded-b-lg border-t-0`
   : `${baseClasses} rounded-lg`;
 ---
 
@@ -69,12 +71,12 @@ const navClasses = hero
         nav.setAttribute('data-has-hero', hasHero.toString());
         
         if (hasHero) {
-          // Hero page: bottom-only rounding, no top border
+          // Hero page: bottom-only rounding, no top border, explicit no top rounding
           nav.classList.remove('rounded-lg');
-          nav.classList.add('rounded-b-lg', 'border-t-0');
+          nav.classList.add('rounded-t-none', 'rounded-b-lg', 'border-t-0');
         } else {
           // Non-hero page: full rounding
-          nav.classList.remove('rounded-b-lg', 'border-t-0');
+          nav.classList.remove('rounded-t-none', 'rounded-b-lg', 'border-t-0');
           nav.classList.add('rounded-lg');
         }
       }
@@ -92,7 +94,7 @@ const navClasses = hero
       <span class="navbar-toggler-icon block w-6 h-6 bg-no-repeat bg-center"></span>
     </button>
 
-    <div class="collapse navbar-collapse w-full md:w-auto" id="navbar">
+    <div class="nav-collapse navbar-collapse w-full md:w-auto" id="navbar">
       <ul class="navbar-nav flex flex-col md:flex-row list-none p-0 m-0">
         {navItems.map((item) => {
           const isActive = currentPath === item.url || 
@@ -112,7 +114,7 @@ const navClasses = hero
       </ul>
     </div>
 
-    <span class="navbar-text hidden md:block text-gray-600 dark:text-gray-400 text-sm text-right mb-2 md:border-l-2 md:border-primary/20 md:pl-4 md:ml-4">
+    <span class="navbar-text hidden md:block text-gray-700 dark:text-gray-400 text-sm text-right mb-2 md:border-l-2 md:border-primary/20 md:pl-4 md:ml-4">
       {siteConfig.description}
     </span>
   </div>

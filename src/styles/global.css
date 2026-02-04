@@ -233,6 +233,21 @@
     @apply opacity-80;
   }
 
+  /* Dark mode - Content links need lighter color for contrast (4.5:1 ratio) */
+  @media (prefers-color-scheme: dark) {
+    article a:not(.anchor-link),
+    .content a:not(.anchor-link),
+    main a:not(.btn):not(.nav-link):not(.navbar-brand):not(.anchor-link) {
+      @apply text-primary-300;
+    }
+
+    article a:not(.anchor-link):hover,
+    .content a:not(.anchor-link):hover,
+    main a:not(.btn):not(.nav-link):not(.navbar-brand):not(.anchor-link):hover {
+      @apply text-primary-200;
+    }
+  }
+
   /* Code Blocks */
   pre {
     @apply p-5 rounded border border-gray-300;
@@ -520,6 +535,17 @@
     @apply bg-primary text-white;
   }
 
+  @media (prefers-color-scheme: dark) {
+    .btn-outline-primary {
+      /* Use lighter primary color for better contrast in dark mode (4.5:1 ratio) */
+      @apply text-primary-300 border-primary-300;
+    }
+    
+    .btn-outline-primary:hover {
+      @apply bg-primary-400 text-gray-900;
+    }
+  }
+
   .btn-sm {
     @apply px-3 py-1.5 text-sm min-h-[36px];
   }
@@ -615,16 +641,17 @@
     @apply w-full md:w-auto md:flex;
   }
 
-  .collapse {
+  /* Mobile navigation collapse - named nav-collapse to avoid conflict with Tailwind's collapse utility */
+  .nav-collapse {
     @apply hidden;
   }
 
-  .collapse.show {
+  .nav-collapse.show {
     @apply block;
   }
 
   @media (min-width: 768px) {
-    .collapse {
+    .nav-collapse {
       @apply block;
     }
   }
