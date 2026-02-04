@@ -28,3 +28,8 @@ coverage/
 .env.test.local
 .env.production.local
 screenshots/
+
+# Ruby/bundler artifacts
+vendor/
+.bundle/
+Gemfile.lock
