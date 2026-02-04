@@ -272,15 +272,16 @@ Use this agent for development tasks that involve modifying or creating code fil
 
 ### Writing Agent (`writing.md`)
 
-Specialized for content creation and editing including:
+Specialized for content creation and editing that authentically matches Ben Balter's distinctive writing voice:
 
-* Blog posts (Markdown with front matter)
-* Technical documentation
-* README and guide files
-* SEO optimization
-* Style and grammar compliance
+* **Blog posts**: Technology leadership, open source, remote work, collaboration
+* **Writing voice**: Analytical yet accessible, engineering analogies, empathetic
+* **Distinctive patterns**: Internal linking, footnotes, memorable concepts
+* **Technical documentation**: README files, guides, and docs
+* **SEO optimization**: Titles, descriptions, and structured content
+* **Style compliance**: Vale, textlint, remark, and markdownlint
 
-Use this agent for creating or editing blog posts and documentation.
+Use this agent for creating or editing blog posts and documentation. The agent understands Ben's voice, frequently referenced prior posts, and key concepts like "showing your work", "communications debt", and "caremad".
 
 ## Notes for Copilot
 
