@@ -1,6 +1,6 @@
 # Astro Implementation
 
-This directory contains an Astro-based implementation of Ben Balter's personal website, designed to coexist with the existing Jekyll implementation during development.
+This directory contains documentation for Ben Balter's personal website, which is built with Astro. The site has been fully migrated from Jekyll to Astro.
 
 ## Quick Start
 
@@ -9,17 +9,17 @@ This directory contains an Astro-based implementation of Ben Balter's personal w
 Start the Astro development server:
 
 ```bash
-npm run astro:dev
+npm run dev
 ```
 
-This will start the server at `http://localhost:4321` (different from Jekyll's 4000).
+This will start the server at `http://localhost:4321`.
 
 ### Build
 
 Build the site for production:
 
 ```bash
-npm run astro:build
+npm run build
 ```
 
 The built site will be output to `dist-astro/` directory.
@@ -29,12 +29,12 @@ The built site will be output to `dist-astro/` directory.
 Preview the production build locally:
 
 ```bash
-npm run astro:preview
+npm run preview
 ```
 
 ## Project Structure
 
-```
+```text
 ├── src/
 │   ├── pages/          # Page components (become routes)
 │   │   ├── index.astro # Homepage (/)
@@ -52,15 +52,11 @@ npm run astro:preview
 
 ### Output Directory
 
-The Astro build outputs to `dist-astro/` to avoid conflicts with:
-
-- Jekyll: `_site/`
+The Astro build outputs to `dist-astro/` directory.
 
 ### Development Server
 
-Astro runs on port 4321 to avoid conflicts with:
-
-- Jekyll: port 4000
+Astro runs on port 4321 by default.
 
 ### GitHub Pages Compatibility
 
@@ -228,93 +224,49 @@ E2E tests for View Transitions are in `e2e/view-transitions.spec.ts` covering:
 - View Transitions configuration
 - Accessibility (prefers-reduced-motion)
 
-## Integration with Existing Code
+## Integration with Content
 
-### Coexistence Strategy
+### Content Structure
 
-This Astro implementation is designed to run alongside Jekyll:
+The site uses Astro's content collections to organize content:
 
-1. **Separate build outputs**: Each framework builds to its own directory
-2. **Different ports**: Development servers run on different ports
-3. **Independent dependencies**: Astro deps don't interfere with others
-4. **Shared content**: Can potentially share markdown files and data
-
-### Using Existing Content
-
-Astro can potentially leverage existing content from the repository:
-
-- `_posts/`: Blog posts (markdown files)
-- `_data/`: YAML data files
-- `_resume_positions/`: Resume data
+- `src/content/posts/`: Blog posts (Markdown files)
+- `src/data/`: YAML data files
+- `src/content/resume-positions/`: Resume positions (content collection)
 - `public/`: Static assets
 
 ## Key Differences from Jekyll
 
-### vs Jekyll
+The site has been fully migrated from Jekyll to Astro. Key differences include:
 
-- **Modern tooling**: Vite-based instead of Ruby-based
+- **Modern tooling**: Vite-based build system instead of Ruby-based
 - **Component-based**: Component architecture instead of Liquid templates
-- **Zero JS**: No JavaScript by default, unlike Jekyll's asset pipeline
+- **Zero JS by default**: No JavaScript shipped by default, with opt-in client-side interactivity
+- **TypeScript support**: Type-safe component development
+- **Content Collections**: Structured content with TypeScript schemas instead of Jekyll collections
 
-## Deployment Options
+## Deployment
 
-### Option 1: Separate Deployment
+The site is deployed to GitHub Pages using GitHub Actions. The deployment workflow builds the Astro site and publishes the `dist-astro/` directory to GitHub Pages.
 
-Deploy Astro build (`dist-astro/`) to a different subdomain or path:
+## Migration Status
 
-- Main site: `ben.balter.com` (Jekyll)
-- Astro: `astro.ben.balter.com` or `ben.balter.com/astro/`
+The migration from Jekyll to Astro is complete. The following have been migrated:
 
-### Option 2: A/B Testing
-
-Use GitHub Pages or Netlify deploy previews to compare implementations.
-
-### Option 3: Full Migration
-
-Once development is complete, replace Jekyll with Astro:
-
-1. Update GitHub Pages deployment to use `dist-astro/`
-2. Archive Jekyll implementation
-3. Update documentation
-
-## Next Steps
-
-### Content Migration
-
-- [ ] Migrate blog posts from `_posts/` to Astro content collections
+- [x] Blog posts from Jekyll `_posts/` to `src/content/posts/`
 - [x] Configure Markdown and MDX support with @astrojs/mdx integration
 - [x] Define content collections with frontmatter schemas
-- [x] Create example Markdown and MDX posts
 - [x] Add reusable MDX components (Callout, CodeBlock, YouTube)
-- [ ] Migrate blog posts from `_posts/` to `src/content/posts/`
-- [ ] Migrate resume data from `_resume_positions/`
-- [ ] Migrate data files from `_data/`
-- [ ] Add custom static assets to `public/`
+- [x] Resume data from `_resume_positions/`
+- [x] Data files from `_data/` to `src/data/`
+- [x] Static assets in `public/`
+- [x] Layouts and templates from Jekyll to Astro components
+- [x] RSS feed generation
+- [x] Sitemap generation
+- [x] View transitions for smooth navigation
+- [x] Deployment to GitHub Pages
 
 See [docs/ASTRO_CONTENT.md](ASTRO_CONTENT.md) for detailed documentation on working with Markdown and MDX content.
-
-### Feature Parity
-
-- [ ] Implement blog post listing and pagination
-- [ ] Add RSS feed generation
-- [ ] Add sitemap generation
-- [ ] Implement related posts functionality
-- [ ] Add search functionality
-- [ ] Migrate comments system
-
-### Optimization
-
-- [ ] Add image optimization for blog posts
-- [ ] Implement partial hydration for interactive components
-- [x] Add view transitions for smooth navigation
-- [ ] Optimize bundle size with code splitting
-
-### Testing
-
-- [ ] Add Playwright E2E tests for Astro build
-- [ ] Add component tests
-- [ ] Test deployment to GitHub Pages
-- [ ] Performance testing and optimization
 
 ## Documentation
 
