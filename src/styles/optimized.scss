@@ -774,14 +774,7 @@ blockquote {
     }
 }
 
-// Improved first paragraph styling (lead paragraph)
-// The first paragraph after a heading often benefits from slightly larger text
-// Uses rem units for predictable sizing without compounding with parent font-size
-article > p:first-of-type,
-.post-content > p:first-of-type {
-    font-size: 1.125rem; // Slightly larger for engagement
-    line-height: 1.75; // Slightly increased line height for the larger text
-}
+
 
 // Drop cap for engaging article starts (applied via .drop-cap class)
 // Use sparingly - best for feature articles or blog posts
