@@ -216,7 +216,7 @@ test.describe('Legacy URL Redirects', () => {
       expect(content).toMatch(/content=["']?noindex["']?/);
     });
 
-    test('should have meta refresh redirect from /sitemap_index.xml to /sitemap-index.xml', async ({ request }) => {
+    test('should have meta refresh redirect from /sitemap_index.xml to /sitemap-0.xml', async ({ request }) => {
       const response = await request.get('/sitemap_index.xml', { 
         maxRedirects: 0,
         failOnStatusCode: false 
@@ -226,7 +226,7 @@ test.describe('Legacy URL Redirects', () => {
       
       // Astro static builds use HTML meta refresh redirects (attributes may be quoted or unquoted)
       expect(content).toMatch(/http-equiv=["']?refresh["']?/);
-      expect(content).toContain('url=/sitemap-index.xml');
+      expect(content).toContain('url=/sitemap-0.xml');
       expect(content).toMatch(/content=["']?noindex["']?/);
     });
 
@@ -248,22 +248,22 @@ test.describe('Legacy URL Redirects', () => {
       expect(sitemapContent).toMatch(/<urlset|<url>/i);
     });
 
-    test('/sitemap_index.xml redirect should resolve to valid sitemap index', async ({ page, request }) => {
+    test('/sitemap_index.xml redirect should resolve to valid sitemap', async ({ page, request }) => {
       // Fetch the redirect page directly to avoid XML parsing issues
       const response = await request.get('/sitemap_index.xml');
       expect(response.status()).toBe(200);
       
       // Astro uses meta refresh redirects - verify it points to the correct destination
       const content = await response.text();
-      expect(content).toContain('url=/sitemap-index.xml');
+      expect(content).toContain('url=/sitemap-0.xml');
       
-      // Now verify the actual sitemap index is valid
-      const sitemapResponse = await request.get('/sitemap-index.xml');
+      // Now verify the actual sitemap is valid
+      const sitemapResponse = await request.get('/sitemap-0.xml');
       expect(sitemapResponse.status()).toBe(200);
       
-      // Verify it's a valid sitemap index
+      // Verify it's a valid sitemap
       const sitemapContent = await sitemapResponse.text();
-      expect(sitemapContent).toMatch(/<sitemapindex|<sitemap>/i);
+      expect(sitemapContent).toMatch(/<urlset|<url>/i);
     });
   });
 });

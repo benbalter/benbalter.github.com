@@ -1,7 +1,7 @@
 /**
  * Sitemap Index Redirect
  * 
- * Redirects from the Jekyll sitemap index URL (/sitemap_index.xml) to the Astro sitemap index (/sitemap-index.xml).
+ * Redirects from the Jekyll sitemap index URL (/sitemap_index.xml) to the Astro sitemap (/sitemap-0.xml).
  * This maintains backward compatibility with external links that may reference the old Jekyll sitemap index URL.
  * 
  * Note: For static site builds, Astro automatically converts the 301 Response to an HTML
@@ -16,7 +16,7 @@ export const GET: APIRoute = () => {
   return new Response(null, {
     status: 301,
     headers: {
-      'Location': '/sitemap-index.xml',
+      'Location': '/sitemap-0.xml',
     },
   });
 };

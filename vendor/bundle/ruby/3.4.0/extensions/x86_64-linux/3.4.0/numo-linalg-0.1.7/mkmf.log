@@ -1,0 +1,112 @@
+have_header: checking for numo/narray.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -o conftest -I/home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-narray-0.9.2.1/lib/numo -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC conftest.c -L. -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--no-as-needed     -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -lruby  -lm -lpthread  -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -I/home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-narray-0.9.2.1/lib/numo -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <numo/narray.h>
+/* end */
+
+--------------------
+
+have_header: checking for dlfcn.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -I/home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-narray-0.9.2.1/lib/numo -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <dlfcn.h>
+/* end */
+
+--------------------
+
+have_library: checking for -ldl... -------------------- yes
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -o conftest -I/home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-narray-0.9.2.1/lib/numo -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC conftest.c -L. -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--no-as-needed     -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -lruby -ldl  -lm -lpthread  -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: 
+15: int t(void) { ; return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for dlopen()... -------------------- yes
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -o conftest -I/home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-narray-0.9.2.1/lib/numo -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC conftest.c -L. -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--no-as-needed    -ldl  -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -lruby -ldl  -lm -lpthread  -lc"
+conftest.c: In function ‘t’:
+conftest.c:14:57: error: ‘dlopen’ undeclared (first use in this function); did you mean ‘popen’?
+   14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))dlopen; return !p; }
+      |                                                         ^~~~~~
+      |                                                         popen
+conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
+At top level:
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))dlopen; return !p; }
+/* end */
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -o conftest -I/home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-narray-0.9.2.1/lib/numo -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC conftest.c -L. -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--no-as-needed    -ldl  -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -lruby -ldl  -lm -lpthread  -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: extern void dlopen();
+15: int t(void) { dlopen(); return 0; }
+/* end */
+
+--------------------
+

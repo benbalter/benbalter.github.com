@@ -1,0 +1,438 @@
+append_cflags: checking for whether -Wall is accepted as CFLAGS... -------------------- yes
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -o conftest -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC conftest.c -L. -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--no-as-needed     -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -lruby  -lm -lpthread  -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC  -Wall -Werror -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+--------------------
+
+append_cflags: checking for whether -Wno-unknown-pragmas is accepted as CFLAGS... -------------------- yes
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC -Wall  -Wno-unknown-pragmas -Werror -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+--------------------
+
+append_cflags: checking for whether -std=c99 is accepted as CFLAGS... -------------------- yes
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC -Wall -Wno-unknown-pragmas  -std=c99 -Werror -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+--------------------
+
+have_func: checking for rb_ext_ractor_safe()... -------------------- yes
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -o conftest -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC -Wall -Wno-unknown-pragmas -std=c99 conftest.c -L. -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--no-as-needed     -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -lruby  -lm -lpthread  -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_ext_ractor_safe; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for &rb_fiber_transfer()... -------------------- yes
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -o conftest -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC -Wall -Wno-unknown-pragmas -std=c99 conftest.c -L. -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--no-as-needed     -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -lruby  -lm -lpthread  -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { const volatile void *volatile p; p = (const volatile void *)&rb_fiber_transfer; return !p; }
+/* end */
+
+--------------------
+
+have_library: checking for -luring... -------------------- no
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -o conftest -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC -Wall -Wno-unknown-pragmas -std=c99 conftest.c -L. -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--no-as-needed     -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -lruby -luring  -lm -lpthread  -lc"
+/usr/bin/ld: cannot find -luring: No such file or directory
+collect2: error: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: 
+15: int t(void) { ; return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for sys/epoll.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC -Wall -Wno-unknown-pragmas -std=c99   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sys/epoll.h>
+/* end */
+
+--------------------
+
+have_header: checking for sys/event.h... -------------------- no
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC -Wall -Wno-unknown-pragmas -std=c99   -c conftest.c"
+conftest.c:3:10: fatal error: sys/event.h: No such file or directory
+    3 | #include <sys/event.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sys/event.h>
+/* end */
+
+--------------------
+
+have_header: checking for sys/wait.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC -Wall -Wno-unknown-pragmas -std=c99   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sys/wait.h>
+/* end */
+
+--------------------
+
+have_header: checking for sys/eventfd.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC -Wall -Wno-unknown-pragmas -std=c99   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sys/eventfd.h>
+/* end */
+
+--------------------
+
+have_func: checking for rb_io_descriptor()... -------------------- yes
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -o conftest -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC -Wall -Wno-unknown-pragmas -std=c99 conftest.c -L. -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--no-as-needed     -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -lruby  -lm -lpthread  -lc"
+conftest.c: In function ‘t’:
+conftest.c:14:57: error: ‘rb_io_descriptor’ undeclared (first use in this function)
+   14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_io_descriptor; return !p; }
+      |                                                         ^~~~~~~~~~~~~~~~
+conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
+At top level:
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_io_descriptor; return !p; }
+/* end */
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -o conftest -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC -Wall -Wno-unknown-pragmas -std=c99 conftest.c -L. -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--no-as-needed     -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -lruby  -lm -lpthread  -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: extern void rb_io_descriptor();
+15: int t(void) { rb_io_descriptor(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for &rb_process_status_wait()... -------------------- yes
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -o conftest -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC -Wall -Wno-unknown-pragmas -std=c99 conftest.c -L. -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--no-as-needed     -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -lruby  -lm -lpthread  -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { const volatile void *volatile p; p = (const volatile void *)&rb_process_status_wait; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_fiber_current()... -------------------- yes
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -o conftest -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC -Wall -Wno-unknown-pragmas -std=c99 conftest.c -L. -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--no-as-needed     -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -lruby  -lm -lpthread  -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_fiber_current; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for &rb_fiber_raise()... -------------------- yes
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -o conftest -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC -Wall -Wno-unknown-pragmas -std=c99 conftest.c -L. -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--no-as-needed     -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -lruby  -lm -lpthread  -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { const volatile void *volatile p; p = (const volatile void *)&rb_fiber_raise; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for epoll_pwait2()... -------------------- yes
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -o conftest -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC -Wall -Wno-unknown-pragmas -std=c99 conftest.c -L. -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--no-as-needed     -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -lruby  -lm -lpthread  -lc"
+conftest.c: In function ‘t’:
+conftest.c:14:57: error: ‘epoll_pwait2’ undeclared (first use in this function)
+   14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))epoll_pwait2; return !p; }
+      |                                                         ^~~~~~~~~~~~
+conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
+At top level:
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))epoll_pwait2; return !p; }
+/* end */
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -o conftest -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC -Wall -Wno-unknown-pragmas -std=c99 conftest.c -L. -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--no-as-needed     -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -lruby  -lm -lpthread  -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: extern void epoll_pwait2();
+15: int t(void) { epoll_pwait2(); return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for ruby/io/buffer.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC -Wall -Wno-unknown-pragmas -std=c99   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <ruby/io/buffer.h>
+/* end */
+
+--------------------
+
+have_func: checking for rb_fiber_scheduler_blocking_operation_extract()... -------------------- no
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -o conftest -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC -Wall -Wno-unknown-pragmas -std=c99 conftest.c -L. -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--no-as-needed     -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -lruby  -lm -lpthread  -lc"
+conftest.c: In function ‘t’:
+conftest.c:14:57: error: ‘rb_fiber_scheduler_blocking_operation_extract’ undeclared (first use in this function)
+   14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_fiber_scheduler_blocking_operation_extract; return !p; }
+      |                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
+At top level:
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_fiber_scheduler_blocking_operation_extract; return !p; }
+/* end */
+
+LD_LIBRARY_PATH=.:/opt/hostedtoolcache/Ruby/3.4.7/x64/lib ASAN_OPTIONS=detect_leaks=0 "gcc -o conftest -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/x86_64-linux -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0/ruby/backward -I/opt/hostedtoolcache/Ruby/3.4.7/x64/include/ruby-3.4.0 -I. -DENABLE_PATH_CHECK=0   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdiv-by-zero -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wmisleading-indentation -Wundef  -fPIC -Wall -Wno-unknown-pragmas -std=c99 conftest.c -L. -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--no-as-needed     -Wl,-rpath,/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -L/opt/hostedtoolcache/Ruby/3.4.7/x64/lib -lruby  -lm -lpthread  -lc"
+/usr/bin/ld: /tmp/cc73WieB.o: in function `t':
+/home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/io-event-1.14.2/ext/conftest.c:15:(.text+0xb): undefined reference to `rb_fiber_scheduler_blocking_operation_extract'
+collect2: error: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: extern void rb_fiber_scheduler_blocking_operation_extract();
+15: int t(void) { rb_fiber_scheduler_blocking_operation_extract(); return 0; }
+/* end */
+
+--------------------
+
+extconf.h is:
+/* begin */
+ 1: #ifndef EXTCONF_H
+ 2: #define EXTCONF_H
+ 3: #define HAVE_RB_EXT_RACTOR_SAFE 1
+ 4: #define HAVE__RB_FIBER_TRANSFER 1
+ 5: #define HAVE_SYS_EPOLL_H 1
+ 6: #define HAVE_SYS_WAIT_H 1
+ 7: #define HAVE_SYS_EVENTFD_H 1
+ 8: #define HAVE_RB_IO_DESCRIPTOR 1
+ 9: #define HAVE__RB_PROCESS_STATUS_WAIT 1
+10: #define HAVE_RB_FIBER_CURRENT 1
+11: #define HAVE__RB_FIBER_RAISE 1
+12: #define HAVE_EPOLL_PWAIT2 1
+13: #define HAVE_RUBY_IO_BUFFER_H 1
+14: #endif
+/* end */
+
