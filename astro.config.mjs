@@ -175,7 +175,7 @@ export default defineConfig({
   // Integrations
   integrations: [
     tailwind({
-      // Apply base styles - we'll customize in our CSS
+      // Apply Tailwind's base styles and extend with custom styles in global.css
       applyBaseStyles: true,
     }),
     favicons({
