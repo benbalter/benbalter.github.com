@@ -303,6 +303,7 @@ test.describe('Navigation Styling - Edge Cases', () => {
   });
   
   test('should not have visual glitches during transition', async ({ page }) => {
+    // Start on a non-hero page to keep layout consistent
     // Navigate between two pages without heroes to ensure navigation position is stable
     // (homepage has a hero, which would cause navigation to shift by ~400px)
     await page.goto('/about/');
@@ -320,6 +321,7 @@ test.describe('Navigation Styling - Edge Cases', () => {
     const initialBox = await nav.boundingBox();
     expect(initialBox).toBeTruthy();
     
+    // Navigate to another non-hero page (to keep layout consistent)
     // Navigate to another page without a hero
     await page.locator('a[href="/contact/"]').first().click();
     await page.waitForURL('**/contact/');
@@ -334,6 +336,7 @@ test.describe('Navigation Styling - Edge Cases', () => {
     expect(finalBox).toBeTruthy();
     
     // Navigation position should be stable (allowing for small differences)
+    // Note: We navigate between non-hero pages to ensure consistent layout
     if (initialBox && finalBox) {
       expect(Math.abs(finalBox.y - initialBox.y)).toBeLessThan(5);
     }
