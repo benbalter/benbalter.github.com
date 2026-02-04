@@ -3,7 +3,7 @@
  * Other Recommended Reading Page
  * 
  * Displays a curated list of book recommendations organized by category.
- * Books are loaded from _data/books.yml and displayed in a responsive grid.
+ * Books are loaded from src/data/books.yml and displayed in a responsive grid.
  */
 
 import PageLayout from '../layouts/PageLayout.astro';
@@ -15,8 +15,8 @@ import { marked } from 'marked';
 const title = 'Other recommended reading';
 const description = 'Here are some of the books that have had a significant influence on my career, management style, and professional development that I often recommend to others interested in IT management and leadership, career and corporate life, open source, startups and innovation, information security, product management, marketing, technology policy, government and organizing, and everything else.';
 
-// Load books data from _data/books.yml
-const booksPath = join(process.cwd(), '_data', 'books.yml');
+// Load books data from src/data/books.yml
+const booksPath = join(process.cwd(), 'src', 'data', 'books.yml');
 let booksData;
 try {
   const booksYaml = readFileSync(booksPath, 'utf-8');

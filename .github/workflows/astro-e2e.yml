@@ -10,12 +10,9 @@ on:
       - 'astro.config.mjs'
       - 'tsconfig.astro.json'
       - 'public/**'
-      - '_posts/**'
-      - '_resume_positions/**'
       - '*.md'
-      - '_data/**'
       - 'e2e/**'
-      - 'playwright*.config.ts'
+      - 'playwright.config.ts'
       - '.lighthouserc.json'
       - 'package*.json'
       - '.github/workflows/astro-e2e.yml'
@@ -25,12 +22,9 @@ on:
       - 'astro.config.mjs'
       - 'tsconfig.astro.json'
       - 'public/**'
-      - '_posts/**'
-      - '_resume_positions/**'
       - '*.md'
-      - '_data/**'
       - 'e2e/**'
-      - 'playwright*.config.ts'
+      - 'playwright.config.ts'
       - '.lighthouserc.json'
       - 'package*.json'
       - '.github/workflows/astro-e2e.yml'
@@ -43,7 +37,7 @@ env:
   NODE_VERSION: 24
 
 jobs:
-  astro-build:
+  build:
     name: Build Astro Site
     runs-on: ubuntu-latest
 
@@ -69,7 +63,7 @@ jobs:
             astro-cache-${{ runner.os }}-
 
       - name: Build Astro site
-        run: npm run astro:build
+        run: npm run build
 
       - name: Upload Astro build artifacts
         uses: actions/upload-artifact@v6
@@ -81,7 +75,7 @@ jobs:
 
   lighthouse:
     name: Lighthouse CI
-    needs: astro-build
+    needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -111,7 +105,7 @@ jobs:
 
   playwright:
     name: Playwright Tests
-    needs: astro-build
+    needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -151,15 +145,15 @@ jobs:
 
       - name: Start Astro preview server
         run: |
-          npm run astro:preview -- --host &
+          npm run preview -- --host &
           sleep 5
 
       - name: Wait for server to be ready
         run: |
           timeout 30 bash -c 'until curl -sf http://localhost:4321; do sleep 1; done'
 
-      - name: Run Playwright tests (Astro)
-        run: npm run test:e2e:astro
+      - name: Run Playwright tests
+        run: npm run test:e2e
         env:
           BASE_URL: http://localhost:4321
           CI: true

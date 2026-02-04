@@ -1,1 +1,0 @@
-ack $1 --ignore-directory=_site --ignore-directory=node_modules --ignore-directory=tmp
