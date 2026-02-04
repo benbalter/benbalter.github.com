@@ -9,7 +9,6 @@ import _retextReadability from 'retext-readability';
 import retextRepeatedWords from 'retext-repeated-words';
 import _retextSimplify from 'retext-simplify';
 import _retextIntensify from 'retext-intensify';
-import retextProfanities from 'retext-profanities';
 import retextSpell from 'retext-spell';
 import retextRedundantAcronyms from 'retext-redundant-acronyms';
 import retextSentenceSpacing from 'retext-sentence-spacing';
@@ -33,7 +32,6 @@ const retextSettings = {
     retextRepeatedWords,
     [retextSpell, {dictionary: dictionaryEn, personal: personalDict}],
     //  RetextContractions,
-    retextProfanities,
     retextRedundantAcronyms,
     retextSentenceSpacing,
     retextStringify,
