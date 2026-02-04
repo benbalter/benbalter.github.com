@@ -303,7 +303,9 @@ test.describe('Navigation Styling - Edge Cases', () => {
   });
   
   test('should not have visual glitches during transition', async ({ page }) => {
-    await page.goto('/');
+    // Navigate between two pages without heroes to ensure navigation position is stable
+    // (homepage has a hero, which would cause navigation to shift by ~400px)
+    await page.goto('/about/');
     await waitForPageReady(page);
     
     // Skip test if not Astro build
@@ -318,9 +320,9 @@ test.describe('Navigation Styling - Edge Cases', () => {
     const initialBox = await nav.boundingBox();
     expect(initialBox).toBeTruthy();
     
-    // Navigate to another page
-    await page.locator('a[href="/about/"]').first().click();
-    await page.waitForURL('**/about/');
+    // Navigate to another page without a hero
+    await page.locator('a[href="/contact/"]').first().click();
+    await page.waitForURL('**/contact/');
     
     // Wait a moment for any transitions
     await page.waitForTimeout(100);
