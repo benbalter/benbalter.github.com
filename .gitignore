@@ -1,40 +1,11 @@
 .DS_Store
-_site
-assets/vendor/bootstrap/js
-assets/vendor/bootstrap/less
-assets/vendor/font-awesome/less
-assets/vendor/font-awesome/css
-assets/vendor/font-awesome/src
-assets/vendor/modernizr/feature-detects
-assets/vendor/modernizr/media
-assets/vendor/modernizr/test
-assets/vendor/turbolinks/bin
-assets/vendor/turbolinks/src
-assets/vendor/turbolinks/test
-assets/vendor/turbolinks/*.md
-.bundle
-Gemfile.lock
-/html
-/md
-.sass-cache
 node_modules
-comments.json
 /tmp
-/.jekyll-metadata
-/spec/examples.txt
-/vendor/bundle/
-.jekyll-cache
 .github/styles/*
 .frontmatter
 assets/css/style.css
 assets/js/bundle.js
 assets/js/bundle.js.LICENSE.txt
-test-results/
-playwright-report/
-
-# Astro build artifacts
-dist-astro/
-.astro/
 
 # Astro build artifacts
 dist-astro/
@@ -44,14 +15,12 @@ dist-astro/
 .lighthouseci/
 
 # Playwright artifacts
-/test-results/
-/playwright-report/
-/playwright/.cache/
+test-results/
+playwright-report/
+playwright/.cache/
 
 # Vitest coverage
 coverage/
-
-/vendor/
 
 # Environment variables
 .env.local
@@ -59,4 +28,3 @@ coverage/
 .env.test.local
 .env.production.local
 screenshots/
-.lighthouseci/

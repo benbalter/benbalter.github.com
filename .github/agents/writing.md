@@ -50,11 +50,10 @@ Optional front matter fields:
 
 * `comments: true` - Enable comments
 * `redirect_from: ["/old/url/"]` - For URL redirects
-* `permalink: /custom-url/` - Custom URL path
 
 ### File Naming
 
-* Blog posts: `_posts/YYYY-MM-DD-title-with-hyphens.md`
+* Blog posts: `src/content/posts/YYYY-MM-DD-title-with-hyphens.md`
 * Pages: descriptive lowercase with hyphens (e.g., `about.md`)
 
 ### Markdown Guidelines
@@ -134,13 +133,14 @@ script/fix-lint        # Auto-fix linting issues (ALWAYS run after remark/markdo
 ### Testing
 
 ```bash
-rake test              # Run all tests including HTML validation
+npm run check          # Type-check the site
+npm run test:e2e       # Run E2E tests
 ```
 
 ### Preview
 
 ```bash
-rake serve             # Start Jekyll server to preview posts
+npm run dev            # Start Astro server to preview posts
 ```
 
 ## When Creating Content

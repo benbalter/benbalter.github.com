@@ -6,10 +6,8 @@ on:
       - main
       - master
     paths:
-      - '_posts/**'
-      - '_resume_positions/**'
+      - 'src/**'
       - '*.md'
-      - '_data/**'
       - 'dictionary.txt'
       - '.remarkrc.js'
       - '.remarkignore'
@@ -21,34 +19,24 @@ on:
       - 'script/remark'
       - 'script/lint-text'
       - 'script/vale'
-      - '**/*.rb'
       - '**/*.js'
       - '**/*.ts'
       - '**/*.json'
       - '**/*.yml'
       - '**/*.yaml'
-      - '_config*.yml'
-      - 'Gemfile*'
       - 'package*.json'
-      - 'Rakefile'
-      - '_layouts/**'
-      - '_includes/**'
+      - 'astro.config.mjs'
+      - 'tsconfig*.json'
       - 'assets/**'
-      - 'sass/**'
       - 'js/**'
-      - 'lib/**'
       - 'script/**'
-      - 'spec/**'
-      - '.rubocop*.yml'
       - 'eslint.config.js'
       - '.yamllint.yml'
       - '.github/workflows/ci.yml'
   pull_request:
     paths:
-      - '_posts/**'
-      - '_resume_positions/**'
+      - 'src/**'
       - '*.md'
-      - '_data/**'
       - 'dictionary.txt'
       - '.remarkrc.js'
       - '.remarkignore'
@@ -60,25 +48,17 @@ on:
       - 'script/remark'
       - 'script/lint-text'
       - 'script/vale'
-      - '**/*.rb'
       - '**/*.js'
       - '**/*.ts'
       - '**/*.json'
       - '**/*.yml'
       - '**/*.yaml'
-      - '_config*.yml'
-      - 'Gemfile*'
       - 'package*.json'
-      - 'Rakefile'
-      - '_layouts/**'
-      - '_includes/**'
+      - 'astro.config.mjs'
+      - 'tsconfig*.json'
       - 'assets/**'
-      - 'sass/**'
       - 'js/**'
-      - 'lib/**'
       - 'script/**'
-      - 'spec/**'
-      - '.rubocop*.yml'
       - 'eslint.config.js'
       - '.yamllint.yml'
       - '.github/workflows/ci.yml'
@@ -117,24 +97,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-
       - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
 
-      - name: Cache apt packages
-        uses: awalsh128/cache-apt-pkgs-action@v1
-        with:
-          packages: libvips-dev
-          version: 1.0
+      - name: Install dependencies
+        run: npm ci
 
-      - name: script/bootstrap
-        run: script/bootstrap
+      - name: Lint JavaScript
+        run: npm run lint-js
 
-      - name: script/cibuild-code
-        run: script/cibuild-code
+      - name: Lint JSON
+        run: npm run lint-json
+
+      - name: Type check
+        run: npm run check

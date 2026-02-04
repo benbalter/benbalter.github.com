@@ -22,7 +22,7 @@ const anchors = new AnchorJS()
 // Guard flag to prevent double initialization
 let initialized = false
 
-// Initialize page functionality (for both Astro and Jekyll)
+// Initialize page functionality
 function initializePage() {
   if (initialized) return
   initialized = true
@@ -54,11 +54,8 @@ function initializePage() {
   }
 }
 
-// For Astro: Listen for Astro's page load event
+// Listen for Astro's page load event
 document.addEventListener('astro:page-load', initializePage)
-
-// For Jekyll: Listen for standard DOMContentLoaded event
-document.addEventListener('DOMContentLoaded', initializePage)
 
 config.mutateApproach = 'sync'
 library.add(
