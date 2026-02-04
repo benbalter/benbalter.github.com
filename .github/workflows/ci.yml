@@ -113,7 +113,7 @@ jobs:
         run: npm ci
 
       - name: Install yamllint
-        run: pip install --user yamllint
+        run: pip install --user yamllint==1.38.0
 
       - name: Lint JavaScript
         run: npm run lint-js
