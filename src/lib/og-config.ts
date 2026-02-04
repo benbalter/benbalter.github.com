@@ -52,7 +52,7 @@ export interface OGImageConfig {
  * Values sourced from Jekyll's _config.yml:
  * - border.height: 20 (from og_image.border_bottom.width)
  * - border.color: '#4285F4' (from og_image.border_bottom.fill)
- * - logo.path: './assets/img/headshot.jpg' (from og_image.image)
+ * - logo.path: 'public/assets/img/headshot.jpg' (from og_image.image)
  * - domain: 'ben.balter.com' (from og_image.domain)
  * 
  * Values chosen to approximate Jekyll's rendered output:
@@ -94,7 +94,7 @@ export const defaultOGConfig: OGImageConfig = {
   
   // Logo/headshot for brand recognition (top-right, matching Jekyll)
   logo: {
-    path: './assets/img/headshot.jpg',
+    path: 'public/assets/img/headshot.jpg',
     size: 150, // Matching Jekyll's 150x150
   },
   

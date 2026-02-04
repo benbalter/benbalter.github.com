@@ -1,8 +1,6 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import { siteConfig } from '../config';
-import { Image } from 'astro:assets';
-import headshotImage from '../../assets/img/headshot.jpg';
 import ContactLinks from '../components/ContactLinks.astro';
 import { getBioParagraphs, aboutContent } from '../content/about-bio';
 
@@ -13,8 +11,8 @@ const bioParagraphs = getBioParagraphs(aboutContent);
 
 <PageLayout title={title} description={description}>
   <div class="float-md-end ms-md-3 mb-3 mx-auto d-block d-md-inline" style="width: 50%; max-width: 250px;">
-    <a href={`${siteConfig.githubRepoUrl}/raw/master/assets/img/headshot.jpg`}>
-      <Image src={headshotImage} alt={`${siteConfig.author} headshot`} width={250} height={250} class="img-fluid rounded" />
+    <a href={`${siteConfig.githubRepoUrl}/raw/master/public/assets/img/headshot.jpg`}>
+      <img src="/assets/img/headshot.jpg" alt={`${siteConfig.author} headshot`} width="250" height="250" class="img-fluid rounded" />
     </a>
   </div>
 

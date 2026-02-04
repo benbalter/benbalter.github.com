@@ -1,8 +1,6 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import { siteConfig } from '../config';
-import { Image } from 'astro:assets';
-import ccLicenseImage from '../../assets/images/cc-by-88x31.png';
 
 const title = 'Fine Print';
 const description = 'This is my personal Web site. The opinions expressed herein represent my own, and not those of any employer, group, or organization.';
@@ -29,7 +27,7 @@ const description = 'This is my personal Web site. The opinions expressed herein
 
   <div class="text-center mb-3">
     <a rel="license" href="https://creativecommons.org/licenses/by/3.0/">
-      <Image src={ccLicenseImage} alt="Creative Commons License" />
+      <img src="/assets/images/cc-by-88x31.png" alt="Creative Commons License" width="88" height="31" />
     </a>
   </div>
 

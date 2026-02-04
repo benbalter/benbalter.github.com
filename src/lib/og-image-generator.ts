@@ -27,7 +27,7 @@ let fontRegularCache: ArrayBuffer | null = null;
 const headshotCache: Map<string, string> = new Map();
 
 // Allowed asset directories for security
-const ALLOWED_ASSET_DIRS = ['assets'];
+const ALLOWED_ASSET_DIRS = ['public'];
 
 // Layout constants for spacing calculations
 const LOGO_TITLE_GAP = 40; // Gap between title text and logo

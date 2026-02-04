@@ -98,7 +98,7 @@ export const defaultOGConfig: OGImageConfig = {
     color: '#4285F4', // Google blue
   },
   logo: {
-    path: './assets/img/headshot.jpg',
+    path: 'public/assets/img/headshot.jpg',
     size: 150,
   },
   domain: 'ben.balter.com',
@@ -122,7 +122,7 @@ This implementation approximates Jekyll's `jekyll-og-image` plugin:
 
 - Similar visual layout (title top-left, logo top-right, description bottom-left, domain bottom-right)
 - Same Google blue border accent from `_config.yml`
-- Same logo/headshot from Jekyll config: `image: ./assets/img/headshot.jpg`
+- Same logo/headshot from Jekyll config: `image: public/assets/img/headshot.jpg`
 - Same domain display from Jekyll config: `domain: ben.balter.com`
 - Same fallback to custom images when specified
 

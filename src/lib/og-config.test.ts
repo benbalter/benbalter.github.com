@@ -40,7 +40,7 @@ describe('defaultOGConfig', () => {
 
   it('should have logo configuration matching Jekyll', () => {
     expect(defaultOGConfig.logo).toBeDefined();
-    expect(defaultOGConfig.logo.path).toBe('./assets/img/headshot.jpg');
+    expect(defaultOGConfig.logo.path).toBe('public/assets/img/headshot.jpg');
     expect(defaultOGConfig.logo.size).toBe(150); // Matches Jekyll's 150x150
   });
 

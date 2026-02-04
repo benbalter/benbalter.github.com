@@ -22,8 +22,8 @@ describe('OG image layout configuration', () => {
   });
   
   it('should have logo path within allowed directories', () => {
-    // Logo path should start with 'assets' (allowed directory)
-    expect(defaultOGConfig.logo.path).toMatch(/^\.\/assets\//);
+    // Logo path should start with 'public' (allowed directory)
+    expect(defaultOGConfig.logo.path).toMatch(/^public\//);
   });
   
   it('should have reasonable title max width after accounting for logo and gap', () => {
@@ -61,8 +61,8 @@ describe('OG image security configuration', () => {
   });
   
   it('should have logo path starting with allowed directory', () => {
-    const allowedDirs = ['assets'];
-    const logoPath = defaultOGConfig.logo.path.replace(/^\.\//, '');
+    const allowedDirs = ['public'];
+    const logoPath = defaultOGConfig.logo.path;
     const startsWithAllowed = allowedDirs.some(dir => logoPath.startsWith(dir + '/'));
     expect(startsWithAllowed).toBe(true);
   });
