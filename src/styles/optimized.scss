@@ -513,14 +513,14 @@ article .link-secondary {
     // Note: Max-width constraints removed globally, not needed on mobile either
     
     // Reduce white space above page titles on mobile
-    // Target the body margin and main content area
+    // The main improvement comes from removing body top margin (saves 0.5rem)
     body {
-        margin-top: 0 !important; // Remove top margin on body for mobile
+        margin-top: 0 !important; // Remove mt-2 (0.5rem) on body for mobile
     }
     
-    // Reduce spacing on navigation for mobile
+    // Ensure consistent navigation spacing on mobile
     .navbar {
-        margin-bottom: 1rem !important; // Reduced from mb-3 (1rem from 1.5rem)
+        margin-bottom: 1rem !important; // Maintain mb-3 spacing
     }
     
     // Reduce top padding on main content
@@ -528,9 +528,9 @@ article .link-secondary {
         padding-top: 0; // Remove any top padding on main
     }
     
-    // Reduce header margin on pages
+    // Slightly reduce header margin on pages for mobile
     article header {
-        margin-bottom: 1.5rem !important; // Reduced from mb-4 (1.5rem from 2rem)
+        margin-bottom: 1.25rem !important; // Reduced from mb-4 (1.5rem) to save 0.25rem
     }
 }
 
