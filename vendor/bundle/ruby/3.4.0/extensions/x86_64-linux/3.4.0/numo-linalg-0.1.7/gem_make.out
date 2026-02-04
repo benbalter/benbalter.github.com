@@ -1,0 +1,61 @@
+current directory: /home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-linalg-0.1.7/ext/numo/linalg/lapack
+/opt/hostedtoolcache/Ruby/3.4.7/x64/bin/ruby extconf.rb
+checking for numo/narray.h... yes
+checking for dlfcn.h... yes
+checking for -ldl... yes
+checking for dlopen()... yes
+creating depend
+creating Makefile
+
+current directory: /home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-linalg-0.1.7/ext/numo/linalg/lapack
+make DESTDIR\= sitearchdir\=./.gem.20251115-2257-88sqff sitelibdir\=./.gem.20251115-2257-88sqff clean
+
+current directory: /home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-linalg-0.1.7/ext/numo/linalg/lapack
+make DESTDIR\= sitearchdir\=./.gem.20251115-2257-88sqff sitelibdir\=./.gem.20251115-2257-88sqff
+compiling lapack.c
+ruby /home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-linalg-0.1.7/ext/numo/linalg/lapack/gen/cogen.rb -l -o lapack_s.c s
+compiling lapack_s.c
+ruby /home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-linalg-0.1.7/ext/numo/linalg/lapack/gen/cogen.rb -l -o lapack_d.c d
+compiling lapack_d.c
+ruby /home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-linalg-0.1.7/ext/numo/linalg/lapack/gen/cogen.rb -l -o lapack_c.c c
+compiling lapack_c.c
+In file included from /home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-narray-0.9.2.1/lib/numo/numo/types/complex_macro.h:20,
+                 from /home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-narray-0.9.2.1/lib/numo/numo/types/scomplex.h:7,
+                 from /home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-linalg-0.1.7/ext/numo/linalg/lapack/gen/../tmpl/def_c.c:1:
+/home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-narray-0.9.2.1/lib/numo/numo/types/complex.h: In function ‘c_zero’:
+/home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-narray-0.9.2.1/lib/numo/numo/types/complex.h:50:21: warning: old-style function definition [-Wold-style-definition]
+   50 | static inline dtype c_zero() {
+      |                     ^~~~~~
+/home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-narray-0.9.2.1/lib/numo/numo/types/complex.h: In function ‘c_one’:
+/home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-narray-0.9.2.1/lib/numo/numo/types/complex.h:57:21: warning: old-style function definition [-Wold-style-definition]
+   57 | static inline dtype c_one() {
+      |                     ^~~~~
+At top level:
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
+ruby /home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-linalg-0.1.7/ext/numo/linalg/lapack/gen/cogen.rb -l -o lapack_z.c z
+compiling lapack_z.c
+In file included from /home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-narray-0.9.2.1/lib/numo/numo/types/complex_macro.h:20,
+                 from /home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-narray-0.9.2.1/lib/numo/numo/types/dcomplex.h:7,
+                 from /home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-linalg-0.1.7/ext/numo/linalg/lapack/gen/../tmpl/def_z.c:1:
+/home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-narray-0.9.2.1/lib/numo/numo/types/complex.h: In function ‘c_zero’:
+/home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-narray-0.9.2.1/lib/numo/numo/types/complex.h:50:21: warning: old-style function definition [-Wold-style-definition]
+   50 | static inline dtype c_zero() {
+      |                     ^~~~~~
+/home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-narray-0.9.2.1/lib/numo/numo/types/complex.h: In function ‘c_one’:
+/home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-narray-0.9.2.1/lib/numo/numo/types/complex.h:57:21: warning: old-style function definition [-Wold-style-definition]
+   57 | static inline dtype c_one() {
+      |                     ^~~~~
+At top level:
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
+linking shared-object numo/linalg/lapack.so
+
+current directory: /home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-linalg-0.1.7/ext/numo/linalg/lapack
+make DESTDIR\= sitearchdir\=./.gem.20251115-2257-88sqff sitelibdir\=./.gem.20251115-2257-88sqff install
+/usr/bin/install -c -m 0755 lapack.so ./.gem.20251115-2257-88sqff/numo/linalg
+
+current directory: /home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-linalg-0.1.7/ext/numo/linalg/lapack
+make DESTDIR\= sitearchdir\=./.gem.20251115-2257-88sqff sitelibdir\=./.gem.20251115-2257-88sqff clean

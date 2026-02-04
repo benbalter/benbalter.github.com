@@ -1,0 +1,29 @@
+COGEN=ruby /home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-linalg-0.1.7/ext/numo/linalg/blas/gen/cogen.rb -l
+GENDEPS=/home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-linalg-0.1.7/ext/numo/linalg/blas/gen/*.rb /home/runner/work/benbalter.github.com/benbalter.github.com/vendor/bundle/ruby/3.4.0/gems/numo-linalg-0.1.7/ext/numo/linalg/blas/tmpl/*.c
+
+
+blas_s.c: $(GENDEPS)
+	$(COGEN) -o $@ s
+
+blas_d.c: $(GENDEPS)
+	$(COGEN) -o $@ d
+
+blas_c.c: $(GENDEPS)
+	$(COGEN) -o $@ c
+
+blas_z.c: $(GENDEPS)
+	$(COGEN) -o $@ z
+
+
+GENSRC=blas_s.c blas_d.c blas_c.c blas_z.c
+
+src : blas.c $(GENSRC)
+
+doc : $(GENSRC)
+	yard doc -m markdown $(GENSRC)
+
+clean: cleansrc cleandoc
+cleansrc:
+	-$(Q)$(RM) $(GENSRC)
+cleandoc:
+	-$(Q)$(RM_RF) doc .yardoc

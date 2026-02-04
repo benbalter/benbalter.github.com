@@ -7,6 +7,7 @@
  * - Doubled spaces in prose
  * - Headings ending with periods
  * - Broken internal links
+ * - Internal links with missing trailing slashes (to match GitHub Pages behavior)
  */
 
 import { describe, it, expect } from 'vitest';
@@ -30,6 +31,7 @@ function readPostContent(filePath: string): string {
 function fileExists(basePath: string): boolean {
   return existsSync(basePath) || 
          existsSync(`${basePath}.md`) || 
+         existsSync(`${basePath}.mdx`) ||
          existsSync(`${basePath}.html`);
 }
 
@@ -45,21 +47,47 @@ function permalinkToFilePath(permalink: string): string | null {
   const dateMatch = urlPath.match(/^\/(\d{4})\/(\d{2})\/(\d{2})\/(.+)$/);
   if (dateMatch) {
     const [, year, month, day, slug] = dateMatch;
-    const fileName = `${year}-${month}-${day}-${slug}.md`;
+    const baseFileName = `${year}-${month}-${day}-${slug}`;
     
-    // Check in src/content/posts first (Astro)
-    const astroPath = join(process.cwd(), 'src', 'content', 'posts', fileName);
-    if (existsSync(astroPath)) {
-      return astroPath;
+    // Check in src/content/posts first (Astro) - check both .md and .mdx
+    const astroPathMd = join(process.cwd(), 'src', 'content', 'posts', `${baseFileName}.md`);
+    const astroPathMdx = join(process.cwd(), 'src', 'content', 'posts', `${baseFileName}.mdx`);
+    if (existsSync(astroPathMd)) {
+      return astroPathMd;
+    }
+    if (existsSync(astroPathMdx)) {
+      return astroPathMdx;
     }
     
     // Fall back to _posts (Jekyll)
-    return join(process.cwd(), '_posts', fileName);
+    return join(process.cwd(), '_posts', `${baseFileName}.md`);
   }
   
   // For non-post pages, check if file exists
   const fullPath = join(process.cwd(), urlPath.replace(/^\//, ''));
   return fullPath;
+}
+
+// Helper to check if an internal link needs a trailing slash
+// Returns true if the link should have a trailing slash (to match GitHub Pages behavior)
+// Excludes links with file extensions, anchors, or query parameters
+function needsTrailingSlash(url: string): boolean {
+  // Remove anchor portion for checking
+  const pathWithoutAnchor = url.split('#')[0];
+  const pathWithoutQuery = pathWithoutAnchor.split('?')[0];
+  
+  // If the path already has a trailing slash, it's fine
+  if (pathWithoutQuery.endsWith('/')) {
+    return false;
+  }
+  
+  // If the path has a file extension (e.g., .xml, .json, .png), no trailing slash needed
+  if (/\.[a-zA-Z0-9]+$/.test(pathWithoutQuery)) {
+    return false;
+  }
+  
+  // Otherwise, it needs a trailing slash
+  return true;
 }
 
 // Helper to check if a line has problematic double spaces
@@ -197,6 +225,30 @@ describe('prose quality', () => {
         expect(
           brokenLinks,
           `Found broken internal links: ${brokenLinks.join(', ')}`
+        ).toHaveLength(0);
+      });
+
+      it('has trailing slashes on internal links (GitHub Pages behavior)', () => {
+        // Match markdown links that start with / (internal links)
+        const internalLinksWithoutTrailingSlash: string[] = [];
+        const lines = content.split('\n');
+        
+        lines.forEach((line) => {
+          // Extract internal links: [text](/path)
+          const linkMatches = line.matchAll(/\[([^\]]+)\]\((\/[^)]+)\)/g);
+          for (const match of linkMatches) {
+            const url = match[2];
+            
+            // Check if the link needs a trailing slash
+            if (needsTrailingSlash(url)) {
+              internalLinksWithoutTrailingSlash.push(url);
+            }
+          }
+        });
+        
+        expect(
+          internalLinksWithoutTrailingSlash,
+          `Internal links should have trailing slashes to match GitHub Pages behavior. Links without trailing slashes: ${internalLinksWithoutTrailingSlash.join(', ')}`
         ).toHaveLength(0);
       });
     });
