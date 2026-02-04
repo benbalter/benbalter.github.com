@@ -89,10 +89,10 @@ const navClasses = hero
       aria-expanded="false" 
       aria-label="Toggle navigation"
     >
-      <span class="navbar-toggler-icon block w-6 h-6 bg-no-repeat bg-center" style="background-image: url(&quot;data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e&quot;);"></span>
+      <span class="navbar-toggler-icon block w-6 h-6 bg-no-repeat bg-center"></span>
     </button>
 
-    <div class="hidden md:flex navbar-collapse w-full md:w-auto" id="navbar">
+    <div class="collapse navbar-collapse w-full md:w-auto" id="navbar">
       <ul class="navbar-nav flex flex-col md:flex-row list-none p-0 m-0">
         {navItems.map((item) => {
           const isActive = currentPath === item.url || 
@@ -153,6 +153,11 @@ const navClasses = hero
   /* Touch feedback */
   .nav-link:active {
     @apply opacity-80;
+  }
+  
+  /* Navbar toggler icon - light mode */
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   }
   
   /* Dark mode toggler icon */
