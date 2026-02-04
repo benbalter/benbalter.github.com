@@ -3,7 +3,7 @@
  * FeaturedPostCard Component
  * 
  * Display a featured blog post with larger, more prominent styling.
- * Uses Bootstrap card component with enhanced visual hierarchy.
+ * Uses Tailwind CSS with enhanced visual hierarchy.
  * 
  * Props:
  * - title: Post title
@@ -39,19 +39,19 @@ interface Props {
 const { title, url, date, isoDate, description, readingTime } = Astro.props;
 ---
 
-<article class="card border rounded-3 h-100 featured-post-card">
+<article class="card border-2 rounded-lg h-full featured-post-card bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
   <div class="card-accent"></div>
-  <div class="card-body p-4">
-    <h3 class="card-title h4 mb-3">
-      <a href={url} class="text-body text-decoration-none stretched-link">{title}</a>
+  <div class="card-body p-6">
+    <h3 class="card-title text-xl font-bold mb-4">
+      <a href={url} class="text-gray-900 dark:text-gray-100 no-underline stretched-link">{title}</a>
     </h3>
-    <div class="text-body-secondary mb-3">
+    <div class="text-gray-600 dark:text-gray-400 mb-4">
       <time datetime={isoDate}>{date}</time>
       <span class="mx-2">•</span>
       <span>{formatReadingTime(readingTime)}</span>
     </div>
     {description && (
-      <p class="card-text text-body-secondary mb-0">{stripMarkdown(description)}</p>
+      <p class="card-text text-gray-600 dark:text-gray-400 mb-0">{stripMarkdown(description)}</p>
     )}
   </div>
 </article>
@@ -60,13 +60,10 @@ const { title, url, date, isoDate, description, readingTime } = Astro.props;
   /* Enhanced styles for featured posts with accent border */
   .featured-post-card {
     position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    background: var(--bs-body-bg);
-    border-width: 2px !important;
-    overflow: hidden;
+    @apply transition-all duration-300 overflow-hidden;
   }
   
-  /* Gradient accent on left border - more prominent for featured posts */
+  /* Gradient accent on left border */
   .card-accent {
     position: absolute;
     left: 0;
@@ -75,66 +72,67 @@ const { title, url, date, isoDate, description, readingTime } = Astro.props;
     width: 4px;
     background: linear-gradient(
       180deg,
-      var(--bs-primary),
-      rgba(var(--bs-primary-rgb, 13, 110, 253), 0.6)
+      #337ab7,
+      rgba(51, 122, 183, 0.6)
     );
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    @apply opacity-0 transition-opacity duration-300;
   }
   
   .featured-post-card:hover {
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    border-color: var(--bs-primary) !important;
+    @apply shadow-card-hover border-primary;
   }
   
-  /* Respect reduced motion preferences for transform animations */
   @media (prefers-reduced-motion: no-preference) {
     .featured-post-card:hover {
-      transform: translateY(-6px);
+      @apply -translate-y-1.5;
     }
   }
   
   .featured-post-card:hover .card-accent {
-    opacity: 1;
+    @apply opacity-100;
   }
 
-  /* Dark mode box-shadow adjustment */
+  /* Dark mode box-shadow */
   @media (prefers-color-scheme: dark) {
     .featured-post-card:hover {
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+      @apply shadow-card-hover-dark;
     }
     
     .card-accent {
       background: linear-gradient(
         180deg,
-        var(--bs-primary),
-        rgba(var(--bs-primary-rgb, 13, 110, 253), 0.7)
+        #337ab7,
+        rgba(51, 122, 183, 0.7)
       );
     }
   }
   
-  /* Ensure link covers entire card for better UX */
+  /* Ensure link covers entire card */
   .featured-post-card .stretched-link {
-    transition: color 0.3s ease;
+    @apply transition-colors duration-300;
   }
   
   .featured-post-card:hover .stretched-link {
-    color: var(--bs-primary) !important;
+    @apply text-primary;
   }
   
-  /* Better card title typography - scoped to featured-post-card */
+  /* Card title typography */
   .featured-post-card .card-title {
-    font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.2;
-    /* Override global h3 position: relative to allow stretched-link to work */
     position: static;
   }
   
-  /* Reduce top padding on mobile to balance vertical white space */
+  /* Stretched link pseudo-element */
+  .stretched-link::after {
+    content: '';
+    @apply absolute inset-0;
+  }
+  
+  /* Reduce top padding on mobile */
   @media (max-width: 767px) {
     .featured-post-card .card-body {
-      padding-top: 1rem !important; /* Reduce from 1.5rem (p-4) to 1rem on mobile */
+      @apply pt-4;
     }
   }
 </style>

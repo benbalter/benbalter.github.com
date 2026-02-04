@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import tailwind from '@astrojs/tailwind';
 import favicons from 'astro-favicons';
 import compress from 'astro-compress';
 import redirectFrom from 'astro-redirect-from';
@@ -173,6 +174,10 @@ export default defineConfig({
   
   // Integrations
   integrations: [
+    tailwind({
+      // Apply base styles - we'll customize in our CSS
+      applyBaseStyles: true,
+    }),
     favicons({
       // Use existing high-quality PNG as source
       // The integration will generate all favicon formats automatically
@@ -330,22 +335,6 @@ export default defineConfig({
             
             return 'assets/[name].[hash][extname]';
           },
-        },
-      },
-    },
-    css: {
-      preprocessorOptions: {
-        scss: {
-          // Allow importing from node_modules using ~ prefix (webpack style)
-          loadPaths: ['node_modules'],
-          // Suppress deprecation warnings for @import rules (Bootstrap 5.3.x uses them)
-          quietDeps: true,
-          // Silence all @import deprecation warnings globally
-          // This affects both our code and Bootstrap's internal @import usage
-          // Bootstrap 5.3.x doesn't support the modern @use module system yet.
-          // TODO: Remove this once Bootstrap 6.x is released with @use support
-          // See: https://sass-lang.com/documentation/breaking-changes/import
-          silenceDeprecations: ['import'],
         },
       },
     },

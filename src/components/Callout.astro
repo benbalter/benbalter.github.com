@@ -3,7 +3,7 @@
  * Callout Component
  * 
  * Display important information, warnings, or notes in blog posts.
- * Uses Bootstrap 5.3 alert component as base with custom border styling.
+ * Uses Tailwind CSS with custom border styling.
  * 
  * Usage in MDX:
  * <Callout type="info">This is an info callout</Callout>
@@ -25,21 +25,19 @@ const icons = {
   success: '✅',
 };
 
-// Map callout types to Bootstrap alert types
-const alertTypeMap = {
-  info: 'info',
-  warning: 'warning',
-  error: 'danger',
-  success: 'success',
+// Map callout types to Tailwind color classes
+const colorClasses = {
+  info: 'border-blue-500 bg-blue-50 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200',
+  warning: 'border-yellow-500 bg-yellow-50 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200',
+  error: 'border-red-500 bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-200',
+  success: 'border-green-500 bg-green-50 dark:bg-green-900/30 text-green-800 dark:text-green-200',
 };
-
-const alertType = alertTypeMap[type];
 ---
 
-<div class={`alert alert-${alertType} border-start border-4 my-4 p-3 rounded`} role="alert">
+<div class={`alert border-l-4 my-6 p-4 rounded ${colorClasses[type]}`} role="alert">
   {title && (
-    <div class="d-flex align-items-center gap-2 mb-2 fw-semibold">
-      <span class="fs-5">{icons[type]}</span>
+    <div class="flex items-center gap-2 mb-2 font-semibold">
+      <span class="text-lg">{icons[type]}</span>
       <strong>{title}</strong>
     </div>
   )}
@@ -48,20 +46,9 @@ const alertType = alertTypeMap[type];
   </div>
 </div>
 
-<style lang="scss">
-  // Import Bootstrap alert component
-  @import 'bootstrap/scss/functions';
-  @import 'bootstrap/scss/variables';
-  @import 'bootstrap/scss/variables-dark';
-  @import 'bootstrap/scss/maps';
-  @import 'bootstrap/scss/mixins';
-  @import 'bootstrap/scss/alert';
-  
-  // Note: alert-link color contrast fix moved to src/styles/optimized.scss
-  // for global application across all alert components
-  
-  // Minimal custom style to ensure last paragraph has no bottom margin
+<style>
+  /* Ensure last paragraph has no bottom margin */
   .callout-content :global(p:last-child) {
-    margin-bottom: 0;
+    @apply mb-0;
   }
 </style>

@@ -4,7 +4,7 @@
  * 
  * Layout for rendering blog posts with proper metadata, structure, and styling.
  * Matches the Jekyll post layout with enhanced features.
- * Uses Bootstrap utility classes for maintainability.
+ * Uses Tailwind CSS utility classes for maintainability.
  */
 
 import BaseLayout from './BaseLayout.astro';
@@ -74,14 +74,14 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   <div class="row">
     <div class="col-md-10 offset-md-1 px-3">
       <article>
-        <header class="mb-4">
-          <h1 class="display-4 text-primary fw-bold">{title}</h1>
+        <header class="mb-6">
+          <h1 class="display-4 text-primary font-bold">{title}</h1>
           
           {description && (
             <Tldr description={description} />
           )}
           
-          <div class="text-body-secondary small mb-4">
+          <div class="text-body-secondary text-sm mb-6">
             {readingTime > 0 && (
               <div>
                 <Icon name="clock" /> {readingTime} min read
@@ -92,39 +92,39 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         
         {archived && <ArchivedPostWarning />}
         
-        <div class="post-content entrybody fs-5 lh-lg">
+        <div class="post-content entrybody text-lg leading-relaxed">
           <slot />
         </div>
         
         {pubDate && (
-          <div class="mb-2 text-body-secondary small">
+          <div class="mb-2 text-body-secondary text-sm">
             Originally published {formattedDate} | <a class="link-secondary" href={`${siteConfig.githubRepoUrl}/commits/main/_posts/${postSlug}.md`} target="_blank" rel="noopener noreferrer" aria-label="View revision history">View revision history</a>
           </div>
         )}
         
         {tags.length > 0 && (
-          <div class="mt-4 mb-3">
+          <div class="mt-6 mb-4">
             <strong>Tags:</strong>
             {tags.map((tag) => (
-              <span class="badge bg-secondary ms-2">{tag}</span>
+              <span class="badge bg-secondary ml-2">{tag}</span>
             ))}
           </div>
         )}
         
         {relatedPosts.length > 0 && (
-          <div class="mt-3">
-            <h3 class="fs-6 fw-semibold text-body-emphasis border-top pt-3 mb-2">If you enjoyed this post, you might also enjoy:</h3>
-            <ul class="ps-4 mb-0">
+          <div class="mt-4">
+            <h3 class="text-base font-semibold text-body-emphasis border-t border-gray-200 dark:border-gray-700 pt-4 mb-2">If you enjoyed this post, you might also enjoy:</h3>
+            <ul class="pl-6 mb-0">
               {relatedPosts.map((post) => (
                 <li class="mb-1">
-                  <a href={getPostUrl(post.slug)} class="text-decoration-none">{post.data.title}</a>
+                  <a href={getPostUrl(post.slug)} class="no-underline">{post.data.title}</a>
                 </li>
               ))}
             </ul>
           </div>
         )}
         
-        <footer class="border-top pt-4 mt-4 mb-5 post-footer">
+        <footer class="border-t-2 border-gray-200 dark:border-gray-700 pt-6 mt-6 mb-8 post-footer">
           <div class="row">
             <div class="col">
               <div class="mini-bio-card">
@@ -160,50 +160,31 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   </div>
 </BaseLayout>
 
-<style lang="scss">
-  /* Import Bootstrap badge and button components (scoped to this component) */
-  @import 'bootstrap/scss/functions';
-  @import 'bootstrap/scss/variables';
-  @import 'bootstrap/scss/variables-dark';
-  @import 'bootstrap/scss/maps';
-  @import 'bootstrap/scss/mixins';
-  @import 'bootstrap/scss/badge';
-  @import 'bootstrap/scss/buttons';
-  
+<style>
   /* Enhanced mini bio card styling */
   .mini-bio-card {
-    padding: 1.5rem;
+    @apply p-6 rounded-lg shadow-card;
     background: linear-gradient(
       135deg,
-      rgba(var(--bs-primary-rgb, 13, 110, 253), 0.03),
-      rgba(var(--bs-primary-rgb, 13, 110, 253), 0.01)
+      rgba(51, 122, 183, 0.03),
+      rgba(51, 122, 183, 0.01)
     );
-    border-left: 3px solid var(--bs-primary);
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-left: 3px solid #337ab7;
   }
   
-  /* Post footer enhancements */
-  .post-footer {
-    border-top: 2px solid var(--bs-border-color) !important;
-  }
-  
+  /* Edit section layout */
   .edit-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @apply flex flex-col justify-center items-center;
   }
   
   .edit-link {
-    color: var(--bs-primary);
-    text-decoration: none;
-    border-bottom: 1px dotted var(--bs-primary);
-    transition: border-bottom-color 0.2s ease;
-    
-    &:hover {
-      border-bottom-color: transparent;
-    }
+    @apply text-primary no-underline;
+    border-bottom: 1px dotted #337ab7;
+    @apply transition-all duration-200;
+  }
+  
+  .edit-link:hover {
+    border-bottom-color: transparent;
   }
   
   /* Dark mode adjustments */
@@ -211,13 +192,10 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
     .mini-bio-card {
       background: linear-gradient(
         135deg,
-        rgba(var(--bs-primary-rgb, 13, 110, 253), 0.08),
-        rgba(var(--bs-primary-rgb, 13, 110, 253), 0.04)
+        rgba(51, 122, 183, 0.08),
+        rgba(51, 122, 183, 0.04)
       );
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      @apply shadow-card-dark;
     }
   }
-  
-  /* Minimal custom styles - Bootstrap utilities handle layout and spacing */
-  /* Typography handled by global optimized.scss */
 </style>

@@ -1,21 +1,20 @@
 /**
- * Rehype plugin to add Bootstrap table classes to markdown tables
+ * Rehype plugin to add table styling classes to markdown tables
  *
- * This plugin adds Bootstrap's `table` class to all table elements in the HTML,
+ * This plugin adds styling classes to all table elements in the HTML,
  * ensuring consistent styling for markdown tables rendered in blog posts.
  *
- * Bootstrap table styling includes:
+ * Table styling includes:
+ * - Full width tables
  * - Proper padding and borders
- * - Striped rows (when using table-striped)
- * - Responsive behavior when wrapped in .table-responsive
- * - Dark mode support via Bootstrap's color variables
+ * - Dark mode support via Tailwind's dark: prefix
  */
 
 import { visit } from 'unist-util-visit';
 import type { Root, Element } from 'hast';
 
 /**
- * Rehype plugin to add Bootstrap table classes to tables
+ * Rehype plugin to add table styling classes to tables
  *
  * @returns Transformer function for rehype
  */
@@ -38,9 +37,12 @@ export function rehypeBootstrapTables() {
           classes = existingClasses.split(' ').filter(Boolean);
         }
 
-        // Add Bootstrap table class if not already present
-        if (!classes.includes('table')) {
-          classes.push('table');
+        // Add table styling classes if not already present
+        const tableClasses = ['w-full', 'border-collapse'];
+        for (const cls of tableClasses) {
+          if (!classes.includes(cls)) {
+            classes.push(cls);
+          }
         }
 
         node.properties.className = classes;
