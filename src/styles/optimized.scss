@@ -255,6 +255,8 @@ main a:not(.btn):not(.nav-link):not(.navbar-brand):not(.anchor-link) {
     text-decoration-skip-ink: auto;
     text-underline-offset: 0.15em; // Increased from 0.125em for better separation
     transition: color 0.2s ease-in-out, text-decoration-color 0.2s ease-in-out;
+    // Prevent accidental zoom on double-tap (mobile optimization)
+    touch-action: manipulation;
 }
 
 article a:not(.anchor-link):hover,
@@ -270,6 +272,13 @@ main a:not(.btn):not(.nav-link):not(.navbar-brand):not(.anchor-link):focus {
     outline: 2px solid var(--bs-link-color);
     outline-offset: 3px; // Increased from 2px for better visibility
     border-radius: 3px; // Increased from 2px
+}
+
+// Active (pressed) state for touch feedback on links
+article a:not(.anchor-link):active,
+.content a:not(.anchor-link):active,
+main a:not(.btn):not(.nav-link):not(.navbar-brand):not(.anchor-link):active {
+    opacity: 0.8;
 }
 
 // Default link styling for non-content areas (navigation, etc.)
@@ -365,6 +374,11 @@ abbr[data-bs-original-title] {
     border-top-left-radius: var(--bs-border-radius-lg);
     border-top-right-radius: var(--bs-border-radius-lg);
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    
+    // Optimize hero height for mobile viewports
+    @include media-breakpoint-down(md) {
+        height: 250px; // Reduced height for better mobile UX
+    }
 }
 
 .gist {
@@ -479,7 +493,7 @@ article .link-secondary {
     }
 }
 
-// Mobile typography optimizations
+// Mobile typography and interaction optimizations
 // Use Bootstrap's breakpoint mixin for consistency
 @include media-breakpoint-down(md) {
     body {
@@ -510,7 +524,18 @@ article .link-secondary {
         font-size: 1.0625rem; // Slightly smaller on mobile
     }
     
-    // Note: Max-width constraints removed globally, not needed on mobile either
+    // Enhanced link visibility on mobile - thicker underlines for better tap targeting
+    article a:not(.anchor-link),
+    .content a:not(.anchor-link),
+    main a:not(.btn):not(.nav-link):not(.navbar-brand):not(.anchor-link) {
+        text-decoration-thickness: 0.1em; // Thicker than desktop (0.08em)
+        text-underline-offset: 0.2em; // More space for easier tap targeting
+    }
+    
+    // Show anchor links with reduced opacity on mobile (no hover state)
+    .anchor-link {
+        opacity: 0.6;
+    }
     
     // Reduce white space above page titles on mobile
     // The main improvement comes from removing body top margin (saves 0.5rem)
@@ -634,67 +659,82 @@ h1, h2, h3, h4, h5, h6 {
     
     a {
         transition: color 0.15s ease-in-out;
+        // Prevent accidental zoom on mobile
+        touch-action: manipulation;
+        // Ensure adequate touch target size
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 0;
         
-        &:hover {
-            color: $blue;
+        @media (hover: hover) {
+            &:hover {
+                color: $blue;
+            }
+        }
+        
+        // Touch feedback on mobile
+        &:active {
+            opacity: 0.8;
         }
     }
 }
 
 // Enhanced navigation styling - only truly custom animations
-.navbar {
-    .navbar-brand {
-        transition: color 0.15s ease-in-out;
-        
-        &:hover {
-            color: $blue !important;
-        }
-    }
-    
-    .nav-link {
-        position: relative;
-        
-        &::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 1rem;
-            right: 1rem;
-            height: 2px;
-            background: $blue;
-            transform: scaleX(0);
-            transition: transform 0.2s ease-in-out;
-        }
-        
-        &:hover::after,
-        &.active::after {
-            transform: scaleX(1);
-        }
-        
-        // Note: Active link colors are set in Navigation.astro component
-        // to maintain WCAG AA contrast in both light and dark modes
-    }
-}
+// Note: .navbar-brand and .nav-link styles are defined in Navigation.astro component
+// to keep component-specific styling co-located with component markup
 
 // Enhanced footer - only custom hover animations
 footer {
     .social-link {
         transition: all 0.2s ease-in-out;
+        // Prevent accidental zoom on mobile
+        touch-action: manipulation;
+        // Ensure adequate touch target size
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         
-        &:hover {
-            transform: translateY(-2px);
+        @media (hover: hover) {
+            &:hover {
+                transform: translateY(-2px);
+                color: $blue;
+            }
+        }
+        
+        // Touch feedback on mobile
+        &:active {
+            transform: translateY(1px);
             color: $blue;
         }
     }
 }
 
-// Button enhancements - only custom hover animations
+// Button enhancements - touch-friendly interactions
 .btn {
     transition: all 0.2s ease-in-out;
+    // Prevent accidental zoom on double-tap
+    touch-action: manipulation;
+    // Ensure minimum touch target size (44x44px per WCAG)
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
     
-    &:hover {
-        transform: scale(1.02);
-        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+    // Hover effect only on devices that support hover
+    @media (hover: hover) {
+        &:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+        }
+    }
+    
+    // Active (pressed) state for touch feedback
+    &:active {
+        transform: scale(0.98);
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
     }
 }
 

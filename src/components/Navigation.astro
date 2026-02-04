@@ -172,14 +172,56 @@ const navClasses = hero
     font-weight: 700;
     letter-spacing: -0.02em;
     transition: color 0.2s ease;
+    // Prevent accidental zoom on mobile
+    touch-action: manipulation;
+    // Ensure adequate touch target
+    min-height: 44px;
+    display: flex;
+    align-items: center;
     
-    &:hover {
-      color: var(--bs-primary);
+    @media (hover: hover) {
+      &:hover {
+        color: var(--bs-primary);
+      }
+    }
+    
+    // Touch feedback
+    &:active {
+      opacity: 0.8;
     }
   }
 
   .navbar-toggler {
     border-color: rgba(0, 0, 0, 0.1);
+    // Prevent accidental zoom on mobile
+    touch-action: manipulation;
+    // Ensure adequate touch target size
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.5rem 0.75rem;
+    
+    // Enhanced focus state for accessibility
+    &:focus,
+    &:focus-visible {
+      outline: 2px solid var(--bs-primary);
+      outline-offset: 2px;
+      border-color: var(--bs-primary);
+    }
+    
+    // Visual feedback when menu is open
+    &[aria-expanded="true"] {
+      background-color: rgba(var(--bs-primary-rgb), 0.1);
+      border-color: var(--bs-primary);
+      
+      .navbar-toggler-icon {
+        opacity: 0.8;
+      }
+    }
+    
+    // Active (pressed) state for touch feedback
+    &:active {
+      background-color: rgba(var(--bs-primary-rgb), 0.15);
+    }
   }
 
   /* Hide toggler at desktop sizes */
@@ -211,6 +253,13 @@ const navClasses = hero
     text-decoration: none;
     transition: color 0.2s ease;
     position: relative;
+    // Prevent accidental zoom on mobile
+    touch-action: manipulation;
+    // Ensure adequate touch target size (WCAG 2.1 Level AA)
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 1.125rem 1rem !important; // Increased padding to ensure 44px+ touch targets (from 1rem)
     
     /* Subtle underline animation on hover */
     &::after {
@@ -234,11 +283,19 @@ const navClasses = hero
   .nav-link:hover,
   .nav-link:focus {
     color: $nav-link-hover-color !important;
-    
-    &::after {
+  }
+  
+  @media (hover: hover) {
+    .nav-link:hover::after,
+    .nav-link:focus::after {
       width: 80%;
       left: 10%;
     }
+  }
+  
+  // Touch feedback for mobile
+  .nav-link:active {
+    opacity: 0.8;
   }
 
   .nav-link.active {

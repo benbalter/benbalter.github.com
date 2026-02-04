@@ -88,13 +88,23 @@ import Icon from './Icon.astro';
     transition: all 0.2s ease;
   }
   
-  /* Enhanced social link hover effects */
+  /* Enhanced social link hover effects with mobile touch optimization */
   .social-link {
     position: relative;
     color: var(--bs-body-color);
+    // Prevent accidental zoom on mobile
+    touch-action: manipulation;
+    // Ensure adequate touch target size
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     
-    &:hover {
-      color: var(--bs-primary);
+    @media (hover: hover) {
+      &:hover {
+        color: var(--bs-primary);
+      }
     }
     
     /* Subtle background on hover - using proper stacking context */
@@ -111,21 +121,46 @@ import Icon from './Icon.astro';
       transition: opacity 0.2s ease;
     }
     
+    /* Enhanced touch area on mobile devices */
+    @media (max-width: 767px) {
+      &::before {
+        top: -8px;
+        right: -8px;
+        bottom: -8px;
+        left: -8px;
+      }
+    }
+    
     /* Ensure icon stays above pseudo-element */
     :global(svg) {
       position: relative;
       z-index: 1;
     }
     
-    &:hover::before {
-      opacity: 1;
+    @media (hover: hover) {
+      &:hover::before {
+        opacity: 1;
+      }
+    }
+    
+    // Touch feedback for mobile
+    &:active {
+      color: var(--bs-primary);
+      transform: translateY(1px);
+      
+      &::before {
+        opacity: 1;
+        background: rgba(var(--bs-primary-rgb, 13, 110, 253), 0.15);
+      }
     }
   }
   
   /* Respect reduced motion preferences for transform animations */
   @media (prefers-reduced-motion: no-preference) {
-    .social-link:hover {
-      transform: translateY(-2px);
+    @media (hover: hover) {
+      .social-link:hover {
+        transform: translateY(-2px);
+      }
     }
   }
   
