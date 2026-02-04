@@ -167,6 +167,12 @@ import Icon from './Icon.astro';
   /* Footer text links */
   .footer-link {
     position: relative;
+    // Prevent accidental zoom on mobile
+    touch-action: manipulation;
+    // Ensure adequate touch target size (WCAG 2.1 Level AA)
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
     
     &::after {
       content: '';

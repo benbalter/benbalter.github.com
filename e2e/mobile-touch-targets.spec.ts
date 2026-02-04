@@ -178,6 +178,15 @@ test.describe('Mobile Touch Targets', () => {
     const contentLink = page.locator('article a:not(.anchor-link)').first();
     
     if (await contentLink.count() > 0) {
+      // Wait for CSS to apply - check that text-decoration-thickness is not 'auto'
+      await page.waitForFunction(
+        () => {
+          const link = document.querySelector('article a:not(.anchor-link)');
+          return link && window.getComputedStyle(link).textDecorationThickness !== 'auto';
+        },
+        { timeout: 5000 }
+      );
+      
       const textDecorationThickness = await contentLink.evaluate((el) => {
         return window.getComputedStyle(el).textDecorationThickness;
       });
