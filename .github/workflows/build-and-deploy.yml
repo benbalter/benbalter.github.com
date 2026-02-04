@@ -46,7 +46,7 @@ jobs:
             astro-cache-${{ runner.os }}-
 
       - name: Build Astro site
-        run: npm run astro:build
+        run: npm run build
 
       - name: Add .nojekyll file
         run: touch dist-astro/.nojekyll
