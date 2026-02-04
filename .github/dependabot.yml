@@ -12,7 +12,7 @@ updates:
     groups:
       bundler:
         patterns:
-        - "*"
+          - "*"
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
@@ -20,7 +20,7 @@ updates:
     groups:
       docker:
         patterns:
-        - "*"
+          - "*"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
@@ -28,7 +28,7 @@ updates:
     groups:
       github-actions:
         patterns:
-        - "*"
+          - "*"
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
@@ -36,4 +36,4 @@ updates:
     groups:
       npm:
         patterns:
-        - "*"
+          - "*"
