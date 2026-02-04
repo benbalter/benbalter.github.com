@@ -431,15 +431,18 @@
  * ============================================================================ */
 
 @layer components {
-  /* Skip to Content Link (Accessibility) */
+  /* Skip to Content Link (Accessibility) - GPU-accelerated with transform */
   .skip-to-content {
-    @apply absolute -top-10 left-0 z-50;
+    @apply fixed top-0 left-0 z-50;
     @apply bg-primary text-white px-4 py-2 rounded-br;
     @apply no-underline font-semibold;
-    @apply focus:top-0;
+    transform: translateY(-100%);
+    will-change: transform;
+    @apply transition-transform duration-200;
   }
 
   .skip-to-content:focus {
+    transform: translateY(0);
     outline: 3px solid white;
     outline-offset: -3px;
   }
@@ -459,7 +462,7 @@
 
   /* Fix: Combined skip-to-content and visually-hidden-focusable */
   .skip-to-content.visually-hidden-focusable {
-    @apply absolute -top-10 left-0 z-50;
+    @apply fixed top-0 left-0 z-50;
     width: auto !important;
     height: auto !important;
     @apply px-4 py-2;
@@ -469,25 +472,32 @@
     white-space: normal !important;
     @apply rounded-br border-0;
     @apply bg-primary text-white font-semibold no-underline;
+    transform: translateY(-100%);
+    will-change: transform;
+    @apply transition-transform duration-200;
   }
 
   .skip-to-content.visually-hidden-focusable:focus {
-    @apply top-0;
+    transform: translateY(0);
     outline: 3px solid white !important;
     outline-offset: -3px !important;
   }
 
-  /* Hero Unit */
+  /* Hero Unit - Optimized for performance with contain */
   .hero-unit {
     background-image: url('/assets/img/header.jpg');
     background-size: cover;
     background-position: top left;
     @apply h-96 rounded-t-lg shadow-sm;
+    contain: layout paint;
+    content-visibility: auto;
+    contain-intrinsic-size: 1140px 384px;
   }
 
   @media (max-width: 768px) {
     .hero-unit {
       height: 250px;
+      contain-intrinsic-size: auto 250px;
     }
   }
 
@@ -550,12 +560,14 @@
     }
   }
 
-  /* Button Base */
+  /* Button Base - GPU-accelerated animations */
   .btn {
     @apply inline-flex items-center justify-center px-4 py-2;
-    @apply rounded font-medium transition-all duration-200;
+    @apply rounded font-medium;
     @apply min-h-[44px];
     touch-action: manipulation;
+    transition: transform 200ms ease-out, box-shadow 200ms ease-out, background-color 200ms ease-out, border-color 200ms ease-out;
+    will-change: transform;
   }
 
   .btn:hover {
@@ -969,10 +981,12 @@
     }
   }
 
-  /* Featured Post Card */
+  /* Featured Post Card - GPU-accelerated animations */
   .featured-post-card {
     @apply relative border-2 rounded-lg overflow-hidden;
-    @apply bg-white transition-all duration-300;
+    @apply bg-white;
+    transition: transform 300ms ease-out, box-shadow 300ms ease-out, border-color 300ms ease-out;
+    will-change: transform;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -1004,7 +1018,8 @@
       theme('colors.primary.DEFAULT'),
       rgba(51, 122, 183, 0.6)
     );
-    @apply opacity-0 transition-opacity duration-300;
+    @apply opacity-0;
+    transition: opacity 300ms ease-out;
   }
 
   .featured-post-card:hover .card-accent {
