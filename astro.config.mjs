@@ -16,6 +16,7 @@ import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 import { remarkGitHubMentions } from './src/lib/remark-github-mentions.ts';
 import { getSlug } from './src/utils/get-slug.ts';
 import { rehypeRelativeUrls } from './src/lib/rehype-relative-urls.ts';
+import { rehypeBootstrapTables } from './src/lib/rehype-bootstrap-tables.ts';
 
 // Import typography plugins for remark-textr
 import typographicArrows from 'typographic-arrows';
@@ -205,6 +206,7 @@ export default defineConfig({
         rehypeUnwrapImages,
         rehypeAccessibleEmojis,
         rehypeRelativeUrls,
+        rehypeBootstrapTables,
         rehypeExternalLinksConfig,
       ],
     }),
@@ -286,6 +288,7 @@ export default defineConfig({
       rehypeUnwrapImages,
       rehypeAccessibleEmojis,
       rehypeRelativeUrls,
+      rehypeBootstrapTables,
       rehypeExternalLinksConfig,
     ],
   },
