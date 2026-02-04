@@ -157,6 +157,33 @@ For this use case (static site with content-hashed assets), `purge_everything` p
      --data '{"purge_everything":true}'
    ```
 
+### Sitemap Redirect Loop (ERR_TOO_MANY_REDIRECTS)
+
+If `/sitemap-index.xml` or `/sitemap-0.xml` returns `ERR_TOO_MANY_REDIRECTS`, this is typically caused by Cloudflare Page Rules that were set up for an older version of the site.
+
+**Symptoms:**
+
+- `/sitemap-index.xml` redirects to `/sitemap-0.xml`
+- `/sitemap-0.xml` redirects to itself (infinite loop)
+- Error: `ERR_TOO_MANY_REDIRECTS`
+
+**Solution:**
+
+1. Log in to Cloudflare Dashboard
+2. Select the zone (ben.balter.com)
+3. Go to **Rules** → **Page Rules**
+4. Look for rules that match `*sitemap*.xml` or similar patterns
+5. Delete or disable any rules that redirect sitemap URLs
+
+**Note:** The Astro site generates these sitemap files:
+
+- `/sitemap-index.xml` - Sitemap index (points to individual sitemaps)
+- `/sitemap-0.xml` - Actual sitemap with URLs
+- `/sitemap.xml` - Redirect to `/sitemap-0.xml` (for Jekyll backward compatibility)
+- `/sitemap_index.xml` - Redirect to `/sitemap-index.xml` (for Jekyll backward compatibility)
+
+The only redirects needed are the two backward compatibility redirects (`sitemap.xml` and `sitemap_index.xml`), which are handled by the site's HTML meta refresh redirects. No Cloudflare Page Rules are needed for sitemaps.
+
 ## Security Best Practices
 
 1. **Minimal Permissions**: API token should only have cache purge permission
