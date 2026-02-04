@@ -104,7 +104,7 @@ The site uses [Astro View Transitions](https://docs.astro.build/en/guides/view-t
 1. **View Transition Styling for Astro's Router**
 
    ```css
-   /* src/styles/optimized.scss */
+   /* src/styles/global.css */
    @view-transition {
        navigation: auto;
    }

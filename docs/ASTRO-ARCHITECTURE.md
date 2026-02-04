@@ -77,7 +77,7 @@ This document defines the architecture for migrating ben.balter.com from Jekyll 
 │   │   ├── press-feed.xml.ts      # Press clips feed
 │   │   └── sitemap.xml.ts         # XML sitemap (or use @astrojs/sitemap)
 │   ├── styles/
-│   │   ├── global.scss
+│   │   ├── global.css
 │   │   └── ...
 │   └── utils/
 │       ├── posts.ts               # Post utilities
@@ -919,7 +919,7 @@ jobs:
 - [ ] Build navigation component
 - [ ] Build post card component
 - [ ] Build related posts component
-- [ ] Style components with Bootstrap/SCSS
+- [ ] Style components with Tailwind CSS utilities
 
 ### Phase 4: Routing (Week 3)
 
