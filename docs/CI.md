@@ -43,15 +43,6 @@ Runs on changes to site content, Astro configuration, and test files.
    - Runs end-to-end tests with Playwright
    - Tests accessibility, navigation, SEO, and page functionality
 
-### `lint.yml` - CSS Linting
-
-Runs Super Linter specifically for CSS/SCSS validation on style changes.
-
-**Triggers:**
-
-- Changes to `src/**/*.scss` files
-- Changes to the workflow file itself
-
 ### `build-and-deploy.yml` - Deployment
 
 Deploys to GitHub Pages on pushes to the main branch.
@@ -84,7 +75,6 @@ These checks provide additional quality assurance:
 |------------|----------|-------------|
 | `Playwright Tests` | astro-e2e.yml | E2E testing for site functionality |
 | `Lighthouse CI` | astro-e2e.yml | Performance and accessibility audits |
-| `Lint Code Base` | lint.yml | CSS/SCSS validation (only runs on style changes) |
 
 ### Branch Protection Configuration
 
@@ -106,7 +96,6 @@ To configure these in GitHub:
 
 - **ci.yml** runs on code, content, and configuration file changes
 - **astro-e2e.yml** runs on content and site-related changes
-- **lint.yml** only runs on CSS/SCSS changes (to avoid redundant linting)
 
 If a workflow doesn't run due to path filtering, its checks won't appear. Use **Require branches to be up to date before merging** carefully, or consider making some checks run unconditionally if they're critical.
 
@@ -127,9 +116,6 @@ npm run test:vitest
 # E2E tests (requires building first)
 npm run build
 npm run test:e2e
-
-# CSS/SCSS linting
-npx stylelint "src/**/*.scss"
 ```
 
 ## Troubleshooting
