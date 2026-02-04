@@ -22,7 +22,7 @@ Build the site for production:
 npm run build
 ```
 
-The built site will be output to `dist/` directory.
+The built site will be output to `dist-astro/` directory.
 
 ### Preview
 
@@ -43,7 +43,7 @@ npm run preview
 │   ├── layouts/        # Layout components
 │   │   └── BaseLayout.astro
 │   └── components/     # Reusable components
-├── public/             # Static assets (copied to dist/)
+├── public/             # Static assets (copied to dist-astro/)
 ├── astro.config.mjs    # Astro configuration
 └── tsconfig.astro.json # TypeScript config for Astro
 ```
@@ -52,7 +52,7 @@ npm run preview
 
 ### Output Directory
 
-The Astro build outputs to `dist/` directory.
+The Astro build outputs to `dist-astro/` directory.
 
 ### Development Server
 
@@ -232,7 +232,7 @@ The site uses Astro's content collections to organize content:
 
 - `src/content/posts/`: Blog posts (Markdown files)
 - `src/data/`: YAML data files
-- `src/pages/resume/positions/`: Resume data
+- `src/content/resume-positions/`: Resume positions (content collection)
 - `public/`: Static assets
 
 ## Key Differences from Jekyll
@@ -247,7 +247,7 @@ The site has been fully migrated from Jekyll to Astro. Key differences include:
 
 ## Deployment
 
-The site is deployed to GitHub Pages using GitHub Actions. The deployment workflow builds the Astro site and publishes the `dist/` directory to GitHub Pages.
+The site is deployed to GitHub Pages using GitHub Actions. The deployment workflow builds the Astro site and publishes the `dist-astro/` directory to GitHub Pages.
 
 ## Migration Status
 

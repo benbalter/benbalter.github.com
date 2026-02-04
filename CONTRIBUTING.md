@@ -79,7 +79,7 @@ Your content here...
 
 ### TypeScript (Astro)
 
-- Use **strict TypeScript** (enabled in tsconfig.json)
+- Use **strict TypeScript** (enabled in tsconfig.astro.json)
 - Avoid `any` types - use proper types or `unknown`
 - Handle null/undefined cases explicitly
 - Document complex functions with JSDoc comments
