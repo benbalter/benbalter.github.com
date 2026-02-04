@@ -478,6 +478,7 @@ add-ons
 Analytics
 APIs
 architected
+Astro
 Auth
 autosave
 backdoors
@@ -544,6 +545,7 @@ geolocation
 GIFs
 Gitter
 GPL
+gzip
 hackable
 hackathon
 hackathons
@@ -573,6 +575,7 @@ livestream
 lookups
 md
 MD5
+MDX
 mentality
 Microcache
 microcache
@@ -791,6 +794,7 @@ rollouts
 rom-com
 résumé
 sayers
+scannable
 searchable
 shoutout
 skinny-jeaned
