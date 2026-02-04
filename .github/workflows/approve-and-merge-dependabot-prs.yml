@@ -15,7 +15,7 @@ jobs:
         uses: dependabot/fetch-metadata@v2.5.0
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
-          
+
       - name: Approve a PR
         if: contains(fromJson('["version-update:semver-patch", "version-update:semver-minor"]'), steps.metadata.outputs.update-type)
         run: gh pr review --approve "$PR_URL"
