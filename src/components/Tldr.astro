@@ -34,8 +34,9 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
 
 <script>
   // Lightweight custom tooltip implementation (no Bootstrap dependency)
-  // Track if global handler has been added (for cleanup in SPAs)
+  // Track if global handlers have been added (for cleanup in SPAs)
   let globalClickHandlerAdded = false;
+  let globalScrollHandlerAdded = false;
   
   // Global click handler for click-outside functionality (defined outside DOMContentLoaded for cleanup)
   const handleGlobalClick = (e: MouseEvent) => {
@@ -49,6 +50,16 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
       if (!element.contains(target as Node)) {
         hideTooltip(element);
       }
+    });
+  };
+  
+  // Global scroll handler to hide tooltips when scrolling
+  const handleGlobalScroll = () => {
+    const activeTooltips = (window as any).__tldrActiveTooltips;
+    if (!activeTooltips || activeTooltips.size === 0) return;
+    
+    activeTooltips.forEach((_tooltipEl: HTMLDivElement, element: HTMLElement) => {
+      hideTooltip(element);
     });
   };
   
@@ -83,17 +94,33 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
       const rect = target.getBoundingClientRect();
       const tooltipRect = tooltipEl.getBoundingClientRect();
       
-      // Default: position to the right
+      // Default: position to the right, vertically centered on the target
       let left = rect.right + 10;
       let top = rect.top + (rect.height / 2) - (tooltipRect.height / 2);
       
       // Check if tooltip would overflow right edge of viewport
       if (left + tooltipRect.width > window.innerWidth) {
-        // Position to the left instead
-        left = rect.left - tooltipRect.width - 10;
-        tooltipEl.classList.add('left');
+        // Try positioning to the left instead
+        const leftPosition = rect.left - tooltipRect.width - 10;
+        
+        if (leftPosition >= 10) {
+          left = leftPosition;
+          tooltipEl.classList.add('left');
+          tooltipEl.classList.remove('below');
+        } else {
+          // Not enough horizontal space on either side:
+          // fall back to centering the tooltip below the target
+          tooltipEl.classList.remove('left');
+          tooltipEl.classList.add('below');
+          
+          left = rect.left + (rect.width / 2) - (tooltipRect.width / 2);
+          left = Math.max(10, Math.min(left, window.innerWidth - tooltipRect.width - 10));
+          
+          top = rect.bottom + 10;
+        }
       } else {
         tooltipEl.classList.remove('left');
+        tooltipEl.classList.remove('below');
       }
       
       // Clamp top so tooltip doesn't overflow top or bottom
@@ -218,6 +245,13 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
       document.addEventListener('click', handleGlobalClick);
       globalClickHandlerAdded = true;
     }
+    
+    // Add single global scroll handler to hide tooltips when scrolling
+    // Use passive: true for better scroll performance
+    if (tooltipElements.length > 0 && !globalScrollHandlerAdded) {
+      window.addEventListener('scroll', handleGlobalScroll, { passive: true });
+      globalScrollHandlerAdded = true;
+    }
   };
   
   // Initialize on initial page load (first time or full page reload)
@@ -253,6 +287,12 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
     if (globalClickHandlerAdded) {
       document.removeEventListener('click', handleGlobalClick);
       globalClickHandlerAdded = false;
+    }
+    
+    // Remove global scroll handler
+    if (globalScrollHandlerAdded) {
+      window.removeEventListener('scroll', handleGlobalScroll);
+      globalScrollHandlerAdded = false;
     }
   });
 </script>
@@ -376,6 +416,18 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
     right: auto;
     left: 100%;
     border-right-color: transparent;
-    border-left-color: #000;
+    border-left-color: var(--bs-dark, #212529);
+  }
+  
+  /* Dark mode: left arrow */
+  @media (prefers-color-scheme: dark) {
+    :global(.custom-tooltip.left::before) {
+      border-left-color: var(--bs-light, #f8f9fa);
+    }
+  }
+  
+  /* Hide arrow when tooltip is positioned below (insufficient horizontal space) */
+  :global(.custom-tooltip.below::before) {
+    display: none;
   }
 </style>

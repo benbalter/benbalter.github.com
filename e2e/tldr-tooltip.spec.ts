@@ -107,6 +107,32 @@ test.describe('TLDR Tooltip', () => {
     }
   });
 
+  test('should close tooltip when scrolling', async ({ page }) => {
+    await page.goto(testPostUrl);
+    await waitForPageReady(page);
+
+    const astro = await isAstroBuild(page);
+
+    if (astro) {
+      const tldrElement = page.locator('.lead strong abbr.initialism');
+      await expect(tldrElement).toBeVisible();
+
+      // Click to show tooltip
+      await tldrElement.click();
+
+      // Check tooltip is visible (wait up to 1s)
+      const tooltip = page.locator('.custom-tooltip.show');
+      await expect(tooltip).toBeVisible({ timeout: 1000 });
+
+      // Scroll the page
+      await page.evaluate(() => window.scrollBy(0, 100));
+
+      // Tooltip should be completely gone from DOM (wait up to 1s)
+      const anyTooltip = page.locator('.custom-tooltip');
+      await expect(anyTooltip).not.toBeAttached({ timeout: 1000 });
+    }
+  });
+
   test('should have proper accessibility attributes', async ({ page }) => {
     await page.goto(testPostUrl);
     await waitForPageReady(page);

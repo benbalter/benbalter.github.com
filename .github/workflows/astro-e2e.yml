@@ -173,3 +173,71 @@ jobs:
           name: test-results
           path: test-results/
           retention-days: 14
+
+  # Dedicated accessibility job using axe-core
+  # Note: This complements Lighthouse CI accessibility audits with more comprehensive axe-core testing
+  # - Lighthouse includes a subset of axe rules as part of its accessibility score
+  # - This job runs the full axe-core test suite for WCAG 2.1 Level AA compliance
+  # - Both are valuable: Lighthouse for overall metrics, axe-core for detailed accessibility testing
+  accessibility:
+    name: Axe Accessibility Tests
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download Astro build artifacts
+        uses: actions/download-artifact@v6
+        with:
+          name: dist-astro
+          path: dist-astro
+
+      - name: Cache Playwright Browsers
+        uses: actions/cache@v5
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright Browser System Dependencies
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Start Astro preview server
+        run: |
+          npm run preview -- --host &
+          sleep 5
+
+      - name: Wait for server to be ready
+        run: |
+          timeout 30 bash -c 'until curl -sf http://localhost:4321; do sleep 1; done'
+
+      - name: Run Axe accessibility tests
+        run: npm run test:e2e:accessibility
+        env:
+          BASE_URL: http://localhost:4321
+          CI: true
+
+      - name: Upload Accessibility Test Report
+        uses: actions/upload-artifact@v6
+        if: ${{ !cancelled() }}
+        with:
+          name: accessibility-report
+          path: playwright-report/
+          retention-days: 14
