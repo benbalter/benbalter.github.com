@@ -536,6 +536,27 @@ article .link-secondary {
     .anchor-link {
         opacity: 0.6;
     }
+    
+    // Reduce white space above page titles on mobile
+    // The main improvement comes from removing body top margin (saves 0.5rem)
+    body {
+        margin-top: 0 !important; // Remove mt-2 (0.5rem) on body for mobile
+    }
+    
+    // Ensure consistent navigation spacing on mobile
+    .navbar {
+        margin-bottom: 1rem !important; // Maintain mb-3 spacing
+    }
+    
+    // Reduce top padding on main content
+    main.content {
+        padding-top: 0; // Remove any top padding on main
+    }
+    
+    // Slightly reduce header margin on pages for mobile
+    article header {
+        margin-bottom: 1.25rem !important; // Reduced from mb-4 (1.5rem) to save 0.25rem
+    }
 }
 
 // Header anchor links styling

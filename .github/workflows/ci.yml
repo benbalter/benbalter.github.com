@@ -114,6 +114,9 @@ jobs:
       - name: Lint JSON
         run: npm run lint-json
 
+      - name: Lint YAML
+        run: npm run lint-yaml
+
       - name: Type check
         run: npm run check
 
