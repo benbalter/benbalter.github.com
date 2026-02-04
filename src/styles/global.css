@@ -42,6 +42,44 @@
   --shadow-card-hover: 0 12px 24px rgba(0, 0, 0, 0.15);
   --shadow-card-dark: 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-card-hover-dark: 0 12px 24px rgba(0, 0, 0, 0.5);
+
+  /* Typography prose color - primary */
+  --color-prose-primary: #337ab7;
+}
+
+/* ============================================================================
+ * Prose Typography Customization
+ * Tailwind Typography plugin customization for primary color scheme
+ * ============================================================================ */
+.prose-primary {
+  --tw-prose-links: #337ab7;
+  --tw-prose-headings: #212529;
+  --tw-prose-bold: #212529;
+  --tw-prose-counters: #337ab7;
+  --tw-prose-bullets: #337ab7;
+  --tw-prose-quotes: #495057;
+  --tw-prose-quote-borders: #337ab7;
+  --tw-prose-code: #212529;
+  --tw-prose-hr: #dee2e6;
+  --tw-prose-th-borders: #ced4da;
+  --tw-prose-td-borders: #dee2e6;
+}
+
+/* Dark mode prose customization */
+@media (prefers-color-scheme: dark) {
+  .prose-primary {
+    --tw-prose-links: #80b9e6;
+    --tw-prose-headings: #f8f9fa;
+    --tw-prose-bold: #f8f9fa;
+    --tw-prose-counters: #80b9e6;
+    --tw-prose-bullets: #80b9e6;
+    --tw-prose-quotes: #adb5bd;
+    --tw-prose-quote-borders: #80b9e6;
+    --tw-prose-code: #f8f9fa;
+    --tw-prose-hr: #495057;
+    --tw-prose-th-borders: #495057;
+    --tw-prose-td-borders: #343a40;
+  }
 }
 
 /* ============================================================================

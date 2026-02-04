@@ -92,7 +92,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         
         {archived && <ArchivedPostWarning />}
         
-        <div class="post-content entrybody text-lg leading-relaxed">
+        <div class="post-content entrybody prose prose-lg prose-primary max-w-none dark:prose-invert">
           <slot />
         </div>
         

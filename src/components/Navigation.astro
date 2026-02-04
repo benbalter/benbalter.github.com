@@ -82,41 +82,49 @@ const navClasses = hero
       }
     });
   </script>
-  <div class="flex flex-wrap items-center justify-between w-full">
-    <a class="navbar-brand font-bold text-gray-900 dark:text-gray-100 no-underline min-h-[44px] flex items-center tracking-tight transition-colors duration-200 hover:text-primary dark:hover:text-primary-400 mb-2" href="/">{siteConfig.name}</a>
-    <button 
-      class="navbar-toggler p-2 rounded border border-gray-300 dark:border-gray-600 min-h-[44px] min-w-[44px] md:hidden focus:outline-2 focus:outline-primary focus:outline-offset-2" 
-      type="button" 
-      aria-controls="navbar" 
-      aria-expanded="false" 
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon block w-6 h-6 bg-no-repeat bg-center"></span>
-    </button>
-
-    <div class="nav-collapse navbar-collapse w-full md:w-auto" id="navbar">
-      <ul class="navbar-nav flex flex-col md:flex-row list-none p-0 m-0">
-        {navItems.map((item) => {
-          const isActive = currentPath === item.url || 
-                          (item.url === '/' && currentPath === '/');
-          return (
-            <li class="nav-item relative">
-              <a 
-                href={item.url} 
-                class={`nav-link px-4 py-3 flex items-center min-h-[44px] transition-colors duration-200 no-underline ${isActive ? 'active text-gray-900 dark:text-gray-100 font-semibold' : 'text-[#1a5490] dark:text-[#6cb4e8] hover:text-[#133d6b] dark:hover:text-[#8ac6f0]'}`}
-                aria-current={isActive ? 'page' : undefined}
-              >
-                {item.title}
-              </a>
-            </li>
-          );
-        })}
-      </ul>
+  <div class="flex flex-wrap items-center w-full">
+    <!-- Left side: Brand + Nav links -->
+    <div class="flex items-center flex-grow">
+      <a class="navbar-brand font-bold text-gray-900 dark:text-gray-100 no-underline min-h-[44px] flex items-center tracking-tight transition-colors duration-200 hover:text-primary dark:hover:text-primary-400" href="/">{siteConfig.name}</a>
+      
+      <!-- Nav links (visible on desktop, left-aligned after brand) -->
+      <div class="nav-collapse navbar-collapse md:flex md:items-center" id="navbar">
+        <ul class="navbar-nav flex flex-col md:flex-row list-none p-0 m-0">
+          {navItems.map((item) => {
+            const isActive = currentPath === item.url || 
+                            (item.url === '/' && currentPath === '/');
+            return (
+              <li class="nav-item relative">
+                <a 
+                  href={item.url} 
+                  class={`nav-link px-4 py-3 flex items-center min-h-[44px] transition-colors duration-200 no-underline ${isActive ? 'active text-gray-900 dark:text-gray-100 font-semibold' : 'text-[#1a5490] dark:text-[#6cb4e8] hover:text-[#133d6b] dark:hover:text-[#8ac6f0]'}`}
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  {item.title}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
-
-    <span class="navbar-text hidden md:block text-gray-700 dark:text-gray-400 text-sm text-right mb-2 md:border-l-2 md:border-primary/20 md:pl-4 md:ml-4">
-      {siteConfig.description}
-    </span>
+    
+    <!-- Right side: Tagline + Mobile toggle -->
+    <div class="flex items-center">
+      <span class="navbar-text hidden md:block text-gray-700 dark:text-gray-400 text-sm text-right border-l-2 border-primary/20 pl-4 ml-4">
+        {siteConfig.description}
+      </span>
+      
+      <button 
+        class="navbar-toggler p-2 rounded border border-gray-300 dark:border-gray-600 min-h-[44px] min-w-[44px] md:hidden focus:outline-2 focus:outline-primary focus:outline-offset-2 ml-2" 
+        type="button" 
+        aria-controls="navbar" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon block w-6 h-6 bg-no-repeat bg-center"></span>
+      </button>
+    </div>
   </div>
 </nav>
 
