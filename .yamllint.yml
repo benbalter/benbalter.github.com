@@ -3,3 +3,6 @@ extends: default
 rules:
   document-start: disable
   line-length: disable
+  truthy:
+    allowed-values: ['true', 'false', 'on']
+    check-keys: false
