@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import favicons from 'astro-favicons';
 import compress from 'astro-compress';
 import redirectFrom from 'astro-redirect-from';
@@ -174,10 +174,6 @@ export default defineConfig({
   
   // Integrations
   integrations: [
-    tailwind({
-      // Apply Tailwind's base styles and extend with custom styles in global.css
-      applyBaseStyles: true,
-    }),
     favicons({
       // Use existing high-quality PNG as source
       // The integration will generate all favicon formats automatically
@@ -300,6 +296,8 @@ export default defineConfig({
   
   // Vite configuration
   vite: {
+    // Tailwind CSS v4 uses the Vite plugin instead of the deprecated @astrojs/tailwind integration
+    plugins: [tailwindcss()],
     // Ensure compatibility with existing build tools
     build: {
       // Separate chunk directory to avoid conflicts
@@ -307,7 +305,7 @@ export default defineConfig({
       rollupOptions: {
         output: {
           // Customize asset file naming to avoid misleading names
-          // Astro/Vite creates a shared CSS bundle from BaseLayout's optimized.scss import
+          // Astro/Vite creates a shared CSS bundle from BaseLayout's global.css import
           // and names it after one of the pages (e.g., "about"). We rename it to "global"
           // to accurately reflect that it's the site's main stylesheet, not page-specific CSS.
           assetFileNames: (assetInfo) => {

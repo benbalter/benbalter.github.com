@@ -298,6 +298,8 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
 </script>
 
 <style>
+  @reference "../styles/global.css";
+  
   :root {
     /* TL;DR tap highlight color, configurable for design system consistency */
     --tldr-tap-highlight-color: rgba(0, 0, 0, 0.1);
@@ -317,7 +319,7 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
   
   /* Icon styling */
   .tldr-icon {
-    @apply flex-shrink-0 w-6 h-6 text-primary;
+    @apply shrink-0 w-6 h-6 text-primary;
     margin-top: 0.125rem;
   }
   
