@@ -3,12 +3,7 @@
  * Callout Component
  * 
  * Display important information, warnings, or notes in blog posts.
- * Uses Tailwind CSS with custom border styling.
- * 
- * Usage in MDX:
- * <Callout type="info">This is an info callout</Callout>
- * <Callout type="warning">This is a warning</Callout>
- * <Callout type="error">This is an error message</Callout>
+ * Uses Tailwind CSS best practices: utility-first with variant-based styling.
  */
 
 interface Props {
@@ -23,34 +18,25 @@ const icons = {
   warning: '⚠️',
   error: '❌',
   success: '✅',
-};
+} as const;
 
-// Map callout types to Tailwind color classes
-const colorClasses = {
-  info: 'border-blue-500 bg-blue-50 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200',
-  warning: 'border-yellow-500 bg-yellow-50 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200',
-  error: 'border-red-500 bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-200',
-  success: 'border-green-500 bg-green-50 dark:bg-green-900/30 text-green-800 dark:text-green-200',
-};
+// Tailwind variant classes for each callout type
+const variantClasses = {
+  info: 'border-blue-500 bg-blue-50 text-blue-800 dark:bg-blue-900/30 dark:text-blue-200',
+  warning: 'border-yellow-500 bg-yellow-50 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-200',
+  error: 'border-red-500 bg-red-50 text-red-800 dark:bg-red-900/30 dark:text-red-200',
+  success: 'border-green-500 bg-green-50 text-green-800 dark:bg-green-900/30 dark:text-green-200',
+} as const;
 ---
 
-<div class={`alert border-l-4 my-6 p-4 rounded ${colorClasses[type]}`} role="alert">
+<aside class={`my-6 rounded border-l-4 p-4 ${variantClasses[type]}`} role="note" aria-label={`${type} callout`}>
   {title && (
-    <div class="flex items-center gap-2 mb-2 font-semibold">
-      <span class="text-lg">{icons[type]}</span>
+    <div class="mb-2 flex items-center gap-2 font-semibold">
+      <span class="text-lg" aria-hidden="true">{icons[type]}</span>
       <strong>{title}</strong>
     </div>
   )}
-  <div class="m-0 callout-content">
+  <div class="[&>p:last-child]:mb-0">
     <slot />
   </div>
-</div>
-
-<style>
-  @reference "../styles/global.css";
-  
-  /* Ensure last paragraph has no bottom margin */
-  .callout-content :global(p:last-child) {
-    @apply mb-0;
-  }
-</style>
+</aside>

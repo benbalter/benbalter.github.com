@@ -168,8 +168,8 @@ test.describe('Dark Mode Support', () => {
       await page.goto('/2014/10/07/expose-process-through-urls/');
       await waitForPageReady(page);
       
-      // Check that callout (Bootstrap alert) exists and is visible
-      const callout = page.locator('.alert[role="alert"]').first();
+      // Check that callout (aside element with role="note") exists and is visible
+      const callout = page.locator('aside[role="note"]').first();
       await expect(callout).toBeVisible();
       
       // Check light mode background color
@@ -184,10 +184,10 @@ test.describe('Dark Mode Support', () => {
       await waitForPageReady(page);
       
       // Check that callout is still visible after reload
-      const darkModeCalloutCount = await page.locator('.alert[role="alert"]').count();
+      const darkModeCalloutCount = await page.locator('aside[role="note"]').count();
       expect(darkModeCalloutCount).toBeGreaterThan(0);
       
-      const darkCallout = page.locator('.alert[role="alert"]').first();
+      const darkCallout = page.locator('aside[role="note"]').first();
       await expect(darkCallout).toBeVisible();
       
       // Check dark mode background color is different from light mode

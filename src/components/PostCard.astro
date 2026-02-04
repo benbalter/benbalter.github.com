@@ -3,7 +3,7 @@
  * PostCard Component
  * 
  * Display a blog post with title, date, description, and reading time in a card format.
- * Uses Tailwind CSS for styling with hover effects.
+ * Uses Tailwind CSS best practices: utility-first with minimal custom CSS.
  * 
  * Props:
  * - title: Post title
@@ -12,16 +12,6 @@
  * - isoDate: Post date in ISO 8601 format (YYYY-MM-DD) for datetime attribute
  * - description: Post description/excerpt
  * - readingTime: Reading time in minutes
- * 
- * Usage:
- * <PostCard 
- *   title="My Post" 
- *   url="/2024/01/01/my-post/"
- *   date="January 1, 2024"
- *   isoDate="2024-01-01"
- *   description="A brief description"
- *   readingTime={5}
- * />
  */
 
 import { formatReadingTime } from '../utils/reading-time';
@@ -39,104 +29,21 @@ interface Props {
 const { title, url, date, isoDate, description, readingTime } = Astro.props;
 ---
 
-<article class="card border rounded-lg h-full post-card bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
-  <div class="card-accent"></div>
-  <div class="card-body p-4">
-    <h3 class="card-title text-base font-semibold mb-2">
-      <a href={url} class="text-gray-900 dark:text-gray-100 no-underline stretched-link">{title}</a>
+<article class="group relative h-full overflow-hidden rounded-lg border border-gray-200 bg-white transition-all duration-200 hover:border-primary/30 hover:shadow-[0_6px_16px_rgba(0,0,0,0.12)] motion-safe:hover:-translate-y-1 dark:border-gray-700 dark:bg-gray-800 dark:hover:border-primary/40 dark:hover:shadow-[0_6px_16px_rgba(0,0,0,0.4)]">
+  <!-- Gradient accent bar (appears on hover) -->
+  <div class="absolute inset-y-0 left-0 w-[3px] bg-gradient-to-b from-primary/60 to-primary/30 opacity-0 transition-opacity duration-200 group-hover:opacity-100 dark:from-primary/80 dark:to-primary/50" aria-hidden="true"></div>
+  
+  <div class="p-4 max-md:pt-3">
+    <h3 class="mb-2 text-base font-semibold leading-snug tracking-tight">
+      <a href={url} class="text-gray-900 no-underline transition-colors duration-200 before:absolute before:inset-0 group-hover:text-primary dark:text-gray-100">{title}</a>
     </h3>
-    <div class="text-gray-600 dark:text-gray-400 text-sm mb-2">
+    <div class="mb-2 text-sm text-gray-600 dark:text-gray-400">
       <time datetime={isoDate}>{date}</time>
-      <span class="mx-1">•</span>
+      <span class="mx-1" aria-hidden="true">•</span>
       <span>{formatReadingTime(readingTime)}</span>
     </div>
     {description && (
-      <p class="card-text text-gray-600 dark:text-gray-400 mb-0 text-sm">{stripMarkdown(description)}</p>
+      <p class="mb-0 text-sm text-gray-600 dark:text-gray-400">{stripMarkdown(description)}</p>
     )}
   </div>
 </article>
-
-<style>
-  @reference "../styles/global.css";
-  
-  /* Enhanced card styles with accent border */
-  .post-card {
-    position: relative;
-    @apply transition-all duration-200 overflow-hidden;
-  }
-  
-  /* Gradient accent on left border */
-  .card-accent {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: linear-gradient(
-      180deg,
-      rgba(51, 122, 183, 0.6),
-      rgba(51, 122, 183, 0.3)
-    );
-    @apply opacity-0 transition-opacity duration-200;
-  }
-  
-  .post-card:hover {
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-    border-color: rgba(51, 122, 183, 0.3);
-  }
-  
-  @media (prefers-reduced-motion: no-preference) {
-    .post-card:hover {
-      @apply -translate-y-1;
-    }
-  }
-  
-  .post-card:hover .card-accent {
-    @apply opacity-100;
-  }
-
-  /* Dark mode */
-  @media (prefers-color-scheme: dark) {
-    .post-card:hover {
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-      border-color: rgba(51, 122, 183, 0.4);
-    }
-    
-    .card-accent {
-      background: linear-gradient(
-        180deg,
-        rgba(51, 122, 183, 0.8),
-        rgba(51, 122, 183, 0.5)
-      );
-    }
-  }
-  
-  /* Link covers entire card */
-  .post-card .stretched-link {
-    @apply transition-colors duration-200;
-  }
-  
-  .post-card:hover .stretched-link {
-    @apply text-primary;
-  }
-  
-  /* Card title typography */
-  .post-card .card-title {
-    letter-spacing: -0.01em;
-    line-height: 1.3;
-    position: static;
-  }
-  
-  /* Stretched link pseudo-element */
-  .stretched-link::after {
-    content: '';
-    @apply absolute inset-0;
-  }
-  
-  /* Reduce top padding on mobile */
-  @media (max-width: 767px) {
-    .post-card .card-body {
-      @apply pt-3;
-    }
-  }
-</style>
