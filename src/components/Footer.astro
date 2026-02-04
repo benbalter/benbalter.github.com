@@ -101,8 +101,10 @@ import Icon from './Icon.astro';
     align-items: center;
     justify-content: center;
     
-    &:hover {
-      color: var(--bs-primary);
+    @media (hover: hover) {
+      &:hover {
+        color: var(--bs-primary);
+      }
     }
     
     /* Subtle background on hover - using proper stacking context */
@@ -135,8 +137,10 @@ import Icon from './Icon.astro';
       z-index: 1;
     }
     
-    &:hover::before {
-      opacity: 1;
+    @media (hover: hover) {
+      &:hover::before {
+        opacity: 1;
+      }
     }
     
     // Touch feedback for mobile
@@ -153,8 +157,10 @@ import Icon from './Icon.astro';
   
   /* Respect reduced motion preferences for transform animations */
   @media (prefers-reduced-motion: no-preference) {
-    .social-link:hover {
-      transform: translateY(-2px);
+    @media (hover: hover) {
+      .social-link:hover {
+        transform: translateY(-2px);
+      }
     }
   }
   

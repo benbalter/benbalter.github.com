@@ -179,8 +179,10 @@ const navClasses = hero
     display: flex;
     align-items: center;
     
-    &:hover {
-      color: var(--bs-primary);
+    @media (hover: hover) {
+      &:hover {
+        color: var(--bs-primary);
+      }
     }
     
     // Touch feedback
@@ -281,8 +283,11 @@ const navClasses = hero
   .nav-link:hover,
   .nav-link:focus {
     color: $nav-link-hover-color !important;
-    
-    &::after {
+  }
+  
+  @media (hover: hover) {
+    .nav-link:hover::after,
+    .nav-link:focus::after {
       width: 80%;
       left: 10%;
     }

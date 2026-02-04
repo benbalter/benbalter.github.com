@@ -646,8 +646,10 @@ h1, h2, h3, h4, h5, h6 {
         align-items: center;
         padding: 0.5rem 0;
         
-        &:hover {
-            color: $blue;
+        @media (hover: hover) {
+            &:hover {
+                color: $blue;
+            }
         }
         
         // Touch feedback on mobile
@@ -658,62 +660,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // Enhanced navigation styling - only truly custom animations
-.navbar {
-    .navbar-brand {
-        transition: color 0.15s ease-in-out;
-        // Prevent accidental zoom on mobile
-        touch-action: manipulation;
-        // Ensure minimum touch target
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        
-        &:hover {
-            color: $blue !important;
-        }
-        
-        // Touch feedback
-        &:active {
-            opacity: 0.8;
-        }
-    }
-    
-    .nav-link {
-        position: relative;
-        // Prevent accidental zoom on mobile
-        touch-action: manipulation;
-        // Ensure adequate touch target size (WCAG 2.1 Level AA)
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        padding: 1rem 1rem !important; // Increased padding for 44px+ touch targets
-        
-        &::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 1rem;
-            right: 1rem;
-            height: 2px;
-            background: $blue;
-            transform: scaleX(0);
-            transition: transform 0.2s ease-in-out;
-        }
-        
-        &:hover::after,
-        &.active::after {
-            transform: scaleX(1);
-        }
-        
-        // Touch feedback
-        &:active {
-            opacity: 0.8;
-        }
-        
-        // Note: Active link colors are set in Navigation.astro component
-        // to maintain WCAG AA contrast in both light and dark modes
-    }
-}
+// Note: .navbar-brand and .nav-link styles are defined in Navigation.astro component
+// to keep component-specific styling co-located with component markup
 
 // Enhanced footer - only custom hover animations
 footer {

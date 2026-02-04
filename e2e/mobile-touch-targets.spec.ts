@@ -102,10 +102,10 @@ test.describe('Mobile Touch Targets', () => {
     });
     expect(navTouchAction).toBe('manipulation');
 
-    // Check buttons
-    const button = page.locator('.btn').first();
-    if (await button.count() > 0) {
-      const btnTouchAction = await button.evaluate((el) => {
+    // Check buttons if they exist
+    const buttons = page.locator('.btn');
+    if (await buttons.count() > 0) {
+      const btnTouchAction = await buttons.first().evaluate((el) => {
         return window.getComputedStyle(el).touchAction;
       });
       expect(btnTouchAction).toBe('manipulation');
@@ -231,11 +231,6 @@ test.describe('Mobile Touch Feedback', () => {
     const button = page.locator('.btn').first();
     
     if (await button.count() > 0) {
-      // Get initial state
-      const initialTransform = await button.evaluate((el) => {
-        return window.getComputedStyle(el).transform;
-      });
-      
       // Simulate press (active state would apply during actual press)
       // We can't easily test :active pseudo-class, but we can verify it's defined in CSS
       const hasTransition = await button.evaluate((el) => {
