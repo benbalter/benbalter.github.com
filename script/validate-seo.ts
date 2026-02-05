@@ -115,9 +115,8 @@ async function validatePosts() {
       // Info: remind about optimizing first 150 characters
       if (descLength > 150) {
         const first150 = strippedDescription.substring(0, 150);
-        // Check if the cutoff happens mid-word
-        // A good break has: last char before 150 is alphanumeric, char at 150 is whitespace/punctuation
-        // OR: last char before 150 is whitespace/punctuation
+        // Check if the cutoff happens mid-word (a "bad" break for readability)
+        // Here we detect a mid-word break when both the char before and at 150 are alphanumeric
         const charBefore150 = strippedDescription[149];
         const charAt150 = strippedDescription[150];
         
