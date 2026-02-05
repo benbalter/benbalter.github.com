@@ -92,12 +92,12 @@ async function validatePosts() {
       // Strip Markdown formatting for character count
       // Simple strip: remove bold, italic, links, etc.
       const strippedDescription = frontmatter.description
-        .replace(/\*\*(.+?)\*\*/g, '$1') // Bold
-        .replace(/\*(.+?)\*/g, '$1')     // Italic
-        .replace(/__(.+?)__/g, '$1')     // Bold (underscore)
-        .replace(/_(.+?)_/g, '$1')       // Italic (underscore)
         .replace(/\[(.+?)\]\(.+?\)/g, '$1') // Links
-        .replace(/`(.+?)`/g, '$1')       // Inline code
+        .replace(/\*\*(.+?)\*\*/g, '$1')    // Bold
+        .replace(/\*(.+?)\*/g, '$1')        // Italic
+        .replace(/__(.+?)__/g, '$1')        // Bold (underscore)
+        .replace(/_(.+?)_/g, '$1')          // Italic (underscore)
+        .replace(/`(.+?)`/g, '$1')         // Inline code
         .trim();
       
       const descLength = strippedDescription.length;
