@@ -18,10 +18,6 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { siteConfig } from '../config.js';
 
-// Avatar size in pixels (400x400 for high-quality source before Astro optimization)
-// This size provides good quality while still being reasonable to download at build time
-const AVATAR_SIZE = 400;
-
 // Output path relative to project root (must match the import path in components)
 // This file is generated at build time and should be in .gitignore
 const AVATAR_OUTPUT_PATH = join('assets', 'img', 'avatar.png');
@@ -31,7 +27,9 @@ export default function fetchAvatar(): AstroIntegration {
     name: 'fetch-avatar',
     hooks: {
       'astro:build:start': async ({ logger }) => {
-        const avatarUrl = `https://avatars.githubusercontent.com/${siteConfig.githubUsername}?s=${AVATAR_SIZE}`;
+        // Fetch full-size avatar without size parameter for highest quality source
+        // Astro's image optimization will resize it appropriately
+        const avatarUrl = `https://avatars.githubusercontent.com/${siteConfig.githubUsername}`;
         const projectRoot = fileURLToPath(new URL('../../', import.meta.url));
         const avatarPath = join(projectRoot, AVATAR_OUTPUT_PATH);
         

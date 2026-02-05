@@ -748,8 +748,9 @@ export default function fetchAvatar(): AstroIntegration {
     name: 'fetch-avatar',
     hooks: {
       'astro:build:start': async ({ logger }) => {
+        // Fetch full-size avatar for highest quality source
         const response = await fetch(
-          `https://avatars.githubusercontent.com/${siteConfig.githubUsername}?s=400`
+          `https://avatars.githubusercontent.com/${siteConfig.githubUsername}`
         );
         // Save to assets/img/avatar.png for Astro's Image optimization
       },
