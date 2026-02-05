@@ -288,6 +288,18 @@ Specialized for content creation and editing that authentically matches Ben Balt
 
 Use this agent for creating or editing blog posts and documentation. The agent understands Ben's voice, frequently referenced prior posts, and key concepts like "showing your work", "communications debt", and "caremad".
 
+### SEO Agent (`seo.md`)
+
+Specialized for search engine optimization tasks including:
+
+* **Meta tags**: Title tags, meta descriptions, Open Graph tags
+* **Structured data**: JSON-LD schemas (Article, Person, BreadcrumbList)
+* **Content optimization**: Headings, keywords, internal linking
+* **Technical SEO**: URL structure, canonical URLs, sitemaps
+* **Performance**: Core Web Vitals and page speed optimization
+
+Use this agent for SEO audits, optimizing meta information, implementing structured data, and improving search engine visibility.
+
 ## Notes for Copilot
 
 * This is a **production website**—be conservative with changes
