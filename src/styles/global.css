@@ -358,6 +358,12 @@
     }
   }
 
+  /* Remove backticks added by Tailwind Typography plugin */
+  code::before,
+  code::after {
+    content: none !important;
+  }
+
   /* Blockquotes */
   blockquote {
     @apply border-l-4 border-primary pl-8 py-3 my-10 italic text-lg;
