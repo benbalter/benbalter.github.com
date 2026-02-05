@@ -1,6 +1,6 @@
 # Open Graph Image Generation for Astro
 
-This implementation provides automatic Open Graph (OG) image generation for blog posts using Satori and resvg-js, approximating the Jekyll `jekyll-og-image` plugin output.
+This implementation provides automatic Open Graph (OG) image generation for blog posts using Satori and resvg-js with a modern, Tailwind-inspired design.
 
 ## Overview
 
@@ -8,10 +8,11 @@ OG images are dynamically generated at build time for all blog posts. These imag
 
 ## Features
 
-✨ **Brand Recognition**: Includes Ben's headshot/logo at top-right of each image (matching Jekyll's layout)
-✨ **Professional Typography**: Uses Inter font with both regular (400) and bold (700) weights
-✨ **Clean Design**: White background with title at top-left, description at bottom-left
-✨ **Domain Attribution**: Shows ben.balter.com at bottom-right
+✨ **Modern Design**: Subtle gradient background with left accent bar for visual interest
+✨ **Brand Recognition**: Circular avatar with border at top-right
+✨ **Professional Typography**: Uses Inter font with bold titles and clean descriptions
+✨ **Smart Description Handling**: Automatically strips markdown formatting and truncates long descriptions
+✨ **Domain Attribution**: Shows ben.balter.com in primary brand color
 ✨ **High Quality**: PNG format for crisp rendering on all platforms
 ✨ **Smart Fallback**: Custom images from frontmatter take precedence over generated images
 
@@ -28,11 +29,12 @@ OG images are dynamically generated at build time for all blog posts. These imag
    - Converts SVG to PNG using resvg-js
    - Caches fonts and headshot image for performance
    - Includes path validation to prevent directory traversal
+   - Strips markdown formatting from descriptions
 
 3. **Configuration** (`src/lib/og-config.ts`):
-   - Defines styling to approximate Jekyll's `jekyll-og-image` plugin output
-   - Configures dimensions (1200x600), colors, fonts, and border
-   - Matches the Google blue (#4285F4) accent border from `_config.yml`
+   - Defines styling using Tailwind-inspired color values
+   - Configures dimensions (1200x600), colors, fonts, and accent bar
+   - Uses site's primary brand color (#337ab7) for accent elements
 
 4. **Post Pages** (`src/pages/[year]/[month]/[day]/[slug].astro`):
    - Automatically uses generated OG images
@@ -41,16 +43,16 @@ OG images are dynamically generated at build time for all blog posts. These imag
 
 ## Generated Image Format
 
-- **Dimensions**: 1200 x 600 pixels (matching Jekyll)
-- **Background**: White (#FFFFFF)
-- **Logo**: Ben's headshot (150px) at top-right
-- **Title**: 48px, bold (700), dark gray (#2f313d), line height 1.2
-- **Description**: 28px, regular (400), medium gray (#535358), line height 1.4
-- **Domain**: ben.balter.com at bottom-right
-- **Border**: 20px Google blue (#4285F4) accent at bottom
+- **Dimensions**: 1200 x 600 pixels (standard OG size)
+- **Background**: Subtle gradient from gray-50 (#f8f9fa) to white
+- **Accent Bar**: 8px primary blue (#337ab7) on left side
+- **Logo**: Circular (140px) with white border and shadow, at top-right
+- **Title**: 52px, bold (700), dark gray (#212529), line height 1.2
+- **Description**: 24px, regular (400), gray (#6c757d), max 150 chars with ellipsis
+- **Domain**: 20px, semibold, primary blue (#337ab7)
 - **Font**: Inter (loaded from fontsource.org)
 - **Format**: PNG
-- **Padding**: 80px
+- **Padding**: 60px
 
 ## Usage
 
@@ -86,45 +88,49 @@ To customize the OG image styling, edit `src/lib/og-config.ts`:
 export const defaultOGConfig: OGImageConfig = {
   width: 1200,
   height: 600,
-  backgroundColor: '#FFFFFF',
+  background: {
+    color: '#FFFFFF',
+    gradientFrom: '#f8f9fa',  // Tailwind gray-50
+    gradientTo: '#FFFFFF',
+  },
   title: {
-    fontSize: 48,
-    color: '#2f313d',
-    lineHeight: 1.2,
+    fontSize: 52,
+    color: '#212529',  // Tailwind gray-900
     // ...
   },
-  border: {
-    height: 20,
-    color: '#4285F4', // Google blue
+  accent: {
+    width: 8,
+    color: '#337ab7',  // Primary blue
+    gradientFrom: '#337ab7',
+    gradientTo: '#2a6493',
   },
   logo: {
     path: './assets/img/headshot.jpg',
-    size: 150,
+    size: 140,
+    borderRadius: 70,  // Full circle
+    borderWidth: 4,
+    borderColor: '#FFFFFF',
   },
-  domain: 'ben.balter.com',
+  domain: {
+    text: 'ben.balter.com',
+    fontSize: 20,
+    color: '#337ab7',
+  },
   // ...
 };
 ```
 
 ## Best Practices Implemented
 
-1. **Brand Consistency**: Logo/headshot included on every OG image for immediate brand recognition
+1. **Brand Consistency**: Logo/headshot and primary color accent on every OG image
 2. **Typography**: Inter font with proper weights (400 for body, 700 for title)
 3. **Visual Hierarchy**: Clear distinction between title and description through size, weight, and color
-4. **Proper Spacing**: 80px padding prevents text from feeling cramped
-5. **Accessibility**: Good color contrast ratios for text readability
-6. **Security**: Path validation prevents directory traversal attacks
-7. **Performance**: Font and headshot caching across image generations
-
-## Compatibility with Jekyll
-
-This implementation approximates Jekyll's `jekyll-og-image` plugin:
-
-- Similar visual layout (title top-left, logo top-right, description bottom-left, domain bottom-right)
-- Same Google blue border accent from `_config.yml`
-- Same logo/headshot from Jekyll config: `image: ./assets/img/headshot.jpg`
-- Same domain display from Jekyll config: `domain: ben.balter.com`
-- Same fallback to custom images when specified
+4. **Modern Design**: Subtle gradient background and accent bar using Tailwind-inspired colors
+5. **Proper Spacing**: 60px padding prevents text from feeling cramped
+6. **Accessibility**: Good color contrast ratios for text readability
+7. **Security**: Path validation prevents directory traversal attacks
+8. **Performance**: Font and headshot caching across image generations
+9. **Smart Text Handling**: Markdown is stripped from descriptions, long text is truncated
 
 ## Dependencies
 
