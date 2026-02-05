@@ -137,7 +137,10 @@ generating optimized images
 - **Tree-shaking:** Vite automatically tree-shakes unused code
 - **Compression:** `astro-compress` integration compresses HTML, CSS, JavaScript, and SVG
 - **FontAwesome SVG:** Uses SVG-based icons (no icon font overhead)
-- **Tailwind CSS purging:** Only used utility classes included in final bundle
+- **Tailwind CSS v4 purging:** Automatically purges unused utility classes during build
+  - Only used utilities are included in the final bundle
+  - Tailwind scans all `.astro`, `.html`, `.jsx`, `.tsx` files for class names
+  - Custom theme configuration in `src/styles/global.css` using `@theme` directive
 
 **Bundle Analysis Commands:**
 
@@ -154,6 +157,7 @@ du -sh dist-astro/assets/*.css
 
 - JavaScript: ~15KB (View Transitions router only)
 - CSS: Inlined into HTML (no external CSS requests)
+- Tailwind utilities: Only used classes included (~10-15KB after compression)
 
 ### 6. View Transitions ✅
 
@@ -586,7 +590,59 @@ src/
 ├── layouts/        # Page layouts
 ├── pages/          # Route components
 ├── utils/          # Utility functions
-└── styles/         # Global styles
+└── styles/         # Global styles (Tailwind CSS)
+    └── global.css  # Tailwind v4 config and custom styles
+```
+
+### 4. Styling with Tailwind CSS v4 ✅
+
+**Status:** IMPLEMENTED
+
+**Configuration:**
+
+- **Tailwind CSS v4** integrated via `@tailwindcss/vite` plugin
+- Configuration in `src/styles/global.css` using `@theme` directive (not `tailwind.config.js`)
+- Uses `@tailwindcss/typography` plugin for prose styling
+- Custom theme includes primary colors matching previous Bootstrap theme
+- CSS inlined at build time for optimal performance
+
+**Best Practices:**
+
+```astro
+<!-- ✅ GOOD: Use Tailwind utility classes -->
+<div class="p-4 bg-white border border-gray-200 rounded-lg">
+  <h2 class="text-xl font-bold">Title</h2>
+</div>
+
+<!-- ✅ GOOD: Custom components in global.css -->
+<button class="btn btn-primary">
+  Click Me
+</button>
+
+<!-- ❌ BAD: Custom CSS for common patterns -->
+<style>
+  .my-button {
+    padding: 1rem;
+    background: blue;
+  }
+</style>
+```
+
+**Tailwind v4 Features Used:**
+
+- `@import "tailwindcss"` - Modern CSS import syntax
+- `@theme` directive - CSS-based configuration
+- `@layer base/components/utilities` - Organized custom styles
+- CSS custom properties for theming
+- Dark mode via `@media (prefers-color-scheme: dark)`
+
+**Typography Plugin:**
+
+```astro
+<!-- Apply prose styling to content -->
+<article class="prose prose-primary lg:prose-lg mx-auto">
+  <slot />
+</article>
 ```
 
 ---

@@ -30,10 +30,10 @@ const posts = await getCollection('posts');
   {description && <p>{description}</p>}
 </div>
 
-<!-- 3. Styles (Scoped CSS/SCSS) -->
-<style lang="scss">
+<!-- 3. Styles (Scoped CSS - use only when necessary) -->
+<style>
 .component {
-  padding: 1rem;
+  /* Custom styles not covered by Tailwind */
 }
 </style>
 ```
@@ -227,36 +227,51 @@ describe('generateSlug', () => {
 
 ## Styling
 
-### Scoped Styles
+### Tailwind CSS Utilities (Preferred)
 
-- Use `<style>` tag in components for scoped styles
-- Use `lang="scss"` for SCSS support
-- Scoped styles only apply to that component
-- Global styles go in `src/styles/`
+- Use Tailwind CSS utility classes directly in components
+- This is the primary styling approach for the site
+- Tailwind v4 is configured in `src/styles/global.css`
+- Responsive utilities: `md:`, `lg:`, `xl:`, `2xl:`
 
 ```astro
-<style lang="scss">
-// Scoped to this component only
-.card {
-  padding: 1rem;
-  
-  &__title {
-    font-size: 1.5rem;
-  }
+<!-- ✅ GOOD: Use Tailwind utilities directly -->
+<div class="p-4 bg-white border border-gray-200 rounded-lg">
+  <h2 class="text-xl font-bold text-gray-900">Title</h2>
+  <p class="text-gray-600">Description</p>
+</div>
+
+<!-- ✅ GOOD: Use custom component classes from global.css -->
+<button class="btn btn-primary">
+  Click Me
+</button>
+```
+
+### Scoped Styles (Use Sparingly)
+
+- Use `<style>` tag only for component-specific styles not covered by Tailwind
+- Scoped styles only apply to that component
+- Keep scoped styles minimal and focused
+
+```astro
+<style>
+/* Only for custom styles that can't be done with Tailwind */
+.custom-component {
+  /* Unique styling specific to this component */
 }
 </style>
 ```
 
 ### Global Styles
 
-- Import global SCSS in layout components
-- Use Bootstrap classes where appropriate
-- Follow mobile-first responsive design
-- Maintain consistency with Jekyll styles
+- Main stylesheet: `src/styles/global.css` (Tailwind v4 + custom styles)
+- Imported in `BaseLayout.astro`
+- Custom components defined with `@layer components` in `global.css`
+- CSS is inlined at build time for optimal performance
 
 ```astro
 ---
-import '../styles/optimized.scss';
+import '../styles/global.css';
 ---
 ```
 
