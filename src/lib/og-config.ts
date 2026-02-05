@@ -31,8 +31,6 @@ export interface OGImageConfig {
     fontSize: number;
     color: string;
     lineHeight: number;
-    // Maximum lines to show
-    maxLines: number;
   };
   
   // Accent bar styling (left side accent bar)
@@ -89,7 +87,7 @@ export const defaultOGConfig: OGImageConfig = {
   // Subtle gradient background (light gray to white)
   background: {
     color: '#FFFFFF',
-    gradientFrom: '#f8f9fa',  // Tailwind gray-50
+    gradientFrom: '#f8f9fa',  // Light gray (Bootstrap gray-100)
     gradientTo: '#FFFFFF',
   },
   
@@ -97,7 +95,7 @@ export const defaultOGConfig: OGImageConfig = {
   title: {
     fontFamily: 'Inter',
     fontSize: 52,
-    color: '#212529',  // Tailwind gray-900
+    color: '#212529',  // Dark gray (Bootstrap gray-900)
     lineHeight: 1.2,
   },
   
@@ -105,9 +103,8 @@ export const defaultOGConfig: OGImageConfig = {
   description: {
     fontFamily: 'Inter',
     fontSize: 24,
-    color: '#6c757d',  // Tailwind gray-600
+    color: '#6c757d',  // Medium gray (Bootstrap gray-600)
     lineHeight: 1.5,
-    maxLines: 3,
   },
   
   // Left accent bar with primary brand color

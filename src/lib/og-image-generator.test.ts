@@ -35,7 +35,7 @@ describe('truncateDescription', () => {
   });
   
   it('should remove strikethrough markdown formatting', () => {
-    const text = 'This has ~strikethrough~ text';
+    const text = 'This has ~~strikethrough~~ text';
     expect(truncateDescription(text, 150)).toBe('This has strikethrough text');
   });
   

@@ -32,7 +32,6 @@ describe('defaultOGConfig', () => {
     expect(defaultOGConfig.description.fontSize).toBe(24);
     expect(defaultOGConfig.description.color).toBe('#6c757d');
     expect(defaultOGConfig.description.lineHeight).toBe(1.5);
-    expect(defaultOGConfig.description.maxLines).toBe(3);
   });
 
   it('should have accent bar configuration', () => {

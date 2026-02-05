@@ -126,7 +126,8 @@ export function truncateDescription(text: string, maxLength: number = 300): stri
   // Remove markdown links and formatting
   const cleanText = text
     .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')  // [text](url) -> text
-    .replace(/[*_~`]/g, '')  // Remove markdown formatting
+    .replace(/~~([^~]+)~~/g, '$1')  // ~~strikethrough~~ -> strikethrough
+    .replace(/[*_`]/g, '')  // Remove remaining markdown formatting (* _ `)
     .trim();
   
   if (cleanText.length <= maxLength) {
