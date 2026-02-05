@@ -122,7 +122,7 @@ async function loadHeadshot(config: OGImageConfig): Promise<string> {
  * Adds ellipsis if truncated
  * Also strips markdown links and formatting
  */
-export function truncateDescription(text: string, maxLength: number = 150): string {
+export function truncateDescription(text: string, maxLength: number = 300): string {
   // Remove markdown links and formatting
   const cleanText = text
     .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')  // [text](url) -> text

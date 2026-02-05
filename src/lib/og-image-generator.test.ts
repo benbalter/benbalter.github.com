@@ -63,11 +63,11 @@ describe('truncateDescription', () => {
     expect(truncateDescription(text, 150)).toBe(text);
   });
   
-  it('should use default max length of 150', () => {
-    const longText = 'Word '.repeat(50); // 250 chars
+  it('should use default max length of 300', () => {
+    const longText = 'Word '.repeat(100); // 500 chars
     const result = truncateDescription(longText);
     expect(result.endsWith('…')).toBe(true);
-    expect(result.length).toBeLessThanOrEqual(151); // 150 + ellipsis
+    expect(result.length).toBeLessThanOrEqual(301); // 300 + ellipsis
   });
 });
 
