@@ -3,7 +3,7 @@
  * Footer Component
  * 
  * Site-wide footer with navigation links and social connections.
- * Uses Bootstrap nav utilities and extends with minimal custom styles.
+ * Uses Tailwind CSS utilities and minimal custom styles.
  * Matches the structure and styling of the Jekyll footer.
  * 
  * Uses inline SVG icons via the Icon component for better performance
@@ -14,16 +14,16 @@ import { footerLinks, contactLinks } from '../config';
 import Icon from './Icon.astro';
 ---
 
-<footer class="mt-5 pt-4 footer-divider" transition:persist>
+<footer class="mt-12 pt-6 footer-divider" transition:persist>
   <nav aria-label="Footer navigation" class="footer-nav">
-    <div class="d-flex justify-content-between px-2 py-3 mb-4 flex-wrap">
-      <ul class="nav contact-links">
+    <div class="flex justify-between px-2 py-4 mb-6 flex-wrap">
+      <ul class="flex flex-wrap list-none p-0 m-0 contact-links">
         {contactLinks.map((link) => (
-          <li class="nav-item">
+          <li class="relative">
             <a 
               href={link.url} 
               aria-label={link.name}
-              class="nav-link social-link"
+              class="nav-link social-link text-gray-900 dark:text-gray-100 p-2 min-h-[44px] min-w-[44px] inline-flex items-center justify-center transition-all duration-200 hover:text-primary dark:hover:text-primary-400"
               target="_blank"
               rel="noopener noreferrer me"
             >
@@ -33,17 +33,17 @@ import Icon from './Icon.astro';
         ))}
       </ul>
       
-      <ul class="nav footer-links">
+      <ul class="flex flex-wrap list-none p-0 m-0 footer-links">
         {footerLinks.map((link) => (
-          <li class="nav-item">
-            <a href={link.url} class="nav-link link-secondary footer-link">
+          <li class="relative">
+            <a href={link.url} class="nav-link link-secondary text-gray-700 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300 px-3 py-2 text-sm transition-all duration-200 footer-link">
               {link.title}
             </a>
           </li>
         ))}
         
-        <li class="nav-item">
-          <a href="/feed.xml" aria-label="RSS Feed" class="nav-link social-link">
+        <li class="relative">
+          <a href="/feed.xml" aria-label="RSS Feed" class="nav-link social-link text-gray-900 dark:text-gray-100 p-2 min-h-[44px] min-w-[44px] inline-flex items-center justify-center transition-all duration-200 hover:text-primary dark:hover:text-primary-400">
             <Icon name="rss" title="RSS Feed" />
           </a>
         </li>
@@ -52,166 +52,130 @@ import Icon from './Icon.astro';
   </nav>
 </footer>
 
-<style lang="scss">
-  /* Import Bootstrap nav component (scoped to this component) */
-  @import 'bootstrap/scss/functions';
-  @import 'bootstrap/scss/variables';
-  @import 'bootstrap/scss/variables-dark';
-  @import 'bootstrap/scss/maps';
-  @import 'bootstrap/scss/mixins';
-  @import 'bootstrap/scss/nav';
+<style>
+  @reference "../styles/global.css";
   
   /* Enhanced footer divider */
   .footer-divider {
-    border-top: 2px solid rgba(var(--bs-primary-rgb, 13, 110, 253), 0.1);
+    border-top: 2px solid rgba(51, 122, 183, 0.1);
     position: relative;
-    
-    &::before {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(var(--bs-primary-rgb, 13, 110, 253), 0.3) 50%,
-        transparent
-      );
-    }
-  }
-
-  /* Reduce footer link sizes */
-  .nav-link {
-    font-size: 0.875rem;
-    transition: all 0.2s ease;
   }
   
-  /* Enhanced social link hover effects with mobile touch optimization */
+  .footer-divider::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(51, 122, 183, 0.3) 50%,
+      transparent
+    );
+  }
+
+  /* Social link hover effects with touch optimization */
   .social-link {
     position: relative;
-    color: var(--bs-body-color);
-    // Prevent accidental zoom on mobile
     touch-action: manipulation;
-    // Ensure adequate touch target size
-    min-height: 44px;
-    min-width: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    
-    @media (hover: hover) {
-      &:hover {
-        color: var(--bs-primary);
-      }
-    }
-    
-    /* Subtle background on hover - using proper stacking context */
-    &::before {
-      content: '';
-      position: absolute;
-      top: -4px;
-      right: -4px;
-      bottom: -4px;
-      left: -4px;
-      background: rgba(var(--bs-primary-rgb, 13, 110, 253), 0.1);
-      border-radius: 50%;
-      opacity: 0;
-      transition: opacity 0.2s ease;
-    }
-    
-    /* Enhanced touch area on mobile devices */
-    @media (max-width: 767px) {
-      &::before {
-        top: -8px;
-        right: -8px;
-        bottom: -8px;
-        left: -8px;
-      }
-    }
-    
-    /* Ensure icon stays above pseudo-element */
-    :global(svg) {
-      position: relative;
-      z-index: 1;
-    }
-    
-    @media (hover: hover) {
-      &:hover::before {
-        opacity: 1;
-      }
-    }
-    
-    // Touch feedback for mobile
-    &:active {
-      color: var(--bs-primary);
-      transform: translateY(1px);
-      
-      &::before {
-        opacity: 1;
-        background: rgba(var(--bs-primary-rgb, 13, 110, 253), 0.15);
-      }
+  }
+  
+  .social-link::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    bottom: -4px;
+    left: -4px;
+    @apply bg-primary/10;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  
+  /* Enhanced touch area on mobile */
+  @media (max-width: 767px) {
+    .social-link::before {
+      top: -8px;
+      right: -8px;
+      bottom: -8px;
+      left: -8px;
     }
   }
   
-  /* Respect reduced motion preferences for transform animations */
-  @media (prefers-reduced-motion: no-preference) {
-    @media (hover: hover) {
-      .social-link:hover {
-        transform: translateY(-2px);
-      }
+  /* Ensure icon stays above pseudo-element */
+  .social-link :global(svg) {
+    position: relative;
+    z-index: 1;
+  }
+  
+  @media (hover: hover) {
+    .social-link:hover::before {
+      opacity: 1;
+    }
+    
+    .social-link:hover {
+      transform: translateY(-2px);
     }
   }
   
-  /* Footer text links */
+  .social-link:active {
+    transform: translateY(1px);
+  }
+  
+  .social-link:active::before {
+    opacity: 1;
+    @apply bg-primary/15;
+  }
+  
+  /* Footer text links underline effect */
   .footer-link {
     position: relative;
-    
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 0;
-      height: 1px;
-      background: currentColor;
-      transition: width 0.2s ease, left 0.2s ease;
-    }
-    
-    &:hover::after {
-      width: 80%;
-      left: 10%;
-    }
+  }
+  
+  .footer-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    transition: width 0.2s ease, left 0.2s ease;
+  }
+  
+  .footer-link:hover::after {
+    width: 80%;
+    left: 10%;
   }
 
-  /* Responsive layout adjustments */
+  /* Responsive layout */
   @media (max-width: 768px) {
     .footer-nav > div {
-      justify-content: center !important;
-      flex-direction: column;
-      text-align: center;
+      @apply justify-center flex-col text-center;
     }
     
     .contact-links,
     .footer-links {
-      justify-content: center !important;
+      @apply justify-center;
     }
   }
   
-  /* Dark mode adjustments */
+  /* Dark mode divider */
   @media (prefers-color-scheme: dark) {
     .footer-divider {
-      border-top-color: rgba(var(--bs-primary-rgb, 13, 110, 253), 0.2);
-      
-      &::before {
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(var(--bs-primary-rgb, 13, 110, 253), 0.4) 50%,
-          transparent
-        );
-      }
+      border-top-color: rgba(51, 122, 183, 0.2);
+    }
+    
+    .footer-divider::before {
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(51, 122, 183, 0.4) 50%,
+        transparent
+      );
     }
   }
 </style>

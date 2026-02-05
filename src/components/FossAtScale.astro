@@ -4,6 +4,7 @@
  * 
  * Displays a note about the "FOSS at Scale" blog post series.
  * Replaces {% include foss-at-scale.html nth="..." %}
+ * Uses Tailwind CSS for styling.
  */
 
 interface Props {
@@ -13,16 +14,6 @@ interface Props {
 const { nth = "first" } = Astro.props;
 ---
 
-<div class="alert alert-primary text-center" role="alert">
-  This is the {nth} post in <a href="/2021/06/15/managing-open-source-communities-at-scale/" class="alert-link">a series</a> on successfully managing open source communities at scale.
+<div class="alert p-4 rounded border border-primary-200 dark:border-primary-800 bg-primary-50 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 text-center mb-6" role="alert">
+  This is the {nth} post in <a href="/2021/06/15/managing-open-source-communities-at-scale/" class="alert-link font-semibold underline text-primary-700 dark:text-primary-300 hover:text-primary-900 dark:hover:text-primary-100">a series</a> on successfully managing open source communities at scale.
 </div>
-
-<style lang="scss">
-  // Import Bootstrap alert component (scoped to this component)
-  @import 'bootstrap/scss/functions';
-  @import 'bootstrap/scss/variables';
-  @import 'bootstrap/scss/variables-dark';
-  @import 'bootstrap/scss/maps';
-  @import 'bootstrap/scss/mixins';
-  @import 'bootstrap/scss/alert';
-</style>

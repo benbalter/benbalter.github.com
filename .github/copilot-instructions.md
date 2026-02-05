@@ -35,6 +35,11 @@ Astro provides static site generation with:
 * **Output**: Builds to `dist-astro/` directory
 * **Development Server**: Runs on port 4321
 
+### Styling
+
+* **Tailwind CSS v4**: Utility-first CSS framework with `@tailwindcss/vite` plugin
+* **@tailwindcss/typography**: Prose styling for content areas
+
 ### Key Dependencies
 
 #### Development Tools
@@ -100,7 +105,7 @@ script/fix-lint        # Auto-fix linting issues (ALWAYS run after markdown lint
 │   ├── data/          # YAML data files
 │   ├── lib/           # Shared libraries (remark/rehype plugins)
 │   ├── utils/         # Utility functions
-│   ├── styles/        # SCSS styles
+│   ├── styles/        # Tailwind CSS styles
 │   └── scripts/       # Client-side scripts
 ├── public/            # Static assets
 ├── script/            # Build and utility scripts
@@ -224,7 +229,7 @@ Blog posts must include:
 * Follow component patterns in `src/components/`
 * Avoid `client:*` directives unless interactivity is required
 * Use semantic HTML and proper accessibility attributes
-* Style with SCSS imported from `src/styles/`
+* Style with Tailwind CSS utilities and `src/styles/global.css`
 * Document complex components with TypeScript JSDoc comments
 
 ## Git Workflow

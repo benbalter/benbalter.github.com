@@ -23,10 +23,8 @@ test.describe('Navigation Styling - Initial Page Load', () => {
     
     const nav = page.locator('nav.navbar');
     
-    // Check classes
-    await expect(nav).toHaveClass(/rounded-top/);
-    await expect(nav).toHaveClass(/rounded-bottom/);
-    await expect(nav).toHaveClass(/border-top/);
+    // Check classes - Tailwind uses rounded-lg for fully rounded corners
+    await expect(nav).toHaveClass(/rounded-lg/);
     
     // Verify computed styles
     const borderRadius = await nav.evaluate((el) => {
@@ -59,10 +57,9 @@ test.describe('Navigation Styling - Initial Page Load', () => {
     
     const nav = page.locator('nav.navbar');
     
-    // Check classes - should have rounded-bottom but NOT rounded-top
-    await expect(nav).toHaveClass(/rounded-bottom/);
-    await expect(nav).not.toHaveClass(/rounded-top/);
-    await expect(nav).not.toHaveClass(/border-top/);
+    // Check classes - should have rounded-b-lg (bottom only) but NOT rounded-lg
+    await expect(nav).toHaveClass(/rounded-b-lg/);
+    await expect(nav).not.toHaveClass(/rounded-lg(?!-)/); // negative lookahead to not match rounded-lg-x
     
     // Verify computed styles
     const borderRadius = await nav.evaluate((el) => {
@@ -119,10 +116,8 @@ test.describe('Navigation Styling - Client-Side Navigation', () => {
     
     const nav = page.locator('nav.navbar');
     
-    // Verify initial state (hero page)
-    await expect(nav).toHaveClass(/rounded-bottom/);
-    await expect(nav).not.toHaveClass(/rounded-top/);
-    await expect(nav).not.toHaveClass(/border-top/);
+    // Verify initial state (hero page) - should have rounded-b-lg only
+    await expect(nav).toHaveClass(/rounded-b-lg/);
     
     let borderRadius = await nav.evaluate((el) => {
       const styles = window.getComputedStyle(el);
@@ -142,9 +137,7 @@ test.describe('Navigation Styling - Client-Side Navigation', () => {
     await waitForPageReady(page);
     
     // Verify styling updated (non-hero page)
-    await expect(nav).toHaveClass(/rounded-top/);
-    await expect(nav).toHaveClass(/rounded-bottom/);
-    await expect(nav).toHaveClass(/border-top/);
+    await expect(nav).toHaveClass(/rounded-lg/);
     await expect(nav).toHaveAttribute('data-has-hero', 'false');
     
     borderRadius = await nav.evaluate((el) => {
@@ -173,9 +166,8 @@ test.describe('Navigation Styling - Client-Side Navigation', () => {
     
     const nav = page.locator('nav.navbar');
     
-    // Verify initial state (non-hero page)
-    await expect(nav).toHaveClass(/rounded-top/);
-    await expect(nav).toHaveClass(/border-top/);
+    // Verify initial state (non-hero page) - fully rounded
+    await expect(nav).toHaveClass(/rounded-lg/);
     
     let borderRadius = await nav.evaluate((el) => {
       const styles = window.getComputedStyle(el);
@@ -195,9 +187,7 @@ test.describe('Navigation Styling - Client-Side Navigation', () => {
     await waitForPageReady(page);
     
     // Verify styling updated (hero page)
-    await expect(nav).not.toHaveClass(/rounded-top/);
-    await expect(nav).not.toHaveClass(/border-top/);
-    await expect(nav).toHaveClass(/rounded-bottom/);
+    await expect(nav).toHaveClass(/rounded-b-lg/);
     await expect(nav).toHaveAttribute('data-has-hero', 'true');
     
     borderRadius = await nav.evaluate((el) => {
@@ -225,26 +215,26 @@ test.describe('Navigation Styling - Client-Side Navigation', () => {
     
     const nav = page.locator('nav.navbar');
     
-    // Hero page
-    await expect(nav).not.toHaveClass(/rounded-top/);
+    // Hero page - should have bottom-only rounding
+    await expect(nav).toHaveClass(/rounded-b-lg/);
     
     // Navigate to About (non-hero)
     await page.locator('a[href="/about/"]').first().click();
     await page.waitForURL('**/about/');
     await waitForPageReady(page);
-    await expect(nav).toHaveClass(/rounded-top/);
+    await expect(nav).toHaveClass(/rounded-lg/);
     
     // Navigate to Contact (non-hero)
     await page.locator('a[href="/contact/"]').first().click();
     await page.waitForURL('**/contact/');
     await waitForPageReady(page);
-    await expect(nav).toHaveClass(/rounded-top/);
+    await expect(nav).toHaveClass(/rounded-lg/);
     
     // Navigate back to hero page
     await page.locator('a[href="/"]').first().click();
     await page.waitForURL('/');
     await waitForPageReady(page);
-    await expect(nav).not.toHaveClass(/rounded-top/);
+    await expect(nav).toHaveClass(/rounded-b-lg/);
   });
   
   test('should handle browser back/forward navigation correctly', async ({ page }) => {
@@ -260,25 +250,25 @@ test.describe('Navigation Styling - Client-Side Navigation', () => {
     const nav = page.locator('nav.navbar');
     
     // Start on hero page
-    await expect(nav).not.toHaveClass(/rounded-top/);
+    await expect(nav).toHaveClass(/rounded-b-lg/);
     
     // Navigate to About page
     await page.locator('a[href="/about/"]').first().click();
     await page.waitForURL('**/about/');
     await waitForPageReady(page);
-    await expect(nav).toHaveClass(/rounded-top/);
+    await expect(nav).toHaveClass(/rounded-lg/);
     
     // Go back to hero page
     await page.goBack();
     await page.waitForURL('/');
     await waitForPageReady(page);
-    await expect(nav).not.toHaveClass(/rounded-top/);
+    await expect(nav).toHaveClass(/rounded-b-lg/);
     
     // Go forward to About page again
     await page.goForward();
     await page.waitForURL('**/about/');
     await waitForPageReady(page);
-    await expect(nav).toHaveClass(/rounded-top/);
+    await expect(nav).toHaveClass(/rounded-lg/);
   });
 });
 
@@ -297,9 +287,8 @@ test.describe('Navigation Styling - Edge Cases', () => {
     
     const nav = page.locator('nav.navbar');
     
-    // Blog posts don't have hero images, so should have rounded top
-    await expect(nav).toHaveClass(/rounded-top/);
-    await expect(nav).toHaveClass(/border-top/);
+    // Blog posts don't have hero images, so should have full rounding
+    await expect(nav).toHaveClass(/rounded-lg/);
   });
   
   test('should not have visual glitches during transition', async ({ page }) => {

@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import tailwindcss from '@tailwindcss/vite';
 import favicons from 'astro-favicons';
 import compress from 'astro-compress';
 import redirectFrom from 'astro-redirect-from';
@@ -295,6 +296,8 @@ export default defineConfig({
   
   // Vite configuration
   vite: {
+    // Tailwind CSS v4 uses the Vite plugin instead of the deprecated @astrojs/tailwind integration
+    plugins: [tailwindcss()],
     // Ensure compatibility with existing build tools
     build: {
       // Separate chunk directory to avoid conflicts
@@ -302,7 +305,7 @@ export default defineConfig({
       rollupOptions: {
         output: {
           // Customize asset file naming to avoid misleading names
-          // Astro/Vite creates a shared CSS bundle from BaseLayout's optimized.scss import
+          // Astro/Vite creates a shared CSS bundle from BaseLayout's global.css import
           // and names it after one of the pages (e.g., "about"). We rename it to "global"
           // to accurately reflect that it's the site's main stylesheet, not page-specific CSS.
           assetFileNames: (assetInfo) => {
@@ -330,22 +333,6 @@ export default defineConfig({
             
             return 'assets/[name].[hash][extname]';
           },
-        },
-      },
-    },
-    css: {
-      preprocessorOptions: {
-        scss: {
-          // Allow importing from node_modules using ~ prefix (webpack style)
-          loadPaths: ['node_modules'],
-          // Suppress deprecation warnings for @import rules (Bootstrap 5.3.x uses them)
-          quietDeps: true,
-          // Silence all @import deprecation warnings globally
-          // This affects both our code and Bootstrap's internal @import usage
-          // Bootstrap 5.3.x doesn't support the modern @use module system yet.
-          // TODO: Remove this once Bootstrap 6.x is released with @use support
-          // See: https://sass-lang.com/documentation/breaking-changes/import
-          silenceDeprecations: ['import'],
         },
       },
     },

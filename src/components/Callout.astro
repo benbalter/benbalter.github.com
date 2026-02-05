@@ -3,12 +3,7 @@
  * Callout Component
  * 
  * Display important information, warnings, or notes in blog posts.
- * Uses Bootstrap 5.3 alert component as base with custom border styling.
- * 
- * Usage in MDX:
- * <Callout type="info">This is an info callout</Callout>
- * <Callout type="warning">This is a warning</Callout>
- * <Callout type="error">This is an error message</Callout>
+ * Uses Tailwind CSS best practices: utility-first with variant-based styling.
  */
 
 interface Props {
@@ -23,45 +18,25 @@ const icons = {
   warning: '⚠️',
   error: '❌',
   success: '✅',
-};
+} as const;
 
-// Map callout types to Bootstrap alert types
-const alertTypeMap = {
-  info: 'info',
-  warning: 'warning',
-  error: 'danger',
-  success: 'success',
-};
-
-const alertType = alertTypeMap[type];
+// Tailwind variant classes for each callout type
+const variantClasses = {
+  info: 'border-blue-500 bg-blue-50 text-blue-800 dark:bg-blue-900/30 dark:text-blue-200',
+  warning: 'border-yellow-500 bg-yellow-50 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-200',
+  error: 'border-red-500 bg-red-50 text-red-800 dark:bg-red-900/30 dark:text-red-200',
+  success: 'border-green-500 bg-green-50 text-green-800 dark:bg-green-900/30 dark:text-green-200',
+} as const;
 ---
 
-<div class={`alert alert-${alertType} border-start border-4 my-4 p-3 rounded`} role="alert">
+<aside class={`my-6 rounded border-l-4 p-4 ${variantClasses[type]}`} role="note" aria-label={`${type} callout`}>
   {title && (
-    <div class="d-flex align-items-center gap-2 mb-2 fw-semibold">
-      <span class="fs-5">{icons[type]}</span>
+    <div class="mb-2 flex items-center gap-2 font-semibold">
+      <span class="text-lg" aria-hidden="true">{icons[type]}</span>
       <strong>{title}</strong>
     </div>
   )}
-  <div class="m-0 callout-content">
+  <div class="[&>p:last-child]:mb-0">
     <slot />
   </div>
-</div>
-
-<style lang="scss">
-  // Import Bootstrap alert component
-  @import 'bootstrap/scss/functions';
-  @import 'bootstrap/scss/variables';
-  @import 'bootstrap/scss/variables-dark';
-  @import 'bootstrap/scss/maps';
-  @import 'bootstrap/scss/mixins';
-  @import 'bootstrap/scss/alert';
-  
-  // Note: alert-link color contrast fix moved to src/styles/optimized.scss
-  // for global application across all alert components
-  
-  // Minimal custom style to ensure last paragraph has no bottom margin
-  .callout-content :global(p:last-child) {
-    margin-bottom: 0;
-  }
-</style>
+</aside>

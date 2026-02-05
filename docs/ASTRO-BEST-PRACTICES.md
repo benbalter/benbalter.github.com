@@ -137,7 +137,7 @@ generating optimized images
 - **Tree-shaking:** Vite automatically tree-shakes unused code
 - **Compression:** `astro-compress` integration compresses HTML, CSS, JavaScript, and SVG
 - **FontAwesome SVG:** Uses SVG-based icons (no icon font overhead)
-- **Bootstrap:** Only imported styles are included
+- **Tailwind CSS purging:** Only used utility classes included in final bundle
 
 **Bundle Analysis Commands:**
 
@@ -447,14 +447,13 @@ npm run test:e2e:accessibility
 **Implementation:**
 
 ```astro
-<!-- Main content can receive focus -->
-<main id="content" role="main" tabindex="-1">
+<!-- Visible focus styles via Tailwind utilities -->
+<a class="focus:outline-2 focus:outline-primary focus:outline-offset-2">...</a>
 
-<!-- Visible focus styles in CSS -->
+<!-- Or in global.css -->
 <style>
   a:focus, button:focus {
-    outline: 2px solid var(--bs-primary);
-    outline-offset: 2px;
+    @apply outline-2 outline-primary outline-offset-2;
   }
 </style>
 ```

@@ -3,7 +3,7 @@
  * Mini Bio Component
  * 
  * Displays a brief author bio with avatar for blog posts.
- * Uses Bootstrap utilities for layout and styling.
+ * Uses Tailwind CSS utilities for layout and styling.
  * Dynamically pulls the first paragraph from the about page content.
  * Replicates the Jekyll mini-bio.html include functionality.
  */
@@ -15,18 +15,18 @@ const firstParagraph = getFirstParagraph(aboutContent);
 const bioHtml = `${firstParagraph} <a href="/about/">More about the author &rarr;</a>`;
 ---
 
-<div class="mini-bio clearfix">
-  <div class="float-start pt-1 pe-3">
+<div class="mini-bio flex">
+  <div class="flex-shrink-0 pt-1 pr-4">
     <img 
       src={`https://avatars.githubusercontent.com/${siteConfig.githubUsername}?s=100`}
       alt={siteConfig.author}
       width="100"
       height="100"
-      class="avatar rounded d-block"
+      class="avatar rounded block"
       loading="lazy"
     />
   </div>
   
   <!-- firstParagraph is safe for set:html because link text is now escaped in about-bio.ts -->
-  <p set:html={bioHtml} class="mb-0 lh-base small" />
+  <p set:html={bioHtml} class="mb-0 leading-normal text-sm" />
 </div>

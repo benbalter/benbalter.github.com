@@ -1,7 +1,7 @@
 /**
  * Tests for rehype-bootstrap-tables plugin
  *
- * Verifies that Bootstrap table classes are added to markdown tables
+ * Verifies that Tailwind table classes are added to markdown tables
  */
 
 import { describe, it, expect } from 'vitest';
@@ -20,7 +20,7 @@ describe('rehypeBootstrapTables', () => {
     .use(rehypeBootstrapTables)
     .use(rehypeStringify);
 
-  it('should add table class to markdown table', async () => {
+  it('should add Tailwind table classes to markdown table', async () => {
     const markdown = `
 | Header 1 | Header 2 |
 | -------- | -------- |
@@ -29,7 +29,8 @@ describe('rehypeBootstrapTables', () => {
     const result = await processor.process(markdown);
     const html = String(result);
 
-    expect(html).toContain('class="table"');
+    expect(html).toContain('w-full');
+    expect(html).toContain('border-collapse');
     expect(html).toContain('<table');
   });
 
@@ -44,7 +45,8 @@ describe('rehypeBootstrapTables', () => {
     const result = await processor.process(markdown);
     const html = String(result);
 
-    expect(html).toContain('class="table"');
+    expect(html).toContain('w-full');
+    expect(html).toContain('border-collapse');
     expect(html).toContain('<th>Name</th>');
     expect(html).toContain('<td>Alice</td>');
   });
@@ -58,10 +60,11 @@ describe('rehypeBootstrapTables', () => {
     const result = await processor.process(markdown);
     const html = String(result);
 
-    expect(html).toContain('class="table"');
+    expect(html).toContain('w-full');
+    expect(html).toContain('border-collapse');
   });
 
-  it('should not duplicate table class if already present', async () => {
+  it('should not duplicate classes if already present', async () => {
     // This test verifies behavior when processing HTML that already has the class
     // In practice, markdown tables don't start with classes, but the plugin should
     // handle this edge case gracefully
@@ -81,12 +84,12 @@ describe('rehypeBootstrapTables', () => {
     const result = await processor2.process(markdown);
     const html = String(result);
 
-    // Should only have one 'table' class, not duplicated
+    // Should only have one 'w-full' class, not duplicated
     const tableMatch = html.match(/class="([^"]*)"/);
     expect(tableMatch).not.toBeNull();
     const classes = tableMatch![1].split(' ');
-    const tableClassCount = classes.filter((c) => c === 'table').length;
-    expect(tableClassCount).toBe(1);
+    const wFullClassCount = classes.filter((c) => c === 'w-full').length;
+    expect(wFullClassCount).toBe(1);
   });
 
   it('should handle empty table', async () => {
@@ -97,7 +100,8 @@ describe('rehypeBootstrapTables', () => {
     const result = await processor.process(markdown);
     const html = String(result);
 
-    expect(html).toContain('class="table"');
+    expect(html).toContain('w-full');
+    expect(html).toContain('border-collapse');
   });
 
   it('should handle multiple tables in same document', async () => {
@@ -117,8 +121,8 @@ describe('rehypeBootstrapTables', () => {
     const result = await processor.process(markdown);
     const html = String(result);
 
-    // Count occurrences of class="table"
-    const matches = html.match(/class="table"/g);
+    // Count occurrences of w-full (each table should have it)
+    const matches = html.match(/w-full/g);
     expect(matches).not.toBeNull();
     expect(matches!.length).toBe(2);
   });
