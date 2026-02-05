@@ -4,7 +4,7 @@
  * 
  * Validates that all pages meet SEO best practices:
  * - Unique titles
- * - Meta descriptions (150-160 characters recommended)
+ * - Meta descriptions (optimize first 150 characters after Markdown stripped)
  * - Image alt text
  * - Proper heading hierarchy
  * - Canonical URLs
@@ -89,21 +89,49 @@ async function validatePosts() {
         message: 'Missing description',
       });
     } else {
-      const descLength = frontmatter.description.length;
+      // Strip Markdown formatting for character count
+      // Simple strip: remove bold, italic, links, etc.
+      const strippedDescription = frontmatter.description
+        .replace(/\[(.+?)\]\(.+?\)/g, '$1') // Links
+        .replace(/\*\*(.+?)\*\*/g, '$1')    // Bold
+        .replace(/\*(.+?)\*/g, '$1')        // Italic
+        .replace(/__(.+?)__/g, '$1')        // Bold (underscore)
+        .replace(/_(.+?)_/g, '$1')          // Italic (underscore)
+        .replace(/`(.+?)`/g, '$1')         // Inline code
+        .trim();
       
-      // Check description length (recommended: 150-160 characters)
-      if (descLength < 120) {
+      const descLength = strippedDescription.length;
+      
+      // Warn if description is very short
+      // Note: No upper limit - can be any length, but optimize first 150 chars
+      if (descLength < 100) {
         issues.push({
           file: relativePath,
           type: 'warning',
-          message: `Description too short (${descLength} chars, recommend 150-160): "${frontmatter.description.substring(0, 50)}..."`,
+          message: `Description short (${descLength} chars after Markdown stripped). Ensure first 150 chars are compelling: "${strippedDescription.substring(0, 50)}..."`,
         });
-      } else if (descLength > 160) {
-        issues.push({
-          file: relativePath,
-          type: 'warning',
-          message: `Description too long (${descLength} chars, recommend 150-160): "${frontmatter.description.substring(0, 50)}..."`,
-        });
+      }
+      
+      // Info: remind about optimizing first 150 characters
+      if (descLength > 150) {
+        const first150 = strippedDescription.substring(0, 150);
+        // Check if the cutoff happens mid-word (a "bad" break for readability)
+        // Here we detect a mid-word break when both the char before and at 150 are alphanumeric
+        const charBefore150 = strippedDescription[149];
+        const charAt150 = strippedDescription[150];
+        
+        // If char before 150 is alphanumeric AND char at 150 is alphanumeric, it's mid-word
+        const endsInMiddleOfWord = 
+          charBefore150?.match(/[a-zA-Z0-9]/) && 
+          charAt150?.match(/[a-zA-Z0-9]/);
+        
+        if (endsInMiddleOfWord) {
+          issues.push({
+            file: relativePath,
+            type: 'warning',
+            message: `Description is ${descLength} chars. Ensure first 150 chars (shown in search results) end at a natural break: "${first150}..."`,
+          });
+        }
       }
     }
     

@@ -267,7 +267,7 @@ Ben's posts form an interconnected knowledge base. When writing:
 ### SEO Best Practices
 
 * Write descriptive, keyword-rich titles (50–60 characters)
-* Create compelling meta descriptions (150–160 characters) that summarize the key insight
+* Create compelling meta descriptions that optimize the first 150 characters (after Markdown is stripped) for search results
 * Use semantic HTML headings (##, ###, etc.)
 * Include relevant internal links to other posts
 * Add alt text to images (handled in HTML)
