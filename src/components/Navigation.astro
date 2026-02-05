@@ -4,6 +4,7 @@
  * 
  * Site-wide navigation bar with active state highlighting.
  * Matches the structure and styling of the Jekyll navigation.
+ * Uses Tailwind CSS for styling.
  */
 
 import { siteConfig } from '../config';
@@ -29,13 +30,18 @@ const navItems: NavItem[] = [
 // Get current path for active state
 const currentPath = Astro.url.pathname;
 
-// Conditionally add border-top and rounded-top classes when hero is not present
+// Base classes for navbar
+const baseClasses = "navbar flex flex-wrap items-center justify-between py-2 px-4 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm mb-4";
+
+// Conditionally add rounded classes based on hero presence
+// For hero pages: round only bottom corners (top-left and top-right are 0)
+// For non-hero pages: round all corners
 const navClasses = hero 
-  ? "navbar navbar-expand-md bg-secondary-subtle text-secondary border-start border-end border-bottom rounded-bottom mb-3"
-  : "navbar navbar-expand-md bg-secondary-subtle text-secondary border-start border-end border-bottom border-top rounded-top rounded-bottom mb-3";
+  ? `${baseClasses} rounded-t-none rounded-b-lg border-t-0`
+  : `${baseClasses} rounded-lg`;
 ---
 
-<nav class={navClasses + ' shadow-sm'} aria-label="Main navigation" transition:persist="nav" data-has-hero={hero}>
+<nav class={navClasses} aria-label="Main navigation" transition:persist="nav" data-has-hero={hero}>
   <script>
     // Update active nav link state and border styling on page transitions
     document.addEventListener('astro:page-load', () => {
@@ -57,232 +63,93 @@ const navClasses = hero
       });
       
       // Update navigation border/rounded corners based on whether new page has hero
-      // Note: We query the DOM for .hero-unit rather than reading data-has-hero attribute
-      // because we need to check the NEW page's state after client-side navigation
       const nav = document.querySelector('nav.navbar');
       const heroElement = document.querySelector('.hero-unit');
       const hasHero = heroElement !== null;
       
       if (nav) {
-        // Update data attribute for reference
         nav.setAttribute('data-has-hero', hasHero.toString());
         
         if (hasHero) {
-          // Hero page: remove top border and rounded-top
-          nav.classList.remove('border-top', 'rounded-top');
+          // Hero page: bottom-only rounding, no top border, explicit no top rounding
+          nav.classList.remove('rounded-lg');
+          nav.classList.add('rounded-t-none', 'rounded-b-lg', 'border-t-0');
         } else {
-          // Non-hero page: add top border and rounded-top
-          nav.classList.add('border-top', 'rounded-top');
+          // Non-hero page: full rounding
+          nav.classList.remove('rounded-t-none', 'rounded-b-lg', 'border-t-0');
+          nav.classList.add('rounded-lg');
         }
       }
     });
   </script>
-  <div class="container-fluid">
-    <a class="navbar-brand fw-bold mb-2" href="/">{siteConfig.name}</a>
-    <button 
-      class="navbar-toggler" 
-      type="button" 
-      aria-controls="navbar" 
-      aria-expanded="false" 
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbar">
-      <ul class="navbar-nav me-auto">
-        {navItems.map((item) => {
-          const isActive = currentPath === item.url || 
-                          (item.url === '/' && currentPath === '/');
-          return (
-            <li class="nav-item">
-              <a 
-                href={item.url} 
-                class={`nav-link${isActive ? ' active' : ''}`}
-                aria-current={isActive ? 'page' : undefined}
-              >
-                {item.title}
-              </a>
-            </li>
-          );
-        })}
-      </ul>
+  <div class="flex flex-wrap items-center w-full">
+    <!-- Left side: Brand + Nav links -->
+    <div class="flex items-center flex-grow">
+      <a class="navbar-brand font-bold text-gray-900 dark:text-gray-100 no-underline min-h-[44px] flex items-center tracking-tight transition-colors duration-200 hover:text-primary dark:hover:text-primary-400 pb-2" href="/">{siteConfig.name}</a>
+      
+      <!-- Nav links (visible on desktop, left-aligned after brand) -->
+      <div class="nav-collapse navbar-collapse md:flex md:items-center" id="navbar">
+        <ul class="navbar-nav flex flex-col md:flex-row list-none p-0 m-0">
+          {navItems.map((item) => {
+            const isActive = currentPath === item.url || 
+                            (item.url === '/' && currentPath === '/');
+            return (
+              <li class="nav-item relative">
+                <a 
+                  href={item.url} 
+                  class={`nav-link px-4 py-3 flex items-center min-h-[44px] transition-colors duration-200 no-underline ${isActive ? 'active text-gray-900 dark:text-gray-100 font-semibold' : 'text-[#1a5490] dark:text-[#6cb4e8] hover:text-[#133d6b] dark:hover:text-[#8ac6f0]'}`}
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  {item.title}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
-
-    <span class="navbar-text text-end small mb-2">
-      {siteConfig.description}
-    </span>
+    
+    <!-- Right side: Tagline + Mobile toggle -->
+    <div class="flex items-center">
+      <span class="navbar-text hidden md:block text-gray-700 dark:text-gray-400 text-sm text-right border-l-2 border-primary/20 pl-4 ml-4 pb-2">
+        {siteConfig.description}
+      </span>
+      
+      <button 
+        class="navbar-toggler p-2 rounded border border-gray-300 dark:border-gray-600 min-h-[44px] min-w-[44px] md:hidden focus:outline-2 focus:outline-primary focus:outline-offset-2 ml-2" 
+        type="button" 
+        aria-controls="navbar" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon block w-6 h-6 bg-no-repeat bg-center"></span>
+      </button>
+    </div>
   </div>
 </nav>
 
-<style lang="scss">
-  /* WCAG AA compliant color constants for navigation against bg-secondary-subtle (#e9ecef) in LIGHT mode */
-  /* All colors verified to have >= 4.5:1 contrast ratio against light background */
-  $nav-link-color: #1a5490;        /* 5.3:1 contrast ratio */
-  $nav-link-hover-color: #133d6b;  /* 6.8:1 contrast ratio */
-  $nav-link-active-color: #212529; /* 12.6:1 contrast ratio */
-  $nav-text-color: #495057;        /* 6.0:1 contrast ratio */
+<style>
+  @reference "../styles/global.css";
   
-  /* WCAG AA compliant color constants for navigation in DARK mode */
-  /* All colors verified to have >= 4.5:1 contrast ratio against #343a40 background */
-  $dark-nav-link-color: #6cb4e8;        /* 5.7:1 contrast ratio */
-  $dark-nav-link-hover-color: #8ac6f0;  /* 7.1:1 contrast ratio */
-  $dark-nav-link-active-color: #e9ecef; /* 10.5:1 contrast ratio */
-  $dark-nav-text-color: #adb5bd;        /* 6.3:1 contrast ratio */
-
-  /* Import Bootstrap navigation components (scoped to this component) */
-  @import 'bootstrap/scss/functions';
-  @import 'bootstrap/scss/variables';
-  @import 'bootstrap/scss/variables-dark';
-  @import 'bootstrap/scss/maps';
-  @import 'bootstrap/scss/mixins';
-  @import 'bootstrap/scss/nav';
-  @import 'bootstrap/scss/navbar';
-  @import 'bootstrap/scss/buttons';
-  
-  /* Minimal custom styles - most styling comes from Bootstrap */
-  .navbar {
-    background-color: var(--bs-secondary-bg) !important;
-    /* Note: Border is controlled by utility classes (border-top, border-start, border-end, border-bottom) */
-    /* to allow conditional top border based on hero prop */
-    /* Override Bootstrap link colors for WCAG AA contrast on bg-secondary-subtle (#e9ecef) */
-    --bs-link-color: #{$nav-link-color};
-    --bs-link-hover-color: #{$nav-link-hover-color};
-  }
-  
-  /* Override Bootstrap nav link colors for better contrast (WCAG AA compliance) */
-  /* These variables are set on .nav by Bootstrap, so we override them here */
-  /* Background color is #e9ecef (bg-secondary-subtle) */
-  .navbar-nav {
-    --bs-nav-link-color: #{$nav-link-color};
-    --bs-nav-link-hover-color: #{$nav-link-hover-color};
-  }
-  
-  .nav {
-    --bs-nav-link-color: #{$nav-link-color};
-    --bs-nav-link-hover-color: #{$nav-link-hover-color};
-  }
-
-  .container-fluid {
-    padding: 0.5rem 1rem;
-  }
-
-  .navbar-brand {
-    color: var(--bs-body-color);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    transition: color 0.2s ease;
-    // Prevent accidental zoom on mobile
-    touch-action: manipulation;
-    // Ensure adequate touch target
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    
-    @media (hover: hover) {
-      &:hover {
-        color: var(--bs-primary);
-      }
-    }
-    
-    // Touch feedback
-    &:active {
-      opacity: 0.8;
-    }
-  }
-
-  .navbar-toggler {
-    border-color: rgba(0, 0, 0, 0.1);
-    // Prevent accidental zoom on mobile
-    touch-action: manipulation;
-    // Ensure adequate touch target size
-    min-height: 44px;
-    min-width: 44px;
-    padding: 0.5rem 0.75rem;
-    
-    // Enhanced focus state for accessibility
-    &:focus,
-    &:focus-visible {
-      outline: 2px solid var(--bs-primary);
-      outline-offset: 2px;
-      border-color: var(--bs-primary);
-    }
-    
-    // Visual feedback when menu is open
-    &[aria-expanded="true"] {
-      background-color: rgba(var(--bs-primary-rgb), 0.1);
-      border-color: var(--bs-primary);
-      
-      .navbar-toggler-icon {
-        opacity: 0.8;
-      }
-    }
-    
-    // Active (pressed) state for touch feedback
-    &:active {
-      background-color: rgba(var(--bs-primary-rgb), 0.15);
-    }
-  }
-
-  /* Hide toggler at desktop sizes */
-  @media (min-width: 768px) {
-    .navbar-toggler {
-      display: none;
-    }
-  }
-
-  .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-  }
-
-  .navbar-collapse {
-    /* Let Bootstrap handle alignment */
-  }
-
-  .navbar-nav {
-    /* Let Bootstrap handle default styling */
-  }
-
-  .nav-item {
-    /* Let Bootstrap handle default styling */
-  }
-
+  /* Active nav link underline */
   .nav-link {
-    /* Override Bootstrap's var(--bs-nav-link-color) with a direct color for WCAG AA contrast */
-    color: $nav-link-color !important;
-    text-decoration: none;
-    transition: color 0.2s ease;
     position: relative;
-    // Prevent accidental zoom on mobile
-    touch-action: manipulation;
-    // Ensure adequate touch target size (WCAG 2.1 Level AA)
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    padding: 1.125rem 1rem !important; // Increased padding to ensure 44px+ touch targets (from 1rem)
-    
-    /* Subtle underline animation on hover */
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 0;
-      height: 2px;
-      background: var(--bs-primary);
-    }
   }
   
-  /* Respect reduced motion preferences for underline animation */
-  @media (prefers-reduced-motion: no-preference) {
-    .nav-link::after {
-      transition: width 0.2s ease, left 0.2s ease;
-    }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    @apply bg-primary;
+    transition: width 0.2s ease, left 0.2s ease;
   }
-
-  .nav-link:hover,
-  .nav-link:focus {
-    color: $nav-link-hover-color !important;
+  
+  .nav-link.active::after {
+    width: 80%;
+    left: 10%;
   }
   
   @media (hover: hover) {
@@ -293,70 +160,33 @@ const navClasses = hero
     }
   }
   
-  // Touch feedback for mobile
+  /* Touch feedback */
   .nav-link:active {
-    opacity: 0.8;
-  }
-
-  .nav-link.active {
-    /* Use high-contrast color for active link */
-    color: $nav-link-active-color !important;
-    font-weight: 600;
-    
-    &::after {
-      width: 80%;
-      left: 10%;
-      background: var(--bs-primary);
-    }
-  }
-
-  .navbar-text {
-    /* Use a darker gray for better contrast against bg-secondary-subtle (#e9ecef) */
-    color: $nav-text-color !important;
+    @apply opacity-80;
   }
   
-  /* Visual separator only on larger screens */
-  @media (min-width: 768px) {
-    .navbar-text {
-      border-left: 2px solid rgba(var(--bs-primary-rgb, 13, 110, 253), 0.2);
-      padding-left: 1rem;
-      margin-left: 1rem;
-    }
-  }
-
-  /* Mobile styles */
-  @media (max-width: 767px) {
-    .navbar-text {
-      display: none;
-    }
+  /* Navbar toggler icon - light mode */
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   }
   
-  /* Dark mode styles - MUST be at the end to override light mode styles */
-  /* In dark mode, bg-secondary-subtle becomes ~#343a40 */
+  /* Dark mode toggler icon */
   @media (prefers-color-scheme: dark) {
-    .navbar-toggler {
-      border-color: rgba(255, 255, 255, 0.1);
-    }
-
     .navbar-toggler-icon {
       background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
-    
-    .nav-link {
-      color: $dark-nav-link-color !important;
-    }
-    
-    .nav-link:hover,
-    .nav-link:focus {
-      color: $dark-nav-link-hover-color !important;
-    }
-    
-    .nav-link.active {
-      color: $dark-nav-link-active-color !important;
-    }
-    
-    .navbar-text {
-      color: $dark-nav-text-color !important;
-    }
+  }
+  
+  /* Toggler expanded state */
+  .navbar-toggler[aria-expanded="true"] {
+    @apply bg-primary/10 border-primary;
+  }
+  
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    @apply opacity-80;
+  }
+  
+  .navbar-toggler:active {
+    @apply bg-primary/15;
   }
 </style>

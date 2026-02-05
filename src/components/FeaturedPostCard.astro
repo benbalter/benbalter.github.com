@@ -3,7 +3,7 @@
  * FeaturedPostCard Component
  * 
  * Display a featured blog post with larger, more prominent styling.
- * Uses Bootstrap card component with enhanced visual hierarchy.
+ * Uses Tailwind CSS best practices: utility-first with minimal custom CSS.
  * 
  * Props:
  * - title: Post title
@@ -12,16 +12,6 @@
  * - isoDate: Post date in ISO 8601 format (YYYY-MM-DD) for datetime attribute
  * - description: Post description/excerpt
  * - readingTime: Reading time in minutes
- * 
- * Usage:
- * <FeaturedPostCard 
- *   title="My Featured Post" 
- *   url="/2024/01/01/my-post/"
- *   date="January 1, 2024"
- *   isoDate="2024-01-01"
- *   description="A brief description"
- *   readingTime={5}
- * />
  */
 
 import { formatReadingTime } from '../utils/reading-time';
@@ -39,102 +29,21 @@ interface Props {
 const { title, url, date, isoDate, description, readingTime } = Astro.props;
 ---
 
-<article class="card border rounded-3 h-100 featured-post-card">
-  <div class="card-accent"></div>
-  <div class="card-body p-4">
-    <h3 class="card-title h4 mb-3">
-      <a href={url} class="text-body text-decoration-none stretched-link">{title}</a>
+<article class="group relative h-full overflow-hidden rounded-lg border-2 border-gray-200 bg-white transition-all duration-300 hover:border-primary hover:shadow-card-hover motion-safe:hover:-translate-y-1.5 dark:border-gray-700 dark:bg-gray-800 dark:hover:shadow-card-hover-dark">
+  <!-- Gradient accent bar (appears on hover) -->
+  <div class="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-primary to-primary/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100 dark:to-primary/70" aria-hidden="true"></div>
+  
+  <div class="p-6 max-md:pt-4">
+    <h3 class="mb-4 text-xl font-bold leading-tight tracking-tight">
+      <a href={url} class="text-gray-900 no-underline transition-colors duration-300 before:absolute before:inset-0 group-hover:text-primary dark:text-gray-100">{title}</a>
     </h3>
-    <div class="text-body-secondary mb-3">
+    <div class="mb-4 text-gray-600 dark:text-gray-400">
       <time datetime={isoDate}>{date}</time>
-      <span class="mx-2">•</span>
+      <span class="mx-2" aria-hidden="true">•</span>
       <span>{formatReadingTime(readingTime)}</span>
     </div>
     {description && (
-      <p class="card-text text-body-secondary mb-0">{stripMarkdown(description)}</p>
+      <p class="mb-0 text-gray-600 dark:text-gray-400">{stripMarkdown(description)}</p>
     )}
   </div>
 </article>
-
-<style>
-  /* Enhanced styles for featured posts with accent border */
-  .featured-post-card {
-    position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    background: var(--bs-body-bg);
-    border-width: 2px !important;
-    overflow: hidden;
-  }
-  
-  /* Gradient accent on left border - more prominent for featured posts */
-  .card-accent {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: linear-gradient(
-      180deg,
-      var(--bs-primary),
-      rgba(var(--bs-primary-rgb, 13, 110, 253), 0.6)
-    );
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .featured-post-card:hover {
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    border-color: var(--bs-primary) !important;
-  }
-  
-  /* Respect reduced motion preferences for transform animations */
-  @media (prefers-reduced-motion: no-preference) {
-    .featured-post-card:hover {
-      transform: translateY(-6px);
-    }
-  }
-  
-  .featured-post-card:hover .card-accent {
-    opacity: 1;
-  }
-
-  /* Dark mode box-shadow adjustment */
-  @media (prefers-color-scheme: dark) {
-    .featured-post-card:hover {
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
-    }
-    
-    .card-accent {
-      background: linear-gradient(
-        180deg,
-        var(--bs-primary),
-        rgba(var(--bs-primary-rgb, 13, 110, 253), 0.7)
-      );
-    }
-  }
-  
-  /* Ensure link covers entire card for better UX */
-  .featured-post-card .stretched-link {
-    transition: color 0.3s ease;
-  }
-  
-  .featured-post-card:hover .stretched-link {
-    color: var(--bs-primary) !important;
-  }
-  
-  /* Better card title typography - scoped to featured-post-card */
-  .featured-post-card .card-title {
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-    /* Override global h3 position: relative to allow stretched-link to work */
-    position: static;
-  }
-  
-  /* Reduce top padding on mobile to balance vertical white space */
-  @media (max-width: 767px) {
-    .featured-post-card .card-body {
-      padding-top: 1rem !important; /* Reduce from 1.5rem (p-4) to 1rem on mobile */
-    }
-  }
-</style>

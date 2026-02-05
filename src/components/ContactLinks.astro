@@ -4,7 +4,7 @@
  * 
  * Displays social media contact links with icons.
  * Used on About and Contact pages to avoid duplication.
- * Uses Bootstrap utility classes for maintainability.
+ * Uses Tailwind CSS utility classes for maintainability.
  * 
  * Uses inline SVG icons via the Icon component for better performance.
  */
@@ -13,32 +13,21 @@ import { siteConfig, contactLinks } from '../config';
 import Icon from './Icon.astro';
 ---
 
-<div class="contact-links text-center mt-4">
-  <div class="row justify-content-center">
+<div class="contact-links text-center mt-6">
+  <div class="flex flex-wrap justify-center">
     {contactLinks.map((link) => (
-      <div class="col-12 col-md">
-        <a href={link.url} rel="me noopener" target="_blank" class="text-decoration-none text-body-secondary">
-          <div class="row justify-content-center mb-3 align-items-center">
-            <div class="col-md-12 col-2 offset-3 offset-md-0 text-center">
-              <Icon name={link.icon} />
-            </div>
-            <div class="col-md-12 col-6 text-md-center text-start">
-              {link.name}
-            </div>
+      <div class="w-full md:w-auto md:px-4 py-2">
+        <a href={link.url} rel="me noopener" target="_blank" class="no-underline text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-400 transition-colors duration-200">
+          <div class="flex md:flex-col items-center justify-center gap-2">
+            <Icon name={link.icon} />
+            <span>{link.name}</span>
           </div>
         </a>
       </div>
     ))}
   </div>
 
-  <p class="small">
-    <a href="/key.asc">PGP: <code>{siteConfig.pgpKey}</code></a>
+  <p class="text-sm mt-4">
+    <a href="/key.asc">PGP: <code class="text-xs text-gray-700 dark:text-gray-300">{siteConfig.pgpKey}</code></a>
   </p>
 </div>
-
-<style>
-  /* Minimal custom styles - Bootstrap utilities handle layout */
-  a:hover {
-    color: var(--bs-link-color) !important;
-  }
-</style>

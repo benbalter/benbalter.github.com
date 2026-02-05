@@ -4,7 +4,7 @@
  * 
  * Layout for static pages (e.g., About, Contact, Resume).
  * Simpler than the PostLayout, focused on content presentation.
- * Uses Bootstrap utility classes for maintainability.
+ * Uses Tailwind CSS utility classes for maintainability.
  */
 
 import BaseLayout from './BaseLayout.astro';
@@ -30,19 +30,14 @@ const {
   <div class="row">
     <div class="col-md-10 offset-md-1 px-3">
       <article>
-        <header class="mb-4">
-          <h1 class="display-4 text-primary fw-bold">{title}</h1>
+        <header class="mb-6">
+          <h1 class="display-4 text-primary font-bold">{title}</h1>
         </header>
         
-        <div class="page-body fs-5 lh-lg">
+        <div class="page-body prose prose-lg prose-primary max-w-none dark:prose-invert">
           <slot />
         </div>
       </article>
     </div>
   </div>
 </BaseLayout>
-
-<style>
-  /* Minimal page-specific styles - typography handled by global optimized.scss */
-  /* Bootstrap utility classes handle layout, spacing, and typography */
-</style>

@@ -3,7 +3,7 @@
  * TL;DR Component
  * 
  * Displays a "Too Long; Didn't Read" summary with tooltip explanation.
- * Uses Bootstrap .lead class for prominent display.
+ * Uses Tailwind CSS for styling with custom tooltip implementation.
  * Matches the Jekyll tldr.html include functionality with markdown support.
  */
 
@@ -18,7 +18,7 @@ const { description } = Astro.props;
 const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a brief summary of longer writing"';
 ---
 
-<div class="tldr-container lead">
+<div class="tldr-container text-lg">
   <div class="tldr-icon">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <circle cx="12" cy="12" r="10"></circle>
@@ -26,7 +26,7 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
       <path d="M12 8h.01"></path>
     </svg>
   </div>
-  <div class="tldr-content">
+  <div class="tldr-content lead">
     <strong><abbr class="initialism" data-tooltip="true" data-tooltip-text={tooltipTitle} role="button" aria-expanded="false" tabindex="0">TL;DR</abbr>:</strong>{' '}
     <span set:html={marked.parseInline(description)} />
   </div>
@@ -298,6 +298,8 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
 </script>
 
 <style>
+  @reference "../styles/global.css";
+  
   :root {
     /* TL;DR tap highlight color, configurable for design system consistency */
     --tldr-tap-highlight-color: rgba(0, 0, 0, 0.1);
@@ -306,32 +308,23 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
   /* Enhanced TL;DR container with visual prominence */
   .tldr-container {
     position: relative;
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1.25rem 1.5rem;
-    margin: 1.5rem 0;
+    @apply flex items-start gap-4 p-5 my-6 rounded-lg shadow-card;
+    @apply border-l-4 border-primary;
     background: linear-gradient(
       135deg,
-      rgba(var(--bs-primary-rgb, 13, 110, 253), 0.05),
-      rgba(var(--bs-primary-rgb, 13, 110, 253), 0.02)
+      rgba(51, 122, 183, 0.05),
+      rgba(51, 122, 183, 0.02)
     );
-    border-left: 4px solid var(--bs-primary);
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   }
   
   /* Icon styling */
   .tldr-icon {
-    flex-shrink: 0;
-    width: 24px;
-    height: 24px;
-    color: var(--bs-primary);
+    @apply shrink-0 w-6 h-6 text-primary;
     margin-top: 0.125rem;
   }
   
   .tldr-content {
-    flex: 1;
+    @apply flex-1;
   }
   
   /* Dark mode adjustments */
@@ -339,45 +332,36 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
     .tldr-container {
       background: linear-gradient(
         135deg,
-        rgba(var(--bs-primary-rgb, 13, 110, 253), 0.12),
-        rgba(var(--bs-primary-rgb, 13, 110, 253), 0.06)
+        rgba(51, 122, 183, 0.12),
+        rgba(51, 122, 183, 0.06)
       );
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      @apply shadow-card-dark;
     }
   }
 
-  /* Custom styles for initialism (Bootstrap doesn't include this) */
+  /* Custom styles for initialism */
   .initialism {
-    text-decoration: none;
-    cursor: help;
+    @apply no-underline cursor-help;
     border-bottom: 1px dotted currentColor;
-    /* iOS touch support */
     -webkit-tap-highlight-color: var(--tldr-tap-highlight-color);
     touch-action: manipulation;
   }
   
-  /* Use pointer cursor on touch-only devices for better iOS/iPadOS compatibility */
-  /* Use any-pointer: coarse combined with hover: none so that hybrid desktops
-     with both touch and hover-capable pointers (e.g., touch-screen laptops)
-     continue to show the help cursor expected for desktop usage. */
+  /* Use pointer cursor on touch-only devices */
   @media (any-pointer: coarse) and (hover: none) {
     .initialism {
-      cursor: pointer;
+      @apply cursor-pointer;
     }
   }
 
-  /* Custom tooltip styles (Bootstrap's tooltip requires JavaScript initialization) */
+  /* Custom tooltip styles */
   :global(.custom-tooltip) {
     position: fixed;
-    background-color: var(--bs-dark, #212529);
-    color: var(--bs-light, #f8f9fa);
-    padding: 8px 12px;
-    border-radius: 4px;
-    font-size: 0.875rem;
+    @apply bg-gray-900 text-gray-100 px-3 py-2 rounded text-sm;
     line-height: 1.4;
     max-width: 300px;
     z-index: 1050;
-    opacity: 0;
+    @apply opacity-0;
     transition: opacity 0.2s ease-in-out;
     pointer-events: none;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
@@ -395,19 +379,18 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
     top: 50%;
     transform: translateY(-50%);
     border: 5px solid transparent;
-    border-right-color: var(--bs-dark, #212529);
+    @apply border-r-gray-900;
   }
 
   /* Dark mode tooltip adjustments */
   @media (prefers-color-scheme: dark) {
     :global(.custom-tooltip) {
-      background-color: var(--bs-light, #f8f9fa);
-      color: var(--bs-dark, #212529);
+      @apply bg-gray-100 text-gray-900;
       box-shadow: 0 2px 8px rgba(255, 255, 255, 0.15);
     }
     
     :global(.custom-tooltip::before) {
-      border-right-color: var(--bs-light, #f8f9fa);
+      @apply border-r-gray-100;
     }
   }
   
@@ -416,18 +399,18 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
     right: auto;
     left: 100%;
     border-right-color: transparent;
-    border-left-color: var(--bs-dark, #212529);
+    @apply border-l-gray-900;
   }
   
   /* Dark mode: left arrow */
   @media (prefers-color-scheme: dark) {
     :global(.custom-tooltip.left::before) {
-      border-left-color: var(--bs-light, #f8f9fa);
+      @apply border-l-gray-100;
     }
   }
   
-  /* Hide arrow when tooltip is positioned below (insufficient horizontal space) */
+  /* Hide arrow when tooltip is positioned below */
   :global(.custom-tooltip.below::before) {
-    display: none;
+    @apply hidden;
   }
 </style>

@@ -12,7 +12,7 @@ import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import { siteConfig, socialLinks } from '../config';
 import { generatePersonSchema, generateWebSiteSchema, generateBreadcrumbSchema, schemaToJsonLd } from '../utils/structured-data';
-import '../styles/optimized.scss';
+import '../styles/global.css';
 
 interface Props {
   title?: string;
@@ -176,7 +176,7 @@ const schemas = breadcrumbSchema
     </a>
     
     <div class="container">
-      {hero && <div class="hero-unit position-relative"></div>}
+      {hero && <div class="hero-unit relative"></div>}
       
       <Navigation hero={hero} />
       
