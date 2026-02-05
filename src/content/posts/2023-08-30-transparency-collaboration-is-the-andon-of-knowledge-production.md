@@ -1,5 +1,5 @@
 ---
-title: Transparent collaboration is the andon of your knowledge production system
+title: Transparent collaboration is the andon of knowledge work
 description: How the andon principle from lean manufacturing can help you spot and solve critical issues early on and foster a culture of transparency and collaboration within the software development process by encouraging anyone to "stop the line" when necessary.
 ---
 
