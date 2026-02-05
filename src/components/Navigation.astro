@@ -31,7 +31,7 @@ const navItems: NavItem[] = [
 const currentPath = Astro.url.pathname;
 
 // Base classes for navbar
-const baseClasses = "navbar flex flex-wrap items-center justify-between py-2 px-4 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm mb-4";
+const baseClasses = "navbar flex flex-wrap items-center justify-between py-2 px-4 bg-gray-100/95 dark:bg-gray-800/95 backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-sm mb-4";
 
 // Conditionally add rounded classes based on hero presence
 // For hero pages: round only bottom corners (top-left and top-right are 0)
@@ -85,7 +85,7 @@ const navClasses = hero
   <div class="flex flex-wrap items-center w-full">
     <!-- Left side: Brand + Nav links -->
     <div class="flex items-center flex-grow">
-      <a class="navbar-brand font-bold text-gray-900 dark:text-gray-100 no-underline min-h-[44px] flex items-center tracking-tight transition-colors duration-200 hover:text-primary dark:hover:text-primary-400 pb-2" href="/">{siteConfig.name}</a>
+      <a class="navbar-brand font-bold text-gray-900 dark:text-gray-100 no-underline min-h-[44px] flex items-center tracking-tight transition-colors duration-200 hover:text-primary dark:hover:text-primary-400 pb-2 text-lg" href="/">{siteConfig.name}</a>
       
       <!-- Nav links (visible on desktop, left-aligned after brand) -->
       <div class="nav-collapse navbar-collapse md:flex md:items-center" id="navbar">
