@@ -1,12 +1,12 @@
 /**
  * Satori-based Open Graph Image Generator
  * 
- * Generates OG images matching the Jekyll og_image layout:
- * - Logo/headshot in top-right corner
- * - Title at top-left
- * - Description at bottom-left
- * - Domain at bottom-right
- * - Blue border at bottom
+ * Generates OG images with a modern, professional design:
+ * - Subtle gradient background for depth
+ * - Left accent bar for visual interest
+ * - Circular avatar with border
+ * - Clean typography with Inter font
+ * - Domain branding at bottom
  */
 
 import satori from 'satori';
@@ -31,7 +31,7 @@ const ALLOWED_ASSET_DIRS = ['assets'];
 
 // Layout constants for spacing calculations
 const LOGO_TITLE_GAP = 40; // Gap between title text and logo
-const DOMAIN_WIDTH_RESERVED = 200; // Space reserved for domain on the right
+const DOMAIN_HEIGHT_RESERVED = 50; // Space reserved for domain at bottom
 
 /**
  * Load the Inter fonts for text rendering
@@ -118,8 +118,31 @@ async function loadHeadshot(config: OGImageConfig): Promise<string> {
 }
 
 /**
+ * Truncate text to a maximum number of characters
+ * Adds ellipsis if truncated
+ * Also strips markdown links and formatting
+ */
+export function truncateDescription(text: string, maxLength: number = 150): string {
+  // Remove markdown links and formatting
+  const cleanText = text
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')  // [text](url) -> text
+    .replace(/[*_~`]/g, '')  // Remove markdown formatting
+    .trim();
+  
+  if (cleanText.length <= maxLength) {
+    return cleanText;
+  }
+  
+  // Find the last space before maxLength to avoid cutting words
+  const truncated = cleanText.substring(0, maxLength);
+  const lastSpace = truncated.lastIndexOf(' ');
+  
+  return (lastSpace > 0 ? truncated.substring(0, lastSpace) : truncated) + '…';
+}
+
+/**
  * Generate an OG image SVG using Satori
- * Layout approximates Jekyll's jekyll-og-image plugin output
+ * Modern design with gradient background, accent bar, and clean typography
  */
 export async function generateOGImageSVG(options: OGImageOptions): Promise<string> {
   const config = { ...defaultOGConfig, ...options.config };
@@ -129,8 +152,12 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
     loadHeadshot(config),
   ]);
   
-  // Calculate available width for title (excluding logo area)
-  const titleMaxWidth = config.width - config.padding * 2 - config.logo.size - LOGO_TITLE_GAP;
+  // Calculate available width for title (excluding logo area and accent)
+  const contentPaddingLeft = config.padding + config.accent.width + 20; // Extra space after accent
+  const titleMaxWidth = config.width - contentPaddingLeft - config.padding - config.logo.size - LOGO_TITLE_GAP;
+  
+  // Truncate and clean description
+  const cleanDescription = truncateDescription(options.description);
   
   const svg = await satori(
     {
@@ -138,14 +165,32 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
       props: {
         style: {
           display: 'flex',
-          flexDirection: 'column',
           width: '100%',
           height: '100%',
-          backgroundColor: config.backgroundColor,
           fontFamily: config.title.fontFamily,
           position: 'relative',
+          // Gradient background
+          background: config.background.gradientFrom 
+            ? `linear-gradient(135deg, ${config.background.gradientFrom} 0%, ${config.background.gradientTo || config.background.color} 100%)`
+            : config.background.color,
         },
         children: [
+          // Left accent bar
+          {
+            type: 'div',
+            props: {
+              style: {
+                position: 'absolute',
+                left: 0,
+                top: 0,
+                bottom: 0,
+                width: config.accent.width,
+                background: config.accent.gradientFrom
+                  ? `linear-gradient(180deg, ${config.accent.gradientFrom} 0%, ${config.accent.gradientTo || config.accent.color} 100%)`
+                  : config.accent.color,
+              },
+            },
+          },
           // Main content area
           {
             type: 'div',
@@ -155,8 +200,10 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 flex: 1,
-                padding: config.padding,
-                paddingBottom: config.padding - config.border.height, // Account for border
+                paddingTop: config.padding,
+                paddingRight: config.padding,
+                paddingBottom: config.padding,
+                paddingLeft: contentPaddingLeft,
               },
               children: [
                 // Top section: Title and Logo
@@ -181,21 +228,37 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
                             lineHeight: config.title.lineHeight,
                             maxWidth: titleMaxWidth,
                             wordBreak: 'break-word',
+                            letterSpacing: '-0.02em',
                           },
                           children: options.title,
                         },
                       },
-                      // Logo/headshot on the right
+                      // Logo/headshot with circular border
                       {
-                        type: 'img',
+                        type: 'div',
                         props: {
-                          src: headshotDataUri,
-                          width: config.logo.size,
-                          height: config.logo.size,
                           style: {
-                            borderRadius: 10,
-                            objectFit: 'cover',
+                            display: 'flex',
+                            flexShrink: 0,
+                            borderRadius: config.logo.borderRadius,
+                            border: `${config.logo.borderWidth}px solid ${config.logo.borderColor}`,
+                            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+                            overflow: 'hidden',
                           },
+                          children: [
+                            {
+                              type: 'img',
+                              props: {
+                                src: headshotDataUri,
+                                width: config.logo.size,
+                                height: config.logo.size,
+                                style: {
+                                  borderRadius: Math.max(0, config.logo.borderRadius - config.logo.borderWidth),
+                                  objectFit: 'cover',
+                                },
+                              },
+                            },
+                          ],
                         },
                       },
                     ],
@@ -207,11 +270,11 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
                   props: {
                     style: {
                       display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'flex-end',
+                      flexDirection: 'column',
+                      gap: 16,
                     },
                     children: [
-                      // Description on the left
+                      // Description
                       {
                         type: 'div',
                         props: {
@@ -221,40 +284,29 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
                             fontWeight: 400,
                             color: config.description.color,
                             lineHeight: config.description.lineHeight,
-                            maxWidth: config.width - config.padding * 2 - DOMAIN_WIDTH_RESERVED, // Leave room for domain
-                            wordBreak: 'break-word',
+                            maxWidth: config.width - contentPaddingLeft - config.padding - 40,
                           },
-                          children: options.description,
+                          children: cleanDescription,
                         },
                       },
-                      // Domain on the right
+                      // Domain
                       {
                         type: 'div',
                         props: {
                           style: {
                             display: 'flex',
-                            fontSize: config.description.fontSize,
-                            fontWeight: 400,
-                            color: config.description.color,
+                            fontSize: config.domain.fontSize,
+                            fontWeight: 600,
+                            color: config.domain.color,
+                            letterSpacing: '0.01em',
                           },
-                          children: config.domain,
+                          children: config.domain.text,
                         },
                       },
                     ],
                   },
                 },
               ],
-            },
-          },
-          // Bottom border
-          {
-            type: 'div',
-            props: {
-              style: {
-                width: '100%',
-                height: config.border.height,
-                backgroundColor: config.border.color,
-              },
             },
           },
         ],
