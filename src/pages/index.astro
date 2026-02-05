@@ -43,8 +43,8 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
 <BaseLayout description={description} hero={true}>
   <!-- Popular Posts Section -->
   {popularPosts.length > 0 && (
-    <section class="mb-10">
-      <h2 class="text-xl mb-6 section-header">
+    <section class="mb-12">
+      <h2 class="text-2xl mb-6 section-header">
         <span class="section-header-accent"></span>
         Popular Posts
       </h2>
@@ -70,8 +70,8 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
 
   <!-- Recent Posts Section -->
   {featuredPosts.length > 0 && (
-    <section class="mb-10">
-      <h2 class="text-xl mb-6 section-header">
+    <section class="mb-12">
+      <h2 class="text-2xl mb-6 section-header">
         <span class="section-header-accent"></span>
         Recent Posts
       </h2>
@@ -98,7 +98,7 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
   <!-- Older Posts Section -->
   {regularPosts.length > 0 && (
     <section>
-      <h2 class="text-base text-gray-600 dark:text-gray-400 mb-4 section-header">
+      <h2 class="text-lg text-gray-600 dark:text-gray-400 mb-6 section-header">
         <span class="section-header-accent"></span>
         Older Posts
       </h2>

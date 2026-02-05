@@ -55,7 +55,7 @@ import Icon from './Icon.astro';
 <style>
   @reference "../styles/global.css";
   
-  /* Enhanced footer divider */
+  /* Enhanced footer divider with gradient */
   .footer-divider {
     border-top: 2px solid rgba(51, 122, 183, 0.1);
     position: relative;
@@ -71,7 +71,9 @@ import Icon from './Icon.astro';
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(51, 122, 183, 0.3) 50%,
+      rgba(51, 122, 183, 0.4) 20%,
+      rgba(51, 122, 183, 0.6) 50%,
+      rgba(51, 122, 183, 0.4) 80%,
       transparent
     );
   }
@@ -92,7 +94,7 @@ import Icon from './Icon.astro';
     @apply bg-primary/10;
     border-radius: 50%;
     opacity: 0;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease;
   }
   
   /* Enhanced touch area on mobile */
@@ -109,15 +111,21 @@ import Icon from './Icon.astro';
   .social-link :global(svg) {
     position: relative;
     z-index: 1;
+    transition: transform 0.2s ease;
   }
   
   @media (hover: hover) {
     .social-link:hover::before {
       opacity: 1;
+      transform: scale(1.1);
     }
     
     .social-link:hover {
       transform: translateY(-2px);
+    }
+    
+    .social-link:hover :global(svg) {
+      transform: scale(1.05);
     }
   }
   
@@ -128,6 +136,21 @@ import Icon from './Icon.astro';
   .social-link:active::before {
     opacity: 1;
     @apply bg-primary/15;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .social-link::before,
+    .social-link :global(svg) {
+      transition: none;
+    }
+    
+    .social-link:hover {
+      transform: none;
+    }
+    
+    .social-link:hover :global(svg) {
+      transform: none;
+    }
   }
   
   /* Footer text links underline effect */
@@ -173,7 +196,9 @@ import Icon from './Icon.astro';
       background: linear-gradient(
         90deg,
         transparent,
-        rgba(51, 122, 183, 0.4) 50%,
+        rgba(108, 180, 232, 0.3) 20%,
+        rgba(108, 180, 232, 0.5) 50%,
+        rgba(108, 180, 232, 0.3) 80%,
         transparent
       );
     }

@@ -34,8 +34,8 @@ const { title, url, date, isoDate, description, readingTime } = Astro.props;
   <div class="absolute inset-y-0 left-0 w-[3px] bg-gradient-to-b from-primary/60 to-primary/30 opacity-0 transition-opacity duration-200 group-hover:opacity-100 dark:from-primary/80 dark:to-primary/50" aria-hidden="true"></div>
   
   <div class="p-4 max-md:pt-3">
-    <h3 class="mb-2 text-base font-semibold leading-snug tracking-tight">
-      <a href={url} class="text-gray-900 no-underline transition-colors duration-200 before:absolute before:inset-0 group-hover:text-primary dark:text-gray-100">{title}</a>
+    <h3 class="mb-2 text-base font-semibold leading-snug tracking-tight transition-colors duration-200 group-hover:text-primary dark:group-hover:text-primary-300">
+      <a href={url} class="text-gray-900 no-underline before:absolute before:inset-0 dark:text-gray-100">{title}</a>
     </h3>
     <div class="mb-2 text-sm text-gray-600 dark:text-gray-400">
       <time datetime={isoDate}>{date}</time>

@@ -110,11 +110,26 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     @apply text-gray-900 bg-white;
+    position: relative;
+  }
+  
+  /* Subtle background texture for depth */
+  body::before {
+    content: '';
+    @apply fixed inset-0 -z-10;
+    background: radial-gradient(circle at top right, rgba(51, 122, 183, 0.03), transparent 60%),
+                radial-gradient(circle at bottom left, rgba(51, 122, 183, 0.02), transparent 60%);
+    pointer-events: none;
   }
 
   @media (prefers-color-scheme: dark) {
     body {
       @apply text-gray-100 bg-gray-900;
+    }
+    
+    body::before {
+      background: radial-gradient(circle at top right, rgba(51, 122, 183, 0.05), transparent 60%),
+                  radial-gradient(circle at bottom left, rgba(51, 122, 183, 0.03), transparent 60%);
     }
   }
 
@@ -492,12 +507,41 @@
     contain: layout paint;
     content-visibility: auto;
     contain-intrinsic-size: 1140px 384px;
+    position: relative;
+  }
+  
+  /* Hero gradient overlay for depth */
+  .hero-unit::before {
+    content: '';
+    @apply absolute inset-0 rounded-t-lg;
+    background: linear-gradient(
+      135deg,
+      rgba(51, 122, 183, 0.05) 0%,
+      rgba(51, 122, 183, 0.1) 50%,
+      rgba(0, 0, 0, 0.15) 100%
+    );
+    pointer-events: none;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .hero-unit::before {
+      background: linear-gradient(
+        135deg,
+        rgba(51, 122, 183, 0.08) 0%,
+        rgba(51, 122, 183, 0.15) 50%,
+        rgba(0, 0, 0, 0.25) 100%
+      );
+    }
   }
 
   @media (max-width: 768px) {
     .hero-unit {
       height: 250px;
       contain-intrinsic-size: auto 250px;
+    }
+    
+    .hero-unit::before {
+      @apply rounded-t-lg;
     }
   }
 
@@ -570,12 +614,20 @@
     will-change: transform;
   }
 
-  .btn:hover {
-    @apply scale-[1.02] shadow-lg;
+  @media (hover: hover) {
+    .btn:hover {
+      @apply scale-[1.02] shadow-lg;
+    }
   }
 
   .btn:active {
     @apply scale-[0.98] shadow;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .btn:hover {
+      transform: none;
+    }
   }
 
   /* Button Variants */
@@ -971,13 +1023,22 @@
   }
 
   .section-header-accent {
-    @apply inline-block w-1 bg-primary rounded opacity-80;
+    @apply inline-block w-1 rounded;
     height: 1.5em;
+    background: linear-gradient(
+      180deg,
+      rgba(51, 122, 183, 1) 0%,
+      rgba(51, 122, 183, 0.6) 100%
+    );
   }
 
   @media (prefers-color-scheme: dark) {
     .section-header-accent {
-      @apply opacity-90;
+      background: linear-gradient(
+        180deg,
+        rgba(108, 180, 232, 1) 0%,
+        rgba(108, 180, 232, 0.7) 100%
+      );
     }
   }
 
