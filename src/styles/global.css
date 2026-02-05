@@ -709,23 +709,28 @@
 
   /* Mobile navigation collapse - named nav-collapse to avoid conflict with Tailwind's collapse utility */
   .nav-collapse {
-    @apply hidden;
-    /* Smooth animation for mobile nav */
+    /* Use visibility and max-height for smooth animation instead of display:none */
+    visibility: hidden;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out, opacity 0.2s ease-out;
+    transition: max-height 0.3s ease-out, opacity 0.2s ease-out, visibility 0s 0.3s;
     opacity: 0;
   }
 
   .nav-collapse.show {
-    @apply block;
-    max-height: 300px;
+    visibility: visible;
+    max-height: 500px; /* Large enough to accommodate navigation items */
     opacity: 1;
+    transition: max-height 0.3s ease-out, opacity 0.2s ease-out, visibility 0s 0s;
   }
 
   @media (min-width: 768px) {
     .nav-collapse {
-      @apply block;
+      visibility: visible;
+      max-height: none;
+      opacity: 1;
+      overflow: visible;
+      transition: none;
     }
   }
 
