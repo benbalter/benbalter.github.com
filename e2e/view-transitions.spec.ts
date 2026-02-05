@@ -218,6 +218,109 @@ test.describe('Astro View Transitions Navigation', () => {
   });
 });
 
+test.describe('Astro View Transitions with In-Page Anchors', () => {
+  test('should handle in-page anchor links correctly', async ({ page }) => {
+    // Navigate to a blog post with heading anchors
+    await page.goto('/2014/10/07/expose-process-through-urls/');
+    await waitForPageReady(page);
+    
+    // Find an anchor link (h2 with anchor link)
+    const anchorLink = page.locator('h2 a.anchor-link').first();
+    const anchorLinkCount = await anchorLink.count();
+    
+    if (anchorLinkCount > 0) {
+      const href = await anchorLink.getAttribute('href');
+      expect(href).toBeTruthy();
+      expect(href).toMatch(/^#/); // Should be a fragment identifier
+      
+      // Click the anchor link
+      await anchorLink.click();
+      
+      // Wait a bit for any navigation to settle
+      await page.waitForTimeout(200);
+      
+      // Verify the URL contains the fragment
+      expect(page.url()).toContain(href!);
+      
+      // Verify we're still on the same page (pathname should not change)
+      await expect(page).toHaveURL(/\/2014\/10\/07\/expose-process-through-urls\//);
+      
+      // Verify page scrolled (scrollY should be greater than 0)
+      const scrollY = await page.evaluate(() => window.scrollY);
+      expect(scrollY).toBeGreaterThan(0);
+    }
+  });
+
+  test('should navigate to in-page anchor from URL hash', async ({ page }) => {
+    // Navigate directly to a page with a hash
+    await page.goto('/2014/10/07/expose-process-through-urls/');
+    await waitForPageReady(page);
+    
+    // Find the first h2 with an id
+    const firstH2WithId = page.locator('h2[id]').first();
+    const h2Count = await firstH2WithId.count();
+    
+    if (h2Count > 0) {
+      const targetId = await firstH2WithId.getAttribute('id');
+      expect(targetId).toBeTruthy();
+      
+      // Navigate to the same page with the hash
+      await page.goto(`/2014/10/07/expose-process-through-urls/#${targetId}`);
+      await waitForPageReady(page);
+      
+      // Wait a moment for scroll
+      await page.waitForTimeout(200);
+      
+      // Verify the URL contains the hash
+      expect(page.url()).toContain(`#${targetId}`);
+      
+      // Verify page scrolled to the element
+      const targetElement = page.locator(`#${targetId}`);
+      await expect(targetElement).toBeVisible();
+      
+      // Verify scroll position is greater than 0 (we scrolled down)
+      const scrollY = await page.evaluate(() => window.scrollY);
+      expect(scrollY).toBeGreaterThan(0);
+    }
+  });
+
+  test('should not cause errors when clicking in-page anchors', async ({ page }) => {
+    const consoleErrors: string[] = [];
+    
+    page.on('console', message => {
+      if (message.type() === 'error') {
+        consoleErrors.push(message.text());
+      }
+    });
+    
+    await page.goto('/2014/10/07/expose-process-through-urls/');
+    await waitForPageReady(page);
+    
+    // Click multiple anchor links
+    const anchorLinks = page.locator('h2 a.anchor-link, h3 a.anchor-link');
+    const count = await anchorLinks.count();
+    
+    if (count >= 2) {
+      // Click first anchor
+      await anchorLinks.nth(0).click();
+      await page.waitForTimeout(100);
+      
+      // Click second anchor
+      await anchorLinks.nth(1).click();
+      await page.waitForTimeout(100);
+      
+      // Filter out known non-critical errors
+      const criticalErrors = consoleErrors.filter(error => {
+        return !error.includes('favicon') && 
+               !error.includes('404') &&
+               !error.includes('Failed to load resource');
+      });
+      
+      expect(criticalErrors).toHaveLength(0);
+    }
+  });
+});
+
 test.describe('Astro View Transitions Configuration', () => {
   test('should work with forms if present', async ({ page }) => {
     await page.goto('/contact/');
