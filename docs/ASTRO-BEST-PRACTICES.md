@@ -249,7 +249,7 @@ import { SEO } from 'astro-seo';
 **Required Meta Tags:**
 
 - ✅ Title (unique per page)
-- ✅ Description (150-160 characters)
+- ✅ Description (optimize first 150 characters after Markdown stripped)
 - ✅ Canonical URL
 - ✅ Open Graph tags (og:title, og:description, og:image, og:url)
 - ✅ Twitter Card tags

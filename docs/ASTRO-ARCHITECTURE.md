@@ -333,7 +333,7 @@ const posts = (await getCollection('posts'))
 ```yaml
 ---
 title: Post Title
-description: Brief description for SEO (150-160 characters recommended)
+description: Brief description optimized for SEO. Optimize the first 150 characters (after Markdown is stripped) for search results. Can be longer for additional context.
 ---
 ```
 
