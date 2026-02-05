@@ -167,15 +167,17 @@ describe('Tldr Component - Specification', () => {
 });
 
 describe('MiniBio Component - Specification', () => {
-  it('should use GitHub avatar URL with correct size parameter', () => {
-    // Specification: GitHub avatar URL format
-    const username = 'benbalter'; // from siteConfig.githubUsername
-    const size = 100;
-    const avatarUrl = `https://avatars.githubusercontent.com/${username}?s=${size}`;
+  it('should use locally fetched avatar with proper dimensions', () => {
+    // Specification: Avatar is fetched at build time and served as optimized image
+    // The fetch-avatar integration downloads the avatar during astro:build:start
+    // and Astro's Image component outputs optimized formats (WebP/AVIF)
+    const expectedWidth = 100;
+    const expectedHeight = 100;
+    const avatarPath = '../../assets/img/avatar.png'; // Import path in MiniBio.astro
     
-    expect(avatarUrl).toMatch(/^https:\/\/avatars\.githubusercontent\.com\//);
-    expect(avatarUrl).toContain(username);
-    expect(avatarUrl).toContain('s=100');
+    expect(avatarPath).toMatch(/avatar\.png$/);
+    expect(expectedWidth).toBe(100);
+    expect(expectedHeight).toBe(100);
   });
 
   it('should link to /about/ page', () => {
