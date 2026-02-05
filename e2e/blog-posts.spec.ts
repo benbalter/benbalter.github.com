@@ -210,10 +210,11 @@ test.describe('Blog Posts', () => {
         const miniBio = page.locator('.mini-bio');
         await expect(miniBio).toBeVisible();
         
-        // Check for avatar image
+        // Check for avatar image (served as optimized WebP from local assets)
         const avatar = miniBio.locator('img[alt="Ben Balter"]');
         await expect(avatar).toBeVisible();
-        await expect(avatar).toHaveAttribute('src', /avatars\.githubusercontent\.com/);
+        // Avatar is now fetched at build time and served locally as optimized WebP
+        await expect(avatar).toHaveAttribute('src', /\/assets\/avatar\.[^.]+\.webp$/);
         
         // Check for bio text
         const bioText = await miniBio.textContent();

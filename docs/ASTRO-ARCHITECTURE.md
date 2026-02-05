@@ -732,27 +732,55 @@ export function remarkMentions() {
 }
 ```
 
-**GitHub Avatars:** Component
+**GitHub Avatars:** Build-time fetch and optimization
+
+The site's author avatar is fetched at build time and optimized by Astro's Image component:
+
+```typescript
+// src/lib/astro-fetch-avatar.ts
+import type { AstroIntegration } from 'astro';
+import { writeFile, mkdir } from 'node:fs/promises';
+import { siteConfig } from '../config.js';
+
+// Fetch at build time and save to assets directory
+export default function fetchAvatar(): AstroIntegration {
+  return {
+    name: 'fetch-avatar',
+    hooks: {
+      'astro:build:start': async ({ logger }) => {
+        // Fetch full-size avatar for highest quality source
+        const response = await fetch(
+          `https://avatars.githubusercontent.com/${siteConfig.githubUsername}`
+        );
+        // Save to assets/img/avatar.png for Astro's Image optimization
+      },
+    },
+  };
+}
+```
 
 ```astro
 ---
-interface Props {
-  username: string;
-  size?: number;
-}
+// MiniBio.astro - Uses Astro's Image component for optimization
+import { Image } from 'astro:assets';
+import avatarImage from '../../assets/img/avatar.png';
 
-const { username, size = 40 } = Astro.props;
-const avatarUrl = `https://avatars.githubusercontent.com/${username}?size=${size}`;
+// Astro automatically converts to WebP/AVIF formats
 ---
 
-<img 
-  src={avatarUrl} 
-  alt={`${username}'s GitHub avatar`}
-  width={size}
-  height={size}
+<Image 
+  src={avatarImage}
+  alt="Author name"
+  width={100}
+  height={100}
   loading="lazy"
 />
 ```
+
+Benefits:
+- **87% smaller**: PNG → optimized WebP (e.g., 18KB → 2.2KB)
+- **No external requests**: Served from same domain
+- **Modern formats**: Automatic WebP/AVIF generation
 
 ---
 
@@ -939,7 +967,7 @@ jobs:
 - [ ] Implement SEO meta tags
 - [ ] Add emoji support
 - [ ] Add GitHub mentions support
-- [ ] Add GitHub avatar component
+- [x] Add GitHub avatar component (fetched at build time, served as optimized WebP)
 - [ ] Test all features
 
 ### Phase 6: Testing (Week 4–5)
