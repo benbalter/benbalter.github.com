@@ -228,27 +228,44 @@ test.describe('Astro View Transitions with In-Page Anchors', () => {
     const anchorLink = page.locator('h2 a.anchor-link').first();
     const anchorLinkCount = await anchorLink.count();
     
-    if (anchorLinkCount > 0) {
-      const href = await anchorLink.getAttribute('href');
-      expect(href).toBeTruthy();
-      expect(href).toMatch(/^#/); // Should be a fragment identifier
-      
-      // Click the anchor link
-      await anchorLink.click();
-      
-      // Wait a bit for any navigation to settle
-      await page.waitForTimeout(200);
-      
-      // Verify the URL contains the fragment
-      expect(page.url()).toContain(href!);
-      
-      // Verify we're still on the same page (pathname should not change)
-      await expect(page).toHaveURL(/\/2014\/10\/07\/expose-process-through-urls\//);
-      
-      // Verify page scrolled (scrollY should be greater than 0)
-      const scrollY = await page.evaluate(() => window.scrollY);
-      expect(scrollY).toBeGreaterThan(0);
-    }
+    // Verify we have anchor links to test
+    expect(anchorLinkCount).toBeGreaterThan(0);
+    
+    const href = await anchorLink.getAttribute('href');
+    expect(href).toBeTruthy();
+    expect(href).toMatch(/^#/); // Should be a fragment identifier
+    
+    // Get initial scroll position
+    const initialScrollY = await page.evaluate(() => window.scrollY);
+    
+    // Click the anchor link
+    await anchorLink.click();
+    
+    // Wait for URL to update with the hash
+    await page.waitForFunction(
+      (expectedHash) => window.location.hash === expectedHash,
+      href
+    );
+    
+    // Verify the URL contains the fragment
+    expect(page.url()).toContain(href!);
+    
+    // Verify we're still on the same page (pathname should not change)
+    await expect(page).toHaveURL(/\/2014\/10\/07\/expose-process-through-urls\//);
+    
+    // Wait for scroll to complete by checking that scroll position has changed and stabilized
+    await page.waitForFunction(
+      (initial) => {
+        const current = window.scrollY;
+        return current > initial && current === window.scrollY;
+      },
+      initialScrollY,
+      { timeout: 2000 }
+    );
+    
+    // Verify page scrolled (scrollY should be greater than initial position)
+    const finalScrollY = await page.evaluate(() => window.scrollY);
+    expect(finalScrollY).toBeGreaterThan(initialScrollY);
   });
 
   test('should navigate to in-page anchor from URL hash', async ({ page }) => {
@@ -260,28 +277,37 @@ test.describe('Astro View Transitions with In-Page Anchors', () => {
     const firstH2WithId = page.locator('h2[id]').first();
     const h2Count = await firstH2WithId.count();
     
-    if (h2Count > 0) {
-      const targetId = await firstH2WithId.getAttribute('id');
-      expect(targetId).toBeTruthy();
-      
-      // Navigate to the same page with the hash
-      await page.goto(`/2014/10/07/expose-process-through-urls/#${targetId}`);
-      await waitForPageReady(page);
-      
-      // Wait a moment for scroll
-      await page.waitForTimeout(200);
-      
-      // Verify the URL contains the hash
-      expect(page.url()).toContain(`#${targetId}`);
-      
-      // Verify page scrolled to the element
-      const targetElement = page.locator(`#${targetId}`);
-      await expect(targetElement).toBeVisible();
-      
-      // Verify scroll position is greater than 0 (we scrolled down)
-      const scrollY = await page.evaluate(() => window.scrollY);
-      expect(scrollY).toBeGreaterThan(0);
-    }
+    // Verify we have headings with IDs to test
+    expect(h2Count).toBeGreaterThan(0);
+    
+    const targetId = await firstH2WithId.getAttribute('id');
+    expect(targetId).toBeTruthy();
+    
+    // Navigate to the same page with the hash
+    await page.goto(`/2014/10/07/expose-process-through-urls/#${targetId}`);
+    await waitForPageReady(page);
+    
+    // Wait for URL to have the hash
+    await page.waitForFunction(
+      (expectedId) => window.location.hash === `#${expectedId}`,
+      targetId
+    );
+    
+    // Verify the URL contains the hash
+    expect(page.url()).toContain(`#${targetId}`);
+    
+    // Verify page scrolled to the element (element should be visible)
+    const targetElement = page.locator(`#${targetId}`);
+    await expect(targetElement).toBeVisible();
+    
+    // Wait for scroll to stabilize and verify scroll position is greater than 0
+    await page.waitForFunction(
+      () => window.scrollY > 0 && window.scrollY === window.scrollY,
+      { timeout: 2000 }
+    );
+    
+    const scrollY = await page.evaluate(() => window.scrollY);
+    expect(scrollY).toBeGreaterThan(0);
   });
 
   test('should not cause errors when clicking in-page anchors', async ({ page }) => {
@@ -296,28 +322,45 @@ test.describe('Astro View Transitions with In-Page Anchors', () => {
     await page.goto('/2014/10/07/expose-process-through-urls/');
     await waitForPageReady(page);
     
-    // Click multiple anchor links
+    // Find anchor links
     const anchorLinks = page.locator('h2 a.anchor-link, h3 a.anchor-link');
     const count = await anchorLinks.count();
     
-    if (count >= 2) {
-      // Click first anchor
-      await anchorLinks.nth(0).click();
-      await page.waitForTimeout(100);
-      
-      // Click second anchor
-      await anchorLinks.nth(1).click();
-      await page.waitForTimeout(100);
-      
-      // Filter out known non-critical errors
-      const criticalErrors = consoleErrors.filter(error => {
-        return !error.includes('favicon') && 
-               !error.includes('404') &&
-               !error.includes('Failed to load resource');
-      });
-      
-      expect(criticalErrors).toHaveLength(0);
-    }
+    // Verify we have at least 2 anchor links to test
+    expect(count).toBeGreaterThanOrEqual(2);
+    
+    // Get href for first anchor
+    const firstHref = await anchorLinks.nth(0).getAttribute('href');
+    
+    // Click first anchor
+    await anchorLinks.nth(0).click();
+    
+    // Wait for URL to update
+    await page.waitForFunction(
+      (expectedHash) => window.location.hash === expectedHash,
+      firstHref
+    );
+    
+    // Get href for second anchor
+    const secondHref = await anchorLinks.nth(1).getAttribute('href');
+    
+    // Click second anchor
+    await anchorLinks.nth(1).click();
+    
+    // Wait for URL to update
+    await page.waitForFunction(
+      (expectedHash) => window.location.hash === expectedHash,
+      secondHref
+    );
+    
+    // Filter out known non-critical errors
+    const criticalErrors = consoleErrors.filter(error => {
+      return !error.includes('favicon') && 
+             !error.includes('404') &&
+             !error.includes('Failed to load resource');
+    });
+    
+    expect(criticalErrors).toHaveLength(0);
   });
 });
 
