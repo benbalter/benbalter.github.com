@@ -110,6 +110,9 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     @apply text-gray-900 bg-white;
+    /* Safe area padding for notched devices */
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
   }
 
   @media (prefers-color-scheme: dark) {
@@ -505,6 +508,9 @@
   .container {
     @apply mx-auto px-4;
     max-width: 1140px;
+    /* Safe area insets for notched devices (iPhone X+) */
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
   }
 
   /* Row and Column Grid */
@@ -704,10 +710,17 @@
   /* Mobile navigation collapse - named nav-collapse to avoid conflict with Tailwind's collapse utility */
   .nav-collapse {
     @apply hidden;
+    /* Smooth animation for mobile nav */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.2s ease-out;
+    opacity: 0;
   }
 
   .nav-collapse.show {
     @apply block;
+    max-height: 300px;
+    opacity: 1;
   }
 
   @media (min-width: 768px) {
@@ -1225,7 +1238,7 @@
  * ============================================================================ */
 
 @media (prefers-reduced-motion: reduce) {
-  a, button, .btn, .nav-link, .navbar-brand, .post-item, .anchor-link, .social-link {
+  a, button, .btn, .nav-link, .navbar-brand, .post-item, .anchor-link, .social-link, .nav-collapse {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
   }
@@ -1268,4 +1281,40 @@ ol + h2, ol + h3, ol + h4, ol + h5, ol + h6,
 blockquote + h2, blockquote + h3, blockquote + h4, blockquote + h5, blockquote + h6,
 pre + h2, pre + h3, pre + h4, pre + h5, pre + h6 {
   margin-top: 2.5em;
+}
+
+/* ============================================================================
+ * Mobile Experience Optimizations
+ * ============================================================================ */
+
+/* Improved tap highlight for iOS/WebKit */
+@supports (-webkit-touch-callout: none) {
+  a, button, .btn, .nav-link, .social-link {
+    -webkit-tap-highlight-color: rgba(51, 122, 183, 0.2);
+  }
+}
+
+/* Pull-to-refresh prevention on iOS for fixed elements */
+@media (max-width: 768px) {
+  body {
+    overscroll-behavior-y: none;
+  }
+  
+  /* Prevent iOS text size adjustment */
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  
+  /* Improve touch scrolling momentum */
+  .nav-collapse,
+  main {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Prevent long-press context menu on interactive elements */
+  .btn, .social-link, .navbar-toggler {
+    -webkit-touch-callout: none;
+    user-select: none;
+  }
 }
