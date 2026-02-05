@@ -1,6 +1,6 @@
 ---
 title: Cathedral vs Bazaar People Management
-description: The cathedral and the bazaar are two contrasting styles of people management, inspired by the open source movement. The cathedral style is more hierarchical, controlled, and standardized, while the bazaar style is more decentralized, autonomous, and collaborative.
+description: Explore two contrasting management styles inspired by open source. Cathedral managers control and direct; bazaar managers empower and facilitate.
 image: https://github.com/benbalter/benbalter.github.com/assets/282759/e53fc562-b59d-4e0e-87fe-ef6e4da0d062
 redirect_from:
   - /2023/12/07/cathedral-bazaar-management/
