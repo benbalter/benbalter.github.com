@@ -253,12 +253,9 @@ test.describe('Astro View Transitions with In-Page Anchors', () => {
     // Verify we're still on the same page (pathname should not change)
     await expect(page).toHaveURL(/\/2014\/10\/07\/expose-process-through-urls\//);
     
-    // Wait for scroll to complete by checking that scroll position has changed and stabilized
+    // Wait for scroll to complete - scroll position should be greater than initial
     await page.waitForFunction(
-      (initial) => {
-        const current = window.scrollY;
-        return current > initial && current === window.scrollY;
-      },
+      (initial) => window.scrollY > initial,
       initialScrollY,
       { timeout: 2000 }
     );
@@ -300,9 +297,9 @@ test.describe('Astro View Transitions with In-Page Anchors', () => {
     const targetElement = page.locator(`#${targetId}`);
     await expect(targetElement).toBeVisible();
     
-    // Wait for scroll to stabilize and verify scroll position is greater than 0
+    // Wait for scroll to complete - scroll position should be greater than 0
     await page.waitForFunction(
-      () => window.scrollY > 0 && window.scrollY === window.scrollY,
+      () => window.scrollY > 0,
       { timeout: 2000 }
     );
     
