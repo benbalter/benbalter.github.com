@@ -508,9 +508,6 @@
   .container {
     @apply mx-auto px-4;
     max-width: 1140px;
-    /* Safe area insets for notched devices (iPhone X+) */
-    padding-left: max(1rem, env(safe-area-inset-left));
-    padding-right: max(1rem, env(safe-area-inset-right));
   }
 
   /* Row and Column Grid */
@@ -719,7 +716,7 @@
 
   .nav-collapse.show {
     visibility: visible;
-    max-height: 500px; /* Large enough to accommodate navigation items */
+    max-height: 100vh; /* Allow nav to expand up to full viewport height to avoid truncation */
     opacity: 1;
     transition: max-height 0.3s ease-out, opacity 0.2s ease-out, visibility 0s 0s;
   }
@@ -1309,12 +1306,6 @@ pre + h2, pre + h3, pre + h4, pre + h5, pre + h6 {
   html {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
-  }
-  
-  /* Improve touch scrolling momentum */
-  .nav-collapse,
-  main {
-    -webkit-overflow-scrolling: touch;
   }
   
   /* Prevent long-press context menu on interactive elements */
