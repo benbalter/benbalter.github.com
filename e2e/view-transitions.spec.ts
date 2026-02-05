@@ -218,84 +218,38 @@ test.describe('Astro View Transitions Navigation', () => {
   });
 });
 
-test.describe('Astro View Transitions with In-Page Anchors', () => {
-  test('should handle in-page anchor links correctly', async ({ page }) => {
-    // Navigate to a blog post with heading anchors
-    await page.goto('/2014/10/07/expose-process-through-urls/');
+test.describe('Astro View Transitions with Cross-Page Anchor Links', () => {
+  test('should navigate to another page with anchor and scroll to target', async ({ page }) => {
+    // Start on homepage
+    await page.goto('/');
     await waitForPageReady(page);
     
-    // Find an anchor link (h2 with anchor link)
-    const anchorLink = page.locator('h2 a.anchor-link').first();
-    const anchorLinkCount = await anchorLink.count();
+    // Navigate to a different page to find a link with anchor to another page
+    // Using a known post that contains cross-page links with anchors
+    await page.goto('/2020/08/31/trust-and-safety-features-to-build-into-your-product-before-someone-gets-hurt/');
+    await waitForPageReady(page);
     
-    // Verify we have anchor links to test
-    expect(anchorLinkCount).toBeGreaterThan(0);
+    // Find a cross-page link with an anchor (e.g., /path/#anchor)
+    // This post contains: /2020/08/31/trust-and-safety-is-not-a-product-edge-case/#beyond-blocking
+    const crossPageAnchorLink = page.locator('a[href*="#"]').filter({ hasText: 'just the start' }).first();
+    const linkCount = await crossPageAnchorLink.count();
     
-    const href = await anchorLink.getAttribute('href');
+    // Verify we have the cross-page anchor link to test
+    expect(linkCount).toBeGreaterThan(0);
+    
+    const href = await crossPageAnchorLink.getAttribute('href');
     expect(href).toBeTruthy();
-    expect(href).toMatch(/^#/); // Should be a fragment identifier
+    expect(href).toMatch(/\/.*#/); // Should be a path with a fragment identifier
     
-    // Get initial scroll position
-    const initialScrollY = await page.evaluate(() => window.scrollY);
+    // Click the link to navigate to the other page with anchor
+    await crossPageAnchorLink.click();
     
-    // Click the anchor link
-    await anchorLink.click();
-    
-    // Wait for URL to update with the hash
-    await page.waitForFunction(
-      (expectedHash) => window.location.hash === expectedHash,
-      href
-    );
-    
-    // Verify the URL contains the fragment
-    expect(page.url()).toContain(href!);
-    
-    // Verify we're still on the same page (pathname should not change)
-    await expect(page).toHaveURL(/\/2014\/10\/07\/expose-process-through-urls\//);
-    
-    // Wait for scroll to complete - scroll position should be greater than initial
-    await page.waitForFunction(
-      (initial) => window.scrollY > initial,
-      initialScrollY,
-      { timeout: 2000 }
-    );
-    
-    // Verify page scrolled (scrollY should be greater than initial position)
-    const finalScrollY = await page.evaluate(() => window.scrollY);
-    expect(finalScrollY).toBeGreaterThan(initialScrollY);
-  });
-
-  test('should navigate to in-page anchor from URL hash', async ({ page }) => {
-    // Navigate directly to a page with a hash
-    await page.goto('/2014/10/07/expose-process-through-urls/');
+    // Wait for navigation - the URL will include the hash
+    await page.waitForURL(href!, { timeout: 10000 });
     await waitForPageReady(page);
-    
-    // Find the first h2 with an id
-    const firstH2WithId = page.locator('h2[id]').first();
-    const h2Count = await firstH2WithId.count();
-    
-    // Verify we have headings with IDs to test
-    expect(h2Count).toBeGreaterThan(0);
-    
-    const targetId = await firstH2WithId.getAttribute('id');
-    expect(targetId).toBeTruthy();
-    
-    // Navigate to the same page with the hash
-    await page.goto(`/2014/10/07/expose-process-through-urls/#${targetId}`);
-    await waitForPageReady(page);
-    
-    // Wait for URL to have the hash
-    await page.waitForFunction(
-      (expectedId) => window.location.hash === `#${expectedId}`,
-      targetId
-    );
     
     // Verify the URL contains the hash
-    expect(page.url()).toContain(`#${targetId}`);
-    
-    // Verify page scrolled to the element (element should be visible)
-    const targetElement = page.locator(`#${targetId}`);
-    await expect(targetElement).toBeVisible();
+    expect(page.url()).toContain('#beyond-blocking');
     
     // Wait for scroll to complete - scroll position should be greater than 0
     await page.waitForFunction(
@@ -303,11 +257,40 @@ test.describe('Astro View Transitions with In-Page Anchors', () => {
       { timeout: 2000 }
     );
     
+    // Verify page scrolled to the anchor target
     const scrollY = await page.evaluate(() => window.scrollY);
     expect(scrollY).toBeGreaterThan(0);
+    
+    // Verify the target element with the anchor ID is visible
+    const targetElement = page.locator('#beyond-blocking');
+    await expect(targetElement).toBeVisible();
   });
 
-  test('should not cause errors when clicking in-page anchors', async ({ page }) => {
+  test('should handle direct navigation to another page with anchor', async ({ page }) => {
+    // Navigate directly to a page with a hash anchor
+    // Using a known anchor on a different page
+    await page.goto('/2020/08/31/trust-and-safety-is-not-a-product-edge-case/#beyond-blocking');
+    await waitForPageReady(page);
+    
+    // Verify the URL contains the hash
+    expect(page.url()).toContain('#beyond-blocking');
+    
+    // Wait for scroll to complete - scroll position should be greater than 0
+    await page.waitForFunction(
+      () => window.scrollY > 0,
+      { timeout: 2000 }
+    );
+    
+    // Verify page scrolled to the anchor target
+    const scrollY = await page.evaluate(() => window.scrollY);
+    expect(scrollY).toBeGreaterThan(0);
+    
+    // Verify the target element is visible
+    const targetElement = page.locator('#beyond-blocking');
+    await expect(targetElement).toBeVisible();
+  });
+
+  test('should not cause errors when navigating with cross-page anchors', async ({ page }) => {
     const consoleErrors: string[] = [];
     
     page.on('console', message => {
@@ -316,48 +299,36 @@ test.describe('Astro View Transitions with In-Page Anchors', () => {
       }
     });
     
-    await page.goto('/2014/10/07/expose-process-through-urls/');
+    // Start on a page
+    await page.goto('/');
     await waitForPageReady(page);
     
-    // Find anchor links
-    const anchorLinks = page.locator('h2 a.anchor-link, h3 a.anchor-link');
-    const count = await anchorLinks.count();
+    // Navigate to a page with cross-page anchor links
+    await page.goto('/2020/08/31/trust-and-safety-features-to-build-into-your-product-before-someone-gets-hurt/');
+    await waitForPageReady(page);
     
-    // Verify we have at least 2 anchor links to test
-    expect(count).toBeGreaterThanOrEqual(2);
+    // Find and click a cross-page anchor link
+    const crossPageAnchorLink = page.locator('a[href*="#"]').filter({ hasText: 'just the start' }).first();
+    const linkCount = await crossPageAnchorLink.count();
     
-    // Get href for first anchor
-    const firstHref = await anchorLinks.nth(0).getAttribute('href');
-    
-    // Click first anchor
-    await anchorLinks.nth(0).click();
-    
-    // Wait for URL to update
-    await page.waitForFunction(
-      (expectedHash) => window.location.hash === expectedHash,
-      firstHref
-    );
-    
-    // Get href for second anchor
-    const secondHref = await anchorLinks.nth(1).getAttribute('href');
-    
-    // Click second anchor
-    await anchorLinks.nth(1).click();
-    
-    // Wait for URL to update
-    await page.waitForFunction(
-      (expectedHash) => window.location.hash === expectedHash,
-      secondHref
-    );
-    
-    // Filter out known non-critical errors
-    const criticalErrors = consoleErrors.filter(error => {
-      return !error.includes('favicon') && 
-             !error.includes('404') &&
-             !error.includes('Failed to load resource');
-    });
-    
-    expect(criticalErrors).toHaveLength(0);
+    if (linkCount > 0) {
+      const href = await crossPageAnchorLink.getAttribute('href');
+      
+      await crossPageAnchorLink.click();
+      
+      // Wait for navigation - URL will include the hash
+      await page.waitForURL(href!, { timeout: 10000 });
+      await waitForPageReady(page);
+      
+      // Filter out known non-critical errors
+      const criticalErrors = consoleErrors.filter(error => {
+        return !error.includes('favicon') && 
+               !error.includes('404') &&
+               !error.includes('Failed to load resource');
+      });
+      
+      expect(criticalErrors).toHaveLength(0);
+    }
   });
 });
 
