@@ -115,9 +115,18 @@ async function validatePosts() {
       // Info: remind about optimizing first 150 characters
       if (descLength > 150) {
         const first150 = strippedDescription.substring(0, 150);
-        // This is just informational, not a warning
-        // Only show if first 150 chars end mid-word (poor truncation point)
-        if (!strippedDescription[150]?.match(/[\s.,;!?]/)) {
+        // Check if the cutoff happens mid-word
+        // A good break has: last char before 150 is alphanumeric, char at 150 is whitespace/punctuation
+        // OR: last char before 150 is whitespace/punctuation
+        const charBefore150 = strippedDescription[149];
+        const charAt150 = strippedDescription[150];
+        
+        // If char before 150 is alphanumeric AND char at 150 is alphanumeric, it's mid-word
+        const endsInMiddleOfWord = 
+          charBefore150?.match(/[a-zA-Z0-9]/) && 
+          charAt150?.match(/[a-zA-Z0-9]/);
+        
+        if (endsInMiddleOfWord) {
           issues.push({
             file: relativePath,
             type: 'warning',

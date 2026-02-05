@@ -44,7 +44,7 @@ You specialize in:
 
 ```yaml
 # Good example - front matter
-description: Learn why transparent decision-making builds trust and how to document your reasoning effectively as a leader. Extended descriptions can provide additional context beyond what appears in search results.
+description: Learn why transparent decision-making builds trust with your team and how to document your reasoning effectively as a technology leader. This extended content provides additional context.
 ```
 
 ### Heading Structure
