@@ -35,7 +35,9 @@ You specialize in:
 ### Meta Descriptions
 
 * **Length**: Can be any length, but optimize the first 150 characters for search results
-* **Character count**: Calculate after stripping Markdown formatting (not raw Markdown)
+* **Markdown allowed**: Descriptions MAY contain Markdown formatting (links, bold, etc.) for better UX on the site
+* **Character count**: When validating length, calculate AFTER stripping Markdown formatting (not raw Markdown length)
+* **Never strip Markdown**: Do NOT remove Markdown from descriptions to meet length requirements - instead, rewrite the plain text content to be more concise
 * **Purpose**: Summarize the page's key insight to encourage clicks
 * **Call to action**: Include implicit or explicit calls to action when appropriate
 * **Keywords**: Include primary keyword naturally in the first 150 characters (Google bolds matching terms)
@@ -43,8 +45,12 @@ You specialize in:
 * **Search display**: Google typically displays the first ~150-160 characters in search results
 
 ```yaml
-# Good example - front matter
-description: Learn why transparent decision-making builds trust with your team and how to document your reasoning effectively as a technology leader. This extended content provides additional context.
+# Good example - front matter with Markdown links (kept as-is)
+description: Twenty five [microeconomic](#microeconomic-motivations) and [macroeconomic](#macroeconomic-motivations) reasons to adopt open source.
+# After stripping Markdown: "Twenty five microeconomic and macroeconomic reasons to adopt open source." (71 chars) ✓
+
+# Good example - plain text description
+description: Learn why transparent decision-making builds trust with your team and how to document your reasoning effectively as a technology leader.
 ```
 
 ### Heading Structure
@@ -253,7 +259,7 @@ Blog posts and pages use these SEO-related front matter fields:
 ```yaml
 ---
 title: Clear, Keyword-Rich Title
-description: Compelling description that summarizes the key insight in the first 150 characters (after Markdown is stripped). Can extend beyond 150 characters for additional context.
+description: Compelling description that summarizes the key insight. May contain Markdown links for better UX. Optimize so the first 150 characters (after Markdown is stripped) are compelling and keyword-rich.
 # Optional SEO fields
 image: https://ben.balter.com/path/to/image.png  # Social sharing image
 redirect_from:
@@ -321,8 +327,8 @@ const twitterHandle = '@benbalter';
 
 When reviewing pages for SEO:
 
-* [ ] **Title tag**: Unique, 50–60 characters, includes primary keyword
-* [ ] **Meta description**: Unique, first 150 characters compelling and keyword-rich (after Markdown stripped)
+* [ ] **Title tag**: Unique, 50–60 characters, includes primary keyword (no Markdown allowed in titles)
+* [ ] **Meta description**: Unique, first 150 characters compelling and keyword-rich (calculate length AFTER stripping Markdown, but keep Markdown in the actual content)
 * [ ] **H1**: Single H1 that matches the page topic
 * [ ] **Heading hierarchy**: Proper H2/H3 structure without skipping levels
 * [ ] **Canonical URL**: Present and correct
@@ -364,8 +370,8 @@ npm run dev            # Start dev server for local testing
 
 ### Optimizing a Blog Post
 
-1. Review the title (50–60 characters, keyword-rich)
-2. Write compelling meta description (optimize first 150 characters after Markdown is stripped)
+1. Review the title (50–60 characters, keyword-rich, no Markdown)
+2. Write compelling meta description (optimize first 150 characters AFTER Markdown is stripped; keep any Markdown links in the content)
 3. Check heading structure (H2s for main sections, H3s for subsections)
 4. Add internal links to related posts
 5. Ensure images have alt text
