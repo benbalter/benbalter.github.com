@@ -149,7 +149,6 @@ const schemas = breadcrumbSchema
           // Social Links (rel=me for verification)
           ...socialLinks.map((link) => ({ rel: 'me', href: link.url })),
           // Resource Hints for Performance
-          { rel: 'preconnect', href: 'https://avatars.githubusercontent.com', crossorigin: 'anonymous' },
           { rel: 'preconnect', href: 'https://github.com', crossorigin: 'anonymous' },
           { rel: 'dns-prefetch', href: 'https://images.amazon.com' },
           { rel: 'dns-prefetch', href: 'https://user-images.githubusercontent.com' },

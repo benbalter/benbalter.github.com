@@ -79,7 +79,6 @@ Only hydrate components that need interactivity using `client:*` directives.
 export default defineConfig({
   image: {
     domains: [
-      'avatars.githubusercontent.com',
       'images.amazon.com',
       'ben.balter.com',
       'user-images.githubusercontent.com',
@@ -87,6 +86,8 @@ export default defineConfig({
   },
 });
 ```
+
+**Note:** GitHub avatars are fetched at build time by the `fetch-avatar` integration and served as optimized WebP images, so `avatars.githubusercontent.com` is no longer in the remote domains list.
 
 **Build Output:**
 
@@ -110,7 +111,6 @@ generating optimized images
 
 ```astro
 <!-- Preconnect to critical external domains -->
-<link rel="preconnect" href="https://avatars.githubusercontent.com" crossorigin />
 <link rel="preconnect" href="https://github.com" crossorigin />
 
 <!-- DNS Prefetch for other resources -->
@@ -123,6 +123,7 @@ generating optimized images
 
 **Notes:**
 
+- **Avatar preconnect removed:** The GitHub avatar is now fetched at build time and served as an optimized WebP image from the same domain, eliminating the need for a preconnect hint to `avatars.githubusercontent.com`
 - **Font preloading not needed:** Site uses system font stack (no custom fonts to preload)
 - **Critical CSS inlined:** `inlineStylesheets: 'always'` in astro.config.mjs eliminates render-blocking CSS
 - **Minimal JavaScript:** Only View Transitions router script loads, which is essential for navigation

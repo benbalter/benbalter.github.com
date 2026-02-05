@@ -17,6 +17,7 @@ import { remarkGitHubMentions } from './src/lib/remark-github-mentions.ts';
 import { getSlug } from './src/utils/get-slug.ts';
 import { rehypeRelativeUrls } from './src/lib/rehype-relative-urls.ts';
 import { rehypeBootstrapTables } from './src/lib/rehype-bootstrap-tables.ts';
+import fetchAvatar from './src/lib/astro-fetch-avatar.ts';
 
 // Import typography plugins for remark-textr
 import typographicArrows from 'typographic-arrows';
@@ -158,8 +159,6 @@ export default defineConfig({
   // Allowlist remote image domains for Astro's Image component
   image: {
     domains: [
-      // GitHub avatars (used in MiniBio component)
-      'avatars.githubusercontent.com',
       // Amazon book covers (used in other-recommended-reading page)
       'images.amazon.com',
       // Post header images from various sources
@@ -173,6 +172,8 @@ export default defineConfig({
   
   // Integrations
   integrations: [
+    // Fetch GitHub avatar at build time (must run first)
+    fetchAvatar(),
     favicons({
       // Use existing high-quality PNG as source
       // The integration will generate all favicon formats automatically

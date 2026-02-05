@@ -8,8 +8,10 @@
  * Replicates the Jekyll mini-bio.html include functionality.
  */
 
+import { Image } from 'astro:assets';
 import { siteConfig } from '../config';
 import { aboutContent, getFirstParagraph } from '../content/about-bio';
+import avatarImage from '../../assets/img/avatar.png';
 
 const firstParagraph = getFirstParagraph(aboutContent);
 const bioHtml = `${firstParagraph} <a href="/about/">More about the author &rarr;</a>`;
@@ -17,11 +19,11 @@ const bioHtml = `${firstParagraph} <a href="/about/">More about the author &rarr
 
 <div class="mini-bio clearfix">
   <div class="float-start pt-1 pe-3">
-    <img 
-      src={`https://avatars.githubusercontent.com/${siteConfig.githubUsername}?s=100`}
+    <Image 
+      src={avatarImage}
       alt={siteConfig.author}
-      width="100"
-      height="100"
+      width={100}
+      height={100}
       class="avatar rounded d-block"
       loading="lazy"
     />
