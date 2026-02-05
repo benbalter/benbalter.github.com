@@ -6,7 +6,7 @@ The personal site of Ben Balter. Built with Astro and hosted on GitHub Pages.
 
 ## Setup
 
-This site is built using Astro and Bootstrap. See [humans.txt](https://ben.balter.com/humans.txt) for more info.
+This site is built using Astro and Tailwind CSS. See [humans.txt](https://ben.balter.com/humans.txt) for more info.
 
 The Astro setup is configured to:
 
