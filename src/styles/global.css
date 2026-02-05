@@ -540,9 +540,6 @@
       contain-intrinsic-size: auto 250px;
     }
     
-    .hero-unit::before {
-      @apply rounded-t-lg;
-    }
   }
 
   /* Container */
@@ -625,7 +622,8 @@
   }
   
   @media (prefers-reduced-motion: reduce) {
-    .btn:hover {
+    .btn:hover,
+    .btn:active {
       transform: none;
     }
   }
@@ -1036,8 +1034,8 @@
     .section-header-accent {
       background: linear-gradient(
         180deg,
-        rgba(108, 180, 232, 1) 0%,
-        rgba(108, 180, 232, 0.7) 100%
+        rgba(128, 185, 230, 1) 0%,
+        rgba(128, 185, 230, 0.7) 100%
       );
     }
   }

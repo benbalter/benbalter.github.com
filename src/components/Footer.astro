@@ -144,11 +144,13 @@ import Icon from './Icon.astro';
       transition: none;
     }
     
-    .social-link:hover {
+    .social-link:hover,
+    .social-link:active {
       transform: none;
     }
     
-    .social-link:hover :global(svg) {
+    .social-link:hover :global(svg),
+    .social-link:active :global(svg) {
       transform: none;
     }
   }
@@ -196,9 +198,9 @@ import Icon from './Icon.astro';
       background: linear-gradient(
         90deg,
         transparent,
-        rgba(108, 180, 232, 0.3) 20%,
-        rgba(108, 180, 232, 0.5) 50%,
-        rgba(108, 180, 232, 0.3) 80%,
+        rgba(128, 185, 230, 0.3) 20%,
+        rgba(128, 185, 230, 0.5) 50%,
+        rgba(128, 185, 230, 0.3) 80%,
         transparent
       );
     }
