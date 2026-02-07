@@ -1,13 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
-import { siteConfig, popularPostSlugs } from '../config';
+import { popularPostSlugs } from '../config';
 import { getPostUrl, getDateFromSlug, formatPostDate, formatISODate } from '../utils/post-urls';
 import { calculateReadingTime } from '../utils/reading-time';
 import FeaturedPostCard from '../components/FeaturedPostCard.astro';
 import PostCard from '../components/PostCard.astro';
+import { aboutContent, getFirstSentence } from '../content/about-bio';
 
-const description = siteConfig.description;
+const description = getFirstSentence(aboutContent);
 
 // Get all published posts (excluding archived), sorted by date (newest first)
 const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => {
