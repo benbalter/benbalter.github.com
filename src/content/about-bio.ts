@@ -70,3 +70,36 @@ export function getBioParagraphs(content: string): string[] {
     .filter(p => p.trim().length > 0)
     .map(p => convertMarkdownLinks(p));
 }
+
+/**
+ * Strip markdown links from text, keeping only the link text
+ * [text](url) => text
+ */
+function stripMarkdownLinks(text: string): string {
+  return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1');
+}
+
+/**
+ * Get the first sentence of the bio (stripped of markdown) for use as meta description
+ * Handles markdown links properly by stripping them before finding the sentence boundary
+ */
+export function getFirstSentence(content: string): string {
+  // Get first paragraph and strip markdown links first
+  const firstPara = content.split('\n\n')[0] || '';
+  const stripped = stripMarkdownLinks(firstPara);
+  
+  // Find the first sentence (ending with period followed by space or end)
+  const match = stripped.match(/^[^.]+\.\s/);
+  if (match) {
+    return match[0].trim();
+  }
+  
+  // If no clear sentence boundary, look for period at end
+  const endMatch = stripped.match(/^[^.]+\.$/);
+  if (endMatch) {
+    return endMatch[0];
+  }
+  
+  // Fallback to first paragraph
+  return stripped;
+}
