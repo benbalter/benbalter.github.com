@@ -44,6 +44,62 @@ import typographicSingleSpaces from 'typographic-single-spaces';
 // @ts-expect-error - No type definitions available
 import typographicTrademark from 'typographic-trademark';
 
+// Create a markdown processor once at module level to avoid recreating it on each request
+// This improves response times by reusing the processor configuration
+const markdownProcessor = createMarkdownProcessor({
+  remarkPlugins: [
+    remarkGfm,
+    remarkEmoji,
+    remarkSmartypants as any, // Type mismatch with unified plugin types
+    remarkGitHubMentions,
+    [remarkTextr, {
+      options: { locale: 'en-us' },
+      plugins: [
+        typographicArrows,
+        typographicCopyright,
+        typographicEmDashes,
+        typographicEnDashes,
+        typographicMathSymbols,
+        typographicRegisteredTrademark,
+        typographicSingleSpaces,
+        typographicTrademark,
+      ],
+    }],
+  ],
+  rehypePlugins: [
+    rehypeSlug,
+    [rehypeAutolinkHeadings, {
+      behavior: 'append',
+      properties: {
+        className: ['anchor-link'],
+        ariaLabel: 'Link to this section',
+      },
+      content: {
+        type: 'element',
+        tagName: 'span',
+        properties: { className: ['anchor-icon'] },
+        children: [{ type: 'text', value: '#' }]
+      }
+    }],
+    rehypeUnwrapImages,
+    rehypeAccessibleEmojis as any, // Type mismatch with unified plugin types
+    rehypeRelativeUrls,
+    rehypeBootstrapTables,
+    [rehypeExternalLinks, {
+      target: '_blank',
+      rel: ['noopener', 'noreferrer'],
+    }],
+  ],
+  shikiConfig: {
+    themes: {
+      light: 'github-light',
+      dark: 'github-dark',
+    },
+    wrap: true,
+  },
+  smartypants: true,
+});
+
 export async function GET(context: APIContext) {
   // Get all published posts, sorted by date (newest first)
   const posts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => {
@@ -57,60 +113,8 @@ export async function GET(context: APIContext) {
     return dateB.getTime() - dateA.getTime();
   });
 
-  // Create a markdown processor with the same configuration as astro.config.mjs
-  const markdownProcessor = await createMarkdownProcessor({
-    remarkPlugins: [
-      remarkGfm,
-      remarkEmoji,
-      remarkSmartypants as any, // Type mismatch with unified plugin types
-      remarkGitHubMentions,
-      [remarkTextr, {
-        options: { locale: 'en-us' },
-        plugins: [
-          typographicArrows,
-          typographicCopyright,
-          typographicEmDashes,
-          typographicEnDashes,
-          typographicMathSymbols,
-          typographicRegisteredTrademark,
-          typographicSingleSpaces,
-          typographicTrademark,
-        ],
-      }],
-    ],
-    rehypePlugins: [
-      rehypeSlug,
-      [rehypeAutolinkHeadings, {
-        behavior: 'append',
-        properties: {
-          className: ['anchor-link'],
-          ariaLabel: 'Link to this section',
-        },
-        content: {
-          type: 'element',
-          tagName: 'span',
-          properties: { className: ['anchor-icon'] },
-          children: [{ type: 'text', value: '#' }]
-        }
-      }],
-      rehypeUnwrapImages,
-      rehypeAccessibleEmojis as any, // Type mismatch with unified plugin types
-      rehypeRelativeUrls,
-      rehypeBootstrapTables,
-      [rehypeExternalLinks, {
-        target: '_blank',
-        rel: ['noopener', 'noreferrer'],
-      }],
-    ],
-    shikiConfig: {
-      themes: {
-        light: 'github-light',
-        dark: 'github-dark',
-      },
-      wrap: true,
-    },
-    smartypants: true,
-  });
+  // Await the markdown processor initialization
+  const processor = await markdownProcessor;
 
   // Render all posts to get their HTML content
   const items = await Promise.all(
@@ -119,7 +123,7 @@ export async function GET(context: APIContext) {
       const postUrl = getPostUrl(post.slug);
       
       // Render the post markdown to HTML
-      const result = await markdownProcessor.render(post.body, {
+      const result = await processor.render(post.body, {
         frontmatter: post.data,
       });
       const content = result.code;
