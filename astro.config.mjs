@@ -5,30 +5,13 @@ import tailwindcss from '@tailwindcss/vite';
 import favicons from 'astro-favicons';
 import compress from 'astro-compress';
 import redirectFrom from 'astro-redirect-from';
-import remarkEmoji from 'remark-emoji';
-import remarkGfm from 'remark-gfm';
-import remarkSmartypants from 'remark-smartypants';
-import remarkTextr from 'remark-textr';
-import rehypeSlug from 'rehype-slug';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypeExternalLinks from 'rehype-external-links';
-import rehypeUnwrapImages from 'rehype-unwrap-images';
-import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
-import { remarkGitHubMentions } from './src/lib/remark-github-mentions.ts';
 import { getSlug } from './src/utils/get-slug.ts';
-import { rehypeRelativeUrls } from './src/lib/rehype-relative-urls.ts';
-import { rehypeBootstrapTables } from './src/lib/rehype-bootstrap-tables.ts';
 import fetchAvatar from './src/lib/astro-fetch-avatar.ts';
-
-// Import typography plugins for remark-textr
-import typographicArrows from 'typographic-arrows';
-import typographicCopyright from 'typographic-copyright';
-import typographicEmDashes from 'typographic-em-dashes';
-import typographicEnDashes from 'typographic-en-dashes';
-import typographicMathSymbols from 'typographic-math-symbols';
-import typographicRegisteredTrademark from 'typographic-registered-trademark';
-import typographicSingleSpaces from 'typographic-single-spaces';
-import typographicTrademark from 'typographic-trademark';
+import {
+  sharedRemarkPlugins,
+  sharedRehypePlugins,
+  sharedShikiConfig,
+} from './src/lib/markdown-pipeline.ts';
 
 // URL patterns for sitemap priority calculation
 const BLOG_POST_PATTERN = /\/\d{4}\/\d{2}\/\d{2}\//;
@@ -47,52 +30,6 @@ const EXCLUDED_PAGES = [
   // To exclude posts/pages from content collections with sitemap: false,
   // add their URLs here (e.g., '/2024/01/01/post-slug/')
 ];
-
-// Shared rehype plugin configurations
-const rehypeExternalLinksConfig = [rehypeExternalLinks, {
-  target: '_blank',
-  rel: ['noopener', 'noreferrer'],
-}];
-
-const rehypeAutolinkHeadingsConfig = [rehypeAutolinkHeadings, {
-  behavior: 'append',
-  properties: {
-    className: ['anchor-link'],
-    ariaLabel: 'Link to this section',
-  },
-  content: {
-    type: 'element',
-    tagName: 'span',
-    properties: { className: ['anchor-icon'] },
-    children: [{ type: 'text', value: '#' }]
-  }
-}];
-
-// Typography plugin configuration for remark-textr
-// Transforms ASCII characters into proper typographic symbols:
-// - Arrows: -> becomes → and <- becomes ←
-// - Copyright: (c) becomes ©
-// - Em-dashes: --- becomes —
-// - En-dashes: -- becomes –
-// - Math symbols: (+/-) becomes ±
-// - Registered trademark: (r) becomes ®
-// - Single spaces: normalizes multiple spaces
-// - Trademark: (tm) becomes ™
-const remarkTextrConfig = [remarkTextr, {
-  options: {
-    locale: 'en-us',
-  },
-  plugins: [
-    typographicArrows,
-    typographicCopyright,
-    typographicEmDashes,
-    typographicEnDashes,
-    typographicMathSymbols,
-    typographicRegisteredTrademark,
-    typographicSingleSpaces,
-    typographicTrademark,
-  ],
-}];
 
 
 // https://astro.build/config
@@ -195,22 +132,8 @@ export default defineConfig({
       // MDX configuration
       optimize: true,
       // Support GitHub Flavored Markdown
-      remarkPlugins: [
-        remarkGfm,
-        remarkEmoji,
-        remarkSmartypants,
-        remarkGitHubMentions,
-        remarkTextrConfig,
-      ],
-      rehypePlugins: [
-        rehypeSlug,
-        rehypeAutolinkHeadingsConfig,
-        rehypeUnwrapImages,
-        rehypeAccessibleEmojis,
-        rehypeRelativeUrls,
-        rehypeBootstrapTables,
-        rehypeExternalLinksConfig,
-      ],
+      remarkPlugins: sharedRemarkPlugins,
+      rehypePlugins: sharedRehypePlugins,
     }),
     sitemap({
       // Customize sitemap generation
@@ -266,33 +189,13 @@ export default defineConfig({
   // Markdown configuration
   markdown: {
     // Enable syntax highlighting with GitHub themes (dual theme for dark mode support)
-    shikiConfig: {
-      themes: {
-        light: 'github-light',
-        dark: 'github-dark',
-      },
-      wrap: true,
-    },
+    shikiConfig: sharedShikiConfig,
     // Enable smartypants for typographic punctuation (quotes and apostrophes)
     smartypants: true,
     // Remark plugins (for markdown processing)
-    remarkPlugins: [
-      remarkGfm,
-      remarkEmoji,
-      remarkSmartypants,
-      remarkGitHubMentions,
-      remarkTextrConfig,
-    ],
+    remarkPlugins: sharedRemarkPlugins,
     // Rehype plugins (for HTML processing)
-    rehypePlugins: [
-      rehypeSlug,
-      rehypeAutolinkHeadingsConfig,
-      rehypeUnwrapImages,
-      rehypeAccessibleEmojis,
-      rehypeRelativeUrls,
-      rehypeBootstrapTables,
-      rehypeExternalLinksConfig,
-    ],
+    rehypePlugins: sharedRehypePlugins,
   },
   
   // Vite configuration
