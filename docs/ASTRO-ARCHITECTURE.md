@@ -778,6 +778,7 @@ import avatarImage from '../../assets/img/avatar.png';
 ```
 
 Benefits:
+
 - **87% smaller**: PNG → optimized WebP (e.g., 18KB → 2.2KB)
 - **No external requests**: Served from same domain
 - **Modern formats**: Automatic WebP/AVIF generation
