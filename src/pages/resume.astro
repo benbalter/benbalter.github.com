@@ -124,15 +124,10 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
   }
 
   .resume-section h2 {
-    font-size: 1.4rem;
-    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--color-primary, #337ab7);
-    border-bottom: 2px solid var(--color-primary, #337ab7);
+    border-bottom: 2px solid var(--tw-prose-links, var(--color-primary, #337ab7));
     padding-bottom: 0.5rem;
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
   }
 
   /* ============================================================
@@ -140,18 +135,12 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
    * ============================================================ */
   .employer-group {
     margin-bottom: 2rem;
-    /* Fallback for browsers that do not support color-mix() */
-    border-left: 3px solid rgba(51, 122, 183, 0.3);
-    border-left: 3px solid color-mix(in srgb, var(--color-primary, #337ab7) 30%, transparent);
+    border-left: 3px solid color-mix(in srgb, var(--tw-prose-links, var(--color-primary, #337ab7)) 30%, transparent);
     padding-left: 1.5rem;
     position: relative;
   }
 
   .employer-name {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--color-gray-900, #212529);
-    margin-bottom: 0.25rem;
     margin-top: 0;
   }
 
@@ -161,7 +150,7 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
   .position {
     margin-bottom: 1.5rem;
     padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--color-gray-200, #e9ecef);
+    border-bottom: 1px solid var(--tw-prose-hr, #dee2e6);
     position: relative;
   }
 
@@ -180,7 +169,7 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
     width: 9px;
     height: 9px;
     border-radius: 50%;
-    background-color: var(--color-primary, #337ab7);
+    background-color: var(--tw-prose-links, var(--color-primary, #337ab7));
     transform: translateX(calc(-50% - 1.5px));
   }
 
@@ -194,9 +183,6 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
   }
 
   .position-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--color-gray-800, #343a40);
     margin: 0;
     flex: 1;
   }
@@ -204,8 +190,8 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
   .position-dates {
     font-size: 0.8rem;
     font-weight: 500;
-    color: var(--color-primary, #337ab7);
-    background-color: color-mix(in srgb, var(--color-primary, #337ab7) 8%, transparent);
+    color: var(--tw-prose-links, var(--color-primary, #337ab7));
+    background-color: color-mix(in srgb, var(--tw-prose-links, var(--color-primary, #337ab7)) 8%, transparent);
     padding: 0.15rem 0.6rem;
     border-radius: 9999px;
     white-space: nowrap;
@@ -213,58 +199,14 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
   }
 
   /* ============================================================
-   * Position Content (Bullet Points)
+   * Position Content
    * ============================================================ */
-  .position-content {
-    line-height: 1.6;
-    color: var(--color-gray-700, #495057);
-    font-size: 0.95rem;
-  }
-
   .position-content :global(p) {
     margin-bottom: 0.5rem;
-    color: var(--color-gray-700, #495057);
   }
 
   .position-content :global(ul) {
-    list-style: none;
-    padding-left: 1rem;
-    margin: 0.25rem 0 0 0;
-  }
-
-  .position-content :global(li) {
-    margin-bottom: 0.5rem;
-    position: relative;
-    padding-left: 0.75rem;
-    line-height: 1.55;
-  }
-
-  .position-content :global(li:last-child) {
-    margin-bottom: 0;
-  }
-  .position-content :global(li)::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.55em;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background-color: var(--color-primary, #337ab7);
-    opacity: 0.6;
-  }
-
-  .position-content :global(li strong) {
-    font-weight: 600;
-    color: var(--color-gray-900, #212529);
-  }
-
-  .position-content :global(h5) {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--color-gray-800, #343a40);
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
+    margin-top: 0.25rem;
   }
 
   /* ============================================================
@@ -273,7 +215,7 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
   .education-item {
     padding-bottom: 1rem;
     margin-bottom: 1rem;
-    border-bottom: 1px solid var(--color-gray-200, #e9ecef);
+    border-bottom: 1px solid var(--tw-prose-hr, #dee2e6);
   }
 
   .education-item:last-child {
@@ -290,23 +232,18 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
   }
 
   .school-name {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--color-gray-900, #212529);
     margin: 0;
   }
 
   .degree-name {
-    color: var(--color-gray-600, #6c757d);
-    font-size: 0.95rem;
     margin-top: 0.15rem;
   }
 
   .degree-date {
     font-size: 0.8rem;
     font-weight: 500;
-    color: var(--color-primary, #337ab7);
-    background-color: color-mix(in srgb, var(--color-primary, #337ab7) 8%, transparent);
+    color: var(--tw-prose-links, var(--color-primary, #337ab7));
+    background-color: color-mix(in srgb, var(--tw-prose-links, var(--color-primary, #337ab7)) 8%, transparent);
     padding: 0.15rem 0.6rem;
     border-radius: 9999px;
     white-space: nowrap;
@@ -319,7 +256,7 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
   .certification-item {
     padding-bottom: 0.75rem;
     margin-bottom: 0.75rem;
-    border-bottom: 1px solid var(--color-gray-200, #e9ecef);
+    border-bottom: 1px solid var(--tw-prose-hr, #dee2e6);
   }
 
   .certification-item:last-child {
@@ -339,96 +276,6 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.03em;
-    color: var(--color-gray-500, #adb5bd);
-  }
-
-  .certification-name {
-    font-size: 0.95rem;
-    color: var(--color-gray-800, #343a40);
-  }
-
-  .certification-name a {
-    color: var(--color-primary, #337ab7);
-    text-decoration: none;
-  }
-
-  .certification-name a:hover {
-    text-decoration: underline;
-  }
-
-  /* ============================================================
-   * Dark Mode
-   * ============================================================ */
-  @media (prefers-color-scheme: dark) {
-    .employer-name {
-      color: var(--color-gray-100, #f8f9fa);
-    }
-
-    .employer-group {
-      border-left-color: color-mix(in srgb, var(--color-primary, #337ab7) 40%, transparent);
-    }
-
-    .position {
-      border-bottom-color: var(--color-gray-700, #495057);
-    }
-
-    .position-title {
-      color: var(--color-gray-100, #f8f9fa);
-    }
-
-    .position-dates {
-      color: var(--color-primary-300, #80b9e6);
-      background-color: color-mix(in srgb, var(--color-primary, #337ab7) 15%, transparent);
-    }
-
-    .position-content {
-      color: var(--color-gray-300, #dee2e6);
-    }
-
-    .position-content :global(p) {
-      color: var(--color-gray-300, #dee2e6);
-    }
-
-    .position-content :global(li strong) {
-      color: var(--color-gray-100, #f8f9fa);
-    }
-
-    .position-content :global(h5) {
-      color: var(--color-gray-200, #e9ecef);
-    }
-
-    .education-item {
-      border-bottom-color: var(--color-gray-700, #495057);
-    }
-
-    .school-name {
-      color: var(--color-gray-100, #f8f9fa);
-    }
-
-    .degree-name {
-      color: var(--color-gray-400, #ced4da);
-    }
-
-    .degree-date {
-      color: var(--color-primary-300, #80b9e6);
-      background-color: color-mix(in srgb, var(--color-primary, #337ab7) 15%, transparent);
-    }
-
-    .certification-item {
-      border-bottom-color: var(--color-gray-700, #495057);
-    }
-
-    .certification-authority {
-      color: var(--color-gray-400, #ced4da);
-    }
-
-    .certification-name {
-      color: var(--color-gray-200, #e9ecef);
-    }
-
-    .certification-name a {
-      color: var(--color-primary-300, #80b9e6);
-    }
   }
 
   /* ============================================================
@@ -468,7 +315,6 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
    * ============================================================ */
   @media print {
     .resume-section h2 {
-      color: #000;
       border-bottom-color: #000;
     }
 
@@ -494,10 +340,6 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
     .education-item,
     .certification-item {
       border-bottom-color: #eee;
-    }
-
-    .position-content :global(li)::before {
-      background-color: #333;
     }
   }
 </style>
