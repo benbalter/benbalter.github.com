@@ -190,7 +190,7 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
   .date-badge {
     font-size: 0.8rem;
     font-weight: 500;
-    color: var(--tw-prose-links, var(--color-primary, #337ab7));
+    color: var(--color-primary-700, #204d6f);
     background-color: color-mix(in srgb, var(--tw-prose-links, var(--color-primary, #337ab7)) 8%, transparent);
     padding: 0.15rem 0.6rem;
     border-radius: 9999px;
@@ -265,6 +265,15 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.03em;
+  }
+
+  /* ============================================================
+   * Dark Mode
+   * ============================================================ */
+  @media (prefers-color-scheme: dark) {
+    .date-badge {
+      color: var(--color-primary-300, #80b9e6);
+    }
   }
 
   /* ============================================================
