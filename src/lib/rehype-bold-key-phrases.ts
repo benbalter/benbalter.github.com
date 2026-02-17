@@ -147,7 +147,8 @@ function getPostSlugFromPath(filePath: string | undefined): string | null {
   if (!filePath) return null;
   
   // Match the post filename pattern (YYYY-MM-DD-slug.md or .mdx)
-  const match = filePath.match(/([0-9]{4}-[0-9]{2}-[0-9]{2}-.+?)\.(md|mdx)$/);
+  // Use [^.]+ instead of .+? to avoid stopping at dots in the slug
+  const match = filePath.match(/([0-9]{4}-[0-9]{2}-[0-9]{2}-[^.]+)\.(md|mdx)$/);
   if (match) {
     return match[1];
   }

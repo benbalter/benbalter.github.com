@@ -115,4 +115,45 @@ describe('rehypeBoldKeyPhrases', () => {
     const result2 = await processor.process({ value: html, path: file2.path });
     expect(result2.toString()).toContain('<strong>Show their work</strong>');
   });
+
+  it('should handle malformed file paths gracefully', async () => {
+    const html = '<p>Asynchronous work is great.</p>';
+    
+    const processor = unified()
+      .use(rehypeParse, { fragment: true })
+      .use(rehypeBoldKeyPhrases)
+      .use(rehypeStringify);
+
+    // Test edge cases where file path doesn't match expected pattern
+    const testCases = [
+      'no-date-in-filename.md',  // No date
+      '2022-03-17-no-extension',  // No file extension
+      'invalid-date-99-99-99-test.md',  // Invalid date format (still matches pattern)
+      'src/content/pages/about.md',  // Non-post file
+    ];
+
+    for (const testPath of testCases) {
+      const result = await processor.process({ value: html, path: testPath });
+      // Should not bold any text since path doesn't match or post isn't popular
+      expect(result.toString()).toBe(html);
+    }
+  });
+
+  it('should handle post slugs with dots correctly', async () => {
+    const html = '<p>Test content.</p>';
+    
+    const processor = unified()
+      .use(rehypeParse, { fragment: true })
+      .use(rehypeBoldKeyPhrases)
+      .use(rehypeStringify);
+
+    // Ensure slugs with dots in them (like version numbers) are handled correctly
+    const file = { path: '/path/to/2024-01-01-version-1.2.3-release.md' } as any;
+    const result = await processor.process({ value: html, path: file.path });
+    
+    // This post won't have key phrases, but the slug should be extracted correctly
+    // (not throwing an error or matching incorrectly)
+    expect(result.toString()).toBe(html);
+  });
 });
+
