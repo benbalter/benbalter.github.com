@@ -578,3 +578,50 @@ test.describe('Accessibility for SEO', () => {
     }
   });
 });
+
+test.describe('Heading Hierarchy', () => {
+  const pages = [
+    { url: '/', name: 'Homepage' },
+    { url: '/about/', name: 'About' },
+    { url: '/resume/', name: 'Resume' },
+    { url: '/contact/', name: 'Contact' },
+    { url: '/talks/', name: 'Talks' },
+  ];
+
+  pages.forEach(({ url, name }) => {
+    test(`${name} should have exactly one H1`, async ({ page }) => {
+      const response = await page.goto(url);
+      if (!response || response.status() === 404) {
+        test.skip();
+        return;
+      }
+      await waitForPageReady(page);
+
+      const h1Count = await page.locator('h1').count();
+      expect(h1Count).toBe(1);
+    });
+
+    test(`${name} should not skip heading levels`, async ({ page }) => {
+      const response = await page.goto(url);
+      if (!response || response.status() === 404) {
+        test.skip();
+        return;
+      }
+      await waitForPageReady(page);
+
+      // Get all heading levels in document order
+      const headingLevels = await page.evaluate(() => {
+        const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        return Array.from(headings).map(h => parseInt(h.tagName.substring(1)));
+      });
+
+      // Verify no heading level is skipped (e.g., H1 -> H3 without H2)
+      for (let i = 1; i < headingLevels.length; i++) {
+        const current = headingLevels[i];
+        const previous = headingLevels[i - 1];
+        expect(current, `Heading level skips from H${previous} to H${current}`)
+          .toBeLessThanOrEqual(previous + 1);
+      }
+    });
+  });
+});

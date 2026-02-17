@@ -13,7 +13,7 @@ import { join } from 'node:path';
 import { marked } from 'marked';
 
 const title = 'Other recommended reading';
-const description = 'Here are some of the books that have had a significant influence on my career, management style, and professional development that I often recommend to others interested in IT management and leadership, career and corporate life, open source, startups and innovation, information security, product management, marketing, technology policy, government and organizing, and everything else.';
+const description = 'Curated book recommendations on leadership, management, open source, product management, security, policy, and career development from Ben Balter.';
 
 // Load books data from src/data/books.yml
 const booksPath = join(process.cwd(), 'src', 'data', 'books.yml');
@@ -47,7 +47,7 @@ function slugify(text: string): string {
 
   {bookGroups.map(([category, books]) => (
     <section class="book-group mb-5">
-      <h3 id={slugify(category)} class="book-category-title">{category}</h3>
+      <h2 id={slugify(category)} class="book-category-title">{category}</h2>
       
       <div class="books-container">
         {books.map((book) => (
