@@ -10,7 +10,6 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import { getEntry, getCollection, type CollectionEntry } from 'astro:content';
 import { formatResumeDate } from '../../utils/post-urls';
-import { stripMarkdown } from '../../utils/strip-markdown';
 
 // Load resume page data
 const resumePage = await getEntry('pages', 'resume');
@@ -38,17 +37,31 @@ const sortedPositions = allPositions.sort((a: CollectionEntry<'resume-positions'
 function cleanDescription(text: string): string {
   if (!text) return '';
   
-  let cleaned = stripMarkdown(text);
+  let cleaned = text;
   
-  // Remove list markers at the beginning of lines
+  // Remove list markers and heading markers first (line-level patterns)
   cleaned = cleaned.replace(/^-\s+/gm, '');
   cleaned = cleaned.replace(/^\*\s+/gm, '');
-  
-  // Remove heading markers
   cleaned = cleaned.replace(/^#+\s+/gm, '');
   
-  // Clean up extra whitespace and blank lines
-  cleaned = cleaned.replace(/\n\s*\n\s*\n/g, '\n\n'); // max 2 newlines
+  // Remove markdownlint disable comments
+  cleaned = cleaned.replace(/<!--.*?-->/g, '');
+  
+  // Strip markdown formatting while preserving line breaks
+  // Remove markdown links [text](url) -> text
+  cleaned = cleaned.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+  // Remove bold **text** or __text__ -> text
+  cleaned = cleaned.replace(/\*\*([^*]+)\*\*/g, '$1');
+  cleaned = cleaned.replace(/__([^_]+)__/g, '$1');
+  // Remove inline code `code` -> code
+  cleaned = cleaned.replace(/`([^`]+)`/g, '$1');
+  // Remove inline HTML tags
+  cleaned = cleaned.replace(/<[^>]+>/g, '');
+  
+  // Clean up extra whitespace within lines (preserve newlines)
+  cleaned = cleaned.replace(/[ \t]+/g, ' ');
+  // Clean up extra blank lines
+  cleaned = cleaned.replace(/\n\s*\n\s*\n/g, '\n\n');
   cleaned = cleaned.trim();
   
   return cleaned;
