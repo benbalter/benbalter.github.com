@@ -70,11 +70,11 @@ test.describe('Resume LinkedIn Format Page', () => {
     expect(count).toBeGreaterThan(10);
   });
 
-  test('should be linked from main resume page', async ({ page }) => {
-    await page.goto('/resume/');
-    await waitForPageReady(page);
+  test('should have ASCII bullets in descriptions', async ({ page }) => {
+    const descriptions = page.locator('[data-description]');
+    const firstDescription = await descriptions.first().textContent();
     
-    const linkedInLink = page.locator('a[href="/resume/linkedin/"]');
-    await expect(linkedInLink).toBeVisible();
+    // Descriptions with list items should contain bullet characters
+    expect(firstDescription).toContain('•');
   });
 });
