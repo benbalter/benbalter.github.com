@@ -96,7 +96,7 @@ const educationData: EducationData[] = degrees?.map((degree: { school: string; d
     {positionsData.map((position: PositionData) => (
       <div class="bg-white border border-gray-300 rounded-lg p-6 mb-6 shadow-card">
         <div class="mb-5">
-          <label class="block text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">Title</label>
+          <span class="block text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">Title</span>
           <div class="flex items-start gap-3">
             <div class="flex-1 text-base text-gray-900 leading-relaxed px-3 py-2 bg-gray-50 border border-gray-300 rounded-md break-words">{position.title}</div>
             <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={position.title} aria-label="Copy title to clipboard">📋</button>
@@ -104,7 +104,7 @@ const educationData: EducationData[] = degrees?.map((degree: { school: string; d
         </div>
         
         <div class="mb-5">
-          <label class="block text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">Company</label>
+          <span class="block text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">Company</span>
           <div class="flex items-start gap-3">
             <div class="flex-1 text-base text-gray-900 leading-relaxed px-3 py-2 bg-gray-50 border border-gray-300 rounded-md break-words">{position.employer}</div>
             <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={position.employer} aria-label="Copy company to clipboard">📋</button>
@@ -112,7 +112,7 @@ const educationData: EducationData[] = degrees?.map((degree: { school: string; d
         </div>
         
         <div class="mb-5">
-          <label class="block text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">Start date</label>
+          <span class="block text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">Start date</span>
           <div class="flex items-start gap-3">
             <div class="flex-1 text-base text-gray-900 leading-relaxed px-3 py-2 bg-gray-50 border border-gray-300 rounded-md break-words">{position.startDate}</div>
             <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={position.startDate} aria-label="Copy start date to clipboard">📋</button>
@@ -120,7 +120,7 @@ const educationData: EducationData[] = degrees?.map((degree: { school: string; d
         </div>
         
         <div class="mb-5">
-          <label class="block text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">End date</label>
+          <span class="block text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">End date</span>
           <div class="flex items-start gap-3">
             <div class="flex-1 text-base text-gray-900 leading-relaxed px-3 py-2 bg-gray-50 border border-gray-300 rounded-md break-words">{position.endDate}</div>
             <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={position.endDate} aria-label="Copy end date to clipboard">📋</button>
@@ -128,7 +128,7 @@ const educationData: EducationData[] = degrees?.map((degree: { school: string; d
         </div>
         
         <div>
-          <label class="block text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">Description</label>
+          <span class="block text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">Description</span>
           <div class="flex items-start gap-3">
             <div class="flex-1 text-base text-gray-900 leading-relaxed px-3 py-2 bg-gray-50 border border-gray-300 rounded-md break-words whitespace-pre-wrap text-[0.95rem] min-h-16 max-h-80 overflow-y-auto" data-description>{position.description}</div>
             <button class="copy-btn copy-description shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center self-start mt-2 hover:bg-primary-600 hover:scale-105 active:scale-95" aria-label="Copy description to clipboard">📋</button>
@@ -146,7 +146,7 @@ const educationData: EducationData[] = degrees?.map((degree: { school: string; d
       {educationData.map((degree: EducationData) => (
         <div class="bg-white border border-gray-300 rounded-lg p-6 mb-6 shadow-card">
           <div class="mb-5">
-            <label class="block text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">School</label>
+            <span class="block text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">School</span>
             <div class="flex items-start gap-3">
               <div class="flex-1 text-base text-gray-900 leading-relaxed px-3 py-2 bg-gray-50 border border-gray-300 rounded-md break-words">{degree.school}</div>
               <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={degree.school} aria-label="Copy school to clipboard">📋</button>
@@ -154,7 +154,7 @@ const educationData: EducationData[] = degrees?.map((degree: { school: string; d
           </div>
           
           <div class="mb-5">
-            <label class="block text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">Degree</label>
+            <span class="block text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">Degree</span>
             <div class="flex items-start gap-3">
               <div class="flex-1 text-base text-gray-900 leading-relaxed px-3 py-2 bg-gray-50 border border-gray-300 rounded-md break-words">{degree.degree}</div>
               <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={degree.degree} aria-label="Copy degree to clipboard">📋</button>
@@ -162,7 +162,7 @@ const educationData: EducationData[] = degrees?.map((degree: { school: string; d
           </div>
           
           <div>
-            <label class="block text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">End date</label>
+            <span class="block text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">End date</span>
             <div class="flex items-start gap-3">
               <div class="flex-1 text-base text-gray-900 leading-relaxed px-3 py-2 bg-gray-50 border border-gray-300 rounded-md break-words">{degree.endDate}</div>
               <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={degree.endDate} aria-label="Copy end date to clipboard">📋</button>
@@ -181,7 +181,7 @@ const educationData: EducationData[] = degrees?.map((degree: { school: string; d
       {certifications.map((cert: { authority: string; name: string; url?: string }) => (
         <div class="bg-white border border-gray-300 rounded-lg p-6 mb-6 shadow-card">
           <div class="mb-5">
-            <label class="block text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">Name</label>
+            <span class="block text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">Name</span>
             <div class="flex items-start gap-3">
               <div class="flex-1 text-base text-gray-900 leading-relaxed px-3 py-2 bg-gray-50 border border-gray-300 rounded-md break-words">{cert.name}</div>
               <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={cert.name} aria-label="Copy certification name to clipboard">📋</button>
@@ -189,7 +189,7 @@ const educationData: EducationData[] = degrees?.map((degree: { school: string; d
           </div>
           
           <div class={cert.url ? 'mb-5' : ''}>
-            <label class="block text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">Issuing organization</label>
+            <span class="block text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">Issuing organization</span>
             <div class="flex items-start gap-3">
               <div class="flex-1 text-base text-gray-900 leading-relaxed px-3 py-2 bg-gray-50 border border-gray-300 rounded-md break-words">{cert.authority}</div>
               <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={cert.authority} aria-label="Copy issuing organization to clipboard">📋</button>
@@ -198,7 +198,7 @@ const educationData: EducationData[] = degrees?.map((degree: { school: string; d
           
           {cert.url && (
             <div>
-              <label class="block text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">Credential URL</label>
+              <span class="block text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">Credential URL</span>
               <div class="flex items-start gap-3">
                 <div class="flex-1 text-base text-gray-900 leading-relaxed px-3 py-2 bg-gray-50 border border-gray-300 rounded-md break-all">
                   <a href={cert.url} target="_blank" rel="noopener noreferrer" class="text-primary no-underline hover:underline">{cert.url}</a>
@@ -214,38 +214,41 @@ const educationData: EducationData[] = degrees?.map((degree: { school: string; d
 </PageLayout>
 
 <script>
-  // Handle copy button clicks
-  document.querySelectorAll('.copy-btn').forEach(btn => {
-    btn.addEventListener('click', async () => {
-      let textToCopy = '';
-      
-      // Check if this is a description copy button
-      if (btn.classList.contains('copy-description')) {
-        const descriptionElement = btn.closest('.flex')?.querySelector('[data-description]');
-        textToCopy = descriptionElement?.textContent?.trim() || '';
-      } else {
-        textToCopy = btn.getAttribute('data-copy') || '';
-      }
-      
-      try {
-        await navigator.clipboard.writeText(textToCopy);
+  function initCopyButtons() {
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        let textToCopy = '';
         
-        const original = btn.textContent;
-        btn.textContent = '✓';
-        btn.classList.add('!bg-green-600');
+        if (btn.classList.contains('copy-description')) {
+          const descriptionElement = btn.closest('.flex')?.querySelector('[data-description]');
+          textToCopy = descriptionElement?.textContent?.trim() || '';
+        } else {
+          textToCopy = btn.getAttribute('data-copy') || '';
+        }
         
-        setTimeout(() => {
-          btn.textContent = original;
-          btn.classList.remove('!bg-green-600');
-        }, 1500);
-      } catch (err) {
-        console.error('Failed to copy text:', err);
-        const original = btn.textContent;
-        btn.textContent = '✗';
-        setTimeout(() => {
-          btn.textContent = original;
-        }, 1500);
-      }
+        try {
+          await navigator.clipboard.writeText(textToCopy);
+          
+          const original = btn.textContent;
+          btn.textContent = '✓';
+          btn.classList.add('!bg-green-600');
+          
+          setTimeout(() => {
+            btn.textContent = original;
+            btn.classList.remove('!bg-green-600');
+          }, 1500);
+        } catch (err) {
+          console.error('Failed to copy text:', err);
+          const original = btn.textContent;
+          btn.textContent = '✗';
+          setTimeout(() => {
+            btn.textContent = original;
+          }, 1500);
+        }
+      });
     });
-  });
+  }
+
+  // Re-initialize after Astro view transitions
+  document.addEventListener('astro:page-load', initCopyButtons);
 </script>
