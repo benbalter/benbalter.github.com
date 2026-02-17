@@ -59,15 +59,13 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
       <div class="employer-group">
         <h3 class="employer-name">{group.employer}</h3>
         
-        {group.positions.map((position) => (
-          <div class="position">
+        {group.positions.map((position, index) => (
+          <div class:list={["position", { "position-last": index === group.positions.length - 1 }]}>
             <div class="position-header">
-              <div class="position-title">
-                <h4>{position.data.title}</h4>
-              </div>
-              <div class="position-dates">
+              <h4 class="position-title">{position.data.title}</h4>
+              <span class="date-badge">
                 {formatResumeDate(position.data.start_date) ?? 'Unknown'}—{position.data.end_date ? (formatResumeDate(position.data.end_date) ?? 'Unknown') : 'Present'}
-              </div>
+              </span>
             </div>
             
             <div class="position-content">
@@ -85,11 +83,11 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
       
       {degrees.map((degree: { school: string; degree: string; date: string }) => (
         <div class="education-item">
-          <h3 class="school-name h5">{degree.school}</h3>
-          <div class="education-details">
-            <div class="degree-name">{degree.degree}</div>
-            <div class="degree-date">{formatResumeDate(degree.date) ?? 'Unknown'}</div>
+          <div class="education-header">
+            <h3 class="school-name">{degree.school}</h3>
+            <span class="date-badge">{formatResumeDate(degree.date) ?? 'Unknown'}</span>
           </div>
+          <div class="degree-name">{degree.degree}</div>
         </div>
       ))}
     </section>
@@ -101,13 +99,15 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
       
       {certifications.map((cert: { authority: string; name: string; url?: string }) => (
         <div class="certification-item">
-          <h3 class="certification-authority h5">{cert.authority}</h3>
-          <div class="certification-name">
-            {cert.url ? (
-              <a href={cert.url} target="_blank" rel="noopener noreferrer" aria-label={`View ${cert.name} credential`}>{cert.name}</a>
-            ) : (
-              cert.name
-            )}
+          <div class="certification-header">
+            <span class="certification-authority">{cert.authority}</span>
+            <span class="certification-name">
+              {cert.url ? (
+                <a href={cert.url} target="_blank" rel="noopener noreferrer" aria-label={`View ${cert.name} credential`}>{cert.name}</a>
+              ) : (
+                cert.name
+              )}
+            </span>
           </div>
         </div>
       ))}
@@ -116,141 +116,227 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
 </PageLayout>
 
 <style>
+  /* ============================================================
+   * Resume Sections
+   * ============================================================ */
   .resume-section {
-    margin-bottom: 3rem;
-  }
-  
-  .resume-section h2 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-top: 2.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--bs-heading-color);
-    border-bottom: 2px solid var(--bs-border-color);
-    padding-bottom: 0.5rem;
-  }
-  
-  .employer-group {
     margin-bottom: 2.5rem;
   }
-  
-  .employer-name {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--bs-link-color, #0366d6);
-    margin-bottom: 1rem;
+
+  .resume-section h2 {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-bottom: 2px solid var(--tw-prose-links, var(--color-primary, #337ab7));
+    padding-bottom: 0.5rem;
   }
-  
-  .position {
+
+  /* ============================================================
+   * Employer Groups (Timeline)
+   * ============================================================ */
+  .employer-group {
     margin-bottom: 2rem;
-    padding-left: 1rem;
+    border-left: 3px solid color-mix(in srgb, var(--tw-prose-links, var(--color-primary, #337ab7)) 30%, transparent);
+    padding-left: 1.5rem;
+    position: relative;
   }
-  
+
+  .employer-name {
+    margin-top: 0;
+  }
+
+  /* ============================================================
+   * Position Entries
+   * ============================================================ */
+  .position {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--tw-prose-hr, #dee2e6);
+    position: relative;
+  }
+
+  .position.position-last {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  /* Timeline dot */
+  .position-header::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem;
+    top: 0.45rem;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: var(--tw-prose-links, var(--color-primary, #337ab7));
+    transform: translateX(calc(-50% - 1.5px));
+  }
+
   .position-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 0.75rem;
+    align-items: baseline;
     gap: 1rem;
-  }
-  
-  .position-title h4 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--bs-heading-color);
-    margin: 0;
-  }
-  
-  .position-dates {
-    font-size: 0.95rem;
-    color: var(--bs-secondary-color, #586069);
-    white-space: nowrap;
-    text-align: right;
-  }
-  
-  .position-content {
-    line-height: 1.6;
-    color: var(--bs-body-color);
-  }
-  
-  .position-content :global(ul) {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-  }
-  
-  .position-content :global(li) {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     position: relative;
-    padding-left: 0;
   }
-  
-  .position-content :global(li strong) {
-    font-weight: 600;
-    color: var(--bs-body-color);
+
+  .position-title {
+    margin: 0;
+    flex: 1;
   }
-  
-  .education-item,
-  .certification-item {
-    margin-bottom: 1.5rem;
+
+  .date-badge {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-primary-700, #204d6f);
+    background-color: color-mix(in srgb, var(--tw-prose-links, var(--color-primary, #337ab7)) 8%, transparent);
+    padding: 0.15rem 0.6rem;
+    border-radius: 9999px;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
-  
-  .school-name,
-  .certification-authority {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--bs-heading-color);
+
+  /* ============================================================
+   * Position Content
+   * ============================================================ */
+  .position-content :global(p) {
     margin-bottom: 0.5rem;
   }
-  
-  
-  .education-details {
+
+  .position-content :global(ul) {
+    margin-top: 0.25rem;
+  }
+
+  /* ============================================================
+   * Education
+   * ============================================================ */
+  .education-item {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--tw-prose-hr, #dee2e6);
+  }
+
+  .education-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .education-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
     gap: 1rem;
   }
-  
+
+  .school-name {
+    margin: 0;
+  }
+
   .degree-name {
-    flex: 1;
-    color: var(--bs-body-color);
+    margin-top: 0.15rem;
   }
-  
-  .degree-date {
-    font-size: 0.95rem;
-    color: var(--bs-secondary-color, #586069);
-    text-align: right;
+
+  /* ============================================================
+   * Certifications
+   * ============================================================ */
+  .certification-item {
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid var(--tw-prose-hr, #dee2e6);
   }
-  
-  .certification-name {
-    color: var(--bs-body-color);
+
+  .certification-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
-  
-  .certification-name a {
-    color: var(--bs-link-color, #0366d6);
-    text-decoration: none;
+
+  .certification-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
   }
-  
-  .certification-name a:hover {
-    text-decoration: underline;
+
+  .certification-authority {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
   }
-  
+
+  /* ============================================================
+   * Dark Mode
+   * ============================================================ */
+  @media (prefers-color-scheme: dark) {
+    .date-badge {
+      color: var(--color-primary-300, #80b9e6);
+    }
+  }
+
+  /* ============================================================
+   * Mobile Responsive
+   * ============================================================ */
   @media (max-width: 768px) {
     .position-header {
       flex-direction: column;
+      gap: 0.25rem;
     }
-    
-    .position-dates {
-      text-align: left;
+
+    .position-header .date-badge {
+      align-self: flex-start;
     }
-    
-    .education-details {
+
+    .education-header {
       flex-direction: column;
-      align-items: flex-start;
+      gap: 0.25rem;
     }
-    
-    .degree-date {
-      text-align: left;
+
+    .education-header .date-badge {
+      align-self: flex-start;
+    }
+
+    .employer-group {
+      padding-left: 1rem;
+    }
+
+    .position-header::before {
+      left: -1rem;
+      transform: translateX(calc(-50% - 1.5px));
+    }
+  }
+
+  /* ============================================================
+   * Print
+   * ============================================================ */
+  @media print {
+    .resume-section h2 {
+      border-bottom-color: #000;
+    }
+
+    .employer-group {
+      border-left: 2px solid #ccc;
+    }
+
+    .position-header::before {
+      background-color: #333;
+    }
+
+    .date-badge {
+      background-color: transparent;
+      color: #333;
+      padding: 0;
+    }
+
+    .position {
+      border-bottom-color: #eee;
+    }
+
+    .education-item,
+    .certification-item {
+      border-bottom-color: #eee;
     }
   }
 </style>
