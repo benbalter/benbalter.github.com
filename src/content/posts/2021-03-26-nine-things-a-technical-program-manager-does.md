@@ -1,6 +1,6 @@
 ---
 title: Nine things a (technical) program manager does
-description: Technical Program Managers are responsible for [communication, coordination, and facilitation](#1-communication-coordination-and-facilitation), [capturing and tracking the work that needs to be done](#2-capture-and-track-the-work-that-needs-to-be-done), [identifying, analyzing, and mitigating program risk](#3-identify-analyze-and-mitigate-program-risk), [reporting up and across](#4-reporting-up-and-across), [managing relationships](#5-relationship-management), [resolving conflict](#6-resolve-conflict), [driving consensus](#7-drive-consensus), [boundaryless engagement](#8-boundaryless-engagement), and [doing what needs to be done](#9-doing-what-needs-to-be-done).
+description: Nine core responsibilities of a Technical Program Manager, from communication and coordination to risk mitigation, conflict resolution, consensus building, and boundaryless engagement.
 redirect_from: /2021/03/26/n-things-a-technicalp-program-manager-does/
 ---
 

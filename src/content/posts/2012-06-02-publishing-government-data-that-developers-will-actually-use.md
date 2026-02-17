@@ -1,6 +1,6 @@
 ---
 title: Publishing Government Data That Developers Will Actually Use
-description: Despite increasing public support (as well as a number of executive mandates) publishing public data in a machine-readable format is not as simple as pressing the "publish" button. Why? Equally important as exposing the information itself is fostering a vibrant developer ecosystem around it. By making the publishing agency, not the public, responsible for making information immediately useful, government can lower the barriers associated with consuming its data and introduce additional citizen services at little to no cost to the agency.
+description: Publishing public data requires more than pressing publish. Making information immediately useful and fostering a developer ecosystem can lower barriers and enable citizen services.
 ---
 
 Despite increasing public support (as well as a number of executive mandates) publishing public data in a machine-readable format is not as simple as pressing the "publish" button. Why? Equally important as exposing the information itself is fostering a vibrant developer ecosystem around it. By making the publishing agency, not the public, responsible for making information immediately useful, government can lower the barriers associated with consuming its data and introduce additional citizen services at little to no cost to the agency.

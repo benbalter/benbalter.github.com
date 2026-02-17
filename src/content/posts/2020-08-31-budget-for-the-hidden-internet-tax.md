@@ -1,6 +1,6 @@
 ---
 title: Budget for the hidden "internet tax"
-description: Trust and safety (abuse protection) is a critical part of your product, and it's a cost of doing business on the internet. It's a hidden "internet tax" that you'll need to pay, whether you want to or not.
+description: Trust and safety is a critical part of your product and a cost of doing business online. It's a hidden internet tax that you'll need to pay, whether you want to or not.
 ---
 
 It's uncomfortable to acknowledge the darker corners of the internet, especially when most startup business models have a rapid growth focus that are built on the internet's ability to connect like-minded strangers. We don't like to admit it out loud, but just as the internet is often an amazing place in connecting the best parts of humanity, the internet is sometimes a terrible place in also bringing out the worst of it. It's truly tempting to forgo abuse and harassment as a "tomorrow" problem (or a "we're different"[^arpanet] problem), especially in a growing startup or a highly competitive industry.

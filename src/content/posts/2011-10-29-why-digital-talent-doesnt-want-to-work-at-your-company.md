@@ -1,6 +1,6 @@
 ---
 title: Why Digital Talent Doesn't Want To Work At Your Company
-description: It's because you're not providing them the right opportunity. The talent you want would be happy to work in an un-air-conditioned garage in New Mexico if it meant the chance to change the world.
+description: The talent you want would work in an un-air-conditioned garage in New Mexico if it meant the chance to change the world. The question is whether you're providing the right opportunity.
 ---
 
 As Aaron Shapiro over at Fast Company [cogently argues](https://www.fastcompany.com/1779120/why-digital-talent-doesn%E2%80%99t-want-work-your-company), "it's because you're not providing them the right opportunity. The talent you want would be happy to work in an un-air-conditioned garage in New Mexico if it meant the chance to change the world\*."

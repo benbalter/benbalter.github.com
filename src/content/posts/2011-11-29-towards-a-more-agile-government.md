@@ -1,6 +1,6 @@
 ---
 title: Towards a More Agile Government
-description: By requiring that detailed specifications be outlined at the onset of the process, government procurement regulations encourage the less flexible, waterfall development techniques, rather than the more modern, agile development approaches used by the private sector today.
+description: Government procurement regulations encourage inflexible waterfall development rather than modern agile approaches by requiring detailed specifications at the onset of the process.
 ---
 
 <!--lint disable retext-spell-->

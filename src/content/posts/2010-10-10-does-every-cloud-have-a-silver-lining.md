@@ -1,6 +1,6 @@
 ---
 title: Does Every Cloud Have a Silver Lining?
-description: Thunderstorms occur when divergent forces collide in clouds. It is becoming increasingly clear that cloud computing is in our extended forecast, but whether the imminent digital due process storm the cloud foreshadows will contain a silver privacy lining remains to be seen.
+description: Cloud computing is in our extended forecast, but whether the imminent digital due process storm the cloud foreshadows will contain a silver privacy lining remains to be seen.
 archived: true
 ---
 

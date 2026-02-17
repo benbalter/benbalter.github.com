@@ -1,6 +1,6 @@
 ---
 title: Transparent collaboration is the andon of knowledge work
-description: How the andon principle from lean manufacturing can help you spot and solve critical issues early on and foster a culture of transparency and collaboration within the software development process by encouraging anyone to "stop the line" when necessary.
+description: How the andon principle from lean manufacturing can help you spot and solve issues early and foster a culture of transparency by encouraging anyone to stop the line when necessary.
 ---
 
 The shift from waterfall to agile was predicated on the belief that what worked for the factory floor during the industrial revolution would not work for knowledge work in the information age, but assembly lines and modern software development have more in common than you might think:

@@ -15,6 +15,7 @@ import { siteConfig } from '../config';
 import { calculateReadingTime } from '../utils/reading-time';
 import { generateBlogPostingSchema, schemaToJsonLd } from '../utils/structured-data';
 import { formatPostDate, getPostUrl } from '../utils/post-urls';
+import { stripMarkdown } from '../utils/strip-markdown';
 import ArchivedPostWarning from '../components/ArchivedPostWarning.astro';
 import type { CollectionEntry } from 'astro:content';
 
@@ -46,6 +47,9 @@ const {
 
 const formattedDate = pubDate ? formatPostDate(pubDate) : undefined;
 
+// Strip markdown for meta tags (plain text for SEO)
+const metaDescription = stripMarkdown(description);
+
 // Calculate reading time using improved utility
 const content = await Astro.slots.render('default');
 const readingTime = calculateReadingTime(content);
@@ -53,7 +57,7 @@ const readingTime = calculateReadingTime(content);
 // Generate BlogPosting structured data for blog posts
 const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   title,
-  description,
+  description: metaDescription,
   url: new URL(Astro.url.pathname, siteConfig.url).toString(),
   publishedTime: pubDate,
   modifiedTime: updatedDate,
@@ -64,7 +68,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
 
 <BaseLayout 
   title={title} 
-  description={description}
+  description={metaDescription}
   type="article"
   publishedTime={pubDate}
   modifiedTime={updatedDate}

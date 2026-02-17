@@ -1,6 +1,6 @@
 ---
 title: Problems, not solutions
-description: When you're developing software, your job is to optimize for low-effort, high-impact initiatives that improve user experience and give you the best value in time and effort. The easiest way to do that is to focus on why you're doing things and who you're doing them for, counterbalanced by the effort required, not the other way around.
+description: Optimize for low-effort, high-impact initiatives that improve user experience. Focus on why you're doing things and who you're doing them for, counterbalanced by the effort required.
 ---
 
 As engineers (or just about any other technical profession), we're trained to think about solutions (what features to build, how to make them, subsequent improvements, etc.). Still, given a sufficiently defined problem, the solution is often the easy part (even if the implementation itself may be technically complex). The real challenge lies in understanding customers' actual needs (not just their stated ones), defining and prioritizing user problems, and evaluating potential solutions to determine the right one (and where your efforts can have the most significant impact).

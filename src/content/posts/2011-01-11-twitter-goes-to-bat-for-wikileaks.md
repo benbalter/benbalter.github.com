@@ -1,6 +1,6 @@
 ---
 title: Twitter Goes to Bat for WikiLeaks, RTs @FBI's Court Order
-description: Twitter fought a court order demanding it turn over information pertaining to several of its users, contesting the attached gag order that prevented the social networking service from informing its users of its compliance with the otherwise lawful request.
+description: Twitter fought a court order demanding it turn over user information, contesting the gag order that prevented the social networking service from informing its users of the request.
 archived: true
 ---
 

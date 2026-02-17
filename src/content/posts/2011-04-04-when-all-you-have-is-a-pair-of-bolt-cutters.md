@@ -1,6 +1,6 @@
 ---
 title: When all you have is a pair of bolt cutters...
-description: A workflow management and version control system building on WordPress's existing core competencies. By treating documents as a custom post type, users can leverage the power of WordPress's extensive attachment, revision, taxonomy, and URL rewriting functionalities.
+description: A workflow management and version control system built on WordPress, leveraging its attachment, revision, taxonomy, and URL rewriting capabilities to treat documents as a custom post type.
 ---
 
 [<img src="http://imgs.xkcd.com/comics/golden_hammer.png" alt="Golden Hammer" class="mx-auto d-block img-fluid" />](http://xkcd.com/801/)

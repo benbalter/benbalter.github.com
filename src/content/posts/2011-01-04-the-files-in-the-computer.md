@@ -1,6 +1,6 @@
 ---
 title: The Files "in" the Computer -- Zoolander and the California Supreme Court
-description: Imagine if a routine traffic stop, say, for failure to signal or wear a seat belt would place in the state's hands every e-mail you've ever sent, contact your ever met, or financial transaction your ever completed. The California Supreme Court ruled in favor of just that.
+description: Should a routine traffic stop grant the state access to every email, contact, and financial transaction on your phone? The California Supreme Court ruled in favor of just that.
 archived: true
 ---
 

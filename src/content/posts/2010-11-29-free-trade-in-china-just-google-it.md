@@ -1,6 +1,6 @@
 ---
 title: Free Trade in China? Just Google it.
-description: As the internet is increasingly becoming the dominant instrument of commerce, blocking access to information is tantamount to blocking access to trade, as Google argues in their recently released white paper calling out China, among others for violating WTO commitments.
+description: As the internet becomes the dominant instrument of commerce, blocking access to information is tantamount to blocking trade. Google's white paper calls out China for violating WTO commitments.
 archived: true
 ---
 

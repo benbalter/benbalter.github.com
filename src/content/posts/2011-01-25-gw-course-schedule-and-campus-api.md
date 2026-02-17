@@ -1,6 +1,6 @@
 ---
 title: GW Course Schedule and Campus API
-description: George Washington University recently released an iPhone app that allows students to look up the course schedule and each course's open/closed status as well as browse an interactive map of the campus. Below you can find the details on GW's course schedule and campus map API endpoints, as well as an API wrapper to interact with it written in PHP.
+description: Details on George Washington University's course schedule and campus map API endpoints, along with a PHP API wrapper to interact with GW's recently released mobile app data.
 archived: true
 ---
 

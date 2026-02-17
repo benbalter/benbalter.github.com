@@ -1,6 +1,6 @@
 ---
 title: Remote work requires communicating more, less frequently
-description: Remote work requires communicating more, less frequently, because asynchronous communication involves less frequent, but richer communication, meaning there is less time talking *about* the work and more time *doing* it, allowing the system to optimize for throughput and flow.
+description: Asynchronous communication means less frequent but richer exchanges, so there is less time talking about the work and more time doing it, optimizing for throughput and flow.
 ---
 
 Remote work is not simply a matter of replicating the office environment online. One of the key shifts that remote workers need to make is to communicate *more*, less *often*. Instead of relying on constant, synchronous, and often interrupt-driven interactions, remote workers embrace asynchronous, and often higher-fidelity, forms of communication, such as long-form writing or thoughtful videos.

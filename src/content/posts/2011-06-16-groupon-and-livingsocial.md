@@ -1,6 +1,6 @@
 ---
 title: 'Groupon and LivingSocial: a Limited-Time Offer'
-description: Despite the hype, daily deal sites like Groupon and LivingSocial are not the next wave of e-commerce. Not only are they bad for merchants, their business model simply isn't sustainable as established firms begin to enter the already-crowded market.
+description: Despite the hype, daily deal sites like Groupon and LivingSocial are not the next wave of e-commerce. They're bad for merchants and their business model isn't sustainable.
 archived: true
 ---
 
