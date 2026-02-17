@@ -1,0 +1,7 @@
+# GitHub Code Scanning configuration
+# This file controls GitHub's default code scanning setup
+# See: https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages
+
+# Disable default setup to prevent automatic language detection
+# We use a custom CodeQL workflow (.github/workflows/codeql.yml) that only scans JavaScript/TypeScript
+default-setup: disabled
