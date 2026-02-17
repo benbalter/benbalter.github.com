@@ -237,6 +237,9 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
     line-height: 1.55;
   }
 
+  .position-content :global(li:last-child) {
+    margin-bottom: 0;
+  }
   .position-content :global(li)::before {
     content: '';
     position: absolute;
