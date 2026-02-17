@@ -9,6 +9,7 @@
 import PageLayout from '../layouts/PageLayout.astro';
 import { getEntry, getCollection, type CollectionEntry } from 'astro:content';
 import { formatResumeDate } from '../utils/post-urls';
+import { generateResumeSchema, schemaToJsonLd } from '../utils/structured-data';
 
 // Load resume page data
 const resumePage = await getEntry('pages', 'resume');
@@ -49,6 +50,18 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
   employer,
   positions: positions.sort((a, b) => new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime()),
 }));
+
+// Generate resume structured data (JSON-LD)
+const resumeSchema = generateResumeSchema({
+  positions: sortedPositions.map(p => ({
+    employer: p.data.employer,
+    title: p.data.title,
+    startDate: p.data.start_date,
+    endDate: p.data.end_date,
+  })),
+  degrees,
+  certifications,
+});
 ---
 
 <PageLayout title={title} description={description}>
@@ -113,6 +126,8 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
       ))}
     </section>
   )}
+
+  <script type="application/ld+json" set:html={schemaToJsonLd(resumeSchema)} is:inline></script>
 </PageLayout>
 
 <style>

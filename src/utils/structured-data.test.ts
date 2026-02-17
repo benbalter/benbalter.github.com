@@ -9,6 +9,7 @@ import {
   generateWebSiteSchema,
   generateBlogPostingSchema,
   generateBreadcrumbSchema,
+  generateResumeSchema,
   schemaToJsonLd,
 } from './structured-data';
 import { siteConfig } from '../config';
@@ -494,6 +495,96 @@ describe('generateBreadcrumbSchema', () => {
       expect(schema.itemListElement).toHaveLength(1);
       expect(schema.itemListElement[0]).toHaveProperty('position', 1);
     }
+  });
+});
+
+describe('generateResumeSchema', () => {
+  const samplePositions = [
+    { employer: 'GitHub', title: 'Director of Engineering', startDate: '2023-01-01' },
+    { employer: 'GitHub', title: 'Senior Engineer', startDate: '2020-01-01', endDate: '2023-01-01' },
+    { employer: 'Acme Corp', title: 'Engineer', startDate: '2018-01-01', endDate: '2020-01-01' },
+  ];
+
+  const sampleDegrees = [
+    { school: 'MIT', degree: 'Bachelor of Science', date: '2018-05-01' },
+  ];
+
+  const sampleCertifications = [
+    { authority: 'ISC2', name: 'CISSP', url: 'https://example.com/cissp' },
+    { authority: 'PMI', name: 'PMP' },
+  ];
+
+  it('should generate valid Person schema', () => {
+    const schema = generateResumeSchema({ positions: samplePositions });
+
+    expect(schema['@context']).toBe('https://schema.org');
+    expect(schema).toHaveProperty('@type', 'Person');
+    expect(schema).toHaveProperty('name', siteConfig.author);
+  });
+
+  it('should include worksFor for current position', () => {
+    const schema = generateResumeSchema({ positions: samplePositions });
+    const schemaAny = schema as any;
+
+    expect(schemaAny.worksFor).toBeDefined();
+    expect(schemaAny.worksFor['@type']).toBe('Organization');
+    expect(schemaAny.worksFor.name).toBe('GitHub');
+  });
+
+  it('should not include worksFor when all positions have end dates', () => {
+    const pastPositions = samplePositions.filter(p => p.endDate);
+    const schema = generateResumeSchema({ positions: pastPositions });
+    const schemaAny = schema as any;
+
+    expect(schemaAny.worksFor).toBeUndefined();
+  });
+
+  it('should include hasOccupation for all positions', () => {
+    const schema = generateResumeSchema({ positions: samplePositions });
+    const schemaAny = schema as any;
+
+    expect(Array.isArray(schemaAny.hasOccupation)).toBe(true);
+    expect(schemaAny.hasOccupation).toHaveLength(3);
+    expect(schemaAny.hasOccupation[0]['@type']).toBe('Occupation');
+    expect(schemaAny.hasOccupation[0].name).toBe('Director of Engineering');
+  });
+
+  it('should include alumniOf for degrees', () => {
+    const schema = generateResumeSchema({ positions: samplePositions, degrees: sampleDegrees });
+    const schemaAny = schema as any;
+
+    expect(Array.isArray(schemaAny.alumniOf)).toBe(true);
+    expect(schemaAny.alumniOf).toHaveLength(1);
+    expect(schemaAny.alumniOf[0]['@type']).toBe('EducationalOrganization');
+    expect(schemaAny.alumniOf[0].name).toBe('MIT');
+  });
+
+  it('should include hasCredential for certifications', () => {
+    const schema = generateResumeSchema({ positions: samplePositions, certifications: sampleCertifications });
+    const schemaAny = schema as any;
+
+    expect(Array.isArray(schemaAny.hasCredential)).toBe(true);
+    expect(schemaAny.hasCredential).toHaveLength(2);
+    expect(schemaAny.hasCredential[0]['@type']).toBe('EducationalOccupationalCredential');
+    expect(schemaAny.hasCredential[0].name).toBe('CISSP');
+    expect(schemaAny.hasCredential[0].url).toBe('https://example.com/cissp');
+    expect(schemaAny.hasCredential[1].url).toBeUndefined();
+  });
+
+  it('should include credential authority as recognizedBy', () => {
+    const schema = generateResumeSchema({ positions: samplePositions, certifications: sampleCertifications });
+    const schemaAny = schema as any;
+
+    expect(schemaAny.hasCredential[0].recognizedBy['@type']).toBe('Organization');
+    expect(schemaAny.hasCredential[0].recognizedBy.name).toBe('ISC2');
+  });
+
+  it('should handle missing degrees and certifications', () => {
+    const schema = generateResumeSchema({ positions: samplePositions });
+    const schemaAny = schema as any;
+
+    expect(schemaAny.alumniOf).toBeUndefined();
+    expect(schemaAny.hasCredential).toBeUndefined();
   });
 });
 
