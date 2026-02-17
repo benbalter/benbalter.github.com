@@ -19,6 +19,7 @@ import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 import { remarkGitHubMentions } from './remark-github-mentions';
 import { rehypeRelativeUrls } from './rehype-relative-urls';
 import { rehypeBootstrapTables } from './rehype-bootstrap-tables';
+import { rehypeBoldKeyPhrases } from './rehype-bold-key-phrases';
 
 // Typography plugins for remark-textr
 // @ts-expect-error - No type definitions available
@@ -93,6 +94,7 @@ export const sharedRehypePlugins = [
   rehypeRelativeUrls,
   rehypeBootstrapTables,
   rehypeExternalLinksConfig,
+  rehypeBoldKeyPhrases, // Bold key phrases in popular posts
 ];
 
 // Shared Shiki configuration for syntax highlighting
