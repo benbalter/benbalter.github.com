@@ -13,12 +13,14 @@ interface Props {
   title: string;
   description: string;
   image?: string;
+  noindex?: boolean;
 }
 
 const { 
   title, 
   description, 
   image,
+  noindex = false,
 } = Astro.props;
 ---
 
@@ -26,6 +28,7 @@ const {
   title={title} 
   description={description}
   image={image}
+  noindex={noindex}
 >
   <div class="row">
     <div class="col-md-10 offset-md-1 px-3">

@@ -1,0 +1,409 @@
+---
+/**
+ * LinkedIn-Friendly Resume Page
+ * 
+ * Displays resume data in a format optimized for easy copy-paste into LinkedIn profile fields.
+ * Each field has a copy button for quick clipboard access.
+ * This is a utility page, not indexed by search engines.
+ */
+
+import PageLayout from '../../layouts/PageLayout.astro';
+import { getEntry, getCollection, type CollectionEntry } from 'astro:content';
+import { formatResumeDate } from '../../utils/post-urls';
+import { stripMarkdown } from '../../utils/strip-markdown';
+
+// Load resume page data
+const resumePage = await getEntry('pages', 'resume');
+if (!resumePage) {
+  throw new Error('Resume page data not found');
+}
+
+const { degrees, certifications } = resumePage.data;
+
+// Load resume positions from content collection
+const allPositions = await getCollection('resume-positions');
+
+// Sort by start_date (most recent first)
+const sortedPositions = allPositions.sort((a: CollectionEntry<'resume-positions'>, b: CollectionEntry<'resume-positions'>) => {
+  return new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime();
+});
+
+/**
+ * Clean up description text for LinkedIn
+ * - Strip markdown formatting
+ * - Remove list markers (- )
+ * - Remove heading markers (##### )
+ * - Clean up extra whitespace
+ */
+function cleanDescription(text: string): string {
+  if (!text) return '';
+  
+  let cleaned = stripMarkdown(text);
+  
+  // Remove list markers at the beginning of lines
+  cleaned = cleaned.replace(/^-\s+/gm, '');
+  cleaned = cleaned.replace(/^\*\s+/gm, '');
+  
+  // Remove heading markers
+  cleaned = cleaned.replace(/^#+\s+/gm, '');
+  
+  // Clean up extra whitespace and blank lines
+  cleaned = cleaned.replace(/\n\s*\n\s*\n/g, '\n\n'); // max 2 newlines
+  cleaned = cleaned.trim();
+  
+  return cleaned;
+}
+
+// Prepare position data with cleaned descriptions and formatted dates
+interface PositionData {
+  title: string;
+  employer: string;
+  startDate: string;
+  endDate: string;
+  description: string;
+}
+
+const positionsData: PositionData[] = sortedPositions.map((position: CollectionEntry<'resume-positions'>) => ({
+  title: position.data.title,
+  employer: position.data.employer,
+  startDate: formatResumeDate(position.data.start_date) || 'Unknown',
+  endDate: position.data.end_date ? (formatResumeDate(position.data.end_date) || 'Unknown') : 'Present',
+  description: cleanDescription(position.body),
+}));
+
+// Prepare education data with formatted dates
+interface EducationData {
+  school: string;
+  degree: string;
+  endDate: string;
+}
+
+const educationData: EducationData[] = degrees?.map((degree: { school: string; degree: string; date: string }) => ({
+  school: degree.school,
+  degree: degree.degree,
+  endDate: formatResumeDate(degree.date) || 'Unknown',
+})) || [];
+---
+
+<PageLayout 
+  title="Resume — LinkedIn Format" 
+  description="Resume data formatted for easy LinkedIn profile updates."
+  noindex={true}
+>
+  <div class="linkedin-intro">
+    <p>
+      This page formats resume data for easy copy-paste into your LinkedIn profile. 
+      Click the 📋 icon next to any field to copy its contents to your clipboard.
+    </p>
+  </div>
+
+  <!-- Experience Section -->
+  <section class="linkedin-section">
+    <h2>Experience</h2>
+    
+    {positionsData.map((position: PositionData) => (
+      <div class="field-card">
+        <div class="field-group">
+          <label class="field-label">Title</label>
+          <div class="field-value-container">
+            <div class="field-value">{position.title}</div>
+            <button class="copy-btn" data-copy={position.title} aria-label="Copy title to clipboard">📋</button>
+          </div>
+        </div>
+        
+        <div class="field-group">
+          <label class="field-label">Company</label>
+          <div class="field-value-container">
+            <div class="field-value">{position.employer}</div>
+            <button class="copy-btn" data-copy={position.employer} aria-label="Copy company to clipboard">📋</button>
+          </div>
+        </div>
+        
+        <div class="field-group">
+          <label class="field-label">Start date</label>
+          <div class="field-value-container">
+            <div class="field-value">{position.startDate}</div>
+            <button class="copy-btn" data-copy={position.startDate} aria-label="Copy start date to clipboard">📋</button>
+          </div>
+        </div>
+        
+        <div class="field-group">
+          <label class="field-label">End date</label>
+          <div class="field-value-container">
+            <div class="field-value">{position.endDate}</div>
+            <button class="copy-btn" data-copy={position.endDate} aria-label="Copy end date to clipboard">📋</button>
+          </div>
+        </div>
+        
+        <div class="field-group description-group">
+          <label class="field-label">Description</label>
+          <div class="field-value-container">
+            <div class="field-value description-text" data-description>{position.description}</div>
+            <button class="copy-btn copy-description" aria-label="Copy description to clipboard">📋</button>
+          </div>
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <!-- Education Section -->
+  {educationData && educationData.length > 0 && (
+    <section class="linkedin-section">
+      <h2>Education</h2>
+      
+      {educationData.map((degree: EducationData) => (
+        <div class="field-card">
+          <div class="field-group">
+            <label class="field-label">School</label>
+            <div class="field-value-container">
+              <div class="field-value">{degree.school}</div>
+              <button class="copy-btn" data-copy={degree.school} aria-label="Copy school to clipboard">📋</button>
+            </div>
+          </div>
+          
+          <div class="field-group">
+            <label class="field-label">Degree</label>
+            <div class="field-value-container">
+              <div class="field-value">{degree.degree}</div>
+              <button class="copy-btn" data-copy={degree.degree} aria-label="Copy degree to clipboard">📋</button>
+            </div>
+          </div>
+          
+          <div class="field-group">
+            <label class="field-label">End date</label>
+            <div class="field-value-container">
+              <div class="field-value">{degree.endDate}</div>
+              <button class="copy-btn" data-copy={degree.endDate} aria-label="Copy end date to clipboard">📋</button>
+            </div>
+          </div>
+        </div>
+      ))}
+    </section>
+  )}
+
+  <!-- Certifications Section -->
+  {certifications && certifications.length > 0 && (
+    <section class="linkedin-section">
+      <h2>Certifications</h2>
+      
+      {certifications.map((cert: { authority: string; name: string; url?: string }) => (
+        <div class="field-card">
+          <div class="field-group">
+            <label class="field-label">Name</label>
+            <div class="field-value-container">
+              <div class="field-value">{cert.name}</div>
+              <button class="copy-btn" data-copy={cert.name} aria-label="Copy certification name to clipboard">📋</button>
+            </div>
+          </div>
+          
+          <div class="field-group">
+            <label class="field-label">Issuing organization</label>
+            <div class="field-value-container">
+              <div class="field-value">{cert.authority}</div>
+              <button class="copy-btn" data-copy={cert.authority} aria-label="Copy issuing organization to clipboard">📋</button>
+            </div>
+          </div>
+          
+          {cert.url && (
+            <div class="field-group">
+              <label class="field-label">Credential URL</label>
+              <div class="field-value-container">
+                <div class="field-value">
+                  <a href={cert.url} target="_blank" rel="noopener noreferrer">{cert.url}</a>
+                </div>
+                <button class="copy-btn" data-copy={cert.url} aria-label="Copy credential URL to clipboard">📋</button>
+              </div>
+            </div>
+          )}
+        </div>
+      ))}
+    </section>
+  )}
+</PageLayout>
+
+<script>
+  // Handle copy button clicks
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      let textToCopy = '';
+      
+      // Check if this is a description copy button
+      if (btn.classList.contains('copy-description')) {
+        // Find the previous sibling with the description text
+        const descriptionElement = btn.closest('.field-value-container')?.querySelector('[data-description]');
+        textToCopy = descriptionElement?.textContent?.trim() || '';
+      } else {
+        // Get text from data-copy attribute
+        textToCopy = btn.getAttribute('data-copy') || '';
+      }
+      
+      try {
+        await navigator.clipboard.writeText(textToCopy);
+        
+        // Visual feedback
+        const original = btn.textContent;
+        btn.textContent = '✓';
+        btn.classList.add('copied');
+        
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.classList.remove('copied');
+        }, 1500);
+      } catch (err) {
+        console.error('Failed to copy text:', err);
+        // Fallback visual feedback for error
+        const original = btn.textContent;
+        btn.textContent = '✗';
+        setTimeout(() => {
+          btn.textContent = original;
+        }, 1500);
+      }
+    });
+  });
+</script>
+
+<style>
+  .linkedin-intro {
+    background: var(--bs-light, #f8f9fa);
+    border-left: 4px solid var(--bs-primary, #0d6efd);
+    padding: 1rem 1.25rem;
+    margin-bottom: 2rem;
+    border-radius: 0.25rem;
+  }
+  
+  .linkedin-intro p {
+    margin: 0;
+    color: var(--bs-body-color);
+  }
+  
+  .linkedin-section {
+    margin-bottom: 3rem;
+  }
+  
+  .linkedin-section h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--bs-heading-color);
+    border-bottom: 2px solid var(--bs-border-color);
+    padding-bottom: 0.5rem;
+  }
+  
+  .field-card {
+    background: var(--bs-body-bg, #ffffff);
+    border: 1px solid var(--bs-border-color, #dee2e6);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .field-group {
+    margin-bottom: 1.25rem;
+  }
+  
+  .field-group:last-child {
+    margin-bottom: 0;
+  }
+  
+  .field-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--bs-secondary-color, #6c757d);
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    margin-bottom: 0.5rem;
+  }
+  
+  .field-value-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .field-value {
+    flex: 1;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 1rem;
+    color: var(--bs-body-color);
+    line-height: 1.6;
+    padding: 0.5rem 0.75rem;
+    background: var(--bs-gray-100, #f8f9fa);
+    border: 1px solid var(--bs-border-color, #dee2e6);
+    border-radius: 0.375rem;
+    word-wrap: break-word;
+  }
+  
+  .description-text {
+    white-space: pre-wrap;
+    font-size: 0.95rem;
+    min-height: 4rem;
+    max-height: 20rem;
+    overflow-y: auto;
+  }
+  
+  .field-value a {
+    color: var(--bs-link-color, #0366d6);
+    text-decoration: none;
+    word-break: break-all;
+  }
+  
+  .field-value a:hover {
+    text-decoration: underline;
+  }
+  
+  .copy-btn {
+    flex-shrink: 0;
+    background: var(--bs-primary, #0d6efd);
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .copy-btn:hover {
+    background: var(--bs-primary-dark, #0b5ed7);
+    transform: scale(1.05);
+  }
+  
+  .copy-btn:active {
+    transform: scale(0.95);
+  }
+  
+  .copy-btn.copied {
+    background: var(--bs-success, #198754);
+  }
+  
+  .description-group .copy-btn {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .field-card {
+      padding: 1rem;
+    }
+    
+    .field-value {
+      font-size: 0.9rem;
+    }
+    
+    .copy-btn {
+      font-size: 1rem;
+      min-width: 2rem;
+      height: 2rem;
+      padding: 0.375rem 0.5rem;
+    }
+  }
+</style>

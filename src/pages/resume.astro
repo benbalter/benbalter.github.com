@@ -52,6 +52,12 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
 ---
 
 <PageLayout title={title} description={description}>
+  <div class="linkedin-link-container">
+    <a href="/resume/linkedin/" class="linkedin-link">
+      LinkedIn format →
+    </a>
+  </div>
+  
   <section class="resume-section">
     <h2>Experience</h2>
     
@@ -116,6 +122,28 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
 </PageLayout>
 
 <style>
+  .linkedin-link-container {
+    margin-bottom: 1.5rem;
+    text-align: right;
+  }
+  
+  .linkedin-link {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: var(--bs-link-color, #0366d6);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--bs-border-color, #dee2e6);
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+  }
+  
+  .linkedin-link:hover {
+    background: var(--bs-light, #f8f9fa);
+    border-color: var(--bs-link-color, #0366d6);
+    text-decoration: none;
+  }
+  
   .resume-section {
     margin-bottom: 3rem;
   }
