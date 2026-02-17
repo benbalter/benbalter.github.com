@@ -58,7 +58,7 @@ const relatedPosts = await findRelatedPosts(post, allPosts, 10);
   image={ogImageUrl}
   relatedPosts={relatedPosts}
   archived={post.data.archived}
-  postSlug={post.slug}
+  postId={post.id}
 >
   <Content />
 </PostLayout>
