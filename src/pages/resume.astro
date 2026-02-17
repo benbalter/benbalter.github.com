@@ -63,7 +63,7 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
           <div class:list={["position", { "position-last": index === group.positions.length - 1 }]}>
             <div class="position-header">
               <h4 class="position-title">{position.data.title}</h4>
-              <span class="position-dates">
+              <span class="date-badge">
                 {formatResumeDate(position.data.start_date) ?? 'Unknown'}—{position.data.end_date ? (formatResumeDate(position.data.end_date) ?? 'Unknown') : 'Present'}
               </span>
             </div>
@@ -85,7 +85,7 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
         <div class="education-item">
           <div class="education-header">
             <h3 class="school-name">{degree.school}</h3>
-            <span class="degree-date">{formatResumeDate(degree.date) ?? 'Unknown'}</span>
+            <span class="date-badge">{formatResumeDate(degree.date) ?? 'Unknown'}</span>
           </div>
           <div class="degree-name">{degree.degree}</div>
         </div>
@@ -187,7 +187,7 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
     flex: 1;
   }
 
-  .position-dates {
+  .date-badge {
     font-size: 0.8rem;
     font-weight: 500;
     color: var(--tw-prose-links, var(--color-primary, #337ab7));
@@ -239,17 +239,6 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
     margin-top: 0.15rem;
   }
 
-  .degree-date {
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--tw-prose-links, var(--color-primary, #337ab7));
-    background-color: color-mix(in srgb, var(--tw-prose-links, var(--color-primary, #337ab7)) 8%, transparent);
-    padding: 0.15rem 0.6rem;
-    border-radius: 9999px;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
   /* ============================================================
    * Certifications
    * ============================================================ */
@@ -287,7 +276,7 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
       gap: 0.25rem;
     }
 
-    .position-dates {
+    .position-header .date-badge {
       align-self: flex-start;
     }
 
@@ -296,7 +285,7 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
       gap: 0.25rem;
     }
 
-    .degree-date {
+    .education-header .date-badge {
       align-self: flex-start;
     }
 
@@ -326,8 +315,7 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
       background-color: #333;
     }
 
-    .position-dates,
-    .degree-date {
+    .date-badge {
       background-color: transparent;
       color: #333;
       padding: 0;
