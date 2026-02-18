@@ -7,7 +7,7 @@
  * @see https://github.com/google/schema-dts
  */
 
-import type { Person, Organization, WebSite, BlogPosting, BreadcrumbList, ListItem, WithContext } from 'schema-dts';
+import type { Person, Organization, WebSite, BlogPosting, BreadcrumbList, ListItem, WithContext, Occupation, EducationalOrganization, EducationalOccupationalCredential } from 'schema-dts';
 import { siteConfig } from '../config';
 
 /**
@@ -134,6 +134,66 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url?: stri
       return element;
     }),
   };
+}
+
+interface ResumeSchemaProps {
+  positions: Array<{
+    employer: string;
+    title: string;
+    startDate: string;
+    endDate?: string;
+  }>;
+  degrees?: Array<{
+    school: string;
+    degree: string;
+    date: string;
+  }>;
+  certifications?: Array<{
+    authority: string;
+    name: string;
+    url?: string;
+  }>;
+}
+
+/**
+ * Generate Person schema enriched with resume data
+ */
+export function generateResumeSchema(props: ResumeSchemaProps): WithContext<Person> {
+  const { positions, degrees, certifications } = props;
+
+  const currentPosition = positions.find(p => !p.endDate);
+  const worksFor: Organization | undefined = currentPosition ? {
+    '@type': 'Organization',
+    name: currentPosition.employer,
+  } : undefined;
+
+  const hasOccupation: Occupation[] = positions.map(position => ({
+    '@type': 'Occupation',
+    name: position.title,
+  }));
+
+  const alumniOf: EducationalOrganization[] | undefined = degrees?.map(degree => ({
+    '@type': 'EducationalOrganization',
+    name: degree.school,
+  }));
+
+  const hasCredential: EducationalOccupationalCredential[] | undefined = certifications?.map(cert => ({
+    '@type': 'EducationalOccupationalCredential',
+    name: cert.name,
+    credentialCategory: 'Professional Certification',
+    recognizedBy: {
+      '@type': 'Organization',
+      name: cert.authority,
+    },
+    ...(cert.url && { url: cert.url }),
+  }));
+
+  return generatePersonSchema({
+    worksFor,
+    hasOccupation,
+    alumniOf,
+    hasCredential,
+  });
 }
 
 /**
