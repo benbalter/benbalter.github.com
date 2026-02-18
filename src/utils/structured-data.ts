@@ -185,7 +185,7 @@ export function generateResumeSchema(props: ResumeSchemaProps): WithContext<Pers
       '@type': 'Organization',
       name: cert.authority,
     },
-    url: cert.url,
+    ...(cert.url && { url: cert.url }),
   }));
 
   return generatePersonSchema({
