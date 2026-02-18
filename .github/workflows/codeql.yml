@@ -1,5 +1,11 @@
 name: "CodeQL"
 
+# This is an "advanced setup" for CodeQL code scanning
+# For this workflow to function correctly, GitHub's "default setup" must be DISABLED
+# in the repository settings: Settings > Security > Code security and analysis > CodeQL analysis
+# GitHub does not allow both default and advanced setups to run simultaneously
+# See: https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning
+
 on:
   push:
     branches: ["main"]
