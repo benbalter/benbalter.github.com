@@ -175,10 +175,6 @@ export function generateResumeSchema(props: ResumeSchemaProps): WithContext<Pers
   const alumniOf: EducationalOrganization[] | undefined = degrees?.map(degree => ({
     '@type': 'EducationalOrganization',
     name: degree.school,
-    alumni: {
-      '@type': 'Person',
-      name: siteConfig.author,
-    },
   }));
 
   const hasCredential: EducationalOccupationalCredential[] | undefined = certifications?.map(cert => ({
