@@ -29,6 +29,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
+      - name: Disable default CodeQL setup
+        run: |
+          gh api \
+            --method PATCH \
+            -H "Accept: application/vnd.github+json" \
+            /repos/${{ github.repository }}/code-scanning/default-setup \
+            -f state=not-configured || true
+        env:
+          GH_TOKEN: ${{ github.token }}
+
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
