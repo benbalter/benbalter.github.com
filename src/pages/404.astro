@@ -25,7 +25,7 @@ const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'
 // Sort posts by slug (which contains date in Jekyll format YYYY-MM-DD)
 const posts: CollectionEntry<'posts'>[] = allPosts
   .sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => 
-    b.slug.localeCompare(a.slug)
+    b.id.localeCompare(a.id)
   )
   .slice(0, 10);
 ---
@@ -40,7 +40,7 @@ const posts: CollectionEntry<'posts'>[] = allPosts
 
   <ul>
     {posts.map((post) => {
-      const postUrl = getPostUrl(post.slug);
+      const postUrl = getPostUrl(post.id);
       return (
         <li>
           <a href={postUrl}>{post.data.title}</a>

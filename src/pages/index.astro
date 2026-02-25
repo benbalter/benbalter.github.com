@@ -17,7 +17,7 @@ const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'
 
 // Sort posts by slug (which contains date in Jekyll format YYYY-MM-DD)
 const posts: CollectionEntry<'posts'>[] = allPosts.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => 
-  b.slug.localeCompare(a.slug)
+  b.id.localeCompare(a.id)
 );
 
 // Split into featured (top 3) and regular posts
@@ -26,14 +26,14 @@ const regularPosts = posts.slice(3);
 
 // Get popular posts based on configured slugs
 const popularPosts = popularPostSlugs
-  .map(slug => allPosts.find((post: CollectionEntry<'posts'>) => post.slug === slug))
+  .map(slug => allPosts.find((post: CollectionEntry<'posts'>) => post.id === slug))
   .filter((post): post is CollectionEntry<'posts'> => post !== undefined);
 
 // Helper function to get post metadata
 function getPostMetadata(post: CollectionEntry<'posts'>) {
-  const postDate = getDateFromSlug(post.slug);
+  const postDate = getDateFromSlug(post.id);
   return {
-    postUrl: getPostUrl(post.slug),
+    postUrl: getPostUrl(post.id),
     date: formatPostDate(postDate),
     isoDate: formatISODate(postDate),
     readingTime: calculateReadingTime(post.body),
