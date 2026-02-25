@@ -35,6 +35,12 @@ const EXCLUDED_PAGES = [
 
 // https://astro.build/config
 export default defineConfig({
+  // Temporary migration helper for legacy content collections (type: 'content', entry.slug, entry.render())
+  // TODO: Migrate to Content Layer API and remove this flag
+  legacy: {
+    collectionsBackwardsCompat: true,
+  },
+  
   // Output directory for built site (separate from Jekyll _site/)
   outDir: './dist-astro',
   

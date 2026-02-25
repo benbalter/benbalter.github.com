@@ -1,4 +1,5 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
 
 /**
  * Content Collections configuration for Astro
@@ -49,7 +50,7 @@ const postsCollection = defineCollection({
     // Support both array format (used by what-to-read post) and object format (used by 10-years post)
     posts: z.union([
       z.array(z.string()), // Array of URLs: ["/2021/01/01/slug/", ...]
-      z.record(z.string()) // Object with titles as keys: { "Title": "/2021/01/01/slug/" }
+      z.record(z.string(), z.string()) // Object with titles as keys: { "Title": "/2021/01/01/slug/" }
     ]).optional(),
     roles: z.array(z.string()).optional(),
   }),
