@@ -1,4 +1,5 @@
 import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
 /**
@@ -10,7 +11,7 @@ import { z } from 'astro/zod';
 
 // Schema for blog posts (from _posts/)
 const postsCollection = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/posts" }),
   schema: z.object({
     // Required fields (consistent with Jekyll)
     title: z.string(),
@@ -58,7 +59,7 @@ const postsCollection = defineCollection({
 
 // Schema for pages (about, resume, etc.)
 const pagesCollection = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/pages" }),
   schema: z.object({
     // Required fields
     title: z.string(),
@@ -100,7 +101,7 @@ const pagesCollection = defineCollection({
 
 // Schema for resume positions
 const resumePositionsCollection = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/resume-positions" }),
   schema: z.object({
     // Required fields
     employer: z.string(),
