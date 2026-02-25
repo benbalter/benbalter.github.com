@@ -334,6 +334,35 @@ test.describe('Structured Data (JSON-LD)', () => {
     expect(breadcrumbSchema.itemListElement).toBeTruthy();
     expect(breadcrumbSchema.itemListElement.length).toBeGreaterThan(0);
   });
+
+  test('resume should have enriched Person schema', async ({ page }) => {
+    await page.goto('/resume/');
+    await waitForPageReady(page);
+
+    const jsonLdElements = page.locator('script[type="application/ld+json"]');
+    const allElements = await jsonLdElements.all();
+
+    let resumePerson: any = null;
+    for (const element of allElements) {
+      const content = await element.textContent();
+      if (content) {
+        const schema = JSON.parse(content);
+        const schemaArray = Array.isArray(schema) ? schema : [schema];
+        const person = schemaArray.find((s: any) => s['@type'] === 'Person' && s.hasOccupation);
+        if (person) {
+          resumePerson = person;
+          break;
+        }
+      }
+    }
+
+    expect(resumePerson).toBeTruthy();
+    expect(resumePerson.worksFor).toBeTruthy();
+    expect(resumePerson.worksFor['@type']).toBe('Organization');
+    expect(resumePerson.hasOccupation.length).toBeGreaterThan(0);
+    expect(resumePerson.alumniOf.length).toBeGreaterThan(0);
+    expect(resumePerson.hasCredential.length).toBeGreaterThan(0);
+  });
 });
 
 test.describe('Blog Post SEO', () => {

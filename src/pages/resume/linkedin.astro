@@ -1,0 +1,253 @@
+---
+/**
+ * LinkedIn-Friendly Resume Page
+ * 
+ * Displays resume data in a format optimized for easy copy-paste into LinkedIn profile fields.
+ * Each field has a copy button for quick clipboard access.
+ * This is a utility page, not indexed by search engines.
+ */
+
+import PageLayout from '../../layouts/PageLayout.astro';
+import { getEntry, getCollection, type CollectionEntry } from 'astro:content';
+import { formatResumeDate } from '../../utils/post-urls';
+import { stripMarkdown } from '../../utils/strip-markdown';
+
+// Load resume page data
+const resumePage = await getEntry('pages', 'resume');
+if (!resumePage) {
+  throw new Error('Resume page data not found');
+}
+
+const { degrees, certifications } = resumePage.data;
+
+// Load resume positions from content collection
+const allPositions = await getCollection('resume-positions');
+
+// Sort by start_date (most recent first)
+const sortedPositions = allPositions.sort((a: CollectionEntry<'resume-positions'>, b: CollectionEntry<'resume-positions'>) => {
+  return new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime();
+});
+
+/**
+ * Clean up description text for LinkedIn by stripping markdown
+ * and replacing list markers with ASCII bullets for clean plain-text paste.
+ */
+function cleanDescription(text: string): string {
+  if (!text) return '';
+
+  // Replace list markers with ASCII bullets, strip heading markers and
+  // HTML comments before calling stripMarkdown (which collapses whitespace)
+  let cleaned = text
+    .replace(/^[-*]\s+/gm, '• ')
+    .replace(/^#+\s+/gm, '')
+    .replace(/<!--.*?-->/g, '');
+
+  return stripMarkdown(cleaned);
+}
+
+// Prepare position data with cleaned descriptions and formatted dates
+interface PositionData {
+  title: string;
+  employer: string;
+  startDate: string;
+  endDate: string;
+  description: string;
+}
+
+const positionsData: PositionData[] = sortedPositions.map((position: CollectionEntry<'resume-positions'>) => ({
+  title: position.data.title,
+  employer: position.data.employer,
+  startDate: formatResumeDate(position.data.start_date) || 'Unknown',
+  endDate: position.data.end_date ? (formatResumeDate(position.data.end_date) || 'Unknown') : 'Present',
+  description: cleanDescription(position.body),
+}));
+
+// Prepare education data with formatted dates
+interface EducationData {
+  school: string;
+  degree: string;
+  endDate: string;
+}
+
+const educationData: EducationData[] = degrees?.map((degree: { school: string; degree: string; date: string }) => ({
+  school: degree.school,
+  degree: degree.degree,
+  endDate: formatResumeDate(degree.date) || 'Unknown',
+})) || [];
+---
+
+<PageLayout 
+  title="Resume — LinkedIn Format" 
+  description="Resume data formatted for easy LinkedIn profile updates."
+  noindex={true}
+>
+  <div class="bg-gray-50 dark:bg-gray-800 border-l-4 border-primary rounded px-5 py-4 mb-8">
+    <p class="m-0 text-gray-900 dark:text-gray-100">
+      This page formats resume data for easy copy-paste into your LinkedIn profile. 
+      Click the 📋 icon next to any field to copy its contents to your clipboard.
+    </p>
+  </div>
+
+  <!-- Experience Section -->
+  <section class="mb-12">
+    <h2 class="text-3xl font-semibold mt-10 mb-6 text-gray-900 dark:text-gray-100 border-b-2 border-gray-300 dark:border-gray-600 pb-2">Experience</h2>
+    
+    {positionsData.map((position: PositionData) => (
+      <div class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg p-6 mb-6 shadow-card">
+        <div class="mb-5">
+          <span class="block text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide mb-2">Title</span>
+          <div class="flex items-start gap-3">
+            <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words">{position.title}</div>
+            <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={position.title} aria-label="Copy title to clipboard">📋</button>
+          </div>
+        </div>
+        
+        <div class="mb-5">
+          <span class="block text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide mb-2">Company</span>
+          <div class="flex items-start gap-3">
+            <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words">{position.employer}</div>
+            <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={position.employer} aria-label="Copy company to clipboard">📋</button>
+          </div>
+        </div>
+        
+        <div class="mb-5">
+          <span class="block text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide mb-2">Start date</span>
+          <div class="flex items-start gap-3">
+            <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words">{position.startDate}</div>
+            <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={position.startDate} aria-label="Copy start date to clipboard">📋</button>
+          </div>
+        </div>
+        
+        <div class="mb-5">
+          <span class="block text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide mb-2">End date</span>
+          <div class="flex items-start gap-3">
+            <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words">{position.endDate}</div>
+            <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={position.endDate} aria-label="Copy end date to clipboard">📋</button>
+          </div>
+        </div>
+        
+        <div>
+          <span class="block text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide mb-2">Description</span>
+          <div class="flex items-start gap-3">
+            <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words whitespace-pre-wrap text-[0.95rem] min-h-16 max-h-80 overflow-y-auto" data-description>{position.description}</div>
+            <button class="copy-btn copy-description shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center self-start mt-2 hover:bg-primary-600 hover:scale-105 active:scale-95" aria-label="Copy description to clipboard">📋</button>
+          </div>
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <!-- Education Section -->
+  {educationData && educationData.length > 0 && (
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mt-10 mb-6 text-gray-900 dark:text-gray-100 border-b-2 border-gray-300 dark:border-gray-600 pb-2">Education</h2>
+      
+      {educationData.map((degree: EducationData) => (
+        <div class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg p-6 mb-6 shadow-card">
+          <div class="mb-5">
+            <span class="block text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide mb-2">School</span>
+            <div class="flex items-start gap-3">
+              <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words">{degree.school}</div>
+              <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={degree.school} aria-label="Copy school to clipboard">📋</button>
+            </div>
+          </div>
+          
+          <div class="mb-5">
+            <span class="block text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide mb-2">Degree</span>
+            <div class="flex items-start gap-3">
+              <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words">{degree.degree}</div>
+              <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={degree.degree} aria-label="Copy degree to clipboard">📋</button>
+            </div>
+          </div>
+          
+          <div>
+            <span class="block text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide mb-2">End date</span>
+            <div class="flex items-start gap-3">
+              <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words">{degree.endDate}</div>
+              <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={degree.endDate} aria-label="Copy end date to clipboard">📋</button>
+            </div>
+          </div>
+        </div>
+      ))}
+    </section>
+  )}
+
+  <!-- Certifications Section -->
+  {certifications && certifications.length > 0 && (
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mt-10 mb-6 text-gray-900 dark:text-gray-100 border-b-2 border-gray-300 dark:border-gray-600 pb-2">Certifications</h2>
+      
+      {certifications.map((cert: { authority: string; name: string; url?: string }) => (
+        <div class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg p-6 mb-6 shadow-card">
+          <div class="mb-5">
+            <span class="block text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide mb-2">Name</span>
+            <div class="flex items-start gap-3">
+              <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words">{cert.name}</div>
+              <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={cert.name} aria-label="Copy certification name to clipboard">📋</button>
+            </div>
+          </div>
+          
+          <div class={cert.url ? 'mb-5' : ''}>
+            <span class="block text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide mb-2">Issuing organization</span>
+            <div class="flex items-start gap-3">
+              <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words">{cert.authority}</div>
+              <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={cert.authority} aria-label="Copy issuing organization to clipboard">📋</button>
+            </div>
+          </div>
+          
+          {cert.url && (
+            <div>
+              <span class="block text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide mb-2">Credential URL</span>
+              <div class="flex items-start gap-3">
+                <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-all">
+                  <a href={cert.url} target="_blank" rel="noopener noreferrer" class="text-primary no-underline hover:underline">{cert.url}</a>
+                </div>
+                <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={cert.url} aria-label="Copy credential URL to clipboard">📋</button>
+              </div>
+            </div>
+          )}
+        </div>
+      ))}
+    </section>
+  )}
+</PageLayout>
+
+<script>
+  function initCopyButtons() {
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        let textToCopy = '';
+        
+        if (btn.classList.contains('copy-description')) {
+          const descriptionElement = btn.closest('.flex')?.querySelector('[data-description]');
+          textToCopy = descriptionElement?.textContent?.trim() || '';
+        } else {
+          textToCopy = btn.getAttribute('data-copy') || '';
+        }
+        
+        try {
+          await navigator.clipboard.writeText(textToCopy);
+          
+          const original = btn.textContent;
+          btn.textContent = '✓';
+          btn.classList.add('!bg-green-600');
+          
+          setTimeout(() => {
+            btn.textContent = original;
+            btn.classList.remove('!bg-green-600');
+          }, 1500);
+        } catch (err) {
+          console.error('Failed to copy text:', err);
+          const original = btn.textContent;
+          btn.textContent = '✗';
+          setTimeout(() => {
+            btn.textContent = original;
+          }, 1500);
+        }
+      });
+    });
+  }
+
+  // Re-initialize after Astro view transitions
+  document.addEventListener('astro:page-load', initCopyButtons);
+</script>

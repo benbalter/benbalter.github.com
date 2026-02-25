@@ -27,6 +27,7 @@ const disallowedPaths = [
   '/open-source-demystified/',
   '/open-source-software-licensing/',
   '/open-sourcing-government/',
+  '/resume/linkedin/',
   '/simple-api/',
   '/tag*',
   '/tags*',
