@@ -7,15 +7,14 @@ import type { CollectionEntry } from 'astro:content';
 
 // Helper function to create mock posts for testing
 function createMockPost(
-  slug: string,
+  id: string,
   title: string,
   description: string,
   published = true,
   archived = false
 ): CollectionEntry<'posts'> {
   return {
-    slug,
-    id: slug,
+    id,
     collection: 'posts',
     data: {
       title,
@@ -47,8 +46,8 @@ describe('Archived Posts Filtering', () => {
     );
 
     expect(nonArchivedPosts.length).toBe(2);
-    expect(nonArchivedPosts[0].slug).toBe('2024-01-01-post-1');
-    expect(nonArchivedPosts[1].slug).toBe('2024-01-03-post-3');
+    expect(nonArchivedPosts[0].id).toBe('2024-01-01-post-1');
+    expect(nonArchivedPosts[1].id).toBe('2024-01-03-post-3');
   });
 
   it('should include non-archived posts', () => {
@@ -77,7 +76,7 @@ describe('Archived Posts Filtering', () => {
     );
 
     expect(visiblePosts.length).toBe(1);
-    expect(visiblePosts[0].slug).toBe('2024-01-01-post-1');
+    expect(visiblePosts[0].id).toBe('2024-01-01-post-1');
   });
 
   it('should handle posts with undefined archived field as not archived', () => {
