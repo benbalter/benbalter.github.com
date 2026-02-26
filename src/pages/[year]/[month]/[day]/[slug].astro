@@ -1,5 +1,5 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 import PostLayout from '../../../../layouts/PostLayout.astro';
 import { findRelatedPosts, initializeRelatedPostsCache } from '../../../../utils/related-posts';
 
@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 
   return posts.map((post: CollectionEntry<'posts'>) => {
     // Extract date from slug (YYYY-MM-DD-slug format)
-    const dateMatch = post.slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
+    const dateMatch = post.id.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
     
     if (dateMatch) {
       const [, year, month, day, slug] = dateMatch;
@@ -26,7 +26,7 @@ export async function getStaticPaths() {
     }
     
     // Fallback for posts without date in slug
-    console.warn(`Post ${post.slug} does not match expected format YYYY-MM-DD-slug`);
+    console.warn(`Post ${post.id} does not match expected format YYYY-MM-DD-slug`);
     return null;
   }).filter(Boolean);
 }
@@ -37,7 +37,7 @@ interface Props {
 }
 
 const { post, allPosts } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 
 // Extract date from params for display (use URL params to ensure consistency with the route)
 const { year, month, day, slug } = Astro.params;

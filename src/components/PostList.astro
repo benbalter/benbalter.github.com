@@ -54,7 +54,7 @@ const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'
 const postsByUrl = new Map<string, CollectionEntry<'posts'>>();
 
 allPosts.forEach((post: CollectionEntry<'posts'>) => {
-  const url = getPostUrl(post.slug);
+  const url = getPostUrl(post.id);
   if (url) {
     postsByUrl.set(url, post);
   }
@@ -74,9 +74,9 @@ const matchedPosts = urls
 
 {matchedPosts
   .map(post => {
-    const url = getPostUrl(post.slug);
+    const url = getPostUrl(post.id);
     if (!url) {
-      console.error(`PostList: Invalid slug format: ${post.slug}`);
+      console.error(`PostList: Invalid slug format: ${post.id}`);
       return null;
     }
     

@@ -174,7 +174,7 @@ export function initializeRelatedPostsCache(allPosts: CollectionEntry<'posts'>[]
   for (const post of allPosts) {
     const postContent = `${post.data.title} ${post.data.description || ''}`;
     const words = extractWords(postContent);
-    wordsCache.set(post.slug, words);
+    wordsCache.set(post.id, words);
   }
   
   // Calculate and cache IDF once for all documents
@@ -206,7 +206,7 @@ export async function findRelatedPosts(
   }
   
   // Get cached TF-IDF for current post
-  const currentTfIdf = tfIdfCache.get(currentPost.slug);
+  const currentTfIdf = tfIdfCache.get(currentPost.id);
   if (!currentTfIdf) {
     // Fallback if post not in cache (shouldn't happen)
     return [];
@@ -216,11 +216,11 @@ export async function findRelatedPosts(
   const similarities: Array<{ post: CollectionEntry<'posts'>; score: number }> = [];
   
   for (const post of allPosts) {
-    if (post.slug === currentPost.slug) continue;
+    if (post.id === currentPost.id) continue;
     // Only check archived status since published is already filtered in getStaticPaths
     if (post.data.archived === true) continue;
     
-    const postTfIdf = tfIdfCache.get(post.slug);
+    const postTfIdf = tfIdfCache.get(post.id);
     if (!postTfIdf) continue;
     
     const similarity = cosineSimilarity(currentTfIdf, postTfIdf);

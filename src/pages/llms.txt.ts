@@ -19,9 +19,8 @@ const CULTURE_POST_ID = '2021-02-01-what-to-read-before-starting-or-interviewing
 
 /**
  * Generate a URL path from a blog post.
- * In Astro, `post.id` includes the file extension (e.g., "2021-02-01-what-to-read-before-starting-or-interviewing-at-github.mdx")
- * while `post.slug` does not. This helper expects an ID or slug without the extension, so prefer passing `post.slug`.
- * Accepted formats: YYYY-MM-DD-slug or YYYY-MM-DD-slug.md/.mdx
+ * In Astro 6, `post.id` is the slug without extension (e.g., "2021-02-01-what-to-read-before-starting-or-interviewing-at-github").
+ * Accepted format: YYYY-MM-DD-slug
  * URL format: /YYYY/MM/DD/slug/
  * @returns URL path or null if format is invalid
  */
@@ -41,8 +40,8 @@ export const GET: APIRoute = async () => {
   const sortedPosts = allPosts.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => {
     // Post slugs are like "2010-09-12-wordpress-resume-plugin"
     // Extract YYYY-MM-DD from the beginning
-    const dateA = new Date(a.slug.substring(0, 10));
-    const dateB = new Date(b.slug.substring(0, 10));
+    const dateA = new Date(a.id.substring(0, 10));
+    const dateB = new Date(b.id.substring(0, 10));
     return dateB.getTime() - dateA.getTime();
   });
   const recentPosts = sortedPosts.slice(0, 10);
@@ -52,7 +51,7 @@ export const GET: APIRoute = async () => {
   const resumePage = allPages.find((p: CollectionEntry<'pages'>) => p.data.permalink === '/resume/');
 
   // Get the GitHub culture post and its associated posts
-  const culturePost = allPosts.find((p: CollectionEntry<'posts'>) => p.slug.includes(CULTURE_POST_ID));
+  const culturePost = allPosts.find((p: CollectionEntry<'posts'>) => p.id.includes(CULTURE_POST_ID));
 
   // Mini bio - extracted from centralized about-bio.ts
   // getFirstParagraph() converts Markdown links to HTML, so strip HTML for plain text
@@ -76,7 +75,7 @@ export const GET: APIRoute = async () => {
   content += `\n## Recent Blog Posts\n\n`;
   
   for (const post of recentPosts) {
-    const postUrl = getPostUrl(post.slug);
+    const postUrl = getPostUrl(post.id);
     if (!postUrl) continue; // Skip posts with invalid slug format
     
     // Get description or excerpt (first EXCERPT_LENGTH characters of body)
@@ -99,7 +98,7 @@ export const GET: APIRoute = async () => {
     content += `Understanding GitHub's unique culture and communication patterns:\n\n`;
     
     // Link to the main culture post
-    const cultureUrl = getPostUrl(culturePost.slug);
+    const cultureUrl = getPostUrl(culturePost.id);
     if (cultureUrl) {
       content += `* [${culturePost.data.title}](${siteConfig.url}${cultureUrl}): ${culturePost.data.description}\n`;
     }
@@ -108,7 +107,7 @@ export const GET: APIRoute = async () => {
     if (culturePost.data.posts && Array.isArray(culturePost.data.posts)) {
       for (const linkedPostUrl of culturePost.data.posts) {
         const linkedPost = allPosts.find((p: CollectionEntry<'posts'>) => {
-          const postPath = getPostUrl(p.slug);
+          const postPath = getPostUrl(p.id);
           return postPath === linkedPostUrl;
         });
         
@@ -124,7 +123,7 @@ export const GET: APIRoute = async () => {
       
       for (const rolePostUrl of culturePost.data.roles) {
         const rolePost = allPosts.find((p: CollectionEntry<'posts'>) => {
-          const postPath = getPostUrl(p.slug);
+          const postPath = getPostUrl(p.id);
           return postPath === rolePostUrl;
         });
         
