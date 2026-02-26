@@ -53,7 +53,7 @@ const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries())
 
 // Generate resume structured data (JSON-LD)
 const resumeSchema = generateResumeSchema({
-  positions: sortedPositions.map(p => ({
+  positions: sortedPositions.map((p: CollectionEntry<'resume-positions'>) => ({
     employer: p.data.employer,
     title: p.data.title,
     startDate: p.data.start_date,
