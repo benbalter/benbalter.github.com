@@ -27,11 +27,12 @@ test.describe('Dark Mode Support', () => {
       const pre = page.locator('pre.astro-code').first();
       await expect(pre).toBeVisible();
       
-      // In Astro 6, dual theme code blocks have the astro-code-themes class
-      // and both theme names as classes
+      // In Astro 6, dual theme code blocks have both theme names as classes
       const hasThemeSetup = await pre.evaluate(el => {
         const classes = el.className;
-        return classes.includes('github-light') && classes.includes('github-dark');
+        return classes.includes('astro-code-themes') &&
+               classes.includes('github-light') && 
+               classes.includes('github-dark');
       });
       expect(hasThemeSetup).toBe(true);
     });
@@ -54,6 +55,7 @@ test.describe('Dark Mode Support', () => {
         if (!pre) return false;
         const classes = pre.className;
         return classes.includes('astro-code-themes') && 
+               classes.includes('github-light') &&
                classes.includes('github-dark');
       });
       
