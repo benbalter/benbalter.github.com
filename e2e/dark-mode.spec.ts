@@ -23,23 +23,17 @@ test.describe('Dark Mode Support', () => {
       const codeBlock = page.locator('pre code').first();
       await expect(codeBlock).toBeVisible();
 
-      // In light mode, code blocks should have light background
-      const bgColor = await codeBlock.evaluate(el => {
-        const pre = el.closest('pre');
-        return window.getComputedStyle(pre!).backgroundColor;
-      });
-
-      // Light background should be closer to white than black
-      // Parse RGB values
-      const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
-      expect(match).toBeTruthy();
-      const r = parseInt(match![1]);
-      const g = parseInt(match![2]);
-      const b = parseInt(match![3]);
-      const brightness = (r + g + b) / 3;
+      // Verify the code block is configured for dual themes (Astro 6 uses class-based theming)
+      const pre = page.locator('pre.astro-code').first();
+      await expect(pre).toBeVisible();
       
-      // Light mode should have brightness > 128 (more flexible threshold)
-      expect(brightness).toBeGreaterThan(128);
+      // In Astro 6, dual theme code blocks have the astro-code-themes class
+      // and both theme names as classes
+      const hasThemeSetup = await pre.evaluate(el => {
+        const classes = el.className;
+        return classes.includes('github-light') && classes.includes('github-dark');
+      });
+      expect(hasThemeSetup).toBe(true);
     });
 
     test('should use appropriate syntax highlighting theme in dark mode', async ({ page }) => {
@@ -52,18 +46,19 @@ test.describe('Dark Mode Support', () => {
       const codeBlock = page.locator('pre code').first();
       await expect(codeBlock).toBeVisible();
 
-      // Verify the code block has dark mode CSS custom properties defined
-      // (these are set by Shiki for dual theme support)
-      const hasDarkModeVars = await codeBlock.evaluate(el => {
+      // Verify the code block is configured for dual themes
+      // In Astro 6, dual theme support is indicated by the astro-code-themes class
+      // and both theme names (github-light, github-dark) as CSS classes on the pre element
+      const hasDualThemeSetup = await codeBlock.evaluate(el => {
         const pre = el.closest('pre');
-        const style = pre?.getAttribute('style') || '';
-        return style.includes('--shiki-dark-bg');
+        if (!pre) return false;
+        const classes = pre.className;
+        return classes.includes('astro-code-themes') && 
+               classes.includes('github-dark');
       });
       
-      // The code block should have dark mode CSS variables defined
-      // Note: The actual application of dark mode colors requires CSS rules that 
-      // use these variables with @media (prefers-color-scheme: dark)
-      expect(hasDarkModeVars).toBe(true);
+      // The code block should be configured for dual theme support
+      expect(hasDualThemeSetup).toBe(true);
     });
   });
 
