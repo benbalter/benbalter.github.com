@@ -77,4 +77,31 @@ test.describe('Resume LinkedIn Format Page', () => {
     // Descriptions with list items should contain bullet characters
     expect(firstDescription).toContain('•');
   });
+
+  test('should have line breaks between bullet points when copied', async ({ page }) => {
+    const description = page.locator('[data-description]').first();
+    
+    // Simulate text selection and check if it contains newlines
+    const selectedText = await description.evaluate((el) => {
+      const range = document.createRange();
+      range.selectNodeContents(el);
+      const selection = window.getSelection();
+      if (!selection) return '';
+      selection.removeAllRanges();
+      selection.addRange(range);
+      const text = selection.toString();
+      selection.removeAllRanges();
+      return text;
+    });
+    
+    // The selected text should contain newlines between bullet points
+    expect(selectedText).toContain('\n•');
+    
+    // Count bullets and newlines - they should be related
+    const bulletCount = (selectedText.match(/•/g) || []).length;
+    const newlineCount = (selectedText.match(/\n/g) || []).length;
+    
+    // Should have at least one newline per bullet (bullets appear after newlines)
+    expect(newlineCount).toBeGreaterThanOrEqual(bulletCount - 1);
+  });
 });

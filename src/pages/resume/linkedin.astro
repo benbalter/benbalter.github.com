@@ -35,14 +35,25 @@ const sortedPositions = allPositions.sort((a: CollectionEntry<'resume-positions'
 function cleanDescription(text: string): string {
   if (!text) return '';
 
-  // Replace list markers with ASCII bullets, strip heading markers and
-  // HTML comments before calling stripMarkdown (which collapses whitespace)
+  // Replace list markers with a unique placeholder that won't be affected by stripMarkdown
+  // Use a unique marker that's unlikely to appear in normal text and won't be affected by markdown stripping
+  const bulletPlaceholder = '[[BULLET]]';
   let cleaned = text
-    .replace(/^[-*]\s+/gm, '• ')
+    .replace(/^[-*]\s+/gm, bulletPlaceholder)
     .replace(/^#+\s+/gm, '')
     .replace(/<!--.*?-->/g, '');
 
-  return stripMarkdown(cleaned);
+  // Strip markdown formatting (this will collapse whitespace)
+  cleaned = stripMarkdown(cleaned);
+  
+  // Replace placeholders with actual bullets and newlines
+  // Use <br> tags for line breaks since whitespace collapsing affects plain newlines
+  cleaned = cleaned
+    .replace(/\[\[BULLET\]\]/g, '<br>• ')
+    .replace(/^<br>/, '')        // Remove leading <br>
+    .replace(/\s+$/, '');         // Remove trailing whitespace
+  
+  return cleaned;
 }
 
 // Prepare position data with cleaned descriptions and formatted dates
@@ -129,7 +140,7 @@ const educationData: EducationData[] = degrees?.map((degree: { school: string; d
         <div>
           <span class="block text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide mb-2">Description</span>
           <div class="flex items-start gap-3">
-            <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words whitespace-pre-wrap text-[0.95rem] min-h-16 max-h-80 overflow-y-auto" data-description>{position.description}</div>
+            <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words whitespace-pre-wrap text-[0.95rem] min-h-16 max-h-80 overflow-y-auto" data-description set:html={position.description}></div>
             <button class="copy-btn copy-description shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center self-start mt-2 hover:bg-primary-600 hover:scale-105 active:scale-95" aria-label="Copy description to clipboard">📋</button>
           </div>
         </div>
