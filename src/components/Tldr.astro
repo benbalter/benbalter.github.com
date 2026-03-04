@@ -339,8 +339,8 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
     }
   }
 
-  /* Custom styles for initialism */
-  .initialism {
+  /* Custom styles for initialism - global so it applies in markdown content too */
+  :global(.initialism) {
     @apply no-underline cursor-help;
     border-bottom: 1px dotted currentColor;
     -webkit-tap-highlight-color: var(--tldr-tap-highlight-color);
@@ -349,7 +349,7 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
   
   /* Use pointer cursor on touch-only devices */
   @media (any-pointer: coarse) and (hover: none) {
-    .initialism {
+    :global(.initialism) {
       @apply cursor-pointer;
     }
   }
