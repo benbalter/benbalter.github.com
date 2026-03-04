@@ -90,8 +90,10 @@ jobs:
         run: npm ci
 
       - name: Install Harper
+        env:
+          HARPER_VERSION: v1.9.0
         run: |
-          curl -sL https://github.com/Automattic/harper/releases/latest/download/harper-cli-x86_64-unknown-linux-gnu.tar.gz | tar xz
+          curl -fSL "https://github.com/Automattic/harper/releases/download/${HARPER_VERSION}/harper-cli-x86_64-unknown-linux-gnu.tar.gz" | tar xz
           sudo mv harper-cli /usr/local/bin/
 
       - name: script/cibuild-content
