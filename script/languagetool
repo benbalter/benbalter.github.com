@@ -1,0 +1,101 @@
+#!/bin/sh
+
+set -e
+
+LANGUAGETOOL_URL="${LANGUAGETOOL_URL:-http://localhost:8010}"
+
+# Check if LanguageTool server is available
+if ! curl -sf "${LANGUAGETOOL_URL}/v2/languages" > /dev/null 2>&1; then
+	echo "LanguageTool server not available at ${LANGUAGETOOL_URL}. Skipping."
+	echo "To run LanguageTool locally, see:"
+	echo "https://ben.balter.com/2025/01/30/how-to-run-language-tool-open-source-grammarly-alternative-on-macos/"
+	exit 0
+fi
+
+echo "Running LanguageTool grammar checker..."
+
+# Rules disabled to avoid false positives from Markdown syntax
+# and overlap with existing prose linters (retext-spell, textlint, etc.)
+DISABLED_RULES="MORFOLOGIK_RULE_EN_US"           # Spelling (handled by retext-spell)
+DISABLED_RULES="${DISABLED_RULES},EN_A_VS_AN"     # a/an (handled by retext-indefinite-article)
+DISABLED_RULES="${DISABLED_RULES},ENGLISH_WORD_REPEAT_RULE" # Repeated words (handled by retext-repeated-words)
+DISABLED_RULES="${DISABLED_RULES},UPPERCASE_SENTENCE_START" # Code terms may start sentences
+DISABLED_RULES="${DISABLED_RULES},WHITESPACE_RULE"          # Markdown formatting artifacts
+DISABLED_RULES="${DISABLED_RULES},COMMA_PARENTHESIS_WHITESPACE" # Markdown link syntax
+DISABLED_RULES="${DISABLED_RULES},EN_UNPAIRED_BRACKETS"     # Markdown brackets for links/refs
+DISABLED_RULES="${DISABLED_RULES},UNLIKELY_OPENING_PUNCTUATION" # Markdown formatting
+DISABLED_RULES="${DISABLED_RULES},SENTENCE_FRAGMENT"        # Headings and list items
+DISABLED_RULES="${DISABLED_RULES},PUNCTUATION_PARAGRAPH_END" # Code blocks at paragraph end
+DISABLED_RULES="${DISABLED_RULES},DOUBLE_PUNCTUATION"       # Footnote syntax
+DISABLED_RULES="${DISABLED_RULES},ARROWS"                   # Handled by remark-textr
+DISABLED_RULES="${DISABLED_RULES},CONSECUTIVE_SPACES"       # Markdown stripping artifacts
+DISABLED_RULES="${DISABLED_RULES},ENGLISH_WORD_REPEAT_BEGINNING_RULE" # Lists repeat sentence starts
+DISABLED_RULES="${DISABLED_RULES},EN_UNPAIRED_QUOTES"       # Markdown formatting artifacts
+DISABLED_RULES="${DISABLED_RULES},COMMA_PERIOD"             # Markdown footnote syntax artifacts
+
+errors=0
+files_checked=0
+
+for file in src/content/posts/*.md src/content/posts/*.mdx; do
+	# Skip if glob didn't match any files
+	[ -e "$file" ] || continue
+
+	# Extract plain text: strip frontmatter, code blocks, inline code, HTML, URLs
+	text=$(awk '
+		NR==1 && /^---$/ { in_fm=1; next }
+		in_fm && /^---$/ { in_fm=0; next }
+		in_fm { next }
+		/^```/ { in_code=!in_code; next }
+		in_code { next }
+		{ print }
+	' "$file" | \
+		sed -E \
+		    -e 's/`[^`]*`/CODE/g' \
+		    -e 's/<[^>]*>//g' \
+		    -e 's/!\[[^]]*\]\([^)]*\)//g' \
+		    -e 's/\[\^[^]]*\]//g' \
+		    -e 's/\[([^]]*)\]\([^)]*\)/ \1 /g' \
+		    -e 's/^#{1,6} //' \
+		    -e 's/\*\*//g' \
+		    -e 's/\*//g' \
+		    -e 's/^[-*+] //' \
+		    -e 's/^[0-9]+\. //' | \
+		sed -e 's/  */ /g' -e 's/^ //')
+
+	# Skip empty files (e.g., all code)
+	if [ -z "$(echo "$text" | tr -d '[:space:]')" ]; then
+		continue
+	fi
+
+	files_checked=$((files_checked + 1))
+
+	# Write text to temp file for safe curl usage
+	tmpfile=$(mktemp)
+	echo "$text" > "$tmpfile"
+
+	response=$(curl -s -X POST "${LANGUAGETOOL_URL}/v2/check" \
+		--data-urlencode "text@${tmpfile}" \
+		-d "language=en-US" \
+		-d "disabledRules=${DISABLED_RULES}") || true
+
+	rm -f "$tmpfile"
+
+	matches=$(echo "$response" | jq '.matches | length' 2>/dev/null) || matches=0
+
+	if [ "$matches" -gt 0 ]; then
+		echo ""
+		echo "=== ${file}: ${matches} issue(s) ==="
+		echo "$response" | jq -r '.matches[] | "  [\(.rule.id)] \(.message)\n    Context: \"\(.context.text)\"\n"'
+		errors=$((errors + matches))
+	fi
+done
+
+echo ""
+echo "Checked ${files_checked} file(s)."
+
+if [ "$errors" -gt 0 ]; then
+	echo "Total: ${errors} issue(s) found."
+	exit 1
+fi
+
+echo "No issues found."
