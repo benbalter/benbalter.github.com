@@ -12,7 +12,7 @@ Today marks thirteen years since I joined GitHub. I've been writing a book—*Op
 
 ---
 
-We do so many aspects of the workday just because it's how things have been done since the dawn of the Industrial Revolution. Nobody's stopped to rethink these processes with modern technology. =sadfThat perspective shaped how I recognized what GitHub had already accomplished.
+We do so many aspects of the workday just because it's how things have been done since the dawn of the Industrial Revolution. Nobody's stopped to rethink these processes with modern technology. That perspective shaped how I recognized what GitHub had already accomplished.
 
 ## A company that rethought the defaults
 
