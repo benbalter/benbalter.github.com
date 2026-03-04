@@ -150,7 +150,7 @@ script/languagetool
 LANGUAGETOOL_URL=http://localhost:8081 script/languagetool
 ```
 
-### 4. RSpec Prose Quality Tests
+### 5. RSpec Prose Quality Tests
 
 **Purpose:** Structural and consistency checks
 

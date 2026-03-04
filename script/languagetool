@@ -36,7 +36,10 @@ DISABLED_RULES="${DISABLED_RULES},COMMA_PERIOD"             # Markdown footnote 
 errors=0
 files_checked=0
 
-for file in src/content/posts/*.md src/content/posts/*.mdx; do
+# Content files to check
+CONTENT_FILES="src/content/posts/*.md src/content/posts/*.mdx"
+
+for file in $CONTENT_FILES; do
 	# Skip if glob didn't match any files
 	[ -e "$file" ] || continue
 
@@ -71,6 +74,7 @@ for file in src/content/posts/*.md src/content/posts/*.mdx; do
 
 	# Write text to temp file for safe curl usage
 	tmpfile=$(mktemp)
+	chmod 600 "$tmpfile"
 	echo "$text" > "$tmpfile"
 
 	response=$(curl -s -X POST "${LANGUAGETOOL_URL}/v2/check" \
