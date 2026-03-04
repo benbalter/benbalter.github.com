@@ -61,6 +61,8 @@ I've been spending the past few years adapting these lessons into a book: *Open 
 
 </aside>
 
+<GitHubCulture />
+
 [^devops]: DevOps breaks down the wall between "people who write code" and "people who deploy it" by making both responsibilities visible and shared. One implementation—ChatOps—puts deployment (and cultural) commands in chat where everyone can see them, creating a natural audit trail and enabling asynchronous collaboration.
 
 [^markdown-ai]: Markdown has since become the lingua franca of AI. LLMs natively read and generate Markdown, and its lightweight syntax often uses fewer characters (and typically fewer tokens) than HTML or rich text formats, making every AI interaction more efficient. A format chosen for human collaboration turned out to be AI-native too.
