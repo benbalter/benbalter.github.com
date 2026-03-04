@@ -4,7 +4,11 @@ description: "When I joined GitHub in 2013, I found a company that had fundament
 layout: post
 ---
 
+<aside class="my-6 rounded border-l-4 border-blue-500 bg-blue-50 p-4 text-blue-800 dark:bg-blue-900/30 dark:text-blue-200" role="note">
+
 Today marks thirteen years since I joined GitHub. I've been writing a book—*Open and Async*—distilling everything I've learned about remote and distributed work into a playbook. To mark the occasion, what follows is a WIP sneak preview of the book's intro:
+
+</aside>
 
 ---
 
