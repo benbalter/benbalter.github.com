@@ -1,0 +1,61 @@
+---
+title: "I've worked remotely at GitHub for thirteen years: here's what actually works."
+description: "When I joined GitHub in 2013, I found a company that had fundamentally rethought how work happens. Thirteen years later, the lessons from that experiment are more relevant than ever."
+layout: post
+---
+
+Today marks thirteen years since I joined GitHub. I've been writing a book—*Open and Async*—distilling everything I've learned about remote and distributed work into a playbook. To mark the occasion, what follows is a WIP sneak preview of the book's intro:
+
+---
+
+We do so many aspects of the workday just because it's how things have been done since the dawn of the Industrial Revolution. Nobody's stopped to rethink these processes with modern technology. =sadfThat perspective shaped how I recognized what GitHub had already accomplished.
+
+## A company that rethought the defaults
+
+When I joined GitHub in 2013, I found a company that had fundamentally rethought those assumptions about work—it was a remote-first company with no managers and employees spread across the globe (for most of GitHub's history, 60–75% of employees were remote—today GitHub is 100% remote). This was unusual for startups, let alone large corporations. GitHub was dogmatic about "optimizing for developer happiness," ensuring the internal development experience was as smooth and integrated as possible.
+
+Inspired by open-source workflows—the same workflows many GitHub developers grew up with—nearly everything was async. Between GitHub issues, chat, and our trusty robot sidekick Hubot, GitHub was practicing DevOps before it became mainstream. Remote work wasn't just possible; it was genuinely enjoyable, embedded as a core part of our culture. Put simply, [we used GitHub to build GitHub](https://zachholman.com/talk/how-github-uses-github-to-build-github/).
+
+## Using GitHub to build GitHub
+
+GitHub's development workflow wasn't born from any formal methodology—it grew out of open-source culture. There were no mandatory daily standups, no sprint planning ceremonies, no fixed-cadence retrospectives. If you had to pin a label on it, the approach looked far more like Kanban's continuous flow than Scrum's time-boxed sprints: work moved through visible queues, got reviewed asynchronously, and shipped when it was ready.
+
+Not all methodologies translate equally well to open and async work. Flow-based approaches—where work is visible on a board, review happens asynchronously, and delivery is continuous—map naturally onto distributed teams. Ceremony-heavy frameworks that depend on everyone being in the same room (or the same time zone) at the same time fight against the grain. The goal isn't to abandon structure, but to choose structure that makes work *visible* rather than *synchronous*.[^devops]
+
+## Open-source workflows for everything
+
+This extended to non-code workflows as well. GitHub Issues, Pull Requests, and Markdown were used to manage internal policies, legal matters, HR, and Sales. Need a contract reviewed? Open an issue. Want to propose a change to the vacation policy? Submit a pull request. How you work is just as important as what you work on, so why not use the best tools available?
+
+The choice of Markdown wasn't arbitrary—it uses simple characters you already know (`#` for headings, `-` for bullets, `**` for bold) to format plain text that's readable even without rendering. Unlike emailing Word documents back and forth with revision marks and conflicting versions, Markdown files play nicely with version control and render beautifully in most modern tools. This eliminated the perennial "which version is current?" problem and made collaborative editing genuinely async. When your HR policy lives in a Markdown file with a complete change history, everyone can see not just what the policy is, but why it changed and who advocated for it.[^markdown-ai]
+
+## A hub, not a headquarters
+
+GitHub had a physical office in San Francisco, but it was more hub than requirement. The office served as a space for meetups, events, and coworking rather than a mandatory 9-to-5 workspace. Hubbers (GitHub employees) were free to work whenever and wherever they were most productive—whether at 3 AM or as digital nomads. This flexibility stood in stark contrast to the traditional office culture of the time.
+
+Despite being remote, GitHub valued in-person interactions. The company hosted an annual "summit" where all employees gathered for a week of talks and coworking, as well as smaller team "mini-summits" for planning and relationship-building. Even GitHub HQ was optimized for remote work, featuring open "cafés" for serendipitous interactions and advanced streaming setups for remote participation in all-hands meetings.
+
+Early on, GitHub had "Hack Houses" where cross-functional teams would meet up in person for a week to ship a complex or high-profile project. We also had "Destinations" where employees could work for extended periods in shared houses in different locations around the world. These didn't scale as we grew, but remain a powerful tool for smaller teams or companies to build relationships and ship work together.
+
+## Intentionality over proximity
+
+The physical space strategy reflected a deeper truth about remote work: what happens by accident in an office must be designed deliberately when distributed. You can't rely on overhearing a conversation that sparks an idea or bumping into someone at the coffee machine who has exactly the context you need. These moments can still happen—they just require intentional creation rather than convenient proximity.
+
+Remote teams often worry about losing the "water cooler" moments—those unplanned hallway conversations that spark unexpected ideas. Create digital equivalents: optional social channels, virtual coffee roulettes, or open-ended team threads. The serendipity doesn't have to disappear; it just needs to be intentionally designed rather than left to physical proximity.
+
+You'd think remote work would weaken company culture. The opposite was true. Remote work forced us to be intentional about communication, documentation, decision-making, and relationship-building. This intentionality strengthened GitHub's culture, enabling it to scale from a small startup to a large company without losing its unique identity, even after its acquisition by Microsoft.
+
+## The pursuit of an ideal
+
+Over the years, GitHub practiced many of these principles—imperfectly and not always at once. It's a story of pursuing an ideal while occasionally falling short. Even so, GitHub remains the closest I've seen to a company getting remote and distributed work "right," which is why so many former Hubbers return after seeing how others do it.
+
+## What thirteen years taught me
+
+The patterns that emerged from a decade-plus of distributed experimentation—working in the open, defaulting to async, documenting decisions, making work visible—aren't just GitHub quirks. They're repeatable practices that any team can adopt, regardless of industry or company size.
+
+GitHub's remote work evolution shows that distributed collaboration isn't just possible—it can be a competitive advantage. But success requires more than tools and good intentions. It requires a fundamental shift in how we think about work, communication, and collaboration. If you're leading a distributed team, you have to invest in codifying practices, building shared context, and maintaining the cultural elements that made remote work successful when you were smaller. What happened organically at 50 people requires deliberate effort at 500. If you're an individual contributor, the practices that work at scale are exactly the habits worth building now—clear documentation, async-first communication, transparent collaboration. These remote work skills are transferable to any organization and compound over time.
+
+I've spent the past year putting these lessons into a book: *Open and Async*. If this post resonated with you, the book goes much deeper—covering everything from async communication patterns to leadership in distributed teams to making the case for open workflows at your organization. More to come soon.
+
+[^devops]: DevOps breaks down the wall between "people who write code" and "people who deploy it" by making both responsibilities visible and shared. One implementation—ChatOps—puts deployment (and cultural) commands in chat where everyone can see them, creating a natural audit trail and enabling asynchronous collaboration.
+
+[^markdown-ai]: Markdown has since become the lingua franca of AI. LLMs natively read and generate Markdown, and its lightweight syntax often uses fewer characters (and typically fewer tokens) than HTML or rich text formats, making every AI interaction more efficient. A format chosen for human collaboration turned out to be AI-native too.
