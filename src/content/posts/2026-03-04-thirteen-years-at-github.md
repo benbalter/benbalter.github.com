@@ -1,16 +1,13 @@
 ---
 title: "I've worked remotely at GitHub for thirteen years: here's what actually works."
 description: "When I joined GitHub in 2013, I found a company that had fundamentally rethought how work happens. Thirteen years later, the lessons from that experiment are more relevant than ever."
-layout: post
 ---
 
 <aside class="my-6 rounded border-l-4 border-blue-500 bg-blue-50 p-4 text-blue-800 dark:bg-blue-900/30 dark:text-blue-200" role="note">
 
-Today marks thirteen years since I joined GitHub. I've been writing a book—*Open and Async*—distilling everything I've learned about remote and distributed work into a playbook. To mark the occasion, what follows is a WIP sneak preview of the book's intro:
+Context: today marks thirteen years since I joined GitHub. I've been writing a book—*Open and Async*—distilling everything I've learned about remote and distributed work into a playbook. To mark the "Hubberversary," what follows is a <abbr class="initialism" data-tooltip="true" data-tooltip-text="Work in progress" role="button" aria-expanded="false" tabindex="0">WIP</abbr> sneak preview of the book's intro:
 
 </aside>
-
----
 
 We do so many aspects of the workday just because it's how things have been done since the dawn of the Industrial Revolution. Nobody's stopped to rethink these processes with modern technology. That perspective shaped how I recognized what GitHub had already accomplished.
 
@@ -58,7 +55,11 @@ The patterns that emerged from a decade-plus of distributed experimentation—wo
 
 GitHub's remote work evolution shows that distributed collaboration isn't just possible—it can be a competitive advantage. But success requires more than tools and good intentions. It requires a fundamental shift in how we think about work, communication, and collaboration. If you're leading a distributed team, you have to invest in codifying practices, building shared context, and maintaining the cultural elements that made remote work successful when you were smaller. What happened organically at 50 people requires deliberate effort at 500. If you're an individual contributor, the practices that work at scale are exactly the habits worth building now—clear documentation, async-first communication, transparent collaboration. These remote work skills are transferable to any organization and compound over time.
 
-I've spent the past year putting these lessons into a book: *Open and Async*. If this post resonated with you, the book goes much deeper—covering everything from async communication patterns to leadership in distributed teams to making the case for open workflows at your organization. More to come soon.
+<aside class="my-6 rounded border-l-4 border-blue-500 bg-blue-50 p-4 text-blue-800 dark:bg-blue-900/30 dark:text-blue-200" role="note">
+
+I've been spending the past few years adapting these lessons into a book: *Open and Async*. If this post resonated with you, the book will go much deeper—covering everything from async communication patterns to leadership in distributed teams to making the case for open workflows at your organization. More to come soon!
+
+</aside>
 
 [^devops]: DevOps breaks down the wall between "people who write code" and "people who deploy it" by making both responsibilities visible and shared. One implementation—ChatOps—puts deployment (and cultural) commands in chat where everyone can see them, creating a natural audit trail and enabling asynchronous collaboration.
 
