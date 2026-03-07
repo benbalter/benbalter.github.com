@@ -1,6 +1,6 @@
 ---
 title: Resume
-description: Ben Balter is an attorney, an open source developer, and a Technical Program Manager at GitHub, the world's largest software development network.
+description: Ben Balter is an attorney, open source developer, and Director of Hubber Enablement at GitHub, the world's largest software development network.
 permalink: /resume/
 redirect_from: 
   - /cv/
