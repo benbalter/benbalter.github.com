@@ -11,6 +11,7 @@ The following checks should be required to pass before merging pull requests:
 | Check Name | Description | Workflow |
 |------------|-------------|----------|
 | `Content Linting` | Validates markdown, text linting (textlint), and prose (Vale) | ci.yml |
+| `LanguageTool` | Grammar checking via LanguageTool | ci.yml |
 | `Code Tests` | Lints JavaScript, JSON, YAML files and runs TypeScript type checking | ci.yml |
 | `Unit Tests` | Runs Vitest unit tests with coverage | ci.yml |
 
@@ -34,6 +35,7 @@ For the `main` branch, configure the following settings:
 
   Required checks:
   - Content Linting
+  - LanguageTool
   - Code Tests
   - Unit Tests
   - Build Astro Site

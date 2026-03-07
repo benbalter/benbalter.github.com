@@ -120,7 +120,37 @@ brew install vale
 script/vale
 ```
 
-### 4. RSpec Prose Quality Tests
+### 4. LanguageTool
+
+**Purpose:** Grammar and style checking using LanguageTool
+
+**Configuration:** Disabled rules are configured in `script/languagetool`
+
+**Status:** In CI, LanguageTool runs as a Docker service container. Locally, it requires a running LanguageTool server (see [How to run LanguageTool on macOS](https://ben.balter.com/2025/01/30/how-to-run-language-tool-open-source-grammarly-alternative-on-macos/)).
+
+**Disabled rules** (to avoid overlap with existing linters and Markdown false positives):
+
+- `MORFOLOGIK_RULE_EN_US` – Spelling (handled by retext-spell)
+- `EN_A_VS_AN` – a/an usage (handled by retext-indefinite-article)
+- `ENGLISH_WORD_REPEAT_RULE` – Repeated words (handled by retext-repeated-words)
+- `UPPERCASE_SENTENCE_START` – Code terms may start sentences
+- `WHITESPACE_RULE` – Markdown formatting artifacts
+- Various Markdown syntax false positives (brackets, punctuation, etc.)
+
+**Usage:**
+
+```bash
+# Start LanguageTool locally (requires Docker)
+docker run -d -p 8010:8010 erikvl87/languagetool
+
+# Run LanguageTool checks
+script/languagetool
+
+# Or specify a custom server URL
+LANGUAGETOOL_URL=http://localhost:8081 script/languagetool
+```
+
+### 5. RSpec Prose Quality Tests
 
 **Purpose:** Structural and consistency checks
 
@@ -168,6 +198,9 @@ This runs:
 1. `script/remark` - Markdown and prose linting
 2. `script/lint-text` - Textlint grammar/style checking
 3. `script/vale` - Vale style checking (if installed)
+4. `script/languagetool` - LanguageTool grammar checking (if server available)
+
+LanguageTool also runs as a separate CI job with a Docker service container for the LanguageTool server.
 
 ## Configuration Files
 
