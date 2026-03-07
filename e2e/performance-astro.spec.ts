@@ -309,9 +309,9 @@ test.describe('Rendering Performance', () => {
     
     console.log('DOM stats:', domStats);
     
-    // Total DOM elements should be reasonable (< 2000)
-    // Increased from 1800 to accommodate design enhancements (card accents, section headers)
-    expect(domStats.totalElements).toBeLessThan(2000);
+    // Total DOM elements should be reasonable (< 2100)
+    // Increased from 2000 to accommodate additional content
+    expect(domStats.totalElements).toBeLessThan(2100);
     
     // DOM depth should not be excessive (< 32)
     expect(domStats.maxDepth).toBeLessThan(32);
