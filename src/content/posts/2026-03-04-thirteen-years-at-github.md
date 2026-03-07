@@ -58,7 +58,9 @@ The patterns that emerged from a decade-plus of distributed experimentation—wo
 
 GitHub's remote work evolution shows that distributed collaboration isn't just possible—it can be a competitive advantage. But success requires more than tools and good intentions. It requires a fundamental shift in how we think about work, communication, and collaboration. If you're leading a distributed team, you have to invest in codifying practices, building shared context, and maintaining the cultural elements that made remote work successful when you were smaller. What happened organically at 50 people requires deliberate effort at 500. If you're an individual contributor, the practices that work at scale are exactly the habits worth building now—clear documentation, async-first communication, transparent collaboration. These remote work skills are transferable to any organization and compound over time.
 
-I've spent the past year putting these lessons into a book: *Open and Async*. If this post resonated with you, the book goes much deeper—covering everything from async communication patterns to leadership in distributed teams to making the case for open workflows at your organization. More to come soon.
+I've spent the past year putting these lessons into a book: *Open and Async*. If this post resonated with you, the book goes much deeper—covering everything from async communication patterns to leadership in distributed teams to making the case for open workflows at your organization. More to come someday.
+
+*Note: Unlike [other content on this site](/fine-print/), this post is Copyright © 2026 by Ben Balter. All rights reserved.*
 
 [^devops]: DevOps breaks down the wall between "people who write code" and "people who deploy it" by making both responsibilities visible and shared. One implementation—ChatOps—puts deployment (and cultural) commands in chat where everyone can see them, creating a natural audit trail and enabling asynchronous collaboration.
 
