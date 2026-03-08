@@ -226,9 +226,10 @@ const educationData: EducationData[] = degrees?.map((degree: { school: string; d
 <script>
   /**
    * Copy text to clipboard with fallback for Safari/iPad OS.
-   * Safari may silently resolve navigator.clipboard.writeText() without
-   * actually writing to the clipboard, so we use a textarea + execCommand
-   * fallback which works reliably across all browsers including iOS/iPad OS.
+   * Safari silently resolves navigator.clipboard.writeText() without actually
+   * writing to the clipboard (the promise succeeds but content is blank), so we
+   * cannot use the modern Clipboard API with a catch fallback. Instead, we use
+   * textarea + execCommand('copy') which works reliably across all browsers.
    */
   function copyToClipboard(text: string): boolean {
     const textarea = document.createElement('textarea');
@@ -260,7 +261,7 @@ const educationData: EducationData[] = degrees?.map((degree: { school: string; d
         let textToCopy = '';
         
         if (btn.classList.contains('copy-description')) {
-          const descriptionElement = btn.closest('.flex')?.querySelector('[data-description]') as HTMLElement | null;
+          const descriptionElement = btn.parentElement?.querySelector('[data-description]') as HTMLElement | null;
           textToCopy = descriptionElement?.innerText?.trim() || '';
         } else {
           textToCopy = btn.getAttribute('data-copy') || '';
