@@ -231,7 +231,7 @@ const educationData: EducationData[] = degrees?.map((degree: { school: string; d
    * cannot use the modern Clipboard API with a catch fallback. Instead, we use
    * textarea + execCommand('copy') which works reliably across all browsers.
    */
-  function copyToClipboard(text: string): boolean {
+  function copyToClipboard(text: string, triggerElement?: Element): boolean {
     const textarea = document.createElement('textarea');
     textarea.value = text;
     textarea.setAttribute('readonly', '');
@@ -252,6 +252,12 @@ const educationData: EducationData[] = degrees?.map((degree: { school: string; d
       success = false;
     }
     document.body.removeChild(textarea);
+
+    // Restore focus to the trigger element after textarea removal
+    if (triggerElement instanceof HTMLElement) {
+      triggerElement.focus();
+    }
+
     return success;
   }
 
@@ -267,7 +273,7 @@ const educationData: EducationData[] = degrees?.map((degree: { school: string; d
           textToCopy = btn.getAttribute('data-copy') || '';
         }
         
-        const success = copyToClipboard(textToCopy);
+        const success = copyToClipboard(textToCopy, btn);
         
         if (success) {
           const original = btn.textContent;

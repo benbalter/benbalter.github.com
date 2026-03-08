@@ -104,4 +104,31 @@ test.describe('Resume LinkedIn Format Page', () => {
     // Should have at least one newline per bullet (bullets appear after newlines)
     expect(newlineCount).toBeGreaterThanOrEqual(bulletCount - 1);
   });
+
+  test('should copy field text to clipboard when copy button is clicked', async ({ page, context }) => {
+    // Grant clipboard permissions for Chromium
+    await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+
+    // Click the first non-description copy button (e.g., Title)
+    const firstCopyBtn = page.locator('.copy-btn:not(.copy-description)').first();
+    const expectedText = await firstCopyBtn.getAttribute('data-copy');
+    await firstCopyBtn.click();
+
+    // Verify the button shows success feedback
+    await expect(firstCopyBtn).toHaveText('✓');
+
+    // Read from clipboard and verify
+    const clipboardText = await page.evaluate(() => navigator.clipboard.readText());
+    expect(clipboardText).toBe(expectedText);
+  });
+
+  test('should restore focus to copy button after clicking', async ({ page, context }) => {
+    await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+
+    const firstCopyBtn = page.locator('.copy-btn').first();
+    await firstCopyBtn.click();
+
+    // The copy button should retain focus after the copy operation
+    await expect(firstCopyBtn).toBeFocused();
+  });
 });
