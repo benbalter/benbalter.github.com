@@ -224,21 +224,51 @@ const educationData: EducationData[] = degrees?.map((degree: { school: string; d
 </PageLayout>
 
 <script>
+  /**
+   * Copy text to clipboard with fallback for Safari/iPad OS.
+   * Safari may silently resolve navigator.clipboard.writeText() without
+   * actually writing to the clipboard, so we use a textarea + execCommand
+   * fallback which works reliably across all browsers including iOS/iPad OS.
+   */
+  function copyToClipboard(text: string): boolean {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'fixed';
+    textarea.style.left = '-9999px';
+    textarea.style.top = '-9999px';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+
+    // iOS/iPad Safari requires both selection methods
+    textarea.select();
+    textarea.setSelectionRange(0, textarea.value.length);
+
+    let success = false;
+    try {
+      success = document.execCommand('copy');
+    } catch {
+      success = false;
+    }
+    document.body.removeChild(textarea);
+    return success;
+  }
+
   function initCopyButtons() {
     document.querySelectorAll('.copy-btn').forEach(btn => {
-      btn.addEventListener('click', async () => {
+      btn.addEventListener('click', () => {
         let textToCopy = '';
         
         if (btn.classList.contains('copy-description')) {
-          const descriptionElement = btn.closest('.flex')?.querySelector('[data-description]');
-          textToCopy = descriptionElement?.textContent?.trim() || '';
+          const descriptionElement = btn.closest('.flex')?.querySelector('[data-description]') as HTMLElement | null;
+          textToCopy = descriptionElement?.innerText?.trim() || '';
         } else {
           textToCopy = btn.getAttribute('data-copy') || '';
         }
         
-        try {
-          await navigator.clipboard.writeText(textToCopy);
-          
+        const success = copyToClipboard(textToCopy);
+        
+        if (success) {
           const original = btn.textContent;
           btn.textContent = '✓';
           btn.classList.add('!bg-green-600');
@@ -247,8 +277,7 @@ const educationData: EducationData[] = degrees?.map((degree: { school: string; d
             btn.textContent = original;
             btn.classList.remove('!bg-green-600');
           }, 1500);
-        } catch (err) {
-          console.error('Failed to copy text:', err);
+        } else {
           const original = btn.textContent;
           btn.textContent = '✗';
           setTimeout(() => {
