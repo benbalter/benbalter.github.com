@@ -43,13 +43,14 @@ for file in $CONTENT_FILES; do
 	# Skip if glob didn't match any files
 	[ -e "$file" ] || continue
 
-	# Extract plain text: strip frontmatter, code blocks, inline code, HTML, URLs
+	# Extract plain text: strip frontmatter, code blocks, imports, inline code, HTML, URLs
 	text=$(awk '
 		NR==1 && /^---$/ { in_fm=1; next }
 		in_fm && /^---$/ { in_fm=0; next }
 		in_fm { next }
 		/^```/ { in_code=!in_code; next }
 		in_code { next }
+		/^import .* from / { next }
 		{ print }
 	' "$file" | \
 		sed -E \
