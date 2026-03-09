@@ -19,7 +19,7 @@ echo "Running LanguageTool grammar checker..."
 # author's established writing style across 200+ blog posts spanning 15 years.
 # Spelling/repetition overlap is handled by retext-spell, retext-indefinite-article,
 # and retext-repeated-words. See docs/PROSE-TESTING.md for the full linting stack.
-DISABLED_CATEGORIES="COMPOUNDING"     # Compound-word hyphenation style preferences
+DISABLED_CATEGORIES="COMPOUNDING"                          # Compound-word hyphenation style preferences
 DISABLED_CATEGORIES="${DISABLED_CATEGORIES},STYLE"          # Stylistic suggestions (wordiness, etc.)
 DISABLED_CATEGORIES="${DISABLED_CATEGORIES},REDUNDANCY"     # Redundancy suggestions
 DISABLED_CATEGORIES="${DISABLED_CATEGORIES},TYPOGRAPHY"     # Typographic conventions
