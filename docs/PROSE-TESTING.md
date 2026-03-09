@@ -6,7 +6,7 @@ This repository includes comprehensive prose testing to ensure content quality, 
 
 Prose tests check the quality of written content in markdown files, including:
 
-- **Spelling and grammar** - via textlint and retext plugins
+- **Spelling and grammar** - via textlint, retext plugins, and Harper
 - **Style consistency** - via Vale (optional) and remark
 - **Structural quality** - via RSpec tests
 - **Typographic corrections** - automatic fixes for quotes, dashes, etc.
@@ -23,6 +23,7 @@ script/cibuild-content
 npm run lint-md          # Markdown linting + prose checking (remark)
 npm run lint-text        # Text quality checking (textlint)
 script/vale              # Style guide checking (if Vale is installed)
+script/harper            # Grammar checking (if Harper is installed)
 bundle exec rspec spec/prose_quality_spec.rb  # Structural tests
 ```
 
@@ -120,7 +121,24 @@ brew install vale
 script/vale
 ```
 
-### 4. LanguageTool
+### 4. Harper
+
+**Purpose:** Offline, privacy-first grammar checking
+
+**Status:** Harper is installed automatically in CI. For local use, install the `harper-cli` binary.
+
+**Installation:** See https://github.com/Automattic/harper
+
+**Usage:**
+
+```bash
+# Run Harper
+script/harper
+```
+
+**Note:** `harper-cli` currently always exits with code 1 (even with no lints found), so the wrapper script uses `|| true` to prevent it from failing the build.
+
+### 5. LanguageTool
 
 **Purpose:** Grammar and style checking using LanguageTool
 
@@ -150,7 +168,7 @@ script/languagetool
 LANGUAGETOOL_URL=http://localhost:8081 script/languagetool
 ```
 
-### 5. RSpec Prose Quality Tests
+### 6. RSpec Prose Quality Tests
 
 **Purpose:** Structural and consistency checks
 
@@ -198,7 +216,8 @@ This runs:
 1. `script/remark` - Markdown and prose linting
 2. `script/lint-text` - Textlint grammar/style checking
 3. `script/vale` - Vale style checking (if installed)
-4. `script/languagetool` - LanguageTool grammar checking (if server available)
+4. `script/harper` - Harper grammar checking
+5. `script/languagetool` - LanguageTool grammar checking (if server available)
 
 LanguageTool also runs as a separate CI job with a Docker service container for the LanguageTool server.
 

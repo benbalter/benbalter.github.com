@@ -14,5 +14,8 @@ script/lint-text
 script/title "checking vale"
 script/vale
 
+script/title "checking harper"
+script/harper
+
 script/title "checking languagetool"
 script/languagetool
