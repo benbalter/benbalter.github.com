@@ -66,7 +66,7 @@ jobs:
         run: npm run build
 
       - name: Upload Astro build artifacts
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: dist-astro
           path: dist-astro/
@@ -93,7 +93,7 @@ jobs:
         run: npm ci
 
       - name: Download Astro build artifacts
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: dist-astro
           path: dist-astro
@@ -123,7 +123,7 @@ jobs:
         run: npm ci
 
       - name: Download Astro build artifacts
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: dist-astro
           path: dist-astro
@@ -159,7 +159,7 @@ jobs:
           CI: true
 
       - name: Upload Playwright Report
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         if: ${{ !cancelled() }}
         with:
           name: playwright-report
@@ -167,7 +167,7 @@ jobs:
           retention-days: 14
 
       - name: Upload Test Results
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         if: ${{ !cancelled() }}
         with:
           name: test-results
@@ -199,7 +199,7 @@ jobs:
         run: npm ci
 
       - name: Download Astro build artifacts
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: dist-astro
           path: dist-astro
@@ -235,7 +235,7 @@ jobs:
           CI: true
 
       - name: Upload Accessibility Test Report
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         if: ${{ !cancelled() }}
         with:
           name: accessibility-report
