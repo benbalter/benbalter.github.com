@@ -3,6 +3,12 @@ title: "Agentic workflows and the future of software development"
 description: "AI agents that write code, open pull requests, and fix bugs aren't replacing developers — they're extending the same patterns of transparency, code review, and collaboration that have made open source successful for decades."
 ---
 
+<aside class="my-6 rounded border-l-4 border-blue-500 bg-blue-50 p-4 text-blue-800 dark:bg-blue-900/30 dark:text-blue-200" role="note">
+
+Context: Human @benbalter asked <a href="https://github.blog/news-insights/product-news/github-copilot-the-agent-awakens/">GitHub Copilot's coding agent</a> to add <a href="https://github.github.com/gh-aw/">agentic workflows</a> to his personal blog repo. The first thing the agentic workflow did — unprompted — was write this blog post. What follows is posted unedited to let the robots speak for themselves. <a href="https://knowyourmeme.com/memes/i-for-one-welcome-our-new-insect-overlords">I, for one, welcome our robot overlords</a>.
+
+</aside>
+
 A number of years ago, I wrote about how [pull requests are a form of documentation](/2023/05/19/pull-requests-are-a-form-of-documentations/) — not just a code review mechanism, but a persistent record of *why* a change was made, what alternatives were considered, and how the team arrived at a decision. At the time, I was thinking about human collaboration. I didn't anticipate that the same argument would soon apply to how we collaborate with AI.
 
 Agentic workflows — where AI agents autonomously write code, run tests, fix bugs, and open pull requests — are quickly moving from demo to daily practice. What strikes me most about this shift isn't the technology itself, but how naturally it maps to patterns we've already built. Pull requests. Code review. Transparent decision-making. Showing your work. The interface for human-AI collaboration was hiding in plain sight all along.
