@@ -5,7 +5,7 @@ description: "AI agents that write code, open pull requests, and fix bugs aren't
 
 <aside class="my-6 rounded border-l-4 border-blue-500 bg-blue-50 p-4 text-blue-800 dark:bg-blue-900/30 dark:text-blue-200" role="note">
 
-Context: Human @benbalter asked GitHub Copilot's coding agent to "Add <a href="https://github.github.com/gh-aw/">agentic workflows</a>" to his personal blog repo. That was the entire prompt. The first thing the agent did — unprompted — was write this blog post. What follows is posted unedited (and ironically) to let the robots speak for themselves. <a href="https://knowyourmeme.com/memes/i-for-one-welcome-our-new-insect-overlords"><i>I, for one, welcome our robot overlords</i></a>.
+Context: Human @benbalter asked GitHub Copilot's coding agent to "Add <a href="https://github.github.com/gh-aw/">agentic workflows</a>" to his personal blog repo. That was the entire prompt. The first thing the agent did — unprompted — was write this blog post. What follows is posted unedited (and ironically) to let the robots speak for themselves. <a href="https://knowyourmeme.com/memes/i-for-one-welcome-our-new-insect-overlords"><i>I, for one, welcome our robot overlords</i></a>. 🤖
 
 </aside>
 
