@@ -836,17 +836,17 @@ workspace
 # AI / Agentic workflows
 agentic
 andon
+async
 autocomplete
 boilerplate
-Copilot
-handoff
-PRs
-scaffolding
-async
 boundaryless
+Copilot
 differentiator
+handoff
 LLM
 LLMs
+PRs
+scaffolding
 standups
 trackable
 workstreams
