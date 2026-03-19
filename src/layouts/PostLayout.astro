@@ -78,7 +78,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
           <h1 class="display-4 font-bold text-gray-900 dark:text-gray-100">{title}</h1>
           
           {readingTime > 0 && (
-            <div class="text-sm text-gray-500 dark:text-gray-400 mb-6">
+            <div class="text-sm text-gray-600 dark:text-gray-300 mb-6">
               <span class="inline-flex items-center gap-1">
                 <Icon name="clock" /> {readingTime} min read
               </span>
@@ -97,10 +97,10 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         </div>
         
         {pubDate && (
-          <div class="mt-8 border-t border-gray-200 dark:border-gray-700 py-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-500 dark:text-gray-400">
+          <div class="mt-8 border-t border-gray-200 dark:border-gray-700 py-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-600 dark:text-gray-300">
             <span>Originally published {formattedDate}</span>
             <span aria-hidden="true">·</span>
-            <a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200" href={`${siteConfig.githubRepoUrl}/commits/main/src/content/posts/${postId}`} target="_blank" rel="noopener noreferrer" aria-label="View revision history">View revision history</a>
+            <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200" href={`${siteConfig.githubRepoUrl}/commits/main/src/content/posts/${postId}`} target="_blank" rel="noopener noreferrer" aria-label="View revision history">View revision history</a>
           </div>
         )}
         
