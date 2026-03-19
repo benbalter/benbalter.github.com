@@ -121,9 +121,11 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
         })}
       </div>
       {regularPosts.length > 20 && (
-        <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">
-          Showing 20 of {regularPosts.length} older posts
-        </p>
+        <div class="text-center mt-6">
+          <a href="/posts/" class="btn btn-outline-primary">
+            View all {posts.length} posts
+          </a>
+        </div>
       )}
     </section>
   )}
