@@ -1,0 +1,65 @@
+---
+/**
+ * TableOfContents
+ *
+ * Auto-generates a table of contents from h2/h3 headings in the post.
+ * Headings already have IDs from rehype-slug. Renders as a collapsible
+ * <details> element — zero JavaScript, progressively enhanced.
+ *
+ * Only renders when there are 3+ headings (short posts don't need a TOC).
+ */
+
+interface Props {
+  /** Rendered HTML content of the post */
+  content: string;
+}
+
+interface TocEntry {
+  id: string;
+  text: string;
+  level: number;
+}
+
+const { content } = Astro.props;
+
+// Extract h2 and h3 headings with their IDs from rendered HTML
+const headingRegex = /<h([23])\s+id="([^"]+)"[^>]*>(.*?)<\/h[23]>/gi;
+const headings: TocEntry[] = [];
+let match: RegExpExecArray | null;
+
+while ((match = headingRegex.exec(content)) !== null) {
+  // Strip HTML tags from heading text (e.g. anchor links from rehype-autolink-headings)
+  const text = match[3].replace(/<[^>]+>/g, '').trim();
+  if (text) {
+    headings.push({
+      level: parseInt(match[1]),
+      id: match[2],
+      text,
+    });
+  }
+}
+
+const showToc = headings.length >= 3;
+---
+
+{showToc && (
+  <details class="toc-container not-prose mb-8 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
+    <summary class="cursor-pointer select-none px-4 py-3 text-sm font-semibold text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200">
+      Table of contents
+    </summary>
+    <nav aria-label="Table of contents" class="px-4 pb-4">
+      <ol class="list-none m-0 p-0 space-y-1">
+        {headings.map((h) => (
+          <li class:list={[h.level === 3 && 'ml-4']}>
+            <a
+              href={`#${h.id}`}
+              class="block text-sm py-0.5 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-300 no-underline transition-colors duration-150"
+            >
+              {h.text}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  </details>
+)}

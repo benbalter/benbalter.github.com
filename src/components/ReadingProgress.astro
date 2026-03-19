@@ -1,0 +1,81 @@
+---
+/**
+ * ReadingProgress
+ *
+ * Thin progress bar fixed at the very top of the viewport showing
+ * how far the reader has scrolled through the article. Only renders
+ * on post pages (included in PostLayout).
+ *
+ * Uses requestAnimationFrame-throttled scroll handling for performance.
+ * Respects prefers-reduced-motion. Works with Astro View Transitions.
+ */
+---
+
+<div id="reading-progress" class="reading-progress" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+  <div id="reading-progress-bar" class="reading-progress-bar"></div>
+</div>
+
+<script>
+  function initReadingProgress() {
+    const bar = document.getElementById('reading-progress-bar');
+    const container = document.getElementById('reading-progress');
+    if (!bar || !container) return;
+
+    let ticking = false;
+
+    function updateProgress() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0;
+      bar.style.width = `${progress}%`;
+      container.setAttribute('aria-valuenow', Math.round(progress).toString());
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(updateProgress);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    updateProgress();
+  }
+
+  initReadingProgress();
+  document.addEventListener('astro:page-load', initReadingProgress);
+</script>
+
+<style is:global>
+  .reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    z-index: 9999;
+    background: transparent;
+    pointer-events: none;
+  }
+
+  .reading-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #337ab7, #5ba3d9);
+    transition: width 0.1s linear;
+    border-radius: 0 1px 1px 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reading-progress-bar {
+      transition: none;
+    }
+  }
+
+  @media print {
+    .reading-progress {
+      display: none;
+    }
+  }
+</style>

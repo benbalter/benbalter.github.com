@@ -10,6 +10,7 @@ import { SEO } from 'astro-seo';
 import { ClientRouter } from 'astro:transitions';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+import BackToTop from '../components/BackToTop.astro';
 import { siteConfig, socialLinks } from '../config';
 import { generatePersonSchema, generateProfilePageSchema, generateWebSiteSchema, generateBreadcrumbSchema, schemaToJsonLd } from '../utils/structured-data';
 import '../styles/global.css';
@@ -201,6 +202,7 @@ const schemas = breadcrumbSchema
       </main>
       
       <Footer />
+      <BackToTop />
     </div>
     
     <!-- Minimal navigation toggle script -->

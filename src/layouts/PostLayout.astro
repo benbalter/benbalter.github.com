@@ -18,6 +18,9 @@ import { formatPostDate, getPostUrl } from '../utils/post-urls';
 import ArchivedPostWarning from '../components/ArchivedPostWarning.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import PostNavigation from '../components/PostNavigation.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import CopyCodeButton from '../components/CopyCodeButton.astro';
+import ReadingProgress from '../components/ReadingProgress.astro';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -98,10 +101,15 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         </header>
         
         {archived && <ArchivedPostWarning />}
+
+        <TableOfContents content={content} />
         
         <div class="post-content entrybody prose prose-lg prose-primary max-w-none dark:prose-invert">
           <slot />
         </div>
+
+        <CopyCodeButton />
+        <ReadingProgress />
         
         {pubDate && (
           <div class="mt-8 border-t border-gray-200 dark:border-gray-700 py-4 flex flex-wrap items-center justify-between gap-x-3 gap-y-3 text-sm text-gray-600 dark:text-gray-300">
