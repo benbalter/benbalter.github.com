@@ -148,7 +148,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
                       <h4 class="text-base font-semibold mb-1 mt-0">
                         <a href={getPostUrl(post.slug)} class="text-gray-900 dark:text-gray-100 no-underline group-hover:text-primary dark:group-hover:text-primary-300 transition-colors duration-200 before:absolute before:inset-0">{post.data.title}</a>
                       </h4>
-                      <p class="text-sm text-gray-500 dark:text-gray-400 mb-0">{formatReadingTime(postReadingTime)}</p>
+                      <p class="text-sm text-gray-600 dark:text-gray-300 mb-0">{formatReadingTime(postReadingTime)}</p>
                     </article>
                   );
                 })}
@@ -178,12 +178,12 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
                 <span class="block text-sm font-semibold text-gray-800 dark:text-gray-200 group-hover:text-primary dark:group-hover:text-primary-300 transition-colors duration-200">
                   This page is open source
                 </span>
-                <span class="block text-xs text-gray-500 dark:text-gray-400">
+                <span class="block text-xs text-gray-600 dark:text-gray-300">
                   Help improve this article on GitHub
                 </span>
               </div>
             </div>
-            <span class="text-gray-400 dark:text-gray-500 group-hover:text-primary dark:group-hover:text-primary-300 transition-colors duration-200" aria-hidden="true">→</span>
+            <span class="text-gray-500 dark:text-gray-400 group-hover:text-primary dark:group-hover:text-primary-300 transition-colors duration-200" aria-hidden="true">→</span>
           </a>
         </footer>
       </article>

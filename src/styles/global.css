@@ -729,7 +729,7 @@
 
   @media (prefers-color-scheme: dark) {
     .card-text {
-      @apply text-gray-400;
+      @apply text-gray-300;
     }
   }
 
@@ -864,7 +864,7 @@
 
   @media (prefers-color-scheme: dark) {
     .navbar-text {
-      @apply text-gray-400;
+      @apply text-gray-300;
     }
   }
 
@@ -1036,7 +1036,7 @@
     footer .link-secondary,
     nav.border-top .link-secondary,
     article .link-secondary {
-      @apply text-gray-400;
+      @apply text-gray-300;
     }
     footer .link-secondary:hover,
     footer .link-secondary:focus,
@@ -1189,7 +1189,7 @@
 
   @media (prefers-color-scheme: dark) {
     .text-body-secondary {
-      @apply text-gray-400;
+      @apply text-gray-300;
     }
   }
 
