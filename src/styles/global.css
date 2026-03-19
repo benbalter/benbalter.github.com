@@ -378,15 +378,14 @@
 
   /* Blockquotes */
   blockquote {
-    @apply border-l-4 border-primary pl-8 py-3 my-10 italic text-lg;
-    @apply bg-gray-100 rounded;
+    @apply border-l-[5px] border-primary pl-8 py-3 my-10 italic text-lg;
     line-height: 1.75;
     hanging-punctuation: first last;
   }
 
   @media (prefers-color-scheme: dark) {
     blockquote {
-      @apply border-primary bg-primary/5;
+      @apply border-primary;
     }
   }
 
@@ -745,7 +744,7 @@
 
   /* Navigation */
   .navbar {
-    @apply flex flex-wrap items-center justify-between py-2 px-4;
+    @apply flex flex-wrap items-center justify-between py-3 px-4;
     @apply bg-gray-100 border border-gray-200 rounded-lg shadow-sm;
   }
 
