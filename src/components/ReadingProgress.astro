@@ -27,8 +27,8 @@
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const progress = docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0;
-      bar.style.width = `${progress}%`;
-      container.setAttribute('aria-valuenow', Math.round(progress).toString());
+      bar!.style.width = `${progress}%`;
+      container!.setAttribute('aria-valuenow', Math.round(progress).toString());
       ticking = false;
     }
 

@@ -35,10 +35,7 @@ function personFields(overrides?: Partial<Person>): Person {
  * Generate top-level Person schema (with @context) for standalone use
  */
 export function generatePersonSchema(overrides?: Partial<Person>): WithContext<Person> {
-  return {
-    '@context': 'https://schema.org',
-    ...personFields(overrides),
-  } as WithContext<Person>;
+  return Object.assign({ '@context': 'https://schema.org' as const }, personFields(overrides)) as WithContext<Person>;
 }
 
 /**

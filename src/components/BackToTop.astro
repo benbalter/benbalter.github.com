@@ -31,7 +31,7 @@
       const shouldShow = window.scrollY > threshold;
       if (shouldShow !== visible) {
         visible = shouldShow;
-        btn.classList.toggle('visible', visible);
+        btn!.classList.toggle('visible', visible);
       }
     }
 

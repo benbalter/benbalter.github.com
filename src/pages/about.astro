@@ -16,7 +16,7 @@ const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'
   return data.published !== false && data.archived !== true;
 });
 
-const recentPosts = allPosts
+const recentPosts: CollectionEntry<'posts'>[] = allPosts
   .sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => b.slug.localeCompare(a.slug))
   .slice(0, 5);
 ---
