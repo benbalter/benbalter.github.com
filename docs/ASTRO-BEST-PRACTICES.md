@@ -110,10 +110,7 @@ generating optimized images
 **Current Implementation (BaseLayout.astro):**
 
 ```astro
-<!-- Preconnect to critical external domains -->
-<link rel="preconnect" href="https://github.com" crossorigin />
-
-<!-- DNS Prefetch for other resources -->
+<!-- DNS Prefetch for external resources -->
 <link rel="dns-prefetch" href="https://images.amazon.com" />
 <link rel="dns-prefetch" href="https://user-images.githubusercontent.com" />
 
@@ -123,7 +120,7 @@ generating optimized images
 
 **Notes:**
 
-- **Avatar preconnect removed:** The GitHub avatar is now fetched at build time and served as an optimized WebP image from the same domain, eliminating the need for a preconnect hint to `avatars.githubusercontent.com`
+- **GitHub preconnect removed:** No external GitHub resources are loaded at runtime (avatar is fetched at build time and served as an optimized WebP image from the same domain)
 - **Font preloading not needed:** Site uses system font stack (no custom fonts to preload)
 - **Critical CSS inlined:** `inlineStylesheets: 'always'` in astro.config.mjs eliminates render-blocking CSS
 - **Minimal JavaScript:** Only View Transitions router script loads, which is essential for navigation
