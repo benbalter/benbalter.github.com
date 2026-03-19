@@ -125,52 +125,25 @@ const posts: CollectionEntry<'posts'>[] = allPosts
 </BaseLayout>
 
 <style>
+  @reference "../styles/global.css";
+
   .alert {
     position: relative;
-    padding: 1rem 1rem;
-    margin-bottom: 1rem;
-    border: 1px solid transparent;
-    border-radius: 0.375rem;
+    @apply p-6 mb-6 rounded-lg border;
   }
 
   .alert-primary {
-    color: var(--bs-primary-text-emphasis, #084298);
-    background-color: var(--bs-primary-bg-subtle, #cfe2ff);
-    border-color: var(--bs-primary-border-subtle, #b6d4fe);
+    @apply bg-primary-50 border-primary-200 text-primary-800;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .alert-primary {
+      @apply bg-primary-900/30 border-primary-700 text-primary-200;
+    }
   }
 
   .lead {
     font-size: 1.25rem;
     font-weight: 300;
-  }
-
-  .text-center {
-    text-align: center !important;
-  }
-
-  h4 {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    font-weight: 500;
-    line-height: 1.2;
-  }
-
-  ul {
-    list-style-type: disc;
-    padding-left: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  li {
-    margin-bottom: 0.5rem;
-  }
-
-  a {
-    color: var(--bs-link-color);
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;
   }
 </style>

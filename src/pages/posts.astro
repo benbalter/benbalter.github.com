@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import { getPostUrl, getDateFromSlug, formatPostDate, formatISODate } from '../utils/post-urls';
+import { calculateReadingTime } from '../utils/reading-time';
+import PostCard from '../components/PostCard.astro';
+
+const title = 'All Posts';
+const description = 'A complete archive of all blog posts.';
+
+const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => {
+  return data.published !== false && data.archived !== true;
+});
+
+const posts: CollectionEntry<'posts'>[] = allPosts.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) =>
+  b.slug.localeCompare(a.slug)
+);
+
+function getPostMetadata(post: CollectionEntry<'posts'>) {
+  const postDate = getDateFromSlug(post.slug);
+  return {
+    postUrl: getPostUrl(post.slug),
+    date: formatPostDate(postDate),
+    isoDate: formatISODate(postDate),
+    readingTime: calculateReadingTime(post.body),
+  };
+}
+---
+
+<BaseLayout title={title} description={description}>
+  <header class="mb-8">
+    <h1 class="display-4 font-bold text-gray-900 dark:text-gray-100">{title}</h1>
+    <p class="text-gray-500 dark:text-gray-400">{posts.length} posts</p>
+  </header>
+
+  <div class="row -mx-2">
+    {posts.map((post) => {
+      const { postUrl, date, isoDate, readingTime } = getPostMetadata(post);
+      return (
+        <div class="w-full md:w-1/2 px-2 mb-3">
+          <PostCard
+            title={post.data.title}
+            url={postUrl}
+            date={date}
+            isoDate={isoDate}
+            description={post.data.description}
+            readingTime={readingTime}
+          />
+        </div>
+      );
+    })}
+  </div>
+</BaseLayout>

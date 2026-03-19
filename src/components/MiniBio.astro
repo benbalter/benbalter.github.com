@@ -17,8 +17,8 @@ const firstParagraph = getFirstParagraph(aboutContent);
 const bioHtml = `${firstParagraph} <a href="/about/">More about the author &rarr;</a>`;
 ---
 
-<div class="mini-bio flex">
-  <div class="flex-shrink-0 pt-1 pr-4">
+<div class="mini-bio flex gap-4 max-md:gap-3">
+  <div class="flex-shrink-0">
     <Image 
       src={avatarImage}
       alt={siteConfig.author}

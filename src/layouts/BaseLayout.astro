@@ -58,22 +58,30 @@ const breadcrumbItems: Array<{ name: string; url?: string }> = [
   { name: 'Home', url: siteConfig.url }
 ];
 
-// Add path segments to breadcrumbs
-let currentPath = siteConfig.url;
-pathSegments.forEach((segment, index) => {
-  currentPath += `/${segment}`;
-  // Remove file extension, replace hyphens/underscores with spaces, capitalize words
-  const cleanedSegment = segment.replace(/\.[^/.]+$/, '').replace(/[-_]+/g, ' ');
-  const name = cleanedSegment.split(' ').map(word =>
-    word.length > 0 ? word.charAt(0).toUpperCase() + word.slice(1) : ''
-  ).join(' ');
-  // Last item doesn't get a URL (it's the current page)
-  const isLastItem = index === pathSegments.length - 1;
-  breadcrumbItems.push({ 
-    name, 
-    url: isLastItem ? undefined : currentPath
+// Detect blog post URL pattern: /YYYY/MM/DD/slug/
+const blogPostPattern = /^\/\d{4}\/\d{2}\/\d{2}\/.+/;
+if (blogPostPattern.test(Astro.url.pathname)) {
+  // For blog posts, skip meaningless date segments
+  breadcrumbItems.push(
+    { name: 'Posts', url: `${siteConfig.url}/posts/` },
+    { name: title }
+  );
+} else {
+  // Generic breadcrumbs for non-post pages
+  let currentPath = siteConfig.url;
+  pathSegments.forEach((segment, index) => {
+    currentPath += `/${segment}`;
+    const cleanedSegment = segment.replace(/\.[^/.]+$/, '').replace(/[-_]+/g, ' ');
+    const name = cleanedSegment.split(' ').map(word =>
+      word.length > 0 ? word.charAt(0).toUpperCase() + word.slice(1) : ''
+    ).join(' ');
+    const isLastItem = index === pathSegments.length - 1;
+    breadcrumbItems.push({ 
+      name, 
+      url: isLastItem ? undefined : currentPath
+    });
   });
-});
+}
 
 const breadcrumbSchema = pathSegments.length > 0 ? generateBreadcrumbSchema(breadcrumbItems) : null;
 

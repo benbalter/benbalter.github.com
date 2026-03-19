@@ -42,6 +42,7 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
 ---
 
 <BaseLayout description={description} hero={true}>
+  <h1 class="sr-only">Ben Balter — Technology leadership, collaboration, and open source</h1>
   <!-- Popular Posts Section -->
   {popularPosts.length > 0 && (
     <section class="mb-12 max-md:mb-8">
@@ -104,7 +105,7 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
         Older Posts
       </h2>
       <div class="row -mx-2">
-        {regularPosts.map((post) => {
+        {regularPosts.slice(0, 20).map((post) => {
           const { postUrl, date, isoDate, readingTime } = getPostMetadata(post);
           return (
             <div class="w-full md:w-1/2 px-2 mb-3">
@@ -120,6 +121,13 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
           );
         })}
       </div>
+      {regularPosts.length > 20 && (
+        <div class="text-center mt-6">
+          <a href="/posts/" class="btn btn-outline-primary">
+            View all {posts.length} posts
+          </a>
+        </div>
+      )}
     </section>
   )}
 </BaseLayout>

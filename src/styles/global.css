@@ -547,10 +547,10 @@
     background-image: url('/assets/img/header.jpg');
     background-size: cover;
     background-position: top left;
-    @apply h-96 rounded-t-lg shadow-sm;
+    @apply h-64 rounded-t-lg shadow-sm;
     contain: layout paint;
     content-visibility: auto;
-    contain-intrinsic-size: 1140px 384px;
+    contain-intrinsic-size: 1140px 256px;
     position: relative;
   }
   
@@ -580,8 +580,8 @@
 
   @media (max-width: 768px) {
     .hero-unit {
-      height: 250px;
-      contain-intrinsic-size: auto 250px;
+      height: 180px;
+      contain-intrinsic-size: auto 180px;
     }
     
   }
