@@ -12,9 +12,10 @@ import Tldr from '../components/Tldr.astro';
 import MiniBio from '../components/MiniBio.astro';
 import Icon from '../components/Icon.astro';
 import { siteConfig } from '../config';
-import { calculateReadingTime } from '../utils/reading-time';
+import { calculateReadingTime, formatReadingTime } from '../utils/reading-time';
 import { generateBlogPostingSchema, schemaToJsonLd } from '../utils/structured-data';
-import { formatPostDate, getPostUrl } from '../utils/post-urls';
+import { formatPostDate, getPostUrl, getDateFromSlug } from '../utils/post-urls';
+import { stripMarkdown } from '../utils/strip-markdown';
 import ArchivedPostWarning from '../components/ArchivedPostWarning.astro';
 import type { CollectionEntry } from 'astro:content';
 
@@ -97,31 +98,47 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         </div>
         
         {pubDate && (
-          <div class="mb-2 text-body-secondary text-sm">
-            Originally published {formattedDate} | <a class="link-secondary" href={`${siteConfig.githubRepoUrl}/commits/main/src/content/posts/${postId}`} target="_blank" rel="noopener noreferrer" aria-label="View revision history">View revision history</a>
+          <div class="mt-8 pt-4 border-t border-gray-200 dark:border-gray-700 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-500 dark:text-gray-400">
+            <span>Originally published {formattedDate}</span>
+            <span aria-hidden="true">·</span>
+            <a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200" href={`${siteConfig.githubRepoUrl}/commits/main/src/content/posts/${postId}`} target="_blank" rel="noopener noreferrer" aria-label="View revision history">View revision history</a>
           </div>
         )}
         
         {tags.length > 0 && (
-          <div class="mt-6 mb-4">
-            <strong>Tags:</strong>
-            {tags.map((tag) => (
-              <span class="badge bg-secondary ml-2">{tag}</span>
-            ))}
+          <div class="mt-8 mb-4">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="text-sm text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wide">Tags</span>
+              {tags.map((tag) => (
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 dark:bg-primary/20 text-primary-700 dark:text-primary-300 border border-primary/20 dark:border-primary/30">{tag}</span>
+              ))}
+            </div>
           </div>
         )}
         
         {relatedPosts.length > 0 && (
-          <div class="mt-4">
-            <h3 class="text-base font-semibold text-body-emphasis border-t border-gray-200 dark:border-gray-700 pt-4 mb-2">If you enjoyed this post, you might also enjoy:</h3>
-            <ul class="pl-6 mb-0">
-              {relatedPosts.map((post) => (
-                <li class="mb-1">
-                  <a href={getPostUrl(post.slug)} class="no-underline">{post.data.title}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <section class="mt-8">
+            <div class="border-t border-gray-200 dark:border-gray-700 pt-6">
+              <h3 class="text-lg font-semibold text-body-emphasis mb-4 flex items-center gap-3">
+                <span class="section-header-accent"></span>
+                You might also enjoy
+              </h3>
+              <div class="grid gap-4 md:grid-cols-2">
+                {relatedPosts.slice(0, 4).map((post) => {
+                  const postDate = getDateFromSlug(post.slug);
+                  const postReadingTime = calculateReadingTime(post.body);
+                  return (
+                    <article class="group relative p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-primary/40 hover:shadow-card dark:hover:shadow-card-dark transition-all duration-200">
+                      <h4 class="text-base font-semibold mb-1 mt-0">
+                        <a href={getPostUrl(post.slug)} class="text-gray-900 dark:text-gray-100 no-underline group-hover:text-primary dark:group-hover:text-primary-300 transition-colors duration-200 before:absolute before:inset-0">{post.data.title}</a>
+                      </h4>
+                      <p class="text-sm text-gray-500 dark:text-gray-400 mb-0">{formatPostDate(postDate)} · {formatReadingTime(postReadingTime)}</p>
+                    </article>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
         )}
         
         <footer class="border-t-2 border-gray-200 dark:border-gray-700 pt-6 mt-6 mb-8 post-footer">
