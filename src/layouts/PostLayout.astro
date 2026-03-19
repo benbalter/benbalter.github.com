@@ -77,19 +77,13 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         <header class="mb-8">
           <h1 class="display-4 text-primary font-bold">{title}</h1>
           
-          <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-500 dark:text-gray-400 mb-6">
-            {pubDate && (
-              <time datetime={formattedDate}>{formattedDate}</time>
-            )}
-            {pubDate && readingTime > 0 && (
-              <span aria-hidden="true">·</span>
-            )}
-            {readingTime > 0 && (
+          {readingTime > 0 && (
+            <div class="text-sm text-gray-500 dark:text-gray-400 mb-6">
               <span class="inline-flex items-center gap-1">
                 <Icon name="clock" /> {readingTime} min read
               </span>
-            )}
-          </div>
+            </div>
+          )}
           
           {description && (
             <Tldr description={description} />
