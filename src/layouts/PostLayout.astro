@@ -85,7 +85,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
     <div class="col-md-10 offset-md-1 px-3">
       <article>
         <header class="mb-8">
-          <h1 class="display-4 font-bold text-gray-900 dark:text-gray-100">{title}</h1>
+          <h1 class="display-4 font-bold text-gray-900 dark:text-gray-100" transition:name="page-title">{title}</h1>
           
           {readingTime > 0 && (
             <div class="text-sm text-gray-600 dark:text-gray-300 mb-6">
