@@ -53,131 +53,69 @@ function slugify(text: string): string {
 
 <PageLayout title={title} description={description}>
 
+  {/* Category navigation pills */}
+  <nav class="not-prose mb-10" aria-label="Book categories">
+    <ul class="flex flex-wrap gap-2 list-none p-0 m-0">
+      {bookGroups.map(([category]) => (
+        <li>
+          <a
+            href={`#${slugify(category)}`}
+            class="inline-block rounded-full border border-gray-200 bg-gray-50 px-4 py-1.5 text-sm font-medium text-gray-700 no-underline transition-colors duration-200 hover:border-primary hover:bg-primary hover:text-white dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-primary-400 dark:hover:bg-primary-400 dark:hover:text-gray-900"
+          >
+            {category}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+
   {bookGroups.map(([category, books]) => (
-    <section class="book-group mb-5">
-      <h3 id={slugify(category)} class="book-category-title">{category}</h3>
-      
-      <div class="books-container">
+    <section class="not-prose mb-12">
+      <div class="mb-6 flex items-baseline gap-3 border-l-4 border-primary pl-4">
+        <h3
+          id={slugify(category)}
+          class="m-0 text-2xl font-semibold text-gray-900 dark:text-gray-100"
+        >
+          {category}
+        </h3>
+        <span class="text-sm text-gray-600 dark:text-gray-300">
+          · {books.length} {books.length === 1 ? 'book' : 'books'}
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {books.map((book) => (
-          <div class="book-item">
-            <a 
-              href={`https://www.amazon.com/gp/product/${book.asin}/?tag=${amazonAffiliatesTag}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="book-link"
-            >
-              <div class="book-cover">
-                <img 
-                  src={`https://images.amazon.com/images/P/${book.asin}.01.MZZZZZZZ.jpg`}
-                  alt={book.title}
-                  width="160"
-                  height="240"
-                  loading="lazy"
-                />
-              </div>
-              
-              <div class="book-title">
+          <div class="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white p-5 transition-all duration-200 hover:border-primary/40 hover:shadow-[0_6px_16px_rgba(0,0,0,0.12)] motion-safe:hover:-translate-y-0.5 dark:border-gray-700 dark:bg-gray-800 dark:hover:border-primary-400/40 dark:hover:shadow-[0_6px_16px_rgba(0,0,0,0.4)]">
+            <div class="mb-4 flex items-center justify-center">
+              <img
+                src={`https://images.amazon.com/images/P/${book.asin}.01.MZZZZZZZ.jpg`}
+                alt=""
+                width="160"
+                height="240"
+                loading="lazy"
+                class="max-h-52 w-auto rounded shadow-card"
+              />
+            </div>
+
+            <h4 class="mb-2 text-center text-[0.95rem] font-semibold leading-snug">
+              <a
+                href={`https://www.amazon.com/gp/product/${book.asin}/?tag=${amazonAffiliatesTag}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${book.title} on Amazon`}
+                class="text-gray-900 no-underline transition-colors duration-200 before:absolute before:inset-0 group-hover:text-primary dark:text-gray-100 dark:group-hover:text-primary-300"
+              >
                 {book.title}
-              </div>
-            </a>
-            
-            <div class="book-tldr" set:html={marked.parseInline(book.tldr)} />
+              </a>
+            </h4>
+
+            <p
+              class="m-0 text-sm leading-relaxed text-gray-600 dark:text-gray-300"
+              set:html={marked.parseInline(book.tldr)}
+            />
           </div>
         ))}
       </div>
     </section>
   ))}
 </PageLayout>
-
-<style>
-  .lead {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--bs-secondary-color);
-  }
-
-  .lead p {
-    margin-bottom: 0;
-  }
-
-  .book-group {
-    margin-bottom: 3rem;
-  }
-
-  .book-category-title {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    color: var(--bs-body-color);
-    border-bottom: 2px solid var(--bs-border-color);
-    padding-bottom: 0.5rem;
-  }
-
-  .books-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem 1.5rem;
-    margin-bottom: 1rem;
-  }
-
-  @media (min-width: 768px) {
-    .books-container {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  .book-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .book-link {
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: opacity 0.2s;
-  }
-
-  .book-link:hover {
-    opacity: 0.8;
-  }
-
-  .book-cover {
-    margin-bottom: 1rem;
-    min-height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .book-cover img {
-    max-width: 100%;
-    height: auto;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-  }
-
-  .book-title {
-    font-weight: 600;
-    color: var(--bs-link-color);
-    min-height: 3rem;
-    line-height: 1.4;
-    margin-bottom: 0.75rem;
-    font-size: 0.95rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .book-tldr {
-    font-size: 0.875rem;
-    line-height: 1.5;
-    color: var(--bs-secondary-color);
-    text-align: justify;
-    hyphens: auto;
-  }
-</style>
