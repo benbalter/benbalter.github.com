@@ -841,7 +841,8 @@ boilerplate
 Copilot
 handoff
 PRs
-scaffoldingasync
+scaffolding
+async
 boundaryless
 differentiator
 LLM
