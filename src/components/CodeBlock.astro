@@ -3,7 +3,6 @@
  * CodeBlock Component
  * 
  * Enhanced code block with title and copy functionality.
- * Uses Bootstrap utilities for layout and styling.
  * 
  * Usage in MDX:
  * <CodeBlock title="example.js" language="javascript">
@@ -20,11 +19,11 @@ interface Props {
 const { title, language } = Astro.props;
 ---
 
-<div class="border rounded my-4 overflow-hidden">
+<div class="not-prose border border-gray-200 dark:border-gray-700 rounded my-4 overflow-hidden">
   {title && (
-    <div class="d-flex justify-content-between align-items-center px-3 py-2 bg-secondary-subtle border-bottom">
-      <span class="font-monospace small fw-semibold">{title}</span>
-      {language && <span class="small text-body-secondary text-uppercase">{language}</span>}
+    <div class="flex justify-between items-center px-3 py-2 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+      <span class="font-mono text-sm font-semibold text-gray-800 dark:text-gray-200">{title}</span>
+      {language && <span class="text-xs text-gray-600 dark:text-gray-300 uppercase">{language}</span>}
     </div>
   )}
   <div class="p-0 code-block-content">
@@ -33,7 +32,6 @@ const { title, language } = Astro.props;
 </div>
 
 <style>
-  /* Minimal custom styles - reset pre element margins and borders */
   .code-block-content :global(pre) {
     margin: 0;
     border-radius: 0;
