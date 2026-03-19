@@ -22,7 +22,12 @@ roles:
   - /2023/01/10/manage-like-an-engineer/
 ---
 
-import PostList from '../../components/PostList.astro';
+import ReadingList from '../../components/ReadingList.astro';
+
+<div class="not-prose mb-8 rounded-xl bg-gradient-to-r from-primary/5 to-primary/10 dark:from-primary/10 dark:to-primary/20 border border-primary/20 p-6">
+  <div class="text-xs font-bold uppercase tracking-widest text-primary dark:text-primary-300 mb-1">📚 Unofficial Onboarding Guide</div>
+  <div class="text-lg font-semibold text-gray-800 dark:text-gray-200">Your reading list for understanding GitHub's culture</div>
+</div>
 
 Your first few weeks at any new company are an exercise in pattern matching—figuring out the unwritten rules, the communication norms, the things everyone "just knows" but nobody thought to write down. GitHub is no exception, except that we've been unusually intentional about writing those norms down (it's kind of our thing).
 
@@ -34,13 +39,13 @@ GitHub's operating system runs on a few core principles: [communicate in writing
 
 These posts cover those foundational patterns—the habits, tools, and mental models that help GitHubbers thrive:
 
-<PostList postSlug="2021-02-01-what-to-read-before-starting-or-interviewing-at-github" field="posts" />
+<ReadingList postSlug="2021-02-01-what-to-read-before-starting-or-interviewing-at-github" field="posts" />
 
 ## Role-specific guides
 
 The posts above apply broadly, but if you're a Product Manager, Technical Program Manager, Chief of Staff, or Engineering Manager, you might be wondering what those roles look like in practice at a company where the defaults around hierarchy, process, and decision-making are a bit different from what you're used to. These go deeper:
 
-<PostList postSlug="2021-02-01-what-to-read-before-starting-or-interviewing-at-github" field="roles" />
+<ReadingList postSlug="2021-02-01-what-to-read-before-starting-or-interviewing-at-github" field="roles" />
 
 ## Keep going
 

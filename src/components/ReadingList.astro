@@ -1,0 +1,75 @@
+---
+import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
+import { stripMarkdown } from '../utils/strip-markdown';
+import { getPostUrl } from '../utils/post-urls';
+import ReadingListCard from './ReadingListCard.astro';
+
+/**
+ * ReadingList component - Renders a curated list of posts as visually rich cards
+ *
+ * Similar to PostList, but renders posts using ReadingListCard components
+ * instead of plain list items, creating a more engaging reading list experience.
+ *
+ * Props:
+ * - postSlug: The slug of the current post (to fetch its frontmatter)
+ * - field: Which field to use from frontmatter ('posts' or 'roles')
+ */
+
+interface Props {
+  postSlug: string;
+  field: 'posts' | 'roles';
+}
+
+const { postSlug, field } = Astro.props;
+
+// Fetch the current post to get its frontmatter
+const currentPost = await getEntry('posts', postSlug);
+const postData = currentPost?.data[field];
+
+// Handle both array and object formats for posts
+let urls: string[] = [];
+if (Array.isArray(postData)) {
+  urls = postData;
+} else if (typeof postData === 'object' && postData !== null) {
+  urls = Object.values(postData);
+}
+
+// Fetch all published posts
+const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => {
+  return data.published !== false;
+});
+
+// Create a map of URL to post for efficient lookup
+const postsByUrl = new Map<string, CollectionEntry<'posts'>>();
+allPosts.forEach((post: CollectionEntry<'posts'>) => {
+  const url = getPostUrl(post.slug);
+  if (url) {
+    postsByUrl.set(url, post);
+  }
+});
+
+// Find posts matching the provided URLs, preserving order
+const matchedPosts = urls
+  .map(url => {
+    const post = postsByUrl.get(url);
+    if (!post && import.meta.env.DEV) {
+      console.warn(`ReadingList: URL "${url}" in post "${postSlug}" field "${field}" does not match any post`);
+    }
+    return post;
+  })
+  .filter((post): post is CollectionEntry<'posts'> => post !== undefined);
+---
+
+<div class="not-prose my-6 flex flex-col gap-3">
+  {matchedPosts.map((post, i) => {
+    const url = getPostUrl(post.slug);
+    return (
+      <ReadingListCard
+        title={post.data.title}
+        description={stripMarkdown(post.data.description)}
+        url={url}
+        index={i + 1}
+      />
+    );
+  })}
+</div>
