@@ -23,18 +23,18 @@ const { title, description, url, index } = Astro.props;
 const formattedIndex = String(index).padStart(2, '0');
 ---
 
-<article class="reading-list-card not-prose group relative flex gap-4 rounded-lg border border-gray-200 bg-white p-5 border-l-4 border-l-primary-200 transition-all duration-200 hover:shadow-md hover:border-l-primary hover:-translate-y-0.5 dark:border-gray-700 dark:bg-gray-800 dark:border-l-primary-700 dark:hover:border-l-primary-400">
+<article class="reading-list-card not-prose group relative flex gap-4 rounded-lg border border-gray-200 bg-white p-5 border-l-4 border-l-primary-200 transition-all duration-200 hover:shadow-md hover:border-l-primary motion-safe:hover:-translate-y-0.5 dark:border-gray-700 dark:bg-gray-800 dark:border-l-primary-700 dark:hover:border-l-primary-400">
   <div class="select-none text-3xl font-bold leading-none text-gray-200 dark:text-gray-700" aria-hidden="true">
     {formattedIndex}
   </div>
   <div class="min-w-0 flex-1">
-    <h3 class="text-base font-semibold leading-snug">
-      <a href={url} class="text-gray-900 no-underline hover:text-primary dark:text-gray-100 dark:hover:text-primary-300">
+    <h3 class="text-base font-semibold leading-snug m-0">
+      <a href={url} class="text-gray-900 no-underline hover:text-primary dark:text-gray-100 dark:hover:text-primary-300 before:absolute before:inset-0">
         {title}
       </a>
     </h3>
     {description && (
-      <p class="mt-1 text-sm leading-relaxed text-gray-500 dark:text-gray-400">
+      <p class="mt-1 mb-0 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
         {description}
       </p>
     )}

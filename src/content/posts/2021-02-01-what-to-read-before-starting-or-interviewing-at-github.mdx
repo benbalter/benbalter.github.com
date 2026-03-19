@@ -24,9 +24,9 @@ roles:
 
 import ReadingList from '../../components/ReadingList.astro';
 
-<div class="not-prose mb-8 rounded-xl bg-gradient-to-r from-primary/5 to-primary/10 dark:from-primary/10 dark:to-primary/20 border border-primary/20 p-6">
-  <div class="text-xs font-bold uppercase tracking-widest text-primary dark:text-primary-300 mb-1">📚 Unofficial Onboarding Guide</div>
-  <div class="text-lg font-semibold text-gray-800 dark:text-gray-200">Your reading list for understanding GitHub's culture</div>
+<div class="not-prose mb-8 rounded-xl bg-gradient-to-r from-primary/5 to-primary/10 dark:from-primary/10 dark:to-primary/20 border border-primary/20 p-6" role="banner" aria-label="Unofficial onboarding guide">
+  <div class="text-xs font-bold uppercase tracking-widest text-primary dark:text-primary-300 mb-1"><span role="img" aria-label="Books">📚</span> Unofficial Onboarding Guide</div>
+  <p class="text-lg font-semibold text-gray-800 dark:text-gray-200 m-0">Your reading list for understanding GitHub's culture</p>
 </div>
 
 Your first few weeks at any new company are an exercise in pattern matching—figuring out the unwritten rules, the communication norms, the things everyone "just knows" but nobody thought to write down. GitHub is no exception, except that we've been unusually intentional about writing those norms down (it's kind of our thing).
