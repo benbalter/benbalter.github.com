@@ -384,7 +384,7 @@ describe('generateBlogPostingSchema', () => {
     const schema = generateBlogPostingSchema(props);
     
     expect(schema).toHaveProperty('publisher');
-    expect(schema.publisher).toHaveProperty('@type', 'Person');
+    expect(schema.publisher).toHaveProperty('@type', 'Organization');
   });
 
   it('should include mainEntityOfPage', () => {

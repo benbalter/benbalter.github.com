@@ -116,6 +116,11 @@ const schemas = breadcrumbSchema
           locale: 'en_US',
           siteName: siteConfig.name,
         },
+        image: {
+          width: 1200,
+          height: 630,
+          alt: description,
+        },
         ...(type === 'article' && publishedTime ? {
           article: {
             publishedTime: publishedTime.toISOString(),
@@ -131,6 +136,7 @@ const schemas = breadcrumbSchema
         title: fullTitle,
         description: description,
         image: ogImage,
+        imageAlt: description,
       }}
       extend={{
         meta: [
