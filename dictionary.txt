@@ -841,4 +841,11 @@ boilerplate
 Copilot
 handoff
 PRs
-scaffolding
+scaffoldingasync
+boundaryless
+differentiator
+LLM
+LLMs
+standups
+trackable
+workstreams
