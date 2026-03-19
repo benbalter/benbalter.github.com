@@ -105,8 +105,9 @@ test.describe('Accessibility - Blog Post', () => {
     await page.click('article a');
     await page.waitForLoadState('networkidle');
     
-    // Check for article element
-    const article = page.locator('article');
+    // Check for article element - use specific selector for the main post article
+    // (related posts also use <article> elements but are nested inside the main article)
+    const article = page.locator('.col-md-10 > article');
     await expect(article).toHaveCount(1);
     
     // Check for header within article
