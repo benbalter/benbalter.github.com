@@ -1,7 +1,6 @@
 ---
 on:
-  schedule:
-    - cron: "0 9 * * MON"
+  schedule: weekly
   workflow_dispatch:
 permissions:
   contents: read

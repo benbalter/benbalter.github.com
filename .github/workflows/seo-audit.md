@@ -1,6 +1,6 @@
 ---
 on:
-  schedule: monthly
+  schedule: "0 0 1 * *"
   skip-if-match: 'is:issue is:open in:title "[seo-audit]"'
 permissions:
   contents: read
