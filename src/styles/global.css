@@ -358,6 +358,18 @@
     }
   }
 
+  /* Code block scroll affordance on mobile */
+  @media (max-width: 768px) {
+    pre {
+      @apply p-4;
+      margin: 1.5rem -1rem;
+      border-radius: 0;
+      border-left: none;
+      border-right: none;
+      position: relative;
+    }
+  }
+
   /* Remove backticks added by Tailwind Typography plugin */
   code::before,
   code::after {
@@ -394,6 +406,21 @@
   th, td {
     @apply p-3;
     line-height: 1.5;
+  }
+
+  /* Table responsive wrapper for mobile */
+  @media (max-width: 768px) {
+    /* Allow tables to scroll horizontally on mobile */
+    table {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+
+    th, td {
+      @apply p-2;
+    }
   }
 
   /* Focus Styles */
@@ -446,6 +473,15 @@
     main a:not(.btn):not(.nav-link):not(.navbar-brand):not(.anchor-link) {
       text-decoration-thickness: 0.1em;
       text-underline-offset: 0.2em;
+    }
+  }
+
+  /* Prose table overflow on mobile */
+  @media (max-width: 768px) {
+    .prose table {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
   }
 }
@@ -772,7 +808,7 @@
 
   .nav-collapse.show {
     visibility: visible;
-    max-height: 100vh; /* Allow nav to expand up to full viewport height to avoid truncation */
+    max-height: 500px; /* Realistic max for smoother animation timing */
     opacity: 1;
     transition: max-height 0.3s ease-out, opacity 0.2s ease-out, visibility 0s 0s;
   }

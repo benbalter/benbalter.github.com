@@ -131,7 +131,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
                 <MiniBio />
               </div>
             </div>
-            <div class="col-lg-2 text-center edit-section">
+            <div class="col-lg-2 text-center edit-section max-lg:mt-6">
               <p class="mb-2">
                 <small>This page is open source. Please <a 
                   href={`${siteConfig.githubRepoUrl}/edit/main/src/content/posts/${postId}`}
@@ -187,6 +187,13 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   
   .edit-link:hover {
     border-bottom-color: transparent;
+  }
+  
+  /* Mobile adjustments */
+  @media (max-width: 767px) {
+    .mini-bio-card {
+      @apply p-4;
+    }
   }
   
   /* Dark mode adjustments */

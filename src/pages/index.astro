@@ -44,8 +44,8 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
 <BaseLayout description={description} hero={true}>
   <!-- Popular Posts Section -->
   {popularPosts.length > 0 && (
-    <section class="mb-12">
-      <h2 class="text-2xl mb-6 section-header">
+    <section class="mb-12 max-md:mb-8">
+      <h2 class="text-2xl mb-6 max-md:mb-4 section-header">
         <span class="section-header-accent"></span>
         Popular Posts
       </h2>
@@ -53,7 +53,7 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
         {popularPosts.map((post) => {
           const { postUrl, date, isoDate, readingTime } = getPostMetadata(post);
           return (
-            <div class="w-full md:w-1/2 lg:w-1/3 px-2 mb-4">
+            <div class="w-full md:w-1/2 lg:w-1/3 px-2 mb-4 max-md:mb-3">
               <FeaturedPostCard
                 title={post.data.title}
                 url={postUrl}
@@ -71,8 +71,8 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
 
   <!-- Recent Posts Section -->
   {featuredPosts.length > 0 && (
-    <section class="mb-12">
-      <h2 class="text-2xl mb-6 section-header">
+    <section class="mb-12 max-md:mb-8">
+      <h2 class="text-2xl mb-6 max-md:mb-4 section-header">
         <span class="section-header-accent"></span>
         Recent Posts
       </h2>
@@ -80,7 +80,7 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
         {featuredPosts.map((post) => {
           const { postUrl, date, isoDate, readingTime } = getPostMetadata(post);
           return (
-            <div class="w-full md:w-1/2 lg:w-1/3 px-2 mb-4">
+            <div class="w-full md:w-1/2 lg:w-1/3 px-2 mb-4 max-md:mb-3">
               <FeaturedPostCard
                 title={post.data.title}
                 url={postUrl}
@@ -99,7 +99,7 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
   <!-- Older Posts Section -->
   {regularPosts.length > 0 && (
     <section>
-      <h2 class="text-lg text-gray-600 dark:text-gray-400 mb-6 section-header">
+      <h2 class="text-lg text-gray-600 dark:text-gray-400 mb-6 max-md:mb-4 section-header">
         <span class="section-header-accent"></span>
         Older Posts
       </h2>
