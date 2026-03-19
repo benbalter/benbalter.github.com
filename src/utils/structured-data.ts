@@ -7,7 +7,7 @@
  * @see https://github.com/google/schema-dts
  */
 
-import type { Person, Organization, WebSite, BlogPosting, BreadcrumbList, ListItem, WithContext, Occupation, EducationalOrganization, EducationalOccupationalCredential, ImageObject } from 'schema-dts';
+import type { Person, Organization, WebSite, BlogPosting, BreadcrumbList, ListItem, WithContext, Occupation, EducationalOrganization, EducationalOccupationalCredential, ImageObject, ProfilePage } from 'schema-dts';
 import { siteConfig } from '../config';
 
 /** Base Person fields (shared between top-level and embedded schemas) */
@@ -46,6 +46,19 @@ export function generatePersonSchema(overrides?: Partial<Person>): WithContext<P
  */
 export function generatePersonRef(overrides?: Partial<Person>): Person {
   return personFields(overrides);
+}
+
+/**
+ * Generate ProfilePage schema for the homepage.
+ * Google supports ProfilePage as a rich result type for creator/personal pages.
+ * @see https://developers.google.com/search/docs/appearance/structured-data/profile-page
+ */
+export function generateProfilePageSchema(): WithContext<ProfilePage> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    mainEntity: personFields(),
+  } as WithContext<ProfilePage>;
 }
 
 /**
@@ -223,8 +236,8 @@ export function generateResumeSchema(props: ResumeSchemaProps): WithContext<Pers
  */
 export function schemaToJsonLd(
   schema:
-    | WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList>
-    | Array<WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList>>
+    | WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList | ProfilePage>
+    | Array<WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList | ProfilePage>>
 ): string {
   return JSON.stringify(schema, null, 2);
 }
