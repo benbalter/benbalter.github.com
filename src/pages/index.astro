@@ -104,7 +104,7 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
         Older Posts
       </h2>
       <div class="row -mx-2">
-        {regularPosts.map((post) => {
+        {regularPosts.slice(0, 20).map((post) => {
           const { postUrl, date, isoDate, readingTime } = getPostMetadata(post);
           return (
             <div class="w-full md:w-1/2 px-2 mb-3">
@@ -120,6 +120,11 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
           );
         })}
       </div>
+      {regularPosts.length > 20 && (
+        <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">
+          Showing 20 of {regularPosts.length} older posts
+        </p>
+      )}
     </section>
   )}
 </BaseLayout>
