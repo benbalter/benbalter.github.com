@@ -2,6 +2,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import PostLayout from '../../../../layouts/PostLayout.astro';
 import { findRelatedPosts, initializeRelatedPostsCache } from '../../../../utils/related-posts';
+import { getPostUrl } from '../../../../utils/post-urls';
 
 // Generate static paths for all blog posts with Jekyll URL structure
 export async function getStaticPaths() {
@@ -49,6 +50,17 @@ const ogImageUrl = post.data.image || `/og/${year}/${month}/${day}/${slug}.png`;
 
 // Find related posts (limit to 10) - uses cached TF-IDF calculations
 const relatedPosts = await findRelatedPosts(post, allPosts, 10);
+
+// Find previous and next posts for sequential navigation
+const publishedPosts = allPosts
+  .filter((p: CollectionEntry<'posts'>) => p.data.published !== false)
+  .sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => a.slug.localeCompare(b.slug));
+
+const currentIndex = publishedPosts.findIndex((p: CollectionEntry<'posts'>) => p.slug === post.slug);
+const prevEntry = currentIndex > 0 ? publishedPosts[currentIndex - 1] : undefined;
+const nextEntry = currentIndex < publishedPosts.length - 1 ? publishedPosts[currentIndex + 1] : undefined;
+const prevPost = prevEntry ? { title: prevEntry.data.title, url: getPostUrl(prevEntry.slug) } : undefined;
+const nextPost = nextEntry ? { title: nextEntry.data.title, url: getPostUrl(nextEntry.slug) } : undefined;
 ---
 
 <PostLayout
@@ -57,6 +69,8 @@ const relatedPosts = await findRelatedPosts(post, allPosts, 10);
   pubDate={pubDate}
   image={ogImageUrl}
   relatedPosts={relatedPosts}
+  prevPost={prevPost}
+  nextPost={nextPost}
   archived={post.data.archived}
   postId={post.id}
 >

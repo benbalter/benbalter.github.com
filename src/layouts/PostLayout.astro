@@ -16,6 +16,8 @@ import { calculateReadingTime, formatReadingTime } from '../utils/reading-time';
 import { generateBlogPostingSchema, schemaToJsonLd } from '../utils/structured-data';
 import { formatPostDate, getPostUrl } from '../utils/post-urls';
 import ArchivedPostWarning from '../components/ArchivedPostWarning.astro';
+import ShareButtons from '../components/ShareButtons.astro';
+import PostNavigation from '../components/PostNavigation.astro';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -27,6 +29,8 @@ interface Props {
   author?: string;
   tags?: string[];
   relatedPosts?: CollectionEntry<'posts'>[];
+  prevPost?: { title: string; url: string };
+  nextPost?: { title: string; url: string };
   archived?: boolean;
   postId: string;
 }
@@ -40,11 +44,14 @@ const {
   author = siteConfig.author,
   tags = [],
   relatedPosts = [],
+  prevPost,
+  nextPost,
   archived = false,
   postId,
 } = Astro.props;
 
 const formattedDate = pubDate ? formatPostDate(pubDate) : undefined;
+const postUrl = new URL(Astro.url.pathname, siteConfig.url).toString();
 
 // Calculate reading time using improved utility
 const content = await Astro.slots.render('default');
@@ -97,10 +104,13 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         </div>
         
         {pubDate && (
-          <div class="mt-8 border-t border-gray-200 dark:border-gray-700 py-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-600 dark:text-gray-300">
-            <span>Originally published {formattedDate}</span>
-            <span aria-hidden="true">·</span>
-            <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200" href={`${siteConfig.githubRepoUrl}/commits/main/src/content/posts/${postId}`} target="_blank" rel="noopener noreferrer" aria-label="View revision history">View revision history</a>
+          <div class="mt-8 border-t border-gray-200 dark:border-gray-700 py-4 flex flex-wrap items-center justify-between gap-x-3 gap-y-3 text-sm text-gray-600 dark:text-gray-300">
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+              <span>Originally published {formattedDate}</span>
+              <span aria-hidden="true">·</span>
+              <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200" href={`${siteConfig.githubRepoUrl}/commits/main/src/content/posts/${postId}`} target="_blank" rel="noopener noreferrer" aria-label="View revision history">View revision history</a>
+            </div>
+            <ShareButtons title={title} url={postUrl} />
           </div>
         )}
         
@@ -138,6 +148,8 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
             </div>
           </section>
         )}
+        
+        <PostNavigation prevPost={prevPost} nextPost={nextPost} />
         
         <footer class="border-t-2 border-gray-200 dark:border-gray-700 pt-6 mt-6 mb-8 post-footer">
           <div class="grid md:grid-cols-[1fr_auto] gap-6 items-start">
