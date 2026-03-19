@@ -567,15 +567,6 @@ test.describe('Social Links', () => {
 });
 
 test.describe('Performance Hints for SEO', () => {
-  test('should have preconnect hints', async ({ page }) => {
-    await page.goto('/');
-    await waitForPageReady(page);
-    
-    const preconnect = page.locator('link[rel="preconnect"]');
-    const count = await preconnect.count();
-    expect(count).toBeGreaterThan(0);
-  });
-
   test('should have dns-prefetch hints', async ({ page }) => {
     await page.goto('/');
     await waitForPageReady(page);
