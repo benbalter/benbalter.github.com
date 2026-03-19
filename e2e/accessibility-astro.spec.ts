@@ -603,7 +603,7 @@ test.describe('Accessibility - 404 Page', () => {
     expect(homeLinkCount).toBeGreaterThanOrEqual(1);
     
     // Should have helpful content with recent posts
-    const recentPostsHeading = page.locator('h4');
+    const recentPostsHeading = page.locator('h2');
     await expect(recentPostsHeading).toContainText('Recent posts');
   });
 });

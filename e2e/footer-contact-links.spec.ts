@@ -7,8 +7,8 @@ test.describe('Footer Contact Links', () => {
     await page.goto('/contact/');
     await waitForPageReady(page);
     
-    // Get contact links from the main contact section (flex container, excluding PGP key)
-    const contactPageLinks = page.locator('.contact-links .flex a[href]');
+    // Get contact links from the main contact section (grid container, excluding PGP key)
+    const contactPageLinks = page.locator('.contact-links .grid a[href]');
     const contactPageUrls = await contactPageLinks.evaluateAll((links) => 
       links.map(link => link.getAttribute('href')).filter(Boolean)
     );
