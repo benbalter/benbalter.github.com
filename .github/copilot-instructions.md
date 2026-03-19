@@ -270,7 +270,7 @@ Specialized for code-related tasks including:
 
 * **JavaScript/TypeScript** (webpack, build tools, Astro components, linting)
 * **Astro components** (.astro files)
-* **SCSS/CSS styling**
+* **Tailwind CSS/CSS styling**
 * **Configuration files** (YAML, JSON, TypeScript config)
 
 Use this agent for development tasks that involve modifying or creating code files.
@@ -293,7 +293,7 @@ Use this agent for creating or editing blog posts and documentation. The agent u
 Specialized for search engine optimization tasks including:
 
 * **Meta tags**: Title tags, meta descriptions, Open Graph tags
-* **Structured data**: JSON-LD schemas (Article, Person, BreadcrumbList)
+* **Structured data**: JSON-LD schemas (BlogPosting, Person, ProfilePage, BreadcrumbList)
 * **Content optimization**: Headings, keywords, internal linking
 * **Technical SEO**: URL structure, canonical URLs, sitemaps
 * **Performance**: Core Web Vitals and page speed optimization

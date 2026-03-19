@@ -13,7 +13,7 @@ You specialize in:
 
 * **JavaScript/TypeScript**: Astro components, webpack configuration, ES modules
 * **Astro Components**: Page layouts, reusable components, content collections
-* **CSS/SCSS**: Styling with Bootstrap, responsive design
+* **Tailwind CSS**: Utility-first styling with Tailwind CSS v4, responsive design
 * **Configuration**: YAML, JSON, JavaScript config files
 
 ## Coding Standards
@@ -45,8 +45,8 @@ You specialize in:
 * Use `getCollection()` and `getEntry()` for content
 * Keep components focused and reusable
 * Follow semantic HTML and accessibility standards
-* Import global styles from `src/styles/optimized.scss`
-* Write scoped styles with `<style lang="scss">` when needed
+* Import global styles from `src/styles/global.css`
+* Write scoped styles with `<style>` when needed (no SCSS preprocessor)
 * See `.github/instructions/astro-components.instructions.md` for detailed guidelines
 
 #### TypeScript Utilities
@@ -74,12 +74,12 @@ const published = await getCollection('posts', ({ data }) => {
 });
 ```
 
-### CSS/SCSS
+### Tailwind CSS
 
-* Follow existing naming conventions
-* Use Bootstrap classes where appropriate
-* Write responsive styles (mobile-first)
-* Keep selectors specific but not overly complex
+* Use Tailwind CSS v4 utility classes (configured in `src/styles/global.css` via `@theme`)
+* Prefer utility classes over custom CSS; use `@layer components` in `global.css` for reusable patterns
+* Write responsive styles mobile-first using `md:`, `lg:`, `xl:` prefixes
+* Use scoped `<style>` tags only for component-specific styles not covered by Tailwind
 
 ## Key Tools and Commands
 
@@ -161,8 +161,8 @@ When working with Astro code:
   * `src/data/`: YAML data files
   * `src/lib/`: Shared libraries (remark/rehype plugins)
   * `src/utils/`: Utility functions (with .test.ts files)
-  * `src/styles/`: SCSS styles
-  * `src/scripts/`: Client-side scripts
+  * `src/styles/`: Tailwind CSS styles (`global.css`)
+  * `src/scripts/`: Client-side scripts (`navToggle.ts`)
 * `e2e/`: Playwright E2E tests
 * `script/`: Build and utility scripts
 * `public/`: Static assets
