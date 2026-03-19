@@ -160,29 +160,31 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         <PostNavigation prevPost={prevPost} nextPost={nextPost} />
         
         <footer class="border-t-2 border-gray-200 dark:border-gray-700 pt-6 mt-6 mb-8 post-footer">
-          <div class="grid md:grid-cols-[1fr_auto] gap-6 items-start">
-            <div class="mini-bio-card">
-              <MiniBio />
-            </div>
-            <div class="text-center md:text-right edit-section">
-              <p class="mb-2">
-                <small>This page is open source. Please <a 
-                  href={`${siteConfig.githubRepoUrl}/edit/main/src/content/posts/${postId}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Help improve this article"
-                  class="edit-link"
-                >help improve it</a>.</small>
-              </p>
-              <a 
-                class="btn btn-outline-primary btn-sm" 
-                href={`${siteConfig.githubRepoUrl}/edit/main/src/content/posts/${postId}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Help improve this article"
-              >Edit</a>
-            </div>
+          <div class="mini-bio-card mb-6">
+            <MiniBio />
           </div>
+
+          <a
+            href={`${siteConfig.githubRepoUrl}/edit/main/src/content/posts/${postId}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="open-source-cta group"
+          >
+            <div class="flex items-center gap-3">
+              <span class="open-source-icon" aria-hidden="true">
+                <Icon name="pen-to-square" />
+              </span>
+              <div>
+                <span class="block text-sm font-semibold text-gray-800 dark:text-gray-200 group-hover:text-primary dark:group-hover:text-primary-300 transition-colors duration-200">
+                  This page is open source
+                </span>
+                <span class="block text-xs text-gray-500 dark:text-gray-400">
+                  Help improve this article on GitHub
+                </span>
+              </div>
+            </div>
+            <span class="text-gray-400 dark:text-gray-500 group-hover:text-primary dark:group-hover:text-primary-300 transition-colors duration-200" aria-hidden="true">→</span>
+          </a>
         </footer>
       </article>
       
@@ -206,20 +208,28 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
     );
     border-left: 3px solid #337ab7;
   }
-  
-  /* Edit section layout */
-  .edit-section {
-    @apply flex flex-col justify-center items-center;
-  }
-  
-  .edit-link {
-    @apply text-primary no-underline;
-    border-bottom: 1px dotted #337ab7;
+
+  /* Open source edit CTA */
+  .open-source-cta {
+    @apply flex items-center justify-between gap-4 px-4 py-3 rounded-lg;
+    @apply border border-gray-200 no-underline;
     @apply transition-all duration-200;
   }
-  
-  .edit-link:hover {
-    border-bottom-color: transparent;
+
+  .open-source-cta:hover {
+    @apply border-primary/40 shadow-sm;
+    background: rgba(51, 122, 183, 0.03);
+  }
+
+  .open-source-icon {
+    @apply flex items-center justify-center w-9 h-9 rounded-full;
+    @apply bg-primary/10 text-primary;
+    @apply transition-colors duration-200;
+    flex-shrink: 0;
+  }
+
+  .open-source-cta:hover .open-source-icon {
+    @apply bg-primary/20;
   }
   
   /* Mobile adjustments */
@@ -239,10 +249,22 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
       );
       @apply shadow-card-dark;
     }
-    
-    .edit-link {
-      @apply text-primary-300;
-      border-bottom-color: #80b9e6;
+
+    .open-source-cta {
+      @apply border-gray-700;
+    }
+
+    .open-source-cta:hover {
+      @apply border-primary/30;
+      background: rgba(51, 122, 183, 0.06);
+    }
+
+    .open-source-icon {
+      @apply bg-primary/20 text-primary-300;
+    }
+
+    .open-source-cta:hover .open-source-icon {
+      @apply bg-primary/30;
     }
   }
 </style>
