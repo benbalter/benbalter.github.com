@@ -29,7 +29,7 @@ let match: RegExpExecArray | null;
 
 while ((match = headingRegex.exec(content)) !== null) {
   // Strip HTML tags from heading text (e.g. anchor links from rehype-autolink-headings)
-  const text = match[3].replace(/<[^>]+>/g, '').trim();
+  const text = match[3].replace(/<[^>]+>/g, '').replace(/#$/, '').trim();
   if (text) {
     headings.push({
       level: parseInt(match[1]),
