@@ -60,13 +60,29 @@ You specialize in:
 
 #### Content Collections
 
+Content config lives at `src/content.config.ts` (not `src/content/config.ts`). Collections use the `glob()` loader from `astro/loaders`. Import `z` from `astro/zod` (not `astro:content`).
+
 ```typescript
+// Content config (src/content.config.ts)
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
+
+const posts = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: 'src/content/posts' }),
+  schema: z.object({ title: z.string(), /* ... */ }),
+});
+
 // Fetch all posts
 import { getCollection } from 'astro:content';
 const posts = await getCollection('posts');
 
-// Fetch single entry
-const post = await getEntry('posts', 'slug');
+// Fetch single entry — use entry.id (not entry.slug)
+const post = await getEntry('posts', 'my-post-id');
+
+// Render — use render(entry) (not entry.render())
+import { render } from 'astro:content';
+const { Content } = await render(post);
 
 // Filter with callback
 const published = await getCollection('posts', ({ data }) => {
@@ -80,6 +96,10 @@ const published = await getCollection('posts', ({ data }) => {
 * Prefer utility classes over custom CSS; use `@layer components` in `global.css` for reusable patterns
 * Write responsive styles mobile-first using `md:`, `lg:`, `xl:` prefixes
 * Use scoped `<style>` tags only for component-specific styles not covered by Tailwind
+* **Astro Fonts API**: Site uses Inter from Fontsource (self-hosted) via the Astro Fonts API
+  * Font configured in `astro.config.mjs` `fonts` array with `fontProviders.fontsource()`
+  * `<Font />` component from `astro:assets` rendered in `BaseLayout.astro`
+  * CSS variable `--font-inter` integrated into Tailwind `--font-sans`
 
 ## Key Tools and Commands
 
@@ -120,7 +140,7 @@ npm run dev            # Start Astro dev server (port 4321)
 When working with Astro code:
 
 1. **Type Checking**: Always run `npm run check` before committing Astro changes
-2. **Content Collections**: Use `src/content/config.ts` schemas for type-safe content
+2. **Content Collections**: Use `src/content.config.ts` schemas for type-safe content (uses `glob()` loader, `render(entry)`, `entry.id`)
 3. **Build Output**: Astro builds to `dist-astro/`
 4. **File-based Routing**: Pages in `src/pages/` automatically become routes
    * `src/pages/about.astro` → `/about/`
@@ -131,6 +151,7 @@ When working with Astro code:
    * E2E tests (Playwright): Test full page rendering and interactions
 7. **Performance**: Keep JavaScript minimal - avoid `client:*` directives
 8. **Documentation**: Refer to `docs/ASTRO-*.md` files for implementation details
+9. **Runtime**: Astro 6, Vite 7, Zod 4, Shiki 4, Node 22+
 
 ## Important Considerations
 
@@ -153,6 +174,7 @@ When working with Astro code:
 
 ## File Structure
 
+* `src/content.config.ts`: Content collection definitions (glob loaders, Zod schemas)
 * `src/`: Astro source files
   * `src/pages/`: Astro page routes (file-based routing)
   * `src/layouts/`: Astro layouts (BaseLayout, PostLayout, etc.)

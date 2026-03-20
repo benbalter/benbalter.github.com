@@ -111,13 +111,15 @@ YYYY-MM-DD-title-with-hyphens.md
 - `2023-05-19-pull-requests-are-a-form-of-documentation.md`
 - `2020-01-17-ten-lessons-learned-fostering-a-community-of-communities-on-github.md`
 
-**Content Collection Schema** (`src/content/config.ts`):
+**Content Collection Schema** (`src/content.config.ts`):
 
 ```typescript
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
+import { glob } from 'astro/loaders';
 
 const postsCollection = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/posts' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -153,7 +155,7 @@ export const collections = {
 
 ```typescript
 const pagesCollection = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/pages' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -179,7 +181,7 @@ export const collections = {
 
 ```typescript
 const resumePositionsCollection = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/resume-positions' }),
   schema: z.object({
     employer: z.string(),
     title: z.string(),
@@ -216,19 +218,18 @@ export const collections = {
 ```typescript
 // src/pages/[year]/[month]/[day]/[slug].astro
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import PostLayout from '@layouts/PostLayout.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
   
   return posts.map(post => {
-    // Parse date from filename: YYYY-MM-DD-slug.md
-    const filename = post.id;
-    const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)\.md$/);
+    // Parse date from id: YYYY-MM-DD-slug
+    const match = post.id.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
     
     if (!match) {
-      throw new Error(`Invalid post filename: ${filename}`);
+      throw new Error(`Invalid post id: ${post.id}`);
     }
     
     const [, year, month, day, slug] = match;
@@ -241,7 +242,7 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 ---
 
 <PostLayout frontmatter={post.data}>
@@ -270,17 +271,17 @@ const { Content } = await post.render();
 ```typescript
 // src/pages/[...slug].astro
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import PageLayout from '@layouts/PageLayout.astro';
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages');
   
   return pages.map(page => {
-    // Use permalink from frontmatter or derive from filename
+    // Use permalink from frontmatter or derive from id
     const slug = page.data.permalink 
       ? page.data.permalink.replace(/^\/|\/$/g, '')
-      : page.id.replace(/\.md$/, '');
+      : page.id;
     
     return {
       params: { slug },
@@ -290,7 +291,7 @@ export async function getStaticPaths() {
 }
 
 const { page } = Astro.props;
-const { Content } = await page.render();
+const { Content } = await render(page);
 ---
 
 <PageLayout frontmatter={page.data}>
@@ -516,7 +517,7 @@ export async function GET(context: APIContext) {
     items: sortedPosts.map(post => ({
       title: post.data.title,
       description: post.data.description,
-      link: `/[year]/[month]/[day]/${post.slug}/`,
+      link: `/[year]/[month]/[day]/${post.id}/`,
       pubDate: new Date(post.data.date),
     })),
     customData: '<language>en-us</language>',
@@ -641,7 +642,7 @@ const relatedPosts = allPosts.filter(post =>
     <ul>
       {relatedPosts.map(post => (
         <li>
-          <a href={`/[year]/[month]/[day]/${post.slug}/`}>
+          <a href={`/[year]/[month]/[day]/${post.id}/`}>
             {post.data.title}
           </a>
         </li>

@@ -19,7 +19,7 @@ This project follows a code of conduct that all contributors are expected to adh
 
 ### Prerequisites
 
-- **Node.js**: Version 20.x or later
+- **Node.js**: Version 22.x or later
 - **npm**: Version 10.x or later (comes with Node.js)
 - **Git**: For version control
 

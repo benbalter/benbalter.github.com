@@ -36,7 +36,7 @@ A CI workflow has failed on the main branch. Analyze the failure and create an a
 
 ### Context
 
-- This is an Astro 5.x static site with TypeScript
+- This is an Astro 6.x static site with TypeScript
 - Unit tests use Vitest (`src/utils/*.test.ts`)
 - E2E tests use Playwright (`e2e/*.spec.ts`)
 - Linting includes ESLint, markdownlint, textlint, Vale, and yamllint

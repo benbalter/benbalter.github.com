@@ -17,8 +17,8 @@ This is the personal website of Ben Balter. The site serves as a personal blog, 
 
 ### Core Technologies
 
-* **Astro**: 5.x (Static site generator)
-* **Node.js**: For JavaScript tooling and build processes
+* **Astro**: 6.x (Static site generator, Vite 7)
+* **Node.js**: 22+ for JavaScript tooling and build processes
 * **TypeScript**: For Astro components and utilities
 * **GitHub Pages**: Hosting platform
 
@@ -28,9 +28,10 @@ Astro provides static site generation with:
 
 * **Static Site Generation (SSG)**: All pages pre-rendered at build time
 * **Zero JavaScript by default**: Ships minimal JavaScript for optimal performance
-* **Content Collections**: Type-safe content management with Zod schemas
+* **Content Collections**: Type-safe content management with Zod 4 schemas and glob() loaders
 * **TypeScript Support**: Type-safe component development
 * **Component Islands**: Partial hydration for interactive components
+* **Fonts API**: Built-in font optimization with self-hosted Inter via Fontsource
 * **View Transitions**: Smooth page navigation using modern browser APIs
 * **Output**: Builds to `dist-astro/` directory
 * **Development Server**: Runs on port 4321
@@ -47,6 +48,7 @@ Astro provides static site generation with:
 * **Vitest**: Unit testing for Astro utilities and components
 * **Playwright**: E2E testing
 * **ESLint**: JavaScript and JSON linting
+* **Zod**: 4.x (schema validation for content collections)
 * **markdownlint**: Markdown linting
 * **textlint**: Natural language linting
 * **remark**: Markdown processing
@@ -119,7 +121,7 @@ script/fix-lint        # Auto-fix linting issues (ALWAYS run after markdown lint
 ### Important Files
 
 * `package.json`: Node.js dependencies and scripts
-* `astro.config.mjs`: Astro configuration
+* `astro.config.mjs`: Astro configuration and fonts config
 * `tsconfig.astro.json`: TypeScript configuration for Astro
 * `llms.txt`: LLM/AI assistant context about the site
 * `humans.txt`: Credits and site information
@@ -138,7 +140,10 @@ script/fix-lint        # Auto-fix linting issues (ALWAYS run after markdown lint
 
 * Use TypeScript for Astro components and utilities
 * Follow TypeScript config in `tsconfig.astro.json`
-* Leverage Astro's content collections with Zod schemas
+* Leverage Astro's Content Layer API with Zod 4 schemas and glob() loaders
+* Import `z` from `astro/zod` (not `astro:content`)
+* Use `entry.id` (not `entry.slug`) and `render(entry)` (not `entry.render()`)
+* Content config at `src/content.config.ts` (not `src/content/config.ts`)
 * Use `.astro` files for components (HTML-like syntax with TypeScript in frontmatter)
 * **Zero JavaScript by default**: Only add interactivity when necessary
 * Use `client:*` directives sparingly for interactive components
@@ -245,7 +250,7 @@ Blog posts must include:
 This repository includes a `.github/workflows/copilot-setup-steps.yml` workflow file that helps GitHub Copilot coding agent set up the development environment automatically. The workflow:
 
 * Checks out the repository
-* Sets up Node.js with npm caching
+* Sets up Node.js 22+ with npm caching
 * Installs all dependencies via `npm install`
 
 This ensures Copilot can build, test, and validate code changes in a properly configured environment.
@@ -268,8 +273,8 @@ This repository includes specialized GitHub Copilot custom agents in `.github/ag
 
 Specialized for code-related tasks including:
 
-* **JavaScript/TypeScript** (webpack, build tools, Astro components, linting)
-* **Astro components** (.astro files)
+* **JavaScript/TypeScript** (webpack, build tools, Astro 6 components, linting)
+* **Astro 6 components** (.astro files)
 * **Tailwind CSS/CSS styling**
 * **Configuration files** (YAML, JSON, TypeScript config)
 
