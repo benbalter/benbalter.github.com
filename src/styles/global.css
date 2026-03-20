@@ -68,6 +68,7 @@
 /* Dark mode prose customization */
 @media (prefers-color-scheme: dark) {
   .prose-primary {
+    --tw-prose-body: #d1d5db;
     --tw-prose-links: #80b9e6;
     --tw-prose-headings: #f8f9fa;
     --tw-prose-bold: #f8f9fa;
@@ -76,9 +77,12 @@
     --tw-prose-quotes: #adb5bd;
     --tw-prose-quote-borders: #80b9e6;
     --tw-prose-code: #f8f9fa;
+    --tw-prose-pre-code: #d1d5db;
+    --tw-prose-pre-bg: rgb(0 0 0 / 50%);
     --tw-prose-hr: #495057;
     --tw-prose-th-borders: #495057;
     --tw-prose-td-borders: #343a40;
+    --tw-prose-captions: #9ca3af;
   }
 }
 
