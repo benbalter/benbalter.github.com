@@ -17,19 +17,16 @@ const firstParagraph = getFirstParagraph(aboutContent);
 const bioHtml = `${firstParagraph} <a href="/about/">More about the author &rarr;</a>`;
 ---
 
-<div class="mini-bio flex gap-4 max-md:gap-3">
-  <div class="flex-shrink-0">
-    <Image 
-      src={avatarImage}
-      alt={siteConfig.author}
-      width={100}
-      height={100}
-      layout="fixed"
-      class="avatar rounded block max-md:w-[75px]"
-      loading="lazy"
-    />
-  </div>
-  
+<div class="mini-bio">
+  <Image 
+    src={avatarImage}
+    alt={siteConfig.author}
+    width={100}
+    height={100}
+    layout="fixed"
+    class="avatar rounded block float-left mr-4 mb-2 max-md:w-[75px] max-md:mr-3"
+    loading="lazy"
+  />
   <!-- firstParagraph is safe for set:html because link text is now escaped in about-bio.ts -->
   <p set:html={bioHtml} class="mb-0 leading-normal text-sm" />
 </div>
