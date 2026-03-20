@@ -1,0 +1,17 @@
+---
+layout: none
+---
+BEGIN:VCARD
+VERSION:3.0
+FN:{{ site.author.name }}
+N:{% assign parts=site.author.name | split: " "%}{{ parts[1] }};{{ parts[0] }}
+NICKNAME:@{{ site.handle }}
+EMAIL:{{ site.email }}
+KEY;TYPE=PGP:{{ "/key.asc" | absolute_url }}
+PHOTO;TYPE=JPEG;VALUE=URI:{{ "assets/img/headshot.jpg" | absolute_url }}
+SOURCE:{{ "vcard.vcf" | absolute_url }}
+TITLE:{{ site.job_title | replace: ",", "\," }}
+ORG:{{ site.employer.name }}
+TZ:{{ site.timezone }}
+URL:{{ site.url }}
+END:VCARD
