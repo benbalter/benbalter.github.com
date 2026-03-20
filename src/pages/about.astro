@@ -22,8 +22,8 @@ const recentPosts = allPosts
 ---
 
 <PageLayout title={title} description={description}>
-  <div class="grid gap-6 md:grid-cols-[1fr_250px]">
-    <div>
+  <div class="flex flex-col md:grid md:grid-cols-[1fr_250px] gap-6">
+    <div class="order-2 md:order-1">
       {bioParagraphs.map(paragraph => (
         <p set:html={paragraph}></p>
       ))}
@@ -35,7 +35,7 @@ const recentPosts = allPosts
       <ContactLinks />
     </div>
 
-    <div class="row-start-1 md:row-start-auto max-w-[200px] mx-auto md:max-w-none md:mx-0 md:self-start">
+    <div class="order-1 md:order-2 max-w-[200px] mx-auto md:max-w-none md:mx-0 md:self-start">
       <a href={`${siteConfig.githubRepoUrl}/raw/master/assets/img/headshot.jpg`}>
         <Image src={headshotImage} alt={`${siteConfig.author} headshot`} width={250} height={250} class="w-full rounded" />
       </a>
