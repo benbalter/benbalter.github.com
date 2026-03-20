@@ -29,7 +29,7 @@ test.describe('TLDR Tooltip - iOS/iPadOS Navigation', () => {
     await page.waitForTimeout(500);
 
     // Check TLDR component is visible on load
-    const tldrElement = page.locator('.lead strong abbr.initialism');
+    const tldrElement = page.locator('.tldr-content strong abbr.initialism');
     await expect(tldrElement).toBeVisible();
     await expect(tldrElement).toHaveText('TL;DR');
 
@@ -53,7 +53,7 @@ test.describe('TLDR Tooltip - iOS/iPadOS Navigation', () => {
     await page.waitForTimeout(500);
 
     // Verify tooltip still works after re-navigation
-    const tldrElement2 = page.locator('.lead strong abbr.initialism');
+    const tldrElement2 = page.locator('.tldr-content strong abbr.initialism');
     await expect(tldrElement2).toBeVisible();
     
     await tldrElement2.tap();
@@ -84,7 +84,7 @@ test.describe('TLDR Tooltip - iOS/iPadOS Navigation', () => {
     await page.waitForTimeout(500);
 
     // Check TLDR component is visible on load
-    const tldrElement = page.locator('.lead strong abbr.initialism');
+    const tldrElement = page.locator('.tldr-content strong abbr.initialism');
     await expect(tldrElement).toBeVisible();
     await expect(tldrElement).toHaveText('TL;DR');
 
