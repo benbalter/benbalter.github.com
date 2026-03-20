@@ -13,7 +13,7 @@ test.describe('TLDR Tooltip', () => {
 
     if (astro) {
       // Check TLDR component is visible
-      const tldr = page.locator('.lead strong abbr.initialism');
+      const tldr = page.locator('.tldr-content strong abbr.initialism');
       await expect(tldr).toBeVisible();
       await expect(tldr).toHaveText('TL;DR');
 
@@ -35,7 +35,7 @@ test.describe('TLDR Tooltip', () => {
     const astro = await isAstroBuild(page);
 
     if (astro) {
-      const tldrElement = page.locator('.lead strong abbr.initialism');
+      const tldrElement = page.locator('.tldr-content strong abbr.initialism');
       await expect(tldrElement).toBeVisible();
 
       // Hover over the TLDR element
@@ -61,7 +61,7 @@ test.describe('TLDR Tooltip', () => {
     const astro = await isAstroBuild(page);
 
     if (astro) {
-      const tldrElement = page.locator('.lead strong abbr.initialism');
+      const tldrElement = page.locator('.tldr-content strong abbr.initialism');
       await expect(tldrElement).toBeVisible();
 
       // Dispatch click event to simulate pure tap without mouse events
@@ -88,7 +88,7 @@ test.describe('TLDR Tooltip', () => {
     const astro = await isAstroBuild(page);
 
     if (astro) {
-      const tldrElement = page.locator('.lead strong abbr.initialism');
+      const tldrElement = page.locator('.tldr-content strong abbr.initialism');
       await expect(tldrElement).toBeVisible();
 
       // Click to show tooltip
@@ -114,7 +114,7 @@ test.describe('TLDR Tooltip', () => {
     const astro = await isAstroBuild(page);
 
     if (astro) {
-      const tldrElement = page.locator('.lead strong abbr.initialism');
+      const tldrElement = page.locator('.tldr-content strong abbr.initialism');
       await expect(tldrElement).toBeVisible();
 
       // Click to show tooltip
@@ -140,7 +140,7 @@ test.describe('TLDR Tooltip', () => {
     const astro = await isAstroBuild(page);
 
     if (astro) {
-      const tldrElement = page.locator('.lead strong abbr.initialism');
+      const tldrElement = page.locator('.tldr-content strong abbr.initialism');
       await expect(tldrElement).toBeVisible();
 
       // Check for help cursor style
@@ -167,7 +167,7 @@ test.describe('TLDR Tooltip', () => {
     const astro = await isAstroBuild(page);
 
     if (astro) {
-      const tldrElement = page.locator('.lead strong abbr.initialism');
+      const tldrElement = page.locator('.tldr-content strong abbr.initialism');
       await expect(tldrElement).toBeVisible();
 
       // Focus the element
@@ -198,7 +198,7 @@ test.describe('TLDR Tooltip', () => {
     const astro = await isAstroBuild(page);
 
     if (astro) {
-      const tldrElement = page.locator('.lead strong abbr.initialism');
+      const tldrElement = page.locator('.tldr-content strong abbr.initialism');
       await expect(tldrElement).toBeVisible();
 
       // Focus the element
@@ -238,7 +238,7 @@ test.describe('TLDR Tooltip', () => {
       await page.waitForTimeout(500);
 
       // Check TLDR component is visible after navigation
-      const tldrElement = page.locator('.lead strong abbr.initialism');
+      const tldrElement = page.locator('.tldr-content strong abbr.initialism');
       await expect(tldrElement).toBeVisible();
       await expect(tldrElement).toHaveText('TL;DR');
 
