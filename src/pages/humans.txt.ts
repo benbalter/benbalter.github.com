@@ -28,7 +28,7 @@ export const GET: APIRoute = async () => {
   // Site components and technologies
   const components = [
     'Astro',
-    'Bootstrap',
+    'Tailwind CSS',
     'TypeScript',
     'Node.js',
   ].join(', ');

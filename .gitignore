@@ -13,6 +13,9 @@ assets/js/bundle.js.LICENSE.txt
 dist-astro/
 .astro/
 
+# Cloudflare Wrangler local state
+.wrangler/
+
 # Lighthouse CI artifacts
 .lighthouseci/
 
