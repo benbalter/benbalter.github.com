@@ -13,13 +13,13 @@ const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'
 });
 
 const posts: CollectionEntry<'posts'>[] = allPosts.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) =>
-  b.slug.localeCompare(a.slug)
+  b.id.localeCompare(a.id)
 );
 
 function getPostMetadata(post: CollectionEntry<'posts'>) {
-  const postDate = getDateFromSlug(post.slug);
+  const postDate = getDateFromSlug(post.id);
   return {
-    postUrl: getPostUrl(post.slug),
+    postUrl: getPostUrl(post.id),
     date: formatPostDate(postDate),
     isoDate: formatISODate(postDate),
     readingTime: calculateReadingTime(post.body),

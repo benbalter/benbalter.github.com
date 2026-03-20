@@ -22,10 +22,10 @@ const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'
   return data.published !== false && data.archived !== true;
 });
 
-// Sort posts by slug (which contains date in Jekyll format YYYY-MM-DD)
+// Sort posts by id (which contains date in Jekyll format YYYY-MM-DD)
 const posts: CollectionEntry<'posts'>[] = allPosts
   .sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => 
-    b.slug.localeCompare(a.slug)
+    b.id.localeCompare(a.id)
   )
   .slice(0, 10);
 ---
@@ -43,7 +43,7 @@ const posts: CollectionEntry<'posts'>[] = allPosts
 
     <div class="space-y-3">
       {posts.map((post) => {
-        const postUrl = getPostUrl(post.slug);
+        const postUrl = getPostUrl(post.id);
         return (
           <div class="group relative rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 transition-all duration-200 hover:border-primary/40 dark:hover:border-primary-400/40 hover:shadow-sm">
             <a href={postUrl} class="text-gray-900 dark:text-gray-100 no-underline font-medium group-hover:text-primary dark:group-hover:text-primary-300 transition-colors duration-200 before:absolute before:inset-0">

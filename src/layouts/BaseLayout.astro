@@ -7,6 +7,7 @@
  */
 
 import { SEO } from 'astro-seo';
+import { Font } from 'astro:assets';
 import { ClientRouter } from 'astro:transitions';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
@@ -179,6 +180,9 @@ const schemas = breadcrumbSchema
     
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json" set:html={schemaToJsonLd(schemas)} is:inline></script>
+    
+    <!-- Font preloading via Astro Fonts API -->
+    <Font cssVariable="--font-inter" preload />
     
     <!-- Astro View Transitions (ClientRouter) for smooth page navigation -->
     <ClientRouter />

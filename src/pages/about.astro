@@ -17,7 +17,7 @@ const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'
 });
 
 const recentPosts = allPosts
-  .sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => b.slug.localeCompare(a.slug))
+  .sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => b.id.localeCompare(a.id))
   .slice(0, 5);
 ---
 
@@ -46,11 +46,11 @@ const recentPosts = allPosts
     <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Latest Posts</h2>
     <ul class="space-y-2 list-none p-0 m-0">
       {recentPosts.map((post) => {
-        const postDate = getDateFromSlug(post.slug);
+        const postDate = getDateFromSlug(post.id);
         return (
           <li class="flex items-baseline gap-3">
             <time datetime={postDate.toISOString()} class="text-sm text-gray-600 dark:text-gray-300 shrink-0 w-[7.5rem] tabular-nums">{formatPostDate(postDate)}</time>
-            <a href={getPostUrl(post.slug)} class="text-primary hover:text-primary-700 dark:text-primary-300 dark:hover:text-primary-200 transition-colors duration-200">{post.data.title}</a>
+            <a href={getPostUrl(post.id)} class="text-primary hover:text-primary-700 dark:text-primary-300 dark:hover:text-primary-200 transition-colors duration-200">{post.data.title}</a>
           </li>
         );
       })}

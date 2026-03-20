@@ -42,7 +42,7 @@ const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'
 // Create a map of URL to post for efficient lookup
 const postsByUrl = new Map<string, CollectionEntry<'posts'>>();
 allPosts.forEach((post: CollectionEntry<'posts'>) => {
-  const url = getPostUrl(post.slug);
+  const url = getPostUrl(post.id);
   if (url) {
     postsByUrl.set(url, post);
   }
@@ -62,7 +62,7 @@ const matchedPosts = urls
 
 <nav aria-label={`${field === 'roles' ? 'Role-specific' : 'Recommended'} reading list`} class="not-prose my-6 flex flex-col gap-3">
   {matchedPosts.map((post, i) => {
-    const url = getPostUrl(post.slug);
+    const url = getPostUrl(post.id);
     return (
       <ReadingListCard
         title={post.data.title}

@@ -26,8 +26,8 @@ const posts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) 
 const pages: Record<string, { title: string; description: string }> = {};
 
 posts.forEach((post: CollectionEntry<'posts'>) => {
-  // Extract date from slug (YYYY-MM-DD-slug format) for OG image path
-  const dateMatch = post.slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
+  // Extract date from id (YYYY-MM-DD-slug format) for OG image path
+  const dateMatch = post.id.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
   
   if (dateMatch) {
     const [, year, month, day, slug] = dateMatch;
