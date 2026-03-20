@@ -41,12 +41,12 @@ export default defineConfig({
   // Build settings for static site generation
   output: 'static',
   
-  // Base URL configuration for GitHub Pages
+  // Base URL configuration
   // This can be configured via environment variable if needed
   site: 'https://ben.balter.com',
   base: '/',
   
-  // Trailing slashes to match GitHub Pages behavior
+  // Trailing slashes to match static host conventions (GitHub Pages, Cloudflare Pages)
   trailingSlash: 'always',
   
   // Redirect configuration
