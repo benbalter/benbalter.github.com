@@ -1,0 +1,234 @@
+#!/bin/sh
+
+# LanguageTool grammar checker for blog posts
+# Requires a running LanguageTool server (see CI workflow for Docker setup)
+# Usage: script/languagetool [file...]
+# If no files given, checks all posts in src/content/posts/
+
+set -e
+
+LANGUAGETOOL_URL="${LANGUAGETOOL_URL:-http://localhost:8010}"
+
+# Disabled categories - broad categories that overlap with other linters or
+# produce too many false positives on technical blog content
+DISABLED_CATEGORIES="COMPOUNDING,STYLE,REDUNDANCY,TYPOGRAPHY,CASING"
+
+# Disabled rules - individual rules that overlap with existing linters
+# (retext-spell, retext-indefinite-article, retext-repeated-words, vale)
+# or produce false positives on technical writing
+DISABLED_RULES=""
+
+# --- Rules covered by retext-spell / dictionary.txt ---
+DISABLED_RULES="${DISABLED_RULES},MORFOLOGIK_RULE_EN_US"
+DISABLED_RULES="${DISABLED_RULES},HUNSPELL_RULE"
+DISABLED_RULES="${DISABLED_RULES},HUNSPELL_NO_SUGGEST_RULE"
+
+# --- Rules covered by retext-indefinite-article ---
+DISABLED_RULES="${DISABLED_RULES},EN_A_VS_AN"
+
+# --- Rules covered by retext-repeated-words ---
+DISABLED_RULES="${DISABLED_RULES},ENGLISH_WORD_REPEAT_RULE"
+DISABLED_RULES="${DISABLED_RULES},ENGLISH_WORD_REPEAT_BEGINNING_RULE"
+
+# --- Compound word / hyphenation false positives on technical terms ---
+DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS"
+DISABLED_RULES="${DISABLED_RULES},EN_COMPOUND_ADJECTIVE_INTERNAL"
+DISABLED_RULES="${DISABLED_RULES},PLEASE_HYPHENATE"
+
+# --- Comma and punctuation rules that conflict with style preferences ---
+DISABLED_RULES="${DISABLED_RULES},COMMA_COMPOUND_SENTENCE"
+DISABLED_RULES="${DISABLED_RULES},COMMA_COMPOUND_SENTENCE_2"
+DISABLED_RULES="${DISABLED_RULES},COMMA_PARENTHESIS_OPENCLOSE"
+DISABLED_RULES="${DISABLED_RULES},UNLIKELY_OPENING_PUNCTUATION"
+DISABLED_RULES="${DISABLED_RULES},DASH_RULE"
+
+# --- Agreement false positives on complex/technical sentences ---
+DISABLED_RULES="${DISABLED_RULES},HE_VERB_AGR"
+DISABLED_RULES="${DISABLED_RULES},PERS_PRONOUN_AGREEMENT"
+DISABLED_RULES="${DISABLED_RULES},PRONOUN_NOUN_NUM_AGREEMENT"
+DISABLED_RULES="${DISABLED_RULES},MASS_AGREEMENT"
+DISABLED_RULES="${DISABLED_RULES},THIS_NNS"
+
+# --- Style preferences that conflict with author voice ---
+DISABLED_RULES="${DISABLED_RULES},PASSIVE_VOICE"
+DISABLED_RULES="${DISABLED_RULES},TOO_LONG_SENTENCE"
+DISABLED_RULES="${DISABLED_RULES},EN_PLAIN_ENGLISH_REPLACE"
+DISABLED_RULES="${DISABLED_RULES},SENTENCE_FRAGMENT"
+DISABLED_RULES="${DISABLED_RULES},SENTENCE_WHITESPACE"
+DISABLED_RULES="${DISABLED_RULES},WHITESPACE_RULE"
+DISABLED_RULES="${DISABLED_RULES},CONSECUTIVE_SPACES"
+DISABLED_RULES="${DISABLED_RULES},DOUBLE_PUNCTUATION"
+DISABLED_RULES="${DISABLED_RULES},UPPERCASE_SENTENCE_START"
+DISABLED_RULES="${DISABLED_RULES},ARROWS"
+
+# --- Possessives and contractions ---
+DISABLED_RULES="${DISABLED_RULES},POSSESSIVE_APOSTROPHE"
+DISABLED_RULES="${DISABLED_RULES},IT_IS"
+
+# --- Markdown / code artifacts that survive stripping ---
+DISABLED_RULES="${DISABLED_RULES},WORD_CONTAINS_UNDERSCORE"
+DISABLED_RULES="${DISABLED_RULES},UNLIKELY_OPENING_PUNCTUATION"
+
+# Remove leading comma
+DISABLED_RULES="${DISABLED_RULES#,}"
+
+# ----------------------------------------------------------------
+# strip_markdown: Remove markdown/MDX syntax to produce plain text
+# ----------------------------------------------------------------
+strip_markdown() {
+  awk '
+    # Skip YAML front matter
+    BEGIN { in_frontmatter=0; frontmatter_count=0 }
+    /^---$/ {
+      frontmatter_count++
+      if (frontmatter_count <= 2) { in_frontmatter = !in_frontmatter; next }
+    }
+    in_frontmatter { next }
+
+    # Skip MDX import/export statements
+    /^import / { next }
+    /^export / { next }
+
+    # Skip code blocks
+    /^```/ { in_code = !in_code; next }
+    in_code { next }
+
+    # Skip inline code
+    { gsub(/`[^`]+`/, " ") }
+
+    # Skip HTML tags
+    { gsub(/<[^>]+>/, " ") }
+
+    # Skip MDX components
+    /^<[A-Z]/ { next }
+
+    # Skip images
+    { gsub(/!\[[^\]]*\]\([^)]*\)/, " ") }
+
+    # Convert links to just their text
+    { gsub(/\[[^\]]*\]\([^)]*\)/, " & "); gsub(/\[/, ""); gsub(/\]\([^)]*\)/, "") }
+
+    # Skip heading markers
+    { gsub(/^#{1,6} /, "") }
+
+    # Skip blockquote markers
+    { gsub(/^> ?/, "") }
+
+    # Skip horizontal rules
+    /^[-*_]{3,}$/ { next }
+
+    # Skip list markers
+    { gsub(/^[[:space:]]*[-*+] /, "") }
+    { gsub(/^[[:space:]]*[0-9]+\. /, "") }
+
+    # Skip footnote definitions
+    /^\[\^[^\]]+\]:/ { next }
+
+    # Skip bold/italic markers
+    { gsub(/\*{1,3}/, "") }
+    { gsub(/_{1,3}/, " ") }
+
+    # Skip strikethrough
+    { gsub(/~~/, "") }
+
+    # Print non-empty lines
+    NF { print }
+  '
+}
+
+# ----------------------------------------------------------------
+# check_file: Send a file to LanguageTool and report matches
+# ----------------------------------------------------------------
+check_file() {
+  file="$1"
+  text=$(strip_markdown < "$file")
+
+  if [ -z "$text" ]; then
+    return 0
+  fi
+
+  response=$(curl -sS -X POST "${LANGUAGETOOL_URL}/v2/check" \
+    -d "language=en-US" \
+    -d "disabledRules=${DISABLED_RULES}" \
+    -d "disabledCategories=${DISABLED_CATEGORIES}" \
+    --data-urlencode "text=${text}" 2>&1) || {
+    echo "  ✗ Failed to reach LanguageTool at ${LANGUAGETOOL_URL}"
+    return 1
+  }
+
+  # Parse matches from JSON response
+  match_count=$(echo "$response" | python3 -c "
+import sys, json
+try:
+    data = json.load(sys.stdin)
+    matches = data.get('matches', [])
+    for m in matches:
+        rule = m.get('rule', {}).get('id', 'UNKNOWN')
+        msg = m.get('message', '')
+        ctx = m.get('context', {}).get('text', '')
+        offset = m.get('context', {}).get('offset', 0)
+        length = m.get('context', {}).get('length', 0)
+        replacements = ', '.join([r['value'] for r in m.get('replacements', [])[:3]])
+        print(f'  [{rule}] {msg}')
+        if ctx:
+            print(f'    Context: ...{ctx}...')
+        if replacements:
+            print(f'    Suggestion: {replacements}')
+        print()
+    print(len(matches))
+except Exception as e:
+    print(f'  ✗ Failed to parse response: {e}', file=sys.stderr)
+    print('0')
+" 2>&1)
+
+  # Last line is the count
+  count=$(echo "$match_count" | tail -1)
+  output=$(echo "$match_count" | sed '$d')
+
+  if [ "$count" -gt 0 ] 2>/dev/null; then
+    echo "  ${file}: ${count} issue(s)"
+    echo "$output"
+    return 1
+  fi
+
+  return 0
+}
+
+# ----------------------------------------------------------------
+# Main
+# ----------------------------------------------------------------
+
+# Check if LanguageTool is reachable
+if ! curl -sS -f "${LANGUAGETOOL_URL}/v2/languages" > /dev/null 2>&1; then
+  echo "LanguageTool server not reachable at ${LANGUAGETOOL_URL}"
+  echo "To run locally: docker run -d -p 8010:8010 erikvl87/languagetool"
+  echo "Skipping grammar checking with LanguageTool."
+  exit 0
+fi
+
+echo "Running LanguageTool grammar checker..."
+
+# Determine files to check
+if [ $# -gt 0 ]; then
+  files="$*"
+else
+  files=$(find src/content/posts -name '*.md' -o -name '*.mdx' | sort)
+fi
+
+errors=0
+checked=0
+
+for file in $files; do
+  if [ -f "$file" ]; then
+    checked=$((checked + 1))
+    if ! check_file "$file"; then
+      errors=$((errors + 1))
+    fi
+  fi
+done
+
+echo "Checked ${checked} files, ${errors} with issues."
+
+if [ "$errors" -gt 0 ]; then
+  exit 1
+fi
