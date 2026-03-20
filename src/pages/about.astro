@@ -19,6 +19,13 @@ const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'
 const recentPosts = allPosts
   .sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => b.id.localeCompare(a.id))
   .slice(0, 5);
+
+interface PostItem { postDate: Date; title: string; url: string }
+function renderPost(post: CollectionEntry<'posts'>): PostItem {
+  const postDate = getDateFromSlug(post.id);
+  return { postDate, title: post.data.title, url: getPostUrl(post.id) };
+}
+const recentPostItems: PostItem[] = recentPosts.map(renderPost);
 ---
 
 <PageLayout title={title} description={description}>
@@ -45,15 +52,12 @@ const recentPosts = allPosts
   <section class="mt-10 pt-8 border-t border-gray-200 dark:border-gray-700">
     <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Latest Posts</h2>
     <ul class="space-y-2 list-none p-0 m-0">
-      {recentPosts.map((post) => {
-        const postDate = getDateFromSlug(post.id);
-        return (
+      {recentPostItems.map(({ postDate, title, url }) => (
           <li class="flex items-baseline gap-3">
             <time datetime={postDate.toISOString()} class="text-sm text-gray-600 dark:text-gray-300 shrink-0 w-[7.5rem] tabular-nums">{formatPostDate(postDate)}</time>
-            <a href={getPostUrl(post.id)} class="text-primary hover:text-primary-700 dark:text-primary-300 dark:hover:text-primary-200 transition-colors duration-200">{post.data.title}</a>
+            <a href={url} class="text-primary hover:text-primary-700 dark:text-primary-300 dark:hover:text-primary-200 transition-colors duration-200">{title}</a>
           </li>
-        );
-      })}
+      ))}
     </ul>
     <p class="mt-4">
       <a href="/posts/" class="inline-flex items-center gap-1 rounded-lg border border-primary text-primary px-3 py-1.5 text-xs font-medium no-underline hover:bg-primary hover:text-white dark:border-primary-300 dark:text-primary-300 dark:hover:bg-primary-300 dark:hover:text-gray-900 transition-colors duration-200">View all posts →</a>

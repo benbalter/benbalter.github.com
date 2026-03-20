@@ -1,0 +1,42 @@
+# Cloudflare Pages headers configuration
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+# Security headers for all pages
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-XSS-Protection: 0
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+
+# Immutable hashed assets (JS, CSS, images, fonts)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML pages - short cache with stale-while-revalidate for fast CDN updates
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# RSS/Atom feeds
+/feed.xml
+  Cache-Control: public, max-age=3600
+
+# Sitemaps
+/sitemap-index.xml
+  Cache-Control: public, max-age=3600
+/sitemap-0.xml
+  Cache-Control: public, max-age=3600
+
+# Search index (pagefind) - revalidate on deploy
+/pagefind/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Static assets (favicons, manifest)
+/favicon.ico
+  Cache-Control: public, max-age=604800
+/site.webmanifest
+  Cache-Control: public, max-age=604800
+/apple-touch-icon.png
+  Cache-Control: public, max-age=604800

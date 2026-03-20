@@ -32,12 +32,12 @@ const {
 >
   <div class="max-w-4xl mx-auto px-4">
     <div>
-      <article>
+      <article data-pagefind-body>
         <header class="mb-6">
           <h1 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100" transition:name="page-title">{title}</h1>
         </header>
         
-        <div class="page-body prose prose-lg prose-primary max-w-none dark:prose-invert">
+        <div class="page-body prose prose-lg prose-primary max-w-none">
           <slot />
         </div>
       </article>
