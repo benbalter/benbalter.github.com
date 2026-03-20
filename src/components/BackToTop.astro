@@ -26,12 +26,13 @@
 
     let visible = false;
     const threshold = 400;
+    const button = btn;
 
     function toggle() {
       const shouldShow = window.scrollY > threshold;
       if (shouldShow !== visible) {
         visible = shouldShow;
-        btn.classList.toggle('visible', visible);
+        button.classList.toggle('visible', visible);
       }
     }
 

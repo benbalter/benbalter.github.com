@@ -17,10 +17,12 @@
 
 <script>
   function initReadingProgress() {
-    const bar = document.getElementById('reading-progress-bar');
-    const container = document.getElementById('reading-progress');
-    if (!bar || !container) return;
+    const barEl = document.getElementById('reading-progress-bar');
+    const containerEl = document.getElementById('reading-progress');
+    if (!barEl || !containerEl) return;
 
+    const bar = barEl as HTMLElement;
+    const container = containerEl;
     let ticking = false;
 
     function updateProgress() {
