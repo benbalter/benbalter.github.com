@@ -68,6 +68,7 @@
 /* Dark mode prose customization */
 @media (prefers-color-scheme: dark) {
   .prose-primary {
+    --tw-prose-body: #d1d5db;
     --tw-prose-links: #80b9e6;
     --tw-prose-headings: #f8f9fa;
     --tw-prose-bold: #f8f9fa;
@@ -76,9 +77,12 @@
     --tw-prose-quotes: #adb5bd;
     --tw-prose-quote-borders: #80b9e6;
     --tw-prose-code: #f8f9fa;
+    --tw-prose-pre-code: #d1d5db;
+    --tw-prose-pre-bg: rgb(0 0 0 / 50%);
     --tw-prose-hr: #495057;
     --tw-prose-th-borders: #495057;
     --tw-prose-td-borders: #343a40;
+    --tw-prose-captions: #9ca3af;
   }
 }
 
@@ -746,23 +750,6 @@
     @apply max-w-full h-auto rounded;
   }
 
-  /* Social Links */
-  .social-link {
-    @apply transition-all duration-200;
-    touch-action: manipulation;
-    @apply min-h-[44px] min-w-[44px] inline-flex items-center justify-center;
-  }
-
-  @media (hover: hover) {
-    .social-link:hover {
-      @apply -translate-y-0.5 text-primary;
-    }
-  }
-
-  .social-link:active {
-    @apply translate-y-px text-primary;
-  }
-
   /* Anchor Links */
   .anchor-link {
     @apply no-underline ml-1 opacity-0 transition-opacity duration-200;
@@ -825,14 +812,6 @@
   .post-content > p:first-of-type {
     @apply text-lg;
     line-height: 1.75;
-  }
-
-  /* Drop Cap */
-  .drop-cap::first-letter {
-    @apply float-left text-6xl font-bold text-primary;
-    line-height: 0.8;
-    padding-right: 0.1em;
-    margin-top: 0.1em;
   }
 
   /* Section Headers */
@@ -922,14 +901,6 @@
     line-height: 1.2;
   }
 
-  .featured-post-card:hover .stretched-link {
-    @apply text-primary;
-  }
-
-  .stretched-link::after {
-    content: '';
-    @apply absolute inset-0;
-  }
 }
 
 /* ============================================================================
@@ -937,17 +908,6 @@
  * ============================================================================ */
 
 @layer utilities {
-  /* Text Utilities */
-  .text-body {
-    @apply text-gray-900;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .text-body {
-      @apply text-gray-100;
-    }
-  }
-
   .text-primary {
     color: var(--color-primary);
   }
@@ -956,66 +916,6 @@
     .text-primary {
       color: #6cb4e8;
     }
-  }
-
-  /* Background Utilities */
-  .bg-body {
-    @apply bg-white;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .bg-body {
-      @apply bg-gray-900;
-    }
-  }
-
-  .bg-secondary-subtle {
-    @apply bg-gray-100;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .bg-secondary-subtle {
-      @apply bg-gray-800;
-    }
-  }
-
-  /* Border Utilities */
-  .border-color {
-    @apply border-gray-200;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .border-color {
-      @apply border-gray-700;
-    }
-  }
-
-  /* Minimum Height */
-  .min-y-5 {
-    min-height: 5em;
-  }
-
-  /* Font Size Utilities */
-  .fs-5 {
-    @apply text-lg;
-  }
-
-  .fs-6 {
-    @apply text-base;
-  }
-
-  /* Line Height */
-  .lh-lg {
-    line-height: 1.7;
-  }
-
-  /* Font Weight */
-  .fw-bold {
-    @apply font-bold;
-  }
-
-  .fw-semibold {
-    @apply font-semibold;
   }
 
   /* Heading Sizes */
