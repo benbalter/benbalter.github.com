@@ -205,7 +205,7 @@ import { ClientRouter } from 'astro:transitions';
 </head>
 ```
 
-The `ClientRouter` component is included in `BaseLayout.astro` and automatically enables View Transitions. Note: `ClientRouter` is the current name for View Transitions in Astro 5.x (previously called `ViewTransitions`).
+The `ClientRouter` component is included in `BaseLayout.astro` and automatically enables View Transitions. Note: `ClientRouter` is the standard name for Astro's client-side router (the old `ViewTransitions` name was removed in Astro 6).
 
 **Disabling View Transitions for specific links:**
 

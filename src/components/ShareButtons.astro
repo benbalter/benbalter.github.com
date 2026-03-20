@@ -1,0 +1,60 @@
+---
+/**
+ * Share Buttons Component
+ * 
+ * Zero-JavaScript social sharing links for blog posts.
+ * Uses platform URL schemes to open share dialogs.
+ */
+
+import Icon from './Icon.astro';
+
+interface Props {
+  title: string;
+  url: string;
+}
+
+const { title, url } = Astro.props;
+
+const encodedTitle = encodeURIComponent(title);
+const encodedUrl = encodeURIComponent(url);
+
+const shareLinks = [
+  {
+    name: 'LinkedIn',
+    icon: 'linkedin',
+    href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+  },
+  {
+    name: 'Bluesky',
+    icon: 'bluesky',
+    href: `https://bsky.app/intent/compose?text=${encodedTitle}%20${encodedUrl}`,
+  },
+  {
+    name: 'Twitter',
+    icon: 'twitter',
+    href: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`,
+  },
+  {
+    name: 'Email',
+    icon: 'envelope',
+    href: `mailto:?subject=${encodedTitle}&body=${encodedUrl}`,
+  },
+];
+---
+
+<div class="flex items-center gap-3">
+  <span class="text-sm text-gray-600 dark:text-gray-300 font-medium">Share</span>
+  <div class="flex gap-1">
+    {shareLinks.map((link) => (
+      <a
+        href={link.href}
+        target={link.name === 'Email' ? undefined : '_blank'}
+        rel={link.name === 'Email' ? undefined : 'noopener noreferrer'}
+        aria-label={`Share on ${link.name}`}
+        class="share-link inline-flex items-center justify-center w-9 h-9 rounded-full text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 hover:bg-primary/10 dark:hover:bg-primary/20 transition-all duration-200"
+      >
+        <Icon name={link.icon} />
+      </a>
+    ))}
+  </div>
+</div>

@@ -5,6 +5,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   generatePersonSchema,
+  generateProfilePageSchema,
   generateOrganizationSchema,
   generateWebSiteSchema,
   generateBlogPostingSchema,
@@ -117,6 +118,39 @@ describe('generatePersonSchema', () => {
     expect(schema).toHaveProperty('@type');
     expect(schema).toHaveProperty('name');
     expect(schema).toHaveProperty('url');
+  });
+});
+
+describe('generateProfilePageSchema', () => {
+  it('should generate valid ProfilePage schema', () => {
+    const schema = generateProfilePageSchema();
+
+    expect(schema['@context']).toBe('https://schema.org');
+    expect(schema).toHaveProperty('@type', 'ProfilePage');
+  });
+
+  it('should include mainEntity as Person', () => {
+    const schema = generateProfilePageSchema();
+
+    expect(schema).toHaveProperty('mainEntity');
+    expect(schema.mainEntity).toHaveProperty('@type', 'Person');
+  });
+
+  it('should include Person details in mainEntity', () => {
+    const schema = generateProfilePageSchema();
+    const person = schema.mainEntity as Record<string, unknown>;
+
+    expect(person).toHaveProperty('name', siteConfig.author);
+    expect(person).toHaveProperty('url', siteConfig.url);
+    expect(person).toHaveProperty('email', siteConfig.email);
+  });
+
+  it('should include social links in mainEntity', () => {
+    const schema = generateProfilePageSchema();
+    const person = schema.mainEntity as Record<string, unknown>;
+
+    expect(person).toHaveProperty('sameAs');
+    expect(Array.isArray(person.sameAs)).toBe(true);
   });
 });
 
@@ -350,7 +384,7 @@ describe('generateBlogPostingSchema', () => {
     const schema = generateBlogPostingSchema(props);
     
     expect(schema).toHaveProperty('publisher');
-    expect(schema.publisher).toHaveProperty('@type', 'Person');
+    expect(schema.publisher).toHaveProperty('@type', 'Organization');
   });
 
   it('should include mainEntityOfPage', () => {

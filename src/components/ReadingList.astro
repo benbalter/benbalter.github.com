@@ -1,13 +1,15 @@
 ---
 import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
 import { stripMarkdown } from '../utils/strip-markdown';
+import { getPostUrl } from '../utils/post-urls';
+import ReadingListCard from './ReadingListCard.astro';
 
 /**
- * PostList component - Dynamically renders a list of blog posts with descriptions
- * 
- * This component fetches posts by their URLs and displays them with their titles and descriptions,
- * matching the Jekyll functionality from the original site.
- * 
+ * ReadingList component - Renders a curated list of posts as visually rich cards
+ *
+ * Similar to PostList, but renders posts using ReadingListCard components
+ * instead of plain list items, creating a more engaging reading list experience.
+ *
  * Props:
  * - postSlug: The slug of the current post (to fetch its frontmatter)
  * - field: Which field to use from frontmatter ('posts' or 'roles')
@@ -16,18 +18,6 @@ import { stripMarkdown } from '../utils/strip-markdown';
 interface Props {
   postSlug: string;
   field: 'posts' | 'roles';
-}
-
-/**
- * Helper function to extract URL from post slug
- * @param slug - Post slug in format YYYY-MM-DD-title
- * @returns URL in format /YYYY/MM/DD/title/ or null if slug format is invalid
- */
-function getPostUrl(slug: string): string | null {
-  const dateMatch = slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
-  if (!dateMatch) return null;
-  const [, year, month, day, slugPart] = dateMatch;
-  return `/${year}/${month}/${day}/${slugPart}/`;
 }
 
 const { postSlug, field } = Astro.props;
@@ -41,7 +31,6 @@ let urls: string[] = [];
 if (Array.isArray(postData)) {
   urls = postData;
 } else if (typeof postData === 'object' && postData !== null) {
-  // If it's an object, extract the values (URLs)
   urls = Object.values(postData);
 }
 
@@ -52,39 +41,35 @@ const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'
 
 // Create a map of URL to post for efficient lookup
 const postsByUrl = new Map<string, CollectionEntry<'posts'>>();
-
 allPosts.forEach((post: CollectionEntry<'posts'>) => {
-  const url = getPostUrl(post.slug);
+  const url = getPostUrl(post.id);
   if (url) {
     postsByUrl.set(url, post);
   }
 });
 
-// Find posts matching the provided URLs
+// Find posts matching the provided URLs, preserving order
 const matchedPosts = urls
   .map(url => {
     const post = postsByUrl.get(url);
     if (!post && import.meta.env.DEV) {
-      console.warn(`PostList: URL "${url}" in post "${postSlug}" field "${field}" does not match any post`);
+      console.warn(`ReadingList: URL "${url}" in post "${postSlug}" field "${field}" does not match any post`);
     }
     return post;
   })
   .filter((post): post is CollectionEntry<'posts'> => post !== undefined);
 ---
 
-{matchedPosts
-  .map(post => {
-    const url = getPostUrl(post.slug);
-    if (!url) {
-      console.error(`PostList: Invalid slug format: ${post.slug}`);
-      return null;
-    }
-    
+<nav aria-label={`${field === 'roles' ? 'Role-specific' : 'Recommended'} reading list`} class="not-prose my-6 flex flex-col gap-3">
+  {matchedPosts.map((post, i) => {
+    const url = getPostUrl(post.id);
     return (
-      <li>
-        <strong><a href={url}>{post.data.title}</a></strong> — {stripMarkdown(post.data.description)}
-      </li>
+      <ReadingListCard
+        title={post.data.title}
+        description={stripMarkdown(post.data.description)}
+        url={url}
+        index={i + 1}
+      />
     );
-  })
-  .filter(Boolean)
-}
+  })}
+</nav>

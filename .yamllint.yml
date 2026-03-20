@@ -1,5 +1,9 @@
 extends: default
 
+ignore: |
+  .github/workflows/*.lock.yml
+  .github/workflows/agentics-maintenance.yml
+
 rules:
   document-start: disable
   line-length: disable

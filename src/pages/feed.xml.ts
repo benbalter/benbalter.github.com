@@ -36,8 +36,8 @@ export async function GET(context: APIContext) {
   
   // Sort posts by filename date (newest first)
   const sortedPosts = posts.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => {
-    const dateA = getDateFromSlug(a.slug);
-    const dateB = getDateFromSlug(b.slug);
+    const dateA = getDateFromSlug(a.id);
+    const dateB = getDateFromSlug(b.id);
     return dateB.getTime() - dateA.getTime();
   });
 
@@ -51,8 +51,8 @@ export async function GET(context: APIContext) {
   // Render all posts to get their HTML content
   const items = await Promise.all(
     sortedPosts.map(async (post: CollectionEntry<'posts'>) => {
-      const pubDate = getDateFromSlug(post.slug);
-      const postUrl = getPostUrl(post.slug);
+      const pubDate = getDateFromSlug(post.id);
+      const postUrl = getPostUrl(post.id);
       
       // Render the post markdown to HTML
       const result = await processor.render(post.body, {
