@@ -46,7 +46,7 @@ const navClasses = hero
     // Update active nav link state and border styling on page transitions
     document.addEventListener('astro:page-load', () => {
       const currentPath = window.location.pathname;
-      const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+      const navLinks = document.querySelectorAll('[data-nav-links] .nav-link');
       
       // Update active link state
       navLinks.forEach((link) => {
@@ -89,7 +89,7 @@ const navClasses = hero
       
       <!-- Nav links (visible on desktop, left-aligned after brand) -->
       <div class="nav-collapse navbar-collapse md:flex md:items-center" id="navbar">
-        <ul class="navbar-nav flex flex-col md:flex-row list-none p-0 m-0">
+        <ul data-nav-links class="flex flex-col md:flex-row list-none p-0 m-0">
           {navItems.map((item) => {
             const isActive = currentPath === item.url || 
                             (item.url === '/' && currentPath === '/');

@@ -50,7 +50,7 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
         <span class="section-header-accent"></span>
         Popular Posts
       </h2>
-      <div class="row -mx-2">
+      <div class="flex flex-wrap -mx-2">
         {popularPosts.map((post) => {
           const { postUrl, date, isoDate, readingTime } = getPostMetadata(post);
           return (
@@ -77,7 +77,7 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
         <span class="section-header-accent"></span>
         Recent Posts
       </h2>
-      <div class="row -mx-2">
+      <div class="flex flex-wrap -mx-2">
         {featuredPosts.map((post) => {
           const { postUrl, date, isoDate, readingTime } = getPostMetadata(post);
           return (
@@ -104,7 +104,7 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
         <span class="section-header-accent"></span>
         Older Posts
       </h2>
-      <div class="row -mx-2">
+      <div class="flex flex-wrap -mx-2">
         {regularPosts.slice(0, 20).map((post) => {
           const { postUrl, date, isoDate, readingTime } = getPostMetadata(post);
           return (
@@ -123,7 +123,7 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
       </div>
       {regularPosts.length > 20 && (
         <div class="text-center mt-6">
-          <a href="/posts/" class="btn btn-outline-primary">
+          <a href="/posts/" class="inline-flex items-center gap-1.5 rounded-lg border border-primary text-primary px-5 py-2.5 text-sm font-medium no-underline hover:bg-primary hover:text-white dark:border-primary-300 dark:text-primary-300 dark:hover:bg-primary-300 dark:hover:text-gray-900 transition-colors duration-200">
             View all {posts.length} posts
           </a>
         </div>
