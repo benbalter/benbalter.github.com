@@ -250,8 +250,9 @@ test.describe('Structured Data (JSON-LD)', () => {
     const schemas = JSON.parse(content!);
     const schemaArray = Array.isArray(schemas) ? schemas : [schemas];
     
-    // Check for Person schema
-    const personSchema = schemaArray.find((s: any) => s['@type'] === 'Person');
+    // Check for Person schema - on homepage it's nested in ProfilePage's mainEntity
+    const personSchema = schemaArray.find((s: any) => s['@type'] === 'Person') ||
+      schemaArray.find((s: any) => s['@type'] === 'ProfilePage')?.mainEntity;
     expect(personSchema).toBeTruthy();
     expect(personSchema.name).toBe('Ben Balter');
   });
