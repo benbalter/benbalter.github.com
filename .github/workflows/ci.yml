@@ -174,3 +174,36 @@ jobs:
           name: vitest-coverage
           path: coverage/
           retention-days: 14
+
+  languagetool:
+    name: LanguageTool Grammar
+    runs-on: ubuntu-latest
+    services:
+      languagetool:
+        image: erikvl87/languagetool
+        ports:
+          - 8010:8010
+        env:
+          Java_Xms: 512m
+          Java_Xmx: 1g
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Wait for LanguageTool to start
+        run: |
+          for i in $(seq 1 30); do
+            if curl -sS -f http://localhost:8010/v2/languages > /dev/null 2>&1; then
+              echo "LanguageTool is ready"
+              exit 0
+            fi
+            echo "Waiting for LanguageTool... ($i/30)"
+            sleep 2
+          done
+          echo "LanguageTool failed to start"
+          exit 1
+
+      - name: Run LanguageTool
+        env:
+          LANGUAGETOOL_URL: http://localhost:8010
+        run: script/languagetool

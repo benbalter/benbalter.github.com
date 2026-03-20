@@ -1,279 +1,234 @@
 #!/bin/sh
 
+# LanguageTool grammar checker for blog posts
+# Requires a running LanguageTool server (see CI workflow for Docker setup)
+# Usage: script/languagetool [file...]
+# If no files given, checks all posts in src/content/posts/
+
 set -e
 
 LANGUAGETOOL_URL="${LANGUAGETOOL_URL:-http://localhost:8010}"
 
-# Check if LanguageTool server is available
-if ! curl -sf "${LANGUAGETOOL_URL}/v2/languages" > /dev/null 2>&1; then
-	echo "LanguageTool server not available at ${LANGUAGETOOL_URL}. Skipping."
-	echo "To run LanguageTool locally, see:"
-	echo "https://ben.balter.com/2025/01/30/how-to-run-language-tool-open-source-grammarly-alternative-on-macos/"
-	exit 0
+# Disabled categories - broad categories that overlap with other linters or
+# produce too many false positives on technical blog content
+DISABLED_CATEGORIES="COMPOUNDING,STYLE,REDUNDANCY,TYPOGRAPHY,CASING"
+
+# Disabled rules - individual rules that overlap with existing linters
+# (retext-spell, retext-indefinite-article, retext-repeated-words, vale)
+# or produce false positives on technical writing
+DISABLED_RULES=""
+
+# --- Rules covered by retext-spell / dictionary.txt ---
+DISABLED_RULES="${DISABLED_RULES},MORFOLOGIK_RULE_EN_US"
+DISABLED_RULES="${DISABLED_RULES},HUNSPELL_RULE"
+DISABLED_RULES="${DISABLED_RULES},HUNSPELL_NO_SUGGEST_RULE"
+
+# --- Rules covered by retext-indefinite-article ---
+DISABLED_RULES="${DISABLED_RULES},EN_A_VS_AN"
+
+# --- Rules covered by retext-repeated-words ---
+DISABLED_RULES="${DISABLED_RULES},ENGLISH_WORD_REPEAT_RULE"
+DISABLED_RULES="${DISABLED_RULES},ENGLISH_WORD_REPEAT_BEGINNING_RULE"
+
+# --- Compound word / hyphenation false positives on technical terms ---
+DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS"
+DISABLED_RULES="${DISABLED_RULES},EN_COMPOUND_ADJECTIVE_INTERNAL"
+DISABLED_RULES="${DISABLED_RULES},PLEASE_HYPHENATE"
+
+# --- Comma and punctuation rules that conflict with style preferences ---
+DISABLED_RULES="${DISABLED_RULES},COMMA_COMPOUND_SENTENCE"
+DISABLED_RULES="${DISABLED_RULES},COMMA_COMPOUND_SENTENCE_2"
+DISABLED_RULES="${DISABLED_RULES},COMMA_PARENTHESIS_OPENCLOSE"
+DISABLED_RULES="${DISABLED_RULES},UNLIKELY_OPENING_PUNCTUATION"
+DISABLED_RULES="${DISABLED_RULES},DASH_RULE"
+
+# --- Agreement false positives on complex/technical sentences ---
+DISABLED_RULES="${DISABLED_RULES},HE_VERB_AGR"
+DISABLED_RULES="${DISABLED_RULES},PERS_PRONOUN_AGREEMENT"
+DISABLED_RULES="${DISABLED_RULES},PRONOUN_NOUN_NUM_AGREEMENT"
+DISABLED_RULES="${DISABLED_RULES},MASS_AGREEMENT"
+DISABLED_RULES="${DISABLED_RULES},THIS_NNS"
+
+# --- Style preferences that conflict with author voice ---
+DISABLED_RULES="${DISABLED_RULES},PASSIVE_VOICE"
+DISABLED_RULES="${DISABLED_RULES},TOO_LONG_SENTENCE"
+DISABLED_RULES="${DISABLED_RULES},EN_PLAIN_ENGLISH_REPLACE"
+DISABLED_RULES="${DISABLED_RULES},SENTENCE_FRAGMENT"
+DISABLED_RULES="${DISABLED_RULES},SENTENCE_WHITESPACE"
+DISABLED_RULES="${DISABLED_RULES},WHITESPACE_RULE"
+DISABLED_RULES="${DISABLED_RULES},CONSECUTIVE_SPACES"
+DISABLED_RULES="${DISABLED_RULES},DOUBLE_PUNCTUATION"
+DISABLED_RULES="${DISABLED_RULES},UPPERCASE_SENTENCE_START"
+DISABLED_RULES="${DISABLED_RULES},ARROWS"
+
+# --- Possessives and contractions ---
+DISABLED_RULES="${DISABLED_RULES},POSSESSIVE_APOSTROPHE"
+DISABLED_RULES="${DISABLED_RULES},IT_IS"
+
+# --- Markdown / code artifacts that survive stripping ---
+DISABLED_RULES="${DISABLED_RULES},WORD_CONTAINS_UNDERSCORE"
+DISABLED_RULES="${DISABLED_RULES},UNLIKELY_OPENING_PUNCTUATION"
+
+# Remove leading comma
+DISABLED_RULES="${DISABLED_RULES#,}"
+
+# ----------------------------------------------------------------
+# strip_markdown: Remove markdown/MDX syntax to produce plain text
+# ----------------------------------------------------------------
+strip_markdown() {
+  awk '
+    # Skip YAML front matter
+    BEGIN { in_frontmatter=0; frontmatter_count=0 }
+    /^---$/ {
+      frontmatter_count++
+      if (frontmatter_count <= 2) { in_frontmatter = !in_frontmatter; next }
+    }
+    in_frontmatter { next }
+
+    # Skip MDX import/export statements
+    /^import / { next }
+    /^export / { next }
+
+    # Skip code blocks
+    /^```/ { in_code = !in_code; next }
+    in_code { next }
+
+    # Skip inline code
+    { gsub(/`[^`]+`/, " ") }
+
+    # Skip HTML tags
+    { gsub(/<[^>]+>/, " ") }
+
+    # Skip MDX components
+    /^<[A-Z]/ { next }
+
+    # Skip images
+    { gsub(/!\[[^\]]*\]\([^)]*\)/, " ") }
+
+    # Convert links to just their text
+    { gsub(/\[[^\]]*\]\([^)]*\)/, " & "); gsub(/\[/, ""); gsub(/\]\([^)]*\)/, "") }
+
+    # Skip heading markers
+    { gsub(/^#{1,6} /, "") }
+
+    # Skip blockquote markers
+    { gsub(/^> ?/, "") }
+
+    # Skip horizontal rules
+    /^[-*_]{3,}$/ { next }
+
+    # Skip list markers
+    { gsub(/^[[:space:]]*[-*+] /, "") }
+    { gsub(/^[[:space:]]*[0-9]+\. /, "") }
+
+    # Skip footnote definitions
+    /^\[\^[^\]]+\]:/ { next }
+
+    # Skip bold/italic markers
+    { gsub(/\*{1,3}/, "") }
+    { gsub(/_{1,3}/, " ") }
+
+    # Skip strikethrough
+    { gsub(/~~/, "") }
+
+    # Print non-empty lines
+    NF { print }
+  '
+}
+
+# ----------------------------------------------------------------
+# check_file: Send a file to LanguageTool and report matches
+# ----------------------------------------------------------------
+check_file() {
+  file="$1"
+  text=$(strip_markdown < "$file")
+
+  if [ -z "$text" ]; then
+    return 0
+  fi
+
+  response=$(curl -sS -X POST "${LANGUAGETOOL_URL}/v2/check" \
+    -d "language=en-US" \
+    -d "disabledRules=${DISABLED_RULES}" \
+    -d "disabledCategories=${DISABLED_CATEGORIES}" \
+    --data-urlencode "text=${text}" 2>&1) || {
+    echo "  ✗ Failed to reach LanguageTool at ${LANGUAGETOOL_URL}"
+    return 1
+  }
+
+  # Parse matches from JSON response
+  match_count=$(echo "$response" | python3 -c "
+import sys, json
+try:
+    data = json.load(sys.stdin)
+    matches = data.get('matches', [])
+    for m in matches:
+        rule = m.get('rule', {}).get('id', 'UNKNOWN')
+        msg = m.get('message', '')
+        ctx = m.get('context', {}).get('text', '')
+        offset = m.get('context', {}).get('offset', 0)
+        length = m.get('context', {}).get('length', 0)
+        replacements = ', '.join([r['value'] for r in m.get('replacements', [])[:3]])
+        print(f'  [{rule}] {msg}')
+        if ctx:
+            print(f'    Context: ...{ctx}...')
+        if replacements:
+            print(f'    Suggestion: {replacements}')
+        print()
+    print(len(matches))
+except Exception as e:
+    print(f'  ✗ Failed to parse response: {e}', file=sys.stderr)
+    print('0')
+" 2>&1)
+
+  # Last line is the count
+  count=$(echo "$match_count" | tail -1)
+  output=$(echo "$match_count" | sed '$d')
+
+  if [ "$count" -gt 0 ] 2>/dev/null; then
+    echo "  ${file}: ${count} issue(s)"
+    echo "$output"
+    return 1
+  fi
+
+  return 0
+}
+
+# ----------------------------------------------------------------
+# Main
+# ----------------------------------------------------------------
+
+# Check if LanguageTool is reachable
+if ! curl -sS -f "${LANGUAGETOOL_URL}/v2/languages" > /dev/null 2>&1; then
+  echo "LanguageTool server not reachable at ${LANGUAGETOOL_URL}"
+  echo "To run locally: docker run -d -p 8010:8010 erikvl87/languagetool"
+  echo "Skipping grammar checking with LanguageTool."
+  exit 0
 fi
 
 echo "Running LanguageTool grammar checker..."
 
-# Disabled categories to reduce false positives from LanguageTool's broad rule set.
-# These categories produce many false positives on Markdown-stripped prose and on the
-# author's established writing style across 200+ blog posts spanning 15 years.
-# Spelling/repetition overlap is handled by retext-spell, retext-indefinite-article,
-# and retext-repeated-words. See docs/PROSE-TESTING.md for the full linting stack.
-DISABLED_CATEGORIES="COMPOUNDING"                          # Compound-word hyphenation style preferences
-DISABLED_CATEGORIES="${DISABLED_CATEGORIES},STYLE"          # Stylistic suggestions (wordiness, etc.)
-DISABLED_CATEGORIES="${DISABLED_CATEGORIES},REDUNDANCY"     # Redundancy suggestions
-DISABLED_CATEGORIES="${DISABLED_CATEGORIES},TYPOGRAPHY"     # Typographic conventions
-DISABLED_CATEGORIES="${DISABLED_CATEGORIES},CASING"         # Capitalization preferences
-
-# Individual rules disabled for Markdown artifacts or linter overlap
-DISABLED_RULES="MORFOLOGIK_RULE_EN_US"           # Spelling (handled by retext-spell)
-DISABLED_RULES="${DISABLED_RULES},EN_A_VS_AN"     # a/an (handled by retext-indefinite-article)
-DISABLED_RULES="${DISABLED_RULES},ENGLISH_WORD_REPEAT_RULE" # Repeated words (handled by retext-repeated-words)
-DISABLED_RULES="${DISABLED_RULES},UPPERCASE_SENTENCE_START" # Code terms may start sentences
-DISABLED_RULES="${DISABLED_RULES},WHITESPACE_RULE"          # Markdown formatting artifacts
-DISABLED_RULES="${DISABLED_RULES},COMMA_PARENTHESIS_WHITESPACE" # Markdown link syntax
-DISABLED_RULES="${DISABLED_RULES},EN_UNPAIRED_BRACKETS"     # Markdown brackets for links/refs
-DISABLED_RULES="${DISABLED_RULES},UNLIKELY_OPENING_PUNCTUATION" # Markdown formatting
-DISABLED_RULES="${DISABLED_RULES},SENTENCE_FRAGMENT"        # Headings and list items
-DISABLED_RULES="${DISABLED_RULES},PUNCTUATION_PARAGRAPH_END" # Code blocks at paragraph end
-DISABLED_RULES="${DISABLED_RULES},DOUBLE_PUNCTUATION"       # Footnote syntax
-DISABLED_RULES="${DISABLED_RULES},ARROWS"                   # Handled by remark-textr
-DISABLED_RULES="${DISABLED_RULES},CONSECUTIVE_SPACES"       # Markdown stripping artifacts
-DISABLED_RULES="${DISABLED_RULES},ENGLISH_WORD_REPEAT_BEGINNING_RULE" # Lists repeat sentence starts
-DISABLED_RULES="${DISABLED_RULES},EN_UNPAIRED_QUOTES"       # Markdown formatting artifacts
-DISABLED_RULES="${DISABLED_RULES},COMMA_PERIOD"             # Markdown footnote syntax artifacts
-DISABLED_RULES="${DISABLED_RULES},EN_CONTRACTION_SPELLING"  # Contractions (author's style)
-DISABLED_RULES="${DISABLED_RULES},PHRASE_REPETITION"        # Intentional emphasis
-DISABLED_RULES="${DISABLED_RULES},EN_WORD_COHERENCY"        # Spelling variation across posts
-
-# Grammar/agreement rules (false positives on Markdown-stripped prose)
-DISABLED_RULES="${DISABLED_RULES},ABOUT_ITS_NN,A_CD_NNS,A_INSTALL,A_MY,A_NNS"
-DISABLED_RULES="${DISABLED_RULES},A_RB_A_JJ_NN,A_RB_NN,ADJECTIVE_ADVERB"
-DISABLED_RULES="${DISABLED_RULES},ADJECTIVE_IN_ATTRIBUTE,ADMIT_ENJOY_VB"
-DISABLED_RULES="${DISABLED_RULES},ADVERB_WORD_ORDER,ADVISE_VBG,AFFORD_VBG"
-DISABLED_RULES="${DISABLED_RULES},AGREEMENT_SENT_START,AGREEMENT_SENT_START_2"
-DISABLED_RULES="${DISABLED_RULES},ALLOW_TO,ARE_WE_HAVE,BASE_FORM"
-DISABLED_RULES="${DISABLED_RULES},BEEN_PART_AGREEMENT,BOTH_AS_WELL_AS"
-DISABLED_RULES="${DISABLED_RULES},CAN_I_VBD,CD_NN,DAT,DOUBLE_NEGATIVE"
-DISABLED_RULES="${DISABLED_RULES},EACH_OTHERS,GAVE_GIVE,HE_VERB_AGR"
-DISABLED_RULES="${DISABLED_RULES},IF_IS,LET_IT_INFINITIVE,MANY_NN"
-DISABLED_RULES="${DISABLED_RULES},MD_BASEFORM,MD_BE_NON_VBP,ME_BE,MY_BE"
-DISABLED_RULES="${DISABLED_RULES},MISSING_NOUN,MISSING_PAST_TENSE"
-DISABLED_RULES="${DISABLED_RULES},NN_NOT_JJ,NNS_OF_SINGULAR_AGREEMENT"
-DISABLED_RULES="${DISABLED_RULES},NODT_DOZEN,NON3PRS_VERB"
-DISABLED_RULES="${DISABLED_RULES},NOUN_APOSTROPHE_S_VERB,NOUN_VERB_CONFUSION"
-DISABLED_RULES="${DISABLED_RULES},ONES,OTHER_OTHERS"
-DISABLED_RULES="${DISABLED_RULES},PCT_PLURAL_NOUN_SINGULAR_VERB_AGREEMENT"
-DISABLED_RULES="${DISABLED_RULES},PCT_SINGULAR_NOUN_PLURAL_VERB_AGREEMENT"
-DISABLED_RULES="${DISABLED_RULES},PLURAL_THAT_AGREEMENT,PLURAL_VERB_AFTER_THIS"
-DISABLED_RULES="${DISABLED_RULES},PREPOSITION_VERB,PRP_HAVE_VB"
-DISABLED_RULES="${DISABLED_RULES},PRP_PAST_PART,PRP_VB"
-DISABLED_RULES="${DISABLED_RULES},SUBJECT_VERB_AGREEMENT_PLURAL"
-DISABLED_RULES="${DISABLED_RULES},THE_IT,THE_NN_AND_THE_NN,THE_SUPERLATIVE"
-DISABLED_RULES="${DISABLED_RULES},THE_THEM,THERE_IS_A_LOT_OF,THERE_MISSING_VERB"
-DISABLED_RULES="${DISABLED_RULES},THERE_S_MANY,THIS_MISSING_VERB,THIS_NNS"
-DISABLED_RULES="${DISABLED_RULES},VERB_APOSTROPHE_S,VERB_NOUN_CONFUSION"
-DISABLED_RULES="${DISABLED_RULES},WHOM_WHO,WRONG_GENITIVE_APOSTROPHE"
-
-# Confused words (false positives in technical/policy prose)
-DISABLED_RULES="${DISABLED_RULES},AFFECTS,COMPLAINT_COMPLIANT"
-DISABLED_RULES="${DISABLED_RULES},ITS_TO_IT_S,TO_VB_ITS_NN"
-DISABLED_RULES="${DISABLED_RULES},LESS_MORE_THEN,MANGER_MANAGER"
-DISABLED_RULES="${DISABLED_RULES},RATHER_THEN,SLIGHT_OF_HAND"
-DISABLED_RULES="${DISABLED_RULES},THEIR_IS,TO_TWO,TYPO_FORM_FROM"
-
-# Punctuation rules
-DISABLED_RULES="${DISABLED_RULES},APOS_SPACE_CONTRACTION"
-DISABLED_RULES="${DISABLED_RULES},BY_DEFAULT_COMMA,COMMA_AFTER_A_MONTH"
-DISABLED_RULES="${DISABLED_RULES},COMMA_CLOSING_PARENTHESIS"
-DISABLED_RULES="${DISABLED_RULES},COMMA_COMPOUND_SENTENCE,COMMA_COMPOUND_SENTENCE_2"
-DISABLED_RULES="${DISABLED_RULES},COMMA_COMPOUND_SENTENCE_4"
-DISABLED_RULES="${DISABLED_RULES},ETC_PERIOD,GERMAN_QUOTES,LC_AFTER_PERIOD"
-DISABLED_RULES="${DISABLED_RULES},MISSING_COMMA_AFTER_INTRODUCTORY_PHRASE"
-DISABLED_RULES="${DISABLED_RULES},NEITHER_NOR_SUPERFLUOUS_COMMA"
-DISABLED_RULES="${DISABLED_RULES},POSSESSIVE_APOSTROPHE,SENTENCE_WHITESPACE"
-DISABLED_RULES="${DISABLED_RULES},SENT_START_CONJUNCTIVE_LINKING_ADVERB_COMMA"
-DISABLED_RULES="${DISABLED_RULES},SPECIFIC_POSSESSIVE_APOSTROPHE"
-DISABLED_RULES="${DISABLED_RULES},SPURIOUS_APOSTROPHE"
-
-# Compound/hyphenation rules not covered by COMPOUNDING category
-DISABLED_RULES="${DISABLED_RULES},A_HEADS_UP,ALONG_SIDE,COUNTER_COMPOUNDS"
-DISABLED_RULES="${DISABLED_RULES},CROSS_COMPOUNDS,CYBER_COMPOUNDS"
-DISABLED_RULES="${DISABLED_RULES},DECISION_MAKING,EN_SPLIT_WORDS_HYPHEN"
-DISABLED_RULES="${DISABLED_RULES},FULL_TIME,GO_TO_HYPHEN,HOUR_HYPHEN"
-DISABLED_RULES="${DISABLED_RULES},LINE_COMPOUNDS,LOG_IN,MAKER_COMPOUNDS"
-DISABLED_RULES="${DISABLED_RULES},MISSING_HYPHEN,MUCH_NEEDED_HYPHEN"
-DISABLED_RULES="${DISABLED_RULES},ON_COMPOUNDS,OUT_SIDE,OVER_COMPOUNDS"
-DISABLED_RULES="${DISABLED_RULES},OVERNIGHT,POST_IT_NOTE_HYPHEN"
-DISABLED_RULES="${DISABLED_RULES},PRINT_COMPOUNDS,PROBLEM_SOLVE_HYPHEN"
-DISABLED_RULES="${DISABLED_RULES},PRP_CUSTOM_BUILD"
-DISABLED_RULES="${DISABLED_RULES},RECOMMENDED_COMPOUNDS,RESISTANT_HYPHEN"
-DISABLED_RULES="${DISABLED_RULES},ROOM_COMPOUNDS,SETUP_VERB,SHORT_CUT"
-DISABLED_RULES="${DISABLED_RULES},SUBJECT_MATTER_HYPHEN,THE_THIRD_PARTY"
-DISABLED_RULES="${DISABLED_RULES},TIME_CRITICAL_HYPHEN,TO_DO_HYPHEN"
-DISABLED_RULES="${DISABLED_RULES},TOUCH_POINT,UNDER_COMPOUNDS"
-DISABLED_RULES="${DISABLED_RULES},WAY_COMPOUNDS,WAKE_UP_HYPHEN"
-DISABLED_RULES="${DISABLED_RULES},WRITE_UP_HYPHEN,YEAR_HYPHEN,YEAR_OLD_HYPHEN"
-DISABLED_RULES="${DISABLED_RULES},LOW_COST_HYPHEN"
-
-# EN_COMPOUNDS_* rules not covered by COMPOUNDING category
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_AUDIO_VISUAL"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_BRAIN_STORMING"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_CLUB_HOUSE"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_COLOR_BLIND"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_CROSS_LINKED"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_CROSS_LINKS"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_CROWD_SOURCE"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_CROWD_SOURCED"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_CROWD_SOURCING"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_CUSTOM_BUILT"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_DOUBLE_SPEAK"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_FAST_FORWARD"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_FLOOD_GATES"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_FORWARD_THINKING"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_FUTURE_PROOF"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_HARD_PRESSED"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_HUMAN_KIND"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_ILL_SUITED"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_INTER_CONNECTED"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_INTER_OFFICE"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_LAISSEZ_FAIRE"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_LEVEL_HEADED"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_MACHINE_READABLE"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_MICRO_SITE"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_MID_DAY"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_MISSION_CRITICAL"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_MOCK_UPS"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_NIT_PICKS"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_OBJECT_ORIENTED"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_OFF_TOPIC"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_OLD_FASHIONED"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_PITCH_FORKS"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_PLATFORM_AGNOSTIC"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_POLICY_MAKING"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_POST_MORTEM"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_RISK_AVERSE"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_SELF_GOVERNANCE"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_SELF_INTEREST"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_SELF_PRESERVATION"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_SEMI_REGULAR"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_SHADOW_BAN"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_SIDE_BAR"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_SIGNAL_TO_NOISE"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_SIX_PACK"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_TAX_PAYERS"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_THOUGHT_PROVOKING"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_TIME_CONSUMING"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_TIME_SCALE"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_WELL_BEING"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_WELL_DEFINED"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_WELL_INTENTIONED"
-DISABLED_RULES="${DISABLED_RULES},EN_COMPOUNDS_WELL_THOUGHT_OUT"
-DISABLED_RULES="${DISABLED_RULES},CROWD_SOURCING"                          # compound preference
-DISABLED_RULES="${DISABLED_RULES},LAW_COMPOUNDS"                           # compound preference
-
-# Style/misc rules (false positives on established prose)
-DISABLED_RULES="${DISABLED_RULES},ADD_AN_ADDITIONAL,ALL_OF_THE,ANY_BODY,ANY_MORE"
-DISABLED_RULES="${DISABLED_RULES},ASK_THE_QUESTION,CAPITALIZATION_NNP_DERIVED"
-DISABLED_RULES="${DISABLED_RULES},CAUSE_BECAUSE,CC_VERB,COMPRISED_OF"
-DISABLED_RULES="${DISABLED_RULES},COULD_CARE_LESS,DE_JURE_DU_JOUR"
-DISABLED_RULES="${DISABLED_RULES},DIFFERENT_THAN,DISCUSSIONS_AROUND"
-DISABLED_RULES="${DISABLED_RULES},DOCTORS_APPOINTMENT"
-DISABLED_RULES="${DISABLED_RULES},EN_DIACRITICS_REPLACE_ORTHOGRAPHY_MELANGE"
-DISABLED_RULES="${DISABLED_RULES},EN_MULTITOKEN_SPELLING_TWO"
-DISABLED_RULES="${DISABLED_RULES},EN_SIMPLE_REPLACE_ALONG_WAY"
-DISABLED_RULES="${DISABLED_RULES},EN_SPECIFIC_CASE,EQUALLY_AS"
-DISABLED_RULES="${DISABLED_RULES},EVERY_NOW_AND_THEN,EXTREME_ADJECTIVES"
-DISABLED_RULES="${DISABLED_RULES},FILE_EXTENSIONS_CASE,GENERAL_XX"
-DISABLED_RULES="${DISABLED_RULES},GITHUB,GOOGLE_PRODUCTS"
-DISABLED_RULES="${DISABLED_RULES},IN_A_X_MANNER,IN_FACEBOOK,IN_THE_MOMENT"
-DISABLED_RULES="${DISABLED_RULES},IT_IS,IT_IS_2"
-DISABLED_RULES="${DISABLED_RULES},IVE_I_HAVE_AMERICAN_STYLE"
-DISABLED_RULES="${DISABLED_RULES},LETS_LET,MICROSOFT_PRODUCTS"
-DISABLED_RULES="${DISABLED_RULES},MONTH_OF_XXXX,NON_ANTI_JJ,NON_STANDARD_WORD"
-DISABLED_RULES="${DISABLED_RULES},NORTH_POLE,NOW,NUMBERS_IN_WORDS"
-DISABLED_RULES="${DISABLED_RULES},ONE_THE_ONE_HAND,OUTSIDE_OF"
-DISABLED_RULES="${DISABLED_RULES},PAST_EXPERIENCE_MEMORY,PREFER_OVER_TO"
-DISABLED_RULES="${DISABLED_RULES},RETURN_BACK,SO_AS_TO"
-DISABLED_RULES="${DISABLED_RULES},SPACE_BETWEEN_NUMBER_AND_WORD"
-DISABLED_RULES="${DISABLED_RULES},STARS_AND_STEPS,SUBJECT_MATTER"
-DISABLED_RULES="${DISABLED_RULES},SUBSEQUENT_TO,SUFFICIENT_ENOUGH"
-DISABLED_RULES="${DISABLED_RULES},T,TOO_ADJECTIVE_TO"
-DISABLED_RULES="${DISABLED_RULES},WHETHER,WHOLE_LOT,WITH_THE_EXCEPTION_OF"
-DISABLED_RULES="${DISABLED_RULES},ALL_MOST_SOME_OF_NOUN"                   # "most of open source" is idiomatic
-DISABLED_RULES="${DISABLED_RULES},IS_VBZ"                                  # false positive on nested "is the way it is involves"
-DISABLED_RULES="${DISABLED_RULES},PRP_THE"                                  # intentional rhetorical apposition ("you the organization")
-DISABLED_RULES="${DISABLED_RULES},WEEK_LONG_HYPHEN"                        # compound/hyphen preference
-
-errors=0
-files_checked=0
-
-# Content files to check
-CONTENT_FILES="src/content/posts/*.md src/content/posts/*.mdx"
-
-for file in $CONTENT_FILES; do
-	# Skip if glob didn't match any files
-	[ -e "$file" ] || continue
-
-	# Extract plain text: strip frontmatter, code blocks, imports, inline code, HTML, URLs
-	text=$(awk '
-		NR==1 && /^---$/ { in_fm=1; next }
-		in_fm && /^---$/ { in_fm=0; next }
-		in_fm { next }
-		/^```/ { in_code=!in_code; next }
-		in_code { next }
-		/^import .* from / { next }
-		{ print }
-	' "$file" | \
-		sed -E \
-		    -e 's/`[^`]*`/CODE/g' \
-		    -e 's/<[^>]*>//g' \
-		    -e 's/!\[[^]]*\]\([^)]*\)//g' \
-		    -e 's/\[\^[^]]*\]//g' \
-		    -e 's/\[([^]]*)\]\([^)]*\)/ \1 /g' \
-		    -e 's/^#{1,6} //' \
-		    -e 's/\*\*//g' \
-		    -e 's/\*//g' \
-		    -e 's/^[-*+] //' \
-		    -e 's/^[0-9]+\. //' | \
-		sed -e 's/  */ /g' -e 's/^ //')
-
-	# Skip empty files (e.g., all code)
-	if [ -z "$(echo "$text" | tr -d '[:space:]')" ]; then
-		continue
-	fi
-
-	files_checked=$((files_checked + 1))
-
-	# Write text to temp file for safe curl usage
-	tmpfile=$(mktemp)
-	chmod 600 "$tmpfile"
-	echo "$text" > "$tmpfile"
-
-	response=$(curl -s -X POST "${LANGUAGETOOL_URL}/v2/check" \
-		--data-urlencode "text@${tmpfile}" \
-		-d "language=en-US" \
-		-d "disabledRules=${DISABLED_RULES}" \
-		-d "disabledCategories=${DISABLED_CATEGORIES}") || true
-
-	rm -f "$tmpfile"
-
-	matches=$(echo "$response" | jq '.matches | length' 2>/dev/null) || matches=0
-
-	if [ "$matches" -gt 0 ]; then
-		echo ""
-		echo "=== ${file}: ${matches} issue(s) ==="
-		echo "$response" | jq -r '.matches[] | "  [\(.rule.id)] \(.message)\n    Context: \"\(.context.text)\"\n"'
-		errors=$((errors + matches))
-	fi
-done
-
-echo ""
-echo "Checked ${files_checked} file(s)."
-
-if [ "$errors" -gt 0 ]; then
-	echo "Total: ${errors} issue(s) found."
-	exit 1
+# Determine files to check
+if [ $# -gt 0 ]; then
+  files="$*"
+else
+  files=$(find src/content/posts -name '*.md' -o -name '*.mdx' | sort)
 fi
 
-echo "No issues found."
+errors=0
+checked=0
+
+for file in $files; do
+  if [ -f "$file" ]; then
+    checked=$((checked + 1))
+    if ! check_file "$file"; then
+      errors=$((errors + 1))
+    fi
+  fi
+done
+
+echo "Checked ${checked} files, ${errors} with issues."
+
+if [ "$errors" -gt 0 ]; then
+  exit 1
+fi
