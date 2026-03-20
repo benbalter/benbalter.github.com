@@ -29,6 +29,12 @@ const navItems: NavItem[] = [
 
 // Get current path for active state
 const currentPath = Astro.url.pathname;
+const isPostPage = /^\d{4}\/\d{2}\/\d{2}\//.test(currentPath.slice(1));
+
+function isNavActive(itemUrl: string): boolean {
+  if (itemUrl === '/') return currentPath === '/' || isPostPage;
+  return currentPath.startsWith(itemUrl);
+}
 
 // Base classes for navbar
 const baseClasses = "navbar flex flex-wrap items-center justify-between py-3 px-4 bg-gray-100/95 dark:bg-gray-800/95 backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-sm mb-4 max-md:mb-2";
@@ -51,13 +57,21 @@ const navClasses = hero
       // Update active link state
       navLinks.forEach((link) => {
         const href = link.getAttribute('href');
-        const isActive = currentPath === href;
+        const isPostPage = /^\/\d{4}\/\d{2}\/\d{2}\//.test(currentPath);
+        const isActive = currentPath === href ||
+          (href === '/' && isPostPage) ||
+          (href !== '/' && href !== null && currentPath.startsWith(href));
+        
+        // Active classes
+        link.classList.toggle('active', isActive);
+        link.classList.toggle('text-gray-900', isActive);
+        link.classList.toggle('font-semibold', isActive);
+        // Inactive classes
+        link.classList.toggle('text-primary-800', !isActive);
         
         if (isActive) {
-          link.classList.add('active');
           link.setAttribute('aria-current', 'page');
         } else {
-          link.classList.remove('active');
           link.removeAttribute('aria-current');
         }
       });
@@ -68,14 +82,12 @@ const navClasses = hero
       const hasHero = heroElement !== null;
       
       if (nav) {
-        nav.setAttribute('data-has-hero', hasHero.toString());
+        nav.setAttribute('data-has-hero', String(hasHero));
         
         if (hasHero) {
-          // Hero page: bottom-only rounding, no top border, explicit no top rounding
           nav.classList.remove('rounded-lg');
           nav.classList.add('rounded-t-none', 'rounded-b-lg', 'border-t-0');
         } else {
-          // Non-hero page: full rounding
           nav.classList.remove('rounded-t-none', 'rounded-b-lg', 'border-t-0');
           nav.classList.add('rounded-lg');
         }
@@ -91,8 +103,7 @@ const navClasses = hero
       <div class="nav-collapse navbar-collapse md:flex md:items-center" id="navbar">
         <ul data-nav-links class="flex flex-col md:flex-row list-none p-0 m-0">
           {navItems.map((item) => {
-            const isActive = currentPath === item.url || 
-                            (item.url === '/' && currentPath === '/');
+            const isActive = isNavActive(item.url);
             return (
               <li class="nav-item relative">
                 <a 
