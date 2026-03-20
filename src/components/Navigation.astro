@@ -65,9 +65,13 @@ const navClasses = hero
         // Active classes
         link.classList.toggle('active', isActive);
         link.classList.toggle('text-gray-900', isActive);
+        link.classList.toggle('dark:text-gray-100', isActive);
         link.classList.toggle('font-semibold', isActive);
         // Inactive classes
         link.classList.toggle('text-primary-800', !isActive);
+        link.classList.toggle('dark:text-primary-300', !isActive);
+        link.classList.toggle('hover:text-primary-900', !isActive);
+        link.classList.toggle('dark:hover:text-primary-200', !isActive);
         
         if (isActive) {
           link.setAttribute('aria-current', 'page');
