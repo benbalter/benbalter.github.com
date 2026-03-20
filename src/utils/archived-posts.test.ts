@@ -14,7 +14,6 @@ function createMockPost(
   archived = false
 ): CollectionEntry<'posts'> {
   return {
-    slug,
     id: slug,
     collection: 'posts',
     data: {
@@ -25,11 +24,6 @@ function createMockPost(
       comments: false,
       sitemap: true,
     },
-    render: async () => ({
-      Content: (() => null) as any,
-      headings: [],
-      remarkPluginFrontmatter: {},
-    }),
   } as CollectionEntry<'posts'>;
 }
 
@@ -47,8 +41,8 @@ describe('Archived Posts Filtering', () => {
     );
 
     expect(nonArchivedPosts.length).toBe(2);
-    expect(nonArchivedPosts[0].slug).toBe('2024-01-01-post-1');
-    expect(nonArchivedPosts[1].slug).toBe('2024-01-03-post-3');
+    expect(nonArchivedPosts[0].id).toBe('2024-01-01-post-1');
+    expect(nonArchivedPosts[1].id).toBe('2024-01-03-post-3');
   });
 
   it('should include non-archived posts', () => {
@@ -77,7 +71,7 @@ describe('Archived Posts Filtering', () => {
     );
 
     expect(visiblePosts.length).toBe(1);
-    expect(visiblePosts[0].slug).toBe('2024-01-01-post-1');
+    expect(visiblePosts[0].id).toBe('2024-01-01-post-1');
   });
 
   it('should handle posts with undefined archived field as not archived', () => {

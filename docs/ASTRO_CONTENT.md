@@ -27,7 +27,7 @@ src/content/
 
 ### Collections Configuration
 
-Collections are defined in `src/content/config.ts` with Zod schemas that validate frontmatter.
+Collections are defined in `src/content.config.ts` with Zod 4 schemas that validate frontmatter.
 
 #### Posts Collection
 
@@ -189,8 +189,7 @@ For Jekyll-format post filenames (`YYYY-MM-DD-slug.md`), the date is automatical
 ### Querying Posts
 
 ```typescript
-import { getCollection } from 'astro:content';
-
+import { getCollection, render } from 'astro:content';
 // Get all published posts
 const posts = await getCollection('posts', ({ data }) => {
   return data.published !== false;
@@ -205,7 +204,7 @@ posts.sort((a, b) => b.slug.localeCompare(a.slug));
 ```astro
 ---
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 ---
 
 <article>
@@ -314,7 +313,7 @@ Create custom routes in `src/pages/` to render content:
 import { getEntry } from 'astro:content';
 
 const page = await getEntry('pages', 'about');
-const { Content } = await page.render();
+const { Content } = await render(page);
 ---
 
 <Layout>
@@ -347,7 +346,7 @@ To migrate Jekyll posts to Astro:
 
 If the build fails with frontmatter errors:
 
-1. Check `src/content/config.ts` for required fields
+1. Check `src/content.config.ts` for required fields
 2. Ensure all posts have `title` and `description`
 3. Run `npm run astro:check` for detailed errors
 

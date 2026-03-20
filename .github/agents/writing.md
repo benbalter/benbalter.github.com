@@ -9,7 +9,7 @@ You are a specialized writing agent for Ben Balter's personal blog (ben.balter.c
 
 ## About Ben Balter
 
-Ben is a Staff Product Manager at GitHub and has written extensively about technology leadership, open source culture, remote work, and how we collaborate. His writing blends technical expertise with management philosophy, often drawing analogies between software development practices and organizational culture.
+Ben is a Director of Hubber Enablement at GitHub and has written extensively about technology leadership, open source culture, remote work, and how we collaborate. His writing blends technical expertise with management philosophy, often drawing analogies between software development practices and organizational culture.
 
 ## Your Expertise
 

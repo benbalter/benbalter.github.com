@@ -250,8 +250,9 @@ test.describe('Structured Data (JSON-LD)', () => {
     const schemas = JSON.parse(content!);
     const schemaArray = Array.isArray(schemas) ? schemas : [schemas];
     
-    // Check for Person schema
-    const personSchema = schemaArray.find((s: any) => s['@type'] === 'Person');
+    // Check for Person schema - on homepage it's nested in ProfilePage's mainEntity
+    const personSchema = schemaArray.find((s: any) => s['@type'] === 'Person') ||
+      schemaArray.find((s: any) => s['@type'] === 'ProfilePage')?.mainEntity;
     expect(personSchema).toBeTruthy();
     expect(personSchema.name).toBe('Ben Balter');
   });
@@ -567,15 +568,6 @@ test.describe('Social Links', () => {
 });
 
 test.describe('Performance Hints for SEO', () => {
-  test('should have preconnect hints', async ({ page }) => {
-    await page.goto('/');
-    await waitForPageReady(page);
-    
-    const preconnect = page.locator('link[rel="preconnect"]');
-    const count = await preconnect.count();
-    expect(count).toBeGreaterThan(0);
-  });
-
   test('should have dns-prefetch hints', async ({ page }) => {
     await page.goto('/');
     await waitForPageReady(page);

@@ -7,11 +7,14 @@
  */
 
 import { SEO } from 'astro-seo';
+import { Font } from 'astro:assets';
 import { ClientRouter } from 'astro:transitions';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+import BackToTop from '../components/BackToTop.astro';
+import SearchModal from '../components/SearchModal.astro';
 import { siteConfig, socialLinks } from '../config';
-import { generatePersonSchema, generateWebSiteSchema, generateBreadcrumbSchema, schemaToJsonLd } from '../utils/structured-data';
+import { generatePersonSchema, generateProfilePageSchema, generateWebSiteSchema, generateBreadcrumbSchema, schemaToJsonLd } from '../utils/structured-data';
 import '../styles/global.css';
 
 interface Props {
@@ -49,7 +52,9 @@ const ogImage = image
   : new URL('/assets/img/headshot.jpg', siteConfig.url).toString();
 
 // Generate structured data (JSON-LD) for SEO
-const personSchema = generatePersonSchema();
+// Use ProfilePage on homepage (a Google-supported rich result type), Person elsewhere
+const isHomepage = Astro.url.pathname === '/' || Astro.url.pathname === '';
+const primarySchema = isHomepage ? generateProfilePageSchema() : generatePersonSchema();
 const websiteSchema = generateWebSiteSchema();
 
 // Generate breadcrumb schema based on URL path
@@ -87,8 +92,8 @@ const breadcrumbSchema = pathSegments.length > 0 ? generateBreadcrumbSchema(brea
 
 // Combine all schemas
 const schemas = breadcrumbSchema 
-  ? [personSchema, websiteSchema, breadcrumbSchema]
-  : [personSchema, websiteSchema];
+  ? [primarySchema, websiteSchema, breadcrumbSchema]
+  : [primarySchema, websiteSchema];
 ---
 
 <!doctype html>
@@ -114,6 +119,11 @@ const schemas = breadcrumbSchema
           locale: 'en_US',
           siteName: siteConfig.name,
         },
+        image: {
+          width: 1200,
+          height: 630,
+          alt: description,
+        },
         ...(type === 'article' && publishedTime ? {
           article: {
             publishedTime: publishedTime.toISOString(),
@@ -129,6 +139,7 @@ const schemas = breadcrumbSchema
         title: fullTitle,
         description: description,
         image: ogImage,
+        imageAlt: description,
       }}
       extend={{
         meta: [
@@ -157,7 +168,6 @@ const schemas = breadcrumbSchema
           // Social Links (rel=me for verification)
           ...socialLinks.map((link) => ({ rel: 'me', href: link.url })),
           // Resource Hints for Performance
-          { rel: 'preconnect', href: 'https://github.com', crossorigin: 'anonymous' },
           { rel: 'dns-prefetch', href: 'https://images.amazon.com' },
           { rel: 'dns-prefetch', href: 'https://user-images.githubusercontent.com' },
           // RSS Feed
@@ -170,6 +180,9 @@ const schemas = breadcrumbSchema
     
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json" set:html={schemaToJsonLd(schemas)} is:inline></script>
+    
+    <!-- Font preloading via Astro Fonts API -->
+    <Font cssVariable="--font-inter" preload />
     
     <!-- Astro View Transitions (ClientRouter) for smooth page navigation -->
     <ClientRouter />
@@ -188,11 +201,13 @@ const schemas = breadcrumbSchema
       
       <Navigation hero={hero} />
       
-      <main id="content" role="main" class="content" tabindex="-1">
+      <main id="content" role="main" class="content" tabindex="-1" transition:animate="fade">
         <slot />
       </main>
       
       <Footer />
+      <BackToTop />
+      <SearchModal />
     </div>
     
     <!-- Minimal navigation toggle script -->
