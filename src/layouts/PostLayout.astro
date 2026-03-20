@@ -83,12 +83,12 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
 >
   <div class="max-w-4xl mx-auto px-4">
     <div>
-      <article>
+      <article data-pagefind-body>
         <header class="mb-8">
           <h1 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100" transition:name="page-title">{title}</h1>
           
           {readingTime > 0 && (
-            <div class="text-sm text-gray-600 dark:text-gray-300 mb-6">
+            <div class="text-sm text-gray-600 dark:text-gray-300 mb-6" data-pagefind-ignore>
               <span class="inline-flex items-center gap-1">
                 <Icon name="clock" /> {readingTime} min read
               </span>
@@ -100,6 +100,9 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
           )}
         </header>
         
+        {pubDate && <time data-pagefind-sort="date" datetime={pubDate.toISOString()} data-pagefind-meta={`date:${formattedDate}`} class="hidden">{pubDate.toISOString().slice(0, 10)}</time>}
+        {image && <span data-pagefind-meta={`image:${image}`} class="hidden"></span>}
+
         {archived && <ArchivedPostWarning />}
 
         <TableOfContents content={content} />
@@ -112,7 +115,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         <ReadingProgress />
         
         {pubDate && (
-          <div class="mt-8 border-t border-gray-200 dark:border-gray-700 py-4 flex flex-wrap items-center justify-between gap-x-3 gap-y-3 text-sm text-gray-600 dark:text-gray-300">
+          <div class="mt-8 border-t border-gray-200 dark:border-gray-700 py-4 flex flex-wrap items-center justify-between gap-x-3 gap-y-3 text-sm text-gray-600 dark:text-gray-300" data-pagefind-ignore>
             <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
               <span>Originally published {formattedDate}</span>
               <span aria-hidden="true">·</span>
@@ -123,18 +126,18 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         )}
         
         {tags.length > 0 && (
-          <div class="mt-4 mb-4">
+          <div class="mt-4 mb-4" data-pagefind-ignore>
             <div class="flex flex-wrap items-center gap-2">
               <span class="text-sm text-gray-600 dark:text-gray-300 font-medium uppercase tracking-wide">Tags</span>
               {tags.map((tag) => (
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 dark:bg-primary/20 text-primary-700 dark:text-primary-300 border border-primary/20 dark:border-primary/30">{tag}</span>
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 dark:bg-primary/20 text-primary-700 dark:text-primary-300 border border-primary/20 dark:border-primary/30" data-pagefind-filter="tag">{tag}</span>
               ))}
             </div>
           </div>
         )}
         
         {relatedPosts.length > 0 && (
-          <section class="mt-6">
+          <section class="mt-6" data-pagefind-ignore>
             <div>
               <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-3">
                 <span class="section-header-accent"></span>
@@ -157,6 +160,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
           </section>
         )}
         
+        <div data-pagefind-ignore>
         <PostNavigation prevPost={prevPost} nextPost={nextPost} />
         
         <footer class="border-t-2 border-gray-200 dark:border-gray-700 pt-6 mt-6 mb-8 post-footer">
@@ -186,6 +190,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
             <span class="text-gray-500 dark:text-gray-400 group-hover:text-primary dark:group-hover:text-primary-300 transition-colors duration-200" aria-hidden="true">→</span>
           </a>
         </footer>
+        </div>
       </article>
       
       {blogPostingSchema && (
