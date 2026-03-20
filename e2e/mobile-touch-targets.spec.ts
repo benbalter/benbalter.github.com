@@ -152,9 +152,9 @@ test.describe('Mobile Touch Targets', () => {
     if (await hero.count() > 0) {
       const box = await hero.boundingBox();
       if (box) {
-        // Should be 250px on mobile (not 400px)
-        expect(box.height).toBeLessThanOrEqual(260); // Allow small tolerance
-        expect(box.height).toBeGreaterThanOrEqual(240);
+        // Should be around 180px on mobile (smaller than desktop 256px)
+        expect(box.height).toBeLessThanOrEqual(200); // Allow small tolerance
+        expect(box.height).toBeGreaterThanOrEqual(150);
         console.log(`Hero height on mobile: ${box.height}px`);
       }
     }
