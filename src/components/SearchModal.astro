@@ -260,7 +260,9 @@
         });
         banner.remove();
       });
-      article.insertBefore(banner, article.firstChild);
+      // Insert banner into the prose content area for proper alignment
+      const proseContainer = article.querySelector('.entrybody, .prose') || article;
+      proseContainer.insertBefore(banner, proseContainer.firstChild);
 
       // Scroll to first match
       firstMark.scrollIntoView({ behavior: 'smooth', block: 'center' });
