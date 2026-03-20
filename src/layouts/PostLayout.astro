@@ -127,7 +127,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
             <div class="flex flex-wrap items-center gap-2">
               <span class="text-sm text-gray-600 dark:text-gray-300 font-medium uppercase tracking-wide">Tags</span>
               {tags.map((tag) => (
-                <a href={`/tags/${tag.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}/`} class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 dark:bg-primary/20 text-primary-700 dark:text-primary-300 border border-primary/20 dark:border-primary/30 no-underline hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors duration-150">{tag}</a>
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 dark:bg-primary/20 text-primary-700 dark:text-primary-300 border border-primary/20 dark:border-primary/30">{tag}</span>
               ))}
             </div>
           </div>
