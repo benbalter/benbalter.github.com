@@ -17,7 +17,6 @@ Content is organized into collections in `src/content/`:
 
 ```
 src/content/
-├── config.ts           # Collection schemas
 ├── posts/              # Blog posts
 │   ├── example-markdown-post.md
 │   └── example-mdx-post.mdx
@@ -196,7 +195,7 @@ const posts = await getCollection('posts', ({ data }) => {
 });
 
 // Sort by date (newest first)
-posts.sort((a, b) => b.slug.localeCompare(a.slug));
+posts.sort((a, b) => b.id.localeCompare(a.id));
 ```
 
 ### Rendering Content
