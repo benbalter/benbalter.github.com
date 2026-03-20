@@ -57,6 +57,7 @@
     "happy-dom": "^20.5.0",
     "markdownlint-cli2-formatter-pretty": "^0.0.9",
     "mini-css-extract-plugin": "^2.10.0",
+    "pagefind": "^1.4.0",
     "postcss-loader": "^8.1.1",
     "rehype-accessible-emojis": "^0.3.2",
     "rehype-autolink-headings": "^7.1.0",
@@ -125,7 +126,7 @@
     "url": "git+https://github.com/benbalter/benbalter.github.com.git"
   },
   "scripts": {
-    "build": "astro build",
+    "build": "astro build && pagefind --site dist-astro",
     "dev": "astro dev",
     "preview": "astro preview",
     "check": "astro check --tsconfig tsconfig.astro.json",
