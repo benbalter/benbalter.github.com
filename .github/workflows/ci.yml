@@ -127,6 +127,27 @@ jobs:
       - name: Type check
         run: npm run check
 
+  languagetool:
+    name: LanguageTool
+    runs-on: ubuntu-latest
+    services:
+      languagetool:
+        image: erikvl87/languagetool
+        ports:
+          - 8010:8010
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Wait for LanguageTool
+        run: |
+          echo "Waiting for LanguageTool server..."
+          timeout 60 bash -c 'until curl -sf http://localhost:8010/v2/languages > /dev/null; do sleep 2; done'
+          echo "LanguageTool server is ready."
+
+      - name: Run LanguageTool
+        run: script/languagetool
+
   vitest:
     name: Unit Tests
     runs-on: ubuntu-latest
