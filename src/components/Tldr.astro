@@ -312,8 +312,8 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
     @apply border-l-4 border-primary;
     background: linear-gradient(
       135deg,
-      rgba(51, 122, 183, 0.05),
-      rgba(51, 122, 183, 0.02)
+      color-mix(in srgb, var(--color-primary) 5%, transparent),
+      color-mix(in srgb, var(--color-primary) 2%, transparent)
     );
   }
   
@@ -332,8 +332,8 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
     .tldr-container {
       background: linear-gradient(
         135deg,
-        rgba(51, 122, 183, 0.12),
-        rgba(51, 122, 183, 0.06)
+        color-mix(in srgb, var(--color-primary) 12%, transparent),
+        color-mix(in srgb, var(--color-primary) 6%, transparent)
       );
       @apply shadow-card-dark;
     }

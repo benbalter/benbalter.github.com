@@ -203,10 +203,10 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
     @apply p-6 rounded-lg shadow-card;
     background: linear-gradient(
       135deg,
-      rgba(51, 122, 183, 0.03),
-      rgba(51, 122, 183, 0.01)
+      color-mix(in srgb, var(--color-primary) 3%, transparent),
+      color-mix(in srgb, var(--color-primary) 1%, transparent)
     );
-    border-left: 3px solid #337ab7;
+    border-left: 3px solid var(--color-primary);
   }
 
   /* Open source edit CTA */
@@ -218,7 +218,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
 
   .open-source-cta:hover {
     @apply border-primary/40 shadow-sm;
-    background: rgba(51, 122, 183, 0.03);
+    background: color-mix(in srgb, var(--color-primary) 3%, transparent);
   }
 
   .open-source-icon {
@@ -244,8 +244,8 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
     .mini-bio-card {
       background: linear-gradient(
         135deg,
-        rgba(51, 122, 183, 0.08),
-        rgba(51, 122, 183, 0.04)
+        color-mix(in srgb, var(--color-primary) 8%, transparent),
+        color-mix(in srgb, var(--color-primary) 4%, transparent)
       );
       @apply shadow-card-dark;
     }
@@ -256,7 +256,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
 
     .open-source-cta:hover {
       @apply border-primary/30;
-      background: rgba(51, 122, 183, 0.06);
+      background: color-mix(in srgb, var(--color-primary) 6%, transparent);
     }
 
     .open-source-icon {

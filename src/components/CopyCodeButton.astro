@@ -85,7 +85,7 @@
     border: 1px solid rgba(128, 128, 128, 0.3);
     border-radius: 0.375rem;
     background: rgba(255, 255, 255, 0.85);
-    color: #57606a;
+    color: var(--color-gray-600, #4b5563);
     cursor: pointer;
     opacity: 0;
     transition: opacity 0.15s ease, background-color 0.15s ease, color 0.15s ease;
@@ -98,12 +98,12 @@
 
   .copy-code-btn:hover {
     background: rgba(255, 255, 255, 1);
-    color: #24292f;
+    color: var(--color-gray-800, #1f2937);
   }
 
   .copy-code-btn.copied {
     opacity: 1;
-    color: #1a7f37;
+    color: var(--color-green-700, #15803d);
     border-color: rgba(26, 127, 55, 0.4);
   }
 
@@ -120,7 +120,7 @@
     }
 
     .copy-code-btn.copied {
-      color: #3fb950;
+      color: var(--color-green-400, #4ade80);
       border-color: rgba(63, 185, 80, 0.4);
     }
   }

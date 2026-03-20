@@ -429,13 +429,13 @@
 
   /* Text Selection */
   ::selection {
-    background-color: rgba(51, 122, 183, 0.3);
+    background-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
     color: inherit;
   }
 
   @media (prefers-color-scheme: dark) {
     ::selection {
-      background-color: rgba(51, 122, 183, 0.4);
+      background-color: color-mix(in srgb, var(--color-primary) 40%, transparent);
     }
   }
 
@@ -560,8 +560,8 @@
     @apply absolute inset-0 rounded-t-lg;
     background: linear-gradient(
       135deg,
-      rgba(51, 122, 183, 0.05) 0%,
-      rgba(51, 122, 183, 0.1) 50%,
+      color-mix(in srgb, var(--color-primary) 5%, transparent) 0%,
+      color-mix(in srgb, var(--color-primary) 10%, transparent) 50%,
       rgba(0, 0, 0, 0.15) 100%
     );
     pointer-events: none;
@@ -571,8 +571,8 @@
     .hero-unit::before {
       background: linear-gradient(
         135deg,
-        rgba(51, 122, 183, 0.08) 0%,
-        rgba(51, 122, 183, 0.15) 50%,
+        color-mix(in srgb, var(--color-primary) 8%, transparent) 0%,
+        color-mix(in srgb, var(--color-primary) 15%, transparent) 50%,
         rgba(0, 0, 0, 0.25) 100%
       );
     }
@@ -1081,8 +1081,8 @@
     height: 1.5em;
     background: linear-gradient(
       180deg,
-      rgba(51, 122, 183, 1) 0%,
-      rgba(51, 122, 183, 0.6) 100%
+      var(--color-primary) 0%,
+      color-mix(in srgb, var(--color-primary) 60%, transparent) 100%
     );
   }
 
@@ -1131,7 +1131,7 @@
     background: linear-gradient(
       180deg,
       theme('colors.primary.DEFAULT'),
-      rgba(51, 122, 183, 0.6)
+      color-mix(in srgb, var(--color-primary) 60%, transparent)
     );
     @apply opacity-0;
     transition: opacity 300ms ease-out;
@@ -1146,7 +1146,7 @@
       background: linear-gradient(
         180deg,
         theme('colors.primary.DEFAULT'),
-        rgba(51, 122, 183, 0.7)
+        color-mix(in srgb, var(--color-primary) 70%, transparent)
       );
     }
   }
@@ -1204,7 +1204,7 @@
   }
 
   .text-primary {
-    color: #337ab7;
+    color: var(--color-primary);
   }
 
   @media (prefers-color-scheme: dark) {
@@ -1392,7 +1392,7 @@ pre + h2, pre + h3, pre + h4, pre + h5, pre + h6 {
 /* Improved tap highlight for iOS/WebKit */
 @supports (-webkit-touch-callout: none) {
   a, button, .btn, .nav-link, .social-link {
-    -webkit-tap-highlight-color: rgba(51, 122, 183, 0.2);
+    -webkit-tap-highlight-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
   }
 }
 

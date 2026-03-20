@@ -66,7 +66,7 @@ import Icon from './Icon.astro';
   
   /* Enhanced footer divider with gradient */
   .footer-divider {
-    border-top: 2px solid rgba(51, 122, 183, 0.1);
+    border-top: 2px solid color-mix(in srgb, var(--color-primary) 10%, transparent);
     position: relative;
   }
   
@@ -80,9 +80,9 @@ import Icon from './Icon.astro';
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(51, 122, 183, 0.4) 20%,
-      rgba(51, 122, 183, 0.6) 50%,
-      rgba(51, 122, 183, 0.4) 80%,
+      color-mix(in srgb, var(--color-primary) 40%, transparent) 20%,
+      color-mix(in srgb, var(--color-primary) 60%, transparent) 50%,
+      color-mix(in srgb, var(--color-primary) 40%, transparent) 80%,
       transparent
     );
   }
@@ -211,7 +211,7 @@ import Icon from './Icon.astro';
   /* Dark mode divider */
   @media (prefers-color-scheme: dark) {
     .footer-divider {
-      border-top-color: rgba(51, 122, 183, 0.2);
+      border-top-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
     }
     
     .footer-divider::before {
