@@ -1,4 +1,4 @@
-import json from 'eslint-plugin-json';
+import json from '@eslint/json';
 
 export default [
   {
@@ -12,10 +12,13 @@ export default [
       'playwright.config.ts',
       'playwright-report/',
       'test-results/',
+      'package-lock.json',
     ],
   },
   {
     files: ['**/*.json'],
-    ...json.configs['recommended'],
+    plugins: { json },
+    language: 'json/json',
+    ...json.configs.recommended,
   },
 ];
