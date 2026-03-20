@@ -22,7 +22,7 @@ test.describe('TLDR Tooltip - Mobile/iOS', () => {
     const astro = await isAstroBuild(page);
 
     if (astro) {
-      const tldrElement = page.locator('.lead strong abbr.initialism');
+      const tldrElement = page.locator('.tldr-content strong abbr.initialism');
       await expect(tldrElement).toBeVisible();
 
       // Verify iOS-specific CSS properties are applied
@@ -69,7 +69,7 @@ test.describe('TLDR Tooltip - Mobile/iOS', () => {
     const astro = await isAstroBuild(page);
 
     if (astro) {
-      const tldrElement = page.locator('.lead strong abbr.initialism');
+      const tldrElement = page.locator('.tldr-content strong abbr.initialism');
       await expect(tldrElement).toBeVisible();
 
       // Tap the element to show tooltip
@@ -103,7 +103,7 @@ test.describe('TLDR Tooltip - Mobile/iOS', () => {
     const astro = await isAstroBuild(page);
 
     if (astro) {
-      const tldrElement = page.locator('.lead strong abbr.initialism');
+      const tldrElement = page.locator('.tldr-content strong abbr.initialism');
       await expect(tldrElement).toBeVisible();
 
       // Try to hover (should not work on mobile)
@@ -130,7 +130,7 @@ test.describe('TLDR Tooltip - Mobile/iOS', () => {
     const astro = await isAstroBuild(page);
 
     if (astro) {
-      const tldrElement = page.locator('.lead strong abbr.initialism');
+      const tldrElement = page.locator('.tldr-content strong abbr.initialism');
       await expect(tldrElement).toBeVisible();
 
       // Check that cursor is pointer on touch devices
@@ -160,7 +160,7 @@ test.describe('TLDR Tooltip - Mobile/iOS', () => {
     const astro = await isAstroBuild(page);
 
     if (astro) {
-      const tldrElement = page.locator('.lead strong abbr.initialism');
+      const tldrElement = page.locator('.tldr-content strong abbr.initialism');
       await expect(tldrElement).toBeVisible();
 
       // Verify touch-action is set for proper iPadOS handling
@@ -205,7 +205,7 @@ test.describe('TLDR Tooltip - Mobile/iOS', () => {
     const astro = await isAstroBuild(page);
 
     if (astro) {
-      const tldrElement = page.locator('.lead strong abbr.initialism');
+      const tldrElement = page.locator('.tldr-content strong abbr.initialism');
       await expect(tldrElement).toBeVisible();
 
       // Verify -webkit-tap-highlight-color is set

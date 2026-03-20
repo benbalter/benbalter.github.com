@@ -107,7 +107,7 @@ test.describe('Accessibility - Blog Post', () => {
     
     // Check for article element - use specific selector for the main post article
     // (related posts also use <article> elements but are nested inside the main article)
-    const article = page.locator('.col-md-10 > article');
+    const article = page.locator('article[data-pagefind-body]');
     await expect(article).toHaveCount(1);
     
     // Check for header within article

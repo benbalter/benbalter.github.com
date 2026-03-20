@@ -65,7 +65,7 @@ Better still, since GitHub is an extensible platform, automation of day-to-day i
 
 A decade ago, I argued that [working like an open source project would allow us to "Deprecate Management"](https://ben.balter.com/2012/12/16/deprecate-management/). As I wrote then:
 
-> There are so many aspects to the work day that we do just because it’s the way thing’s have been done since the dawn of the industrial revolution, and it puzzles me why nobody’s stopped to think critically about how these processes could be reimagined in an age of technology.
+> There are so many aspects to the work day that we do just because it’s the way things have been done since the dawn of the industrial revolution, and it puzzles me why nobody’s stopped to think critically about how these processes could be reimagined in an age of technology.
 
 Today, I don't believe that a complete "deprecation" of management is possible, at least not at scale, but by working in the open, managers can shed a lot of management meta-work, moving managers from lower-level to higher-level, more impactful work.
 
