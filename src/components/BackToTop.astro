@@ -25,19 +25,30 @@
     if (!btn) return;
 
     let visible = false;
+    let footerVisible = false;
     const threshold = 400;
     const button = btn;
 
-    function toggle() {
-      const shouldShow = window.scrollY > threshold;
+    function update() {
+      const shouldShow = window.scrollY > threshold && !footerVisible;
       if (shouldShow !== visible) {
         visible = shouldShow;
         button.classList.toggle('visible', visible);
       }
     }
 
-    window.addEventListener('scroll', toggle, { passive: true });
-    toggle();
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+
+    // Hide when footer is in view (footer has its own back-to-top link)
+    const footer = document.querySelector('footer');
+    if (footer) {
+      const observer = new IntersectionObserver(
+        ([entry]) => { footerVisible = entry.isIntersecting; update(); },
+        { threshold: 0 }
+      );
+      observer.observe(footer);
+    }
 
     btn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
