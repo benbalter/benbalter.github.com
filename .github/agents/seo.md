@@ -269,7 +269,7 @@ The Astro site is already optimized with:
 * `src/utils/structured-data.ts`: JSON-LD schema generation utilities
 * `astro.config.mjs`: Sitemap and site configuration
 * `robots.txt`: Crawler instructions (root level)
-* `src/content/config.ts`: Content schema with SEO fields
+* `src/content.config.ts`: Content schema with SEO fields
 
 ### Front Matter SEO Fields
 

@@ -46,7 +46,7 @@ const navClasses = hero
     // Update active nav link state and border styling on page transitions
     document.addEventListener('astro:page-load', () => {
       const currentPath = window.location.pathname;
-      const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+      const navLinks = document.querySelectorAll('[data-nav-links] .nav-link');
       
       // Update active link state
       navLinks.forEach((link) => {
@@ -89,7 +89,7 @@ const navClasses = hero
       
       <!-- Nav links (visible on desktop, left-aligned after brand) -->
       <div class="nav-collapse navbar-collapse md:flex md:items-center" id="navbar">
-        <ul class="navbar-nav flex flex-col md:flex-row list-none p-0 m-0">
+        <ul data-nav-links class="flex flex-col md:flex-row list-none p-0 m-0">
           {navItems.map((item) => {
             const isActive = currentPath === item.url || 
                             (item.url === '/' && currentPath === '/');
@@ -97,7 +97,7 @@ const navClasses = hero
               <li class="nav-item relative">
                 <a 
                   href={item.url} 
-                  class={`nav-link px-4 py-3 flex items-center min-h-[44px] transition-colors duration-200 no-underline ${isActive ? 'active text-gray-900 dark:text-gray-100 font-semibold' : 'text-[#1a5490] dark:text-[#6cb4e8] hover:text-[#133d6b] dark:hover:text-[#8ac6f0]'}`}
+                  class={`nav-link px-4 py-3 flex items-center min-h-[44px] transition-colors duration-200 no-underline ${isActive ? 'active text-gray-900 dark:text-gray-100 font-semibold' : 'text-primary-800 dark:text-primary-300 hover:text-primary-900 dark:hover:text-primary-200'}`}
                   aria-current={isActive ? 'page' : undefined}
                 >
                   {item.title}
@@ -109,8 +109,19 @@ const navClasses = hero
       </div>
     </div>
     
-    <!-- Right side: Tagline + Mobile toggle -->
+    <!-- Right side: Search + Tagline + Mobile toggle -->
     <div class="flex items-center">
+      <button
+        data-search-open
+        type="button"
+        class="p-2 rounded text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors duration-200 min-h-[44px] min-w-[44px] flex items-center justify-center"
+        aria-label="Search (⌘K)"
+      >
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M8.5 3a5.5 5.5 0 014.383 8.823l4.147 4.147a.75.75 0 01-1.06 1.06l-4.147-4.147A5.5 5.5 0 118.5 3zm0 1.5a4 4 0 100 8 4 4 0 000-8z" fill="currentColor"/>
+        </svg>
+      </button>
+
       <span class="navbar-text hidden lg:block text-gray-700 dark:text-gray-300 text-sm text-right border-l-2 border-primary/20 pl-4 ml-4 pb-2 whitespace-nowrap">
         {siteConfig.description}
       </span>

@@ -62,7 +62,7 @@
     border: 1px solid rgba(128, 128, 128, 0.2);
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.9);
-    color: #57606a;
+    color: var(--color-gray-600, #4b5563);
     cursor: pointer;
     opacity: 0;
     visibility: hidden;
@@ -81,13 +81,13 @@
   }
 
   .back-to-top:hover {
-    background: #337ab7;
+    background: var(--color-primary);
     color: #fff;
-    border-color: #337ab7;
+    border-color: var(--color-primary);
   }
 
   .back-to-top:focus-visible {
-    outline: 2px solid #337ab7;
+    outline: 2px solid var(--color-primary);
     outline-offset: 2px;
   }
 
@@ -100,9 +100,9 @@
     }
 
     .back-to-top:hover {
-      background: #337ab7;
+      background: var(--color-primary);
       color: #fff;
-      border-color: #337ab7;
+      border-color: var(--color-primary);
     }
   }
 

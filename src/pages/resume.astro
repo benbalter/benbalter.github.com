@@ -7,7 +7,7 @@
  */
 
 import PageLayout from '../layouts/PageLayout.astro';
-import { getEntry, getCollection, type CollectionEntry } from 'astro:content';
+import { getEntry, getCollection, render, type CollectionEntry } from 'astro:content';
 import { formatResumeDate } from '../utils/post-urls';
 import { generateResumeSchema, schemaToJsonLd } from '../utils/structured-data';
 
@@ -36,7 +36,7 @@ interface GroupedPosition {
 // Group all positions by employer, regardless of order
 const employerGroups = new Map<string, Array<CollectionEntry<'resume-positions'> & { Content: any }>>();
 for (const position of sortedPositions) {
-  const { Content } = await position.render();
+  const { Content } = await render(position);
   const positionWithContent = { ...position, Content };
   
   if (!employerGroups.has(position.data.employer)) {

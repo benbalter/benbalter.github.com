@@ -1,7 +1,7 @@
 # Astro Best Practices Guide
 
 **Last Updated:** February 4, 2025  
-**Astro Version:** 5.x  
+**Astro Version:** 6.x  
 **Status:** ✅ Fully Implemented
 
 This guide documents Astro best practices for ben.balter.com, focusing on performance, SEO, and accessibility.
@@ -477,17 +477,17 @@ npm run test:e2e:accessibility
 
 ### 1. Build Caching ✅
 
-**Status:** NOT APPLICABLE (Astro 5.x)
+**Status:** NOT APPLICABLE (Astro 6.x)
 
-**Note:** The `experimental.contentCollectionCache` feature has been **deprecated** in Astro 5.x and replaced by the new Content Layer API. This site uses Astro 5.x with the standard content collections system, which provides efficient build performance by default.
+**Note:** The `experimental.contentCollectionCache` feature was removed in Astro 6.x. The Content Layer API (with `glob()` loaders) provides efficient build performance by default.
 
 **Why no explicit caching config needed:**
 
-- Astro 5.x Content Layer handles caching internally
+- Astro 6.x Content Layer handles caching internally
 - Build times are already optimized (~15-20 seconds for full rebuild)
-- The deprecated `contentCollectionCache` experimental flag is known to cause build failures in Astro 5.x
+- The deprecated `contentCollectionCache` experimental flag was removed in Astro 6.x
 
-**Reference:** [Astro 5.0 Release Notes](https://astro.build/blog/astro-5/)
+**Reference:** [Astro 6.0 Release Notes](https://astro.build/blog/astro-6/)
 
 ### 2. Chunk Splitting ✅
 
@@ -776,7 +776,7 @@ npm run test:e2e      # E2E SEO tests
 
 ### Medium Priority (Build)
 
-- [x] Build caching (Astro 5.x Content Layer - automatic)
+- [x] Build caching (Astro 6.x Content Layer - automatic)
 - [x] Chunk splitting optimization
 - [x] Bundle size analysis (E2E performance tests)
 - [x] Build performance metrics (build completes in ~20s)

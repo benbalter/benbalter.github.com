@@ -22,32 +22,38 @@ const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'
   return data.published !== false && data.archived !== true;
 });
 
-// Sort posts by slug (which contains date in Jekyll format YYYY-MM-DD)
+// Sort posts by id (which contains date in Jekyll format YYYY-MM-DD)
 const posts: CollectionEntry<'posts'>[] = allPosts
   .sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => 
-    b.slug.localeCompare(a.slug)
+    b.id.localeCompare(a.id)
   )
   .slice(0, 10);
 ---
 
 <BaseLayout title={title} description={description} noindex={true}>
-  <div class="alert alert-primary lead text-center" role="alert">
-    The page you are trying to view does not exist. <br />
-    <strong>Perhaps you're looking for <span id="four-oh-four-suggestion" aria-live="polite"></span>?</strong>
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <div class="p-6 mb-8 rounded-xl border border-primary/20 dark:border-primary/30 bg-primary/5 dark:bg-primary/10 text-center" role="alert">
+      <p class="text-lg text-gray-700 dark:text-gray-300 mb-2">The page you are trying to view does not exist.</p>
+      <p class="text-base font-semibold text-gray-900 dark:text-gray-100 m-0">
+        Perhaps you're looking for <span id="four-oh-four-suggestion" aria-live="polite" class="text-primary dark:text-primary-300"></span>?
+      </p>
+    </div>
+
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Recent posts</h2>
+
+    <div class="space-y-3">
+      {posts.map((post) => {
+        const postUrl = getPostUrl(post.id);
+        return (
+          <div class="group relative rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 transition-all duration-200 hover:border-primary/40 dark:hover:border-primary-400/40 hover:shadow-sm">
+            <a href={postUrl} class="text-gray-900 dark:text-gray-100 no-underline font-medium group-hover:text-primary dark:group-hover:text-primary-300 transition-colors duration-200 before:absolute before:inset-0">
+              {post.data.title}
+            </a>
+          </div>
+        );
+      })}
+    </div>
   </div>
-
-  <h2>Recent posts</h2>
-
-  <ul>
-    {posts.map((post) => {
-      const postUrl = getPostUrl(post.slug);
-      return (
-        <li>
-          <a href={postUrl}>{post.data.title}</a>
-        </li>
-      );
-    })}
-  </ul>
 
   <!-- Client-side script to fetch sitemap and suggest similar URL -->
   <script>
@@ -123,27 +129,3 @@ const posts: CollectionEntry<'posts'>[] = allPosts
     }
   </script>
 </BaseLayout>
-
-<style>
-  @reference "../styles/global.css";
-
-  .alert {
-    position: relative;
-    @apply p-6 mb-6 rounded-lg border;
-  }
-
-  .alert-primary {
-    @apply bg-primary-50 border-primary-200 text-primary-800;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .alert-primary {
-      @apply bg-primary-900/30 border-primary-700 text-primary-200;
-    }
-  }
-
-  .lead {
-    font-size: 1.25rem;
-    font-weight: 300;
-  }
-</style>

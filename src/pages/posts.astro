@@ -13,13 +13,13 @@ const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'
 });
 
 const posts: CollectionEntry<'posts'>[] = allPosts.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) =>
-  b.slug.localeCompare(a.slug)
+  b.id.localeCompare(a.id)
 );
 
 function getPostMetadata(post: CollectionEntry<'posts'>) {
-  const postDate = getDateFromSlug(post.slug);
+  const postDate = getDateFromSlug(post.id);
   return {
-    postUrl: getPostUrl(post.slug),
+    postUrl: getPostUrl(post.id),
     date: formatPostDate(postDate),
     isoDate: formatISODate(postDate),
     readingTime: calculateReadingTime(post.body),
@@ -29,11 +29,11 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
 
 <BaseLayout title={title} description={description}>
   <header class="mb-8">
-    <h1 class="display-4 font-bold text-gray-900 dark:text-gray-100">{title}</h1>
+    <h1 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100">{title}</h1>
     <p class="text-gray-600 dark:text-gray-300">{posts.length} posts</p>
   </header>
 
-  <div class="row -mx-2">
+  <div class="flex flex-wrap -mx-2">
     {posts.map((post) => {
       const { postUrl, date, isoDate, readingTime } = getPostMetadata(post);
       return (
