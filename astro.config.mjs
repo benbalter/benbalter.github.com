@@ -111,6 +111,10 @@ export default defineConfig({
   // Image optimization configuration
   // Allowlist remote image domains for Astro's Image component
   image: {
+    // Default layout for responsive images (generates srcset/sizes automatically)
+    layout: 'constrained',
+    // Add global responsive image styles
+    responsiveStyles: true,
     domains: [
       // Amazon book covers (used in other-recommended-reading page)
       'images.amazon.com',
