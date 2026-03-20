@@ -187,17 +187,91 @@
       }
     });
 
-    // Close on result click (navigate)
+    // Close on result click (navigate) and store query for highlighting
     modal.addEventListener('click', (e) => {
       const target = e.target as HTMLElement;
       if (target.closest('.search-result')) {
+        const query = input?.value?.trim();
+        if (query) {
+          sessionStorage.setItem('search-highlight', query);
+        }
         closeSearch();
       }
     });
   }
 
+  function highlightSearchTerms() {
+    const query = sessionStorage.getItem('search-highlight');
+    if (!query) return;
+    sessionStorage.removeItem('search-highlight');
+
+    const article = document.querySelector('[data-pagefind-body]');
+    if (!article) return;
+
+    const terms = query.toLowerCase().split(/\s+/).filter((t: string) => t.length > 2);
+    if (!terms.length) return;
+
+    // Walk text nodes and wrap matches in <mark>
+    const walker = document.createTreeWalker(article, NodeFilter.SHOW_TEXT);
+    const textNodes: Text[] = [];
+    while (walker.nextNode()) {
+      const node = walker.currentNode as Text;
+      const text = node.textContent?.toLowerCase() || '';
+      if (terms.some((t: string) => text.includes(t))) {
+        textNodes.push(node);
+      }
+    }
+
+    const pattern = new RegExp(`(${terms.map((t: string) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'gi');
+
+    textNodes.forEach((node) => {
+      const text = node.textContent || '';
+      const parts = text.split(pattern);
+      if (parts.length <= 1) return;
+
+      const frag = document.createDocumentFragment();
+      parts.forEach((part) => {
+        if (pattern.test(part)) {
+          const mark = document.createElement('mark');
+          mark.className = 'search-highlight';
+          mark.textContent = part;
+          frag.appendChild(mark);
+        } else {
+          frag.appendChild(document.createTextNode(part));
+        }
+        pattern.lastIndex = 0;
+      });
+      node.parentNode?.replaceChild(frag, node);
+    });
+
+    // Add dismiss banner
+    const firstMark = article.querySelector('mark.search-highlight');
+    if (firstMark) {
+      const banner = document.createElement('div');
+      banner.className = 'search-highlight-banner';
+      banner.innerHTML = `Highlighting "<strong>${escapeHtml(query)}</strong>" <button type="button" aria-label="Clear highlights">✕</button>`;
+      banner.querySelector('button')?.addEventListener('click', () => {
+        article.querySelectorAll('mark.search-highlight').forEach((m) => {
+          const parent = m.parentNode;
+          if (parent) {
+            parent.replaceChild(document.createTextNode(m.textContent || ''), m);
+            parent.normalize();
+          }
+        });
+        banner.remove();
+      });
+      article.insertBefore(banner, article.firstChild);
+
+      // Scroll to first match
+      firstMark.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
   // Initialize on each page load (SPA navigation)
-  document.addEventListener('astro:page-load', initSearch);
+  document.addEventListener('astro:page-load', () => {
+    initSearch();
+    highlightSearchTerms();
+  });
 </script>
 
 <style is:global>
@@ -322,6 +396,31 @@
   .search-result-excerpt mark {
     @apply bg-primary/15 dark:bg-primary/25 text-inherit rounded-sm;
     padding: 0.05em 0.15em;
+  }
+
+  /* Search term highlights on destination page */
+  mark.search-highlight {
+    @apply bg-yellow-200/70 dark:bg-yellow-500/30 text-inherit rounded-sm;
+    padding: 0.05em 0.15em;
+    scroll-margin-top: 4rem;
+  }
+
+  .search-highlight-banner {
+    @apply text-sm text-gray-700 dark:text-gray-300 bg-yellow-100 dark:bg-yellow-900/30 border border-yellow-300 dark:border-yellow-700 rounded-lg px-4 py-2 mb-4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .search-highlight-banner button {
+    @apply text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    font-size: 1rem;
+    line-height: 1;
   }
 
   /* Reduced motion */

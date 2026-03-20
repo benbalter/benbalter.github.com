@@ -36,16 +36,19 @@ const disallowedPaths = [
   '/uncle-sams-list/',
 ];
 
-export const GET: APIRoute = () => {
+export const GET: APIRoute = ({ site }) => {
   // Generate robots.txt content
   const disallowLines = disallowedPaths
     .map(path => `Disallow: ${path}`)
     .join('\n');
   
+  // Use the site URL from Astro config for portability
+  const siteUrl = site?.origin ?? 'https://ben.balter.com';
+  
   const content = `User-agent: *
 ${disallowLines}
 Allow: /
-Sitemap: https://ben.balter.com/sitemap-index.xml
+Sitemap: ${siteUrl}/sitemap-index.xml
 `;
 
   return new Response(content, {
