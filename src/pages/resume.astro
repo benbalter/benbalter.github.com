@@ -7,7 +7,7 @@
  */
 
 import PageLayout from '../layouts/PageLayout.astro';
-import { getEntry, getCollection, type CollectionEntry } from 'astro:content';
+import { getEntry, getCollection, render, type CollectionEntry } from 'astro:content';
 import { formatResumeDate } from '../utils/post-urls';
 import { generateResumeSchema, schemaToJsonLd } from '../utils/structured-data';
 
@@ -36,7 +36,7 @@ interface GroupedPosition {
 // Group all positions by employer, regardless of order
 const employerGroups = new Map<string, Array<CollectionEntry<'resume-positions'> & { Content: any }>>();
 for (const position of sortedPositions) {
-  const { Content } = await position.render();
+  const { Content } = await render(position);
   const positionWithContent = { ...position, Content };
   
   if (!employerGroups.has(position.data.employer)) {
@@ -287,7 +287,8 @@ const resumeSchema = generateResumeSchema({
    * ============================================================ */
   @media (prefers-color-scheme: dark) {
     .date-badge {
-      color: var(--color-primary-300, #80b9e6);
+      color: var(--color-primary-200, #b3d4f0);
+      background-color: color-mix(in srgb, var(--tw-prose-links, #80b9e6) 15%, transparent);
     }
   }
 

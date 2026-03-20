@@ -17,7 +17,7 @@ import remarkTextr from 'remark-textr';
 
 const personalDict = fs
   .readFileSync('dictionary.txt', 'utf8')
-  .replaceAll(/#.+/gm, '');
+  .replaceAll(/#.+/gmv, '');
 
 const retextSettings = {
   plugins: [

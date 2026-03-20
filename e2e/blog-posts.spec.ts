@@ -258,12 +258,12 @@ test.describe('Blog Posts', () => {
       await page.goto(firstPostUrl);
       await waitForPageReady(page);
       
-      // Check for "help improve it" text
-      const improveText = page.locator('text=help improve it');
+      // Check for "Help improve this article" text
+      const improveText = page.locator('text=Help improve this article');
       await expect(improveText).toBeVisible();
       
-      // Check for Edit button with proper link to GitHub
-      const editButton = page.locator('a.btn.btn-outline-primary', { hasText: 'Edit' });
+      // Check for open-source CTA link to GitHub
+      const editButton = page.locator('a.open-source-cta');
       await expect(editButton).toBeVisible();
       
       const href = await editButton.getAttribute('href');

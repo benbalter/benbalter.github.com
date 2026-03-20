@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -e
+
+if ! [ -x "$(command -v harper-cli)" ]; then
+	echo "Harper not found. Skipping grammar checking with Harper."
+	echo "To install Harper, visit: https://github.com/Automattic/harper"
+	echo "Harper provides offline, privacy-first grammar checking."
+else
+	echo "Running Harper grammar checker..."
+	# harper-cli currently always exits with code 1 (even with no lints found),
+	# so we use || true to prevent it from failing the build.
+	harper-cli lint src/content/posts/*.md || true
+fi

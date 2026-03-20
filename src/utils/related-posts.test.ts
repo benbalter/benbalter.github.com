@@ -15,7 +15,6 @@ function createMockPost(
   archived = false
 ): CollectionEntry<'posts'> {
   return {
-    slug,
     id: slug,
     collection: 'posts',
     data: {
@@ -24,11 +23,6 @@ function createMockPost(
       published,
       archived,
     } as any,
-    render: async () => ({
-      Content: null as any,
-      headings: [],
-      remarkPluginFrontmatter: {},
-    }),
   } as CollectionEntry<'posts'>;
 }
 
@@ -61,7 +55,7 @@ describe('findRelatedPosts', () => {
     // post2 (Python tutorial) should be more similar to post1 (JavaScript tutorial)
     // than post3 (Cooking recipes)
     expect(related.length).toBeGreaterThan(0);
-    expect(related[0].slug).toBe('2024-01-02-python-tutorial');
+    expect(related[0].id).toBe('2024-01-02-python-tutorial');
   });
 
   it('should exclude the current post from results', async () => {
@@ -80,7 +74,7 @@ describe('findRelatedPosts', () => {
     const related = await findRelatedPosts(post1, allPosts, 10);
     
     // Should not include the current post
-    expect(related.every(p => p.slug !== post1.slug)).toBe(true);
+    expect(related.every(p => p.id !== post1.id)).toBe(true);
   });
 
   it('should exclude archived posts from results', async () => {
@@ -106,7 +100,7 @@ describe('findRelatedPosts', () => {
     const related = await findRelatedPosts(post1, allPosts, 10);
     
     // Should not include archived posts
-    expect(related.every(p => p.slug !== post2.slug)).toBe(true);
+    expect(related.every(p => p.id !== post2.id)).toBe(true);
   });
 
   it('should respect the maxResults limit', async () => {
@@ -181,7 +175,7 @@ describe('findRelatedPosts', () => {
     expect(related.length).toBeGreaterThan(0);
     // Verify that cooking post is not first
     if (related.length > 0) {
-      expect(related[0].slug).not.toBe('2024-01-03-cooking');
+      expect(related[0].id).not.toBe('2024-01-03-cooking');
     }
   });
 
@@ -224,7 +218,7 @@ describe('findRelatedPosts', () => {
     expect(related.length).toBeGreaterThan(0);
     if (related.length > 0) {
       // post2 (programming) should rank higher than post3 (cooking)
-      expect(related[0].slug).toBe('2024-01-02-post2');
+      expect(related[0].id).toBe('2024-01-02-post2');
     }
   });
 });

@@ -3,7 +3,7 @@
  * YouTube Component
  * 
  * Embed YouTube videos in blog posts with responsive sizing.
- * Uses Bootstrap ratio utility for responsive 16:9 aspect ratio.
+ * Uses Tailwind aspect-ratio utility for responsive 16:9 aspect ratio.
  * 
  * Usage in MDX:
  * <YouTube id="dQw4w9WgXcQ" title="Video Title" />
@@ -18,11 +18,15 @@ const { id, title = 'YouTube video' } = Astro.props;
 const embedUrl = `https://www.youtube.com/embed/${id}`;
 ---
 
-<div class="ratio ratio-16x9 my-4 rounded-3 overflow-hidden">
-  <iframe
-    src={embedUrl}
-    title={title}
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen
-  ></iframe>
+<div class="not-prose my-6 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 shadow-sm">
+  <div class="aspect-video">
+    <iframe
+      src={embedUrl}
+      title={title}
+      class="w-full h-full"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      loading="lazy"
+    ></iframe>
+  </div>
 </div>

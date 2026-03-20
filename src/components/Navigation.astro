@@ -29,9 +29,15 @@ const navItems: NavItem[] = [
 
 // Get current path for active state
 const currentPath = Astro.url.pathname;
+const isPostPage = /^\d{4}\/\d{2}\/\d{2}\//.test(currentPath.slice(1));
+
+function isNavActive(itemUrl: string): boolean {
+  if (itemUrl === '/') return currentPath === '/' || isPostPage;
+  return currentPath.startsWith(itemUrl);
+}
 
 // Base classes for navbar
-const baseClasses = "navbar flex flex-wrap items-center justify-between py-2 px-4 bg-gray-100/95 dark:bg-gray-800/95 backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-sm mb-4";
+const baseClasses = "navbar flex flex-wrap items-center justify-between py-3 px-4 bg-gray-100/95 dark:bg-gray-800/95 backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-sm mb-4 max-md:mb-2";
 
 // Conditionally add rounded classes based on hero presence
 // For hero pages: round only bottom corners (top-left and top-right are 0)
@@ -46,18 +52,26 @@ const navClasses = hero
     // Update active nav link state and border styling on page transitions
     document.addEventListener('astro:page-load', () => {
       const currentPath = window.location.pathname;
-      const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+      const navLinks = document.querySelectorAll('[data-nav-links] .nav-link');
       
       // Update active link state
       navLinks.forEach((link) => {
         const href = link.getAttribute('href');
-        const isActive = currentPath === href;
+        const isPostPage = /^\/\d{4}\/\d{2}\/\d{2}\//.test(currentPath);
+        const isActive = currentPath === href ||
+          (href === '/' && isPostPage) ||
+          (href !== '/' && href !== null && currentPath.startsWith(href));
+        
+        // Active classes
+        link.classList.toggle('active', isActive);
+        link.classList.toggle('text-gray-900', isActive);
+        link.classList.toggle('font-semibold', isActive);
+        // Inactive classes
+        link.classList.toggle('text-primary-800', !isActive);
         
         if (isActive) {
-          link.classList.add('active');
           link.setAttribute('aria-current', 'page');
         } else {
-          link.classList.remove('active');
           link.removeAttribute('aria-current');
         }
       });
@@ -68,14 +82,12 @@ const navClasses = hero
       const hasHero = heroElement !== null;
       
       if (nav) {
-        nav.setAttribute('data-has-hero', hasHero.toString());
+        nav.setAttribute('data-has-hero', String(hasHero));
         
         if (hasHero) {
-          // Hero page: bottom-only rounding, no top border, explicit no top rounding
           nav.classList.remove('rounded-lg');
           nav.classList.add('rounded-t-none', 'rounded-b-lg', 'border-t-0');
         } else {
-          // Non-hero page: full rounding
           nav.classList.remove('rounded-t-none', 'rounded-b-lg', 'border-t-0');
           nav.classList.add('rounded-lg');
         }
@@ -89,15 +101,14 @@ const navClasses = hero
       
       <!-- Nav links (visible on desktop, left-aligned after brand) -->
       <div class="nav-collapse navbar-collapse md:flex md:items-center" id="navbar">
-        <ul class="navbar-nav flex flex-col md:flex-row list-none p-0 m-0">
+        <ul data-nav-links class="flex flex-col md:flex-row list-none p-0 m-0">
           {navItems.map((item) => {
-            const isActive = currentPath === item.url || 
-                            (item.url === '/' && currentPath === '/');
+            const isActive = isNavActive(item.url);
             return (
               <li class="nav-item relative">
                 <a 
                   href={item.url} 
-                  class={`nav-link px-4 py-3 flex items-center min-h-[44px] transition-colors duration-200 no-underline ${isActive ? 'active text-gray-900 dark:text-gray-100 font-semibold' : 'text-[#1a5490] dark:text-[#6cb4e8] hover:text-[#133d6b] dark:hover:text-[#8ac6f0]'}`}
+                  class={`nav-link px-4 py-3 flex items-center min-h-[44px] transition-colors duration-200 no-underline ${isActive ? 'active text-gray-900 dark:text-gray-100 font-semibold' : 'text-primary-800 dark:text-primary-300 hover:text-primary-900 dark:hover:text-primary-200'}`}
                   aria-current={isActive ? 'page' : undefined}
                 >
                   {item.title}
@@ -109,9 +120,20 @@ const navClasses = hero
       </div>
     </div>
     
-    <!-- Right side: Tagline + Mobile toggle -->
+    <!-- Right side: Search + Tagline + Mobile toggle -->
     <div class="flex items-center">
-      <span class="navbar-text hidden md:block text-gray-700 dark:text-gray-400 text-sm text-right border-l-2 border-primary/20 pl-4 ml-4 pb-2">
+      <button
+        data-search-open
+        type="button"
+        class="p-2 rounded text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors duration-200 min-h-[44px] min-w-[44px] flex items-center justify-center"
+        aria-label="Search (⌘K)"
+      >
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M8.5 3a5.5 5.5 0 014.383 8.823l4.147 4.147a.75.75 0 01-1.06 1.06l-4.147-4.147A5.5 5.5 0 118.5 3zm0 1.5a4 4 0 100 8 4 4 0 000-8z" fill="currentColor"/>
+        </svg>
+      </button>
+
+      <span class="navbar-text hidden lg:block text-gray-700 dark:text-gray-300 text-sm text-right border-l-2 border-primary/20 pl-4 ml-4 pb-2 whitespace-nowrap">
         {siteConfig.description}
       </span>
       
@@ -188,5 +210,36 @@ const navClasses = hero
   
   .navbar-toggler:active {
     @apply bg-primary/15;
+  }
+  
+  /* Mobile navigation enhancements */
+  @media (max-width: 767px) {
+    /* Separator between nav items */
+    .nav-item:not(:last-child) {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    /* Expanded menu background separation */
+    .nav-collapse.show {
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      margin-top: 0.5rem;
+      padding-top: 0.25rem;
+    }
+
+    /* Full-width nav links for larger tap targets */
+    .nav-link {
+      width: 100%;
+    }
+  }
+
+  /* Dark mode variants for mobile */
+  @media (max-width: 767px) and (prefers-color-scheme: dark) {
+    .nav-item:not(:last-child) {
+      border-bottom-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-collapse.show {
+      border-top-color: rgba(255, 255, 255, 0.08);
+    }
   }
 </style>

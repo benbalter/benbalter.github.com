@@ -312,7 +312,8 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
           },
         ],
       },
-    },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } as any,
     {
       width: config.width,
       height: config.height,
