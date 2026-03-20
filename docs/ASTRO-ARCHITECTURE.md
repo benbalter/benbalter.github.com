@@ -37,8 +37,8 @@ This document defines the architecture for migrating ben.balter.com from Jekyll 
 ```
 /
 ├── src/
+│   ├── content.config.ts          # Content collections schema
 │   ├── content/
-│   │   ├── config.ts              # Content collections schema
 │   │   ├── posts/                 # Blog posts (*.md)
 │   │   │   ├── 2010-09-12-wordpress-resume-plugin.md
 │   │   │   ├── 2023-05-19-pull-requests-are-form-of-documentation.md

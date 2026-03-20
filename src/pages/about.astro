@@ -29,24 +29,22 @@ const recentPostItems: PostItem[] = recentPosts.map(renderPost);
 ---
 
 <PageLayout title={title} description={description}>
-  <div class="flex flex-col md:grid md:grid-cols-[1fr_250px] gap-6">
-    <div class="order-2 md:order-1">
-      {bioParagraphs.map(paragraph => (
-        <p set:html={paragraph}></p>
-      ))}
-
-      <p>
-        Feel free to email him at <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> or you can find him on these social networks:
-      </p>
-
-      <ContactLinks />
-    </div>
-
-    <div class="order-1 md:order-2 max-w-[200px] mx-auto md:max-w-none md:mx-0 md:self-start">
+  <div>
+    <div class="float-right ml-6 mb-4 max-w-[200px] md:max-w-[250px]">
       <a href={`${siteConfig.githubRepoUrl}/raw/master/assets/img/headshot.jpg`}>
         <Image src={headshotImage} alt={`${siteConfig.author} headshot`} width={250} height={250} layout="fixed" class="w-full rounded" />
       </a>
     </div>
+
+    {bioParagraphs.map(paragraph => (
+      <p set:html={paragraph}></p>
+    ))}
+
+    <p>
+      Feel free to email him at <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> or you can find him on these social networks:
+    </p>
+
+    <ContactLinks />
   </div>
 
   <section class="mt-10 pt-8 border-t border-gray-200 dark:border-gray-700">
