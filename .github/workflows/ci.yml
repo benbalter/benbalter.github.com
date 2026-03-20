@@ -124,32 +124,27 @@ jobs:
       - name: Lint YAML
         run: npm run lint-yaml
 
-      - name: Type check
-        run: npm run check
-
-  languagetool:
-    name: LanguageTool
+  check:
+    name: Run Astro Check
     runs-on: ubuntu-latest
-    services:
-      languagetool:
-        image: erikvl87/languagetool
-        ports:
-          - 8010:8010
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Wait for LanguageTool
-        run: |
-          echo "Waiting for LanguageTool server..."
-          timeout 60 bash -c 'until curl -sf http://localhost:8010/v2/languages > /dev/null; do sleep 2; done'
-          echo "LanguageTool server is ready."
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
 
-      - name: Run LanguageTool
-        run: script/languagetool
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Astro Check
+        run: npm run check
 
   vitest:
-    name: Unit Tests
+    name: Run Vitest Tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
