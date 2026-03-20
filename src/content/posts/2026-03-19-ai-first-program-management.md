@@ -1,6 +1,6 @@
 ---
-title: "AI-first program management"
-description: "If async-first communication and engineering-inspired workflows transformed how we manage software teams, AI-augmented program management is the natural next evolution — amplifying human judgment, not replacing it."
+title: "AI-first program management: amplifying judgment, not replacing it"
+description: "AI-augmented program management is the natural evolution of async-first and engineering-inspired workflows — amplifying human judgment, not replacing it."
 ---
 
 Picture this: it's Monday morning, and you've got six ongoing programs across four teams spanning three time zones. Over the weekend, a dozen threads moved forward, two risks materialized, and someone quietly changed the scope of a critical deliverable in a comment buried three levels deep. Your job is to synthesize all of that into a coherent picture before your 10 AM leadership sync.
@@ -9,7 +9,7 @@ This is the reality of modern program management — and it's exactly the ki
 
 ## From async to AI-augmented
 
-A few years ago, I wrote about the nine core things a program manager does on any given day.[^1] Shortly after, I made the case for why teams should default to asynchronous communication[^2] — written, durable, discoverable artifacts over synchronous meetings. Then I argued that managers should use the same tools engineers use — issues, pull requests, project boards — to plan and track their own work.[^3] Most recently, I explored how AI agents are extending the same patterns of transparency and code review that made open source successful.[^4]
+A few years ago, I wrote about the nine core things a program manager does on any given day.[^1] Shortly after, I made the case for why teams should default to asynchronous communication[^2] — written, durable, discoverable artifacts over synchronous meetings.[^6] Then I argued that managers should use the same tools engineers use — issues, pull requests, project boards — to plan and track their own work.[^3] Most recently, I explored how AI agents are extending the same patterns of transparency and code review that made open source successful.[^4]
 
 These ideas aren't disconnected. They're an evolution.
 
@@ -27,7 +27,7 @@ Program managers are professional context-switchers. You spend your day translat
 
 AI doesn't eliminate that complexity, but it compresses the information-shuttling work. An LLM can summarize a 200-message thread into a paragraph. It can draft a status update that translates "we're blocked on a schema migration that requires a backward-compatible rollout strategy" into language an executive actually cares about. It can take meeting notes and extract the three things that matter from the twenty that were discussed.
 
-The PM still decides *what* to communicate and *when* — that's judgment. But the mechanical work of drafting, reformatting, and distributing information across audiences? That's exactly the kind of task AI handles well.
+The PM still decides *what* to communicate and *when* — that's judgment.[^5] But the mechanical work of drafting, reformatting, and distributing information across audiences? That's exactly the kind of task AI handles well.
 
 ### Capture and track work
 
@@ -124,3 +124,7 @@ The job isn't going away. It's getting more interesting — because when you
 [^3]: [Manage like an engineer](/2023/01/10/manage-like-an-engineer/)
 
 [^4]: [Agentic workflows and the future of software development](/2026/03/18/agentic-workflows/)
+
+[^5]: [Leaders show their work](/2022/02/16/leaders-show-their-work/)
+
+[^6]: [Meetings are a point of escalation, not the default](/2023/04/20/meetings-are-a-point-of-escalation/)
