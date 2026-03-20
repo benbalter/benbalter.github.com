@@ -7,15 +7,12 @@
  * @see https://github.com/google/schema-dts
  */
 
-import type { Person, Organization, WebSite, BlogPosting, BreadcrumbList, ListItem, WithContext, Occupation, EducationalOrganization, EducationalOccupationalCredential } from 'schema-dts';
+import type { Person, Organization, WebSite, BlogPosting, BreadcrumbList, ListItem, WithContext, Occupation, EducationalOrganization, EducationalOccupationalCredential, ImageObject, ProfilePage } from 'schema-dts';
 import { siteConfig } from '../config';
 
-/**
- * Generate Person schema for Ben Balter
- */
-export function generatePersonSchema(overrides?: Partial<Person>): WithContext<Person> {
-  const person: WithContext<Person> = {
-    '@context': 'https://schema.org',
+/** Base Person fields (shared between top-level and embedded schemas) */
+function personFields(overrides?: Partial<Person>): Person {
+  const person: Person = {
     '@type': 'Person',
     name: siteConfig.author,
     url: siteConfig.url,
@@ -30,13 +27,35 @@ export function generatePersonSchema(overrides?: Partial<Person>): WithContext<P
     ],
     image: `${siteConfig.url}/assets/img/headshot.jpg`,
   };
-  
-  // Apply overrides if provided
-  if (overrides) {
-    return Object.assign({}, person, overrides) as WithContext<Person>;
-  }
-  
-  return person;
+
+  return overrides ? Object.assign({}, person, overrides) as Person : person;
+}
+
+/**
+ * Generate top-level Person schema (with @context) for standalone use
+ */
+export function generatePersonSchema(overrides?: Partial<Person>): WithContext<Person> {
+  return Object.assign({ '@context': 'https://schema.org' as const }, personFields(overrides)) as WithContext<Person>;
+}
+
+/**
+ * Generate embedded Person schema (without @context) for nesting in other schemas
+ */
+export function generatePersonRef(overrides?: Partial<Person>): Person {
+  return personFields(overrides);
+}
+
+/**
+ * Generate ProfilePage schema for the homepage.
+ * Google supports ProfilePage as a rich result type for creator/personal pages.
+ * @see https://developers.google.com/search/docs/appearance/structured-data/profile-page
+ */
+export function generateProfilePageSchema(): WithContext<ProfilePage> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    mainEntity: personFields(),
+  } as WithContext<ProfilePage>;
 }
 
 /**
@@ -89,16 +108,28 @@ export function generateBlogPostingSchema(props: {
 }): WithContext<BlogPosting> {
   const { title, description, url, publishedTime, modifiedTime, image, author } = props;
 
+  const absoluteImage = image
+    ? (image.startsWith('http') ? image : `${siteConfig.url}${image}`)
+    : `${siteConfig.url}/assets/img/headshot.jpg`;
+
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: title,
     description,
-    image: image || `${siteConfig.url}/assets/img/headshot.jpg`,
+    image: absoluteImage,
     datePublished: publishedTime.toISOString(),
     dateModified: modifiedTime?.toISOString() || publishedTime.toISOString(),
-    author: generatePersonSchema({ name: author || siteConfig.author }),
-    publisher: generatePersonSchema(),
+    author: generatePersonRef({ name: author || siteConfig.author }),
+    publisher: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: siteConfig.url,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${siteConfig.url}/assets/img/headshot.jpg`,
+      } as ImageObject,
+    } as Organization,
     url,
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -202,8 +233,8 @@ export function generateResumeSchema(props: ResumeSchemaProps): WithContext<Pers
  */
 export function schemaToJsonLd(
   schema:
-    | WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList>
-    | Array<WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList>>
+    | WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList | ProfilePage>
+    | Array<WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList | ProfilePage>>
 ): string {
   return JSON.stringify(schema, null, 2);
 }

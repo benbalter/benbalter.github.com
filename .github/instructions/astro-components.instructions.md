@@ -88,7 +88,7 @@ const { title, description, date, url } = Astro.props;
 
 - Use Astro's content collections for type-safe content
 - Import from `astro:content` module
-- Leverage Zod schemas defined in `src/content/config.ts`
+- Leverage Zod 4 schemas defined in `src/content.config.ts`
 - Use `getCollection()` for fetching content
 - Use `getEntry()` for single items
 
@@ -161,7 +161,7 @@ export async function getStaticPaths() {
       year: post.data.date.getFullYear().toString(),
       month: String(post.data.date.getMonth() + 1).padStart(2, '0'),
       day: String(post.data.date.getDate()).padStart(2, '0'),
-      slug: post.slug
+      slug: post.id
     },
     props: { post }
   }));

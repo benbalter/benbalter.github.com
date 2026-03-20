@@ -1,0 +1,341 @@
+---
+/**
+ * Search Modal Component
+ *
+ * Full-screen search overlay powered by Pagefind.
+ * Opens via search button in Navigation or ⌘K / Ctrl+K keyboard shortcut.
+ * Loads Pagefind JS/CSS only when search is first opened (zero JS by default).
+ */
+---
+
+<div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-label="Search" hidden>
+  <div class="search-backdrop" data-search-close></div>
+  <div class="search-container">
+    <div class="search-header">
+      <div class="search-input-wrapper">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M8.5 3a5.5 5.5 0 014.383 8.823l4.147 4.147a.75.75 0 01-1.06 1.06l-4.147-4.147A5.5 5.5 0 118.5 3zm0 1.5a4 4 0 100 8 4 4 0 000-8z" fill="currentColor"/>
+        </svg>
+        <input
+          id="search-input"
+          type="search"
+          placeholder="Search posts…"
+          autocomplete="off"
+          autofocus
+          class="search-field"
+          aria-label="Search posts"
+        />
+        <kbd class="search-kbd" aria-hidden="true">Esc</kbd>
+      </div>
+    </div>
+    <div id="search-results" class="search-results"></div>
+  </div>
+</div>
+
+<script>
+  let pagefindLoaded = false;
+  let pagefind: any = null;
+
+  function getModal() {
+    return document.getElementById('search-modal');
+  }
+
+  function getInput() {
+    return document.getElementById('search-input') as HTMLInputElement | null;
+  }
+
+  async function loadPagefind() {
+    if (pagefindLoaded) return;
+    try {
+      // Dynamic import at runtime — path resolved after pagefind indexes the built site
+      const pf = '/pagefind/pagefind.js';
+      pagefind = await import(/* @vite-ignore */ pf);
+      await pagefind.init();
+      pagefindLoaded = true;
+    } catch (e) {
+      console.error('Failed to load Pagefind:', e);
+    }
+  }
+
+  async function performSearch(query: string) {
+    const resultsContainer = document.getElementById('search-results');
+    if (!resultsContainer) return;
+
+    if (!query.trim()) {
+      resultsContainer.innerHTML = '<div class="search-empty">Type to search posts, pages, and more…</div>';
+      return;
+    }
+
+    if (!pagefindLoaded) {
+      resultsContainer.innerHTML = '<div class="search-empty">Loading search…</div>';
+      await loadPagefind();
+    }
+
+    if (!pagefind) {
+      resultsContainer.innerHTML = '<div class="search-empty">Search unavailable</div>';
+      return;
+    }
+
+    const search = await pagefind.search(query);
+
+    if (search.results.length === 0) {
+      resultsContainer.innerHTML = `<div class="search-empty">No results for "<strong>${escapeHtml(query)}</strong>"</div>`;
+      return;
+    }
+
+    const results = await Promise.all(
+      search.results.slice(0, 8).map((r: any) => r.data())
+    );
+
+    resultsContainer.innerHTML = results
+      .map(
+        (result: any) => `
+        <a href="${result.url}" class="search-result" data-search-close>
+          <span class="search-result-title">${result.meta?.title || 'Untitled'}</span>
+          <span class="search-result-excerpt">${result.excerpt}</span>
+        </a>`
+      )
+      .join('');
+  }
+
+  function escapeHtml(str: string) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function openSearch() {
+    const modal = getModal();
+    const input = getInput();
+    if (!modal) return;
+
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    loadPagefind();
+
+    requestAnimationFrame(() => {
+      modal.classList.add('open');
+      input?.focus();
+    });
+  }
+
+  function closeSearch() {
+    const modal = getModal();
+    const input = getInput();
+    if (!modal) return;
+
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+
+    setTimeout(() => {
+      modal.hidden = true;
+      if (input) input.value = '';
+      const resultsContainer = document.getElementById('search-results');
+      if (resultsContainer) {
+        resultsContainer.innerHTML = '<div class="search-empty">Type to search posts, pages, and more…</div>';
+      }
+    }, 200);
+  }
+
+  function initSearch() {
+    const modal = getModal();
+    const input = getInput();
+    if (!modal) return;
+
+    // Open triggers
+    document.querySelectorAll('[data-search-open]').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openSearch();
+      });
+    });
+
+    // Close triggers
+    modal.querySelectorAll('[data-search-close]').forEach((el) => {
+      el.addEventListener('click', () => closeSearch());
+    });
+
+    // Search input
+    let debounceTimer: ReturnType<typeof setTimeout>;
+    input?.addEventListener('input', () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        performSearch(input.value);
+      }, 200);
+    });
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+      // ⌘K or Ctrl+K to open
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        const m = getModal();
+        if (m?.hidden) {
+          openSearch();
+        } else {
+          closeSearch();
+        }
+      }
+
+      // Escape to close
+      if (e.key === 'Escape') {
+        const m = getModal();
+        if (m && !m.hidden) {
+          e.preventDefault();
+          closeSearch();
+        }
+      }
+    });
+
+    // Close on result click (navigate)
+    modal.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (target.closest('.search-result')) {
+        closeSearch();
+      }
+    });
+  }
+
+  // Initialize on each page load (SPA navigation)
+  document.addEventListener('astro:page-load', initSearch);
+</script>
+
+<style is:global>
+  @reference "../styles/global.css";
+
+  .search-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 10vh;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .search-modal.open {
+    opacity: 1;
+  }
+
+  .search-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+  }
+
+  .search-container {
+    position: relative;
+    width: 100%;
+    max-width: 40rem;
+    max-height: 70vh;
+    margin: 0 1rem;
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: translateY(-8px) scale(0.98);
+    transition: transform 0.2s ease;
+  }
+
+  .search-modal.open .search-container {
+    transform: translateY(0) scale(1);
+  }
+
+  .search-header {
+    @apply border-b border-gray-200 dark:border-gray-700;
+  }
+
+  .search-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1rem;
+  }
+
+  .search-icon {
+    flex-shrink: 0;
+    @apply text-gray-400 dark:text-gray-500;
+  }
+
+  .search-field {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1rem;
+    @apply text-gray-900 dark:text-gray-100;
+    @apply placeholder:text-gray-400 dark:placeholder:text-gray-500;
+  }
+
+  .search-field::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  .search-kbd {
+    @apply text-xs text-gray-400 dark:text-gray-500 border border-gray-300 dark:border-gray-600 rounded px-1.5 py-0.5 font-mono;
+  }
+
+  .search-results {
+    overflow-y: auto;
+    padding: 0.5rem;
+  }
+
+  .search-empty {
+    @apply text-sm text-gray-500 dark:text-gray-400;
+    padding: 1.5rem 1rem;
+    text-align: center;
+  }
+
+  .search-result {
+    display: block;
+    padding: 0.75rem 1rem;
+    @apply rounded-lg no-underline;
+    transition: background-color 0.15s ease;
+  }
+
+  .search-result:hover,
+  .search-result:focus {
+    @apply bg-primary/5 dark:bg-primary/10;
+    outline: none;
+  }
+
+  .search-result-title {
+    display: block;
+    @apply text-sm font-semibold text-gray-900 dark:text-gray-100;
+    margin-bottom: 0.25rem;
+  }
+
+  .search-result:hover .search-result-title,
+  .search-result:focus .search-result-title {
+    @apply text-primary dark:text-primary-300;
+  }
+
+  .search-result-excerpt {
+    display: block;
+    @apply text-xs text-gray-600 dark:text-gray-400;
+    line-height: 1.5;
+  }
+
+  .search-result-excerpt mark {
+    @apply bg-primary/15 dark:bg-primary/25 text-inherit rounded-sm;
+    padding: 0.05em 0.15em;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .search-modal,
+    .search-container {
+      transition: none;
+    }
+  }
+
+  /* Print */
+  @media print {
+    .search-modal {
+      display: none !important;
+    }
+  }
+</style>

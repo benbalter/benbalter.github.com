@@ -1,0 +1,121 @@
+---
+/**
+ * BackToTop
+ *
+ * Floating button that appears after the user scrolls down 400px.
+ * Smoothly scrolls back to the top of the page on click.
+ * Respects prefers-reduced-motion. Works with Astro View Transitions.
+ */
+---
+
+<button
+  id="back-to-top"
+  class="back-to-top"
+  aria-label="Back to top"
+  title="Back to top"
+>
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+    <path fill-rule="evenodd" d="M10 3.293l-6.354 6.353a1 1 0 0 0 1.415 1.414L10 6.12l4.939 4.94a1 1 0 0 0 1.414-1.414L10 3.293z" clip-rule="evenodd"/>
+  </svg>
+</button>
+
+<script>
+  function initBackToTop() {
+    const btn = document.getElementById('back-to-top');
+    if (!btn) return;
+
+    let visible = false;
+    const threshold = 400;
+    const button = btn;
+
+    function toggle() {
+      const shouldShow = window.scrollY > threshold;
+      if (shouldShow !== visible) {
+        visible = shouldShow;
+        button.classList.toggle('visible', visible);
+      }
+    }
+
+    window.addEventListener('scroll', toggle, { passive: true });
+    toggle();
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  initBackToTop();
+  document.addEventListener('astro:page-load', initBackToTop);
+</script>
+
+<style is:global>
+  .back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--color-gray-600, #4b5563);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(0.5rem);
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease,
+                background-color 0.15s ease, color 0.15s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .back-to-top:hover {
+    background: var(--color-primary);
+    color: #fff;
+    border-color: var(--color-primary);
+  }
+
+  .back-to-top:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .back-to-top {
+      background: rgba(30, 30, 30, 0.9);
+      color: #8b949e;
+      border-color: rgba(128, 128, 128, 0.25);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .back-to-top:hover {
+      background: var(--color-primary);
+      color: #fff;
+      border-color: var(--color-primary);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .back-to-top {
+      transition: none;
+    }
+  }
+
+  @media print {
+    .back-to-top {
+      display: none;
+    }
+  }
+</style>

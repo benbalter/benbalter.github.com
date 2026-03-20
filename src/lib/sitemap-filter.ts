@@ -28,7 +28,7 @@ export async function getExcludedUrls(): Promise<string[]> {
     for (const post of posts) {
       if (post.data.sitemap === false) {
         // Build the URL from the post slug (format: YYYY-MM-DD-slug)
-        const parts = post.slug.split('-');
+        const parts = post.id.split('-');
         const year = parts[0];
         const month = parts[1];
         const day = parts[2];
@@ -41,7 +41,7 @@ export async function getExcludedUrls(): Promise<string[]> {
     const pages = await getCollection('pages');
     for (const page of pages) {
       if (page.data.sitemap === false) {
-        excludedUrls.push(`/${page.slug}/`);
+        excludedUrls.push(`/${page.id}/`);
       }
     }
   } catch (error) {

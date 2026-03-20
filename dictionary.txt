@@ -832,3 +832,13 @@ walkthroughs
 woah
 Woah
 workspace
+
+# AI / Agentic workflows
+agentic
+andon
+autocomplete
+boilerplate
+Copilot
+handoff
+PRs
+scaffolding

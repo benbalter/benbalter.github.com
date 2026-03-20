@@ -22,16 +22,33 @@ roles:
   - /2023/01/10/manage-like-an-engineer/
 ---
 
-import PostList from '../../components/PostList.astro';
+import ReadingList from '../../components/ReadingList.astro';
 
-Over the years I've written a number of posts about GitHub's culture and communication patterns. If you're joining (or preparing for an interview at) GitHub, here are some of my favorite posts that might help you understand how GitHub works and what it's like to be a GitHubber:
+<div class="not-prose mb-8 rounded-xl bg-gradient-to-r from-primary/5 to-primary/10 dark:from-primary/10 dark:to-primary/20 border border-primary/20 p-6" role="banner" aria-label="Unofficial onboarding guide">
+  <div class="text-xs font-bold uppercase tracking-widest text-primary dark:text-primary-300 mb-1"><span role="img" aria-label="Books">📚</span> Unofficial Onboarding Guide</div>
+  <p class="text-lg font-semibold text-gray-800 dark:text-gray-200 m-0">Your reading list for understanding GitHub's culture</p>
+</div>
 
-<PostList postSlug="2021-02-01-what-to-read-before-starting-or-interviewing-at-github" field="posts" />
+Your first few weeks at any new company are an exercise in pattern matching—figuring out the unwritten rules, the communication norms, the things everyone "just knows" but nobody thought to write down. GitHub is no exception, except that we've been unusually intentional about writing those norms down (it's kind of our thing).
 
-And if you're a Product Manager, Technical Program Manager, Chief of Staff, or Engineering Manager:
+Over the years, I've tried to capture what makes GitHub's culture tick—how we communicate asynchronously, how we ship, and how we think about leadership. If you're joining GitHub, preparing for an interview, or just curious about how a remote-first, async-by-default company actually operates day to day, consider this your unofficial reading list.
 
-<PostList postSlug="2021-02-01-what-to-read-before-starting-or-interviewing-at-github" field="roles" />
+## Culture, communication, and getting things done
 
-If you're looking to learn even more about how GitHub works, it's culture, and what it's like to be a GitHubber, you can also check out some of [the books that have significantly influenced my time at GitHub](/other-recommended-reading/) that I often recommend to others.
+GitHub's operating system runs on a few core principles: [communicate in writing](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/), [work asynchronously](https://ben.balter.com/2022/03/17/why-async/), and [show your work](https://ben.balter.com/2022/02/16/leaders-show-their-work/). If you're coming from a more traditional, meeting-heavy, synchronous organization, the shift can feel disorienting at first—like switching from a monolith to microservices. The architecture is different, but once you internalize the patterns, everything clicks.
 
-Of course, these opinions are [my own](https://ben.balter.com/fine-print/), and please take the publication date in mind when reading. GitHub (and I) have changed a lot since 2013, and as organizations grow and mature, cultures and communication patterns naturally evolve. If you have any questions, feel free to [reach out](/contact/).
+These posts cover those foundational patterns—the habits, tools, and mental models that help GitHubbers thrive:
+
+<ReadingList postSlug="2021-02-01-what-to-read-before-starting-or-interviewing-at-github" field="posts" />
+
+## Role-specific guides
+
+The posts above apply broadly, but if you're a Product Manager, Technical Program Manager, Chief of Staff, or Engineering Manager, you might be wondering what those roles look like in practice at a company where the defaults around hierarchy, process, and decision-making are a bit different from what you're used to. These go deeper:
+
+<ReadingList postSlug="2021-02-01-what-to-read-before-starting-or-interviewing-at-github" field="roles" />
+
+## Keep going
+
+Want to go further? Check out [the books that have significantly influenced my time at GitHub](/other-recommended-reading/)—the ones I most often recommend to colleagues looking to level up their thinking about culture, leadership, and collaboration.
+
+A couple of caveats: these opinions are [my own](https://ben.balter.com/fine-print/), and I'd encourage you to keep the publication date in mind as you read. GitHub (and I) have changed a lot since 2013, and as organizations grow and mature, cultures and communication patterns naturally evolve. That said, the underlying principles tend to be more durable than the specifics. If you have questions or want to compare notes, feel free to [reach out](/contact/).

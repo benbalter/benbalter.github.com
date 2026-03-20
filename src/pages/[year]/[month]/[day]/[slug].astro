@@ -1,7 +1,8 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 import PostLayout from '../../../../layouts/PostLayout.astro';
 import { findRelatedPosts, initializeRelatedPostsCache } from '../../../../utils/related-posts';
+import { getPostUrl } from '../../../../utils/post-urls';
 
 // Generate static paths for all blog posts with Jekyll URL structure
 export async function getStaticPaths() {
@@ -14,8 +15,8 @@ export async function getStaticPaths() {
   initializeRelatedPostsCache(posts);
 
   return posts.map((post: CollectionEntry<'posts'>) => {
-    // Extract date from slug (YYYY-MM-DD-slug format)
-    const dateMatch = post.slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
+    // Extract date from id (YYYY-MM-DD-slug format)
+    const dateMatch = post.id.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
     
     if (dateMatch) {
       const [, year, month, day, slug] = dateMatch;
@@ -25,8 +26,8 @@ export async function getStaticPaths() {
       };
     }
     
-    // Fallback for posts without date in slug
-    console.warn(`Post ${post.slug} does not match expected format YYYY-MM-DD-slug`);
+    // Fallback for posts without date in id
+    console.warn(`Post ${post.id} does not match expected format YYYY-MM-DD-slug`);
     return null;
   }).filter(Boolean);
 }
@@ -37,7 +38,7 @@ interface Props {
 }
 
 const { post, allPosts } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 
 // Extract date from params for display (use URL params to ensure consistency with the route)
 const { year, month, day, slug } = Astro.params;
@@ -49,6 +50,17 @@ const ogImageUrl = post.data.image || `/og/${year}/${month}/${day}/${slug}.png`;
 
 // Find related posts (limit to 10) - uses cached TF-IDF calculations
 const relatedPosts = await findRelatedPosts(post, allPosts, 10);
+
+// Find previous and next posts for sequential navigation
+const publishedPosts = allPosts
+  .filter((p: CollectionEntry<'posts'>) => p.data.published !== false)
+  .sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => a.id.localeCompare(b.id));
+
+const currentIndex = publishedPosts.findIndex((p: CollectionEntry<'posts'>) => p.id === post.id);
+const prevEntry = currentIndex > 0 ? publishedPosts[currentIndex - 1] : undefined;
+const nextEntry = currentIndex < publishedPosts.length - 1 ? publishedPosts[currentIndex + 1] : undefined;
+const prevPost = prevEntry ? { title: prevEntry.data.title, url: getPostUrl(prevEntry.id) } : undefined;
+const nextPost = nextEntry ? { title: nextEntry.data.title, url: getPostUrl(nextEntry.id) } : undefined;
 ---
 
 <PostLayout
@@ -57,6 +69,8 @@ const relatedPosts = await findRelatedPosts(post, allPosts, 10);
   pubDate={pubDate}
   image={ogImageUrl}
   relatedPosts={relatedPosts}
+  prevPost={prevPost}
+  nextPost={nextPost}
   archived={post.data.archived}
   postId={post.id}
 >
