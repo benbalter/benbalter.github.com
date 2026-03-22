@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Fix Astro-generated redirect pages that are missing <html> wrapper.
+# Astro outputs minimal redirect HTML without <html>/<head> tags, which
+# causes Pagefind to warn about missing <html> elements.
+
+set -euo pipefail
+
+DIST_DIR="${1:-dist-astro}"
+fixed=0
+
+while IFS= read -r -d '' file; do
+  # Only process files that have a meta refresh redirect but no <html> tag
+  if grep -q 'http-equiv=refresh' "$file" && ! grep -qi '<html' "$file"; then
+    content=$(cat "$file")
+    # Wrap in <html> with lang attribute
+    echo "<!doctype html><html lang=\"en\"><head>${content#<!doctype html>}</html>" > "$file"
+    fixed=$((fixed + 1))
+  fi
+done < <(find "$DIST_DIR" -name 'index.html' -print0)
+
+if [ "$fixed" -gt 0 ]; then
+  echo "Fixed $fixed redirect page(s) with missing <html> element"
+fi

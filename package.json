@@ -113,7 +113,7 @@
     "url": "git+https://github.com/benbalter/benbalter.github.com.git"
   },
   "scripts": {
-    "build": "astro build && pagefind --site dist-astro",
+    "build": "astro build && script/fix-redirect-html && pagefind --site dist-astro",
     "dev": "astro dev",
     "preview": "astro preview",
     "check": "astro check --tsconfig tsconfig.astro.json",
