@@ -93,10 +93,12 @@ const heroDate = getDateFromSlug(heroPost.id);
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Set initial hidden state via JS (no-JS fallback: items remain visible)
-    items.forEach((item) => {
-      item.style.opacity = '0';
-      item.style.transform = prefersReducedMotion ? 'none' : 'translateY(1.25rem)';
+    // Batch all style writes in a single rAF to avoid forced reflows
+    requestAnimationFrame(() => {
+      items.forEach((item) => {
+        item.style.opacity = '0';
+        item.style.transform = prefersReducedMotion ? 'none' : 'translateY(1.25rem)';
+      });
     });
 
     let revealIndex = 0;
@@ -106,12 +108,14 @@ const heroDate = getDateFromSlug(heroPost.id);
       const delay = revealIndex * STAGGER_MS;
       revealIndex++;
 
-      el.style.transition = prefersReducedMotion
-        ? 'opacity 0.15s ease'
-        : 'opacity 0.5s ease, transform 0.5s ease';
-      el.style.transitionDelay = `${delay}ms`;
-      el.style.opacity = '1';
-      el.style.transform = 'translateY(0)';
+      requestAnimationFrame(() => {
+        el.style.transition = prefersReducedMotion
+          ? 'opacity 0.15s ease'
+          : 'opacity 0.5s ease, transform 0.5s ease';
+        el.style.transitionDelay = `${delay}ms`;
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      });
     }
 
     const observer = new IntersectionObserver(
