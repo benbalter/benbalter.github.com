@@ -10,9 +10,14 @@
  */
 
 import satori from 'satori';
-import { readFile } from 'node:fs/promises';
-import { resolve, sep } from 'node:path';
+import { readFile, writeFile, mkdir, access } from 'node:fs/promises';
+import { resolve, sep, join } from 'node:path';
+import { createHash } from 'node:crypto';
 import { defaultOGConfig, type OGImageConfig } from './og-config';
+
+// Cache version — bump this to invalidate all cached OG images
+const OG_CACHE_VERSION = '1';
+const OG_CACHE_DIR = join(process.cwd(), 'node_modules', '.astro', 'og-cache');
 
 interface OGImageOptions {
   title: string;
@@ -341,7 +346,7 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
  * Convert SVG to PNG using resvg-js
  * Requires @resvg/resvg-js to be installed
  */
-export async function generateOGImagePNG(options: OGImageOptions): Promise<Buffer> {
+async function renderPNG(options: OGImageOptions): Promise<Buffer> {
   const svg = await generateOGImageSVG(options);
   
   // Dynamic import for resvg
@@ -357,4 +362,60 @@ export async function generateOGImagePNG(options: OGImageOptions): Promise<Buffe
   
   const pngData = resvg.render();
   return pngData.asPng();
+}
+
+/**
+ * Generate a cache key from OG image inputs.
+ * Hash includes title, description, config, and cache version
+ * so any change to inputs or layout invalidates the cache.
+ */
+function getCacheKey(options: OGImageOptions): string {
+  const config = { ...defaultOGConfig, ...options.config };
+  const payload = JSON.stringify({
+    v: OG_CACHE_VERSION,
+    title: options.title,
+    description: options.description,
+    config,
+  });
+  return createHash('sha256').update(payload).digest('hex');
+}
+
+/**
+ * Check if a cached OG image exists on disk.
+ */
+async function readCache(key: string): Promise<Buffer | null> {
+  try {
+    const cachePath = join(OG_CACHE_DIR, `${key}.png`);
+    await access(cachePath);
+    return await readFile(cachePath);
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Write a generated OG image to the disk cache.
+ */
+async function writeCache(key: string, png: Buffer): Promise<void> {
+  try {
+    await mkdir(OG_CACHE_DIR, { recursive: true });
+    await writeFile(join(OG_CACHE_DIR, `${key}.png`), png);
+  } catch {
+    // Cache write failure is non-fatal; image was already generated
+  }
+}
+
+/**
+ * Generate an OG image PNG with content-hash disk caching.
+ * Only regenerates when title, description, or config changes.
+ * Cache persists in node_modules/.astro/og-cache/ across builds.
+ */
+export async function generateOGImagePNG(options: OGImageOptions): Promise<Buffer> {
+  const key = getCacheKey(options);
+  const cached = await readCache(key);
+  if (cached) return cached;
+
+  const png = await renderPNG(options);
+  await writeCache(key, png);
+  return png;
 }
