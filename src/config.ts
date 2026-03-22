@@ -58,6 +58,11 @@ export const siteConfig = {
   // Default SEO keywords
   keywords: ['Ben Balter', 'GitHub', 'open source', 'technology leadership', 'collaboration'],
   
+  // Book
+  bookUrl: 'https://open-and-async.com/',
+  bookTitle: 'Open & Async',
+  bookDescription: 'The collaborative software development playbook for remote and distributed teams',
+
   // About page metadata
   aboutDescription: 'Ben Balter is an attorney, an open source developer, and a Director of Hubber Enablement at GitHub, the world\'s largest software development network.',
 } as const;
@@ -84,6 +89,7 @@ export const socialLinks: SocialLink[] = [
 
 // Footer navigation links
 export const footerLinks: FooterLink[] = [
+  { title: 'Open & Async', url: 'https://open-and-async.com/' },
   { title: 'Other Recommended Reading', url: '/other-recommended-reading/' },
   { title: 'Fine Print', url: '/fine-print/' },
 ];

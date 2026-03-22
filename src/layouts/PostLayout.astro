@@ -24,6 +24,7 @@ import ReadingProgress from '../components/ReadingProgress.astro';
 import KeepReading from '../components/KeepReading.astro';
 import DiscussLinks from '../components/DiscussLinks.astro';
 import SubscribeCta from '../components/SubscribeCta.astro';
+import BookCta from '../components/BookCta.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import type { CollectionEntry } from 'astro:content';
 
@@ -163,6 +164,10 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
 
           <div class="mb-6">
             <SubscribeCta />
+          </div>
+
+          <div class="mb-6">
+            <BookCta />
           </div>
 
           <a
