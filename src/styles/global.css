@@ -304,8 +304,8 @@
   a {
     @apply text-primary transition-colors duration-150;
     text-decoration-line: underline;
-    text-decoration-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
-    text-underline-offset: 0.15em;
+    text-decoration-color: color-mix(in srgb, var(--color-primary) 50%, transparent);
+    text-underline-offset: 0.2em;
     text-decoration-thickness: 1px;
   }
 
@@ -330,10 +330,10 @@
   main a:not(.btn):not(.nav-link):not(.navbar-brand):not(.anchor-link) {
     @apply text-primary;
     text-decoration-line: underline;
-    text-decoration-color: color-mix(in srgb, var(--color-primary) 40%, transparent);
+    text-decoration-color: color-mix(in srgb, var(--color-primary) 50%, transparent);
     text-decoration-thickness: 1px;
     text-decoration-skip-ink: auto;
-    text-underline-offset: 0.15em;
+    text-underline-offset: 0.2em;
     @apply transition-colors duration-200;
     touch-action: manipulation;
   }
