@@ -4,8 +4,6 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import favicons from 'astro-favicons';
 import compress from 'astro-compress';
-import redirectFrom from 'astro-redirect-from';
-import { getSlug } from './src/utils/get-slug.ts';
 import fetchAvatar from './src/lib/astro-fetch-avatar.ts';
 import {
   sharedRemarkPlugins,
@@ -52,24 +50,8 @@ export default defineConfig({
   // Minify HTML output (removes whitespace, comments)
   compressHTML: true,
   
-  // Redirect configuration
-  // External redirects for posts republished on other sites (redirect_to in frontmatter)
-  // Page redirects for backward compatibility (replaces Astro page-based redirects)
-  // Internal redirects (redirect_from) are handled by astro-redirect-from integration
-  redirects: {
-    // External redirects - Posts republished on other sites
-    '/2012/04/23/enterprise-open-source-usage-is-up-but-challenges-remain/': 
-      'https://techcrunch.com/2012/04/22/enterprise-open-source-usage-is-up-but-challenges-remain/',
-    '/2015/04/27/eight-lessons-learned-hacking-on-github-pages-for-six-months/': 
-      'https://github.com/blog/1992-eight-lessons-learned-hacking-on-github-pages-for-six-months',
-    '/2023/10/04/how-to-communicate-like-a-github-engineer/': 
-      'https://github.blog/engineering/engineering-principles/how-to-communicate-like-a-github-engineer-our-principles-practices-and-tools/',
-    
-    // Page redirects - Backward compatibility for renamed pages
-    '/books/': '/other-recommended-reading/',
-    '/books-for-geeks/': '/other-recommended-reading/',
-    '/recommended-reading/': '/other-recommended-reading/',
-  },
+  // Redirects are handled at the Cloudflare edge via public/_redirects
+  // (faster than Astro's HTML meta-refresh redirects, no malformed HTML)
   
   // Prefetch configuration for faster navigation
   // Use hover strategy to balance speed with bandwidth usage
@@ -187,12 +169,6 @@ export default defineConfig({
           changefreq,
         };
       },
-    }),
-    // Handle redirects from old URLs (redirect_from in frontmatter)
-    // Must be placed before other integrations that modify HTML
-    redirectFrom({
-      contentDir: 'src/content', // Use content collections directory
-      getSlug, // Use custom slug function that reads permalink from frontmatter
     }),
     compress({
       // Compress HTML, CSS, and JavaScript for better performance

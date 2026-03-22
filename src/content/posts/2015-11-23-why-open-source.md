@@ -13,7 +13,7 @@ Open source is in your best interest, whether you're an individual, a corporatio
 
 - **Lower total cost of ownership** (TCO) - Using open source software yields a lower total cost of ownership when compared to closed source and proprietary alternatives. Adopting open source software generally has a lower up-front cost (because the software often comes at no cost or relatively low cost), and shifts the cost center from licensing (an operating expense) to customization and implementation (a capital expense). Additional costs like training, maintenance, and support are sunk costs. You're going to be paying for both regardless of if the software is open or closed source, the cost often being baked into the license in the case of commercial, off-the-shelf software (COTS). What makes open source unique is that you're not paying for the right to use the underlying intellectual property.
 
-  <div class="table-responsive w-50 mx-auto">
+  <div class="w-full md:w-1/2 mx-auto overflow-x-auto">
 
   | Cost                       | Open source          | Proprietary          |
   | :------------------------- | :------------------- | :------------------- |
