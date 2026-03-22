@@ -1,6 +1,6 @@
 ---
 title: What is a 'Hacker'?
-description: Hackers embody sharing, openness, decentralization — coding to improve the world
+description: "In DC, 'hacker' is a dirty word. But the hacker ethic — sharing, openness, decentralization — is exactly the mindset government needs to solve hard problems."
 redirect_from:
   - "/2013/02/13/what-is-a-hacker/"
   - "/2013/02/16/what-is-a-hacker/"

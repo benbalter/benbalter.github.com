@@ -1,7 +1,7 @@
 ---
 title: Open source, not just software anymore
 comments: true
-description: What we've been calling open source, may in fact be something else, especially when we start to use those workflows to collaborate on things beyond code.
+description: Open source has always been about the right to modify, not the right to contribute. As those workflows spread beyond software, we may need a new word for what we're really doing.
 redirect_from: "/2014/01/27/open-collabortion/"
 ---
 

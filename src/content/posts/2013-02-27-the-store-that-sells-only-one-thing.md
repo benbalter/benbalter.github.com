@@ -1,6 +1,6 @@
 ---
 title: The store that sells only one thing.
-description: Developers should be experts at solving users' problems, not a particular language or technology
+description: Tech consultants who define themselves by a single language or framework are like a store that only sells one product. Customers come in with problems, not solutions.
 comments: true
 published: true
 ---

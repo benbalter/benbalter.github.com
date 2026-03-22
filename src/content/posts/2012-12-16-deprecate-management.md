@@ -1,6 +1,6 @@
 ---
 title: Deprecate Management
-description: There are many aspects to 'making things' that open source just does better, and does so without traditional management structure.
+description: Open source communities ship code across geographies and timezones without traditional managers. Those collaborative practices have lessons for how we all organize work.
 comments: true
 published: true
 ---

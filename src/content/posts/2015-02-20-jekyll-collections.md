@@ -1,6 +1,6 @@
 ---
 title: 'Explain like I''m five: Jekyll collections'
-description: Collections extends Jekyll's post and pages publishing functionality, and brings Jekyll's zen-like simplicity to all sorts of other types of content that aren't dated, but have a relationship with one another.
+description: "Jekyll collections extend the post and page model to support content that isn't dated but shares a relationship with other content -- like team members, product listings, or recipes."
 redirect_from: 2015/02/16/jekyll-collections/
 ---
 

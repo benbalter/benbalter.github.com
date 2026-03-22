@@ -1,6 +1,6 @@
 ---
 title: Why WordPress's next version should just give it a REST already
-description: To position itself in the context of next-generation CMSs, WordPress should conform to emerging internet conventions and expose all content via a RESTful API
+description: The internet naturally converges on elegant standards. For WordPress to keep up with next-generation CMSs, it needs to expose all content through a RESTful API.
 published: true
 comments: true
 ---

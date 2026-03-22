@@ -1,6 +1,6 @@
 ---
 title: 19 reasons why technologists don't want to work at your government agency
-description: If you want to attract technical talent to your agency, focus on building an environment that supports innovation and innovators.
+description: "Government agencies struggle to attract developers because of outdated tools, distrusted employees, and a culture that optimizes for process over innovation."
 ---
 
 If you're a government agency trying to attract technical talent to your innovation efforts, posting job descriptions for positions named "Technology Specialist — Internet"[^1] may not be enough. The type of private-sector technologists you're after are used to a very different workplace culture.

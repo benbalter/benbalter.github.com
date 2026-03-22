@@ -1,6 +1,6 @@
 ---
 title: Why You Should Always Write Software as Open Source, Even When It's Never Going to Be
-description: When you are the only person that's ever going to see something, you're a lot more likely to "just make it work. Therefore write open source
+description: When nobody else will see your code, you cut corners. Writing as if it were open source produces more flexible, modular, and maintainable software from day one.
 ---
 
 <img src="https://ben.balter.com/wp-content/uploads/2012/06/mike-holmes-203x300.jpeg" alt="Unsatisfied with your Contractor?" class="float-end ms-3" />

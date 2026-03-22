@@ -1,6 +1,6 @@
 ---
 title: We've Been Selling Open Source Wrong
-description: We should work to remedy the underlying culture, not its symptoms.
+description: Demanding that agencies release their code misses the point. Open source is a culture and a workflow, not a deliverable. Fix the underlying process and the code will follow.
 ---
 
 Imagine if tomorrow, 10 of the top open-source developers showed up outside the gates of the White House with pitch forks and battering rams, somehow (peacefully) got inside, and was able to convince the powers that be to release the code that runs say, The Situation Room. Do you think once public, the project would have much chance of sustainable success in the wild?

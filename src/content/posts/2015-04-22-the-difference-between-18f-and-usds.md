@@ -1,6 +1,6 @@
 ---
 title: The difference between 18F and USDS
-description: 'Two parallel efforts at modernizing the way government approaches technology are taking foothold in the Beltway: 18F and the U.S. Digital Service (USDS)'
+description: "18F and USDS both aim to modernize government technology, but with divergent approaches: one ships culture, the other ships confidence. It's the age-old saga of geeks vs. suits."
 image: "//ben.balter.com/wp-content/uploads/2015/18f-vs-usds.png"
 ---
 

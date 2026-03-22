@@ -1,6 +1,6 @@
 ---
 title: What's Missing from CFPB's Awesome New Source Code Policy
-description: The Consumer Financial Protection Bureau's (CFPB) new open source policy is a great start, but should go further
+description: CFPB's open-source policy nails code procurement and publishing, but misses the secret sauce of actively participating in the open-source community.
 ---
 
 <img src="http://www.treasury.gov/press-center/news/PublishingImages/CFPB.jpg" alt="CFPB Logo" title="CFPB Logo" class="float-end ms-3" />

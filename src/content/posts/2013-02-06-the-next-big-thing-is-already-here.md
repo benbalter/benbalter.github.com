@@ -1,6 +1,6 @@
 ---
 title: The next big thing is already here
-description: Countless technologies we take for granted today, began their lives as staples of the open-source development workflow
+description: Want to predict the next technology trend? Look at how open source developers work. The tools they build for themselves today become mainstream tomorrow.
 published: true
 ---
 

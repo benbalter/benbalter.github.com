@@ -1,6 +1,6 @@
 ---
 title: A White House open source policy written by a geek
-description: As a geek, as a former government technologist, and as a life-long member of the open source community, here's three things I hope the White House Open Source Policy embodies.
+description: "Three things the White House Open Source Policy should embody: prefer existing open source platforms, build real communities not just disclosed source, and share code to the widest extent possible."
 redirect_from: "/2014/11/17/open-source-policy/"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: 10 lessons learned fostering a community of communities at GitHub
-description: Lessons learned implementing a trust and safety framework for empowering open source maintainers to grow strong, semi-independent communities around shared technical challenges on GitHub.
+description: What GitHub's Community and Safety team learned building a trust and safety framework to help open source maintainers grow healthy, semi-independent communities.
 ---
 
 In 2016, twelve GitHubbers met in a small conference room in Toronto. GitHub's Community and Safety team had just been formed a few months prior, and Hubbers from across the company - engineering, product, legal, support, and social impact - huddled together over poutine to discuss how we could ensure our platform could avoid the toxic fate that was beginning to befall other social networks at the time.

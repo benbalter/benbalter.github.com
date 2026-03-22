@@ -1,6 +1,6 @@
 ---
 title: WordPress for Government - A Problem of Perception
-description: Among potential government and enterprise users, WordPress has a perception problem especially when compared to Drupal and other "serious" CMSs.
+description: WordPress outperforms Drupal on paper, yet Drupal powers twice as many federal .govs as every other CMS combined. It's not a technical problem, it's a perception one.
 ---
 
 <a href="https://ben.balter.com/wp-content/uploads/2012/03/wordpress-in-government-ben-balter.png"><img src="https://ben.balter.com/wp-content/uploads/2012/03/wordpress-in-government-ben-balter-150x150.png" alt="WordPress for Government" /></a>

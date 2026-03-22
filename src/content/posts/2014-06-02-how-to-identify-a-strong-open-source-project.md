@@ -1,7 +1,7 @@
 ---
 title: How to identify a strong open source project
 comments: true
-description: Open source provides us with a handful of built in metrics to gauge a project's quality, even without reading a single line of code
+description: Not all open source is created equally. Here's how to evaluate a project's update frequency, issues, community, documentation, and code quality before depending on it.
 ---
 
 Not all open source projects are created equally. There are plenty of open source projects that haven't been touched in years. Heck, I probably even wrote a few of them. If you're going to rely on a community-contributed open source project for your own app, you'll want to ensure the code is up to your standards, and that the community will continue to support it throughout the lifecycle of your project.

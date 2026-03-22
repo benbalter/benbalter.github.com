@@ -1,6 +1,6 @@
 ---
 title: Securing the Status Quo
-description: The Effect of Federal IT Security Policies on Innovation
+description: Federal agencies spend billions on IT security, yet rigid compliance frameworks often create a false sense of safety while stifling the innovation needed to address real threats.
 ---
 
 ## The Effect of Federal IT Security Policies on Innovation
