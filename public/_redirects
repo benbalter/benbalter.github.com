@@ -7,30 +7,54 @@
 
 # Page renames
 /books/ /other-recommended-reading/ 301
+/books /other-recommended-reading/ 301
 /books-for-geeks/ /other-recommended-reading/ 301
+/books-for-geeks /other-recommended-reading/ 301
 /recommended-reading/ /other-recommended-reading/ 301
+/recommended-reading /other-recommended-reading/ 301
 /cv/ /resume/ 301
+/cv /resume/ 301
 
 # Syndicated posts (external redirects)
 /2012/04/23/enterprise-open-source-usage-is-up-but-challenges-remain/ https://techcrunch.com/2012/04/22/enterprise-open-source-usage-is-up-but-challenges-remain/ 301
+/2012/04/23/enterprise-open-source-usage-is-up-but-challenges-remain https://techcrunch.com/2012/04/22/enterprise-open-source-usage-is-up-but-challenges-remain/ 301
 /2015/04/27/eight-lessons-learned-hacking-on-github-pages-for-six-months/ https://github.com/blog/1992-eight-lessons-learned-hacking-on-github-pages-for-six-months 301
+/2015/04/27/eight-lessons-learned-hacking-on-github-pages-for-six-months https://github.com/blog/1992-eight-lessons-learned-hacking-on-github-pages-for-six-months 301
 /2023/10/04/how-to-communicate-like-a-github-engineer/ https://github.blog/engineering/engineering-principles/how-to-communicate-like-a-github-engineer-our-principles-practices-and-tools/ 301
+/2023/10/04/how-to-communicate-like-a-github-engineer https://github.blog/engineering/engineering-principles/how-to-communicate-like-a-github-engineer-our-principles-practices-and-tools/ 301
 
 # Post slug corrections (redirect_from frontmatter)
 /2011/08/29/document-management-version-control-for-wordpress/ /2011/08/29/wp-document-revisions-document-management-version-control-wordpress/ 301
+/2011/08/29/document-management-version-control-for-wordpress /2011/08/29/wp-document-revisions-document-management-version-control-wordpress/ 301
 /2013/02/13/what-is-a-hacker/ /2013/02/04/what-is-a-hacker/ 301
+/2013/02/13/what-is-a-hacker /2013/02/04/what-is-a-hacker/ 301
 /2013/02/16/what-is-a-hacker/ /2013/02/04/what-is-a-hacker/ 301
+/2013/02/16/what-is-a-hacker /2013/02/04/what-is-a-hacker/ 301
 /2014/01/27/open-collabortion/ /2014/01/27/open-collaboration/ 301
+/2014/01/27/open-collabortion /2014/01/27/open-collaboration/ 301
 /2014/09/29/source-disclosed--open-source/ /2014/09/29/source-disclosed-is-not-the-same-as-open-source/ 301
+/2014/09/29/source-disclosed--open-source /2014/09/29/source-disclosed-is-not-the-same-as-open-source/ 301
 /2014/09/29/source-disclosed-!=-open-source/ /2014/09/29/source-disclosed-is-not-the-same-as-open-source/ 301
+/2014/09/29/source-disclosed-!=-open-source /2014/09/29/source-disclosed-is-not-the-same-as-open-source/ 301
 /2014/09/29/your-code-deserves-better/ /2014/09/29/our-code-deserves-better/ 301
+/2014/09/29/your-code-deserves-better /2014/09/29/our-code-deserves-better/ 301
 /2014/10/08/why-government-contractors-should-3-open-source/ /2014/10/08/why-government-contractors-should-embrace-open-source/ 301
+/2014/10/08/why-government-contractors-should-3-open-source /2014/10/08/why-government-contractors-should-embrace-open-source/ 301
 /2014/11/03/rules-of-communicating-at-github/ /2014/11/06/rules-of-communicating-at-github/ 301
+/2014/11/03/rules-of-communicating-at-github /2014/11/06/rules-of-communicating-at-github/ 301
 /2014/11/17/open-source-policy/ /2014/11/24/open-source-policy/ 301
+/2014/11/17/open-source-policy /2014/11/24/open-source-policy/ 301
 /2014/12/08/types-of-pull-requests/ /2015/12/08/types-of-pull-requests/ 301
+/2014/12/08/types-of-pull-requests /2015/12/08/types-of-pull-requests/ 301
 /2015/02/16/jekyll-collections/ /2015/02/20/jekyll-collections/ 301
+/2015/02/16/jekyll-collections /2015/02/20/jekyll-collections/ 301
 /2016/10/31/eight-things-i-wish-i-knew-my-first-week/ /2016/10/31/eight-things-i-wish-i-knew-my-first-week-at-github/ 301
+/2016/10/31/eight-things-i-wish-i-knew-my-first-week /2016/10/31/eight-things-i-wish-i-knew-my-first-week-at-github/ 301
 /2020/08/31/trust-and-safety-before-someone-gets-hurt/ /2020/08/31/trust-and-safety-features-to-build-into-your-product-before-someone-gets-hurt/ 301
+/2020/08/31/trust-and-safety-before-someone-gets-hurt /2020/08/31/trust-and-safety-features-to-build-into-your-product-before-someone-gets-hurt/ 301
 /2021/03/26/n-things-a-technicalp-program-manager-does/ /2021/03/26/nine-things-a-technical-program-manager-does/ 301
+/2021/03/26/n-things-a-technicalp-program-manager-does /2021/03/26/nine-things-a-technical-program-manager-does/ 301
 /2021/06/15/moderating-open-source-conversations-to-keep-them-productive/ /2021/06/15/how-to-moderate-open-source-conversations-to-keep-them-productive/ 301
+/2021/06/15/moderating-open-source-conversations-to-keep-them-productive /2021/06/15/how-to-moderate-open-source-conversations-to-keep-them-productive/ 301
 /2023/12/07/cathedral-bazaar-management/ /2023/12/08/cathedral-bazaar-management/ 301
+/2023/12/07/cathedral-bazaar-management /2023/12/08/cathedral-bazaar-management/ 301
