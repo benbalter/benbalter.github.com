@@ -87,6 +87,65 @@
 }
 
 /* ============================================================================
+ * Prose Typography Refinements
+ * Fine-tuned spacing and styling for long-form reading in .prose contexts
+ * ============================================================================ */
+
+/* Body text line height — slightly more generous for comfortable long-form reading */
+.prose {
+  line-height: 1.8;
+}
+
+/* Heading spacing — more breathing room above, tighter coupling below */
+.prose h2 {
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+}
+
+.prose h3 {
+  margin-top: 1.6em;
+  margin-bottom: 0.5em;
+}
+
+/* Paragraph spacing */
+.prose p {
+  margin-bottom: 1.25em;
+}
+
+/* List item spacing — slightly more room between items for readability */
+.prose li {
+  margin-top: 0.375em;
+  margin-bottom: 0.375em;
+}
+
+/* Blockquote — thinner border, lighter text for distinction */
+.prose blockquote {
+  border-left-width: 3px;
+  border-left-style: solid;
+  border-left-color: var(--color-primary);
+  font-style: italic;
+  color: var(--color-gray-600);
+}
+
+@media (prefers-color-scheme: dark) {
+  .prose blockquote {
+    color: var(--color-gray-400);
+  }
+}
+
+/* Inline code — slightly smaller for visual separation from body text */
+.prose :not(pre) > code {
+  font-size: 0.875em;
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+}
+
+/* Code blocks — comfortable padding */
+.prose pre {
+  padding: 1.25rem;
+}
+
+/* ============================================================================
  * Custom Base Styles
  * These override Tailwind's default base styles
  * ============================================================================ */

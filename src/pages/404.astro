@@ -1,48 +1,86 @@
 ---
 /**
  * 404 Not Found Page
- * 
+ *
  * Displays a helpful 404 page with:
  * - Suggestion for similar URLs based on string similarity (Levenshtein distance)
+ * - Search button to open the site's Pagefind search modal
+ * - List of popular blog posts (from config)
  * - List of recent blog posts
- * 
+ *
  * The similar URL suggestion is populated client-side by fetching the sitemap.xml
  * and finding the closest match to the requested URL.
  */
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { popularPostSlugs } from '../config';
 import { getPostUrl } from '../utils/post-urls';
 
 const title = 'Not Found 😢';
 const description = 'The page you are trying to view does not exist.';
 
-// Get recent posts (limit to 10)
+// Get all published, non-archived posts
 const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => {
   return data.published !== false && data.archived !== true;
 });
 
 // Sort posts by id (which contains date in Jekyll format YYYY-MM-DD)
-const posts: CollectionEntry<'posts'>[] = allPosts
-  .sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => 
+const sortedPosts: CollectionEntry<'posts'>[] = allPosts
+  .sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) =>
     b.id.localeCompare(a.id)
-  )
-  .slice(0, 10);
+  );
+
+// Recent posts: top 3 most recent
+const recentPosts = sortedPosts.slice(0, 3);
+
+// Popular posts: resolve slugs from config, preserving config order
+const postsBySlug = new Map(allPosts.map((post: CollectionEntry<'posts'>) => [post.id, post]));
+const popularPosts = popularPostSlugs
+  .map((slug) => postsBySlug.get(slug))
+  .filter((post): post is CollectionEntry<'posts'> => post !== undefined);
 ---
 
 <BaseLayout title={title} description={description} noindex={true}>
   <div class="max-w-4xl mx-auto px-4 py-8">
-    <div class="p-6 mb-8 rounded-xl border border-primary/20 dark:border-primary/30 bg-white dark:bg-gray-800 text-center" role="alert">
-      <p class="text-lg text-gray-700 dark:text-gray-300 mb-2">The page you are trying to view does not exist.</p>
-      <p class="text-base font-semibold text-gray-900 dark:text-gray-100 m-0">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">Page not found</h1>
+
+    <div class="p-6 mb-8 rounded-xl border border-primary/20 dark:border-primary/30 bg-white dark:bg-gray-800" role="alert">
+      <p class="text-lg text-gray-700 dark:text-gray-300 mb-2">The page you're looking for doesn't exist or has been moved.</p>
+      <p class="text-base font-semibold text-gray-900 dark:text-gray-100 mb-4">
         Perhaps you're looking for <span id="four-oh-four-suggestion" aria-live="polite" class="text-primary dark:text-primary-300"></span>?
       </p>
+      <button
+        data-search-open
+        type="button"
+        class="inline-flex items-center gap-2 rounded-lg border border-primary text-primary px-5 py-2.5 text-sm font-medium hover:bg-primary hover:text-white dark:border-primary-300 dark:text-primary-300 dark:hover:bg-primary-300 dark:hover:text-gray-900 transition-colors duration-200"
+      >
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M8.5 3a5.5 5.5 0 014.383 8.823l4.147 4.147a.75.75 0 01-1.06 1.06l-4.147-4.147A5.5 5.5 0 118.5 3zm0 1.5a4 4 0 100 8 4 4 0 000-8z" fill="currentColor"/>
+        </svg>
+        Search for what you're looking for
+      </button>
     </div>
 
-    <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Recent posts</h2>
+    <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Popular posts</h2>
+
+    <div class="space-y-3 mb-8">
+      {popularPosts.map((post) => {
+        const postUrl = getPostUrl(post.id);
+        return (
+          <div class="group relative rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 transition-all duration-200 hover:border-primary/40 dark:hover:border-primary-400/40 hover:shadow-sm">
+            <a href={postUrl} class="text-gray-900 dark:text-gray-100 no-underline font-medium group-hover:text-primary dark:group-hover:text-primary-300 transition-colors duration-200 before:absolute before:inset-0">
+              {post.data.title}
+            </a>
+          </div>
+        );
+      })}
+    </div>
+
+    <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Recent posts</h2>
 
     <div class="space-y-3">
-      {posts.map((post) => {
+      {recentPosts.map((post) => {
         const postUrl = getPostUrl(post.id);
         return (
           <div class="group relative rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 transition-all duration-200 hover:border-primary/40 dark:hover:border-primary-400/40 hover:shadow-sm">
@@ -63,7 +101,7 @@ const posts: CollectionEntry<'posts'>[] = allPosts
     if (div) {
       // Show loading state
       div.textContent = 'loading...';
-      
+
       const xhr = new XMLHttpRequest();
 
       xhr.onload = () => {
@@ -71,7 +109,7 @@ const posts: CollectionEntry<'posts'>[] = allPosts
           const xml = xhr.responseXML;
           if (xml) {
             const urls = Array.from(xml.querySelectorAll('urlset > url > loc')).map((el) => el.textContent || '');
-            
+
             // Check for empty URLs array
             if (urls.length === 0) {
               const link = document.createElement('a');
@@ -84,7 +122,7 @@ const posts: CollectionEntry<'posts'>[] = allPosts
                 // Find closest matching URL
                 const urlString = closest(window.location.href, urls);
                 const url = new URL(urlString);
-                
+
                 // Create link element safely (avoid XSS)
                 const link = document.createElement('a');
                 link.href = url.href;
