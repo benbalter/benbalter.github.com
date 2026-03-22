@@ -43,7 +43,6 @@
     "astro-favicons": "^3.1.6",
     "dictionary-en": "^4.0.0",
     "eslint": "^10.1.0",
-    "glob": "^13.0.6",
     "gray-matter": "^4.0.3",
     "happy-dom": "^20.8.4",
     "markdownlint-cli2-formatter-pretty": "^0.0.10",
