@@ -98,7 +98,7 @@ export default defineConfig({
     // Inline all stylesheets into HTML to eliminate render-blocking CSS requests
     // This improves Speed Index by allowing content to paint faster
     // Trade-off: Larger HTML files but faster initial paint
-    inlineStylesheets: 'auto',
+    inlineStylesheets: 'always',
   },
   
   // Server configuration for development
