@@ -20,7 +20,7 @@ This is the personal website of Ben Balter. The site serves as a personal blog, 
 * **Astro**: 6.x (Static site generator, Vite 7)
 * **Node.js**: 22+ for JavaScript tooling and build processes
 * **TypeScript**: For Astro components and utilities
-* **GitHub Pages**: Hosting platform
+* **Cloudflare Pages**: Hosting platform
 
 ### Astro Architecture
 
@@ -258,7 +258,7 @@ This ensures Copilot can build, test, and validate code changes in a properly co
 ## Resources
 
 * [Astro Documentation](https://docs.astro.build/)
-* [GitHub Pages Documentation](https://docs.github.com/en/pages)
+* [Cloudflare Pages Documentation](https://developers.cloudflare.com/pages/)
 * [Site Source Code](https://github.com/benbalter/benbalter.github.com)
 * [Ben Balter's Blog](https://ben.balter.com)
 * [Astro Implementation Guide](docs/ASTRO.md)

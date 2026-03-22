@@ -7,7 +7,7 @@
  * - Doubled spaces in prose
  * - Headings ending with periods
  * - Broken internal links
- * - Internal links with missing trailing slashes (to match GitHub Pages behavior)
+ * - Internal links with missing trailing slashes (to match static hosting behavior)
  */
 
 import { describe, it, expect } from 'vitest';
@@ -69,7 +69,7 @@ function permalinkToFilePath(permalink: string): string | null {
 }
 
 // Helper to check if an internal link needs a trailing slash
-// Returns true if the link should have a trailing slash (to match GitHub Pages behavior)
+// Returns true if the link should have a trailing slash (to match static hosting behavior)
 // Excludes links with file extensions, anchors, or query parameters
 function needsTrailingSlash(url: string): boolean {
   // Remove anchor portion for checking
@@ -228,7 +228,7 @@ describe('prose quality', () => {
         ).toHaveLength(0);
       });
 
-      it('has trailing slashes on internal links (GitHub Pages behavior)', () => {
+      it('has trailing slashes on internal links (static hosting behavior)', () => {
         // Match markdown links that start with / (internal links)
         const internalLinksWithoutTrailingSlash: string[] = [];
         const lines = content.split('\n');
@@ -248,7 +248,7 @@ describe('prose quality', () => {
         
         expect(
           internalLinksWithoutTrailingSlash,
-          `Internal links should have trailing slashes to match GitHub Pages behavior. Links without trailing slashes: ${internalLinksWithoutTrailingSlash.join(', ')}`
+          `Internal links should have trailing slashes to match static hosting behavior. Links without trailing slashes: ${internalLinksWithoutTrailingSlash.join(', ')}`
         ).toHaveLength(0);
       });
     });

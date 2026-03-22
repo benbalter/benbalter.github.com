@@ -58,9 +58,9 @@ The Astro build outputs to `dist-astro/` directory.
 
 Astro runs on port 4321 by default.
 
-### GitHub Pages Compatibility
+### Cloudflare Pages Compatibility
 
-The configuration is optimized for GitHub Pages deployment:
+The configuration is optimized for Cloudflare Pages deployment:
 
 - **Static output**: All pages pre-rendered at build time
 - **Trailing slashes**: Enabled for consistent URLs
@@ -247,7 +247,7 @@ The site has been fully migrated from Jekyll to Astro. Key differences include:
 
 ## Deployment
 
-The site is deployed to GitHub Pages using GitHub Actions. The deployment workflow builds the Astro site and publishes the `dist-astro/` directory to GitHub Pages.
+The site is deployed to Cloudflare Pages using GitHub Actions and Wrangler. The deployment workflow builds the Astro site and publishes the `dist-astro/` directory to Cloudflare Pages.
 
 ## Migration Status
 
@@ -264,7 +264,7 @@ The migration from Jekyll to Astro is complete. The following have been migrated
 - [x] RSS feed generation
 - [x] Sitemap generation
 - [x] View transitions for smooth navigation
-- [x] Deployment to GitHub Pages
+- [x] Deployment to Cloudflare Pages
 
 See [docs/ASTRO_CONTENT.md](ASTRO_CONTENT.md) for detailed documentation on working with Markdown and MDX content.
 
