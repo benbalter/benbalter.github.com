@@ -568,12 +568,12 @@ test.describe('Social Links', () => {
 });
 
 test.describe('Performance Hints for SEO', () => {
-  test('should have dns-prefetch hints', async ({ page }) => {
+  test('should have preconnect hints', async ({ page }) => {
     await page.goto('/');
     await waitForPageReady(page);
     
-    const dnsPrefetch = page.locator('link[rel="dns-prefetch"]');
-    const count = await dnsPrefetch.count();
+    const preconnect = page.locator('link[rel="preconnect"]');
+    const count = await preconnect.count();
     expect(count).toBeGreaterThan(0);
   });
 });

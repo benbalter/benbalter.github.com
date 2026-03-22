@@ -65,5 +65,10 @@ import Icon from './Icon.astro';
     .subscribe-cta:hover .subscribe-icon {
       @apply bg-primary/30;
     }
+
+    .subscribe-link {
+      /* Lighter shade for WCAG AA contrast on dark backgrounds (#337ab7 only achieves 3.38:1) */
+      @apply text-primary-300;
+    }
   }
 </style>
