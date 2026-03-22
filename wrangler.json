@@ -4,5 +4,7 @@
   "assets": {
     "directory": "./dist-astro"
   },
+  "workers_dev": false,
+  "preview_urls": false,
   "compatibility_date": "2025-03-19"
 }
