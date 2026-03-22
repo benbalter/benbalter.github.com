@@ -167,9 +167,9 @@ const schemas = breadcrumbSchema
           { rel: 'author', type: 'text/plain', href: '/humans.txt' },
           // Social Links (rel=me for verification)
           ...socialLinks.map((link) => ({ rel: 'me', href: link.url })),
-          // Resource Hints for Performance
-          { rel: 'dns-prefetch', href: 'https://images.amazon.com' },
-          { rel: 'dns-prefetch', href: 'https://user-images.githubusercontent.com' },
+          // Resource Hints for Performance (preconnect includes dns-prefetch)
+          { rel: 'preconnect', href: 'https://images.amazon.com' },
+          { rel: 'preconnect', href: 'https://user-images.githubusercontent.com' },
           // RSS Feed
           { rel: 'alternate', type: 'application/rss+xml', title: `${siteConfig.name} - RSS Feed`, href: '/feed.xml' },
           // Hero image preload

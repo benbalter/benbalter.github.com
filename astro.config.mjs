@@ -48,6 +48,9 @@ export default defineConfig({
   
   // Trailing slashes to match static host conventions (GitHub Pages, Cloudflare Pages)
   trailingSlash: 'always',
+
+  // Minify HTML output (removes whitespace, comments)
+  compressHTML: true,
   
   // Redirect configuration
   // External redirects for posts republished on other sites (redirect_to in frontmatter)
