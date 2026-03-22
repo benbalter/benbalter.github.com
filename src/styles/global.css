@@ -96,6 +96,20 @@
   line-height: 1.8;
 }
 
+/* Prose link underlines — override Typography plugin's shorthand reset */
+.prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in srgb, var(--color-primary) 50%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-skip-ink: auto;
+  transition: text-decoration-color 0.2s, color 0.2s;
+}
+
+.prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)):hover {
+  text-decoration-color: currentColor;
+}
+
 /* Heading spacing — more breathing room above, tighter coupling below */
 .prose h2 {
   margin-top: 2em;
