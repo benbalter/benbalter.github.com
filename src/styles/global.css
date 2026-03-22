@@ -796,6 +796,12 @@
     @apply text-sm border-t border-gray-200 pt-2 mt-8 mb-8;
   }
 
+  @media (prefers-color-scheme: dark) {
+    .footnotes {
+      @apply border-gray-700;
+    }
+  }
+
   .footnotes h2 {
     @apply mb-2;
   }

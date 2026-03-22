@@ -66,6 +66,7 @@ export async function GET(context: APIContext) {
         content,
         link: `${baseUrl}${postUrl}`,
         pubDate,
+        author: siteConfig.email,
       };
     })
   );
