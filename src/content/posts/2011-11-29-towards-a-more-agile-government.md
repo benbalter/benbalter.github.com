@@ -5,7 +5,7 @@ description: Federal IT procurement spends billions a year, yet fewer than 9% of
 
 <!--lint disable retext-spell-->
 
-<p class="lead">The Case for Rebooting Federal IT Procurement</p>
+<p class="text-lg">The Case for Rebooting Federal IT Procurement</p>
 
 <!--lint ignore no-emphasis-as-heading-->
 
@@ -75,7 +75,7 @@ At its most fundamental level, agility is the ability to quickly and effectively
 
 #### i. Agile is iterative, breaking long-term projects into multiple independent, manageable tasks
 
-[<img src="https://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg" alt="Comparison of Waterfall to Agile Software Development Timelines" class="img-fluid" />](https://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg)
+[<img src="https://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg" alt="Comparison of Waterfall to Agile Software Development Timelines" class="" />](https://ben.balter.com/wp-content/uploads/2011/09/Agile-and-Waterfall-Development-Cycles-Compared.jpg)
 
 <p class="text-center"><em>Figure 1 - Agile and Waterfall Development Cycles Compared (PDF)</em></p>
 

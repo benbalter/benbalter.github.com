@@ -3,7 +3,7 @@ title: The Demise of the Personal Dashboard
 description: Google retired iGoogle. Startups favor activity feeds and minimal interfaces. The drag-and-drop dashboard era is over, and simplicity is the new default.
 ---
 
-[<img src="https://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things-300x225.jpeg" alt="Dashboard all the things" class="float-end ms-3" />](https://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things.jpeg)
+[<img src="https://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things-300x225.jpeg" alt="Dashboard all the things" class="float-right ml-3" />](https://ben.balter.com/wp-content/uploads/2012/07/dashboard-all-the-things.jpeg)
 
 I was recently asked how I would architect a personalized dashboard experience for visitors to a large, customer-facing site. My response? *I wouldn't.*
 

@@ -2,8 +2,6 @@
 title: Cathedral vs Bazaar People Management
 description: What if we applied open source's most famous metaphor to people management? Cathedral managers control and direct; bazaar managers empower and facilitate. Knowing which style fits your team matters.
 image: https://github.com/benbalter/benbalter.github.com/assets/282759/e53fc562-b59d-4e0e-87fe-ef6e4da0d062
-redirect_from:
-  - /2023/12/07/cathedral-bazaar-management/
 ---
 
 [The Cathedral and the Bazaar](https://www.amazon.com/gp/product/B0026OR3LM/?tag=benbalter07-20) is *the* book on open source. It contrasts closed source software development (the cathedral), where a centralized and hierarchical authority designs and builds a well-defined system, and open source development (the bazaar) where a decentralized community of contributors can browse, experiment, and collaborate within a modular and adaptable system. The book argues that the bazaar model is more effective, innovative, and resilient than the cathedral model, and in many ways, brought the ideals of the open source movement to the mainstream.
