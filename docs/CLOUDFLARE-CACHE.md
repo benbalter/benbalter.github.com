@@ -41,7 +41,7 @@ The Cloudflare Pages project is configured in `wrangler.json`:
 
 ```json
 {
-  "name": "benbalter-com",
+  "name": "benbalter-github-com",
   "pages_build_output_dir": "dist-astro",
   "compatibility_date": "2025-03-19"
 }
