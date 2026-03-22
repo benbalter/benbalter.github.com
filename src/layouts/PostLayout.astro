@@ -40,6 +40,7 @@ interface Props {
   nextPost?: { title: string; url: string };
   archived?: boolean;
   postId: string;
+  postFilePath?: string;
   posts?: Record<string, string> | string[];
   roles?: Record<string, string> | string[];
 }
@@ -57,12 +58,14 @@ const {
   nextPost,
   archived = false,
   postId,
+  postFilePath,
   posts: curatedPosts,
   roles: curatedRoles,
 } = Astro.props;
 
 const formattedDate = pubDate ? formatPostDate(pubDate) : undefined;
 const postUrl = new URL(Astro.url.pathname, siteConfig.url).toString();
+const postFileName = postFilePath ? postFilePath.split('/').pop() : `${postId}.md`;
 
 // Calculate reading time using improved utility
 const content = await Astro.slots.render('default');
@@ -129,7 +132,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
             <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
               <span>Originally published {formattedDate}</span>
               <span aria-hidden="true">·</span>
-              <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200" href={`${siteConfig.githubRepoUrl}/commits/main/src/content/posts/${postId}`} target="_blank" rel="noopener noreferrer" aria-label="View revision history">View revision history</a>
+              <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200" href={`${siteConfig.githubRepoUrl}/commits/main/src/content/posts/${postFileName}`} target="_blank" rel="noopener noreferrer" aria-label="View revision history">View revision history</a>
             </div>
             <ShareButtons title={title} url={postUrl} />
           </div>
@@ -163,7 +166,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
           </div>
 
           <a
-            href={`${siteConfig.githubRepoUrl}/edit/main/src/content/posts/${postId}`}
+            href={`${siteConfig.githubRepoUrl}/edit/main/src/content/posts/${postFileName}`}
             target="_blank"
             rel="noopener noreferrer"
             class="open-source-cta group"
