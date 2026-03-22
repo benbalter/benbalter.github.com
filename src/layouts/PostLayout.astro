@@ -23,7 +23,9 @@ import CopyCodeButton from '../components/CopyCodeButton.astro';
 import ReadingList from '../components/ReadingList.astro';
 import ReadingProgress from '../components/ReadingProgress.astro';
 import KeepReading from '../components/KeepReading.astro';
+import DiscussLinks from '../components/DiscussLinks.astro';
 import SubscribeCta from '../components/SubscribeCta.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -91,14 +93,21 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   <div class="max-w-4xl mx-auto px-4">
     <div>
       <article data-pagefind-body>
+        <Breadcrumbs title={title} />
         <header class="mb-8">
           <h1 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100" transition:name="page-title">{title}</h1>
           
-          {readingTime > 0 && (
-            <div class="text-sm text-gray-600 dark:text-gray-300 mb-6" data-pagefind-ignore>
-              <span class="inline-flex items-center gap-1">
-                <Icon name="clock" /> {readingTime} min read
-              </span>
+          {pubDate && (
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-600 dark:text-gray-300 mt-2 mb-6" data-pagefind-ignore>
+              <time datetime={pubDate.toISOString()}>{formattedDate}</time>
+              {readingTime > 0 && (
+                <>
+                  <span aria-hidden="true">·</span>
+                  <span class="inline-flex items-center gap-1">
+                    <Icon name="clock" /> {readingTime} min read
+                  </span>
+                </>
+              )}
             </div>
           )}
           
@@ -144,6 +153,8 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
             </div>
           </div>
         )}
+        
+        <DiscussLinks title={title} url={postUrl} />
         
         <KeepReading relatedPosts={relatedPosts} />
         
