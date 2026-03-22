@@ -166,10 +166,11 @@
   /* Typography - Body */
   body {
     @apply font-sans antialiased;
-    font-size: clamp(1rem, 0.9rem + 0.5vw, 1.1875rem);
+    font-size: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
     line-height: 1.7;
     font-weight: 400;
-    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "cv01" 1, "cv03" 1;
+    font-variant-numeric: proportional-nums;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     @apply text-gray-900 bg-white;
@@ -187,11 +188,10 @@
   /* Typography - Headings */
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold;
-    line-height: 1.3;
+    line-height: 1.25;
     margin-top: 2em;
     margin-bottom: 0.5em;
-    letter-spacing: -0.015em;
-    font-feature-settings: "kern" 1, "liga" 1;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
     text-wrap: balance;
   }
 
@@ -203,19 +203,23 @@
 
   h1 {
     font-size: clamp(1.875rem, 1.5rem + 1.875vw, 2.441rem);
+    letter-spacing: -0.025em;
     margin-top: 0;
   }
 
   h2 {
     font-size: clamp(1.5rem, 1.25rem + 1.25vw, 1.953rem);
+    letter-spacing: -0.02em;
   }
 
   h3 {
     font-size: clamp(1.25rem, 1.1rem + 0.75vw, 1.563rem);
+    letter-spacing: -0.015em;
   }
 
   h4 {
     font-size: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+    letter-spacing: -0.01em;
   }
 
   h5, h6 {
@@ -299,11 +303,15 @@
   /* Links - Base */
   a {
     @apply text-primary transition-colors duration-150;
-    text-decoration: none;
+    text-decoration-line: underline;
+    text-decoration-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
+    text-underline-offset: 0.15em;
+    text-decoration-thickness: 1px;
   }
 
   a:hover {
     @apply text-primary-600;
+    text-decoration-color: currentColor;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -322,17 +330,18 @@
   main a:not(.btn):not(.nav-link):not(.navbar-brand):not(.anchor-link) {
     @apply text-primary;
     text-decoration-line: underline;
-    text-decoration-thickness: 0.08em;
+    text-decoration-color: color-mix(in srgb, var(--color-primary) 40%, transparent);
+    text-decoration-thickness: 1px;
     text-decoration-skip-ink: auto;
     text-underline-offset: 0.15em;
-    @apply transition-all duration-200;
+    @apply transition-colors duration-200;
     touch-action: manipulation;
   }
 
   article a:not(.anchor-link):hover,
   .content a:not(.anchor-link):hover,
   main a:not(.btn):not(.nav-link):not(.navbar-brand):not(.anchor-link):hover {
-    text-decoration-thickness: 0.15em;
+    text-decoration-color: currentColor;
   }
 
   article a:not(.anchor-link):focus,
