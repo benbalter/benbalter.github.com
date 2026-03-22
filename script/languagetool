@@ -259,8 +259,15 @@ strip_markdown() {
     # Skip images
     { gsub(/!\[[^\]]*\]\([^)]*\)/, " ") }
 
-    # Convert links to just their text
-    { gsub(/\[[^\]]*\]\([^)]*\)/, " ") }
+    # Convert links to just their text (preserve link text, remove URL)
+    {
+      while (match($0, /\[[^\]]*\]\([^)]*\)/)) {
+        link = substr($0, RSTART, RLENGTH)
+        sub(/^\[/, "", link)
+        sub(/\]\([^)]*\)/, "", link)
+        $0 = substr($0, 1, RSTART-1) link substr($0, RSTART+RLENGTH)
+      }
+    }
 
     # Remove any remaining markdown link brackets
     { gsub(/\[/, "") }
