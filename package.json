@@ -102,6 +102,7 @@
     "typographic-trademark": "^1.0.1",
     "unified": "^11.0.5",
     "vitest": "^4.1.0",
+    "wrangler": "^4.76.0",
     "xo": "^2.0.2"
   },
   "homepage": "https://github.com/benbalter/benbalter.github.com#readme",
