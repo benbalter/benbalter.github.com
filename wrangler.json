@@ -1,6 +1,8 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "benbalter-github-com",
-  "pages_build_output_dir": "dist-astro",
+  "assets": {
+    "directory": "./dist-astro"
+  },
   "compatibility_date": "2025-03-19"
 }
