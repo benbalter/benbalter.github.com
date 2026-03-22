@@ -117,26 +117,11 @@
     /* Safe area padding for notched devices */
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
-    position: relative;
-  }
-  
-  /* Subtle background texture for depth */
-  body::before {
-    content: '';
-    @apply fixed inset-0 -z-10;
-    background: radial-gradient(circle at top right, rgba(51, 122, 183, 0.03), transparent 60%),
-                radial-gradient(circle at bottom left, rgba(51, 122, 183, 0.02), transparent 60%);
-    pointer-events: none;
   }
 
   @media (prefers-color-scheme: dark) {
     body {
       @apply text-gray-100 bg-gray-900;
-    }
-    
-    body::before {
-      background: radial-gradient(circle at top right, rgba(51, 122, 183, 0.05), transparent 60%),
-                  radial-gradient(circle at bottom left, rgba(51, 122, 183, 0.03), transparent 60%);
     }
   }
 
@@ -816,36 +801,15 @@
 
   /* Section Headers */
   .section-header {
-    @apply relative flex items-center gap-3 font-semibold;
+    @apply font-semibold;
     letter-spacing: -0.02em;
   }
 
-  .section-header-accent {
-    @apply inline-block w-1 rounded;
-    height: 1.5em;
-    background: linear-gradient(
-      180deg,
-      var(--color-primary) 0%,
-      color-mix(in srgb, var(--color-primary) 60%, transparent) 100%
-    );
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .section-header-accent {
-      background: linear-gradient(
-        180deg,
-        rgba(128, 185, 230, 1) 0%,
-        rgba(128, 185, 230, 0.7) 100%
-      );
-    }
-  }
-
-  /* Featured Post Card - GPU-accelerated animations */
+  /* Featured Post Card */
   .featured-post-card {
     @apply relative border-2 rounded-lg overflow-hidden;
     @apply bg-white;
-    transition: transform 300ms ease-out, box-shadow 300ms ease-out, border-color 300ms ease-out;
-    will-change: transform;
+    transition: box-shadow 300ms ease-out, border-color 300ms ease-out;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -861,37 +825,6 @@
   @media (prefers-color-scheme: dark) {
     .featured-post-card:hover {
       @apply shadow-card-hover-dark;
-    }
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .featured-post-card:hover {
-      @apply -translate-y-1.5;
-    }
-  }
-
-  .card-accent {
-    @apply absolute left-0 top-0 bottom-0 w-1;
-    background: linear-gradient(
-      180deg,
-      theme('colors.primary.DEFAULT'),
-      color-mix(in srgb, var(--color-primary) 60%, transparent)
-    );
-    @apply opacity-0;
-    transition: opacity 300ms ease-out;
-  }
-
-  .featured-post-card:hover .card-accent {
-    @apply opacity-100;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .card-accent {
-      background: linear-gradient(
-        180deg,
-        theme('colors.primary.DEFAULT'),
-        color-mix(in srgb, var(--color-primary) 70%, transparent)
-      );
     }
   }
 

@@ -157,35 +157,6 @@ const navClasses = hero
 <style>
   @reference "../styles/global.css";
   
-  /* Active nav link underline */
-  .nav-link {
-    position: relative;
-  }
-  
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    @apply bg-primary;
-    transition: width 0.2s ease, left 0.2s ease;
-  }
-  
-  .nav-link.active::after {
-    width: 80%;
-    left: 10%;
-  }
-  
-  @media (hover: hover) {
-    .nav-link:hover::after,
-    .nav-link:focus::after {
-      width: 80%;
-      left: 10%;
-    }
-  }
-  
   /* Touch feedback */
   .nav-link:active {
     @apply opacity-80;

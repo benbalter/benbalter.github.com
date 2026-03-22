@@ -1,12 +1,12 @@
 ---
 title: Cathedral vs Bazaar People Management
-description: The cathedral and the bazaar are two contrasting styles of people management, inspired by the open source movement. The cathedral style is more hierarchical, controlled, and standardized, while the bazaar style is more decentralized, autonomous, and collaborative.
+description: What if we applied open source's most famous metaphor to people management? Cathedral managers control and direct; bazaar managers empower and facilitate. Knowing which style fits your team matters.
 image: https://github.com/benbalter/benbalter.github.com/assets/282759/e53fc562-b59d-4e0e-87fe-ef6e4da0d062
 redirect_from:
   - /2023/12/07/cathedral-bazaar-management/
 ---
 
-[The Cathedral and the Bazaar](https://www.amazon.com/gp/product/B0026OR3LM/?tag=benbalter07-20) is *the* book on open source. It contrasts closed source software development (the cathedral), where a centralized and hierarchical authority designs and builds a well-defined system and open source development (the bazaar) where a decentralized community of contributors can browse, experiment, and collaborate within a modular and adaptable system. The book, argues that the bazaar model is more effective, innovative, and resilient than the cathedral model, and in many ways, brought the ideals of the open source movement to the mainstream.
+[The Cathedral and the Bazaar](https://www.amazon.com/gp/product/B0026OR3LM/?tag=benbalter07-20) is *the* book on open source. It contrasts closed source software development (the cathedral), where a centralized and hierarchical authority designs and builds a well-defined system, and open source development (the bazaar) where a decentralized community of contributors can browse, experiment, and collaborate within a modular and adaptable system. The book argues that the bazaar model is more effective, innovative, and resilient than the cathedral model, and in many ways, brought the ideals of the open source movement to the mainstream.
 
 I've written before about [bringing software development methodology to management](https://ben.balter.com/2023/01/10/manage-like-an-engineer/), so what if we apply this cathedral vs. bazaar metaphor to people management styles?
 
@@ -28,9 +28,9 @@ At the core of the bazaar style is the belief that team members are competent, s
 
 ## The Cathedral and the Bazaar in Balance
 
-As a manager or as someone who is managed, you should know which style you prefer, and which style your manager prefers. You may find that your team is a mix of cathedrals and bazaars styles, or it may even change depending on the scenario, and that's okay. Here are some common ways in which the two styles can differ:
+As a manager or as someone who is managed, you should know which style you prefer, and which style your manager prefers. You may find that your team is a mix of cathedral and bazaar styles, or it may even change depending on the scenario, and that's okay. Here are some common ways in which the two styles can differ:
 
-- By **industry** - The self direction of the bazaar model wouldn't be a good fit for the military given the stakes, while the rigidity of the cathedral model would not excel in a fast-paced startup given the need for experimentation and adaptation.
+- By **industry** - The self-direction of the bazaar model wouldn't be a good fit for the military given the stakes, while the rigidity of the cathedral model would not excel in a fast-paced startup given the need for experimentation and adaptation.
 - By **individual** - A more junior engineer is going to need the structure and clarity offered by the cathedral model, while a more senior engineer might feel constrained, preferring the freedom to roam and find interesting challenges that the bazaar model offers. Likewise, some individuals are less comfortable living with ambiguity, while others prefer uncertainty, and the opportunity for autonomy that comes with it.
 - By **role** - Outside engineering, you might expect the cathedral model to work well for a line cook, where the recipe is well defined and consistency is key, while the bazaar model might work better for a chef, where creativity and experimentation are valued as they seek to create new dishes.
 

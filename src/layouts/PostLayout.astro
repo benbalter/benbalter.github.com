@@ -20,8 +20,10 @@ import ShareButtons from '../components/ShareButtons.astro';
 import PostNavigation from '../components/PostNavigation.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import CopyCodeButton from '../components/CopyCodeButton.astro';
+import ReadingList from '../components/ReadingList.astro';
 import ReadingProgress from '../components/ReadingProgress.astro';
 import KeepReading from '../components/KeepReading.astro';
+import SubscribeCta from '../components/SubscribeCta.astro';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -37,6 +39,8 @@ interface Props {
   nextPost?: { title: string; url: string };
   archived?: boolean;
   postId: string;
+  posts?: Record<string, string> | string[];
+  roles?: Record<string, string> | string[];
 }
 
 const { 
@@ -52,6 +56,8 @@ const {
   nextPost,
   archived = false,
   postId,
+  posts: curatedPosts,
+  roles: curatedRoles,
 } = Astro.props;
 
 const formattedDate = pubDate ? formatPostDate(pubDate) : undefined;
@@ -112,6 +118,8 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
           <slot />
         </div>
 
+        <ReadingList posts={curatedPosts} roles={curatedRoles} />
+
         <CopyCodeButton />
         <ReadingProgress />
         
@@ -145,6 +153,10 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         <footer class="border-t-2 border-gray-200 dark:border-gray-700 pt-6 mt-6 mb-8 post-footer">
           <div class="mini-bio-card mb-6">
             <MiniBio />
+          </div>
+
+          <div class="mb-6">
+            <SubscribeCta />
           </div>
 
           <a

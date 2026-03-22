@@ -1,75 +1,98 @@
 ---
-import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
-import { stripMarkdown } from '../utils/strip-markdown';
-import { getPostUrl } from '../utils/post-urls';
-import ReadingListCard from './ReadingListCard.astro';
-
 /**
- * ReadingList component - Renders a curated list of posts as visually rich cards
+ * ReadingList component - Displays curated reading lists for blog posts
  *
- * Similar to PostList, but renders posts using ReadingListCard components
- * instead of plain list items, creating a more engaging reading list experience.
+ * Renders a "Further reading" section with numbered links from the post's
+ * frontmatter `posts` and/or `roles` fields.
  *
- * Props:
- * - postSlug: The slug of the current post (to fetch its frontmatter)
- * - field: Which field to use from frontmatter ('posts' or 'roles')
+ * Supports two data formats:
+ * - Object/map: { "Title": "/url/" } — key as link text, value as href
+ * - Array: ["/url/"] — derives a readable title from the URL slug
  */
 
 interface Props {
-  postSlug: string;
-  field: 'posts' | 'roles';
+  posts?: Record<string, string> | string[];
+  roles?: Record<string, string> | string[];
 }
 
-const { postSlug, field } = Astro.props;
+const { posts, roles } = Astro.props;
 
-// Fetch the current post to get its frontmatter
-const currentPost = await getEntry('posts', postSlug);
-const postData = currentPost?.data[field];
-
-// Handle both array and object formats for posts
-let urls: string[] = [];
-if (Array.isArray(postData)) {
-  urls = postData;
-} else if (typeof postData === 'object' && postData !== null) {
-  urls = Object.values(postData);
+/**
+ * Convert a URL path to a readable title by extracting the slug portion,
+ * replacing hyphens with spaces, and capitalizing each word.
+ */
+function slugToTitle(url: string): string {
+  const segments = url.replace(/\/$/, '').split('/');
+  const slug = segments[segments.length - 1] || url;
+  return slug
+    .replace(/-/g, ' ')
+    .replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
-// Fetch all published posts
-const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => {
-  return data.published !== false;
-});
-
-// Create a map of URL to post for efficient lookup
-const postsByUrl = new Map<string, CollectionEntry<'posts'>>();
-allPosts.forEach((post: CollectionEntry<'posts'>) => {
-  const url = getPostUrl(post.id);
-  if (url) {
-    postsByUrl.set(url, post);
+/**
+ * Normalize posts/roles data into an array of { title, url } objects.
+ */
+function normalizeEntries(
+  data: Record<string, string> | string[],
+): { title: string; url: string }[] {
+  if (Array.isArray(data)) {
+    return data.map((url) => ({ title: slugToTitle(url), url }));
   }
-});
+  return Object.entries(data).map(([title, url]) => ({ title, url }));
+}
 
-// Find posts matching the provided URLs, preserving order
-const matchedPosts = urls
-  .map(url => {
-    const post = postsByUrl.get(url);
-    if (!post && import.meta.env.DEV) {
-      console.warn(`ReadingList: URL "${url}" in post "${postSlug}" field "${field}" does not match any post`);
-    }
-    return post;
-  })
-  .filter((post): post is CollectionEntry<'posts'> => post !== undefined);
+const postEntries = posts ? normalizeEntries(posts) : [];
+const roleEntries = roles ? normalizeEntries(roles) : [];
+const hasContent = postEntries.length > 0 || roleEntries.length > 0;
 ---
 
-<nav aria-label={`${field === 'roles' ? 'Role-specific' : 'Recommended'} reading list`} class="not-prose my-6 flex flex-col gap-3">
-  {matchedPosts.map((post, i) => {
-    const url = getPostUrl(post.id);
-    return (
-      <ReadingListCard
-        title={post.data.title}
-        description={stripMarkdown(post.data.description)}
-        url={url}
-        index={i + 1}
-      />
-    );
-  })}
-</nav>
+{hasContent && (
+  <aside
+    class="not-prose mt-8 rounded-lg border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800"
+    aria-label="Further reading"
+  >
+    {postEntries.length > 0 && (
+      <div>
+        <h2 class="mb-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
+          Further reading
+        </h2>
+        <ol class="list-decimal list-inside space-y-1.5 text-base text-gray-700 dark:text-gray-300">
+          {postEntries.map(({ title, url }) => (
+            <li>
+              <a
+                href={url}
+                class="text-primary hover:text-primary-700 dark:text-primary-300 dark:hover:text-primary-200 underline decoration-primary/30 hover:decoration-primary transition-colors duration-200"
+              >
+                {title}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </div>
+    )}
+
+    {roleEntries.length > 0 && (
+      <div
+        class={postEntries.length > 0
+          ? 'mt-5 border-t border-gray-200 pt-5 dark:border-gray-700'
+          : ''}
+      >
+        <h2 class="mb-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
+          Related roles
+        </h2>
+        <ol class="list-decimal list-inside space-y-1.5 text-base text-gray-700 dark:text-gray-300">
+          {roleEntries.map(({ title, url }) => (
+            <li>
+              <a
+                href={url}
+                class="text-primary hover:text-primary-700 dark:text-primary-300 dark:hover:text-primary-200 underline decoration-primary/30 hover:decoration-primary transition-colors duration-200"
+              >
+                {title}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </div>
+    )}
+  </aside>
+)}

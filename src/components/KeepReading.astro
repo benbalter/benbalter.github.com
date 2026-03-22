@@ -33,13 +33,13 @@ const heroDate = getDateFromSlug(heroPost.id);
 <section class="keep-reading mt-12" aria-label="Related articles" data-pagefind-ignore>
   <!-- Visual divider -->
   <div class="keep-reading-divider mb-10" aria-hidden="true">
-    <div class="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent dark:via-gray-600"></div>
+    <div class="border-t border-gray-200 dark:border-gray-700"></div>
   </div>
 
   <!-- Up Next hero card -->
   <div class="keep-reading-item" data-keep-reading>
-    <p class="text-xs font-semibold uppercase tracking-widest text-primary dark:text-primary-300 mb-3">Up next</p>
-    <a href={getPostUrl(heroPost.id)} class="group block rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 md:p-8 no-underline transition-all duration-300 hover:border-primary dark:hover:border-primary/50 hover:shadow-card-hover dark:hover:shadow-card-hover-dark">
+    <p class="text-xs font-semibold uppercase tracking-wide text-primary dark:text-primary-300 mb-3">Up next</p>
+    <a href={getPostUrl(heroPost.id)} class="group block rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 md:p-8 no-underline transition-all duration-300 hover:border-primary dark:hover:border-primary/50 hover:shadow-md">
       <h3 class="text-2xl md:text-3xl font-bold leading-tight text-gray-900 dark:text-gray-100 group-hover:text-primary dark:group-hover:text-primary-300 transition-colors duration-200 mb-3">
         {heroPost.data.title}
       </h3>
@@ -53,12 +53,6 @@ const heroDate = getDateFromSlug(heroPost.id);
           {stripMarkdown(heroPost.data.description)}
         </p>
       )}
-      <span class="inline-flex items-center gap-1.5 text-sm font-medium text-primary dark:text-primary-300" aria-hidden="true">
-        Continue reading
-        <svg class="h-4 w-4 transition-transform duration-200 motion-safe:group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
-      </span>
     </a>
   </div>
 
@@ -141,11 +135,6 @@ const heroDate = getDateFromSlug(heroPost.id);
 
 <style>
   @reference "../styles/global.css";
-
-  /* Subtle gradient behind the divider */
-  .keep-reading-divider {
-    position: relative;
-  }
 
   @media print {
     .keep-reading {

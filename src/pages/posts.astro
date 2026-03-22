@@ -4,6 +4,8 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { getPostUrl, getDateFromSlug, formatPostDate, formatISODate } from '../utils/post-urls';
 import { calculateReadingTime } from '../utils/reading-time';
 import PostCard from '../components/PostCard.astro';
+import FeaturedPostCard from '../components/FeaturedPostCard.astro';
+import { popularPostSlugs } from '../config';
 
 const title = 'All Posts';
 const description = 'A complete archive of all blog posts.';
@@ -15,6 +17,20 @@ const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'
 const posts: CollectionEntry<'posts'>[] = allPosts.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) =>
   b.id.localeCompare(a.id)
 );
+
+const popularPosts = popularPostSlugs
+  .map(slug => allPosts.find((post: CollectionEntry<'posts'>) => post.id === slug))
+  .filter((post): post is CollectionEntry<'posts'> => post !== undefined);
+
+const postsByYear = new Map<number, CollectionEntry<'posts'>[]>();
+for (const post of posts) {
+  const year = getDateFromSlug(post.id).getFullYear();
+  if (!postsByYear.has(year)) {
+    postsByYear.set(year, []);
+  }
+  postsByYear.get(year)!.push(post);
+}
+const years = [...postsByYear.keys()].sort((a, b) => b - a);
 
 function getPostMetadata(post: CollectionEntry<'posts'>) {
   const postDate = getDateFromSlug(post.id);
@@ -33,21 +49,65 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
     <p class="text-gray-600 dark:text-gray-300">{posts.length} posts</p>
   </header>
 
-  <div class="flex flex-wrap -mx-2">
-    {posts.map((post) => {
-      const { postUrl, date, isoDate, readingTime } = getPostMetadata(post);
-      return (
-        <div class="w-full md:w-1/2 px-2 mb-3">
-          <PostCard
-            title={post.data.title}
-            url={postUrl}
-            date={date}
-            isoDate={isoDate}
-            description={post.data.description}
-            readingTime={readingTime}
-          />
+  <nav aria-label="Jump to year" class="mb-8 flex flex-wrap gap-2">
+    {years.map((year) => (
+      <a
+        href={`#${year}`}
+        class="text-sm px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-primary hover:text-primary dark:hover:border-primary-300 dark:hover:text-primary-300 no-underline transition-colors"
+      >
+        {year}
+      </a>
+    ))}
+  </nav>
+
+  {popularPosts.length > 0 && (
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Popular Posts</h2>
+      <div class="flex flex-wrap -mx-2">
+        {popularPosts.map((post) => {
+          const { postUrl, date, isoDate, readingTime } = getPostMetadata(post);
+          return (
+            <div class="w-full md:w-1/2 lg:w-1/3 px-2 mb-3">
+              <FeaturedPostCard
+                title={post.data.title}
+                url={postUrl}
+                date={date}
+                isoDate={isoDate}
+                description={post.data.description}
+                readingTime={readingTime}
+              />
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  )}
+
+  {years.map((year) => {
+    const yearPosts = postsByYear.get(year)!;
+    return (
+      <section class="mb-10">
+        <h2 id={`${year}`} class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+          {year} ({yearPosts.length} {yearPosts.length === 1 ? 'post' : 'posts'})
+        </h2>
+        <div class="flex flex-wrap -mx-2">
+          {yearPosts.map((post) => {
+            const { postUrl, date, isoDate, readingTime } = getPostMetadata(post);
+            return (
+              <div class="w-full md:w-1/2 px-2 mb-3">
+                <PostCard
+                  title={post.data.title}
+                  url={postUrl}
+                  date={date}
+                  isoDate={isoDate}
+                  description={post.data.description}
+                  readingTime={readingTime}
+                />
+              </div>
+            );
+          })}
         </div>
-      );
-    })}
-  </div>
+      </section>
+    );
+  })}
 </BaseLayout>
