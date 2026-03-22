@@ -45,31 +45,31 @@ const popularPostItems: PostItem[] = popularPostSlugs
     </div>
 
     <p class="text-lg leading-relaxed" set:html={lede}></p>
+
+    <aside aria-label="At a glance" class="not-prose my-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 px-5 py-4">
+      <p class="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">At a Glance</p>
+      <dl class="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-3 text-sm m-0">
+        <div>
+          <dt class="font-medium text-gray-500 dark:text-gray-400">Role</dt>
+          <dd class="m-0 text-gray-900 dark:text-gray-100">{siteConfig.jobTitle}, {siteConfig.employer}</dd>
+        </div>
+        <div>
+          <dt class="font-medium text-gray-500 dark:text-gray-400">Location</dt>
+          <dd class="m-0 text-gray-900 dark:text-gray-100">Washington, DC</dd>
+        </div>
+        <div>
+          <dt class="font-medium text-gray-500 dark:text-gray-400">Education</dt>
+          <dd class="m-0 text-gray-900 dark:text-gray-100">JD & MBA, George Washington University</dd>
+        </div>
+      </dl>
+      <div class="mt-3 flex gap-4 text-sm border-t border-gray-200 dark:border-gray-700 pt-3">
+        <a href="/resume/" class="text-primary dark:text-primary-300 hover:underline">Full resume →</a>
+        <a href="/talks/" class="text-primary dark:text-primary-300 hover:underline">Talks & media →</a>
+      </div>
+    </aside>
   </div>
 
-  <aside aria-label="At a glance" class="not-prose clear-both my-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 px-5 py-4">
-    <p class="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">At a Glance</p>
-    <dl class="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-3 text-sm m-0">
-      <div>
-        <dt class="font-medium text-gray-500 dark:text-gray-400">Role</dt>
-        <dd class="m-0 text-gray-900 dark:text-gray-100">{siteConfig.jobTitle}, {siteConfig.employer}</dd>
-      </div>
-      <div>
-        <dt class="font-medium text-gray-500 dark:text-gray-400">Location</dt>
-        <dd class="m-0 text-gray-900 dark:text-gray-100">Washington, DC</dd>
-      </div>
-      <div>
-        <dt class="font-medium text-gray-500 dark:text-gray-400">Education</dt>
-        <dd class="m-0 text-gray-900 dark:text-gray-100">JD & MBA, George Washington University</dd>
-      </div>
-    </dl>
-    <div class="mt-3 flex gap-4 text-sm border-t border-gray-200 dark:border-gray-700 pt-3">
-      <a href="/resume/" class="text-primary dark:text-primary-300 hover:underline">Full resume →</a>
-      <a href="/talks/" class="text-primary dark:text-primary-300 hover:underline">Talks & media →</a>
-    </div>
-  </aside>
-
-  <h2>At GitHub</h2>
+  <h2 class="clear-both">At GitHub</h2>
   <p set:html={githubDetails}></p>
 
   <h2>In Government</h2>
