@@ -19,7 +19,6 @@ import ArchivedPostWarning from '../components/ArchivedPostWarning.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import PostNavigation from '../components/PostNavigation.astro';
 import TableOfContents from '../components/TableOfContents.astro';
-import CopyCodeButton from '../components/CopyCodeButton.astro';
 import ReadingList from '../components/ReadingList.astro';
 import ReadingProgress from '../components/ReadingProgress.astro';
 import KeepReading from '../components/KeepReading.astro';
@@ -123,7 +122,6 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
 
         <ReadingList posts={curatedPosts} roles={curatedRoles} />
 
-        <CopyCodeButton />
         <ReadingProgress />
         
         {pubDate && (

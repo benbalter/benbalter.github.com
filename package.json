@@ -11,6 +11,7 @@
     "@fortawesome/free-regular-svg-icons": "^7.2.0",
     "@fortawesome/free-solid-svg-icons": "^7.2.0",
     "@resvg/resvg-js": "^2.6.2",
+    "astro-expressive-code": "^0.41.7",
     "astro-seo": "^1.1.0",
     "fastest-levenshtein": "^1.0.16",
     "marked": "^17.0.5",

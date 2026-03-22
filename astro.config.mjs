@@ -4,11 +4,11 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import favicons from 'astro-favicons';
 import compress from 'astro-compress';
+import expressiveCode from 'astro-expressive-code';
 import fetchAvatar from './src/lib/astro-fetch-avatar.ts';
 import {
   sharedRemarkPlugins,
   sharedRehypePlugins,
-  sharedShikiConfig,
 } from './src/lib/markdown-pipeline.ts';
 
 // URL patterns for sitemap priority calculation
@@ -132,6 +132,13 @@ export default defineConfig({
         html: true,
       },
     }),
+    // Expressive Code for enhanced code blocks (must be before mdx)
+    expressiveCode({
+      themes: ['github-light', 'github-dark'],
+      styleOverrides: {
+        borderRadius: '0.375rem',
+      },
+    }),
     mdx({
       // MDX configuration
       optimize: true,
@@ -186,8 +193,7 @@ export default defineConfig({
   
   // Markdown configuration
   markdown: {
-    // Enable syntax highlighting with GitHub themes (dual theme for dark mode support)
-    shikiConfig: sharedShikiConfig,
+    // Syntax highlighting handled by astro-expressive-code integration
     // Enable smartypants for typographic punctuation (quotes and apostrophes)
     smartypants: true,
     // Remark plugins (for markdown processing)

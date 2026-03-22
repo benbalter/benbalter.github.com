@@ -57,7 +57,7 @@ Safari does not allow extensions to make calls from HTTPS pages to HTTP endpoint
 
 2. Create a `/opt/homebrew/etc/Caddyfile` file with the following contents:
 
-   ```caddyfile
+   ```txt
    localhost:8082
    reverse_proxy :8081
    ```
