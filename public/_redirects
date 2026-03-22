@@ -12,7 +12,7 @@
 /cv/ /resume/ 301
 
 # Syndicated posts (external redirects)
-/2012/04/23/enterprise-open-source-usage-is-up-but-challenges-remain/ http://techcrunch.com/2012/04/22/enterprise-open-source-usage-is-up-but-challenges-remain/ 301
+/2012/04/23/enterprise-open-source-usage-is-up-but-challenges-remain/ https://techcrunch.com/2012/04/22/enterprise-open-source-usage-is-up-but-challenges-remain/ 301
 /2015/04/27/eight-lessons-learned-hacking-on-github-pages-for-six-months/ https://github.com/blog/1992-eight-lessons-learned-hacking-on-github-pages-for-six-months 301
 /2023/10/04/how-to-communicate-like-a-github-engineer/ https://github.blog/engineering/engineering-principles/how-to-communicate-like-a-github-engineer-our-principles-practices-and-tools/ 301
 

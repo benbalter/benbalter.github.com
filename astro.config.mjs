@@ -56,7 +56,7 @@ export default defineConfig({
   redirects: {
     // External redirects - Posts republished on other sites
     '/2012/04/23/enterprise-open-source-usage-is-up-but-challenges-remain/': 
-      'http://techcrunch.com/2012/04/22/enterprise-open-source-usage-is-up-but-challenges-remain/',
+      'https://techcrunch.com/2012/04/22/enterprise-open-source-usage-is-up-but-challenges-remain/',
     '/2015/04/27/eight-lessons-learned-hacking-on-github-pages-for-six-months/': 
       'https://github.com/blog/1992-eight-lessons-learned-hacking-on-github-pages-for-six-months',
     '/2023/10/04/how-to-communicate-like-a-github-engineer/': 
