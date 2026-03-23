@@ -67,6 +67,7 @@ const config = {
     ['remark-frontmatter', 'yaml'],
     [remarkTextr, textrSettings],
     ['remark-retext', unified().use(retextSettings)], // TODO: Use Stringify to auto fix
+    'remark-validate-links',
   ],
   settings: {
     rule: '-',
