@@ -151,6 +151,8 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         )}
         
         <DiscussLinks title={title} url={postUrl} />
+
+        <BookCta />
         
         <KeepReading relatedPosts={relatedPosts} />
         
@@ -164,10 +166,6 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
 
           <div class="mb-6">
             <SubscribeCta />
-          </div>
-
-          <div class="mb-6">
-            <BookCta />
           </div>
 
           <a
