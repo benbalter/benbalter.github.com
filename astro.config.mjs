@@ -71,6 +71,7 @@ export default defineConfig({
       styles: ['normal', 'italic'],
       subsets: ['latin'],
       fallbacks: ['sans-serif'],
+      display: 'optional',
     },
   ],
   
@@ -105,6 +106,7 @@ export default defineConfig({
       'images.amazon.com',
       // Post header images from various sources
       'ben.balter.com',
+      'f.cloud.github.com',
       'lawyerist-khcnq28r8rte6wv.stackpathdns.com',
       'user-images.githubusercontent.com',
       'github.com',

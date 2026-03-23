@@ -126,6 +126,11 @@
   margin-bottom: 1.25em;
 }
 
+/* Post content containment — isolates layout/paint for better INP */
+.post-content {
+  contain: content;
+}
+
 /* List item spacing — slightly more room between items for readability */
 .prose li {
   margin-top: 0.375em;
@@ -620,8 +625,6 @@
     background-position: top left;
     @apply h-64 rounded-t-lg shadow-sm;
     contain: layout paint;
-    content-visibility: auto;
-    contain-intrinsic-size: 1140px 256px;
     position: relative;
   }
   
@@ -652,7 +655,6 @@
   @media (max-width: 768px) {
     .hero-unit {
       height: 180px;
-      contain-intrinsic-size: auto 180px;
     }
     
   }
@@ -753,6 +755,18 @@
     @apply min-h-[44px];
     @apply transition-colors duration-200;
     touch-action: manipulation;
+  }
+
+  /* Reserve bold-width space to prevent CLS when active state toggles font-weight */
+  .nav-link::after {
+    content: attr(data-text);
+    @apply font-semibold;
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    display: block;
+    user-select: none;
+    pointer-events: none;
   }
 
   .nav-link:hover {

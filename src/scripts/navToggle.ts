@@ -29,12 +29,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Close menu when clicking outside
   document.addEventListener('click', (event) => {
+    // Fast bail: skip DOM traversal when menu is already closed
+    if (!target.classList.contains('show')) return;
     if (!event.target) return;
     
     const isClickInside = toggler.contains(event.target as Node) || 
                           target.contains(event.target as Node);
     
-    if (!isClickInside && target.classList.contains('show')) {
+    if (!isClickInside) {
       toggler.setAttribute('aria-expanded', 'false');
       target.classList.remove('show');
     }

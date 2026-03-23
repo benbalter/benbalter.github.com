@@ -93,14 +93,6 @@ const heroDate = getDateFromSlug(heroPost.id);
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Batch all style writes in a single rAF to avoid forced reflows
-    requestAnimationFrame(() => {
-      items.forEach((item) => {
-        item.style.opacity = '0';
-        item.style.transform = prefersReducedMotion ? 'none' : 'translateY(1.25rem)';
-      });
-    });
-
     let revealIndex = 0;
     const STAGGER_MS = 120;
 
@@ -139,6 +131,18 @@ const heroDate = getDateFromSlug(heroPost.id);
 
 <style>
   @reference "../styles/global.css";
+
+  /* Hide items before JS reveal to avoid CLS from post-paint opacity changes */
+  [data-keep-reading] {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-keep-reading] {
+      transform: none;
+    }
+  }
 
   @media print {
     .keep-reading {
