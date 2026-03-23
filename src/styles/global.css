@@ -757,6 +757,18 @@
     touch-action: manipulation;
   }
 
+  /* Reserve bold-width space to prevent CLS when active state toggles font-weight */
+  .nav-link::after {
+    content: attr(data-text);
+    @apply font-semibold;
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    display: block;
+    user-select: none;
+    pointer-events: none;
+  }
+
   .nav-link:hover {
     @apply text-[#133d6b];
   }

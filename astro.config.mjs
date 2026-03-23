@@ -71,6 +71,7 @@ export default defineConfig({
       styles: ['normal', 'italic'],
       subsets: ['latin'],
       fallbacks: ['sans-serif'],
+      display: 'optional',
     },
   ],
   
