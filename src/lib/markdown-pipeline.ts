@@ -15,10 +15,12 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
 import rehypeUnwrapImages from 'rehype-unwrap-images';
+import rehypeRaw from 'rehype-raw';
 import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 import { remarkGitHubMentions } from './remark-github-mentions';
 import { rehypeRelativeUrls } from './rehype-relative-urls';
 import { rehypeBootstrapTables } from './rehype-bootstrap-tables';
+import { rehypeImageLoading } from './rehype-image-loading';
 
 // Typography plugins for remark-textr
 // @ts-expect-error - No type definitions available
@@ -92,6 +94,8 @@ export const sharedRehypePlugins = [
   rehypeAccessibleEmojis,
   rehypeRelativeUrls,
   rehypeBootstrapTables,
+  rehypeRaw,
+  rehypeImageLoading,
   rehypeExternalLinksConfig,
 ];
 
