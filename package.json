@@ -45,6 +45,7 @@
     "eslint": "^10.1.0",
     "gray-matter": "^4.0.3",
     "happy-dom": "^20.8.4",
+    "image-size": "^2.0.2",
     "markdownlint-cli2-formatter-pretty": "^0.0.10",
     "pagefind": "^1.4.0",
     "rehype-accessible-emojis": "^0.3.2",
@@ -112,7 +113,7 @@
     "url": "git+https://github.com/benbalter/benbalter.github.com.git"
   },
   "scripts": {
-    "build": "astro build && script/inject-modulepreload && pagefind --site dist-astro",
+    "build": "astro build && script/inject-modulepreload && script/inject-image-size && pagefind --site dist-astro",
     "dev": "astro dev",
     "preview": "astro preview",
     "check": "astro check --tsconfig tsconfig.astro.json",

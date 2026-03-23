@@ -131,6 +131,12 @@
   contain: content;
 }
 
+/* Ensure post images are responsive and don't cause layout shift */
+.post-content img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* List item spacing — slightly more room between items for readability */
 .prose li {
   margin-top: 0.375em;
