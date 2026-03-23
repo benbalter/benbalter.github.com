@@ -3,10 +3,10 @@
  *
  * Enhances remark-gfm footnote output with:
  * - aria-label="Footnotes" on the footnotes section
- * - role="note" on each footnote list item
  *
- * Uses standard ARIA roles instead of deprecated DPUB-ARIA roles
- * (doc-endnotes, doc-endnote) which axe-core flags as deprecated.
+ * The section landmark with aria-label provides sufficient context for
+ * screen readers without needing custom roles on individual list items
+ * (which would break list semantics flagged by axe-core).
  */
 
 import { visit } from 'unist-util-visit';
@@ -24,15 +24,6 @@ export function rehypeFootnoteA11y() {
         node.properties.dataFootnotes !== undefined
       ) {
         node.properties.ariaLabel = 'Footnotes';
-      }
-
-      // Add role="note" to each footnote list item
-      // remark-gfm renders these as <li id="user-content-fn-...">
-      if (node.tagName === 'li') {
-        const id = String(node.properties.id || '');
-        if (id.startsWith('user-content-fn-')) {
-          node.properties.role = 'note';
-        }
       }
     });
   };

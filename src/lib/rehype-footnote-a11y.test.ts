@@ -33,27 +33,14 @@ Here is some text with a footnote[^1].
     expect(html).toMatch(/section[^>]*aria-label="Footnotes"/);
   });
 
-  it('should not add deprecated doc-endnotes role to section', async () => {
+  it('should not add roles that break list semantics', async () => {
     const result = await processor.process(markdownWithFootnote);
     const html = String(result);
 
-    expect(html).not.toContain('doc-endnotes');
-  });
-
-  it('should add role="note" to footnote list items', async () => {
-    const result = await processor.process(markdownWithFootnote);
-    const html = String(result);
-
-    expect(html).toMatch(/li[^>]*role="note"/);
-  });
-
-  it('should not add deprecated DPUB-ARIA roles', async () => {
-    const result = await processor.process(markdownWithFootnote);
-    const html = String(result);
-
+    // No custom roles on <li> elements (breaks ol > li list structure)
+    expect(html).not.toContain('role="note"');
     expect(html).not.toContain('doc-endnote');
-    expect(html).not.toContain('doc-backlink');
-    expect(html).not.toContain('doc-noteref');
+    expect(html).not.toContain('doc-endnotes');
   });
 
   it('should handle multiple footnotes', async () => {
@@ -66,13 +53,8 @@ First point[^1] and second point[^2].
     const result = await processor.process(markdown);
     const html = String(result);
 
-    // Should have exactly one footnotes section with aria-label
     const labelCount = (html.match(/aria-label="Footnotes"/g) || []).length;
     expect(labelCount).toBe(1);
-
-    // Should have two footnote items with role="note"
-    const noteCount = (html.match(/role="note"/g) || []).length;
-    expect(noteCount).toBe(2);
   });
 
   it('should not affect content without footnotes', async () => {
@@ -80,7 +62,6 @@ First point[^1] and second point[^2].
     const result = await processor.process(markdown);
     const html = String(result);
 
-    expect(html).not.toContain('role="note"');
     expect(html).not.toContain('aria-label="Footnotes"');
   });
 });
