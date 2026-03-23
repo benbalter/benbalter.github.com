@@ -757,8 +757,10 @@
     touch-action: manipulation;
   }
 
-  /* Reserve bold-width space to prevent CLS when active state toggles font-weight */
-  .nav-link::after {
+  /* Reserve bold-width space to prevent CLS when active state toggles font-weight.
+     Applied to .nav-item (block context) not .nav-link (flex context) so the
+     pseudo-element doesn't become a side-by-side flex item. */
+  .nav-item::after {
     content: attr(data-text);
     @apply font-semibold;
     height: 0;
