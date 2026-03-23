@@ -568,13 +568,16 @@ test.describe('Social Links', () => {
 });
 
 test.describe('Performance Hints for SEO', () => {
-  test('should have dns-prefetch hints', async ({ page }) => {
+  test('should have resource hints for external domains', async ({ page }) => {
     await page.goto('/');
     await waitForPageReady(page);
     
+    // preconnect implies dns-prefetch and is the preferred modern approach
+    const preconnect = page.locator('link[rel="preconnect"]');
     const dnsPrefetch = page.locator('link[rel="dns-prefetch"]');
-    const count = await dnsPrefetch.count();
-    expect(count).toBeGreaterThan(0);
+    const preconnectCount = await preconnect.count();
+    const dnsPrefetchCount = await dnsPrefetch.count();
+    expect(preconnectCount + dnsPrefetchCount).toBeGreaterThan(0);
   });
 });
 
