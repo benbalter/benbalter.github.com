@@ -40,11 +40,11 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
   
   // Global click handler for click-outside functionality (defined outside DOMContentLoaded for cleanup)
   const handleGlobalClick = (e: MouseEvent) => {
+    const activeTooltips = (window as any).__tldrActiveTooltips;
+    if (!activeTooltips || activeTooltips.size === 0) return;
+
     const target = e.target;
     if (!target) return;
-    
-    const activeTooltips = (window as any).__tldrActiveTooltips;
-    if (!activeTooltips) return;
     
     activeTooltips.forEach((_tooltipEl: HTMLDivElement, element: HTMLElement) => {
       if (!element.contains(target as Node)) {

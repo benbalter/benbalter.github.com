@@ -126,6 +126,11 @@
   margin-bottom: 1.25em;
 }
 
+/* Post content containment — isolates layout/paint for better INP */
+.post-content {
+  contain: content;
+}
+
 /* List item spacing — slightly more room between items for readability */
 .prose li {
   margin-top: 0.375em;
