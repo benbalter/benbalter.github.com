@@ -227,6 +227,9 @@ DISABLED_RULES="${DISABLED_RULES},MD_BASEFORM"
 DISABLED_RULES="${DISABLED_RULES},PRP_HAVE_VB"
 DISABLED_RULES="${DISABLED_RULES},TO_TOO"
 
+# Verb + gerund false positive: "lessons learned fostering" (compound noun + participial phrase)
+DISABLED_RULES="${DISABLED_RULES},AFFORD_VBG"
+
 # Remove leading comma
 DISABLED_RULES="${DISABLED_RULES#,}"
 
