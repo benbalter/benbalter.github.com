@@ -290,6 +290,9 @@ strip_markdown() {
     # Skip strikethrough
     { gsub(/~~/, "") }
 
+    # Skip em-dash descriptions (artifacts of stripped link-list items)
+    /^[[:space:]]*— / { next }
+
     # Print non-empty lines
     NF { print }
   '
