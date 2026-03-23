@@ -108,8 +108,11 @@ for (const htmlFile of htmlFiles) {
     .map((url) => `<link rel="modulepreload" href="${url}">`)
     .join('');
 
-  // Inject before </head>
-  const newHtml = html.replace('</head>', links + '</head>');
+  // Inject after <meta charset> for earliest possible discovery
+  const newHtml = html.replace(
+    /(<meta\s+charset=["']?UTF-8["']?\s*\/?>)/i,
+    '$1' + links
+  );
 
   if (newHtml !== html) {
     writeFileSync(htmlFile, newHtml);

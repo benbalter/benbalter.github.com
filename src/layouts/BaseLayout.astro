@@ -181,8 +181,10 @@ const schemas = breadcrumbSchema
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json" set:html={schemaToJsonLd(schemas)} is:inline></script>
     
-    <!-- Font preloading via Astro Fonts API -->
-    <Font cssVariable="--font-inter" preload />
+    <!-- Font optimization via Astro Fonts API (no preload: font-display optional
+         means the browser skips fonts not available immediately, so preloading
+         them would waste bandwidth competing with critical JS) -->
+    <Font cssVariable="--font-inter" />
     
     <!-- Astro View Transitions (ClientRouter) for smooth page navigation -->
     <ClientRouter />
