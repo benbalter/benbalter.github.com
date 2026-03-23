@@ -208,6 +208,9 @@ DISABLED_RULES="${DISABLED_RULES},THIS_MISSING_VERB"
 # Diacritics/foreign words
 DISABLED_RULES="${DISABLED_RULES},EN_DIACRITICS_REPLACE_ORTHOGRAPHY_MELANGE"
 
+# --- Article + verb false positives (e.g., "the overwhelm" used as noun) ---
+DISABLED_RULES="${DISABLED_RULES},A_INFINITIVE"
+
 # --- Round 3: remaining false positives from 186-post CI run ---
 DISABLED_RULES="${DISABLED_RULES},CD_NN"
 DISABLED_RULES="${DISABLED_RULES},THE_THIRD_PARTY"
@@ -260,8 +263,15 @@ strip_markdown() {
     # Skip images
     { gsub(/!\[[^\]]*\]\([^)]*\)/, " ") }
 
-    # Convert links to just their text
-    { gsub(/\[[^\]]*\]\([^)]*\)/, " ") }
+    # Convert links to just their text (preserve link text, remove URL)
+    {
+      while (match($0, /\[[^\]]*\]\([^)]*\)/)) {
+        link = substr($0, RSTART, RLENGTH)
+        sub(/^\[/, "", link)
+        sub(/\]\([^)]*\)/, "", link)
+        $0 = substr($0, 1, RSTART-1) link substr($0, RSTART+RLENGTH)
+      }
+    }
 
     # Remove any remaining markdown link brackets
     { gsub(/\[/, "") }
