@@ -1,6 +1,6 @@
 ---
 title: Removing the Barriers to Organizational Agility
-description: Recording of a GW Tech Alumni panel on Removing the Barriers to Organizational Agility
+description: Recording of a GW Tech Alumni panel discussion on removing the barriers to organizational agility in government and enterprise environments.
 archived: true
 ---
 
