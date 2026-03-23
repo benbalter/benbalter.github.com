@@ -109,12 +109,11 @@ const navClasses = hero
           {navItems.map((item) => {
             const isActive = isNavActive(item.url);
             return (
-              <li class="nav-item relative">
+              <li class="nav-item relative" data-text={item.title}>
                 <a 
                   href={item.url} 
                   class={`nav-link px-4 py-3 flex items-center min-h-[44px] transition-colors duration-200 no-underline ${isActive ? 'active text-gray-900 dark:text-gray-100 font-semibold' : 'text-primary-800 dark:text-primary-300 hover:text-primary-900 dark:hover:text-primary-200'}`}
                   aria-current={isActive ? 'page' : undefined}
-                  data-text={item.title}
                 >
                   {item.title}
                 </a>
