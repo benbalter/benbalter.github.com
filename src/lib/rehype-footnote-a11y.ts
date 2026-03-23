@@ -1,13 +1,12 @@
 /**
- * Rehype plugin to add DPUB-ARIA roles to footnotes
+ * Rehype plugin to improve footnote accessibility
  *
  * Enhances remark-gfm footnote output with:
- * - role="doc-endnotes" on the footnotes section
  * - aria-label="Footnotes" on the footnotes section
- * - role="doc-endnote" on each footnote list item
+ * - role="note" on each footnote list item
  *
- * These DPUB-ARIA roles improve screen reader navigation by identifying
- * the footnotes section as a distinct document landmark.
+ * Uses standard ARIA roles instead of deprecated DPUB-ARIA roles
+ * (doc-endnotes, doc-endnote) which axe-core flags as deprecated.
  */
 
 import { visit } from 'unist-util-visit';
@@ -18,41 +17,22 @@ export function rehypeFootnoteA11y() {
     visit(tree, 'element', (node: Element) => {
       if (!node.properties) return;
 
-      // Add role="doc-endnotes" and aria-label to the footnotes section
+      // Add aria-label to the footnotes section for landmark navigation
       // remark-gfm renders this as <section data-footnotes class="footnotes">
       if (
         node.tagName === 'section' &&
         node.properties.dataFootnotes !== undefined
       ) {
-        node.properties.role = 'doc-endnotes';
         node.properties.ariaLabel = 'Footnotes';
       }
 
-      // Add role="doc-endnote" to each footnote list item
+      // Add role="note" to each footnote list item
       // remark-gfm renders these as <li id="user-content-fn-...">
       if (node.tagName === 'li') {
         const id = String(node.properties.id || '');
         if (id.startsWith('user-content-fn-')) {
-          node.properties.role = 'doc-endnote';
+          node.properties.role = 'note';
         }
-      }
-
-      // Add role="doc-backlink" to footnote back-references
-      // remark-gfm renders these as <a ... data-footnote-backref ...>
-      if (
-        node.tagName === 'a' &&
-        node.properties.dataFootnoteBackref !== undefined
-      ) {
-        node.properties.role = 'doc-backlink';
-      }
-
-      // Add role="doc-noteref" to footnote references in body text
-      // remark-gfm renders these as <a ... data-footnote-ref ...>
-      if (
-        node.tagName === 'a' &&
-        node.properties.dataFootnoteRef !== undefined
-      ) {
-        node.properties.role = 'doc-noteref';
       }
     });
   };

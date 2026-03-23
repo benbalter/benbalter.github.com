@@ -1,7 +1,7 @@
 /**
  * Tests for rehype-footnote-a11y plugin
  *
- * Verifies that DPUB-ARIA roles are added to footnote elements
+ * Verifies that accessibility attributes are added to footnote elements
  */
 
 import { describe, it, expect } from 'vitest';
@@ -26,13 +26,6 @@ Here is some text with a footnote[^1].
 [^1]: This is the footnote content.
 `;
 
-  it('should add role="doc-endnotes" to the footnotes section', async () => {
-    const result = await processor.process(markdownWithFootnote);
-    const html = String(result);
-
-    expect(html).toMatch(/section[^>]*role="doc-endnotes"/);
-  });
-
   it('should add aria-label="Footnotes" to the footnotes section', async () => {
     const result = await processor.process(markdownWithFootnote);
     const html = String(result);
@@ -40,25 +33,27 @@ Here is some text with a footnote[^1].
     expect(html).toMatch(/section[^>]*aria-label="Footnotes"/);
   });
 
-  it('should add role="doc-endnote" to footnote list items', async () => {
+  it('should not add deprecated doc-endnotes role to section', async () => {
     const result = await processor.process(markdownWithFootnote);
     const html = String(result);
 
-    expect(html).toMatch(/li[^>]*role="doc-endnote"/);
+    expect(html).not.toContain('doc-endnotes');
   });
 
-  it('should add role="doc-backlink" to footnote back-references', async () => {
+  it('should add role="note" to footnote list items', async () => {
     const result = await processor.process(markdownWithFootnote);
     const html = String(result);
 
-    expect(html).toMatch(/a[^>]*role="doc-backlink"/);
+    expect(html).toMatch(/li[^>]*role="note"/);
   });
 
-  it('should add role="doc-noteref" to footnote references', async () => {
+  it('should not add deprecated DPUB-ARIA roles', async () => {
     const result = await processor.process(markdownWithFootnote);
     const html = String(result);
 
-    expect(html).toMatch(/a[^>]*role="doc-noteref"/);
+    expect(html).not.toContain('doc-endnote');
+    expect(html).not.toContain('doc-backlink');
+    expect(html).not.toContain('doc-noteref');
   });
 
   it('should handle multiple footnotes', async () => {
@@ -71,17 +66,13 @@ First point[^1] and second point[^2].
     const result = await processor.process(markdown);
     const html = String(result);
 
-    // Should have exactly one footnotes section
-    const sectionCount = (html.match(/role="doc-endnotes"/g) || []).length;
-    expect(sectionCount).toBe(1);
+    // Should have exactly one footnotes section with aria-label
+    const labelCount = (html.match(/aria-label="Footnotes"/g) || []).length;
+    expect(labelCount).toBe(1);
 
-    // Should have two footnote items
-    const endnoteCount = (html.match(/role="doc-endnote"/g) || []).length;
-    expect(endnoteCount).toBe(2);
-
-    // Should have two noteref links
-    const noterefCount = (html.match(/role="doc-noteref"/g) || []).length;
-    expect(noterefCount).toBe(2);
+    // Should have two footnote items with role="note"
+    const noteCount = (html.match(/role="note"/g) || []).length;
+    expect(noteCount).toBe(2);
   });
 
   it('should not affect content without footnotes', async () => {
@@ -89,9 +80,7 @@ First point[^1] and second point[^2].
     const result = await processor.process(markdown);
     const html = String(result);
 
-    expect(html).not.toContain('doc-endnotes');
-    expect(html).not.toContain('doc-endnote');
-    expect(html).not.toContain('doc-backlink');
-    expect(html).not.toContain('doc-noteref');
+    expect(html).not.toContain('role="note"');
+    expect(html).not.toContain('aria-label="Footnotes"');
   });
 });
