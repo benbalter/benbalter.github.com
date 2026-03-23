@@ -48,9 +48,13 @@ export async function GET(context: APIContext) {
   // This ensures the feed site URL and item links use the same base
   const baseUrl = context.site?.toString().replace(/\/$/, '') || siteConfig.url;
 
+  // Render the latest 20 posts to HTML for the feed
+  // Older posts are still discoverable via the sitemap and site navigation
+  const recentPosts = sortedPosts.slice(0, 20);
+
   // Render all posts to get their HTML content
   const items = await Promise.all(
-    sortedPosts.map(async (post: CollectionEntry<'posts'>) => {
+    recentPosts.map(async (post: CollectionEntry<'posts'>) => {
       const pubDate = getDateFromSlug(post.id);
       const postUrl = getPostUrl(post.id);
       
