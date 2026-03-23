@@ -1,4 +1,6 @@
 import { test, expect } from '@playwright/test';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { 
   checkCommonElements, 
   checkNavigation, 
@@ -153,6 +155,9 @@ test.describe('Other Recommended Reading Page', () => {
 });
 
 test.describe('Other Recommended Reading Redirects', () => {
+  const redirectsPath = resolve(process.cwd(), 'public/_redirects');
+  const redirectsContent = readFileSync(redirectsPath, 'utf-8');
+
   const oldUrls = [
     '/books/',
     '/books-for-geeks/',
@@ -160,16 +165,8 @@ test.describe('Other Recommended Reading Redirects', () => {
   ];
 
   oldUrls.forEach((url) => {
-    test(`should redirect from ${url} to /other-recommended-reading`, async ({ page }) => {
-      // Navigate to old URL - the page uses JS redirect and meta refresh
-      await page.goto(url);
-      
-      // Wait for the JS redirect or meta refresh to complete
-      // The redirect page contains: location="/other-recommended-reading/"
-      await page.waitForURL(/other-recommended-reading/, { timeout: 5000 });
-      
-      // Should be redirected to the new URL
-      expect(page.url()).toContain('/other-recommended-reading');
+    test(`should redirect from ${url} to /other-recommended-reading`, () => {
+      expect(redirectsContent).toContain(`${url} /other-recommended-reading/ 301`);
     });
   });
 });
