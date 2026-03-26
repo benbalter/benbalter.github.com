@@ -1,0 +1,29 @@
+---
+/**
+ * GitHub Culture Callout Component
+ * 
+ * Displays a callout linking to posts about GitHub's culture.
+ * This replaces the Jekyll {% include_cached github-culture.html %} tag.
+ * Uses Tailwind CSS for styling.
+ */
+---
+
+<aside class="not-prose my-8 rounded-xl bg-gradient-to-r from-primary/5 via-primary/8 to-primary/5 dark:from-primary/10 dark:via-primary/15 dark:to-primary/10 border border-primary/20 dark:border-primary/30 p-6 relative group hover:border-primary/40 dark:hover:border-primary/50 hover:shadow-md transition-all duration-200 cursor-pointer">
+  <div class="flex items-start gap-4">
+    <span class="text-2xl shrink-0" aria-hidden="true">📚</span>
+    <div>
+      <p class="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-1">
+        Want to learn more about how GitHub works?
+      </p>
+      <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
+        I've written extensively about GitHub's culture, communication patterns, and what it's like to be a GitHubber.
+      </p>
+      <a
+        href="/2021/02/01/what-to-read-before-starting-or-interviewing-at-github/"
+        class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary dark:text-primary-300 no-underline group-hover:text-primary-700 dark:group-hover:text-primary-200 transition-colors duration-200 before:absolute before:inset-0 before:rounded-xl"
+      >
+        Read the unofficial onboarding guide <span aria-hidden="true" class="motion-safe:group-hover:translate-x-0.5 transition-transform duration-200">→</span>
+      </a>
+    </div>
+  </div>
+</aside>

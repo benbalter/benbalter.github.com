@@ -100,12 +100,7 @@ export function generateBlogPostingSchema(props: {
     '@type': 'BlogPosting',
     headline: title,
     description,
-    image: {
-      '@type': 'ImageObject',
-      url: absoluteImage,
-      width: 1200,
-      height: 630,
-    } as ImageObject,
+    image: absoluteImage,
     datePublished: publishedTime.toISOString(),
     dateModified: modifiedTime?.toISOString() || publishedTime.toISOString(),
     author: generatePersonRef({ name: author || siteConfig.author }),

@@ -277,11 +277,7 @@ describe('generateBlogPostingSchema', () => {
     
     const schema = generateBlogPostingSchema(props);
     
-    const image = schema.image as Record<string, unknown>;
-    expect(image).toHaveProperty('@type', 'ImageObject');
-    expect(image).toHaveProperty('url', 'https://ben.balter.com/assets/img/custom-image.jpg');
-    expect(image).toHaveProperty('width', 1200);
-    expect(image).toHaveProperty('height', 630);
+    expect(schema).toHaveProperty('image', 'https://ben.balter.com/assets/img/custom-image.jpg');
   });
 
   it('should use default headshot when no image provided', () => {
@@ -293,11 +289,7 @@ describe('generateBlogPostingSchema', () => {
     
     const schema = generateBlogPostingSchema(props);
     
-    const image = schema.image as Record<string, unknown>;
-    expect(image).toHaveProperty('@type', 'ImageObject');
-    expect(image).toHaveProperty('url', `${siteConfig.url}/assets/img/headshot.jpg`);
-    expect(image).toHaveProperty('width', 1200);
-    expect(image).toHaveProperty('height', 630);
+    expect(schema).toHaveProperty('image', `${siteConfig.url}/assets/img/headshot.jpg`);
   });
 
   it('should include author information', () => {
