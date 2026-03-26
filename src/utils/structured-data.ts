@@ -144,7 +144,7 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url?: stri
       // Only add item URL and @id if it's not empty (last item in breadcrumb)
       if (item.url && item.url !== '') {
         element.item = item.url;
-        (element as Record<string, unknown>)['@id'] = item.url;
+        (element as unknown as Record<string, unknown>)['@id'] = item.url;
       }
       return element;
     }),
