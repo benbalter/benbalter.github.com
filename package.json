@@ -44,7 +44,7 @@
     "dictionary-en": "^4.0.0",
     "eslint": "^10.1.0",
     "gray-matter": "^4.0.3",
-    "happy-dom": "^20.8.8",
+    "happy-dom": "^20.8.9",
     "image-size": "^2.0.2",
     "markdownlint-cli2-formatter-pretty": "^0.0.10",
     "pagefind": "^1.4.0",
