@@ -6,7 +6,6 @@ import { describe, it, expect } from 'vitest';
 import {
   generatePersonSchema,
   generateProfilePageSchema,
-  generateOrganizationSchema,
   generateWebSiteSchema,
   generateBlogPostingSchema,
   generateBreadcrumbSchema,
@@ -154,59 +153,6 @@ describe('generateProfilePageSchema', () => {
   });
 });
 
-describe('generateOrganizationSchema', () => {
-  it('should generate valid Organization schema', () => {
-    const schema = generateOrganizationSchema();
-    
-    expect(schema['@context']).toBe('https://schema.org');
-    expect(schema).toHaveProperty('@type', 'Organization');
-  });
-
-  it('should have GitHub as organization name', () => {
-    const schema = generateOrganizationSchema();
-    
-    expect(schema).toHaveProperty('name', 'GitHub');
-  });
-
-  it('should have GitHub URL', () => {
-    const schema = generateOrganizationSchema();
-    
-    expect(schema).toHaveProperty('url', 'https://github.com');
-  });
-
-  it('should have GitHub logo', () => {
-    const schema = generateOrganizationSchema();
-    const schemaAny = schema as any;
-    
-    expect(schema).toHaveProperty('logo');
-    if (typeof schemaAny.logo === 'string') {
-      expect(schemaAny.logo).toContain('GitHub-Mark.png');
-    }
-  });
-
-  it('should include social media links', () => {
-    const schema = generateOrganizationSchema();
-    const schemaAny = schema as any;
-    
-    expect(schema).toHaveProperty('sameAs');
-    expect(Array.isArray(schemaAny.sameAs)).toBe(true);
-    if (Array.isArray(schemaAny.sameAs)) {
-      expect(schemaAny.sameAs.length).toBeGreaterThan(0);
-    }
-  });
-
-  it('should include GitHub social profiles', () => {
-    const schema = generateOrganizationSchema();
-    const schemaAny = schema as any;
-    
-    expect(schema).toHaveProperty('sameAs');
-    if (Array.isArray(schemaAny.sameAs)) {
-      expect(schemaAny.sameAs).toContain('https://twitter.com/github');
-      expect(schemaAny.sameAs).toContain('https://www.linkedin.com/company/github');
-      expect(schemaAny.sameAs).toContain('https://www.facebook.com/GitHub');
-    }
-  });
-});
 
 describe('generateWebSiteSchema', () => {
   it('should generate valid WebSite schema', () => {

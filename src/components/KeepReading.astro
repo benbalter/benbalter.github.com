@@ -58,7 +58,7 @@ const heroDate = getDateFromSlug(heroPost.id);
 
   {morePosts.length > 0 && (
     <div class="mt-8">
-      <p class="text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-4 keep-reading-item" data-keep-reading>More to explore</p>
+      <p class="text-xs font-semibold uppercase tracking-widest text-gray-600 dark:text-gray-300 mb-4 keep-reading-item" data-keep-reading>More to explore</p>
       <div class="grid gap-4 md:grid-cols-2">
         {morePosts.map((post) => {
           const postReadingTime = calculateReadingTime(post.body);

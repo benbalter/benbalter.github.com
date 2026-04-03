@@ -19,12 +19,12 @@ function personFields(overrides?: Partial<Person>): Person {
     email: siteConfig.email,
     jobTitle: `${siteConfig.jobTitle} at ${siteConfig.employer}`,
     sameAs: [
-      `https://github.com/${siteConfig.githubUsername}`,
-      `https://twitter.com/${siteConfig.socialUsername}`,
+      siteConfig.githubUsername && `https://github.com/${siteConfig.githubUsername}`,
+      siteConfig.socialUsername && `https://twitter.com/${siteConfig.socialUsername}`,
       siteConfig.linkedinUrl,
       siteConfig.mastodonUrl,
       siteConfig.blueskyUrl,
-    ],
+    ].filter(Boolean) as string[],
     image: `${siteConfig.url}/assets/img/headshot.jpg`,
   };
 
@@ -54,26 +54,9 @@ export function generateProfilePageSchema(): WithContext<ProfilePage> {
   return {
     '@context': 'https://schema.org',
     '@type': 'ProfilePage',
+    url: siteConfig.url,
     mainEntity: personFields(),
   } as WithContext<ProfilePage>;
-}
-
-/**
- * Generate Organization schema for GitHub
- */
-export function generateOrganizationSchema(): WithContext<Organization> {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'GitHub',
-    url: 'https://github.com',
-    logo: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
-    sameAs: [
-      'https://twitter.com/github',
-      'https://www.linkedin.com/company/github',
-      'https://www.facebook.com/GitHub',
-    ],
-  };
 }
 
 /**
@@ -158,9 +141,10 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url?: stri
         position: index + 1,
         name: item.name,
       };
-      // Only add item URL if it's not empty (last item in breadcrumb)
+      // Only add item URL and @id if it's not empty (last item in breadcrumb)
       if (item.url && item.url !== '') {
         element.item = item.url;
+        (element as unknown as Record<string, unknown>)['@id'] = item.url;
       }
       return element;
     }),
