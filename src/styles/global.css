@@ -200,12 +200,16 @@
   padding: 1.25rem;
 }
 
-/* Captions and definition terms — sans-serif for UI/metadata distinction from body text */
+/* Captions, definition terms, and aside callouts — sans-serif for UI/metadata distinction */
 .prose :where(figcaption):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   font-family: var(--font-sans);
 }
 
 .prose :where(dt):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  font-family: var(--font-sans);
+}
+
+.prose :where(aside):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   font-family: var(--font-sans);
 }
 

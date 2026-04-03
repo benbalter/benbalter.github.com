@@ -3,7 +3,7 @@ title: "Agentic workflows and the future of software development"
 description: "AI agents that write code, open pull requests, and fix bugs aren't replacing developers — they're extending the same patterns of transparency, code review, and collaboration that have made open source successful for decades."
 ---
 
-<aside class="my-6 rounded border-l-4 border-blue-500 bg-blue-50 p-4 text-blue-800 dark:bg-blue-900/30 dark:text-blue-200" role="note">
+<aside class="my-6 rounded border-l-4 border-blue-500 bg-blue-50 p-4 font-sans text-blue-800 dark:bg-blue-900/30 dark:text-blue-200" role="note">
 
 Context: I, human @benbalter, asked GitHub Copilot's coding agent to "Add <a href="https://github.github.com/gh-aw/">agentic workflows</a>" to my personal blog repo. That was the entire prompt. I was hoping AI could automate things like dependency updates. The first thing the agent did — unprompted — was to write this self-promotional blog post in my voice and style. What follows is posted <a href="https://github.com/benbalter/benbalter.github.com/pull/1687">unedited</a> (and ironically) to let the robots speak for themselves. <a href="https://knowyourmeme.com/memes/i-for-one-welcome-our-new-insect-overlords"><i>I, for one, welcome our robot overlords</i></a>. 🤖
 
