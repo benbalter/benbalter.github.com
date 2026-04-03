@@ -29,7 +29,7 @@ const variantClasses = {
 } as const;
 ---
 
-<aside class={`my-6 rounded-lg border-l-4 p-4 shadow-sm ${variantClasses[type]}`} role="note" aria-label={`${type} callout`}>
+<aside class={`my-6 rounded-lg border-l-4 p-4 font-sans shadow-sm ${variantClasses[type]}`} role="note" aria-label={`${type} callout`}>
   {title && (
     <div class="mb-2 flex items-center gap-2 font-semibold">
       <span class="text-lg" aria-hidden="true">{icons[type]}</span>
