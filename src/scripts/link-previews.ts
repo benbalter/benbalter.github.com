@@ -105,7 +105,8 @@ let hideTimer: ReturnType<typeof setTimeout> | null = null;
 let activeAnchor: HTMLAnchorElement | null = null;
 
 function getOrCreateCard(): HTMLDivElement {
-  if (card) return card;
+  // Check if card is still in the DOM (View Transitions swap the body)
+  if (card && card.isConnected) return card;
 
   card = document.createElement('div');
   card.className = 'link-preview-card';
@@ -277,11 +278,17 @@ function initLinkPreviews() {
   const container = document.querySelector('.post-content');
   if (!container) return;
 
+  // Reset stale state from previous page (View Transitions keep JS memory)
+  hideCard();
+  activeAnchor = null;
+
   // Event delegation on the post content container
   container.addEventListener('mouseenter', onMouseEnter, true);
   container.addEventListener('mouseleave', onMouseLeave, true);
   container.addEventListener('focusin', onFocusIn);
   container.addEventListener('focusout', onFocusOut);
+
+  // Use { once: false } — safe to re-add because duplicate listeners are ignored
   document.addEventListener('keydown', onKeyDown);
 
   // Pre-warm: start loading metadata when any post link enters viewport
