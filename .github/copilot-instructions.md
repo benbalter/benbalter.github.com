@@ -218,11 +218,18 @@ Blog posts must include:
 
 ## Content Guidelines
 
-* Write in clear, professional tone
+* **Professional, not formal**: Professionalism is mastery of craft—clear, efficient, and direct. Formality is strict adherence to rules at the expense of clarity. Warmth and competence aren't opposites.
+* Write direct, opinionated, conversational prose—like a smart colleague over coffee, not a corporate memo or AI-generated text
 * Use inclusive language (checked via retext-equality)
 * Maintain readability (checked via retext-readability)
 * Check spelling and grammar (retext-spell, textlint)
-* Use proper typographic conventions (em dashes, en dashes, etc.)
+* Use proper typographic conventions (em dashes with no spaces, en dashes for ranges, Oxford comma always)
+* Avoid corporate buzzwords and clichés—use precise, specific language instead
+* Avoid AI-like writing patterns (excessive hedging, formulaic transitions, hollow summarization, meta-commentary)
+* Use contractions naturally, sentence fragments for emphasis, and em-dashes for conversational asides
+* Write for a global audience—avoid cultural idioms, use unambiguous date formats, consider neurodiversity
+* Apply the three litmus tests: the coffee test, the "anyone test", and the "explain to a new hire" test
+* See the Writing Agent (`writing.md`) for comprehensive voice and style guidance
 
 ## Astro Components
 
@@ -284,9 +291,13 @@ Use this agent for development tasks that involve modifying or creating code fil
 
 Specialized for content creation and editing that authentically matches Ben Balter's distinctive writing voice:
 
+* **Writing voice**: Direct, opinionated, conversational—like a smart colleague over coffee, not a corporate memo
 * **Blog posts**: Technology leadership, open source, remote work, collaboration
-* **Writing voice**: Analytical yet accessible, engineering analogies, empathetic
-* **Distinctive patterns**: Internal linking, footnotes, memorable concepts
+* **Anti-AI patterns**: Avoids hedging, formulaic transitions, hollow summarization, and other machine-generated tells
+* **Language principles**: Plain language, active voice, specific and concrete, no buzzwords or clichés
+* **Global audience**: Avoids cultural idioms, uses unambiguous formats, considers neurodiversity
+* **Distinctive patterns**: Internal linking, footnotes, engineering analogies, memorable concepts
+* **Quality tests**: The coffee test, the "anyone test", and the "explain to a new hire" test
 * **Technical documentation**: README files, guides, and docs
 * **SEO optimization**: Titles, descriptions, and structured content
 * **Style compliance**: Vale, textlint, remark, and markdownlint
