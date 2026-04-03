@@ -3,7 +3,7 @@
  * Generated at build time — no runtime cost.
  */
 
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import { getPostUrl } from '../utils/post-urls';
 import GithubSlugger from 'github-slugger';
 
