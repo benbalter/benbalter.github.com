@@ -145,10 +145,8 @@
   height: auto;
 }
 
-/* First paragraph of blog posts — slightly larger for a polished lead-in */
+/* First paragraph of blog posts — color override; typography lives in @layer components */
 .post-content > p:first-of-type {
-  font-size: 1.125em;
-  line-height: 1.85;
   color: var(--color-gray-800);
 }
 
