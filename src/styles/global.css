@@ -35,6 +35,7 @@
 
   /* Font families - Inter via Astro Fonts API with system font fallbacks */
   --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-serif: var(--font-lora), Georgia, "Times New Roman", Times, serif;
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 
   /* Custom shadows */
@@ -94,6 +95,13 @@
 /* Body text line height — slightly more generous for comfortable long-form reading */
 .prose {
   line-height: 1.8;
+  font-family: var(--font-serif);
+  font-feature-settings: "kern" 1, "liga" 1, "onum" 1, "pnum" 1;
+}
+
+/* Prose headings use sans-serif for contrast with serif body text */
+.prose :where(h1, h2, h3, h4, h5, h6):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  font-family: var(--font-sans);
 }
 
 /* Prose link underlines — override Typography plugin's shorthand reset */
@@ -137,6 +145,17 @@
   height: auto;
 }
 
+/* First paragraph of blog posts — color override; typography lives in @layer components */
+.post-content > p:first-of-type {
+  color: var(--color-gray-800);
+}
+
+@media (prefers-color-scheme: dark) {
+  .post-content > p:first-of-type {
+    color: var(--color-gray-200);
+  }
+}
+
 /* List item spacing — slightly more room between items for readability */
 .prose li {
   margin-top: 0.375em;
@@ -149,6 +168,7 @@
   border-left-style: solid;
   border-left-color: var(--color-primary);
   font-style: italic;
+  font-family: var(--font-serif);
   color: var(--color-gray-600);
 }
 
@@ -463,6 +483,7 @@
   /* Blockquotes */
   blockquote {
     @apply border-l-[3px] border-primary pl-8 py-3 my-10 italic;
+    font-family: var(--font-serif);
     font-size: 1.0625rem;
     line-height: 1.8;
     hanging-punctuation: first last;
