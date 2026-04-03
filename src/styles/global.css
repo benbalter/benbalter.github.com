@@ -190,6 +190,15 @@
   padding: 1.25rem;
 }
 
+/* Captions and definition terms — sans-serif for UI/metadata distinction from body text */
+.prose :where(figcaption):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  font-family: var(--font-sans);
+}
+
+.prose :where(dt):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  font-family: var(--font-sans);
+}
+
 /* ============================================================================
  * Custom Base Styles
  * These override Tailwind's default base styles
@@ -504,9 +513,10 @@
     @apply mb-0;
   }
 
-  /* Tables */
+  /* Tables — sans-serif for data readability (tables are scanned, not read linearly) */
   table {
     @apply my-8 max-w-full;
+    font-family: var(--font-sans);
     font-variant-numeric: tabular-nums;
   }
 
@@ -874,9 +884,10 @@
     }
   }
 
-  /* Footnotes */
+  /* Footnotes — reference material uses sans-serif for visual distinction from body */
   .footnotes {
     @apply text-sm border-t border-gray-200 pt-6 mt-12 mb-8;
+    font-family: var(--font-sans);
     color: var(--color-gray-600);
   }
 
