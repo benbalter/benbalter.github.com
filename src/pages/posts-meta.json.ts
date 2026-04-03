@@ -49,7 +49,7 @@ function extractHeadings(body: string): Heading[] {
 }
 
 export async function GET() {
-  const posts = await getCollection('posts', ({ data }) => data.published !== false);
+  const posts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => data.published !== false);
   const meta: Record<string, PostMeta> = {};
 
   for (const post of posts) {
