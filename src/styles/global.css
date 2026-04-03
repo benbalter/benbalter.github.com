@@ -38,11 +38,11 @@
   --font-serif: var(--font-lora), Georgia, "Times New Roman", Times, serif;
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 
-  /* Custom shadows */
-  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.05);
-  --shadow-card-hover: 0 12px 24px rgba(0, 0, 0, 0.15);
-  --shadow-card-dark: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-card-hover-dark: 0 12px 24px rgba(0, 0, 0, 0.5);
+  /* Custom shadows — progressive elevation scale */
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.08), 0 12px 24px rgba(0, 0, 0, 0.12);
+  --shadow-card-dark: 0 1px 3px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover-dark: 0 4px 12px rgba(0, 0, 0, 0.3), 0 12px 24px rgba(0, 0, 0, 0.4);
 
   /* Typography prose color - primary */
   --color-prose-primary: #337ab7;

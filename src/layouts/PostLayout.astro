@@ -97,7 +97,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
     <div>
       <article data-pagefind-body>
         <Breadcrumbs title={title} />
-        <header class="mb-8">
+        <header class="mb-10">
           <h1 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100" transition:name="page-title">{title}</h1>
           
           {readingTime > 0 && (
@@ -129,7 +129,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         <ReadingProgress />
         
         {pubDate && (
-          <div class="mt-8 border-t border-gray-200 dark:border-gray-700 py-4 flex flex-wrap items-center justify-between gap-x-3 gap-y-3 text-sm text-gray-600 dark:text-gray-300" data-pagefind-ignore>
+          <div class="mt-12 border-t border-gray-200 dark:border-gray-700 py-5 flex flex-wrap items-center justify-between gap-x-3 gap-y-3 text-sm text-gray-600 dark:text-gray-300" data-pagefind-ignore>
             <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
               <span>Originally published {formattedDate}</span>
               <span aria-hidden="true">·</span>
@@ -140,9 +140,9 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         )}
         
         {tags.length > 0 && (
-          <div class="mt-4 mb-4" data-pagefind-ignore>
+          <div class="mt-2 mb-8" data-pagefind-ignore>
             <div class="flex flex-wrap items-center gap-2">
-              <span class="text-sm text-gray-600 dark:text-gray-300 font-medium uppercase tracking-wide">Tags</span>
+              <span class="text-xs text-gray-600 dark:text-gray-300 font-medium uppercase tracking-wide">Tags</span>
               {tags.map((tag) => (
                 <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 dark:bg-primary/20 text-primary-700 dark:text-primary-300 border border-primary/20 dark:border-primary/30" data-pagefind-filter="tag">{tag}</span>
               ))}
@@ -159,7 +159,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         <div data-pagefind-ignore>
         <PostNavigation prevPost={prevPost} nextPost={nextPost} />
         
-        <footer class="border-t-2 border-gray-200 dark:border-gray-700 pt-6 mt-6 mb-8 post-footer">
+        <footer class="border-t border-gray-200 dark:border-gray-700 pt-8 mt-10 mb-8 post-footer">
           <div class="mini-bio-card mb-6">
             <MiniBio />
           </div>
