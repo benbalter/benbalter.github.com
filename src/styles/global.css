@@ -97,11 +97,15 @@
   line-height: 1.8;
   font-family: var(--font-serif);
   font-feature-settings: "kern" 1, "liga" 1, "onum" 1, "pnum" 1;
+  letter-spacing: 0.005em;
+  word-spacing: 0.05em;
 }
 
 /* Prose headings use sans-serif for contrast with serif body text */
 .prose :where(h1, h2, h3, h4, h5, h6):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   font-family: var(--font-sans);
+  letter-spacing: -0.02em;
+  word-spacing: normal;
 }
 
 /* Prose link underlines — override Typography plugin's shorthand reset */
@@ -120,12 +124,17 @@
 
 /* Heading spacing — more breathing room above, tighter coupling below */
 .prose h2 {
-  margin-top: 2em;
+  margin-top: 2.25em;
   margin-bottom: 0.75em;
 }
 
 .prose h3 {
-  margin-top: 1.6em;
+  margin-top: 1.75em;
+  margin-bottom: 0.5em;
+}
+
+.prose h4 {
+  margin-top: 1.5em;
   margin-bottom: 0.5em;
 }
 
@@ -169,6 +178,7 @@
   border-left-color: var(--color-primary);
   font-style: italic;
   font-family: var(--font-serif);
+  letter-spacing: 0.01em;
   color: var(--color-gray-600);
 }
 
@@ -243,12 +253,22 @@
 
   /* Typography - Headings */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold;
+    font-family: var(--font-sans);
     line-height: 1.25;
     margin-top: 2em;
     margin-bottom: 0.5em;
     font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
     text-wrap: balance;
+  }
+
+  /* Primary headings — bold for strong visual anchoring */
+  h1, h2 {
+    @apply font-bold;
+  }
+
+  /* Secondary headings — semibold for clear but softer hierarchy */
+  h3, h4, h5, h6 {
+    @apply font-semibold;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -259,27 +279,39 @@
 
   h1 {
     font-size: clamp(1.875rem, 1.5rem + 1.875vw, 2.441rem);
+    line-height: 1.15;
     letter-spacing: -0.025em;
     margin-top: 0;
   }
 
   h2 {
     font-size: clamp(1.5rem, 1.25rem + 1.25vw, 1.953rem);
+    line-height: 1.2;
     letter-spacing: -0.02em;
   }
 
   h3 {
     font-size: clamp(1.25rem, 1.1rem + 0.75vw, 1.563rem);
+    line-height: 1.3;
     letter-spacing: -0.015em;
   }
 
   h4 {
     font-size: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+    line-height: 1.3;
     letter-spacing: -0.01em;
   }
 
-  h5, h6 {
-    @apply text-base;
+  h5 {
+    font-size: 1.0625rem;
+    line-height: 1.35;
+    letter-spacing: -0.005em;
+  }
+
+  h6 {
+    @apply text-base uppercase tracking-wide;
+    line-height: 1.35;
+    font-size: 0.875rem;
   }
 
   /* Typography - Paragraphs */
@@ -495,6 +527,7 @@
     font-family: var(--font-serif);
     font-size: 1.0625rem;
     line-height: 1.8;
+    letter-spacing: 0.01em;
     hanging-punctuation: first last;
     @apply text-gray-700;
   }
@@ -976,11 +1009,11 @@
     }
   }
 
-  /* First Paragraph Enhancement */
+  /* First Paragraph Enhancement — lead paragraph with subtle visual distinction */
   article > p:first-of-type,
   .post-content > p:first-of-type {
     @apply text-lg;
-    line-height: 1.8;
+    line-height: 1.9;
     @apply text-gray-700;
   }
 
