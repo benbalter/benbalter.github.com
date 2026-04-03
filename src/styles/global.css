@@ -215,7 +215,9 @@
     line-height: 1.7;
     font-weight: 400;
     font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "cv01" 1, "cv03" 1;
+    font-optical-sizing: auto;
     font-variant-numeric: proportional-nums;
+    font-variant-ligatures: common-ligatures contextual;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     @apply text-gray-900 bg-white;
@@ -480,15 +482,17 @@
 
   /* Blockquotes */
   blockquote {
-    @apply border-l-[5px] border-primary pl-8 py-3 my-10 italic text-lg;
+    @apply border-l-[3px] border-primary pl-8 py-3 my-10 italic;
     font-family: var(--font-serif);
-    line-height: 1.75;
+    font-size: 1.0625rem;
+    line-height: 1.8;
     hanging-punctuation: first last;
+    @apply text-gray-700;
   }
 
   @media (prefers-color-scheme: dark) {
     blockquote {
-      @apply border-primary;
+      @apply border-primary-400 text-gray-300;
     }
   }
 
@@ -502,12 +506,25 @@
 
   /* Tables */
   table {
-    @apply my-6 max-w-full;
+    @apply my-8 max-w-full;
+    font-variant-numeric: tabular-nums;
   }
 
-  th, td {
+  th {
+    @apply p-3 text-left font-semibold text-gray-900;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+  }
+
+  td {
     @apply p-3;
     line-height: 1.5;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    th {
+      @apply text-gray-100;
+    }
   }
 
   /* Table responsive wrapper for mobile */
@@ -522,6 +539,29 @@
 
     th, td {
       @apply p-2;
+    }
+  }
+
+  /* Horizontal Rules */
+  hr {
+    @apply my-12 border-0;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--color-gray-300),
+      transparent
+    );
+  }
+
+  @media (prefers-color-scheme: dark) {
+    hr {
+      background: linear-gradient(
+        to right,
+        transparent,
+        var(--color-gray-700),
+        transparent
+      );
     }
   }
 
@@ -550,7 +590,7 @@
     }
 
     h1, h2, h3, h4, h5, h6 {
-      letter-spacing: -0.01em;
+      letter-spacing: -0.015em;
       margin-top: 1.5em;
       margin-bottom: 0.5em;
     }
@@ -778,7 +818,7 @@
 
   .nav-link {
     @apply px-4 py-3 flex items-center;
-    @apply text-[#1a5490] no-underline;
+    @apply text-primary-700 no-underline;
     @apply min-h-[44px];
     @apply transition-colors duration-200;
     touch-action: manipulation;
@@ -799,7 +839,7 @@
   }
 
   .nav-link:hover {
-    @apply text-[#133d6b];
+    @apply text-primary-900;
   }
 
   .nav-link.active {
@@ -808,10 +848,10 @@
 
   @media (prefers-color-scheme: dark) {
     .nav-link {
-      @apply text-[#6cb4e8];
+      @apply text-primary-300;
     }
     .nav-link:hover {
-      @apply text-[#8ac6f0];
+      @apply text-primary-200;
     }
     .nav-link.active {
       @apply text-gray-100;
@@ -836,17 +876,19 @@
 
   /* Footnotes */
   .footnotes {
-    @apply text-sm border-t border-gray-200 pt-2 mt-8 mb-8;
+    @apply text-sm border-t border-gray-200 pt-6 mt-12 mb-8;
+    color: var(--color-gray-600);
   }
 
   @media (prefers-color-scheme: dark) {
     .footnotes {
       @apply border-gray-700;
+      color: var(--color-gray-400);
     }
   }
 
   .footnotes h2 {
-    @apply mb-2;
+    @apply mb-3 text-sm font-semibold uppercase tracking-wide;
   }
 
   .footnotes ol {
@@ -927,7 +969,15 @@
   article > p:first-of-type,
   .post-content > p:first-of-type {
     @apply text-lg;
-    line-height: 1.75;
+    line-height: 1.8;
+    @apply text-gray-700;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    article > p:first-of-type,
+    .post-content > p:first-of-type {
+      @apply text-gray-300;
+    }
   }
 
   /* Section Headers */
