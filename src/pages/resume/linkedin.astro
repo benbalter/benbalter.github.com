@@ -224,41 +224,5 @@ const educationData: EducationData[] = degrees?.map((degree: { school: string; d
 </PageLayout>
 
 <script>
-  function initCopyButtons() {
-    document.querySelectorAll('.copy-btn').forEach(btn => {
-      btn.addEventListener('click', async () => {
-        let textToCopy = '';
-        
-        if (btn.classList.contains('copy-description')) {
-          const descriptionElement = btn.closest('.flex')?.querySelector('[data-description]');
-          textToCopy = descriptionElement?.textContent?.trim() || '';
-        } else {
-          textToCopy = btn.getAttribute('data-copy') || '';
-        }
-        
-        try {
-          await navigator.clipboard.writeText(textToCopy);
-          
-          const original = btn.textContent;
-          btn.textContent = '✓';
-          btn.classList.add('!bg-green-600');
-          
-          setTimeout(() => {
-            btn.textContent = original;
-            btn.classList.remove('!bg-green-600');
-          }, 1500);
-        } catch (err) {
-          console.error('Failed to copy text:', err);
-          const original = btn.textContent;
-          btn.textContent = '✗';
-          setTimeout(() => {
-            btn.textContent = original;
-          }, 1500);
-        }
-      });
-    });
-  }
-
-  // Re-initialize after Astro view transitions
-  document.addEventListener('astro:page-load', initCopyButtons);
+  import '../../scripts/linkedin-copy';
 </script>
