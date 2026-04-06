@@ -37,7 +37,7 @@ import Icon from './Icon.astro';
         {footerLinks.map((link) => (
           <li class="relative">
             <a href={link.url} class="nav-link link-secondary text-gray-700 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 px-3 py-2 text-sm transition-all duration-200 footer-link">
-              <Fragment set:html={link.title.replace(/&/g, '<span class="text-primary dark:text-primary-300">&amp;</span>')} />
+              <Fragment set:html={link.title.replace(/&/g, '<span class="text-primary dark:text-primary-300 mx-0.5">&amp;</span>')} />
             </a>
           </li>
         ))}
