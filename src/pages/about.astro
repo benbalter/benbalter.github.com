@@ -38,15 +38,17 @@ const popularPostItems: PostItem[] = popularPostSlugs
 
 <PageLayout title={title} description={description}>
   <div>
-    <div class="float-right ml-6 mb-4 max-w-[200px] md:max-w-[250px]">
-      <a href={`${siteConfig.githubRepoUrl}/raw/master/assets/img/headshot.jpg`}>
-        <Image src={headshotImage} alt={`${siteConfig.author} headshot`} width={250} height={250} layout="fixed" class="w-full rounded" />
-      </a>
-    </div>
+    <div class="md:flex md:items-start md:gap-6">
+      <div class="float-right ml-6 mb-4 max-w-[200px] md:float-none md:ml-0 md:mb-0 md:max-w-none md:shrink-0 md:w-[250px] md:order-last">
+        <a href={`${siteConfig.githubRepoUrl}/raw/main/assets/img/headshot.jpg`}>
+          <Image src={headshotImage} alt={`${siteConfig.author} headshot`} width={250} height={250} layout="fixed" class="w-full rounded" />
+        </a>
+      </div>
 
-    <p class="text-lg leading-relaxed" set:html={lede}></p>
+      <div class="md:min-w-0">
+        <p class="text-lg leading-relaxed" set:html={lede}></p>
 
-    <aside aria-label="At a glance" class="clear-both not-prose my-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/50 px-5 py-4">
+        <aside aria-label="At a glance" class="clear-both not-prose my-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/50 px-5 py-4">
       <p class="text-xs font-semibold uppercase tracking-wide text-gray-700 dark:text-gray-400 mb-3">At a Glance</p>
       <dl class="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-3 text-sm m-0">
         <div>
@@ -66,6 +68,8 @@ const popularPostItems: PostItem[] = popularPostSlugs
         <a href="/resume/" class="text-primary dark:text-primary-300 hover:underline">Full resume →</a>
       </div>
     </aside>
+      </div>
+    </div>
   </div>
 
   <h2 class="clear-both">At GitHub</h2>
