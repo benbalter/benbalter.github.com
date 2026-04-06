@@ -5,6 +5,8 @@ on:
 permissions:
   contents: read
 safe-outputs:
+  noop:
+    report-as-issue: false
   create-issue:
     title-prefix: "[seo-audit] "
     labels: [seo, content]
