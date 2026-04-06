@@ -89,6 +89,7 @@ export const socialLinks: SocialLink[] = [
 
 // Footer navigation links
 export const footerLinks: FooterLink[] = [
+  { title: 'Open & Async', url: 'https://open-and-async.com/' },
   { title: 'No Agenda, No Meeting', url: 'https://noagendanomeeting.net/' },
   { title: 'Other Recommended Reading', url: '/other-recommended-reading/' },
   { title: 'Fine Print', url: '/fine-print/' },
