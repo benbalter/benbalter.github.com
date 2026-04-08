@@ -3,31 +3,31 @@ title: "AI-first program management: amplifying judgment, not replacing it"
 description: "AI-augmented program management is the natural evolution of async-first and engineering-inspired workflows — amplifying human judgment, not replacing it."
 ---
 
-Picture this: it's Monday morning, and you've got six ongoing programs across four teams spanning three time zones. Over the weekend, a dozen threads moved forward, two risks materialized, and someone quietly changed the scope of a critical deliverable in a comment buried three levels deep. Your job is to synthesize all of that into a coherent picture before your 10 AM leadership sync.
+When I first wrote about [the nine things a program manager does](/2021/03/26/nine-things-a-technical-program-manager-does/), the hardest part of the job was the Monday morning scramble: six programs, four teams, three time zones, a dozen threads that moved over the weekend, two risks that materialized, and someone who quietly changed the scope of a critical deliverable in a comment buried three levels deep. All of it needed synthesizing into a coherent picture before the 10 AM leadership sync.
 
-This is the reality of modern program management — and it's exactly the kind of work that AI is poised to transform.
+That scramble hasn't gone away. But increasingly, I'm not doing it alone.
 
 ## From async to AI-augmented
 
-A few years ago, I wrote about the nine core things a program manager does on any given day.[^1] Shortly after, I made the case for why teams should default to asynchronous communication[^2] — written, durable, discoverable artifacts over synchronous meetings.[^6] Then I argued that managers should use the same tools engineers use — issues, pull requests, project boards — to plan and track their own work.[^3] Most recently, I explored how AI agents are extending the same patterns of transparency and code review that made open source successful.[^4]
+The evolution makes sense in hindsight. I've argued that teams should [default to async communication](/2022/03/17/why-async/) — written, durable, discoverable artifacts over synchronous [meetings](/2023/04/20/meetings-are-a-point-of-escalation/). That managers should [use the same tools engineers use](/2023/01/10/manage-like-an-engineer/) — issues, pull requests, project boards — to plan and track their own work. And most recently, that [AI agents are extending the same patterns](/2026/03/18/agentic-workflows/) of transparency and code review that made open source successful.
 
 These ideas aren't disconnected. They're an evolution.
 
 If the shift from synchronous to async was about decoupling communication from presence, and managing like an engineer was about applying developer workflows to leadership, then AI-first program management is the next logical step: using AI to amplify the judgment, pattern recognition, and relationship work that makes program managers effective.
 
-The through-line is the same principle I've been writing about for years: make work visible, make it durable, and reduce the friction between having an idea and acting on it. AI doesn't change that philosophy. It accelerates it.
+The through-line is the same principle I've been writing about for years: [make work visible](/2022/02/16/leaders-show-their-work/), make it durable, and reduce the friction between having an idea and acting on it. AI doesn't change that philosophy. It accelerates it.
 
 ## AI across the PM toolkit
 
-Let me walk through the core program management responsibilities and show what changes — and what doesn't — when AI enters the picture.
+Here's how each core PM responsibility shifts when AI enters the picture — and where it doesn't.
 
 ### Communication, coordination, and facilitation
 
-Program managers are professional context-switchers. You spend your day translating between engineering teams, product managers, designers, and executives — each with different mental models and vocabulary. It's an O(n²) communication problem, and it only gets worse as the organization grows.
+Program managers are professional context-switchers. You spend your day translating between engineering teams, product managers, designers, and executives — each with different mental models and vocabulary.[^1] It's an O(n²) communication problem, and it only gets worse as the organization grows.
 
 AI doesn't eliminate that complexity, but it compresses the information-shuttling work. An LLM can summarize a 200-message thread into a paragraph. It can draft a status update that translates "we're blocked on a schema migration that requires a backward-compatible rollout strategy" into language an executive actually cares about. It can take meeting notes and extract the three things that matter from the twenty that were discussed.
 
-The PM still decides *what* to communicate and *when* — that's judgment.[^5] But the mechanical work of drafting, reformatting, and distributing information across audiences? That's exactly the kind of task AI handles well.
+I've [written about how we communicate at GitHub](/2023/10/04/how-to-communicate-like-a-github-engineer/) — optimizing for clarity, discoverability, and low-context readers. AI handles the mechanical work of drafting and reformatting for different audiences. The editorial choices — *what* to communicate, what to emphasize, when to pick up the phone instead — stay with you.
 
 ### Capture and track work
 
@@ -39,11 +39,11 @@ This matters because the biggest risk in program management isn't that something
 
 ### Risk identification and mitigation
 
-Speaking of risk — PMs are supposed to see around corners. In practice, that often means reading a lot of threads, attending a lot of standups, and developing an intuition for when something *feels* off.
+Speaking of risk — PMs are supposed to see around corners. In practice, that means reading a lot of threads, attending a lot of standups, and developing an intuition for when something *feels* off.
 
-AI can augment that intuition with pattern recognition at scale. It can analyze velocity trends across repositories, flag pull requests that have been open too long, identify dependencies that no human mapped, and surface the kinds of cross-project risks that are invisible when you're looking at one team's board in isolation. Imagine catching a staffing conflict between two programs before either PM even realizes they're competing for the same engineer's time — because the AI noticed overlapping assignments across project boards.
+AI augments that intuition with pattern recognition at scale. It can analyze velocity trends across repositories, flag pull requests that have been open too long, identify dependencies that no human mapped, and surface cross-project risks that are invisible when you're looking at one team's board in isolation. I've called [transparent collaboration the andon of knowledge work](/2023/08/30/transparency-collaboration-is-the-andon-of-knowledge-production/) — pull the cord when something's off. AI is an andon that monitors every cord at once, catching a staffing conflict between two programs before either PM realizes they're competing for the same engineer's time.
 
-I'm not suggesting AI replaces the experienced PM's gut feeling that "this one's going to slip." But it can surface the signals earlier, giving you more time to act. The best risk management has always been about buying time — and AI buys you more of it.
+AI won't replace the experienced PM's gut feeling that "this one's going to slip." But it surfaces the signals earlier, giving you more time to act. The best risk management has always been about buying time.
 
 ### Reporting up and across
 
@@ -55,7 +55,7 @@ The key word there is *start*. An AI-generated status report is a first draft, n
 
 ### Relationship management
 
-I've described program management as fundamentally a relationship business — you're making regular deposits to the social capital bank long before you need to make a withdrawal.[^1] AI doesn't replace that. You can't automate trust.
+Program management is fundamentally a relationship business. When I first moved into the TPM role, I remember watching senior PMs set up "just wanted to say hello" meetings and dismissing it as socializing on company time — until I realized that's exactly the point.[^2] You make regular deposits to the social capital bank long before you need a withdrawal. AI doesn't replace that. You can't automate trust.
 
 But AI can help you *maintain* relationships at scale. It can remind you that you haven't checked in with a particular stakeholder in two weeks. It can surface context before a meeting — "last time you spoke with this team, they raised concerns about the timeline for the API migration." It can help you draft a thoughtful response to a tricky message when you're running low on cognitive bandwidth at 4 PM on a Thursday.
 
@@ -65,7 +65,7 @@ The human work — building rapport, reading a room, knowing when someone's 
 
 Driving consensus across teams with competing priorities is among the hardest things a PM does. It requires understanding not just each team's *position*, but their *interests* — the underlying needs that drive those positions.
 
-AI can help by synthesizing different viewpoints, drafting proposals that incorporate multiple perspectives, and suggesting compromises based on stated constraints. Think of it like using AI to write the first draft of an RFC that reflects everyone's input — you still need to facilitate the conversation, but you're starting from a more complete picture than any single person could assemble manually.
+AI can help by synthesizing different viewpoints, drafting proposals that incorporate multiple perspectives, and suggesting compromises based on stated constraints. Need an RFC that reflects six teams' input? AI can produce a first draft that no single person could assemble manually — but you still need to facilitate the conversation that turns a draft into a decision.
 
 Where AI falls short is in reading the political dynamics. Understanding that Team A's objection is really about being burned in a previous launch, or that a particular VP's silence means something different than a junior engineer's silence — that's pattern recognition of a deeply human kind. No model is going to learn the org chart's shadow topology from a prompt.
 
@@ -75,25 +75,25 @@ One of the program manager's superpowers is the ability to engage across boundar
 
 AI dramatically lowers the cost of those context switches. It can brief you on a project you haven't touched in a week. It can summarize what happened in a channel while you were focused elsewhere. It can help you draft a message calibrated for an audience you don't interact with daily.
 
-If async communication decoupled work from time zones,[^2] AI decouples engagement from the cognitive overhead of maintaining context across a dozen concurrent workstreams. It's like a working memory upgrade for your entire portfolio.
+If [async communication](/2022/03/17/why-async/) decoupled work from time zones, AI decouples engagement from the cognitive overhead of maintaining context across a dozen concurrent workstreams. It's a working memory upgrade for your entire portfolio.
 
-### Doing what needs to be done
+### The long tail of program work
 
-The final — and perhaps most important — PM responsibility is the catch-all: doing whatever needs to be done to keep a program moving forward. Sometimes that means writing a missing spec. Sometimes it means scheduling a meeting nobody wants to own. Sometimes it means reformatting a spreadsheet at 9 PM because a VP asked for a different view of the data.
+Every PM knows the catch-all responsibility: do whatever needs to be done to keep the program moving. Sometimes that means writing a missing spec. Sometimes it means scheduling a meeting nobody wants to own. Sometimes it means reformatting a spreadsheet at 9 PM because a VP asked for a different view of the data.
 
 AI is exceptional at this long tail of tasks. Drafting documents, cleaning up data, formatting reports, writing follow-up emails, creating meeting agendas from prior action items — all the mundane-but-necessary work that eats a surprising percentage of a PM's week. Offloading these tasks means more time for the work that actually requires your judgment, empathy, and institutional knowledge.
 
 ## What doesn't change
 
-It would be easy to read all of this and conclude that AI is about to make program managers obsolete. I'd argue the opposite.
+It would be easy to read all of this and conclude that AI is about to make program managers obsolete. The opposite is true.
 
 The responsibilities haven't changed. Communication, risk management, relationship building, consensus-driving — these are still the job. What's shifted is the ratio of *information processing* to *judgment* in a PM's day. AI handles more of the former so you can focus more on the latter.
 
-The things AI can't do are precisely the things that make great PMs great: reading a room, building trust over months, knowing when to push and when to back off, navigating organizational politics, and making the hard call when the data is ambiguous. These are deeply human skills, and they become *more* valuable as AI handles the routine work, not less. When everyone has access to the same AI tools, the differentiator is the human wielding them.
+The things AI can't do are precisely the things that make great PMs great: reading a room, building trust over months, knowing when to push and when to back off, navigating organizational politics, and making the hard call when the data is ambiguous. These are human skills, and they become *more* valuable as AI handles the routine work, not less. When everyone has access to the same AI tools, the differentiator is the human wielding them.
 
 ## What changes for PMs
 
-That said, AI-first program management does require new muscles — or at least, new applications of existing ones.
+That said, AI-first program management does require new muscles — or at least, new applications of existing ones. Four capabilities stand out:
 
 **Prompt craft matters.** The quality of what AI produces depends entirely on the quality of what you ask for. PMs who can write clear, specific prompts — essentially, good requirements — will get dramatically better results than those who can't. It turns out that years of writing crisp issue descriptions and well-defined acceptance criteria is excellent training for working with LLMs. Good requirements have always been a PM superpower. Now they're a superpower twice over.
 
@@ -105,26 +105,14 @@ That said, AI-first program management does require new muscles — or at le
 
 ## The PM as orchestra conductor
 
-Here's the mental model I keep coming back to: the program manager as orchestra conductor.
+The mental model I keep coming back to is the program manager as orchestra conductor. A conductor doesn't play every instrument — they don't play *any* instrument during the performance. But they're essential: they set the tempo, bring in the right sections at the right time, interpret the score, and turn individual performances into a coherent whole.
 
-A conductor doesn't play every instrument. They don't play *any* instrument during the performance. But they're essential — they set the tempo, bring in the right sections at the right time, interpret the score, and turn individual performances into a coherent whole.
-
-AI agents are new instruments in the orchestra. They can play fast, they can play consistently, and they can handle parts that used to require a human musician. But someone still needs to read the score, understand the audience, and make the hundred small decisions that turn a technically correct performance into something that actually moves people.
-
-That someone is the program manager.
+AI agents are new instruments in the orchestra. They play fast, they play consistently, and they can handle parts that used to require a human musician. But someone still needs to read the score, understand the audience, and make the hundred small decisions that turn a technically correct performance into something that actually moves people. That's the PM's job — and it always will be.
 
 The shift from synchronous to async made program management more intentional. Managing like an engineer made it more transparent. AI makes it more leveraged. Each evolution builds on the last, and each one makes the human judgment at the center of the work more important, not less.
 
-The job isn't going away. It's getting more interesting — because when you spend less time on information logistics, you can spend more time on the parts of the job that drew you to it in the first place: solving hard problems with smart people across organizational boundaries.
+If you're a PM wondering where to start, pick the task that consumes the most time but requires the least judgment — status report assembly, meeting note cleanup, stakeholder update drafts — and hand it to an AI. You'll free up hours for the work that actually drew you to the role: solving hard problems with smart people across organizational boundaries.
 
-[^1]: [Nine things a (technical) program manager does](/2021/03/26/nine-things-a-technical-program-manager-does/)
+[^1]: I once counted the number of distinct audiences I communicated with in a single week as a TPM. The answer was genuinely depressing. Every additional team or stakeholder doesn't just add one more communication channel — it adds one per *existing* channel. This is why PMs' calendars look the way they do.
 
-[^2]: [Why you should work asynchronously](/2022/03/17/why-async/)
-
-[^3]: [Manage like an engineer](/2023/01/10/manage-like-an-engineer/)
-
-[^4]: [Agentic workflows and the future of software development](/2026/03/18/agentic-workflows/)
-
-[^5]: [Leaders show their work](/2022/02/16/leaders-show-their-work/)
-
-[^6]: [Meetings are a point of escalation, not the default](/2023/04/20/meetings-are-a-point-of-escalation/)
+[^2]: As much as I might like them to be, [human-to-human requests are unlike server-to-server requests](/2021/03/26/nine-things-a-technical-program-manager-does/). A properly authenticated request from a never-before-seen client is less likely to be fulfilled, or fulfilled in a timely manner, even if it's facially valid. Invest in the relationship before you need the favor.
