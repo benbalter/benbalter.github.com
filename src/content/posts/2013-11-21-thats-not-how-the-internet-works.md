@@ -1,6 +1,6 @@
 ---
 comments: true
-description: The internet forces us to reimagine desktop technologies as vehicles for collaboration.
+description: Stop publishing giant datasets as monolithic files. The internet prefers granularity, URLs, and community — treat your GitHub repo like a RESTful API and optimize for data consumers.
 title: That's not how the internet works
 ---
 

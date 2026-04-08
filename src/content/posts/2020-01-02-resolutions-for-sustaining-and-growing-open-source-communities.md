@@ -1,6 +1,6 @@
 ---
 title: Resolutions for sustaining and growing open source communities
-description: With the new year upon us, I wrote down a few of my New Year's resolutions for sustaining and growing open source communities. How are you approaching open source differently in 2020?
+description: Four resolutions for being a better open source community member, from reducing your bus factor to being a gracious dinner party host to your contributors.
 image: https://hackernoon.com/drafts/r3aw3zdl.png
 ---
 

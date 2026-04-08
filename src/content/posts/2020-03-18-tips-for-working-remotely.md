@@ -1,6 +1,6 @@
 ---
 title: Eight tips for working remotely
-description: When embracing remote work, you could have the best tools in the world, but without the necessary social norms, you're setting yourself up for failure. Here are eight cultural "rules" that represent the intangible of successful remote communication, regardless of your industry, your role, or what tools you use.
+description: Tools alone won't make remote work succeed. Eight cultural rules for effective async communication, regardless of your industry, your role, or what tools you use.
 ---
 
 *Recently new to remote work culture? This post is a non-software-specific adaption of my popular post [15 rules for communicating at GitHub](/2014/11/06/rules-of-communicating-at-github/) with "rules" adapted for fostering successful remote culture, regardless of what tools you use or what industry you're in. Looking for help choosing the best tools to support remote workflows? Check out my other post [four characteristics of modern collaboration tools](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/).*
@@ -21,7 +21,7 @@ In practice, this means that you essentially *never* "walk over" to a coworker's
 
 ## 2. Don't underestimate high-fidelity mediums
 
-High fidelity, synchronous mediums like Zoom, Skype, or Google Hangouts are extremely valuable, when used correctly. In many workplace cultures, synchronous meetings are the default, and are often used to make (or worse, communicate) decisions, two goals that are better achieved by non-evented means. What are the latest sales numbers? Create a blog post. Which design should we choose? Post it somewhere where we can discuss it. Reserve such high-fidelity mediums for things that simply can't be accomplished by lower fidelity means.
+High fidelity, synchronous mediums like Zoom, Skype, or Google Meet are extremely valuable, when used correctly. In many workplace cultures, synchronous meetings are the default, and are often used to make (or worse, communicate) decisions, two goals that are better achieved by non-evented means. What are the latest sales numbers? Create a blog post. Which design should we choose? Post it somewhere where we can discuss it. Reserve such high-fidelity mediums for things that simply can't be accomplished by lower fidelity means.
 
 In practice, this can come in three primary forms:
 

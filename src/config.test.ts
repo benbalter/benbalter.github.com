@@ -148,9 +148,9 @@ describe('footerLinks', () => {
     });
   });
 
-  it('should have URLs starting with /', () => {
+  it('should have valid URLs', () => {
     footerLinks.forEach(link => {
-      expect(link.url).toMatch(/^\//);
+      expect(link.url).toMatch(/^(\/|https?:\/\/)/);
     });
   });
 });

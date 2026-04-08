@@ -9,11 +9,9 @@ const description = `Contact ${siteConfig.author} via email or social media`;
 
 <PageLayout title={title} description={description}>
   <div class="max-w-2xl mx-auto">
-    <div class="rounded-lg bg-white dark:bg-gray-800/50 p-8 mb-8 border border-gray-200 dark:border-gray-700 text-center">
-      <p class="text-lg mb-0">
-        Looking to get in touch? Email <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> or I'm <code>@{siteConfig.socialUsername}</code> most places:
-      </p>
-    </div>
+    <p class="text-lg text-gray-700 dark:text-gray-300 mb-8">
+      The best way to reach me is via email at <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>. I'm also <code>@{siteConfig.socialUsername}</code> most places online:
+    </p>
 
     <ContactLinks />
   </div>

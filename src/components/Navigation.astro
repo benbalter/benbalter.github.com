@@ -54,7 +54,7 @@ const navClasses = hero
       const currentPath = window.location.pathname;
       const navLinks = document.querySelectorAll('[data-nav-links] .nav-link');
       
-      // Update active link state
+      // Update active link state (batch add/remove to minimize style recalculations)
       navLinks.forEach((link) => {
         const href = link.getAttribute('href');
         const isPostPage = /^\/\d{4}\/\d{2}\/\d{2}\//.test(currentPath);
@@ -62,20 +62,13 @@ const navClasses = hero
           (href === '/' && isPostPage) ||
           (href !== '/' && href !== null && currentPath.startsWith(href));
         
-        // Active classes
-        link.classList.toggle('active', isActive);
-        link.classList.toggle('text-gray-900', isActive);
-        link.classList.toggle('dark:text-gray-100', isActive);
-        link.classList.toggle('font-semibold', isActive);
-        // Inactive classes
-        link.classList.toggle('text-primary-800', !isActive);
-        link.classList.toggle('dark:text-primary-300', !isActive);
-        link.classList.toggle('hover:text-primary-900', !isActive);
-        link.classList.toggle('dark:hover:text-primary-200', !isActive);
-        
         if (isActive) {
+          link.classList.add('active', 'text-gray-900', 'dark:text-gray-100', 'font-semibold');
+          link.classList.remove('text-primary-800', 'dark:text-primary-300', 'hover:text-primary-900', 'dark:hover:text-primary-200');
           link.setAttribute('aria-current', 'page');
         } else {
+          link.classList.remove('active', 'text-gray-900', 'dark:text-gray-100', 'font-semibold');
+          link.classList.add('text-primary-800', 'dark:text-primary-300', 'hover:text-primary-900', 'dark:hover:text-primary-200');
           link.removeAttribute('aria-current');
         }
       });
@@ -101,7 +94,7 @@ const navClasses = hero
   <div class="flex flex-wrap items-center w-full">
     <!-- Left side: Brand + Nav links -->
     <div class="flex items-center flex-grow">
-      <a class="navbar-brand font-bold text-gray-900 dark:text-gray-100 no-underline min-h-[44px] flex items-center tracking-tight transition-colors duration-200 hover:text-primary dark:hover:text-primary-400 pb-2 text-lg" href="/">{siteConfig.name}</a>
+      <a class="navbar-brand font-bold text-gray-900 dark:text-gray-100 no-underline min-h-[44px] flex items-center tracking-tight transition-colors duration-200 hover:text-primary dark:hover:text-primary-400 pb-2 text-lg whitespace-nowrap shrink-0" href="/">{siteConfig.name}</a>
       
       <!-- Nav links (visible on desktop, left-aligned after brand) -->
       <div class="nav-collapse navbar-collapse md:flex md:items-center" id="navbar">
@@ -109,7 +102,7 @@ const navClasses = hero
           {navItems.map((item) => {
             const isActive = isNavActive(item.url);
             return (
-              <li class="nav-item relative">
+              <li class="nav-item relative" data-text={item.title}>
                 <a 
                   href={item.url} 
                   class={`nav-link px-4 py-3 flex items-center min-h-[44px] transition-colors duration-200 no-underline ${isActive ? 'active text-gray-900 dark:text-gray-100 font-semibold' : 'text-primary-800 dark:text-primary-300 hover:text-primary-900 dark:hover:text-primary-200'}`}
@@ -156,35 +149,6 @@ const navClasses = hero
 
 <style>
   @reference "../styles/global.css";
-  
-  /* Active nav link underline */
-  .nav-link {
-    position: relative;
-  }
-  
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    @apply bg-primary;
-    transition: width 0.2s ease, left 0.2s ease;
-  }
-  
-  .nav-link.active::after {
-    width: 80%;
-    left: 10%;
-  }
-  
-  @media (hover: hover) {
-    .nav-link:hover::after,
-    .nav-link:focus::after {
-      width: 80%;
-      left: 10%;
-    }
-  }
   
   /* Touch feedback */
   .nav-link:active {

@@ -47,6 +47,16 @@ export function rehypeBootstrapTables() {
 
         node.properties.className = classes;
       }
+
+      // Add scope="col" to <th> elements for screen reader accessibility
+      if (node.tagName === 'th') {
+        if (!node.properties) {
+          node.properties = {};
+        }
+        if (!node.properties.scope) {
+          node.properties.scope = 'col';
+        }
+      }
     });
   };
 }

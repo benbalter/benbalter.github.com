@@ -1,40 +1,53 @@
-# Cloudflare Pages headers configuration
+# Cloudflare headers configuration
 # https://developers.cloudflare.com/pages/configuration/headers/
 
-# Default headers for all pages: security + revalidate cache
-# More specific rules below override Cache-Control for static assets
+# Default headers for all pages: security + short cache with background revalidation
+# For a static site, short browser caching avoids network round-trips during a
+# browsing session while stale-while-revalidate ensures freshness in background.
+# Cloudflare automatically purges CDN cache on deploy.
 /*
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  X-XSS-Protection: 0
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
-  Cache-Control: public, max-age=0, must-revalidate
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' data: https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com https://api.github.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests
+  Cache-Control: public, max-age=120, stale-while-revalidate=86400
 
 # Immutable hashed assets (JS, CSS, images, fonts) - 1 year cache
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
-# RSS/Atom feeds
+# RSS/Atom feeds - 1 hour cache with background revalidation
 /feed.xml
-  Cache-Control: public, max-age=3600
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
-# Sitemaps
+# Sitemaps - 1 hour cache with background revalidation
 /sitemap-index.xml
-  Cache-Control: public, max-age=3600
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 /sitemap-0.xml
-  Cache-Control: public, max-age=3600
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
-# Search index (pagefind) - revalidate on deploy
+# Search index (pagefind) - 5 min cache, stable within a browsing session
 /pagefind/*
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=300, stale-while-revalidate=3600
 
-# Static assets (favicons, manifest)
+# Static assets (favicons, manifest) - 30 day cache
 /favicon.ico
-  Cache-Control: public, max-age=604800
+  Cache-Control: public, max-age=2592000, immutable
 /site.webmanifest
-  Cache-Control: public, max-age=604800
+  Cache-Control: public, max-age=2592000
 /apple-touch-icon.png
-  Cache-Control: public, max-age=604800
+  Cache-Control: public, max-age=2592000, immutable
+/android-chrome-*.png
+  Cache-Control: public, max-age=2592000, immutable
+/favicon-*.png
+  Cache-Control: public, max-age=2592000, immutable
+/mstile-*.png
+  Cache-Control: public, max-age=2592000, immutable
+
+# AI/LLM context files - 1 hour cache with background revalidation
+/llms.txt
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400

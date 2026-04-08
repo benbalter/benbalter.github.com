@@ -1,0 +1,95 @@
+#!/usr/bin/env node
+
+/**
+ * Add width/height attributes to <img> tags in built HTML that are missing them.
+ *
+ * For local images (paths starting with /), reads dimensions from the built
+ * dist directory. This prevents Cumulative Layout Shift (CLS) from images
+ * without explicit dimensions.
+ *
+ * Run after `astro build`, before pagefind.
+ */
+
+import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
+import { resolve, join } from 'node:path';
+import { imageSize } from 'image-size';
+
+const DIST_DIR = resolve(import.meta.dirname, '..', 'dist-astro');
+
+function walkHtmlFiles(dir, files = []) {
+  for (const entry of readdirSync(dir)) {
+    const full = resolve(dir, entry);
+    if (statSync(full).isDirectory()) {
+      walkHtmlFiles(full, files);
+    } else if (entry.endsWith('.html')) {
+      files.push(full);
+    }
+  }
+  return files;
+}
+
+// Cache dimensions to avoid reading the same file multiple times
+const dimensionCache = new Map();
+
+function getDimensions(src) {
+  if (dimensionCache.has(src)) return dimensionCache.get(src);
+
+  // Only process local absolute paths
+  if (!src.startsWith('/') || src.startsWith('//')) {
+    dimensionCache.set(src, null);
+    return null;
+  }
+
+  const filePath = join(DIST_DIR, src);
+  try {
+    const dims = imageSize(readFileSync(filePath));
+    if (dims.width && dims.height) {
+      const result = { width: dims.width, height: dims.height };
+      dimensionCache.set(src, result);
+      return result;
+    }
+  } catch {
+    // File not found or unreadable
+  }
+
+  dimensionCache.set(src, null);
+  return null;
+}
+
+let totalModified = 0;
+let totalFixed = 0;
+
+const htmlFiles = walkHtmlFiles(DIST_DIR);
+
+for (const htmlFile of htmlFiles) {
+  let html = readFileSync(htmlFile, 'utf8');
+  let modified = false;
+
+  const newHtml = html.replace(
+    /<img\b([^>]*?)(\s*\/?>)/gi,
+    (match, attrs, close) => {
+      // Skip if already has both width and height
+      if (/\bwidth=/.test(attrs) && /\bheight=/.test(attrs)) return match;
+
+      const srcMatch = attrs.match(/\bsrc=(?:"([^"]+)"|'([^']+)'|([^\s>]+))/);
+      if (!srcMatch) return match;
+
+      const src = srcMatch[1] || srcMatch[2] || srcMatch[3];
+      const dims = getDimensions(src);
+      if (!dims) return match;
+
+      totalFixed++;
+      modified = true;
+      return `<img${attrs} width="${dims.width}" height="${dims.height}"${close}`;
+    }
+  );
+
+  if (modified) {
+    writeFileSync(htmlFile, newHtml);
+    totalModified++;
+  }
+}
+
+console.log(
+  `image-size: added dimensions to ${totalFixed} images across ${totalModified} pages (${htmlFiles.length} total)`
+);

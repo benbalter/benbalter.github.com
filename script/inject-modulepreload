@@ -1,0 +1,126 @@
+#!/usr/bin/env node
+
+/**
+ * Inject <link rel="modulepreload"> hints into built HTML files.
+ *
+ * Astro disables Vite's automatic modulepreload injection, so the browser
+ * can't discover shared JS chunks until it parses the scripts that import
+ * them, creating a critical request chain. This script scans each HTML
+ * file's <script type=module src="..."> tags, resolves their static imports,
+ * and adds modulepreload hints to the <head> so the browser can fetch
+ * shared chunks in parallel.
+ *
+ * Run after `astro build`, before pagefind.
+ */
+
+import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
+import { resolve } from 'node:path';
+
+const DIST_DIR = resolve(import.meta.dirname, '..', 'dist-astro');
+
+function walkHtmlFiles(dir, files = []) {
+  for (const entry of readdirSync(dir)) {
+    const full = resolve(dir, entry);
+    if (statSync(full).isDirectory()) {
+      walkHtmlFiles(full, files);
+    } else if (entry.endsWith('.html')) {
+      files.push(full);
+    }
+  }
+  return files;
+}
+
+// Extract static imports from a JS file (one level deep)
+function getStaticImports(jsPath) {
+  try {
+    const code = readFileSync(jsPath, 'utf8');
+    const imports = [];
+    // Match minified: import{x}from"./chunk.js" or import"./chunk.js"
+    const re = /from\s*["'](\.[^"']+)["']/g;
+    let m;
+    while ((m = re.exec(code)) !== null) {
+      imports.push(m[1]);
+    }
+    return imports;
+  } catch {
+    return [];
+  }
+}
+
+// Resolve a relative import path to an absolute URL path
+function resolveImportUrl(scriptUrl, relImport) {
+  const scriptDir = scriptUrl.substring(0, scriptUrl.lastIndexOf('/'));
+  // Simple resolution for ./foo.js style imports
+  if (relImport.startsWith('./')) {
+    return scriptDir + '/' + relImport.slice(2);
+  }
+  if (relImport.startsWith('../')) {
+    const parts = scriptDir.split('/');
+    let rel = relImport;
+    while (rel.startsWith('../')) {
+      parts.pop();
+      rel = rel.slice(3);
+    }
+    return parts.join('/') + '/' + rel;
+  }
+  return relImport;
+}
+
+let totalModified = 0;
+let totalPreloads = 0;
+
+const htmlFiles = walkHtmlFiles(DIST_DIR);
+
+for (const htmlFile of htmlFiles) {
+  let html = readFileSync(htmlFile, 'utf8');
+
+  // Find all <script type=module src=...> tags (Astro omits quotes)
+  const scriptRe = /<script\s[^>]*type=(?:"module"|module)\s[^>]*src=(?:"([^"]+)"|([^\s>]+))[^>]*>/g;
+  const scriptUrls = [];
+  let sm;
+  while ((sm = scriptRe.exec(html)) !== null) {
+    scriptUrls.push(sm[1] || sm[2]);
+  }
+
+  if (scriptUrls.length === 0) continue;
+
+  // Collect all imports that need preloading
+  const preloadUrls = new Set();
+
+  for (const scriptUrl of scriptUrls) {
+    // Resolve to filesystem path
+    const fsPath = resolve(DIST_DIR, scriptUrl.replace(/^\//, ''));
+    const imports = getStaticImports(fsPath);
+
+    for (const imp of imports) {
+      const resolved = resolveImportUrl(scriptUrl, imp);
+      // Don't preload the scripts themselves (browser already fetches those)
+      if (!scriptUrls.includes(resolved)) {
+        preloadUrls.add(resolved);
+      }
+    }
+  }
+
+  if (preloadUrls.size === 0) continue;
+
+  // Build modulepreload link tags
+  const links = [...preloadUrls]
+    .map((url) => `<link rel="modulepreload" href="${url}">`)
+    .join('');
+
+  // Inject after <meta charset> for earliest possible discovery
+  const newHtml = html.replace(
+    /(<meta\s+charset=["']?UTF-8["']?\s*\/?>)/i,
+    '$1' + links
+  );
+
+  if (newHtml !== html) {
+    writeFileSync(htmlFile, newHtml);
+    totalModified++;
+    totalPreloads += preloadUrls.size;
+  }
+}
+
+console.log(
+  `modulepreload: injected ${totalPreloads} hints across ${totalModified} pages (${htmlFiles.length} total)`
+);

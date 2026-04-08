@@ -51,7 +51,7 @@ const shareLinks = [
         target={link.name === 'Email' ? undefined : '_blank'}
         rel={link.name === 'Email' ? undefined : 'noopener noreferrer'}
         aria-label={`Share on ${link.name}`}
-        class="share-link inline-flex items-center justify-center w-9 h-9 rounded-full text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 hover:bg-primary/10 dark:hover:bg-primary/20 transition-all duration-200"
+        class="share-link inline-flex items-center justify-center p-2 rounded text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200"
       >
         <Icon name={link.icon} />
       </a>

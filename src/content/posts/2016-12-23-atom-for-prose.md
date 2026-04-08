@@ -1,6 +1,6 @@
 ---
 title: How I Atom (for prose)
-description: How I customize the hackable Atom text editor for writing prose and Markdown.
+description: A detailed look at the packages, prose linters, and configuration tweaks I use to turn the Atom text editor into a powerful Markdown writing environment.
 ---
 
 Inspired by @srobert's ["How I Atom" post](https://sroberts.github.io/2015/06/06/how-i-atom/), I thought I'd share a bit about my own computering environment. I've been using [Atom](https://atom.io) as my day-to-day text editor (and probably the single most used app after my web browser) [since the day I joined GitHub](https://github.com/blog/1432-ben-balter-is-a-GitHubber), nearly four years ago, and about a year before [it was publicly released](http://blog.atom.io/2014/02/26/introducing-atom.html).

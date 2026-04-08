@@ -1,7 +1,7 @@
 ---
 title: Treat Data as Code
 comments: true
-description: It's time we start treating data with the same love and respect that geeks treat their code.
+description: Developers learned decades ago that version control, collaboration, and transparency are essential. It's time we apply those same practices to how we manage and publish data.
 ---
 
 It's time we start treating our data with the same love and respect that geeks treat their code. It's time that we begin treating data as open source, not simply as something to be published.

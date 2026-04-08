@@ -1,0 +1,91 @@
+---
+/**
+ * Book CTA Component
+ *
+ * Promotes the Open & Async book with a link to the book site.
+ * Supports two variants: inline (for posts) and featured (for homepage).
+ */
+
+import { siteConfig } from '../config';
+
+interface Props {
+  variant?: 'inline' | 'featured';
+}
+
+const { variant = 'inline' } = Astro.props;
+---
+
+{variant === 'featured' ? (
+  <a
+    href={siteConfig.bookUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="not-prose block rounded-xl border border-primary/20 dark:border-primary/30 p-8 md:p-10 relative group hover:border-primary/40 dark:hover:border-primary/50 hover:shadow-lg transition-all duration-200 no-underline book-cta-featured"
+  >
+    <div class="flex flex-col md:flex-row md:items-center gap-6">
+      <div class="shrink-0 text-center md:text-left">
+        <span class="text-5xl" aria-hidden="true">📖</span>
+      </div>
+      <div class="flex-1">
+        <p class="text-xs font-semibold uppercase tracking-wider text-primary dark:text-primary-300 mb-2">
+          New book
+        </p>
+        <p class="text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+          {siteConfig.bookTitle}: {siteConfig.bookDescription}
+        </p>
+        <p class="text-sm text-gray-600 dark:text-gray-300 mb-0">
+          Drawing on a decade at GitHub, these posts are becoming a playbook for thriving in distributed work. Sign up to get notified when it launches.
+        </p>
+      </div>
+      <div class="shrink-0 md:self-center">
+        <span class="inline-flex items-center gap-1.5 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white group-hover:bg-primary-700 dark:group-hover:bg-primary-400 dark:group-hover:text-gray-900 transition-colors duration-200 whitespace-nowrap">
+          Get notified <span aria-hidden="true" class="motion-safe:group-hover:translate-x-0.5 transition-transform duration-200">→</span>
+        </span>
+      </div>
+    </div>
+  </a>
+) : (
+  <aside class="not-prose my-8 rounded-xl bg-gradient-to-r from-primary/5 via-primary/8 to-primary/5 dark:from-primary/10 dark:via-primary/15 dark:to-primary/10 border border-primary/20 dark:border-primary/30 p-6 relative group hover:border-primary/40 dark:hover:border-primary/50 hover:shadow-md transition-all duration-200 cursor-pointer">
+    <div class="flex items-start gap-4">
+      <span class="text-2xl shrink-0" aria-hidden="true">📖</span>
+      <div>
+        <p class="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-1">
+          Like this post? It's becoming a book.
+        </p>
+        <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
+          <em>{siteConfig.bookTitle}</em> distills a decade of posts like this into a playbook for remote and distributed teams.
+        </p>
+        <a
+          href={siteConfig.bookUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary dark:text-primary-300 no-underline group-hover:text-primary-700 dark:group-hover:text-primary-200 transition-colors duration-200 before:absolute before:inset-0 before:rounded-xl"
+        >
+          Get notified when it launches <span aria-hidden="true" class="motion-safe:group-hover:translate-x-0.5 transition-transform duration-200">→</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+)}
+
+<style>
+  @reference "../styles/global.css";
+
+  .book-cta-featured {
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--color-primary) 4%, white),
+      color-mix(in srgb, var(--color-primary) 1%, white)
+    );
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .book-cta-featured {
+      background: linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--color-primary) 10%, transparent),
+        color-mix(in srgb, var(--color-primary) 4%, transparent)
+      );
+    }
+  }
+</style>

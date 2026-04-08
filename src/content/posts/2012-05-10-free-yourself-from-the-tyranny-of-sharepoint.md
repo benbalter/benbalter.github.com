@@ -1,6 +1,6 @@
 ---
 title: Free Yourself from the Tyranny of Sharepoint
-description: Sharepoint is a plague upon the American workforce.
+description: Sharepoint is a plague upon the American workforce — here's how to escape with open source and modern collaboration tools.
 archived: true
 ---
 

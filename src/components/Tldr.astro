@@ -18,7 +18,7 @@ const { description } = Astro.props;
 const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a brief summary of longer writing"';
 ---
 
-<div class="tldr-container text-lg">
+<div class="tldr-container font-sans text-lg">
   <div class="tldr-icon">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <circle cx="12" cy="12" r="10"></circle>
@@ -40,11 +40,11 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
   
   // Global click handler for click-outside functionality (defined outside DOMContentLoaded for cleanup)
   const handleGlobalClick = (e: MouseEvent) => {
+    const activeTooltips = (window as any).__tldrActiveTooltips;
+    if (!activeTooltips || activeTooltips.size === 0) return;
+
     const target = e.target;
     if (!target) return;
-    
-    const activeTooltips = (window as any).__tldrActiveTooltips;
-    if (!activeTooltips) return;
     
     activeTooltips.forEach((_tooltipEl: HTMLDivElement, element: HTMLElement) => {
       if (!element.contains(target as Node)) {
@@ -80,7 +80,14 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
     tooltipEl.textContent = tooltipText;
     tooltipEl.id = `tooltip-${Math.random().toString(36).substring(2, 11)}`;
     tooltipEl.setAttribute('role', 'tooltip');
+    
+    // Read target geometry BEFORE any DOM mutation to avoid forced reflow
+    const rect = target.getBoundingClientRect();
+    
+    // Append hidden to measure tooltip dimensions without triggering visible reflow
+    tooltipEl.style.visibility = 'hidden';
     document.body.appendChild(tooltipEl);
+    const tooltipRect = tooltipEl.getBoundingClientRect();
     
     // Set ARIA attributes
     target.setAttribute('aria-describedby', tooltipEl.id);
@@ -89,50 +96,40 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
     // Track this tooltip
     activeTooltips.set(target, tooltipEl);
     
-    // Position tooltip with viewport boundary checks
-    requestAnimationFrame(() => {
-      const rect = target.getBoundingClientRect();
-      const tooltipRect = tooltipEl.getBoundingClientRect();
+    // Position tooltip with viewport boundary checks (no further layout reads needed)
+    let left = rect.right + 10;
+    let top = rect.top + (rect.height / 2) - (tooltipRect.height / 2);
+    
+    // Check if tooltip would overflow right edge of viewport
+    if (left + tooltipRect.width > window.innerWidth) {
+      // Try positioning to the left instead
+      const leftPosition = rect.left - tooltipRect.width - 10;
       
-      // Default: position to the right, vertically centered on the target
-      let left = rect.right + 10;
-      let top = rect.top + (rect.height / 2) - (tooltipRect.height / 2);
-      
-      // Check if tooltip would overflow right edge of viewport
-      if (left + tooltipRect.width > window.innerWidth) {
-        // Try positioning to the left instead
-        const leftPosition = rect.left - tooltipRect.width - 10;
-        
-        if (leftPosition >= 10) {
-          left = leftPosition;
-          tooltipEl.classList.add('left');
-          tooltipEl.classList.remove('below');
-        } else {
-          // Not enough horizontal space on either side:
-          // fall back to centering the tooltip below the target
-          tooltipEl.classList.remove('left');
-          tooltipEl.classList.add('below');
-          
-          left = rect.left + (rect.width / 2) - (tooltipRect.width / 2);
-          left = Math.max(10, Math.min(left, window.innerWidth - tooltipRect.width - 10));
-          
-          top = rect.bottom + 10;
-        }
+      if (leftPosition >= 10) {
+        left = leftPosition;
+        tooltipEl.classList.add('left');
       } else {
-        tooltipEl.classList.remove('left');
-        tooltipEl.classList.remove('below');
+        // Not enough horizontal space on either side:
+        // fall back to centering the tooltip below the target
+        tooltipEl.classList.add('below');
+        
+        left = rect.left + (rect.width / 2) - (tooltipRect.width / 2);
+        left = Math.max(10, Math.min(left, window.innerWidth - tooltipRect.width - 10));
+        
+        top = rect.bottom + 10;
       }
-      
-      // Clamp top so tooltip doesn't overflow top or bottom
-      top = Math.max(10, Math.min(top, window.innerHeight - tooltipRect.height - 10));
-      
-      tooltipEl.style.left = `${left}px`;
-      tooltipEl.style.top = `${top}px`;
-      
-      // Fade in using requestAnimationFrame for better performance
-      requestAnimationFrame(() => {
-        tooltipEl.classList.add('show');
-      });
+    }
+    
+    // Clamp top so tooltip doesn't overflow top or bottom
+    top = Math.max(10, Math.min(top, window.innerHeight - tooltipRect.height - 10));
+    
+    tooltipEl.style.left = `${left}px`;
+    tooltipEl.style.top = `${top}px`;
+    tooltipEl.style.visibility = '';
+    
+    // Fade in on next frame
+    requestAnimationFrame(() => {
+      tooltipEl.classList.add('show');
     });
   };
   

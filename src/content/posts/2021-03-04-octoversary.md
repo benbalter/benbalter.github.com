@@ -1,6 +1,6 @@
 ---
 title: Octoversary - eight years of optimizing for developer happiness
-description: Reflecting on eight years of shipping at GitHub with a look at some of my most impactful ships.
+description: Reflecting on eight years at GitHub, from GeoJSON rendering and GitHub Pages to trust and safety, open source licensing, and 200,000 words of blogging.
 ---
 
 Today marks my "Octoversary" - eight years to the day from when "[Ben Balter is a GitHubber](http://web.archive.org/web/20140421210430/https://github.com/blog/1432-ben-balter-is-a-githubber)" first became true.[^1] I've had the privilege of shipping [many impactful things over the years](https://github.blog/author/benbalter/), and to mark the occasion, I used the milestone as an opportunity to reflect on eight of my favorite ships in roughly chronological order:

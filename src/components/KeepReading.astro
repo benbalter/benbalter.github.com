@@ -1,0 +1,152 @@
+---
+/**
+ * KeepReading Component
+ *
+ * Infinite-scroll-style related posts section. When a reader reaches the end
+ * of a post, related articles reveal themselves progressively via
+ * IntersectionObserver, creating a seamless "keep reading" experience.
+ *
+ * The top related post is displayed as a prominent "Up Next" hero card.
+ * Remaining posts appear in a grid with staggered fade-in animations.
+ *
+ * Graceful degradation: all posts are visible without JavaScript.
+ */
+
+import type { CollectionEntry } from 'astro:content';
+import { calculateReadingTime, formatReadingTime } from '../utils/reading-time';
+import { stripMarkdown } from '../utils/strip-markdown';
+import { getPostUrl, getDateFromSlug, formatPostDate } from '../utils/post-urls';
+
+interface Props {
+  relatedPosts: CollectionEntry<'posts'>[];
+}
+
+const { relatedPosts } = Astro.props;
+
+if (relatedPosts.length === 0) return;
+
+const [heroPost, ...morePosts] = relatedPosts;
+const heroReadingTime = calculateReadingTime(heroPost.body);
+const heroDate = getDateFromSlug(heroPost.id);
+---
+
+<section class="keep-reading mt-12" aria-label="Related articles" data-pagefind-ignore>
+  <!-- Visual divider -->
+  <div class="keep-reading-divider mb-10" aria-hidden="true">
+    <div class="border-t border-gray-200 dark:border-gray-700"></div>
+  </div>
+
+  <!-- Up Next hero card -->
+  <div class="keep-reading-item" data-keep-reading>
+    <p class="text-xs font-semibold uppercase tracking-wide text-primary dark:text-primary-300 mb-3">Up next</p>
+    <a href={getPostUrl(heroPost.id)} class="group block rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 md:p-8 no-underline transition-all duration-300 hover:border-primary dark:hover:border-primary/50 hover:shadow-md">
+      <h3 class="text-2xl md:text-3xl font-bold leading-tight text-gray-900 dark:text-gray-100 group-hover:text-primary dark:group-hover:text-primary-300 transition-colors duration-200 mb-3">
+        {heroPost.data.title}
+      </h3>
+      <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-600 dark:text-gray-300 mb-4">
+        <time datetime={heroDate.toISOString().slice(0, 10)}>{formatPostDate(heroDate)}</time>
+        <span aria-hidden="true">·</span>
+        <span>{formatReadingTime(heroReadingTime)}</span>
+      </div>
+      {heroPost.data.description && (
+        <p class="text-base text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+          {stripMarkdown(heroPost.data.description)}
+        </p>
+      )}
+    </a>
+  </div>
+
+  {morePosts.length > 0 && (
+    <div class="mt-8">
+      <p class="text-xs font-semibold uppercase tracking-widest text-gray-600 dark:text-gray-300 mb-4 keep-reading-item" data-keep-reading>More to explore</p>
+      <div class="grid gap-4 md:grid-cols-2">
+        {morePosts.map((post) => {
+          const postReadingTime = calculateReadingTime(post.body);
+          const postDate = getDateFromSlug(post.id);
+          return (
+            <article class="keep-reading-item group relative p-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-primary dark:hover:border-primary/40 hover:shadow-card dark:hover:shadow-card-dark transition-all duration-200" data-keep-reading>
+              <h4 class="text-base font-semibold mb-1 mt-0">
+                <a href={getPostUrl(post.id)} class="text-gray-900 dark:text-gray-100 no-underline group-hover:text-primary dark:group-hover:text-primary-300 transition-colors duration-200 before:absolute before:inset-0">
+                  {post.data.title}
+                </a>
+              </h4>
+              <div class="flex flex-wrap items-center gap-x-2 text-sm text-gray-600 dark:text-gray-300 mb-1">
+                <time datetime={postDate.toISOString().slice(0, 10)}>{formatPostDate(postDate)}</time>
+                <span aria-hidden="true">·</span>
+                <span>{formatReadingTime(postReadingTime)}</span>
+              </div>
+              {post.data.description && (
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-0 line-clamp-2">{stripMarkdown(post.data.description)}</p>
+              )}
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  )}
+</section>
+
+<script>
+  function initKeepReading() {
+    const items = document.querySelectorAll<HTMLElement>('[data-keep-reading]');
+    if (items.length === 0) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let revealIndex = 0;
+    const STAGGER_MS = 120;
+
+    function reveal(el: HTMLElement) {
+      const delay = revealIndex * STAGGER_MS;
+      revealIndex++;
+
+      requestAnimationFrame(() => {
+        el.style.transition = prefersReducedMotion
+          ? 'opacity 0.15s ease'
+          : 'opacity 0.5s ease, transform 0.5s ease';
+        el.style.transitionDelay = `${delay}ms`;
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      });
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            reveal(entry.target as HTMLElement);
+            observer.unobserve(entry.target);
+          }
+        }
+      },
+      { rootMargin: '0px 0px -40px 0px', threshold: 0.05 }
+    );
+
+    items.forEach((item) => observer.observe(item));
+  }
+
+  initKeepReading();
+  document.addEventListener('astro:page-load', initKeepReading);
+</script>
+
+<style>
+  @reference "../styles/global.css";
+
+  /* Hide items before JS reveal to avoid CLS from post-paint opacity changes */
+  [data-keep-reading] {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-keep-reading] {
+      transform: none;
+    }
+  }
+
+  @media print {
+    .keep-reading {
+      display: none;
+    }
+  }
+</style>

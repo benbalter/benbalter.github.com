@@ -1,6 +1,6 @@
 ---
 title: Test your content
-description: 'There''s another workflow that version-controlled, collaborative content enables: continuous integration for prose.'
+description: "When you treat content as code, you unlock continuous integration for prose. Use tools like HTML Proofer and Travis CI to automatically test every link, image, and change."
 ---
 
 I've written before about how we should treat [prose and data with the same respect that developers treat code](https://ben.balter.com/2013/09/16/treat-data-as-code/) and how [Jekyll forces you to do just that](https://ben.balter.com/2013/10/30/content-is-king/), but there's another workflow that version-controlled, collaborative content enables: continuous integration.

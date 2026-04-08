@@ -53,11 +53,14 @@ test.describe('Dark Mode Support', () => {
       await expect(codeBlock).toBeVisible();
 
       // Verify the code block has dark mode CSS custom properties defined
-      // (these are set by Shiki for dual theme support)
+      // (these are set by Expressive Code for dual theme support using --0 for light, --1 for dark)
       const hasDarkModeVars = await codeBlock.evaluate(el => {
         const pre = el.closest('pre');
-        const style = pre?.getAttribute('style') || '';
-        return style.includes('--shiki-dark-bg');
+        const spans = pre?.querySelectorAll('span[style]') || [];
+        return Array.from(spans).some(span => {
+          const style = span.getAttribute('style') || '';
+          return style.includes('--1:');
+        });
       });
       
       // The code block should have dark mode CSS variables defined

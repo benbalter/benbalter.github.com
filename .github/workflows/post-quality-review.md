@@ -7,6 +7,8 @@ permissions:
   contents: read
   pull-requests: read
 safe-outputs:
+  noop:
+    report-as-issue: false
   add-comment:
     max: 1
 ---

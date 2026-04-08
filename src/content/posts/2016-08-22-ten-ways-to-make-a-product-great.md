@@ -1,6 +1,6 @@
 ---
 title: How to make a product great
-description: When building a product, strive to absorb complexity on behalf of users, build features 80% of users will use, drink your champagne, optimize for the ideal use case, not the most common, let the user make the change, always provide an out, be as lean as possible, iterate, iterate, iterate, push logic to the edges, and be transparent.
+description: Great products absorb complexity on behalf of users, not the other way around. Ten principles for building software that's complex to build and easy to use.
 ---
 
 ### Absorb complexity on behalf of users

@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/benbalter/benbalter.github.com/actions/workflows/ci.yml/badge.svg)](https://github.com/benbalter/benbalter.github.com/actions/workflows/ci.yml)
 
-The personal site of Ben Balter. Built with Astro and hosted on GitHub Pages.
+The personal site of Ben Balter. Built with Astro and hosted on Cloudflare Pages.
 
 ## Setup
 
@@ -15,7 +15,7 @@ The Astro setup is configured to:
 - Support **TypeScript** for type-safe components
 - Export to `dist-astro/` directory
 - Run development server on port 4321
-- Full GitHub Pages compatibility with trailing slashes and directory-based URLs
+- Full Cloudflare Pages compatibility with trailing slashes and directory-based URLs
 
 ### Commands
 

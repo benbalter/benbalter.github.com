@@ -1,6 +1,6 @@
 ---
 title: Geeks and suits
-description: 'There are two types of change agents in the open government/data/source community: geeks and suits, but despite being in an industry built almost exclusively on communications, they never talk to each other'
+description: "In the world of government IT, change happens at the hands of geeks and suits -- yet despite being in an industry built on communication, they rarely talk to each other."
 ---
 
 In the world of government IT, change happens at the hands of two separate, yet equally important groups: the geeks who build tools and the suits who implement them:

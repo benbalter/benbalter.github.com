@@ -1,6 +1,6 @@
 ---
 title: How to run LanguageTool on macOS
-description: How to set up a free and open-source grammar, style, and spell checker that can be run locally on your machine without sending data to a third-party services like Grammarly, preserving the privacy of what you type.
+description: How to set up LanguageTool, a free and open-source grammar checker, to run locally on your Mac so nothing you type ever leaves your computer. No Grammarly subscription required.
 ---
 
 You may be familiar with grammar checking tools like Gramarly,[^grammarly] but if you're privacy-conscious like me, you likely don't want to send everything you type to a third-party service (or may be prohibited from doing so by your employer). Enter [LanguageTool](https://languagetool.org/), a free and open-source grammar, style, and spell checker that can be run locally on your machine, so nothing you type ever leaves your computer. LanguageTool can be used with your browser, with VS Code,[^vscode] and with Slack and other common applications. For those looking to run LanguageTool like this, I've tried a number of ways, and here's the easiest:
@@ -57,7 +57,7 @@ Safari does not allow extensions to make calls from HTTPS pages to HTTP endpoint
 
 2. Create a `/opt/homebrew/etc/Caddyfile` file with the following contents:
 
-   ```caddyfile
+   ```txt
    localhost:8082
    reverse_proxy :8081
    ```

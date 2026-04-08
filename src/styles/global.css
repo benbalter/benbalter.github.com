@@ -35,13 +35,14 @@
 
   /* Font families - Inter via Astro Fonts API with system font fallbacks */
   --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-serif: var(--font-lora), Georgia, "Times New Roman", Times, serif;
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 
-  /* Custom shadows */
-  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.05);
-  --shadow-card-hover: 0 12px 24px rgba(0, 0, 0, 0.15);
-  --shadow-card-dark: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-card-hover-dark: 0 12px 24px rgba(0, 0, 0, 0.5);
+  /* Custom shadows — progressive elevation scale */
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.08), 0 12px 24px rgba(0, 0, 0, 0.12);
+  --shadow-card-dark: 0 1px 3px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover-dark: 0 4px 12px rgba(0, 0, 0, 0.3), 0 12px 24px rgba(0, 0, 0, 0.4);
 
   /* Typography prose color - primary */
   --color-prose-primary: #337ab7;
@@ -87,6 +88,132 @@
 }
 
 /* ============================================================================
+ * Prose Typography Refinements
+ * Fine-tuned spacing and styling for long-form reading in .prose contexts
+ * ============================================================================ */
+
+/* Body text line height — slightly more generous for comfortable long-form reading */
+.prose {
+  line-height: 1.8;
+  font-family: var(--font-serif);
+  font-feature-settings: "kern" 1, "liga" 1, "onum" 1, "pnum" 1;
+  letter-spacing: 0.005em;
+  word-spacing: 0.05em;
+}
+
+/* Prose headings use sans-serif for contrast with serif body text */
+.prose :where(h1, h2, h3, h4, h5, h6):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  font-family: var(--font-sans);
+  letter-spacing: -0.02em;
+  word-spacing: normal;
+}
+
+/* Prose link underlines — override Typography plugin's shorthand reset */
+.prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in srgb, var(--color-primary) 50%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-skip-ink: auto;
+  transition: text-decoration-color 0.2s, color 0.2s;
+}
+
+.prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)):hover {
+  text-decoration-color: currentColor;
+}
+
+/* Heading spacing — more breathing room above, tighter coupling below */
+.prose h2 {
+  margin-top: 2.25em;
+  margin-bottom: 0.75em;
+}
+
+.prose h3 {
+  margin-top: 1.75em;
+  margin-bottom: 0.5em;
+}
+
+.prose h4 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Paragraph spacing */
+.prose p {
+  margin-bottom: 1.25em;
+}
+
+/* Post content containment — isolates layout/paint for better INP */
+.post-content {
+  contain: content;
+}
+
+/* Ensure post images are responsive and don't cause layout shift */
+.post-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* First paragraph of blog posts — color override; typography lives in @layer components */
+.post-content > p:first-of-type {
+  color: var(--color-gray-800);
+}
+
+@media (prefers-color-scheme: dark) {
+  .post-content > p:first-of-type {
+    color: var(--color-gray-200);
+  }
+}
+
+/* List item spacing — slightly more room between items for readability */
+.prose li {
+  margin-top: 0.375em;
+  margin-bottom: 0.375em;
+}
+
+/* Blockquote — thinner border, lighter text for distinction */
+.prose blockquote {
+  border-left-width: 3px;
+  border-left-style: solid;
+  border-left-color: var(--color-primary);
+  font-style: italic;
+  font-family: var(--font-serif);
+  letter-spacing: 0.01em;
+  color: var(--color-gray-600);
+}
+
+@media (prefers-color-scheme: dark) {
+  .prose blockquote {
+    color: var(--color-gray-400);
+  }
+}
+
+/* Inline code — slightly smaller for visual separation from body text */
+.prose :not(pre) > code {
+  font-size: 0.875em;
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+}
+
+/* Code blocks — comfortable padding */
+.prose pre {
+  padding: 1.25rem;
+}
+
+/* Captions, definition terms, and aside callouts — sans-serif for UI/metadata distinction */
+.prose :where(figcaption):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  font-family: var(--font-sans);
+}
+
+.prose :where(dt):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  font-family: var(--font-sans);
+}
+
+.prose :where(aside):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  font-family: var(--font-sans);
+}
+
+/* ============================================================================
  * Custom Base Styles
  * These override Tailwind's default base styles
  * ============================================================================ */
@@ -107,48 +234,45 @@
   /* Typography - Body */
   body {
     @apply font-sans antialiased;
-    font-size: clamp(1rem, 0.9rem + 0.5vw, 1.1875rem);
+    font-size: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
     line-height: 1.7;
     font-weight: 400;
-    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "cv01" 1, "cv03" 1;
+    font-optical-sizing: auto;
+    font-variant-numeric: proportional-nums;
+    font-variant-ligatures: common-ligatures contextual;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     @apply text-gray-900 bg-white;
     /* Safe area padding for notched devices */
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
-    position: relative;
-  }
-  
-  /* Subtle background texture for depth */
-  body::before {
-    content: '';
-    @apply fixed inset-0 -z-10;
-    background: radial-gradient(circle at top right, rgba(51, 122, 183, 0.03), transparent 60%),
-                radial-gradient(circle at bottom left, rgba(51, 122, 183, 0.02), transparent 60%);
-    pointer-events: none;
   }
 
   @media (prefers-color-scheme: dark) {
     body {
       @apply text-gray-100 bg-gray-900;
     }
-    
-    body::before {
-      background: radial-gradient(circle at top right, rgba(51, 122, 183, 0.05), transparent 60%),
-                  radial-gradient(circle at bottom left, rgba(51, 122, 183, 0.03), transparent 60%);
-    }
   }
 
   /* Typography - Headings */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold;
-    line-height: 1.3;
+    font-family: var(--font-sans);
+    line-height: 1.25;
     margin-top: 2em;
     margin-bottom: 0.5em;
-    letter-spacing: -0.015em;
-    font-feature-settings: "kern" 1, "liga" 1;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
     text-wrap: balance;
+  }
+
+  /* Primary headings — bold for strong visual anchoring */
+  h1, h2 {
+    @apply font-bold;
+  }
+
+  /* Secondary headings — semibold for clear but softer hierarchy */
+  h3, h4, h5, h6 {
+    @apply font-semibold;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -159,23 +283,39 @@
 
   h1 {
     font-size: clamp(1.875rem, 1.5rem + 1.875vw, 2.441rem);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
     margin-top: 0;
   }
 
   h2 {
     font-size: clamp(1.5rem, 1.25rem + 1.25vw, 1.953rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
   }
 
   h3 {
     font-size: clamp(1.25rem, 1.1rem + 0.75vw, 1.563rem);
+    line-height: 1.3;
+    letter-spacing: -0.015em;
   }
 
   h4 {
     font-size: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
   }
 
-  h5, h6 {
-    @apply text-base;
+  h5 {
+    font-size: 1.0625rem;
+    line-height: 1.35;
+    letter-spacing: -0.005em;
+  }
+
+  h6 {
+    @apply text-base uppercase tracking-wide;
+    line-height: 1.35;
+    font-size: 0.875rem;
   }
 
   /* Typography - Paragraphs */
@@ -255,11 +395,15 @@
   /* Links - Base */
   a {
     @apply text-primary transition-colors duration-150;
-    text-decoration: none;
+    text-decoration-line: underline;
+    text-decoration-color: color-mix(in srgb, var(--color-primary) 50%, transparent);
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
   }
 
   a:hover {
     @apply text-primary-600;
+    text-decoration-color: currentColor;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -278,17 +422,18 @@
   main a:not(.btn):not(.nav-link):not(.navbar-brand):not(.anchor-link) {
     @apply text-primary;
     text-decoration-line: underline;
-    text-decoration-thickness: 0.08em;
+    text-decoration-color: color-mix(in srgb, var(--color-primary) 50%, transparent);
+    text-decoration-thickness: 1px;
     text-decoration-skip-ink: auto;
-    text-underline-offset: 0.15em;
-    @apply transition-all duration-200;
+    text-underline-offset: 0.2em;
+    @apply transition-colors duration-200;
     touch-action: manipulation;
   }
 
   article a:not(.anchor-link):hover,
   .content a:not(.anchor-link):hover,
   main a:not(.btn):not(.nav-link):not(.navbar-brand):not(.anchor-link):hover {
-    text-decoration-thickness: 0.15em;
+    text-decoration-color: currentColor;
   }
 
   article a:not(.anchor-link):focus,
@@ -382,14 +527,18 @@
 
   /* Blockquotes */
   blockquote {
-    @apply border-l-[5px] border-primary pl-8 py-3 my-10 italic text-lg;
-    line-height: 1.75;
+    @apply border-l-[3px] border-primary pl-8 py-3 my-10 italic;
+    font-family: var(--font-serif);
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    letter-spacing: 0.01em;
     hanging-punctuation: first last;
+    @apply text-gray-700;
   }
 
   @media (prefers-color-scheme: dark) {
     blockquote {
-      @apply border-primary;
+      @apply border-primary-400 text-gray-300;
     }
   }
 
@@ -401,14 +550,28 @@
     @apply mb-0;
   }
 
-  /* Tables */
+  /* Tables — sans-serif for data readability (tables are scanned, not read linearly) */
   table {
-    @apply my-6 max-w-full;
+    @apply my-8 max-w-full;
+    font-family: var(--font-sans);
+    font-variant-numeric: tabular-nums;
   }
 
-  th, td {
+  th {
+    @apply p-3 text-left font-semibold text-gray-900;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+  }
+
+  td {
     @apply p-3;
     line-height: 1.5;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    th {
+      @apply text-gray-100;
+    }
   }
 
   /* Table responsive wrapper for mobile */
@@ -423,6 +586,29 @@
 
     th, td {
       @apply p-2;
+    }
+  }
+
+  /* Horizontal Rules */
+  hr {
+    @apply my-12 border-0;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--color-gray-300),
+      transparent
+    );
+  }
+
+  @media (prefers-color-scheme: dark) {
+    hr {
+      background: linear-gradient(
+        to right,
+        transparent,
+        var(--color-gray-700),
+        transparent
+      );
     }
   }
 
@@ -451,7 +637,7 @@
     }
 
     h1, h2, h3, h4, h5, h6 {
-      letter-spacing: -0.01em;
+      letter-spacing: -0.015em;
       margin-top: 1.5em;
       margin-bottom: 0.5em;
     }
@@ -553,8 +739,6 @@
     background-position: top left;
     @apply h-64 rounded-t-lg shadow-sm;
     contain: layout paint;
-    content-visibility: auto;
-    contain-intrinsic-size: 1140px 256px;
     position: relative;
   }
   
@@ -585,7 +769,6 @@
   @media (max-width: 768px) {
     .hero-unit {
       height: 180px;
-      contain-intrinsic-size: auto 180px;
     }
     
   }
@@ -682,14 +865,28 @@
 
   .nav-link {
     @apply px-4 py-3 flex items-center;
-    @apply text-[#1a5490] no-underline;
+    @apply text-primary-700 no-underline;
     @apply min-h-[44px];
     @apply transition-colors duration-200;
     touch-action: manipulation;
   }
 
+  /* Reserve bold-width space to prevent CLS when active state toggles font-weight.
+     Applied to .nav-item (block context) not .nav-link (flex context) so the
+     pseudo-element doesn't become a side-by-side flex item. */
+  .nav-item::after {
+    content: attr(data-text);
+    @apply font-semibold;
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    display: block;
+    user-select: none;
+    pointer-events: none;
+  }
+
   .nav-link:hover {
-    @apply text-[#133d6b];
+    @apply text-primary-900;
   }
 
   .nav-link.active {
@@ -698,10 +895,10 @@
 
   @media (prefers-color-scheme: dark) {
     .nav-link {
-      @apply text-[#6cb4e8];
+      @apply text-primary-300;
     }
     .nav-link:hover {
-      @apply text-[#8ac6f0];
+      @apply text-primary-200;
     }
     .nav-link.active {
       @apply text-gray-100;
@@ -724,13 +921,22 @@
     }
   }
 
-  /* Footnotes */
+  /* Footnotes — reference material uses sans-serif for visual distinction from body */
   .footnotes {
-    @apply text-sm border-t border-gray-200 pt-2 mt-8 mb-8;
+    @apply text-sm border-t border-gray-200 pt-6 mt-12 mb-8;
+    font-family: var(--font-sans);
+    color: var(--color-gray-600);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .footnotes {
+      @apply border-gray-700;
+      color: var(--color-gray-400);
+    }
   }
 
   .footnotes h2 {
-    @apply mb-2;
+    @apply mb-3 text-sm font-semibold uppercase tracking-wide;
   }
 
   .footnotes ol {
@@ -807,45 +1013,32 @@
     }
   }
 
-  /* First Paragraph Enhancement */
+  /* First Paragraph Enhancement — lead paragraph with subtle visual distinction */
   article > p:first-of-type,
   .post-content > p:first-of-type {
     @apply text-lg;
-    line-height: 1.75;
+    line-height: 1.9;
+    @apply text-gray-700;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    article > p:first-of-type,
+    .post-content > p:first-of-type {
+      @apply text-gray-300;
+    }
   }
 
   /* Section Headers */
   .section-header {
-    @apply relative flex items-center gap-3 font-semibold;
+    @apply font-semibold;
     letter-spacing: -0.02em;
   }
 
-  .section-header-accent {
-    @apply inline-block w-1 rounded;
-    height: 1.5em;
-    background: linear-gradient(
-      180deg,
-      var(--color-primary) 0%,
-      color-mix(in srgb, var(--color-primary) 60%, transparent) 100%
-    );
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .section-header-accent {
-      background: linear-gradient(
-        180deg,
-        rgba(128, 185, 230, 1) 0%,
-        rgba(128, 185, 230, 0.7) 100%
-      );
-    }
-  }
-
-  /* Featured Post Card - GPU-accelerated animations */
+  /* Featured Post Card */
   .featured-post-card {
     @apply relative border-2 rounded-lg overflow-hidden;
     @apply bg-white;
-    transition: transform 300ms ease-out, box-shadow 300ms ease-out, border-color 300ms ease-out;
-    will-change: transform;
+    transition: box-shadow 300ms ease-out, border-color 300ms ease-out;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -861,37 +1054,6 @@
   @media (prefers-color-scheme: dark) {
     .featured-post-card:hover {
       @apply shadow-card-hover-dark;
-    }
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .featured-post-card:hover {
-      @apply -translate-y-1.5;
-    }
-  }
-
-  .card-accent {
-    @apply absolute left-0 top-0 bottom-0 w-1;
-    background: linear-gradient(
-      180deg,
-      theme('colors.primary.DEFAULT'),
-      color-mix(in srgb, var(--color-primary) 60%, transparent)
-    );
-    @apply opacity-0;
-    transition: opacity 300ms ease-out;
-  }
-
-  .featured-post-card:hover .card-accent {
-    @apply opacity-100;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .card-accent {
-      background: linear-gradient(
-        180deg,
-        theme('colors.primary.DEFAULT'),
-        color-mix(in srgb, var(--color-primary) 70%, transparent)
-      );
     }
   }
 
@@ -1057,5 +1219,106 @@ pre + h2, pre + h3, pre + h4, pre + h5, pre + h6 {
   .btn, .social-link, .navbar-toggler {
     -webkit-touch-callout: none;
     user-select: none;
+  }
+}
+
+/* ============================================================================
+ * Link Preview Hover Cards
+ * Tooltip cards shown when hovering internal post links
+ * ============================================================================ */
+.link-preview-card {
+  position: absolute;
+  z-index: 50;
+  max-width: 320px;
+  padding: 0.75rem 1rem;
+  background: white;
+  border: 1px solid var(--color-gray-200);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-card-hover);
+  font-family: var(--font-sans);
+  pointer-events: auto;
+  animation: link-preview-fade-in 150ms ease-out;
+}
+
+@media (prefers-color-scheme: dark) {
+  .link-preview-card {
+    background: var(--color-gray-800);
+    border-color: var(--color-gray-700);
+    box-shadow: var(--shadow-card-hover-dark);
+  }
+}
+
+@keyframes link-preview-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.link-preview-card.above {
+  animation-name: link-preview-fade-in-above;
+}
+
+@keyframes link-preview-fade-in-above {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.link-preview-title {
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.35;
+  color: var(--color-gray-900);
+  margin-bottom: 0.25rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .link-preview-title {
+    color: var(--color-gray-100);
+  }
+}
+
+.link-preview-description {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-gray-600);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (prefers-color-scheme: dark) {
+  .link-preview-description {
+    color: var(--color-gray-400);
+  }
+}
+
+.link-preview-section {
+  margin-top: 0.375rem;
+  padding-top: 0.375rem;
+  border-top: 1px solid var(--color-gray-200);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (prefers-color-scheme: dark) {
+  .link-preview-section {
+    border-top-color: var(--color-gray-700);
+    color: var(--color-primary-300);
   }
 }

@@ -1,6 +1,6 @@
 ---
 title: Analysis of Federal Executive .govs
-description: Analysis of the technical capabilities of and technology powering all US Federal Executive .gov domains
+description: A scan of every federal executive .gov reveals that only 73% are live, Drupal dominates as a CMS, and 93% of live domains use no detectable CMS at all.
 ---
 
 The White House's Office of Management and Budget recently released a list of all domains owned and operated by federal executive agencies. Leveraging a previous tool I had built called [Site Inspector](https://github.com/benbalter/Site-Inspector) which provides information about a domain and its technical capabilities, I imported the list into the content management system WordPress, and created a plugin called [Domain Inventory](https://github.com/benbalter/Domain-Inventory) to scan each domain and curate the results. A summary of my preliminary results appears below, as well as a link to the browsable dataset.

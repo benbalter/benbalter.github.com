@@ -47,8 +47,21 @@ describe('rehypeBootstrapTables', () => {
 
     expect(html).toContain('w-full');
     expect(html).toContain('border-collapse');
-    expect(html).toContain('<th>Name</th>');
+    expect(html).toContain('<th scope="col">Name</th>');
     expect(html).toContain('<td>Alice</td>');
+  });
+
+  it('should add scope="col" to th elements', async () => {
+    const markdown = `
+| Header 1 | Header 2 |
+| -------- | -------- |
+| Cell 1   | Cell 2   |
+`;
+    const result = await processor.process(markdown);
+    const html = String(result);
+
+    expect(html).toContain('<th scope="col">Header 1</th>');
+    expect(html).toContain('<th scope="col">Header 2</th>');
   });
 
   it('should handle table with alignment', async () => {

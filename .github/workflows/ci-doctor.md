@@ -10,6 +10,8 @@ permissions:
   checks: read
 if: github.event.workflow_run.conclusion == 'failure'
 safe-outputs:
+  noop:
+    report-as-issue: false
   create-issue:
     title-prefix: "[ci-failure] "
     labels: [bug, ci, automated]

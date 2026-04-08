@@ -72,12 +72,12 @@ function slugify(text: string): string {
   {bookGroups.map(([category, books]) => (
     <section class="not-prose mb-12">
       <div class="mb-6 flex items-baseline gap-3 border-l-4 border-primary pl-4">
-        <h3
+        <h2
           id={slugify(category)}
           class="m-0 text-2xl font-semibold text-gray-900 dark:text-gray-100"
         >
           {category}
-        </h3>
+        </h2>
         <span class="text-sm text-gray-600 dark:text-gray-300">
           · {books.length} {books.length === 1 ? 'book' : 'books'}
         </span>
@@ -97,7 +97,7 @@ function slugify(text: string): string {
               />
             </div>
 
-            <h4 class="mb-2 text-center text-[0.95rem] font-semibold leading-snug">
+            <h3 class="mb-2 text-center text-[0.95rem] font-semibold leading-snug">
               <a
                 href={`https://www.amazon.com/gp/product/${book.asin}/?tag=${amazonAffiliatesTag}`}
                 target="_blank"
@@ -107,7 +107,7 @@ function slugify(text: string): string {
               >
                 {book.title}
               </a>
-            </h4>
+            </h3>
 
             <p
               class="m-0 text-sm leading-relaxed text-gray-600 dark:text-gray-300"

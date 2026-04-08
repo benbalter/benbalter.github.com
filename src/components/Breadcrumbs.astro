@@ -1,0 +1,28 @@
+---
+/**
+ * Breadcrumbs
+ * 
+ * Minimal breadcrumb navigation for post pages.
+ * Shows: Home > Posts > Post Title (truncated)
+ */
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+// Truncate long titles
+const maxLength = 50;
+const truncatedTitle = title.length > maxLength ? title.slice(0, maxLength) + '…' : title;
+---
+
+<nav aria-label="Breadcrumb" class="text-sm text-gray-600 dark:text-gray-300 mb-4" data-pagefind-ignore>
+  <ol class="flex items-baseline gap-1.5 list-none p-0 m-0">
+    <li class="shrink-0"><a href="/" class="hover:text-primary dark:hover:text-primary-300 transition-colors duration-200">Home</a></li>
+    <li aria-hidden="true" class="text-gray-300 dark:text-gray-600 shrink-0">/</li>
+    <li class="shrink-0"><a href="/posts/" class="hover:text-primary dark:hover:text-primary-300 transition-colors duration-200">Posts</a></li>
+    <li aria-hidden="true" class="text-gray-300 dark:text-gray-600 shrink-0">/</li>
+    <li class="text-gray-600 dark:text-gray-400 truncate max-w-[250px] md:max-w-[400px] min-w-0" aria-current="page">{truncatedTitle}</li>
+  </ol>
+</nav>

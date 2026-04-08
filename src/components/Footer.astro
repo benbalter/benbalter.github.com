@@ -37,7 +37,7 @@ import Icon from './Icon.astro';
         {footerLinks.map((link) => (
           <li class="relative">
             <a href={link.url} class="nav-link link-secondary text-gray-700 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 px-3 py-2 text-sm transition-all duration-200 footer-link">
-              {link.title}
+              <Fragment set:html={link.title.replace(/&/g, '<span class="text-primary dark:text-primary-300 mx-0.5">&amp;</span>')} />
             </a>
           </li>
         ))}
@@ -64,125 +64,12 @@ import Icon from './Icon.astro';
 <style>
   @reference "../styles/global.css";
   
-  /* Enhanced footer divider with gradient */
   .footer-divider {
     border-top: 2px solid color-mix(in srgb, var(--color-primary) 10%, transparent);
-    position: relative;
-  }
-  
-  .footer-divider::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      color-mix(in srgb, var(--color-primary) 40%, transparent) 20%,
-      color-mix(in srgb, var(--color-primary) 60%, transparent) 50%,
-      color-mix(in srgb, var(--color-primary) 40%, transparent) 80%,
-      transparent
-    );
   }
 
-  /* Social link hover effects with touch optimization */
   .social-link {
-    position: relative;
     touch-action: manipulation;
-  }
-  
-  .social-link::before {
-    content: '';
-    position: absolute;
-    top: -4px;
-    right: -4px;
-    bottom: -4px;
-    left: -4px;
-    @apply bg-primary/10;
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-  }
-  
-  /* Enhanced touch area on mobile */
-  @media (max-width: 767px) {
-    .social-link::before {
-      top: -8px;
-      right: -8px;
-      bottom: -8px;
-      left: -8px;
-    }
-  }
-  
-  /* Ensure icon stays above pseudo-element */
-  .social-link :global(svg) {
-    position: relative;
-    z-index: 1;
-    transition: transform 0.2s ease;
-  }
-  
-  @media (hover: hover) {
-    .social-link:hover::before {
-      opacity: 1;
-      transform: scale(1.1);
-    }
-    
-    .social-link:hover {
-      transform: translateY(-2px);
-    }
-    
-    .social-link:hover :global(svg) {
-      transform: scale(1.05);
-    }
-  }
-  
-  .social-link:active {
-    transform: translateY(1px);
-  }
-  
-  .social-link:active::before {
-    opacity: 1;
-    @apply bg-primary/15;
-  }
-  
-  @media (prefers-reduced-motion: reduce) {
-    .social-link::before,
-    .social-link :global(svg) {
-      transition: none;
-    }
-    
-    .social-link:hover,
-    .social-link:active {
-      transform: none;
-    }
-    
-    .social-link:hover :global(svg),
-    .social-link:active :global(svg) {
-      transform: none;
-    }
-  }
-  
-  /* Footer text links underline effect */
-  .footer-link {
-    position: relative;
-  }
-  
-  .footer-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 1px;
-    background: currentColor;
-    transition: width 0.2s ease, left 0.2s ease;
-  }
-  
-  .footer-link:hover::after {
-    width: 80%;
-    left: 10%;
   }
 
   /* Responsive layout */
@@ -212,17 +99,6 @@ import Icon from './Icon.astro';
   @media (prefers-color-scheme: dark) {
     .footer-divider {
       border-top-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
-    }
-    
-    .footer-divider::before {
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(128, 185, 230, 0.3) 20%,
-        rgba(128, 185, 230, 0.5) 50%,
-        rgba(128, 185, 230, 0.3) 80%,
-        transparent
-      );
     }
   }
 </style>

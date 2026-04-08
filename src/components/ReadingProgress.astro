@@ -24,11 +24,14 @@
     const bar = barEl as HTMLElement;
     const container = containerEl;
     let ticking = false;
+    let cachedDocHeight = 0;
+
+    function cacheDocHeight() {
+      cachedDocHeight = document.documentElement.scrollHeight - window.innerHeight;
+    }
 
     function updateProgress() {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0;
+      const progress = cachedDocHeight > 0 ? Math.min((window.scrollY / cachedDocHeight) * 100, 100) : 0;
       bar!.style.width = `${progress}%`;
       container!.setAttribute('aria-valuenow', Math.round(progress).toString());
       ticking = false;
@@ -41,7 +44,9 @@
       }
     }
 
+    cacheDocHeight();
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', cacheDocHeight, { passive: true });
     updateProgress();
   }
 
@@ -64,7 +69,7 @@
   .reading-progress-bar {
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-300, #93c5fd));
+    background: var(--color-primary);
     transition: width 0.1s linear;
     border-radius: 0 1px 1px 0;
   }

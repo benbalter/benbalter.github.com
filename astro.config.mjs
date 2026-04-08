@@ -4,13 +4,11 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import favicons from 'astro-favicons';
 import compress from 'astro-compress';
-import redirectFrom from 'astro-redirect-from';
-import { getSlug } from './src/utils/get-slug.ts';
+import expressiveCode from 'astro-expressive-code';
 import fetchAvatar from './src/lib/astro-fetch-avatar.ts';
 import {
   sharedRemarkPlugins,
   sharedRehypePlugins,
-  sharedShikiConfig,
 } from './src/lib/markdown-pipeline.ts';
 
 // URL patterns for sitemap priority calculation
@@ -48,25 +46,12 @@ export default defineConfig({
   
   // Trailing slashes to match static host conventions (GitHub Pages, Cloudflare Pages)
   trailingSlash: 'always',
+
+  // Minify HTML output (removes whitespace, comments)
+  compressHTML: true,
   
-  // Redirect configuration
-  // External redirects for posts republished on other sites (redirect_to in frontmatter)
-  // Page redirects for backward compatibility (replaces Astro page-based redirects)
-  // Internal redirects (redirect_from) are handled by astro-redirect-from integration
-  redirects: {
-    // External redirects - Posts republished on other sites
-    '/2012/04/23/enterprise-open-source-usage-is-up-but-challenges-remain/': 
-      'http://techcrunch.com/2012/04/22/enterprise-open-source-usage-is-up-but-challenges-remain/',
-    '/2015/04/27/eight-lessons-learned-hacking-on-github-pages-for-six-months/': 
-      'https://github.com/blog/1992-eight-lessons-learned-hacking-on-github-pages-for-six-months',
-    '/2023/10/04/how-to-communicate-like-a-github-engineer/': 
-      'https://github.blog/engineering/engineering-principles/how-to-communicate-like-a-github-engineer-our-principles-practices-and-tools/',
-    
-    // Page redirects - Backward compatibility for renamed pages
-    '/books/': '/other-recommended-reading/',
-    '/books-for-geeks/': '/other-recommended-reading/',
-    '/recommended-reading/': '/other-recommended-reading/',
-  },
+  // Redirects are handled at the Cloudflare edge via public/_redirects
+  // (faster than Astro's HTML meta-refresh redirects, no malformed HTML)
   
   // Prefetch configuration for faster navigation
   // Use hover strategy to balance speed with bandwidth usage
@@ -77,15 +62,27 @@ export default defineConfig({
   
   // Font optimization via Astro's built-in Fonts API
   // Self-hosted via Fontsource for privacy (no third-party requests)
+  // Inter (sans-serif) for headings and UI; Lora (serif) for long-form prose
   fonts: [
     {
       provider: fontProviders.fontsource(),
       name: 'Inter',
       cssVariable: '--font-inter',
-      weights: [400, 500, 600, 700],
+      weights: [400, 600, 700],
       styles: ['normal', 'italic'],
       subsets: ['latin'],
       fallbacks: ['sans-serif'],
+      display: 'optional',
+    },
+    {
+      provider: fontProviders.fontsource(),
+      name: 'Lora',
+      cssVariable: '--font-lora',
+      weights: [400, 500, 700],
+      styles: ['normal', 'italic'],
+      subsets: ['latin'],
+      fallbacks: ['Georgia', 'serif'],
+      display: 'optional',
     },
   ],
   
@@ -98,7 +95,7 @@ export default defineConfig({
     // Inline all stylesheets into HTML to eliminate render-blocking CSS requests
     // This improves Speed Index by allowing content to paint faster
     // Trade-off: Larger HTML files but faster initial paint
-    inlineStylesheets: 'auto',
+    inlineStylesheets: 'always',
   },
   
   // Server configuration for development
@@ -120,6 +117,7 @@ export default defineConfig({
       'images.amazon.com',
       // Post header images from various sources
       'ben.balter.com',
+      'f.cloud.github.com',
       'lawyerist-khcnq28r8rte6wv.stackpathdns.com',
       'user-images.githubusercontent.com',
       'github.com',
@@ -145,6 +143,13 @@ export default defineConfig({
         images: true,
         files: true,
         html: true,
+      },
+    }),
+    // Expressive Code for enhanced code blocks (must be before mdx)
+    expressiveCode({
+      themes: ['github-light', 'github-dark'],
+      styleOverrides: {
+        borderRadius: '0.375rem',
       },
     }),
     mdx({
@@ -185,12 +190,6 @@ export default defineConfig({
         };
       },
     }),
-    // Handle redirects from old URLs (redirect_from in frontmatter)
-    // Must be placed before other integrations that modify HTML
-    redirectFrom({
-      contentDir: 'src/content', // Use content collections directory
-      getSlug, // Use custom slug function that reads permalink from frontmatter
-    }),
     compress({
       // Compress HTML, CSS, and JavaScript for better performance
       CSS: true,
@@ -207,8 +206,7 @@ export default defineConfig({
   
   // Markdown configuration
   markdown: {
-    // Enable syntax highlighting with GitHub themes (dual theme for dark mode support)
-    shikiConfig: sharedShikiConfig,
+    // Syntax highlighting handled by astro-expressive-code integration
     // Enable smartypants for typographic punctuation (quotes and apostrophes)
     smartypants: true,
     // Remark plugins (for markdown processing)

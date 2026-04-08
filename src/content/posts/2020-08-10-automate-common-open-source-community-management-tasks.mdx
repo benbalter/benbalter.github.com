@@ -1,6 +1,6 @@
 ---
 title: Automate common open source community management tasks
-description: Successful open source projects rely heavily on automation to implement and enforce community workflows and to make contributing a more self-serve experience.
+description: Never force a human to do what a computer can. How to automate code review, issue triage, and maintainer workflows to scale your open source community.
 ---
 
 import FossAtScale from '../../components/FossAtScale.astro';
@@ -36,7 +36,7 @@ Here are a few of my favorite Probot plugins and GitHub Actions for community ma
 
 ### A note on Probot
 
-[Probot](https://probot.github.io/) is a great framework for building tools for automating many common maintainer workflows. It has an extensive plugin ecosystem for most common tasks, and can be installed to your repository with a single click, as plugins are distributed as hosted GitHub apps, running on the developers' infrastructure (often Heroku).
+[Probot](https://probot.github.io/) is a great framework for building tools for automating many common maintainer workflows. It has an extensive plugin ecosystem for most common tasks, and can be installed to your repository with a single click, as plugins are distributed as hosted GitHub apps, running on the developers' infrastructure (often a cloud platform like Railway or Fly.io).
 
 Probot predates [GitHub Actions](https://github.com/features/actions), which allows you to run custom code in response to various repository events. Although the Actions ecosystem for automating common community management tasks is significantly smaller, many Probot plugins are being converted to GitHub Actions workflows. You can even [run existing Probot plugins on Actions](https://github.com/probot/actions-adapter) by adding them to your repository.
 

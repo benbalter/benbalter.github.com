@@ -1,9 +1,9 @@
 ---
 title: When all you have is a pair of bolt cutters...
-description: A workflow management and version control system building on WordPress's existing core competencies. By treating documents as a custom post type, users can leverage the power of WordPress's extensive attachment, revision, taxonomy, and URL rewriting functionalities.
+description: WordPress can do SharePoint better than SharePoint. A proposal to build document management and version control on top of WordPress's proven core.
 ---
 
-[<img src="http://imgs.xkcd.com/comics/golden_hammer.png" alt="Golden Hammer" class="mx-auto d-block img-fluid" />](http://xkcd.com/801/)
+[<img src="http://imgs.xkcd.com/comics/golden_hammer.png" alt="Golden Hammer" class="mx-auto block" />](http://xkcd.com/801/)
 
 My biggest gripe with [WordPress](http://wordpress.org), the open-source [content management system](http://en.wikipedia.org/wiki/Content_management_system) that silently works behind the scenes to power [more than 13%](http://w3techs.com/technologies/overview/content_management/all) of the internet, is that it sets far too high a bar with which other applications must compete. I cannot count the number of times that I have used a proprietary or commercial system and silently thought to myself, "WordPress can do this so much better\*." [^1]
 
@@ -13,13 +13,13 @@ WordPress does many things right. It is an incredibly versatile tool, but like a
 
 Imagine a workflow management and version control system [building on WordPress's existing core competencies](http://lists.automattic.com/pipermail/wp-hackers/2011-March/038727.html). By treating documents as a custom post type, users can leverage the power of WordPress's extensive attachment, revision, taxonomy, and URL rewriting functionalities. Document permalinks can be routed through the traditional rewrite structure such that the latest revision of a file always remains at a static, authenticated URL, and users can toggle the visibility of documents (both internally and externally) as they currently do with post statuses and permissions. Similarly, file locking can extend WordPress's autosave functionality (as a ping), revision logs can extend WordPress's existing revision relationship and can be outputted as a traditional RSS feed, and so on
 
-<img src="https://ben.balter.com/wp-content/uploads/2011/04/wireframe.png" alt="Wireframe of the proposed application" title="WP Document Revisions Wireframe" class="float-start ms-3" />
+<img src="https://ben.balter.com/wp-content/uploads/2011/04/wireframe.png" alt="Wireframe of the proposed application" title="WP Document Revisions Wireframe" class="float-left ml-3" />
 
 As seen in the above wireframe, document revisions would be inextricably linked to the essential WordPress experience. If you know WordPress, you know document revisions. Why reinvent the wheel when you have the best wheel the world has ever seen, and a passionate global community dedicated to improving it? This approach would not simply be limited to traditional documents. Images, PDFs, code — anything the user wants to collaborate with others on, or have a secure revision history can be thrown at it. Academics, lawyers, government folks, the possibilities are endless.
 
 To be fair, WordPress has been arguably overextended in some cases, [^3] but I do not believe that to be the case here. Sure any WordPress enthusiast may be guilty of the [bolt-cutter mentality](http://xkcd.com/801) every now and then, but I believe, if anything, it is enterprise stakeholders' tendency to gravitate toward bloated, commercial systems that is more akin to Wolf Blitzer's boat house, and a big reason why is because with the exception of an unnamed [^4] content management system's poorly executed attempt at document management, no open-source alternatives exist.
 
-I am working on submitting this idea as a proposed [Google Summer of Code](http://www.google-melange.com/gsoc/homepage/google/gsoc2011) project, [^5] with the goal of giving WordPress parity with commercial and proprietary applications and hopefully injecting some open-source goodness into government and other enterprise environments, but before I do, I would love to hear your thoughts. [Get in touch](https://ben.balter.com/contact/), or leave a comment below.
+I am working on submitting this idea as a proposed [Google Summer of Code](https://summerofcode.withgoogle.com/) project, [^5] with the goal of giving WordPress parity with commercial and proprietary applications and hopefully injecting some open-source goodness into government and other enterprise environments, but before I do, I would love to hear your thoughts. [Get in touch](https://ben.balter.com/contact/), or leave a comment below.
 
 **Update (8/29)**: The final result of the project is an [Open Source Document Management and Version Control System](https://ben.balter.com/2011/08/29/wp-document-revisions-document-management-version-control-wordpress/) for WordPress. An overview of its top-level features including a screencast of a typical use case is available on the WP Document Revisions page.
 

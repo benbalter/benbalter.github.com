@@ -1,6 +1,6 @@
 ---
 title: Bringing open source workflows to the enterprise
-description: How open source workflows and philosophies can be leveraged by the enterprise to produce more modern software, even if that software ultimately remains closed source.
+description: You don't have to publish your code to benefit from open source. Adopting open source workflows behind the firewall produces more modern software regardless.
 ---
 
 <!--lint ignore no-emphasis-as-heading-->

@@ -1,15 +1,15 @@
 ---
 title: Everything a government attorney needs to know about open source software licensing
-description: A high-level overview to highlight common legal issues government agencies may face when participating in the open source community
+description: From MIT to GPL to contributor license agreements, what government lawyers need to know about consuming, publishing, and contributing to open source — and accepting public contributions.
 ---
 
-Government agencies can and should participate in the open source community. Open source software is [more than simply software for which the underlying human-readable code had been made available to the public](https://ben.balter.com/2012/10/15/open-source-is-not-a-verb/). Along with the code comes [an intellectual property license grant](http://opensource.org/osd), a legal framework which government agencies are embracing with increasing frequency. Here are some common legal issues to look out for:
+Government agencies can and should participate in the open source community. Open source software is [more than simply software for which the underlying human-readable code has been made available to the public](https://ben.balter.com/2012/10/15/open-source-is-not-a-verb/). Along with the code comes [an intellectual property license grant](http://opensource.org/osd), a legal framework which government agencies are embracing with increasing frequency. Here are some common legal issues to look out for:
 
 *Note: this is an early draft. If you notice anything wonky, please [help improve it](https://github.com/benbalter/benbalter.github.com/edit/master/_posts/2014-10-08-open-source-licensing-for-government-attorneys.md).*
 
 ## Open source licenses generally
 
-Open source licenses are a straight-forward intellectual property license with one unique feature: [they're standardized](http://opensource.org/licenses/category). The software industry has [adopted approximately fifteen mainstream](http://choosealicense.com/licenses/) and [three primary licenses](http://choosealicense.com/). While the wording and specific terms vary, most licenses have the following common clauses:
+Open source licenses are a straightforward intellectual property license with one unique feature: [they're standardized](http://opensource.org/licenses/category). The software industry has [adopted approximately fifteen mainstream](http://choosealicense.com/licenses/) and [three primary licenses](http://choosealicense.com/). While the wording and specific terms vary, most licenses have the following common clauses:
 
 - An explicit grant to use, copy, modify, redistribute, sublicense, or sell the software.
 
@@ -31,19 +31,19 @@ Some licenses may also include:
 
 ### Why standardized licenses
 
-In order for open source to work, downstream users must be able to use the code free of legal restriction or ambiguity, and must be able to do so without the need to retain costly legal counsel. Most developers and software firms are familiar with the most common open source licenses and terms, and thus can use such software freely. As such use of a standardized license serves as a proxy for those without legal training to know precisely what they can and can't do with the software.
+In order for open source to work, downstream users must be able to use the code free of legal restriction or ambiguity, and must be able to do so without the need to retain costly legal counsel. Most developers and software firms are familiar with the most common open source licenses and terms, and thus can use such software freely. As such, use of a standardized license serves as a proxy for those without legal training to know precisely what they can and can't do with the software.
 
-Unless absolutely required, avoid custom, modified, or non-standard terms, which will serve as a barrier to downstream use of the agency code. The open source community is just that, a community, and one with a strong tradition. Open source software is published so that others may use it, and doing so under a legal framework alien to the community, is the easiest way to make sure it's not used. Optimize for the code's reuse, not its publication.
+Unless absolutely required, avoid custom, modified, or non-standard terms, which will serve as a barrier to downstream use of the agency code. The open source community is just that, a community, and one with a strong tradition. Open source software is published so that others may use it, and doing so under a legal framework alien to the community is the easiest way to make sure it's not used. Optimize for the code's reuse, not its publication.
 
 ### Common licenses
 
-Within the software industry, the canonical source for most main licenses, along with a brief overview of their terms can be found at [choosealicense.com](http://choosealicense.com). The three most popular licenses are the MIT, Apache, and GPL licenses:
+Within the software industry, the canonical source for most main licenses, along with a brief overview of their terms, can be found at [choosealicense.com](http://choosealicense.com). The three most popular licenses are the MIT, Apache, and GPL licenses:
 
 - **[MIT](http://choosealicense.com/licenses/mit/)** - The most common license is the MIT license, which is a simple grant, copyright notice requirement, and disclaimer of warranty.
 
-- **[Apache](http://choosealicense.com/licenses/apache-2.0/)** - The Apache license is functionally equivalent to the MIT license, but is more heavily lawyered and includes an explicit patent grant
+- **[Apache](http://choosealicense.com/licenses/apache-2.0/)** - The Apache license is functionally equivalent to the MIT license, but is more heavily lawyered and includes an explicit patent grant.
 
-- **[GPL](http://choosealicense.com/licenses/gpl-2.0/)** The GPL is the most commonly used copyleft license, with v2, v3, and "v2 or later" variants.
+- **[GPL](http://choosealicense.com/licenses/gpl-2.0/)** - The GPL is the most commonly used copyleft license, with v2, v3, and "v2 or later" variants.
 
 ### Copyleft
 
@@ -53,31 +53,31 @@ Any work derived from copyleft-licensed code, if distributed, must be distribute
 
 - **Derivative work** - There are nuances within the particular license, but for most cases, if the new code depends on the original, copyleft-licensed code, such as a WordPress theme or a Drupal module, it is considered a derivative work subject to the copyleft requirements.
 
-- **Distribution** - The copyleft requirements are not triggered unless the derivative work is distributed. Agencies are free to make derivative works and maintain that work as a closed-source project. When the underlying source code is published to the public, distribution is clear. Less clear is distribution to other business units within the same agency, or with other agency. Unless licensed under the AGPL license, using the code as part of a hosted service (for example, a site) does not trigger that requirement.
+- **Distribution** - The copyleft requirements are not triggered unless the derivative work is distributed. Agencies are free to make derivative works and maintain that work as a closed-source project. When the underlying source code is published to the public, distribution is clear. Less clear is distribution to other business units within the same agency, or with other agencies. Unless licensed under the AGPL license, using the code as part of a hosted service (for example, a site) does not trigger that requirement.
 
 When faced with copyleft restrictions, an agency should release code under the least-restrictive means available under the circumstances, which is often the copyleft license itself. While the government's particular code may not be subject to copyright (see below), the project as a whole is encumbered by upstream license restrictions, and thus the agency does not have the right to release the code under less-restrictive terms.
 
 ## Consuming open source software
 
-There is nothing to legally bar agencies from using open source software on their servers or on their employees's computers. Three common concerns:
+There is nothing to legally bar agencies from using open source software on their servers or on their employees' computers. Three common concerns:
 
 - For procurement purposes, open source software is treated as commercial, off the shelf software (COTS).
 
 - The work of contributors does not trigger gift authority or Anti-Deficiency Act obligations, unless the work is performed specifically for the agency. Under a traditional open source workflow, project contributors publish their code publicly and license their work to the world. See accepting contributions from the public below.
 
-- The software must still go through the agency's traditional approval process, such as security or privacy reviews, just as the agency would do before operationalizing a piece of commercial software
+- The software must still go through the agency's traditional approval process, such as security or privacy reviews, just as the agency would do before operationalizing a piece of commercial software.
 
 ## Publishing open source software
 
-The agency can and under the digital strategy and open data policy is encouraged to publish the agency's purpose-build software. This can arise under two arrangements:
+The agency can and under the digital strategy and open data policy is encouraged to publish the agency's purpose-built software. This can arise under two arrangements:
 
 ### Government-created code
 
-Code created by government employees on government time is consider a government work, and thus is not subject to *domestic* copyright protection under 17 USC § 105.
+Code created by government employees on government time is considered a government work, and thus is not subject to *domestic* copyright protection under 17 USC § 105.
 
 The internet, and thus open source, however, is not bound by geographic lines. It is not uncommon for government created code to be used by foreign citizens. As such, the agency should make it explicit under what terms foreign citizens can use the code.
 
-[Best practices suggest](https://github.com/project-open-data/project-open-data.github.io/pull/135#issuecomment-23299819) that [agencies release their code](https://github.com/cfpb/qu/pull/94) under [the Creative Commons Zero license](https://creativecommons.org/publicdomain/zero/1.0/), a public domain dedication and copyright disclaimer, to ensure all downstream users receive the same rights in the software. Where not possible, (for example, a copyleft derivative work), prefer the least-restrictive terms possible.
+[Best practices suggest](https://github.com/project-open-data/project-open-data.github.io/pull/135#issuecomment-23299819) that [agencies release their code](https://github.com/cfpb/qu/pull/94) under [the Creative Commons Zero license](https://creativecommons.org/publicdomain/zero/1.0/), a public domain dedication and copyright disclaimer, to ensure all downstream users receive the same rights in the software. Where not possible (for example, a copyleft derivative work), prefer the least-restrictive terms possible.
 
 ### Contractor created code
 
@@ -95,7 +95,7 @@ A central tenet of open source software is contributing downstream improvements 
 
 Whether a contribution to the community-maintained project directly (for example, contributing to WordPress or Drupal), or a derivative work (a plugin, theme, or module), agency contributions should be licensed under the terms of the parent project, using the project's standard workflow and distribution channels.
 
-One thing to watch out for are contributor license agreements (CLAss) which may proscribe an explicit copyright grant (as opposed to a license), or the granting of additional rights beyond the copyright license, which may conflict with the contributor's obligations as a government employee.
+One thing to watch out for are contributor license agreements (CLAs) which may prescribe an explicit copyright grant (as opposed to a license), or the granting of additional rights beyond the copyright license, which may conflict with the contributor's obligations as a government employee.
 
 ## Accepting contributions from the public
 
@@ -118,11 +118,11 @@ For platforms like GitHub, per the terms of service, government employees should
 If you found this post helpful, there are two other resources you may be interested in reading:
 
 - A more expansive post on [open source licensing geared towards open source project maintainers](https://ben.balter.com/2017/11/28/everything-an-open-source-maintainer-might-need-to-know-about-open-source-licensing/)
-- An overview of the best way to handle [copyright notices for open source projects](https://ben.balter.com/2015/06/03/copyright-notices-for-websites-and-open-source-projects/) in for example, Licenses or the readme, and
+- An overview of the best way to handle [copyright notices for open source projects](https://ben.balter.com/2015/06/03/copyright-notices-for-websites-and-open-source-projects/), in for example, Licenses or the readme.
 
 ## Go forth and open source
 
-This is a high-level overview intended to highlight common legal issues agencies may face when participating in the open source community, and should not be consider to be legal advice or specific to a particular matter.
+This is a high-level overview intended to highlight common legal issues agencies may face when participating in the open source community, and should not be considered to be legal advice or specific to a particular matter.
 
 Although this is my personal blog, agencies should feel free to contact <government@github.com> or post in the [github.com/government](https://github.com/government/welcome) peer group with any open-source related questions.
 

@@ -7,6 +7,8 @@ permissions:
   issues: read
   pull-requests: read
 safe-outputs:
+  noop:
+    report-as-issue: false
   create-issue:
     title-prefix: "[site-audit] "
     labels: [audit, automated]
@@ -15,7 +17,7 @@ safe-outputs:
 
 ## Weekly Site Health Audit
 
-You are auditing the personal blog of Ben Balter (ben.balter.com), an Astro static site hosted on GitHub Pages.
+You are auditing the personal blog of Ben Balter (ben.balter.com), an Astro static site hosted on Cloudflare Pages.
 
 ### What to check
 

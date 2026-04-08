@@ -25,19 +25,30 @@
     if (!btn) return;
 
     let visible = false;
+    let footerVisible = false;
     const threshold = 400;
     const button = btn;
 
-    function toggle() {
-      const shouldShow = window.scrollY > threshold;
+    function update() {
+      const shouldShow = window.scrollY > threshold && !footerVisible;
       if (shouldShow !== visible) {
         visible = shouldShow;
         button.classList.toggle('visible', visible);
       }
     }
 
-    window.addEventListener('scroll', toggle, { passive: true });
-    toggle();
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+
+    // Hide when footer is in view (footer has its own back-to-top link)
+    const footer = document.querySelector('footer');
+    if (footer) {
+      const observer = new IntersectionObserver(
+        ([entry]) => { footerVisible = entry.isIntersecting; update(); },
+        { threshold: 0 }
+      );
+      observer.observe(footer);
+    }
 
     btn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -62,23 +73,18 @@
     padding: 0;
     border: 1px solid rgba(128, 128, 128, 0.2);
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.9);
+    background: white;
     color: var(--color-gray-600, #4b5563);
     cursor: pointer;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(0.5rem);
-    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease,
-                background-color 0.15s ease, color 0.15s ease;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    transition: opacity 0.2s ease, visibility 0.2s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
   .back-to-top.visible {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
   }
 
   .back-to-top:hover {
@@ -94,7 +100,7 @@
 
   @media (prefers-color-scheme: dark) {
     .back-to-top {
-      background: rgba(30, 30, 30, 0.9);
+      background: #1e1e1e;
       color: #8b949e;
       border-color: rgba(128, 128, 128, 0.25);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);

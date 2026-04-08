@@ -167,7 +167,8 @@ const schemas = breadcrumbSchema
           { rel: 'author', type: 'text/plain', href: '/humans.txt' },
           // Social Links (rel=me for verification)
           ...socialLinks.map((link) => ({ rel: 'me', href: link.url })),
-          // Resource Hints for Performance
+          // DNS prefetch for origins used on some pages (low cost when unused,
+          // unlike preconnect which opens full TCP+TLS connections)
           { rel: 'dns-prefetch', href: 'https://images.amazon.com' },
           { rel: 'dns-prefetch', href: 'https://user-images.githubusercontent.com' },
           // RSS Feed
@@ -181,8 +182,11 @@ const schemas = breadcrumbSchema
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json" set:html={schemaToJsonLd(schemas)} is:inline></script>
     
-    <!-- Font preloading via Astro Fonts API -->
-    <Font cssVariable="--font-inter" preload />
+    <!-- Font optimization via Astro Fonts API (no preload: font-display optional
+         means the browser skips fonts not available immediately, so preloading
+         them would waste bandwidth competing with critical JS) -->
+    <Font cssVariable="--font-inter" />
+    <Font cssVariable="--font-lora" />
     
     <!-- Astro View Transitions (ClientRouter) for smooth page navigation -->
     <ClientRouter />
@@ -190,7 +194,7 @@ const schemas = breadcrumbSchema
     <!-- Note: Title, favicons, meta tags, social links, resource hints, and RSS feed
          are all declared in the SEO component above. Do not duplicate them here. -->
   </head>
-  <body class="mt-2">
+  <body class="mt-2 text-gray-900 bg-white dark:text-gray-100 dark:bg-gray-900">
     <!-- Skip to main content link for accessibility -->
     <a href="#content" class="skip-to-content visually-hidden-focusable">
       Skip to main content

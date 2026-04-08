@@ -5,6 +5,8 @@ on:
 permissions:
   contents: read
 safe-outputs:
+  noop:
+    report-as-issue: false
   create-issue:
     title-prefix: "[seo-audit] "
     labels: [seo, content]
@@ -14,7 +16,7 @@ safe-outputs:
 
 ## Monthly SEO Health Check
 
-Audit the site's content and metadata for SEO improvements. The site is an Astro static site hosted on GitHub Pages at ben.balter.com.
+Audit the site's content and metadata for SEO improvements. The site is an Astro static site hosted on Cloudflare Pages at ben.balter.com.
 
 ## What to analyze
 
