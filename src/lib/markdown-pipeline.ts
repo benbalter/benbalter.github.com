@@ -24,21 +24,13 @@ import { rehypeFigure } from './rehype-figure';
 import { rehypeFootnoteA11y } from './rehype-footnote-a11y';
 
 // Typography plugins for remark-textr
-// @ts-expect-error - No type definitions available
 import typographicArrows from 'typographic-arrows';
-// @ts-expect-error - No type definitions available
 import typographicCopyright from 'typographic-copyright';
-// @ts-expect-error - No type definitions available
 import typographicEmDashes from 'typographic-em-dashes';
-// @ts-expect-error - No type definitions available
 import typographicEnDashes from 'typographic-en-dashes';
-// @ts-expect-error - No type definitions available
 import typographicMathSymbols from 'typographic-math-symbols';
-// @ts-expect-error - No type definitions available
 import typographicRegisteredTrademark from 'typographic-registered-trademark';
-// @ts-expect-error - No type definitions available
 import typographicSingleSpaces from 'typographic-single-spaces';
-// @ts-expect-error - No type definitions available
 import typographicTrademark from 'typographic-trademark';
 
 // Shared rehype plugin configurations

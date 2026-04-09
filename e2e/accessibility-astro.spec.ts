@@ -78,7 +78,7 @@ test.describe('Accessibility - Blog Post', () => {
     // Guard: skip if no article links exist
     const articleLinks = await page.locator('article a').count();
     if (articleLinks === 0) {
-      test.skip();
+      test.skip(true, 'No blog post article links found on homepage');
       return;
     }
     
@@ -98,7 +98,7 @@ test.describe('Accessibility - Blog Post', () => {
     // Guard: skip if no article links exist
     const articleLinks = await page.locator('article a').count();
     if (articleLinks === 0) {
-      test.skip();
+      test.skip(true, 'No blog post article links found on homepage');
       return;
     }
     
@@ -125,7 +125,7 @@ test.describe('Accessibility - Blog Post', () => {
     // Guard: skip if no article links exist
     const articleLinks = await page.locator('article a').count();
     if (articleLinks === 0) {
-      test.skip();
+      test.skip(true, 'No blog post article links found on homepage');
       return;
     }
     
@@ -291,7 +291,7 @@ test.describe('Screen Reader Accessibility', () => {
     
     // Skip test if page doesn't exist
     if (!response || response.status() === 404) {
-      test.skip();
+      test.skip(true, 'Page returned 404 or does not exist');
       return;
     }
     
@@ -299,7 +299,7 @@ test.describe('Screen Reader Accessibility', () => {
     
     // Skip test if no form inputs exist
     if (inputs.length === 0) {
-      test.skip();
+      test.skip(true, 'No form inputs found on page');
       return;
     }
     
@@ -392,7 +392,7 @@ test.describe('Axe Accessibility Scan - Multiple Pages', () => {
       
       // Skip test if page doesn't exist
       if (!response || response.status() === 404) {
-        test.skip();
+        test.skip(true, 'Page returned 404 or does not exist');
         return;
       }
       
@@ -502,7 +502,7 @@ test.describe('Accessibility - Dark Mode', () => {
     // Guard: skip if no article links exist
     const articleLinks = await page.locator('article a').count();
     if (articleLinks === 0) {
-      test.skip();
+      test.skip(true, 'No blog post article links found on homepage');
       return;
     }
     

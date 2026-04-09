@@ -19,7 +19,6 @@ import mentions from 'remark-mentions';
  * @returns Configured remark-mentions plugin
  */
 export function remarkGitHubMentions() {
-  // @ts-expect-error - remark-mentions has incomplete type definitions
   return mentions({
     usernameLink: (username: string) => `https://github.com/${username}`,
   });

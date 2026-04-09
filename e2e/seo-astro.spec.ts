@@ -30,7 +30,7 @@ test.describe('SEO Meta Tags', () => {
         const response = await page.goto(url);
         // Skip if page doesn't exist
         if (!response || response.status() === 404) {
-          test.skip();
+          test.skip(true, 'Page returned 404 or failed to load');
           return;
         }
         await waitForPageReady(page);

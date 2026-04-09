@@ -30,7 +30,7 @@ import { siteConfig } from '../config';
  * Sanitize filename to only allow safe characters (alphanumeric, hyphens, underscores, periods)
  * This prevents HTTP header injection attacks via Content-Disposition header
  */
-function sanitizeFilename(name: string): string {
+export function sanitizeFilename(name: string): string {
   return name
     .toLowerCase()
     .replace(/\s+/g, '-')           // Replace spaces with hyphens

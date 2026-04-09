@@ -54,11 +54,19 @@ export default defineConfig({
     navigationTimeout: 15000,
   },
 
-  /* Configure project for Chromium browser */
+  /* Configure projects for cross-browser testing */
   projects: [
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+    },
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
     },
   ],
 

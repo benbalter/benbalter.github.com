@@ -63,7 +63,7 @@ test.describe('Homepage', () => {
   test('should be responsive on mobile', async ({ page, isMobile }) => {
     if (!isMobile) {
       // Skip on desktop browsers
-      test.skip();
+      test.skip(true, 'Test only runs on mobile viewport');
     }
     
     // Page should be usable on mobile

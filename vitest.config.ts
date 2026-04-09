@@ -1,6 +1,16 @@
 import { defineConfig } from 'vitest/config';
+import { fileURLToPath } from 'url';
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      // Map astro:content virtual module to a stub so Vite can resolve it
+      // during import analysis. Tests then use vi.mock() to override behavior.
+      'astro:content': fileURLToPath(
+        new URL('./src/__mocks__/astro-content.ts', import.meta.url),
+      ),
+    },
+  },
   test: {
     // Use happy-dom for DOM simulation (faster than jsdom)
     environment: 'happy-dom',
@@ -26,6 +36,7 @@ export default defineConfig({
         'src/**/*.d.ts',
         'src/**/*.astro',
         'src/content/config.ts', // Content collections schema (no logic to test)
+        'src/__mocks__/**',      // Test stubs for virtual modules
       ],
     },
     
