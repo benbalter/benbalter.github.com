@@ -7,8 +7,6 @@ permissions:
   issues: read
   pull-requests: read
 safe-outputs:
-  noop:
-    report-as-issue: false
   create-issue:
     title-prefix: "[site-audit] "
     labels: [audit, automated]

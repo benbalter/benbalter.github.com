@@ -6,8 +6,6 @@ permissions:
   contents: read
   issues: read
 safe-outputs:
-  noop:
-    report-as-issue: false
   add-labels:
     allowed: [bug, enhancement, documentation, question, accessibility, seo, performance, content]
     max: 3
