@@ -35,8 +35,21 @@
 </div>
 
 <script>
+  interface PagefindResult {
+    data(): Promise<{ url: string; meta?: { title?: string }; excerpt: string }>;
+  }
+
+  interface PagefindSearch {
+    results: PagefindResult[];
+  }
+
+  interface Pagefind {
+    init(): Promise<void>;
+    search(query: string): Promise<PagefindSearch>;
+  }
+
   let pagefindLoaded = false;
-  let pagefind: any = null;
+  let pagefind: Pagefind | null = null;
   let previouslyFocusedElement: HTMLElement | null = null;
 
   const FOCUSABLE_SELECTOR = 'input, button, a[href], [tabindex]:not([tabindex="-1"])';
@@ -81,7 +94,7 @@
     try {
       // Dynamic import at runtime — path resolved after pagefind indexes the built site
       const pf = '/pagefind/pagefind.js';
-      pagefind = await import(/* @vite-ignore */ pf);
+      pagefind = await import(/* @vite-ignore */ pf) as unknown as Pagefind;
       await pagefind.init();
       pagefindLoaded = true;
     } catch (e) {
@@ -116,12 +129,12 @@
     }
 
     const results = await Promise.all(
-      search.results.slice(0, 8).map((r: any) => r.data())
+      search.results.slice(0, 8).map((r) => r.data())
     );
 
     resultsContainer.innerHTML = results
       .map(
-        (result: any) => `
+        (result) => `
         <a href="${result.url}" class="search-result" data-search-close>
           <span class="search-result-title">${result.meta?.title || 'Untitled'}</span>
           <span class="search-result-excerpt">${result.excerpt}</span>

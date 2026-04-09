@@ -7,6 +7,7 @@
  */
 
 import Icon from './Icon.astro';
+import { getShareUrls } from '../utils/share-urls';
 
 interface Props {
   title: string;
@@ -14,34 +15,36 @@ interface Props {
 }
 
 const { title, url } = Astro.props;
-const encodedTitle = encodeURIComponent(title);
-const encodedUrl = encodeURIComponent(url);
+const { bluesky, twitter, linkedin } = getShareUrls(title, url);
 ---
 
 <div class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400 mt-6" data-pagefind-ignore>
   <span>Discuss on</span>
   <a
-    href={`https://bsky.app/intent/compose?text=${encodedTitle}%20${encodedUrl}`}
+    href={bluesky}
     target="_blank"
     rel="noopener noreferrer"
+    aria-label="Discuss this post on Bluesky"
     class="inline-flex items-center gap-1 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200"
   >
     <Icon name="bluesky" /> Bluesky
   </a>
   <span aria-hidden="true">·</span>
   <a
-    href={`https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`}
+    href={twitter}
     target="_blank"
     rel="noopener noreferrer"
+    aria-label="Discuss this post on Twitter"
     class="inline-flex items-center gap-1 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200"
   >
     <Icon name="twitter" /> Twitter
   </a>
   <span aria-hidden="true">·</span>
   <a
-    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
+    href={linkedin}
     target="_blank"
     rel="noopener noreferrer"
+    aria-label="Discuss this post on LinkedIn"
     class="inline-flex items-center gap-1 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200"
   >
     <Icon name="linkedin" /> LinkedIn

@@ -1,17 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
-import { getPostUrl, getDateFromSlug, formatPostDate, formatISODate } from '../utils/post-urls';
-import { calculateReadingTime } from '../utils/reading-time';
+import { getDateFromSlug } from '../utils/post-urls';
+import { isPublishedPost } from '../utils/post-filtering';
+import { getPostMetadata } from '../utils/post-metadata';
 import PostCard from '../components/PostCard.astro';
 import { popularPostSlugs } from '../config';
 
 const title = 'All Posts';
 const description = 'A complete archive of all blog posts.';
 
-const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => {
-  return data.published !== false && data.archived !== true;
-});
+const allPosts = await getCollection('posts', isPublishedPost);
 
 const posts: CollectionEntry<'posts'>[] = allPosts.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) =>
   b.id.localeCompare(a.id)
@@ -30,16 +29,6 @@ for (const post of posts) {
   postsByYear.get(year)!.push(post);
 }
 const years = [...postsByYear.keys()].sort((a, b) => b - a);
-
-function getPostMetadata(post: CollectionEntry<'posts'>) {
-  const postDate = getDateFromSlug(post.id);
-  return {
-    postUrl: getPostUrl(post.id),
-    date: formatPostDate(postDate),
-    isoDate: formatISODate(postDate),
-    readingTime: calculateReadingTime(post.body),
-  };
-}
 ---
 
 <BaseLayout title={title} description={description}>

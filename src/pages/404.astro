@@ -16,14 +16,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { popularPostSlugs } from '../config';
 import { getPostUrl } from '../utils/post-urls';
+import { isPublishedPost } from '../utils/post-filtering';
 
 const title = 'Not Found 😢';
 const description = 'The page you are trying to view does not exist.';
 
 // Get all published, non-archived posts
-const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => {
-  return data.published !== false && data.archived !== true;
-});
+const allPosts = await getCollection('posts', isPublishedPost);
 
 // Sort posts by id (which contains date in Jekyll format YYYY-MM-DD)
 const sortedPosts: CollectionEntry<'posts'>[] = allPosts

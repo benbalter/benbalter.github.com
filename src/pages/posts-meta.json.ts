@@ -3,8 +3,9 @@
  * Generated at build time — no runtime cost.
  */
 
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import { getPostUrl } from '../utils/post-urls';
+import { isPublishedPost } from '../utils/post-filtering';
 import GithubSlugger from 'github-slugger';
 
 export interface Heading {
@@ -49,7 +50,7 @@ export function extractHeadings(body: string): Heading[] {
 }
 
 export async function GET() {
-  const posts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => data.published !== false);
+  const posts = await getCollection('posts', isPublishedPost);
   const meta: Record<string, PostMeta> = {};
 
   for (const post of posts) {

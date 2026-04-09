@@ -2,8 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { popularPostSlugs } from '../config';
-import { getPostUrl, getDateFromSlug, formatPostDate, formatISODate } from '../utils/post-urls';
-import { calculateReadingTime } from '../utils/reading-time';
+import { isPublishedPost } from '../utils/post-filtering';
+import { getPostMetadata } from '../utils/post-metadata';
 import PostCard from '../components/PostCard.astro';
 import BookCta from '../components/BookCta.astro';
 import { aboutContent, getFirstSentence } from '../content/about-bio';
@@ -11,9 +11,7 @@ import { aboutContent, getFirstSentence } from '../content/about-bio';
 const description = getFirstSentence(aboutContent);
 
 // Get all published posts (excluding archived), sorted by date (newest first)
-const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => {
-  return data.published !== false && data.archived !== true;
-});
+const allPosts = await getCollection('posts', isPublishedPost);
 
 // Sort posts by id (which contains date in Jekyll format YYYY-MM-DD)
 const posts: CollectionEntry<'posts'>[] = allPosts.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => 
@@ -28,17 +26,6 @@ const regularPosts = posts.slice(3);
 const popularPosts = popularPostSlugs
   .map(slug => allPosts.find((post: CollectionEntry<'posts'>) => post.id === slug))
   .filter((post): post is CollectionEntry<'posts'> => post !== undefined);
-
-// Helper function to get post metadata
-function getPostMetadata(post: CollectionEntry<'posts'>) {
-  const postDate = getDateFromSlug(post.id);
-  return {
-    postUrl: getPostUrl(post.id),
-    date: formatPostDate(postDate),
-    isoDate: formatISODate(postDate),
-    readingTime: calculateReadingTime(post.body),
-  };
-}
 ---
 
 <BaseLayout description={description} hero={true}>

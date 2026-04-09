@@ -125,7 +125,7 @@
     "lint-text": "textlint *.md src/content/posts/*.md src/content/resume-positions/*.md --fix --dry-run",
     "lint-yaml": "yamllint -c .yamllint.yml .github/workflows/ .github/dependabot.yml src/data/*.yml .yamllint.yml .markdown-lint.yml",
     "super-linter": "script/super-linter",
-    "test": "npm run check && npm run lint",
+    "test": "npm run check && npm run lint && npm run test:vitest",
     "test:e2e": "playwright test",
     "test:e2e:accessibility": "playwright test e2e/accessibility-astro.spec.ts",
     "test:e2e:performance": "playwright test e2e/performance-astro.spec.ts",
