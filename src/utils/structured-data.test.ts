@@ -402,27 +402,7 @@ describe('generateBlogPostingSchema', () => {
     expect(schema).toHaveProperty('inLanguage', 'en');
   });
 
-  it('should include keywords when provided', () => {
-    const schema = generateBlogPostingSchema({
-      title: 'Test Post',
-      url: 'https://ben.balter.com/2024/01/15/test/',
-      publishedTime: new Date('2024-01-15'),
-      keywords: ['open-source', 'government'],
-    });
-    
-    expect(schema).toHaveProperty('keywords', 'open-source, government');
-  });
 
-  it('should omit keywords when empty', () => {
-    const schema = generateBlogPostingSchema({
-      title: 'Test Post',
-      url: 'https://ben.balter.com/2024/01/15/test/',
-      publishedTime: new Date('2024-01-15'),
-      keywords: [],
-    });
-    
-    expect(schema).not.toHaveProperty('keywords');
-  });
 
   it('should include @id reference in author', () => {
     const schema = generateBlogPostingSchema({

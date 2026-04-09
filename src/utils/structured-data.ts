@@ -96,9 +96,8 @@ export function generateBlogPostingSchema(props: {
   image?: string;
   author?: string;
   wordCount?: number;
-  keywords?: string[];
 }): WithContext<BlogPosting> {
-  const { title, description, url, publishedTime, modifiedTime, image, author, wordCount, keywords } = props;
+  const { title, description, url, publishedTime, modifiedTime, image, author, wordCount } = props;
 
   const absoluteImage = image
     ? (image.startsWith('http') ? image : `${siteConfig.url}${image}`)
@@ -134,7 +133,6 @@ export function generateBlogPostingSchema(props: {
     },
     ...(wordCount ? { wordCount } : {}),
     inLanguage: 'en',
-    ...(keywords && keywords.length > 0 ? { keywords: keywords.join(', ') } : {}),
   };
 }
 
