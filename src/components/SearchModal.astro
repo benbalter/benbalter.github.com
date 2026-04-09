@@ -202,8 +202,9 @@
     // Focus trap
     document.addEventListener('keydown', trapFocus);
 
-    // Keyboard shortcuts
-    document.addEventListener('keydown', (e) => {
+    // Keyboard shortcuts — use a stable function reference so duplicate
+    // registrations across view transitions are no-ops.
+    function handleKeyboardShortcut(e: KeyboardEvent) {
       // ⌘K or Ctrl+K to open
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
@@ -223,7 +224,8 @@
           closeSearch();
         }
       }
-    });
+    }
+    document.addEventListener('keydown', handleKeyboardShortcut);
 
     // Close on result click (navigate) and store query for highlighting
     modal.addEventListener('click', (e) => {

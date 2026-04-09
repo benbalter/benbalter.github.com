@@ -112,7 +112,6 @@ const popularPosts = popularPostSlugs
           `${window.location.protocol}//${window.location.host}/sitemap-0.xml`,
           { signal: controller.signal },
         );
-        clearTimeout(timeoutId);
 
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
@@ -140,6 +139,8 @@ const popularPosts = popularPostSlugs
         // On any error (timeout, network, parse), hide suggestion gracefully
         const parent = suggestionSpan.closest('p');
         if (parent) parent.hidden = true;
+      } finally {
+        clearTimeout(timeoutId);
       }
     }
   </script>
