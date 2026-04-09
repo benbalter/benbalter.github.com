@@ -30,15 +30,15 @@ vi.mock('@astrojs/markdown-remark', () => ({
   }),
 }));
 
-vi.mock('../lib/markdown-pipeline', () => ({
+vi.mock('../../lib/markdown-pipeline', () => ({
   sharedRemarkPlugins: [],
   sharedRehypePlugins: [],
   sharedShikiConfig: {},
 }));
 
 import { getCollection } from 'astro:content';
-import { GET } from './feed.xml';
-import { siteConfig } from '../config';
+import { GET } from '../../pages/feed.xml';
+import { siteConfig } from '../../config';
 
 const mockGetCollection = vi.mocked(getCollection);
 

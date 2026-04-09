@@ -12,7 +12,7 @@ vi.mock('astro:content', () => ({
 }));
 
 import { getCollection } from 'astro:content';
-import { GET, stripMarkdown, extractHeadings } from './posts-meta.json';
+import { GET, stripMarkdown, extractHeadings } from '../../pages/posts-meta.json';
 
 const mockGetCollection = vi.mocked(getCollection);
 

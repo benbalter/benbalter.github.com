@@ -12,7 +12,7 @@ vi.mock('astro:content', () => ({
 }));
 
 import { getCollection } from 'astro:content';
-import { siteConfig } from '../config';
+import { siteConfig } from '../../config';
 
 const mockGetCollection = vi.mocked(getCollection);
 
@@ -49,7 +49,7 @@ function createMockPage(
 // Lazily import the module under test after mocks are set up
 async function importGET() {
   // Dynamic import ensures vi.mock has been applied
-  const mod = await import('./llms.txt');
+  const mod = await import('../../pages/llms.txt');
   return mod.GET;
 }
 

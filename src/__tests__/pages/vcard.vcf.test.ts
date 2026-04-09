@@ -6,8 +6,8 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { GET, sanitizeFilename } from './vcard.vcf';
-import { siteConfig } from '../config';
+import { GET, sanitizeFilename } from '../../pages/vcard.vcf';
+import { siteConfig } from '../../config';
 
 describe('vcard.vcf', () => {
   describe('sanitizeFilename', () => {
