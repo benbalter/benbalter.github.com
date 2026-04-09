@@ -7,6 +7,7 @@
  */
 
 import Icon from './Icon.astro';
+import { getShareUrls } from '../utils/share-urls';
 
 interface Props {
   title: string;
@@ -14,31 +15,13 @@ interface Props {
 }
 
 const { title, url } = Astro.props;
-
-const encodedTitle = encodeURIComponent(title);
-const encodedUrl = encodeURIComponent(url);
+const urls = getShareUrls(title, url);
 
 const shareLinks = [
-  {
-    name: 'LinkedIn',
-    icon: 'linkedin',
-    href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
-  },
-  {
-    name: 'Bluesky',
-    icon: 'bluesky',
-    href: `https://bsky.app/intent/compose?text=${encodedTitle}%20${encodedUrl}`,
-  },
-  {
-    name: 'Twitter',
-    icon: 'twitter',
-    href: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`,
-  },
-  {
-    name: 'Email',
-    icon: 'envelope',
-    href: `mailto:?subject=${encodedTitle}&body=${encodedUrl}`,
-  },
+  { name: 'LinkedIn', icon: 'linkedin', href: urls.linkedin },
+  { name: 'Bluesky', icon: 'bluesky', href: urls.bluesky },
+  { name: 'Twitter', icon: 'twitter', href: urls.twitter },
+  { name: 'Email', icon: 'envelope', href: urls.email },
 ];
 ---
 

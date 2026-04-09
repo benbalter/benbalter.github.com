@@ -15,7 +15,7 @@
  * - variant: 'default' for standard cards, 'featured' for prominent styling
  */
 
-import { formatReadingTime } from '../utils/reading-time';
+import PostMeta from './PostMeta.astro';
 import { stripMarkdown } from '../utils/strip-markdown';
 
 interface Props {
@@ -49,9 +49,7 @@ const isFeatured = variant === 'featured';
       'text-sm text-gray-600 dark:text-gray-300',
       isFeatured ? 'mb-4 max-md:mb-2' : 'mb-2',
     ]}>
-      <time datetime={isoDate}>{date}</time>
-      <span class={isFeatured ? 'mx-2' : 'mx-1'} aria-hidden="true">·</span>
-      <span>{formatReadingTime(readingTime)}</span>
+      <PostMeta date={date} isoDate={isoDate} readingTime={readingTime} separatorClass={isFeatured ? 'mx-2' : 'mx-1'} />
     </div>
     {description && (
       <p class:list={[

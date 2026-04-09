@@ -7,6 +7,7 @@ import ContactLinks from '../components/ContactLinks.astro';
 import { getBioParagraphs, aboutContent } from '../content/about-bio';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { getPostUrl, getDateFromSlug, formatPostDate } from '../utils/post-urls';
+import { isPublishedPost } from '../utils/post-filtering';
 
 const title = 'About';
 const description = siteConfig.aboutDescription;
@@ -29,7 +30,7 @@ function renderPost(post: CollectionEntry<'posts'>): PostItem {
   return { postDate, title: post.data.title, url: getPostUrl(post.id) };
 }
 
-const allPosts = await getCollection('posts');
+const allPosts = await getCollection('posts', isPublishedPost);
 const popularPostItems: PostItem[] = popularPostSlugs
   .map(slug => allPosts.find((post: CollectionEntry<'posts'>) => post.id === slug))
   .filter((p): p is CollectionEntry<'posts'> => p !== undefined)

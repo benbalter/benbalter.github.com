@@ -3,12 +3,11 @@ import { getCollection, render, type CollectionEntry } from 'astro:content';
 import PostLayout from '../../../../layouts/PostLayout.astro';
 import { findRelatedPosts, initializeRelatedPostsCache } from '../../../../utils/related-posts';
 import { getPostUrl } from '../../../../utils/post-urls';
+import { isPublishedPost } from '../../../../utils/post-filtering';
 
 // Generate static paths for all blog posts with Jekyll URL structure
 export async function getStaticPaths() {
-  const posts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => {
-    return data.published !== false;
-  });
+  const posts = await getCollection('posts', isPublishedPost);
 
   // Initialize the related posts cache once for all posts
   // This pre-calculates TF-IDF vectors for all posts to avoid redundant computation

@@ -40,7 +40,7 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
   
   // Global click handler for click-outside functionality (defined outside DOMContentLoaded for cleanup)
   const handleGlobalClick = (e: MouseEvent) => {
-    const activeTooltips = (window as any).__tldrActiveTooltips;
+    const activeTooltips = window.__tldrActiveTooltips;
     if (!activeTooltips || activeTooltips.size === 0) return;
 
     const target = e.target;
@@ -55,7 +55,7 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
   
   // Global scroll handler to hide tooltips when scrolling
   const handleGlobalScroll = () => {
-    const activeTooltips = (window as any).__tldrActiveTooltips;
+    const activeTooltips = window.__tldrActiveTooltips;
     if (!activeTooltips || activeTooltips.size === 0) return;
     
     activeTooltips.forEach((_tooltipEl: HTMLDivElement, element: HTMLElement) => {
@@ -65,7 +65,8 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
   
   // Function to show tooltip
   const showTooltip = (target: HTMLElement) => {
-    const activeTooltips = (window as any).__tldrActiveTooltips;
+    const activeTooltips = window.__tldrActiveTooltips;
+    if (!activeTooltips) return;
     
     // If tooltip already exists for this element, don't create another
     if (activeTooltips.has(target)) return;
@@ -135,7 +136,8 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
   
   // Function to hide tooltip
   const hideTooltip = (target: HTMLElement) => {
-    const activeTooltips = (window as any).__tldrActiveTooltips;
+    const activeTooltips = window.__tldrActiveTooltips;
+    if (!activeTooltips) return;
     const tooltipEl = activeTooltips.get(target);
     if (!tooltipEl) return;
     
@@ -179,8 +181,8 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
     const tooltipElements = document.querySelectorAll('[data-tooltip="true"]:not([data-tooltip-initialized])');
     
     // Initialize global activeTooltips map
-    if (!(window as any).__tldrActiveTooltips) {
-      (window as any).__tldrActiveTooltips = new Map<HTMLElement, HTMLDivElement>();
+    if (!window.__tldrActiveTooltips) {
+      window.__tldrActiveTooltips = new Map<HTMLElement, HTMLDivElement>();
     }
     
     tooltipElements.forEach((element) => {
@@ -207,7 +209,8 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
         e.stopPropagation();
         
         const target = e.currentTarget as HTMLElement;
-        const activeTooltips = (window as any).__tldrActiveTooltips;
+        const activeTooltips = window.__tldrActiveTooltips;
+        if (!activeTooltips) return;
         
         // Always toggle: if visible, hide it; if hidden, show it
         if (activeTooltips.has(target)) {
@@ -221,7 +224,8 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
       element.addEventListener('keydown', (e) => {
         const keyEvent = e as KeyboardEvent;
         const target = e.currentTarget as HTMLElement;
-        const activeTooltips = (window as any).__tldrActiveTooltips;
+        const activeTooltips = window.__tldrActiveTooltips;
+        if (!activeTooltips) return;
         
         if (keyEvent.key === 'Enter' || keyEvent.key === ' ') {
           keyEvent.preventDefault();
@@ -267,7 +271,7 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
   // Use astro:before-swap for cleanup - it fires right before DOM swap
   document.addEventListener('astro:before-swap', () => {
     // Hide all active tooltips
-    const activeTooltips = (window as any).__tldrActiveTooltips;
+    const activeTooltips = window.__tldrActiveTooltips;
     if (activeTooltips) {
       activeTooltips.forEach((_tooltipEl: HTMLDivElement, element: HTMLElement) => {
         hideTooltip(element);

@@ -13,7 +13,8 @@
  */
 
 import type { CollectionEntry } from 'astro:content';
-import { calculateReadingTime, formatReadingTime } from '../utils/reading-time';
+import { calculateReadingTime } from '../utils/reading-time';
+import PostMeta from './PostMeta.astro';
 import { stripMarkdown } from '../utils/strip-markdown';
 import { getPostUrl, getDateFromSlug, formatPostDate } from '../utils/post-urls';
 
@@ -44,9 +45,7 @@ const heroDate = getDateFromSlug(heroPost.id);
         {heroPost.data.title}
       </h3>
       <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-600 dark:text-gray-300 mb-4">
-        <time datetime={heroDate.toISOString().slice(0, 10)}>{formatPostDate(heroDate)}</time>
-        <span aria-hidden="true">·</span>
-        <span>{formatReadingTime(heroReadingTime)}</span>
+        <PostMeta date={formatPostDate(heroDate)} isoDate={heroDate.toISOString().slice(0, 10)} readingTime={heroReadingTime} />
       </div>
       {heroPost.data.description && (
         <p class="text-base text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
@@ -71,9 +70,7 @@ const heroDate = getDateFromSlug(heroPost.id);
                 </a>
               </h4>
               <div class="flex flex-wrap items-center gap-x-2 text-sm text-gray-600 dark:text-gray-300 mb-1">
-                <time datetime={postDate.toISOString().slice(0, 10)}>{formatPostDate(postDate)}</time>
-                <span aria-hidden="true">·</span>
-                <span>{formatReadingTime(postReadingTime)}</span>
+                <PostMeta date={formatPostDate(postDate)} isoDate={postDate.toISOString().slice(0, 10)} readingTime={postReadingTime} />
               </div>
               {post.data.description && (
                 <p class="text-sm text-gray-600 dark:text-gray-300 mb-0 line-clamp-2">{stripMarkdown(post.data.description)}</p>

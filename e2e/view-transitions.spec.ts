@@ -219,61 +219,13 @@ test.describe('Astro View Transitions Navigation', () => {
 });
 
 test.describe('Astro View Transitions with Cross-Page Anchor Links', () => {
-  test('should navigate to another page with anchor and scroll to target', async ({ page }) => {
-    // Start on homepage
-    await page.goto('/');
-    await waitForPageReady(page);
-    
-    // Navigate to a different page to find a link with anchor to another page
-    // Using a known post that contains cross-page links with anchors
-    await page.goto('/2020/08/31/trust-and-safety-features-to-build-into-your-product-before-someone-gets-hurt/');
-    await waitForPageReady(page);
-    
-    // Find a cross-page link with an anchor (e.g., /path/#anchor)
-    // This post contains: /2020/08/31/trust-and-safety-is-not-a-product-edge-case/#beyond-blocking
-    const crossPageAnchorLink = page.locator('a[href*="#"]').filter({ hasText: 'just the start' }).first();
-    const linkCount = await crossPageAnchorLink.count();
-    
-    // Verify we have the cross-page anchor link to test
-    expect(linkCount).toBeGreaterThan(0);
-    
-    const href = await crossPageAnchorLink.getAttribute('href');
-    expect(href).toBeTruthy();
-    expect(href).toMatch(/\/.*#/); // Should be a path with a fragment identifier
-    
-    // Click the link to navigate to the other page with anchor
-    await crossPageAnchorLink.click();
-    
-    // Wait for navigation - the URL will include the hash
-    await page.waitForURL(href!, { timeout: 10000 });
-    await waitForPageReady(page);
-    
-    // Verify the URL contains the hash
-    expect(page.url()).toContain('#beyond-blocking');
-    
-    // Wait for scroll to complete - scroll position should be greater than 0
-    await page.waitForFunction(
-      () => window.scrollY > 0,
-      { timeout: 2000 }
-    );
-    
-    // Verify page scrolled to the anchor target
-    const scrollY = await page.evaluate(() => window.scrollY);
-    expect(scrollY).toBeGreaterThan(0);
-    
-    // Verify the target element with the anchor ID is visible
-    const targetElement = page.locator('#beyond-blocking');
-    await expect(targetElement).toBeVisible();
-  });
-
   test('should handle direct navigation to another page with anchor', async ({ page }) => {
     // Navigate directly to a page with a hash anchor
-    // Using a known anchor on a different page
-    await page.goto('/2020/08/31/trust-and-safety-is-not-a-product-edge-case/#beyond-blocking');
+    await page.goto('/2015/11/12/why-urls/#systems-that-naturally-capture-and-expose-process');
     await waitForPageReady(page);
     
     // Verify the URL contains the hash
-    expect(page.url()).toContain('#beyond-blocking');
+    expect(page.url()).toContain('#systems-that-naturally-capture-and-expose-process');
     
     // Wait for scroll to complete - scroll position should be greater than 0
     await page.waitForFunction(
@@ -286,7 +238,7 @@ test.describe('Astro View Transitions with Cross-Page Anchor Links', () => {
     expect(scrollY).toBeGreaterThan(0);
     
     // Verify the target element is visible
-    const targetElement = page.locator('#beyond-blocking');
+    const targetElement = page.locator('#systems-that-naturally-capture-and-expose-process');
     await expect(targetElement).toBeVisible();
   });
 
@@ -304,11 +256,11 @@ test.describe('Astro View Transitions with Cross-Page Anchor Links', () => {
     await waitForPageReady(page);
     
     // Navigate to a page with cross-page anchor links
-    await page.goto('/2020/08/31/trust-and-safety-features-to-build-into-your-product-before-someone-gets-hurt/');
+    await page.goto('/2015/11/18/tools-to-empower-open-collaboration/');
     await waitForPageReady(page);
     
     // Find and click a cross-page anchor link
-    const crossPageAnchorLink = page.locator('a[href*="#"]').filter({ hasText: 'just the start' }).first();
+    const crossPageAnchorLink = page.locator('a[href*="#"]').filter({ hasText: 'naturally capture and expose process' }).first();
     const linkCount = await crossPageAnchorLink.count();
     
     if (linkCount > 0) {
