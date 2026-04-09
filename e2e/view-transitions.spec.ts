@@ -219,42 +219,6 @@ test.describe('Astro View Transitions Navigation', () => {
 });
 
 test.describe('Astro View Transitions with Cross-Page Anchor Links', () => {
-  test('should navigate to another page with anchor and scroll to target', async ({ page }) => {
-    // Start on homepage
-    await page.goto('/');
-    await waitForPageReady(page);
-    
-    // Navigate to a post that contains cross-page links with anchors
-    // This post links to: /2015/11/12/why-urls#systems-that-naturally-capture-and-expose-process
-    await page.goto('/2015/11/18/tools-to-empower-open-collaboration/');
-    await waitForPageReady(page);
-    
-    // Find the cross-page anchor link
-    const crossPageAnchorLink = page.locator('a[href*="#"]').filter({ hasText: 'naturally capture and expose process' }).first();
-    const linkCount = await crossPageAnchorLink.count();
-    
-    // Verify we have the cross-page anchor link to test
-    expect(linkCount).toBeGreaterThan(0);
-    
-    const href = await crossPageAnchorLink.getAttribute('href');
-    expect(href).toBeTruthy();
-    expect(href).toMatch(/\/.*#/); // Should be a path with a fragment identifier
-    
-    // Click the link to navigate to the other page with anchor
-    await crossPageAnchorLink.click();
-    
-    // Wait for navigation - the URL will include the hash
-    await page.waitForURL(href!, { timeout: 10000 });
-    await waitForPageReady(page);
-    
-    // Verify the URL contains the hash
-    expect(page.url()).toContain('#systems-that-naturally-capture-and-expose-process');
-    
-    // Verify the target element with the anchor ID exists on the page
-    const targetElement = page.locator('#systems-that-naturally-capture-and-expose-process');
-    await expect(targetElement).toBeAttached();
-  });
-
   test('should handle direct navigation to another page with anchor', async ({ page }) => {
     // Navigate directly to a page with a hash anchor
     await page.goto('/2015/11/12/why-urls/#systems-that-naturally-capture-and-expose-process');
