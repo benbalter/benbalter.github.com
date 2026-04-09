@@ -3,7 +3,12 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { defaultOGConfig } from './og-config';
+import {
+  defaultOGConfig,
+  validateDimensions,
+  OG_MIN_DIMENSION,
+  OG_MAX_DIMENSION,
+} from './og-config';
 import { truncateDescription } from './og-image-generator';
 
 describe('truncateDescription', () => {
@@ -153,6 +158,58 @@ describe('OG image accent bar', () => {
   it('should have gradient colors', () => {
     expect(defaultOGConfig.accent.gradientFrom).toBe('#337ab7');
     expect(defaultOGConfig.accent.gradientTo).toBe('#2a6493');
+  });
+});
+
+describe('validateDimensions', () => {
+  it('should accept valid dimensions', () => {
+    expect(() => validateDimensions(1200, 600)).not.toThrow();
+  });
+
+  it('should accept boundary values', () => {
+    expect(() => validateDimensions(OG_MIN_DIMENSION, OG_MIN_DIMENSION)).not.toThrow();
+    expect(() => validateDimensions(OG_MAX_DIMENSION, OG_MAX_DIMENSION)).not.toThrow();
+  });
+
+  it('should reject width below minimum', () => {
+    expect(() => validateDimensions(OG_MIN_DIMENSION - 1, 600)).toThrow(RangeError);
+  });
+
+  it('should reject width above maximum', () => {
+    expect(() => validateDimensions(OG_MAX_DIMENSION + 1, 600)).toThrow(RangeError);
+  });
+
+  it('should reject height below minimum', () => {
+    expect(() => validateDimensions(1200, OG_MIN_DIMENSION - 1)).toThrow(RangeError);
+  });
+
+  it('should reject height above maximum', () => {
+    expect(() => validateDimensions(1200, OG_MAX_DIMENSION + 1)).toThrow(RangeError);
+  });
+
+  it('should reject NaN', () => {
+    expect(() => validateDimensions(NaN, 600)).toThrow(RangeError);
+    expect(() => validateDimensions(1200, NaN)).toThrow(RangeError);
+  });
+
+  it('should reject Infinity', () => {
+    expect(() => validateDimensions(Infinity, 600)).toThrow(RangeError);
+    expect(() => validateDimensions(1200, -Infinity)).toThrow(RangeError);
+  });
+
+  it('should reject zero', () => {
+    expect(() => validateDimensions(0, 600)).toThrow(RangeError);
+    expect(() => validateDimensions(1200, 0)).toThrow(RangeError);
+  });
+
+  it('should reject negative values', () => {
+    expect(() => validateDimensions(-100, 600)).toThrow(RangeError);
+    expect(() => validateDimensions(1200, -100)).toThrow(RangeError);
+  });
+
+  it('should include the invalid value in the error message', () => {
+    expect(() => validateDimensions(50, 600)).toThrow('got 50');
+    expect(() => validateDimensions(1200, 9999)).toThrow('got 9999');
   });
 });
 

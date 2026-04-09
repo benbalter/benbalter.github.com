@@ -97,73 +97,51 @@ const popularPosts = popularPostSlugs
   <script>
     import { closest } from 'fastest-levenshtein';
 
-    const div = document.getElementById('four-oh-four-suggestion');
-    if (div) {
-      // Show loading state
-      div.textContent = 'loading...';
+    const MAX_URLS = 500;
+    const FETCH_TIMEOUT_MS = 2000;
 
-      const xhr = new XMLHttpRequest();
+    const suggestionSpan = document.getElementById('four-oh-four-suggestion');
+    if (suggestionSpan) {
+      suggestionSpan.textContent = 'loading...';
 
-      xhr.onload = () => {
-        if (xhr.status === 200) {
-          const xml = xhr.responseXML;
-          if (xml) {
-            const urls = Array.from(xml.querySelectorAll('urlset > url > loc')).map((el) => el.textContent || '');
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
 
-            // Check for empty URLs array
-            if (urls.length === 0) {
-              const link = document.createElement('a');
-              link.href = '/';
-              link.textContent = '/';
-              div.textContent = ''; // Clear loading text
-              div.appendChild(link);
-            } else {
-              try {
-                // Find closest matching URL
-                const urlString = closest(window.location.href, urls);
-                const url = new URL(urlString);
+      try {
+        const response = await fetch(
+          `${window.location.protocol}//${window.location.host}/sitemap-0.xml`,
+          { signal: controller.signal },
+        );
 
-                // Create link element safely (avoid XSS)
-                const link = document.createElement('a');
-                link.href = url.href;
-                link.textContent = url.pathname;
-                div.textContent = ''; // Clear loading text
-                div.appendChild(link);
-              } catch (e) {
-                // Fallback if URL construction fails
-                const link = document.createElement('a');
-                link.href = '/';
-                link.textContent = '/';
-                div.textContent = ''; // Clear loading text
-                div.appendChild(link);
-              }
-            }
-          } else {
-            const link = document.createElement('a');
-            link.href = '/';
-            link.textContent = '/';
-            div.textContent = ''; // Clear loading text
-            div.appendChild(link);
-          }
-        } else {
-          const link = document.createElement('a');
-          link.href = '/';
-          link.textContent = '/';
-          div.textContent = ''; // Clear loading text
-          div.appendChild(link);
-        }
-      };
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
-      xhr.onerror = () => {
+        const text = await response.text();
+        const xml = new DOMParser().parseFromString(text, 'application/xml');
+
+        // Limit comparisons to prevent freezing on large sitemaps
+        const urls = Array.from(xml.querySelectorAll('urlset > url > loc'))
+          .slice(0, MAX_URLS)
+          .map((el) => el.textContent || '');
+
+        if (urls.length === 0) throw new Error('No URLs found');
+
+        // Find closest matching URL
+        const urlString = closest(window.location.href, urls);
+        const url = new URL(urlString);
+
+        // Create link element safely (avoid XSS)
         const link = document.createElement('a');
-        link.href = '/';
-        link.textContent = '/';
-        div.textContent = ''; // Clear loading text
-        div.appendChild(link);
-      };
-
-      xhr.open('GET', `${window.location.protocol}//${window.location.host}/sitemap-0.xml`);
-      xhr.send();
+        link.href = url.href;
+        link.textContent = url.pathname;
+        suggestionSpan.textContent = '';
+        suggestionSpan.appendChild(link);
+      } catch {
+        // On any error (timeout, network, parse), hide suggestion gracefully
+        const parent = suggestionSpan.closest('p');
+        if (parent) parent.hidden = true;
+      } finally {
+        clearTimeout(timeoutId);
+      }
     }
   </script>
 </BaseLayout>

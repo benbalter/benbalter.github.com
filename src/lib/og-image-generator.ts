@@ -13,7 +13,7 @@ import satori from 'satori';
 import { readFile, writeFile, mkdir, access } from 'node:fs/promises';
 import { resolve, sep, join } from 'node:path';
 import { createHash } from 'node:crypto';
-import { defaultOGConfig, type OGImageConfig } from './og-config';
+import { defaultOGConfig, validateDimensions, type OGImageConfig } from './og-config';
 
 // Cache version — bump this to invalidate all cached OG images
 const OG_CACHE_VERSION = '1';
@@ -152,6 +152,7 @@ export function truncateDescription(text: string, maxLength: number = 300): stri
  */
 export async function generateOGImageSVG(options: OGImageOptions): Promise<string> {
   const config = { ...defaultOGConfig, ...options.config };
+  validateDimensions(config.width, config.height);
   
   const [fonts, headshotDataUri] = await Promise.all([
     loadFonts(),

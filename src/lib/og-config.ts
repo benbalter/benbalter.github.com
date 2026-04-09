@@ -79,6 +79,39 @@ export interface OGImageConfig {
  * - logo.size: 140 (slightly smaller for better balance)
  * - padding: 60 (tighter for modern look)
  */
+// Dimension constraints for OG images
+export const OG_MIN_DIMENSION = 200;
+export const OG_MAX_DIMENSION = 2400;
+
+/**
+ * Validate that OG image dimensions are within the allowed range.
+ * Throws a RangeError if width or height is outside [200, 2400].
+ */
+export function validateDimensions(
+  width: number,
+  height: number,
+): void {
+  if (
+    !Number.isFinite(width) ||
+    width < OG_MIN_DIMENSION ||
+    width > OG_MAX_DIMENSION
+  ) {
+    throw new RangeError(
+      `OG image width must be between ${OG_MIN_DIMENSION} and ${OG_MAX_DIMENSION}, got ${width}`,
+    );
+  }
+
+  if (
+    !Number.isFinite(height) ||
+    height < OG_MIN_DIMENSION ||
+    height > OG_MAX_DIMENSION
+  ) {
+    throw new RangeError(
+      `OG image height must be between ${OG_MIN_DIMENSION} and ${OG_MAX_DIMENSION}, got ${height}`,
+    );
+  }
+}
+
 export const defaultOGConfig: OGImageConfig = {
   // Standard OG image dimensions
   width: 1200,

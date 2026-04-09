@@ -119,7 +119,7 @@
     "check": "astro check --tsconfig tsconfig.astro.json",
     "validate-seo": "tsx script/validate-seo.ts",
     "lint": "npm run lint-js && npm run lint-json && npm run lint-md",
-    "lint-js": "xo .remarkrc.js --ignore-pattern !.remarkrc.js --fix",
+    "lint-js": "eslint .remarkrc.js --fix",
     "lint-json": "eslint --fix '**/*.json'",
     "lint-md": "remark . && markdownlint-cli2 --fix \"**/*.{md,mdx}\" \"!node_modules\" \"!.github\"",
     "lint-text": "textlint *.md src/content/posts/*.md src/content/resume-positions/*.md --fix --dry-run",
@@ -153,8 +153,5 @@
       }
     },
     "typescript": "$typescript"
-  },
-  "xo": {
-    "space": true
   }
 }

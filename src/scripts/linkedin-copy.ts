@@ -5,7 +5,7 @@
  * cannot use the modern Clipboard API with a catch fallback. Instead, we use
  * textarea + execCommand('copy') which works reliably across all browsers.
  */
-function copyToClipboard(text: string, triggerElement?: Element): boolean {
+export function copyToClipboard(text: string, triggerElement?: Element): boolean {
   const textarea = document.createElement('textarea');
   textarea.value = text;
   textarea.setAttribute('readonly', '');

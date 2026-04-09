@@ -25,7 +25,9 @@
           class="search-field"
           aria-label="Search posts"
         />
-        <kbd class="search-kbd" aria-hidden="true">Esc</kbd>
+        <button type="button" class="search-close-btn" data-search-close aria-label="Close search">
+          <kbd class="search-kbd" aria-hidden="true">Esc</kbd>
+        </button>
       </div>
     </div>
     <div id="search-results" class="search-results"></div>
@@ -35,6 +37,9 @@
 <script>
   let pagefindLoaded = false;
   let pagefind: any = null;
+  let previouslyFocusedElement: HTMLElement | null = null;
+
+  const FOCUSABLE_SELECTOR = 'input, button, a[href], [tabindex]:not([tabindex="-1"])';
 
   function getModal() {
     return document.getElementById('search-modal');
@@ -42,6 +47,33 @@
 
   function getInput() {
     return document.getElementById('search-input') as HTMLInputElement | null;
+  }
+
+  function trapFocus(e: KeyboardEvent) {
+    if (e.key !== 'Tab') return;
+
+    const modal = getModal();
+    if (!modal || modal.hidden) return;
+
+    const focusable = [...modal.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)].filter(
+      (el) => el.offsetParent !== null
+    );
+    if (focusable.length === 0) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (e.shiftKey) {
+      if (document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else {
+      if (document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
   }
 
   async function loadPagefind() {
@@ -109,6 +141,7 @@
     const input = getInput();
     if (!modal) return;
 
+    previouslyFocusedElement = document.activeElement as HTMLElement | null;
     modal.hidden = false;
     document.body.style.overflow = 'hidden';
     loadPagefind();
@@ -134,6 +167,8 @@
       if (resultsContainer) {
         resultsContainer.innerHTML = '<div class="search-empty">Type to search posts, pages, and more…</div>';
       }
+      previouslyFocusedElement?.focus();
+      previouslyFocusedElement = null;
     }, 200);
   }
 
@@ -164,8 +199,12 @@
       }, 200);
     });
 
-    // Keyboard shortcuts
-    document.addEventListener('keydown', (e) => {
+    // Focus trap
+    document.addEventListener('keydown', trapFocus);
+
+    // Keyboard shortcuts — use a stable function reference so duplicate
+    // registrations across view transitions are no-ops.
+    function handleKeyboardShortcut(e: KeyboardEvent) {
       // ⌘K or Ctrl+K to open
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
@@ -185,7 +224,8 @@
           closeSearch();
         }
       }
-    });
+    }
+    document.addEventListener('keydown', handleKeyboardShortcut);
 
     // Close on result click (navigate) and store query for highlighting
     modal.addEventListener('click', (e) => {
@@ -352,6 +392,19 @@
 
   .search-kbd {
     @apply text-xs text-gray-600 dark:text-gray-400 border border-gray-300 dark:border-gray-600 rounded px-1.5 py-0.5 font-mono;
+  }
+
+  .search-close-btn {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+  }
+
+  .search-close-btn:focus-visible .search-kbd {
+    @apply ring-2 ring-primary ring-offset-1;
   }
 
   .search-results {

@@ -95,8 +95,8 @@ test.describe('Navigation Active Link Highlighting', () => {
     await expect(activeLink).toHaveAttribute('href', '/about/');
   });
 
-  test.skip('should handle path with or without trailing slash', async ({ page }) => {
-    // Skip: This test is about server redirect behavior which depends on the hosting configuration
+  test.fixme('should handle path with or without trailing slash', async ({ page }) => {
+    // FIXME: This test is about server redirect behavior which depends on the hosting configuration
     // The Astro preview server doesn't auto-redirect, but production servers (nginx, etc.) would
     // Navigate to /about (without trailing slash)
     await page.goto('/about');

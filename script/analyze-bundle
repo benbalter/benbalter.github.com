@@ -9,13 +9,48 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
+RED='\033[0;31m'
+
+# Size budget constants
+MAX_JS_SIZE="200K"    # Total JS budget
+MAX_CSS_SIZE="100K"   # Total CSS budget
+MAX_SINGLE_JS="100K"  # Any single JS file budget
+MAX_HTML_SIZE="200K"  # Any single HTML file budget
+
+# Convert human-readable size (e.g., "150K", "1.2M") to bytes for comparison
+to_bytes() {
+    local input="${1:-0}"
+    input=$(echo "$input" | xargs)
+    if [ -z "$input" ] || [ "$input" = "0" ]; then
+        echo 0
+        return
+    fi
+    echo "$input" | awk '{
+        s = $0
+        gsub(/[[:space:]]/, "", s)
+        num = s + 0
+        suffix = ""
+        if (match(s, /[KkMmGgTt]/)) {
+            suffix = substr(s, RSTART, 1)
+        }
+        if (suffix == "k") suffix = "K"
+        if (suffix == "m") suffix = "M"
+        if (suffix == "g") suffix = "G"
+        if (suffix == "t") suffix = "T"
+        if (suffix == "K") num *= 1024
+        else if (suffix == "M") num *= 1024 * 1024
+        else if (suffix == "G") num *= 1024 * 1024 * 1024
+        else if (suffix == "T") num *= 1024 * 1024 * 1024 * 1024
+        printf "%.0f\n", num
+    }'
+}
 
 echo -e "${BLUE}=== Astro Build Bundle Analysis ===${NC}\n"
 
 # Check if dist-astro exists
 if [ ! -d "dist-astro" ]; then
     echo -e "${YELLOW}dist-astro directory not found. Building...${NC}"
-    npm run astro:build
+    npm run build
     echo ""
 fi
 
@@ -58,3 +93,93 @@ echo -e "Total Pages: ${YELLOW}${HTML_COUNT}${NC}"
 
 echo ""
 echo -e "${BLUE}=== Analysis Complete ===${NC}"
+
+# ============================================================
+# Bundle Size Budget Enforcement
+# ============================================================
+
+echo ""
+echo -e "${BLUE}=== Bundle Size Budget Check ===${NC}"
+echo ""
+
+BUDGET_FAILED=0
+
+check_budget() {
+    local label="$1"
+    local actual="$2"
+    local budget="$3"
+    local actual_bytes budget_bytes
+    actual="${actual:-0}"
+    actual_bytes=$(to_bytes "$actual")
+    budget_bytes=$(to_bytes "$budget")
+
+    if [ "$actual_bytes" -gt "$budget_bytes" ]; then
+        echo -e "  ${RED}FAIL${NC} ${label}: ${actual} exceeds budget of ${budget}"
+        BUDGET_FAILED=1
+        return 1
+    else
+        echo -e "  ${GREEN}PASS${NC} ${label}: ${actual} within budget of ${budget}"
+        return 0
+    fi
+}
+
+# --- Aggregate budget checks ---
+echo "Aggregate budgets:"
+check_budget "Total JavaScript" "$JS_SIZE" "$MAX_JS_SIZE" || true
+check_budget "Total CSS" "$CSS_SIZE" "$MAX_CSS_SIZE" || true
+echo ""
+
+# --- Per-file JS budget check ---
+echo "Per-file JS budget (${MAX_SINGLE_JS} each):"
+JS_FILE_COUNT=0
+JS_OVER_COUNT=0
+while IFS=$'\t' read -r file_size file_path; do
+    [ -z "$file_size" ] && continue
+    JS_FILE_COUNT=$((JS_FILE_COUNT + 1))
+    actual_bytes=$(to_bytes "$file_size")
+    budget_bytes=$(to_bytes "$MAX_SINGLE_JS")
+    if [ "$actual_bytes" -gt "$budget_bytes" ]; then
+        echo -e "  ${RED}FAIL${NC} $(basename "$file_path"): ${file_size} exceeds ${MAX_SINGLE_JS}"
+        JS_OVER_COUNT=$((JS_OVER_COUNT + 1))
+        BUDGET_FAILED=1
+    fi
+done < <(find dist-astro/assets -name "*.js" -type f -exec ls -lh {} \; 2>/dev/null | awk '{printf "%s\t%s\n", $5, $9}')
+
+if [ "$JS_FILE_COUNT" -eq 0 ]; then
+    echo -e "  ${GREEN}PASS${NC} No JS files found"
+elif [ "$JS_OVER_COUNT" -eq 0 ]; then
+    echo -e "  ${GREEN}PASS${NC} All ${JS_FILE_COUNT} JS files within budget"
+fi
+echo ""
+
+# --- Per-file HTML budget check ---
+echo "Per-file HTML budget (${MAX_HTML_SIZE} each):"
+HTML_FILE_COUNT=0
+HTML_OVER_COUNT=0
+while IFS=$'\t' read -r file_size file_path; do
+    [ -z "$file_size" ] && continue
+    HTML_FILE_COUNT=$((HTML_FILE_COUNT + 1))
+    actual_bytes=$(to_bytes "$file_size")
+    budget_bytes=$(to_bytes "$MAX_HTML_SIZE")
+    if [ "$actual_bytes" -gt "$budget_bytes" ]; then
+        echo -e "  ${RED}FAIL${NC} ${file_path}: ${file_size} exceeds ${MAX_HTML_SIZE}"
+        HTML_OVER_COUNT=$((HTML_OVER_COUNT + 1))
+        BUDGET_FAILED=1
+    fi
+done < <(find dist-astro -name "index.html" -type f -exec ls -lh {} \; 2>/dev/null | awk '{printf "%s\t%s\n", $5, $9}')
+
+if [ "$HTML_FILE_COUNT" -eq 0 ]; then
+    echo -e "  ${GREEN}PASS${NC} No HTML files found"
+elif [ "$HTML_OVER_COUNT" -eq 0 ]; then
+    echo -e "  ${GREEN}PASS${NC} All ${HTML_FILE_COUNT} HTML files within budget"
+fi
+
+# --- Summary ---
+echo ""
+echo "-------------------"
+if [ "$BUDGET_FAILED" -eq 1 ]; then
+    echo -e "${RED}Budget check FAILED — one or more budgets exceeded.${NC}"
+    exit 1
+else
+    echo -e "${GREEN}All budget checks passed.${NC}"
+fi

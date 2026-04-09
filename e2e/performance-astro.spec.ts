@@ -106,7 +106,7 @@ test.describe('Core Web Vitals', () => {
     
     // Skip if no articles exist
     if (articleLinks === 0) {
-      test.skip();
+      test.skip(true, 'No blog post article links found on homepage');
       return;
     }
     
@@ -383,7 +383,7 @@ test.describe('View Transitions Performance', () => {
     // Guard: skip if no article links exist
     const articleLinks = await page.locator('article a').count();
     if (articleLinks === 0) {
-      test.skip();
+      test.skip(true, 'No blog post article links found on homepage');
       return;
     }
     

@@ -1095,6 +1095,31 @@
  * ============================================================================ */
 
 @media print {
+  /* --- Hide interactive / non-printable elements --- */
+  nav,
+  footer,
+  .skip-to-content,
+  .navbar,
+  .search-modal,
+  .search-highlight-banner,
+  #reading-progress,
+  #back-to-top,
+  .back-to-top,
+  .subscribe-cta,
+  .book-cta-featured,
+  .open-source-cta,
+  .contact-links,
+  .social-link,
+  .share-link,
+  .keep-reading,
+  .mini-bio-card,
+  .toc-container,
+  .link-preview-card,
+  .navbar-toggler {
+    display: none !important;
+  }
+
+  /* --- Base typography --- */
   body {
     font-size: 12pt;
     line-height: 1.5;
@@ -1103,8 +1128,14 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    page-break-after: avoid;
     color: #000;
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  h2 {
+    page-break-before: auto;
+    margin-top: 1.5em;
   }
 
   p, li, blockquote {
@@ -1112,17 +1143,7 @@
     widows: 3;
   }
 
-  blockquote {
-    border-left-color: #333;
-    background-color: transparent;
-    page-break-inside: avoid;
-  }
-
-  pre, code {
-    page-break-inside: avoid;
-    border: 1px solid #ccc;
-  }
-
+  /* --- Links: show URLs for external links only --- */
   a {
     color: #000;
     text-decoration: underline;
@@ -1137,8 +1158,49 @@
     word-wrap: break-word;
   }
 
-  nav, footer, .skip-to-content {
-    display: none !important;
+  /* Skip URL display for anchor-only and internal links */
+  article a[href^="#"]::after,
+  article a[href^="/"]::after {
+    content: none;
+  }
+
+  /* --- Remove decorative styling --- */
+  *,
+  *::before,
+  *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  blockquote {
+    border-left: 3px solid #333;
+    background-color: transparent;
+    page-break-inside: avoid;
+  }
+
+  pre, code {
+    page-break-inside: avoid;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5 !important;
+  }
+
+  img, figure, picture {
+    page-break-inside: avoid;
+    max-width: 100% !important;
+  }
+
+  table, tr {
+    page-break-inside: avoid;
+  }
+
+  /* --- Full-width content layout --- */
+  .content,
+  main,
+  article {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 }
 

@@ -4,7 +4,6 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { getPostUrl, getDateFromSlug, formatPostDate, formatISODate } from '../utils/post-urls';
 import { calculateReadingTime } from '../utils/reading-time';
 import PostCard from '../components/PostCard.astro';
-import FeaturedPostCard from '../components/FeaturedPostCard.astro';
 import { popularPostSlugs } from '../config';
 
 const title = 'All Posts';
@@ -68,7 +67,8 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
           const { postUrl, date, isoDate, readingTime } = getPostMetadata(post);
           return (
             <div class="w-full md:w-1/2 lg:w-1/3 px-2 mb-3">
-              <FeaturedPostCard
+              <PostCard
+                variant="featured"
                 title={post.data.title}
                 url={postUrl}
                 date={date}

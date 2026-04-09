@@ -61,7 +61,7 @@ async function getPostsMeta(): Promise<MetaMap> {
 }
 
 /** Normalize a URL path: strip origin, ensure trailing slash */
-function normalizePath(href: string): { path: string; hash: string } {
+export function normalizePath(href: string): { path: string; hash: string } {
   try {
     const url = new URL(href, window.location.origin);
     let path = url.pathname;
@@ -73,7 +73,7 @@ function normalizePath(href: string): { path: string; hash: string } {
 }
 
 /** Check if this is an internal post link worth previewing */
-function isPostLink(anchor: HTMLAnchorElement): boolean {
+export function isPostLink(anchor: HTMLAnchorElement): boolean {
   const href = anchor.getAttribute('href');
   if (!href) return false;
 
@@ -207,7 +207,7 @@ function renderCard(meta: PostMeta, hash: string) {
   `;
 }
 
-function escapeHtml(str: string): string {
+export function escapeHtml(str: string): string {
   const div = document.createElement('div');
   div.textContent = str;
   return div.innerHTML;

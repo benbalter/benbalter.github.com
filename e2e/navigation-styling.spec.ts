@@ -17,7 +17,7 @@ test.describe('Navigation Styling - Initial Page Load', () => {
     
     // Skip test if not Astro build
     if (!await isAstroBuild(page)) {
-      test.skip();
+      test.skip(true, 'Test requires Astro build');
       return;
     }
     
@@ -51,7 +51,7 @@ test.describe('Navigation Styling - Initial Page Load', () => {
     
     // Skip test if not Astro build
     if (!await isAstroBuild(page)) {
-      test.skip();
+      test.skip(true, 'Test requires Astro build');
       return;
     }
     
@@ -86,7 +86,7 @@ test.describe('Navigation Styling - Initial Page Load', () => {
     
     // Skip test if not Astro build
     if (!await isAstroBuild(page)) {
-      test.skip();
+      test.skip(true, 'Test requires Astro build');
       return;
     }
     
@@ -110,7 +110,7 @@ test.describe('Navigation Styling - Client-Side Navigation', () => {
     
     // Skip test if not Astro build
     if (!await isAstroBuild(page)) {
-      test.skip();
+      test.skip(true, 'Test requires Astro build');
       return;
     }
     
@@ -160,7 +160,7 @@ test.describe('Navigation Styling - Client-Side Navigation', () => {
     
     // Skip test if not Astro build
     if (!await isAstroBuild(page)) {
-      test.skip();
+      test.skip(true, 'Test requires Astro build');
       return;
     }
     
@@ -209,7 +209,7 @@ test.describe('Navigation Styling - Client-Side Navigation', () => {
     await waitForPageReady(page);
     
     if (!await isAstroBuild(page)) {
-      test.skip();
+      test.skip(true, 'Test requires Astro build');
       return;
     }
     
@@ -243,7 +243,7 @@ test.describe('Navigation Styling - Client-Side Navigation', () => {
     await waitForPageReady(page);
     
     if (!await isAstroBuild(page)) {
-      test.skip();
+      test.skip(true, 'Test requires Astro build');
       return;
     }
     
@@ -281,7 +281,7 @@ test.describe('Navigation Styling - Edge Cases', () => {
     
     // Skip test if not Astro build or post doesn't exist
     if (!await isAstroBuild(page)) {
-      test.skip();
+      test.skip(true, 'Test requires Astro build');
       return;
     }
     
@@ -300,7 +300,7 @@ test.describe('Navigation Styling - Edge Cases', () => {
     
     // Skip test if not Astro build
     if (!await isAstroBuild(page)) {
-      test.skip();
+      test.skip(true, 'Test requires Astro build');
       return;
     }
     

@@ -7,7 +7,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { getPostUrl } from '../utils/post-urls';
 import GithubSlugger from 'github-slugger';
 
-interface Heading {
+export interface Heading {
   depth: number;
   slug: string;
   text: string;
@@ -20,7 +20,7 @@ interface PostMeta {
 }
 
 /** Strip inline markdown formatting from heading text */
-function stripMarkdown(text: string): string {
+export function stripMarkdown(text: string): string {
   return text
     .replace(/\*\*(.+?)\*\*/g, '$1')       // bold
     .replace(/__(.+?)__/g, '$1')            // bold alt
@@ -33,7 +33,7 @@ function stripMarkdown(text: string): string {
 }
 
 /** Extract headings from raw markdown body */
-function extractHeadings(body: string): Heading[] {
+export function extractHeadings(body: string): Heading[] {
   const slugger = new GithubSlugger();
   const regex = /^(#{1,6})\s+(.+)$/gm;
   const headings: Heading[] = [];
