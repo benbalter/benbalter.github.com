@@ -7,8 +7,6 @@ permissions:
   contents: read
   issues: read
 safe-outputs:
-  noop:
-    report-as-issue: false
   create-issue:
     title-prefix: "[content-review] "
     labels: [content, automated]
