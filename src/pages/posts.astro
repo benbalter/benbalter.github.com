@@ -1,14 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
-import { getDateFromSlug } from '../utils/post-urls';
+import { getDateFromSlug, getPostUrl } from '../utils/post-urls';
 import { isPublishedPost } from '../utils/post-filtering';
 import { getPostMetadata } from '../utils/post-metadata';
 import PostCard from '../components/PostCard.astro';
-import { popularPostSlugs } from '../config';
+import { popularPostSlugs, siteConfig } from '../config';
+import { generateCollectionPageSchema, schemaToJsonLd } from '../utils/structured-data';
 
-const title = 'All Posts';
-const description = 'A complete archive of all blog posts.';
+const title = 'Blog';
+const description = 'Blog posts on technology leadership, open source, remote work, and collaboration by Ben Balter — from practical management advice to engineering culture.';
 
 const allPosts = await getCollection('posts', isPublishedPost);
 
@@ -29,6 +30,16 @@ for (const post of posts) {
   postsByYear.get(year)!.push(post);
 }
 const years = [...postsByYear.keys()].sort((a, b) => b - a);
+
+const collectionSchema = generateCollectionPageSchema({
+  name: title,
+  description,
+  url: new URL('/posts/', siteConfig.url).toString(),
+  posts: posts.slice(0, 50).map(post => ({
+    url: new URL(getPostUrl(post.id), siteConfig.url).toString(),
+    title: post.data.title,
+  })),
+});
 ---
 
 <BaseLayout title={title} description={description}>
@@ -99,4 +110,5 @@ const years = [...postsByYear.keys()].sort((a, b) => b - a);
       </section>
     );
   })}
+  <script type="application/ld+json" set:html={schemaToJsonLd(collectionSchema)} is:inline></script>
 </BaseLayout>

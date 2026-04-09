@@ -10,7 +10,9 @@ import {
   generateBlogPostingSchema,
   generateBreadcrumbSchema,
   generateResumeSchema,
+  generateCollectionPageSchema,
   schemaToJsonLd,
+  schemaToGraphJsonLd,
 } from './structured-data';
 import { siteConfig } from '../config';
 
@@ -28,7 +30,23 @@ describe('generatePersonSchema', () => {
   it('should include job title', () => {
     const schema = generatePersonSchema();
     
-    expect(schema).toHaveProperty('jobTitle', `${siteConfig.jobTitle} at ${siteConfig.employer}`);
+    expect(schema).toHaveProperty('jobTitle', siteConfig.jobTitle);
+  });
+
+  it('should include worksFor Organization', () => {
+    const schema = generatePersonSchema();
+    const schemaAny = schema as any;
+    
+    expect(schemaAny.worksFor).toBeDefined();
+    expect(schemaAny.worksFor['@type']).toBe('Organization');
+    expect(schemaAny.worksFor.name).toBe(siteConfig.employer);
+    expect(schemaAny.worksFor.url).toBe(siteConfig.employerUrl);
+  });
+
+  it('should include @id', () => {
+    const schema = generatePersonSchema();
+    
+    expect(schema).toHaveProperty('@id', `${siteConfig.url}/#person`);
   });
 
   it('should include social media links', () => {
@@ -173,6 +191,12 @@ describe('generateWebSiteSchema', () => {
     const schema = generateWebSiteSchema();
     
     expect(schema).toHaveProperty('description', siteConfig.description);
+  });
+
+  it('should include @id', () => {
+    const schema = generateWebSiteSchema();
+    
+    expect(schema).toHaveProperty('@id', `${siteConfig.url}/#website`);
   });
 
   it('should include author information', () => {
@@ -345,6 +369,69 @@ describe('generateBlogPostingSchema', () => {
     expect(schema).toHaveProperty('mainEntityOfPage');
     expect(schema.mainEntityOfPage).toHaveProperty('@type', 'WebPage');
     expect(schema.mainEntityOfPage).toHaveProperty('@id', props.url);
+  });
+
+  it('should include wordCount when provided', () => {
+    const schema = generateBlogPostingSchema({
+      title: 'Test Post',
+      url: 'https://ben.balter.com/2024/01/15/test/',
+      publishedTime: new Date('2024-01-15'),
+      wordCount: 1500,
+    });
+    
+    expect(schema).toHaveProperty('wordCount', 1500);
+  });
+
+  it('should omit wordCount when not provided', () => {
+    const schema = generateBlogPostingSchema({
+      title: 'Test Post',
+      url: 'https://ben.balter.com/2024/01/15/test/',
+      publishedTime: new Date('2024-01-15'),
+    });
+    
+    expect(schema).not.toHaveProperty('wordCount');
+  });
+
+  it('should include inLanguage', () => {
+    const schema = generateBlogPostingSchema({
+      title: 'Test Post',
+      url: 'https://ben.balter.com/2024/01/15/test/',
+      publishedTime: new Date('2024-01-15'),
+    });
+    
+    expect(schema).toHaveProperty('inLanguage', 'en');
+  });
+
+  it('should include keywords when provided', () => {
+    const schema = generateBlogPostingSchema({
+      title: 'Test Post',
+      url: 'https://ben.balter.com/2024/01/15/test/',
+      publishedTime: new Date('2024-01-15'),
+      keywords: ['open-source', 'government'],
+    });
+    
+    expect(schema).toHaveProperty('keywords', 'open-source, government');
+  });
+
+  it('should omit keywords when empty', () => {
+    const schema = generateBlogPostingSchema({
+      title: 'Test Post',
+      url: 'https://ben.balter.com/2024/01/15/test/',
+      publishedTime: new Date('2024-01-15'),
+      keywords: [],
+    });
+    
+    expect(schema).not.toHaveProperty('keywords');
+  });
+
+  it('should include @id reference in author', () => {
+    const schema = generateBlogPostingSchema({
+      title: 'Test Post',
+      url: 'https://ben.balter.com/2024/01/15/test/',
+      publishedTime: new Date('2024-01-15'),
+    });
+    
+    expect(schema.author).toHaveProperty('@id', `${siteConfig.url}/#person`);
   });
 });
 
@@ -636,5 +723,112 @@ describe('schemaToJsonLd', () => {
     
     expect(jsonLd).toContain('BreadcrumbList');
     expect(() => JSON.parse(jsonLd)).not.toThrow();
+  });
+});
+
+describe('schemaToGraphJsonLd', () => {
+  it('should wrap schemas in @graph envelope', () => {
+    const schemas = [
+      generatePersonSchema(),
+      generateWebSiteSchema(),
+    ];
+    const jsonLd = schemaToGraphJsonLd(schemas);
+    const parsed = JSON.parse(jsonLd);
+
+    expect(parsed).toHaveProperty('@graph');
+    expect(Array.isArray(parsed['@graph'])).toBe(true);
+    expect(parsed['@graph']).toHaveLength(2);
+  });
+
+  it('should strip individual @context from schemas', () => {
+    const schemas = [
+      generatePersonSchema(),
+      generateWebSiteSchema(),
+    ];
+    const jsonLd = schemaToGraphJsonLd(schemas);
+    const parsed = JSON.parse(jsonLd);
+
+    for (const item of parsed['@graph']) {
+      expect(item).not.toHaveProperty('@context');
+    }
+  });
+
+  it('should have single top-level @context', () => {
+    const schemas = [
+      generatePersonSchema(),
+      generateWebSiteSchema(),
+    ];
+    const jsonLd = schemaToGraphJsonLd(schemas);
+    const parsed = JSON.parse(jsonLd);
+
+    expect(parsed['@context']).toBe('https://schema.org');
+  });
+
+  it('should produce valid JSON', () => {
+    const schemas = [
+      generatePersonSchema(),
+      generateWebSiteSchema(),
+      generateBreadcrumbSchema([{ name: 'Home', url: 'https://ben.balter.com/' }]),
+    ];
+    const jsonLd = schemaToGraphJsonLd(schemas);
+
+    expect(() => JSON.parse(jsonLd)).not.toThrow();
+  });
+});
+
+describe('generateCollectionPageSchema', () => {
+  it('should generate valid CollectionPage schema', () => {
+    const schema = generateCollectionPageSchema({
+      name: 'All Posts',
+      description: 'Archive of all blog posts.',
+      url: 'https://ben.balter.com/posts/',
+      posts: [
+        { url: 'https://ben.balter.com/2024/01/01/test/', title: 'Test Post' },
+      ],
+    });
+
+    expect(schema['@context']).toBe('https://schema.org');
+    expect(schema).toHaveProperty('@type', 'CollectionPage');
+    expect(schema).toHaveProperty('name', 'All Posts');
+    expect(schema).toHaveProperty('description', 'Archive of all blog posts.');
+    expect(schema).toHaveProperty('url', 'https://ben.balter.com/posts/');
+  });
+
+  it('should include ItemList with posts', () => {
+    const schema = generateCollectionPageSchema({
+      name: 'All Posts',
+      description: 'Archive',
+      url: 'https://ben.balter.com/posts/',
+      posts: [
+        { url: 'https://ben.balter.com/2024/01/01/first/', title: 'First Post' },
+        { url: 'https://ben.balter.com/2024/01/02/second/', title: 'Second Post' },
+      ],
+    });
+    const schemaAny = schema as any;
+
+    expect(schemaAny.mainEntity).toBeDefined();
+    expect(schemaAny.mainEntity['@type']).toBe('ItemList');
+    expect(Array.isArray(schemaAny.mainEntity.itemListElement)).toBe(true);
+    expect(schemaAny.mainEntity.itemListElement).toHaveLength(2);
+  });
+
+  it('should number items correctly', () => {
+    const schema = generateCollectionPageSchema({
+      name: 'All Posts',
+      description: 'Archive',
+      url: 'https://ben.balter.com/posts/',
+      posts: [
+        { url: 'https://ben.balter.com/2024/01/01/first/', title: 'First Post' },
+        { url: 'https://ben.balter.com/2024/01/02/second/', title: 'Second Post' },
+        { url: 'https://ben.balter.com/2024/01/03/third/', title: 'Third Post' },
+      ],
+    });
+    const schemaAny = schema as any;
+    const items = schemaAny.mainEntity.itemListElement;
+
+    expect(items[0]).toHaveProperty('position', 1);
+    expect(items[0]).toHaveProperty('name', 'First Post');
+    expect(items[1]).toHaveProperty('position', 2);
+    expect(items[2]).toHaveProperty('position', 3);
   });
 });

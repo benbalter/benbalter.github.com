@@ -7,7 +7,7 @@
  * @see https://github.com/google/schema-dts
  */
 
-import type { Person, Organization, WebSite, BlogPosting, BreadcrumbList, ListItem, WithContext, Occupation, EducationalOrganization, EducationalOccupationalCredential, ImageObject, ProfilePage } from 'schema-dts';
+import type { Person, Organization, WebSite, BlogPosting, BreadcrumbList, ListItem, WithContext, Occupation, EducationalOrganization, EducationalOccupationalCredential, ImageObject, ProfilePage, CollectionPage } from 'schema-dts';
 import { siteConfig } from '../config';
 
 /** Base Person fields (shared between top-level and embedded schemas) */
@@ -17,7 +17,12 @@ function personFields(overrides?: Partial<Person>): Person {
     name: siteConfig.author,
     url: siteConfig.url,
     email: siteConfig.email,
-    jobTitle: `${siteConfig.jobTitle} at ${siteConfig.employer}`,
+    jobTitle: siteConfig.jobTitle,
+    worksFor: {
+      '@type': 'Organization',
+      name: siteConfig.employer,
+      url: siteConfig.employerUrl,
+    } as Organization,
     sameAs: [
       siteConfig.githubUsername && `https://github.com/${siteConfig.githubUsername}`,
       siteConfig.socialUsername && `https://twitter.com/${siteConfig.socialUsername}`,
@@ -35,7 +40,7 @@ function personFields(overrides?: Partial<Person>): Person {
  * Generate top-level Person schema (with @context) for standalone use
  */
 export function generatePersonSchema(overrides?: Partial<Person>): WithContext<Person> {
-  return Object.assign({ '@context': 'https://schema.org' as const }, personFields(overrides)) as WithContext<Person>;
+  return Object.assign({ '@context': 'https://schema.org' as const, '@id': `${siteConfig.url}/#person` }, personFields(overrides)) as WithContext<Person>;
 }
 
 /**
@@ -66,10 +71,12 @@ export function generateWebSiteSchema(): WithContext<WebSite> {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': `${siteConfig.url}/#website`,
     name: siteConfig.name,
     url: siteConfig.url,
     author: {
       '@type': 'Person',
+      '@id': `${siteConfig.url}/#person`,
       name: siteConfig.author,
       url: siteConfig.url,
     },
@@ -88,8 +95,10 @@ export function generateBlogPostingSchema(props: {
   modifiedTime?: Date;
   image?: string;
   author?: string;
+  wordCount?: number;
+  keywords?: string[];
 }): WithContext<BlogPosting> {
-  const { title, description, url, publishedTime, modifiedTime, image, author } = props;
+  const { title, description, url, publishedTime, modifiedTime, image, author, wordCount, keywords } = props;
 
   const absoluteImage = image
     ? (image.startsWith('http') ? image : `${siteConfig.url}${image}`)
@@ -103,9 +112,14 @@ export function generateBlogPostingSchema(props: {
     image: absoluteImage,
     datePublished: publishedTime.toISOString(),
     dateModified: modifiedTime?.toISOString() || publishedTime.toISOString(),
-    author: generatePersonRef({ name: author || siteConfig.author }),
+    author: {
+      '@type': 'Person',
+      '@id': `${siteConfig.url}/#person`,
+      name: author || siteConfig.author,
+    } as Person,
     publisher: {
       '@type': 'Organization',
+      '@id': `${siteConfig.url}/#person`,
       name: siteConfig.name,
       url: siteConfig.url,
       logo: {
@@ -118,6 +132,9 @@ export function generateBlogPostingSchema(props: {
       '@type': 'WebPage',
       '@id': url,
     },
+    ...(wordCount ? { wordCount } : {}),
+    inLanguage: 'en',
+    ...(keywords && keywords.length > 0 ? { keywords: keywords.join(', ') } : {}),
   };
 }
 
@@ -217,8 +234,49 @@ export function generateResumeSchema(props: ResumeSchemaProps): WithContext<Pers
  */
 export function schemaToJsonLd(
   schema:
-    | WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList | ProfilePage>
-    | Array<WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList | ProfilePage>>
+    | WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList | ProfilePage | CollectionPage>
+    | Array<WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList | ProfilePage | CollectionPage>>
 ): string {
   return JSON.stringify(schema, null, 2);
+}
+
+/**
+ * Wrap multiple schemas in a single @graph envelope for JSON-LD.
+ * Strips individual @context from each schema and adds a single top-level @context.
+ */
+export function schemaToGraphJsonLd(
+  schemas: Array<WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList | ProfilePage | CollectionPage>>
+): string {
+  const stripped = schemas.map(s => {
+    const { '@context': _, ...rest } = s as unknown as Record<string, unknown>;
+    return rest;
+  });
+  return JSON.stringify({ '@context': 'https://schema.org', '@graph': stripped }, null, 2);
+}
+
+/**
+ * Generate CollectionPage schema for listing pages (e.g., /posts/)
+ */
+export function generateCollectionPageSchema(props: {
+  name: string;
+  description: string;
+  url: string;
+  posts: Array<{ url: string; title: string }>;
+}): WithContext<CollectionPage> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: props.name,
+    description: props.description,
+    url: props.url,
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: props.posts.map((post, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: post.url,
+        name: post.title,
+      })),
+    },
+  } as WithContext<CollectionPage>;
 }

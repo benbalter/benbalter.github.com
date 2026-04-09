@@ -14,6 +14,7 @@ interface Props {
   description: string;
   image?: string;
   noindex?: boolean;
+  suppressPersonSchema?: boolean;
 }
 
 const { 
@@ -21,6 +22,7 @@ const {
   description, 
   image,
   noindex = false,
+  suppressPersonSchema = false,
 } = Astro.props;
 ---
 
@@ -29,6 +31,7 @@ const {
   description={description}
   image={image}
   noindex={noindex}
+  suppressPersonSchema={suppressPersonSchema}
 >
   <div class="max-w-4xl mx-auto px-4">
     <div>
