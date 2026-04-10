@@ -44,7 +44,8 @@ const postsCollection = defineCollection({
   schema: z.object({
     // Required fields (consistent with Jekyll)
     title: z.string(),
-    description: z.string(),
+    description: z.string().max(300), // Ideal: ≤160 chars for SERP snippets
+    tldr: z.string().optional(), // On-page TL;DR summary (falls back to description if not set)
     
     // Optional fields from Jekyll frontmatter
     layout: z.string().optional(),
@@ -54,7 +55,6 @@ const postsCollection = defineCollection({
     
     // Post metadata
     image: z.string().optional(), // Open Graph image
-    comments: z.boolean().default(false),
     
     // SEO metadata
     sitemap: z.boolean().default(true), // Include in sitemap by default
@@ -70,7 +70,6 @@ const postsCollection = defineCollection({
     // Additional metadata
     id: z.string().optional(),
     icons: z.boolean().optional(),
-    tags: z.array(z.string()).optional(),
     categories: z.array(z.string()).optional(),
     
     // Post lists (for curated reading lists)
@@ -89,7 +88,7 @@ const pagesCollection = defineCollection({
   schema: z.object({
     // Required fields
     title: z.string(),
-    description: z.string(),
+    description: z.string().max(300), // Ideal: ≤160 chars for SERP snippets
     
     // Optional fields from Jekyll frontmatter
     layout: z.string().optional(),

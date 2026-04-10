@@ -1,6 +1,7 @@
 ---
 title: Practice inclusive scheduling
-description: "Small scheduling choices — like writing dates unambiguously, including time zones, and building in breaks — go a long way toward making distributed teams feel inclusive."
+description: "Small scheduling choices — writing dates unambiguously, including time zones, and building in breaks — make distributed teams feel included."
+tldr: "Small scheduling choices — like writing dates unambiguously, including time zones, and building in breaks — go a long way toward making distributed teams feel inclusive."
 ---
 
 Time zones are one of the harder parts of software development, but it doesn't have to be one of the harder (or exclusionary) parts of working as a distributed team. Here are a few practices that I try to adhere to help practice more inclusive scheduling when working remotely:

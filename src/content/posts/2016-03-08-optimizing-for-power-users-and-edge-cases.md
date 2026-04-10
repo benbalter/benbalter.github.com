@@ -1,6 +1,7 @@
 ---
 title: Optimizing for power users and edge cases is the easy part
-description: In product development, it's all too easy to optimize for power users and edge cases. The real challenge lies in nailing the out-of-box experience for 80% of users' needs.
+description: Stop optimizing for power users and edge cases. The real challenge is nailing the out-of-box experience for 80% of users.
+tldr: "In product development, it's all too easy to optimize for power users and edge cases. The real challenge lies in nailing the out-of-box experience for 80% of users' needs."
 ---
 
 When designing a product — be it an open-source project or a for-profit service — it's all too easy to optimize for power users and edge cases. While [the squeaky wheel may most often get the grease](https://en.wikipedia.org/wiki/The_squeaky_wheel_gets_the_grease), that doesn't necessarily mean it should. The real challenge for any product lies in genuinely nailing the out-of-box experience for *80%* of users' needs.

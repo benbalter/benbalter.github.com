@@ -1,6 +1,7 @@
 ---
 title: Why open source
-description: Open source isn't a fad—it's how modern organizations build software. Here are twenty-five economic, moral, and personal reasons your organization should embrace it.
+description: Open source isn't a fad. Here are twenty-five economic, moral, and personal reasons your organization should embrace it.
+tldr: "Open source isn't a fad—it's how modern organizations build software. Here are twenty-five economic, moral, and personal reasons your organization should embrace it."
 ---
 
 Open source is awesome. There are many reasons why you might consider consuming, publishing, collaborating on, or supporting open source.[^1] Here are a few of them:

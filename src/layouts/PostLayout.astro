@@ -31,11 +31,11 @@ import type { CollectionEntry } from 'astro:content';
 interface Props {
   title: string;
   description: string;
+  tldr?: string;
   pubDate?: Date;
   updatedDate?: Date;
   image?: string;
   author?: string;
-  tags?: string[];
   relatedPosts?: CollectionEntry<'posts'>[];
   prevPost?: { title: string; url: string };
   nextPost?: { title: string; url: string };
@@ -48,12 +48,12 @@ interface Props {
 
 const { 
   title, 
-  description, 
+  description,
+  tldr,
   pubDate, 
   updatedDate, 
   image,
   author = siteConfig.author,
-  tags = [],
   relatedPosts = [],
   prevPost,
   nextPost,
@@ -94,7 +94,6 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   modifiedTime={updatedDate}
   image={image}
   author={author}
-  tags={tags}
 >
   <div class="max-w-4xl mx-auto px-4">
     <div>
@@ -111,8 +110,8 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
             </div>
           )}
           
-          {description && (
-            <Tldr description={description} />
+          {(tldr || description) && (
+            <Tldr description={tldr || description} />
           )}
         </header>
         

@@ -1,6 +1,7 @@
 ---
 title: Eight tips for working remotely
-description: Tools alone won't make remote work succeed. Eight cultural rules for effective async communication, regardless of your industry, your role, or what tools you use.
+description: Tools alone won't make remote work succeed. Eight cultural rules for effective async communication, regardless of your industry or role.
+tldr: "Tools alone won't make remote work succeed. Eight cultural rules for effective async communication, regardless of your industry, your role, or what tools you use."
 ---
 
 *Recently new to remote work culture? This post is a non-software-specific adaption of my popular post [15 rules for communicating at GitHub](/2014/11/06/rules-of-communicating-at-github/) with "rules" adapted for fostering successful remote culture, regardless of what tools you use or what industry you're in. Looking for help choosing the best tools to support remote workflows? Check out my other post [four characteristics of modern collaboration tools](https://ben.balter.com/2015/11/18/tools-to-empower-open-collaboration/).*

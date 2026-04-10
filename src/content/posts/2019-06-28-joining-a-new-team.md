@@ -1,6 +1,7 @@
 ---
 title: Go near, go far, meet in the middle
-description: A three-phase approach for product managers joining established engineering teams. Tackle known wins, build consensus around a shared vision, then facilitate discovery for how to get there.
+description: "A three-phase approach for product managers joining established teams: tackle known wins, build a shared vision, then discover how to get there."
+tldr: "A three-phase approach for product managers joining established engineering teams. Tackle known wins, build consensus around a shared vision, then facilitate discovery for how to get there."
 ---
 
 There's been a number of times in my career where I've been fortunate enough to join an established engineering team to lead their product efforts. Most often it's that they've operated without a product manager for some time as the organization grew and matured or priorities shifted, but it could be that you're joining a team that previously had a product manager with a different approach or product philosophy. Regardless of the reason for the change, you'll quickly find yourself in issue triage mode with engineers looking towards you for guidance, clarity, and prioritization, or at the very least, you'll be staring down a long feature backlog or list of already-in-flight efforts and find yourself responsible for ensuring that the team is building the right thing. Where do you start?

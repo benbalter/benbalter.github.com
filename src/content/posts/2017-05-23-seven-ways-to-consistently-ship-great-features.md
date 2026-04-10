@@ -1,6 +1,7 @@
 ---
 title: Seven ways to consistently ship great features
-description: The best developers I've worked with don't just write code. They over-communicate, write features before code, ship the smallest delta possible, and optimize for users over maintainability.
+description: The best developers don't just write code. They over-communicate, ship the smallest delta, and optimize for users over maintainability.
+tldr: "The best developers I've worked with don't just write code. They over-communicate, write features before code, ship the smallest delta possible, and optimize for users over maintainability."
 ---
 
 As a product manager, I spend most of my day working with developers to get features out the door and into the hands of users, both internally and for several open source projects. This gives me a unique sideline view of some of the habits successful (and not-so-successful) developers adopt, a perspective many may not be afforded when working in the code day-to-day. Here are seven habits I admire in developers that I see consistently shipping great, user-centric features:

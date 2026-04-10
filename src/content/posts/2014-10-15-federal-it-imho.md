@@ -1,6 +1,7 @@
 ---
 title: What's next for federal IT policy, IMHO
-description: "Federal IT policy needs to move beyond PDF-based, cold-war-era workflows and alphabet-soup compliance. Next up: fostering a culture of openness and rethinking the laws that hold developers back."
+description: "Federal IT policy needs to move past cold-war-era workflows and alphabet-soup compliance toward a culture of openness."
+tldr: "Federal IT policy needs to move beyond PDF-based, cold-war-era workflows and alphabet-soup compliance. Next up: fostering a culture of openness and rethinking the laws that hold developers back."
 ---
 
 While a government employee, as a developer and as an attorney, I had the opportunity to work in government IT, from both a technical perspective, implementing policy at various government agencies, and from a policy perspective, shaping that same policy at the White House. Here's what's next for federal IT policy, IMHO:

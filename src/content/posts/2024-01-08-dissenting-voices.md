@@ -1,6 +1,7 @@
 ---
 title: The "I don't like what they're saying, so they shouldn't be allowed to say it" approach to crisis management
-description: "Trying to control the narrative by silencing dissent erodes trust, invites negativity, and stifles learning. The best leaders embrace transparency, openness, and accountability instead."
+description: "Silencing dissent erodes trust, invites negativity, and stifles learning. The best leaders embrace transparency instead."
+tldr: "Trying to control the narrative by silencing dissent erodes trust, invites negativity, and stifles learning. The best leaders embrace transparency, openness, and accountability instead."
 image: https://github.com/benbalter/benbalter.github.com/assets/282759/aca327ea-9252-4080-919e-363ed18ae50f
 ---
 

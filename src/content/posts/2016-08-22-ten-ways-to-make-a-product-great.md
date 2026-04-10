@@ -1,6 +1,7 @@
 ---
 title: How to make a product great
-description: Great products absorb complexity on behalf of users, not the other way around. Ten principles for building software that's complex to build and easy to use.
+description: Great products absorb complexity on behalf of users, not the other way around. 10 principles for building software that's complex to build and easy to use.
+tldr: "Great products absorb complexity on behalf of users, not the other way around. Ten principles for building software that's complex to build and easy to use."
 ---
 
 ### Absorb complexity on behalf of users

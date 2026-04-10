@@ -1,7 +1,7 @@
 ---
 title: Everyone Contributes
-comments: true
-description: Code is just one way to contribute to open source. Projects thrive when they create clear paths for non-technical contributors to participate, from filing bugs to improving docs.
+description: Code is just one way to contribute to open source. Projects thrive when they create clear paths for non-technical contributors to participate.
+tldr: "Code is just one way to contribute to open source. Projects thrive when they create clear paths for non-technical contributors to participate, from filing bugs to improving docs."
 ---
 
 We often think of contributors as developers, but code is just one of the many ways to contribute to an open source project, and it's important to provide avenues of participation for non-technical contributors as well.

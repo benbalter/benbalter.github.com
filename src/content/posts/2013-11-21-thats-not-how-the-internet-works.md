@@ -1,6 +1,6 @@
 ---
-comments: true
-description: Stop publishing giant datasets as monolithic files. The internet prefers granularity, URLs, and community — treat your GitHub repo like a RESTful API and optimize for data consumers.
+description: Stop publishing monolithic datasets. Treat your GitHub repo like a RESTful API — granular, URL-addressable, and optimized for consumers.
+tldr: "Stop publishing giant datasets as monolithic files. The internet prefers granularity, URLs, and community — treat your GitHub repo like a RESTful API and optimize for data consumers."
 title: That's not how the internet works
 ---
 

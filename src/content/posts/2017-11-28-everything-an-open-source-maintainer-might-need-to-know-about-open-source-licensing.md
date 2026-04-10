@@ -1,6 +1,7 @@
 ---
 title: Everything an open source maintainer might need to know about open source licensing
-description: There's lots of internet lore around open source licensing. As an attorney and an open source developer, here's my answers to common open source licensing questions.
+description: There's lots of internet lore around open source licensing. An attorney and open source developer answers the most common questions.
+tldr: "There's lots of internet lore around open source licensing. As an attorney and an open source developer, here's my answers to common open source licensing questions."
 ---
 
 Without an open source license, open source is just published code. Open source licenses are what allow users to use your software, and more importantly, to modifying it (and hopefully propose improvements).

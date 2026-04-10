@@ -1,7 +1,7 @@
 ---
 title: Want to innovate government? Focus on culture
-comments: true
-description: Parachuting technologists into agencies isn't enough. Bureaucracy has an immune system, and the only vaccine is building a culture where non-technical stakeholders appreciate and understand technology.
+description: Parachuting technologists into agencies isn't enough. Government innovation requires building a culture that values technology.
+tldr: "Parachuting technologists into agencies isn't enough. Bureaucracy has an immune system, and the only vaccine is building a culture where non-technical stakeholders appreciate and understand technology."
 ---
 
 When innovating in government, [the technology's the easy part](https://ben.balter.com/2013/07/01/technologys-the-easy-part/). Innovative efforts often do one of two things:

@@ -1,6 +1,7 @@
 ---
 title: Why you should care about HTTPS, even if you have nothing to hide
-description: "HTTPS protects more than passwords and credit cards. It prevents censorship by making it impossible to selectively block content without blocking an entire site."
+description: "HTTPS protects more than passwords and credit cards. It prevents censorship by making selective content blocking impossible."
+tldr: "HTTPS protects more than passwords and credit cards. It prevents censorship by making it impossible to selectively block content without blocking an entire site."
 ---
 
 You're probably already familiar with technologies like SSL and TLS. They're the little green icon in the top left corner of your browser anytime you visit a site with a URL that begins with `https://`. They're most often used to secure sensitive web requests, like checking your bank account balance or purchasing stuff online. HTTPS encrypts the connection between your computer and the server you're talking to so that nobody can jump in the middle and muck things up.[^1]

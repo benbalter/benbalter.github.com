@@ -1,6 +1,7 @@
 ---
 title: The technology's the easy part
-description: In government IT, the technology is never the hard part. Culture is. We need to stop building new tools and start creating the ecosystem to sustain the ones we already have.
+description: In government IT, technology is never the hard part. Culture is. Stop building new tools and start sustaining the ones you already have.
+tldr: "In government IT, the technology is never the hard part. Culture is. We need to stop building new tools and start creating the ecosystem to sustain the ones we already have."
 ---
 
 After years of living at the bleeding edge of government IT, there's not been a single challenge presented that forces one to ask "is this even technologically possible?". Sure, maybe the code hasn't been written yet, but you know that once it is, it will ultimately do that thing you want it to do — the technology's the easy part.

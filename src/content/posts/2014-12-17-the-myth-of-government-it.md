@@ -1,6 +1,7 @@
 ---
 title: The myth of government IT
-description: "Government IT is held back less by law and more by myth -- decade-old assumptions about technology that calcified into policy and create endless obstacles for those who champion change."
+description: "Government IT is held back less by law and more by myth -- decade-old assumptions about technology that calcified into policy."
+tldr: "Government IT is held back less by law and more by myth -- decade-old assumptions about technology that calcified into policy and create endless obstacles for those who champion change."
 ---
 
 When it comes to saying "no" to innovation in government, there's the law, and then there's the myth that surrounds it. More often than not, that myth serves not to further insulate the agency from potential threats to its infrastructure or mission, but instead, the myth is used to place a never-ending litany of bureaucratic obstacles in front of those who champion change. Much of that myth — long-ago calcified into organizational policy — stems from government policymakers' decade-old superstitions about certain technologies:

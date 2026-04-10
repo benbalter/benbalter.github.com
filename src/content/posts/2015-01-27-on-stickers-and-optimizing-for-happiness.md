@@ -1,6 +1,7 @@
 ---
 title: What does your organization optimize for?
-description: "Every organization is optimized for exactly one thing. A quick glance at someone's laptop stickers -- or lack thereof -- reveals whether your org optimizes for people or process."
+description: "Every organization is optimized for one thing. A glance at someone's laptop stickers reveals whether yours optimizes for people or process."
+tldr: "Every organization is optimized for exactly one thing. A quick glance at someone's laptop stickers -- or lack thereof -- reveals whether your org optimizes for people or process."
 ---
 
 Every organization is optimized for exactly one thing. In the private sector, it's usually profit. In government, depending on the agency, it's often either predictability or process. At GitHub it's developer happiness. Whatever your organization is optimized for, employees will use that organizational imperative as an implicit North Star whenever the demands of a particular task provides them with significant freedom. You'd be surprised how seemingly identical goals are tackled differently at different organizations.

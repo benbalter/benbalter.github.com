@@ -1,6 +1,7 @@
 ---
 title: User blocking vs. user muting
-description: Why GitHub takes a unique approach to user blocking that diverges from other social networks, and the special considerations of moderating a code collaboration platform.
+description: Why GitHub's approach to user blocking diverges from other social networks, and what's different about moderating a code collaboration platform.
+tldr: "Why GitHub takes a unique approach to user blocking that diverges from other social networks, and the special considerations of moderating a code collaboration platform."
 ---
 
 Most platforms offer some form of user blocking, user muting, or both. Here's a brief look at why GitHub has taken a bit of a unique approach to blocking that diverges from what you might see on other social networks and some of the special considerations that come as a result.

@@ -65,6 +65,7 @@ const nextPost = nextEntry ? { title: nextEntry.data.title, url: getPostUrl(next
 <PostLayout
   title={post.data.title}
   description={post.data.description}
+  tldr={post.data.tldr}
   pubDate={pubDate}
   image={ogImageUrl}
   relatedPosts={relatedPosts}

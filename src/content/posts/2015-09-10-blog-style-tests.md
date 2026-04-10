@@ -1,6 +1,7 @@
 ---
 title: How GitHub uses automated testing to empower developers to write less-corporate blog posts
-description: Instead of relying on editors to manually catch marketing speak, use automated tests and CI to enforce voice, tone, and style guidelines on your corporate blog.
+description: Instead of relying on editors to catch marketing speak, use automated tests and CI to enforce voice, tone, and style guidelines on your corporate blog.
+tldr: "Instead of relying on editors to manually catch marketing speak, use automated tests and CI to enforce voice, tone, and style guidelines on your corporate blog."
 ---
 
 I've written in the past about how you should treat [prose with the same respect that developers treat code](https://ben.balter.com/2013/09/16/treat-data-as-code/), how [collaborative content allows you to bring the concept of continuous integration to your organization's writing](https://ben.balter.com/2015/05/22/test-your-prose/), and my colleague Zach Holman's got [a great write up about how GitHub embraces those concepts in its own writing](http://zachholman.com/posts/how-github-writes-blog-posts/). Today I'd like to show a bit of how we leverage automated testing at GitHub to empower developers to write [less-corporate blog posts](https://ben.balter.com/2015/07/20/write-corporate-blog-posts-as-a-human/) (and how you can too!). Take this marketing speak as an example of a blog post a developer might propose:

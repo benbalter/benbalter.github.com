@@ -1,6 +1,7 @@
 ---
 title: Everything a government attorney needs to know about open source software licensing
-description: From MIT to GPL to contributor license agreements, what government lawyers need to know about consuming, publishing, and contributing to open source — and accepting public contributions.
+description: What government lawyers need to know about open source licensing — from MIT to GPL, consuming, publishing, and accepting contributions.
+tldr: "From MIT to GPL to contributor license agreements, what government lawyers need to know about consuming, publishing, and contributing to open source — and accepting public contributions."
 ---
 
 Government agencies can and should participate in the open source community. Open source software is [more than simply software for which the underlying human-readable code has been made available to the public](https://ben.balter.com/2012/10/15/open-source-is-not-a-verb/). Along with the code comes [an intellectual property license grant](http://opensource.org/osd), a legal framework which government agencies are embracing with increasing frequency. Here are some common legal issues to look out for:

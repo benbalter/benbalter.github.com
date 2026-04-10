@@ -1,6 +1,7 @@
 ---
 title: Moderating a controversial pull request
-description: "Controversial pull requests don't have to devolve into the internet's comments section. Ground rules, assigned roles, and clear timelines keep discussions productive."
+description: "Ground rules, assigned roles, and clear timelines keep controversial pull requests from devolving into the internet's comments section."
+tldr: "Controversial pull requests don't have to devolve into the internet's comments section. Ground rules, assigned roles, and clear timelines keep discussions productive."
 ---
 
 Pull requests are a great way to collaborate. Propose a specific change, get detailed, concrete feedback from everyone it affects, reach a rough consensus, merge. At least that's how it's supposed to work, but sometimes, if you're not careful, things can go a bit off the rails.

@@ -1,6 +1,7 @@
 ---
 title: "Agentic workflows and the future of software development"
-description: "AI agents that write code, open pull requests, and fix bugs aren't replacing developers — they're extending the same patterns of transparency, code review, and collaboration that have made open source successful for decades."
+description: "AI coding agents aren't replacing developers — they're extending the transparency, code review, and collaboration patterns behind open source."
+tldr: "AI agents that write code, open pull requests, and fix bugs aren't replacing developers — they're extending the same patterns of transparency, code review, and collaboration that have made open source successful for decades."
 ---
 
 <aside class="my-6 rounded border-l-4 border-blue-500 bg-blue-50 p-4 font-sans text-blue-800 dark:bg-blue-900/30 dark:text-blue-200" role="note">

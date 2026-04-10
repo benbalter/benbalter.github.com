@@ -1,6 +1,7 @@
 ---
 title: Open-Source Alternatives to Proprietary Enterprise Software
-description: A collaboratively maintained list of open-source alternatives to proprietary enterprise software, converted from the UK's procurement toolkit and published on GitHub.
+description: A collaboratively maintained list of open-source alternatives to proprietary enterprise software, from the UK's procurement toolkit on GitHub.
+tldr: "A collaboratively maintained list of open-source alternatives to proprietary enterprise software, converted from the UK's procurement toolkit and published on GitHub."
 ---
 
 I've said in the past, that open-source's lack of adoption in the enterprise space is due, at least in part, to the lack of "[focus-group tested ammunition](https://ben.balter.com/2011/08/31/enterprise-open-source-and-why-better-is-not-enough/)". Today, I hope the community can help even the odds with this collaboratively edited list of open-source alternatives to typical government and enterprise software needs

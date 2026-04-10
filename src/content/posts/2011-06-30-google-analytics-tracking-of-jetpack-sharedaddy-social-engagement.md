@@ -1,6 +1,7 @@
 ---
 title: Google Analytics Tracking of Jetpack (Sharedaddy) Social Engagement
-description: Google recently added social engagement tracking to its analytics suite. With a little bit of leg work, Google Analytics can track not only +1s, but also Facebook and Twitter shares via a simple _gaq.push call.
+description: Track Facebook, Twitter, and Google +1 shares in Google Analytics with social engagement tracking and the Jetpack Sharedaddy plugin.
+tldr: "Google recently added social engagement tracking to its analytics suite. With a little bit of leg work, Google Analytics can track not only +1s, but also Facebook and Twitter shares via a simple _gaq.push call."
 archived: true
 ---
 

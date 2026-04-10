@@ -25,7 +25,6 @@ interface Props {
   publishedTime?: Date;
   modifiedTime?: Date;
   author?: string;
-  tags?: string[];
   keywords?: string[];
   noindex?: boolean;
   hero?: boolean;
@@ -40,7 +39,6 @@ const {
   publishedTime,
   modifiedTime,
   author = siteConfig.author,
-  tags = [],
   keywords = siteConfig.keywords,
   noindex = false,
   hero = false,
@@ -133,7 +131,6 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
             publishedTime: publishedTime.toISOString(),
             modifiedTime: modifiedTime?.toISOString(),
             authors: author ? [author] : undefined,
-            tags: tags.length > 0 ? tags : undefined,
           }
         } : {}),
       }}
@@ -221,6 +218,11 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
     <!-- Minimal navigation toggle script -->
     <script>
       import '../scripts/navToggle';
+    </script>
+    
+    <!-- Move focus to main content after view transitions for keyboard/SR users -->
+    <script>
+      import '../scripts/focusAfterTransition';
     </script>
   </body>
 </html>

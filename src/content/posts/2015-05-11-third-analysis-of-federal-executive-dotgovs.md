@@ -1,6 +1,7 @@
 ---
 title: Analysis of federal .gov domains, 2015 edition
-description: "Crawling every federal .gov domain reveals the state of government web tech: only 25% enforce HTTPS, 87% have no detectable CMS, and 61 sites still run decade-old IIS 6.0."
+description: "A data-driven look at federal .gov domains: only 25% enforce HTTPS, 87% have no detectable CMS, and dozens still run decade-old servers."
+tldr: "Crawling every federal .gov domain reveals the state of government web tech: only 25% enforce HTTPS, 87% have no detectable CMS, and 61 sites still run decade-old IIS 6.0."
 ---
 
 In [2011](https://ben.balter.com/2011/09/07/analysis-of-federal-executive-domains/) and then again in [2014](https://ben.balter.com/2014/07/07/analysis-of-federal-executive-domains-part-deux/) I used

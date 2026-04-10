@@ -1,6 +1,7 @@
 ---
 title: 'A community of communities: Empowering maintainers to grow communities around their code'
-description: In this talk from OSCON 2019, I walk through GitHub's approach to empowering maintainers to grow a federation of safe, welcoming open source communities that scale alongside the code.
+description: My OSCON 2019 talk on GitHub's approach to empowering maintainers to grow safe, welcoming open source communities that scale alongside the code.
+tldr: "In this talk from OSCON 2019, I walk through GitHub's approach to empowering maintainers to grow a federation of safe, welcoming open source communities that scale alongside the code."
 image: https://user-images.githubusercontent.com/282759/63184636-c69cd280-c025-11e9-9f2b-12f0f48be965.png
 ---
 

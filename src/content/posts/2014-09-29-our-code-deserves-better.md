@@ -1,6 +1,7 @@
 ---
 title: Our code deserves better
-description: I've seen multi-million dollar contracts in government, the final deliverable for which, is a CD-ROM, in triplicate. That's not how modern software development works, and our code deserves better.
+description: Government delivers multi-million dollar software projects on CD-ROMs in triplicate. Modern development practices demand better.
+tldr: "I've seen multi-million dollar contracts in government, the final deliverable for which, is a CD-ROM, in triplicate. That's not how modern software development works, and our code deserves better."
 ---
 
 I've seen multi-million dollar contracts in government, the final deliverable for which, is a CD-ROM, in triplicate. That's not how modern software development works. Our government's code deserves much, much better.

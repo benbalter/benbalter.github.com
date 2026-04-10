@@ -1,6 +1,7 @@
 ---
 title: Problems, not solutions
-description: As technologists, solutions are the fun part. But the most valuable thing a product manager can do is frame the right problem, for the right user, before anyone writes a line of code.
+description: The most valuable thing a product manager can do is frame the right problem for the right user before anyone writes a line of code.
+tldr: "As technologists, solutions are the fun part. But the most valuable thing a product manager can do is frame the right problem, for the right user, before anyone writes a line of code."
 ---
 
 As engineers (or just about any other technical profession), we're trained to think about solutions (what features to build, how to make them, subsequent improvements, etc.). Still, given a sufficiently defined problem, the solution is often the easy part (even if the implementation itself may be technically complex). The real challenge lies in understanding customers' actual needs (not just their stated ones), defining and prioritizing user problems, and evaluating potential solutions to determine the right one (and where your efforts can have the most significant impact).

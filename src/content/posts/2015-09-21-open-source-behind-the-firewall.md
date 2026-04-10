@@ -1,6 +1,7 @@
 ---
 title: Bringing open source workflows to the enterprise
-description: You don't have to publish your code to benefit from open source. Adopting open source workflows behind the firewall produces more modern software regardless.
+description: You don't have to share your code to benefit from open source. Adopting open source workflows behind the firewall produces more modern software regardless.
+tldr: "You don't have to publish your code to benefit from open source. Adopting open source workflows behind the firewall produces more modern software regardless."
 ---
 
 <!--lint ignore no-emphasis-as-heading-->

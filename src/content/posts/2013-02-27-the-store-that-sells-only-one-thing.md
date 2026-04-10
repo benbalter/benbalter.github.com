@@ -1,7 +1,7 @@
 ---
 title: The store that sells only one thing.
-description: Tech consultants who define themselves by a single language or framework are like a store that only sells one product. Customers come in with problems, not solutions.
-comments: true
+description: Tech consultants who define themselves by a single language or framework are like a store that sells one product. Customers bring problems, not solutions.
+tldr: "Tech consultants who define themselves by a single language or framework are like a store that only sells one product. Customers come in with problems, not solutions."
 published: true
 ---
 

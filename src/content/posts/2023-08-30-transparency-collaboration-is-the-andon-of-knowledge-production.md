@@ -1,6 +1,7 @@
 ---
 title: Transparent collaboration is the andon of knowledge work
-description: In Toyota's production system, anyone can stop the line when they spot a problem. Transparent collaboration brings that same principle to knowledge work—catching issues before they compound.
+description: Like Toyota's andon cord, transparent collaboration lets anyone stop the line when they spot a problem in knowledge work.
+tldr: "In Toyota's production system, anyone can stop the line when they spot a problem. Transparent collaboration brings that same principle to knowledge work—catching issues before they compound."
 ---
 
 The shift from waterfall to agile was predicated on the belief that what worked for the factory floor during the Industrial Revolution would not work for knowledge work in the Information Age, but assembly lines and modern software development have more in common than you might think:

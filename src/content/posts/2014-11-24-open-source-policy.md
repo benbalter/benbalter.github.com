@@ -1,6 +1,7 @@
 ---
 title: A White House open source policy written by a geek
-description: "Three things the White House Open Source Policy should embody: prefer existing open source platforms, build real communities not just disclosed source, and share code to the widest extent possible."
+description: "The White House Open Source Policy should prefer existing platforms, build real communities, and share code as widely as possible."
+tldr: "Three things the White House Open Source Policy should embody: prefer existing open source platforms, build real communities not just disclosed source, and share code to the widest extent possible."
 ---
 
 Open source in government is about much more than efficiency, shipping better code, or engaging the public more openly. Open source is about spurring [innovation ecosystems](https://ben.balter.com/2012/04/10/whats-missing-from-cfpbs-awesome-new-source-code-policy/?dontCache=1416281172765#an-innovation-ecosystem), public/private marketplaces of scientific and engineering ideas, the likes of which were last seen during the space race. Think space pens are cool? Wait until you see what open source has to offer.

@@ -8,6 +8,7 @@
  * - Headings ending with periods
  * - Broken internal links
  * - Internal links with missing trailing slashes (to match static hosting behavior)
+ * - Generic/non-descriptive link text (e.g., "click here", "read more")
  */
 
 import { describe, it, expect } from 'vitest';
@@ -249,6 +250,43 @@ describe('prose quality', () => {
         expect(
           internalLinksWithoutTrailingSlash,
           `Internal links should have trailing slashes to match static hosting behavior. Links without trailing slashes: ${internalLinksWithoutTrailingSlash.join(', ')}`
+        ).toHaveLength(0);
+      });
+
+      it('does not use generic link text', () => {
+        // Generic/non-descriptive link text patterns (case-insensitive)
+        const genericPatterns = /^\s*(click here|here|this|link|this link|read more)\s*$/i;
+        
+        // Track code block state
+        let inCodeBlock = false;
+        const genericLinks: string[] = [];
+        
+        content.split('\n').forEach((line, idx) => {
+          // Skip code fence markers themselves
+          if (/^\s*```/.test(line)) {
+            inCodeBlock = !inCodeBlock;
+            return;
+          }
+          
+          // Skip code blocks (fenced or indented)
+          if (inCodeBlock || line.startsWith('    ')) {
+            return;
+          }
+          
+          // Extract markdown links: [text](url)
+          const linkMatches = line.matchAll(/\[([^\]]+)\]\([^)]+\)/g);
+          for (const match of linkMatches) {
+            const linkText = match[1];
+            
+            if (genericPatterns.test(linkText)) {
+              genericLinks.push(`Line ${idx + 1}: [${linkText}]`);
+            }
+          }
+        });
+        
+        expect(
+          genericLinks,
+          `Found generic/non-descriptive link text (use descriptive text instead):\n${genericLinks.slice(0, 10).join('\n')}`
         ).toHaveLength(0);
       });
     });

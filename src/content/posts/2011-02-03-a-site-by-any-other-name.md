@@ -1,6 +1,7 @@
 ---
 title: A Site By Any Other Name...
-description: 'DHS recently began protecting America''s shores from threats of a different kind: online copyright infringement. In the days before the Superbowl, the agency set out to enforce the "express written consent of the NFL" provision attached to most broadcasts by slamming the iron fist of the law down on six sports-streaming websites.'
+description: "DHS seized six sports-streaming domains before the Super Bowl, raising questions about due process in online copyright enforcement."
+tldr: "DHS recently began protecting America's shores from threats of a different kind: online copyright infringement. In the days before the Superbowl, the agency set out to enforce the \"express written consent of the NFL\" provision attached to most broadcasts by slamming the iron fist of the law down on six sports-streaming websites."
 archived: true
 ---
 

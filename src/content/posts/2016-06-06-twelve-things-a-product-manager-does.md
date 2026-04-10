@@ -1,6 +1,7 @@
 ---
 title: Twelve things a product manager does
-description: What does a product manager actually do all day? After six months of note-taking, here are twelve responsibilities from user advocacy to strategic thinking.
+description: What does a product manager actually do all day? After six months of note-taking, here are 12 responsibilities from user advocacy to strategic thinking.
+tldr: "What does a product manager actually do all day? After six months of note-taking, here are twelve responsibilities from user advocacy to strategic thinking."
 ---
 
 When I was first considering making the move to product management, I read [a lot](https://medium.com/@joshelman/a-product-managers-job-63c09a43d0ec#.t7puifka7) [of posts](https://medium.com/@matbalez/product-manager-you-are-664d83ee702e#.6054jkko8) [about what](https://medium.com/@bfgmartin/what-is-a-product-manager-ce0efdcf114c#.nfocpyput) [a product](https://medium.com/@irishbryan/product-managers-are-apes-21f25828dcb7#.ujgo9swh6) [manager does](https://medium.com/@noah_weiss/50-articles-and-books-that-will-make-you-a-great-product-manager-aad5babee2f7#.1t1kwhhly). Many of these posts, books, and resources were helpful to understanding what role a product manager plays within the larger organization, or what common traits great product managers share, but given the diversity of the term within the industry, it was hard to get a sense for what a product manager's typical day looked like, at least if there was such a thing at GitHub.

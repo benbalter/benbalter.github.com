@@ -1,6 +1,7 @@
 ---
 title: Cathedral vs Bazaar People Management
-description: What if we applied open source's most famous metaphor to people management? Cathedral managers control and direct; bazaar managers empower and facilitate. Knowing which style fits your team matters.
+description: What if we applied open source's cathedral vs. bazaar metaphor to management? Cathedral managers control; bazaar managers empower.
+tldr: "What if we applied open source's most famous metaphor to people management? Cathedral managers control and direct; bazaar managers empower and facilitate. Knowing which style fits your team matters."
 image: https://github.com/benbalter/benbalter.github.com/assets/282759/e53fc562-b59d-4e0e-87fe-ef6e4da0d062
 ---
 
