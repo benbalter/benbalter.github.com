@@ -65,6 +65,19 @@ const resumeSchema = generateResumeSchema({
 ---
 
 <PageLayout title={title} description={description} suppressPersonSchema>
+  <header class="print-header">
+    <h1 class="print-name">Ben Balter</h1>
+    <p class="print-contact">
+      Washington, DC
+      <span aria-hidden="true"> · </span>
+      <a href="mailto:ben@balter.com">ben@balter.com</a>
+      <span aria-hidden="true"> · </span>
+      <a href="https://ben.balter.com">ben.balter.com</a>
+      <span aria-hidden="true"> · </span>
+      <a href="https://www.linkedin.com/in/benbalter/">linkedin.com/in/benbalter</a>
+    </p>
+  </header>
+
   {summary && (
     <section class="resume-section resume-summary">
       <p class="summary-text">{summary}</p>
@@ -476,34 +489,187 @@ const resumeSchema = generateResumeSchema({
   }
 
   /* ============================================================
+   * Print-only header (hidden on screen)
+   * ============================================================ */
+  .print-header {
+    display: none;
+  }
+
+  /* ============================================================
    * Print
    * ============================================================ */
   @media print {
+    @page {
+      margin: 0.6in 0.65in;
+    }
+
+    /* Show the print-only header with name + contact strip */
+    .print-header {
+      display: block;
+      margin: 0 0 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid #000;
+    }
+
+    .print-name {
+      margin: 0 0 0.25rem;
+      font-size: 22pt;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #000;
+    }
+
+    .print-contact {
+      margin: 0;
+      font-size: 9.5pt;
+      color: #333;
+    }
+
+    .print-contact a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    /* Hide the onscreen "Resume" page H1 — redundant with the name block */
+    :global(article > header),
+    :global(article > header h1) {
+      display: none !important;
+    }
+
+    /* Hide the "also on LinkedIn / print to PDF" helper — already printing */
+    .resume-aux {
+      display: none !important;
+    }
+
+    /* Tighter summary card in print */
+    .resume-summary {
+      background-color: transparent !important;
+      border-left: none !important;
+      padding: 0 !important;
+      margin-bottom: 0.75rem;
+    }
+
+    .summary-text {
+      font-size: 10.5pt;
+      font-style: italic;
+    }
+
+    /* Density: smaller base, tighter margins */
+    .resume-section {
+      margin-bottom: 1rem;
+    }
+
     .resume-section h2 {
+      font-size: 11pt;
+      margin-top: 0.75rem;
+      margin-bottom: 0.4rem;
+      padding-bottom: 0.2rem;
       border-bottom-color: #000;
     }
 
     .employer-group {
-      border-left: 2px solid #ccc;
+      border-left: 1px solid #bbb;
+      padding-left: 1rem;
+      margin-bottom: 0.75rem;
+      page-break-inside: avoid;
     }
 
-    .position-header::before {
-      background-color: #333;
-    }
-
-    .date-badge {
-      background-color: transparent;
-      color: #333;
-      padding: 0;
+    .employer-name {
+      font-size: 12pt;
+      margin-top: 0;
+      margin-bottom: 0.35rem;
     }
 
     .position {
+      margin-bottom: 0.6rem;
+      padding-bottom: 0.5rem;
+      page-break-inside: avoid;
       border-bottom-color: #eee;
+    }
+
+    .position-title {
+      font-size: 10.5pt;
+      font-weight: 600;
+    }
+
+    .position-header::before {
+      width: 6px;
+      height: 6px;
+      background-color: #333;
+      top: 0.4rem;
+    }
+
+    .date-badge {
+      background-color: transparent !important;
+      color: #333 !important;
+      padding: 0 !important;
+      font-size: 9pt;
+      font-style: italic;
+    }
+
+    .position-content {
+      font-size: 10pt;
+    }
+
+    .position-content :global(ul) {
+      padding-left: 1.1rem;
+    }
+
+    .position-content :global(li) {
+      margin-bottom: 0.15rem;
+    }
+
+    .skills-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-top: 0.4rem;
+    }
+
+    .skill-group-name {
+      font-size: 9.5pt;
+      color: #000;
+      margin-bottom: 0.2rem;
+    }
+
+    .skill-list {
+      font-size: 9.5pt;
+    }
+
+    .skill-list li {
+      margin-bottom: 0;
     }
 
     .education-item,
     .certification-item {
+      margin-bottom: 0.4rem;
+      padding-bottom: 0.35rem;
       border-bottom-color: #eee;
+      page-break-inside: avoid;
+    }
+
+    .school-name {
+      font-size: 11pt;
+    }
+
+    .cert-group-heading {
+      font-size: 9.5pt;
+      color: #000;
+      margin-top: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .certification-authority {
+      font-size: 8.5pt;
+    }
+
+    .certification-name {
+      font-size: 10pt;
+    }
+
+    /* Don't suffix cert/LinkedIn links with their long URLs in print */
+    .certification-name a::after,
+    .print-contact a::after {
+      content: none !important;
     }
   }
 </style>
