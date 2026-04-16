@@ -316,7 +316,7 @@ const posts = (await getCollection('posts'))
   .slice(0, 10); // Show latest 10 posts
 ---
 
-<BaseLayout title="Ben Balter" description="Technology leadership, collaboration, and open source">
+<BaseLayout title="Ben Balter" description="Engineering leadership, open source, and showing your work">
   <div class="posts">
     {posts.map(post => <PostCard post={post} />)}
   </div>
@@ -415,7 +415,7 @@ end_date: '2024-07-08'               # Omit for current position
 
 ```yaml
 title: Ben Balter
-description: Technology leadership, collaboration, and open source
+description: Engineering leadership, open source, and showing your work
 url: https://ben.balter.com
 author:
   name: Ben Balter
@@ -512,7 +512,7 @@ export async function GET(context: APIContext) {
 
   return rss({
     title: 'Ben Balter',
-    description: 'Technology leadership, collaboration, and open source',
+    description: 'Engineering leadership, open source, and showing your work',
     site: context.site!,
     items: sortedPosts.map(post => ({
       title: post.data.title,

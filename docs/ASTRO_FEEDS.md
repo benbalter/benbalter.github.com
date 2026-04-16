@@ -55,7 +55,7 @@ The feed has been validated and parses without errors using:
 ### Main Feed
 
 - **Title**: Ben Balter
-- **Description**: Technology leadership, collaboration, and open source
+- **Description**: Engineering leadership, open source, and showing your work
 - **Link**: https://ben.balter.com/
 - **Format**: RSS 2.0
 

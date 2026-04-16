@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { waitForPageReady } from './helpers';
 
-const TAGLINE = 'Technology leadership, collaboration, and open source';
+const TAGLINE = 'Engineering leadership, open source, and showing your work';
 
 test.describe('Navigation Tagline', () => {
   // Note: Tagline is intentionally hidden on mobile viewports via CSS

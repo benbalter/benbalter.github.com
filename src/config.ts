@@ -27,7 +27,7 @@ export const siteConfig = {
   name: 'Ben Balter',
   author: 'Ben Balter',
   url: 'https://ben.balter.com',
-  description: 'Technology leadership, collaboration, and open source',
+  description: 'Engineering leadership, open source, and showing your work',
   
   // Repository information
   githubRepo: 'benbalter/benbalter.github.com',
