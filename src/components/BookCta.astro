@@ -14,10 +14,12 @@ interface Props {
 
 const { variant = 'inline' } = Astro.props;
 
-// Colorize ampersand to match footer treatment (Footer.astro line ~40).
+// Colorize ampersand to match footer treatment. Consume surrounding spaces
+// so mx-1 controls the total whitespace (natural spaces + margin would add
+// up to an uncomfortably wide gap in prose-sized text).
 const bookTitleHtml = siteConfig.bookTitle.replace(
-  /&/g,
-  '<span class="text-primary dark:text-primary-300 mx-0.5">&amp;</span>',
+  /\s*&\s*/g,
+  '<span class="text-primary dark:text-primary-300 mx-1">&amp;</span>',
 );
 ---
 
