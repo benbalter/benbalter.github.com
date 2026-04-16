@@ -3,9 +3,9 @@
  * ReadingProgress
  *
  * Thin progress bar fixed at the very top of the viewport showing how far
- * the reader has scrolled through the article, with an optional "N min left"
- * label in the bottom-right corner. Only renders on post pages (included in
- * PostLayout).
+ * the reader has scrolled through the *article body* (not the full page —
+ * excludes bio, CTAs, footer), with an optional "N min left" label in the
+ * bottom-right corner. Only renders on post pages (included in PostLayout).
  *
  * Uses requestAnimationFrame-throttled scroll handling. Respects
  * prefers-reduced-motion.
@@ -45,16 +45,29 @@ const { readingTime = 0 } = Astro.props;
 
     const bar = barEl as HTMLElement;
     const container = containerEl;
+    const bodyEl = document.querySelector('.post-content') as HTMLElement | null;
     const readingTime = Number(container.dataset.readingTime || 0);
     let ticking = false;
-    let cachedDocHeight = 0;
+    let bodyTop = 0;
+    let scrollRange = 0;
 
-    function cacheDocHeight() {
-      cachedDocHeight = document.documentElement.scrollHeight - window.innerHeight;
+    function cacheBodyMetrics() {
+      if (!bodyEl) {
+        // Fallback: track full page scroll if post body not found.
+        bodyTop = 0;
+        scrollRange = document.documentElement.scrollHeight - window.innerHeight;
+        return;
+      }
+      const rect = bodyEl.getBoundingClientRect();
+      bodyTop = rect.top + window.scrollY;
+      // Range: from when the top of the body reaches the top of the viewport
+      // to when the bottom of the body reaches the bottom of the viewport.
+      scrollRange = Math.max(bodyEl.offsetHeight - window.innerHeight, 1);
     }
 
     function updateProgress() {
-      const ratio = cachedDocHeight > 0 ? Math.min(window.scrollY / cachedDocHeight, 1) : 0;
+      const offset = window.scrollY - bodyTop;
+      const ratio = scrollRange > 0 ? Math.min(Math.max(offset / scrollRange, 0), 1) : 0;
       const progress = ratio * 100;
       bar.style.width = `${progress}%`;
       container.setAttribute('aria-valuenow', Math.round(progress).toString());
@@ -79,9 +92,17 @@ const { readingTime = 0 } = Astro.props;
       }
     }
 
-    cacheDocHeight();
+    cacheBodyMetrics();
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', cacheDocHeight, { passive: true });
+    window.addEventListener('resize', () => {
+      cacheBodyMetrics();
+      updateProgress();
+    }, { passive: true });
+    // Recompute after images/fonts settle.
+    window.addEventListener('load', () => {
+      cacheBodyMetrics();
+      updateProgress();
+    });
     updateProgress();
   }
 
