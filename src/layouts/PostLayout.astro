@@ -12,9 +12,9 @@ import Tldr from '../components/Tldr.astro';
 import MiniBio from '../components/MiniBio.astro';
 import Icon from '../components/Icon.astro';
 import { siteConfig } from '../config';
-import { calculateReadingTime, formatReadingTime } from '../utils/reading-time';
+import { calculateReadingTime } from '../utils/reading-time';
 import { generateBlogPostingSchema, schemaToJsonLd } from '../utils/structured-data';
-import { formatPostDate, getPostUrl } from '../utils/post-urls';
+import { formatPostDate } from '../utils/post-urls';
 import ArchivedPostWarning from '../components/ArchivedPostWarning.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import PostNavigation from '../components/PostNavigation.astro';
@@ -100,7 +100,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
       <article data-pagefind-body>
         <Breadcrumbs title={title} />
         <header class="mb-10">
-          <h1 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100" transition:name="page-title">{title}</h1>
+          <h1 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100">{title}</h1>
           
           {readingTime > 0 && (
             <div class="text-sm text-gray-600 dark:text-gray-300 mt-2 mb-6" data-pagefind-ignore>
@@ -141,17 +141,6 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
           </div>
         )}
         
-        {tags.length > 0 && (
-          <div class="mt-2 mb-8" data-pagefind-ignore>
-            <div class="flex flex-wrap items-center gap-2">
-              <span class="text-xs text-gray-600 dark:text-gray-300 font-medium uppercase tracking-wide">Tags</span>
-              {tags.map((tag) => (
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 dark:bg-primary/20 text-primary-700 dark:text-primary-300 border border-primary/20 dark:border-primary/30" data-pagefind-filter="tag">{tag}</span>
-              ))}
-            </div>
-          </div>
-        )}
-        
         <DiscussLinks title={title} url={postUrl} />
 
         <BookCta />
@@ -189,7 +178,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
                 </span>
               </div>
             </div>
-            <span class="text-gray-500 dark:text-gray-400 group-hover:text-primary dark:group-hover:text-primary-300 transition-colors duration-200" aria-hidden="true">→</span>
+            <span class="text-gray-700 dark:text-gray-300 group-hover:text-primary dark:group-hover:text-primary-300 transition-colors duration-200" aria-hidden="true">→</span>
           </a>
         </footer>
         </div>

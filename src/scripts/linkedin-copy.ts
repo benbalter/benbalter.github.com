@@ -69,5 +69,7 @@ function initCopyButtons() {
   });
 }
 
-// Re-initialize after Astro view transitions
-document.addEventListener('astro:page-load', initCopyButtons);
+// Re-initialize after navigation. Without ClientRouter every navigation is a
+// full page load, so `DOMContentLoaded` (or immediate if ready) is sufficient.
+import { onPageLoad } from './on-page-load';
+onPageLoad(initCopyButtons);

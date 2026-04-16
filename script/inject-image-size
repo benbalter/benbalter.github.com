@@ -10,11 +10,19 @@
  * Run after `astro build`, before pagefind.
  */
 
-import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 import { imageSize } from 'image-size';
 
 const DIST_DIR = resolve(import.meta.dirname, '..', 'dist-astro');
+const REMOTE_CACHE_PATH = resolve(import.meta.dirname, 'remote-image-dimensions.json');
+
+// Pre-populated cache of remote image dimensions (built by
+// script/build-remote-image-dimensions). Used to inject width/height into
+// legacy posts that reference images by absolute URL.
+const remoteCache = existsSync(REMOTE_CACHE_PATH)
+  ? JSON.parse(readFileSync(REMOTE_CACHE_PATH, 'utf8'))
+  : {};
 
 function walkHtmlFiles(dir, files = []) {
   for (const entry of readdirSync(dir)) {
@@ -33,6 +41,13 @@ const dimensionCache = new Map();
 
 function getDimensions(src) {
   if (dimensionCache.has(src)) return dimensionCache.get(src);
+
+  // Remote URLs — look up in pre-built cache.
+  if (/^https?:\/\//i.test(src)) {
+    const hit = remoteCache[src] || null;
+    dimensionCache.set(src, hit);
+    return hit;
+  }
 
   // Only process local absolute paths
   if (!src.startsWith('/') || src.startsWith('//')) {

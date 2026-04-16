@@ -8,7 +8,6 @@
 
 import { SEO } from 'astro-seo';
 import { Font } from 'astro:assets';
-import { ClientRouter } from 'astro:transitions';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import BackToTop from '../components/BackToTop.astro';
@@ -46,7 +45,13 @@ const {
 } = Astro.props;
 
 const fullTitle = title === siteConfig.name ? `${title} | ${siteConfig.description}` : `${title} | ${siteConfig.name}`;
-const canonicalUrl = new URL(Astro.url.pathname, siteConfig.url).toString();
+// Normalize canonical URL: ensure trailing slash on non-root paths so Astro's
+// trailingSlash="always" config is consistently reflected in <link rel="canonical">.
+const rawPath = Astro.url.pathname || '/';
+const canonicalPath = rawPath === '/' || rawPath.endsWith('/') || /\.[a-z0-9]+$/i.test(rawPath)
+  ? rawPath
+  : rawPath + '/';
+const canonicalUrl = new URL(canonicalPath, siteConfig.url).toString();
 
 // Default OG image if none provided
 const ogImage = image 
@@ -189,9 +194,6 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
     <Font cssVariable="--font-inter" />
     <Font cssVariable="--font-lora" />
     
-    <!-- Astro View Transitions (ClientRouter) for smooth page navigation -->
-    <ClientRouter />
-    
     <!-- Note: Title, favicons, meta tags, social links, resource hints, and RSS feed
          are all declared in the SEO component above. Do not duplicate them here. -->
   </head>
@@ -206,7 +208,7 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
       
       <Navigation hero={hero} />
       
-      <main id="content" role="main" class="content" tabindex="-1" transition:animate="fade">
+      <main id="content" role="main" class="content" tabindex="-1">
         <slot />
       </main>
       
@@ -218,11 +220,6 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
     <!-- Minimal navigation toggle script -->
     <script>
       import '../scripts/navToggle';
-    </script>
-    
-    <!-- Move focus to main content after view transitions for keyboard/SR users -->
-    <script>
-      import '../scripts/focusAfterTransition';
     </script>
   </body>
 </html>

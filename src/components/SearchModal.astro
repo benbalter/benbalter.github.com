@@ -322,8 +322,9 @@
     }
   }
 
-  // Initialize on each page load (SPA navigation)
-  document.addEventListener('astro:page-load', () => {
+  // Initialize on each page load.
+  import { onPageLoad } from '../scripts/on-page-load';
+  onPageLoad(() => {
     initSearch();
     highlightSearchTerms();
   });
@@ -386,7 +387,7 @@
 
   .search-icon {
     flex-shrink: 0;
-    @apply text-gray-400 dark:text-gray-500;
+    @apply text-gray-600 dark:text-gray-400;
   }
 
   .search-field {
@@ -396,7 +397,7 @@
     background: transparent;
     font-size: 1rem;
     @apply text-gray-900 dark:text-gray-100;
-    @apply placeholder:text-gray-400 dark:placeholder:text-gray-500;
+    @apply placeholder:text-gray-600 dark:placeholder:text-gray-400;
   }
 
   .search-field::-webkit-search-cancel-button {

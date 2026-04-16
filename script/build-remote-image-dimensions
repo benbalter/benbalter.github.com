@@ -1,0 +1,75 @@
+#!/usr/bin/env node
+
+/**
+ * Scans content posts for <img src="http(s)://..."> URLs and builds a cache of
+ * their dimensions so inject-image-size can add width/height attributes to
+ * remote images at build time (preventing CLS on legacy posts that reference
+ * images via absolute URL).
+ *
+ * The cache is committed to the repo — re-run this script when new remote
+ * images are added to posts.
+ *
+ * Usage: node script/build-remote-image-dimensions
+ */
+
+import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
+import { resolve, join } from 'node:path';
+import { imageSize } from 'image-size';
+
+const REPO_ROOT = resolve(import.meta.dirname, '..');
+const POSTS_DIR = join(REPO_ROOT, 'src', 'content', 'posts');
+const CACHE_PATH = join(REPO_ROOT, 'script', 'remote-image-dimensions.json');
+
+const existing = existsSync(CACHE_PATH)
+  ? JSON.parse(readFileSync(CACHE_PATH, 'utf8'))
+  : {};
+
+// Collect every remote <img src> from markdown/MDX posts.
+const urls = new Set();
+for (const entry of readdirSync(POSTS_DIR)) {
+  if (!entry.endsWith('.md') && !entry.endsWith('.mdx')) continue;
+  const body = readFileSync(join(POSTS_DIR, entry), 'utf8');
+  for (const match of body.matchAll(/<img\b[^>]*\bsrc=["']([^"']+)["']/gi)) {
+    const src = match[1];
+    if (/^https?:\/\//i.test(src)) urls.add(src);
+  }
+}
+
+const cache = { ...existing };
+let added = 0;
+let failed = 0;
+
+for (const url of urls) {
+  if (cache[url]) continue;
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10_000);
+    const response = await fetch(url, { signal: controller.signal });
+    clearTimeout(timeout);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const buffer = Buffer.from(await response.arrayBuffer());
+    const dims = imageSize(buffer);
+    if (!dims.width || !dims.height) throw new Error('no dimensions');
+    cache[url] = { width: dims.width, height: dims.height };
+    added++;
+    console.log(`✓ ${url} → ${dims.width}x${dims.height}`);
+  } catch (err) {
+    failed++;
+    console.warn(`✗ ${url} — ${err.message}`);
+  }
+}
+
+// Prune entries no longer referenced by any post.
+for (const url of Object.keys(cache)) {
+  if (!urls.has(url)) delete cache[url];
+}
+
+// Write sorted for stable diffs.
+const sorted = Object.fromEntries(
+  Object.keys(cache).sort().map((k) => [k, cache[k]])
+);
+writeFileSync(CACHE_PATH, JSON.stringify(sorted, null, 2) + '\n');
+
+console.log(
+  `\nremote-image-dimensions: ${added} added, ${failed} failed, ${Object.keys(sorted).length} total cached`
+);

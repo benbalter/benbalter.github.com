@@ -36,7 +36,6 @@ const ALLOWED_ASSET_DIRS = ['assets'];
 
 // Layout constants for spacing calculations
 const LOGO_TITLE_GAP = 40; // Gap between title text and logo
-const DOMAIN_HEIGHT_RESERVED = 50; // Space reserved for domain at bottom
 
 /**
  * Load the Inter fonts for text rendering

@@ -35,7 +35,7 @@ const collectionSchema = generateCollectionPageSchema({
   name: title,
   description,
   url: new URL('/posts/', siteConfig.url).toString(),
-  posts: posts.slice(0, 50).map(post => ({
+  posts: posts.map(post => ({
     url: new URL(getPostUrl(post.id), siteConfig.url).toString(),
     title: post.data.title,
   })),
@@ -52,7 +52,7 @@ const collectionSchema = generateCollectionPageSchema({
     {years.map((year) => (
       <a
         href={`#${year}`}
-        class="text-sm px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-primary hover:text-primary dark:hover:border-primary-300 dark:hover:text-primary-300 no-underline transition-colors"
+        class="text-sm px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-primary hover:text-primary dark:hover:border-primary-300 dark:hover:text-primary-300 no-underline transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
       >
         {year}
       </a>

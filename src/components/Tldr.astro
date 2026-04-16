@@ -255,47 +255,14 @@ const tooltipTitle = '"Too Long; Didn\'t Read" — Internet shorthand for "a bri
     }
   };
   
-  // Initialize on initial page load (first time or full page reload)
-  document.addEventListener('DOMContentLoaded', initializeTooltips);
-  
-  // Initialize after Astro View Transitions navigation (SPA-style navigation)
-  // Use both events for reliable initialization:
-  // - astro:after-swap: fires immediately after DOM swap for fast initialization
-  // - astro:page-load: fires after navigation completes as a reliable fallback
-  // The initializeTooltips function is idempotent (checks for data-tooltip-initialized)
-  // so calling it twice is safe and ensures no race conditions
-  document.addEventListener('astro:after-swap', initializeTooltips);
-  document.addEventListener('astro:page-load', initializeTooltips);
-  
-  // Clean up before Astro View Transitions navigation (for SPAs)
-  // Use astro:before-swap for cleanup - it fires right before DOM swap
-  document.addEventListener('astro:before-swap', () => {
-    // Hide all active tooltips
-    const activeTooltips = window.__tldrActiveTooltips;
-    if (activeTooltips) {
-      activeTooltips.forEach((_tooltipEl: HTMLDivElement, element: HTMLElement) => {
-        hideTooltip(element);
-      });
-    }
-    
-    // Remove initialization markers so elements can be reinitialized after navigation
-    const tooltipElements = document.querySelectorAll('[data-tooltip-initialized]');
-    tooltipElements.forEach((element) => {
-      element.removeAttribute('data-tooltip-initialized');
-    });
-    
-    // Remove global click handler
-    if (globalClickHandlerAdded) {
-      document.removeEventListener('click', handleGlobalClick);
-      globalClickHandlerAdded = false;
-    }
-    
-    // Remove global scroll handler
-    if (globalScrollHandlerAdded) {
-      window.removeEventListener('scroll', handleGlobalScroll);
-      globalScrollHandlerAdded = false;
-    }
-  });
+  // Initialize on DOMContentLoaded (or immediately if already loaded).
+  // Without ClientRouter every navigation is a full page load, so there's no
+  // need for astro:after-swap / astro:page-load listeners.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeTooltips);
+  } else {
+    initializeTooltips();
+  }
 </script>
 
 <style>

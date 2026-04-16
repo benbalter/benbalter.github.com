@@ -47,10 +47,11 @@ const navClasses = hero
   : `${baseClasses} rounded-lg`;
 ---
 
-<nav class={navClasses} aria-label="Main navigation" transition:persist="nav" data-has-hero={hero}>
+<nav class={navClasses} aria-label="Main navigation" data-has-hero={hero}>
   <script>
-    // Update active nav link state and border styling on page transitions
-    document.addEventListener('astro:page-load', () => {
+    import { onPageLoad } from '../scripts/on-page-load';
+    // Set active nav link state based on current path.
+    onPageLoad(() => {
       const currentPath = window.location.pathname;
       const navLinks = document.querySelectorAll('[data-nav-links] .nav-link');
       

@@ -137,12 +137,12 @@ describe('OG image security configuration', () => {
 describe('OG image dimensions', () => {
   it('should have standard OG image dimensions', () => {
     expect(defaultOGConfig.width).toBe(1200);
-    expect(defaultOGConfig.height).toBe(600);
+    expect(defaultOGConfig.height).toBe(630);
   });
   
-  it('should have 2:1 aspect ratio', () => {
+  it('should have 1.91:1 aspect ratio (Facebook/OpenGraph standard)', () => {
     const aspectRatio = defaultOGConfig.width / defaultOGConfig.height;
-    expect(aspectRatio).toBe(2);
+    expect(aspectRatio).toBeCloseTo(1.9048, 2);
   });
 });
 

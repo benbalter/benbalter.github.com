@@ -75,7 +75,7 @@ export interface OGImageConfig {
  * - Professional card-like appearance
  * 
  * Maintains dimensions from original design:
- * - width/height: 1200x600 (standard OG image size)
+ * - width/height: 1200x630 (standard OG image size, 1.91:1 aspect ratio)
  * - logo.size: 140 (slightly smaller for better balance)
  * - padding: 60 (tighter for modern look)
  */
@@ -113,9 +113,9 @@ export function validateDimensions(
 }
 
 export const defaultOGConfig: OGImageConfig = {
-  // Standard OG image dimensions
+  // Standard OG image dimensions (1.91:1 aspect ratio, matches meta declarations)
   width: 1200,
-  height: 600,
+  height: 630,
   
   // Subtle gradient background (light gray to white)
   background: {

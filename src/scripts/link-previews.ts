@@ -8,7 +8,7 @@
  * - Lazy-loads the post metadata JSON on first hover (then caches)
  * - Positions the card intelligently relative to the viewport
  * - Supports keyboard focus for accessibility
- * - Works with Astro View Transitions via astro:page-load
+ * - Initializes on DOMContentLoaded (or immediately if already loaded)
  */
 
 /** URL pattern for blog post links: /YYYY/MM/DD/slug/ */
@@ -306,4 +306,5 @@ function initLinkPreviews() {
   if (firstPostLink) observer.observe(firstPostLink);
 }
 
-document.addEventListener('astro:page-load', initLinkPreviews);
+import { onPageLoad } from './on-page-load';
+onPageLoad(initLinkPreviews);
