@@ -63,6 +63,13 @@ export default defineConfig({
   // Font optimization via Astro's built-in Fonts API
   // Self-hosted via Fontsource for privacy (no third-party requests)
   // Inter (sans-serif) for headings and UI; Lora (serif) for long-form prose
+  //
+  // display: 'swap' — always ends up on the real font (avoids the
+  // refresh-to-refresh inconsistency that `optional` produces when the font
+  // misses its 100ms budget). The visible font swap is softened by Astro's
+  // auto-generated size-adjust / ascent-override fallback (enabled by default
+  // when the last entry in `fallbacks` is a generic family like `sans-serif` or
+  // `serif`).
   fonts: [
     {
       provider: fontProviders.fontsource(),
@@ -72,7 +79,7 @@ export default defineConfig({
       styles: ['normal', 'italic'],
       subsets: ['latin'],
       fallbacks: ['sans-serif'],
-      display: 'optional',
+      display: 'swap',
     },
     {
       provider: fontProviders.fontsource(),
@@ -82,7 +89,7 @@ export default defineConfig({
       styles: ['normal', 'italic'],
       subsets: ['latin'],
       fallbacks: ['Georgia', 'serif'],
-      display: 'optional',
+      display: 'swap',
     },
   ],
   

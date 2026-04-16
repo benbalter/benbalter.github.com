@@ -188,9 +188,10 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json" set:html={schemaToGraphJsonLd(schemas)} is:inline></script>
     
-    <!-- Font optimization via Astro Fonts API (no preload: font-display optional
-         means the browser skips fonts not available immediately, so preloading
-         them would waste bandwidth competing with critical JS) -->
+    <!-- Font optimization via Astro Fonts API. display:'swap' + Astro's
+         auto-generated size-adjust fallbacks (declared in astro.config.mjs)
+         keep the fallback-to-real-font transition nearly invisible while
+         guaranteeing the real font always ends up rendered. -->
     <Font cssVariable="--font-inter" />
     <Font cssVariable="--font-lora" />
 
