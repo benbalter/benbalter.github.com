@@ -61,7 +61,7 @@ export const siteConfig = {
   // Email subscribe URL (leave empty to hide email row in SubscribeCta).
   // When set (e.g., Follow.it, Buttondown, Kit), SubscribeCta renders an
   // "Subscribe by email" row alongside RSS and social follow.
-  emailSubscribeUrl: '',
+  emailSubscribeUrl: 'https://follow.it/ben-balter',
 
   // Book
   bookUrl: 'https://open-and-async.com/',
