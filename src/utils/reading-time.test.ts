@@ -87,6 +87,29 @@ describe('calculateReadingTime', () => {
     // Should count words from text content, not code
     expect(result).toBeGreaterThan(0);
   });
+
+  it('should not count footnote references', () => {
+    const words = Array.from({ length: 100 }, (_, i) => `word${i}`).join(' ');
+    const withRefs = `${words} [^1] [^note-a] [^2]`;
+    expect(calculateReadingTime(withRefs)).toBe(calculateReadingTime(words));
+  });
+
+  it('should not count footnote definition bodies', () => {
+    const body = Array.from({ length: 100 }, (_, i) => `body${i}`).join(' ');
+    const footnoteBody = Array.from({ length: 200 }, (_, i) => `note${i}`).join(' ');
+    const content = `${body}[^1]\n\n[^1]: ${footnoteBody}`;
+    // Without footnote: 100 words = 1 min. With footnote counted: 300 words = 2 min.
+    expect(calculateReadingTime(content)).toBe(1);
+  });
+
+  it('should not count indented footnote continuation lines', () => {
+    const body = Array.from({ length: 100 }, (_, i) => `body${i}`).join(' ');
+    const line1 = Array.from({ length: 150 }, (_, i) => `n${i}`).join(' ');
+    const line2 = Array.from({ length: 150 }, (_, i) => `m${i}`).join(' ');
+    const content = `${body}[^1]\n\n[^1]: ${line1}\n    ${line2}\n\nTrailing paragraph.`;
+    // Reading time should reflect body + trailing only, not the 300 footnote words.
+    expect(calculateReadingTime(content)).toBe(1);
+  });
 });
 
 describe('formatReadingTime', () => {
