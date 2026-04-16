@@ -48,10 +48,12 @@ certifications:
     name: Certified Information Systems Security Professional (CISSP)
     url: https://www.credly.com/badges/1a8b31f1-3727-4acf-a6a8-8d67af9ecb23
     category: professional
+    expired: true
   - authority: International Information System Security Certification Consortium (ISC)²
     name: Systems Security Certified Practitioner (SSCP)
     url: https://www.credly.com/badges/7eb85996-c7fc-4c68-95df-fcd33ec445ba/
     category: professional
+    expired: true
   - authority: Federal Communications Commission
     name: Amateur Radio Technician Class License, callsign KO6EYB
     category: personal

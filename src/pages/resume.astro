@@ -137,7 +137,7 @@ const resumeSchema = generateResumeSchema({
   {certifications && certifications.length > 0 && (() => {
     const professional = certifications.filter((c: { category?: string }) => (c.category ?? 'professional') === 'professional');
     const personal = certifications.filter((c: { category?: string }) => c.category === 'personal');
-    const renderCert = (cert: { authority: string; name: string; url?: string }) => (
+    const renderCert = (cert: { authority: string; name: string; url?: string; expired?: boolean }) => (
       <div class="certification-item">
         <div class="certification-header">
           <span class="certification-authority">{cert.authority}</span>
@@ -146,6 +146,9 @@ const resumeSchema = generateResumeSchema({
               <a href={cert.url} target="_blank" rel="noopener noreferrer" aria-label={`View ${cert.name} credential`}>{cert.name}</a>
             ) : (
               cert.name
+            )}
+            {cert.expired && (
+              <span class="cert-expired" title="No longer actively maintained" aria-label="Expired — no longer actively maintained">Expired</span>
             )}
           </span>
         </div>
@@ -391,6 +394,43 @@ const resumeSchema = generateResumeSchema({
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.03em;
+  }
+
+  .cert-expired {
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 0.05rem 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-gray-600, #6c757d);
+    background-color: color-mix(in srgb, var(--color-gray-600, #6c757d) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-gray-600, #6c757d) 25%, transparent);
+    border-radius: 9999px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  .certification-name a[href] + .cert-expired,
+  .certification-name > .cert-expired {
+    text-decoration: none;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .cert-expired {
+      color: var(--color-gray-400, #adb5bd);
+      background-color: color-mix(in srgb, var(--color-gray-400, #adb5bd) 12%, transparent);
+      border-color: color-mix(in srgb, var(--color-gray-400, #adb5bd) 30%, transparent);
+    }
+  }
+
+  @media print {
+    .cert-expired {
+      background-color: transparent;
+      border-color: #999;
+      color: #555;
+    }
   }
 
   /* ============================================================
