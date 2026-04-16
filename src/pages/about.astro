@@ -4,6 +4,7 @@ import { siteConfig, popularPostSlugs } from '../config';
 import { Image } from 'astro:assets';
 import headshotImage from '../../assets/img/headshot.jpg';
 import ContactLinks from '../components/ContactLinks.astro';
+import SubscribeCta from '../components/SubscribeCta.astro';
 import { getBioParagraphs, aboutContent } from '../content/about-bio';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { getPostUrl, getDateFromSlug, formatPostDate } from '../utils/post-urls';
@@ -104,5 +105,10 @@ const popularPostItems: PostItem[] = popularPostSlugs
       Feel free to email him at <a href={`mailto:${siteConfig.email}`} class="text-primary dark:text-primary-300 hover:underline">{siteConfig.email}</a> or find him on these networks:
     </p>
     <ContactLinks />
+  </section>
+
+  <section class="not-prose mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+    <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Stay in touch</h2>
+    <SubscribeCta />
   </section>
 </PageLayout>

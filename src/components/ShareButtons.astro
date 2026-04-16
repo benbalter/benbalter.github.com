@@ -1,9 +1,10 @@
 ---
 /**
  * Share Buttons Component
- * 
- * Zero-JavaScript social sharing links for blog posts.
- * Uses platform URL schemes to open share dialogs.
+ *
+ * Zero-JavaScript social sharing links for blog posts, plus a small
+ * copy-link button that uses the Clipboard API (with a graceful fallback
+ * via execCommand for insecure contexts / older browsers).
  */
 
 import Icon from './Icon.astro';
@@ -39,5 +40,57 @@ const shareLinks = [
         <Icon name={link.icon} />
       </a>
     ))}
+    <button
+      type="button"
+      data-copy-link
+      data-copy-url={url}
+      aria-label="Copy link"
+      class="share-link share-copy inline-flex items-center justify-center p-2 rounded text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200"
+    >
+      <span class="share-copy-idle" aria-hidden="false"><Icon name="link" /></span>
+      <span class="share-copy-done hidden text-primary dark:text-primary-300" aria-hidden="true"><Icon name="check" /></span>
+      <span class="sr-only share-copy-live" aria-live="polite"></span>
+    </button>
   </div>
 </div>
+
+<script>
+  import { copyToClipboard } from '../utils/copy-to-clipboard';
+
+  async function handleCopy(button: HTMLButtonElement) {
+    const url = button.getAttribute('data-copy-url');
+    if (!url) return;
+
+    const idle = button.querySelector<HTMLElement>('.share-copy-idle');
+    const done = button.querySelector<HTMLElement>('.share-copy-done');
+    const live = button.querySelector<HTMLElement>('.share-copy-live');
+
+    const ok = await copyToClipboard(url);
+    const message = ok ? 'Link copied' : 'Copy failed — press Ctrl/Cmd + C';
+
+    if (ok && idle && done) {
+      idle.classList.add('hidden');
+      done.classList.remove('hidden');
+      button.setAttribute('aria-label', 'Link copied');
+    }
+    if (live) live.textContent = message;
+
+    if (ok) {
+      window.setTimeout(() => {
+        idle?.classList.remove('hidden');
+        done?.classList.add('hidden');
+        button.setAttribute('aria-label', 'Copy link');
+        if (live) live.textContent = '';
+      }, 2000);
+    }
+  }
+
+  function initCopyButtons() {
+    const buttons = document.querySelectorAll<HTMLButtonElement>('[data-copy-link]');
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => handleCopy(button));
+    });
+  }
+
+  initCopyButtons();
+</script>

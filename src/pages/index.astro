@@ -6,6 +6,7 @@ import { isPublishedPost } from '../utils/post-filtering';
 import { getPostMetadata } from '../utils/post-metadata';
 import PostCard from '../components/PostCard.astro';
 import BookCta from '../components/BookCta.astro';
+import SubscribeCta from '../components/SubscribeCta.astro';
 import { aboutContent, getFirstSentence } from '../content/about-bio';
 
 const description = getFirstSentence(aboutContent);
@@ -125,11 +126,7 @@ const popularPosts = popularPostSlugs
   )}
 
   <!-- Subscribe CTA -->
-  <section class="mt-12 bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl p-8 text-center">
-    <p class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Stay up to date</p>
-    <p class="text-sm text-gray-700 dark:text-gray-400 mb-5">Get new posts delivered to your feed reader.</p>
-    <a href="/feed.xml" class="inline-flex items-center gap-2 rounded-lg border border-primary text-primary px-5 py-2.5 text-sm font-medium no-underline hover:bg-primary hover:text-white dark:border-primary-300 dark:text-primary-300 dark:hover:bg-primary-300 dark:hover:text-gray-900 transition-colors duration-200">
-      Subscribe via RSS
-    </a>
+  <section class="mt-12" aria-label="Subscribe">
+    <SubscribeCta />
   </section>
 </BaseLayout>

@@ -11,6 +11,7 @@
 import { Image } from 'astro:assets';
 import { siteConfig } from '../config';
 import { aboutContent, getFirstParagraph } from '../content/about-bio';
+import Icon from './Icon.astro';
 import avatarImage from '../../assets/img/avatar.png';
 
 const firstParagraph = getFirstParagraph(aboutContent);
@@ -28,4 +29,26 @@ const bioHtml = `${firstParagraph} <a href="/about/">More about the author &rarr
   />
   <!-- firstParagraph is safe for set:html because link text is now escaped in about-bio.ts -->
   <p set:html={bioHtml} class="mb-0 leading-normal text-sm" />
+  <p class="mt-2 mb-0 leading-normal text-sm text-gray-600 dark:text-gray-300 flex flex-wrap items-center gap-x-3 gap-y-1 clear-none md:clear-none">
+    <span>Follow along:</span>
+    <a
+      href={siteConfig.blueskyUrl}
+      target="_blank"
+      rel="noopener noreferrer me"
+      class="inline-flex items-center gap-1 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200"
+      aria-label={`Follow ${siteConfig.author} on Bluesky`}
+    >
+      <Icon name="bluesky" /> Bluesky
+    </a>
+    <span aria-hidden="true">·</span>
+    <a
+      href={siteConfig.linkedinUrl}
+      target="_blank"
+      rel="noopener noreferrer me"
+      class="inline-flex items-center gap-1 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200"
+      aria-label={`Follow ${siteConfig.author} on LinkedIn`}
+    >
+      <Icon name="linkedin" /> LinkedIn
+    </a>
+  </p>
 </div>

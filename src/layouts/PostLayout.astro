@@ -37,8 +37,8 @@ interface Props {
   image?: string;
   author?: string;
   relatedPosts?: CollectionEntry<'posts'>[];
-  prevPost?: { title: string; url: string };
-  nextPost?: { title: string; url: string };
+  prevPost?: { title: string; url: string; readingTime?: number };
+  nextPost?: { title: string; url: string; readingTime?: number };
   archived?: boolean;
   postId: string;
   postFilePath?: string;
@@ -128,7 +128,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
 
         <ReadingList posts={curatedPosts} roles={curatedRoles} />
 
-        <ReadingProgress />
+        <ReadingProgress readingTime={readingTime} />
         
         {pubDate && (
           <div class="mt-12 border-t border-gray-200 dark:border-gray-700 py-5 flex flex-wrap items-center justify-between gap-x-3 gap-y-3 text-sm text-gray-600 dark:text-gray-300" data-pagefind-ignore>

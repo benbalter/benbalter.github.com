@@ -58,6 +58,11 @@ export const siteConfig = {
   // Default SEO keywords
   keywords: ['Ben Balter', 'GitHub', 'open source', 'technology leadership', 'collaboration'],
   
+  // Email subscribe URL (leave empty to hide email row in SubscribeCta).
+  // When set (e.g., Follow.it, Buttondown, Kit), SubscribeCta renders an
+  // "Subscribe by email" row alongside RSS and social follow.
+  emailSubscribeUrl: '',
+
   // Book
   bookUrl: 'https://open-and-async.com/',
   bookTitle: 'Open & Async',

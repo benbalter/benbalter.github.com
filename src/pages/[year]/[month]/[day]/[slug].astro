@@ -4,6 +4,7 @@ import PostLayout from '../../../../layouts/PostLayout.astro';
 import { findRelatedPosts, initializeRelatedPostsCache } from '../../../../utils/related-posts';
 import { getPostUrl } from '../../../../utils/post-urls';
 import { isPublishedPost } from '../../../../utils/post-filtering';
+import { calculateReadingTime } from '../../../../utils/reading-time';
 
 // Generate static paths for all blog posts with Jekyll URL structure
 export async function getStaticPaths() {
@@ -58,8 +59,8 @@ const publishedPosts = allPosts
 const currentIndex = publishedPosts.findIndex((p: CollectionEntry<'posts'>) => p.id === post.id);
 const prevEntry = currentIndex > 0 ? publishedPosts[currentIndex - 1] : undefined;
 const nextEntry = currentIndex < publishedPosts.length - 1 ? publishedPosts[currentIndex + 1] : undefined;
-const prevPost = prevEntry ? { title: prevEntry.data.title, url: getPostUrl(prevEntry.id) } : undefined;
-const nextPost = nextEntry ? { title: nextEntry.data.title, url: getPostUrl(nextEntry.id) } : undefined;
+const prevPost = prevEntry ? { title: prevEntry.data.title, url: getPostUrl(prevEntry.id), readingTime: calculateReadingTime(prevEntry.body ?? '') } : undefined;
+const nextPost = nextEntry ? { title: nextEntry.data.title, url: getPostUrl(nextEntry.id), readingTime: calculateReadingTime(nextEntry.body ?? '') } : undefined;
 ---
 
 <PostLayout

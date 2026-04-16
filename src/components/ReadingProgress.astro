@@ -2,27 +2,50 @@
 /**
  * ReadingProgress
  *
- * Thin progress bar fixed at the very top of the viewport showing
- * how far the reader has scrolled through the article. Only renders
- * on post pages (included in PostLayout).
+ * Thin progress bar fixed at the very top of the viewport showing how far
+ * the reader has scrolled through the article, with an optional "N min left"
+ * label in the bottom-right corner. Only renders on post pages (included in
+ * PostLayout).
  *
- * Uses requestAnimationFrame-throttled scroll handling for performance.
- * Respects prefers-reduced-motion. Works with Astro View Transitions.
+ * Uses requestAnimationFrame-throttled scroll handling. Respects
+ * prefers-reduced-motion.
  */
+
+interface Props {
+  readingTime?: number;
+}
+
+const { readingTime = 0 } = Astro.props;
 ---
 
-<div id="reading-progress" class="reading-progress" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+<div
+  id="reading-progress"
+  class="reading-progress"
+  role="progressbar"
+  aria-label="Reading progress"
+  aria-valuemin="0"
+  aria-valuemax="100"
+  aria-valuenow="0"
+  data-reading-time={readingTime}
+>
   <div id="reading-progress-bar" class="reading-progress-bar"></div>
 </div>
+{readingTime > 0 && (
+  <div id="reading-progress-label" class="reading-progress-label" aria-hidden="true"></div>
+)}
 
 <script>
+  import { formatTimeRemaining } from '../utils/time-remaining';
+
   function initReadingProgress() {
     const barEl = document.getElementById('reading-progress-bar');
     const containerEl = document.getElementById('reading-progress');
+    const labelEl = document.getElementById('reading-progress-label');
     if (!barEl || !containerEl) return;
 
     const bar = barEl as HTMLElement;
     const container = containerEl;
+    const readingTime = Number(container.dataset.readingTime || 0);
     let ticking = false;
     let cachedDocHeight = 0;
 
@@ -31,9 +54,21 @@
     }
 
     function updateProgress() {
-      const progress = cachedDocHeight > 0 ? Math.min((window.scrollY / cachedDocHeight) * 100, 100) : 0;
-      bar!.style.width = `${progress}%`;
-      container!.setAttribute('aria-valuenow', Math.round(progress).toString());
+      const ratio = cachedDocHeight > 0 ? Math.min(window.scrollY / cachedDocHeight, 1) : 0;
+      const progress = ratio * 100;
+      bar.style.width = `${progress}%`;
+      container.setAttribute('aria-valuenow', Math.round(progress).toString());
+
+      if (labelEl && readingTime > 0) {
+        const text = formatTimeRemaining(readingTime, ratio);
+        if (text) {
+          labelEl.textContent = text;
+          labelEl.classList.add('visible');
+        } else {
+          labelEl.classList.remove('visible');
+        }
+      }
+
       ticking = false;
     }
 
@@ -73,14 +108,49 @@
     border-radius: 0 1px 1px 0;
   }
 
+  .reading-progress-label {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 9998;
+    padding: 0.25rem 0.625rem;
+    font-size: 0.75rem;
+    line-height: 1;
+    font-weight: 500;
+    color: rgb(75 85 99);
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgb(229 231 235);
+    border-radius: 9999px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+  }
+
+  .reading-progress-label.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .reading-progress-label {
+      color: rgb(209 213 219);
+      background: rgba(17, 24, 39, 0.92);
+      border-color: rgb(55 65 81);
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .reading-progress-bar {
+    .reading-progress-bar,
+    .reading-progress-label {
       transition: none;
     }
   }
 
   @media print {
-    .reading-progress {
+    .reading-progress,
+    .reading-progress-label {
       display: none;
     }
   }

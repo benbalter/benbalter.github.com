@@ -1,30 +1,65 @@
 ---
+/**
+ * SubscribeCta
+ *
+ * Multi-row subscribe/follow card. Renders:
+ *  - RSS (always)
+ *  - Follow on social (always — Bluesky + LinkedIn)
+ *  - Email (only when siteConfig.emailSubscribeUrl is set)
+ *
+ * Zero JavaScript. Minimal visual; matches the site's quiet aesthetic.
+ */
+
 import Icon from './Icon.astro';
+import { siteConfig } from '../config';
+
+const showEmail = Boolean(siteConfig.emailSubscribeUrl);
 ---
 
-<div class="subscribe-cta group">
-  <div class="flex items-center gap-3">
-    <span class="subscribe-icon" aria-hidden="true">
-      <Icon name="rss" />
-    </span>
-    <p class="text-sm text-gray-600 dark:text-gray-400 m-0">
+<section class="subscribe-card" aria-label="Stay in touch" data-pagefind-ignore>
+  <div class="subscribe-row">
+    <span class="subscribe-icon" aria-hidden="true"><Icon name="rss" /></span>
+    <p class="subscribe-text">
       Enjoy this post? <a href="/feed.xml" class="subscribe-link">Subscribe via RSS</a> to get notified when new posts are published.
     </p>
   </div>
-</div>
+
+  {showEmail && (
+    <div class="subscribe-row">
+      <span class="subscribe-icon" aria-hidden="true"><Icon name="envelope" /></span>
+      <p class="subscribe-text">
+        Prefer email? <a href={siteConfig.emailSubscribeUrl} class="subscribe-link" target="_blank" rel="noopener noreferrer">Subscribe by email</a> to get new posts in your inbox.
+      </p>
+    </div>
+  )}
+
+  <div class="subscribe-row">
+    <span class="subscribe-icon" aria-hidden="true"><Icon name="share-nodes" /></span>
+    <p class="subscribe-text">
+      Or follow along on
+      <a href={siteConfig.blueskyUrl} class="subscribe-link" target="_blank" rel="noopener noreferrer me">Bluesky</a>
+      or
+      <a href={siteConfig.linkedinUrl} class="subscribe-link" target="_blank" rel="noopener noreferrer me">LinkedIn</a>.
+    </p>
+  </div>
+</section>
 
 <style>
   @reference "../styles/global.css";
 
-  .subscribe-cta {
-    @apply flex items-center gap-4 px-4 py-3 rounded-lg;
+  .subscribe-card {
+    @apply flex flex-col gap-2 px-4 py-3 rounded-lg;
     @apply border border-gray-200;
     @apply transition-all duration-200;
   }
 
-  .subscribe-cta:hover {
+  .subscribe-card:hover {
     @apply border-primary/40 shadow-sm;
     background: color-mix(in srgb, var(--color-primary) 3%, transparent);
+  }
+
+  .subscribe-row {
+    @apply flex items-center gap-3;
   }
 
   .subscribe-icon {
@@ -34,8 +69,12 @@ import Icon from './Icon.astro';
     flex-shrink: 0;
   }
 
-  .subscribe-cta:hover .subscribe-icon {
+  .subscribe-card:hover .subscribe-icon {
     @apply bg-primary/20;
+  }
+
+  .subscribe-text {
+    @apply text-sm text-gray-600 dark:text-gray-400 m-0;
   }
 
   .subscribe-link {
@@ -47,13 +86,12 @@ import Icon from './Icon.astro';
     @apply underline;
   }
 
-  /* Dark mode adjustments */
   @media (prefers-color-scheme: dark) {
-    .subscribe-cta {
+    .subscribe-card {
       @apply border-gray-700;
     }
 
-    .subscribe-cta:hover {
+    .subscribe-card:hover {
       @apply border-primary/30;
       background: color-mix(in srgb, var(--color-primary) 6%, transparent);
     }
@@ -66,7 +104,7 @@ import Icon from './Icon.astro';
       @apply text-primary-300;
     }
 
-    .subscribe-cta:hover .subscribe-icon {
+    .subscribe-card:hover .subscribe-icon {
       @apply bg-primary/30;
     }
   }

@@ -17,6 +17,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { popularPostSlugs } from '../config';
 import { getPostUrl } from '../utils/post-urls';
 import { isPublishedPost } from '../utils/post-filtering';
+import SubscribeCta from '../components/SubscribeCta.astro';
 
 const title = 'Not Found 😢';
 const description = 'The page you are trying to view does not exist.';
@@ -89,6 +90,10 @@ const popularPosts = popularPostSlugs
           </div>
         );
       })}
+    </div>
+
+    <div class="mt-8">
+      <SubscribeCta />
     </div>
   </div>
 
