@@ -15,14 +15,8 @@ const description = siteConfig.aboutDescription;
 
 // Parse bio into structured sections
 const bioParagraphs = getBioParagraphs(aboutContent);
-const githubPara = bioParagraphs[0] || '';
-const govPara = bioParagraphs[1] || '';
-const eduPara = bioParagraphs[2] || '';
-
-// Split the first paragraph into a short lede and detailed GitHub career history
-const splitIndex = githubPara.indexOf('Previously,');
-const lede = splitIndex > 0 ? githubPara.slice(0, splitIndex).trim() : githubPara;
-const githubDetails = splitIndex > 0 ? githubPara.slice(splitIndex) : '';
+const ledePara = bioParagraphs[0] || '';
+const remainingParagraphs = bioParagraphs.slice(1);
 
 // Fetch popular posts by slug
 interface PostItem { postDate: Date; title: string; url: string }
@@ -48,7 +42,7 @@ const popularPostItems: PostItem[] = popularPostSlugs
       </div>
 
       <div class="md:min-w-0">
-        <p class="text-lg leading-relaxed" set:html={lede}></p>
+        <p class="text-lg leading-relaxed" set:html={ledePara}></p>
 
         <aside aria-label="At a glance" class="clear-both not-prose my-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/50 px-5 py-4">
       <p class="text-xs font-semibold uppercase tracking-wide text-gray-700 dark:text-gray-400 mb-3">At a Glance</p>
@@ -74,14 +68,9 @@ const popularPostItems: PostItem[] = popularPostSlugs
     </div>
   </div>
 
-  <h2 class="clear-both">At GitHub</h2>
-  <p set:html={githubDetails}></p>
-
-  <h2>In Government</h2>
-  <p set:html={govPara}></p>
-
-  <h2>Education</h2>
-  <p set:html={eduPara}></p>
+  {remainingParagraphs.map((para: string) => (
+    <p class="clear-both" set:html={para}></p>
+  ))}
 
   <section class="not-prose mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
     <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">Popular Writing</h2>
@@ -102,7 +91,7 @@ const popularPostItems: PostItem[] = popularPostSlugs
   <section class="not-prose mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
     <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Get in Touch</h2>
     <p class="text-gray-700 dark:text-gray-300 mb-2">
-      Feel free to email him at <a href={`mailto:${siteConfig.email}`} class="text-primary dark:text-primary-300 hover:underline">{siteConfig.email}</a> or find him on these networks:
+      Feel free to email me at <a href={`mailto:${siteConfig.email}`} class="text-primary dark:text-primary-300 hover:underline">{siteConfig.email}</a> or find me on these networks:
     </p>
     <ContactLinks />
   </section>
