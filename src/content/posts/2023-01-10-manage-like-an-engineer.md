@@ -38,7 +38,7 @@ Managing like an engineer means a manager's go-to tools for planning, tracking, 
 
 - **Issues** - Issues are the atomic unit of work across teams and are the primary means by which work is planned, tracked, coordinated, and communicated, and where updates are shared.[^2]
 - **Project boards** - Project boards are the primary means by which work (in the form of issues) is organized, managed, prioritized, and made visible.
-- **Markdown files** - Markdown files are the primary means by which long-lived information is memorialized. Markdown files are created and modified via Pull Requests.
+- **Markdown files** - Markdown files are the primary means by which long-lived information is memorialized. Markdown files are created and modified via pull requests.
 - **Pull requests** - Pull requests are the primary means by which proposals are reviewed and decisions are made.
 
 ### Planning and tracking

@@ -4,7 +4,7 @@ description: Set up LanguageTool as a free, open-source Grammarly alternative th
 tldr: "How to set up LanguageTool, a free and open-source grammar checker, to run locally on your Mac so nothing you type ever leaves your computer. No Grammarly subscription required."
 ---
 
-You may be familiar with grammar checking tools like Gramarly,[^grammarly] but if you're privacy-conscious like me, you likely don't want to send everything you type to a third-party service (or may be prohibited from doing so by your employer). Enter [LanguageTool](https://languagetool.org/), a free and open-source grammar, style, and spell checker that can be run locally on your machine, so nothing you type ever leaves your computer. LanguageTool can be used with your browser, with VS Code,[^vscode] and with Slack and other common applications. For those looking to run LanguageTool like this, I've tried a number of ways, and here's the easiest:
+You may be familiar with grammar checking tools like Grammarly,[^grammarly] but if you're privacy-conscious like me, you likely don't want to send everything you type to a third-party service (or may be prohibited from doing so by your employer). Enter [LanguageTool](https://languagetool.org/), a free and open-source grammar, style, and spell checker that can be run locally on your machine, so nothing you type ever leaves your computer. LanguageTool can be used with your browser, with VS Code,[^vscode] and with Slack and other common applications. For those looking to run LanguageTool like this, I've tried a number of ways, and here's the easiest:
 
 ## Set up the local server
 
@@ -69,7 +69,7 @@ Safari does not allow extensions to make calls from HTTPS pages to HTTP endpoint
 
 5. In the Safari extension, for "API Server URL" choose "Other server" and enter `https://localhost:8082/v2`.
 
-This will set up a reverse proxy that listens on port `8082` and forwards requests to the local LanguageTool server. If you'd like to test that the server and proxy are running you can run `curl --data "language=en-US&text=a simple test" https://localhost:8082/v2/check`
+This will set up a reverse proxy that listens on port `8082` and forwards requests to the local LanguageTool server. If you'd like to test that the server and proxy are running, you can run `curl --data "language=en-US&text=a simple test" https://localhost:8082/v2/check`.
 
 ## N-grams
 
@@ -79,7 +79,7 @@ As a bonus, you can set up n-gram data sets to improve LanguageTool's ability to
 
 It's a large download, but it's worth it if you have the space and are going to be using LanguageTool a lot. Here's how to set it up:
 
-1. [Download](http://languagetool.org/download/ngram-data/) the n-gram dataset(s) for your language(s) onto your local machine and unzip them into a local n-gram's directory. I recommend `~/ngrams`, but you can install it anywhere. (Note: the data is language specific, so unzip the download to, e.g., `~/ngrams/en`).
+1. [Download](http://languagetool.org/download/ngram-data/) the n-gram dataset(s) for your language(s) onto your local machine and unzip them into a local n-grams directory. I recommend `~/ngrams`, but you can install it anywhere. (Note: the data is language specific, so unzip the download to, e.g., `~/ngrams/en`).
 2. Edit `/opt/homebrew/etc/languagetool/server.properties`, adding `languageModel=/users/benbalter/ngrams`, replacing the path to the absolute path of where you downloaded and unzipped the n-gram data.
 3. Restart the service: `brew services restart languagetool`
 
