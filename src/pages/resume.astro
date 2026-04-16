@@ -17,7 +17,7 @@ if (!resumePage) {
   throw new Error('Resume page data not found');
 }
 
-const { title, description, degrees, certifications } = resumePage.data;
+const { title, description, degrees, certifications, skills, summary } = resumePage.data;
 
 // Load resume positions from content collection
 const allPositions = await getCollection('resume-positions');
@@ -65,6 +65,34 @@ const resumeSchema = generateResumeSchema({
 ---
 
 <PageLayout title={title} description={description} suppressPersonSchema>
+  {summary && (
+    <section class="resume-section resume-summary">
+      <p class="summary-text">{summary}</p>
+      <p class="resume-aux">
+        Also available on <a href="https://www.linkedin.com/in/benbalter/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+        Use your browser's print-to-PDF to save a copy.
+      </p>
+    </section>
+  )}
+
+  {skills && skills.length > 0 && (
+    <section class="resume-section">
+      <h2>Areas of focus</h2>
+      <div class="skills-grid">
+        {skills.map((group: { group: string; items: string[] }) => (
+          <div class="skill-group">
+            <h3 class="skill-group-name">{group.group}</h3>
+            <ul class="skill-list">
+              {group.items.map((item: string) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
   <section class="resume-section">
     <h2>Experience</h2>
     
@@ -106,26 +134,41 @@ const resumeSchema = generateResumeSchema({
     </section>
   )}
   
-  {certifications && certifications.length > 0 && (
-    <section class="resume-section">
-      <h2>Certifications</h2>
-      
-      {certifications.map((cert: { authority: string; name: string; url?: string }) => (
-        <div class="certification-item">
-          <div class="certification-header">
-            <span class="certification-authority">{cert.authority}</span>
-            <span class="certification-name">
-              {cert.url ? (
-                <a href={cert.url} target="_blank" rel="noopener noreferrer" aria-label={`View ${cert.name} credential`}>{cert.name}</a>
-              ) : (
-                cert.name
-              )}
-            </span>
-          </div>
+  {certifications && certifications.length > 0 && (() => {
+    const professional = certifications.filter((c: { category?: string }) => (c.category ?? 'professional') === 'professional');
+    const personal = certifications.filter((c: { category?: string }) => c.category === 'personal');
+    const renderCert = (cert: { authority: string; name: string; url?: string }) => (
+      <div class="certification-item">
+        <div class="certification-header">
+          <span class="certification-authority">{cert.authority}</span>
+          <span class="certification-name">
+            {cert.url ? (
+              <a href={cert.url} target="_blank" rel="noopener noreferrer" aria-label={`View ${cert.name} credential`}>{cert.name}</a>
+            ) : (
+              cert.name
+            )}
+          </span>
         </div>
-      ))}
-    </section>
-  )}
+      </div>
+    );
+    return (
+      <section class="resume-section">
+        <h2>Certifications</h2>
+        {professional.length > 0 && (
+          <>
+            <h3 class="cert-group-heading">Professional</h3>
+            {professional.map(renderCert)}
+          </>
+        )}
+        {personal.length > 0 && (
+          <>
+            <h3 class="cert-group-heading">Personal interests</h3>
+            {personal.map(renderCert)}
+          </>
+        )}
+      </section>
+    );
+  })()}
 
   <script type="application/ld+json" set:html={schemaToJsonLd(resumeSchema)} is:inline></script>
 </PageLayout>
@@ -136,6 +179,74 @@ const resumeSchema = generateResumeSchema({
    * ============================================================ */
   .resume-section {
     margin-bottom: 2.5rem;
+  }
+
+  .resume-summary {
+    padding: 1rem 1.25rem;
+    background-color: color-mix(in srgb, var(--tw-prose-links, var(--color-primary, #337ab7)) 5%, transparent);
+    border-left: 3px solid var(--tw-prose-links, var(--color-primary, #337ab7));
+    border-radius: 0 0.375rem 0.375rem 0;
+  }
+
+  .summary-text {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .resume-aux {
+    margin: 0.5rem 0 0;
+    font-size: 0.85rem;
+    color: var(--color-gray-600, #6c757d);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  .skill-group-name {
+    margin: 0 0 0.4rem;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary-700, #204d6f);
+  }
+
+  .skill-list {
+    margin: 0;
+    padding-left: 1.1rem;
+    font-size: 0.95rem;
+  }
+
+  .skill-list li {
+    margin-bottom: 0.15rem;
+  }
+
+  .cert-group-heading {
+    margin: 1.25rem 0 0.5rem;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary-700, #204d6f);
+  }
+
+  .cert-group-heading:first-child,
+  .cert-group-heading:first-of-type {
+    margin-top: 0.25rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .skill-group-name,
+    .cert-group-heading {
+      color: var(--color-primary-200, #b3d4f0);
+    }
+
+    .resume-aux {
+      color: var(--color-gray-400, #adb5bd);
+    }
   }
 
   .resume-section h2 {

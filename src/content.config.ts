@@ -118,7 +118,13 @@ const pagesCollection = defineCollection({
       authority: z.string(),
       name: z.string(),
       url: z.string().optional(),
+      category: z.enum(['professional', 'personal']).default('professional'),
     })).optional(),
+    skills: z.array(z.object({
+      group: z.string(),
+      items: z.array(z.string()),
+    })).optional(),
+    summary: z.string().optional(),
   }),
 });
 
