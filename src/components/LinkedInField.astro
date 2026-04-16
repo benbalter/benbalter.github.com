@@ -1,0 +1,103 @@
+---
+/**
+ * A single labeled field on the /resume/linkedin page with a copy-to-clipboard
+ * button. Used for every field (Title, Company, Dates, Description, Skills, etc.)
+ * so field markup stays consistent and adding new fields is trivial.
+ *
+ * Two modes:
+ * - Plain text field: pass `value` — rendered as text, copy button copies `value`.
+ * - Multiline field: pass `html` (already-sanitized HTML, typically with `<br>`
+ *   line breaks) — rendered via `set:html` with `white-space: pre-wrap`, copy
+ *   button reads `.innerText` (via the `.copy-description` class).
+ *
+ * If `limit` is set, a live character count (`N / LIMIT`) is shown below the
+ * field — red when over, amber when within 50 of the limit. Count is computed
+ * at build time based on the text/plaintext content.
+ */
+
+import { linkedinCharCount } from '../utils/linkedin-format';
+
+interface Props {
+  label: string;
+  /** Plain-text value (used for single-line fields). */
+  value?: string;
+  /** Already-sanitized HTML (used for multiline fields via set:html). */
+  html?: string;
+  /** Copy-button aria-label. Defaults to `Copy {label} to clipboard`. */
+  copyLabel?: string;
+  /** If set, renders a character counter with this as the limit. */
+  limit?: number;
+  /** Bottom margin class. Defaults to `mb-5`. */
+  marginClass?: string;
+}
+
+const {
+  label,
+  value,
+  html,
+  copyLabel,
+  limit,
+  marginClass = 'mb-5',
+} = Astro.props;
+
+const isMultiline = typeof html === 'string';
+const displayValue = isMultiline ? html : value ?? '';
+
+// Char count for the limit counter. For HTML, count as LinkedIn will (with
+// `<br>` treated as `\n`).
+const charCount = limit
+  ? isMultiline
+    ? linkedinCharCount(html as string)
+    : (value ?? '').length
+  : 0;
+
+const overLimit = limit !== undefined && charCount > limit;
+const nearLimit =
+  limit !== undefined && !overLimit && charCount > limit - 50;
+
+const counterColorClass = overLimit
+  ? 'text-red-700 dark:text-red-400 font-semibold'
+  : nearLimit
+    ? 'text-amber-700 dark:text-amber-400'
+    : 'text-gray-600 dark:text-gray-400';
+
+const valueBoxClass = [
+  'flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed',
+  'px-3 py-2 bg-gray-50 dark:bg-gray-900',
+  'border border-gray-300 dark:border-gray-600 rounded-md break-words',
+  isMultiline
+    ? 'whitespace-pre-wrap text-[0.95rem] min-h-16 max-h-80 overflow-y-auto'
+    : '',
+].filter(Boolean).join(' ');
+
+const buttonClass = [
+  'copy-btn shrink-0 bg-primary text-white border-none rounded-md',
+  'px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200',
+  'min-w-10 h-10 flex items-center justify-center',
+  'hover:bg-primary-600 hover:scale-105 active:scale-95',
+  isMultiline ? 'copy-description self-start mt-2' : '',
+].filter(Boolean).join(' ');
+
+const ariaLabel = copyLabel ?? `Copy ${label.toLowerCase()} to clipboard`;
+---
+
+<div class={marginClass}>
+  <span class="block text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wide mb-2">{label}</span>
+  <div class="flex items-start gap-3">
+    {isMultiline ? (
+      <div class={valueBoxClass} data-description set:html={displayValue}></div>
+    ) : (
+      <div class={valueBoxClass}>{displayValue}</div>
+    )}
+    {isMultiline ? (
+      <button class={buttonClass} aria-label={ariaLabel}>📋</button>
+    ) : (
+      <button class={buttonClass} data-copy={displayValue} aria-label={ariaLabel}>📋</button>
+    )}
+  </div>
+  {limit !== undefined && (
+    <p class={`mt-1 text-xs ${counterColorClass}`} aria-live="polite">
+      {charCount} / {limit}{overLimit ? ' — over LinkedIn limit' : ''}
+    </p>
+  )}
+</div>

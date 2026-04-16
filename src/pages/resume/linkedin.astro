@@ -1,88 +1,31 @@
 ---
 /**
  * LinkedIn-Friendly Resume Page
- * 
- * Displays resume data in a format optimized for easy copy-paste into LinkedIn profile fields.
- * Each field has a copy button for quick clipboard access.
- * This is a utility page, not indexed by search engines.
+ *
+ * Displays resume data in a format optimized for easy copy-paste into LinkedIn
+ * profile fields. Each field has a copy button and a character counter where
+ * LinkedIn enforces a limit. Utility page, not indexed by search engines.
  */
 
 import PageLayout from '../../layouts/PageLayout.astro';
+import LinkedInField from '../../components/LinkedInField.astro';
 import { getEntry, getCollection, type CollectionEntry } from 'astro:content';
 import { formatResumeDate } from '../../utils/post-urls';
-import { stripMarkdown } from '../../utils/strip-markdown';
+import { cleanDescription, LINKEDIN_LIMITS } from '../../utils/linkedin-format';
+import { linkedinHeadline, linkedinAboutHtml } from '../../content/linkedin-bio';
 
-// Load resume page data
 const resumePage = await getEntry('pages', 'resume');
 if (!resumePage) {
   throw new Error('Resume page data not found');
 }
 
-const { degrees, certifications } = resumePage.data;
+const { degrees, certifications, skills } = resumePage.data;
 
-// LinkedIn profile headline (220-char limit) and about/bio (2,600-char limit).
-// Synthesized from the About page and resume for direct copy-paste into LinkedIn.
-const linkedinHeadline = "Director of Hubber Enablement at GitHub | Engineering leadership, open source, and remote work | Former Presidential Innovation Fellow, attorney";
-
-// Lines joined with <br> so innerText extraction yields proper newlines on copy.
-const linkedinAboutLines = [
-  "I help thousands of GitHubbers do their best remote work as Director of Hubber Enablement at GitHub.",
-  "",
-  "I write and speak about engineering leadership, open source, and showing your work. Across nearly a decade at GitHub, I've served as Chief of Staff for Security, enterprise Product Manager, Technical Program Manager on a security SWAT team, and the company's first Government Evangelist — leading outreach that drove adoption across nearly 2,000 government organizations in over 75 countries.",
-  "",
-  "Before GitHub, I served as a Presidential Innovation Fellow and a member of the White House's first agile development team, helping draft parts of President Obama's Digital Strategy and Open Data Policy. The US CTO once called me one of \"the baddest of the badass innovators\" — the single nicest thing anyone's ever put in print about me. I'm also an attorney, a member of the DC Bar, and argued in the Public Contract Law Journal that federal IT procurement should look more like modern software development.",
-  "",
-  "What I care about:",
-  "• Engineering leadership — how large organizations actually work, and why the obvious answers are usually wrong",
-  "• Open source — sustaining communities, licensing, and making collaboration the default",
-  "• Remote and async work — clear writing, strong defaults, and showing your work",
-  "• Public-interest technology — using modern software practices to deliver better government services",
-  "",
-  "I hold a J.D. and M.B.A. from the George Washington University.",
-  "",
-  "When I'm not trying to change the world, I enjoy tackling otherwise-impossible challenges to sharing information using nothing more than duct tape, version control, and occasionally a pack of bubblegum.",
-  "",
-  "More at ben.balter.com.",
-];
-const linkedinAboutHtml = linkedinAboutLines.join('<br>');
-
-// Load resume positions from content collection
 const allPositions = await getCollection('resume-positions');
-
-// Sort by start_date (most recent first)
 const sortedPositions = allPositions.sort((a: CollectionEntry<'resume-positions'>, b: CollectionEntry<'resume-positions'>) => {
   return new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime();
 });
 
-/**
- * Clean up description text for LinkedIn by stripping markdown
- * and replacing list markers with ASCII bullets for clean plain-text paste.
- */
-function cleanDescription(text: string): string {
-  if (!text) return '';
-
-  // Replace list markers with a unique placeholder that won't be affected by stripMarkdown
-  // Use a unique marker that's unlikely to appear in normal text and won't be affected by markdown stripping
-  const bulletPlaceholder = '[[BULLET]]';
-  let cleaned = text
-    .replace(/^[-*]\s+/gm, bulletPlaceholder)
-    .replace(/^#+\s+/gm, '')
-    .replace(/<!--.*?-->/g, '');
-
-  // Strip markdown formatting (this will collapse whitespace)
-  cleaned = stripMarkdown(cleaned);
-  
-  // Replace placeholders with actual bullets and newlines
-  // Use <br> tags for line breaks since whitespace collapsing affects plain newlines
-  cleaned = cleaned
-    .replace(/\[\[BULLET\]\]/g, '<br>• ')
-    .replace(/^<br>/, '')        // Remove leading <br>
-    .replace(/\s+$/, '');         // Remove trailing whitespace
-  
-  return cleaned;
-}
-
-// Prepare position data with cleaned descriptions and formatted dates
 interface PositionData {
   title: string;
   employer: string;
@@ -99,7 +42,6 @@ const positionsData: PositionData[] = sortedPositions.map((position: CollectionE
   description: cleanDescription(position.body),
 }));
 
-// Prepare education data with formatted dates
 interface EducationData {
   school: string;
   degree: string;
@@ -111,16 +53,34 @@ const educationData: EducationData[] = degrees?.map((degree: { school: string; d
   degree: degree.degree,
   endDate: formatResumeDate(degree.date) || 'Unknown',
 })) || [];
+
+interface Cert {
+  authority: string;
+  name: string;
+  url?: string;
+  category?: 'professional' | 'personal';
+  expired?: boolean;
+}
+
+const allCerts: Cert[] = (certifications ?? []) as Cert[];
+const professionalCerts = allCerts.filter(c => c.category !== 'personal');
+const personalCerts = allCerts.filter(c => c.category === 'personal');
+
+// Skills grouped by category, plus a flat combined list for a "copy all" field.
+interface SkillGroup { group: string; items: string[] }
+const skillGroups: SkillGroup[] = (skills ?? []) as SkillGroup[];
+const allSkills = skillGroups.flatMap(g => g.items);
+const allSkillsText = allSkills.join('\n');
 ---
 
-<PageLayout 
-  title="Resume — LinkedIn Format" 
+<PageLayout
+  title="Resume — LinkedIn Format"
   description="Resume data formatted for easy LinkedIn profile updates."
   noindex={true}
 >
   <div class="bg-gray-50 dark:bg-gray-800 border-l-4 border-primary rounded px-5 py-4 mb-8">
     <p class="m-0 text-gray-900 dark:text-gray-100">
-      This page formats resume data for easy copy-paste into your LinkedIn profile. 
+      This page formats resume data for easy copy-paste into your LinkedIn profile.
       Click the 📋 icon next to any field to copy its contents to your clipboard.
     </p>
   </div>
@@ -130,144 +90,115 @@ const educationData: EducationData[] = degrees?.map((degree: { school: string; d
     <h2 class="text-3xl font-semibold mt-10 mb-6 text-gray-900 dark:text-gray-100 border-b-2 border-gray-300 dark:border-gray-600 pb-2">Profile</h2>
 
     <div class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg p-6 mb-6 shadow-card">
-      <div class="mb-5">
-        <span class="block text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wide mb-2">Headline</span>
-        <div class="flex items-start gap-3">
-          <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words">{linkedinHeadline}</div>
-          <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={linkedinHeadline} aria-label="Copy headline to clipboard">📋</button>
-        </div>
-      </div>
-
-      <div>
-        <span class="block text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wide mb-2">About</span>
-        <div class="flex items-start gap-3">
-          <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words whitespace-pre-wrap text-[0.95rem] min-h-16 max-h-80 overflow-y-auto" data-description set:html={linkedinAboutHtml}></div>
-          <button class="copy-btn copy-description shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center self-start mt-2 hover:bg-primary-600 hover:scale-105 active:scale-95" aria-label="Copy about to clipboard">📋</button>
-        </div>
-      </div>
+      <LinkedInField label="Headline" value={linkedinHeadline} limit={LINKEDIN_LIMITS.headline} />
+      <LinkedInField label="About" html={linkedinAboutHtml} limit={LINKEDIN_LIMITS.about} marginClass="" />
     </div>
   </section>
 
   <!-- Experience Section -->
   <section class="mb-12">
     <h2 class="text-3xl font-semibold mt-10 mb-6 text-gray-900 dark:text-gray-100 border-b-2 border-gray-300 dark:border-gray-600 pb-2">Experience</h2>
-    
+
     {positionsData.map((position: PositionData) => (
       <div class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg p-6 mb-6 shadow-card">
-        <div class="mb-5">
-          <span class="block text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wide mb-2">Title</span>
-          <div class="flex items-start gap-3">
-            <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words">{position.title}</div>
-            <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={position.title} aria-label="Copy title to clipboard">📋</button>
-          </div>
-        </div>
-        
-        <div class="mb-5">
-          <span class="block text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wide mb-2">Company</span>
-          <div class="flex items-start gap-3">
-            <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words">{position.employer}</div>
-            <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={position.employer} aria-label="Copy company to clipboard">📋</button>
-          </div>
-        </div>
-        
-        <div class="mb-5">
-          <span class="block text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wide mb-2">Start date</span>
-          <div class="flex items-start gap-3">
-            <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words">{position.startDate}</div>
-            <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={position.startDate} aria-label="Copy start date to clipboard">📋</button>
-          </div>
-        </div>
-        
-        <div class="mb-5">
-          <span class="block text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wide mb-2">End date</span>
-          <div class="flex items-start gap-3">
-            <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words">{position.endDate}</div>
-            <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={position.endDate} aria-label="Copy end date to clipboard">📋</button>
-          </div>
-        </div>
-        
-        <div>
-          <span class="block text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wide mb-2">Description</span>
-          <div class="flex items-start gap-3">
-            <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words whitespace-pre-wrap text-[0.95rem] min-h-16 max-h-80 overflow-y-auto" data-description set:html={position.description}></div>
-            <button class="copy-btn copy-description shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center self-start mt-2 hover:bg-primary-600 hover:scale-105 active:scale-95" aria-label="Copy description to clipboard">📋</button>
-          </div>
-        </div>
+        <LinkedInField label="Title" value={position.title} />
+        <LinkedInField label="Company" value={position.employer} />
+        <LinkedInField label="Start date" value={position.startDate} />
+        <LinkedInField label="End date" value={position.endDate} />
+        <LinkedInField label="Description" html={position.description} limit={LINKEDIN_LIMITS.description} marginClass="" />
       </div>
     ))}
   </section>
 
+  <!-- Skills Section -->
+  {skillGroups.length > 0 && (
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mt-10 mb-6 text-gray-900 dark:text-gray-100 border-b-2 border-gray-300 dark:border-gray-600 pb-2">Skills</h2>
+
+      <div class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg p-6 mb-6 shadow-card">
+        <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">
+          LinkedIn allows up to 50 skills. Add them one at a time via <em>Profile → Add profile section → Core → Skills</em>,
+          or copy the combined list below to paste into your resume.
+        </p>
+
+        <LinkedInField
+          label="All skills (one per line)"
+          html={allSkills.join('<br>')}
+          copyLabel="Copy all skills to clipboard"
+        />
+
+        {skillGroups.map((group: SkillGroup) => (
+          <div class="mb-5">
+            <span class="block text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wide mb-2">{group.group}</span>
+            <ul class="list-none p-0 m-0 space-y-2">
+              {group.items.map((skill: string) => (
+                <li class="flex items-start gap-3">
+                  <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words">{skill}</div>
+                  <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={skill} aria-label={`Copy skill ${skill} to clipboard`}>📋</button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
   <!-- Education Section -->
-  {educationData && educationData.length > 0 && (
+  {educationData.length > 0 && (
     <section class="mb-12">
       <h2 class="text-3xl font-semibold mt-10 mb-6 text-gray-900 dark:text-gray-100 border-b-2 border-gray-300 dark:border-gray-600 pb-2">Education</h2>
-      
+
       {educationData.map((degree: EducationData) => (
         <div class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg p-6 mb-6 shadow-card">
-          <div class="mb-5">
-            <span class="block text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wide mb-2">School</span>
-            <div class="flex items-start gap-3">
-              <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words">{degree.school}</div>
-              <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={degree.school} aria-label="Copy school to clipboard">📋</button>
-            </div>
-          </div>
-          
-          <div class="mb-5">
-            <span class="block text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wide mb-2">Degree</span>
-            <div class="flex items-start gap-3">
-              <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words">{degree.degree}</div>
-              <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={degree.degree} aria-label="Copy degree to clipboard">📋</button>
-            </div>
-          </div>
-          
-          <div>
-            <span class="block text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wide mb-2">End date</span>
-            <div class="flex items-start gap-3">
-              <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words">{degree.endDate}</div>
-              <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={degree.endDate} aria-label="Copy end date to clipboard">📋</button>
-            </div>
-          </div>
+          <LinkedInField label="School" value={degree.school} />
+          <LinkedInField label="Degree" value={degree.degree} />
+          <LinkedInField label="End date" value={degree.endDate} marginClass="" />
         </div>
       ))}
     </section>
   )}
 
   <!-- Certifications Section -->
-  {certifications && certifications.length > 0 && (
+  {allCerts.length > 0 && (
     <section class="mb-12">
       <h2 class="text-3xl font-semibold mt-10 mb-6 text-gray-900 dark:text-gray-100 border-b-2 border-gray-300 dark:border-gray-600 pb-2">Certifications</h2>
-      
-      {certifications.map((cert: { authority: string; name: string; url?: string }) => (
-        <div class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg p-6 mb-6 shadow-card">
-          <div class="mb-5">
-            <span class="block text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wide mb-2">Name</span>
-            <div class="flex items-start gap-3">
-              <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words">{cert.name}</div>
-              <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={cert.name} aria-label="Copy certification name to clipboard">📋</button>
+
+      {professionalCerts.length > 0 && (
+        <>
+          <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-3 mt-4">Professional</h3>
+          {professionalCerts.map((cert: Cert) => (
+            <div class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg p-6 mb-6 shadow-card">
+              <LinkedInField
+                label={cert.expired ? 'Name (Expired)' : 'Name'}
+                value={cert.name}
+              />
+              <LinkedInField label="Issuing organization" value={cert.authority} marginClass={cert.url ? 'mb-5' : ''} />
+              {cert.url && (
+                <LinkedInField label="Credential URL" value={cert.url} marginClass="" />
+              )}
             </div>
-          </div>
-          
-          <div class={cert.url ? 'mb-5' : ''}>
-            <span class="block text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wide mb-2">Issuing organization</span>
-            <div class="flex items-start gap-3">
-              <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words">{cert.authority}</div>
-              <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={cert.authority} aria-label="Copy issuing organization to clipboard">📋</button>
+          ))}
+        </>
+      )}
+
+      {personalCerts.length > 0 && (
+        <>
+          <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-3 mt-6">Personal</h3>
+          {personalCerts.map((cert: Cert) => (
+            <div class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg p-6 mb-6 shadow-card">
+              <LinkedInField
+                label={cert.expired ? 'Name (Expired)' : 'Name'}
+                value={cert.name}
+              />
+              <LinkedInField label="Issuing organization" value={cert.authority} marginClass={cert.url ? 'mb-5' : ''} />
+              {cert.url && (
+                <LinkedInField label="Credential URL" value={cert.url} marginClass="" />
+              )}
             </div>
-          </div>
-          
-          {cert.url && (
-            <div>
-              <span class="block text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wide mb-2">Credential URL</span>
-              <div class="flex items-start gap-3">
-                <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-all">
-                  <a href={cert.url} target="_blank" rel="noopener noreferrer" class="text-primary no-underline hover:underline">{cert.url}</a>
-                </div>
-                <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={cert.url} aria-label="Copy credential URL to clipboard">📋</button>
-              </div>
-            </div>
-          )}
-        </div>
-      ))}
+          ))}
+        </>
+      )}
     </section>
   )}
 </PageLayout>
