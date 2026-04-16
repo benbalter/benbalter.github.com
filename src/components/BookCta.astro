@@ -13,6 +13,12 @@ interface Props {
 }
 
 const { variant = 'inline' } = Astro.props;
+
+// Colorize ampersand to match footer treatment (Footer.astro line ~40).
+const bookTitleHtml = siteConfig.bookTitle.replace(
+  /&/g,
+  '<span class="text-primary dark:text-primary-300 mx-0.5">&amp;</span>',
+);
 ---
 
 {variant === 'featured' ? (
@@ -31,7 +37,7 @@ const { variant = 'inline' } = Astro.props;
           New book
         </p>
         <p class="text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-          {siteConfig.bookTitle}: {siteConfig.bookDescription}
+          <Fragment set:html={bookTitleHtml} />: {siteConfig.bookDescription}
         </p>
         <p class="text-sm text-gray-600 dark:text-gray-300 mb-0">
           Drawing on a decade at GitHub, these posts are becoming a playbook for thriving in distributed work. Sign up to get notified when it launches.
@@ -53,7 +59,7 @@ const { variant = 'inline' } = Astro.props;
           Like this post? It's becoming a book.
         </p>
         <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
-          <em>{siteConfig.bookTitle}</em> distills a decade of posts like this into a playbook for remote and distributed teams.
+          <em><Fragment set:html={bookTitleHtml} /></em> distills a decade of posts like this into a playbook for remote and distributed teams.
         </p>
         <a
           href={siteConfig.bookUrl}
