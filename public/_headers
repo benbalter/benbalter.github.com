@@ -15,6 +15,10 @@
   Cross-Origin-Resource-Policy: same-origin
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' data: https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com https://api.github.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests
   Cache-Control: public, max-age=120, stale-while-revalidate=86400
+  Link: </sitemap-index.xml>; rel="sitemap"; type="application/xml"
+  Link: </feed.xml>; rel="alternate"; type="application/atom+xml"; title="Atom Feed"
+  Link: </llms.txt>; rel="llms-txt"; type="text/plain"
+  Link: </vcard.vcf>; rel="author"; type="text/vcard"
 
 # Immutable hashed assets (JS, CSS, images, fonts) - 1 year cache
 /assets/*
