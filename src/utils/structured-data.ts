@@ -7,7 +7,7 @@
  * @see https://github.com/google/schema-dts
  */
 
-import type { Person, Organization, WebSite, BlogPosting, BreadcrumbList, ListItem, WithContext, Occupation, EducationalOrganization, EducationalOccupationalCredential, ImageObject, ProfilePage, CollectionPage } from 'schema-dts';
+import type { Person, Organization, WebSite, BlogPosting, BreadcrumbList, ListItem, WithContext, Occupation, EducationalOrganization, EducationalOccupationalCredential, ImageObject, ProfilePage, CollectionPage, SearchAction } from 'schema-dts';
 import { siteConfig } from '../config';
 
 /** Base Person fields (shared between top-level and embedded schemas) */
@@ -65,9 +65,24 @@ export function generateProfilePageSchema(): WithContext<ProfilePage> {
 }
 
 /**
- * Generate WebSite schema for the blog
+ * Generate WebSite schema for the blog.
+ *
+ * Includes a SearchAction `potentialAction` describing the site's on-page
+ * (Pagefind-powered) search so Google can understand the site has a search
+ * surface even though there is no sitelinks searchbox rendered in SERPs.
  */
 export function generateWebSiteSchema(): WithContext<WebSite> {
+  const searchAction: SearchAction = {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${siteConfig.url}/?q={search_term_string}`,
+    },
+    // `query-input` is a required string in schema.org's SearchAction contract
+    // even though schema-dts doesn't model it; cast through unknown to satisfy TS.
+    ...({ 'query-input': 'required name=search_term_string' } as Record<string, string>),
+  };
+
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -81,6 +96,8 @@ export function generateWebSiteSchema(): WithContext<WebSite> {
       url: siteConfig.url,
     },
     description: siteConfig.description,
+    inLanguage: 'en',
+    potentialAction: searchAction,
   };
 }
 
@@ -118,7 +135,7 @@ export function generateBlogPostingSchema(props: {
     } as Person,
     publisher: {
       '@type': 'Organization',
-      '@id': `${siteConfig.url}/#person`,
+      '@id': `${siteConfig.url}/#organization`,
       name: siteConfig.name,
       url: siteConfig.url,
       logo: {
@@ -131,6 +148,10 @@ export function generateBlogPostingSchema(props: {
       '@type': 'WebPage',
       '@id': url,
     },
+    isPartOf: {
+      '@type': 'WebSite',
+      '@id': `${siteConfig.url}/#website`,
+    } as WebSite,
     ...(wordCount ? { wordCount } : {}),
     inLanguage: 'en',
   };
@@ -264,11 +285,19 @@ export function generateCollectionPageSchema(props: {
   return {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
+    '@id': props.url,
     name: props.name,
     description: props.description,
     url: props.url,
+    inLanguage: 'en',
+    isPartOf: {
+      '@type': 'WebSite',
+      '@id': `${siteConfig.url}/#website`,
+    } as WebSite,
     mainEntity: {
       '@type': 'ItemList',
+      numberOfItems: props.posts.length,
+      itemListOrder: 'https://schema.org/ItemListOrderDescending',
       itemListElement: props.posts.map((post, index) => ({
         '@type': 'ListItem',
         position: index + 1,

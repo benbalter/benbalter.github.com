@@ -44,7 +44,7 @@ const {
   suppressPersonSchema = false,
 } = Astro.props;
 
-const fullTitle = title === siteConfig.name ? `${title} | ${siteConfig.description}` : `${title} | ${siteConfig.name}`;
+const fullTitle = title === siteConfig.name ? `${title}: ${siteConfig.description}` : `${title} | ${siteConfig.name}`;
 // Normalize canonical URL: ensure trailing slash on non-root paths so Astro's
 // trailingSlash="always" config is consistently reflected in <link rel="canonical">.
 const rawPath = Astro.url.pathname || '/';
@@ -53,10 +53,12 @@ const canonicalPath = rawPath === '/' || rawPath.endsWith('/') || /\.[a-z0-9]+$/
   : rawPath + '/';
 const canonicalUrl = new URL(canonicalPath, siteConfig.url).toString();
 
-// Default OG image if none provided
-const ogImage = image 
+// Default OG image if none provided. The generated per-post OG images at
+// /og/YYYY/MM/DD/slug.png and the site-wide default at /og/default.png are
+// both 1200x630, so we can always advertise those dimensions.
+const ogImage = image
   ? new URL(image, siteConfig.url).toString()
-  : new URL('/assets/img/headshot.jpg', siteConfig.url).toString();
+  : new URL('/og/default.png', siteConfig.url).toString();
 
 // Generate structured data (JSON-LD) for SEO
 // Use ProfilePage on homepage (a Google-supported rich result type), Person elsewhere
@@ -90,9 +92,16 @@ if (blogPostPattern.test(Astro.url.pathname)) {
       word.length > 0 ? word.charAt(0).toUpperCase() + word.slice(1) : ''
     ).join(' ');
     const isLastItem = index === pathSegments.length - 1;
-    breadcrumbItems.push({ 
-      name, 
-      url: isLastItem ? undefined : currentPath
+    // Normalize non-last breadcrumb URLs with a trailing slash to match the
+    // site's trailingSlash:'always' config and canonical URL convention.
+    const itemUrl = isLastItem
+      ? undefined
+      : (currentPath.endsWith('/') || /\.[a-z0-9]+$/i.test(currentPath)
+          ? currentPath
+          : `${currentPath}/`);
+    breadcrumbItems.push({
+      name,
+      url: itemUrl,
     });
   });
 }
