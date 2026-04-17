@@ -65,8 +65,8 @@ const resumeSchema = generateResumeSchema({
 ---
 
 <PageLayout title={title} description={description} suppressPersonSchema>
-  <header class="print-header">
-    <h1 class="print-name">Ben Balter</h1>
+  <header class="print-header" aria-hidden="true">
+    <p class="print-name">Ben Balter</p>
     <p class="print-contact">
       Washington, DC
       <span aria-hidden="true"> · </span>
@@ -204,6 +204,12 @@ const resumeSchema = generateResumeSchema({
     border-radius: 0 0.375rem 0.375rem 0;
   }
 
+  /* Darken link color inside the tinted summary box to meet WCAG AA (4.5:1)
+     on the ~#f5f8fb background — plain primary (#337ab7) is only 4.27:1. */
+  .resume-summary a {
+    color: var(--color-primary-600, #2a6493);
+  }
+
   .summary-text {
     margin: 0;
     font-size: 1.05rem;
@@ -213,7 +219,7 @@ const resumeSchema = generateResumeSchema({
   .resume-aux {
     margin: 0.5rem 0 0;
     font-size: 0.85rem;
-    color: var(--color-gray-600, #6c757d);
+    color: var(--color-gray-700, #495057);
   }
 
   .skills-grid {
@@ -417,7 +423,7 @@ const resumeSchema = generateResumeSchema({
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: var(--color-gray-600, #6c757d);
+    color: var(--color-gray-700, #495057);
     background-color: color-mix(in srgb, var(--color-gray-600, #6c757d) 10%, transparent);
     border: 1px solid color-mix(in srgb, var(--color-gray-600, #6c757d) 25%, transparent);
     border-radius: 9999px;

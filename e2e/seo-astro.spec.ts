@@ -248,7 +248,13 @@ test.describe('Structured Data (JSON-LD)', () => {
     expect(content).toBeTruthy();
     
     const schemas = JSON.parse(content!);
-    const schemaArray = Array.isArray(schemas) ? schemas : [schemas];
+    // Structured data is emitted as a single { @context, @graph: [...] } envelope;
+    // unwrap @graph so individual @type entries are findable.
+    const schemaArray = Array.isArray(schemas)
+      ? schemas
+      : Array.isArray((schemas as any)['@graph'])
+        ? (schemas as any)['@graph']
+        : [schemas];
     
     // Check for Person schema - on homepage it's nested in ProfilePage's mainEntity
     const personSchema = schemaArray.find((s: any) => s['@type'] === 'Person') ||
@@ -264,7 +270,11 @@ test.describe('Structured Data (JSON-LD)', () => {
     const jsonLd = page.locator('script[type="application/ld+json"]');
     const content = await jsonLd.first().textContent();
     const schemas = JSON.parse(content!);
-    const schemaArray = Array.isArray(schemas) ? schemas : [schemas];
+    const schemaArray = Array.isArray(schemas)
+      ? schemas
+      : Array.isArray((schemas as any)['@graph'])
+        ? (schemas as any)['@graph']
+        : [schemas];
     
     // Check for WebSite schema
     const websiteSchema = schemaArray.find((s: any) => s['@type'] === 'WebSite');
@@ -327,7 +337,11 @@ test.describe('Structured Data (JSON-LD)', () => {
     const jsonLd = page.locator('script[type="application/ld+json"]');
     const content = await jsonLd.first().textContent();
     const schemas = JSON.parse(content!);
-    const schemaArray = Array.isArray(schemas) ? schemas : [schemas];
+    const schemaArray = Array.isArray(schemas)
+      ? schemas
+      : Array.isArray((schemas as any)['@graph'])
+        ? (schemas as any)['@graph']
+        : [schemas];
     
     // Check for BreadcrumbList schema
     const breadcrumbSchema = schemaArray.find((s: any) => s['@type'] === 'BreadcrumbList');
