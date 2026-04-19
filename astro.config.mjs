@@ -119,6 +119,17 @@ export default defineConfig({
     layout: 'constrained',
     // Add global responsive image styles
     responsiveStyles: true,
+    // Codec-specific encoding defaults (Astro 6.1+)
+    // Applied to every image processed by Sharp during the build.
+    // Per-image `quality` still takes precedence when set.
+    service: {
+      config: {
+        jpeg: { mozjpeg: true },
+        webp: { effort: 6 },
+        avif: { effort: 4 },
+        png: { compressionLevel: 9 },
+      },
+    },
     domains: [
       // Amazon book covers (used in other-recommended-reading page)
       'images.amazon.com',
