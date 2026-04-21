@@ -52,6 +52,10 @@
 /mstile-*.png
   Cache-Control: public, max-age=2592000, immutable
 
+# Legacy WordPress uploads (archived 2010-2015 images, never change)
+/wp-content/*
+  Cache-Control: public, max-age=2592000, immutable
+
 # AI/LLM context files - 1 hour cache with background revalidation
 /llms.txt
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400

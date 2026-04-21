@@ -136,7 +136,7 @@ export const GET: APIRoute = async () => {
 
   content += `\n## Site Information\n\n`;
   content += `* [RSS Feed](${siteConfig.url}/feed.xml): Subscribe to all posts\n`;
-  content += `* [Site Source Code](https://github.com/${siteConfig.githubRepo}): This site's source code on GitHub (Jekyll with experimental Astro implementation)\n`;
+  content += `* [Site Source Code](https://github.com/${siteConfig.githubRepo}): This site's source code on GitHub (Static site built with Astro)\n`;
   content += `* [Fine Print](${siteConfig.url}/fine-print/): Legal information and site policies\n`;
 
   return new Response(content, {

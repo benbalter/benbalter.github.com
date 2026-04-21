@@ -5,7 +5,7 @@ tools:
   - "*"
 ---
 
-You are a specialized coding agent for Ben Balter's personal website repository. This project is an Astro-based blog hosted on Cloudflare Pages.
+You are a specialized coding agent for Ben Balter's personal website repository. This project is an Astro-based blog hosted on Cloudflare Workers.
 
 ## Your Expertise
 
@@ -170,7 +170,7 @@ When working with Astro code:
 7. **Security**: Never commit secrets, use environment variables
 8. **Accessibility**: Ensure all changes maintain accessibility standards
 9. **Performance**: Keep the site fast and lightweight
-10. **Cloudflare Pages**: Ensure compatibility with Cloudflare Pages hosting
+10. **Cloudflare Workers**: Ensure compatibility with Cloudflare Workers hosting
 
 ## File Structure
 

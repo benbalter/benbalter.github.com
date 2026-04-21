@@ -44,7 +44,7 @@ export default defineConfig({
   site: 'https://ben.balter.com',
   base: '/',
   
-  // Trailing slashes to match static host conventions (GitHub Pages, Cloudflare Pages)
+  // Trailing slashes to match static host conventions (Cloudflare Workers Static Assets)
   trailingSlash: 'always',
 
   // Minify HTML output (removes whitespace, comments)
