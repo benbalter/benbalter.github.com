@@ -7,6 +7,22 @@
 /* Animation utilities plugin (fade-in, slide-in, etc.) */
 @plugin "tailwindcss-animate";
 
+/* Custom animation utilities */
+@utility animate-fade-up {
+  animation: fade-up 0.5s ease-out both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ============================================================================
  * Theme Configuration (replaces tailwind.config.mjs in v4)
  * ============================================================================ */
@@ -1400,6 +1416,24 @@ pre + h2, pre + h3, pre + h4, pre + h5, pre + h6 {
   border-radius: 0.5rem;
   font-family: var(--font-sans);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  animation: callout-enter 0.4s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .callout {
+    animation: none;
+  }
+}
+
+@keyframes callout-enter {
+  from {
+    opacity: 0;
+    transform: translateX(-0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .callout > :last-child {

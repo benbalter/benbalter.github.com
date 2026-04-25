@@ -20,7 +20,9 @@ Luckily, a strangely named piece of open source software known as [ogr2ogr](http
 
 In addition converting the Shapefile over to GeoJSON, the other step in there, `-t_srs crs:84`, ensures that by the time the data hits GitHub, it's encoded with the right [projection](http://maps.unomaha.edu/Peterson/gis/notes/MapProjCoord.html) so it can be mapped properly. Need to convert multiple Shapefiles in bulk? Just use [this bulk Shapefile to GeoJSON conversion script](https://gist.github.com/benbalter/5858851). Windows users? [You're covered too](http://blog.thematicmapping.org/2013/06/converting-shapefiles-to-topojson.html).
 
-*Note:* The same process should work for KML files as well, replacing `[name].shp` with `[name].kml`.
+:::note
+The same process should work for KML files as well, replacing `[name].shp` with `[name].kml`.
+:::
 
 ## Why's this is important
 

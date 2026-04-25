@@ -189,9 +189,7 @@ export default defineConfig({
     mdx({
       // MDX configuration
       optimize: true,
-      // Support GitHub Flavored Markdown
-      remarkPlugins: sharedRemarkPlugins,
-      rehypePlugins: sharedRehypePlugins,
+      // remarkPlugins and rehypePlugins inherited from global markdown config
     }),
     sitemap({
       // Customize sitemap generation

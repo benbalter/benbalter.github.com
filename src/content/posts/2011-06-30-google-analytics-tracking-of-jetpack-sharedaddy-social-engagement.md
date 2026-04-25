@@ -33,6 +33,10 @@ The code should work out of the box with the standard share buttons (seen below)
 
 More details on the tracking code can be found over in the [Google Analytics Social Engagement Documentation](http://code.google.com/apis/analytics/docs/tracking/gaTrackingSocial.html). Improve the code to work with your site? Feel free to [fork the gist](https://gist.github.com/1058469) and contribute it back.
 
-**Update:** Dedicated reader All-around rabble-rouser [Andrew Nacin](http://andrewnacin.com) points out that by default, jQuery is queued up into the footer. Updated the above code to hook into `wp_footer` with a priority of 20 (higher than jQuery's 10 hook).
+:::info[Update]
+Dedicated reader All-around rabble-rouser [Andrew Nacin](http://andrewnacin.com) points out that by default, jQuery is queued up into the footer. Updated the above code to hook into `wp_footer` with a priority of 20 (higher than jQuery's 10 hook).
+:::
 
-**Update:** Special thanks to @Ramoonus for [didn't queue up jQuery](https://gist.github.com/1058469/db96b6836f279811205bddbf8be67bec6ca2159c).
+:::info[Update]
+Special thanks to @Ramoonus for [didn't queue up jQuery](https://gist.github.com/1058469/db96b6836f279811205bddbf8be67bec6ca2159c).
+:::
