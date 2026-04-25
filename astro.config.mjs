@@ -5,6 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 import favicons from 'astro-favicons';
 import compress from 'astro-compress';
 import expressiveCode from 'astro-expressive-code';
+import AutoImport from 'astro-auto-import';
+import { visualizer } from 'rollup-plugin-visualizer';
 import fetchAvatar from './src/lib/astro-fetch-avatar.ts';
 import {
   sharedRemarkPlugins,
@@ -170,6 +172,20 @@ export default defineConfig({
         borderRadius: '0.375rem',
       },
     }),
+    // Auto-import common MDX components (must be before mdx)
+    AutoImport({
+      imports: [
+        // Site components available in all MDX files without explicit imports
+        './src/components/Callout.astro',
+        './src/components/GitHubCulture.astro',
+        './src/components/FossAtScale.astro',
+        './src/components/YouTube.astro',
+        // astro-embed components for zero-JS social embeds
+        {
+          'astro-embed': ['Tweet', 'Vimeo', 'LinkPreview'],
+        },
+      ],
+    }),
     mdx({
       // MDX configuration
       optimize: true,
@@ -236,7 +252,16 @@ export default defineConfig({
   // Vite configuration
   vite: {
     // Tailwind CSS v4 uses the Vite plugin instead of the deprecated @astrojs/tailwind integration
-    plugins: [tailwindcss()],
+    plugins: [
+      tailwindcss(),
+      // Bundle size analysis — generates dist-astro/stats.html on production builds
+      visualizer({
+        filename: 'dist-astro/stats.html',
+        gzipSize: true,
+        brotliSize: true,
+        emitFile: false,
+      }),
+    ],
     // Ensure compatibility with existing build tools
     build: {
       // Separate chunk directory to avoid conflicts

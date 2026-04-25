@@ -2,12 +2,16 @@
 /**
  * YouTube Component
  * 
- * Embed YouTube videos in blog posts with responsive sizing.
- * Uses Tailwind aspect-ratio utility for responsive 16:9 aspect ratio.
+ * Embed YouTube videos with a performance-optimized facade pattern.
+ * Uses astro-embed's YouTube component which renders a static thumbnail
+ * at build time and only loads the iframe when the user clicks play.
+ * This eliminates the ~500KB iframe payload on initial page load.
  * 
  * Usage in MDX:
  * <YouTube id="dQw4w9WgXcQ" title="Video Title" />
  */
+
+import { YouTube as AstroYouTube } from 'astro-embed';
 
 interface Props {
   id: string;
@@ -15,18 +19,8 @@ interface Props {
 }
 
 const { id, title = 'YouTube video' } = Astro.props;
-const embedUrl = `https://www.youtube.com/embed/${id}`;
 ---
 
 <div class="not-prose my-6 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 shadow-sm">
-  <div class="aspect-video">
-    <iframe
-      src={embedUrl}
-      title={title}
-      class="w-full h-full"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-      loading="lazy"
-    ></iframe>
-  </div>
+  <AstroYouTube id={id} title={title} />
 </div>

@@ -195,6 +195,17 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   import '../scripts/link-previews';
 </script>
 
+<script>
+  import mediumZoom from 'medium-zoom';
+
+  // Apply medium-zoom to all images in post content
+  // Excludes emoji images and icons for a clean zoom experience
+  mediumZoom('.post-content img:not([role="img"]):not(.icon)', {
+    margin: 24,
+    background: 'rgba(0, 0, 0, 0.85)',
+  });
+</script>
+
 <style>
   @reference "../styles/global.css";
   
