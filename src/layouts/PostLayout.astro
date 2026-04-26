@@ -19,6 +19,7 @@ import ArchivedPostWarning from '../components/ArchivedPostWarning.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import PostNavigation from '../components/PostNavigation.astro';
 import TableOfContents from '../components/TableOfContents.astro';
+import TableOfContentsSidebar from '../components/TableOfContentsSidebar.astro';
 import ReadingList from '../components/ReadingList.astro';
 import ReadingProgress from '../components/ReadingProgress.astro';
 import KeepReading from '../components/KeepReading.astro';
@@ -95,9 +96,9 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   image={image}
   author={author}
 >
-  <div class="max-w-4xl mx-auto px-4">
-    <div>
-      <article data-pagefind-body>
+  <div class="max-w-4xl mx-auto px-4 xl:max-w-6xl">
+    <div class="xl:flex xl:gap-8">
+      <article data-pagefind-body class="xl:flex-1 xl:min-w-0 xl:max-w-4xl">
         <Breadcrumbs title={title} />
         <header class="mb-10">
           <h1 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100">{title}</h1>
@@ -187,6 +188,8 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
       {blogPostingSchema && (
         <script type="application/ld+json" set:html={schemaToJsonLd(blogPostingSchema)} is:inline></script>
       )}
+
+      <TableOfContentsSidebar content={content} />
     </div>
   </div>
 </BaseLayout>

@@ -1,0 +1,203 @@
+---
+/**
+ * TableOfContentsSidebar
+ *
+ * Sticky right-sidebar table of contents with scroll-spy highlighting.
+ * Visible only on xl: screens (≥1280px). Uses IntersectionObserver to
+ * track which heading is currently in view and highlights it with an
+ * accent left-border. Respects prefers-reduced-motion.
+ *
+ * Only renders when there are 3+ headings.
+ */
+
+import { extractHeadings, MIN_HEADINGS_FOR_TOC } from '../utils/toc';
+
+interface Props {
+  /** Rendered HTML content of the post */
+  content: string;
+}
+
+const { content } = Astro.props;
+const headings = extractHeadings(content);
+const showToc = headings.length >= MIN_HEADINGS_FOR_TOC;
+---
+
+{showToc && (
+  <aside
+    class="toc-sidebar hidden xl:block"
+    aria-label="Table of contents"
+    data-toc-sidebar
+  >
+    <nav>
+      <p class="toc-sidebar-title">On this page</p>
+      <ol class="toc-sidebar-list">
+        {headings.map((h) => (
+          <li>
+            <a
+              href={`#${h.id}`}
+              class:list={['toc-sidebar-link', h.level === 3 && 'toc-sidebar-link--nested']}
+              data-toc-href={h.id}
+            >
+              {h.text}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  </aside>
+)}
+
+<script>
+  function initTocSidebar() {
+    const sidebar = document.querySelector('[data-toc-sidebar]');
+    if (!sidebar) return;
+
+    const links = sidebar.querySelectorAll<HTMLAnchorElement>('[data-toc-href]');
+    if (links.length === 0) return;
+
+    // Map heading IDs to their TOC link elements
+    const linkMap = new Map<string, HTMLAnchorElement>();
+    links.forEach((link) => {
+      const id = link.dataset.tocHref;
+      if (id) linkMap.set(id, link);
+    });
+
+    // Track which headings are currently visible
+    const visibleHeadings = new Set<string>();
+    let orderedIds: string[] = [];
+
+    // Collect heading elements in DOM order
+    linkMap.forEach((_, id) => {
+      const el = document.getElementById(id);
+      if (el) orderedIds.push(id);
+    });
+
+    function setActive(id: string | null) {
+      links.forEach((link) => link.removeAttribute('data-active'));
+      if (id) {
+        const activeLink = linkMap.get(id);
+        if (activeLink) {
+          activeLink.setAttribute('data-active', 'true');
+        }
+      }
+    }
+
+    // Pick the topmost visible heading, or the last heading above viewport
+    function updateActive() {
+      if (visibleHeadings.size > 0) {
+        // Find the first visible heading in DOM order
+        for (const id of orderedIds) {
+          if (visibleHeadings.has(id)) {
+            setActive(id);
+            return;
+          }
+        }
+      }
+
+      // No heading is visible — find the last heading above the viewport
+      let lastAbove: string | null = null;
+      for (const id of orderedIds) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top < 100) {
+          lastAbove = id;
+        }
+      }
+      setActive(lastAbove);
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            visibleHeadings.add(entry.target.id);
+          } else {
+            visibleHeadings.delete(entry.target.id);
+          }
+        });
+        updateActive();
+      },
+      { rootMargin: '-80px 0px -60% 0px', threshold: 0 }
+    );
+
+    orderedIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    // Initial highlight
+    updateActive();
+  }
+
+  initTocSidebar();
+</script>
+
+<style>
+  @reference "../styles/global.css";
+
+  .toc-sidebar {
+    position: sticky;
+    top: 6rem;
+    align-self: start;
+    max-height: calc(100vh - 8rem);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gray-300) transparent;
+    width: 14rem;
+    flex-shrink: 0;
+  }
+
+  .toc-sidebar-title {
+    @apply text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .toc-sidebar-list {
+    @apply list-none m-0 p-0;
+  }
+
+  .toc-sidebar-link {
+    @apply block text-sm py-1.5 no-underline;
+    @apply text-gray-500 dark:text-gray-400;
+    border-left: 2px solid transparent;
+    padding-left: 0.75rem;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .toc-sidebar-link:hover {
+    @apply text-gray-800 dark:text-gray-200;
+  }
+
+  .toc-sidebar-link[data-active="true"] {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+    @apply font-medium;
+  }
+
+  .toc-sidebar-link--nested {
+    padding-left: 1.5rem;
+    @apply text-xs;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .toc-sidebar {
+      scrollbar-color: var(--color-gray-700) transparent;
+    }
+
+    .toc-sidebar-link[data-active="true"] {
+      color: var(--color-primary-300);
+      border-left-color: var(--color-primary-300);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .toc-sidebar-link {
+      transition: none;
+    }
+  }
+
+  @media print {
+    .toc-sidebar {
+      display: none;
+    }
+  }
+</style>
