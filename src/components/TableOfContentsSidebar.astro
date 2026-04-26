@@ -78,6 +78,7 @@ const showToc = headings.length >= MIN_HEADINGS_FOR_TOC;
         const activeLink = linkMap.get(id);
         if (activeLink) {
           activeLink.setAttribute('data-active', 'true');
+          activeLink.scrollIntoView({ block: 'nearest', inline: 'nearest' });
         }
       }
     }
@@ -122,6 +123,25 @@ const showToc = headings.length >= MIN_HEADINGS_FOR_TOC;
     orderedIds.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
+    });
+
+    // Smooth scroll on TOC link clicks with URL hash update
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    links.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        const id = link.dataset.tocHref;
+        if (!id) return;
+        const heading = document.getElementById(id);
+        if (!heading) return;
+
+        e.preventDefault();
+        heading.scrollIntoView({
+          behavior: prefersReducedMotion.matches ? 'auto' : 'smooth',
+          block: 'start',
+        });
+        history.replaceState(null, '', `#${id}`);
+        setActive(id);
+      });
     });
 
     // Initial highlight

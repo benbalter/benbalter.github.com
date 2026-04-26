@@ -108,6 +108,8 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
               <span class="inline-flex items-center gap-1">
                 <Icon name="clock" /> {readingTime} min read
               </span>
+              <span class="mx-1.5" aria-hidden="true">·</span>
+              <span>{(readingTime * 200).toLocaleString()} words</span>
             </div>
           )}
           
