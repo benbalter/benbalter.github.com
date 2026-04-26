@@ -78,6 +78,7 @@ const brandIcon = brandIcons[name];
     size={size}
     aria-hidden={!title}
     role={title ? 'img' : undefined}
+    aria-label={title || undefined}
   />
 ) : brandIcon ? (
   <svg

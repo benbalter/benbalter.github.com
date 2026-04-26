@@ -11,6 +11,10 @@ test.describe('Accessibility - Homepage', () => {
   test('should not have any automatically detectable accessibility violations', async ({ page }) => {
     await page.goto('/');
     
+    // Wait for entrance animations (fade-up) to complete so axe
+    // sees elements at full opacity with correct contrast ratios.
+    await page.waitForTimeout(1500);
+    
     const accessibilityScanResults = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
       .analyze();
@@ -229,6 +233,10 @@ test.describe('Keyboard Navigation', () => {
 test.describe('Color Contrast', () => {
   test('text should have sufficient color contrast', async ({ page }) => {
     await page.goto('/');
+    
+    // Wait for entrance animations (fade-up) to complete so computed
+    // opacity is 1 and axe sees the true foreground/background colors.
+    await page.waitForTimeout(1500);
     
     // Use axe to check color contrast
     const accessibilityScanResults = await new AxeBuilder({ page })
