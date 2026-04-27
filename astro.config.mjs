@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import favicons from 'astro-favicons';
 import compress from '@playform/compress';
+import checks from '@nuasite/checks';
 import expressiveCode from 'astro-expressive-code';
 import AutoImport from 'astro-auto-import';
 import { visualizer } from 'rollup-plugin-visualizer';
@@ -223,16 +224,44 @@ export default defineConfig({
       },
     }),
     compress({
-      // Compress HTML, CSS, and JavaScript for better performance
-      CSS: true,
-      HTML: {
-        removeAttributeQuotes: false, // Keep quotes for better compatibility
-        collapseWhitespace: true,
-        conservativeCollapse: true,
+      // Compress HTML, CSS, JavaScript, SVG, and JSON for better performance
+      CSS: {
+        // Use lightningcss for faster, more modern CSS minification
+        lightningcss: true,
+        csso: false,
       },
-      Image: false, // Images are already optimized by Astro
+      HTML: {
+        'html-minifier-terser': {
+          removeAttributeQuotes: false, // Keep quotes for better compatibility
+          collapseWhitespace: true,
+          conservativeCollapse: true,
+          removeComments: true,
+          removeRedundantAttributes: true,
+          removeEmptyAttributes: true,
+          minifyCSS: true,
+          minifyJS: true,
+        },
+      },
+      Image: false, // Images are already optimized by Astro's Sharp pipeline
       JavaScript: true,
       SVG: true,
+      JSON: true,
+      Logger: 1, // Reduce build log noise (0=silent, 1=minimal, 2=verbose)
+    }),
+    checks({
+      // Validate SEO, accessibility, performance, and GEO at build time
+      mode: 'essential',
+      seo: true,
+      geo: true,
+      performance: true,
+      accessibility: true,
+      ai: false,
+      failOnError: true,
+      failOnWarning: false,
+      overrides: {
+        // Twitter rebranded; site uses twitter:card tags which are still valid
+        'seo/twitter-card': false,
+      },
     }),
   ],
   

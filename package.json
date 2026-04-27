@@ -26,6 +26,7 @@
     "@eslint/json": "^1.2.0",
     "@github/markdownlint-github": "^0.8.0",
     "@lucide/astro": "^1.11.0",
+    "@nuasite/checks": "^0.31.0",
     "@playform/compress": "^0.2.3",
     "@playwright/test": "^1.59.0",
     "@tailwindcss/typography": "^0.5.19",
