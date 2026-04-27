@@ -3,7 +3,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import favicons from 'astro-favicons';
-import compress from 'astro-compress';
+import compress from '@playform/compress';
 import expressiveCode from 'astro-expressive-code';
 import AutoImport from 'astro-auto-import';
 import { visualizer } from 'rollup-plugin-visualizer';
