@@ -1,14 +1,20 @@
 ---
-title: 'Speak like a human: 12 ways tech companies can write less-corporate blog posts'
-description: Your users don't care how excited you are about your new feature. Twelve rules for writing corporate blog posts that sound human.
-tldr: "Your users don't care how excited you are about your new feature. Twelve rules for writing corporate blog posts that sound like a human talking to humans, not marketing speak."
+title: 'Speak like a human: 12 rules for writing less-corporate blog posts (and why AI made it harder)'
+description: Your users don't care how excited you are about your new feature. Twelve timeless rules for corporate blog posts that sound human—plus why AI-generated jargon is the new threat to clear writing.
+tldr: "Your users don't care how excited you are about your new feature. Twelve rules for writing corporate blog posts that sound like a human talking to humans, not marketing speak—plus how AI industrialized the very corporate jargon you're trying to avoid."
 ---
+
+"Per my previous email, I wanted to circle back and touch base regarding the action items we synergized on during our last alignment session. Please advise on the go-forward plan so we can leverage our learnings and optimize for key stakeholder engagement."
+
+That sentence says nothing while using 42 words to do it. Yet some variation lands in inboxes across the corporate world every day—and somewhere, a reply is being drafted that adds more of the same.
 
 If there's one thing that corporations are consistently good at, it's talking like a corporation. We've all seen it: you're reading a blog post about an "innovative, new" this or a "first-of-its-kind" that, and before you realize it, although your now-glazed-over eyes may still be moving over the words, you've stopped reading entirely. You know marketing speak when you see it. They're not talking to you. They're talking at you, and the only thing they've successfully convinced you of is of your need to never visit that marketing-site-disguised-as-a-blog ever again.
 
-Thankfully, it doesn't have to be that way. Corporations are fully capable of talking like humans do, at least the humans that make up that company are, and unsurprisingly customers respond positively when treated with that kind of base-level respect. If you've ever read [the GitHub Blog](https://github.com/blog), you'll hopefully notice that at GitHub, we pride ourselves in "being human". Not "delivering authentic experiences" or "speaking like a human", but actually being a gosh-darn human talking to other humans. There may be a corporate logo at the top of the page, but blog posts are still exclusively written by, and read by living, breathing humans. My name is on the post and it's simply me, as an individual, talking to customers. No corporate buzzwords or filters needed.
+Thankfully, it doesn't have to be that way. Corporations are fully capable of talking like humans do, at least the humans that make up that company are, and unsurprisingly customers respond positively when treated with that kind of base-level respect. There may be a corporate logo at the top of the page, but blog posts are still exclusively written by, and read by living, breathing humans. My name is on the post and it's simply me, as an individual, talking to customers. No corporate buzzwords or filters needed.
 
-A big part of that philosophy, and an even bigger part of reducing it to writing can be attributed to @kcwatkins who introduced me to the idea that [markets are conversations](http://newclues.cluetrain.com). Your users don't read your blog to be marketed to. They read your blog to learn about what's going on with your product, and the most effective way to convey product information — to educate current and potential users about a ship — is to be part of that ongoing conversation (that happens with or without your participation), not to stand on top of a hill shouting mindless marketing speak. Put another way, if you wouldn't do it in real life — say when bumping into a customer at a coffee shop — why is it okay to do on your corporate blog?
+It's not just vibes. A [2026 Cornell study](https://news.cornell.edu/stories/2026/03/workers-who-love-synergizing-paradigms-might-be-bad-their-jobs) found that employees who rated computer-generated sentences like "We will actualize a renewed level of cradle-to-grave credentialing" as genuinely insightful scored lower on analytic thinking, cognitive reflection, and workplace decision-making. Those most impressed by corporate jargon were the most likely to spread it. Your instinct to cringe at buzzword-laden prose isn't just good taste—it's a reliable signal of critical thinking.
+
+The core idea behind writing like a human is that [markets are conversations](http://newclues.cluetrain.com). Your users don't read your blog to be marketed to. They read your blog to learn about what's going on with your product, and the most effective way to convey product information—to educate current and potential users about a ship—is to be part of that ongoing conversation (that happens with or without your participation), not to stand on top of a hill shouting mindless marketing speak. Put another way, if you wouldn't do it in real life—say when bumping into a customer at a coffee shop—why is it okay to do on your corporate blog?
 
 Think of the typical corporate ship post. It probably starts something like this:
 
@@ -78,6 +84,53 @@ The user has read your post, you've gotten them excited, now what? What's the ca
 
 In addition the above, grammar, spelling, tone and style go without saying. There are many style guides out there, but [18F's](https://18f.gsa.gov/2015/07/06/18f-content-guide/) seems to be the most web-centric among them. When blogging, you should be writing for the web (links, informal tone, etc.) and you should use the opportunity to show some corporate personality. Even better, [collaborate using CI and Git flow](http://zachholman.com/posts/how-github-writes-blog-posts/).
 
-From infomercials to press releases, we've been trained to think corporations must speak a certain way, but that's far from the case. In fact, corporations don't speak. The humans that make them up do. It's a challenge to unlearn the antipatterns that surround us, but it's possible to foster a corporate culture whereby interacting with users is seen as a conversation, not a shouting match amongst competitors. Follow these rules, empower your humans to talk to other humans, and your users will respond accordingly.
+## Say what you actually mean
+
+The twelve rules above are about structure and audience. But even a perfectly structured post can still hide behind vague, meaning-free words.
+
+Buzzwords are the bureaucratic dialect of corporate life: "circling back," "touching base," "pinging"—phrases that became memes for good reason. Instead of "leverage," say "use." Instead of "resources," say "people" (because that's what they are). Instead of "touch base," say "check in." **Jargon hides meaning; plain language reveals it.**
+
+Try the "explain it to a new hire" test: rewrite your message as if the reader joined your team last week and doesn't know the internal shorthand. If you can't explain it in plain language, the buzzword is probably hiding a gap in your own thinking—not saving anyone time.
+
+Here's the same project update, two ways:
+
+> *Before:* "Per our discussion, I wanted to circle back on the deliverables. We need to leverage cross-functional alignment to ensure we're tracking toward the Q4 OKRs. Let's sync offline to discuss next steps and action items."
+
+> *After:* "The auth service migration is two days behind schedule. I need design review on the new login flow by Thursday. Can the frontend team look at PR #847?"
+
+The first version uses 35 words to say nothing specific. The second uses 28 to tell you exactly what's happening, what's needed, and where to look. That difference isn't stylistic—it's whether a reader can act on your message or has to chase you for clarification.
+
+A few concrete habits that help:
+
+- **Use short sentences and simple words.** If "use" works as well as "utilize," use "use." Your reader is scanning, not savoring.
+- **Be specific.** "We should improve our deployment process" could mean anything. "We should reduce deployment time from 45 minutes to 15 by parallelizing our test suite" is actionable.
+- **Avoid hedging.** "We might want to consider possibly updating the documentation" becomes "Let's update the documentation." Four hedging words, zero added meaning.
+- **Use active voice.** "We deployed the feature" is clearer than "The feature was deployed." Active voice makes it obvious who did what.
+
+## Don't outsource your voice to AI
+
+Corporate jargon had a good run as the primary threat to clear writing. Then AI arrived and industrialized it. Large language models trained on the internet's corpus of corporate emails, marketing copy, and LinkedIn posts have internalized decades of every pattern this post warns against. Ask an AI to draft a status update, and you'll get something polished but written by committee:
+
+> "It's important to note that we've made significant progress on key deliverables, and moving forward, we're well-positioned to leverage our learnings."
+
+That's not a communication style. **That's a style *absence*.**
+
+The problem isn't that AI writes badly—it's that it writes *plausibly*. AI-generated text is fluent, grammatically correct, and structurally sound. It hedges appropriately ("It's worth noting…"), transitions smoothly ("Furthermore…"), and summarizes confidently ("In summary…"). It reads like professional writing. It just doesn't read like *anyone's* writing.
+
+You'd never ship a function you didn't understand just because it passed the test suite. Don't ship writing you didn't think through just because it reads cleanly.
+
+AI *can* save time on writing—when used as a thinking tool rather than a ghostwriter. Use it to brainstorm, structure messy ideas, or draft a first pass when you're staring at a blank page. But treat AI output as raw material, not finished product. Edit ruthlessly. Inject your actual opinion. Delete the hedge words. Add the specific detail only you know. The time AI saves you on the first draft, spend on making the final version sound like you.
+
+Try the "anyone test" on AI-assisted writing: read it aloud and ask whether it could have been written by literally anyone on earth. If there's nothing in it that's distinctly *you*—no specific detail, no actual opinion, no hint of personality—rewrite it. Your readers can tell the difference between a message that was crafted and one that was generated. So can your boss.
+
+## Clear writing gets you promoted
+
+From infomercials to press releases, we've been trained to think corporations must speak a certain way, but that's far from the case. In fact, corporations don't speak. The humans that make them up do.
+
+People remember the colleague who writes clearly. Not because clear writing is flashy—it's the opposite. It disappears. The reader absorbs the idea without tripping over the words. That's the skill: making complex things feel simple, making a blog post feel like a conversation, making a reader on the other side of the world feel like they're sitting next to you.
+
+The engineer who writes "this PR refactors the auth middleware to reduce token validation from 200ms to 50ms" will always be more trusted—and more promotable—than the one who writes "made some improvements to the auth flow." The same applies to non-engineers.
+
+It's a challenge to unlearn the antipatterns that surround us, but it's possible to foster a culture where interacting with users is a conversation, not a shouting match amongst competitors. Follow these rules, empower your humans to talk to other humans, and your users will respond accordingly.
 
 [^1]: Some of these rules are adopted from GitHub's own internal blog guidelines, a document that was originally authored well before 2012 when it was added to version control, but `git blame` suggests credit should be given to @defunkt, @kneath, @tnm, @holman, and @kcwatkins among likely many others.
