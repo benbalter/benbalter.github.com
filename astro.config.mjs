@@ -227,7 +227,7 @@ export default defineConfig({
       // Compress HTML, CSS, JavaScript, SVG, and JSON for better performance
       CSS: {
         // Use lightningcss for faster, more modern CSS minification
-        lightningcss: true,
+        lightningcss: {},
         csso: false,
       },
       HTML: {
