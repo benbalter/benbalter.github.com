@@ -5,15 +5,16 @@
  * Multi-row subscribe/follow card. Renders:
  *  - RSS (always)
  *  - Follow on social (always — Bluesky + LinkedIn)
- *  - Email (only when siteConfig.emailSubscribeUrl is set)
+ *  - Email (inline form when siteConfig.kitFormId is set)
  *
- * Zero JavaScript. Minimal visual; matches the site's quiet aesthetic.
+ * The email form posts directly to Kit's public form endpoint.
+ * Requires a small client-side script for form submission.
  */
 
 import Icon from './Icon.astro';
 import { siteConfig } from '../config';
 
-const showEmail = Boolean(siteConfig.emailSubscribeUrl);
+const showEmail = Boolean(siteConfig.kitFormId);
 ---
 
 <section class="subscribe-card" aria-label="Stay in touch" data-pagefind-ignore>
@@ -25,11 +26,26 @@ const showEmail = Boolean(siteConfig.emailSubscribeUrl);
   </div>
 
   {showEmail && (
-    <div class="subscribe-row">
+    <div class="subscribe-row subscribe-email-row">
       <span class="subscribe-icon" aria-hidden="true"><Icon name="envelope" /></span>
-      <p class="subscribe-text">
-        Prefer email? <a href={siteConfig.emailSubscribeUrl} class="subscribe-link" target="_blank" rel="noopener noreferrer">Subscribe by email</a> to get new posts in your inbox.
-      </p>
+      <form class="subscribe-form" data-kit-form={siteConfig.kitFormId}>
+        <label class="subscribe-text" for="subscribe-email">
+          Prefer email? Subscribe to get new posts in your inbox.
+        </label>
+        <div class="subscribe-form-fields">
+          <input
+            type="email"
+            id="subscribe-email"
+            name="email"
+            placeholder="you@example.com"
+            required
+            autocomplete="email"
+            class="subscribe-input"
+          />
+          <button type="submit" class="subscribe-button">Subscribe</button>
+        </div>
+        <p class="subscribe-status" aria-live="polite" role="status"></p>
+      </form>
     </div>
   )}
 
@@ -43,6 +59,65 @@ const showEmail = Boolean(siteConfig.emailSubscribeUrl);
     </p>
   </div>
 </section>
+
+{showEmail && (
+  <script>
+    import { onPageLoad } from '../scripts/on-page-load';
+
+    onPageLoad(() => {
+      document.querySelectorAll<HTMLFormElement>('form[data-kit-form]').forEach((form) => {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+
+          const formId = form.dataset.kitForm;
+          const emailInput = form.querySelector<HTMLInputElement>('input[type="email"]');
+          const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+          const status = form.querySelector<HTMLParagraphElement>('.subscribe-status');
+          if (!formId || !emailInput || !button || !status) return;
+
+          const originalText = button.textContent;
+          button.textContent = 'Subscribing…';
+          button.disabled = true;
+          emailInput.disabled = true;
+
+          try {
+            const response = await fetch(
+              `https://app.kit.com/forms/${formId}/subscriptions`,
+              {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email_address: emailInput.value }),
+              }
+            );
+
+            if (response.ok) {
+              button.textContent = 'Subscribed ✓';
+              status.textContent = "You're on the list \u2014 check your email to confirm.";
+              status.className = 'subscribe-status subscribe-status-success';
+              form.reset();
+            } else {
+              button.textContent = 'Try again';
+              status.textContent = 'Something went wrong. Please try again.';
+              status.className = 'subscribe-status subscribe-status-error';
+            }
+          } catch {
+            button.textContent = 'Try again';
+            status.textContent = 'Network error. Please try again.';
+            status.className = 'subscribe-status subscribe-status-error';
+          }
+
+          setTimeout(() => {
+            button.textContent = originalText;
+            button.disabled = false;
+            emailInput.disabled = false;
+            status.textContent = '';
+            status.className = 'subscribe-status';
+          }, 4000);
+        });
+      });
+    });
+  </script>
+)}
 
 <style>
   @reference "../styles/global.css";
@@ -59,7 +134,7 @@ const showEmail = Boolean(siteConfig.emailSubscribeUrl);
   }
 
   .subscribe-row {
-    @apply flex items-center gap-3;
+    @apply flex items-start gap-3;
   }
 
   .subscribe-icon {
@@ -67,6 +142,7 @@ const showEmail = Boolean(siteConfig.emailSubscribeUrl);
     @apply bg-primary/10 text-primary;
     @apply transition-colors duration-200;
     flex-shrink: 0;
+    margin-top: 0.125rem;
   }
 
   .subscribe-card:hover .subscribe-icon {
@@ -84,6 +160,45 @@ const showEmail = Boolean(siteConfig.emailSubscribeUrl);
 
   .subscribe-link:hover {
     @apply underline;
+  }
+
+  .subscribe-form {
+    @apply flex-1 flex flex-col gap-2;
+  }
+
+  .subscribe-form-fields {
+    @apply flex gap-2;
+  }
+
+  .subscribe-input {
+    @apply flex-1 text-sm px-3 py-1.5 rounded-md;
+    @apply border border-gray-300 bg-white;
+    @apply text-gray-900 placeholder:text-gray-400;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary;
+    @apply transition-colors duration-200;
+    min-width: 0;
+  }
+
+  .subscribe-button {
+    @apply text-sm font-semibold px-4 py-1.5 rounded-md;
+    @apply bg-primary text-white cursor-pointer;
+    @apply hover:bg-primary/90;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-2;
+    @apply transition-colors duration-200;
+    @apply disabled:opacity-60 disabled:cursor-not-allowed;
+    white-space: nowrap;
+  }
+
+  .subscribe-status {
+    @apply text-xs m-0 min-h-4;
+  }
+
+  .subscribe-status-success {
+    @apply text-green-600;
+  }
+
+  .subscribe-status-error {
+    @apply text-red-600;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -106,6 +221,25 @@ const showEmail = Boolean(siteConfig.emailSubscribeUrl);
 
     .subscribe-card:hover .subscribe-icon {
       @apply bg-primary/30;
+    }
+
+    .subscribe-input {
+      @apply bg-gray-800 border-gray-600 text-gray-100 placeholder:text-gray-500;
+      @apply focus:border-primary-400 focus:ring-primary-400/40;
+    }
+
+    .subscribe-button {
+      @apply bg-primary-400 text-gray-900;
+      @apply hover:bg-primary-300;
+      @apply focus:ring-primary-400/40 focus:ring-offset-gray-900;
+    }
+
+    .subscribe-status-success {
+      @apply text-green-400;
+    }
+
+    .subscribe-status-error {
+      @apply text-red-400;
     }
   }
 </style>
