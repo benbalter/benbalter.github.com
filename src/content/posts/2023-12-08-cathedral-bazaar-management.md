@@ -27,7 +27,7 @@ At the core of the bazaar style is the belief that team members are competent, s
 
 ## Diagnose the situation, then pick your style
 
-Whether you're a manager or an IC, know which style you default to—and which your manager defaults to. Your team might be a mix, or the right approach might shift depending on the scenario. That's fine. Here's how the two styles typically differ:
+Whether you're a manager or an individual contributor (IC), know which style you default to—and which your manager defaults to. Your team might be a mix, or the right approach might shift depending on the scenario. That's fine. Here's how the two styles typically differ:
 
 - By **industry**—The self-direction of the bazaar model wouldn't be a good fit for the military, given the stakes. The cathedral model's rigidity would suffocate a fast-paced startup that needs room to experiment.
 - By **individual**—A junior engineer needs the structure and clarity the cathedral model provides—"here's the issue, here's the approach, and here's an example PR to reference." A senior engineer might chafe at that much direction, preferring freedom to find problems nobody's filed yet and propose solutions the team hadn't considered. Likewise, some people are less comfortable living with ambiguity, while others prefer uncertainty and the autonomy that comes with it.
