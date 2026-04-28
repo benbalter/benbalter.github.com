@@ -11,6 +11,7 @@
  * Environment variables:
  *   KIT_API_KEY  – Kit API key (required)
  *   SITE_URL     – Base URL of the site (default: https://ben.balter.com)
+ *   DRY_RUN      – Set to 'true' to preview without sending
  */
 
 import { readFileSync } from 'node:fs';
@@ -36,6 +37,7 @@ import { rehypeImageLoading } from '../src/lib/rehype-image-loading.ts';
 
 const KIT_API_URL = 'https://api.kit.com/v4/broadcasts';
 const SITE_URL = process.env.SITE_URL || 'https://ben.balter.com';
+const DRY_RUN = process.env.DRY_RUN === 'true';
 
 /** Build an email-safe rehype plugin list (no anchor links, no relative URLs) */
 const emailRehypePlugins = [
@@ -76,11 +78,37 @@ function isPublished(frontmatter) {
   return frontmatter.published !== false && frontmatter.archived !== true;
 }
 
+/**
+ * Fetch existing broadcasts from Kit to check for duplicates.
+ * Returns a Set of broadcast subjects for quick lookup.
+ */
+async function getExistingBroadcastSubjects(apiKey) {
+  const subjects = new Set();
+  try {
+    const response = await fetch(KIT_API_URL, {
+      headers: { 'X-Kit-Api-Key': apiKey },
+    });
+    if (response.ok) {
+      const data = await response.json();
+      for (const broadcast of data.broadcasts || []) {
+        if (broadcast.subject) subjects.add(broadcast.subject);
+      }
+    }
+  } catch {
+    console.warn('  ⚠️  Could not fetch existing broadcasts for dedupe check');
+  }
+  return subjects;
+}
+
 async function main() {
   const apiKey = process.env.KIT_API_KEY;
   if (!apiKey) {
     console.error('KIT_API_KEY environment variable is required');
     process.exit(1);
+  }
+
+  if (DRY_RUN) {
+    console.log('🏜️  DRY RUN — will preview broadcasts without sending\n');
   }
 
   const postListFile = process.argv[2];
@@ -104,6 +132,13 @@ async function main() {
     console.warn(`⚠️  ${postPaths.length} new posts detected — sending a broadcast for each`);
   }
 
+  // Fetch existing broadcasts for idempotency check
+  console.log('Checking for existing broadcasts...');
+  const existingSubjects = await getExistingBroadcastSubjects(apiKey);
+  if (existingSubjects.size > 0) {
+    console.log(`  Found ${existingSubjects.size} existing broadcasts`);
+  }
+
   const processor = await createMarkdownProcessor({
     remarkPlugins: sharedRemarkPlugins,
     rehypePlugins: emailRehypePlugins,
@@ -118,7 +153,7 @@ async function main() {
     const postUrl = getPostUrl(slug);
     const fullUrl = `${SITE_URL}${postUrl}`;
 
-    console.log(`Processing: ${postPath}`);
+    console.log(`\nProcessing: ${postPath}`);
 
     // Read and parse front matter
     const raw = readFileSync(postPath, 'utf-8');
@@ -133,6 +168,13 @@ async function main() {
 
     if (!frontmatter.title) {
       console.error(`  Skipping (no title): ${postPath}`);
+      skipped++;
+      continue;
+    }
+
+    // Idempotency: skip if a broadcast with this subject already exists
+    if (existingSubjects.has(frontmatter.title)) {
+      console.log(`  Skipping (already broadcast): "${frontmatter.title}"`);
       skipped++;
       continue;
     }
@@ -161,6 +203,16 @@ async function main() {
       subscriber_filter: [{ all: [{ type: 'all_subscribers' }] }],
     };
 
+    if (DRY_RUN) {
+      console.log(`  🏜️  Would send broadcast: "${frontmatter.title}"`);
+      console.log(`     Subject: ${payload.subject}`);
+      console.log(`     Preview: ${payload.preview_text}`);
+      console.log(`     URL: ${fullUrl}`);
+      console.log(`     Content length: ${emailHtml.length} chars`);
+      sent++;
+      continue;
+    }
+
     console.log(`  Sending broadcast: "${frontmatter.title}"`);
 
     const response = await fetch(KIT_API_URL, {
@@ -183,7 +235,8 @@ async function main() {
     sent++;
   }
 
-  console.log(`\nDone: ${sent} sent, ${skipped} skipped`);
+  const action = DRY_RUN ? 'would send' : 'sent';
+  console.log(`\nDone: ${sent} ${action}, ${skipped} skipped`);
 }
 
 main().catch((err) => {

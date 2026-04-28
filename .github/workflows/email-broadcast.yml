@@ -6,6 +6,16 @@ on:
     workflows: ["Deploy site to Cloudflare Pages"]
     types: [completed]
     branches: [main]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Preview what would be sent without actually sending'
+        type: boolean
+        default: true
+      post_path:
+        description: 'Path to a specific post file to broadcast (e.g., src/content/posts/2026-04-28-my-post.md)'
+        type: string
+        required: false
 
 permissions:
   contents: read
@@ -17,7 +27,9 @@ env:
 jobs:
   broadcast:
     runs-on: ubuntu-latest
-    if: github.event.workflow_run.conclusion == 'success'
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -27,6 +39,26 @@ jobs:
       - name: Detect new posts
         id: detect
         run: |
+          # Manual dispatch with a specific post path
+          if [ -n "${{ inputs.post_path }}" ]; then
+            if [ -f "${{ inputs.post_path }}" ]; then
+              echo "${{ inputs.post_path }}" > /tmp/new-posts.txt
+              echo "has_posts=true" >> "$GITHUB_OUTPUT"
+              echo "Manual dispatch for: ${{ inputs.post_path }}"
+              exit 0
+            else
+              echo "❌ File not found: ${{ inputs.post_path }}"
+              exit 1
+            fi
+          fi
+
+          # Auto-detect from workflow_run trigger
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "No post_path provided for manual dispatch"
+            echo "has_posts=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
           # Get the commit range from the triggering workflow run
           BEFORE="${{ github.event.workflow_run.head_commit.id }}~1"
           AFTER="${{ github.event.workflow_run.head_commit.id }}"
@@ -63,4 +95,5 @@ jobs:
         env:
           KIT_API_KEY: ${{ secrets.KIT_API_KEY }}
           SITE_URL: https://ben.balter.com
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}
         run: node script/email-broadcast.mjs /tmp/new-posts.txt
