@@ -6,7 +6,7 @@ tldr: "Stop using 1:1s for status updates. Prep async, focus on career growth, c
 
 It's Thursday afternoon. Your direct report sits down and reads from a list: "Closed three bugs, reviewed two PRs, started the migration doc." You nod. They nod. Thirty minutes pass without either of you saying anything that couldn't have been a comment on an issue.
 
-Most 1\:1s fail in one of three ways: 
+Most 1\:1s fail in one of three ways:
 
 - The most common: spending your team's only protected synchronous time on information that belongs in writing.
 - The second: sugarcoating hard feedback until nobody walks away clear on what actually needs to change.
