@@ -61,7 +61,7 @@ export const siteConfig = {
   // Kit (ConvertKit) form ID for inline email subscribe form.
   // Leave empty to hide email row in SubscribeCta.
   // Find this in your Kit dashboard under Forms → form embed code.
-  kitFormId: '', // TODO: Add your Kit form ID (e.g., '9177524')
+  kitFormId: '9381290',
 
   // Book
   bookUrl: 'https://open-and-async.com/',
