@@ -19,7 +19,7 @@ const STOP_WORDS = new Set([
 ]);
 
 /**
- * Extract and normalize words from text
+ * Extract and normalize words from text (handles both plain text and markdown)
  */
 function extractWords(text: string): string[] {
   if (!text) {
@@ -28,6 +28,8 @@ function extractWords(text: string): string[] {
   
   return text
     .toLowerCase()
+    // Remove YAML front matter
+    .replace(/^---[\s\S]*?---/m, ' ')
     // Remove HTML tags
     .replace(/<[^>]*>/g, ' ')
     // Remove URLs
@@ -36,6 +38,14 @@ function extractWords(text: string): string[] {
     .replace(/```[\s\S]*?```/g, ' ')
     // Remove inline code
     .replace(/`[^`]*`/g, ' ')
+    // Remove markdown image syntax ![alt](url)
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+    // Remove markdown link URLs, keeping link text: [text](url) → text
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+    // Remove footnote references [^1]
+    .replace(/\[\^[^\]]*\]/g, ' ')
+    // Remove markdown heading markers
+    .replace(/^#{1,6}\s+/gm, '')
     // Remove punctuation except apostrophes
     .replace(/[^\w\s']/g, ' ')
     // Split on whitespace
@@ -166,14 +176,33 @@ export function clearRelatedPostsCache(): void {
 }
 
 /**
+ * Title words are repeated this many times to boost their TF-IDF weight.
+ * Ensures title-word matches rank highly even when body content is included.
+ */
+const TITLE_WEIGHT = 3;
+
+/**
+ * Description words are repeated this many times to boost their TF-IDF weight.
+ */
+const DESCRIPTION_WEIGHT = 2;
+
+/**
  * Initialize the TF-IDF cache with all posts
  * This should be called once before processing multiple posts
  */
 export function initializeRelatedPostsCache(allPosts: CollectionEntry<'posts'>[]): void {
-  // Extract and cache words for all posts
+  // Extract and cache words for all posts, weighting title and description
   for (const post of allPosts) {
-    const postContent = `${post.data.title} ${post.data.description || ''}`;
-    const words = extractWords(postContent);
+    const titleWords = extractWords(post.data.title);
+    const descriptionWords = extractWords(post.data.description || '');
+    const bodyWords = extractWords(post.body || '');
+
+    // Repeat title/description words to boost their weight in TF calculations
+    const words = [
+      ...Array.from({ length: TITLE_WEIGHT }, () => titleWords).flat(),
+      ...Array.from({ length: DESCRIPTION_WEIGHT }, () => descriptionWords).flat(),
+      ...bodyWords,
+    ];
     wordsCache.set(post.id, words);
   }
   
