@@ -42,9 +42,13 @@ const showEmail = Boolean(siteConfig.kitFormId);
             autocomplete="email"
             class="subscribe-input"
           />
-          <button type="submit" class="subscribe-button">Subscribe</button>
+          <button type="submit" class="subscribe-button">
+            <span class="subscribe-button-text">Subscribe</span>
+            <span class="subscribe-spinner" aria-hidden="true"></span>
+          </button>
         </div>
         <p class="subscribe-status" aria-live="polite" role="status"></p>
+        <p class="subscribe-privacy">No spam. Unsubscribe anytime.</p>
       </form>
     </div>
   )}
@@ -72,11 +76,14 @@ const showEmail = Boolean(siteConfig.kitFormId);
           const formId = form.dataset.kitForm;
           const emailInput = form.querySelector<HTMLInputElement>('input[type="email"]');
           const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+          const buttonText = button?.querySelector<HTMLSpanElement>('.subscribe-button-text');
           const status = form.querySelector<HTMLParagraphElement>('.subscribe-status');
-          if (!formId || !emailInput || !button || !status) return;
+          const privacy = form.querySelector<HTMLParagraphElement>('.subscribe-privacy');
+          if (!formId || !emailInput || !button || !buttonText || !status) return;
 
-          const originalText = button.textContent;
-          button.textContent = 'Subscribing…';
+          const originalText = buttonText.textContent;
+          buttonText.textContent = 'Subscribing';
+          button.classList.add('loading');
           button.disabled = true;
           emailInput.disabled = true;
 
@@ -91,23 +98,30 @@ const showEmail = Boolean(siteConfig.kitFormId);
             );
 
             if (response.ok) {
-              button.textContent = 'Subscribed ✓';
+              buttonText.textContent = 'Subscribed \u2713';
+              button.classList.remove('loading');
               status.textContent = "You're on the list \u2014 check your email to confirm.";
               status.className = 'subscribe-status subscribe-status-success';
+              if (privacy) privacy.style.display = 'none';
+              emailInput.style.display = 'none';
               form.reset();
+              return; // Don't reset — success is permanent
             } else {
-              button.textContent = 'Try again';
+              buttonText.textContent = 'Try again';
               status.textContent = 'Something went wrong. Please try again.';
               status.className = 'subscribe-status subscribe-status-error';
             }
           } catch {
-            button.textContent = 'Try again';
+            buttonText.textContent = 'Try again';
             status.textContent = 'Network error. Please try again.';
             status.className = 'subscribe-status subscribe-status-error';
           }
 
+          button.classList.remove('loading');
+
+          // Only reset on error so users can retry
           setTimeout(() => {
-            button.textContent = originalText;
+            buttonText.textContent = originalText;
             button.disabled = false;
             emailInput.disabled = false;
             status.textContent = '';
@@ -166,7 +180,13 @@ const showEmail = Boolean(siteConfig.kitFormId);
   }
 
   .subscribe-form-fields {
-    @apply flex gap-2;
+    @apply flex flex-col gap-2;
+  }
+
+  @media (min-width: 480px) {
+    .subscribe-form-fields {
+      @apply flex-row;
+    }
   }
 
   .subscribe-input {
@@ -185,11 +205,33 @@ const showEmail = Boolean(siteConfig.kitFormId);
     @apply focus:outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-2;
     @apply transition-colors duration-200;
     @apply disabled:opacity-60 disabled:cursor-not-allowed;
+    @apply inline-flex items-center justify-center gap-2;
     white-space: nowrap;
+  }
+
+  .subscribe-button-text {
+    @apply inline-block;
+  }
+
+  .subscribe-spinner {
+    @apply hidden w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full;
+    animation: subscribe-spin 0.6s linear infinite;
+  }
+
+  .subscribe-button.loading .subscribe-spinner {
+    @apply inline-block;
+  }
+
+  @keyframes subscribe-spin {
+    to { transform: rotate(360deg); }
   }
 
   .subscribe-status {
     @apply text-xs m-0 min-h-4;
+  }
+
+  .subscribe-privacy {
+    @apply text-xs text-gray-400 dark:text-gray-500 m-0;
   }
 
   .subscribe-status-success {
