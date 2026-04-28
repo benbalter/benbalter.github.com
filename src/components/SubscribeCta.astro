@@ -184,7 +184,7 @@ const showEmail = Boolean(siteConfig.kitFormId);
   }
 
   .subscribe-form {
-    @apply flex-1 flex flex-col gap-2;
+    @apply flex-1 flex flex-col gap-1.5;
   }
 
   .subscribe-form-fields {
@@ -235,7 +235,11 @@ const showEmail = Boolean(siteConfig.kitFormId);
   }
 
   .subscribe-status {
-    @apply text-xs m-0 min-h-4;
+    @apply text-xs m-0;
+  }
+
+  .subscribe-status:empty {
+    @apply hidden;
   }
 
   .subscribe-privacy {
