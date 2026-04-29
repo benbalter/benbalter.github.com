@@ -11,8 +11,8 @@
  */
 
 interface Props {
-  posts?: Record<string, string> | string[];
-  roles?: Record<string, string> | string[];
+  posts?: Record<string, string> | string[] | undefined;
+  roles?: Record<string, string> | string[] | undefined;
 }
 
 const { posts, roles } = Astro.props;

@@ -32,19 +32,19 @@ import type { CollectionEntry } from 'astro:content';
 interface Props {
   title: string;
   description: string;
-  tldr?: string;
-  pubDate?: Date;
-  updatedDate?: Date;
-  image?: string;
+  tldr?: string | undefined;
+  pubDate?: Date | undefined;
+  updatedDate?: Date | undefined;
+  image?: string | undefined;
   author?: string;
   relatedPosts?: CollectionEntry<'posts'>[];
-  prevPost?: { title: string; url: string; readingTime?: number };
-  nextPost?: { title: string; url: string; readingTime?: number };
+  prevPost?: { title: string; url: string; readingTime?: number } | undefined;
+  nextPost?: { title: string; url: string; readingTime?: number } | undefined;
   archived?: boolean;
   postId: string;
-  postFilePath?: string;
-  posts?: Record<string, string> | string[];
-  roles?: Record<string, string> | string[];
+  postFilePath?: string | undefined;
+  posts?: Record<string, string> | string[] | undefined;
+  roles?: Record<string, string> | string[] | undefined;
 }
 
 const { 

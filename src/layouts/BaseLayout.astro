@@ -19,10 +19,10 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
-  image?: string;
+  image?: string | undefined;
   type?: 'website' | 'article';
-  publishedTime?: Date;
-  modifiedTime?: Date;
+  publishedTime?: Date | undefined;
+  modifiedTime?: Date | undefined;
   author?: string;
   keywords?: string[];
   noindex?: boolean;
@@ -143,8 +143,8 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
         ...(type === 'article' && publishedTime ? {
           article: {
             publishedTime: publishedTime.toISOString(),
-            modifiedTime: modifiedTime?.toISOString(),
-            authors: author ? [author] : undefined,
+            ...(modifiedTime ? { modifiedTime: modifiedTime.toISOString() } : {}),
+            ...(author ? { authors: [author] } : {}),
           }
         } : {}),
       }}

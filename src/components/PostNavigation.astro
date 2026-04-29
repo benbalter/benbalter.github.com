@@ -6,8 +6,8 @@
  */
 
 interface Props {
-  prevPost?: { title: string; url: string; readingTime?: number };
-  nextPost?: { title: string; url: string; readingTime?: number };
+  prevPost?: { title: string; url: string; readingTime?: number } | undefined;
+  nextPost?: { title: string; url: string; readingTime?: number } | undefined;
 }
 
 const { prevPost, nextPost } = Astro.props;
