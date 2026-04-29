@@ -33,14 +33,14 @@ function personFields(overrides?: Partial<Person>): Person {
     image: `${siteConfig.url}/assets/img/headshot.jpg`,
   };
 
-  return overrides ? Object.assign({}, person, overrides) as Person : person;
+  return overrides ? { ...person, ...overrides } : person;
 }
 
 /**
  * Generate top-level Person schema (with @context) for standalone use
  */
 export function generatePersonSchema(overrides?: Partial<Person>): WithContext<Person> {
-  return Object.assign({ '@context': 'https://schema.org' as const, '@id': `${siteConfig.url}/#person` }, personFields(overrides)) as WithContext<Person>;
+  return { '@context': 'https://schema.org' as const, '@id': `${siteConfig.url}/#person`, ...personFields(overrides) } as WithContext<Person>;
 }
 
 /**
@@ -183,7 +183,8 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url?: stri
       // Only add item URL and @id if it's not empty (last item in breadcrumb)
       if (item.url && item.url !== '') {
         element.item = item.url;
-        (element as unknown as Record<string, unknown>)['@id'] = item.url;
+        // @id is a valid JSON-LD keyword but not modeled in schema-dts ListItem type
+        (element as ListItem & { '@id'?: string })['@id'] = item.url;
       }
       return element;
     }),
@@ -270,7 +271,8 @@ export function schemaToGraphJsonLd(
   schemas: Array<WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList | ProfilePage | CollectionPage>>
 ): string {
   const stripped = schemas.map(s => {
-    const { '@context': _, ...rest } = s as unknown as Record<string, unknown>;
+    // WithContext<T> adds '@context' to T; destructure it away with a type-safe cast
+    const { '@context': _, ...rest } = s as { '@context': string } & Record<string, unknown>;
     return rest;
   });
   return JSON.stringify({ '@context': 'https://schema.org', '@graph': stripped }, null, 2);
