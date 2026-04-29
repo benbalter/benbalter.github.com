@@ -35,7 +35,7 @@ function personFields(overrides?: Partial<Person>): Person {
 
   if (!overrides) return person;
 
-  const merged = { ...(person as Record<string, unknown>), ...(overrides as Record<string, unknown>) } as Record<string, unknown>;
+  const merged = { ...(person as unknown as Record<string, unknown>), ...(overrides as unknown as Record<string, unknown>) } as Record<string, unknown>;
   // With exactOptionalPropertyTypes, explicitly-passed `undefined` values must
   // be stripped so they don't violate the target type's optional-property contract.
   for (const key of Object.keys(merged)) {
@@ -43,14 +43,14 @@ function personFields(overrides?: Partial<Person>): Person {
       delete merged[key];
     }
   }
-  return merged as Person;
+  return merged as unknown as Person;
 }
 
 /**
  * Generate top-level Person schema (with @context) for standalone use
  */
 export function generatePersonSchema(overrides?: Partial<Person>): WithContext<Person> {
-  return { '@context': 'https://schema.org' as const, '@id': `${siteConfig.url}/#person`, ...(personFields(overrides) as Record<string, unknown>) } as WithContext<Person>;
+  return { '@context': 'https://schema.org' as const, '@id': `${siteConfig.url}/#person`, ...(personFields(overrides) as unknown as Record<string, unknown>) } as WithContext<Person>;
 }
 
 /**
@@ -263,7 +263,7 @@ export function generateResumeSchema(props: ResumeSchemaProps): WithContext<Pers
   // When there's no current position, explicitly remove the default worksFor
   // that personFields inherits from siteConfig.
   if (worksFor === undefined) {
-    delete (schema as Record<string, unknown>).worksFor;
+    delete (schema as unknown as Record<string, unknown>).worksFor;
   }
 
   return schema;

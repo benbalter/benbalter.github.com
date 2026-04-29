@@ -70,7 +70,7 @@ const websiteSchema = generateWebSiteSchema();
 
 // Generate breadcrumb schema based on URL path
 const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
-const breadcrumbItems: Array<{ name: string; url?: string }> = [
+const breadcrumbItems: Array<{ name: string; url?: string | undefined }> = [
   { name: 'Home', url: siteConfig.url }
 ];
 
