@@ -413,6 +413,27 @@ describe('generateBlogPostingSchema', () => {
     
     expect(schema.author).toHaveProperty('@id', `${siteConfig.url}/#person`);
   });
+
+  it('should include author url and image', () => {
+    const schema = generateBlogPostingSchema({
+      title: 'Test Post',
+      url: 'https://ben.balter.com/2024/01/15/test/',
+      publishedTime: new Date('2024-01-15'),
+    });
+    
+    expect(schema.author).toHaveProperty('url', siteConfig.url);
+    expect(schema.author).toHaveProperty('image', `${siteConfig.url}/assets/img/headshot.jpg`);
+  });
+
+  it('should include isAccessibleForFree', () => {
+    const schema = generateBlogPostingSchema({
+      title: 'Test Post',
+      url: 'https://ben.balter.com/2024/01/15/test/',
+      publishedTime: new Date('2024-01-15'),
+    });
+    
+    expect(schema).toHaveProperty('isAccessibleForFree', true);
+  });
 });
 
 describe('generateBreadcrumbSchema', () => {

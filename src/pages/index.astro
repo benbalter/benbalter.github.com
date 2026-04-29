@@ -24,8 +24,9 @@ const featuredPosts = posts.slice(0, 3);
 const regularPosts = posts.slice(3);
 
 // Get popular posts based on configured slugs
+const postsBySlug = new Map(allPosts.map((p: CollectionEntry<'posts'>) => [p.id, p]));
 const popularPosts = popularPostSlugs
-  .map(slug => allPosts.find((post: CollectionEntry<'posts'>) => post.id === slug))
+  .map(slug => postsBySlug.get(slug))
   .filter((post): post is CollectionEntry<'posts'> => post !== undefined);
 ---
 

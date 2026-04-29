@@ -132,15 +132,25 @@
       search.results.slice(0, 8).map((r) => r.data())
     );
 
-    resultsContainer.innerHTML = results
-      .map(
-        (result) => `
-        <a href="${result.url}" class="search-result" data-search-close>
-          <span class="search-result-title">${result.meta?.title || 'Untitled'}</span>
-          <span class="search-result-excerpt">${result.excerpt}</span>
-        </a>`
-      )
-      .join('');
+    resultsContainer.innerHTML = '';
+    results.forEach((result) => {
+      const link = document.createElement('a');
+      link.href = result.url;
+      link.className = 'search-result';
+      link.setAttribute('data-search-close', '');
+
+      const titleSpan = document.createElement('span');
+      titleSpan.className = 'search-result-title';
+      titleSpan.textContent = result.meta?.title || 'Untitled';
+      link.appendChild(titleSpan);
+
+      const excerptSpan = document.createElement('span');
+      excerptSpan.className = 'search-result-excerpt';
+      excerptSpan.innerHTML = result.excerpt; // Pagefind excerpt contains safe HTML markup
+      link.appendChild(excerptSpan);
+
+      resultsContainer.appendChild(link);
+    });
   }
 
   function escapeHtml(str: string) {
@@ -398,6 +408,11 @@
     font-size: 1rem;
     @apply text-gray-900 dark:text-gray-100;
     @apply placeholder:text-gray-600 dark:placeholder:text-gray-400;
+  }
+
+  .search-field:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: -2px;
   }
 
   .search-field::-webkit-search-cancel-button {

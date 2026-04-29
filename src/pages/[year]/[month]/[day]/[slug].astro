@@ -53,7 +53,6 @@ const relatedPosts = await findRelatedPosts(post, allPosts, 10);
 
 // Find previous and next posts for sequential navigation
 const publishedPosts = allPosts
-  .filter((p: CollectionEntry<'posts'>) => p.data.published !== false)
   .sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => a.id.localeCompare(b.id));
 
 const currentIndex = publishedPosts.findIndex((p: CollectionEntry<'posts'>) => p.id === post.id);

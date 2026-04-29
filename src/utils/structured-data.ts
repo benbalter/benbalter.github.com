@@ -132,6 +132,8 @@ export function generateBlogPostingSchema(props: {
       '@type': 'Person',
       '@id': `${siteConfig.url}/#person`,
       name: author || siteConfig.author,
+      url: siteConfig.url,
+      image: `${siteConfig.url}/assets/img/headshot.jpg`,
     } as Person,
     publisher: {
       '@type': 'Organization',
@@ -154,6 +156,7 @@ export function generateBlogPostingSchema(props: {
     } as WebSite,
     ...(wordCount ? { wordCount } : {}),
     inLanguage: 'en',
+    isAccessibleForFree: true,
   };
 }
 
