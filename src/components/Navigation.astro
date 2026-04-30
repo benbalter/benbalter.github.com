@@ -48,50 +48,6 @@ const navClasses = hero
 ---
 
 <nav class={navClasses} aria-label="Main navigation" data-has-hero={hero}>
-  <script>
-    import { onPageLoad } from '../scripts/on-page-load';
-    // Set active nav link state based on current path.
-    onPageLoad(() => {
-      const currentPath = window.location.pathname;
-      const navLinks = document.querySelectorAll('[data-nav-links] .nav-link');
-      
-      // Update active link state (batch add/remove to minimize style recalculations)
-      navLinks.forEach((link) => {
-        const href = link.getAttribute('href');
-        const isPostPage = /^\/\d{4}\/\d{2}\/\d{2}\//.test(currentPath);
-        const isActive = currentPath === href ||
-          (href === '/' && isPostPage) ||
-          (href !== '/' && href !== null && currentPath.startsWith(href));
-        
-        if (isActive) {
-          link.classList.add('active', 'text-gray-900', 'dark:text-gray-100', 'font-semibold');
-          link.classList.remove('text-primary-800', 'dark:text-primary-300', 'hover:text-primary-900', 'dark:hover:text-primary-200');
-          link.setAttribute('aria-current', 'page');
-        } else {
-          link.classList.remove('active', 'text-gray-900', 'dark:text-gray-100', 'font-semibold');
-          link.classList.add('text-primary-800', 'dark:text-primary-300', 'hover:text-primary-900', 'dark:hover:text-primary-200');
-          link.removeAttribute('aria-current');
-        }
-      });
-      
-      // Update navigation border/rounded corners based on whether new page has hero
-      const nav = document.querySelector('nav.navbar');
-      const heroElement = document.querySelector('.hero-unit');
-      const hasHero = heroElement !== null;
-      
-      if (nav) {
-        nav.setAttribute('data-has-hero', String(hasHero));
-        
-        if (hasHero) {
-          nav.classList.remove('rounded-lg');
-          nav.classList.add('rounded-t-none', 'rounded-b-lg', 'border-t-0');
-        } else {
-          nav.classList.remove('rounded-t-none', 'rounded-b-lg', 'border-t-0');
-          nav.classList.add('rounded-lg');
-        }
-      }
-    });
-  </script>
   <div class="flex flex-wrap items-center w-full">
     <!-- Left side: Brand + Nav links -->
     <div class="flex items-center flex-grow">
