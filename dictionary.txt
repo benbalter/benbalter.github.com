@@ -218,7 +218,6 @@ cybersecurity
 Dat
 datacenter
 datapoint
-data-proofer-ignore
 dataset
 de
 # Decades

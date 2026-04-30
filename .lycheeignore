@@ -1,6 +1,6 @@
 # URL patterns lychee should skip during link checking.
-# Equivalent to html-proofer's `data-proofer-ignore` attribute, but URL-based.
-# Each line is a regex matched against the full URL.
+# Replaces the old html-proofer per-link ignore mechanism with a URL-based
+# allowlist. Each line is a regex matched against the full URL.
 
 # Medium frequently rate-limits and blocks automated checks
 ^https?://(www\.)?medium\.com/
@@ -18,3 +18,6 @@
 ^https?://localhost
 ^https?://127\.0\.0\.1
 ^https?://example\.(com|org|net)
+
+# Intentionally-broken demo links in posts that document 404 behavior
+^/2022/06/30/unhelpful-404s-for-jekyll/?$
