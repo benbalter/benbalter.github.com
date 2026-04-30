@@ -152,7 +152,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         <PostNavigation prevPost={prevPost} nextPost={nextPost} />
         
         <footer class="border-t border-gray-200 dark:border-gray-700 pt-8 mt-10 mb-8 post-footer">
-          <div class="mini-bio-card mb-6">
+          <div class="mini-bio-card mb-6 p-4 md:p-6">
             <MiniBio />
           </div>
 
@@ -214,7 +214,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   
   /* Enhanced mini bio card styling */
   .mini-bio-card {
-    @apply p-6 rounded-lg shadow-card;
+    @apply rounded-lg shadow-card;
     background: linear-gradient(
       135deg,
       color-mix(in srgb, var(--color-primary) 3%, transparent),
@@ -244,13 +244,6 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
 
   .open-source-cta:hover .open-source-icon {
     @apply bg-primary/20;
-  }
-  
-  /* Mobile adjustments */
-  @media (max-width: 767px) {
-    .mini-bio-card {
-      @apply p-4;
-    }
   }
   
   /* Dark mode adjustments */

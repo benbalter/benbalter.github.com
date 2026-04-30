@@ -14,16 +14,16 @@ import { siteConfig, footerLinks, contactLinks } from '../config';
 import Icon from './Icon.astro';
 ---
 
-<footer class="mt-12 max-md:mt-8 pt-6 footer-divider">
-  <nav aria-label="Footer navigation" class="footer-nav">
-    <div class="flex justify-between px-2 py-4 mb-6 flex-wrap">
-      <ul class="flex flex-wrap list-none p-0 m-0 contact-links">
+<footer class="mt-12 max-md:mt-8 pt-6 border-t-2 border-primary/10 dark:border-primary/20">
+  <nav aria-label="Footer navigation">
+    <div class="flex justify-between px-2 py-4 mb-6 flex-wrap max-md:justify-center max-md:flex-col max-md:items-center max-md:text-center max-md:gap-4">
+      <ul class="contact-links flex flex-wrap list-none p-0 m-0 max-md:justify-center max-md:gap-1">
         {contactLinks.map((link) => (
           <li class="relative">
             <a 
               href={link.url} 
               aria-label={link.name}
-              class="nav-link social-link text-gray-900 dark:text-gray-100 p-2 min-h-[44px] min-w-[44px] inline-flex items-center justify-center transition-all duration-200 hover:text-primary dark:hover:text-primary-400"
+              class="nav-link social-link text-gray-900 dark:text-gray-100 p-2 min-h-[44px] min-w-[44px] inline-flex items-center justify-center transition-all duration-200 hover:text-primary dark:hover:text-primary-400 touch-manipulation"
               target="_blank"
               rel="noopener noreferrer me"
             >
@@ -33,7 +33,7 @@ import Icon from './Icon.astro';
         ))}
       </ul>
       
-      <ul class="flex flex-wrap list-none p-0 m-0 footer-links">
+      <ul class="flex flex-wrap list-none p-0 m-0 max-md:justify-center max-md:flex-wrap max-md:gap-0 max-md:border-t max-md:border-black/[0.06] max-md:pt-3 max-md:dark:border-white/[0.08]">
         {footerLinks.map((link) => (
           <li class="relative">
             <a href={link.url} class="nav-link link-secondary text-gray-700 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 px-3 py-2 text-sm transition-all duration-200 footer-link">
@@ -43,7 +43,7 @@ import Icon from './Icon.astro';
         ))}
         
         <li class="relative">
-          <a href="/feed.xml" aria-label="RSS Feed" class="nav-link social-link text-gray-900 dark:text-gray-100 p-2 min-h-[44px] min-w-[44px] inline-flex items-center justify-center transition-all duration-200 hover:text-primary dark:hover:text-primary-400">
+          <a href="/feed.xml" aria-label="RSS Feed" class="nav-link social-link text-gray-900 dark:text-gray-100 p-2 min-h-[44px] min-w-[44px] inline-flex items-center justify-center transition-all duration-200 hover:text-primary dark:hover:text-primary-400 touch-manipulation">
             <Icon name="rss" />
           </a>
         </li>
@@ -61,44 +61,3 @@ import Icon from './Icon.astro';
   </div>
 </footer>
 
-<style>
-  @reference "../styles/global.css";
-  
-  .footer-divider {
-    border-top: 2px solid color-mix(in srgb, var(--color-primary) 10%, transparent);
-  }
-
-  .social-link {
-    touch-action: manipulation;
-  }
-
-  /* Responsive layout */
-  @media (max-width: 768px) {
-    .footer-nav > div {
-      @apply justify-center flex-col items-center text-center gap-4;
-    }
-    
-    .contact-links {
-      @apply justify-center gap-1;
-    }
-    
-    .footer-links {
-      @apply justify-center flex-wrap gap-0;
-      border-top: 1px solid rgba(0, 0, 0, 0.06);
-      @apply pt-3;
-    }
-  }
-  
-  @media (max-width: 768px) and (prefers-color-scheme: dark) {
-    .footer-links {
-      border-top-color: rgba(255, 255, 255, 0.08);
-    }
-  }
-  
-  /* Dark mode divider */
-  @media (prefers-color-scheme: dark) {
-    .footer-divider {
-      border-top-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
-    }
-  }
-</style>
