@@ -32,12 +32,12 @@ describe('copyToClipboard', () => {
   });
 
   it('returns false when execCommand returns false', () => {
-    vi.mocked(document.execCommand).mockReturnValue(false);
+    vi.mocked(legacyDocument.execCommand!).mockReturnValue(false);
     expect(copyToClipboard('hello')).toBe(false);
   });
 
   it('returns false when execCommand throws', () => {
-    vi.mocked(document.execCommand).mockImplementation(() => {
+    vi.mocked(legacyDocument.execCommand!).mockImplementation(() => {
       throw new Error('not allowed');
     });
     expect(copyToClipboard('hello')).toBe(false);
@@ -52,7 +52,7 @@ describe('copyToClipboard', () => {
 
   it('sets the textarea value to the provided text', () => {
     let capturedValue = '';
-    vi.mocked(document.execCommand).mockImplementation(() => {
+    vi.mocked(legacyDocument.execCommand!).mockImplementation(() => {
       const textarea = document.querySelector('textarea');
       if (textarea) capturedValue = textarea.value;
       return true;
@@ -64,7 +64,7 @@ describe('copyToClipboard', () => {
 
   it('positions the textarea off-screen to avoid layout shift', () => {
     let capturedStyle: CSSStyleDeclaration | undefined;
-    vi.mocked(document.execCommand).mockImplementation(() => {
+    vi.mocked(legacyDocument.execCommand!).mockImplementation(() => {
       const textarea = document.querySelector('textarea');
       if (textarea) capturedStyle = textarea.style;
       return true;
@@ -103,7 +103,7 @@ describe('copyToClipboard', () => {
 
   it('handles empty string input', () => {
     let capturedValue = '';
-    vi.mocked(document.execCommand).mockImplementation(() => {
+    vi.mocked(legacyDocument.execCommand!).mockImplementation(() => {
       const textarea = document.querySelector('textarea');
       if (textarea) capturedValue = textarea.value;
       return true;

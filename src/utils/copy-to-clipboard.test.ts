@@ -57,7 +57,7 @@ describe('copyToClipboard', () => {
 
     const result = await copyToClipboard('hello');
     expect(result).toBe(true);
-    expect(document.execCommand).toHaveBeenCalledWith('copy');
+    expect(legacyDocument.execCommand).toHaveBeenCalledWith('copy');
   });
 
   it('returns false when execCommand also fails', async () => {
@@ -66,7 +66,7 @@ describe('copyToClipboard', () => {
       configurable: true,
       writable: true,
     });
-    vi.mocked(document.execCommand).mockReturnValue(false);
+    vi.mocked(legacyDocument.execCommand!).mockReturnValue(false);
 
     const result = await copyToClipboard('hello');
     expect(result).toBe(false);
@@ -81,7 +81,7 @@ describe('copyToClipboard', () => {
 
     const result = await copyToClipboard('hello');
     expect(result).toBe(true);
-    expect(document.execCommand).toHaveBeenCalled();
+    expect(legacyDocument.execCommand).toHaveBeenCalled();
   });
 
   it('removes the temporary textarea after fallback', async () => {
