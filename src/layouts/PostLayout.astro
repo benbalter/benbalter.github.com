@@ -12,7 +12,7 @@ import Tldr from '../components/Tldr.astro';
 import MiniBio from '../components/MiniBio.astro';
 import Icon from '../components/Icon.astro';
 import { siteConfig } from '../config';
-import { calculateReadingTime } from '../utils/reading-time';
+import { calculateReadingTime, calculateWordCount } from '../utils/reading-time';
 import { generateBlogPostingSchema, schemaToJsonLd } from '../utils/structured-data';
 import { formatPostDate } from '../utils/post-urls';
 import ArchivedPostWarning from '../components/ArchivedPostWarning.astro';
@@ -72,6 +72,7 @@ const postFileName = postFilePath ? postFilePath.split('/').pop() : `${postId}.m
 // Calculate reading time using improved utility
 const content = await Astro.slots.render('default');
 const readingTime = calculateReadingTime(content);
+const wordCount = calculateWordCount(content);
 
 // Generate BlogPosting structured data for blog posts
 const blogPostingSchema = pubDate ? generateBlogPostingSchema({
@@ -82,8 +83,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   modifiedTime: updatedDate,
   image,
   author,
-  wordCount: readingTime * 200,
-
+  wordCount,
 }) : null;
 ---
 
@@ -103,7 +103,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         <header class="mb-10">
           <h1 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100">{title}</h1>
           
-          {readingTime > 0 && (
+          {readingTime >= 1 && (
             <div class="text-sm text-gray-600 dark:text-gray-300 mt-2 mb-6" data-pagefind-ignore>
               <span class="inline-flex items-center gap-1">
                 <Icon name="clock" /> {readingTime} min read
@@ -152,7 +152,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         <PostNavigation prevPost={prevPost} nextPost={nextPost} />
         
         <footer class="border-t border-gray-200 dark:border-gray-700 pt-8 mt-10 mb-8 post-footer">
-          <div class="mini-bio-card mb-6">
+          <div class="mini-bio-card mb-6 p-4 md:p-6">
             <MiniBio />
           </div>
 
@@ -214,7 +214,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   
   /* Enhanced mini bio card styling */
   .mini-bio-card {
-    @apply p-6 rounded-lg shadow-card;
+    @apply rounded-lg shadow-card;
     background: linear-gradient(
       135deg,
       color-mix(in srgb, var(--color-primary) 3%, transparent),
@@ -244,13 +244,6 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
 
   .open-source-cta:hover .open-source-icon {
     @apply bg-primary/20;
-  }
-  
-  /* Mobile adjustments */
-  @media (max-width: 767px) {
-    .mini-bio-card {
-      @apply p-4;
-    }
   }
   
   /* Dark mode adjustments */

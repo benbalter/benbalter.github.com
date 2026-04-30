@@ -60,6 +60,26 @@ export function calculateReadingTime(content: string, wordsPerMinute = 200): num
 }
 
 /**
+ * Calculate the word count for content.
+ *
+ * Strips footnotes (consistent with reading-time) and uses the reading-time
+ * library's tokenizer so the word count matches what's used for the
+ * reading-time estimate.
+ *
+ * @param content - The HTML or markdown content to analyze
+ * @returns Number of words in the content
+ */
+export function calculateWordCount(content: string): number {
+  if (!content || content.trim().length === 0) {
+    return 0;
+  }
+
+  const cleaned = stripFootnotes(content);
+  const stats = readingTime(cleaned);
+  return stats.words;
+}
+
+/**
  * Format reading time as a human-readable string
  * @param minutes - Reading time in minutes
  * @returns Formatted string like "5 min read"

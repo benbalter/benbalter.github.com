@@ -138,7 +138,7 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
         image: {
           width: 1200,
           height: 630,
-          alt: description,
+          alt: title,
         },
         ...(type === 'article' && publishedTime ? {
           article: {
@@ -155,7 +155,7 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
         title: fullTitle,
         description: description,
         image: ogImage,
-        imageAlt: description,
+        imageAlt: title,
       }}
       extend={{
         meta: [

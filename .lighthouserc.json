@@ -16,7 +16,7 @@
         "unused-javascript": "off",
         "unused-css-rules": "off",
         "canonical": "warn",
-        "uses-responsive-images": "warn",
+        "uses-responsive-images": "error",
         "offscreen-images": "warn",
         "lcp-lazy-loaded": "off",
         "non-composited-animations": "off",

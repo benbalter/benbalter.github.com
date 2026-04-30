@@ -26,6 +26,7 @@ const bioHtml = `${firstParagraph} <a href="/about/">More about the author &rarr
     height={100}
     class="avatar rounded block float-left mr-4 mb-2 max-md:w-[75px] max-md:mr-3"
     loading="lazy"
+    decoding="async"
   />
   <!-- firstParagraph is safe for set:html because link text is now escaped in about-bio.ts -->
   <p set:html={bioHtml} class="mb-0 leading-normal text-sm" />
@@ -34,7 +35,7 @@ const bioHtml = `${firstParagraph} <a href="/about/">More about the author &rarr
     <a
       href={siteConfig.blueskyUrl}
       target="_blank"
-      rel="noopener noreferrer me"
+      rel="me noopener noreferrer"
       class="inline-flex items-center gap-1 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200"
       aria-label={`Follow ${siteConfig.author} on Bluesky`}
     >
@@ -44,7 +45,7 @@ const bioHtml = `${firstParagraph} <a href="/about/">More about the author &rarr
     <a
       href={siteConfig.linkedinUrl}
       target="_blank"
-      rel="noopener noreferrer me"
+      rel="me noopener noreferrer"
       class="inline-flex items-center gap-1 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200"
       aria-label={`Follow ${siteConfig.author} on LinkedIn`}
     >

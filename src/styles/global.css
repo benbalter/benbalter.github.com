@@ -934,11 +934,8 @@
     }
   }
 
-  @media (max-width: 1023px) {
-    .navbar-text {
-      @apply hidden;
-    }
-  }
+  /* Note: .navbar-text is hidden below the lg breakpoint via inline `hidden lg:block`
+     classes on the actual element in Navigation.astro; no CSS rule needed here. */
 
   /* Footnotes — reference material uses sans-serif for visual distinction from body */
   .footnotes {

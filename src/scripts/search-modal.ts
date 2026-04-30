@@ -15,6 +15,27 @@ let pagefindLoaded = false;
 let pagefind: Pagefind | null = null;
 let previouslyFocusedElement: HTMLElement | null = null;
 
+// Memoised promise for the modal stylesheet so concurrent callers (e.g. an
+// open + an immediate highlightSearchTerms) share a single network request.
+let cssPromise: Promise<unknown> | null = null;
+
+/**
+ * Lazily inject the search modal's stylesheet. Vite turns this dynamic CSS
+ * import into a code-split chunk and appends a `<link rel="stylesheet">` to
+ * <head> at runtime, keeping the modal's CSS off the per-page critical path
+ * for visitors who never open search.
+ */
+function loadSearchCss() {
+  if (!cssPromise) {
+    cssPromise = import('../styles/search-modal.css').catch((e) => {
+      // Reset so a later attempt can retry on transient failure
+      cssPromise = null;
+      console.error('Failed to load search modal CSS:', e);
+    });
+  }
+  return cssPromise;
+}
+
 const FOCUSABLE_SELECTOR = 'input, button, a[href], [tabindex]:not([tabindex="-1"])';
 
 function getModal() {
@@ -128,6 +149,11 @@ function openSearch() {
   if (!modal) return;
 
   previouslyFocusedElement = document.activeElement as HTMLElement | null;
+  // Kick off CSS + Pagefind loads in parallel. CSS arrival is what gives the
+  // modal its layout/styling; we still reveal the modal immediately so the
+  // input can take focus — a brief unstyled flash is acceptable (and rare,
+  // since the chunk is small and cached after first open).
+  loadSearchCss();
   modal.hidden = false;
   document.body.style.overflow = 'hidden';
   loadPagefind();
@@ -233,6 +259,10 @@ function highlightSearchTerms() {
 
   const article = document.querySelector('[data-pagefind-body]');
   if (!article) return;
+
+  // The mark.search-highlight + .search-highlight-banner styles live in the
+  // lazy modal stylesheet, so make sure it's loaded on the destination page.
+  loadSearchCss();
 
   const terms = query.toLowerCase().split(/\s+/).filter((t: string) => t.length > 2);
   if (!terms.length) return;

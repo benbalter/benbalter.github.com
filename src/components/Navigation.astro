@@ -48,50 +48,6 @@ const navClasses = hero
 ---
 
 <nav class={navClasses} aria-label="Main navigation" data-has-hero={hero}>
-  <script>
-    import { onPageLoad } from '../scripts/on-page-load';
-    // Set active nav link state based on current path.
-    onPageLoad(() => {
-      const currentPath = window.location.pathname;
-      const navLinks = document.querySelectorAll('[data-nav-links] .nav-link');
-      
-      // Update active link state (batch add/remove to minimize style recalculations)
-      navLinks.forEach((link) => {
-        const href = link.getAttribute('href');
-        const isPostPage = /^\/\d{4}\/\d{2}\/\d{2}\//.test(currentPath);
-        const isActive = currentPath === href ||
-          (href === '/' && isPostPage) ||
-          (href !== '/' && href !== null && currentPath.startsWith(href));
-        
-        if (isActive) {
-          link.classList.add('active', 'text-gray-900', 'dark:text-gray-100', 'font-semibold');
-          link.classList.remove('text-primary-800', 'dark:text-primary-300', 'hover:text-primary-900', 'dark:hover:text-primary-200');
-          link.setAttribute('aria-current', 'page');
-        } else {
-          link.classList.remove('active', 'text-gray-900', 'dark:text-gray-100', 'font-semibold');
-          link.classList.add('text-primary-800', 'dark:text-primary-300', 'hover:text-primary-900', 'dark:hover:text-primary-200');
-          link.removeAttribute('aria-current');
-        }
-      });
-      
-      // Update navigation border/rounded corners based on whether new page has hero
-      const nav = document.querySelector('nav.navbar');
-      const heroElement = document.querySelector('.hero-unit');
-      const hasHero = heroElement !== null;
-      
-      if (nav) {
-        nav.setAttribute('data-has-hero', String(hasHero));
-        
-        if (hasHero) {
-          nav.classList.remove('rounded-lg');
-          nav.classList.add('rounded-t-none', 'rounded-b-lg', 'border-t-0');
-        } else {
-          nav.classList.remove('rounded-t-none', 'rounded-b-lg', 'border-t-0');
-          nav.classList.add('rounded-lg');
-        }
-      }
-    });
-  </script>
   <div class="flex flex-wrap items-center w-full">
     <!-- Left side: Brand + Nav links -->
     <div class="flex items-center flex-grow">
@@ -106,7 +62,7 @@ const navClasses = hero
               <li class="nav-item relative" data-text={item.title}>
                 <a 
                   href={item.url} 
-                  class={`nav-link px-4 py-3 flex items-center min-h-[44px] transition-colors duration-200 no-underline ${isActive ? 'active text-gray-900 dark:text-gray-100 font-semibold' : 'text-primary-800 dark:text-primary-300 hover:text-primary-900 dark:hover:text-primary-200'}`}
+                  class={`nav-link px-4 py-3 flex items-center min-h-[44px] transition-colors duration-200 no-underline max-md:w-full ${isActive ? 'active text-gray-900 dark:text-gray-100 font-semibold' : 'text-primary-800 dark:text-primary-300 hover:text-primary-900 dark:hover:text-primary-200'}`}
                   aria-current={isActive ? 'page' : undefined}
                 >
                   {item.title}
@@ -181,8 +137,8 @@ const navClasses = hero
     @apply bg-primary/15;
   }
   
-  /* Mobile navigation enhancements */
-  @media (max-width: 767px) {
+  /* Mobile navigation enhancements (matches Tailwind's max-md breakpoint) */
+  @media (width < 48rem) {
     /* Separator between nav items */
     .nav-item:not(:last-child) {
       border-bottom: 1px solid rgba(0, 0, 0, 0.06);
@@ -194,15 +150,10 @@ const navClasses = hero
       margin-top: 0.5rem;
       padding-top: 0.25rem;
     }
-
-    /* Full-width nav links for larger tap targets */
-    .nav-link {
-      width: 100%;
-    }
   }
 
   /* Dark mode variants for mobile */
-  @media (max-width: 767px) and (prefers-color-scheme: dark) {
+  @media (width < 48rem) and (prefers-color-scheme: dark) {
     .nav-item:not(:last-child) {
       border-bottom-color: rgba(255, 255, 255, 0.08);
     }

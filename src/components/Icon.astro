@@ -48,12 +48,19 @@ const brandIcons: Record<string, { viewBox: string; path: string }> = {
 
 interface Props {
   name: string;
-  title?: string;
+  /**
+   * Accessible label for the icon. When provided, the icon is exposed
+   * to assistive tech with role="img" and aria-label. When omitted
+   * (the default), the icon is treated as decorative and hidden from
+   * assistive tech via aria-hidden="true". Wrap the icon in an element
+   * with its own accessible name (e.g., a labeled <a>) when decorative.
+   */
+  label?: string;
   class?: string;
   size?: string;
 }
 
-const { name, title, class: className = '', size = '1em' } = Astro.props;
+const { name, label, class: className = '', size = '1em' } = Astro.props;
 
 // Map icon names to Lucide components
 const lucideIcons: Record<string, typeof Mail> = {
@@ -76,9 +83,9 @@ const brandIcon = brandIcons[name];
   <LucideIcon
     class:list={['icon', className]}
     size={size}
-    aria-hidden={!title}
-    role={title ? 'img' : undefined}
-    aria-label={title || undefined}
+    aria-hidden={label ? undefined : 'true'}
+    role={label ? 'img' : undefined}
+    aria-label={label || undefined}
   />
 ) : brandIcon ? (
   <svg
@@ -88,10 +95,11 @@ const brandIcon = brandIcons[name];
     width={size}
     height={size}
     fill="currentColor"
-    aria-hidden={!title}
-    role={title ? 'img' : undefined}
+    aria-hidden={label ? undefined : 'true'}
+    role={label ? 'img' : undefined}
+    aria-label={label || undefined}
   >
-    {title && <title>{title}</title>}
+    {label && <title>{label}</title>}
     <path d={brandIcon.path} />
   </svg>
 ) : (
