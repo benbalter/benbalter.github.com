@@ -1,0 +1,91 @@
+name: Site Health (Links + HTML)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'astro.config.mjs'
+      - 'package*.json'
+      - '.lycheeignore'
+      - '.github/workflows/links.yml'
+  schedule:
+    # Weekly run catches link rot on already-merged content
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+env:
+  NODE_VERSION: 24
+
+jobs:
+  site-health:
+    name: Validate built site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Astro site
+        run: npm run build
+
+      - name: Validate HTML (html-validate)
+        run: npm run lint-html
+
+      - name: Restore lychee cache
+        uses: actions/cache@v5
+        with:
+          path: .lycheecache
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
+
+      - name: Run lychee
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # Check built HTML plus source markdown (covers both rendered output and raw content)
+          args: >-
+            --cache
+            --max-cache-age 1d
+            --no-progress
+            --accept '100..=103,200..=299,403,429'
+            --max-retries 3
+            --retry-wait-time 10
+            --timeout 30
+            --exclude-mail
+            --include-fragments
+            './dist-astro/**/*.html'
+            './src/content/**/*.md'
+          fail: ${{ github.event_name == 'pull_request' }}
+          format: markdown
+          output: ./lychee-report.md
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: lychee-report
+          path: ./lychee-report.md
+          retention-days: 30
+
+      - name: Create issue on failure (scheduled runs only)
+        if: failure() && github.event_name == 'schedule'
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: 'Broken links detected by lychee'
+          content-filepath: ./lychee-report.md
+          labels: bug, links

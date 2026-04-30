@@ -1,0 +1,20 @@
+# URL patterns lychee should skip during link checking.
+# Equivalent to html-proofer's `data-proofer-ignore` attribute, but URL-based.
+# Each line is a regex matched against the full URL.
+
+# Medium frequently rate-limits and blocks automated checks
+^https?://(www\.)?medium\.com/
+
+# Wikipedia anchored fragments with URL-encoded quotes are flagged as 404 even when valid
+^https?://en\.wikipedia\.org/wiki/.*#.*%22
+
+# LinkedIn requires authentication for most pages
+^https?://(www\.)?linkedin\.com/
+
+# Twitter/X aggressively blocks unauthenticated requests
+^https?://(www\.)?(twitter|x)\.com/
+
+# localhost and example domains used in code samples
+^https?://localhost
+^https?://127\.0\.0\.1
+^https?://example\.(com|org|net)
