@@ -33,14 +33,24 @@ function personFields(overrides?: Partial<Person>): Person {
     image: `${siteConfig.url}/assets/img/headshot.jpg`,
   };
 
-  return overrides ? Object.assign({}, person, overrides) as Person : person;
+  if (!overrides) return person;
+
+  const merged = { ...(person as unknown as Record<string, unknown>), ...(overrides as unknown as Record<string, unknown>) } as Record<string, unknown>;
+  // With exactOptionalPropertyTypes, explicitly-passed `undefined` values must
+  // be stripped so they don't violate the target type's optional-property contract.
+  for (const key of Object.keys(merged)) {
+    if (merged[key] === undefined) {
+      delete merged[key];
+    }
+  }
+  return merged as unknown as Person;
 }
 
 /**
  * Generate top-level Person schema (with @context) for standalone use
  */
 export function generatePersonSchema(overrides?: Partial<Person>): WithContext<Person> {
-  return Object.assign({ '@context': 'https://schema.org' as const, '@id': `${siteConfig.url}/#person` }, personFields(overrides)) as WithContext<Person>;
+  return { '@context': 'https://schema.org' as const, '@id': `${siteConfig.url}/#person`, ...(personFields(overrides) as unknown as Record<string, unknown>) } as WithContext<Person>;
 }
 
 /**
@@ -106,13 +116,13 @@ export function generateWebSiteSchema(): WithContext<WebSite> {
  */
 export function generateBlogPostingSchema(props: {
   title: string;
-  description?: string;
+  description?: string | undefined;
   url: string;
   publishedTime: Date;
-  modifiedTime?: Date;
-  image?: string;
-  author?: string;
-  wordCount?: number;
+  modifiedTime?: Date | undefined;
+  image?: string | undefined;
+  author?: string | undefined;
+  wordCount?: number | undefined;
 }): WithContext<BlogPosting> {
   const { title, description, url, publishedTime, modifiedTime, image, author, wordCount } = props;
 
@@ -124,7 +134,7 @@ export function generateBlogPostingSchema(props: {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: title,
-    description,
+    ...(description !== undefined ? { description } : {}),
     image: absoluteImage,
     datePublished: publishedTime.toISOString(),
     dateModified: modifiedTime?.toISOString() || publishedTime.toISOString(),
@@ -132,6 +142,8 @@ export function generateBlogPostingSchema(props: {
       '@type': 'Person',
       '@id': `${siteConfig.url}/#person`,
       name: author || siteConfig.author,
+      url: siteConfig.url,
+      image: `${siteConfig.url}/assets/img/headshot.jpg`,
     } as Person,
     publisher: {
       '@type': 'Organization',
@@ -154,6 +166,7 @@ export function generateBlogPostingSchema(props: {
     } as WebSite,
     ...(wordCount ? { wordCount } : {}),
     inLanguage: 'en',
+    isAccessibleForFree: true,
   };
 }
 
@@ -167,7 +180,7 @@ export function generateBlogPostingSchema(props: {
  * @param items - Array of breadcrumb items, each with a `name` and optional `url`.
  * @returns BreadcrumbList schema in JSON-LD format.
  */
-export function generateBreadcrumbSchema(items: Array<{ name: string; url?: string }>): WithContext<BreadcrumbList> {
+export function generateBreadcrumbSchema(items: Array<{ name: string; url?: string | undefined }>): WithContext<BreadcrumbList> {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -180,7 +193,8 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url?: stri
       // Only add item URL and @id if it's not empty (last item in breadcrumb)
       if (item.url && item.url !== '') {
         element.item = item.url;
-        (element as unknown as Record<string, unknown>)['@id'] = item.url;
+        // @id is a valid JSON-LD keyword but not modeled in schema-dts ListItem type
+        (element as ListItem & { '@id'?: string })['@id'] = item.url;
       }
       return element;
     }),
@@ -239,12 +253,20 @@ export function generateResumeSchema(props: ResumeSchemaProps): WithContext<Pers
     ...(cert.url && { url: cert.url }),
   }));
 
-  return generatePersonSchema({
-    worksFor,
+  const schema = generatePersonSchema({
+    ...(worksFor !== undefined ? { worksFor } : {}),
     hasOccupation,
-    alumniOf,
-    hasCredential,
+    ...(alumniOf !== undefined ? { alumniOf } : {}),
+    ...(hasCredential !== undefined ? { hasCredential } : {}),
   });
+
+  // When there's no current position, explicitly remove the default worksFor
+  // that personFields inherits from siteConfig.
+  if (worksFor === undefined) {
+    delete (schema as unknown as Record<string, unknown>).worksFor;
+  }
+
+  return schema;
 }
 
 /**
@@ -267,7 +289,8 @@ export function schemaToGraphJsonLd(
   schemas: Array<WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList | ProfilePage | CollectionPage>>
 ): string {
   const stripped = schemas.map(s => {
-    const { '@context': _, ...rest } = s as unknown as Record<string, unknown>;
+    // WithContext<T> adds '@context' to T; destructure it away with a type-safe cast
+    const { '@context': _, ...rest } = s as unknown as { '@context': string } & Record<string, unknown>;
     return rest;
   });
   return JSON.stringify({ '@context': 'https://schema.org', '@graph': stripped }, null, 2);

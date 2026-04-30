@@ -18,12 +18,12 @@ jobs:
     if: false  # Disabled - duplicates checks from ci.yml
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
           fetch-depth: 0
 
       - name: Lint Code Base
-        uses: github/super-linter/slim@v7
+        uses: github/super-linter/slim@b807e99ddd37e444d189cfd2c2ca1274d8ae8ef1 # v7
         env:
           DEFAULT_BRANCH: main
           # Disable validators for languages not used in this repository

@@ -15,7 +15,7 @@ safe-outputs:
 
 ## Weekly Site Health Audit
 
-You are auditing the personal blog of Ben Balter (ben.balter.com), an Astro static site hosted on Cloudflare Pages.
+You are auditing the personal blog of Ben Balter (ben.balter.com), an Astro static site hosted on Cloudflare Workers.
 
 ### What to check
 

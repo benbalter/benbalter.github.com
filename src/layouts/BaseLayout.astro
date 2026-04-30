@@ -19,10 +19,10 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
-  image?: string;
+  image?: string | undefined;
   type?: 'website' | 'article';
-  publishedTime?: Date;
-  modifiedTime?: Date;
+  publishedTime?: Date | undefined;
+  modifiedTime?: Date | undefined;
   author?: string;
   keywords?: string[];
   noindex?: boolean;
@@ -70,7 +70,7 @@ const websiteSchema = generateWebSiteSchema();
 
 // Generate breadcrumb schema based on URL path
 const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
-const breadcrumbItems: Array<{ name: string; url?: string }> = [
+const breadcrumbItems: Array<{ name: string; url?: string | undefined }> = [
   { name: 'Home', url: siteConfig.url }
 ];
 
@@ -113,7 +113,7 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en-US">
   <head>
     <!-- SEO Meta Tags (via astro-seo) -->
     <SEO
@@ -143,8 +143,8 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
         ...(type === 'article' && publishedTime ? {
           article: {
             publishedTime: publishedTime.toISOString(),
-            modifiedTime: modifiedTime?.toISOString(),
-            authors: author ? [author] : undefined,
+            ...(modifiedTime ? { modifiedTime: modifiedTime.toISOString() } : {}),
+            ...(author ? { authors: [author] } : {}),
           }
         } : {}),
       }}
@@ -204,7 +204,9 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
     <Font cssVariable="--font-inter" />
     <Font cssVariable="--font-lora" />
 
-    <meta name="follow.it-verification-code" content="5kH4jfNfVnl3Jwr1542p" />
+    <!-- Prefetch Kit API for faster subscribe form submission -->
+    <link rel="dns-prefetch" href="https://app.kit.com" />
+    <link rel="preconnect" href="https://app.kit.com" crossorigin />
 
     <!-- Note: Title, favicons, meta tags, social links, resource hints, and RSS feed
          are all declared in the SEO component above. Do not duplicate them here. -->

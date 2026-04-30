@@ -20,7 +20,8 @@ To head down [this route](https://github.com/benbalter/pi-hole-cloudflared-docke
 
 ## Pi-Hole vs AdGuard Home
 
-**Edit (2021–11–04):** Since originally publishing this post, I've swapped out Pi-Hole + Cloudflared in favor of [AdGuard Home](https://github.com/AdguardTeam/AdGuardHome), and haven't looked back. While the functionality is largely comperable at this point, and ultimately you could be happy with either, I ended up preferring AdGuard Home for a number of reasons:
+:::info[Edit — 2021–11–04]
+Since originally publishing this post, I've swapped out Pi-Hole + Cloudflared in favor of [AdGuard Home](https://github.com/AdguardTeam/AdGuardHome), and haven't looked back. While the functionality is largely comperable at this point, and ultimately you could be happy with either, I ended up preferring AdGuard Home for a number of reasons:
 
 - **A more modern stack** - PHP + dnsmasq vs. Go and React
 - **Admin experience** - a sleeker web interface with fewer knobs and dials to endlessly tinker with.
@@ -28,6 +29,7 @@ To head down [this route](https://github.com/benbalter/pi-hole-cloudflared-docke
 - **Config as code** - Settings are contained in a single YAML file that I could version and more easily deploy with Ansible.
 
 Pi-Hole has been around for longer and has a more established community, so again, you could be happy with either, but I've updated this post to reflect that since originally written, I now personally prefer and generally recommend AdGuard Home. With that, let's get on to the setup (which continues to work for both):
+:::
 
 ## Docker Compose
 

@@ -11,12 +11,14 @@ import remarkEmoji from 'remark-emoji';
 import remarkGfm from 'remark-gfm';
 import remarkSmartypants from 'remark-smartypants';
 import remarkTextr from 'remark-textr';
+import remarkDirective from 'remark-directive';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
 import rehypeRaw from 'rehype-raw';
 import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 import { remarkGitHubMentions } from './remark-github-mentions';
+import { remarkCalloutDirectives } from './remark-callout-directives';
 import { rehypeRelativeUrls } from './rehype-relative-urls';
 import { rehypeBootstrapTables } from './rehype-bootstrap-tables';
 import { rehypeImageLoading } from './rehype-image-loading';
@@ -76,6 +78,9 @@ export const sharedRemarkPlugins = [
   remarkEmoji,
   remarkSmartypants,
   remarkGitHubMentions,
+  // Directive syntax (:::note, :::warning, etc.) and callout transformer
+  remarkDirective,
+  remarkCalloutDirectives,
   remarkTextrConfig,
 ];
 

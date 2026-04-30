@@ -13,8 +13,12 @@
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   Cross-Origin-Opener-Policy: same-origin
   Cross-Origin-Resource-Policy: same-origin
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' data: https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com https://api.github.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' data: https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com https://api.github.com https://app.kit.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests
   Cache-Control: public, max-age=120, stale-while-revalidate=86400
+  Link: </sitemap-index.xml>; rel="sitemap"; type="application/xml"
+  Link: </feed.xml>; rel="alternate"; type="application/atom+xml"; title="Atom Feed"
+  Link: </llms.txt>; rel="llms-txt"; type="text/plain"
+  Link: </vcard.vcf>; rel="author"; type="text/vcard"
 
 # Immutable hashed assets (JS, CSS, images, fonts) - 1 year cache
 /assets/*
@@ -46,6 +50,10 @@
 /favicon-*.png
   Cache-Control: public, max-age=2592000, immutable
 /mstile-*.png
+  Cache-Control: public, max-age=2592000, immutable
+
+# Legacy WordPress uploads (archived 2010-2015 images, never change)
+/wp-content/*
   Cache-Control: public, max-age=2592000, immutable
 
 # AI/LLM context files - 1 hour cache with background revalidation

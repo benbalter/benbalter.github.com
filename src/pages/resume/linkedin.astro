@@ -70,7 +70,6 @@ const personalCerts = allCerts.filter(c => c.category === 'personal');
 interface SkillGroup { group: string; items: string[] }
 const skillGroups: SkillGroup[] = (skills ?? []) as SkillGroup[];
 const allSkills = skillGroups.flatMap(g => g.items);
-const allSkillsText = allSkills.join('\n');
 ---
 
 <PageLayout

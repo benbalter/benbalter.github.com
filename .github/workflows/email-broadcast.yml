@@ -1,0 +1,99 @@
+name: Email broadcast for new posts
+
+# Runs after a successful deploy so subscribers aren't emailed before the post is live
+on:
+  workflow_run:
+    workflows: ["Deploy site to Cloudflare Pages"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Preview what would be sent without actually sending'
+        type: boolean
+        default: true
+      post_path:
+        description: 'Path to a specific post file to broadcast (e.g., src/content/posts/2026-04-28-my-post.md)'
+        type: string
+        required: false
+
+permissions:
+  contents: read
+
+env:
+  NODE_VERSION: 24
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  broadcast:
+    runs-on: ubuntu-latest
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Detect new posts
+        id: detect
+        run: |
+          # Manual dispatch with a specific post path
+          if [ -n "${{ inputs.post_path }}" ]; then
+            if [ -f "${{ inputs.post_path }}" ]; then
+              echo "${{ inputs.post_path }}" > /tmp/new-posts.txt
+              echo "has_posts=true" >> "$GITHUB_OUTPUT"
+              echo "Manual dispatch for: ${{ inputs.post_path }}"
+              exit 0
+            else
+              echo "❌ File not found: ${{ inputs.post_path }}"
+              exit 1
+            fi
+          fi
+
+          # Auto-detect from workflow_run trigger
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "No post_path provided for manual dispatch"
+            echo "has_posts=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Get the commit range from the triggering workflow run
+          BEFORE="${{ github.event.workflow_run.head_commit.id }}~1"
+          AFTER="${{ github.event.workflow_run.head_commit.id }}"
+
+          # Find newly added post files
+          NEW_POSTS=$(git diff --name-only --diff-filter=A "$BEFORE" "$AFTER" -- 'src/content/posts/' 2>/dev/null || echo "")
+
+          if [ -z "$NEW_POSTS" ]; then
+            echo "No new posts detected"
+            echo "has_posts=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "New posts detected:"
+          echo "$NEW_POSTS"
+          echo "has_posts=true" >> "$GITHUB_OUTPUT"
+
+          # Write post paths to a file for the next step
+          echo "$NEW_POSTS" > /tmp/new-posts.txt
+
+      - name: Setup Node
+        if: steps.detect.outputs.has_posts == 'true'
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        if: steps.detect.outputs.has_posts == 'true'
+        run: npm ci
+
+      - name: Send broadcast
+        if: steps.detect.outputs.has_posts == 'true'
+        env:
+          KIT_API_KEY: ${{ secrets.KIT_API_KEY }}
+          SITE_URL: https://ben.balter.com
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}
+        run: node script/email-broadcast.mjs /tmp/new-posts.txt

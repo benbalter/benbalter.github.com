@@ -802,10 +802,10 @@ import remarkGfm from 'remark-gfm';
 export default defineConfig({
   site: 'https://ben.balter.com',
   
-  // Output static files for GitHub Pages
+  // Output static files for Cloudflare Workers Static Assets
   output: 'static',
   
-  // Trailing slash for GitHub Pages compatibility
+  // Trailing slash for consistent URL paths
   trailingSlash: 'always',
   
   // Markdown configuration
@@ -869,7 +869,7 @@ export default defineConfig({
 **File:** `.github/workflows/deploy.yml`
 
 ```yaml
-name: Deploy to GitHub Pages
+name: Deploy to Cloudflare Workers
 
 on:
   push:
@@ -878,11 +878,9 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -900,21 +898,11 @@ jobs:
       - name: Build site
         run: npm run build
       
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
         with:
-          path: ./dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 ```
 
 ---
@@ -989,7 +977,7 @@ jobs:
 ### Phase 7: Deployment (Week 5–6)
 
 - [ ] Set up GitHub Actions workflow
-- [ ] Configure GitHub Pages
+- [ ] Configure Cloudflare Workers
 - [ ] Test deployment pipeline
 - [ ] DNS configuration
 - [ ] SSL/TLS verification

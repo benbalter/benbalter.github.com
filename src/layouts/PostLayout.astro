@@ -19,6 +19,7 @@ import ArchivedPostWarning from '../components/ArchivedPostWarning.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import PostNavigation from '../components/PostNavigation.astro';
 import TableOfContents from '../components/TableOfContents.astro';
+import TableOfContentsSidebar from '../components/TableOfContentsSidebar.astro';
 import ReadingList from '../components/ReadingList.astro';
 import ReadingProgress from '../components/ReadingProgress.astro';
 import KeepReading from '../components/KeepReading.astro';
@@ -31,19 +32,19 @@ import type { CollectionEntry } from 'astro:content';
 interface Props {
   title: string;
   description: string;
-  tldr?: string;
-  pubDate?: Date;
-  updatedDate?: Date;
-  image?: string;
+  tldr?: string | undefined;
+  pubDate?: Date | undefined;
+  updatedDate?: Date | undefined;
+  image?: string | undefined;
   author?: string;
   relatedPosts?: CollectionEntry<'posts'>[];
-  prevPost?: { title: string; url: string; readingTime?: number };
-  nextPost?: { title: string; url: string; readingTime?: number };
+  prevPost?: { title: string; url: string; readingTime?: number } | undefined;
+  nextPost?: { title: string; url: string; readingTime?: number } | undefined;
   archived?: boolean;
   postId: string;
-  postFilePath?: string;
-  posts?: Record<string, string> | string[];
-  roles?: Record<string, string> | string[];
+  postFilePath?: string | undefined;
+  posts?: Record<string, string> | string[] | undefined;
+  roles?: Record<string, string> | string[] | undefined;
 }
 
 const { 
@@ -95,9 +96,9 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   image={image}
   author={author}
 >
-  <div class="max-w-4xl mx-auto px-4">
-    <div>
-      <article data-pagefind-body>
+  <div class="max-w-4xl mx-auto px-4 xl:max-w-6xl">
+    <div class="xl:flex xl:gap-8">
+      <article data-pagefind-body class="xl:flex-1 xl:min-w-0 xl:max-w-4xl">
         <Breadcrumbs title={title} />
         <header class="mb-10">
           <h1 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100">{title}</h1>
@@ -187,12 +188,25 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
       {blogPostingSchema && (
         <script type="application/ld+json" set:html={schemaToJsonLd(blogPostingSchema)} is:inline></script>
       )}
+
+      <TableOfContentsSidebar content={content} />
     </div>
   </div>
 </BaseLayout>
 
 <script>
   import '../scripts/link-previews';
+</script>
+
+<script>
+  import mediumZoom from 'medium-zoom';
+
+  // Apply medium-zoom to all images in post content
+  // Excludes emoji images and icons for a clean zoom experience
+  mediumZoom('.post-content img:not([role="img"]):not(.icon)', {
+    margin: 24,
+    background: 'rgba(0, 0, 0, 0.85)',
+  });
 </script>
 
 <style>

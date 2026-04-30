@@ -58,10 +58,10 @@ export const siteConfig = {
   // Default SEO keywords
   keywords: ['Ben Balter', 'GitHub', 'open source', 'technology leadership', 'collaboration'],
   
-  // Email subscribe URL (leave empty to hide email row in SubscribeCta).
-  // When set (e.g., Follow.it, Buttondown, Kit), SubscribeCta renders an
-  // "Subscribe by email" row alongside RSS and social follow.
-  emailSubscribeUrl: 'https://follow.it/ben-balter',
+  // Kit (ConvertKit) form ID for inline email subscribe form.
+  // Leave empty to hide email row in SubscribeCta.
+  // Find this in your Kit dashboard under Forms → form embed code.
+  kitFormId: '9381290',
 
   // Book
   bookUrl: 'https://open-and-async.com/',

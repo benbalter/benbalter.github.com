@@ -7,6 +7,13 @@ import AxeBuilder from '@axe-core/playwright';
  * Tests WCAG 2.1 Level AA compliance
  */
 
+// Disable motion-safe animations so axe scans see elements at full opacity.
+// Cards use motion-safe:animate-fade-up which starts at opacity:0 — without
+// this, axe computes blended colors and reports false-positive contrast failures.
+test.beforeEach(async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+});
+
 test.describe('Accessibility - Homepage', () => {
   test('should not have any automatically detectable accessibility violations', async ({ page }) => {
     await page.goto('/');

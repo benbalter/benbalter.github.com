@@ -27,7 +27,8 @@
         "identical-links-same-purpose": "warn",
         "total-byte-weight": "warn",
         "network-dependency-tree-insight": "warn",
-        "image-delivery-insight": "warn"
+        "image-delivery-insight": "warn",
+        "robots-txt": "warn"
       }
     },
     "upload": {

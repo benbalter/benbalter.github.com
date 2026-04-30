@@ -230,6 +230,12 @@ DISABLED_RULES="${DISABLED_RULES},TO_TOO"
 # Verb + gerund false positive: "lessons learned fostering" (compound noun + participial phrase)
 DISABLED_RULES="${DISABLED_RULES},AFFORD_VBG"
 
+# Subject-verb agreement with book/work titles treated as singular
+DISABLED_RULES="${DISABLED_RULES},AGREEMENT_SENT_START"
+
+# "bazaar" used intentionally (open source concept), not confused with "bizarre"
+DISABLED_RULES="${DISABLED_RULES},ENGLISH_WRONG_WORD_IN_CONTEXT_BAZAAR_BIZARRE"
+
 # Remove leading comma
 DISABLED_RULES="${DISABLED_RULES#,}"
 
