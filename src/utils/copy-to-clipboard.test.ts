@@ -1,14 +1,23 @@
 import { describe, it, expect, afterEach, beforeEach, vi } from 'vitest';
 import { copyToClipboard } from './copy-to-clipboard';
 
+// Intentional legacy fallback for browsers without Clipboard API.
+// Cast `document` through a structural type without the @deprecated
+// marker so tests that read/write/delete execCommand don't trip
+// ts(6385) deprecation hints. Runtime behavior is unchanged.
+type LegacyDocument = {
+  execCommand?: (commandId: string) => boolean;
+};
+const legacyDocument = document as unknown as LegacyDocument;
+
 describe('copyToClipboard', () => {
   const originalClipboard = navigator.clipboard;
-  let originalExecCommand: typeof document.execCommand | undefined;
+  let originalExecCommand: LegacyDocument['execCommand'];
 
   beforeEach(() => {
     // happy-dom doesn't implement execCommand; define it for mocking
-    originalExecCommand = document.execCommand;
-    document.execCommand = vi.fn().mockReturnValue(true);
+    originalExecCommand = legacyDocument.execCommand;
+    legacyDocument.execCommand = vi.fn().mockReturnValue(true);
   });
 
   afterEach(() => {
@@ -18,10 +27,9 @@ describe('copyToClipboard', () => {
       writable: true,
     });
     if (originalExecCommand !== undefined) {
-      document.execCommand = originalExecCommand;
+      legacyDocument.execCommand = originalExecCommand;
     } else {
-      // @ts-expect-error — remove mock if it didn't exist before
-      delete document.execCommand;
+      delete legacyDocument.execCommand;
     }
     vi.restoreAllMocks();
   });

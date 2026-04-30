@@ -21,7 +21,14 @@ export function copyToClipboard(text: string, triggerElement?: Element): boolean
 
   let success = false;
   try {
-    success = document.execCommand('copy');
+    // Intentional legacy fallback for browsers without Clipboard API.
+    // Cast through a structural type to silence ts(6387) without removing
+    // the deprecated runtime call, which we still need.
+    // eslint-disable-next-line @typescript-eslint/no-deprecated
+    const legacyDocument = document as unknown as {
+      execCommand(commandId: string): boolean;
+    };
+    success = legacyDocument.execCommand('copy');
   } catch {
     success = false;
   }

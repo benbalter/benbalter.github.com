@@ -33,8 +33,14 @@ export async function copyToClipboard(text: string): Promise<boolean> {
 
   try {
     textarea.select();
+    // Intentional legacy fallback for browsers without Clipboard API.
+    // Cast through a structural type to silence ts(6387) without removing
+    // the deprecated runtime call, which we still need.
     // eslint-disable-next-line @typescript-eslint/no-deprecated
-    const ok = document.execCommand('copy');
+    const legacyDocument = document as unknown as {
+      execCommand(commandId: string): boolean;
+    };
+    const ok = legacyDocument.execCommand('copy');
     return ok;
   } catch {
     return false;

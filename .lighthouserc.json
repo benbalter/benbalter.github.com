@@ -1,4 +1,5 @@
 {
+  "_comment": "csp-xss flipped to warn: a comprehensive CSP is set in public/_headers (default-src 'self', frame-ancestors 'none', base-uri 'self', form-action 'self'). Note Lighthouse only sees CSP when delivered as an HTTP header, so this assertion may still fail when collecting against the static dist (no server). Other rules remain off because: unused-javascript/unused-css-rules report false positives on Astro/Tailwind output that's already purged; lcp-lazy-loaded/prioritize-lcp-image are noisy because the LCP element varies per page; non-composited-animations flags utility CSS transitions on hover; uses-long-cache-ttl can't be evaluated against a static dist (Cloudflare _headers sets immutable 1y on /assets/* in production). Re-evaluate these after a successful real-environment lighthouse run.",
   "ci": {
     "collect": {
       "staticDistDir": "./dist-astro",
@@ -11,7 +12,7 @@
     "assert": {
       "preset": "lighthouse:no-pwa",
       "assertions": {
-        "csp-xss": "off",
+        "csp-xss": "warn",
         "unused-javascript": "off",
         "unused-css-rules": "off",
         "canonical": "warn",
