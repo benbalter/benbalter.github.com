@@ -186,13 +186,14 @@ describe('prose quality', () => {
         const lines = content.split('\n');
         
         lines.forEach((line, idx) => {
-          // Skip lines with data-proofer-ignore attribute
-          if (line.includes('data-proofer-ignore')) {
+          // Skip lines marked with <!-- lychee-ignore --> (intentionally
+          // broken/demo links that the link checker is configured to skip)
+          if (line.includes('lychee-ignore')) {
             return;
           }
-          
-          // Skip if previous line has data-proofer-ignore comment
-          if (idx > 0 && lines[idx - 1].includes('data-proofer-ignore')) {
+
+          // Skip if previous line has a lychee-ignore comment
+          if (idx > 0 && lines[idx - 1].includes('lychee-ignore')) {
             return;
           }
           
