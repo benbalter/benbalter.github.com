@@ -33,6 +33,18 @@ const showEmail = Boolean(siteConfig.kitFormId);
           Prefer email? Subscribe to get new posts in your inbox.
         </label>
         <div class="subscribe-form-fields">
+          {/* Honeypot field — hidden from real users; if filled, the submit handler aborts. */}
+          <div class="subscribe-honeypot" aria-hidden="true">
+            <label for="subscribe-website">Leave this field empty</label>
+            <input
+              type="text"
+              id="subscribe-website"
+              name="website"
+              tabindex="-1"
+              autocomplete="off"
+              data-honeypot
+            />
+          </div>
           <input
             type="email"
             id="subscribe-email"
@@ -57,9 +69,9 @@ const showEmail = Boolean(siteConfig.kitFormId);
     <span class="subscribe-icon" aria-hidden="true"><Icon name="share-nodes" /></span>
     <p class="subscribe-text">
       Or follow along on
-      <a href={siteConfig.blueskyUrl} class="subscribe-link" target="_blank" rel="noopener noreferrer me">Bluesky</a>
+      <a href={siteConfig.blueskyUrl} class="subscribe-link" target="_blank" rel="me noopener noreferrer">Bluesky</a>
       or
-      <a href={siteConfig.linkedinUrl} class="subscribe-link" target="_blank" rel="noopener noreferrer me">LinkedIn</a>.
+      <a href={siteConfig.linkedinUrl} class="subscribe-link" target="_blank" rel="me noopener noreferrer">LinkedIn</a>.
     </p>
   </div>
 </section>
@@ -72,6 +84,12 @@ const showEmail = Boolean(siteConfig.kitFormId);
       document.querySelectorAll<HTMLFormElement>('form[data-kit-form]').forEach((form) => {
         form.addEventListener('submit', async (e) => {
           e.preventDefault();
+
+          // Honeypot: if a bot filled the hidden field, silently abort.
+          const honeypot = form.querySelector<HTMLInputElement>('input[data-honeypot]');
+          if (honeypot && honeypot.value.trim() !== '') {
+            return;
+          }
 
           const formId = form.dataset.kitForm;
           const emailInput = form.querySelector<HTMLInputElement>('input[type="email"]');
@@ -189,6 +207,17 @@ const showEmail = Boolean(siteConfig.kitFormId);
 
   .subscribe-form-fields {
     @apply flex flex-col gap-2;
+  }
+
+  /* Honeypot: visually hidden but still in the DOM and form-submittable. */
+  .subscribe-honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
   }
 
   @media (min-width: 480px) {
