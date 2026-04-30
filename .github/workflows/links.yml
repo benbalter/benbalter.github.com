@@ -66,6 +66,7 @@ jobs:
             --max-retries 3
             --retry-wait-time 10
             --timeout 30
+            --root-dir ${{ github.workspace }}/dist-astro
             --include-fragments
             './dist-astro/**/*.html'
             './src/content/**/*.md'
