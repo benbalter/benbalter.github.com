@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import { getDateFromSlug, getPostUrl } from '../utils/post-urls';
-import { isPublishedPost } from '../utils/post-filtering';
+import { getPublishedPosts } from '../utils/posts';
 import { getPostMetadata } from '../utils/post-metadata';
 import PostCard from '../components/PostCard.astro';
 import { popularPostSlugs, siteConfig } from '../config';
@@ -11,7 +11,7 @@ import { generateCollectionPageSchema, schemaToJsonLd } from '../utils/structure
 const title = 'Blog';
 const description = 'Blog posts on technology leadership, open source, remote work, and collaboration by Ben Balter — from practical management advice to engineering culture.';
 
-const allPosts = await getCollection('posts', isPublishedPost);
+const allPosts = await getPublishedPosts();
 
 const posts: CollectionEntry<'posts'>[] = allPosts.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) =>
   b.id.localeCompare(a.id)

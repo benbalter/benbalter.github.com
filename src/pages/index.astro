@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import { popularPostSlugs } from '../config';
-import { isPublishedPost } from '../utils/post-filtering';
+import { getPublishedPosts } from '../utils/posts';
 import { getPostMetadata } from '../utils/post-metadata';
 import PostCard from '../components/PostCard.astro';
 import BookCta from '../components/BookCta.astro';
@@ -12,7 +12,7 @@ import { aboutContent, getFirstSentence } from '../content/about-bio';
 const description = getFirstSentence(aboutContent);
 
 // Get all published posts (excluding archived), sorted by date (newest first)
-const allPosts = await getCollection('posts', isPublishedPost);
+const allPosts = await getPublishedPosts();
 
 // Sort posts by id (which contains date in Jekyll format YYYY-MM-DD)
 const posts: CollectionEntry<'posts'>[] = allPosts.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => 
