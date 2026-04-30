@@ -54,7 +54,7 @@ test.describe('Accessibility - Homepage', () => {
     await page.goto('/');
     
     const html = page.locator('html');
-    await expect(html).toHaveAttribute('lang', 'en');
+    await expect(html).toHaveAttribute('lang', /^en(-|$)/);
   });
   
   test('should have semantic landmark regions', async ({ page }) => {

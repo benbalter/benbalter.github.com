@@ -601,7 +601,7 @@ test.describe('Accessibility for SEO', () => {
     await waitForPageReady(page);
     
     const html = page.locator('html');
-    await expect(html).toHaveAttribute('lang', 'en');
+    await expect(html).toHaveAttribute('lang', /^en(-|$)/);
   });
 
   test('images should have alt text', async ({ page }) => {

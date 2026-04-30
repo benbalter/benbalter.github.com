@@ -1,14 +1,23 @@
 import { describe, it, expect, afterEach, beforeEach, vi } from 'vitest';
 import { copyToClipboard } from './copy-to-clipboard';
 
+// Intentional legacy fallback for browsers without Clipboard API.
+// Cast `document` through a structural type without the @deprecated
+// marker so tests that read/write/delete execCommand don't trip
+// ts(6385) deprecation hints. Runtime behavior is unchanged.
+type LegacyDocument = {
+  execCommand?: (commandId: string) => boolean;
+};
+const legacyDocument = document as unknown as LegacyDocument;
+
 describe('copyToClipboard', () => {
   const originalClipboard = navigator.clipboard;
-  let originalExecCommand: typeof document.execCommand | undefined;
+  let originalExecCommand: LegacyDocument['execCommand'];
 
   beforeEach(() => {
     // happy-dom doesn't implement execCommand; define it for mocking
-    originalExecCommand = document.execCommand;
-    document.execCommand = vi.fn().mockReturnValue(true);
+    originalExecCommand = legacyDocument.execCommand;
+    legacyDocument.execCommand = vi.fn().mockReturnValue(true);
   });
 
   afterEach(() => {
@@ -18,10 +27,9 @@ describe('copyToClipboard', () => {
       writable: true,
     });
     if (originalExecCommand !== undefined) {
-      document.execCommand = originalExecCommand;
+      legacyDocument.execCommand = originalExecCommand;
     } else {
-      // @ts-expect-error — remove mock if it didn't exist before
-      delete document.execCommand;
+      delete legacyDocument.execCommand;
     }
     vi.restoreAllMocks();
   });
@@ -49,7 +57,7 @@ describe('copyToClipboard', () => {
 
     const result = await copyToClipboard('hello');
     expect(result).toBe(true);
-    expect(document.execCommand).toHaveBeenCalledWith('copy');
+    expect(legacyDocument.execCommand).toHaveBeenCalledWith('copy');
   });
 
   it('returns false when execCommand also fails', async () => {
@@ -58,7 +66,7 @@ describe('copyToClipboard', () => {
       configurable: true,
       writable: true,
     });
-    vi.mocked(document.execCommand).mockReturnValue(false);
+    vi.mocked(legacyDocument.execCommand!).mockReturnValue(false);
 
     const result = await copyToClipboard('hello');
     expect(result).toBe(false);
@@ -73,7 +81,7 @@ describe('copyToClipboard', () => {
 
     const result = await copyToClipboard('hello');
     expect(result).toBe(true);
-    expect(document.execCommand).toHaveBeenCalled();
+    expect(legacyDocument.execCommand).toHaveBeenCalled();
   });
 
   it('removes the temporary textarea after fallback', async () => {

@@ -1,21 +1,29 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { copyToClipboard } from './linkedin-copy';
 
+// Intentional legacy fallback for browsers without Clipboard API.
+// Cast `document` through a structural type without the @deprecated
+// marker so tests that read/write/delete execCommand don't trip
+// ts(6385) deprecation hints. Runtime behavior is unchanged.
+type LegacyDocument = {
+  execCommand?: (commandId: string) => boolean;
+};
+const legacyDocument = document as unknown as LegacyDocument;
+
 describe('copyToClipboard', () => {
-  let originalExecCommand: typeof document.execCommand | undefined;
+  let originalExecCommand: LegacyDocument['execCommand'];
 
   beforeEach(() => {
     // happy-dom does not implement execCommand, so define it for mocking
-    originalExecCommand = document.execCommand;
-    document.execCommand = vi.fn().mockReturnValue(true);
+    originalExecCommand = legacyDocument.execCommand;
+    legacyDocument.execCommand = vi.fn().mockReturnValue(true);
   });
 
   afterEach(() => {
     if (originalExecCommand !== undefined) {
-      document.execCommand = originalExecCommand;
+      legacyDocument.execCommand = originalExecCommand;
     } else {
-      // @ts-expect-error — remove the mock if execCommand didn't exist before
-      delete document.execCommand;
+      delete legacyDocument.execCommand;
     }
   });
 
@@ -24,12 +32,12 @@ describe('copyToClipboard', () => {
   });
 
   it('returns false when execCommand returns false', () => {
-    vi.mocked(document.execCommand).mockReturnValue(false);
+    vi.mocked(legacyDocument.execCommand!).mockReturnValue(false);
     expect(copyToClipboard('hello')).toBe(false);
   });
 
   it('returns false when execCommand throws', () => {
-    vi.mocked(document.execCommand).mockImplementation(() => {
+    vi.mocked(legacyDocument.execCommand!).mockImplementation(() => {
       throw new Error('not allowed');
     });
     expect(copyToClipboard('hello')).toBe(false);
@@ -44,7 +52,7 @@ describe('copyToClipboard', () => {
 
   it('sets the textarea value to the provided text', () => {
     let capturedValue = '';
-    vi.mocked(document.execCommand).mockImplementation(() => {
+    vi.mocked(legacyDocument.execCommand!).mockImplementation(() => {
       const textarea = document.querySelector('textarea');
       if (textarea) capturedValue = textarea.value;
       return true;
@@ -56,7 +64,7 @@ describe('copyToClipboard', () => {
 
   it('positions the textarea off-screen to avoid layout shift', () => {
     let capturedStyle: CSSStyleDeclaration | undefined;
-    vi.mocked(document.execCommand).mockImplementation(() => {
+    vi.mocked(legacyDocument.execCommand!).mockImplementation(() => {
       const textarea = document.querySelector('textarea');
       if (textarea) capturedStyle = textarea.style;
       return true;
@@ -95,7 +103,7 @@ describe('copyToClipboard', () => {
 
   it('handles empty string input', () => {
     let capturedValue = '';
-    vi.mocked(document.execCommand).mockImplementation(() => {
+    vi.mocked(legacyDocument.execCommand!).mockImplementation(() => {
       const textarea = document.querySelector('textarea');
       if (textarea) capturedValue = textarea.value;
       return true;
