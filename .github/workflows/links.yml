@@ -83,7 +83,10 @@ jobs:
           retention-days: 30
 
       - name: Create issue on failure (scheduled runs only)
-        if: failure() && github.event_name == 'schedule'
+        # lychee-action sets outputs.exit_code regardless of the `fail` input,
+        # so this fires on scheduled runs even though `fail` is false there
+        # (which keeps the workflow itself green while still surfacing rot).
+        if: github.event_name == 'schedule' && steps.lychee.outputs.exit_code != '0'
         uses: peter-evans/create-issue-from-file@v5
         with:
           title: 'Broken links detected by lychee'

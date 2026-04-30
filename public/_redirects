@@ -5,6 +5,9 @@
 # Feed redirect
 /feed/index.xml /feed.xml 301
 
+# Sitemap (Jekyll legacy path → @astrojs/sitemap output)
+/sitemap.xml /sitemap-index.xml 301
+
 # Page renames
 /books/ /other-recommended-reading/ 301
 /books /other-recommended-reading/ 301

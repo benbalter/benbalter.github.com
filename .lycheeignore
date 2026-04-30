@@ -19,5 +19,7 @@
 ^https?://127\.0\.0\.1
 ^https?://example\.(com|org|net)
 
-# Intentionally-broken demo links in posts that document 404 behavior
-^/2022/06/30/unhelpful-404s-for-jekyll/?$
+# Intentionally-broken demo links in posts that document 404 behavior.
+# Pattern matches both raw root-relative form and the file:// form lychee
+# uses when --root-dir is set.
+/2022/06/30/unhelpful-404s-for-jekyll/?$

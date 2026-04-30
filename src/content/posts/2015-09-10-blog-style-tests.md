@@ -12,7 +12,7 @@ Whereas traditionally a member of your company's marketing, copy, or editorial t
 
 ## Don't use the word today
 
-If I were reviewing the post, the first issue I'd call out is that [it starts with the word "today"](https://ben.balter.com/2015/07/20/write-corporate-blog-posts-as-a-human/#dont-use-the-word-today).
+If I were reviewing the post, the first issue I'd call out is that [it starts with the word "today"](/2015/07/20/write-corporate-blog-posts-as-a-human/#9-dont-use-the-word-today).
 
 > In practicality, when launching something new, the word "today" often takes the place of more valuable information, like how to actually use the darn thing. When you leave out "today", you're forced to actually describe what's changed.
 
@@ -61,7 +61,7 @@ end
 
 ## Write for users, not for yourself
 
-The last thing I'd notice from our example post is that the post is [written for the company, not for its users](https://ben.balter.com/2015/07/20/write-corporate-blog-posts-as-a-human/#write-for-users-not-for-yourself).
+The last thing I'd notice from our example post is that the post is [written for the company, not for its users](/2015/07/20/write-corporate-blog-posts-as-a-human/#2-write-for-users-not-for-yourself).
 
 > Instead of telling your users… how much work it was for you to implement the new thing (written from your perspective), tell the user why your work matters to someone using your product (written from the user's perspective). A simple rule of thumb is that there should be more use of the word "you" than of "we".
 
