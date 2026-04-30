@@ -16,7 +16,7 @@ import Icon from './Icon.astro';
 <div class="contact-links mt-8 font-sans">
   <div class="grid grid-cols-2 md:grid-cols-5 gap-3 max-w-2xl mx-auto">
     {contactLinks.map((link) => (
-      <a href={link.url} rel="me noopener" target="_blank" class="group flex flex-col items-center justify-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 hover:border-primary/30 dark:hover:border-primary/40 hover:shadow-card dark:hover:shadow-card-dark no-underline transition-all duration-200">
+      <a href={link.url} rel="me noopener noreferrer" target="_blank" class="group flex flex-col items-center justify-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 hover:border-primary/30 dark:hover:border-primary/40 hover:shadow-card dark:hover:shadow-card-dark no-underline transition-all duration-200">
         <span class="mb-2 text-gray-600 dark:text-gray-300 group-hover:text-primary dark:group-hover:text-primary-300 transition-colors duration-200">
           <Icon name={link.icon} />
         </span>
