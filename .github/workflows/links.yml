@@ -76,7 +76,7 @@ jobs:
 
       - name: Upload report
         if: always()
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: lychee-report
           path: ./lychee-report.md
@@ -87,7 +87,7 @@ jobs:
         # so this fires on scheduled runs even though `fail` is false there
         # (which keeps the workflow itself green while still surfacing rot).
         if: github.event_name == 'schedule' && steps.lychee.outputs.exit_code != '0'
-        uses: peter-evans/create-issue-from-file@v5
+        uses: peter-evans/create-issue-from-file@v6
         with:
           title: 'Broken links detected by lychee'
           content-filepath: ./lychee-report.md
