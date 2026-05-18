@@ -203,7 +203,7 @@ describe('prose quality', () => {
             const url = match[2];
             
             // Skip generated files
-            if (url.startsWith('/sitemap.xml')) {
+            if (url.startsWith('/sitemap.xml') || url.startsWith('/sitemap-index.xml')) {
               continue;
             }
             
