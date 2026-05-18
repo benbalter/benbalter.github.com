@@ -81,6 +81,7 @@ Use footnotes for asides, definitions, and tangential context that would break t
 - **Internal links**: use descriptive anchor text; link to related posts generously
 
 Key concepts to reference and link to when relevant:
+
 - "showing your work" — transparent decision-making
 - "communications debt" — like technical debt but for documentation
 - "caremad" — passionate about something enough to do something about it
