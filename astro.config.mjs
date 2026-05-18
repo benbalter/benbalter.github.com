@@ -236,7 +236,7 @@ export default defineConfig({
           collapseWhitespace: true,
           conservativeCollapse: true,
           removeComments: true,
-          removeRedundantAttributes: true,
+          removeRedundantAttributes: false,
           removeEmptyAttributes: true,
           minifyCSS: true,
           minifyJS: true,
