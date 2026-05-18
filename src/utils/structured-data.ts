@@ -226,7 +226,8 @@ interface ResumeSchemaProps {
 export function generateResumeSchema(props: ResumeSchemaProps): WithContext<Person> {
   const { positions, degrees, certifications } = props;
 
-  const currentPosition = positions.find(p => !p.endDate);
+  const today = new Date();
+  const currentPosition = positions.find(p => !p.endDate || new Date(p.endDate) >= today);
   const worksFor: Organization | undefined = currentPosition ? {
     '@type': 'Organization',
     name: currentPosition.employer,
