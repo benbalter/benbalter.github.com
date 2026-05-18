@@ -10,7 +10,7 @@
 
 import { escapeHtml } from '../utils/html-escape';
 
-export const aboutContent = `I'm Ben Balter — I write here about engineering leadership, open source, and showing your work. By day I'm Director of Hubber Enablement at [GitHub](https://github.com/about), where I help thousands of GitHubbers do their best remote work. Before this role: Chief of Staff for Security, enterprise PM, and GitHub's first Government Evangelist. Before GitHub: attorney, Presidential Innovation Fellow, and member of the White House's first agile development team.
+export const aboutContent = `I'm Ben Balter — I write here about engineering leadership, open source, and showing your work. I was the Director of Hubber Enablement at [GitHub](https://github.com/about), where I helped thousands of GitHubbers do their best remote work. Before this role: Chief of Staff for Security, enterprise PM, and GitHub's first Government Evangelist. Before GitHub: attorney, Presidential Innovation Fellow, and member of the White House's first agile development team.
 
 The US CTO once called me one of "the baddest of the badass innovators" — the single nicest thing anyone's ever put in print about me. I helped draft parts of President Obama's Digital Strategy and Open Data Policy, and argued in the Public Contract Law Journal that [federal IT procurement should look more like modern software development](/2011/11/29/towards-a-more-agile-government/). Mostly, I've spent the last decade trying to figure out how large engineering organizations actually work — and why the obvious answers are usually wrong.
 
