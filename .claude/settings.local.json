@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__astro-docs__search_astro_docs",
+      "Bash(gh run *)",
+      "Bash(npm run *)",
+      "Bash(npx astro *)",
+      "Bash(./node_modules/.bin/astro check *)",
+      "Bash(npm ci *)",
+      "Bash(npm install *)"
+    ]
+  }
+}
