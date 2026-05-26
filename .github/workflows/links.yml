@@ -68,6 +68,7 @@ jobs:
             --timeout 30
             --root-dir ${{ github.workspace }}/dist-astro
             --include-fragments
+            --index-files index.html
             './dist-astro/**/*.html'
             './src/content/**/*.md'
           fail: ${{ github.event_name == 'pull_request' }}
