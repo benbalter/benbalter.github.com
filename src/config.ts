@@ -36,11 +36,13 @@ export const siteConfig = {
   // Contact information
   email: 'ben@balter.com',
   
-  // Employment information
-  jobTitle: 'Director of Hubber Enablement',
-  jobDescription: 'Director of Hubber Enablement within the Office of the COO',
-  employer: 'GitHub',
-  employerUrl: 'https://github.com/about',
+  // Employment information.
+  // Currently between full-time roles, so the site asserts no current employer
+  // (no worksFor in the Person schema). GitHub is the most recent/notable
+  // employer, presented as a former affiliation ("Formerly … at GitHub").
+  formerJobTitle: 'Director of Hubber Enablement',
+  formerEmployer: 'GitHub',
+  formerEmployerUrl: 'https://github.com/about',
   timezone: 'America/New_York',
   
   // Social media handles
@@ -69,7 +71,7 @@ export const siteConfig = {
   bookDescription: 'The collaborative software development playbook for remote and distributed teams',
 
   // About page metadata
-  aboutDescription: 'Ben Balter is an attorney, an open source developer, and a Director of Hubber Enablement at GitHub, the world\'s largest software development network.',
+  aboutDescription: 'Ben Balter is a writer, open source developer, and attorney whose open source projects have hundreds of millions of downloads. Formerly Director of Hubber Enablement at GitHub.',
 
   // standard.site (https://standard.site/) — AT Protocol long-form publishing.
   // The publication and each post become records in the author's own PDS, and
