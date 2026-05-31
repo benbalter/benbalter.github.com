@@ -15,6 +15,7 @@ import { siteConfig } from '../config';
 import { calculateReadingTime, calculateWordCount } from '../utils/reading-time';
 import { generateBlogPostingSchema, schemaToJsonLd } from '../utils/structured-data';
 import { formatPostDate } from '../utils/post-urls';
+import { getDocumentUri } from '../utils/standard-site';
 import ArchivedPostWarning from '../components/ArchivedPostWarning.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import PostNavigation from '../components/PostNavigation.astro';
@@ -67,6 +68,9 @@ const {
 
 const formattedDate = pubDate ? formatPostDate(pubDate) : undefined;
 const postUrl = new URL(Astro.url.pathname, siteConfig.url).toString();
+// standard.site document AT-URI for the <head> link tag (null for posts before
+// the configured cutoff or with no publish date).
+const standardSiteDocumentUri = pubDate ? (getDocumentUri(postId, pubDate) ?? undefined) : undefined;
 const postFileName = postFilePath ? postFilePath.split('/').pop() : `${postId}.md`;
 
 // Calculate reading time using improved utility
@@ -95,6 +99,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   modifiedTime={updatedDate}
   image={image}
   author={author}
+  standardSiteDocumentUri={standardSiteDocumentUri}
 >
   <div class="max-w-4xl mx-auto px-4 xl:max-w-6xl">
     <div class="xl:flex xl:gap-8">

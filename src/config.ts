@@ -70,6 +70,22 @@ export const siteConfig = {
 
   // About page metadata
   aboutDescription: 'Ben Balter is an attorney, an open source developer, and a Director of Hubber Enablement at GitHub, the world\'s largest software development network.',
+
+  // standard.site (https://standard.site/) — AT Protocol long-form publishing.
+  // The publication and each post become records in the author's own PDS, and
+  // the site links back to them so indexers can verify ownership.
+  standardSite: {
+    // AT Protocol DID for ben.balter.com (resolved from the Bluesky handle).
+    did: 'did:plc:dw6j5wx7vyzjxxoauzdbim6w',
+    // AT-URI of the site.standard.publication record. Empty until the record is
+    // created via script/standard-site/create-publication.ts — when empty, the
+    // /.well-known endpoint 404s and the publication link tag is omitted.
+    publicationUri: 'at://did:plc:dw6j5wx7vyzjxxoauzdbim6w/site.standard.publication/3mn5pbyuiq52t',
+    // Only posts published on/after this date get a site.standard.document record
+    // and link tag. Set before the earliest post (2010-09-12) so the full
+    // backfilled corpus is covered.
+    since: '2010-01-01',
+  },
 } as const;
 
 // Contact links (used on About and Contact pages)
