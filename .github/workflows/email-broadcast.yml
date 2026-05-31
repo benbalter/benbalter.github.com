@@ -96,4 +96,8 @@ jobs:
           KIT_API_KEY: ${{ secrets.KIT_API_KEY }}
           SITE_URL: https://ben.balter.com
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
-        run: node script/email-broadcast.mjs /tmp/new-posts.txt
+        # Run via tsx: the script imports shared .ts pipeline modules whose
+        # internal relative imports are extensionless. Plain `node` (native
+        # type-stripping) enforces strict ESM resolution and can't resolve them;
+        # tsx (used for every other TS script here) handles it.
+        run: npx tsx script/email-broadcast.mjs /tmp/new-posts.txt
