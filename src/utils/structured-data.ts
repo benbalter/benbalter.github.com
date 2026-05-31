@@ -7,7 +7,7 @@
  * @see https://github.com/google/schema-dts
  */
 
-import type { Person, Organization, WebSite, BlogPosting, BreadcrumbList, ListItem, WithContext, Occupation, EducationalOrganization, EducationalOccupationalCredential, ImageObject, ProfilePage } from 'schema-dts';
+import type { Person, Organization, WebSite, BlogPosting, BreadcrumbList, ListItem, WithContext, Occupation, EducationalOrganization, EducationalOccupationalCredential, ImageObject, ProfilePage, CollectionPage, SearchAction } from 'schema-dts';
 import { siteConfig } from '../config';
 
 /** Base Person fields (shared between top-level and embedded schemas) */
@@ -17,7 +17,14 @@ function personFields(overrides?: Partial<Person>): Person {
     name: siteConfig.author,
     url: siteConfig.url,
     email: siteConfig.email,
-    jobTitle: `${siteConfig.jobTitle} at ${siteConfig.employer}`,
+    // Currently between full-time roles: no worksFor/jobTitle is asserted.
+    // GitHub is represented as a former affiliation. (On the resume page,
+    // generateResumeSchema overrides worksFor/alumniOf from résumé data.)
+    alumniOf: {
+      '@type': 'Organization',
+      name: siteConfig.formerEmployer,
+      url: siteConfig.formerEmployerUrl,
+    } as Organization,
     sameAs: [
       siteConfig.githubUsername && `https://github.com/${siteConfig.githubUsername}`,
       siteConfig.socialUsername && `https://twitter.com/${siteConfig.socialUsername}`,
@@ -28,14 +35,24 @@ function personFields(overrides?: Partial<Person>): Person {
     image: `${siteConfig.url}/assets/img/headshot.jpg`,
   };
 
-  return overrides ? Object.assign({}, person, overrides) as Person : person;
+  if (!overrides) return person;
+
+  const merged = { ...(person as unknown as Record<string, unknown>), ...(overrides as unknown as Record<string, unknown>) } as Record<string, unknown>;
+  // With exactOptionalPropertyTypes, explicitly-passed `undefined` values must
+  // be stripped so they don't violate the target type's optional-property contract.
+  for (const key of Object.keys(merged)) {
+    if (merged[key] === undefined) {
+      delete merged[key];
+    }
+  }
+  return merged as unknown as Person;
 }
 
 /**
  * Generate top-level Person schema (with @context) for standalone use
  */
 export function generatePersonSchema(overrides?: Partial<Person>): WithContext<Person> {
-  return Object.assign({ '@context': 'https://schema.org' as const }, personFields(overrides)) as WithContext<Person>;
+  return { '@context': 'https://schema.org' as const, '@id': `${siteConfig.url}/#person`, ...(personFields(overrides) as unknown as Record<string, unknown>) } as WithContext<Person>;
 }
 
 /**
@@ -60,20 +77,39 @@ export function generateProfilePageSchema(): WithContext<ProfilePage> {
 }
 
 /**
- * Generate WebSite schema for the blog
+ * Generate WebSite schema for the blog.
+ *
+ * Includes a SearchAction `potentialAction` describing the site's on-page
+ * (Pagefind-powered) search so Google can understand the site has a search
+ * surface even though there is no sitelinks searchbox rendered in SERPs.
  */
 export function generateWebSiteSchema(): WithContext<WebSite> {
+  const searchAction: SearchAction = {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${siteConfig.url}/?q={search_term_string}`,
+    },
+    // `query-input` is a required string in schema.org's SearchAction contract
+    // even though schema-dts doesn't model it; cast through unknown to satisfy TS.
+    ...({ 'query-input': 'required name=search_term_string' } as Record<string, string>),
+  };
+
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': `${siteConfig.url}/#website`,
     name: siteConfig.name,
     url: siteConfig.url,
     author: {
       '@type': 'Person',
+      '@id': `${siteConfig.url}/#person`,
       name: siteConfig.author,
       url: siteConfig.url,
     },
     description: siteConfig.description,
+    inLanguage: 'en',
+    potentialAction: searchAction,
   };
 }
 
@@ -82,14 +118,15 @@ export function generateWebSiteSchema(): WithContext<WebSite> {
  */
 export function generateBlogPostingSchema(props: {
   title: string;
-  description?: string;
+  description?: string | undefined;
   url: string;
   publishedTime: Date;
-  modifiedTime?: Date;
-  image?: string;
-  author?: string;
+  modifiedTime?: Date | undefined;
+  image?: string | undefined;
+  author?: string | undefined;
+  wordCount?: number | undefined;
 }): WithContext<BlogPosting> {
-  const { title, description, url, publishedTime, modifiedTime, image, author } = props;
+  const { title, description, url, publishedTime, modifiedTime, image, author, wordCount } = props;
 
   const absoluteImage = image
     ? (image.startsWith('http') ? image : `${siteConfig.url}${image}`)
@@ -99,13 +136,20 @@ export function generateBlogPostingSchema(props: {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: title,
-    description,
+    ...(description !== undefined ? { description } : {}),
     image: absoluteImage,
     datePublished: publishedTime.toISOString(),
     dateModified: modifiedTime?.toISOString() || publishedTime.toISOString(),
-    author: generatePersonRef({ name: author || siteConfig.author }),
+    author: {
+      '@type': 'Person',
+      '@id': `${siteConfig.url}/#person`,
+      name: author || siteConfig.author,
+      url: siteConfig.url,
+      image: `${siteConfig.url}/assets/img/headshot.jpg`,
+    } as Person,
     publisher: {
       '@type': 'Organization',
+      '@id': `${siteConfig.url}/#organization`,
       name: siteConfig.name,
       url: siteConfig.url,
       logo: {
@@ -118,6 +162,13 @@ export function generateBlogPostingSchema(props: {
       '@type': 'WebPage',
       '@id': url,
     },
+    isPartOf: {
+      '@type': 'WebSite',
+      '@id': `${siteConfig.url}/#website`,
+    } as WebSite,
+    ...(wordCount ? { wordCount } : {}),
+    inLanguage: 'en',
+    isAccessibleForFree: true,
   };
 }
 
@@ -131,7 +182,7 @@ export function generateBlogPostingSchema(props: {
  * @param items - Array of breadcrumb items, each with a `name` and optional `url`.
  * @returns BreadcrumbList schema in JSON-LD format.
  */
-export function generateBreadcrumbSchema(items: Array<{ name: string; url?: string }>): WithContext<BreadcrumbList> {
+export function generateBreadcrumbSchema(items: Array<{ name: string; url?: string | undefined }>): WithContext<BreadcrumbList> {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -144,7 +195,8 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url?: stri
       // Only add item URL and @id if it's not empty (last item in breadcrumb)
       if (item.url && item.url !== '') {
         element.item = item.url;
-        (element as unknown as Record<string, unknown>)['@id'] = item.url;
+        // @id is a valid JSON-LD keyword but not modeled in schema-dts ListItem type
+        (element as ListItem & { '@id'?: string })['@id'] = item.url;
       }
       return element;
     }),
@@ -176,12 +228,9 @@ interface ResumeSchemaProps {
 export function generateResumeSchema(props: ResumeSchemaProps): WithContext<Person> {
   const { positions, degrees, certifications } = props;
 
-  const currentPosition = positions.find(p => !p.endDate);
-  const worksFor: Organization | undefined = currentPosition ? {
-    '@type': 'Organization',
-    name: currentPosition.employer,
-  } : undefined;
-
+  // Positions become work history (hasOccupation). The résumé deliberately does
+  // not assert a current employer (worksFor): roles overlap during transitions,
+  // and the sitewide Person intentionally claims no current employer.
   const hasOccupation: Occupation[] = positions.map(position => ({
     '@type': 'Occupation',
     name: position.title,
@@ -203,12 +252,20 @@ export function generateResumeSchema(props: ResumeSchemaProps): WithContext<Pers
     ...(cert.url && { url: cert.url }),
   }));
 
-  return generatePersonSchema({
-    worksFor,
+  const schema = generatePersonSchema({
     hasOccupation,
-    alumniOf,
-    hasCredential,
+    ...(alumniOf !== undefined ? { alumniOf } : {}),
+    ...(hasCredential !== undefined ? { hasCredential } : {}),
   });
+
+  // personFields() injects a default alumniOf (the former employer). The résumé
+  // supplies its own alumniOf from degrees; when there are none, drop the
+  // inherited default so it doesn't shadow the résumé's work history.
+  if (alumniOf === undefined) {
+    delete (schema as unknown as Record<string, unknown>).alumniOf;
+  }
+
+  return schema;
 }
 
 /**
@@ -217,8 +274,58 @@ export function generateResumeSchema(props: ResumeSchemaProps): WithContext<Pers
  */
 export function schemaToJsonLd(
   schema:
-    | WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList | ProfilePage>
-    | Array<WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList | ProfilePage>>
+    | WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList | ProfilePage | CollectionPage>
+    | Array<WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList | ProfilePage | CollectionPage>>
 ): string {
   return JSON.stringify(schema, null, 2);
+}
+
+/**
+ * Wrap multiple schemas in a single @graph envelope for JSON-LD.
+ * Strips individual @context from each schema and adds a single top-level @context.
+ */
+export function schemaToGraphJsonLd(
+  schemas: Array<WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList | ProfilePage | CollectionPage>>
+): string {
+  const stripped = schemas.map(s => {
+    // WithContext<T> adds '@context' to T; destructure it away with a type-safe cast
+    const { '@context': _, ...rest } = s as unknown as { '@context': string } & Record<string, unknown>;
+    return rest;
+  });
+  return JSON.stringify({ '@context': 'https://schema.org', '@graph': stripped }, null, 2);
+}
+
+/**
+ * Generate CollectionPage schema for listing pages (e.g., /posts/)
+ */
+export function generateCollectionPageSchema(props: {
+  name: string;
+  description: string;
+  url: string;
+  posts: Array<{ url: string; title: string }>;
+}): WithContext<CollectionPage> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': props.url,
+    name: props.name,
+    description: props.description,
+    url: props.url,
+    inLanguage: 'en',
+    isPartOf: {
+      '@type': 'WebSite',
+      '@id': `${siteConfig.url}/#website`,
+    } as WebSite,
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: props.posts.length,
+      itemListOrder: 'https://schema.org/ItemListOrderDescending',
+      itemListElement: props.posts.map((post, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: post.url,
+        name: post.title,
+      })),
+    },
+  } as WithContext<CollectionPage>;
 }

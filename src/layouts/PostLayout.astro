@@ -12,13 +12,15 @@ import Tldr from '../components/Tldr.astro';
 import MiniBio from '../components/MiniBio.astro';
 import Icon from '../components/Icon.astro';
 import { siteConfig } from '../config';
-import { calculateReadingTime, formatReadingTime } from '../utils/reading-time';
+import { calculateReadingTime, calculateWordCount } from '../utils/reading-time';
 import { generateBlogPostingSchema, schemaToJsonLd } from '../utils/structured-data';
-import { formatPostDate, getPostUrl } from '../utils/post-urls';
+import { formatPostDate } from '../utils/post-urls';
+import { getDocumentUri } from '../utils/standard-site';
 import ArchivedPostWarning from '../components/ArchivedPostWarning.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import PostNavigation from '../components/PostNavigation.astro';
 import TableOfContents from '../components/TableOfContents.astro';
+import TableOfContentsSidebar from '../components/TableOfContentsSidebar.astro';
 import ReadingList from '../components/ReadingList.astro';
 import ReadingProgress from '../components/ReadingProgress.astro';
 import KeepReading from '../components/KeepReading.astro';
@@ -31,29 +33,29 @@ import type { CollectionEntry } from 'astro:content';
 interface Props {
   title: string;
   description: string;
-  pubDate?: Date;
-  updatedDate?: Date;
-  image?: string;
+  tldr?: string | undefined;
+  pubDate?: Date | undefined;
+  updatedDate?: Date | undefined;
+  image?: string | undefined;
   author?: string;
-  tags?: string[];
   relatedPosts?: CollectionEntry<'posts'>[];
-  prevPost?: { title: string; url: string };
-  nextPost?: { title: string; url: string };
+  prevPost?: { title: string; url: string; readingTime?: number } | undefined;
+  nextPost?: { title: string; url: string; readingTime?: number } | undefined;
   archived?: boolean;
   postId: string;
-  postFilePath?: string;
-  posts?: Record<string, string> | string[];
-  roles?: Record<string, string> | string[];
+  postFilePath?: string | undefined;
+  posts?: Record<string, string> | string[] | undefined;
+  roles?: Record<string, string> | string[] | undefined;
 }
 
 const { 
   title, 
-  description, 
+  description,
+  tldr,
   pubDate, 
   updatedDate, 
   image,
   author = siteConfig.author,
-  tags = [],
   relatedPosts = [],
   prevPost,
   nextPost,
@@ -66,11 +68,15 @@ const {
 
 const formattedDate = pubDate ? formatPostDate(pubDate) : undefined;
 const postUrl = new URL(Astro.url.pathname, siteConfig.url).toString();
+// standard.site document AT-URI for the <head> link tag (null for posts before
+// the configured cutoff or with no publish date).
+const standardSiteDocumentUri = pubDate ? (getDocumentUri(postId, pubDate) ?? undefined) : undefined;
 const postFileName = postFilePath ? postFilePath.split('/').pop() : `${postId}.md`;
 
 // Calculate reading time using improved utility
 const content = await Astro.slots.render('default');
 const readingTime = calculateReadingTime(content);
+const wordCount = calculateWordCount(content);
 
 // Generate BlogPosting structured data for blog posts
 const blogPostingSchema = pubDate ? generateBlogPostingSchema({
@@ -81,6 +87,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   modifiedTime: updatedDate,
   image,
   author,
+  wordCount,
 }) : null;
 ---
 
@@ -92,15 +99,16 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   modifiedTime={updatedDate}
   image={image}
   author={author}
+  standardSiteDocumentUri={standardSiteDocumentUri}
 >
-  <div class="max-w-4xl mx-auto px-4">
-    <div>
-      <article data-pagefind-body>
+  <div class="max-w-4xl mx-auto px-4 xl:max-w-6xl">
+    <div class="xl:flex xl:gap-8">
+      <article data-pagefind-body class="xl:flex-1 xl:min-w-0 xl:max-w-4xl">
         <Breadcrumbs title={title} />
         <header class="mb-10">
-          <h1 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100" transition:name="page-title">{title}</h1>
+          <h1 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100">{title}</h1>
           
-          {readingTime > 0 && (
+          {readingTime >= 1 && (
             <div class="text-sm text-gray-600 dark:text-gray-300 mt-2 mb-6" data-pagefind-ignore>
               <span class="inline-flex items-center gap-1">
                 <Icon name="clock" /> {readingTime} min read
@@ -108,8 +116,8 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
             </div>
           )}
           
-          {description && (
-            <Tldr description={description} />
+          {(tldr || description) && (
+            <Tldr description={tldr || description} />
           )}
         </header>
         
@@ -126,7 +134,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
 
         <ReadingList posts={curatedPosts} roles={curatedRoles} />
 
-        <ReadingProgress />
+        <ReadingProgress readingTime={readingTime} />
         
         {pubDate && (
           <div class="mt-12 border-t border-gray-200 dark:border-gray-700 py-5 flex flex-wrap items-center justify-between gap-x-3 gap-y-3 text-sm text-gray-600 dark:text-gray-300" data-pagefind-ignore>
@@ -136,17 +144,6 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
               <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200" href={`${siteConfig.githubRepoUrl}/commits/main/src/content/posts/${postFileName}`} target="_blank" rel="noopener noreferrer" aria-label="View revision history">View revision history</a>
             </div>
             <ShareButtons title={title} url={postUrl} />
-          </div>
-        )}
-        
-        {tags.length > 0 && (
-          <div class="mt-2 mb-8" data-pagefind-ignore>
-            <div class="flex flex-wrap items-center gap-2">
-              <span class="text-xs text-gray-600 dark:text-gray-300 font-medium uppercase tracking-wide">Tags</span>
-              {tags.map((tag) => (
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 dark:bg-primary/20 text-primary-700 dark:text-primary-300 border border-primary/20 dark:border-primary/30" data-pagefind-filter="tag">{tag}</span>
-              ))}
-            </div>
           </div>
         )}
         
@@ -160,7 +157,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         <PostNavigation prevPost={prevPost} nextPost={nextPost} />
         
         <footer class="border-t border-gray-200 dark:border-gray-700 pt-8 mt-10 mb-8 post-footer">
-          <div class="mini-bio-card mb-6">
+          <div class="mini-bio-card mb-6 p-4 md:p-6">
             <MiniBio />
           </div>
 
@@ -187,7 +184,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
                 </span>
               </div>
             </div>
-            <span class="text-gray-500 dark:text-gray-400 group-hover:text-primary dark:group-hover:text-primary-300 transition-colors duration-200" aria-hidden="true">→</span>
+            <span class="text-gray-700 dark:text-gray-300 group-hover:text-primary dark:group-hover:text-primary-300 transition-colors duration-200" aria-hidden="true">→</span>
           </a>
         </footer>
         </div>
@@ -196,6 +193,8 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
       {blogPostingSchema && (
         <script type="application/ld+json" set:html={schemaToJsonLd(blogPostingSchema)} is:inline></script>
       )}
+
+      <TableOfContentsSidebar content={content} />
     </div>
   </div>
 </BaseLayout>
@@ -204,12 +203,23 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   import '../scripts/link-previews';
 </script>
 
+<script>
+  import mediumZoom from 'medium-zoom';
+
+  // Apply medium-zoom to all images in post content
+  // Excludes emoji images and icons for a clean zoom experience
+  mediumZoom('.post-content img:not([role="img"]):not(.icon)', {
+    margin: 24,
+    background: 'rgba(0, 0, 0, 0.85)',
+  });
+</script>
+
 <style>
   @reference "../styles/global.css";
   
   /* Enhanced mini bio card styling */
   .mini-bio-card {
-    @apply p-6 rounded-lg shadow-card;
+    @apply rounded-lg shadow-card;
     background: linear-gradient(
       135deg,
       color-mix(in srgb, var(--color-primary) 3%, transparent),
@@ -239,13 +249,6 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
 
   .open-source-cta:hover .open-source-icon {
     @apply bg-primary/20;
-  }
-  
-  /* Mobile adjustments */
-  @media (max-width: 767px) {
-    .mini-bio-card {
-      @apply p-4;
-    }
   }
   
   /* Dark mode adjustments */

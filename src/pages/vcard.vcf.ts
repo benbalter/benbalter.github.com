@@ -9,7 +9,6 @@ import {
   PhotoProperty,
   SourceProperty,
   TitleProperty,
-  OrgProperty,
   TzProperty,
   URLProperty,
   TextType,
@@ -30,7 +29,7 @@ import { siteConfig } from '../config';
  * Sanitize filename to only allow safe characters (alphanumeric, hyphens, underscores, periods)
  * This prevents HTTP header injection attacks via Content-Disposition header
  */
-function sanitizeFilename(name: string): string {
+export function sanitizeFilename(name: string): string {
   return name
     .toLowerCase()
     .replace(/\s+/g, '-')           // Replace spaces with hyphens
@@ -87,13 +86,9 @@ export const GET: APIRoute = () => {
     new SourceProperty([], new URIType(`${siteConfig.url}/vcard.vcf`)),
 
     // TITLE
-    new TitleProperty([], new TextType(siteConfig.jobTitle)),
-
-    // ORG (Organization)
-    new OrgProperty(
-      [],
-      new SpecialValueType('orgproperty', [new TextType(siteConfig.employer)])
-    ),
+    // Currently between full-time roles; present GitHub as a former role
+    // rather than asserting a current employer via ORG.
+    new TitleProperty([], new TextType(`Formerly ${siteConfig.formerJobTitle} at ${siteConfig.formerEmployer}`)),
 
     // TZ (Timezone)
     new TzProperty([], new TextType(siteConfig.timezone)),

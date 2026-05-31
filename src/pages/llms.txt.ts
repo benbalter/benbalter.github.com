@@ -64,7 +64,7 @@ export const GET: APIRoute = async () => {
   content += `${miniBio}\n\n`;
 
   content += `## About and Professional Information\n\n`;
-  content += `* [About](${siteConfig.url}/about/): Learn more about ${siteConfig.author}'s professional background and experience at ${siteConfig.employer}.\n`;
+  content += `* [About](${siteConfig.url}/about/): Learn more about ${siteConfig.author}'s professional background, including his work at ${siteConfig.formerEmployer}.\n`;
   
   if (resumePage) {
     content += `* [${resumePage.data.title}](${siteConfig.url}${resumePage.data.permalink}): ${resumePage.data.description}\n`;
@@ -136,7 +136,7 @@ export const GET: APIRoute = async () => {
 
   content += `\n## Site Information\n\n`;
   content += `* [RSS Feed](${siteConfig.url}/feed.xml): Subscribe to all posts\n`;
-  content += `* [Site Source Code](https://github.com/${siteConfig.githubRepo}): This site's source code on GitHub (Jekyll with experimental Astro implementation)\n`;
+  content += `* [Site Source Code](https://github.com/${siteConfig.githubRepo}): This site's source code on GitHub (Static site built with Astro)\n`;
   content += `* [Fine Print](${siteConfig.url}/fine-print/): Legal information and site policies\n`;
 
   return new Response(content, {

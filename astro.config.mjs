@@ -3,8 +3,11 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import favicons from 'astro-favicons';
-import compress from 'astro-compress';
+import compress from '@playform/compress';
+import checks from '@nuasite/checks';
 import expressiveCode from 'astro-expressive-code';
+import AutoImport from 'astro-auto-import';
+import { visualizer } from 'rollup-plugin-visualizer';
 import fetchAvatar from './src/lib/astro-fetch-avatar.ts';
 import {
   sharedRemarkPlugins,
@@ -44,7 +47,7 @@ export default defineConfig({
   site: 'https://ben.balter.com',
   base: '/',
   
-  // Trailing slashes to match static host conventions (GitHub Pages, Cloudflare Pages)
+  // Trailing slashes to match static host conventions (Cloudflare Workers Static Assets)
   trailingSlash: 'always',
 
   // Minify HTML output (removes whitespace, comments)
@@ -63,6 +66,13 @@ export default defineConfig({
   // Font optimization via Astro's built-in Fonts API
   // Self-hosted via Fontsource for privacy (no third-party requests)
   // Inter (sans-serif) for headings and UI; Lora (serif) for long-form prose
+  //
+  // display: 'swap' — always ends up on the real font (avoids the
+  // refresh-to-refresh inconsistency that `optional` produces when the font
+  // misses its 100ms budget). The visible font swap is softened by Astro's
+  // auto-generated size-adjust / ascent-override fallback (enabled by default
+  // when the last entry in `fallbacks` is a generic family like `sans-serif` or
+  // `serif`).
   fonts: [
     {
       provider: fontProviders.fontsource(),
@@ -72,7 +82,7 @@ export default defineConfig({
       styles: ['normal', 'italic'],
       subsets: ['latin'],
       fallbacks: ['sans-serif'],
-      display: 'optional',
+      display: 'swap',
     },
     {
       provider: fontProviders.fontsource(),
@@ -82,7 +92,7 @@ export default defineConfig({
       styles: ['normal', 'italic'],
       subsets: ['latin'],
       fallbacks: ['Georgia', 'serif'],
-      display: 'optional',
+      display: 'swap',
     },
   ],
   
@@ -112,6 +122,17 @@ export default defineConfig({
     layout: 'constrained',
     // Add global responsive image styles
     responsiveStyles: true,
+    // Codec-specific encoding defaults (Astro 6.1+)
+    // Applied to every image processed by Sharp during the build.
+    // Per-image `quality` still takes precedence when set.
+    service: {
+      config: {
+        jpeg: { mozjpeg: true },
+        webp: { effort: 6 },
+        avif: { effort: 4 },
+        png: { compressionLevel: 9 },
+      },
+    },
     domains: [
       // Amazon book covers (used in other-recommended-reading page)
       'images.amazon.com',
@@ -152,12 +173,24 @@ export default defineConfig({
         borderRadius: '0.375rem',
       },
     }),
+    // Auto-import common MDX components (must be before mdx)
+    AutoImport({
+      imports: [
+        // Site components available in all MDX files without explicit imports
+        './src/components/Callout.astro',
+        './src/components/GitHubCulture.astro',
+        './src/components/FossAtScale.astro',
+        './src/components/YouTube.astro',
+        // astro-embed components for zero-JS social embeds
+        {
+          'astro-embed': ['Tweet', 'Vimeo', 'LinkPreview'],
+        },
+      ],
+    }),
     mdx({
       // MDX configuration
       optimize: true,
-      // Support GitHub Flavored Markdown
-      remarkPlugins: sharedRemarkPlugins,
-      rehypePlugins: sharedRehypePlugins,
+      // remarkPlugins and rehypePlugins inherited from global markdown config
     }),
     sitemap({
       // Customize sitemap generation
@@ -191,16 +224,44 @@ export default defineConfig({
       },
     }),
     compress({
-      // Compress HTML, CSS, and JavaScript for better performance
-      CSS: true,
-      HTML: {
-        removeAttributeQuotes: false, // Keep quotes for better compatibility
-        collapseWhitespace: true,
-        conservativeCollapse: true,
+      // Compress HTML, CSS, JavaScript, SVG, and JSON for better performance
+      CSS: {
+        // Use lightningcss for faster, more modern CSS minification
+        lightningcss: {},
+        csso: false,
       },
-      Image: false, // Images are already optimized by Astro
+      HTML: {
+        'html-minifier-terser': {
+          removeAttributeQuotes: false, // Keep quotes for better compatibility
+          collapseWhitespace: true,
+          conservativeCollapse: true,
+          removeComments: true,
+          removeRedundantAttributes: false,
+          removeEmptyAttributes: true,
+          minifyCSS: true,
+          minifyJS: true,
+        },
+      },
+      Image: false, // Images are already optimized by Astro's Sharp pipeline
       JavaScript: true,
       SVG: true,
+      JSON: true,
+      Logger: 1, // Reduce build log noise (0=silent, 1=minimal, 2=verbose)
+    }),
+    checks({
+      // Validate SEO, accessibility, performance, and GEO at build time
+      mode: 'essential',
+      seo: true,
+      geo: true,
+      performance: true,
+      accessibility: true,
+      ai: false,
+      failOnError: true,
+      failOnWarning: false,
+      overrides: {
+        // Twitter rebranded; site uses twitter:card tags which are still valid
+        'seo/twitter-card': false,
+      },
     }),
   ],
   
@@ -218,7 +279,16 @@ export default defineConfig({
   // Vite configuration
   vite: {
     // Tailwind CSS v4 uses the Vite plugin instead of the deprecated @astrojs/tailwind integration
-    plugins: [tailwindcss()],
+    plugins: [
+      tailwindcss(),
+      // Bundle size analysis — generates dist-astro/stats.html on production builds
+      visualizer({
+        filename: 'dist-astro/stats.html',
+        gzipSize: true,
+        brotliSize: true,
+        emitFile: false,
+      }),
+    ],
     // Ensure compatibility with existing build tools
     build: {
       // Separate chunk directory to avoid conflicts

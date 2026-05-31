@@ -13,6 +13,14 @@ interface Props {
 }
 
 const { variant = 'inline' } = Astro.props;
+
+// Colorize ampersand to match footer treatment. Consume surrounding spaces
+// so mx-1 controls the total whitespace (natural spaces + margin would add
+// up to an uncomfortably wide gap in prose-sized text).
+const bookTitleHtml = siteConfig.bookTitle.replace(
+  /\s*&\s*/g,
+  '<span class="text-primary dark:text-primary-300 mx-1">&amp;</span>',
+);
 ---
 
 {variant === 'featured' ? (
@@ -20,7 +28,7 @@ const { variant = 'inline' } = Astro.props;
     href={siteConfig.bookUrl}
     target="_blank"
     rel="noopener noreferrer"
-    class="not-prose block rounded-xl border border-primary/20 dark:border-primary/30 p-8 md:p-10 relative group hover:border-primary/40 dark:hover:border-primary/50 hover:shadow-lg transition-all duration-200 no-underline book-cta-featured"
+    class="not-prose block rounded-xl border border-primary/20 dark:border-primary/30 p-8 md:p-10 relative group hover:border-primary/40 dark:hover:border-primary/50 hover:shadow-lg transition-all duration-200 no-underline book-cta-featured motion-safe:animate-fade-up"
   >
     <div class="flex flex-col md:flex-row md:items-center gap-6">
       <div class="shrink-0 text-center md:text-left">
@@ -31,7 +39,7 @@ const { variant = 'inline' } = Astro.props;
           New book
         </p>
         <p class="text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-          {siteConfig.bookTitle}: {siteConfig.bookDescription}
+          <Fragment set:html={bookTitleHtml} />: {siteConfig.bookDescription}
         </p>
         <p class="text-sm text-gray-600 dark:text-gray-300 mb-0">
           Drawing on a decade at GitHub, these posts are becoming a playbook for thriving in distributed work. Sign up to get notified when it launches.
@@ -53,7 +61,7 @@ const { variant = 'inline' } = Astro.props;
           Like this post? It's becoming a book.
         </p>
         <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
-          <em>{siteConfig.bookTitle}</em> distills a decade of posts like this into a playbook for remote and distributed teams.
+          <em><Fragment set:html={bookTitleHtml} /></em> distills a decade of posts like this into a playbook for remote and distributed teams.
         </p>
         <a
           href={siteConfig.bookUrl}

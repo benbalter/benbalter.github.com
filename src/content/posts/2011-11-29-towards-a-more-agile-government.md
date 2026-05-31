@@ -1,6 +1,7 @@
 ---
 title: Towards a More Agile Government
-description: Federal IT procurement spends billions a year, yet fewer than 9% of projects ship on time and on budget. The fix requires both regulatory reform and a cultural shift toward agile.
+description: Federal IT spends billions annually, yet fewer than 9% of projects ship on time and on budget. The fix requires regulatory reform and agile.
+tldr: "Federal IT procurement spends billions a year, yet fewer than 9% of projects ship on time and on budget. The fix requires both regulatory reform and a cultural shift toward agile."
 ---
 
 <!--lint disable retext-spell-->

@@ -45,7 +45,14 @@ export const GET: APIRoute = ({ site }) => {
   // Use the site URL from Astro config for portability
   const siteUrl = site?.origin ?? 'https://ben.balter.com';
   
+  // Content Signals (contentsignals.org, draft-romm-aipref-contentsignals)
+  // Declares AI content usage preferences: search indexing, AI training, and
+  // AI input (retrieval for generative answers) are all welcomed for this
+  // public personal blog, consistent with the site's openly-published llms.txt.
+  const contentSignal = 'Content-Signal: search=yes, ai-train=yes, ai-input=yes';
+
   const content = `User-agent: *
+${contentSignal}
 ${disallowLines}
 Allow: /
 Sitemap: ${siteUrl}/sitemap-index.xml

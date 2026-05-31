@@ -8,6 +8,7 @@
  * - Headings ending with periods
  * - Broken internal links
  * - Internal links with missing trailing slashes (to match static hosting behavior)
+ * - Generic/non-descriptive link text (e.g., "click here", "read more")
  */
 
 import { describe, it, expect } from 'vitest';
@@ -185,13 +186,14 @@ describe('prose quality', () => {
         const lines = content.split('\n');
         
         lines.forEach((line, idx) => {
-          // Skip lines with data-proofer-ignore attribute
-          if (line.includes('data-proofer-ignore')) {
+          // Skip lines marked with <!-- lychee-ignore --> (intentionally
+          // broken/demo links that the link checker is configured to skip)
+          if (line.includes('lychee-ignore')) {
             return;
           }
-          
-          // Skip if previous line has data-proofer-ignore comment
-          if (idx > 0 && lines[idx - 1].includes('data-proofer-ignore')) {
+
+          // Skip if previous line has a lychee-ignore comment
+          if (idx > 0 && lines[idx - 1].includes('lychee-ignore')) {
             return;
           }
           
@@ -201,7 +203,7 @@ describe('prose quality', () => {
             const url = match[2];
             
             // Skip generated files
-            if (url.startsWith('/sitemap.xml')) {
+            if (url.startsWith('/sitemap.xml') || url.startsWith('/sitemap-index.xml')) {
               continue;
             }
             
@@ -249,6 +251,43 @@ describe('prose quality', () => {
         expect(
           internalLinksWithoutTrailingSlash,
           `Internal links should have trailing slashes to match static hosting behavior. Links without trailing slashes: ${internalLinksWithoutTrailingSlash.join(', ')}`
+        ).toHaveLength(0);
+      });
+
+      it('does not use generic link text', () => {
+        // Generic/non-descriptive link text patterns (case-insensitive)
+        const genericPatterns = /^\s*(click here|here|this|link|this link|read more)\s*$/i;
+        
+        // Track code block state
+        let inCodeBlock = false;
+        const genericLinks: string[] = [];
+        
+        content.split('\n').forEach((line, idx) => {
+          // Skip code fence markers themselves
+          if (/^\s*```/.test(line)) {
+            inCodeBlock = !inCodeBlock;
+            return;
+          }
+          
+          // Skip code blocks (fenced or indented)
+          if (inCodeBlock || line.startsWith('    ')) {
+            return;
+          }
+          
+          // Extract markdown links: [text](url)
+          const linkMatches = line.matchAll(/\[([^\]]+)\]\([^)]+\)/g);
+          for (const match of linkMatches) {
+            const linkText = match[1];
+            
+            if (genericPatterns.test(linkText)) {
+              genericLinks.push(`Line ${idx + 1}: [${linkText}]`);
+            }
+          }
+        });
+        
+        expect(
+          genericLinks,
+          `Found generic/non-descriptive link text (use descriptive text instead):\n${genericLinks.slice(0, 10).join('\n')}`
         ).toHaveLength(0);
       });
     });

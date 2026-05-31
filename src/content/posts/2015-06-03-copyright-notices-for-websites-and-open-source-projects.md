@@ -1,6 +1,7 @@
 ---
 title: Copyright notices for open source projects
-description: "What is the appropriate copyright notice for open source projects? Who is the copyright holder? What year should you put? Do you even need a copyright notice in the first place?"
+description: "Who holds the copyright? What year do you use? Do you even need a notice? Everything you need to know about open source copyright."
+tldr: "What is the appropriate copyright notice for open source projects? Who is the copyright holder? What year should you put? Do you even need a copyright notice in the first place?"
 ---
 
 The question's come up several times, as to what's the appropriate copyright notice for the footer of documentation sites or in an open source project's license. In short, assuming your project's under active development, it should be:

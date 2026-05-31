@@ -1,6 +1,7 @@
 ---
 title: Why isn't all government software open source?
-description: An entire value chain — from enterprise FUD to closed-source contractors to a culture of no — conspires to keep taxpayer-funded code behind the firewall. It doesn't have to be that way.
+description: From enterprise FUD to closed-source contractors to a culture of no, an entire value chain keeps taxpayer-funded code behind the firewall.
+tldr: "An entire value chain — from enterprise FUD to closed-source contractors to a culture of no — conspires to keep taxpayer-funded code behind the firewall. It doesn't have to be that way."
 ---
 
 The federal government is the single largest purchaser of code in the world. So why is this code — taxpayer-funded and integral to the day-to-day working of our democracy — so often hidden from public view? There are two sides to answering that question: Why does the government so often build on closed platforms, and once built, why isn't the code released to the public?

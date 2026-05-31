@@ -1,6 +1,7 @@
 ---
 title: 'Explain like I''m five: Jekyll collections'
-description: "Jekyll collections extend the post and page model to support content that isn't dated but shares a relationship with other content -- like team members, product listings, or recipes."
+description: "Jekyll collections extend posts and pages to support non-dated but related content -- like team members, products, or recipes."
+tldr: "Jekyll collections extend the post and page model to support content that isn't dated but shares a relationship with other content -- like team members, product listings, or recipes."
 ---
 
 Collections are Jekyll's most powerful and simultaneously least understood feature. If you're not familiar with [Jekyll](http://jekyllrb.com/), Jekyll is a static site generator. Think of it like a content management system (CMS), [without all the complexity](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/) and headache. No need to build a giant content-strangling Rube Goldberg machine to "manage" content, if all you're doing at the end of the day is putting out HTML, JavaScript, and CSS, the building blocks of the internet. As a result, Jekyll gets out of your way and [allows you to concentrate on what truly matters](https://ben.balter.com/2012/10/01/welcome-to-the-post-cms-world/): your content.

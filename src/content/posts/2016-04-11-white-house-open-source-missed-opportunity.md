@@ -1,6 +1,7 @@
 ---
 title: The missed opportunity that is the White House Open Source Policy
-description: "Requiring the world's largest producer of code to open source only 20% is a missed opportunity. A three-year pilot won't yield results we don't already know."
+description: "Requiring the world's largest code producer to open source only 20% is a lost opportunity. A three-year pilot won't yield results we don't already know."
+tldr: "Requiring the world's largest producer of code to open source only 20% is a missed opportunity. A three-year pilot won't yield results we don't already know."
 ---
 
 *A modified version of this post originally appeared as [an Op-Ed on FCW.com](https://fcw.com/articles/2016/04/11/balter-open-source-opinion.aspx)*.

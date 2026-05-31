@@ -1,6 +1,5 @@
 ---
 title: Analysis of Federal Executive .govs (Part Deux)
-comments: true
 description: Revisiting 1,229 federal .gov domains three years later to measure SSL, IPv6, CMS adoption, and open data compliance. The results are decidedly mixed.
 ---
 

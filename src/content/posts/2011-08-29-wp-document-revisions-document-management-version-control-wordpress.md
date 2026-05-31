@@ -1,6 +1,7 @@
 ---
 title: WP Document Revisions — Document Management and Version Control for WordPress
-description: An open-source document management and version control plugin for WordPress. Collaboratively edit files of any format while tracking progress through your workflow.
+description: Open-source document management and version control for WordPress. Collaboratively edit files of any format and track workflow progress.
+tldr: "An open-source document management and version control plugin for WordPress. Collaboratively edit files of any format while tracking progress through your workflow."
 ---
 
 [WP Document Revisions](http://wordpress.org/extend/plugins/wp-document-revisions/) is a [document management](http://en.wikipedia.org/wiki/Document_management_system) and [version control](http://en.wikipedia.org/wiki/Revision_control) plugin. Built for time-sensitive and mission-critical projects, teams can collaboratively edit files of any format — text documents, spreadsheets, images, sheet music… anything — all the while, seamlessly tracking the document's progress as it moves through your organization's existing workflow.

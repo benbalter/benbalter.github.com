@@ -46,6 +46,21 @@ describe('front matter validation', () => {
         expectNonEmptyField(frontMatter.description, 'description', `Post ${fileName}`);
       });
     });
+
+    it('should have descriptions no longer than 300 characters', () => {
+      const postFiles = readdirSync(postsDir).filter(file => file.endsWith('.md'));
+
+      postFiles.forEach(fileName => {
+        const filePath = join(postsDir, fileName);
+        const frontMatter = readFrontMatter(filePath);
+        const description = String(frontMatter.description ?? '');
+
+        expect(
+          description.length,
+          `Post ${fileName} description is ${description.length} chars (max 300, ideal ≤160 for SERP)`
+        ).toBeLessThanOrEqual(300);
+      });
+    });
   });
 
   describe('pages', () => {

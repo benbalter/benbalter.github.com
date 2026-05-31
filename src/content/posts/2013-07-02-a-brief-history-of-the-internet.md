@@ -1,7 +1,7 @@
 ---
-comments: true
 title: Bet on the little guy
-description: On the internet, simple and open formats always win. From HTTP to JSON to Markdown, the lightweight underdog consistently defeats its heavyweight, proprietary rival.
+description: On the internet, simple and open formats always win. From HTTP to JSON to Markdown, the lightweight underdog consistently beats its proprietary rival.
+tldr: "On the internet, simple and open formats always win. From HTTP to JSON to Markdown, the lightweight underdog consistently defeats its heavyweight, proprietary rival."
 ---
 
 When one tells the story of the internet, a David and Goliath motif emerges. Every time a technical challenged is faced, a new standard is needed, or a new design pattern takes center stage, two camps eventually emerge:

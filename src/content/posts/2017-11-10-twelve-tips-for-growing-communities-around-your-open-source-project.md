@@ -1,6 +1,7 @@
 ---
 title: Twelve tips for growing communities around your open source project
-description: Publishing code isn't enough. Twelve practical tips for open source maintainers to attract users, welcome contributors, and grow a healthy community around their project.
+description: Publishing code isn't enough. Twelve practical tips to attract users, welcome contributors, and grow a healthy open source community.
+tldr: "Publishing code isn't enough. Twelve practical tips for open source maintainers to attract users, welcome contributors, and grow a healthy community around their project."
 ---
 
 The superficial promise of open source is that if you publish your code, others will make it better. Strictly speaking, that's not the case. To reap the benefits of open source, maintainers must seek to grow communities around their project, a step often overlooked when "publishing" code.

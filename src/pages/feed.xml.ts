@@ -6,11 +6,12 @@
  */
 
 import rss from '@astrojs/rss';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import type { APIContext } from 'astro';
 import { createMarkdownProcessor } from '@astrojs/markdown-remark';
 import { siteConfig } from '../config';
 import { getDateFromSlug, getPostUrl } from '../utils/post-urls';
+import { getPublishedPosts } from '../utils/posts';
 import {
   sharedRemarkPlugins,
   sharedRehypePlugins,
@@ -30,9 +31,7 @@ const markdownProcessor = createMarkdownProcessor({
 
 export async function GET(context: APIContext) {
   // Get all published posts, sorted by date (newest first)
-  const posts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => {
-    return data.published !== false;
-  });
+  const posts = await getPublishedPosts();
   
   // Sort posts by filename date (newest first)
   const sortedPosts = posts.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => {

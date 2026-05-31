@@ -133,7 +133,7 @@ generating optimized images
 
 - **Inline stylesheets:** CSS inlined via `inlineStylesheets: 'always'` to eliminate render-blocking requests
 - **Tree-shaking:** Vite automatically tree-shakes unused code
-- **Compression:** `astro-compress` integration compresses HTML, CSS, JavaScript, and SVG
+- **Compression:** `@playform/compress` integration compresses HTML, CSS, JavaScript, and SVG
 - **FontAwesome SVG:** Uses SVG-based icons (no icon font overhead)
 - **Tailwind CSS v4 purging:** Automatically purges unused utility classes during build
   - Only used utilities are included in the final bundle

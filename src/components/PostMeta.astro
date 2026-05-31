@@ -1,0 +1,27 @@
+---
+/**
+ * PostMeta Component
+ *
+ * Displays post metadata: date and reading time, separated by a dot.
+ * Used in PostCard and KeepReading components.
+ */
+
+import { formatReadingTime } from '../utils/reading-time';
+
+interface Props {
+  /** Formatted display date string */
+  date: string;
+  /** ISO 8601 date for datetime attribute */
+  isoDate: string;
+  /** Reading time in minutes */
+  readingTime: number;
+  /** Separator spacing class */
+  separatorClass?: string;
+}
+
+const { date, isoDate, readingTime, separatorClass = 'mx-1' } = Astro.props;
+---
+
+<time datetime={isoDate}>{date}</time>
+<span class={separatorClass} aria-hidden="true">·</span>
+<span>{formatReadingTime(readingTime)}</span>

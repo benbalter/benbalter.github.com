@@ -1,6 +1,7 @@
 ---
 title: Twitter Mentions as Comments WordPress Plugin
-description: Twiter Mentions as Comments does exactly what it promises to do -- scours Twitter for people talking about your blog posts and silently inserts their Tweets alongside your existing comments.
+description: A WordPress plugin that scours Twitter for mentions of your blog posts and inserts them as comments using WordPress's built-in system.
+tldr: "Twiter Mentions as Comments does exactly what it promises to do -- scours Twitter for people talking about your blog posts and silently inserts their Tweets alongside your existing comments."
 archived: true
 ---
 

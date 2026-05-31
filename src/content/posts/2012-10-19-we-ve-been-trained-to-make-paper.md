@@ -1,7 +1,6 @@
 ---
 title: We've been trained to make paper
 description: If the internet is the primary medium by which content is consumed, shouldn't that be the primary medium for which content is prepared?
-comments: true
 published: true
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: An open letter to government CIOs
-description: Government CIOs don't need bigger budgets or more staff. They need to build lean, iterate quickly, decentralize decisions, and embrace open source as a way of working.
+description: Government CIOs don't need bigger budgets or more staff. They need to build lean, iterate quickly, and embrace open source as a way of working.
+tldr: "Government CIOs don't need bigger budgets or more staff. They need to build lean, iterate quickly, decentralize decisions, and embrace open source as a way of working."
 ---
 
 Hey there government CIOs. I've noticed you've been getting a bit of a bad rap recently. And I have to say, with all the stories of multi-million dollar sites going around, I'm not sure that I can fault your critics. But don't get down on yourself, at least not yet. You're still in great shape. You've got ample resources; you've got smart, well-intentioned people working for you; and you've got more low-hanging fruit than most private-sector CIOs can ever dream of.

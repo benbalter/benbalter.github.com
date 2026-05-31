@@ -1,6 +1,7 @@
 ---
 title: What's next for federal IT policy, IMHO
-description: "Federal IT policy needs to move beyond PDF-based, cold-war-era workflows and alphabet-soup compliance. Next up: fostering a culture of openness and rethinking the laws that hold developers back."
+description: "Federal IT policy needs to move past cold-war-era workflows and alphabet-soup compliance toward a culture of openness."
+tldr: "Federal IT policy needs to move beyond PDF-based, cold-war-era workflows and alphabet-soup compliance. Next up: fostering a culture of openness and rethinking the laws that hold developers back."
 ---
 
 While a government employee, as a developer and as an attorney, I had the opportunity to work in government IT, from both a technical perspective, implementing policy at various government agencies, and from a policy perspective, shaping that same policy at the White House. Here's what's next for federal IT policy, IMHO:
@@ -17,7 +18,7 @@ On a substantive level, the bulk of the policies we've seen have, by-and-large, 
 
 1. **Culture and education** - We can't run the government of the 21st century with [20th century skills and workflows](https://ben.balter.com/2014/03/21/want-to-innovate-in-government-focus-on-culture/), and the way to get there is to cross-pollinate life in government with life outside the beltway. Attending non-government technology conferences, speaking freely about one's work (both online and off) without stringent approval requirements, and streaming best-of-breed technologists from the private sector across government for an hour each week to simply show how they approach basic things like deployment, customer service, or managing risk will go a long way to bridge that divide.
 
-2. **Anachronistic laws** - Most developers in government are well versed in [the alphabet soup](https://ben.balter.com/government-glossary/) that is the PRA, FISMA, FAR, and ATOs. That shouldn't be the case. We need to let software developers be software developers, not *de facto* lawyers. Policy folks need to rethink how we approach hiring (so we can attract and retain great developers, rather than contracting that role out), how we evaluate risk (so we can lower the minimum batch size before it becomes practical for a project to go out the door), and how we structure contracts (so that developers, not contract officers or tradition prescribe what's needed).
+2. **Anachronistic laws** - Most developers in government are well versed in the alphabet soup that is the PRA, FISMA, FAR, and ATOs. That shouldn't be the case. We need to let software developers be software developers, not *de facto* lawyers. Policy folks need to rethink how we approach hiring (so we can attract and retain great developers, rather than contracting that role out), how we evaluate risk (so we can lower the minimum batch size before it becomes practical for a project to go out the door), and how we structure contracts (so that developers, not contract officers or tradition prescribe what's needed).
 
 There's been a lot of great momentum generated from the policy side, giving the geeks the environment they need to do what they do best, but [that's just the start](https://18f.gsa.gov).
 

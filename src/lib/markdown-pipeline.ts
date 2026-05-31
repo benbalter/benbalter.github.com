@@ -11,12 +11,14 @@ import remarkEmoji from 'remark-emoji';
 import remarkGfm from 'remark-gfm';
 import remarkSmartypants from 'remark-smartypants';
 import remarkTextr from 'remark-textr';
+import remarkDirective from 'remark-directive';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
 import rehypeRaw from 'rehype-raw';
 import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 import { remarkGitHubMentions } from './remark-github-mentions';
+import { remarkCalloutDirectives } from './remark-callout-directives';
 import { rehypeRelativeUrls } from './rehype-relative-urls';
 import { rehypeBootstrapTables } from './rehype-bootstrap-tables';
 import { rehypeImageLoading } from './rehype-image-loading';
@@ -24,21 +26,13 @@ import { rehypeFigure } from './rehype-figure';
 import { rehypeFootnoteA11y } from './rehype-footnote-a11y';
 
 // Typography plugins for remark-textr
-// @ts-expect-error - No type definitions available
 import typographicArrows from 'typographic-arrows';
-// @ts-expect-error - No type definitions available
 import typographicCopyright from 'typographic-copyright';
-// @ts-expect-error - No type definitions available
 import typographicEmDashes from 'typographic-em-dashes';
-// @ts-expect-error - No type definitions available
 import typographicEnDashes from 'typographic-en-dashes';
-// @ts-expect-error - No type definitions available
 import typographicMathSymbols from 'typographic-math-symbols';
-// @ts-expect-error - No type definitions available
 import typographicRegisteredTrademark from 'typographic-registered-trademark';
-// @ts-expect-error - No type definitions available
 import typographicSingleSpaces from 'typographic-single-spaces';
-// @ts-expect-error - No type definitions available
 import typographicTrademark from 'typographic-trademark';
 
 // Shared rehype plugin configurations
@@ -84,6 +78,9 @@ export const sharedRemarkPlugins = [
   remarkEmoji,
   remarkSmartypants,
   remarkGitHubMentions,
+  // Directive syntax (:::note, :::warning, etc.) and callout transformer
+  remarkDirective,
+  remarkCalloutDirectives,
   remarkTextrConfig,
 ];
 

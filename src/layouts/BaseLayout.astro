@@ -8,30 +8,31 @@
 
 import { SEO } from 'astro-seo';
 import { Font } from 'astro:assets';
-import { ClientRouter } from 'astro:transitions';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import BackToTop from '../components/BackToTop.astro';
 import SearchModal from '../components/SearchModal.astro';
 import { siteConfig, socialLinks } from '../config';
-import { generatePersonSchema, generateProfilePageSchema, generateWebSiteSchema, generateBreadcrumbSchema, schemaToJsonLd } from '../utils/structured-data';
+import { generatePersonSchema, generateProfilePageSchema, generateWebSiteSchema, generateBreadcrumbSchema, schemaToGraphJsonLd } from '../utils/structured-data';
 import '../styles/global.css';
 
 interface Props {
   title?: string;
   description?: string;
-  image?: string;
+  image?: string | undefined;
   type?: 'website' | 'article';
-  publishedTime?: Date;
-  modifiedTime?: Date;
+  publishedTime?: Date | undefined;
+  modifiedTime?: Date | undefined;
   author?: string;
   keywords?: string[];
   noindex?: boolean;
   hero?: boolean;
+  suppressPersonSchema?: boolean;
+  standardSiteDocumentUri?: string | undefined;
 }
 
-const { 
-  title = siteConfig.name, 
+const {
+  title = siteConfig.name,
   description = siteConfig.description,
   image,
   type = 'website',
@@ -41,25 +42,42 @@ const {
   keywords = siteConfig.keywords,
   noindex = false,
   hero = false,
+  suppressPersonSchema = false,
+  standardSiteDocumentUri,
 } = Astro.props;
 
-const fullTitle = title === siteConfig.name ? `${title} | ${siteConfig.description}` : `${title} | ${siteConfig.name}`;
-const canonicalUrl = new URL(Astro.url.pathname, siteConfig.url).toString();
+const fullTitle = title === siteConfig.name ? `${title}: ${siteConfig.description}` : `${title} | ${siteConfig.name}`;
+// Normalize canonical URL: ensure trailing slash on non-root paths so Astro's
+// trailingSlash="always" config is consistently reflected in <link rel="canonical">.
+const rawPath = Astro.url.pathname || '/';
+const canonicalPath = rawPath === '/' || rawPath.endsWith('/') || /\.[a-z0-9]+$/i.test(rawPath)
+  ? rawPath
+  : rawPath + '/';
+const canonicalUrl = new URL(canonicalPath, siteConfig.url).toString();
 
-// Default OG image if none provided
-const ogImage = image 
+// Default OG image if none provided. The generated per-post OG images at
+// /og/YYYY/MM/DD/slug.png and the site-wide default at /og/default.png are
+// both 1200x630, so we can always advertise those dimensions.
+const ogImage = image
   ? new URL(image, siteConfig.url).toString()
-  : new URL('/assets/img/headshot.jpg', siteConfig.url).toString();
+  : new URL('/og/default.png', siteConfig.url).toString();
+// Only advertise og:image dimensions for our own generated cards, which are
+// always 1200x630 (the site-wide /og/default.png and the per-post
+// /og/YYYY/MM/DD/slug.png). Custom frontmatter images are arbitrary sizes, so
+// claiming 1200x630 for them would mislead scrapers; let them measure instead.
+const ogImageIsGenerated = !image || image.startsWith('/og/');
 
 // Generate structured data (JSON-LD) for SEO
 // Use ProfilePage on homepage (a Google-supported rich result type), Person elsewhere
 const isHomepage = Astro.url.pathname === '/' || Astro.url.pathname === '';
-const primarySchema = isHomepage ? generateProfilePageSchema() : generatePersonSchema();
+const primarySchema = isHomepage 
+  ? generateProfilePageSchema() 
+  : (suppressPersonSchema ? null : generatePersonSchema());
 const websiteSchema = generateWebSiteSchema();
 
 // Generate breadcrumb schema based on URL path
 const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
-const breadcrumbItems: Array<{ name: string; url?: string }> = [
+const breadcrumbItems: Array<{ name: string; url?: string | undefined }> = [
   { name: 'Home', url: siteConfig.url }
 ];
 
@@ -81,9 +99,16 @@ if (blogPostPattern.test(Astro.url.pathname)) {
       word.length > 0 ? word.charAt(0).toUpperCase() + word.slice(1) : ''
     ).join(' ');
     const isLastItem = index === pathSegments.length - 1;
-    breadcrumbItems.push({ 
-      name, 
-      url: isLastItem ? undefined : currentPath
+    // Normalize non-last breadcrumb URLs with a trailing slash to match the
+    // site's trailingSlash:'always' config and canonical URL convention.
+    const itemUrl = isLastItem
+      ? undefined
+      : (currentPath.endsWith('/') || /\.[a-z0-9]+$/i.test(currentPath)
+          ? currentPath
+          : `${currentPath}/`);
+    breadcrumbItems.push({
+      name,
+      url: itemUrl,
     });
   });
 }
@@ -91,13 +116,11 @@ if (blogPostPattern.test(Astro.url.pathname)) {
 const breadcrumbSchema = pathSegments.length > 0 ? generateBreadcrumbSchema(breadcrumbItems) : null;
 
 // Combine all schemas
-const schemas = breadcrumbSchema 
-  ? [primarySchema, websiteSchema, breadcrumbSchema]
-  : [primarySchema, websiteSchema];
+const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean) as Array<typeof websiteSchema>;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en-US">
   <head>
     <!-- SEO Meta Tags (via astro-seo) -->
     <SEO
@@ -120,15 +143,14 @@ const schemas = breadcrumbSchema
           siteName: siteConfig.name,
         },
         image: {
-          width: 1200,
-          height: 630,
-          alt: description,
+          alt: title,
+          ...(ogImageIsGenerated ? { width: 1200, height: 630 } : {}),
         },
         ...(type === 'article' && publishedTime ? {
           article: {
             publishedTime: publishedTime.toISOString(),
-            modifiedTime: modifiedTime?.toISOString(),
-            authors: author ? [author] : undefined,
+            ...(modifiedTime ? { modifiedTime: modifiedTime.toISOString() } : {}),
+            ...(author ? { authors: [author] } : {}),
           }
         } : {}),
       }}
@@ -139,12 +161,11 @@ const schemas = breadcrumbSchema
         title: fullTitle,
         description: description,
         image: ogImage,
-        imageAlt: description,
+        imageAlt: title,
       }}
       extend={{
         meta: [
           // Compatibility and Viewport
-          { httpEquiv: 'X-UA-Compatible', content: 'IE=edge,chrome=1' },
           { name: 'viewport', content: 'width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover' },
           // Generator and Author
           { name: 'generator', content: Astro.generator },
@@ -173,6 +194,10 @@ const schemas = breadcrumbSchema
           { rel: 'dns-prefetch', href: 'https://user-images.githubusercontent.com' },
           // RSS Feed
           { rel: 'alternate', type: 'application/rss+xml', title: `${siteConfig.name} - RSS Feed`, href: '/feed.xml' },
+          // standard.site (https://standard.site/) AT Protocol verification:
+          // document link tag on qualifying posts; publication link tag on the homepage.
+          ...(standardSiteDocumentUri ? [{ rel: 'site.standard.document', href: standardSiteDocumentUri }] : []),
+          ...(isHomepage && siteConfig.standardSite.publicationUri ? [{ rel: 'site.standard.publication', href: siteConfig.standardSite.publicationUri }] : []),
           // Hero image preload
           ...(hero ? [{ rel: 'preload', href: '/assets/img/header.jpg', as: 'image', fetchPriority: 'high' as const }] : []),
         ],
@@ -180,17 +205,19 @@ const schemas = breadcrumbSchema
     />
     
     <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json" set:html={schemaToJsonLd(schemas)} is:inline></script>
+    <script type="application/ld+json" set:html={schemaToGraphJsonLd(schemas)} is:inline></script>
     
-    <!-- Font optimization via Astro Fonts API (no preload: font-display optional
-         means the browser skips fonts not available immediately, so preloading
-         them would waste bandwidth competing with critical JS) -->
+    <!-- Font optimization via Astro Fonts API. display:'swap' + Astro's
+         auto-generated size-adjust fallbacks (declared in astro.config.mjs)
+         keep the fallback-to-real-font transition nearly invisible while
+         guaranteeing the real font always ends up rendered. -->
     <Font cssVariable="--font-inter" />
     <Font cssVariable="--font-lora" />
-    
-    <!-- Astro View Transitions (ClientRouter) for smooth page navigation -->
-    <ClientRouter />
-    
+
+    <!-- Prefetch Kit API for faster subscribe form submission -->
+    <link rel="dns-prefetch" href="https://app.kit.com" />
+    <link rel="preconnect" href="https://app.kit.com" crossorigin />
+
     <!-- Note: Title, favicons, meta tags, social links, resource hints, and RSS feed
          are all declared in the SEO component above. Do not duplicate them here. -->
   </head>
@@ -205,7 +232,7 @@ const schemas = breadcrumbSchema
       
       <Navigation hero={hero} />
       
-      <main id="content" role="main" class="content" tabindex="-1" transition:animate="fade">
+      <main id="content" role="main" class="content" tabindex="-1">
         <slot />
       </main>
       

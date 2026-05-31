@@ -1,18 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
-import { getPostUrl, getDateFromSlug, formatPostDate, formatISODate } from '../utils/post-urls';
-import { calculateReadingTime } from '../utils/reading-time';
+import type { CollectionEntry } from 'astro:content';
+import { getDateFromSlug, getPostUrl } from '../utils/post-urls';
+import { getPublishedPosts } from '../utils/posts';
+import { getPostMetadata } from '../utils/post-metadata';
 import PostCard from '../components/PostCard.astro';
-import FeaturedPostCard from '../components/FeaturedPostCard.astro';
-import { popularPostSlugs } from '../config';
+import { popularPostSlugs, siteConfig } from '../config';
+import { generateCollectionPageSchema, schemaToJsonLd } from '../utils/structured-data';
 
-const title = 'All Posts';
-const description = 'A complete archive of all blog posts.';
+const title = 'Blog';
+const description = 'Blog posts on technology leadership, open source, remote work, and collaboration by Ben Balter — from practical management advice to engineering culture.';
 
-const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => {
-  return data.published !== false && data.archived !== true;
-});
+const allPosts = await getPublishedPosts();
 
 const posts: CollectionEntry<'posts'>[] = allPosts.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) =>
   b.id.localeCompare(a.id)
@@ -32,15 +31,15 @@ for (const post of posts) {
 }
 const years = [...postsByYear.keys()].sort((a, b) => b - a);
 
-function getPostMetadata(post: CollectionEntry<'posts'>) {
-  const postDate = getDateFromSlug(post.id);
-  return {
-    postUrl: getPostUrl(post.id),
-    date: formatPostDate(postDate),
-    isoDate: formatISODate(postDate),
-    readingTime: calculateReadingTime(post.body),
-  };
-}
+const collectionSchema = generateCollectionPageSchema({
+  name: title,
+  description,
+  url: new URL('/posts/', siteConfig.url).toString(),
+  posts: posts.map(post => ({
+    url: new URL(getPostUrl(post.id), siteConfig.url).toString(),
+    title: post.data.title,
+  })),
+});
 ---
 
 <BaseLayout title={title} description={description}>
@@ -53,7 +52,7 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
     {years.map((year) => (
       <a
         href={`#${year}`}
-        class="text-sm px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-primary hover:text-primary dark:hover:border-primary-300 dark:hover:text-primary-300 no-underline transition-colors"
+        class="text-sm px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-primary hover:text-primary dark:hover:border-primary-300 dark:hover:text-primary-300 no-underline transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
       >
         {year}
       </a>
@@ -68,7 +67,8 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
           const { postUrl, date, isoDate, readingTime } = getPostMetadata(post);
           return (
             <div class="w-full md:w-1/2 lg:w-1/3 px-2 mb-3">
-              <FeaturedPostCard
+              <PostCard
+                variant="featured"
                 title={post.data.title}
                 url={postUrl}
                 date={date}
@@ -110,4 +110,5 @@ function getPostMetadata(post: CollectionEntry<'posts'>) {
       </section>
     );
   })}
+  <script type="application/ld+json" set:html={schemaToJsonLd(collectionSchema)} is:inline></script>
 </BaseLayout>

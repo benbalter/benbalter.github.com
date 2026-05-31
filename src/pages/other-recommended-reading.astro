@@ -11,6 +11,7 @@ import { readFileSync } from 'node:fs';
 import yaml from 'js-yaml';
 import { join } from 'node:path';
 import { marked } from 'marked';
+import { slugify } from '../utils/slugify';
 
 const title = 'Other recommended reading';
 const description = 'Here are some of the books that have had a significant influence on my career, management style, and professional development that I often recommend to others interested in IT management and leadership, career and corporate life, open source, startups and innovation, information security, product management, marketing, technology policy, government and organizing, and everything else.';
@@ -41,14 +42,6 @@ const amazonAffiliatesTag = 'benbalter07-20';
 
 // Convert object to array of [category, books] entries
 const bookGroups = Object.entries(booksData);
-
-// Helper function to slugify category names for IDs
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-}
 ---
 
 <PageLayout title={title} description={description}>

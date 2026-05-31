@@ -8,7 +8,7 @@
  * - Lazy-loads the post metadata JSON on first hover (then caches)
  * - Positions the card intelligently relative to the viewport
  * - Supports keyboard focus for accessibility
- * - Works with Astro View Transitions via astro:page-load
+ * - Initializes on DOMContentLoaded (or immediately if already loaded)
  */
 
 /** URL pattern for blog post links: /YYYY/MM/DD/slug/ */
@@ -34,34 +34,38 @@ interface PostMeta {
 
 type MetaMap = Record<string, PostMeta>;
 
-let metaCache: MetaMap | null = null;
-let fetchPromise: Promise<MetaMap> | null = null;
+const META_URL = '/posts-meta.json';
+
+/**
+ * Per-URL cache of in-flight or settled fetch promises. Keyed by the URL
+ * being fetched so different URLs don't share cache state and concurrent
+ * requests for the same URL reuse a single promise.
+ */
+const fetchCache = new Map<string, Promise<MetaMap>>();
 
 /** Lazy-load and cache the posts metadata JSON */
-async function getPostsMeta(): Promise<MetaMap> {
-  if (metaCache) return metaCache;
-  if (fetchPromise) return fetchPromise;
+async function getPostsMeta(url: string = META_URL): Promise<MetaMap> {
+  const cached = fetchCache.get(url);
+  if (cached) return cached;
 
-  fetchPromise = fetch('/posts-meta.json')
+  const promise = fetch(url)
     .then((res) => {
       if (!res.ok) throw new Error(`Failed to load posts metadata: ${res.status}`);
       return res.json() as Promise<MetaMap>;
     })
-    .then((data) => {
-      metaCache = data;
-      return data;
-    })
     .catch((err) => {
       console.error('[link-previews]', err);
-      fetchPromise = null;
+      // Evict the failed entry so a subsequent call retries the fetch
+      fetchCache.delete(url);
       return {} as MetaMap;
     });
 
-  return fetchPromise;
+  fetchCache.set(url, promise);
+  return promise;
 }
 
 /** Normalize a URL path: strip origin, ensure trailing slash */
-function normalizePath(href: string): { path: string; hash: string } {
+export function normalizePath(href: string): { path: string; hash: string } {
   try {
     const url = new URL(href, window.location.origin);
     let path = url.pathname;
@@ -73,7 +77,7 @@ function normalizePath(href: string): { path: string; hash: string } {
 }
 
 /** Check if this is an internal post link worth previewing */
-function isPostLink(anchor: HTMLAnchorElement): boolean {
+export function isPostLink(anchor: HTMLAnchorElement): boolean {
   const href = anchor.getAttribute('href');
   if (!href) return false;
 
@@ -207,7 +211,7 @@ function renderCard(meta: PostMeta, hash: string) {
   `;
 }
 
-function escapeHtml(str: string): string {
+export function escapeHtml(str: string): string {
   const div = document.createElement('div');
   div.textContent = str;
   return div.innerHTML;
@@ -306,4 +310,5 @@ function initLinkPreviews() {
   if (firstPostLink) observer.observe(firstPostLink);
 }
 
-document.addEventListener('astro:page-load', initLinkPreviews);
+import { onPageLoad } from './on-page-load';
+onPageLoad(initLinkPreviews);

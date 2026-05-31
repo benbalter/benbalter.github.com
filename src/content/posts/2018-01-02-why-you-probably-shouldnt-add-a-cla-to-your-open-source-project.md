@@ -1,6 +1,7 @@
 ---
 title: Why you probably shouldn't add a CLA to your open source project
-description: CLAs create a hostile developer experience, require significant overhead, shift legal blame to contributors, and are usually unnecessary given modern open source norms.
+description: CLAs create a hostile developer experience, require significant overhead, and are usually unnecessary given modern open source norms.
+tldr: "CLAs create a hostile developer experience, require significant overhead, shift legal blame to contributors, and are usually unnecessary given modern open source norms."
 ---
 
 Contributor license agreements (or CLAs for short) have gained a lot of visibility in recent years as some prominent open source projects have opted to adopt them. If all the cool kids are doing it, should your open source project? Probably not. Here's why:

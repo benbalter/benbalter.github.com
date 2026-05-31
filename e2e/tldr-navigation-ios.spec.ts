@@ -20,7 +20,7 @@ test.describe('TLDR Tooltip - iOS/iPadOS Navigation', () => {
 
     const astro = await isAstroBuild(page);
     if (!astro) {
-      test.skip();
+      test.skip(true, 'Test requires Astro build');
     }
 
     // Navigate directly to the test post (too old to appear in recent posts on homepage)
@@ -75,7 +75,7 @@ test.describe('TLDR Tooltip - iOS/iPadOS Navigation', () => {
 
     const astro = await isAstroBuild(page);
     if (!astro) {
-      test.skip();
+      test.skip(true, 'Test requires Astro build');
     }
 
     // Navigate directly to the test post (too old to appear in recent posts on homepage)
