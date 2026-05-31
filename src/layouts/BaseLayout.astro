@@ -61,6 +61,11 @@ const canonicalUrl = new URL(canonicalPath, siteConfig.url).toString();
 const ogImage = image
   ? new URL(image, siteConfig.url).toString()
   : new URL('/og/default.png', siteConfig.url).toString();
+// Only advertise og:image dimensions for our own generated cards, which are
+// always 1200x630 (the site-wide /og/default.png and the per-post
+// /og/YYYY/MM/DD/slug.png). Custom frontmatter images are arbitrary sizes, so
+// claiming 1200x630 for them would mislead scrapers; let them measure instead.
+const ogImageIsGenerated = !image || image.startsWith('/og/');
 
 // Generate structured data (JSON-LD) for SEO
 // Use ProfilePage on homepage (a Google-supported rich result type), Person elsewhere
@@ -138,9 +143,8 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
           siteName: siteConfig.name,
         },
         image: {
-          width: 1200,
-          height: 630,
           alt: title,
+          ...(ogImageIsGenerated ? { width: 1200, height: 630 } : {}),
         },
         ...(type === 'article' && publishedTime ? {
           article: {
