@@ -1,0 +1,28 @@
+#!/bin/bash
+
+set -e
+
+if [ -z "$1" ]; then
+  echo "Usage: script/new <title>" >&2
+  exit 1
+fi
+
+TITLE="$*"
+DATE=$(date +%Y-%m-%d)
+SLUG=$(echo "$TITLE" | tr '[:upper:]' '[:lower:]' | tr -cs 'a-z0-9' '-' | sed 's/^-*//;s/-*$//')
+FILE="src/content/posts/${DATE}-${SLUG}.md"
+
+if [ -f "$FILE" ]; then
+  echo "Error: $FILE already exists" >&2
+  exit 1
+fi
+
+cat > "$FILE" <<EOF
+---
+title: ${TITLE}
+description: ""
+---
+
+EOF
+
+echo "$FILE"

@@ -32,11 +32,10 @@ describe('siteConfig', () => {
     expect(siteConfig.socialUsername).toBe('benbalter');
   });
 
-  it('should have employment information', () => {
-    expect(siteConfig.jobTitle).toBeDefined();
-    expect(siteConfig.jobDescription).toBeDefined();
-    expect(siteConfig.employer).toBe('GitHub');
-    expect(siteConfig.employerUrl).toBeDefined();
+  it('should have former employment information', () => {
+    expect(siteConfig.formerJobTitle).toBeDefined();
+    expect(siteConfig.formerEmployer).toBe('GitHub');
+    expect(siteConfig.formerEmployerUrl).toBeDefined();
     expect(siteConfig.timezone).toBe('America/New_York');
   });
 

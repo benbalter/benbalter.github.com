@@ -2,7 +2,6 @@
 published: true
 title: Open Source for Government
 description: A collaborative resource for government employees looking to participate in the open source community.
-comments: true
 archived: true
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Securing the Status Quo
-description: Federal agencies spend billions on IT security, yet rigid compliance frameworks often create a false sense of safety while stifling the innovation needed to address real threats.
+description: Federal agencies spend billions on IT security, yet rigid compliance frameworks create false safety while stifling innovation against real threats.
+tldr: "Federal agencies spend billions on IT security, yet rigid compliance frameworks often create a false sense of safety while stifling the innovation needed to address real threats."
 ---
 
 ## The Effect of Federal IT Security Policies on Innovation

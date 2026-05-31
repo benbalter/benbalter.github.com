@@ -1,6 +1,7 @@
 ---
 title: How I re-over-engineered my home network for privacy and security
-description: How I used Docker Compose, Ansible, and Caddy to re-over-engineer my home network setup for easier maintenance, treating my Raspberry Pi like cattle, not a pet.
+description: How I used Docker Compose, Ansible, and Caddy to re-over-engineer my network setup for easier maintenance, treating my Raspberry Pi like cattle, not a pet.
+tldr: "How I used Docker Compose, Ansible, and Caddy to re-over-engineer my home network setup for easier maintenance, treating my Raspberry Pi like cattle, not a pet."
 ---
 
 A little less than a year ago, I wrote a now-popular post about [how I overengineered my home network for privacy and security](https://ben.balter.com/2020/12/04/over-engineered-home-network-for-privacy-and-security/). If you haven't already checked that post out, it walks through how I used a UniFi Dream Machine (although most routers would work), a Pi-Hole to block ads and tracking, cloudflared for DNS over HTTPS, and Cloudflare Gateway to block malware/phishing to (over) optimize my home network for privacy and security.
@@ -19,7 +20,8 @@ To head down [this route](https://github.com/benbalter/pi-hole-cloudflared-docke
 
 ## Pi-Hole vs AdGuard Home
 
-**Edit (2021–11–04):** Since originally publishing this post, I've swapped out Pi-Hole + Cloudflared in favor of [AdGuard Home](https://github.com/AdguardTeam/AdGuardHome), and haven't looked back. While the functionality is largely comperable at this point, and ultimately you could be happy with either, I ended up preferring AdGuard Home for a number of reasons:
+:::info[Edit — 2021–11–04]
+Since originally publishing this post, I've swapped out Pi-Hole + Cloudflared in favor of [AdGuard Home](https://github.com/AdguardTeam/AdGuardHome), and haven't looked back. While the functionality is largely comperable at this point, and ultimately you could be happy with either, I ended up preferring AdGuard Home for a number of reasons:
 
 - **A more modern stack** - PHP + dnsmasq vs. Go and React
 - **Admin experience** - a sleeker web interface with fewer knobs and dials to endlessly tinker with.
@@ -27,6 +29,7 @@ To head down [this route](https://github.com/benbalter/pi-hole-cloudflared-docke
 - **Config as code** - Settings are contained in a single YAML file that I could version and more easily deploy with Ansible.
 
 Pi-Hole has been around for longer and has a more established community, so again, you could be happy with either, but I've updated this post to reflect that since originally written, I now personally prefer and generally recommend AdGuard Home. With that, let's get on to the setup (which continues to work for both):
+:::
 
 ## Docker Compose
 

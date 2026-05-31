@@ -1,7 +1,7 @@
 ---
 title: Three things you learn going from the most bureaucratic organization in the world to the least
-comments: true
-description: "Going from the federal government to GitHub, I found three key organizational differences: trust your coworkers, optimize for happiness, and treat relationships as assets, not liabilities."
+description: "Three lessons from moving from the federal government to GitHub: trust, happiness, and treating relationships as assets."
+tldr: "Going from the federal government to GitHub, I found three key organizational differences: trust your coworkers, optimize for happiness, and treat relationships as assets, not liabilities."
 ---
 
 About a year and a half ago, I moved from the federal government, arguably [the most bureaucratic organization in the history of the world](http://www.washingtonpost.com/sf/national/2014/03/22/sinkhole-of-bureaucracy/), to GitHub, arguably one of [the world's least bureaucratic](http://www.fastcolabs.com/3020181/open-company/inside-GitHubs-super-lean-management-strategy-and-how-it-drives-innovation). Looking back, there were three key organizational differences beyond mere size and the lack of TPS reports:

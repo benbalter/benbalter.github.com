@@ -1,6 +1,7 @@
 ---
 title: Making WordPress More Shareable, Sociable, and Likeable
-description: Slides from my presentation at Washington's CrushIQ on how to use WordPress to push content to social networks, pull social content in to your site, encourage sharing, engage visitors, and earn fans
+description: Presentation slides from CrushIQ on using WordPress to push content to social networks, pull social content into your site, and earn fans.
+tldr: "Slides from my presentation at Washington's CrushIQ on how to use WordPress to push content to social networks, pull social content in to your site, encourage sharing, engage visitors, and earn fans"
 archived: true
 ---
 

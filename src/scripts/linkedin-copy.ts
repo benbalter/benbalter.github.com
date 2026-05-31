@@ -5,7 +5,7 @@
  * cannot use the modern Clipboard API with a catch fallback. Instead, we use
  * textarea + execCommand('copy') which works reliably across all browsers.
  */
-function copyToClipboard(text: string, triggerElement?: Element): boolean {
+export function copyToClipboard(text: string, triggerElement?: Element): boolean {
   const textarea = document.createElement('textarea');
   textarea.value = text;
   textarea.setAttribute('readonly', '');
@@ -21,7 +21,14 @@ function copyToClipboard(text: string, triggerElement?: Element): boolean {
 
   let success = false;
   try {
-    success = document.execCommand('copy');
+    // Intentional legacy fallback for browsers without Clipboard API.
+    // Cast through a structural type to silence ts(6387) without removing
+    // the deprecated runtime call, which we still need.
+    // eslint-disable-next-line @typescript-eslint/no-deprecated
+    const legacyDocument = document as unknown as {
+      execCommand(commandId: string): boolean;
+    };
+    success = legacyDocument.execCommand('copy');
   } catch {
     success = false;
   }
@@ -69,5 +76,7 @@ function initCopyButtons() {
   });
 }
 
-// Re-initialize after Astro view transitions
-document.addEventListener('astro:page-load', initCopyButtons);
+// Re-initialize after navigation. Without ClientRouter every navigation is a
+// full page load, so `DOMContentLoaded` (or immediate if ready) is sufficient.
+import { onPageLoad } from './on-page-load';
+onPageLoad(initCopyButtons);

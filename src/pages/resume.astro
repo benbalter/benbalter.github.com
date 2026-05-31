@@ -17,7 +17,7 @@ if (!resumePage) {
   throw new Error('Resume page data not found');
 }
 
-const { title, description, degrees, certifications } = resumePage.data;
+const { title, description, degrees, certifications, skills, summary } = resumePage.data;
 
 // Load resume positions from content collection
 const allPositions = await getCollection('resume-positions');
@@ -64,7 +64,48 @@ const resumeSchema = generateResumeSchema({
 });
 ---
 
-<PageLayout title={title} description={description}>
+<PageLayout title={title} description={description} suppressPersonSchema>
+  <header class="print-header" aria-hidden="true">
+    <p class="print-name">Ben Balter</p>
+    <p class="print-contact">
+      Washington, DC
+      <span aria-hidden="true"> · </span>
+      <a href="mailto:ben@balter.com">ben@balter.com</a>
+      <span aria-hidden="true"> · </span>
+      <a href="https://ben.balter.com">ben.balter.com</a>
+      <span aria-hidden="true"> · </span>
+      <a href="https://www.linkedin.com/in/benbalter/">linkedin.com/in/benbalter</a>
+    </p>
+  </header>
+
+  {summary && (
+    <section class="resume-section resume-summary">
+      <p class="summary-text">{summary}</p>
+      <p class="resume-aux">
+        Also available on <a href="https://www.linkedin.com/in/benbalter/" target="_blank" rel="me noopener noreferrer">LinkedIn</a>.
+        Use your browser's print-to-PDF to save a copy.
+      </p>
+    </section>
+  )}
+
+  {skills && skills.length > 0 && (
+    <section class="resume-section">
+      <h2>Areas of focus</h2>
+      <div class="skills-grid">
+        {skills.map((group: { group: string; items: string[] }) => (
+          <div class="skill-group">
+            <h3 class="skill-group-name">{group.group}</h3>
+            <ul class="skill-list">
+              {group.items.map((item: string) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
   <section class="resume-section">
     <h2>Experience</h2>
     
@@ -106,26 +147,44 @@ const resumeSchema = generateResumeSchema({
     </section>
   )}
   
-  {certifications && certifications.length > 0 && (
-    <section class="resume-section">
-      <h2>Certifications</h2>
-      
-      {certifications.map((cert: { authority: string; name: string; url?: string }) => (
-        <div class="certification-item">
-          <div class="certification-header">
-            <span class="certification-authority">{cert.authority}</span>
-            <span class="certification-name">
-              {cert.url ? (
-                <a href={cert.url} target="_blank" rel="noopener noreferrer" aria-label={`View ${cert.name} credential`}>{cert.name}</a>
-              ) : (
-                cert.name
-              )}
-            </span>
-          </div>
+  {certifications && certifications.length > 0 && (() => {
+    const professional = certifications.filter((c: { category?: string }) => (c.category ?? 'professional') === 'professional');
+    const personal = certifications.filter((c: { category?: string }) => c.category === 'personal');
+    const renderCert = (cert: { authority: string; name: string; url?: string; expired?: boolean }) => (
+      <div class="certification-item">
+        <div class="certification-header">
+          <span class="certification-authority">{cert.authority}</span>
+          <span class="certification-name">
+            {cert.url ? (
+              <a href={cert.url} target="_blank" rel="noopener noreferrer" aria-label={`View ${cert.name} credential`}>{cert.name}</a>
+            ) : (
+              cert.name
+            )}
+            {cert.expired && (
+              <span class="cert-expired" title="No longer actively maintained" aria-label="Expired — no longer actively maintained">Expired</span>
+            )}
+          </span>
         </div>
-      ))}
-    </section>
-  )}
+      </div>
+    );
+    return (
+      <section class="resume-section">
+        <h2>Certifications</h2>
+        {professional.length > 0 && (
+          <>
+            <h3 class="cert-group-heading">Professional</h3>
+            {professional.map(renderCert)}
+          </>
+        )}
+        {personal.length > 0 && (
+          <>
+            <h3 class="cert-group-heading">Personal interests</h3>
+            {personal.map(renderCert)}
+          </>
+        )}
+      </section>
+    );
+  })()}
 
   <script type="application/ld+json" set:html={schemaToJsonLd(resumeSchema)} is:inline></script>
 </PageLayout>
@@ -136,6 +195,80 @@ const resumeSchema = generateResumeSchema({
    * ============================================================ */
   .resume-section {
     margin-bottom: 2.5rem;
+  }
+
+  .resume-summary {
+    padding: 1rem 1.25rem;
+    background-color: color-mix(in srgb, var(--tw-prose-links, var(--color-primary, #337ab7)) 5%, transparent);
+    border-left: 3px solid var(--tw-prose-links, var(--color-primary, #337ab7));
+    border-radius: 0 0.375rem 0.375rem 0;
+  }
+
+  /* Darken link color inside the tinted summary box to meet WCAG AA (4.5:1)
+     on the ~#f5f8fb background — plain primary (#337ab7) is only 4.27:1. */
+  .resume-summary a {
+    color: var(--color-primary-600, #2a6493);
+  }
+
+  .summary-text {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .resume-aux {
+    margin: 0.5rem 0 0;
+    font-size: 0.85rem;
+    color: var(--color-gray-700, #495057);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  .skill-group-name {
+    margin: 0 0 0.4rem;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary-700, #204d6f);
+  }
+
+  .skill-list {
+    margin: 0;
+    padding-left: 1.1rem;
+    font-size: 0.95rem;
+  }
+
+  .skill-list li {
+    margin-bottom: 0.15rem;
+  }
+
+  .cert-group-heading {
+    margin: 1.25rem 0 0.5rem;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary-700, #204d6f);
+  }
+
+  .cert-group-heading:first-child,
+  .cert-group-heading:first-of-type {
+    margin-top: 0.25rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .skill-group-name,
+    .cert-group-heading {
+      color: var(--color-primary-200, #b3d4f0);
+    }
+
+    .resume-aux {
+      color: var(--color-gray-400, #adb5bd);
+    }
   }
 
   .resume-section h2 {
@@ -282,6 +415,43 @@ const resumeSchema = generateResumeSchema({
     letter-spacing: 0.03em;
   }
 
+  .cert-expired {
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 0.05rem 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-gray-700, #495057);
+    background-color: color-mix(in srgb, var(--color-gray-600, #6c757d) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-gray-600, #6c757d) 25%, transparent);
+    border-radius: 9999px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  .certification-name a[href] + .cert-expired,
+  .certification-name > .cert-expired {
+    text-decoration: none;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .cert-expired {
+      color: var(--color-gray-400, #adb5bd);
+      background-color: color-mix(in srgb, var(--color-gray-400, #adb5bd) 12%, transparent);
+      border-color: color-mix(in srgb, var(--color-gray-400, #adb5bd) 30%, transparent);
+    }
+  }
+
+  @media print {
+    .cert-expired {
+      background-color: transparent;
+      border-color: #999;
+      color: #555;
+    }
+  }
+
   /* ============================================================
    * Dark Mode
    * ============================================================ */
@@ -325,34 +495,187 @@ const resumeSchema = generateResumeSchema({
   }
 
   /* ============================================================
+   * Print-only header (hidden on screen)
+   * ============================================================ */
+  .print-header {
+    display: none;
+  }
+
+  /* ============================================================
    * Print
    * ============================================================ */
   @media print {
+    @page {
+      margin: 0.6in 0.65in;
+    }
+
+    /* Show the print-only header with name + contact strip */
+    .print-header {
+      display: block;
+      margin: 0 0 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid #000;
+    }
+
+    .print-name {
+      margin: 0 0 0.25rem;
+      font-size: 22pt;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #000;
+    }
+
+    .print-contact {
+      margin: 0;
+      font-size: 9.5pt;
+      color: #333;
+    }
+
+    .print-contact a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    /* Hide the onscreen "Resume" page H1 — redundant with the name block */
+    :global(article > header),
+    :global(article > header h1) {
+      display: none !important;
+    }
+
+    /* Hide the "also on LinkedIn / print to PDF" helper — already printing */
+    .resume-aux {
+      display: none !important;
+    }
+
+    /* Tighter summary card in print */
+    .resume-summary {
+      background-color: transparent !important;
+      border-left: none !important;
+      padding: 0 !important;
+      margin-bottom: 0.75rem;
+    }
+
+    .summary-text {
+      font-size: 10.5pt;
+      font-style: italic;
+    }
+
+    /* Density: smaller base, tighter margins */
+    .resume-section {
+      margin-bottom: 1rem;
+    }
+
     .resume-section h2 {
+      font-size: 11pt;
+      margin-top: 0.75rem;
+      margin-bottom: 0.4rem;
+      padding-bottom: 0.2rem;
       border-bottom-color: #000;
     }
 
     .employer-group {
-      border-left: 2px solid #ccc;
+      border-left: 1px solid #bbb;
+      padding-left: 1rem;
+      margin-bottom: 0.75rem;
+      page-break-inside: avoid;
     }
 
-    .position-header::before {
-      background-color: #333;
-    }
-
-    .date-badge {
-      background-color: transparent;
-      color: #333;
-      padding: 0;
+    .employer-name {
+      font-size: 12pt;
+      margin-top: 0;
+      margin-bottom: 0.35rem;
     }
 
     .position {
+      margin-bottom: 0.6rem;
+      padding-bottom: 0.5rem;
+      page-break-inside: avoid;
       border-bottom-color: #eee;
+    }
+
+    .position-title {
+      font-size: 10.5pt;
+      font-weight: 600;
+    }
+
+    .position-header::before {
+      width: 6px;
+      height: 6px;
+      background-color: #333;
+      top: 0.4rem;
+    }
+
+    .date-badge {
+      background-color: transparent !important;
+      color: #333 !important;
+      padding: 0 !important;
+      font-size: 9pt;
+      font-style: italic;
+    }
+
+    .position-content {
+      font-size: 10pt;
+    }
+
+    .position-content :global(ul) {
+      padding-left: 1.1rem;
+    }
+
+    .position-content :global(li) {
+      margin-bottom: 0.15rem;
+    }
+
+    .skills-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-top: 0.4rem;
+    }
+
+    .skill-group-name {
+      font-size: 9.5pt;
+      color: #000;
+      margin-bottom: 0.2rem;
+    }
+
+    .skill-list {
+      font-size: 9.5pt;
+    }
+
+    .skill-list li {
+      margin-bottom: 0;
     }
 
     .education-item,
     .certification-item {
+      margin-bottom: 0.4rem;
+      padding-bottom: 0.35rem;
       border-bottom-color: #eee;
+      page-break-inside: avoid;
+    }
+
+    .school-name {
+      font-size: 11pt;
+    }
+
+    .cert-group-heading {
+      font-size: 9.5pt;
+      color: #000;
+      margin-top: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .certification-authority {
+      font-size: 8.5pt;
+    }
+
+    .certification-name {
+      font-size: 10pt;
+    }
+
+    /* Don't suffix cert/LinkedIn links with their long URLs in print */
+    .certification-name a::after,
+    .print-contact a::after {
+      content: none !important;
     }
   }
 </style>

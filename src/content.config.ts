@@ -9,13 +9,43 @@ import { glob } from 'astro/loaders';
  * mapping from Jekyll's frontmatter format to Astro's type-safe schema.
  */
 
-// Schema for blog posts (from posts/)
+/**
+ * Valid Schema.org types for the site's structured data.
+ * Maps to the types used in src/utils/structured-data.ts.
+ * Accepts both standard PascalCase (e.g., "Person") and legacy lowercase values.
+ */
+const schemaOrgType = z.enum([
+  'BlogPosting',
+  'Person', 'person',
+  'ProfilePage',
+  'WebPage',
+  'WebSite',
+]);
+
+/** SEO metadata schema shared by posts and pages */
+const seoSchema = z.object({
+  type: schemaOrgType.optional(),
+}).optional();
+
+/**
+ * Redirect source paths (Jekyll compatibility).
+ * Accepts both a single string and an array of strings.
+ */
+const redirectFrom = z.union([z.string(), z.array(z.string())]).optional();
+
+/**
+ * Schema for blog posts (from posts/).
+ *
+ * Post entry IDs are derived from filenames by the glob loader and must follow
+ * the Jekyll naming convention: YYYY-MM-DD-title.md (e.g., "2024-01-15-my-post.md").
+ */
 const postsCollection = defineCollection({
   loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/posts' }),
   schema: z.object({
     // Required fields (consistent with Jekyll)
     title: z.string(),
-    description: z.string(),
+    description: z.string().max(300), // Ideal: ≤160 chars for SERP snippets
+    tldr: z.string().optional(), // On-page TL;DR summary (falls back to description if not set)
     
     // Optional fields from Jekyll frontmatter
     layout: z.string().optional(),
@@ -25,26 +55,21 @@ const postsCollection = defineCollection({
     
     // Post metadata
     image: z.string().optional(), // Open Graph image
-    comments: z.boolean().default(false),
     
     // SEO metadata
     sitemap: z.boolean().default(true), // Include in sitemap by default
     robots: z.string().optional(), // Robots meta tag
     
     // Redirects (Jekyll compatibility)
-    // Support both single string and array of strings for redirect_from
-    redirect_from: z.union([z.string(), z.array(z.string())]).optional(),
+    redirect_from: redirectFrom,
     redirect_to: z.string().optional(),
     
     // SEO metadata
-    seo: z.object({
-      type: z.string().optional(),
-    }).optional(),
+    seo: seoSchema,
     
     // Additional metadata
     id: z.string().optional(),
     icons: z.boolean().optional(),
-    tags: z.array(z.string()).optional(),
     categories: z.array(z.string()).optional(),
     
     // Post lists (for curated reading lists)
@@ -63,7 +88,7 @@ const pagesCollection = defineCollection({
   schema: z.object({
     // Required fields
     title: z.string(),
-    description: z.string(),
+    description: z.string().max(300), // Ideal: ≤160 chars for SERP snippets
     
     // Optional fields from Jekyll frontmatter
     layout: z.string().optional(),
@@ -77,12 +102,10 @@ const pagesCollection = defineCollection({
     // SEO metadata
     sitemap: z.boolean().default(true), // Include in sitemap by default
     robots: z.string().optional(), // Robots meta tag
-    seo: z.object({
-      type: z.string().optional(),
-    }).optional(),
+    seo: seoSchema,
     
     // Redirects (Jekyll compatibility)
-    redirect_from: z.array(z.string()).optional(),
+    redirect_from: redirectFrom,
     redirect_to: z.string().optional(),
     
     // Resume-specific fields
@@ -95,7 +118,14 @@ const pagesCollection = defineCollection({
       authority: z.string(),
       name: z.string(),
       url: z.string().optional(),
+      category: z.enum(['professional', 'personal']).default('professional'),
+      expired: z.boolean().default(false),
     })).optional(),
+    skills: z.array(z.object({
+      group: z.string(),
+      items: z.array(z.string()),
+    })).optional(),
+    summary: z.string().optional(),
   }),
 });
 

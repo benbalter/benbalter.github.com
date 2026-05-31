@@ -11,6 +11,11 @@
     "strict": true,
     "skipLibCheck": true,
     "noEmit": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "exactOptionalPropertyTypes": true,
     "jsx": "preserve",
     "jsxImportSource": "astro"
   },

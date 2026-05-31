@@ -1,6 +1,7 @@
 ---
 title: The seven things a corporate Chief of Staff does
-description: The Chief of Staff role is poorly understood and hard to define. Here are the seven core responsibilities, from tactical office management to strategic advising, that make the role indispensable.
+description: Seven core responsibilities that define the corporate Chief of Staff role, from tactical office management to strategic advising.
+tldr: "The Chief of Staff role is poorly understood and hard to define. Here are the seven core responsibilities, from tactical office management to strategic advising, that make the role indispensable."
 ---
 
 The Chief of Staff role is often poorly understood and difficult to define. Before becoming one myself, I had little appreciation for the role beyond watching fictional characters like Leo McGarry and Josh Lyman on the West Wing,[^4] but as I’ve been settling into this new-to-me role, I’ve been thinking critically about what a corporate Chief of Staff does day-to-day and how they uniquely bring value to their principal or executive (whom I'll generally call "CXO" here[^1]) and to the organization they support.

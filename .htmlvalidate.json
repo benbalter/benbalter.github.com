@@ -1,0 +1,43 @@
+{
+  "extends": [
+    "html-validate:recommended",
+    "html-validate:document"
+  ],
+  "rules": {
+    "void-style": "off",
+    "void-content": "off",
+    "no-self-closing": "off",
+    "no-trailing-whitespace": "off",
+    "no-inline-style": "off",
+    "attr-quotes": "off",
+    "doctype-style": "off",
+    "attribute-empty-style": "off",
+    "no-raw-characters": "off",
+    "require-sri": "off",
+    "attr-case": "off",
+    "no-redundant-role": "off",
+    "valid-id": ["error", { "relaxed": true }],
+    "element-permitted-content": "off",
+    "no-deprecated-attr": "warn",
+    "prefer-native-element": "off",
+    "no-implicit-button-type": "off",
+    "long-title": "warn",
+    "unique-landmark": "warn",
+    "heading-level": "warn",
+    "text-content": "warn",
+    "hidden-focusable": "warn",
+    "aria-label-misuse": "warn",
+    "wcag/h30": "error",
+    "wcag/h32": "error",
+    "wcag/h36": "error",
+    "wcag/h37": "error",
+    "wcag/h67": "error",
+    "wcag/h71": "error",
+    "element-required-attributes": "error",
+    "meta-refresh": "error",
+    "no-autoplay": "error"
+  },
+  "elements": [
+    "html5"
+  ]
+}

@@ -1,6 +1,7 @@
 ---
 title: 'Federal Agility: a Cultural Solution to a Technical Problem'
-description: Government's biggest IT challenge isn't technology, it's culture. Agile adoption requires rethinking risk aversion, incentives, and entrenched waterfall habits.
+description: Government's biggest IT challenge isn't technology, it's culture. Agile adoption requires rethinking risk aversion, incentives, and rigid waterfall habits.
+tldr: "Government's biggest IT challenge isn't technology, it's culture. Agile adoption requires rethinking risk aversion, incentives, and entrenched waterfall habits."
 ---
 
 With the talks surrounding the fiscal cliff, never before has it been so vital that the federal government do more with less. Across the District, government agencies are tightening their belts considerably, but the challenge is not simply about trimming budgets or spending less. In many cases, the problem is a matter of spending smarter.

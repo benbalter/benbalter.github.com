@@ -8,7 +8,7 @@ import { defaultOGConfig } from './og-config';
 describe('defaultOGConfig', () => {
   it('should have standard OG image dimensions', () => {
     expect(defaultOGConfig.width).toBe(1200);
-    expect(defaultOGConfig.height).toBe(600);
+    expect(defaultOGConfig.height).toBe(630);
   });
 
   it('should have background configuration with gradient', () => {
@@ -77,9 +77,9 @@ describe('defaultOGConfig', () => {
     expect(defaultOGConfig.padding).toBe(60);
   });
 
-  it('should have dimensions with 2:1 aspect ratio', () => {
+  it('should have dimensions with 1.91:1 aspect ratio (Facebook/OpenGraph standard)', () => {
     const aspectRatio = defaultOGConfig.width / defaultOGConfig.height;
-    expect(aspectRatio).toBe(2);
+    expect(aspectRatio).toBeCloseTo(1.9048, 2);
   });
 
   it('should have all required configuration properties', () => {

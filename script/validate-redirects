@@ -1,0 +1,154 @@
+#!/usr/bin/env bash
+# Validates the Cloudflare Pages _redirects file.
+# https://developers.cloudflare.com/pages/configuration/redirects/
+#
+# Checks:
+#   - Each non-empty, non-comment line has 2 or 3 fields
+#   - Source paths start with /
+#   - Status codes (when present) are valid redirect codes
+#   - No duplicate source paths
+#   - No redirect loops (A→B→A)
+#
+# Exit codes:
+#   0 - No issues found
+#   1 - One or more issues found
+
+set -euo pipefail
+
+REDIRECTS_FILE="${1:-public/_redirects}"
+
+if [[ ! -f "$REDIRECTS_FILE" ]]; then
+  echo "Error: File not found: $REDIRECTS_FILE" >&2
+  exit 1
+fi
+
+errors=0
+line_number=0
+total_redirects=0
+
+# Parallel arrays (Bash 3 compatible) for tracking sources and destinations
+all_sources=()
+all_source_lines=()
+all_destinations=()
+
+error() {
+  echo "  Line $line_number: $1" >&2
+  errors=$((errors + 1))
+}
+
+# Look up a source in our arrays; prints the line number if found, empty if not
+find_source() {
+  local needle="$1"
+  local i=0
+  while (( i < ${#all_sources[@]} )); do
+    if [[ "${all_sources[$i]}" == "$needle" ]]; then
+      echo "${all_source_lines[$i]}"
+      return 0
+    fi
+    i=$((i + 1))
+  done
+  return 1
+}
+
+# Look up a destination for a given source; prints the destination if found
+find_destination() {
+  local needle="$1"
+  local i=0
+  while (( i < ${#all_sources[@]} )); do
+    if [[ "${all_sources[$i]}" == "$needle" ]]; then
+      echo "${all_destinations[$i]}"
+      return 0
+    fi
+    i=$((i + 1))
+  done
+  return 1
+}
+
+echo "Validating $REDIRECTS_FILE..."
+
+while IFS= read -r line || [[ -n "$line" ]]; do
+  line_number=$((line_number + 1))
+
+  # Skip empty lines and comments
+  [[ -z "$line" || "$line" =~ ^[[:space:]]*# ]] && continue
+
+  # Split fields (respecting whitespace)
+  read -ra fields <<< "$line"
+  field_count=${#fields[@]}
+
+  # Validate field count: source destination [status]
+  if (( field_count < 2 || field_count > 3 )); then
+    error "Expected 2 or 3 fields, got $field_count: $line"
+    continue
+  fi
+
+  source="${fields[0]}"
+  destination="${fields[1]}"
+  status="${fields[2]:-}"
+
+  # Source must start with /
+  if [[ "$source" != /* ]]; then
+    error "Source path must start with /: $source"
+  fi
+
+  # Destination must start with / or be a full URL
+  if [[ "$destination" != /* && ! "$destination" =~ ^https?:// ]]; then
+    error "Destination must start with / or be a URL: $destination"
+  fi
+
+  # Validate status code when present
+  if [[ -n "$status" ]]; then
+    case "$status" in
+      301|302|307|308) ;;
+      *) error "Invalid status code '$status' (must be 301, 302, 307, or 308)" ;;
+    esac
+  fi
+
+  # Check for duplicate source paths
+  if first_line=$(find_source "$source"); then
+    error "Duplicate source path '$source' (first seen on line $first_line)"
+  else
+    all_sources+=("$source")
+    all_source_lines+=("$line_number")
+    all_destinations+=("$destination")
+  fi
+
+  total_redirects=$((total_redirects + 1))
+
+done < "$REDIRECTS_FILE"
+
+# Check for redirect loops (A→B→C→...→A)
+i=0
+while (( i < ${#all_sources[@]} )); do
+  source="${all_sources[$i]}"
+  current="${all_destinations[$i]}"
+  depth=0
+  max_depth=10
+
+  while (( depth < max_depth )); do
+    if next=$(find_destination "$current"); then
+      if [[ "$next" == "$source" ]]; then
+        echo "  Redirect loop: $source -> $current -> $source" >&2
+        errors=$((errors + 1))
+        break
+      fi
+      current="$next"
+      depth=$((depth + 1))
+    else
+      break
+    fi
+  done
+
+  i=$((i + 1))
+done
+
+# Summary
+echo "Checked $total_redirects redirect(s) across $line_number lines."
+
+if (( errors > 0 )); then
+  echo "Found $errors issue(s)." >&2
+  exit 1
+else
+  echo "No issues found."
+  exit 0
+fi

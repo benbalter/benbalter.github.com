@@ -1,6 +1,7 @@
 ---
 title: CFPB Accepts First Citizen-Submitted Code on Behalf of Federal Government
-description: A two-word typo fix on GitHub became the first time a federal agency directly collaborated with the public to improve its own tools. A small change, a historic precedent.
+description: CFPB accepted the first citizen-submitted pull request in federal government history — a two-word typo fix that set a historic precedent.
+tldr: "A two-word typo fix on GitHub became the first time a federal agency directly collaborated with the public to improve its own tools. A small change, a historic precedent."
 ---
 
 "Fix typo." Not quite "one small step for man," but a significant first nonetheless. These simple words, typed by an open-source developer operating under the pseudonym "iceeey," may represent the first collaborative effort between the federal government and the broader open-source community, and surely represents a tangible win for the open-government movement as a whole.

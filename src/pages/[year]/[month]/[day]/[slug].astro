@@ -3,12 +3,12 @@ import { getCollection, render, type CollectionEntry } from 'astro:content';
 import PostLayout from '../../../../layouts/PostLayout.astro';
 import { findRelatedPosts, initializeRelatedPostsCache } from '../../../../utils/related-posts';
 import { getPostUrl } from '../../../../utils/post-urls';
+import { isPublishedPost } from '../../../../utils/post-filtering';
+import { calculateReadingTime } from '../../../../utils/reading-time';
 
 // Generate static paths for all blog posts with Jekyll URL structure
 export async function getStaticPaths() {
-  const posts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => {
-    return data.published !== false;
-  });
+  const posts = await getCollection('posts', isPublishedPost);
 
   // Initialize the related posts cache once for all posts
   // This pre-calculates TF-IDF vectors for all posts to avoid redundant computation
@@ -53,19 +53,19 @@ const relatedPosts = await findRelatedPosts(post, allPosts, 10);
 
 // Find previous and next posts for sequential navigation
 const publishedPosts = allPosts
-  .filter((p: CollectionEntry<'posts'>) => p.data.published !== false)
   .sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => a.id.localeCompare(b.id));
 
 const currentIndex = publishedPosts.findIndex((p: CollectionEntry<'posts'>) => p.id === post.id);
 const prevEntry = currentIndex > 0 ? publishedPosts[currentIndex - 1] : undefined;
 const nextEntry = currentIndex < publishedPosts.length - 1 ? publishedPosts[currentIndex + 1] : undefined;
-const prevPost = prevEntry ? { title: prevEntry.data.title, url: getPostUrl(prevEntry.id) } : undefined;
-const nextPost = nextEntry ? { title: nextEntry.data.title, url: getPostUrl(nextEntry.id) } : undefined;
+const prevPost = prevEntry ? { title: prevEntry.data.title, url: getPostUrl(prevEntry.id), readingTime: calculateReadingTime(prevEntry.body ?? '') } : undefined;
+const nextPost = nextEntry ? { title: nextEntry.data.title, url: getPostUrl(nextEntry.id), readingTime: calculateReadingTime(nextEntry.body ?? '') } : undefined;
 ---
 
 <PostLayout
   title={post.data.title}
   description={post.data.description}
+  tldr={post.data.tldr}
   pubDate={pubDate}
   image={ogImageUrl}
   relatedPosts={relatedPosts}

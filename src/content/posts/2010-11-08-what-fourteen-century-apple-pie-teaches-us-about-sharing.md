@@ -1,6 +1,7 @@
 ---
 title: What Fourteen-Century Apple Pie Teaches Us About Sharing
-description: Last week writer Monica Gaudio received an e-mail from a friend congratulating her on getting an article published in the Northeast-regional cooking magazine Cooks Source. There was only one problem -- she didn't. The article, a recipe for fourteen-century apple pie, was lifted, word-for-word, from Gaudio's Web site.
+description: "Cooks Source magazine published Monica Gaudio's apple pie recipe without permission, sparking a copyright firestorm about online content theft."
+tldr: "Last week writer Monica Gaudio received an e-mail from a friend congratulating her on getting an article published in the Northeast-regional cooking magazine Cooks Source. There was only one problem -- she didn't. The article, a recipe for fourteen-century apple pie, was lifted, word-for-word, from Gaudio's Web site."
 archived: true
 ---
 

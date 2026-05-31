@@ -1,6 +1,7 @@
 ---
 title: Removing a feature is a feature
-description: Features aren't what make a product great. Being the best at solving a particular problem does. Every time you remove a feature that doesn't support your product's core use case, you're actually adding an implicit feature that does.
+description: Features aren't free. Every time you remove one that doesn't serve your core use case, you're adding an implicit feature that does.
+tldr: "Features aren't what make a product great. Being the best at solving a particular problem does. Every time you remove a feature that doesn't support your product's core use case, you're actually adding an implicit feature that does."
 ---
 
 Ultimately, your users use your product because [they're trying to solve a specific problem](https://strategyn.com/jobs-to-be-done/). It could be getting from point A to point B, finding their subsequent romantic interest, or having someplace to store their vacation photos. Whatever the reason, they have a specific task in mind, and your product is merely a means to an end. That means that every "nice to have" feature that doesn't solve the problem they're trying to solve isn't just product cruft. It's actively standing in their way.

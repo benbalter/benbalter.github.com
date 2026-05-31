@@ -10,7 +10,7 @@ cd "$(dirname "$0")/.."
 
 # Build the site
 echo "Building Astro site..."
-npm run astro:build
+npm run build
 
 # Check that dist-astro directory was created
 if [ ! -d "dist-astro" ]; then

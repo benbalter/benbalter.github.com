@@ -105,8 +105,41 @@ describe('remarkGitHubMentions', () => {
     const markdown = '> @benbalter said something important';
     const result = await processor.process(markdown);
     const html = String(result);
-    
+
     expect(html).toContain('href="https://github.com/benbalter"');
     expect(html).toContain('<blockquote>');
+  });
+
+  // Regression: @mention / @mentions / @mentioned / @mentioning are common
+  // English words used to describe the concept of mentioning. Linking them
+  // produced 404s to https://github.com/mention etc.
+  it.each(['@mention', '@mentions', '@mentioned', '@mentioning'])(
+    'should not link reserved word %s',
+    async (word) => {
+      const markdown = `When you ${word} a teammate, they get a notification.`;
+      const result = await processor.process(markdown);
+      const html = String(result);
+
+      expect(html).not.toContain('href="https://github.com/');
+      expect(html).toContain(word);
+    },
+  );
+
+  it('should not link reserved words even when capitalized', async () => {
+    const markdown = '@Mentions are great.';
+    const result = await processor.process(markdown);
+    const html = String(result);
+
+    expect(html).not.toContain('href="https://github.com/');
+    expect(html).toContain('@Mentions');
+  });
+
+  it('should still link real usernames in the same document as reserved words', async () => {
+    const markdown = 'You can @mention someone like @benbalter.';
+    const result = await processor.process(markdown);
+    const html = String(result);
+
+    expect(html).toContain('href="https://github.com/benbalter"');
+    expect(html).not.toContain('href="https://github.com/mention"');
   });
 });

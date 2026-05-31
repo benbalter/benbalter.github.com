@@ -1,6 +1,7 @@
 ---
 title: Why your agency's first open source project is going to be a flop
-description: "Your agency's first open source project is set up to fail. Start small, go through the motions privately, and build organizational muscle memory before going public."
+description: "Your agency's first open source project is set up to fail. Start small and build organizational muscle memory before going public."
+tldr: "Your agency's first open source project is set up to fail. Start small, go through the motions privately, and build organizational muscle memory before going public."
 ---
 
 If you're a government agency, your first opens source project is likely going to be a flop. In all fairness, [your organization has been set up](https://ben.balter.com/2014/08/03/why-isnt-all-government-software-open-source/) to fail. Participating in the open source community bears little relationship to the decade (or century) old processes your agency has established, like those required to publish a press release or respond to a FOIA request. It's not an understatement to say that open source is an animal unlike any your agency has ever seen before, and one that will require the cooperation of multiple departments.

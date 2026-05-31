@@ -1,6 +1,7 @@
 ---
 title: Bikeshed honeypots
-description: A bikeshed honeypot is an obvious flaw that you place in a proposal in hopes that others will fixate on the honeypot, diverting their attention from the aspects you feel more strongly about.
+description: A bikeshed honeypot is an obvious flaw you plant in a proposal to divert attention from the parts you feel strongly about.
+tldr: "A bikeshed honeypot is an obvious flaw that you place in a proposal in hopes that others will fixate on the honeypot, diverting their attention from the aspects you feel more strongly about."
 ---
 
 If you've been around software long enough, there's a good chance you've heard the term "bikeshedding." Bikeshedding is the idea that, given the opportunity, people will comment on a proposed idea, and they will comment on the parts of the idea that they understand (not necessarily the parts that require the most extraordinary scrutiny).

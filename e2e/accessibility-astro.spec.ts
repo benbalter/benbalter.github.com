@@ -7,6 +7,13 @@ import AxeBuilder from '@axe-core/playwright';
  * Tests WCAG 2.1 Level AA compliance
  */
 
+// Disable motion-safe animations so axe scans see elements at full opacity.
+// Cards use motion-safe:animate-fade-up which starts at opacity:0 — without
+// this, axe computes blended colors and reports false-positive contrast failures.
+test.beforeEach(async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+});
+
 test.describe('Accessibility - Homepage', () => {
   test('should not have any automatically detectable accessibility violations', async ({ page }) => {
     await page.goto('/');
@@ -47,7 +54,7 @@ test.describe('Accessibility - Homepage', () => {
     await page.goto('/');
     
     const html = page.locator('html');
-    await expect(html).toHaveAttribute('lang', 'en');
+    await expect(html).toHaveAttribute('lang', /^en(-|$)/);
   });
   
   test('should have semantic landmark regions', async ({ page }) => {
@@ -78,7 +85,7 @@ test.describe('Accessibility - Blog Post', () => {
     // Guard: skip if no article links exist
     const articleLinks = await page.locator('article a').count();
     if (articleLinks === 0) {
-      test.skip();
+      test.skip(true, 'No blog post article links found on homepage');
       return;
     }
     
@@ -98,7 +105,7 @@ test.describe('Accessibility - Blog Post', () => {
     // Guard: skip if no article links exist
     const articleLinks = await page.locator('article a').count();
     if (articleLinks === 0) {
-      test.skip();
+      test.skip(true, 'No blog post article links found on homepage');
       return;
     }
     
@@ -125,7 +132,7 @@ test.describe('Accessibility - Blog Post', () => {
     // Guard: skip if no article links exist
     const articleLinks = await page.locator('article a').count();
     if (articleLinks === 0) {
-      test.skip();
+      test.skip(true, 'No blog post article links found on homepage');
       return;
     }
     
@@ -291,7 +298,7 @@ test.describe('Screen Reader Accessibility', () => {
     
     // Skip test if page doesn't exist
     if (!response || response.status() === 404) {
-      test.skip();
+      test.skip(true, 'Page returned 404 or does not exist');
       return;
     }
     
@@ -299,7 +306,7 @@ test.describe('Screen Reader Accessibility', () => {
     
     // Skip test if no form inputs exist
     if (inputs.length === 0) {
-      test.skip();
+      test.skip(true, 'No form inputs found on page');
       return;
     }
     
@@ -392,7 +399,7 @@ test.describe('Axe Accessibility Scan - Multiple Pages', () => {
       
       // Skip test if page doesn't exist
       if (!response || response.status() === 404) {
-        test.skip();
+        test.skip(true, 'Page returned 404 or does not exist');
         return;
       }
       
@@ -502,7 +509,7 @@ test.describe('Accessibility - Dark Mode', () => {
     // Guard: skip if no article links exist
     const articleLinks = await page.locator('article a').count();
     if (articleLinks === 0) {
-      test.skip();
+      test.skip(true, 'No blog post article links found on homepage');
       return;
     }
     

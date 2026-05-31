@@ -14,6 +14,7 @@ interface Props {
   description: string;
   image?: string;
   noindex?: boolean;
+  suppressPersonSchema?: boolean;
 }
 
 const { 
@@ -21,6 +22,7 @@ const {
   description, 
   image,
   noindex = false,
+  suppressPersonSchema = false,
 } = Astro.props;
 ---
 
@@ -29,12 +31,13 @@ const {
   description={description}
   image={image}
   noindex={noindex}
+  suppressPersonSchema={suppressPersonSchema}
 >
   <div class="max-w-4xl mx-auto px-4">
     <div>
       <article data-pagefind-body>
         <header class="mb-6">
-          <h1 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100" transition:name="page-title">{title}</h1>
+          <h1 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100">{title}</h1>
         </header>
         
         <div class="page-body prose prose-lg prose-primary max-w-none">

@@ -12,11 +12,13 @@ function createMockPost(
   title: string,
   description: string,
   published = true,
-  archived = false
+  archived = false,
+  body = ''
 ): CollectionEntry<'posts'> {
   return {
     id: slug,
     collection: 'posts',
+    body,
     data: {
       title,
       description,
@@ -220,5 +222,74 @@ describe('findRelatedPosts', () => {
       // post2 (programming) should rank higher than post3 (cooking)
       expect(related[0].id).toBe('2024-01-02-post2');
     }
+  });
+
+  it('should rank posts with similar body content higher', async () => {
+    const post1 = createMockPost(
+      '2024-01-01-remote-work',
+      'Remote Work Tips',
+      'Advice for working remotely',
+      true,
+      false,
+      'Working from home requires discipline and communication. Distributed teams need async collaboration tools and clear documentation practices.'
+    );
+    const post2 = createMockPost(
+      '2024-01-02-async-collab',
+      'Async Collaboration',
+      'How teams collaborate asynchronously',
+      true,
+      false,
+      'Distributed teams thrive with async communication. Remote workers benefit from clear documentation and collaboration practices across time zones.'
+    );
+    const post3 = createMockPost(
+      '2024-01-03-gardening',
+      'Gardening Guide',
+      'Tips for growing vegetables',
+      true,
+      false,
+      'Planting tomatoes and peppers in raised beds yields the best results. Composting enriches the soil and helps retain moisture.'
+    );
+    
+    const allPosts = [post1, post2, post3];
+    const related = await findRelatedPosts(post1, allPosts, 10);
+    
+    expect(related.length).toBe(2);
+    // post2 shares body-content topics (distributed, teams, collaboration, async, documentation)
+    expect(related[0].id).toBe('2024-01-02-async-collab');
+  });
+
+  it('should still boost title-word matches via weighting', async () => {
+    const post1 = createMockPost(
+      '2024-01-01-open-source',
+      'Open Source Licensing',
+      'Understanding open source licenses',
+      true,
+      false,
+      'Software licensing governs how code can be shared and reused.'
+    );
+    const post2 = createMockPost(
+      '2024-01-02-oss-communities',
+      'Open Source Communities',
+      'Building open source communities',
+      true,
+      false,
+      'Maintaining healthy contributor ecosystems in projects.'
+    );
+    const post3 = createMockPost(
+      '2024-01-03-proprietary',
+      'Proprietary Software',
+      'Commercial software models',
+      true,
+      false,
+      'Software licensing determines distribution rights for commercial products. Code reuse policies vary by vendor.'
+    );
+    
+    const allPosts = [post1, post2, post3];
+    const related = await findRelatedPosts(post1, allPosts, 10);
+    
+    expect(related.length).toBe(2);
+    // post2 shares "open source" in the title (boosted weight) even though
+    // post3 shares body words like "licensing", "software", "code"
+    expect(related[0].id).toBe('2024-01-02-oss-communities');
   });
 });

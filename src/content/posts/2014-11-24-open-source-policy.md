@@ -1,6 +1,7 @@
 ---
 title: A White House open source policy written by a geek
-description: "Three things the White House Open Source Policy should embody: prefer existing open source platforms, build real communities not just disclosed source, and share code to the widest extent possible."
+description: "The White House Open Source Policy should prefer existing platforms, build real communities, and share code as widely as possible."
+tldr: "Three things the White House Open Source Policy should embody: prefer existing open source platforms, build real communities not just disclosed source, and share code to the widest extent possible."
 ---
 
 Open source in government is about much more than efficiency, shipping better code, or engaging the public more openly. Open source is about spurring [innovation ecosystems](https://ben.balter.com/2012/04/10/whats-missing-from-cfpbs-awesome-new-source-code-policy/?dontCache=1416281172765#an-innovation-ecosystem), public/private marketplaces of scientific and engineering ideas, the likes of which were last seen during the space race. Think space pens are cool? Wait until you see what open source has to offer.
@@ -25,7 +26,7 @@ That said, if there's an overwhelming business case to the contrary, government 
 
 ## 2. Open source, not source disclosed (*Open source as a design philosophy*)
 
-Open source does not simply mean [government software for which the underlying code has been published](https://ben.balter.com/2014/09/29/source-disclosed-%E2%89%A0-open-source/). In the industry, that's called disclosed source. Instead, open source is about growing communities around shared challenges. That has several implications:
+Open source does not simply mean [government software for which the underlying code has been published](/2014/09/29/source-disclosed-is-not-the-same-as-open-source/). In the industry, that's called disclosed source. Instead, open source is about growing communities around shared challenges. That has several implications:
 
 Agencies must [abstract business logic](https://ben.balter.com/2012/06/26/why-you-should-always-write-software-as-open-source/). There's an insane antipattern in government that suggests that all software should be so purpose built, all application logic so hardcoded into the program itself, that changes to policy require multi-million dollar investments in the software, software that by virtue of being so application specific, is of no value to anyone other than the agency. Even if published, that's not open source.
 

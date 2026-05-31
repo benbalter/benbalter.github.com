@@ -1,7 +1,7 @@
 ---
 title: 'Jekyll: Where content is truly king'
-comments: true
-description: By choosing Jekyll over a traditional CMS for government.github.com, technology became a given, freeing us to spend six months iterating on what actually mattered — the content.
+description: Choosing Jekyll over a traditional CMS for government.github.com freed us to spend six months iterating on what mattered most — the content.
+tldr: "By choosing Jekyll over a traditional CMS for government.github.com, technology became a given, freeing us to spend six months iterating on what actually mattered — the content."
 ---
 
 GitHub recently launched [government.github.com](http://government.github.com), a site dedicated to showcasing the efforts of public servants and civic hackers which, despite its technical simplicity, was [more than six months in the making](https://github.com/github/government.github.com/commits/gh-pages), a relative snail's pace by any startup's standards. By [choosing a static architecture over a more complex one](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/), technology became a given, and rather than iterating on challenges to sharing information, we were able to iterate on improving the content itself, which in the end fundamentally shifted the site's focus and overall user experience.

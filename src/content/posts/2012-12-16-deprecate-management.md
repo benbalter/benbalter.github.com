@@ -1,7 +1,7 @@
 ---
 title: Deprecate Management
-description: Open source communities ship code across geographies and timezones without traditional managers. Those collaborative practices have lessons for how we all organize work.
-comments: true
+description: Open source communities ship code across geographies and timezones without managers. Their collaborative practices have lessons for all of us.
+tldr: "Open source communities ship code across geographies and timezones without traditional managers. Those collaborative practices have lessons for how we all organize work."
 published: true
 ---
 
