@@ -8,7 +8,7 @@ When I first wrote about [the nine things a program manager does](/2021/03/26/ni
 That scramble hasn't gone away. But increasingly, I'm not doing it alone.
 
 ## From async to AI-augmented
-
+I
 The evolution makes sense in hindsight. I've argued that teams should [default to async communication](/2022/03/17/why-async/) — written, durable, discoverable artifacts over synchronous [meetings](/2023/04/20/meetings-are-a-point-of-escalation/). That managers should [use the same tools engineers use](/2023/01/10/manage-like-an-engineer/) — issues, pull requests, project boards — to plan and track their own work. And most recently, that [AI agents are extending the same patterns](/2026/03/18/agentic-workflows/) of transparency and code review that made open source successful.
 
 These ideas aren't disconnected. They're an evolution.
@@ -49,9 +49,9 @@ AI won't replace the experienced PM's gut feeling that "this one's going to slip
 
 Nobody became a program manager because they love writing weekly status reports. And yet, clear upward reporting is one of the highest-leverage things a PM does. It's how leadership knows where to pay attention and where to stay out of the way.
 
-AI can draft these reports from project activity — commits, merged PRs, issue closures, comment threads. Instead of spending Friday afternoon manually assembling a narrative from memory and half-updated boards, you start with an AI-generated draft that reflects what actually happened, then layer on your interpretation and recommendations.
+At GitHub, I built an internal tool called SnippetGPT that drafted these reports from a team's activity for the week — commits, merged PRs, issue closures, comment threads. It rolled all of that up into a first draft aimed at engineering leaders. Instead of spending Friday afternoon assembling a narrative from memory and half-updated boards, I started from something that reflected what actually happened, then layered on interpretation and recommendations.
 
-The key word there is *start*. An AI-generated status report is a first draft, not a finished product. The PM's job is to add the "so what" — the strategic interpretation that turns a list of activities into insight. AI gives you the *what*. You provide the *why it matters* and the *what to do about it*.
+The key word there is *start*. An AI-generated status report is a first draft, not a finished product. The PM's job is to add the "so what" — the strategic interpretation that turns a list of activities into insight. SnippetGPT gave me the *what*. I added the *why it matters* and the *what to do about it*. And once that draft existed, retargeting it for another audience — execs, a partner team, my own engineers — was nearly free: the same week's activity, recut for whoever needed to read it.
 
 ### Relationship management
 
@@ -69,20 +69,6 @@ AI can help by synthesizing different viewpoints, drafting proposals that incorp
 
 Where AI falls short is in reading the political dynamics. Understanding that Team A's objection is really about being burned in a previous launch, or that a particular VP's silence means something different than a junior engineer's silence — that's pattern recognition of a deeply human kind. No model is going to learn the org chart's shadow topology from a prompt.
 
-### Boundaryless engagement
-
-One of the program manager's superpowers is the ability to engage across boundaries — teams, organizations, time zones — without being constrained by reporting lines. The cost of this superpower is context-switching. You might go from a security review to a design critique to a vendor negotiation in the span of an hour.
-
-AI dramatically lowers the cost of those context switches. It'll brief you on a project you haven't touched in a week, catch you up on a channel you've been ignoring, and help you pitch the same idea three different ways for three different audiences you don't interact with daily. The re-entry tax on each switch drops toward zero.
-
-If [async communication](/2022/03/17/why-async/) decoupled work from time zones, AI decouples engagement from the cognitive overhead of maintaining context across a dozen concurrent workstreams. It's a working memory upgrade for your entire portfolio.
-
-### The long tail of program work
-
-Every PM knows the catch-all responsibility: do whatever needs to be done to keep the program moving. Sometimes that means writing a missing spec. Sometimes it means scheduling a meeting nobody wants to own. Sometimes it means reformatting a spreadsheet at 9 PM because a VP asked for a different view of the data.
-
-AI is exceptional at this long tail of tasks. Drafting documents, cleaning up data, formatting reports, writing follow-up emails, creating meeting agendas from prior action items — all the mundane-but-necessary work that eats a surprising percentage of a PM's week. Offloading these tasks means more time for the work that actually requires your judgment, empathy, and institutional knowledge.
-
 ## What doesn't change
 
 It would be easy to read all of this and conclude that AI is about to make program managers obsolete. The opposite is true.
@@ -95,7 +81,7 @@ The things AI can't do are precisely the things that make great PMs great: readi
 
 That said, AI-first program management does require new muscles — or at least, new applications of existing ones. Four capabilities stand out:
 
-**Prompt craft matters.** The quality of what AI produces depends entirely on the quality of what you ask for. PMs who can write clear, specific prompts — essentially, good requirements — will get dramatically better results than those who can't. It turns out that years of writing crisp issue descriptions and well-defined acceptance criteria is excellent training for working with LLMs. Good requirements have always been a PM superpower. Now they're a superpower twice over.
+**Prompt craft matters.** The quality of what AI produces depends entirely on the quality of what you ask for. It's [garbage in, garbage out](https://en.wikipedia.org/wiki/Garbage_in,_garbage_out) — a principle as old as computing, now pointed at prompts instead of punch cards. PMs who can write clear, specific prompts — essentially, good requirements — will get dramatically better results than those who can't. It turns out that years of writing crisp issue descriptions and well-defined acceptance criteria is excellent training for working with LLMs. Good requirements have always been a PM superpower. Now they're a superpower twice over.
 
 **Knowing when *not* to use AI is as important as knowing when to use it.** A sensitive personnel conversation, a politically charged escalation, a message to a stakeholder who's having a rough week — these require a human touch that AI can't fake. Developing judgment about when AI helps versus when it gets in the way is a skill in itself, and it's one that's hard to teach in the abstract.
 
@@ -111,7 +97,7 @@ AI agents are new instruments in the orchestra. They play fast, they play consis
 
 The shift from synchronous to async made program management more intentional. Managing like an engineer made it more transparent. AI makes the same hours count for more. Each evolution builds on the last, and each one makes the human judgment at the center of the work more important, not less.
 
-If you're a PM wondering where to start, pick the task that consumes the most time but requires the least judgment — status report assembly, meeting note cleanup, stakeholder update drafts — and hand it to an AI. You'll free up hours for the work that actually drew you to the role: solving hard problems with smart people across organizational boundaries.
+Much of the job is a long tail of grab-bag work that never fits a clean category — writing the missing spec, scheduling the meeting nobody wants to own, reformatting a spreadsheet at 9 PM because a VP asked for a different view of the data. AI is exceptional at exactly this kind of mundane-but-necessary task, and it's the easiest place to start. If you're a PM wondering where to begin, pick the task that consumes the most time but requires the least judgment — status report assembly, meeting note cleanup, stakeholder update drafts — and hand it to an AI. You'll free up hours for the work that actually drew you to the role: solving hard problems with smart people across organizational boundaries.
 
 [^1]: Tally up the number of distinct audiences a PM communicates with in a single week and the answer is genuinely depressing. Every additional team or stakeholder doesn't just add one more communication channel — it adds one for every stakeholder you *already* had. This is why PMs' calendars look the way they do.
 
