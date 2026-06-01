@@ -7,7 +7,7 @@ redirect_from:
 published: true
 seo:
   type: person
-summary: Engineering leader focused on the Hubber experience at GitHub, with a decade-plus track record shipping at the intersection of product, policy, and open source — from the White House to the world's largest software development platform.
+summary: Engineering leader who scales the operations, culture, and people functions behind high-performing teams—cutting friction and time-to-productivity at GitHub through reimagined onboarding, AI-driven automation, and rigorous business rhythms. A decade-plus track record shipping at the intersection of product, policy, and open source, from the White House to the world's largest software development platform.
 skills:
   - group: Leadership
     items:
