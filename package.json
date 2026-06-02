@@ -10,6 +10,7 @@
     "astro-embed": "^0.13.0",
     "astro-expressive-code": "^0.42.0",
     "astro-seo": "^1.1.0",
+    "docx": "^9.7.1",
     "fastest-levenshtein": "^1.0.16",
     "marked": "^18.0.4",
     "medium-zoom": "^1.1.0",
