@@ -5,7 +5,7 @@ start_date: '2024-07-08'
 end_date: '2026-07-03'
 ---
 
-Drive the Hubber experience to reduce friction and time-to-productivity, increase engagement, and enable all Hubbers (GitHub employees) to do their best remote work.
+Drove the Hubber experience to reduce friction and time-to-productivity, increase engagement, and enable all Hubbers (GitHub employees) to do their best remote work.
 
 - **Onboarding** - Reimagined company-wide onboarding to reach 100% semi-async coverage, a 96% Week 1 experience score, and an 82% information score for new hires.
 - **Learning and development** - Built tool and skill fluency across the organization through a continuous learning framework that reaches the majority of employees each month at an average session rating of 4.75/5.0.

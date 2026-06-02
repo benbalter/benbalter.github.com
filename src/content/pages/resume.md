@@ -1,13 +1,13 @@
 ---
 title: Resume
-description: Resume for Ben Balter — Director of Hubber Enablement at GitHub, attorney, open source advocate, and technology leader.
+description: Resume for Ben Balter — former Director of Hubber Enablement at GitHub, attorney, open source advocate, and technology leader.
 permalink: /resume/
 redirect_from: 
   - /cv/
 published: true
 seo:
   type: person
-summary: Engineering leader who scales the operations, culture, and people functions behind high-performing teams—cutting friction and time-to-productivity at GitHub through reimagined onboarding, AI-driven automation, and rigorous business rhythms. A decade-plus track record shipping at the intersection of product, policy, and open source, from the White House to the world's largest software development platform.
+summary: Engineering leader who scales the operations, culture, and people functions behind high-performing teams. At GitHub, cut friction and time-to-productivity through reimagined onboarding, AI-driven automation, and rigorous business rhythms. A decade-plus track record shipping at the intersection of product, policy, and open source, from the White House to the world's largest software development platform.
 skills:
   - group: Leadership
     items:
