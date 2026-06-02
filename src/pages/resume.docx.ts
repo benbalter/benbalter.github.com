@@ -127,7 +127,13 @@ function listItemInline(item: Tokens.ListItem): Token[] {
 
 /** Strip HTML comments (markdownlint directives) and trailing whitespace. */
 function cleanHeading(text: string): string {
-  return text.replace(/<!--[\s\S]*?-->/g, '').trim();
+  let current = text;
+  let previous: string;
+  do {
+    previous = current;
+    current = current.replace(/<!--[\s\S]*?-->/g, '');
+  } while (current !== previous);
+  return current.trim();
 }
 
 /** Render a position's markdown body to a flat list of docx Paragraphs. */
