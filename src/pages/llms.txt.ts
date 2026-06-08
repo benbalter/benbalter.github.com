@@ -64,7 +64,7 @@ export const GET: APIRoute = async () => {
   content += `${miniBio}\n\n`;
 
   content += `## About and Professional Information\n\n`;
-  content += `* [About](${siteConfig.url}/about/): Learn more about ${siteConfig.author}'s professional background and experience at ${siteConfig.employer}.\n`;
+  content += `* [About](${siteConfig.url}/about/): Learn more about ${siteConfig.author}'s professional background, including his work at ${siteConfig.formerEmployer}.\n`;
   
   if (resumePage) {
     content += `* [${resumePage.data.title}](${siteConfig.url}${resumePage.data.permalink}): ${resumePage.data.description}\n`;

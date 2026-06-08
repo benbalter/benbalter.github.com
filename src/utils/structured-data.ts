@@ -17,11 +17,13 @@ function personFields(overrides?: Partial<Person>): Person {
     name: siteConfig.author,
     url: siteConfig.url,
     email: siteConfig.email,
-    jobTitle: siteConfig.jobTitle,
-    worksFor: {
+    // Currently between full-time roles: no worksFor/jobTitle is asserted.
+    // GitHub is represented as a former affiliation. (On the resume page,
+    // generateResumeSchema overrides worksFor/alumniOf from résumé data.)
+    alumniOf: {
       '@type': 'Organization',
-      name: siteConfig.employer,
-      url: siteConfig.employerUrl,
+      name: siteConfig.formerEmployer,
+      url: siteConfig.formerEmployerUrl,
     } as Organization,
     sameAs: [
       siteConfig.githubUsername && `https://github.com/${siteConfig.githubUsername}`,
@@ -226,13 +228,9 @@ interface ResumeSchemaProps {
 export function generateResumeSchema(props: ResumeSchemaProps): WithContext<Person> {
   const { positions, degrees, certifications } = props;
 
-  const today = new Date();
-  const currentPosition = positions.find(p => !p.endDate || new Date(p.endDate) >= today);
-  const worksFor: Organization | undefined = currentPosition ? {
-    '@type': 'Organization',
-    name: currentPosition.employer,
-  } : undefined;
-
+  // Positions become work history (hasOccupation). The résumé deliberately does
+  // not assert a current employer (worksFor): roles overlap during transitions,
+  // and the sitewide Person intentionally claims no current employer.
   const hasOccupation: Occupation[] = positions.map(position => ({
     '@type': 'Occupation',
     name: position.title,
@@ -255,16 +253,16 @@ export function generateResumeSchema(props: ResumeSchemaProps): WithContext<Pers
   }));
 
   const schema = generatePersonSchema({
-    ...(worksFor !== undefined ? { worksFor } : {}),
     hasOccupation,
     ...(alumniOf !== undefined ? { alumniOf } : {}),
     ...(hasCredential !== undefined ? { hasCredential } : {}),
   });
 
-  // When there's no current position, explicitly remove the default worksFor
-  // that personFields inherits from siteConfig.
-  if (worksFor === undefined) {
-    delete (schema as unknown as Record<string, unknown>).worksFor;
+  // personFields() injects a default alumniOf (the former employer). The résumé
+  // supplies its own alumniOf from degrees; when there are none, drop the
+  // inherited default so it doesn't shadow the résumé's work history.
+  if (alumniOf === undefined) {
+    delete (schema as unknown as Record<string, unknown>).alumniOf;
   }
 
   return schema;

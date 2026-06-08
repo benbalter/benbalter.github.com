@@ -1,6 +1,11 @@
-name: Email broadcast for new posts
+name: Sync new posts to standard.site
 
-# Runs after a successful deploy so subscribers aren't emailed before the post is live
+# Runs after a successful deploy and upserts a site.standard.document record on
+# the author's PDS for each newly added post. Record keys are derived
+# deterministically from the post (see src/utils/standard-site.ts), so the link
+# tag the site renders already points at the synced record — no commit-back, and
+# re-runs are idempotent.
+
 on:
   workflow_run:
     workflows: ["Deploy site to Cloudflare Pages"]
@@ -9,11 +14,11 @@ on:
   workflow_dispatch:
     inputs:
       dry_run:
-        description: 'Preview what would be sent without actually sending'
+        description: 'Preview the record without writing to the PDS'
         type: boolean
         default: true
       post_path:
-        description: 'Path to a specific post file to broadcast (e.g., src/content/posts/2026-04-28-my-post.md)'
+        description: 'Path to a specific post file to sync (e.g., src/content/posts/2026-06-15-my-post.md)'
         type: string
         required: false
 
@@ -25,7 +30,7 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
-  broadcast:
+  sync:
     runs-on: ubuntu-latest
     if: >-
       github.event_name == 'workflow_dispatch' ||
@@ -52,18 +57,17 @@ jobs:
             fi
           fi
 
-          # Auto-detect from workflow_run trigger
+          # Manual dispatch without a path: nothing to do
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "No post_path provided for manual dispatch"
             echo "has_posts=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
-          # Get the commit range from the triggering workflow run
+          # Auto-detect from the triggering deploy's commit range
           BEFORE="${{ github.event.workflow_run.head_commit.id }}~1"
           AFTER="${{ github.event.workflow_run.head_commit.id }}"
 
-          # Find newly added post files
           NEW_POSTS=$(git diff --name-only --diff-filter=A "$BEFORE" "$AFTER" -- 'src/content/posts/' 2>/dev/null || echo "")
 
           if [ -z "$NEW_POSTS" ]; then
@@ -75,8 +79,6 @@ jobs:
           echo "New posts detected:"
           echo "$NEW_POSTS"
           echo "has_posts=true" >> "$GITHUB_OUTPUT"
-
-          # Write post paths to a file for the next step
           echo "$NEW_POSTS" > /tmp/new-posts.txt
 
       - name: Setup Node
@@ -90,14 +92,14 @@ jobs:
         if: steps.detect.outputs.has_posts == 'true'
         run: npm ci
 
-      - name: Send broadcast
+      - name: Sync documents
         if: steps.detect.outputs.has_posts == 'true'
         env:
-          KIT_API_KEY: ${{ secrets.KIT_API_KEY }}
-          SITE_URL: https://ben.balter.com
-          DRY_RUN: ${{ inputs.dry_run || 'false' }}
-        # Run via tsx: the script imports shared .ts pipeline modules whose
-        # internal relative imports are extensionless. Plain `node` (native
-        # type-stripping) enforces strict ESM resolution and can't resolve them;
-        # tsx (used for every other TS script here) handles it.
-        run: npx tsx script/email-broadcast.mjs /tmp/new-posts.txt
+          ATPROTO_APP_PASSWORD: ${{ secrets.ATPROTO_APP_PASSWORD }}
+          ATPROTO_HANDLE: ben.balter.com
+        run: |
+          DRY_RUN_FLAG=""
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            DRY_RUN_FLAG="--dry-run"
+          fi
+          xargs npx tsx script/standard-site/sync-document.ts $DRY_RUN_FLAG < /tmp/new-posts.txt
