@@ -1,7 +1,6 @@
 ---
 title: Resolutions for sustaining and growing open source communities
 description: Four resolutions for being a better open source community member, from reducing your bus factor to being a gracious dinner party host to your contributors.
-image: https://hackernoon.com/drafts/r3aw3zdl.png
 ---
 
 Perhaps one of the most memorable milestones in the scientific community this year was the release of the first image of a black hole. Like most technological advancements these days, this was made possible in no small part by [open source software](https://github.com/achael/eht-imaging).

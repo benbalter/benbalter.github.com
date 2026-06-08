@@ -20,20 +20,22 @@ describe('generatePersonSchema', () => {
     expect(schema).toHaveProperty('email', siteConfig.email);
   });
 
-  it('should include job title', () => {
-    const schema = generatePersonSchema();
-    
-    expect(schema).toHaveProperty('jobTitle', siteConfig.jobTitle);
-  });
-
-  it('should include worksFor Organization', () => {
+  it('should not assert a current employer (between full-time roles)', () => {
     const schema = generatePersonSchema();
     const schemaAny = schema as any;
-    
-    expect(schemaAny.worksFor).toBeDefined();
-    expect(schemaAny.worksFor['@type']).toBe('Organization');
-    expect(schemaAny.worksFor.name).toBe(siteConfig.employer);
-    expect(schemaAny.worksFor.url).toBe(siteConfig.employerUrl);
+
+    expect(schemaAny.worksFor).toBeUndefined();
+    expect(schemaAny.jobTitle).toBeUndefined();
+  });
+
+  it('should include the former employer as alumniOf', () => {
+    const schema = generatePersonSchema();
+    const schemaAny = schema as any;
+
+    expect(schemaAny.alumniOf).toBeDefined();
+    expect(schemaAny.alumniOf['@type']).toBe('Organization');
+    expect(schemaAny.alumniOf.name).toBe(siteConfig.formerEmployer);
+    expect(schemaAny.alumniOf.url).toBe(siteConfig.formerEmployerUrl);
   });
 
   it('should include @id', () => {

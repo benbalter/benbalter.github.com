@@ -1,0 +1,27 @@
+extends: existence
+message: "'%s' is an AI-like writing pattern. State the point directly."
+ignorecase: true
+level: error
+tokens:
+  - It's important to note that
+  - It is important to note that
+  - It's worth mentioning that
+  - It is worth mentioning that
+  - It's worth noting that
+  - It is worth noting that
+  - It should be noted that
+  - It should be mentioned that
+  - As previously mentioned
+  - As mentioned earlier
+  - As noted above
+  - As discussed earlier
+  - As we discussed
+  - As we mentioned
+  - It bears mentioning
+  - It bears noting
+  - you might be wondering
+  - you may be wondering
+  - you may be asking yourself
+  - you might be asking yourself
+  - and that's okay
+  - and that's perfectly fine

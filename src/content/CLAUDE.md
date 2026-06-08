@@ -35,6 +35,8 @@ These make writing feel machine-generated:
 **The coffee test**: read aloud — does it sound like something you'd actually say to a colleague?
 **The "anyone test"**: could this have been written by literally anyone? If there's no personality, rewrite it.
 
+Many of these patterns are enforced mechanically by the custom `AIPatterns` Vale style (`.github/styles/AIPatterns/`), which runs in CI via `script/vale`. Unambiguous AI tells (hedging openers, meta-commentary, "This ensures…", performative enthusiasm) are errors and block CI; transitions and setup phrases are warnings; patterns that overlap with deliberate stylistic choices (em-dash antithesis, rhetorical questions) are suggestions. Run `vale <file> --minAlertLevel=suggestion` to see everything.
+
 ## Grammar and Mechanics
 
 - **Em dashes** (`—`): no spaces — "Remote work—when done right—transforms teams"

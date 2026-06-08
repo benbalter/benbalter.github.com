@@ -1,0 +1,14 @@
+extends: existence
+message: "Avoid meta-commentary like '%s'. Just do it directly."
+ignorecase: true
+level: error
+tokens:
+  - Let's explore
+  - Let's dive into
+  - Let's take a look at
+  - Let's examine
+  - Let's consider
+  - Let's unpack
+  - Let's break down
+  - Let us explore
+  - Let us dive into

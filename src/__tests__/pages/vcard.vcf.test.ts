@@ -78,14 +78,14 @@ describe('vcard.vcf', () => {
       expect(text).toContain(`EMAIL:${siteConfig.email}`);
     });
 
-    it('should contain the organization', async () => {
+    it('should not assert a current organization (between full-time roles)', async () => {
       const text = await response.clone().text();
-      expect(text).toContain(`ORG:${siteConfig.employer}`);
+      expect(text).not.toContain('ORG:');
     });
 
-    it('should contain the job title', async () => {
+    it('should contain the former job title', async () => {
       const text = await response.clone().text();
-      expect(text).toContain(`TITLE:${siteConfig.jobTitle}`);
+      expect(text).toContain(`TITLE:Formerly ${siteConfig.formerJobTitle} at ${siteConfig.formerEmployer}`);
     });
 
     it('should contain the site URL', async () => {

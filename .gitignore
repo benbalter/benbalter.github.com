@@ -2,6 +2,8 @@
 node_modules
 /tmp
 .github/styles/*
+# Local Vale style is checked in; synced packages above are not
+!.github/styles/AIPatterns
 .frontmatter
 assets/css/style.css
 assets/js/bundle.js

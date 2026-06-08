@@ -33,18 +33,10 @@ describe('generateResumeSchema', () => {
     expect(schema).toHaveProperty('name', siteConfig.author);
   });
 
-  it('should include worksFor for current position', () => {
+  it('should not assert a current employer (worksFor), even with an ongoing position', () => {
+    // A position with no end date used to drive worksFor; the résumé now leaves
+    // current employment unasserted to match the sitewide Person schema.
     const schema = generateResumeSchema({ positions: samplePositions });
-    const schemaAny = schema as any;
-
-    expect(schemaAny.worksFor).toBeDefined();
-    expect(schemaAny.worksFor['@type']).toBe('Organization');
-    expect(schemaAny.worksFor.name).toBe('GitHub');
-  });
-
-  it('should not include worksFor when all positions have end dates', () => {
-    const pastPositions = samplePositions.filter(p => p.endDate);
-    const schema = generateResumeSchema({ positions: pastPositions });
     const schemaAny = schema as any;
 
     expect(schemaAny.worksFor).toBeUndefined();

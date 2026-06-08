@@ -1,0 +1,16 @@
+extends: existence
+message: "Avoid formulaic rhetorical questions like '%s'. Trust the reader to draw conclusions."
+ignorecase: true
+nonword: true
+level: suggestion
+tokens:
+  - 'So what does this mean\?'
+  - 'So what does that mean\?'
+  - 'So why does this matter\?'
+  - 'Why does this matter\?'
+  - 'What does this look like in practice\?'
+  - 'What does that look like in practice\?'
+  - But what does this mean
+  - But why does this matter
+  - So how do we
+  - So how do you

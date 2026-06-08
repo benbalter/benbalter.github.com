@@ -1,0 +1,13 @@
+extends: existence
+message: "'%s' is a dramatic flourish AI writing leans on. Fine if it's earned; cut it if it's filler."
+ignorecase: true
+level: warning
+tokens:
+  - Let that sink in
+  - Buckle up
+  - Spoiler alert
+  - Plot twist
+  - Here's the kicker
+  - Here is the kicker
+  - Here's the catch
+  - Here is the catch
