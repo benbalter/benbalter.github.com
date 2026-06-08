@@ -1,0 +1,12 @@
+extends: existence
+message: "'%s' is a vague intensifier. Be specific or provide evidence."
+ignorecase: true
+level: suggestion
+tokens:
+  - very unique
+  - truly unique
+  - truly transformative
+  - incredibly important
+  - incredibly valuable
+  - incredibly powerful
+  - highly effective

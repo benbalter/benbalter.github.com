@@ -8,5 +8,10 @@ if ! [ -x "$(command -v vale)" ]; then
 	echo "Vale provides additional prose style and grammar checking."
 else
 	echo "Running Vale prose linter..."
-	vale ./*.md src/content/posts/*.md src/content/resume-positions/*.md --minAlertLevel=error
+	# Sync packages on first run (the local AIPatterns style is checked in)
+	if [ ! -d ".github/styles/proselint" ]; then
+		vale sync
+	fi
+	# Note: /bin/sh may be dash (no brace expansion) — keep globs explicit
+	vale ./*.md src/content/posts/*.md src/content/posts/*.mdx src/content/resume-positions/*.md --minAlertLevel=error
 fi

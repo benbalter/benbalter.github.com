@@ -33,6 +33,6 @@ Notes:
 
 [^3]: Beyond the obvious (email, phone, contact, calendars), there's [dinner reservations](http://itunes.apple.com/us/app/opentable/id296581815?mt=8), [car rentals](http://www.zipcar.com/iphone/), [TV viewing habits](http://www.engadget.com/2010/11/15/comcast-xfinity-remote-app-for-iphone-ipad-launches-video-stre/), [financial data](http://www.mint.com/features/iphone/), [recent purchases](https://www.amazon.com/your-account), even [desktop browsing history](http://www.mozilla.com/en-US/mobile/home/) — it's like winning the lottery of personal information.
 
-[^4]: It's worth noting that the word "server" is not mentioned once in the opinion, yet the phrase "storage capacity" is used no less than five times — a concept that [even as early as 2007 was considered a thing of the past](http://mashable.com/2007/05/14/yahoo-mail-unlimited/).
+[^4]: The word "server" is not mentioned once in the opinion, yet the phrase "storage capacity" is used no less than five times — a concept that [even as early as 2007 was considered a thing of the past](http://mashable.com/2007/05/14/yahoo-mail-unlimited/).
 
 [^5]: A password may only delay the inevitable. *See* Gershowitz, Adam M., [*Password Protected? Can a Password Save Your Cell Phone from the Search Incident to Arrest Doctrine?*](http://ssrn.com/abstract=1669403) (August 31, 2010).

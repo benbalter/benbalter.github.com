@@ -49,7 +49,7 @@ The law aside, readers want you to digest and put ideas in your own voice. Take 
 
 [^1]: Questions asked included: If there's no copyright symbol, is it still copyrighted?; If it's posted online, can I just copy it because its it's in the public domain?; Can I use it if I'm not selling it?; and It's okay to use if I credit the original author, right?.
 
-[^2]: It should be noted that [I'm not an attorney](https://ben.balter.com/fine-print/) and my writing should not be substituted for qualified legal advice.
+[^2]: [I'm not an attorney](https://ben.balter.com/fine-print/) and my writing should not be substituted for qualified legal advice.
 
 [^3]: This is a common misconception. While once true, under the [Berne Convention](http://en.wikipedia.org/wiki/Berne_Convention_for_the_Protection_of_Literary_and_Artistic_Works) the author of any content published today is assumed to retain copyright claims.
 

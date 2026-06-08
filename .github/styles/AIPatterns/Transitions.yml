@@ -1,0 +1,17 @@
+extends: existence
+message: "'%s' is a formulaic transition. Use a natural transition or restructure."
+ignorecase: false
+nonword: true
+level: warning
+scope: sentence
+tokens:
+  - Furthermore,
+  - Moreover,
+  - Additionally,
+  - In addition,
+  - That being said,
+  - That said,
+  - In conclusion,
+  - To summarize,
+  - In summary,
+  - Overall,

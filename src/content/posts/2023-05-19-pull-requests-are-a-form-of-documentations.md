@@ -17,7 +17,7 @@ To that end, here are a few practices I follow when authoring pull requests to e
 - **Enough context** - So that others outside your team (or yourself years from now) can understand the change. Think of it as a time capsule or a message in a bottle to your future self and future contributors.
 - **@mention responsible team** - if not automatically requested via `CODEOWNERS`. Not only does this bring visibility to the PR, it also makes ownership clear by explicitly calling out the responsible team. Be sure to include why you're @mentioning the team (what action is requested, if any) so that it's surfaced in the notification.
 - **CC or [`fixes`](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/using-keywords-in-issues-and-pull-requests) related issues** - to create a trail of breadcrumbs to improve discoverability and allow others to opt-in to additional context. As an added bonus, it will auto close the tracking issue for you.
-- **Task lists** - To reflect the current state of the PR - for example "TODO: add tests" and to capture process
+- **Task lists** - To reflect the current state of the PR - for example `TODO: add tests` and to capture process
 - **Screenshots or animated GIFs** - to illustrate UI changes without requiring other to spin up a dev environment
 - **In-line documentation** - Linking back to the PR from the code itself for especially complex or nuanced changes
 - **Review your own PR** - Comment in line to highlight specific changes for reviewers that you're less confident on.

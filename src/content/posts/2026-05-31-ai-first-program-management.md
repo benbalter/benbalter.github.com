@@ -8,7 +8,7 @@ When I first wrote about [the nine things a program manager does](/2021/03/26/ni
 That scramble hasn't gone away. But increasingly, I'm not doing it alone.
 
 ## From async to AI-augmented
-I
+
 The evolution makes sense in hindsight. I've argued that teams should [default to async communication](/2022/03/17/why-async/) — written, durable, discoverable artifacts over synchronous [meetings](/2023/04/20/meetings-are-a-point-of-escalation/). That managers should [use the same tools engineers use](/2023/01/10/manage-like-an-engineer/) — issues, pull requests, project boards — to plan and track their own work. And most recently, that [AI agents are extending the same patterns](/2026/03/18/agentic-workflows/) of transparency and code review that made open source successful.
 
 These ideas aren't disconnected. They're an evolution.

@@ -46,7 +46,7 @@ In my experience expanded technical documentation is a positive feedback loop, i
 
 ## 5. Document how to contribute (and that you want contributions)
 
-Every project has its own workflow, processes, and norms. Some require that each pull request have an associated issue, other require squashing commits or that commit messages be in a specific format. Whatever your community's practice, make it easy for first-time contributors to implement. This helps ensure that first-time contributors have a positive experience and become repeat contributors, but also means that maintainers will be able to spend less time on the busy work of enforcing process.
+Every project has its own workflow, processes, and norms. Some require that each pull request have an associated issue, other require squashing commits or that commit messages be in a specific format. Whatever your community's practice, make it easy for first-time contributors to implement. That way, first-time contributors have a positive experience and become repeat contributors, and maintainers will be able to spend less time on the busy work of enforcing process.
 
 Think through the experience of going from a user to a first-time contributor to a regular contributor. How long does it take for that user to go from "I want to contribute" to "I have contributed"? I call that measure [friction](https://ben.balter.com/2013/08/11/friction/). When documenting your process, constantly ask yourself "how can you minimize that friction?" (or inversely, how can you maximize that conversion rate). How do you bootstrap a local development environment? How do you run tests? What are common pitfalls? Do you require a CLA? Whatever it is, try to make it as easy as possible to contribute, and more users will.
 
