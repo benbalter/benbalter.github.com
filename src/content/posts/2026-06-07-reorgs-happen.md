@@ -14,7 +14,7 @@ I know these numbers because I tracked them. What started as a humble spreadshee
 
 ## Why reorgs happen
 
-Here's the first thing to internalize: most reorgs aren't about you. They're rarely malicious, and honestly, they're rarely even that strategic. Organizations reorg because priorities shift, leaders change, headcount fluctuates, and [Conway's Law](https://en.wikipedia.org/wiki/Conway%27s_law) keeps asserting itself—if you want the system to change shape, the org that builds it has to change shape first.
+Most reorgs aren't about you. They're rarely malicious, and honestly, they're rarely even that strategic. Organizations reorg because priorities shift, leaders change, headcount fluctuates, and [Conway's Law](https://en.wikipedia.org/wiki/Conway%27s_law) keeps asserting itself—if you want the system to change shape, the org that builds it has to change shape first.
 
 A reorg is just an organization updating its structure to match its current understanding of the problem. Sometimes that understanding is right. Sometimes the same boxes get redrawn eighteen months later. Either way, the org chart is a snapshot of a hypothesis, not a monument. Expecting it to be permanent is the actual mistake.
 
@@ -28,21 +28,17 @@ The disruption is real. But it's also *predictable*, and predictable disruption 
 
 This is the mindset shift that changed how I experienced reorgs: stop treating them as rare disasters and start treating them as baseline operating conditions. If you've been in tech for any length of time, a reorg every six-ish months *is* the weather. You don't get angry at rain—you buy a raincoat.
 
-Designing your career for that reality means investing in things that survive an org-chart shuffle:
-
-* **Portable relationships.** Your network shouldn't be coterminous with your reporting line. The colleagues two teams over are future teammates, future references, and future context when the boxes get redrawn.
-* **Documented decisions.** Context that lives in one person's head—or one team's meetings—evaporates in a reorg. Context that lives [at a URL](/2015/11/12/why-urls/) survives. Working asynchronously and in the open isn't just good remote hygiene; it's reorg insurance.
-* **Work that speaks for itself.** When your manager changes every year on average, your reputation can't depend on any single person having witnessed your best work. [Keep the receipts](/2026/04/27/the-brag-doc/).
+Designing your career for that reality means investing in what survives an org-chart shuffle. Keep your relationships portable—your network shouldn't be coterminous with your reporting line, because the colleagues two teams over are your future teammates and references once the boxes get redrawn. Document your decisions somewhere durable; context that lives in one person's head evaporates in a reorg, while context that lives [at a URL](/2015/11/12/why-urls/) survives. Working asynchronously and in the open is reorg insurance. And do work that speaks for itself, because when your manager changes every year on average, your reputation can't hang on any single person having seen your best work. [Keep the receipts](/2026/04/27/the-brag-doc/).
 
 ## How to navigate a reorg
 
-When the announcement drops (usually on a Monday—I have the data), here's what actually works:
+When the announcement drops (usually on a Monday—I have the data):
 
 * **Let the dust settle.** The org chart announced on day one is rarely the org chart that exists a month later. Reorgs are announced at the altitude of VPs and refined at the altitude of teams. Don't make big career decisions—or send spicy Slack messages—in week one.
 * **Ask the questions that actually matter.** Who do I report to? What does my team own now? What changed for users? Most of the anxious speculation that follows a reorg dissolves once those three are answered. The rest is noise.
 * **Re-onboard yourself.** A new team is a new job, even if your badge and laptop stay the same. Treat it that way: learn the team's context before prescribing changes, [go near, go far, and meet in the middle](/2019/06/28/joining-a-new-team/).
 * **Reset with your new manager deliberately.** Don't wait for them to figure you out—that's a six-month project you can compress into [one good first one-on-one](/2026/04/27/one-on-one-playbook/). Bring your brag doc. Share how you work best, what you're driving, and what you need from them. Thirteen managers in, I can tell you the relationship you build in the first two weeks is the relationship you'll have.
-* **Keep showing your work.** In moments of uncertainty, visibility matters more, not less. [Leaders show their work](/2022/02/16/leaders-show-their-work/), and reorgs are precisely when everyone—new manager, new skip, new peers—is trying to figure out who does what.
+* **Keep showing your work.** In moments of uncertainty, visibility matters even more. [Leaders show their work](/2022/02/16/leaders-show-their-work/), and reorgs are precisely when everyone—new manager, new skip, new peers—is trying to figure out who does what.
 
 ## How to make the most of one
 
@@ -56,9 +52,9 @@ Navigating a reorg is table stakes. The real opportunity is that reorgs are one 
 
 ## The long view
 
-Across 25 reorgs, here's what I noticed: my manager changed, my team changed, my org changed, and my VP changed—but the things that actually determined my trajectory didn't live on the org chart at all. My reputation persisted. My relationships persisted. The work—shipped, documented, linkable—persisted.
+Across 25 reorgs, my manager changed, my team changed, my org changed, and my VP changed—but the things that actually determined my trajectory didn't live on the org chart at all. My reputation persisted. My relationships persisted. The work—shipped, documented, linkable—persisted.
 
-So that's where I'd tell you to invest. Not in any particular box or reporting line, but in the things no reorg can take from you. Get those right, and a reorg stops being a crisis and becomes what it actually is: a Monday.
+That's where I'd tell you to invest—not in any particular box or reporting line, but in the things no reorg can take from you. Get those right, and a reorg stops being a crisis and becomes what it actually is: a Monday.
 
 The model's parting gift was one final forecast: another reorg by early September, probably announced on a Monday. I have complete faith it will deliver. After all, look at the methodology:
 
