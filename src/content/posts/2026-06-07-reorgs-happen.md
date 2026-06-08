@@ -16,7 +16,7 @@ I know these numbers because I tracked them. What started as a humble spreadshee
 
 Most reorgs aren't about you. They're rarely malicious, and honestly, they're rarely even that strategic. Organizations reorg because priorities shift, leaders change, headcount fluctuates, and [Conway's Law](https://en.wikipedia.org/wiki/Conway%27s_law) keeps asserting itself—if you want the system to change shape, the org that builds it has to change shape first.
 
-A reorg is just an organization updating its structure to match its current understanding of the problem. Sometimes that understanding is right. Sometimes the same boxes get redrawn eighteen months later. Either way, the org chart is a snapshot of a hypothesis, not a monument. Expecting it to be permanent is the actual mistake. [Reorgs are the organizational equivalent of turning it off and back on again.](https://github.com/benbalter/tweets/blob/main/_statuses/1043235116791816194.md?plain=1#L14)
+A reorg is just an organization updating its structure to match its current understanding of the problem. Sometimes that understanding is right. Sometimes the same boxes get redrawn eighteen months later. Either way, the org chart is a snapshot of a hypothesis, not a monument. Expecting it to be permanent is the actual mistake. [Reorgs are the organizational equivalent of turning it off and back on again.](https://ben.balter.com/tweets/status/1043235116791816194/)
 
 ## Why they feel so disruptive
 
