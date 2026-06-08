@@ -1,0 +1,16 @@
+extends: existence
+message: "'%s' sounds like performative enthusiasm. Keep a measured, authentic tone."
+ignorecase: true
+nonword: true
+level: error
+tokens:
+  - Great question!
+  - Excellent point!
+  - Excellent question!
+  - Great point!
+  - Fantastic approach
+  - Fantastic question
+  - Wonderful point
+  - Brilliant observation
+  - Absolutely right
+  - Couldn't agree more

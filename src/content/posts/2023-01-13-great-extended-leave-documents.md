@@ -41,7 +41,7 @@ List any recurring meetings you normally run or attend, their frequency, and who
 
 | Meeting                   | Frequency      | Responsibilities      | Who   |
 | ------------------------- | -------------- | --------------------- | ----- |
-| Staff meeting             | Mondays @ 10AM | Set agenda, run       | Susie |
+| Staff meeting             | Mondays @ 10 AM | Set agenda, run       | Susie |
 | 1:1s with directs         | Weekly         | Take notes, follow up | Danny |
 
 #### 👥 Rolodex

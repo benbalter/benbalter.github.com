@@ -1,0 +1,16 @@
+extends: existence
+message: "'%s' is a common AI writing pattern. Rephrase for a more natural voice."
+ignorecase: true
+level: error
+tokens:
+  - This ensures that
+  - This allows for
+  - This enables teams
+  - This enables you
+  - This enables organizations
+  - This provides a
+  - This creates a
+  - This helps ensure
+  - This helps to ensure
+  - This makes it easy
+  - This makes it possible

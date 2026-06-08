@@ -95,6 +95,22 @@ jobs:
           curl -fSL "https://github.com/Automattic/harper/releases/download/${HARPER_VERSION}/harper-cli-x86_64-unknown-linux-gnu.tar.gz" | tar xz
           sudo mv harper-cli /usr/local/bin/
 
+      - name: Install Vale
+        env:
+          VALE_VERSION: 3.14.2
+        run: |
+          curl -fSL "https://github.com/errata-ai/vale/releases/download/v${VALE_VERSION}/vale_${VALE_VERSION}_Linux_64-bit.tar.gz" | tar xz vale
+          sudo mv vale /usr/local/bin/
+
+      - name: Cache Vale styles
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
+        with:
+          path: .github/styles
+          key: vale-styles-${{ hashFiles('.vale.ini', '.github/styles/AIPatterns/*.yml') }}
+
+      - name: Sync Vale packages
+        run: vale sync
+
       - name: script/cibuild-content
         run: script/cibuild-content
 

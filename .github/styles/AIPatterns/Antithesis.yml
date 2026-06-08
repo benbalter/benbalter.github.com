@@ -1,0 +1,9 @@
+extends: existence
+message: "'%s' is the AI negation-antithesis construction. Keep only if the contrast is earned; otherwise state the point directly."
+ignorecase: true
+nonword: true
+level: suggestion
+tokens:
+  - '(it''s|it is|that''s|that is) not (just |merely |simply |only )?(about )?[^.]{1,45}[—–-] ?(it''s|it is|that''s|they''re|they are)'
+  - 'not only (does|is|do|are|will|can|did) [^.,]{1,45}, but (also |it also |they also )'
+  - 'that''s where [^.]{1,40} comes? in'

@@ -1,0 +1,11 @@
+extends: existence
+message: "'%s' is a weak opening. Start with a stronger, more specific statement."
+ignorecase: true
+level: suggestion
+tokens:
+  - One of the most important
+  - One of the biggest
+  - One of the key
+  - An important thing to
+  - An important aspect of
+  - An important consideration

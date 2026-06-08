@@ -1,4 +1,4 @@
-# Contributing to Ben.Balter.com
+# Contributing to ben.balter.com
 
 Thank you for your interest in contributing to this project! This document provides guidelines and information for contributors.
 

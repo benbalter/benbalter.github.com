@@ -1,0 +1,18 @@
+extends: existence
+message: "'%s' is a setup phrase. Get to the point."
+ignorecase: true
+level: warning
+tokens:
+  - When it comes to
+  - In terms of
+  - In the context of
+  - In today's
+  - In an era
+  - In the world of
+  - In the realm of
+  - At its core
+  - At its heart
+  - In essence
+  - Gone are the days
+  - Rest assured
+  - Look no further
