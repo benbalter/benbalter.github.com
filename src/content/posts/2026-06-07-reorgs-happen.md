@@ -16,7 +16,7 @@ I know these numbers because I tracked them. What started as a humble spreadshee
 
 Most reorgs aren't about you. They're rarely malicious, and honestly, they're rarely even that strategic. Organizations reorg because priorities shift, leaders change, headcount fluctuates, and [Conway's Law](https://en.wikipedia.org/wiki/Conway%27s_law) keeps asserting itself—if you want the system to change shape, the org that builds it has to change shape first.
 
-A reorg is just an organization updating its structure to match its current understanding of the problem. Sometimes that understanding is right. Sometimes the same boxes get redrawn eighteen months later. Either way, the org chart is a snapshot of a hypothesis, not a monument. Expecting it to be permanent is the actual mistake.
+A reorg is just an organization updating its structure to match its current understanding of the problem. Sometimes that understanding is right. Sometimes the same boxes get redrawn eighteen months later. Either way, the org chart is a snapshot of a hypothesis, not a monument. Expecting it to be permanent is the actual mistake. [Reorgs are the organizational equivalent of turning it off and back on again.](https://github.com/benbalter/tweets/blob/main/_statuses/1043235116791816194.md?plain=1#L14)
 
 ## Why they feel so disruptive
 
@@ -48,7 +48,9 @@ Navigating a reorg is table stakes. The real opportunity is that reorgs are one 
 * **Renegotiate your scope.** Team charters get rewritten in the first few weeks after a shuffle, and nature abhors a vacuum. Show up with a proposal for what your role should be, and more often than not, you'll get it. Clarity is a gift to a leader who's drowning in ambiguity.
 * **Shed the legacy cruft.** Every team accumulates projects that persist purely through inertia. A reorg is organizational garbage collection—the rare moment you can ask "should we still be doing this?" and have "no" be an acceptable answer.
 * **Compound your network.** Every reorg deals you a new hand of colleagues, stakeholders, and adjacent teams. Thirteen years of shuffles meant I'd worked with—or near—half the company. That network outlasted every org chart that created it.
-* **Be the calm one.** When everyone else is doom-scrolling the new org chart, the person who's level-headed, generous with context, and helping others find their footing is doing leadership, visibly, at exactly the moment leadership is paying attention.
+* **Be the calm one.** When everyone else is doom-scrolling the new org chart,[^playlist] the person who's level-headed, generous with context, and helping others find their footing is doing leadership, visibly, at exactly the moment leadership is paying attention.
+
+[^playlist]: One faithful Hubber took coping to its logical conclusion and built a reorg playlist, stocked with such classics as "Changes," "It's the End of the World as We Know It," "End of the Road," "Another One Bites the Dust," "Won't Get Fooled Again," and—my personal favorite—"Let It Go." Reorg-driven development has a soundtrack now.
 
 ## The long view
 
