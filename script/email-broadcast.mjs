@@ -200,7 +200,9 @@ async function main() {
       public: true,
       published_at: new Date().toISOString(),
       send_at: new Date().toISOString(),
-      subscriber_filter: [{ all: [{ type: 'all_subscribers' }] }],
+      // Omit subscriber_filter to send to all subscribers. Kit's v4 API only
+      // accepts `segment` or `tag` filter types; an explicit "all_subscribers"
+      // filter is rejected with a 422 ("Only `segment` or `tag` filters allowed").
     };
 
     if (DRY_RUN) {
