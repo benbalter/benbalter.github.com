@@ -69,6 +69,7 @@ export const siteConfig = {
   bookUrl: 'https://open-and-async.com/',
   bookTitle: 'Open & Async',
   bookDescription: 'The collaborative software development playbook for remote and distributed teams',
+  bookLaunch: 'July 2026',
 
   // About page metadata
   aboutDescription: 'Ben Balter is a writer, open source developer, and attorney whose open source projects have hundreds of millions of downloads. Formerly Director of Hubber Enablement at GitHub.',

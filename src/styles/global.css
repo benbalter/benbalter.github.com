@@ -40,6 +40,13 @@
   --color-primary-900: #0d1f28;
   --color-primary: #337ab7;
 
+  /* Open & Async book brand palette (mirrors open-and-async.com) */
+  --color-brand-950: #102038;  /* deep navy card base */
+  --color-brand-900: #1b2a47;  /* badge bg — interpolated; site gives no hex */
+  --color-brand-600: #2e3e62;  /* borders / badge border */
+  --color-accent-400: #d0d820; /* lime / chartreuse */
+  --color-pink-400: #f070a8;   /* pink accent — shadows Tailwind's built-in pink-400 (unused elsewhere on the blog) */
+
   /* Gray scale for text and backgrounds */
   --color-gray-50: #f8f9fa;
   --color-gray-100: #f8f9fa;
@@ -1123,6 +1130,7 @@
   .back-to-top,
   .subscribe-cta,
   .book-cta-featured,
+  .book-cta-inline,
   .open-source-cta,
   .contact-links,
   .social-link,
