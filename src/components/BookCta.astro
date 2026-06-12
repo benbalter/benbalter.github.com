@@ -25,6 +25,18 @@ const bookTitleHtml = siteConfig.bookTitle.replace(
   /\s*&\s*/g,
   '<span class="oa-amp mx-1">&amp;</span>',
 );
+
+// Commit-graph motif from the marketing site: a straight trunk with curved
+// lime/pink branches, rendered as a faint strip along the bottom of the callout.
+const commitGraphPaths = `
+  <path d="M0 30 H 1200" stroke="var(--color-accent-400)" stroke-width="2.5"/>
+  <path d="M340 30 C 420 30, 440 12, 520 12 S 680 30, 760 30" stroke="var(--color-pink-400)" stroke-width="2"/>
+  <path d="M620 30 C 700 30, 720 48, 800 48 S 940 36, 1000 30" stroke="var(--color-accent-400)" stroke-width="2"/>
+  <circle cx="240" cy="30" r="6" fill="var(--color-accent-400)"/>
+  <circle cx="520" cy="12" r="5" fill="var(--color-pink-400)"/>
+  <circle cx="800" cy="48" r="5" fill="var(--color-accent-400)"/>
+  <circle cx="1000" cy="30" r="8" fill="none" stroke="var(--color-accent-400)" stroke-width="2.5"/>
+`;
 ---
 
 {variant === 'featured' ? (
@@ -32,9 +44,10 @@ const bookTitleHtml = siteConfig.bookTitle.replace(
     href={siteConfig.bookUrl}
     target="_blank"
     rel="noopener noreferrer"
-    class="book-cta-featured not-prose block rounded-xl bg-brand-950 border border-brand-600 p-6 md:p-8 relative group no-underline shadow-card dark:shadow-card-dark hover:shadow-card-hover dark:hover:shadow-card-hover-dark motion-safe:hover:-translate-y-px transition-all duration-200 motion-safe:animate-fade-up"
+    class="book-cta-featured not-prose block overflow-hidden rounded-xl bg-brand-950 border border-brand-600 p-6 md:p-8 relative group no-underline shadow-card dark:shadow-card-dark hover:shadow-card-hover dark:hover:shadow-card-hover-dark motion-safe:hover:-translate-y-px transition-all duration-200 motion-safe:animate-fade-up"
   >
-    <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-8">
+    <svg class="pointer-events-none absolute inset-x-0 bottom-0 w-full h-10 opacity-40" viewBox="0 0 1200 60" fill="none" preserveAspectRatio="xMidYMid meet" aria-hidden="true" set:html={commitGraphPaths} />
+    <div class="relative flex flex-col md:flex-row md:items-center gap-6 md:gap-8">
       <div class="shrink-0 mx-auto md:mx-0">
         <Image
           src={coverImage}
@@ -66,8 +79,9 @@ const bookTitleHtml = siteConfig.bookTitle.replace(
     </div>
   </a>
 ) : (
-  <aside class="book-cta-inline not-prose my-8 rounded-xl bg-brand-950 border border-brand-600 p-5 relative group shadow-card dark:shadow-card-dark hover:shadow-card-hover dark:hover:shadow-card-hover-dark transition-all duration-200 cursor-pointer">
-    <div class="flex items-center gap-4">
+  <aside class="book-cta-inline not-prose my-8 overflow-hidden rounded-xl bg-brand-950 border border-brand-600 p-5 relative group shadow-card dark:shadow-card-dark hover:shadow-card-hover dark:hover:shadow-card-hover-dark transition-all duration-200 cursor-pointer">
+    <svg class="pointer-events-none absolute inset-x-0 bottom-0 w-full h-7 opacity-35" viewBox="0 0 1200 60" fill="none" preserveAspectRatio="xMidYMid meet" aria-hidden="true" set:html={commitGraphPaths} />
+    <div class="relative flex items-center gap-4">
       <Image
         src={coverImage}
         alt="Open & Async book cover"
