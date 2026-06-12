@@ -510,6 +510,10 @@
     padding: 0.2em 0.5em;
     @apply bg-gray-100 text-gray-900 rounded border border-gray-300;
     font-feature-settings: normal;
+    /* Identifiers/tokens must not hyphenate — inline code inherits the
+       base paragraph's `hyphens: auto`, which breaks e.g. @benbalter as
+       "@benbal-ter". Disable it so code wraps only at natural boundaries. */
+    hyphens: none;
   }
 
   @media (prefers-color-scheme: dark) {
