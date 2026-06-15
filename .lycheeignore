@@ -19,10 +19,11 @@
 ^https?://127\.0\.0\.1
 ^https?://example\.(com|org|net)
 
-# AT Protocol URIs (at://did:plc:.../...) — emitted as standard.site
-# rel="site.standard.document"/"site.standard.publication" link tags. The
-# at:// scheme isn't resolvable over HTTP, so lychee can't (and shouldn't) check it.
-^at://
+# Note: standard.site rel="site.standard.document"/"site.standard.publication"
+# link tags carry at:// AT Protocol URIs that lychee can't parse (the colons in
+# did:plc:… read as an invalid port), so it errors before any ignore rule applies.
+# A regex here can't suppress them; the links.yml "Strip standard.site link tags"
+# step removes those tags from the throwaway build before lychee runs instead.
 
 # Intentionally-broken demo links in posts that document 404 behavior.
 # Pattern matches both raw root-relative form and the file:// form lychee
