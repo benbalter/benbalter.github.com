@@ -46,6 +46,21 @@ jobs:
       - name: Validate HTML (html-validate)
         run: npm run lint-html
 
+      - name: Strip standard.site link tags before link check
+        # The spec-required <link rel="site.standard.*" href="at://…"> tags (one
+        # per post, plus the homepage publication tag) carry AT Protocol URIs.
+        # lychee can't parse the at:// scheme — the colons in did:plc:… read as an
+        # invalid port — so it emits a hard parse error that no --exclude,
+        # --scheme, --remap, or .lycheeignore rule can suppress (they all run
+        # after URL parsing). These tags are verification infrastructure, not
+        # content links, so we drop them from this throwaway build before
+        # checking. Production output is unaffected: links.yml builds its own
+        # dist-astro and never deploys it. Runs after lint-html so the real
+        # markup is validated first.
+        run: |
+          find dist-astro -name '*.html' -print0 \
+            | xargs -0 sed -i -E 's#<link[^>]*rel="site\.standard\.(document|publication)"[^>]*>##g'
+
       - name: Restore lychee cache
         uses: actions/cache@v5
         with:
