@@ -41,7 +41,7 @@
     "@typescript-eslint/parser": "^8.60.0",
     "@vitest/coverage-v8": "^4.1.8",
     "@vitest/ui": "^4.1.7",
-    "astro": "^6.3.8",
+    "astro": "^6.4.8",
     "astro-auto-import": "^0.5.1",
     "astro-favicons": "^3.1.6",
     "dictionary-en": "^4.0.0",
