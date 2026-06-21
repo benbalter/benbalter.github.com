@@ -1,0 +1,136 @@
+---
+/**
+ * Book Launch CTA — the bespoke, high-impact "buy now" panel reserved for the
+ * launch announcement post. Louder than BookCta's inline/featured variants: a
+ * glowing lime→pink gradient ring around a full-width navy panel, the 3D cover,
+ * an oversized title, and dual buy buttons (ebook + paperback). Use BookCta for
+ * the everyday inline/homepage promos; use this once, on the launch post.
+ */
+
+import { Image } from 'astro:assets';
+import { siteConfig } from '../config';
+import coverImage from '../../assets/img/open-and-async-cover.webp';
+
+// Reuse the marketing site's gradient-ampersand treatment for the title.
+const bookTitleHtml = siteConfig.bookTitle.replace(
+  /\s*&\s*/g,
+  '<span class="oa-amp mx-1">&amp;</span>',
+);
+
+// Commit-graph motif (matches BookCta): faint branch graph along the bottom.
+const commitGraphPaths = `
+  <path d="M0 30 H 1200" stroke="var(--color-accent-400)" stroke-width="2.5"/>
+  <path d="M340 30 C 420 30, 440 12, 520 12 S 680 30, 760 30" stroke="var(--color-pink-400)" stroke-width="2"/>
+  <path d="M620 30 C 700 30, 720 48, 800 48 S 940 36, 1000 30" stroke="var(--color-accent-400)" stroke-width="2"/>
+  <circle cx="240" cy="30" r="6" fill="var(--color-accent-400)"/>
+  <circle cx="520" cy="12" r="5" fill="var(--color-pink-400)"/>
+  <circle cx="800" cy="48" r="5" fill="var(--color-accent-400)"/>
+  <circle cx="1000" cy="30" r="8" fill="none" stroke="var(--color-accent-400)" stroke-width="2.5"/>
+`;
+---
+
+<div class="book-launch-cta not-prose my-12 motion-safe:animate-fade-up">
+  <!-- Gradient ring wrapper: 2px lime→pink frame with a soft outer glow. -->
+  <div class="oa-ring rounded-2xl p-[2px] shadow-card dark:shadow-card-dark">
+    <div class="relative overflow-hidden rounded-2xl bg-brand-950 px-6 py-8 md:px-10 md:py-10">
+      <svg
+        class="pointer-events-none absolute inset-x-0 bottom-0 w-full h-12 opacity-40"
+        viewBox="0 0 1200 60"
+        fill="none"
+        preserveAspectRatio="xMidYMid meet"
+        aria-hidden="true"
+        set:html={commitGraphPaths}
+      />
+
+      <div class="relative flex flex-col items-center gap-8 text-center md:flex-row md:items-center md:gap-10 md:text-left">
+        <!-- Cover -->
+        <div class="shrink-0">
+          <Image
+            src={coverImage}
+            alt="Open & Async by Ben Balter — book cover"
+            width={240}
+            height={266}
+            densities={[1, 2]}
+            loading="lazy"
+            decoding="async"
+            class="mx-auto w-44 rounded-md shadow-2xl md:w-60 h-auto"
+          />
+        </div>
+
+        <!-- Copy + actions -->
+        <div class="flex-1">
+          <p class="mb-4">
+            <span class="inline-flex items-center gap-1.5 rounded-md bg-brand-900 border border-brand-600 px-3 py-1 font-mono text-xs uppercase tracking-widest text-white">
+              <span aria-hidden="true" class="text-accent-400">&gt;</span> Out now &middot; {siteConfig.bookLaunch}
+            </span>
+          </p>
+
+          <p class="text-3xl md:text-5xl font-bold leading-[1.05] text-white">
+            <Fragment set:html={bookTitleHtml} />
+          </p>
+
+          <p class="mt-4 text-base md:text-lg text-slate-300 max-w-xl mx-auto md:mx-0">
+            {siteConfig.bookDescription}.
+          </p>
+
+          <div class="mt-7 flex flex-col sm:flex-row items-center gap-3 justify-center md:justify-start">
+            <a
+              href={siteConfig.bookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="oa-cta-btn group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-base font-bold text-brand-950 transition-all duration-200"
+            >
+              Buy the ebook — {siteConfig.bookPrice}
+              <span aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-0.5">&rarr;</span>
+            </a>
+            <a
+              href={siteConfig.bookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-brand-600 px-7 py-3.5 text-base font-semibold text-white no-underline transition-colors duration-200 hover:bg-brand-900"
+            >
+              Paperback — {siteConfig.bookPricePaperback}
+            </a>
+          </div>
+
+          <p class="mt-4 text-sm text-slate-400">
+            One link, every store — Kindle, Apple Books, Kobo &amp; more.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  @reference "../styles/global.css";
+
+  /* Gradient frame + soft outer glow so the panel reads as the page's focal
+     point. The glow is the same lime→pink accent system, dialed back. */
+  .oa-ring {
+    background: linear-gradient(135deg, var(--color-accent-400), var(--color-pink-400));
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-accent-400) 30%, transparent),
+      0 18px 50px -12px color-mix(in srgb, var(--color-pink-400) 45%, transparent);
+  }
+
+  /* Signature lime→pink gradient text (ampersand), with a solid fallback so the
+     character survives where background-clip:text is unsupported. */
+  .oa-amp {
+    color: var(--color-accent-400);
+    background: linear-gradient(to right, var(--color-accent-400), var(--color-pink-400));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Primary button: lime→pink fill with a navy label (navy passes WCAG on the
+     accent fill where white would fail). */
+  .oa-cta-btn {
+    background: linear-gradient(to right, var(--color-accent-400), var(--color-pink-400));
+    text-decoration: none;
+  }
+
+  .oa-cta-btn:hover {
+    filter: brightness(1.05);
+  }
+</style>

@@ -65,11 +65,14 @@ export const siteConfig = {
   // Find this in your Kit dashboard under Forms → form embed code.
   kitFormId: '9381290',
 
-  // Book
+  // Book — now launched, so the callouts sell ("buy now") rather than capture
+  // emails. bookPrice leads the CTAs; paperback is the secondary option.
   bookUrl: 'https://open-and-async.com/',
   bookTitle: 'Open & Async',
   bookDescription: 'The collaborative software development playbook for remote and distributed teams',
   bookLaunch: 'July 21, 2026',
+  bookPrice: '$9.99',
+  bookPricePaperback: '$29.99',
 
   // About page metadata
   aboutDescription: 'Ben Balter is a writer, open source developer, and attorney whose open source projects have hundreds of millions of downloads. Formerly Director of Hubber Enablement at GitHub.',
