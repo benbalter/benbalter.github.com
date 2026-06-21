@@ -8,11 +8,11 @@ image: "https://open-and-async.com/og-image.png"
 published: false
 ---
 
-Most companies didn't go remote. They shipped everyone a laptop, bolted Zoom onto the same approval chains, and called it a day. That wasn't remote work—it was [office work in sweatpants](https://open-and-async.com): the same meetings, the same status theater, the same "quick syncs," just piped through a webcam.
+Most companies didn't go remote. They shipped everyone a laptop, bolted Zoom onto the same approval chains, and called it a day. That wasn't remote work—it was office work in sweatpants: the same meetings, the same status theater, the same "quick syncs," just piped through a webcam.
 
 **Working from home ≠ working remotely.** There's a world of difference between being forced out of the office and intentionally building a distributed, async culture. My book is about that difference, and as of today, you can [read it](https://open-and-async.com).
 
-[*Open and Async*](https://open-and-async.com) is the opinionated, practical playbook for the two practices that make distributed work actually work: **working in the open** and **communicating asynchronously**. Async is the operating system; remote is the hardware. It's how the next generation of tech leaders already think—and it's a learnable skill for everyone else.
+[*Open and Async*](https://open-and-async.com) is the opinionated, practical playbook for the two practices that make distributed work actually work: **working in the open** and [**communicating asynchronously**](/2022/03/17/why-async/). Async is the operating system; remote is the hardware. It's how the next generation of tech leaders already think—and it's a learnable skill for everyone else.
 
 ## Why I wrote it
 
@@ -37,7 +37,7 @@ A few of the things you'll learn how to do:
 * Lead—whether or not you have direct reports—by showing your work.
 * Hire, onboard, and transition teams to remote-first work without losing what made them good.
 
-It's 575 pages, and—because I [could not help myself](https://open-and-async.com)—the method ships as more than a manuscript. There's even an [MCP server](https://github.com/open-and-async/mcp) that drops the book's async-first practices straight into your editor, so an AI agent can draft a decision doc or pressure-test a status update against the same rubric the book teaches.
+It's 575 pages, and—because I could not help myself—the method ships as more than a manuscript. There's even a [Model Context Protocol (MCP) server](https://github.com/open-and-async/mcp) that drops the book's async-first practices straight into your editor, so an AI agent can draft a decision doc or pressure-test a status update against the same rubric the book teaches.
 
 ## Get it
 
