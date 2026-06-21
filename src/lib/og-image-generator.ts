@@ -16,7 +16,7 @@ import { createHash } from 'node:crypto';
 import { defaultOGConfig, validateDimensions, type OGImageConfig } from './og-config';
 
 // Cache version — bump this to invalidate all cached OG images
-const OG_CACHE_VERSION = '1';
+const OG_CACHE_VERSION = '2';
 const OG_CACHE_DIR = join(process.cwd(), 'node_modules', '.astro', 'og-cache');
 
 interface OGImageOptions {
