@@ -14,6 +14,8 @@ Most companies didn't go remote. They shipped everyone a laptop, bolted Zoom ont
 
 [*Open and Async*](https://open-and-async.com) is the opinionated, practical playbook for the two practices that make distributed work actually work: **working in the open** and [**communicating asynchronously**](/2022/03/17/why-async/). Async is the operating system; remote is the hardware. It's how the next generation of tech leaders already think—and it's a learnable skill for everyone else.
 
+If you've spent any time on this blog, the argument will feel familiar—the book grew out of these posts. It's where the scattered pieces finally become one ordered playbook: the full case, start to finish, with the connective tissue no single post ever had room for. Everything you've read here, plus the two-thirds that never made it to the blog.
+
 ## What separates teams that thrive
 
 More than a decade of remote-first work at GitHub made one thing clear: the tooling was never what separated the teams that thrived from the ones that just survived. Companies would adopt those workflows wholesale—add issues and pull requests on top of a hierarchy-driven approval process—and wonder why nothing changed. Tools: right. Bottlenecks: intact. The result was Zoom fatigue plus all the old dysfunction, now faster.
