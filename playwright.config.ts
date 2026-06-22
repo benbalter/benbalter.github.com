@@ -62,11 +62,17 @@ export default defineConfig({
     },
   ],
 
-  /* Run your local dev server before starting the tests */
+  /* Run a local preview server before starting the tests.
+   * Uses the built output (not `astro dev`) for two reasons:
+   *   1. It matches CI, which runs against `npm run preview` (see astro-e2e.yml),
+   *      so tests like sitemap/CSS-bundle that depend on built output behave the same.
+   *   2. Astro 7's `astro dev` daemonizes itself, so Playwright's webServer command
+   *      would exit immediately ("Process from config.webServer exited early").
+   * `reuseExistingServer` skips the rebuild when a preview server is already running. */
   webServer: process.env.CI ? undefined : {
-    command: 'npm run dev',
+    command: 'npm run build && npm run preview',
     url: 'http://localhost:4321',
     reuseExistingServer: !process.env.CI,
-    timeout: 120 * 1000,
+    timeout: 180 * 1000,
   },
 });
