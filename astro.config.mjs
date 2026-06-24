@@ -181,6 +181,7 @@ export default defineConfig({
         './src/components/GitHubCulture.astro',
         './src/components/FossAtScale.astro',
         './src/components/YouTube.astro',
+        './src/components/BookLaunchCta.astro',
         // astro-embed components for zero-JS social embeds
         {
           'astro-embed': ['Tweet', 'Vimeo', 'LinkPreview'],
