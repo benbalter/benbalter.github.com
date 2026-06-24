@@ -1,0 +1,159 @@
+name: Launch — merge book announcement PR
+
+# One-shot, date-gated automation for the Open & Async launch. On 2026-07-21 it
+# merges the launch PR (#1891) — which makes the announcement post live and
+# flips every site book callout from "Coming / Get notified" to "Buy now" — but
+# only if all gates pass:
+#   * the PR is still open and mergeable (no conflicts / not behind in a way
+#     that blocks the merge),
+#   * every required check is green, and
+#   * the book site (open-and-async.com) is actually in "buy now" mode.
+# If any gate fails it opens (or comments on) a "Launch hold" issue instead of
+# merging — it never merges into a half-ready launch.
+#
+# ARMING: scheduled workflows only fire from the DEFAULT branch, so this file
+# must be merged to `main` to take effect — it cannot live only on the PR it
+# merges. Merge this workflow PR now; it then waits for July 21.
+#
+# TOKEN / DOWNSTREAM CHAIN: set a `LAUNCH_PAT` repo secret (a PAT with `repo`
+# scope) so the merge's push to main triggers the normal
+# deploy → email-broadcast → standard.site chain exactly like a human merge.
+# Without it the job falls back to GITHUB_TOKEN and dispatches the deploy
+# explicitly — but GitHub's recursion guard means the email-broadcast and
+# standard.site `workflow_run` jobs will NOT auto-fire; run them manually
+# (their workflow_dispatch triggers) after the deploy, or add LAUNCH_PAT.
+#
+# TESTING: trigger manually any time via "Run workflow" — it defaults to a dry
+# run (evaluates gates, merges nothing). Use `force: true` to bypass the
+# book-site check (e.g. if its markup changes), `dry_run: false` to merge.
+
+on:
+  schedule:
+    # 14:00 UTC on July 21 = 10:00 America/New_York (EDT). GitHub may delay or
+    # occasionally skip scheduled runs under load — the date guard accepts a
+    # two-week window so a manual re-run still works, and workflow_dispatch is
+    # always available as a fallback.
+    - cron: '0 14 21 7 *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Skip the book-site buy-now check'
+        type: boolean
+        default: false
+      dry_run:
+        description: 'Evaluate gates and report, but do not merge'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write # merge the PR / push to main
+  pull-requests: write # merge the PR
+  issues: write # open the "Launch hold" issue on a gate failure
+  actions: write # dispatch the deploy workflow when merging via GITHUB_TOKEN
+  checks: read
+  statuses: read
+
+jobs:
+  launch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Evaluate launch gates and merge
+        env:
+          GH_TOKEN: ${{ secrets.LAUNCH_PAT || secrets.GITHUB_TOKEN }}
+          HAS_PAT: ${{ secrets.LAUNCH_PAT != '' }}
+          REPO: ${{ github.repository }}
+          PR: '1891'
+          FORCE: ${{ github.event.inputs.force }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          set -euo pipefail
+
+          # Scheduled runs always merge (no dry run); manual runs honor the
+          # dry_run input, which defaults to true for safe testing.
+          dry_run="${DRY_RUN:-false}"
+          force="${FORCE:-false}"
+          if [[ "$EVENT" == "schedule" ]]; then dry_run="false"; force="false"; fi
+
+          # --- Date guard (cron has no year field, so this fires every July 21;
+          # only act within the 2026 launch window). ---
+          today="$(date -u +%Y-%m-%d)"
+          if [[ "$today" < "2026-07-21" || "$today" > "2026-08-04" ]]; then
+            echo "::notice::Outside the launch window (today is $today); nothing to do."
+            exit 0
+          fi
+
+          # --- PR must still be open. ---
+          state="$(gh pr view "$PR" --repo "$REPO" --json state -q .state)"
+          if [[ "$state" != "OPEN" ]]; then
+            echo "::notice::PR #$PR is $state, not OPEN — nothing to merge."
+            exit 0
+          fi
+
+          # --- Mergeability (retry: GitHub computes it asynchronously and may
+          # briefly report UNKNOWN). ---
+          mergeable="UNKNOWN"
+          for i in 1 2 3 4 5; do
+            mergeable="$(gh pr view "$PR" --repo "$REPO" --json mergeable -q .mergeable)"
+            [[ "$mergeable" != "UNKNOWN" ]] && break
+            echo "Mergeable state UNKNOWN; retrying ($i)…"; sleep 10
+          done
+
+          # --- CI: every check must have concluded successfully. Pending or
+          # failing checks (null/non-SUCCESS) count as not ready. ---
+          checks_json="$(gh pr view "$PR" --repo "$REPO" --json statusCheckRollup -q '
+            [.statusCheckRollup[]
+             | select(.__typename == "CheckRun" or .__typename == "StatusContext")
+             | (.conclusion // .state // "PENDING")]')"
+          echo "Check conclusions: $checks_json"
+          not_green="$(echo "$checks_json" | jq '[.[] | select(. != "SUCCESS" and . != "NEUTRAL" and . != "SKIPPED")] | length')"
+
+          # --- Book site must be in "buy now" mode (price / buy / pre-order
+          # signal). Overridable with force, since it depends on the other
+          # repo's markup. ---
+          booksite_ok="true"
+          if [[ "$force" != "true" ]]; then
+            html="$(curl -fsSL --max-time 30 https://open-and-async.com/ || true)"
+            if ! echo "$html" | grep -iqE '9\.99|pre-?order|buy now|buy the ebook|add to cart'; then
+              booksite_ok="false"
+            fi
+          fi
+
+          # --- Tally gate failures. ---
+          reasons=""
+          [[ "$not_green" != "0" ]] && reasons+="- CI is not fully green ($not_green non-success check(s)): $checks_json"$'\n'
+          [[ "$mergeable" != "MERGEABLE" ]] && reasons+="- PR is not mergeable (state: $mergeable) — likely needs a rebase onto main or has conflicts."$'\n'
+          [[ "$booksite_ok" != "true" ]] && reasons+="- open-and-async.com does not appear to be in buy-now mode yet (no price / buy / pre-order signal found). The blog's CTAs link there, so holding until the store is live."$'\n'
+
+          if [[ -n "$reasons" ]]; then
+            echo "::warning::Launch gates failed; not merging."
+            printf '%s\n' "$reasons"
+            title="🚀 Launch hold: PR #$PR not auto-merged ($today)"
+            body="$(printf 'The scheduled launch automation did **not** merge PR #%s because:\n\n%s\nFix the above, then merge manually, or re-run the "Launch — merge book announcement PR" workflow (Run workflow) with dry_run set to false (and force set to true to skip the book-site check).\n' "$PR" "$reasons")"
+            search_q="Launch hold: PR #$PR in:title"
+            existing="$(gh issue list --repo "$REPO" --state open --search "$search_q" --json number -q '.[0].number' || true)"
+            if [[ -n "$existing" ]]; then
+              gh issue comment "$existing" --repo "$REPO" --body "$body" || true
+            else
+              gh issue create --repo "$REPO" --title "$title" --body "$body" --assignee benbalter || true
+            fi
+            exit 0
+          fi
+
+          if [[ "$dry_run" == "true" ]]; then
+            echo "::notice::Dry run — all gates passed; PR #$PR would be merged."
+            exit 0
+          fi
+
+          # --- Merge. ---
+          echo "All gates passed — merging PR #$PR."
+          gh pr merge "$PR" --repo "$REPO" --squash --delete-branch
+          echo "::notice::Merged PR #$PR. The book is launched. 🚀"
+
+          # --- Ensure the site deploys. With a PAT the push to main triggers
+          # the normal deploy → email → standard.site chain; with GITHUB_TOKEN
+          # that chain is suppressed, so dispatch the deploy explicitly. ---
+          if [[ "$HAS_PAT" != "true" ]]; then
+            gh workflow run "build-and-deploy.yml" --repo "$REPO" --ref main || true
+            echo "::warning::Merged with GITHUB_TOKEN — dispatched the deploy explicitly. The 'Email broadcast for new posts' and 'Sync new posts to standard.site' workflows will NOT auto-run; trigger them manually (workflow_dispatch) after the deploy, or add a LAUNCH_PAT secret so the chain runs automatically."
+          fi
