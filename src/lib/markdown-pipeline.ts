@@ -19,6 +19,7 @@ import rehypeRaw from 'rehype-raw';
 import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 import { remarkGitHubMentions } from './remark-github-mentions';
 import { remarkCalloutDirectives } from './remark-callout-directives';
+import { remarkDirectiveFallback } from './remark-directive-fallback';
 import { rehypeRelativeUrls } from './rehype-relative-urls';
 import { rehypeBootstrapTables } from './rehype-bootstrap-tables';
 import { rehypeImageLoading } from './rehype-image-loading';
@@ -81,6 +82,8 @@ export const sharedRemarkPlugins = [
   // Directive syntax (:::note, :::warning, etc.) and callout transformer
   remarkDirective,
   remarkCalloutDirectives,
+  // Revert stray text/leaf directives (e.g. "1:1", "3:00") back to literal text
+  remarkDirectiveFallback,
   remarkTextrConfig,
 ];
 

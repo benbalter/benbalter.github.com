@@ -18,10 +18,10 @@ Open source is in your best interest, whether you're an individual, a corporatio
 
   | Cost           | Open source          | Proprietary          |
   | :------------- | :------------------- | :------------------- |
-  | Licensing      | :x:                  | :heavy\_check\_mark: |
-  | Implementation | :heavy\_check\_mark: | :heavy\_check\_mark: |
-  | Maintenance    | :heavy\_check\_mark: | :heavy\_check\_mark: |
-  | Support        | :heavy\_check\_mark: | :heavy\_check\_mark: |
+  | Licensing      | :x:                  | :heavy_check_mark: |
+  | Implementation | :heavy_check_mark: | :heavy_check_mark: |
+  | Maintenance    | :heavy_check_mark: | :heavy_check_mark: |
+  | Support        | :heavy_check_mark: | :heavy_check_mark: |
 
   </div>
 
