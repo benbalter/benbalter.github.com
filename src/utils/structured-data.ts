@@ -231,10 +231,19 @@ export function generateResumeSchema(props: ResumeSchemaProps): WithContext<Pers
   // Positions become work history (hasOccupation). The résumé deliberately does
   // not assert a current employer (worksFor): roles overlap during transitions,
   // and the sitewide Person intentionally claims no current employer.
-  const hasOccupation: Occupation[] = positions.map(position => ({
-    '@type': 'Occupation',
-    name: position.title,
-  }));
+  //
+  // Occupation has no typed field for employer or dates, so the title carries
+  // `name` and the employer + year range ride along in `description` (inherited
+  // from Thing) — the only schema.org-valid place to surface them here.
+  const hasOccupation: Occupation[] = positions.map(position => {
+    const startYear = position.startDate.slice(0, 4);
+    const endYear = position.endDate ? position.endDate.slice(0, 4) : 'present';
+    return {
+      '@type': 'Occupation',
+      name: position.title,
+      description: `${position.title} at ${position.employer} (${startYear}–${endYear})`,
+    };
+  });
 
   const alumniOf: EducationalOrganization[] | undefined = degrees?.map(degree => ({
     '@type': 'EducationalOrganization',

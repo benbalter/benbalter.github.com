@@ -32,7 +32,9 @@ export function cleanDescription(text: string): string {
 
   const bulletPlaceholder = '[[BULLET]]';
   let cleaned = text
-    .replace(/^[-*]\s+/gm, bulletPlaceholder)
+    // Match list markers at any indent so nested sub-bullets flatten to `• `
+    // too (LinkedIn's description field has no nested-list affordance).
+    .replace(/^[ \t]*[-*]\s+/gm, bulletPlaceholder)
     .replace(/^#+\s+/gm, '')
     .replace(/<!--.*?-->/g, '');
 
