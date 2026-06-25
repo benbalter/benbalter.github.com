@@ -50,5 +50,10 @@ export const remarkGitHubMentions: Plugin<[], Root> = () => (tree) => {
     ];
   };
 
-  findAndReplace(tree, [[MENTION_REGEX, replace]]);
+  // Skip mentions already inside a link (e.g. `[@user](url)`). Linkifying them
+  // would nest an <a> inside an <a>; rehype hoists the inner one out, leaving
+  // the outer link with no text (a wcag/h30 "anchor must have text" failure).
+  findAndReplace(tree, [[MENTION_REGEX, replace]], {
+    ignore: ['link', 'linkReference'],
+  });
 };

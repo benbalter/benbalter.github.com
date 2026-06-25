@@ -142,4 +142,18 @@ describe('remarkGitHubMentions', () => {
     expect(html).toContain('href="https://github.com/benbalter"');
     expect(html).not.toContain('href="https://github.com/mention"');
   });
+
+  // Regression: a mention used as the entire link text (e.g. a Flickr photo
+  // credit, `[@user](url)`) must not be linkified — nesting <a> inside <a>
+  // collapses the outer link to empty text and fails wcag/h30.
+  it('should not linkify a mention already inside a link', async () => {
+    const markdown = 'Photo courtesy [@belochkavita](http://www.flickr.com/photos/belochkavita/244921874/)';
+    const result = await processor.process(markdown);
+    const html = String(result);
+
+    expect(html).toContain('href="http://www.flickr.com/photos/belochkavita/244921874/"');
+    expect(html).not.toContain('href="https://github.com/belochkavita"');
+    expect(html).not.toContain('></a>'); // no empty anchor
+    expect(html).toContain('@belochkavita');
+  });
 });
