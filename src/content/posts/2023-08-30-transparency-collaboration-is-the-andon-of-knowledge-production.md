@@ -10,7 +10,11 @@ Agile development can trace its roots back to the production floor of Toyota as 
 
 ## Anyone can stop the line for any reason
 
-In short, an andon is a system of lights and signals that allows workers to alert managers and colleagues to any problems or defects in the production process. With the pull of a cord or the press of a button at each station by any worker, the entire production system grinds to an instant halt. It may seem counterintuitive to make it easier for *anyone* to shut down production, but the idea is that **if you stop the line as soon as a problem is detected, it can be fixed before it gets worse**. It's been so successful in driving continuous improvement that Toyota (and most other manufacturers) continue to use the concept to this day.
+In short, an andon is a system of lights and signals that allows workers to alert managers and colleagues to any problems or defects in the production process. With the pull of a cord or the press of a button at each station by any worker, the entire production system grinds to an instant halt.
+
+:::objection[Isn't it counterintuitive to make it easier for *anyone* to shut down production?]
+The idea is that :quote[if you stop the line as soon as a problem is detected, it can be fixed before it gets worse]{#stop-the-line-early}. It's been so successful in driving continuous improvement that Toyota (and most other manufacturers) continue to use the concept to this day.
+:::
 
 The andon is designed to empower workers to stop the line, identify the root cause of the issue, and implement corrective actions, rather than letting it pass unnoticed or hoping someone else will fix it later. The andon is not only a tool for quality control, but also a culture of continuous improvement, where everyone is encouraged to speak up, share feedback, and collaborate on solutions. The andon fosters a sense of ownership, accountability, and learning among the workers, as well as transparency, trust, and alignment among the managers.
 

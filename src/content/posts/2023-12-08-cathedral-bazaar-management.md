@@ -33,7 +33,7 @@ Whether you're a manager or an individual contributor (IC), know which style you
 - By **role**—Outside engineering, the cathedral model fits a line cook—the recipe is well-defined and consistency is everything. The bazaar model fits chefs who value creativity and experimentation as they seek to create new dishes.
 - By **work environment**—Distributed and async teams need more bazaar-style management because you can't watch people work. Cathedral managers achieve visibility through direct oversight—standing over someone's shoulder, literally or figuratively. In distributed teams, transparent workflows provide that same visibility without the micromanagement.
 
-Find the right balance—and be willing to switch as the situation demands. **Match the management to the moment.**
+Find the right balance—and be willing to switch as the situation demands. :quote[Match the management to the moment.]{#match-management-to-the-moment}
 
 ## Putting it into practice
 

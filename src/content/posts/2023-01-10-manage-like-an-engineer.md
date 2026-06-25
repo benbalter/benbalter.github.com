@@ -31,7 +31,7 @@ Here are a few of the engineer-inspired "how we work" principles which I strive 
 - **Streamline and automate** - Never force a human to do what a robot can. Prefer non-blocking over blocking operations. Codify policy as code.
 - **Embrace collaboration** - How we work is as important as what we work on. Software development is a team sport.[^5]
 - **Asynchronous first** - Reserve higher-fidelity mediums for conversations that require them.
-- **Practicality beats purity** - These are guidelines, not rules. Process should drive outcomes.
+- :quote[Practicality beats purity]{#practicality-beats-purity} - These are guidelines, not rules. Process should drive outcomes.
 
 ## How to manage like an engineer
 

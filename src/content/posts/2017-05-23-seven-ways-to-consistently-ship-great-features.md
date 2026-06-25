@@ -16,7 +16,7 @@ It doesn't have to be a formal template, but great developers make sure all the 
 
 The difference between a feature and code is that a feature is defined by the user experience and the code is defined by how it's implemented. Writing code is by far the easiest part of software development. Sure, there are technical challenges to overcome, styles to be enforced, and methods to be optimized, but most days, those are routinely solvable problems. The challenge is building well-thought-out, well-implemented features.
 
-**Describe what you're going to write, write it, and then describe what you wrote.** Before you write a single line of code, propose to your teammates what you'd like to do and how you'd like to do it. Many code-review-induced rewrites could have been avoided by more explicit communication upfront. After the code's written, make sure non-developers can understand (and provide feedback) on what you did.
+:quote[Describe what you're going to write, write it, and then describe what you wrote.]{#describe-write-describe} Before you write a single line of code, propose to your teammates what you'd like to do and how you'd like to do it. Many code-review-induced rewrites could have been avoided by more explicit communication upfront. After the code's written, make sure non-developers can understand (and provide feedback) on what you did.
 
 ## 3. Get it in users' hands, not on `main`
 
