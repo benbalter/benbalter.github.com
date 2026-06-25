@@ -1,6 +1,7 @@
 ---
 title: Manage like an engineer
 description: If issues, pull requests, and project boards are the best way to develop software, should they not also be the best way to manage software development?
+tldr: "Engineers abandon their best tools the moment they start managing. Track management work in issues, project boards, and pull requests—the same way you ship software—to work transparently and shed the meta-work."
 ---
 
 Many engineering and product leaders begin their careers as engineers. On a typical engineering team, work is captured in issues, organized in project backlogs, and reviewed in pull requests. For most teams, this is the best way to plan and track software development work.[^7] But as engineers advance in their careers and begin down the management path, they too often adopt an entirely different set of tools, workflows, and philosophies for managing their own work. Such management workflows are more cumbersome, more time-consuming, and more opaque than their engineering counterparts. If we believe issues, pull requests, and project boards are the best way to develop software, should they not also be the best way to manage software development?[^3]

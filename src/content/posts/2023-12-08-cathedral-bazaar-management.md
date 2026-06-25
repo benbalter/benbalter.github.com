@@ -33,7 +33,7 @@ Whether you're a manager or an individual contributor (IC), know which style you
 - By **role**—Outside engineering, the cathedral model fits a line cook—the recipe is well-defined and consistency is everything. The bazaar model fits chefs who value creativity and experimentation as they seek to create new dishes.
 - By **work environment**—Distributed and async teams need more bazaar-style management because you can't watch people work. Cathedral managers achieve visibility through direct oversight—standing over someone's shoulder, literally or figuratively. In distributed teams, transparent workflows provide that same visibility without the micromanagement.
 
-Find the right balance—and be willing to switch as the situation demands. Match the management to the moment.
+Find the right balance—and be willing to switch as the situation demands. **Match the management to the moment.**
 
 ## Putting it into practice
 
@@ -41,4 +41,4 @@ Find the right balance—and be willing to switch as the situation demands. Matc
 
 **For ICs:** Knowing your manager's style helps you meet them where they are. If they lean cathedral, proactively share progress and ask clarifying questions before proceeding. If they lean bazaar, take initiative and document your decisions. Senior ICs often operate bazaar-style regardless of their manager—defining problems, proposing solutions, and bringing others along through influence rather than authority.
 
-Cathedral and bazaar aren't personality traits—they're management operating systems you can swap depending on the moment. For distributed teams, the default should lean bazaar (autonomy plus transparency), but knowing when to shift toward cathedral matters just as much. As a manager, ask yourself: are you building a cathedral or a bazaar? As an IC, ask yourself: do you prefer working in a cathedral or a bazaar? And most importantly—are you and your manager on the same page? Get the balance right, and your team ships better work with less friction.
+**Cathedral and bazaar aren't personality traits—they're management operating systems you can swap depending on the moment.** For distributed teams, the default should lean bazaar (autonomy plus transparency), but knowing when to shift toward cathedral matters just as much. As a manager, ask yourself: are you building a cathedral or a bazaar? As an IC, ask yourself: do you prefer working in a cathedral or a bazaar? And most importantly—are you and your manager on the same page? Get the balance right, and your team ships better work with less friction.
