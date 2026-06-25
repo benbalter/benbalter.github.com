@@ -3,12 +3,14 @@ import { getCollection, render, type CollectionEntry } from 'astro:content';
 import PostLayout from '../../../../layouts/PostLayout.astro';
 import { findRelatedPosts, initializeRelatedPostsCache } from '../../../../utils/related-posts';
 import { getPostUrl } from '../../../../utils/post-urls';
-import { isPublishedPost } from '../../../../utils/post-filtering';
+import { isPublished, isListablePost } from '../../../../utils/post-filtering';
 import { calculateReadingTime } from '../../../../utils/reading-time';
 
-// Generate static paths for all blog posts with Jekyll URL structure
+// Generate static paths for all blog posts with Jekyll URL structure.
+// Archived posts are published (with a warning banner) and must be built, so
+// route generation uses `isPublished` — not the stricter listing predicate.
 export async function getStaticPaths() {
-  const posts = await getCollection('posts', isPublishedPost);
+  const posts = await getCollection('posts', isPublished);
 
   // Initialize the related posts cache once for all posts
   // This pre-calculates TF-IDF vectors for all posts to avoid redundant computation
@@ -48,16 +50,23 @@ const pubDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
 // If post has a custom image, use that, otherwise use the dynamically generated one
 const ogImageUrl = post.data.image || `/og/${year}/${month}/${day}/${slug}.png`;
 
+// Related posts and sequential navigation only consider listable (non-archived)
+// posts, so archived posts stay reachable but are never surfaced as suggestions
+// and don't appear in the prev/next chain between current posts.
+const listablePosts = allPosts.filter(isListablePost);
+
 // Find related posts (limit to 10) - uses cached TF-IDF calculations
-const relatedPosts = await findRelatedPosts(post, allPosts, 10);
+const relatedPosts = await findRelatedPosts(post, listablePosts, 10);
 
 // Find previous and next posts for sequential navigation
-const publishedPosts = allPosts
+const orderedPosts = [...listablePosts]
   .sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => a.id.localeCompare(b.id));
 
-const currentIndex = publishedPosts.findIndex((p: CollectionEntry<'posts'>) => p.id === post.id);
-const prevEntry = currentIndex > 0 ? publishedPosts[currentIndex - 1] : undefined;
-const nextEntry = currentIndex < publishedPosts.length - 1 ? publishedPosts[currentIndex + 1] : undefined;
+// Archived posts aren't in `orderedPosts` (currentIndex === -1), so the guards
+// below correctly leave them without prev/next links.
+const currentIndex = orderedPosts.findIndex((p: CollectionEntry<'posts'>) => p.id === post.id);
+const prevEntry = currentIndex > 0 ? orderedPosts[currentIndex - 1] : undefined;
+const nextEntry = currentIndex >= 0 && currentIndex < orderedPosts.length - 1 ? orderedPosts[currentIndex + 1] : undefined;
 const prevPost = prevEntry ? { title: prevEntry.data.title, url: getPostUrl(prevEntry.id), readingTime: calculateReadingTime(prevEntry.body ?? '') } : undefined;
 const nextPost = nextEntry ? { title: nextEntry.data.title, url: getPostUrl(nextEntry.id), readingTime: calculateReadingTime(nextEntry.body ?? '') } : undefined;
 ---
@@ -72,6 +81,7 @@ const nextPost = nextEntry ? { title: nextEntry.data.title, url: getPostUrl(next
   prevPost={prevPost}
   nextPost={nextPost}
   archived={post.data.archived}
+  robots={post.data.robots}
   postId={post.id}
   postFilePath={post.filePath}
   posts={post.data.posts}

@@ -17,7 +17,7 @@ if (!resumePage) {
   throw new Error('Resume page data not found');
 }
 
-const { title, description, degrees, certifications, skills, summary } = resumePage.data;
+const { title, description, robots, degrees, certifications, skills, summary } = resumePage.data;
 
 // Load resume positions from content collection
 const allPositions = await getCollection('resume-positions');
@@ -64,7 +64,7 @@ const resumeSchema = generateResumeSchema({
 });
 ---
 
-<PageLayout title={title} description={description} suppressPersonSchema>
+<PageLayout title={title} description={description} robots={robots} suppressPersonSchema>
   <header class="print-header" aria-hidden="true">
     <p class="print-name">Ben Balter</p>
     <p class="print-contact">
@@ -81,6 +81,11 @@ const resumeSchema = generateResumeSchema({
   {summary && (
     <section class="resume-section resume-summary">
       <p class="summary-text">{summary}</p>
+      <p class="resume-contact">
+        Washington, DC
+        <span aria-hidden="true"> · </span>
+        <a href="mailto:ben@balter.com">ben@balter.com</a>
+      </p>
       <p class="resume-aux">
         Also available on <a href="https://www.linkedin.com/in/benbalter/" target="_blank" rel="me noopener noreferrer">LinkedIn</a>.
         <a href="/resume.docx" download="ben-balter-resume.docx">Download as Word</a>, or use your browser's print-to-PDF to save a copy.
@@ -216,6 +221,13 @@ const resumeSchema = generateResumeSchema({
     line-height: 1.6;
   }
 
+  .resume-contact {
+    margin: 0.6rem 0 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-gray-700, #495057);
+  }
+
   .resume-aux {
     margin: 0.5rem 0 0;
     font-size: 0.85rem;
@@ -266,7 +278,8 @@ const resumeSchema = generateResumeSchema({
       color: var(--color-primary-200, #b3d4f0);
     }
 
-    .resume-aux {
+    .resume-aux,
+    .resume-contact {
       color: var(--color-gray-400, #adb5bd);
     }
   }
@@ -542,8 +555,10 @@ const resumeSchema = generateResumeSchema({
       display: none !important;
     }
 
-    /* Hide the "also on LinkedIn / print to PDF" helper — already printing */
-    .resume-aux {
+    /* Hide the on-screen contact + helper lines — the print-header carries
+       name and contact when printing. */
+    .resume-aux,
+    .resume-contact {
       display: none !important;
     }
 

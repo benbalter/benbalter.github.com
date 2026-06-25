@@ -14,23 +14,26 @@ interface Props {
   description: string;
   image?: string;
   noindex?: boolean;
+  robots?: string | undefined;
   suppressPersonSchema?: boolean;
 }
 
-const { 
-  title, 
-  description, 
+const {
+  title,
+  description,
   image,
   noindex = false,
+  robots,
   suppressPersonSchema = false,
 } = Astro.props;
 ---
 
-<BaseLayout 
-  title={title} 
+<BaseLayout
+  title={title}
   description={description}
   image={image}
   noindex={noindex}
+  robots={robots}
   suppressPersonSchema={suppressPersonSchema}
 >
   <div class="max-w-4xl mx-auto px-4">

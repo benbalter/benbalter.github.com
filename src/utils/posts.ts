@@ -1,13 +1,13 @@
 /**
  * Shared helpers for fetching blog posts.
  *
- * Centralizes the `getCollection('posts', isPublishedPost)` call that was
+ * Centralizes the `getCollection('posts', isListablePost)` call that was
  * previously duplicated across pages, ensuring all callers share the same
  * filtering semantics (drafts/unpublished and archived posts excluded).
  */
 
 import { getCollection, type CollectionEntry } from 'astro:content';
-import { isPublishedPost } from './post-filtering';
+import { isListablePost } from './post-filtering';
 
 export interface GetPublishedPostsOptions {
   /**
@@ -27,7 +27,7 @@ export interface GetPublishedPostsOptions {
 export async function getPublishedPosts(
   options: GetPublishedPostsOptions = {},
 ): Promise<CollectionEntry<'posts'>[]> {
-  const posts = await getCollection('posts', isPublishedPost);
+  const posts = await getCollection('posts', isListablePost);
   if (options.sorted) {
     return [...posts].sort(
       (a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) =>

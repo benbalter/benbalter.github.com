@@ -26,6 +26,7 @@ interface Props {
   author?: string;
   keywords?: string[];
   noindex?: boolean;
+  robots?: string | undefined;
   hero?: boolean;
   suppressPersonSchema?: boolean;
   standardSiteDocumentUri?: string | undefined;
@@ -41,6 +42,7 @@ const {
   author = siteConfig.author,
   keywords = siteConfig.keywords,
   noindex = false,
+  robots,
   hero = false,
   suppressPersonSchema = false,
   standardSiteDocumentUri,
@@ -54,6 +56,14 @@ const canonicalPath = rawPath === '/' || rawPath.endsWith('/') || /\.[a-z0-9]+$/
   ? rawPath
   : rawPath + '/';
 const canonicalUrl = new URL(canonicalPath, siteConfig.url).toString();
+
+// Resolve robots directives. An explicit `robots` value (from post/page
+// frontmatter) wins; otherwise fall back to the `noindex` flag. astro-seo renders
+// a single robots meta from these booleans (defaulting to "index, follow"), so we
+// translate the directive string into them rather than emitting a second tag.
+const robotsDirective = (robots ?? (noindex ? 'noindex, nofollow' : '')).toLowerCase();
+const seoNoindex = robotsDirective.includes('noindex');
+const seoNofollow = robotsDirective.includes('nofollow');
 
 // Default OG image if none provided. The generated per-post OG images at
 // /og/YYYY/MM/DD/slug.png and the site-wide default at /og/default.png are
@@ -127,8 +137,8 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
       title={fullTitle}
       description={description}
       canonical={canonicalUrl}
-      noindex={noindex}
-      nofollow={noindex}
+      noindex={seoNoindex}
+      nofollow={seoNofollow}
       charset="UTF-8"
       openGraph={{
         basic: {

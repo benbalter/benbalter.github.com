@@ -38,7 +38,7 @@ describe('getPublishedPosts', () => {
     mockGetCollection.mockReset();
   });
 
-  it('forwards the isPublishedPost filter to getCollection', async () => {
+  it('forwards the isListablePost filter to getCollection', async () => {
     // Simulate Astro's getCollection applying the filter we pass in.
     mockGetCollection.mockImplementation(async (_collection: any, filter?: any) => {
       const all = [
