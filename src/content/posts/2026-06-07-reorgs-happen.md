@@ -26,7 +26,7 @@ The disruption is real. But it's also *predictable*, and predictable disruption 
 
 ## Treat reorgs as a constant, not an exception
 
-This is the mindset shift that changed how I experienced reorgs: stop treating them as rare disasters and start treating them as baseline operating conditions. If you've been in tech for any length of time, a reorg every six-ish months *is* the weather. You don't get angry at rain—you buy a raincoat.
+This is the mindset shift that changed how I experienced reorgs: stop treating them as rare disasters and start treating them as baseline operating conditions. If you've been in tech for any length of time, a reorg every six-ish months *is* the weather. :quote[You don't get angry at rain—you buy a raincoat.]{#dont-get-angry-at-rain}
 
 Designing your career for that reality means investing in what survives an org-chart shuffle. Keep your relationships portable—your network shouldn't be coterminous with your reporting line, because the colleagues two teams over are your future teammates and references once the boxes get redrawn. Document your decisions somewhere durable; context that lives in one person's head evaporates in a reorg, while context that lives [at a URL](/2015/11/12/why-urls/) survives. Working asynchronously and in the open is reorg insurance. And do work that speaks for itself, because when your manager changes every year on average, your reputation can't hang on any single person having seen your best work. [Keep the receipts](/2026/04/27/the-brag-doc/).
 
