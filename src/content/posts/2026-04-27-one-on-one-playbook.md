@@ -32,7 +32,7 @@ Keep a **running shared agenda**—a Google Doc, a GitHub issue, whatever works�
 
 Add context to each item. Don't just write "career growth"—write "I've been thinking about whether to pursue the tech lead path or people management, and I'd like to talk through the tradeoffs." The more context upfront, the more productive the conversation. Prioritize ruthlessly—you won't cover everything every week, and if something keeps rolling without getting discussed, that tells you something about its actual importance.
 
-A good test of your preparation: could you cancel the meeting without losing anything? If yes, you either don't have enough prepared or you're covering topics better handled async.
+:quote[A good test of your preparation: could you cancel the meeting without losing anything?]{#cancel-without-losing-anything} If yes, you either don't have enough prepared or you're covering topics better handled async.
 
 ## How to run one
 

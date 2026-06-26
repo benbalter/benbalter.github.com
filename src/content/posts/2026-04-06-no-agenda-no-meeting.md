@@ -25,6 +25,6 @@ If the answer is yes — and it almost always is — write first, meet s
 
 Next time you get a meeting invite without an agenda, try something wild: decline it. Or better yet, reply asking for one. You can even send them the link — [noagendanomeeting.net](https://noagendanomeeting.net) is a lot more diplomatic than "I'm not attending your agenda-free ambush."
 
-If you [manage like an engineer](/2023/01/10/manage-like-an-engineer/), you already know that undefined inputs produce undefined outputs. Meetings are no different. Define the problem before you schedule the standup.
+If you [manage like an engineer](/2023/01/10/manage-like-an-engineer/), you already know that undefined inputs produce undefined outputs. Meetings are no different. :quote[Define the problem before you schedule the standup.]{#define-the-problem-first}
 
 Check it out at [noagendanomeeting.net](https://noagendanomeeting.net), and the next time someone sends you a mystery meeting, you'll know exactly what link to send back.

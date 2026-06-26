@@ -18,7 +18,7 @@ In remote organizations, this problem compounds. There's no hallway reputation, 
 
 Maintain a "ship log"—call it a "brag doc," "hype doc," "smile file," whatever gets you to actually use it. Each time you hit a milestone, record it with its impact and any relevant metrics. Async work hands you a head start: your contributions are already timestamped and linkable.
 
-Your ship log combats impostor syndrome, makes annual self-assessments trivially easy to write, and keeps your professional profiles current. **If you didn't log it, it didn't happen.**
+Your ship log combats impostor syndrome, makes annual self-assessments trivially easy to write, and keeps your professional profiles current. :quote[If you didn't log it, it didn't happen.]{#if-you-didnt-log-it}
 
 The format doesn't matter—a Google Doc, Apple Notes, a text file in your home directory. What matters is that it's easy to update and always within reach. Every Friday, spend five minutes adding bullets: what you shipped, what you unblocked, what decisions you influenced.
 

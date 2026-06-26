@@ -5,7 +5,7 @@ description: Pull requests capture not just what changed, but who, why, and what
 
 We often think of pull requests purely as a code review mechanism, but they are also an organic and natural form of documentation. I can't count the number of times I've spelunked historic GitHub PRs to understand the context around a feature or product decision.
 
-Pull requests capture not just what change was made, but who made it, why, and what alternatives were considered. They create a cross-linked web of context for others, and capture the discussion *around* the change, which is often an equally valuable technical artifact.
+:quote[Pull requests capture not just what change was made, but who made it, why, and what alternatives were considered.]{#who-why-and-alternatives} They create a cross-linked web of context for others, and capture the discussion *around* the change, which is often an equally valuable technical artifact.
 
 When I write a PR, I write it not just with the immediate reviewers in mind, but how it will read for outsiders down the line who might land on in from search results or a cross reference. Beyond documentation, PRs are a great place for your colleagues to ask the type of "dumb questions" that gives you the confidence to ship.
 
