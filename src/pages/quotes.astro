@@ -13,12 +13,25 @@ import Icon from '../components/Icon.astro';
 import { siteConfig } from '../config';
 import { resolveQuotes } from '../utils/quotes';
 import { quoteAnchorId } from '../lib/remark-quote-directive';
+import { generateQuotesCollectionSchema, schemaToJsonLd } from '../utils/structured-data';
 
 const posts = await getCollection('posts');
 const quotes = resolveQuotes(posts);
 
 const title = 'Quotable';
 const description = `A wall of shareable lines from ${siteConfig.author}'s writing on engineering leadership, open source, and showing your work.`;
+
+const quotesSchema = generateQuotesCollectionSchema({
+  name: title,
+  description,
+  url: new URL('/quotes/', siteConfig.url).toString(),
+  quotes: quotes.map((quote) => ({
+    id: quote.id,
+    text: quote.text,
+    postUrl: quote.postUrl,
+    postTitle: quote.postTitle,
+  })),
+});
 ---
 
 <PageLayout title={title} description={description}>
@@ -49,6 +62,8 @@ const description = `A wall of shareable lines from ${siteConfig.author}'s writi
       </ul>
     )}
   </div>
+
+  <script type="application/ld+json" set:html={schemaToJsonLd(quotesSchema)} is:inline></script>
 </PageLayout>
 
 <script>

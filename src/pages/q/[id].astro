@@ -17,6 +17,7 @@ import Icon from '../../components/Icon.astro';
 import { siteConfig } from '../../config';
 import { resolveQuotes, type ResolvedQuote } from '../../utils/quotes';
 import { quoteAnchorId } from '../../lib/remark-quote-directive';
+import { generateQuotationSchema, schemaToJsonLd } from '../../utils/structured-data';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -39,6 +40,13 @@ const pageUrl = new URL(`/q/${quote.id}/`, siteConfig.url).toString();
 // Deep-link back to the highlighted line in the post so readers land in context.
 const sourceUrl = `${quote.postUrl}#${quoteAnchorId(quote.id)}`;
 const ogImage = `/og/q/${quote.id}.png`;
+
+const quotationSchema = generateQuotationSchema({
+  id: quote.id,
+  text: quote.text,
+  postUrl: quote.postUrl,
+  postTitle: quote.postTitle,
+});
 ---
 
 <BaseLayout
@@ -80,6 +88,8 @@ const ogImage = `/og/q/${quote.id}.png`;
       </a>
     </div>
   </div>
+
+  <script type="application/ld+json" set:html={schemaToJsonLd(quotationSchema)} is:inline></script>
 </BaseLayout>
 
 <script>
