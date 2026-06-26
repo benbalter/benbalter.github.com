@@ -10,25 +10,61 @@
 import Icon from './Icon.astro';
 import { getShareUrls } from '../utils/share-urls';
 
+type Network = 'linkedin' | 'bluesky' | 'twitter' | 'email';
+
 interface Props {
   title: string;
   url: string;
+  /** Which social links to render, in order. Defaults to all four. */
+  networks?: Network[];
+  /**
+   * Render a native (Web Share API) button. Ships hidden and is revealed by
+   * JS only where `navigator.share` exists, so it never shows as a dead
+   * control on browsers without support (most desktops).
+   */
+  nativeShare?: boolean;
+  /** Absolute URL of an image (e.g. an OG card) to attach to the native share. */
+  shareImage?: string;
+  /** Text for the native share sheet. Defaults to the title. */
+  shareText?: string;
 }
 
-const { title, url } = Astro.props;
+const {
+  title,
+  url,
+  networks = ['linkedin', 'bluesky', 'twitter', 'email'],
+  nativeShare = false,
+  shareImage,
+  shareText,
+} = Astro.props;
 const urls = getShareUrls(title, url);
 
-const shareLinks = [
-  { name: 'LinkedIn', icon: 'linkedin', href: urls.linkedin },
-  { name: 'Bluesky', icon: 'bluesky', href: urls.bluesky },
-  { name: 'Twitter', icon: 'twitter', href: urls.twitter },
-  { name: 'Email', icon: 'envelope', href: urls.email },
-];
+const linkDefs: Record<Network, { name: string; icon: string; href: string }> = {
+  linkedin: { name: 'LinkedIn', icon: 'linkedin', href: urls.linkedin },
+  bluesky: { name: 'Bluesky', icon: 'bluesky', href: urls.bluesky },
+  twitter: { name: 'Twitter', icon: 'twitter', href: urls.twitter },
+  email: { name: 'Email', icon: 'envelope', href: urls.email },
+};
+const shareLinks = networks.map((n) => linkDefs[n]);
 ---
 
 <div class="flex items-center gap-3">
   <span class="text-sm text-gray-600 dark:text-gray-300 font-medium">Share</span>
   <div class="flex gap-1">
+    {nativeShare && (
+      <button
+        type="button"
+        data-share-native
+        data-share-url={url}
+        data-share-text={shareText ?? title}
+        data-share-image={shareImage}
+        aria-label="Share…"
+        hidden
+        class="share-link inline-flex items-center justify-center p-2 rounded text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-300 transition-colors duration-200"
+      >
+        <Icon name="share" />
+      </button>
+    )}
     {shareLinks.map((link) => (
       <a
         href={link.href}
@@ -92,5 +128,46 @@ const shareLinks = [
     });
   }
 
+  // Fetch an image (e.g. the OG card) as a File so the OS share sheet can post
+  // the image itself — images far outperform bare links in feeds. Returns [] on
+  // any failure so the caller can fall back to a text + URL share.
+  async function shareImageFiles(imageUrl: string | undefined): Promise<File[]> {
+    if (!imageUrl) return [];
+    try {
+      const res = await fetch(imageUrl);
+      if (!res.ok) return [];
+      const blob = await res.blob();
+      const name = imageUrl.split('/').pop() || 'card.png';
+      return [new File([blob], name, { type: blob.type || 'image/png' })];
+    } catch {
+      return [];
+    }
+  }
+
+  async function handleNativeShare(button: HTMLButtonElement) {
+    const url = button.dataset.shareUrl ?? location.href;
+    const text = button.dataset.shareText ?? '';
+    const files = await shareImageFiles(button.dataset.shareImage);
+    try {
+      if (files.length && navigator.canShare?.({ files })) {
+        await navigator.share({ text, url, files });
+      } else {
+        await navigator.share({ text, url });
+      }
+    } catch {
+      /* user dismissed the sheet, or share failed — nothing to do */
+    }
+  }
+
+  function initNativeShare() {
+    const buttons = document.querySelectorAll<HTMLButtonElement>('[data-share-native]');
+    if (typeof navigator.share !== 'function') return;
+    buttons.forEach((button) => {
+      button.hidden = false;
+      button.addEventListener('click', () => handleNativeShare(button));
+    });
+  }
+
   initCopyButtons();
+  initNativeShare();
 </script>

@@ -61,7 +61,14 @@ const ogImage = `/og/q/${quote.id}.png`;
 
     <div class="quote-actions">
       <div class="quote-actions-left">
-        <ShareButtons title={quote.text} url={pageUrl} />
+        <ShareButtons
+          title={quote.text}
+          url={pageUrl}
+          networks={['linkedin', 'email']}
+          nativeShare
+          shareImage={new URL(ogImage, siteConfig.url).toString()}
+          shareText={`${quote.text} — ${attribution}`}
+        />
         <button type="button" class="quote-copy" data-copy-quote data-quote-text={quote.text}>
           <span class="quote-copy-idle"><Icon name="copy" /> Copy quote</span>
           <span class="quote-copy-done hidden"><Icon name="check" /> Copied</span>
