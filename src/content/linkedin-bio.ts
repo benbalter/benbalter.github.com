@@ -8,7 +8,7 @@
  */
 
 export const linkedinHeadline =
-  'Former Director of Hubber Enablement at GitHub | Engineering leadership, open source, and remote work | Former Presidential Innovation Fellow, attorney';
+  'Helping distributed teams work in the open & default to async | Author of Open & Async | Ex-GitHub Director, Presidential Innovation Fellow, attorney';
 
 /**
  * About text as individual lines. Joined with `<br>` for display (respects
