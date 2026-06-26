@@ -93,6 +93,14 @@ export function remarkQuoteDirective() {
         type: 'html',
         value: `<span class="quote-inline-icon">${SHARE_ICON_SVG}</span>`,
       } as RootContent;
+      // Visually-hidden purpose hint. No aria-label on the link itself — that
+      // would override the accessible name and make screen readers skip the
+      // quote text while reading the surrounding prose. Leaving the link's name
+      // as the quote text (plus this hint) keeps the sentence readable in flow.
+      const srNode = {
+        type: 'html',
+        value: '<span class="sr-only"> (share this quote)</span>',
+      } as RootContent;
 
       n.data = {
         hName: 'a',
@@ -101,10 +109,9 @@ export function remarkQuoteDirective() {
           href: `/q/${id}/`,
           className: ['quote-inline'],
           'data-quote-id': id,
-          'aria-label': 'Share this quote',
         },
       } as DirectiveNode['data'];
-      n.children = [markNode, iconNode];
+      n.children = [markNode, srNode, iconNode];
 
       // Don't descend into the rewritten children (no nested quotes expected).
       return SKIP;

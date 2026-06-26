@@ -13,7 +13,6 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ShareButtons from '../../components/ShareButtons.astro';
-import SubscribeCta from '../../components/SubscribeCta.astro';
 import Icon from '../../components/Icon.astro';
 import { siteConfig } from '../../config';
 import { resolveQuotes, type ResolvedQuote } from '../../utils/quotes';
@@ -61,18 +60,39 @@ const ogImage = `/og/q/${quote.id}.png`;
     </p>
 
     <div class="quote-actions">
-      <ShareButtons title={quote.text} url={pageUrl} />
+      <div class="quote-actions-left">
+        <ShareButtons title={quote.text} url={pageUrl} />
+        <button type="button" class="quote-copy" data-copy-quote data-quote-text={quote.text}>
+          <span class="quote-copy-idle"><Icon name="copy" /> Copy quote</span>
+          <span class="quote-copy-done hidden"><Icon name="check" /> Copied</span>
+        </button>
+      </div>
       <a href="/quotes/" class="quote-more">
         <Icon name="share-nodes" />
         <span>More quotes</span>
       </a>
     </div>
-
-    <div class="mt-12">
-      <SubscribeCta />
-    </div>
   </div>
 </BaseLayout>
+
+<script>
+  import { copyToClipboard } from '../../utils/copy-to-clipboard';
+
+  document.querySelectorAll<HTMLButtonElement>('[data-copy-quote]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const ok = await copyToClipboard(btn.dataset.quoteText ?? '');
+      if (!ok) return;
+      const idle = btn.querySelector('.quote-copy-idle');
+      const done = btn.querySelector('.quote-copy-done');
+      idle?.classList.add('hidden');
+      done?.classList.remove('hidden');
+      window.setTimeout(() => {
+        idle?.classList.remove('hidden');
+        done?.classList.add('hidden');
+      }, 2000);
+    });
+  });
+</script>
 
 <style>
   @reference "../../styles/global.css";
@@ -103,6 +123,30 @@ const ogImage = `/og/q/${quote.id}.png`;
   .quote-actions {
     @apply flex flex-wrap items-center justify-between gap-4;
     @apply border-t border-gray-200 dark:border-gray-700 pt-6;
+  }
+
+  .quote-actions-left {
+    @apply flex flex-wrap items-center gap-x-5 gap-y-2;
+  }
+
+  .quote-copy {
+    @apply inline-flex items-center gap-1.5 text-sm font-semibold cursor-pointer;
+    @apply text-gray-600 dark:text-gray-300 transition-colors duration-200;
+  }
+
+  .quote-copy:hover {
+    @apply text-primary dark:text-primary-300;
+  }
+
+  /* :not(.hidden) so Tailwind's `hidden` (display:none) wins when toggled —
+     a bare `display: inline-flex` here would outrank it by specificity. */
+  .quote-copy .quote-copy-idle:not(.hidden),
+  .quote-copy .quote-copy-done:not(.hidden) {
+    @apply inline-flex items-center gap-1.5;
+  }
+
+  .quote-copy .quote-copy-done {
+    @apply text-primary dark:text-primary-300;
   }
 
   .quote-more {

@@ -51,6 +51,21 @@ const description = `A wall of shareable lines from ${siteConfig.author}'s writi
   </div>
 </PageLayout>
 
+<script>
+  // Shuffle the wall on each load so a different quote leads every visit.
+  // Progressive enhancement: without JS, the build-time order is shown.
+  const grid = document.querySelector('.quote-grid');
+  if (grid) {
+    const items = Array.from(grid.children);
+    for (let i = items.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [items[i], items[j]] = [items[j], items[i]];
+    }
+    // Re-append in shuffled order (appendChild moves existing nodes).
+    for (const item of items) grid.appendChild(item);
+  }
+</script>
+
 <style>
   @reference "../styles/global.css";
 
