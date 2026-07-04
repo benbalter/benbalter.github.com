@@ -34,15 +34,17 @@ jobs:
         run: npm ci
 
       # astro-pdf renders /resume to /resume.pdf at build time via Chromium.
-      # It auto-installs a browser if none is found; cache it so each deploy
-      # doesn't re-download ~150MB of Chrome for Testing.
-      - name: Cache Puppeteer browser
+      # It auto-installs Chrome for Testing into node_modules/.astro/chrome if
+      # none is found; cache that (stable key, so it survives content changes)
+      # to avoid re-downloading ~150MB each deploy. Runs after `npm ci`, which
+      # would otherwise wipe node_modules.
+      - name: Cache astro-pdf Chromium
         uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
         with:
-          path: ~/.cache/puppeteer
-          key: puppeteer-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          path: node_modules/.astro/chrome
+          key: astro-pdf-chrome-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            puppeteer-${{ runner.os }}-
+            astro-pdf-chrome-${{ runner.os }}-
 
       - name: Cache Astro build artifacts
         uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5

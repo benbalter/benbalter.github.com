@@ -273,6 +273,10 @@ export default defineConfig({
     // (print header, timeline, accent rules) rather than reinventing layout.
     // Chromium is auto-installed at build time if not already cached.
     pdf({
+      // CI runners (Ubuntu 24.04) disable unprivileged user namespaces, so
+      // Chromium's sandbox can't start ("No usable sandbox"). Safe to disable
+      // here — we render only our own trusted, just-built pages. No-op locally.
+      launch: { args: ['--no-sandbox'] },
       // astro-pdf's default preview server builds its URL from the Astro
       // config's `server.host`, which is `true` here (bind all interfaces) —
       // that yields an invalid `http://true:PORT` URL. Bind IPv4 loopback
