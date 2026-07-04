@@ -56,6 +56,7 @@
     "node-addon-api": "^8.8.0",
     "node-gyp": "^13.0.0",
     "pagefind": "^1.5.2",
+    "pdf-lib": "^1.17.1",
     "rehype-accessible-emojis": "^0.3.2",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-external-links": "^3.0.0",

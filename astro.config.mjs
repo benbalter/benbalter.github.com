@@ -10,6 +10,9 @@ import AutoImport from 'astro-auto-import';
 import pdf from 'astro-pdf';
 import { preview as astroPreview } from 'astro';
 import { fileURLToPath } from 'node:url';
+import { readFile, writeFile } from 'node:fs/promises';
+import { join } from 'node:path';
+import { PDFDocument } from 'pdf-lib';
 import { visualizer } from 'rollup-plugin-visualizer';
 import fetchAvatar from './src/lib/astro-fetch-avatar.ts';
 import {
@@ -303,8 +306,38 @@ export default defineConfig({
             printBackground: true,
             // Honor the resume's `@page { margin: 0.6in 0.65in }` print rule.
             preferCSSPageSize: true,
+            // Emit PDF bookmarks from the page's headings so the multi-page
+            // resume is navigable (Summary, Skills, Experience → each employer,
+            // Education, Certifications).
+            outline: true,
           },
         },
+      },
+      // Chromium leaves the document Author/Subject/Keywords blank and stamps a
+      // raw "HeadlessChrome / Skia" producer. Post-process with pdf-lib to set
+      // proper metadata so the file reads well when shared, emailed, or indexed.
+      runAfter: async (dir, pathnames) => {
+        const outDir = fileURLToPath(dir);
+        for (const pathname of pathnames) {
+          if (!pathname.endsWith('.pdf')) continue;
+          const file = join(outDir, pathname);
+          const doc = await PDFDocument.load(await readFile(file));
+          doc.setTitle('Ben Balter — Resume');
+          doc.setAuthor('Ben Balter');
+          doc.setSubject('Resume — Ben Balter');
+          doc.setKeywords([
+            'Ben Balter',
+            'resume',
+            'engineering leadership',
+            'chief of staff',
+            'technical program management',
+            'open source',
+            'GitHub',
+          ]);
+          doc.setCreator('ben.balter.com');
+          doc.setProducer('ben.balter.com');
+          await writeFile(file, await doc.save());
+        }
       },
     }),
   ],
