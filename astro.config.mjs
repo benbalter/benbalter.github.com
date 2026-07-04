@@ -7,6 +7,9 @@ import compress from '@playform/compress';
 import checks from '@nuasite/checks';
 import expressiveCode from 'astro-expressive-code';
 import AutoImport from 'astro-auto-import';
+import pdf from 'astro-pdf';
+import { preview as astroPreview } from 'astro';
+import { fileURLToPath } from 'node:url';
 import { visualizer } from 'rollup-plugin-visualizer';
 import fetchAvatar from './src/lib/astro-fetch-avatar.ts';
 import {
@@ -262,6 +265,42 @@ export default defineConfig({
       overrides: {
         // Twitter rebranded; site uses twitter:card tags which are still valid
         'seo/twitter-card': false,
+      },
+    }),
+    // Render the styled /resume page to a downloadable /resume.pdf. Runs after
+    // Astro emits all pages, serves them via `astro preview`, and prints with
+    // Chromium — so the PDF reuses the page's purpose-built `@media print` CSS
+    // (print header, timeline, accent rules) rather than reinventing layout.
+    // Chromium is auto-installed at build time if not already cached.
+    pdf({
+      // astro-pdf's default preview server builds its URL from the Astro
+      // config's `server.host`, which is `true` here (bind all interfaces) —
+      // that yields an invalid `http://true:PORT` URL. Bind IPv4 loopback
+      // explicitly and hand back a clean URL so it works locally and in CI.
+      server: async (config) => {
+        const server = await astroPreview({
+          root: fileURLToPath(config.root),
+          logLevel: 'error',
+          server: { host: '127.0.0.1' },
+        });
+        return {
+          url: new URL(`http://127.0.0.1:${server.port}`),
+          close: () => server.stop(),
+        };
+      },
+      pages: {
+        // Site uses `trailingSlash: 'always'`, so the page is served at
+        // `/resume/`; the bare path 404s on the static preview server.
+        '/resume/': {
+          path: 'resume.pdf',
+          waitUntil: 'networkidle0',
+          pdf: {
+            format: 'Letter',
+            printBackground: true,
+            // Honor the resume's `@page { margin: 0.6in 0.65in }` print rule.
+            preferCSSPageSize: true,
+          },
+        },
       },
     }),
   ],
