@@ -42,6 +42,7 @@ interface Props {
   prevPost?: { title: string; url: string; readingTime?: number } | undefined;
   nextPost?: { title: string; url: string; readingTime?: number } | undefined;
   archived?: boolean;
+  hideBookCta?: boolean;
   robots?: string | undefined;
   postId: string;
   postFilePath?: string | undefined;
@@ -61,6 +62,7 @@ const {
   prevPost,
   nextPost,
   archived = false,
+  hideBookCta = false,
   robots,
   postId,
   postFilePath,
@@ -152,7 +154,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         
         <DiscussLinks title={title} url={postUrl} />
 
-        <BookCta />
+        {!hideBookCta && <BookCta />}
         
         <KeepReading relatedPosts={relatedPosts} />
         
