@@ -65,8 +65,10 @@ export const siteConfig = {
   // Find this in your Kit dashboard under Forms → form embed code.
   kitFormId: '9381290',
 
-  // Book — now launched, so the callouts sell ("buy now") rather than capture
-  // emails. bookPrice leads the CTAs; paperback is the secondary option.
+  // Book — pre-launch until bookLaunch. The sitewide BookCta stays in teaser
+  // mode ("Coming …", get-notified) until then; only the gated launch post's
+  // BookLaunchCta uses bookPrice/bookPricePaperback. On launch day, flip BookCta
+  // to buy-now to match the marketing site.
   bookUrl: 'https://open-and-async.com/',
   bookTitle: 'Open & Async',
   bookDescription: 'The collaborative software development playbook for remote and distributed teams',
