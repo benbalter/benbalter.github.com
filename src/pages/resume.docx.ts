@@ -275,9 +275,12 @@ export const GET: APIRoute = async () => {
     );
   }
 
-  // --- Areas of focus (skills) --------------------------------------------
+  // --- Skills (areas of focus) --------------------------------------------
+  // Heading is the literal "Skills" — resume parsers (Workday, Greenhouse,
+  // Lever) key on that exact token to populate the skills section on import.
+  // The HTML resume keeps its "Areas of Focus" label; only the .docx changes.
   if (skills && skills.length > 0) {
-    children.push(sectionHeading('Areas of Focus'));
+    children.push(sectionHeading('Skills'));
     for (const group of skills as Array<{ group: string; items: string[] }>) {
       children.push(
         new Paragraph({

@@ -7,6 +7,12 @@ import compress from '@playform/compress';
 import checks from '@nuasite/checks';
 import expressiveCode from 'astro-expressive-code';
 import AutoImport from 'astro-auto-import';
+import pdf from 'astro-pdf';
+import { preview as astroPreview } from 'astro';
+import { fileURLToPath } from 'node:url';
+import { readFile, writeFile } from 'node:fs/promises';
+import { join } from 'node:path';
+import { PDFDocument } from 'pdf-lib';
 import { visualizer } from 'rollup-plugin-visualizer';
 import fetchAvatar from './src/lib/astro-fetch-avatar.ts';
 import {
@@ -29,6 +35,7 @@ const EXCLUDED_PAGES = [
   '/_not-found/',
   '/fine-print/', // Has sitemap: false in original Jekyll source (fine-print.md)
   '/resume/linkedin/', // Utility page, not for search engines
+  '/q/', // Quote share pages: noindex share targets, not search landing pages
   // To exclude posts/pages from content collections with sitemap: false,
   // add their URLs here (e.g., '/2024/01/01/post-slug/')
 ];
@@ -262,6 +269,76 @@ export default defineConfig({
       overrides: {
         // Twitter rebranded; site uses twitter:card tags which are still valid
         'seo/twitter-card': false,
+      },
+    }),
+    // Render the styled /resume page to a downloadable /resume.pdf. Runs after
+    // Astro emits all pages, serves them via `astro preview`, and prints with
+    // Chromium — so the PDF reuses the page's purpose-built `@media print` CSS
+    // (print header, timeline, accent rules) rather than reinventing layout.
+    // Chromium is auto-installed at build time if not already cached.
+    pdf({
+      // CI runners (Ubuntu 24.04) disable unprivileged user namespaces, so
+      // Chromium's sandbox can't start ("No usable sandbox"). Safe to disable
+      // here — we render only our own trusted, just-built pages. No-op locally.
+      launch: { args: ['--no-sandbox'] },
+      // astro-pdf's default preview server builds its URL from the Astro
+      // config's `server.host`, which is `true` here (bind all interfaces) —
+      // that yields an invalid `http://true:PORT` URL. Bind IPv4 loopback
+      // explicitly and hand back a clean URL so it works locally and in CI.
+      server: async (config) => {
+        const server = await astroPreview({
+          root: fileURLToPath(config.root),
+          logLevel: 'error',
+          server: { host: '127.0.0.1' },
+        });
+        return {
+          url: new URL(`http://127.0.0.1:${server.port}`),
+          close: () => server.stop(),
+        };
+      },
+      pages: {
+        // Site uses `trailingSlash: 'always'`, so the page is served at
+        // `/resume/`; the bare path 404s on the static preview server.
+        '/resume/': {
+          path: 'resume.pdf',
+          waitUntil: 'networkidle0',
+          pdf: {
+            format: 'Letter',
+            printBackground: true,
+            // Honor the resume's `@page { margin: 0.6in 0.65in }` print rule.
+            preferCSSPageSize: true,
+            // Emit PDF bookmarks from the page's headings so the multi-page
+            // resume is navigable (Summary, Skills, Experience → each employer,
+            // Education, Certifications).
+            outline: true,
+          },
+        },
+      },
+      // Chromium leaves the document Author/Subject/Keywords blank and stamps a
+      // raw "HeadlessChrome / Skia" producer. Post-process with pdf-lib to set
+      // proper metadata so the file reads well when shared, emailed, or indexed.
+      runAfter: async (dir, pathnames) => {
+        const outDir = fileURLToPath(dir);
+        for (const pathname of pathnames) {
+          if (!pathname.endsWith('.pdf')) continue;
+          const file = join(outDir, pathname);
+          const doc = await PDFDocument.load(await readFile(file));
+          doc.setTitle('Ben Balter — Resume');
+          doc.setAuthor('Ben Balter');
+          doc.setSubject('Resume — Ben Balter');
+          doc.setKeywords([
+            'Ben Balter',
+            'resume',
+            'engineering leadership',
+            'chief of staff',
+            'technical program management',
+            'open source',
+            'GitHub',
+          ]);
+          doc.setCreator('ben.balter.com');
+          doc.setProducer('ben.balter.com');
+          await writeFile(file, await doc.save());
+        }
       },
     }),
   ],

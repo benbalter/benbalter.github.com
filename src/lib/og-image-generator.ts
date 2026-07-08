@@ -16,7 +16,7 @@ import { createHash } from 'node:crypto';
 import { defaultOGConfig, validateDimensions, type OGImageConfig } from './og-config';
 
 // Cache version — bump this to invalidate all cached OG images
-const OG_CACHE_VERSION = '1';
+const OG_CACHE_VERSION = '2';
 const OG_CACHE_DIR = join(process.cwd(), 'node_modules', '.astro', 'og-cache');
 
 interface OGImageOptions {
@@ -416,6 +416,243 @@ export async function generateOGImagePNG(options: OGImageOptions): Promise<Buffe
   if (cached) return cached;
 
   const png = await renderPNG(options);
+  await writeCache(key, png);
+  return png;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Quote OG images                                                            */
+/* -------------------------------------------------------------------------- */
+
+// Bump to invalidate cached quote images independently of post images.
+const QUOTE_OG_CACHE_VERSION = '1';
+
+export interface QuoteOGOptions {
+  /** The quote text (verbatim, no surrounding quotation marks). */
+  text: string;
+  /** Attribution line, e.g. "Ben Balter". */
+  attribution: string;
+}
+
+/**
+ * Pick a font size that keeps a pull-quote readable and balanced across the
+ * wide length variance of quotes — short lines get hero-sized type, long ones
+ * scale down so they don't overflow the 1200×630 canvas.
+ */
+export function quoteFontSize(length: number): number {
+  if (length <= 50) return 66;
+  if (length <= 90) return 54;
+  if (length <= 140) return 44;
+  if (length <= 200) return 36;
+  return 30;
+}
+
+/**
+ * Generate a quote-focused OG image SVG using Satori.
+ * The quote text is the hero element; a large decorative quotation mark in the
+ * brand color anchors it, with attribution and domain along the bottom.
+ */
+export async function generateQuoteOGImageSVG(options: QuoteOGOptions): Promise<string> {
+  const config = defaultOGConfig;
+  validateDimensions(config.width, config.height);
+
+  const [fonts, headshotDataUri] = await Promise.all([
+    loadFonts(),
+    loadHeadshot(config),
+  ]);
+
+  const text = options.text.trim();
+  const fontSize = quoteFontSize(text.length);
+  const contentPaddingLeft = config.padding + config.accent.width + 20;
+  const contentWidth = config.width - contentPaddingLeft - config.padding;
+
+  const svg = await satori(
+    {
+      type: 'div',
+      props: {
+        style: {
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          width: '100%',
+          height: '100%',
+          fontFamily: config.title.fontFamily,
+          position: 'relative',
+          paddingTop: config.padding,
+          paddingRight: config.padding,
+          paddingBottom: config.padding,
+          paddingLeft: contentPaddingLeft,
+          background: `linear-gradient(135deg, ${config.background.gradientFrom} 0%, ${config.background.gradientTo} 100%)`,
+        },
+        children: [
+          // Left accent bar
+          {
+            type: 'div',
+            props: {
+              style: {
+                position: 'absolute',
+                left: 0,
+                top: 0,
+                bottom: 0,
+                width: config.accent.width,
+                background: `linear-gradient(180deg, ${config.accent.gradientFrom} 0%, ${config.accent.gradientTo} 100%)`,
+              },
+            },
+          },
+          // Quote block: oversized opening mark + the text
+          {
+            type: 'div',
+            props: {
+              style: {
+                display: 'flex',
+                flexDirection: 'column',
+                flex: 1,
+                justifyContent: 'center',
+              },
+              children: [
+                {
+                  type: 'div',
+                  props: {
+                    style: {
+                      display: 'flex',
+                      fontSize: 140,
+                      fontWeight: 700,
+                      lineHeight: 0.9,
+                      height: 80,
+                      color: config.accent.color,
+                    },
+                    children: '“',
+                  },
+                },
+                {
+                  type: 'div',
+                  props: {
+                    style: {
+                      display: 'flex',
+                      fontSize,
+                      fontWeight: 700,
+                      color: config.title.color,
+                      lineHeight: 1.25,
+                      letterSpacing: '-0.02em',
+                      maxWidth: contentWidth,
+                      wordBreak: 'break-word',
+                    },
+                    children: text,
+                  },
+                },
+              ],
+            },
+          },
+          // Footer: headshot + attribution + domain
+          {
+            type: 'div',
+            props: {
+              style: {
+                display: 'flex',
+                alignItems: 'center',
+                gap: 16,
+              },
+              children: [
+                {
+                  type: 'div',
+                  props: {
+                    style: {
+                      display: 'flex',
+                      flexShrink: 0,
+                      borderRadius: 28,
+                      border: `3px solid ${config.accent.color}`,
+                      overflow: 'hidden',
+                    },
+                    children: [
+                      {
+                        type: 'img',
+                        props: {
+                          src: headshotDataUri,
+                          width: 56,
+                          height: 56,
+                          style: { borderRadius: 25, objectFit: 'cover' },
+                        },
+                      },
+                    ],
+                  },
+                },
+                {
+                  type: 'div',
+                  props: {
+                    style: {
+                      display: 'flex',
+                      flexDirection: 'column',
+                    },
+                    children: [
+                      {
+                        type: 'div',
+                        props: {
+                          style: {
+                            display: 'flex',
+                            fontSize: 26,
+                            fontWeight: 700,
+                            color: config.title.color,
+                          },
+                          children: options.attribution,
+                        },
+                      },
+                      {
+                        type: 'div',
+                        props: {
+                          style: {
+                            display: 'flex',
+                            fontSize: 20,
+                            fontWeight: 600,
+                            color: config.domain.color,
+                          },
+                          children: config.domain.text,
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } as any,
+    {
+      width: config.width,
+      height: config.height,
+      fonts: [
+        { name: config.title.fontFamily, data: fonts.regular, weight: 400, style: 'normal' },
+        { name: config.title.fontFamily, data: fonts.bold, weight: 700, style: 'normal' },
+      ],
+    }
+  );
+
+  return svg;
+}
+
+async function renderQuotePNG(options: QuoteOGOptions): Promise<Buffer> {
+  const svg = await generateQuoteOGImageSVG(options);
+  const { Resvg } = await import('@resvg/resvg-js');
+  const resvg = new Resvg(svg, {
+    fitTo: { mode: 'width', value: defaultOGConfig.width },
+  });
+  return resvg.render().asPng();
+}
+
+/**
+ * Generate a quote OG image PNG with content-hash disk caching.
+ * Mirrors generateOGImagePNG but keyed on the quote-specific payload.
+ */
+export async function generateQuoteOGImagePNG(options: QuoteOGOptions): Promise<Buffer> {
+  const key = createHash('sha256')
+    .update(JSON.stringify({ v: QUOTE_OG_CACHE_VERSION, ...options }))
+    .digest('hex');
+
+  const cached = await readCache(key);
+  if (cached) return cached;
+
+  const png = await renderQuotePNG(options);
   await writeCache(key, png);
   return png;
 }

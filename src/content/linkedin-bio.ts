@@ -8,7 +8,7 @@
  */
 
 export const linkedinHeadline =
-  'Former Director of Hubber Enablement at GitHub | Engineering leadership, open source, and remote work | Former Presidential Innovation Fellow, attorney';
+  'Helping distributed teams work in the open & default to async | Author of Open & Async | Ex-GitHub Director, Presidential Innovation Fellow, attorney';
 
 /**
  * About text as individual lines. Joined with `<br>` for display (respects
@@ -18,7 +18,7 @@ export const linkedinHeadline =
  * Empty strings produce blank lines (paragraph breaks).
  */
 export const linkedinAboutLines: readonly string[] = [
-  "I helped thousands of GitHubbers do their best remote work as Director of Hubber Enablement at GitHub.",
+  "I wrote Open & Async — the collaborative software development playbook for remote and distributed teams — drawn from a decade of remote-first work at GitHub, where I helped thousands of GitHubbers do their best work as Director of Hubber Enablement.",
   '',
   "I write and speak about engineering leadership, open source, and showing your work. Across nearly a decade at GitHub, I've served as Chief of Staff for Security, Senior Product Manager for Trust and Safety, Staff Technical Program Manager for Enterprise and Compliance, Director of Engineering Operations and Culture, and the company's first Government Evangelist — leading outreach that drove adoption across nearly 2,000 government organizations in over 75 countries.",
   '',

@@ -214,6 +214,102 @@
   }
 }
 
+/* Inline shareable quote (:quote[text]{#id}) — keeps the line in the flow of
+ * the prose with a light brand-tint highlight and a small share link to /q/<id>.
+ * Unlayered so it overrides the base article-link color/underline styles. */
+.quote-inline {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  /* Keep the line clear of the sticky header when deep-linked via #quote-<id>. */
+  scroll-margin-top: 6rem;
+  border-radius: 0.2rem;
+}
+
+/* When arrived at via a deep link, briefly emphasize so the reader sees which
+ * line was referenced. */
+.quote-inline:target .quote-inline-mark {
+  background-color: color-mix(in srgb, var(--color-primary) 38%, transparent);
+  box-shadow: 0 0 0 0.15em color-mix(in srgb, var(--color-primary) 38%, transparent);
+}
+
+.quote-inline .quote-inline-mark {
+  background-color: color-mix(in srgb, var(--color-primary) 14%, transparent);
+  color: inherit;
+  padding: 0.05em 0.15em;
+  border-radius: 0.2rem;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: background-color 0.15s ease;
+}
+
+.quote-inline .quote-inline-icon {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.2em;
+  color: var(--color-primary);
+  opacity: 0.55;
+  transition: opacity 0.15s ease;
+}
+
+.quote-inline .quote-inline-icon svg {
+  width: 0.85em;
+  height: 0.85em;
+}
+
+.quote-inline:hover .quote-inline-mark,
+.quote-inline:focus-visible .quote-inline-mark {
+  background-color: color-mix(in srgb, var(--color-primary) 24%, transparent);
+}
+
+.quote-inline:hover .quote-inline-icon,
+.quote-inline:focus-visible .quote-inline-icon {
+  opacity: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+  .quote-inline .quote-inline-mark {
+    background-color: color-mix(in srgb, var(--color-primary) 28%, transparent);
+    color: var(--color-gray-100);
+  }
+}
+
+/* Objection/rebuttal block (:::objection[Question?]) — a scannable
+ * "But what about…" counterargument and response. Emitted by
+ * remark-objection-directives as <aside class="objection">. */
+.objection {
+  @apply my-6 rounded-lg p-5 shadow-card font-sans;
+  @apply border border-gray-200 dark:border-gray-700;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-primary) 4%, transparent),
+    color-mix(in srgb, var(--color-primary) 1%, transparent)
+  );
+}
+
+.objection .objection-q {
+  @apply m-0 mb-3 text-lg font-bold leading-snug text-gray-900 dark:text-gray-100;
+}
+
+.objection .objection-label {
+  @apply block text-xs font-semibold uppercase tracking-wider mb-1;
+  @apply text-primary dark:text-primary-300;
+}
+
+.objection .objection-a {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+.objection .objection-a > :last-child {
+  @apply mb-0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .objection {
+    @apply shadow-card-dark;
+  }
+}
+
 /* Inline code — slightly smaller for visual separation from body text */
 .prose :not(pre) > code {
   font-size: 0.875em;

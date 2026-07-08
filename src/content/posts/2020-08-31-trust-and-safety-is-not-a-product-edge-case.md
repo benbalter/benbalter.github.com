@@ -2,7 +2,6 @@
 title: Trust and safety is not a product edge case
 description: Trust and safety isn’t a product edge case. It’s the unfortunate reality of being an online service provider—prioritize it before someone gets hurt.
 tldr: "Prioritizing trust and safety efforts today will prevent the darker corners of the internet from coming to light on your platform tomorrow. What may appear to be an “edge case” on the surface, is in fact the unfortunate reality of being an online service provider."
-archived: true
 ---
 
 Last week, my colleague @katmeister chronicled [her recent experience with online harassment](https://www.tinykat.cafe/on-all-that-fuckery) (content warning: racist, sexist, transphobic, hateful language, and online abuse). Kat's post is well worth reading to better understand how people (most of whom don't look like me) experience the internet daily, but one line in particular stood out to me:

@@ -43,6 +43,7 @@ interface Props {
   nextPost?: { title: string; url: string; readingTime?: number } | undefined;
   archived?: boolean;
   hideBookCta?: boolean;
+  robots?: string | undefined;
   postId: string;
   postFilePath?: string | undefined;
   posts?: Record<string, string> | string[] | undefined;
@@ -62,6 +63,7 @@ const {
   nextPost,
   archived = false,
   hideBookCta = false,
+  robots,
   postId,
   postFilePath,
   posts: curatedPosts,
@@ -101,6 +103,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   modifiedTime={updatedDate}
   image={image}
   author={author}
+  robots={robots}
   standardSiteDocumentUri={standardSiteDocumentUri}
 >
   <div class="max-w-4xl mx-auto px-4 xl:max-w-6xl">

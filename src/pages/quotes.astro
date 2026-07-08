@@ -1,0 +1,132 @@
+---
+/**
+ * /quotes — a scannable wall of shareable lines.
+ *
+ * Unlike the individual /q/<id> share pages, this is a rich, legitimate
+ * destination ("best lines" index), so it stays indexable. Each card links to
+ * the standalone share page and back to the source post.
+ */
+
+import { getCollection } from 'astro:content';
+import PageLayout from '../layouts/PageLayout.astro';
+import Icon from '../components/Icon.astro';
+import { siteConfig } from '../config';
+import { resolveQuotes } from '../utils/quotes';
+import { quoteAnchorId } from '../lib/remark-quote-directive';
+import { generateQuotesCollectionSchema, schemaToJsonLd } from '../utils/structured-data';
+
+const posts = await getCollection('posts');
+const quotes = resolveQuotes(posts);
+
+const title = 'Quotable';
+const description = `A wall of shareable lines from ${siteConfig.author}'s writing on engineering leadership, open source, and showing your work.`;
+
+const quotesSchema = generateQuotesCollectionSchema({
+  name: title,
+  description,
+  url: new URL('/quotes/', siteConfig.url).toString(),
+  quotes: quotes.map((quote) => ({
+    id: quote.id,
+    text: quote.text,
+    postUrl: quote.postUrl,
+    postTitle: quote.postTitle,
+  })),
+});
+---
+
+<PageLayout title={title} description={description}>
+  <div class="max-w-4xl mx-auto">
+    <p class="text-lg text-gray-700 dark:text-gray-300 mb-10">
+      Sharp lines worth stealing. Each links to its own page you can share, and
+      back to the post it came from.
+    </p>
+
+    {quotes.length === 0 ? (
+      <p class="text-gray-600 dark:text-gray-300">No quotes yet — check back soon.</p>
+    ) : (
+      <ul class="quote-grid not-prose">
+        {quotes.map((quote) => (
+          <li class="quote-card">
+            <a href={`/q/${quote.id}/`} class="quote-card-text">
+              <span aria-hidden="true" class="quote-mark">&ldquo;</span>
+              {quote.text}
+            </a>
+            <p class="quote-card-source">
+              <a href={`${quote.postUrl}#${quoteAnchorId(quote.id)}`}>{quote.postTitle}</a>
+              <a href={`/q/${quote.id}/`} class="quote-card-share" aria-label="Share this quote">
+                <Icon name="link" />
+              </a>
+            </p>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+
+  <script type="application/ld+json" set:html={schemaToJsonLd(quotesSchema)} is:inline></script>
+</PageLayout>
+
+<script>
+  // Shuffle the wall on each load so a different quote leads every visit.
+  // Progressive enhancement: without JS, the build-time order is shown.
+  const grid = document.querySelector('.quote-grid');
+  if (grid) {
+    const items = Array.from(grid.children);
+    for (let i = items.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [items[i], items[j]] = [items[j], items[i]];
+    }
+    // Re-append in shuffled order (appendChild moves existing nodes).
+    for (const item of items) grid.appendChild(item);
+  }
+</script>
+
+<style>
+  @reference "../styles/global.css";
+
+  .quote-grid {
+    @apply grid gap-5 list-none p-0 m-0;
+    @apply sm:grid-cols-2;
+  }
+
+  .quote-card {
+    @apply flex flex-col gap-3 p-5 rounded-lg shadow-card;
+    @apply border border-gray-200 dark:border-gray-700;
+    @apply transition-shadow duration-200;
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .quote-card:hover {
+    @apply shadow-md;
+  }
+
+  .quote-card-text {
+    @apply font-sans text-xl font-bold leading-snug tracking-tight no-underline;
+    @apply text-gray-900 dark:text-gray-100;
+    @apply transition-colors duration-200;
+  }
+
+  .quote-card-text:hover {
+    @apply text-primary dark:text-primary-300;
+  }
+
+  .quote-mark {
+    @apply text-primary font-bold mr-0.5;
+  }
+
+  .quote-card-source {
+    @apply flex items-center justify-between gap-3 m-0 mt-auto;
+    @apply text-sm text-gray-600 dark:text-gray-300;
+  }
+
+  .quote-card-share {
+    @apply shrink-0 text-gray-400 hover:text-primary dark:hover:text-primary-300;
+    @apply transition-colors duration-200;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .quote-card {
+      @apply shadow-card-dark;
+    }
+  }
+</style>

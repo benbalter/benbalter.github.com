@@ -70,12 +70,14 @@ describe('remarkCalloutDirectives', () => {
     expect(html).toContain('💡');
   });
 
-  it('should add a default title with the type name', async () => {
+  it('should add a default inline label with the type name', async () => {
     const markdown = ':::note\nContent here.\n:::';
     const result = await processor.process(markdown);
     const html = String(result);
 
-    expect(html).toContain('<strong>Note</strong>');
+    // Label is an inline lead-in within the body paragraph, not a separate line.
+    expect(html).toContain('class="callout-label"');
+    expect(html).toContain('Note</strong> Content here.');
   });
 
   it('should support custom titles via directive label', async () => {
@@ -83,7 +85,7 @@ describe('remarkCalloutDirectives', () => {
     const result = await processor.process(markdown);
     const html = String(result);
 
-    expect(html).toContain('<strong>Custom Warning Title</strong>');
+    expect(html).toContain('Custom Warning Title</strong>');
   });
 
   it('should not transform unknown directive types', async () => {

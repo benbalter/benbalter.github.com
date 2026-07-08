@@ -1,0 +1,177 @@
+---
+/**
+ * Standalone share page for a single quote: /q/<id>
+ *
+ * These pages exist to be *share targets*, not search landing pages — their
+ * body is a verbatim line already indexed on the source post. So they're
+ * `noindex, follow` (the `follow` passes link equity back to the post) and
+ * excluded from the sitemap (see EXCLUDED_PAGES in astro.config.mjs). Social
+ * and OG crawlers read the meta tags regardless of `noindex`, so sharing is
+ * unaffected.
+ */
+
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ShareButtons from '../../components/ShareButtons.astro';
+import Icon from '../../components/Icon.astro';
+import { siteConfig } from '../../config';
+import { resolveQuotes, type ResolvedQuote } from '../../utils/quotes';
+import { quoteAnchorId } from '../../lib/remark-quote-directive';
+import { generateQuotationSchema, schemaToJsonLd } from '../../utils/structured-data';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  // resolveQuotes validates every registry entry against a real, listable
+  // post — a dangling or non-listable reference fails the build here.
+  return resolveQuotes(posts).map((quote) => ({
+    params: { id: quote.id },
+    props: { quote },
+  }));
+}
+
+interface Props {
+  quote: ResolvedQuote;
+}
+
+const { quote } = Astro.props;
+const attribution = siteConfig.author;
+
+const pageUrl = new URL(`/q/${quote.id}/`, siteConfig.url).toString();
+// Deep-link back to the highlighted line in the post so readers land in context.
+const sourceUrl = `${quote.postUrl}#${quoteAnchorId(quote.id)}`;
+const ogImage = `/og/q/${quote.id}.png`;
+
+const quotationSchema = generateQuotationSchema({
+  id: quote.id,
+  text: quote.text,
+  postUrl: quote.postUrl,
+  postTitle: quote.postTitle,
+});
+---
+
+<BaseLayout
+  title={quote.text}
+  description={`${quote.text} — ${attribution}`}
+  image={ogImage}
+  robots="noindex, follow"
+>
+  <div class="max-w-2xl mx-auto px-4">
+    <figure class="quote-hero">
+      <blockquote>
+        <p>{quote.text}</p>
+      </blockquote>
+      <figcaption class="quote-attribution">— {attribution}</figcaption>
+    </figure>
+
+    <p class="quote-source">
+      From <a href={sourceUrl}>{quote.postTitle}</a>
+    </p>
+
+    <div class="quote-actions">
+      <div class="quote-actions-left">
+        <ShareButtons
+          title={quote.text}
+          url={pageUrl}
+          networks={['linkedin', 'email']}
+          nativeShare
+          shareImage={new URL(ogImage, siteConfig.url).toString()}
+          shareText={`${quote.text} — ${attribution}`}
+        />
+        <button type="button" class="quote-copy" data-copy-quote data-quote-text={quote.text}>
+          <span class="quote-copy-idle"><Icon name="copy" /> Copy quote</span>
+          <span class="quote-copy-done hidden"><Icon name="check" /> Copied</span>
+        </button>
+      </div>
+      <a href="/quotes/" class="quote-more">
+        <Icon name="share-nodes" />
+        <span>More quotes</span>
+      </a>
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={schemaToJsonLd(quotationSchema)} is:inline></script>
+</BaseLayout>
+
+<script>
+  import { copyToClipboard } from '../../utils/copy-to-clipboard';
+
+  document.querySelectorAll<HTMLButtonElement>('[data-copy-quote]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const ok = await copyToClipboard(btn.dataset.quoteText ?? '');
+      if (!ok) return;
+      const idle = btn.querySelector('.quote-copy-idle');
+      const done = btn.querySelector('.quote-copy-done');
+      idle?.classList.add('hidden');
+      done?.classList.remove('hidden');
+      window.setTimeout(() => {
+        idle?.classList.remove('hidden');
+        done?.classList.add('hidden');
+      }, 2000);
+    });
+  });
+</script>
+
+<style>
+  @reference "../../styles/global.css";
+
+  .quote-hero {
+    @apply mt-6 mb-8 pl-6 md:pl-8;
+    border-left: 5px solid var(--color-primary);
+  }
+
+  .quote-hero blockquote {
+    @apply m-0 p-0 border-0;
+  }
+
+  .quote-hero blockquote p {
+    @apply m-0 font-sans not-italic font-bold tracking-tight leading-tight;
+    @apply text-3xl md:text-4xl lg:text-5xl;
+    @apply text-gray-900 dark:text-gray-100;
+  }
+
+  .quote-attribution {
+    @apply mt-4 font-sans text-lg font-semibold text-gray-600 dark:text-gray-300;
+  }
+
+  .quote-source {
+    @apply font-sans text-base text-gray-600 dark:text-gray-300 mb-8;
+  }
+
+  .quote-actions {
+    @apply flex flex-wrap items-center justify-between gap-4;
+    @apply border-t border-gray-200 dark:border-gray-700 pt-6;
+  }
+
+  .quote-actions-left {
+    @apply flex flex-wrap items-center gap-x-5 gap-y-2;
+  }
+
+  .quote-copy {
+    @apply inline-flex items-center gap-1.5 text-sm font-semibold cursor-pointer;
+    @apply text-gray-600 dark:text-gray-300 transition-colors duration-200;
+  }
+
+  .quote-copy:hover {
+    @apply text-primary dark:text-primary-300;
+  }
+
+  /* :not(.hidden) so Tailwind's `hidden` (display:none) wins when toggled —
+     a bare `display: inline-flex` here would outrank it by specificity. */
+  .quote-copy .quote-copy-idle:not(.hidden),
+  .quote-copy .quote-copy-done:not(.hidden) {
+    @apply inline-flex items-center gap-1.5;
+  }
+
+  .quote-copy .quote-copy-done {
+    @apply text-primary dark:text-primary-300;
+  }
+
+  .quote-more {
+    @apply inline-flex items-center gap-1.5 text-sm font-semibold no-underline;
+    @apply text-gray-600 dark:text-gray-300 transition-colors duration-200;
+  }
+
+  .quote-more:hover {
+    @apply text-primary dark:text-primary-300;
+  }
+</style>

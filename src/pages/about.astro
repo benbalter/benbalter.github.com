@@ -5,10 +5,11 @@ import { Image } from 'astro:assets';
 import headshotImage from '../../assets/img/headshot.jpg';
 import ContactLinks from '../components/ContactLinks.astro';
 import SubscribeCta from '../components/SubscribeCta.astro';
+import BookCta from '../components/BookCta.astro';
 import { getBioParagraphs, aboutContent } from '../content/about-bio';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { getPostUrl, getDateFromSlug, formatPostDate } from '../utils/post-urls';
-import { isPublishedPost } from '../utils/post-filtering';
+import { isListablePost } from '../utils/post-filtering';
 
 const title = 'About Ben Balter';
 const description = siteConfig.aboutDescription;
@@ -25,7 +26,7 @@ function renderPost(post: CollectionEntry<'posts'>): PostItem {
   return { postDate, title: post.data.title, url: getPostUrl(post.id) };
 }
 
-const allPosts = await getCollection('posts', isPublishedPost);
+const allPosts = await getCollection('posts', isListablePost);
 const popularPostItems: PostItem[] = popularPostSlugs
   .map(slug => allPosts.find((post: CollectionEntry<'posts'>) => post.id === slug))
   .filter((p): p is CollectionEntry<'posts'> => p !== undefined)
@@ -71,6 +72,10 @@ const popularPostItems: PostItem[] = popularPostSlugs
   {remainingParagraphs.map((para: string) => (
     <p class="clear-both" set:html={para}></p>
   ))}
+
+  <div class="clear-both">
+    <BookCta variant="featured" />
+  </div>
 
   <section class="not-prose mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
     <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">Popular Writing</h2>

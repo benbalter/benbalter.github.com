@@ -52,12 +52,12 @@ export function remarkCalloutDirectives() {
 
         // Get optional title from directive label (:::warning[Title])
         const children = (n.children || []) as Array<Node & { data?: Record<string, unknown>; children?: Array<Node & { value?: string }>; value?: string }>;
-        let titleHtml = '';
+        let titleText = '';
         const contentChildren = children.filter(
           (child) => {
             if (child.data?.directiveLabel) {
               // Extract text from label paragraph
-              titleHtml = (child.children || [])
+              titleText = (child.children || [])
                 .map((c) => c.value || '')
                 .join('');
               return false;
@@ -66,7 +66,9 @@ export function remarkCalloutDirectives() {
           },
         );
 
-        // Build the callout HTML structure
+        const label = titleText || type.charAt(0).toUpperCase() + type.slice(1);
+
+        // Build the callout <aside> wrapper.
         const data = (n.data || {}) as Record<string, unknown>;
         n.data = data;
         data.hName = 'aside';
@@ -76,26 +78,26 @@ export function remarkCalloutDirectives() {
           'aria-label': `${type} callout`,
         };
 
-        // Prepend title if provided
-        if (titleHtml) {
+        // Render the icon + label as an inline lead-in so it sits on the same
+        // line as the body text, e.g. "💡 Info This post was originally…".
+        const labelHtml = `<strong class="callout-label"><span class="callout-icon" aria-hidden="true">${icon}</span> ${label}</strong> `;
+        const firstParagraph = contentChildren.find(
+          (c) => c.type === 'paragraph',
+        ) as (Node & { children?: Node[] }) | undefined;
+
+        if (firstParagraph) {
+          firstParagraph.children = [
+            { type: 'html', value: labelHtml } as Node,
+            ...(firstParagraph.children || []),
+          ];
+          n.children = contentChildren as Node[];
+        } else {
+          // No leading paragraph (e.g. a list) — fall back to a block title bar.
           const titleNode = {
             type: 'html' as const,
-            value: `<div class="callout-title"><span class="callout-icon" aria-hidden="true">${icon}</span><strong>${titleHtml}</strong></div>`,
+            value: `<div class="callout-title">${labelHtml}</div>`,
           };
-          n.children = [
-            titleNode,
-            ...contentChildren,
-          ] as Node[];
-        } else if (icon) {
-          // Add icon-only title bar with capitalized type name
-          const iconNode = {
-            type: 'html' as const,
-            value: `<div class="callout-title"><span class="callout-icon" aria-hidden="true">${icon}</span><strong>${type.charAt(0).toUpperCase() + type.slice(1)}</strong></div>`,
-          };
-          n.children = [
-            iconNode,
-            ...contentChildren,
-          ] as Node[];
+          n.children = [titleNode, ...contentChildren] as Node[];
         }
       }
     });

@@ -52,6 +52,14 @@ describe('generateResumeSchema', () => {
     expect(schemaAny.hasOccupation[0].name).toBe('Director of Engineering');
   });
 
+  it('should surface employer and year range in each occupation description', () => {
+    const schema = generateResumeSchema({ positions: samplePositions });
+    const schemaAny = schema as any;
+
+    expect(schemaAny.hasOccupation[0].description).toBe('Director of Engineering at GitHub (2023–present)');
+    expect(schemaAny.hasOccupation[2].description).toBe('Engineer at Acme Corp (2018–2020)');
+  });
+
   it('should include alumniOf for degrees', () => {
     const schema = generateResumeSchema({ positions: samplePositions, degrees: sampleDegrees });
     const schemaAny = schema as any;

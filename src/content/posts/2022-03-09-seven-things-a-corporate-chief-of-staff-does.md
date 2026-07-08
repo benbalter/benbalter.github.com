@@ -74,7 +74,7 @@ An exceptional Chief of Staff is responsible for managing the relationships and 
 
 ## Conclusion
 
-As I first began settling in, I struggled to get a sense of what a Chief of Staff's typical day looked like (spoiler: there isn't one!) or what skills I should be focusing on day-to-day to maximize the value I brought to a principal or executive and to my team. Here’s the list I wish I had as I was first stepping into the role.[^7] I hope it helps others as they step into similar roles (as well as those they work with) to better understand the role the Chief of Staff plays in improving an organization's strategy and tactics, health and maturity, and ultimately its overall likelihood of success.
+As I first began settling in, I struggled to get a sense of what a Chief of Staff's typical day looked like (spoiler: there isn't one!) or what skills I should be focusing on day-to-day to maximize the value I brought to a principal or executive and to my team. **Here’s the list I wish I had as I was first stepping into the role.**[^7] I hope it helps others as they step into similar roles (as well as those they work with) to better understand the role the Chief of Staff plays in improving an organization's strategy and tactics, health and maturity, and ultimately its overall likelihood of success.
 
 [^1]: As in "Chief X Officer", the corporate executive that the Chief of Staff reports to. This could be a Chief Security Officer, Chief Product Officer, Chief Executive Officer, Senior Vice President of X, and so on.
 

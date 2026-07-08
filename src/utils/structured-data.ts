@@ -7,7 +7,7 @@
  * @see https://github.com/google/schema-dts
  */
 
-import type { Person, Organization, WebSite, BlogPosting, BreadcrumbList, ListItem, WithContext, Occupation, EducationalOrganization, EducationalOccupationalCredential, ImageObject, ProfilePage, CollectionPage, SearchAction } from 'schema-dts';
+import type { Person, Organization, WebSite, BlogPosting, BreadcrumbList, ListItem, WithContext, Occupation, EducationalOrganization, EducationalOccupationalCredential, ImageObject, ProfilePage, CollectionPage, SearchAction, Quotation } from 'schema-dts';
 import { siteConfig } from '../config';
 
 /** Base Person fields (shared between top-level and embedded schemas) */
@@ -231,10 +231,19 @@ export function generateResumeSchema(props: ResumeSchemaProps): WithContext<Pers
   // Positions become work history (hasOccupation). The résumé deliberately does
   // not assert a current employer (worksFor): roles overlap during transitions,
   // and the sitewide Person intentionally claims no current employer.
-  const hasOccupation: Occupation[] = positions.map(position => ({
-    '@type': 'Occupation',
-    name: position.title,
-  }));
+  //
+  // Occupation has no typed field for employer or dates, so the title carries
+  // `name` and the employer + year range ride along in `description` (inherited
+  // from Thing) — the only schema.org-valid place to surface them here.
+  const hasOccupation: Occupation[] = positions.map(position => {
+    const startYear = position.startDate.slice(0, 4);
+    const endYear = position.endDate ? position.endDate.slice(0, 4) : 'present';
+    return {
+      '@type': 'Occupation',
+      name: position.title,
+      description: `${position.title} at ${position.employer} (${startYear}–${endYear})`,
+    };
+  });
 
   const alumniOf: EducationalOrganization[] | undefined = degrees?.map(degree => ({
     '@type': 'EducationalOrganization',
@@ -274,8 +283,8 @@ export function generateResumeSchema(props: ResumeSchemaProps): WithContext<Pers
  */
 export function schemaToJsonLd(
   schema:
-    | WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList | ProfilePage | CollectionPage>
-    | Array<WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList | ProfilePage | CollectionPage>>
+    | WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList | ProfilePage | CollectionPage | Quotation>
+    | Array<WithContext<Person | Organization | WebSite | BlogPosting | BreadcrumbList | ProfilePage | CollectionPage | Quotation>>
 ): string {
   return JSON.stringify(schema, null, 2);
 }
@@ -325,6 +334,98 @@ export function generateCollectionPageSchema(props: {
         position: index + 1,
         url: post.url,
         name: post.title,
+      })),
+    },
+  } as WithContext<CollectionPage>;
+}
+
+/** A single shareable quote, joined to its source post. */
+export interface QuoteSchemaInput {
+  /** The quote's kebab-case id (used to build its /q/<id>/ URL). */
+  id: string;
+  /** Verbatim quote text. */
+  text: string;
+  /** Source post URL (absolute or root-relative). */
+  postUrl: string;
+  /** Source post title. */
+  postTitle: string;
+}
+
+/** Resolve a possibly-relative URL against the site origin. */
+function absoluteUrl(url: string): string {
+  return url.startsWith('http') ? url : `${siteConfig.url}${url}`;
+}
+
+/**
+ * Build a Quotation node (without @context) for embedding or standalone use.
+ *
+ * Attribution is the whole point: `creator` references the canonical sitewide
+ * Person (`#person`) by @id so each line is tied to Ben as an entity, and
+ * `isPartOf` links back to the source post. There is no Google rich result for
+ * Quotation — this exists to strengthen authorship/entity signals (and the odds
+ * of attributed citation by answer engines), not to change the SERP appearance.
+ */
+function quotationFields(quote: QuoteSchemaInput): Quotation {
+  const postUrl = absoluteUrl(quote.postUrl);
+  return {
+    '@type': 'Quotation',
+    '@id': `${siteConfig.url}/q/${quote.id}/#quotation`,
+    text: quote.text,
+    url: `${siteConfig.url}/q/${quote.id}/`,
+    creator: {
+      '@type': 'Person',
+      '@id': `${siteConfig.url}/#person`,
+      name: siteConfig.author,
+      url: siteConfig.url,
+    } as Person,
+    isPartOf: {
+      '@type': 'BlogPosting',
+      '@id': postUrl,
+      url: postUrl,
+      headline: quote.postTitle,
+    } as BlogPosting,
+  } as Quotation;
+}
+
+/**
+ * Generate standalone Quotation schema for a single /q/<id> share page.
+ */
+export function generateQuotationSchema(quote: QuoteSchemaInput): WithContext<Quotation> {
+  return {
+    '@context': 'https://schema.org',
+    ...(quotationFields(quote) as unknown as Record<string, unknown>),
+  } as WithContext<Quotation>;
+}
+
+/**
+ * Generate CollectionPage schema for the /quotes wall: an ItemList of
+ * Quotation nodes, each attributed to the Person and linked to its source post.
+ */
+export function generateQuotesCollectionSchema(props: {
+  name: string;
+  description: string;
+  url: string;
+  quotes: QuoteSchemaInput[];
+}): WithContext<CollectionPage> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': props.url,
+    name: props.name,
+    description: props.description,
+    url: props.url,
+    inLanguage: 'en',
+    isPartOf: {
+      '@type': 'WebSite',
+      '@id': `${siteConfig.url}/#website`,
+    } as WebSite,
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: props.quotes.length,
+      itemListElement: props.quotes.map((quote, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: quotationFields(quote),
       })),
     },
   } as WithContext<CollectionPage>;
