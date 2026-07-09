@@ -632,14 +632,16 @@ const resumeSchema = generateResumeSchema({
       color: #000;
     }
 
+    /* Keep the whole contact strip on one line; shrink to fit. */
     .print-contact {
       margin: 0;
-      font-size: 9.5pt;
+      font-size: 8pt;
       color: #333;
+      white-space: nowrap;
     }
 
     .print-contact a {
-      color: #333;
+      color: #337ab7;
       text-decoration: none;
     }
 
@@ -781,8 +783,19 @@ const resumeSchema = generateResumeSchema({
       font-size: 10pt;
     }
 
-    /* Don't suffix cert/LinkedIn links with their long URLs in print */
+    /* Digital-first PDF: the resume is read on screen, not paper. Keep content
+       links blue and clickable, and never append the raw URL in parentheses
+       (the global print stylesheet does that for printed articles). */
+    .position-content :global(a),
+    .certification-name a,
+    .writing-list a {
+      color: #337ab7;
+      text-decoration: underline;
+    }
+
+    .position-content :global(a)::after,
     .certification-name a::after,
+    .writing-list a::after,
     .print-contact a::after {
       content: none !important;
     }
