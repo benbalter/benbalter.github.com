@@ -146,7 +146,7 @@ const resumeSchema = generateResumeSchema({
   {writing && writing.length > 0 && (
     <section class="resume-section">
       <h2>Selected writing</h2>
-      <ul class="writing-list">
+      <ul class="writing-list" data-link-previews>
         {writing.map((item) => (
           <li class="writing-item">
             <a href={item.path}>{item.title}</a>
@@ -213,6 +213,11 @@ const resumeSchema = generateResumeSchema({
   })()}
 
   <script type="application/ld+json" set:html={schemaToJsonLd(resumeSchema)} is:inline></script>
+
+  <!-- Hover preview cards for internal post links (Selected writing) -->
+  <script>
+    import '../scripts/link-previews';
+  </script>
 </PageLayout>
 
 <style>
@@ -234,6 +239,15 @@ const resumeSchema = generateResumeSchema({
      on the ~#f5f8fb background — plain primary (#337ab7) is only 4.27:1. */
   .resume-summary a {
     color: var(--color-primary-600, #2a6493);
+  }
+
+  /* In dark mode the summary box sits on a dark background, so the light-mode
+     darkening flips to a contrast failure — lighten the links instead (matches
+     the skill/cert dark-mode accent). */
+  @media (prefers-color-scheme: dark) {
+    .resume-summary a {
+      color: var(--color-primary-200, #b3d4f0);
+    }
   }
 
   .summary-text {
@@ -425,18 +439,30 @@ const resumeSchema = generateResumeSchema({
    * Selected Writing
    * ============================================================ */
   .writing-list {
+    list-style: none;
     margin: 0.75rem 0 0;
-    padding-left: 1.1rem;
+    padding: 0;
   }
 
+  /* Match the page's date treatment: title left, year right-aligned in a column
+     (like Experience/Education), rather than a bullet with the year trailing. */
   .writing-item {
-    margin-bottom: 0.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.55rem;
     line-height: 1.5;
   }
 
+  .writing-item:last-child {
+    margin-bottom: 0;
+  }
+
   .writing-year {
-    margin-left: 0.5rem;
+    flex-shrink: 0;
     font-size: 0.8rem;
+    font-variant-numeric: tabular-nums;
     color: var(--color-gray-700, #495057);
   }
 
