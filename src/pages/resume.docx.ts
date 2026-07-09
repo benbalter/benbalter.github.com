@@ -25,6 +25,8 @@ import {
   BorderStyle,
 } from 'docx';
 import { formatResumeDate } from '../utils/post-urls';
+import { getPublishedPosts } from '../utils/posts';
+import { resolvePopularPosts } from '../utils/resume-writing';
 import { siteConfig } from '../config';
 
 // Brand accent (matches --color-primary on the HTML resume).
@@ -227,6 +229,9 @@ export const GET: APIRoute = async () => {
   }
   const { degrees, certifications, skills, summary } = resumePage.data;
 
+  // Selected writing mirrors the homepage's curated "Popular Posts" list.
+  const writing = resolvePopularPosts(await getPublishedPosts());
+
   // Positions, newest first, grouped by employer (same logic as resume.astro).
   const sortedPositions = (await getCollection('resume-positions')).sort(
     (a: CollectionEntry<'resume-positions'>, b: CollectionEntry<'resume-positions'>) =>
@@ -259,6 +264,8 @@ export const GET: APIRoute = async () => {
         new ExternalHyperlink({ link: `mailto:${siteConfig.email}`, children: [new TextRun({ text: siteConfig.email, color: HYPERLINK, size: 18 })] }),
         new TextRun({ text: '  ·  ', color: MUTED, size: 18 }),
         new ExternalHyperlink({ link: siteConfig.url, children: [new TextRun({ text: 'ben.balter.com', color: HYPERLINK, size: 18 })] }),
+        new TextRun({ text: '  ·  ', color: MUTED, size: 18 }),
+        new ExternalHyperlink({ link: `https://github.com/${siteConfig.githubUsername}`, children: [new TextRun({ text: 'github.com/benbalter', color: HYPERLINK, size: 18 })] }),
         new TextRun({ text: '  ·  ', color: MUTED, size: 18 }),
         new ExternalHyperlink({ link: siteConfig.linkedinUrl, children: [new TextRun({ text: 'linkedin.com/in/benbalter', color: HYPERLINK, size: 18 })] }),
       ],
@@ -311,6 +318,23 @@ export const GET: APIRoute = async () => {
       const end = position.data.end_date ? formatResumeDate(position.data.end_date) ?? 'Unknown' : 'Present';
       children.push(titleWithDate(position.data.title, `${start}–${end}`));
       children.push(...renderMarkdownBody(position.body ?? ''));
+    }
+  }
+
+  // --- Selected writing ----------------------------------------------------
+  if (writing.length > 0) {
+    children.push(sectionHeading('Selected writing'));
+    for (const item of writing) {
+      children.push(
+        new Paragraph({
+          bullet: { level: 0 },
+          spacing: { after: 40 },
+          children: [
+            new ExternalHyperlink({ link: `${siteConfig.url}${item.path}`, children: [new TextRun({ text: item.title, color: HYPERLINK, underline: {}, size: 20 })] }),
+            new TextRun({ text: `  (${item.year})`, italics: true, color: MUTED, size: 18 }),
+          ],
+        })
+      );
     }
   }
 

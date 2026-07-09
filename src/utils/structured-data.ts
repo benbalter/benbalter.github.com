@@ -228,9 +228,7 @@ interface ResumeSchemaProps {
 export function generateResumeSchema(props: ResumeSchemaProps): WithContext<Person> {
   const { positions, degrees, certifications } = props;
 
-  // Positions become work history (hasOccupation). The résumé deliberately does
-  // not assert a current employer (worksFor): roles overlap during transitions,
-  // and the sitewide Person intentionally claims no current employer.
+  // Positions become work history (hasOccupation).
   //
   // Occupation has no typed field for employer or dates, so the title carries
   // `name` and the employer + year range ride along in `description` (inherited
@@ -244,6 +242,11 @@ export function generateResumeSchema(props: ResumeSchemaProps): WithContext<Pers
       description: `${position.title} at ${position.employer} (${startYear}–${endYear})`,
     };
   });
+
+  // Unlike the sitewide Person (which stays employer-neutral during transitions),
+  // the résumé asserts the current role — the page already renders it as the
+  // present position. The current role is the one with no end date.
+  const currentRole = positions.find(position => !position.endDate);
 
   const alumniOf: EducationalOrganization[] | undefined = degrees?.map(degree => ({
     '@type': 'EducationalOrganization',
@@ -263,6 +266,16 @@ export function generateResumeSchema(props: ResumeSchemaProps): WithContext<Pers
 
   const schema = generatePersonSchema({
     hasOccupation,
+    ...(currentRole
+      ? {
+          jobTitle: currentRole.title,
+          worksFor: {
+            '@type': 'Organization',
+            name: currentRole.employer,
+            url: 'https://open-and-async.com',
+          } as Organization,
+        }
+      : {}),
     ...(alumniOf !== undefined ? { alumniOf } : {}),
     ...(hasCredential !== undefined ? { hasCredential } : {}),
   });

@@ -1,6 +1,6 @@
 ---
 employer: Open & Async, LLC.
-title: Owner
+title: Founder & Author
 start_date: '2026-05-01'
 ---
 
