@@ -13,7 +13,7 @@ The instinct most of us have is to fix this at the end. Do the work heads-down, 
 
 In practice that means thinking out loud where others can see it. The issue you open before you start, with what you're trying and why. The pull request description that explains the approach, not just the diff (it may even be longer than the diff). The "here's where I'm stuck, here's what I've ruled out" message in [a public channel instead of a private one](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/#12-surface-work-early-for-feedback). The rough draft shared at 40% instead of the polished thing shared at 100%. You're not adding a layer of reporting on top of the work. You're doing the work in the open, where it leaves a trail.
 
-I've opened a few thousand issues at GitHub; the ones that mattered most were the ones I opened before I knew the answer. The tell: :quote[if it only lives in your head or a DM, it isn't loud yet.]{#if-it-only-lives-in-your-head-or-a-dm-it-isnt-loud-yet}
+I've opened a few thousand issues; the ones that mattered most were the ones I opened before I knew the answer. The tell: :quote[if it only lives in your head or a DM, it isn't loud yet.]{#if-it-only-lives-in-your-head-or-a-dm-it-isnt-loud-yet}
 
 ## Like a bear bell
 
@@ -27,9 +27,11 @@ Working loudly is the bell: the low-effort, ambient signal that you're on the tr
 
 Which is also the answer to the objection I hear most: *won't I look like I'm bragging?* There's a real difference between narrating your work and performing it. Performing busyness is noise *about* work—the "just pushed through lunch 💪" posts, the green-dot theater, the reply-all to look engaged. Working loudly is the work itself, made legible. One is activity cosplaying as impact. The other is impact you can actually point to. If you're sharing the artifact—the issue, the PR, the doc, the decision—you're working loudly. If you're sharing your *effort*, you're just being loud.
 
+## The payoff compounds
+
 :quote[The payoff is bigger than getting credit, though you'll get that too.]{#payoff-bigger-than-credit} When your work is visible in progress, people can help. Someone spots the bug in your approach before you've sunk three days into it. A teammate who solved the same problem last quarter drops a link. The senior engineer who'd never have been pulled into a private thread weighs in on the public one. Loud work compounds—it invites collaboration that silent work never gets the chance to.
 
-I like to joke that the hardest part of open source is googling to find out whether someone already solved your problem before you spend a week solving it yourself. Inner source—the same habits inside a company—is no different: work loudly so others can find you, and look around so you find them before you redo their work.
+I like to joke that :quote[the hardest part of open source is googling to find out whether someone already solved your problem]{#hardest-part-of-open-source} before you spend a week solving it yourself. Inner source—the same habits inside a company—is no different: work loudly so others can find you, and look around so you find them before you redo their work.
 
 ## Managing without surveilling
 
