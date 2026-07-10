@@ -140,7 +140,9 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         <ReadingList posts={curatedPosts} roles={curatedRoles} />
 
         <ReadingProgress readingTime={readingTime} />
-        
+
+        {!hideBookCta && <BookCta />}
+
         {pubDate && (
           <div class="mt-12 border-t border-gray-200 dark:border-gray-700 py-5 flex flex-wrap items-center justify-between gap-x-3 gap-y-3 text-sm text-gray-600 dark:text-gray-300" data-pagefind-ignore>
             <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
@@ -154,8 +156,6 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         
         <DiscussLinks title={title} url={postUrl} />
 
-        {!hideBookCta && <BookCta />}
-        
         <KeepReading relatedPosts={relatedPosts} />
         
         <div data-pagefind-ignore>
