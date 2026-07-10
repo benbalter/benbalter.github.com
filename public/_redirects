@@ -8,6 +8,10 @@
 # Sitemap (Jekyll legacy path → @astrojs/sitemap output)
 /sitemap.xml /sitemap-index.xml 301
 
+# Retired standalone quote share pages (/q/<id>) → the Quotable wall.
+# Quotes now live inline in their posts; the wall links to each in context.
+/q/* /quotes/ 301
+
 # Page renames
 /books/ /other-recommended-reading/ 301
 /books /other-recommended-reading/ 301

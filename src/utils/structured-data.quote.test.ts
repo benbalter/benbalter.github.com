@@ -3,7 +3,8 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { generateQuotationSchema, generateQuotesCollectionSchema } from './structured-data';
+import { generateQuotesCollectionSchema } from './structured-data';
+import { quoteAnchorId } from '../lib/remark-quote-directive';
 import { siteConfig } from '../config';
 
 const sample = {
@@ -12,41 +13,6 @@ const sample = {
   postUrl: '/2022/03/17/why-async/',
   postTitle: 'Why async',
 };
-
-describe('generateQuotationSchema', () => {
-  it('generates a Quotation with @context and the quote text', () => {
-    const schema = generateQuotationSchema(sample);
-    expect(schema['@context']).toBe('https://schema.org');
-    expect(schema['@type']).toBe('Quotation');
-    expect(schema.text).toBe(sample.text);
-  });
-
-  it('points url and @id at the canonical /q/<id>/ page', () => {
-    const schema = generateQuotationSchema(sample);
-    expect(schema.url).toBe(`${siteConfig.url}/q/${sample.id}/`);
-    expect((schema as { '@id'?: string })['@id']).toBe(`${siteConfig.url}/q/${sample.id}/#quotation`);
-  });
-
-  it('attributes the quote to the canonical Person entity by @id', () => {
-    const schema = generateQuotationSchema(sample);
-    const creator = schema.creator as { '@type': string; '@id': string };
-    expect(creator['@type']).toBe('Person');
-    expect(creator['@id']).toBe(`${siteConfig.url}/#person`);
-  });
-
-  it('links back to the source post with an absolute URL', () => {
-    const schema = generateQuotationSchema(sample);
-    const isPartOf = schema.isPartOf as { '@type': string; url: string; headline: string };
-    expect(isPartOf.url).toBe(`${siteConfig.url}${sample.postUrl}`);
-    expect(isPartOf.headline).toBe(sample.postTitle);
-  });
-
-  it('does not double-prefix an already-absolute post URL', () => {
-    const schema = generateQuotationSchema({ ...sample, postUrl: 'https://example.com/post/' });
-    const isPartOf = schema.isPartOf as { url: string };
-    expect(isPartOf.url).toBe('https://example.com/post/');
-  });
-});
 
 describe('generateQuotesCollectionSchema', () => {
   const props = {
@@ -74,6 +40,22 @@ describe('generateQuotesCollectionSchema', () => {
     expect(list.itemListElement[0].item['@type']).toBe('Quotation');
     expect(list.itemListElement[0].item.text).toBe(sample.text);
     expect(list.itemListElement[1].position).toBe(2);
+  });
+
+  it('points each quote url and @id at its in-post deep link (no /q/ page)', () => {
+    const schema = generateQuotesCollectionSchema(props);
+    const list = schema.mainEntity as unknown as { itemListElement: Array<{ item: { url: string; '@id': string } }> };
+    const deepLink = `${siteConfig.url}${sample.postUrl}#${quoteAnchorId(sample.id)}`;
+    expect(list.itemListElement[0].item.url).toBe(deepLink);
+    expect(list.itemListElement[0].item['@id']).toBe(deepLink);
+  });
+
+  it('attributes each quote to the canonical Person and links back to its post', () => {
+    const schema = generateQuotesCollectionSchema(props);
+    const item = (schema.mainEntity as unknown as { itemListElement: Array<{ item: { creator: { '@id': string }; isPartOf: { url: string; headline: string } } }> }).itemListElement[0].item;
+    expect(item.creator['@id']).toBe(`${siteConfig.url}/#person`);
+    expect(item.isPartOf.url).toBe(`${siteConfig.url}${sample.postUrl}`);
+    expect(item.isPartOf.headline).toBe(sample.postTitle);
   });
 
   it('handles an empty wall', () => {

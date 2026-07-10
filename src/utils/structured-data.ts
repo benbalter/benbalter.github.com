@@ -9,6 +9,7 @@
 
 import type { Person, Organization, WebSite, BlogPosting, BreadcrumbList, ListItem, WithContext, Occupation, EducationalOrganization, EducationalOccupationalCredential, ImageObject, ProfilePage, CollectionPage, SearchAction, Quotation } from 'schema-dts';
 import { siteConfig } from '../config';
+import { quoteAnchorId } from '../lib/remark-quote-directive';
 
 /** Base Person fields (shared between top-level and embedded schemas) */
 function personFields(overrides?: Partial<Person>): Person {
@@ -354,7 +355,7 @@ export function generateCollectionPageSchema(props: {
 
 /** A single shareable quote, joined to its source post. */
 export interface QuoteSchemaInput {
-  /** The quote's kebab-case id (used to build its /q/<id>/ URL). */
+  /** The quote's kebab-case id (used to build its in-post #quote-<id> URL). */
   id: string;
   /** Verbatim quote text. */
   text: string;
@@ -380,11 +381,13 @@ function absoluteUrl(url: string): string {
  */
 function quotationFields(quote: QuoteSchemaInput): Quotation {
   const postUrl = absoluteUrl(quote.postUrl);
+  // The quote's canonical location is the highlighted line in its source post.
+  const quoteUrl = `${postUrl}#${quoteAnchorId(quote.id)}`;
   return {
     '@type': 'Quotation',
-    '@id': `${siteConfig.url}/q/${quote.id}/#quotation`,
+    '@id': quoteUrl,
     text: quote.text,
-    url: `${siteConfig.url}/q/${quote.id}/`,
+    url: quoteUrl,
     creator: {
       '@type': 'Person',
       '@id': `${siteConfig.url}/#person`,
@@ -398,16 +401,6 @@ function quotationFields(quote: QuoteSchemaInput): Quotation {
       headline: quote.postTitle,
     } as BlogPosting,
   } as Quotation;
-}
-
-/**
- * Generate standalone Quotation schema for a single /q/<id> share page.
- */
-export function generateQuotationSchema(quote: QuoteSchemaInput): WithContext<Quotation> {
-  return {
-    '@context': 'https://schema.org',
-    ...(quotationFields(quote) as unknown as Record<string, unknown>),
-  } as WithContext<Quotation>;
 }
 
 /**

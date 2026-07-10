@@ -2,14 +2,13 @@
 /**
  * /quotes — a scannable wall of shareable lines.
  *
- * Unlike the individual /q/<id> share pages, this is a rich, legitimate
- * destination ("best lines" index), so it stays indexable. Each card links to
- * the standalone share page and back to the source post.
+ * A rich, legitimate destination ("best lines" index), so it stays indexable.
+ * Each card links to the quoted line in its source post (the deep link that
+ * scrolls to and highlights it) — there are no standalone quote pages.
  */
 
 import { getCollection } from 'astro:content';
 import PageLayout from '../layouts/PageLayout.astro';
-import Icon from '../components/Icon.astro';
 import { siteConfig } from '../config';
 import { resolveQuotes } from '../utils/quotes';
 import { quoteAnchorId } from '../lib/remark-quote-directive';
@@ -37,8 +36,8 @@ const quotesSchema = generateQuotesCollectionSchema({
 <PageLayout title={title} description={description}>
   <div class="max-w-4xl mx-auto">
     <p class="text-lg text-gray-700 dark:text-gray-300 mb-10">
-      Sharp lines worth stealing. Each links to its own page you can share, and
-      back to the post it came from.
+      Sharp lines worth stealing. Each links back to the post it came from,
+      right where the line appears.
     </p>
 
     {quotes.length === 0 ? (
@@ -47,15 +46,12 @@ const quotesSchema = generateQuotesCollectionSchema({
       <ul class="quote-grid not-prose">
         {quotes.map((quote) => (
           <li class="quote-card">
-            <a href={`/q/${quote.id}/`} class="quote-card-text">
+            <a href={`${quote.postUrl}#${quoteAnchorId(quote.id)}`} class="quote-card-text">
               <span aria-hidden="true" class="quote-mark">&ldquo;</span>
               {quote.text}
             </a>
             <p class="quote-card-source">
               <a href={`${quote.postUrl}#${quoteAnchorId(quote.id)}`}>{quote.postTitle}</a>
-              <a href={`/q/${quote.id}/`} class="quote-card-share" aria-label="Share this quote">
-                <Icon name="link" />
-              </a>
             </p>
           </li>
         ))}
@@ -115,13 +111,8 @@ const quotesSchema = generateQuotesCollectionSchema({
   }
 
   .quote-card-source {
-    @apply flex items-center justify-between gap-3 m-0 mt-auto;
+    @apply flex items-center gap-3 m-0 mt-auto;
     @apply text-sm text-gray-600 dark:text-gray-300;
-  }
-
-  .quote-card-share {
-    @apply shrink-0 text-gray-400 hover:text-primary dark:hover:text-primary-300;
-    @apply transition-colors duration-200;
   }
 
   @media (prefers-color-scheme: dark) {

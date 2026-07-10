@@ -8,9 +8,10 @@
  *
  * The quote text lives ONLY here, in the post — it's the single source of
  * truth. This plugin renders it inline (a light highlight + a small share
- * link to /q/<id>), and src/utils/quotes.ts collects the same directives from
- * post bodies to generate the standalone /q/<id> pages, their OG cards, and the
- * /quotes wall. The two share the helpers below so render and collection agree.
+ * control). The control is an anchor to the quote's own in-post deep link
+ * (#quote-<id>); src/scripts/quote-share.ts progressively enhances it into a
+ * one-tap native share / copy-link. src/utils/quotes.ts collects the same
+ * directives from post bodies to power the /quotes wall.
  *
  * Must run AFTER remarkDirective and BEFORE remarkDirectiveFallback — the
  * fallback reverts any directive that no plugin has claimed, and this plugin
@@ -102,11 +103,14 @@ export function remarkQuoteDirective() {
         value: '<span class="sr-only"> (share this quote)</span>',
       } as RootContent;
 
+      // href is the quote's own in-post deep link. With no JS this jumps to and
+      // highlights the line (via :target) and puts the shareable URL in the
+      // address bar; quote-share.ts enhances the click into a one-tap share.
       n.data = {
         hName: 'a',
         hProperties: {
           id: quoteAnchorId(id),
-          href: `/q/${id}/`,
+          href: `#${quoteAnchorId(id)}`,
           className: ['quote-inline'],
           'data-quote-id': id,
         },
