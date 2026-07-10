@@ -34,9 +34,13 @@ coverage/
 .env.development.local
 .env.test.local
 .env.production.local
+.env
 screenshots/
 
 # Ruby/bundler artifacts
 vendor/
 .bundle/
 Gemfile.lock
+
+# Local analytics report (contains specific stats; do not commit)
+analytics-report.md
