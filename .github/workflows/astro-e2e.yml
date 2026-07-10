@@ -58,9 +58,16 @@ jobs:
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v5
         with:
           path: node_modules/.astro
-          key: astro-cache-${{ runner.os }}-${{ hashFiles('src/**/*', 'public/**/*', 'astro.config.mjs', 'tsconfig.astro.json', 'package-lock.json') }}
+          # The pipeline fingerprint (remark/rehype plugins, their config wiring, and
+          # deps) is a distinct key segment AND the restore-keys prefix. Astro caches
+          # rendered markdown per content-file digest and reuses it for unchanged files
+          # regardless of plugin code, so a broad `astro-cache-<os>-` restore-key would
+          # resurrect HTML built by an old pipeline (e.g. retired /q/<id> quote links).
+          # Folding the pipeline hash into the prefix busts the cache when rendering
+          # changes, while still reusing it across content-only edits.
+          key: astro-cache-${{ runner.os }}-${{ hashFiles('src/lib/**', 'astro.config.mjs', 'src/content.config.ts', 'package-lock.json') }}-${{ hashFiles('src/**/*', 'public/**/*', 'tsconfig.astro.json') }}
           restore-keys: |
-            astro-cache-${{ runner.os }}-
+            astro-cache-${{ runner.os }}-${{ hashFiles('src/lib/**', 'astro.config.mjs', 'src/content.config.ts', 'package-lock.json') }}-
 
       - name: Build Astro site
         run: npm run build
