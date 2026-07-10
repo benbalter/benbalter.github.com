@@ -13,6 +13,8 @@
 import type { APIRoute } from 'astro';
 import { getEntry, getCollection, type CollectionEntry } from 'astro:content';
 import { formatResumeDate } from '../utils/post-urls';
+import { getPublishedPosts } from '../utils/posts';
+import { resolvePopularPosts } from '../utils/resume-writing';
 import { siteConfig } from '../config';
 
 /**
@@ -30,6 +32,9 @@ export const GET: APIRoute = async () => {
     throw new Error('Resume page data not found');
   }
   const { degrees, certifications, skills, summary } = resumePage.data;
+
+  // Selected writing mirrors the homepage's curated "Popular Posts" list.
+  const writing = resolvePopularPosts(await getPublishedPosts());
 
   // Positions, newest first, grouped by employer (same logic as resume.astro).
   const sortedPositions = (await getCollection('resume-positions')).sort(
@@ -53,6 +58,7 @@ export const GET: APIRoute = async () => {
   lines.push(
     `Washington, DC · [${siteConfig.email}](mailto:${siteConfig.email}) · ` +
       `[ben.balter.com](${siteConfig.url}) · ` +
+      `[github.com/benbalter](https://github.com/${siteConfig.githubUsername}) · ` +
       `[linkedin.com/in/benbalter](${siteConfig.linkedinUrl})`
   );
   lines.push('');
@@ -104,6 +110,16 @@ export const GET: APIRoute = async () => {
         lines.push('');
       }
     }
+  }
+
+  // --- Selected writing ----------------------------------------------------
+  if (writing.length > 0) {
+    lines.push('## Selected writing');
+    lines.push('');
+    for (const item of writing) {
+      lines.push(`- [${item.title}](${siteConfig.url}${item.path}) (${item.year})`);
+    }
+    lines.push('');
   }
 
   // --- Education -----------------------------------------------------------

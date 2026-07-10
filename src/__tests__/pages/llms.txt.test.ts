@@ -135,6 +135,16 @@ describe('llms.txt', () => {
     expect(text).toContain('/resume/');
   });
 
+  it('should point agents at the machine-readable Markdown resume export', async () => {
+    const pages = [
+      createMockPage('resume', 'Resume', 'Professional resume', '/resume/'),
+    ];
+    const response = await callGET([], pages);
+    const text = await response.text();
+    expect(text).toContain('Resume (Markdown)');
+    expect(text).toContain(`${siteConfig.url}/resume.md`);
+  });
+
   it('should limit to 10 recent posts', async () => {
     const posts = Array.from({ length: 15 }, (_, i) => {
       const day = String(i + 1).padStart(2, '0');

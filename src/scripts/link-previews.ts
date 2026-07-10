@@ -275,27 +275,36 @@ function onKeyDown(e: KeyboardEvent) {
 
 // --- Initialization ---
 
+/**
+ * Containers whose internal post links get hover previews: post bodies, plus
+ * any element that opts in with `data-link-previews` (e.g., the résumé's
+ * "Selected writing" list, which isn't a `.post-content` region).
+ */
+const CONTAINER_SELECTOR = '.post-content, [data-link-previews]';
+
 function initLinkPreviews() {
   // Only on devices that support hover (skip touch-only)
   if (window.matchMedia('(hover: none)').matches) return;
 
-  const container = document.querySelector('.post-content');
-  if (!container) return;
+  const containers = document.querySelectorAll(CONTAINER_SELECTOR);
+  if (containers.length === 0) return;
 
   // Reset stale state from previous page (View Transitions keep JS memory)
   hideCard();
   activeAnchor = null;
 
-  // Event delegation on the post content container
-  container.addEventListener('mouseenter', onMouseEnter, true);
-  container.addEventListener('mouseleave', onMouseLeave, true);
-  container.addEventListener('focusin', onFocusIn);
-  container.addEventListener('focusout', onFocusOut);
+  // Event delegation on each opted-in container
+  for (const container of containers) {
+    container.addEventListener('mouseenter', onMouseEnter, true);
+    container.addEventListener('mouseleave', onMouseLeave, true);
+    container.addEventListener('focusin', onFocusIn);
+    container.addEventListener('focusout', onFocusOut);
+  }
 
   // Use { once: false } — safe to re-add because duplicate listeners are ignored
   document.addEventListener('keydown', onKeyDown);
 
-  // Pre-warm: start loading metadata when any post link enters viewport
+  // Pre-warm: start loading metadata when the first post link enters viewport
   const observer = new IntersectionObserver(
     (entries) => {
       if (entries.some((entry) => entry.isIntersecting)) {
@@ -306,7 +315,9 @@ function initLinkPreviews() {
     { rootMargin: '200px' },
   );
 
-  const firstPostLink = container.querySelector('a[href]');
+  const firstPostLink = document.querySelector(
+    '.post-content a[href], [data-link-previews] a[href]',
+  );
   if (firstPostLink) observer.observe(firstPostLink);
 }
 

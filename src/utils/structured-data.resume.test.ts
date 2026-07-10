@@ -33,12 +33,22 @@ describe('generateResumeSchema', () => {
     expect(schema).toHaveProperty('name', siteConfig.author);
   });
 
-  it('should not assert a current employer (worksFor), even with an ongoing position', () => {
-    // A position with no end date used to drive worksFor; the résumé now leaves
-    // current employment unasserted to match the sitewide Person schema.
+  it('should assert the current role (no end date) as jobTitle + worksFor', () => {
+    // The current position — the one with no end date — drives jobTitle and
+    // worksFor. (The sitewide Person stays employer-neutral; the résumé does not.)
     const schema = generateResumeSchema({ positions: samplePositions });
     const schemaAny = schema as any;
 
+    expect(schemaAny.jobTitle).toBe('Director of Engineering');
+    expect(schemaAny.worksFor['@type']).toBe('Organization');
+    expect(schemaAny.worksFor.name).toBe('GitHub');
+  });
+
+  it('should not assert a current employer when every position has ended', () => {
+    const ended = samplePositions.map(p => ({ ...p, endDate: p.endDate ?? '2024-01-01' }));
+    const schemaAny = generateResumeSchema({ positions: ended }) as any;
+
+    expect(schemaAny.jobTitle).toBeUndefined();
     expect(schemaAny.worksFor).toBeUndefined();
   });
 

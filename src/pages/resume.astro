@@ -9,6 +9,8 @@
 import PageLayout from '../layouts/PageLayout.astro';
 import { getEntry, getCollection, render, type CollectionEntry } from 'astro:content';
 import { formatResumeDate } from '../utils/post-urls';
+import { getPublishedPosts } from '../utils/posts';
+import { resolvePopularPosts } from '../utils/resume-writing';
 import { generateResumeSchema, schemaToJsonLd } from '../utils/structured-data';
 
 // Load resume page data
@@ -18,6 +20,9 @@ if (!resumePage) {
 }
 
 const { title, description, robots, degrees, certifications, skills, summary } = resumePage.data;
+
+// Selected writing mirrors the homepage's curated "Popular Posts" list.
+const writing = resolvePopularPosts(await getPublishedPosts());
 
 // Load resume positions from content collection
 const allPositions = await getCollection('resume-positions');
@@ -74,6 +79,8 @@ const resumeSchema = generateResumeSchema({
       <span aria-hidden="true"> · </span>
       <a href="https://ben.balter.com">ben.balter.com</a>
       <span aria-hidden="true"> · </span>
+      <a href="https://github.com/benbalter">github.com/benbalter</a>
+      <span aria-hidden="true"> · </span>
       <a href="https://www.linkedin.com/in/benbalter/">linkedin.com/in/benbalter</a>
     </p>
   </header>
@@ -87,7 +94,7 @@ const resumeSchema = generateResumeSchema({
         <a href="mailto:ben@balter.com">ben@balter.com</a>
       </p>
       <p class="resume-aux">
-        Also available on <a href="https://www.linkedin.com/in/benbalter/" target="_blank" rel="me noopener noreferrer">LinkedIn</a>.
+        Also available on <a href="https://www.linkedin.com/in/benbalter/" target="_blank" rel="me noopener noreferrer">LinkedIn</a> and <a href="https://github.com/benbalter" target="_blank" rel="me noopener noreferrer">GitHub</a>.
         Download as <a href="/resume.pdf" download="ben-balter-resume.pdf">PDF</a>, <a href="/resume.docx" download="ben-balter-resume.docx">Word</a>, or <a href="/resume.md" download="ben-balter-resume.md">Markdown</a>.
       </p>
     </section>
@@ -136,6 +143,20 @@ const resumeSchema = generateResumeSchema({
     ))}
   </section>
   
+  {writing && writing.length > 0 && (
+    <section class="resume-section">
+      <h2>Selected writing</h2>
+      <ul class="writing-list" data-link-previews>
+        {writing.map((item) => (
+          <li class="writing-item">
+            <a href={item.path}>{item.title}</a>
+            <span class="writing-year">{item.year}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
   {degrees && degrees.length > 0 && (
     <section class="resume-section">
       <h2>Education</h2>
@@ -192,6 +213,11 @@ const resumeSchema = generateResumeSchema({
   })()}
 
   <script type="application/ld+json" set:html={schemaToJsonLd(resumeSchema)} is:inline></script>
+
+  <!-- Hover preview cards for internal post links (Selected writing) -->
+  <script>
+    import '../scripts/link-previews';
+  </script>
 </PageLayout>
 
 <style>
@@ -213,6 +239,15 @@ const resumeSchema = generateResumeSchema({
      on the ~#f5f8fb background — plain primary (#337ab7) is only 4.27:1. */
   .resume-summary a {
     color: var(--color-primary-600, #2a6493);
+  }
+
+  /* In dark mode the summary box sits on a dark background, so the light-mode
+     darkening flips to a contrast failure — lighten the links instead (matches
+     the skill/cert dark-mode accent). */
+  @media (prefers-color-scheme: dark) {
+    .resume-summary a {
+      color: var(--color-primary-200, #b3d4f0);
+    }
   }
 
   .summary-text {
@@ -401,6 +436,65 @@ const resumeSchema = generateResumeSchema({
   }
 
   /* ============================================================
+   * Selected Writing
+   * ============================================================ */
+  .writing-list {
+    list-style: none;
+    margin: 0.75rem 0 0;
+    padding: 0;
+  }
+
+  /* Match the page's date treatment: title left, year right-aligned in a column
+     (like Experience/Education), rather than a bullet with the year trailing. */
+  .writing-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.55rem;
+    line-height: 1.5;
+  }
+
+  .writing-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .writing-year {
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-gray-700, #495057);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .writing-year {
+      color: var(--color-gray-400, #adb5bd);
+    }
+  }
+
+  @media print {
+    .writing-list {
+      margin-top: 0.4rem;
+      font-size: 10pt;
+    }
+
+    .writing-item {
+      margin-bottom: 0.15rem;
+      page-break-inside: avoid;
+    }
+
+    .writing-year {
+      color: #555;
+      font-style: italic;
+    }
+
+    /* Don't suffix writing links with their long URLs in print */
+    .writing-item a::after {
+      content: none !important;
+    }
+  }
+
+  /* ============================================================
    * Certifications
    * ============================================================ */
   .certification-item {
@@ -538,14 +632,16 @@ const resumeSchema = generateResumeSchema({
       color: #000;
     }
 
+    /* Keep the whole contact strip on one line; shrink to fit. */
     .print-contact {
       margin: 0;
-      font-size: 9.5pt;
+      font-size: 8pt;
       color: #333;
+      white-space: nowrap;
     }
 
     .print-contact a {
-      color: #333;
+      color: #337ab7;
       text-decoration: none;
     }
 
@@ -687,8 +783,19 @@ const resumeSchema = generateResumeSchema({
       font-size: 10pt;
     }
 
-    /* Don't suffix cert/LinkedIn links with their long URLs in print */
+    /* Digital-first PDF: the resume is read on screen, not paper. Keep content
+       links blue and clickable, and never append the raw URL in parentheses
+       (the global print stylesheet does that for printed articles). */
+    .position-content :global(a),
+    .certification-name a,
+    .writing-list a {
+      color: #337ab7;
+      text-decoration: underline;
+    }
+
+    .position-content :global(a)::after,
     .certification-name a::after,
+    .writing-list a::after,
     .print-contact a::after {
       content: none !important;
     }

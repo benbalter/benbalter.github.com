@@ -372,9 +372,13 @@ test.describe('Structured Data (JSON-LD)', () => {
     }
 
     expect(resumePerson).toBeTruthy();
-    // The résumé deliberately does not assert a current employer (worksFor) —
-    // it lists past roles under hasOccupation and education under alumniOf.
-    expect(resumePerson.worksFor).toBeUndefined();
+    // The résumé asserts the current role (jobTitle + worksFor) from the
+    // position with no end date — unlike the sitewide Person, which stays
+    // employer-neutral. Past roles ride under hasOccupation, education under
+    // alumniOf.
+    expect(resumePerson.jobTitle).toBeTruthy();
+    expect(resumePerson.worksFor).toBeTruthy();
+    expect(resumePerson.worksFor['@type']).toBe('Organization');
     expect(resumePerson.hasOccupation.length).toBeGreaterThan(0);
     expect(resumePerson.alumniOf.length).toBeGreaterThan(0);
     expect(resumePerson.hasCredential.length).toBeGreaterThan(0);
