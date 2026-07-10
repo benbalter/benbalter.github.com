@@ -41,3 +41,6 @@ screenshots/
 vendor/
 .bundle/
 Gemfile.lock
+
+# Local analytics report (contains specific stats; do not commit)
+analytics-report.md
