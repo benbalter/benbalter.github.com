@@ -215,15 +215,36 @@
 }
 
 /* Inline shareable quote (:quote[text]{#id}) — keeps the line in the flow of
- * the prose with a light brand-tint highlight and a small share link to /q/<id>.
+ * the prose with a light brand-tint highlight and a one-tap share control that
+ * shares the quote's in-post deep link (#quote-<id>).
  * Unlayered so it overrides the base article-link color/underline styles. */
 .quote-inline {
+  position: relative;
   text-decoration: none;
   color: inherit;
   cursor: pointer;
   /* Keep the line clear of the sticky header when deep-linked via #quote-<id>. */
   scroll-margin-top: 6rem;
   border-radius: 0.2rem;
+}
+
+/* Transient "Copied" confirmation shown after the copy-link fallback fires
+ * (desktop / no native share sheet). Anchored to the share icon. */
+.quote-inline.is-copied .quote-inline-icon::after {
+  content: 'Link copied';
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  margin-bottom: 0.4em;
+  padding: 0.15em 0.5em;
+  border-radius: 0.35rem;
+  background-color: var(--color-primary);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+  pointer-events: none;
 }
 
 /* When arrived at via a deep link, briefly emphasize so the reader sees which

@@ -4,8 +4,8 @@
  * Quotes are authored inline in posts as `:quote[text]{#id}` directives — the
  * post is the single source of truth (see src/lib/remark-quote-directive.ts for
  * the inline rendering). This module collects those directives from post bodies
- * so the standalone /q/<id> share pages, their OG cards, and the /quotes wall
- * can be generated. Only quotes in listable (published, non-archived) posts are
+ * so the /quotes wall (and its schema) can list every quote and deep-link to it
+ * in context. Only quotes in listable (published, non-archived) posts are
  * collected, so every quote has a real, shareable source.
  */
 

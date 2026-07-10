@@ -35,7 +35,6 @@ const EXCLUDED_PAGES = [
   '/_not-found/',
   '/fine-print/', // Has sitemap: false in original Jekyll source (fine-print.md)
   '/resume/linkedin/', // Utility page, not for search engines
-  '/q/', // Quote share pages: noindex share targets, not search landing pages
   // To exclude posts/pages from content collections with sitemap: false,
   // add their URLs here (e.g., '/2024/01/01/post-slug/')
 ];
