@@ -98,6 +98,25 @@ This is a production website. Be conservative:
 - Em dashes with no spaces (—), Oxford comma always, contractions naturally
 - Blog posts: `src/content/posts/YYYY-MM-DD-title.md`
 
+### What the most-read posts tend to have in common
+
+Not a formula or a requirement—plenty of good posts skip some of these. These are just
+observations: posts that resonate tend to share most of these traits, so they're a useful
+lens when weighing a new idea:
+
+1. **Personal, data-backed sourcing** — a number, a spreadsheet, a lived count, not just an
+   opinion.
+2. **A named professional pain** — speaks to a specific anxiety a reader can name (reorgs,
+   getting promoted remotely, interviewing).
+3. **A copy-pasteable playbook** — an actionable checklist, template, or steps people can
+   bookmark and reuse.
+4. **One punchy, contrarian-but-true thesis** — a single clear claim, not a survey of
+   everything.
+
+Distribution leans on sharing (social, direct) more than search, so shareability tends to
+matter more than SEO. The AI angle tends to land best when tied to firsthand
+management/GitHub experience rather than as a generic tooling take.
+
 See `src/content/posts/CLAUDE.md` for detailed writing voice and SEO guidance.
 
 ## Testing
