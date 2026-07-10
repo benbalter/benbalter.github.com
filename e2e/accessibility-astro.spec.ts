@@ -14,6 +14,13 @@ test.beforeEach(async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
 });
 
+// Scans that only differ by rendered color are run under both themes. Dark mode
+// used to be spot-checked on just the homepage and one post, so light-only
+// contrast/rendering regressions on other pages and viewports went uncaught.
+// emulateMedia only overrides colorScheme; the reducedMotion set in beforeEach
+// persists.
+const COLOR_SCHEMES = ['light', 'dark'] as const;
+
 test.describe('Accessibility - Homepage', () => {
   test('should not have any automatically detectable accessibility violations', async ({ page }) => {
     await page.goto('/');
@@ -234,21 +241,24 @@ test.describe('Keyboard Navigation', () => {
 });
 
 test.describe('Color Contrast', () => {
-  test('text should have sufficient color contrast', async ({ page }) => {
-    await page.goto('/');
-    
-    // Use axe to check color contrast
-    const accessibilityScanResults = await new AxeBuilder({ page })
-      .withTags(['wcag2aa'])
-      .include('body')
-      .analyze();
-    
-    const contrastViolations = accessibilityScanResults.violations.filter(
-      v => v.id === 'color-contrast'
-    );
-    
-    expect(contrastViolations).toEqual([]);
-  });
+  for (const scheme of COLOR_SCHEMES) {
+    test(`text should have sufficient color contrast (${scheme} mode)`, async ({ page }) => {
+      await page.emulateMedia({ colorScheme: scheme });
+      await page.goto('/');
+
+      // Use axe to check color contrast
+      const accessibilityScanResults = await new AxeBuilder({ page })
+        .withTags(['wcag2aa'])
+        .include('body')
+        .analyze();
+
+      const contrastViolations = accessibilityScanResults.violations.filter(
+        v => v.id === 'color-contrast'
+      );
+
+      expect(contrastViolations).toEqual([]);
+    });
+  }
 });
 
 test.describe('Screen Reader Accessibility', () => {
@@ -393,47 +403,49 @@ test.describe('Axe Accessibility Scan - Multiple Pages', () => {
     { url: '/talks/', name: 'Talks' },
   ];
 
-  for (const { url, name } of pagesToTest) {
-    test(`${name} page should pass Axe accessibility scan`, async ({ page }) => {
-      const response = await page.goto(url);
-      
-      // Skip test if page doesn't exist
-      if (!response || response.status() === 404) {
-        test.skip(true, 'Page returned 404 or does not exist');
-        return;
-      }
-      
-      const accessibilityScanResults = await new AxeBuilder({ page })
-        .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
-        .analyze();
-      
-      expect(accessibilityScanResults.violations).toEqual([]);
-    });
+  for (const scheme of COLOR_SCHEMES) {
+    for (const { url, name } of pagesToTest) {
+      test(`${name} page should pass Axe accessibility scan (${scheme} mode)`, async ({ page }) => {
+        await page.emulateMedia({ colorScheme: scheme });
+        const response = await page.goto(url);
+
+        // Skip test if page doesn't exist
+        if (!response || response.status() === 404) {
+          test.skip(true, 'Page returned 404 or does not exist');
+          return;
+        }
+
+        const accessibilityScanResults = await new AxeBuilder({ page })
+          .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+          .analyze();
+
+        expect(accessibilityScanResults.violations).toEqual([]);
+      });
+    }
   }
 });
 
 test.describe('Responsive Accessibility', () => {
-  test('should be accessible on mobile viewport', async ({ page }) => {
-    await page.setViewportSize({ width: 375, height: 667 });
-    await page.goto('/');
-    
-    const accessibilityScanResults = await new AxeBuilder({ page })
-      .withTags(['wcag2a', 'wcag2aa'])
-      .analyze();
-    
-    expect(accessibilityScanResults.violations).toEqual([]);
-  });
-  
-  test('should be accessible on tablet viewport', async ({ page }) => {
-    await page.setViewportSize({ width: 768, height: 1024 });
-    await page.goto('/');
-    
-    const accessibilityScanResults = await new AxeBuilder({ page })
-      .withTags(['wcag2a', 'wcag2aa'])
-      .analyze();
-    
-    expect(accessibilityScanResults.violations).toEqual([]);
-  });
+  const viewports = [
+    { width: 375, height: 667, name: 'mobile' },
+    { width: 768, height: 1024, name: 'tablet' },
+  ];
+
+  for (const scheme of COLOR_SCHEMES) {
+    for (const { width, height, name } of viewports) {
+      test(`should be accessible on ${name} viewport (${scheme} mode)`, async ({ page }) => {
+        await page.emulateMedia({ colorScheme: scheme });
+        await page.setViewportSize({ width, height });
+        await page.goto('/');
+
+        const accessibilityScanResults = await new AxeBuilder({ page })
+          .withTags(['wcag2a', 'wcag2aa'])
+          .analyze();
+
+        expect(accessibilityScanResults.violations).toEqual([]);
+      });
+    }
+  }
 });
 
 test.describe('Accessibility - Additional Pages', () => {
