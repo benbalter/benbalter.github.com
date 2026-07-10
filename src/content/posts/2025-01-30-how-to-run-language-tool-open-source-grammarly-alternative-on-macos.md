@@ -4,7 +4,7 @@ description: Set up LanguageTool as a free, open-source Grammarly alternative th
 tldr: "How to set up LanguageTool, a free and open-source grammar checker, to run locally on your Mac so nothing you type ever leaves your computer. No Grammarly subscription required."
 ---
 
-You may be familiar with grammar checking tools like Grammarly,[^grammarly] but if you're privacy-conscious like me, you likely don't want to send everything you type to a third-party service (or may be prohibited from doing so by your employer). Enter [LanguageTool](https://languagetool.org/), a free and open-source grammar, style, and spell checker that can be run locally on your machine, so nothing you type ever leaves your computer. LanguageTool can be used with your browser, with VS Code,[^vscode] and with Slack and other common applications. For those looking to run LanguageTool like this, I've tried a number of ways, and here's the easiest:
+You may be familiar with grammar checking tools like Grammarly,[^grammarly] but if you're privacy-conscious like me, you likely don't want to send everything you type to a third-party service (or may be prohibited from doing so by your employer). Enter [LanguageTool](https://languagetool.org/), a free and open-source grammar, style, and spell checker that can be run locally on your machine, so :quote[nothing you type ever leaves your computer]{#nothing-leaves-your-computer}. LanguageTool can be used with your browser, with VS Code,[^vscode] and with Slack and other common applications. For those looking to run LanguageTool like this, I've tried a number of ways, and here's the easiest:
 
 ## Set up the local server
 

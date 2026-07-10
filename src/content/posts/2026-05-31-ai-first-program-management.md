@@ -75,7 +75,7 @@ It would be easy to read all of this and conclude that AI is about to make progr
 
 The responsibilities haven't changed. Communication, risk management, relationship building, consensus-driving — these are still the job. What's shifted is the ratio of *information processing* to *judgment* in a PM's day. AI handles more of the former so you can focus more on the latter.
 
-The things AI can't do are precisely the things that make great PMs great: reading a room, building trust over months, knowing when to push and when to back off, navigating organizational politics, and making the hard call when the data is ambiguous. These are human skills, and they become *more* valuable as AI handles the routine work, not less. When everyone has access to the same AI tools, the differentiator is the human wielding them.
+The things AI can't do are precisely the things that make great PMs great: reading a room, building trust over months, knowing when to push and when to back off, navigating organizational politics, and making the hard call when the data is ambiguous. These are human skills, and they become *more* valuable as AI handles the routine work, not less. :quote[When everyone has access to the same AI tools, the differentiator is the human wielding them.]{#differentiator-is-the-human}
 
 ## What changes for PMs
 
