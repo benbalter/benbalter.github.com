@@ -13,7 +13,7 @@ Regarding feature development, I've always enjoyed "under promise, over-deliver"
 
 ### Yes — "We're doing that."
 
-This three-month mark creates a good bright line where it's safe to say "yes" we're doing that (or are going to soon). Often, projects are in flight at this point (or planned and committed to), and even if the exact ship date is unknown, the project will likely eventually ship in one form or another. At this point, you should have high confidence that you can say "yes" without risking that you may violate the customer's expectations down the line. "Yes" is a verbal contract between you and the customer that you will do the thing you say you'll do.
+This three-month mark creates a good bright line where it's safe to say "yes" we're doing that (or are going to soon). Often, projects are in flight at this point (or planned and committed to), and even if the exact ship date is unknown, the project will likely eventually ship in one form or another. At this point, you should have high confidence that you can say "yes" without risking that you may violate the customer's expectations down the line. :quote["Yes" is a verbal contract between you and the customer that you will do the thing you say you'll do.]{#yes-is-a-verbal-contract}
 
 For those features not on a team's short-term roadmap, you have two choices:
 
@@ -23,7 +23,7 @@ If it's something that doesn't make sense strategically, the answer is simple: "
 
 ### Maybe — "We might do that."
 
-If it's something you'd like to do but haven't yet committed to (for example, 4+ months out) or something that might make strategic sense but haven't yet looked into, you give the best answer you can: "Maybe." I like to constantly follow up "maybe" with as much context as I can provide, for example, explaining that it's on our medium or long-term roadmap but that you can't yet commit to it or explaining that it's a great idea that you should (genuinely) look into (with a promise to get back to them when you do). Maybe it isn't a cop-out, but a commitment to follow up with either "yes" or "no" once a decision's been made.
+If it's something you'd like to do but haven't yet committed to (for example, 4+ months out) or something that might make strategic sense but haven't yet looked into, you give the best answer you can: "Maybe." I like to constantly follow up "maybe" with as much context as I can provide, for example, explaining that it's on our medium or long-term roadmap but that you can't yet commit to it or explaining that it's a great idea that you should (genuinely) look into (with a promise to get back to them when you do). :quote[Maybe it isn't a cop-out, but a commitment to follow up with either "yes" or "no" once a decision's been made.]{#maybe-isnt-a-cop-out}
 
 [As with code](https://tom.preston-werner.com/2011/11/22/open-source-everything.html), I strive to be transparent, unless there's an overriding business or practical concern not to (after all markets are conversations). Think of "yes, no, maybe" like a "green, red, yellow" stoplight indicating the status of your efforts, and in the inverse, the customer's need to pursue a workaround (or alternative) to the problem they face.
 
