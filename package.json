@@ -130,6 +130,7 @@
     "preview": "astro preview",
     "check": "astro check --tsconfig tsconfig.astro.json",
     "validate-seo": "tsx script/validate-seo.ts",
+    "analytics": "node script/analytics.mjs",
     "standard-site:publication": "tsx script/standard-site/create-publication.ts",
     "standard-site:sync": "tsx script/standard-site/sync-document.ts",
     "lint": "npm run lint-js && npm run lint-json && npm run lint-md",
