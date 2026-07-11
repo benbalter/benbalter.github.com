@@ -35,6 +35,7 @@ const EXCLUDED_PAGES = [
   '/_not-found/',
   '/fine-print/', // Has sitemap: false in original Jekyll source (fine-print.md)
   '/resume/linkedin/', // Utility page, not for search engines
+  '/resume/print/', // Print-only PDF source (noindex), rendered to /resume.pdf
   // To exclude posts/pages from content collections with sitemap: false,
   // add their URLs here (e.g., '/2024/01/01/post-slug/')
 ];
@@ -270,11 +271,12 @@ export default defineConfig({
         'seo/twitter-card': false,
       },
     }),
-    // Render the styled /resume page to a downloadable /resume.pdf. Runs after
-    // Astro emits all pages, serves them via `astro preview`, and prints with
-    // Chromium — so the PDF reuses the page's purpose-built `@media print` CSS
-    // (print header, timeline, accent rules) rather than reinventing layout.
-    // Chromium is auto-installed at build time if not already cached.
+    // Render the print-only /resume/print page to a downloadable /resume.pdf.
+    // Runs after Astro emits all pages, serves them via `astro preview`, and
+    // prints with Chromium. /resume/print is a standalone, two-column sheet
+    // built for paper (navy sidebar + flowing experience column); the on-site
+    // /resume page is unaffected. Chromium is auto-installed at build time if
+    // not already cached.
     pdf({
       // CI runners (Ubuntu 24.04) disable unprivileged user namespaces, so
       // Chromium's sandbox can't start ("No usable sandbox"). Safe to disable
@@ -297,18 +299,22 @@ export default defineConfig({
       },
       pages: {
         // Site uses `trailingSlash: 'always'`, so the page is served at
-        // `/resume/`; the bare path 404s on the static preview server.
-        '/resume/': {
+        // `/resume/print/`; the bare path 404s on the static preview server.
+        '/resume/print/': {
           path: 'resume.pdf',
           waitUntil: 'networkidle0',
           pdf: {
             format: 'Letter',
             printBackground: true,
-            // Honor the resume's `@page { margin: 0.6in 0.65in }` print rule.
+            // Honor the page's `@page { size: Letter; margin: 0.5in 0 }` rule so
+            // the page-1 navy sidebar panel can reach the left edge.
             preferCSSPageSize: true,
-            // Emit PDF bookmarks from the page's headings so the multi-page
-            // resume is navigable (Summary, Skills, Experience → each employer,
-            // Education, Certifications).
+            // Emit heading bookmarks so the multi-page resume is navigable
+            // (name → each employer → Certifications → Selected Writing).
+            // Puppeteer only builds the outline for a tagged PDF, and `tagged`
+            // also makes the file accessible to screen readers. The pdf-lib
+            // metadata pass below preserves the /Outlines tree.
+            tagged: true,
             outline: true,
           },
         },

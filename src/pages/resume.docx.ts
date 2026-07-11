@@ -29,11 +29,17 @@ import { getPublishedPosts } from '../utils/posts';
 import { resolvePopularPosts } from '../utils/resume-writing';
 import { siteConfig } from '../config';
 
-// Brand accent (matches --color-primary on the HTML resume).
+// Brand palette (mirrors the print résumé at /resume/print). NAVY is the deep
+// sidebar color; ACCENT/ACCENT_DARK are the blue used for rules, dates, links.
+const NAVY = '0D2138';
 const ACCENT = '337AB7';
 const ACCENT_DARK = '204D6F';
 const HYPERLINK = '0563C1';
 const MUTED = '555555';
+
+// Role kicker under the name — mirrors the print résumé's header. Kept in sync
+// with the `rp-role` line in src/pages/resume/print.astro.
+const HEADLINE = 'Engineering & Operations Leader';
 
 // ---------------------------------------------------------------------------
 // Markdown → docx
@@ -201,7 +207,7 @@ function sectionHeading(text: string): Paragraph {
     spacing: { before: 280, after: 120 },
     border: { bottom: { style: BorderStyle.SINGLE, size: 12, color: ACCENT, space: 2 } },
     children: [
-      new TextRun({ text: text.toUpperCase(), bold: true, color: ACCENT_DARK, size: 24, characterSpacing: 30 }),
+      new TextRun({ text: text.toUpperCase(), bold: true, color: NAVY, size: 24, characterSpacing: 30 }),
     ],
   });
 }
@@ -248,11 +254,17 @@ export const GET: APIRoute = async () => {
 
   const children: Paragraph[] = [];
 
-  // --- Header: name + contact strip ---------------------------------------
+  // --- Header: name + role kicker + contact strip -------------------------
   children.push(
     new Paragraph({
-      spacing: { after: 40 },
-      children: [new TextRun({ text: siteConfig.author, bold: true, size: 44, color: ACCENT_DARK })],
+      spacing: { after: 20 },
+      children: [new TextRun({ text: siteConfig.author, bold: true, size: 44, color: NAVY })],
+    })
+  );
+  children.push(
+    new Paragraph({
+      spacing: { after: 120 },
+      children: [new TextRun({ text: HEADLINE.toUpperCase(), bold: true, color: ACCENT, size: 19, characterSpacing: 40 })],
     })
   );
   children.push(

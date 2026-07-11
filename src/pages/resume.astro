@@ -7,10 +7,11 @@
  */
 
 import PageLayout from '../layouts/PageLayout.astro';
-import { getEntry, getCollection, render, type CollectionEntry } from 'astro:content';
+import { getEntry, type CollectionEntry } from 'astro:content';
 import { formatResumeDate } from '../utils/post-urls';
 import { getPublishedPosts } from '../utils/posts';
 import { resolvePopularPosts } from '../utils/resume-writing';
+import { getResumePositions } from '../utils/resume-data';
 import { generateResumeSchema, schemaToJsonLd } from '../utils/structured-data';
 
 // Load resume page data
@@ -24,37 +25,9 @@ const { title, description, robots, degrees, certifications, skills, summary } =
 // Selected writing mirrors the homepage's curated "Popular Posts" list.
 const writing = resolvePopularPosts(await getPublishedPosts());
 
-// Load resume positions from content collection
-const allPositions = await getCollection('resume-positions');
-
-// Sort by start_date (most recent first)
-const sortedPositions = allPositions.sort((a: CollectionEntry<'resume-positions'>, b: CollectionEntry<'resume-positions'>) => {
-  return new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime();
-});
-
-// Group positions by employer to handle multiple roles at same company
-interface GroupedPosition {
-  employer: string;
-  positions: Array<CollectionEntry<'resume-positions'> & { Content: any }>;
-}
-
-// Group all positions by employer, regardless of order
-const employerGroups = new Map<string, Array<CollectionEntry<'resume-positions'> & { Content: any }>>();
-for (const position of sortedPositions) {
-  const { Content } = await render(position);
-  const positionWithContent = { ...position, Content };
-  
-  if (!employerGroups.has(position.data.employer)) {
-    employerGroups.set(position.data.employer, []);
-  }
-  employerGroups.get(position.data.employer)!.push(positionWithContent);
-}
-
-// Convert to array and sort positions within each employer by start_date (most recent first)
-const groupedPositions: GroupedPosition[] = Array.from(employerGroups.entries()).map(([employer, positions]) => ({
-  employer,
-  positions: positions.sort((a, b) => new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime()),
-}));
+// Load positions (sorted + grouped by employer, pre-rendered) from the shared
+// util so the web resume and the /resume-print PDF source can't drift.
+const { sorted: sortedPositions, grouped: groupedPositions } = await getResumePositions();
 
 // Generate resume structured data (JSON-LD)
 const resumeSchema = generateResumeSchema({

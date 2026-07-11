@@ -1,0 +1,571 @@
+---
+/**
+ * Resume — Print / PDF source
+ *
+ * A standalone, print-only document that astro-pdf renders to `/resume.pdf`
+ * (see the `pdf()` integration in astro.config.mjs). Deliberately NOT built on
+ * BaseLayout: no site nav, footer, or chrome — just the résumé, laid out as a
+ * bold two-column sheet (navy sidebar + flowing experience column) sized for
+ * US Letter. The web résumé lives at `/resume/` and is unaffected.
+ *
+ * Content is shared with `/resume/` via `getResumePositions()` and the same
+ * `pages/resume` collection entry, so the two surfaces can't drift.
+ *
+ * Styling builds on the Tailwind theme (color + font tokens from `@theme` in
+ * global.css, plus Tailwind's preflight reset) but expresses the layout in a
+ * scoped CSS block: print design needs precise pt/in units, and this project's
+ * Tailwind v4 build drops `pt`-unit arbitrary utilities. Theme tokens keep the
+ * palette in lockstep with the rest of the site.
+ */
+
+import { getEntry } from 'astro:content';
+import { Font } from 'astro:assets';
+import { formatResumeDate } from '../../utils/post-urls';
+import { getPublishedPosts } from '../../utils/posts';
+import { resolvePopularPosts } from '../../utils/resume-writing';
+import { getResumePositions } from '../../utils/resume-data';
+import '../../styles/global.css';
+
+const resumePage = await getEntry('pages', 'resume');
+if (!resumePage) throw new Error('Resume page data not found');
+const { degrees, certifications, skills, summary } = resumePage.data;
+
+const { grouped: groupedPositions } = await getResumePositions();
+const writing = resolvePopularPosts(await getPublishedPosts());
+
+const professionalCerts = certifications.filter(
+  (c: { category?: string }) => (c.category ?? 'professional') === 'professional',
+);
+const personalCerts = certifications.filter((c: { category?: string }) => c.category === 'personal');
+
+// Date range for a position, e.g. "July 2021 – February 2023" / "May 2026 – Present".
+const dateRange = (start: string, end?: string) =>
+  `${formatResumeDate(start) ?? ''} – ${end ? (formatResumeDate(end) ?? '') : 'Present'}`;
+
+const contact = [
+  { label: 'Washington, DC', href: null, icon: 'pin' },
+  { label: 'ben@balter.com', href: 'mailto:ben@balter.com', icon: 'mail' },
+  { label: 'ben.balter.com', href: 'https://ben.balter.com', icon: 'globe' },
+  { label: 'github.com/benbalter', href: 'https://github.com/benbalter', icon: 'github' },
+  { label: 'linkedin.com/in/benbalter', href: 'https://www.linkedin.com/in/benbalter', icon: 'linkedin' },
+];
+---
+
+<!doctype html>
+<html lang="en-US" class="rp-root">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="Print-optimized résumé source for Ben Balter, rendered to /resume.pdf." />
+    <link rel="canonical" href="https://ben.balter.com/resume/print/" />
+    <title>Ben Balter — Résumé</title>
+    <Font cssVariable="--font-inter" />
+    <Font cssVariable="--font-lora" />
+  </head>
+  <body class="rp">
+    <!-- ================= Sidebar (navy column) ================= -->
+    <aside class="rp-side">
+      <header class="rp-id">
+        <h1 class="rp-name">Ben Balter</h1>
+        <p class="rp-role">Engineering &amp; Operations Leader</p>
+      </header>
+
+      <ul class="rp-contact">
+        {contact.map((c) => (
+          <li>
+            <svg class="rp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              {c.icon === 'pin' && <><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></>}
+              {c.icon === 'mail' && <><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></>}
+              {c.icon === 'globe' && <><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z" /></>}
+              {c.icon === 'github' && <path d="M9 19c-4 1.4-4-2-6-2m12 4v-3.4c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.3 4.3 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.5 11.5 0 0 0-6 0C6.6 2.3 5.6 2.6 5.6 2.6a4.3 4.3 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" />}
+              {c.icon === 'linkedin' && <><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></>}
+            </svg>
+            {c.href ? <a href={c.href}>{c.label}</a> : <span>{c.label}</span>}
+          </li>
+        ))}
+      </ul>
+
+      {skills && skills.length > 0 && (
+        <section class="rp-side-section">
+          <h2 class="rp-side-h">Areas of Focus</h2>
+          {skills.map((group: { group: string; items: string[] }) => (
+            <div class="rp-skill">
+              <p class="rp-skill-name">{group.group}</p>
+              <p class="rp-skill-items">{group.items.join(' · ')}</p>
+            </div>
+          ))}
+        </section>
+      )}
+
+      {degrees && degrees.length > 0 && (
+        <section class="rp-side-section">
+          <h2 class="rp-side-h">Education</h2>
+          {degrees.map((d: { school: string; degree: string; date: string }) => (
+            <div class="rp-edu">
+              <p class="rp-edu-school">{d.school}</p>
+              <p class="rp-edu-degree">{d.degree}</p>
+              <p class="rp-edu-date">{formatResumeDate(d.date)}</p>
+            </div>
+          ))}
+        </section>
+      )}
+    </aside>
+
+    <!-- ================= Main column (flows across pages) ================= -->
+    <div class="rp-main">
+      {summary && <p class="rp-summary">{summary}</p>}
+
+      <section class="rp-main-section">
+        <h2 class="rp-main-h">Experience</h2>
+        {groupedPositions.map((group) => (
+          <div class="rp-emp">
+            <h3 class="rp-emp-name">{group.employer}</h3>
+            {group.positions.map((position) => (
+              <div class="rp-pos">
+                <div class="rp-pos-head">
+                  <h4 class="rp-pos-title">{position.data.title}</h4>
+                  <span class="rp-pos-date">{dateRange(position.data.start_date, position.data.end_date)}</span>
+                </div>
+                <div class="pos-content">
+                  <position.Content />
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </section>
+
+      {writing && writing.length > 0 && (
+        <section class="rp-main-section rp-writing">
+          <h2 class="rp-main-h">Selected Writing</h2>
+          <ul class="rp-writing-list">
+            {writing.slice(0, 3).map((item) => (
+              <li>
+                <a href={item.path}>{item.title}</a>
+                <span class="rp-writing-year">{item.year}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {certifications && certifications.length > 0 && (
+        <section class="rp-main-section">
+          <h2 class="rp-main-h">Certifications</h2>
+          <div class="rp-cert-grid">
+            {professionalCerts.map((c: { authority: string; name: string; expired?: boolean }) => (
+              <div class="rp-cert">
+                <p class="rp-cert-name">{c.name}{c.expired && <span class="rp-cert-expired"> (expired)</span>}</p>
+                <p class="rp-cert-auth">{c.authority}</p>
+              </div>
+            ))}
+          </div>
+          {personalCerts.length > 0 && (
+            <p class="rp-personal">
+              <span class="rp-personal-label">Personal:</span>{' '}
+              {personalCerts.map((c: { name: string }) => c.name).join('  ·  ')}
+            </p>
+          )}
+        </section>
+      )}
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  /* ============================================================
+   * Document plumbing (paged-media geometry + full-bleed stripe)
+   * This page is a standalone document rendered only to PDF, so
+   * global rules here can't leak into the rest of the site.
+   * ============================================================ */
+  :root {
+    --rp-side: 2.4in; /* navy sidebar width (page 1 only) */
+    --rp-gap: 0.32in; /* gutter between sidebar and experience column */
+    --rp-navy: #0d2138;
+  }
+
+  @page {
+    size: Letter;
+    /* Left/right margins 0 so the page-1 navy panel reaches the left edge;
+       top/bottom margins give every page breathing room. */
+    margin: 0.5in 0;
+  }
+
+  html.rp-root {
+    /* Thin navy spine on every sheet (the root background paints the page canvas
+       edge-to-edge). Page 1's full sidebar panel sits flush over it (same navy);
+       continuation pages show just this rule at the left edge, so the brand
+       persists without a full band. */
+    background: linear-gradient(to right, var(--rp-navy) 0 8px, #ffffff 8px);
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  body.rp {
+    margin: 0;
+    background: #ffffff;
+    font-family: var(--font-sans);
+    color: var(--color-gray-900);
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* Neutralize the site's aggressive base heading styles (clamp() sizes, 2em
+     top margins, balance) for this document; every heading is sized locally. */
+  .rp :is(h1, h2, h3, h4) {
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-wrap: initial;
+    font-weight: 600;
+  }
+
+  /* ============================================================
+   * Sidebar — a floated navy panel on page 1 only. Experience flows
+   * to its right, then goes full-width once the panel ends. `z-index`
+   * lifts the panel above the main column so full-width heading rules
+   * hide behind it rather than streaking across the navy. min-height
+   * fills the page-1 content box; the panel's content must fit within
+   * one page (a float that overflows would drag onto page 2).
+   * ============================================================ */
+  .rp-side {
+    float: left;
+    position: relative;
+    z-index: 1;
+    width: var(--rp-side);
+    min-height: 10in;
+    margin-right: var(--rp-gap);
+    padding: 0.14in 0.24in 0.3in;
+    background: var(--rp-navy);
+    color: #fff;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .rp-name {
+    font-size: 24pt;
+    font-weight: 700;
+    line-height: 1.03;
+    letter-spacing: -0.02em;
+    color: #fff;
+  }
+
+  .rp-role {
+    margin-top: 4pt;
+    font-size: 8pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-primary-300);
+  }
+
+  .rp-contact {
+    margin: 0.2in 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rp-contact li {
+    display: flex;
+    align-items: center;
+    gap: 7pt;
+    margin-bottom: 5pt;
+    font-size: 7.75pt;
+    line-height: 1.25;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .rp-contact a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .rp-icon {
+    width: 11px;
+    height: 11px;
+    flex: 0 0 auto;
+    color: var(--color-primary-300);
+  }
+
+  .rp-side-section {
+    margin-top: 0.2in;
+    padding-top: 0.15in;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  .rp-side-h {
+    margin-bottom: 8pt;
+    font-size: 8.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--color-primary-300);
+  }
+
+  /* Skills */
+  .rp-skill {
+    margin-bottom: 7pt;
+  }
+
+  .rp-skill-name {
+    margin: 0;
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .rp-skill-items {
+    margin: 1pt 0 0;
+    font-size: 8pt;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  /* Education */
+  .rp-edu {
+    margin-bottom: 8pt;
+  }
+
+  .rp-edu-school {
+    margin: 0;
+    font-size: 8.5pt;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #fff;
+  }
+
+  .rp-edu-degree {
+    margin: 1pt 0 0;
+    font-size: 7.75pt;
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .rp-edu-date {
+    margin: 1.5pt 0 0;
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-primary-300);
+  }
+
+  /* Certifications — full-width, multi-column, in the main column */
+  .rp-cert-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4pt 24pt;
+  }
+
+  .rp-cert {
+    break-inside: avoid;
+  }
+
+  .rp-cert-name {
+    margin: 0;
+    font-size: 9pt;
+    line-height: 1.3;
+    color: var(--color-gray-900);
+  }
+
+  .rp-cert-expired {
+    color: var(--color-gray-500);
+  }
+
+  .rp-cert-auth {
+    margin: 0.5pt 0 0;
+    font-size: 8pt;
+    line-height: 1.25;
+    color: var(--color-gray-600);
+  }
+
+  .rp-cert-sub {
+    margin: 8pt 0 5pt;
+    font-size: 8pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-primary-700);
+  }
+
+  /* Personal interests: a single compact line (hobbies don't warrant the formal
+     issuing-body treatment the professional certs get). */
+  .rp-personal {
+    margin: 8pt 0 0;
+    font-size: 8.5pt;
+    line-height: 1.4;
+    color: var(--color-gray-700);
+  }
+
+  .rp-personal-label {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-primary-700);
+  }
+
+  /* ============================================================
+   * Main column — offset past the stripe; flows across pages.
+   * ============================================================ */
+  /* Main column flows around the floated sidebar on page 1 (line boxes shift
+     right of the panel), then spans full width on continuation pages. The
+     0.5in side padding sets the full-width margins on pages 2+; on page 1 the
+     sidebar's width + gutter already inset the text further. */
+  .rp-main {
+    padding: 0.02in 0.5in 0.2in;
+  }
+
+  .rp-summary {
+    margin: 0 0 0.18in;
+    font-family: var(--font-serif);
+    font-size: 10.5pt;
+    line-height: 1.5;
+    color: var(--color-gray-800);
+    /* Override global.css base `p { hyphens: auto }` — on this measure it broke
+       "produc-tivity"/"dis-tributed"; ragged-right reads cleaner. */
+    hyphens: none;
+  }
+
+  .pos-content {
+    hyphens: none;
+  }
+
+  .rp-main-section {
+    margin-bottom: 0.11in;
+  }
+
+  .rp-main-h {
+    margin-bottom: 11pt;
+    padding: 1pt 0 4pt 9pt;
+    font-size: 11pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-primary-700);
+    /* Navy left tab echoes the sidebar/spine; blue underline keeps the accent. */
+    border-left: 3px solid var(--rp-navy);
+    border-bottom: 2px solid var(--color-primary-700);
+  }
+
+  .rp-emp {
+    margin-bottom: 7pt;
+  }
+
+  .rp-emp-name {
+    margin-bottom: 5pt;
+    padding-bottom: 3pt;
+    font-size: 11.5pt;
+    font-weight: 700;
+    color: var(--color-gray-900);
+    border-bottom: 1px solid var(--color-gray-200);
+    /* Keep the employer heading with its first role rather than stranding it
+       at the foot of a page. Content itself is free to break across pages so
+       positions flow densely instead of each being shoved to a fresh sheet. */
+    break-after: avoid;
+  }
+
+  .rp-pos {
+    margin-bottom: 4pt;
+  }
+
+  .rp-pos-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12pt;
+    break-after: avoid;
+  }
+
+  .rp-pos-title {
+    font-size: 10pt;
+    font-weight: 600;
+    color: var(--color-gray-900);
+  }
+
+  .rp-pos-date {
+    flex: 0 0 auto;
+    font-size: 8pt;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    color: var(--color-primary-600);
+  }
+
+  /* Rendered markdown inside each position (bulleted accomplishments) */
+  .pos-content {
+    margin-top: 2.5pt;
+    font-size: 9.25pt;
+    line-height: 1.3;
+    color: var(--color-gray-700);
+  }
+
+  .pos-content ul {
+    margin: 0;
+    padding-left: 12pt;
+    list-style: none;
+  }
+
+  .pos-content li {
+    margin-bottom: 2pt;
+  }
+
+  /* Inline-block dot (not absolute) so the bullet rides the line box and stays
+     beside the text when it's float-shifted on page 1 — an absolute dot anchors
+     to the li's far-left edge, which hides behind the navy panel. */
+  .pos-content li::before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 3px;
+    margin-left: -12pt;
+    margin-right: 9pt;
+    vertical-align: middle;
+    border-radius: 9999px;
+    background: var(--color-primary-500);
+  }
+
+  .pos-content p {
+    margin: 0 0 4pt;
+  }
+
+  .pos-content strong {
+    font-weight: 600;
+    color: var(--color-gray-900);
+  }
+
+  .pos-content a {
+    color: var(--color-primary-600);
+    text-decoration: underline;
+    text-underline-offset: 1.5px;
+  }
+
+  /* Selected writing */
+  .rp-writing-list {
+    margin: 6pt 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rp-writing-list li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12pt;
+    margin-bottom: 3pt;
+    font-size: 9.25pt;
+    line-height: 1.35;
+  }
+
+  .rp-writing-list a {
+    color: var(--color-primary-600);
+    text-decoration: none;
+  }
+
+  .rp-writing-year {
+    flex: 0 0 auto;
+    font-size: 8pt;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-gray-600);
+  }
+</style>
