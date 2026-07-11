@@ -14,10 +14,11 @@ import coverImage from '../../assets/img/open-and-async-cover.webp';
 
 interface Props {
   variant?: 'inline' | 'featured';
-  // Marketing hook for posts that came from the manuscript: 'adapted' (a version
-  // appears in the book) or 'cut' (didn't make the final cut). Swaps the inline
-  // headline; both read true before and after launch, so no staleness at launch.
-  relation?: 'adapted' | 'cut' | undefined;
+  // Marketing hook for posts tied to the manuscript: 'adapted' (a version appears
+  // in the book), 'cut' (didn't make the final cut), or 'inspired' (sparked a
+  // chapter). Swaps the inline headline; all read true before and after launch,
+  // so no staleness at launch.
+  relation?: 'adapted' | 'cut' | 'inspired' | undefined;
 }
 
 const { variant = 'inline', relation } = Astro.props;
@@ -30,7 +31,9 @@ const inlineHeadline =
     ? 'This post is adapted from the book.'
     : relation === 'cut'
       ? "This post didn't make the book's final cut."
-      : "Like this post? It's becoming a book.";
+      : relation === 'inspired'
+        ? 'This post inspired a chapter in the book.'
+        : "Like this post? It's becoming a book.";
 
 // Colorize the ampersand with the site's signature lime→pink gradient.
 // Consume surrounding spaces so mx-1 controls the total whitespace (natural

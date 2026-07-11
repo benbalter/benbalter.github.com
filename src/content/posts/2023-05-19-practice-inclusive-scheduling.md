@@ -1,5 +1,6 @@
 ---
 title: Practice inclusive scheduling
+bookRelation: inspired
 description: "Small scheduling choices — writing dates unambiguously, including time zones, and building in breaks — make distributed teams feel included."
 tldr: "Small scheduling choices — like writing dates unambiguously, including time zones, and building in breaks — go a long way toward making distributed teams feel inclusive."
 ---

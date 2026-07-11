@@ -1,5 +1,6 @@
 ---
 title: Eight tips for working remotely
+bookRelation: inspired
 description: Tools alone won't make remote work succeed. Eight cultural rules for effective async communication, regardless of your industry or role.
 tldr: "Tools alone won't make remote work succeed. Eight cultural rules for effective async communication, regardless of your industry, your role, or what tools you use."
 ---

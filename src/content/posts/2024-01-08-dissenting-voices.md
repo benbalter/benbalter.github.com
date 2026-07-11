@@ -1,5 +1,6 @@
 ---
 title: The "I don't like what they're saying, so they shouldn't be allowed to say it" approach to crisis management
+bookRelation: inspired
 description: "Silencing dissent erodes trust, invites negativity, and stifles learning. The best leaders embrace transparency instead."
 tldr: "Trying to control the narrative by silencing dissent erodes trust, invites negativity, and stifles learning. The best leaders embrace transparency, openness, and accountability instead."
 ---

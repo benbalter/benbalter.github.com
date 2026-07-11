@@ -1,5 +1,6 @@
 ---
 title: Transparent collaboration is the andon of knowledge work
+bookRelation: inspired
 description: Like Toyota's andon cord, transparent collaboration lets anyone stop the line when they spot a problem in knowledge work.
 tldr: "In Toyota's production system, anyone can stop the line when they spot a problem. Transparent collaboration brings that same principle to knowledge work—catching issues before they compound."
 ---

@@ -1,5 +1,6 @@
 ---
 title: Manage like an engineer
+bookRelation: adapted
 description: If issues, pull requests, and project boards are the best way to develop software, should they not also be the best way to manage software development?
 tldr: "Engineers abandon their best tools the moment they start managing. Track management work in issues, project boards, and pull requests—the same way you ship software—to work transparently and shed the meta-work."
 ---

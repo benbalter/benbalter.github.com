@@ -1,5 +1,6 @@
 ---
 title: Remote work requires communicating more, less frequently
+bookRelation: inspired
 description: Async communication is like gzip compression for humans—more upfront processing, but greater throughput with fewer packets.
 tldr: "Async communication is like gzip compression for humans—more upfront processing, but greater throughput with fewer packets. Less time talking about the work, more time doing it."
 ---

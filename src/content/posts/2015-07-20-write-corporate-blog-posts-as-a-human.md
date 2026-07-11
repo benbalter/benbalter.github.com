@@ -1,5 +1,6 @@
 ---
 title: 'Speak like a human: 12 ways tech companies can write less-corporate blog posts'
+bookRelation: inspired
 description: Your users don't care how excited you are about your new feature. Twelve rules for writing corporate blog posts that sound human.
 tldr: "Your users don't care how excited you are about your new feature. Twelve rules for writing corporate blog posts that sound like a human talking to humans, not marketing speak."
 ---
