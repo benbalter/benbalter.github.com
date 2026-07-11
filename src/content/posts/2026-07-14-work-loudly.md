@@ -1,5 +1,6 @@
 ---
 title: Work loudly
+bookRelation: adapted
 description: "In an office, some of your visibility is free. Go remote and it drops to zero. Working loudly makes your impact visible as you do it—not after the fact in a status update nobody reads."
 ---
 
