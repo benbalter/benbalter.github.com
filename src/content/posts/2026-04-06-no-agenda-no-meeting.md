@@ -1,5 +1,6 @@
 ---
 title: No agenda, no meeting
+bookRelation: cut
 description: Announcing noagendanomeeting.net — a single-page site advocating that every meeting deserves an agenda, and most meetings deserve to be a document instead.
 ---
 
