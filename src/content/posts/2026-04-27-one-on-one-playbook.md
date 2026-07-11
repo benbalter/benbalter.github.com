@@ -1,5 +1,6 @@
 ---
 title: "How to one-on-one"
+bookRelation: cut
 description: "Most 1:1s waste your team's only protected synchronous time on status updates. Here's how to run ones worth showing up for."
 tldr: "Stop using 1:1s for status updates. Prep async, focus on career growth, coaching, feedback, and human connection, and protect the time like it matters—because it does."
 ---

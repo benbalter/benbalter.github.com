@@ -56,6 +56,7 @@ const postsCollection = defineCollection({
     // Post metadata
     image: z.string().optional(), // Open Graph image
     hideBookCta: z.boolean().default(false), // Suppress the auto-appended BookCta (e.g. the launch post supplies its own BookLaunchCta)
+    bookRelation: z.enum(['adapted', 'cut']).optional(), // Post came from the manuscript: swaps the BookCta headline ('adapted' from a chapter, or 'cut' from the final book)
 
     // SEO metadata
     sitemap: z.boolean().default(true), // Include in sitemap by default

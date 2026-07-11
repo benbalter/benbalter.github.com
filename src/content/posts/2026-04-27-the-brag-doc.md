@@ -1,5 +1,6 @@
 ---
 title: The brag doc
+bookRelation: cut
 description: "Why you need a running record of your wins—and how to keep one without dying of embarrassment"
 tldr: "Nobody's compiling your stats for you. Keep a ship log of your impact, update it weekly, and use it to fight recency bias, ace self-assessments, and build your promotion case."
 ---
