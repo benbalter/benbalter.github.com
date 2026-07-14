@@ -14,9 +14,26 @@ import coverImage from '../../assets/img/open-and-async-cover.webp';
 
 interface Props {
   variant?: 'inline' | 'featured';
+  // Marketing hook for posts tied to the manuscript: 'adapted' (a version appears
+  // in the book), 'cut' (didn't make the final cut), or 'inspired' (sparked a
+  // chapter). Swaps the inline headline; all read true before and after launch,
+  // so no staleness at launch.
+  relation?: 'adapted' | 'cut' | 'inspired' | undefined;
 }
 
-const { variant = 'inline' } = Astro.props;
+const { variant = 'inline', relation } = Astro.props;
+
+// Explicit, launch-safe headline for the inline variant. Stating the book
+// lineage is itself the marketing win: "adapted" signals depth, "cut" signals
+// there's more where this came from.
+const inlineHeadline =
+  relation === 'adapted'
+    ? 'This post is adapted from the book.'
+    : relation === 'cut'
+      ? "This post didn't make the book's final cut."
+      : relation === 'inspired'
+        ? 'This post inspired a chapter in the book.'
+        : "Like this post? It's becoming a book.";
 
 // Colorize the ampersand with the site's signature lime→pink gradient.
 // Consume surrounding spaces so mx-1 controls the total whitespace (natural
@@ -97,7 +114,7 @@ const commitGraphPaths = `
           <span aria-hidden="true">&gt;</span> Coming {siteConfig.bookLaunch}
         </p>
         <p class="text-sm font-semibold text-white mb-1">
-          Like this post? It's becoming a book.
+          {inlineHeadline}
         </p>
         <a
           href={siteConfig.bookUrl}

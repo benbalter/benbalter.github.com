@@ -1,5 +1,6 @@
 ---
 title: How to write a great extended leave document
+bookRelation: adapted
 description: A battle-tested template for handing off your responsibilities before extended leave, so your team stays unblocked and nothing falls through the cracks.
 ---
 

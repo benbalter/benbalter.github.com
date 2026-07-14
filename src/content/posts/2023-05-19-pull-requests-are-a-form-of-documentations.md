@@ -1,5 +1,6 @@
 ---
 title: Pull requests are a form of documentation
+bookRelation: inspired
 description: Pull requests capture not just what changed, but who, why, and what alternatives were considered. Treat every PR as a time capsule for future contributors.
 ---
 

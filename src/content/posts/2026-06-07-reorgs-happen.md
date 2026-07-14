@@ -1,5 +1,6 @@
 ---
 title: Reorgs happen
+bookRelation: cut
 description: "In thirteen years at GitHub I was part of 25 reorgs—almost one every six months. Reorgs are a constant in tech, not a crisis. Here's how to navigate them."
 tldr: "Twenty-five reorgs in thirteen years taught me that reorgs are baseline, not exception. Don't panic, re-onboard yourself, reset with your new manager, and treat the shuffle as a chance to renegotiate your scope. Optimize for what persists: reputation, relationships, and the work itself."
 ---

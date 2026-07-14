@@ -5,10 +5,5 @@ start_date: '2010-05-01'
 end_date: '2012-01-01'
 ---
 
-- Received Superior Achievement Award for customer service, quality performance, and overall contribution to the agency mission.
-- Negotiated agency-wide federal service agreements with top service providers including FISMA-compliant cloud hosting, social media, data manipulation, source code collaboration, and geospatial firms.
-- Drafted site privacy policy, comment moderation policy, third-party privacy notices, and API terms of service for the agency’s reimagined web presence.
-- Created legal and technical roadmaps to ensure compliance of new media platforms with White House Office of Management and Budget memorandums M-10–22 and M-10–23 governing federal agencies’ use of site tracking technologies and third-party services.
-- Led New Media Team’s procurement efforts, including scope of work, impact statement, and limited source justification drafting.
-- Led adoption, implementation, and analysis of Google Analytics site visitor tracking statistics.
-- Developed more than 30 in-house software tools including [open-source site auditing and site-mapping software](http://github.com/fcc) instrumental to evaluating an online presence spanning more than 1.2 million pages.
+- Received the agency's Superior Achievement Award for customer service, quality, and overall contribution to the mission.
+- Built 30+ in-house, open-source tools — including [site auditing and mapping software](http://github.com/fcc) — to evaluate a web presence spanning 1.2 million+ pages, and drafted the privacy, comment-moderation, and API-terms policies behind the agency's reimagined web presence.

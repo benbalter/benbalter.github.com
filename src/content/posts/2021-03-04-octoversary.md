@@ -1,5 +1,6 @@
 ---
 title: Octoversary - eight years of optimizing for developer happiness
+bookRelation: inspired
 description: Reflecting on eight years at GitHub, from GeoJSON rendering and GitHub Pages to trust and safety, open source licensing, and 200,000 words of blogging.
 ---
 
