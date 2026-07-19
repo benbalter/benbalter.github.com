@@ -31,6 +31,7 @@ function personFields(overrides?: Partial<Person>): Person {
       siteConfig.linkedinUrl,
       siteConfig.mastodonUrl,
       siteConfig.blueskyUrl,
+      'https://www.amazon.com/author/benbalter',
     ].filter(Boolean) as string[],
     image: `${siteConfig.url}/assets/img/headshot.jpg`,
   };
