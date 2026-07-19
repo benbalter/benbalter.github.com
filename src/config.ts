@@ -65,11 +65,17 @@ export const siteConfig = {
   // Find this in your Kit dashboard under Forms → form embed code.
   kitFormId: '9381290',
 
-  // Book — pre-launch until bookLaunch. The sitewide BookCta stays in teaser
-  // mode ("Coming …", get-notified) until then; only the gated launch post's
-  // BookLaunchCta uses bookPrice/bookPricePaperback. On launch day, flip BookCta
-  // to buy-now to match the marketing site.
+  // Book — launched July 21, 2026. The sitewide BookCta, the launch post's
+  // BookLaunchCta, and the feed CTA all sell ("Buy it — bookPrice") to match
+  // the marketing site. bookLaunch is retained for reference/metadata.
+  //
+  // Each buy surface gets a distinct utm_source (matching the site-wide
+  // benbalter-<surface> convention used by the hero, footer, bio, and resume)
+  // so it's individually measurable: bookUrl = everyday sitewide CTA,
+  // bookUrlLaunchPost = the launch announcement post, bookUrlEmail = RSS/email.
   bookUrl: 'https://open-and-async.com/?utm_source=benbalter-book-cta',
+  bookUrlLaunchPost: 'https://open-and-async.com/?utm_source=benbalter-launch-post',
+  bookUrlEmail: 'https://open-and-async.com/?utm_source=benbalter-email',
   bookTitle: 'Open & Async',
   bookDescription: 'The collaborative software development playbook for remote and distributed teams',
   bookLaunch: 'July 21, 2026',

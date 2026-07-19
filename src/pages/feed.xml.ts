@@ -43,28 +43,27 @@ function leadInHtml(link: string): string {
  * so this is a self-contained equivalent. The headline mirrors BookCta's
  * relation-aware copy (see src/components/BookCta.astro).
  *
- * LAUNCH (July 21, 2026): the "Coming …" label and "Get notified when it
- * launches" CTA below are hardcoded and go stale at launch. When you flip
- * <BookCta> to buy-now, update these two strings to match.
+ * Now that the book has launched, the label and CTA below sell ("Out now" /
+ * "Buy it") rather than capture emails — kept in sync with <BookCta>.
  */
 function bookCtaHtml(relation?: 'adapted' | 'cut' | 'inspired'): string {
   const headline =
     relation === 'adapted'
       ? `This post is adapted from my book, ${bookTitle}.`
       : relation === 'cut'
-        ? `This one didn't make my book's final cut.`
+        ? `There's a whole book's worth more where this came from.`
         : relation === 'inspired'
           ? `This post inspired a chapter in my book, ${bookTitle}.`
-          : `Like this post? It's becoming a book.`;
+          : `Liked this post? It's now a book.`;
 
   return (
     `<hr style="margin:2.5em 0 1.5em;border:none;border-top:1px solid #d0d7de;" />` +
     `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 1em;border-collapse:collapse;">` +
     `<tr><td style="border:1px solid #d0d7de;border-radius:8px;padding:16px 20px;background:#f6f8fa;">` +
-    `<p style="margin:0 0 6px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#57606a;">Coming ${siteConfig.bookLaunch}</p>` +
+    `<p style="margin:0 0 6px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#57606a;">Out now</p>` +
     `<p style="margin:0 0 6px;font-size:16px;font-weight:600;color:#1f2328;">${headline}</p>` +
     `<p style="margin:0 0 12px;font-size:14px;color:#424a53;">${siteConfig.bookDescription}.</p>` +
-    `<a href="${siteConfig.bookUrl}" style="font-size:14px;font-weight:600;color:#0969da;text-decoration:none;">Get notified when it launches &rarr;</a>` +
+    `<a href="${siteConfig.bookUrlEmail}" style="font-size:14px;font-weight:600;color:#0969da;text-decoration:none;">Buy it — ${siteConfig.bookPrice} &rarr;</a>` +
     `</td></tr></table>`
   );
 }

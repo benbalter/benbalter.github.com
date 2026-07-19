@@ -130,12 +130,12 @@ describe('feed.xml', () => {
     // Content is framed: a "new post" lead-in, the rendered body, and a book CTA.
     expect(item.content).toContain('<p>Rendered HTML</p>');
     expect(item.content).toContain('A new post from');
-    expect(item.content).toContain(siteConfig.bookUrl);
+    expect(item.content).toContain(siteConfig.bookUrlEmail);
     expect(item.content.indexOf('A new post from')).toBeLessThan(
       item.content.indexOf('<p>Rendered HTML</p>'),
     );
     expect(item.content.indexOf('<p>Rendered HTML</p>')).toBeLessThan(
-      item.content.indexOf(siteConfig.bookUrl),
+      item.content.indexOf(siteConfig.bookUrlEmail),
     );
     expect(item.link).toBe('https://ben.balter.com/2024/06/15/my-post/');
     expect(item.author).toBe(siteConfig.email);

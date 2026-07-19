@@ -2,10 +2,12 @@
 /**
  * Book CTA Component
  *
- * Promotes the Open & Async book with a link to the book site.
+ * Promotes the Open & Async book with a buy link to the book site.
  * Supports two variants: inline (for posts) and featured (for homepage).
  * Both quote the marketing site (open-and-async.com): a dark-navy "book
  * object" anchored by the 3D cover mockup, with the lime→pink accent system.
+ * Now that the book has launched, both variants sell ("Buy it") rather than
+ * capture emails. For the dedicated launch announcement use BookLaunchCta.
  */
 
 import { Image } from 'astro:assets';
@@ -30,10 +32,10 @@ const inlineHeadline =
   relation === 'adapted'
     ? 'This post is adapted from the book.'
     : relation === 'cut'
-      ? "This post didn't make the book's final cut."
+      ? "There's a whole book's worth more where this came from."
       : relation === 'inspired'
         ? 'This post inspired a chapter in the book.'
-        : "Like this post? It's becoming a book.";
+        : "Liked this post? It's now a book.";
 
 // Colorize the ampersand with the site's signature lime→pink gradient.
 // Consume surrounding spaces so mx-1 controls the total whitespace (natural
@@ -61,7 +63,8 @@ const commitGraphPaths = `
     href={siteConfig.bookUrl}
     target="_blank"
     rel="noopener noreferrer"
-    class="book-cta-featured not-prose block overflow-hidden rounded-xl bg-brand-950 border border-brand-600 p-6 md:p-8 relative group no-underline shadow-card dark:shadow-card-dark hover:shadow-card-hover dark:hover:shadow-card-hover-dark motion-safe:hover:-translate-y-px transition-all duration-200 motion-safe:animate-fade-up"
+    aria-label={`Buy it — ${siteConfig.bookPrice}: ${siteConfig.bookTitle}`}
+    class="book-cta-featured not-prose block overflow-hidden rounded-xl bg-brand-950 border border-brand-600 p-6 md:p-8 relative group no-underline shadow-card dark:shadow-card-dark hover:shadow-card-hover dark:hover:shadow-card-hover-dark motion-safe:hover:-translate-y-px transition-all duration-200 motion-safe:animate-fade-up focus-visible:outline-2 focus-visible:outline-accent-400 focus-visible:outline-offset-2"
   >
     <svg class="pointer-events-none absolute inset-x-0 bottom-0 w-full h-10 opacity-40" viewBox="0 0 1200 60" fill="none" preserveAspectRatio="xMidYMid meet" aria-hidden="true" set:html={commitGraphPaths} />
     <div class="relative flex flex-col md:flex-row md:items-center gap-6 md:gap-8">
@@ -80,17 +83,17 @@ const commitGraphPaths = `
       <div class="flex-1 text-center md:text-left">
         <p class="mb-3">
           <span class="inline-flex items-center gap-1.5 rounded-md bg-brand-900 border border-brand-600 px-3 py-1 font-mono text-[0.7rem] uppercase tracking-widest text-white">
-            <span aria-hidden="true" class="text-accent-400">&gt;</span> Coming {siteConfig.bookLaunch}
+            <span aria-hidden="true" class="text-accent-400">&gt;</span> Out now
           </span>
         </p>
         <p class="text-2xl md:text-3xl font-bold text-white mb-2 leading-tight">
           <Fragment set:html={bookTitleHtml} />
         </p>
         <p class="text-sm md:text-base text-slate-300 mb-5">
-          {siteConfig.bookDescription}. Drawing on a decade at GitHub — sign up to get notified when it launches.
+          {siteConfig.bookDescription}. Drawing on a decade at GitHub — on Kindle, Apple Books, Kobo &amp; more.
         </p>
         <span class="oa-cta-btn inline-flex items-center gap-1.5 rounded-lg px-5 py-2.5 text-sm font-semibold text-brand-950 transition-all duration-200 whitespace-nowrap">
-          Get notified <span aria-hidden="true" class="motion-safe:group-hover:translate-x-0.5 transition-transform duration-200">→</span>
+          Buy it — {siteConfig.bookPrice} <span aria-hidden="true" class="motion-safe:group-hover:translate-x-0.5 transition-transform duration-200">→</span>
         </span>
       </div>
     </div>
@@ -111,7 +114,7 @@ const commitGraphPaths = `
       />
       <div>
         <p class="font-mono text-[0.65rem] uppercase tracking-widest text-accent-400 mb-1">
-          <span aria-hidden="true">&gt;</span> Coming {siteConfig.bookLaunch}
+          <span aria-hidden="true">&gt;</span> Out now
         </p>
         <p class="text-sm font-semibold text-white mb-1">
           {inlineHeadline}
@@ -120,9 +123,9 @@ const commitGraphPaths = `
           href={siteConfig.bookUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-400 no-underline transition-colors duration-200 before:absolute before:inset-0 before:rounded-xl"
+          class="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-400 no-underline transition-colors duration-200 before:absolute before:inset-0 before:rounded-xl focus-visible:outline-2 focus-visible:outline-accent-400 focus-visible:outline-offset-2"
         >
-          Get notified when it launches <span aria-hidden="true" class="motion-safe:group-hover:translate-x-0.5 transition-transform duration-200">→</span>
+          Buy Open &amp; Async — {siteConfig.bookPrice} <span aria-hidden="true" class="motion-safe:group-hover:translate-x-0.5 transition-transform duration-200">→</span>
         </a>
       </div>
     </div>
