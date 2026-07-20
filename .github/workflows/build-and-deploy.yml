@@ -1,4 +1,4 @@
-name: Deploy site to Cloudflare Pages
+name: Deploy site to Cloudflare Workers
 
 on:
   push:
@@ -10,7 +10,7 @@ permissions:
   deployments: write
 
 concurrency:
-  group: "pages"
+  group: "deploy"
   cancel-in-progress: true
 
 env:

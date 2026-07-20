@@ -29,10 +29,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
 
       - name: Setup Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
@@ -62,7 +62,7 @@ jobs:
             | xargs -0 sed -i -E 's#<link[^>]*rel="site\.standard\.(document|publication)"[^>]*>##g'
 
       - name: Restore lychee cache
-        uses: actions/cache@v6
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
         with:
           path: .lycheecache
           key: cache-lychee-${{ github.sha }}
@@ -70,7 +70,7 @@ jobs:
 
       - name: Run lychee
         id: lychee
-        uses: lycheeverse/lychee-action@v2
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2
         with:
           # Check built HTML plus source markdown (covers both rendered output and raw content)
           args: >-
@@ -92,7 +92,7 @@ jobs:
 
       - name: Upload report
         if: always()
-        uses: actions/upload-artifact@v7.0.1
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: lychee-report
           path: ./lychee-report.md
@@ -103,7 +103,7 @@ jobs:
         # so this fires on scheduled runs even though `fail` is false there
         # (which keeps the workflow itself green while still surfacing rot).
         if: github.event_name == 'schedule' && steps.lychee.outputs.exit_code != '0'
-        uses: peter-evans/create-issue-from-file@v6
+        uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v6
         with:
           title: 'Broken links detected by lychee'
           content-filepath: ./lychee-report.md
