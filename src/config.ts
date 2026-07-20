@@ -127,19 +127,22 @@ export const footerLinks: FooterLink[] = [
   { title: 'Open & Async', url: 'https://open-and-async.com/?utm_source=benbalter-footer' },
   { title: 'No Agenda, No Meeting', url: 'https://noagendanomeeting.net/' },
   { title: 'Other Recommended Reading', url: '/other-recommended-reading/' },
+  { title: 'Subscribe', url: '/subscribe/' },
   { title: 'Fine Print', url: '/fine-print/' },
 ];
 
-// Popular posts - slugs of posts to feature in the "Popular Posts" section
-// These are commonly referenced posts based on site analytics and cross-references
+// Popular posts - slugs of posts to feature in the "Popular Posts" section.
+// Curated from Cloudflare RUM data (see analytics-report.md): the
+// career/management cluster leads by a wide margin, rounded out with a few
+// evergreen classics. Revisit as new RUM data comes in.
 export const popularPostSlugs: string[] = [
-  '2015-11-12-why-urls',
-  '2022-03-17-why-async',
-  '2015-11-23-why-open-source',
-  '2022-02-16-leaders-show-their-work',
+  '2026-06-07-reorgs-happen',
+  '2026-04-27-one-on-one-playbook',
+  '2026-04-27-the-brag-doc',
+  '2023-03-02-github-for-non-technical-roles',
+  '2014-11-06-rules-of-communicating-at-github',
   '2023-01-10-manage-like-an-engineer',
-  '2023-04-20-meetings-are-a-point-of-escalation',
-  '2023-12-08-cathedral-bazaar-management',
-  '2023-08-30-transparency-collaboration-is-the-andon-of-knowledge-production',
-  '2023-08-04-remote-work-communicate-more-with-less',
+  '2022-02-16-leaders-show-their-work',
+  '2022-03-17-why-async',
+  '2015-11-12-why-urls',
 ];

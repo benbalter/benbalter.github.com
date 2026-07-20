@@ -64,6 +64,7 @@ const commitGraphPaths = `
     target="_blank"
     rel="noopener noreferrer"
     aria-label={`Buy it — ${siteConfig.bookPrice}: ${siteConfig.bookTitle}`}
+    data-track-book-cta
     class="book-cta-featured not-prose block overflow-hidden rounded-xl bg-brand-950 border border-brand-600 p-6 md:p-8 relative group no-underline shadow-card dark:shadow-card-dark hover:shadow-card-hover dark:hover:shadow-card-hover-dark motion-safe:hover:-translate-y-px transition-all duration-200 motion-safe:animate-fade-up focus-visible:outline-2 focus-visible:outline-accent-400 focus-visible:outline-offset-2"
   >
     <svg class="pointer-events-none absolute inset-x-0 bottom-0 w-full h-10 opacity-40" viewBox="0 0 1200 60" fill="none" preserveAspectRatio="xMidYMid meet" aria-hidden="true" set:html={commitGraphPaths} />
@@ -123,6 +124,7 @@ const commitGraphPaths = `
           href={siteConfig.bookUrl}
           target="_blank"
           rel="noopener noreferrer"
+          data-track-book-cta
           class="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-400 no-underline transition-colors duration-200 before:absolute before:inset-0 before:rounded-xl focus-visible:outline-2 focus-visible:outline-accent-400 focus-visible:outline-offset-2"
         >
           Buy Open &amp; Async — {siteConfig.bookPrice} <span aria-hidden="true" class="motion-safe:group-hover:translate-x-0.5 transition-transform duration-200">→</span>
@@ -131,6 +133,17 @@ const commitGraphPaths = `
     </div>
   </aside>
 )}
+
+<script>
+  import { onPageLoad } from '../scripts/on-page-load';
+  import { track } from '../scripts/track';
+
+  onPageLoad(() => {
+    document.querySelectorAll('[data-track-book-cta]').forEach((link) => {
+      link.addEventListener('click', () => track('book-cta'));
+    });
+  });
+</script>
 
 <style>
   @reference "../styles/global.css";

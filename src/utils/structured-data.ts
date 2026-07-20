@@ -31,6 +31,7 @@ function personFields(overrides?: Partial<Person>): Person {
       siteConfig.linkedinUrl,
       siteConfig.mastodonUrl,
       siteConfig.blueskyUrl,
+      'https://www.amazon.com/author/benbalter',
     ].filter(Boolean) as string[],
     image: `${siteConfig.url}/assets/img/headshot.jpg`,
   };
@@ -56,13 +57,6 @@ export function generatePersonSchema(overrides?: Partial<Person>): WithContext<P
 }
 
 /**
- * Generate embedded Person schema (without @context) for nesting in other schemas
- */
-export function generatePersonRef(overrides?: Partial<Person>): Person {
-  return personFields(overrides);
-}
-
-/**
  * Generate ProfilePage schema for the homepage.
  * Google supports ProfilePage as a rich result type for creator/personal pages.
  * @see https://developers.google.com/search/docs/appearance/structured-data/profile-page
@@ -72,7 +66,9 @@ export function generateProfilePageSchema(): WithContext<ProfilePage> {
     '@context': 'https://schema.org',
     '@type': 'ProfilePage',
     url: siteConfig.url,
-    mainEntity: personFields(),
+    // The @id lets consumers consolidate this Person with the #person
+    // references in the sibling WebSite and BlogPosting schemas.
+    mainEntity: { '@id': `${siteConfig.url}/#person`, ...(personFields() as unknown as Record<string, unknown>) } as Person,
   } as WithContext<ProfilePage>;
 }
 
