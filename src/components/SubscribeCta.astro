@@ -79,6 +79,7 @@ const showEmail = Boolean(siteConfig.kitFormId);
 {showEmail && (
   <script>
     import { onPageLoad } from '../scripts/on-page-load';
+    import { track } from '../scripts/track';
 
     onPageLoad(() => {
       document.querySelectorAll<HTMLFormElement>('form[data-kit-form]').forEach((form) => {
@@ -116,6 +117,7 @@ const showEmail = Boolean(siteConfig.kitFormId);
             );
 
             if (response.ok) {
+              track('subscribe');
               buttonText.textContent = 'Subscribed \u2713';
               button.classList.remove('loading');
               status.textContent = "You're on the list \u2014 check your email to confirm.";

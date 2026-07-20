@@ -158,6 +158,12 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         
         <DiscussLinks title={title} url={postUrl} />
 
+        {/* Subscribe before KeepReading: readers who just finished are the most
+            likely to subscribe, and the related-post cards below are exit points */}
+        <div class="mt-8" data-pagefind-ignore>
+          <SubscribeCta />
+        </div>
+
         <KeepReading relatedPosts={relatedPosts} />
         
         <div data-pagefind-ignore>
@@ -166,10 +172,6 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         <footer class="border-t border-gray-200 dark:border-gray-700 pt-8 mt-10 mb-8 post-footer">
           <div class="mini-bio-card mb-6 p-4 md:p-6">
             <MiniBio />
-          </div>
-
-          <div class="mb-6">
-            <SubscribeCta />
           </div>
 
           <a
