@@ -19,15 +19,18 @@ const posts: CollectionEntry<'posts'>[] = allPosts.sort((a: CollectionEntry<'pos
   b.id.localeCompare(a.id)
 );
 
-// Split into featured (top 3) and regular posts
-const featuredPosts = posts.slice(0, 3);
-const regularPosts = posts.slice(3);
-
 // Get popular posts based on configured slugs
 const postsBySlug = new Map(allPosts.map((p: CollectionEntry<'posts'>) => [p.id, p]));
 const popularPosts = popularPostSlugs
   .map(slug => postsBySlug.get(slug))
   .filter((post): post is CollectionEntry<'posts'> => post !== undefined);
+
+// Split into featured (top 3) and regular posts, skipping posts already shown
+// in the Popular section so no card appears twice on the homepage
+const popularIds = new Set(popularPosts.map((p) => p.id));
+const nonPopularPosts = posts.filter((p) => !popularIds.has(p.id));
+const featuredPosts = nonPopularPosts.slice(0, 3);
+const regularPosts = nonPopularPosts.slice(3);
 ---
 
 <BaseLayout description={description} hero={true}>
@@ -93,6 +96,12 @@ const popularPosts = popularPostSlugs
     </section>
   )}
 
+  <!-- Subscribe CTA — above the archive so it's seen before readers dive into
+       (or bounce from) the long Older Posts list -->
+  <section class="mb-16 max-md:mb-8" aria-label="Subscribe">
+    <SubscribeCta />
+  </section>
+
   <!-- Older Posts Section -->
   {regularPosts.length > 0 && (
     <section class="pt-10 border-t border-gray-200 dark:border-gray-700">
@@ -126,8 +135,4 @@ const popularPosts = popularPostSlugs
     </section>
   )}
 
-  <!-- Subscribe CTA -->
-  <section class="mt-12" aria-label="Subscribe">
-    <SubscribeCta />
-  </section>
 </BaseLayout>
