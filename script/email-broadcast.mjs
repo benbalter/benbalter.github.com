@@ -184,8 +184,10 @@ async function main() {
       frontmatter,
     });
 
-    // Wrap content with a "Read on the web" link
+    // Wrap content with a "new post" header and a "Read on the web" footer link
     const emailHtml = [
+      `<p><a href="${fullUrl}">New post on ben.balter.com</a></p>`,
+      `<hr />`,
       result.code,
       `<hr />`,
       `<p><a href="${fullUrl}">Read this post on the web →</a></p>`,
