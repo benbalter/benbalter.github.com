@@ -33,6 +33,16 @@ const commitGraphPaths = `
   <!-- Gradient ring wrapper: 2px lime→pink frame with a soft outer glow. -->
   <div class="oa-ring rounded-2xl p-[2px] shadow-card dark:shadow-card-dark">
     <div class="relative overflow-hidden rounded-2xl bg-brand-950 px-6 py-8 md:px-10 md:py-10">
+      <!-- Stretched link: the whole panel is clickable. Real buttons below sit
+           above this overlay (z-20) so they stay independently focusable. -->
+      <a
+        href={siteConfig.bookUrlLaunchPost}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="absolute inset-0 z-10 rounded-2xl focus-visible:outline-2 focus-visible:outline-accent-400 focus-visible:outline-offset-2"
+        aria-label={`${siteConfig.bookTitle} — out now. Buy the book`}
+      ></a>
+
       <svg
         class="pointer-events-none absolute inset-x-0 bottom-0 w-full h-12 opacity-40"
         viewBox="0 0 1200 60"
@@ -73,7 +83,7 @@ const commitGraphPaths = `
             {siteConfig.bookDescription}.
           </p>
 
-          <div class="mt-7 flex flex-col sm:flex-row items-center gap-3 justify-center md:justify-start">
+          <div class="relative z-20 mt-7 flex flex-col sm:flex-row items-center gap-3 justify-center md:justify-start">
             <a
               href={siteConfig.bookUrlLaunchPost}
               target="_blank"
