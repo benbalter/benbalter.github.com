@@ -7,12 +7,17 @@
  */
 
 import PageLayout from '../layouts/PageLayout.astro';
+import { Image } from 'astro:assets';
 import { getEntry, type CollectionEntry } from 'astro:content';
 import { formatResumeDate } from '../utils/post-urls';
 import { getPublishedPosts } from '../utils/posts';
 import { resolvePopularPosts } from '../utils/resume-writing';
 import { getResumePositions } from '../utils/resume-data';
 import { generateResumeSchema, schemaToJsonLd } from '../utils/structured-data';
+import bookCover from '../../assets/img/open-and-async-cover-left.webp';
+
+// The Open & Async position shows the book's cover inline (see loop below).
+const BOOK_POSITION_ID = 'owner';
 
 // Load resume page data
 const resumePage = await getEntry('pages', 'resume');
@@ -107,7 +112,19 @@ const resumeSchema = generateResumeSchema({
               </span>
             </div>
             
-            <div class="position-content">
+            <div class:list={["position-content", { "position-content-with-cover": position.id === BOOK_POSITION_ID }]}>
+              {position.id === BOOK_POSITION_ID && (
+                <Image
+                  src={bookCover}
+                  alt="Open & Async book cover"
+                  width={120}
+                  height={147}
+                  densities={[1, 2]}
+                  loading="lazy"
+                  decoding="async"
+                  class="position-cover"
+                />
+              )}
               <position.Content />
             </div>
           </div>
@@ -240,6 +257,23 @@ const resumeSchema = generateResumeSchema({
     margin: 0.5rem 0 0;
     font-size: 0.85rem;
     color: var(--color-gray-700, #495057);
+  }
+
+  /* Book cover floated inline within the Open & Async position (web only —
+     hidden in print, see @media print below). */
+  .position-cover {
+    float: right;
+    width: 100px;
+    height: auto;
+    margin: 0 0 0.75rem 1.25rem;
+    filter: drop-shadow(0 6px 12px rgb(0 0 0 / 0.18));
+  }
+
+  @media (max-width: 768px) {
+    .position-cover {
+      width: 80px;
+      margin-left: 1rem;
+    }
   }
 
   .skills-grid {
@@ -628,6 +662,11 @@ const resumeSchema = generateResumeSchema({
        name and contact when printing. */
     .resume-aux,
     .resume-contact {
+      display: none !important;
+    }
+
+    /* The inline book cover is a web-only visual — never in the printed PDF. */
+    .position-cover {
       display: none !important;
     }
 
