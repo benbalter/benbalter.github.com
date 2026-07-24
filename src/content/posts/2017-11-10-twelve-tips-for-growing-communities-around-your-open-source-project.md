@@ -102,7 +102,7 @@ When looking at the long-term success of your project, a vibrant, welcoming comm
 
 ## 12. Find someone to adopt it
 
-Priorities change. People move jobs. New technology arises. Whatever the reason, if you're heart's no longer into maintaining the project, don't, but also don't abandon it. If you feel your passion start to fade, or if you're feeling burned out, begin actively soliciting new maintainers, and ultimately a developer to adopt your project.
+Priorities change. People move jobs. New technology arises. Whatever the reason, if your heart's no longer into maintaining the project, don't, but also don't abandon it. If you feel your passion start to fade, or if you're feeling burned out, begin actively soliciting new maintainers, and ultimately a developer to adopt your project.
 
 If you have a small cadre of active contributors, often, this is just a matter of formally turning over control to them as maintainers. If you don't, you may need to be a bit more transparent with your intentions, by opening a dedicated "this project is up for adoption issue", making pleas for financial support (if money's an issue), or reaching out into individual developers you think might be interested.
 
