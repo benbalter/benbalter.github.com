@@ -14,7 +14,12 @@ else
 	#   spelling false positives.
 	# --no-color: CI logs aren't a TTY, so Harper's per-character ANSI color
 	#   codes render as literal escape sequences (tens of KB of noise).
+	# --ignore: disable the two highest-volume style rules (~1,257 lints).
+	#   LongSentences and UseTitleCase are stylistic opinions (sentence-case
+	#   headings, sentence length) that don't fit this blog's voice; muting them
+	#   leaves the actionable grammar/spelling advice. (--ignore disables rules;
+	#   --only would do the opposite.)
 	# harper-cli currently always exits with code 1 (even with no lints found),
 	#   so we use || true to prevent it from failing the build.
-	harper-cli lint --no-color --user-dict-path dictionary.txt src/content/posts/*.md || true
+	harper-cli lint --no-color --ignore LongSentences,UseTitleCase --user-dict-path dictionary.txt src/content/posts/*.md || true
 fi
