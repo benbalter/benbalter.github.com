@@ -35,21 +35,21 @@ Designing your career for that reality means investing in what survives an org-c
 
 When the announcement drops (usually on a Monday—I have the data):
 
-* **Let the dust settle.** The org chart announced on day one is rarely the org chart that exists a month later. Reorgs are announced at the altitude of VPs and refined at the altitude of teams. Don't make big career decisions—or send spicy Slack messages—in week one.
-* **Ask the questions that actually matter.** Who do I report to? What does my team own now? What changed for users? Most of the anxious speculation that follows a reorg dissolves once those three are answered. The rest is noise.
-* **Re-onboard yourself.** A new team is a new job, even if your badge and laptop stay the same. Treat it that way: learn the team's context before prescribing changes, [go near, go far, and meet in the middle](/2019/06/28/joining-a-new-team/).
-* **Reset with your new manager deliberately.** Don't wait for them to figure you out—that's a six-month project you can compress into [one good first one-on-one](/2026/04/27/one-on-one-playbook/). Bring your brag doc. Share how you work best, what you're driving, and what you need from them. Thirteen managers in, I can tell you the relationship you build in the first two weeks is the relationship you'll have.
-* **Keep showing your work.** In moments of uncertainty, visibility matters even more. [Leaders show their work](/2022/02/16/leaders-show-their-work/), and reorgs are precisely when everyone—new manager, new skip, new peers—is trying to figure out who does what.
+- **Let the dust settle.** The org chart announced on day one is rarely the org chart that exists a month later. Reorgs are announced at the altitude of VPs and refined at the altitude of teams. Don't make big career decisions—or send spicy Slack messages—in week one.
+- **Ask the questions that actually matter.** Who do I report to? What does my team own now? What changed for users? Most of the anxious speculation that follows a reorg dissolves once those three are answered. The rest is noise.
+- **Re-onboard yourself.** A new team is a new job, even if your badge and laptop stay the same. Treat it that way: learn the team's context before prescribing changes, [go near, go far, and meet in the middle](/2019/06/28/joining-a-new-team/).
+- **Reset with your new manager deliberately.** Don't wait for them to figure you out—that's a six-month project you can compress into [one good first one-on-one](/2026/04/27/one-on-one-playbook/). Bring your brag doc. Share how you work best, what you're driving, and what you need from them. Thirteen managers in, I can tell you the relationship you build in the first two weeks is the relationship you'll have.
+- **Keep showing your work.** In moments of uncertainty, visibility matters even more. [Leaders show their work](/2022/02/16/leaders-show-their-work/), and reorgs are precisely when everyone—new manager, new skip, new peers—is trying to figure out who does what.
 
 ## How to make the most of one
 
 Navigating a reorg is table stakes. The real opportunity is that reorgs are one of the few moments when an organization's defaults become negotiable:
 
-* **Reorgs reset narratives.** Pigeonholed into a role you've outgrown? Your new manager has no priors. The story of who you are professionally gets re-told every reorg—make sure you're the one telling it.
-* **Renegotiate your scope.** Team charters get rewritten in the first few weeks after a shuffle, and nature abhors a vacuum. Show up with a proposal for what your role should be, and more often than not, you'll get it. Clarity is a gift to a leader who's drowning in ambiguity.
-* **Shed the legacy cruft.** Every team accumulates projects that persist purely through inertia. A reorg is organizational garbage collection—the rare moment you can ask "should we still be doing this?" and have "no" be an acceptable answer.
-* **Compound your network.** Every reorg deals you a new hand of colleagues, stakeholders, and adjacent teams. Thirteen years of shuffles meant I'd worked with—or near—half the company. That network outlasted every org chart that created it.
-* **Be the calm one.** When everyone else is doom-scrolling the new org chart,[^playlist] the person who's level-headed, generous with context, and helping others find their footing is doing leadership, visibly, at exactly the moment leadership is paying attention.
+- **Reorgs reset narratives.** Pigeonholed into a role you've outgrown? Your new manager has no priors. The story of who you are professionally gets re-told every reorg—make sure you're the one telling it.
+- **Renegotiate your scope.** Team charters get rewritten in the first few weeks after a shuffle, and nature abhors a vacuum. Show up with a proposal for what your role should be, and more often than not, you'll get it. Clarity is a gift to a leader who's drowning in ambiguity.
+- **Shed the legacy cruft.** Every team accumulates projects that persist purely through inertia. A reorg is organizational garbage collection—the rare moment you can ask "should we still be doing this?" and have "no" be an acceptable answer.
+- **Compound your network.** Every reorg deals you a new hand of colleagues, stakeholders, and adjacent teams. Thirteen years of shuffles meant I'd worked with—or near—half the company. That network outlasted every org chart that created it.
+- **Be the calm one.** When everyone else is doom-scrolling the new org chart,[^playlist] the person who's level-headed, generous with context, and helping others find their footing is doing leadership, visibly, at exactly the moment leadership is paying attention.
 
 [^playlist]: One faithful Hubber took coping to its logical conclusion and built a reorg playlist, stocked with such classics as "Changes," "It's the End of the World as We Know It," "End of the Road," "Another One Bites the Dust," "Won't Get Fooled Again," and—my personal favorite—"Let It Go." Reorg-driven development has a soundtrack now.
 
