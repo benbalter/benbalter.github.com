@@ -25,9 +25,11 @@ vi.mock('@astrojs/rss', () => ({
 }));
 
 vi.mock('@astrojs/markdown-remark', () => ({
-  createMarkdownProcessor: vi.fn().mockResolvedValue({
-    render: mockRender,
-  }),
+  unified: vi.fn(() => ({
+    createRenderer: vi.fn().mockResolvedValue({
+      render: mockRender,
+    }),
+  })),
 }));
 
 vi.mock('../../lib/markdown-pipeline', () => ({

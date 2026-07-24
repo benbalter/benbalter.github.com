@@ -1,4 +1,5 @@
 import { defineConfig, fontProviders } from 'astro/config';
+import { unified } from '@astrojs/markdown-remark';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
@@ -196,7 +197,8 @@ export default defineConfig({
     mdx({
       // MDX configuration
       optimize: true,
-      // remarkPlugins and rehypePlugins inherited from global markdown config
+      // Inherits the unified() processor (and its remark/rehype plugins) from
+      // the global markdown config by default — no per-format duplication needed.
     }),
     sitemap({
       // Customize sitemap generation
@@ -347,14 +349,19 @@ export default defineConfig({
   ],
   
   // Markdown configuration
+  // Syntax highlighting handled by astro-expressive-code integration.
+  // Astro 7 defaults to the Sätteri processor; we stay on the remark/rehype
+  // (unified) pipeline via `@astrojs/markdown-remark`. The MDX integration
+  // inherits `markdown.processor` by default, so .mdx files use it too.
   markdown: {
-    // Syntax highlighting handled by astro-expressive-code integration
-    // Enable smartypants for typographic punctuation (quotes and apostrophes)
-    smartypants: true,
-    // Remark plugins (for markdown processing)
-    remarkPlugins: sharedRemarkPlugins,
-    // Rehype plugins (for HTML processing)
-    rehypePlugins: sharedRehypePlugins,
+    processor: unified({
+      // Typographic punctuation (quotes and apostrophes)
+      smartypants: true,
+      // Remark plugins (for markdown processing)
+      remarkPlugins: sharedRemarkPlugins,
+      // Rehype plugins (for HTML processing)
+      rehypePlugins: sharedRehypePlugins,
+    }),
   },
   
   // Vite configuration

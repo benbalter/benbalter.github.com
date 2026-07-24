@@ -8,7 +8,7 @@
 import rss from '@astrojs/rss';
 import type { CollectionEntry } from 'astro:content';
 import type { APIContext } from 'astro';
-import { createMarkdownProcessor } from '@astrojs/markdown-remark';
+import { unified } from '@astrojs/markdown-remark';
 import { siteConfig } from '../config';
 import { getDateFromSlug, getPostUrl } from '../utils/post-urls';
 import { getPublishedPosts } from '../utils/posts';
@@ -71,12 +71,15 @@ function bookCtaHtml(relation?: 'adapted' | 'cut' | 'inspired'): string {
 // Create a markdown processor once at module level to avoid recreating it on each request
 // This improves response times by reusing the processor configuration
 // Uses the same plugin configuration as astro.config.mjs via shared imports
-const markdownProcessor = createMarkdownProcessor({
+// Build the remark/rehype (unified) processor and its renderer. `unified()`
+// defaults `gfm` and `smartypants` to true, matching the shared plugins
+// (remarkGfm, remarkSmartypants) already in sharedRemarkPlugins; both are
+// idempotent, so the overlap has no visible effect on the rendered HTML.
+const markdownProcessor = unified({
   remarkPlugins: sharedRemarkPlugins as any,
   rehypePlugins: sharedRehypePlugins as any,
+}).createRenderer({
   shikiConfig: sharedShikiConfig as any,
-  // Note: smartypants is NOT enabled here because remarkSmartypants is already
-  // included in sharedRemarkPlugins. Enabling both would cause double-transforms.
 });
 
 export async function GET(context: APIContext) {
