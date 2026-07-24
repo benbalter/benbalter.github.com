@@ -8,7 +8,13 @@ if ! [ -x "$(command -v harper-cli)" ]; then
 	echo "Harper provides offline, privacy-first grammar checking."
 else
 	echo "Running Harper grammar checker..."
+	# --user-dict-path: reuse the shared personal dictionary (also used by
+	#   retext-spell via .remarkrc.js) so proper nouns, acronyms, and names
+	#   (FISMA, USDS, GitHubbers, surnames, handles…) don't flood the log as
+	#   spelling false positives.
+	# --no-color: CI logs aren't a TTY, so Harper's per-character ANSI color
+	#   codes render as literal escape sequences (tens of KB of noise).
 	# harper-cli currently always exits with code 1 (even with no lints found),
-	# so we use || true to prevent it from failing the build.
-	harper-cli lint src/content/posts/*.md || true
+	#   so we use || true to prevent it from failing the build.
+	harper-cli lint --no-color --user-dict-path dictionary.txt src/content/posts/*.md || true
 fi
