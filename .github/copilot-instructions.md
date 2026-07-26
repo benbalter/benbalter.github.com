@@ -89,10 +89,9 @@ npm run lint-json      # Lint JSON files
 npm run lint-md        # Lint Markdown files
 npm run lint-text      # Lint text content
 npm run lint-yaml      # Lint YAML files
-script/fix-lint        # Auto-fix linting issues (ALWAYS run after markdown linting)
 ```
 
-**Important**: After running markdown linting (`npm run lint-md` or `remark`), **ALWAYS** run `script/fix-lint` to remove excessive escaping that remark adds, which can break the build.
+**Important**: Never run `remark <file> -o` — the `-o` write-back adds excessive backslash escaping and breaks the build. `npm run lint-md` runs remark report-only (no `-o`), so it's safe and `script/fix-lint` is not needed.
 
 ## Project Structure
 

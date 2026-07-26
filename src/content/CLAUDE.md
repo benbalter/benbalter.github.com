@@ -98,8 +98,8 @@ Key concepts to reference and link to when relevant:
 ## Linting
 
 ```bash
-remark src/content/posts/my-post.md -o && script/fix-lint
-npm run lint-text    # textlint grammar/style check
+remark src/content/posts/my-post.md   # report-only check; does NOT modify the file
+npm run lint-text                      # textlint grammar/style check
 ```
 
-Always run `script/fix-lint` after remark — remark adds excessive escaping that breaks the build.
+Never run `remark <file> -o` — the `-o` write-back is what adds excessive backslash escaping and breaks the build. Report-only remark leaves files untouched.

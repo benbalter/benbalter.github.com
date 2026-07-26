@@ -25,8 +25,8 @@ These run automatically as part of `npm run build` (in order: `astro build` → 
 
 | Script | Description | Usage | When to run |
 | --- | --- | --- | --- |
-| `remark` | Lint markdown with remark, then clean up escaping artifacts via `fix-lint` | `script/remark` | Before committing markdown changes |
-| `fix-lint` | Remove excessive escaping that remark adds (backslash-brackets, underscores, etc.) | `script/fix-lint` | Always run after `script/remark` or `npm run lint-md` |
+| `remark` | Lint markdown with remark (report-only; does not rewrite files) | `script/remark` | Before committing markdown changes |
+| `fix-lint` | Manual rescue: remove backslash escaping left behind if someone ran `remark -o` by hand | `script/fix-lint` | Rarely — only after an accidental `remark -o` |
 | `lint-text` | Run textlint on markdown files (wrapper around `npm run lint-text`) | `script/lint-text` | Before committing prose changes |
 | `vale` | Run [Vale](https://vale.sh) prose style and grammar checks on markdown | `script/vale` | Before committing prose changes |
 | `harper` | Run [Harper](https://github.com/Automattic/harper) offline grammar checker on posts | `script/harper` | Before committing prose changes |

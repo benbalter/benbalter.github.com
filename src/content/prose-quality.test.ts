@@ -290,6 +290,53 @@ describe('prose quality', () => {
           `Found generic/non-descriptive link text (use descriptive text instead):\n${genericLinks.slice(0, 10).join('\n')}`
         ).toHaveLength(0);
       });
+
+      it('has descriptive alt text on content images', () => {
+        // Content images need alt text screen readers can use. Empty alt
+        // (`![](…)`) is reserved for decorative images — mark those explicitly
+        // with an adjacent `<!-- decorative -->` comment to opt out.
+        // Generic one-word alt ("image", "screenshot") describes nothing.
+        const genericAlt = /^(image|images|photo|picture|screenshot|logo|icon|graphic|diagram)$/i;
+
+        let inCodeBlock = false;
+        const badImages: string[] = [];
+        const lines = content.split('\n');
+
+        lines.forEach((line, idx) => {
+          // Skip code fence markers and fenced/indented code blocks.
+          if (/^\s*```/.test(line)) {
+            inCodeBlock = !inCodeBlock;
+            return;
+          }
+          if (inCodeBlock || line.startsWith('    ')) {
+            return;
+          }
+
+          // Extract markdown images: ![alt](url) — alt may be empty.
+          const imageMatches = line.matchAll(/!\[([^\]]*)\]\([^)]+\)/g);
+          for (const match of imageMatches) {
+            const alt = match[1].trim();
+
+            if (alt === '') {
+              // Empty alt is allowed only when explicitly marked decorative
+              // (same line or the line immediately above).
+              const markedDecorative =
+                line.includes('decorative') ||
+                (idx > 0 && lines[idx - 1].includes('decorative'));
+              if (!markedDecorative) {
+                badImages.push(`Line ${idx + 1}: empty alt — ${match[0].substring(0, 60)}`);
+              }
+            } else if (genericAlt.test(alt)) {
+              badImages.push(`Line ${idx + 1}: generic alt "${alt}" — describe the image`);
+            }
+          }
+        });
+
+        expect(
+          badImages,
+          `Content images need descriptive alt text (use \`<!-- decorative -->\` to opt out):\n${badImages.slice(0, 10).join('\n')}`
+        ).toHaveLength(0);
+      });
     });
   });
 });

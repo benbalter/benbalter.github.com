@@ -1,9 +1,7 @@
 #!/bin/sh
 
+# remark runs report-only (lint-md uses `remark .`, no `-o`), so it never
+# rewrites files and never introduces the backslash escaping that `remark -o`
+# does. script/fix-lint is therefore unnecessary here — it survives only as a
+# manual rescue if someone runs `remark -o` by hand.
 npm run lint-md
-
-# Note: script/fix-lint is no longer needed since remark runs in lint-only mode
-# and doesn't aggressively escape characters anymore. Keeping this for backwards
-# compatibility in case of edge cases.
-echo "Cleaning up (if needed)..."
-script/fix-lint

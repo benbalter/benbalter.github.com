@@ -101,10 +101,19 @@ async function validatePosts() {
         .trim();
       
       const descLength = strippedDescription.length;
-      
-      // Warn if description is very short
-      // Note: No upper limit - can be any length, but optimize first 150 chars
-      if (descLength < 100) {
+
+      // Gate critically short descriptions: the search snippet is ~150 chars,
+      // so anything under ~70 leaves most of it empty and reads as an
+      // incomplete thought in results. Below the warning floor, this is a
+      // defect, not a nudge — fail the build.
+      // Note: No upper limit - can be any length, but optimize first 150 chars.
+      if (descLength < 70) {
+        issues.push({
+          file: relativePath,
+          type: 'error',
+          message: `Description too short (${descLength} chars after Markdown stripped) to fill the ~150-char search snippet: "${strippedDescription}"`,
+        });
+      } else if (descLength < 100) {
         issues.push({
           file: relativePath,
           type: 'warning',

@@ -14,6 +14,10 @@
 /quotes/ /posts/ 301
 /quotes /posts/ 301
 
+# Retired Talks page → Speaker Deck (page removed; preserves inbound links)
+/talks/ https://speakerdeck.com/benbalter 301
+/talks https://speakerdeck.com/benbalter 301
+
 # Page renames
 /books/ /other-recommended-reading/ 301
 /books /other-recommended-reading/ 301

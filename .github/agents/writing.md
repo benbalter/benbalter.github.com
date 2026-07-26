@@ -416,13 +416,12 @@ Use footnotes to:
 ### Linting and Validation
 
 ```bash
-npm run lint-md        # Lint Markdown files
+npm run lint-md        # Lint Markdown (remark report-only + markdownlint)
 npm run lint-text      # Check text quality (textlint)
-remark . --output      # Format Markdown consistently
-script/fix-lint        # Auto-fix linting issues (ALWAYS run after remark/markdown linting)
+remark src/content/posts/my-post.md   # Check one file — report-only, no rewrite
 ```
 
-**Important**: After running markdown linting (`npm run lint-md` or `remark`), **ALWAYS** run `script/fix-lint` to remove excessive escaping that remark adds, which can break the build.
+**Important**: Never run `remark <file> -o` — the `-o` write-back adds excessive backslash escaping and breaks the build. Report-only remark (no `-o`, as `npm run lint-md` uses) leaves files untouched, so `script/fix-lint` is not needed.
 
 ### Testing
 

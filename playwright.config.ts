@@ -54,12 +54,32 @@ export default defineConfig({
     navigationTimeout: 15000,
   },
 
-  /* Configure projects for cross-browser testing */
+  /* Configure projects for cross-browser testing.
+   *
+   * Chromium runs on every PR. WebKit + Firefox are opt-in via CROSS_BROWSER=1
+   * so the default run stays fast and needs no extra browser binaries installed.
+   * The site is zero-JS by default, but the handful of client scripts
+   * (search modal, link previews, quote-share, view transitions) are exactly
+   * where Safari/WebKit and Gecko quirks surface — run the full matrix on a
+   * nightly job or locally: `CROSS_BROWSER=1 npm run test:e2e`
+   * (first time: `npx playwright install webkit firefox`). */
   projects: [
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
+    ...(process.env.CROSS_BROWSER
+      ? [
+          {
+            name: 'webkit',
+            use: { ...devices['Desktop Safari'] },
+          },
+          {
+            name: 'firefox',
+            use: { ...devices['Desktop Firefox'] },
+          },
+        ]
+      : []),
   ],
 
   /* Run a local preview server before starting the tests.

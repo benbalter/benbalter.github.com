@@ -21,7 +21,6 @@ test.describe('SEO Meta Tags', () => {
     { url: '/about/', name: 'About' },
     { url: '/resume/', name: 'Resume' },
     { url: '/contact/', name: 'Contact' },
-    { url: '/talks/', name: 'Talks' },
   ];
 
   pages.forEach(({ url, name }) => {

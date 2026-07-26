@@ -117,10 +117,9 @@ npm run test:e2e           # Run E2E tests
 npm run lint           # Run all linters
 npm run lint-js        # Lint JavaScript
 npm run lint-json      # Lint JSON files
-script/fix-lint        # Auto-fix linting issues (ALWAYS run after markdown linting)
 ```
 
-**Important**: After running markdown linting, **ALWAYS** run `script/fix-lint` to remove excessive escaping that remark adds.
+**Important**: Never run `remark <file> -o` — the `-o` write-back adds excessive backslash escaping and breaks the build. `npm run lint-md` runs remark report-only (no `-o`), so it's safe and `script/fix-lint` is not needed.
 
 ### Building
 
@@ -161,7 +160,7 @@ When working with Astro code:
    - **DO NOT** auto-fix formatting on unrelated files (markdown, YAML, etc.)
    - If you must lint, use file-specific commands: `npx eslint path/to/file.js` or `remark path/to/file.md`
    - Example BAD: `npm run lint-md` (lints ALL markdown files)
-   - Example GOOD: `remark lib/liquid.ts -o` (lints only the file you changed)
+   - Example GOOD: `remark path/to/my-post.md` (report-only; never use `-o`, which adds escaping)
 2. **Preserve Functionality**: Never break existing working code
 3. **Test Early**: Run tests and linters frequently on files you modify
 4. **Follow Patterns**: Use existing code patterns as examples

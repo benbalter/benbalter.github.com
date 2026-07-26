@@ -12,7 +12,6 @@ npm test               # Type check + linting
 npm run test:e2e       # Playwright E2E tests
 npm run test:vitest    # Vitest unit tests
 npm run lint           # All linters
-script/fix-lint        # Fix lint — ALWAYS run after any markdown linting
 ```
 
 ## Project Structure
@@ -40,14 +39,15 @@ script/fix-lint        # Fix lint — ALWAYS run after any markdown linting
 
 ### Markdown Linting
 
-After running `npm run lint-md`, `remark`, or any markdown linting, **always** run `script/fix-lint` immediately after. Remark adds excessive backslash escaping that breaks the build.
+`remark` runs report-only: `npm run lint-md` runs `remark .` (no `-o`), which checks Markdown without rewriting it. **Never run `remark <file> -o`** — the `-o` write-back is the one thing that adds excessive backslash escaping (`\[`, `\_`, `\&`) and breaks the build. Typography (smart quotes, em/en dashes) is applied at render via `sharedRemarkPlugins`, so `-o` buys nothing. `script/fix-lint` only exists to undo `-o` damage; with report-only remark it's a no-op you shouldn't need.
 
 ```bash
-# If you must lint markdown, target a specific file:
-remark src/content/posts/my-post.md -o && script/fix-lint
+# Check a specific file — report-only, does NOT modify it:
+remark src/content/posts/my-post.md
 
-# Never run broad markdown lint — it reformats every .md file:
-# npm run lint-md  ← avoid
+# markdownlint --fix is safe (no escaping) but rewrites every file with a
+# violation — target a specific file to keep the diff small:
+markdownlint-cli2 --fix src/content/posts/my-post.md
 ```
 
 ### Linting Scope
@@ -57,7 +57,7 @@ Target specific files only. Never run broad linters on unrelated files.
 ```bash
 # Good
 npx eslint src/utils/my-util.ts
-remark src/content/posts/my-post.md -o
+remark src/content/posts/my-post.md
 
 # Bad — reformats everything
 npm run lint-md

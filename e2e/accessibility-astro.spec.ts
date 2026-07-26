@@ -400,7 +400,6 @@ test.describe('Axe Accessibility Scan - Multiple Pages', () => {
     { url: '/about/', name: 'About' },
     { url: '/resume/', name: 'Resume' },
     { url: '/contact/', name: 'Contact' },
-    { url: '/talks/', name: 'Talks' },
   ];
 
   for (const scheme of COLOR_SCHEMES) {
@@ -453,7 +452,6 @@ test.describe('Accessibility - Additional Pages', () => {
     { path: '/about/', name: 'About' },
     { path: '/contact/', name: 'Contact' },
     { path: '/resume/', name: 'Resume' },
-    { path: '/talks/', name: 'Talks' },
   ];
   
   pages.forEach(({ path, name }) => {

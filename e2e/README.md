@@ -8,7 +8,7 @@ This directory contains comprehensive end-to-end tests for Ben Balter's website 
 - **`homepage.spec.ts`**: Tests for the homepage
 - **`blog-posts.spec.ts`**: Tests for blog post pages
 - **`resume.spec.ts`**: Tests for the resume page
-- **`pages.spec.ts`**: Tests for static pages (About, Contact, Talks, Press)
+- **`pages.spec.ts`**: Tests for static pages (About, Contact, Press)
 - **`accessibility.spec.ts`**: Accessibility tests (WCAG compliance)
 - **`performance.spec.ts`**: Performance and optimization tests
 - **`seo.spec.ts`**: General SEO and metadata tests
@@ -101,7 +101,7 @@ npm run test:e2e:astro
 
 ### Static Pages Tests
 
-- About, Contact, Talks, and Press pages load
+- About, Contact, and Press pages load
 - Content is meaningful
 - Navigation works
 - Proper titles

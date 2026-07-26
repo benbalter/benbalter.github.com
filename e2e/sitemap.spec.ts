@@ -139,7 +139,6 @@ test.describe('Sitemap Generation', () => {
         'https://ben.balter.com/about/',
         'https://ben.balter.com/resume/',
         'https://ben.balter.com/contact/',
-        'https://ben.balter.com/talks/',
       ];
       
       corePages.forEach(pageUrl => {

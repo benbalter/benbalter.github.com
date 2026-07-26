@@ -12,7 +12,6 @@ test.describe('Static Pages', () => {
   const pages = [
     { url: '/about/', name: 'About' },
     { url: '/contact/', name: 'Contact' },
-    { url: '/talks/', name: 'Talks' },
     { url: '/other-recommended-reading/', name: 'Other Recommended Reading' },
   ];
 
@@ -86,24 +85,6 @@ test.describe('Contact Page', () => {
     const hasForm = await contactForm.count() > 0;
     
     expect(hasEmail || hasForm).toBeTruthy();
-  });
-});
-
-test.describe('Talks Page', () => {
-  test('should list talks or presentations', async ({ page }) => {
-    await page.goto('/talks/');
-    await waitForPageReady(page);
-    
-    const content = await page.textContent('body');
-    
-    // Should contain talk-related content
-    const hasTalkContent = 
-      content?.includes('talk') ||
-      content?.includes('presentation') ||
-      content?.includes('conference') ||
-      content?.includes('speak');
-    
-    expect(hasTalkContent).toBeTruthy();
   });
 });
 
