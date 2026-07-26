@@ -267,17 +267,23 @@ async function validateHeadingHierarchy() {
     const relativePath = path.relative(process.cwd(), filePath);
     const content = fs.readFileSync(filePath, 'utf-8');
     
-    // Remove frontmatter
-    const contentWithoutFrontmatter = content.replace(/^---[\s\S]*?---/, '');
-    
+    // Remove frontmatter, then fenced code blocks (so shell comments like
+    // `# do the thing` inside ``` blocks aren't mistaken for headings).
+    const contentWithoutFrontmatter = content
+      .replace(/^---[\s\S]*?---/, '')
+      .replace(/^```[\s\S]*?^```/gm, '');
+
     // Find all headings
     const headings = contentWithoutFrontmatter.match(/^#{1,6}\s+.+$/gm) || [];
-    
-    let previousLevel = 0;
+
+    // Seed at H1: the layout renders the page title as the H1, so a post body
+    // correctly starts at H2. Seeding at 0 would flag every post's first H2 as
+    // an "H0 → H2" skip — a false positive.
+    let previousLevel = 1;
     for (const heading of headings) {
       const level = heading.match(/^#+/)?.[0].length || 0;
-      
-      // Check if skipping heading levels (e.g., H1 → H3, skipping H2)
+
+      // Check if skipping heading levels (e.g., H2 → H4, skipping H3)
       if (level > previousLevel + 1) {
         issues.push({
           file: relativePath,
