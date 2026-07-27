@@ -1,0 +1,35 @@
+extends: existence
+message: "'%s' is an AI-generation fingerprint. Remove it before publishing."
+ignorecase: true
+nonword: true
+level: error
+tokens:
+  # Knowledge-cutoff / model disclaimers
+  - 'as of my last (knowledge )?update'
+  - 'as of my last training'
+  - 'my knowledge cutoff'
+  - 'my last knowledge update'
+  - "I don't have access to real-time"
+  - 'I do not have access to real-time'
+  - 'as an AI language model'
+  - 'as a large language model'
+  - 'I cannot browse the internet'
+  # Unfilled placeholders
+  - '\[Your Name\]'
+  - '\[INSERT [^\]]+\]'
+  - '\[NAME\]'
+  - '\[COMPANY( NAME)?\]'
+  - '\[DATE\]'
+  - '\[LINK\]'
+  - '\[SOURCE[^\]]*\]'
+  - '\[[A-Za-z ]*XX[A-Za-z -]*\]'
+  - '\d{4}-XX-XX'
+  # Chatbot citation / tool-output leaks
+  - 'citeturn\d'
+  - 'oaicite:'
+  - ':?contentReference'
+  # AI-tool URL parameters
+  - 'utm_source=chatgpt\.com'
+  - 'utm_source=(claude|perplexity|grok|copilot)'
+  - 'ref=chatgpt'
+  - 'referrer=grok'

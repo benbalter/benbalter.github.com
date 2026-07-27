@@ -1,0 +1,20 @@
+extends: existence
+message: "'%s' is a chatbot artifact that leaked from an AI draft. Cut it."
+ignorecase: true
+nonword: true
+level: error
+tokens:
+  - I hope this helps
+  - Hope this helps!
+  - Certainly!
+  - Of course!
+  - Feel free to reach out
+  - Feel free to let me know
+  - Let me know if you have any questions
+  - Let me know if you'd like
+  - Let me know if you would like
+  - I'd be happy to help
+  - I would be happy to help
+  - Is there anything else
+  - I hope you found this
+  - Thanks for reading! If you
