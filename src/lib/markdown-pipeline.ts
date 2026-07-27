@@ -25,6 +25,7 @@ import { remarkDirectiveFallback } from './remark-directive-fallback';
 import { rehypeRelativeUrls } from './rehype-relative-urls';
 import { rehypeBootstrapTables } from './rehype-bootstrap-tables';
 import { rehypeImageLoading } from './rehype-image-loading';
+import { rehypeImageDimensions } from './rehype-image-dimensions';
 import { rehypeFigure } from './rehype-figure';
 import { rehypeFootnoteA11y } from './rehype-footnote-a11y';
 
@@ -104,6 +105,7 @@ export const sharedRehypePlugins = [
   rehypeFigure,
   rehypeFootnoteA11y,
   rehypeImageLoading,
+  rehypeImageDimensions,
   rehypeExternalLinksConfig,
 ];
 
