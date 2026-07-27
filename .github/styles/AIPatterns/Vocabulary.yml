@@ -2,82 +2,45 @@ extends: existence
 message: "'%s' is a word AI overuses. Consider a plainer, more specific alternative."
 ignorecase: true
 level: warning
+# Only tells that are essentially absent from 15 years of Ben's posts live here.
+# Words he genuinely uses (empower, foster, facilitate, robust, comprehensive,
+# harness, navigate, crucial, actionable, showcase, seamless, embark, reimagine,
+# vibrant, impactful, endeavor) are deliberately omitted — flagging his own voice
+# would just be noise. See PlainWords.yml for the 1:1 swaps.
 tokens:
-  # Tier 1 — strong tells
   - delve
   - tapestry
   - realm
   - paradigm
-  - embark
   - beacon
-  - robust
-  - comprehensive
   - cutting-edge
-  - leverages?
-  - leveraging
-  - pivotal
   - underscores?
   - meticulous(ly)?
-  - seamless(ly)?
   - game-chang(er|ing)
-  - utilizes?
-  - utilizing
   - watershed moment
   - nestled
-  - vibrant
-  - thriving
-  - showcas(e|es|ing)
-  - unpack(ing)?
   - bustling
   - intricate
   - intricacies
   - ever-evolving
-  - enduring
-  - daunting
   - holistic(ally)?
-  - actionable
-  - impactful
   - learnings
   - thought leader(ship)?
   - interplay
-  - serves as
-  - boasts
-  - commence
-  - ascertain
-  - endeavor
   - symphony
-  # Tier 2 — flag-worthy in aggregate
-  - harness(es|ing)?
-  - navigat(e|es|ing)
-  - foster(s|ing)?
-  - elevate
-  - unleash
-  - streamline
-  - empower(s|ing)?
-  - bolster
-  - spearhead
-  - resonates?
-  - revolutionize
-  - facilitates?
-  - underpin(s|ning|nings)?
-  - nuanced
-  - crucial
-  - multifaceted
   - myriad
   - plethora
-  - encompass(es|ing)?
-  - catalyze
-  - reimagine
-  - galvanize
-  - augment
-  - cultivate
-  - illuminate
-  - elucidate
-  - juxtapose
-  - cornerstone
-  - paramount
-  - poised to
+  - quintessential
+  - multifaceted
   - burgeoning
   - nascent
-  - quintessential
+  - paramount
+  - galvanize
+  - catalyze
+  - elucidate
+  - juxtapose
+  - spearhead
+  - bolster
+  - unleash
   - overarching
+  - poised to

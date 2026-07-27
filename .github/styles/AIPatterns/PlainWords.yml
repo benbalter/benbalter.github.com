@@ -1,0 +1,10 @@
+extends: substitution
+message: "Use '%s' instead of '%s'."
+ignorecase: true
+level: warning
+# True 1:1 swaps AI reaches for. Kept separate from Vocabulary.yml so Vale can
+# name the exact replacement.
+swap:
+  utiliz(e|es|ing): use
+  commence: begin
+  ascertain: find out
