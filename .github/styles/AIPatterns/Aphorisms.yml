@@ -1,0 +1,20 @@
+extends: existence
+message: "'%s' is a formulaic AI construction. Make a concrete claim instead."
+ignorecase: true
+level: suggestion
+# Suggestion-tier: near-zero on the existing corpus, but Ben uses "imagine if"
+# (17x) and "whether you're X or Y" (8x) deliberately, so those stay out.
+tokens:
+  # Metaphor-equivalence aphorisms ("X is the Y of Z")
+  - is the language of
+  - is the currency of
+  - is the backbone of
+  - is the lifeblood of
+  # Manufactured-emphasis openers
+  - make no mistake
+  - let's be clear
+  - let me be clear
+  - what if I told you
+  # Speculative scenario openers
+  - imagine a world
+  - picture this
