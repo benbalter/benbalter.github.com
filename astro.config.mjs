@@ -277,7 +277,11 @@ export default defineConfig({
     // built for paper (navy sidebar + flowing experience column); the on-site
     // /resume page is unaffected. Chromium is auto-installed at build time if
     // not already cached.
-    pdf({
+    //
+    // Gated behind SKIP_PDF so local dev can `astro build` without a working
+    // puppeteer Chromium (set SKIP_PDF=1). CI and production leave it unset, so
+    // resume.pdf is still generated on deploy.
+    ...(process.env.SKIP_PDF ? [] : [pdf({
       // CI runners (Ubuntu 24.04) disable unprivileged user namespaces, so
       // Chromium's sandbox can't start ("No usable sandbox"). Safe to disable
       // here — we render only our own trusted, just-built pages. No-op locally.
@@ -345,7 +349,7 @@ export default defineConfig({
           await writeFile(file, await doc.save());
         }
       },
-    }),
+    })]),
   ],
   
   // Markdown configuration

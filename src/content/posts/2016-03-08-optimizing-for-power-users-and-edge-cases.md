@@ -6,13 +6,13 @@ tldr: "In product development, it's all too easy to optimize for power users and
 
 When designing a product — be it an open-source project or a for-profit service — it's all too easy to optimize for power users and edge cases. While [the squeaky wheel may most often get the grease](https://en.wikipedia.org/wiki/The_squeaky_wheel_gets_the_grease), that doesn't necessarily mean it should. The real challenge for any product lies in genuinely nailing the out-of-box experience for *80%* of users' needs.
 
-### Solving fun problems
+## Solving fun problems
 
 As a geek, it's always going to be more fun to develop the new wiz-bang feature that will allow the app to integrate with whatever's currently on the top of Hacker News or to design a single method that elegantly accounts for when your program is used at the South Pole by a user running Window XP SP1 under a full moon. While those are fun Rubix-cube-style engineering challenges to tackle for those of us who build software, they do little to benefit most of the people who use the software we build.
 
 As a project maintainer, it will always feel better to ship code and mark an issue resolved than to close yet another issue as `wontfix` — to say "no" to a beloved user or, worse, a potential contributor. For many, wasting already-written code is a cardinal sin. But your project's issue tracker, pull request backlog, or support queue will present a very skewed perspective of your user base, mainly when you use it to evaluate feature requests and user feedback.
 
-### The silent majority of users
+## The silent majority of users
 
 Think about the type of user that's going to take the time to open an issue: they're either going to be power users that have already invested hours in your app and have grown the need for additional functionality that extends the core use case, or new and potential users with unique circumstances that you didn't originally intend to accommodate. In either case, opening an issue takes time, commitment to a cause, and specialized knowledge, and thus, through pure self-selection, most problems are going to be opened by the extreme edges of your user base, not by the core of your users (or potential users, for that matter).
 
@@ -23,7 +23,7 @@ Instead of optimizing for the most vocal, feature requests should be evaluated t
 | **Solution obvious** | Feature creep      | Edge cases          |
 | **Solution unclear** | Core use           | Power users         |
 
-### Anything added dilutes everything else
+## Anything added dilutes everything else
 
 No product will satisfy 100% of user needs, although it's tempting to try. If a 20 %-er requests a feature that isn't going to be used by the other 80%, there's no harm in just making it a non-default option, right?
 
@@ -31,12 +31,12 @@ We have a motto at GitHub, part of the [GitHub Zen](https://ben.balter.com/2015/
 
 The WordPress community [has a similar philosophy](https://wordpress.org/about/philosophy/), "decisions not options\*." Every time you provide a user with an option, you're asking them to make a decision, and [those decisions quickly add up](https://en.wikipedia.org/wiki/Analysis_paralysis), especially when the user doesn't care or doesn't fully understand the implications. Ultimately, many of these decisions are technical or domain-specific decisions. As a project maintainer, as the subject-matter expert, you must absorb all that complexity on behalf of your users, not to kick the decision down the line.
 
-### Settings are a crutch
+## Settings are a crutch
 
 Adding a setting is easy. Burying that setting in the endless clutter of an "advanced" tab is even easier. Making the right decision is hard. Decisions require you to get to the cause of the user's needs. To figure out what they're trying to solve, even if they may not fully know it. To think through the user experience. To decide the one thing you're trying to do, and to do it well, not to try to do everything, but to do it poorly.
 
 One of my favorite features to add to a project is the one that removes two others. And for most users, that tough decision is just that, a software feature. The next time you're faced with a tough decision, forego the temptation to optimize for power users or, worse yet, to inch your project one step closer to the inside of an airplane cockpit. Optimize for the majority of out-of-box experience. [Challenge yourself. Learn to decide](https://nacin.com/2011/12/18/in-open-source-learn-to-decide/).
 
-### Conclusion
+## Conclusion
 
 The real challenge for any product lies in genuinely nailing the out-of-box experience for 80% of users. Just because something's easy to implement doesn't mean that you necessarily should. Every time you add a toggle, dropdown, or text box, you're pushing complexity on your users.
