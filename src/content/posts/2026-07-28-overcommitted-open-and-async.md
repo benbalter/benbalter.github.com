@@ -8,6 +8,6 @@ tldr: "What makes remote engineering teams work comes down to how you communicat
 
 Those habits are the backbone of [*Open and Async*](https://open-and-async.com/?utm_source=benbalter-overcommitted-post), and the throughline of a conversation with Bethany Janos and Erika Eggemeyer on the [Overcommitted](https://overcommitted.dev/open-and-async-work-remote-engineering-culture-with-ben-balter/) podcast: why [async is the operating system](/2022/03/17/why-async/) and remote is the hardware, how to run a stack where chat coordinates but issues and discussions carry the [durable decisions](/2015/11/12/why-urls/) you can point to six months later, and why you measure outcomes instead of keystrokes.
 
-The conversation runs to the nerdier end too—the absurd, over-engineered CI pipeline behind the book (a rabbit hole that's getting its own post soon), the automation that syncs my standing desk to my calendar, and where AI actually belongs when you write. Editing, formatting, analysis: yes. Your voice and taste: no.
+The conversation runs to the nerdier end too—the absurd, over-engineered CI pipeline behind the book (a rabbit hole that's getting its own post soon), the aspirational automation that syncs my standing desk to my calendar, and where AI actually belongs when you write.
 
-Want the full conversation? [Give it a listen.](https://overcommitted.dev/open-and-async-work-remote-engineering-culture-with-ben-balter/)
+You can listen to the full conversation [over on the overcommitted website](https://overcommitted.dev/open-and-async-work-remote-engineering-culture-with-ben-balter/), or wherever you get your podcasts.
