@@ -3,7 +3,7 @@ name: Email broadcast for new posts
 # Runs after a successful deploy so subscribers aren't emailed before the post is live
 on:
   workflow_run:
-    workflows: ["Deploy site to Cloudflare Pages"]
+    workflows: ["Deploy site to Cloudflare Workers"]
     types: [completed]
     branches: [main]
   workflow_dispatch:
