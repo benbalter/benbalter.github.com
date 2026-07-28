@@ -325,6 +325,7 @@ EC2
 ECIPE
 Edelman
 EditFlow
+Eggemeyer
 eleventy
 Elin
 Embedly
@@ -512,6 +513,7 @@ ITMRA
 ITU
 Jailbreaking
 Jairs
+Janos
 Jaquith
 Javascript
 JavaScript
@@ -643,6 +645,7 @@ near-frictionless
 née
 Nester
 NetIQ
+neurodivergent
 NextGov
 Nginx
 NGO
@@ -686,6 +689,7 @@ OSS's
 OSTP
 OSTP's
 Ouyachi
+Overcommitted
 overengineered
 overinclusive
 p0
@@ -760,6 +764,7 @@ reimagine
 reimagined
 reimagining
 reimplementation
+relitigated
 remised
 repo
 repos
@@ -884,6 +889,7 @@ textarea
 Texturize
 TextWrangler
 Thinkpad
+throughline
 Thunderdome
 timezones
 TinyMCE
