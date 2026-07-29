@@ -13,6 +13,7 @@
  * - description: Post description/excerpt
  * - readingTime: Reading time in minutes
  * - variant: 'default' for standard cards, 'featured' for prominent styling
+ * - external: true when the post redirects off-site; shows a ↗ affordance
  */
 
 import PostMeta from './PostMeta.astro';
@@ -26,9 +27,10 @@ interface Props {
   description?: string;
   readingTime: number;
   variant?: 'default' | 'featured';
+  external?: boolean;
 }
 
-const { title, url, date, isoDate, description, readingTime, variant = 'default' } = Astro.props;
+const { title, url, date, isoDate, description, readingTime, variant = 'default', external = false } = Astro.props;
 const isFeatured = variant === 'featured';
 ---
 
@@ -43,7 +45,12 @@ const isFeatured = variant === 'featured';
       'leading-snug tracking-tight',
       isFeatured ? 'mb-4 text-xl font-bold' : 'mb-2 text-base font-semibold',
     ]}>
-      <a href={url} class="text-gray-900 no-underline before:absolute before:inset-0 transition-colors duration-200 group-hover:text-primary dark:group-hover:text-primary-300 dark:text-gray-100">{title}</a>
+      <a href={url} class="text-gray-900 no-underline before:absolute before:inset-0 transition-colors duration-200 group-hover:text-primary dark:group-hover:text-primary-300 dark:text-gray-100">{title}{external && (
+        <>
+          <span class="ml-1 inline-block align-baseline text-sm text-gray-400 group-hover:text-primary dark:text-gray-500 dark:group-hover:text-primary-300" aria-hidden="true">&#8599;</span>
+          <span class="sr-only"> (external link)</span>
+        </>
+      )}</a>
     </h3>
     <div class:list={[
       'text-sm text-gray-600 dark:text-gray-300',

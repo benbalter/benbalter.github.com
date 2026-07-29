@@ -33,7 +33,18 @@ describe('getPostMetadata', () => {
       date: 'January 15, 2024',
       isoDate: '2024-01-15',
       readingTime: 5,
+      isExternal: false,
     });
+  });
+
+  it('should flag posts with redirect_to as external', () => {
+    const mockPost = {
+      id: '2024-01-15-external-post',
+      body: '',
+      data: { title: 'External Post', redirect_to: 'https://example.com/' },
+    } as any;
+
+    expect(getPostMetadata(mockPost).isExternal).toBe(true);
   });
 
   it('should have all required properties', () => {
