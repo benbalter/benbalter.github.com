@@ -66,8 +66,11 @@ export default defineConfig({
   
   // Prefetch configuration for faster navigation
   // Use hover strategy to balance speed with bandwidth usage
+  // NOTE: Cloudflare refuses speculative prefetch for Worker-served requests
+  // ("Cf-Speculation-Refused: disabled for worker requests"), so prefetchAll
+  // produced a burst of 503s on every page with no benefit. Keep it off.
   prefetch: {
-    prefetchAll: true,
+    prefetchAll: false,
     defaultStrategy: 'hover',
   },
   
