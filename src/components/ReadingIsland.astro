@@ -1,0 +1,180 @@
+---
+/**
+ * ReadingIsland
+ *
+ * A floating "Dynamic Island"-style pill on post pages that morphs its contents
+ * as the reader moves through the article, consolidating three affordances:
+ *
+ *   progress → "N min left" (default while reading)
+ *   share    → share the current text selection (when text is selected)
+ *   cta      → nudge to subscribe (near the end / subscribe card in view)
+ *
+ * The three "faces" are pre-rendered (so icons stay zero-JS via the Icon
+ * component); the controller (reading-island.ts) toggles which face is active,
+ * fills in the time, and fluidly resizes the pill. State selection is a pure
+ * function (reading-island-state.ts); progress comes from the shared
+ * reading-progress-core. Respects prefers-reduced-motion.
+ */
+import Icon from './Icon.astro';
+
+interface Props {
+  readingTime?: number;
+}
+
+const { readingTime = 0 } = Astro.props;
+---
+
+<div id="reading-island" class="reading-island" data-reading-time={readingTime} data-state="hidden" hidden>
+  <button type="button" class="reading-island-pill" aria-hidden="true" tabindex="-1">
+    <span class="reading-island-face" data-face="progress" aria-hidden="true">
+      <Icon name="clock" class="reading-island-icon" />
+      <span class="reading-island-time"></span>
+    </span>
+    <span class="reading-island-face" data-face="share" aria-hidden="true">
+      <Icon name="share-nodes" class="reading-island-icon" />
+      <span class="reading-island-share-label">Share selection</span>
+    </span>
+    <span class="reading-island-face" data-face="cta" aria-hidden="true">
+      <Icon name="envelope" class="reading-island-icon" />
+      Enjoyed this? Subscribe
+    </span>
+  </button>
+  <span class="reading-island-status sr-only" role="status" aria-live="polite"></span>
+</div>
+
+<script>
+  import '../scripts/reading-island';
+</script>
+
+<style is:global>
+  .reading-island {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9998;
+    pointer-events: none;
+  }
+
+  @media (min-width: 768px) {
+    .reading-island {
+      left: auto;
+      right: 2rem;
+      transform: none;
+    }
+  }
+
+  .reading-island[hidden] {
+    display: none;
+  }
+
+  .reading-island-pill {
+    position: relative;
+    display: block;
+    height: 2.25rem;
+    width: 8rem; /* replaced by JS with the active face's measured width */
+    margin: 0;
+    padding: 0;
+    border: 1px solid rgb(229 231 235);
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    color: rgb(55 65 81);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1;
+    cursor: default;
+    pointer-events: auto;
+    overflow: hidden;
+    transition:
+      width 0.38s cubic-bezier(0.34, 1.4, 0.5, 1),
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .reading-island[data-state='share'] .reading-island-pill,
+  .reading-island[data-state='cta'] .reading-island-pill {
+    cursor: pointer;
+  }
+
+  .reading-island[data-state='share'] .reading-island-pill:hover,
+  .reading-island[data-state='cta'] .reading-island-pill:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14);
+    transform: translateY(-1px);
+  }
+
+  .reading-island[data-state='share'] .reading-island-pill:focus-visible,
+  .reading-island[data-state='cta'] .reading-island-pill:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  /* width:max-content so each face measures to its natural content width
+   * (the controller reads offsetWidth to resize the pill). Left-anchored and
+   * full-height so all faces overlay in the same spot; the active one shows. */
+  .reading-island-face {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0 0.9rem;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(0.4rem);
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .reading-island[data-state='progress'] [data-face='progress'],
+  .reading-island[data-state='share'] [data-face='share'],
+  .reading-island[data-state='cta'] [data-face='cta'] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reading-island-icon {
+    width: 0.875rem;
+    height: 0.875rem;
+    flex-shrink: 0;
+  }
+
+  .reading-island .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .reading-island-pill {
+      background: rgba(17, 24, 39, 0.92);
+      border-color: rgb(55 65 81);
+      color: rgb(209 213 219);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reading-island-pill,
+    .reading-island-face {
+      transition: none;
+    }
+  }
+
+  @media print {
+    .reading-island {
+      display: none;
+    }
+  }
+</style>
