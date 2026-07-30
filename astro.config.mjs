@@ -67,7 +67,7 @@ export default defineConfig({
   // Prefetch configuration for faster navigation
   // Use hover strategy to balance speed with bandwidth usage
   prefetch: {
-    prefetchAll: false,
+    prefetchAll: true,
     defaultStrategy: 'hover',
   },
   
