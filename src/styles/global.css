@@ -1372,8 +1372,17 @@
   animation-duration: 0.3s;
 }
 
-.content {
-  view-transition-name: main-content;
+/* Name ONLY the elements that should morph or stay put across a navigation.
+ * Naming the whole content column (it used to be `.content`) made the entire,
+ * variable-height column its own group, so pages of very different heights
+ * interpolated their box size — stretching the content (most visibly the
+ * breadcrumb at the top). Everything unnamed now cross-fades cleanly as `root`,
+ * which is viewport-sized and never distorts. */
+
+/* The nav bar stays put (morphs its own state) instead of being pulled into the
+ * root cross-fade, which reads as a flicker. */
+.navbar {
+  view-transition-name: site-header;
 }
 
 @media (prefers-reduced-motion: reduce) {

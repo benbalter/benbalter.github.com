@@ -15,6 +15,7 @@ import { siteConfig } from '../config';
 import { calculateReadingTime, calculateWordCount } from '../utils/reading-time';
 import { generateBlogPostingSchema, schemaToJsonLd } from '../utils/structured-data';
 import { formatPostDate } from '../utils/post-urls';
+import { viewTransitionName } from '../utils/view-transition-name';
 import { getDocumentUri } from '../utils/standard-site';
 import ArchivedPostWarning from '../components/ArchivedPostWarning.astro';
 import ShareButtons from '../components/ShareButtons.astro';
@@ -78,6 +79,9 @@ const postUrl = new URL(Astro.url.pathname, siteConfig.url).toString();
 // the configured cutoff or with no publish date).
 const standardSiteDocumentUri = pubDate ? (getDocumentUri(postId, pubDate) ?? undefined) : undefined;
 const postFileName = postFilePath ? postFilePath.split('/').pop() : `${postId}.md`;
+// Matches the PostCard title's view-transition-name so navigating from a card
+// morphs its title into this headline (cross-document View Transitions).
+const titleTransitionName = viewTransitionName(Astro.url.pathname);
 
 // Calculate reading time using improved utility
 const content = await Astro.slots.render('default');
@@ -113,7 +117,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
       <article data-pagefind-body class="xl:flex-1 xl:min-w-0 xl:max-w-4xl">
         <Breadcrumbs title={title} />
         <header class="mb-10">
-          <h1 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100">{title}</h1>
+          <h1 class="text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100" style={`view-transition-name: ${titleTransitionName}`}>{title}</h1>
           
           {readingTime >= 1 && (
             <div class="text-sm text-gray-600 dark:text-gray-300 mt-2 mb-6" data-pagefind-ignore>
