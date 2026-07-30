@@ -110,12 +110,17 @@ const { readingTime = 0 } = Astro.props;
     outline-offset: 2px;
   }
 
+  /* width:max-content so each face measures to its natural content width
+   * (the controller reads offsetWidth to resize the pill). Left-anchored and
+   * full-height so all faces overlay in the same spot; the active one shows. */
   .reading-island-face {
     position: absolute;
-    inset: 0;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: max-content;
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 0.4rem;
     padding: 0 0.9rem;
     white-space: nowrap;

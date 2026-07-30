@@ -24,6 +24,7 @@ import TableOfContents from '../components/TableOfContents.astro';
 import TableOfContentsSidebar from '../components/TableOfContentsSidebar.astro';
 import ReadingList from '../components/ReadingList.astro';
 import ReadingProgress from '../components/ReadingProgress.astro';
+import ReadingIsland from '../components/ReadingIsland.astro';
 import KeepReading from '../components/KeepReading.astro';
 import DiscussLinks from '../components/DiscussLinks.astro';
 import SubscribeCta from '../components/SubscribeCta.astro';
@@ -145,7 +146,8 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
 
         <ReadingList posts={curatedPosts} roles={curatedRoles} />
 
-        <ReadingProgress readingTime={readingTime} />
+        <ReadingProgress />
+        <ReadingIsland readingTime={readingTime} />
 
         {!hideBookCta && <BookCta relation={bookRelation} />}
 
