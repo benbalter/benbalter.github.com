@@ -182,10 +182,12 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
           { name: 'author', content: author },
           // Keywords
           ...(keywords.length > 0 ? [{ name: 'keywords', content: keywords.join(', ') }] : []),
-          // Color Scheme and Theme
+          // Color Scheme and Theme. Match the browser chrome to the page
+          // background: white in light mode, gray-900 in dark mode. (These were
+          // previously inverted — dark chrome behind the light page.)
           { name: 'color-scheme', content: 'light dark' },
-          { name: 'theme-color', content: '#111111', media: '(prefers-color-scheme: light)' },
-          { name: 'theme-color', content: '#eeeeee', media: '(prefers-color-scheme: dark)' },
+          { name: 'theme-color', content: '#ffffff', media: '(prefers-color-scheme: light)' },
+          { name: 'theme-color', content: '#111827', media: '(prefers-color-scheme: dark)' },
         ],
         link: [
           // Favicons

@@ -272,6 +272,10 @@ export default defineConfig({
       overrides: {
         // Twitter rebranded; site uses twitter:card tags which are still valid
         'seo/twitter-card': false,
+        // Descriptions are intentionally allowed to run long — only the first
+        // ~150 chars are optimized for SERP (see CLAUDE.md / script/validate-seo.ts).
+        // The >160 warning is a false positive for this site's policy.
+        'seo/description-length': false,
       },
     }),
     // Render the print-only /resume/print page to a downloadable /resume.pdf.
