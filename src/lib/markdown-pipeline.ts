@@ -32,7 +32,6 @@ import { rehypeAcronyms } from './rehype-acronyms';
 
 // Typography plugins for remark-textr
 import typographicArrows from 'typographic-arrows';
-import typographicCopyright from 'typographic-copyright';
 import typographicEmDashes from 'typographic-em-dashes';
 import typographicEnDashes from 'typographic-en-dashes';
 import typographicMathSymbols from 'typographic-math-symbols';
@@ -67,7 +66,9 @@ export const remarkTextrConfig = [remarkTextr, {
   },
   plugins: [
     typographicArrows,
-    typographicCopyright,
+    // typographic-copyright intentionally omitted: it rewrites "(c)"/"(C)" to
+    // "©", which mangles lettered lists ("(A) (B) (C) (D)") and legal citations
+    // ("§3544(a)(2)(C)"). Ben types © directly where a copyright symbol is meant.
     typographicEmDashes,
     typographicEnDashes,
     typographicMathSymbols,

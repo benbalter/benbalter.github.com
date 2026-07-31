@@ -163,7 +163,7 @@ Congress has imposed on federal executive agencies an onerous system to ensure i
 
 [^20]: *See generally* 12–3 Briefing Papers 1, 12–3 Briefing Papers 1, 11–12.
 
-[^21]: 44 U.S.C.A. 3544(a)(2)©; see also 44 U.S.C.A. 3544(b)(2)(B). NIST Special Publication 800–53A, Rev. 1, Guide for Assessing the Security Controls in Federal Information Systems and Organizations 3, 1.1 (June 2010) (Organizations have the inherent flexibility to determine the level of effort needed for a particular assessment This determination is made on the basis of what will accomplish the assessment objectives in the most cost-effective manner and with sufficient confidence to support the subsequent determination of the resulting mission or business risk.), available at <http://1.usa.gov/aDXfog>.
+[^21]: 44 U.S.C.A. 3544(a)(2)(C); see also 44 U.S.C.A. 3544(b)(2)(B). NIST Special Publication 800–53A, Rev. 1, Guide for Assessing the Security Controls in Federal Information Systems and Organizations 3, 1.1 (June 2010) (Organizations have the inherent flexibility to determine the level of effort needed for a particular assessment This determination is made on the basis of what will accomplish the assessment objectives in the most cost-effective manner and with sufficient confidence to support the subsequent determination of the resulting mission or business risk.), available at <http://1.usa.gov/aDXfog>.
 
 [^22]: 5 U.S.C.A 552a.
 

@@ -31,7 +31,7 @@ Put simply, it's about what role we are going to play, not what rights we are go
 
 [^4]: Unless you're looking at the [vibrant open source cold fusion community](https://github.com/trending?l=cfm).
 
-[^5]: FAR 52.227–14©(1)(i). Even if the contracting officer grants such rights, they do not take effect unless the contractor includes a copyright notice at the time of delivery, acknowledging the government's sponsorship and indicating the contract number under which it was procured. See FAR 27.404(a)(5).
+[^5]: FAR 52.227–14(c)(1)(i). Even if the contracting officer grants such rights, they do not take effect unless the contractor includes a copyright notice at the time of delivery, acknowledging the government's sponsorship and indicating the contract number under which it was procured. See FAR 27.404(a)(5).
 
 [^6]: General counsels across government already have enough ammunition to stymy progress.
 
