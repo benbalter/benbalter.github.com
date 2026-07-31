@@ -16,9 +16,10 @@ import { siteConfig } from '../../config';
 export const GET: APIRoute = async () => {
   // Lead with the value proposition, not the name — the footer lockup already
   // brands "Ben Balter" + the domain, so a name headline would just repeat it.
+  // A subtitle keeps the card from reading as an empty/unfinished template.
   const png = await generateOGImagePNG({
     title: siteConfig.description,
-    description: '',
+    description: 'Practical, opinionated writing for people who build software and lead teams.',
   });
 
   return new Response(new Uint8Array(png), {

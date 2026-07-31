@@ -227,9 +227,10 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
           height: '100%',
           fontFamily: config.title.fontFamily,
           position: 'relative',
-          // Subtle inset border so the dark card defines its own edges against a
-          // dark-mode feed (LinkedIn/X dark) instead of melting into the chrome.
-          border: '1px solid rgba(148, 163, 184, 0.22)',
+          // Inset border so the dark card keeps its edges in a dark-mode feed
+          // (LinkedIn/X dark) instead of melting into the chrome. Bright enough
+          // to actually register at thumbnail size.
+          border: '1px solid rgba(148, 163, 184, 0.4)',
           // Gradient background
           background: config.background.gradientFrom
             ? `linear-gradient(135deg, ${config.background.gradientFrom} 0%, ${config.background.gradientTo || config.background.color} 100%)`
