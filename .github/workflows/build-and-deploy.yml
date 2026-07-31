@@ -61,6 +61,18 @@ jobs:
           restore-keys: |
             astro-cache-${{ runner.os }}-${{ hashFiles('src/lib/**', 'astro.config.mjs', 'src/content.config.ts', 'package-lock.json') }}-
 
+      # Persist generated OG cards across deploys. The key's hash segment busts
+      # the cache when the OG generator/config/motif/fonts change (fresh cards);
+      # the run-id suffix + restore-keys prefix let content-only edits reuse the
+      # cache so only new/changed posts regenerate.
+      - name: Cache OG images
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v5
+        with:
+          path: .cache/og-cache
+          key: og-cache-${{ runner.os }}-${{ hashFiles('src/lib/og-image-generator.ts', 'src/lib/og-config.ts', 'src/lib/book-cta.ts', 'assets/fonts/**') }}-${{ github.sha }}
+          restore-keys: |
+            og-cache-${{ runner.os }}-${{ hashFiles('src/lib/og-image-generator.ts', 'src/lib/og-config.ts', 'src/lib/book-cta.ts', 'assets/fonts/**') }}-
+
       - name: Build Astro site
         run: npm run build
 
