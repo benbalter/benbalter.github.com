@@ -14,9 +14,11 @@ import { generateOGImagePNG } from '../../lib/og-image-generator';
 import { siteConfig } from '../../config';
 
 export const GET: APIRoute = async () => {
+  // Lead with the value proposition, not the name — the footer lockup already
+  // brands "Ben Balter" + the domain, so a name headline would just repeat it.
   const png = await generateOGImagePNG({
-    title: siteConfig.name,
-    description: siteConfig.description,
+    title: siteConfig.description,
+    description: '',
   });
 
   return new Response(new Uint8Array(png), {

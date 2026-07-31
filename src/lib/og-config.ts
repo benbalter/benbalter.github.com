@@ -137,7 +137,7 @@ export const defaultOGConfig: OGImageConfig = {
   description: {
     fontFamily: 'Inter',
     fontSize: 26,
-    color: '#94A3B8',  // slate-400 (readable on dark)
+    color: '#CBD5E1',  // slate-300 — bright enough to stay legible at thumbnail size
     lineHeight: 1.5,
   },
 

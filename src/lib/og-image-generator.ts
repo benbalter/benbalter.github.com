@@ -16,7 +16,7 @@ import { createHash } from 'node:crypto';
 import { defaultOGConfig, validateDimensions, type OGImageConfig } from './og-config';
 
 // Cache version — bump this to invalidate all cached OG images
-const OG_CACHE_VERSION = '3';
+const OG_CACHE_VERSION = '4';
 const OG_CACHE_DIR = join(process.cwd(), 'node_modules', '.astro', 'og-cache');
 
 interface OGImageOptions {
@@ -222,7 +222,9 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
                 flex: 1,
                 paddingTop: config.padding,
                 paddingRight: config.padding,
-                paddingBottom: config.padding,
+                // Extra bottom room keeps the author lockup clear of aggressive
+                // feed crops (e.g. X's smaller card).
+                paddingBottom: config.padding + 24,
                 paddingLeft: contentPaddingLeft,
               },
               children: [
