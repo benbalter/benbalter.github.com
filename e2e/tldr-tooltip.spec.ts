@@ -153,10 +153,14 @@ test.describe('TLDR Tooltip', () => {
       await expect(tldrElement).toHaveAttribute('data-tooltip', 'true');
       await expect(tldrElement).toHaveAttribute('data-tooltip-text');
       
-      // Check ARIA and accessibility attributes
-      await expect(tldrElement).toHaveAttribute('role', 'button');
-      await expect(tldrElement).toHaveAttribute('aria-expanded', 'false');
+      // WAI-ARIA tooltip pattern: an abbreviation with a description, not a
+      // button. It's focusable (tabindex) and carries a native title, but has
+      // no role/aria-expanded — the tooltip is associated via aria-describedby
+      // only while shown (see the keyboard tests below).
       await expect(tldrElement).toHaveAttribute('tabindex', '0');
+      await expect(tldrElement).toHaveAttribute('title');
+      expect(await tldrElement.getAttribute('role')).toBeNull();
+      expect(await tldrElement.getAttribute('aria-expanded')).toBeNull();
     }
   });
 
@@ -170,24 +174,21 @@ test.describe('TLDR Tooltip', () => {
       const tldrElement = page.locator('.tldr-content strong abbr.initialism');
       await expect(tldrElement).toBeVisible();
 
-      // Focus the element
+      // Focusing the element reveals the tooltip (tooltip pattern shows on
+      // hover AND keyboard focus).
       await tldrElement.focus();
 
-      // Press Enter to show tooltip
-      await page.keyboard.press('Enter');
-
-      // Check tooltip is visible and has proper ARIA
+      // Check tooltip is visible and the description is associated via ARIA.
       const tooltip = page.locator('.custom-tooltip[role="tooltip"]');
       await expect(tooltip).toBeVisible({ timeout: 1000 });
-      await expect(tldrElement).toHaveAttribute('aria-expanded', 'true');
       await expect(tldrElement).toHaveAttribute('aria-describedby');
 
       // Press Escape to hide tooltip
       await page.keyboard.press('Escape');
 
-      // Tooltip should be gone
+      // Tooltip should be gone and the association cleared
       await expect(tooltip).not.toBeAttached({ timeout: 1000 });
-      await expect(tldrElement).toHaveAttribute('aria-expanded', 'false');
+      expect(await tldrElement.getAttribute('aria-describedby')).toBeNull();
     }
   });
 
@@ -201,23 +202,20 @@ test.describe('TLDR Tooltip', () => {
       const tldrElement = page.locator('.tldr-content strong abbr.initialism');
       await expect(tldrElement).toBeVisible();
 
-      // Focus the element
+      // Focusing reveals the tooltip; Space then toggles it.
       await tldrElement.focus();
-
-      // Press Space to show tooltip
-      await page.keyboard.press('Space');
-
-      // Check tooltip is visible
       const tooltip = page.locator('.custom-tooltip[role="tooltip"]');
       await expect(tooltip).toBeVisible({ timeout: 1000 });
-      await expect(tldrElement).toHaveAttribute('aria-expanded', 'true');
 
-      // Press Space again to hide tooltip
+      // Press Space to toggle the tooltip off
       await page.keyboard.press('Space');
-
-      // Tooltip should be gone
       await expect(tooltip).not.toBeAttached({ timeout: 1000 });
-      await expect(tldrElement).toHaveAttribute('aria-expanded', 'false');
+      expect(await tldrElement.getAttribute('aria-describedby')).toBeNull();
+
+      // Press Space again to toggle it back on
+      await page.keyboard.press('Space');
+      await expect(page.locator('.custom-tooltip[role="tooltip"]')).toBeVisible({ timeout: 1000 });
+      await expect(tldrElement).toHaveAttribute('aria-describedby');
     }
   });
 
