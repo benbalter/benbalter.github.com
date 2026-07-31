@@ -9,24 +9,10 @@
 
 import { Image } from 'astro:assets';
 import { siteConfig } from '../config';
+import { bookTitleHtml, commitGraphPaths } from '../lib/book-cta';
 import coverImage from '../../assets/img/open-and-async-cover.webp';
 
-// Reuse the marketing site's gradient-ampersand treatment for the title.
-const bookTitleHtml = siteConfig.bookTitle.replace(
-  /\s*&\s*/g,
-  '<span class="oa-amp mx-1">&amp;</span>',
-);
-
-// Commit-graph motif (matches BookCta): faint branch graph along the bottom.
-const commitGraphPaths = `
-  <path d="M0 30 H 1200" stroke="var(--color-accent-400)" stroke-width="2.5"/>
-  <path d="M340 30 C 420 30, 440 12, 520 12 S 680 30, 760 30" stroke="var(--color-pink-400)" stroke-width="2"/>
-  <path d="M620 30 C 700 30, 720 48, 800 48 S 940 36, 1000 30" stroke="var(--color-accent-400)" stroke-width="2"/>
-  <circle cx="240" cy="30" r="6" fill="var(--color-accent-400)"/>
-  <circle cx="520" cy="12" r="5" fill="var(--color-pink-400)"/>
-  <circle cx="800" cy="48" r="5" fill="var(--color-accent-400)"/>
-  <circle cx="1000" cy="30" r="8" fill="none" stroke="var(--color-accent-400)" stroke-width="2.5"/>
-`;
+// bookTitleHtml + commitGraphPaths shared with BookCta (see lib/book-cta).
 ---
 
 <div class="book-launch-cta not-prose my-12 motion-safe:animate-fade-up">
