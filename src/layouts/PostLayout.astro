@@ -14,6 +14,7 @@ import Icon from '../components/Icon.astro';
 import { siteConfig } from '../config';
 import { calculateReadingTime, calculateWordCount } from '../utils/reading-time';
 import { generateBlogPostingSchema, schemaToJsonLd } from '../utils/structured-data';
+import { ogImagePath } from '../utils/og-image-path';
 import { formatPostDate } from '../utils/post-urls';
 import { viewTransitionName } from '../utils/view-transition-name';
 import { getDocumentUri } from '../utils/standard-site';
@@ -83,6 +84,11 @@ const postFileName = postFilePath ? postFilePath.split('/').pop() : `${postId}.m
 // morphs its title into this headline (cross-document View Transitions).
 const titleTransitionName = viewTransitionName(Astro.url.pathname);
 
+// Social image: an explicit frontmatter `image` wins; otherwise fall back to the
+// per-post OG card generated at /og/YYYY/MM/DD/slug.png. Without this, posts with
+// no frontmatter image (nearly all of them) advertise the generic /og/default.png.
+const socialImage = image ?? (ogImagePath(postId) ?? undefined);
+
 // Calculate reading time using improved utility
 const content = await Astro.slots.render('default');
 const readingTime = calculateReadingTime(content);
@@ -95,7 +101,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   url: new URL(Astro.url.pathname, siteConfig.url).toString(),
   publishedTime: pubDate,
   modifiedTime: updatedDate,
-  image,
+  image: socialImage,
   author,
   wordCount,
 }) : null;
@@ -107,7 +113,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
   type="article"
   publishedTime={pubDate}
   modifiedTime={updatedDate}
-  image={image}
+  image={socialImage}
   author={author}
   robots={robots}
   standardSiteDocumentUri={standardSiteDocumentUri}
@@ -218,14 +224,30 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
 </script>
 
 <script>
-  import mediumZoom from 'medium-zoom';
+  // Lazy-load medium-zoom so it isn't in the initial post bundle. Most readers
+  // never zoom an image; import + initialize only on the first hint they might
+  // (hover, touch, or keyboard focus on a zoomable image), which fires before
+  // the click that opens the zoom. Excludes emoji images and icons.
+  const ZOOM_SELECTOR = '.post-content img:not([role="img"]):not(.icon)';
+  let zoomLoaded = false;
 
-  // Apply medium-zoom to all images in post content
-  // Excludes emoji images and icons for a clean zoom experience
-  mediumZoom('.post-content img:not([role="img"]):not(.icon)', {
-    margin: 24,
-    background: 'rgba(0, 0, 0, 0.85)',
-  });
+  const loadZoom = () => {
+    if (zoomLoaded) return;
+    zoomLoaded = true;
+    import('medium-zoom').then(({ default: mediumZoom }) => {
+      mediumZoom(ZOOM_SELECTOR, { margin: 24, background: 'rgba(0, 0, 0, 0.85)' });
+    });
+  };
+
+  const onZoomIntent = (event: Event) => {
+    const target = event.target as HTMLElement | null;
+    if (target?.matches?.(ZOOM_SELECTOR)) loadZoom();
+  };
+
+  // pointerover/focusin bubble to document; touchstart covers tap.
+  for (const evt of ['pointerover', 'touchstart', 'focusin']) {
+    document.addEventListener(evt, onZoomIntent, { capture: true, passive: true });
+  }
 </script>
 
 <style>
