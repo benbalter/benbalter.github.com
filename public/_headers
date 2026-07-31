@@ -9,7 +9,7 @@
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), browsing-topics=(), interest-cohort=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   Cross-Origin-Opener-Policy: same-origin
   Cross-Origin-Resource-Policy: same-origin
@@ -30,6 +30,9 @@
 /og/*
   Cross-Origin-Resource-Policy: cross-origin
   Access-Control-Allow-Origin: *
+  # Cards change only on retitle; Cloudflare purges the CDN on deploy, so a
+  # longer browser cache with background revalidation is safe.
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
 # RSS/Atom feeds - 1 hour cache with background revalidation
 /feed.xml
