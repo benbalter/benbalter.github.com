@@ -25,9 +25,11 @@
   Cache-Control: public, max-age=31536000, immutable
 
 # Open Graph / social card images are meant to be embedded cross-origin (social
-# platforms, previews, other sites), so override the site-wide CORP:same-origin.
+# platforms, previews, other sites), so override the site-wide CORP:same-origin
+# and allow cross-origin fetches (e.g. fetch()/canvas from other origins).
 /og/*
   Cross-Origin-Resource-Policy: cross-origin
+  Access-Control-Allow-Origin: *
 
 # RSS/Atom feeds - 1 hour cache with background revalidation
 /feed.xml
