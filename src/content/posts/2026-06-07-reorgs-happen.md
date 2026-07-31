@@ -21,7 +21,9 @@ A reorg is just an organization updating its structure to match its current unde
 
 ## Why they feel so disruptive
 
-If reorgs are so routine, why do they hurt? Because the costs are real and they're personal: you lose context, you lose working relationships you spent months building, and you have to renegotiate trust with a new manager who has no idea what you shipped last quarter. Add uncertainty about priorities—is my project still funded? is my role still valued?—and it's no wonder a Monday-morning announcement can derail a whole week.
+:::objection[If reorgs are so routine, why do they hurt?]
+Because the costs are real and they're personal: you lose context, you lose working relationships you spent months building, and you have to renegotiate trust with a new manager who has no idea what you shipped last quarter. Add uncertainty about priorities—is my project still funded? is my role still valued?—and it's no wonder a Monday-morning announcement can derail a whole week.
+:::
 
 The disruption is real. But it's also *predictable*, and predictable disruption is something you can design for.
 

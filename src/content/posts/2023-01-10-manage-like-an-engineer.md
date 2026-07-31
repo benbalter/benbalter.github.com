@@ -43,6 +43,10 @@ Managing like an engineer means a manager's go-to tools for planning, tracking, 
 - **Markdown files** - Markdown files are the primary means by which long-lived information is memorialized. Markdown files are created and modified via pull requests.
 - **Pull requests** - Pull requests are the primary means by which proposals are reviewed and decisions are made.
 
+:::objection[Isn't GitHub built for engineers? Won't non-technical managers feel lost?]
+No. Everything above—issues, boards, Markdown, pull requests—works through the web interface, no terminal or code required. Plenty of [non-technical roles work in GitHub every day](/2023/03/02/github-for-non-technical-roles/). The tools aren't the hard part; the culture shift is.
+:::
+
 ### Planning and tracking
 
 Issues and project boards create a networked hierarchy of tracking issues that bring visibility to work. This is true both of department-wide goals and initiatives, as well as all the management "meta work" that supports them.
