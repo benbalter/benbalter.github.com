@@ -16,7 +16,7 @@ import { createHash } from 'node:crypto';
 import { defaultOGConfig, validateDimensions, type OGImageConfig } from './og-config';
 
 // Cache version — bump this to invalidate all cached OG images
-const OG_CACHE_VERSION = '2';
+const OG_CACHE_VERSION = '3';
 const OG_CACHE_DIR = join(process.cwd(), 'node_modules', '.astro', 'og-cache');
 
 interface OGImageOptions {
@@ -33,9 +33,6 @@ const headshotCache: Map<string, string> = new Map();
 
 // Allowed asset directories for security
 const ALLOWED_ASSET_DIRS = ['assets'];
-
-// Layout constants for spacing calculations
-const LOGO_TITLE_GAP = 40; // Gap between title text and logo
 
 /**
  * Load the Inter fonts for text rendering
@@ -146,8 +143,24 @@ export function truncateDescription(text: string, maxLength: number = 300): stri
 }
 
 /**
- * Generate an OG image SVG using Satori
- * Modern design with gradient background, accent bar, and clean typography
+ * Pick a title font size that fills the frame for short headlines and scales
+ * down for long ones so they still fit two-to-three lines on the 1200×630 card.
+ * At feed-thumbnail size the headline is the only element doing engagement work,
+ * so short titles get hero-sized type.
+ */
+export function titleFontSize(length: number): number {
+  if (length <= 25) return 76;
+  if (length <= 45) return 64;
+  if (length <= 70) return 56;
+  if (length <= 100) return 48;
+  return 42;
+}
+
+/**
+ * Generate an OG image SVG using Satori.
+ * Dark, engagement-first card: a vertically centered headline hero over a deep
+ * navy field, the description directly beneath, and an author lockup (headshot +
+ * name + domain) anchored in the footer.
  */
 export async function generateOGImageSVG(options: OGImageOptions): Promise<string> {
   const config = { ...defaultOGConfig, ...options.config };
@@ -158,10 +171,12 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
     loadHeadshot(config),
   ]);
   
-  // Calculate available width for title (excluding logo area and accent)
-  const contentPaddingLeft = config.padding + config.accent.width + 20; // Extra space after accent
-  const titleMaxWidth = config.width - contentPaddingLeft - config.padding - config.logo.size - LOGO_TITLE_GAP;
-  
+  // Full content width — the headline now owns the frame (headshot moved to the
+  // footer), so it's no longer competing with the avatar for the top-right.
+  const contentPaddingLeft = config.padding + config.accent.width + 24;
+  const contentWidth = config.width - contentPaddingLeft - config.padding;
+  const fontSize = titleFontSize(options.title.length);
+
   // Truncate and clean description
   const cleanDescription = truncateDescription(options.description);
   
@@ -197,14 +212,13 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
               },
             },
           },
-          // Main content area
+          // Main content: centered headline hero + footer author lockup
           {
             type: 'div',
             props: {
               style: {
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between',
                 flex: 1,
                 paddingTop: config.padding,
                 paddingRight: config.padding,
@@ -212,75 +226,35 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
                 paddingLeft: contentPaddingLeft,
               },
               children: [
-                // Top section: Title and Logo
-                {
-                  type: 'div',
-                  props: {
-                    style: {
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'flex-start',
-                    },
-                    children: [
-                      // Title on the left
-                      {
-                        type: 'div',
-                        props: {
-                          style: {
-                            display: 'flex',
-                            fontSize: config.title.fontSize,
-                            fontWeight: 700,
-                            color: config.title.color,
-                            lineHeight: config.title.lineHeight,
-                            maxWidth: titleMaxWidth,
-                            wordBreak: 'break-word',
-                            letterSpacing: '-0.02em',
-                          },
-                          children: options.title,
-                        },
-                      },
-                      // Logo/headshot with circular border
-                      {
-                        type: 'div',
-                        props: {
-                          style: {
-                            display: 'flex',
-                            flexShrink: 0,
-                            borderRadius: config.logo.borderRadius,
-                            border: `${config.logo.borderWidth}px solid ${config.logo.borderColor}`,
-                            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-                            overflow: 'hidden',
-                          },
-                          children: [
-                            {
-                              type: 'img',
-                              props: {
-                                src: headshotDataUri,
-                                width: config.logo.size,
-                                height: config.logo.size,
-                                style: {
-                                  borderRadius: Math.max(0, config.logo.borderRadius - config.logo.borderWidth),
-                                  objectFit: 'cover',
-                                },
-                              },
-                            },
-                          ],
-                        },
-                      },
-                    ],
-                  },
-                },
-                // Bottom section: Description and Domain
+                // Hero: title + description, vertically centered in the frame
                 {
                   type: 'div',
                   props: {
                     style: {
                       display: 'flex',
                       flexDirection: 'column',
-                      gap: 16,
+                      flex: 1,
+                      justifyContent: 'center',
                     },
                     children: [
-                      // Description
+                      // Title (dynamically sized to fill the frame)
+                      {
+                        type: 'div',
+                        props: {
+                          style: {
+                            display: 'flex',
+                            fontSize,
+                            fontWeight: 700,
+                            color: config.title.color,
+                            lineHeight: config.title.lineHeight,
+                            maxWidth: contentWidth,
+                            wordBreak: 'break-word',
+                            letterSpacing: '-0.02em',
+                          },
+                          children: options.title,
+                        },
+                      },
+                      // Description directly beneath the title
                       {
                         type: 'div',
                         props: {
@@ -290,23 +264,84 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
                             fontWeight: 400,
                             color: config.description.color,
                             lineHeight: config.description.lineHeight,
-                            maxWidth: config.width - contentPaddingLeft - config.padding - 40,
+                            maxWidth: contentWidth,
+                            marginTop: 24,
                           },
                           children: cleanDescription,
                         },
                       },
-                      // Domain
+                    ],
+                  },
+                },
+                // Footer: headshot + name + domain lockup (the signature)
+                {
+                  type: 'div',
+                  props: {
+                    style: {
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 18,
+                    },
+                    children: [
+                      // Headshot with brand-accent ring
                       {
                         type: 'div',
                         props: {
                           style: {
                             display: 'flex',
-                            fontSize: config.domain.fontSize,
-                            fontWeight: 600,
-                            color: config.domain.color,
-                            letterSpacing: '0.01em',
+                            flexShrink: 0,
+                            borderRadius: 32,
+                            border: `3px solid ${config.accent.color}`,
+                            overflow: 'hidden',
                           },
-                          children: config.domain.text,
+                          children: [
+                            {
+                              type: 'img',
+                              props: {
+                                src: headshotDataUri,
+                                width: 60,
+                                height: 60,
+                                style: { borderRadius: 29, objectFit: 'cover' },
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      // Name over domain
+                      {
+                        type: 'div',
+                        props: {
+                          style: {
+                            display: 'flex',
+                            flexDirection: 'column',
+                          },
+                          children: [
+                            {
+                              type: 'div',
+                              props: {
+                                style: {
+                                  display: 'flex',
+                                  fontSize: 26,
+                                  fontWeight: 700,
+                                  color: config.title.color,
+                                },
+                                children: 'Ben Balter',
+                              },
+                            },
+                            {
+                              type: 'div',
+                              props: {
+                                style: {
+                                  display: 'flex',
+                                  fontSize: config.domain.fontSize,
+                                  fontWeight: 600,
+                                  color: config.domain.color,
+                                  letterSpacing: '0.01em',
+                                },
+                                children: config.domain.text,
+                              },
+                            },
+                          ],
                         },
                       },
                     ],
@@ -425,7 +460,7 @@ export async function generateOGImagePNG(options: OGImageOptions): Promise<Buffe
 /* -------------------------------------------------------------------------- */
 
 // Bump to invalidate cached quote images independently of post images.
-const QUOTE_OG_CACHE_VERSION = '1';
+const QUOTE_OG_CACHE_VERSION = '2';
 
 export interface QuoteOGOptions {
   /** The quote text (verbatim, no surrounding quotation marks). */

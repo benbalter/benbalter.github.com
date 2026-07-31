@@ -117,38 +117,40 @@ export const defaultOGConfig: OGImageConfig = {
   width: 1200,
   height: 630,
   
-  // Subtle gradient background (light gray to white)
+  // Dark navy gradient — reads premium in both light and dark feeds, defines
+  // its own edges against the platform chrome, and makes the accent/headline pop.
   background: {
-    color: '#FFFFFF',
-    gradientFrom: '#f8f9fa',  // Light gray (Bootstrap gray-100)
-    gradientTo: '#FFFFFF',
+    color: '#0b1220',
+    gradientFrom: '#13233b',  // Deep navy
+    gradientTo: '#0a121f',    // Near-black navy
   },
-  
-  // Title styling - larger and bolder for impact
+
+  // Title styling - white hero text (generator scales the size to title length)
   title: {
     fontFamily: 'Inter',
-    fontSize: 52,
-    color: '#212529',  // Dark gray (Bootstrap gray-900)
-    lineHeight: 1.2,
+    fontSize: 56,
+    color: '#F8FAFC',  // slate-50
+    lineHeight: 1.15,
   },
-  
+
   // Description styling
   description: {
     fontFamily: 'Inter',
-    fontSize: 24,
-    color: '#6c757d',  // Medium gray (Bootstrap gray-600)
+    fontSize: 26,
+    color: '#94A3B8',  // slate-400 (readable on dark)
     lineHeight: 1.5,
   },
-  
-  // Left accent bar with primary brand color
+
+  // Left accent bar — thickened so it's visible at thumbnail size, brightened
+  // so it pops on the dark field.
   accent: {
-    width: 8,
-    color: '#337ab7',  // Primary blue
-    gradientFrom: '#337ab7',
-    gradientTo: '#2a6493',  // Primary-600
+    width: 14,
+    color: '#4A9EE0',  // Brighter brand blue
+    gradientFrom: '#4A9EE0',
+    gradientTo: '#337ab7',  // Primary blue
   },
-  
-  // Logo/headshot with modern rounded style
+
+  // Logo/headshot with modern rounded style (footer lockup shrinks this)
   logo: {
     path: './assets/img/headshot.jpg',
     size: 140,
@@ -156,12 +158,12 @@ export const defaultOGConfig: OGImageConfig = {
     borderWidth: 4,
     borderColor: '#FFFFFF',
   },
-  
+
   // Domain attribution
   domain: {
     text: 'ben.balter.com',
-    fontSize: 20,
-    color: '#337ab7',  // Primary blue for brand recognition
+    fontSize: 22,
+    color: '#5AA8E8',  // Bright blue for contrast on dark
   },
   
   // Comfortable padding
