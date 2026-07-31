@@ -28,6 +28,7 @@ import { rehypeImageLoading } from './rehype-image-loading';
 import { rehypeImageDimensions } from './rehype-image-dimensions';
 import { rehypeFigure } from './rehype-figure';
 import { rehypeFootnoteA11y } from './rehype-footnote-a11y';
+import { rehypeAcronyms } from './rehype-acronyms';
 
 // Typography plugins for remark-textr
 import typographicArrows from 'typographic-arrows';
@@ -107,6 +108,9 @@ export const sharedRehypePlugins = [
   rehypeImageLoading,
   rehypeImageDimensions,
   rehypeExternalLinksConfig,
+  // Wrap first occurrence of listed acronyms in a tooltip <abbr>. Runs last so
+  // links (rehypeExternalLinks) and other elements it must skip already exist.
+  rehypeAcronyms,
 ];
 
 // Shared Shiki configuration for syntax highlighting

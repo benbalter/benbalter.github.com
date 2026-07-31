@@ -1,0 +1,88 @@
+# Central acronym glossary
+#
+# Any acronym listed here gets a hover tooltip the FIRST time it appears in a
+# post or page (see src/lib/rehype-acronyms.ts). Matching is case-sensitive and
+# exact — "OKR" matches "OKR"/"OKRs" but not "okr" — so short, ambiguous entries
+# are safe to add. Curate freely: add a term here and it lights up everywhere.
+#
+# Scope: define genuine jargon — process/role/security/AI terms a reader might
+# not know or benefit from seeing spelled out. Deliberately NOT included are
+# acronyms this audience (engineers, EMs, technical folks) can be assumed to
+# know: computer/web literacy (URL, HTML, HTTP(S), CSS, API, SDK, CLI, PDF, CSV),
+# general business/org (CEO, VP, HR), and ubiquitous shorthand (AI, MVP, DM, IRL,
+# WFH, EOD, 2FA). Spelling those out is noise, not help.
+#
+# Fields:
+#   acronym  (required)  The exact, case-sensitive string to match.
+#   meaning  (required)  What it stands for (the plain expansion).
+#   tooltip  (optional)  What's shown on hover. Use it to add a brief gloss of
+#                        what the thing IS where the expansion alone doesn't say
+#                        (e.g. CI). Omit where the expansion is self-explanatory
+#                        (e.g. TPM); the tooltip then falls back to `meaning`.
+
+# Product, planning & process
+- acronym: OKR
+  meaning: Objectives and Key Results
+  tooltip: Objectives and Key Results—a goal-setting framework pairing goals with measurable outcomes
+- acronym: KPI
+  meaning: Key Performance Indicator
+  tooltip: Key Performance Indicator—a metric that tracks progress toward a goal
+- acronym: RFC
+  meaning: Request for Comments
+  tooltip: Request for Comments—a written proposal circulated for feedback before a decision
+- acronym: ADR
+  meaning: Architecture Decision Record
+  tooltip: Architecture Decision Record—a short doc capturing a technical decision and why
+- acronym: SLA
+  meaning: Service-Level Agreement
+  tooltip: Service-Level Agreement—a commitment to a measurable level of service, like uptime
+- acronym: DRI
+  meaning: Directly Responsible Individual
+  tooltip: Directly Responsible Individual—the single person accountable for something
+- acronym: WIP
+  meaning: Work in progress
+
+# Roles
+- acronym: IC
+  meaning: Individual Contributor
+  tooltip: Individual Contributor—someone who does the work rather than managing people
+- acronym: TPM
+  meaning: Technical Program Manager
+- acronym: SRE
+  meaning: Site Reliability Engineer
+
+# Engineering & workflow
+- acronym: PR
+  meaning: Pull request
+  tooltip: Pull request—a proposed set of code changes submitted for review
+- acronym: CI
+  meaning: Continuous Integration
+  tooltip: Continuous Integration—automatically building and testing every change
+- acronym: CD
+  meaning: Continuous Delivery
+  tooltip: Continuous Delivery—automatically shipping every change that passes tests
+- acronym: WYSIWYG
+  meaning: What You See Is What You Get
+
+# Security & identity
+- acronym: SSH
+  meaning: Secure Shell
+  tooltip: Secure Shell—an encrypted way to log into and control a remote machine
+- acronym: SAML
+  meaning: Security Assertion Markup Language
+  tooltip: Security Assertion Markup Language—the standard behind single sign-on (SSO)
+
+# AI
+- acronym: LLM
+  meaning: Large Language Model
+  tooltip: Large Language Model—the kind of AI that powers chatbots and coding assistants
+- acronym: MCP
+  meaning: Model Context Protocol
+  tooltip: Model Context Protocol—an open standard connecting AI models to tools and data
+
+# Other jargon
+- acronym: FUD
+  meaning: Fear, uncertainty, and doubt
+  tooltip: Fear, uncertainty, and doubt—casting doubt to discourage something instead of arguing the merits
+- acronym: PTO
+  meaning: Paid Time Off
