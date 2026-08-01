@@ -14,7 +14,7 @@ Most Jekyll sites are organized around two types of content, posts and pages.
 
 - **[Pages](http://jekyllrb.com/docs/pages/)** are documents that don't have a relationship with one another. They can live anywhere within the site's source directory and don't have a set naming pattern. If you have a personal blog, you might have an `index.html` page ([the site's main page which is used to list posts](https://ben.balter.com/)), or [an about me page](https://ben.balter.com/about/), to name two examples. Because pages aren't date specific, pages are often updated over time to maintain accuracy.
 
-The problem is, not everything you might want to publish using a Jekyll falls cleanly into the those two categories of content. As I noted in [the original pitch](https://github.com/jekyll/jekyll/issues/1941), "If people are using blog posts for a non-blog post thing, Jekyll has already failed". That's where Jekyll's [collections](http://jekyllrb.com/docs/collections/) come in.
+The problem is, not everything you might want to publish using a Jekyll falls cleanly into those two categories of content. As I noted in [the original pitch](https://github.com/jekyll/jekyll/issues/1941), "If people are using blog posts for a non-blog post thing, Jekyll has already failed". That's where Jekyll's [collections](http://jekyllrb.com/docs/collections/) come in.
 
 ## Everything that's not a post or a page can be represented as a collection
 
@@ -28,7 +28,7 @@ You wouldn't want to use posts here, because cupcakes aren't chronological, and 
 
 ## Collections in practice
 
-But what if one day you decided to expand your offerings and sell cookies in addition cupcakes. Simply introduce a "cookies" collection, adding `chocolate-chip.md` and `peanut-butter.md` to a `_cookies` directory, exposing the cookies as `site.cookies`. You'll notice the collections concept start to show its value here. Pages wouldn't make sense here, because you'd want to be able to list cupcakes and cookies separately, and besides for both being baked goods, the one cookie doesn't really share a relationship with a cupcake, at least not in the same sense that cookies share with one another.
+But what if one day you decided to expand your offerings and sell cookies in addition to cupcakes. Simply introduce a "cookies" collection, adding `chocolate-chip.md` and `peanut-butter.md` to a `_cookies` directory, exposing the cookies as `site.cookies`. You'll notice the collections concept start to show its value here. Pages wouldn't make sense here, because you'd want to be able to list cupcakes and cookies separately, and besides for both being baked goods, the one cookie doesn't really share a relationship with a cupcake, at least not in the same sense that cookies share with one another.
 
 Of course you could at this stage, choose to have a more generic collection `products`, which you could develop liquid layouts for, so that you and other developers could get the basic functionality needed to display all products, with specific includes for `cupcakes` and `cookies`.
 
@@ -100,7 +100,7 @@ I like to think the decision looks roughly like this:
 So if you're not about to open a bakery (if you do, please send cookies); what might you use collections for? In short, any discrete group of "things" that can be logically grouped by a common theme (that's not their date). Here's a few examples:
 
 - Listing employees on your company's "about" page (or a project's maintainers)
-- Documenting methods in an open source project (or the project's that use it, or the plugins available)
+- Documenting methods in an open source project (or the projects that use it, or the plugins available)
 - Organizing jobs on your résumé (or talks given, papers written)
 - [Articles on a support site](https://github.com/blog/1939-how-github-uses-github-to-document-GitHub)
 - Recipes on your personal blog (or restaurant reviews, or dishes on a menu)

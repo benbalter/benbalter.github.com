@@ -34,7 +34,7 @@ Geeks solved this problem a long time ago. It's called version control. We built
 
 So why doesn't everyone use this "version control"? Because we're trained wrong. We've got to break free of these proprietary, print-only formats. We've got to stop shuttling changes back-and-forth via email or with obscure filenames. We've got to un-program ourselves for an age of print.
 
-And here's why: *.doc files are like tiny micro-jails for our content.* Proprietary document formats tend to commingle the text we provide with the commands the software needs to recreate it, and it stores all this in a complicated and inaccessible binary format. That's what makes it proprietary. We put text in — one of the most basic things computers understand — and we get this big mess back that can only be opened by that software. Imagine if the most common way to get water was to buy a can of Coke and run in through a Brita filter. It doesn't need to be so complicated.
+And here's why: *.doc files are like tiny micro-jails for our content.* Proprietary document formats tend to commingle the text we provide with the commands the software needs to recreate it, and it stores all this in a complicated and inaccessible binary format. That's what makes it proprietary. We put text in — one of the most basic things computers understand — and we get this big mess back that can only be opened by that software. Imagine if the most common way to get water was to buy a can of Coke and run it through a Brita filter. It doesn't need to be so complicated.
 
 ## Break the habit
 
