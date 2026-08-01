@@ -25,7 +25,7 @@ Put simply, it's about what role we are going to play, not what rights we are go
 
 [^1]: I'd argue that all software, even government funded software should still be licensed under a traditional open source license, to resolve any legal ambiguity when used abroad under the terms of various international copyright treaties and agreements
 
-[^2]: Although citizen-contributions to that project would theoretically not be public domain, thus necessitating a license, which should be clarified in the project's documentation at the time of release to avoid potential issues with 21 U.S.C. § 1342.
+[^2]: Although citizen-contributions to that project would theoretically not be public domain, thus necessitating a license, which should be clarified in the project's documentation at the time of release to avoid potential issues with 31 U.S.C. § 1342.
 
 [^3]: Although again, technically speaking the project as a whole would be licensed under GPL, individual code not dependent on the parent project could be used as a US Government Work.
 
