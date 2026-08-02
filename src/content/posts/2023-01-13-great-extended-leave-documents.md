@@ -58,7 +58,7 @@ For everything you touch regularly, list your primary point of contact. This wil
 
 ### 👉 Stuff you touched recently or hope can be picked up while you're out
 
-List any projects, initiatives, or other work you've been involved in recently, and any that you hope to be able to hand off to others while you are out. I linked out to our team project board, which captured the in-flight work, and created a "@benbalter's GitHub Fan Fiction" document, with the backlog of ships that I had hoped would be GitHub cinematic universe cannon before going on leave. My fan fiction looked something like this, framed in terms of [problems and solutions](https://ben.balter.com/2018/07/16/problems-not-solutions/):
+List any projects, initiatives, or other work you've been involved in recently, and any that you hope to be able to hand off to others while you are out. I linked out to our team project board, which captured the in-flight work, and created a "@benbalter's GitHub Fan Fiction" document, with the backlog of ships that I had hoped would be GitHub cinematic universe canon before going on leave. My fan fiction looked something like this, framed in terms of [problems and solutions](https://ben.balter.com/2018/07/16/problems-not-solutions/):
 
 > **Problem**: I'm going on leave and want to ensure that the work I've been involved with recently is not lost or forgotten while I'm out.
 >

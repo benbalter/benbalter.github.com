@@ -80,14 +80,14 @@ As a bonus, you can set up n-gram data sets to improve LanguageTool's ability to
 It's a large download, but it's worth it if you have the space and are going to be using LanguageTool a lot. Here's how to set it up:
 
 1. [Download](http://languagetool.org/download/ngram-data/) the n-gram dataset(s) for your language(s) onto your local machine and unzip them into a local n-grams directory. I recommend `~/ngrams`, but you can install it anywhere. (Note: the data is language specific, so unzip the download to, e.g., `~/ngrams/en`).
-2. Edit `/opt/homebrew/etc/languagetool/server.properties`, adding `languageModel=/users/benbalter/ngrams`, replacing the path to the absolute path of where you downloaded and unzipped the n-gram data.
+2. Edit `/opt/homebrew/etc/languagetool/server.properties`, adding `languageModel=/Users/benbalter/ngrams`, replacing the path to the absolute path of where you downloaded and unzipped the n-gram data.
 3. Restart the service: `brew services restart languagetool`
 
-If you did it correctly, again, it should "just work", but if you want to confirm, you should see a message in the logs that says `INFO: Using n-gram data from /users/benbalter/ngrams` (or whatever path you used).
+If you did it correctly, again, it should "just work", but if you want to confirm, you should see a message in the logs that says `INFO: Using n-gram data from /Users/benbalter/ngrams` (or whatever path you used).
 
 ## Troubleshooting
 
-By default, LanguageTool logs live in: `/opt/homebrew/var/log/languagetool/languagetool-server.log` and Caddy logs live in: `/opt/homebrew/var/log/caddy.log`. If you want to see if LanguageTool is running, you can use `brew services list`, or try one of the `cURL` methods mentioned earlier.
+By default, LanguageTool logs live in: `/opt/homebrew/var/log/languagetool/languagetool-server.log` and Caddy logs live in: `/opt/homebrew/var/log/caddy.log`. If you want to see if LanguageTool is running, you can use `brew services list`, or try one of the `curl` methods mentioned earlier.
 
 ## Taking it a step further
 

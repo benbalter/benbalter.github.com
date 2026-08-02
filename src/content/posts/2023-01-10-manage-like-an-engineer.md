@@ -17,7 +17,7 @@ Using engineering tools like GitHub to track management tasks is *much* more tha
 > - **Empowers others to learn through observation** - What's routine to you is likely novel to someone in another role or at another level of seniority.
 > - **Socializes organizational culture and values** - An organization's culture and values are composed in large part of [the underlying assumptions](https://ben.balter.com/2015/08/12/the-zen-of-github/) that its members fall back on as they resolve ambiguity in pursuit of the organization’s mission.
 > - **Fuels engagement** - Transparency offers a sense of agency, situational awareness, and overall engagement that fosters a culture of thoughtful dialog and encourages organization-wide collaborative improvement over time.
-> - **Keeps the bar high** - Showing one's work establishes expectations around justification, thoroughness, and accountability that sets and maintains a high standard for decision making within an organization.
+> - **Keeps the bar high** - Showing one's work establishes expectations around justification, thoroughness, and accountability that set and maintain a high standard for decision making within an organization.
 
 ## What it means to manage like an engineer
 
