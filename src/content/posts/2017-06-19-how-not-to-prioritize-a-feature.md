@@ -11,7 +11,7 @@ In less formal organizations (open source projects included), the most significa
 
 Maybe the idea comes from a developer who's experienced the problem themselves. Perhaps the external issue or internal ask makes its way in front of a sympathetic engineer willing to dedicate a few cycles. Granted, there will always be no-brainers and quick wins, but in most cases, "someone is willing to do this" should not necessarily translate to "we should do this."
 
-## Sales say a lot of/a big/a potential customer is asking for it
+## Sales says a big customer is asking for it
 
 Your Sales team is one of your most robust means of getting customer feedback. If an existing or potential customer has a suggestion, it's in everyone's best interest for that idea to be communicated via the sales rep to those in a position to implement it. But it's all too easy to confuse that which you hear from an important customer with that which is most important. Sure, there may occasionally be overriding business concerns, but in general, product development and project management are neither a democracy nor a pure customer oligarchy.
 
@@ -31,7 +31,7 @@ Just because something's easy to implement doesn't mean that you necessarily sho
 
 ## Your competitor does it
 
-Any sufficiently complex choice between two pieces of software will at least partially hinge on a feature bake-off in which you create a matrix comparing the offerings of two or more alternatives. If you know this is how you will be evaluated, and it can be tempting to try to stack the deck in your favor by checking every box you can so that you objectively win on arithmetic alone.
+Any sufficiently complex choice between two pieces of software will at least partially hinge on a feature bake-off in which you create a matrix comparing the offerings of two or more alternatives. If you know this is how you will be evaluated, it can be tempting to try to stack the deck in your favor by checking every box you can so that you objectively win on arithmetic alone.
 
 Ultimately, a single feature may make or break a deal, but in the long run, if that feature's not part of your core value proposition, users are going to choose you over your competitor based on taste, vision, and direction, not on your ability to export to PDF, especially if you give them the means to build a workaround. Instead of cramming for the midterm exam, focus on what you do best overall, not on what your competitor does today.
 

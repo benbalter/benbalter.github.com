@@ -4,7 +4,7 @@ description: "What a GitHub Government Evangelist does: help agencies ship softw
 tldr: "The Government Evangelist role at GitHub is about helping government agencies to ship software better, to fold the map in half, and bring the West coast a bit closer to the East coast."
 ---
 
-Two of the most frequent questions I get, as [GitHub's Government Evangelist](https://ben.balter.com/about/) (other than "is that your real title?", of course), is "what exactly does a Government Evangelist do?", almost always followed by "wait, but why would GitHub do that?". Here's the what and why, along with why it's important to the open source community that roles like that exist, at GitHub and elsewhere:
+Two of the most frequent questions I get, as [GitHub's Government Evangelist](https://ben.balter.com/about/) (other than "is that your real title?", of course), are "what exactly does a Government Evangelist do?", almost always followed by "wait, but why would GitHub do that?". Here's the what and why, along with why it's important to the open source community that roles like that exist, at GitHub and elsewhere:
 
 ## What is a Government Evangelist
 
@@ -16,7 +16,7 @@ Use the term "open source" in government, especially around those that wear a su
 
 From the outside looking in, the government speaks a very different language and transacts business very differently than the rest of the world. What you and I might call "a site", an agency, when writing a procurement document, might call that same collection of code a "scalable, cross-platform, digital public engagement platform". Unfortunately, Google Translate hasn't yet figured out how to translate between "government" and "geek".
 
-Government agencies had been using to GitHub prior to the role's creation, but whereas a private-sector firm might simply type in their credit card number to upgrade their account to a $25 subscription, those same transactions in government require a certain level of white-glove support. Custom terms of service need to be negotiated (government employees can't simply click "sign up"), new billing mechanisms need to be developed (subscription services can violate the Anti-Deficiencies Act), and government-specific resources need to be curated (misinterpretations of government security and privacy frameworks can render open source a forbidden venture).
+Government agencies had been using GitHub prior to the role's creation, but whereas a private-sector firm might simply type in their credit card number to upgrade their account to a $25 subscription, those same transactions in government require a certain level of white-glove support. Custom terms of service need to be negotiated (government employees can't simply click "sign up"), new billing mechanisms need to be developed (subscription services can violate the Anti-Deficiencies Act), and government-specific resources need to be curated (misinterpretations of government security and privacy frameworks can render open source a forbidden venture).
 
 The government evangelist role provides agencies with someone familiar with open source who wears a suit, speaks their language, knows the unique challenges they face, and when they approach us to take that first step towards joining the open source community, we can make it easier (and more successful) for everyone involved.
 

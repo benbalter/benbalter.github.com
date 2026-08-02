@@ -59,4 +59,4 @@ And with that, you can merge confidently.
 
 Having accurate links and images is a great baseline (that sadly, as I've learned through my own continuous integration, many sites don't check), but what about checking the things you *can't* see like accessibility? In the case of §508 compliance, I wrote [Ra11y](https://github.com/benbalter/ra11y), but automated tools exist to check all sorts of things.
 
-If you regularly author content for the web, especially if it's collaborative, I'd encourage you to take a look at what developer tools and philosophies your can co-opt for your own workflows, CI or otherwise. You content deserves it.
+If you regularly author content for the web, especially if it's collaborative, I'd encourage you to take a look at what developer tools and philosophies you can co-opt for your own workflows, CI or otherwise. Your content deserves it.

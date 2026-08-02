@@ -20,7 +20,7 @@ Open source communities are no different from those offline communities. While w
 
 Traditional trust and safety jargon often relies on "malicious users", "bad actors", or other pejorative terms that label users as either "good" or "bad". Once a user has been identified as a spammer or a fraudster, they're shown the ban hammer and never heard from again.
 
-While this distinction may make sense in security or spam contexts in which the relationship between user and platform is closer to attacker and defender, it often doesn't make sense in the context of content moderation. Yes, some users will harbor genuine ill-will, but how do we distinguish repeat offenders from a user who posts a heated comment out of [hanger](https://www.humana.com/learning-center/health-and-wellbeing/healthy-living/hangry)?
+While this distinction may make sense in security or spam contexts in which the relationship between user and platform is closer to attacker and defender, it often doesn't make sense in the context of content moderation. Yes, some users will harbor genuine ill-will, but how do we distinguish repeat offenders from a user who posts a heated comment out of [hunger](https://www.humana.com/learning-center/health-and-wellbeing/healthy-living/hangry)?
 
 We originally used the tongue-in-cheek "jerkface" persona to describe all such users who posted disruptive content, until we realized that the label reduced our own empathy for such users. Instead, we shifted to focusing on *behaviors*. We started asking how we could discourage this disruptive behavior or encourage that constructive behavior and suddenly the conversation became very different. Rather than classification and privilege revocation, we started thinking in terms of friction and rehabilitation.
 
@@ -59,7 +59,7 @@ As a platform, your biggest lever is your ability to intervene in otherwise orga
 </tbody>
 </table>
 
-Most platforms begin their user safety efforts by focus on during-the-act interventions. These are things like a blocked user not being able to DM or @mention the blocking user that seek to add friction (defined as how easy or hard it is to do something) to creating potentially disruptive content.
+Most platforms begin their user safety efforts by focusing on during-the-act interventions. These are things like a blocked user not being able to DM or @mention the blocking user that seek to add friction (defined as how easy or hard it is to do something) to creating potentially disruptive content.
 
 Should that fail and a user post something disruptive, your next line of defense is to minimize the impact the content can have on others after the fact. This could be a shadow ban, down voting, requiring opt-in to view the content, or a moderator's ability to delete it entirely.
 
@@ -81,7 +81,7 @@ If through friction and product interventions we could get some disruptive users
 
 Site-wide documents like a platform's Terms of Service or Community Guidelines establish a base line for acceptable user behavior. These documents encompass "don't do anything illegal" along with "golden-rule"-type expectations like don't be a bully or don't threaten other users. Deviations from these expectations are generally handled by a platform's Trust and Safety or support teams.
 
-[Individual communities should be empowered and encourage to establish heightened community norms beyond those base line expectations.](https://ben.balter.com/2019/07/18/a-community-of-communities-oscon-2019/) In the GitHub context this can be as mundane as spelling out how to contribute or as sophisticated as a formal code of conduct with specific reporting and review procedures. Some communities might encourage water cooler talk to create a sense of comradery, others might strictly police off-topic posts. Beyond that, communities might be purposeful about being welcoming of new members, while others might be more forward in challenging each others' ideas.
+[Individual communities should be empowered and encouraged to establish heightened community norms beyond those baseline expectations.](https://ben.balter.com/2019/07/18/a-community-of-communities-oscon-2019/) In the GitHub context this can be as mundane as spelling out how to contribute or as sophisticated as a formal code of conduct with specific reporting and review procedures. Some communities might encourage water cooler talk to create a sense of camaraderie, others might strictly police off-topic posts. Beyond that, communities might be purposeful about being welcoming of new members, while others might be more forward in challenging each others' ideas.
 
 Each community can establish their own norms above and beyond the site-wide expectations to make the platform their own and to create a sense of ownership and shared responsibility to keep the community strong and self-sustaining.
 
