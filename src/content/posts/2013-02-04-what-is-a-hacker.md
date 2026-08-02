@@ -12,7 +12,7 @@ Working in DC, "hacker" can often be seen as a four-letter word. I can't count t
 
 Being a hacker isn't about stealing credit card numbers or disabling public utilities, but rather it's the exact opposite. It's about embodying all three of those meanings simultaneously. It's about sharing, openness, decentralization… It's about trying to satisfy an unquenchable thirst for defying expectations and making the impossible a reality, often involving nothing more than duct tape, bubblegum, and ultimately solutions that purported experts would certainly balk at for being too simplistic.
 
-The term traces its routes all the way back to the 1960s when it emerged to describe a certain playful cleverness of exploration that surrounded those at MIT who openly pushed the limits of the world's first computers. Today it continues to embody that ethic as the pursuit of excellence — constantly asking oneself "is this even possible?" (and instinctively responding "let's find out"). It's the intrinsic delight one gets from solving never-before-solved problems and overcoming limits conventional wisdom long-ago presumed too difficult to tackle. Somewhat surprisingly, hacking isn't at all about technology. It's about community. Think about it in terms of a hacker ethic, a hacker way, and a hacker culture.
+The term traces its roots all the way back to the 1960s when it emerged to describe a certain playful cleverness of exploration that surrounded those at MIT who openly pushed the limits of the world's first computers. Today it continues to embody that ethic as the pursuit of excellence — constantly asking oneself "is this even possible?" (and instinctively responding "let's find out"). It's the intrinsic delight one gets from solving never-before-solved problems and overcoming limits conventional wisdom long-ago presumed too difficult to tackle. Somewhat surprisingly, hacking isn't at all about technology. It's about community. Think about it in terms of a hacker ethic, a hacker way, and a hacker culture.
 
 ## The Hacker Ethic
 
@@ -24,7 +24,7 @@ But it's more than ideology. There's a practical side to it as well. There's a t
 
 ## Hacker Culture
 
-Last, hackers embody a unique culture that often flies in the face of traditional paradigms. It's a culture of **meritocracy**. Contribution is the sole currency of the internet. Money and title bare far less weight than meaningful contributions, be they code, copy, design, whatever. It's a culture of **elegance**. Hackers strive for artfully arranged, innovative techniques that perform complicated tasks with as few instructions as possible. and It's a culture of **playful cleverness**. There's a certain lighthearted cleverness to being a hacker, often expressed by injecting dry wit and memes into otherwise mundane tasks.
+Last, hackers embody a unique culture that often flies in the face of traditional paradigms. It's a culture of **meritocracy**. Contribution is the sole currency of the internet. Money and title bear far less weight than meaningful contributions, be they code, copy, design, whatever. It's a culture of **elegance**. Hackers strive for artfully arranged, innovative techniques that perform complicated tasks with as few instructions as possible. and It's a culture of **playful cleverness**. There's a certain lighthearted cleverness to being a hacker, often expressed by injecting dry wit and memes into otherwise mundane tasks.
 
 ## Hackers in the Enterprise
 

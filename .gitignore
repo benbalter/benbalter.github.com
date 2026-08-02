@@ -48,3 +48,15 @@ Gemfile.lock
 
 # Local analytics report (contains specific stats; do not commit)
 analytics-report.md
+
+# AI-generated post drafts (script/foundry-drafts.ts) — scratch, edit before publishing
+drafts/
+
+# AI-generated QA report (script/foundry-qa.ts) — review notes, not published
+qa/
+
+# AI-generated interlinking audit (script/foundry-interlinks.ts) — review notes
+audit/
+
+# AI-generated engagement audit (script/foundry-engagement.ts) — review notes
+engage/

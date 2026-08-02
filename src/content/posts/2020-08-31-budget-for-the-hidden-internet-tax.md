@@ -3,7 +3,7 @@ title: Budget for the hidden "internet tax"
 description: Trust and safety is a cost of doing business on the internet. If you're building a platform, budget for abuse protection before someone gets hurt.
 ---
 
-It's uncomfortable to acknowledge the darker corners of the internet, especially when most startup business models have a rapid growth focus that are built on the internet's ability to connect like-minded strangers. We don't like to admit it out loud, but just as the internet is often an amazing place in connecting the best parts of humanity, the internet is sometimes a terrible place in also bringing out the worst of it. It's truly tempting to forgo abuse and harassment as a "tomorrow" problem (or a "we're different"[^arpanet] problem), especially in a growing startup or a highly competitive industry.
+It's uncomfortable to acknowledge the darker corners of the internet, especially when most startup business models have a rapid growth focus that is built on the internet's ability to connect like-minded strangers. We don't like to admit it out loud, but just as the internet is often an amazing place in connecting the best parts of humanity, the internet is sometimes a terrible place in also bringing out the worst of it. It's truly tempting to forgo abuse and harassment as a "tomorrow" problem (or a "we're different"[^arpanet] problem), especially in a growing startup or a highly competitive industry.
 
 The industry often refers to this type of all-too-frequently underappreciated work as "trust and safety" or sometimes "platform health" or "community integrity". It's the work of ensuring that your platform is a safe place for your users to interact, free from abuse, harassment, and other unwanted behavior. Unfortunately, it's often seen as a cost center, a "nice to have", or a "nice to have later" feature, rather than a core part of the product. The reality is that trust and safety is a critical part of your product, and it's a cost of doing business on the internet. It's a hidden "internet tax" that you'll need to pay, whether you want to or not.
 
@@ -29,7 +29,7 @@ When a user experiences abuse or harassment, they need basic tools to minimize t
 
 ### Reporting
 
-Once a user has taken steps to minimize their exposure to the abuse or harassment, you'll want some mechanism for them to report the abuse to you to escalate a response. This could be per-account, but ideally, it should be associated with the content in question, and as frictionless as possible. The user may have just had an upsetting or unsettling experience, and the last thing you want to do is add to it with an endless maze of forms as captchas. Collect as much metadata as you can automatically to absorb the complexity on behalf of the reporting user, and associate it with the report. More mature abuse reporting systems also provide the reporting user with transparency as to the resolution of their report.
+Once a user has taken steps to minimize their exposure to the abuse or harassment, you'll want some mechanism for them to report the abuse to you to escalate a response. This could be per-account, but ideally, it should be associated with the content in question, and as frictionless as possible. The user may have just had an upsetting or unsettling experience, and the last thing you want to do is add to it with an endless maze of forms and captchas. Collect as much metadata as you can automatically to absorb the complexity on behalf of the reporting user, and associate it with the report. More mature abuse reporting systems also provide the reporting user with transparency as to the resolution of their report.
 
 ### Hiding content
 
@@ -37,7 +37,7 @@ You'll want some way to hide existing content. Ideally, you'd have the ability t
 
 ### Preventing new content
 
-Beyond hiding existing content, you'll also want some way to prevent the creation of new content. This is often done by preventing the user from logging in entirely and can be used if an ongoing or egregious violation of your Terms of Service or Community Guidelines where continued use of the platform isn't warranted.
+Beyond hiding existing content, you'll also want some way to prevent the creation of new content. This is often done by preventing the user from logging in entirely and can be used in cases of an ongoing or egregious violation of your Terms of Service or Community Guidelines when continued use of the platform isn't warranted.
 
 ### Community guidelines
 

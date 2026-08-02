@@ -68,6 +68,6 @@ Over the past few months I've greatly enjoyed the opportunity to grow and learn 
 
 [^1]: As much as I might like them to be, human-to-human requests are unlike server-to-server requests. A properly authenticated request from a never-before-seen client is less likely to be fulfilled, or fulfilled in a timely manner even if it's facially valid.
 
-[^3]: I resist the urge to compare TPMs to dentists, due to often negative perception associated with "going to the dentist", but "reducing squishiness" is not unlike a dentist poking around in your mouth to find the soft spots in your teeth. Nobody likes having cavities, but brief discomfort and early mitigation is much preferable to the alternative.
-
 [^2]: If you liked it, [you should have put a URL on it](https://ben.balter.com/2015/11/12/why-urls/).
+
+[^3]: I resist the urge to compare TPMs to dentists, due to often negative perception associated with "going to the dentist", but "reducing squishiness" is not unlike a dentist poking around in your mouth to find the soft spots in your teeth. Nobody likes having cavities, but brief discomfort and early mitigation is much preferable to the alternative.
