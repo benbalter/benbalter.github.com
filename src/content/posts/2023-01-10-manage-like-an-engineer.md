@@ -5,7 +5,7 @@ description: If issues, pull requests, and project boards are the best way to de
 tldr: "Engineers abandon their best tools the moment they start managing. Track management work in issues, project boards, and pull requests—the same way you ship software—to work transparently and shed the meta-work."
 ---
 
-Many engineering and product leaders begin their careers as engineers. On a typical engineering team, work is captured in issues, organized in project backlogs, and reviewed in pull requests. For most teams, this is the best way to plan and track software development work.[^7] But as engineers advance in their careers and begin down the management path, they too often adopt an entirely different set of tools, workflows, and philosophies for managing their own work. Such management workflows are more cumbersome, more time-consuming, and more opaque than their engineering counterparts. If we believe issues, pull requests, and project boards are the best way to develop software, should they not also be the best way to manage software development?[^3]
+Many engineering and product leaders begin their careers as engineers. On a typical engineering team, work is captured in issues, organized in project backlogs, and reviewed in pull requests. For most teams, this is the best way to plan and track software development work.[^7] But as engineers advance in their careers and begin down the management path, they too often adopt an entirely different set of tools, workflows, and philosophies for managing their own work. Such management workflows are more cumbersome, more time-consuming, and more opaque than their engineering counterparts. :quote[If we believe issues, pull requests, and project boards are the best way to develop software, should they not also be the best way to manage software development?]{#q-if-we-believe-issues-pull}[^3]
 
 Rather than tracking bugs or feature requests, in my day-to-day as a Chief of Staff, I use GitHub to track all the "meta work" that supports software development and software development teams. Need to prepare a deck for a business review? Open an issue. Want to refresh our career ladders? Open an issue. Planning an offsite? You guessed it, open an issue.
 
@@ -31,7 +31,7 @@ Here are a few of the engineer-inspired "how we work" principles which I strive 
 - **Bias for shipping** - [Ship early, ship often](https://ben.balter.com/2016/09/13/seven-habits-of-highly-effective-githubbers/#2-ship-early-ship-often). Whether decisions, process, or "manager code", ship an MVP and iterate. Minimize batch size.
 - **Streamline and automate** - Never force a human to do what a robot can. Prefer non-blocking over blocking operations. Codify policy as code.
 - **Embrace collaboration** - How we work is as important as what we work on. Software development is a team sport.[^5]
-- **Asynchronous first** - Reserve higher-fidelity mediums for conversations that require them.
+- **[Asynchronous first](/2022/03/17/why-async/)** - [Reserve higher-fidelity mediums for conversations that require them](/2023/04/20/meetings-are-a-point-of-escalation/).
 - :quote[Practicality beats purity]{#practicality-beats-purity} - These are guidelines, not rules. :quote[Process should drive outcomes.]{#process-should-drive-outcomes}
 
 ## How to manage like an engineer
