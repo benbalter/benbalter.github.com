@@ -25,12 +25,13 @@ import { remarkDirectiveFallback } from './remark-directive-fallback';
 import { rehypeRelativeUrls } from './rehype-relative-urls';
 import { rehypeBootstrapTables } from './rehype-bootstrap-tables';
 import { rehypeImageLoading } from './rehype-image-loading';
+import { rehypeImageDimensions } from './rehype-image-dimensions';
 import { rehypeFigure } from './rehype-figure';
 import { rehypeFootnoteA11y } from './rehype-footnote-a11y';
+import { rehypeAcronyms } from './rehype-acronyms';
 
 // Typography plugins for remark-textr
 import typographicArrows from 'typographic-arrows';
-import typographicCopyright from 'typographic-copyright';
 import typographicEmDashes from 'typographic-em-dashes';
 import typographicEnDashes from 'typographic-en-dashes';
 import typographicMathSymbols from 'typographic-math-symbols';
@@ -65,7 +66,9 @@ export const remarkTextrConfig = [remarkTextr, {
   },
   plugins: [
     typographicArrows,
-    typographicCopyright,
+    // typographic-copyright intentionally omitted: it rewrites "(c)"/"(C)" to
+    // "©", which mangles lettered lists ("(A) (B) (C) (D)") and legal citations
+    // ("§3544(a)(2)(C)"). Ben types © directly where a copyright symbol is meant.
     typographicEmDashes,
     typographicEnDashes,
     typographicMathSymbols,
@@ -104,7 +107,11 @@ export const sharedRehypePlugins = [
   rehypeFigure,
   rehypeFootnoteA11y,
   rehypeImageLoading,
+  rehypeImageDimensions,
   rehypeExternalLinksConfig,
+  // Wrap first occurrence of listed acronyms in a tooltip <abbr>. Runs last so
+  // links (rehypeExternalLinks) and other elements it must skip already exist.
+  rehypeAcronyms,
 ];
 
 // Shared Shiki configuration for syntax highlighting

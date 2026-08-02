@@ -4,7 +4,7 @@ description: "Government agencies can't agree to your standard terms of service.
 tldr: "Government agencies can't agree to your standard terms of service. Here's why, and how to negotiate federal-compatible TOS so 2.7 million government employees can use your product."
 ---
 
-If you offer a service online, chances are, government agencies can't agree to your standard terms of service, at least not has posted. [More than 75 of the web's largest services](https://www.digitalgov.gov/resources/negotiated-terms-of-service-agreements/), including Twitter, Facebook, Google, and GitHub have negotiated custom terms of service agreements with the federal government allowing more than 2.7M government employees to use their service. If you're looking to enter the federal market, the following is a read out from a round table discussion at the recent [Collaborate](https://collaborate.fosterly.com/) conference in Washington, D.C.:
+If you offer a service online, chances are, government agencies can't agree to your standard terms of service, at least not as posted. [More than 75 of the web's largest services](https://www.digitalgov.gov/resources/negotiated-terms-of-service-agreements/), including Twitter, Facebook, Google, and GitHub have negotiated custom terms of service agreements with the federal government allowing more than 2.7M government employees to use their service. If you're looking to enter the federal market, the following is a read out from a round table discussion at the recent [Collaborate](https://collaborate.fosterly.com/) conference in Washington, D.C.:
 
 ## Why federal agencies can't agree to your terms of service
 
@@ -16,7 +16,7 @@ Terms of service agreements are often called clickwrap or browserwrap agreements
 
 - **Choice of law** - Regardless of where the dispute is heard publicly, your standard terms of service may state that a particular state's law (likely either California or Delaware) will govern the relationship, but federal agencies will prefer federal law prevail (due to a little thing called the Supremacy Clause), and state/local agencies will likely prefer their local law.
 
-- **Indemnification** - Indemnification requires the user, here the government agency, to cover the service provider for any loss arising out of the contract. Under the [Anti-Deficiency Act](https://en.wikipedia.org/wiki/Antideficiency_Act), such an agreement would be consider an unaccounted for allocation, meaning the government is essentially guaranteeing an unknown amount of federal funds for a potential dispute.
+- **Indemnification** - Indemnification requires the user, here the government agency, to cover the service provider for any loss arising out of the contract. Under the [Anti-Deficiency Act](https://en.wikipedia.org/wiki/Antideficiency_Act), such an agreement would be considered an unaccounted-for allocation, meaning the government is essentially guaranteeing an unknown amount of federal funds for a potential dispute.
 
 - **Dispute resolution** - Your terms of service might have an alternative dispute resolution clause, whereby you require a wronged party to first submit their claim to mediation or binding arbitration. As a small start up, this may allow you to save legal costs for many disputes (due to the relaxed rules), but for the government which knows the federal court system and has many attorneys on staff, they'd prefer to go straight to court.
 
@@ -40,7 +40,7 @@ If an agency reaches out to your service, chances are, you'll be asked to negoti
 
 Instead, there are two things you can do to streamline the process:
 
-1. Start the discussion by using [GSA Standard TOS Amendment Template](https://s3.amazonaws.com/digitalgov/_legacy-img/2014/01/model-amendment-to-tos-for-g.doc). This boilerplate amendment bring many common TOS clauses to a place where the government can agree to then, and will provide a common framework between agencies, facilitating reuse.
+1. Start the discussion by using [GSA Standard TOS Amendment Template](https://s3.amazonaws.com/digitalgov/_legacy-img/2014/01/model-amendment-to-tos-for-g.doc). This boilerplate amendment brings many common TOS clauses to a place where the government can agree to them, and will provide a common framework between agencies, facilitating reuse.
 
 2. Once an amendment is negotiated with a single agency, [reach out to GSA](https://www.digitalgov.gov/resources/federal-compatible-terms-of-service-agreements/) to get the signed amendment added to their list of social media providers. Beyond the practicalities of a standard starting point to each negotiation, being listed will provide you with greater visibility among government staffers.
 

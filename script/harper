@@ -14,12 +14,17 @@ else
 	#   spelling false positives.
 	# --no-color: CI logs aren't a TTY, so Harper's per-character ANSI color
 	#   codes render as literal escape sequences (tens of KB of noise).
-	# --ignore: disable the two highest-volume style rules (~1,257 lints).
-	#   LongSentences and UseTitleCase are stylistic opinions (sentence-case
-	#   headings, sentence length) that don't fit this blog's voice; muting them
-	#   leaves the actionable grammar/spelling advice. (--ignore disables rules;
-	#   --only would do the opposite.)
+	# --ignore: disable rules that are style opinions or reliably false-positive
+	#   for this blog's voice (verified against a full run — see below). This
+	#   keeps a clean baseline: SpellCheck plus the homophone/article/agreement
+	#   catchers (AnA, ItsPossessive, ThereToTheir, TheirToThere,
+	#   PronounContraction, RepeatedWords) that surface real errors stay on.
+	#   Examples of what we mute: SplitWords ("caremad"→"care mad"), DayOneNames
+	#   (thinks "day one" is the app), QuantifierNumeralConflict ("some 5,000"),
+	#   NeedToNoun ("need to get"), MoreAdjective (labels itself "not an error"),
+	#   OxfordComma (flags two-item pairs). (--ignore disables the named rules.)
+	HARPER_IGNORE="LongSentences,UseTitleCase,OxfordComma,MoreAdjective,OrthographicConsistency,DisjointPrefixes,SentenceCapitalization,CompoundNouns,SplitWords,RoadMap,DayOneNames,MassNouns,NeedToNoun,QuantifierNumeralConflict,LitotesDirectPositive,MissingPreposition,MissingTo,UnclosedQuotes,ToTwoToo,QuiteQuiet,ThatThan,TheyToThem,PossessiveYour"
 	# harper-cli currently always exits with code 1 (even with no lints found),
 	#   so we use || true to prevent it from failing the build.
-	harper-cli lint --no-color --ignore LongSentences,UseTitleCase --user-dict-path dictionary.txt src/content/posts/*.md || true
+	harper-cli lint --no-color --ignore "$HARPER_IGNORE" --user-dict-path dictionary.txt src/content/posts/*.md || true
 fi

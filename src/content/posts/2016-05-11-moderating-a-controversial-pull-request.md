@@ -30,11 +30,11 @@ When it's everyone's responsibility, it's no one's responsibility. Before you ki
 
 ### Assign a moderator
 
-Designate a moderator from the onset. This person will be responsible for enforcing all the social norms described above and for keeping the conversation moving. If someone raises an unrelated tangent, they open up a new issue to keep the discussion on track. If the thread gets long, they summarize where the current consensus is. Part crossing guard, part social worker, and part bailiff, their responsible for the discussion being productive, respectful, and fair.
+Designate a moderator from the onset. This person will be responsible for enforcing all the social norms described above and for keeping the conversation moving. If someone raises an unrelated tangent, they open up a new issue to keep the discussion on track. If the thread gets long, they summarize where the current consensus is. Part crossing guard, part social worker, and part bailiff, they're responsible for the discussion being productive, respectful, and fair.
 
 ### Make the decider known
 
-The decider is the one who has to make the tough calls any time the discussion comes to a stalemate or when the designated time frame comes to a close. The decider may be the same person as the moderator, but often times its advantageous (and logical) for the decider to be distinct. If the moderator is a crossing guard, the decider is the umpire, judge, and referee, calling balls and strikes, roughing the passer, and deciding on the final disposition.
+The decider is the one who has to make the tough calls any time the discussion comes to a stalemate or when the designated time frame comes to a close. The decider may be the same person as the moderator, but often times it's advantageous (and logical) for the decider to be distinct. If the moderator is a crossing guard, the decider is the umpire, judge, and referee, calling balls and strikes, roughing the passer, and deciding on the final disposition.
 
 ## Describe how you want feedback
 
@@ -42,8 +42,8 @@ Make it clear how people should provide feedback. Should they post long-winded, 
 
 ## Set a timeline
 
-Let everyone involved know how long you're going to allow for discussion (and make sure it's tantamount to the subject matter). Is this a 24-hour discussion? A week's worth? A month? Are there milestones or checkpoints along the way to make certain decisions or roll out certain aspects? The time frame should be long enough such that relevant stakeholders are on notice and can participate, even if they're away for their keyboard at any given moment, but not so long as to inject undue delay into the process.
+Let everyone involved know how long you're going to allow for discussion (and make sure it's tantamount to the subject matter). Is this a 24-hour discussion? A week's worth? A month? Are there milestones or checkpoints along the way to make certain decisions or roll out certain aspects? The time frame should be long enough such that relevant stakeholders are on notice and can participate, even if they're away from their keyboard at any given moment, but not so long as to inject undue delay into the process.
 
 Pull requests and issues are great tools to facilitate decisions, especially among distributed teams, but depending on the subject matter, the internet's comments section can quickly live up to its reputation. By laying out ground rules up front, assigning key roles, and setting expectations, you can set yourself up for successes. What tips do you have for keeping things on track? Leave a comment below.
 
-*A big hat tip to my former colleague @cameronmcefee, who's most excellent execution of a potentially controversial discussion inspired me to write this post.*
+*A big hat tip to my former colleague @cameronmcefee, whose most excellent execution of a potentially controversial discussion inspired me to write this post.*

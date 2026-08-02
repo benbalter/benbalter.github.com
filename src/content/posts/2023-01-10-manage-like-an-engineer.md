@@ -17,7 +17,7 @@ Using engineering tools like GitHub to track management tasks is *much* more tha
 > - **Empowers others to learn through observation** - What's routine to you is likely novel to someone in another role or at another level of seniority.
 > - **Socializes organizational culture and values** - An organization's culture and values are composed in large part of [the underlying assumptions](https://ben.balter.com/2015/08/12/the-zen-of-github/) that its members fall back on as they resolve ambiguity in pursuit of the organization’s mission.
 > - **Fuels engagement** - Transparency offers a sense of agency, situational awareness, and overall engagement that fosters a culture of thoughtful dialog and encourages organization-wide collaborative improvement over time.
-> - **Keeps the bar high** - Showing one's work establishes expectations around justification, thoroughness, and accountability that sets and maintains a high standard for decision making within an organization.
+> - **Keeps the bar high** - Showing one's work establishes expectations around justification, thoroughness, and accountability that set and maintain a high standard for decision making within an organization.
 
 ## What it means to manage like an engineer
 
@@ -42,6 +42,10 @@ Managing like an engineer means a manager's go-to tools for planning, tracking, 
 - **Project boards** - Project boards are the primary means by which work (in the form of issues) is organized, managed, prioritized, and made visible.
 - **Markdown files** - Markdown files are the primary means by which long-lived information is memorialized. Markdown files are created and modified via pull requests.
 - **Pull requests** - Pull requests are the primary means by which proposals are reviewed and decisions are made.
+
+:::objection[Isn't GitHub built for engineers? Won't non-technical managers feel lost?]
+No. Everything above—issues, boards, Markdown, pull requests—works through the web interface, no terminal or code required. Plenty of [non-technical roles work in GitHub every day](/2023/03/02/github-for-non-technical-roles/). The tools aren't the hard part; the culture shift is.
+:::
 
 ### Planning and tracking
 

@@ -25,7 +25,7 @@ With option 2, you link back to the readme, explain that you don't believe the p
 
 ## Pull requests should solve exactly one problem
 
-This approach mirrors the common technical mantra, that each pull request should solve exactly one problem. If a pull request review is forced to answer two questions (1) "is this the right technical solution to the problem?\*, and (2) "are we solving the right problem?", the "right" way to do it is in two distinct pull requests to keep unrelated discussions distinct and adequately memorialized.
+This approach mirrors the common technical mantra, that each pull request should solve exactly one problem. If a pull request review is forced to answer two questions (1) "is this the right technical solution to the problem?", and (2) "are we solving the right problem?", the "right" way to do it is in two distinct pull requests to keep unrelated discussions distinct and adequately memorialized.
 
 To continue the legal metaphor, deferring to the readme is the open source equivalent of appealing to the Supreme Court. Just as the US Constitution sets the foundation for what the US government should and shouldn't do and how it should go about solving problems, so too does a project's readme dictate the four corners of the project's efforts and the means by which it's permitted to solve them. Think of it as a contract between the project and its users saying "this project will provide the service of tackling these problems in this way".
 

@@ -7,6 +7,7 @@
 
 import { test, expect } from '@playwright/test';
 import { waitForPageReady } from './helpers';
+import { viewTransitionName } from '../src/utils/view-transition-name';
 
 test.describe('Astro View Transitions Navigation', () => {
   test('should have View Transitions enabled on the page', async ({ page }) => {
@@ -285,6 +286,88 @@ test.describe('Astro View Transitions with Cross-Page Anchor Links', () => {
       
       expect(criticalErrors).toHaveLength(0);
     }
+  });
+});
+
+test.describe('Cross-document card → article "magic move"', () => {
+  test('article headline carries a view-transition-name derived from its path', async ({ page }) => {
+    const path = '/2015/11/12/why-urls/';
+    await page.goto(path);
+    await waitForPageReady(page);
+
+    const style = (await page.locator('article h1').first().getAttribute('style')) ?? '';
+    // The HTML compressor may drop the space after the colon, so normalize.
+    expect(style.replace(/\s+/g, '')).toContain(`view-transition-name:${viewTransitionName(path)}`);
+  });
+
+  test('a listing card and its article share the same transition-name key', async ({ page }) => {
+    await page.goto('/posts/');
+    await waitForPageReady(page);
+
+    // Cards mark their title but carry NO static name at rest — the name is set
+    // only on the destination card during navigation, so a page that lists the
+    // same post twice never has duplicate names (which abort the transition).
+    const titles = page.locator('[data-vt-card-title]');
+    expect(await titles.count()).toBeGreaterThan(0);
+    expect(await page.locator('[data-vt-card-title][style*="view-transition-name"]').count()).toBe(0);
+
+    // Follow the first card and confirm its destination headline uses the name
+    // derived from that same URL — the pairing key that drives the morph.
+    const href = await titles.first().locator('a[href]').first().getAttribute('href');
+    expect(href).toBeTruthy();
+    const destPath = new URL(href!, page.url()).pathname;
+
+    await page.goto(destPath);
+    await waitForPageReady(page);
+    const style = (await page.locator('article h1').first().getAttribute('style')) ?? '';
+    expect(style.replace(/\s+/g, '')).toContain(`view-transition-name:${viewTransitionName(destPath)}`);
+  });
+
+  test('navigating from a card (pageswap naming) does not error', async ({ page }) => {
+    const errors: string[] = [];
+    page.on('console', (m) => m.type() === 'error' && errors.push(m.text()));
+
+    await page.goto('/posts/');
+    await waitForPageReady(page);
+
+    await page.locator('[data-vt-card-title] a[href]').first().click();
+    await page.waitForURL(/\/\d{4}\/\d{2}\/\d{2}\//);
+    await waitForPageReady(page);
+
+    await expect(page.locator('article h1')).toBeVisible();
+    const critical = errors.filter(
+      (e) => !e.includes('favicon') && !e.includes('404') && !e.includes('Failed to load resource')
+    );
+    expect(critical).toHaveLength(0);
+  });
+
+  test('pageswap names exactly one card in the outgoing snapshot', async ({ page }) => {
+    await page.goto('/posts/');
+    await waitForPageReady(page);
+
+    // Observe the outgoing DOM *after* the app's pageswap handler has run
+    // (registered here later, so it fires later). sessionStorage survives the
+    // same-origin navigation so we can read the result on the next page.
+    await page.evaluate(() => {
+      window.addEventListener('pageswap', (event) => {
+        const e = event as unknown as { viewTransition: unknown };
+        sessionStorage.setItem('vt-fired', e.viewTransition ? 'yes' : 'no');
+        sessionStorage.setItem(
+          'vt-named',
+          String(document.querySelectorAll('[data-vt-card-title][style*="view-transition-name"]').length)
+        );
+      });
+    });
+
+    await page.locator('[data-vt-card-title] a[href]').first().click();
+    await page.waitForURL(/\/\d{4}\/\d{2}\/\d{2}\//);
+
+    const fired = await page.evaluate(() => sessionStorage.getItem('vt-fired'));
+    const named = await page.evaluate(() => sessionStorage.getItem('vt-named'));
+    // A transition fired, and the handler named exactly one card — never two,
+    // even when the page lists the same post twice (the dedup-safety guarantee).
+    expect(fired).toBe('yes');
+    expect(named).toBe('1');
   });
 });
 

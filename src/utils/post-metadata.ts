@@ -7,6 +7,8 @@ export interface PostMetadata {
   date: string;
   isoDate: string;
   readingTime: number;
+  /** True when the post redirects off-site (has `redirect_to`), so callers can flag it. */
+  isExternal: boolean;
 }
 
 export function getPostMetadata(post: CollectionEntry<'posts'>): PostMetadata {
@@ -16,5 +18,6 @@ export function getPostMetadata(post: CollectionEntry<'posts'>): PostMetadata {
     date: formatPostDate(postDate),
     isoDate: formatISODate(postDate),
     readingTime: calculateReadingTime(post.body),
+    isExternal: post.data.redirect_to !== undefined,
   };
 }

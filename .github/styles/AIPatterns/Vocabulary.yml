@@ -1,0 +1,46 @@
+extends: existence
+message: "'%s' is a word AI overuses. Consider a plainer, more specific alternative."
+ignorecase: true
+level: warning
+# Only tells that are essentially absent from 15 years of Ben's posts live here.
+# Words he genuinely uses (empower, foster, facilitate, robust, comprehensive,
+# harness, navigate, crucial, actionable, showcase, seamless, embark, reimagine,
+# vibrant, impactful, endeavor) are deliberately omitted — flagging his own voice
+# would just be noise. See PlainWords.yml for the 1:1 swaps.
+tokens:
+  - delve
+  - tapestry
+  - realm
+  - paradigm
+  - beacon
+  - cutting-edge
+  - underscores?
+  - meticulous(ly)?
+  - game-chang(er|ing)
+  - watershed moment
+  - nestled
+  - bustling
+  - intricate
+  - intricacies
+  - ever-evolving
+  - holistic(ally)?
+  - learnings
+  - thought leader(ship)?
+  - interplay
+  - symphony
+  - myriad
+  - plethora
+  - quintessential
+  - multifaceted
+  - burgeoning
+  - nascent
+  - paramount
+  - galvanize
+  - catalyze
+  - elucidate
+  - juxtapose
+  - spearhead
+  - bolster
+  - unleash
+  - overarching
+  - poised to

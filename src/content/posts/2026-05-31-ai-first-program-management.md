@@ -1,5 +1,5 @@
 ---
-title: "AI-first program management: amplifying judgment, not replacing it"
+title: "AI-first program management"
 bookRelation: inspired
 description: "AI-augmented program management is the natural evolution of async-first and engineering-inspired workflows — amplifying human judgment, not replacing it."
 ---

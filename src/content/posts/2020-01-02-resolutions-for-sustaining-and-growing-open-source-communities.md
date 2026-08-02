@@ -21,7 +21,7 @@ Beyond better project longevity, most of GitHub’s community management tools a
 
 Think of an open source project like the world’s most distributed dinner party. Just as you would at a dinner party, as the host, you want to welcome guests as they arrive, take their coat, offer them refreshments, and introduce them to other party goers to ensure they have a good time.
 
-Open source is no different, except instead of taking coats or offering hour d'oeuvres, you’re offering documentation and your responsiveness. And just as a dinner party guest should take care to arrive on time or might consider bringing a small gift to thank the host, as open source guests, contributors should likewise be empathetic, supportive, and understanding of open source maintainers and what is often their volunteered time.
+Open source is no different, except instead of taking coats or offering hors d'oeuvres, you’re offering documentation and your responsiveness. And just as a dinner party guest should take care to arrive on time or might consider bringing a small gift to thank the host, as open source guests, contributors should likewise be empathetic, supportive, and understanding of open source maintainers and what is often their volunteered time.
 
 Being an open source maintainer is often closer to being a manager than it is to being an engineer. You often start a project to solve a specific technical problem, but as the community grows, to scale your own efforts and to have the biggest impact on your project, your role often shifts to solving the human and the workflow side of open source, rather than the technical.
 
@@ -41,7 +41,7 @@ As a member of the community, our role is to empower maintainers to grow healthy
 
 Smaller, independent projects don’t necessarily need sophisticated workflows or community management practices at the onset, and often, that premature optimization can stifle community growth. I think of project growth through a “community maturity model.” Projects should often wait to establish formal or documented processes as they mature, and not before they need them.
 
-If you’re prototyping a new library by yourself, you don’t need a code of conduct, mandatory forms for bug reports. If you get your first pull request, however, from an outside contributor, you may want to consider taking a critical look at your documentation, and if you’re fortunate enough to get additional contributors, beginning to formalize your contribution and review process.
+If you’re prototyping a new library by yourself, you don’t need a code of conduct or mandatory forms for bug reports. If you get your first pull request, however, from an outside contributor, you may want to consider taking a critical look at your documentation, and if you’re fortunate enough to get additional contributors, beginning to formalize your contribution and review process.
 
 That’s not necessarily true for organization-backed open source projects that can either anticipate the success of a project or have teams dedicated to establishing cross-project practices (an open source program office).
 

@@ -11,13 +11,47 @@
 
 import satori from 'satori';
 import { readFile, writeFile, mkdir, access } from 'node:fs/promises';
-import { resolve, sep, join } from 'node:path';
+import { readFileSync } from 'node:fs';
+import { resolve, sep, join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { defaultOGConfig, validateDimensions, type OGImageConfig } from './og-config';
+import { commitGraphPaths } from './book-cta';
 
-// Cache version — bump this to invalidate all cached OG images
-const OG_CACHE_VERSION = '2';
-const OG_CACHE_DIR = join(process.cwd(), 'node_modules', '.astro', 'og-cache');
+// Reuse the site's commit-graph motif (also on the book CTAs) as an ownable OG
+// signature. Recolored to the card's blue plus one pink branch — a non-blue pop
+// and a distinctive mark that reads as "Balter" without reading the text. Its
+// CSS custom properties don't resolve in a standalone SVG, so bake in hexes.
+const MOTIF_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 60" fill="none">${
+  commitGraphPaths
+    .replace(/var\(--color-accent-400\)/g, '#4A9EE0')
+    .replace(/var\(--color-pink-400\)/g, '#EC6A9C')
+}</svg>`;
+const MOTIF_DATA_URI = `data:image/svg+xml;utf8,${encodeURIComponent(MOTIF_SVG)}`;
+
+// Auto-invalidating cache version: a hash of the source files that determine a
+// card's pixels (this generator, the config, and the shared motif). Any design
+// or logic change reproduces a new key, so cached cards regenerate without a
+// manual bump. Falls back to a fixed salt if the source isn't readable in this
+// runtime (build-time only reads source; keep the salt as an escape hatch).
+function computeDesignVersion(): string {
+  try {
+    const dir = dirname(fileURLToPath(import.meta.url));
+    const hash = createHash('sha256');
+    for (const file of ['og-image-generator.ts', 'og-config.ts', 'book-cta.ts']) {
+      hash.update(readFileSync(join(dir, file)));
+    }
+    return hash.digest('hex').slice(0, 16);
+  } catch {
+    return 'salt-1';
+  }
+}
+const OG_CACHE_VERSION = computeDesignVersion();
+
+// Persistent cache outside node_modules so `npm ci` (and CI's dependency
+// install) doesn't wipe it — the CI workflow restores/saves .cache/og-cache,
+// so only new or changed cards regenerate across deploys.
+const OG_CACHE_DIR = join(process.cwd(), '.cache', 'og-cache');
 
 interface OGImageOptions {
   title: string;
@@ -28,43 +62,43 @@ interface OGImageOptions {
 // Cache for loaded assets (persists across image generations)
 let fontBoldCache: ArrayBuffer | null = null;
 let fontRegularCache: ArrayBuffer | null = null;
+let fontSerifCache: ArrayBuffer | null = null;
 // Cache headshot by path to support config overrides
 const headshotCache: Map<string, string> = new Map();
 
 // Allowed asset directories for security
 const ALLOWED_ASSET_DIRS = ['assets'];
 
-// Layout constants for spacing calculations
-const LOGO_TITLE_GAP = 40; // Gap between title text and logo
-
 /**
  * Load the Inter fonts for text rendering
  * Fonts are cached after first load for performance
  * Returns both regular (400) and bold (700) weights
  */
-async function loadFonts(): Promise<{ regular: ArrayBuffer; bold: ArrayBuffer }> {
-  const fetchFont = async (weight: string): Promise<ArrayBuffer> => {
-    const response = await fetch(
-      `https://api.fontsource.org/v1/fonts/inter/latin-${weight}-normal.ttf`
-    );
-    
-    if (!response.ok) {
-      throw new Error(`Failed to fetch font (weight ${weight}): ${response.status}`);
-    }
-    
-    return response.arrayBuffer();
+async function loadFonts(): Promise<{ regular: ArrayBuffer; bold: ArrayBuffer; serif: ArrayBuffer }> {
+  // Read vendored TTFs from disk (assets/fonts/) — no network fetch at build,
+  // so the build can't stall or fail on a slow/unreachable font CDN.
+  const readFont = async (file: string): Promise<ArrayBuffer> => {
+    const fontPath = validateAssetPath(join('assets', 'fonts', file));
+    const buf = await readFile(fontPath);
+    // Slice to a standalone ArrayBuffer (Node may return a pooled/shared buffer).
+    return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
   };
-  
+
   try {
-    // Use cached fonts if available, otherwise fetch
+    // Cache after first load. Inter for body/UI text; Lora (an editorial serif,
+    // already a site brand face) for headlines — a distinctive display face that
+    // de-templates the card from the sea of geometric-sans OG cards.
     if (!fontRegularCache) {
-      fontRegularCache = await fetchFont('400');
+      fontRegularCache = await readFont('inter-400.ttf');
     }
     if (!fontBoldCache) {
-      fontBoldCache = await fetchFont('700');
+      fontBoldCache = await readFont('inter-700.ttf');
     }
-    
-    return { regular: fontRegularCache, bold: fontBoldCache };
+    if (!fontSerifCache) {
+      fontSerifCache = await readFont('lora-700.ttf');
+    }
+
+    return { regular: fontRegularCache, bold: fontBoldCache, serif: fontSerifCache };
   } catch (error) {
     throw new Error(`Failed to load fonts: ${error instanceof Error ? error.message : 'Unknown error'}`);
   }
@@ -146,8 +180,24 @@ export function truncateDescription(text: string, maxLength: number = 300): stri
 }
 
 /**
- * Generate an OG image SVG using Satori
- * Modern design with gradient background, accent bar, and clean typography
+ * Pick a title font size that fills the frame for short headlines and scales
+ * down for long ones so they still fit two-to-three lines on the 1200×630 card.
+ * At feed-thumbnail size the headline is the only element doing engagement work,
+ * so short titles get hero-sized type.
+ */
+export function titleFontSize(length: number): number {
+  if (length <= 25) return 76;
+  if (length <= 45) return 64;
+  if (length <= 70) return 56;
+  if (length <= 100) return 48;
+  return 42;
+}
+
+/**
+ * Generate an OG image SVG using Satori.
+ * Dark, engagement-first card: a vertically centered headline hero over a deep
+ * navy field, the description directly beneath, and an author lockup (headshot +
+ * name + domain) anchored in the footer.
  */
 export async function generateOGImageSVG(options: OGImageOptions): Promise<string> {
   const config = { ...defaultOGConfig, ...options.config };
@@ -158,10 +208,12 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
     loadHeadshot(config),
   ]);
   
-  // Calculate available width for title (excluding logo area and accent)
-  const contentPaddingLeft = config.padding + config.accent.width + 20; // Extra space after accent
-  const titleMaxWidth = config.width - contentPaddingLeft - config.padding - config.logo.size - LOGO_TITLE_GAP;
-  
+  // Full content width — the headline now owns the frame (headshot moved to the
+  // footer), so it's no longer competing with the avatar for the top-right.
+  const contentPaddingLeft = config.padding + config.accent.width + 24;
+  const contentWidth = config.width - contentPaddingLeft - config.padding;
+  const fontSize = titleFontSize(options.title.length);
+
   // Truncate and clean description
   const cleanDescription = truncateDescription(options.description);
   
@@ -175,8 +227,12 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
           height: '100%',
           fontFamily: config.title.fontFamily,
           position: 'relative',
+          // Inset border so the dark card keeps its edges in a dark-mode feed
+          // (LinkedIn/X dark) instead of melting into the chrome. Bright enough
+          // to actually register at thumbnail size.
+          border: '1px solid rgba(148, 163, 184, 0.4)',
           // Gradient background
-          background: config.background.gradientFrom 
+          background: config.background.gradientFrom
             ? `linear-gradient(135deg, ${config.background.gradientFrom} 0%, ${config.background.gradientTo || config.background.color} 100%)`
             : config.background.color,
         },
@@ -197,90 +253,68 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
               },
             },
           },
-          // Main content area
+          // Commit-graph signature — faint, upper-right, filling the dead space.
+          {
+            type: 'img',
+            props: {
+              src: MOTIF_DATA_URI,
+              width: 660,
+              height: 33,
+              style: {
+                position: 'absolute',
+                top: 104,
+                right: 64,
+                opacity: 0.75,
+              },
+            },
+          },
+          // Main content: centered headline hero + footer author lockup
           {
             type: 'div',
             props: {
               style: {
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between',
                 flex: 1,
                 paddingTop: config.padding,
                 paddingRight: config.padding,
-                paddingBottom: config.padding,
+                // Extra bottom room keeps the author lockup clear of aggressive
+                // feed crops (e.g. X's smaller card).
+                paddingBottom: config.padding + 24,
                 paddingLeft: contentPaddingLeft,
               },
               children: [
-                // Top section: Title and Logo
-                {
-                  type: 'div',
-                  props: {
-                    style: {
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'flex-start',
-                    },
-                    children: [
-                      // Title on the left
-                      {
-                        type: 'div',
-                        props: {
-                          style: {
-                            display: 'flex',
-                            fontSize: config.title.fontSize,
-                            fontWeight: 700,
-                            color: config.title.color,
-                            lineHeight: config.title.lineHeight,
-                            maxWidth: titleMaxWidth,
-                            wordBreak: 'break-word',
-                            letterSpacing: '-0.02em',
-                          },
-                          children: options.title,
-                        },
-                      },
-                      // Logo/headshot with circular border
-                      {
-                        type: 'div',
-                        props: {
-                          style: {
-                            display: 'flex',
-                            flexShrink: 0,
-                            borderRadius: config.logo.borderRadius,
-                            border: `${config.logo.borderWidth}px solid ${config.logo.borderColor}`,
-                            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-                            overflow: 'hidden',
-                          },
-                          children: [
-                            {
-                              type: 'img',
-                              props: {
-                                src: headshotDataUri,
-                                width: config.logo.size,
-                                height: config.logo.size,
-                                style: {
-                                  borderRadius: Math.max(0, config.logo.borderRadius - config.logo.borderWidth),
-                                  objectFit: 'cover',
-                                },
-                              },
-                            },
-                          ],
-                        },
-                      },
-                    ],
-                  },
-                },
-                // Bottom section: Description and Domain
+                // Hero: title + description, vertically centered in the frame
                 {
                   type: 'div',
                   props: {
                     style: {
                       display: 'flex',
                       flexDirection: 'column',
-                      gap: 16,
+                      flex: 1,
+                      justifyContent: 'center',
                     },
                     children: [
-                      // Description
+                      // Title — editorial serif (Lora), dynamically sized to
+                      // fill the frame, with numerals in the accent color.
+                      {
+                        type: 'div',
+                        props: {
+                          style: {
+                            display: 'flex',
+                            fontFamily: 'Lora',
+                            fontSize,
+                            fontWeight: 700,
+                            color: config.title.color,
+                            lineHeight: config.title.lineHeight,
+                            maxWidth: contentWidth,
+                            wordBreak: 'break-word',
+                            letterSpacing: '-0.01em',
+                          },
+                          children: options.title,
+                        },
+                      },
+                      // Description directly beneath the title (numerals accented)
                       {
                         type: 'div',
                         props: {
@@ -290,23 +324,84 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
                             fontWeight: 400,
                             color: config.description.color,
                             lineHeight: config.description.lineHeight,
-                            maxWidth: config.width - contentPaddingLeft - config.padding - 40,
+                            maxWidth: contentWidth,
+                            marginTop: 24,
                           },
                           children: cleanDescription,
                         },
                       },
-                      // Domain
+                    ],
+                  },
+                },
+                // Footer: headshot + name + domain lockup (the signature)
+                {
+                  type: 'div',
+                  props: {
+                    style: {
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 18,
+                    },
+                    children: [
+                      // Headshot with brand-accent ring
                       {
                         type: 'div',
                         props: {
                           style: {
                             display: 'flex',
-                            fontSize: config.domain.fontSize,
-                            fontWeight: 600,
-                            color: config.domain.color,
-                            letterSpacing: '0.01em',
+                            flexShrink: 0,
+                            borderRadius: 32,
+                            border: `3px solid ${config.accent.color}`,
+                            overflow: 'hidden',
                           },
-                          children: config.domain.text,
+                          children: [
+                            {
+                              type: 'img',
+                              props: {
+                                src: headshotDataUri,
+                                width: 60,
+                                height: 60,
+                                style: { borderRadius: 29, objectFit: 'cover' },
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      // Name over domain
+                      {
+                        type: 'div',
+                        props: {
+                          style: {
+                            display: 'flex',
+                            flexDirection: 'column',
+                          },
+                          children: [
+                            {
+                              type: 'div',
+                              props: {
+                                style: {
+                                  display: 'flex',
+                                  fontSize: 26,
+                                  fontWeight: 700,
+                                  color: config.title.color,
+                                },
+                                children: 'Ben Balter',
+                              },
+                            },
+                            {
+                              type: 'div',
+                              props: {
+                                style: {
+                                  display: 'flex',
+                                  fontSize: config.domain.fontSize,
+                                  fontWeight: 600,
+                                  color: config.domain.color,
+                                  letterSpacing: '0.01em',
+                                },
+                                children: config.domain.text,
+                              },
+                            },
+                          ],
                         },
                       },
                     ],
@@ -324,21 +419,27 @@ export async function generateOGImageSVG(options: OGImageOptions): Promise<strin
       height: config.height,
       fonts: [
         {
-          name: config.title.fontFamily,
+          name: 'Inter',
           data: fonts.regular,
           weight: 400,
           style: 'normal',
         },
         {
-          name: config.title.fontFamily,
+          name: 'Inter',
           data: fonts.bold,
+          weight: 700,
+          style: 'normal',
+        },
+        {
+          name: 'Lora',
+          data: fonts.serif,
           weight: 700,
           style: 'normal',
         },
       ],
     }
   );
-  
+
   return svg;
 }
 
@@ -425,7 +526,7 @@ export async function generateOGImagePNG(options: OGImageOptions): Promise<Buffe
 /* -------------------------------------------------------------------------- */
 
 // Bump to invalidate cached quote images independently of post images.
-const QUOTE_OG_CACHE_VERSION = '1';
+const QUOTE_OG_CACHE_VERSION = '2';
 
 export interface QuoteOGOptions {
   /** The quote text (verbatim, no surrounding quotation marks). */

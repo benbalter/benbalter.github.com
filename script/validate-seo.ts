@@ -71,12 +71,16 @@ async function validatePosts() {
       }
       titles.add(frontmatter.title);
       
-      // Check title length (recommended: 50-60 characters)
-      if (frontmatter.title.length > 60) {
+      // Check title length (recommended: 50-60 characters). BaseLayout renders
+      // the <title> as `<title> | Ben Balter`, which is what Google truncates and
+      // what the CI seo/title-length check measures — so count the suffix too.
+      const TITLE_SUFFIX = ' | Ben Balter';
+      const renderedLength = frontmatter.title.length + TITLE_SUFFIX.length;
+      if (renderedLength > 60) {
         issues.push({
           file: relativePath,
           type: 'warning',
-          message: `Title too long (${frontmatter.title.length} chars, recommend < 60): "${frontmatter.title}"`,
+          message: `Rendered <title> too long (${renderedLength} chars incl. "${TITLE_SUFFIX}", recommend < 60): "${frontmatter.title}"`,
         });
       }
     }

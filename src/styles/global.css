@@ -1372,8 +1372,17 @@
   animation-duration: 0.3s;
 }
 
-.content {
-  view-transition-name: main-content;
+/* Name ONLY the elements that should morph or stay put across a navigation.
+ * Naming the whole content column (it used to be `.content`) made the entire,
+ * variable-height column its own group, so pages of very different heights
+ * interpolated their box size — stretching the content (most visibly the
+ * breadcrumb at the top). Everything unnamed now cross-fades cleanly as `root`,
+ * which is viewport-sized and never distorts. */
+
+/* The nav bar stays put (morphs its own state) instead of being pulled into the
+ * root cross-fade, which reads as a flicker. */
+.navbar {
+  view-transition-name: site-header;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1639,4 +1648,105 @@ pre + h2, pre + h3, pre + h4, pre + h5, pre + h6 {
 
 .medium-zoom-image--opened {
   z-index: 10000;
+}
+
+/* ============================================================================
+ * Abbreviation Tooltips (TL;DR + acronyms)
+ *
+ * Site-wide styles for elements carrying `data-tooltip="true"` (the `.initialism`
+ * abbr) and the tooltip element the runtime injects (`.custom-tooltip`). Moved
+ * here from Tldr.astro so acronyms auto-wrapped by rehype-acronyms get the same
+ * treatment on every page. Driven by src/scripts/tooltip.ts.
+ * ============================================================================ */
+
+:root {
+  /* TL;DR tap highlight color, configurable for design system consistency */
+  --tldr-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Custom styles for initialism - applies in markdown content too */
+.initialism {
+  @apply no-underline cursor-help;
+  border-bottom: 1px dotted currentColor;
+  -webkit-tap-highlight-color: var(--tldr-tap-highlight-color);
+  touch-action: manipulation;
+}
+
+/* Use pointer cursor on touch-only devices */
+@media (any-pointer: coarse) and (hover: none) {
+  .initialism {
+    @apply cursor-pointer;
+  }
+}
+
+/* Custom tooltip styles */
+.custom-tooltip {
+  position: fixed;
+  @apply bg-gray-900 text-gray-100 px-3 py-2 rounded text-sm;
+  line-height: 1.4;
+  max-width: 300px;
+  z-index: 1050;
+  @apply opacity-0;
+  transition: opacity 0.2s ease-in-out;
+  /* Non-interactive while fading in/out; the visible state (.show) opts back in
+     so the pointer can rest on the bubble (WCAG 1.4.13, "hoverable"). */
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.custom-tooltip.show {
+  opacity: 0.9;
+  pointer-events: auto;
+}
+
+/* Respect reduced-motion: show/hide instantly instead of fading. The hide
+   cleanup falls back to a timeout, so removal still happens without a
+   transitionend event. */
+@media (prefers-reduced-motion: reduce) {
+  .custom-tooltip {
+    transition: none;
+  }
+}
+
+/* Arrow pointing left (default - tooltip on right side) */
+.custom-tooltip::before {
+  content: '';
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  @apply border-r-gray-900;
+}
+
+/* Dark mode tooltip adjustments */
+@media (prefers-color-scheme: dark) {
+  .custom-tooltip {
+    @apply bg-gray-100 text-gray-900;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.15);
+  }
+
+  .custom-tooltip::before {
+    @apply border-r-gray-100;
+  }
+}
+
+/* Arrow pointing right (when tooltip is on left side) */
+.custom-tooltip.left::before {
+  right: auto;
+  left: 100%;
+  border-right-color: transparent;
+  @apply border-l-gray-900;
+}
+
+/* Dark mode: left arrow */
+@media (prefers-color-scheme: dark) {
+  .custom-tooltip.left::before {
+    @apply border-l-gray-100;
+  }
+}
+
+/* Hide arrow when tooltip is positioned below */
+.custom-tooltip.below::before {
+  @apply hidden;
 }

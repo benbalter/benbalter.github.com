@@ -36,13 +36,13 @@ Don't limit yourself to completed deliverables. Screenshot the email where a sta
 
 ## Climbing Cringe Mountain
 
-Yes, maintaining a brag doc feels awkward. There's a reason people call it "climbing Cringe Mountain." We're conditioned to believe good work speaks for itself—that tracking your wins is unseemly.
+Yes, maintaining a brag doc feels awkward. There's a reason people call it "climbing Cringe Mountain."
 
-It's not.
-
-The alternative is being invisible. And invisible people don't get promoted—they get overlooked, then they leave. Ship early, [show your work](/2022/02/16/leaders-show-their-work/), and keep the receipts.
+:::objection[Doesn't good work speak for itself? Isn't tracking your wins unseemly?]
+It doesn't, and it isn't. We're conditioned to believe otherwise. But the alternative is being invisible. And invisible people don't get promoted—they get overlooked, then they leave. Ship early, [show your work](/2022/02/16/leaders-show-their-work/), and keep the receipts.
 
 If sharing your wins feels gross, reframe it: you're not bragging, you're making your manager's job easier. When promotion conversations come around, you'll have months of evidence instead of a frantic scramble to remember last quarter.
+:::
 
 ## Fighting recency bias
 

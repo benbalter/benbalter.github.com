@@ -31,6 +31,6 @@ With that in mind, here's how I'd update the *Simple Sabotage Field Manual* for 
 - If the discussion gains momentum, ask **open-ended, process-based questions** like *what does success look like?*, *what's our success metric?*, or *how do we measure our success metric?*.
 - Whenever you sense a decision nearing, insist that the group **forego decision-making** until stakeholders not initially invited to the meeting can have the opportunity to weigh in.
 
-### Conclusion
+## Conclusion
 
 The OSS's *Simple Sabotage Field Manual* was written to help operatives disrupt enemy organizations. But the tactics it describes are all too common in today's workplace. By recognizing these antipatterns, we can work to minimize their impact and make our meetings more productive.

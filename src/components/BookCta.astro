@@ -12,6 +12,7 @@
 
 import { Image } from 'astro:assets';
 import { siteConfig } from '../config';
+import { bookTitleHtml, commitGraphPaths } from '../lib/book-cta';
 import coverImage from '../../assets/img/open-and-async-cover.webp';
 
 interface Props {
@@ -37,25 +38,7 @@ const inlineHeadline =
         ? 'This post inspired a chapter in the book.'
         : "Liked this post? It's now a book.";
 
-// Colorize the ampersand with the site's signature lime→pink gradient.
-// Consume surrounding spaces so mx-1 controls the total whitespace (natural
-// spaces + margin would add up to an uncomfortably wide gap in prose text).
-const bookTitleHtml = siteConfig.bookTitle.replace(
-  /\s*&\s*/g,
-  '<span class="oa-amp mx-1">&amp;</span>',
-);
-
-// Commit-graph motif from the marketing site: a straight trunk with curved
-// lime/pink branches, rendered as a faint strip along the bottom of the callout.
-const commitGraphPaths = `
-  <path d="M0 30 H 1200" stroke="var(--color-accent-400)" stroke-width="2.5"/>
-  <path d="M340 30 C 420 30, 440 12, 520 12 S 680 30, 760 30" stroke="var(--color-pink-400)" stroke-width="2"/>
-  <path d="M620 30 C 700 30, 720 48, 800 48 S 940 36, 1000 30" stroke="var(--color-accent-400)" stroke-width="2"/>
-  <circle cx="240" cy="30" r="6" fill="var(--color-accent-400)"/>
-  <circle cx="520" cy="12" r="5" fill="var(--color-pink-400)"/>
-  <circle cx="800" cy="48" r="5" fill="var(--color-accent-400)"/>
-  <circle cx="1000" cy="30" r="8" fill="none" stroke="var(--color-accent-400)" stroke-width="2.5"/>
-`;
+// bookTitleHtml + commitGraphPaths shared with BookLaunchCta (see lib/book-cta).
 ---
 
 {variant === 'featured' ? (

@@ -6,7 +6,7 @@ tldr: "Features aren't what make a product great. Being the best at solving a pa
 
 Ultimately, your users use your product because [they're trying to solve a specific problem](https://strategyn.com/jobs-to-be-done/). It could be getting from point A to point B, finding their subsequent romantic interest, or having someplace to store their vacation photos. Whatever the reason, they have a specific task in mind, and your product is merely a means to an end. That means that every "nice to have" feature that doesn't solve the problem they're trying to solve isn't just product cruft. It's actively standing in their way.
 
-### Features aren't free
+## Features aren't free
 
 Features come with a genuine cost to users. We had a motto at GitHub, part of the [GitHub Zen](https://ben.balter.com/2015/08/12/the-zen-of-github/), that "anything added dilutes everything else." In reality, there is always a non-zero cost to adding that extra option. Most immediately, it's time you spend building feature A instead of building feature B. Beyond that, it's the cognitive burden you've just added to each user's onboarding experience as they try to understand how to use the thing you've added (and if they should). In the long run, it's much more than maintenance. Complexity begets complexity, meaning each edge case you account for today creates many more.
 
@@ -14,15 +14,15 @@ WordPress, the popular blogging platform famously [has a similar philosophy](htt
 
 With every new feature you add, users will need to go through that learning process all over again, not to mention that new knob you added for User B, because "why not? It's just one knob" is going to make it harder for User A to find the knob they're looking for.
 
-### There's no such thing as declaring "feature bankruptcy."
+## There's no such thing as declaring "feature bankruptcy."
 
 Even though we often call it "technical debt," sadly, there's no such thing as declaring "feature bankruptcy." Every feature you add creates an implicit contract with your users that you will perpetually support that feature. That means that every dependency update, every redesign, and every refactor becomes exponentially more complex with each new feature, as you have an ever-increasing list of things you must now support. This technical debt quickly adds up to create a perpetual engineering tax on feature development in the form of ongoing maintenance and backward compatibility.
 
-Product debt isn't a foregone certainty. Chances are, users don't need quite as many knobs as you think. [Research suggests](https://neverworkintheory.org/2016/06/09/too-many-knobs.html) that 90% of users adjust fewer than 10% of settings, with the majority of users changing, at most, about 15% of configuration parameters for any given piece of software. That means that upwards of 80% of settings shouldn't even be there in the first place. Rather than slowing marching your product's settings page towards eventually resembling the complexity of a space shuttle cockpit, you should have the discipline to [build features that support your ideal use case](https://ben.balter.com/2016/03/08/optimizing-for-power-users-and-edge-cases/) (and only your perfect use case).
+Product debt isn't a foregone certainty. Chances are, users don't need quite as many knobs as you think. [Research suggests](https://neverworkintheory.org/2016/06/09/too-many-knobs.html) that 90% of users adjust fewer than 10% of settings, with the majority of users changing, at most, about 15% of configuration parameters for any given piece of software. That means that upwards of 80% of settings shouldn't even be there in the first place. Rather than slowly marching your product's settings page towards eventually resembling the complexity of a space shuttle cockpit, you should have the discipline to [build features that support your ideal use case](https://ben.balter.com/2016/03/08/optimizing-for-power-users-and-edge-cases/) (and only your perfect use case).
 
 Unfortunately, once a feature's been added, once it's in the hands of users, whenever you make a change, regardless of what the change is, [a non-zero number of users are going to complain that the change broke their workflow](https://xkcd.com/1172/). Thus, the easiest way to avoid upsetting users is often to prevent the feature from being added in the first place.
 
-### Playing feature goalie
+## Playing feature goalie
 
 Absent your intervention, projects tend to become feature Christmas trees, with each stakeholder adding their domain-specific ornaments. This happens for several easily avoidable reasons, at least if you can learn to spot them ahead of time:
 
@@ -38,6 +38,6 @@ Absent your intervention, projects tend to become feature Christmas trees, with 
 
 If you see yourself mimicking one of these feature development antipatterns, it may be time to play "feature goalie" a bit. That's not to say you need to keep the proposed feature out of the product entirely, but it's a good indication that you should give it a critical look and potentially scope things down to more directly support your target use case. Can you implement it without a toggle? Only expose it to power users? Bake it into the out-of-the-box experience as an intelligent default. If the feature doesn't *bring your target users joy*, it's probably best to cut it. Put another way, if the feature's not part of the solution, it's likely part of the problem.
 
-### Conclusion
+## Conclusion
 
 Features aren't what makes a product great. Being the best at solving a particular problem does. Every time you remove a feature that doesn't support your product's core use case, you're adding an implicit feature that does. Every feature you add creates an implicit contract with your users that you will perpetually support that feature. That means that every dependency update, every redesign, and every refactor becomes exponentially more complex with each new feature. If the feature doesn't *bring your target users joy*, it's probably best to cut it. Put another way, if the feature's not part of the solution, it's likely part of the problem.

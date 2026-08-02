@@ -10,6 +10,17 @@
 import type { Person, Organization, WebSite, BlogPosting, BreadcrumbList, ListItem, WithContext, Occupation, EducationalOrganization, EducationalOccupationalCredential, ImageObject, ProfilePage, CollectionPage, SearchAction } from 'schema-dts';
 import { siteConfig } from '../config';
 
+/** Ben's canonical social/profile URLs — shared by every schema that carries a
+ * `sameAs` (top-level Person and each post's BlogPosting author). */
+const SAME_AS: string[] = [
+  siteConfig.githubUsername && `https://github.com/${siteConfig.githubUsername}`,
+  siteConfig.socialUsername && `https://twitter.com/${siteConfig.socialUsername}`,
+  siteConfig.linkedinUrl,
+  siteConfig.mastodonUrl,
+  siteConfig.blueskyUrl,
+  'https://www.amazon.com/author/benbalter',
+].filter(Boolean) as string[];
+
 /** Base Person fields (shared between top-level and embedded schemas) */
 function personFields(overrides?: Partial<Person>): Person {
   const person: Person = {
@@ -25,14 +36,7 @@ function personFields(overrides?: Partial<Person>): Person {
       name: siteConfig.formerEmployer,
       url: siteConfig.formerEmployerUrl,
     } as Organization,
-    sameAs: [
-      siteConfig.githubUsername && `https://github.com/${siteConfig.githubUsername}`,
-      siteConfig.socialUsername && `https://twitter.com/${siteConfig.socialUsername}`,
-      siteConfig.linkedinUrl,
-      siteConfig.mastodonUrl,
-      siteConfig.blueskyUrl,
-      'https://www.amazon.com/author/benbalter',
-    ].filter(Boolean) as string[],
+    sameAs: SAME_AS,
     image: `${siteConfig.url}/assets/img/headshot.jpg`,
   };
 
@@ -128,12 +132,21 @@ export function generateBlogPostingSchema(props: {
     ? (image.startsWith('http') ? image : `${siteConfig.url}${image}`)
     : `${siteConfig.url}/assets/img/headshot.jpg`;
 
+  // Our generated OG cards (/og/…png) are always 1200x630, so expose them as an
+  // ImageObject with dimensions. Frontmatter/legacy images are arbitrary sizes —
+  // leave those as a bare URL and let scrapers measure them.
+  const imageValue: BlogPosting['image'] = image?.startsWith('/og/')
+    // Cast through unknown: schema-dts types width/height as QuantitativeValue,
+    // but Google accepts (and prefers) plain pixel numbers for image dimensions.
+    ? ({ '@type': 'ImageObject', url: absoluteImage, width: 1200, height: 630 } as unknown as ImageObject)
+    : absoluteImage;
+
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: title,
     ...(description !== undefined ? { description } : {}),
-    image: absoluteImage,
+    image: imageValue,
     datePublished: publishedTime.toISOString(),
     dateModified: modifiedTime?.toISOString() || publishedTime.toISOString(),
     author: {
@@ -142,6 +155,9 @@ export function generateBlogPostingSchema(props: {
       name: author || siteConfig.author,
       url: siteConfig.url,
       image: `${siteConfig.url}/assets/img/headshot.jpg`,
+      // Match the site-wide Person's social profiles so the byline carries the
+      // same authorship/credibility signals.
+      sameAs: SAME_AS,
     } as Person,
     publisher: {
       '@type': 'Organization',
