@@ -8,7 +8,7 @@ Government contractors have traditionally been slow to embrace open source softw
 
 ## 1. Industry-standard best practices
 
-You'd be hard-pressed to find a startup worth its angel investment today that isn't built on open source software. Heck, even enterprise giants like [Microsoft](https://github.com/Microsoft) and [Adobe](https://adobe.github.io/) are embracing opens source workflows. As agencies are increasingly looking to shed the outdated IT stereotype and embrace modern software development practices, offering open source solutions serves as a proxy for the express lane to industry standard best practices.
+You'd be hard-pressed to find a startup worth its angel investment today that isn't built on open source software. Heck, even enterprise giants like [Microsoft](https://github.com/Microsoft) and [Adobe](https://adobe.github.io/) are embracing open source workflows. As agencies are increasingly looking to shed the outdated IT stereotype and embrace modern software development practices, offering open source solutions serves as a proxy for the express lane to industry standard best practices.
 
 Even a casual observer of the industry can see the direction things are heading. Government contractors that have a history of participating in the open source community and who brag about their open source prowess in responding to government RFPs can gain a unique first-mover advantage and would be uniquely attractive to government agencies.
 
@@ -34,7 +34,7 @@ As the contractor seeks to attract talent, by the time they step foot in the car
 
 Better still, because open source is collaborative, there's a good chance you've already had an opportunity to evaluate the applicant. What better way to evaluate how the applicant would contribute to your organization's software, than to be able to evaluate them as they contribute to your organization's software over the lifecycle of an open source project? At GitHub, for example, we're already familiar with many of the developers we hire, well before a résumé ever changes hands.
 
-Open source provide government contractors with a platform to establish a brand among the industry's most committed developers, to attract that same talent, and to evaluate how they'd work, all without spending a single dollar on recruitment.
+Open source provides government contractors with a platform to establish a brand among the industry's most committed developers, to attract that same talent, and to evaluate how they'd work, all without spending a single dollar on recruitment.
 
 ## 5. Guaranteed maintenance
 
@@ -74,4 +74,4 @@ Open source has traditionally [gotten a bad rap](https://ben.balter.com/2014/09/
 
 If you haven't recently, take a closer look at open source. I think you'll be surprised. Find something small — a bug in the software that powers your site, a shared library used internally, or a tool used to facilitate your own workflows — and open source it. Government contractors may be stereotypically hesitant to embrace the latest industry trend, but open source is neither risky, nor a passing fad. Open source is here to stay.
 
-As young firms begin to bring their open source experience to the marketplace, the only questions is whether existing government contracting firms will finally get ahead of, or continue to lag behind the technology adoption curve.
+As young firms begin to bring their open source experience to the marketplace, the only question is whether existing government contracting firms will finally get ahead of, or continue to lag behind the technology adoption curve.

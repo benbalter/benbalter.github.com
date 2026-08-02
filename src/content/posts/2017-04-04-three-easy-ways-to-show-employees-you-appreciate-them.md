@@ -10,9 +10,9 @@ As a manager (or a coworker) one small thing you can do to make wherever it is t
 
 *What*: Most humans have birthdays. Some humans don't care much for candles, singing, or mass attention, but many humans would at least appreciate a quick "Happy Birthday! I hope you have something fun planned this weekend." DM or email. Even better, throw in some emoji or an animated GIF for good measure.
 
-*Why*: This is especially true if you're remote. While onsite culture provides not-so-subtle queues like flower deliveries and stumble-upon opportunities like cake in the break room or communal drinks after work, when you're remote, you don't have such luxuries and it's even more important that you go out of your way to recognize your coworkers' birthdays.
+*Why*: This is especially true if you're remote. While onsite culture provides not-so-subtle cues like flower deliveries and stumble-upon opportunities like cake in the break room or communal drinks after work, when you're remote, you don't have such luxuries and it's even more important that you go out of your way to recognize your coworkers' birthdays.
 
-*How*: If you're Facebook friends with your coworkers, you can add a webcal feed of your friends' birthdays to your calendar, and many HR systems let you do the same. At the very least, you can ask for their birth month and day with minimal awkwardness and add it to your calendar as a reoccurring event.
+*How*: If you're Facebook friends with your coworkers, you can add a webcal feed of your friends' birthdays to your calendar, and many HR systems let you do the same. At the very least, you can ask for their birth month and day with minimal awkwardness and add it to your calendar as a recurring event.
 
 ## Work anniversaries
 
@@ -20,7 +20,7 @@ As a manager (or a coworker) one small thing you can do to make wherever it is t
 
 *Why*: This is especially true if you're at a younger company. When you've clocked three years at a five year startup, given stereotypical exponential growth, it's almost guaranteed that you've been at the company significantly longer than most of your coworkers. Heck, even if you're at a century-old blue chip company, there's a good chance they've been marking work anniversaries with gold watches for decades.
 
-*How:* If you're connected with your coworker on LinkedIn (yeah, I know), the service will send you push notifications for your connections work milestones, but I don't recommend it. The easier route is to check internal social tools (at GitHub we have a blog-like platform called Team), or external announcements (for years we announced every new hire via the public blog).
+*How:* If you're connected with your coworker on LinkedIn (yeah, I know), the service will send you push notifications for your connections' work milestones, but I don't recommend it. The easier route is to check internal social tools (at GitHub we have a blog-like platform called Team), or external announcements (for years we announced every new hire via the public blog).
 
 ## Major lifecycle events (for example, moving)
 

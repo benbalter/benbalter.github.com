@@ -8,7 +8,7 @@ GitHub recently launched [government.github.com](http://government.github.com), 
 
 <img src="https://f.cloud.github.com/assets/282759/1363429/683a395e-382b-11e3-8e9b-677186b33e72.png" alt="Initial commit of government.github.com, versus today" class="" />
 
-Had we chosen to go the traditional WordPress, Rails, or really, any other route, we would have been distracted by and had been forced to dedicate a significant portion of our time to just getting things to work. Are the permissions right for this post? Is the SEO plugin working properly? Will it scale as expected on launch day? That's all just technical noise, noise not even remotely necessary in many cases.
+Had we chosen to go the traditional WordPress, Rails, or really, any other route, we would have been distracted and been forced to dedicate a significant portion of our time to just getting things to work. Are the permissions right for this post? Is the SEO plugin working properly? Will it scale as expected on launch day? That's all just technical noise, noise not even remotely necessary in many cases.
 
 Instead, [Jekyll](http://jekyllrb.com), the static site generator baked directly into [GitHub Pages](https://pages.github.com), introduced a level of zen-like simplicity, that allowed us to focus on one thing and one thing only: content. Are we solving for the right thing here? Can we word this better? Is this line absolutely necessary? We knew it was going to work, so we were able to move on to more important things.
 
