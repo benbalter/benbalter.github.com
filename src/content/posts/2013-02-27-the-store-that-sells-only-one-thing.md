@@ -7,7 +7,7 @@ published: true
 
 Imagine a store. This store sells only one product. Regardless of what you come in for, regardless of what question you ask, their recommendation is always the same: you should buy the only product they sell.
 
-Sadly, this is all-to-often the face of professional services in the technology industry. We have "Drupal shops" and "WordPress shops" and "Rails shops", but no "problem solving shops". Yet, we know that people come to technology consultants with problems, not solutions. Imagine, for example, if Deloitte, or any other of the big four consulting firms for that matter, was a "firing shop". That every time you came to them with a problem, they would always suggest that you fire people. Or maybe they're a "business analytics shop". Doesn't matter. Regardless of what problem you bring them, the solution's always the same: "Do [the only thing we know]." Hard to imagine they'd stay in business long, huh?
+Sadly, this is all-too-often the face of professional services in the technology industry. We have "Drupal shops" and "WordPress shops" and "Rails shops", but no "problem solving shops". Yet, we know that people come to technology consultants with problems, not solutions. Imagine, for example, if Deloitte, or any other of the big four consulting firms for that matter, was a "firing shop". That every time you came to them with a problem, they would always suggest that you fire people. Or maybe they're a "business analytics shop". Doesn't matter. Regardless of what problem you bring them, the solution's always the same: "Do [the only thing we know]." Hard to imagine they'd stay in business long, huh?
 
 <!-- more -->
 

@@ -16,7 +16,7 @@ When a user experiences abuse or harassment, they need basic tools to minimize t
 
 ## 2. Reporting
 
-Once a user has taken steps to minimize their exposure to the abuse or harassment, you'll want some mechanism for them to report the abuse to you to escalate a response. This could be per-account, but ideally, it should be associated with the content in question, and as frictionless as possible. The user may have just had an upsetting or unsettling experience, and the last thing you want to do is add to it with an endless maze of forms as captchas. Collect as much metadata as you can automatically to absorb the complexity on behalf of the reporting user, and associate it with the report. More mature abuse reporting systems also provide the reporting user with transparency as to the resolution of their report.
+Once a user has taken steps to minimize their exposure to the abuse or harassment, you'll want some mechanism for them to report the abuse to you to escalate a response. This could be per-account, but ideally, it should be associated with the content in question, and as frictionless as possible. The user may have just had an upsetting or unsettling experience, and the last thing you want to do is add to it with an endless maze of forms and captchas. Collect as much metadata as you can automatically to absorb the complexity on behalf of the reporting user, and associate it with the report. More mature abuse reporting systems also provide the reporting user with transparency as to the resolution of their report.
 
 ## 3. Hiding content
 
@@ -24,11 +24,11 @@ You'll want some way to hide existing content. Ideally, you'd have the ability t
 
 ## 4. Preventing new content
 
-Beyond hiding existing content, you'll also want some way to prevent the creation of new content. This is often done by preventing the user from logging in entirely and can be used if an ongoing or egregious violation of your Terms of Service or Community Guidelines where continued use of the platform isn't warranted.
+Beyond hiding existing content, you'll also want some way to prevent the creation of new content. This is often done by preventing the user from logging in entirely and can be used if there's an ongoing or egregious violation of your Terms of Service or Community Guidelines and continued use of the platform isn't warranted.
 
 ## 5. Community guidelines
 
-Your Terms of Service establishes a baseline for acceptable behavior that generally hovers somewhere around “don’t do anything illegal”. To ensure you have the policy means to respond to abuse and harassment on your platform, you should also establish heightened community guidelines beyond those bare minimums, that establishes “golden-rule”-type expectations like don’t be a bully or don’t threaten other users. It doesn't do you or the reporting user any good if a report of abuse or harassment comes in, and there's nothing you can do about it because your hands are tied for fear of looking reactive or biased. As I've [said before](https://ben.balter.com/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github#10-be-purposeful-about-the-role-you-play), platforms should be mindful of the role they play as the builders and maintainers of digital town squares.
+Your Terms of Service establishes a baseline for acceptable behavior that generally hovers somewhere around “don’t do anything illegal”. To ensure you have the policy means to respond to abuse and harassment on your platform, you should also establish heightened community guidelines beyond those bare minimums, that establish “golden-rule”-type expectations like don’t be a bully or don’t threaten other users. It doesn't do you or the reporting user any good if a report of abuse or harassment comes in, and there's nothing you can do about it because your hands are tied for fear of looking reactive or biased. As I've [said before](https://ben.balter.com/2020/01/17/ten-lessons-learned-fostering-a-community-of-communities-on-github#10-be-purposeful-about-the-role-you-play), platforms should be mindful of the role they play as the builders and maintainers of digital town squares.
 
 ## 6. Auditability
 
