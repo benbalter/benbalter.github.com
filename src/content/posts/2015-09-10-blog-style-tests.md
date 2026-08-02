@@ -39,7 +39,7 @@ The next thing I'd notice if I were reviewing the post is that it focuses on the
 
 > Your users don't care how excited you are. They don't care about how much effort you put in. They don't care how hard it was to do. All they care about is one thing: how does it benefit me?
 
-With a little regular expression, testing for "We're excited to announced…"-type phrases is equally straightforward:
+With a little regular expression, testing for "We're excited to announce…"-type phrases is equally straightforward:
 
 ```ruby
 class ExcitedTest &lt; Blog::Test
@@ -85,11 +85,11 @@ end
 
 At GitHub we use automated testing (CI) on just about every repository, code or otherwise, but tests against our blog posts are different in two distinct ways:
 
-First, unlike software tests where [pull requests are not mergable unless the build passes](https://github.com/blog/2051-protected-branches-and-required-status-checks), when working with prose, failing tests are considered suggestions, not requirements, suggestions that the post author is free to ignore along with the advice of the blog team. As [Zach Holman wrote](http://zachholman.com/posts/how-github-writes-blog-posts/):
+First, unlike software tests where [pull requests are not mergeable unless the build passes](https://github.com/blog/2051-protected-branches-and-required-status-checks), when working with prose, failing tests are considered suggestions, not requirements, suggestions that the post author is free to ignore along with the advice of the blog team. As [Zach Holman wrote](http://zachholman.com/posts/how-github-writes-blog-posts/):
 
 > Think of this process like a syntax linter for your words: breaking the build isn't necessarily bad, per se, but it might give you suggestions you might want to incorporate. It gives you immediate feedback without requiring a lot of additional overhead by our blog editors.
 
-Second, also unlike software tests, which run the test suite against the entire software project, blog posts are not necessarily interrelated, nor do we need to enforce style retroactively across all files. As a result, blog tests are only run on those posts which the pull requests changes (for example, the proposed post). If you're using Git, you can get a list of changed files with the `git diff` command. If we were to pipe it into the helper method implied above, you'd get something like:
+Second, also unlike software tests, which run the test suite against the entire software project, blog posts are not necessarily interrelated, nor do we need to enforce style retroactively across all files. As a result, blog tests are only run on those posts that the pull request changes (for example, the proposed post). If you're using Git, you can get a list of changed files with the `git diff` command. If we were to pipe it into the helper method implied above, you'd get something like:
 
 ```ruby
 def posts

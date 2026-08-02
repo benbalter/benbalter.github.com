@@ -45,7 +45,7 @@ There are a few prose-specific linters I credit for improving my day-to-day writ
 - [linter-write-good](https://atom.io/packages/linter-write-good) - A grammar linter, Write Good checks all sorts of things, like falses, passive voice, and unnecessarily wordy phrases.
 - [linter-markdown](https://atom.io/packages/linter-markdown) - This linter, based on [Remark JS](https://github.com/gnab/remark) lints Markdown formatting, ensuring things like headings are surrounded by whitespace and bulleted lists are consistent.
 - [linter-alex](https://atom.io/packages/linter-alex) - [Alex](https://github.com/wooorm/alex) checks your writing for biased or insensitive language.
-- [linter-just-say-no](https://atom.io/packages/linter-just-say-no) - Discourages you from using hedge words that weaken's the impact of your writing.
+- [linter-just-say-no](https://atom.io/packages/linter-just-say-no) - Discourages you from using hedge words that weaken the impact of your writing.
 
 ## How I manage Atom
 
@@ -53,6 +53,6 @@ When I set up a new machine, among the first things I do is [symlink `~/.atom/co
 
 You may also notice that I have a [`packages.txt`](https://github.com/benbalter/dotfiles/blob/master/.atom/packages.txt) file in my Atom config, with each plugin I want to use listed on its own line. While not a standard implementation, to be sure, Atom does come bundled with its own Atom Package Manager (APM), which can be fed a list of package files, via the `apm install --packages-file packages.txt` command, to install a list of desired packages. You can even create that list from your existing plugins [with this one-liner](https://github.com/benbalter/dotfiles/blob/master/script/atom).
 
-Working largely in prose, I can't imagine using a more traditional word processor over something that once customized, is more powerful and more purpose built. I can't count the number of times I've simply pasted in text I'm proofreading and implemented the automated suggestions (or wrote ad hoc rules to check for my own style nits).
+Working largely in prose, I can't imagine using a more traditional word processor over something that when customized, is more powerful and more purpose built. I can't count the number of times I've simply pasted in text I'm proofreading and implemented the automated suggestions (or wrote ad hoc rules to check for my own style nits).
 
 That's how I Atom, but there are a bajillion packages (and workflows) out there. What packages do you use that you can't live without? How do you Atom?

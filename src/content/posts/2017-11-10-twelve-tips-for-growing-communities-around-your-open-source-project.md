@@ -46,7 +46,7 @@ In my experience expanded technical documentation is a positive feedback loop, i
 
 ## 5. Document how to contribute (and that you want contributions)
 
-Every project has its own workflow, processes, and norms. Some require that each pull request have an associated issue, other require squashing commits or that commit messages be in a specific format. Whatever your community's practice, make it easy for first-time contributors to implement. That way, first-time contributors have a positive experience and become repeat contributors, and maintainers will be able to spend less time on the busy work of enforcing process.
+Every project has its own workflow, processes, and norms. Some require that each pull request have an associated issue, others require squashing commits or that commit messages be in a specific format. Whatever your community's practice, make it easy for first-time contributors to implement. That way, first-time contributors have a positive experience and become repeat contributors, and maintainers will be able to spend less time on the busy work of enforcing process.
 
 Think through the experience of going from a user to a first-time contributor to a regular contributor. How long does it take for that user to go from "I want to contribute" to "I have contributed"? I call that measure [friction](https://ben.balter.com/2013/08/11/friction/). When documenting your process, constantly ask yourself "how can you minimize that friction?" (or inversely, how can you maximize that conversion rate). How do you bootstrap a local development environment? How do you run tests? What are common pitfalls? Do you require a CLA? Whatever it is, try to make it as easy as possible to contribute, and more users will.
 
@@ -86,7 +86,7 @@ Automated code style enforcement via projects like Rubocop or WPCS not only ensu
 
 ## 10. Automate community management
 
-One of the biggest improvements to open source community management in recent memory is [Probot](https://probot.github.io/). Probot is an extensible framework for automating tasks based on your repository's activity. With [dozens of community-maintained apps](https://probot.github.io/apps/) chances are whatever pain point you're current experiencing has already been experienced (and solved) by an open source maintainer.
+One of the biggest improvements to open source community management in recent memory is [Probot](https://probot.github.io/). Probot is an extensible framework for automating tasks based on your repository's activity. With [dozens of community-maintained apps](https://probot.github.io/apps/), chances are whatever pain point you're currently experiencing has already been experienced (and solved) by an open source maintainer.
 
 You can use Probot for things like welcoming first-time users, automatically closing stale issues, requesting more information, or even moderating toxic conversations. Better still, if your problem hasn't been solved, Probot makes it easy to write your own app.
 
@@ -96,7 +96,7 @@ While I'd certainly recommend manually implementing the above to get a feel for 
 
 Not every experience on the internet is a great one. Humans are human, and reasonable people can disagree, even when it comes to open source. Your goal as an open source community maintainer should be to keep conversations civil, and ensure that anyone who wants to contribute, can. Adding a code of conduct to your project takes seconds, and can signal to those considering contributing that your community is a welcoming community to which they should contribute.
 
-Establishing such norms early on can go along way to preventing or mitigating conflict before it arises. Committing a single file, however, isn't enough, and can actually do more harm than good, if you're not willing to enforce it. Be sure to provide a private channel to report violations, and be prepared to take action in response, even if the decision is unpopular.
+Establishing such norms early on can go a long way to preventing or mitigating conflict before it arises. Committing a single file, however, isn't enough, and can actually do more harm than good, if you're not willing to enforce it. Be sure to provide a private channel to report violations, and be prepared to take action in response, even if the decision is unpopular.
 
 When looking at the long-term success of your project, a vibrant, welcoming community of users and contributors is going to do more for your project than any single developer or individual feature. In a perfect world, conflicts wouldn't arise, but sometimes a tough conversation and establishing community norms is going to be the best thing for the health of your project in the long-run.
 
@@ -106,7 +106,7 @@ Priorities change. People move jobs. New technology arises. Whatever the reason,
 
 If you have a small cadre of active contributors, often, this is just a matter of formally turning over control to them as maintainers. If you don't, you may need to be a bit more transparent with your intentions, by opening a dedicated "this project is up for adoption issue", making pleas for financial support (if money's an issue), or reaching out into individual developers you think might be interested.
 
-The most important thing you can do is communicate your project's status, whatever it may be. If it's feature complete, say so. No longer maintained? Warn potential users. Is their a better replacement? You don't want a potential contributor to spend hours working on a bugfix, only to find their pull request go unanswered. You created the project, your users and contributors dedicated countless hours, and its your responsibility to ensure they have a good experience from start to finish.
+The most important thing you can do is communicate your project's status, whatever it may be. If it's feature complete, say so. No longer maintained? Warn potential users. Is there a better replacement? You don't want a potential contributor to spend hours working on a bugfix, only to find their pull request goes unanswered. You created the project, your users and contributors dedicated countless hours, and it's your responsibility to ensure they have a good experience from start to finish.
 
 ## It takes a community
 
