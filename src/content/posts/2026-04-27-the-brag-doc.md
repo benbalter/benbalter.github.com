@@ -13,7 +13,7 @@ Treat yourself as a product. What are your features? What are your bugs? What do
 
 Unless you're a professional athlete, nobody's compiling your stats. Your manager has their own deliverables, their own manager to impress, and a dozen other direct reports. They aren't maintaining a highlight reel of your career. That's your job.
 
-In remote organizations, this problem compounds. There's no hallway reputation, no casual office face time, no lunch with the VP where you happen to mention your project. If people don't see your work in pull requests, issues, or public discussions, they don't know you exist. [Working in the open](/2015/11/12/why-urls/) creates a natural paper trail—public pull requests, documented decisions, visible contributions—but that trail only matters if you curate it.
+In remote organizations, this problem compounds. There's no hallway reputation, no casual office face time, no lunch with the VP where you happen to mention your project. If people don't see your work in [pull requests](/2023/05/19/pull-requests-are-a-form-of-documentations/), issues, or public discussions, they don't know you exist. [Working in the open](/2015/11/12/why-urls/) creates a natural paper trail—public pull requests, documented decisions, visible contributions—but that trail only matters if you curate it.
 
 ## The ship log
 
@@ -60,4 +60,4 @@ A brag doc only works if you actually maintain it. Some practical tips:
 - **Feed your self-assessments.** When review season comes, your log *is* your self-assessment draft. Copy, paste, polish.
 - **Build your promotion packet early.** The best promotion cases aren't written in a weekend—they're assembled over months from a well-maintained log.
 
-Nobody else will manage your career. Your company manages your role. You manage your trajectory. Start the doc today—future you will be grateful.
+:quote[Nobody else will manage your career. Your company manages your role. You manage your trajectory.]{#q-nobody-else-will-manage-your} Start the doc today—future you will be grateful.
