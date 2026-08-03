@@ -26,7 +26,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import matter from 'gray-matter';
-import { flagVal, intFlag, chatEndpoint, createFoundryClient, parseJson, pool } from './lib/foundry';
+import { flagVal, intFlag, chatEndpoint, createFoundryClient, requireCreds, parseJson, pool } from './lib/foundry';
 
 const argv = process.argv.slice(2);
 const DRY_RUN = argv.includes('--dry-run');
@@ -38,7 +38,7 @@ const MODEL = flagVal(argv, '--model', process.env.AI_MODEL || 'gpt-5.4');
 
 const ROOT = process.cwd();
 const POSTS = path.join(ROOT, 'src/content/posts');
-const client = createFoundryClient({ endpoint: chatEndpoint(ENDPOINT_RAW), apiKey: API_KEY, model: MODEL });
+const client = createFoundryClient({ endpoint: chatEndpoint(ENDPOINT_RAW), apiKey: API_KEY, model: MODEL, dryRun: DRY_RUN });
 
 interface Finding { pid: string; cat: string; sev: string; quote: string; problem: string; fix: string; }
 interface Edit { find: string; replace: string; reason: string; }
@@ -117,7 +117,13 @@ async function fixPost(pid: string, findings: Finding[]): Promise<{ pid: string;
 
 async function main() {
   console.log(`\n🔧 foundry-fix ${DRY_RUN ? '(DRY RUN — no writes)' : ''} · model=${MODEL}\n`);
-  const all: Finding[] = JSON.parse(fs.readFileSync(path.join(ROOT, 'qa/all-findings.json'), 'utf-8'));
+  requireCreds(ENDPOINT_RAW, API_KEY, DRY_RUN);
+  const findingsPath = path.join(ROOT, 'qa/all-findings.json');
+  if (!fs.existsSync(findingsPath)) {
+    console.error(`\n❌ ${path.relative(ROOT, findingsPath)} not found. Run the foundry-qa pass and assemble qa/all-findings.json first.\n`);
+    process.exit(1);
+  }
+  const all: Finding[] = JSON.parse(fs.readFileSync(findingsPath, 'utf-8'));
   const objective = all.filter((f) => OBJECTIVE.has(f.cat));
   const byPost = new Map<string, Finding[]>();
   for (const f of objective) { (byPost.get(f.pid) ?? byPost.set(f.pid, []).get(f.pid)!).push(f); }

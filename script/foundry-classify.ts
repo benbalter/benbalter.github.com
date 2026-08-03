@@ -26,7 +26,12 @@ const client = createFoundryClient({ endpoint: chatEndpoint(ENDPOINT_RAW), apiKe
 interface Applied { pid: string; find: string; replace: string; reason: string; }
 
 function loadApplied(): Applied[] {
-  const txt = fs.readFileSync(path.join(ROOT, 'qa/FIXES.md'), 'utf-8');
+  const fixesPath = path.join(ROOT, 'qa/FIXES.md');
+  if (!fs.existsSync(fixesPath)) {
+    console.error(`\n❌ ${path.relative(ROOT, fixesPath)} not found. Run \`npx tsx script/foundry-fix.ts\` first.\n`);
+    process.exit(1);
+  }
+  const txt = fs.readFileSync(fixesPath, 'utf-8');
   const out: Applied[] = [];
   let pid = '';
   for (const line of txt.split('\n')) {
