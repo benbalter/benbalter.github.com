@@ -14,36 +14,14 @@
  */
 import * as fs from 'fs';
 import * as path from 'path';
+import { flagVal, chatEndpoint, createFoundryClient, parseJson } from './lib/foundry';
 
 const argv = process.argv.slice(2);
-const flagVal = (f: string, d: string) => { const i = argv.indexOf(f); return i >= 0 && argv[i + 1] && !argv[i + 1].startsWith('--') ? argv[i + 1] : d; };
 const ENDPOINT_RAW = process.env.AZURE_API_ENDPOINT || process.env.AZURE_OPENAI_ENDPOINT || '';
 const API_KEY = process.env.AZURE_API_KEY || process.env.AZURE_OPENAI_API_KEY || '';
-const MODEL = flagVal('--model', process.env.AI_MODEL || 'gpt-5.4');
-const ENDPOINT = (() => { const t = ENDPOINT_RAW.replace(/\/$/, ''); const [p, q] = t.split('?'); const wp = p.endsWith('/chat/completions') ? p : `${p}/chat/completions`; return q ? `${wp}?${q}` : wp; })();
-const isReasoning = /^(o\d|gpt-5)/i.test(MODEL);
+const MODEL = flagVal(argv, '--model', process.env.AI_MODEL || 'gpt-5.4');
 const ROOT = process.cwd();
-const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
-let promptTokens = 0, completionTokens = 0;
-
-async function chat(messages: any[]): Promise<string> {
-  const body: Record<string, unknown> = { model: MODEL, messages, response_format: { type: 'json_object' } };
-  if (isReasoning) body.max_completion_tokens = 16000; else { body.max_tokens = 8000; body.temperature = 0; }
-  for (let a = 0; a < 5; a++) {
-    let res: Response;
-    try { res = await fetch(ENDPOINT, { method: 'POST', headers: { 'api-key': API_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify(body) }); }
-    catch { await sleep(1000 * 2 ** a); continue; }
-    if (res.status === 429 || res.status >= 500) { await sleep(1500 * 2 ** a); continue; }
-    if (!res.ok) throw new Error(`Azure ${res.status}: ${await res.text()}`);
-    const data: any = await res.json();
-    if (data.usage) { promptTokens += data.usage.prompt_tokens ?? 0; completionTokens += data.usage.completion_tokens ?? 0; }
-    const c = data.choices?.[0];
-    if (c?.finish_reason === 'length') throw new Error('truncated');
-    return c?.message?.content ?? '';
-  }
-  throw new Error('gave up');
-}
-function parseJson<T>(t: string): T { const f = t.match(/```(?:json)?\s*([\s\S]*?)```/); const r = f ? f[1] : t; const s = r.search(/[[{]/), e = Math.max(r.lastIndexOf(']'), r.lastIndexOf('}')); return JSON.parse(r.slice(s, e + 1)) as T; }
+const client = createFoundryClient({ endpoint: chatEndpoint(ENDPOINT_RAW), apiKey: API_KEY, model: MODEL });
 
 interface Applied { pid: string; find: string; replace: string; reason: string; }
 
@@ -80,10 +58,13 @@ async function main() {
   for (let i = 0; i < applied.length; i += BATCH) {
     const batch = applied.slice(i, i + BATCH);
     const list = batch.map((e, j) => `${j}. [${e.pid}] "${e.find}" → "${e.replace}"  (fixer's reason: ${e.reason})`).join('\n');
-    const text = await chat([
-      { role: 'system', content: SYSTEM },
-      { role: 'user', content: `Classify each edit. Return ONLY JSON: {"results":[{"i":0,"verdict":"objective|stylistic","note":"short reason if stylistic, else empty"}]}\n\n${list}` },
-    ]);
+    const text = await client.chat(
+      [
+        { role: 'system', content: SYSTEM },
+        { role: 'user', content: `Classify each edit. Return ONLY JSON: {"results":[{"i":0,"verdict":"objective|stylistic","note":"short reason if stylistic, else empty"}]}\n\n${list}` },
+      ],
+      { maxTokens: 8000, temperature: 0, json: true, failOnLength: true }
+    );
     const res = parseJson<{ results: { i: number; verdict: string; note: string }[] }>(text).results ?? [];
     for (const r of res) {
       const e = batch[r.i]; if (!e) continue;
@@ -104,6 +85,6 @@ async function main() {
   }
   fs.writeFileSync(path.join(ROOT, 'qa/REVIEW-THESE.md'), lines.join('\n'));
   console.log(`\n✅ ${keep.length} confirmed objective, ${flagged.length} flagged stylistic → qa/REVIEW-THESE.md`);
-  console.log(`   Tokens: ${promptTokens.toLocaleString()} in / ${completionTokens.toLocaleString()} out\n`);
+  console.log(`   Tokens: ${client.usage.promptTokens.toLocaleString()} in / ${client.usage.completionTokens.toLocaleString()} out\n`);
 }
 main().catch((e) => { console.error('❌', e.message); process.exit(1); });

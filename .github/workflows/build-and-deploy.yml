@@ -33,6 +33,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Gate the deploy on the same type-check and unit tests CI runs. ci.yml runs
+      # in a separate workflow on the same push, so it cannot block this job — and
+      # `needs:` only works within one workflow file. Running them here (fail-fast,
+      # before the expensive build) is what actually stops a broken build or failing
+      # test from shipping to production.
+      - name: Type-check (astro check)
+        run: npm run check
+
+      - name: Run unit tests (Vitest)
+        run: npm run test:vitest
+
       # astro-pdf renders /resume to /resume.pdf at build time via Chromium.
       # It auto-installs Chrome for Testing into node_modules/.astro/chrome if
       # none is found; cache that (stable key, so it survives content changes)
