@@ -28,23 +28,26 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-import { glob } from 'glob';
-import matter from 'gray-matter';
 import { execFileSync } from 'child_process';
+import {
+  hasFlag,
+  flagVal,
+  chatEndpoint,
+  createFoundryClient,
+  parseJson,
+  loadPosts,
+  estCost,
+  type Msg,
+} from './lib/foundry';
 
 // ---------------------------------------------------------------- CLI args ---
 const argv = process.argv.slice(2);
-const hasFlag = (f: string) => argv.includes(f);
-const flagVal = (f: string, d: string) => {
-  const i = argv.indexOf(f);
-  return i >= 0 && argv[i + 1] && !argv[i + 1].startsWith('--') ? argv[i + 1] : d;
-};
-const DRY_RUN = hasFlag('--dry-run');
-const IDEAS_ONLY = hasFlag('--ideas-only');
-const REUSE_IDEAS = hasFlag('--reuse-ideas'); // draft from an existing drafts/ideas.json
-const TOP = parseInt(flagVal('--top', '6'), 10);
-const CANDIDATES_PER_LENS = parseInt(flagVal('--candidates', '8'), 10);
-const MAX_LINT_ITERS = parseInt(flagVal('--max-iters', '3'), 10);
+const DRY_RUN = hasFlag(argv, '--dry-run');
+const IDEAS_ONLY = hasFlag(argv, '--ideas-only');
+const REUSE_IDEAS = hasFlag(argv, '--reuse-ideas'); // draft from an existing drafts/ideas.json
+const TOP = parseInt(flagVal(argv, '--top', '6'), 10);
+const CANDIDATES_PER_LENS = parseInt(flagVal(argv, '--candidates', '8'), 10);
+const MAX_LINT_ITERS = parseInt(flagVal(argv, '--max-iters', '3'), 10);
 const EXEMPLAR_COUNT = 3;
 
 // -------------------------------------------------------------- Azure config ---
@@ -63,112 +66,10 @@ const API_KEY =
 const MODEL =
   process.env.AZURE_OPENAI_DEPLOYMENT || process.env.AI_MODEL || 'gpt-4.1';
 
-/** Point any base/endpoint at the chat/completions resource, preserving ?query. */
-function chatEndpoint(raw: string): string {
-  const trimmed = raw.replace(/\/$/, '');
-  if (!trimmed) return '';
-  const [path, query] = trimmed.split('?');
-  const withPath = path.endsWith('/chat/completions') ? path : `${path}/chat/completions`;
-  return query ? `${withPath}?${query}` : withPath;
-}
-const ENDPOINT = chatEndpoint(ENDPOINT_RAW);
-
-/** Reasoning-family deployments (o-series, gpt-5*) reject `temperature` and burn
- *  part of the token budget on hidden reasoning. */
-const isReasoningModel = (m: string) => /^(o\d|gpt-5)/i.test(m);
-
 const ROOT = process.cwd();
 const OUT_DIR = path.join(ROOT, 'drafts');
 const TODAY = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
-
-// ------------------------------------------------------------- token tracking ---
-let promptTokens = 0;
-let completionTokens = 0;
-let apiCalls = 0;
-
-type Msg = { role: 'system' | 'user' | 'assistant'; content: string };
-
-/** One chat completion against the Azure deployment. Returns the message text. */
-async function chat(
-  messages: Msg[],
-  opts: { maxTokens?: number; temperature?: number; json?: boolean; stub?: string } = {}
-): Promise<string> {
-  const { maxTokens = 2400, temperature = 0.8, json = false, stub = '' } = opts;
-
-  if (DRY_RUN) return stub; // exercise the pipeline offline, no spend
-
-  const reasoning = isReasoningModel(MODEL);
-  const body: Record<string, unknown> = {
-    model: MODEL,
-    messages,
-    // Reasoning models spend hidden tokens before visible output — give them room.
-    max_completion_tokens: reasoning ? Math.max(maxTokens, 8000) : maxTokens,
-  };
-  if (!reasoning) body.temperature = temperature; // reasoning models reject non-default temp
-  if (json) body.response_format = { type: 'json_object' };
-
-  const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
-  let lastErr = '';
-  for (let attempt = 0; attempt < 5; attempt++) {
-    let res: Response;
-    try {
-      res = await fetch(ENDPOINT, {
-        method: 'POST',
-        headers: { 'api-key': API_KEY, 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      });
-    } catch (e) {
-      lastErr = `network: ${(e as Error).message}`;
-      await sleep(1500 * 2 ** attempt);
-      continue;
-    }
-    // Back off on throttling (429) / transient (5xx). Honor Retry-After if given.
-    if (res.status === 429 || res.status >= 500) {
-      const ra = Number(res.headers.get('retry-after')) || 0;
-      lastErr = `${res.status} ${res.statusText}`;
-      await sleep(ra ? ra * 1000 : 1500 * 2 ** attempt);
-      continue;
-    }
-    if (!res.ok) {
-      throw new Error(`Azure API ${res.status} ${res.statusText}: ${await res.text()}`);
-    }
-    const data: any = await res.json();
-    apiCalls++;
-    if (data.usage) {
-      promptTokens += data.usage.prompt_tokens ?? 0;
-      completionTokens += data.usage.completion_tokens ?? 0;
-    }
-    return data.choices?.[0]?.message?.content ?? '';
-  }
-  throw new Error(`Azure API gave up after retries: ${lastErr}`);
-}
-
-/** Tolerant JSON parse. With response_format=json_object the content is already
- *  pure JSON, so try that first — critically, do NOT run a fenced-code regex over
- *  the whole string, or a ```code``` block inside a post body gets mis-extracted. */
-function parseJson<T = any>(text: string): T {
-  const t = (text ?? '').trim();
-  if (!t) throw new Error('model returned empty content (no JSON to parse)');
-  try {
-    return JSON.parse(t) as T;
-  } catch {
-    /* fall through to recovery */
-  }
-  // Whole-string markdown fence (anchored, so inner body fences don't match).
-  const fence = t.match(/^```(?:json)?\s*([\s\S]*?)\s*```$/);
-  if (fence) {
-    try {
-      return JSON.parse(fence[1]) as T;
-    } catch {
-      /* fall through */
-    }
-  }
-  // Last resort: outermost bracket/brace span.
-  const start = t.search(/[[{]/);
-  const end = Math.max(t.lastIndexOf(']'), t.lastIndexOf('}'));
-  if (start >= 0 && end > start) return JSON.parse(t.slice(start, end + 1)) as T;
-  throw new Error(`could not parse JSON from model output: ${t.slice(0, 200)}…`);
-}
+const client = createFoundryClient({ endpoint: chatEndpoint(ENDPOINT_RAW), apiKey: API_KEY, model: MODEL, dryRun: DRY_RUN });
 
 // ------------------------------------------------------------- corpus loading ---
 interface Post {
@@ -193,29 +94,16 @@ function toPlain(md: string): string {
 }
 
 function loadCorpus(): Post[] {
-  const files = glob
-    .sync('src/content/posts/*.{md,mdx}', { cwd: ROOT, absolute: true })
-    .sort();
-  const posts: Post[] = [];
-  for (const file of files) {
-    const parsed = matter(fs.readFileSync(file, 'utf-8'));
-    const fm = parsed.data as Record<string, any>;
-    // live posts only — redirect_to stubs are frontmatter-only, no real body
-    if (fm.published === false || fm.archived === true || fm.redirect_to) continue;
-    const base = path.basename(file).replace(/\.(md|mdx)$/, '');
-    const date = base.slice(0, 10);
-    const plain = toPlain(parsed.content);
-    posts.push({
-      id: base,
-      date,
-      title: fm.title ?? base,
-      description: fm.description ?? '',
-      excerpt: plain.split(' ').slice(0, 180).join(' '),
-      wordCount: plain.split(' ').length,
-      body: parsed.content,
-    });
-  }
-  return posts.sort((a, b) => a.date.localeCompare(b.date));
+  return loadPosts(ROOT)
+    .map((p) => {
+      const plain = toPlain(p.body);
+      return {
+        ...p,
+        excerpt: plain.split(' ').slice(0, 180).join(' '),
+        wordCount: plain.split(' ').length,
+      };
+    })
+    .sort((a, b) => a.date.localeCompare(b.date));
 }
 
 /** Pick voice exemplars: prefer the cornerstone posts, backfill with longer recent ones. */
@@ -317,7 +205,7 @@ async function mineIdeas(posts: Post[]): Promise<Idea[]> {
         },
       ],
     });
-    const text = await chat(
+    const text = await client.chat(
       [
         {
           role: 'system',
@@ -346,7 +234,7 @@ async function mineIdeas(posts: Post[]): Promise<Idea[]> {
       score: 90 - i,
     })),
   });
-  const rankText = await chat(
+  const rankText = await client.chat(
     [
       {
         role: 'system',
@@ -471,7 +359,7 @@ async function draftIdea(idea: Idea, exemplars: Post[]): Promise<DraftResult> {
     body: `Picture this: you open the repo and the answer is already there, written down, waiting.\n\nThat is the whole game. When you write things down, you stop paying the same tax twice. You stop answering the same question in five different Slack threads, and you start answering it once, in a place people can find.\n\nHere is what I do. I keep a running doc. I link to it instead of retyping. I let the doc get better every time someone asks. Small habit, compounding return.\n\nThe work speaks. Let it.`,
   });
 
-  let text = await chat(
+  let text = await client.chat(
     [
       system,
       {
@@ -490,7 +378,7 @@ async function draftIdea(idea: Idea, exemplars: Post[]): Promise<DraftResult> {
   while (!result.clean && iters < MAX_LINT_ITERS) {
     iters++;
     const reviseStub = draftStub; // dry-run: unchanged
-    text = await chat(
+    text = await client.chat(
       [
         system,
         {
@@ -516,20 +404,14 @@ async function draftIdea(idea: Idea, exemplars: Post[]): Promise<DraftResult> {
 }
 
 // ------------------------------------------------------------------- run log ---
-function estCost(): string {
-  // gpt-4o-class ballpark: $2.50 / 1M input, $10 / 1M output. Adjust to your rate.
-  const cost = (promptTokens / 1e6) * 2.5 + (completionTokens / 1e6) * 10;
-  return `$${cost.toFixed(2)} (est., gpt-4o rate)`;
-}
-
 function writeRunLog(results: DraftResult[]) {
   const lines: string[] = [];
   lines.push('# Draft run log');
   lines.push('');
   lines.push(`- Date: ${TODAY}`);
-  lines.push(`- API calls: ${apiCalls}`);
-  lines.push(`- Tokens: ${promptTokens.toLocaleString()} in / ${completionTokens.toLocaleString()} out`);
-  lines.push(`- Estimated spend: ${estCost()}`);
+  lines.push(`- API calls: ${client.usage.apiCalls}`);
+  lines.push(`- Tokens: ${client.usage.promptTokens.toLocaleString()} in / ${client.usage.completionTokens.toLocaleString()} out`);
+  lines.push(`- Estimated spend: ${estCost(client.usage, 2.5, 10)}`);
   lines.push('');
   lines.push('| Draft | Lint iters | Vale clean | File |');
   lines.push('|-------|-----------|-----------|------|');
@@ -554,7 +436,7 @@ function writeRunLog(results: DraftResult[]) {
 function requireCreds() {
   if (DRY_RUN) return;
   const missing = [
-    !ENDPOINT && 'AZURE_API_ENDPOINT (or AZURE_OPENAI_ENDPOINT)',
+    !ENDPOINT_RAW && 'AZURE_API_ENDPOINT (or AZURE_OPENAI_ENDPOINT)',
     !API_KEY && 'AZURE_API_KEY (or AZURE_OPENAI_API_KEY)',
   ].filter(Boolean);
   if (missing.length) {
@@ -568,7 +450,7 @@ function requireCreds() {
 async function authSmokeTest() {
   if (DRY_RUN) return;
   process.stdout.write(`🔌 Auth smoke test (model=${MODEL})... `);
-  const reply = await chat([{ role: 'user', content: 'Reply with the single word: ok' }], {
+  const reply = await client.chat([{ role: 'user', content: 'Reply with the single word: ok' }], {
     maxTokens: 16,
     temperature: 0,
   });
@@ -606,7 +488,7 @@ async function main() {
 
   if (IDEAS_ONLY) {
     console.log('\n✅ --ideas-only: stopping after Stage 1. Review drafts/IDEAS.md before drafting.');
-    console.log(`   Tokens: ${promptTokens} in / ${completionTokens} out · ${estCost()}\n`);
+    console.log(`   Tokens: ${client.usage.promptTokens} in / ${client.usage.completionTokens} out · ${estCost(client.usage, 2.5, 10)}\n`);
     return;
   }
 
@@ -626,7 +508,7 @@ async function main() {
 
   const clean = results.filter((r) => r.valeClean).length;
   console.log(`\n✅ Done. ${clean}/${results.length} drafts pass the Vale gate. See drafts/RUN-LOG.md`);
-  console.log(`   Tokens: ${promptTokens.toLocaleString()} in / ${completionTokens.toLocaleString()} out · ${estCost()}`);
+  console.log(`   Tokens: ${client.usage.promptTokens.toLocaleString()} in / ${client.usage.completionTokens.toLocaleString()} out · ${estCost(client.usage, 2.5, 10)}`);
   console.log('   Drafts are in drafts/ (gitignored). Edit + move keepers into src/content/posts/.\n');
 }
 

@@ -22,20 +22,23 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-import { glob } from 'glob';
-import matter from 'gray-matter';
+import {
+  hasFlag,
+  flagVal,
+  chatEndpoint,
+  createFoundryClient,
+  parseJson,
+  pool,
+  loadPosts,
+  estCost,
+} from './lib/foundry';
 
 // ---------------------------------------------------------------- CLI args ---
 const argv = process.argv.slice(2);
-const hasFlag = (f: string) => argv.includes(f);
-const flagVal = (f: string, d: string) => {
-  const i = argv.indexOf(f);
-  return i >= 0 && argv[i + 1] && !argv[i + 1].startsWith('--') ? argv[i + 1] : d;
-};
-const DRY_RUN = hasFlag('--dry-run');
-const ALL = hasFlag('--all');
-const TOP = parseInt(flagVal('--top', '25'), 10);
-const CONCURRENCY = parseInt(flagVal('--concurrency', '5'), 10);
+const DRY_RUN = hasFlag(argv, '--dry-run');
+const ALL = hasFlag(argv, '--all');
+const TOP = parseInt(flagVal(argv, '--top', '25'), 10);
+const CONCURRENCY = parseInt(flagVal(argv, '--concurrency', '5'), 10);
 const MAX_SUGGESTIONS = 4;
 
 // -------------------------------------------------------------- Azure config ---
@@ -46,91 +49,11 @@ const ENDPOINT_RAW =
   '';
 const API_KEY =
   process.env.AZURE_OPENAI_API_KEY || process.env.AZURE_API_KEY || process.env.AZURE_AI_KEY || '';
-const MODEL = process.env.AZURE_OPENAI_DEPLOYMENT || process.env.AI_MODEL || flagVal('--model', 'gpt-4.1');
-
-function chatEndpoint(raw: string): string {
-  const trimmed = raw.replace(/\/$/, '');
-  if (!trimmed) return '';
-  const [p, q] = trimmed.split('?');
-  const withPath = p.endsWith('/chat/completions') ? p : `${p}/chat/completions`;
-  return q ? `${withPath}?${q}` : withPath;
-}
-const ENDPOINT = chatEndpoint(ENDPOINT_RAW);
-const isReasoningModel = (m: string) => /^(o\d|gpt-5)/i.test(m);
+const MODEL = process.env.AZURE_OPENAI_DEPLOYMENT || process.env.AI_MODEL || flagVal(argv, '--model', 'gpt-4.1');
 
 const ROOT = process.cwd();
 const OUT_DIR = path.join(ROOT, 'audit');
-
-let promptTokens = 0;
-let completionTokens = 0;
-let apiCalls = 0;
-
-type Msg = { role: 'system' | 'user'; content: string };
-
-async function chat(messages: Msg[], opts: { json?: boolean; stub?: string } = {}): Promise<string> {
-  const { json = false, stub = '' } = opts;
-  if (DRY_RUN) return stub;
-  const reasoning = isReasoningModel(MODEL);
-  const body: Record<string, unknown> = {
-    model: MODEL,
-    messages,
-    max_completion_tokens: reasoning ? 16000 : 4000,
-  };
-  if (!reasoning) body.temperature = 0.3;
-  if (json) body.response_format = { type: 'json_object' };
-
-  const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
-  let res: Response;
-  for (let attempt = 0; ; attempt++) {
-    res = await fetch(ENDPOINT, {
-      method: 'POST',
-      headers: { 'api-key': API_KEY, 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    });
-    // Back off on throttling (429) / transient (503). Honor Retry-After if given.
-    if ((res.status === 429 || res.status === 503) && attempt < 6) {
-      const ra = parseInt(res.headers.get('retry-after') || '', 10);
-      await sleep(ra > 0 ? ra * 1000 : Math.min(3000 * 2 ** attempt, 40000));
-      continue;
-    }
-    break;
-  }
-  if (!res.ok) throw new Error(`Azure API ${res.status}: ${await res.text()}`);
-  const data: any = await res.json();
-  apiCalls++;
-  if (data.usage) {
-    promptTokens += data.usage.prompt_tokens ?? 0;
-    completionTokens += data.usage.completion_tokens ?? 0;
-  }
-  return data.choices?.[0]?.message?.content ?? '';
-}
-
-/** Tolerant JSON parse. With response_format=json_object the content is already
- *  pure JSON, so try that first — critically, do NOT run a fenced-code regex over
- *  the whole string, or a ```code``` block quoted from a post body gets mis-extracted. */
-function parseJson<T = any>(text: string): T {
-  const t = (text ?? '').trim();
-  if (!t) throw new Error('model returned empty content (no JSON to parse)');
-  try {
-    return JSON.parse(t) as T;
-  } catch {
-    /* fall through to recovery */
-  }
-  // Whole-string markdown fence (anchored, so inner body fences don't match).
-  const fence = t.match(/^```(?:json)?\s*([\s\S]*?)\s*```$/);
-  if (fence) {
-    try {
-      return JSON.parse(fence[1]) as T;
-    } catch {
-      /* fall through */
-    }
-  }
-  // Last resort: outermost bracket/brace span.
-  const start = t.search(/[[{]/);
-  const end = Math.max(t.lastIndexOf(']'), t.lastIndexOf('}'));
-  if (start >= 0 && end > start) return JSON.parse(t.slice(start, end + 1)) as T;
-  throw new Error(`could not parse JSON from model output: ${t.slice(0, 200)}…`);
-}
+const client = createFoundryClient({ endpoint: chatEndpoint(ENDPOINT_RAW), apiKey: API_KEY, model: MODEL, dryRun: DRY_RUN });
 
 // ------------------------------------------------------------- corpus loading ---
 interface Post {
@@ -158,31 +81,16 @@ function normalizeInternal(href: string): string | null {
 }
 
 function loadCorpus(): Post[] {
-  const files = glob.sync('src/content/posts/*.{md,mdx}', { cwd: ROOT, absolute: true }).sort();
-  const posts: Post[] = [];
-  for (const file of files) {
-    const parsed = matter(fs.readFileSync(file, 'utf-8'));
-    const fm = parsed.data as Record<string, any>;
-    if (fm.published === false || fm.archived === true || fm.redirect_to) continue;
-    const id = path.basename(file).replace(/\.(md|mdx)$/, '');
-    const body = parsed.content;
-    const linked = new Set<string>();
-    for (const m of body.matchAll(/\]\(([^)]+)\)|href="([^"]+)"/g)) {
-      const n = normalizeInternal(m[1] || m[2] || '');
-      if (n) linked.add(n);
-    }
-    posts.push({
-      id,
-      date: id.slice(0, 10),
-      url: postUrl(id),
-      title: fm.title ?? id,
-      description: fm.description ?? '',
-      body,
-      bodyLower: body.toLowerCase(),
-      linkedTargets: linked,
-    });
-  }
-  return posts.sort((a, b) => b.date.localeCompare(a.date)); // newest first
+  return loadPosts(ROOT)
+    .map((p) => {
+      const linked = new Set<string>();
+      for (const m of p.body.matchAll(/\]\(([^)]+)\)|href="([^"]+)"/g)) {
+        const n = normalizeInternal(m[1] || m[2] || '');
+        if (n) linked.add(n);
+      }
+      return { ...p, url: postUrl(p.id), bodyLower: p.body.toLowerCase(), linkedTargets: linked };
+    })
+    .sort((a, b) => b.date.localeCompare(a.date)); // newest first
 }
 
 // --------------------------------------------------------------- interlinking ---
@@ -205,7 +113,7 @@ async function auditPost(post: Post, catalog: string, urlSet: Set<string>): Prom
       { anchor: 'dry run', targetUrl: '/2022/03/17/why-async/', targetTitle: 'Why async', reason: 'stub' },
     ],
   });
-  const text = await chat(
+  const text = await client.chat(
     [
       {
         role: 'system',
@@ -217,7 +125,7 @@ async function auditPost(post: Post, catalog: string, urlSet: Set<string>): Prom
         content: `POST: "${post.title}" (${post.url})\n\n${post.body.slice(0, 9000)}\n\n===== CATALOG (other posts you may link to) =====\n${catalog}\n\nSuggest up to ${MAX_SUGGESTIONS} internal links to ADD to this post. HARD RULES:\n- "anchor" MUST be an exact phrase that ALREADY appears verbatim in the post body above (so it can be turned into a link without rewriting).\n- "targetUrl" MUST be copied exactly from a catalog entry.\n- Do NOT suggest linking to the post itself.\n- Prefer strong topical matches; if nothing is clearly worth linking, return an empty list.\nReturn JSON: {"suggestions":[{"anchor":"exact phrase from the post","targetUrl":"/YYYY/MM/DD/slug/","targetTitle":"catalog title","reason":"one line: why this helps the reader"}]}`,
       },
     ],
-    { json: true, stub }
+    { maxTokens: 4000, temperature: 0.3, json: true, stub }
   );
   const raw = parseJson<{ suggestions: Suggestion[] }>(text).suggestions ?? [];
   // Validate in code — the model is unreliable about its own hard rules.
@@ -245,27 +153,10 @@ function writePostFile(post: Post, suggestions: Suggestion[]) {
   fs.writeFileSync(path.join(OUT_DIR, `${post.id}.md`), lines.join('\n') + '\n');
 }
 
-// --------------------------------------------------------------- concurrency ---
-async function pool<T>(items: T[], n: number, fn: (t: T, i: number) => Promise<void>) {
-  let idx = 0;
-  const workers = Array.from({ length: Math.min(n, items.length) }, async () => {
-    while (idx < items.length) {
-      const i = idx++;
-      await fn(items[i], i);
-    }
-  });
-  await Promise.all(workers);
-}
-
-function estCost(): string {
-  const cost = (promptTokens / 1e6) * 2.5 + (completionTokens / 1e6) * 10;
-  return `~$${cost.toFixed(2)} (est.)`;
-}
-
 // ----------------------------------------------------------------------- main ---
 function requireCreds() {
   if (DRY_RUN) return;
-  const missing = [!ENDPOINT && 'AZURE_API_ENDPOINT', !API_KEY && 'AZURE_API_KEY'].filter(Boolean);
+  const missing = [!ENDPOINT_RAW && 'AZURE_API_ENDPOINT', !API_KEY && 'AZURE_API_KEY'].filter(Boolean);
   if (missing.length) {
     console.error(`\n❌ Missing env: ${missing.join(', ')}. Try \`set -a; . ~/projects/book/.env; set +a\`.\n`);
     process.exit(1);
@@ -308,7 +199,7 @@ async function main() {
     '',
     `- Posts audited: ${targets.length}`,
     `- Interlink opportunities found: ${totalLinks}`,
-    `- API calls: ${apiCalls} · tokens: ${promptTokens.toLocaleString()} in / ${completionTokens.toLocaleString()} out · ${estCost()}`,
+    `- API calls: ${client.usage.apiCalls} · tokens: ${client.usage.promptTokens.toLocaleString()} in / ${client.usage.completionTokens.toLocaleString()} out · ${estCost(client.usage, 2.5, 10)}`,
     '',
     '| Post | Opportunities |',
     '|------|--------------|',
@@ -332,7 +223,7 @@ async function main() {
     JSON.stringify(summary.map((s) => ({ id: s.post.id, url: s.post.url, suggestions: s.suggestions })), null, 2)
   );
 
-  console.log(`\n✅ ${totalLinks} interlink opportunities across ${targets.length} posts · ${estCost()}`);
+  console.log(`\n✅ ${totalLinks} interlink opportunities across ${targets.length} posts · ${estCost(client.usage, 2.5, 10)}`);
   console.log(`   Report: audit/INTERLINKS.md (per-post detail in audit/<id>.md)\n`);
 }
 

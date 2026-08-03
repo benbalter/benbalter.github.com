@@ -25,22 +25,25 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-import { glob } from 'glob';
-import matter from 'gray-matter';
 import { popularPostSlugs } from '../src/config';
+import {
+  hasFlag,
+  flagVal,
+  chatEndpoint,
+  createFoundryClient,
+  parseJson,
+  pool,
+  loadPosts,
+  estCost,
+} from './lib/foundry';
 
 // ---------------------------------------------------------------- CLI args ---
 const argv = process.argv.slice(2);
-const hasFlag = (f: string) => argv.includes(f);
-const flagVal = (f: string, d: string) => {
-  const i = argv.indexOf(f);
-  return i >= 0 && argv[i + 1] && !argv[i + 1].startsWith('--') ? argv[i + 1] : d;
-};
-const DRY_RUN = hasFlag('--dry-run');
-const ALL = hasFlag('--all');
-const POPULAR = hasFlag('--popular');
-const TOP = parseInt(flagVal('--top', '25'), 10);
-const CONCURRENCY = parseInt(flagVal('--concurrency', '3'), 10);
+const DRY_RUN = hasFlag(argv, '--dry-run');
+const ALL = hasFlag(argv, '--all');
+const POPULAR = hasFlag(argv, '--popular');
+const TOP = parseInt(flagVal(argv, '--top', '25'), 10);
+const CONCURRENCY = parseInt(flagVal(argv, '--concurrency', '3'), 10);
 
 // -------------------------------------------------------------- Azure config ---
 const ENDPOINT_RAW =
@@ -50,91 +53,12 @@ const ENDPOINT_RAW =
   '';
 const API_KEY =
   process.env.AZURE_OPENAI_API_KEY || process.env.AZURE_API_KEY || process.env.AZURE_AI_KEY || '';
-const MODEL = process.env.AZURE_OPENAI_DEPLOYMENT || process.env.AI_MODEL || flagVal('--model', 'gpt-4.1');
-
-function chatEndpoint(raw: string): string {
-  const trimmed = raw.replace(/\/$/, '');
-  if (!trimmed) return '';
-  const [p, q] = trimmed.split('?');
-  const withPath = p.endsWith('/chat/completions') ? p : `${p}/chat/completions`;
-  return q ? `${withPath}?${q}` : withPath;
-}
-const ENDPOINT = chatEndpoint(ENDPOINT_RAW);
-const isReasoningModel = (m: string) => /^(o\d|gpt-5)/i.test(m);
+const MODEL = process.env.AZURE_OPENAI_DEPLOYMENT || process.env.AI_MODEL || flagVal(argv, '--model', 'gpt-4.1');
 
 const ROOT = process.cwd();
 const OUT_DIR = path.join(ROOT, 'engage');
 const VOICE_GUIDE = fs.readFileSync(path.join(ROOT, 'src/content/CLAUDE.md'), 'utf-8');
-
-let promptTokens = 0;
-let completionTokens = 0;
-let apiCalls = 0;
-
-type Msg = { role: 'system' | 'user'; content: string };
-
-async function chat(messages: Msg[], opts: { json?: boolean; stub?: string } = {}): Promise<string> {
-  const { json = false, stub = '' } = opts;
-  if (DRY_RUN) return stub;
-  const reasoning = isReasoningModel(MODEL);
-  const body: Record<string, unknown> = {
-    model: MODEL,
-    messages,
-    max_completion_tokens: reasoning ? 16000 : 4000,
-  };
-  if (!reasoning) body.temperature = 0.4;
-  if (json) body.response_format = { type: 'json_object' };
-
-  const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
-  let res: Response;
-  for (let attempt = 0; ; attempt++) {
-    res = await fetch(ENDPOINT, {
-      method: 'POST',
-      headers: { 'api-key': API_KEY, 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    });
-    if ((res.status === 429 || res.status === 503) && attempt < 6) {
-      const ra = parseInt(res.headers.get('retry-after') || '', 10);
-      await sleep(ra > 0 ? ra * 1000 : Math.min(3000 * 2 ** attempt, 40000));
-      continue;
-    }
-    break;
-  }
-  if (!res.ok) throw new Error(`Azure API ${res.status}: ${await res.text()}`);
-  const data: any = await res.json();
-  apiCalls++;
-  if (data.usage) {
-    promptTokens += data.usage.prompt_tokens ?? 0;
-    completionTokens += data.usage.completion_tokens ?? 0;
-  }
-  return data.choices?.[0]?.message?.content ?? '';
-}
-
-/** Tolerant JSON parse. With response_format=json_object the content is already
- *  pure JSON, so try that first — critically, do NOT run a fenced-code regex over
- *  the whole string, or a ```code``` block quoted from a post body gets mis-extracted. */
-function parseJson<T = any>(text: string): T {
-  const t = (text ?? '').trim();
-  if (!t) throw new Error('model returned empty content (no JSON to parse)');
-  try {
-    return JSON.parse(t) as T;
-  } catch {
-    /* fall through to recovery */
-  }
-  // Whole-string markdown fence (anchored, so inner body fences don't match).
-  const fence = t.match(/^```(?:json)?\s*([\s\S]*?)\s*```$/);
-  if (fence) {
-    try {
-      return JSON.parse(fence[1]) as T;
-    } catch {
-      /* fall through */
-    }
-  }
-  // Last resort: outermost bracket/brace span.
-  const start = t.search(/[[{]/);
-  const end = Math.max(t.lastIndexOf(']'), t.lastIndexOf('}'));
-  if (start >= 0 && end > start) return JSON.parse(t.slice(start, end + 1)) as T;
-  throw new Error(`could not parse JSON from model output: ${t.slice(0, 200)}…`);
-}
+const client = createFoundryClient({ endpoint: chatEndpoint(ENDPOINT_RAW), apiKey: API_KEY, model: MODEL, dryRun: DRY_RUN });
 
 // ------------------------------------------------------------- corpus loading ---
 interface Post {
@@ -150,26 +74,13 @@ interface Post {
 const norm = (s: string) => s.replace(/\s+/g, ' ').toLowerCase().trim();
 
 function loadCorpus(): Post[] {
-  const files = glob.sync('src/content/posts/*.{md,mdx}', { cwd: ROOT, absolute: true }).sort();
-  const posts: Post[] = [];
-  for (const file of files) {
-    const parsed = matter(fs.readFileSync(file, 'utf-8'));
-    const fm = parsed.data as Record<string, any>;
-    if (fm.published === false || fm.archived === true || fm.redirect_to) continue;
-    const id = path.basename(file).replace(/\.(md|mdx)$/, '');
-    const m = id.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
-    const url = m ? `/${m[1]}/${m[2]}/${m[3]}/${m[4]}/` : `/${id}/`;
-    posts.push({
-      id,
-      date: id.slice(0, 10),
-      url,
-      title: fm.title ?? id,
-      description: fm.description ?? '',
-      body: parsed.content,
-      normBody: norm(parsed.content),
-    });
-  }
-  return posts.sort((a, b) => b.date.localeCompare(a.date));
+  return loadPosts(ROOT)
+    .map((p) => {
+      const m = p.id.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
+      const url = m ? `/${m[1]}/${m[2]}/${m[3]}/${m[4]}/` : `/${p.id}/`;
+      return { ...p, url, normBody: norm(p.body) };
+    })
+    .sort((a, b) => b.date.localeCompare(a.date));
 }
 
 // ---------------------------------------------------------------- engagement ---
@@ -199,7 +110,7 @@ const STUB: Findings = {
 };
 
 async function auditPost(post: Post): Promise<Findings> {
-  const text = await chat(
+  const text = await client.chat(
     [
       {
         role: 'system',
@@ -210,7 +121,7 @@ async function auditPost(post: Post): Promise<Findings> {
         content: `POST: "${post.title}" (${post.url})\n\n${post.body.slice(0, 9000)}\n\nReturn JSON with three keys:\n\n1. "pullQuotes": up to 3 of the most quotable, shareable lines to feature as a blockquote callout. Each "text" MUST be copied VERBATIM from the post body above (an exact sentence or clause, no paraphrasing). Include "why" it lands.\n\n2. "objections": up to 2 "fair objection" blocks — the strongest counterargument a skeptical reader would raise that the post does NOT already address, plus a crisp 1-2 sentence "response" in Ben's voice, and "placement" (which section it belongs after). New content, not verbatim.\n\n3. "engagement": up to 4 other concrete levers to lift engagement. For each, "type" is one of: tldr, subhead, opening-hook, reader-cta, tweetable, key-takeaways, further-reading, visual. "suggestion" is the specific, ready-to-use text or change. Be concrete, not generic advice.\n\nJSON shape: {"pullQuotes":[{"text","why"}],"objections":[{"objection","response","placement"}],"engagement":[{"type","suggestion"}]}. Use empty arrays if nothing is worth suggesting.`,
       },
     ],
-    { json: true, stub: JSON.stringify(STUB) }
+    { maxTokens: 4000, temperature: 0.4, json: true, stub: JSON.stringify(STUB) }
   );
   const f = parseJson<Findings>(text);
   // Validate pull quotes are actually verbatim in the post (fuzzy on whitespace/case).
@@ -237,23 +148,10 @@ function writePostFile(post: Post, f: Findings) {
   fs.writeFileSync(path.join(OUT_DIR, `${post.id}.md`), L.join('\n') + '\n');
 }
 
-async function pool<T>(items: T[], n: number, fn: (t: T, i: number) => Promise<void>) {
-  let idx = 0;
-  const workers = Array.from({ length: Math.min(n, items.length) }, async () => {
-    while (idx < items.length) {
-      const i = idx++;
-      await fn(items[i], i);
-    }
-  });
-  await Promise.all(workers);
-}
-
-const estCost = () => `~$${((promptTokens / 1e6) * 2.5 + (completionTokens / 1e6) * 10).toFixed(2)} (est.)`;
-
 // ----------------------------------------------------------------------- main ---
 function requireCreds() {
   if (DRY_RUN) return;
-  const missing = [!ENDPOINT && 'AZURE_API_ENDPOINT', !API_KEY && 'AZURE_API_KEY'].filter(Boolean);
+  const missing = [!ENDPOINT_RAW && 'AZURE_API_ENDPOINT', !API_KEY && 'AZURE_API_KEY'].filter(Boolean);
   if (missing.length) {
     console.error(`\n❌ Missing env: ${missing.join(', ')}. Try \`set -a; . ~/projects/book/.env; set +a\`.\n`);
     process.exit(1);
@@ -305,7 +203,7 @@ async function main() {
     '',
     `- Posts audited: ${summary.length}`,
     `- Pull quotes: ${tot.q} · Objection blocks: ${tot.o} · Engagement levers: ${tot.e}`,
-    `- API calls: ${apiCalls} · tokens: ${promptTokens.toLocaleString()} in / ${completionTokens.toLocaleString()} out · ${estCost()}`,
+    `- API calls: ${client.usage.apiCalls} · tokens: ${client.usage.promptTokens.toLocaleString()} in / ${client.usage.completionTokens.toLocaleString()} out · ${estCost(client.usage, 2.5, 10)}`,
     '',
     '| Post | 💬 quotes | 🤔 objections | ✨ levers |',
     '|------|:--:|:--:|:--:|',
@@ -317,7 +215,7 @@ async function main() {
     JSON.stringify(summary.map((s) => ({ id: s.post.id, url: s.post.url, ...s.f })), null, 2)
   );
 
-  console.log(`\n✅ ${tot.q} pull quotes · ${tot.o} objection blocks · ${tot.e} engagement levers · ${estCost()}`);
+  console.log(`\n✅ ${tot.q} pull quotes · ${tot.o} objection blocks · ${tot.e} engagement levers · ${estCost(client.usage, 2.5, 10)}`);
   console.log(`   Report: engage/ENGAGEMENT.md (per-post detail in engage/<id>.md)\n`);
 }
 

@@ -33,21 +33,24 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-import { glob } from 'glob';
-import matter from 'gray-matter';
 import { popularPostSlugs } from '../src/config';
+import {
+  hasFlag,
+  flagVal,
+  chatEndpoint,
+  createFoundryClient,
+  parseJson,
+  pool,
+  loadPosts,
+  estCost,
+} from './lib/foundry';
 
 // ---------------------------------------------------------------- CLI args ---
 const argv = process.argv.slice(2);
-const hasFlag = (f: string) => argv.includes(f);
-const flagVal = (f: string, d: string) => {
-  const i = argv.indexOf(f);
-  return i >= 0 && argv[i + 1] && !argv[i + 1].startsWith('--') ? argv[i + 1] : d;
-};
-const DRY_RUN = hasFlag('--dry-run');
-const ALL = hasFlag('--all');
-const TOP = parseInt(flagVal('--top', '21'), 10); // 9 popular + ~12 recent
-const CONCURRENCY = parseInt(flagVal('--concurrency', '4'), 10);
+const DRY_RUN = hasFlag(argv, '--dry-run');
+const ALL = hasFlag(argv, '--all');
+const TOP = parseInt(flagVal(argv, '--top', '21'), 10); // 9 popular + ~12 recent
+const CONCURRENCY = parseInt(flagVal(argv, '--concurrency', '4'), 10);
 
 // -------------------------------------------------------------- Azure config ---
 const ENDPOINT_RAW =
@@ -60,116 +63,12 @@ const API_KEY =
   process.env.AZURE_API_KEY ||
   process.env.AZURE_AI_KEY ||
   '';
-const MODEL = flagVal('--model', process.env.AI_MODEL || 'gpt-5.4');
-
-function chatEndpoint(raw: string): string {
-  const trimmed = raw.replace(/\/$/, '');
-  if (!trimmed) return '';
-  const [p, query] = trimmed.split('?');
-  const withPath = p.endsWith('/chat/completions') ? p : `${p}/chat/completions`;
-  return query ? `${withPath}?${query}` : withPath;
-}
-const ENDPOINT = chatEndpoint(ENDPOINT_RAW);
-
-/** o-series and gpt-5* are reasoning models: reject `temperature`, and spend
- *  hidden tokens before visible output, so they need a big completion budget. */
-const isReasoningModel = (m: string) => /^(o\d|gpt-5)/i.test(m);
+const MODEL = flagVal(argv, '--model', process.env.AI_MODEL || 'gpt-5.4');
 
 const ROOT = process.cwd();
 const OUT_DIR = path.join(ROOT, 'qa');
 const TODAY = new Date().toISOString().slice(0, 10);
-
-// ------------------------------------------------------------- token tracking ---
-let promptTokens = 0;
-let completionTokens = 0;
-let apiCalls = 0;
-
-type Msg = { role: 'system' | 'user' | 'assistant'; content: string };
-
-const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
-
-/** One chat completion. Retries on 429/5xx with backoff. Returns message text. */
-async function chat(
-  messages: Msg[],
-  opts: { maxTokens?: number; json?: boolean; stub?: string } = {}
-): Promise<string> {
-  const { maxTokens = 16000, json = false, stub = '' } = opts;
-  if (DRY_RUN) return stub;
-
-  const reasoning = isReasoningModel(MODEL);
-  const body: Record<string, unknown> = {
-    model: MODEL,
-    messages,
-    max_completion_tokens: reasoning ? Math.max(maxTokens, 16000) : maxTokens,
-  };
-  if (!reasoning) body.temperature = 0.2;
-  if (json) body.response_format = { type: 'json_object' };
-
-  let lastErr = '';
-  for (let attempt = 0; attempt < 5; attempt++) {
-    let res: Response;
-    try {
-      res = await fetch(ENDPOINT, {
-        method: 'POST',
-        headers: { 'api-key': API_KEY, 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      });
-    } catch (e) {
-      lastErr = `network: ${(e as Error).message}`;
-      await sleep(1000 * 2 ** attempt);
-      continue;
-    }
-    if (res.status === 429 || res.status >= 500) {
-      const ra = Number(res.headers.get('retry-after')) || 0;
-      lastErr = `${res.status} ${res.statusText}`;
-      await sleep(ra ? ra * 1000 : 1500 * 2 ** attempt);
-      continue;
-    }
-    if (!res.ok) {
-      throw new Error(`Azure API ${res.status} ${res.statusText}: ${await res.text()}`);
-    }
-    const data: any = await res.json();
-    apiCalls++;
-    if (data.usage) {
-      promptTokens += data.usage.prompt_tokens ?? 0;
-      completionTokens += data.usage.completion_tokens ?? 0;
-    }
-    const choice = data.choices?.[0];
-    if (choice?.finish_reason === 'length') {
-      // Truncated → JSON.parse will choke. Signal it to the caller.
-      throw new Error('finish_reason=length (raise --max or shorten input)');
-    }
-    return choice?.message?.content ?? '';
-  }
-  throw new Error(`Azure API gave up after retries: ${lastErr}`);
-}
-
-/** Tolerant JSON parse. With response_format=json_object the content is already
- *  pure JSON, so try that first — critically, do NOT run a fenced-code regex over
- *  the whole string, or a ```code``` block quoted inside a finding gets mis-extracted. */
-function parseJson<T = any>(text: string): T {
-  const t = (text ?? '').trim();
-  if (!t) throw new Error('model returned empty content (no JSON to parse)');
-  try {
-    return JSON.parse(t) as T;
-  } catch {
-    /* fall through to recovery */
-  }
-  // Whole-string markdown fence (anchored, so inner body fences don't match).
-  const fence = t.match(/^```(?:json)?\s*([\s\S]*?)\s*```$/);
-  if (fence) {
-    try {
-      return JSON.parse(fence[1]) as T;
-    } catch {
-      /* fall through */
-    }
-  }
-  // Last resort: outermost bracket/brace span.
-  const start = t.search(/[[{]/);
-  const end = Math.max(t.lastIndexOf(']'), t.lastIndexOf('}'));
-  if (start >= 0 && end > start) return JSON.parse(t.slice(start, end + 1)) as T;
-  throw new Error(`could not parse JSON from model output: ${t.slice(0, 200)}…`);
-}
+const client = createFoundryClient({ endpoint: chatEndpoint(ENDPOINT_RAW), apiKey: API_KEY, model: MODEL, dryRun: DRY_RUN });
 
 // ------------------------------------------------------------- corpus loading ---
 interface Post {
@@ -182,25 +81,11 @@ interface Post {
 }
 
 function loadCorpus(): Post[] {
-  const files = glob.sync('src/content/posts/*.{md,mdx}', { cwd: ROOT, absolute: true }).sort();
-  const posts: Post[] = [];
-  for (const file of files) {
-    const parsed = matter(fs.readFileSync(file, 'utf-8'));
-    const fm = parsed.data as Record<string, any>;
-    // live posts with real bodies only — redirect_to stubs are frontmatter-only
-    if (fm.published === false || fm.archived === true || fm.redirect_to) continue;
-    if (!parsed.content.trim()) continue;
-    const base = path.basename(file).replace(/\.(md|mdx)$/, '');
-    posts.push({
-      id: base,
-      date: base.slice(0, 10),
-      title: fm.title ?? base,
-      description: fm.description ?? '',
-      wordCount: parsed.content.split(/\s+/).length,
-      body: parsed.content,
-    });
-  }
-  return posts;
+  // live posts with real bodies only — redirect_to stubs are frontmatter-only
+  return loadPosts(ROOT, { skipEmpty: true }).map((p) => ({
+    ...p,
+    wordCount: p.body.split(/\s+/).length,
+  }));
 }
 
 /** Popular posts first (in curated order), then everything else newest-first. */
@@ -301,12 +186,12 @@ Review the full Markdown body below against the category rules. ${SCHEMA}
 
 ===== POST BODY =====
 ${post.body}`;
-  const text = await chat(
+  const text = await client.chat(
     [
       { role: 'system', content: SYSTEM },
       { role: 'user', content: user },
     ],
-    { json: true, maxTokens: 16000, stub: JSON.stringify(STUB) }
+    { maxTokens: 16000, temperature: 0.2, json: true, failOnLength: true, stub: JSON.stringify(STUB) }
   );
   return parseJson<Review>(text);
 }
@@ -369,7 +254,7 @@ function writeIndex(rows: RunRow[]) {
   lines.push(`- Posts reviewed: ${rows.filter((r) => !r.error).length}`);
   lines.push(`- Total findings: ${rows.reduce((n, r) => n + r.counts.total, 0)}`);
   lines.push(
-    `- API calls: ${apiCalls} · tokens: ${promptTokens.toLocaleString()} in / ${completionTokens.toLocaleString()} out · ${estCost()}`
+    `- API calls: ${client.usage.apiCalls} · tokens: ${client.usage.promptTokens.toLocaleString()} in / ${client.usage.completionTokens.toLocaleString()} out · ${estCost(client.usage, 1.25, 10)}`
   );
   lines.push('');
   lines.push('| Post | Pop | 🔴 | 🟡 | ⚪ | Summary |');
@@ -388,31 +273,11 @@ function writeIndex(rows: RunRow[]) {
   fs.writeFileSync(path.join(OUT_DIR, 'issues.json'), JSON.stringify(rows, null, 2));
 }
 
-function estCost(): string {
-  // gpt-5.x ballpark; adjust to your Azure rate. Reasoning output tokens included.
-  const cost = (promptTokens / 1e6) * 1.25 + (completionTokens / 1e6) * 10;
-  return `~$${cost.toFixed(2)} (est.)`;
-}
-
-// ----------------------------------------------------------- concurrency pool ---
-async function pool<T, R>(items: T[], size: number, fn: (t: T, i: number) => Promise<R>): Promise<R[]> {
-  const results: R[] = new Array(items.length);
-  let next = 0;
-  async function worker() {
-    while (next < items.length) {
-      const i = next++;
-      results[i] = await fn(items[i], i);
-    }
-  }
-  await Promise.all(Array.from({ length: Math.min(size, items.length) }, worker));
-  return results;
-}
-
 // ----------------------------------------------------------------------- main ---
 function requireCreds() {
   if (DRY_RUN) return;
   const missing = [
-    !ENDPOINT && 'AZURE_API_ENDPOINT (or AZURE_OPENAI_ENDPOINT)',
+    !ENDPOINT_RAW && 'AZURE_API_ENDPOINT (or AZURE_OPENAI_ENDPOINT)',
     !API_KEY && 'AZURE_API_KEY (or AZURE_OPENAI_API_KEY)',
   ].filter(Boolean);
   if (missing.length) {
@@ -472,7 +337,7 @@ async function main() {
   const totalFindings = rows.reduce((n, r) => n + r.counts.total, 0);
   const failed = rows.filter((r) => r.error).length;
   console.log(`\n✅ Done. ${rows.length - failed}/${rows.length} posts reviewed, ${totalFindings} findings.`);
-  console.log(`   Tokens: ${promptTokens.toLocaleString()} in / ${completionTokens.toLocaleString()} out · ${estCost()}`);
+  console.log(`   Tokens: ${client.usage.promptTokens.toLocaleString()} in / ${client.usage.completionTokens.toLocaleString()} out · ${estCost(client.usage, 1.25, 10)}`);
   console.log(`   Report: qa/REPORT.md (per-post details in qa/<id>.md)\n`);
 }
 
