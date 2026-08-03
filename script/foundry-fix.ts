@@ -26,58 +26,19 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import matter from 'gray-matter';
+import { flagVal, intFlag, chatEndpoint, createFoundryClient, requireCreds, parseJson, pool } from './lib/foundry';
 
 const argv = process.argv.slice(2);
 const DRY_RUN = argv.includes('--dry-run');
-const flagVal = (f: string, d: string) => {
-  const i = argv.indexOf(f);
-  return i >= 0 && argv[i + 1] && !argv[i + 1].startsWith('--') ? argv[i + 1] : d;
-};
-const CONCURRENCY = parseInt(flagVal('--concurrency', '5'), 10);
+const CONCURRENCY = intFlag(argv, '--concurrency', 5);
 
 const ENDPOINT_RAW = process.env.AZURE_API_ENDPOINT || process.env.AZURE_OPENAI_ENDPOINT || '';
 const API_KEY = process.env.AZURE_API_KEY || process.env.AZURE_OPENAI_API_KEY || '';
-const MODEL = flagVal('--model', process.env.AI_MODEL || 'gpt-5.4');
-const ENDPOINT = (() => {
-  const t = ENDPOINT_RAW.replace(/\/$/, '');
-  const [p, q] = t.split('?');
-  const wp = p.endsWith('/chat/completions') ? p : `${p}/chat/completions`;
-  return q ? `${wp}?${q}` : wp;
-})();
-const isReasoning = /^(o\d|gpt-5)/i.test(MODEL);
+const MODEL = flagVal(argv, '--model', process.env.AI_MODEL || 'gpt-5.4');
 
 const ROOT = process.cwd();
 const POSTS = path.join(ROOT, 'src/content/posts');
-const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
-
-let promptTokens = 0, completionTokens = 0;
-
-async function chat(messages: any[], maxTokens = 16000): Promise<string> {
-  const body: Record<string, unknown> = { model: MODEL, messages, response_format: { type: 'json_object' } };
-  if (isReasoning) body.max_completion_tokens = Math.max(maxTokens, 16000);
-  else { body.max_tokens = maxTokens; body.temperature = 0; }
-  for (let a = 0; a < 5; a++) {
-    let res: Response;
-    try {
-      res = await fetch(ENDPOINT, { method: 'POST', headers: { 'api-key': API_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-    } catch (e) { await sleep(1000 * 2 ** a); continue; }
-    if (res.status === 429 || res.status >= 500) { await sleep(1500 * 2 ** a); continue; }
-    if (!res.ok) throw new Error(`Azure ${res.status}: ${await res.text()}`);
-    const data: any = await res.json();
-    if (data.usage) { promptTokens += data.usage.prompt_tokens ?? 0; completionTokens += data.usage.completion_tokens ?? 0; }
-    const c = data.choices?.[0];
-    if (c?.finish_reason === 'length') throw new Error('truncated (finish_reason=length)');
-    return c?.message?.content ?? '';
-  }
-  throw new Error('gave up after retries');
-}
-
-function parseJson<T>(text: string): T {
-  const fenced = text.match(/```(?:json)?\s*([\s\S]*?)```/);
-  const raw = fenced ? fenced[1] : text;
-  const s = raw.search(/[[{]/), e = Math.max(raw.lastIndexOf(']'), raw.lastIndexOf('}'));
-  return JSON.parse(raw.slice(s, e + 1)) as T;
-}
+const client = createFoundryClient({ endpoint: chatEndpoint(ENDPOINT_RAW), apiKey: API_KEY, model: MODEL, dryRun: DRY_RUN });
 
 interface Finding { pid: string; cat: string; sev: string; quote: string; problem: string; fix: string; }
 interface Edit { find: string; replace: string; reason: string; }
@@ -126,10 +87,13 @@ async function fixPost(pid: string, findings: Finding[]): Promise<{ pid: string;
 
   let edits: Edit[];
   try {
-    const text = await chat([
-      { role: 'system', content: SYSTEM },
-      { role: 'user', content: `POST (id ${pid}):\n\n===== BODY =====\n${body}\n\n===== QA FINDINGS (objective categories only) =====\n${findingList}\n\n${SCHEMA}` },
-    ]);
+    const text = await client.chat(
+      [
+        { role: 'system', content: SYSTEM },
+        { role: 'user', content: `POST (id ${pid}):\n\n===== BODY =====\n${body}\n\n===== QA FINDINGS (objective categories only) =====\n${findingList}\n\n${SCHEMA}` },
+      ],
+      { maxTokens: 16000, temperature: 0, json: true, failOnLength: true }
+    );
     edits = parseJson<{ edits: Edit[] }>(text).edits ?? [];
   } catch (e) {
     return { pid, applied: [], skipped: [], error: (e as Error).message };
@@ -151,18 +115,15 @@ async function fixPost(pid: string, findings: Finding[]): Promise<{ pid: string;
   return { pid, applied, skipped };
 }
 
-async function pool<T, R>(items: T[], size: number, fn: (t: T) => Promise<R>): Promise<R[]> {
-  const out: R[] = new Array(items.length);
-  let n = 0;
-  await Promise.all(Array.from({ length: Math.min(size, items.length) }, async () => {
-    while (n < items.length) { const i = n++; out[i] = await fn(items[i]); }
-  }));
-  return out;
-}
-
 async function main() {
   console.log(`\n🔧 foundry-fix ${DRY_RUN ? '(DRY RUN — no writes)' : ''} · model=${MODEL}\n`);
-  const all: Finding[] = JSON.parse(fs.readFileSync(path.join(ROOT, 'qa/all-findings.json'), 'utf-8'));
+  requireCreds(ENDPOINT_RAW, API_KEY, DRY_RUN);
+  const findingsPath = path.join(ROOT, 'qa/all-findings.json');
+  if (!fs.existsSync(findingsPath)) {
+    console.error(`\n❌ ${path.relative(ROOT, findingsPath)} not found. Run the foundry-qa pass and assemble qa/all-findings.json first.\n`);
+    process.exit(1);
+  }
+  const all: Finding[] = JSON.parse(fs.readFileSync(findingsPath, 'utf-8'));
   const objective = all.filter((f) => OBJECTIVE.has(f.cat));
   const byPost = new Map<string, Finding[]>();
   for (const f of objective) { (byPost.get(f.pid) ?? byPost.set(f.pid, []).get(f.pid)!).push(f); }
@@ -189,11 +150,11 @@ async function main() {
     for (const s of r.skipped) { totalSkipped++; lines.push(`- ⏭️ skipped «${s.edit.find}» → «${s.edit.replace}» — ${s.why}`); }
     lines.push('');
   }
-  lines.splice(3, 0, `**${totalApplied} edits ${DRY_RUN ? 'proposed' : 'applied'}, ${totalSkipped} skipped.** Tokens: ${promptTokens.toLocaleString()} in / ${completionTokens.toLocaleString()} out.\n`);
+  lines.splice(3, 0, `**${totalApplied} edits ${DRY_RUN ? 'proposed' : 'applied'}, ${totalSkipped} skipped.** Tokens: ${client.usage.promptTokens.toLocaleString()} in / ${client.usage.completionTokens.toLocaleString()} out.\n`);
   fs.writeFileSync(path.join(ROOT, 'qa/FIXES.md'), lines.join('\n'));
 
   console.log(`\n✅ ${totalApplied} edits ${DRY_RUN ? 'proposed' : 'applied'}, ${totalSkipped} skipped. See qa/FIXES.md, then \`git diff src/content/posts\`.`);
-  console.log(`   Tokens: ${promptTokens.toLocaleString()} in / ${completionTokens.toLocaleString()} out\n`);
+  console.log(`   Tokens: ${client.usage.promptTokens.toLocaleString()} in / ${client.usage.completionTokens.toLocaleString()} out\n`);
 }
 
 main().catch((e) => { console.error('\n❌ Failed:', e.message); process.exit(1); });
