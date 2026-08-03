@@ -43,7 +43,30 @@ async function chat(messages: any[]): Promise<string> {
   }
   throw new Error('gave up');
 }
-function parseJson<T>(t: string): T { const f = t.match(/```(?:json)?\s*([\s\S]*?)```/); const r = f ? f[1] : t; const s = r.search(/[[{]/), e = Math.max(r.lastIndexOf(']'), r.lastIndexOf('}')); return JSON.parse(r.slice(s, e + 1)) as T; }
+/** Tolerant JSON parse. With response_format=json_object the content is already
+ *  pure JSON, so try that first — do NOT run a fenced-code regex over the whole
+ *  string, or a ```code``` block echoed in an edit gets mis-extracted. */
+function parseJson<T = any>(text: string): T {
+  const t = (text ?? '').trim();
+  if (!t) throw new Error('model returned empty content (no JSON to parse)');
+  try {
+    return JSON.parse(t) as T;
+  } catch {
+    /* fall through to recovery */
+  }
+  const fence = t.match(/^```(?:json)?\s*([\s\S]*?)\s*```$/);
+  if (fence) {
+    try {
+      return JSON.parse(fence[1]) as T;
+    } catch {
+      /* fall through */
+    }
+  }
+  const start = t.search(/[[{]/);
+  const end = Math.max(t.lastIndexOf(']'), t.lastIndexOf('}'));
+  if (start >= 0 && end > start) return JSON.parse(t.slice(start, end + 1)) as T;
+  throw new Error(`could not parse JSON from model output: ${t.slice(0, 200)}…`);
+}
 
 interface Applied { pid: string; find: string; replace: string; reason: string; }
 

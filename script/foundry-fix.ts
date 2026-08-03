@@ -72,11 +72,32 @@ async function chat(messages: any[], maxTokens = 16000): Promise<string> {
   throw new Error('gave up after retries');
 }
 
-function parseJson<T>(text: string): T {
-  const fenced = text.match(/```(?:json)?\s*([\s\S]*?)```/);
-  const raw = fenced ? fenced[1] : text;
-  const s = raw.search(/[[{]/), e = Math.max(raw.lastIndexOf(']'), raw.lastIndexOf('}'));
-  return JSON.parse(raw.slice(s, e + 1)) as T;
+/** Tolerant JSON parse. With response_format=json_object the content is already
+ *  pure JSON, so try that first — critically, do NOT run a fenced-code regex over
+ *  the whole string, or a ```code``` block echoed in a find/replace pair gets
+ *  mis-extracted and truncates the JSON. */
+function parseJson<T = any>(text: string): T {
+  const t = (text ?? '').trim();
+  if (!t) throw new Error('model returned empty content (no JSON to parse)');
+  try {
+    return JSON.parse(t) as T;
+  } catch {
+    /* fall through to recovery */
+  }
+  // Whole-string markdown fence (anchored, so inner body fences don't match).
+  const fence = t.match(/^```(?:json)?\s*([\s\S]*?)\s*```$/);
+  if (fence) {
+    try {
+      return JSON.parse(fence[1]) as T;
+    } catch {
+      /* fall through */
+    }
+  }
+  // Last resort: outermost bracket/brace span.
+  const start = t.search(/[[{]/);
+  const end = Math.max(t.lastIndexOf(']'), t.lastIndexOf('}'));
+  if (start >= 0 && end > start) return JSON.parse(t.slice(start, end + 1)) as T;
+  throw new Error(`could not parse JSON from model output: ${t.slice(0, 200)}…`);
 }
 
 interface Finding { pid: string; cat: string; sev: string; quote: string; problem: string; fix: string; }
