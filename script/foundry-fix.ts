@@ -26,11 +26,11 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import matter from 'gray-matter';
-import { flagVal, chatEndpoint, createFoundryClient, parseJson, pool } from './lib/foundry';
+import { flagVal, intFlag, chatEndpoint, createFoundryClient, parseJson, pool } from './lib/foundry';
 
 const argv = process.argv.slice(2);
 const DRY_RUN = argv.includes('--dry-run');
-const CONCURRENCY = parseInt(flagVal(argv, '--concurrency', '5'), 10);
+const CONCURRENCY = intFlag(argv, '--concurrency', 5);
 
 const ENDPOINT_RAW = process.env.AZURE_API_ENDPOINT || process.env.AZURE_OPENAI_ENDPOINT || '';
 const API_KEY = process.env.AZURE_API_KEY || process.env.AZURE_OPENAI_API_KEY || '';

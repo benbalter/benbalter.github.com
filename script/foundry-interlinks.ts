@@ -25,6 +25,7 @@ import * as path from 'path';
 import {
   hasFlag,
   flagVal,
+  intFlag,
   chatEndpoint,
   createFoundryClient,
   parseJson,
@@ -37,8 +38,8 @@ import {
 const argv = process.argv.slice(2);
 const DRY_RUN = hasFlag(argv, '--dry-run');
 const ALL = hasFlag(argv, '--all');
-const TOP = parseInt(flagVal(argv, '--top', '25'), 10);
-const CONCURRENCY = parseInt(flagVal(argv, '--concurrency', '5'), 10);
+const TOP = intFlag(argv, '--top', 25);
+const CONCURRENCY = intFlag(argv, '--concurrency', 5);
 const MAX_SUGGESTIONS = 4;
 
 // -------------------------------------------------------------- Azure config ---

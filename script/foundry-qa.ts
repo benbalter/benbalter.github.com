@@ -37,6 +37,7 @@ import { popularPostSlugs } from '../src/config';
 import {
   hasFlag,
   flagVal,
+  intFlag,
   chatEndpoint,
   createFoundryClient,
   parseJson,
@@ -49,8 +50,8 @@ import {
 const argv = process.argv.slice(2);
 const DRY_RUN = hasFlag(argv, '--dry-run');
 const ALL = hasFlag(argv, '--all');
-const TOP = parseInt(flagVal(argv, '--top', '21'), 10); // 9 popular + ~12 recent
-const CONCURRENCY = parseInt(flagVal(argv, '--concurrency', '4'), 10);
+const TOP = intFlag(argv, '--top', 21); // 9 popular + ~12 recent
+const CONCURRENCY = intFlag(argv, '--concurrency', 4);
 
 // -------------------------------------------------------------- Azure config ---
 const ENDPOINT_RAW =

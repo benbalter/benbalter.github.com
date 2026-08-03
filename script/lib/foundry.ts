@@ -23,6 +23,19 @@ export const flagVal = (argv: string[], f: string, d: string) => {
   return i >= 0 && argv[i + 1] && !argv[i + 1].startsWith('--') ? argv[i + 1] : d;
 };
 
+/** Like flagVal, but validated as a positive integer. A bad value (e.g.
+ *  `--concurrency abc`) exits with a clear error instead of silently passing NaN
+ *  into slice()/pool() and doing something baffling. */
+export const intFlag = (argv: string[], f: string, def: number): number => {
+  const raw = flagVal(argv, f, String(def));
+  const n = Number(raw);
+  if (!Number.isInteger(n) || n <= 0) {
+    console.error(`\n❌ ${f} must be a positive integer (got "${raw}").\n`);
+    process.exit(1);
+  }
+  return n;
+};
+
 // -------------------------------------------------------------- Azure config ---
 /** Point any base/endpoint at the chat/completions resource, preserving ?query. */
 export function chatEndpoint(raw: string): string {
@@ -36,6 +49,21 @@ export function chatEndpoint(raw: string): string {
 /** Reasoning-family deployments (o-series, gpt-5*) reject `temperature` and burn
  *  part of the token budget on hidden reasoning before any visible output. */
 export const isReasoningModel = (m: string) => /^(o\d|gpt-5)/i.test(m);
+
+/** Exit with guidance if creds are missing (no-op under dry-run). Pass the raw
+ *  endpoint/key each script resolved — only their presence is checked. */
+export function requireCreds(endpoint: string, apiKey: string, dryRun: boolean): void {
+  if (dryRun) return;
+  const missing = [
+    !endpoint && 'AZURE_API_ENDPOINT (or AZURE_OPENAI_ENDPOINT)',
+    !apiKey && 'AZURE_API_KEY (or AZURE_OPENAI_API_KEY)',
+  ].filter(Boolean);
+  if (missing.length) {
+    console.error(`\n❌ Missing env: ${missing.join(', ')}.`);
+    console.error('   Try `set -a; . ~/projects/book/.env; set +a`, or use --dry-run.\n');
+    process.exit(1);
+  }
+}
 
 // ------------------------------------------------------------- JSON parsing ---
 /** Tolerant JSON parse. With response_format=json_object the content is already
@@ -93,6 +121,10 @@ export interface FoundryClientOpts {
   /** Floor on max_completion_tokens for reasoning models, which spend hidden
    *  tokens before visible output. Default 16000 (matches most scripts). */
   reasoningMinTokens?: number;
+  /** Abort a single request that hasn't responded in this many ms, so a hung
+   *  socket can't stall the whole run. Treated like a network error → retried.
+   *  Default 120000 (reasoning models are slow). */
+  timeoutMs?: number;
 }
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
@@ -103,7 +135,7 @@ export function createFoundryClient(cfg: FoundryClientOpts): {
   chat: (messages: Msg[], opts?: ChatOpts) => Promise<string>;
   usage: Usage;
 } {
-  const { endpoint, apiKey, model, dryRun = false, reasoningMinTokens = 16000 } = cfg;
+  const { endpoint, apiKey, model, dryRun = false, reasoningMinTokens = 16000, timeoutMs = 120_000 } = cfg;
   const usage: Usage = { promptTokens: 0, completionTokens: 0, apiCalls: 0 };
 
   async function chat(messages: Msg[], opts: ChatOpts = {}): Promise<string> {
@@ -128,6 +160,7 @@ export function createFoundryClient(cfg: FoundryClientOpts): {
           method: 'POST',
           headers: { 'api-key': apiKey, 'Content-Type': 'application/json' },
           body: JSON.stringify(body),
+          signal: AbortSignal.timeout(timeoutMs), // abort → caught below → retried
         });
       } catch (e) {
         lastErr = `network: ${(e as Error).message}`;
@@ -173,6 +206,12 @@ export interface BasePost {
   title: string;
   description: string;
   body: string;
+}
+
+/** Map a post id (`YYYY-MM-DD-slug`) to its published URL `/YYYY/MM/DD/slug/`. */
+export function postUrl(id: string): string {
+  const m = id.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
+  return m ? `/${m[1]}/${m[2]}/${m[3]}/${m[4]}/` : `/${id}/`;
 }
 
 /** Load live posts from src/content/posts, in filename (chronological) order.

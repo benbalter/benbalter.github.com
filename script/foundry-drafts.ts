@@ -31,7 +31,7 @@ import * as path from 'path';
 import { execFileSync } from 'child_process';
 import {
   hasFlag,
-  flagVal,
+  intFlag,
   chatEndpoint,
   createFoundryClient,
   parseJson,
@@ -45,9 +45,9 @@ const argv = process.argv.slice(2);
 const DRY_RUN = hasFlag(argv, '--dry-run');
 const IDEAS_ONLY = hasFlag(argv, '--ideas-only');
 const REUSE_IDEAS = hasFlag(argv, '--reuse-ideas'); // draft from an existing drafts/ideas.json
-const TOP = parseInt(flagVal(argv, '--top', '6'), 10);
-const CANDIDATES_PER_LENS = parseInt(flagVal(argv, '--candidates', '8'), 10);
-const MAX_LINT_ITERS = parseInt(flagVal(argv, '--max-iters', '3'), 10);
+const TOP = intFlag(argv, '--top', 6);
+const CANDIDATES_PER_LENS = intFlag(argv, '--candidates', 8);
+const MAX_LINT_ITERS = intFlag(argv, '--max-iters', 3);
 const EXEMPLAR_COUNT = 3;
 
 // -------------------------------------------------------------- Azure config ---
