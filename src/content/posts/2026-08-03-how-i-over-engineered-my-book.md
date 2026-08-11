@@ -12,7 +12,9 @@ Then it clicked. An EPUB—the format behind every non-Amazon ebook—is a zip a
 
 I've been building websites most of my life. :quote[The book wasn't a document problem. It was a build target.]{#not-a-document-problem}
 
-So I built it like software. Markdown in git, one source of truth, everything else generated. Which also meant the book could practice what it preached: [it argues](/2026/07/21/open-and-async/) that version control, code review, CI, and automated testing belong in knowledge work, not just in code. If I believed that, the book should be the proof.
+So I built it like software. Markdown in git, one source of truth, everything else generated. Which also meant the book could practice what it preached: [it argues](/2026/07/21/open-and-async/) that version control, code review, CI, and automated testing belong in knowledge work, not just in code. If I believed that, the book had to be the proof.
+
+The whole way through, a voice kept asking whether this was the book or an elaborate way of not writing it. I kept count. The math is at the end.
 
 ## The stack
 
@@ -50,7 +52,7 @@ The `@layer` is gone. Every variable is resolved. Every `rem` is an `em`. And th
 
 **There are no DevTools.** No error console. No spec to check, because the vendors don't publish one. You learn your CSS is wrong when a file renders badly on a device sitting on a stranger's nightstand, three weeks after you shipped.
 
-So the tests aren't there for tidiness. They're the only instrument I have. One suite asserts every transformation—`oklch()` became hex, nesting got flattened, `@layer` is gone. Another scans the output for anything forbidden that slipped through. A third checks that none of it accidentally reordered the cascade, because a selector that quietly stops winning means a heading silently renders at the wrong size, and nobody tells you. When you can't observe production, :quote[your test suite stops being quality assurance and becomes your only way of seeing.]{#your-only-way-of-seeing}
+The tests aren't there for tidiness. They're the only instrument I have. One suite asserts every transformation—`oklch()` became hex, nesting got flattened, `@layer` is gone. Another scans the output for anything forbidden that slipped through. A third checks that none of it accidentally reordered the cascade, because a selector that quietly stops winning means a heading silently renders at the wrong size, and nobody tells you. When you can't observe production, :quote[your test suite stops being quality assurance and becomes your only way of seeing.]{#your-only-way-of-seeing}
 
 There are 2,396 of them, across 65 files, which is less impressive than it sounds. A lot are cheap, generated assertions—one per emoji, one per chapter, one per forbidden CSS function. Breadth over cleverness, because breadth is what catches a platform that won't tell you anything.
 
@@ -88,25 +90,13 @@ That's the case for linting prose, and it has nothing to do with typos. A linter
 
 This one solved no problem. I built it because I wanted to.
 
-The book's method is a set of reusable moves—how to run a meeting as an escalation rather than a default, how to write a status update that reports impact instead of activity, how to answer the objection that [async is too slow](/2022/03/17/why-async/). A build step extracts them into a dataset, and a [Model Context Protocol](https://modelcontextprotocol.io/) server hands them to an AI agent as callable tools. Ask it to handle a piece of pushback and it returns the reframe, plus where in the book it came from:
+Because the manuscript is structured data, the wanting was cheap. The book's method is a set of reusable moves: how to run a meeting as an escalation rather than a default, how to write a status update that reports impact instead of activity, how to answer the objection that [async is too slow](/2022/03/17/why-async/). A build step extracts those moves into a dataset and a [Model Context Protocol](https://modelcontextprotocol.io/) server hands them to an AI agent as callable tools—so you can ask a model how to convert a meeting to async without feeding it 105,000 words of prose.
 
-```json
-{
-  "trigger": "We tried remote work during the pandemic and it was a disaster.",
-  "reframe": "What failed wasn't remote work — it was a meeting-heavy office
-    routine bolted onto video calls during a crisis, with nothing written down
-    and managers checking who was online.",
-  "chapter": "defining-open-async-and-remotefirst-work"
-}
-```
-
-The method ships separately from the manuscript, so you can ask a model how to convert a meeting to async without handing it 105,000 words of prose.
-
-Meanwhile, buried in the copyright page of every edition:
+The same fact cuts the other way. Buried in the copyright page of every edition:
 
 > The author reserves all rights to text and data mining and to training AI or machine-learning systems on this work (EU Digital Single Market Directive, Art. 4(3) reservation).
 
-There's a test that fails the build if that sentence ever quietly disappears from any format. A book with a chapter on using AI as a thought partner, defending itself against becoming training data, enforced in CI.
+A test fails the build if that sentence ever quietly disappears from any format—a book with a chapter on using AI as a thought partner, defending itself against becoming training data, enforced in CI.
 
 ## The part where it touches paper
 
@@ -128,8 +118,8 @@ Then I pointed the whole apparatus at this blog's archive. A post from April 201
 
 This post tripped the blog's linter twice on its way out the door, incidentally. Both times for quoting the banned phrases as examples.
 
-And the book is better for it. I can `git bisect` a rendering regression down to the commit that caused it. Fixing a typo is a commit, not a re-export, and it propagates to all five formats at once—which is the difference between fixing it and deciding it isn't worth fixing. Every one of those checks is enforced by something that doesn't get tired at 11 p.m. and decide it's probably fine.
+And the book is better for it—and not only for me. I can `git bisect` a rendering regression down to the commit that caused it. Fixing a typo is a commit, not a re-export, and it lands in all five formats at once—the difference between fixing it everywhere and deciding it isn't worth fixing in five places by hand. Do the work right once and every format inherits it; skip the discipline and quality becomes something you reapply until you stop bothering. Every one of those checks is enforced by something that doesn't get tired at 11 p.m. and decide it's probably fine.
 
-I could have written this in Google Docs and shipped sooner. It would have been a worse book, and I'd have learned nothing.
+I could have written this in Google Docs and shipped sooner. It would have been a worse book—for every reader[^accessibility]—and I'd have learned nothing.
 
-Accessibility turned out to be big enough that it's getting its own post.
+[^accessibility]: Making it a genuinely good book for every reader—alt text, reading order, and screen-reader support on formats that barely admit to having any—turned out to be big enough that it's getting its own post.
