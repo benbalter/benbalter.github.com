@@ -55,6 +55,7 @@ export const GET: APIRoute = ({ site }) => {
 ${contentSignal}
 ${disallowLines}
 Allow: /
+Sitemap: ${siteUrl}/sitemap.xml
 Sitemap: ${siteUrl}/sitemap-index.xml
 `;
 
