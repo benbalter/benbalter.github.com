@@ -70,7 +70,7 @@ test.describe('Accessibility - Homepage', () => {
     // Check for main landmark
     const main = page.locator('main');
     await expect(main).toHaveCount(1);
-    await expect(main).toHaveAttribute('id', 'content');
+    await expect(main).toHaveAttribute('id', 'main-content');
     await expect(main).toHaveAttribute('role', 'main');
     
     // Check for at least one navigation (site has main nav and footer nav)
