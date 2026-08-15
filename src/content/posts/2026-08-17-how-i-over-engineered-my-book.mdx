@@ -1,7 +1,7 @@
 ---
 title: How I over-engineered my book
-description: "How I wrote and published a book the way I'd ship software: Markdown in Git, thousands of automated checks, and a Pandoc build pipeline that produces every format on each push."
-tldr: "I treated my book like a software project—Markdown in Git, real-time and CI linting, ~5,500 automated checks, and a Pandoc pipeline that builds the web, EPUB, Kindle, and print editions on every push."
+description: "I wrote and published my book the way I ship software: Markdown in Git, ~5,500 automated checks, and a Pandoc pipeline that builds the EPUB, Kindle, paperback, and web editions on every push."
+tldr: "I treated my book like a software project—Markdown in Git, ~5,500 automated checks, and a Pandoc pipeline that builds every format on each push. The publishing industry starts with a word processor; I started with a Git repository."
 # This post supplies its own featured BookCta at the end, so suppress the
 # generic inline one PostLayout appends to every post (avoids two CTAs).
 hideBookCta: true
@@ -256,7 +256,7 @@ jobs:
   validate-playwright: { needs: build-html }
 ```
 
-<!-- SCREENSHOT: GitHub Actions run showing the parallel build + validate jobs -->
+{/* SCREENSHOT: GitHub Actions run showing the parallel build + validate jobs */}
 
 And because every build stamps its commit onto the title page, the book is versioned like software. I'm on release 1.0.1 — with a tag and a changelog, not a graveyard of `final_v3_revised_ACTUALLY_FINAL.docx` files. A typo fix is a point release.
 
