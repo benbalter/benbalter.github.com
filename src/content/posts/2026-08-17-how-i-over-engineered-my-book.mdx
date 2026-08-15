@@ -16,11 +16,11 @@ I've been making websites for decades, so the leap was short: the same tools tha
 
 ## Content
 
-Naturally, the content itself lived as Markdown files in a Git repository. I used VS Code, with a handful of prose extensions (listed below). Each chapter was its own Markdown file, and a single `index.yml` file defined the order, making it easy to re-order chapters or add new ones. Practically, I wrote most of this book on an iPad — Codespaces in a browser tab, a Bluetooth keyboard, often on a train — and the Git repository kept everything in sync no matter where I opened it. I could focus on the words, and a bad idea was one `git revert` away from gone. Not to mention, I had real-time feedback on my writing from the various prose linters, just as I would have real-time feedback on my code from ESLint or Prettier.
+Naturally, the content itself lived as Markdown files in a Git repository. I used VS Code, with a handful of prose extensions (listed below). Each chapter was its own Markdown file, and a single `index.yml` file defined the order, making it easy to re-order chapters or add new ones. Practically, I wrote most of this book on an iPad — Codespaces in a browser tab, a Bluetooth keyboard, often nights and weekends while away from my desk — and the Git repository kept everything in sync no matter where I opened it. I could focus on the words, and a bad idea was one `git revert` away from gone. Not to mention, I had real-time feedback on my writing from the various prose linters, just as I would have real-time feedback on my code from ESLint or Prettier.
 
 ## Testing
 
-With content as code, the next logical step — and the point where "reasonable" quietly left the building — was to set up automated tests. I did that two ways: real-time, and on push (CI).
+With content as code, the next logical step — and the point where "reasonable" quietly left the building — was to set up automated tests. [Testing prose the way you test code](https://ben.balter.com/2015/05/22/test-your-prose/) is something I'd argued for years; this was me taking it to an absurd extreme. I did that two ways: real-time, and on push (CI).
 
 ### Real-time
 
@@ -30,14 +30,14 @@ Locally, as I typed, I ran several VS Code extensions all giving me real-time fe
 - [Harper](https://github.com/Automattic/harper)[^cspell]
 - [LanguageTool](https://languagetool.org/)
 - [Vale](https://vale.sh/)
-- [Alex](https://alexjs.com/) (via Vale in CI)
-- [Write-good](https://github.com/btford/write-good) (via Vale in CI)
+- [Alex](https://alexjs.com/)
+- [Write-good](https://github.com/btford/write-good)
 
 All six also ran in CI (Alex and Write-good folded into Vale there; more on that below). Together, they enforced ~300 curated style rules covering 500+ banned terms, sitting on top of a 5,000-rule grammar engine — all of it underlining my mistakes in real time, the way a red squiggle flags a typo.
 
 ### On each push
 
-In addition to running those linters in CI (some blocking), I built a custom test suite of my own: a standalone Node script of content validators, a Vitest suite, and Playwright specs. The validators are the fun part. Each is a few lines that read the Markdown and push an error with a file-and-line pointer. My favorite: I don't work at GitHub anymore, so any sentence claiming I *still* do fails the build.
+In addition to running those open source linters in CI (some blocking), I built a custom test suite of my own: a standalone Node script of content validators, a Vitest suite, and Playwright specs. The validators are the fun part. Each is a few lines that read the Markdown and push an error with a file-and-line pointer. My favorite: I don't work at GitHub anymore, so any sentence claiming I *still* do fails the build.
 
 ```js
 // My time at GitHub has to read as past tense — present-tense
@@ -68,13 +68,15 @@ All in all, the CI suite ran ~70 test files with 2,204 test cases and ~3,900 `ex
 
 ## Audits
 
+The linters caught mistakes, but they couldn't tell me whether the book repeated itself or whether a chapter was any good. For that I built a second layer of tooling: audits that judge the writing, not just check it.
+
 ### Duplication detection
 
-After reading the book over and over, I was _convinced_ I'd repeated the same idea across chapters. I wanted proof, not a hunch — so I built three layers of duplication detection, each catching what the one before it misses:
+After reading the book over and over, I was *convinced* I'd repeated the same idea across chapters. I wanted proof, not a hunch — so I built three layers of duplication detection, each catching what the one before it misses:
 
 - **`jscpd`** — token-level copy-paste detection. Catches longer verbatim blocks I'd pasted between chapters, but nothing subtler.[^dry]
-- **n-gram** — deterministic, zero-tokens, no AI or network. Tokenizes every chapter in `index.yml`, strips Markdown/Pandoc syntax, builds word n-grams (phrases of n words), and flags phrases appearing in more than one chapter (plus a "most-repeated stock wording" ranking). Two modes: cross-chapter (default `--n`) and intra-chapter (`--scope=intra --n=8`) for a chapter repeating itself.
-- **semantic** — the one the other two can't do: the same _point_ restated in different words. An on-demand LLM audit, designed so it never feeds the whole book to a model — three passes, each over small units:
+- **n-gram** — tokenizes every chapter in `index.yml`, strips Markdown/Pandoc syntax, builds word n-grams (phrases of n words), and flags phrases appearing in more than one chapter (plus a "most-repeated stock wording" ranking). Two modes: cross-chapter (default `--n`) and intra-chapter (`--scope=intra --n=8`) for a chapter repeating itself.
+- **semantic** — the one the other two can't do: the same *point* restated in different words. An on-demand LLM audit, designed so it never feeds the whole book to a model — three passes, each over small units:
   - **intra** — one call per chapter: "where does this chapter restate itself?"
   - **cross** — a single call over every chapter's TL;DR, producing a map of conceptually overlapping chapters. A whole-book scan for the cost of one call.
   - **arguments** — extract each chapter's load-bearing claims one call at a time, then cluster the same argument across all chapters in one final call. Catches arguments made in body prose that `cross` misses.
@@ -126,14 +128,14 @@ Together, these turned "is the book actually getting better?" from a gut feeling
 
 ## Design
 
-I am _far_ from a designer. Adding to that, I had never published an ebook before, and had no idea how they worked, beyond reading many of them. Two aha moments changed the way I thought about publishing:
+I am *far* from a designer. Adding to that, I had never published an ebook before, and had no idea how they worked, beyond reading many of them. Two aha moments changed the way I thought about publishing:
 
 - :quote[An ebook is a website in a trench coat]{#ebook-trench-coat} — ebooks are just HTML and CSS, albeit a very stripped-down version. If you can make a website, you can make an ebook.
 - :quote[A print book can be a website in a trench coat if you try hard enough]{#print-trench-coat} — CSS natively has powerful `@media print` and `@page` rules, including left and right page styling, title pages, page numbers, and more.
 
 For the interior design, I went with Tailwind CSS, my go-to CSS framework. I trusted that it would give me an optimized build, and that `@tailwindcss/typography` would give me a good starting point for the typography.
 
-One note: I purposefully hired a _human_ designer for the cover. For a book about being authentic, the first impression had to be authentic.
+One note: I purposefully hired a *human* designer for the cover. For a book about being authentic, the first impression had to be authentic.
 
 ### Tests
 
@@ -218,11 +220,11 @@ That's five publishable files out of one Markdown source[^docx] — which raises
 
 ### Testing the build
 
-That ~70-file Vitest suite from earlier? Most of it has nothing to do with the prose — it exists to keep the _build_ honest. A Pandoc upgrade or a stray line of CSS can silently break a format, and I wouldn't find out until a reader's Kindle rendered the wrong font. So the suite checks the machinery: that each transform does what it claims, that every store's file-format rules still pass, and — the biggest cluster by far — that typography hasn't quietly drifted. Smallcaps, table borders, print contrast, dark mode, the emoji fallback for e-ink readers that have no emoji font: each is a test because each is a way I've watched a build look fine and render wrong.
+That ~70-file Vitest suite from earlier? Most of it has nothing to do with the prose — it exists to keep the *build* honest. A Pandoc upgrade or a stray line of CSS can silently break a format, and I wouldn't find out until a reader's Kindle rendered the wrong font. So the suite checks the machinery: that each transform does what it claims, that every store's file-format rules still pass, and — the biggest cluster by far — that typography hasn't quietly drifted. Smallcaps, table borders, print contrast, dark mode, the emoji fallback for e-ink readers that have no emoji font: each is a test because each is a way I've watched a build look fine and render wrong.
 
 ### Validation gates
 
-Unit tests prove _my_ code is right; they don't prove the _output_ is valid. So the build runs each artifact through the same validators the stores themselves use — a rejection happens on my laptop, not on upload day. Every EPUB goes through [EPUBCheck](https://www.w3.org/publishing/epubcheck/), the industry-standard validator every store runs on upload, and [ACE by DAISY](https://daisy.org/activities/software/ace/), an accessibility audit built specifically for ebooks (on top of the axe-core checks from earlier). The built HTML gets crawled by [lychee](https://github.com/lycheeverse/lychee) for link rot and run through an HTML validator to catch malformed markup before it can become a malformed ebook. And the per-format builders double as smoke tests: if any format fails to build, the whole pipeline goes red.
+Unit tests prove *my* code is right; they don't prove the *output* is valid. So the build runs each artifact through the same validators the stores themselves use — a rejection happens on my laptop, not on upload day. Every EPUB goes through [EPUBCheck](https://www.w3.org/publishing/epubcheck/), the industry-standard validator every store runs on upload, and [ACE by DAISY](https://daisy.org/activities/software/ace/), an accessibility audit built specifically for ebooks (on top of the axe-core checks from earlier). The built HTML gets crawled by [lychee](https://github.com/lycheeverse/lychee) for link rot and run through an HTML validator to catch malformed markup before it can become a malformed ebook. And the per-format builders double as smoke tests: if any format fails to build, the whole pipeline goes red.
 
 ### Every push, every format
 
@@ -240,8 +242,6 @@ jobs:
   validate-ace:       { needs: build-epub }
   validate-playwright: { needs: build-html }
 ```
-
-{/* SCREENSHOT: GitHub Actions run showing the parallel build + validate jobs */}
 
 And because every build stamps its commit onto the title page, the book is versioned like software. I'm on release 1.0.1 — with a tag and a changelog, not a graveyard of `final_v3_revised_ACTUALLY_FINAL.docx` files. A typo fix is a point release.
 
