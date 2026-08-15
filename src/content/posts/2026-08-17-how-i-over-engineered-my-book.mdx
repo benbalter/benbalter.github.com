@@ -274,6 +274,7 @@ The nice thing about a book that builds like software: the same machinery keeps 
 
 - **Translations.** Because the content is structured Markdown, translating it is closer to localizing an app than retyping a manuscript. I've got a pipeline (Brazilian Portuguese, Latin American Spanish, German) that drafts a translation, pins every heading ID so cross-references don't break, enforces a glossary so key terms stay consistent, and back-translates the result to check it against the original — the same trust-but-verify instinct as the prose linters, just across languages.
 - **An audiobook.** Turning 100,000 words into narration opened a whole new class of bug: mispronunciations. So the audiobook got its own QA suite. It transcribes the generated audio back to text and diffs that against the script, checks phonemes on the tricky words, and audits pronunciations — all wired into their own CI workflows. It's a snapshot test, aimed at my own voice.
+- **Releasing the tools.** Almost none of this is specific to my book — the validators, the Lua filters, the whole pipeline. I'd like to clean them up and put them out as open source (a noun, no hyphen), so the next person doesn't have to build it from scratch.
 
 ## Conclusion
 
@@ -283,7 +284,7 @@ Over-engineered, absolutely. But procrastination it wasn't: every check earned i
 
 There's a neat symmetry to it: a book about working in the open, asynchronously, with the tools of software — written in the open, asynchronously, with the tools of software. :quote[The medium ended up being the message.]{#medium-is-the-message} Every commit is public, every build reproducible, every claim linted.
 
-I'm not going to tell you to write 5,500 tests for your novel. For most books, most of this is wildly disproportionate — and that's the point. I did it because the marginal cost of one more check, one more format, one more validator was a few minutes and a little curiosity, and because doing it the developer way meant I could write from an iPad on a train and trust that `main` was always shippable. If you spend your days shipping software, the tools you already know will take you further than you'd expect. :quote[The publishing industry starts with a word processor. I started with a Git repository]{#started-with-a-git-repo} — and I'd start there again.
+I'm not going to tell you to write 5,500 tests for your novel. For most books, most of this is wildly disproportionate — and that's the point. I did it because the marginal cost of one more check, one more format, one more validator was a few minutes and a little curiosity, and because doing it the developer way meant I could write from an iPad away from my desk and trust that `main` was always shippable. If you spend your days shipping software, the tools you already know will take you further than you'd expect. :quote[The publishing industry starts with a word processor. I started with a Git repository]{#started-with-a-git-repo} — and I'd start there again.
 
 <BookCta variant="featured" />
 
