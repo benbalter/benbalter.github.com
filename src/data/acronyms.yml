@@ -63,6 +63,9 @@
   tooltip: Continuous Delivery—automatically shipping every change that passes tests
 - acronym: WYSIWYG
   meaning: What You See Is What You Get
+- acronym: linter
+  meaning: a tool that automatically flags errors, style issues, and risky patterns in code
+  tooltip: A tool that automatically flags errors, style problems, and bad patterns—usually in code, here in prose too
 
 # Security & identity
 - acronym: SSH
