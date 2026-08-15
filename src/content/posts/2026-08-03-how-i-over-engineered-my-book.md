@@ -6,15 +6,17 @@ tldr: "I treated my book like a software project—Markdown in Git, real-time an
 
 When you think about starting a new writing project, most people think about firing up Word or Google Docs. The publishing industry is no different. You spend months (or in my case years) writing a book, and then at the last moment it's formatted for print and ebook. I started down this path, but all of the tools felt subpar to the ones I used as a developer every day.
 
-Then it clicked. I've been making websites for decades. What if, instead of starting with a word processor and doing a magic-trick reveal at the end, we could re-think authoring for modern publishing in a way that makes for an amazing authoring experience? What if we could use the same tools that we use to make websites to make books? There were a few missteps along the way (I do *not*, for example, recommend trying to learn LaTeX for typesetting), but in the end, I would not have written [Open and Async](https://open-and-async.com) any other way. Here was my process:
+Then it clicked. I've been making websites for decades. What if, instead of starting with a word processor and doing a magic-trick reveal at the end, we could re-think authoring for modern publishing in a way that makes for an amazing authoring experience? What if we could use the same tools that we use to make websites to make books? There were a few missteps along the way (I do *not*, for example, recommend trying to learn LaTeX for typesetting), but in the end, I would not have written [Open and Async](https://open-and-async.com) any other way.
+
+By the end, I'd written a book the way I ship software: ~5,500 automated checks, a build pipeline that produces five formats on every push, and a linter that yells at me for hyphenating "open source." Here's how.
 
 ## Content
 
-Naturally, the content itself lived as Markdown files in a Git repository. I used VS Code, with a handful of prose extensions (listed below). Each chapter was its own Markdown file, and a single `index.yml` file defined the order, making it easy to re-order chapters or add new ones. Practically, that meant that most writing occurred in Codespaces on an iPad, with a Bluetooth keyboard. I could write anywhere, and the Git repository kept everything in sync. This allowed me to focus on the content without distraction, and with the ability to easily roll back changes if I made a mistake. Not to mention, I had real-time feedback on my writing from the various prose linters, just as I would have real-time feedback on my code from ESLint or Prettier.
+Naturally, the content itself lived as Markdown files in a Git repository. I used VS Code, with a handful of prose extensions (listed below). Each chapter was its own Markdown file, and a single `index.yml` file defined the order, making it easy to re-order chapters or add new ones. Practically, I wrote most of this book on an iPad — Codespaces in a browser tab, a Bluetooth keyboard, often on a train — and the Git repository kept everything in sync no matter where I opened it. This allowed me to focus on the content without distraction, and with the ability to easily roll back changes if I made a mistake. Not to mention, I had real-time feedback on my writing from the various prose linters, just as I would have real-time feedback on my code from ESLint or Prettier.
 
 ## Testing
 
-With content as code, the next logical step was to set up automated tests. I did that in two ways, real-time, and on push (CI):
+With content as code, the next logical step — and the point where "reasonable" quietly left the building — was to set up automated tests. I did that two ways: real-time, and on push (CI).
 
 ### Real-time
 
@@ -27,52 +29,36 @@ Locally, as I typed, I ran several VS Code extensions all giving me real-time fe
 - Alex (tlahmann.alex-linter, via vale in CI)
 - Write-good (travisthetechie.write-good-linter, via vale in CI)
 
-All six also ran in CI (Alex and Write-good folded into Vale there; more on that below). Together, they enforced ~300 curated style rules covering 500+ banned terms, sitting on top of a 5,000-rule grammar engine.
+All six also ran in CI (Alex and Write-good folded into Vale there; more on that below). Together, they enforced ~300 curated style rules covering 500+ banned terms, sitting on top of a 5,000-rule grammar engine. For a book. That one person wrote.
 
 ### On each push
 
-In addition to running those linters in CI (some blocking), I built a custom test suite of my own: a standalone Node script of content validators, a Vitest suite, and Playwright specs. The validators are the fun part, so here are a few favorites:
+In addition to running those linters in CI (some blocking), I built a custom test suite of my own: a standalone Node script of content validators, a Vitest suite, and Playwright specs. The validators are the fun part. Each is a few lines that read the Markdown and push an error with a file-and-line pointer. My favorite: I don't work at GitHub anymore, so any sentence claiming I *still* do fails the build.
 
-#### Voice & style enforcement
+```js
+// My time at GitHub has to read as past tense — present-tense
+// employment claims about it fail the build.
+function validateGitHubTense(files) {
+  const patterns = [
+    // "is/are ... at GitHub" — a current-employment claim
+    /\b(is|are)\b[^.!?\n]{1,80}?\bat GitHub\b/i,
+    // "works/leads/runs at GitHub" — current-employment activity
+    /\b(works?|leads?|runs?|manages?|directs?)\s+(at|for)\s+GitHub\b/i,
+  ];
+  return flagLinesMatching(files, patterns);
+}
+```
 
-- `validateHypotheticalHooks` — flags formulaic AI-tell openers ("Picture this…", "Imagine…", "Consider a…") at paragraph starts.
-- `validateGitHubTense` — catches present-tense claims about working at GitHub; my time there has to read as past-tense recollection.
-- `validateBoldKeywords` — flags `**Bold lead-in.**` pseudo-headings and pushes toward real, navigable H4s.
-- `validateSentenceStarters` — flags three-plus consecutive sentences opening with the same word.
+That's one of about thirty. Others I'm proud of:
 
-#### Structural integrity
+- **`validateOpenSourceHyphenation`** — "open source" is a noun and is never hyphenated. A colleague called me out on "open-source" in an early draft; I vowed never to make the mistake again, then made a linter swear to it for me.
+- **`validateHypotheticalHooks`** — formulaic AI-tell openers ("Picture this…", "Imagine…", "Consider a…") at the start of a paragraph.
+- **`validateSentenceStarters`** — three-plus sentences in a row opening with the same word.
+- **`validateNoBareUrlLinkText`** — no link whose visible text is just the raw URL.
+- **`validateCalloutBalance`** — the book speaks to managers and individual contributors, so a "For managers" callout has to have a "For ICs" counterpart nearby.
+- **`validateCrossReferences`** — every `[text](#anchor)` cross-reference resolves to a real heading.
 
-- `validateCrossReferences` — every `[text](#anchor)` link resolves to a real heading.
-- `validateIndexIntegrity` — `index.yml` and the `src/` files agree; no orphaned or unlisted chapters.
-- `validateHeadingHierarchy` — no skipped heading levels (e.g., H2 jumping to H4).
-- `validateDuplicateHeadings` — no two headings generate the same anchor slug book-wide.
-- `validateCalloutDivs` — fenced callout divs (`::: {.tldr}` etc.) are opened and closed correctly.
-- `validateCalloutBalance` — a chapter with a "For managers" callout also has its "For ICs" counterpart (and vice versa).
-- `validateRoleCalloutLabels` — no hardcoded `**For managers:**` label; the CSS/Lua filter injects it, so hardcoding double-renders.
-- `validateSectionIntro*` (4 checks — `HasLead`, `FinalLead`, `NoTldr`, plus the orchestrator) — section-opener pages start with a lead paragraph, end on a lead-in to the section, and skip the TL;DR.
-- `validateTldrLength` — every chapter has a TL;DR and it stays within its length budget.
-- `validateMinOpenerLength` — the opening hook isn't too thin to do its job.
-
-#### Typographic & mechanical
-
-- `validateSmallcaps` — acronyms use `[API]{.smallcaps}` formatting.
-- `validateEscapedSmallcaps` — catches mis-escaped or malformed smallcaps spans.
-- `validateAcronymExpansion` — acronyms are expanded on first use.
-- `validateEmDashes` — consistent em-dash style and spacing.
-- `validateNumberRangeDashes` — numeric ranges use en dashes (5–9, not 5-9).
-- `validateQuotePunctuation` — curly quotes and correct punctuation placement.
-- `validateListPunctuation` — consistent terminal punctuation within a list.
-- `validateDoubledWords` — catches "the the" and friends.
-- `validateOpenSourceHyphenation` — "open-source" as an adjective vs. "open source" as a noun.
-- `validateParagraphLength` — flags paragraphs that run too long.
-
-#### Guards (build & release safety)
-
-- `validateNoTodoMarkers` — no stray `TODO` markers ship in the manuscript.
-- `validateNoTransitionTodos` — no `TODO: TRANSITION` placeholders left between chapters.
-- `validateBuildIdentifiers` — required identifier strings are present in the config files (substring match).
-- `validateAmazonAssociateTag` — the Amazon Associates affiliate tag is correct where expected.
-- `validateNoBareUrlLinkText` — no link whose visible text is just the raw URL.
+…plus a couple dozen more for smallcaps, em-dashes, doubled words, en-dash ranges, TL;DR length, and every other tic I could name.
 
 All in all, the CI suite ran ~70 test files with 2,204 test cases and ~3,900 `expect()` assertions, plus another ~1,600 per-chapter structural checks from the validators above — roughly 5,500 automated checks in total.
 
@@ -97,26 +83,28 @@ Beyond duplication, a second set of tools graded the prose itself — split by h
 
 I used a "prose audits" test, a per-chapter LLM auditor with **20 single-purpose lenses**, each asking one narrow question so the model can't hand-wave a vague "looks good." `--lens=all` runs every lens; `--models`/`--rounds` add a deduplicated multi-model and self-consistency panel, so a finding has to survive more than one model (or more than one run) to count. The lenses:
 
-- **AI-tells** — flags phrasing that reads as machine-generated rather than my voice.
-- **Claims** — surfaces checkable factual claims that need a source or a sanity check.
-- **Consistency** — catches drift in the book's own conventions (terms, formatting, patterns).
-- **Taglines** — spots "bumper-sticker" lines worth pulling out as quotable callouts.
-- **Proofread** — line-level typos, grammar, and mechanical slips.
-- **Dated** — perishable references that will age badly ("recently," "this year," current tools).
-- **Global** — idioms and cultural assumptions that trip up a global audience.
-- **Cross-reference** — verifies that "see chapter X" pointers actually resolve and say what I claim.
-- **Legal** — legal or reputational risk (naming names, unverified accusations).
-- **Hook** — whether the opening earns its place or is throat-clearing.
-- **Acronyms** — every acronym expanded on first use.
-- **Dual-audience** — whether the chapter serves both managers and individual contributors, not just one.
-- **Jargon** — unexplained jargon, graded against the "explain it to a new hire" test.
-- **Alt-text** — image alt text present and actually descriptive (accessibility).
-- **Evidence** — assertions stated without the why or how to back them up.
-- **Structure** — heading hierarchy and structural integrity.
-- **Readability** — sentences that are hard to parse on one read.
-- **Inclusive** — non-inclusive language, judged in context rather than by blocklist.
-- **Emphasis** — typographic tics: overused bold, italics, and scare quotes.
-- **Promise** — whether the chapter delivers actionable value against the book's core promise.
+| Lens | What it catches |
+| --- | --- |
+| AI-tells | Phrasing that reads as machine-generated rather than my voice |
+| Claims | Checkable factual claims that need a source |
+| Consistency | Drift in the book's own conventions (terms, formatting, patterns) |
+| Taglines | "Bumper-sticker" lines worth pulling into callouts |
+| Proofread | Line-level typos, grammar, and mechanical slips |
+| Dated | Perishable references that will age badly ("recently," "this year") |
+| Global | Idioms and cultural assumptions that trip up non-US readers |
+| Cross-reference | "See chapter X" pointers that don't resolve |
+| Legal | Legal or reputational risk (naming names, unverified claims) |
+| Hook | Whether the opening earns its place or is throat-clearing |
+| Acronyms | Acronyms not expanded on first use |
+| Dual-audience | Whether a chapter serves managers *and* individual contributors |
+| Jargon | Unexplained jargon (the "explain it to a new hire" test) |
+| Alt-text | Missing or non-descriptive image alt text |
+| Evidence | Assertions stated without the why or how |
+| Structure | Heading hierarchy and structural integrity |
+| Readability | Sentences that are hard to parse on one read |
+| Inclusive | Non-inclusive language, judged in context rather than by blocklist |
+| Emphasis | Typographic tics: overused bold, italics, scare quotes |
+| Promise | Whether the chapter delivers on the book's core promise |
 
 Separately, I also had a traits analysis test, which scored each chapter on persuasion and engagement traits, catching prose that was technically clean but flat so I could give it another pass.
 
@@ -134,12 +122,12 @@ In addition to the probabilistic LLM audits, I built a set of deterministic audi
 
 I am _far_ from a designer. Adding to that, I had never published an ebook before, and had no idea how they worked, beyond reading many of them. Two "ah hah" moments changed the way I thought about publishing:
 
-- **An ebook is a website in a trench coat** - Ebooks are just HTML and CSS, albeit a very stripped down version. If you can make a website, you can make an ebook. 
-- **A print book can be a website in a trench coat if you try hard enough** - CSS natively has powerful `@media print` and `@page` rules, including left and right page styling, title pages, page numbers, and more.
+- **An ebook is a website in a trench coat** — ebooks are just HTML and CSS, albeit a very stripped-down version. If you can make a website, you can make an ebook.
+- **A print book can be a website in a trench coat if you try hard enough** — CSS natively has powerful `@media print` and `@page` rules, including left and right page styling, title pages, page numbers, and more.
 
 For the interior design, I went with Tailwind CSS, my go to CSS framework. I trusted that it would give me an optimized build, and that `@tailwindcss/typography` would give me a good starting point for the typography.
 
-One call out: I purposefully hired a _human_ designer for the cover. For a book about being authentic, the first impression had to be authentic.
+One note: I purposefully hired a _human_ designer for the cover. For a book about being authentic, the first impression had to be authentic.
 
 ### Tests
 
@@ -194,7 +182,19 @@ The whole book is styled with a single stylesheet, but each format needs a sligh
 
 ### Lua filters (the interesting part)
 
-This is the part I didn't expect to love. Pandoc parses everything into an abstract syntax tree and lets you rewrite that tree with small Lua scripts before it renders — so format-specific tweaks live in code, not smeared through the prose:
+This is the part I didn't expect to love. Pandoc parses everything into an abstract syntax tree and lets you rewrite that tree with small Lua scripts before it renders — so format-specific tweaks live in code, not smeared through the prose. Deleting a node, for instance, is just returning an empty table:
+
+```lua
+-- strip-comments.lua: drop editorial HTML comments so my notes-to-self
+-- never ship inside the published .xhtml. Returning {} removes the node.
+function RawBlock(el)
+  if is_html_comment(el.format, el.text) then
+    return {}
+  end
+end
+```
+
+The rest are variations on that idea:
 
 - **`add-div-titles.lua`** — injects the callout labels ("TL;DR: ", "💡 Pro-Tip: ", "👔 For managers: ") and DPUB-ARIA accessibility roles, so those labels aren't hardcoded in every chapter and can differ per format.
 - **`strip-comments.lua`** — strips HTML comments out of the HTML and EPUB output.
@@ -211,7 +211,7 @@ With the tree transformed, each format renders down its own path — and the pri
 - **The paperback PDF** gets converted to **PDF/X-1a:2001** via Ghostscript — CMYK color, an embedded USWebCoatedSWOP ICC profile, and flattened transparency.
 - **A page-count gate** (`check-pdf-page-count.js`) locks the print PDF at exactly 576 pages. Spine width is calculated from the page count, so if the count drifts, the cover art no longer fits the spine.
 
-All told, five things come out the other end: a web preview, an EPUB, a Kindle-specific EPUB, a 6"×9" paperback PDF, and that same PDF converted to PDF/X-1a — an ancient, strictly color-managed flavor of PDF that IngramSpark, the vendor that gets books into stores and libraries, refuses to live without.[^docx]
+That's five publishable files out of one Markdown source[^docx] — which raises the obvious question: how do I know any of them are actually correct?
 
 ### Testing the build
 
@@ -239,6 +239,19 @@ And the per-format builders double as smoke tests: if any format fails to build,
 
 None of this is something I have to remember to run. Every push to `main` fans out into **14 parallel CI jobs**: build the CSS, then the EPUB, Kindle EPUB, print PDF, PDF/X-1a, HTML, and DOCX side by side, and validate each one — EPUBCheck, ACE, links, HTML, duplicates, and the Playwright suite — as its artifact comes ready. A green check means every format built and passed every gate; a red X means something's off before I've even alt-tabbed away.
 
+```yaml
+# build.yml — mostly independent jobs, so CI runs them in parallel
+jobs:
+  build-epub:            # → dist/book.epub
+  build-kindle:          # → Kindle-specific EPUB
+  build-pdf:             # → 6"×9" paperback PDF
+  build-pdf-ingramspark: # → PDF/X-1a for IngramSpark
+  build-html:            # → web preview
+  validate-epubcheck: { needs: build-epub }
+  validate-ace:       { needs: build-epub }
+  validate-playwright: { needs: build-html }
+```
+
 <!-- SCREENSHOT: GitHub Actions run showing the parallel build + validate jobs -->
 
 And because every build stamps its commit onto the title page, the book is versioned like software. I'm on release 1.0.1 — with a tag and a changelog, not a graveyard of `final_v3_revised_ACTUALLY_FINAL.docx` files. A typo fix is a point release.
@@ -258,13 +271,13 @@ And because every build stamps its commit onto the title page, the book is versi
 
 ## Publishing
 
-Here's the irony: after automating everything up to this point, the actual publishing is almost entirely click-ops. There's no `git push` to production. Each store — Amazon's KDP, IngramSpark for bookstores and libraries, Draft2Digital for Apple Books and Kobo — wants you to log into a web dashboard, upload the EPUB and the print PDF by hand, and re-enter the same metadata (title, description, [BISAC]{.smallcaps} categories, keywords, price) into a slightly different form each time. My pipeline builds a flawless artifact, and then I upload it like it's 2009.
+Here's the irony: after automating everything up to this point, the actual publishing is almost entirely click-ops. There's no `git push` to production. Each store — Amazon's KDP, IngramSpark for bookstores and libraries, Draft2Digital for Apple Books and Kobo — wants you to log into a web dashboard, upload the EPUB and the print PDF by hand, and re-enter the same metadata (title, description, BISAC categories, keywords, price) into a slightly different form each time. My pipeline builds a flawless artifact, and then I upload it like it's 2009.
 
 A few things kept even that part honest:
 
 - **I'm my own publisher.** I formed an LLC and bought my own ISBNs — one per format — so the catalogs list me as the publisher, not a free platform ISBN with the retailer's name on it.
 - **Wide, not exclusive.** I skipped Amazon's KDP Select, which pays a bit more in exchange for locking the book to Amazon, so the book could launch everywhere at once.
-- **The metadata is versioned too.** The description, categories, and keywords live in the repo — a single source of truth I can diff — and an [ONIX]{.smallcaps} feed is generated from it for the channels that accept one. I still paste it into web forms by hand, but at least I'm pasting from a file under version control.
+- **The metadata is versioned too.** The description, categories, and keywords live in the repo — a single source of truth I can diff — and an ONIX feed is generated from it for the channels that accept one. I still paste it into web forms by hand, but at least I'm pasting from a file under version control.
 
 ## Looking forward
 
