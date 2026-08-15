@@ -1084,7 +1084,9 @@
   }
 
   .footnotes ol {
-    @apply pl-4 mb-0;
+    /* pl-8 (not pl-4): list-style-position:outside puts two-digit markers
+       (10., 11., …) in the left padding; 1rem clips them, 2rem fits. */
+    @apply pl-8 mb-0;
   }
 
   .footnotes ol li {
