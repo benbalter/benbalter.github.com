@@ -10,7 +10,7 @@ import BookCta from '../../components/BookCta.astro';
 
 Most people start a new writing project by firing up Word or Google Docs. The publishing industry is no different: you spend months—or in my case years—writing a book, and then at the last moment it gets formatted for print and ebook. I started down that path, but every tool felt subpar to the ones I used as a developer every day.
 
-Then it clicked. I've been making websites for decades—so what if I made a book the same way, instead of starting in a word processor and doing a magic-trick reveal at the end? The same tools that build websites could build books. There were a few missteps along the way (I do *not*, for example, recommend trying to learn LaTeX for typesetting), but in the end, I would not have written [Open and Async](https://open-and-async.com) any other way.
+Then it clicked. I've been making websites for decades—so what if I made a book the same way, instead of starting in a word processor and doing a magic-trick reveal at the end? The same tools that build websites could build books. There were a few missteps along the way (I do *not*, for example, recommend trying to learn LaTeX for typesetting), but in the end, I would not have written [Open and Async](https://open-and-async.com) any other way. If you've read how I [over-engineered my home network](/2020/12/04/over-engineered-home-network-for-privacy-and-security/) — [twice](/2021/09/01/how-i-re-over-engineered-my-home-network/) — none of this will surprise you.
 
 By the end, I'd written a book the way I ship software: ~5,500 automated checks, a build pipeline that produces five formats on every push, and a linter that yells at me for hyphenating "open source." Here's how.
 
@@ -26,12 +26,12 @@ With content as code, the next logical step — and the point where "reasonable"
 
 Locally, as I typed, I ran several VS Code extensions all giving me real-time feedback. Specifically:
 
-- Markdownlint - DavidAnson.vscode-markdownlint
+- [Markdownlint](https://github.com/DavidAnson/markdownlint)
 - [Harper](https://github.com/Automattic/harper)[^cspell]
 - [LanguageTool](https://languagetool.org/)
 - [Vale](https://vale.sh/)
-- Alex (tlahmann.alex-linter, via vale in CI)
-- Write-good (travisthetechie.write-good-linter, via vale in CI)
+- [Alex](https://alexjs.com/) (via Vale in CI)
+- [Write-good](https://github.com/btford/write-good) (via Vale in CI)
 
 All six also ran in CI (Alex and Write-good folded into Vale there; more on that below). Together, they enforced ~300 curated style rules covering 500+ banned terms, sitting on top of a 5,000-rule grammar engine. For a book. That one person wrote.
 
@@ -122,12 +122,14 @@ In addition to the probabilistic LLM audits, I built a set of deterministic audi
 - **Advisory local checkers**: `proselint`, GNU `diction` (wordy/misused phrases), GNU `style` (Flesch and other readability stats), and `consistency-check.js` (consistent spelling, hyphenation, and capitalization of key terms book-wide — is it "open source" or "open-source," "async" or "asynchronous").
 - **Dashboard** — an on-demand `writing-dashboard.js` that renders book-wide stats to HTML: word counts, callout inventory, and "attention items" (chapters missing a TL;DR, unbalanced callouts, and the like). Its `--check` mode is a CI gate that fails the build unless attention items are at zero.
 
+Together, these turned "is the book actually getting better?" from a gut feeling into a number I could watch move between drafts.
+
 ## Design
 
 I am _far_ from a designer. Adding to that, I had never published an ebook before, and had no idea how they worked, beyond reading many of them. Two aha moments changed the way I thought about publishing:
 
 - :quote[An ebook is a website in a trench coat]{#ebook-trench-coat} — ebooks are just HTML and CSS, albeit a very stripped-down version. If you can make a website, you can make an ebook.
-- **A print book can be a website in a trench coat if you try hard enough** — CSS natively has powerful `@media print` and `@page` rules, including left and right page styling, title pages, page numbers, and more.
+- :quote[A print book can be a website in a trench coat if you try hard enough]{#print-trench-coat} — CSS natively has powerful `@media print` and `@page` rules, including left and right page styling, title pages, page numbers, and more.
 
 For the interior design, I went with Tailwind CSS, my go-to CSS framework. I trusted that it would give me an optimized build, and that `@tailwindcss/typography` would give me a good starting point for the typography.
 
@@ -160,6 +162,8 @@ Asserts that the actual computed styles match the design intent — the stuff th
 - **Heading hierarchy** — H2 is larger than body text, H3 smaller than H2.
 - **Links** are underlined; **code blocks** have a dark background for contrast and inline code a visible background; **blockquotes** carry a left border.
 - **Body typography** uses the Tailwind Typography `prose` class.
+
+None of this is glamorous. It's exactly the kind of thing that breaks silently in a Friday CSS refactor and doesn't surface until a reader emails you — so I let a machine catch it first.
 
 ## Building
 
@@ -208,12 +212,9 @@ The rest are variations on that idea:
 
 ### Rendering & post-processing per format
 
-With the tree transformed, each format renders down its own path — and the print PDF has the longest one:
+With the tree transformed, each format renders down its own path — and the paperback takes the longest road. HTML and the PDF both render through Pandoc, but the PDF is drawn by [WeasyPrint](https://weasyprint.org/), an HTML/CSS-to-PDF engine — so I typeset the entire book with the same box model I'd use for a web page. The EPUB goes a different way: Pandoc embeds WOFF2 font subsets, then `postprocess-epub.js` repackages it to stay valid and small. And the paperback keeps going after everyone else has stopped, out to Ghostscript to become **PDF/X-1a:2001** — CMYK color, an embedded USWebCoatedSWOP ICC profile, flattened transparency — the archaic print standard IngramSpark won't live without.
 
-- **HTML and PDF** render through Pandoc, with the PDF drawn by **WeasyPrint**, an HTML/CSS-to-PDF engine. In other words, I typeset the whole book with the same box model I'd use for a web page.
-- **EPUB** embeds WOFF2 font subsets, then `postprocess-epub.js` cleans up the package to keep it valid and small.
-- **The paperback PDF** gets converted to **PDF/X-1a:2001** via Ghostscript — CMYK color, an embedded USWebCoatedSWOP ICC profile, and flattened transparency.
-- **A page-count gate** (`check-pdf-page-count.js`) locks the print PDF at exactly 576 pages. Spine width is calculated from the page count, so if the count drifts, the cover art no longer fits the spine.
+That last format taught me to add a guardrail. I once bumped WeasyPrint, it reflowed the text just enough to change the page count, and — because the spine width on the cover is computed from that count — the cover art silently stopped fitting the spine, with no error to warn me. So now `check-pdf-page-count.js` pins the print PDF at exactly 576 pages and fails the build the moment the number drifts.
 
 That's five publishable files out of one Markdown source[^docx] — which raises the obvious question: how do I know any of them are actually correct?
 
@@ -230,14 +231,7 @@ That ~70-file Vitest suite from earlier? Most of it has nothing to do with the p
 
 ### Validation gates
 
-Unit tests prove _my_ code is right; they don't prove the _output_ is valid. For that, the build runs each artifact through the same validators the stores themselves use — so a rejection happens on my laptop, not on upload day:
-
-- **EPUBCheck** — the industry-standard EPUB validator. Every store runs it on upload, so I run it first; a failure here is a hard rejection everywhere.
-- **ACE by DAISY** — an accessibility audit built specifically for EPUB, on top of the axe-core checks from earlier.
-- **lychee** — crawls every link in the built HTML for rot.
-- **HTML validation** — catches malformed markup before it can become a malformed ebook.
-
-And the per-format builders double as smoke tests: if any format fails to build, the whole pipeline goes red.
+Unit tests prove _my_ code is right; they don't prove the _output_ is valid. So the build runs each artifact through the same validators the stores themselves use — a rejection happens on my laptop, not on upload day. Every EPUB goes through [EPUBCheck](https://www.w3.org/publishing/epubcheck/), the industry-standard validator every store runs on upload, and [ACE by DAISY](https://daisy.org/activities/software/ace/), an accessibility audit built specifically for ebooks (on top of the axe-core checks from earlier). The built HTML gets crawled by [lychee](https://github.com/lycheeverse/lychee) for link rot and run through an HTML validator to catch malformed markup before it can become a malformed ebook. And the per-format builders double as smoke tests: if any format fails to build, the whole pipeline goes red.
 
 ### Every push, every format
 
@@ -292,13 +286,13 @@ The nice thing about a book that builds like software: the same machinery keeps 
 
 ## Conclusion
 
-:::objection[Wasn't this over-engineered—procrastination dressed up as rigor?]
+:::objection[Wasn't this over-engineered — procrastination dressed up as rigor?]
 Over-engineered, absolutely. But procrastination it wasn't: every check earned its place by catching something I'd otherwise have shipped. Would I do it again? Without hesitation.
 :::
 
-There's a neat symmetry to it: a book about working in the open, asynchronously, with the tools of software — written in the open, asynchronously, with the tools of software. :quote[The medium ended up being the message.]{#medium-is-the-message} :quote[Every commit is public, every build reproducible, every claim linted.]{#every-claim-linted}
+There's a neat symmetry to it: a book about working in the open, asynchronously, with the tools of software — written in the open, asynchronously, with the tools of software. :quote[The medium ended up being the message.]{#medium-is-the-message} Every commit is public, every build reproducible, every claim linted.
 
-I'm not going to tell you to write 5,500 tests for your novel. For most books, most of this is wildly disproportionate — and that's the point. I did it because the marginal cost of one more check, one more format, one more validator was a few minutes and a little curiosity, and because doing it the developer way meant I could write from an iPad on a train and trust that `main` was always shippable. If you spend your days shipping software, the tools you already know will take you further than you'd expect. :quote[The publishing industry starts with a word processor. I started with a Git repository]{#started-with-a-git-repo}—and I'd start there again.
+I'm not going to tell you to write 5,500 tests for your novel. For most books, most of this is wildly disproportionate — and that's the point. I did it because the marginal cost of one more check, one more format, one more validator was a few minutes and a little curiosity, and because doing it the developer way meant I could write from an iPad on a train and trust that `main` was always shippable. If you spend your days shipping software, the tools you already know will take you further than you'd expect. :quote[The publishing industry starts with a word processor. I started with a Git repository]{#started-with-a-git-repo} — and I'd start there again.
 
 <BookCta variant="featured" />
 
