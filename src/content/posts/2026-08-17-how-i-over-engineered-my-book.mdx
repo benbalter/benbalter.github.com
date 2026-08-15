@@ -8,11 +8,11 @@ hideBookCta: true
 ---
 import BookCta from '../../components/BookCta.astro';
 
-Most people start a new writing project by firing up Word or Google Docs. The publishing industry is no different: you spend months—or in my case years—writing a book, and then at the last moment it gets formatted for print and ebook. I started down that path, but every tool felt subpar to the ones I used as a developer every day.
+My book has a linter that yells at me for hyphenating "open source." It runs ~5,500 automated checks, rebuilds five formats on every `git push`, and fails the build if I so much as imply I still work at a job I left. For a book. That one person wrote.
 
-Then it clicked. I've been making websites for decades—so what if I made a book the same way, instead of starting in a word processor and doing a magic-trick reveal at the end? The same tools that build websites could build books. There were a few missteps along the way (I do *not*, for example, recommend trying to learn LaTeX for typesetting), but in the end, I would not have written [Open and Async](https://open-and-async.com) any other way. If you've read how I [over-engineered my home network](/2020/12/04/over-engineered-home-network-for-privacy-and-security/) — [twice](/2021/09/01/how-i-re-over-engineered-my-home-network/) — none of this will surprise you.
+I didn't set out to do this. Most people start a writing project by firing up Word or Google Docs, and I started down that same path — but every tool felt subpar to the ones I used as a developer every day. So I did the only reasonable thing and threw all of them out, rebuilding the whole book on Git, Markdown, and a pipeline. If you've read how I [over-engineered my home network](/2020/12/04/over-engineered-home-network-for-privacy-and-security/) — [twice](/2021/09/01/how-i-re-over-engineered-my-home-network/) — none of this will surprise you.
 
-By the end, I'd written a book the way I ship software: ~5,500 automated checks, a build pipeline that produces five formats on every push, and a linter that yells at me for hyphenating "open source." Here's how.
+I've been making websites for decades, so the leap was short: the same tools that build websites could build books, no last-minute magic-trick reveal required. There were missteps (I do *not*, for example, recommend trying to learn LaTeX for typesetting), but in the end, I would not have written [Open and Async](https://open-and-async.com) any other way. Here's how.
 
 ## Content
 
@@ -33,7 +33,7 @@ Locally, as I typed, I ran several VS Code extensions all giving me real-time fe
 - [Alex](https://alexjs.com/) (via Vale in CI)
 - [Write-good](https://github.com/btford/write-good) (via Vale in CI)
 
-All six also ran in CI (Alex and Write-good folded into Vale there; more on that below). Together, they enforced ~300 curated style rules covering 500+ banned terms, sitting on top of a 5,000-rule grammar engine. For a book. That one person wrote.
+All six also ran in CI (Alex and Write-good folded into Vale there; more on that below). Together, they enforced ~300 curated style rules covering 500+ banned terms, sitting on top of a 5,000-rule grammar engine — all of it underlining my mistakes in real time, the way a red squiggle flags a typo.
 
 ### On each push
 
@@ -64,7 +64,7 @@ That's one of about thirty. Others I'm proud of:
 
 …plus a couple dozen more for smallcaps, em-dashes, doubled words, en-dash ranges, TL;DR length, and every other tic I could name.
 
-All in all, the CI suite ran ~70 test files with 2,204 test cases and ~3,900 `expect()` assertions, plus another ~1,600 per-chapter structural checks from the validators above — roughly 5,500 automated checks in total.
+All in all, the CI suite ran ~70 test files with 2,204 test cases and ~3,900 `expect()` assertions — plus another ~1,600 per-chapter structural checks from the validators above.
 
 ## Audits
 
@@ -205,9 +205,7 @@ end
 The rest are variations on that idea:
 
 - **`add-div-titles.lua`** — injects the callout labels ("TL;DR: ", "💡 Pro-Tip: ", "👔 For managers: ") and DPUB-ARIA accessibility roles, so those labels aren't hardcoded in every chapter and can differ per format.
-- **`strip-comments.lua`** — strips HTML comments out of the HTML and EPUB output.
-- **`strip-emoji-kindle.lua`** — swaps color emoji for Kindle-safe glyphs, because e-ink has no bundled emoji font.
-- **`body-emoji-images.lua`** — for the print PDF, converts body emoji to inline Twemoji `<img>` tags so they render in full color on the page.
+- **Emoji, handled three ways** — color emoji render fine on screen, but `strip-emoji-kindle.lua` swaps them for Kindle-safe glyphs (e-ink has no emoji font) while `body-emoji-images.lua` turns them into inline Twemoji images for the print PDF.
 - **`tagline-share-links.lua`** — appends a "share this idea" permalink after each of the book's bumper-sticker lines in the EPUB.
 
 ### Rendering & post-processing per format
@@ -220,14 +218,7 @@ That's five publishable files out of one Markdown source[^docx] — which raises
 
 ### Testing the build
 
-That ~70-file Vitest suite from earlier? Most of it has nothing to do with the prose — it's there to keep the _build_ honest. A Pandoc upgrade or a stray line of CSS can silently break an output format, and I wouldn't find out until a reader's Kindle rendered the wrong font. The tests catch it first. Roughly grouped:
-
-- **Build-pipeline correctness** — that each transform does exactly what it should: `strip-page-rules`, `preprocess-markdown`, `links-to-footnotes`, `inline-footnotes`, `postprocess-epub`, `reorder-print-frontmatter`, and the PostCSS/minify steps.
-- **Format & distributor compliance** — the rules each store enforces: `test-distributor-compliance`, `check-epub-size`, `generate-onix` (the metadata feed the catalogs ingest), `test-cover-requirements`, and `check-pdf-page-count`, which locks the paperback at exactly 576 pages so the spine width can't drift.
-- **Typography regression** — the biggest cluster, because typography is where things break quietly: smallcaps, tables, print contrast, dark mode, and the print layout and pagination rules.
-- **Kindle & EPUB constraints** — Kindle is the fussiest target, so it gets its own battery: font embedding, CSS validation, cross-format parity, and emoji handling (e-ink has no emoji font).
-- **Content-rule unit tests** — the custom validators from earlier, run against known-good and known-bad fixtures so the linters themselves don't regress.
-- **Tooling** — the odds and ends: the sales-report scraper, the audiobook pipeline, image optimization, and so on.
+That ~70-file Vitest suite from earlier? Most of it has nothing to do with the prose — it exists to keep the _build_ honest. A Pandoc upgrade or a stray line of CSS can silently break a format, and I wouldn't find out until a reader's Kindle rendered the wrong font. So the suite checks the machinery: that each transform does what it claims, that every store's file-format rules still pass, and — the biggest cluster by far — that typography hasn't quietly drifted. Smallcaps, table borders, print contrast, dark mode, the emoji fallback for e-ink readers that have no emoji font: each is a test because each is a way I've watched a build look fine and render wrong.
 
 ### Validation gates
 
@@ -295,6 +286,8 @@ There's a neat symmetry to it: a book about working in the open, asynchronously,
 I'm not going to tell you to write 5,500 tests for your novel. For most books, most of this is wildly disproportionate — and that's the point. I did it because the marginal cost of one more check, one more format, one more validator was a few minutes and a little curiosity, and because doing it the developer way meant I could write from an iPad on a train and trust that `main` was always shippable. If you spend your days shipping software, the tools you already know will take you further than you'd expect. :quote[The publishing industry starts with a word processor. I started with a Git repository]{#started-with-a-git-repo} — and I'd start there again.
 
 <BookCta variant="featured" />
+
+What would you over-engineer if the marginal cost were five minutes and a little curiosity?
 
 [^cspell]: I'm a terrible speller so I also ran [CSpell](https://github.com/streetsidesoftware/cspell) in VS Code, which shared a custom dictionary with Harper.
 [^dry]: jscpd is not prose-specific. It's a great way to DRY up code.
