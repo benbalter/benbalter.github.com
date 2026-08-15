@@ -42,7 +42,7 @@ test.describe('Accessibility - Homepage', () => {
     const skipLink = page.locator('a.skip-to-content');
     await expect(skipLink).toBeVisible();
     await expect(skipLink).toHaveText('Skip to main content');
-    await expect(skipLink).toHaveAttribute('href', '#content');
+    await expect(skipLink).toHaveAttribute('href', '#main-content');
   });
   
   test('should have proper heading hierarchy', async ({ page }) => {

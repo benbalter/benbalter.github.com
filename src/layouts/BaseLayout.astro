@@ -235,7 +235,7 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
   </head>
   <body class="mt-2 text-gray-900 bg-white dark:text-gray-100 dark:bg-gray-900">
     <!-- Skip to main content link for accessibility -->
-    <a href="#content" class="skip-to-content visually-hidden-focusable">
+    <a href="#main-content" class="skip-to-content visually-hidden-focusable">
       Skip to main content
     </a>
     
@@ -244,7 +244,7 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
       
       <Navigation hero={hero} />
       
-      <main id="content" role="main" class="content" tabindex="-1">
+      <main id="main-content" role="main" class="content" tabindex="-1">
         <slot />
       </main>
       
