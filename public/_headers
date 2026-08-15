@@ -19,6 +19,11 @@
   Link: </feed.xml>; rel="alternate"; type="application/atom+xml"; title="Atom Feed"
   Link: </llms.txt>; rel="llms-txt"; type="text/plain"
   Link: </vcard.vcf>; rel="author"; type="text/vcard"
+  # Agent discovery (RFC 8288 / RFC 9727 §3): registered relation types pointing
+  # to machine-readable descriptions of the site. llms.txt describes the site's
+  # content for agents; api-catalog lists its structured, machine-readable resources.
+  Link: </llms.txt>; rel="describedby"; type="text/plain"
+  Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"
 
 # Immutable hashed assets (JS, CSS, images, fonts) - 1 year cache
 /assets/*
@@ -68,4 +73,10 @@
 
 # AI/LLM context files - 1 hour cache with background revalidation
 /llms.txt
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+# API catalog (RFC 9727) is a linkset document (RFC 9264) but has no file
+# extension, so set its media type explicitly to match the Link header hint.
+/.well-known/api-catalog
+  Content-Type: application/linkset+json; charset=utf-8
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400

@@ -234,6 +234,36 @@ export default defineConfig({
         };
       },
     }),
+    // Expose the generated sitemap at the conventional /sitemap.xml path.
+    // @astrojs/sitemap emits sitemap-index.xml + sitemap-0.xml; agents and
+    // validators (and the Sitemaps protocol convention) often probe the bare
+    // /sitemap.xml. Copy the single generated urlset chunk to sitemap.xml so
+    // that path serves a real <urlset> of <url><loc> entries at HTTP 200 —
+    // single source of truth, no duplicated URL/priority logic. Registered
+    // after sitemap() so its astro:build:done runs once the chunk exists.
+    {
+      name: 'sitemap-xml-alias',
+      hooks: {
+        'astro:build:done': async ({ dir, logger }) => {
+          const outDir = fileURLToPath(dir);
+          const source = join(outDir, 'sitemap-0.xml');
+          const dest = join(outDir, 'sitemap.xml');
+          let contents;
+          try {
+            contents = await readFile(source, 'utf-8');
+          } catch {
+            // A future @astrojs/sitemap rename or multi-chunk split (>45k URLs)
+            // would break this assumption — fail loudly rather than silently
+            // shipping without /sitemap.xml.
+            throw new Error(
+              `sitemap-xml-alias: expected ${source} to exist. Did @astrojs/sitemap change its filenameBase or split into multiple chunks?`
+            );
+          }
+          await writeFile(dest, contents);
+          logger.info('Copied sitemap-0.xml to sitemap.xml');
+        },
+      },
+    },
     compress({
       // Compress HTML, CSS, JavaScript, SVG, and JSON for better performance
       CSS: {
