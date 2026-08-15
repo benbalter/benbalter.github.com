@@ -159,6 +159,10 @@ secrets:
 
 In short, less muxing with the underlying system and better-defined interfaces instills more confidence that services are well-understood and that things are working as intended.
 
+:::info[Update — August 2026]
+In the years since, that single `docker-compose.yml` has quietly grown well past DNS. The Raspberry Pi now doubles as a home-automation hub: [Home Assistant](https://www.home-assistant.io/), an MQTT broker ([Mosquitto](https://mosquitto.org/)), a Zigbee bridge ([Zigbee2MQTT](https://www.zigbee2mqtt.io/)), and an uptime dashboard all live as additional services in the same file — each still isolated, still pinned to an image, still torn down and rebuilt without touching the host. I also added [Watchtower](https://containrrr.dev/watchtower/), which pulls fresh images and recreates containers on a schedule, finally paying off the original "systems would update themselves" goal without me in the loop.
+:::
+
 Docker and Docker Compose introduced some pretty impressive improvements in terms of service maintenance and provisioning, but it didn't account for all the bits that make Docker work or that configure and maintain the underlying Raspberry Pi, which was still a largely *bespoke* operation.
 
 ## Ansible
@@ -170,6 +174,12 @@ Ansible is a provisioning, configuration management, and application-deployment 
 - **Setup** - Ansible is unique in that it doesn't require a dedicated management server or cloud service to provision servers. Instead, it runs as a Python app on your desktop. You define a YML file, it SSHes in to your Raspberry Pi directly and implements the directives you specify, as if you were running the underlying commands yourself.
 - **Documentation** - I was immediately impressed by Ansible's documentation. Everything was consistent, thorough, and easy to understand. It even had helpful tips like "avoid unnecessary complexity" (and the design patterns to support them), which I appreciated, given that I was only using it to manage one server.
 - **Community** - I've yet to find a feature that I was hoping would exist that wasn't provided via a (core- or) community-maintained package. Install apt packages? Set a static IP? Generate and authorize a GitHub deploy key? Clone a private repository? Configure the firewall? Start Docker and Docker Compose? Someone already solved all those problems for you.
+
+:::info[Update — August 2026]
+Ansible handles the Pi, but the network hardware it talks to was still configured by hand, click by click, in the router's web UI. Since writing this, I've pushed "infrastructure as code" one layer down: the UniFi Dream Machine's own configuration — the networks, the WLANs, and the zone-based firewall — is now managed with [OpenTofu](https://opentofu.org) (the open-source Terraform fork), with its state and plans **encrypted at rest** so nothing sensitive ever lands in the repo in the clear.
+
+The most satisfying payoff is how it hardened the DNS story. Originally I simply pointed clients at the Pi and trusted them to comply; a determined device (or a chatty smart TV) could just as easily reach out to `8.8.8.8` on its own. Now a set of firewall policies actively _block_ the usual ways around it — plain DNS, DNS-over-TLS, DNS-over-QUIC, and a curated list of known public resolver IPs — so a device can't just point itself elsewhere and wander off, with a narrow exception for the resolver itself to reach its upstream. (Encrypted DoH tunneled over ordinary port-443 HTTPS remains the hard case — it's indistinguishable from any other web traffic — but it's now the exception rather than the wide-open default.) Codified, version-controlled, and enforced at the router instead of politely requested.
+:::
 
 ### Three-step setup
 
@@ -521,6 +531,10 @@ And last, I added the following to my Ansible `playbook.yml` file to make my Clo
 While everything I previously described in the "[pulling it all together](https://ben.balter.com/2020/12/04/over-engineered-home-network-for-privacy-and-security/#putting-it-all-together)" section remains true in terms of service-to-service flow, setup, maintenance, and management are now vastly simplified through well-defined and well-understood service definitions.
 
 The two-dozen or so clients on my home network generate around 125,000 DNS queries a day on average, of which, about 50% are blocked by the PiHole and a handful more might be blocked by Cloudflare's filtering. Surprisingly, the move to Docker actually seemed to improved performance[^5] (I was worried about overhead from the virtual network) with a 0–5% average load and DNS response times generally around 2ms with AdGuard Home (20ms when running PiHole). Plenty of reserve capacity to re-re-over-engineer things next summer...
+
+:::info[Update — August 2026]
+Nearly five years on, this is all still humming along — which, given the original "set it and forget it" goal, might be the highest praise I can give it. The stack has outgrown its name (it's less "pi-hole" and more "the box that runs the house" these days), but the principles held: every change is still a reviewable diff, upgrades are still boring, and I still haven't lost a weekend to a surprise dependency conflict. The repo linked below now lives at [`benbalter/pi-hole`](https://github.com/benbalter/pi-hole) and has grown to include the OpenTofu network configuration alongside the Docker and Ansible bits.
+:::
 
 Eighteen months since [I originally overengineered my home network](https://ben.balter.com/2020/12/04/over-engineered-home-network-for-privacy-and-security/), ads remain rare, false positives are still low, and I've learned a lot about many of the behind-the-scenes technologies we've come to take for granted every day. If you're looking to implement a similar set up (or do and find ways to improve it), you can find all the configuration files referenced above (and more!) over at [benbalter/pi-hole-cloudflared-docker-compose-ansible-caddy](https://github.com/benbalter/pi-hole-cloudflared-docker-compose-ansible-caddy) on GitHub.
 
