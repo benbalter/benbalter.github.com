@@ -1,6 +1,6 @@
 ---
 title: How I over-engineered my book
-description: "I wrote and published my book the way I ship software: Markdown in Git, ~5,500 automated checks, and a Pandoc pipeline that builds the EPUB, Kindle, paperback, and web editions on every push."
+description: "My book has a linter, ~5,500 automated tests, and a Pandoc pipeline that rebuilds five formats — EPUB, Kindle, paperback, and web — on every git push. For a book one person wrote. Here's how I built and published it the way I ship software."
 tldr: "I treated my book like a software project—Markdown in Git, ~5,500 automated checks, and a Pandoc pipeline that builds every format on each push. The publishing industry starts with a word processor; I started with a Git repository."
 # This post supplies its own featured BookCta at the end, so suppress the
 # generic inline one PostLayout appends to every post (avoids two CTAs).
@@ -16,7 +16,7 @@ I've been making websites for decades, so the leap was short: the same tools tha
 
 ## Content
 
-*Naturally*, the content itself lived as Markdown files in a Git repository. Afterall, that's where I spend most of my day. I used VS Code, with a handful of prose extensions (listed below). Each chapter was its own Markdown file, and a single `index.yml` file defined the order, making it easy to re-order chapters or add new ones. Practically, I wrote most of this book on an iPad — Codespaces in a browser tab, a Bluetooth keyboard, often nights and weekends while away from my desk — and the Git repository kept everything in sync no matter where I opened it. I could focus on the words, and a bad idea was one `git revert` away from gone. Not to mention, I had real-time feedback on my writing from the various prose linters, just as I would have real-time feedback on my code from ESLint or Prettier.
+*Naturally*, the content itself lived as Markdown files in a Git repository. After all, that's where I spend most of my day. I used VS Code, with a handful of prose extensions (listed below). Each chapter was its own Markdown file, and a single `index.yml` file defined the order, making it easy to re-order chapters or add new ones. Practically, I wrote most of this book on an iPad — Codespaces in a browser tab, a Bluetooth keyboard, often nights and weekends while away from my desk — and the Git repository kept everything in sync no matter where I opened it. I could focus on the words, and a bad idea was one `git revert` away from gone. Not to mention, I had real-time feedback on my writing from the various prose linters, just as I would have real-time feedback on my code from ESLint or Prettier.
 
 ## Testing
 
@@ -28,7 +28,7 @@ Locally, as I typed, I ran several VS Code extensions all giving me real-time fe
 
 - [Markdownlint](https://github.com/DavidAnson/markdownlint) — Markdown syntax and formatting consistency
 - [Harper](https://github.com/Automattic/harper)[^cspell] — grammar and word choice, entirely on-device
-- [LanguageTool](https://languagetool.org/) — grammar, punctuation, and style; self-hosted, so it ran on-device too (well, in the Codespace)
+- [LanguageTool](https://languagetool.org/) — grammar, punctuation, and style[^languagetool]
 - [Vale](https://vale.sh/) — my own house-style rules and banned terms
 - [Alex](https://alexjs.com/) — insensitive or exclusionary phrasing
 - [Write-good](https://github.com/btford/write-good) — weak prose: passive voice, weasel words, clichés
@@ -62,7 +62,7 @@ That's one of about thirty. Others I'm proud of:
 - **`validateCalloutBalance`** — the book speaks to managers and individual contributors, so a "For managers" callout has to have a "For ICs" counterpart nearby.
 - **`validateCrossReferences`** — every `[text](#anchor)` cross-reference resolves to a real heading.
 
-…plus a couple dozen more for smallcaps, em-dashes, doubled words, en-dash ranges, TL;DR length, and every other tic I could name.[^validators]
+…plus a couple dozen more for small caps, em-dashes, doubled words, en-dash ranges, TL;DR length, and every other tic I could name.[^validators]
 
 One of these caught *me*. `validateHypotheticalHooks` flagged the opening of a paragraph I was certain I'd written myself — and I had. But reading it back cold, it did sound ghost-authored; I'd absorbed the cadence from reading too much generated text and produced a fluent imitation of nothing. A linter can't tell good prose from bad. What it can flag are the patterns you reach for when you've stopped thinking — which is exactly the thing you can't see in your own draft. Same reason `eslint` earns its keep.
 
@@ -70,7 +70,7 @@ All in all, the CI suite ran ~70 test files with 2,204 test cases and ~3,900 `ex
 
 ## Audits
 
-The linters caught mistakes, but they couldn't tell me whether the book repeated itself or whether a chapter was any good. For that I built a second layer of tooling: audits that judge the writing, not just check it.
+The linters caught mistakes, but they couldn't tell me whether the book repeated itself or whether a chapter was any good. For that I built a second layer of tooling: audits that judge the writing, not just check it. One thing they never did, though, was write it. Every word is mine; these tools are readers of last resort — catching what I'd stopped being able to see — not writers of first resort.
 
 ### Duplication detection
 
@@ -91,35 +91,29 @@ Beyond duplication, a second set of tools graded the prose itself — split by h
 
 #### Probabilistic (LLM) audits
 
-I used a "prose audits" test, a per-chapter LLM auditor with **20 single-purpose lenses**, each asking one narrow question so the model can't hand-wave a vague "looks good." `--lens=all` runs every lens; `--models`/`--rounds` add a deduplicated multi-model and self-consistency panel, so a finding has to survive more than one model (or more than one run) to count. A sampling of the more interesting ones:[^lenses]
+The Claims lens paid for itself early. It stopped on a sentence claiming GitHub's monthly all-hands "dedicated roughly half of each session to live Q&A" — a number I was certain of and had wrong; it was closer to a third, and the share moved around over the years. No linter flags that: it's clean, confident prose that happens to be false. Only a reader asking "is this actually true?" catches it, and I'd have shipped it otherwise.
+
+Claims is one of **20 single-purpose lenses** in a "prose audits" test — a per-chapter LLM auditor where each lens asks one narrow question so the model can't hand-wave a vague "looks good." `--lens=all` runs every lens; `--models`/`--rounds` add a deduplicated multi-model and self-consistency panel, so a finding has to survive more than one model (or more than one run) to count. A sampling of the rest:[^lenses]
 
 | Lens | What it catches |
 | --- | --- |
 | AI-tells | Phrasing that reads as machine-generated rather than my voice |
 | Hook | Whether the opening earns its place or is throat-clearing |
-| Claims | Checkable factual claims that need a source |
 | Legal | Legal or reputational risk (naming names, unverified claims) |
 | Dated | Perishable references that will age badly ("recently," "this year") |
 | Global | Idioms and cultural assumptions that trip up non-US readers |
 | Dual-audience | Whether a chapter serves managers *and* individual contributors |
 | Promise | Whether the chapter delivers on the book's core promise |
 
-The Claims lens paid for itself early. It stopped on a sentence claiming GitHub's monthly all-hands "dedicated roughly half of each session to live Q&A" — a number I was certain of and had wrong; it was closer to a third, and the share moved around over the years. No linter flags that: it's clean, confident prose that happens to be false. Only a reader asking "is this actually true?" catches it, and I'd have shipped it otherwise.
-
 Separately, I also had a traits analysis test, which scored each chapter on persuasion and engagement traits, catching prose that was technically clean but flat so I could give it another (human) pass.
 
 #### Deterministic audits
 
-I ran these after a round of editing, to see whether the book was improving as a reading experience:
-
-- **`audit-chapter-lengths.js` / `audit-paragraph-lengths.js`** — word and paragraph distribution, flagging outlier chapters and walls of text.
-- **`reading-time.js`** — per-chapter and whole-book reading time at 238 wpm (average adult non-fiction speed).
-- **`check-epub-size.js`** — a hard EPUB size budget; fails CI if any build blows past its threshold (Kindle penalizes oversized files on delivery).
-- **`consistency-check.js`** — consistent spelling, hyphenation, and capitalization of key terms book-wide (is it "open source" or "open-source," "async" or "asynchronous").
-- Plus a handful of advisory local checkers — `proselint`, GNU `diction`, and GNU `style` — for wordiness and readability stats.
-- **Dashboard** — an on-demand `writing-dashboard.js` that renders book-wide stats to HTML: word counts, callout inventory, and "attention items" (chapters missing a TL;DR, unbalanced callouts, and the like). Its `--check` mode is a CI gate that fails the build unless attention items are at zero.
+I ran these after a round of editing, to see whether the book was improving as a reading experience: chapter- and paragraph-length distributions, whole-book reading time, a hard EPUB size budget (Kindle penalizes oversized files on delivery), a book-wide consistency checker, and a stats dashboard whose `--check` mode fails the build unless every "attention item" — a chapter missing a TL;DR, an unbalanced callout — sits at zero.[^deterministic]
 
 Together, these turned "is the book actually getting better?" from a gut feeling into a number I could watch move between drafts.
+
+![The writing dashboard for Open and Async: summary cards reading 99,651 total words, 399 minutes reading time, 72 chapters, 1,384 average chapter words, 103 manager callouts, 102 IC callouts, 123 pro tips, and 62 objections, with a green "No issues found — all content chapters look good!" all-clear at the bottom.](/assets/img/book-writing-dashboard-1600x438.png "The writing dashboard's --check mode gates the build on zero attention items.")
 
 ## Design
 
@@ -162,11 +156,7 @@ Pandoc is only the engine. The full build also needs [WeasyPrint](https://weasyp
 
 ### Pre-processing (before Pandoc sees the text)
 
-Everything starts on a throwaway copy of the source tree, so these transforms never touch the real chapters. A couple of scripts massage that copy before Pandoc ever runs:
-
-- **`update-revision.js`** — stamps the exact build SHA and version onto the title page, so every copy is traceable to the commit it came from.
-- **`links-to-footnotes.js`** — rewrites inline links as numbered footnotes for the print build. A hyperlink is useless on paper; a footnote with the full URL isn't.
-- **A per-format manifest** — the same chapters, but reshuffled per output: the EPUB builds get a short list of shareable quote links; print and Kindle get a QR share page instead. Same source, subtly different books.
+Everything starts on a throwaway copy of the source tree, so these transforms never touch the real chapters. A couple of scripts massage that copy before Pandoc runs — stamping each build with its commit SHA, turning inline links into numbered footnotes for print (a hyperlink is useless on paper; a footnote with the full URL isn't), and reshuffling the chapters per format so the EPUB gets shareable quote links while print and Kindle get a QR share page instead.[^preprocess]
 
 ### CSS pipeline
 
@@ -212,9 +202,9 @@ That's five publishable files out of one Markdown source[^docx] — which raises
 
 ### Testing the build
 
-The prose linters keep the *words* honest; a larger slice of that Vitest suite keeps the *build* honest. A Pandoc upgrade or a stray line of CSS can silently break a format, and I wouldn't find out until a reader's Kindle rendered the wrong font. The tests check the machinery: that each transform does what it claims, and — the biggest cluster by far — that typography hasn't quietly drifted across smallcaps, table borders, print contrast, dark mode, and the e-ink emoji fallback. Each is a test because each is a way I've watched a build look fine and render wrong.
+The prose linters keep the *words* honest; a larger slice of that Vitest suite keeps the *build* honest. A Pandoc upgrade or a stray line of CSS can silently break a format, and I wouldn't find out until a reader's Kindle rendered the wrong font. The tests check the machinery: that each transform does what it claims, and — the biggest cluster by far — that typography hasn't quietly drifted across small caps, table borders, print contrast, dark mode, and the e-ink emoji fallback. Each is a test because each is a way I've watched a build look fine and render wrong.
 
-But unit tests only prove *my* code is right, not that the *output* is valid — so each artifact also runs through the same validators the stores themselves use, and a rejection happens on my laptop, not on upload day. Every EPUB goes through [EPUBCheck](https://www.w3.org/publishing/epubcheck/), the validator every store runs on upload, and [ACE by DAISY](https://daisy.org/activities/software/ace/), an accessibility audit built specifically for ebooks; the built HTML gets crawled by [lychee](https://github.com/lycheeverse/lychee) for link rot and run through an HTML validator before malformed markup can become a malformed ebook.
+But unit tests only prove *my* code is right, not that the *output* is valid — so each artifact also runs through the same validators the stores themselves use, and a rejection happens on my laptop, not on upload day. Every EPUB goes through [EPUBCheck](https://www.w3.org/publishing/epubcheck/), the validator every store runs on upload, and [Ace by DAISY](https://daisy.org/activities/software/ace/), an accessibility audit built specifically for ebooks; the built HTML gets crawled by [lychee](https://github.com/lycheeverse/lychee) for link rot and run through an HTML validator before malformed markup can become a malformed ebook.
 
 None of this is something I have to remember to run. Every push to `main` fans out into **14 parallel CI jobs** — build the CSS, then the EPUB, Kindle EPUB, print PDF, PDF/X-1a, HTML, and DOCX side by side, and validate each as its artifact comes ready. A green check means every format built and passed every gate; a red X means something's off before I've even alt-tabbed away.
 
@@ -231,20 +221,9 @@ jobs:
   validate-playwright: { needs: build-html }
 ```
 
+![A GitHub Actions run of build.yml fanning out into fourteen jobs — lint-and-test, detect-duplicates, build-css, build-epub, build-kindle, build-pdf, build-html, build-docx, and Build PDF/X-1a, then validate-epubcheck, validate-ace, validate-links, validate-html, and validate-playwright — every one passing green, total duration five minutes eight seconds.](/assets/img/book-ci-build-graph-1600x794.png "Every push to main fans out into 14 parallel CI jobs.")
+
 And because every build stamps its commit onto the title page, the book is versioned like software. I'm on release 1.0.1 — with a tag and a changelog, not a graveyard of `final_v3_revised_ACTUALLY_FINAL.docx` files. A typo fix is a point release.
-
-### By the numbers
-
-| Metric | Count |
-| --- | --- |
-| Words | ~100,000 across ~70 chapters and sections |
-| Print length | 576 pages (6"×9") |
-| Published formats | 5 (plus a DOCX I don't ship) |
-| Tests | ~70 files, 2,204 cases, ~5,500 automated checks |
-| CI jobs per push | 14, in parallel |
-| Style rules | ~300 covering 500+ banned terms, over a 5,000-rule grammar engine |
-| Commits | 5,000+ to get here |
-| Books | 1 (frankly over-engineered, but fun) |
 
 ## Publishing
 
@@ -260,11 +239,24 @@ A few things kept even that part honest:
 
 The nice thing about a book that builds like software: the same machinery keeps paying off after launch.
 
-- **Translations.** Because the content is structured Markdown, translating it is closer to localizing an app than retyping a manuscript. I've got a pipeline (Brazilian Portuguese, Latin American Spanish, German) that drafts a translation, pins every heading ID so cross-references don't break, enforces a glossary so key terms stay consistent, and back-translates the result to check it against the original — the same trust-but-verify instinct as the prose linters, just across languages.
+- **Translations.** Because the content is structured Markdown, translating it is closer to localizing an app than retyping a manuscript. I've got a pipeline (Brazilian Portuguese, Latin American Spanish, German) that drafts a translation of the finished English book, pins every heading ID so cross-references don't break, enforces a glossary so key terms stay consistent, and back-translates the result to check it against the original — the same trust-but-verify instinct as the prose linters, just across languages.
 - **An audiobook.** Turning 100,000 words into narration opened a whole new class of bug: mispronunciations. The audiobook got its own QA suite. It transcribes the generated audio back to text and diffs that against the script, checks phonemes on the tricky words, and audits pronunciations — all wired into their own CI workflows. It's a snapshot test, aimed at my own voice.
 - **Releasing the tools.** Almost none of this is specific to my book — the validators, the Lua filters, the whole pipeline. I'd like to clean them up and put them out as open source (a noun, no hyphen), so the next person doesn't have to build it from scratch. And none of it would exist without the open source projects it already stands on — the whole book is other people's generosity, compiled.[^oss]
 
 ## Conclusion
+
+### By the numbers
+
+| Metric | Count |
+| --- | --- |
+| Words | ~100,000 across ~70 chapters and sections |
+| Print length | 576 pages (6"×9") |
+| Published formats | 5 (plus a DOCX I don't ship) |
+| Tests | ~70 files, 2,204 cases, ~5,500 automated checks |
+| CI jobs per push | 14, in parallel |
+| Style rules | ~300 covering 500+ banned terms, over a 5,000-rule grammar engine |
+| Commits | 5,000+ to get here |
+| Books | 1 (frankly over-engineered, but fun) |
 
 :::objection[Wasn't this over-engineered — procrastination dressed up as rigor?]
 Over-engineered, absolutely. But procrastination it wasn't: of the ~5,000 commits here, only about one in five touched the build tooling at all — the other four were the book. Every check earned its place by catching something I'd otherwise have shipped. Would I do it again? Without hesitation.
@@ -280,10 +272,13 @@ What would you over-engineer, if you pointed your own tools at it?
 
 [^opensource]: A colleague called me out on "open-source" in an early draft; I vowed never to make the mistake again, then made a linter swear to it for me.
 [^validators]: The roster, grouped. **Typography:** `validateSmallcaps` and `validateEscapedSmallcaps` (acronyms rendered in small caps, not accidentally escaped), `validateEmDashes`, `validateNumberRangeDashes` (en-dash ranges), `validateQuotePunctuation`, `validateListPunctuation`, `validateBoldKeywords`. **Structure:** `validateHeadingHierarchy` (no skipped levels), `validateDuplicateHeadings`, `validateParagraphLength` (no walls of text), `validateMinOpenerLength`, `validateSectionIntros` / `validateSectionIntroHasLead` / `validateSectionIntroFinalLead` / `validateSectionIntroNoTldr` (section intros lead into the content without restating the TL;DR), `validateTldrLength`, `validateChapter`, `validateIndexIntegrity` (`index.yml` matches the files on disk). **Links & references:** `validateCrossReferences`, `validateNoBareUrlLinkText`, `validateFootnotes`, `validateAcronymExpansion` (expanded on first use). **Callouts:** `validateCalloutBalance` (managers paired with ICs), `validateCalloutDivs`, `validateRoleCalloutLabels`. **Voice & anti-AI:** `validateGitHubTense`, `validateOpenSourceHyphenation`, `validateHypotheticalHooks`, `validateSentenceStarters`, `validateDoubledWords`. **Housekeeping:** `validateNoTodoMarkers`, `validateNoTransitionTodos`, `validateBuildIdentifiers`, `validateSSML` (audiobook markup).
+[^languagetool]: Self-hosted, so it ran on-device too — well, in the Codespace.
 [^cspell]: I'm a terrible speller so I also ran [CSpell](https://github.com/streetsidesoftware/cspell) in VS Code, which shared a custom dictionary with Harper.
 [^lenses]: The other twelve, briefly: Consistency (drift in the book's own conventions), Taglines (bumper-sticker lines worth pulling into callouts), Proofread (typos and mechanical slips), Cross-reference (broken "see chapter X" pointers), Acronyms (unexpanded on first use), Jargon (the "explain it to a new hire" test), Alt-text (missing or non-descriptive), Evidence (assertions with no why or how), Structure (heading hierarchy), Readability (sentences hard to parse on one read), Inclusive (non-inclusive language, judged in context), and Emphasis (overused bold, italics, and scare quotes).
 [^visual]: The rest, in the same spirit: the copyright page is present and bottom-aligned on screen; H2 is larger than body text and H3 smaller than H2; links are underlined, code blocks have a dark background and inline code a visible one, and blockquotes carry a left border; and body text uses the Tailwind Typography `prose` class.
 [^emoji]: I spent years at GitHub, where emoji are practically load-bearing — reactions, `:shipit:`, an emoji picker in every comment box — and they turned up a fresh encoding edge case like clockwork. Emoji, uh, find a way.
+[^deterministic]: `audit-chapter-lengths.js` / `audit-paragraph-lengths.js` flag outlier chapters and walls of text; `reading-time.js` clocks each chapter and the whole book at 238 wpm (average adult non-fiction speed); `check-epub-size.js` enforces the size budget; `consistency-check.js` settles "open source" vs "open-source" and "async" vs "asynchronous" book-wide; and `writing-dashboard.js` renders it all to HTML. Plus a handful of advisory local checkers — `proselint`, GNU `diction`, and GNU `style` — for wordiness and readability stats.
+[^preprocess]: `update-revision.js` stamps the build SHA and version onto the title page, so every copy traces to its commit; `links-to-footnotes.js` does the print link-to-footnote rewrite; and a per-format manifest handles the reshuffle. Same source, subtly different books.
 [^dry]: jscpd is not prose-specific. It's a great way to DRY up code.
 [^docx]: The build actually emits a sixth artifact — a DOCX — which I used to gather early feedback from reviewers in Word, with track changes and comments. It's a working format, not something I publish.
 [^oss]: The full list, with thanks to their maintainers: [Tailwind CSS](https://tailwindcss.com/) and [Tailwind Typography](https://github.com/tailwindlabs/tailwindcss-typography), [Pandoc](https://pandoc.org/), [WeasyPrint](https://weasyprint.org/), [Ghostscript](https://www.ghostscript.com/), [qpdf](https://github.com/qpdf/qpdf), [Poppler](https://poppler.freedesktop.org/), [Source Serif 4](https://github.com/adobe-fonts/source-serif), [Source Sans 3](https://github.com/adobe-fonts/source-sans), and [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) by Adobe, [Twemoji](https://github.com/jdecked/twemoji), [ImageMagick](https://imagemagick.org/), [sharp](https://sharp.pixelplumbing.com/), [SVGO](https://github.com/svg/svgo), [PostCSS](https://postcss.org/) and [cssnano](https://cssnano.github.io/cssnano/), [Remark](https://remark.js.org/) and [Retext](https://github.com/retextjs/retext) (and countless ecosystem plugins), [textlint](https://textlint.github.io/), [markdownlint](https://github.com/DavidAnson/markdownlint), [Prettier](https://prettier.io/), [Harper](https://writewithharper.com/), [Vitest](https://vitest.dev/), [Playwright](https://playwright.dev/) and [axe-core](https://github.com/dequelabs/axe-core), [Ace by DAISY](https://daisy.org/activities/software/ace/), [EPUBCheck](https://www.w3.org/publishing/epubcheck/), [htmlproofer](https://github.com/gjtorikian/html-proofer), [lychee](https://github.com/lycheeverse/lychee), [html-validate](https://html-validate.org/), [Pillow](https://python-pillow.github.io/), [LanguageTool](https://languagetool.org/), [Vale](https://vale.sh/), [proselint](https://github.com/amperser/proselint), [GNU Diction](https://www.gnu.org/software/diction/), [yamllint](https://github.com/adrienverge/yamllint), [js-yaml](https://github.com/nodeca/js-yaml), [jscpd](https://github.com/kucherenko/jscpd), and [just](https://github.com/casey/just).

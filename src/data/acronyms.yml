@@ -83,6 +83,26 @@
   meaning: Model Context Protocol
   tooltip: Model Context Protocol—an open standard connecting AI models to tools and data
 
+# Publishing, print & formats
+- acronym: EPUB
+  meaning: Electronic Publication
+  tooltip: Electronic Publication—the open ebook format (essentially zipped HTML and CSS) that non-Kindle readers use
+- acronym: KDP
+  meaning: Kindle Direct Publishing
+  tooltip: Kindle Direct Publishing—Amazon's self-publishing platform for ebooks and print-on-demand
+- acronym: ONIX
+  meaning: ONline Information eXchange
+  tooltip: ONline Information eXchange—the publishing industry's standard metadata feed for a book (title, price, categories)
+- acronym: BISAC
+  meaning: Book Industry Standards and Communications
+  tooltip: Book Industry Standards and Communications—the standardized subject codes that tell stores which shelf a book belongs on
+- acronym: CMYK
+  meaning: Cyan, Magenta, Yellow, and Key (black)
+  tooltip: Cyan, Magenta, Yellow, and Key (black)—the four-ink color model used for print, as opposed to screen RGB
+- acronym: WCAG
+  meaning: Web Content Accessibility Guidelines
+  tooltip: Web Content Accessibility Guidelines—the international standard for making web and ebook content accessible
+
 # Other jargon
 - acronym: abracadabra
   meaning: a magician's incantation, used here as a verb—to transform something as if by magic
