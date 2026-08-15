@@ -8,15 +8,15 @@ hideBookCta: true
 ---
 import BookCta from '../../components/BookCta.astro';
 
-My book has a linter that yells at me for hyphenating "open source." It runs ~5,500 automated checks, rebuilds five formats on every `git push`, and fails the build if I so much as imply I still work at a job I left. For a book. That one person wrote.
+My book has a linter that yells at me for hyphenating "open source."[^opensource] It runs ~5,500 automated checks, rebuilds five formats on every `git push`, and fails the build if I so much as imply I still work at a job I left. For a book. That one person wrote.
 
-I didn't set out to do this. Most people start a writing project by firing up Word or Google Docs, and I started down that same path — but every tool felt inferior to the ones I used as a developer every day. I did the only reasonable thing and threw all of them out, rebuilding the whole book on Git, Markdown, and a pipeline. If you've read how I [over-engineered my home network](/2020/12/04/over-engineered-home-network-for-privacy-and-security/) — [twice](/2021/09/01/how-i-re-over-engineered-my-home-network/) — none of this will surprise you.
+I didn't set out to do this. Most people start a writing project by firing up Word or Google Docs, and I started down that same path. I even tried some purpose-built authoring tools, but every tool felt inferior to the ones I used as a developer every day. I did "the only reasonable" thing and threw all of them out, writing the whole book on Git, Markdown, and a CI build pipeline. If you've read how I [over-engineered my home network](/2020/12/04/over-engineered-home-network-for-privacy-and-security/) — [twice](/2021/09/01/how-i-re-over-engineered-my-home-network/) — none of this will surprise you.
 
-I've been making websites for decades, so the leap was short: the same tools that build websites could build books, no last-minute magic-trick reveal required. There were missteps (I do *not*, for example, recommend trying to learn LaTeX for typesetting), but in the end, I would not have written [Open and Async](https://open-and-async.com) any other way. Here's how.
+I've been making websites for decades, so the leap was short: the same tools that build websites could build books, no last-minute magic-trick reveal required to abracadabra a standard Word doc into a full-blown book. There were missteps (I do *not*, for example, recommend trying to learn LaTeX for typesetting), but in the end, I would not have written [Open and Async](https://open-and-async.com) any other way. Here's how:
 
 ## Content
 
-Naturally, the content itself lived as Markdown files in a Git repository. I used VS Code, with a handful of prose extensions (listed below). Each chapter was its own Markdown file, and a single `index.yml` file defined the order, making it easy to re-order chapters or add new ones. Practically, I wrote most of this book on an iPad — Codespaces in a browser tab, a Bluetooth keyboard, often nights and weekends while away from my desk — and the Git repository kept everything in sync no matter where I opened it. I could focus on the words, and a bad idea was one `git revert` away from gone. Not to mention, I had real-time feedback on my writing from the various prose linters, just as I would have real-time feedback on my code from ESLint or Prettier.
+*Naturally*, the content itself lived as Markdown files in a Git repository. Afterall, that's where I spend most of my day. I used VS Code, with a handful of prose extensions (listed below). Each chapter was its own Markdown file, and a single `index.yml` file defined the order, making it easy to re-order chapters or add new ones. Practically, I wrote most of this book on an iPad — Codespaces in a browser tab, a Bluetooth keyboard, often nights and weekends while away from my desk — and the Git repository kept everything in sync no matter where I opened it. I could focus on the words, and a bad idea was one `git revert` away from gone. Not to mention, I had real-time feedback on my writing from the various prose linters, just as I would have real-time feedback on my code from ESLint or Prettier.
 
 ## Testing
 
@@ -26,14 +26,14 @@ With content as code, the next logical step — and the point where "reasonable"
 
 Locally, as I typed, I ran several VS Code extensions all giving me real-time feedback. Specifically:
 
-- [Markdownlint](https://github.com/DavidAnson/markdownlint)
-- [Harper](https://github.com/Automattic/harper)[^cspell]
-- [LanguageTool](https://languagetool.org/)
-- [Vale](https://vale.sh/)
-- [Alex](https://alexjs.com/)
-- [Write-good](https://github.com/btford/write-good)
+- [Markdownlint](https://github.com/DavidAnson/markdownlint) — Markdown syntax and formatting consistency
+- [Harper](https://github.com/Automattic/harper)[^cspell] — grammar and word choice, entirely on-device
+- [LanguageTool](https://languagetool.org/) — grammar, punctuation, and style; self-hosted, so it ran on-device too (well, in the Codespace)
+- [Vale](https://vale.sh/) — my own house-style rules and banned terms
+- [Alex](https://alexjs.com/) — insensitive or exclusionary phrasing
+- [Write-good](https://github.com/btford/write-good) — weak prose: passive voice, weasel words, clichés
 
-All six also ran in CI (Alex and Write-good folded into Vale there; more on that below). Together, they layered hundreds of curated style rules over a full grammar engine — all of it underlining my mistakes in real time, the way a red squiggle flags a typo.
+All six also ran in CI (Alex and Write-good folded into Vale there; more on that below). Together, they layered hundreds of curated style rules over a full grammar engine — all of it underlining my mistakes in real time, the way a red squiggle flags a type error.
 
 ### On each push
 
@@ -55,14 +55,14 @@ function validateGitHubTense(files) {
 
 That's one of about thirty. Others I'm proud of:
 
-- **`validateOpenSourceHyphenation`** — "open source" is a noun and is never hyphenated. A colleague called me out on "open-source" in an early draft; I vowed never to make the mistake again, then made a linter swear to it for me.
+- **`validateOpenSourceHyphenation`** — "open source" is [a noun, not a verb](https://ben.balter.com/2012/10/15/open-source-is-not-a-verb/), and never hyphenated.
 - **`validateHypotheticalHooks`** — formulaic AI-tell openers ("Picture this…", "Imagine…", "Consider a…") at the start of a paragraph.
 - **`validateSentenceStarters`** — three-plus sentences in a row opening with the same word.
 - **`validateNoBareUrlLinkText`** — no link whose visible text is just the raw URL.
 - **`validateCalloutBalance`** — the book speaks to managers and individual contributors, so a "For managers" callout has to have a "For ICs" counterpart nearby.
 - **`validateCrossReferences`** — every `[text](#anchor)` cross-reference resolves to a real heading.
 
-…plus a couple dozen more for smallcaps, em-dashes, doubled words, en-dash ranges, TL;DR length, and every other tic I could name.
+…plus a couple dozen more for smallcaps, em-dashes, doubled words, en-dash ranges, TL;DR length, and every other tic I could name.[^validators]
 
 One of these caught *me*. `validateHypotheticalHooks` flagged the opening of a paragraph I was certain I'd written myself — and I had. But reading it back cold, it did sound ghost-authored; I'd absorbed the cadence from reading too much generated text and produced a fluent imitation of nothing. A linter can't tell good prose from bad. What it can flag are the patterns you reach for when you've stopped thinking — which is exactly the thing you can't see in your own draft. Same reason `eslint` earns its keep.
 
@@ -83,7 +83,7 @@ After reading the book over and over, I was *convinced* I'd repeated the same id
   - **cross** — a single call over every chapter's TL;DR, producing a map of conceptually overlapping chapters. A whole-book scan for the cost of one call.
   - **arguments** — extract each chapter's load-bearing claims one call at a time, then cluster the same argument across all chapters in one final call. Catches arguments made in body prose that `cross` misses.
 
-Was I actually repeating myself? The two mechanical layers said no: `jscpd` found zero copy-paste, and the n-gram pass flagged no reused phrasing. Nothing was duplicated word-for-word. The semantic pass said yes, and it was right — I'd made the same argument, that moving office habits online isn't the same as working remote-first, in *five* separate chapters, on top of 166 smaller self-restatements scattered across 51 chapters. :quote[I'd paraphrased myself too well for anything cheaper than an LLM to catch me.]{#paraphrased-myself} My hunch was correct; I'd just needed three escalating tools to prove what re-reading my own book couldn't.
+Was I actually repeating myself? By this final pass the two mechanical layers came up clean — but they'd earned it: `jscpd` and the n-gram scan had already caught the copy-paste and recycled phrasing (a doubled motif here, a reused TL;DR structure there), and I'd fixed each. What neither could see was the subtler kind — nothing was duplicated word-for-word anymore, just the same *point* in different words. The semantic pass caught that, and it was right: I'd made the same argument, that moving office habits online isn't the same as working remote-first, in *five* separate chapters, on top of 166 smaller self-restatements scattered across 51 chapters. :quote[I'd paraphrased myself too well for anything cheaper than an LLM to catch me.]{#paraphrased-myself} My hunch was correct; I'd just needed three escalating tools to prove what re-reading my own book to blurry-eyed exhaustion couldn't.
 
 ### Content audits
 
@@ -104,7 +104,9 @@ I used a "prose audits" test, a per-chapter LLM auditor with **20 single-purpose
 | Dual-audience | Whether a chapter serves managers *and* individual contributors |
 | Promise | Whether the chapter delivers on the book's core promise |
 
-Separately, I also had a traits analysis test, which scored each chapter on persuasion and engagement traits, catching prose that was technically clean but flat so I could give it another pass.
+The Claims lens paid for itself early. It stopped on a sentence claiming GitHub's monthly all-hands "dedicated roughly half of each session to live Q&A" — a number I was certain of and had wrong; it was closer to a third, and the share moved around over the years. No linter flags that: it's clean, confident prose that happens to be false. Only a reader asking "is this actually true?" catches it, and I'd have shipped it otherwise.
+
+Separately, I also had a traits analysis test, which scored each chapter on persuasion and engagement traits, catching prose that was technically clean but flat so I could give it another (human) pass.
 
 #### Deterministic audits
 
@@ -132,7 +134,7 @@ One note: I purposefully hired a *human* designer for the cover. For a book abou
 
 ### The invisible leak
 
-Styling every format from one stylesheet has a failure mode: CSS meant for one format bleeding into another. To keep my e-reader tweaks away from the paperback, I scoped each of them to `@media not screen`. WeasyPrint, though, renders the print PDF with media type `print` — and `print` *is* "not screen," exactly as the spec says. So two of those e-reader rules matched anyway and quietly bled into the book: a tighter line-height on callout paragraphs, and a `box-decoration-break` change that dropped the repeated padding on any callout that split across a page.
+Styling every format from one stylesheet has a failure mode: CSS meant for one format bleeding into another. To keep my e-reader tweaks away from the paperback, I scoped each of them to `@media not screen`. But [WeasyPrint](https://weasyprint.org/) — the HTML/CSS-to-PDF engine that draws the paperback, more on it below — renders the print PDF with media type `print`, and `print` *is* "not screen," exactly as the spec says. So two of those e-reader rules matched anyway and quietly bled into the book: a tighter line-height on callout paragraphs, and a `box-decoration-break` change that dropped the repeated padding on any callout that split across a page.
 
 Neither was visible. Nothing *looked* broken. But each shaved a sliver of vertical space off every callout, and the book slowly deflated from 576 printed pages to 567. I only found out because the print PDF is pinned to exactly 576 pages and the build went red — a page-count gate written to protect the cover spine, catching a CSS bug it was never designed for. :quote[Two formats from one stylesheet is a gift, right up until the cascade forgets which format it's in.]{#cascade-forgets} The fix re-pins the original values in a print-only block, loud with `!important` so the leak can't win.
 
@@ -260,7 +262,7 @@ The nice thing about a book that builds like software: the same machinery keeps 
 
 - **Translations.** Because the content is structured Markdown, translating it is closer to localizing an app than retyping a manuscript. I've got a pipeline (Brazilian Portuguese, Latin American Spanish, German) that drafts a translation, pins every heading ID so cross-references don't break, enforces a glossary so key terms stay consistent, and back-translates the result to check it against the original — the same trust-but-verify instinct as the prose linters, just across languages.
 - **An audiobook.** Turning 100,000 words into narration opened a whole new class of bug: mispronunciations. The audiobook got its own QA suite. It transcribes the generated audio back to text and diffs that against the script, checks phonemes on the tricky words, and audits pronunciations — all wired into their own CI workflows. It's a snapshot test, aimed at my own voice.
-- **Releasing the tools.** Almost none of this is specific to my book — the validators, the Lua filters, the whole pipeline. I'd like to clean them up and put them out as open source (a noun, no hyphen), so the next person doesn't have to build it from scratch.
+- **Releasing the tools.** Almost none of this is specific to my book — the validators, the Lua filters, the whole pipeline. I'd like to clean them up and put them out as open source (a noun, no hyphen), so the next person doesn't have to build it from scratch. And none of it would exist without the open source projects it already stands on — the whole book is other people's generosity, compiled.[^oss]
 
 ## Conclusion
 
@@ -276,9 +278,12 @@ I'm not going to tell you to write 5,500 tests for your novel. For most books, m
 
 What would you over-engineer, if you pointed your own tools at it?
 
+[^opensource]: A colleague called me out on "open-source" in an early draft; I vowed never to make the mistake again, then made a linter swear to it for me.
+[^validators]: The roster, grouped. **Typography:** `validateSmallcaps` and `validateEscapedSmallcaps` (acronyms rendered in small caps, not accidentally escaped), `validateEmDashes`, `validateNumberRangeDashes` (en-dash ranges), `validateQuotePunctuation`, `validateListPunctuation`, `validateBoldKeywords`. **Structure:** `validateHeadingHierarchy` (no skipped levels), `validateDuplicateHeadings`, `validateParagraphLength` (no walls of text), `validateMinOpenerLength`, `validateSectionIntros` / `validateSectionIntroHasLead` / `validateSectionIntroFinalLead` / `validateSectionIntroNoTldr` (section intros lead into the content without restating the TL;DR), `validateTldrLength`, `validateChapter`, `validateIndexIntegrity` (`index.yml` matches the files on disk). **Links & references:** `validateCrossReferences`, `validateNoBareUrlLinkText`, `validateFootnotes`, `validateAcronymExpansion` (expanded on first use). **Callouts:** `validateCalloutBalance` (managers paired with ICs), `validateCalloutDivs`, `validateRoleCalloutLabels`. **Voice & anti-AI:** `validateGitHubTense`, `validateOpenSourceHyphenation`, `validateHypotheticalHooks`, `validateSentenceStarters`, `validateDoubledWords`. **Housekeeping:** `validateNoTodoMarkers`, `validateNoTransitionTodos`, `validateBuildIdentifiers`, `validateSSML` (audiobook markup).
 [^cspell]: I'm a terrible speller so I also ran [CSpell](https://github.com/streetsidesoftware/cspell) in VS Code, which shared a custom dictionary with Harper.
 [^lenses]: The other twelve, briefly: Consistency (drift in the book's own conventions), Taglines (bumper-sticker lines worth pulling into callouts), Proofread (typos and mechanical slips), Cross-reference (broken "see chapter X" pointers), Acronyms (unexpanded on first use), Jargon (the "explain it to a new hire" test), Alt-text (missing or non-descriptive), Evidence (assertions with no why or how), Structure (heading hierarchy), Readability (sentences hard to parse on one read), Inclusive (non-inclusive language, judged in context), and Emphasis (overused bold, italics, and scare quotes).
 [^visual]: The rest, in the same spirit: the copyright page is present and bottom-aligned on screen; H2 is larger than body text and H3 smaller than H2; links are underlined, code blocks have a dark background and inline code a visible one, and blockquotes carry a left border; and body text uses the Tailwind Typography `prose` class.
 [^emoji]: I spent years at GitHub, where emoji are practically load-bearing — reactions, `:shipit:`, an emoji picker in every comment box — and they turned up a fresh encoding edge case like clockwork. Emoji, uh, find a way.
 [^dry]: jscpd is not prose-specific. It's a great way to DRY up code.
 [^docx]: The build actually emits a sixth artifact — a DOCX — which I used to gather early feedback from reviewers in Word, with track changes and comments. It's a working format, not something I publish.
+[^oss]: The full list, with thanks to their maintainers: [Tailwind CSS](https://tailwindcss.com/) and [Tailwind Typography](https://github.com/tailwindlabs/tailwindcss-typography), [Pandoc](https://pandoc.org/), [WeasyPrint](https://weasyprint.org/), [Ghostscript](https://www.ghostscript.com/), [qpdf](https://github.com/qpdf/qpdf), [Poppler](https://poppler.freedesktop.org/), [Source Serif 4](https://github.com/adobe-fonts/source-serif), [Source Sans 3](https://github.com/adobe-fonts/source-sans), and [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) by Adobe, [Twemoji](https://github.com/jdecked/twemoji), [ImageMagick](https://imagemagick.org/), [sharp](https://sharp.pixelplumbing.com/), [SVGO](https://github.com/svg/svgo), [PostCSS](https://postcss.org/) and [cssnano](https://cssnano.github.io/cssnano/), [Remark](https://remark.js.org/) and [Retext](https://github.com/retextjs/retext) (and countless ecosystem plugins), [textlint](https://textlint.github.io/), [markdownlint](https://github.com/DavidAnson/markdownlint), [Prettier](https://prettier.io/), [Harper](https://writewithharper.com/), [Vitest](https://vitest.dev/), [Playwright](https://playwright.dev/) and [axe-core](https://github.com/dequelabs/axe-core), [Ace by DAISY](https://daisy.org/activities/software/ace/), [EPUBCheck](https://www.w3.org/publishing/epubcheck/), [htmlproofer](https://github.com/gjtorikian/html-proofer), [lychee](https://github.com/lycheeverse/lychee), [html-validate](https://html-validate.org/), [Pillow](https://python-pillow.github.io/), [LanguageTool](https://languagetool.org/), [Vale](https://vale.sh/), [proselint](https://github.com/amperser/proselint), [GNU Diction](https://www.gnu.org/software/diction/), [yamllint](https://github.com/adrienverge/yamllint), [js-yaml](https://github.com/nodeca/js-yaml), [jscpd](https://github.com/kucherenko/jscpd), and [just](https://github.com/casey/just).

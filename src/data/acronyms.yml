@@ -84,6 +84,9 @@
   tooltip: Model Context Protocol—an open standard connecting AI models to tools and data
 
 # Other jargon
+- acronym: abracadabra
+  meaning: a magician's incantation, used here as a verb—to transform something as if by magic
+  tooltip: A magician's incantation—used here as a verb, to conjure one thing into another as if by magic
 - acronym: FUD
   meaning: Fear, uncertainty, and doubt
   tooltip: Fear, uncertainty, and doubt—casting doubt to discourage something instead of arguing the merits
