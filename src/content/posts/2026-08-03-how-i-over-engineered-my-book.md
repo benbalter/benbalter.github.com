@@ -245,26 +245,43 @@ And because every build stamps its commit onto the title page, the book is versi
 
 ### By the numbers
 
-- **~100,000 words** across ~70 chapters and sections
-- **576 pages** in print (6"×9")
-- **5 published formats** (plus a DOCX I don't ship)
-- **~70 test files**, 2,204 test cases, ~5,500 automated checks
-- **14 parallel CI jobs** on every push
-- **~300 style rules** covering 500+ banned terms, over a 5,000-rule grammar engine
-- **5,000+ commits** to get here
+| Metric | Count |
+| --- | --- |
+| Words | ~100,000 across ~70 chapters and sections |
+| Print length | 576 pages (6"×9") |
+| Published formats | 5 (plus a DOCX I don't ship) |
+| Tests | ~70 files, 2,204 cases, ~5,500 automated checks |
+| CI jobs per push | 14, in parallel |
+| Style rules | ~300 covering 500+ banned terms, over a 5,000-rule grammar engine |
+| Commits | 5,000+ to get here |
+| Books | 1 (frankly over-engineered, but fun) |
 
 ## Publishing
 
+Here's the irony: after automating everything up to this point, the actual publishing is almost entirely click-ops. There's no `git push` to production. Each store — Amazon's KDP, IngramSpark for bookstores and libraries, Draft2Digital for Apple Books and Kobo — wants you to log into a web dashboard, upload the EPUB and the print PDF by hand, and re-enter the same metadata (title, description, [BISAC]{.smallcaps} categories, keywords, price) into a slightly different form each time. My pipeline builds a flawless artifact, and then I upload it like it's 2009.
+
+A few things kept even that part honest:
+
+- **I'm my own publisher.** I formed an LLC and bought my own ISBNs — one per format — so the catalogs list me as the publisher, not a free platform ISBN with the retailer's name on it.
+- **Wide, not exclusive.** I skipped Amazon's KDP Select, which pays a bit more in exchange for locking the book to Amazon, so the book could launch everywhere at once.
+- **The metadata is versioned too.** The description, categories, and keywords live in the repo — a single source of truth I can diff — and an [ONIX]{.smallcaps} feed is generated from it for the channels that accept one. I still paste it into web forms by hand, but at least I'm pasting from a file under version control.
+
 ## Looking forward
 
-* Translations
-* Audiobookxs
-- Audiobook QA (a whole sub-suite): audiobook-qc-suite.js, audiobook-stt-qc.js, audiobook-phoneme-qc.js, audiobook-pronunciation-audit.js + the audiobook-qc.yml/audiobook-release-qc.yml workflows.
+The nice thing about a book that builds like software: the same machinery keeps paying off after launch.
 
+- **Translations.** Because the content is structured Markdown, translating it is closer to localizing an app than retyping a manuscript. I've got a pipeline (Brazilian Portuguese, Latin American Spanish, German) that drafts a translation, pins every heading ID so cross-references don't break, enforces a glossary so key terms stay consistent, and back-translates the result to check it against the original — the same trust-but-verify instinct as the prose linters, just across languages.
+- **An audiobook.** Turning 100,000 words into narration opened a whole new class of bug: mispronunciations. So the audiobook got its own QA suite. It transcribes the generated audio back to text and diffs that against the script, checks phonemes on the tricky words, and audits pronunciations — all wired into their own CI workflows. It's a snapshot test, aimed at my own voice.
 
-## TODO:
+## Conclusion
+
+Was this over-engineered? Absolutely. Would I do it again? Without hesitation.
+
+There's a neat symmetry to it: a book about working in the open, asynchronously, with the tools of software — written in the open, asynchronously, with the tools of software. The medium ended up being the message. Every commit is public, every build reproducible, every claim linted.
+
+I'm not going to tell you to write 5,500 tests for your novel. For most books, most of this is wildly disproportionate — and that's the point. I did it because the marginal cost of one more check, one more format, one more validator was a few minutes and a little curiosity, and because doing it the developer way meant I could write from an iPad on a train and trust that `main` was always shippable. If you spend your days shipping software, the tools you already know will take you further than you'd expect. The publishing industry starts with a word processor. I started with a Git repository — and I'd start there again.
 
 
 [^cspell]: I'm a terrible speller so I also ran [CSpell](https://github.com/streetsidesoftware/cspell) in VS Code, which shared a custom dictionary with Harper.
 [^dry]: jscpd is not prose-specific. It's a great way to DRY up code.
-[^docx]: The build actually emits a sixth artifact—a DOCX—for editors who prefer to review in Word, but it's a working format, not something I publish.
+[^docx]: The build actually emits a sixth artifact — a DOCX — which I used to gather early feedback from reviewers in Word, with track changes and comments. It's a working format, not something I publish.
