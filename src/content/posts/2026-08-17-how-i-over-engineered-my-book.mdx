@@ -81,7 +81,7 @@ The linters caught mistakes, but they couldn't tell me whether the book repeated
 After reading the book over and over, I was *convinced* I'd repeated the same idea across chapters. I wanted proof, not a hunch — so I built three layers of duplication detection, each catching what the one before it misses:
 
 - **[`jscpd`](https://github.com/kucherenko/jscpd)** — token-level copy-paste detection. Catches longer verbatim blocks I'd pasted between chapters, but nothing subtler.[^dry]
-- **n-gram** — tokenizes every chapter in `index.yml`, strips Markdown/Pandoc syntax, builds word n-grams (phrases of n words), and flags phrases appearing in more than one chapter (plus a "most-repeated stock wording" ranking). Two modes: cross-chapter (default `--n`) and intra-chapter (`--scope=intra --n=8`) for a chapter repeating itself.
+- **[n-gram](https://en.wikipedia.org/wiki/N-gram)** — tokenizes every chapter in `index.yml`, strips Markdown/Pandoc syntax, builds word n-grams (phrases of n words), and flags phrases appearing in more than one chapter (plus a "most-repeated stock wording" ranking). Two modes: cross-chapter (default `--n`) and intra-chapter (`--scope=intra --n=8`) for a chapter repeating itself.
 - **semantic** — the one the other two can't do: the same *point* restated in different words. An on-demand LLM audit, designed so it never feeds the whole book to a model — three passes, each over small units:
   - **intra** — one call per chapter: "where does this chapter restate itself?"
   - **cross** — a single call over every chapter's TL;DR, producing a map of conceptually overlapping chapters. A whole-book scan for the cost of one call.
