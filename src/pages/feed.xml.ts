@@ -17,6 +17,7 @@ import {
   sharedRehypePlugins,
   sharedShikiConfig,
 } from '../lib/markdown-pipeline';
+import { stripMdxSyntax } from '../utils/strip-mdx-syntax';
 
 // Escape a raw ampersand for use inside HTML (feed content is delivered as HTML,
 // e.g. rendered by Kit into email). Only the book title needs it today.
@@ -115,7 +116,7 @@ export async function GET(context: APIContext) {
       // Render the post markdown to HTML, then frame it for email/RSS: a
       // "new post" lead-in on top and a book CTA on the bottom (the on-site
       // <BookCta> is Astro-only and never reaches the feed).
-      const result = await processor.render(post.body, {
+      const result = await processor.render(stripMdxSyntax(post.body), {
         frontmatter: post.data,
       });
       const content = leadInHtml(link) + result.code + bookCtaHtml(post.data.bookRelation);

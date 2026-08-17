@@ -12,6 +12,7 @@ import type { APIRoute } from 'astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { siteConfig } from '../config';
 import { getFirstParagraph, aboutContent } from '../content/about-bio';
+import { stripMdxSyntax } from '../utils/strip-mdx-syntax';
 
 // Constants
 const EXCERPT_LENGTH = 100;
@@ -84,7 +85,7 @@ export const GET: APIRoute = async () => {
     // Get description or excerpt (first EXCERPT_LENGTH characters of body)
     let description = post.data.description;
     if (!description) {
-      const excerpt = post.body
+      const excerpt = stripMdxSyntax(post.body)
         .replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1')
         .replace(/[#*`]/g, '')
         .trim()

@@ -39,6 +39,7 @@ import matter from 'gray-matter';
 import { siteConfig } from '../../src/config';
 import { getPostUrl, getDateFromSlug } from '../../src/utils/post-urls';
 import { getDocumentRkey, qualifiesForStandardSite } from '../../src/utils/standard-site';
+import { stripMdxSyntax } from '../../src/utils/strip-mdx-syntax';
 import { login, type Session } from './auth';
 
 const COLLECTION = 'site.standard.document';
@@ -88,7 +89,7 @@ function buildRecord(postId: string, pubDate: Date, data: Record<string, unknown
   if (Array.isArray(data.categories) && data.categories.length > 0) {
     record.tags = data.categories.map((c) => String(c));
   }
-  let textContent = stripMarkdown(body);
+  let textContent = stripMarkdown(stripMdxSyntax(body));
   if (textContent.length > MAX_TEXT_CONTENT) {
     console.warn(`⚠️  ${postId}: textContent truncated from ${textContent.length} to ${MAX_TEXT_CONTENT} chars`);
     textContent = textContent.slice(0, MAX_TEXT_CONTENT);

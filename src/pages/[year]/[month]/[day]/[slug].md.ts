@@ -8,14 +8,16 @@
  *
  * Post bodies are already authored in Markdown, so the highest-fidelity
  * representation is the source itself — we only prepend the title as an H1 and
- * a canonical link. `.mdx` posts may contain the occasional JSX component tag
- * in their body; those pass through as-is (still readable as text).
+ * a canonical link. MDX-only syntax (ESM imports/exports and JSX component
+ * tags) is stripped via stripMdxSyntax so it doesn't leak into the plain-text
+ * representation agents consume.
  */
 
 import type { APIRoute, GetStaticPaths } from 'astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { isPublished } from '../../../../utils/post-filtering';
 import { siteConfig } from '../../../../config';
+import { stripMdxSyntax } from '../../../../utils/strip-mdx-syntax';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getCollection('posts', isPublished);
@@ -44,7 +46,7 @@ export const GET: APIRoute = ({ props, params }) => {
     parts.push(`*${post.data.description}*`, '');
   }
   parts.push(`[View on ${siteConfig.name}'s site](${canonical})`, '', '---', '');
-  parts.push((post.body ?? '').trim(), '');
+  parts.push(stripMdxSyntax(post.body ?? '').trim(), '');
 
   const markdown = parts.join('\n').replace(/\n{3,}/g, '\n\n').trimEnd() + '\n';
 

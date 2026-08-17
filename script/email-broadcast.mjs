@@ -24,6 +24,7 @@ import {
   sharedRemarkPlugins,
   sharedShikiConfig,
 } from '../src/lib/markdown-pipeline.ts';
+import { stripMdxSyntax } from '../src/utils/strip-mdx-syntax.ts';
 
 // Email-safe rehype plugins — omit anchor links, relative URL rewriting,
 // and other web-only transforms that produce broken output in email clients.
@@ -179,8 +180,9 @@ async function main() {
       continue;
     }
 
-    // Render markdown to email-safe HTML
-    const result = await processor.render(markdownBody, {
+    // Render markdown to email-safe HTML. Strip MDX-only syntax first so ESM
+    // imports and JSX component tags don't leak into the email as literal text.
+    const result = await processor.render(stripMdxSyntax(markdownBody), {
       frontmatter,
     });
 
