@@ -24,10 +24,19 @@ tokens:
   - '\[SOURCE[^\]]*\]'
   - '\[[A-Za-z ]*XX[A-Za-z -]*\]'
   - '\d{4}-XX-XX'
-  # Chatbot citation / tool-output leaks
+  # Chatbot citation / tool-output leaks (ChatGPT)
   - 'citeturn\d'
   - 'oaicite:'
+  - 'oai_citation'
   - ':?contentReference'
+  - 'turn\d+(search|news|view|image)\d+'
+  - 'attributableIndex'
+  # Newer-model tool-output leaks (Gemini, Grok) — mined from
+  # Wikipedia:Signs of AI writing + the slopbuster/avoid-ai-writing catalogs.
+  - '\[cite: ?\d+\]'
+  - 'start_span'
+  - 'grok_render_citation_card_json'
+  - 'grok_card'
   # AI-tool URL parameters
   - 'utm_source=chatgpt\.com'
   - 'utm_source=(claude|perplexity|grok|copilot)'
