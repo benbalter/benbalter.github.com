@@ -25,6 +25,7 @@ import {
   sharedShikiConfig,
 } from '../src/lib/markdown-pipeline.ts';
 import { stripMdxSyntax } from '../src/utils/strip-mdx-syntax.ts';
+import { leadInHtml, bookCtaHtml } from '../src/lib/email-framing.ts';
 
 // Email-safe rehype plugins — omit anchor links, relative URL rewriting,
 // and other web-only transforms that produce broken output in email clients.
@@ -186,13 +187,12 @@ async function main() {
       frontmatter,
     });
 
-    // Wrap content with a "new post" header and a "Read on the web" footer link
+    // Frame the post the same way the RSS feed does: a "new post" lead-in on
+    // top and the email-safe book CTA on the bottom (shared via email-framing).
     const emailHtml = [
-      `<p><a href="${fullUrl}">New post on ben.balter.com</a></p>`,
-      `<hr />`,
+      leadInHtml(fullUrl),
       result.code,
-      `<hr />`,
-      `<p><a href="${fullUrl}">Read this post on the web →</a></p>`,
+      bookCtaHtml(frontmatter.bookRelation),
     ].join('\n');
 
     // Build Kit API payload
