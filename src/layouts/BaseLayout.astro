@@ -210,8 +210,11 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
           // document link tag on qualifying posts; publication link tag on the homepage.
           ...(standardSiteDocumentUri ? [{ rel: 'site.standard.document', href: standardSiteDocumentUri }] : []),
           ...(isHomepage && siteConfig.standardSite.publicationUri ? [{ rel: 'site.standard.publication', href: siteConfig.standardSite.publicationUri }] : []),
-          // Hero image preload
-          ...(hero ? [{ rel: 'preload', href: '/assets/img/header.jpg', as: 'image', fetchPriority: 'high' as const }] : []),
+          // Hero image preload. Preload the AVIF (what image-set() serves to
+          // the vast majority of browsers) with a type hint so browsers that
+          // don't support AVIF skip it and fall back via CSS image-set() rather
+          // than wastefully preloading a format they won't render.
+          ...(hero ? [{ rel: 'preload', href: '/assets/img/header.avif', as: 'image', type: 'image/avif', fetchPriority: 'high' as const }] : []),
         ],
       }}
     />

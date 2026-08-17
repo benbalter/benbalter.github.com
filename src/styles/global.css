@@ -881,7 +881,15 @@
 
   /* Hero Unit - Optimized for performance with contain */
   .hero-unit {
+    /* Plain url() fallback first for browsers without image-set() support;
+       image-set() then serves AVIF/WebP to browsers that understand it,
+       falling back to the JPEG. */
     background-image: url('/assets/img/header.jpg');
+    background-image: image-set(
+      url('/assets/img/header.avif') type('image/avif'),
+      url('/assets/img/header.webp') type('image/webp'),
+      url('/assets/img/header.jpg') type('image/jpeg')
+    );
     background-size: cover;
     background-position: top left;
     @apply h-64 rounded-t-lg shadow-sm;
