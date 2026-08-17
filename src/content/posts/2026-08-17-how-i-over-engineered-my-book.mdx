@@ -1,18 +1,18 @@
 ---
 title: How I over-engineered my book
 description: "My book has a linter, ~5,500 automated checks, and a Pandoc pipeline that rebuilds five formats — EPUB, Kindle, paperback (×2), and web — on every git push. For a book one person wrote. Here's how I built and published it the way I ship software."
-tldr: "I treated my book like a software project—Markdown in Git, ~5,500 automated checks, and a Pandoc pipeline that builds every format on each push. The publishing industry starts with a word processor; I started with a Git repository."
+tldr: "I wrote my book in Markdown and Git and built a CI pipeline that turns one source into five formats and runs thousands of automated checks—from prose linters to an LLM that caught me making the same argument in five separate chapters. AI reviewed every page; I wrote every word."
 # This post supplies its own featured BookCta at the end, so suppress the
 # generic inline one PostLayout appends to every post (avoids two CTAs).
 hideBookCta: true
 ---
 import BookCta from '../../components/BookCta.astro';
 
-My book has a linter that yells at me for hyphenating "open source."[^opensource] It runs ~5,500 automated checks, rebuilds five formats on every `git push`, and fails the build if I so much as imply I still work at a job I left. For a book. That one person wrote.
+My book has a linter that yells at me for hyphenating "open source."[^opensource] It runs a battery of automated checks, rebuilds every format on each `git push`, and fails the build if I so much as imply I still work at a job I left. For a book. That one person wrote.
 
 I didn't set out to do this. Most people start a writing project by firing up Word or Google Docs, and I started down that same path. I even tried some purpose-built authoring tools, but every tool felt inferior to the ones I used as a developer every day. I did "the only reasonable" thing and threw all of them out, writing the whole book on Git, Markdown, and a CI build pipeline. If you've read how I [over-engineered my home network](/2020/12/04/over-engineered-home-network-for-privacy-and-security/) — [twice](/2021/09/01/how-i-re-over-engineered-my-home-network/) — none of this will surprise you.
 
-I've been making websites for decades, so the leap was short: the same tools that build websites could build books, no last-minute magic-trick reveal required to abracadabra a standard Word doc into a full-blown book. There were missteps,[^latex] but in the end, I would not have written [Open and Async](https://open-and-async.com) any other way. Here's how:
+I've been making websites for decades, so the leap was short: the same tools that build websites could build books, no last-minute magic-trick reveal required to abracadabra a standard Word doc into a full-blown book. There were missteps,[^latex] but in the end, I would not have written [Open and Async](https://open-and-async.com) any other way.
 
 ## Content
 
@@ -235,7 +235,7 @@ And because every build stamps its commit onto the title page, the book is versi
 
 ## Publishing
 
-Here's the irony: after automating everything up to this point, the actual publishing is almost entirely click-ops. There's no `git push` to production. Each store — Amazon's KDP, IngramSpark for bookstores and libraries, Draft2Digital for Apple Books and Kobo — wants you to log into a web dashboard, upload the EPUB and the print PDF by hand, and re-enter the same metadata (title, description, BISAC categories, keywords, price) into a slightly different form each time. :quote[My pipeline builds a flawless artifact, and then I upload it like it's 2009.]{#upload-like-2009}
+For all that automation, the actual publishing is almost entirely click-ops. There's no `git push` to production. Each store — Amazon's KDP, IngramSpark for bookstores and libraries, Draft2Digital for Apple Books and Kobo — wants you to log into a web dashboard, upload the EPUB and the print PDF by hand, and re-enter the same metadata (title, description, BISAC categories, keywords, price) into a slightly different form each time. :quote[My pipeline builds a flawless artifact, and then I upload it like it's 2009.]{#upload-like-2009}
 
 A few things kept even that part honest:
 
