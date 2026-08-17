@@ -1,6 +1,6 @@
 ---
 title: How I over-engineered my book
-description: "My book has a linter, ~5,500 automated tests, and a Pandoc pipeline that rebuilds five formats — EPUB, Kindle, paperback, and web — on every git push. For a book one person wrote. Here's how I built and published it the way I ship software."
+description: "My book has a linter, ~5,500 automated checks, and a Pandoc pipeline that rebuilds five formats — EPUB, Kindle, paperback (×2), and web — on every git push. For a book one person wrote. Here's how I built and published it the way I ship software."
 tldr: "I treated my book like a software project—Markdown in Git, ~5,500 automated checks, and a Pandoc pipeline that builds every format on each push. The publishing industry starts with a word processor; I started with a Git repository."
 # This post supplies its own featured BookCta at the end, so suppress the
 # generic inline one PostLayout appends to every post (avoids two CTAs).
@@ -20,7 +20,7 @@ I've been making websites for decades, so the leap was short: the same tools tha
 
 Practically, I wrote most of this book on an iPad — Codespaces in a browser tab, a Bluetooth keyboard, often nights and weekends while away from my desk — and the Git repository kept everything in sync no matter where I opened it. I could focus on the words, and a bad idea was one `git revert` away from gone.
 
-Not to mention, I had real-time feedback on my writing from the various prose linters, just as I would have real-time feedback on my code from ESLint or Prettier.
+Not to mention, I had real-time feedback on my writing right in my IDE from the various prose linters, just as I would have real-time feedback on my code from ESLint or Prettier.
 
 ## Testing
 
@@ -68,13 +68,13 @@ That validator exists because I made the mistake once — which is the whole pat
 
 …plus a couple dozen more for small caps, em-dashes, doubled words, en-dash ranges, TL;DR length, and every other tic I could name.[^validators]
 
-One of these caught *me*. `validateHypotheticalHooks` flagged the opening of a paragraph I was certain I'd written myself — and I had. But reading it back cold, it did sound ghost-authored; I'd absorbed the cadence from reading too much generated text and produced a fluent imitation of nothing. A linter can't tell good prose from bad. What it can flag are the patterns you reach for when you've stopped thinking — which is exactly the thing you can't see in your own draft. Same reason `eslint` earns its keep.
+One of these caught *me*. `validateHypotheticalHooks` flagged the opening of a paragraph I was certain I'd written myself — and I had. But reading it back cold, it did sound ghost-authored; I'd absorbed the cadence from reading too much generated text and produced a fluent imitation of nothing. A linter can't tell good prose from bad. What it can flag are the patterns you reach for when you've stopped thinking — which is exactly the thing you can't see in your own draft. Same reason `eslint` earns its keep: it can't tell good code from bad either, but it catches the autopilot mistakes your own eye skates right over.
 
 All in all, the CI suite ran ~70 test files with 2,204 test cases and ~3,900 `expect()` assertions — plus another ~1,600 per-chapter structural checks from the validators above.
 
 ## Audits
 
-The linters caught mistakes, but they couldn't tell me whether the book repeated itself or whether a chapter was any good. For that I built a second layer of tooling: audits that judge the writing, not just check it. One thing they never did, though, was write it. Every word is mine; these tools are readers of last resort — catching what I'd stopped being able to see — not writers of first resort.
+The linters caught mistakes, but they couldn't tell me whether the book repeated itself or whether a chapter was any good. For that I built a second layer of tooling: audits that judge the writing, not just check it. One thing they never did, though, was write it. Every word is mine; these tools are readers of last resort — catching what I'd stopped being able to see.
 
 ### Duplication detection
 
@@ -127,7 +127,7 @@ Together, these turned "is the book actually getting better?" from a gut feeling
 
 I am *far* from a designer, and I'd never published an ebook before — I had no idea how they worked beyond reading many of them. Two aha moments changed the way I thought about publishing:
 
-- :quote[An ebook is a website in a trench coat]{#ebook-trench-coat} — ebooks are just HTML and CSS, albeit a very stripped-down version. If you can make a website, you can make an ebook.
+- :quote[An ebook is a website in a trench coat]{#ebook-trench-coat} — ebooks are just HTML and CSS, albeit a very stripped-down version.[^kindlewebkit] If you can make a website, you can make an ebook.
 - A print book can be one too, with enough effort — CSS natively has powerful `@media print` and `@page` rules, including left and right page styling, title pages, page numbers, and more.
 
 For the interior design, I reached for [Tailwind CSS](https://tailwindcss.com/) — not because it's built for books (it isn't), but because it's what I already use every day. `@tailwindcss/typography` gave me a typographic baseline to start from instead of a blank page.
@@ -138,7 +138,7 @@ One note: I purposefully hired a *human* designer for the cover. For a book abou
 
 Styling every format from one stylesheet has a failure mode: CSS meant for one format bleeding into another. To keep my e-reader tweaks away from the paperback, I scoped each of them to `@media not screen`. But [WeasyPrint](https://weasyprint.org/) — the HTML/CSS-to-PDF engine that draws the paperback, [more on it below](#a-reproducible-toolchain) — renders the print PDF with media type `print`, and `print` *is* "not screen," exactly as the spec says. So two of those e-reader rules matched anyway and quietly bled into the book: a tighter line-height on callout paragraphs, and a `box-decoration-break` change that dropped the repeated padding on any callout that split across a page.
 
-Neither was visible. Nothing *looked* broken. But each shaved a sliver of vertical space off every callout, and the book slowly deflated from 576 printed pages to 567. I only found out because the print PDF is pinned to exactly 576 pages and the build went red — a page-count gate written to protect the cover spine, catching a CSS bug it was never designed for. :quote[Two formats from one stylesheet is a gift, right up until the cascade forgets which format it's in.]{#cascade-forgets} The fix re-pins the original values in a print-only block, loud with `!important` so the leak can't win.
+Neither was visible. Nothing *looked* broken. But each shaved a sliver of vertical space off every callout, and the book slowly deflated from 576 printed pages to 567. I only found out because the print PDF is pinned to exactly 576 pages[^pagecount] and the build went red — a page-count gate written to protect the cover spine, catching a CSS bug it was never designed for. :quote[Two formats from one stylesheet is a gift, right up until the cascade forgets which format it's in.]{#cascade-forgets} The fix re-pins the original values in a print-only block, loud with `!important` so the leak can't win.
 
 ### Tests
 
@@ -146,7 +146,7 @@ The design and layout got a test suite as well — driven by Playwright against 
 
 #### Accessibility (axe-core)
 
-The `axe-core` engine runs over the rendered book in **both light and dark mode** against WCAG 2.1 AA — no critical or serious violations, AA color contrast in either scheme, alt text on every image, logical heading order, discernible link text (no bare "click here"), and a declared `lang` attribute so screen readers pick the right pronunciation. It's the `test:a11y` gate, enforced in CI as `validate-playwright`.
+The `axe-core` engine runs over the rendered book in **both light and dark mode** against WCAG 2.1 AA — no critical or serious violations, AA color contrast in either scheme, alt text on every image, logical heading order, discernible link text (no bare "click here"), and a declared `lang` attribute so screen readers pick the right pronunciation. It's the `test:a11y` gate, enforced in CI as `validate-playwright`. Accessibility earned more than a subsection here — it has [its own accessibility statement](https://open-and-async.com/accessibility/), and a dedicated deep dive is coming.
 
 #### Visual & layout regression (Playwright)
 
@@ -156,7 +156,7 @@ None of this is glamorous. It's exactly the kind of thing that breaks silently i
 
 ## Building
 
-We've got clean Markdown, and a test suite that ensures the content is clean, but we still need to get it into a format that can be published (EPUB, Kindle, and paperback). Core to that custom build pipeline was [Pandoc](https://pandoc.org/), a universal document converter that can read Markdown and spit out just about anything else. I used Pandoc as the engine, but Pandoc alone gets you a generic document — turning that into five store-ready formats took a pile of custom tooling:
+We've got clean Markdown, and a test suite that ensures the content is clean, but we still need to get it into a format that can be published (EPUB, Kindle, paperback in two flavors, and web). Core to that custom build pipeline was [Pandoc](https://pandoc.org/), a universal document converter that can read Markdown and spit out just about anything else. I used Pandoc as the engine, but Pandoc alone gets you a generic document — turning that into five store-ready formats took a pile of custom tooling:
 
 ### A reproducible toolchain
 
@@ -172,7 +172,7 @@ One Tailwind stylesheet (`src/style.css`) compiles through PostCSS to `dist/styl
 
 ### Lua filters (the interesting part)
 
-This is the part I didn't expect to love. Pandoc parses everything into an abstract syntax tree and lets you rewrite that tree with small Lua scripts before it renders — so format-specific tweaks live in code, not smeared through the prose. Deleting a node, for instance, is just returning an empty table:
+This is the part I didn't expect to love. Pandoc parses everything into an abstract syntax tree (AST) and lets you rewrite that tree with small Lua scripts before it renders — so format-specific tweaks live in code, not smeared through the prose. Deleting a node, for instance, is just returning an empty table:
 
 ```lua
 -- strip-comments.lua: drop editorial HTML comments so my notes-to-self
@@ -202,9 +202,9 @@ It's the most ordinary bug in the world — mine just happened to be in a book.[
 
 ### Rendering & post-processing per format
 
-With the tree transformed, each format renders down its own path — and the paperback takes the longest road. HTML and the PDF both render through Pandoc, but the PDF is drawn by [WeasyPrint](https://weasyprint.org/), an HTML/CSS-to-PDF engine — so I typeset the entire book with the same box model I'd use for a web page. The EPUB goes a different way: Pandoc embeds WOFF2 font subsets, then `postprocess-epub.js` repackages it to stay valid and small. And the paperback keeps going after everyone else has stopped, out to Ghostscript to become **PDF/X-1a:2001** — CMYK color, an embedded USWebCoatedSWOP ICC profile, flattened transparency — the archaic print standard IngramSpark won't live without.
+With the tree transformed, each format renders down its own path — and the paperback takes the longest road. HTML and the PDF both render through Pandoc, but the PDF is drawn by [WeasyPrint](https://weasyprint.org/), an HTML/CSS-to-PDF engine — so I typeset the entire book with the same box model I'd use for a web page. The EPUB goes a different way: Pandoc embeds WOFF2 font subsets, then `postprocess-epub.js` repackages it to stay valid and small. And the paperback keeps going after everyone else has stopped, out to Ghostscript to become **PDF/X-1a:2001** — CMYK color, an embedded USWebCoatedSWOP ICC profile, flattened transparency — the archaic print standard IngramSpark (the print-on-demand distributor) won't live without.
 
-That same 576-page gate earns its keep here, for a second reason. The spine width on the cover is computed from the page count, so a print PDF that quietly drifts off 576 pages doesn't just shuffle text — it yields cover art sized for the wrong spine, with no error to warn you. `check-pdf-page-count.js` pins the count and fails the build the moment it moves.
+That same 576-page gate earns its keep here too. `check-pdf-page-count.js` pins the count and fails the build the moment the paperback drifts off 576 pages — cheap insurance against a stale page count shipping as a wrongly-sized cover spine.
 
 That's five publishable files out of one Markdown source[^docx] — which raises the obvious question: how do I know any of them are actually correct?
 
@@ -239,8 +239,8 @@ Here's the irony: after automating everything up to this point, the actual publi
 
 A few things kept even that part honest:
 
-- **I'm my own publisher.** I formed an LLC and bought my own ISBNs — one per format — so the catalogs list me as the publisher, not a free platform ISBN with the retailer's name on it.
-- **Wide, not exclusive.** I skipped Amazon's KDP Select, which pays a bit more in exchange for locking the book to Amazon, so the book could launch everywhere at once.
+- **I'm my own publisher.** I formed an LLC and bought my own ISBNs — one per format — so the catalogs list me as the publisher, not a free platform ISBN with the retailer's name on it — and none of the vendor lock-in that rides along with one, since a free ISBN only publishes through the platform that handed it out.
+- **Wide, not exclusive.** I skipped Amazon's KDP Select, which pays a bit more in exchange for locking the book to Amazon, so the book could be available everywhere at once.
 - **The metadata is versioned too.** The description, categories, and keywords live in the repo — a single source of truth I can diff — and an ONIX feed is generated from it for the channels that accept one. I still paste it into web forms by hand, but at least I'm pasting from a file under version control.
 
 ## Looking forward
@@ -288,7 +288,9 @@ What would you over-engineer, if you pointed your own tools at it?
 [^languagetool]: Self-hosted, so it ran on-device too — well, in the Codespace.
 [^cspell]: I'm a terrible speller so I also ran [CSpell](https://github.com/streetsidesoftware/cspell) in VS Code, which shared a custom dictionary with Harper.
 [^lenses]: The other twelve, briefly: Consistency (drift in the book's own conventions), Taglines (bumper-sticker lines worth pulling into callouts), Proofread (typos and mechanical slips), Cross-reference (broken "see chapter X" pointers), Acronyms (unexpanded on first use), Jargon (the "explain it to a new hire" test), Alt-text (missing or non-descriptive), Evidence (assertions with no why or how), Structure (heading hierarchy), Readability (sentences hard to parse on one read), Inclusive (non-inclusive language, judged in context), and Emphasis (overused bold, italics, and scare quotes).
+[^kindlewebkit]: Not just a metaphor. Kindle's modern format (KF8/AZW3) is rendered by a WebKit-based engine — the same rendering lineage as Safari — down to Amazon's own `-webkit-` CSS extensions; a Kindle book really is a little offline web page. But the engine ages slowly across a long tail of e-ink models still in readers' hands, so the HTML and CSS it reliably supports lag years behind the modern web — hence "very stripped-down."
 [^visual]: The rest, in the same spirit: the copyright page is present and bottom-aligned on screen; H2 is larger than body text and H3 smaller than H2; links are underlined, code blocks have a dark background and inline code a visible one, and blockquotes carry a left border; and body text uses the Tailwind Typography `prose` class.
+[^pagecount]: Locking the length isn't fussiness — the whole physical book is built around that number. A page count sets the book's thickness, so the spine width, and the cover art wrapped around it, is computed from it. Drift off 576 pages and the cover no longer fits the spine: fixing it means a round trip back to the human designer to re-render the wrap, not a one-line code change. [More on that gate below](#rendering--post-processing-per-format).
 [^cover]: AI could have generated something competent, and that was exactly the problem — competent and generic is the failure mode I spent 5,500 checks scrubbing out of the *text*. The cover is the one thing a reader judges before reading a word, so it was the last place I wanted a machine's default taste. A human designer got the brief; the algorithm didn't.
 [^emoji]: I spent years at GitHub, where emoji are practically load-bearing — reactions, `:shipit:`, an emoji picker in every comment box — and they turned up a fresh encoding edge case like clockwork. Emoji, uh, find a way.
 [^deterministic]: `audit-chapter-lengths.js` / `audit-paragraph-lengths.js` flag outlier chapters and walls of text; `reading-time.js` clocks each chapter and the whole book at 238 wpm (average adult non-fiction speed); `check-epub-size.js` enforces the size budget; `consistency-check.js` settles "open source" vs "open-source" and "async" vs "asynchronous" book-wide; and `writing-dashboard.js` renders it all to HTML. Plus a handful of advisory local checkers — `proselint`, GNU `diction`, and GNU `style` — for wordiness and readability stats.
