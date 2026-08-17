@@ -1,5 +1,5 @@
 {
-  "_comment": "csp-xss flipped to warn: a comprehensive CSP is set in public/_headers (default-src 'self', frame-ancestors 'none', base-uri 'self', form-action 'self'). Note Lighthouse only sees CSP when delivered as an HTTP header, so this assertion may still fail when collecting against the static dist (no server). Other rules remain off because: unused-javascript/unused-css-rules report false positives on Astro/Tailwind output that's already purged; lcp-lazy-loaded/prioritize-lcp-image are noisy because the LCP element varies per page; non-composited-animations flags utility CSS transitions on hover; uses-long-cache-ttl can't be evaluated against a static dist (Cloudflare _headers sets immutable 1y on /assets/* in production). Re-evaluate these after a successful real-environment lighthouse run.",
+  "_comment": "csp-xss flipped to warn: a comprehensive CSP is set in public/_headers (default-src 'self', frame-ancestors 'none', base-uri 'self', form-action 'self'). Note Lighthouse only sees CSP when delivered as an HTTP header, so this assertion may still fail when collecting against the static dist (no server). Other rules remain off because: unused-javascript/unused-css-rules report false positives on Astro/Tailwind output that's already purged; lcp-lazy-loaded/prioritize-lcp-image are noisy because the LCP element varies per page; non-composited-animations flags utility CSS transitions on hover; uses-long-cache-ttl can't be evaluated against a static dist (Cloudflare _headers sets immutable 1y on /assets/* in production). robots-txt is off because Lighthouse 12.1.0 (bundled with @lhci/cli 0.14.x) flags our intentional Content-Signal directive (contentsignals.org, a 2025 spec) as an 'Unknown directive' and scores the file 0 — the robots.txt is valid per the real spec, so this is a false positive from an outdated validator. The image-delivery-insight and network-dependency-tree-insight assertions were removed because those 'insight' audits don't exist in Lighthouse 12.1.0 ('is not a known audit'); re-add them if/when @lhci/cli upgrades to a Lighthouse version that ships them. Re-evaluate these after a successful real-environment lighthouse run.",
   "ci": {
     "collect": {
       "staticDistDir": "./dist-astro",
@@ -27,9 +27,7 @@
         "cumulative-layout-shift": "warn",
         "identical-links-same-purpose": "warn",
         "total-byte-weight": "warn",
-        "network-dependency-tree-insight": "warn",
-        "image-delivery-insight": "warn",
-        "robots-txt": "warn"
+        "robots-txt": "off"
       }
     },
     "upload": {
