@@ -20,7 +20,7 @@ The through-line is the same principle I've been writing about for years: [make 
 
 ## AI across the PM toolkit
 
-Here's how each core PM responsibility shifts when AI enters the picture — and where it doesn't.
+Each core PM responsibility shifts when AI enters the picture — and some don't.
 
 ### Communication, coordination, and facilitation
 

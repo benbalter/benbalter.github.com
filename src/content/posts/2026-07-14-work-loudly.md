@@ -30,7 +30,7 @@ Working loudly is the bell: the low-effort, ambient signal that you're on the tr
 It's the objection I hear most.
 
 :::objection[Won't I look like I'm bragging?]
-There's a real difference between narrating your work and performing it. Performing busyness is noise *about* work—the "just pushed through lunch 💪" posts, the green-dot theater, the reply-all to look engaged. Working loudly is the work itself, made legible. One is activity cosplaying as impact. The other is impact you can actually point to. If you're sharing the artifact—the issue, the PR, the doc, the decision—you're working loudly. If you're sharing your *effort*, you're just being loud.
+There's a difference between narrating your work and performing it. Performing busyness is noise *about* work—the "just pushed through lunch 💪" posts, the green-dot theater, the reply-all to look engaged. Working loudly is the work itself, made legible. One is activity cosplaying as impact. The other is impact you can actually point to. If you're sharing the artifact—the issue, the PR, the doc, the decision—you're working loudly. If you're sharing your *effort*, you're just being loud.
 :::
 
 ## The payoff compounds

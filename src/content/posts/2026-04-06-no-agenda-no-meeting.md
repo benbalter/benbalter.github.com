@@ -10,7 +10,7 @@ I've [written before](/2023/04/20/meetings-are-a-point-of-escalation/) about how
 
 So I made a site about it: [noagendanomeeting.net](https://noagendanomeeting.net).
 
-## Why this matters
+## The cost of no agenda
 
 A meeting without an agenda is like calling a function without documentation — sure, it *might* do what you expect, but you're forcing every caller to read the implementation to find out. Meetings without agendas force everyone to context-switch twice: once to figure out what it's about, and again in the meeting itself when they arrive unprepared.
 
