@@ -1,0 +1,13 @@
+extends: existence
+message: "'%s' is a signpost that announces a twist instead of earning it. Cut the signpost; state the point directly."
+ignorecase: true
+level: error
+# The "here's the <abstract noun>" opener is a high-precision AI tell: it tells
+# the reader something profound is coming rather than letting it land. Gating at
+# error is safe because none of these nouns appear once in 15 years of posts
+# (calibrated against src/content/posts). Deliberately EXCLUDED are the ones Ben
+# actually uses conversationally — "here's the thing/problem/list/approach/best"
+# — which would be false positives. "kicker" and "catch" live in Flourishes.yml.
+tokens:
+  - 'here.s the (irony|twist|rub|trick|secret|dirty secret|beauty|magic|gist|crux|paradox|punchline|genius)'
+  - 'here is the (irony|twist|rub|trick|secret|dirty secret|beauty|magic|gist|crux|paradox|punchline|genius)'
