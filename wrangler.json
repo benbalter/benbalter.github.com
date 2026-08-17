@@ -5,7 +5,15 @@
   "assets": {
     "directory": "./dist-astro",
     "not_found_handling": "404-page",
-    "binding": "ASSETS"
+    "binding": "ASSETS",
+    "//": "Run the Worker first for page + API requests (Markdown content negotiation, /api/event). Static asset buckets are excluded via negative rules so they're served directly by the asset layer — smaller blast radius and no extra Worker hop for immutable assets.",
+    "run_worker_first": [
+      "/*",
+      "!/assets/*",
+      "!/pagefind/*",
+      "!/og/*",
+      "!/wp-content/*"
+    ]
   },
   "analytics_engine_datasets": [
     {

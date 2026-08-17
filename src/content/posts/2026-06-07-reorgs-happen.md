@@ -11,7 +11,7 @@ I know these numbers because I tracked them. What started as a humble spreadshee
 
 [^clockwork]: "Like clockwork" is generous. The actual gaps ranged from six weeks to fifteen months, which is exactly why predicting the next one required increasingly heavy statistical machinery. The clock is real—it just has terrible build quality.
 
-[^repo]: The project began as a CSV with two columns and ended, several late nights later, as a statistical apparatus wildly disproportionate to the question it answered. Its README footer—reproduced in full at the end of this post, because it deserves to be—is the most honest line of documentation I've ever written.
+[^repo]: The project began as a CSV with two columns and ended, several late nights later, as a statistical apparatus wildly disproportionate to the question it answered. Its README footer—reproduced in full at the end of this post, because it deserves to be—is the most honest line of documentation I've ever written. It's [open source now](https://github.com/benbalter/reorg-tuesdays), in all its over-engineered glory.
 
 ## Why reorgs happen
 

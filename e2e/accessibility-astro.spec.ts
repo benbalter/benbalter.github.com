@@ -42,7 +42,7 @@ test.describe('Accessibility - Homepage', () => {
     const skipLink = page.locator('a.skip-to-content');
     await expect(skipLink).toBeVisible();
     await expect(skipLink).toHaveText('Skip to main content');
-    await expect(skipLink).toHaveAttribute('href', '#content');
+    await expect(skipLink).toHaveAttribute('href', '#main-content');
   });
   
   test('should have proper heading hierarchy', async ({ page }) => {
@@ -70,7 +70,7 @@ test.describe('Accessibility - Homepage', () => {
     // Check for main landmark
     const main = page.locator('main');
     await expect(main).toHaveCount(1);
-    await expect(main).toHaveAttribute('id', 'content');
+    await expect(main).toHaveAttribute('id', 'main-content');
     await expect(main).toHaveAttribute('role', 'main');
     
     // Check for at least one navigation (site has main nav and footer nav)

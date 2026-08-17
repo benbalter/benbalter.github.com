@@ -1,0 +1,303 @@
+---
+title: How I over-engineered my book
+description: "My book has a linter, ~5,500 automated checks, and a Pandoc pipeline that rebuilds five formats — EPUB, Kindle, paperback (×2), and web — on every git push. For a book one person wrote. Here's how I built and published it the way I ship software."
+tldr: "I treated my book like a software project—Markdown in Git, ~5,500 automated checks, and a Pandoc pipeline that builds every format on each push. The publishing industry starts with a word processor; I started with a Git repository."
+# This post supplies its own featured BookCta at the end, so suppress the
+# generic inline one PostLayout appends to every post (avoids two CTAs).
+hideBookCta: true
+---
+import BookCta from '../../components/BookCta.astro';
+
+My book has a linter that yells at me for hyphenating "open source."[^opensource] It runs ~5,500 automated checks, rebuilds five formats on every `git push`, and fails the build if I so much as imply I still work at a job I left. For a book. That one person wrote.
+
+I didn't set out to do this. Most people start a writing project by firing up Word or Google Docs, and I started down that same path. I even tried some purpose-built authoring tools, but every tool felt inferior to the ones I used as a developer every day. I did "the only reasonable" thing and threw all of them out, writing the whole book on Git, Markdown, and a CI build pipeline. If you've read how I [over-engineered my home network](/2020/12/04/over-engineered-home-network-for-privacy-and-security/) — [twice](/2021/09/01/how-i-re-over-engineered-my-home-network/) — none of this will surprise you.
+
+I've been making websites for decades, so the leap was short: the same tools that build websites could build books, no last-minute magic-trick reveal required to abracadabra a standard Word doc into a full-blown book. There were missteps,[^latex] but in the end, I would not have written [Open and Async](https://open-and-async.com) any other way. Here's how:
+
+## Content
+
+*Naturally*, the content itself lived as Markdown files in a Git repository. After all, that's where I spend most of my day. I used VS Code, with a handful of prose extensions ([listed below](#real-time)). Each chapter was its own Markdown file, and a single `index.yml` file defined the order, making it easy to re-order chapters or add new ones.
+
+Practically, I wrote most of this book on an iPad — Codespaces in a browser tab, a Bluetooth keyboard, often nights and weekends while away from my desk — and the Git repository kept everything in sync no matter where I opened it. I could focus on the words, and a bad idea was one `git revert` away from gone.
+
+Not to mention, I had real-time feedback on my writing right in my IDE from the various prose linters, just as I would have real-time feedback on my code from ESLint or Prettier.
+
+## Testing
+
+With content as code, the next logical step — and the point where "reasonable" quietly left the building — was to set up automated tests. [Testing prose the way you test code](https://ben.balter.com/2015/05/22/test-your-prose/) is something I'd argued for years; this was me taking it to an absurd extreme. I did that two ways: real-time, and on push (CI).
+
+### Real-time
+
+Locally, as I typed, I ran several VS Code extensions all giving me real-time feedback. Specifically:
+
+- [Markdownlint](https://github.com/DavidAnson/markdownlint) — Markdown syntax and formatting consistency
+- [Harper](https://github.com/Automattic/harper)[^cspell] — grammar and word choice, entirely on-device
+- [LanguageTool](https://languagetool.org/) — grammar, punctuation, and style[^languagetool]
+- [Vale](https://vale.sh/) — my own house-style rules and banned terms
+- [Alex](https://alexjs.com/) — insensitive or exclusionary phrasing
+- [Write-good](https://github.com/btford/write-good) — weak prose: passive voice, weasel words, clichés
+
+All six also ran in CI (Alex and Write-good folded into Vale there; [more on that below](#on-each-push)). Together, they layered hundreds of curated style rules over a full grammar engine — all of it underlining my mistakes in real time, the way a red squiggle flags a type error.
+
+### On each push
+
+In addition to running those open source linters in CI (some blocking), I built a custom test suite of my own: a standalone Node script of content validators, a Vitest suite, and Playwright specs. The validators are the fun part. Each is a few lines that read the Markdown and push an error with a file-and-line pointer. My favorite: I don't work at GitHub anymore, so any sentence claiming I *still* do fails the build.
+
+```js
+// My time at GitHub has to read as past tense — present-tense
+// employment claims about it fail the build.
+function validateGitHubTense(files) {
+  const patterns = [
+    // "is/are ... at GitHub" — a current-employment claim
+    /\b(is|are)\b[^.!?\n]{1,80}?\bat GitHub\b/i,
+    // "works/leads/runs at GitHub" — current-employment activity
+    /\b(works?|leads?|runs?|manages?|directs?)\s+(at|for)\s+GitHub\b/i,
+  ];
+  return flagLinesMatching(files, patterns);
+}
+```
+
+That validator exists because I made the mistake once — which is the whole pattern. The first time an error got past me, I didn't just fix that one sentence; I wrote a rule so I'd never have to catch it by eye again. It's [cattle, not pets](https://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/) for prose: don't hand-nurse each chapter, govern the whole herd with policy. A mistake caught once becomes a check that sweeps every chapter and fails the build if it ever wanders back. That's one of about thirty. Others I'm proud of:
+
+- **`validateOpenSourceHyphenation`** — "open source" is [a noun, not a verb](https://ben.balter.com/2012/10/15/open-source-is-not-a-verb/), and never hyphenated.
+- **`validateHypotheticalHooks`** — formulaic AI-tell openers ("Picture this…", "Imagine…", "Consider a…") at the start of a paragraph.
+- **`validateSentenceStarters`** — three-plus sentences in a row opening with the same word.
+- **`validateNoBareUrlLinkText`** — no link whose visible text is just the raw URL.
+- **`validateCalloutBalance`** — the book speaks to managers and individual contributors, so a "For managers" callout has to have a "For ICs" counterpart nearby.
+- **`validateCrossReferences`** — every `[text](#anchor)` cross-reference resolves to a real heading.
+
+…plus a couple dozen more for small caps, em-dashes, doubled words, en-dash ranges, TL;DR length, and every other tic I could name.[^validators]
+
+One of these caught *me*. `validateHypotheticalHooks` flagged the opening of a paragraph I was certain I'd written myself — and I had. But reading it back cold, it did sound ghost-authored; I'd absorbed the cadence from reading too much generated text and produced a fluent imitation of nothing. A linter can't tell good prose from bad. What it can flag are the patterns you reach for when you've stopped thinking — which is exactly the thing you can't see in your own draft. Same reason `eslint` earns its keep: it can't tell good code from bad either, but it catches the autopilot mistakes your own eye skates right over.
+
+All in all, the CI suite ran ~70 test files with 2,204 test cases and ~3,900 `expect()` assertions — plus another ~1,600 per-chapter structural checks from the validators above.
+
+## Audits
+
+The linters caught mistakes, but they couldn't tell me whether the book repeated itself or whether a chapter was any good. For that I built a second layer of tooling: audits that judge the writing, not just check it. One thing they never did, though, was write it. Every word is mine; these tools are readers of last resort — catching what I'd stopped being able to see.
+
+### Duplication detection
+
+After reading the book over and over, I was *convinced* I'd repeated the same idea across chapters. I wanted proof, not a hunch — so I built three layers of duplication detection, each catching what the one before it misses:
+
+- **[`jscpd`](https://github.com/kucherenko/jscpd)** — token-level copy-paste detection. Catches longer verbatim blocks I'd pasted between chapters, but nothing subtler.[^dry]
+- **[n-gram](https://en.wikipedia.org/wiki/N-gram)** — tokenizes every chapter in `index.yml`, strips Markdown/Pandoc syntax, builds word n-grams (phrases of n words), and flags phrases appearing in more than one chapter (plus a "most-repeated stock wording" ranking). Two modes: cross-chapter (default `--n`) and intra-chapter (`--scope=intra --n=8`) for a chapter repeating itself.
+- **semantic** — the one the other two can't do: the same *point* restated in different words. An on-demand LLM audit, designed so it never feeds the whole book to a model — three passes, each over small units:
+  - **intra** — one call per chapter: "where does this chapter restate itself?"
+  - **cross** — a single call over every chapter's TL;DR, producing a map of conceptually overlapping chapters. A whole-book scan for the cost of one call.
+  - **arguments** — extract each chapter's load-bearing claims one call at a time, then cluster the same argument across all chapters in one final call. Catches arguments made in body prose that `cross` misses.
+
+Was I actually repeating myself? By this final pass the two mechanical layers came up clean — but they'd earned it: `jscpd` and the n-gram scan had already caught the copy-paste and recycled phrasing (a doubled motif here, a reused TL;DR structure there), and I'd fixed each.
+
+What neither could see was the subtler kind — nothing was duplicated word-for-word anymore, just the same *point* in different words. The semantic pass caught that, and it was right: I'd made the same argument, that moving office habits online isn't the same as working remote-first, in *five* separate chapters, on top of 166 smaller self-restatements scattered across 51 chapters. :quote[I'd paraphrased myself too well for anything cheaper than an LLM to catch me.]{#paraphrased-myself}
+
+My hunch was correct; I'd just needed three escalating tools to prove what re-reading my own book to blurry-eyed exhaustion couldn't.
+
+### Content audits
+
+Beyond duplication, a second set of tools graded the prose itself — split by how they judge. Some are **probabilistic** (an LLM reads the chapter and forms an opinion; run it twice and the findings can shift), and some are **deterministic** (rules and arithmetic — same input, same output, every time).
+
+#### Probabilistic (LLM) audits
+
+The Claims lens paid for itself early. It stopped on a sentence claiming GitHub's monthly all-hands "dedicated roughly half of each session to live Q&A" — a number I was certain of and had wrong; it was closer to a third, and the share moved around over the years. No linter flags that: it's clean, confident prose that happens to be false. Only a reader asking "is this actually true?" catches it, and I'd have shipped it otherwise.
+
+Claims is one of **20 single-purpose lenses** in a "prose audits" test — a per-chapter LLM auditor where each lens asks one narrow question so the model can't hand-wave a vague "looks good." `--lens=all` runs every lens; `--models`/`--rounds` add a deduplicated multi-model and self-consistency panel, so a finding has to survive more than one model (or more than one run) to count. A sampling of the rest:[^lenses]
+
+| Lens | What it catches |
+| --- | --- |
+| AI-tells | Phrasing that reads as machine-generated rather than my voice |
+| Hook | Whether the opening earns its place or is throat-clearing |
+| Legal | Legal or reputational risk (naming names, unverified claims) |
+| Dated | Perishable references that will age badly ("recently," "this year") |
+| Global | Idioms and cultural assumptions that trip up non-US readers |
+| Dual-audience | Whether a chapter serves managers *and* individual contributors |
+| Promise | Whether the chapter delivers on the book's core promise |
+
+Separately, I also had a traits analysis test, which scored each chapter on persuasion and engagement traits, catching prose that was technically clean but flat so I could give it another (human) pass.
+
+#### Deterministic audits
+
+I ran these after a round of editing, to see whether the book was improving as a reading experience: chapter- and paragraph-length distributions, whole-book reading time, a hard EPUB size budget (Kindle penalizes oversized files on delivery), a book-wide consistency checker, and a stats dashboard whose `--check` mode fails the build unless every "attention item" — a chapter missing a TL;DR, an unbalanced callout — sits at zero.[^deterministic]
+
+Together, these turned "is the book actually getting better?" from a gut feeling into a number I could watch move between drafts.
+
+![The writing dashboard for Open and Async: summary cards reading 99,651 total words, 399 minutes reading time, 72 chapters, 1,384 average chapter words, 103 manager callouts, 102 IC callouts, 123 pro tips, and 62 objections, with a green "No issues found — all content chapters look good!" all-clear at the bottom.](/assets/img/book-writing-dashboard-1600x438.png "The writing dashboard's --check mode gates the build on zero attention items.")
+
+## Design
+
+I am *far* from a designer, and I'd never published an ebook before — I had no idea how they worked beyond reading many of them. Two aha moments changed the way I thought about publishing:
+
+- :quote[An ebook is a website in a trench coat]{#ebook-trench-coat} — ebooks are just HTML and CSS, albeit a very stripped-down version.[^kindlewebkit] If you can make a website, you can make an ebook.
+- A print book can be one too, with enough effort — CSS natively has powerful `@media print` and `@page` rules, including left and right page styling, title pages, page numbers, and more.
+
+For the interior design, I reached for [Tailwind CSS](https://tailwindcss.com/) — not because it's built for books (it isn't), but because it's what I already use every day. `@tailwindcss/typography` gave me a typographic baseline to start from instead of a blank page.
+
+One note: I purposefully hired a *human* designer for the cover. For a book about being authentic, the first impression had to be authentic.[^cover]
+
+### The invisible leak
+
+Styling every format from one stylesheet has a failure mode: CSS meant for one format bleeding into another. To keep my e-reader tweaks away from the paperback, I scoped each of them to `@media not screen`. But [WeasyPrint](https://weasyprint.org/) — the HTML/CSS-to-PDF engine that draws the paperback, [more on it below](#a-reproducible-toolchain) — renders the print PDF with media type `print`, and `print` *is* "not screen," exactly as the spec says. So two of those e-reader rules matched anyway and quietly bled into the book: a tighter line-height on callout paragraphs, and a `box-decoration-break` change that dropped the repeated padding on any callout that split across a page.
+
+Neither was visible. Nothing *looked* broken. But each shaved a sliver of vertical space off every callout, and the book slowly deflated from 576 printed pages to 567. I only found out because the print PDF is pinned to exactly 576 pages[^pagecount] and the build went red — a page-count gate written to protect the cover spine, catching a CSS bug it was never designed for. :quote[Two formats from one stylesheet is a gift, right up until the cascade forgets which format it's in.]{#cascade-forgets} The fix re-pins the original values in a print-only block, loud with `!important` so the leak can't win.
+
+### Tests
+
+The design and layout got a test suite as well — driven by Playwright against the built HTML, so it checks what actually renders, not what I hoped the CSS did. Two categories:
+
+#### Accessibility (axe-core)
+
+The `axe-core` engine runs over the rendered book in **both light and dark mode** against WCAG 2.1 AA — no critical or serious violations, AA color contrast in either scheme, alt text on every image, logical heading order, discernible link text (no bare "click here"), and a declared `lang` attribute so screen readers pick the right pronunciation. It's the `test:a11y` gate, enforced in CI as `validate-playwright`. Accessibility earned more than a subsection here — it has [its own accessibility statement](https://open-and-async.com/accessibility/), and a dedicated deep dive is coming.
+
+#### Visual & layout regression (Playwright)
+
+These assert that the actual computed styles match the design intent — the details that break quietly and never show up in a diff. A representative few: the title page renders centered with a lighter-weight subtitle; the table of contents is a real `nav` with the `doc-toc` role and working links; every callout type carries its own unique left-border color and auto-generated label prefix; and small caps get real `font-variant: small-caps`, not just a class name.[^visual]
+
+None of this is glamorous. It's exactly the kind of thing that breaks silently in a Friday CSS refactor and doesn't surface until a reader emails you.
+
+## Building
+
+We've got clean Markdown, and a test suite that ensures the content is clean, but we still need to get it into a format that can be published (EPUB, Kindle, paperback in two flavors, and web). Core to that custom build pipeline was [Pandoc](https://pandoc.org/), a universal document converter that can read Markdown and spit out just about anything else. I used Pandoc as the engine, but Pandoc alone gets you a generic document — turning that into five store-ready formats took a pile of custom tooling:
+
+### A reproducible toolchain
+
+Pandoc is only the engine. The full build also needs [WeasyPrint](https://weasyprint.org/) to draw the PDF, Ghostscript to convert it, and a pile of Noto fonts for full Unicode coverage — a gnarly stack of native dependencies to install by hand. The whole thing therefore lives in a Docker image and a dev container, pinned to an exact renderer version (a detail that matters more than you'd think — see the [page-count gate below](#rendering--post-processing-per-format)). That container is also why I could draft the book from an iPad: the heavy toolchain ran in Codespaces, not on my lap.
+
+### Pre-processing (before Pandoc sees the text)
+
+Everything starts on a throwaway copy of the source tree, so these transforms never touch the real chapters. A couple of scripts massage that copy before Pandoc runs — stamping each build with its commit SHA, turning inline links into numbered footnotes for print (a hyperlink is useless on paper; a footnote with the full URL isn't), and reshuffling the chapters per format so the EPUB gets shareable quote links while print and Kindle get a QR share page instead.[^preprocess]
+
+### CSS pipeline
+
+One Tailwind stylesheet (`src/style.css`) compiles through PostCSS to `dist/style.css`, so screen, print, and EPUB all start from the same source of truth. Each format then takes a different slice: `strip-page-rules.js` derives a cut-down stylesheet for EPUB, stripping the CSS Paged-Media features (`@page`, `target-counter()`, `oklch()`, custom properties) that Kindle and EPUBCheck choke on.
+
+### Lua filters (the interesting part)
+
+This is the part I didn't expect to love. Pandoc parses everything into an abstract syntax tree (AST) and lets you rewrite that tree with small Lua scripts before it renders — so format-specific tweaks live in code, not smeared through the prose. Deleting a node, for instance, is just returning an empty table:
+
+```lua
+-- strip-comments.lua: drop editorial HTML comments so my notes-to-self
+-- never ship inside the published .xhtml. Returning {} removes the node.
+function RawBlock(el)
+  if is_html_comment(el.format, el.text) then
+    return {}
+  end
+end
+```
+
+The rest are variations on that idea:
+
+- **`add-div-titles.lua`** — injects the callout labels ("TL;DR: ", "💡 Pro-Tip: ", "👔 For managers: ") and DPUB-ARIA accessibility roles, so those labels aren't hardcoded in every chapter and can differ per format.
+- **Emoji, handled three ways** — color emoji render fine on screen, but `strip-emoji-kindle.lua` swaps them for Kindle-safe glyphs (e-ink has no emoji font) while `body-emoji-images.lua` turns them into inline Twemoji images for the print PDF.
+- **`tagline-share-links.lua`** — appends a "share this idea" permalink after each of the book's bumper-sticker lines in the EPUB.
+
+### The dark box
+
+Turning emoji into images solved the missing-font problem and created a subtler one. Twemoji's PNGs are transparent, but the RGB *underneath* the transparent pixels is dark slate — invisible if a renderer honors the alpha channel, an ugly charcoal box if it doesn't. And whether a renderer honors alpha turned out to depend entirely on where the book got opened.
+
+On Kindle, my first fix baked the callout's background color into each PNG and dropped the alpha outright. It looked perfect on a light-mode Paperwhite and terrible on Kindle for iOS, which *does* honor transparency and doesn't paint the callout tint behind the image — so every emoji got a colored rectangle instead of a dark one. I'd traded one box for another. What shipped keeps the alpha intact but rewrites the RGB of every fully transparent pixel to white: renderers that honor alpha get clean transparency; the ones that flatten it get white, which vanishes on a white page.
+
+The print PDF needed the *opposite* fix. Ghostscript converts the paperback to PDF/X-1a with `-dNOTRANSPARENCY` — required to keep the text as selectable vectors instead of a 300-DPI bitmap — and that flag *always* drops the alpha. So there, transparency is the enemy: each emoji is flattened onto the exact color it sits on (the callout's gray, or white for body text) with no alpha at all, so there's nothing to drop and no box to reveal. :quote[The same bug needed opposite fixes — one runtime might drop the alpha, the other was guaranteed to.]{#opposite-fixes} A Python script bakes both sets at build time.
+
+It's the most ordinary bug in the world — mine just happened to be in a book.[^emoji]
+
+### Rendering & post-processing per format
+
+With the tree transformed, each format renders down its own path — and the paperback takes the longest road. HTML and the PDF both render through Pandoc, but the PDF is drawn by [WeasyPrint](https://weasyprint.org/), an HTML/CSS-to-PDF engine — so I typeset the entire book with the same box model I'd use for a web page. The EPUB goes a different way: Pandoc embeds WOFF2 font subsets, then `postprocess-epub.js` repackages it to stay valid and small. And the paperback keeps going after everyone else has stopped, out to Ghostscript to become **PDF/X-1a:2001** — CMYK color, an embedded USWebCoatedSWOP ICC profile, flattened transparency — the archaic print standard IngramSpark (the print-on-demand distributor) won't live without.
+
+That same 576-page gate earns its keep here too. `check-pdf-page-count.js` pins the count and fails the build the moment the paperback drifts off 576 pages — cheap insurance against a stale page count shipping as a wrongly-sized cover spine.
+
+That's five publishable files out of one Markdown source[^docx] — which raises the obvious question: how do I know any of them are actually correct?
+
+### Testing the build
+
+The prose linters keep the *words* honest; a larger slice of that Vitest suite keeps the *build* honest. A Pandoc upgrade or a stray line of CSS can silently break a format, and I wouldn't find out until a reader's Kindle rendered the wrong font. The tests check the machinery: that each transform does what it claims, and — the biggest cluster by far — that typography hasn't quietly drifted across small caps, table borders, print contrast, dark mode, and the e-ink emoji fallback. Each is a test because each is a way I've watched a build look fine and render wrong.
+
+But unit tests only prove *my* code is right, not that the *output* is valid — so each artifact also runs through the same validators the stores themselves use, and a rejection happens on my laptop, not on upload day. Every EPUB goes through [EPUBCheck](https://www.w3.org/publishing/epubcheck/), the validator every store runs on upload, and [Ace by DAISY](https://daisy.org/activities/software/ace/), an accessibility audit built specifically for ebooks; the built HTML gets crawled by [lychee](https://github.com/lycheeverse/lychee) for link rot and run through an HTML validator before malformed markup can become a malformed ebook.
+
+None of this is something I have to remember to run. Every push to `main` fans out into **14 parallel CI jobs** — build the CSS, then the EPUB, Kindle EPUB, print PDF, PDF/X-1a, HTML, and DOCX side by side, and validate each as its artifact comes ready. A green check means every format built and passed every gate; a red X means something's off before I've even alt-tabbed away.
+
+```yaml
+# build.yml — mostly independent jobs, so CI runs them in parallel
+jobs:
+  build-epub:            # → dist/book.epub
+  build-kindle:          # → Kindle-specific EPUB
+  build-pdf:             # → 6"×9" paperback PDF
+  build-pdf-ingramspark: # → PDF/X-1a for IngramSpark
+  build-html:            # → web preview
+  validate-epubcheck: { needs: build-epub }
+  validate-ace:       { needs: build-epub }
+  validate-playwright: { needs: build-html }
+```
+
+![A GitHub Actions run of build.yml fanning out into fourteen jobs — lint-and-test, detect-duplicates, build-css, build-epub, build-kindle, build-pdf, build-html, build-docx, and Build PDF/X-1a, then validate-epubcheck, validate-ace, validate-links, validate-html, and validate-playwright — every one passing green, total duration five minutes eight seconds.](/assets/img/book-ci-build-graph-1600x794.png "Every push to main fans out into 14 parallel CI jobs.")
+
+And because every build stamps its commit onto the title page, the book is versioned like software. I'm on release 1.0.1 — with a tag and a changelog, not a graveyard of `final_v3_revised_ACTUALLY_FINAL.docx` files. A typo fix is a point release.
+
+## Publishing
+
+Here's the irony: after automating everything up to this point, the actual publishing is almost entirely click-ops. There's no `git push` to production. Each store — Amazon's KDP, IngramSpark for bookstores and libraries, Draft2Digital for Apple Books and Kobo — wants you to log into a web dashboard, upload the EPUB and the print PDF by hand, and re-enter the same metadata (title, description, BISAC categories, keywords, price) into a slightly different form each time. :quote[My pipeline builds a flawless artifact, and then I upload it like it's 2009.]{#upload-like-2009}
+
+A few things kept even that part honest:
+
+- **I'm my own publisher.** I formed an LLC and bought my own ISBNs — one per format — so the catalogs list me as the publisher, not a free platform ISBN with the retailer's name on it — and none of the vendor lock-in that rides along with one, since a free ISBN only publishes through the platform that handed it out.
+- **Wide, not exclusive.** I skipped Amazon's KDP Select, which pays a bit more in exchange for locking the book to Amazon, so the book could be available everywhere at once.
+- **The metadata is versioned too.** The description, categories, and keywords live in the repo — a single source of truth I can diff — and an ONIX feed is generated from it for the channels that accept one. I still paste it into web forms by hand, but at least I'm pasting from a file under version control.
+
+## Looking forward
+
+The nice thing about a book that builds like software: the same machinery keeps paying off after launch.
+
+- **Translations.** Because the content is structured Markdown, translating it is closer to localizing an app than retyping a manuscript. I've got a pipeline (Brazilian Portuguese, Latin American Spanish, German) that drafts a translation of the finished English book, pins every heading ID so cross-references don't break, enforces a glossary so key terms stay consistent, and back-translates the result to check it against the original — the same trust-but-verify instinct as the prose linters, just across languages.[^translations]
+- **An audiobook.** If I record one, turning 100,000 words into narration opens a whole new class of bug: mispronunciations — so the audiobook has its own QA suite. It transcribes the generated audio back to text and diffs that against the script, checks phonemes on the tricky words, and audits pronunciations — all wired into their own CI workflows. It's a snapshot test, aimed at my own voice.[^audiobook]
+- **Releasing the tools.** Almost none of this is specific to my book — the validators, the Lua filters, the whole pipeline. I'd like to clean them up and put them out as open source (a noun, no hyphen), so the next person doesn't have to build it from scratch. And none of it would exist without the open source projects it already stands on — the whole book is other people's generosity, compiled.[^oss]
+
+## Conclusion
+
+One Markdown source, a linter with opinions, and a build that yells when I'm wrong — here's what all that over-engineering added up to.
+
+### By the numbers
+
+| Metric | Count |
+| --- | --- |
+| Words | ~100,000 across ~70 chapters and sections |
+| Print length | 576 pages (6"×9") |
+| Published formats | 5 (plus a DOCX I don't ship) |
+| Tests | ~70 files, 2,204 cases, ~5,500 automated checks |
+| CI jobs per push | 14, in parallel |
+| Style rules | ~300 covering 500+ banned terms, over a 5,000-rule grammar engine |
+| Commits | 5,000+ to get here |
+| Books | 1 (frankly over-engineered, but fun) |
+
+:::objection[Wasn't this over-engineered — procrastination dressed up as rigor?]
+Over-engineered, absolutely. But procrastination it wasn't: of the ~5,000 commits here, only about one in five touched the build tooling at all — the other four were the book. Every check earned its place by catching something I'd otherwise have shipped. Would I do it again? Without hesitation.
+:::
+
+The tooling outgrew the book, too. I pointed the whole apparatus at this blog's fifteen-year archive and caught a 2011 post that had been saying "its clear" where it meant "it's clear" the entire time — the exact missing apostrophe my linter now flags on every keystroke. Thousands of people read it; nobody ever mentioned it. :quote[You don't find out. You have to go looking.]{#you-have-to-go-looking}
+
+And it wasn't only the tooling that transferred — the habits did. The instincts I sharpened here — treat a mistake caught once as a rule that catches it forever, keep a human in the loop on anything a machine drafts, make the build the source of truth — have already found their way into how I run my other projects, this site included.[^resumepdf]
+
+I'm not going to tell you to write 5,500 tests for your novel. For most books, most of this is wildly disproportionate — and that's the point. I did it because the marginal cost of one more check, one more format, one more validator was a few minutes and a little curiosity, and because doing it the developer way meant I could write from an iPad away from my desk and trust that `main` was always shippable. If you spend your days shipping software, the tools you already know will take you further than you'd expect. :quote[The publishing industry starts with a word processor. I started with a Git repository]{#started-with-a-git-repo} — and I'd start there again.
+
+<BookCta variant="featured" />
+
+What would you over-engineer, if you pointed your own tools at it?
+
+[^opensource]: A colleague called me out on "open-source" in an early draft; I vowed never to make the mistake again, then made a linter swear to it for me.
+[^latex]: Chief among them: I lost a weekend to [LaTeX](https://www.latex-project.org/), on the theory that the tool serious typesetters swear by had to be worth learning. It is — if you typeset for a living. For me it was a wall of arcane macros and inscrutable errors to approximate a layout CSS gave me in an afternoon. I bailed and never looked back, which is how the whole book ended up drawn with a web box model instead.
+[^validators]: The roster, grouped. **Typography:** `validateSmallcaps` and `validateEscapedSmallcaps` (acronyms rendered in small caps, not accidentally escaped), `validateEmDashes`, `validateNumberRangeDashes` (en-dash ranges), `validateQuotePunctuation`, `validateListPunctuation`, `validateBoldKeywords`. **Structure:** `validateHeadingHierarchy` (no skipped levels), `validateDuplicateHeadings`, `validateParagraphLength` (no walls of text), `validateMinOpenerLength`, `validateSectionIntros` / `validateSectionIntroHasLead` / `validateSectionIntroFinalLead` / `validateSectionIntroNoTldr` (section intros lead into the content without restating the TL;DR), `validateTldrLength`, `validateChapter`, `validateIndexIntegrity` (`index.yml` matches the files on disk). **Links & references:** `validateCrossReferences`, `validateNoBareUrlLinkText`, `validateFootnotes`, `validateAcronymExpansion` (expanded on first use). **Callouts:** `validateCalloutBalance` (managers paired with ICs), `validateCalloutDivs`, `validateRoleCalloutLabels`. **Voice & anti-AI:** `validateGitHubTense`, `validateOpenSourceHyphenation`, `validateHypotheticalHooks`, `validateSentenceStarters`, `validateDoubledWords`. **Housekeeping:** `validateNoTodoMarkers`, `validateNoTransitionTodos`, `validateBuildIdentifiers`, `validateSSML` (audiobook markup).
+[^languagetool]: Self-hosted, so it ran on-device too — well, in the Codespace.
+[^cspell]: I'm a terrible speller so I also ran [CSpell](https://github.com/streetsidesoftware/cspell) in VS Code, which shared a custom dictionary with Harper.
+[^lenses]: The other twelve, briefly: Consistency (drift in the book's own conventions), Taglines (bumper-sticker lines worth pulling into callouts), Proofread (typos and mechanical slips), Cross-reference (broken "see chapter X" pointers), Acronyms (unexpanded on first use), Jargon (the "explain it to a new hire" test), Alt-text (missing or non-descriptive), Evidence (assertions with no why or how), Structure (heading hierarchy), Readability (sentences hard to parse on one read), Inclusive (non-inclusive language, judged in context), and Emphasis (overused bold, italics, and scare quotes).
+[^kindlewebkit]: Not just a metaphor. Kindle's modern format (KF8/AZW3) is rendered by a WebKit-based engine — the same rendering lineage as Safari — down to Amazon's own `-webkit-` CSS extensions; a Kindle book really is a little offline web page. But the engine ages slowly across a long tail of e-ink models still in readers' hands, so the HTML and CSS it reliably supports lag years behind the modern web — hence "very stripped-down."
+[^visual]: The rest, in the same spirit: the copyright page is present and bottom-aligned on screen; H2 is larger than body text and H3 smaller than H2; links are underlined, code blocks have a dark background and inline code a visible one, and blockquotes carry a left border; and body text uses the Tailwind Typography `prose` class.
+[^pagecount]: Locking the length isn't fussiness — the whole physical book is built around that number. A page count sets the book's thickness, so the spine width, and the cover art wrapped around it, is computed from it. Drift off 576 pages and the cover no longer fits the spine: fixing it means a round trip back to the human designer to re-render the wrap, not a one-line code change. [More on that gate below](#rendering--post-processing-per-format).
+[^cover]: AI could have generated something competent, and that was exactly the problem — competent and generic is the failure mode I spent 5,500 checks scrubbing out of the *text*. The cover is the one thing a reader judges before reading a word, so it was the last place I wanted a machine's default taste. A human designer got the brief; the algorithm didn't.
+[^emoji]: I spent years at GitHub, where emoji are practically load-bearing — reactions, `:shipit:`, an emoji picker in every comment box — and they turned up a fresh encoding edge case like clockwork. Emoji, uh, find a way.
+[^deterministic]: `audit-chapter-lengths.js` / `audit-paragraph-lengths.js` flag outlier chapters and walls of text; `reading-time.js` clocks each chapter and the whole book at 238 wpm (average adult non-fiction speed); `check-epub-size.js` enforces the size budget; `consistency-check.js` settles "open source" vs "open-source" and "async" vs "asynchronous" book-wide; and `writing-dashboard.js` renders it all to HTML. Plus a handful of advisory local checkers — `proselint`, GNU `diction`, and GNU `style` — for wordiness and readability stats.
+[^preprocess]: `update-revision.js` stamps the build SHA and version onto the title page, so every copy traces to its commit; `links-to-footnotes.js` does the print link-to-footnote rewrite; and a per-format manifest handles the reshuffle. Same source, subtly different books.
+[^dry]: jscpd is not prose-specific. It's a great way to DRY up code.
+[^docx]: The build actually emits a sixth artifact — a DOCX — which I used to gather early feedback from reviewers in Word, with track changes and comments. It's a working format, not something I publish.
+[^translations]: The pipeline drafts and self-checks, but it doesn't get the final word. If I decide to actually publish any of these, a human native speaker will review and proof the translation first — machine-assisted, human-approved.
+[^audiobook]: The QA suite catches drift, but a transcript diff can't hear a flat line reading or a subtly wrong emphasis. If I release it, I'll listen to the finished narration end to end — every word ear-checked by a human before it ships.
+[^resumepdf]: Case in point: [my résumé](/resume.pdf) is a print-only web page the build renders straight to PDF — a different engine than the book (headless Chrome here, WeasyPrint there), but the same "[an ebook is a website in a trench coat](#quote-ebook-trench-coat)" idea, pointed at paper.
+[^oss]: The full list, with thanks to their maintainers: [Tailwind CSS](https://tailwindcss.com/) and [Tailwind Typography](https://github.com/tailwindlabs/tailwindcss-typography), [Pandoc](https://pandoc.org/), [WeasyPrint](https://weasyprint.org/), [Ghostscript](https://www.ghostscript.com/), [qpdf](https://github.com/qpdf/qpdf), [Poppler](https://poppler.freedesktop.org/), [Source Serif 4](https://github.com/adobe-fonts/source-serif), [Source Sans 3](https://github.com/adobe-fonts/source-sans), and [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) by Adobe, [Twemoji](https://github.com/jdecked/twemoji), [ImageMagick](https://imagemagick.org/), [sharp](https://sharp.pixelplumbing.com/), [SVGO](https://github.com/svg/svgo), [PostCSS](https://postcss.org/) and [cssnano](https://cssnano.github.io/cssnano/), [Remark](https://remark.js.org/) and [Retext](https://github.com/retextjs/retext) (and countless ecosystem plugins), [textlint](https://textlint.github.io/), [markdownlint](https://github.com/DavidAnson/markdownlint), [Prettier](https://prettier.io/), [Harper](https://writewithharper.com/), [Vitest](https://vitest.dev/), [Playwright](https://playwright.dev/) and [axe-core](https://github.com/dequelabs/axe-core), [Ace by DAISY](https://daisy.org/activities/software/ace/), [EPUBCheck](https://www.w3.org/publishing/epubcheck/), [htmlproofer](https://github.com/gjtorikian/html-proofer), [lychee](https://github.com/lycheeverse/lychee), [html-validate](https://html-validate.org/), [Pillow](https://python-pillow.github.io/), [LanguageTool](https://languagetool.org/), [Vale](https://vale.sh/), [proselint](https://github.com/amperser/proselint), [GNU Diction](https://www.gnu.org/software/diction/), [yamllint](https://github.com/adrienverge/yamllint), [js-yaml](https://github.com/nodeca/js-yaml), [jscpd](https://github.com/kucherenko/jscpd), and [just](https://github.com/casey/just).

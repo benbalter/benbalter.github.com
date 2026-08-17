@@ -129,10 +129,28 @@ test.describe('Sitemap Generation', () => {
       });
     });
 
+    test('sitemap.xml should exist and mirror the generated urlset', () => {
+      const aliasPath = path.join(distAstroDir, 'sitemap.xml');
+      expect(fs.existsSync(aliasPath), 'sitemap.xml should exist in dist-astro directory').toBeTruthy();
+
+      const content = fs.readFileSync(aliasPath, 'utf-8');
+
+      // Should be a valid urlset (not a sitemapindex) so /sitemap.xml serves
+      // real <url><loc> entries directly.
+      expect(content).toContain('<?xml version="1.0" encoding="UTF-8"?>');
+      expect(content).toContain('<urlset');
+      expect(content).toContain('</urlset>');
+      expect(content).toContain('<url><loc>https://ben.balter.com/</loc>');
+
+      // Should be byte-for-byte identical to the generated chunk (single source of truth).
+      const source = fs.readFileSync(path.join(distAstroDir, 'sitemap-0.xml'), 'utf-8');
+      expect(content).toEqual(source);
+    });
+
     test('sitemap-0.xml should include all core pages', () => {
       const sitemapPath = path.join(distAstroDir, 'sitemap-0.xml');
       const content = fs.readFileSync(sitemapPath, 'utf-8');
-      
+
       // Core pages that should be in the sitemap
       const corePages = [
         'https://ben.balter.com/',
@@ -161,7 +179,9 @@ test.describe('Sitemap Generation', () => {
       // Should have Allow directive
       expect(content).toContain('Allow: /');
       
-      // Should reference sitemap (Astro uses sitemap-index.xml)
+      // Should reference both the conventional /sitemap.xml alias and the
+      // Astro-generated sitemap-index.xml (multiple Sitemap lines are valid).
+      expect(content).toContain('Sitemap: https://ben.balter.com/sitemap.xml');
       expect(content).toContain('Sitemap: https://ben.balter.com/sitemap-index.xml');
       
       // Host directive is optional in robots.txt and not required by spec

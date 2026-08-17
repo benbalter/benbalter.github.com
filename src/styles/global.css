@@ -1084,7 +1084,13 @@
   }
 
   .footnotes ol {
-    @apply pl-4 mb-0;
+    /* list-style-position:outside renders the marker in the ol's left padding.
+       Tailwind Typography's `.prose ol` lives in a later cascade layer, so a
+       plain `pl-8` here loses to its ~1.6em padding regardless of specificity —
+       that leaves only ~22px, which clips two-digit markers (10., 11., …) to
+       "L0.". !important reverses layer order so the wider padding actually wins. */
+    padding-left: 2.5rem !important;
+    @apply mb-0;
   }
 
   .footnotes ol li {
