@@ -3,6 +3,14 @@
 set -e
 
 if ! [ -x "$(command -v vale)" ]; then
+	# Fail loud in CI: a linter that can't run must not silently pass as a
+	# green gate. Locally, degrade gracefully so contributors without Vale
+	# installed can still run the rest of the suite.
+	if [ -n "$CI" ]; then
+		echo "ERROR: Vale not found, but \$CI is set — the gate cannot run." >&2
+		echo "Refusing to pass silently. Install Vale in the workflow before this step." >&2
+		exit 1
+	fi
 	echo "Vale not found. Skipping prose linting with Vale."
 	echo "To install Vale, visit: https://vale.sh/docs/vale-cli/installation/"
 	echo "Vale provides additional prose style and grammar checking."
