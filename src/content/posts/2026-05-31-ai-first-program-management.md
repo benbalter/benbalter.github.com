@@ -12,11 +12,9 @@ That scramble hasn't gone away. But increasingly, I'm not doing it alone.
 
 The evolution makes sense in hindsight. I've argued that teams should [default to async communication](/2022/03/17/why-async/) — written, durable, discoverable artifacts over synchronous [meetings](/2023/04/20/meetings-are-a-point-of-escalation/). That managers should [use the same tools engineers use](/2023/01/10/manage-like-an-engineer/) — issues, pull requests, project boards — to plan and track their own work. And most recently, that [AI agents are extending the same patterns](/2026/03/18/agentic-workflows/) of transparency and code review that made open source successful.
 
-These ideas aren't disconnected. They're an evolution.
-
 If the shift from synchronous to async was about decoupling communication from presence, and managing like an engineer was about applying developer workflows to leadership, then AI-first program management is the next logical step: using AI to amplify the judgment, pattern recognition, and relationship work that makes program managers effective.
 
-The through-line is the same principle I've been writing about for years: [make work visible](/2022/02/16/leaders-show-their-work/), make it durable, and reduce the friction between having an idea and acting on it. AI doesn't change that philosophy. It accelerates it.
+The through-line is the same principle I've been writing about for years: [make work visible](/2022/02/16/leaders-show-their-work/), make it durable, and reduce the friction between having an idea and acting on it. AI doesn't change that philosophy so much as run it faster.
 
 ## AI across the PM toolkit
 
@@ -72,11 +70,11 @@ Where AI falls short is in reading the political dynamics. Understanding that Te
 
 ## What doesn't change
 
-It would be easy to read all of this and conclude that AI is about to make program managers obsolete. The opposite is true.
+It would be easy to read all of this and conclude that AI is about to make program managers obsolete. It won't.
 
-The responsibilities haven't changed. Communication, risk management, relationship building, consensus-driving — these are still the job. What's shifted is the ratio of *information processing* to *judgment* in a PM's day. AI handles more of the former so you can focus more on the latter.
+The responsibilities haven't changed. What's shifted is the mix of the day: less time processing information, more time on judgment. AI reads the forty-message thread; you still decide whether the disagreement buried two-thirds of the way down needs a meeting or just a quiet word with the two people in it.
 
-The things AI can't do are precisely the things that make great PMs great: reading a room, building trust over months, knowing when to push and when to back off, navigating organizational politics, and making the hard call when the data is ambiguous. These are human skills, and they become *more* valuable as AI handles the routine work, not less. :quote[When everyone has access to the same AI tools, the differentiator is the human wielding them.]{#differentiator-is-the-human}
+The things AI can't do are the parts that were always the hard part: reading a room, building trust over months, knowing when to push and when to back off, making the call when the data is ambiguous and someone still has to own the outcome. Those get *more* valuable as AI absorbs the routine work. :quote[When everyone has access to the same AI tools, the differentiator is the human wielding them.]{#differentiator-is-the-human}
 
 ## What changes for PMs
 
@@ -92,7 +90,9 @@ That said, AI-first program management does require new muscles — or at le
 
 ## The judgment is still yours
 
-Here's the tell that the job isn't going anywhere: an AI can draft the RFC that reconciles six teams' input, but it can't be in the room when the two loudest teams realize the compromise costs them both something. It can flag that a launch date is at risk; it can't decide whether to hold the line with the VP or eat the slip. It can produce a technically correct status report; it can't know that this particular exec reads "on track" as "stop asking me about it," while another wants every caveat spelled out.
+The last big launch I ran, every dashboard was green the Friday before ship: PRs merged, tests passing, no open blockers, and SnippetGPT's rollup said exactly that. What the board didn't show was that one engineer had gone quiet in the launch channel three days running—terse in a way he normally wasn't—and the security reviewer had signed off with a single "lgtm, mostly." No tool reads "mostly" as anything but approval. I read it as a person who had found something and hadn't decided how much it mattered yet. We held the launch a week, and the hedge turned out to be an auth edge case that would have paged us at 2 AM on day one.
+
+No model was going to catch that. It would have read the same green board I did. The job was never assembling the status—AI can do that now—it's knowing which green is actually green, and who to call when it isn't.
 
 The shift to async made program management more intentional. Managing like an engineer made it more transparent. AI makes the same hours count for more. Each of those shifts moved routine work off the PM's plate and left the judgment exactly where it was.
 
