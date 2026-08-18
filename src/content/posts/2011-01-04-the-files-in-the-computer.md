@@ -5,7 +5,7 @@ tldr: "Imagine if a routine traffic stop, say, for failure to signal or wear a s
 archived: true
 ---
 
-<img src="https://ben.balter.com/wp-content/uploads/2011/01/policeman.jpg" alt="Policeman Checks Cellphone" title="Policeman Checks Cellphone" class="mx-auto block" />
+<img src="https://ben.balter.com/wp-content/uploads/2011/01/policeman.jpg" alt="Police officer checks cellphone" title="Police officer checks cellphone" class="mx-auto block" />
 
 When drafting and interpreting the fourth amendment, neither the founding fathers, nor the countless legal scholars that followed them could have ever imagined that one day technology would allow us to walk down the street with our entire life chronicled in our pocket. The growing popularity of the cloud coupled with increasing power of smart phones has resulted in what not too long ago was tool for placing and receiving calls, today, in actuality, is a portal to one's entire digital life. Imagine if a routine traffic stop, say, for failing to signal properly, would place in the state's hands every email you have ever sent, contact you have ever met, or financial transaction you have ever completed (not to mention your current [Angry Birds](http://en.wikipedia.org/wiki/Angry_Birds) score!). Regardless of how Orwellian it may sound, the California Supreme Court [ruled in favor of just such an outcome](http://arstechnica.com/tech-policy/news/2011/01/warrantless-cell-phone-search-gets-a-green-light-in-california.ars?comments=1#comments-bar).
 

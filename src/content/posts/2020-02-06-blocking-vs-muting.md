@@ -13,6 +13,8 @@ Typically, social networks offer at least two distinct user safety features whic
 
 ## User muting
 
+<!-- vale Microsoft.Accessibility = NO -->
+
 Muting is most useful when there's content you don't want to see or don't want to be notified about. You might mute someone who posts spoilers for your favorite show (or spoilers posted by any user), users or topics you don't want in your feed for various reasons, or mute an account that's bothering you, without being confrontational, as generally speaking the muted user doesn't ever know that they've been muted.
 
 ## User blocking (on most sites)

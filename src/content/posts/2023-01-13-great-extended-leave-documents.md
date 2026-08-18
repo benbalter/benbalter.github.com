@@ -20,8 +20,8 @@ When is your last day in the office? When do you anticipate being back? If the e
 
 |                           | Start           | End             | Dates                |
 | ------------------------- | --------------- | --------------- | -------------------- |
-| First Leave               | Event           | Event + 2 weeks | 1/1/2020 − 1/15/2020 |
-| Second Leave              | Event + 4 weeks | Event + 6 weeks | 2/1/2020 − 2/15/2020 |
+| First Leave               | Event           | Event + 2 weeks | January 1, 2020 − January 15, 2020 |
+| Second Leave              | Event + 4 weeks | Event + 6 weeks | February 1, 2020 − February 15, 2020 |
 
 ### ☎️ Contact preferences
 
