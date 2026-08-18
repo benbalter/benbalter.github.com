@@ -1,0 +1,52 @@
+name: Update ai-tells
+
+# Monthly check for a newer tbhb/vale-ai-tells release. If there is one, bump the
+# pinned version in both Vale configs and open a PR whose body lists the new rules
+# now firing on recent posts, so calibration is a review-and-merge, not research.
+# Never auto-merges — deciding which new rules are voice vs drift is human judgment.
+
+on:
+  schedule:
+    - cron: '0 9 1 * *'  # 09:00 UTC on the 1st of each month
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    name: Bump ai-tells and open PR
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7
+
+      - name: Install Vale
+        env:
+          VALE_VERSION: 3.14.2
+        run: |
+          curl -fSL "https://github.com/errata-ai/vale/releases/download/v${VALE_VERSION}/vale_${VALE_VERSION}_Linux_64-bit.tar.gz" | tar xz vale
+          sudo mv vale /usr/local/bin/
+
+      - name: Check for update, bump, and summarize
+        id: bump
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: script/update-ai-tells "${RUNNER_TEMP}/ai-tells-pr-body.md"
+
+      - name: Open PR
+        if: steps.bump.outputs.changed == 'true'
+        # NOTE: pin to a commit SHA (like the other workflows) before relying on this.
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: chore/update-ai-tells
+          base: main
+          title: 'Update ai-tells to ${{ steps.bump.outputs.new }}'
+          body-path: ${{ runner.temp }}/ai-tells-pr-body.md
+          commit-message: 'Bump ai-tells ${{ steps.bump.outputs.old }} → ${{ steps.bump.outputs.new }}'
+          labels: dependencies
+          delete-branch: true
+          add-paths: |
+            .vale.ini
+            .vale-ai-tells.ini
