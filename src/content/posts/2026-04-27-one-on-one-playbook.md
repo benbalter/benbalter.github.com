@@ -15,13 +15,13 @@ Most 1\:1s fail in one of three ways:
 
 ## What belongs in a 1\:1
 
-Great 1\:1s focus on topics that only work synchronously. Five categories keep coming up:
+Great 1\:1s focus on topics that only work synchronously. Five keep coming up:
 
-- **Career growth and development.** Where do you want to be in a year? What skills do you want to develop? These conversations require back-and-forth exploration, picking up on what's left unsaid, and nuanced guidance that doesn't fit in an issue comment.
-- **Coaching and problem-solving.** When you're stuck on an interpersonal challenge, unsure how to approach a sensitive topic, or wrestling with a decision that has no clear right answer, talking it through with someone who has context beats wrestling with it alone.
-- **Feedback and calibration.** Feedback—giving and receiving—lands better in real-time. Tone and body language provide context that text can't, and you can clarify misunderstandings immediately. Written feedback can feel blunt or land wrong; spoken feedback invites dialogue.
-- **Human connection.** Remote work can be isolating. 1\:1s let you check in as humans, not just workers. How are you actually doing? Building genuine relationships requires face-to-face time, even if that face is on a screen.
-- **Clearing the air.** If there's tension, frustration, or something unsaid, 1\:1s are the place to address it directly. These conversations are almost always better synchronously than through a wall of text.
+- **Career growth.** "Should I chase the tech lead role or move toward management?" isn't a question you resolve in an issue comment. It needs back-and-forth, and half the signal is in what your report *doesn't* say out loud when you name each path.
+- **Coaching.** A report is stuck on how to push back on a staff engineer who keeps silently rewriting their PRs. There's no doc to link them to—they need to talk it through with someone who has the context and no stake in the outcome.
+- **Feedback.** "Your design review comments are landing as combative" reads like an ambush in Slack and like a favor across a table. The pause where they react, and your chance to say "that came out wrong, here's what I meant," is the entire point.
+- **Human connection.** "How are you *actually* doing?"—and then sitting through the silence that follows. Remote work strips out the hallway read on whether someone's thriving or quietly burning out. The 1\:1 is where you get it back.
+- **Clearing the air.** The passive-aggressive thread that's been simmering all week gets defused in four minutes of talking, or festers for another month in writing. Pick up the phone.
 
 What *doesn't* belong: [status updates](/2023/04/20/meetings-are-a-point-of-escalation/), information transfer, and approval requests. :quote[If you're listing what you shipped last week, you're wasting the meeting.]{#q-if-youre-listing-what-you} Your manager should see your work before the 1\:1, not hear about it during. Approvals create bottlenecks—ask async. Information sharing belongs in a doc sent beforehand. Use synchronous time to discuss implications, not convey facts.
 
