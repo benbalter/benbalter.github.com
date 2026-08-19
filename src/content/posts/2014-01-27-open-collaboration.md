@@ -56,7 +56,7 @@ The way I'd been using open source differed from the traditional definition in a
 
 At GitHub, we like to think of GitHub.com as working like an open source project. We use GitHub to build it, anyone in the company can see the source code, open an issue, or submit a pull request. In all senses of the word it's open source, except not everyone has access to the code.
 
-That begs the question: What percentage of the world needs to have access to something before we can call it open source? 90%? 51%? What if I print out the source code and make it available via snail mail to anyone who asks? What if I don't tell anyone that that's an option? What if I send the source to ten friends, and then leave a copy on a flash drive at the south pole? The list goes on. Rights are nothing without workflow.
+That begs the question: What percentage of the world needs to have access to something before we can call it open source? 90%? 51%? What if I print out the source code and make it available via snail mail to anyone who asks? What if I don't tell anyone that that's an option? What if I send the source to ten friends, and then leave a copy on a flash drive at the South Pole? The list goes on. Rights are nothing without workflow.
 
 ## The case for open collaboration
 

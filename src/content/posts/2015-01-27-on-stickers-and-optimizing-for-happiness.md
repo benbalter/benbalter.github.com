@@ -14,7 +14,7 @@ Even more telling, however, is the young developer with the naked laptop, a sigh
 
 ## A laptop's worth a thousand words
 
-Just glancing at this laptop, there's two reasons we're led to believe the developer's employer optimizes for their own administrative processes, not the employees those very processes should serve:
+Just glancing at this laptop, there are two reasons we're led to believe the developer's employer optimizes for their own administrative processes, not the employees those very processes should serve:
 
 First, assuming the laptop's inventoried once or twice a year at most, placing the sticker on the bottom of the laptop, out of sight from day-to-day use, or at the very least, right side up when open, does nothing to inhibit the employer's ability to track their investment or subsequently identify it if discovered missing. But given the choice of where to place the sticker, at some point, someone in the IT department chose "let's make it easier to inventory" over "let's make it enjoyable to use".
 

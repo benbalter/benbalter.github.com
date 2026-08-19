@@ -65,20 +65,15 @@
     "compound-hyphenation-style": [
       "PROBLEM_SOLVE_HYPHEN",
       "OVER_COMPOUNDS",
-      "SUBJECT_MATTER_HYPHEN",
       "CROWD_SOURCING",
       "SETUP_VERB",
       "NON_ANTI_JJ",
-      "ROOM_COMPOUNDS",
-      "PRINT_COMPOUNDS",
-      "WRITE_UP_HYPHEN",
-      "MISSING_HYPHEN"
+      "WRITE_UP_HYPHEN"
     ],
     "comma-punctuation-style": [
       "SENT_START_CONJUNCTIVE_LINKING_ADVERB_COMMA",
       "MISSING_COMMA_AFTER_INTRODUCTORY_PHRASE",
-      "ETC_PERIOD",
-      "NEITHER_NOR_SUPERFLUOUS_COMMA"
+      "ETC_PERIOD"
     ],
     "grammar-false-positives": [
       "NOUN_VERB_CONFUSION",
@@ -92,8 +87,7 @@
       "NUMBERS_IN_WORDS",
       "PREFER_OVER_TO",
       "EN_SIMPLE_REPLACE_ALONG_WAY",
-      "IN_THE_MOMENT",
-      "NORTH_POLE"
+      "IN_THE_MOMENT"
     ],
     "agreement-verb-false-positives": [
       "PCT_PLURAL_NOUN_SINGULAR_VERB_AGREEMENT",
@@ -103,12 +97,10 @@
       "ALL_MOST_SOME_OF_NOUN",
       "MANY_NN",
       "THERE_MISSING_VERB",
-      "THERE_S_MANY",
       "IS_VBZ",
       "MD_BE_NON_VBP"
     ],
     "miscellaneous-false-positives": [
-      "GAVE_GIVE",
       "THE_CC",
       "A_RB_A_JJ_NN",
       "MY_BE",
@@ -139,20 +131,14 @@
     "compound-hyphenation-rules": [
       "CROSS_COMPOUNDS",
       "CYBER_COMPOUNDS",
-      "ON_COMPOUNDS",
-      "MAKER_COMPOUNDS",
       "SHORT_CUT",
       "TO_DO_HYPHEN",
       "HOUR_HYPHEN",
-      "WEEK_LONG_HYPHEN",
-      "YEAR_HYPHEN",
-      "PRP_CUSTOM_BUILD",
       "DOCTORS_APPOINTMENT",
       "STARS_AND_STEPS"
     ],
     "comma-punctuation-style-2": [
       "COMMA_AFTER_A_MONTH",
-      "COMMA_CLOSING_PARENTHESIS",
       "COMMA_COMPOUND_SENTENCE_4",
       "COMMA_PERIOD",
       "IF_WE_CANT_COMMA"
@@ -165,11 +151,9 @@
       "CC_VERB",
       "DISCUSSIONS_AROUND",
       "EQUALLY_AS",
-      "IN_THE_MEAN_TIME_PHRASE",
       "MONTH_OF_XXXX",
       "NNS_OF_SINGULAR_AGREEMENT",
       "NODT_DOZEN",
-      "NON3PRS_VERB",
       "PLURAL_VERB_AFTER_THIS",
       "PREPOSITION_VERB",
       "PRP_PAST_PART",
@@ -185,11 +169,8 @@
       "A_INFINITIVE"
     ],
     "round-3-false-positives": [
-      "CD_NN",
-      "THE_THIRD_PARTY",
       "LAW_COMPOUNDS",
       "CAUSE_BECAUSE",
-      "WAY_COMPOUNDS",
       "IT_IS_2",
       "ADMIT_ENJOY_VB",
       "BY_DEFAULT_COMMA",
