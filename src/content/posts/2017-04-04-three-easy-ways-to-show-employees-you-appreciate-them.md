@@ -4,7 +4,7 @@ description: Small gestures—recognizing birthdays, work anniversaries, and lif
 tldr: "Small gestures like recognizing birthdays, work anniversaries, and life milestones go a long way, especially when your team is remote and there's no water cooler."
 ---
 
-As a manager (or a coworker) one small thing you can do to make wherever it is that you work a better place to work is to notice and celebrate everyday occurrences, to show those you work with that you appreciate them not just for what they do, but also for who they are. This is true even if all you know is the information on a standard HR form. Here's three easy ways to show that you appreciate the humans you work with:
+As a manager (or a coworker) one small thing you can do to make wherever it is that you work a better place to work is to notice and celebrate everyday occurrences, to show those you work with that you appreciate them not just for what they do, but also for who they are. This is true even if all you know is the information on a standard HR form. Here are three easy ways to show that you appreciate the humans you work with:
 
 ## Birthdays
 
@@ -16,9 +16,9 @@ As a manager (or a coworker) one small thing you can do to make wherever it is t
 
 ## Work anniversaries
 
-*What*: Another easy way to show that you appreciate your fellow humans is to recognize their work anniversary. At GitHub, we call these Hubberversaries. When you hit your one, two, five, or ten year work milestone, that's something to be celebrated, even if within many organizations it rarely is. There's a good chance your report would be flattered by a quick note letting them know why you're glad they're there or reflecting on all the great contributions they've made in the past year.
+*What*: Another easy way to show that you appreciate your fellow humans is to recognize their work anniversary. At GitHub, we call these Hubberversaries. When you hit your one, two, five, or ten-year work milestone, that's something to be celebrated, even if within many organizations it rarely is. There's a good chance your report would be flattered by a quick note letting them know why you're glad they're there or reflecting on all the great contributions they've made in the past year.
 
-*Why*: This is especially true if you're at a younger company. When you've clocked three years at a five year startup, given stereotypical exponential growth, it's almost guaranteed that you've been at the company significantly longer than most of your coworkers. Heck, even if you're at a century-old blue chip company, there's a good chance they've been marking work anniversaries with gold watches for decades.
+*Why*: This is especially true if you're at a younger company. When you've clocked three years at a five-year startup, given stereotypical exponential growth, it's almost guaranteed that you've been at the company significantly longer than most of your coworkers. Heck, even if you're at a century-old blue chip company, there's a good chance they've been marking work anniversaries with gold watches for decades.
 
 *How:* If you're connected with your coworker on LinkedIn (yeah, I know), the service will send you push notifications for your connections' work milestones, but I don't recommend it. The easier route is to check internal social tools (at GitHub we have a blog-like platform called Team), or external announcements (for years we announced every new hire via the public blog).
 

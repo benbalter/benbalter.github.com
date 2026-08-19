@@ -14,7 +14,7 @@ At the same time, the types of challenges faced by agencies don't differ much fr
 
 The White House [has committed to creating an open source policy](http://e-pluribusunum.com/2014/09/24/usa-to-create-official-open-source-policy/) by year's end, but like most policy-making efforts in the beltway, it may likely be influenced more by suits keen on the idea of open source, than by the geeks who will actually use it.
 
-As a geek, as a former government technologist, and as a life-long member of the open source community, here's three things I hope the White House Open Source Policy embodies:
+As a geek, as a former government technologist, and as a life-long member of the open source community, here are three things I hope the White House Open Source Policy embodies:
 
 ## 1. Prefer (existing) open source platforms (*Open source as a platform*)
 

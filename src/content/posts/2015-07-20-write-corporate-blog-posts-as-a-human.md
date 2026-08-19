@@ -63,7 +63,7 @@ If you can remove a word, phrase, sentence, or paragraph without the post losing
 
 It's an easy crutch to begin a blog post with "Starting today…". That's like starting a speech with "So I sat down to think about what to write and…" The thing that separates blog posts from just about any other medium on the web is the fact that they have a date at the top, a date which allows them to serve as a snapshot in time. If you write something in a post, users are going to assume it's something timely. In practicality, when launching something new, the word "today" often takes the place of more valuable information, like how to actually use the darn thing. When you leave out "today", you're forced to actually describe what's changed.
 
-## 10. Under promise, over deliver
+## 10. Under promise, over-deliver
 
 It's tempting to talk about what's still in development, but don't tease your users with features that they can't yet use, and thus gain nothing from. Generating "buzz" is noticeably self-serving, and your users will respond accordingly. Not to mention, it locks your developers into particular decisions, even if you subsequently gain information that suggests it's ultimately not the right direction for the product. Instead, [manage expectations](https://web.archive.org/web/20180902232301/http://ozmm.org/posts/managing_expectations.html), both internally and externally.
 

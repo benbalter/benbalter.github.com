@@ -28,6 +28,6 @@ The internet is fundamentally a different animal from the desktop, both cultural
 - Easier to upgrade a tool than a standard, experimentation is key
 - No APIs to learn, no SDKs to install, no licenses to buy
 
-Complexity only serves to raise the barrier to communicate and goes against the very purpose of the internet: connecting things. Look to the formats that don't have the 40 page PDF'd white papers. The ones that weren't "opened." The ones that don't need SDKs or APIs just to function. If you can't open it in a text editor, don't trust it.
+Complexity only serves to raise the barrier to communicate and goes against the very purpose of the internet: connecting things. Look to the formats that don't have the 40-page PDF'd white papers. The ones that weren't "opened." The ones that don't need SDKs or APIs just to function. If you can't open it in a text editor, don't trust it.
 
 Bet on the little guys. On the internet, they have a tendency to win.
