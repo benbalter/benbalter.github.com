@@ -47,7 +47,7 @@ Post forking may make for a killer plugin [^2] or piece of core functionality…
 
 Thoughts? Would you use this? What else would you like to see it do? [Drop me a line](https://ben.balter.com/contact/), or let me know in the comments below?
 
-**Update (3/5):** The plan right now is to submit this as a Google Summer of Code project, so if all goes well, look for the above-outlined functionality in a WordPress install near you towards the end of the summer. In the mean time, the continued thoughts/feedback is very greatly appreciated.
+**Update (3/5):** The plan right now is to submit this as a Google Summer of Code project, so if all goes well, look for the above-outlined functionality in a WordPress install near you towards the end of the summer. In the meantime, the continued thoughts/feedback is very greatly appreciated.
 
 **Update (3/27):** It looks like [WordPress isn't participating in GSoC this year](http://wpdevel.wordpress.com/2012/03/16/no-gsoc-2012/). Filing this idea under "someday".
 

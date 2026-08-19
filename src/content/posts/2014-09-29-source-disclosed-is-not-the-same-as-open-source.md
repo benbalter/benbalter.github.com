@@ -24,6 +24,6 @@ At the most simple level, this is a matter of communicating the project's goals 
 
 It's often said that open source is free as in speech, not as in beer, but I prefer to take that a step further, and note that open source is free like a puppy. You'll get a lot out of the relationship, but you also have to put a lot in, the biggest contribution being a base level of trust.
 
-Agencies are welcome (and encouraged) to disclose the source code that powers the day-to-day workings of our shared democracy, but they should know that that's neither the last step, nor is that truly open source. Open source is a symbiotic relationship, a shared partnership, not a one-way, one-time, set-it-and-forget-it broadcast.
+Agencies are welcome (and encouraged) to disclose the source code that powers the day-to-day workings of our shared democracy, but they should know that that's neither the last step nor is that truly open source. Open source is a symbiotic relationship, a shared partnership, not a one-way, one-time, set-it-and-forget-it broadcast.
 
 [^1]: You can read more community building best practices [within the government community on GitHub](https://government-community.GitHubapp.com/government/best-practices/blob/master/docs/community-building.md) (GitHub login and government email required).

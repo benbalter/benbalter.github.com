@@ -148,18 +148,19 @@
   text-decoration-color: currentColor;
 }
 
-/* Heading spacing — more breathing room above, tighter coupling below */
-.prose h2 {
+/* Heading spacing — more breathing room above, tighter coupling below.
+   Scoped out of not-prose regions so utility margins (e.g. m-0) win there. */
+.prose h2:not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   margin-top: 2.25em;
   margin-bottom: 0.75em;
 }
 
-.prose h3 {
+.prose h3:not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   margin-top: 1.75em;
   margin-bottom: 0.5em;
 }
 
-.prose h4 {
+.prose h4:not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   margin-top: 1.5em;
   margin-bottom: 0.5em;
 }

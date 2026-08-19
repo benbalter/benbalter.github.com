@@ -1,0 +1,190 @@
+{
+  "$schema-note": "Consumed by script/languagetool. Not a native LanguageTool config: the HTTP API can't read this file, so the script parses it and passes disabledRules/disabledCategories to /v2/check. Rules are grouped by the reason they're disabled; the script flattens every group into one comma-separated list. To re-enable a rule, delete it from its group.",
+  "disabledCategories": [
+    "COMPOUNDING",
+    "STYLE",
+    "REDUNDANCY",
+    "TYPOGRAPHY",
+    "CASING"
+  ],
+  "disabledRules": {
+    "covered-by-retext-spell": [
+      "MORFOLOGIK_RULE_EN_US",
+      "HUNSPELL_RULE",
+      "HUNSPELL_NO_SUGGEST_RULE"
+    ],
+    "covered-by-retext-indefinite-article": [
+      "EN_A_VS_AN"
+    ],
+    "covered-by-retext-repeated-words": [
+      "ENGLISH_WORD_REPEAT_RULE",
+      "ENGLISH_WORD_REPEAT_BEGINNING_RULE"
+    ],
+    "compound-hyphenation-false-positives": [
+      "EN_COMPOUNDS",
+      "EN_COMPOUND_ADJECTIVE_INTERNAL",
+      "PLEASE_HYPHENATE"
+    ],
+    "comma-punctuation-conflicts-with-style": [
+      "COMMA_COMPOUND_SENTENCE",
+      "COMMA_COMPOUND_SENTENCE_2",
+      "COMMA_PARENTHESIS_OPENCLOSE",
+      "UNLIKELY_OPENING_PUNCTUATION",
+      "DASH_RULE"
+    ],
+    "agreement-false-positives": [
+      "HE_VERB_AGR",
+      "PERS_PRONOUN_AGREEMENT",
+      "PRONOUN_NOUN_NUM_AGREEMENT",
+      "MASS_AGREEMENT",
+      "THIS_NNS"
+    ],
+    "author-voice-style": [
+      "PASSIVE_VOICE",
+      "TOO_LONG_SENTENCE",
+      "EN_PLAIN_ENGLISH_REPLACE",
+      "SENTENCE_FRAGMENT",
+      "DOUBLE_PUNCTUATION",
+      "ARROWS"
+    ],
+    "possessives-contractions": [
+      "POSSESSIVE_APOSTROPHE",
+      "IT_IS"
+    ],
+    "markdown-code-artifacts": [
+      "WORD_CONTAINS_UNDERSCORE",
+      "EN_UNPAIRED_BRACKETS",
+      "EN_UNPAIRED_QUOTES"
+    ],
+    "product-name-false-positives": [
+      "MICROSOFT_PRODUCTS",
+      "GOOGLE_PRODUCTS",
+      "GITHUB",
+      "IN_FACEBOOK"
+    ],
+    "compound-hyphenation-style": [
+      "PROBLEM_SOLVE_HYPHEN",
+      "OVER_COMPOUNDS",
+      "CROWD_SOURCING",
+      "SETUP_VERB",
+      "NON_ANTI_JJ",
+      "WRITE_UP_HYPHEN"
+    ],
+    "comma-punctuation-style": [
+      "SENT_START_CONJUNCTIVE_LINKING_ADVERB_COMMA",
+      "MISSING_COMMA_AFTER_INTRODUCTORY_PHRASE",
+      "ETC_PERIOD"
+    ],
+    "grammar-false-positives": [
+      "NOUN_VERB_CONFUSION",
+      "LETS_LET",
+      "A_MY",
+      "A_NNS",
+      "OTHER_OTHERS",
+      "WRONG_GENITIVE_APOSTROPHE",
+      "PHRASE_REPETITION",
+      "THERE_IS_A_LOT_OF",
+      "NUMBERS_IN_WORDS",
+      "PREFER_OVER_TO",
+      "EN_SIMPLE_REPLACE_ALONG_WAY",
+      "IN_THE_MOMENT"
+    ],
+    "agreement-verb-false-positives": [
+      "PCT_PLURAL_NOUN_SINGULAR_VERB_AGREEMENT",
+      "PCT_SINGULAR_NOUN_PLURAL_VERB_AGREEMENT",
+      "SUBJECT_VERB_AGREEMENT_PLURAL",
+      "PLURAL_THAT_AGREEMENT",
+      "ALL_MOST_SOME_OF_NOUN",
+      "MANY_NN",
+      "THERE_MISSING_VERB",
+      "IS_VBZ",
+      "MD_BE_NON_VBP"
+    ],
+    "miscellaneous-false-positives": [
+      "THE_CC",
+      "A_RB_A_JJ_NN",
+      "MY_BE",
+      "VERB_APOSTROPHE_S",
+      "A_CD_NNS",
+      "NOUN_APOSTROPHE_S_VERB",
+      "NON_STANDARD_WORD",
+      "MISSING_NOUN",
+      "ADVISE_VBG",
+      "LET_IT_INFINITIVE",
+      "CAN_I_VBD",
+      "BASE_FORM",
+      "THE_PUNCT",
+      "PRP_VB",
+      "EN_MULTITOKEN_SPELLING_TWO"
+    ],
+    "markdown-stripping-artifacts": [
+      "AN_AND",
+      "A_TO",
+      "A_WAS",
+      "DT_RB_IN",
+      "A_RB_NN"
+    ],
+    "legal-citation-abbreviations": [
+      "EN_CONTRACTION_SPELLING",
+      "IVE_I_HAVE_AMERICAN_STYLE"
+    ],
+    "compound-hyphenation-rules": [
+      "CROSS_COMPOUNDS",
+      "CYBER_COMPOUNDS",
+      "SHORT_CUT",
+      "TO_DO_HYPHEN",
+      "HOUR_HYPHEN",
+      "DOCTORS_APPOINTMENT",
+      "STARS_AND_STEPS"
+    ],
+    "comma-punctuation-style-2": [
+      "COMMA_AFTER_A_MONTH",
+      "COMMA_COMPOUND_SENTENCE_4",
+      "COMMA_PERIOD",
+      "IF_WE_CANT_COMMA"
+    ],
+    "grammar-false-positives-2": [
+      "ABOUT_ITS_NN",
+      "AFFECTS",
+      "ARE_WE_HAVE",
+      "BEEN_PART_AGREEMENT",
+      "CC_VERB",
+      "DISCUSSIONS_AROUND",
+      "EQUALLY_AS",
+      "MONTH_OF_XXXX",
+      "NNS_OF_SINGULAR_AGREEMENT",
+      "NODT_DOZEN",
+      "PLURAL_VERB_AFTER_THIS",
+      "PREPOSITION_VERB",
+      "PRP_PAST_PART",
+      "PRP_THE",
+      "THE_HOW",
+      "THE_SUPERLATIVE",
+      "THIS_MISSING_VERB"
+    ],
+    "diacritics-foreign-words": [
+      "EN_DIACRITICS_REPLACE_ORTHOGRAPHY_MELANGE"
+    ],
+    "article-verb-false-positives": [
+      "A_INFINITIVE"
+    ],
+    "round-3-false-positives": [
+      "LAW_COMPOUNDS",
+      "CAUSE_BECAUSE",
+      "IT_IS_2",
+      "ADMIT_ENJOY_VB",
+      "BY_DEFAULT_COMMA",
+      "MD_BASEFORM",
+      "PRP_HAVE_VB"
+    ],
+    "verb-gerund-false-positive": [
+      "AFFORD_VBG"
+    ],
+    "subject-verb-agreement-titles": [
+      "AGREEMENT_SENT_START"
+    ],
+    "intentional-word-choice": [
+      "ENGLISH_WRONG_WORD_IN_CONTEXT_BAZAAR_BIZARRE"
+    ]
+  }
+}

@@ -40,7 +40,7 @@ Government, on the other hand, still often seeks to dredge as deep a moat as pos
 
 ## More than just size
 
-I suspect much of this difference comes from the liberty of making decisions in the abstract. It's easy to say, "given the opportunity, our developers are going to do something that reflects poorly on the organization". It's a lot harder to say "I don't trust Bob and Susan. It's just a matter of time before they mess up", especially when you see them in the lunch room each day.
+I suspect much of this difference comes from the liberty of making decisions in the abstract. It's easy to say, "given the opportunity, our developers are going to do something that reflects poorly on the organization". It's a lot harder to say "I don't trust Bob and Susan. It's just a matter of time before they mess up", especially when you see them in the lunchroom each day.
 
 Even at GitHub, as we started growing past [Dunbar's Number](https://en.wikipedia.org/wiki/Dunbar's_number), we began to take the smallest baby step in the direction of risk-aversion. On the other hand, within government, small-batch innovation efforts like the Presidential Innovation Fellows and 18F (both sites listing each employee's real, human name), provide developers with much more leeway to make a calculated risk analysis, rather than blindly following government IT lore to their detriment.
 

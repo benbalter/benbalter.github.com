@@ -6,7 +6,7 @@ tldr: "Three things the White House Open Source Policy should embody: prefer exi
 
 Open source in government is about much more than efficiency, shipping better code, or engaging the public more openly. Open source is about spurring [innovation ecosystems](https://ben.balter.com/2012/04/10/whats-missing-from-cfpbs-awesome-new-source-code-policy/?dontCache=1416281172765#an-innovation-ecosystem), public/private marketplaces of scientific and engineering ideas, the likes of which were last seen during the space race. Think space pens are cool? Wait until you see what open source has to offer.
 
-The U.S. Federal government is [the single-largest purchaser of code](https://ben.balter.com/2011/11/29/towards-a-more-agile-government/) in the world. Imagine if, every year, those eleventy billion dollars went not to large, established government contractors, but to the many open source projects that government, you, and I use on a daily basis. The ones that already form the basis of our economy. Imagine if the size and talent of the open source contributor pool literally *doubled* over night.
+The U.S. Federal government is [the single-largest purchaser of code](https://ben.balter.com/2011/11/29/towards-a-more-agile-government/) in the world. Imagine if, every year, those eleventy billion dollars went not to large, established government contractors, but to the many open source projects that government, you, and I use on a daily basis. The ones that already form the basis of our economy. Imagine if the size and talent of the open source contributor pool literally *doubled* overnight.
 
 Private-sector firms like Coke and Pepsi, may have a valid reason to shy away from open source in some cases. If core business logic, a dollar spent on open source is a dollar your competitor doesn't need to spend to solve the same problem. But with government, there's no competitor, at least not in the sense of efficient regulation or delivering citizen services. There's no bottom line to hurt, no competitor to outsmart.
 
@@ -14,7 +14,7 @@ At the same time, the types of challenges faced by agencies don't differ much fr
 
 The White House [has committed to creating an open source policy](http://e-pluribusunum.com/2014/09/24/usa-to-create-official-open-source-policy/) by year's end, but like most policy-making efforts in the beltway, it may likely be influenced more by suits keen on the idea of open source, than by the geeks who will actually use it.
 
-As a geek, as a former government technologist, and as a life-long member of the open source community, here's three things I hope the White House Open Source Policy embodies:
+As a geek, as a former government technologist, and as a life-long member of the open source community, here are three things I hope the White House Open Source Policy embodies:
 
 ## 1. Prefer (existing) open source platforms (*Open source as a platform*)
 

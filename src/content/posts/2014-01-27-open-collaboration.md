@@ -30,7 +30,7 @@ So which is it? Is open source about the right to modify or the opportunity to c
 
 I've only known a world where open source has already won. When I think open source, I don't think "is this thing licensed under an Open Source Initiative blessed license?" Today there are increasingly fewer debates over [the freedoms one receives with software](https://www.gnu.org/philosophy/free-sw.html), and more over seeing it released in the first place, or once released, over exposing process.
 
-Developers today could [care less what the license is](http://opensource.com/law/13/2/post-open-source-software-licensing) or if non-free software is [an instrument of unjust power](https://www.gnu.org/philosophy/free-software-even-more-important.html). We just want to hack on cool stuff and we know doing things in the open is the best way to do it. Open source has won, and not for political or philosophical reasons. Today, [Microsoft supports open source](http://www.microsoft.com/opensource/directory.aspx) because it makes good business sense, not because of the freedoms it brings.
+Developers today couldn't [care less what the license is](http://opensource.com/law/13/2/post-open-source-software-licensing) or if non-free software is [an instrument of unjust power](https://www.gnu.org/philosophy/free-software-even-more-important.html). We just want to hack on cool stuff and we know doing things in the open is the best way to do it. Open source has won, and not for political or philosophical reasons. Today, [Microsoft supports open source](http://www.microsoft.com/opensource/directory.aspx) because it makes good business sense, not because of the freedoms it brings.
 
 There are a lot of reasons for that de-emphasis. For one, technology has made it easier to work together than alone, shifting the supply-side constraints from projects to contributors, and in turn, has shaped what it means to be open source. As Karl noted:
 
@@ -56,7 +56,7 @@ The way I'd been using open source differed from the traditional definition in a
 
 At GitHub, we like to think of GitHub.com as working like an open source project. We use GitHub to build it, anyone in the company can see the source code, open an issue, or submit a pull request. In all senses of the word it's open source, except not everyone has access to the code.
 
-That begs the question: What percentage of the world needs to have access to something before we can call it open source? 90%? 51%? What if I print out the source code and make it available via snail mail to anyone who asks? What if I don't tell anyone that that's an option? What if I send the source to ten friends, and then leave a copy on a flash drive at the south pole? The list goes on. Rights are nothing without workflow.
+That begs the question: What percentage of the world needs to have access to something before we can call it open source? 90%? 51%? What if I print out the source code and make it available via snail mail to anyone who asks? What if I don't tell anyone that that's an option? What if I send the source to ten friends, and then leave a copy on a flash drive at the South Pole? The list goes on. Rights are nothing without workflow.
 
 ## The case for open collaboration
 
