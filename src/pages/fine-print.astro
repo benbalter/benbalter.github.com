@@ -63,40 +63,19 @@ const description =
           I used em dashes before they were (un)cool—my favorite piece of punctuation, not proof a robot wrote this. They run through <a href="/2011/01/04/the-files-in-the-computer/" class="text-primary dark:text-primary-300 hover:text-primary-700 dark:hover:text-primary-200 underline">my very first posts in 2011</a> and <a href="/2014/03/31/word-versus-markdown-more-than-mere-semantics/" class="text-primary dark:text-primary-300 hover:text-primary-700 dark:hover:text-primary-200 underline">all the way through</a>, years before a language model made them suspicious.
         </p>
       </div>
-    </div>
 
-    {/* Licensing Section */}
-    <section>
-      <div class="flex items-baseline gap-3 border-l-4 border-primary pl-4 mb-6">
-        <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 m-0">Licensing</h2>
-      </div>
-
-      <div class="rounded-lg border border-gray-200 dark:border-gray-700 p-6">
-        <div class="flex justify-center mb-5">
-          <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" class="inline-block hover:opacity-80 transition-opacity duration-200">
-            <Image src={ccLicenseImage} alt="Creative Commons Attribution 3.0 License" layout="fixed" />
-          </a>
+      <div class="rounded-lg border border-gray-200 dark:border-gray-700 p-5">
+        <div class="flex items-center gap-3 mb-1.5">
+          <span class="text-xl shrink-0" aria-hidden="true">📄</span>
+          <h2 class="text-base font-semibold text-gray-900 dark:text-gray-100 m-0">Licensing</h2>
         </div>
-
-        <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300 leading-relaxed list-none p-0 m-0">
-          <li class="flex items-start gap-2.5">
-            <span class="text-primary dark:text-primary-300 shrink-0 mt-0.5" aria-hidden="true">📝</span>
-            <span>
-              All original content on <code class="rounded bg-gray-100 dark:bg-gray-700 px-1.5 py-0.5 text-xs font-mono text-gray-800 dark:text-gray-200">Ben.Balter.com</code>
-              <strong>other</strong> than <a href="/2026/03/04/thirteen-years-at-github/" class="text-primary dark:text-primary-300 hover:text-primary-700 dark:hover:text-primary-200 underline">the post "I've worked remotely at GitHub for thirteen years: here's what actually works"</a>
-              is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" class="text-primary dark:text-primary-300 hover:text-primary-700 dark:hover:text-primary-200 underline">Creative Commons Attribution 3.0 Unported License</a> attributable to {siteConfig.author}.
-            </span>
-          </li>
-          <li class="flex items-start gap-2.5">
-            <span class="text-primary dark:text-primary-300 shrink-0 mt-0.5" aria-hidden="true">📷</span>
-            <span>Header image courtesy <a href="https://fedscoop.com/" class="text-primary dark:text-primary-300 hover:text-primary-700 dark:hover:text-primary-200 underline">FedScoop</a>, © 2013.</span>
-          </li>
-          <li class="flex items-start gap-2.5">
-            <span class="text-primary dark:text-primary-300 shrink-0 mt-0.5" aria-hidden="true">💻</span>
-            <span>All code available <a href={siteConfig.githubRepoUrl} class="text-primary dark:text-primary-300 hover:text-primary-700 dark:hover:text-primary-200 underline">on GitHub</a> and licensed under the MIT license.</span>
-          </li>
-        </ul>
+        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed m-0">
+          All original content is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" class="text-primary dark:text-primary-300 hover:text-primary-700 dark:hover:text-primary-200 underline">Creative Commons Attribution 3.0 Unported License</a> attributable to {siteConfig.author}, other than <a href="/2026/03/04/thirteen-years-at-github/" class="text-primary dark:text-primary-300 hover:text-primary-700 dark:hover:text-primary-200 underline">the post "I've worked remotely at GitHub for thirteen years: here's what actually works"</a>. All code is available <a href={siteConfig.githubRepoUrl} class="text-primary dark:text-primary-300 hover:text-primary-700 dark:hover:text-primary-200 underline">on GitHub</a> under the MIT license.
+        </p>
+        <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" class="inline-block mt-3 hover:opacity-80 transition-opacity duration-200">
+          <Image src={ccLicenseImage} alt="Creative Commons Attribution 3.0 License" layout="fixed" />
+        </a>
       </div>
-    </section>
+    </div>
   </div>
 </PageLayout>
