@@ -79,6 +79,7 @@ jobs:
   content:
     name: Content Linting
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v6
@@ -121,6 +122,7 @@ jobs:
   code:
     name: Code Tests
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v6
@@ -146,6 +148,7 @@ jobs:
   check:
     name: Run Astro Check
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v6
@@ -165,6 +168,7 @@ jobs:
   vitest:
     name: Run Vitest Tests
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v6
@@ -192,6 +196,7 @@ jobs:
   languagetool:
     name: LanguageTool Grammar
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     services:
       languagetool:
         image: erikvl87/languagetool

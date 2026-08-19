@@ -1,0 +1,47 @@
+#!/bin/sh
+
+# Advisory AI-cadence check using tbhb/vale-ai-tells (config: .vale-ai-tells.ini).
+#
+# NON-GATING BY DESIGN — a WARN-only signal. ai-tells defaults every rule to
+# `error` and fires heavily on Ben's deliberate voice (em dashes, semicolons,
+# antithesis, "ship"), so it can never gate the build. This wrapper surfaces the
+# remaining findings for review, then ALWAYS exits 0 so it can't fail the job
+# even though the caller (script/cibuild-content) runs under `set -e`.
+#
+# Scope: the CHANGED Markdown only, not the whole 15-year archive (~3k findings
+# swamp the signal). Explicit file args win; otherwise diff against the base
+# branch (PRs) or the last commit (pushes). Nothing changed -> nothing to do.
+
+if ! [ -x "$(command -v vale)" ]; then
+	echo "Vale not found. Skipping advisory AI-cadence check."
+	exit 0
+fi
+
+# ai-tells is fetched by the main `vale sync` (it's in .vale.ini Packages). Sync
+# here too if it's somehow missing so the check also works when run standalone.
+if [ ! -d ".github/styles/ai-tells" ]; then
+	vale sync
+fi
+
+if [ "$#" -gt 0 ]; then
+	FILES="$*"
+else
+	# Local: uncommitted edits first. In a fresh CI checkout this is empty and
+	# we fall through to the PR diff, then the last commit (pushes).
+	FILES=$(git diff --name-only --diff-filter=ACMR HEAD 2>/dev/null | grep -E '\.(md|mdx)$' || true)
+	BASE="origin/${GITHUB_BASE_REF:-main}"
+	[ -z "$FILES" ] && FILES=$(git diff --name-only --diff-filter=ACMR "$BASE"...HEAD 2>/dev/null | grep -E '\.(md|mdx)$' || true)
+	[ -z "$FILES" ] && FILES=$(git diff --name-only --diff-filter=ACMR HEAD~1 2>/dev/null | grep -E '\.(md|mdx)$' || true)
+fi
+
+if [ -z "$FILES" ]; then
+	echo "No changed Markdown to review for AI cadence. Skipping."
+	exit 0
+fi
+
+echo "Running ai-tells (advisory — WARN only, does not fail the build) on:"
+echo "$FILES" | sed 's/^/  /'
+# shellcheck disable=SC2086
+vale --config=.vale-ai-tells.ini $FILES --minAlertLevel=error || true
+echo "^ ai-tells findings are advisory; the build is unaffected."
+exit 0

@@ -10,6 +10,8 @@ Here's how I updated the `404` (not found) pages on my own site to resolve typos
 
 ## How my 404 page suggests alternate URLs
 
+<!-- vale alex.Ablist = NO -->
+
 If you were to click an invalid link or typo a URL on my site, the following would occur:
 
 1. You'd see a `404 - not found` page[^1]

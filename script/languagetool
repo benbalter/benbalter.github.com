@@ -243,75 +243,8 @@ DISABLED_RULES="${DISABLED_RULES#,}"
 # strip_markdown: Remove markdown/MDX syntax to produce plain text
 # ----------------------------------------------------------------
 strip_markdown() {
-  awk '
-    # Skip YAML front matter
-    BEGIN { in_frontmatter=0; frontmatter_count=0 }
-    /^---$/ {
-      frontmatter_count++
-      if (frontmatter_count <= 2) { in_frontmatter = !in_frontmatter; next }
-    }
-    in_frontmatter { next }
-
-    # Skip MDX import/export statements
-    /^import / { next }
-    /^export / { next }
-
-    # Skip code blocks
-    /^```/ { in_code = !in_code; next }
-    in_code { next }
-
-    # Skip inline code
-    { gsub(/`[^`]+`/, " ") }
-
-    # Skip HTML tags
-    { gsub(/<[^>]+>/, " ") }
-
-    # Skip MDX components
-    /^<[A-Z]/ { next }
-
-    # Skip images
-    { gsub(/!\[[^\]]*\]\([^)]*\)/, " ") }
-
-    # Convert links to just their text (preserve link text, remove URL)
-    {
-      while (match($0, /\[[^\]]*\]\([^)]*\)/)) {
-        link = substr($0, RSTART, RLENGTH)
-        sub(/^\[/, "", link)
-        sub(/\]\([^)]*\)/, "", link)
-        $0 = substr($0, 1, RSTART-1) link substr($0, RSTART+RLENGTH)
-      }
-    }
-
-    # Remove any remaining markdown link brackets
-    { gsub(/\[/, "") }
-    { gsub(/\]/, "") }
-
-    # Skip heading markers
-    { gsub(/^#{1,6} /, "") }
-
-    # Skip blockquote markers
-    { gsub(/^> ?/, "") }
-
-    # Skip horizontal rules
-    /^[-*_]{3,}$/ { next }
-
-    # Skip list markers
-    { gsub(/^[[:space:]]*[-*+] /, "") }
-    { gsub(/^[[:space:]]*[0-9]+\. /, "") }
-
-    # Skip footnote definitions
-    /^\[\^[^\]]+\]:/ { next }
-
-    # Skip bold/italic markers
-    { gsub(/\*{1,3}/, "") }
-    { gsub(/_{1,3}/, " ") }
-
-    # Skip strikethrough
-    { gsub(/~~/, "") }
-
-    # Print non-empty lines
-    NF { print }
-  '
+  # Shared stripper (also used by script/harper). Reads stdin, emits plain text.
+  awk -f "$(dirname "$0")/strip-markdown.awk"
 }
 
 # ----------------------------------------------------------------

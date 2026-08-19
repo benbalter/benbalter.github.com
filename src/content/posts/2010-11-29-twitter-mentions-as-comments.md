@@ -10,7 +10,7 @@ Twitter Mentions as Comments does exactly what it promises to do – scours Twit
 ## Features
 
 - Searches for Tweets linking to your blog posts, regardless of the URL shortener used (using Twitter's Search API)
-- Pushes Tweets into WordPress's existing comment workflow – notifications, comment moderation, and author whitelists/blacklists work just like any other comment
+- Pushes Tweets into WordPress's existing comment workflow – notifications, comment moderation, and author allowlists/blocklists work just like any other comment
 - Fetches user's real name and profile picture and links directly to the original Tweet
 - Checks automatically – no need to do a thing
 - Option to automatically exclude ReTweets
@@ -27,6 +27,6 @@ Twitter Mentions as Comments does exactly what it promises to do – scours Twit
 
 The plugin is available in the [WordPress plugin repository](http://wordpress.org/extend/plugins/twitter-mentions-as-comments/), and you can see it in action below or on the [WP Resume plugin page](https://ben.balter.com/2010/09/12/wordpress-resume-plugin/#comment-168).
 
-**Looking to filter out a particular user or keyword?** Because Tweets go through the normal comment filter, you can just [blacklist them as described below](https://ben.balter.com/2010/11/29/twitter-mentions-as-comments/#comment-246).
+**Looking to filter out a particular user or keyword?** Because Tweets go through the normal comment filter, you can just [block them as described below](https://ben.balter.com/2010/11/29/twitter-mentions-as-comments/#comment-246).
 
 **Update (7/8): Comments have been closed in favor of [expanded support and discussion options](https://github.com/benbalter/Twitter-Mentions-as-Comments/wiki/Where-to-get-Support-or-Report-an-Issue). Additional documentation about the project can now be found in the [Project Wiki](https://github.com/benbalter/Twitter-Mentions-as-Comments/wiki). If you are interested in joining the project at any level of technical expertise, please see [How to Contribute](https://github.com/benbalter/Twitter-Mentions-as-Comments/wiki/How-to-Contribute).**

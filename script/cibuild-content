@@ -18,6 +18,12 @@ script/lint-text
 script/title "checking vale"
 script/vale
 
+script/title "checking ai cadence (advisory, non-blocking)"
+# WARN-only: surfaces tbhb/vale-ai-tells findings for review but never fails the
+# build (the wrapper always exits 0). ai-tells' rules default to error and fire
+# on deliberate voice, so it can't gate — see .vale-ai-tells.ini.
+script/vale-ai-tells
+
 script/title "checking harper"
 script/harper
 

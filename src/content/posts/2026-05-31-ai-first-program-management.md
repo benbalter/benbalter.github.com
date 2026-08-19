@@ -12,15 +12,13 @@ That scramble hasn't gone away. But increasingly, I'm not doing it alone.
 
 The evolution makes sense in hindsight. I've argued that teams should [default to async communication](/2022/03/17/why-async/) — written, durable, discoverable artifacts over synchronous [meetings](/2023/04/20/meetings-are-a-point-of-escalation/). That managers should [use the same tools engineers use](/2023/01/10/manage-like-an-engineer/) — issues, pull requests, project boards — to plan and track their own work. And most recently, that [AI agents are extending the same patterns](/2026/03/18/agentic-workflows/) of transparency and code review that made open source successful.
 
-These ideas aren't disconnected. They're an evolution.
-
 If the shift from synchronous to async was about decoupling communication from presence, and managing like an engineer was about applying developer workflows to leadership, then AI-first program management is the next logical step: using AI to amplify the judgment, pattern recognition, and relationship work that makes program managers effective.
 
-The through-line is the same principle I've been writing about for years: [make work visible](/2022/02/16/leaders-show-their-work/), make it durable, and reduce the friction between having an idea and acting on it. AI doesn't change that philosophy. It accelerates it.
+The through-line is the same principle I've been writing about for years: [make work visible](/2022/02/16/leaders-show-their-work/), make it durable, and reduce the friction between having an idea and acting on it. AI doesn't change that philosophy so much as run it faster.
 
 ## AI across the PM toolkit
 
-Here's how each core PM responsibility shifts when AI enters the picture — and where it doesn't.
+Each core PM responsibility shifts when AI enters the picture — and some don't.
 
 ### Communication, coordination, and facilitation
 
@@ -72,31 +70,31 @@ Where AI falls short is in reading the political dynamics. Understanding that Te
 
 ## What doesn't change
 
-It would be easy to read all of this and conclude that AI is about to make program managers obsolete. The opposite is true.
+It would be easy to read all of this and conclude that AI is about to make program managers obsolete. It won't.
 
-The responsibilities haven't changed. Communication, risk management, relationship building, consensus-driving — these are still the job. What's shifted is the ratio of *information processing* to *judgment* in a PM's day. AI handles more of the former so you can focus more on the latter.
+The responsibilities haven't changed. What's shifted is the mix of the day: less time processing information, more time on judgment. AI reads the forty-message thread; you still decide whether the disagreement buried two-thirds of the way down needs a meeting or just a quiet word with the two people in it.
 
-The things AI can't do are precisely the things that make great PMs great: reading a room, building trust over months, knowing when to push and when to back off, navigating organizational politics, and making the hard call when the data is ambiguous. These are human skills, and they become *more* valuable as AI handles the routine work, not less. :quote[When everyone has access to the same AI tools, the differentiator is the human wielding them.]{#differentiator-is-the-human}
+The things AI can't do are the parts that were always the hard part: reading a room, building trust over months, knowing when to push and when to back off, making the call when the data is ambiguous and someone still has to own the outcome. Those get *more* valuable as AI absorbs the routine work. :quote[When everyone has access to the same AI tools, the differentiator is the human wielding them.]{#differentiator-is-the-human}
 
 ## What changes for PMs
 
-That said, AI-first program management does require new muscles — or at least, new applications of existing ones. Four capabilities stand out:
+That said, AI-first program management does require new muscles — or at least, new applications of existing ones. Four stand out:
 
-**Prompt craft matters.** The quality of what AI produces depends entirely on the quality of what you ask for. It's [garbage in, garbage out](https://en.wikipedia.org/wiki/Garbage_in,_garbage_out) — a principle as old as computing, now pointed at prompts instead of punch cards. PMs who can write clear, specific prompts — essentially, good requirements — will get dramatically better results than those who can't. It turns out that years of writing crisp issue descriptions and well-defined acceptance criteria is excellent training for working with LLMs. Good requirements have always been a PM superpower. Now they're a superpower twice over.
+**Prompt craft is just requirements-writing.** Ask an LLM to "summarize the launch thread" and you'll get mush. Ask it to "pull out every unresolved decision and its owner, and flag anything blocked on another team" and you'll get something you can act on before the sync. It's [garbage in, garbage out](https://en.wikipedia.org/wiki/Garbage_in,_garbage_out), a principle as old as punch cards, now pointed at prompts. The years you spent writing crisp issue descriptions and acceptance criteria were the training.
 
-**Knowing when *not* to use AI is as important as knowing when to use it.** A sensitive personnel conversation, a politically charged escalation, a message to a stakeholder who's having a rough week — these require a human touch that AI can't fake. Developing judgment about when AI helps versus when it gets in the way is a skill in itself, and it's one that's hard to teach in the abstract.
+**Knowing when *not* to reach for it.** The message to the stakeholder whose project just got cut, the escalation where two directors are fighting a proxy war over headcount, the report who's having a rough week—hand any of those to an AI and you'll ship something correct and tone-deaf. Which conversations are yours alone is a skill, and you mostly learn it by getting it wrong once.
 
-**Verification becomes a core competency.** AI will confidently summarize a thread and miss the most important nuance. It'll draft a status report that's 90% accurate and 10% dangerously misleading. PMs need to be skilled editors and fact-checkers, not just consumers of AI output. The role shifts from *author* to *editor-in-chief* — you set direction, review drafts, and ensure quality before anything ships.
+**Verification, because AI fails confidently.** It'll summarize a forty-message thread and drop the one comment where an engineer admitted the date was slipping. It'll draft a status report that's 90% right and 10% quietly wrong. Your job moves from writing the draft to catching that 10% before it ships—which means knowing the ground truth well enough to see where the model smoothed it over.
 
-**AI fluency is table stakes.** Just as PMs were expected to be comfortable with project management tools, version control, and whatever collaboration platform their teams use, they'll be expected to work fluently with AI assistants. Not as a novelty, but as a core part of the daily workflow — the way we already think about Slack or email or GitHub Issues.
+**Fluency is table stakes.** Nobody lists "can use a project board" on a résumé anymore. Working with AI assistants is on the same curve: a novelty this year, an assumption the next, as unremarkable as Slack or email or GitHub Issues.
 
-## The PM as orchestra conductor
+## The judgment is still yours
 
-The mental model I keep coming back to is the program manager as orchestra conductor. A conductor doesn't play every instrument — they don't play *any* instrument during the performance. But they're essential: they set the tempo, bring in the right sections at the right time, interpret the score, and turn individual performances into a coherent whole.
+The last big launch I ran, every dashboard was green the Friday before ship: PRs merged, tests passing, no open blockers, and SnippetGPT's rollup said exactly that. What the board didn't show was that one engineer had gone quiet in the launch channel three days running—terse in a way he normally wasn't—and the security reviewer had signed off with a single "lgtm, mostly." No tool reads "mostly" as anything but approval. I read it as a person who had found something and hadn't decided how much it mattered yet. We held the launch a week, and the hedge turned out to be an auth edge case that would have paged us at 2 AM on day one.
 
-AI agents are new instruments in the orchestra. They play fast, they play consistently, and they can handle parts that used to require a human musician. But someone still needs to read the score, understand the audience, and make the hundred small decisions that turn a technically correct performance into something that actually moves people. That's the PM's job — and it always will be.
+No model was going to catch that. It would have read the same green board I did. The job was never assembling the status—AI can do that now—it's knowing which green is actually green, and who to call when it isn't.
 
-The shift from synchronous to async made program management more intentional. Managing like an engineer made it more transparent. AI makes the same hours count for more. Each evolution builds on the last, and each one makes the human judgment at the center of the work more important, not less.
+The shift to async made program management more intentional. Managing like an engineer made it more transparent. AI makes the same hours count for more. Each of those shifts moved routine work off the PM's plate and left the judgment exactly where it was.
 
 Much of the job is a long tail of grab-bag work that never fits a clean category — writing the missing spec, scheduling the meeting nobody wants to own, reformatting a spreadsheet at 9 PM because a VP asked for a different view of the data. AI is exceptional at exactly this kind of mundane-but-necessary task, and it's the easiest place to start. If you're a PM wondering where to begin, pick the task that consumes the most time but requires the least judgment — status report assembly, meeting note cleanup, stakeholder update drafts — and hand it to an AI. You'll free up hours for the work that actually drew you to the role: solving hard problems with smart people across organizational boundaries.
 

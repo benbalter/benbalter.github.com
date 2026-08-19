@@ -3,6 +3,13 @@
 set -e
 
 if ! [ -x "$(command -v harper-cli)" ]; then
+	# Fail loud in CI: a linter that can't run must not silently pass as a
+	# green gate. Locally, degrade gracefully.
+	if [ -n "$CI" ]; then
+		echo "ERROR: Harper not found, but \$CI is set — the gate cannot run." >&2
+		echo "Refusing to pass silently. Install harper-cli in the workflow before this step." >&2
+		exit 1
+	fi
 	echo "Harper not found. Skipping grammar checking with Harper."
 	echo "To install Harper, visit: https://github.com/Automattic/harper"
 	echo "Harper provides offline, privacy-first grammar checking."
@@ -24,7 +31,18 @@ else
 	#   NeedToNoun ("need to get"), MoreAdjective (labels itself "not an error"),
 	#   OxfordComma (flags two-item pairs). (--ignore disables the named rules.)
 	HARPER_IGNORE="LongSentences,UseTitleCase,OxfordComma,MoreAdjective,OrthographicConsistency,DisjointPrefixes,SentenceCapitalization,CompoundNouns,SplitWords,RoadMap,DayOneNames,MassNouns,NeedToNoun,QuantifierNumeralConflict,LitotesDirectPositive,MissingPreposition,MissingTo,UnclosedQuotes,ToTwoToo,QuiteQuiet,ThatThan,TheyToThem,PossessiveYour"
-	# harper-cli currently always exits with code 1 (even with no lints found),
-	#   so we use || true to prevent it from failing the build.
-	harper-cli lint --no-color --ignore "$HARPER_IGNORE" --user-dict-path dictionary.txt src/content/posts/*.md || true
+	# Preprocess: strip Markdown/MDX so Harper lints prose, not markup. Without
+	#   this, Harper flags anchor slugs (e.g. {#dont-get-angry-at-rain}) and
+	#   directive attributes as misspellings. Stripped copies keep their
+	#   basenames so Harper's per-file output stays attributable. Uses the same
+	#   shared stripper as script/languagetool.
+	strip_dir=$(mktemp -d)
+	trap 'rm -rf "$strip_dir"' EXIT
+	for f in src/content/posts/*.md; do
+		awk -f "$(dirname "$0")/strip-markdown.awk" "$f" > "$strip_dir/$(basename "$f")"
+	done
+	# harper-cli always exits 1 (even with zero lints), so its exit code can't
+	#   gate; findings are advisory and surface in the log. || true keeps the
+	#   build green.
+	harper-cli lint --no-color --ignore "$HARPER_IGNORE" --user-dict-path dictionary.txt "$strip_dir"/*.md || true
 fi
