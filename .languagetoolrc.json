@@ -44,11 +44,7 @@
       "TOO_LONG_SENTENCE",
       "EN_PLAIN_ENGLISH_REPLACE",
       "SENTENCE_FRAGMENT",
-      "SENTENCE_WHITESPACE",
-      "WHITESPACE_RULE",
-      "CONSECUTIVE_SPACES",
       "DOUBLE_PUNCTUATION",
-      "UPPERCASE_SENTENCE_START",
       "ARROWS"
     ],
     "possessives-contractions": [
@@ -67,13 +63,11 @@
       "IN_FACEBOOK"
     ],
     "compound-hyphenation-style": [
-      "ALONG_SIDE",
       "PROBLEM_SOLVE_HYPHEN",
       "OVER_COMPOUNDS",
       "SUBJECT_MATTER_HYPHEN",
       "CROWD_SOURCING",
       "SETUP_VERB",
-      "OVERNIGHT",
       "NON_ANTI_JJ",
       "ROOM_COMPOUNDS",
       "PRINT_COMPOUNDS",
@@ -129,12 +123,7 @@
       "BASE_FORM",
       "THE_PUNCT",
       "PRP_VB",
-      "LESS_MORE_THEN",
-      "THEIR_IS",
-      "EN_MULTITOKEN_SPELLING_TWO",
-      "MANGER_MANAGER",
-      "RATHER_THEN",
-      "COULD_CARE_LESS"
+      "EN_MULTITOKEN_SPELLING_TWO"
     ],
     "markdown-stripping-artifacts": [
       "AN_AND",
@@ -171,21 +160,16 @@
     "grammar-false-positives-2": [
       "ABOUT_ITS_NN",
       "AFFECTS",
-      "AND_THAN",
       "ARE_WE_HAVE",
       "BEEN_PART_AGREEMENT",
       "CC_VERB",
-      "COMPRISED_OF",
       "DISCUSSIONS_AROUND",
       "EQUALLY_AS",
       "IN_THE_MEAN_TIME_PHRASE",
-      "ITS_TO_IT_S",
-      "ME_BE",
       "MONTH_OF_XXXX",
       "NNS_OF_SINGULAR_AGREEMENT",
       "NODT_DOZEN",
       "NON3PRS_VERB",
-      "ONE_THE_ONE_HAND",
       "PLURAL_VERB_AFTER_THIS",
       "PREPOSITION_VERB",
       "PRP_PAST_PART",
@@ -205,16 +189,12 @@
       "THE_THIRD_PARTY",
       "LAW_COMPOUNDS",
       "CAUSE_BECAUSE",
-      "ADJECTIVE_ADVERB",
-      "AN_THEN",
       "WAY_COMPOUNDS",
       "IT_IS_2",
       "ADMIT_ENJOY_VB",
-      "SPECIFIC_POSSESSIVE_APOSTROPHE",
       "BY_DEFAULT_COMMA",
       "MD_BASEFORM",
-      "PRP_HAVE_VB",
-      "TO_TOO"
+      "PRP_HAVE_VB"
     ],
     "verb-gerund-false-positive": [
       "AFFORD_VBG"
