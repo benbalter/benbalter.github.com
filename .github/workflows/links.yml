@@ -11,9 +11,6 @@ on:
       - 'package*.json'
       - '.lycheeignore'
       - '.github/workflows/links.yml'
-  schedule:
-    # Weekly run catches link rot on already-merged content
-    - cron: '0 6 * * 1'
   workflow_dispatch:
 
 permissions:
