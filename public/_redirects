@@ -18,6 +18,17 @@
 /talks/ https://speakerdeck.com/benbalter 301
 /talks https://speakerdeck.com/benbalter 301
 
+# Retired standalone project/talk pages (GitHub Pages sites dropped in migration)
+# → their living home: the source repo, or Speaker Deck for the slide decks.
+/open-source-alternatives/ https://github.com/benbalter/open-source-alternatives 301
+/open-source-alternatives https://github.com/benbalter/open-source-alternatives 301
+/open-source-for-government/ https://github.com/benbalter/open-source-for-government 301
+/open-source-for-government https://github.com/benbalter/open-source-for-government 301
+/wordpress-as-a-collaboration-platform/ https://speakerdeck.com/benbalter 301
+/wordpress-as-a-collaboration-platform https://speakerdeck.com/benbalter 301
+/open-sourcing-government/ https://speakerdeck.com/benbalter 301
+/open-sourcing-government https://speakerdeck.com/benbalter 301
+
 # Page renames
 /books/ /other-recommended-reading/ 301
 /books /other-recommended-reading/ 301
