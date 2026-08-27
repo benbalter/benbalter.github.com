@@ -36,6 +36,7 @@ import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 import { rehypeBootstrapTables } from '../src/lib/rehype-bootstrap-tables.ts';
 import { rehypeFigure } from '../src/lib/rehype-figure.ts';
 import { rehypeImageLoading } from '../src/lib/rehype-image-loading.ts';
+import { rehypeEmailQuotePlain } from '../src/lib/rehype-email-quote-plain.ts';
 
 const KIT_API_URL = 'https://api.kit.com/v4/broadcasts';
 const SITE_URL = process.env.SITE_URL || 'https://ben.balter.com';
@@ -49,6 +50,10 @@ const emailRehypePlugins = [
   rehypeBootstrapTables,
   rehypeFigure,
   rehypeImageLoading,
+  // Flatten the web-only :quote share affordance to plain highlighted text. Its
+  // inline share-icon SVG has no width/height and is CSS-sized on the web; email
+  // clients drop that CSS, so it otherwise renders as a giant graphic.
+  rehypeEmailQuotePlain,
   [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }],
 ];
 
@@ -82,7 +87,12 @@ function isPublished(frontmatter) {
 
 /**
  * Fetch existing broadcasts from Kit to check for duplicates.
- * Returns a Set of broadcast subjects for quick lookup.
+ * Returns a Set of subjects that have ALREADY BEEN SENT.
+ *
+ * Drafts are deliberately excluded: Kit "saves as draft" when a POST fails
+ * (transient/capacity/rate-limit 422s), so a failed attempt leaves a draft with
+ * this subject behind. Counting drafts here would make the very next run skip
+ * the post as "already broadcast" and it would never actually send.
  */
 async function getExistingBroadcastSubjects(apiKey) {
   const subjects = new Set();
@@ -93,13 +103,66 @@ async function getExistingBroadcastSubjects(apiKey) {
     if (response.ok) {
       const data = await response.json();
       for (const broadcast of data.broadcasts || []) {
-        if (broadcast.subject) subjects.add(broadcast.subject);
+        // Only a sent/sending broadcast means "already broadcast" — never a draft.
+        if (broadcast.subject && broadcast.status && broadcast.status !== 'draft') {
+          subjects.add(broadcast.subject);
+        }
       }
     }
   } catch {
     console.warn('  ⚠️  Could not fetch existing broadcasts for dedupe check');
   }
   return subjects;
+}
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/** Delete any DRAFT broadcasts with this subject (leftovers from failed POSTs). */
+async function deleteDraftBroadcastsWithSubject(subject, apiKey) {
+  try {
+    const response = await fetch(KIT_API_URL, { headers: { 'X-Kit-Api-Key': apiKey } });
+    if (!response.ok) return;
+    const data = await response.json();
+    for (const b of data.broadcasts || []) {
+      if (b.id && b.status === 'draft' && b.subject === subject) {
+        await fetch(`${KIT_API_URL}/${b.id}`, {
+          method: 'DELETE',
+          headers: { 'X-Kit-Api-Key': apiKey },
+        });
+        console.log(`  🧹 Removed stale draft (id: ${b.id})`);
+      }
+    }
+  } catch {
+    // Best-effort cleanup; a leftover draft is handled by the dedupe change too.
+  }
+}
+
+/**
+ * POST a broadcast, retrying on 422. Kit returns 422 not only for bad data but
+ * also for transient/capacity and rate-limit conditions ("Please try again" /
+ * "try and send it later"), and it "saves as draft" on failure. So between
+ * attempts we clear any saved draft (to avoid pileup) and back off before
+ * retrying. A genuine bad-data 422 simply exhausts the retries and throws.
+ */
+async function createBroadcastWithRetry(payload, apiKey) {
+  const maxAttempts = 4;
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    const response = await fetch(KIT_API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Kit-Api-Key': apiKey },
+      body: JSON.stringify(payload),
+    });
+    if (response.ok) return await response.json();
+
+    const body = await response.text();
+    if (response.status === 422 && attempt < maxAttempts) {
+      console.warn(`  ⚠️  Kit 422 (attempt ${attempt}/${maxAttempts}): ${body}`);
+      await deleteDraftBroadcastsWithSubject(payload.subject, apiKey);
+      await sleep(2000 * attempt); // linear backoff: 2s, 4s, 6s
+      continue;
+    }
+    throw new Error(`Kit API error (${response.status}): ${body}`);
+  }
 }
 
 async function main() {
@@ -219,24 +282,24 @@ async function main() {
       continue;
     }
 
+    // Clear any stale draft from a prior failed attempt so it neither blocks
+    // the send (subject/slug collision) nor lingers as a duplicate.
+    await deleteDraftBroadcastsWithSubject(frontmatter.title, apiKey);
+
     console.log(`  Sending broadcast: "${frontmatter.title}"`);
 
-    const response = await fetch(KIT_API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Kit-Api-Key': apiKey,
-      },
-      body: JSON.stringify(payload),
-    });
-
-    if (!response.ok) {
-      const body = await response.text();
-      console.error(`  ❌ Kit API error (${response.status}): ${body}`);
+    let result_data;
+    try {
+      result_data = await createBroadcastWithRetry(payload, apiKey);
+    } catch (err) {
+      // Surface the full Kit error in the CI log AND as a GitHub Actions error
+      // annotation, then fail the job so the failure is never silent.
+      const detail = err instanceof Error ? err.message : String(err);
+      console.error(`  ❌ Failed to send broadcast "${frontmatter.title}": ${detail}`);
+      console.error(`::error title=Email broadcast failed::${frontmatter.title}: ${detail.replace(/\r?\n/g, ' ')}`);
       process.exit(1);
     }
 
-    const result_data = await response.json();
     console.log(`  ✅ Broadcast created (id: ${result_data.broadcast?.id || 'unknown'})`);
     sent++;
   }
