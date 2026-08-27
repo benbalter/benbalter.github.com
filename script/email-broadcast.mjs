@@ -39,8 +39,18 @@ import { rehypeImageLoading } from '../src/lib/rehype-image-loading.ts';
 import { rehypeEmailQuotePlain } from '../src/lib/rehype-email-quote-plain.ts';
 
 const KIT_API_URL = 'https://api.kit.com/v4/broadcasts';
+const KIT_SEGMENTS_URL = 'https://api.kit.com/v4/segments';
 const SITE_URL = process.env.SITE_URL || 'https://ben.balter.com';
 const DRY_RUN = process.env.DRY_RUN === 'true';
+// A manual workflow_dispatch with an explicit post_path is an intentional
+// "send this now" — force past the already-broadcast dedupe check.
+const FORCE_SEND = process.env.FORCE_SEND === 'true';
+// Kit no longer sends to everyone when subscriber_filter is omitted (it 422s at
+// send) and rejects an explicit all_subscribers filter (422 at create), so a
+// broadcast must reference a real segment/tag. This UI-created segment matches
+// all subscribers; override the name via env if it's ever renamed.
+const ALL_SUBSCRIBERS_SEGMENT_NAME =
+  process.env.KIT_ALL_SUBSCRIBERS_SEGMENT || 'All subscribers';
 
 /** Build an email-safe rehype plugin list (no anchor links, no relative URLs) */
 const emailRehypePlugins = [
@@ -165,6 +175,31 @@ async function createBroadcastWithRetry(payload, apiKey) {
   }
 }
 
+/**
+ * Resolve the id of the segment that targets all subscribers. Kit's v4 API
+ * rejects both an omitted filter (422 at send) and an explicit all_subscribers
+ * filter (422 at create), so every broadcast must reference a real segment.
+ */
+async function getAllSubscribersSegmentId(apiKey) {
+  const response = await fetch(`${KIT_SEGMENTS_URL}?per_page=100`, {
+    headers: { 'X-Kit-Api-Key': apiKey },
+  });
+  if (!response.ok) {
+    throw new Error(`Could not list Kit segments (${response.status})`);
+  }
+  const data = await response.json();
+  const segment = (data.segments || []).find(
+    (s) => (s.name || '').toLowerCase() === ALL_SUBSCRIBERS_SEGMENT_NAME.toLowerCase()
+  );
+  if (!segment) {
+    throw new Error(
+      `No Kit segment named "${ALL_SUBSCRIBERS_SEGMENT_NAME}". Create one in the ` +
+        `Kit UI (a segment matching all subscribers) so broadcasts can target it.`
+    );
+  }
+  return segment.id;
+}
+
 async function main() {
   const apiKey = process.env.KIT_API_KEY;
   if (!apiKey) {
@@ -195,6 +230,21 @@ async function main() {
   // Warn if multiple posts — send all but log prominently
   if (postPaths.length > 1) {
     console.warn(`⚠️  ${postPaths.length} new posts detected — sending a broadcast for each`);
+  }
+
+  // Resolve the all-subscribers segment up front so a misconfiguration fails
+  // before we render or send anything.
+  let allSubscribersSegmentId;
+  try {
+    allSubscribersSegmentId = await getAllSubscribersSegmentId(apiKey);
+    console.log(
+      `Targeting segment "${ALL_SUBSCRIBERS_SEGMENT_NAME}" (#${allSubscribersSegmentId})`
+    );
+  } catch (err) {
+    const detail = err instanceof Error ? err.message : String(err);
+    console.error(`❌ ${detail}`);
+    console.error(`::error title=Email broadcast misconfigured::${detail}`);
+    process.exit(1);
   }
 
   // Fetch existing broadcasts for idempotency check
@@ -237,11 +287,15 @@ async function main() {
       continue;
     }
 
-    // Idempotency: skip if a broadcast with this subject already exists
+    // Idempotency: skip if a broadcast with this subject was already sent —
+    // unless FORCE_SEND (an explicit manual dispatch of this specific post).
     if (existingSubjects.has(frontmatter.title)) {
-      console.log(`  Skipping (already broadcast): "${frontmatter.title}"`);
-      skipped++;
-      continue;
+      if (!FORCE_SEND) {
+        console.log(`  Skipping (already broadcast): "${frontmatter.title}"`);
+        skipped++;
+        continue;
+      }
+      console.log(`  ⚠️  "${frontmatter.title}" already broadcast — sending anyway (FORCE_SEND)`);
     }
 
     // Render markdown to email-safe HTML. Strip MDX-only syntax first so ESM
@@ -267,9 +321,12 @@ async function main() {
       public: true,
       published_at: new Date().toISOString(),
       send_at: new Date().toISOString(),
-      // Omit subscriber_filter to send to all subscribers. Kit's v4 API only
-      // accepts `segment` or `tag` filter types; an explicit "all_subscribers"
-      // filter is rejected with a 422 ("Only `segment` or `tag` filters allowed").
+      // Target the all-subscribers segment. Kit's v4 API 422s on an omitted
+      // filter (its old "send to everyone" default regressed) and rejects an
+      // explicit all_subscribers type, so we reference a real segment instead.
+      subscriber_filter: [
+        { all: [{ type: 'segment', ids: [allSubscribersSegmentId] }], any: null, none: null },
+      ],
     };
 
     if (DRY_RUN) {
