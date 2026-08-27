@@ -6,8 +6,11 @@ name: Sync new posts to standard.site
 # tag the site renders already points at the synced record — no commit-back, and
 # re-runs are idempotent.
 
+# workflow_run is intentional and safe here: read-only permissions, no untrusted
+# PR code is checked out, only fires on branches: [main], and the commit id is
+# passed via env rather than expanded into shell.
 on:
-  workflow_run:
+  workflow_run:  # zizmor: ignore[dangerous-triggers]
     workflows: ["Deploy site to Cloudflare Pages"]
     types: [completed]
     branches: [main]
@@ -44,30 +47,36 @@ jobs:
 
       - name: Detect new posts
         id: detect
+        # Pass context values through env so they're never expanded into the
+        # shell source (prevents template-injection via crafted input).
+        env:
+          POST_PATH: ${{ inputs.post_path }}
+          EVENT_NAME: ${{ github.event_name }}
+          HEAD_COMMIT_ID: ${{ github.event.workflow_run.head_commit.id }}
         run: |
           # Manual dispatch with a specific post path
-          if [ -n "${{ inputs.post_path }}" ]; then
-            if [ -f "${{ inputs.post_path }}" ]; then
-              echo "${{ inputs.post_path }}" > /tmp/new-posts.txt
+          if [ -n "$POST_PATH" ]; then
+            if [ -f "$POST_PATH" ]; then
+              echo "$POST_PATH" > /tmp/new-posts.txt
               echo "has_posts=true" >> "$GITHUB_OUTPUT"
-              echo "Manual dispatch for: ${{ inputs.post_path }}"
+              echo "Manual dispatch for: $POST_PATH"
               exit 0
             else
-              echo "❌ File not found: ${{ inputs.post_path }}"
+              echo "❌ File not found: $POST_PATH"
               exit 1
             fi
           fi
 
           # Manual dispatch without a path: nothing to do
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
             echo "No post_path provided for manual dispatch"
             echo "has_posts=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
           # Auto-detect from the triggering deploy's commit range
-          BEFORE="${{ github.event.workflow_run.head_commit.id }}~1"
-          AFTER="${{ github.event.workflow_run.head_commit.id }}"
+          BEFORE="${HEAD_COMMIT_ID}~1"
+          AFTER="$HEAD_COMMIT_ID"
 
           NEW_POSTS=$(git diff --name-only --diff-filter=A "$BEFORE" "$AFTER" -- 'src/content/posts/' 2>/dev/null || echo "")
 

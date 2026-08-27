@@ -70,7 +70,6 @@ on:
 
 permissions:
   contents: read
-  statuses: write
 
 env:
   NODE_VERSION: 24

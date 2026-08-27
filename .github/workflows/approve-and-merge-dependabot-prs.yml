@@ -9,7 +9,10 @@ jobs:
   dependabot:
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    if: ${{ github.actor == 'dependabot[bot]' }}
+    # On pull_request, actor is dependabot[bot] only when the PR genuinely
+    # originates from Dependabot — a fork attacker's actor is their own login,
+    # not the bot — and update-type is re-validated via fetch-metadata below.
+    if: ${{ github.actor == 'dependabot[bot]' }}  # zizmor: ignore[bot-conditions]
     steps:
       - name: Dependabot metadata
         id: metadata

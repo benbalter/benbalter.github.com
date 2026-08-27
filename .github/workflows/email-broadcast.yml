@@ -1,8 +1,12 @@
 name: Email broadcast for new posts
 
-# Runs after a successful deploy so subscribers aren't emailed before the post is live
+# Runs after a successful deploy so subscribers aren't emailed before the post is live.
+# workflow_run is intentional and safe here: permissions are read-only, no
+# untrusted PR code is checked out, and it only fires on branches: [main] (which
+# forks can't push to). The commit id it reads is passed via env, not expanded
+# into shell.
 on:
-  workflow_run:
+  workflow_run:  # zizmor: ignore[dangerous-triggers]
     workflows: ["Deploy site to Cloudflare Workers"]
     types: [completed]
     branches: [main]
@@ -39,30 +43,36 @@ jobs:
 
       - name: Detect new posts
         id: detect
+        # Pass context values through env so they're never expanded into the
+        # shell source (prevents template-injection via crafted input).
+        env:
+          POST_PATH: ${{ inputs.post_path }}
+          EVENT_NAME: ${{ github.event_name }}
+          HEAD_COMMIT_ID: ${{ github.event.workflow_run.head_commit.id }}
         run: |
           # Manual dispatch with a specific post path
-          if [ -n "${{ inputs.post_path }}" ]; then
-            if [ -f "${{ inputs.post_path }}" ]; then
-              echo "${{ inputs.post_path }}" > /tmp/new-posts.txt
+          if [ -n "$POST_PATH" ]; then
+            if [ -f "$POST_PATH" ]; then
+              echo "$POST_PATH" > /tmp/new-posts.txt
               echo "has_posts=true" >> "$GITHUB_OUTPUT"
-              echo "Manual dispatch for: ${{ inputs.post_path }}"
+              echo "Manual dispatch for: $POST_PATH"
               exit 0
             else
-              echo "❌ File not found: ${{ inputs.post_path }}"
+              echo "❌ File not found: $POST_PATH"
               exit 1
             fi
           fi
 
           # Auto-detect from workflow_run trigger
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
             echo "No post_path provided for manual dispatch"
             echo "has_posts=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
           # Get the commit range from the triggering workflow run
-          BEFORE="${{ github.event.workflow_run.head_commit.id }}~1"
-          AFTER="${{ github.event.workflow_run.head_commit.id }}"
+          BEFORE="${HEAD_COMMIT_ID}~1"
+          AFTER="$HEAD_COMMIT_ID"
 
           # Find newly added post files
           NEW_POSTS=$(git diff --name-only --diff-filter=A "$BEFORE" "$AFTER" -- 'src/content/posts/' 2>/dev/null || echo "")
