@@ -8,7 +8,7 @@ I've said in the past, that open-source's lack of adoption in the enterprise spa
 
 I was thrilled to come across [this comprehensive list of open-source options for government](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/78964/Open_Source_Options_v2_0.pdf) last week, part of the UK's [Open Source Procurement Toolkit](https://www.gov.uk/government/publications/open-source-procurement-toolkit), but was disappointed to see, in addition to it being published in most government agencies' favorite web publishing format (PDF), it hadn't been updated in more than a year.
 
-With a little find-and-replace magic, I converted the PDF into a stand-alone web page (based on [Twitter's open-source Bootstrap](http://getbootstrap.com/) and [Jekyll](https://github.com/mojombo/jekyll)), cleaned up a few typos, and [published it to GitHub](http://benbalter.github.com/open-source-alternatives/) in hopes that it can be collaboratively edited by the broader open-source community.
+With a little find-and-replace magic, I converted the PDF into a stand-alone web page (based on [Twitter's open-source Bootstrap](http://getbootstrap.com/) and [Jekyll](https://github.com/mojombo/jekyll)), cleaned up a few typos, and [published it to GitHub](https://github.com/benbalter/open-source-alternatives) in hopes that it can be collaboratively edited by the broader open-source community.
 
 Please browse the list, and if you find any additions, corrections, or improvements, [fork the page on GitHub](https://github.com/benbalter/open-source-alternatives) and [submit a pull request](http://help.github.com/send-pull-requests/).
 

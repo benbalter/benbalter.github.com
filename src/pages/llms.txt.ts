@@ -66,7 +66,10 @@ export const GET: APIRoute = async () => {
 
   content += `## About and Professional Information\n\n`;
   content += `* [About](${siteConfig.url}/about/): Learn more about ${siteConfig.author}'s professional background, including his work at ${siteConfig.formerEmployer}.\n`;
-  
+  // Point agents at the plain-Markdown export — same content as the about
+  // page, but structured for easy machine parsing (no HTML to strip).
+  content += `* [About (Markdown)](${siteConfig.url}/about.md): Machine-readable Markdown version of ${siteConfig.author}'s bio, ideal for parsing.\n`;
+
   if (resumePage) {
     content += `* [${resumePage.data.title}](${siteConfig.url}${resumePage.data.permalink}): ${resumePage.data.description}\n`;
     // Point agents at the plain-Markdown export — same content as the resume
