@@ -27,8 +27,10 @@ export function rehypeBootstrapTables() {
           node.properties = {};
         }
 
-        // Get existing classes or create empty array
-        const existingClasses = node.properties.className;
+        // Get existing classes or create empty array. The hast type declares
+        // className as string[] | undefined, but other plugins may leave a raw
+        // string at runtime, so normalize both shapes defensively.
+        const existingClasses: unknown = node.properties.className;
         let classes: string[] = [];
 
         if (Array.isArray(existingClasses)) {
