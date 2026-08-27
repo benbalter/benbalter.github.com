@@ -21,7 +21,7 @@ And everything downstream inherits those semantics. Pandoc renders the same sour
 
 Three weeks out from launch, the book came out to 575 pages. Print books get bound in signatures (big sheets folded down into 16 or 32 pages at a time), so an odd count meant a blank page at the end. Might as well fill it. At midnight I wrote a one-page back-matter spread—a QR code pointing at the book's [quote wall](https://open-and-async.com/q/)—and print landed at a tidy 576. Deploying on a Friday afternoon, in book form. It went about how you'd expect.
 
-In the EPUB, that QR went out as a bare inline `<svg>`—not marked decorative, not given a name, just left for assistive tech to guess about, two files from my own [conformance claims](https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html). Every build already ran the rendered book through [axe-core](https://github.com/dequelabs/axe-core), and every EPUB through [EPUBCheck](https://www.w3.org/publishing/epubcheck/) and [Ace by DAISY](https://daisy.org/activities/software/ace/).[^checks][^standards] All three came back green and the book shipped with it. Why they were green is the more useful half of the story.
+In the EPUB, that QR went out as a bare inline `<svg>`—not marked decorative, not given a name, just left for assistive tech to guess about, two files from my own [conformance claims](https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html). Every build already ran the rendered book through [axe-core](https://github.com/dequelabs/axe-core), and every EPUB through [EPUBCheck](https://www.w3.org/publishing/epubcheck/) and [Ace by DAISY](https://daisy.org/activities/software/ace/).[^checks][^standards] All three came back green and the book shipped with it.[^found] Why they were green is the more useful half of the story.
 
 ### Contrast doesn't exist until the render
 
@@ -47,9 +47,9 @@ An accessible ebook reflows, so a reader sets their own font, size, spacing, and
 
 None of this is charity. A book that only works at my font size is making the same mistake as a decision that only happens in a meeting—the format quietly decides who gets to participate, and then everyone calls the result a preference.
 
-### The reach you never see
+### Readers you'll never meet
 
-Some of it pays off where I'll never see it. The EPUB's metadata declares what the file is and what it conforms to, which is how the book ended up on [Bookshare](https://www.bookshare.org/), the Department of Education–backed library where readers with print disabilities get books free, in DAISY, braille, or large print. I'll never hear from that reader. Getting into that catalog cost nothing beyond accurately describing what I'd already built.
+Some of it pays off where I'll never know. The EPUB's metadata declares what the file is and what it conforms to, which is how the book ended up on [Bookshare](https://www.bookshare.org/), the Department of Education–backed library where readers with print disabilities get books free, in DAISY, braille, or large print. I'll never hear from that reader. Getting into that catalog cost nothing beyond accurately describing what I'd already built.
 
 ## A screen reader and a language model want the same thing
 
@@ -82,6 +82,8 @@ Do both and accessibility stops being a heroic sprint at the end of the project.
 [^gate]: It's a separate CI job rather than a step inside the build, so the audit runs in parallel with the EPUB, Kindle, and PDF builds instead of adding to the critical path. The whole graph finishes in about five minutes, which is the actual reason the checks survived—a gate slow enough to be annoying is a gate you start skipping.
 
 [^qr]: Fixed in v1.0.1. My decorative-image rule matched `<img class="callout-emoji">`, and the QR was neither an `img` nor a callout, so it walked right past. The EPUB postprocessing step now tags QR SVGs with `aria-hidden="true"`, identifying them by the `shape-rendering="crispEdges"` attribute that's unique to QR renders, so the cover art is left alone. Nothing is lost by hiding it—the URL is printed right underneath as a real link.
+
+[^found]: Not from a check. All three passed it. I caught it weeks later while prepping the audiobook, going through the book with the screen off to decide what the narration should and shouldn't voice. A QR with no accessible name is silent when read aloud, so it stood out by producing nothing at all. That screen-off read-through, which I get into later, is the one audit my pipeline doesn't run.
 
 [^drm]: It's a checkbox at upload time on every store, and the default in at least one of them is on. Amazon also has a separate publisher-set flag for whether text-to-speech is allowed at all, which is a strange thing to be able to switch off on someone else's behalf.
 
