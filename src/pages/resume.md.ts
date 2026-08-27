@@ -16,6 +16,7 @@ import { formatResumeDate } from '../utils/post-urls';
 import { getPublishedPosts } from '../utils/posts';
 import { resolvePopularPosts } from '../utils/resume-writing';
 import { siteConfig } from '../config';
+import { stripHtmlComments } from '../utils/strip-html';
 
 /**
  * Position bodies are already valid Markdown (bullets, links, bold) — leave the
@@ -23,7 +24,7 @@ import { siteConfig } from '../config';
  * directives, which would otherwise leak into the export as literal noise.
  */
 function normalizePositionBody(body: string): string {
-  return body.replace(/<!--[\s\S]*?-->/g, '').trim();
+  return stripHtmlComments(body).trim();
 }
 
 export const GET: APIRoute = async () => {

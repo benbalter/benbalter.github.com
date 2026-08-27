@@ -5,6 +5,8 @@
  * used by both the inline and sidebar TOC components.
  */
 
+import { stripHtmlTags } from './strip-html';
+
 export interface TocEntry {
   id: string;
   text: string;
@@ -22,7 +24,7 @@ export function extractHeadings(html: string): TocEntry[] {
   let match: RegExpExecArray | null;
 
   while ((match = headingRegex.exec(html)) !== null) {
-    const text = match[3].replace(/<[^>]+>/g, '').replace(/#$/, '').trim();
+    const text = stripHtmlTags(match[3]).replace(/#$/, '').trim();
     if (text) {
       headings.push({
         level: parseInt(match[1]),

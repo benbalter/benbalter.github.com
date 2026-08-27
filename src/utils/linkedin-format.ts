@@ -7,6 +7,7 @@
  */
 
 import { stripMarkdown } from './strip-markdown';
+import { stripHtmlComments } from './strip-html';
 
 /**
  * LinkedIn profile field character limits (as of 2025).
@@ -35,8 +36,8 @@ export function cleanDescription(text: string): string {
     // Match list markers at any indent so nested sub-bullets flatten to `• `
     // too (LinkedIn's description field has no nested-list affordance).
     .replace(/^[ \t]*[-*]\s+/gm, bulletPlaceholder)
-    .replace(/^#+\s+/gm, '')
-    .replace(/<!--.*?-->/g, '');
+    .replace(/^#+\s+/gm, '');
+  cleaned = stripHtmlComments(cleaned);
 
   cleaned = stripMarkdown(cleaned);
 

@@ -325,7 +325,10 @@ function stripEchoedFrontmatter(body: string): string {
 function assembleMarkdown(title: string, description: string, body: string): string {
   body = stripEchoedFrontmatter(body);
   // Deterministic, valid front matter — the model supplies prose, not YAML.
-  const esc = (s: string) => `"${s.replace(/"/g, '\\"')}"`;
+  // Escape backslashes before quotes so a literal `\` in the prose can't
+  // combine with the following char to break out of the quoted YAML string.
+  const esc = (s: string) =>
+    `"${s.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`;
   const fm = [
     '---',
     `title: ${esc(title)}`,

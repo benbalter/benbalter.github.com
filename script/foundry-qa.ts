@@ -265,7 +265,12 @@ function writeIndex(rows: RunRow[]) {
       lines.push(`| \`${r.id}\` | ${r.popular ? '★' : ''} | — | — | — | ⚠️ ${r.error} |`);
       continue;
     }
-    const s = r.summary.replace(/\|/g, '\\|').replace(/\n/g, ' ');
+    // Escape backslashes first, then pipes/newlines, so a literal `\` can't
+    // pair with the following char inside the markdown table cell.
+    const s = r.summary
+      .replace(/\\/g, '\\\\')
+      .replace(/\|/g, '\\|')
+      .replace(/\n/g, ' ');
     lines.push(
       `| [${r.title}](./${r.id}.md) | ${r.popular ? '★' : ''} | ${r.counts.high} | ${r.counts.medium} | ${r.counts.low} | ${s} |`
     );
