@@ -5,7 +5,7 @@ tldr: "Most of accessibility is structure, and Markdown won't let you fake it: `
 published: true
 ---
 
-The ebook edition of [*Open and Async*](https://open-and-async.com/?utm_source=benbalter-accessibility-post) conforms to the Web Content Accessibility Guidelines ([WCAG](https://www.w3.org/TR/WCAG21/)) at 2.1 Level AA. I'd like to tell you that took discipline, but most of it was done before I went looking: I write in Markdown, and [the build pipeline I'd overengineered](/2026/08/17/how-i-over-engineered-my-book/) for unrelated reasons was already running a browser over the output on every push. Here's what actually did the work, and what it missed.
+The ebook edition of [*Open and Async*](https://open-and-async.com/?utm_source=benbalter-accessibility-post) conforms to the Web Content Accessibility Guidelines ([WCAG](https://www.w3.org/TR/WCAG21/)) at 2.1 Level AA, documented in the book's [accessibility statement](https://open-and-async.com/accessibility/). I'd like to tell you that took discipline, but most of it was done before I went looking: I write in Markdown, and [the build pipeline I'd overengineered](/2026/08/17/how-i-over-engineered-my-book/) for unrelated reasons was already running a browser over the output on every push. Here's what actually did the work, and what it missed.
 
 ## Markdown won't let you fake structure
 
@@ -39,7 +39,7 @@ What none of it can see is markup that never announced what it was. Every axe ru
 
 Strip away the acronyms and conformance levels and what's left is a question about who gets to read the thing.
 
-An accessible ebook reflows, so a reader sets their own font, size, spacing, and colors instead of squinting at whatever I happened to pick. I'm one of those readers, after enough years of staring at a screen all day. Its navigation works, so anyone can jump straight to the chapter they came for. It reads cleanly aloud, which matters as much for someone on a commute with the screen off as for someone using a screen reader. That last one is also why a narrated edition turned out to be a much smaller lift than I'd budgeted for.
+An accessible ebook reflows, so a reader sets their own font, size, spacing, and colors instead of squinting at whatever I happened to pick. I'm one of those readers, after enough years of staring at a screen all day. Its navigation works, so anyone can jump straight to the chapter they came for. It reads cleanly aloud, which matters as much for someone on a commute with the screen off as for someone using a screen reader. I can vouch for that part firsthand: I read the whole book screen off, listening straight through, while prepping the narration—the one audit no checker in my pipeline runs, and the kind that catches what a green build can't. A narrated edition turned out to be a much smaller lift than I'd budgeted for, because the structure that passed axe is the structure a voice follows. More on that soon.
 
 None of that is charity. A book that only works at my font size is making the same mistake as a decision that only happens in a meeting—the format quietly decides who gets to participate, and then everyone calls the result a preference.
 
