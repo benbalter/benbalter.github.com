@@ -47,6 +47,9 @@ jobs:
     with:
       scan-args: |-
         --lockfile=package-lock.json
+      # Report-only for now: results populate the Security tab without gating.
+      # Flip to true once the existing dependency-CVE backlog is triaged.
+      fail-on-vuln: false
 
   # On PRs, only report vulnerabilities the PR newly introduces.
   deps-pr:
@@ -60,6 +63,8 @@ jobs:
     with:
       scan-args: |-
         --lockfile=package-lock.json
+      # Report-only for now; flip to true once the CVE backlog is triaged.
+      fail-on-vuln: false
 
   # Lint the workflows themselves: actionlint (blocking, precise) + zizmor (advisory, SARIF).
   workflow-security:
@@ -92,7 +97,9 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
-        run: zizmor --format sarif --output zizmor.sarif .github/workflows/ || true
+        # zizmor writes SARIF to stdout; redirect it. `|| true` because zizmor
+        # exits non-zero when it has findings, which we surface (not gate) below.
+        run: zizmor --format sarif .github/workflows/ > zizmor.sarif || true
 
       - name: Upload zizmor SARIF
         uses: github/codeql-action/upload-sarif@v4
