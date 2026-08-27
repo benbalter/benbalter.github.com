@@ -1,11 +1,11 @@
 ---
 title: "Accessible by default: writing a book like software"
-description: "The ebook meets the Web Content Accessibility Guidelines (WCAG 2.1 Level AA) because the format wouldn't let me fake a heading and a browser audits every build, not because anyone scheduled a week for it. What Markdown can't check—color contrast, generated markup—axe-core checks under Playwright."
-tldr: "Most of accessibility is structure, and Markdown won't let you fake it: `##` is a real heading or it's nothing. The parts the source can't check, like color contrast, get audited in a real browser on every build, so a violation fails CI the same way a broken link does. The structure a screen reader needs is the same structure a text-to-speech engine, a retrieval index, and an LLM need—as long as the file ships DRM-free enough to reach them."
+description: "The ebook meets the Web Content Accessibility Guidelines (WCAG 2.1 Level AA) because the format wouldn't let me fake a heading and a browser audits every build, not because anyone scheduled a week for it. The parts Markdown can't check, like color contrast, axe-core catches under Playwright."
+tldr: "Accessibility is mostly setup, not effort: pick a format where a heading is really a heading, then let one automated check gate every build. Get those right and conformance stops being a project and becomes a fact of every push. The structure that clears the check is the same one a screen reader and an LLM both read."
 published: true
 ---
 
-The ebook edition of [*Open and Async*](https://open-and-async.com/?utm_source=benbalter-accessibility-post) conforms to the Web Content Accessibility Guidelines ([WCAG](https://www.w3.org/TR/WCAG21/)) at 2.1 Level AA, documented in the book's [accessibility statement](https://open-and-async.com/accessibility/). I'd like to tell you that took discipline, but most of it was done before I went looking: I write in Markdown, and [the build pipeline I'd overengineered](/2026/08/17/how-i-over-engineered-my-book/) for unrelated reasons was already running a browser over the output on every push. Here's what actually did the work, and what it missed.
+The build pipeline behind [*Open and Async*](https://open-and-async.com/?utm_source=benbalter-accessibility-post) is [absurdly over-engineered](/2026/08/17/how-i-over-engineered-my-book/)—five formats out of one Markdown source, a real browser auditing every push, the works. I built it to satisfy my own compulsions, not a standard. Then I went to check whether the ebook was actually accessible and found out it already was. It meets the Web Content Accessibility Guidelines ([WCAG](https://www.w3.org/TR/WCAG21/)) 2.1 Level AA, spelled out in the book's [accessibility statement](https://open-and-async.com/accessibility/). Almost none of it was on purpose. Here's what actually did the work, and what it missed.
 
 ## Markdown won't let you fake structure
 
@@ -19,17 +19,17 @@ And everything downstream inherits those semantics. Pandoc renders the same sour
 
 ## Markdown can't check the parts you didn't write
 
-Three weeks out from launch, the book came out to 575 pages. Print books get bound in signatures—big sheets folded down into 16 or 32 pages at a time—so an odd count meant a blank page at the end. Might as well fill it. At midnight I wrote a one-page back-matter spread—a QR code pointing at the book's [quote wall](https://open-and-async.com/q/)—and print landed at a tidy 576. Deploying on a Friday afternoon, in book form. It went about how you'd expect.
+Three weeks out from launch, the book came out to 575 pages. Print books get bound in signatures (big sheets folded down into 16 or 32 pages at a time), so an odd count meant a blank page at the end. Might as well fill it. At midnight I wrote a one-page back-matter spread—a QR code pointing at the book's [quote wall](https://open-and-async.com/q/)—and print landed at a tidy 576. Deploying on a Friday afternoon, in book form. It went about how you'd expect.
 
 In the EPUB, that QR went out as a bare inline `<svg>`—not marked decorative, not given a name, just left for assistive tech to guess about, two files from my own [conformance claims](https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html). Every build already ran the rendered book through [axe-core](https://github.com/dequelabs/axe-core), and every EPUB through [EPUBCheck](https://www.w3.org/publishing/epubcheck/) and [Ace by DAISY](https://daisy.org/activities/software/ace/).[^checks][^standards] All three came back green and the book shipped with it. Why they were green is the more useful half of the story.
 
 ### Contrast doesn't exist until the render
 
-Start with contrast, the cleanest example of something the source can't check, because the source doesn't contain it. Markdown has no color. The foreground comes from one CSS rule, the background from another—usually a different file, often behind a media query—and the pair only exists once the cascade has run. There's nothing to grep, so the accessibility suite is [Playwright](https://playwright.dev/) driving a real browser over the built HTML, injecting axe-core into the page, and auditing the DOM the browser actually resolved.
+Start with contrast, the cleanest example of something the source can't check, because the source doesn't contain it. Markdown has no color. The foreground comes from one CSS rule, the background from another (usually a different file, often behind a media query), and the pair only exists once the cascade has run. There's nothing to grep, so the accessibility suite is [Playwright](https://playwright.dev/) driving a real browser over the built HTML, injecting axe-core into the page, and auditing the DOM the browser actually resolved.
 
-That's what makes the contrast rule possible. For every text node, axe reads the computed `color`, walks up the ancestors until it finds a background that isn't transparent, blends in any semi-transparent layers it passes through, converts both ends to relative luminance (perceived brightness, not the RGB values), and checks the ratio against [WCAG 1.4.3](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html): 4.5:1 for body text, 3:1 for large text (18pt, or 14pt bold). :quote[The pairs that fail are the ones nobody designed.]{#pairs-nobody-designed} Inline `<code>` inside a tinted callout. A muted caption on a page background that isn't quite white. Two rules that are each fine alone and only meet in the render.
+That's what makes the contrast rule possible. For every text node, axe reads the computed `color`, walks up the ancestors until it finds a background that isn't transparent, blends in any semi-transparent layers it passes through, converts both ends to relative luminance (a weighted brightness value, not the raw RGB), and checks the ratio against [WCAG 1.4.3](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html): 4.5:1 for body text, 3:1 for large text (18pt, or 14pt bold). :quote[The pairs that fail are the ones nobody designed.]{#pairs-nobody-designed} Inline `<code>` inside a tinted callout. A muted caption on a page background that isn't quite white. Two rules that are each fine alone and only meet in the render.
 
-Then the whole audit runs a second time with `page.emulateMedia({ colorScheme: 'dark' })`, which flips `prefers-color-scheme` and hands axe the same DOM with an entirely different set of computed colors. Same tree, different palette, two verdicts. Both have to come back with no critical or serious violations or `validate-playwright` goes red alongside the build jobs.[^gate]
+Then the whole audit runs a second time with `page.emulateMedia({ colorScheme: 'dark' })`, which flips `prefers-color-scheme` and hands axe the same DOM with an entirely different set of computed colors. Same tree, different palette, two verdicts. Both have to come back with no critical or serious violations, or `validate-playwright` goes red alongside the build jobs.[^gate]
 
 ### What the checks can't see
 
@@ -39,21 +39,31 @@ What none of it can see is markup that never announced what it was. Every axe ru
 
 Strip away the acronyms and conformance levels and what's left is a question about who gets to read the thing.
 
+### The reader sets the terms
+
 An accessible ebook reflows, so a reader sets their own font, size, spacing, and colors instead of squinting at whatever I happened to pick. I'm one of those readers, after enough years of staring at a screen all day. Its navigation works, so anyone can jump straight to the chapter they came for. It reads cleanly aloud, which matters as much for someone on a commute with the screen off as for someone using a screen reader. I can vouch for that part firsthand: I read the whole book screen off, listening straight through, while prepping the narration—the one audit no checker in my pipeline runs, and the kind that catches what a green build can't. A narrated edition turned out to be a much smaller lift than I'd budgeted for, because the structure that passed axe is the structure a voice follows. More on that soon.
 
-None of that is charity. A book that only works at my font size is making the same mistake as a decision that only happens in a meeting—the format quietly decides who gets to participate, and then everyone calls the result a preference.
+### Exclusion dressed as preference
 
-Some of it pays off where I'll never see it. The EPUB's metadata declares what the file is and what it conforms to, which is how the book ended up on [Bookshare](https://www.bookshare.org/), the Department of Education-backed library where readers with print disabilities get books free, in DAISY, braille, or large print. I'll never hear from that reader. Getting into that catalog cost nothing beyond accurately describing what I'd already built.
+None of this is charity. A book that only works at my font size is making the same mistake as a decision that only happens in a meeting—the format quietly decides who gets to participate, and then everyone calls the result a preference.
+
+### The reach you never see
+
+Some of it pays off where I'll never see it. The EPUB's metadata declares what the file is and what it conforms to, which is how the book ended up on [Bookshare](https://www.bookshare.org/), the Department of Education–backed library where readers with print disabilities get books free, in DAISY, braille, or large print. I'll never hear from that reader. Getting into that catalog cost nothing beyond accurately describing what I'd already built.
 
 ## A screen reader and a language model want the same thing
 
 Every chapter in the book opens with a TL;DR, written in the source as a fenced div: `::: {.tldr}`. The Lua filter turns that into a labeled callout with a DPUB-ARIA role, so assistive tech announces it as a summary rather than reading it as another paragraph of body text.
 
-That same annotation is what a build script reads to assemble the structured layer of the book's [MCP server](https://modelcontextprotocol.io/): 44 chapter TL;DRs, nine key-takeaway blocks, and the full outline, pulled straight out of the manuscript with nobody hand-curating a machine-readable copy of any of it. One piece of markup, two consumers that have nothing else in common.
+### Structure is the interface
+
+That same TL;DR annotation is what a build script reads to assemble the structured layer of the book's [MCP server](https://modelcontextprotocol.io/): 44 chapter TL;DRs, nine key-takeaway blocks, and the full outline, pulled straight out of the manuscript with nobody hand-curating a machine-readable copy of any of it. One piece of markup, two consumers that have nothing else in common.
 
 That overlap isn't limited to my build script. Alt text is the only description a model has of your image. Headings are the boundaries a retrieval system chunks on. Link text is what an index actually reads. :quote[Neither a screen reader nor an LLM can see your 18pt bold. Both of them can read an `<h2>`.]{#neither-can-see-bold} Semantic structure has become the interface for everything that isn't a pair of human eyes. The accessible version of your writing and the machine-readable version turn out to be the same file.
 
-Which is also why the book ships DRM-free everywhere it's sold. DRM encrypts the EPUB so only an approved app can open it, and every tool downstream of that lock is on the wrong side of it—a screen reader the vendor doesn't support, a text-to-speech engine, a braille conversion, an agent the reader points at a book they paid for. :quote[DRM is the one accessibility bug a reader can't file.]{#drm-cant-file} The structure only counts if the file is one they can open with whatever they read with.[^drm]
+### The file has to open first
+
+The accessible file and the machine-readable file are only the same file if a reader can open it, which is why the book ships DRM-free everywhere it's sold. DRM encrypts the EPUB so only an approved app can open it, and every tool downstream of that lock is on the wrong side of it—a screen reader the vendor doesn't support, a text-to-speech engine, a braille conversion, an agent the reader points at a book they paid for. :quote[DRM is the one accessibility bug a reader can't file.]{#drm-cant-file} The structure only counts if the file is one they can open with whatever they read with.[^drm]
 
 ## Steal this
 
@@ -75,4 +85,4 @@ Do both and accessibility stops being a heroic sprint at the end of the project.
 
 [^drm]: It's a checkbox at upload time on every store, and the default in at least one of them is on. Amazon also has a separate publisher-set flag for whether text-to-speech is allowed at all, which is a strange thing to be able to switch off on someone else's behalf.
 
-[^standards]: The book declares WCAG 2.1 Level AA and EPUB Accessibility 1.1 in its [accessibility statement](https://open-and-async.com/accessibility/). Those are the same conformance levels the [European Accessibility Act](https://ec.europa.eu/social/main.jsp?catId=1202) points to for ebooks, in force since June 28, 2025, which is how I ended up reading the conformance-reporting spec closely enough to learn that `a11y:certifierReport` has to be a `<link rel>` rather than a `<meta property>`. EPUBCheck failed my build until I got that one line right. Two things the checks can't fix. The claim covers the ebook—a fixed 6×9 print page doesn't reflow for anybody. And there's still no page list tying the ebook to the paperback's page numbers, so citing the book by page means having the print edition on hand.
+[^standards]: The book declares WCAG 2.1 Level AA and EPUB Accessibility 1.1 in its [accessibility statement](https://open-and-async.com/accessibility/). Those are the same conformance levels the [European Accessibility Act](https://ec.europa.eu/social/main.jsp?catId=1202) points to for ebooks, in force since June 28, 2025, which is how I ended up reading the conformance-reporting spec closely enough to learn that `a11y:certifierReport` has to be a `<link rel>` rather than a `<meta property>`. EPUBCheck failed my build until I got that one line right. Two things the checks still can't fix, though. The claim covers only the ebook, since a fixed 6×9 print page doesn't reflow for anybody. And there's still no page list tying the ebook to the paperback's page numbers, so citing the book by page means having the print edition on hand.
