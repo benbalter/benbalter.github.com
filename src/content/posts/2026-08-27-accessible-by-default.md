@@ -5,7 +5,7 @@ tldr: "Accessibility is mostly setup, not effort: pick a format where a heading 
 published: true
 ---
 
-The build pipeline behind [*Open and Async*](https://open-and-async.com/?utm_source=benbalter-accessibility-post) is [absurdly over-engineered](/2026/08/17/how-i-over-engineered-my-book/)—five formats out of one Markdown source, a real browser auditing every push, the works. I built it to satisfy my own compulsions, not a standard. Then I went to check whether the ebook was actually accessible and found out it already was. It meets the Web Content Accessibility Guidelines ([WCAG](https://www.w3.org/TR/WCAG21/)) 2.1 Level AA, spelled out in the book's [accessibility statement](https://open-and-async.com/accessibility/). Almost none of it was on purpose. Here's what actually did the work, and what it missed.
+The build pipeline behind [*Open and Async*](https://open-and-async.com/?utm_source=benbalter-accessibility-post) is [absurdly over-engineered](/2026/08/17/how-i-over-engineered-my-book/)—five formats out of one Markdown source, a real browser auditing every push, the works. I built it to satisfy my own compulsions, not a standard (or, more honestly, as an exercise in [structured procrastination](https://www.structuredprocrastination.com/): elaborate tooling is a great way to not write the book it's for). Then I went to check whether the ebook was actually accessible and found out it already was. It meets the Web Content Accessibility Guidelines ([WCAG](https://www.w3.org/TR/WCAG21/)) 2.1 Level AA, spelled out in the book's [accessibility statement](https://open-and-async.com/accessibility/). Almost none of it was on purpose. Here's what actually did the work, and what it missed.
 
 ## Markdown won't let you fake structure
 
@@ -53,11 +53,11 @@ Some of it pays off where I'll never know. The EPUB's metadata declares what the
 
 ## A screen reader and a language model want the same thing
 
-Every chapter in the book opens with a TL;DR, written in the source as a fenced div: `::: {.tldr}`. The Lua filter turns that into a labeled callout with a DPUB-ARIA role, so assistive tech announces it as a summary rather than reading it as another paragraph of body text.
+Those readers are all human. The same markup that serves them serves the software now reading your work, too. Every chapter in the book opens with a TL;DR, a fenced div in the source: `::: {.tldr}`. The Lua filter gives it a DPUB-ARIA role, so assistive tech announces it as a summary instead of another paragraph of body text.
 
 ### Structure is the interface
 
-That same TL;DR annotation is what a build script reads to assemble the structured layer of the book's [MCP server](https://modelcontextprotocol.io/): 44 chapter TL;DRs, nine key-takeaway blocks, and the full outline, pulled straight out of the manuscript with nobody hand-curating a machine-readable copy of any of it. One piece of markup, two consumers that have nothing else in common.
+That same TL;DR annotation feeds the book's [MCP server](https://modelcontextprotocol.io/)—yes, the book ships one, so an agent can query it directly. A build script pulls 44 chapter TL;DRs, nine key-takeaway blocks, and the full outline straight out of the manuscript, with nobody hand-curating a machine-readable copy of any of it. One piece of markup, two consumers that have nothing else in common.
 
 That overlap isn't limited to my build script. Alt text is the only description a model has of your image. Headings are the boundaries a retrieval system chunks on. Link text is what an index actually reads. :quote[Neither a screen reader nor an LLM can see your 18pt bold. Both of them can read an `<h2>`.]{#neither-can-see-bold} Semantic structure has become the interface for everything that isn't a pair of human eyes. The accessible version of your writing and the machine-readable version turn out to be the same file.
 
