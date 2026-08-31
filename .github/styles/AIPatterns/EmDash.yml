@@ -1,0 +1,6 @@
+extends: existence
+message: "Em dash (—) reads as the top AI tell. Use a comma, colon, parentheses, or split into two sentences. (En dashes for ranges are fine.)"
+level: warning
+nonword: true
+tokens:
+  - '—'

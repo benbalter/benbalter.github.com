@@ -1,6 +1,6 @@
 # Writing Guidance for Blog Posts
 
-Writing for ben.balter.com. Match Ben's voice: direct, opinionated, conversational—like a smart colleague over coffee, not a corporate memo.
+Writing for ben.balter.com. Match Ben's voice: direct, opinionated, conversational, like a smart colleague over coffee, not a corporate memo.
 
 ## Voice
 
@@ -24,24 +24,25 @@ Never start with throat-clearing or definitions. Grab the reader immediately:
 
 These make writing feel machine-generated:
 
-- **Excessive hedging**: "It's important to note that...", "It's worth mentioning..." — state the point directly
-- **Formulaic transitions**: "Furthermore", "Moreover", "Additionally", "That said" — use natural transitions or restructure
-- **Hollow summarization**: "In conclusion", "To summarize", "Overall" — the content speaks for itself
-- **Meta-commentary**: "Let's explore...", "Let's dive into...", "Let's take a look at..." — just do it
-- **Setup phrases**: "When it comes to...", "In terms of...", "In the context of..." — get to the point
+- **Em dashes** (`—`): banned. They read as the top AI tell. Use a comma, colon, parentheses, or split into two sentences. See Grammar and Mechanics below.
+- **Excessive hedging**: "It's important to note that...", "It's worth mentioning...": state the point directly
+- **Formulaic transitions**: "Furthermore", "Moreover", "Additionally", "That said": use natural transitions or restructure
+- **Hollow summarization**: "In conclusion", "To summarize", "Overall": the content speaks for itself
+- **Meta-commentary**: "Let's explore...", "Let's dive into...", "Let's take a look at...": just do it
+- **Setup phrases**: "When it comes to...", "In terms of...", "In the context of...": get to the point
 - **Numbered lists for everything**: use prose when it flows better
 - **Identical paragraph lengths**: vary short (1–2 sentences) with longer (4–6 sentences)
 
-**The coffee test**: read aloud — does it sound like something you'd actually say to a colleague?
+**The coffee test**: read aloud. Does it sound like something you'd actually say to a colleague?
 **The "anyone test"**: could this have been written by literally anyone? If there's no personality, rewrite it.
 
-Many of these patterns are enforced mechanically by the custom `AIPatterns` Vale style (`.github/styles/AIPatterns/`), which runs in CI via `script/vale`. Unambiguous AI tells (hedging openers, meta-commentary, "This ensures…", performative enthusiasm) are errors and block CI; transitions and setup phrases are warnings; patterns that overlap with deliberate stylistic choices (em-dash antithesis, rhetorical questions) are suggestions. Run `vale <file> --minAlertLevel=suggestion` to see everything.
+Many of these patterns are enforced mechanically by the custom `AIPatterns` Vale style (`.github/styles/AIPatterns/`), which runs in CI via `script/vale`. Unambiguous AI tells (hedging openers, meta-commentary, "This ensures…", performative enthusiasm) are errors and block CI; transitions and setup phrases are warnings. Em dashes are flagged by the `AIPatterns.EmDash` rule (warning, being cleaned up retroactively). Run `vale <file> --minAlertLevel=suggestion` to see everything.
 
 ## Grammar and Mechanics
 
-- **Em dashes** (`—`): no spaces — "Remote work—when done right—transforms teams"
-- **En dashes** (`–`): ranges and compound modifiers ("2013–2020", "manager–IC dynamic")
-- **Oxford comma**: always — "issues, pull requests, and discussions"
+- **Em dashes** (`—`): banned, canonical rule. They read as the top AI tell. Use a comma, colon, parentheses, or two sentences instead. "Remote work, when done right, transforms teams." When you'd reach for one, a period usually reads better.
+- **En dashes** (`–`): still fine for ranges and compound modifiers ("2013–2020", "manager–IC dynamic")
+- **Oxford comma**: always. "issues, pull requests, and discussions"
 - **Active voice**: "We deployed the feature" not "The feature was deployed"
 - **Contractions**: use naturally (don't, won't, it's)
 - **Sentence fragments** for emphasis. Like this.
@@ -66,7 +67,7 @@ Cut ruthlessly: "It is important to note that" → delete. "in order to" → "to
 
 ## Structure
 
-1. **Opening**: hook immediately — relatable problem, observation, or question
+1. **Opening**: hook immediately with a relatable problem, observation, or question
 2. **Context**: why this matters, your experience with it
 3. **Main argument**: thesis with examples, lists, evidence
 4. **Counterpoints**: acknowledge alternative perspectives
@@ -78,15 +79,15 @@ Use footnotes for asides, definitions, and tangential context that would break t
 ## SEO
 
 - **Title**: 50–60 characters, keyword-rich, no Markdown formatting
-- **Description**: any length, but optimize the first 150 characters after stripping Markdown. Keep Markdown links in the content — never remove them to hit a length target. Rewrite the plain text instead.
+- **Description**: any length, but optimize the first 150 characters after stripping Markdown. Keep Markdown links in the content; never remove them to hit a length target. Rewrite the plain text instead.
 - **Headings**: H2 for main sections, H3 for subsections, never skip levels
 - **Internal links**: use descriptive anchor text; link to related posts generously
 
 Key concepts to reference and link to when relevant:
 
-- "showing your work" — transparent decision-making
-- "communications debt" — like technical debt but for documentation
-- "caremad" — passionate about something enough to do something about it
+- "showing your work": transparent decision-making
+- "communications debt": like technical debt but for documentation
+- "caremad": passionate about something enough to do something about it
 - [Leaders show their work](https://ben.balter.com/2022/02/16/leaders-show-their-work/)
 - [Rules of communicating at GitHub](https://ben.balter.com/2014/11/06/rules-of-communicating-at-github/)
 - [Why async](https://ben.balter.com/2022/03/17/why-async/)
@@ -102,4 +103,4 @@ remark src/content/posts/my-post.md   # report-only check; does NOT modify the f
 npm run lint-text                      # textlint grammar/style check
 ```
 
-Never run `remark <file> -o` — the `-o` write-back is what adds excessive backslash escaping and breaks the build. Report-only remark leaves files untouched.
+Never run `remark <file> -o`. The `-o` write-back is what adds excessive backslash escaping and breaks the build. Report-only remark leaves files untouched.
