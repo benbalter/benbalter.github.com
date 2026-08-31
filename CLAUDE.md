@@ -93,9 +93,9 @@ const { Content } = await render(post);
 This is a production website. Be conservative:
 
 - **Minimal changes**: only modify files directly related to the task
-- Write like a smart colleague over coffee—direct, opinionated, conversational
+- Write like a smart colleague over coffee: direct, opinionated, conversational
 - Avoid AI-like patterns: excessive hedging, formulaic transitions ("Furthermore…"), hollow summarization
-- Em dashes with no spaces (—), Oxford comma always, contractions naturally
+- **No em dashes (`—`).** They read as the top AI tell; use a comma, colon, parentheses, or split into two sentences. En dashes (`–`) for ranges are fine. Oxford comma always, contractions naturally
 - Blog posts: `src/content/posts/YYYY-MM-DD-title.md`
 
 ### What the most-read posts tend to have in common

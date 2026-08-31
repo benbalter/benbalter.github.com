@@ -2,7 +2,7 @@
 title: Manage like an engineer
 bookRelation: adapted
 description: If issues, pull requests, and project boards are the best way to develop software, should they not also be the best way to manage software development?
-tldr: "Engineers abandon their best tools the moment they start managing. Track management work in issues, project boards, and pull requests—the same way you ship software—to work transparently and shed the meta-work."
+tldr: "Engineers abandon their best tools the moment they start managing. Track management work in issues, project boards, and pull requests (the same way you ship software) to work transparently and shed the meta-work."
 ---
 
 Many engineering and product leaders begin their careers as engineers. On a typical engineering team, work is captured in issues, organized in project backlogs, and reviewed in pull requests. For most teams, this is the best way to plan and track software development work.[^7] But as engineers advance in their careers and begin down the management path, they too often adopt an entirely different set of tools, workflows, and philosophies for managing their own work. Such management workflows are more cumbersome, more time-consuming, and more opaque than their engineering counterparts. :quote[If we believe issues, pull requests, and project boards are the best way to develop software, should they not also be the best way to manage software development?]{#q-if-we-believe-issues-pull}[^3]
@@ -44,7 +44,7 @@ Managing like an engineer means a manager's go-to tools for planning, tracking, 
 - **Pull requests** - Pull requests are the primary means by which proposals are reviewed and decisions are made.
 
 :::objection[Isn't GitHub built for engineers? Won't non-technical managers feel lost?]
-No. Everything above—issues, boards, Markdown, pull requests—works through the web interface, no terminal or code required. Plenty of [non-technical roles work in GitHub every day](/2023/03/02/github-for-non-technical-roles/). The tools aren't the hard part; the culture shift is.
+No. Everything above (issues, boards, Markdown, pull requests) works through the web interface, no terminal or code required. Plenty of [non-technical roles work in GitHub every day](/2023/03/02/github-for-non-technical-roles/). The tools aren't the hard part; the culture shift is.
 :::
 
 ### Planning and tracking
