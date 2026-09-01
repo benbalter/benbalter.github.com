@@ -29,3 +29,9 @@ updates:
       npm:
         patterns:
           - "*"
+    ignore:
+      # TypeScript 7 crashes @typescript-eslint v8 (ESLint: "Cannot read
+      # properties of undefined (reading 'Cjs')") and breaks astro check.
+      # Hold on 6.x until the toolchain supports it.
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
