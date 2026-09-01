@@ -39,7 +39,7 @@ jobs:
       - name: Open PR
         if: steps.bump.outputs.changed == 'true'
         # NOTE: pin to a commit SHA (like the other workflows) before relying on this.
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           branch: chore/update-ai-tells
           base: main
