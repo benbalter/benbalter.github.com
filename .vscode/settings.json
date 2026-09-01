@@ -1,0 +1,83 @@
+{
+  // LanguageTool via LTeX+. On the host this inherits the global user setting
+  // (ltex.languageToolHttpServerUri -> http://localhost:8081, the Homebrew service
+  // with n-grams). The blog devcontainer has no LanguageTool server, so devcontainer.json
+  // sets ltex.languageToolHttpServerUri to "" there to use LTeX+'s bundled engine.
+  //
+  // Disabled rules mirror .languagetoolrc.json (source of truth for script/languagetool).
+  // PARTIAL PARITY: .languagetoolrc.json also disables whole categories
+  // (COMPOUNDING, STYLE, REDUNDANCY, TYPOGRAPHY, CASING) which LTeX+ cannot express —
+  // only individual rule IDs port. Some category rules may surface in-editor.
+  "ltex.language": "en-US",
+  "ltex.disabledRules": {
+    "en-US": [
+      "ADMIT_ENJOY_VB",
+      "ADVISE_VBG",
+      "AFFORD_VBG",
+      "AGREEMENT_SENT_START",
+      "ALL_MOST_SOME_OF_NOUN",
+      "ARE_WE_HAVE",
+      "A_CD_NNS",
+      "A_INFINITIVE",
+      "A_MY",
+      "A_NNS",
+      "BEEN_PART_AGREEMENT",
+      "BY_DEFAULT_COMMA",
+      "CAN_I_VBD",
+      "CAUSE_BECAUSE",
+      "CC_VERB",
+      "COMMA_AFTER_A_MONTH",
+      "COMMA_COMPOUND_SENTENCE",
+      "COMMA_COMPOUND_SENTENCE_2",
+      "COMMA_COMPOUND_SENTENCE_4",
+      "COMMA_PERIOD",
+      "CROSS_COMPOUNDS",
+      "CYBER_COMPOUNDS",
+      "DASH_RULE",
+      "DISCUSSIONS_AROUND",
+      "ENGLISH_WRONG_WORD_IN_CONTEXT_BAZAAR_BIZARRE",
+      "EN_CONTRACTION_SPELLING",
+      "EN_DIACRITICS_REPLACE_ORTHOGRAPHY_MELANGE",
+      "EQUALLY_AS",
+      "ETC_PERIOD",
+      "HE_VERB_AGR",
+      "IN_THE_MOMENT",
+      "IS_VBZ",
+      "IT_IS",
+      "MANY_NN",
+      "MASS_AGREEMENT",
+      "MD_BASEFORM",
+      "MISSING_COMMA_AFTER_INTRODUCTORY_PHRASE",
+      "MONTH_OF_XXXX",
+      "NODT_DOZEN",
+      "NON_ANTI_JJ",
+      "NON_STANDARD_WORD",
+      "NOUN_VERB_CONFUSION",
+      "NUMBERS_IN_WORDS",
+      "OVER_COMPOUNDS",
+      "PCT_SINGULAR_NOUN_PLURAL_VERB_AGREEMENT",
+      "PHRASE_REPETITION",
+      "POSSESSIVE_APOSTROPHE",
+      "PREFER_OVER_TO",
+      "PREPOSITION_VERB",
+      "PROBLEM_SOLVE_HYPHEN",
+      "PRP_PAST_PART",
+      "PRP_THE",
+      "PRP_VB",
+      "SENT_START_CONJUNCTIVE_LINKING_ADVERB_COMMA",
+      "SETUP_VERB",
+      "THERE_IS_A_LOT_OF",
+      "THERE_MISSING_VERB",
+      "THE_CC",
+      "THE_HOW",
+      "THE_PUNCT",
+      "THE_SUPERLATIVE",
+      "THIS_NNS",
+      "TO_DO_HYPHEN",
+      "UNLIKELY_OPENING_PUNCTUATION",
+      "VERB_APOSTROPHE_S",
+      "WRITE_UP_HYPHEN",
+      "WRONG_GENITIVE_APOSTROPHE"
+    ]
+  }
+}

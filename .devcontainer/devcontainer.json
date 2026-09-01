@@ -24,9 +24,14 @@
         "github.vscode-pull-request-github",
         "ms-vscode.vscode-typescript-next",
         "eamodio.gitlens",
-        "astro-build.astro-vscode"
+        "astro-build.astro-vscode",
+        "ltex-plus.vscode-ltex-plus"
       ],
       "settings": {
+        // LTeX+: no LanguageTool server runs in this container, so use the
+        // bundled engine (empty URI). Disabled rules come from .vscode/settings.json.
+        "ltex.language": "en-US",
+        "ltex.languageToolHttpServerUri": "",
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
           "source.fixAll.eslint": "explicit"
