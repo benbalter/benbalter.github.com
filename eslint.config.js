@@ -40,4 +40,11 @@ export default tseslint.config(
     language: 'json/json',
     ...json.configs.recommended,
   },
+  // JSONC files (JSON with comments) — editor/tooling configs
+  {
+    files: ['.vscode/**/*.json', '.devcontainer/**/*.json'],
+    plugins: {json},
+    language: 'json/jsonc',
+    ...json.configs.recommended,
+  },
 );
