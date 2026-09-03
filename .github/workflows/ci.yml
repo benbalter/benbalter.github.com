@@ -107,7 +107,7 @@ jobs:
           sudo mv vale /usr/local/bin/
 
       - name: Cache Vale styles
-        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v5
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
         with:
           path: .github/styles
           key: vale-styles-${{ hashFiles('.vale.ini', '.github/styles/AIPatterns/*.yml') }}
