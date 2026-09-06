@@ -17,6 +17,23 @@ There's a chapter in the book about using chat well, and a section in it about e
 
 I wrote a whole book about working in the open, though, and the open-and-async answer to a disagreement is not to win the thread. It's to [ship the artifact and let people decide](https://ben.balter.com/2022/02/16/leaders-show-their-work/). So I built the pettiest, most literal version of that I could think of. I re-recorded the entire chapter with the narrator forced to say hard-G "gif," beginning to end, and posted it, free, right next to the correct one. An entire edition in the wrong pronunciation, rendered for the heretics to enjoy their own wrongness. Same words, same narrator, one phoneme of difference. Pick your fighter. Mine already won.
 
+Same sentence, same robot, ten seconds each. Both read the line "an urgent message from your manager gets the same screen space as a GIF of a cat playing the piano." Headphones on, settle it yourself:
+
+<div class="not-prose" style="display:flex;flex-wrap:wrap;gap:1.5rem;margin:1.75rem 0">
+  <figure style="flex:1 1 15rem;margin:0">
+    <figcaption style="margin-bottom:.4rem"><strong>Team Jiff</strong> (the correct one)</figcaption>
+    <audio controls preload="none" style="width:100%" aria-label="Chat chapter sample line, narrated with the soft-J 'jif' pronunciation">
+      <source src="/audio/gif-jif/jif-cat-line.mp3" type="audio/mpeg" />
+    </audio>
+  </figure>
+  <figure style="flex:1 1 15rem;margin:0">
+    <figcaption style="margin-bottom:.4rem"><strong>Team hard-G</strong> (for the heretics)</figcaption>
+    <audio controls preload="none" style="width:100%" aria-label="Chat chapter sample line, narrated with the hard-G 'gif' pronunciation">
+      <source src="/audio/gif-jif/gif-hardg-cat-line.mp3" type="audio/mpeg" />
+    </audio>
+  </figure>
+</div>
+
 :quote[The pronunciation was never the point. The GIF is.]{#the-gif-is-the-point}
 
 That's the point hiding inside the bit. The whole reason the chapter defends GIFs is that the shared reference does the work. Nobody who gets the joke has ever cared how you say the three letters. Arguing about the phoneme is bikeshedding the one part of the thing that carries no meaning at all. It's impact over input, applied to a debate about peanut butter.
