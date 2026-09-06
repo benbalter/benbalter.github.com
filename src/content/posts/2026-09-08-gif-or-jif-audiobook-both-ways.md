@@ -9,7 +9,7 @@ The *[Open and Async](https://open-and-async.com/?utm_source=benbalter-gif-jif-p
 
 You never have to make this choice in writing. You can go your whole career typing "GIF" and never once reveal which side you're on. The letters look identical in both camps. The moment you record audio, the argument comes for you, and it wants an answer before the next sentence.
 
-Here's the part I find genuinely funny. GIF-versus-JIF is the one internet argument that text is structurally incapable of settling. You can type "actually, it's pronounced jif" into a thread until your keyboard wears out, and nobody hears a single thing. The fight only exists in sound. The audiobook is the first version of this book that can even *have* it, and it took my side without being asked.
+GIF-versus-JIF is the one internet argument that text is structurally incapable of settling. You can type "actually, it's pronounced jif" into a thread until your keyboard wears out, and nobody hears a single thing. The fight only exists in sound. The audiobook is the first version of this book that can even *have* it, and it took my side without being asked.
 
 For the record: soft J. It's "jif," like the peanut butter.[^wilhite] Reasonable, thoughtful, wrong people say it with a hard G. We work together anyway.
 
