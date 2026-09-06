@@ -23,8 +23,12 @@ That's the point hiding inside the bit. The whole reason the chapter defends GIF
 
 Both cuts live on the book's [feedback repository](https://github.com/open-and-async/feedback/releases), which is where readers tell me what's broken, what's missing, and what actually landed. Consider the hard-G edition a bug I shipped on purpose, as a public service to the people who need to hear it.
 
+That free chapter is a free sample, and I mean that literally. If you want the same synthetic narrator to read you the whole book, saying "jif" correctly the entire time, the [full audiobook](https://open-and-async.com/go/audiobook?src=gif-jif-post) is out now. Eleven and a half hours of a robot with better taste in pronunciation than half the internet.
+
 I am not going to win this argument. Nobody wins this argument. That's exactly why you hand people the choice instead of typing one more reply, then go build the next thing. Even if one of the choices is objectively incorrect.
 
 The audiobook already picked a side. The other edition is just me being generous to the wrong ones.
+
+So, which are you? Choose carefully. My narrator already did.
 
 [^wilhite]: Steve Wilhite created the format at CompuServe in 1987, and when he accepted a lifetime achievement award he stood on a stage and said "it's pronounced JIF." The man who invented the thing gets to name it, and the hard-G crowd is out here overruling him. "But *graphics* has a hard G" is not the counterargument they think it is. It's an acronym, not a word, and the inventor already ruled. Yes, there's the peanut butter. Yes, I'm on that side too. I have made my peace with being right.
