@@ -71,7 +71,7 @@ Ten seconds each, the same line both ways: "an urgent message from your manager 
 
 That's the point hiding inside the bit. The whole reason the chapter defends GIFs is that the shared reference does the work. Nobody who gets the joke has ever cared how you say the three letters. Arguing about the phoneme is bikeshedding the one part of the thing that carries no meaning at all. It's impact over input, applied to a debate about peanut butter.
 
-Both cuts live on the book's [feedback repository](https://github.com/open-and-async/feedback/releases), which is where readers tell me what's broken, what's missing, and what actually landed.
+[Both cuts](https://github.com/open-and-async/feedback/releases/tag/audiobook-gif-jif) live on the book's feedback repository, which is where readers tell me what's broken, what's missing, and what actually landed.
 
 :quote[Consider the hard-G edition a bug I shipped on purpose, a public service to the people who need to hear it.]{#bug-on-purpose}
 
@@ -89,7 +89,7 @@ Here's where that leaves me: the voice is disclosed, it isn't cloned from a real
 
 ## Get the audiobook
 
-That free chapter is a free sample, and I mean that literally. If you want the same synthetic narrator to read you the whole book, saying "jif" correctly the entire time, the [full audiobook](https://open-and-async.com/go/audiobook?src=gif-jif-post) is out now. Eleven and a half hours of it, and not one hard G.
+That [free chapter](https://github.com/open-and-async/feedback/releases/tag/audiobook-gif-jif) is a free sample, and I mean that literally. If you want the same synthetic narrator to read you the whole book, saying "jif" correctly the entire time, the [full audiobook](https://open-and-async.com/go/audiobook?src=gif-jif-post) is out now. Eleven and a half hours of it, and not one hard G.
 
 I am not going to win this argument. Nobody wins this argument. That's exactly why you hand people the choice instead of typing one more reply, then go build the next thing. Even if one of the choices is objectively incorrect.
 
