@@ -85,7 +85,7 @@ Something real is lost with it. A good narrator doesn't just say the words, they
 
 A human narrator for this book is the goal, not a synthetic stand-in forever. If it earns its way there, it'll get one. Until then, imperfect and shipped beats perfect and imaginary. Ship early, ship often.
 
-Here's where that leaves me: the voice is disclosed, it isn't cloned from a real person, and a human (me) checked every chapter before it shipped.[^qa] Machine-narrated, human-checked. If a synthetic voice is a hard pass for you, I get it, and the ebook and paperback let you hear "jif" in your own head, at your own pace.
+Here's where that leaves me: the voice is disclosed, it isn't cloned from a real person, and a human (me) listened to all eleven and a half hours before it shipped.[^qa] Machine-narrated, human-checked. If a synthetic voice is a hard pass for you, I get it, and the ebook and paperback let you hear "jif" in your own head, at your own pace.
 
 ## Get the audiobook
 
