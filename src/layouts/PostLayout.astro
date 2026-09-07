@@ -45,6 +45,7 @@ interface Props {
   nextPost?: { title: string; url: string; readingTime?: number } | undefined;
   archived?: boolean;
   hideBookCta?: boolean;
+  bookCtaVariant?: 'inline' | 'featured';
   bookRelation?: 'adapted' | 'cut' | 'inspired';
   robots?: string | undefined;
   postId: string;
@@ -66,6 +67,7 @@ const {
   nextPost,
   archived = false,
   hideBookCta = false,
+  bookCtaVariant = 'inline',
   bookRelation,
   robots,
   postId,
@@ -153,7 +155,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
 
         <ReadingProgress readingTime={readingTime} />
 
-        {!hideBookCta && <BookCta relation={bookRelation} />}
+        {!hideBookCta && <BookCta variant={bookCtaVariant} relation={bookRelation} />}
 
         {pubDate && (
           <div class="mt-12 border-t border-gray-200 dark:border-gray-700 py-5 flex flex-wrap items-center justify-between gap-x-3 gap-y-3 text-sm text-gray-600 dark:text-gray-300" data-pagefind-ignore>
