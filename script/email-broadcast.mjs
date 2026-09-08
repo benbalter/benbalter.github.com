@@ -37,6 +37,7 @@ import { rehypeBootstrapTables } from '../src/lib/rehype-bootstrap-tables.ts';
 import { rehypeFigure } from '../src/lib/rehype-figure.ts';
 import { rehypeImageLoading } from '../src/lib/rehype-image-loading.ts';
 import { rehypeEmailQuotePlain } from '../src/lib/rehype-email-quote-plain.ts';
+import { rehypeEmailMediaFallback } from '../src/lib/rehype-email-media-fallback.ts';
 
 const KIT_API_URL = 'https://api.kit.com/v4/broadcasts';
 const SITE_URL = process.env.SITE_URL || 'https://ben.balter.com';
@@ -53,6 +54,10 @@ const emailRehypePlugins = [
   rehypeBootstrapTables,
   rehypeFigure,
   rehypeImageLoading,
+  // Degrade web-only media (<style>, <video>, <audio>) to email-safe fallbacks.
+  // Runs after rehypeRaw so the raw HTML is real hast by now. Without this, Kit
+  // rejects the whole broadcast with a generic 422 and the email never sends.
+  [rehypeEmailMediaFallback, { siteUrl: SITE_URL }],
   // Flatten the web-only :quote share affordance to plain highlighted text. Its
   // inline share-icon SVG has no width/height and is CSS-sized on the web; email
   // clients drop that CSS, so it otherwise renders as a giant graphic.
