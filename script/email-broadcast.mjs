@@ -327,15 +327,16 @@ async function main() {
       content: emailHtml,
       description: frontmatter.description || '',
       preview_text: frontmatter.description || '',
-      // public:false — email-only, no public-feed archive entry. Kit's v4 API
-      // 422s a public:true broadcast sent to ALL subscribers ("error saving your
-      // changes"); it worked in July. It ALSO 422s when subscriber_filter is
-      // omitted (its old send-to-everyone default regressed) and when an
-      // explicit all_subscribers type is used. So the working combination is
-      // public:false PLUS a real segment reference (below), not one or the other.
-      public: false,
+      // Kit v4 only *sends* a broadcast when public:true with a send_at; a
+      // public:false broadcast is stored as a draft and never goes out (that was
+      // the bug behind the long run of 422s — every prior attempt was either
+      // public:false or used a send_at of "now", which Kit rejects as a
+      // past-dated schedule). So: public:true, a real segment reference (an
+      // omitted or all_subscribers filter also 422s), and a send_at a couple
+      // minutes in the future so the schedule is unambiguously valid.
+      public: true,
       published_at: new Date().toISOString(),
-      send_at: new Date().toISOString(),
+      send_at: new Date(Date.now() + 2 * 60 * 1000).toISOString(),
       // Target the all-subscribers segment by id (resolved up front).
       subscriber_filter: [
         { all: [{ type: 'segment', ids: [allSubscribersSegmentId] }], any: null, none: null },
