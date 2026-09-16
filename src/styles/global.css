@@ -1,6 +1,15 @@
 /* Tailwind CSS v4 */
 @import "tailwindcss";
 
+/* Modal styles. BaseLayout renders SearchModal and ShortcutsModal on every
+ * page, so these rules belong in the sitewide stylesheet rather than in two
+ * files of their own. They used to be pulled in by a dynamic import() from the
+ * modals' client scripts, which claimed to keep them off the critical path but
+ * never did: Astro hoists CSS reachable from a page's client scripts into that
+ * page's styles regardless. */
+@import "./search-modal.css";
+@import "./shortcuts-modal.css";
+
 /* Typography plugin */
 @plugin "@tailwindcss/typography";
 

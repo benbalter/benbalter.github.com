@@ -1,13 +1,10 @@
 /**
  * Search Modal styles
  *
- * Loaded lazily by src/scripts/search-modal.ts the first time the search
- * modal is opened (or when highlightSearchTerms runs after navigating from a
- * search result). Keeping these styles out of the per-page inlined CSS keeps
- * the critical CSS payload small for the common case where users never open
- * search.
+ * Imported by global.css. SearchModal lives in BaseLayout, so these rules are
+ * needed on every page; the former dynamic import never actually deferred them,
+ * since Astro hoists CSS reachable from a page's client scripts.
  */
-@reference "./global.css";
 
 .search-modal {
   position: fixed;

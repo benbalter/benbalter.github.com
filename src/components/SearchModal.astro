@@ -5,8 +5,8 @@
  * Full-screen search overlay powered by Pagefind.
  * Opens via search button in Navigation, `/`, or ⌘K / Ctrl+K.
  * ↑/↓ (or j/k once focus is in the list) walk the results; Enter opens one.
- * Loads Pagefind JS and the modal's CSS only when search is first opened
- * (zero JS / no modal CSS shipped on the critical path by default).
+ * Loads Pagefind JS only when search is first opened; the modal's own CSS
+ * ships with global.css, since BaseLayout renders this on every page.
  */
 ---
 
@@ -41,9 +41,8 @@
 </script>
 
 <!--
-  Search modal styles are loaded lazily from src/styles/search-modal.css
-  via a dynamic import in src/scripts/search-modal.ts the first time the
-  modal is opened (or when search-result highlighting runs on a destination
-  page). This keeps the modal's CSS off the critical path for the common
-  case where the user never opens search.
+  Styles live in src/styles/search-modal.css, imported by global.css. They were
+  once dynamically imported to keep them off the critical path, but Astro hoists
+  CSS reachable from a page's client scripts into that page regardless, so the
+  deferral never took effect.
 -->
