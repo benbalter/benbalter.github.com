@@ -1,6 +1,13 @@
 /* Tailwind CSS v4 */
 @import "tailwindcss";
 
+/* Modal styles. BaseLayout renders both on every page, so as separate files
+ * they were pure overhead: two extra render-blocking <link>s under
+ * inlineStylesheets: 'auto', and two more inline <style> blocks before that.
+ * Folded in here they ride the one cached global stylesheet. */
+@import "./search-modal.css";
+@import "./shortcuts-modal.css";
+
 /* Typography plugin */
 @plugin "@tailwindcss/typography";
 

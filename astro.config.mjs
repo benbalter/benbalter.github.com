@@ -113,10 +113,13 @@ export default defineConfig({
     format: 'directory',
     // Assets directory
     assets: 'assets',
-    // Inline all stylesheets into HTML to eliminate render-blocking CSS requests
-    // This improves Speed Index by allowing content to paint faster
-    // Trade-off: Larger HTML files but faster initial paint
-    inlineStylesheets: 'always',
+    // Inline only stylesheets under Vite's assetsInlineLimit; emit the rest as
+    // hashed <link> files. 'always' inlined ~155 KB of CSS into every one of the
+    // site's 200+ pages, re-sent on every navigation because there's no
+    // ClientRouter. As a <link> it's fetched once and served from cache
+    // thereafter, and /assets/* already carries immutable 1y caching via
+    // public/_headers. Trade-off: one render-blocking request on a cold visit.
+    inlineStylesheets: 'auto',
   },
   
   // Server configuration for development
