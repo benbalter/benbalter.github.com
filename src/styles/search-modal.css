@@ -126,6 +126,12 @@
   outline: none;
 }
 
+/* Arrow keys and j/k select by moving focus, so the keyboard selection needs
+   to read more strongly than a hover tint. */
+.search-result:focus-visible {
+  @apply bg-primary/10 dark:bg-primary/20 ring-2 ring-primary ring-inset;
+}
+
 .search-result-title {
   display: block;
   @apply text-sm font-semibold text-gray-900 dark:text-gray-100;

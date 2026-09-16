@@ -1,0 +1,58 @@
+---
+/**
+ * Keyboard Shortcuts Cheatsheet
+ *
+ * Opened with `?`, the convention GitHub, Gmail, and Slack all train. Uses a
+ * native <dialog> so focus containment, Esc-to-close, and the backdrop come
+ * from the browser rather than from hand-rolled JS.
+ *
+ * Like SearchModal, the stylesheet (src/styles/shortcuts-modal.css) is a
+ * separate chunk pulled in the first time the dialog opens or a toast appears.
+ * See the note in src/scripts/shortcuts.ts: `inlineStylesheets: 'always'`
+ * inlines it into every page today regardless.
+ */
+import { shortcutGroups } from '../data/shortcuts';
+---
+
+<dialog id="shortcuts-modal" class="shortcuts-modal" aria-labelledby="shortcuts-modal-title">
+  <div class="shortcuts-header">
+    <h2 id="shortcuts-modal-title" class="shortcuts-title">Keyboard shortcuts</h2>
+    <button type="button" class="shortcuts-close-btn" data-shortcuts-close aria-label="Close keyboard shortcuts">
+      <kbd class="shortcuts-kbd" aria-hidden="true">Esc</kbd>
+    </button>
+  </div>
+
+  <div class="shortcuts-groups">
+    {shortcutGroups.map((group) => (
+      <section class="shortcuts-group">
+        <h3 class="shortcuts-group-title">{group.title}</h3>
+        <ul class="shortcuts-list">
+          {group.shortcuts.map((shortcut) => (
+            <li class="shortcuts-row">
+              <span class="shortcuts-keys">
+                {shortcut.keys.map((alternatives, index) => (
+                  <>
+                    {index > 0 && shortcut.chord && <span class="shortcuts-then">then</span>}
+                    <span class="shortcuts-key-group">
+                      {alternatives.map((key, keyIndex) => (
+                        <>
+                          {keyIndex > 0 && <span class="shortcuts-or">or</span>}
+                          <kbd class="shortcuts-kbd">{key}</kbd>
+                        </>
+                      ))}
+                    </span>
+                  </>
+                ))}
+              </span>
+              <span class="shortcuts-label">{shortcut.label}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+</dialog>
+
+<script>
+  import '../scripts/shortcuts.ts';
+</script>

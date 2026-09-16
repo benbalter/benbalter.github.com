@@ -12,6 +12,7 @@ import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import BackToTop from '../components/BackToTop.astro';
 import SearchModal from '../components/SearchModal.astro';
+import ShortcutsModal from '../components/ShortcutsModal.astro';
 import { siteConfig, socialLinks } from '../config';
 import { generatePersonSchema, generateProfilePageSchema, generateWebSiteSchema, generateBreadcrumbSchema, schemaToGraphJsonLd } from '../utils/structured-data';
 import '../styles/global.css';
@@ -254,6 +255,7 @@ const schemas = [primarySchema, websiteSchema, breadcrumbSchema].filter(Boolean)
       <Footer />
       <BackToTop />
       <SearchModal />
+      <ShortcutsModal />
     </div>
     
     <!-- Minimal navigation toggle script -->

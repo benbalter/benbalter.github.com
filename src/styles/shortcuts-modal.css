@@ -1,0 +1,149 @@
+/**
+ * Keyboard shortcuts cheatsheet + shortcut toast.
+ *
+ * Pulled in by src/scripts/shortcuts.ts the first time the `?` dialog opens
+ * or a `y` copy toast appears. Kept in its own chunk to match the search
+ * modal, though `inlineStylesheets: 'always'` inlines it per page for now.
+ */
+@reference "./global.css";
+
+.shortcuts-modal {
+  /* global.css resets margins broadly, which knocks out the margin:auto a
+     <dialog> relies on for centering. Restore it explicitly. */
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: calc(100% - 2rem);
+  max-width: 34rem;
+  max-height: calc(100vh - 4rem);
+  padding: 0;
+  border: none;
+  overflow: auto;
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100;
+}
+
+.shortcuts-modal::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.shortcuts-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.875rem 1.25rem;
+  @apply border-b border-gray-200 dark:border-gray-700;
+}
+
+.shortcuts-title {
+  margin: 0;
+  @apply text-base font-semibold text-gray-900 dark:text-gray-100;
+}
+
+.shortcuts-close-btn {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.shortcuts-close-btn:focus-visible /* Alternatives hug each other; separate groups get a wider gap so
+   "↓ or j" and "↑ or k" don't read as one run-on sequence. */
+.shortcuts-key-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.shortcuts-kbd {
+  @apply ring-2 ring-primary ring-offset-1;
+}
+
+.shortcuts-groups {
+  padding: 0.5rem 1.25rem 1.25rem;
+}
+
+.shortcuts-group + .shortcuts-group {
+  margin-top: 1.25rem;
+}
+
+.shortcuts-group-title {
+  margin: 0 0 0.5rem;
+  @apply text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400;
+}
+
+.shortcuts-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.shortcuts-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.375rem 0;
+}
+
+.shortcuts-row + .shortcuts-row {
+  @apply border-t border-gray-100 dark:border-gray-700/60;
+}
+
+.shortcuts-keys {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.875rem;
+  min-width: 10.5rem;
+}
+
+.shortcuts-kbd {
+  @apply text-xs text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-900/40 border border-gray-300 dark:border-gray-600 rounded px-1.5 py-0.5 font-mono;
+  white-space: nowrap;
+}
+
+.shortcuts-or,
+.shortcuts-then {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+}
+
+.shortcuts-label {
+  @apply text-sm text-gray-700 dark:text-gray-300;
+}
+
+/* Transient confirmation for `y` (copy link) */
+.shortcut-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%) translateY(0.5rem);
+  z-index: 10000;
+  @apply text-sm bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded-lg shadow-lg px-4 py-2;
+  opacity: 0;
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+  pointer-events: none;
+}
+
+.shortcut-toast.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shortcut-toast {
+    transition: none;
+  }
+}
+
+@media print {
+  .shortcuts-modal,
+  .shortcut-toast {
+    display: none !important;
+  }
+}

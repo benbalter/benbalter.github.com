@@ -1,3 +1,5 @@
+import { isTypingTarget } from '../utils/is-typing-target';
+
 interface PagefindResult {
   data(): Promise<{ url: string; meta?: { title?: string }; excerpt: string }>;
 }
@@ -90,6 +92,11 @@ async function performSearch(query: string) {
   const resultsContainer = document.getElementById('search-results');
   if (!resultsContainer) return;
 
+  // Stamp of the query the visible results were rendered for. Cleared up
+  // front so that, during the input debounce, the list is marked stale and
+  // Enter can't open a result belonging to the previous query.
+  delete resultsContainer.dataset.query;
+
   if (!query.trim()) {
     resultsContainer.innerHTML = '<div class="search-empty">Type to search posts, pages, and more…</div>';
     return;
@@ -104,6 +111,13 @@ async function performSearch(query: string) {
     resultsContainer.innerHTML = '<div class="search-empty">Search unavailable</div>';
     return;
   }
+
+  // A pending debounce can land after the user has arrowed into the list. The
+  // re-render below destroys the focused anchor, which would drop focus to
+  // <body> and kill both the focus trap and result navigation. The result set
+  // is changing anyway, so the old selection is meaningless: send focus back
+  // to the input, where the user can keep typing or arrow down again.
+  const focusWasInResults = resultsContainer.contains(document.activeElement);
 
   const search = await pagefind.search(query);
 
@@ -135,6 +149,90 @@ async function performSearch(query: string) {
 
     resultsContainer.appendChild(link);
   });
+
+  resultsContainer.dataset.query = query.trim();
+
+  if (focusWasInResults) getInput()?.focus();
+}
+
+/** Result anchors in DOM order — the list arrow keys and j/k walk. */
+function getResults(): HTMLAnchorElement[] {
+  const container = document.getElementById('search-results');
+  return container ? [...container.querySelectorAll<HTMLAnchorElement>('.search-result')] : [];
+}
+
+/**
+ * Move the selection by `delta` results.
+ *
+ * Selection is real DOM focus rather than aria-activedescendant: the
+ * `.search-result:focus` styling already exists, Enter opens the link with no
+ * extra code, and screen readers announce each result without extra ARIA.
+ * Stepping up past the first result returns focus to the input so the user can
+ * keep refining the query.
+ */
+function moveSelection(delta: number) {
+  const results = getResults();
+  if (results.length === 0) return;
+
+  const input = getInput();
+  const active = document.activeElement as HTMLElement | null;
+  const current = active instanceof HTMLAnchorElement ? results.indexOf(active) : -1;
+
+  // From the input (current === -1), ArrowDown enters the list at the top and
+  // ArrowUp jumps to the bottom, matching a command palette.
+  if (current === -1) {
+    (delta > 0 ? results[0] : results[results.length - 1]).focus();
+    return;
+  }
+
+  const next = current + delta;
+  if (next < 0) {
+    input?.focus();
+    return;
+  }
+
+  results[Math.min(next, results.length - 1)].focus();
+}
+
+/**
+ * Arrow keys (anywhere in the modal) and j/k (once focus is in the list) walk
+ * the results. j/k stay inert while the input has focus, so they remain
+ * ordinary characters in a query — the same split GitHub uses between its
+ * palette and its issue lists.
+ */
+function handleResultNavigation(e: KeyboardEvent) {
+  if (e.metaKey || e.ctrlKey || e.altKey || e.isComposing) return;
+
+  const typing = isTypingTarget(e);
+
+  if (e.key === 'ArrowDown' || (e.key === 'j' && !typing)) {
+    e.preventDefault();
+    moveSelection(1);
+    return;
+  }
+
+  if (e.key === 'ArrowUp' || (e.key === 'k' && !typing)) {
+    e.preventDefault();
+    moveSelection(-1);
+    return;
+  }
+
+  // Enter from the input opens the top result, so a search is query-then-Enter
+  // without reaching for the arrows. Enter on a focused result is the browser's
+  // own link activation, so leave it alone.
+  if (e.key === 'Enter' && document.activeElement === getInput()) {
+    const container = document.getElementById('search-results');
+    // Typing and hitting Enter inside the 200ms debounce leaves the previous
+    // query's results on screen. Opening one would navigate somewhere the
+    // visitor never asked for, so wait for the list to catch up.
+    if (container?.dataset.query !== getInput()?.value.trim()) return;
+
+    const first = getResults()[0];
+    if (first) {
+      e.preventDefault();
+      first.click();
+    }
+  }
 }
 
 function escapeHtml(str: string) {
@@ -214,10 +312,12 @@ function initSearch() {
   // Focus trap
   document.addEventListener('keydown', trapFocus);
 
-  // Keyboard shortcuts — use a stable function reference so duplicate
-  // registrations across view transitions are no-ops.
+  // Result navigation is scoped to the modal so j/k stay free page-wide
+  modal.addEventListener('keydown', handleResultNavigation);
+
+  // Keyboard shortcuts
   function handleKeyboardShortcut(e: KeyboardEvent) {
-    // ⌘K or Ctrl+K to open
+    // ⌘K or Ctrl+K to toggle
     if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
       e.preventDefault();
       const m = getModal();
@@ -225,6 +325,19 @@ function initSearch() {
         openSearch();
       } else {
         closeSearch();
+      }
+    }
+
+    // `/` to open — GitHub/GitLab/X/Vim muscle memory. Open-only, so a `/`
+    // typed inside the query box stays a literal slash (`and/or`). Not gated
+    // on shiftKey: `/` is a shifted key on AZERTY and other layouts, and
+    // e.key already reports the produced character.
+    if (e.key === '/' && !e.metaKey && !e.ctrlKey && !e.altKey && !isTypingTarget(e)) {
+      const m = getModal();
+      if (m?.hidden) {
+        // Firefox binds `/` to quick-find; claim it before that happens.
+        e.preventDefault();
+        openSearch();
       }
     }
 
