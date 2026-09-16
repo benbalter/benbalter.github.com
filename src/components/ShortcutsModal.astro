@@ -6,10 +6,8 @@
  * native <dialog> so focus containment, Esc-to-close, and the backdrop come
  * from the browser rather than from hand-rolled JS.
  *
- * Like SearchModal, the stylesheet (src/styles/shortcuts-modal.css) is a
- * separate chunk pulled in the first time the dialog opens or a toast appears.
- * See the note in src/scripts/shortcuts.ts: `inlineStylesheets: 'always'`
- * inlines it into every page today regardless.
+ * Styles live in src/styles/shortcuts-modal.css, imported by global.css: this
+ * dialog is in BaseLayout, so its CSS is needed on every page anyway.
  */
 import { shortcutGroups } from '../data/shortcuts';
 ---

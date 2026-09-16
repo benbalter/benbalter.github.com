@@ -26,27 +26,8 @@ const GO_TO_DESTINATIONS: Record<string, string> = {
   p: '/posts/',
 };
 
-let cssPromise: Promise<unknown> | null = null;
 let chordTimer: ReturnType<typeof setTimeout> | null = null;
 let chordArmed = false;
-
-/**
- * Inject the cheatsheet + toast stylesheet on first use, mirroring the search
- * modal's split: Vite code-splits the dynamic CSS import and appends the
- * <link> at runtime. Note that astro.config's `inlineStylesheets: 'always'`
- * currently folds both chunks back into each page's inline <style>, so the
- * split buys nothing today. It is kept consistent with the search modal so
- * both pay off together if that setting is ever relaxed.
- */
-function loadShortcutsCss() {
-  if (!cssPromise) {
-    cssPromise = import('../styles/shortcuts-modal.css').catch((e) => {
-      cssPromise = null;
-      console.error('Failed to load shortcuts CSS:', e);
-    });
-  }
-  return cssPromise;
-}
 
 function getDialog() {
   return document.getElementById('shortcuts-modal') as HTMLDialogElement | null;
@@ -69,7 +50,6 @@ function disarmChord() {
 function openCheatsheet() {
   const dialog = getDialog();
   if (!dialog || dialog.open) return;
-  loadShortcutsCss();
   dialog.showModal();
 }
 
@@ -82,8 +62,6 @@ function closeCheatsheet() {
  * without the focus move a dialog would force.
  */
 async function toast(message: string) {
-  await loadShortcutsCss();
-
   document.querySelector('.shortcut-toast')?.remove();
 
   const el = document.createElement('div');

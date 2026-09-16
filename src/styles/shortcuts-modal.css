@@ -1,11 +1,9 @@
 /**
  * Keyboard shortcuts cheatsheet + shortcut toast.
  *
- * Pulled in by src/scripts/shortcuts.ts the first time the `?` dialog opens
- * or a `y` copy toast appears. Kept in its own chunk to match the search
- * modal, though `inlineStylesheets: 'always'` inlines it per page for now.
+ * Imported by global.css. ShortcutsModal lives in BaseLayout, so these rules
+ * are needed on every page; kept in their own file purely for readability.
  */
-@reference "./global.css";
 
 .shortcuts-modal {
   /* global.css resets margins broadly, which knocks out the margin:auto a
