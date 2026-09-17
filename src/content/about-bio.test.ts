@@ -2,11 +2,13 @@ import { describe, it, expect } from 'vitest';
 import { aboutContent, getFirstSentence } from './about-bio';
 
 describe('getFirstSentence', () => {
-  it('extracts first sentence from bio content', () => {
+  it('extracts a single first sentence from bio content', () => {
     const result = getFirstSentence(aboutContent);
-    expect(result).toBe(
-      "I'm Ben Balter — I write here about engineering leadership, open source, and showing your work."
-    );
+    // Assert shape, not copy — the bio's exact wording is editorial and
+    // changes. Exact-output behavior is covered by the fixture tests below.
+    expect(result.startsWith("I'm Ben Balter")).toBe(true);
+    expect(result.endsWith('.')).toBe(true);
+    expect(result).not.toContain('\n');
   });
 
   it('strips markdown links from content', () => {

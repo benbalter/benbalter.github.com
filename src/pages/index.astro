@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import type { CollectionEntry } from 'astro:content';
-import { popularPostSlugs } from '../config';
+import { popularPostSlugs, siteConfig } from '../config';
 import { getPublishedPosts } from '../utils/posts';
 import { getPostMetadata } from '../utils/post-metadata';
 import PostCard from '../components/PostCard.astro';
@@ -34,7 +34,7 @@ const regularPosts = nonPopularPosts.slice(3);
 ---
 
 <BaseLayout description={description} hero={true}>
-  <h1 class="sr-only">Ben Balter — Engineering leadership, open source, and showing your work.</h1>
+  <h1 class="sr-only">Ben Balter. {siteConfig.description}.</h1>
   <!-- Popular Posts Section -->
   {popularPosts.length > 0 && (
     <section class="mb-16 max-md:mb-8">

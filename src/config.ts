@@ -27,7 +27,7 @@ export const siteConfig = {
   name: 'Ben Balter',
   author: 'Ben Balter',
   url: 'https://ben.balter.com',
-  description: 'Engineering leadership, open source, and showing your work',
+  description: 'How large engineering organizations actually work, and why the obvious answers are usually wrong',
   
   // Repository information
   githubRepo: 'benbalter/benbalter.github.com',

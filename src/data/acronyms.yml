@@ -74,9 +74,49 @@
 - acronym: SSH
   meaning: Secure Shell
   tooltip: Secure Shell—an encrypted way to log into and control a remote machine
+- acronym: PhotoDNA
+  meaning: PhotoDNA
+  tooltip: PhotoDNA—Microsoft's perceptual-hash technology for detecting known child sexual abuse imagery at scale
 - acronym: SAML
   meaning: Security Assertion Markup Language
   tooltip: Security Assertion Markup Language—the standard behind single sign-on (SSO)
+
+# US government & regulatory
+# Note: typography rewrites "M-10-22" to "M-10\u201322" at render time, so both
+# forms are listed; the en-dash key is the one that fires.
+- acronym: OMB
+  meaning: Office of Management and Budget
+  tooltip: Office of Management and Budget—the White House office that sets policy and budget direction for federal agencies
+- acronym: GSA
+  meaning: General Services Administration
+  tooltip: General Services Administration—the federal agency that handles government-wide procurement and real estate
+- acronym: M-10–22
+  meaning: OMB Memorandum M-10-22
+  tooltip: OMB Memorandum M-10-22—2010 White House guidance governing federal agencies' use of web measurement and customization technologies, i.e. cookies
+- acronym: M-10-22
+  meaning: OMB Memorandum M-10-22
+  tooltip: OMB Memorandum M-10-22—2010 White House guidance governing federal agencies' use of web measurement and customization technologies, i.e. cookies
+- acronym: M-10–23
+  meaning: OMB Memorandum M-10-23
+  tooltip: OMB Memorandum M-10-23—2010 White House guidance governing federal agencies' use of third-party websites and applications, i.e. social media
+- acronym: M-10-23
+  meaning: OMB Memorandum M-10-23
+  tooltip: OMB Memorandum M-10-23—2010 White House guidance governing federal agencies' use of third-party websites and applications, i.e. social media
+- acronym: FedRAMP
+  meaning: Federal Risk and Authorization Management Program
+  tooltip: Federal Risk and Authorization Management Program—the standardized security authorization process a cloud service must clear to be sold to US federal agencies
+- acronym: OFAC
+  meaning: Office of Foreign Assets Control
+  tooltip: Office of Foreign Assets Control—the US Treasury office that administers economic and trade sanctions
+- acronym: ITAR
+  meaning: International Traffic in Arms Regulations
+  tooltip: International Traffic in Arms Regulations—the US rules controlling export of defense-related technology
+- acronym: EAR
+  meaning: Export Administration Regulations
+  tooltip: Export Administration Regulations—the US rules controlling export of dual-use technology, including encryption
+- acronym: DMCA
+  meaning: Digital Millennium Copyright Act
+  tooltip: Digital Millennium Copyright Act—the US copyright law behind takedown and counter-notice requests
 
 # AI
 - acronym: LLM
@@ -116,5 +156,8 @@
 - acronym: phoneme
   meaning: the smallest unit of sound that distinguishes one word from another
   tooltip: The smallest unit of sound that distinguishes one word from another—like the soft "j" and hard "g" that split JIF from GIF
+- acronym: incident commander
+  meaning: the person with decision authority during an active incident
+  tooltip: The single person holding decision authority during an active incident—coordinating responders, calling the shots, and owning communication until it's resolved
 - acronym: PTO
   meaning: Paid Time Off
