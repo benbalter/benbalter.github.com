@@ -21,8 +21,6 @@
 import { getEntry } from 'astro:content';
 import { Font } from 'astro:assets';
 import { formatResumeDate } from '../../utils/post-urls';
-import { getPublishedPosts } from '../../utils/posts';
-import { resolvePopularPosts } from '../../utils/resume-writing';
 import { getResumePositions } from '../../utils/resume-data';
 import '../../styles/global.css';
 
@@ -31,7 +29,6 @@ if (!resumePage) throw new Error('Resume page data not found');
 const { degrees, certifications, skills, summary, highlights } = resumePage.data;
 
 const { grouped: groupedPositions } = await getResumePositions();
-const writing = resolvePopularPosts(await getPublishedPosts());
 
 // Print drops expired credentials as well as personal ones. The web page, the
 // .md, and the .docx still list them with an "(expired)" marker; this is a
@@ -149,20 +146,6 @@ const contact = [
           </div>
         ))}
       </section>
-
-      {writing && writing.length > 0 && (
-        <section class="rp-main-section rp-writing">
-          <h2 class="rp-main-h">Selected Writing</h2>
-          <ul class="rp-writing-list">
-            {writing.slice(0, 3).map((item) => (
-              <li>
-                <a href={item.path}>{item.title}</a>
-                <span class="rp-writing-year">{item.year}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
 
       {certifications && certifications.length > 0 && (
         <section class="rp-main-section">
@@ -550,32 +533,4 @@ const contact = [
     text-underline-offset: 1.5px;
   }
 
-  /* Selected writing */
-  .rp-writing-list {
-    margin: 6pt 0 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .rp-writing-list li {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 12pt;
-    margin-bottom: 3pt;
-    font-size: 9.25pt;
-    line-height: 1.35;
-  }
-
-  .rp-writing-list a {
-    color: var(--color-primary-600);
-    text-decoration: none;
-  }
-
-  .rp-writing-year {
-    flex: 0 0 auto;
-    font-size: 8pt;
-    font-variant-numeric: tabular-nums;
-    color: var(--color-gray-600);
-  }
 </style>
