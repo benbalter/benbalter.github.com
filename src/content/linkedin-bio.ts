@@ -45,3 +45,65 @@ export const linkedinAboutHtml = linkedinAboutLines.join('<br>');
 
 /** About content as plain text (for char-count assertions). */
 export const linkedinAboutText = linkedinAboutLines.join('\n');
+
+/**
+ * LinkedIn profile settings that are NOT copy-paste fields.
+ *
+ * Everything above is text you paste into a field, so the page can show it and
+ * you can see when it's stale. These are toggles, orderings, and links that live
+ * in LinkedIn's settings UI with no text to copy, which means they decay
+ * silently: nothing reminds you they exist or that they've drifted from the
+ * resume. career-ops treats LinkedIn as an inbound sourcing channel (alert
+ * triage, InMail, network scan), and these are the fields that actually feed
+ * recruiter search.
+ */
+export interface LinkedinSetting {
+  /** What to set. */
+  label: string;
+  /** Where it lives in LinkedIn's UI. */
+  where: string;
+  /** Why it matters, and anything easy to get wrong. */
+  detail: string;
+  /** Values worth copying, in the order they should be entered. */
+  values?: readonly string[];
+}
+
+export const linkedinSettings: readonly LinkedinSetting[] = [
+  {
+    label: 'Open to work, recruiters only',
+    where: 'Profile → Open to → Finding a new job',
+    detail:
+      'The switch that puts you in LinkedIn Recruiter search results. "Recruiters only" keeps the green #OpenToWork frame off your public profile. Set the job titles below, plus Washington DC and Remote for location.',
+    values: [
+      'Principal Product Manager',
+      'Director of Product',
+      'Head of Product',
+      'Senior Product Manager',
+      'Head of Trust and Safety',
+    ],
+  },
+  {
+    label: 'Top three skills',
+    where: 'Profile → Skills → ⋯ → Reorder',
+    detail:
+      'LinkedIn shows the first three on your profile and weights them in recruiter search. Skills are a typeahead against LinkedIn\'s own taxonomy, so most of the resume phrasing below ("Chief-of-staff operating patterns", "Internal platforms and developer tooling") has no match. Pin these canonical equivalents first, then add the rest as close as the typeahead allows.',
+    values: ['Product Management', 'Product Strategy', 'Developer Experience'],
+  },
+  {
+    label: 'Featured section',
+    where: 'Profile → Add profile section → Recommended → Add featured',
+    detail:
+      'Where the portfolio goes. Nothing else on the profile links out, so without this the book and the writing are invisible to anyone who does not scroll the whole About.',
+    values: [
+      'https://open-and-async.com/',
+      'https://ben.balter.com/resume/',
+      'https://github.blog/2023-10-04-how-to-communicate-like-a-github-engineer-our-principles-practices-and-tools/',
+    ],
+  },
+  {
+    label: 'Custom URL',
+    where: 'Profile → Edit public profile & URL',
+    detail: 'Already set. Verify it still resolves, since it is the address on the resume, the vCard, and every export.',
+    values: ['https://www.linkedin.com/in/benbalter/'],
+  },
+];

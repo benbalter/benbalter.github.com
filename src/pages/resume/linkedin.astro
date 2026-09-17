@@ -12,7 +12,7 @@ import LinkedInField from '../../components/LinkedInField.astro';
 import { getEntry, getCollection, type CollectionEntry } from 'astro:content';
 import { formatResumeDate } from '../../utils/post-urls';
 import { cleanDescription, LINKEDIN_LIMITS } from '../../utils/linkedin-format';
-import { linkedinHeadline, linkedinAboutHtml } from '../../content/linkedin-bio';
+import { linkedinHeadline, linkedinAboutHtml, linkedinSettings, type LinkedinSetting } from '../../content/linkedin-bio';
 
 const resumePage = await getEntry('pages', 'resume');
 if (!resumePage) {
@@ -73,7 +73,7 @@ const allSkills = skillGroups.flatMap(g => g.items);
 ---
 
 <PageLayout
-  title="Resume — LinkedIn Format"
+  title="Resume: LinkedIn Format"
   description="Resume data formatted for easy LinkedIn profile updates."
   noindex={true}
 >
@@ -93,6 +93,41 @@ const allSkills = skillGroups.flatMap(g => g.items);
       <LinkedInField label="About" html={linkedinAboutHtml} limit={LINKEDIN_LIMITS.about} marginClass="" />
     </div>
   </section>
+
+  <!-- Profile settings: the non-copy-paste half of the profile -->
+  {linkedinSettings.length > 0 && (
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mt-10 mb-6 text-gray-900 dark:text-gray-100 border-b-2 border-gray-300 dark:border-gray-600 pb-2">Profile settings</h2>
+
+      <div class="bg-gray-50 dark:bg-gray-800 border-l-4 border-primary rounded px-5 py-4 mb-6">
+        <p class="m-0 text-gray-900 dark:text-gray-100">
+          Everything else on this page is text you paste into a field, so you can see when it's stale.
+          These are toggles, orderings, and links with nothing to copy, which means they drift quietly.
+          They're also the fields that feed recruiter search, so they're worth a pass whenever the resume changes.
+        </p>
+      </div>
+
+      {linkedinSettings.map((setting: LinkedinSetting) => (
+        <div class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg p-6 mb-6 shadow-card">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mt-0 mb-1">{setting.label}</h3>
+          <p class="text-sm font-mono text-gray-600 dark:text-gray-400 m-0 mb-3">{setting.where}</p>
+          <p class="text-base text-gray-700 dark:text-gray-300 m-0">{setting.detail}</p>
+
+          {setting.values && setting.values.length > 0 && (
+            <ul class="list-none p-0 mt-4 mb-0 space-y-2">
+              {setting.values.map((value: string, index: number) => (
+                <li class="flex items-start gap-3">
+                  <span class="shrink-0 w-6 text-sm text-gray-500 dark:text-gray-400 tabular-nums pt-2">{index + 1}.</span>
+                  <div class="flex-1 text-base text-gray-900 dark:text-gray-100 leading-relaxed px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md break-words">{value}</div>
+                  <button class="copy-btn shrink-0 bg-primary text-white border-none rounded-md px-3 py-2 text-xl leading-none cursor-pointer transition-all duration-200 min-w-10 h-10 flex items-center justify-center hover:bg-primary-600 hover:scale-105 active:scale-95" data-copy={value} aria-label={`Copy ${value} to clipboard`}>📋</button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))}
+    </section>
+  )}
 
   <!-- Experience Section -->
   <section class="mb-12">
