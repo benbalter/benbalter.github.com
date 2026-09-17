@@ -1,6 +1,6 @@
 ---
 employer: Executive Office of the President
-title: Presidential Innovation Fellow
+title: Presidential Innovation Fellow; Office of the US CIO; SWAT Team, Office of Administration
 start_date: '2011-09-01'
 end_date: '2013-01-01'
 ---
