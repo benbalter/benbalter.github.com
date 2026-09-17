@@ -72,3 +72,48 @@ describe('LinkedIn resume field character limits', () => {
     );
   });
 });
+
+/**
+ * Paragraph breaks survive the copy-to-LinkedIn path.
+ *
+ * `stripMarkdown` ends with `\s+ -> ' '`, which flattens every newline. Bullets
+ * were protected by a placeholder; paragraph breaks were not, so a position's
+ * lede paragraph ran straight into its first bullet when pasted into LinkedIn.
+ */
+describe('cleanDescription paragraph breaks', () => {
+  const asPasted = (markdown: string) =>
+    cleanDescription(markdown).replace(/<br\s*\/?>/gi, '\n');
+
+  it('keeps the blank line between a lede paragraph and its bullets', () => {
+    expect(asPasted('Lede paragraph here.\n\n- Bullet one.\n- Bullet two.')).toBe(
+      'Lede paragraph here.\n\n• Bullet one.\n• Bullet two.',
+    );
+  });
+
+  it('keeps the blank line between two paragraphs', () => {
+    expect(asPasted('Para one.\n\nPara two.')).toBe('Para one.\n\nPara two.');
+  });
+
+  it('collapses a markdown soft wrap to a space', () => {
+    expect(asPasted('Line one\nstill same paragraph.')).toBe(
+      'Line one still same paragraph.',
+    );
+  });
+
+  it('does not open a bullets-only description with a break', () => {
+    expect(asPasted('- Bullet one.\n- Bullet two.')).toBe('• Bullet one.\n• Bullet two.');
+  });
+
+  it('leaves no trailing space before a line break', () => {
+    expect(asPasted('Lede.\n\n- Bullet.')).not.toMatch(/[ \t]\n/);
+  });
+
+  it('renders a real position body with its lede intact', () => {
+    const body = fs.readFileSync(
+      path.join(positionsDir, 'hubber-enablement.md'),
+      'utf-8',
+    );
+    const pasted = asPasted(matter(body).content.trim());
+    expect(pasted).toMatch(/content\.\n\n• Platform product ownership/);
+  });
+});

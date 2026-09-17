@@ -32,6 +32,7 @@ export function cleanDescription(text: string): string {
   if (!text) return '';
 
   const bulletPlaceholder = '[[BULLET]]';
+  const paragraphPlaceholder = '[[PARA]]';
   let cleaned = text
     // Match list markers at any indent so nested sub-bullets flatten to `• `
     // too (LinkedIn's description field has no nested-list affordance).
@@ -39,11 +40,24 @@ export function cleanDescription(text: string): string {
     .replace(/^#+\s+/gm, '');
   cleaned = stripHtmlComments(cleaned);
 
+  // Protect blank lines the same way bullets are protected. `stripMarkdown`
+  // ends with `\s+ -> ' '`, which flattens every newline, so a paragraph break
+  // that isn't stashed here is gone by the time we could restore it. Single
+  // newlines are markdown soft wraps and SHOULD collapse to a space; only a
+  // blank line is a real paragraph break.
+  cleaned = cleaned.replace(/\n[ \t]*\n\s*/g, paragraphPlaceholder);
+
   cleaned = stripMarkdown(cleaned);
 
   cleaned = cleaned
+    // A paragraph break immediately before a bullet is one break, not two.
+    .replace(/\[\[PARA\]\]\s*\[\[BULLET\]\]/g, '<br><br>• ')
     .replace(/\[\[BULLET\]\]/g, '<br>• ')
-    .replace(/^<br>/, '')
+    .replace(/\[\[PARA\]\]/g, '<br><br>')
+    // stripMarkdown turns the newline before a placeholder into a space, which
+    // would paste as a trailing space at the end of every line.
+    .replace(/[ \t]+<br>/g, '<br>')
+    .replace(/^(?:<br>)+/, '')
     .replace(/\s+$/, '');
 
   return cleaned;
