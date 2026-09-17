@@ -33,8 +33,12 @@ const { degrees, certifications, skills, summary, highlights } = resumePage.data
 const { grouped: groupedPositions } = await getResumePositions();
 const writing = resolvePopularPosts(await getPublishedPosts());
 
+// Print drops expired credentials as well as personal ones. The web page, the
+// .md, and the .docx still list them with an "(expired)" marker; this is a
+// two-page-target sheet and a lapsed credential is the first thing to cut.
 const professionalCerts = certifications.filter(
-  (c: { category?: string }) => (c.category ?? 'professional') === 'professional',
+  (c: { category?: string; expired?: boolean }) =>
+    (c.category ?? 'professional') === 'professional' && !c.expired,
 );
 
 // Date range for a position, e.g. "July 2021 – February 2023" / "May 2026 – Present".
