@@ -76,7 +76,7 @@ export const siteConfig = {
   bookUrl: 'https://open-and-async.com/?utm_source=benbalter-book-cta',
   bookUrlLaunchPost: 'https://open-and-async.com/?utm_source=benbalter-launch-post',
   bookUrlEmail: 'https://open-and-async.com/?utm_source=benbalter-email',
-  bookTitle: 'Open & Async',
+  bookTitle: 'Open and Async',
   bookDescription: 'The collaborative software development playbook for remote and distributed teams',
   bookLaunch: 'July 21, 2026',
   bookPrice: '$9.99',
@@ -124,7 +124,7 @@ export const socialLinks: SocialLink[] = [
 
 // Footer navigation links
 export const footerLinks: FooterLink[] = [
-  { title: 'Open & Async', url: 'https://open-and-async.com/?utm_source=benbalter-footer' },
+  { title: 'Open and Async', url: 'https://open-and-async.com/?utm_source=benbalter-footer' },
   { title: 'No Agenda, No Meeting', url: 'https://noagendanomeeting.net/' },
   { title: 'Other Recommended Reading', url: '/other-recommended-reading/' },
   { title: 'Subscribe', url: '/subscribe/' },

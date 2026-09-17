@@ -49,7 +49,7 @@
   --color-primary-900: #0d1f28;
   --color-primary: #337ab7;
 
-  /* Open & Async book brand palette (mirrors open-and-async.com) */
+  /* Open and Async book brand palette (mirrors open-and-async.com) */
   --color-brand-950: #102038;  /* deep navy card base */
   --color-brand-900: #1b2a47;  /* badge bg — interpolated; site gives no hex */
   --color-brand-600: #2e3e62;  /* borders / badge border */

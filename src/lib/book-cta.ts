@@ -1,5 +1,5 @@
 /**
- * Shared bits for the Open & Async book CTAs (BookCta.astro and
+ * Shared bits for the Open and Async book CTAs (BookCta.astro and
  * BookLaunchCta.astro) so the title treatment and decorative motif can't drift
  * apart between the everyday promos and the launch panel.
  */
@@ -7,13 +7,19 @@
 import { siteConfig } from '../config';
 
 /**
- * Book title with the ampersand colorized via the site's signature lime→pink
+ * Book title with its conjunction colorized via the site's signature lime→pink
  * gradient. Surrounding spaces are consumed so `mx-1` controls the total gap
  * (natural spaces + margin would read as an uncomfortably wide space in prose).
+ *
+ * Matches "&" or the word "and" so the treatment survives the title being
+ * spelled either way. Only the first conjunction is styled.
  */
 export const bookTitleHtml = siteConfig.bookTitle.replace(
-  /\s*&\s*/g,
-  '<span class="oa-amp mx-1">&amp;</span>',
+  /\s*&\s*|\s+\band\b\s+/i,
+  match => {
+    const conjunction = match.trim();
+    return `<span class="oa-amp mx-1">${conjunction === '&' ? '&amp;' : conjunction}</span>`;
+  },
 );
 
 /**

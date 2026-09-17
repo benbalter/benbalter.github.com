@@ -2,7 +2,7 @@
 /**
  * Book CTA Component
  *
- * Promotes the Open & Async book with a buy link to the book site.
+ * Promotes the Open and Async book with a buy link to the book site.
  * Supports two variants: inline (for posts) and featured (for homepage).
  * Both quote the marketing site (open-and-async.com): a dark-navy "book
  * object" anchored by the 3D cover mockup, with the lime→pink accent system.
@@ -54,7 +54,7 @@ const inlineHeadline =
       <div class="shrink-0 mx-auto md:mx-0">
         <Image
           src={coverImage}
-          alt="Open & Async book cover"
+          alt="Open and Async book cover"
           width={220}
           height={244}
           densities={[1, 2]}
@@ -87,7 +87,7 @@ const inlineHeadline =
     <div class="relative flex items-center gap-4">
       <Image
         src={coverImage}
-        alt="Open & Async book cover"
+        alt="Open and Async book cover"
         width={72}
         height={80}
         densities={[1, 2]}
@@ -109,7 +109,7 @@ const inlineHeadline =
           data-track-book-cta
           class="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-400 no-underline transition-colors duration-200 before:absolute before:inset-0 before:rounded-xl focus-visible:outline-2 focus-visible:outline-accent-400 focus-visible:outline-offset-2"
         >
-          Buy Open &amp; Async — {siteConfig.bookPrice} <span aria-hidden="true" class="motion-safe:group-hover:translate-x-0.5 transition-transform duration-200">→</span>
+          Buy Open and Async, {siteConfig.bookPrice} <span aria-hidden="true" class="motion-safe:group-hover:translate-x-0.5 transition-transform duration-200">→</span>
         </a>
       </div>
     </div>
