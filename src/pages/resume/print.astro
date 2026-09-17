@@ -195,12 +195,16 @@ const contact = [
 
   body.rp {
     margin: 0;
-    /* No background here. The navy spine lives on html.rp-root and propagates to
-       the page canvas, which covers the full sheet including the @page margins.
-       A white body background paints over that canvas everywhere body's box
-       reaches, which left the spine visible only in the 0.5in top and bottom
-       margin strips: a stray navy dash at the top-left and bottom-left of every
-       continuation page. The gradient's second stop already supplies the white. */
+    /* Transparent, and it must be set explicitly. The navy spine lives on
+       html.rp-root and propagates to the page canvas, which covers the full
+       sheet including the @page margins. Any opaque body background paints over
+       that canvas wherever body's box reaches, leaving the spine visible only in
+       the 0.5in top and bottom margin strips: a stray navy dash at the top-left
+       and bottom-left of every continuation page. Simply dropping the property
+       does not work — global.css then applies its own body background (dark in
+       the site theme), which is still opaque. The gradient's second stop
+       supplies the white paper. */
+    background: transparent;
     font-family: var(--font-sans);
     color: var(--color-gray-900);
     print-color-adjust: exact;
