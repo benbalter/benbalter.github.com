@@ -2,7 +2,7 @@
 title: Resume
 description: >-
   Resume for Ben Balter: product and engineering leader, former GitHub director
-  and senior product manager, attorney, and author of Open & Async.
+  and senior product manager, attorney, and author of Open and Async.
 permalink: /resume/
 redirect_from: 
   - /cv/
@@ -14,9 +14,9 @@ summary: >-
   platform its employees run on and, earlier, shipping 500+ features to a
   developer platform serving 50M+ users. A lawyer who ships code: DC Bar member
   who set GitHub's export-control and OFAC policy, and a top contributor to
-  the github.com codebase with code still running in production. Author of
-  Open & Async and a member of the inaugural class of Presidential Innovation
-  Fellows.
+  the github.com codebase with code still running in production. A member of the
+  inaugural class of Presidential Innovation Fellows, and author of
+  Open and Async.
 highlights:
   - >-
     Shipped 500+ features to a developer platform with 50M+ users and 100M+
@@ -29,7 +29,7 @@ highlights:
     Merged 700+ pull requests with GitHub Copilot while running a
     director-level org, adding an engineer's worth of delivery capacity.
   - >-
-    Shipped Open & Async with a Model Context Protocol server generated from the
+    Shipped Open and Async with a Model Context Protocol server generated from the
     manuscript, so agents can query the book's practices directly.
   - >-
     Rewrote GitHub Pages bottom-up (1M+ sites, 250,000+ pages/minute) and

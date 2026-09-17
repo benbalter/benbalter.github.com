@@ -8,7 +8,7 @@
  */
 
 export const linkedinHeadline =
-  'Product Leader | 10 years at GitHub: platform, trust & safety, developer experience | Author of Open & Async | Attorney, Presidential Innovation Fellow';
+  'Product Leader | 10 years at GitHub: platform, trust & safety, developer experience | Author of Open and Async | Attorney, Presidential Innovation Fellow';
 
 /**
  * About text as individual lines. Joined with `<br>` for display (respects
@@ -22,7 +22,7 @@ export const linkedinAboutLines: readonly string[] = [
   '',
   "Before that, as Senior Product Manager for Trust and Safety, I shipped 500+ features and policies to a developer platform with 50M+ users and 100M+ projects, spanning community health, account security, privacy, and compliance. Across ten years at GitHub I've also been Chief of Staff for Security, Staff Technical Program Manager for Enterprise and Compliance, Director of Engineering Operations and Culture, and the company's first Government Evangelist, leading outreach that drove adoption across nearly 2,000 government organizations in over 75 countries.",
   '',
-  "I'm also the author of Open & Async, the collaborative software development playbook for remote and distributed teams, drawn from a decade of remote-first work at GitHub.",
+  "I'm also the author of Open and Async, the collaborative software development playbook for remote and distributed teams, drawn from a decade of remote-first work at GitHub.",
   '',
   'Before GitHub, I served as a Presidential Innovation Fellow and a member of the White House\'s first agile development team, helping draft parts of President Obama\'s Digital Strategy and Open Data Policy. The US CTO once called me one of "the baddest of the badass innovators," the single nicest thing anyone\'s ever put in print about me. I\'m also an attorney, a member of the DC Bar, and argued in the Public Contract Law Journal that federal IT procurement should look more like modern software development.',
   '',

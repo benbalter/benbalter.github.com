@@ -4,7 +4,7 @@ title: Author
 start_date: '2026-05-01'
 ---
 
-[Open & Async](https://open-and-async.com/?utm_source=benbalter-resume) - The collaborative software development playbook for remote and distributed teams.
+[Open and Async](https://open-and-async.com/?utm_source=benbalter-resume) - The collaborative software development playbook for remote and distributed teams.
 
 - **Shipped end to end** - Wrote, produced, and launched the book in print, ebook, and audiobook, with accessibility designed in from the first draft rather than retrofitted at the end. Holds a 5-star average reader rating.
 - **Built for agents too** - Shipped a [Model Context Protocol server](https://github.com/open-and-async/mcp) alongside the book, generated from the manuscript's own structure, so an agent can query its practices directly instead of working from a scraped copy.
