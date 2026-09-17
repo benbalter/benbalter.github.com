@@ -69,9 +69,15 @@ jobs:
           # resurrect HTML built by an old pipeline (e.g. retired /q/<id> quote links)
           # and deploy it. Folding the pipeline hash into the prefix busts the cache when
           # rendering changes, while still reusing it across content-only edits.
-          key: astro-cache-${{ runner.os }}-${{ hashFiles('src/lib/**', 'astro.config.mjs', 'src/content.config.ts', 'package-lock.json') }}-${{ hashFiles('src/**/*', 'public/**/*', 'tsconfig.astro.json') }}
+          #
+          # src/data/acronyms.yml is part of the fingerprint because
+          # src/lib/rehype-acronyms.ts reads it at module load: it is rendering
+          # input, not content. Without it, adding a glossary term changes the
+          # exact key, misses, and then restore-keys resurrects HTML rendered
+          # against the old glossary, so the new tooltips never ship.
+          key: astro-cache-${{ runner.os }}-${{ hashFiles('src/lib/**', 'src/data/acronyms.yml', 'astro.config.mjs', 'src/content.config.ts', 'package-lock.json') }}-${{ hashFiles('src/**/*', 'public/**/*', 'tsconfig.astro.json') }}
           restore-keys: |
-            astro-cache-${{ runner.os }}-${{ hashFiles('src/lib/**', 'astro.config.mjs', 'src/content.config.ts', 'package-lock.json') }}-
+            astro-cache-${{ runner.os }}-${{ hashFiles('src/lib/**', 'src/data/acronyms.yml', 'astro.config.mjs', 'src/content.config.ts', 'package-lock.json') }}-
 
       # Persist generated OG cards across deploys. The key's hash segment busts
       # the cache when the OG generator/config/motif/fonts change (fresh cards);
