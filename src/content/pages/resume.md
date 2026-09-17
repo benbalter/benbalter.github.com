@@ -29,8 +29,8 @@ highlights:
     Merged 700+ pull requests with GitHub Copilot while running a
     director-level org, adding an engineer's worth of delivery capacity.
   - >-
-    Built agentic workflows and an MCP server, and automated reporting,
-    accessibility, and platform work across internal tooling with AI.
+    Shipped Open & Async with a Model Context Protocol server generated from the
+    manuscript, so agents can query the book's practices directly.
   - >-
     Rewrote GitHub Pages bottom-up (1M+ sites, 250,000+ pages/minute) and
     launched choosealicense.com, still the default reference for open source

@@ -18,7 +18,7 @@ export const linkedinHeadline =
  * Empty strings produce blank lines (paragraph breaks).
  */
 export const linkedinAboutLines: readonly string[] = [
-  "I build products and the organizations that ship them. Most recently I owned GitHub's internal employee platform, the knowledge base and tooling 4,000+ GitHubbers use to get work done: 96% durable content ownership, deploys cut from over an hour to under 10 minutes, and a WYSIWYG editor that moved non-technical teams off filing tickets and onto self-serve publishing. I led a team of six, merged 700+ pull requests with Copilot, and built agentic workflows and an MCP server along the way.",
+  "I build products and the organizations that ship them. Most recently I owned GitHub's internal employee platform, the knowledge base and tooling 4,000+ GitHubbers use to get work done: 96% durable content ownership, deploys cut from over an hour to under 10 minutes, and a WYSIWYG editor that moved non-technical teams off filing tickets and onto self-serve publishing. I led a team of six and merged 700+ pull requests with Copilot along the way.",
   '',
   "Before that, as Senior Product Manager for Trust and Safety, I shipped 500+ features and policies to a developer platform with 50M+ users and 100M+ projects, spanning community health, account security, privacy, and compliance. Across ten years at GitHub I've also been Chief of Staff for Security, Staff Technical Program Manager for Enterprise and Compliance, Director of Engineering Operations and Culture, and the company's first Government Evangelist, leading outreach that drove adoption across nearly 2,000 government organizations in over 75 countries.",
   '',
