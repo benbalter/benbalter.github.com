@@ -8,7 +8,7 @@
  */
 
 export const linkedinHeadline =
-  'Product Leader | 10 years at GitHub: platform, trust & safety, developer experience | Author of Open and Async | Attorney, Presidential Innovation Fellow';
+  'Product Leader | 10 years at GitHub: trust & safety, platform security, developer platforms | Author of Open and Async | Attorney, Presidential Innovation Fellow';
 
 /**
  * About text as individual lines. Joined with `<br>` for display (respects

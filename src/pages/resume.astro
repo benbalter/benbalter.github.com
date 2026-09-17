@@ -50,7 +50,7 @@ const resumeSchema = generateResumeSchema({
 <PageLayout title={title} description={description} robots={robots} suppressPersonSchema>
   <header class="print-header" aria-hidden="true">
     <p class="print-name">Ben Balter</p>
-    <p class="print-title">Product Leader: Platform, Trust &amp; Safety, Developer Experience</p>
+    <p class="print-title">Product Leader: Trust &amp; Safety, Platform Security, Developer Platforms</p>
     <p class="print-contact">
       Washington, DC
       <span aria-hidden="true"> · </span>
@@ -90,23 +90,6 @@ const resumeSchema = generateResumeSchema({
     </section>
   )}
 
-  {skills && skills.length > 0 && (
-    <section class="resume-section">
-      <h2>Areas of focus</h2>
-      <div class="skills-grid">
-        {skills.map((group: { group: string; items: string[] }) => (
-          <div class="skill-group">
-            <h3 class="skill-group-name">{group.group}</h3>
-            <ul class="skill-list">
-              {group.items.map((item: string) => (
-                <li>{item}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-    </section>
-  )}
 
   <section class="resume-section">
     <h2>Experience</h2>
@@ -145,6 +128,24 @@ const resumeSchema = generateResumeSchema({
     ))}
   </section>
   
+  {skills && skills.length > 0 && (
+    <section class="resume-section">
+      <h2>Areas of focus</h2>
+      <div class="skills-grid">
+        {skills.map((group: { group: string; items: string[] }) => (
+          <div class="skill-group">
+            <h3 class="skill-group-name">{group.group}</h3>
+            <ul class="skill-list">
+              {group.items.map((item: string) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
   {writing && writing.length > 0 && (
     <section class="resume-section">
       <h2>Selected writing</h2>

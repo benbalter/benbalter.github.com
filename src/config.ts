@@ -136,7 +136,6 @@ export const footerLinks: FooterLink[] = [
 // career/management cluster leads by a wide margin, rounded out with a few
 // evergreen classics. Revisit as new RUM data comes in.
 export const popularPostSlugs: string[] = [
-  '2026-06-07-reorgs-happen',
   '2026-04-27-one-on-one-playbook',
   '2026-04-27-the-brag-doc',
   '2023-03-02-github-for-non-technical-roles',

@@ -1,8 +1,9 @@
 ---
 title: Resume
 description: >-
-  Resume for Ben Balter: product and engineering leader, former GitHub director
-  and senior product manager, attorney, and author of Open and Async.
+  Resume for Ben Balter: product leader in trust and safety, platform security,
+  and developer platforms; GitHub director and senior product manager; attorney
+  and author of Open and Async.
 permalink: /resume/
 redirect_from: 
   - /cv/
@@ -10,12 +11,13 @@ published: true
 seo:
   type: person
 summary: >-
-  Product leader with a decade at GitHub, most recently a director owning the
-  internal platform its employees run on and, earlier, shipping 500+ features
-  to a developer platform serving 50M+ users. A lawyer who ships code: a DC Bar
-  member and a top contributor to the github.com codebase, with code still
-  running in production. A member of the inaugural class of Presidential
-  Innovation Fellows, and author of Open and Async.
+  Product leader who led trust, safety, and account security for a developer
+  platform serving 50M+ users, shipping abuse reporting, PhotoDNA detection,
+  phishing-resistant 2FA, and role-based access controls. A lawyer who ships
+  code: a DC Bar member and a top contributor to the github.com codebase, with
+  code still running in production. Most recently a director owning the
+  internal platform GitHub's employees run on. Author of Open and Async and a
+  member of the inaugural class of Presidential Innovation Fellows.
 highlights:
   - >-
     Shipped 500+ features to a developer platform with 50M+ users and 100M+
@@ -25,15 +27,14 @@ highlights:
     ownership, deploys from over an hour to under 10 minutes, and self-serve
     editing for non-technical teams.
   - >-
-    Merged 700+ pull requests with GitHub Copilot while running a
-    director-level org, adding an engineer's worth of delivery capacity.
+    Merged 700+ pull requests with GitHub Copilot while leading a six-person
+    team, adding an engineer's worth of delivery capacity.
   - >-
     Shipped Open and Async with a Model Context Protocol server generated from the
     manuscript, so agents can query the book's practices directly.
   - >-
-    Rewrote GitHub Pages bottom-up (1M+ sites, 250,000+ pages/minute) and
-    shipped choosealicense.com and its license-detection API, still the default
-    reference for open source licensing.
+    Led a bottom-up rewrite of GitHub Pages (1M+ sites, 250,000+ pages/minute)
+    and shipped choosealicense.com and its license-detection API.
 skills:
   - group: Product
     items:
@@ -69,8 +70,8 @@ degrees:
     degree: Bachelor of Arts, Political Science
     date: '2009-05-01'
 certifications:
-  - authority: Bar Association of the District of Columbia
-    name: Member, license 1021576
+  - authority: District of Columbia Bar
+    name: Active member, Bar No. 1021576
     category: professional
   - authority: International Information System Security Certification Consortium (ISC)²
     name: Certified Information Systems Security Professional (CISSP)

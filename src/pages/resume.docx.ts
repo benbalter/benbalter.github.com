@@ -39,7 +39,7 @@ const MUTED = '555555';
 
 // Role kicker under the name — mirrors the print résumé's header. Kept in sync
 // with the `rp-role` line in src/pages/resume/print.astro.
-const HEADLINE = 'Product Leader: Platform, Trust & Safety, Developer Experience';
+const HEADLINE = 'Product Leader: Trust & Safety, Platform Security, Developer Platforms';
 
 // ---------------------------------------------------------------------------
 // Markdown → docx
@@ -310,6 +310,23 @@ export const GET: APIRoute = async () => {
     }
   }
 
+  // --- Experience ----------------------------------------------------------
+  children.push(sectionHeading('Experience'));
+  for (const [employer, positions] of employerGroups) {
+    children.push(
+      new Paragraph({
+        spacing: { before: 200, after: 40 },
+        children: [new TextRun({ text: employer, bold: true, size: 26, color: ACCENT })],
+      })
+    );
+    for (const position of positions) {
+      const start = formatResumeDate(position.data.start_date) ?? 'Unknown';
+      const end = position.data.end_date ? formatResumeDate(position.data.end_date) ?? 'Unknown' : 'Present';
+      children.push(titleWithDate(position.data.title, `${start}–${end}`));
+      children.push(...renderMarkdownBody(position.body ?? ''));
+    }
+  }
+
   // --- Skills (areas of focus) --------------------------------------------
   // Heading is the literal "Skills" — resume parsers (Workday, Greenhouse,
   // Lever) key on that exact token to populate the skills section on import.
@@ -329,23 +346,6 @@ export const GET: APIRoute = async () => {
           children: [new TextRun({ text: group.items.join('  ·  '), size: 19 })],
         })
       );
-    }
-  }
-
-  // --- Experience ----------------------------------------------------------
-  children.push(sectionHeading('Experience'));
-  for (const [employer, positions] of employerGroups) {
-    children.push(
-      new Paragraph({
-        spacing: { before: 200, after: 40 },
-        children: [new TextRun({ text: employer, bold: true, size: 26, color: ACCENT })],
-      })
-    );
-    for (const position of positions) {
-      const start = formatResumeDate(position.data.start_date) ?? 'Unknown';
-      const end = position.data.end_date ? formatResumeDate(position.data.end_date) ?? 'Unknown' : 'Present';
-      children.push(titleWithDate(position.data.title, `${start}–${end}`));
-      children.push(...renderMarkdownBody(position.body ?? ''));
     }
   }
 

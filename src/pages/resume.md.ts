@@ -58,7 +58,7 @@ export const GET: APIRoute = async () => {
   lines.push('');
   // Role kicker under the name. Kept in sync with the `rp-role` line in
   // src/pages/resume/print.astro and HEADLINE in src/pages/resume.docx.ts.
-  lines.push('Product Leader: Platform, Trust & Safety, Developer Experience');
+  lines.push('Product Leader: Trust & Safety, Platform Security, Developer Platforms');
   lines.push('');
   lines.push(
     `Washington, DC · [${siteConfig.email}](mailto:${siteConfig.email}) · ` +
@@ -90,24 +90,6 @@ export const GET: APIRoute = async () => {
     lines.push('');
   }
 
-  // --- Skills (areas of focus) --------------------------------------------
-  // Heading is the literal "Skills" — resume parsers (Workday, Greenhouse,
-  // Lever) key on that exact token. The HTML resume keeps its "Areas of Focus"
-  // label; the export uses "Skills" to match the .docx.
-  if (skills && skills.length > 0) {
-    lines.push('## Skills');
-    lines.push('');
-    // One skill per bullet — several items contain internal commas
-    // ("Privacy, security, and compliance"), so any inline delimiter would be
-    // ambiguous to a keyword parser. One-per-line is the safest for extraction.
-    for (const group of skills as Array<{ group: string; items: string[] }>) {
-      lines.push(`**${group.group}**`);
-      lines.push('');
-      for (const item of group.items) lines.push(`- ${item}`);
-      lines.push('');
-    }
-  }
-
   // --- Experience ----------------------------------------------------------
   lines.push('## Experience');
   lines.push('');
@@ -126,6 +108,24 @@ export const GET: APIRoute = async () => {
         lines.push(body);
         lines.push('');
       }
+    }
+  }
+
+  // --- Skills (areas of focus) --------------------------------------------
+  // Heading is the literal "Skills" — resume parsers (Workday, Greenhouse,
+  // Lever) key on that exact token. The HTML resume keeps its "Areas of Focus"
+  // label; the export uses "Skills" to match the .docx.
+  if (skills && skills.length > 0) {
+    lines.push('## Skills');
+    lines.push('');
+    // One skill per bullet — several items contain internal commas
+    // ("Privacy, security, and compliance"), so any inline delimiter would be
+    // ambiguous to a keyword parser. One-per-line is the safest for extraction.
+    for (const group of skills as Array<{ group: string; items: string[] }>) {
+      lines.push(`**${group.group}**`);
+      lines.push('');
+      for (const item of group.items) lines.push(`- ${item}`);
+      lines.push('');
     }
   }
 
