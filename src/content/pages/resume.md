@@ -12,11 +12,10 @@ seo:
 summary: >-
   Product leader with a decade at GitHub, most recently a director owning the
   internal platform its employees run on and, earlier, shipping 500+ features
-  to a developer platform serving 50M+ users. A lawyer who ships code: DC Bar
-  member who set GitHub's export-control and OFAC policy, and a top contributor
-  to the github.com codebase with code still running in production. A member of
-  the inaugural class of Presidential Innovation Fellows, and author of
-  Open and Async.
+  to a developer platform serving 50M+ users. A lawyer who ships code: a DC Bar
+  member and a top contributor to the github.com codebase, with code still
+  running in production. A member of the inaugural class of Presidential
+  Innovation Fellows, and author of Open and Async.
 highlights:
   - >-
     Shipped 500+ features to a developer platform with 50M+ users and 100M+
@@ -33,14 +32,16 @@ highlights:
     manuscript, so agents can query the book's practices directly.
   - >-
     Rewrote GitHub Pages bottom-up (1M+ sites, 250,000+ pages/minute) and
-    launched choosealicense.com, still the default reference for open source
-    licensing.
+    shipped choosealicense.com and its license-detection API, still the default
+    reference for open source licensing.
 skills:
   - group: Product
     items:
       - Product strategy and roadmapping
+      - Platform and API products
       - Internal platforms and developer tooling
-      - Zero-to-one and platform products
+      - Enterprise readiness and compliance
+      - Zero-to-one products
       - Trust, safety, and platform health
       - Developer experience
   - group: Leadership
