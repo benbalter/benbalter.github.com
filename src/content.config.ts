@@ -129,6 +129,7 @@ const pagesCollection = defineCollection({
       items: z.array(z.string()),
     })).optional(),
     summary: z.string().optional(),
+    highlights: z.array(z.string()).optional(),
   }),
 });
 

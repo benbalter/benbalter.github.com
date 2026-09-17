@@ -1,41 +1,68 @@
 ---
 title: Resume
-description: Resume for Ben Balter — former Director of Hubber Enablement at GitHub, attorney, open source advocate, and technology leader.
+description: >-
+  Resume for Ben Balter: product and engineering leader, former GitHub director
+  and senior product manager, attorney, and author of Open & Async.
 permalink: /resume/
 redirect_from: 
   - /cv/
 published: true
 seo:
   type: person
-summary: Engineering leader who scales the operations, culture, and people functions behind high-performing teams. At GitHub, cut friction and time-to-productivity through reimagined onboarding, AI-driven automation, and rigorous business rhythms. A decade-plus track record shipping at the intersection of product, policy, and open source, from the White House to the world's largest software development platform.
+summary: >-
+  Product leader with a decade at GitHub, most recently owning the internal
+  platform its employees run on and, earlier, shipping 500+ features to a
+  developer platform serving 50M+ users. A lawyer who ships code: DC Bar member
+  who set GitHub's export-control and OFAC policy, and a top contributor to
+  the github.com codebase with code still running in production. Author of
+  Open & Async and a member of the inaugural class of Presidential Innovation
+  Fellows.
+highlights:
+  - >-
+    Shipped 500+ features to a developer platform with 50M+ users and 100M+
+    projects, across trust and safety, account security, and privacy.
+  - >-
+    Owned the internal platform GitHub's employees run on: 96% durable content
+    ownership, deploys from over an hour to under 10 minutes, and self-serve
+    editing for non-technical teams.
+  - >-
+    Merged 700+ pull requests with GitHub Copilot while running a
+    director-level org, adding an engineer's worth of delivery capacity.
+  - >-
+    Built agentic workflows and an MCP server, and automated reporting,
+    accessibility, and platform work across internal tooling with AI.
+  - >-
+    Rewrote GitHub Pages bottom-up (1M+ sites, 250,000+ pages/minute) and
+    launched choosealicense.com, still the default reference for open source
+    licensing.
 skills:
+  - group: Product
+    items:
+      - Product strategy and roadmapping
+      - Internal platforms and developer tooling
+      - Zero-to-one and platform products
+      - Trust, safety, and platform health
+      - Developer experience
   - group: Leadership
     items:
-      - Engineering leadership
+      - Product and engineering leadership
       - Organizational design
-      - Chief-of-staff operating patterns
       - Executive communication
       - Change management
-  - group: Program and product
+      - Chief-of-staff operating patterns
+  - group: Technical and legal
     items:
-      - Technical program management
-      - Strategic planning and OKRs
-      - Product management
-      - Internal platforms
-      - Async-first collaboration
-  - group: Technology and policy
-    items:
-      - Open source strategy
+      - Ruby and full-stack development
+      - Agentic workflows, MCP, and AI-accelerated delivery
+      - Technology law, licensing, and policy
       - Privacy, security, and compliance
-      - Public sector and government technology
-      - Technology law and licensing
-      - Developer experience
+      - Open source strategy
 degrees:
   - school: The George Washington University Law School
     degree: Juris Doctor
     date: '2013-05-01'
   - school: The George Washington University School of Business
-    degree: Master of Business Administration — Strategic Management and Public Policy
+    degree: Master of Business Administration, Strategic Management and Public Policy
     date: '2013-05-01'
   - school: The George Washington University
     degree: Bachelor of Arts, Political Science

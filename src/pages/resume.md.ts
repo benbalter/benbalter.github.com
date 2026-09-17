@@ -32,7 +32,7 @@ export const GET: APIRoute = async () => {
   if (!resumePage) {
     throw new Error('Resume page data not found');
   }
-  const { degrees, certifications, skills, summary } = resumePage.data;
+  const { degrees, certifications, skills, summary, highlights } = resumePage.data;
 
   // Selected writing mirrors the homepage's curated "Popular Posts" list.
   const writing = resolvePopularPosts(await getPublishedPosts());
@@ -56,6 +56,10 @@ export const GET: APIRoute = async () => {
   // --- Header: name + contact strip ---------------------------------------
   lines.push(`# ${siteConfig.author}`);
   lines.push('');
+  // Role kicker under the name. Kept in sync with the `rp-role` line in
+  // src/pages/resume/print.astro and HEADLINE in src/pages/resume.docx.ts.
+  lines.push('Product Leader: Platform, Trust & Safety, Developer Experience');
+  lines.push('');
   lines.push(
     `Washington, DC · [${siteConfig.email}](mailto:${siteConfig.email}) · ` +
       `[ben.balter.com](${siteConfig.url}) · ` +
@@ -71,6 +75,18 @@ export const GET: APIRoute = async () => {
     lines.push('## Summary');
     lines.push('');
     lines.push(summary);
+    lines.push('');
+  }
+
+  // --- Highlights ----------------------------------------------------------
+  // Cross-role wins, foregrounded above Experience so the strongest product
+  // evidence isn't gated on a reader reaching a 2016 entry. Deliberately not a
+  // timeline, which is why it can lead with older work while Experience below
+  // stays strictly reverse-chronological.
+  if (highlights && highlights.length > 0) {
+    lines.push('## Highlights');
+    lines.push('');
+    for (const item of highlights as string[]) lines.push(`- ${item}`);
     lines.push('');
   }
 
@@ -140,28 +156,17 @@ export const GET: APIRoute = async () => {
     type Cert = { authority: string; name: string; url?: string; expired?: boolean; category?: string };
     const certs = certifications as Cert[];
     const professional = certs.filter((c) => (c.category ?? 'professional') === 'professional');
-    const personal = certs.filter((c) => c.category === 'personal');
 
     const renderCert = (cert: Cert): string => {
       const name = cert.url ? `[${cert.name}](${cert.url})` : cert.name;
       const expired = cert.expired ? ' _(Expired)_' : '';
-      return `- **${cert.authority}** — ${name}${expired}`;
+      return `- **${cert.authority}**: ${name}${expired}`;
     };
 
     lines.push('## Certifications');
     lines.push('');
-    if (professional.length > 0) {
-      lines.push('### Professional');
-      lines.push('');
-      for (const cert of professional) lines.push(renderCert(cert));
-      lines.push('');
-    }
-    if (personal.length > 0) {
-      lines.push('### Personal interests');
-      lines.push('');
-      for (const cert of personal) lines.push(renderCert(cert));
-      lines.push('');
-    }
+    for (const cert of professional) lines.push(renderCert(cert));
+    lines.push('');
   }
 
   const markdown = lines.join('\n').replace(/\n{3,}/g, '\n\n').trimEnd() + '\n';

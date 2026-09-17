@@ -5,10 +5,8 @@ start_date: '2024-07-08'
 end_date: '2026-07-03'
 ---
 
-Drove the Hubber experience to reduce friction and time-to-productivity, increase engagement, and enable all Hubbers (GitHub employees) to do their best remote work.
+Product owner for GitHub's internal employee platform: the knowledge base, onboarding, and enablement tooling 4,000+ Hubbers use to get work done. Led a team of six across product, engineering, and content.
 
-- **Onboarding** - Reimagined company-wide onboarding to reach 100% semi-async coverage, a 96% Week 1 experience score, and an 82% information score for new hires.
-- **Learning and development** - Built tool and skill fluency across the organization through a continuous learning framework that reaches the majority of employees each month at an average session rating of 4.75/5.0.
-- **Internal communications platform** - Overhauled the company's internal knowledge platform to 96% durable content ownership, cut deploy times from over an hour to under 10 minutes, and shipped a WYSIWYG editor that lets non-technical teams self-serve.
-- **Internal events** - Drove 80% unique live attendance at company-wide events (against a 50% target), lifted employee alignment scores to an 18-month high, and produced Universe Extended sessions that reached 660 attendees with a 4.5/5.0 satisfaction rating.
-- **AI-driven productivity** - Shipped 700+ pull requests with GitHub Copilot, adding the delivery capacity of an additional engineer and accelerating automation, accessibility improvements, and platform enhancements across internal tools.
+- **Platform product ownership** - Owned the roadmap for the company's internal knowledge platform, driving durable content ownership to 96%, cutting deploy times from over an hour to under 10 minutes, and shipping a WYSIWYG editor that moved non-technical teams off filing tickets and onto self-serve publishing.
+- **Shipped as a builder** - Merged 700+ pull requests with GitHub Copilot, adding the delivery capacity of an additional engineer, and built agentic workflows and an MCP server to automate reporting, accessibility, and platform work across internal tools.
+- **Onboarding as a product** - Rebuilt company-wide onboarding to 100% semi-async coverage, and ran a continuous learning surface that reaches the majority of employees every month.

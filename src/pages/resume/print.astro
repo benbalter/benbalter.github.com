@@ -28,7 +28,7 @@ import '../../styles/global.css';
 
 const resumePage = await getEntry('pages', 'resume');
 if (!resumePage) throw new Error('Resume page data not found');
-const { degrees, certifications, skills, summary } = resumePage.data;
+const { degrees, certifications, skills, summary, highlights } = resumePage.data;
 
 const { grouped: groupedPositions } = await getResumePositions();
 const writing = resolvePopularPosts(await getPublishedPosts());
@@ -36,7 +36,6 @@ const writing = resolvePopularPosts(await getPublishedPosts());
 const professionalCerts = certifications.filter(
   (c: { category?: string }) => (c.category ?? 'professional') === 'professional',
 );
-const personalCerts = certifications.filter((c: { category?: string }) => c.category === 'personal');
 
 // Date range for a position, e.g. "July 2021 – February 2023" / "May 2026 – Present".
 const dateRange = (start: string, end?: string) =>
@@ -59,7 +58,7 @@ const contact = [
     <meta name="robots" content="noindex, nofollow" />
     <meta name="description" content="Print-optimized résumé source for Ben Balter, rendered to /resume.pdf." />
     <link rel="canonical" href="https://ben.balter.com/resume/print/" />
-    <title>Ben Balter — Résumé</title>
+    <title>Ben Balter, Résumé</title>
     <Font cssVariable="--font-inter" />
     <Font cssVariable="--font-lora" />
   </head>
@@ -68,7 +67,7 @@ const contact = [
     <aside class="rp-side">
       <header class="rp-id">
         <h1 class="rp-name">Ben Balter</h1>
-        <p class="rp-role">Engineering &amp; Operations Leader</p>
+        <p class="rp-role">Product Leader: Platform, Trust &amp; Safety</p>
       </header>
 
       <ul class="rp-contact">
@@ -116,6 +115,17 @@ const contact = [
     <div class="rp-main">
       {summary && <p class="rp-summary">{summary}</p>}
 
+      {highlights && highlights.length > 0 && (
+        <section class="rp-main-section">
+          <h2 class="rp-main-h">Highlights</h2>
+          <ul class="rp-highlights">
+            {highlights.map((item: string) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </section>
+      )}
+
       <section class="rp-main-section">
         <h2 class="rp-main-h">Experience</h2>
         {groupedPositions.map((group) => (
@@ -161,12 +171,6 @@ const contact = [
               </div>
             ))}
           </div>
-          {personalCerts.length > 0 && (
-            <p class="rp-personal">
-              <span class="rp-personal-label">Personal:</span>{' '}
-              {personalCerts.map((c: { name: string }) => c.name).join('  ·  ')}
-            </p>
-          )}
         </section>
       )}
     </div>
@@ -388,22 +392,6 @@ const contact = [
     color: var(--color-primary-700);
   }
 
-  /* Personal interests: a single compact line (hobbies don't warrant the formal
-     issuing-body treatment the professional certs get). */
-  .rp-personal {
-    margin: 8pt 0 0;
-    font-size: 8.5pt;
-    line-height: 1.4;
-    color: var(--color-gray-700);
-  }
-
-  .rp-personal-label {
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-primary-700);
-  }
-
   /* ============================================================
    * Main column — offset past the stripe; flows across pages.
    * ============================================================ */
@@ -428,6 +416,24 @@ const contact = [
 
   .pos-content {
     hyphens: none;
+  }
+
+  .rp-highlights {
+    margin: 0;
+    padding-left: 13pt;
+    font-size: 9.5pt;
+    line-height: 1.42;
+    color: var(--color-gray-800);
+    hyphens: none;
+  }
+
+  .rp-highlights li {
+    margin-bottom: 3pt;
+    page-break-inside: avoid;
+  }
+
+  .rp-highlights li:last-child {
+    margin-bottom: 0;
   }
 
   .rp-main-section {

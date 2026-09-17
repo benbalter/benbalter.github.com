@@ -1,10 +1,11 @@
 ---
-employer: Open & Async, LLC.
-title: Founder & Author
+employer: Open & Async
+title: Author
 start_date: '2026-05-01'
 ---
 
 [Open & Async](https://open-and-async.com/?utm_source=benbalter-resume) - The collaborative software development playbook for remote and distributed teams.
 
-- **Writing** - Authored [*Open & Async*](https://open-and-async.com/?utm_source=benbalter-resume), a practical playbook drawn from a decade of remote-first work at GitHub that teaches distributed teams to work in the open, default to async, and measure impact over input rather than hours logged.
-- **Topics** - Covered documentation as a productivity multiplier, meetings as escalations rather than defaults, decision-making with durable written context, change management for async adoption, team health, and AI in async-first teams — written for engineering leaders, managers, and individual contributors at distributed and remote-first organizations.
+- **Shipped end to end** - Wrote, produced, and launched the book in print, ebook, and audiobook, with accessibility designed in from the first draft rather than retrofitted at the end. Holds a 5-star average reader rating.
+- **Owned the go-to-market** - Built the distribution outright: launch channels, mailing list, podcast and press, and a production process documented in public as the book was written.
+- **Codified the practice** - Turned a decade of remote-first work at GitHub into a playbook on working in the open, defaulting to async, and measuring impact over hours logged.
