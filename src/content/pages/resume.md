@@ -10,12 +10,12 @@ published: true
 seo:
   type: person
 summary: >-
-  Product leader with a decade at GitHub, most recently owning the internal
-  platform its employees run on and, earlier, shipping 500+ features to a
-  developer platform serving 50M+ users. A lawyer who ships code: DC Bar member
-  who set GitHub's export-control and OFAC policy, and a top contributor to
-  the github.com codebase with code still running in production. A member of the
-  inaugural class of Presidential Innovation Fellows, and author of
+  Product leader with a decade at GitHub, most recently a director owning the
+  internal platform its employees run on and, earlier, shipping 500+ features
+  to a developer platform serving 50M+ users. A lawyer who ships code: DC Bar
+  member who set GitHub's export-control and OFAC policy, and a top contributor
+  to the github.com codebase with code still running in production. A member of
+  the inaugural class of Presidential Innovation Fellows, and author of
   Open and Async.
 highlights:
   - >-
