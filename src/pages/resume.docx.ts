@@ -39,7 +39,7 @@ const MUTED = '555555';
 
 // Role kicker under the name — mirrors the print résumé's header. Kept in sync
 // with the `rp-role` line in src/pages/resume/print.astro.
-const HEADLINE = 'Engineering & Operations Leader';
+const HEADLINE = 'Product Leader: Platform, Trust & Safety, Developer Experience';
 
 // ---------------------------------------------------------------------------
 // Markdown → docx
@@ -233,7 +233,7 @@ export const GET: APIRoute = async () => {
   if (!resumePage) {
     throw new Error('Resume page data not found');
   }
-  const { degrees, certifications, skills, summary } = resumePage.data;
+  const { degrees, certifications, skills, summary, highlights } = resumePage.data;
 
   // Selected writing mirrors the homepage's curated "Popular Posts" list.
   const writing = resolvePopularPosts(await getPublishedPosts());
@@ -292,6 +292,22 @@ export const GET: APIRoute = async () => {
         children: [new TextRun({ text: summary, italics: true, size: 21 })],
       })
     );
+  }
+
+  // --- Highlights ----------------------------------------------------------
+  // Cross-role wins above Experience. Not a timeline, so it can lead with older
+  // product work while Experience below stays strictly reverse-chronological.
+  if (highlights && highlights.length > 0) {
+    children.push(sectionHeading('Highlights'));
+    for (const item of highlights as string[]) {
+      children.push(
+        new Paragraph({
+          bullet: { level: 0 },
+          spacing: { after: 40 },
+          children: [new TextRun({ text: item, size: 19 })],
+        })
+      );
+    }
   }
 
   // --- Skills (areas of focus) --------------------------------------------
@@ -364,7 +380,6 @@ export const GET: APIRoute = async () => {
     type Cert = { authority: string; name: string; url?: string; expired?: boolean; category?: string };
     const certs = certifications as Cert[];
     const professional = certs.filter((c) => (c.category ?? 'professional') === 'professional');
-    const personal = certs.filter((c) => c.category === 'personal');
 
     const renderCert = (cert: Cert) => {
       const nameRuns: (TextRun | ExternalHyperlink)[] = [
@@ -385,24 +400,7 @@ export const GET: APIRoute = async () => {
     };
 
     children.push(sectionHeading('Certifications'));
-    if (professional.length > 0) {
-      children.push(
-        new Paragraph({
-          spacing: { before: 80, after: 20 },
-          children: [new TextRun({ text: 'Professional', bold: true, color: ACCENT_DARK, size: 19, allCaps: true, characterSpacing: 20 })],
-        })
-      );
-      for (const cert of professional) children.push(...renderCert(cert));
-    }
-    if (personal.length > 0) {
-      children.push(
-        new Paragraph({
-          spacing: { before: 160, after: 20 },
-          children: [new TextRun({ text: 'Personal interests', bold: true, color: ACCENT_DARK, size: 19, allCaps: true, characterSpacing: 20 })],
-        })
-      );
-      for (const cert of personal) children.push(...renderCert(cert));
-    }
+    for (const cert of professional) children.push(...renderCert(cert));
   }
 
   const doc = new Document({

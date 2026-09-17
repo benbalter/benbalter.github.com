@@ -25,7 +25,7 @@ if (!resumePage) {
   throw new Error('Resume page data not found');
 }
 
-const { title, description, robots, degrees, certifications, skills, summary } = resumePage.data;
+const { title, description, robots, degrees, certifications, skills, summary, highlights } = resumePage.data;
 
 // Selected writing mirrors the homepage's curated "Popular Posts" list.
 const writing = resolvePopularPosts(await getPublishedPosts());
@@ -50,6 +50,7 @@ const resumeSchema = generateResumeSchema({
 <PageLayout title={title} description={description} robots={robots} suppressPersonSchema>
   <header class="print-header" aria-hidden="true">
     <p class="print-name">Ben Balter</p>
+    <p class="print-title">Product Leader: Platform, Trust &amp; Safety, Developer Experience</p>
     <p class="print-contact">
       Washington, DC
       <span aria-hidden="true"> · </span>
@@ -75,6 +76,17 @@ const resumeSchema = generateResumeSchema({
         Also available on <a href="https://www.linkedin.com/in/benbalter/" target="_blank" rel="me noopener noreferrer">LinkedIn</a> and <a href="https://github.com/benbalter" target="_blank" rel="me noopener noreferrer">GitHub</a>.
         Download as <a href="/resume.pdf" download="ben-balter-resume.pdf">PDF</a>, <a href="/resume.docx" download="ben-balter-resume.docx">Word</a>, or <a href="/resume.md" download="ben-balter-resume.md">Markdown</a>.
       </p>
+    </section>
+  )}
+
+  {highlights && highlights.length > 0 && (
+    <section class="resume-section">
+      <h2>Highlights</h2>
+      <ul class="highlight-list">
+        {highlights.map((item: string) => (
+          <li>{item}</li>
+        ))}
+      </ul>
     </section>
   )}
 
@@ -108,7 +120,7 @@ const resumeSchema = generateResumeSchema({
             <div class="position-header">
               <h4 class="position-title">{position.data.title}</h4>
               <span class="date-badge">
-                {formatResumeDate(position.data.start_date) ?? 'Unknown'}—{position.data.end_date ? (formatResumeDate(position.data.end_date) ?? 'Unknown') : 'Present'}
+                {formatResumeDate(position.data.start_date) ?? 'Unknown'}–{position.data.end_date ? (formatResumeDate(position.data.end_date) ?? 'Unknown') : 'Present'}
               </span>
             </div>
             
@@ -177,7 +189,7 @@ const resumeSchema = generateResumeSchema({
               cert.name
             )}
             {cert.expired && (
-              <span class="cert-expired" title="No longer actively maintained" aria-label="Expired — no longer actively maintained">Expired</span>
+              <span class="cert-expired" title="No longer actively maintained" aria-label="Expired, no longer actively maintained">Expired</span>
             )}
           </span>
         </div>
@@ -274,6 +286,20 @@ const resumeSchema = generateResumeSchema({
       width: 80px;
       margin-left: 1rem;
     }
+  }
+
+  .highlight-list {
+    margin: 1rem 0 0;
+    padding-left: 1.1rem;
+  }
+
+  .highlight-list li {
+    margin-bottom: 0.4rem;
+    line-height: 1.5;
+  }
+
+  .highlight-list li:last-child {
+    margin-bottom: 0;
   }
 
   .skills-grid {
@@ -639,6 +665,13 @@ const resumeSchema = generateResumeSchema({
       color: #000;
     }
 
+    .print-title {
+      margin: 0 0 0.3rem;
+      font-size: 10.5pt;
+      font-weight: 600;
+      color: #333;
+    }
+
     /* Keep the whole contact strip on one line; shrink to fit. */
     .print-contact {
       margin: 0;
@@ -746,6 +779,16 @@ const resumeSchema = generateResumeSchema({
 
     .position-content :global(li) {
       margin-bottom: 0.15rem;
+    }
+
+    .highlight-list {
+      margin-top: 0.4rem;
+      font-size: 10pt;
+    }
+
+    .highlight-list li {
+      margin-bottom: 0.15rem;
+      page-break-inside: avoid;
     }
 
     .skills-grid {
