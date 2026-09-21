@@ -28,6 +28,13 @@ export const siteConfig = {
   author: 'Ben Balter',
   url: 'https://ben.balter.com',
   description: 'Product, engineering leadership, open source, and showing your work',
+
+  // Shorter form of the description, used only for the homepage <title>.
+  // `Ben Balter: ` eats 12 of the ~70 characters a title gets before search
+  // results truncate it, which the full description no longer fits inside.
+  // Everything else (nav tagline, meta description, feeds, OG images) uses
+  // `description`; keep this one at 58 characters or fewer.
+  titleTagline: 'Engineering leadership, open source, and showing your work',
   
   // Repository information
   githubRepo: 'benbalter/benbalter.github.com',
