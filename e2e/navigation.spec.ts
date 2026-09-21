@@ -1,19 +1,27 @@
 import { test, expect } from '@playwright/test';
 import { waitForPageReady } from './helpers';
-
-const TAGLINE = 'Engineering leadership, open source, and showing your work';
+import { siteConfig } from '../src/config';
 
 test.describe('Navigation Tagline', () => {
-  // Note: Tagline is intentionally hidden on mobile viewports via CSS
-  // Only test visibility on desktop where it's visible
-  test('should show tagline on desktop', async ({ page }) => {
-    await page.setViewportSize({ width: 1024, height: 768 });
+  // The tagline is revealed at Tailwind's xl breakpoint (1280px). Anything
+  // narrower lacks room for it on one nav row, so it stays hidden there.
+  test('should show tagline at xl and wider', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
     await page.goto('/');
     await waitForPageReady(page);
 
     const tagline = page.locator('.navbar-text');
     await expect(tagline).toBeVisible();
-    await expect(tagline).toContainText(TAGLINE);
+    await expect(tagline).toContainText(siteConfig.description);
+  });
+
+  test('should hide tagline below xl where the nav row has no room', async ({ page }) => {
+    await page.setViewportSize({ width: 1024, height: 768 });
+    await page.goto('/');
+    await waitForPageReady(page);
+
+    const tagline = page.locator('.navbar-text');
+    await expect(tagline).toBeHidden();
   });
 
   test('should hide tagline on mobile for cleaner UI', async ({ page }) => {

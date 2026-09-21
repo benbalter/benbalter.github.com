@@ -1080,7 +1080,7 @@
     }
   }
 
-  /* Note: .navbar-text is hidden below the lg breakpoint via inline `hidden lg:block`
+  /* Note: .navbar-text is hidden below the xl breakpoint via inline `hidden xl:block`
      classes on the actual element in Navigation.astro; no CSS rule needed here. */
 
   /* Footnotes — reference material uses sans-serif for visual distinction from body */
