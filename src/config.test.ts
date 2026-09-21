@@ -17,6 +17,14 @@ describe('siteConfig', () => {
     expect(siteConfig.description.length).toBeGreaterThan(0);
   });
 
+  it('should compose a homepage title search engines will not truncate', () => {
+    // BaseLayout builds the homepage <title> as `${name}: ${titleTagline}`, and
+    // e2e/seo-astro.spec.ts caps every title at 70 characters. Catch a tagline
+    // that outgrows that budget here rather than three minutes into the E2E run.
+    expect(siteConfig.titleTagline.length).toBeGreaterThan(0);
+    expect(`${siteConfig.name}: ${siteConfig.titleTagline}`.length).toBeLessThanOrEqual(70);
+  });
+
   it('should have GitHub repository information', () => {
     expect(siteConfig.githubRepo).toBe('benbalter/benbalter.github.com');
     expect(siteConfig.githubRepoUrl).toBe('https://github.com/benbalter/benbalter.github.com');
