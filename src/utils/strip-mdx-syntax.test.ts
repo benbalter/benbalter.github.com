@@ -27,6 +27,13 @@ describe('stripMdxSyntax', () => {
     expect(stripMdxSyntax(body)).toBe('Some words.\n\n\nMore words.');
   });
 
+  it('turns a standalone YouTube embed into a link instead of dropping it', () => {
+    expect(stripMdxSyntax('Intro\n\n<YouTube id="abc123" title="My talk" />\n\nOutro')).toBe(
+      'Intro\n\n[Watch "My talk" on YouTube](https://www.youtube.com/watch?v=abc123)\n\nOutro',
+    );
+    expect(stripMdxSyntax('<YouTube id="abc123" />')).toBe('[Watch on YouTube](https://www.youtube.com/watch?v=abc123)');
+  });
+
   it('preserves import/export shown inside a fenced code block', () => {
     const body =
       '```js\nimport React from \'react\';\nexport default App;\n```\n\nProse.';
