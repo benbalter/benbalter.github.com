@@ -351,7 +351,7 @@ export default defineConfig({
             // the page-1 navy sidebar panel can reach the left edge.
             preferCSSPageSize: true,
             // Emit heading bookmarks so the multi-page resume is navigable
-            // (name → each employer → Certifications → Selected Writing).
+            // (name → each employer).
             // Puppeteer only builds the outline for a tagged PDF, and `tagged`
             // also makes the file accessible to screen readers. The pdf-lib
             // metadata pass below preserves the /Outlines tree.
@@ -369,16 +369,16 @@ export default defineConfig({
           if (!pathname.endsWith('.pdf')) continue;
           const file = join(outDir, pathname);
           const doc = await PDFDocument.load(await readFile(file));
-          doc.setTitle('Ben Balter — Resume');
+          doc.setTitle('Ben Balter, Résumé');
           doc.setAuthor('Ben Balter');
-          doc.setSubject('Resume — Ben Balter');
+          doc.setSubject('Résumé of Ben Balter, product leader');
           doc.setKeywords([
             'Ben Balter',
             'resume',
-            'engineering leadership',
-            'chief of staff',
-            'technical program management',
-            'open source',
+            'product leader',
+            'trust and safety',
+            'platform security',
+            'developer platforms',
             'GitHub',
           ]);
           doc.setCreator('ben.balter.com');
