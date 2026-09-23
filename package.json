@@ -97,7 +97,6 @@
     "rollup-plugin-visualizer": "^7.1.1",
     "schema-dts": "^2.0.0",
     "tailwindcss": "^4.3.3",
-    "tailwindcss-animate": "^1.0.7",
     "textlint": "^15.8.0",
     "textlint-rule-common-misspellings": "^1.0.1",
     "textlint-rule-diacritics": "^2.1.4",
