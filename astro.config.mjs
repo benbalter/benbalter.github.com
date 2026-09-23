@@ -20,6 +20,7 @@ import {
   sharedRemarkPlugins,
   sharedRehypePlugins,
 } from './src/lib/markdown-pipeline.ts';
+import { buildLastmodIndex, lastmodForUrl } from './src/utils/sitemap-lastmod.ts';
 
 // URL patterns for sitemap priority calculation
 const BLOG_POST_PATTERN = /\/\d{4}\/\d{2}\/\d{2}\//;
@@ -41,6 +42,9 @@ const EXCLUDED_PAGES = [
   // add their URLs here (e.g., '/2024/01/01/post-slug/')
 ];
 
+
+// Sitemap <lastmod> index (file path → last commit date), built lazily.
+let lastmodIndex;
 
 // https://astro.build/config
 export default defineConfig({
@@ -227,10 +231,15 @@ export default defineConfig({
           changefreq = 'monthly';
         }
         
+        // Built once, on the first sitemap entry: a single `git log` pass.
+        lastmodIndex ??= buildLastmodIndex();
+        const lastmod = lastmodForUrl(item.url, lastmodIndex);
+
         return {
           ...item,
           priority,
           changefreq,
+          ...(lastmod && { lastmod }),
         };
       },
     }),
