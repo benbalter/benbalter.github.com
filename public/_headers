@@ -13,7 +13,11 @@
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   Cross-Origin-Opener-Policy: same-origin
   Cross-Origin-Resource-Policy: same-origin
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' data: https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://cloudflareinsights.com https://api.github.com https://app.kit.com; frame-src https://www.youtube-nocookie.com https://www.youtube.com; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://app.kit.com https://app.convertkit.com; upgrade-insecure-requests
+  # The rest of the CSP is a per-page <meta> tag with script hashes (security.csp
+  # in astro.config.mjs). Only frame-ancestors lives here, since <meta> can't set
+  # it. Don't add script-src or default-src here: browsers enforce both
+  # policies, and a header without the hashes would block every inline script.
+  Content-Security-Policy: frame-ancestors 'none'
   Cache-Control: public, max-age=120, stale-while-revalidate=86400
   Link: </sitemap-index.xml>; rel="sitemap"; type="application/xml"
   Link: </feed.xml>; rel="alternate"; type="application/atom+xml"; title="Atom Feed"
