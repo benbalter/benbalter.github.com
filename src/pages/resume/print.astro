@@ -33,6 +33,8 @@ const { grouped: groupedPositions } = await getResumePositions();
 // Print drops expired credentials as well as personal ones. The web page, the
 // .md, and the .docx still list them with an "(expired)" marker; this is a
 // two-page-target sheet and a lapsed credential is the first thing to cut.
+// What's left renders as extra entries in the sidebar's Education section. A
+// separate sidebar section overflows page 1 and drags the float onto page 2.
 const professionalCerts = certifications.filter(
   (c: { category?: string; expired?: boolean }) =>
     (c.category ?? 'professional') === 'professional' && !c.expired,
@@ -98,14 +100,20 @@ const contact = [
         </section>
       )}
 
-      {degrees && degrees.length > 0 && (
+      {(degrees?.length > 0 || professionalCerts.length > 0) && (
         <section class="rp-side-section">
-          <h2 class="rp-side-h">Education</h2>
-          {degrees.map((d: { school: string; degree: string; date: string }) => (
+          <h2 class="rp-side-h">{professionalCerts.length > 0 ? 'Education & Credentials' : 'Education'}</h2>
+          {degrees?.map((d: { school: string; degree: string; date: string }) => (
             <div class="rp-edu">
               <p class="rp-edu-school">{d.school}</p>
               <p class="rp-edu-degree">{d.degree}</p>
               <p class="rp-edu-date">{formatResumeDate(d.date)}</p>
+            </div>
+          ))}
+          {professionalCerts.map((c: { authority: string; name: string }) => (
+            <div class="rp-edu">
+              <p class="rp-edu-school">{c.authority}</p>
+              <p class="rp-edu-degree">{c.name}</p>
             </div>
           ))}
         </section>
@@ -147,19 +155,6 @@ const contact = [
         ))}
       </section>
 
-      {certifications && certifications.length > 0 && (
-        <section class="rp-main-section">
-          <h2 class="rp-main-h">Certifications</h2>
-          <div class="rp-cert-grid">
-            {professionalCerts.map((c: { authority: string; name: string; expired?: boolean }) => (
-              <div class="rp-cert">
-                <p class="rp-cert-name">{c.name}{c.expired && <span class="rp-cert-expired"> (expired)</span>}</p>
-                <p class="rp-cert-auth">{c.authority}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
     </div>
   </body>
 </html>
@@ -181,6 +176,24 @@ const contact = [
     /* Left/right margins 0 so the page-1 navy panel reaches the left edge;
        top/bottom margins give every page breathing room. */
     margin: 0.5in 0;
+
+    /* Running header on continuation pages, so a loose printed sheet still
+       says whose it is. Margin boxes sit in the 0.5in top margin; the right
+       page margin is 0, so padding supplies the inset. */
+    @top-right {
+      content: 'Ben Balter · Page ' counter(page) ' of ' counter(pages);
+      padding-right: 0.5in;
+      font-family: var(--font-sans);
+      font-size: 7.5pt;
+      letter-spacing: 0.04em;
+      color: var(--color-gray-500);
+    }
+  }
+
+  @page :first {
+    @top-right {
+      content: none;
+    }
   }
 
   html.rp-root {
@@ -211,6 +224,22 @@ const contact = [
     -webkit-print-color-adjust: exact;
   }
 
+  /* Override global.css base `p { hyphens: auto }` everywhere in the document:
+     on these narrow measures it broke "produc-tivity", "compli-ance", and
+     "onboard-ing". Ragged-right reads cleaner. */
+  .rp :is(p, li) {
+    hyphens: none;
+  }
+
+  /* Glossary acronyms (.initialism) get a dotted bottom border on the site to
+     signal a tooltip. Paper has no tooltips, so it just reads as a broken
+     link. nowrap keeps terms like "M-10-22" from splitting at a hyphen. */
+  .rp abbr {
+    border-bottom: 0;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
   /* Neutralize the site's aggressive base heading styles (clamp() sizes, 2em
      top margins, balance) for this document; every heading is sized locally. */
   .rp :is(h1, h2, h3, h4) {
@@ -236,7 +265,7 @@ const contact = [
     width: var(--rp-side);
     min-height: 10in;
     margin-right: var(--rp-gap);
-    padding: 0.14in 0.24in 0.3in;
+    padding: 0.14in 0.24in 0.08in;
     background: var(--rp-navy);
     color: #fff;
     print-color-adjust: exact;
@@ -289,8 +318,8 @@ const contact = [
   }
 
   .rp-side-section {
-    margin-top: 0.2in;
-    padding-top: 0.15in;
+    margin-top: 0.17in;
+    padding-top: 0.14in;
     border-top: 1px solid rgba(255, 255, 255, 0.16);
   }
 
@@ -350,44 +379,6 @@ const contact = [
     color: var(--color-primary-300);
   }
 
-  /* Certifications — full-width, multi-column, in the main column */
-  .rp-cert-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4pt 24pt;
-  }
-
-  .rp-cert {
-    break-inside: avoid;
-  }
-
-  .rp-cert-name {
-    margin: 0;
-    font-size: 9pt;
-    line-height: 1.3;
-    color: var(--color-gray-900);
-  }
-
-  .rp-cert-expired {
-    color: var(--color-gray-500);
-  }
-
-  .rp-cert-auth {
-    margin: 0.5pt 0 0;
-    font-size: 8pt;
-    line-height: 1.25;
-    color: var(--color-gray-600);
-  }
-
-  .rp-cert-sub {
-    margin: 8pt 0 5pt;
-    font-size: 8pt;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-primary-700);
-  }
-
   /* ============================================================
    * Main column — offset past the stripe; flows across pages.
    * ============================================================ */
@@ -405,13 +396,6 @@ const contact = [
     font-size: 10.5pt;
     line-height: 1.5;
     color: var(--color-gray-800);
-    /* Override global.css base `p { hyphens: auto }` — on this measure it broke
-       "produc-tivity"/"dis-tributed"; ragged-right reads cleaner. */
-    hyphens: none;
-  }
-
-  .pos-content {
-    hyphens: none;
   }
 
   .rp-highlights {
@@ -420,12 +404,11 @@ const contact = [
     font-size: 9.5pt;
     line-height: 1.42;
     color: var(--color-gray-800);
-    hyphens: none;
   }
 
   .rp-highlights li {
     margin-bottom: 3pt;
-    page-break-inside: avoid;
+    break-inside: avoid;
   }
 
   .rp-highlights li:last-child {
