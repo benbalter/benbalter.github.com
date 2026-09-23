@@ -60,6 +60,39 @@ export default defineConfig({
 
   // Minify HTML output (removes whitespace, comments)
   compressHTML: true,
+
+  // Content Security Policy, emitted per page as a <meta> tag. Astro hashes
+  // every inline script it renders, so script-src needs no 'unsafe-inline'.
+  // This is the whole policy except `frame-ancestors`, which a <meta> CSP
+  // can't carry; that one stays in public/_headers. Keep domain allowlists
+  // here only: browsers enforce the header and <meta> policies together, so
+  // a script-src or default-src in the header would block the hashed scripts.
+  //
+  // style-src keeps 'unsafe-inline': expressive-code (Shiki) and content emit
+  // inline <style> blocks and style="" attributes that can't be hashed, and
+  // Astro skips style hashes when 'unsafe-inline' is present.
+  security: {
+    csp: {
+      directives: [
+        "default-src 'self'",
+        "img-src 'self' data: https:",
+        "font-src 'self' data:",
+        "connect-src 'self' https://cloudflareinsights.com https://api.github.com https://app.kit.com",
+        'frame-src https://www.youtube-nocookie.com https://www.youtube.com',
+        "object-src 'none'",
+        "base-uri 'self'",
+        "form-action 'self' https://app.kit.com https://app.convertkit.com",
+        'upgrade-insecure-requests',
+      ],
+      scriptDirective: {
+        // 'wasm-unsafe-eval' lets Pagefind instantiate its WebAssembly index.
+        resources: ["'self'", "'wasm-unsafe-eval'", 'https://static.cloudflareinsights.com'],
+      },
+      styleDirective: {
+        resources: ["'self'", "'unsafe-inline'"],
+      },
+    },
+  },
   
   // Redirects are handled at the Cloudflare edge via public/_redirects
   // (faster than Astro's HTML meta-refresh redirects, no malformed HTML)
@@ -280,7 +313,10 @@ export default defineConfig({
           removeRedundantAttributes: false,
           removeEmptyAttributes: true,
           minifyCSS: true,
-          minifyJS: true,
+          // Off: inline scripts must stay byte-identical to what Astro hashed
+          // for the CSP <meta> (security.csp), or browsers block them. Vite
+          // already minifies Astro's inline module scripts.
+          minifyJS: false,
         },
       },
       Image: false, // Images are already optimized by Astro's Sharp pipeline
