@@ -71,6 +71,17 @@ export function stripMdxSyntax(body: string): string {
       continue;
     }
 
+    // A standalone <YouTube id="…" /> embed becomes a plain link, so text
+    // consumers (feed, email, .md) still point readers at the video instead of
+    // silently dropping it.
+    const youtube = trimmed.match(/^<YouTube\b[^>]*?\bid="([^"]+)"[^>]*?\/>\s*$/);
+    if (youtube) {
+      const title = trimmed.match(/\btitle="([^"]+)"/)?.[1];
+      const url = `https://www.youtube.com/watch?v=${youtube[1]}`;
+      out.push(title ? `[Watch "${title}" on YouTube](${url})` : `[Watch on YouTube](${url})`);
+      continue;
+    }
+
     // Drop a line that is nothing but JSX component tag(s). Inline JSX inside a
     // paragraph is left alone (rendered consumers drop it; no post does this).
     if (trimmed !== '' && trimmed.replace(jsxTag, '').trim() === '') {
