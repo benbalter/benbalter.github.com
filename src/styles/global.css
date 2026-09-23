@@ -143,6 +143,17 @@
   word-spacing: normal;
 }
 
+/* Monospace text needs every glyph, spaces included, at the same width, or
+   indentation and aligned columns drift. The .prose spacing above is inherited
+   by code and made each space ~0.9px wider than a letter; undo it for code.
+   .expressive-code is listed as the container: its own reset sets
+   `word-spacing: revert` on every descendant, which re-inherits from the
+   nearest ancestor, so the fix has to land on the container itself. */
+.prose :where(pre, code, kbd, samp, .expressive-code) {
+  letter-spacing: normal;
+  word-spacing: normal;
+}
+
 /* Prose link underlines — override Typography plugin's shorthand reset */
 .prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   text-decoration-line: underline;
