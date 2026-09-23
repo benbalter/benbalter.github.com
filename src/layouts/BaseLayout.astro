@@ -49,7 +49,7 @@ const {
   standardSiteDocumentUri,
 } = Astro.props;
 
-const fullTitle = title === siteConfig.name ? `${title}: ${siteConfig.titleTagline}` : `${title} | ${siteConfig.name}`;
+const fullTitle = title === siteConfig.name ? `${title}: ${siteConfig.description}` : `${title} | ${siteConfig.name}`;
 // Normalize canonical URL: ensure trailing slash on non-root paths so Astro's
 // trailingSlash="always" config is consistently reflected in <link rel="canonical">.
 const rawPath = Astro.url.pathname || '/';

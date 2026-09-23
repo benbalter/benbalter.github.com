@@ -3,10 +3,10 @@ import { waitForPageReady } from './helpers';
 import { siteConfig } from '../src/config';
 
 test.describe('Navigation Tagline', () => {
-  // The tagline is revealed at Tailwind's xl breakpoint (1280px). Anything
+  // The tagline is revealed at Tailwind's lg breakpoint (1024px). Anything
   // narrower lacks room for it on one nav row, so it stays hidden there.
-  test('should show tagline at xl and wider', async ({ page }) => {
-    await page.setViewportSize({ width: 1280, height: 800 });
+  test('should show tagline at lg and wider', async ({ page }) => {
+    await page.setViewportSize({ width: 1024, height: 768 });
     await page.goto('/');
     await waitForPageReady(page);
 
@@ -15,8 +15,28 @@ test.describe('Navigation Tagline', () => {
     await expect(tagline).toContainText(siteConfig.description);
   });
 
-  test('should hide tagline below xl where the nav row has no room', async ({ page }) => {
+  test('should keep the tagline on the same row as the nav links at lg', async ({ page }) => {
+    // The tagline is whitespace-nowrap inside a flex-wrap row, so a string too
+    // long for the row doesn't truncate: the whole right-hand group drops onto
+    // a second line. Compare the row's height with the tagline hidden and shown.
     await page.setViewportSize({ width: 1024, height: 768 });
+    await page.goto('/');
+    await waitForPageReady(page);
+
+    const { withoutTagline, withTagline } = await page.evaluate(() => {
+      const tagline = document.querySelector<HTMLElement>('.navbar-text')!;
+      const row = document.querySelector<HTMLElement>('nav > div')!;
+      const withTagline = row.offsetHeight;
+      tagline.style.display = 'none';
+      const withoutTagline = row.offsetHeight;
+      tagline.style.display = '';
+      return { withoutTagline, withTagline };
+    });
+    expect(withTagline).toBeLessThanOrEqual(withoutTagline + 4);
+  });
+
+  test('should hide tagline below lg where the nav row has no room', async ({ page }) => {
+    await page.setViewportSize({ width: 1023, height: 768 });
     await page.goto('/');
     await waitForPageReady(page);
 
