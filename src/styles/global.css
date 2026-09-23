@@ -13,9 +13,6 @@
 /* Typography plugin */
 @plugin "@tailwindcss/typography";
 
-/* Animation utilities plugin (fade-in, slide-in, etc.) */
-@plugin "tailwindcss-animate";
-
 /* Custom animation utilities */
 @utility animate-fade-up {
   animation: fade-up 0.5s ease-out both;
@@ -950,7 +947,11 @@
   }
 
   /* Container */
-  .container {
+  /* Site-wide content wrapper. Not named `container`: Tailwind v4 ships its
+     own `container` utility (width:100% + breakpoint max-widths), and
+     utilities beat @layer components, so a `.container` here never capped
+     the width at 1140px. */
+  .site-container {
     @apply mx-auto px-4;
     max-width: 1140px;
   }
@@ -1141,7 +1142,7 @@
   }
 
   .anchor-icon {
-    @apply text-primary font-normal;
+    @apply text-primary font-normal dark:text-primary-300;
   }
 
   h1:hover .anchor-link,
@@ -1245,31 +1246,6 @@
 }
 
 /* ============================================================================
- * Utilities Layer - Custom utility classes
- * ============================================================================ */
-
-@layer utilities {
-  .text-primary {
-    color: var(--color-primary);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .text-primary {
-      color: #6cb4e8;
-    }
-  }
-
-  /* Heading Sizes */
-  .h4 {
-    font-size: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
-  }
-
-  .h5 {
-    @apply text-base;
-  }
-}
-
-/* ============================================================================
  * Print Styles
  * ============================================================================ */
 
@@ -1284,7 +1260,7 @@
   #reading-progress,
   #back-to-top,
   .back-to-top,
-  .subscribe-cta,
+  .subscribe-card,
   .book-cta-featured,
   .book-cta-inline,
   .open-source-cta,
