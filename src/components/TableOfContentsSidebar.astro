@@ -10,15 +10,15 @@
  * Only renders when there are 3+ headings.
  */
 
-import { extractHeadings, MIN_HEADINGS_FOR_TOC } from '../utils/toc';
+import type { MarkdownHeading } from 'astro';
+import { tocEntries, MIN_HEADINGS_FOR_TOC } from '../utils/toc';
 
 interface Props {
-  /** Rendered HTML content of the post */
-  content: string;
+  /** Headings collected by Astro when rendering the post (`render(post).headings`) */
+  headings: MarkdownHeading[];
 }
 
-const { content } = Astro.props;
-const headings = extractHeadings(content);
+const headings = tocEntries(Astro.props.headings);
 const showToc = headings.length >= MIN_HEADINGS_FOR_TOC;
 ---
 

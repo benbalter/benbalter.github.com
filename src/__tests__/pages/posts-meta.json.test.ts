@@ -2,17 +2,22 @@
  * Tests for posts-meta.json API endpoint
  *
  * This endpoint generates a JSON mapping of post URLs to metadata
- * (title, description, headings) for link previews.
+ * (title, description, headings) for link previews. Headings come from
+ * Astro's render() collector, mocked here per post id.
  */
 
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+import type { MarkdownHeading } from 'astro';
+
+const headingsById: Record<string, MarkdownHeading[]> = {};
 
 vi.mock('astro:content', () => ({
   getCollection: vi.fn(),
+  render: vi.fn(async (entry: { id: string }) => ({ headings: headingsById[entry.id] ?? [] })),
 }));
 
 import { getCollection } from 'astro:content';
-import { GET, stripMarkdown, extractHeadings } from '../../pages/posts-meta.json';
+import { GET, toPreviewHeadings } from '../../pages/posts-meta.json';
 
 const mockGetCollection = vi.mocked(getCollection);
 
@@ -21,100 +26,36 @@ function createMockPost(
   id: string,
   title: string,
   description: string,
-  body = '',
+  headings: MarkdownHeading[] = [],
   published = true,
 ) {
+  headingsById[id] = headings;
   return {
     id,
     collection: 'posts' as const,
     data: { title, description, published },
-    body,
   };
 }
 
 describe('posts-meta.json', () => {
-  describe('stripMarkdown', () => {
-    it('should strip bold formatting', () => {
-      expect(stripMarkdown('**bold text**')).toBe('bold text');
+  describe('toPreviewHeadings', () => {
+    it('keeps depth, slug, and text', () => {
+      expect(toPreviewHeadings([{ depth: 2, slug: 'intro', text: 'Intro' }])).toEqual([
+        { depth: 2, slug: 'intro', text: 'Intro' },
+      ]);
     });
 
-    it('should strip alternate bold formatting', () => {
-      expect(stripMarkdown('__bold alt__')).toBe('bold alt');
+    it('strips the trailing anchor glyph rehype-autolink-headings appends', () => {
+      expect(toPreviewHeadings([{ depth: 2, slug: 'intro', text: 'Intro#' }])[0].text).toBe('Intro');
     });
 
-    it('should strip italic formatting', () => {
-      expect(stripMarkdown('*italic*')).toBe('italic');
-    });
-
-    it('should strip alternate italic formatting', () => {
-      expect(stripMarkdown('_italic alt_')).toBe('italic alt');
-    });
-
-    it('should strip inline code', () => {
-      expect(stripMarkdown('`code`')).toBe('code');
-    });
-
-    it('should strip links keeping text', () => {
-      expect(stripMarkdown('[link text](https://example.com)')).toBe('link text');
-    });
-
-    it('should strip strikethrough', () => {
-      expect(stripMarkdown('~~deleted~~')).toBe('deleted');
-    });
-
-    it('should handle plain text unchanged', () => {
-      expect(stripMarkdown('plain text')).toBe('plain text');
-    });
-
-    it('should handle combined formatting', () => {
-      expect(stripMarkdown('**bold** and *italic* and `code`')).toBe('bold and italic and code');
-    });
-  });
-
-  describe('extractHeadings', () => {
-    it('should extract a single heading', () => {
-      const headings = extractHeadings('## My Heading\n\nSome content');
-      expect(headings).toHaveLength(1);
-      expect(headings[0]).toEqual({
-        depth: 2,
-        slug: 'my-heading',
-        text: 'My Heading',
-      });
-    });
-
-    it('should extract headings at different depths', () => {
-      const headings = extractHeadings('# H1\n## H2\n### H3\n#### H4');
-      expect(headings).toHaveLength(4);
-      expect(headings[0].depth).toBe(1);
-      expect(headings[1].depth).toBe(2);
-      expect(headings[2].depth).toBe(3);
-      expect(headings[3].depth).toBe(4);
-    });
-
-    it('should strip markdown from heading text', () => {
-      const headings = extractHeadings('## **Bold** heading with `code`');
-      expect(headings[0].text).toBe('Bold heading with code');
-    });
-
-    it('should return empty array for no headings', () => {
-      expect(extractHeadings('Just some paragraph text.')).toEqual([]);
-    });
-
-    it('should return empty array for empty body', () => {
-      expect(extractHeadings('')).toEqual([]);
-    });
-
-    it('should generate unique slugs for duplicate headings', () => {
-      const headings = extractHeadings('## Heading\n## Heading\n## Heading');
-      expect(headings).toHaveLength(3);
-      expect(headings[0].slug).toBe('heading');
-      expect(headings[1].slug).toBe('heading-1');
-      expect(headings[2].slug).toBe('heading-2');
-    });
-
-    it('should not match lines without a space after hashes', () => {
-      // "##NoSpace" is not a valid heading
-      expect(extractHeadings('##NoSpace')).toEqual([]);
+    it('drops the hidden footnotes heading', () => {
+      expect(
+        toPreviewHeadings([
+          { depth: 2, slug: 'intro', text: 'Intro' },
+          { depth: 2, slug: 'footnote-label', text: 'Footnotes' },
+        ]),
+      ).toEqual([{ depth: 2, slug: 'intro', text: 'Intro' }]);
     });
   });
 
@@ -145,12 +86,10 @@ describe('posts-meta.json', () => {
 
     it('should map post URLs to metadata', async () => {
       mockGetCollection.mockResolvedValue([
-        createMockPost(
-          '2024-01-15-test-post',
-          'Test Post Title',
-          'A test description',
-          '## First Heading\n\nContent\n\n## Second Heading',
-        ),
+        createMockPost('2024-01-15-test-post', 'Test Post Title', 'A test description', [
+          { depth: 2, slug: 'first-heading', text: 'First Heading#' },
+          { depth: 2, slug: 'second-heading', text: 'Second Heading#' },
+        ]),
       ] as any);
 
       const response = await GET();
@@ -165,25 +104,14 @@ describe('posts-meta.json', () => {
       expect(meta.headings[1].text).toBe('Second Heading');
     });
 
-    it('should handle posts with no body', async () => {
+    it('should handle posts with no headings', async () => {
       mockGetCollection.mockResolvedValue([
-        createMockPost('2024-01-15-no-body', 'No Body', 'Description', ''),
+        createMockPost('2024-01-15-no-headings', 'No Headings', 'Description'),
       ] as any);
 
       const response = await GET();
       const data = JSON.parse(await response.text());
-      expect(data['/2024/01/15/no-body/'].headings).toEqual([]);
-    });
-
-    it('should handle posts with undefined body', async () => {
-      const post = createMockPost('2024-01-15-undef', 'Undef', 'Desc');
-      (post as any).body = undefined;
-      mockGetCollection.mockResolvedValue([post] as any);
-
-      const response = await GET();
-      const data = JSON.parse(await response.text());
-      // body ?? '' should gracefully produce no headings
-      expect(data['/2024/01/15/undef/'].headings).toEqual([]);
+      expect(data['/2024/01/15/no-headings/'].headings).toEqual([]);
     });
 
     it('should include multiple posts keyed by URL', async () => {

@@ -1,11 +1,17 @@
 /**
  * Static JSON endpoint mapping post URLs to metadata for link previews.
  * Generated at build time — no runtime cost.
+ *
+ * Headings come from Astro's own collector (`render(post).headings`), the same
+ * slugs rehype-slug put on the page, rather than a regex over the Markdown
+ * body, which also matched `#` lines inside code fences.
  */
 
+import { render } from 'astro:content';
+import type { MarkdownHeading } from 'astro';
 import { getPostUrl } from '../utils/post-urls';
 import { getPublishedPosts } from '../utils/posts';
-import GithubSlugger from 'github-slugger';
+import { cleanHeadingText, isOutlineHeading } from '../utils/toc';
 
 export interface Heading {
   depth: number;
@@ -19,33 +25,11 @@ interface PostMeta {
   headings: Heading[];
 }
 
-/** Strip inline markdown formatting from heading text */
-export function stripMarkdown(text: string): string {
-  return text
-    .replace(/\*\*(.+?)\*\*/g, '$1')       // bold
-    .replace(/__(.+?)__/g, '$1')            // bold alt
-    .replace(/\*(.+?)\*/g, '$1')            // italic
-    .replace(/_(.+?)_/g, '$1')              // italic alt
-    .replace(/~~(.+?)~~/g, '$1')            // strikethrough
-    .replace(/`(.+?)`/g, '$1')              // inline code
-    .replace(/\[(.+?)\]\([^)]+\)/g, '$1')   // links
-    .trim();
-}
-
-/** Extract headings from raw markdown body */
-export function extractHeadings(body: string): Heading[] {
-  const slugger = new GithubSlugger();
-  const regex = /^(#{1,6})\s+(.+)$/gm;
-  const headings: Heading[] = [];
-  let match;
-
-  while ((match = regex.exec(body)) !== null) {
-    const depth = match[1].length;
-    const text = stripMarkdown(match[2]);
-    headings.push({ depth, slug: slugger.slug(text), text });
-  }
-
-  return headings;
+/** Collected headings in the link-preview shape, minus footnotes and the anchor glyph. */
+export function toPreviewHeadings(headings: readonly MarkdownHeading[]): Heading[] {
+  return headings
+    .filter(isOutlineHeading)
+    .map(({ depth, slug, text }) => ({ depth, slug, text: cleanHeadingText(text) }));
 }
 
 export async function GET() {
@@ -53,11 +37,11 @@ export async function GET() {
   const meta: Record<string, PostMeta> = {};
 
   for (const post of posts) {
-    const url = getPostUrl(post.id);
-    meta[url] = {
+    const { headings } = await render(post);
+    meta[getPostUrl(post.id)] = {
       title: post.data.title,
       description: post.data.description,
-      headings: extractHeadings(post.body ?? ''),
+      headings: toPreviewHeadings(headings),
     };
   }
 

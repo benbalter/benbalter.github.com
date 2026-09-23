@@ -31,6 +31,7 @@ import SubscribeCta from '../components/SubscribeCta.astro';
 import BookCta from '../components/BookCta.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import type { CollectionEntry } from 'astro:content';
+import type { MarkdownHeading } from 'astro';
 
 interface Props {
   title: string;
@@ -49,6 +50,8 @@ interface Props {
   bookRelation?: 'adapted' | 'cut' | 'inspired';
   robots?: string | undefined;
   postId: string;
+  /** Headings from `render(post)`, for the tables of contents */
+  headings?: MarkdownHeading[];
   postFilePath?: string | undefined;
   posts?: Record<string, string> | string[] | undefined;
   roles?: Record<string, string> | string[] | undefined;
@@ -72,6 +75,7 @@ const {
   robots,
   postId,
   postFilePath,
+  headings = [],
   posts: curatedPosts,
   roles: curatedRoles,
 } = Astro.props;
@@ -145,7 +149,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
 
         {archived && <ArchivedPostWarning />}
 
-        <TableOfContents content={content} />
+        <TableOfContents headings={headings} />
         
         <div class="post-content entrybody prose prose-lg prose-primary max-w-none">
           <slot />
@@ -215,7 +219,7 @@ const blogPostingSchema = pubDate ? generateBlogPostingSchema({
         <script type="application/ld+json" set:html={schemaToJsonLd(blogPostingSchema)} is:inline></script>
       )}
 
-      <TableOfContentsSidebar content={content} />
+      <TableOfContentsSidebar headings={headings} />
     </div>
   </div>
 </BaseLayout>
