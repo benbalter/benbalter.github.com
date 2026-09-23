@@ -213,8 +213,9 @@ test.describe('Blog Posts', () => {
         // Check for avatar image (served as optimized WebP from local assets)
         const avatar = miniBio.locator('img[alt="Ben Balter"]');
         await expect(avatar).toBeVisible();
-        // Avatar is now fetched at build time and served locally as optimized WebP
-        await expect(avatar).toHaveAttribute('src', /\/assets\/avatar\.[^.]+\.webp$/);
+        // Astro downloads the remote GitHub avatar at build time and names the
+        // optimized file after the URL path (e.g. /assets/benbalter_<hash>.webp).
+        await expect(avatar).toHaveAttribute('src', /^\/assets\/[^/]+\.webp$/);
         
         // Check for bio text
         const bioText = await miniBio.textContent();

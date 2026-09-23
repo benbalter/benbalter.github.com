@@ -733,44 +733,18 @@ export function remarkMentions() {
 }
 ```
 
-**GitHub Avatars:** Build-time fetch and optimization
+**GitHub Avatars:** Remote image optimization
 
-The site's author avatar is fetched at build time and optimized by Astro's Image component:
-
-```typescript
-// src/lib/astro-fetch-avatar.ts
-import type { AstroIntegration } from 'astro';
-import { writeFile, mkdir } from 'node:fs/promises';
-import { siteConfig } from '../config.js';
-
-// Fetch at build time and save to assets directory
-export default function fetchAvatar(): AstroIntegration {
-  return {
-    name: 'fetch-avatar',
-    hooks: {
-      'astro:build:start': async ({ logger }) => {
-        // Fetch full-size avatar for highest quality source
-        const response = await fetch(
-          `https://avatars.githubusercontent.com/${siteConfig.githubUsername}`
-        );
-        // Save to assets/img/avatar.png for Astro's Image optimization
-      },
-    },
-  };
-}
-```
+The author avatar is a remote image, listed in `image.domains` in `astro.config.mjs`. Astro downloads and optimizes it at build time (and proxies it in dev), so no fetch step or local copy is needed:
 
 ```astro
 ---
-// MiniBio.astro - Uses Astro's Image component for optimization
+// MiniBio.astro
 import { Image } from 'astro:assets';
-import avatarImage from '../../assets/img/avatar.png';
-
-// Astro automatically converts to WebP/AVIF formats
 ---
 
-<Image 
-  src={avatarImage}
+<Image
+  src={`https://avatars.githubusercontent.com/${siteConfig.githubUsername}`}
   alt="Author name"
   width={100}
   height={100}

@@ -40,7 +40,7 @@ interface Props {
 }
 
 const { post, allPosts } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 
 // Extract date from params for display (use URL params to ensure consistency with the route)
 const { year, month, day, slug } = Astro.params;
@@ -86,6 +86,7 @@ const nextPost = nextEntry ? { title: nextEntry.data.title, url: getPostUrl(next
   bookRelation={post.data.bookRelation}
   robots={post.data.robots}
   postId={post.id}
+  headings={headings}
   postFilePath={post.filePath}
   posts={post.data.posts}
   roles={post.data.roles}

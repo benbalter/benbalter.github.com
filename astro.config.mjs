@@ -15,7 +15,6 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { PDFDocument } from 'pdf-lib';
 import { visualizer } from 'rollup-plugin-visualizer';
-import fetchAvatar from './src/lib/astro-fetch-avatar.ts';
 import {
   sharedRemarkPlugins,
   sharedRehypePlugins,
@@ -145,6 +144,8 @@ export default defineConfig({
       },
     },
     domains: [
+      // Author avatar (MiniBio), optimized at build time like any remote image
+      'avatars.githubusercontent.com',
       // Amazon book covers (used in other-recommended-reading page)
       'images.amazon.com',
       // Post header images from various sources
@@ -158,7 +159,6 @@ export default defineConfig({
   // Integrations
   integrations: [
     // Fetch GitHub avatar at build time (must run first)
-    fetchAvatar(),
     favicons({
       // Use existing high-quality PNG as source
       // The integration will generate all favicon formats automatically
