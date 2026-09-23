@@ -27,14 +27,11 @@ export const siteConfig = {
   name: 'Ben Balter',
   author: 'Ben Balter',
   url: 'https://ben.balter.com',
-  description: 'Product, engineering leadership, open source, and showing your work',
-
-  // Shorter form of the description, used only for the homepage <title>.
-  // `Ben Balter: ` eats 12 of the ~70 characters a title gets before search
-  // results truncate it, which the full description no longer fits inside.
-  // Everything else (nav tagline, meta description, feeds, OG images) uses
-  // `description`; keep this one at 58 characters or fewer.
-  titleTagline: 'Engineering leadership, open source, and showing your work',
+  // The site tagline. It renders in the nav bar from Tailwind's lg breakpoint
+  // (1024px), which has room for ~58 characters on one row, and becomes the
+  // homepage <title> as `Ben Balter: ${description}`. Keep it at 50 characters
+  // or fewer; src/config.test.ts enforces both budgets.
+  description: 'Product, leadership, and showing your work',
   
   // Repository information
   githubRepo: 'benbalter/benbalter.github.com',

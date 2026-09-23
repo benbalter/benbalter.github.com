@@ -17,12 +17,18 @@ describe('siteConfig', () => {
     expect(siteConfig.description.length).toBeGreaterThan(0);
   });
 
+  it('should keep the tagline short enough for the lg nav bar', () => {
+    // Navigation.astro reveals the tagline at lg (1024px) on a single nowrap
+    // row. Measured there, ~58 characters fit before it wraps onto a second
+    // line; 50 leaves a buffer for font-rendering differences.
+    expect(siteConfig.description.length).toBeLessThanOrEqual(50);
+  });
+
   it('should compose a homepage title search engines will not truncate', () => {
-    // BaseLayout builds the homepage <title> as `${name}: ${titleTagline}`, and
+    // BaseLayout builds the homepage <title> as `${name}: ${description}`, and
     // e2e/seo-astro.spec.ts caps every title at 70 characters. Catch a tagline
     // that outgrows that budget here rather than three minutes into the E2E run.
-    expect(siteConfig.titleTagline.length).toBeGreaterThan(0);
-    expect(`${siteConfig.name}: ${siteConfig.titleTagline}`.length).toBeLessThanOrEqual(70);
+    expect(`${siteConfig.name}: ${siteConfig.description}`.length).toBeLessThanOrEqual(70);
   });
 
   it('should have GitHub repository information', () => {
