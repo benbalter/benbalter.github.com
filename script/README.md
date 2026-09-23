@@ -44,6 +44,7 @@ These run automatically as part of `npm run build` (in order: `astro build` → 
 | Script | Description | Usage | When to run |
 | --- | --- | --- | --- |
 | `validate-seo.ts` | Check all pages for SEO issues (missing titles, duplicate titles, meta descriptions, heading hierarchy, image alt text) | `npm run validate-seo` | Before publishing new content |
+| `check-content-integrity.ts` | Flag post changes that go beyond prose: >10% word loss, or any edit to code blocks, inline code, scripts/styles, URLs, or blockquote text. Fails only for bulk diffs (6+ posts) without a `Content-Integrity: reviewed` commit trailer; smaller diffs get warnings | `npm run check-content-integrity -- --base=<ref>` | Runs in CI; run locally before committing any automated pass over the archive |
 
 ### Utilities
 
@@ -76,6 +77,7 @@ npm run lint           → lint-js + lint-json + lint-md
 npm run lint-md        → remark + markdownlint-cli2
 npm run lint-text      → textlint
 npm run validate-seo   → script/validate-seo.ts (via tsx)
+npm run check-content-integrity → script/check-content-integrity.ts (via tsx)
 npm run test           → astro check + lint
 npm run test:vitest    → Vitest unit tests
 npm run test:e2e       → Playwright E2E tests
