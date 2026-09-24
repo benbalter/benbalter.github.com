@@ -38,8 +38,20 @@ else
 	#   shared stripper as script/languagetool.
 	strip_dir=$(mktemp -d)
 	trap 'rm -rf "$strip_dir"' EXIT
-	for f in src/content/posts/*.md; do
-		awk -f "$(dirname "$0")/strip-markdown.awk" "$f" > "$strip_dir/$(basename "$f")"
+	#   .mdx posts are included too; their stripped copies get a .md suffix
+	#   (foo.mdx.md) because harper-cli picks its parser by extension.
+	for f in src/content/posts/*.md src/content/posts/*.mdx; do
+		case "$f" in
+			*.mdx) out="$strip_dir/$(basename "$f").md" ;;
+			*) out="$strip_dir/$(basename "$f")" ;;
+		esac
+		# Harper-only cleanup on top of the shared stripper: collapse the runs of
+		#   spaces left where inline code/markup was removed, and the space that
+		#   leaves before punctuation, or Harper flags them as Spaces/NoFrenchSpaces.
+		#   Kept out of strip-markdown.awk because LanguageTool (which gates CI)
+		#   then reads "an <code>." as a sentence ending in "an".
+		awk -f "$(dirname "$0")/strip-markdown.awk" "$f" \
+			| sed -E 's/  +/ /g; s/ ([,.;:])/\1/g' > "$out"
 	done
 	# harper-cli always exits 1 (even with zero lints), so its exit code can't
 	#   gate; findings are advisory and surface in the log. || true keeps the
