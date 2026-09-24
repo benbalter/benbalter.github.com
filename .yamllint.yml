@@ -10,3 +10,7 @@ rules:
   truthy:
     allowed-values: ['true', 'false', 'on']
     check-keys: false
+  # Pinned actions use `uses: owner/action@<sha> # vX`, the one-space form
+  # Renovate writes and keeps rewriting, so match it instead of fighting it.
+  comments:
+    min-spaces-from-content: 1
