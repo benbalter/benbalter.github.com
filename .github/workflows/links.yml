@@ -1,0 +1,108 @@
+name: Site Health (Links + HTML)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'astro.config.mjs'
+      - 'package*.json'
+      - '.lycheeignore'
+      - '.github/workflows/links.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+env:
+  NODE_VERSION: 24
+
+jobs:
+  site-health:
+    name: Validate built site
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Setup Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Astro site
+        run: npm run build
+
+      - name: Validate HTML (html-validate)
+        run: npm run lint-html
+
+      - name: Strip standard.site link tags before link check
+        # The spec-required <link rel="site.standard.*" href="at://…"> tags (one
+        # per post, plus the homepage publication tag) carry AT Protocol URIs.
+        # lychee can't parse the at:// scheme — the colons in did:plc:… read as an
+        # invalid port — so it emits a hard parse error that no --exclude,
+        # --scheme, --remap, or .lycheeignore rule can suppress (they all run
+        # after URL parsing). These tags are verification infrastructure, not
+        # content links, so we drop them from this throwaway build before
+        # checking. Production output is unaffected: links.yml builds its own
+        # dist-astro and never deploys it. Runs after lint-html so the real
+        # markup is validated first.
+        run: |
+          find dist-astro -name '*.html' -print0 \
+            | xargs -0 sed -i -E 's#<link[^>]*rel="site\.standard\.(document|publication)"[^>]*>##g'
+
+      - name: Restore lychee cache
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
+        with:
+          path: .lycheecache
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
+
+      - name: Run lychee
+        id: lychee
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2
+        with:
+          # Check built HTML plus source markdown (covers both rendered output and raw content)
+          args: >-
+            --cache
+            --max-cache-age 1d
+            --no-progress
+            --accept '100..=103,200..=299,403,429'
+            --max-retries 3
+            --retry-wait-time 10
+            --timeout 30
+            --root-dir ${{ github.workspace }}/dist-astro
+            --include-fragments
+            --index-files index.html
+            './dist-astro/**/*.html'
+            './src/content/**/*.md'
+          fail: ${{ github.event_name == 'pull_request' }}
+          format: markdown
+          output: ./lychee-report.md
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: lychee-report
+          path: ./lychee-report.md
+          retention-days: 30
+
+      - name: Create issue on failure (scheduled runs only)
+        # lychee-action sets outputs.exit_code regardless of the `fail` input,
+        # so this fires on scheduled runs even though `fail` is false there
+        # (which keeps the workflow itself green while still surfacing rot).
+        if: github.event_name == 'schedule' && steps.lychee.outputs.exit_code != '0'
+        uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v6
+        with:
+          title: 'Broken links detected by lychee'
+          content-filepath: ./lychee-report.md
+          labels: bug, links
