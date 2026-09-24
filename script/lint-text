@@ -2,4 +2,21 @@
 
 set -e
 
-npm run lint-text
+# CONTENT_FILES (set by CI on pull requests from script/changed-content) scopes
+# textlint to the posts the PR changed. Unset means lint everything; set but
+# empty means the PR changed no content, so there's nothing to lint.
+if [ -n "${CONTENT_FILES+x}" ]; then
+	if [ -z "$CONTENT_FILES" ]; then
+		echo "No changed content files; skipping textlint."
+		exit 0
+	fi
+	echo "Linting changed content files only:"
+	# Word-splitting the newline-separated file list is intended below.
+	# shellcheck disable=SC2086
+	printf '  %s\n' $CONTENT_FILES
+	# Same flags as the lint-text npm script.
+	# shellcheck disable=SC2086
+	npx textlint --fix --dry-run $CONTENT_FILES
+else
+	npm run lint-text
+fi

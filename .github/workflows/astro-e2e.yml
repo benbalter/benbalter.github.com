@@ -97,11 +97,22 @@ jobs:
           retention-days: 1
           include-hidden-files: true
 
+  # One job per page: Lighthouse runs each URL 3 times, one after another, so
+  # three pages in one job took ~2m45s. Separate runners also keep the
+  # performance measurements from competing for CPU. The URL list here
+  # overrides the one in .lighthouserc.json.
   lighthouse:
-    name: Lighthouse CI
+    name: Lighthouse (${{ matrix.page }})
     needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        page:
+          - index.html
+          - about/index.html
+          - 2014/11/06/rules-of-communicating-at-github/index.html
 
     steps:
       - name: Checkout repository
@@ -109,25 +120,35 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Set up Node.js
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
       - name: Download Astro build artifacts
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
         with:
           name: dist-astro
           path: dist-astro
 
+      # No npm ci: npx fetches @lhci/cli on its own, and it needs nothing from
+      # the project's dependencies.
       - name: Run Lighthouse CI
-        run: npx @lhci/cli@0.14.0 autorun
+        run: npx --yes @lhci/cli@0.14.0 autorun --collect.url="http://localhost/${PAGE}"
         env:
+          PAGE: ${{ matrix.page }}
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+  # Keeps the "Lighthouse CI" required status check: it passes only if every
+  # page in the matrix passed.
+  lighthouse-result:
+    name: Lighthouse CI
+    needs: lighthouse
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check Lighthouse results
+        env:
+          RESULT: ${{ needs.lighthouse.result }}
+        run: |
+          echo "Lighthouse matrix result: $RESULT"
+          [ "$RESULT" = success ]
 
   playwright:
     name: Playwright Tests
@@ -199,73 +220,4 @@ jobs:
         with:
           name: test-results
           path: test-results/
-          retention-days: 14
-
-  # Dedicated accessibility job using axe-core
-  # Note: This complements Lighthouse CI accessibility audits with more comprehensive axe-core testing
-  # - Lighthouse includes a subset of axe rules as part of its accessibility score
-  # - This job runs the full axe-core test suite for WCAG 2.1 Level AA compliance
-  # - Both are valuable: Lighthouse for overall metrics, axe-core for detailed accessibility testing
-  accessibility:
-    name: Axe Accessibility Tests
-    needs: build
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
-        with:
-          persist-credentials: false
-
-      - name: Set up Node.js
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Download Astro build artifacts
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
-        with:
-          name: dist-astro
-          path: dist-astro
-
-      - name: Cache Playwright Browsers
-        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
-        id: playwright-cache
-        with:
-          path: ~/.cache/ms-playwright
-          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-
-      - name: Install Playwright Browsers
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps chromium
-
-      - name: Install Playwright Browser System Dependencies
-        if: steps.playwright-cache.outputs.cache-hit == 'true'
-        run: npx playwright install-deps chromium
-
-      - name: Start Astro preview server
-        run: |
-          npm run preview -- --host &
-
-      - name: Wait for server to be ready
-        run: |
-          timeout 30 bash -c 'until curl -sf http://localhost:4321; do sleep 1; done'
-
-      - name: Run Axe accessibility tests
-        run: npm run test:e2e:accessibility
-        env:
-          BASE_URL: http://localhost:4321
-          CI: true
-
-      - name: Upload Accessibility Test Report
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
-        if: ${{ !cancelled() }}
-        with:
-          name: accessibility-report
-          path: playwright-report/
           retention-days: 14

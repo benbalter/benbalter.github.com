@@ -1,0 +1,33 @@
+#!/bin/sh
+# Print the Markdown content files changed between two commits, one per line,
+# so prose linters on a PR can check only what the PR touched.
+#
+# Usage: script/changed-content <base-sha> <head-sha>
+#
+# Prints "all" when anything outside the content (posts, resume positions,
+# root *.md) changed, e.g. a linter config, dictionary, script, or workflow:
+# those can change results for every file, so callers should lint everything.
+# Prints nothing when the PR changed no content files.
+
+set -e
+
+base="$1"
+head="$2"
+if [ -z "$base" ] || [ -z "$head" ]; then
+	echo "Usage: $0 <base-sha> <head-sha>" >&2
+	exit 2
+fi
+
+content='^(src/content/posts/[^/]+\.mdx?|src/content/resume-positions/[^/]+\.md|[^/]+\.md)$'
+
+# base...head diffs against the merge base, so commits that landed on the base
+# branch after the PR branched don't count as the PR's changes.
+# --diff-filter=d: deleted files have nothing left to lint.
+changed=$(git diff --name-only --diff-filter=d "$base...$head")
+
+if printf '%s\n' "$changed" | grep -v '^$' | grep -qvE "$content"; then
+	echo all
+	exit 0
+fi
+
+printf '%s\n' "$changed" | grep -E "$content" || true
