@@ -48,7 +48,7 @@ const resumeSchema = generateResumeSchema({
 ---
 
 <PageLayout title={title} description={description} robots={robots} suppressPersonSchema>
-  <header class="print-header" aria-hidden="true">
+  <header class="print-header">
     <p class="print-name">Ben Balter</p>
     <p class="print-title">Product Leader: Trust &amp; Safety, Platform Security, Developer Platforms</p>
     <p class="print-contact">
@@ -190,7 +190,7 @@ const resumeSchema = generateResumeSchema({
               cert.name
             )}
             {cert.expired && (
-              <span class="cert-expired" title="No longer actively maintained" aria-label="Expired, no longer actively maintained">Expired</span>
+              <span class="cert-expired" title="No longer actively maintained">Expired<span class="sr-only">, no longer actively maintained</span></span>
             )}
           </span>
         </div>

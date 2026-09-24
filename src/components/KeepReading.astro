@@ -31,7 +31,8 @@ const heroReadingTime = calculateReadingTime(heroPost.body);
 const heroDate = getDateFromSlug(heroPost.id);
 ---
 
-<section class="keep-reading mt-12" aria-label="Related articles" data-pagefind-ignore>
+<section class="keep-reading mt-12" aria-labelledby="keep-reading-heading" data-pagefind-ignore>
+  <h2 id="keep-reading-heading" class="sr-only">Related articles</h2>
   <!-- Visual divider -->
   <div class="keep-reading-divider mb-10" aria-hidden="true">
     <div class="border-t border-gray-200 dark:border-gray-700"></div>
