@@ -23,12 +23,8 @@ const showToc = headings.length >= MIN_HEADINGS_FOR_TOC;
 ---
 
 {showToc && (
-  <aside
-    class="toc-sidebar hidden xl:block"
-    aria-label="Table of contents"
-    data-toc-sidebar
-  >
-    <nav>
+  <div class="toc-sidebar hidden xl:block" data-toc-sidebar>
+    <nav aria-label="On this page">
       <p class="toc-sidebar-title">On this page</p>
       <ol class="toc-sidebar-list">
         {headings.map((h) => (
@@ -44,7 +40,7 @@ const showToc = headings.length >= MIN_HEADINGS_FOR_TOC;
         ))}
       </ol>
     </nav>
-  </aside>
+  </div>
 )}
 
 <script>

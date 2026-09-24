@@ -27,7 +27,8 @@ For the record: soft G. It's "jif," like the peanut butter.[^wilhite] Reasonable
 </style>
 
 <figure class="not-prose post-gif post-gif--right">
-  <video width="480" height="270" autoplay muted loop playsinline preload="metadata" poster="/video/gif-jif/that-escalated-quickly.jpg" aria-label="Ron Burgundy in Anchorman saying 'boy, that escalated quickly'">
+  <!-- html-validate-disable-next no-autoplay -->
+  <video width="480" height="270" autoplay muted loop playsinline preload="metadata" poster="/video/gif-jif/that-escalated-quickly.jpg" title="Ron Burgundy in Anchorman saying 'boy, that escalated quickly'">
     <source src="/video/gif-jif/that-escalated-quickly.webm" type="video/webm" />
     <source src="/video/gif-jif/that-escalated-quickly.mp4" type="video/mp4" />
   </video>
@@ -41,7 +42,8 @@ There's a chapter in the book about using chat well, and a section in it about e
 I wrote a whole book about working in the open, though, and the open-and-async answer to a disagreement is not to win the thread. It's to [ship the artifact and let people decide](https://ben.balter.com/2022/02/16/leaders-show-their-work/). I built the most literal version of that I could think of. I re-recorded the entire chapter with the narrator forced to say hard-G "gif," beginning to end, and posted it, free, right next to the correct one. An entire edition in the wrong pronunciation, rendered for the heretics to enjoy their own wrongness. Same words, same narrator, one phoneme of difference. Pick your fighter. Mine already won.
 
 <figure class="not-prose post-gif post-gif--left">
-  <video width="480" height="360" autoplay muted loop playsinline preload="metadata" poster="/video/gif-jif/keyboard-cat.jpg" aria-label="Keyboard Cat, an orange cat in a blue shirt playing an electronic keyboard">
+  <!-- html-validate-disable-next no-autoplay -->
+  <video width="480" height="360" autoplay muted loop playsinline preload="metadata" poster="/video/gif-jif/keyboard-cat.jpg" title="Keyboard Cat, an orange cat in a blue shirt playing an electronic keyboard">
     <source src="/video/gif-jif/keyboard-cat.webm" type="video/webm" />
     <source src="/video/gif-jif/keyboard-cat.mp4" type="video/mp4" />
   </video>

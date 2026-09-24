@@ -845,6 +845,23 @@
  * ============================================================================ */
 
 @layer components {
+  /* Pause/play toggle for autoplaying GIF-stand-in videos (src/scripts/gif-video.ts) */
+  .gif-video {
+    @apply relative;
+  }
+
+  .gif-video-toggle {
+    @apply absolute bottom-2 left-2 rounded px-2 py-1 font-sans text-xs font-semibold;
+    @apply bg-black/70 text-white hover:bg-black/85;
+    @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
+  }
+
+  @media print {
+    .gif-video-toggle {
+      @apply hidden;
+    }
+  }
+
   /* Skip to Content Link (Accessibility) - GPU-accelerated with transform */
   .skip-to-content {
     @apply fixed top-0 left-0 z-50;

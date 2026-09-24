@@ -319,6 +319,10 @@ export default defineConfig({
           collapseWhitespace: true,
           conservativeCollapse: true,
           removeComments: true,
+          // Keep html-validate inline directives (e.g. `<!-- html-validate-disable-next
+          // no-autoplay -->` in a post) so CI's html-validate run on dist-astro sees
+          // them. The first two entries are html-minifier-terser's defaults.
+          ignoreCustomComments: [/^!/, /^\s*#/, /^\s*html-validate-/],
           removeRedundantAttributes: false,
           removeEmptyAttributes: true,
           minifyCSS: true,

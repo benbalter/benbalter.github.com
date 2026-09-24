@@ -14,6 +14,7 @@ on:
       - 'e2e/**'
       - 'playwright.config.ts'
       - '.lighthouserc.json'
+      - '.htmlvalidate.json'
       - 'package*.json'
       - '.github/workflows/astro-e2e.yml'
   pull_request:
@@ -26,6 +27,7 @@ on:
       - 'e2e/**'
       - 'playwright.config.ts'
       - '.lighthouserc.json'
+      - '.htmlvalidate.json'
       - 'package*.json'
       - '.github/workflows/astro-e2e.yml'
 
@@ -81,6 +83,11 @@ jobs:
 
       - name: Build Astro site
         run: npm run build
+
+      # html-validate only: it's deterministic and takes seconds. The lychee
+      # link check stays in links.yml, which is disabled.
+      - name: Validate HTML (html-validate)
+        run: npm run lint-html
 
       - name: Upload Astro build artifacts
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
