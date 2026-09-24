@@ -1,4 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>benbalter/renovate-config:instant"]
+  "extends": ["github>benbalter/renovate-config:instant"],
+  "packageRules": [
+    {
+      "description": "Hold TypeScript on 6.x: TypeScript 7 crashes @typescript-eslint v8 (ESLint: \"Cannot read properties of undefined (reading 'Cjs')\") and breaks astro check. Remove once the toolchain supports it.",
+      "matchPackageNames": ["typescript"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    }
+  ]
 }
