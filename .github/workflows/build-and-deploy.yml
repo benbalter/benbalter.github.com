@@ -25,6 +25,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
+          persist-credentials: false
           # Full commit history for the sitemap's per-page <lastmod> dates
           # (src/utils/sitemap-lastmod.ts). Blobless keeps it cheap: `git log
           # --name-only` needs commits and trees, not file contents.

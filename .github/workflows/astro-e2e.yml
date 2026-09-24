@@ -32,6 +32,11 @@ on:
 permissions:
   contents: read
 
+# Superseded PR pushes cancel the in-flight run; main pushes always finish.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 env:
   NODE_VERSION: 24
 
@@ -44,6 +49,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
 
       - name: Set up Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
@@ -65,9 +72,12 @@ jobs:
           # resurrect HTML built by an old pipeline (e.g. retired /q/<id> quote links).
           # Folding the pipeline hash into the prefix busts the cache when rendering
           # changes, while still reusing it across content-only edits.
-          key: astro-cache-${{ runner.os }}-${{ hashFiles('src/lib/**', 'astro.config.mjs', 'src/content.config.ts', 'package-lock.json') }}-${{ hashFiles('src/**/*', 'public/**/*', 'tsconfig.astro.json') }}
+          # src/data/acronyms.yml is rendering input (src/lib/rehype-acronyms.ts reads
+          # it at module load), so it's part of the fingerprint too. Keep this key in
+          # sync with build-and-deploy.yml.
+          key: astro-cache-${{ runner.os }}-${{ hashFiles('src/lib/**', 'src/data/acronyms.yml', 'astro.config.mjs', 'src/content.config.ts', 'package-lock.json') }}-${{ hashFiles('src/**/*', 'public/**/*', 'tsconfig.astro.json') }}
           restore-keys: |
-            astro-cache-${{ runner.os }}-${{ hashFiles('src/lib/**', 'astro.config.mjs', 'src/content.config.ts', 'package-lock.json') }}-
+            astro-cache-${{ runner.os }}-${{ hashFiles('src/lib/**', 'src/data/acronyms.yml', 'astro.config.mjs', 'src/content.config.ts', 'package-lock.json') }}-
 
       - name: Build Astro site
         run: npm run build
@@ -89,6 +99,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
 
       - name: Set up Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
@@ -106,7 +118,7 @@ jobs:
           path: dist-astro
 
       - name: Run Lighthouse CI
-        run: npx @lhci/cli@0.14.x autorun
+        run: npx @lhci/cli@0.14.0 autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
@@ -119,6 +131,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
 
       - name: Set up Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
@@ -153,7 +167,6 @@ jobs:
       - name: Start Astro preview server
         run: |
           npm run preview -- --host &
-          sleep 5
 
       - name: Wait for server to be ready
         run: |
@@ -195,6 +208,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
 
       - name: Set up Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
@@ -229,7 +244,6 @@ jobs:
       - name: Start Astro preview server
         run: |
           npm run preview -- --host &
-          sleep 5
 
       - name: Wait for server to be ready
         run: |
