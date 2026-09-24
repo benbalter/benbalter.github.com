@@ -31,7 +31,7 @@ Great 1\:1s start before the meeting does.
 
 Keep a **running [shared agenda](/2026/04/06/no-agenda-no-meeting/)** (a Google Doc, a GitHub issue, whatever works) where both parties add topics throughout the week. When something comes up worth discussing, add it immediately instead of trying to remember later.
 
-Add context to each item. Don't just write "career growth." Write "I've been thinking about whether to pursue the tech lead path or people management, and I'd like to talk through the tradeoffs." The more context upfront, the more productive the conversation. Prioritize ruthlessly. You won't cover everything every week, and if something keeps rolling without getting discussed, that tells you something about its actual importance.
+Add context to each item. Don't just write "career growth." Write "I've been thinking about whether to pursue the tech lead path or people management, and I'd like to talk through the trade-offs." The more context upfront, the more productive the conversation. Prioritize ruthlessly. You won't cover everything every week, and if something keeps rolling without getting discussed, that tells you something about its actual importance.
 
 :quote[A good test of your preparation: could you cancel the meeting without losing anything?]{#cancel-without-losing-anything} If yes, you either don't have enough prepared or you're covering topics better handled async.
 

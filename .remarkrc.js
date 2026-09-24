@@ -2,7 +2,6 @@ import fs from 'node:fs';
 import {unified} from 'unified';
 import dictionaryEn from 'dictionary-en';
 import retextEnglish from 'retext-english';
-import retextEquality from 'retext-equality';
 import retextIndefiniteArticle from 'retext-indefinite-article';
 import _retextPassive from 'retext-passive';
 import _retextReadability from 'retext-readability';
@@ -22,7 +21,8 @@ const personalDict = fs
 const retextSettings = {
   plugins: [
     retextEnglish,
-    retextEquality,
+    // retext-equality is off: its hits were mostly "just"/"easy"/"simple",
+    // which Vale's alex and BenBalter.Assumptive rules already cover.
     retextIndefiniteArticle,
     // Disabled noisy plugins that generate too many false positives:
     // - retextPassive: too many warnings about passive voice in technical writing
@@ -71,9 +71,14 @@ const config = {
     ['remark-lint-unordered-list-marker-style', '-'],
     ['remark-lint-maximum-heading-length', false],
     ['remark-frontmatter', 'yaml'],
+    // Parse :quote[...]{#slug} and friends as directives, so retext-spell
+    // doesn't read their IDs (if-you-didnt-log-it) as misspelled words.
+    'remark-directive',
     [remarkTextr, textrSettings],
     ['remark-retext', unified().use(retextSettings)], // TODO: Use Stringify to auto fix
-    'remark-validate-links',
+    // Post permalinks (/YYYY/MM/DD/slug/) aren't files remark can resolve;
+    // html-validate and the built site cover those links instead.
+    ['remark-validate-links', {skipPathPatterns: [/\/\d{4}\/\d{2}\/\d{2}\//]}],
   ],
   settings: {
     rule: '-',
