@@ -145,7 +145,7 @@
     "lint-json": "eslint --fix '**/*.json'",
     "lint-md": "remark . && markdownlint-cli2 --fix \"**/*.{md,mdx}\" \"!node_modules\" \"!.github\"",
     "lint-md-check": "markdownlint-cli2 \"**/*.{md,mdx}\" \"!node_modules\" \"!.github\"",
-    "lint-text": "textlint *.md src/content/posts/*.md src/content/resume-positions/*.md --fix --dry-run",
+    "lint-text": "textlint *.md src/content/posts/*.md src/content/posts/*.mdx src/content/resume-positions/*.md --fix --dry-run",
     "lint-yaml": "yamllint -c .yamllint.yml .github/workflows/ src/data/*.yml .yamllint.yml .markdown-lint.yml",
     "lint-html": "html-validate \"dist-astro/**/*.html\"",
     "super-linter": "script/super-linter",

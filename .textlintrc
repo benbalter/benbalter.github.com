@@ -1,4 +1,11 @@
 {
+  "plugins": {
+    "@textlint/markdown": {
+      "extensions": [
+        ".mdx"
+      ]
+    }
+  },
   "filters": {},
   "rules": {
     "no-start-duplicated-conjunction": true,
@@ -7,10 +14,19 @@
         "HTML",
         "ID",
         "URL",
-        "VS Code",
-        "E2E",
+        "e2e",
         "JavaScript",
-        "GitHub"
+        "GitHub",
+        "V[ -]?S[ -]?Code",
+        "web[- ]?site(s)?",
+        "repo\\b",
+        "readme(s)?",
+        "style-?sheet(s)?",
+        "copy[- ]past(e|ed|ing)?",
+        "over[- ]engineer(ing|ed)",
+        "end-?user(s)?",
+        "built ?in(s)?",
+        "GIF"
       ]
     },
     "write-good": {
@@ -30,7 +46,8 @@
         "e.g.",
         "etc.",
         "i.e.",
-        "if you want to"
+        "if you want to",
+        "in addition to"
       ]
     },
     "@textlint-rule/no-unmatched-pair": true,

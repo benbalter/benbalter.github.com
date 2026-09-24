@@ -77,6 +77,8 @@ AnchorJS
 andon
 Anil
 another's
+antipattern
+antipatterns
 Apache
 APIs
 APM
@@ -95,6 +97,8 @@ async
 async-first
 ATO
 ATOs
+audiobook
+audiobooks
 Auditability
 Auth
 Autoblog
@@ -102,6 +106,7 @@ autocomplete
 Automattic
 autosave
 AWS
+axe-core
 backdoors
 backend
 backtrace
@@ -129,6 +134,7 @@ bikeshed
 bikeshedding
 Bikeshedding
 Bjørnvig
+bkeepers
 Blackberrys
 blanche
 blindspot
@@ -144,6 +150,7 @@ bootcamp
 boundaryless
 brainer
 brainers
+brigaded
 Brin
 Brita
 browsable
@@ -152,15 +159,20 @@ brutalist
 bryanbraun
 Bucci
 bucketizing
+bugfix
 Buller
 bulleted
 ButHonestlyMonica
 Byrne
+Caddy
 Café
 californiakara
+callout
+callouts
 cameronmcefee
 Campan
 Cao
+captchas
 carbonite
 Carfax
 Carlstrom
@@ -234,6 +246,7 @@ counterintuitive
 CRADAs
 Crim
 CRM
+crowdsource
 crowdsourced
 CrushIQ
 cryptographic
@@ -279,6 +292,7 @@ Deliverables
 Deloitte
 Dep't
 Dep'ts
+deprioritize
 deprioritized
 DeShaney
 d’être
@@ -300,6 +314,7 @@ DLT
 DLT's
 dm
 DM
+DMs
 DMV
 DNS
 DNSSEC
@@ -310,6 +325,7 @@ dogfood
 dogfooding
 DOI
 doingitwrong
+DOM
 Doo
 dotfiles
 downscope
@@ -321,6 +337,8 @@ dropdown
 Drupal
 Drush
 duplicative
+ebook
+ebooks
 EC2
 ECIPE
 Edelman
@@ -332,6 +350,8 @@ Embedly
 endfor
 endunless
 ensnarl
+EPUB
+EPUBCheck
 Erlewine
 esque
 ESRI
@@ -382,6 +402,8 @@ Foundationally
 franca
 freemium
 frenemies
+frictionless
+frontend
 frontmatter
 Frupal
 Fruth
@@ -405,6 +427,7 @@ GIFs
 GitHub
 GitHubber
 GitHubbers
+GitHubbing
 Gitter
 Gmail
 GMail
@@ -417,6 +440,7 @@ GovSpeak
 GovWin
 GPL
 GPLv2
+Grammarly
 Grance
 Griggs
 Groupon
@@ -448,6 +472,7 @@ Heroku
 Hindley
 hobbiest
 hoc
+holman
 Homebrew
 Hord
 hosting's
@@ -465,6 +490,7 @@ i18n
 IAAS
 IANYL
 iceeey
+ICs
 ICT
 ideation
 IDIQ
@@ -490,6 +516,7 @@ infringer
 ing
 inoperably
 Int'l
+intentionality
 intentioned
 internet's
 interneting
@@ -521,6 +548,8 @@ jekyll
 JekyllBot
 Jen
 Jetpack
+jif
+Jira
 Joomla
 Joomlas
 Jorbin
@@ -554,6 +583,7 @@ laissez
 LAMPD
 Lampton
 Lan
+LanguageTool
 lawyered
 lawyering
 Lawyerist
@@ -578,9 +608,11 @@ LLMs
 lookups
 lostonroute66
 LT
+Lua
 Lycett
 M87
 Mackup
+macOS
 mailto
 Maily
 Mashable
@@ -597,6 +629,7 @@ Mechling
 Mell
 memesters
 mentality
+menubar
 merchantability
 mergable
 Mgmt
@@ -618,6 +651,7 @@ misconfigurations
 misconfigured
 mistyped
 Mitcho
+mitigations
 MLE
 moar
 modularity
@@ -637,6 +671,7 @@ Myspace
 MySQL
 Nacin
 Nacin's
+namespace
 namespaces
 Napa
 natively
@@ -663,6 +698,7 @@ Non-techincal
 Nordstrom
 npm
 OAuth
+observability
 Octo
 Octocat
 Octokit
@@ -696,6 +732,7 @@ p0
 PaaS
 Pandoc
 Panetta
+parallelizing
 parkr
 patentable
 PBR
@@ -724,6 +761,7 @@ POA
 PollDaddy
 Ponge
 Poppendieck
+postprocessing
 PRA
 pre
 pre-Yelp
@@ -740,6 +778,7 @@ Proofer
 proto
 PRs
 PTO's
+Q1
 Ra11y
 rabble-rouser
 Rackspace
@@ -749,27 +788,35 @@ Rajiv
 Ramesh
 Rapportive
 reactively
+readme
 README
+readmes
 READMEs
 rebaselined
 rebaselining
 Rebaselining
+recency
 recrawl
 recrawled
 Redliner
 redlines
 reengineered
+reframe
+reframed
 reimagination
 reimagine
 reimagined
 reimagining
 reimplementation
 relitigated
+remediations
 remised
 repo
 repos
+reproducibility
 repurposed
 repurposing
+reputational
 reseller
 résumé
 Retlab
@@ -809,6 +856,7 @@ scalable
 scannable
 Schrage
 Schwab
+sci-fi
 Scooby
 screencast
 scribu
@@ -847,12 +895,15 @@ SnippetGPT
 Snowe
 Soakers
 Socrata
+Soltis
 SORN
 SP
 SP1
 SparklePrincess87
 Speakerdeck
+spraints
 squishiness
+SRE
 srobert's
 sroberts
 SSL
@@ -873,6 +924,7 @@ subpar
 substantiality
 sunsetting
 superfans
+surveilling
 sustainably
 SVPs
 swirlies
@@ -919,6 +971,7 @@ Travis
 Tricare
 trollface
 TTFC
+Tumblr
 TVEC
 TwitterFeed
 TwitterFeed's
@@ -934,6 +987,7 @@ undecryptable
 underperformance
 Unelected
 unimagined
+unmute
 unordered
 Unported
 unsexy
@@ -976,10 +1030,12 @@ walkthroughs
 warrantless
 Warshak
 Waterfall
+WCAG
 weaken's
 webcal
 WebOS
 Weidong
+wellbeing
 Werner
 WESCON
 WestLaw
