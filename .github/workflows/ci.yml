@@ -113,6 +113,22 @@ jobs:
           CONTENT_INTEGRITY_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
         run: npm run check-content-integrity
 
+      # On PRs that only touch content, scope textlint to the changed posts; it
+      # otherwise spends ~50s re-linting every post. Anything else in the diff
+      # (a linter config, dictionary, script, or workflow) can change results
+      # for every file, so script/changed-content says "all" and everything is
+      # linted, as on every push to main.
+      - name: Scope textlint to changed content
+        if: github.event_name == 'pull_request'
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          files=$(script/changed-content "$BASE" "$HEAD")
+          if [ "$files" != all ]; then
+            { echo 'CONTENT_FILES<<EOF'; echo "$files"; echo EOF; } >> "$GITHUB_ENV"
+          fi
+
       - name: Install Harper
         env:
           HARPER_VERSION: v1.9.0
@@ -236,8 +252,39 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
+          # History for script/changed-content's merge-base diff. Blobless
+          # keeps it cheap.
+          fetch-depth: 0
+          filter: blob:none
+
+      # PRs that only touch content check just the changed posts (full runs
+      # take ~45s); anything else, and every push to main, checks every post.
+      - name: Decide which posts to check
+        id: scope
+        env:
+          EVENT: ${{ github.event_name }}
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          files=all
+          if [ "$EVENT" = pull_request ]; then
+            files=$(script/changed-content "$BASE" "$HEAD")
+          fi
+          if [ "$files" = all ]; then
+            echo "mode=all" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          posts=$(printf '%s\n' "$files" | grep '^src/content/posts/' || true)
+          if [ -z "$posts" ]; then
+            echo "mode=none" >> "$GITHUB_OUTPUT"
+            echo "No changed posts; nothing for LanguageTool to check."
+          else
+            echo "mode=some" >> "$GITHUB_OUTPUT"
+            { echo 'files<<EOF'; echo "$posts"; echo EOF; } >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Wait for LanguageTool to start
+        if: steps.scope.outputs.mode != 'none'
         run: |
           for i in $(seq 1 30); do
             if curl -sS -f http://localhost:8010/v2/languages > /dev/null 2>&1; then
@@ -251,6 +298,12 @@ jobs:
           exit 1
 
       - name: Run LanguageTool
+        if: steps.scope.outputs.mode != 'none'
         env:
           LANGUAGETOOL_URL: http://localhost:8010
-        run: script/languagetool
+          FILES: ${{ steps.scope.outputs.files }}
+        # FILES is empty in "all" mode, which script/languagetool treats as
+        # every post. Word-splitting the list into arguments is intended.
+        run: |
+          # shellcheck disable=SC2086 # one argument per file is intended
+          script/languagetool $FILES

@@ -25,8 +25,9 @@ export default defineConfig({
   /* Retry on CI only - reduced from 2 to 1 since static sites have fewer flaky tests */
   retries: process.env.CI ? 1 : 0,
   
-  /* Increased workers for faster parallel execution on CI */
-  workers: process.env.CI ? '50%' : undefined,
+  /* One worker per core on CI: tests hit a static preview server, so they're
+     cheap to run side by side (385 tests took 1.7m at '50%', i.e. 2 workers) */
+  workers: process.env.CI ? '100%' : undefined,
   
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: process.env.CI 
