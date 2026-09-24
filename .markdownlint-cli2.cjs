@@ -3,7 +3,7 @@
 // generated at render by remark plugins (e.g. the quote directive emits
 // id="quote-<id>"), which it can't see — so it false-positives on valid deep
 // links. Fragment integrity is instead enforced authoritatively by lychee in
-// .github/workflows/links.yml, which runs against the built HTML with
+// the "Validate built site" job in .github/workflows/astro-e2e.yml, which runs against the built HTML with
 // --include-fragments, checking the anchors as they actually exist.
 const options = require('@github/markdownlint-github').init({ 'line-length': false, 'first-line-heading': false, 'ul-style': { 'style': 'dash' }, 'heading-increment': false, 'table-column-style': false, 'fenced-code-language': false, 'no-emphasis-as-heading': false, 'no-duplicate-heading': { 'siblings_only': true }, 'link-fragments': false })
 module.exports = {

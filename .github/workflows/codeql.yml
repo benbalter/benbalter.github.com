@@ -8,6 +8,11 @@ on:
   schedule:
     - cron: "30 1 * * 0"
 
+# Superseded PR pushes cancel the in-flight run; main pushes always finish.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   analyze:
     name: Analyze (${{ matrix.language }})

@@ -71,6 +71,11 @@ on:
 permissions:
   contents: read
 
+# Superseded PR pushes cancel the in-flight run; main pushes always finish.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 env:
   NODE_VERSION: 24
 
@@ -213,7 +218,7 @@ jobs:
     timeout-minutes: 20
     services:
       languagetool:
-        image: erikvl87/languagetool
+        image: erikvl87/languagetool:6.8
         ports:
           - 8010:8010
         env:
