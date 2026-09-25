@@ -14,7 +14,7 @@ import type { APIRoute } from 'astro';
 import { getEntry, getCollection, type CollectionEntry } from 'astro:content';
 import { formatResumeDate } from '../utils/post-urls';
 import { getPublishedPosts } from '../utils/posts';
-import { resolvePopularPosts } from '../utils/resume-writing';
+import { resolveResumeWriting } from '../utils/resume-writing';
 import { siteConfig } from '../config';
 import { stripHtmlComments } from '../utils/strip-html';
 
@@ -34,8 +34,8 @@ export const GET: APIRoute = async () => {
   }
   const { degrees, certifications, skills, summary, highlights } = resumePage.data;
 
-  // Selected writing mirrors the homepage's curated "Popular Posts" list.
-  const writing = resolvePopularPosts(await getPublishedPosts());
+  // Selected writing comes from the curated resumeWritingSlugs list.
+  const writing = resolveResumeWriting(await getPublishedPosts());
 
   // Positions, newest first, grouped by employer (same logic as resume.astro).
   const sortedPositions = (await getCollection('resume-positions')).sort(

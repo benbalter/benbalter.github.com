@@ -136,10 +136,25 @@ export const footerLinks: FooterLink[] = [
 ];
 
 // Popular posts - slugs of posts to feature in the "Popular Posts" section.
-// Curated from Cloudflare RUM data (see analytics-report.md): the
-// career/management cluster leads by a wide margin, rounded out with a few
-// evergreen classics. Revisit as new RUM data comes in.
+// Curated from Cloudflare RUM data (see analytics-report.md), with the uptime
+// monitor and CN/SG scraper traffic filtered out. Revisit as new RUM data
+// comes in. Nine keeps the homepage's three-column grid even.
 export const popularPostSlugs: string[] = [
+  '2026-07-14-work-loudly',
+  '2026-04-27-one-on-one-playbook',
+  '2026-08-17-how-i-over-engineered-my-book',
+  '2026-04-27-the-brag-doc',
+  '2014-11-06-rules-of-communicating-at-github',
+  '2023-03-02-github-for-non-technical-roles',
+  '2021-09-01-how-i-re-over-engineered-my-home-network',
+  '2015-11-12-why-urls',
+  '2022-03-17-why-async',
+];
+
+// Resume "Selected writing" - curated separately from popularPostSlugs so
+// traffic-driven homepage picks (e.g. the home network post) don't land on
+// the resume.
+export const resumeWritingSlugs: string[] = [
   '2026-04-27-one-on-one-playbook',
   '2026-04-27-the-brag-doc',
   '2023-03-02-github-for-non-technical-roles',

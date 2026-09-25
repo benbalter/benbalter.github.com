@@ -11,7 +11,7 @@ import { Image } from 'astro:assets';
 import { getEntry, type CollectionEntry } from 'astro:content';
 import { formatResumeDate } from '../utils/post-urls';
 import { getPublishedPosts } from '../utils/posts';
-import { resolvePopularPosts } from '../utils/resume-writing';
+import { resolveResumeWriting } from '../utils/resume-writing';
 import { getResumePositions } from '../utils/resume-data';
 import { generateResumeSchema, schemaToJsonLd } from '../utils/structured-data';
 import bookCover from '../../assets/img/open-and-async-cover-left.webp';
@@ -27,8 +27,8 @@ if (!resumePage) {
 
 const { title, description, robots, degrees, certifications, skills, summary, highlights } = resumePage.data;
 
-// Selected writing mirrors the homepage's curated "Popular Posts" list.
-const writing = resolvePopularPosts(await getPublishedPosts());
+// Selected writing comes from the curated resumeWritingSlugs list.
+const writing = resolveResumeWriting(await getPublishedPosts());
 
 // Load positions (sorted + grouped by employer, pre-rendered) from the shared
 // util so the web resume and the /resume-print PDF source can't drift.

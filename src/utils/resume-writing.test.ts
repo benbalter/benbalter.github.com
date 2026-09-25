@@ -1,7 +1,7 @@
 /**
- * Tests for resolvePopularPosts — the resume's "Selected Writing" resolver.
+ * Tests for resolveResumeWriting — the resume's "Selected Writing" resolver.
  *
- * The config's popularPostSlugs list is mocked so we can exercise every branch
+ * The config's resumeWritingSlugs list is mocked so we can exercise every branch
  * (curated ordering, unresolved slugs, non-dated ids) independently of the real
  * curated list. getPostUrlOrNull is exercised for real so path/year parsing is
  * covered end-to-end.
@@ -10,7 +10,7 @@
 import { describe, it, expect, vi } from 'vitest';
 
 vi.mock('../config', () => ({
-  popularPostSlugs: [
+  resumeWritingSlugs: [
     '2022-03-17-why-async',
     '2015-11-12-why-urls',
     '2099-01-01-missing-from-collection',
@@ -18,7 +18,7 @@ vi.mock('../config', () => ({
   ],
 }));
 
-import { resolvePopularPosts } from './resume-writing';
+import { resolveResumeWriting } from './resume-writing';
 
 function makePost(id: string, title: string) {
   return {
@@ -29,21 +29,21 @@ function makePost(id: string, title: string) {
   } as any;
 }
 
-describe('resolvePopularPosts', () => {
+describe('resolveResumeWriting', () => {
   it('preserves curated order regardless of input order', () => {
     const posts = [
-      // Deliberately reversed relative to popularPostSlugs.
+      // Deliberately reversed relative to resumeWritingSlugs.
       makePost('2015-11-12-why-urls', 'Why URLs'),
       makePost('2022-03-17-why-async', 'Why Async'),
     ];
 
-    const result = resolvePopularPosts(posts);
+    const result = resolveResumeWriting(posts);
 
     expect(result.map((item) => item.title)).toEqual(['Why Async', 'Why URLs']);
   });
 
   it('maps title, root-relative path, and four-digit year', () => {
-    const result = resolvePopularPosts([makePost('2022-03-17-why-async', 'Why Async')]);
+    const result = resolveResumeWriting([makePost('2022-03-17-why-async', 'Why Async')]);
 
     expect(result).toHaveLength(1);
     expect(result[0]).toEqual({
@@ -55,7 +55,7 @@ describe('resolvePopularPosts', () => {
 
   it('skips slugs with no matching post rather than rendering them broken', () => {
     // '2099-01-01-missing-from-collection' is in the curated list but absent here.
-    const result = resolvePopularPosts([makePost('2022-03-17-why-async', 'Why Async')]);
+    const result = resolveResumeWriting([makePost('2022-03-17-why-async', 'Why Async')]);
 
     expect(result.map((item) => item.title)).toEqual(['Why Async']);
   });
@@ -66,12 +66,12 @@ describe('resolvePopularPosts', () => {
       makePost('not-a-dated-slug', 'Undated'),
     ];
 
-    const result = resolvePopularPosts(posts);
+    const result = resolveResumeWriting(posts);
 
     expect(result.map((item) => item.title)).toEqual(['Why Async']);
   });
 
   it('returns an empty array when nothing resolves', () => {
-    expect(resolvePopularPosts([])).toEqual([]);
+    expect(resolveResumeWriting([])).toEqual([]);
   });
 });
