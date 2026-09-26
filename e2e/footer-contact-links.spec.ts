@@ -107,15 +107,12 @@ test.describe('Footer Contact Links', () => {
     await page.goto('/');
     await waitForPageReady(page);
     
-    // Wait for page to stabilize
-    await page.waitForTimeout(200);
     
     // Check that SVG icons are present on initial load
     // We use inline SVGs instead of FontAwesome for better performance
     // Footer uses ul.contact-links for accessible markup
     const initialIcons = page.locator('footer ul.contact-links svg.icon');
-    const initialIconCount = await initialIcons.count();
-    expect(initialIconCount).toBe(5); // Email, vCard, Bluesky, LinkedIn, GitHub
+    await expect(initialIcons).toHaveCount(5); // Email, vCard, Bluesky, LinkedIn, GitHub
     
     // Navigate to another page using Astro View Transitions
     const aboutLink = page.locator('a[href="/about/"]').first();
@@ -123,16 +120,13 @@ test.describe('Footer Contact Links', () => {
     await page.waitForURL('**/about/');
     await waitForPageReady(page);
     
-    // Wait a moment for page to stabilize after navigation
-    await page.waitForTimeout(200);
     
     // Check that footer contact link icons still render after navigation
     const iconsAfterNav = page.locator('footer ul.contact-links svg.icon');
-    const iconCountAfterNav = await iconsAfterNav.count();
-    expect(iconCountAfterNav).toBe(5);
+    await expect(iconsAfterNav).toHaveCount(5);
     
     // Verify icons are actually visible (not just present in DOM)
-    for (let i = 0; i < iconCountAfterNav; i++) {
+    for (let i = 0; i < 5; i++) {
       await expect(iconsAfterNav.nth(i)).toBeVisible();
     }
     
@@ -142,16 +136,13 @@ test.describe('Footer Contact Links', () => {
     await page.waitForURL('**/contact/');
     await waitForPageReady(page);
     
-    // Wait a moment for page to stabilize after second navigation
-    await page.waitForTimeout(200);
     
     // Check icons still work after second navigation
     const iconsAfterSecondNav = page.locator('footer ul.contact-links svg.icon');
-    const iconCountAfterSecondNav = await iconsAfterSecondNav.count();
-    expect(iconCountAfterSecondNav).toBe(5);
+    await expect(iconsAfterSecondNav).toHaveCount(5);
     
     // Verify all icons are visible
-    for (let i = 0; i < iconCountAfterSecondNav; i++) {
+    for (let i = 0; i < 5; i++) {
       await expect(iconsAfterSecondNav.nth(i)).toBeVisible();
     }
   });

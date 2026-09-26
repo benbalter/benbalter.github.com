@@ -16,6 +16,11 @@ on:
       - '.lighthouserc.json'
       - '.htmlvalidate.json'
       - 'package*.json'
+      - 'assets/**'
+      - 'script/inject-*'
+      - 'script/remote-image-dimensions.json'
+      - 'worker/**'
+      - 'wrangler.json'
       - '.github/workflows/astro-e2e.yml'
   pull_request:
     paths:
@@ -29,6 +34,11 @@ on:
       - '.lighthouserc.json'
       - '.htmlvalidate.json'
       - 'package*.json'
+      - 'assets/**'
+      - 'script/inject-*'
+      - 'script/remote-image-dimensions.json'
+      - 'worker/**'
+      - 'wrangler.json'
       - '.github/workflows/astro-e2e.yml'
 
 permissions:
@@ -80,6 +90,16 @@ jobs:
           key: astro-cache-${{ runner.os }}-${{ hashFiles('src/lib/**', 'src/data/acronyms.yml', 'astro.config.mjs', 'src/content.config.ts', 'package-lock.json') }}-${{ hashFiles('src/**/*', 'public/**/*', 'tsconfig.astro.json') }}
           restore-keys: |
             astro-cache-${{ runner.os }}-${{ hashFiles('src/lib/**', 'src/data/acronyms.yml', 'astro.config.mjs', 'src/content.config.ts', 'package-lock.json') }}-
+
+      # Same OG card cache as build-and-deploy.yml, so PR builds only render
+      # cards for new or changed posts. Keep the key in sync with that file.
+      - name: Cache OG images
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
+        with:
+          path: .cache/og-cache
+          key: og-cache-${{ runner.os }}-${{ hashFiles('src/lib/og-image-generator.ts', 'src/lib/og-config.ts', 'src/lib/book-cta.ts', 'assets/fonts/**') }}-${{ github.sha }}
+          restore-keys: |
+            og-cache-${{ runner.os }}-${{ hashFiles('src/lib/og-image-generator.ts', 'src/lib/og-config.ts', 'src/lib/book-cta.ts', 'assets/fonts/**') }}-
 
       - name: Build Astro site
         run: npm run build
@@ -177,12 +197,18 @@ jobs:
           name: dist-astro
           path: dist-astro
 
+      # Key on the Playwright version, not the whole lockfile, so unrelated
+      # dependency bumps don't re-download the browser.
+      - name: Get Playwright version
+        id: playwright-version
+        run: echo "version=$(node -p "require('@playwright/test/package.json').version")" >> "$GITHUB_OUTPUT"
+
       - name: Cache Playwright Browsers
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
         id: playwright-cache
         with:
           path: ~/.cache/ms-playwright
-          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          key: playwright-${{ runner.os }}-${{ steps.playwright-version.outputs.version }}
 
       - name: Install Playwright Browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
