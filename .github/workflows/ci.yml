@@ -33,6 +33,7 @@ on:
       - 'js/**'
       - 'script/**'
       - 'eslint.config.js'
+      - 'knip.jsonc'
       - '.yamllint.yml'
       - 'public/_redirects'
       - '.github/workflows/ci.yml'
@@ -66,6 +67,7 @@ on:
       - 'js/**'
       - 'script/**'
       - 'eslint.config.js'
+      - 'knip.jsonc'
       - '.yamllint.yml'
       - 'public/_redirects'
       - '.github/workflows/ci.yml'
@@ -181,6 +183,11 @@ jobs:
 
       - name: Lint JSON
         run: npm run lint-json-check
+
+      # Unused files, dependencies, and unlisted imports fail; unused
+      # exports are reported as warnings (see knip.jsonc).
+      - name: Knip (unused files and dependencies)
+        run: npm run knip
 
       - name: Lint YAML
         run: npm run lint-yaml
