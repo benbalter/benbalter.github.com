@@ -3,7 +3,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { getPostUrl, getPostUrlOrNull, getDateFromSlug, formatPostDate, formatResumeDate, formatISODate } from './post-urls';
+import { getPostUrl, getPostUrlOrNull, getDateFromSlug, formatPostDate, formatResumeDate, formatISODate, parsePostId } from './post-urls';
 
 describe('getPostUrl', () => {
   it('should generate correct URL from valid slug', () => {
@@ -297,5 +297,24 @@ describe('formatISODate', () => {
     
     // Should always be 2024-01-01 regardless of timezone
     expect(isoDate).toBe('2024-01-01');
+  });
+});
+
+describe('parsePostId', () => {
+  it('splits a dated post id into parts', () => {
+    expect(parsePostId('2024-01-15-my-post')).toEqual({
+      year: '2024',
+      month: '01',
+      day: '15',
+      slug: 'my-post',
+    });
+  });
+
+  it('keeps hyphens in the slug', () => {
+    expect(parsePostId('2021-02-01-a-b-c')?.slug).toBe('a-b-c');
+  });
+
+  it('returns null for ids without a date prefix', () => {
+    expect(parsePostId('about')).toBeNull();
   });
 });

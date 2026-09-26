@@ -36,6 +36,7 @@ import {
   pool,
   loadPosts,
   estCost,
+  postUrl,
 } from './lib/foundry';
 
 // ---------------------------------------------------------------- CLI args ---
@@ -77,9 +78,7 @@ const norm = (s: string) => s.replace(/\s+/g, ' ').toLowerCase().trim();
 function loadCorpus(): Post[] {
   return loadPosts(ROOT)
     .map((p) => {
-      const m = p.id.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
-      const url = m ? `/${m[1]}/${m[2]}/${m[3]}/${m[4]}/` : `/${p.id}/`;
-      return { ...p, url, normBody: norm(p.body) };
+      return { ...p, url: postUrl(p.id), normBody: norm(p.body) };
     })
     .sort((a, b) => b.date.localeCompare(a.date));
 }

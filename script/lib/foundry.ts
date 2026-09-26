@@ -15,6 +15,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { glob } from 'glob';
 import matter from 'gray-matter';
+import { getPostUrlOrNull } from '../../src/utils/post-urls';
 
 // ---------------------------------------------------------------- CLI args ---
 export const hasFlag = (argv: string[], f: string) => argv.includes(f);
@@ -210,8 +211,7 @@ export interface BasePost {
 
 /** Map a post id (`YYYY-MM-DD-slug`) to its published URL `/YYYY/MM/DD/slug/`. */
 export function postUrl(id: string): string {
-  const m = id.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
-  return m ? `/${m[1]}/${m[2]}/${m[3]}/${m[4]}/` : `/${id}/`;
+  return getPostUrlOrNull(id) ?? `/${id}/`;
 }
 
 /** Load live posts from src/content/posts, in filename (chronological) order.

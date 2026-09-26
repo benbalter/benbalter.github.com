@@ -2,7 +2,7 @@
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import PostLayout from '../../../../layouts/PostLayout.astro';
 import { findRelatedPosts, initializeRelatedPostsCache } from '../../../../utils/related-posts';
-import { getPostUrl } from '../../../../utils/post-urls';
+import { getPostUrl, parsePostId } from '../../../../utils/post-urls';
 import { isPublished, isListablePost } from '../../../../utils/post-filtering';
 import { calculateReadingTime } from '../../../../utils/reading-time';
 
@@ -18,12 +18,11 @@ export async function getStaticPaths() {
 
   return posts.map((post: CollectionEntry<'posts'>) => {
     // Extract date from id (YYYY-MM-DD-slug format)
-    const dateMatch = post.id.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
+    const parts = parsePostId(post.id);
     
-    if (dateMatch) {
-      const [, year, month, day, slug] = dateMatch;
+    if (parts) {
       return {
-        params: { year, month, day, slug },
+        params: parts,
         props: { post, allPosts: posts },
       };
     }

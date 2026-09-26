@@ -6,6 +6,8 @@
  * rendering is not desired.
  */
 
+import { stripHtmlTags } from './strip-html';
+
 /**
  * Strip markdown formatting from text
  * 
@@ -44,7 +46,7 @@ export function stripMarkdown(text: string): string {
   result = result.replace(/`([^`]+)`/g, '$1');
 
   // Remove inline HTML tags (add space to preserve word boundaries)
-  result = result.replace(/<[^>]+>/g, ' ');
+  result = stripHtmlTags(result, ' ');
 
   // Clean up any extra whitespace
   result = result.replace(/\s+/g, ' ').trim();

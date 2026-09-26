@@ -5,14 +5,29 @@
  * and provide date parsing/formatting utilities
  */
 
+export interface PostIdParts {
+  year: string;
+  month: string;
+  day: string;
+  slug: string;
+}
+
+/**
+ * Split a Jekyll-style post id (`YYYY-MM-DD-slug`) into its date and slug
+ * parts, or return null if it isn't date-prefixed. The single source of truth
+ * for the post id format.
+ */
+export function parsePostId(id: string): PostIdParts | null {
+  const match = id.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
+  if (!match) return null;
+  const [, year, month, day, slug] = match as unknown as [string, string, string, string, string];
+  return { year, month, day, slug };
+}
+
 /** Convert a YYYY-MM-DD-title slug to /YYYY/MM/DD/title/, or null if it doesn't match */
 function parsePostSlug(slug: string): string | null {
-  const match = slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
-  if (match) {
-    const [, year, month, day, postSlug] = match;
-    return `/${year}/${month}/${day}/${postSlug}/`;
-  }
-  return null;
+  const parts = parsePostId(slug);
+  return parts ? `/${parts.year}/${parts.month}/${parts.day}/${parts.slug}/` : null;
 }
 
 /**
