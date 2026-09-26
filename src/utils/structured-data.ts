@@ -188,15 +188,13 @@ export function generateBlogPostingSchema(props: {
       // same authorship/credibility signals.
       sameAs: SAME_AS,
     },
+    // A personal blog is published by its author, so point at the site-wide
+    // Person node rather than an Organization with a headshot for a logo.
     publisher: {
-      '@type': 'Organization',
-      '@id': `${siteConfig.url}/#organization`,
-      name: siteConfig.name,
+      '@type': 'Person',
+      '@id': `${siteConfig.url}/#person`,
+      name: siteConfig.author,
       url: siteConfig.url,
-      logo: {
-        '@type': 'ImageObject',
-        url: `${siteConfig.url}/assets/img/headshot.jpg`,
-      },
     },
     url,
     mainEntityOfPage: {

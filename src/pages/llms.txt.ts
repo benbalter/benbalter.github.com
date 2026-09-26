@@ -13,6 +13,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { siteConfig } from '../config';
 import { getFirstParagraph, aboutContent } from '../content/about-bio';
 import { stripMdxSyntax } from '../utils/strip-mdx-syntax';
+import { isListablePost } from '../utils/post-filtering';
 
 // Constants
 const EXCERPT_LENGTH = 100;
@@ -36,15 +37,12 @@ function getPostUrl(slugOrId: string): string | null {
 }
 
 export const GET: APIRoute = async () => {
-  // Fetch all published posts, sorted by date (newest first)
-  const allPosts = await getCollection('posts', ({ data }: CollectionEntry<'posts'>) => data.published !== false);
-  const sortedPosts = allPosts.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => {
-    // Post slugs are like "2010-09-12-wordpress-resume-plugin"
-    // Extract YYYY-MM-DD from the beginning
-    const dateA = new Date(a.id.substring(0, 10));
-    const dateB = new Date(b.id.substring(0, 10));
-    return dateB.getTime() - dateA.getTime();
-  });
+  // Fetch listable (published, non-archived) posts, newest first. Post IDs
+  // start with YYYY-MM-DD, so a descending id sort is newest-first.
+  const allPosts = await getCollection('posts', isListablePost);
+  const sortedPosts = [...allPosts].sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) =>
+    b.id.localeCompare(a.id),
+  );
   const recentPosts = sortedPosts.slice(0, 10);
 
   // Fetch pages from content collection (only has some pages like resume)

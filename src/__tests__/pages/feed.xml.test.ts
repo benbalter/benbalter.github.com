@@ -34,7 +34,7 @@ vi.mock('@astrojs/markdown-remark', () => ({
 
 vi.mock('../../lib/markdown-pipeline', () => ({
   sharedRemarkPlugins: [],
-  sharedRehypePlugins: [],
+  syndicationRehypePlugins: () => [],
   sharedShikiConfig: {},
 }));
 
