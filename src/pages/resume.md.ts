@@ -15,6 +15,7 @@ import { getEntry, getCollection, type CollectionEntry } from 'astro:content';
 import { formatResumeDate } from '../utils/post-urls';
 import { getPublishedPosts } from '../utils/posts';
 import { resolveResumeWriting } from '../utils/resume-writing';
+import { RESUME_HEADLINE, groupPositionsByEmployer, sortPositions } from '../utils/resume-data';
 import { siteConfig } from '../config';
 import { stripHtmlComments } from '../utils/strip-html';
 
@@ -38,27 +39,16 @@ export const GET: APIRoute = async () => {
   const writing = resolveResumeWriting(await getPublishedPosts());
 
   // Positions, newest first, grouped by employer (same logic as resume.astro).
-  const sortedPositions = (await getCollection('resume-positions')).sort(
-    (a: CollectionEntry<'resume-positions'>, b: CollectionEntry<'resume-positions'>) =>
-      new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime()
+  const employerGroups = groupPositionsByEmployer(
+    sortPositions<CollectionEntry<'resume-positions'>>(await getCollection('resume-positions')),
   );
-
-  const employerGroups = new Map<string, CollectionEntry<'resume-positions'>[]>();
-  for (const position of sortedPositions) {
-    if (!employerGroups.has(position.data.employer)) {
-      employerGroups.set(position.data.employer, []);
-    }
-    employerGroups.get(position.data.employer)!.push(position);
-  }
 
   const lines: string[] = [];
 
   // --- Header: name + contact strip ---------------------------------------
   lines.push(`# ${siteConfig.author}`);
   lines.push('');
-  // Role kicker under the name. Kept in sync with the `rp-role` line in
-  // src/pages/resume/print.astro and HEADLINE in src/pages/resume.docx.ts.
-  lines.push('Product Leader: Trust & Safety, Platform Security, Developer Platforms');
+  lines.push(RESUME_HEADLINE);
   lines.push('');
   lines.push(
     `Washington, DC · [${siteConfig.email}](mailto:${siteConfig.email}) · ` +
@@ -93,7 +83,7 @@ export const GET: APIRoute = async () => {
   // --- Experience ----------------------------------------------------------
   lines.push('## Experience');
   lines.push('');
-  for (const [employer, positions] of employerGroups) {
+  for (const { employer, positions } of employerGroups) {
     lines.push(`### ${employer}`);
     lines.push('');
     for (const position of positions) {
@@ -121,7 +111,7 @@ export const GET: APIRoute = async () => {
     // One skill per bullet — several items contain internal commas
     // ("Privacy, security, and compliance"), so any inline delimiter would be
     // ambiguous to a keyword parser. One-per-line is the safest for extraction.
-    for (const group of skills as Array<{ group: string; items: string[] }>) {
+    for (const group of skills) {
       lines.push(`**${group.group}**`);
       lines.push('');
       for (const item of group.items) lines.push(`- ${item}`);
@@ -143,7 +133,7 @@ export const GET: APIRoute = async () => {
   if (degrees && degrees.length > 0) {
     lines.push('## Education');
     lines.push('');
-    for (const degree of degrees as Array<{ school: string; degree: string; date: string }>) {
+    for (const degree of degrees) {
       lines.push(`### ${degree.school}`);
       lines.push('');
       lines.push(`${degree.degree} · _${formatResumeDate(degree.date) ?? ''}_`);
@@ -153,9 +143,8 @@ export const GET: APIRoute = async () => {
 
   // --- Certifications ------------------------------------------------------
   if (certifications && certifications.length > 0) {
-    type Cert = { authority: string; name: string; url?: string; expired?: boolean; category?: string };
-    const certs = certifications as Cert[];
-    const professional = certs.filter((c) => (c.category ?? 'professional') === 'professional');
+    type Cert = NonNullable<CollectionEntry<'pages'>['data']['certifications']>[number];
+    const professional = certifications.filter((c: Cert) => c.category === 'professional');
 
     const renderCert = (cert: Cert): string => {
       const name = cert.url ? `[${cert.name}](${cert.url})` : cert.name;

@@ -4,8 +4,11 @@
  * Loads the `resume-positions` collection, sorts it most-recent-first, and groups
  * roles by employer (so multiple roles at one company render under a single
  * heading). Shared by every surface that renders experience — the web resume
- * (`/resume/`) and the print-optimized PDF source (`/resume-print/`) — so the two
- * can never drift. Positions are pre-rendered to their `Content` component here.
+ * (`/resume/`), the print-optimized PDF source, and the Markdown, docx, and
+ * LinkedIn exports — so they can never drift. `getResumePositions` also
+ * pre-renders each position to its `Content` component; the pure
+ * `sortPositions` / `groupPositionsByEmployer` helpers skip that for endpoints
+ * that only need the raw Markdown body.
  */
 
 import { getCollection, render, type CollectionEntry } from 'astro:content';
@@ -26,10 +29,37 @@ export interface ResumePositions {
   grouped: GroupedPositions[];
 }
 
-const byStartDateDesc = (
-  a: { data: { start_date: string } },
-  b: { data: { start_date: string } },
-) => new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime();
+/**
+ * Role kicker under the name on every résumé surface (web, print/PDF, Markdown,
+ * and docx), so the four can't drift.
+ */
+export const RESUME_HEADLINE = 'Product Leader: Trust & Safety, Platform Security, Developer Platforms';
+
+type PositionLike = { data: { start_date: string; employer: string } };
+
+const byStartDateDesc = (a: PositionLike, b: PositionLike) =>
+  new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime();
+
+/** Sort positions most-recent-first (returns a new array). */
+export function sortPositions<T extends PositionLike>(positions: T[]): T[] {
+  return [...positions].sort(byStartDateDesc);
+}
+
+/**
+ * Group already-sorted positions by employer. Groups are ordered by their
+ * most-recent role; roles within a group keep the input (most-recent-first) order.
+ */
+export function groupPositionsByEmployer<T extends PositionLike>(
+  sorted: T[],
+): Array<{ employer: string; positions: T[] }> {
+  const groups = new Map<string, T[]>();
+  for (const position of sorted) {
+    const group = groups.get(position.data.employer) ?? [];
+    group.push(position);
+    groups.set(position.data.employer, group);
+  }
+  return Array.from(groups, ([employer, positions]) => ({ employer, positions }));
+}
 
 /**
  * Load, sort, group, and render the resume positions once. Employer groups are
@@ -37,23 +67,13 @@ const byStartDateDesc = (
  * first.
  */
 export async function getResumePositions(): Promise<ResumePositions> {
-  const sorted = (await getCollection('resume-positions')).sort(byStartDateDesc);
+  const sorted = sortPositions(await getCollection('resume-positions'));
 
-  const employerGroups = new Map<string, PositionEntry[]>();
+  const rendered: PositionEntry[] = [];
   for (const position of sorted) {
     const { Content } = await render(position);
-    if (!employerGroups.has(position.data.employer)) {
-      employerGroups.set(position.data.employer, []);
-    }
-    employerGroups.get(position.data.employer)!.push({ ...position, Content });
+    rendered.push({ ...position, Content });
   }
 
-  const grouped: GroupedPositions[] = Array.from(employerGroups.entries()).map(
-    ([employer, positions]) => ({
-      employer,
-      positions: positions.sort(byStartDateDesc),
-    }),
-  );
-
-  return { sorted, grouped };
+  return { sorted, grouped: groupPositionsByEmployer(rendered) };
 }

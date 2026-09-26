@@ -11,6 +11,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
 import LinkedInField from '../../components/LinkedInField.astro';
 import { getEntry, getCollection, type CollectionEntry } from 'astro:content';
 import { formatResumeDate } from '../../utils/post-urls';
+import { sortPositions } from '../../utils/resume-data';
 import { cleanDescription, LINKEDIN_LIMITS } from '../../utils/linkedin-format';
 import { linkedinHeadline, linkedinAboutHtml, linkedinSettings, type LinkedinSetting } from '../../content/linkedin-bio';
 
@@ -21,10 +22,7 @@ if (!resumePage) {
 
 const { degrees, certifications, skills } = resumePage.data;
 
-const allPositions = await getCollection('resume-positions');
-const sortedPositions = allPositions.sort((a: CollectionEntry<'resume-positions'>, b: CollectionEntry<'resume-positions'>) => {
-  return new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime();
-});
+const sortedPositions = sortPositions<CollectionEntry<'resume-positions'>>(await getCollection('resume-positions'));
 
 interface PositionData {
   title: string;
@@ -54,16 +52,10 @@ const educationData: EducationData[] = degrees?.map((degree: { school: string; d
   endDate: formatResumeDate(degree.date) || 'Unknown',
 })) || [];
 
-interface Cert {
-  authority: string;
-  name: string;
-  url?: string;
-  category?: 'professional' | 'personal';
-  expired?: boolean;
-}
+type Cert = NonNullable<CollectionEntry<'pages'>['data']['certifications']>[number];
 
-const allCerts: Cert[] = (certifications ?? []) as Cert[];
-const professionalCerts = allCerts.filter(c => c.category !== 'personal');
+const allCerts: Cert[] = certifications ?? [];
+const professionalCerts = allCerts.filter(c => c.category === 'professional');
 const personalCerts = allCerts.filter(c => c.category === 'personal');
 
 // Skills grouped by category, plus a flat combined list for a "copy all" field.

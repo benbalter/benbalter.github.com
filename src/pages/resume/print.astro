@@ -21,7 +21,7 @@
 import { getEntry } from 'astro:content';
 import { Font } from 'astro:assets';
 import { formatResumeDate } from '../../utils/post-urls';
-import { getResumePositions } from '../../utils/resume-data';
+import { RESUME_HEADLINE, getResumePositions } from '../../utils/resume-data';
 import '../../styles/global.css';
 
 const resumePage = await getEntry('pages', 'resume');
@@ -70,7 +70,7 @@ const contact = [
     <aside class="rp-side">
       <header class="rp-id">
         <h1 class="rp-name">Ben Balter</h1>
-        <p class="rp-role">Product Leader: Trust &amp; Safety, Platform Security, Developer Platforms</p>
+        <p class="rp-role">{RESUME_HEADLINE}</p>
       </header>
 
       <ul class="rp-contact">

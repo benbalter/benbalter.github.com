@@ -27,6 +27,7 @@ import {
 import { formatResumeDate } from '../utils/post-urls';
 import { getPublishedPosts } from '../utils/posts';
 import { resolveResumeWriting } from '../utils/resume-writing';
+import { RESUME_HEADLINE, groupPositionsByEmployer, sortPositions } from '../utils/resume-data';
 import { siteConfig } from '../config';
 
 // Brand palette (mirrors the print résumé at /resume/print). NAVY is the deep
@@ -36,10 +37,6 @@ const ACCENT = '337AB7';
 const ACCENT_DARK = '204D6F';
 const HYPERLINK = '0563C1';
 const MUTED = '555555';
-
-// Role kicker under the name — mirrors the print résumé's header. Kept in sync
-// with the `rp-role` line in src/pages/resume/print.astro.
-const HEADLINE = 'Product Leader: Trust & Safety, Platform Security, Developer Platforms';
 
 // ---------------------------------------------------------------------------
 // Markdown → docx
@@ -239,18 +236,9 @@ export const GET: APIRoute = async () => {
   const writing = resolveResumeWriting(await getPublishedPosts());
 
   // Positions, newest first, grouped by employer (same logic as resume.astro).
-  const sortedPositions = (await getCollection('resume-positions')).sort(
-    (a: CollectionEntry<'resume-positions'>, b: CollectionEntry<'resume-positions'>) =>
-      new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime()
+  const employerGroups = groupPositionsByEmployer(
+    sortPositions<CollectionEntry<'resume-positions'>>(await getCollection('resume-positions')),
   );
-
-  const employerGroups = new Map<string, CollectionEntry<'resume-positions'>[]>();
-  for (const position of sortedPositions) {
-    if (!employerGroups.has(position.data.employer)) {
-      employerGroups.set(position.data.employer, []);
-    }
-    employerGroups.get(position.data.employer)!.push(position);
-  }
 
   const children: Paragraph[] = [];
 
@@ -264,7 +252,7 @@ export const GET: APIRoute = async () => {
   children.push(
     new Paragraph({
       spacing: { after: 120 },
-      children: [new TextRun({ text: HEADLINE.toUpperCase(), bold: true, color: ACCENT, size: 19, characterSpacing: 40 })],
+      children: [new TextRun({ text: RESUME_HEADLINE.toUpperCase(), bold: true, color: ACCENT, size: 19, characterSpacing: 40 })],
     })
   );
   children.push(
@@ -312,7 +300,7 @@ export const GET: APIRoute = async () => {
 
   // --- Experience ----------------------------------------------------------
   children.push(sectionHeading('Experience'));
-  for (const [employer, positions] of employerGroups) {
+  for (const { employer, positions } of employerGroups) {
     children.push(
       new Paragraph({
         spacing: { before: 200, after: 40 },
@@ -333,7 +321,7 @@ export const GET: APIRoute = async () => {
   // The HTML resume keeps its "Areas of Focus" label; only the .docx changes.
   if (skills && skills.length > 0) {
     children.push(sectionHeading('Skills'));
-    for (const group of skills as Array<{ group: string; items: string[] }>) {
+    for (const group of skills) {
       children.push(
         new Paragraph({
           spacing: { before: 80, after: 20 },
@@ -369,7 +357,7 @@ export const GET: APIRoute = async () => {
   // --- Education -----------------------------------------------------------
   if (degrees && degrees.length > 0) {
     children.push(sectionHeading('Education'));
-    for (const degree of degrees as Array<{ school: string; degree: string; date: string }>) {
+    for (const degree of degrees) {
       children.push(titleWithDate(degree.school, formatResumeDate(degree.date) ?? '', { titleSize: 22 }));
       children.push(new Paragraph({ spacing: { after: 120 }, children: [new TextRun({ text: degree.degree, size: 20 })] }));
     }
@@ -377,9 +365,8 @@ export const GET: APIRoute = async () => {
 
   // --- Certifications ------------------------------------------------------
   if (certifications && certifications.length > 0) {
-    type Cert = { authority: string; name: string; url?: string; expired?: boolean; category?: string };
-    const certs = certifications as Cert[];
-    const professional = certs.filter((c) => (c.category ?? 'professional') === 'professional');
+    type Cert = NonNullable<CollectionEntry<'pages'>['data']['certifications']>[number];
+    const professional = certifications.filter((c: Cert) => c.category === 'professional');
 
     const renderCert = (cert: Cert) => {
       const nameRuns: (TextRun | ExternalHyperlink)[] = [
