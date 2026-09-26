@@ -1,0 +1,31 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "entry": [
+    "script/**/*.{ts,mjs,js}",
+    // Extensionless Node scripts run from package.json and CI.
+    "script/{inject-image-size,inject-modulepreload,build-remote-image-dimensions}",
+    // Auto-imported into MDX posts by astro-auto-import (astro.config.mjs).
+    "src/components/{Callout,GitHubCulture,FossAtScale,YouTube,BookLaunchCta}.astro"
+  ],
+  "project": [
+    "src/**/*.{ts,astro,css,mdx}",
+    "script/**/*.{ts,mjs,js}",
+    "worker/**/*.js",
+    "e2e/**/*.ts"
+  ],
+  "ignoreDependencies": [
+    // Bundled with textlint; named in .textlintrc.
+    "@textlint/textlint-plugin-markdown",
+    // Referenced by string in .remarkrc.js's remark-textr plugin list.
+    "typographic-copyright",
+    // Required by the extensionless script/inject-image-size, which knip can't parse.
+    "image-size"
+  ],
+  // System tools installed in CI, not npm packages.
+  "ignoreBinaries": ["vale", "yamllint"],
+  // Unused files, dependencies, and unlisted imports fail; unused exports only warn.
+  "rules": {
+    "exports": "warn",
+    "types": "warn"
+  }
+}
