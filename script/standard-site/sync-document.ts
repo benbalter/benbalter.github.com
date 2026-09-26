@@ -40,6 +40,7 @@ import { siteConfig } from '../../src/config';
 import { getPostUrl, getDateFromSlug } from '../../src/utils/post-urls';
 import { getDocumentRkey, qualifiesForStandardSite } from '../../src/utils/standard-site';
 import { stripMdxSyntax } from '../../src/utils/strip-mdx-syntax';
+import { stripHtmlTags } from '../../src/utils/strip-html';
 import { login, type Session } from './auth';
 
 const COLLECTION = 'site.standard.document';
@@ -51,7 +52,7 @@ const MAX_TEXT_CONTENT = 50_000;
 
 /** Reduce markdown to a plaintext approximation for the document's textContent. */
 function stripMarkdown(markdown: string): string {
-  return markdown
+  return stripHtmlTags(markdown, ' ') // raw HTML tags
     .replace(/```[\s\S]*?```/g, ' ') // fenced code blocks
     .replace(/`[^`]*`/g, ' ') // inline code
     .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ') // images
@@ -59,7 +60,6 @@ function stripMarkdown(markdown: string): string {
     .replace(/^\s{0,3}#{1,6}\s+/gm, '') // headings
     .replace(/^\s{0,3}>\s?/gm, '') // blockquotes
     .replace(/[*_~]{1,3}/g, '') // emphasis markers
-    .replace(/<[^>]+>/g, ' ') // raw HTML tags
     .replace(/\s+/g, ' ')
     .trim();
 }

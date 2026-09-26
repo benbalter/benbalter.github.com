@@ -18,16 +18,16 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { isPublished } from '../../../../utils/post-filtering';
 import { siteConfig } from '../../../../config';
 import { stripMdxSyntax } from '../../../../utils/strip-mdx-syntax';
+import { parsePostId } from '../../../../utils/post-urls';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getCollection('posts', isPublished);
 
   return posts
     .map((post: CollectionEntry<'posts'>) => {
-      const dateMatch = post.id.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
-      if (!dateMatch) return null;
-      const [, year, month, day, slug] = dateMatch;
-      return { params: { year, month, day, slug }, props: { post } };
+      const parts = parsePostId(post.id);
+      if (!parts) return null;
+      return { params: parts, props: { post } };
     })
     .filter(Boolean);
 };

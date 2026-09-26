@@ -40,15 +40,6 @@ type DirectiveNode = Node & {
   children?: RootContent[];
 };
 
-/** Concatenate the plain text of a directive's label children. */
-export function directiveText(children: RootContent[] | undefined): string {
-  let out = '';
-  visit({ type: 'root', children: children ?? [] } as Root, 'text', (n: Node & { value?: string }) => {
-    out += n.value ?? '';
-  });
-  return out.trim();
-}
-
 /** Validate and return a quote directive's id, or throw with authoring context. */
 export function quoteDirectiveId(node: DirectiveNode): string {
   const id = node.attributes?.id;

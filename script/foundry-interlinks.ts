@@ -32,6 +32,7 @@ import {
   pool,
   loadPosts,
   estCost,
+  postUrl,
 } from './lib/foundry';
 
 // ---------------------------------------------------------------- CLI args ---
@@ -66,13 +67,6 @@ interface Post {
   body: string;
   bodyLower: string;
   linkedTargets: Set<string>; // normalized /YYYY/MM/DD/slug/ this post already links to
-}
-
-function postUrl(id: string): string {
-  const m = id.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
-  if (!m) return `/${id}/`;
-  const [, y, mo, d, slug] = m;
-  return `/${y}/${mo}/${d}/${slug}/`;
 }
 
 /** Normalize any internal link (absolute or relative) to /YYYY/MM/DD/slug/ or null. */

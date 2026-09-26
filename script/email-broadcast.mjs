@@ -26,6 +26,8 @@ import {
 } from '../src/lib/markdown-pipeline.ts';
 import { stripMdxSyntax } from '../src/utils/strip-mdx-syntax.ts';
 import { leadInHtml, bookCtaHtml } from '../src/lib/email-framing.ts';
+import { getPostUrl } from '../src/utils/post-urls.ts';
+import { isListablePost } from '../src/utils/post-filtering.ts';
 
 // Email-safe rehype plugins — omit anchor links, relative URL rewriting,
 // and other web-only transforms that produce broken output in email clients.
@@ -72,25 +74,6 @@ const emailRehypePlugins = [
 function getSlugFromPath(filePath) {
   const filename = filePath.split('/').pop();
   return filename.replace(/\.(md|mdx)$/, '');
-}
-
-/**
- * Convert a slug like "2024-01-15-my-post" to a URL path "/2024/01/15/my-post/"
- */
-function getPostUrl(slug) {
-  const match = slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
-  if (match) {
-    const [, year, month, day, postSlug] = match;
-    return `/${year}/${month}/${day}/${postSlug}/`;
-  }
-  return `/posts/${slug}/`;
-}
-
-/**
- * Check if a post should be published (mirrors isPublishedPost logic)
- */
-function isPublished(frontmatter) {
-  return frontmatter.published !== false && frontmatter.archived !== true;
 }
 
 /**
@@ -233,7 +216,7 @@ async function main() {
     const { data: frontmatter, content: markdownBody } = matter(raw);
 
     // Skip unpublished/archived posts
-    if (!isPublished(frontmatter)) {
+    if (!isListablePost({ data: frontmatter })) {
       console.log(`  Skipping (not published): ${frontmatter.title || slug}`);
       skipped++;
       continue;

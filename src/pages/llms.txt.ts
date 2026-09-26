@@ -11,29 +11,13 @@
 import type { APIRoute } from 'astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { siteConfig } from '../config';
+import { getPostUrlOrNull } from '../utils/post-urls';
 import { getFirstParagraph, aboutContent } from '../content/about-bio';
 import { stripMdxSyntax } from '../utils/strip-mdx-syntax';
 
 // Constants
 const EXCERPT_LENGTH = 100;
 const CULTURE_POST_ID = '2021-02-01-what-to-read-before-starting-or-interviewing-at-github';
-
-/**
- * Generate a URL path from a blog post.
- * In Astro, `post.id` is the filename without extension (e.g., "2021-02-01-what-to-read-before-starting-or-interviewing-at-github").
- * Accepted formats: YYYY-MM-DD-slug or YYYY-MM-DD-slug.md/.mdx
- * URL format: /YYYY/MM/DD/slug/
- * @returns URL path or null if format is invalid
- */
-function getPostUrl(slugOrId: string): string | null {
-  const slugWithoutExt = slugOrId.replace(/\.mdx?$/, '');
-  const dateMatch = slugWithoutExt.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
-  
-  if (!dateMatch) return null;
-  
-  const [, year, month, day, slug] = dateMatch;
-  return `/${year}/${month}/${day}/${slug}/`;
-}
 
 export const GET: APIRoute = async () => {
   // Fetch all published posts, sorted by date (newest first)
@@ -82,7 +66,7 @@ export const GET: APIRoute = async () => {
   content += `\n## Recent Blog Posts\n\n`;
   
   for (const post of recentPosts) {
-    const postUrl = getPostUrl(post.id);
+    const postUrl = getPostUrlOrNull(post.id);
     if (!postUrl) continue; // Skip posts with invalid id format
     
     // Get description or excerpt (first EXCERPT_LENGTH characters of body)
@@ -105,7 +89,7 @@ export const GET: APIRoute = async () => {
     content += `Understanding GitHub's unique culture and communication patterns:\n\n`;
     
     // Link to the main culture post
-    const cultureUrl = getPostUrl(culturePost.id);
+    const cultureUrl = getPostUrlOrNull(culturePost.id);
     if (cultureUrl) {
       content += `* [${culturePost.data.title}](${siteConfig.url}${cultureUrl}): ${culturePost.data.description}\n`;
     }
@@ -114,7 +98,7 @@ export const GET: APIRoute = async () => {
     if (culturePost.data.posts && Array.isArray(culturePost.data.posts)) {
       for (const linkedPostUrl of culturePost.data.posts) {
         const linkedPost = allPosts.find((p: CollectionEntry<'posts'>) => {
-          const postPath = getPostUrl(p.id);
+          const postPath = getPostUrlOrNull(p.id);
           return postPath === linkedPostUrl;
         });
         
@@ -130,7 +114,7 @@ export const GET: APIRoute = async () => {
       
       for (const rolePostUrl of culturePost.data.roles) {
         const rolePost = allPosts.find((p: CollectionEntry<'posts'>) => {
-          const postPath = getPostUrl(p.id);
+          const postPath = getPostUrlOrNull(p.id);
           return postPath === rolePostUrl;
         });
         

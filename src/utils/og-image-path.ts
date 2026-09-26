@@ -5,13 +5,13 @@
  * actually built. Returns null when the id isn't date-prefixed (no OG image).
  */
 
-const POST_ID_DATE = /^(\d{4})-(\d{2})-(\d{2})-(.+)$/;
+import { parsePostId } from './post-urls';
 
 /** Route-param form: `YYYY/MM/DD/slug.png` (no leading slash). */
 export function ogImageRoute(postId: string): string | null {
-  const match = postId.match(POST_ID_DATE);
-  if (!match) return null;
-  const [, year, month, day, slug] = match;
+  const parts = parsePostId(postId);
+  if (!parts) return null;
+  const { year, month, day, slug } = parts;
   return `${year}/${month}/${day}/${slug}.png`;
 }
 
