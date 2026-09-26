@@ -7,7 +7,7 @@ on:
     branches: ["main"]
     # Post-only PRs have no code to analyze. Not a required check, so skipping is safe.
     paths-ignore:
-      - 'src/content/**'
+      - "src/content/**"
   schedule:
     - cron: "30 1 * * 0"
 
