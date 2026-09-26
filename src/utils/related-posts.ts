@@ -6,6 +6,7 @@
  */
 
 import type { CollectionEntry } from 'astro:content';
+import { stripHtmlTags } from './strip-html';
 
 /**
  * Stop words to exclude from analysis (common English words)
@@ -26,12 +27,13 @@ function extractWords(text: string): string[] {
     return [];
   }
   
-  return text
+  const withoutFrontMatter = text
     .toLowerCase()
     // Remove YAML front matter
-    .replace(/^---[\s\S]*?---/m, ' ')
-    // Remove HTML tags
-    .replace(/<[^>]*>/g, ' ')
+    .replace(/^---[\s\S]*?---/m, ' ');
+
+  // Remove HTML tags (repeat-until-stable, so nested fragments can't survive)
+  return stripHtmlTags(withoutFrontMatter, ' ')
     // Remove URLs
     .replace(/https?:\/\/[^\s]+/g, ' ')
     // Remove code blocks
