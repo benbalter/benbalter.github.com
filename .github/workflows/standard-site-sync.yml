@@ -27,6 +27,7 @@ on:
 
 permissions:
   contents: read
+  actions: read  # look up the previous successful deploy's commit
 
 env:
   NODE_VERSION: 24
@@ -54,6 +55,8 @@ jobs:
           POST_PATH: ${{ inputs.post_path }}
           EVENT_NAME: ${{ github.event_name }}
           HEAD_COMMIT_ID: ${{ github.event.workflow_run.head_commit.id }}
+          REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           # Manual dispatch with a specific post path
           if [ -n "$POST_PATH" ]; then
@@ -75,9 +78,20 @@ jobs:
             exit 0
           fi
 
-          # Auto-detect from the triggering deploy's commit range
-          BEFORE="${HEAD_COMMIT_ID}~1"
+          # Diff from the previous successful deploy, not just HEAD~1: the
+          # deploy cancels in-progress runs, so when merges land close together
+          # an earlier commit's deploy never succeeds and its posts would
+          # otherwise be skipped. Only accept an ancestor of this commit, which
+          # rules out newer deploys that finished first. Fall back to HEAD~1.
           AFTER="$HEAD_COMMIT_ID"
+          BEFORE="${HEAD_COMMIT_ID}~1"
+          for sha in $(gh api "repos/${REPO}/actions/workflows/build-and-deploy.yml/runs?branch=main&status=success&per_page=20" --jq '.workflow_runs[].head_sha' 2>/dev/null); do
+            if [ "$sha" != "$AFTER" ] && git merge-base --is-ancestor "$sha" "$AFTER" 2>/dev/null; then
+              BEFORE="$sha"
+              break
+            fi
+          done
+          echo "Checking for new posts in ${BEFORE}..${AFTER}"
 
           NEW_POSTS=$(git diff --name-only --diff-filter=A "$BEFORE" "$AFTER" -- 'src/content/posts/' 2>/dev/null || echo "")
 

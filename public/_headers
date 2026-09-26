@@ -20,7 +20,7 @@
   Content-Security-Policy: frame-ancestors 'none'
   Cache-Control: public, max-age=120, stale-while-revalidate=86400
   Link: </sitemap-index.xml>; rel="sitemap"; type="application/xml"
-  Link: </feed.xml>; rel="alternate"; type="application/atom+xml"; title="Atom Feed"
+  Link: </feed.xml>; rel="alternate"; type="application/rss+xml"; title="RSS Feed"
   Link: </llms.txt>; rel="llms-txt"; type="text/plain"
   Link: </vcard.vcf>; rel="author"; type="text/vcard"
   # Agent discovery (RFC 8288 / RFC 9727 §3): registered relation types pointing

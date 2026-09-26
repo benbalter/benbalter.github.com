@@ -2,7 +2,8 @@
  * Shared Markdown Processing Pipeline
  * 
  * This module exports the shared remark and rehype plugin configurations
- * used across the site (astro.config.mjs) and RSS feed (feed.xml.ts).
+ * used across the site (astro.config.mjs), the RSS feed (feed.xml.ts), and
+ * email broadcasts (script/email-broadcast.mjs).
  * 
  * Keeping the configuration in one place ensures consistency and prevents drift.
  */
@@ -29,6 +30,8 @@ import { rehypeImageDimensions } from './rehype-image-dimensions';
 import { rehypeFigure } from './rehype-figure';
 import { rehypeFootnoteA11y } from './rehype-footnote-a11y';
 import { rehypeAcronyms } from './rehype-acronyms';
+import { rehypeEmailQuotePlain } from './rehype-email-quote-plain';
+import { rehypeEmailMediaFallback } from './rehype-email-media-fallback';
 
 // Typography plugins for remark-textr
 import typographicArrows from 'typographic-arrows';
@@ -113,6 +116,34 @@ export const sharedRehypePlugins = [
   // links (rehypeExternalLinks) and other elements it must skip already exist.
   rehypeAcronyms,
 ];
+
+/**
+ * Rehype plugins for off-site rendering (RSS feed and email broadcasts).
+ *
+ * Omits web-only transforms: heading anchor links, absolute→relative URL
+ * rewriting (feed readers and mail clients need absolute URLs), and CSS-sized
+ * affordances like the :quote share icon, which render as giant graphics
+ * without site CSS.
+ */
+export function syndicationRehypePlugins(siteUrl: string) {
+  return [
+    rehypeSlug,
+    rehypeAccessibleEmojis,
+    rehypeRaw,
+    rehypeBootstrapTables,
+    rehypeFigure,
+    rehypeImageLoading,
+    // Degrade web-only media (<style>, <video>, <audio>) to email-safe fallbacks.
+    // Runs after rehypeRaw so the raw HTML is real hast by now. Without this, Kit
+    // rejects the whole broadcast with a generic 422 and the email never sends.
+    [rehypeEmailMediaFallback, { siteUrl }],
+    // Flatten the web-only :quote share affordance to plain highlighted text. Its
+    // inline share-icon SVG has no width/height and is CSS-sized on the web; email
+    // clients and feed readers drop that CSS, so it otherwise renders as a giant graphic.
+    rehypeEmailQuotePlain,
+    rehypeExternalLinksConfig,
+  ];
+}
 
 // Shared Shiki configuration for syntax highlighting
 export const sharedShikiConfig = {

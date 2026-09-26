@@ -14,7 +14,7 @@ import { getDateFromSlug, getPostUrl } from '../utils/post-urls';
 import { getPublishedPosts } from '../utils/posts';
 import {
   sharedRemarkPlugins,
-  sharedRehypePlugins,
+  syndicationRehypePlugins,
   sharedShikiConfig,
 } from '../lib/markdown-pipeline';
 import { stripMdxSyntax } from '../utils/strip-mdx-syntax';
@@ -22,14 +22,15 @@ import { leadInHtml, bookCtaHtml } from '../lib/email-framing';
 
 // Create a markdown processor once at module level to avoid recreating it on each request
 // This improves response times by reusing the processor configuration
-// Uses the same plugin configuration as astro.config.mjs via shared imports
+// Uses the shared remark plugins and the syndication rehype plugins (the same
+// ones email broadcasts use), which keep URLs absolute and drop web-only markup
 // Build the remark/rehype (unified) processor and its renderer. `unified()`
 // defaults `gfm` and `smartypants` to true, matching the shared plugins
 // (remarkGfm, remarkSmartypants) already in sharedRemarkPlugins; both are
 // idempotent, so the overlap has no visible effect on the rendered HTML.
 const markdownProcessor = unified({
   remarkPlugins: sharedRemarkPlugins as any,
-  rehypePlugins: sharedRehypePlugins as any,
+  rehypePlugins: syndicationRehypePlugins(siteConfig.url) as any,
 }).createRenderer({
   shikiConfig: sharedShikiConfig as any,
 });

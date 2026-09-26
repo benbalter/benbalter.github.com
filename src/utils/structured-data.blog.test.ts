@@ -151,7 +151,8 @@ describe('generateBlogPostingSchema', () => {
     const schema = generateBlogPostingSchema(props);
     
     expect(schema).toHaveProperty('publisher');
-    expect(schema.publisher).toHaveProperty('@type', 'Organization');
+    expect(schema.publisher).toHaveProperty('@type', 'Person');
+    expect(schema.publisher).toHaveProperty('@id', 'https://ben.balter.com/#person');
   });
 
   it('should include mainEntityOfPage', () => {
