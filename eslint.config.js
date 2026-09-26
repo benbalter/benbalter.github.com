@@ -9,17 +9,13 @@ export default tseslint.config(
       'dist-astro/',
       '.astro/',
       'e2e/',
-      'vendor/',
-      '_site/',
-      '.next/',
-      'out/',
       'playwright.config.ts',
       'playwright-report/',
       'test-results/',
       'package-lock.json',
     ],
   },
-  // JavaScript config files at root (replaces xo with space: true)
+  // Root config files (replaces xo with space: true)
   {
     files: ['*.js', '*.mjs', '.remarkrc.js'],
     extends: tseslint.configs.recommended,
@@ -27,6 +23,19 @@ export default tseslint.config(
       indent: ['error', 2],
       semi: ['error', 'always'],
       quotes: ['error', 'single', {avoidEscape: true}],
+      '@typescript-eslint/no-unused-vars': ['error', {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+      }],
+    },
+  },
+  // Site source, build scripts, and the Worker: correctness rules only, no
+  // formatting rules, so this doesn't churn existing code style.
+  {
+    files: ['src/**/*.ts', 'script/**/*.{ts,mjs,js}', 'worker/**/*.js'],
+    extends: tseslint.configs.recommended,
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-unused-vars': ['error', {
         argsIgnorePattern: '^_',
         varsIgnorePattern: '^_',

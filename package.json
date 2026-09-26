@@ -37,8 +37,6 @@
     "@textlint-rule/textlint-rule-no-unmatched-pair": "^2.0.4",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^26.4.0",
-    "@typescript-eslint/eslint-plugin": "^8.68.0",
-    "@typescript-eslint/parser": "^8.68.0",
     "@vitest/coverage-v8": "^4.1.11",
     "@vitest/ui": "^4.1.11",
     "astro": "^7.2.9",
@@ -81,7 +79,6 @@
     "remark-smartypants": "^3.0.3",
     "remark-textr": "^6.1.0",
     "remark-validate-links": "^13.1.0",
-    "retext-contractions": "^6.0.0",
     "retext-english": "^5.0.0",
     "retext-equality": "^7.1.0",
     "retext-indefinite-article": "^5.0.0",
@@ -107,6 +104,7 @@
     "textlint-rule-write-good": "^2.0.0",
     "tsx": "^4.23.12",
     "typescript": "^6.0.3",
+    "typescript-eslint": "8.70.1",
     "typographic-arrows": "^1.0.3",
     "typographic-copyright": "^1.0.1",
     "typographic-em-dashes": "^1.0.2",
@@ -118,8 +116,7 @@
     "unified": "^11.0.5",
     "unist-util-visit": "^5.1.0",
     "vitest": "^4.1.11",
-    "wrangler": "^4.127.1",
-    "xo": "^4.0.0"
+    "wrangler": "^4.127.1"
   },
   "homepage": "https://github.com/benbalter/benbalter.github.com#readme",
   "license": "CC-BY-3.0",
@@ -141,15 +138,18 @@
     "standard-site:publication": "tsx script/standard-site/create-publication.ts",
     "standard-site:sync": "tsx script/standard-site/sync-document.ts",
     "lint": "npm run lint-js && npm run lint-json && npm run lint-md",
-    "lint-js": "eslint .remarkrc.js --fix",
+    "lint-check": "npm run lint-js-check && npm run lint-json-check && remark . && npm run lint-md-check",
+    "lint-js": "eslint . --fix",
+    "lint-js-check": "eslint .",
     "lint-json": "eslint --fix '**/*.json'",
+    "lint-json-check": "eslint '**/*.json'",
     "lint-md": "remark . && markdownlint-cli2 --fix \"**/*.{md,mdx}\" \"!node_modules\" \"!.github\"",
     "lint-md-check": "markdownlint-cli2 \"**/*.{md,mdx}\" \"!node_modules\" \"!.github\"",
     "lint-text": "textlint *.md src/content/posts/*.md src/content/posts/*.mdx src/content/resume-positions/*.md --fix --dry-run",
     "lint-yaml": "yamllint -c .yamllint.yml .github/workflows/ src/data/*.yml .yamllint.yml .markdown-lint.yml",
     "lint-html": "html-validate \"dist-astro/**/*.html\"",
     "super-linter": "script/super-linter",
-    "test": "npm run check && npm run lint && npm run test:vitest",
+    "test": "npm run check && npm run lint-check && npm run test:vitest",
     "test:e2e": "playwright test",
     "test:e2e:accessibility": "playwright test e2e/accessibility-astro.spec.ts",
     "test:e2e:performance": "playwright test e2e/performance-astro.spec.ts",
@@ -168,14 +168,6 @@
   },
   "version": "1.0.0",
   "overrides": {
-    "eslint-config-xo-react": {
-      "eslint-plugin-react": {
-        "eslint": "$eslint"
-      },
-      "eslint-plugin-react-hooks": {
-        "eslint": "$eslint"
-      }
-    },
     "typescript": "$typescript",
     "yaml-language-server": {
       "yaml": "^2.8.3"

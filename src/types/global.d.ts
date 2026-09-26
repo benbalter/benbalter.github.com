@@ -1,4 +1,4 @@
-interface TldrActiveTooltips extends Map<HTMLElement, HTMLDivElement> {}
+type TldrActiveTooltips = Map<HTMLElement, HTMLDivElement>;
 
 declare global {
   interface Window {

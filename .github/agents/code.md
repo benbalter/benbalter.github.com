@@ -22,7 +22,7 @@ You specialize in:
 
 * Follow ESLint rules in `.eslintrc.yml`
 * Use ES module syntax (`type: "module"` in package.json)
-* Follow xo style guide (space indentation, esnext: false)
+* Follow the ESLint config in eslint.config.js (2-space indentation)
 * Use TypeScript for Astro components when applicable
 * Prefer modern JavaScript features
 
