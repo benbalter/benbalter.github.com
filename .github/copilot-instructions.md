@@ -132,7 +132,7 @@ npm run lint-yaml      # Lint YAML files
 
 * Follow ESLint rules in `.eslintrc.yml`
 * Use ES module syntax (`type: "module"` in package.json)
-* Use xo style guide settings (space indentation, esnext: false)
+* Follow the ESLint config in eslint.config.js (2-space indentation)
 * Lint JSON files with ESLint
 
 ### TypeScript/Astro

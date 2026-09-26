@@ -328,7 +328,7 @@ Optional front matter fields:
 * Maintain good readability scores (retext-readability)
 * Check spelling (retext-spell)
 * Avoid passive voice when possible (retext-passive)
-* Use contractions appropriately (retext-contractions)
+* Use contractions appropriately
 * Avoid profanity (retext-profanities)
 * Follow the punctuation and grammar rules in the "Grammar and Mechanics" section above
 

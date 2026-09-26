@@ -175,10 +175,10 @@ jobs:
         run: npm ci
 
       - name: Lint JavaScript
-        run: npm run lint-js
+        run: npm run lint-js-check
 
       - name: Lint JSON
-        run: npm run lint-json
+        run: npm run lint-json-check
 
       - name: Lint YAML
         run: npm run lint-yaml

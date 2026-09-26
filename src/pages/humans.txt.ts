@@ -55,7 +55,7 @@ export const GET: APIRoute = async () => {
       // Fallback if API fails
       contributorsList = FALLBACK_CONTRIBUTORS;
     }
-  } catch (error) {
+  } catch {
     // Fallback if API fails
     contributorsList = FALLBACK_CONTRIBUTORS;
   }
