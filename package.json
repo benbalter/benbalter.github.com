@@ -138,7 +138,7 @@
     "standard-site:publication": "tsx script/standard-site/create-publication.ts",
     "standard-site:sync": "tsx script/standard-site/sync-document.ts",
     "lint": "npm run lint-js && npm run lint-json && npm run lint-md",
-    "lint-check": "npm run lint-js-check && npm run lint-json-check && npm run lint-md-check",
+    "lint-check": "npm run lint-js-check && npm run lint-json-check && remark . && npm run lint-md-check",
     "lint-js": "eslint . --fix",
     "lint-js-check": "eslint .",
     "lint-json": "eslint --fix '**/*.json'",

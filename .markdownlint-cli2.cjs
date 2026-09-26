@@ -11,7 +11,7 @@ module.exports = {
   // Skip build output (dist-astro/) and local artifacts (analytics-report.md,
   // Foundry qa/ and drafts/). All are gitignored and absent in CI; this keeps
   // local lint runs clean too.
-  ignores: ["dist-astro/**", "analytics-report.md", "qa/**", "drafts/**"],
+  ignores: ["dist-astro/**", "playwright-report/**", "test-results/**", "analytics-report.md", "qa/**", "drafts/**"],
   customRules: ["@github/markdownlint-github"],
   outputFormatters: [
     ["markdownlint-cli2-formatter-pretty", { "appendLink": true }] // ensures the error message includes a link to the rule documentation
