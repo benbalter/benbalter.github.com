@@ -34,6 +34,7 @@ on:
       - 'script/**'
       - 'eslint.config.js'
       - '.yamllint.yml'
+      - 'public/_redirects'
       - '.github/workflows/ci.yml'
   pull_request:
     paths:
@@ -66,6 +67,7 @@ on:
       - 'script/**'
       - 'eslint.config.js'
       - '.yamllint.yml'
+      - 'public/_redirects'
       - '.github/workflows/ci.yml'
 
 permissions:
@@ -182,6 +184,9 @@ jobs:
 
       - name: Lint YAML
         run: npm run lint-yaml
+
+      - name: Validate redirects
+        run: script/validate-redirects
 
   check:
     name: Run Astro Check

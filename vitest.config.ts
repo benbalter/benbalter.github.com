@@ -16,7 +16,7 @@ export default defineConfig({
     environment: 'happy-dom',
     
     // Include test files
-    include: ['src/**/*.{test,spec}.{js,ts,jsx,tsx}'],
+    include: ['src/**/*.{test,spec}.{js,ts,jsx,tsx}', 'worker/**/*.test.js'],
     
     // Exclude patterns
     exclude: [
@@ -35,7 +35,7 @@ export default defineConfig({
         'src/**/*.{test,spec}.{ts,tsx}',
         'src/**/*.d.ts',
         'src/**/*.astro',
-        'src/content/config.ts', // Content collections schema (no logic to test)
+        'src/content.config.ts', // Content collections schema (no logic to test)
         'src/__mocks__/**',      // Test stubs for virtual modules
       ],
     },

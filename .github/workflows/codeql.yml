@@ -5,6 +5,9 @@ on:
     branches: ["main"]
   pull_request:
     branches: ["main"]
+    # Post-only PRs have no code to analyze. Not a required check, so skipping is safe.
+    paths-ignore:
+      - 'src/content/**'
   schedule:
     - cron: "30 1 * * 0"
 
@@ -38,16 +41,6 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
-
-      - name: Disable default CodeQL setup
-        run: |
-          gh api \
-            --method PATCH \
-            -H "Accept: application/vnd.github+json" \
-            /repos/${{ github.repository }}/code-scanning/default-setup \
-            -f state=not-configured || true
-        env:
-          GH_TOKEN: ${{ github.token }}
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@cdf488f595d80d6e07e03d4674febd5ab45fa938 # v4

@@ -108,9 +108,10 @@ jobs:
         env:
           ATPROTO_APP_PASSWORD: ${{ secrets.ATPROTO_APP_PASSWORD }}
           ATPROTO_HANDLE: ben.balter.com
+          DRY_RUN: ${{ inputs.dry_run }}
         run: |
           DRY_RUN_FLAG=""
-          if [ "${{ inputs.dry_run }}" = "true" ]; then
+          if [ "$DRY_RUN" = "true" ]; then
             DRY_RUN_FLAG="--dry-run"
           fi
           xargs npx tsx script/standard-site/sync-document.ts $DRY_RUN_FLAG < /tmp/new-posts.txt
